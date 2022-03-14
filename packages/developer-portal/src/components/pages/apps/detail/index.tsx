@@ -93,7 +93,7 @@ export const AppDetail: FC = () => {
   })
 
   return appDetailLoading ? (
-    <Loader fullPage />
+    <Loader />
   ) : appDetail ? (
     <>
       <Title>{name}</Title>

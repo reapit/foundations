@@ -1,4 +1,4 @@
-import { Button, elMb3, Icon, SmallText, Subtitle } from '@reapit/elements'
+import { Button, elFadeIn, elMb3, Icon, SmallText, Subtitle } from '@reapit/elements'
 import { AppRevisionModelPagedResult, RejectRevisionModel } from '@reapit/foundations-ts-definitions'
 import { SendFunction, useReapitUpdate } from '@reapit/utils-react'
 import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
@@ -60,7 +60,7 @@ export const Helper: FC = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { pathname } = location
   const { isAppsEdit, isAppsDetail } = getCurrentPage(pathname)
-  const { setAppEditSaving } = appEditState
+  const { setAppEditSaving, appUnsavedFields, appIncompleteFields } = appEditState
   const {
     appsDetailRefresh,
     appRefreshRevisions,
@@ -69,9 +69,12 @@ export const Helper: FC = () => {
     appDetailRefreshing,
     appRevisionsRefreshing,
   } = appsDataState
-  const isCompleted = false
+  const isCompleted = Boolean(!Object.keys(appIncompleteFields).length)
   const hasRevisions = Boolean(appDetail?.pendingRevisions)
+  const isPublicallyListed = Boolean(appsDataState.appDetail?.isListed)
   const isRefreshing = appDetailRefreshing || appRevisionsRefreshing
+  const hasUnsavedChanges = Boolean(Object.keys(appUnsavedFields).length)
+  const hasActions = isCompleted || isPublicallyListed || hasUnsavedChanges
 
   const [, , cancelRevision, cancelRevisionSuccess] = useReapitUpdate<RejectRevisionModel, null>({
     reapitConnectBrowserSession,
@@ -90,14 +93,24 @@ export const Helper: FC = () => {
 
   if (isAppsEdit) {
     return (
-      <>
-        <Icon className={elMb3} icon="editAppInfographic" iconSize="large" />
-        <Subtitle>Saving Your App</Subtitle>
-        <SmallText hasGreyText>
-          Before you list your app you can save the details at any point below. After app listing, you will have to
-          create an app revision for our team to review.
-        </SmallText>
-        {isCompleted ? (
+      <div className={elFadeIn}>
+        {hasActions ? (
+          <>
+            <Icon className={elMb3} icon="editAppInfographic" iconSize="large" />
+            <Subtitle>Saving Your App</Subtitle>
+            <SmallText hasGreyText>
+              Before you list your app you can save the details at any point below. After app listing, you will have to
+              create an app revision for our team to review.
+            </SmallText>
+          </>
+        ) : (
+          <>
+            <Icon className={elMb3} icon="appMarketInfographic" iconSize="large" />
+            <Subtitle>App Listings</Subtitle>
+            <SmallText hasGreyText>Actions will appear below as you perform tasks on this page</SmallText>
+          </>
+        )}
+        {isCompleted && !isPublicallyListed ? (
           <Button className={elMb3} intent="critical" onClick={handleSetAppEditSaving(setAppEditSaving)} chevronRight>
             Submit Review
           </Button>
@@ -111,7 +124,7 @@ export const Helper: FC = () => {
           >
             Cancel Revision
           </Button>
-        ) : appsDataState.appDetail?.isListed ? (
+        ) : isPublicallyListed ? (
           <>
             <Button
               className={elMb3}
@@ -121,28 +134,30 @@ export const Helper: FC = () => {
             >
               De-list app
             </Button>
-            <Button
-              className={elMb3}
-              intent="critical"
-              loading={isRefreshing}
-              onClick={handleSetAppEditSaving(setAppEditSaving)}
-              chevronRight
-            >
-              Create Revision
-            </Button>
+            {hasUnsavedChanges && (
+              <Button
+                className={elMb3}
+                intent="critical"
+                loading={isRefreshing}
+                onClick={handleSetAppEditSaving(setAppEditSaving)}
+                chevronRight
+              >
+                Create Revision
+              </Button>
+            )}
           </>
-        ) : (
+        ) : hasUnsavedChanges ? (
           <Button className={elMb3} intent="primary" onClick={handleSetAppEditSaving(setAppEditSaving)} chevronRight>
             Save Changes
           </Button>
-        )}
-      </>
+        ) : null}
+      </div>
     )
   }
 
   if (isAppsDetail) {
     return (
-      <>
+      <div className={elFadeIn}>
         <Icon className={elMb3} icon="appMarketInfographic" iconSize="large" />
         <Subtitle>Preview in AppMarket</Subtitle>
         <SmallText hasGreyText>
@@ -156,12 +171,12 @@ export const Helper: FC = () => {
         >
           Preview
         </Button>
-      </>
+      </div>
     )
   }
 
   return (
-    <>
+    <div className={elFadeIn}>
       <Icon className={elMb3} icon="myAppsInfographic" iconSize="large" />
       <Subtitle>Apps Documentation</Subtitle>
       <SmallText hasGreyText>
@@ -171,6 +186,6 @@ export const Helper: FC = () => {
       <Button className={elMb3} intent="neutral" onClick={openNewPage(ExternalPages.developerPortalDocs)}>
         View Docs
       </Button>
-    </>
+    </div>
   )
 }

@@ -21,7 +21,7 @@ export const AppEditPage: FC = () => {
   const { appDetail, appDetailLoading } = appsDataState
 
   return appDetailLoading ? (
-    <Loader fullPage />
+    <Loader />
   ) : appDetail ? (
     <>
       <Title>{appDetail.name}</Title>

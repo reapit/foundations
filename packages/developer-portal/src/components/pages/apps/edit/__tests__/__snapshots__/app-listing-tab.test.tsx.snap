@@ -30,6 +30,27 @@ Object {
         class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
       >
         <div
+          class="ep31he9-el-input-wrap-full"
+        >
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              name="name"
+              placeholder="The name of your app as it will appear to users"
+              type="text"
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              Name
+            </label>
+          </div>
+        </div>
+        <div
           class="e1ksxx4v-el-input-wrap"
         >
           <div
@@ -320,6 +341,27 @@ Object {
     <div
       class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
     >
+      <div
+        class="ep31he9-el-input-wrap-full"
+      >
+        <div
+          class="e1979rmu-el-input-group"
+        >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            name="name"
+            placeholder="The name of your app as it will appear to users"
+            type="text"
+          />
+          <label
+            class="e1nbkkrq-el-label"
+            for="test-static-id"
+          >
+            Name
+          </label>
+        </div>
+      </div>
       <div
         class="e1ksxx4v-el-input-wrap"
       >
@@ -669,6 +711,27 @@ Object {
         class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
       >
         <div
+          class="ep31he9-el-input-wrap-full"
+        >
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              name="name"
+              placeholder="The name of your app as it will appear to users"
+              type="text"
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              Name
+            </label>
+          </div>
+        </div>
+        <div
           class="e1ksxx4v-el-input-wrap"
         >
           <div
@@ -1035,6 +1098,27 @@ Object {
     <div
       class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
     >
+      <div
+        class="ep31he9-el-input-wrap-full"
+      >
+        <div
+          class="e1979rmu-el-input-group"
+        >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            name="name"
+            placeholder="The name of your app as it will appear to users"
+            type="text"
+          />
+          <label
+            class="e1nbkkrq-el-label"
+            for="test-static-id"
+          >
+            Name
+          </label>
+        </div>
+      </div>
       <div
         class="e1ksxx4v-el-input-wrap"
       >

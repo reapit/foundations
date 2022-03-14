@@ -12,6 +12,7 @@ import { useReapitConnect } from '@reapit/connect-session'
 import { AppEditFormSchema, defaultValues } from '../edit/form-schema/form-fields'
 import { defaultAppWizardState } from './defaults'
 import { handleSetDefaultFormValues } from '../utils/handle-default-form-values'
+import { FieldNamesMarkedBoolean } from 'react-hook-form'
 
 export interface AppUriParams {
   appId: string
@@ -46,6 +47,10 @@ export interface AppEditState {
   setAppEditForm: Dispatch<SetStateAction<AppEditFormSchema>>
   appEditSaving: boolean
   setAppEditSaving: Dispatch<SetStateAction<boolean>>
+  appUnsavedFields: FieldNamesMarkedBoolean<AppEditFormSchema>
+  setAppUnsavedFields: Dispatch<SetStateAction<FieldNamesMarkedBoolean<AppEditFormSchema>>>
+  appIncompleteFields: (keyof AppEditFormSchema)[]
+  setIncompleteFields: Dispatch<SetStateAction<(keyof AppEditFormSchema)[]>>
 }
 
 export interface AppStateHook {
@@ -65,6 +70,8 @@ export const AppProvider: FC = ({ children }) => {
   const [appWizardState, setAppWizardState] = useState<AppWizardState>(defaultAppWizardState as AppWizardState)
   const [appEditForm, setAppEditForm] = useState<AppEditFormSchema>(defaultValues)
   const [appEditSaving, setAppEditSaving] = useState<boolean>(false)
+  const [appUnsavedFields, setAppUnsavedFields] = useState<FieldNamesMarkedBoolean<AppEditFormSchema>>({})
+  const [appIncompleteFields, setIncompleteFields] = useState<(keyof AppEditFormSchema)[]>([])
   const [appId, setAppId] = useState<string | null>(null)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
 
@@ -115,6 +122,10 @@ export const AppProvider: FC = ({ children }) => {
     setAppEditForm,
     appEditSaving,
     setAppEditSaving,
+    appUnsavedFields,
+    setAppUnsavedFields,
+    appIncompleteFields,
+    setIncompleteFields,
   }
 
   return (

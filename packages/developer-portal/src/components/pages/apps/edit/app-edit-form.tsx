@@ -6,7 +6,7 @@ import { AppEditTab, AppEditTabs } from './edit-page-tabs'
 import { AppEditFormSchema } from './form-schema/form-fields'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { appEditValidationSchema } from './form-schema/validation-schema'
-import { useForm, UseFormHandleSubmit } from 'react-hook-form'
+import { FieldNamesMarkedBoolean, useForm, UseFormHandleSubmit } from 'react-hook-form'
 import { SendFunction, UpdateReturnTypeEnum, useReapitUpdate } from '@reapit/utils-react'
 import { AppDetailModel, CreateAppRevisionModel } from '@reapit/foundations-ts-definitions'
 import { UpdateActionNames, updateActions } from '@reapit/utils-common'
@@ -15,10 +15,22 @@ import { formatFormValues } from '../utils/format-form-values'
 import { History } from 'history'
 import Routes from '../../../../constants/routes'
 import { useHistory } from 'react-router'
+import { handleSetIncompletedFields } from '../utils/validate-schema'
 
 export interface AppEditFormProps {
   tab: AppEditTab
 }
+
+export const handleUnsavedChanges =
+  (
+    dirtyFields: FieldNamesMarkedBoolean<AppEditFormSchema>,
+    setAppUnsavedFields: Dispatch<SetStateAction<FieldNamesMarkedBoolean<AppEditFormSchema>>>,
+  ) =>
+  () => {
+    if (dirtyFields) {
+      setAppUnsavedFields(dirtyFields)
+    }
+  }
 
 export const handleSetAppSubmitting =
   (
@@ -55,7 +67,7 @@ export const AppEditForm: FC<AppEditFormProps> = ({ tab }) => {
   const { appId } = useParams<AppUriParams>()
   const { appEditState, setAppId, appsDataState } = useAppState()
   const history = useHistory()
-  const { appEditForm, setAppEditSaving, appEditSaving } = appEditState
+  const { appEditForm, setAppEditSaving, appEditSaving, setAppUnsavedFields, setIncompleteFields } = appEditState
   const { appsRefresh, appsDetailRefresh, appRefreshRevisions } = appsDataState
 
   const [, , createAppRevision] = useReapitUpdate<CreateAppRevisionModel, AppDetailModel>({
@@ -73,7 +85,7 @@ export const AppEditForm: FC<AppEditFormProps> = ({ tab }) => {
     handleSubmit,
     control,
     getValues,
-    formState: { errors },
+    formState: { errors, dirtyFields },
   } = useForm<AppEditFormSchema>({
     resolver: yupResolver(appEditValidationSchema),
     delayError: 500,
@@ -85,6 +97,11 @@ export const AppEditForm: FC<AppEditFormProps> = ({ tab }) => {
   })
 
   useEffect(handleSetAppId(appId, setAppId), [appId])
+
+  useEffect(handleUnsavedChanges(dirtyFields, setAppUnsavedFields), [dirtyFields])
+
+  useEffect(handleSetIncompletedFields(getValues(), setIncompleteFields), [dirtyFields])
+
   useEffect(
     handleSetAppSubmitting(
       setAppEditSaving,
