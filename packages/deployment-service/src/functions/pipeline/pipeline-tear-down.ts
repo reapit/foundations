@@ -7,7 +7,14 @@ import {
 } from '@aws-sdk/client-cloudfront'
 import { ChangeResourceRecordSetsCommand, Route53Client } from '@aws-sdk/client-route-53'
 import { SQSEvent, SQSHandler, Context, Callback } from 'aws-lambda'
-import { deletePipelineEntity, deletePipelineRunners, deleteTasksFromPipeline, s3Client, sqs } from '../../services'
+import {
+  deletePipelineEntity,
+  deletePipelineRunners,
+  deleteTasksFromPipeline,
+  pusher,
+  s3Client,
+  sqs,
+} from '../../services'
 import { PipelineEntity } from '../../entities/pipeline.entity'
 import { QueueNames } from '../../constants'
 
@@ -163,6 +170,8 @@ export const pipelineTearDown: SQSHandler = async (event: SQSEvent, context: Con
       await tearDownR53(domainName, pipeline.id as string, pipeline.subDomain as string)
 
       await deleteAllFromDb(pipeline)
+      pipeline.buildStatus = 'DELETED'
+      await pusher.trigger(`private-${pipeline.developerId}`, 'pipeline-update', pipeline)
 
       await new Promise<void>((resolve, reject) =>
         sqs.deleteMessage(
