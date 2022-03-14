@@ -100,10 +100,11 @@ export const handleGet =
     const signal = controller.signal
 
     const getData = async () => {
-      setError(null)
-      await setLoading(true)
       prevQueryParams.current = queryParams
       prevUriParams.current = uriParams
+
+      setError(null)
+      await setLoading(true)
 
       const response = await getFetcher<DataType>({
         action,
