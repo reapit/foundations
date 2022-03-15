@@ -107,11 +107,16 @@ describe('Helper', () => {
 describe('handleSetAppEditSaving', () => {
   it('should handle app saving', () => {
     const setAppEditSaving = jest.fn()
-    const curried = handleSetAppEditSaving(setAppEditSaving)
+    const appSavingParams = {
+      isListed: true,
+      isRevalidating: true,
+      isSaving: false,
+    }
+    const curried = handleSetAppEditSaving(setAppEditSaving, appSavingParams)
 
     curried()
 
-    expect(setAppEditSaving).toHaveBeenCalledWith(true)
+    expect(setAppEditSaving).toHaveBeenCalledWith(appSavingParams)
   })
 })
 
@@ -130,8 +135,8 @@ describe('handleCancelPendingRevsion', () => {
     curried()
 
     expect(cancelRevision).toHaveBeenCalledWith({
-      name: connectSession?.loginIdentity.name,
-      email: connectSession?.loginIdentity.email,
+      name: connectSession.loginIdentity.name,
+      email: connectSession.loginIdentity.email,
       rejectionReason: 'Cancelled by developer',
       rejectedByDeveloper: true,
     })

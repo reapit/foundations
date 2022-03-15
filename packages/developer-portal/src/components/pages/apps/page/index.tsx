@@ -49,9 +49,9 @@ export const AppsPage: FC = () => {
               <Loader />
             </PageContainer>
           </>
-        ) : apps && !apps.totalCount && !isAppsWelcome && isAppsList ? (
+        ) : !apps.totalCount && !isAppsWelcome && isAppsList ? (
           <Redirect to={Routes.APPS_WELCOME} />
-        ) : apps ? (
+        ) : (
           <>
             {Boolean(apps.totalCount) && (
               <SecondaryNavContainer>
@@ -94,7 +94,7 @@ export const AppsPage: FC = () => {
               </Switch>
             </PageContainer>
           </>
-        ) : null}
+        )}
       </FlexContainer>
     </ErrorBoundary>
   )

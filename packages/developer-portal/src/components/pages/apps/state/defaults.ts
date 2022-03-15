@@ -15,3 +15,9 @@ export const defaultAppWizardState = {
   authFlow: 'clientCredentials' as AppAuthFlow,
   lastStep: false,
 }
+
+export const defaultAppSavingParams = {
+  isListed: false,
+  isRevalidating: false,
+  isSaving: false,
+}

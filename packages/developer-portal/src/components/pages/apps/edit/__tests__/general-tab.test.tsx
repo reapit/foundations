@@ -25,7 +25,7 @@ describe('GeneralTab', () => {
 })
 
 describe('handleOpenModal', () => {
-  it('should handle opening modal', async () => {
+  it('should handle opening modal', () => {
     const openModal = jest.fn()
     const curried = handleOpenModal(openModal)
     const event = {
@@ -33,7 +33,7 @@ describe('handleOpenModal', () => {
       stopPropagation: jest.fn(),
     } as unknown as MouseEvent
 
-    await curried(event)
+    curried(event)
 
     expect(openModal).toHaveBeenCalledTimes(1)
   })

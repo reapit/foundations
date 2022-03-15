@@ -18,10 +18,22 @@ export const AuthenticationTab: FC<AppEditTabsProps> = ({ register, errors }) =>
       </BodyText>
       <FormLayout hasMargin>
         <InputWrapFull>
-          <InputGroup {...redirectUris} {...register('redirectUris')} errorMessage={errors?.redirectUris?.message} />
+          <InputGroup
+            {...redirectUris}
+            {...register('redirectUris')}
+            errorMessage={errors?.redirectUris?.message}
+            icon={errors?.redirectUris?.message ? 'asteriskSystem' : null}
+            intent="danger"
+          />
         </InputWrapFull>
         <InputWrapFull>
-          <InputGroup {...signoutUris} {...register('signoutUris')} errorMessage={errors?.signoutUris?.message} />
+          <InputGroup
+            {...signoutUris}
+            {...register('signoutUris')}
+            errorMessage={errors?.signoutUris?.message}
+            icon={errors?.signoutUris?.message ? 'asteriskSystem' : null}
+            intent="danger"
+          />
         </InputWrapFull>
       </FormLayout>
     </>

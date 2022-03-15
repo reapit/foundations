@@ -5,14 +5,15 @@ import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import { UpdateActionNames, updateActions } from '@reapit/utils-common'
 import { openNewPage, ExternalPages } from '../../../../utils/navigation'
-import { useAppState } from '../state/use-app-state'
+import { AppSavingParams, useAppState } from '../state/use-app-state'
 import { getCurrentPage } from '../utils/get-current-page'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
 
-export const handleSetAppEditSaving = (setAppEditSaving: Dispatch<SetStateAction<boolean>>) => () => {
-  setAppEditSaving(true)
-}
+export const handleSetAppEditSaving =
+  (setAppEditSaving: Dispatch<SetStateAction<AppSavingParams>>, appSaving: AppSavingParams) => () => {
+    setAppEditSaving(appSaving)
+  }
 
 export const handleCancelPendingRevsion =
   (
@@ -111,7 +112,16 @@ export const Helper: FC = () => {
           </>
         )}
         {isCompleted && !isPublicallyListed ? (
-          <Button className={elMb3} intent="critical" onClick={handleSetAppEditSaving(setAppEditSaving)} chevronRight>
+          <Button
+            className={elMb3}
+            intent="critical"
+            onClick={handleSetAppEditSaving(setAppEditSaving, {
+              isSaving: false,
+              isListed: true,
+              isRevalidating: true,
+            })}
+            chevronRight
+          >
             Submit Review
           </Button>
         ) : hasRevisions ? (
@@ -130,7 +140,11 @@ export const Helper: FC = () => {
               className={elMb3}
               intent="primary"
               loading={isRefreshing}
-              onClick={handleSetAppEditSaving(setAppEditSaving)}
+              onClick={handleSetAppEditSaving(setAppEditSaving, {
+                isListed: false,
+                isRevalidating: true,
+                isSaving: false,
+              })}
             >
               De-list app
             </Button>
@@ -139,7 +153,11 @@ export const Helper: FC = () => {
                 className={elMb3}
                 intent="critical"
                 loading={isRefreshing}
-                onClick={handleSetAppEditSaving(setAppEditSaving)}
+                onClick={handleSetAppEditSaving(setAppEditSaving, {
+                  isListed: true,
+                  isRevalidating: true,
+                  isSaving: false,
+                })}
                 chevronRight
               >
                 Create Revision
@@ -147,7 +165,16 @@ export const Helper: FC = () => {
             )}
           </>
         ) : hasUnsavedChanges ? (
-          <Button className={elMb3} intent="primary" onClick={handleSetAppEditSaving(setAppEditSaving)} chevronRight>
+          <Button
+            className={elMb3}
+            intent="primary"
+            onClick={handleSetAppEditSaving(setAppEditSaving, {
+              isListed: true,
+              isRevalidating: true,
+              isSaving: false,
+            })}
+            chevronRight
+          >
             Save Changes
           </Button>
         ) : null}

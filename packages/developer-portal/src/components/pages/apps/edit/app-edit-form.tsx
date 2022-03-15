@@ -1,12 +1,12 @@
 import React, { Dispatch, FC, SetStateAction, useEffect } from 'react'
-import { AppUriParams, useAppState } from '../state/use-app-state'
+import { AppSavingParams, AppUriParams, useAppState } from '../state/use-app-state'
 import { handleSetAppId } from '../utils/handle-set-app-id'
 import { useParams } from 'react-router-dom'
 import { AppEditTab, AppEditTabs } from './edit-page-tabs'
 import { AppEditFormSchema } from './form-schema/form-fields'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { appEditValidationSchema } from './form-schema/validation-schema'
-import { FieldNamesMarkedBoolean, useForm, UseFormHandleSubmit } from 'react-hook-form'
+import { FieldNamesMarkedBoolean, useForm, UseFormHandleSubmit, UseFormSetValue } from 'react-hook-form'
 import { SendFunction, UpdateReturnTypeEnum, useReapitUpdate } from '@reapit/utils-react'
 import { AppDetailModel, CreateAppRevisionModel } from '@reapit/foundations-ts-definitions'
 import { UpdateActionNames, updateActions } from '@reapit/utils-common'
@@ -32,10 +32,28 @@ export const handleUnsavedChanges =
     }
   }
 
+export const handleSetRevalidating =
+  (
+    setValue: UseFormSetValue<AppEditFormSchema>,
+    setAppEditSaving: Dispatch<SetStateAction<AppSavingParams>>,
+    appEditSaving: AppSavingParams,
+  ) =>
+  () => {
+    if (appEditSaving.isRevalidating) {
+      setValue('isListed', appEditSaving.isListed, { shouldValidate: true })
+
+      setAppEditSaving({
+        ...appEditSaving,
+        isRevalidating: false,
+        isSaving: true,
+      })
+    }
+  }
+
 export const handleSetAppSubmitting =
   (
-    setAppEditSaving: Dispatch<SetStateAction<boolean>>,
-    appEditSaving: boolean,
+    setAppEditSaving: Dispatch<SetStateAction<AppSavingParams>>,
+    appEditSaving: AppSavingParams,
     handleSubmit: UseFormHandleSubmit<AppEditFormSchema>,
     createAppRevision: SendFunction<CreateAppRevisionModel, boolean | AppDetailModel>,
     history: History,
@@ -45,13 +63,17 @@ export const handleSetAppSubmitting =
     appRefreshRevisions: () => void,
   ) =>
   () => {
-    if (appEditSaving) {
+    if (appEditSaving.isSaving) {
       handleSubmit(async (values) => {
         const formattedModel = formatFormValues(values)
 
         const appRevision = await createAppRevision(formattedModel)
 
-        setAppEditSaving(false)
+        setAppEditSaving({
+          isListed: values.isListed,
+          isRevalidating: false,
+          isSaving: false,
+        })
 
         if (appRevision) {
           appsDetailRefresh()
@@ -85,6 +107,7 @@ export const AppEditForm: FC<AppEditFormProps> = ({ tab }) => {
     handleSubmit,
     control,
     getValues,
+    setValue,
     formState: { errors, dirtyFields },
   } = useForm<AppEditFormSchema>({
     resolver: yupResolver(appEditValidationSchema),
@@ -101,6 +124,8 @@ export const AppEditForm: FC<AppEditFormProps> = ({ tab }) => {
   useEffect(handleUnsavedChanges(dirtyFields, setAppUnsavedFields), [dirtyFields])
 
   useEffect(handleSetIncompletedFields(getValues(), setIncompleteFields), [dirtyFields])
+
+  useEffect(handleSetRevalidating(setValue, setAppEditSaving, appEditSaving), [appEditSaving])
 
   useEffect(
     handleSetAppSubmitting(

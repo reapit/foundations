@@ -120,25 +120,57 @@ export const AppListingTab: FC<AppEditTabsProps> = ({ register, errors, control,
       </BodyText>
       <FormLayout hasMargin>
         <InputWrapFull>
-          <InputGroup {...name} {...register('name')} errorMessage={errors?.name?.message} />
+          <InputGroup
+            {...name}
+            {...register('name')}
+            errorMessage={errors?.name?.message}
+            icon={errors?.name?.message ? 'asteriskSystem' : null}
+            intent="danger"
+          />
         </InputWrapFull>
         <InputWrap>
-          <InputGroup {...supportEmail} {...register('supportEmail')} errorMessage={errors?.supportEmail?.message} />
+          <InputGroup
+            {...supportEmail}
+            {...register('supportEmail')}
+            errorMessage={errors?.supportEmail?.message}
+            icon={errors?.supportEmail?.message ? 'asteriskSystem' : null}
+            intent="danger"
+          />
         </InputWrap>
         <InputWrap>
-          <InputGroup {...telephone} {...register('telephone')} errorMessage={errors?.telephone?.message} />
+          <InputGroup
+            {...telephone}
+            {...register('telephone')}
+            errorMessage={errors?.telephone?.message}
+            icon={errors?.telephone?.message ? 'asteriskSystem' : null}
+            intent="danger"
+          />
         </InputWrap>
         <InputWrap>
-          <InputGroup {...homePage} {...register('homePage')} errorMessage={errors?.homePage?.message} />
+          <InputGroup
+            {...homePage}
+            {...register('homePage')}
+            errorMessage={errors?.homePage?.message}
+            icon={errors?.homePage?.message ? 'asteriskSystem' : null}
+            intent="danger"
+          />
         </InputWrap>
         <InputWrap>
-          <InputGroup {...launchUri} {...register('launchUri')} errorMessage={errors?.launchUri?.message} />
+          <InputGroup
+            {...launchUri}
+            {...register('launchUri')}
+            errorMessage={errors?.launchUri?.message}
+            icon={errors?.launchUri?.message ? 'asteriskSystem' : null}
+            intent="danger"
+          />
         </InputWrap>
         <InputWrap>
           <InputGroup
             {...termsAndConditionsUrl}
             {...register('termsAndConditionsUrl')}
             errorMessage={errors?.termsAndConditionsUrl?.message}
+            icon={errors?.termsAndConditionsUrl?.message ? 'asteriskSystem' : null}
+            intent="danger"
           />
         </InputWrap>
         <InputWrap>
@@ -146,6 +178,8 @@ export const AppListingTab: FC<AppEditTabsProps> = ({ register, errors, control,
             {...privacyPolicyUrl}
             {...register('privacyPolicyUrl')}
             errorMessage={errors?.privacyPolicyUrl?.message}
+            icon={errors?.privacyPolicyUrl?.message ? 'asteriskSystem' : null}
+            intent="danger"
           />
         </InputWrap>
         <InputWrap>
@@ -154,10 +188,18 @@ export const AppListingTab: FC<AppEditTabsProps> = ({ register, errors, control,
             {...register('pricingUrl')}
             disabled={isFreeValue}
             errorMessage={errors?.pricingUrl?.message}
+            icon={errors?.pricingUrl?.message ? 'asteriskSystem' : null}
+            intent="danger"
           />
         </InputWrap>
         <InputWrap>
-          <InputGroup {...isFree} {...register('isFree')} errorMessage={errors?.isFree?.message} />
+          <InputGroup
+            {...isFree}
+            {...register('isFree')}
+            errorMessage={errors?.isFree?.message}
+            icon={errors?.isFree?.message ? 'asteriskSystem' : null}
+            intent="danger"
+          />
         </InputWrap>
         <InputWrap>
           {categoriesLoading && <Loader />}
@@ -177,7 +219,13 @@ export const AppListingTab: FC<AppEditTabsProps> = ({ register, errors, control,
           )}
         </InputWrap>
         <InputWrapFull>
-          <InputGroup {...summary} {...register('summary')} errorMessage={errors?.isFree?.message} />
+          <InputGroup
+            {...summary}
+            {...register('summary')}
+            errorMessage={errors?.summary?.message}
+            icon={errors?.summary?.message ? 'asteriskSystem' : null}
+            intent="danger"
+          />
         </InputWrapFull>
         <InputWrapFull>
           <Label>{description.label}</Label>

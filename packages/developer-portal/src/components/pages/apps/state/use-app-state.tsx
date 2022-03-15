@@ -10,12 +10,18 @@ import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { AppAuthFlow, AppNewStepId } from '../new/config'
 import { useReapitConnect } from '@reapit/connect-session'
 import { AppEditFormSchema, defaultValues } from '../edit/form-schema/form-fields'
-import { defaultAppWizardState } from './defaults'
+import { defaultAppSavingParams, defaultAppWizardState } from './defaults'
 import { handleSetDefaultFormValues } from '../utils/handle-default-form-values'
 import { FieldNamesMarkedBoolean } from 'react-hook-form'
 
 export interface AppUriParams {
   appId: string
+}
+
+export interface AppSavingParams {
+  isSaving: boolean
+  isRevalidating: boolean
+  isListed: boolean
 }
 
 export interface AppWizardState {
@@ -45,8 +51,8 @@ export interface AppsDataState {
 export interface AppEditState {
   appEditForm: AppEditFormSchema
   setAppEditForm: Dispatch<SetStateAction<AppEditFormSchema>>
-  appEditSaving: boolean
-  setAppEditSaving: Dispatch<SetStateAction<boolean>>
+  appEditSaving: AppSavingParams
+  setAppEditSaving: Dispatch<SetStateAction<AppSavingParams>>
   appUnsavedFields: FieldNamesMarkedBoolean<AppEditFormSchema>
   setAppUnsavedFields: Dispatch<SetStateAction<FieldNamesMarkedBoolean<AppEditFormSchema>>>
   appIncompleteFields: (keyof AppEditFormSchema)[]
@@ -69,7 +75,7 @@ const { Provider } = AppStateContext
 export const AppProvider: FC = ({ children }) => {
   const [appWizardState, setAppWizardState] = useState<AppWizardState>(defaultAppWizardState as AppWizardState)
   const [appEditForm, setAppEditForm] = useState<AppEditFormSchema>(defaultValues)
-  const [appEditSaving, setAppEditSaving] = useState<boolean>(false)
+  const [appEditSaving, setAppEditSaving] = useState<AppSavingParams>(defaultAppSavingParams)
   const [appUnsavedFields, setAppUnsavedFields] = useState<FieldNamesMarkedBoolean<AppEditFormSchema>>({})
   const [appIncompleteFields, setIncompleteFields] = useState<(keyof AppEditFormSchema)[]>([])
   const [appId, setAppId] = useState<string | null>(null)

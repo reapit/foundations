@@ -123,6 +123,8 @@ export const PermissionsTab: FC<AppEditTabsProps> = ({ register, errors, control
             {...register('limitToClientIds')}
             disabled={!isPrivateAppValue}
             errorMessage={errors?.limitToClientIds?.message}
+            icon={errors?.limitToClientIds?.message ? 'asteriskSystem' : null}
+            intent="danger"
           />
         </InputWrapFull>
       </FormLayout>
