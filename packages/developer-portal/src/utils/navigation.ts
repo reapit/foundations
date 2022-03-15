@@ -22,6 +22,7 @@ export enum ExternalPages {
   installationsTableDocs = 'https://foundations-documentation.reapit.cloud/faqs#installations-table',
   listingAppDocs = 'https://foundations-documentation.reapit.cloud/listing-your-app',
   reviewingAppDocs = 'https://foundations-documentation.reapit.cloud/listing-your-app/app-listing-review',
+  appApprovalDocs = 'https://foundations-documentation.reapit.cloud/faqs#app-approvals',
 }
 
 export const openNewPage = (uri: ExternalPages | string) => (event?: MouseEvent) => {

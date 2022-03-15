@@ -53,8 +53,27 @@ describe('Helper', () => {
           isListed: true,
         },
       },
-      appTabsState: {
-        isListed: true,
+    })
+
+    expect(
+      render(
+        <Router history={history}>
+          <Helper />
+        </Router>,
+      ),
+    ).toMatchSnapshot()
+  })
+
+  it('should match a snapshot for the appsEdit page where is completed and not publically listed', () => {
+    history.push(`${Routes.APPS}/mock-id/edit`)
+
+    mockUseAppState.mockReturnValue({
+      ...mockAppState,
+      appsDataState: {
+        ...mockAppState.appsDataState,
+        appDetail: {
+          isListed: false,
+        },
       },
     })
 
@@ -67,7 +86,7 @@ describe('Helper', () => {
     ).toMatchSnapshot()
   })
 
-  it('should match a snapshot for the appsEdit page where setting isListed', () => {
+  it('should match a snapshot for the appsEdit page where has unsaved changes', () => {
     history.push(`${Routes.APPS}/mock-id/edit`)
 
     mockUseAppState.mockReturnValue({
@@ -75,11 +94,56 @@ describe('Helper', () => {
       appsDataState: {
         ...mockAppState.appsDataState,
         appDetail: {
-          isListed: false,
+          isListed: true,
         },
       },
-      appTabsState: {
-        isListed: true,
+      appEditState: {
+        ...mockAppState.appEditState,
+        appUnsavedFields: { name: true },
+      },
+    })
+
+    expect(
+      render(
+        <Router history={history}>
+          <Helper />
+        </Router>,
+      ),
+    ).toMatchSnapshot()
+  })
+
+  it('should match a snapshot for the appsEdit page where has unsaved changes and not listed', () => {
+    history.push(`${Routes.APPS}/mock-id/edit`)
+
+    mockUseAppState.mockReturnValue({
+      ...mockAppState,
+      appsDataState: {
+        appDetail: {},
+      },
+      appEditState: {
+        ...mockAppState.appEditState,
+        appIncompleteFields: ['name'],
+        appUnsavedFields: { name: true },
+      },
+    })
+
+    expect(
+      render(
+        <Router history={history}>
+          <Helper />
+        </Router>,
+      ),
+    ).toMatchSnapshot()
+  })
+
+  it('should match a snapshot for the appsEdit page where the app is loading', () => {
+    history.push(`${Routes.APPS}/mock-id/edit`)
+
+    mockUseAppState.mockReturnValue({
+      ...mockAppState,
+      appsDataState: {
+        appDetail: {},
+        appDetailLoading: true,
       },
     })
 

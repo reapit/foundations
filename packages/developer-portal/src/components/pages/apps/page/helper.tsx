@@ -68,6 +68,7 @@ export const Helper: FC = () => {
     appRevisions,
     appDetail,
     appDetailRefreshing,
+    appDetailLoading,
     appRevisionsRefreshing,
   } = appsDataState
   const isCompleted = Boolean(!Object.keys(appIncompleteFields).length)
@@ -75,7 +76,6 @@ export const Helper: FC = () => {
   const isPublicallyListed = Boolean(appsDataState.appDetail?.isListed)
   const isRefreshing = appDetailRefreshing || appRevisionsRefreshing
   const hasUnsavedChanges = Boolean(Object.keys(appUnsavedFields).length)
-  const hasActions = isCompleted || isPublicallyListed || hasUnsavedChanges
 
   const [, , cancelRevision, cancelRevisionSuccess] = useReapitUpdate<RejectRevisionModel, null>({
     reapitConnectBrowserSession,
@@ -95,47 +95,60 @@ export const Helper: FC = () => {
   if (isAppsEdit) {
     return (
       <div className={elFadeIn}>
-        {hasActions ? (
+        <Icon className={elMb3} icon="editAppInfographic" iconSize="large" />
+        {isCompleted && !isPublicallyListed && !appDetailLoading ? (
           <>
-            <Icon className={elMb3} icon="editAppInfographic" iconSize="large" />
-            <Subtitle>Saving Your App</Subtitle>
+            <Subtitle>Ready For Review</Subtitle>
             <SmallText hasGreyText>
-              Before you list your app you can save the details at any point below. After app listing, you will have to
-              create an app revision for our team to review.
+              As your app is live with customer data, you will need to submit any app changes for approval by one of our
+              team. For more on this process <a onClick={openNewPage(ExternalPages.appApprovalDocs)}>visit here.</a>
             </SmallText>
+            <SmallText hasGreyText>
+              You also have the option of de-listing your app and reverting to a sandbox only integration.
+            </SmallText>
+            <Button
+              className={elMb3}
+              intent="critical"
+              onClick={handleSetAppEditSaving(setAppEditSaving, {
+                isSaving: false,
+                isListed: true,
+                isRevalidating: true,
+              })}
+              chevronRight
+            >
+              Submit Review
+            </Button>
           </>
-        ) : (
-          <>
-            <Icon className={elMb3} icon="appMarketInfographic" iconSize="large" />
-            <Subtitle>App Listings</Subtitle>
-            <SmallText hasGreyText>Actions will appear below as you perform tasks on this page</SmallText>
-          </>
-        )}
-        {isCompleted && !isPublicallyListed ? (
-          <Button
-            className={elMb3}
-            intent="critical"
-            onClick={handleSetAppEditSaving(setAppEditSaving, {
-              isSaving: false,
-              isListed: true,
-              isRevalidating: true,
-            })}
-            chevronRight
-          >
-            Submit Review
-          </Button>
         ) : hasRevisions ? (
-          <Button
-            className={elMb3}
-            intent="critical"
-            loading={isRefreshing}
-            onClick={handleCancelPendingRevsion(cancelRevision, connectSession, revisionId)}
-            chevronRight
-          >
-            Cancel Revision
-          </Button>
+          <>
+            <Subtitle>Revision Outstanding</Subtitle>
+            <SmallText hasGreyText>You have recently submitted an app listing revision for approval.</SmallText>
+            <SmallText hasGreyText>
+              For more on this process <a onClick={openNewPage(ExternalPages.appApprovalDocs)}>visit here.</a>
+            </SmallText>
+            <SmallText hasGreyText>
+              If you no longer want your app revision to be approved, you can cancel below.
+            </SmallText>
+            <Button
+              className={elMb3}
+              intent="critical"
+              loading={isRefreshing}
+              onClick={handleCancelPendingRevsion(cancelRevision, connectSession, revisionId)}
+              chevronRight
+            >
+              Cancel Revision
+            </Button>
+          </>
         ) : isPublicallyListed ? (
           <>
+            <Subtitle>Listed Application</Subtitle>
+            <SmallText hasGreyText>
+              As your app is live with customer data, you will need to submit any app changes for approval by one of our
+              team. For more on this process <a onClick={openNewPage(ExternalPages.appApprovalDocs)}>visit here.</a>
+            </SmallText>
+            <SmallText hasGreyText>
+              You also have the option of de-listing your app and reverting to a sandbox only integration.
+            </SmallText>
             <Button
               className={elMb3}
               intent="primary"
@@ -165,19 +178,31 @@ export const Helper: FC = () => {
             )}
           </>
         ) : hasUnsavedChanges ? (
-          <Button
-            className={elMb3}
-            intent="primary"
-            onClick={handleSetAppEditSaving(setAppEditSaving, {
-              isListed: true,
-              isRevalidating: true,
-              isSaving: false,
-            })}
-            chevronRight
-          >
-            Save Changes
-          </Button>
-        ) : null}
+          <>
+            <Subtitle>Unsaved Changes</Subtitle>
+            <SmallText hasGreyText>
+              Before you list your app you can save the details at any point below. After app listing, you will have to
+              create an app revision for our team to review.
+            </SmallText>
+            <Button
+              className={elMb3}
+              intent="primary"
+              onClick={handleSetAppEditSaving(setAppEditSaving, {
+                isListed: false,
+                isRevalidating: true,
+                isSaving: false,
+              })}
+              chevronRight
+            >
+              Save Changes
+            </Button>
+          </>
+        ) : (
+          <>
+            <Subtitle>App Listings</Subtitle>
+            <SmallText hasGreyText>Actions will appear below as you perform tasks on this page</SmallText>
+          </>
+        )}
       </div>
     )
   }

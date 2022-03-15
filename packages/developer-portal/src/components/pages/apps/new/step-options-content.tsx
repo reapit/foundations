@@ -27,19 +27,19 @@ export const StepOptionsContent: FC<StepOptionsContentProps> = ({ register, erro
       {currentStep === AppNewStepId.otherAppStep && <ClientServerSideContent />}
       {currentStep === AppNewStepId.externalAppStep && <ClientServerSideContent />}
       {currentStep === AppNewStepId.dataFeedStep && (
-        <PermissionsOptionsContent register={register} getValues={getValues} />
+        <PermissionsOptionsContent register={register} getValues={getValues} errors={errors} />
       )}
       {currentStep === AppNewStepId.websiteFeedStep && (
-        <PermissionsOptionsContent register={register} getValues={getValues} />
+        <PermissionsOptionsContent register={register} getValues={getValues} errors={errors} />
       )}
       {currentStep === AppNewStepId.webServicesStep && <ClientServerSideContent />}
       {currentStep === AppNewStepId.reapitConnectStep && <AuthOptionsContent register={register} errors={errors} />}
       {currentStep === AppNewStepId.serverSideStep && (
-        <PermissionsOptionsContent register={register} getValues={getValues} />
+        <PermissionsOptionsContent register={register} getValues={getValues} errors={errors} />
       )}
       {currentStep === AppNewStepId.clientSideStep && <AuthOptionsContent register={register} errors={errors} />}
       {currentStep === AppNewStepId.permissionsStep && (
-        <PermissionsOptionsContent register={register} getValues={getValues} />
+        <PermissionsOptionsContent register={register} getValues={getValues} errors={errors} />
       )}
     </FlexContainer>
   )

@@ -1,4 +1,4 @@
-import { MultiSelectInput, Loader, MultiSelectOption, InputGroup, elMb5 } from '@reapit/elements'
+import { MultiSelectInput, Loader, MultiSelectOption, InputGroup, elMb5, InputError } from '@reapit/elements'
 import React, { ChangeEvent, Dispatch, FC, SetStateAction, useCallback, useEffect, useState } from 'react'
 import { StepFormContainer } from './__styles__'
 import { AppWizardState, useAppState } from '../state/use-app-state'
@@ -8,13 +8,14 @@ import { ScopeModel } from '@reapit/foundations-ts-definitions'
 import { getActions, GetActionNames } from '@reapit/utils-common'
 import { useReapitGet } from '@reapit/utils-react'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
-import { UseFormRegister, UseFormGetValues } from 'react-hook-form'
+import { UseFormRegister, UseFormGetValues, DeepMap, FieldError } from 'react-hook-form'
 import { CreateAppFormSchema } from '.'
 import debounce from 'just-debounce-it'
 
 interface PermissionsOptionsContentProps {
   register: UseFormRegister<CreateAppFormSchema>
   getValues: UseFormGetValues<CreateAppFormSchema>
+  errors: DeepMap<Partial<CreateAppFormSchema>, FieldError>
 }
 
 export const prepareOptions = (permissions: ScopeModel[]): MultiSelectOption[] =>
@@ -62,7 +63,7 @@ export const handleSetLastStep = (setAppWizardState: Dispatch<SetStateAction<App
   }))
 }
 
-export const PermissionsOptionsContent: FC<PermissionsOptionsContentProps> = ({ register, getValues }) => {
+export const PermissionsOptionsContent: FC<PermissionsOptionsContentProps> = ({ register, getValues, errors }) => {
   const { appWizardState, setAppWizardState } = useAppState()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [permissions, loading] = useReapitGet<ScopeModel[]>({
@@ -100,6 +101,7 @@ export const PermissionsOptionsContent: FC<PermissionsOptionsContentProps> = ({ 
             {...register('scopes')}
             options={options}
           />
+          {errors?.scopes?.message && <InputError message={errors?.scopes?.message} />}
         </>
       )}
     </StepFormContainer>

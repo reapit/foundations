@@ -60,7 +60,7 @@ const authCodeSchema: SchemaOf<CreateAppFormSchema> = object().shape({
 })
 
 const clientCredsSchema: SchemaOf<CreateAppFormSchema> = object().shape({
-  scopes: string().trim(),
+  scopes: string().trim().required('At least one scope is required for a server-side app'),
   redirectUris: string().optional(),
   signoutUris: string().optional(),
 })
