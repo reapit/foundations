@@ -122,7 +122,7 @@ export class VersionCommand extends AbstractCommand {
     const version = runners.items.find((runner) => runner.buildVersion === answers.version.split(' ').shift())
 
     if (version?.currentlyDeployed) {
-      this.writeLine(chalk.red('Cannot deploy, currently deployed release'))
+      spinner.fail('Cannot deploy, currently deployed release')
       process.exit(1)
     }
 
