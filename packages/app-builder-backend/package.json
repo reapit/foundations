@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.27.0",
+    "@graphql-tools/delegate": "^8.5.1",
     "@graphql-tools/stitch": "^8.4.3",
     "@reapit/app-builder": "workspace:packages/app-builder",
     "@reapit/cra-template-foundations": "workspace:packages/cra-template-foundations",
@@ -45,7 +46,6 @@
     "eslint-plugin-prettier": "^4.0.0",
     "express": "^4.17.1",
     "fs-extra": "^10.0.0",
-    "get-graphql-from-jsonschema": "^8.0.16",
     "graphql": "^15.8.0",
     "graphql-type-json": "^0.3.2",
     "jszip": "^3.7.1",

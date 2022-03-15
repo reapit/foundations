@@ -1,6 +1,6 @@
 import { Context } from '../types'
 
-type MetadataSchemaType =
+export type MetadataSchemaType =
   | 'applicant'
   | 'appointment'
   | 'company'
@@ -16,14 +16,35 @@ type MetadataSchemaType =
   | 'vendor'
   | 'worksOrder'
 
+const metadataTypes = [
+  'applicant',
+  'appointment',
+  'company',
+  'contact',
+  'conveyancing',
+  'identityCheck',
+  'landlord',
+  'negotiator',
+  'offer',
+  'office',
+  'property',
+  'task',
+  'vendor',
+  'worksOrder',
+]
+
+export const isIdEntityType = (id: string): id is MetadataSchemaType => {
+  return metadataTypes.includes(id)
+}
+
 export const extractMetadata = <T>(
   context: Context,
   metadataSchemaType: MetadataSchemaType,
   object: T,
 ): T & { metadata?: any } => {
-  const metadataFields = context.metadataSchemas.find(
-    (metadataSchema) => metadataSchema.id === metadataSchemaType,
-  )?.schema
+  const metadataFields = context.customEntities.find(
+    (metadataSchema) => metadataSchema.id.toLowerCase() === metadataSchemaType,
+  )
 
   if (!metadataFields) {
     return object
@@ -31,10 +52,9 @@ export const extractMetadata = <T>(
 
   const metadata = {}
 
-  const fields = Object.keys(JSON.parse(metadataFields).properties)
-  fields.forEach((field) => {
-    metadata[field] = object[field]
-    delete object[field]
+  metadataFields.fields.forEach((field) => {
+    metadata[field.name] = object[field.name]
+    delete object[field.name]
   })
 
   return { ...object, metadata }

@@ -1,5 +1,7 @@
 import { gql } from 'apollo-server-core'
 import { ObjectType, Field, ID, InputType, registerEnumType } from 'type-graphql'
+import { Negotiator, NegotiatorFragment } from './negotiator'
+import { Office, OfficeFragment } from './office'
 
 export enum MarketingConsent {
   grant = 'grant',
@@ -30,6 +32,12 @@ export class Contact {
   @Field(() => MarketingConsent)
   marketingConsent: MarketingConsent
 
+  @Field(() => [Office])
+  offices?: Office[]
+
+  @Field(() => [Negotiator])
+  negotiators?: Negotiator[]
+
   metadata?: any
 }
 
@@ -50,10 +58,18 @@ export class ContactInput {
   @Field(() => MarketingConsent)
   marketingConsent: MarketingConsent
 
+  @Field(() => [String], { description: '@idOf(Negotiator)' })
+  negotiatorIds: string[]
+
+  @Field(() => [String], { description: '@idOf(Office)' })
+  officeIds: string[]
+
   metadata?: any
 }
 
 export const ContactFragment = gql`
+  ${NegotiatorFragment}
+  ${OfficeFragment}
   fragment ContactFragment on ContactModel {
     id
     title
@@ -62,5 +78,14 @@ export const ContactFragment = gql`
     email
     marketingConsent
     metadata
+    _embedded {
+      offices {
+        ...OfficeFragment
+      }
+      negotiators {
+        ...NegotiatorFragment
+      }
+    }
+    _eTag
   }
 `

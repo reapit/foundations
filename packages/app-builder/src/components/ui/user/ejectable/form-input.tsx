@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {
   CardWrap,
   ElBodyText,
@@ -46,12 +46,20 @@ const SelectIDofType = ({
   name: string
   value?: React.SelectHTMLAttributes<HTMLSelectElement>['value']
   disabled?: boolean
-  defaultValue?: React.SelectHTMLAttributes<HTMLSelectElement>['defaultValue']
+  defaultValue?: any
   onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void
 }) => {
   const { data, loading } = useObjectList(typeName)
   const { object } = useObject(typeName)
   const { available: searchAvailable, search } = useLazyObjectSearch(typeName)
+
+  useEffect(() => {
+    if (defaultValue?.id) {
+      onChange({
+        target: { value: defaultValue.id, name },
+      } as React.ChangeEvent<HTMLInputElement | HTMLSelectElement>)
+    }
+  }, [defaultValue?.id])
 
   if (searchAvailable) {
     return (
@@ -62,20 +70,21 @@ const SelectIDofType = ({
         getResultValue={(result) => result.id}
         name={name}
         disabled={disabled}
-        defaultValue={defaultValue}
+        defaultVal={defaultValue}
       />
     )
   }
 
   if (data) {
     return (
-      <Select name={name} value={value} onChange={onChange} disabled={disabled} defaultValue={defaultValue}>
+      <Select name={name} value={value} onChange={onChange} disabled={disabled} defaultValue={defaultValue?.id}>
         {data.map((obj) => (
           <option key={obj.id} value={obj.id}>
             {getLabel(obj, object?.labelKeys)}
           </option>
         ))}
-        <option selected disabled>
+        {/* deepscan-disable-next-line */}
+        <option disabled selected>
           Select a {typeName}
         </option>
       </Select>
@@ -134,7 +143,8 @@ const Input = ({
                 {value}
               </option>
             ))}
-            <option selected disabled>
+            {/* deepscan-disable-next-line */}
+            <option disabled selected>
               Select a {inputTypeName}
             </option>
           </Select>
@@ -187,7 +197,7 @@ const ListInput = React.forwardRef(
     },
     ref: React.ForwardedRef<HTMLDivElement>,
   ) => {
-    const [listValue, setListValue] = React.useState<Record<string, any>[]>(defaultValue || [])
+    const [listValue, setListValue] = React.useState<any[]>(defaultValue || [])
 
     return (
       <InputWrap ref={ref}>
@@ -196,6 +206,20 @@ const ListInput = React.forwardRef(
           {listValue.map((value, idx) => (
             <CardWrap key={idx} className={elMy2}>
               <InputWrap>
+                {formInput?.idOfType && (
+                  <SelectIDofType
+                    disabled={disabled}
+                    name={label}
+                    typeName={formInput.idOfType}
+                    defaultValue={defaultValue[idx]}
+                    onChange={(e) => {
+                      const newListValue = [...listValue]
+                      newListValue[idx] = e.target.value
+                      setListValue(newListValue)
+                      onChange(newListValue)
+                    }}
+                  />
+                )}
                 {formInput?.fields?.map((input) => (
                   <div key={input.name}>
                     <Input
@@ -253,16 +277,17 @@ const InnerFormInput = (
   const disabled = rest.disabled || rest.isReadOnly
   const { onChange, defaultValues } = useFormContext()
   const defaultValue = defaultValues[name]
-  const formInput = args && args[0] && args[0]?.fields?.find((arg) => arg.name === name)
+  const formInput = args && args[0] && args[0].fields?.find((arg) => arg.name === name)
 
   if (!formInput) return null
 
   const { isList } = formInput
   const label = friendlyIdName(name)
   if (isList) {
+    const newDefaultValue = defaultValues[label.toLowerCase()]
     return (
       <ListInput
-        defaultValue={defaultValue}
+        defaultValue={newDefaultValue}
         label={label}
         formInput={formInput}
         onChange={(value: any) => {

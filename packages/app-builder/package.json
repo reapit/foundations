@@ -52,6 +52,7 @@
     "snyk": "^1.793.0",
     "styled-components": "^5.3.3",
     "throttle-debounce": "^3.0.1",
+    "uuid": "^8.3.2",
     "yup": "^0.32.11"
   },
   "devDependencies": {

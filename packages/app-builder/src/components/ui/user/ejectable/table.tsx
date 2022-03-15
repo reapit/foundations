@@ -7,7 +7,6 @@ import {
   Icon,
   Input,
   Loader,
-  RowActionProps,
   RowProps,
   Table as ELTable,
   useSnack,
@@ -47,10 +46,10 @@ const ObjectTableCell = ({ obj }) => {
     return (
       <>
         {obj.map((item: any, i: number) => (
-          <>
+          <React.Fragment key={i}>
             <ObjectTableCell key={item.id} obj={item} />
             {i !== obj.length - 1 && <span>, </span>}
-          </>
+          </React.Fragment>
         ))}
       </>
     )
@@ -171,7 +170,7 @@ const AdditionalCells = ({
       if (!pageId) return null
 
       return (
-        <>
+        <React.Fragment key={label}>
           <Button
             key={name}
             onClick={() => {
@@ -195,7 +194,7 @@ const AdditionalCells = ({
               }}
             />
           )}
-        </>
+        </React.Fragment>
       )
     })}
   </>
@@ -229,7 +228,8 @@ const Controls = ({
           intent="secondary"
           onClick={() => {
             if (editPageId) {
-              history.push(`${appId}/${editPageId}?editObjectId=${rowId}`)
+              const dest = path.join('/', appId || '', `${editPageId}?editObjectId=${rowId}`)
+              history.push(dest)
             }
           }}
         >
@@ -276,33 +276,39 @@ export const Table = forwardRef<HTMLDivElement, TableProps & { disabled?: boolea
           )
           .filter(notEmpty)
 
-        const additionalContent: RowActionProps = {
-          content: (
-            <>
-              <AdditionalCells
-                context={context}
-                historyPush={history.push}
-                rowId={row.id}
-                typeName={typeName}
-                appId={appId}
-                props={props}
-                specialsAndSubobjects={specialsAndSubobjects}
-              />
-              {showControls && (
-                <Controls rowId={row.id} disabled={disabled} editPageId={editPageId} typeName={typeName} />
-              )}
-            </>
-          ),
-        }
+        const content = (
+          <>
+            <AdditionalCells
+              context={context}
+              historyPush={history.push}
+              rowId={row.id}
+              typeName={typeName}
+              appId={appId}
+              props={props}
+              specialsAndSubobjects={specialsAndSubobjects}
+            />
+            {showControls && (
+              <Controls rowId={row.id} disabled={disabled} editPageId={editPageId} typeName={typeName} />
+            )}
+          </>
+        )
 
         const showExtraThing = !!specialsAndSubobjects.length
         const showExpandableContent = showExtraThing && showControls
-        const showCtaContent = showExtraThing && !showControls
+        const showCtaContent = (showExtraThing || showControls) && !showExpandableContent
 
         return {
           cells,
-          expandableContent: showExpandableContent ? additionalContent : undefined,
-          ctaContent: showCtaContent ? additionalContent : undefined,
+          expandableContent: showExpandableContent
+            ? {
+                content,
+              }
+            : undefined,
+          ctaContent: showCtaContent
+            ? {
+                cellContent: content,
+              }
+            : undefined,
         }
       })
     }

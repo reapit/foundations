@@ -9,6 +9,7 @@ import { Context } from '../../types'
 import { mockContacts } from '../__mocks__/mock-contacts'
 import { mockContact } from '../__mocks__/mock-contact'
 import config from '../../config.json'
+import { MetadataSchemaType } from '@/utils/extract-metadata'
 
 jest.mock('node-fetch', () => require('fetch-mock-jest').sandbox())
 const fetchMock = require('node-fetch')
@@ -49,7 +50,7 @@ const setupContactsMocks = () => {
     'GetContactById',
     { id: 'RPT20000017' },
     {
-      GetContact: mockContact,
+      GetContactById: mockContact,
     },
   )
   mockQuery(
@@ -60,6 +61,8 @@ const setupContactsMocks = () => {
       surname: 'Smith',
       email: 'someone@email.com',
       marketingConsent: 'grant',
+      negotiatorIds: ['HPT'],
+      officeIds: ['LDN'],
     },
     {
       CreateContact: mockContact,
@@ -74,6 +77,8 @@ const setupContactsMocks = () => {
       surname: 'Smith',
       email: 'someone@email.com',
       marketingConsent: 'grant',
+      negotiatorIds: ['HPT'],
+      officeIds: ['LDN'],
     },
     {
       UpdateContact: mockContact,
@@ -100,7 +105,10 @@ const getGraphqlClient = async () => {
     accessToken: 'accessToken',
     idToken: 'idToken',
     apiUrl: '',
-    metadataSchemas: [],
+    customEntities: [],
+    operationMetadata: {} as Record<MetadataSchemaType, any>,
+    storeCachedMetadata: function (): void {},
+    getCachedMetadata: function () {},
   }
   return new ApolloClient({
     cache: new InMemoryCache(),
@@ -221,6 +229,8 @@ describe('contact-resolver', () => {
             surname: 'Smith',
             email: 'someone@email.com',
             marketingConsent: 'grant',
+            negotiatorIds: ['HPT'],
+            officeIds: ['LDN'],
           },
         },
       })
@@ -251,6 +261,8 @@ describe('contact-resolver', () => {
             surname: 'Smith',
             email: 'someone@email.com',
             marketingConsent: 'grant',
+            negotiatorIds: ['HPT'],
+            officeIds: ['LDN'],
           },
         },
       })

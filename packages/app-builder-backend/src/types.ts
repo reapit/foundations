@@ -1,8 +1,13 @@
-import { SchemaModel } from './platform'
+import { CustomEntity } from './entities/custom-entity'
+import { MetadataSchemaType } from './utils/extract-metadata'
 
 export type Context = {
   accessToken: string
   idToken: string
   apiUrl: string
-  metadataSchemas: SchemaModel[]
+  customEntities: CustomEntity[]
+  appId?: string
+  operationMetadata: Record<MetadataSchemaType, any>
+  storeCachedMetadata: (typeName: MetadataSchemaType, id: string, metadata: any) => void
+  getCachedMetadata: (typeName: MetadataSchemaType, id: string, key: string) => any
 }

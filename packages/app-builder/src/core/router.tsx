@@ -44,8 +44,8 @@ const HomePage = React.lazy(() => catchChunkError(() => import('../components/pa
 const AppSelect = React.lazy(() => catchChunkError(() => import('../components/pages/app-select')))
 const AppView = React.lazy(() => catchChunkError(() => import('../components/pages/app-view')))
 
-const AppEditor = () => {
-  return (
+const AppEditor = () => (
+  <ApolloProvider client={createClient(reapitConnectBrowserSession)}>
     <PrivateRouteWrapper reapitConnectBrowserSession={reapitConnectBrowserSession}>
       <MainContainer>
         <Menu />
@@ -56,8 +56,8 @@ const AppEditor = () => {
         </Switch>
       </MainContainer>
     </PrivateRouteWrapper>
-  )
-}
+  </ApolloProvider>
+)
 
 const AppViewer = () => {
   const { appId } = usePageId()

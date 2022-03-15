@@ -2,6 +2,7 @@ import React, { forwardRef, useEffect, useState } from 'react'
 import { useHistory } from 'react-router'
 import qs from 'query-string'
 import path from 'path'
+import { v4 } from 'uuid'
 import { Button, FormLayout, Loader, useSnack } from '@reapit/elements'
 
 import { Container, ContainerProps } from './container'
@@ -44,7 +45,10 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
             }
           }
         })
-        setFormState(dataCopy)
+        setFormState((prevState) => ({
+          ...prevState,
+          ...dataCopy,
+        }))
       }
     }, [data, args])
 
@@ -53,7 +57,10 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
       if (type === 'checkbox') {
         return setFormState((prevState) => ({ ...prevState, [name]: checked }))
       }
-      setFormState((prevState) => ({ ...prevState, [name]: value }))
+      setFormState((prevState) => {
+        console.log({ ...prevState, [name]: value })
+        return { ...prevState, [name]: value }
+      })
     }
 
     return (
@@ -65,8 +72,15 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
             e.preventDefault()
             let variables
             if (formType === 'create') {
+              let fs = { ...formState }
+              if (args[0].fields?.find((field) => field.name === 'id')) {
+                fs = {
+                  ...fs,
+                  id: v4(),
+                }
+              }
               variables = {
-                [args[0].name]: formState,
+                [args[0].name]: fs,
               }
             } else {
               variables = {
@@ -97,8 +111,7 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
         >
           <FormContextProvider value={{ onChange: handleInputChange, defaultValues: data || {} }}>
             <FormLayout>
-              {getLoading && <Loader label="Loading" />}
-              {children}
+              {getLoading ? <Loader label="Loading" /> : children}
               <Button disabled={disabled} loading={mutationLoading}>
                 {formType === 'create' ? 'Create' : 'Save'}
               </Button>

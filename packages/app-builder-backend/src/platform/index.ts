@@ -13,7 +13,10 @@ const { platformApiUrl } = config
 
 export { SchemaModel } from '@reapit/foundations-ts-definitions/types'
 
-export const getMetadataObject = async (id: string, accessToken: string) => {
+export const getMetadataObject = async (
+  id: string,
+  accessToken: string,
+): Promise<{ [key: string]: any; id: string } | undefined> => {
   const res = await fetch(`${platformApiUrl}/metadata/${id}`, {
     headers: {
       Authorization: `Bearer ${accessToken}`,

@@ -60,7 +60,7 @@ const FormSettings = () => {
       setInputs: (inputs: FormInputProps[], parentNodeId: string) => {
         query
           .node(parentNodeId)
-          .decendants()
+          .descendants()
           .forEach((str) => {
             try {
               actions.delete(str)
@@ -77,7 +77,7 @@ const FormSettings = () => {
   useEffect(() => {
     if (args && args[0] && shouldUpdate) {
       const inputs = args[0].fields
-        ?.filter(({ name }) => name !== '_placeholder')
+        ?.filter(({ name }) => name !== 'id')
         .map(({ name, isRequired }) => ({
           name,
           typeName,

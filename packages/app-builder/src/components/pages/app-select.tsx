@@ -154,7 +154,7 @@ const AppSelector = () => {
                 <Button
                   intent="primary"
                   onClick={() => {
-                    history.push(app.id)
+                    history.push(app.id + '/')
                   }}
                 >
                   Edit

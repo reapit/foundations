@@ -1,15 +1,17 @@
 import { gql } from 'apollo-server-core'
 import { Arg, Authorized, Ctx, Mutation, Query, Resolver } from 'type-graphql'
 
-import { extractMetadata } from '../utils/extract-metadata'
+import { MetadataSchemaType } from '../utils/extract-metadata'
 import { Contact, ContactFragment, ContactInput } from '../entities/contact'
 import { Context } from '../types'
 import { query } from '../utils/graphql-fetch'
+import { Office } from '@/entities/office'
+import { Negotiator } from '@/entities/negotiator'
 
 const getContactsQuery = gql`
   ${ContactFragment}
   {
-    GetContacts {
+    GetContacts(embed: [offices, negotiators]) {
       _embedded {
         ...ContactFragment
       }
@@ -20,7 +22,7 @@ const getContactsQuery = gql`
 const searchContactsQuery = gql`
   ${ContactFragment}
   query SearchContacts($query: String!) {
-    GetContacts(name: $query) {
+    GetContacts(name: $query, embed: [offices, negotiators]) {
       _embedded {
         ...ContactFragment
       }
@@ -31,7 +33,7 @@ const searchContactsQuery = gql`
 const getContactQuery = gql`
   ${ContactFragment}
   query GetContact($id: String!) {
-    GetContactById(id: $id) {
+    GetContactById(id: $id, embed: [offices, negotiators]) {
       ...ContactFragment
     }
   }
@@ -44,9 +46,21 @@ const createContactMutation = gql`
     $forename: String
     $surname: String
     $email: String
-    $marketingConsent: String
+    $marketingConsent: String!
+    $officeIds: [String!]!
+    $negotiatorIds: [String!]!
+    $metadata: JSON
   ) {
-    CreateContact(title: $title, forename: $forename, surname: $surname, marketingConsent: $marketingConsent) {
+    CreateContact(
+      title: $title
+      forename: $forename
+      surname: $surname
+      marketingConsent: $marketingConsent
+      negotiatorIds: $negotiatorIds
+      officeIds: $officeIds
+      email: $email
+      metadata: $metadata
+    ) {
       ...ContactFragment
     }
   }
@@ -60,85 +74,193 @@ const updateContactMutation = gql`
     $forename: String
     $surname: String
     $email: String
-    $marketingConsent: String
+    $marketingConsent: String!
+    $officeIds: [String!]!
+    $negotiatorIds: [String!]!
+    $metadata: JSON
+    $_eTag: String!
   ) {
-    UpdateContact(id: $id, title: $title, forename: $forename, surname: $surname, marketingConsent: $marketingConsent) {
+    UpdateContact(
+      id: $id
+      title: $title
+      forename: $forename
+      surname: $surname
+      marketingConsent: $marketingConsent
+      email: $email
+      negotiatorIds: $negotiatorIds
+      officeIds: $officeIds
+      metadata: $metadata
+      _eTag: $_eTag
+    ) {
       ...ContactFragment
     }
   }
 `
 
-const updateContact = async (id: string, contact: ContactInput, accessToken: string, idToken: string) => {
-  return query<Contact>(updateContactMutation, { ...contact, id }, 'UpdateContact', { accessToken, idToken })
+type ContactAPIResponse<T> = Omit<Omit<Contact, 'offices'>, 'negotiators'> & {
+  _embedded: T
+  _eTag: string
 }
 
-const getContacts = async (accessToken: string, idToken: string) => {
-  return query<{ _embedded: Contact[] }>(getContactsQuery, {}, 'GetContacts', { accessToken, idToken })
+type ContactsEmbeds = {
+  offices: Office[]
+  negotiators: Negotiator[]
 }
 
-const getContact = async (id: string, accessToken: string, idToken: string) => {
-  return query<Contact | null>(getContactQuery, { id }, 'GetContact', { accessToken, idToken })
+const hoistEmbeds = <T, E>(object: T & { _embedded: any }): T & E => {
+  const { _embedded, ...rest } = object
+  return { ...rest, ..._embedded }
 }
 
-const createContact = async (contact: ContactInput, accessToken: string, idToken: string) => {
-  return query<Contact>(createContactMutation, contact, 'CreateContact', { accessToken, idToken })
+const updateContact = async (
+  id: string,
+  contact: ContactInput,
+  accessToken: string,
+  idToken: string,
+): Promise<Contact> => {
+  const existingContact = await getApiContact(id, accessToken, idToken)
+  if (!existingContact) {
+    throw new Error(`Contact with id ${id} not found`)
+  }
+  const { _eTag } = existingContact
+  await query<ContactAPIResponse<null>>(updateContactMutation, { ...contact, id, _eTag }, 'UpdateContact', {
+    accessToken,
+    idToken,
+  })
+
+  const newContact = await getContact(id, accessToken, idToken)
+  if (!newContact) {
+    throw new Error('Contact not found')
+  }
+  return newContact
 }
 
-const searchContacts = async (queryStr: string, accessToken: string, idToken: string) => {
-  return query<{ _embedded: Contact[] }>(searchContactsQuery, { query: queryStr }, 'GetContacts', {
+const getContacts = async (accessToken: string, idToken: string): Promise<Contact[]> => {
+  const contacts = await query<{ _embedded: ContactAPIResponse<ContactsEmbeds>[] }>(
+    getContactsQuery,
+    {},
+    'GetContacts',
+    {
+      accessToken,
+      idToken,
+    },
+  )
+
+  return contacts._embedded
+    .map((c) => hoistEmbeds<ContactAPIResponse<ContactsEmbeds>, ContactsEmbeds>(c))
+    .map((c) => ({
+      ...c,
+      offices: c.offices || [],
+      negotiators: c.negotiators || [],
+    }))
+}
+
+const getApiContact = async (
+  id: string,
+  accessToken: string,
+  idToken: string,
+): Promise<ContactAPIResponse<ContactsEmbeds> | null> => {
+  return query<ContactAPIResponse<ContactsEmbeds> | null>(getContactQuery, { id }, 'GetContactById', {
     accessToken,
     idToken,
   })
 }
 
+const getContact = async (id: string, accessToken: string, idToken: string): Promise<Contact | null> => {
+  const contact = await getApiContact(id, accessToken, idToken)
+
+  if (!contact) {
+    return null
+  }
+
+  const hoistedContact = hoistEmbeds<ContactAPIResponse<ContactsEmbeds>, ContactsEmbeds>(contact)
+  return addDefaultEmbeds(hoistedContact)
+}
+
+const createContact = async (contact: ContactInput, accessToken: string, idToken: string): Promise<Contact> => {
+  const res = await query<ContactAPIResponse<null>>(createContactMutation, contact, 'CreateContact', {
+    accessToken,
+    idToken,
+  })
+  const { id } = res
+  const newContact = await getContact(id, accessToken, idToken)
+  if (!newContact) {
+    throw new Error('Failed to create contact')
+  }
+  return newContact
+}
+
+const addDefaultEmbeds = (contact: Contact): Contact => ({
+  ...contact,
+  offices: contact.offices || [],
+  negotiators: contact.negotiators || [],
+})
+
+const searchContacts = async (queryStr: string, accessToken: string, idToken: string): Promise<Contact[]> => {
+  const contacts = await query<{ _embedded: ContactAPIResponse<ContactsEmbeds>[] }>(
+    searchContactsQuery,
+    { query: queryStr },
+    'GetContacts',
+    {
+      accessToken,
+      idToken,
+    },
+  )
+
+  return contacts._embedded
+    .map((c) => hoistEmbeds<ContactAPIResponse<ContactsEmbeds>, ContactsEmbeds>(c))
+    .map(addDefaultEmbeds)
+}
+
+const entityName: MetadataSchemaType = 'contact'
+
 @Resolver(() => Contact)
 export class ContactResolver {
   @Authorized()
   @Query(() => [Contact])
-  async listContacts(@Ctx() { accessToken, idToken }: Context): Promise<Contact[]> {
-    const { _embedded } = await getContacts(accessToken, idToken)
-    return _embedded.map((contact) => ({
-      ...(contact.metadata || {}),
-      ...contact,
-    }))
+  async listContacts(@Ctx() { accessToken, idToken, storeCachedMetadata }: Context): Promise<Contact[]> {
+    const contacts = await getContacts(accessToken, idToken)
+    contacts.forEach((contact) => {
+      storeCachedMetadata(entityName, contact.id, contact.metadata)
+    })
+    return contacts
   }
 
   @Authorized()
   @Query(() => [Contact])
-  async searchContacts(@Ctx() { accessToken, idToken }: Context, @Arg('query') queryStr: string): Promise<Contact[]> {
-    const { _embedded } = await searchContacts(queryStr, accessToken, idToken)
-    return _embedded.map((contact) => ({
-      ...(contact.metadata || {}),
-      ...contact,
-    }))
+  async searchContacts(
+    @Ctx() { accessToken, idToken, storeCachedMetadata }: Context,
+    @Arg('query') queryStr: string,
+  ): Promise<Contact[]> {
+    const contacts = await searchContacts(queryStr, accessToken, idToken)
+    contacts.forEach((contact) => {
+      storeCachedMetadata(entityName, contact.id, contact.metadata)
+    })
+    return contacts
   }
 
   @Authorized()
   @Query(() => Contact)
-  async getContact(@Ctx() { accessToken, idToken }: Context, @Arg('id') id: string): Promise<Contact> {
-    const contact = await getContact(accessToken, idToken, id)
+  async getContact(
+    @Ctx() { accessToken, idToken, storeCachedMetadata }: Context,
+    @Arg('id') id: string,
+  ): Promise<Contact> {
+    const contact = await getContact(id, accessToken, idToken)
     if (!contact) {
       throw new Error(`Contact with id ${id} not found`)
     }
-    return {
-      ...(contact.metadata || {}),
-      ...contact,
-    }
+    storeCachedMetadata(entityName, id, contact.metadata)
+    return contact
   }
 
   @Authorized()
   @Mutation(() => Contact)
-  async createContact(@Ctx() context: Context, @Arg('contact') contact: ContactInput): Promise<Contact> {
-    const { accessToken, idToken } = context
-    const newContact = await createContact(
-      extractMetadata<ContactInput>(context, 'contact', contact),
-      accessToken,
-      idToken,
-    )
-    return {
-      ...(newContact.metadata || {}),
-      ...newContact,
-    }
+  async createContact(@Ctx() context: Context, @Arg(entityName) contact: ContactInput): Promise<Contact> {
+    const { accessToken, idToken, operationMetadata, storeCachedMetadata } = context
+    const { [entityName]: metadata } = operationMetadata
+    const newContact = await createContact({ ...contact, metadata }, accessToken, idToken)
+    storeCachedMetadata(entityName, newContact.id, contact.metadata)
+    return newContact
   }
 
   @Authorized()
@@ -146,18 +268,12 @@ export class ContactResolver {
   async updateContact(
     @Ctx() context: Context,
     @Arg('id') id: string,
-    @Arg('contact') contact: ContactInput,
+    @Arg(entityName) contact: ContactInput,
   ): Promise<Contact> {
-    const { accessToken, idToken } = context
-    const newContact = await updateContact(
-      id,
-      extractMetadata<ContactInput>(context, 'contact', contact),
-      accessToken,
-      idToken,
-    )
-    return {
-      ...(newContact.metadata || {}),
-      ...newContact,
-    }
+    const { accessToken, idToken, operationMetadata, storeCachedMetadata } = context
+    const { [entityName]: metadata } = operationMetadata
+    const newContact = await updateContact(id, { ...contact, metadata }, accessToken, idToken)
+    storeCachedMetadata(entityName, newContact.id, contact.metadata)
+    return newContact
   }
 }
