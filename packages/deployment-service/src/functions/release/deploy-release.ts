@@ -5,7 +5,6 @@ import {
   createPipelineRunnerEntity,
   resetCurrentlyDeployed,
   savePipelineRunnerEntity,
-  countPipelineRunnersWithBuildVersion,
 } from '../../services'
 import { defaultOutputHeaders } from '../../constants'
 import * as pipelineService from '../../services/pipeline'
@@ -32,12 +31,6 @@ export const deployRelease = httpHandler<any, PipelineRunnerEntity>({
     }
 
     await ownership(pipeline.developerId, developerId)
-
-    const existingVersions = await countPipelineRunnersWithBuildVersion(pipeline, version)
-
-    if (existingVersions !== 0) {
-      throw new BadRequestException(`build version [${version}] already exists`)
-    }
 
     const file = Buffer.from(body.file, 'base64')
 

@@ -8,6 +8,7 @@ import { Pagination } from 'nestjs-typeorm-paginate'
 import { PipelineModelInterface, PipelineRunnerModelInterface } from '@reapit/foundations-ts-definitions'
 import { REAPIT_PIPELINE_CONFIG_FILE } from '../pipeline/constants'
 import inquirer from 'inquirer'
+import { shleemy } from 'shleemy'
 
 @Command({
   name: 'version',
@@ -100,9 +101,12 @@ export class VersionCommand extends AbstractCommand {
         name: 'version',
         type: 'list',
         message: 'Select a version to rollback to',
-        choices: runners.items
-          .map((runner) => `${runner.buildVersion}${runner.currentlyDeployed ? ' (currently deployed)' : ''}`)
-          .filter((version) => version !== null),
+        choices: runners.items.map(
+          (runner) =>
+            `v${runner.buildVersion || '-none'} (${chalk.blue(runner.id)})[${chalk.yellow(
+              shleemy(runner.created as string).forHumans,
+            )}]{${runner.buildStatus}}${runner.currentlyDeployed ? ' (currently deployed)' : ''}`,
+        ),
       },
     ])
 
@@ -118,7 +122,7 @@ export class VersionCommand extends AbstractCommand {
     const version = runners.items.find((runner) => runner.buildVersion === answers.version.split(' ').shift())
 
     if (version?.currentlyDeployed) {
-      this.writeLine(chalk.red('Cannot deploy, currently deployed release'))
+      spinner.fail('Cannot deploy, currently deployed release')
       process.exit(1)
     }
 
