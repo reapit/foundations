@@ -5,6 +5,7 @@ import { Pagination } from 'nestjs-typeorm-paginate'
 import chalk from 'chalk'
 import { PipelineModelInterface, PipelineRunnerModelInterface } from '@reapit/foundations-ts-definitions'
 import { REAPIT_PIPELINE_CONFIG_FILE } from '../pipeline/constants'
+import { shleemy } from 'shleemy'
 
 @Command({
   name: 'list',
@@ -44,7 +45,9 @@ export class ReleaseListCommand extends AbstractCommand {
 
     deploys.items.forEach((deploy) => {
       this.writeLine(
-        `${deploy.buildVersion || 'master release'}${deploy.currentlyDeployed ? chalk.green(' (current)') : ''}`,
+        `${deploy.buildVersion || 'master release'} (${chalk.blue(deploy.id)})[${chalk.yellow(
+          shleemy(deploy.created as string).forHumans,
+        )}]{${deploy.buildStatus}}${deploy.currentlyDeployed ? chalk.green(' (current)') : ''}`,
       )
     })
   }
