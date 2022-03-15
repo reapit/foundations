@@ -1,25 +1,87 @@
-import React, { FC, useEffect, useState } from 'react'
-import { BodyText, elMb11, Loader, Pagination, PersistantNotification, Table, Title } from '@reapit/elements'
+import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
+import {
+  BodyText,
+  Button,
+  ButtonGroup,
+  elMb11,
+  FormLayout,
+  InputGroup,
+  InputWrapFull,
+  Loader,
+  Pagination,
+  PersistantNotification,
+  Table,
+  Title,
+  useModal,
+} from '@reapit/elements'
 import { useParams } from 'react-router-dom'
 import { AppUriParams, useAppState } from '../state/use-app-state'
 import { handleSetAppId } from '../utils/handle-set-app-id'
-import { useReapitGet } from '@reapit/utils-react'
-import { InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { SendFunction, useReapitGet, useReapitUpdate } from '@reapit/utils-react'
+import { InstallationModelPagedResult, TerminateInstallationModel } from '@reapit/foundations-ts-definitions'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
-import { combineAddress, GetActionNames, getActions } from '@reapit/utils-common'
+import { combineAddress, GetActionNames, getActions, UpdateActionNames, updateActions } from '@reapit/utils-common'
 import dayjs from 'dayjs'
 import { useReapitConnect } from '@reapit/connect-session'
 import { ExternalPages, openNewPage } from '../../../../utils/navigation'
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { object, SchemaOf, string } from 'yup'
+import errorMessages from '../../../../constants/error-messages'
+
+const uninstallAppSchema: SchemaOf<TerminateInstallationModel> = object().shape({
+  appId: string().trim().required(errorMessages.FIELD_REQUIRED),
+  terminatedBy: string(),
+  terminatedReason: string()
+    .trim()
+    .required(errorMessages.FIELD_REQUIRED)
+    .min(10, 'Must be a minimum of 10 characters'),
+  terminatesOn: string().trim().required(errorMessages.FIELD_REQUIRED),
+})
+
+export const handleUninstallApp =
+  (
+    email: string,
+    uninstallApp: SendFunction<TerminateInstallationModel, boolean | null>,
+    setInstallationId: Dispatch<SetStateAction<string | null>>,
+  ) =>
+  (values: TerminateInstallationModel) => {
+    uninstallApp({
+      ...values,
+      terminatedBy: email,
+    })
+    setInstallationId(null)
+  }
+
+export const handleUninstallSuccess =
+  (refetchInstallations: () => void, closeModal: () => void, success?: boolean) => () => {
+    if (success) {
+      refetchInstallations()
+      closeModal()
+    }
+  }
+
+export const handleSetInstallationId =
+  (setInstallationId: Dispatch<SetStateAction<string | null>>, openModal: () => void, installationId?: string) =>
+  () => {
+    if (installationId) {
+      openModal()
+      setInstallationId(installationId)
+    }
+  }
 
 export const AppInstallations: FC = () => {
   const { appId } = useParams<AppUriParams>()
   const { setAppId, appsDataState } = useAppState()
+  const [installationId, setInstallationId] = useState<null | string>(null)
   const [pageNumber, setPageNumber] = useState<number>(1)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const { Modal, openModal, closeModal } = useModal()
   const appName = appsDataState?.appDetail?.name ?? ''
   const developerId = connectSession?.loginIdentity.developerId
+  const email = connectSession?.loginIdentity.email ?? ''
 
-  const [installations, installationsLoading] = useReapitGet<InstallationModelPagedResult>({
+  const [installations, installationsLoading, , refetchInstallations] = useReapitGet<InstallationModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getInstallations],
     queryParams: {
@@ -32,7 +94,31 @@ export const AppInstallations: FC = () => {
     fetchWhenTrue: [developerId],
   })
 
+  const [, , uninstallApp, uninstallSuccess] = useReapitUpdate<TerminateInstallationModel, null>({
+    reapitConnectBrowserSession,
+    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.terminateInstallation],
+    uriParams: {
+      installationId,
+    },
+  })
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<TerminateInstallationModel>({
+    resolver: yupResolver(uninstallAppSchema),
+    defaultValues: {
+      appId,
+      terminatedBy: '',
+      terminatedReason: '',
+      terminatesOn: new Date().toISOString(),
+    },
+  })
+
   useEffect(handleSetAppId(appId, setAppId), [appId])
+
+  useEffect(handleUninstallSuccess(refetchInstallations, closeModal, uninstallSuccess), [uninstallSuccess])
 
   return (
     <>
@@ -50,7 +136,7 @@ export const AppInstallations: FC = () => {
           <Table
             numberColumns={6}
             className={elMb11}
-            rows={installations?.data?.map(({ customerName, client, customerAddress, created, installedBy }) => ({
+            rows={installations?.data?.map(({ customerName, client, customerAddress, created, installedBy, id }) => ({
               cells: [
                 {
                   label: 'Customer Name',
@@ -101,7 +187,7 @@ export const AppInstallations: FC = () => {
               ctaContent: {
                 headerContent: 'Uninstall',
                 icon: 'trashSystem',
-                onClick: console.log,
+                onClick: handleSetInstallationId(setInstallationId, openModal, id),
               },
             }))}
           />
@@ -110,6 +196,30 @@ export const AppInstallations: FC = () => {
             currentPage={pageNumber}
             numberPages={Math.ceil((installations?.totalCount ?? 1) / 12)}
           />
+          <Modal title="Confirm Uninstallation">
+            <BodyText>Please provide a reason for terminating this installation</BodyText>
+            <form onSubmit={handleSubmit(handleUninstallApp(email, uninstallApp, setInstallationId))}>
+              <FormLayout hasMargin>
+                <InputWrapFull>
+                  <InputGroup
+                    label="Uninstallation Reason"
+                    type="text"
+                    {...register('terminatedReason')}
+                    inputAddOnText={errors.terminatedReason?.message}
+                    intent="danger"
+                  />
+                </InputWrapFull>
+              </FormLayout>
+              <ButtonGroup alignment="right">
+                <Button intent="low" type="button" onClick={closeModal}>
+                  Close
+                </Button>
+                <Button intent="danger" type="submit">
+                  Uninstall
+                </Button>
+              </ButtonGroup>
+            </form>
+          </Modal>
         </>
       ) : installations ? (
         <PersistantNotification intent="secondary" isExpanded isFullWidth isInline>

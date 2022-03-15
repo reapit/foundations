@@ -8,11 +8,6 @@ Object {
       <div
         class="ecbqyq6-el-snack-holder"
       />
-      <h2
-        class="e1byern-el-subtitle"
-      >
-        App Listing
-      </h2>
       <p
         class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
       >
@@ -34,6 +29,27 @@ Object {
       <div
         class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
       >
+        <div
+          class="ep31he9-el-input-wrap-full"
+        >
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              name="name"
+              placeholder="The name of your app as it will appear to users"
+              type="text"
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              Name
+            </label>
+          </div>
+        </div>
         <div
           class="e1ksxx4v-el-input-wrap"
         >
@@ -242,17 +258,19 @@ Object {
           <div
             class="e1979rmu-el-input-group"
           >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              name="summary"
+              placeholder="A short strapline summary for your app listing. Must be between 50 and 150 characters"
+              value="Mock field value"
+            />
             <label
               class="e1nbkkrq-el-label"
+              for="test-static-id"
             >
               Summary
             </label>
-            <textarea
-              class="e16rclfx-el-text-area"
-              placeholder="A short strapline summary for your app listing. Must be between 50 and 150 characters"
-            >
-              Mock field value
-            </textarea>
           </div>
         </div>
         <div
@@ -302,11 +320,6 @@ Object {
     <div
       class="ecbqyq6-el-snack-holder"
     />
-    <h2
-      class="e1byern-el-subtitle"
-    >
-      App Listing
-    </h2>
     <p
       class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
     >
@@ -328,6 +341,27 @@ Object {
     <div
       class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
     >
+      <div
+        class="ep31he9-el-input-wrap-full"
+      >
+        <div
+          class="e1979rmu-el-input-group"
+        >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            name="name"
+            placeholder="The name of your app as it will appear to users"
+            type="text"
+          />
+          <label
+            class="e1nbkkrq-el-label"
+            for="test-static-id"
+          >
+            Name
+          </label>
+        </div>
+      </div>
       <div
         class="e1ksxx4v-el-input-wrap"
       >
@@ -536,17 +570,19 @@ Object {
         <div
           class="e1979rmu-el-input-group"
         >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            name="summary"
+            placeholder="A short strapline summary for your app listing. Must be between 50 and 150 characters"
+            value="Mock field value"
+          />
           <label
             class="e1nbkkrq-el-label"
+            for="test-static-id"
           >
             Summary
           </label>
-          <textarea
-            class="e16rclfx-el-text-area"
-            placeholder="A short strapline summary for your app listing. Must be between 50 and 150 characters"
-          >
-            Mock field value
-          </textarea>
         </div>
       </div>
       <div
@@ -653,11 +689,6 @@ Object {
       <div
         class="ecbqyq6-el-snack-holder"
       />
-      <h2
-        class="e1byern-el-subtitle"
-      >
-        App Listing
-      </h2>
       <p
         class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
       >
@@ -680,6 +711,27 @@ Object {
         class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
       >
         <div
+          class="ep31he9-el-input-wrap-full"
+        >
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              name="name"
+              placeholder="The name of your app as it will appear to users"
+              type="text"
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              Name
+            </label>
+          </div>
+        </div>
+        <div
           class="e1ksxx4v-el-input-wrap"
         >
           <div
@@ -692,6 +744,22 @@ Object {
               placeholder="The contact to your support team if your users have a problem"
               type="email"
             />
+            <span
+              class="e1vxext9-el-intent-danger ej9yrfo-el-icon"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 20 20"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M18.4192 14.0993L11.3203 10.0007L18.4182 5.90272C18.734 5.72042 18.8421 5.31666 18.6598 5.00092C18.4775 4.68519 18.0738 4.57692 17.758 4.7593L10.6596 8.85755V0.660171C10.6596 0.29558 10.364 0 9.99946 0C9.63487 0 9.33929 0.29558 9.33929 0.660171V8.85694L2.24193 4.7593C1.92619 4.57683 1.52243 4.68519 1.34013 5.00092C1.15784 5.31666 1.26602 5.72042 1.58176 5.90272L8.67965 10.0007L1.58079 14.0993C1.26505 14.2816 1.15687 14.6854 1.33916 15.0011C1.46143 15.2129 1.68333 15.3313 1.91149 15.3313C2.02354 15.3313 2.137 15.3028 2.24096 15.2427L9.33938 11.1445V19.3398C9.33938 19.7044 9.63496 20 9.99955 20C10.3641 20 10.6597 19.7044 10.6597 19.3398V11.1439L17.7591 15.2427C17.8631 15.3028 17.9766 15.3313 18.0886 15.3313C18.3167 15.3313 18.5386 15.2128 18.6609 15.0011C18.8432 14.6853 18.735 14.2816 18.4192 14.0993Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
             <label
               class="e1nbkkrq-el-label"
               for="test-static-id"
@@ -718,6 +786,22 @@ Object {
               placeholder="Should one of our developers need to contact you about your app"
               type="text"
             />
+            <span
+              class="e1vxext9-el-intent-danger ej9yrfo-el-icon"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 20 20"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M18.4192 14.0993L11.3203 10.0007L18.4182 5.90272C18.734 5.72042 18.8421 5.31666 18.6598 5.00092C18.4775 4.68519 18.0738 4.57692 17.758 4.7593L10.6596 8.85755V0.660171C10.6596 0.29558 10.364 0 9.99946 0C9.63487 0 9.33929 0.29558 9.33929 0.660171V8.85694L2.24193 4.7593C1.92619 4.57683 1.52243 4.68519 1.34013 5.00092C1.15784 5.31666 1.26602 5.72042 1.58176 5.90272L8.67965 10.0007L1.58079 14.0993C1.26505 14.2816 1.15687 14.6854 1.33916 15.0011C1.46143 15.2129 1.68333 15.3313 1.91149 15.3313C2.02354 15.3313 2.137 15.3028 2.24096 15.2427L9.33938 11.1445V19.3398C9.33938 19.7044 9.63496 20 9.99955 20C10.3641 20 10.6597 19.7044 10.6597 19.3398V11.1439L17.7591 15.2427C17.8631 15.3028 17.9766 15.3313 18.0886 15.3313C18.3167 15.3313 18.5386 15.2128 18.6609 15.0011C18.8432 14.6853 18.735 14.2816 18.4192 14.0993Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
             <label
               class="e1nbkkrq-el-label"
               for="test-static-id"
@@ -744,6 +828,22 @@ Object {
               placeholder="Your company homepage. HTTP:// or HTTPS://"
               type="text"
             />
+            <span
+              class="e1vxext9-el-intent-danger ej9yrfo-el-icon"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 20 20"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M18.4192 14.0993L11.3203 10.0007L18.4182 5.90272C18.734 5.72042 18.8421 5.31666 18.6598 5.00092C18.4775 4.68519 18.0738 4.57692 17.758 4.7593L10.6596 8.85755V0.660171C10.6596 0.29558 10.364 0 9.99946 0C9.63487 0 9.33929 0.29558 9.33929 0.660171V8.85694L2.24193 4.7593C1.92619 4.57683 1.52243 4.68519 1.34013 5.00092C1.15784 5.31666 1.26602 5.72042 1.58176 5.90272L8.67965 10.0007L1.58079 14.0993C1.26505 14.2816 1.15687 14.6854 1.33916 15.0011C1.46143 15.2129 1.68333 15.3313 1.91149 15.3313C2.02354 15.3313 2.137 15.3028 2.24096 15.2427L9.33938 11.1445V19.3398C9.33938 19.7044 9.63496 20 9.99955 20C10.3641 20 10.6597 19.7044 10.6597 19.3398V11.1439L17.7591 15.2427C17.8631 15.3028 17.9766 15.3313 18.0886 15.3313C18.3167 15.3313 18.5386 15.2128 18.6609 15.0011C18.8432 14.6853 18.735 14.2816 18.4192 14.0993Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
             <label
               class="e1nbkkrq-el-label"
               for="test-static-id"
@@ -770,6 +870,22 @@ Object {
               placeholder="The launch page for your app. HTTPS only other than for http://localhost"
               type="text"
             />
+            <span
+              class="e1vxext9-el-intent-danger ej9yrfo-el-icon"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 20 20"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M18.4192 14.0993L11.3203 10.0007L18.4182 5.90272C18.734 5.72042 18.8421 5.31666 18.6598 5.00092C18.4775 4.68519 18.0738 4.57692 17.758 4.7593L10.6596 8.85755V0.660171C10.6596 0.29558 10.364 0 9.99946 0C9.63487 0 9.33929 0.29558 9.33929 0.660171V8.85694L2.24193 4.7593C1.92619 4.57683 1.52243 4.68519 1.34013 5.00092C1.15784 5.31666 1.26602 5.72042 1.58176 5.90272L8.67965 10.0007L1.58079 14.0993C1.26505 14.2816 1.15687 14.6854 1.33916 15.0011C1.46143 15.2129 1.68333 15.3313 1.91149 15.3313C2.02354 15.3313 2.137 15.3028 2.24096 15.2427L9.33938 11.1445V19.3398C9.33938 19.7044 9.63496 20 9.99955 20C10.3641 20 10.6597 19.7044 10.6597 19.3398V11.1439L17.7591 15.2427C17.8631 15.3028 17.9766 15.3313 18.0886 15.3313C18.3167 15.3313 18.5386 15.2128 18.6609 15.0011C18.8432 14.6853 18.735 14.2816 18.4192 14.0993Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
             <label
               class="e1nbkkrq-el-label"
               for="test-static-id"
@@ -796,6 +912,22 @@ Object {
               placeholder="URL to link to your Terms and Conditions"
               type="text"
             />
+            <span
+              class="e1vxext9-el-intent-danger ej9yrfo-el-icon"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 20 20"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M18.4192 14.0993L11.3203 10.0007L18.4182 5.90272C18.734 5.72042 18.8421 5.31666 18.6598 5.00092C18.4775 4.68519 18.0738 4.57692 17.758 4.7593L10.6596 8.85755V0.660171C10.6596 0.29558 10.364 0 9.99946 0C9.63487 0 9.33929 0.29558 9.33929 0.660171V8.85694L2.24193 4.7593C1.92619 4.57683 1.52243 4.68519 1.34013 5.00092C1.15784 5.31666 1.26602 5.72042 1.58176 5.90272L8.67965 10.0007L1.58079 14.0993C1.26505 14.2816 1.15687 14.6854 1.33916 15.0011C1.46143 15.2129 1.68333 15.3313 1.91149 15.3313C2.02354 15.3313 2.137 15.3028 2.24096 15.2427L9.33938 11.1445V19.3398C9.33938 19.7044 9.63496 20 9.99955 20C10.3641 20 10.6597 19.7044 10.6597 19.3398V11.1439L17.7591 15.2427C17.8631 15.3028 17.9766 15.3313 18.0886 15.3313C18.3167 15.3313 18.5386 15.2128 18.6609 15.0011C18.8432 14.6853 18.735 14.2816 18.4192 14.0993Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
             <label
               class="e1nbkkrq-el-label"
               for="test-static-id"
@@ -822,6 +954,22 @@ Object {
               placeholder="URL to link to your Privacy Policy"
               type="text"
             />
+            <span
+              class="e1vxext9-el-intent-danger ej9yrfo-el-icon"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 20 20"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M18.4192 14.0993L11.3203 10.0007L18.4182 5.90272C18.734 5.72042 18.8421 5.31666 18.6598 5.00092C18.4775 4.68519 18.0738 4.57692 17.758 4.7593L10.6596 8.85755V0.660171C10.6596 0.29558 10.364 0 9.99946 0C9.63487 0 9.33929 0.29558 9.33929 0.660171V8.85694L2.24193 4.7593C1.92619 4.57683 1.52243 4.68519 1.34013 5.00092C1.15784 5.31666 1.26602 5.72042 1.58176 5.90272L8.67965 10.0007L1.58079 14.0993C1.26505 14.2816 1.15687 14.6854 1.33916 15.0011C1.46143 15.2129 1.68333 15.3313 1.91149 15.3313C2.02354 15.3313 2.137 15.3028 2.24096 15.2427L9.33938 11.1445V19.3398C9.33938 19.7044 9.63496 20 9.99955 20C10.3641 20 10.6597 19.7044 10.6597 19.3398V11.1439L17.7591 15.2427C17.8631 15.3028 17.9766 15.3313 18.0886 15.3313C18.3167 15.3313 18.5386 15.2128 18.6609 15.0011C18.8432 14.6853 18.735 14.2816 18.4192 14.0993Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
             <label
               class="e1nbkkrq-el-label"
               for="test-static-id"
@@ -848,6 +996,22 @@ Object {
               placeholder="URL to link to your Pricing Info"
               type="text"
             />
+            <span
+              class="e1vxext9-el-intent-danger ej9yrfo-el-icon"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 20 20"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M18.4192 14.0993L11.3203 10.0007L18.4182 5.90272C18.734 5.72042 18.8421 5.31666 18.6598 5.00092C18.4775 4.68519 18.0738 4.57692 17.758 4.7593L10.6596 8.85755V0.660171C10.6596 0.29558 10.364 0 9.99946 0C9.63487 0 9.33929 0.29558 9.33929 0.660171V8.85694L2.24193 4.7593C1.92619 4.57683 1.52243 4.68519 1.34013 5.00092C1.15784 5.31666 1.26602 5.72042 1.58176 5.90272L8.67965 10.0007L1.58079 14.0993C1.26505 14.2816 1.15687 14.6854 1.33916 15.0011C1.46143 15.2129 1.68333 15.3313 1.91149 15.3313C2.02354 15.3313 2.137 15.3028 2.24096 15.2427L9.33938 11.1445V19.3398C9.33938 19.7044 9.63496 20 9.99955 20C10.3641 20 10.6597 19.7044 10.6597 19.3398V11.1439L17.7591 15.2427C17.8631 15.3028 17.9766 15.3313 18.0886 15.3313C18.3167 15.3313 18.5386 15.2128 18.6609 15.0011C18.8432 14.6853 18.735 14.2816 18.4192 14.0993Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
             <label
               class="e1nbkkrq-el-label"
               for="test-static-id"
@@ -873,6 +1037,22 @@ Object {
               name="isFree"
               type="checkbox"
             />
+            <span
+              class="e1vxext9-el-intent-danger ej9yrfo-el-icon"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 20 20"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M18.4192 14.0993L11.3203 10.0007L18.4182 5.90272C18.734 5.72042 18.8421 5.31666 18.6598 5.00092C18.4775 4.68519 18.0738 4.57692 17.758 4.7593L10.6596 8.85755V0.660171C10.6596 0.29558 10.364 0 9.99946 0C9.63487 0 9.33929 0.29558 9.33929 0.660171V8.85694L2.24193 4.7593C1.92619 4.57683 1.52243 4.68519 1.34013 5.00092C1.15784 5.31666 1.26602 5.72042 1.58176 5.90272L8.67965 10.0007L1.58079 14.0993C1.26505 14.2816 1.15687 14.6854 1.33916 15.0011C1.46143 15.2129 1.68333 15.3313 1.91149 15.3313C2.02354 15.3313 2.137 15.3028 2.24096 15.2427L9.33938 11.1445V19.3398C9.33938 19.7044 9.63496 20 9.99955 20C10.3641 20 10.6597 19.7044 10.6597 19.3398V11.1439L17.7591 15.2427C17.8631 15.3028 17.9766 15.3313 18.0886 15.3313C18.3167 15.3313 18.5386 15.2128 18.6609 15.0011C18.8432 14.6853 18.735 14.2816 18.4192 14.0993Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
             <label
               class="e1nbkkrq-el-label"
               for="test-static-id"
@@ -924,21 +1104,40 @@ Object {
           <div
             class="e1979rmu-el-input-group"
           >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              name="summary"
+              placeholder="A short strapline summary for your app listing. Must be between 50 and 150 characters"
+            />
+            <span
+              class="e1vxext9-el-intent-danger ej9yrfo-el-icon"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 20 20"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M18.4192 14.0993L11.3203 10.0007L18.4182 5.90272C18.734 5.72042 18.8421 5.31666 18.6598 5.00092C18.4775 4.68519 18.0738 4.57692 17.758 4.7593L10.6596 8.85755V0.660171C10.6596 0.29558 10.364 0 9.99946 0C9.63487 0 9.33929 0.29558 9.33929 0.660171V8.85694L2.24193 4.7593C1.92619 4.57683 1.52243 4.68519 1.34013 5.00092C1.15784 5.31666 1.26602 5.72042 1.58176 5.90272L8.67965 10.0007L1.58079 14.0993C1.26505 14.2816 1.15687 14.6854 1.33916 15.0011C1.46143 15.2129 1.68333 15.3313 1.91149 15.3313C2.02354 15.3313 2.137 15.3028 2.24096 15.2427L9.33938 11.1445V19.3398C9.33938 19.7044 9.63496 20 9.99955 20C10.3641 20 10.6597 19.7044 10.6597 19.3398V11.1439L17.7591 15.2427C17.8631 15.3028 17.9766 15.3313 18.0886 15.3313C18.3167 15.3313 18.5386 15.2128 18.6609 15.0011C18.8432 14.6853 18.735 14.2816 18.4192 14.0993Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
             <label
               class="e1nbkkrq-el-label"
+              for="test-static-id"
             >
               Summary
             </label>
-            <textarea
-              class="e16rclfx-el-text-area"
-              placeholder="A short strapline summary for your app listing. Must be between 50 and 150 characters"
-            />
+            <p
+              class="e19twfs3-el-input-error"
+            >
+              An Error
+            </p>
           </div>
-          <p
-            class="e19twfs3-el-input-error"
-          >
-            An Error
-          </p>
         </div>
         <div
           class="ep31he9-el-input-wrap-full"
@@ -1022,11 +1221,6 @@ Object {
     <div
       class="ecbqyq6-el-snack-holder"
     />
-    <h2
-      class="e1byern-el-subtitle"
-    >
-      App Listing
-    </h2>
     <p
       class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
     >
@@ -1049,6 +1243,27 @@ Object {
       class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
     >
       <div
+        class="ep31he9-el-input-wrap-full"
+      >
+        <div
+          class="e1979rmu-el-input-group"
+        >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            name="name"
+            placeholder="The name of your app as it will appear to users"
+            type="text"
+          />
+          <label
+            class="e1nbkkrq-el-label"
+            for="test-static-id"
+          >
+            Name
+          </label>
+        </div>
+      </div>
+      <div
         class="e1ksxx4v-el-input-wrap"
       >
         <div
@@ -1061,6 +1276,22 @@ Object {
             placeholder="The contact to your support team if your users have a problem"
             type="email"
           />
+          <span
+            class="e1vxext9-el-intent-danger ej9yrfo-el-icon"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 20 20"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18.4192 14.0993L11.3203 10.0007L18.4182 5.90272C18.734 5.72042 18.8421 5.31666 18.6598 5.00092C18.4775 4.68519 18.0738 4.57692 17.758 4.7593L10.6596 8.85755V0.660171C10.6596 0.29558 10.364 0 9.99946 0C9.63487 0 9.33929 0.29558 9.33929 0.660171V8.85694L2.24193 4.7593C1.92619 4.57683 1.52243 4.68519 1.34013 5.00092C1.15784 5.31666 1.26602 5.72042 1.58176 5.90272L8.67965 10.0007L1.58079 14.0993C1.26505 14.2816 1.15687 14.6854 1.33916 15.0011C1.46143 15.2129 1.68333 15.3313 1.91149 15.3313C2.02354 15.3313 2.137 15.3028 2.24096 15.2427L9.33938 11.1445V19.3398C9.33938 19.7044 9.63496 20 9.99955 20C10.3641 20 10.6597 19.7044 10.6597 19.3398V11.1439L17.7591 15.2427C17.8631 15.3028 17.9766 15.3313 18.0886 15.3313C18.3167 15.3313 18.5386 15.2128 18.6609 15.0011C18.8432 14.6853 18.735 14.2816 18.4192 14.0993Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
           <label
             class="e1nbkkrq-el-label"
             for="test-static-id"
@@ -1087,6 +1318,22 @@ Object {
             placeholder="Should one of our developers need to contact you about your app"
             type="text"
           />
+          <span
+            class="e1vxext9-el-intent-danger ej9yrfo-el-icon"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 20 20"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18.4192 14.0993L11.3203 10.0007L18.4182 5.90272C18.734 5.72042 18.8421 5.31666 18.6598 5.00092C18.4775 4.68519 18.0738 4.57692 17.758 4.7593L10.6596 8.85755V0.660171C10.6596 0.29558 10.364 0 9.99946 0C9.63487 0 9.33929 0.29558 9.33929 0.660171V8.85694L2.24193 4.7593C1.92619 4.57683 1.52243 4.68519 1.34013 5.00092C1.15784 5.31666 1.26602 5.72042 1.58176 5.90272L8.67965 10.0007L1.58079 14.0993C1.26505 14.2816 1.15687 14.6854 1.33916 15.0011C1.46143 15.2129 1.68333 15.3313 1.91149 15.3313C2.02354 15.3313 2.137 15.3028 2.24096 15.2427L9.33938 11.1445V19.3398C9.33938 19.7044 9.63496 20 9.99955 20C10.3641 20 10.6597 19.7044 10.6597 19.3398V11.1439L17.7591 15.2427C17.8631 15.3028 17.9766 15.3313 18.0886 15.3313C18.3167 15.3313 18.5386 15.2128 18.6609 15.0011C18.8432 14.6853 18.735 14.2816 18.4192 14.0993Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
           <label
             class="e1nbkkrq-el-label"
             for="test-static-id"
@@ -1113,6 +1360,22 @@ Object {
             placeholder="Your company homepage. HTTP:// or HTTPS://"
             type="text"
           />
+          <span
+            class="e1vxext9-el-intent-danger ej9yrfo-el-icon"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 20 20"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18.4192 14.0993L11.3203 10.0007L18.4182 5.90272C18.734 5.72042 18.8421 5.31666 18.6598 5.00092C18.4775 4.68519 18.0738 4.57692 17.758 4.7593L10.6596 8.85755V0.660171C10.6596 0.29558 10.364 0 9.99946 0C9.63487 0 9.33929 0.29558 9.33929 0.660171V8.85694L2.24193 4.7593C1.92619 4.57683 1.52243 4.68519 1.34013 5.00092C1.15784 5.31666 1.26602 5.72042 1.58176 5.90272L8.67965 10.0007L1.58079 14.0993C1.26505 14.2816 1.15687 14.6854 1.33916 15.0011C1.46143 15.2129 1.68333 15.3313 1.91149 15.3313C2.02354 15.3313 2.137 15.3028 2.24096 15.2427L9.33938 11.1445V19.3398C9.33938 19.7044 9.63496 20 9.99955 20C10.3641 20 10.6597 19.7044 10.6597 19.3398V11.1439L17.7591 15.2427C17.8631 15.3028 17.9766 15.3313 18.0886 15.3313C18.3167 15.3313 18.5386 15.2128 18.6609 15.0011C18.8432 14.6853 18.735 14.2816 18.4192 14.0993Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
           <label
             class="e1nbkkrq-el-label"
             for="test-static-id"
@@ -1139,6 +1402,22 @@ Object {
             placeholder="The launch page for your app. HTTPS only other than for http://localhost"
             type="text"
           />
+          <span
+            class="e1vxext9-el-intent-danger ej9yrfo-el-icon"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 20 20"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18.4192 14.0993L11.3203 10.0007L18.4182 5.90272C18.734 5.72042 18.8421 5.31666 18.6598 5.00092C18.4775 4.68519 18.0738 4.57692 17.758 4.7593L10.6596 8.85755V0.660171C10.6596 0.29558 10.364 0 9.99946 0C9.63487 0 9.33929 0.29558 9.33929 0.660171V8.85694L2.24193 4.7593C1.92619 4.57683 1.52243 4.68519 1.34013 5.00092C1.15784 5.31666 1.26602 5.72042 1.58176 5.90272L8.67965 10.0007L1.58079 14.0993C1.26505 14.2816 1.15687 14.6854 1.33916 15.0011C1.46143 15.2129 1.68333 15.3313 1.91149 15.3313C2.02354 15.3313 2.137 15.3028 2.24096 15.2427L9.33938 11.1445V19.3398C9.33938 19.7044 9.63496 20 9.99955 20C10.3641 20 10.6597 19.7044 10.6597 19.3398V11.1439L17.7591 15.2427C17.8631 15.3028 17.9766 15.3313 18.0886 15.3313C18.3167 15.3313 18.5386 15.2128 18.6609 15.0011C18.8432 14.6853 18.735 14.2816 18.4192 14.0993Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
           <label
             class="e1nbkkrq-el-label"
             for="test-static-id"
@@ -1165,6 +1444,22 @@ Object {
             placeholder="URL to link to your Terms and Conditions"
             type="text"
           />
+          <span
+            class="e1vxext9-el-intent-danger ej9yrfo-el-icon"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 20 20"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18.4192 14.0993L11.3203 10.0007L18.4182 5.90272C18.734 5.72042 18.8421 5.31666 18.6598 5.00092C18.4775 4.68519 18.0738 4.57692 17.758 4.7593L10.6596 8.85755V0.660171C10.6596 0.29558 10.364 0 9.99946 0C9.63487 0 9.33929 0.29558 9.33929 0.660171V8.85694L2.24193 4.7593C1.92619 4.57683 1.52243 4.68519 1.34013 5.00092C1.15784 5.31666 1.26602 5.72042 1.58176 5.90272L8.67965 10.0007L1.58079 14.0993C1.26505 14.2816 1.15687 14.6854 1.33916 15.0011C1.46143 15.2129 1.68333 15.3313 1.91149 15.3313C2.02354 15.3313 2.137 15.3028 2.24096 15.2427L9.33938 11.1445V19.3398C9.33938 19.7044 9.63496 20 9.99955 20C10.3641 20 10.6597 19.7044 10.6597 19.3398V11.1439L17.7591 15.2427C17.8631 15.3028 17.9766 15.3313 18.0886 15.3313C18.3167 15.3313 18.5386 15.2128 18.6609 15.0011C18.8432 14.6853 18.735 14.2816 18.4192 14.0993Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
           <label
             class="e1nbkkrq-el-label"
             for="test-static-id"
@@ -1191,6 +1486,22 @@ Object {
             placeholder="URL to link to your Privacy Policy"
             type="text"
           />
+          <span
+            class="e1vxext9-el-intent-danger ej9yrfo-el-icon"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 20 20"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18.4192 14.0993L11.3203 10.0007L18.4182 5.90272C18.734 5.72042 18.8421 5.31666 18.6598 5.00092C18.4775 4.68519 18.0738 4.57692 17.758 4.7593L10.6596 8.85755V0.660171C10.6596 0.29558 10.364 0 9.99946 0C9.63487 0 9.33929 0.29558 9.33929 0.660171V8.85694L2.24193 4.7593C1.92619 4.57683 1.52243 4.68519 1.34013 5.00092C1.15784 5.31666 1.26602 5.72042 1.58176 5.90272L8.67965 10.0007L1.58079 14.0993C1.26505 14.2816 1.15687 14.6854 1.33916 15.0011C1.46143 15.2129 1.68333 15.3313 1.91149 15.3313C2.02354 15.3313 2.137 15.3028 2.24096 15.2427L9.33938 11.1445V19.3398C9.33938 19.7044 9.63496 20 9.99955 20C10.3641 20 10.6597 19.7044 10.6597 19.3398V11.1439L17.7591 15.2427C17.8631 15.3028 17.9766 15.3313 18.0886 15.3313C18.3167 15.3313 18.5386 15.2128 18.6609 15.0011C18.8432 14.6853 18.735 14.2816 18.4192 14.0993Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
           <label
             class="e1nbkkrq-el-label"
             for="test-static-id"
@@ -1217,6 +1528,22 @@ Object {
             placeholder="URL to link to your Pricing Info"
             type="text"
           />
+          <span
+            class="e1vxext9-el-intent-danger ej9yrfo-el-icon"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 20 20"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18.4192 14.0993L11.3203 10.0007L18.4182 5.90272C18.734 5.72042 18.8421 5.31666 18.6598 5.00092C18.4775 4.68519 18.0738 4.57692 17.758 4.7593L10.6596 8.85755V0.660171C10.6596 0.29558 10.364 0 9.99946 0C9.63487 0 9.33929 0.29558 9.33929 0.660171V8.85694L2.24193 4.7593C1.92619 4.57683 1.52243 4.68519 1.34013 5.00092C1.15784 5.31666 1.26602 5.72042 1.58176 5.90272L8.67965 10.0007L1.58079 14.0993C1.26505 14.2816 1.15687 14.6854 1.33916 15.0011C1.46143 15.2129 1.68333 15.3313 1.91149 15.3313C2.02354 15.3313 2.137 15.3028 2.24096 15.2427L9.33938 11.1445V19.3398C9.33938 19.7044 9.63496 20 9.99955 20C10.3641 20 10.6597 19.7044 10.6597 19.3398V11.1439L17.7591 15.2427C17.8631 15.3028 17.9766 15.3313 18.0886 15.3313C18.3167 15.3313 18.5386 15.2128 18.6609 15.0011C18.8432 14.6853 18.735 14.2816 18.4192 14.0993Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
           <label
             class="e1nbkkrq-el-label"
             for="test-static-id"
@@ -1242,6 +1569,22 @@ Object {
             name="isFree"
             type="checkbox"
           />
+          <span
+            class="e1vxext9-el-intent-danger ej9yrfo-el-icon"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 20 20"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18.4192 14.0993L11.3203 10.0007L18.4182 5.90272C18.734 5.72042 18.8421 5.31666 18.6598 5.00092C18.4775 4.68519 18.0738 4.57692 17.758 4.7593L10.6596 8.85755V0.660171C10.6596 0.29558 10.364 0 9.99946 0C9.63487 0 9.33929 0.29558 9.33929 0.660171V8.85694L2.24193 4.7593C1.92619 4.57683 1.52243 4.68519 1.34013 5.00092C1.15784 5.31666 1.26602 5.72042 1.58176 5.90272L8.67965 10.0007L1.58079 14.0993C1.26505 14.2816 1.15687 14.6854 1.33916 15.0011C1.46143 15.2129 1.68333 15.3313 1.91149 15.3313C2.02354 15.3313 2.137 15.3028 2.24096 15.2427L9.33938 11.1445V19.3398C9.33938 19.7044 9.63496 20 9.99955 20C10.3641 20 10.6597 19.7044 10.6597 19.3398V11.1439L17.7591 15.2427C17.8631 15.3028 17.9766 15.3313 18.0886 15.3313C18.3167 15.3313 18.5386 15.2128 18.6609 15.0011C18.8432 14.6853 18.735 14.2816 18.4192 14.0993Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
           <label
             class="e1nbkkrq-el-label"
             for="test-static-id"
@@ -1293,21 +1636,40 @@ Object {
         <div
           class="e1979rmu-el-input-group"
         >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            name="summary"
+            placeholder="A short strapline summary for your app listing. Must be between 50 and 150 characters"
+          />
+          <span
+            class="e1vxext9-el-intent-danger ej9yrfo-el-icon"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 20 20"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18.4192 14.0993L11.3203 10.0007L18.4182 5.90272C18.734 5.72042 18.8421 5.31666 18.6598 5.00092C18.4775 4.68519 18.0738 4.57692 17.758 4.7593L10.6596 8.85755V0.660171C10.6596 0.29558 10.364 0 9.99946 0C9.63487 0 9.33929 0.29558 9.33929 0.660171V8.85694L2.24193 4.7593C1.92619 4.57683 1.52243 4.68519 1.34013 5.00092C1.15784 5.31666 1.26602 5.72042 1.58176 5.90272L8.67965 10.0007L1.58079 14.0993C1.26505 14.2816 1.15687 14.6854 1.33916 15.0011C1.46143 15.2129 1.68333 15.3313 1.91149 15.3313C2.02354 15.3313 2.137 15.3028 2.24096 15.2427L9.33938 11.1445V19.3398C9.33938 19.7044 9.63496 20 9.99955 20C10.3641 20 10.6597 19.7044 10.6597 19.3398V11.1439L17.7591 15.2427C17.8631 15.3028 17.9766 15.3313 18.0886 15.3313C18.3167 15.3313 18.5386 15.2128 18.6609 15.0011C18.8432 14.6853 18.735 14.2816 18.4192 14.0993Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
           <label
             class="e1nbkkrq-el-label"
+            for="test-static-id"
           >
             Summary
           </label>
-          <textarea
-            class="e16rclfx-el-text-area"
-            placeholder="A short strapline summary for your app listing. Must be between 50 and 150 characters"
-          />
+          <p
+            class="e19twfs3-el-input-error"
+          >
+            An Error
+          </p>
         </div>
-        <p
-          class="e19twfs3-el-input-error"
-        >
-          An Error
-        </p>
       </div>
       <div
         class="ep31he9-el-input-wrap-full"

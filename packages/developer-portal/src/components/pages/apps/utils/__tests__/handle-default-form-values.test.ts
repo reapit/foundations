@@ -5,10 +5,9 @@ describe('handleSetDefaultFormValues', () => {
   it('should handle setting form values with a completed model', () => {
     const setAppEditForm = jest.fn()
     const appDetail = mockAppDetailModel
-    const setAppTabsState = jest.fn()
     const developerId = 'MOCK_DEVELOPER_ID'
 
-    const curried = handleSetDefaultFormValues(setAppEditForm, appDetail, setAppTabsState, developerId)
+    const curried = handleSetDefaultFormValues(setAppEditForm, appDetail, developerId)
 
     curried()
 
@@ -42,24 +41,17 @@ describe('handleSetDefaultFormValues', () => {
       isListed: true,
       isAgencyCloudIntegrated: false,
       isPrivateApp: false,
-      isCompletingListing: true,
     }
 
     expect(setAppEditForm).toHaveBeenCalledWith(formValues)
-    expect(setAppTabsState).toHaveBeenCalledWith({
-      isAgencyCloudIntegrated: formValues.isAgencyCloudIntegrated,
-      isCompletingListing: formValues.isCompletingListing,
-      isListed: formValues.isListed,
-    })
   })
 
   it('should handle setting form values with an empty model', () => {
     const setAppEditForm = jest.fn()
     const appDetail = {}
-    const setAppTabsState = jest.fn()
     const developerId = 'MOCK_DEVELOPER_ID'
 
-    const curried = handleSetDefaultFormValues(setAppEditForm, appDetail, setAppTabsState, developerId)
+    const curried = handleSetDefaultFormValues(setAppEditForm, appDetail, developerId)
 
     curried()
 
@@ -93,14 +85,8 @@ describe('handleSetDefaultFormValues', () => {
       isListed: false,
       isAgencyCloudIntegrated: true,
       isPrivateApp: false,
-      isCompletingListing: false,
     }
 
     expect(setAppEditForm).toHaveBeenCalledWith(formValues)
-    expect(setAppTabsState).toHaveBeenCalledWith({
-      isAgencyCloudIntegrated: formValues.isAgencyCloudIntegrated,
-      isCompletingListing: formValues.isCompletingListing,
-      isListed: formValues.isListed,
-    })
   })
 })

@@ -11,9 +11,11 @@ Object {
       <div
         class="hadvzab-helper-content-container"
       >
-        <div>
+        <div
+          class="e6p05ya-el-fade-in"
+        >
           <h2
-            class="e1byern-el-subtitle"
+            class="eh96l6x-el-has-bold-text e1byern-el-subtitle"
           >
             AgencyCloud Functionality
           </h2>
@@ -46,9 +48,11 @@ Object {
             We do not support rendering of web applications that use a third party UI. You cannot simply link out from your integrated app, or render your pre-existing app in an iframe. Your app must be inegrated at an API level.
           </p>
         </div>
-        <div>
+        <div
+          class="e6p05ya-el-fade-in"
+        >
           <h2
-            class="e1byern-el-subtitle"
+            class="eh96l6x-el-has-bold-text e1byern-el-subtitle"
           >
             External Web Applications
           </h2>
@@ -63,9 +67,11 @@ Object {
             Your application could be authenticated against Foundations either on the client-side or server-side. If you choose client-side authentication at the next step however, should you wish to upgrade to a full AgencyCloud integration in the future, you can do this. Server side apps cannot be launched from within AgencyCloud.
           </p>
         </div>
-        <div>
+        <div
+          class="e6p05ya-el-fade-in"
+        >
           <h2
-            class="e1byern-el-subtitle"
+            class="eh96l6x-el-has-bold-text e1byern-el-subtitle"
           >
             Data Portal and Reporting Feeds
           </h2>
@@ -90,9 +96,11 @@ Object {
             You should also select this option if you require a permenent connection to our APIs; to pull data on demand as opposed to on the fly, when a user logs in to your application.
           </p>
         </div>
-        <div>
+        <div
+          class="e6p05ya-el-fade-in"
+        >
           <h2
-            class="e1byern-el-subtitle"
+            class="eh96l6x-el-has-bold-text e1byern-el-subtitle"
           >
             Website Feeds
           </h2>
@@ -111,9 +119,11 @@ Object {
             Your application will be read-only and by selecting this option, we will pre-populate the typical API permissions your integration will need for most website development.
           </p>
         </div>
-        <div>
+        <div
+          class="e6p05ya-el-fade-in"
+        >
           <h2
-            class="e1byern-el-subtitle"
+            class="eh96l6x-el-has-bold-text e1byern-el-subtitle"
           >
             Web Services Migrations
           </h2>
@@ -151,11 +161,13 @@ Object {
             to investigate which data sets and permissions you will need before getting started.
           </p>
         </div>
-        <div>
+        <div
+          class="e6p05ya-el-fade-in"
+        >
           <h2
-            class="e1byern-el-subtitle"
+            class="eh96l6x-el-has-bold-text e1byern-el-subtitle"
           >
-            Using Reapit Connect as an Itentity Provider
+            Using Reapit Connect as an Identity Provider
           </h2>
           <p
             class="e15ggth7-el-body-text"
@@ -177,9 +189,11 @@ Object {
             </a>
           </p>
         </div>
-        <div>
+        <div
+          class="e6p05ya-el-fade-in"
+        >
           <h2
-            class="e1byern-el-subtitle"
+            class="eh96l6x-el-has-bold-text e1byern-el-subtitle"
           >
             Other App Types
           </h2>
@@ -206,9 +220,11 @@ Object {
             </a>
           </p>
         </div>
-        <div>
+        <div
+          class="e6p05ya-el-fade-in"
+        >
           <h2
-            class="e1byern-el-subtitle"
+            class="eh96l6x-el-has-bold-text e1byern-el-subtitle"
           >
             Client Side Apps
           </h2>
@@ -243,9 +259,11 @@ Object {
              for quick start client-side development.
           </p>
         </div>
-        <div>
+        <div
+          class="e6p05ya-el-fade-in"
+        >
           <h2
-            class="e1byern-el-subtitle"
+            class="eh96l6x-el-has-bold-text e1byern-el-subtitle"
           >
             Server Side Apps
           </h2>
@@ -265,14 +283,16 @@ Object {
             Unlike Client Side applications, you do not have to re-direct to Reapit Connect, nor do your users have to log into your application. Because of this, the flow must only be used on the Server Side to ensure the Client Secret you will be issued at the end of this wizard is held in a secure location.
           </p>
         </div>
-        <div>
+        <div
+          class="e6p05ya-el-fade-in"
+        >
           <h2
-            class="e2dm5rh-el-has-disabled-text e1byern-el-subtitle"
+            class="eh96l6x-el-has-bold-text e1byern-el-subtitle"
           >
             Reapit Connect Redirects
           </h2>
           <p
-            class="e2dm5rh-el-has-disabled-text e15ggth7-el-body-text"
+            class="e15ggth7-el-body-text"
           >
             When using the Reapit Connect
              
@@ -282,7 +302,7 @@ Object {
              you need to register both a re-direct uri and a logout uri. The former is the location in your app, you want Reapit Connect to re-direct to after a successful user login, the latter, after a succesful logout. Only uris that are registered here will be accepted as a location by Reapit Connect although, you can register multiple locations with a comma separated list.
           </p>
           <p
-            class="e2dm5rh-el-has-disabled-text e15ggth7-el-body-text"
+            class="e15ggth7-el-body-text"
           >
             We have pre-populated the urls that you need when using our
              
@@ -292,14 +312,16 @@ Object {
              however, any localhost (for local development), or https uri is acceptable. Please note, the Uris must match those in your app exactly, inclusive of white space and trailing slashes.
           </p>
         </div>
-        <div>
+        <div
+          class="e6p05ya-el-fade-in"
+        >
           <h2
-            class="e2dm5rh-el-has-disabled-text e1byern-el-subtitle"
+            class="eh96l6x-el-has-bold-text e1byern-el-subtitle"
           >
             Permissions
           </h2>
           <p
-            class="e2dm5rh-el-has-disabled-text e15ggth7-el-body-text"
+            class="e15ggth7-el-body-text"
           >
             Permissions are registered as scopes against the access token you receive back from one of our Authentication Flows. They map 1:1 and on a read/write basis to endpoints in our Foundations REST API. As such, it is worth looking at the
              
@@ -314,7 +336,7 @@ Object {
             before procceeding, to investigate which permissions you think you will need.
           </p>
           <p
-            class="e2dm5rh-el-has-disabled-text e15ggth7-el-body-text"
+            class="e15ggth7-el-body-text"
           >
             For some flows we have pre-populated suggested permissions based on what you have said you wish to acheive with Foundations. These can be removed or added as you see fit and all permissions can be edited later if you wish to add or remove them before your app goes live.
           </p>
@@ -329,9 +351,11 @@ Object {
     <div
       class="hadvzab-helper-content-container"
     >
-      <div>
+      <div
+        class="e6p05ya-el-fade-in"
+      >
         <h2
-          class="e1byern-el-subtitle"
+          class="eh96l6x-el-has-bold-text e1byern-el-subtitle"
         >
           AgencyCloud Functionality
         </h2>
@@ -364,9 +388,11 @@ Object {
           We do not support rendering of web applications that use a third party UI. You cannot simply link out from your integrated app, or render your pre-existing app in an iframe. Your app must be inegrated at an API level.
         </p>
       </div>
-      <div>
+      <div
+        class="e6p05ya-el-fade-in"
+      >
         <h2
-          class="e1byern-el-subtitle"
+          class="eh96l6x-el-has-bold-text e1byern-el-subtitle"
         >
           External Web Applications
         </h2>
@@ -381,9 +407,11 @@ Object {
           Your application could be authenticated against Foundations either on the client-side or server-side. If you choose client-side authentication at the next step however, should you wish to upgrade to a full AgencyCloud integration in the future, you can do this. Server side apps cannot be launched from within AgencyCloud.
         </p>
       </div>
-      <div>
+      <div
+        class="e6p05ya-el-fade-in"
+      >
         <h2
-          class="e1byern-el-subtitle"
+          class="eh96l6x-el-has-bold-text e1byern-el-subtitle"
         >
           Data Portal and Reporting Feeds
         </h2>
@@ -408,9 +436,11 @@ Object {
           You should also select this option if you require a permenent connection to our APIs; to pull data on demand as opposed to on the fly, when a user logs in to your application.
         </p>
       </div>
-      <div>
+      <div
+        class="e6p05ya-el-fade-in"
+      >
         <h2
-          class="e1byern-el-subtitle"
+          class="eh96l6x-el-has-bold-text e1byern-el-subtitle"
         >
           Website Feeds
         </h2>
@@ -429,9 +459,11 @@ Object {
           Your application will be read-only and by selecting this option, we will pre-populate the typical API permissions your integration will need for most website development.
         </p>
       </div>
-      <div>
+      <div
+        class="e6p05ya-el-fade-in"
+      >
         <h2
-          class="e1byern-el-subtitle"
+          class="eh96l6x-el-has-bold-text e1byern-el-subtitle"
         >
           Web Services Migrations
         </h2>
@@ -469,11 +501,13 @@ Object {
           to investigate which data sets and permissions you will need before getting started.
         </p>
       </div>
-      <div>
+      <div
+        class="e6p05ya-el-fade-in"
+      >
         <h2
-          class="e1byern-el-subtitle"
+          class="eh96l6x-el-has-bold-text e1byern-el-subtitle"
         >
-          Using Reapit Connect as an Itentity Provider
+          Using Reapit Connect as an Identity Provider
         </h2>
         <p
           class="e15ggth7-el-body-text"
@@ -495,9 +529,11 @@ Object {
           </a>
         </p>
       </div>
-      <div>
+      <div
+        class="e6p05ya-el-fade-in"
+      >
         <h2
-          class="e1byern-el-subtitle"
+          class="eh96l6x-el-has-bold-text e1byern-el-subtitle"
         >
           Other App Types
         </h2>
@@ -524,9 +560,11 @@ Object {
           </a>
         </p>
       </div>
-      <div>
+      <div
+        class="e6p05ya-el-fade-in"
+      >
         <h2
-          class="e1byern-el-subtitle"
+          class="eh96l6x-el-has-bold-text e1byern-el-subtitle"
         >
           Client Side Apps
         </h2>
@@ -561,9 +599,11 @@ Object {
            for quick start client-side development.
         </p>
       </div>
-      <div>
+      <div
+        class="e6p05ya-el-fade-in"
+      >
         <h2
-          class="e1byern-el-subtitle"
+          class="eh96l6x-el-has-bold-text e1byern-el-subtitle"
         >
           Server Side Apps
         </h2>
@@ -583,14 +623,16 @@ Object {
           Unlike Client Side applications, you do not have to re-direct to Reapit Connect, nor do your users have to log into your application. Because of this, the flow must only be used on the Server Side to ensure the Client Secret you will be issued at the end of this wizard is held in a secure location.
         </p>
       </div>
-      <div>
+      <div
+        class="e6p05ya-el-fade-in"
+      >
         <h2
-          class="e2dm5rh-el-has-disabled-text e1byern-el-subtitle"
+          class="eh96l6x-el-has-bold-text e1byern-el-subtitle"
         >
           Reapit Connect Redirects
         </h2>
         <p
-          class="e2dm5rh-el-has-disabled-text e15ggth7-el-body-text"
+          class="e15ggth7-el-body-text"
         >
           When using the Reapit Connect
            
@@ -600,7 +642,7 @@ Object {
            you need to register both a re-direct uri and a logout uri. The former is the location in your app, you want Reapit Connect to re-direct to after a successful user login, the latter, after a succesful logout. Only uris that are registered here will be accepted as a location by Reapit Connect although, you can register multiple locations with a comma separated list.
         </p>
         <p
-          class="e2dm5rh-el-has-disabled-text e15ggth7-el-body-text"
+          class="e15ggth7-el-body-text"
         >
           We have pre-populated the urls that you need when using our
            
@@ -610,14 +652,16 @@ Object {
            however, any localhost (for local development), or https uri is acceptable. Please note, the Uris must match those in your app exactly, inclusive of white space and trailing slashes.
         </p>
       </div>
-      <div>
+      <div
+        class="e6p05ya-el-fade-in"
+      >
         <h2
-          class="e2dm5rh-el-has-disabled-text e1byern-el-subtitle"
+          class="eh96l6x-el-has-bold-text e1byern-el-subtitle"
         >
           Permissions
         </h2>
         <p
-          class="e2dm5rh-el-has-disabled-text e15ggth7-el-body-text"
+          class="e15ggth7-el-body-text"
         >
           Permissions are registered as scopes against the access token you receive back from one of our Authentication Flows. They map 1:1 and on a read/write basis to endpoints in our Foundations REST API. As such, it is worth looking at the
            
@@ -632,7 +676,7 @@ Object {
           before procceeding, to investigate which permissions you think you will need.
         </p>
         <p
-          class="e2dm5rh-el-has-disabled-text e15ggth7-el-body-text"
+          class="e15ggth7-el-body-text"
         >
           For some flows we have pre-populated suggested permissions based on what you have said you wish to acheive with Foundations. These can be removed or added as you see fit and all permissions can be edited later if you wish to add or remove them before your app goes live.
         </p>

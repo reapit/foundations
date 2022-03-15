@@ -3,6 +3,7 @@ import { useHistory } from 'react-router'
 import ErrorBoundary from '../../../hocs/error-boundary'
 import Routes from '../../../../constants/routes'
 import {
+  elFadeIn,
   elHFull,
   elMb8,
   FlexContainer,
@@ -24,6 +25,7 @@ import AppInstallationsPage from '../installations'
 import { useAppState } from '../state/use-app-state'
 import { getCurrentPage } from '../utils/get-current-page'
 import { Helper } from './helper'
+import { cx } from '@linaria/core'
 
 export const AppsPage: FC = () => {
   const history = useHistory()
@@ -38,16 +40,23 @@ export const AppsPage: FC = () => {
   return (
     <ErrorBoundary>
       <FlexContainer isFlexAuto>
-        {appsLoading ? (
-          <Loader fullPage />
-        ) : apps && !apps.totalCount && !isAppsWelcome && !isAppsNew ? (
+        {appsLoading || !apps ? (
+          <>
+            <SecondaryNavContainer>
+              <Title>Apps</Title>
+            </SecondaryNavContainer>
+            <PageContainer className={elHFull}>
+              <Loader />
+            </PageContainer>
+          </>
+        ) : !apps.totalCount && !isAppsWelcome && isAppsList ? (
           <Redirect to={Routes.APPS_WELCOME} />
-        ) : apps ? (
+        ) : (
           <>
             {Boolean(apps.totalCount) && (
               <SecondaryNavContainer>
                 <Title>Apps</Title>
-                <SecondaryNav className={elMb8}>
+                <SecondaryNav className={cx(elMb8, elFadeIn)}>
                   <SecondaryNavItem onClick={navigate(history, Routes.APPS)} active={isAppsList}>
                     My Apps
                   </SecondaryNavItem>
@@ -57,7 +66,7 @@ export const AppsPage: FC = () => {
                         App Details
                       </SecondaryNavItem>
                       <SecondaryNavItem onClick={navigate(history, `${Routes.APPS}/${appId}/edit`)} active={isAppsEdit}>
-                        Edit Details
+                        Edit App
                       </SecondaryNavItem>
                       <SecondaryNavItem
                         onClick={navigate(history, `${Routes.APPS}/${appId}/installations`)}
@@ -85,7 +94,7 @@ export const AppsPage: FC = () => {
               </Switch>
             </PageContainer>
           </>
-        ) : null}
+        )}
       </FlexContainer>
     </ErrorBoundary>
   )

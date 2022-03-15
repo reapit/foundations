@@ -10,8 +10,8 @@ export const elFadeIn = css`
       opacity: 1;
     }
   }
-  animation-duration: 1s;
+  animation-duration: 0.5s;
   animation-fill-mode: both;
-  animation-delay: 0.2s;
+  animation-delay: 0.1s;
   animation-name: fade-in;
 `

@@ -8,6 +8,7 @@ jest.mock('../../state/use-app-state')
 
 jest.mock('react-hook-form', () => ({
   Controller: ({ children }) => <div>{children}</div>,
+  useWatch: jest.fn(),
 }))
 
 describe('AppEditTabs', () => {

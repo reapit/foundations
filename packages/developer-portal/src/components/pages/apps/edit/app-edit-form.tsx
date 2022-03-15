@@ -1,13 +1,12 @@
 import React, { Dispatch, FC, SetStateAction, useEffect } from 'react'
-import { AppTabsState, AppUriParams, useAppState } from '../state/use-app-state'
+import { AppSavingParams, AppUriParams, useAppState } from '../state/use-app-state'
 import { handleSetAppId } from '../utils/handle-set-app-id'
 import { useParams } from 'react-router-dom'
 import { AppEditTab, AppEditTabs } from './edit-page-tabs'
 import { AppEditFormSchema } from './form-schema/form-fields'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { appEditValidationSchema } from './form-schema/validation-schema'
-import { useForm, UseFormGetValues, UseFormHandleSubmit, useWatch } from 'react-hook-form'
-import { listingInCompletion } from '../utils/listing-in-completion'
+import { FieldNamesMarkedBoolean, useForm, UseFormHandleSubmit, UseFormSetValue } from 'react-hook-form'
 import { SendFunction, UpdateReturnTypeEnum, useReapitUpdate } from '@reapit/utils-react'
 import { AppDetailModel, CreateAppRevisionModel } from '@reapit/foundations-ts-definitions'
 import { UpdateActionNames, updateActions } from '@reapit/utils-common'
@@ -16,82 +15,82 @@ import { formatFormValues } from '../utils/format-form-values'
 import { History } from 'history'
 import Routes from '../../../../constants/routes'
 import { useHistory } from 'react-router'
+import { handleSetIncompletedFields } from '../utils/validate-schema'
 
 export interface AppEditFormProps {
   tab: AppEditTab
 }
 
+export const handleUnsavedChanges =
+  (
+    dirtyFields: FieldNamesMarkedBoolean<AppEditFormSchema>,
+    setAppUnsavedFields: Dispatch<SetStateAction<FieldNamesMarkedBoolean<AppEditFormSchema>>>,
+  ) =>
+  () => {
+    if (dirtyFields) {
+      setAppUnsavedFields(dirtyFields)
+    }
+  }
+
+export const handleSetRevalidating =
+  (
+    setValue: UseFormSetValue<AppEditFormSchema>,
+    setAppEditSaving: Dispatch<SetStateAction<AppSavingParams>>,
+    appEditSaving: AppSavingParams,
+  ) =>
+  () => {
+    if (appEditSaving.isRevalidating) {
+      setValue('isListed', appEditSaving.isListed, { shouldValidate: true })
+
+      setAppEditSaving({
+        ...appEditSaving,
+        isRevalidating: false,
+        isSaving: true,
+      })
+    }
+  }
+
 export const handleSetAppSubmitting =
   (
-    setAppEditSaving: Dispatch<SetStateAction<boolean>>,
-    appEditSaving: boolean,
+    setAppEditSaving: Dispatch<SetStateAction<AppSavingParams>>,
+    appEditSaving: AppSavingParams,
     handleSubmit: UseFormHandleSubmit<AppEditFormSchema>,
     createAppRevision: SendFunction<CreateAppRevisionModel, boolean | AppDetailModel>,
     history: History,
     appId: string,
     appsRefresh: () => void,
     appsDetailRefresh: () => void,
+    appRefreshRevisions: () => void,
   ) =>
   () => {
-    if (appEditSaving) {
+    if (appEditSaving.isSaving) {
       handleSubmit(async (values) => {
         const formattedModel = formatFormValues(values)
 
         const appRevision = await createAppRevision(formattedModel)
 
-        setAppEditSaving(false)
+        setAppEditSaving({
+          isListed: values.isListed,
+          isRevalidating: false,
+          isSaving: false,
+        })
 
         if (appRevision) {
-          appsRefresh()
           appsDetailRefresh()
+          appRefreshRevisions()
+          appsRefresh()
           history.push(`${Routes.APPS}/${appId}`)
         }
       })()
     }
   }
 
-export const handleSetTabsState =
-  (
-    setAppTabsState: Dispatch<SetStateAction<AppTabsState>>,
-    getValues: UseFormGetValues<AppEditFormSchema>,
-    isCompletingListing: boolean,
-    isAgencyCloudIntegrated: boolean,
-    isListed: boolean,
-  ) =>
-  () => {
-    setAppTabsState((currentState: AppTabsState) => {
-      if (currentState?.isAgencyCloudIntegrated !== isAgencyCloudIntegrated) {
-        return {
-          ...currentState,
-          isAgencyCloudIntegrated,
-        }
-      }
-
-      if (currentState?.isCompletingListing !== isCompletingListing) {
-        const hasCompletedValues = listingInCompletion(getValues())
-        return {
-          ...currentState,
-          isCompletingListing: !hasCompletedValues && isCompletingListing,
-        }
-      }
-
-      if (currentState?.isListed !== isListed) {
-        return {
-          ...currentState,
-          isListed,
-        }
-      }
-
-      return currentState
-    })
-  }
-
 export const AppEditForm: FC<AppEditFormProps> = ({ tab }) => {
   const { appId } = useParams<AppUriParams>()
-  const { appEditState, setAppId, setAppTabsState, appsDataState } = useAppState()
+  const { appEditState, setAppId, appsDataState } = useAppState()
   const history = useHistory()
-  const { appEditForm, setAppEditSaving, appEditSaving } = appEditState
-  const { appsRefresh, appsDetailRefresh } = appsDataState
+  const { appEditForm, setAppEditSaving, appEditSaving, setAppUnsavedFields, setIncompleteFields } = appEditState
+  const { appsRefresh, appsDetailRefresh, appRefreshRevisions } = appsDataState
 
   const [, , createAppRevision] = useReapitUpdate<CreateAppRevisionModel, AppDetailModel>({
     reapitConnectBrowserSession,
@@ -108,7 +107,8 @@ export const AppEditForm: FC<AppEditFormProps> = ({ tab }) => {
     handleSubmit,
     control,
     getValues,
-    formState: { errors },
+    setValue,
+    formState: { errors, dirtyFields },
   } = useForm<AppEditFormSchema>({
     resolver: yupResolver(appEditValidationSchema),
     delayError: 500,
@@ -119,27 +119,14 @@ export const AppEditForm: FC<AppEditFormProps> = ({ tab }) => {
     },
   })
 
-  const isCompletingListing = useWatch({
-    control,
-    name: 'isCompletingListing',
-  })
-
-  const isAgencyCloudIntegrated = useWatch({
-    control,
-    name: 'isAgencyCloudIntegrated',
-  })
-
-  const isListed = useWatch({
-    control,
-    name: 'isListed',
-  })
-
-  useEffect(handleSetTabsState(setAppTabsState, getValues, isCompletingListing, isAgencyCloudIntegrated, isListed), [
-    isCompletingListing,
-    isAgencyCloudIntegrated,
-    isListed,
-  ])
   useEffect(handleSetAppId(appId, setAppId), [appId])
+
+  useEffect(handleUnsavedChanges(dirtyFields, setAppUnsavedFields), [dirtyFields])
+
+  useEffect(handleSetIncompletedFields(getValues(), setIncompleteFields), [dirtyFields])
+
+  useEffect(handleSetRevalidating(setValue, setAppEditSaving, appEditSaving), [appEditSaving])
+
   useEffect(
     handleSetAppSubmitting(
       setAppEditSaving,
@@ -150,6 +137,7 @@ export const AppEditForm: FC<AppEditFormProps> = ({ tab }) => {
       appId,
       appsRefresh,
       appsDetailRefresh,
+      appRefreshRevisions,
     ),
     [appEditSaving],
   )

@@ -71,7 +71,7 @@ export const AppsWelcomePage: FC = () => {
                   Having first watched the video, you may want to have a deep dive into the documentation before
                   creating your first app.
                 </BodyText>
-                <div className={elMb11}>
+                <div className={elMb7}>
                   <BodyText hasGreyText hasNoMargin>
                     If you get stuck at any point when working with Foundations, make the docs your first port of call.
                   </BodyText>
@@ -98,7 +98,7 @@ export const AppsWelcomePage: FC = () => {
                     to serve a website.
                   </BodyText>
                 </FlexContainer>
-                <div className={elMb11}>
+                <div className={elMb7}>
                   <BodyText hasGreyText hasNoMargin>
                     In all cases, you will need to use the app creation wizard that will walk you through creating your
                     app, explain key concepts along the way and link out to our documentation where relevant.
