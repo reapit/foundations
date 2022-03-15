@@ -42,6 +42,7 @@ export type GetPropertiesArgs = {
   rentTo?: number
   rentFrequency?: number
   internetAdvertising?: boolean
+  officeId?: string[]
 }
 
 // api return type

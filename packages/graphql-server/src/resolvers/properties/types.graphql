@@ -345,6 +345,7 @@ type Query {
     rentFrom: Float
     rentTo: Float
     rentFrequency: [String!]
+    officeId: [String!]
     internetAdvertising: Boolean
   ): PagedResultPropertyModel!
 
