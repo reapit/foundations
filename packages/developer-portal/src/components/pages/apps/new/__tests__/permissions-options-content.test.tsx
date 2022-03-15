@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react'
 import React from 'react'
-import { UseFormGetValues } from 'react-hook-form'
+import { DeepMap, FieldError, UseFormGetValues } from 'react-hook-form'
 import { CreateAppFormSchema } from '..'
 import { handleSetOptions, PermissionsOptionsContent, prepareOptions } from '../permissions-options-content'
 
@@ -21,13 +21,21 @@ const getValues = jest.fn(() => ({
   logoutUris: 'some-logout-uri',
 })) as unknown as UseFormGetValues<CreateAppFormSchema>
 
+const errors = {
+  scopes: {
+    message: 'Some error',
+  },
+} as DeepMap<Partial<CreateAppFormSchema>, FieldError>
+
 describe('PermissionsOptionsContent', () => {
   it('should match a snapshot', () => {
-    expect(render(<PermissionsOptionsContent register={jest.fn()} getValues={getValues} />)).toMatchSnapshot()
+    expect(
+      render(<PermissionsOptionsContent register={jest.fn()} getValues={getValues} errors={errors} />),
+    ).toMatchSnapshot()
   })
 
   it('should handle last step on render', () => {
-    render(<PermissionsOptionsContent register={jest.fn()} getValues={getValues} />)
+    render(<PermissionsOptionsContent register={jest.fn()} getValues={getValues} errors={errors} />)
 
     expect(mockSetAppWizardState.mock.calls[0][0]()).toEqual({
       lastStep: true,

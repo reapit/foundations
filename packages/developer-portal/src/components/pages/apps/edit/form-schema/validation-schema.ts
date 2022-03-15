@@ -51,7 +51,10 @@ export const appEditValidationSchema = object().shape({
       .required(FIELD_REQUIRED)
       .matches(telephoneRegex, telephone.errorMessage)
       .max(20, MAXIMUM_CHARACTER_LENGTH(20)),
-    otherwise: string().notRequired(),
+    otherwise: string()
+      .trim()
+      .matches(telephoneRegex, { excludeEmptyString: true, message: telephone.errorMessage })
+      .max(20, MAXIMUM_CHARACTER_LENGTH(20)),
   }),
 
   [supportEmail.name]: string()
@@ -59,7 +62,7 @@ export const appEditValidationSchema = object().shape({
     .when(isListed.name, {
       is: true,
       then: string().trim().required(FIELD_REQUIRED).matches(emailRegex, FIELD_WRONG_EMAIL_FORMAT),
-      otherwise: string().notRequired(),
+      otherwise: string().trim().matches(emailRegex, { excludeEmptyString: true, message: FIELD_WRONG_EMAIL_FORMAT }),
     }),
 
   [launchUri.name]: string()
@@ -115,7 +118,16 @@ export const appEditValidationSchema = object().shape({
         .required(FIELD_REQUIRED)
         .min(150, errorMessages.BETWEEN_MIN_MAX_CHARACTER_LENGTH(150, 1500))
         .max(1500, errorMessages.BETWEEN_MIN_MAX_CHARACTER_LENGTH(150, 1500)),
-      otherwise: string().notRequired(),
+      otherwise: string()
+        .trim()
+        .test({
+          name: 'isValidSummary',
+          message: errorMessages.BETWEEN_MIN_MAX_CHARACTER_LENGTH(50, 150),
+          test: (value) => {
+            if (!value) return true
+            return value.length >= 150 && value.length <= 1500
+          },
+        }),
     }),
 
   [summary.name]: string()
@@ -127,7 +139,16 @@ export const appEditValidationSchema = object().shape({
         .required(FIELD_REQUIRED)
         .min(50, errorMessages.BETWEEN_MIN_MAX_CHARACTER_LENGTH(50, 150))
         .max(150, errorMessages.BETWEEN_MIN_MAX_CHARACTER_LENGTH(50, 150)),
-      otherwise: string().notRequired(),
+      otherwise: string()
+        .trim()
+        .test({
+          name: 'isValidSummary',
+          message: errorMessages.BETWEEN_MIN_MAX_CHARACTER_LENGTH(50, 150),
+          test: (value) => {
+            if (!value) return true
+            return value.length >= 50 && value.length <= 150
+          },
+        }),
     }),
 
   [authFlow.name]: string().trim().required(FIELD_REQUIRED).oneOf([USER_SESSION, CLIENT_SECRET]),

@@ -57,6 +57,11 @@ Object {
             class="e12c6sou-el-multi-select-selected"
           />
         </div>
+        <p
+          class="e19twfs3-el-input-error"
+        >
+          Some error
+        </p>
       </div>
     </div>
   </body>,
@@ -113,6 +118,11 @@ Object {
           class="e12c6sou-el-multi-select-selected"
         />
       </div>
+      <p
+        class="e19twfs3-el-input-error"
+      >
+        Some error
+      </p>
     </div>
   </div>,
   "debug": [Function],
