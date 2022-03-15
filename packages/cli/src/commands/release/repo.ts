@@ -3,17 +3,17 @@ import { AbstractCommand } from '../../abstract.command'
 import {
   PipelineModelInterface,
   PipelineRunnerModelInterface,
-} from '../../../../foundations-ts-definitions/deployment-schema'
+} from '@reapit/foundations-ts-definitions/deployment-schema'
 import ora from 'ora'
-import { REAPIT_PIPELINE_CONFIG_FILE } from './constants'
+import { REAPIT_PIPELINE_CONFIG_FILE } from '../pipeline/constants'
 import { Multispinner, SpinnerState } from '../../utils/multispinner'
 import chalk from 'chalk'
 
 @Command({
-  name: 'deploy-repo',
+  name: 'repo',
   description: 'Starts a deployment pulled from the remote repository',
 })
-export class DeployPipelineCommand extends AbstractCommand {
+export class RepoCommand extends AbstractCommand {
   async run() {
     const pipeline = await this.resolveConfigFile<PipelineModelInterface>(REAPIT_PIPELINE_CONFIG_FILE)
 
