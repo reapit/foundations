@@ -1,6 +1,6 @@
 import { Command, Param } from '../decorators'
 import { AbstractCommand } from '../abstract.command'
-import { exec } from 'child_process'
+import { spawn } from 'child_process'
 import ora, { Ora } from 'ora'
 import chalk from 'chalk'
 import fs from 'fs'
@@ -26,19 +26,20 @@ export class BootstrapCommand extends AbstractCommand {
   async createReactApp(spinner: Ora, name: string): Promise<void> {
     return new Promise((resolve, reject) => {
       spinner.start('Creating app with create-react-app (this might take a while)')
-      exec(
-        `npx create-react-app ${name} --template @reapit/cra-template-foundations`,
-        { maxBuffer: 1024 * 10000 },
-        (err) => {
-          if (err !== null) {
-            console.error(err)
-            spinner.stop()
-            return reject()
-          }
-          spinner.stop()
-          resolve()
-        },
-      )
+      const proc = spawn('npx', ['create-react-app', name, '--template', '@reapit/cra-template-foundations'], {
+        shell: true,
+      })
+      proc.stdout.on('data', (data) => console.log(data.toString()))
+      proc.stderr.on('data', (data) => console.log(data.toString()))
+
+      proc.on('error', (error) => {
+        console.error(error)
+        reject(error)
+      })
+
+      proc.on('close', () => {
+        resolve()
+      })
     })
   }
 
