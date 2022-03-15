@@ -53,7 +53,6 @@ export const HelperContentContainer = styled.div`
   height: calc(100vh - 8.25rem);
   overflow-y: auto;
   scrollbar-width: none;
-  /* padding-bottom: calc(100vh - 8.25rem); */
 
   &::-webkit-scrollbar {
     display: none;
