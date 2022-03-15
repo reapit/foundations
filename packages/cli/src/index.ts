@@ -10,7 +10,7 @@ import { HelpCommand } from './commands/help'
 import { ParentCommand } from './parent.command'
 import { PipelineCommand } from './commands/pipeline'
 import { resolveArgs } from './utils/resolveArgs'
-import { ReactStarterCommand } from './commands/react-starter'
+import { BootstrapCommand } from './commands/bootstrap'
 import { ReleaseCommand } from './commands/release'
 // TODO upcomment with @reapit/cli has been published
 // import { CheckVersionCommand } from './commands/check-version'
@@ -79,4 +79,4 @@ const boot = async (defaultCommand: AbstractCommand, commands: (AbstractCommand 
   }
 }
 
-boot(new IntroCommand(), [new ConfigCommand(), new PipelineCommand(), new ReactStarterCommand(), new ReleaseCommand()])
+boot(new IntroCommand(), [new ConfigCommand(), new PipelineCommand(), new BootstrapCommand(), new ReleaseCommand()])

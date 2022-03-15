@@ -1,5 +1,5 @@
-import { Command, Param } from './../decorators'
-import { AbstractCommand } from './../abstract.command'
+import { Command, Param } from '../decorators'
+import { AbstractCommand } from '../abstract.command'
 import { exec } from 'child_process'
 import ora, { Ora } from 'ora'
 import chalk from 'chalk'
@@ -12,10 +12,10 @@ type ReapitConfig = {
 }
 
 @Command({
-  name: 'bootstrap-react',
+  name: 'bootstrap',
   description: 'Creates a Reapit react app template setup to start a new project',
 })
-export class ReactStarterCommand extends AbstractCommand {
+export class BootstrapCommand extends AbstractCommand {
   async checkFolderExists(path: string, spinner: Ora): Promise<void | never> {
     if (fs.existsSync(path)) {
       spinner.fail(`Folder already exists [${path}]`)
@@ -40,6 +40,35 @@ export class ReactStarterCommand extends AbstractCommand {
         },
       )
     })
+  }
+
+  private async reactBoostrap(spinner: Ora, name: string, clientId: string, userPool: string) {
+    try {
+      await this.createReactApp(spinner, name)
+    } catch (e) {
+      console.error(e)
+      process.exit(1)
+    }
+
+    spinner.start('Replacing reapit config params')
+
+    await this.updateConfigValues(name, clientId, userPool)
+
+    spinner.info('Finished param config setup')
+
+    console.log(`
+
+
+    ${chalk.green('Happy hacking commrade!')}
+
+      cd into ${name} and start coding!
+
+      If you use visual studio, use \`code ${name}\`
+    `)
+  }
+
+  private async nodeBootstrap() {
+    this.writeLine(chalk.red('Unfortunately, bootstrap node has not yet been implemented'))
   }
 
   /**
@@ -69,6 +98,11 @@ export class ReactStarterCommand extends AbstractCommand {
     })
     name: string,
     @Param({
+      name: 'type',
+      required: true,
+    })
+    type: string,
+    @Param({
       name: 'clientId',
       required: true,
     })
@@ -83,27 +117,15 @@ export class ReactStarterCommand extends AbstractCommand {
 
     await this.checkFolderExists(name, spinner)
 
-    try {
-      await this.createReactApp(spinner, name)
-    } catch (e) {
-      console.error(e)
-      process.exit(1)
+    if (type === 'react') {
+      await this.reactBoostrap(spinner, name, clientId, userPool)
+      return
+    } else if (type === 'node') {
+      await this.nodeBootstrap()
+      return
     }
 
-    spinner.start('Replacing reapit config params')
-
-    await this.updateConfigValues(name, clientId, userPool)
-
-    spinner.info('Finished param config setup')
-
-    console.log(`
-
-
-    ${chalk.green('Happy hacking commrade!')}
-
-      cd into ${name} and start coding!
-
-      If you use visual studio, use \`code ${name}\`
-    `)
+    this.writeLine('Only [react] or [node] are accepted bootstrap types')
+    process.exit(127)
   }
 }
