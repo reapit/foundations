@@ -33,4 +33,7 @@ export enum PathNames {
   appRevision = '/marketplace/apps/{appId}/revisions',
   officeGroupId = '/organisations/organisations/{orgId}/officegroups/{groupId}',
   fileUpload = '/fileUpload',
+  terminateInstallation = '/marketplace/installations/{installationId}/terminate',
+  appRevisions = '/marketplace/apps/{appId}/revisions',
+  cancelRevision = '/marketplace/apps/{appId}/revisions/{revisionId}/reject',
 }

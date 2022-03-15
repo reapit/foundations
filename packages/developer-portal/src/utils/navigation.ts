@@ -24,7 +24,9 @@ export enum ExternalPages {
   reviewingAppDocs = 'https://foundations-documentation.reapit.cloud/listing-your-app/app-listing-review',
 }
 
-export const openNewPage = (uri: ExternalPages | string) => () => {
+export const openNewPage = (uri: ExternalPages | string) => (event?: MouseEvent) => {
+  event?.preventDefault()
+  event?.stopPropagation()
   window.open(uri, '_blank')
 }
 

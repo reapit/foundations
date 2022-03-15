@@ -49,12 +49,16 @@ export const StepFormContainer = styled.div`
 `
 
 export const HelperContentContainer = styled.div`
-  height: calc(100vh - 4rem);
+  margin-top: 4.25rem;
+  height: calc(100vh - 8.25rem);
   overflow-y: auto;
   scrollbar-width: none;
-  padding-bottom: calc(100vh - 4rem);
 
   &::-webkit-scrollbar {
     display: none;
   }
+`
+
+export const stepIsHidden = css`
+  display: none;
 `

@@ -1,136 +1,129 @@
-import React, { FC } from 'react'
+import React, { FC, MouseEvent } from 'react'
 import {
   BodyText,
-  ElToggleItem,
-  FormLayout,
-  InputGroup,
-  InputWrap,
-  InputWrapFull,
-  Label,
+  Button,
+  ButtonGroup,
+  ColSplit,
+  elMb10,
+  elMb6,
+  elMb7,
+  Grid,
+  Icon,
   Subtitle,
-  Toggle,
+  useModal,
 } from '@reapit/elements'
 import { AppEditTabsProps } from './edit-page-tabs'
-import { formFields } from './form-schema/form-fields'
-import { useAppState } from '../state/use-app-state'
-import { listingInCompletion } from '../utils/listing-in-completion'
-import Routes from '../../../../constants/routes'
-import { Link } from 'react-router-dom'
 import { ExternalPages, openNewPage } from '../../../../utils/navigation'
+import { IconContainer } from './__styles__'
+import { formFields } from './form-schema/form-fields'
+import { PermissionChip } from '../detail/__styles__'
+import { getAppStatus, getIntegrationType } from '../detail'
+import { useAppState } from '../state/use-app-state'
 
-export const GeneralTab: FC<AppEditTabsProps> = ({ register, errors, getValues }) => {
-  const { appsDataState, appId } = useAppState()
-  const formValues = getValues()
-  const hasCompletedValues = listingInCompletion(formValues)
-  const { name, isPrivateApp, limitToClientIds, isListed, isAgencyCloudIntegrated, isCompletingListing } = formFields
+export const handleOpenModal = (openModal: () => void) => (event: MouseEvent) => {
+  event.preventDefault()
+  event.stopPropagation()
+  openModal()
+}
+
+export const GeneralTab: FC<AppEditTabsProps> = () => {
+  const { appsDataState, appEditState } = useAppState()
+  const { Modal, openModal, closeModal } = useModal()
+  const appDetail = appsDataState.appDetail ?? {}
+  const { appUnsavedFields, appIncompleteFields } = appEditState
 
   return (
     <>
-      <Subtitle>General Info</Subtitle>
-      <BodyText hasGreyText>
-        You already have supplied enough details to get started with our APIs and if you just want to develop your app,
-        you should visit the <Link to={`${Routes.APPS}/${appId}`}>App Detail page</Link> to obtain your Client Id.
-      </BodyText>
-      <BodyText hasGreyText>
-        This page is the starting point for completing your app listing, and initiating the approvals process for your
-        app to go live with customer data. For information on listing your app{' '}
-        <a onClick={openNewPage(ExternalPages.listingAppDocs)}>see here</a>. If you are looking for guidance on what we
-        look for when reviewing app, there is a dedicated page{' '}
-        <a onClick={openNewPage(ExternalPages.reviewingAppDocs)}>here.</a>
-      </BodyText>
-      <BodyText hasGreyText hasSectionMargin>
-        As you make changes, you should save your changes in the left hand side menu. You can do this as many times as
-        you like until your app is listed, or live in the AppMarket. From this point on, you will need to create
-        revisions to your app for our team to review. You can only have one live revision outstanding at any given time.
-      </BodyText>
-      <Subtitle>App Name</Subtitle>
-      <BodyText hasGreyText>
-        Your app name can be anything as long as it is unique in our database. By default we auto generate one from your
-        company name and some randomised words. You should change it to something memorable to you and your customers.
-      </BodyText>
-      <FormLayout hasMargin>
-        <InputWrapFull>
-          <InputGroup {...name} {...register('name')} errorMessage={errors?.name?.message} />
-        </InputWrapFull>
-      </FormLayout>
-      <Subtitle>App Listings</Subtitle>
-      <BodyText hasGreyText>
-        The toggles below will depend on how far you are progressing with the development of your app.
-      </BodyText>
-      <BodyText hasGreyText>
-        You should toggle &lsquo;Completing App Listing&rsquo; when you are ready to start completing the app listing
-        information. This will enable you to start completing it without the fields being required and you can save at
-        any point.
-      </BodyText>
-      {appsDataState.appDetail?.authFlow === 'authorisationCode' && (
-        <BodyText hasGreyText>
-          You should toggle &lsquo;AgencyCloud Integration&rsquo; only if you are intending your app to be launched as
-          replacement screen from within AgencyCloud
-        </BodyText>
-      )}
-      <BodyText hasGreyText>
-        You should toggle &lsquo;AppMarket Listed&rsquo; when you are ready to submit your app for review. This will
-        make all relevant fields required before saving and will notify our team that it is ready to review. When you
-        app has been reviewed and accepted, you can de-list your app by toggling again and saving the app.
-      </BodyText>
-      <BodyText hasGreyText>
-        You should toggle &lsquo;Private App&rsquo; if you only want your app to be private to a select group of
-        customers. You should enter their client codes from the installations table as a comma separated list.
-      </BodyText>
-      <FormLayout hasMargin>
-        <InputWrap>
-          {hasCompletedValues || formValues.isListed ? (
+      <Grid>
+        <ColSplit>
+          <IconContainer className={elMb10}>
+            <Icon icon="editAppInfographic" fontSize="8.75em" />
+          </IconContainer>
+          <Subtitle>Manage App Listing</Subtitle>
+          <BodyText hasGreyText>
+            This page is the starting point for completing your app listing, and initiating the approvals process for
+            your app to go live with customer data.
+          </BodyText>
+          <BodyText hasGreyText>
+            As an app developer, you need to provide us with a number of peices of information about your integration
+            and have it approved by our team, prior to going live with customer data. For apps that wish to integrate
+            with the AgencyCloud CRM, and be publically listed in the AppMarket, the approvals process is more involved
+            than for simple server-side or single customer private apps. Regardless of your target audience, you should
+            start to complete your app listing as soon as possible.
+          </BodyText>
+          <BodyText hasGreyText>
+            You can check the status of your app listing at any time by using the button below, prior to submitting for
+            approval.
+          </BodyText>
+          <Button chevronRight intent="critical" onClick={handleOpenModal(openModal)}>
+            Check Status
+          </Button>
+        </ColSplit>
+        <ColSplit>
+          <IconContainer className={elMb10}>
+            <Icon icon="docsInfographic" fontSize="8.75em" />
+          </IconContainer>
+          <Subtitle>App Listing Documentation</Subtitle>
+          <BodyText hasGreyText>
+            As you make changes, you should save your changes in the left hand side menu. You can do this as many times
+            as you like until your app is listed, or live in the AppMarket.
+          </BodyText>
+          <BodyText hasGreyText>
+            When you are ready for your app to be reviewed by a member of our team, click the &lsquo;Submit
+            Review&rsquo; button. If you are looking for guidance on what we look for when reviewing app, there is a
+            dedicated page <a onClick={openNewPage(ExternalPages.reviewingAppDocs)}>here.</a>
+          </BodyText>
+          <BodyText hasGreyText>
+            When your app is live, you will need to create revisions to your app for our team to review. You can only
+            have one live revision outstanding at any given time.
+          </BodyText>
+          <BodyText hasGreyText>
+            For guidlines on completing your app listing, visit the documentation link below before getting started.
+          </BodyText>
+          <Button intent="low" onClick={openNewPage(ExternalPages.listingAppDocs)}>
+            View Docs
+          </Button>
+        </ColSplit>
+      </Grid>
+      <Modal title="App Listing Status">
+        <div className={elMb7}>
+          <Subtitle hasNoMargin>Integration Type</Subtitle>
+          <BodyText hasGreyText>{getIntegrationType(appDetail)}</BodyText>
+          <Subtitle hasNoMargin>AppMarket Status</Subtitle>
+          <BodyText hasGreyText>{getAppStatus(appDetail)}</BodyText>
+          <Subtitle hasNoMargin>App Listing Status</Subtitle>
+          {appIncompleteFields.length ? (
+            <div className={elMb6}>
+              <BodyText hasGreyText>
+                The following fields in your app listing must be completed before you can submit for review:
+              </BodyText>
+              {appIncompleteFields.map((field) => (
+                <PermissionChip key={field}>{formFields[field].label}</PermissionChip>
+              ))}
+            </div>
+          ) : (
+            <BodyText hasGreyText>
+              Your app listing data is complete and you can submit for review at any time.
+            </BodyText>
+          )}
+          <Subtitle hasNoMargin>Unsaved Changes</Subtitle>
+          {Object.keys(appUnsavedFields).length ? (
             <>
-              <Label>{isCompletingListing.label}</Label>
-              <BodyText>App Listing Under Completion</BodyText>
+              <BodyText hasGreyText>The following fields have been edited, save to avoid losing data:</BodyText>
+              {Object.keys(appUnsavedFields).map((field) => (
+                <PermissionChip key={field}>{formFields[field].label}</PermissionChip>
+              ))}
             </>
           ) : (
-            <InputGroup>
-              <Label>{isCompletingListing.label}</Label>
-              <Toggle id="app-edit-completing-listing" {...register('isCompletingListing')} hasGreyBg>
-                <ElToggleItem>Yes</ElToggleItem>
-                <ElToggleItem>No</ElToggleItem>
-              </Toggle>
-            </InputGroup>
+            <BodyText hasGreyText>You have no unsaved changes to your app listing</BodyText>
           )}
-        </InputWrap>
-        {appsDataState.appDetail?.authFlow === 'authorisationCode' && (
-          <InputWrap>
-            <InputGroup>
-              <Label>{isAgencyCloudIntegrated.label}</Label>
-              <Toggle id="app-edit-is-ac-inegrated" {...register('isAgencyCloudIntegrated')} hasGreyBg>
-                <ElToggleItem>Yes</ElToggleItem>
-                <ElToggleItem>No</ElToggleItem>
-              </Toggle>
-            </InputGroup>
-          </InputWrap>
-        )}
-        <InputWrap>
-          <InputGroup>
-            <Label>{isListed.label}</Label>
-            <Toggle id="app-edit-is-listed" {...register('isListed')} hasGreyBg>
-              <ElToggleItem>Yes</ElToggleItem>
-              <ElToggleItem>No</ElToggleItem>
-            </Toggle>
-          </InputGroup>
-        </InputWrap>
-        <InputWrap>
-          <InputGroup>
-            <Label>{isPrivateApp.label}</Label>
-            <Toggle id="app-edit-is-private-app" {...register('isPrivateApp')} hasGreyBg>
-              <ElToggleItem>Yes</ElToggleItem>
-              <ElToggleItem>No</ElToggleItem>
-            </Toggle>
-          </InputGroup>
-        </InputWrap>
-        <InputWrapFull>
-          <InputGroup
-            {...limitToClientIds}
-            {...register('limitToClientIds')}
-            errorMessage={errors?.limitToClientIds?.message}
-          />
-        </InputWrapFull>
-      </FormLayout>
+        </div>
+        <ButtonGroup alignment="right">
+          <Button intent="low" onClick={closeModal}>
+            Close
+          </Button>
+        </ButtonGroup>
+      </Modal>
     </>
   )
 }

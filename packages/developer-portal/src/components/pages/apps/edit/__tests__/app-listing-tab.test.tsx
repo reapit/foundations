@@ -8,6 +8,7 @@ import { AppEditFormSchema } from '../form-schema/form-fields'
 jest.mock('../../state/use-app-state')
 jest.mock('react-hook-form', () => ({
   Controller: ({ children }) => <div>{children}</div>,
+  useWatch: jest.fn(),
 }))
 jest.mock('@reapit/utils-react', () => ({
   useReapitGet: jest.fn(() => [{ data: [{ description: 'MOCK_DESCRIPTION', id: 'MOCK_ID' }] }]),

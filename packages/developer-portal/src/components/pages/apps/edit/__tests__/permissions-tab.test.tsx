@@ -10,6 +10,9 @@ jest.mock('../../state/use-app-state')
 jest.mock('@reapit/utils-react', () => ({
   useReapitGet: jest.fn(),
 }))
+jest.mock('react-hook-form', () => ({
+  useWatch: jest.fn(),
+}))
 
 const mockUseReapitGet = useReapitGet as jest.Mock
 

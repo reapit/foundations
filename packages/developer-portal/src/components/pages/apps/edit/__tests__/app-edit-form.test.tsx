@@ -1,11 +1,13 @@
 import React from 'react'
 import { render } from '../../../../../tests/react-testing'
-import { AppEditForm, handleSetAppSubmitting, handleSetTabsState } from '../app-edit-form'
+import { AppEditForm, handleSetAppSubmitting, handleSetRevalidating, handleUnsavedChanges } from '../app-edit-form'
 import { AppEditTab } from '../edit-page-tabs'
 import { History } from 'history'
-import { defaultValues } from '../form-schema/form-fields'
+import { AppEditFormSchema, defaultValues } from '../form-schema/form-fields'
 import { formatFormValues } from '../../utils/format-form-values'
 import Routes from '../../../../../constants/routes'
+import { defaultAppSavingParams } from '../../state/defaults'
+import { FieldNamesMarkedBoolean } from 'react-hook-form'
 
 jest.mock('../../state/use-app-state')
 
@@ -19,11 +21,16 @@ describe('handleSetAppSubmitting', () => {
   it('should set appEditSaving', async () => {
     const mockSubmitHandler = jest.fn()
     const setAppEditSaving = jest.fn()
-    const appEditSaving = true
+    const appEditSaving = {
+      isListed: true,
+      isRevalidating: true,
+      isSaving: true,
+    }
     const handleSubmit = jest.fn(() => mockSubmitHandler)
     const createAppRevision = jest.fn(() => new Promise<boolean>((resolve) => resolve(true)))
     const appsRefresh = jest.fn()
     const appsDetailRefresh = jest.fn()
+    const appRefreshRevisions = jest.fn()
     const history = {
       push: jest.fn(),
     } as unknown as History
@@ -38,6 +45,7 @@ describe('handleSetAppSubmitting', () => {
       appId,
       appsRefresh,
       appsDetailRefresh,
+      appRefreshRevisions,
     )
 
     curried()
@@ -47,91 +55,48 @@ describe('handleSetAppSubmitting', () => {
     await (handleSubmit.mock.calls[0] as any)[0](defaultValues)
 
     expect(createAppRevision).toHaveBeenCalledWith(formatFormValues(defaultValues))
-    expect(setAppEditSaving).toHaveBeenCalledWith(false)
+    expect(setAppEditSaving).toHaveBeenCalledWith(defaultAppSavingParams)
     expect(history.push).toHaveBeenCalledWith(`${Routes.APPS}/${appId}`)
     expect(appsRefresh).toHaveBeenCalledTimes(1)
     expect(appsDetailRefresh).toHaveBeenCalledTimes(1)
+    expect(appRefreshRevisions).toHaveBeenCalledTimes(1)
   })
 })
 
-describe('handleSetTabsState', () => {
-  it('should set tabs state if agencyCloudIntegrated', async () => {
-    const setAppTabsState = jest.fn()
-    const getValues = jest.fn()
-    const isCompletingListing = true
-    const isAgencyCloudIntegrated = true
-    const isListed = true
+describe('handleUnsavedChanges', () => {
+  it('should set appEditSaving', async () => {
+    const dirtyFields = {
+      isListed: true,
+    } as FieldNamesMarkedBoolean<AppEditFormSchema>
+    const setAppUnsavedFields = jest.fn()
 
-    const curried = handleSetTabsState(
-      setAppTabsState,
-      getValues,
-      isCompletingListing,
-      isAgencyCloudIntegrated,
-      isListed,
-    )
+    const curried = handleUnsavedChanges(dirtyFields, setAppUnsavedFields)
 
     curried()
 
-    expect(setAppTabsState.mock.calls[0][0]()).toEqual({ isAgencyCloudIntegrated: true })
+    expect(setAppUnsavedFields).toHaveBeenCalledWith(dirtyFields)
   })
+})
 
-  it('should set tabs state if isCompletingListing', async () => {
-    const setAppTabsState = jest.fn()
-    const getValues = jest.fn(() => defaultValues) as any
-    const isCompletingListing = true
-    const isAgencyCloudIntegrated = undefined as any
-    const isListed = true
+describe('handleSetRevalidating', () => {
+  it('should set appEditSaving', async () => {
+    const setAppEditSaving = jest.fn()
+    const appEditSaving = {
+      isListed: true,
+      isRevalidating: true,
+      isSaving: true,
+    }
+    const setValue = jest.fn()
 
-    const curried = handleSetTabsState(
-      setAppTabsState,
-      getValues,
-      isCompletingListing,
-      isAgencyCloudIntegrated,
-      isListed,
-    )
+    const curried = handleSetRevalidating(setValue, setAppEditSaving, appEditSaving)
 
     curried()
 
-    expect(setAppTabsState.mock.calls[0][0]()).toEqual({ isCompletingListing: true })
-  })
-
-  it('should set tabs state if isListed', async () => {
-    const setAppTabsState = jest.fn()
-    const getValues = jest.fn(() => defaultValues) as any
-    const isCompletingListing = undefined as any
-    const isAgencyCloudIntegrated = undefined as any
-    const isListed = true
-
-    const curried = handleSetTabsState(
-      setAppTabsState,
-      getValues,
-      isCompletingListing,
-      isAgencyCloudIntegrated,
-      isListed,
-    )
-
-    curried()
-
-    expect(setAppTabsState.mock.calls[0][0]()).toEqual({ isListed: true })
-  })
-
-  it('should not tabs state if no values are true', async () => {
-    const setAppTabsState = jest.fn()
-    const getValues = jest.fn(() => defaultValues) as any
-    const isCompletingListing = undefined as any
-    const isAgencyCloudIntegrated = undefined as any
-    const isListed = undefined as any
-
-    const curried = handleSetTabsState(
-      setAppTabsState,
-      getValues,
-      isCompletingListing,
-      isAgencyCloudIntegrated,
-      isListed,
-    )
-
-    curried()
-
-    expect(setAppTabsState.mock.calls[0][0]()).toBeUndefined()
+    expect(setValue).toHaveBeenCalledWith('isListed', appEditSaving.isListed, { shouldValidate: true })
+    expect(setAppEditSaving).toHaveBeenCalledWith({
+      ...appEditSaving,
+      isRevalidating: false,
+      isSaving: true,
+    })
   })
 })

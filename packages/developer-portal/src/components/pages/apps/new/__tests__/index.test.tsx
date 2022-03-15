@@ -6,6 +6,7 @@ import { History } from 'history'
 import Routes from '../../../../../constants/routes'
 import { AppNewStepId } from '../config'
 import { render } from '../../../../../tests/react-testing'
+import { defaultAppWizardState } from '../../state/defaults'
 
 jest.mock('project-name-generator', () => ({
   __esModule: true,
@@ -66,7 +67,7 @@ describe('AppsNew', () => {
       scopes: 'agencyCloud:applicants.write',
     }
 
-    const curried = handleSubmitApp(authFlow, connectSession, createApp)
+    const curried = handleSubmitApp(authFlow, connectSession, [AppNewStepId.agencyCloudStep], createApp)
 
     curried(formValues)
 
@@ -75,7 +76,7 @@ describe('AppsNew', () => {
       name: 'some-org-stub-name',
       scopes: [formValues.scopes],
       developerId: connectSession.loginIdentity.developerId,
-      isDirectApi: true,
+      isDirectApi: false,
     })
   })
 
@@ -94,7 +95,7 @@ describe('AppsNew', () => {
       scopes: 'agencyCloud:applicants.write',
     }
 
-    const curried = handleSubmitApp(authFlow, connectSession, createApp)
+    const curried = handleSubmitApp(authFlow, connectSession, [AppNewStepId.applicationTypeStep], createApp)
 
     curried(formValues)
 
@@ -124,7 +125,7 @@ describe('AppsNew', () => {
       scopes: 'agencyCloud:applicants.write',
     }
 
-    const curried = handleSubmitApp(authFlow, connectSession, createApp)
+    const curried = handleSubmitApp(authFlow, connectSession, [], createApp)
 
     curried(formValues)
 
@@ -139,13 +140,15 @@ describe('AppsNew', () => {
       push: jest.fn(),
     } as unknown as History
     const appsRefresh = jest.fn()
+    const setAppWizardState = jest.fn()
 
-    const curried = handleNavigateOnSuccess(appCreated, history, appsRefresh)
+    const curried = handleNavigateOnSuccess(appCreated, history, appsRefresh, setAppWizardState)
 
     curried()
 
     expect(history.push).toHaveBeenCalledWith(`${Routes.APPS}/${appCreated.id}`)
     expect(appsRefresh).toHaveBeenCalledTimes(1)
+    expect(setAppWizardState).toHaveBeenCalledWith(defaultAppWizardState)
   })
 
   it('should check if a step is valid for authorisationCode flow and no step history', async () => {

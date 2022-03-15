@@ -10,6 +10,7 @@ export type ReapitGetState<DataType> = [
   loading: boolean,
   error: string | null,
   refresh: (queryParams?: Object) => void,
+  refreshing: boolean,
 ]
 
 export interface ReapitGetParams {
@@ -29,6 +30,7 @@ export interface HandleGetParams<DataType> {
   error: string | null
   setData: Dispatch<SetStateAction<DataType | null>>
   setLoading: (stateAction: boolean) => Promise<boolean>
+  setRefreshing: Dispatch<SetStateAction<boolean>>
   setError: Dispatch<SetStateAction<string | null>>
   successSnack: (message: string) => void
   errorSnack: (message: string) => void
@@ -98,10 +100,11 @@ export const handleGet =
     const signal = controller.signal
 
     const getData = async () => {
-      setError(null)
-      await setLoading(true)
       prevQueryParams.current = queryParams
       prevUriParams.current = uriParams
+
+      setError(null)
+      await setLoading(true)
 
       const response = await getFetcher<DataType>({
         action,
@@ -137,13 +140,15 @@ export const handleGet =
 export const handleRefresh =
   <DataType>(handleGetParams: HandleGetParams<DataType>) =>
   () => {
-    const { setData, setError, action, errorSnack, connectSession, uriParams, queryParams, headers } = handleGetParams
+    const { setData, setError, setRefreshing, action, errorSnack, connectSession, uriParams, queryParams, headers } =
+      handleGetParams
     const controller = new AbortController()
     const signal = controller.signal
     const { errorMessage } = action
 
     const getData = async () => {
       setError(null)
+      setRefreshing(true)
 
       const response = await getFetcher<DataType>({
         action,
@@ -161,6 +166,7 @@ export const handleRefresh =
 
       setData(data)
       setError(error)
+      setRefreshing(false)
     }
 
     getData()
@@ -182,6 +188,7 @@ export const useReapitGet = <DataType>({
   const prevUriParams = useRef<Object | undefined>(uriParams)
   const [data, setData] = useState<DataType | null>(null)
   const [loading, setLoading] = useAsyncState<boolean>(false)
+  const [refreshing, setRefreshing] = useState<boolean>(false)
   const [error, setError] = useState<string | null>(null)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { success: successSnack, error: errorSnack } = useSnack()
@@ -200,6 +207,7 @@ export const useReapitGet = <DataType>({
     prevUriParams,
     setData,
     setLoading,
+    setRefreshing,
     setError,
     successSnack,
     errorSnack,
@@ -215,5 +223,5 @@ export const useReapitGet = <DataType>({
     fetchWhenTrue,
   ])
 
-  return [data, loading, error, refresh]
+  return [data, loading, error, refresh, refreshing]
 }

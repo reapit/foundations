@@ -1,14 +1,11 @@
 import { AppDetailModel, MediaModel } from '@reapit/foundations-ts-definitions'
 import { Dispatch, SetStateAction } from 'react'
 import { AppEditFormSchema, defaultValues } from '../edit/form-schema/form-fields'
-import { AppTabsState } from '../state/use-app-state'
-import { listingInCompletion } from './listing-in-completion'
 
 export const handleSetDefaultFormValues =
   (
     setAppEditForm: Dispatch<SetStateAction<AppEditFormSchema>>,
     appDetail: AppDetailModel | null,
-    setAppTabsState: Dispatch<SetStateAction<AppTabsState>>,
     developerId?: string | null,
   ) =>
   () => {
@@ -56,13 +53,6 @@ export const handleSetDefaultFormValues =
         ...images,
       }
 
-      formValues.isCompletingListing = listingInCompletion(formValues)
-
       setAppEditForm(formValues)
-      setAppTabsState({
-        isAgencyCloudIntegrated: formValues.isAgencyCloudIntegrated,
-        isCompletingListing: formValues.isCompletingListing,
-        isListed: formValues.isListed,
-      })
     }
   }

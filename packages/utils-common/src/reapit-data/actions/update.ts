@@ -20,6 +20,8 @@ export enum UpdateActionNames {
   deleteOfficeGroup = 'deleteOfficeGroup',
   deletePipeline = 'deletePipeline',
   fileUpload = 'fileUpload',
+  terminateInstallation = 'terminateInstallation',
+  cancelRevision = 'cancelRevision',
 }
 
 export type UpdateActions = { [key in UpdateActionNames]: UpdateAction }
@@ -88,5 +90,17 @@ export const updateActions = (appEnv: AppEnv): UpdateActions => ({
     api: ApiNames(appEnv).platform,
     path: PathNames.fileUpload,
     errorMessage: 'Failed to upload one of your files',
+  },
+  [UpdateActionNames.terminateInstallation]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.terminateInstallation,
+    errorMessage: 'Failed to uninstall your app',
+    successMessage: 'App successfully uninstalled for customer',
+  },
+  [UpdateActionNames.cancelRevision]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.cancelRevision,
+    errorMessage: 'Failed to cancel pending revision',
+    successMessage: 'Successfully cancelled pending revision',
   },
 })

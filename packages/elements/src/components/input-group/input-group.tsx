@@ -9,7 +9,7 @@ import { generateRandomId } from '../../storybook/random-id'
 import { InputError } from '../input-error'
 
 export interface InputGroupProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  icon?: IconNames
+  icon?: IconNames | null
   label?: string
   inputAddOnText?: string
   /**

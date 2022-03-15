@@ -1,6 +1,7 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks'
 import { InputError } from './index'
 import { Input } from './../input'
+import { InputGroup } from './../input-group'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 
 <Meta title="InputError" component={InputError} />
@@ -13,8 +14,10 @@ A simple component used to display an error message under an input component
 
 <Canvas>
   <Story name="error message">
-    <Input name="email address" type="email" value="not an email" />
-    <InputError message="Email address provided is not a valid email address" />
+    <InputGroup>
+      <Input name="email address" type="email" value="not an email" />
+      <InputError message="Email address provided is not a valid email address" />
+    </InputGroup>
   </Story>
 </Canvas>
 

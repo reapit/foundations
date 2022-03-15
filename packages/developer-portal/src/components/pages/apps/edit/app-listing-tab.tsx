@@ -9,8 +9,6 @@ import {
   Label,
   Loader,
   Select,
-  Subtitle,
-  TextArea,
   useModal,
   ButtonGroup,
   Button,
@@ -25,7 +23,7 @@ import { getActions, GetActionNames, updateActions, UpdateActionNames } from '@r
 import { Editor, ImageCropperFileInput, UpdateReturnTypeEnum, useReapitGet, useReapitUpdate } from '@reapit/utils-react'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { CategoryModelPagedResult } from '@reapit/foundations-ts-definitions'
-import { Controller } from 'react-hook-form'
+import { Controller, useWatch } from 'react-hook-form'
 import { exec } from 'pell'
 import { v4 as uuid } from 'uuid'
 import {
@@ -37,6 +35,7 @@ import {
   SCREENSHOT_RATIO,
 } from './constants'
 import { ExternalPages, openNewPage } from '../../../../utils/navigation'
+import { appDescriptionHeight } from './__styles__'
 
 export const handlePreviewImage =
   (setPreviewImage: Dispatch<SetStateAction<string | null>>, openModal: () => void) => (previewImage: string) => {
@@ -64,6 +63,11 @@ export const AppListingTab: FC<AppEditTabsProps> = ({ register, errors, control,
     returnType: UpdateReturnTypeEnum.RESPONSE,
   })
 
+  const isFreeValue = useWatch({
+    control,
+    name: 'isFree',
+  })
+
   const onFileUpload = (params: CreateImageUploadModel) => {
     return createImageUpload(params)
   }
@@ -73,6 +77,7 @@ export const AppListingTab: FC<AppEditTabsProps> = ({ register, errors, control,
   const { Modal, openModal, closeModal } = useModal()
 
   const {
+    name,
     supportEmail,
     telephone,
     homePage,
@@ -103,7 +108,6 @@ export const AppListingTab: FC<AppEditTabsProps> = ({ register, errors, control,
 
   return (
     <>
-      <Subtitle>App Listing</Subtitle>
       <BodyText hasGreyText>
         The detail included on this page populates your app listing in the AppMarket. While you are in development, you
         can complete this in your own time however, when you are ready to sumbit your app for approval, it all needs to
@@ -115,23 +119,58 @@ export const AppListingTab: FC<AppEditTabsProps> = ({ register, errors, control,
         <a onClick={openNewPage(ExternalPages.reviewingAppDocs)}>here.</a>
       </BodyText>
       <FormLayout hasMargin>
+        <InputWrapFull>
+          <InputGroup
+            {...name}
+            {...register('name')}
+            errorMessage={errors?.name?.message}
+            icon={errors?.name?.message ? 'asteriskSystem' : null}
+            intent="danger"
+          />
+        </InputWrapFull>
         <InputWrap>
-          <InputGroup {...supportEmail} {...register('supportEmail')} errorMessage={errors?.supportEmail?.message} />
+          <InputGroup
+            {...supportEmail}
+            {...register('supportEmail')}
+            errorMessage={errors?.supportEmail?.message}
+            icon={errors?.supportEmail?.message ? 'asteriskSystem' : null}
+            intent="danger"
+          />
         </InputWrap>
         <InputWrap>
-          <InputGroup {...telephone} {...register('telephone')} errorMessage={errors?.telephone?.message} />
+          <InputGroup
+            {...telephone}
+            {...register('telephone')}
+            errorMessage={errors?.telephone?.message}
+            icon={errors?.telephone?.message ? 'asteriskSystem' : null}
+            intent="danger"
+          />
         </InputWrap>
         <InputWrap>
-          <InputGroup {...homePage} {...register('homePage')} errorMessage={errors?.homePage?.message} />
+          <InputGroup
+            {...homePage}
+            {...register('homePage')}
+            errorMessage={errors?.homePage?.message}
+            icon={errors?.homePage?.message ? 'asteriskSystem' : null}
+            intent="danger"
+          />
         </InputWrap>
         <InputWrap>
-          <InputGroup {...launchUri} {...register('launchUri')} errorMessage={errors?.launchUri?.message} />
+          <InputGroup
+            {...launchUri}
+            {...register('launchUri')}
+            errorMessage={errors?.launchUri?.message}
+            icon={errors?.launchUri?.message ? 'asteriskSystem' : null}
+            intent="danger"
+          />
         </InputWrap>
         <InputWrap>
           <InputGroup
             {...termsAndConditionsUrl}
             {...register('termsAndConditionsUrl')}
             errorMessage={errors?.termsAndConditionsUrl?.message}
+            icon={errors?.termsAndConditionsUrl?.message ? 'asteriskSystem' : null}
+            intent="danger"
           />
         </InputWrap>
         <InputWrap>
@@ -139,13 +178,28 @@ export const AppListingTab: FC<AppEditTabsProps> = ({ register, errors, control,
             {...privacyPolicyUrl}
             {...register('privacyPolicyUrl')}
             errorMessage={errors?.privacyPolicyUrl?.message}
+            icon={errors?.privacyPolicyUrl?.message ? 'asteriskSystem' : null}
+            intent="danger"
           />
         </InputWrap>
         <InputWrap>
-          <InputGroup {...pricingUrl} {...register('pricingUrl')} errorMessage={errors?.pricingUrl?.message} />
+          <InputGroup
+            {...pricingUrl}
+            {...register('pricingUrl')}
+            disabled={isFreeValue}
+            errorMessage={errors?.pricingUrl?.message}
+            icon={errors?.pricingUrl?.message ? 'asteriskSystem' : null}
+            intent="danger"
+          />
         </InputWrap>
         <InputWrap>
-          <InputGroup {...isFree} {...register('isFree')} errorMessage={errors?.isFree?.message} />
+          <InputGroup
+            {...isFree}
+            {...register('isFree')}
+            errorMessage={errors?.isFree?.message}
+            icon={errors?.isFree?.message ? 'asteriskSystem' : null}
+            intent="danger"
+          />
         </InputWrap>
         <InputWrap>
           {categoriesLoading && <Loader />}
@@ -165,11 +219,13 @@ export const AppListingTab: FC<AppEditTabsProps> = ({ register, errors, control,
           )}
         </InputWrap>
         <InputWrapFull>
-          <InputGroup>
-            <Label>{summary.label}</Label>
-            <TextArea placeholder={summary.placeholder} {...register('summary')} />
-          </InputGroup>
-          {errors?.summary?.message && <InputError message={errors?.summary?.message} />}
+          <InputGroup
+            {...summary}
+            {...register('summary')}
+            errorMessage={errors?.summary?.message}
+            icon={errors?.summary?.message ? 'asteriskSystem' : null}
+            intent="danger"
+          />
         </InputWrapFull>
         <InputWrapFull>
           <Label>{description.label}</Label>
@@ -179,6 +235,7 @@ export const AppListingTab: FC<AppEditTabsProps> = ({ register, errors, control,
             render={({ field: { onChange, onBlur, value } }) => (
               <Editor
                 {...description}
+                containerClass={appDescriptionHeight}
                 defaultContent={value}
                 onChange={onChange}
                 onBlur={onBlur}
