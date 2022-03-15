@@ -62,13 +62,13 @@ export class DeployLocalCommand extends AbstractCommand {
 
     spinner.start('bumping package version')
 
-    if (workingPackage.version === newPackageVersion) {
-      spinner.fail('Cannot overwrite existing verison')
-      this.writeLine(
-        'use ' + chalk.green('reapit') + chalk.bold(' release version') + ' to rollback to a previous deployment',
-      )
-      process.exit(1)
-    }
+    // if (workingPackage.version === newPackageVersion) {
+    //   spinner.fail('Cannot overwrite existing verison')
+    //   this.writeLine(
+    //     'use ' + chalk.green('reapit') + chalk.bold(' release version') + ' to rollback to a previous deployment',
+    //   )
+    //   process.exit(1)
+    // }
 
     return newPackageVersion
   }
