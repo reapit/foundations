@@ -9,6 +9,10 @@ import { resolve } from 'path'
 import git from 'simple-git'
 import { REAPIT_PIPELINE_CONFIG_FILE } from './constants'
 
+const urlRegex =
+  /* eslint-disable-next-line */
+  /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=+$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=+$,\w]+@)[A-Za-z0-9.-]+)((?:\/[+~%/.\w-_]*)?\??(?:[-+=&;%@.\w_]*)#?(?:[\w]*))?)/
+
 @Command({
   name: 'create',
   description: 'Create a pipeline',
@@ -136,18 +140,51 @@ export class PipelineCreate extends AbstractCommand {
         type: 'input',
         message: "What's your App Id?",
         name: 'appId',
+        validate: (value) => {
+          if (!value || value.length <= 0) {
+            return 'Please enter an app Id'
+          }
+
+          if (!/^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/.test(value)) {
+            return 'Please enter a valid uuid (app Id)'
+          }
+
+          return true
+        },
       },
       {
         type: 'input',
         message: "Your project's name",
         name: 'name',
         default: process.cwd().split('/').pop(),
+        validate: (value) => {
+          if (!value || value.trim().length <= 0) {
+            return 'Please add a name'
+          }
+
+          if (value.length >= 256) {
+            return 'Name too long, please make it less than 255 characters'
+          }
+
+          return true
+        },
       },
       {
         type: 'input',
         message: 'Deployment branch (will deploy when merging to this branch)',
         name: 'branch',
         default: 'master',
+        validate: (value) => {
+          if (!value || value.trim().length <= 0) {
+            return 'Please add a branch for deployment'
+          }
+
+          if (value.length >= 256) {
+            return 'Branch name too long, please make it less than 255 characters'
+          }
+
+          return true
+        },
       },
       {
         type: 'list',
@@ -169,9 +206,21 @@ export class PipelineCreate extends AbstractCommand {
         type: 'input',
         message: 'Please add your repository url',
         name: 'repository',
+        validate: (value) => {
+          if (!value || value.trim().length <= 0) {
+            return 'Please add a repository url'
+          }
+
+          if (!urlRegex.test(value)) {
+            return 'Please enter a valid repository url'
+          }
+
+          return true
+        },
       })
     }
 
+    // TODO find from tsconfig/package.json:main
     questions.push({
       type: 'input',
       name: 'outDir',
@@ -179,6 +228,7 @@ export class PipelineCreate extends AbstractCommand {
       default: 'build',
     })
 
+    // TODO list yarn commands?
     questions.push({
       type: 'input',
       name: 'buildCommand',
@@ -193,6 +243,7 @@ export class PipelineCreate extends AbstractCommand {
       choices: ['yarn', 'npm'],
     })
 
+    // TODO should this even be a question? Would save us from trying to resolve this
     const answers = await inquirer.prompt([
       ...questions,
       {
