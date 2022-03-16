@@ -1,5 +1,6 @@
-import { Project, ISecret, Effect, PolicyStatement, Bucket, Queue } from '@reapit/ts-scripts/src/cdk'
+import { Project, ISecret, Effect, PolicyStatement, Bucket } from '@reapit/ts-scripts/src/cdk'
 import config from '../../config.json'
+import { aws_sqs as sqs } from 'aws-cdk-lib'
 
 export enum PolicyNames {
   // lambdaInvoke = 'lambdaInvoke',
@@ -26,7 +27,7 @@ export const createPolicies = ({
   codeBuild,
 }: {
   buckets: { [s: string]: Bucket }
-  queues: { [s: string]: Queue }
+  queues: { [s: string]: sqs.IQueue }
   secretManager: ISecret
   codeBuild: Project
 }): namedPolicyGroupType & namedPolicyType => {

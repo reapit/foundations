@@ -1,4 +1,5 @@
-import { createSqsQueue, Queue, Stack } from '@reapit/ts-scripts/src/cdk'
+import { createSqsQueue, Stack } from '@reapit/ts-scripts/src/cdk'
+import { aws_sqs as sqs } from 'aws-cdk-lib'
 
 export enum QueueNames {
   CODEBUILD_EXECUTOR = 'CODEBUILD_EXECUTOR',
@@ -6,9 +7,10 @@ export enum QueueNames {
   PIPELINE_SETUP = 'PIPELINE_SETUP',
   PIPELINE_TEAR_DOWN_START = 'PIPELINE_TEAR_DOWN_START',
   PIPELINE_TEAR_DOWN = 'PIPELINE_TEAR_DOWN',
+  APP_EVENTS = 'APP_EVENTS',
 }
 
-export const createSqsQueues = (stack: Stack): Record<QueueNames, Queue> => {
+export const createSqsQueues = (stack: Stack): Record<QueueNames, sqs.IQueue> => {
   const queueConfig: {
     [k in QueueNames]: {
       visibilityTimeout?: number
@@ -27,11 +29,23 @@ export const createSqsQueues = (stack: Stack): Record<QueueNames, Queue> => {
     [QueueNames.PIPELINE_TEAR_DOWN]: {
       visibilityTimeout: 600,
     },
+    [QueueNames.APP_EVENTS]: {},
   }
 
-  return (Object.keys(queueConfig) as Array<QueueNames>).reduce<{ [k in QueueNames]: Queue }>((queues, queueName) => {
-    queues[queueName] = createSqsQueue(stack, queueName, queueConfig[queueName].visibilityTimeout)
+  const queues = (Object.keys(queueConfig) as Array<QueueNames>).reduce<{ [k in QueueNames]: sqs.IQueue }>(
+    (queues, queueName) => {
+      queues[queueName] = createSqsQueue(stack, queueName, queueConfig[queueName].visibilityTimeout)
 
-    return queues
-  }, {} as any)
+      return queues
+    },
+    {} as any,
+  )
+
+  queues[QueueNames.APP_EVENTS] = sqs.Queue.fromQueueArn(
+    stack,
+    'app_events',
+    `arn:aws:sqs:${stack.region}:${stack.account}:Platform_Marketplace_AppModifications`,
+  )
+
+  return queues
 }

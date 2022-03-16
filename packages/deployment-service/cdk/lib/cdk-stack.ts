@@ -12,14 +12,15 @@ import {
   createStackEventHandler,
   addLambdaSNSTrigger,
   addLambdaSQSTrigger,
-  Queue,
   LambdaRoute,
+  Queue,
 } from '@reapit/ts-scripts/src/cdk'
 
 import { createLambda } from './create-lambda'
 import { createS3Buckets } from './create-S3-bucket'
 import { createSqsQueues, QueueNames } from './create-sqs'
 import { createPolicies } from './create-policies'
+import { aws_sqs as sqs } from 'aws-cdk-lib'
 
 export const databaseName = 'deployment_service'
 
@@ -35,7 +36,7 @@ type FunctionSetup = {
     headers: string[]
     authorizer?: boolean
   }
-  queue?: Queue
+  queue?: sqs.IQueue
   topic?: Topic
 }
 
@@ -473,6 +474,11 @@ export const createStack = () => {
         headers: ['Content-Type', 'Authorization', 'api-version', 'X-Api-Key'],
       },
     },
+    appEventsHandler: {
+      handler: `${fileLocPrefix}appEventsHandler`,
+      policies: [...policies.commonBackendPolicies],
+      queue: queues[QueueNames.APP_EVENTS],
+    },
   }
 
   const MYSQL_DATABASE = databaseName
@@ -505,7 +511,7 @@ export const createStack = () => {
     options.policies.forEach((policy) => lambda.addToRolePolicy(policy))
 
     if (options.queue) {
-      addLambdaSQSTrigger(lambda, options.queue)
+      addLambdaSQSTrigger(lambda, options.queue as Queue)
     } else if (options.api) {
       addLambdaToApi(
         stack,
