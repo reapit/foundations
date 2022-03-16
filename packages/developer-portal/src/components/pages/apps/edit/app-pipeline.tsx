@@ -23,6 +23,9 @@ export const AppPipeline: FC = () => {
       Authorization: connectSession?.idToken as string,
     },
     fetchWhenTrue: [connectSession?.idToken, appId],
+    onError: () => {
+      // we already display errors below, so no need to show a toast here
+    },
   })
 
   return (
