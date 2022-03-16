@@ -12,7 +12,10 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
     event.Records.map(async (record) => {
       const message = JSON.parse(record.body)
       const pipeline = plainToClass(PipelineEntity, message)
+      pipeline.buildStatus = 'CREATING_ARCHITECTURE'
+
       try {
+        await updatePipelineEntity(pipeline, {})
         await pusher.trigger(`private-${pipeline.developerId}`, 'pipeline-update', {
           ...pipeline,
           message: 'Started architecture build',

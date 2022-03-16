@@ -40,7 +40,7 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
   clientId?: string
 
   @Column({ type: 'varchar' })
-  buildStatus?: CodeBuild.StatusType = 'CREATING_ARCHITECTURE'
+  buildStatus?: CodeBuild.StatusType = 'CREATED'
 
   @Column({ nullable: true })
   subDomain?: string

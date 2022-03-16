@@ -33,7 +33,7 @@ export const pipelineUpdate = httpHandler<PipelineDto, PipelineEntity>({
       throw new NotFoundException()
     }
 
-    if (pipeline.buildStatus === 'PAUSED' && body.buildStatus === 'CREATING_ARCHITECTURE') {
+    if (pipeline.buildStatus === 'PAUSED' && body.buildStatus === 'CREATE_ARCHITECTURE') {
       setupInfra = true
     }
 
