@@ -10,6 +10,7 @@ export enum QueueNamesEnum {
   PIPELINE_SETUP = 'PIPELINE_SETUP',
   PIPELINE_TEAR_DOWN = 'PIPELINE_TEAR_DOWN',
   PIPELINE_TEAR_DOWN_START = 'PIPELINE_TEAR_DOWN_START',
+  APP_EVENTS = 'APP_EVENTS',
 }
 
 export const QueueNames: { [key in QueueNamesEnum]: string } = {
@@ -18,4 +19,5 @@ export const QueueNames: { [key in QueueNamesEnum]: string } = {
   [QueueNamesEnum.PIPELINE_SETUP]: process.env.PIPELINE_SETUP as string,
   [QueueNamesEnum.PIPELINE_TEAR_DOWN]: process.env.PIPELINE_TEAR_DOWN as string,
   [QueueNamesEnum.PIPELINE_TEAR_DOWN_START]: process.env.PIPELINE_TEAR_DOWN_START as string,
+  [QueueNamesEnum.APP_EVENTS]: process.env.APP_EVENTS as string,
 }
