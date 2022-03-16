@@ -1,4 +1,4 @@
-import { BodyText, elFadeIn, Subtitle } from '@reapit/elements'
+import { BodyText, elFadeIn, Subtitle, FlexContainer, useMediaQuery, elW6, elMr6, elMl6, elMb7 } from '@reapit/elements'
 import React, { FC } from 'react'
 import { AppNewStepId } from './config'
 import { AppWizardState, useAppState } from '../state/use-app-state'
@@ -7,6 +7,7 @@ import { ExternalPages, openNewPage } from '../../../../utils/navigation'
 import { Link } from 'react-router-dom'
 import Routes from '../../../../constants/routes'
 import { cx } from '@linaria/core'
+import { HelperGraphic } from './helper-graphic'
 
 export type HelperContentRef = {
   [key in AppNewStepId]: HTMLDivElement | null
@@ -41,20 +42,13 @@ export const checkHasHelpers =
       return step === AppNewStepId.permissionsStep
     }
 
-    if (currentStep === AppNewStepId.externalAppStep) {
-      return step === AppNewStepId.externalAppStep
-    }
-
-    if (currentStep === AppNewStepId.otherAppStep) {
-      return step === AppNewStepId.otherAppStep
-    }
-
-    if (currentStep === AppNewStepId.webServicesStep) {
-      return step === AppNewStepId.webServicesStep
-    }
-
-    if (currentStep === AppNewStepId.applicationTypeStep) {
-      return true
+    if (
+      currentStep === AppNewStepId.externalAppStep ||
+      currentStep === AppNewStepId.otherAppStep ||
+      currentStep === AppNewStepId.webServicesStep ||
+      currentStep === AppNewStepId.applicationTypeStep
+    ) {
+      return step === currentStep
     }
 
     return false
@@ -62,10 +56,38 @@ export const checkHasHelpers =
 
 export const HelperContent: FC = () => {
   const { appWizardState } = useAppState()
+  const { isMobile, isTablet, isDesktop } = useMediaQuery()
   const shouldShowStep = checkHasHelpers(appWizardState)
+  const isFlexColumn = isMobile || isTablet || isDesktop
 
   return (
     <HelperContentContainer>
+      <div className={cx(shouldShowStep(AppNewStepId.applicationTypeStep) ? elFadeIn : stepIsHidden)}>
+        <Subtitle hasBoldText>About Apps</Subtitle>
+        <FlexContainer isFlexAlignStart={!isFlexColumn} isFlexColumn={isFlexColumn}>
+          <div className={cx(!isFlexColumn && elW6, !isFlexColumn && elMr6, isFlexColumn && elMb7)}>
+            <HelperGraphic />
+          </div>
+          <div className={cx(!isFlexColumn && elW6, !isFlexColumn && elMl6)}>
+            <BodyText>
+              Every developer will have different use cases for Foundations and it is unlikely you will need to use all
+              of the APIs and tooling we provide. However, the starting point for all integrations is to create an
+              &lsquo;App&rsquo;, which on a basic level is the means to authenticate aginst our services.
+            </BodyText>
+            <BodyText>
+              When you have completed this wizard, you will land on a dedicated page for your App, that will give you
+              the Client Id, and in the case of server side apps, Client Secret, that will will enable you to
+              authenticated against out APIs. From here you can get started with development against our developer
+              sandbox data.
+            </BodyText>
+            <BodyText>
+              When you are ready to go live with a customer, you will need to complete some additional information and
+              submit your app for review by one of our team. On approval of your app, your customers can install it to
+              grant access to their production data.
+            </BodyText>
+          </div>
+        </FlexContainer>
+      </div>
       <div className={cx(shouldShowStep(AppNewStepId.agencyCloudStep) ? elFadeIn : stepIsHidden)}>
         <Subtitle hasBoldText>AgencyCloud Functionality</Subtitle>
         <BodyText>

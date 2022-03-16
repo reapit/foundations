@@ -60,7 +60,7 @@ export const getAppStatus = ({ isListed, pendingRevisions, limitToClientIds }: A
     ? 'Your app is live and public in the AppMarket with a pending revision under review'
     : isListed && pendingRevisions && isPrivateApp
     ? 'Your app is live and private to selected customers with a pending revision under review'
-    : 'Your app is incomplete and in development only'
+    : 'Your app is not live and in development only'
 }
 
 export const getIntegrationType = ({ isDirectApi, authFlow, desktopIntegrationTypeIds }: AppDetailModel) => {
