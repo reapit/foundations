@@ -231,7 +231,7 @@ export class PipelineCreate extends AbstractCommand {
           return 'Please add an ourDir for deployment'
         }
 
-        if (!/^[\w+\/]+$/.test(value)) {
+        if (!/^[\w+/]+$/.test(value)) {
           return 'Please enter a valid folder location (no file names)'
         }
 
