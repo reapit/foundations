@@ -17,9 +17,21 @@ export interface PipelineDeploymentInfoProps {
   channel: any
 }
 
+export type PipelineRunnerMeta = {
+  totalItems: number
+  itemCount: number
+  itemsPerPage: number
+  totalPages: number
+  currentPage: number
+}
+
 export const PipelineDeploymentInfo: FC<PipelineDeploymentInfoProps> = ({ pipeline, channel, setPipeline }) => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const [pipelineDeployments, loading] = useReapitGet<{ items: PipelineRunnerModelInterface[] }>({
+  const [page, setPage] = React.useState(1)
+  const [pipelineDeployments, loading] = useReapitGet<{
+    items: PipelineRunnerModelInterface[]
+    meta: PipelineRunnerMeta
+  }>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getPipelineDeployments],
     uriParams: {
@@ -29,6 +41,9 @@ export const PipelineDeploymentInfo: FC<PipelineDeploymentInfoProps> = ({ pipeli
       Authorization: connectSession?.idToken as string,
     },
     fetchWhenTrue: [connectSession?.idToken],
+    queryParams: {
+      page,
+    },
   })
   const [deploymentLoading, pipelineRunner, sendFunc] = useReapitUpdate<void, PipelineRunnerModelInterface>({
     reapitConnectBrowserSession,
@@ -54,6 +69,8 @@ export const PipelineDeploymentInfo: FC<PipelineDeploymentInfoProps> = ({ pipeli
     },
     returnType: UpdateReturnTypeEnum.RESPONSE,
   })
+
+  console.log(pipelineDeployments)
 
   return (
     <>
@@ -97,6 +114,7 @@ export const PipelineDeploymentInfo: FC<PipelineDeploymentInfoProps> = ({ pipeli
         newRunner={pipelineRunner}
         loading={loading}
         channel={channel}
+        setPage={setPage}
       />
     </>
   )

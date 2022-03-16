@@ -1,8 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import { cx } from '@linaria/core'
-import { elP6, FlexContainer, Loader, Table, TableCell, TableHeader, TableHeadersRow, TableRow } from '@reapit/elements'
+import {
+  elMt3,
+  elP6,
+  FlexContainer,
+  Loader,
+  Pagination,
+  Table,
+  TableCell,
+  TableHeader,
+  TableHeadersRow,
+  TableRow,
+} from '@reapit/elements'
 import { PipelineModelInterface, PipelineRunnerModelInterface } from '@reapit/foundations-ts-definitions'
 import { useEvent } from '@harelpls/use-pusher'
+import { DateTime } from 'luxon'
+import { PipelineRunnerMeta } from './deployment-info'
 
 interface PipelineRunnerSetterInterface {
   initialDeployments: null | { items: PipelineRunnerModelInterface[] }
@@ -62,12 +75,15 @@ export const addNewPipelineDeployment =
 
 export const PipelineDeploymentTable: React.FC<{
   pipeline: PipelineModelInterface
-  initialDeployments: null | { items: PipelineRunnerModelInterface[] }
+  initialDeployments: null | { items: PipelineRunnerModelInterface[]; meta: PipelineRunnerMeta }
   loading: boolean
   channel: any
   newRunner: PipelineRunnerModelInterface | undefined
-}> = ({ pipeline, initialDeployments, loading, channel, newRunner }) => {
-  const [pagination, setPagination] = useState<{ items: PipelineRunnerModelInterface[] } | null>(initialDeployments)
+  setPage: (pageNumber: number) => void
+}> = ({ pipeline, initialDeployments, loading, channel, newRunner, setPage }) => {
+  const [pagination, setPagination] = useState<{
+    items: PipelineRunnerModelInterface[]
+  } | null>(initialDeployments)
   useEffect(
     pipelineRunnerSetter({
       initialDeployments,
@@ -111,31 +127,45 @@ export const PipelineDeploymentTable: React.FC<{
   )
 
   return (
-    <Table>
-      <TableHeadersRow>
-        <TableHeader>Type</TableHeader>
-        <TableHeader>Created</TableHeader>
-        <TableHeader>Status</TableHeader>
-        <TableHeader>Version</TableHeader>
-        <TableHeader>Currently Deployed</TableHeader>
-        <TableHeader></TableHeader>
-      </TableHeadersRow>
-      {loading ? (
-        <FlexContainer isFlexAlignCenter isFlexJustifyCenter className={cx(elP6)}>
-          <Loader />
-        </FlexContainer>
-      ) : pagination !== null ? (
-        pagination.items.map((deployment) => (
-          <TableRow key={deployment.id}>
-            <TableCell>{deployment.type}</TableCell>
-            <TableCell>{deployment.created}</TableCell>
-            <TableCell>{deployment.buildStatus}</TableCell>
-            <TableCell>{deployment.buildVersion}</TableCell>
-            <TableCell>{deployment.currentlyDeployed ? 'Deployed' : ''}</TableCell>
-            <TableCell></TableCell>
-          </TableRow>
-        ))
-      ) : null}
-    </Table>
+    <>
+      <Table>
+        <TableHeadersRow>
+          <TableHeader>Type</TableHeader>
+          <TableHeader>Created</TableHeader>
+          <TableHeader>Status</TableHeader>
+          <TableHeader>Version</TableHeader>
+          <TableHeader>Currently Deployed</TableHeader>
+        </TableHeadersRow>
+        {loading ? (
+          <FlexContainer isFlexAlignCenter isFlexJustifyCenter className={cx(elP6)}>
+            <Loader />
+          </FlexContainer>
+        ) : pagination !== null ? (
+          pagination.items.map((deployment) => (
+            <TableRow key={deployment.id}>
+              <TableCell>{deployment.type}</TableCell>
+              <TableCell>
+                {deployment.created && DateTime.fromISO(deployment.created).toLocaleString(DateTime.DATETIME_SHORT)}
+              </TableCell>
+              <TableCell>{deployment.buildStatus}</TableCell>
+              <TableCell>{deployment.buildVersion}</TableCell>
+              <TableCell>{deployment.currentlyDeployed ? 'Deployed' : ''}</TableCell>
+            </TableRow>
+          ))
+        ) : null}
+      </Table>
+
+      {initialDeployments && (
+        <div className={elMt3}>
+          <Pagination
+            currentPage={initialDeployments.meta.currentPage}
+            numberPages={initialDeployments.meta.totalPages}
+            callback={(page) => {
+              setPage(page)
+            }}
+          />
+        </div>
+      )}
+    </>
   )
 }
