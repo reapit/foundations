@@ -62,7 +62,16 @@ export const PipelineDeploymentInfo: FC<PipelineDeploymentInfoProps> = ({ pipeli
       <PipelineInfo pipeline={pipeline} setPipeline={setPipeline} />
       <Title>Deployments</Title>
       <ButtonGroup className={cx(elMb6)}>
-        <Button
+        {pipeline.buildStatus === 'PAUSED' ? (<Button
+          onClick={async (event) => {
+            event.preventDefault()
+            await sendFunc()
+          }}
+          disabled={pipeline.buildStatus === 'CREATING_ARCHITECTURE'}
+          intent="success"
+        >
+          Provision
+        </Button>) : (<Button
           loading={deploymentLoading}
           intent="primary"
           onClick={async (event) => {
@@ -72,7 +81,7 @@ export const PipelineDeploymentInfo: FC<PipelineDeploymentInfoProps> = ({ pipeli
           disabled={pipeline.buildStatus === 'DELETING'}
         >
           Deploy
-        </Button>
+        </Button>)}
         <Button
           intent="critical"
           onClick={openNewPage('https://github.com/reapit/foundations/tree/master/packages/cli#readme')}
