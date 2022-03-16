@@ -143,18 +143,51 @@ export class PipelineCreate extends AbstractCommand {
         type: 'input',
         message: "What's your App Id?",
         name: 'appId',
+        validate: (value) => {
+          if (!value || value.length <= 0) {
+            return 'Please enter an app Id'
+          }
+
+          if (!/^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/.test(value)) {
+            return 'Please enter a valid uuid (app Id)'
+          }
+
+          return true
+        },
       },
       {
         type: 'input',
         message: "Your project's name",
         name: 'name',
         default: process.cwd().split('/').pop(),
+        validate: (value) => {
+          if (!value || value.trim().length <= 0) {
+            return 'Please add a name'
+          }
+
+          if (value.length >= 256) {
+            return 'Name too long, please make it less than 255 characters'
+          }
+
+          return true
+        },
       },
       {
         type: 'input',
         message: 'Deployment branch (will deploy when merging to this branch)',
         name: 'branch',
         default: 'master',
+        validate: (value) => {
+          if (!value || value.trim().length <= 0) {
+            return 'Please add a branch for deployment'
+          }
+
+          if (value.length >= 256) {
+            return 'Branch name too long, please make it less than 255 characters'
+          }
+
+          return true
+        },
       },
       {
         type: 'list',
@@ -176,6 +209,21 @@ export class PipelineCreate extends AbstractCommand {
         type: 'input',
         message: 'Please add your repository url',
         name: 'repository',
+        validate: (value) => {
+          if (!value || value.trim().length <= 0) {
+            return 'Please add a repository url'
+          }
+
+          if (
+            !/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)/.test(
+              value,
+            )
+          ) {
+            return 'Please enter a valid repository url'
+          }
+
+          return true
+        },
       })
     }
 
@@ -184,6 +232,21 @@ export class PipelineCreate extends AbstractCommand {
       name: 'outDir',
       message: 'outDir - The output of your build command',
       default: 'build',
+      validate: (value) => {
+        if (!value || value.trim().length <= 0) {
+          return 'Please add an ourDir for deployment'
+        }
+
+        if (!/^[\w+/]+$/.test(value)) {
+          return 'Please enter a valid folder location (no file names)'
+        }
+
+        if (value.length >= 256) {
+          return 'OutDir location too long, please make it less than 255 characters'
+        }
+
+        return true
+      },
     })
 
     questions.push({
@@ -191,6 +254,17 @@ export class PipelineCreate extends AbstractCommand {
       name: 'buildCommand',
       message: 'buildCommand - The build command of your project',
       default: 'build',
+      validate: (value) => {
+        if (!value || value.trim().length <= 0) {
+          return 'Please add a buildCommand for deployment'
+        }
+
+        if (value.length >= 256) {
+          return 'buildCommand too long, please make it less than 255 characters'
+        }
+
+        return true
+      },
     })
 
     questions.push({
