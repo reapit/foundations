@@ -19,27 +19,13 @@ export const appEventsHandler: SQSHandler = async (event: SQSEvent, context: Con
 
       switch (payload.Type) {
         case 'created': {
-          const pipeline = await createPipelineEntity({
+          await createPipelineEntity({
+            buildStatus: 'PAUSED',
             appId: payload.AppId,
             name: payload.ApplicationName,
             appType: payload.AuthFlow === 'authorisationCode' ? AppTypeEnum.REACT : AppTypeEnum.NODE,
             developerId: payload.DeveloperId,
           })
-
-          await new Promise<void>((resolve, reject) =>
-            sqs.sendMessage(
-              {
-                MessageBody: JSON.stringify(pipeline),
-                QueueUrl: QueueNames.PIPELINE_SETUP,
-              },
-              (error) => {
-                if (error) {
-                  reject(error)
-                }
-                resolve()
-              },
-            ),
-          )
 
           break
         }
