@@ -62,12 +62,13 @@ export const PipelineDeploymentInfo: FC<PipelineDeploymentInfoProps> = ({ pipeli
       <PipelineInfo pipeline={pipeline} setPipeline={setPipeline} />
       <Title>Deployments</Title>
       <ButtonGroup className={cx(elMb6)}>
-        {pipeline.buildStatus === 'PAUSED' ? (<Button
+        {pipeline.buildStatus === 'PAUSED' || pipeline.buildStatus === 'CREATING_ARCHITECTURE' ? (<Button
           onClick={async (event) => {
             event.preventDefault()
             await sendFunc()
           }}
           disabled={pipeline.buildStatus === 'CREATING_ARCHITECTURE'}
+          loading={pipeline.buildStatus === 'CREATING_ARCHITECTURE'}
           intent="success"
         >
           Provision
