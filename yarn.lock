@@ -13013,7 +13013,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^0.26.0, axios@npm:^0.26.1":
+"axios@npm:^0.26.0":
   version: 0.26.1
   resolution: "axios@npm:0.26.1"
   dependencies:
@@ -17014,7 +17014,6 @@ __metadata:
     "@typescript-eslint/parser": ^5.7.0
     adm-zip: ^0.5.9
     atlassian-jwt: ^2.0.2
-    axios: ^0.26.1
     babel-jest: ^27.4.5
     class-transformer: ^0.5.1
     class-validator: ^0.13.2

@@ -1,8 +1,6 @@
 import { QueueNames } from '@/constants'
 import { createPipelineEntity, findPipelinesByAppId, sqs } from '@/services'
-import { AppDetailModel } from '@reapit/foundations-ts-definitions/types'
 import { SQSEvent, SQSHandler, Context, Callback } from 'aws-lambda'
-import axios from 'axios'
 import { AppTypeEnum } from '@reapit/foundations-ts-definitions'
 
 type AppEventType = {
@@ -10,22 +8,8 @@ type AppEventType = {
   Type: 'updated' | 'deleted' | 'created'
   TimeStamp: string
   ApplicationName: string
-}
-
-const getAppFromMarketPlace = async (appId: string): Promise<AppDetailModel> => {
-  const response = await axios.get<AppDetailModel>(`${process.env.PLATFORM_URL}/marketplace/apps/${appId}`, {
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-      'api-version': 'latest',
-      'Content-Type': 'application/json',
-    },
-  })
-
-  if (response.status !== 200) {
-    throw new Error('failed to get app from platform')
-  }
-
-  return response.data
+  AuthFlow: string
+  DeveloperId: string
 }
 
 export const appEventsHandler: SQSHandler = async (event: SQSEvent, context: Context, callback: Callback) => {
@@ -35,13 +19,11 @@ export const appEventsHandler: SQSHandler = async (event: SQSEvent, context: Con
 
       switch (payload.Type) {
         case 'created': {
-          console.log('initiate pipeline creation')
-          const app = await getAppFromMarketPlace(payload.AppId)
-
           const pipeline = await createPipelineEntity({
-            appId: app.id,
-            name: app.name,
-            appType: app.authFlow === 'authorisationCode' ? AppTypeEnum.REACT : AppTypeEnum.NODE,
+            appId: payload.AppId,
+            name: payload.ApplicationName,
+            appType: payload.AuthFlow === 'authorisationCode' ? AppTypeEnum.REACT : AppTypeEnum.NODE,
+            developerId: payload.DeveloperId,
           })
 
           await new Promise<void>((resolve, reject) =>
