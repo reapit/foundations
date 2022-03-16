@@ -303,6 +303,15 @@ export interface ApplicantExternalAreaModel {
   amountTo?: number // double
 }
 /**
+ * Details of regional information specific to Guernsey
+ */
+export interface ApplicantGuernseyModel {
+  /**
+   * Requirements describing which markets the applicant is looking for properties in (local/openA/openB/openC/openD)
+   */
+  market?: string[]
+}
+/**
  * The applicant's indoor space requirements
  */
 export interface ApplicantInternalAreaModel {
@@ -580,6 +589,20 @@ export interface ApplicantModel {
      * The commercial floor level attributes (eg basement, subGround, ground, upperFloor), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
      */
     floorLevel?: string[]
+  }
+  /**
+   * Details relating to the real estate market in specific countries. Child models are named based on the ISO3166 country code that the data inside the model relates to
+   */
+  regional?: {
+    /**
+     * Details of regional information specific to Guernsey
+     */
+    ggy?: {
+      /**
+       * Requirements describing which markets the applicant is looking for properties in (local/openA/openB/openC/openD)
+       */
+      market?: string[]
+    }
   }
   /**
    * A collection of unique identifiers of offices attached to the applicant. The first item in the collection is considered the primary office
@@ -957,6 +980,20 @@ export interface ApplicantModelPagedResult {
       floorLevel?: string[]
     }
     /**
+     * Details relating to the real estate market in specific countries. Child models are named based on the ISO3166 country code that the data inside the model relates to
+     */
+    regional?: {
+      /**
+       * Details of regional information specific to Guernsey
+       */
+      ggy?: {
+        /**
+         * Requirements describing which markets the applicant is looking for properties in (local/openA/openB/openC/openD)
+         */
+        market?: string[]
+      }
+    }
+    /**
      * A collection of unique identifiers of offices attached to the applicant. The first item in the collection is considered the primary office
      */
     officeIds?: string[]
@@ -1079,6 +1116,20 @@ export interface ApplicantModelPagedResult {
   }
 }
 /**
+ * Details relating to the real estate market in specific countries. Child models are named based on the ISO3166 country code that the data inside the model relates to
+ */
+export interface ApplicantRegionalModel {
+  /**
+   * Details of regional information specific to Guernsey
+   */
+  ggy?: {
+    /**
+     * Requirements describing which markets the applicant is looking for properties in (local/openA/openB/openC/openD)
+     */
+    market?: string[]
+  }
+}
+/**
  * The details specific to applicants with a marketingMode of renting
  */
 export interface ApplicantRentingModel {
@@ -1196,6 +1247,7 @@ export interface Applicants {
     | 'townhouse'
     | 'developmentPlot'
   )[]
+  market?: ('local' | 'openA' | 'openB' | 'openC' | 'openD')[]
   address?: string
   departmentId?: string
   marketingMode?: ('buying' | 'renting')[]
@@ -6329,6 +6381,10 @@ export interface CreatePropertyModel {
    */
   areaId?: string
   /**
+   * The url to the property on an external website
+   */
+  url?: string
+  /**
    * App specific metadata to set against the property
    */
   metadata?: {
@@ -10813,6 +10869,10 @@ export interface PropertyModel {
    */
   featuredImageUrl?: string // uri
   /**
+   * The url to the property on an external website
+   */
+  url?: string
+  /**
    * The date the advertising board was last updated (or should be updated when the date is in the future)
    * example:
    * 2019-08-14
@@ -11420,6 +11480,10 @@ export interface PropertyModelPagedResult {
      * The properties featured image url
      */
     featuredImageUrl?: string // uri
+    /**
+     * The url to the property on an external website
+     */
+    url?: string
     /**
      * The date the advertising board was last updated (or should be updated when the date is in the future)
      * example:
@@ -14275,7 +14339,7 @@ export interface UpdateApplicantSourceModel {
  */
 export interface UpdateAppointmentAttendeeModel {
   /**
-   * The unique identifier of the attendee
+   * The unique identifier of the attendee. To clear an attendee this can be passed as an empty string.
    */
   id?: string
   /**
@@ -14357,7 +14421,7 @@ export interface UpdateAppointmentModel {
    */
   attendee?: {
     /**
-     * The unique identifier of the attendee
+     * The unique identifier of the attendee. To clear an attendee this can be passed as an empty string.
      */
     id?: string
     /**
@@ -16219,6 +16283,10 @@ export interface UpdatePropertyModel {
    * The unique identifier of the area that the property resides in
    */
   areaId?: string
+  /**
+   * The url to the property on an external website
+   */
+  url?: string
   /**
    * App specific metadata to set against the property
    */
