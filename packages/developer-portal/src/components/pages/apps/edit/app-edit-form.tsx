@@ -123,7 +123,7 @@ export const AppEditForm: FC<AppEditFormProps> = ({ tab }) => {
 
   useEffect(handleUnsavedChanges(dirtyFields, setAppUnsavedFields), [dirtyFields])
 
-  useEffect(handleSetIncompletedFields(getValues(), setIncompleteFields), [dirtyFields])
+  useEffect(handleSetIncompletedFields(getValues(), setIncompleteFields), [dirtyFields, appEditForm])
 
   useEffect(handleSetRevalidating(setValue, setAppEditSaving, appEditSaving), [appEditSaving])
 

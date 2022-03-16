@@ -13,6 +13,7 @@ export const handleSetIncompletedFields =
           },
           { abortEarly: false },
         )
+        setIncompleteFields([])
       } catch (err: any) {
         const fields = err?.inner?.reduce(
           (fieldList: (keyof AppEditFormSchema)[], field: { path: keyof AppEditFormSchema }) => {

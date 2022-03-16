@@ -85,7 +85,7 @@ describe('getAppStatus', () => {
   it('should get app status for a non live app', () => {
     const result = getAppStatus({ isListed: false, pendingRevisions: false, limitToClientIds: [] })
 
-    expect(result).toEqual('Your app is incomplete and in development only')
+    expect(result).toEqual('Your app is not live and in development only')
   })
 })
 

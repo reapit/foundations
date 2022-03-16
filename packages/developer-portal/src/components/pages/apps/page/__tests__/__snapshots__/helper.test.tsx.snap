@@ -1662,7 +1662,8 @@ Object {
         <p
           class="e11jaxfn-el-has-grey-text e1wasvgh-el-small-text"
         >
-          As your app is live with customer data, you will need to submit any app changes for approval by one of our team. For more on this process 
+          As your app listing is now complete, you can submit it for review by one of our team, so you can go live with customer data. For more on this process
+           
           <a>
             visit here.
           </a>
@@ -1670,7 +1671,7 @@ Object {
         <p
           class="e11jaxfn-el-has-grey-text e1wasvgh-el-small-text"
         >
-          You also have the option of de-listing your app and reverting to a sandbox only integration.
+          You also have the option of saving any additional changes as you make them before submitting.
         </p>
         <button
           class="esplruv-el-mb3 e1iow709-el-intent-critical e1tqqdf9-el-button-has-right-chevron e1f2ikqj-el-button"
@@ -1797,7 +1798,8 @@ Object {
       <p
         class="e11jaxfn-el-has-grey-text e1wasvgh-el-small-text"
       >
-        As your app is live with customer data, you will need to submit any app changes for approval by one of our team. For more on this process 
+        As your app listing is now complete, you can submit it for review by one of our team, so you can go live with customer data. For more on this process
+         
         <a>
           visit here.
         </a>
@@ -1805,7 +1807,7 @@ Object {
       <p
         class="e11jaxfn-el-has-grey-text e1wasvgh-el-small-text"
       >
-        You also have the option of de-listing your app and reverting to a sandbox only integration.
+        You also have the option of saving any additional changes as you make them before submitting.
       </p>
       <button
         class="esplruv-el-mb3 e1iow709-el-intent-critical e1tqqdf9-el-button-has-right-chevron e1f2ikqj-el-button"

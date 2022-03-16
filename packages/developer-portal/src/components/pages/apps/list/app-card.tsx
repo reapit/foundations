@@ -9,6 +9,8 @@ import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { navigate } from '../../../../utils/navigation'
 import defaultAppIcon from '../../../../assets/images/default-app-icon.jpg'
 import { useAppState } from '../state/use-app-state'
+import { cx } from '@linaria/core'
+import { cardCursor } from './__styles__'
 
 export const handleDeleteApp = (deleteApp: SendFunction<void, boolean>) => (event?: MouseEvent) => {
   event?.stopPropagation()
@@ -45,7 +47,7 @@ export const AppCard: FC<AppCardProps> = ({ app }) => {
 
   return (
     <Card
-      className={elFadeIn}
+      className={cx(elFadeIn, cardCursor)}
       onClick={navigate(history, `${Routes.APPS}/${id}`)}
       hasMainCard
       mainContextMenuItems={[
