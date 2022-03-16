@@ -226,6 +226,21 @@ export class PipelineCreate extends AbstractCommand {
       name: 'outDir',
       message: 'outDir - The output of your build command',
       default: 'build',
+      validate: (value) => {
+        if (!value || value.trim().length <= 0) {
+          return 'Please add an ourDir for deployment'
+        }
+
+        if (!/^[\w+\/]+$/.test(value)) {
+          return 'Please enter a valid folder location (no file names)'
+        }
+
+        if (value.length >= 256) {
+          return 'OutDir location too long, please make it less than 255 characters'
+        }
+
+        return true
+      },
     })
 
     // TODO list yarn commands?
@@ -234,6 +249,17 @@ export class PipelineCreate extends AbstractCommand {
       name: 'buildCommand',
       message: 'buildCommand - The build command of your project',
       default: 'build',
+      validate: (value) => {
+        if (!value || value.trim().length <= 0) {
+          return 'Please add a buildCommand for deployment'
+        }
+
+        if (value.length >= 256) {
+          return 'buildCommand too long, please make it less than 255 characters'
+        }
+
+        return true
+      },
     })
 
     questions.push({
