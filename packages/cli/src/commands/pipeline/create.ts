@@ -9,10 +9,6 @@ import { resolve } from 'path'
 import git from 'simple-git'
 import { REAPIT_PIPELINE_CONFIG_FILE } from './constants'
 
-const urlRegex =
-  /* eslint-disable-next-line */
-  /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=+$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=+$,\w]+@)[A-Za-z0-9.-]+)((?:\/[+~%/.\w-_]*)?\??(?:[-+=&;%@.\w_]x*)#?(?:[\w]x*))?)/
-
 @Command({
   name: 'create',
   description: 'Create a pipeline',
@@ -218,7 +214,11 @@ export class PipelineCreate extends AbstractCommand {
             return 'Please add a repository url'
           }
 
-          if (!urlRegex.test(value)) {
+          if (
+            !/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)/.test(
+              value,
+            )
+          ) {
             return 'Please enter a valid repository url'
           }
 
@@ -227,7 +227,6 @@ export class PipelineCreate extends AbstractCommand {
       })
     }
 
-    // TODO find from tsconfig/package.json:main
     questions.push({
       type: 'input',
       name: 'outDir',
@@ -250,7 +249,6 @@ export class PipelineCreate extends AbstractCommand {
       },
     })
 
-    // TODO list yarn commands?
     questions.push({
       type: 'input',
       name: 'buildCommand',
@@ -276,7 +274,6 @@ export class PipelineCreate extends AbstractCommand {
       choices: ['yarn', 'npm'],
     })
 
-    // TODO should this even be a question? Would save us from trying to resolve this
     const answers = await inquirer.prompt([
       ...questions,
       {
