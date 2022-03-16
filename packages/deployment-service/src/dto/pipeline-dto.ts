@@ -1,4 +1,4 @@
-import { IsString, IsNotEmpty, IsOptional, IsEnum, MaxLength, IsUUID } from 'class-validator'
+import { IsString, IsNotEmpty, IsOptional, IsEnum, MaxLength, IsUUID, Matches } from 'class-validator'
 
 export enum AppTypeEnum {
   REACT = 'react',
@@ -39,4 +39,9 @@ export class PipelineDto {
   @IsUUID('4')
   @IsNotEmpty()
   appId?: string
+
+  @IsString()
+  @IsOptional()
+  @Matches(/CREATING_ARCHITECTURE/)
+  buildStatus?: 'CREATING_ARCHITECTURE'
 }

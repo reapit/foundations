@@ -4,8 +4,9 @@ import { PipelineEntity } from '../../entities/pipeline.entity'
 import * as service from './../../services/pipeline'
 import { validate } from 'class-validator'
 import { ownership, resolveCreds } from './../../utils'
-import { defaultOutputHeaders } from './../../constants'
 import { plainToClass } from 'class-transformer'
+import { sqs } from '../../services'
+import { defaultOutputHeaders, QueueNames } from '../../constants'
 
 /**
  * Update a given pipeline
@@ -24,6 +25,7 @@ export const pipelineUpdate = httpHandler<PipelineDto, PipelineEntity>({
   },
   handler: async ({ body, event }): Promise<PipelineEntity> => {
     const { developerId } = await resolveCreds(event)
+    let setupInfra = false
 
     const pipeline = await service.findPipelineById(event.pathParameters?.pipelineId as string)
 
@@ -31,7 +33,28 @@ export const pipelineUpdate = httpHandler<PipelineDto, PipelineEntity>({
       throw new NotFoundException()
     }
 
+    if (pipeline.buildStatus === 'PAUSED' && body.buildStatus === 'CREATING_ARCHITECTURE') {
+      setupInfra = true
+    }
+
     await ownership(pipeline.developerId, developerId)
+
+    if (!setupInfra) {
+      await new Promise<void>((resolve, reject) =>
+        sqs.sendMessage(
+          {
+            MessageBody: JSON.stringify(pipeline),
+            QueueUrl: QueueNames.PIPELINE_SETUP,
+          },
+          (error) => {
+            if (error) {
+              reject(error)
+            }
+            resolve()
+          },
+        ),
+      )
+    }
 
     return service.updatePipelineEntity(pipeline, body)
   },
