@@ -23,6 +23,7 @@ const currentMemberInfo: MemberModel | null = appState.currentMember.data
 const valuesMock: ContactInformationValues = {
   name: 'name',
   jobTitle: 'jobTitle',
+  gitHubUsername: 'JoeDev',
 }
 
 describe('ContactInformationForm', () => {
@@ -58,6 +59,7 @@ describe('generateInitialValues', () => {
     const expectedResult = {
       name,
       jobTitle,
+      gitHubUsername: '',
     }
     expect(result).toEqual(expectedResult)
   })
