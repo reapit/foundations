@@ -56,33 +56,69 @@ export const PipelineDeploymentInfo: FC<PipelineDeploymentInfoProps> = ({ pipeli
     },
     returnType: UpdateReturnTypeEnum.RESPONSE,
   })
+  const [pipelineUpdateLoading, updatedPipeline, sendPipelineUpdate] = useReapitUpdate<
+    PipelineModelInterface,
+    PipelineModelInterface
+  >({
+    reapitConnectBrowserSession,
+    method: 'PUT',
+    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.updatePipeline],
+    uriParams: {
+      pipelineId: pipeline.id,
+    },
+    headers: {
+      Authorization: connectSession?.idToken as string,
+    },
+    returnType: UpdateReturnTypeEnum.RESPONSE,
+  })
 
   return (
     <>
       <PipelineInfo pipeline={pipeline} setPipeline={setPipeline} />
       <Title>Deployments</Title>
       <ButtonGroup className={cx(elMb6)}>
-        {['PAUSED', 'CREATING_ARCHITECTURE', 'CREATE_ARCHITECTURE'].includes(pipeline.buildStatus as string) ? (<Button
-          onClick={async (event) => {
-            event.preventDefault()
-            await sendFunc()
-          }}
-          disabled={pipeline.buildStatus === 'CREATING_ARCHITECTURE' || pipeline.buildStatus === 'CREATE_ARCHITECTURE'}
-          loading={pipeline.buildStatus === 'CREATING_ARCHITECTURE' || pipeline.buildStatus === 'CREATE_ARCHITECTURE'}
-          intent="success"
-        >
-          Provision
-        </Button>) : (<Button
-          loading={deploymentLoading}
-          intent="primary"
-          onClick={async (event) => {
-            event.preventDefault()
-            await sendFunc()
-          }}
-          disabled={pipeline.buildStatus === 'DELETING'}
-        >
-          Deploy
-        </Button>)}
+        {['PRE_PROVISIONED', 'CREATING_ARCHITECTURE', 'CREATE_ARCHITECTURE'].includes(
+          pipeline.buildStatus as string,
+        ) ? (
+          <Button
+            onClick={async (event) => {
+              event.preventDefault()
+              await sendPipelineUpdate({
+                ...pipeline,
+                buildStatus: 'CREATE_ARCHITECTURE',
+              })
+
+              // if (response && typeof response !== 'boolean') {
+              //   updatePipeline or rely on
+              // }
+            }}
+            disabled={
+              pipelineUpdateLoading ||
+              pipeline.buildStatus === 'CREATING_ARCHITECTURE' ||
+              pipeline.buildStatus === 'CREATE_ARCHITECTURE'
+            }
+            loading={
+              pipelineUpdateLoading ||
+              pipeline.buildStatus === 'CREATING_ARCHITECTURE' ||
+              pipeline.buildStatus === 'CREATE_ARCHITECTURE'
+            }
+            intent="success"
+          >
+            Provision
+          </Button>
+        ) : (
+          <Button
+            loading={deploymentLoading}
+            intent="primary"
+            onClick={async (event) => {
+              event.preventDefault()
+              await sendFunc()
+            }}
+            disabled={pipeline.buildStatus === 'DELETING'}
+          >
+            Deploy
+          </Button>
+        )}
         <Button
           intent="critical"
           onClick={openNewPage('https://github.com/reapit/foundations/tree/master/packages/cli#readme')}
