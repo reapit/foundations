@@ -20,7 +20,7 @@ export const appEventsHandler: SQSHandler = async (event: SQSEvent, context: Con
       switch (payload.Type) {
         case 'created': {
           await createPipelineEntity({
-            buildStatus: 'PAUSED',
+            buildStatus: 'PRE_PROVISIONED',
             appId: payload.AppId,
             name: payload.ApplicationName,
             appType: payload.AuthFlow === 'authorisationCode' ? AppTypeEnum.REACT : AppTypeEnum.NODE,
