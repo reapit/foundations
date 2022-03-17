@@ -25,6 +25,7 @@ const Routes = {
   HELP: '/help',
   DEVELOPER_EDITION_DOWNLOAD: '/edition-download',
   REGISTER: '/developer/register',
+  REGISTER_LEGACY: '/register',
   REGISTER_CONFIRM: '/register/confirm',
   LOGIN: '/login',
   FOUR_O_FOUR: '/404',
