@@ -29,7 +29,10 @@ export const downloadBitbucketSourceToS3 = async ({
   client: BitbucketClientData
   event: BitBucketEvent
 }): Promise<string> => {
-  const parts = pipeline.repository?.split('/') as string[]
+  if (!pipeline.repository) {
+    throw new Error('Pipeline repository is not configured')
+  }
+  const parts = pipeline.repository.split('/') as string[]
   const url = `${baseBitbucketUrl}/${parts[parts.length - 2]}/${parts[parts.length - 1]}/get/${pipeline.branch}.zip`
 
   if (!client) {
@@ -61,7 +64,7 @@ export const downloadBitbucketSourceToS3 = async ({
         Body: buffer,
       },
       (err, data: any) => {
-        if (err) reject(err)
+        if (err) return reject(err)
         resolve([process.env.DEPLOYMENT_REPO_CACHE_BUCKET_NAME as string, data.Key].join('/'))
       },
     ),
@@ -95,7 +98,7 @@ const downloadGithubSourceToS3 = async (
         Body: Buffer.from(response.data as ArrayBuffer),
       },
       (err, data: any) => {
-        if (err) reject(err)
+        if (err) return reject(err)
         resolve([process.env.DEPLOYMENT_REPO_CACHE_BUCKET_NAME as string, data.Key].join('/'))
       },
     ),
