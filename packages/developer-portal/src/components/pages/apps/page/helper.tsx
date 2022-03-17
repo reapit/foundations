@@ -116,7 +116,6 @@ export const Helper: FC = () => {
                   isRevalidating: true,
                   isSaving: false,
                 })}
-                chevronRight
               >
                 Save Changes
               </Button>
@@ -149,7 +148,6 @@ export const Helper: FC = () => {
               intent="critical"
               loading={isRefreshing}
               onClick={handleCancelPendingRevsion(cancelRevision, connectSession, revisionId)}
-              chevronRight
             >
               Cancel Revision
             </Button>
@@ -207,7 +205,6 @@ export const Helper: FC = () => {
                 isRevalidating: true,
                 isSaving: false,
               })}
-              chevronRight
             >
               Save Changes
             </Button>
@@ -234,7 +231,6 @@ export const Helper: FC = () => {
           className={elMb3}
           intent="primary"
           onClick={openNewPage(`${window.reapit.config.marketplaceUrl}/${appId}`)}
-          chevronRight
         >
           Preview
         </Button>
