@@ -141,7 +141,7 @@ export const AppInstallations: FC = () => {
                 {
                   label: 'Customer Name',
                   value: customerName ?? '',
-                  icon: 'companySystem',
+                  icon: 'flatInfographic',
                   cellHasDarkText: true,
                   narrowTable: {
                     showLabel: true,

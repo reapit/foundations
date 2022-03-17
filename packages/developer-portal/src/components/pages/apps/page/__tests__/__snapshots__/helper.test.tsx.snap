@@ -393,7 +393,7 @@ Object {
           Clicking below will take you to your current AppMarket listing, to view your app as users will see it.
         </p>
         <button
-          class="esplruv-el-mb3 ebee6r1-el-intent-primary e1tqqdf9-el-button-has-right-chevron e1f2ikqj-el-button"
+          class="esplruv-el-mb3 ebee6r1-el-intent-primary e1f2ikqj-el-button"
         >
           Preview
         </button>
@@ -496,7 +496,7 @@ Object {
         Clicking below will take you to your current AppMarket listing, to view your app as users will see it.
       </p>
       <button
-        class="esplruv-el-mb3 ebee6r1-el-intent-primary e1tqqdf9-el-button-has-right-chevron e1f2ikqj-el-button"
+        class="esplruv-el-mb3 ebee6r1-el-intent-primary e1f2ikqj-el-button"
       >
         Preview
       </button>
@@ -693,7 +693,7 @@ Object {
           If you no longer want your app revision to be approved, you can cancel below.
         </p>
         <button
-          class="esplruv-el-mb3 e1iow709-el-intent-critical e1tqqdf9-el-button-has-right-chevron e1f2ikqj-el-button"
+          class="esplruv-el-mb3 e1iow709-el-intent-critical e1f2ikqj-el-button"
         >
           Cancel Revision
         </button>
@@ -833,7 +833,7 @@ Object {
         If you no longer want your app revision to be approved, you can cancel below.
       </p>
       <button
-        class="esplruv-el-mb3 e1iow709-el-intent-critical e1tqqdf9-el-button-has-right-chevron e1f2ikqj-el-button"
+        class="esplruv-el-mb3 e1iow709-el-intent-critical e1f2ikqj-el-button"
       >
         Cancel Revision
       </button>
@@ -1354,7 +1354,7 @@ Object {
           Before you list your app you can save the details at any point below. After app listing, you will have to create an app revision for our team to review.
         </p>
         <button
-          class="esplruv-el-mb3 ebee6r1-el-intent-primary e1tqqdf9-el-button-has-right-chevron e1f2ikqj-el-button"
+          class="esplruv-el-mb3 ebee6r1-el-intent-primary e1f2ikqj-el-button"
         >
           Save Changes
         </button>
@@ -1481,7 +1481,7 @@ Object {
         Before you list your app you can save the details at any point below. After app listing, you will have to create an app revision for our team to review.
       </p>
       <button
-        class="esplruv-el-mb3 ebee6r1-el-intent-primary e1tqqdf9-el-button-has-right-chevron e1f2ikqj-el-button"
+        class="esplruv-el-mb3 ebee6r1-el-intent-primary e1f2ikqj-el-button"
       >
         Save Changes
       </button>

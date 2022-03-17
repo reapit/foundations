@@ -7,6 +7,7 @@ import {
   InputGroup,
   InputWrap,
   InputWrapFull,
+  InputWrapMed,
   Label,
   Loader,
   MultiSelectInput,
@@ -117,7 +118,7 @@ export const PermissionsTab: FC<AppEditTabsProps> = ({ register, errors, control
             </Toggle>
           </InputGroup>
         </InputWrap>
-        <InputWrapFull>
+        <InputWrapMed>
           <InputGroup
             {...limitToClientIds}
             {...register('limitToClientIds')}
@@ -126,7 +127,7 @@ export const PermissionsTab: FC<AppEditTabsProps> = ({ register, errors, control
             icon={errors?.limitToClientIds?.message ? 'asteriskSystem' : null}
             intent="danger"
           />
-        </InputWrapFull>
+        </InputWrapMed>
       </FormLayout>
     </>
   )

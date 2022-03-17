@@ -140,7 +140,7 @@ Object {
               Clicking below will take you to your current AppMarket listing, to view your app as users will see it.
             </p>
             <button
-              class="esplruv-el-mb3 ebee6r1-el-intent-primary e1tqqdf9-el-button-has-right-chevron e1f2ikqj-el-button"
+              class="esplruv-el-mb3 ebee6r1-el-intent-primary e1f2ikqj-el-button"
             >
               Preview
             </button>
@@ -588,7 +588,7 @@ Object {
             Clicking below will take you to your current AppMarket listing, to view your app as users will see it.
           </p>
           <button
-            class="esplruv-el-mb3 ebee6r1-el-intent-primary e1tqqdf9-el-button-has-right-chevron e1f2ikqj-el-button"
+            class="esplruv-el-mb3 ebee6r1-el-intent-primary e1f2ikqj-el-button"
           >
             Preview
           </button>

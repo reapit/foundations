@@ -245,7 +245,7 @@ Object {
               You can check the status of your app listing at any time by using the button below, prior to submitting for approval.
             </p>
             <button
-              class="e1iow709-el-intent-critical e1tqqdf9-el-button-has-right-chevron e1f2ikqj-el-button"
+              class="epibvz0-el-intent-secondary e1f2ikqj-el-button"
             >
               Check Status
             </button>
@@ -630,7 +630,7 @@ Object {
             You can check the status of your app listing at any time by using the button below, prior to submitting for approval.
           </p>
           <button
-            class="e1iow709-el-intent-critical e1tqqdf9-el-button-has-right-chevron e1f2ikqj-el-button"
+            class="epibvz0-el-intent-secondary e1f2ikqj-el-button"
           >
             Check Status
           </button>
