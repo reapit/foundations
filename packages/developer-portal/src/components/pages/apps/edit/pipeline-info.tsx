@@ -4,15 +4,14 @@ import React from 'react'
 
 const buildStatusToIntent = (status: string): Intent => {
   switch (status) {
-    case 'CREATING_ARCHITECTURE':
+    case 'PROVISIONING':
       return 'primary'
     case 'COMPLETED':
       return 'primary'
     case 'IN_PROGRESS':
       return 'secondary'
-    case 'PENDING':
+    case 'PRE_PROVISIONED':
     case 'QUEUED':
-    case 'PAUSED':
       return 'critical'
     case 'FAILED':
     case 'DELETING':
