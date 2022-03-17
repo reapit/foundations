@@ -39,7 +39,7 @@ const initChatlioBot = (loginIdentity) => {
   })
 }
 
-const initZendeskBot = () => {
+const initZendeskBot = (loginIdentity) => {
   const head = document.querySelector('head')
   const script = document.createElement('script')
   script.type = 'text/javascript'
@@ -47,6 +47,15 @@ const initZendeskBot = () => {
   script.src = window.reapit.config.zendeskUri
 
   head.appendChild(script)
+
+  script.onload = () => {
+    zE(function () {
+      zE.identify({
+        name: loginIdentity.name,
+        email: loginIdentity.email,
+      })
+    })
+  }
 }
 
 const openChatbot = (loginIdentity) => {
@@ -54,7 +63,7 @@ const openChatbot = (loginIdentity) => {
 
   if (isDev) {
     if (!window.zE) {
-      initZendeskBot()
+      initZendeskBot(loginIdentity)
     }
   } else {
     if (window._chatlio) {
