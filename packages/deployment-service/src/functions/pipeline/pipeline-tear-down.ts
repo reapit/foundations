@@ -125,7 +125,7 @@ export const pipelineTearDownStart: SQSHandler = async (event: SQSEvent, context
     event.Records.map(async (record) => {
       const pipeline: PipelineEntity = JSON.parse(record.body) as PipelineEntity
 
-      await disableCloudFront(pipeline.cloudFrontId as string)
+      if (pipeline.buildStatus !== 'PRE_PROVISIONED') await disableCloudFront(pipeline.cloudFrontId as string)
 
       await Promise.all([
         new Promise<any>((resolve, reject) =>
@@ -163,11 +163,13 @@ export const pipelineTearDown: SQSHandler = async (event: SQSEvent, context: Con
     event.Records.map(async (record) => {
       const pipeline: PipelineEntity = JSON.parse(record.body) as PipelineEntity
 
-      const domainName = await tearDownCloudFront(pipeline.cloudFrontId as string)
+      if (pipeline.buildStatus !== 'PRE_PROVISIONED') {
+        const domainName = await tearDownCloudFront(pipeline.cloudFrontId as string)
 
-      await tearDownLiveBucketLocation(`pipeline/${pipeline.uniqueRepoName}`)
+        await tearDownLiveBucketLocation(`pipeline/${pipeline.uniqueRepoName}`)
 
-      await tearDownR53(domainName, pipeline.id as string, pipeline.subDomain as string)
+        await tearDownR53(domainName, pipeline.id as string, pipeline.subDomain as string)
+      }
 
       await deleteAllFromDb(pipeline)
       pipeline.buildStatus = 'DELETED'
