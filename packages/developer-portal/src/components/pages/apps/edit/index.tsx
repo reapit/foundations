@@ -61,6 +61,12 @@ export const AppEditPage: FC = () => {
               text: 'AgencyCloud Integration',
               isChecked: tab === AppEditTab.acIntegration,
             },
+            {
+              id: AppEditTab.pipelines,
+              value: AppEditTab.pipelines,
+              text: 'Pipelines',
+              isChecked: tab === AppEditTab.pipelines,
+            },
           ].filter(Boolean) as TabsOption[]
         }
       />

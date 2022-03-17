@@ -7,7 +7,7 @@ const buildStatusToIntent = (status: string): Intent => {
     case 'PROVISIONING':
       return 'primary'
     case 'COMPLETED':
-      return 'primary'
+      return 'success'
     case 'IN_PROGRESS':
       return 'secondary'
     case 'PRE_PROVISIONED':
@@ -15,6 +15,8 @@ const buildStatusToIntent = (status: string): Intent => {
       return 'critical'
     case 'FAILED':
     case 'DELETING':
+    case 'DELETED':
+    case 'FAILED_TO_PROVISION':
       return 'danger'
     case 'READY_FOR_DEPLOYMENT':
       return 'low'

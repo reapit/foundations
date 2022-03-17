@@ -10,6 +10,7 @@ import { openNewPage } from '@/utils/navigation'
 import { UpdateReturnTypeEnum } from '@reapit/utils-react'
 import { PipelineDeploymentTable } from './pipeline-runner-table'
 import { PipelineInfo } from './pipeline-info'
+import { useEvent } from '@harelpls/use-pusher'
 
 export interface PipelineDeploymentInfoProps {
   pipeline: PipelineModelInterface
@@ -56,20 +57,27 @@ export const PipelineDeploymentInfo: FC<PipelineDeploymentInfoProps> = ({ pipeli
     },
     returnType: UpdateReturnTypeEnum.RESPONSE,
   })
-  const [pipelineUpdateLoading, updatedPipeline, sendPipelineUpdate] = useReapitUpdate<
-    PipelineModelInterface,
-    PipelineModelInterface
-  >({
-    reapitConnectBrowserSession,
-    method: 'PUT',
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.updatePipeline],
-    uriParams: {
-      pipelineId: pipeline.id,
+  const [pipelineUpdateLoading, , sendPipelineUpdate] = useReapitUpdate<PipelineModelInterface, PipelineModelInterface>(
+    {
+      reapitConnectBrowserSession,
+      method: 'PUT',
+      action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.updatePipeline],
+      uriParams: {
+        pipelineId: pipeline.id,
+      },
+      headers: {
+        Authorization: connectSession?.idToken as string,
+      },
+      returnType: UpdateReturnTypeEnum.RESPONSE,
     },
-    headers: {
-      Authorization: connectSession?.idToken as string,
-    },
-    returnType: UpdateReturnTypeEnum.RESPONSE,
+  )
+
+  useEvent<PipelineRunnerModelInterface & { pipeline: PipelineModelInterface }>(channel, 'pipeline-update', (event) => {
+    if (!event) {
+      return
+    }
+
+    setPipeline(event)
   })
 
   return (
@@ -77,7 +85,7 @@ export const PipelineDeploymentInfo: FC<PipelineDeploymentInfoProps> = ({ pipeli
       <PipelineInfo pipeline={pipeline} setPipeline={setPipeline} />
       <Title>Deployments</Title>
       <ButtonGroup className={cx(elMb6)}>
-        {['PRE_PROVISIONED', 'CREATING_ARCHITECTURE', 'CREATE_ARCHITECTURE'].includes(
+        {['PRE_PROVISIONED', 'PROVISIONING', 'PROVISION_REQUEST', 'FAILED_TO_PROVISION'].includes(
           pipeline.buildStatus as string,
         ) ? (
           <Button
@@ -85,22 +93,18 @@ export const PipelineDeploymentInfo: FC<PipelineDeploymentInfoProps> = ({ pipeli
               event.preventDefault()
               await sendPipelineUpdate({
                 ...pipeline,
-                buildStatus: 'CREATE_ARCHITECTURE',
+                buildStatus: 'PROVISION_REQUEST',
               })
-
-              // if (response && typeof response !== 'boolean') {
-              //   updatePipeline or rely on
-              // }
             }}
             disabled={
               pipelineUpdateLoading ||
-              pipeline.buildStatus === 'CREATING_ARCHITECTURE' ||
-              pipeline.buildStatus === 'CREATE_ARCHITECTURE'
+              pipeline.buildStatus === 'PROVISIONING' ||
+              pipeline.buildStatus === 'PROVISION_REQUEST'
             }
             loading={
               pipelineUpdateLoading ||
-              pipeline.buildStatus === 'CREATING_ARCHITECTURE' ||
-              pipeline.buildStatus === 'CREATE_ARCHITECTURE'
+              pipeline.buildStatus === 'PROVISIONING' ||
+              pipeline.buildStatus === 'PROVISION_REQUEST'
             }
             intent="success"
           >
