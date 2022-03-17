@@ -46,7 +46,7 @@ export const pipelineUpdate = httpHandler<PipelineDto, PipelineEntity>({
 
     await pusher.trigger(`private-${pipeline.developerId}`, 'pipeline-update', updatedPipeline)
 
-    if (!setupInfra) {
+    if (setupInfra) {
       await new Promise<void>((resolve, reject) =>
         sqs.sendMessage(
           {
