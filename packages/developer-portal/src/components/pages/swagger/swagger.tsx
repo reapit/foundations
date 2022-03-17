@@ -1,6 +1,6 @@
 /* istanbul ignore file */
 // Can't add tests to this file because of the way Jest transpiles Swagger UI throws an error
-import React, { ChangeEvent, Dispatch, FC, SetStateAction, useState } from 'react'
+import React, { ChangeEvent, Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
 import SwaggerUI from 'swagger-ui-react'
 import 'swagger-ui-react/swagger-ui.css'
 import { swagger, titleWrap, swaggerHidden } from './__styles__/swagger'
@@ -31,7 +31,7 @@ import {
 import Routes from '../../../constants/routes'
 import { useHistory, useLocation } from 'react-router'
 import { cx } from '@linaria/core'
-import { useReapitConnect } from '@reapit/connect-session'
+import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { ExternalPages, navigate, openNewPage } from '../../../utils/navigation'
 import { useReapitGet } from '@reapit/utils-react'
@@ -64,20 +64,35 @@ export const fetchInterceptor = (params: InterceptorParams, accessToken?: string
 }
 
 export const handleChangeSwaggerDoc =
-  (setSwaggerUri: Dispatch<SetStateAction<string>>) => (event: ChangeEvent<HTMLSelectElement>) => {
+  (setSwaggerUri: Dispatch<SetStateAction<string | null>>) => (event: ChangeEvent<HTMLSelectElement>) => {
     const swaggerUri = event.target.value
+    setSwaggerUri(swaggerUri)
+  }
+
+export const handleDefaultSwaggerDoc =
+  (
+    setSwaggerUri: Dispatch<SetStateAction<string | null>>,
+    productsList: ProductModelPagedResult | null,
+    connectSession: ReapitConnectSession | null,
+  ) =>
+  () => {
+    const orgProduct = connectSession?.loginIdentity.orgProduct
+    if (!orgProduct || !productsList) return
+    const swaggerUri = productsList.data?.find((product) => product.id === orgProduct)?.openApiUrl ?? null
     setSwaggerUri(swaggerUri)
   }
 
 export const SwaggerPage: FC = () => {
   const [loading, setLoading] = useState(true)
-  const [swaggerUri, setSwaggerUri] = useState(window.reapit.config.swaggerUri)
+  const [swaggerUri, setSwaggerUri] = useState<string | null>(null)
   const [productsList] = useReapitGet<ProductModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getProducts],
   })
-
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+
+  useEffect(handleDefaultSwaggerDoc(setSwaggerUri, productsList, connectSession), [productsList, connectSession])
+
   const requestInterceptor = (params: InterceptorParams) => fetchInterceptor(params, connectSession?.accessToken)
   const location = useLocation()
   const history = useHistory()
@@ -118,10 +133,7 @@ export const SwaggerPage: FC = () => {
               </SmallText>
               <ControlsContainer className={cx(elBorderRadius, elMb5)}>
                 <InputGroup>
-                  <Select className={elWFull} value={swaggerUri} onChange={handleChangeSwaggerDoc(setSwaggerUri)}>
-                    <option key="default-option" value="">
-                      Please Select
-                    </option>
+                  <Select className={elWFull} value={swaggerUri ?? ''} onChange={handleChangeSwaggerDoc(setSwaggerUri)}>
                     {productsList?.data?.map((option) => (
                       <option key={option.id} value={option.openApiUrl}>
                         {option.name}
@@ -156,8 +168,8 @@ export const SwaggerPage: FC = () => {
             See Glossary
           </Button>
         </SecondaryNavContainer>
-        {(loading || !connectSession?.accessToken) && <Loader label="Loading" fullPage />}
-        <div className={cx(swagger, loading && swaggerHidden)}>
+        {(loading || !connectSession?.accessToken || !swaggerUri) && <Loader fullPage />}
+        <div className={cx(swagger, (loading || !swaggerUri) && swaggerHidden)}>
           <Title className={titleWrap}>Foundations API</Title>
           {window.reapit.config.appEnv !== 'production' && (
             <BodyText className={elMx9} hasGreyText>
