@@ -5,7 +5,7 @@ import * as service from './../../services/pipeline'
 import { validate } from 'class-validator'
 import { ownership, resolveCreds } from './../../utils'
 import { plainToClass } from 'class-transformer'
-import { sqs } from '../../services'
+import { pusher, sqs } from '../../services'
 import { defaultOutputHeaders, QueueNames } from '../../constants'
 
 /**
@@ -33,17 +33,21 @@ export const pipelineUpdate = httpHandler<PipelineDto, PipelineEntity>({
       throw new NotFoundException()
     }
 
-    if (pipeline.buildStatus === 'PAUSED' && body.buildStatus === 'CREATE_ARCHITECTURE') {
+    await ownership(pipeline.developerId, developerId)
+
+    if (pipeline.buildStatus === 'PAUSED' && body.buildStatus === 'PROVISION_REQUEST') {
       setupInfra = true
     }
 
-    await ownership(pipeline.developerId, developerId)
+    const updatedPipeline = await service.updatePipelineEntity(pipeline, body)
+
+    await pusher.trigger(`private-${pipeline.developerId}`, 'pipeline-update', updatedPipeline)
 
     if (!setupInfra) {
       await new Promise<void>((resolve, reject) =>
         sqs.sendMessage(
           {
-            MessageBody: JSON.stringify(pipeline),
+            MessageBody: JSON.stringify(updatedPipeline),
             QueueUrl: QueueNames.PIPELINE_SETUP,
           },
           (error) => {
@@ -56,6 +60,6 @@ export const pipelineUpdate = httpHandler<PipelineDto, PipelineEntity>({
       )
     }
 
-    return service.updatePipelineEntity(pipeline, body)
+    return updatedPipeline
   },
 })

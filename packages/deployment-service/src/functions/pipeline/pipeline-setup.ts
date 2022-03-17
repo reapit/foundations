@@ -12,7 +12,7 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
     event.Records.map(async (record) => {
       const message = JSON.parse(record.body)
       const pipeline = plainToClass(PipelineEntity, message)
-      pipeline.buildStatus = 'CREATING_ARCHITECTURE'
+      pipeline.buildStatus = 'PROVISIONING'
 
       try {
         await updatePipelineEntity(pipeline, {})
@@ -148,14 +148,14 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
           message: 'Pipeline successfully created',
         })
       } catch (error: any) {
-        pipeline.buildStatus = 'FAILED_TO_ARCHITECT'
+        pipeline.buildStatus = 'FAILED_TO_PROVISION'
 
         await pusher.trigger(`private-${pipeline.developerId}`, 'pipeline-update', {
           ...pipeline,
           message: 'Failed to architech',
         })
         await updatePipelineEntity(pipeline, {
-          buildStatus: 'FAILED_TO_ARCHITECT',
+          buildStatus: 'FAILED_TO_PROVISION',
         })
         console.error(error)
         throw error

@@ -8,7 +8,7 @@ import {
   NotFoundException,
 } from '@homeservenow/serverless-aws-handler'
 import * as service from '../../services'
-import { defaultOutputHeaders } from './../../constants'
+import { defaultOutputHeaders, isPipelineDeploymentDisabled } from './../../constants'
 import { QueueNames } from './../../constants'
 
 /**
@@ -35,11 +35,7 @@ export const pipelineRunnerCreate = httpHandler<void, PipelineRunnerEntity>({
 
     await ownership(pipeline.developerId, developerId)
 
-    if (
-      (pipeline.buildStatus && 'CREATING_ARCHITECTURE' === pipeline.buildStatus) ||
-      'DELETING' === pipeline.buildStatus ||
-      (await service.pipelineRunnerCountRunning(pipeline)) >= 1
-    ) {
+    if (isPipelineDeploymentDisabled(pipeline) || (await service.pipelineRunnerCountRunning(pipeline)) >= 1) {
       throw new HttpErrorException('Cannot create deployment in current state', 409 as HttpStatusCode)
     }
 

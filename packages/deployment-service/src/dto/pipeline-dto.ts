@@ -42,6 +42,6 @@ export class PipelineDto {
 
   @IsString()
   @IsOptional()
-  @Matches(/CREATE_ARCHITECTURE/)
-  buildStatus?: 'CREATE_ARCHITECTURE'
+  @Matches(/PROVISION_REQUEST/)
+  buildStatus?: 'PROVISION_REQUEST'
 }
