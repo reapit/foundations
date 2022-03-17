@@ -1,6 +1,5 @@
 import React, { FC, HTMLAttributes } from 'react'
 import { cx } from '@linaria/core'
-import { Icon } from '../icon'
 import { ElModalBg, ElModal, ElModalHeader, ElModalBody } from './__styles__'
 import { elIsActive } from '../../styles/states'
 
@@ -46,12 +45,7 @@ export const Modal: FC<ModalProps> = ({ isOpen, onModalClose, title, className, 
     <>
       <ElModalBg className={elIsActive} onClick={onModalClose} />
       <ElModal className={modalCombinedClassname} {...rest}>
-        {title && (
-          <ElModalHeader>
-            {title}
-            <Icon onClick={onModalClose} icon="closeSystem" />
-          </ElModalHeader>
-        )}
+        {title && <ElModalHeader>{title}</ElModalHeader>}
         <ElModalBody>{children}</ElModalBody>
       </ElModal>
     </>
