@@ -3,7 +3,7 @@ import { Control, UseFormGetValues } from 'react-hook-form'
 import { render } from '../../../../../tests/react-testing'
 import { AppEditTab } from '../edit-page-tabs'
 import { AppEditFormSchema } from '../form-schema/form-fields'
-import { GeneralTab, handleOpenModal } from '../general-tab'
+import { GeneralTab, handleMouseOver, handleOpenModal } from '../general-tab'
 import { defaultValues as mockAppEditForm } from '../../edit/form-schema/form-fields'
 
 jest.mock('../../state/use-app-state')
@@ -36,5 +36,17 @@ describe('handleOpenModal', () => {
     curried(event)
 
     expect(openModal).toHaveBeenCalledTimes(1)
+  })
+})
+
+describe('handleMouseOver', () => {
+  it('should set the animated state', () => {
+    const setDocsIsAnimated = jest.fn()
+    const isAnimated = true
+    const curried = handleMouseOver(setDocsIsAnimated, isAnimated)
+
+    curried()
+
+    expect(setDocsIsAnimated).toHaveBeenCalledWith(isAnimated)
   })
 })

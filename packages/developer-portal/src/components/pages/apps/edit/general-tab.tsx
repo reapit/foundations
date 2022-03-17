@@ -1,24 +1,13 @@
-import React, { FC, MouseEvent } from 'react'
-import {
-  BodyText,
-  Button,
-  ButtonGroup,
-  ColSplit,
-  elMb10,
-  elMb6,
-  elMb7,
-  Grid,
-  Icon,
-  Subtitle,
-  useModal,
-} from '@reapit/elements'
+import React, { Dispatch, FC, MouseEvent, SetStateAction, useState } from 'react'
+import { BodyText, Button, ButtonGroup, ColSplit, elMb6, elMb7, Grid, Subtitle, useModal } from '@reapit/elements'
 import { AppEditTabsProps } from './edit-page-tabs'
 import { ExternalPages, openNewPage } from '../../../../utils/navigation'
-import { IconContainer } from './__styles__'
 import { formFields } from './form-schema/form-fields'
 import { PermissionChip } from '../detail/__styles__'
 import { getAppStatus, getIntegrationType } from '../detail'
 import { useAppState } from '../state/use-app-state'
+import { ManageAppListingGraphic } from './manage-app-listing-graphic'
+import { AppListingDocsGraphic } from './app-listing-docs-graphic'
 
 export const handleOpenModal = (openModal: () => void) => (event: MouseEvent) => {
   event.preventDefault()
@@ -26,8 +15,14 @@ export const handleOpenModal = (openModal: () => void) => (event: MouseEvent) =>
   openModal()
 }
 
+export const handleMouseOver = (setIsAnimated: Dispatch<SetStateAction<boolean>>, isAnimated: boolean) => () => {
+  setIsAnimated(isAnimated)
+}
+
 export const GeneralTab: FC<AppEditTabsProps> = () => {
   const { appsDataState, appEditState } = useAppState()
+  const [manageIsAnimated, setManageIsAnimated] = useState<boolean>(false)
+  const [docsIsAnimated, setDocsIsAnimated] = useState<boolean>(false)
   const { Modal, openModal, closeModal } = useModal()
   const appDetail = appsDataState.appDetail ?? {}
   const { appUnsavedFields, appIncompleteFields } = appEditState
@@ -36,9 +31,7 @@ export const GeneralTab: FC<AppEditTabsProps> = () => {
     <>
       <Grid>
         <ColSplit>
-          <IconContainer className={elMb10}>
-            <Icon icon="editAppInfographic" fontSize="8.75em" />
-          </IconContainer>
+          <ManageAppListingGraphic isAnimated={manageIsAnimated} />
           <Subtitle>Manage App Listing</Subtitle>
           <BodyText hasGreyText>
             This page is the starting point for completing your app listing, and initiating the approvals process for
@@ -55,14 +48,17 @@ export const GeneralTab: FC<AppEditTabsProps> = () => {
             You can check the status of your app listing at any time by using the button below, prior to submitting for
             approval.
           </BodyText>
-          <Button intent="secondary" onClick={handleOpenModal(openModal)}>
+          <Button
+            intent="secondary"
+            onMouseEnter={handleMouseOver(setManageIsAnimated, true)}
+            onMouseLeave={handleMouseOver(setManageIsAnimated, false)}
+            onClick={handleOpenModal(openModal)}
+          >
             Check Status
           </Button>
         </ColSplit>
         <ColSplit>
-          <IconContainer className={elMb10}>
-            <Icon icon="docsInfographic" fontSize="8.75em" />
-          </IconContainer>
+          <AppListingDocsGraphic isAnimated={docsIsAnimated} />
           <Subtitle>App Listing Documentation</Subtitle>
           <BodyText hasGreyText>
             As you make changes, you should save your changes in the left hand side menu. You can do this as many times
@@ -80,18 +76,29 @@ export const GeneralTab: FC<AppEditTabsProps> = () => {
           <BodyText hasGreyText>
             For guidlines on completing your app listing, visit the documentation link below before getting started.
           </BodyText>
-          <Button intent="low" onClick={openNewPage(ExternalPages.listingAppDocs)}>
+          <Button
+            intent="low"
+            onMouseEnter={handleMouseOver(setDocsIsAnimated, true)}
+            onMouseLeave={handleMouseOver(setDocsIsAnimated, false)}
+            onClick={openNewPage(ExternalPages.listingAppDocs)}
+          >
             View Docs
           </Button>
         </ColSplit>
       </Grid>
       <Modal title="App Listing Status">
         <div className={elMb7}>
-          <Subtitle hasNoMargin>Integration Type</Subtitle>
+          <BodyText hasBoldText hasNoMargin>
+            Integration Type
+          </BodyText>
           <BodyText hasGreyText>{getIntegrationType(appDetail)}</BodyText>
-          <Subtitle hasNoMargin>AppMarket Status</Subtitle>
+          <BodyText hasBoldText hasNoMargin>
+            AppMarket Status
+          </BodyText>
           <BodyText hasGreyText>{getAppStatus(appDetail)}</BodyText>
-          <Subtitle hasNoMargin>App Listing Status</Subtitle>
+          <BodyText hasBoldText hasNoMargin>
+            App Listing Status
+          </BodyText>
           {appIncompleteFields.length ? (
             <div className={elMb6}>
               <BodyText hasGreyText>
@@ -106,7 +113,9 @@ export const GeneralTab: FC<AppEditTabsProps> = () => {
               Your app listing data is complete and you can submit for review at any time.
             </BodyText>
           )}
-          <Subtitle hasNoMargin>Unsaved Changes</Subtitle>
+          <BodyText hasBoldText hasNoMargin>
+            Unsaved Changes
+          </BodyText>
           {Object.keys(appUnsavedFields).length ? (
             <>
               <BodyText hasGreyText>The following fields have been edited, save to avoid losing data:</BodyText>
