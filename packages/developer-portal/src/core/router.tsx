@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Route, Router as BrowserRouter, Switch } from 'react-router-dom'
+import { Redirect, Route, Router as BrowserRouter, Switch } from 'react-router-dom'
 import { catchChunkError } from '@reapit/utils-react'
 import Routes from '../constants/routes'
 import PrivateRoute from './private-route'
@@ -51,6 +51,7 @@ const Router = () => {
             <Route path={Routes.OK} exact render={() => <OkayPage />} />
             <Route path={Routes.LOGIN} exact render={() => <Login />} />
             <Route path={Routes.REGISTER} render={() => <Register />} />
+            <Route path={Routes.REGISTER_LEGACY} render={() => <Redirect to={Routes.SELECT_ROLE} />} />
             <Route path={Routes.SELECT_ROLE} exact component={SelectRolePage} />
             <Route path={Routes.REGISTER_CONFIRM} exact component={RegisterConfirm} />
             <Route path={Routes.FOUR_O_FOUR} exact render={() => <Info infoType="404" />} />
