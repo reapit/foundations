@@ -6,6 +6,10 @@ import { useSelector } from 'react-redux'
 import { modalContent } from './modal-content'
 import { Loader } from '@reapit/elements'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '../../../core/connect-session'
+import Routes from '../../../constants/routes'
+import { Link } from 'react-router-dom'
 
 export type DeveloperEditionContentProps = Pick<ModalProps, 'afterClose'> & {
   developer: Partial<DeveloperModel>
@@ -25,6 +29,8 @@ export const DeveloperEditionContent: React.FC<DeveloperEditionContentProps> = (
   const currentUserLoading = useSelector(selectCurrentMemberIsLoading)
   const currentDeveloper = useSelector(selectSettingsPageDeveloperInformation)
   const currentDeveloperLoading = useSelector(selectSettingsPageIsLoading)
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const isClientAndClientData = desktopIsFree && Boolean(connectSession?.loginIdentity.clientId !== 'SBOX')
   const costText = desktopIsFree
     ? 'By confirming the subscription below, a subscription will be added to your developer account but you will not be charged as an existing Reapit customer.'
     : 'By confirming the subscription below, a subscription of £300 will automatically be added to your monthly billing.'
@@ -37,6 +43,19 @@ export const DeveloperEditionContent: React.FC<DeveloperEditionContentProps> = (
   const content =
     currentUserLoading || currentDeveloperLoading ? (
       <Loader label="Loading" />
+    ) : isClientAndClientData ? (
+      <>
+        <Content>
+          Your account is currently set to use <strong>{developer.name}</strong>. In order to subscribe to the developer
+          edition you will need to change your profile setting. Please{' '}
+          <Link to={Routes.SETTINGS_PROFILE_TAB}>click here</Link> to update your information.
+        </Content>
+        <ButtonGroup hasSpacing isCentered>
+          <Button variant="secondary" onClick={afterClose}>
+            Cancel
+          </Button>
+        </ButtonGroup>
+      </>
     ) : billingContent ? (
       <>
         <Content>{billingContent}</Content>
@@ -69,11 +88,13 @@ export const DeveloperEditionContent: React.FC<DeveloperEditionContentProps> = (
       </>
     )
 
-  const heading =
-    (currentUser?.role &&
+  const heading = isClientAndClientData
+    ? 'Unable to create subscription'
+    : currentUser?.role &&
       currentDeveloper?.status &&
-      modalContent?.[currentUser.role]?.[currentDeveloper.status]?.title) ??
-    'Agency Cloud Developer Edition'
+      modalContent?.[currentUser.role]?.[currentDeveloper.status]?.title
+    ? modalContent?.[currentUser.role]?.[currentDeveloper.status]?.title
+    : 'Agency Cloud Developer Edition'
 
   return (
     <>

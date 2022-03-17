@@ -19,11 +19,12 @@ import { useDispatch, useSelector } from 'react-redux'
 import { selectCurrentMemberData, selectCurrentMemberIsUpdating } from '@/selector/current-member'
 import FadeIn from '../../../../styles/fade-in'
 
-const { nameField, jobTitleField } = formFieldsContactInfomation
+const { nameField, jobTitleField, gitHubUsernameField } = formFieldsContactInfomation
 
 export type ContactInformationValues = {
   name: string
   jobTitle: string
+  gitHubUsername: string
 }
 
 export type ContactInformationFormProps = {}
@@ -31,6 +32,7 @@ export type ContactInformationFormProps = {}
 export const defaultInitialValues: ContactInformationValues = {
   name: '',
   jobTitle: '',
+  gitHubUsername: '',
 }
 
 export const generateInitialValues = ({
@@ -44,11 +46,12 @@ export const generateInitialValues = ({
     return defaultInitialValues
   }
 
-  const { name = '', jobTitle = '' } = currentMemberInfo
+  const { name = '', jobTitle = '', gitHubUsername = '' } = currentMemberInfo
 
   return {
     name,
     jobTitle,
+    gitHubUsername,
   }
 }
 
@@ -92,6 +95,16 @@ export const ContactInformationForm: React.FC<ContactInformationFormProps> = () 
                       labelText={jobTitleField.label as string}
                       id={jobTitleField.name}
                       name={jobTitleField.name}
+                    />
+                  </GridItem>
+                  <GridItem>
+                    <Input
+                      disabled={isUpdating}
+                      dataTest="job-title"
+                      type="text"
+                      labelText={gitHubUsernameField.label as string}
+                      id={gitHubUsernameField.name}
+                      name={gitHubUsernameField.name}
                     />
                   </GridItem>
                 </Grid>
