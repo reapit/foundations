@@ -209,6 +209,7 @@ Object {
         </div>
         <button
           class="e1yynswi-el-pagination-button"
+          type="button"
         >
           <span
             class="ej9yrfo-el-icon"
@@ -229,6 +230,7 @@ Object {
         </button>
         <button
           class="e1yynswi-el-pagination-button"
+          type="button"
         >
           <span
             class="ej9yrfo-el-icon"
@@ -455,6 +457,7 @@ Object {
       </div>
       <button
         class="e1yynswi-el-pagination-button"
+        type="button"
       >
         <span
           class="ej9yrfo-el-icon"
@@ -475,6 +478,7 @@ Object {
       </button>
       <button
         class="e1yynswi-el-pagination-button"
+        type="button"
       >
         <span
           class="ej9yrfo-el-icon"
