@@ -100,12 +100,26 @@ export const Helper: FC = () => {
           <>
             <Subtitle>Ready For Review</Subtitle>
             <SmallText hasGreyText>
-              As your app is live with customer data, you will need to submit any app changes for approval by one of our
-              team. For more on this process <a onClick={openNewPage(ExternalPages.appApprovalDocs)}>visit here.</a>
+              As your app listing is now complete, you can submit it for review by one of our team, so you can go live
+              with customer data. For more on this process{' '}
+              <a onClick={openNewPage(ExternalPages.appApprovalDocs)}>visit here.</a>
             </SmallText>
             <SmallText hasGreyText>
-              You also have the option of de-listing your app and reverting to a sandbox only integration.
+              You also have the option of saving any additional changes as you make them before submitting.
             </SmallText>
+            {hasUnsavedChanges && (
+              <Button
+                className={elMb3}
+                intent="primary"
+                onClick={handleSetAppEditSaving(setAppEditSaving, {
+                  isListed: false,
+                  isRevalidating: true,
+                  isSaving: false,
+                })}
+              >
+                Save Changes
+              </Button>
+            )}
             <Button
               className={elMb3}
               intent="critical"
@@ -134,7 +148,6 @@ export const Helper: FC = () => {
               intent="critical"
               loading={isRefreshing}
               onClick={handleCancelPendingRevsion(cancelRevision, connectSession, revisionId)}
-              chevronRight
             >
               Cancel Revision
             </Button>
@@ -192,7 +205,6 @@ export const Helper: FC = () => {
                 isRevalidating: true,
                 isSaving: false,
               })}
-              chevronRight
             >
               Save Changes
             </Button>
@@ -219,7 +231,6 @@ export const Helper: FC = () => {
           className={elMb3}
           intent="primary"
           onClick={openNewPage(`${window.reapit.config.marketplaceUrl}/${appId}`)}
-          chevronRight
         >
           Preview
         </Button>

@@ -171,7 +171,7 @@ export const ElCardImageWrap = styled.div`
   height: 5rem;
 
   img {
-    height: 52px;
+    max-width: 52px;
   }
 
   ${isTablet} {

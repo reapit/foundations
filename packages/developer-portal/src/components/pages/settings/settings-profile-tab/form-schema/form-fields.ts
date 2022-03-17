@@ -1,6 +1,6 @@
 import { FormFieldInfo } from '@reapit/elements-legacy'
 
-type FieldContactInformation = 'nameField' | 'jobTitleField'
+type FieldContactInformation = 'nameField' | 'jobTitleField' | 'gitHubUsernameField'
 
 export const formFieldsContactInfomation: Record<FieldContactInformation, FormFieldInfo> = {
   nameField: {
@@ -12,6 +12,11 @@ export const formFieldsContactInfomation: Record<FieldContactInformation, FormFi
     name: 'jobTitle',
     label: 'Job Title',
     errorMessage: 'Job title is not valid',
+  },
+  gitHubUsernameField: {
+    name: 'gitHubUsername',
+    label: 'GitHub username',
+    errorMessage: 'GitHub username is not valid',
   },
 }
 

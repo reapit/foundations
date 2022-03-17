@@ -17,6 +17,7 @@ exports[`ContactInformationForm should match snapshot 1`] = `
     <Formik
       initialValues={
         Object {
+          "gitHubUsername": "",
           "jobTitle": "",
           "name": "mockConstructor",
         }
@@ -31,6 +32,7 @@ exports[`ContactInformationForm should match snapshot 1`] = `
           "_blacklistError": undefined,
           "_excludedEdges": Array [],
           "_nodes": Array [
+            "gitHubUsername",
             "jobTitle",
             "name",
           ],
@@ -45,6 +47,44 @@ exports[`ContactInformationForm should match snapshot 1`] = `
           "deps": Array [],
           "exclusiveTests": Object {},
           "fields": Object {
+            "gitHubUsername": StringSchema {
+              "_blacklist": ReferenceSet {
+                "list": Set {},
+                "refs": Map {},
+              },
+              "_blacklistError": undefined,
+              "_typeError": [Function],
+              "_whitelist": ReferenceSet {
+                "list": Set {},
+                "refs": Map {},
+              },
+              "_whitelistError": undefined,
+              "conditions": Array [],
+              "deps": Array [],
+              "exclusiveTests": Object {
+                "matches": false,
+                "max": true,
+                "trim": false,
+              },
+              "spec": Object {
+                "abortEarly": true,
+                "nullable": false,
+                "presence": "optional",
+                "recursive": true,
+                "strict": false,
+                "strip": false,
+              },
+              "tests": Array [
+                [Function],
+                [Function],
+                [Function],
+              ],
+              "transforms": Array [
+                [Function],
+                [Function],
+              ],
+              "type": "string",
+            },
             "jobTitle": StringSchema {
               "_blacklist": ReferenceSet {
                 "list": Set {},
@@ -258,6 +298,53 @@ exports[`ContactInformationForm should match snapshot 1`] = `
                                     disabled={[MockFunction]}
                                     id="jobTitle"
                                     name="jobTitle"
+                                    onBlur={[Function]}
+                                    onChange={[Function]}
+                                    placeholder=""
+                                    type="text"
+                                    value=""
+                                  />
+                                </div>
+                              </div>
+                            </Field>
+                          </Input>
+                        </div>
+                      </GridItem>
+                      <GridItem>
+                        <div
+                          className="column"
+                          data-test=""
+                        >
+                          <Input
+                            dataTest="job-title"
+                            disabled={[MockFunction]}
+                            id="gitHubUsername"
+                            labelText="GitHub username"
+                            name="gitHubUsername"
+                            type="text"
+                          >
+                            <Field
+                              name="gitHubUsername"
+                              validate={[Function]}
+                            >
+                              <div
+                                className="field"
+                              >
+                                <div
+                                  className="control "
+                                >
+                                  <label
+                                    className="label inline-block "
+                                    htmlFor="gitHubUsername"
+                                  >
+                                    GitHub username
+                                  </label>
+                                  <input
+                                    className="input is-primary"
+                                    data-test="job-title"
+                                    disabled={[MockFunction]}
+                                    id="gitHubUsername"
+                                    name="gitHubUsername"
                                     onBlur={[Function]}
                                     onChange={[Function]}
                                     placeholder=""

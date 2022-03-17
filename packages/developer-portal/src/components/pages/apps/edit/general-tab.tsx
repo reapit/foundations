@@ -55,7 +55,7 @@ export const GeneralTab: FC<AppEditTabsProps> = () => {
             You can check the status of your app listing at any time by using the button below, prior to submitting for
             approval.
           </BodyText>
-          <Button chevronRight intent="critical" onClick={handleOpenModal(openModal)}>
+          <Button intent="secondary" onClick={handleOpenModal(openModal)}>
             Check Status
           </Button>
         </ColSplit>
