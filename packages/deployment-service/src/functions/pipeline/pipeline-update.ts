@@ -35,7 +35,7 @@ export const pipelineUpdate = httpHandler<PipelineDto, PipelineEntity>({
 
     await ownership(pipeline.developerId, developerId)
 
-    if (pipeline.buildStatus === 'PAUSED' && body.buildStatus === 'PROVISION_REQUEST') {
+    if (pipeline.buildStatus === 'PRE_PROVISIONED' && body.buildStatus === 'PROVISION_REQUEST') {
       setupInfra = true
     }
 
