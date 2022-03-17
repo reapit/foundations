@@ -4,7 +4,6 @@ import {
   elMt3,
   elP6,
   FlexContainer,
-  Icon,
   Loader,
   Pagination,
   Table,

@@ -70,8 +70,6 @@ export const PipelineDeploymentInfo: FC<PipelineDeploymentInfoProps> = ({ pipeli
     returnType: UpdateReturnTypeEnum.RESPONSE,
   })
 
-  console.log(pipelineDeployments)
-
   return (
     <>
       <PipelineInfo pipeline={pipeline} />
