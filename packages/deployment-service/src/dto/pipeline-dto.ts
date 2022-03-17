@@ -11,17 +11,22 @@ export enum PackageManagerEnum {
   NPM = 'npm',
 }
 
-export type PipelineProvisionBuildStatuses = 'PRE_PROVISIONED' | 'PROVISIONING' | 'PROVISION_REQUEST' | 'FAILED_TO_PROVISION'
+export type PipelineProvisionBuildStatuses =
+  | 'PRE_PROVISIONED'
+  | 'PROVISIONING'
+  | 'PROVISION_REQUEST'
+  | 'FAILED_TO_PROVISION'
 
 export type PipelineDeployingBuildStatues = 'QUEUED' | 'COMPLETED' | 'FAILED'
 
 export type PipelineDeleteBuildStatuses = 'DELETED' | 'DELETING'
 
-export type PipelineBuildStatus = 'CREATED'
-  | 'READY_FOR_DEPLOYMENT'
-  & PipelineDeleteBuildStatuses
-  & PipelineDeployingBuildStatues
-  & PipelineProvisionBuildStatuses
+export type PipelineBuildStatus =
+  | 'CREATED'
+  | ('READY_FOR_DEPLOYMENT' &
+      PipelineDeleteBuildStatuses &
+      PipelineDeployingBuildStatues &
+      PipelineProvisionBuildStatuses)
   | CodeBuild.StatusType
 
 export class PipelineDto {
