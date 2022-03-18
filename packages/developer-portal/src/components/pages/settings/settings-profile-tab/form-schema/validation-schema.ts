@@ -3,6 +3,7 @@ import * as Yup from 'yup'
 import { personNameRegex, letterNumberSpaceRegex, passwordRegex } from '@reapit/utils-common'
 import errorMessages from '@/constants/error-messages'
 import { formFieldsContactInfomation, formFieldsChangePassword } from './form-fields'
+import githubUsernameRegex from 'github-username-regex'
 
 const { nameField, jobTitleField, gitHubUsernameField } = formFieldsContactInfomation
 
@@ -24,7 +25,7 @@ export const validationSchemaContactInfomation = Yup.object().shape({
   [gitHubUsernameField.name]: Yup.string()
     .trim()
     .notRequired()
-    .matches(letterNumberSpaceRegex, jobTitleField.errorMessage)
+    .matches(githubUsernameRegex, gitHubUsernameField.errorMessage)
     .max(256, MAXIMUM_CHARACTER_LENGTH(256)),
 })
 
