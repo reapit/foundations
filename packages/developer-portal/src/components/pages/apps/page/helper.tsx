@@ -96,7 +96,7 @@ export const Helper: FC = () => {
     return (
       <div className={elFadeIn}>
         <Icon className={elMb3} icon="editAppInfographic" iconSize="large" />
-        {isCompleted && !isPublicallyListed && !appDetailLoading ? (
+        {isCompleted && !isPublicallyListed && !appDetailLoading && !hasRevisions ? (
           <>
             <Subtitle>Ready For Review</Subtitle>
             <SmallText hasGreyText>

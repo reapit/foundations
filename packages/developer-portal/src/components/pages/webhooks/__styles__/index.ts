@@ -34,3 +34,9 @@ export const DownloadButtonContainer = styled.div`
   background-color: var(--color-grey-light);
   border-radius: 0.25rem;
 `
+
+export const createCta = css`
+  @media screen and (min-width: 1024px) {
+    margin-left: 6rem;
+  }
+`

@@ -24,6 +24,8 @@ import Routes from '../../../constants/routes'
 import { useHistory } from 'react-router'
 import { SelectAppIdEventHandler, WebhookQueryParams } from './webhooks'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
+import { createCta } from './__styles__'
+import { cx } from '@linaria/core'
 
 export interface WebhooksNewProps {
   webhookQueryParams: WebhookQueryParams
@@ -208,7 +210,7 @@ export const WebhooksNew: FC<WebhooksNewProps> = ({ webhookQueryParams, apps, se
     >
       <StepsVertical steps={steps} selectedStep={selectedStep} onStepClick={setSelectedStep} />
       {!nextStep && (
-        <ButtonGroup className={elMb11} alignment="right">
+        <ButtonGroup className={cx(elMb11, createCta)} alignment="left">
           <Button
             intent="critical"
             size={2}
