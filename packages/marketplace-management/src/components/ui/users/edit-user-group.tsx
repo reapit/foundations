@@ -43,14 +43,26 @@ export interface EditUserGroupSchema {
 }
 
 export const prepareGroupOptions = (data: GroupModel[]): MultiSelectOption[] =>
-  data.map((userGroupGroup: UserModel) => {
-    const { id, name } = userGroupGroup
+  data
+    .map((userGroupGroup: UserModel) => {
+      const { id, name } = userGroupGroup
 
-    return {
-      value: id,
-      name: name,
-    } as MultiSelectOption
-  })
+      return {
+        value: id,
+        name: name,
+      } as MultiSelectOption
+    })
+    .sort((a, b) => {
+      const nameA = a.name?.toLowerCase()
+      const nameB = b.name?.toLowerCase()
+      if (nameA < nameB) {
+        return -1
+      }
+      if (nameA > nameB) {
+        return 1
+      }
+      return 0
+    })
 
 const addUserToGroup = async (id: string, userId: string) => {
   const addUserRes = await addMemberToGroup({ id, userId })

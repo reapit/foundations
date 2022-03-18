@@ -676,6 +676,52 @@ Object {
                Users
             </h1>
           </div>
+          <form>
+            <div
+              class="el-form-layout-has-margin el-form-layout"
+            >
+              <div
+                class="el-input-wrap"
+              >
+                <div
+                  class="el-input-group"
+                >
+                  <input
+                    class="el-input"
+                    id="test-static-id"
+                    name="email"
+                    placeholder="Search for a user"
+                  />
+                  <label
+                    class="el-label"
+                    for="test-static-id"
+                  >
+                    Email
+                  </label>
+                </div>
+              </div>
+              <div
+                class="el-input-wrap"
+              >
+                <div
+                  class="el-input-group"
+                >
+                  <input
+                    class="el-input"
+                    id="test-static-id"
+                    name="name"
+                    placeholder="Search for a user"
+                  />
+                  <label
+                    class="el-label"
+                    for="test-static-id"
+                  >
+                    Name
+                  </label>
+                </div>
+              </div>
+            </div>
+          </form>
           <div
             class="el-loader-container"
           >
@@ -886,6 +932,52 @@ Object {
              Users
           </h1>
         </div>
+        <form>
+          <div
+            class="el-form-layout-has-margin el-form-layout"
+          >
+            <div
+              class="el-input-wrap"
+            >
+              <div
+                class="el-input-group"
+              >
+                <input
+                  class="el-input"
+                  id="test-static-id"
+                  name="email"
+                  placeholder="Search for a user"
+                />
+                <label
+                  class="el-label"
+                  for="test-static-id"
+                >
+                  Email
+                </label>
+              </div>
+            </div>
+            <div
+              class="el-input-wrap"
+            >
+              <div
+                class="el-input-group"
+              >
+                <input
+                  class="el-input"
+                  id="test-static-id"
+                  name="name"
+                  placeholder="Search for a user"
+                />
+                <label
+                  class="el-label"
+                  for="test-static-id"
+                >
+                  Name
+                </label>
+              </div>
+            </div>
+          </div>
+        </form>
         <div
           class="el-loader-container"
         >

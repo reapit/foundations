@@ -28,11 +28,18 @@ const props = (): EditUserGroupFormProps => ({
 
 describe('EditUserGroupForm', () => {
   it('should match a snapshot where there is data', () => {
-    mockSWR.mockReturnValue({
-      data: mockUserGroups,
-      error: null,
-      mutate: jest.fn(),
-    })
+    mockSWR
+      .mockReturnValue({
+        data: mockUsersList,
+        error: null,
+        mutate: jest.fn(),
+      })
+      .mockReturnValue({
+        data: mockUserGroups,
+        error: null,
+        mutate: jest.fn(),
+      })
+
     expect(render(<EditUserGroupForm {...props()} />)).toMatchSnapshot()
   })
 })
