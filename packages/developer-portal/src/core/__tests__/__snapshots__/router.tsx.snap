@@ -42,6 +42,10 @@ exports[`Router should match a snapshot 1`] = `
           render={[Function]}
         />
         <Route
+          path="/register"
+          render={[Function]}
+        />
+        <Route
           component={
             Object {
               "$$typeof": Symbol(react.lazy),
