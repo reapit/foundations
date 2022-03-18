@@ -21,6 +21,7 @@ describe('Pipeline Deployment Table', () => {
           loading={false}
           initialDeployments={null}
           newRunner={undefined}
+          setPage={jest.fn()}
         />,
       ),
     ).toMatchSnapshot()
