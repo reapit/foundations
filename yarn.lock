@@ -17180,6 +17180,7 @@ __metadata:
     jest-coverage-badges: ^1.1.2
     lodash.isequal: ^4.5.0
     lodash.orderby: ^4.6.0
+    luxon: ^2.3.1
     node-polyfill-webpack-plugin: ^1.1.4
     papaparse: ^5.3.1
     project-name-generator: ^2.1.9
@@ -26632,6 +26633,13 @@ fsevents@^1.2.7:
   version: 2.2.0
   resolution: "luxon@npm:2.2.0"
   checksum: 69c715529b6aaa1f96fad8edfe2681004a1f314191ac243804a90c023fc533b5e3f0b9d34d5c86555d2a41297ddbee96a67a7cbb185f20243e66b7c6d4b809ac
+  languageName: node
+  linkType: hard
+
+"luxon@npm:^2.3.1":
+  version: 2.3.1
+  resolution: "luxon@npm:2.3.1"
+  checksum: ce5eec873a0172a0956618531e28010e8d8319a8b3a836b893d0f92239413a1fc5f77841ca24988e27bd61e8b2748e160e9dfcb13e92d7f031c1e31ad1c8ae91
   languageName: node
   linkType: hard
 

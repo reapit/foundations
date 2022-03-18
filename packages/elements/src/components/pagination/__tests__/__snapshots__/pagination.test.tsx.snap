@@ -29,7 +29,9 @@ exports[`Pagination should match a snapshot 1`] = `
 `;
 
 exports[`PaginationButton should match a snapshot and render children 1`] = `
-<ElPaginationButton>
+<ElPaginationButton
+  type="button"
+>
   <div>
     I am a child
   </div>

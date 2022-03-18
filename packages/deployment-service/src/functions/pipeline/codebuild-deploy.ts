@@ -103,11 +103,13 @@ export const codebuildDeploy: SQSHandler = async (event: SQSEvent, context: Cont
           pipelineRunner.pipeline.buildStatus = 'FAILED'
         }
         if (pipelineRunner.tasks) {
+          if (pipelineRunner.tasks[deployTaskIndex]?.startTime) {
+            pipelineRunner.tasks[deployTaskIndex].elapsedTime = Math.floor(
+              (new Date().getTime() - (pipelineRunner.tasks[deployTaskIndex].startTime as Date).getTime()) / 1000,
+            ).toString()
+          }
           pipelineRunner.tasks[deployTaskIndex].buildStatus = 'FAILED'
           pipelineRunner.tasks[deployTaskIndex].endTime = new Date()
-          pipelineRunner.tasks[deployTaskIndex].elapsedTime = Math.floor(
-            (new Date().getTime() - (pipelineRunner.tasks[deployTaskIndex]?.startTime as Date).getTime()) / 1000,
-          ).toString()
         }
         await deleteMessage(record.receiptHandle)
       }
