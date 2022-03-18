@@ -22,7 +22,7 @@ export const pipelinePaginate = httpHandler({
     return service.paginatePipelines(
       developerId,
       appId,
-      event?.queryStringParameters?.page ? Number(event?.queryStringParameters?.page) : undefined,
+      event.queryStringParameters?.page ? Number(event.queryStringParameters?.page) : undefined,
     )
   },
 })

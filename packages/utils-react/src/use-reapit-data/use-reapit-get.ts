@@ -20,6 +20,8 @@ export interface ReapitGetParams {
   uriParams?: Object
   headers?: StringMap
   fetchWhenTrue?: any[]
+  onSuccess?: (message: string) => void
+  onError?: (message: string) => void
 }
 
 export interface HandleGetParams<DataType> {
@@ -183,6 +185,8 @@ export const useReapitGet = <DataType>({
   uriParams,
   headers,
   fetchWhenTrue,
+  onSuccess,
+  onError,
 }: ReapitGetParams): ReapitGetState<DataType> => {
   const prevQueryParams = useRef<Object | undefined>(queryParams)
   const prevUriParams = useRef<Object | undefined>(uriParams)
@@ -209,8 +213,8 @@ export const useReapitGet = <DataType>({
     setLoading,
     setRefreshing,
     setError,
-    successSnack,
-    errorSnack,
+    successSnack: onSuccess || successSnack,
+    errorSnack: onError || errorSnack,
   }
 
   useEffect(handleGet<DataType>(handleGetParams), [connectSession, queryParams, headers, fetchWhenTrue])

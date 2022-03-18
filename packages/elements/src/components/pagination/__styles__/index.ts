@@ -34,6 +34,7 @@ export const ElPaginationButton = styled.button`
 `
 
 export const elPaginationPrimary = css`
+  cursor: pointer;
   svg {
     color: var(--intent-primary);
   }
