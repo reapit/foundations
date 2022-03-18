@@ -30,7 +30,9 @@ export const PaginationText: FC<PaginationTextProps> = ({ children, ...rest }) =
 )
 
 export const PaginationButton: FC<PaginationButtonProps> = ({ children, ...rest }) => (
-  <ElPaginationButton {...rest}>{children}</ElPaginationButton>
+  <ElPaginationButton type="button" {...rest}>
+    {children}
+  </ElPaginationButton>
 )
 
 export const Pagination: FC<PaginationProps> = ({ callback, currentPage, numberPages, ...rest }) => {

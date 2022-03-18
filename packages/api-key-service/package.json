@@ -35,5 +35,6 @@
     "conf": "yarn config-manager --namespace cloud --entity api-key-service --name local --mode fetch",
     "release": "serverless deploy",
     "publish": "echo '...skipping...'"
-  }
+  },
+  "version": "1.0.1"
 }
