@@ -154,7 +154,7 @@ export const AppDetail: FC = () => {
               <Icon className={elMr4} icon="doorLockInfographic" iconSize="medium" />
               <div>
                 <Subtitle hasNoMargin>Authentication Client Secret</Subtitle>
-                <BodyText hasGreyText>{externalId}</BodyText>
+                <BodyText hasGreyText>{appSecret.clientSecret}</BodyText>
               </div>
             </FlexContainer>
             <CopyToClipboard text={appSecret.clientSecret} onCopy={handleCopyCode(setCopyState, 'clientSecret')}>
