@@ -46,10 +46,16 @@ export const handleSetOfficeGroupToggleType =
 
 export const handleSortOptions = (officeGroups: OfficeGroupModel[]) => (): MultiSelectOption[] => {
   return (
-    officeGroups.map(({ customerId, name }) => ({
-      value: customerId ?? '',
-      name: name ?? '',
-    })) ?? []
+    (officeGroups
+      .map(({ customerId, name, status }) => {
+        if (status === 'active') {
+          return {
+            value: customerId ?? '',
+            name: name ?? '',
+          }
+        }
+      })
+      .filter(Boolean) as MultiSelectOption[]) ?? []
   )
 }
 
