@@ -36,5 +36,5 @@
     "release": "serverless deploy",
     "publish": "echo '...skipping...'"
   },
-  "version": "1.0.0"
+  "version": "1.0.1"
 }
