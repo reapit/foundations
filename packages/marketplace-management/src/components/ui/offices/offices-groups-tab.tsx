@@ -125,10 +125,7 @@ const OfficesGroupsTab: FC = () => {
     officeGroups.length && offices?.length ? mergeOfficesGroups(offices, officeGroups) : officeGroups
 
   const onComplete = () => {
-    // Set timeout as a workaround for RDS replication error.
-    setTimeout(() => {
-      mutate()
-    }, 1000)
+    mutate()
     setIndexExpandedRow(null)
   }
 

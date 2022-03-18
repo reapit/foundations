@@ -70,12 +70,9 @@ export const onHandleSubmit =
       }
 
       if (createdOffice) {
-        // Set timeout as a workaround for RDS replication error.
-        return setTimeout(() => {
-          success(toastMessages.CREATE_OFFICE_GROUP_SUCCESS)
-          mutate(`${URLS.ORGANISATIONS}/${orgId}/${URLS.OFFICES_GROUPS}`)
-          history.push(Routes.OFFICES_GROUPS)
-        }, 1000)
+        success(toastMessages.CREATE_OFFICE_GROUP_SUCCESS)
+        mutate(`${URLS.ORGANISATIONS}/${orgId}/${URLS.OFFICES_GROUPS}`)
+        return history.push(Routes.OFFICES_GROUPS)
       }
 
       error(toastMessages.FAILED_TO_CREATE_OFFICE_GROUP)
