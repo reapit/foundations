@@ -532,7 +532,7 @@ export const createStack = () => {
     stack,
     name: 'cloud-deployment-migration',
     entrypoint: path.resolve('bundle.zip'),
-    handler: `${fileLocPrefix}.migrationRun`,
+    handler: `${fileLocPrefix}migrationRun`,
     env,
     vpc,
   })
