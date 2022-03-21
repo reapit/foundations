@@ -13,12 +13,11 @@ import {
   deletePipelineRunners,
   deleteTasksFromPipeline,
   pusher,
-  s3Client,
   sqs,
 } from '../../services'
 import { PipelineEntity } from '../../entities/pipeline.entity'
 import { QueueNames } from '../../constants'
-import { getRoleCredentials } from '@/services/sts'
+import { getRoleCredentials } from '../../services/sts'
 
 const tearDownCloudFront = async (Id: string): Promise<string> => {
   const frontClient = new CloudFrontClient({
@@ -112,7 +111,7 @@ const tearDownR53 = async (domain: string, pipelineId: string, subDomain: string
             Action: 'DELETE',
             ResourceRecordSet: {
               Type: 'A',
-              Name: `${subDomain}.dev.paas.reapit.cloud`,
+              Name: `${subDomain}.${process.env.ROOT_DOMAIN}`,
               AliasTarget: {
                 DNSName: domain,
                 EvaluateTargetHealth: false,
