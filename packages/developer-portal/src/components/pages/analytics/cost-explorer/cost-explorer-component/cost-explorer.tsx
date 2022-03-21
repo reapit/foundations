@@ -32,6 +32,7 @@ export type CostExplorerProps = {}
 export type CostFilterFormValues = {
   createdMonth: string
   customerId?: string
+  applicationId?: string
 }
 
 export const prepareFilterFormInitialValues = (createdMonth: string) => {
@@ -39,6 +40,7 @@ export const prepareFilterFormInitialValues = (createdMonth: string) => {
     return {
       createdMonth,
       customerId: undefined,
+      applicationId: undefined,
     }
   }
 }
@@ -104,10 +106,10 @@ interface HandleOnSave {
 
 export const handleOnSave = ({ setCreatedMonth, dispatch, developerId }: HandleOnSave) => {
   return (values: CostFilterFormValues) => {
-    const { createdMonth, customerId } = values
+    const { createdMonth, customerId, applicationId } = values
     setCreatedMonth(createdMonth)
     const month = dayjs(createdMonth).format(DATE_TIME_FORMAT.YYYY_MM)
-    dispatch(fetchMonthlyBilling({ month, customerId, developerId }))
+    dispatch(fetchMonthlyBilling({ month, customerId, developerId, applicationId }))
   }
 }
 
@@ -190,10 +192,10 @@ const CostExplorer: React.FC<CostExplorerProps> = () => {
           </GridItem>
         </Grid>
         <Grid>
-          <GridItem className="is-two-thirds-desktop">
+          <GridItem className="is-three-quarters-desktop">
             <CostFilterForm initialValues={initialValues} clientOptions={clientOptions} onSave={onSave} />
           </GridItem>
-          <GridItem className="is-one-third-desktop">
+          <GridItem className="is-one-quarter-desktop">
             <LevelRight className="has-text-right">
               <Button onClick={handleDownloadCSV(csvData)}>Download</Button>
             </LevelRight>
