@@ -1,4 +1,4 @@
-import { Stack, Bucket, createBucket } from '@reapit/ts-scripts/src/cdk'
+import { Stack, Bucket, createBucket, BucketOptions } from '@reapit/ts-scripts/src/cdk'
 
 export enum BucketNames {
   LIVE = 'cloud-deployment-live-dev',
@@ -7,20 +7,16 @@ export enum BucketNames {
   REPO_CACHE = 'cloud-deployment-repo-cache-dev',
 }
 
-export const createS3Buckets = (stack: Stack): Record<BucketNames, Bucket> => {
+export const createS3Buckets = (stack: Stack, usercodeStack: Stack): Record<BucketNames, Bucket> => {
   const bucketOptions: {
-    [k in BucketNames]: {
-      public?: boolean
-      get?: boolean
-      list?: boolean
-      put?: boolean
-    }
+    [k in BucketNames]: BucketOptions
   } = {
     [BucketNames.LIVE]: {
       public: true,
       get: true,
       list: true,
       put: true,
+      stack: usercodeStack,
     },
     [BucketNames.LOG]: {
       put: true,

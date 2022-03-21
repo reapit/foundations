@@ -6,6 +6,7 @@ import { v4 as uuid } from 'uuid'
 import { Route53Client, ChangeResourceRecordSetsCommand } from '@aws-sdk/client-route-53'
 import { s3Client, sqs, updatePipelineEntity, pusher } from '../../services'
 import { QueueNames } from '../../constants'
+import { getRoleCredentials } from '../services/sts'
 
 export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Context, callback: Callback) => {
   await Promise.all(
@@ -44,6 +45,7 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
 
         const frontClient = new CloudFrontClient({
           region: process.env.REGION,
+          credentials: await getRoleCredentials(),
         })
 
         const id = uuid()
@@ -120,7 +122,7 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
                   AliasTarget: {
                     DNSName: frontDomain,
                     EvaluateTargetHealth: false,
-                    HostedZoneId: 'Z2FDTNDATAQYW2',
+                    HostedZoneId: 'Z2FDTNDATAQYW2', // static cos cloudfront https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-aliastarget.html
                   },
                 },
               },
