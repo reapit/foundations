@@ -6,10 +6,11 @@ export const stepOptionItemSelected = css``
 export const StepContainer = styled.div`
   background-color: var(--color-grey-light);
   border-radius: 0.25rem;
-  padding: 2rem 1.25rem;
+  padding: 2rem 1.25rem 0 1.25rem;
   height: calc(100vh - 8.25rem);
   overflow-y: auto;
   scrollbar-width: none;
+  position: relative;
 
   &::-webkit-scrollbar {
     display: none;
@@ -61,4 +62,13 @@ export const HelperContentContainer = styled.div`
 
 export const stepIsHidden = css`
   display: none;
+`
+
+export const ControlsContainer = styled.div`
+  position: sticky;
+  bottom: 0;
+  background-color: var(--color-grey-light);
+  padding: 2rem 2.5rem 2rem 2.5rem;
+  width: calc(100% + 2.5rem);
+  margin-left: -1.25rem;
 `

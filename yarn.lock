@@ -17176,6 +17176,7 @@ __metadata:
     eslint: 8.4.1
     eslint-plugin-prettier: ^4.0.0
     file-saver: ^2.0.5
+    github-username-regex: ^1.0.0
     jest: ^27.4.5
     jest-coverage-badges: ^1.1.2
     lodash.isequal: ^4.5.0
@@ -20975,6 +20976,13 @@ fsevents@^1.2.7:
   dependencies:
     emoji-regex: ">=6.0.0 <=6.1.1"
   checksum: fe96b363df9363c78bd2f644697e2ce2a05b1b10391ac0ff918a433992b03d0dcb0b6903b1f44bee972616eb5d8799837f357cbe278fb35c5fef40b69316a8d8
+  languageName: node
+  linkType: hard
+
+"github-username-regex@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "github-username-regex@npm:1.0.0"
+  checksum: a1ea97b46c57ed300ad6f4ccf4ee67198cef815038bfe9d780449039226b2650c38349e52267d9a09c5837e67884f9976441e70a45d3a39eb8b11f8c3a47ff47
   languageName: node
   linkType: hard
 
