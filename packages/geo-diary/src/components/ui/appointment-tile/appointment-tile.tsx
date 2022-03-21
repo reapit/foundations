@@ -55,7 +55,7 @@ export const AppointmentTile: FC<AppointmentTileProps> = ({ appointment }) => {
   const { Modal: CancelModal, openModal: openCancelModal, closeModal: closeCancelModal } = useModal()
   const { appointmentId, time } = appState
   const tileRef = useRef<HTMLDivElement>(null)
-  const { id } = appointment
+  const { id, start: appointmentStart } = appointment
 
   const start = getTime(appointment?.start ?? '')
   const end = getTime(appointment?.end ?? '')
@@ -92,7 +92,7 @@ export const AppointmentTile: FC<AppointmentTileProps> = ({ appointment }) => {
         </CardListMainWrap>
         {time === 'WEEK' && (
           <CardListSubHeading className={subheadingAddtional}>
-            {dayjs(appointment?.start).format('dddd, Do MMMM')}
+            {dayjs(appointmentStart).format('dddd, Do MMMM')}
           </CardListSubHeading>
         )}
         <AppointmentItems appointment={appointment} />
