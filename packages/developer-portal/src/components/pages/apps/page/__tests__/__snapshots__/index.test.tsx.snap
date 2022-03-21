@@ -140,7 +140,7 @@ Object {
               Clicking below will take you to your current AppMarket listing, to view your app as users will see it.
             </p>
             <button
-              class="esplruv-el-mb3 ebee6r1-el-intent-primary e1f2ikqj-el-button"
+              class="esplruv-el-mb3 ebee6r1-el-intent-primary eqfkc7t-el-button"
             >
               Preview
             </button>
@@ -236,7 +236,7 @@ Object {
                 </div>
               </div>
               <button
-                class="e1ymtwpu-el-intent-low e1f2ikqj-el-button"
+                class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
               >
                 Copy
               </button>
@@ -354,7 +354,7 @@ Object {
                 </div>
               </div>
               <button
-                class="e1ymtwpu-el-intent-low e1f2ikqj-el-button"
+                class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
               >
                 Copy
               </button>
@@ -588,7 +588,7 @@ Object {
             Clicking below will take you to your current AppMarket listing, to view your app as users will see it.
           </p>
           <button
-            class="esplruv-el-mb3 ebee6r1-el-intent-primary e1f2ikqj-el-button"
+            class="esplruv-el-mb3 ebee6r1-el-intent-primary eqfkc7t-el-button"
           >
             Preview
           </button>
@@ -684,7 +684,7 @@ Object {
               </div>
             </div>
             <button
-              class="e1ymtwpu-el-intent-low e1f2ikqj-el-button"
+              class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
             >
               Copy
             </button>
@@ -802,7 +802,7 @@ Object {
               </div>
             </div>
             <button
-              class="e1ymtwpu-el-intent-low e1f2ikqj-el-button"
+              class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
             >
               Copy
             </button>
@@ -1218,7 +1218,7 @@ Object {
               This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
             </p>
             <button
-              class="esplruv-el-mb3 e1fle5tm-el-intent-neutral e1f2ikqj-el-button"
+              class="esplruv-el-mb3 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
             >
               View Docs
             </button>
@@ -1366,7 +1366,7 @@ Object {
             This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
           </p>
           <button
-            class="esplruv-el-mb3 e1fle5tm-el-intent-neutral e1f2ikqj-el-button"
+            class="esplruv-el-mb3 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
           >
             View Docs
           </button>

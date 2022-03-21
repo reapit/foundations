@@ -265,18 +265,18 @@ Object {
                 class="e1de2pym-el-flex-justify-center e2kmzjs-el-flex-container"
               >
                 <div
-                  class="e19a1osy-el-button-group"
+                  class="eay05y4-el-button-group"
                 >
                   <div
-                    class="eay05y4-el-button-group-inner"
+                    class="ebqwrow-el-button-group-inner"
                   >
                     <button
-                      class="ebee6r1-el-intent-primary e1f2ikqj-el-button"
+                      class="ebee6r1-el-intent-primary eqfkc7t-el-button"
                     >
                       Edit
                     </button>
                     <button
-                      class="ebee6r1-el-intent-primary e1f2ikqj-el-button"
+                      class="ebee6r1-el-intent-primary eqfkc7t-el-button"
                     >
                       Ping
                     </button>
@@ -478,18 +478,18 @@ Object {
               class="e1de2pym-el-flex-justify-center e2kmzjs-el-flex-container"
             >
               <div
-                class="e19a1osy-el-button-group"
+                class="eay05y4-el-button-group"
               >
                 <div
-                  class="eay05y4-el-button-group-inner"
+                  class="ebqwrow-el-button-group-inner"
                 >
                   <button
-                    class="ebee6r1-el-intent-primary e1f2ikqj-el-button"
+                    class="ebee6r1-el-intent-primary eqfkc7t-el-button"
                   >
                     Edit
                   </button>
                   <button
-                    class="ebee6r1-el-intent-primary e1f2ikqj-el-button"
+                    class="ebee6r1-el-intent-primary eqfkc7t-el-button"
                   >
                     Ping
                   </button>

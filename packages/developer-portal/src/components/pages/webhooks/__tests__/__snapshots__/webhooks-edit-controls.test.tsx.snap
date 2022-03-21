@@ -12,18 +12,18 @@ Object {
         class="e1de2pym-el-flex-justify-center e2kmzjs-el-flex-container"
       >
         <div
-          class="e19a1osy-el-button-group"
+          class="eay05y4-el-button-group"
         >
           <div
-            class="eay05y4-el-button-group-inner"
+            class="ebqwrow-el-button-group-inner"
           >
             <button
-              class="ebee6r1-el-intent-primary e1f2ikqj-el-button"
+              class="ebee6r1-el-intent-primary eqfkc7t-el-button"
             >
               Edit
             </button>
             <button
-              class="ebee6r1-el-intent-primary e1f2ikqj-el-button"
+              class="ebee6r1-el-intent-primary eqfkc7t-el-button"
             >
               Ping
             </button>
@@ -40,18 +40,18 @@ Object {
       class="e1de2pym-el-flex-justify-center e2kmzjs-el-flex-container"
     >
       <div
-        class="e19a1osy-el-button-group"
+        class="eay05y4-el-button-group"
       >
         <div
-          class="eay05y4-el-button-group-inner"
+          class="ebqwrow-el-button-group-inner"
         >
           <button
-            class="ebee6r1-el-intent-primary e1f2ikqj-el-button"
+            class="ebee6r1-el-intent-primary eqfkc7t-el-button"
           >
             Edit
           </button>
           <button
-            class="ebee6r1-el-intent-primary e1f2ikqj-el-button"
+            class="ebee6r1-el-intent-primary eqfkc7t-el-button"
           >
             Ping
           </button>
@@ -133,25 +133,25 @@ Object {
             Edit Webhook
           </h2>
           <div
-            class="e19a1osy-el-button-group"
+            class="eay05y4-el-button-group"
           >
             <div
-              class="e1i2en9o-el-button-group-align-right eay05y4-el-button-group-inner"
+              class="e1i2en9o-el-button-group-align-right ebqwrow-el-button-group-inner"
             >
               <button
-                class="e1ymtwpu-el-intent-low e1f2ikqj-el-button"
+                class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
                 type="button"
               >
                 Delete
               </button>
               <button
-                class="epibvz0-el-intent-secondary e1f2ikqj-el-button"
+                class="epibvz0-el-intent-secondary eqfkc7t-el-button"
                 type="button"
               >
                 Cancel
               </button>
               <button
-                class="ebee6r1-el-intent-primary e1tqqdf9-el-button-has-right-chevron e1f2ikqj-el-button"
+                class="ebee6r1-el-intent-primary e19a1osy-el-button-has-right-chevron eqfkc7t-el-button"
                 type="submit"
               >
                 Update
@@ -394,25 +394,25 @@ Object {
           Edit Webhook
         </h2>
         <div
-          class="e19a1osy-el-button-group"
+          class="eay05y4-el-button-group"
         >
           <div
-            class="e1i2en9o-el-button-group-align-right eay05y4-el-button-group-inner"
+            class="e1i2en9o-el-button-group-align-right ebqwrow-el-button-group-inner"
           >
             <button
-              class="e1ymtwpu-el-intent-low e1f2ikqj-el-button"
+              class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
               type="button"
             >
               Delete
             </button>
             <button
-              class="epibvz0-el-intent-secondary e1f2ikqj-el-button"
+              class="epibvz0-el-intent-secondary eqfkc7t-el-button"
               type="button"
             >
               Cancel
             </button>
             <button
-              class="ebee6r1-el-intent-primary e1tqqdf9-el-button-has-right-chevron e1f2ikqj-el-button"
+              class="ebee6r1-el-intent-primary e19a1osy-el-button-has-right-chevron eqfkc7t-el-button"
               type="submit"
             >
               Update
@@ -754,19 +754,19 @@ Object {
               </a>
             </p>
             <div
-              class="et0k7gk-el-ml-auto e19a1osy-el-button-group"
+              class="et0k7gk-el-ml-auto eay05y4-el-button-group"
             >
               <div
-                class="eay05y4-el-button-group-inner"
+                class="ebqwrow-el-button-group-inner"
               >
                 <button
-                  class="epibvz0-el-intent-secondary e1f2ikqj-el-button"
+                  class="epibvz0-el-intent-secondary eqfkc7t-el-button"
                   type="button"
                 >
                   Cancel
                 </button>
                 <button
-                  class="ebee6r1-el-intent-primary e1tqqdf9-el-button-has-right-chevron e1f2ikqj-el-button"
+                  class="ebee6r1-el-intent-primary e19a1osy-el-button-has-right-chevron eqfkc7t-el-button"
                   type="submit"
                 >
                   Test
@@ -836,19 +836,19 @@ Object {
             </a>
           </p>
           <div
-            class="et0k7gk-el-ml-auto e19a1osy-el-button-group"
+            class="et0k7gk-el-ml-auto eay05y4-el-button-group"
           >
             <div
-              class="eay05y4-el-button-group-inner"
+              class="ebqwrow-el-button-group-inner"
             >
               <button
-                class="epibvz0-el-intent-secondary e1f2ikqj-el-button"
+                class="epibvz0-el-intent-secondary eqfkc7t-el-button"
                 type="button"
               >
                 Cancel
               </button>
               <button
-                class="ebee6r1-el-intent-primary e1tqqdf9-el-button-has-right-chevron e1f2ikqj-el-button"
+                class="ebee6r1-el-intent-primary e19a1osy-el-button-has-right-chevron eqfkc7t-el-button"
                 type="submit"
               >
                 Test
