@@ -541,19 +541,19 @@ Object {
                 class="c1o7tr8i-controls-container"
               >
                 <div
-                  class="e19a1osy-el-button-group"
+                  class="eay05y4-el-button-group"
                 >
                   <div
-                    class="ej73pla-el-button-group-align-center eay05y4-el-button-group-inner"
+                    class="ej73pla-el-button-group-align-center ebqwrow-el-button-group-inner"
                   >
                     <button
-                      class="epibvz0-el-intent-secondary eqfkc7t-el-button-has-left-chevron edjrbxy-el-button-size2 e1f2ikqj-el-button"
+                      class="epibvz0-el-intent-secondary e1tqqdf9-el-button-has-left-chevron edjrbxy-el-button-size2 eqfkc7t-el-button"
                       disabled=""
                     >
                       Prev
                     </button>
                     <button
-                      class="ebee6r1-el-intent-primary e1tqqdf9-el-button-has-right-chevron edjrbxy-el-button-size2 e1f2ikqj-el-button"
+                      class="ebee6r1-el-intent-primary e19a1osy-el-button-has-right-chevron edjrbxy-el-button-size2 eqfkc7t-el-button"
                       disabled=""
                     >
                       Next
@@ -1552,19 +1552,19 @@ Object {
               class="c1o7tr8i-controls-container"
             >
               <div
-                class="e19a1osy-el-button-group"
+                class="eay05y4-el-button-group"
               >
                 <div
-                  class="ej73pla-el-button-group-align-center eay05y4-el-button-group-inner"
+                  class="ej73pla-el-button-group-align-center ebqwrow-el-button-group-inner"
                 >
                   <button
-                    class="epibvz0-el-intent-secondary eqfkc7t-el-button-has-left-chevron edjrbxy-el-button-size2 e1f2ikqj-el-button"
+                    class="epibvz0-el-intent-secondary e1tqqdf9-el-button-has-left-chevron edjrbxy-el-button-size2 eqfkc7t-el-button"
                     disabled=""
                   >
                     Prev
                   </button>
                   <button
-                    class="ebee6r1-el-intent-primary e1tqqdf9-el-button-has-right-chevron edjrbxy-el-button-size2 e1f2ikqj-el-button"
+                    class="ebee6r1-el-intent-primary e19a1osy-el-button-has-right-chevron edjrbxy-el-button-size2 eqfkc7t-el-button"
                     disabled=""
                   >
                     Next

@@ -55,6 +55,7 @@ export const elFloatingButton = css``
 export const elButtonGroupAlignLeft = css``
 export const elButtonGroupAlignRight = css``
 export const elButtonGroupAlignCenter = css``
+export const elButtonFixedWidth = css``
 
 export const ElButton = styled.button`
   display: inline-flex;
@@ -131,6 +132,14 @@ export const ElButton = styled.button`
   &.${elIntentLow} {
     background-image: linear-gradient(to right, var(--intent-low), var(--intent-low));
     outline-color: var(--intent-low);
+  }
+
+  &.${elButtonFixedWidth} {
+    width: 9rem;
+
+    ${isMobile} {
+      width: 7.5rem;
+    }
   }
 
   &[disabled] {

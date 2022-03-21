@@ -30,7 +30,7 @@ exports[`Button should match a snapshot 2`] = `
 
 exports[`Button should match a snapshot with all modifiers 1`] = `
 <ElButton
-  className="some-class el-intent-primary el-button-has-left-chevron el-button-has-right-chevron el-is-loading"
+  className="some-class el-intent-primary el-button-has-left-chevron el-button-has-right-chevron el-button-fixed-width el-is-loading"
   disabled={true}
   onClick={[MockFunction]}
   type="submit"
