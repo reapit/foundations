@@ -75,7 +75,7 @@ export const DeveloperEditionModal: React.FC<DeveloperEditionModalProps> = ({
   const agencyCloudId = loginIdentity.agencyCloudId
 
   const developer: Partial<DeveloperModel> = { id: developerId, name: developerName, email: developerEmail }
-  const desktopIsFree = Boolean(agencyCloudId && agencyCloudId !== 'SBOX')
+  const desktopIsFree = Boolean(agencyCloudId && agencyCloudId !== 'SBOX' && agencyCloudId !== 'SBXA')
 
   const [isSuccess, setSuccess] = React.useState<boolean>(false)
   const [selectedDeveloper, setSelectedDeveloper] = React.useState<DeveloperModel | undefined>()
