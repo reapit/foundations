@@ -20,6 +20,7 @@ import { createLambda } from './create-lambda'
 import { createS3Buckets } from './create-S3-bucket'
 import { createSqsQueues, QueueNames } from './create-sqs'
 import { createPolicies } from './create-policies'
+import { Role } from 'aws-cdk-lib/aws-iam'
 
 export const databaseName = 'deployment_service'
 
@@ -37,6 +38,7 @@ type FunctionSetup = {
   }
   queue?: Queue
   topic?: Topic
+  role?: Role
 }
 
 export const createStack = () => {
@@ -45,9 +47,15 @@ export const createStack = () => {
     appName: 'deployment',
     component: 'service',
   })
+  const usercodeStack = createBaseStack({
+    namespace: 'cloud',
+    appName: 'deployment',
+    component: 'usercode',
+    accountId: process.env.USERCODE_ACCOUNT_ID,
+  })
   const api = createApi(stack, 'apigateway', undefined)
   const vpc = createVpc(stack, 'vpc')
-  const buckets = createS3Buckets(stack)
+  const buckets = createS3Buckets(stack, usercodeStack)
   const queues = createSqsQueues(stack)
   const database = createDatabase(stack, 'database', databaseName, vpc)
   const secretManager = database.secret
@@ -64,6 +72,7 @@ export const createStack = () => {
     queues,
     secretManager,
     codeBuild,
+    usercodeStack: usercodeStack,
   })
 
   const fileLocPrefix = 'packages/deployment-service/src/index.'
@@ -486,9 +495,10 @@ export const createStack = () => {
     DEPLOYMENT_REPO_CACHE_BUCKET_NAME: buckets['cloud-deployment-repo-cache-dev'].bucketName,
     REGION: 'eu-west-2',
     CODE_BUILD_PROJECT_NAME: codeBuild.projectName,
+    USERCODE_ROLE_ARN: policies.usercodeStackRole.roleArn,
   }
 
-  Object.values(QueueNames).map((queueKey) => {
+  Object.values(QueueNames).forEach((queueKey) => {
     env[queueKey] = queues[queueKey].queueUrl
   })
 

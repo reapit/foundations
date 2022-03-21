@@ -8,6 +8,7 @@ import {
 import { ChangeResourceRecordSetsCommand, Route53Client } from '@aws-sdk/client-route-53'
 import { SQSEvent, SQSHandler, Context, Callback } from 'aws-lambda'
 import {
+  assumedS3Client,
   deletePipelineEntity,
   deletePipelineRunners,
   deleteTasksFromPipeline,
@@ -17,9 +18,12 @@ import {
 } from '../../services'
 import { PipelineEntity } from '../../entities/pipeline.entity'
 import { QueueNames } from '../../constants'
+import { getRoleCredentials } from '@/services/sts'
 
 const tearDownCloudFront = async (Id: string): Promise<string> => {
-  const frontClient = new CloudFrontClient({})
+  const frontClient = new CloudFrontClient({
+    credentials: await getRoleCredentials(),
+  })
 
   const cloudFrontDistro = await frontClient.send(
     new GetDistributionCommand({
@@ -38,7 +42,9 @@ const tearDownCloudFront = async (Id: string): Promise<string> => {
 }
 
 const disableCloudFront = async (Id: string): Promise<any> => {
-  const frontClient = new CloudFrontClient({})
+  const frontClient = new CloudFrontClient({
+    credentials: await getRoleCredentials(),
+  })
 
   const cloudFrontDistro = await frontClient.send(
     new GetDistributionCommand({
@@ -47,6 +53,10 @@ const disableCloudFront = async (Id: string): Promise<any> => {
   )
 
   const config = cloudFrontDistro.Distribution?.DistributionConfig as DistributionConfig
+
+  if (!config) {
+    throw new Error('No config found')
+  }
 
   return frontClient.send(
     new UpdateDistributionCommand({
@@ -73,7 +83,8 @@ const disableCloudFront = async (Id: string): Promise<any> => {
   )
 }
 
-const tearDownLiveBucketLocation = (location: string): Promise<void> => {
+const tearDownLiveBucketLocation = async (location: string): Promise<void> => {
+  const s3Client = await assumedS3Client()
   return new Promise<void>((resolve) =>
     s3Client.deleteObject(
       {
@@ -88,8 +99,10 @@ const tearDownLiveBucketLocation = (location: string): Promise<void> => {
   )
 }
 
-const tearDownR53 = (domain: string, pipelineId: string, subDomain: string): Promise<any> => {
-  const r53Client = new Route53Client({})
+const tearDownR53 = async (domain: string, pipelineId: string, subDomain: string): Promise<any> => {
+  const r53Client = new Route53Client({
+    credentials: await getRoleCredentials(),
+  })
   return r53Client.send(
     new ChangeResourceRecordSetsCommand({
       HostedZoneId: process.env.HOSTED_ZONE_ID,
@@ -103,7 +116,7 @@ const tearDownR53 = (domain: string, pipelineId: string, subDomain: string): Pro
               AliasTarget: {
                 DNSName: domain,
                 EvaluateTargetHealth: false,
-                HostedZoneId: 'Z2FDTNDATAQYW2',
+                HostedZoneId: 'Z2FDTNDATAQYW2', // static cos cloudfront https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-aliastarget.html
               },
             },
           },

@@ -1,4 +1,5 @@
-import { Project, ISecret, Effect, PolicyStatement, Bucket, Queue } from '@reapit/ts-scripts/src/cdk'
+import { Project, ISecret, Effect, PolicyStatement, Bucket, Queue, Stack } from '@reapit/ts-scripts/src/cdk'
+import { AccountPrincipal, CompositePrincipal, Policy, Role } from 'aws-cdk-lib/aws-iam'
 import config from '../../config.json'
 
 export enum PolicyNames {
@@ -17,6 +18,7 @@ type namedPolicyType = {
 
 type namedPolicyGroupType = {
   commonBackendPolicies: PolicyStatement[]
+  usercodeStackRole: Role
 }
 
 export const createPolicies = ({
@@ -24,11 +26,13 @@ export const createPolicies = ({
   queues,
   secretManager,
   codeBuild,
+  usercodeStack,
 }: {
   buckets: { [s: string]: Bucket }
   queues: { [s: string]: Queue }
   secretManager: ISecret
   codeBuild: Project
+  usercodeStack: Stack
 }): namedPolicyGroupType & namedPolicyType => {
   const S3BucketPolicy = new PolicyStatement({
     effect: Effect.ALLOW,
@@ -59,13 +63,9 @@ export const createPolicies = ({
     resources: [secretManager.secretArn],
     actions: ['secretsmanager:GetSecretValue', 'secretsmanager:DescribeSecret'],
   })
-
   const route53Policy = new PolicyStatement({
     effect: Effect.ALLOW,
-    resources: [
-      // TODO: env
-      'arn:aws:route53:::hostedzone/Z02367201ZA0CZPSM3N2H', // is this safe to put in without env?
-    ],
+    resources: [`arn:aws:route53:::hostedzone/${config.HOSTED_ZONE_ID}`],
     actions: [
       'route53:GetHostedZone',
       'route53:ChangeResourceRecordSets',
@@ -79,11 +79,30 @@ export const createPolicies = ({
     resources: ['*'],
     actions: [
       'cloudfront:CreateDistribution',
-      'cloudfront:CreateInvalidation',
       'cloudfront:DeleteDistribution',
       'cloudfront:GetDistribution',
       'cloudfront:UpdateDistribution',
+      'cloudfront:CreateInvalidation',
     ],
+  })
+
+  // create a policy that allows the lambda to do what it needs to do in the usercode stack
+  const usercodePolicy = new Policy(usercodeStack, 'UsercodePolicy')
+  usercodePolicy.addStatements(S3BucketPolicy, route53Policy, cloudFrontPolicy)
+  // create a role that lambdas can assume in the usercode stack, with the policy we just created
+  const usercodeStackRole = new Role(usercodeStack, 'UsercodeStackRole', {
+    assumedBy: new CompositePrincipal(
+      new AccountPrincipal(config.AWS_ACCOUNT_ID),
+      new AccountPrincipal(usercodeStack.account),
+    ),
+  })
+  usercodeStackRole.attachInlinePolicy(usercodePolicy)
+
+  // a policy statement which allows lambdas in the main stack to assume that role
+  const lambdaAssumeUsercodeRole = new PolicyStatement({
+    effect: Effect.ALLOW,
+    resources: [usercodeStackRole.roleArn],
+    actions: ['sts:AssumeRole'],
   })
 
   const lambdaInvoke = new PolicyStatement({
@@ -101,7 +120,13 @@ export const createPolicies = ({
     actions: ['codebuild:StartBuild'],
   })
 
-  const commonBackendPolicies = [lambdaInvoke, secretManagerPolicy, S3BucketPolicy, sqsPolicies]
+  const commonBackendPolicies = [
+    lambdaInvoke,
+    secretManagerPolicy,
+    S3BucketPolicy,
+    sqsPolicies,
+    lambdaAssumeUsercodeRole,
+  ]
 
   return {
     commonBackendPolicies,
@@ -111,5 +136,6 @@ export const createPolicies = ({
     sqsPolicies,
     secretManagerPolicy,
     S3BucketPolicy,
+    usercodeStackRole,
   }
 }

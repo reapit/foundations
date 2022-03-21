@@ -1,4 +1,4 @@
-import { s3Client } from '../services'
+import { assumedS3Client } from '../services'
 import fs from 'fs'
 import mime from 'mime-types'
 import path from 'path'
@@ -21,6 +21,8 @@ export const sendToLiveS3: SendToLiveS3Func = async ({
   const key = fileNameTransformer
     ? fileNameTransformer(filePath.substring(buildLocation.length))
     : filePath.substring(buildLocation.length)
+
+  const s3Client = await assumedS3Client()
 
   return new Promise<void>((resolve, reject) =>
     s3Client.upload(
