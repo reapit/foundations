@@ -16,7 +16,7 @@ import {
   useModal,
 } from '@reapit/elements'
 import { CancelConfirmModal } from '../cancel-confirm-modal'
-import { cancelledTile, subheadingAddtional } from './__styles__/styles'
+import { cancelledTile, subheadingAdditional } from './__styles__/styles'
 import { FollowUpNotesModal } from '../follow-up-notes-modal'
 import advancedFormat from 'dayjs/plugin/advancedFormat'
 import dayjs from 'dayjs'
@@ -91,7 +91,7 @@ export const AppointmentTile: FC<AppointmentTileProps> = ({ appointment }) => {
           <CardListSubHeading>{appointmentType}</CardListSubHeading>
         </CardListMainWrap>
         {time === 'WEEK' && (
-          <CardListSubHeading className={subheadingAddtional}>
+          <CardListSubHeading className={subheadingAdditional}>
             {dayjs(appointmentStart).format('dddd, Do MMMM')}
           </CardListSubHeading>
         )}

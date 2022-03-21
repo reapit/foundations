@@ -6,6 +6,6 @@ export const cancelledTile = css`
   }
 `
 
-export const subheadingAddtional = css`
+export const subheadingAdditional = css`
   margin-top: -1.25rem;
 `
