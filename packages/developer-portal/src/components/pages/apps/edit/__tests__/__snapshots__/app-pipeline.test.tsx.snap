@@ -508,7 +508,7 @@ Object {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis rhoncus sem nec sagittis aliquet. Praesent malesuada non mi sed tristique. Proin fermentum metus quis ante tempor egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas et lacinia neque.
           </p>
           <button
-            class="ebee6r1-el-intent-primary e1tqqdf9-el-button-has-right-chevron e1f2ikqj-el-button"
+            class="ebee6r1-el-intent-primary e19a1osy-el-button-has-right-chevron eqfkc7t-el-button"
           >
             Create Pipeline
           </button>
@@ -804,7 +804,7 @@ Object {
             Praesent malesuada non mi sed tristique. Proin fermentum metus quis ante tempor egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas et lacinia neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis rhoncus sem nec sagittis aliquet.
           </p>
           <button
-            class="e1ymtwpu-el-intent-low e1f2ikqj-el-button"
+            class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
           >
             View Docs
           </button>
@@ -1008,7 +1008,7 @@ Object {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis rhoncus sem nec sagittis aliquet. Praesent malesuada non mi sed tristique. Proin fermentum metus quis ante tempor egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas et lacinia neque.
         </p>
         <button
-          class="ebee6r1-el-intent-primary e1tqqdf9-el-button-has-right-chevron e1f2ikqj-el-button"
+          class="ebee6r1-el-intent-primary e19a1osy-el-button-has-right-chevron eqfkc7t-el-button"
         >
           Create Pipeline
         </button>
@@ -1304,7 +1304,7 @@ Object {
           Praesent malesuada non mi sed tristique. Proin fermentum metus quis ante tempor egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas et lacinia neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis rhoncus sem nec sagittis aliquet.
         </p>
         <button
-          class="e1ymtwpu-el-intent-low e1f2ikqj-el-button"
+          class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
         >
           View Docs
         </button>

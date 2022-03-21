@@ -115,7 +115,7 @@ Object {
           This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
         </p>
         <button
-          class="esplruv-el-mb3 e1fle5tm-el-intent-neutral e1f2ikqj-el-button"
+          class="esplruv-el-mb3 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
         >
           View Docs
         </button>
@@ -233,7 +233,7 @@ Object {
         This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
       </p>
       <button
-        class="esplruv-el-mb3 e1fle5tm-el-intent-neutral e1f2ikqj-el-button"
+        class="esplruv-el-mb3 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
       >
         View Docs
       </button>
@@ -393,7 +393,7 @@ Object {
           Clicking below will take you to your current AppMarket listing, to view your app as users will see it.
         </p>
         <button
-          class="esplruv-el-mb3 ebee6r1-el-intent-primary e1f2ikqj-el-button"
+          class="esplruv-el-mb3 ebee6r1-el-intent-primary eqfkc7t-el-button"
         >
           Preview
         </button>
@@ -496,7 +496,7 @@ Object {
         Clicking below will take you to your current AppMarket listing, to view your app as users will see it.
       </p>
       <button
-        class="esplruv-el-mb3 ebee6r1-el-intent-primary e1f2ikqj-el-button"
+        class="esplruv-el-mb3 ebee6r1-el-intent-primary eqfkc7t-el-button"
       >
         Preview
       </button>
@@ -693,7 +693,7 @@ Object {
           If you no longer want your app revision to be approved, you can cancel below.
         </p>
         <button
-          class="esplruv-el-mb3 e1iow709-el-intent-critical e1f2ikqj-el-button"
+          class="esplruv-el-mb3 e1iow709-el-intent-critical eqfkc7t-el-button"
         >
           Cancel Revision
         </button>
@@ -833,7 +833,7 @@ Object {
         If you no longer want your app revision to be approved, you can cancel below.
       </p>
       <button
-        class="esplruv-el-mb3 e1iow709-el-intent-critical e1f2ikqj-el-button"
+        class="esplruv-el-mb3 e1iow709-el-intent-critical eqfkc7t-el-button"
       >
         Cancel Revision
       </button>
@@ -1025,12 +1025,12 @@ Object {
           You also have the option of de-listing your app and reverting to a sandbox only integration.
         </p>
         <button
-          class="esplruv-el-mb3 ebee6r1-el-intent-primary e1f2ikqj-el-button"
+          class="esplruv-el-mb3 ebee6r1-el-intent-primary eqfkc7t-el-button"
         >
           De-list app
         </button>
         <button
-          class="esplruv-el-mb3 e1iow709-el-intent-critical e1tqqdf9-el-button-has-right-chevron e1f2ikqj-el-button"
+          class="esplruv-el-mb3 e1iow709-el-intent-critical e19a1osy-el-button-has-right-chevron eqfkc7t-el-button"
         >
           Create Revision
         </button>
@@ -1165,12 +1165,12 @@ Object {
         You also have the option of de-listing your app and reverting to a sandbox only integration.
       </p>
       <button
-        class="esplruv-el-mb3 ebee6r1-el-intent-primary e1f2ikqj-el-button"
+        class="esplruv-el-mb3 ebee6r1-el-intent-primary eqfkc7t-el-button"
       >
         De-list app
       </button>
       <button
-        class="esplruv-el-mb3 e1iow709-el-intent-critical e1tqqdf9-el-button-has-right-chevron e1f2ikqj-el-button"
+        class="esplruv-el-mb3 e1iow709-el-intent-critical e19a1osy-el-button-has-right-chevron eqfkc7t-el-button"
       >
         Create Revision
       </button>
@@ -1354,7 +1354,7 @@ Object {
           Before you list your app you can save the details at any point below. After app listing, you will have to create an app revision for our team to review.
         </p>
         <button
-          class="esplruv-el-mb3 ebee6r1-el-intent-primary e1f2ikqj-el-button"
+          class="esplruv-el-mb3 ebee6r1-el-intent-primary eqfkc7t-el-button"
         >
           Save Changes
         </button>
@@ -1481,7 +1481,7 @@ Object {
         Before you list your app you can save the details at any point below. After app listing, you will have to create an app revision for our team to review.
       </p>
       <button
-        class="esplruv-el-mb3 ebee6r1-el-intent-primary e1f2ikqj-el-button"
+        class="esplruv-el-mb3 ebee6r1-el-intent-primary eqfkc7t-el-button"
       >
         Save Changes
       </button>
@@ -1674,7 +1674,7 @@ Object {
           You also have the option of saving any additional changes as you make them before submitting.
         </p>
         <button
-          class="esplruv-el-mb3 e1iow709-el-intent-critical e1tqqdf9-el-button-has-right-chevron e1f2ikqj-el-button"
+          class="esplruv-el-mb3 e1iow709-el-intent-critical e19a1osy-el-button-has-right-chevron eqfkc7t-el-button"
         >
           Submit Review
         </button>
@@ -1810,7 +1810,7 @@ Object {
         You also have the option of saving any additional changes as you make them before submitting.
       </p>
       <button
-        class="esplruv-el-mb3 e1iow709-el-intent-critical e1tqqdf9-el-button-has-right-chevron e1f2ikqj-el-button"
+        class="esplruv-el-mb3 e1iow709-el-intent-critical e19a1osy-el-button-has-right-chevron eqfkc7t-el-button"
       >
         Submit Review
       </button>
@@ -2002,7 +2002,7 @@ Object {
           You also have the option of de-listing your app and reverting to a sandbox only integration.
         </p>
         <button
-          class="esplruv-el-mb3 ebee6r1-el-intent-primary e1f2ikqj-el-button"
+          class="esplruv-el-mb3 ebee6r1-el-intent-primary eqfkc7t-el-button"
         >
           De-list app
         </button>
@@ -2137,7 +2137,7 @@ Object {
         You also have the option of de-listing your app and reverting to a sandbox only integration.
       </p>
       <button
-        class="esplruv-el-mb3 ebee6r1-el-intent-primary e1f2ikqj-el-button"
+        class="esplruv-el-mb3 ebee6r1-el-intent-primary eqfkc7t-el-button"
       >
         De-list app
       </button>

@@ -194,7 +194,7 @@ exports[`Login should match a snapshot 1`] = `
                     onMouseOver={[Function]}
                   >
                     <div
-                      className="e7eari0-el-mb12 e19a1osy-el-button-group"
+                      className="e7eari0-el-mb12 eay05y4-el-button-group"
                       onMouseOut={[Function]}
                       onMouseOver={[Function]}
                     >
@@ -202,7 +202,7 @@ exports[`Login should match a snapshot 1`] = `
                         className="ej73pla-el-button-group-align-center"
                       >
                         <div
-                          className="ej73pla-el-button-group-align-center eay05y4-el-button-group-inner"
+                          className="ej73pla-el-button-group-align-center ebqwrow-el-button-group-inner"
                         >
                           <Button
                             intent="primary"
@@ -214,7 +214,7 @@ exports[`Login should match a snapshot 1`] = `
                               onClick={[Function]}
                             >
                               <button
-                                className="ebee6r1-el-intent-primary e83k2pj-el-button-size3 e1f2ikqj-el-button"
+                                className="ebee6r1-el-intent-primary e83k2pj-el-button-size3 eqfkc7t-el-button"
                                 onClick={[Function]}
                               >
                                 Login With Reapit
@@ -231,7 +231,7 @@ exports[`Login should match a snapshot 1`] = `
                               onClick={[Function]}
                             >
                               <button
-                                className="epibvz0-el-intent-secondary e83k2pj-el-button-size3 e1f2ikqj-el-button"
+                                className="epibvz0-el-intent-secondary e83k2pj-el-button-size3 eqfkc7t-el-button"
                                 onClick={[Function]}
                               >
                                 Register
