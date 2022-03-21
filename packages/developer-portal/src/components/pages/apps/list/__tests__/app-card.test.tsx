@@ -1,6 +1,6 @@
 import React, { MouseEvent } from 'react'
 import { render } from '../../../../../tests/react-testing'
-import { AppCard, handleDeleteApp, handleRefreshApps } from '../app-card'
+import { AppCard, handleDeleteApp, handleOpenModal, handleRefreshApps } from '../app-card'
 import { mockAppDetailModel } from '../../../../../tests/__stubs__/apps'
 
 jest.mock('../../state/use-app-state')
@@ -32,6 +32,20 @@ describe('AppCard', () => {
     curried(event)
 
     expect(deleteApps).toHaveBeenCalledTimes(1)
+    expect(event.stopPropagation).toHaveBeenCalledTimes(1)
+  })
+
+  it('should handle opening modal', () => {
+    const event = {
+      stopPropagation: jest.fn(),
+    } as unknown as MouseEvent
+    const openModal = jest.fn()
+
+    const curried = handleOpenModal(openModal)
+
+    curried(event)
+
+    expect(openModal).toHaveBeenCalledTimes(1)
     expect(event.stopPropagation).toHaveBeenCalledTimes(1)
   })
 })

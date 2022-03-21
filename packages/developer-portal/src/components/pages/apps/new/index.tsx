@@ -2,7 +2,6 @@ import {
   Button,
   ButtonGroup,
   ColResponsive,
-  elMb12,
   elMb7,
   elMr5,
   FlexContainer,
@@ -15,7 +14,7 @@ import {
 import React, { Dispatch, FC, SetStateAction, MouseEvent, useEffect } from 'react'
 import { AppAuthFlow, AppNewStepId, getAppWizardStep } from './config'
 import { AppWizardState, useAppState } from '../state/use-app-state'
-import { StepContainer } from './__styles__'
+import { ControlsContainer, StepContainer } from './__styles__'
 import { StepOptionsContent } from './step-options-content'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm, UseFormTrigger } from 'react-hook-form'
@@ -209,51 +208,53 @@ export const AppsNewPage: FC = () => {
         span4KScreen={7}
       >
         <Title>Create App</Title>
-        <StepContainer>
-          <Subtitle hasBoldText>{headingText}</Subtitle>
-          <form onSubmit={handleSubmit(handleSubmitApp(authFlow, connectSession, stepHistory, createApp))}>
+        <form onSubmit={handleSubmit(handleSubmitApp(authFlow, connectSession, stepHistory, createApp))}>
+          <StepContainer>
+            <Subtitle hasBoldText>{headingText}</Subtitle>
             <FlexContainer className={elMb7}>
               <Icon className={elMr5} icon={iconName} iconSize="large" />
               <SmallText hasGreyText>{headerText}</SmallText>
             </FlexContainer>
-            <FlexContainer className={elMb12}>
+            <FlexContainer>
               <StepOptionsContent register={register} errors={errors} getValues={getValues} />
             </FlexContainer>
-            <ButtonGroup alignment="center">
-              <Button
-                intent="secondary"
-                size={2}
-                disabled={!prevStep || appCreating}
-                onClick={handleSetSteps(setAppWizardState, false, authFlow, stepHistory, trigger)}
-                chevronLeft
-              >
-                Prev
-              </Button>
-              {!lastStep ? (
+            <ControlsContainer>
+              <ButtonGroup alignment="center">
                 <Button
-                  intent="primary"
+                  intent="secondary"
                   size={2}
-                  disabled={!nextStep || appCreating}
-                  onClick={handleSetSteps(setAppWizardState, true, authFlow, stepHistory, trigger)}
-                  chevronRight
+                  disabled={!prevStep || appCreating}
+                  onClick={handleSetSteps(setAppWizardState, false, authFlow, stepHistory, trigger)}
+                  chevronLeft
                 >
-                  Next
+                  Prev
                 </Button>
-              ) : (
-                <Button
-                  intent="critical"
-                  type="submit"
-                  size={2}
-                  chevronRight
-                  disabled={appCreating}
-                  loading={appCreating}
-                >
-                  Create App
-                </Button>
-              )}
-            </ButtonGroup>
-          </form>
-        </StepContainer>
+                {!lastStep ? (
+                  <Button
+                    intent="primary"
+                    size={2}
+                    disabled={!nextStep || appCreating}
+                    onClick={handleSetSteps(setAppWizardState, true, authFlow, stepHistory, trigger)}
+                    chevronRight
+                  >
+                    Next
+                  </Button>
+                ) : (
+                  <Button
+                    intent="critical"
+                    type="submit"
+                    size={2}
+                    chevronRight
+                    disabled={appCreating}
+                    loading={appCreating}
+                  >
+                    Create App
+                  </Button>
+                )}
+              </ButtonGroup>
+            </ControlsContainer>
+          </StepContainer>
+        </form>
       </ColResponsive>
       <ColResponsive
         spanMobile={4}

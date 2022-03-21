@@ -88,17 +88,11 @@ export const GeneralTab: FC<AppEditTabsProps> = () => {
       </Grid>
       <Modal title="App Listing Status">
         <div className={elMb7}>
-          <BodyText hasBoldText hasNoMargin>
-            Integration Type
-          </BodyText>
+          <BodyText hasNoMargin>Integration Type</BodyText>
           <BodyText hasGreyText>{getIntegrationType(appDetail)}</BodyText>
-          <BodyText hasBoldText hasNoMargin>
-            AppMarket Status
-          </BodyText>
+          <BodyText hasNoMargin>AppMarket Status</BodyText>
           <BodyText hasGreyText>{getAppStatus(appDetail)}</BodyText>
-          <BodyText hasBoldText hasNoMargin>
-            App Listing Status
-          </BodyText>
+          <BodyText hasNoMargin>App Listing Status</BodyText>
           {appIncompleteFields.length ? (
             <div className={elMb6}>
               <BodyText hasGreyText>
@@ -113,9 +107,7 @@ export const GeneralTab: FC<AppEditTabsProps> = () => {
               Your app listing data is complete and you can submit for review at any time.
             </BodyText>
           )}
-          <BodyText hasBoldText hasNoMargin>
-            Unsaved Changes
-          </BodyText>
+          <BodyText hasNoMargin>Unsaved Changes</BodyText>
           {Object.keys(appUnsavedFields).length ? (
             <>
               <BodyText hasGreyText>The following fields have been edited, save to avoid losing data:</BodyText>
@@ -127,7 +119,7 @@ export const GeneralTab: FC<AppEditTabsProps> = () => {
             <BodyText hasGreyText>You have no unsaved changes to your app listing</BodyText>
           )}
         </div>
-        <ButtonGroup alignment="right">
+        <ButtonGroup alignment="center">
           <Button intent="low" onClick={closeModal}>
             Close
           </Button>

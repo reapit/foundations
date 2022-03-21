@@ -19,15 +19,15 @@ Object {
           >
             Create App
           </h1>
-          <div
-            class="s1cmhhgj-step-container"
-          >
-            <h2
-              class="eh96l6x-el-has-bold-text e1byern-el-subtitle"
+          <form>
+            <div
+              class="s1cmhhgj-step-container"
             >
-              What do you want to do today?
-            </h2>
-            <form>
+              <h2
+                class="eh96l6x-el-has-bold-text e1byern-el-subtitle"
+              >
+                What do you want to do today?
+              </h2>
               <div
                 class="e1g28qe3-el-mb7 e2kmzjs-el-flex-container"
               >
@@ -162,7 +162,7 @@ Object {
                 </p>
               </div>
               <div
-                class="e7eari0-el-mb12 e2kmzjs-el-flex-container"
+                class="e2kmzjs-el-flex-container"
               >
                 <div
                   class="e1jxji48-el-flex-column e1yw9yco-el-wfull e6p05ya-el-fade-in e2kmzjs-el-flex-container"
@@ -538,27 +538,31 @@ Object {
                 </div>
               </div>
               <div
-                class="e19a1osy-el-button-group"
+                class="c1o7tr8i-controls-container"
               >
                 <div
-                  class="ej73pla-el-button-group-align-center eay05y4-el-button-group-inner"
+                  class="e19a1osy-el-button-group"
                 >
-                  <button
-                    class="epibvz0-el-intent-secondary eqfkc7t-el-button-has-left-chevron edjrbxy-el-button-size2 e1f2ikqj-el-button"
-                    disabled=""
+                  <div
+                    class="ej73pla-el-button-group-align-center eay05y4-el-button-group-inner"
                   >
-                    Prev
-                  </button>
-                  <button
-                    class="ebee6r1-el-intent-primary e1tqqdf9-el-button-has-right-chevron edjrbxy-el-button-size2 e1f2ikqj-el-button"
-                    disabled=""
-                  >
-                    Next
-                  </button>
+                    <button
+                      class="epibvz0-el-intent-secondary eqfkc7t-el-button-has-left-chevron edjrbxy-el-button-size2 e1f2ikqj-el-button"
+                      disabled=""
+                    >
+                      Prev
+                    </button>
+                    <button
+                      class="ebee6r1-el-intent-primary e1tqqdf9-el-button-has-right-chevron edjrbxy-el-button-size2 e1f2ikqj-el-button"
+                      disabled=""
+                    >
+                      Next
+                    </button>
+                  </div>
                 </div>
               </div>
-            </form>
-          </div>
+            </div>
+          </form>
         </div>
         <div
           class="eqir0a0-el-span4 e14pp0yd-el-col"
@@ -1026,15 +1030,15 @@ Object {
         >
           Create App
         </h1>
-        <div
-          class="s1cmhhgj-step-container"
-        >
-          <h2
-            class="eh96l6x-el-has-bold-text e1byern-el-subtitle"
+        <form>
+          <div
+            class="s1cmhhgj-step-container"
           >
-            What do you want to do today?
-          </h2>
-          <form>
+            <h2
+              class="eh96l6x-el-has-bold-text e1byern-el-subtitle"
+            >
+              What do you want to do today?
+            </h2>
             <div
               class="e1g28qe3-el-mb7 e2kmzjs-el-flex-container"
             >
@@ -1169,7 +1173,7 @@ Object {
               </p>
             </div>
             <div
-              class="e7eari0-el-mb12 e2kmzjs-el-flex-container"
+              class="e2kmzjs-el-flex-container"
             >
               <div
                 class="e1jxji48-el-flex-column e1yw9yco-el-wfull e6p05ya-el-fade-in e2kmzjs-el-flex-container"
@@ -1545,27 +1549,31 @@ Object {
               </div>
             </div>
             <div
-              class="e19a1osy-el-button-group"
+              class="c1o7tr8i-controls-container"
             >
               <div
-                class="ej73pla-el-button-group-align-center eay05y4-el-button-group-inner"
+                class="e19a1osy-el-button-group"
               >
-                <button
-                  class="epibvz0-el-intent-secondary eqfkc7t-el-button-has-left-chevron edjrbxy-el-button-size2 e1f2ikqj-el-button"
-                  disabled=""
+                <div
+                  class="ej73pla-el-button-group-align-center eay05y4-el-button-group-inner"
                 >
-                  Prev
-                </button>
-                <button
-                  class="ebee6r1-el-intent-primary e1tqqdf9-el-button-has-right-chevron edjrbxy-el-button-size2 e1f2ikqj-el-button"
-                  disabled=""
-                >
-                  Next
-                </button>
+                  <button
+                    class="epibvz0-el-intent-secondary eqfkc7t-el-button-has-left-chevron edjrbxy-el-button-size2 e1f2ikqj-el-button"
+                    disabled=""
+                  >
+                    Prev
+                  </button>
+                  <button
+                    class="ebee6r1-el-intent-primary e1tqqdf9-el-button-has-right-chevron edjrbxy-el-button-size2 e1f2ikqj-el-button"
+                    disabled=""
+                  >
+                    Next
+                  </button>
+                </div>
               </div>
             </div>
-          </form>
-        </div>
+          </div>
+        </form>
       </div>
       <div
         class="eqir0a0-el-span4 e14pp0yd-el-col"
