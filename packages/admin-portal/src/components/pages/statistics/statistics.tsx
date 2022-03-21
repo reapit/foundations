@@ -6,10 +6,15 @@ import { StatisticsRequestParams, fetchStatistics } from '@/actions/statistics'
 import { getRangeName } from '@/utils/statistics'
 import { selectStatistics } from '@/selector/admin'
 import Papa from 'papaparse'
-import { AppSummaryModel, DeveloperModel, InstallationModel } from '@reapit/foundations-ts-definitions'
+import {
+  AppSummaryModel,
+  DeveloperModel,
+  InstallationModel,
+  ServiceItemBillingV2Model,
+} from '@reapit/foundations-ts-definitions'
 import FileSaver from 'file-saver'
 
-export type Area = 'APPS' | 'DEVELOPERS' | 'INSTALLATIONS'
+export type Area = 'APPS' | 'DEVELOPERS' | 'INSTALLATIONS' | 'BILLING'
 export type Range = 'WEEK' | 'MONTH' | 'ALL'
 
 export interface InstallationModelWithAppName extends InstallationModel {
@@ -25,7 +30,10 @@ export const handleSaveFile = (csv: string, filename: string) => {
   FileSaver.saveAs(blob, filename)
 }
 
-const downloadCSV = (area: Area, data: AppSummaryModel[] | DeveloperModel[] | InstallationModelWithAppName[]) => {
+export const downloadCSV = (
+  area: Area,
+  data: AppSummaryModel[] | DeveloperModel[] | InstallationModelWithAppName[] | ServiceItemBillingV2Model[],
+) => {
   if (area === 'APPS') {
     const apps = data as AppSummaryModel[]
     const csv = Papa.unparse({
@@ -73,6 +81,21 @@ const downloadCSV = (area: Area, data: AppSummaryModel[] | DeveloperModel[] | In
     })
 
     return handleSaveFile(csv, 'developers.csv')
+  }
+
+  if (area === 'BILLING') {
+    const apiCalls = data as ServiceItemBillingV2Model[]
+
+    const csv = Papa.unparse({
+      fields: ['Entity Name', 'Total Number Calls', 'Total Cost'],
+      data: apiCalls.map((item: ServiceItemBillingV2Model) => {
+        const { name, amount, cost } = item
+        const formattedCost = cost ? `£${cost.toFixed(2).padStart(2, '0')}` : '£0'
+        return [name, amount, formattedCost]
+      }),
+    })
+
+    return handleSaveFile(csv, 'billing.csv')
   }
 }
 
