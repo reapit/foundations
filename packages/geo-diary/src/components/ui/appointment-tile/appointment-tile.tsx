@@ -16,8 +16,12 @@ import {
   useModal,
 } from '@reapit/elements'
 import { CancelConfirmModal } from '../cancel-confirm-modal'
-import { cancelledTile } from './__styles__/styles'
+import { cancelledTile, subheadingAddtional } from './__styles__/styles'
 import { FollowUpNotesModal } from '../follow-up-notes-modal'
+import advancedFormat from 'dayjs/plugin/advancedFormat'
+import dayjs from 'dayjs'
+
+dayjs.extend(advancedFormat)
 
 export type AppointmentTileProps = {
   appointment: ExtendedAppointmentModel
@@ -49,7 +53,7 @@ export const AppointmentTile: FC<AppointmentTileProps> = ({ appointment }) => {
   const { appState, setAppState } = useAppState()
   const { Modal: FollowUpModal, openModal: openFollowUpModal, closeModal: closeFollowUpModal } = useModal()
   const { Modal: CancelModal, openModal: openCancelModal, closeModal: closeCancelModal } = useModal()
-  const { appointmentId } = appState
+  const { appointmentId, time } = appState
   const tileRef = useRef<HTMLDivElement>(null)
   const { id } = appointment
 
@@ -86,6 +90,11 @@ export const AppointmentTile: FC<AppointmentTileProps> = ({ appointment }) => {
           <CardListHeading>{headingText}</CardListHeading>
           <CardListSubHeading>{appointmentType}</CardListSubHeading>
         </CardListMainWrap>
+        {time === 'WEEK' && (
+          <CardListSubHeading className={subheadingAddtional}>
+            {dayjs(appointment?.start).format('dddd, Do MMMM')}
+          </CardListSubHeading>
+        )}
         <AppointmentItems appointment={appointment} />
         <FollowUpModal title="Follow up notes">
           <FollowUpNotesModal closeModal={closeFollowUpModal} appointment={appointment} />
