@@ -6,7 +6,7 @@ import { v4 as uuid } from 'uuid'
 import { Route53Client, ChangeResourceRecordSetsCommand } from '@aws-sdk/client-route-53'
 import { s3Client, sqs, updatePipelineEntity, pusher } from '../../services'
 import { QueueNames } from '../../constants'
-import { getRoleCredentials } from '../services/sts'
+import { getRoleCredentials } from '../../services/sts'
 
 export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Context, callback: Callback) => {
   await Promise.all(
@@ -73,7 +73,7 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
             },
             Aliases: {
               Quantity: 1,
-              Items: [`${pipeline.subDomain}.${process.env.NODE_ENV === 'PROD' ? 'prod' : 'dev'}.paas.reapit.cloud`],
+              Items: [`${pipeline.subDomain}.${process.env.ROOT_DOMAIN}`],
             },
             Comment: `Cloudfront distribution for pipeline [${pipeline.id}]`,
             Enabled: true,
@@ -118,7 +118,7 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
                 Action: 'UPSERT',
                 ResourceRecordSet: {
                   Type: 'A',
-                  Name: `${pipeline.subDomain}.${process.env.NODE_ENV === 'PROD' ? 'prod' : 'dev'}.paas.reapit.cloud`,
+                  Name: `${pipeline.subDomain}.${process.env.ROOT_DOMAIN}`,
                   AliasTarget: {
                     DNSName: frontDomain,
                     EvaluateTargetHealth: false,
