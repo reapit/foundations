@@ -9,7 +9,7 @@ export type Creds = {
 
 export const resolveCreds = async (event: APIGatewayEvent): Promise<Creds | never> => {
   if (event.headers['x-api-key']) {
-    const apiKey = await resolveApiKey(event.headers['x-api-key'])
+    const apiKey = await resolveApiKey(event.headers['x-api-key'], process.env.API_KEY_INVOKE_ARN?.includes('prod'))
 
     return {
       developerId: apiKey?.developerId as string,
