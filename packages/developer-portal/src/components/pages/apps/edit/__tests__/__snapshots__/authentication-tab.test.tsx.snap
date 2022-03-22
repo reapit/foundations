@@ -16,7 +16,7 @@ Object {
         <a>
           Authorization Code flow,
         </a>
-         you need to register both a re-direct uri and a logout uri. The former is the location in your app, you want Reapit Connect to re-direct to after a successful user login, the latter, after a succesful logout. Only uris that are registered here will be accepted as a location by Reapit Connect although, you can register multiple locations with a comma separated list.
+         you need to register both a re-direct URI and a logout URI. The former is the location in your app, you want Reapit Connect to re-direct to after a successful user login, the latter, after a succesful logout. Only URIs that are registered here will be accepted as a location by Reapit Connect although, you can register multiple locations with a comma separated list.
       </p>
       <div
         class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
@@ -78,7 +78,7 @@ Object {
       <a>
         Authorization Code flow,
       </a>
-       you need to register both a re-direct uri and a logout uri. The former is the location in your app, you want Reapit Connect to re-direct to after a successful user login, the latter, after a succesful logout. Only uris that are registered here will be accepted as a location by Reapit Connect although, you can register multiple locations with a comma separated list.
+       you need to register both a re-direct URI and a logout URI. The former is the location in your app, you want Reapit Connect to re-direct to after a successful user login, the latter, after a succesful logout. Only URIs that are registered here will be accepted as a location by Reapit Connect although, you can register multiple locations with a comma separated list.
     </p>
     <div
       class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"

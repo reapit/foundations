@@ -20,7 +20,7 @@ import { AppClientSecretModel, AppDetailModel } from '@reapit/foundations-ts-def
 import { useReapitGet } from '@reapit/utils-react'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
-import { PermissionChip } from './__styles__'
+import { PermissionChip, textOverflow, textOverflowContainer } from './__styles__'
 import { ExternalPages, openNewPage } from '../../../../utils/navigation'
 
 export interface CopyState {
@@ -101,10 +101,10 @@ export const AppDetail: FC = () => {
       {authFlow === 'authorisationCode' && (
         <>
           <BodyText hasGreyText>
-            Client Side Apps use our identity provider{' '}
+            Client-side Apps use our identity provider{' '}
             <a onClick={openNewPage(ExternalPages.reapitConnectDocs)}>Reapit Connect</a> to authenticate against our
             API. Your application will need to re-direct to Reapit Connect where we will handle user login and in turn,
-            re-direct back to your app with a code in the url that you exchange for access and id JWTs, referred to as{' '}
+            re-direct back to your app with a code in the URL that you exchange for access and id JWTs, referred to as{' '}
             <a onClick={openNewPage(ExternalPages.authoizationFlowDocs)}>Authorization Code flow.</a> You will need the
             Client Id and Redirect Uris below to configure Reapit Connect.
           </BodyText>
@@ -152,9 +152,11 @@ export const AppDetail: FC = () => {
           <Col>
             <FlexContainer>
               <Icon className={elMr4} icon="doorLockInfographic" iconSize="medium" />
-              <div>
+              <div className={textOverflowContainer}>
                 <Subtitle hasNoMargin>Authentication Client Secret</Subtitle>
-                <BodyText hasGreyText>{appSecret.clientSecret}</BodyText>
+                <BodyText className={textOverflow} hasGreyText>
+                  {appSecret.clientSecret}
+                </BodyText>
               </div>
             </FlexContainer>
             <CopyToClipboard text={appSecret.clientSecret} onCopy={handleCopyCode(setCopyState, 'clientSecret')}>

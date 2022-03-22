@@ -23,6 +23,7 @@ describe('Button', () => {
       disabled: true,
       chevronLeft: true,
       chevronRight: true,
+      fixedWidth: true,
       className: 'some-class',
     }
     expect(shallow(<Button {...fullProps}>button text</Button>)).toMatchSnapshot()

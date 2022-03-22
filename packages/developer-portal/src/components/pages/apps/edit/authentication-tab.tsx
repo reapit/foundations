@@ -11,8 +11,8 @@ export const AuthenticationTab: FC<AppEditTabsProps> = ({ register, errors }) =>
       <BodyText hasGreyText>
         When using the Reapit Connect{' '}
         <a onClick={openNewPage(ExternalPages.authoizationFlowDocs)}>Authorization Code flow,</a> you need to register
-        both a re-direct uri and a logout uri. The former is the location in your app, you want Reapit Connect to
-        re-direct to after a successful user login, the latter, after a succesful logout. Only uris that are registered
+        both a re-direct URI and a logout URI. The former is the location in your app, you want Reapit Connect to
+        re-direct to after a successful user login, the latter, after a succesful logout. Only URIs that are registered
         here will be accepted as a location by Reapit Connect although, you can register multiple locations with a comma
         separated list.
       </BodyText>

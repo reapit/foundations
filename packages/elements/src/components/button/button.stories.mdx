@@ -196,6 +196,25 @@ An element to collectively group several buttons
 
 <RenderHtmlMarkup component="Button" story="Button Group" />
 
+## Fixed Width
+
+Fixed width buttons, using the `fixedWidth` modifier. Typically used for groups of buttons where you have two or more selections to make eg. a confirmation dialog `Modal` or similar. As such will typically be used with the `ButtonGroup` component above.
+
+<Canvas>
+  <Story name="Fixed Width">
+    <ButtonGroup>
+      <Button intent="low" fixedWidth>
+        Cancel
+      </Button>
+      <Button intent="primary" fixedWidth>
+        Confirm
+      </Button>
+    </ButtonGroup>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Button" story={['Fixed Width']} />
+
 ## Floating Button
 
 A circular floating icon button.

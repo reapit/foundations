@@ -515,13 +515,13 @@ exports[`Register should match a snapshot 1`] = `
                       className="e7eari0-el-mb12"
                     >
                       <div
-                        className="e7eari0-el-mb12 e19a1osy-el-button-group"
+                        className="e7eari0-el-mb12 eay05y4-el-button-group"
                       >
                         <ElButtonGroupInner
                           className="ej73pla-el-button-group-align-center"
                         >
                           <div
-                            className="ej73pla-el-button-group-align-center eay05y4-el-button-group-inner"
+                            className="ej73pla-el-button-group-align-center ebqwrow-el-button-group-inner"
                           >
                             <Button
                               chevronRight={true}
@@ -531,11 +531,11 @@ exports[`Register should match a snapshot 1`] = `
                               type="submit"
                             >
                               <ElButton
-                                className="e1iow709-el-intent-critical e1tqqdf9-el-button-has-right-chevron e83k2pj-el-button-size3"
+                                className="e1iow709-el-intent-critical e19a1osy-el-button-has-right-chevron e83k2pj-el-button-size3"
                                 type="submit"
                               >
                                 <button
-                                  className="e1iow709-el-intent-critical e1tqqdf9-el-button-has-right-chevron e83k2pj-el-button-size3 e1f2ikqj-el-button"
+                                  className="e1iow709-el-intent-critical e19a1osy-el-button-has-right-chevron e83k2pj-el-button-size3 eqfkc7t-el-button"
                                   type="submit"
                                 >
                                   Register

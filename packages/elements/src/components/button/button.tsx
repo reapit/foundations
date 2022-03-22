@@ -25,6 +25,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   chevronRight?: boolean
   fullWidth?: boolean
   className?: string
+  fixedWidth?: boolean
   /** Deprecated - remains part of API to avoid a breaking change but no longer part of style guide */
   size?: ButtonSizeType
 }
@@ -54,6 +55,7 @@ export const Button: FC<ButtonProps> = ({
   chevronLeft = false,
   chevronRight = false,
   fullWidth = false,
+  fixedWidth = false,
   className = '',
   children,
   size,
@@ -65,6 +67,7 @@ export const Button: FC<ButtonProps> = ({
     intentClassname,
     chevronLeft && styles.elButtonHasLeftChevron,
     chevronRight && styles.elButtonHasRightChevron,
+    fixedWidth && styles.elButtonFixedWidth,
     loading && elIsLoading,
     fullWidth && elWFull,
     size && resolveButtonSize(size),

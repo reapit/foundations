@@ -1,11 +1,6 @@
 import { resolveCreds } from '../../utils'
 import { BadRequestException, httpHandler, NotFoundException } from '@homeservenow/serverless-aws-handler'
-import {
-  s3Client,
-  createPipelineRunnerEntity,
-  resetCurrentlyDeployed,
-  savePipelineRunnerEntity,
-} from '../../services'
+import { s3Client, createPipelineRunnerEntity, resetCurrentlyDeployed, savePipelineRunnerEntity } from '../../services'
 import { defaultOutputHeaders } from '../../constants'
 import * as pipelineService from '../../services/pipeline'
 import { PipelineEntity } from '../../entities/pipeline.entity'

@@ -6385,6 +6385,22 @@ export interface CreatePropertyModel {
    */
   url?: string
   /**
+   * Any ground rent payment that applies to the property
+   */
+  groundRent?: number // double
+  /**
+   * Comments regarding the ground rent of the property
+   */
+  groundRentComment?: string
+  /**
+   * Any service charge payment that applies to the property
+   */
+  serviceCharge?: number // double
+  /**
+   * Comments regarding the service charge of the property
+   */
+  serviceChargeComment?: string
+  /**
    * App specific metadata to set against the property
    */
   metadata?: {
@@ -10873,6 +10889,22 @@ export interface PropertyModel {
    */
   url?: string
   /**
+   * Any ground rent payment that applies to the property
+   */
+  groundRent?: number // double
+  /**
+   * Comments regarding the ground rent of the property
+   */
+  groundRentComment?: string
+  /**
+   * Any service charge payment that applies to the property
+   */
+  serviceCharge?: number // double
+  /**
+   * Comments regarding the service charge of the property
+   */
+  serviceChargeComment?: string
+  /**
    * The date the advertising board was last updated (or should be updated when the date is in the future)
    * example:
    * 2019-08-14
@@ -11484,6 +11516,22 @@ export interface PropertyModelPagedResult {
      * The url to the property on an external website
      */
     url?: string
+    /**
+     * Any ground rent payment that applies to the property
+     */
+    groundRent?: number // double
+    /**
+     * Comments regarding the ground rent of the property
+     */
+    groundRentComment?: string
+    /**
+     * Any service charge payment that applies to the property
+     */
+    serviceCharge?: number // double
+    /**
+     * Comments regarding the service charge of the property
+     */
+    serviceChargeComment?: string
     /**
      * The date the advertising board was last updated (or should be updated when the date is in the future)
      * example:
@@ -16287,6 +16335,22 @@ export interface UpdatePropertyModel {
    * The url to the property on an external website
    */
   url?: string
+  /**
+   * Any ground rent payment that applies to the property
+   */
+  groundRent?: number // double
+  /**
+   * Comments regarding the ground rent of the property
+   */
+  groundRentComment?: string
+  /**
+   * Any service charge payment that applies to the property
+   */
+  serviceCharge?: number // double
+  /**
+   * Comments regarding the service charge of the property
+   */
+  serviceChargeComment?: string
   /**
    * App specific metadata to set against the property
    */

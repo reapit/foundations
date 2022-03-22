@@ -49,7 +49,7 @@ export const AppOptionsContent: FC = () => {
         onClick={handleSetAppWizardState(setAppWizardState, AppNewStepId.webServicesStep)}
       >
         <Icon className={elMr8} fontSize="2rem" icon="globeInfographic" />
-        <StepOptionItemText>WebServices to Foundations Migration</StepOptionItemText>
+        <StepOptionItemText>WebServices to Platform</StepOptionItemText>
         {nextStep === AppNewStepId.webServicesStep && <Icon icon="tickSolidSystem" intent="primary" />}
       </StepOptionItem>
       <StepOptionItem
