@@ -14,6 +14,7 @@ import { cliRefactor1637591977282 } from './1637591977282-cliRefactor'
 import { startTimeFix1638286917874 } from './1638286917874-startTimeFix'
 import { bitBucket1645444063726 } from './1645444063726-bitBucket'
 import { pipelineBranch1645524699376 } from './1645524699376-pipelineBranch'
+import { installationId1645008177818 } from './1645008177818-installationId'
 
 export default [
   pipelines1625758770110,
@@ -32,4 +33,5 @@ export default [
   startTimeFix1638286917874,
   bitBucket1645444063726,
   pipelineBranch1645524699376,
+  installationId1645008177818,
 ]
