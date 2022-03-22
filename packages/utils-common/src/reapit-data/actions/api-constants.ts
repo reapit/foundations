@@ -3,8 +3,14 @@ export type AppEnv = 'local' | 'development' | 'production'
 export const ApiNames = (appEnv: AppEnv) => {
   return {
     platform: appEnv !== 'production' ? 'https://platform.dev.paas.reapit.cloud' : 'https://platform.reapit.cloud',
-    pipeline: appEnv !== 'production' ? 'https://deployments.dev.paas.reapit.cloud' : '',
-    apiKey: appEnv !== 'production' ? 'https://api-key.dev.paas.reapit.cloud/api-key' : '',
+    pipeline:
+      appEnv !== 'production'
+        ? 'https://deployments.dev.paas.reapit.cloud'
+        : 'https://deployments.prod.paas.reapit.cloud',
+    apiKey:
+      appEnv !== 'production'
+        ? 'https://api-key.dev.paas.reapit.cloud/api-key'
+        : 'https://api-key.prod.paas.reapit.cloud/api-key',
   }
 }
 
