@@ -11,7 +11,10 @@ const lambda = new AWS.Lambda()
  * @param apiKeyHeader String
  * @returns GetApiKeyFunction
  */
-export const resolveApiKey = async (apiKeyHeader: string, production: boolean = false): Promise<ApiKeyModel | never> => {
+export const resolveApiKey = async (
+  apiKeyHeader: string,
+  production: boolean = false,
+): Promise<ApiKeyModel | never> => {
   const apiKey = await new Promise<ApiKeyModel | undefined>((resolve, reject) =>
     lambda.invoke(
       {
