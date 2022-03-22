@@ -49,8 +49,8 @@ export const AcIntegrationTab: FC<AppEditTabsProps> = ({ register, errors, contr
         <a onClick={openNewPage(ExternalPages.desktopDocs)}>see here.</a>
       </BodyText>
       <BodyText hasGreyText>
-        You should toggle &lsquo;AgencyCloud Integration&rsquo; only if you are intending your app to be launched as
-        replacement screen from within AgencyCloud
+        You should toggle &lsquo;AgencyCloud Integration&rsquo; only if you are intending your app to be launched from
+        within AgencyCloud
       </BodyText>
       <BodyText hasGreyText>
         The below list maps to the various menus from which you can launch your app or replace an AgencyCloud Screen.

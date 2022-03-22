@@ -21,12 +21,12 @@ Object {
       <p
         class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
       >
-        Client Side Apps use our identity provider
+        Client-side Apps use our identity provider
          
         <a>
           Reapit Connect
         </a>
-         to authenticate against our API. Your application will need to re-direct to Reapit Connect where we will handle user login and in turn, re-direct back to your app with a code in the url that you exchange for access and id JWTs, referred to as
+         to authenticate against our API. Your application will need to re-direct to Reapit Connect where we will handle user login and in turn, re-direct back to your app with a code in the URL that you exchange for access and id JWTs, referred to as
          
         <a>
           Authorization Code flow.
@@ -139,14 +139,16 @@ Object {
                 </defs>
               </svg>
             </span>
-            <div>
+            <div
+              class="t17psbgu-text-overflow-container"
+            >
               <h2
                 class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
               >
                 Authentication Client Secret
               </h2>
               <p
-                class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+                class="tw0d9op-text-overflow e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
               >
                 MOCK_SECRET
               </p>
@@ -384,12 +386,12 @@ Object {
     <p
       class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
     >
-      Client Side Apps use our identity provider
+      Client-side Apps use our identity provider
        
       <a>
         Reapit Connect
       </a>
-       to authenticate against our API. Your application will need to re-direct to Reapit Connect where we will handle user login and in turn, re-direct back to your app with a code in the url that you exchange for access and id JWTs, referred to as
+       to authenticate against our API. Your application will need to re-direct to Reapit Connect where we will handle user login and in turn, re-direct back to your app with a code in the URL that you exchange for access and id JWTs, referred to as
        
       <a>
         Authorization Code flow.
@@ -502,14 +504,16 @@ Object {
               </defs>
             </svg>
           </span>
-          <div>
+          <div
+            class="t17psbgu-text-overflow-container"
+          >
             <h2
               class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
             >
               Authentication Client Secret
             </h2>
             <p
-              class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+              class="tw0d9op-text-overflow e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
             >
               MOCK_SECRET
             </p>
