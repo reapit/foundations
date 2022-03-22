@@ -22,6 +22,7 @@ import { createSqsQueues, QueueNames } from './create-sqs'
 import { createPolicies } from './create-policies'
 import { aws_sqs as sqs } from 'aws-cdk-lib'
 import { Role } from 'aws-cdk-lib/aws-iam'
+import config from '../../config.json'
 
 export const databaseName = 'deployment_service'
 
@@ -47,12 +48,13 @@ export const createStack = () => {
     namespace: 'cloud',
     appName: 'deployment',
     component: 'service',
+    accountId: config.AWS_ACCOUNT_ID,
   })
   const usercodeStack = createBaseStack({
     namespace: 'cloud',
     appName: 'deployment',
     component: 'usercode',
-    accountId: process.env.USERCODE_ACCOUNT_ID,
+    accountId: config.USERCODE_ACCOUNT_ID,
   })
   const api = createApi(stack, 'apigateway', undefined)
   const vpc = createVpc(stack, 'vpc')
