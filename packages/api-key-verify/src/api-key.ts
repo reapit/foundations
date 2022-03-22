@@ -11,11 +11,14 @@ const lambda = new AWS.Lambda()
  * @param apiKeyHeader String
  * @returns GetApiKeyFunction
  */
-export const resolveApiKey = async (apiKeyHeader: string): Promise<ApiKeyModel | never> => {
+export const resolveApiKey = async (
+  apiKeyHeader: string,
+  production: boolean = false,
+): Promise<ApiKeyModel | never> => {
   const apiKey = await new Promise<ApiKeyModel | undefined>((resolve, reject) =>
     lambda.invoke(
       {
-        FunctionName: 'cloud-api-key-service-dev-getApiKeyViaInvoke', // TODO make env?
+        FunctionName: `cloud-api-key-service-${production ? 'prod' : 'dev'}-getApiKeyViaInvoke`,
         InvocationType: 'RequestResponse',
         LogType: 'Tail',
         Payload: JSON.stringify({ apiKey: apiKeyHeader }),
