@@ -110,7 +110,7 @@ export const AppListingTab: FC<AppEditTabsProps> = ({ register, errors, control,
     <>
       <BodyText hasGreyText>
         The detail included on this page populates your app listing in the AppMarket. While you are in development, you
-        can complete this in your own time however, when you are ready to sumbit your app for approval, it all needs to
+        can complete this in your own time however, when you are ready to submit your app for approval, it all needs to
         be completed.
       </BodyText>
       <BodyText hasGreyText hasSectionMargin>

@@ -11,7 +11,7 @@ Object {
       <p
         class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
       >
-        Permissions are registered as scopes against the access token you receive back from one of our Authentication Flows. They map 1:1 and on a read/write basis to endpoints in our Foundations REST API. As such, it is worth looking at the
+        Permissions are registered as scopes against the access token you receive back from one of our Authentication Flows. They map 1:1 and on a read/write basis to endpoints in our Platform REST API. As such, it is worth looking at the
          
         <a
           href="/swagger"
@@ -21,7 +21,7 @@ Object {
           API explorer here
            
         </a>
-        before procceeding, to investigate which permissions you think you will need.
+        before proceeding, to investigate which permissions you think you will need.
       </p>
       <div
         class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
@@ -239,7 +239,11 @@ Object {
       <p
         class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
       >
-        You should toggle ‘Private App’ if you only want your app to be private to a select group of customers. You should enter their client codes from the installations table as a comma separated list.
+        You should toggle ‘Private App’ if you only want your app to be private to a select group of customers (max of 3). Simply enter their ‘PCustomer ID’P as a comma separated list. For more information on how to find the Customer ID,
+         
+        <a>
+           please see here.
+        </a>
       </p>
       <div
         class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
@@ -309,7 +313,7 @@ Object {
     <p
       class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
     >
-      Permissions are registered as scopes against the access token you receive back from one of our Authentication Flows. They map 1:1 and on a read/write basis to endpoints in our Foundations REST API. As such, it is worth looking at the
+      Permissions are registered as scopes against the access token you receive back from one of our Authentication Flows. They map 1:1 and on a read/write basis to endpoints in our Platform REST API. As such, it is worth looking at the
        
       <a
         href="/swagger"
@@ -319,7 +323,7 @@ Object {
         API explorer here
          
       </a>
-      before procceeding, to investigate which permissions you think you will need.
+      before proceeding, to investigate which permissions you think you will need.
     </p>
     <div
       class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
@@ -537,7 +541,11 @@ Object {
     <p
       class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
     >
-      You should toggle ‘Private App’ if you only want your app to be private to a select group of customers. You should enter their client codes from the installations table as a comma separated list.
+      You should toggle ‘Private App’ if you only want your app to be private to a select group of customers (max of 3). Simply enter their ‘PCustomer ID’P as a comma separated list. For more information on how to find the Customer ID,
+       
+      <a>
+         please see here.
+      </a>
     </p>
     <div
       class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
@@ -664,7 +672,7 @@ Object {
       <p
         class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
       >
-        Permissions are registered as scopes against the access token you receive back from one of our Authentication Flows. They map 1:1 and on a read/write basis to endpoints in our Foundations REST API. As such, it is worth looking at the
+        Permissions are registered as scopes against the access token you receive back from one of our Authentication Flows. They map 1:1 and on a read/write basis to endpoints in our Platform REST API. As such, it is worth looking at the
          
         <a
           href="/swagger"
@@ -674,7 +682,7 @@ Object {
           API explorer here
            
         </a>
-        before procceeding, to investigate which permissions you think you will need.
+        before proceeding, to investigate which permissions you think you will need.
       </p>
       <div
         class="ebhrnzh-el-loader-container"
@@ -712,7 +720,11 @@ Object {
       <p
         class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
       >
-        You should toggle ‘Private App’ if you only want your app to be private to a select group of customers. You should enter their client codes from the installations table as a comma separated list.
+        You should toggle ‘Private App’ if you only want your app to be private to a select group of customers (max of 3). Simply enter their ‘PCustomer ID’P as a comma separated list. For more information on how to find the Customer ID,
+         
+        <a>
+           please see here.
+        </a>
       </p>
       <div
         class="ebhrnzh-el-loader-container"
@@ -793,7 +805,7 @@ Object {
     <p
       class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
     >
-      Permissions are registered as scopes against the access token you receive back from one of our Authentication Flows. They map 1:1 and on a read/write basis to endpoints in our Foundations REST API. As such, it is worth looking at the
+      Permissions are registered as scopes against the access token you receive back from one of our Authentication Flows. They map 1:1 and on a read/write basis to endpoints in our Platform REST API. As such, it is worth looking at the
        
       <a
         href="/swagger"
@@ -803,7 +815,7 @@ Object {
         API explorer here
          
       </a>
-      before procceeding, to investigate which permissions you think you will need.
+      before proceeding, to investigate which permissions you think you will need.
     </p>
     <div
       class="ebhrnzh-el-loader-container"
@@ -841,7 +853,11 @@ Object {
     <p
       class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
     >
-      You should toggle ‘Private App’ if you only want your app to be private to a select group of customers. You should enter their client codes from the installations table as a comma separated list.
+      You should toggle ‘Private App’ if you only want your app to be private to a select group of customers (max of 3). Simply enter their ‘PCustomer ID’P as a comma separated list. For more information on how to find the Customer ID,
+       
+      <a>
+         please see here.
+      </a>
     </p>
     <div
       class="ebhrnzh-el-loader-container"

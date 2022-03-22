@@ -36,7 +36,7 @@ const steps = [
     authFlow: 'clientCredentials',
   },
   {
-    text: 'WebServices to Foundations Migration',
+    text: 'WebServices to Platform',
     nextStep: AppNewStepId.webServicesStep,
     authFlow: 'clientCredentials',
   },

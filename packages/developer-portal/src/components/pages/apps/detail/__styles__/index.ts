@@ -1,3 +1,4 @@
+import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
 
 export const PermissionChip = styled.div`
@@ -8,4 +9,15 @@ export const PermissionChip = styled.div`
   padding: 0.25rem 0.625rem;
   margin: 0.25rem 0.5rem 0.25rem 0;
   display: inline-block;
+`
+
+export const textOverflow = css`
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`
+
+export const textOverflowContainer = css`
+  width: calc(100% - 3.25rem);
 `

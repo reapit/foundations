@@ -20,7 +20,7 @@ Object {
       <p
         class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
       >
-        You should toggle ‘AgencyCloud Integration’ only if you are intending your app to be launched as replacement screen from within AgencyCloud
+        You should toggle ‘AgencyCloud Integration’ only if you are intending your app to be launched from within AgencyCloud
       </p>
       <p
         class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
@@ -82,7 +82,7 @@ Object {
     <p
       class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
     >
-      You should toggle ‘AgencyCloud Integration’ only if you are intending your app to be launched as replacement screen from within AgencyCloud
+      You should toggle ‘AgencyCloud Integration’ only if you are intending your app to be launched from within AgencyCloud
     </p>
     <p
       class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
@@ -192,7 +192,7 @@ Object {
       <p
         class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
       >
-        The detail included on this page populates your app listing in the AppMarket. While you are in development, you can complete this in your own time however, when you are ready to sumbit your app for approval, it all needs to be completed.
+        The detail included on this page populates your app listing in the AppMarket. While you are in development, you can complete this in your own time however, when you are ready to submit your app for approval, it all needs to be completed.
       </p>
       <p
         class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e15ggth7-el-body-text"
@@ -663,7 +663,7 @@ Object {
     <p
       class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
     >
-      The detail included on this page populates your app listing in the AppMarket. While you are in development, you can complete this in your own time however, when you are ready to sumbit your app for approval, it all needs to be completed.
+      The detail included on this page populates your app listing in the AppMarket. While you are in development, you can complete this in your own time however, when you are ready to submit your app for approval, it all needs to be completed.
     </p>
     <p
       class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e15ggth7-el-body-text"
@@ -1196,7 +1196,7 @@ Object {
         <a>
           Authorization Code flow,
         </a>
-         you need to register both a re-direct uri and a logout uri. The former is the location in your app, you want Reapit Connect to re-direct to after a successful user login, the latter, after a succesful logout. Only uris that are registered here will be accepted as a location by Reapit Connect although, you can register multiple locations with a comma separated list.
+         you need to register both a re-direct URI and a logout URI. The former is the location in your app, you want Reapit Connect to re-direct to after a successful user login, the latter, after a succesful logout. Only URIs that are registered here will be accepted as a location by Reapit Connect although, you can register multiple locations with a comma separated list.
       </p>
       <div
         class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
@@ -1258,7 +1258,7 @@ Object {
       <a>
         Authorization Code flow,
       </a>
-       you need to register both a re-direct uri and a logout uri. The former is the location in your app, you want Reapit Connect to re-direct to after a successful user login, the latter, after a succesful logout. Only uris that are registered here will be accepted as a location by Reapit Connect although, you can register multiple locations with a comma separated list.
+       you need to register both a re-direct URI and a logout URI. The former is the location in your app, you want Reapit Connect to re-direct to after a successful user login, the latter, after a succesful logout. Only URIs that are registered here will be accepted as a location by Reapit Connect although, you can register multiple locations with a comma separated list.
     </p>
     <div
       class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
@@ -2179,7 +2179,7 @@ Object {
       <p
         class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
       >
-        Permissions are registered as scopes against the access token you receive back from one of our Authentication Flows. They map 1:1 and on a read/write basis to endpoints in our Foundations REST API. As such, it is worth looking at the
+        Permissions are registered as scopes against the access token you receive back from one of our Authentication Flows. They map 1:1 and on a read/write basis to endpoints in our Platform REST API. As such, it is worth looking at the
          
         <a
           href="/swagger"
@@ -2189,7 +2189,7 @@ Object {
           API explorer here
            
         </a>
-        before procceeding, to investigate which permissions you think you will need.
+        before proceeding, to investigate which permissions you think you will need.
       </p>
       <div
         class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
@@ -2205,7 +2205,11 @@ Object {
       <p
         class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
       >
-        You should toggle ‘Private App’ if you only want your app to be private to a select group of customers. You should enter their client codes from the installations table as a comma separated list.
+        You should toggle ‘Private App’ if you only want your app to be private to a select group of customers (max of 3). Simply enter their ‘PCustomer ID’P as a comma separated list. For more information on how to find the Customer ID,
+         
+        <a>
+           please see here.
+        </a>
       </p>
       <div
         class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
@@ -2275,7 +2279,7 @@ Object {
     <p
       class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
     >
-      Permissions are registered as scopes against the access token you receive back from one of our Authentication Flows. They map 1:1 and on a read/write basis to endpoints in our Foundations REST API. As such, it is worth looking at the
+      Permissions are registered as scopes against the access token you receive back from one of our Authentication Flows. They map 1:1 and on a read/write basis to endpoints in our Platform REST API. As such, it is worth looking at the
        
       <a
         href="/swagger"
@@ -2285,7 +2289,7 @@ Object {
         API explorer here
          
       </a>
-      before procceeding, to investigate which permissions you think you will need.
+      before proceeding, to investigate which permissions you think you will need.
     </p>
     <div
       class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
@@ -2301,7 +2305,11 @@ Object {
     <p
       class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
     >
-      You should toggle ‘Private App’ if you only want your app to be private to a select group of customers. You should enter their client codes from the installations table as a comma separated list.
+      You should toggle ‘Private App’ if you only want your app to be private to a select group of customers (max of 3). Simply enter their ‘PCustomer ID’P as a comma separated list. For more information on how to find the Customer ID,
+       
+      <a>
+         please see here.
+      </a>
     </p>
     <div
       class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"

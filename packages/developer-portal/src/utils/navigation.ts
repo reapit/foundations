@@ -23,6 +23,8 @@ export enum ExternalPages {
   listingAppDocs = 'https://foundations-documentation.reapit.cloud/listing-your-app',
   reviewingAppDocs = 'https://foundations-documentation.reapit.cloud/listing-your-app/app-listing-review',
   appApprovalDocs = 'https://foundations-documentation.reapit.cloud/faqs#app-approvals',
+  acLaunchableDocs = 'https://foundations-documentation.reapit.cloud/listing-your-app#apps-launchable-inside-of-agencycloud',
+  customerIdFindDocs = 'https://foundations-documentation.reapit.cloud/faqs#how-do-i-find-a-customer-id',
 }
 
 export const openNewPage = (uri: ExternalPages | string) => (event?: MouseEvent) => {
