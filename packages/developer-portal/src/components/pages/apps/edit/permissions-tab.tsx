@@ -24,6 +24,7 @@ import { formFields } from './form-schema/form-fields'
 import { Link } from 'react-router-dom'
 import Routes from '../../../../constants/routes'
 import { useWatch } from 'react-hook-form'
+import { ExternalPages, openNewPage } from '../../../../utils/navigation'
 
 export const PermissionsTab: FC<AppEditTabsProps> = ({ register, errors, control }) => {
   const { appEditState } = useAppState()
@@ -50,12 +51,12 @@ export const PermissionsTab: FC<AppEditTabsProps> = ({ register, errors, control
     <>
       <BodyText hasGreyText>
         Permissions are registered as scopes against the access token you receive back from one of our Authentication
-        Flows. They map 1:1 and on a read/write basis to endpoints in our Foundations REST API. As such, it is worth
+        Flows. They map 1:1 and on a read/write basis to endpoints in our Platform REST API. As such, it is worth
         looking at the{' '}
         <Link to={Routes.SWAGGER} target="_blank" rel="noopener noreferrer">
           API explorer here{' '}
         </Link>
-        before procceeding, to investigate which permissions you think you will need.
+        before proceeding, to investigate which permissions you think you will need.
       </BodyText>
       {scopesListLoading && <Loader />}
       <FormLayout hasMargin>
@@ -105,7 +106,9 @@ export const PermissionsTab: FC<AppEditTabsProps> = ({ register, errors, control
       </FormLayout>
       <BodyText hasGreyText>
         You should toggle &lsquo;Private App&rsquo; if you only want your app to be private to a select group of
-        customers. You should enter their client codes from the installations table as a comma separated list.
+        customers (max of 3). Simply enter their &lsquo;PCustomer ID&rsquo;P as a comma separated list. For more
+        information on how to find the Customer ID,{' '}
+        <a onClick={openNewPage(ExternalPages.customerIdFindDocs)}> please see here.</a>
       </BodyText>
       {productListLoading && <Loader />}
       <FormLayout hasMargin>

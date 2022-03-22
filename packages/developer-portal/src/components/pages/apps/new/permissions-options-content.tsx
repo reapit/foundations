@@ -98,6 +98,9 @@ export const PermissionsOptionsContent: FC<PermissionsOptionsContentProps> = ({ 
           <MultiSelectInput
             id="select-permissions"
             defaultValues={defaultPermissions}
+            noneSelectedLabel={
+              options.length ? 'Options will appear below when you search' : 'Please select options from below'
+            }
             {...register('scopes')}
             options={options}
           />

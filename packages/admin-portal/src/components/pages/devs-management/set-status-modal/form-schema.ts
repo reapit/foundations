@@ -1,6 +1,6 @@
 import * as Yup from 'yup'
 import errorMessages from '@/constants/error-messages'
-import { FormFieldInfo, reapitRefRegex } from '@reapit/utils-common'
+import { FormFieldInfo } from '@reapit/utils-common'
 
 export type FieldKey = 'status' | 'reapitReference'
 export const formFields: Record<FieldKey, FormFieldInfo> = {
@@ -24,6 +24,6 @@ export const validationSchema = Yup.object().shape({
     .trim()
     .when(status.name, {
       is: (val) => val == 'confirmed',
-      then: Yup.string().required(errorMessages.FIELD_REQUIRED).matches(reapitRefRegex, reapitReference.errorMessage),
+      then: Yup.string().required(errorMessages.FIELD_REQUIRED).max(50, 'Maximum of 50 characters allowed'),
     }),
 })

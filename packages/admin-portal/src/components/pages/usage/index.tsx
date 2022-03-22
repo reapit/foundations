@@ -1,4 +1,4 @@
-import { Loader, Title } from '@reapit/elements'
+import { Button, ButtonGroup, Loader, Title } from '@reapit/elements'
 import React, { FC, useState } from 'react'
 import { FilterForm } from './filter-form'
 import { UsageTable } from './usage-table'
@@ -10,12 +10,18 @@ import {
   BillingBreakdownForMonthV2Model,
   InstallationModelPagedResult,
 } from '@reapit/foundations-ts-definitions'
+import { downloadCSV } from '../statistics/statistics'
 
 export interface UsageFilters {
   month?: string
   developerId?: string
   customerId?: string
   appId?: string
+}
+
+export const handleCsvDownload = (billing: BillingBreakdownForMonthV2Model | null) => () => {
+  const apiCalls = billing?.services?.find((item) => item.name === 'API Requests')?.items ?? []
+  downloadCSV('BILLING', apiCalls)
 }
 
 export const UsagePage: FC = () => {
@@ -66,6 +72,13 @@ export const UsagePage: FC = () => {
     <>
       <Title>API Usage</Title>
       <FilterForm setUsageFilters={setUsageFilters} apps={apps} installations={installations} />
+      {billing && (
+        <ButtonGroup alignment="right">
+          <Button intent="primary" onClick={handleCsvDownload(billing)}>
+            Download Results
+          </Button>
+        </ButtonGroup>
+      )}
       {billingLoading ? <Loader /> : <UsageTable billing={billing} />}
     </>
   )

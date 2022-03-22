@@ -63,6 +63,8 @@ export const getDataLabel = (area: Area): string => {
       return 'Developers'
     case 'INSTALLATIONS':
       return 'Installations'
+    case 'BILLING':
+      return 'Billing'
   }
 }
 

@@ -112,23 +112,23 @@ Object {
         Deployments
       </h1>
       <div
-        class="ez8nkuq-el-mb6 e19a1osy-el-button-group"
+        class="ez8nkuq-el-mb6 eay05y4-el-button-group"
       >
         <div
-          class="eay05y4-el-button-group-inner"
+          class="ebqwrow-el-button-group-inner"
         >
           <button
-            class="ebee6r1-el-intent-primary e1f2ikqj-el-button"
+            class="ebee6r1-el-intent-primary eqfkc7t-el-button"
           >
             Deploy
           </button>
           <button
-            class="e1iow709-el-intent-critical e1f2ikqj-el-button"
+            class="e1iow709-el-intent-critical eqfkc7t-el-button"
           >
             Deploy With Cli
           </button>
           <button
-            class="e1vxext9-el-intent-danger e1f2ikqj-el-button"
+            class="e1vxext9-el-intent-danger eqfkc7t-el-button"
           >
             Delete Pipeline
           </button>
@@ -277,23 +277,23 @@ Object {
       Deployments
     </h1>
     <div
-      class="ez8nkuq-el-mb6 e19a1osy-el-button-group"
+      class="ez8nkuq-el-mb6 eay05y4-el-button-group"
     >
       <div
-        class="eay05y4-el-button-group-inner"
+        class="ebqwrow-el-button-group-inner"
       >
         <button
-          class="ebee6r1-el-intent-primary e1f2ikqj-el-button"
+          class="ebee6r1-el-intent-primary eqfkc7t-el-button"
         >
           Deploy
         </button>
         <button
-          class="e1iow709-el-intent-critical e1f2ikqj-el-button"
+          class="e1iow709-el-intent-critical eqfkc7t-el-button"
         >
           Deploy With Cli
         </button>
         <button
-          class="e1vxext9-el-intent-danger e1f2ikqj-el-button"
+          class="e1vxext9-el-intent-danger eqfkc7t-el-button"
         >
           Delete Pipeline
         </button>
