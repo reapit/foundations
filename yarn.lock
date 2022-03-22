@@ -6887,8 +6887,8 @@ __metadata:
     "@typescript-eslint/parser": ^5.7.0
     "@wojtekmaj/enzyme-adapter-react-17": ^0.6.6
     autoprefixer: ^10.4.0
-    aws-cdk: ^2.15.0
-    aws-cdk-lib: ^2.15.0
+    aws-cdk: ^2.17.0
+    aws-cdk-lib: ^2.17.0
     babel-jest: ^27.4.6
     babel-loader: ^8.2.3
     babel-plugin-module-resolver: ^4.1.0
@@ -12868,9 +12868,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"aws-cdk-lib@npm:^2.15.0":
-  version: 2.15.0
-  resolution: "aws-cdk-lib@npm:2.15.0"
+"aws-cdk-lib@npm:^2.17.0":
+  version: 2.17.0
+  resolution: "aws-cdk-lib@npm:2.17.0"
   dependencies:
     "@balena/dockerignore": ^1.0.2
     case: 1.6.3
@@ -12883,13 +12883,13 @@ __metadata:
     yaml: 1.10.2
   peerDependencies:
     constructs: ^10.0.0
-  checksum: b7682979a20efc2c70285230f5997d436120cb8d424290951ccd0fe8a3c3640478b46750c8d46825c9af1d8b4847f782261736076729c0faaa6148800347bbfe
+  checksum: 7ef399c1c5e78cb393352d003edd4b24c06a9997d1c5609903057175cb28b85da356fa07702b115fe36e5b0e47b2c823e714576c239ff9562c16d4ec31f721d9
   languageName: node
   linkType: hard
 
-"aws-cdk@npm:^2.15.0":
-  version: 2.15.0
-  resolution: "aws-cdk@npm:2.15.0"
+"aws-cdk@npm:^2.17.0":
+  version: 2.17.0
+  resolution: "aws-cdk@npm:2.17.0"
   dependencies:
     fsevents: 2.3.2
   dependenciesMeta:
@@ -12897,7 +12897,7 @@ __metadata:
       optional: true
   bin:
     cdk: bin/cdk
-  checksum: f3c1080fe494c273f1be454e8ef636406e85234364823e9c23f5a95110a83ab1f507d5190b0d1f4d76199844170c21bed923d968983257fd4b6efe25f67b97f4
+  checksum: a47745e4cb1ebe025f263117a0d1df81feff5ddf92a05bab20723077103ed7314f2a014adf050bb28c6adf53463c03ea73c0e3e9dfaae40cb6d1f17797c6aa21
   languageName: node
   linkType: hard
 
