@@ -121,8 +121,8 @@ export const appEditValidationSchema = object().shape({
       otherwise: string()
         .trim()
         .test({
-          name: 'isValidSummary',
-          message: errorMessages.BETWEEN_MIN_MAX_CHARACTER_LENGTH(50, 150),
+          name: 'isValidDescription',
+          message: errorMessages.BETWEEN_MIN_MAX_CHARACTER_LENGTH(150, 1500),
           test: (value) => {
             if (!value) return true
             return value.length >= 150 && value.length <= 1500

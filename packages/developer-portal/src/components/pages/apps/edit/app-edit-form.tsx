@@ -6,19 +6,20 @@ import { AppEditTab, AppEditTabs } from './edit-page-tabs'
 import { AppEditFormSchema } from './form-schema/form-fields'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { appEditValidationSchema } from './form-schema/validation-schema'
-import { FieldNamesMarkedBoolean, useForm, UseFormHandleSubmit, UseFormSetValue } from 'react-hook-form'
+import { FieldNamesMarkedBoolean, useForm, UseFormHandleSubmit, UseFormReset, UseFormSetValue } from 'react-hook-form'
 import { SendFunction, UpdateReturnTypeEnum, useReapitUpdate } from '@reapit/utils-react'
 import { AppDetailModel, CreateAppRevisionModel } from '@reapit/foundations-ts-definitions'
 import { UpdateActionNames, updateActions } from '@reapit/utils-common'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { formatFormValues } from '../utils/format-form-values'
-import { History } from 'history'
-import Routes from '../../../../constants/routes'
-import { useHistory } from 'react-router'
 import { handleSetIncompletedFields } from '../utils/validate-schema'
 
 export interface AppEditFormProps {
   tab: AppEditTab
+}
+
+export const handleResetForm = (appEditForm: AppEditFormSchema, reset: UseFormReset<AppEditFormSchema>) => () => {
+  reset(appEditForm)
 }
 
 export const handleUnsavedChanges =
@@ -56,8 +57,6 @@ export const handleSetAppSubmitting =
     appEditSaving: AppSavingParams,
     handleSubmit: UseFormHandleSubmit<AppEditFormSchema>,
     createAppRevision: SendFunction<CreateAppRevisionModel, boolean | AppDetailModel>,
-    history: History,
-    appId: string,
     appsRefresh: () => void,
     appsDetailRefresh: () => void,
     appRefreshRevisions: () => void,
@@ -79,7 +78,6 @@ export const handleSetAppSubmitting =
           appsDetailRefresh()
           appRefreshRevisions()
           appsRefresh()
-          history.push(`${Routes.APPS}/${appId}`)
         }
       })()
     }
@@ -88,7 +86,6 @@ export const handleSetAppSubmitting =
 export const AppEditForm: FC<AppEditFormProps> = ({ tab }) => {
   const { appId } = useParams<AppUriParams>()
   const { appEditState, setAppId, appsDataState } = useAppState()
-  const history = useHistory()
   const { appEditForm, setAppEditSaving, appEditSaving, setAppUnsavedFields, setIncompleteFields } = appEditState
   const { appsRefresh, appsDetailRefresh, appRefreshRevisions } = appsDataState
 
@@ -108,6 +105,7 @@ export const AppEditForm: FC<AppEditFormProps> = ({ tab }) => {
     control,
     getValues,
     setValue,
+    reset,
     formState: { errors, dirtyFields },
   } = useForm<AppEditFormSchema>({
     resolver: yupResolver(appEditValidationSchema),
@@ -119,11 +117,15 @@ export const AppEditForm: FC<AppEditFormProps> = ({ tab }) => {
     },
   })
 
+  const numberDirtyFields = Object.keys(dirtyFields).length
+
   useEffect(handleSetAppId(appId, setAppId), [appId])
 
-  useEffect(handleUnsavedChanges(dirtyFields, setAppUnsavedFields), [dirtyFields])
+  useEffect(handleUnsavedChanges(dirtyFields, setAppUnsavedFields), [numberDirtyFields])
 
-  useEffect(handleSetIncompletedFields(getValues(), setIncompleteFields), [dirtyFields, appEditForm])
+  useEffect(handleSetIncompletedFields(getValues(), setIncompleteFields), [numberDirtyFields])
+
+  useEffect(handleResetForm(appEditForm, reset), [appEditForm])
 
   useEffect(handleSetRevalidating(setValue, setAppEditSaving, appEditSaving), [appEditSaving])
 
@@ -133,8 +135,6 @@ export const AppEditForm: FC<AppEditFormProps> = ({ tab }) => {
       appEditSaving,
       handleSubmit,
       createAppRevision,
-      history,
-      appId,
       appsRefresh,
       appsDetailRefresh,
       appRefreshRevisions,
