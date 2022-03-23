@@ -314,7 +314,7 @@ export class PipelineCreate extends AbstractCommand {
     channel.subscribe()
     spinner.info('awaiting architecture to be ready for deployment...')
 
-    channel.bind('pipeline-architecture-update', async (event) => {
+    channel.bind('pipeline-update', async (event) => {
       if (event.id !== pipeline.id) {
         return
       }
