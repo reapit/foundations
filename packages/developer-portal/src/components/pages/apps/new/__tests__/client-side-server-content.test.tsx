@@ -16,12 +16,12 @@ jest.mock('../../state/use-app-state', () => ({
 
 const steps = [
   {
-    text: 'Client Side',
+    text: 'Client Side App',
     nextStep: AppNewStepId.clientSideStep,
     authFlow: 'authorisationCode',
   },
   {
-    text: 'Server Side',
+    text: 'Server Side Integration',
     nextStep: AppNewStepId.serverSideStep,
     authFlow: 'clientCredentials',
   },

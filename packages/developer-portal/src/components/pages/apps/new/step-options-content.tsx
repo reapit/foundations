@@ -24,7 +24,6 @@ export const StepOptionsContent: FC<StepOptionsContentProps> = ({ register, erro
     <FlexContainer className={cx(elWFull, elFadeIn)} isFlexColumn>
       {currentStep === AppNewStepId.applicationTypeStep && <AppOptionsContent />}
       {currentStep === AppNewStepId.agencyCloudStep && <AuthOptionsContent register={register} errors={errors} />}
-      {currentStep === AppNewStepId.otherAppStep && <ClientServerSideContent />}
       {currentStep === AppNewStepId.externalAppStep && <ClientServerSideContent />}
       {currentStep === AppNewStepId.dataFeedStep && (
         <PermissionsOptionsContent register={register} getValues={getValues} errors={errors} />

@@ -13,20 +13,20 @@ export const ClientServerSideContent: FC = () => {
   return (
     <>
       <StepOptionItem
-        className={cx(nextStep === AppNewStepId.serverSideStep && stepOptionItemSelected)}
-        onClick={handleSetAppWizardState(setAppWizardState, AppNewStepId.serverSideStep)}
-      >
-        <Icon className={elMr8} fontSize="2rem" icon="serverInfographic" />
-        <StepOptionItemText>Server Side</StepOptionItemText>
-        {nextStep === AppNewStepId.serverSideStep && <Icon icon="tickSolidSystem" intent="primary" />}
-      </StepOptionItem>
-      <StepOptionItem
         className={cx(elMr8, nextStep === AppNewStepId.clientSideStep && stepOptionItemSelected)}
         onClick={handleSetAppWizardState(setAppWizardState, AppNewStepId.clientSideStep, 'authorisationCode')}
       >
         <Icon className={elMr8} fontSize="2rem" icon="devicesInfographic" />
-        <StepOptionItemText>Client Side</StepOptionItemText>
+        <StepOptionItemText>Client Side App</StepOptionItemText>
         {nextStep === AppNewStepId.clientSideStep && <Icon icon="tickSolidSystem" intent="primary" />}
+      </StepOptionItem>
+      <StepOptionItem
+        className={cx(nextStep === AppNewStepId.serverSideStep && stepOptionItemSelected)}
+        onClick={handleSetAppWizardState(setAppWizardState, AppNewStepId.serverSideStep)}
+      >
+        <Icon className={elMr8} fontSize="2rem" icon="serverInfographic" />
+        <StepOptionItemText>Server Side Integration</StepOptionItemText>
+        {nextStep === AppNewStepId.serverSideStep && <Icon icon="tickSolidSystem" intent="primary" />}
       </StepOptionItem>
     </>
   )
