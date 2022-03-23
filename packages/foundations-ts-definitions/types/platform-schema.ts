@@ -10215,6 +10215,7 @@ export interface Properties {
   locality?: ('rural' | 'village' | 'townCity')[]
   marketingMode?: ('selling' | 'letting' | 'sellingAndLetting')[]
   masterId?: string[]
+  negotiatorId?: string[]
   officeId?: string[]
   parking?: (
     | 'residents'
