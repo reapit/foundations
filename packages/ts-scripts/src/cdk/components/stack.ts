@@ -1,5 +1,7 @@
 import * as cdk from 'aws-cdk-lib'
 
+const scope = new cdk.App()
+
 export const createBaseStack = ({
   namespace,
   appName,
@@ -13,7 +15,6 @@ export const createBaseStack = ({
   accountId?: string
   region?: string
 }): cdk.Stack => {
-  const scope = new cdk.App()
   const name = `${namespace}-${appName}-${component}`
   const stack = new cdk.Stack(scope, name, { env: { account: accountId, region: region || 'eu-west-2' } })
 
