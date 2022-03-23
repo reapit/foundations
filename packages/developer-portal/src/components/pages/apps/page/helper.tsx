@@ -111,6 +111,7 @@ export const Helper: FC = () => {
               <Button
                 className={elMb3}
                 intent="primary"
+                loading={isRefreshing}
                 onClick={handleSetAppEditSaving(setAppEditSaving, {
                   isListed: false,
                   isRevalidating: true,
@@ -123,6 +124,7 @@ export const Helper: FC = () => {
             <Button
               className={elMb3}
               intent="critical"
+              loading={isRefreshing}
               onClick={handleSetAppEditSaving(setAppEditSaving, {
                 isSaving: false,
                 isListed: true,
@@ -200,6 +202,7 @@ export const Helper: FC = () => {
             <Button
               className={elMb3}
               intent="primary"
+              loading={isRefreshing}
               onClick={handleSetAppEditSaving(setAppEditSaving, {
                 isListed: false,
                 isRevalidating: true,

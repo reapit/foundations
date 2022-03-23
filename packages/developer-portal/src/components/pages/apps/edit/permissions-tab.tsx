@@ -106,7 +106,7 @@ export const PermissionsTab: FC<AppEditTabsProps> = ({ register, errors, control
       </FormLayout>
       <BodyText hasGreyText>
         You should toggle &lsquo;Private App&rsquo; if you only want your app to be private to a select group of
-        customers (max of 3). Simply enter their &lsquo;PCustomer ID&rsquo;P as a comma separated list. For more
+        customers (max of 3). Simply enter their &lsquo;Customer ID&rsquo; as a comma separated list. For more
         information on how to find the Customer ID,{' '}
         <a onClick={openNewPage(ExternalPages.customerIdFindDocs)}> please see here.</a>
       </BodyText>

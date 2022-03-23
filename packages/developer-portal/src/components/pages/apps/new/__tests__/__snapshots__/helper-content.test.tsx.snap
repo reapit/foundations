@@ -110,12 +110,12 @@ Object {
               <p
                 class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
               >
-                On a basic level an app is is the means to authenticate against our services. To create an app, you should follow the steps in the wizard on the left side of this page.
+                On a basic level an app is the means to authenticate against our services. To create an app, you should follow the steps in the wizard on the left of this page.
               </p>
               <p
                 class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
               >
-                When you have completed this wizard, you will land on a dedicated page for your App, that will give you the Client Id, and in the case of server-side apps, a Client Secret, that will enable you to authenticated against out APIs. From here you can get started with development against our developer sandbox data.
+                When you have completed this wizard, you will land on a dedicated page for your App, that will give you the Client Id, and in the case of server-side apps, a Client Secret, that will enable you to authenticate against out APIs. From here you can get started with development against our developer sandbox data.
               </p>
               <p
                 class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
@@ -551,12 +551,12 @@ Object {
             <p
               class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
             >
-              On a basic level an app is is the means to authenticate against our services. To create an app, you should follow the steps in the wizard on the left side of this page.
+              On a basic level an app is the means to authenticate against our services. To create an app, you should follow the steps in the wizard on the left of this page.
             </p>
             <p
               class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
             >
-              When you have completed this wizard, you will land on a dedicated page for your App, that will give you the Client Id, and in the case of server-side apps, a Client Secret, that will enable you to authenticated against out APIs. From here you can get started with development against our developer sandbox data.
+              When you have completed this wizard, you will land on a dedicated page for your App, that will give you the Client Id, and in the case of server-side apps, a Client Secret, that will enable you to authenticate against out APIs. From here you can get started with development against our developer sandbox data.
             </p>
             <p
               class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
