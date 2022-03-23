@@ -34,7 +34,7 @@
     "check": "tsc --noEmit --skipLibCheck",
     "deploy": "rpt-cdk deploy cdk/cdk.ts",
     "bundle": "ts-bundler",
-    "release": "rpt-cdk deploy cdk/cdk.ts",
+    "release": "yarn deploy",
     "release:watch": "rpt-cdk watch cdk/cdk.ts",
     "release:destroy": "rpt-cdk destroy cdk/cdk.ts",
     "publish": "echo '...skipping...'",
