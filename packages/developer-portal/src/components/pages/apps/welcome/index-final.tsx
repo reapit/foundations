@@ -5,31 +5,44 @@ import {
   ColResponsive,
   elMb11,
   elMb7,
-  elMl6,
   elMr5,
-  elMr6,
-  elW6,
   FlexContainer,
   GridResponsive,
   Icon,
   Subtitle,
   Title,
-  useMediaQuery,
+  useModal,
 } from '@reapit/elements'
-import React, { FC } from 'react'
+import React, { Dispatch, FC, SetStateAction, useState } from 'react'
 import { useHistory } from 'react-router'
 import Routes from '../../../../constants/routes'
 import { ExternalPages, navigate, openNewPage } from '../../../../utils/navigation'
 import { StepContainer } from '../new/__styles__'
-import { HelperGraphic } from './helper-graphic'
-import { cx } from '@linaria/core'
+import videoImage from '../../../../assets/images/desktop/video-placeholder.svg'
 
-/**Temporary index while we don't have a video. Replace this file with index-final when we have welcome video */
+export const HAS_WATCHED_WELCOME_VIDEO = 'HAS_WATCHED_WELCOME_VIDEO'
+
+export const handleHasWatchedVideo =
+  (setHasWatchedVideo: Dispatch<SetStateAction<boolean>>, closeModal: () => void) => () => {
+    setHasWatchedVideo(true)
+    window.localStorage.setItem(HAS_WATCHED_WELCOME_VIDEO, HAS_WATCHED_WELCOME_VIDEO)
+    closeModal()
+  }
+
+export const checkHasWatchedVideo = (): boolean => {
+  const retrieved = window.localStorage.getItem(HAS_WATCHED_WELCOME_VIDEO)
+
+  return Boolean(retrieved)
+}
+
+/**This is the correct prod page but we're still waiting on the video. When it's ready, just replace the current index
+ * with this file and add the video to the Modal below
+ */
 
 export const AppsWelcomePage: FC = () => {
   const history = useHistory()
-  const { isMobile, isTablet, isDesktop } = useMediaQuery()
-  const isFlexColumn = isMobile || isTablet || isDesktop
+  const { Modal, openModal, closeModal } = useModal()
+  const [hasWatchedVideo, setHasWatchedVideo] = useState<boolean>(checkHasWatchedVideo())
   return (
     <GridResponsive>
       <ColResponsive
@@ -96,8 +109,14 @@ export const AppsWelcomePage: FC = () => {
                   </BodyText>
                 </div>
                 <ButtonGroup alignment="left">
-                  <Button intent="critical" size={2} onClick={navigate(history, Routes.APPS_NEW)} chevronRight>
-                    Create App
+                  <Button
+                    disabled={!hasWatchedVideo}
+                    intent="critical"
+                    size={2}
+                    onClick={navigate(history, Routes.APPS_NEW)}
+                    chevronRight
+                  >
+                    {hasWatchedVideo ? 'Create App' : 'Watch Video To Start'}
                   </Button>
                 </ButtonGroup>
               </FlexContainer>
@@ -114,32 +133,41 @@ export const AppsWelcomePage: FC = () => {
         span4KScreen={13}
       >
         <Title>About Foundations</Title>
-        <FlexContainer isFlexAlignStart={!isFlexColumn} isFlexColumn={isFlexColumn}>
-          <div className={cx(!isFlexColumn && elW6, !isFlexColumn && elMr6, isFlexColumn && elMb7)}>
-            <BodyText hasGreyText>
-              Reapit Foundations is a Software as a Service Platform that enables developers to access, update and
-              enhance data within the Reapit AgencyCloud desktop CRM.
-            </BodyText>
-            <HelperGraphic />
-          </div>
-          <div className={cx(!isFlexColumn && elW6, !isFlexColumn && elMl6)}>
-            <BodyText hasGreyText>
-              There are a number of aspects to Foundations documented within this Developer Portal, specifically, APIs,
-              Webhooks, a UI Library and Data Analytics solutions. We also have an AppMarketplace to facilitate the
-              publishing and installation of the software you build on top of the Platform.
-            </BodyText>
-            <BodyText hasGreyText>
-              Every developer will have different use cases for Foundations and it is unlikely you will need to use all
-              of the APIs and tooling we provide. However, the starting point for all integrations is to create an
-              &lsquo;App&rsquo;, which on a basic level is the means to authenticate aginst our services.
-            </BodyText>
-            <BodyText hasGreyText>
-              To get started, create your first app using the wizard on the left hand side of this page. This will allow
-              you to authenticated against our APIs.
-            </BodyText>
-          </div>
-        </FlexContainer>
+        <BodyText hasGreyText>
+          Reapit Foundations is a Software as a Service Platform that enables developers to access, update and enhance
+          data within the Reapit AgencyCloud desktop CRM.
+        </BodyText>
+        <BodyText hasGreyText>
+          There are a number of aspects to Foundations documented within this Developer Portal, specifically, APIs,
+          Webhooks, a UI Library and Data Analytics solutions. We also have an AppMarketplace to facilitate the
+          publishing and installation of the software you build on top of the Platform.
+        </BodyText>
+        <BodyText hasGreyText>
+          Every developer will have different use cases for Foundations and it is unlikely you will need to use all of
+          the APIs and tooling we provide. However, the starting point for all integrations is to create an
+          &lsquo;App&rsquo;, which on a basic level is the means to authenticate aginst our services.
+        </BodyText>
+        <BodyText hasGreyText>
+          Before getting started, please watch this short video with some Foundations Basics.
+        </BodyText>
+        <BodyText onClick={openModal}>
+          <img src={videoImage} style={{ width: '100%' }} alt="Video placeholder" />
+        </BodyText>
+        <BodyText hasGreyText>
+          When you have watched the video, please confirm this and your next step will be to create your first app using
+          the wizard on the left hand side of this page. This will allow you to authenticated against our APIs.
+        </BodyText>
       </ColResponsive>
+      <Modal title="Welcome to Reapit Foundations">
+        <ButtonGroup alignment="right">
+          <Button intent="low" onClick={closeModal}>
+            Close
+          </Button>
+          <Button intent="critical" onClick={handleHasWatchedVideo(setHasWatchedVideo, closeModal)} chevronRight>
+            Confirm Watched
+          </Button>
+        </ButtonGroup>
+      </Modal>
     </GridResponsive>
   )
 }

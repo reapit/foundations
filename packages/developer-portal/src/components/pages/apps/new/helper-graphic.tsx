@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
 
 export const HelperGraphic = memo(() => (
-  <svg width="100%" height="auto" viewBox="0 0 415 224" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="100%" viewBox="0 0 415 224" fill="none" xmlns="http://www.w3.org/2000/svg">
     <rect width="415" height="224" rx="4" fill="#EAF5FC" />
     <path
       d="M76.5586 153.83V22.4885C76.6054 20.1808 78.4746 18.3181 80.7904 18.2715H280.615C282.931 18.3181 284.8 20.1808 284.847 22.4885V153.844L76.5586 153.83Z"

@@ -4,7 +4,6 @@ export enum AppNewStepId {
   'applicationTypeStep' = 'applicationTypeStep',
   'webServicesStep' = 'webServicesStep',
   'reapitConnectStep' = 'reapitConnectStep',
-  'otherAppStep' = 'otherAppStep',
   'agencyCloudStep' = 'agencyCloudStep',
   'dataFeedStep' = 'dataFeedStep',
   'serverSideStep' = 'serverSideStep',
@@ -42,12 +41,6 @@ export const appWizardSteps: AppNewWizardSteps = {
     iconName: 'userDeviceInfographic',
   },
   [AppNewStepId.reapitConnectStep]: {
-    headingText: 'What kind of app are you building?',
-    headerText:
-      'Do you intend your app to be client or server-side authenticated? If you are not sure, select an option for relevant documentation and links on the right hand side of the page.',
-    iconName: 'userDeviceInfographic',
-  },
-  [AppNewStepId.otherAppStep]: {
     headingText: 'What kind of app are you building?',
     headerText:
       'Do you intend your app to be client or server-side authenticated? If you are not sure, select an option for relevant documentation and links on the right hand side of the page.',

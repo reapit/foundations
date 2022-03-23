@@ -68,7 +68,7 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
             },
             Aliases: {
               Quantity: 1,
-              Items: [`${pipeline.subDomain}.dev.paas.reapit.cloud`],
+              Items: [`${pipeline.subDomain}.${process.env.NODE_ENV === 'PROD' ? 'prod' : 'dev'}.paas.reapit.cloud`],
             },
             Comment: `Cloudfront distribution for pipeline [${pipeline.id}]`,
             Enabled: true,
