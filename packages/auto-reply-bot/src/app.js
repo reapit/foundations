@@ -56,7 +56,7 @@ const labelAddedConditions = [
     labels: ['product-decision'],
     comment:
       'The nature of this request requires product direction and therefore we have moved this issue into our ‘Not Ready’ column whilst we obtain the information/direction required. \r\n' +
-      'This issue will be updated when a produt decision has been made. \r\n' +
+      'This issue will be updated when a product decision has been made. \r\n' +
       'For more information on our processes, [please click here](https://foundations-documentation.reapit.cloud/dev-requests)',
   },
   {
