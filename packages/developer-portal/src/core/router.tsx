@@ -29,6 +29,7 @@ const Invite = React.lazy(() => catchChunkError(() => import('../components/page
 const ElementsPage = React.lazy(() => catchChunkError(() => import('../components/pages/elements')))
 const GraphQLPage = React.lazy(() => catchChunkError(() => import('../components/pages/graphql')))
 const SelectRolePage = React.lazy(() => catchChunkError(() => import('../components/pages/login/select-role')))
+const AnalyticsV2Page = React.lazy(() => catchChunkError(() => import('../components/pages/analytics-v2')))
 
 const SettingsOrganisationTabPage = React.lazy(() =>
   catchChunkError(() => import('../components/pages/settings/settings-organisation-tab')),
@@ -60,6 +61,7 @@ const Router = () => {
               <Switch>
                 <PrivateRoute path={Routes.CUSTOMER_REGISTER} exact component={CustomerRegister} />
                 <PrivateRoute path={Routes.APPS} component={Apps} />
+                <PrivateRoute path={Routes.ANALYTICS_V2} component={AnalyticsV2Page} />
                 <PrivateRoute path={Routes.API_DOCS} component={ApiDocsPage} />
                 <PrivateRoute path={Routes.ANALYTICS_SCHEMA_DOCS} component={ApiDocsPage} />
                 <PrivateRoute path={Routes.WEBHOOKS_MANAGE} component={WebhooksPage} />
