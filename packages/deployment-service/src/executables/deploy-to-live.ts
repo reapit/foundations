@@ -24,6 +24,8 @@ export const deployToLiveS3: DeployToLiveS3Func = async ({
 
   const s3Client = await assumedS3Client()
 
+  console.log('got assumed client')
+
   return new Promise<void>((resolve, reject) =>
     s3Client.upload(
       {
@@ -42,7 +44,7 @@ export const deployToLiveS3: DeployToLiveS3Func = async ({
       (error) => {
         if (error) {
           console.error(error)
-          reject(error)
+          return reject(error)
         }
 
         resolve()

@@ -36,7 +36,7 @@ export const deleteCurrentLiveVersion = async (prefix: string): Promise<void | n
         (error) => {
           if (error) {
             console.error(error)
-            reject(error)
+            return reject(error)
           }
 
           resolve()
@@ -55,6 +55,7 @@ export const deployFromStore = async ({
   pipeline: PipelineEntity
   pipelineRunner: PipelineRunnerEntity
 }): Promise<void> => {
+  console.log('deployFromStore', pipeline.name)
   const storageLocation = `${pipeline.uniqueRepoName}/${pipelineRunner.id}.zip`
 
   if (!pipelineRunner.pipeline?.cloudFrontId) {
@@ -62,19 +63,21 @@ export const deployFromStore = async ({
   }
 
   const zip = await getFromVersionS3(storageLocation)
+  console.log('got zip')
 
   if (!zip.Body) {
     throw new Error('Failed to find stored version')
   }
 
   await deleteCurrentLiveVersion(`pipeline/${pipeline.uniqueRepoName}`)
-
+  console.log('deleted current live version')
   await releaseToLiveFromZip({
     file: zip.Body as Buffer,
     localLocation: `/tmp/deployment/${pipeline.uniqueRepoName}/deployment.zip`,
     deploymentType: 'pipeline',
     projectLocation: pipeline.uniqueRepoName,
   })
+  console.log('released to live from zip')
 
   const cloudFrontClient = new CloudFrontClient({
     credentials: await getRoleCredentials(),
@@ -91,4 +94,5 @@ export const deployFromStore = async ({
   })
 
   await cloudFrontClient.send(invalidateCommand)
+  console.log('invalidated cloudfront')
 }
