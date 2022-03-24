@@ -13,7 +13,7 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
       const message = JSON.parse(record.body)
       const pipeline = plainToClass(PipelineEntity, message)
       try {
-        await pusher.trigger(`private-${pipeline.developerId}`, 'pipeline-architecture-update', {
+        await pusher.trigger(`private-${pipeline.developerId}`, 'pipeline-update', {
           ...pipeline,
           message: 'Started architecture build',
         })
@@ -34,7 +34,7 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
           ),
         )
 
-        await pusher.trigger(`private-${pipeline.developerId}`, 'pipeline-architecture-update', {
+        await pusher.trigger(`private-${pipeline.developerId}`, 'pipeline-update', {
           ...pipeline,
           message: 'Bucket built',
         })
@@ -89,7 +89,7 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
 
         const distroResult = await frontClient.send(distroCommand)
 
-        await pusher.trigger(`private-${pipeline.developerId}`, 'pipeline-architecture-update', {
+        await pusher.trigger(`private-${pipeline.developerId}`, 'pipeline-update', {
           ...pipeline,
           message: 'Distro created',
         })
@@ -130,7 +130,7 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
 
         const aRecordId = r53Result.ChangeInfo?.Id
 
-        await pusher.trigger(`private-${pipeline.developerId}`, 'pipeline-architecture-update', {
+        await pusher.trigger(`private-${pipeline.developerId}`, 'pipeline-update', {
           ...pipeline,
           message: 'A record created',
         })
@@ -140,14 +140,14 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
           cloudFrontId,
           aRecordId,
         })
-        await pusher.trigger(`private-${pipeline.developerId}`, 'pipeline-architecture-update', {
+        await pusher.trigger(`private-${pipeline.developerId}`, 'pipeline-update', {
           ...updatedPipeline,
           message: 'Pipeline successfully created',
         })
       } catch (error: any) {
         pipeline.buildStatus = 'FAILED_TO_ARCHITECT'
 
-        await pusher.trigger(`private-${pipeline.developerId}`, 'pipeline-architecture-update', {
+        await pusher.trigger(`private-${pipeline.developerId}`, 'pipeline-update', {
           ...pipeline,
           message: 'Failed to architech',
         })

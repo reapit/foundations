@@ -117,25 +117,25 @@ export const AppsWelcomePage: FC = () => {
         <FlexContainer isFlexAlignStart={!isFlexColumn} isFlexColumn={isFlexColumn}>
           <div className={cx(!isFlexColumn && elW6, !isFlexColumn && elMr6, isFlexColumn && elMb7)}>
             <BodyText hasGreyText>
-              Reapit Foundations is a Software as a Service Platform that enables developers to access, update and
-              enhance data within the Reapit AgencyCloud desktop CRM.
+              Reapit Foundations is a Platform as a Service that enables developers to access, update and enhance data
+              within the Reapit AgencyCloud desktop CRM.
             </BodyText>
             <HelperGraphic />
           </div>
           <div className={cx(!isFlexColumn && elW6, !isFlexColumn && elMl6)}>
             <BodyText hasGreyText>
-              There are a number of aspects to Foundations documented within this Developer Portal, specifically, APIs,
-              Webhooks, a UI Library and Data Analytics solutions. We also have an AppMarketplace to facilitate the
+              There are a number of aspects to The Platform documented within this Developer Portal, specifically, APIs,
+              Webhooks, a UI Library and Data Analytics solutions. We also have an AppMarket to facilitate the
               publishing and installation of the software you build on top of the Platform.
             </BodyText>
             <BodyText hasGreyText>
-              Every developer will have different use cases for Foundations and it is unlikely you will need to use all
-              of the APIs and tooling we provide. However, the starting point for all integrations is to create an
-              &lsquo;App&rsquo;, which on a basic level is the means to authenticate aginst our services.
+              Every developer will have different use cases for using our Platform and it is unlikely you will need to
+              use all of the APIs and tooling we provide. However, the starting point for all integrations is to create
+              an &lsquo;App&rsquo;, which on a basic level is the means to authenticate against our services.
             </BodyText>
             <BodyText hasGreyText>
-              To get started, create your first app using the wizard on the left hand side of this page. This will allow
-              you to authenticated against our APIs.
+              To get started, create your first app using the wizard on the left of this page. This will allow you to
+              authenticate against our APIs.
             </BodyText>
           </div>
         </FlexContainer>

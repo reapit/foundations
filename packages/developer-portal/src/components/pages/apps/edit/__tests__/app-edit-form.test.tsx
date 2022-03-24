@@ -1,11 +1,15 @@
 import React from 'react'
 import { render } from '../../../../../tests/react-testing'
-import { AppEditForm, handleSetAppSubmitting, handleSetRevalidating, handleUnsavedChanges } from '../app-edit-form'
+import {
+  AppEditForm,
+  handleResetForm,
+  handleSetAppSubmitting,
+  handleSetRevalidating,
+  handleUnsavedChanges,
+} from '../app-edit-form'
 import { AppEditTab } from '../edit-page-tabs'
-import { History } from 'history'
 import { AppEditFormSchema, defaultValues } from '../form-schema/form-fields'
 import { formatFormValues } from '../../utils/format-form-values'
-import Routes from '../../../../../constants/routes'
 import { defaultAppSavingParams } from '../../state/defaults'
 import { FieldNamesMarkedBoolean } from 'react-hook-form'
 
@@ -31,18 +35,12 @@ describe('handleSetAppSubmitting', () => {
     const appsRefresh = jest.fn()
     const appsDetailRefresh = jest.fn()
     const appRefreshRevisions = jest.fn()
-    const history = {
-      push: jest.fn(),
-    } as unknown as History
-    const appId = 'MOCK_ID'
 
     const curried = handleSetAppSubmitting(
       setAppEditSaving,
       appEditSaving,
       handleSubmit,
       createAppRevision,
-      history,
-      appId,
       appsRefresh,
       appsDetailRefresh,
       appRefreshRevisions,
@@ -56,7 +54,6 @@ describe('handleSetAppSubmitting', () => {
 
     expect(createAppRevision).toHaveBeenCalledWith(formatFormValues(defaultValues))
     expect(setAppEditSaving).toHaveBeenCalledWith(defaultAppSavingParams)
-    expect(history.push).toHaveBeenCalledWith(`${Routes.APPS}/${appId}`)
     expect(appsRefresh).toHaveBeenCalledTimes(1)
     expect(appsDetailRefresh).toHaveBeenCalledTimes(1)
     expect(appRefreshRevisions).toHaveBeenCalledTimes(1)
@@ -98,5 +95,18 @@ describe('handleSetRevalidating', () => {
       isRevalidating: false,
       isSaving: true,
     })
+  })
+})
+
+describe('handleResetForm', () => {
+  it('should reset the form', () => {
+    const appEditForm = defaultValues
+    const reset = jest.fn()
+
+    const curried = handleResetForm(appEditForm, reset)
+
+    curried()
+
+    expect(reset).toHaveBeenCalledWith(appEditForm)
   })
 })
