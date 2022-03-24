@@ -113,7 +113,7 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
                 Action: 'UPSERT',
                 ResourceRecordSet: {
                   Type: 'A',
-                  Name: `${pipeline.subDomain}.dev.paas.reapit.cloud`,
+                  Name: `${pipeline.subDomain}.${process.env.NODE_ENV === 'PROD' ? 'prod' : 'dev'}.paas.reapit.cloud`,
                   AliasTarget: {
                     DNSName: frontDomain,
                     EvaluateTargetHealth: false,

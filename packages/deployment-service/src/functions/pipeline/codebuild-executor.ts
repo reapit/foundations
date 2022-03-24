@@ -6,7 +6,7 @@ import { CodeBuild } from 'aws-sdk'
 import yaml from 'yaml'
 import { PackageManagerEnum } from '../../../../foundations-ts-definitions/deployment-schema'
 import { QueueNames } from '../../constants'
-import { sqs, savePipelineRunnerEntity, s3Client, githubApp, getBitBucketToken } from '../../services'
+import { sqs, savePipelineRunnerEntity, s3Client, githubApp, getBitBucketToken, pusher } from '../../services'
 import { PipelineEntity } from '../../entities/pipeline.entity'
 import fetch from 'node-fetch'
 import { BitbucketClientData } from '@/entities/bitbucket-client.entity'
@@ -231,7 +231,11 @@ export const codebuildExecutor: SQSHandler = async (
         pipeline.buildStatus = 'FAILED'
         pipelineRunner.pipeline = pipeline
 
-        await Promise.all([deleteMessage(record.receiptHandle), savePipelineRunnerEntity(pipelineRunner)])
+        await Promise.all([
+          deleteMessage(record.receiptHandle),
+          savePipelineRunnerEntity(pipelineRunner),
+          pusher.trigger(`private-${pipelineRunner.pipeline?.developerId}`, 'pipeline-runner-update', pipelineRunner),
+        ])
 
         return Promise.reject(error)
       }
