@@ -26,6 +26,7 @@ export enum GetActionNames {
   getDesktopIntegrationTypes = 'getDesktopIntegrationTypes',
   getAppCategories = 'getAppCategories',
   getAppRevisions = 'getAppRevisions',
+  getDeveloper = 'getDeveloper',
 }
 
 export type GetActions = { [key in GetActionNames]: GetAction }
@@ -90,6 +91,11 @@ export const getActions = (appEnv: AppEnv): GetActions => ({
     api: ApiNames(appEnv).platform,
     path: PathNames.getMember,
     errorMessage: 'Something went wrong fetching developer org members',
+  },
+  [GetActionNames.getDeveloper]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.developerById,
+    errorMessage: 'Something went wrong fetching developer org',
   },
   [GetActionNames.getCustomersById]: {
     api: ApiNames(appEnv).platform,
