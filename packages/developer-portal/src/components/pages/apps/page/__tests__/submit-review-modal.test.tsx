@@ -3,7 +3,6 @@ import React from 'react'
 import { CurrentMemberRootState } from '../../../../../reducers/current-member'
 import { developerStub } from '../../../../../sagas/__stubs__/developer'
 import { reduxTestState, render } from '../../../../../tests/react-testing'
-import { defaultAppSavingParams } from '../../state/defaults'
 import { getTitle, handleCloseModal, SubmitReviewModal } from '../submit-review-modal'
 
 const mockUpdateDeveloper = jest.fn()
@@ -101,24 +100,16 @@ describe('getTitle', () => {
 
 describe('handleCloseModal', () => {
   it('should close the modal', () => {
-    const setAppEditSaving = jest.fn()
     const closeModal = jest.fn()
-    const curried = handleCloseModal(setAppEditSaving, closeModal, true)
+    const curried = handleCloseModal(closeModal, true)
     curried()
     expect(closeModal).toHaveBeenCalled()
-    expect(setAppEditSaving).toHaveBeenCalledWith({
-      ...defaultAppSavingParams,
-      isRevalidating: true,
-      isListed: true,
-    })
   })
 
   it('should not close the modal', () => {
-    const setAppEditSaving = jest.fn()
     const closeModal = jest.fn()
-    const curried = handleCloseModal(setAppEditSaving, closeModal, false)
+    const curried = handleCloseModal(closeModal, false)
     curried()
     expect(closeModal).not.toHaveBeenCalled()
-    expect(setAppEditSaving).not.toHaveBeenCalled()
   })
 })
