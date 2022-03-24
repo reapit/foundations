@@ -1,18 +1,41 @@
 import { Button, elFadeIn, elMb3, Icon, SmallText, Subtitle } from '@reapit/elements'
-import { AppRevisionModelPagedResult, RejectRevisionModel } from '@reapit/foundations-ts-definitions'
-import { SendFunction, useReapitUpdate } from '@reapit/utils-react'
+import { AppRevisionModelPagedResult, DeveloperModel, RejectRevisionModel } from '@reapit/foundations-ts-definitions'
+import { SendFunction, useReapitUpdate, useReapitGet } from '@reapit/utils-react'
 import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
-import { UpdateActionNames, updateActions } from '@reapit/utils-common'
+import { GetActionNames, getActions, UpdateActionNames, updateActions } from '@reapit/utils-common'
 import { openNewPage, ExternalPages } from '../../../../utils/navigation'
 import { AppSavingParams, useAppState } from '../state/use-app-state'
 import { getCurrentPage } from '../utils/get-current-page'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
+import { getTitle, SubmitReviewModal } from './submit-review-modal'
+import { useModal } from '@reapit/elements'
+import { selectIsCustomer } from '../../../../selector/auth'
+import { defaultAppSavingParams } from '../state/defaults'
 
 export const handleSetAppEditSaving =
-  (setAppEditSaving: Dispatch<SetStateAction<AppSavingParams>>, appSaving: AppSavingParams) => () => {
-    setAppEditSaving(appSaving)
+  (
+    setAppEditSaving: Dispatch<SetStateAction<AppSavingParams>>,
+    isListed: boolean,
+    openModal: () => void,
+    developerStatus?: string,
+  ) =>
+  () => {
+    if (developerStatus === 'confirmed' || !isListed) {
+      return setAppEditSaving({
+        ...defaultAppSavingParams,
+        isRevalidating: true,
+        isListed,
+      })
+    }
+
+    setAppEditSaving({
+      ...defaultAppSavingParams,
+      isRevalidating: true,
+    })
+
+    openModal()
   }
 
 export const handleCancelPendingRevsion =
@@ -59,6 +82,8 @@ export const Helper: FC = () => {
   const { appId, appEditState, appsDataState } = useAppState()
   const [revisionId, setRevisionId] = useState<string | null>(null)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const { Modal, openModal, closeModal } = useModal()
+  const isCustomer = selectIsCustomer(connectSession)
   const { pathname } = location
   const { isAppsEdit, isAppsDetail } = getCurrentPage(pathname)
   const { setAppEditSaving, appUnsavedFields, appIncompleteFields } = appEditState
@@ -86,11 +111,22 @@ export const Helper: FC = () => {
     },
   })
 
+  const [developer] = useReapitGet<DeveloperModel>({
+    reapitConnectBrowserSession,
+    action: getActions(window.reapit.config.appEnv)[GetActionNames.getDeveloper],
+    uriParams: {
+      developerId: connectSession?.loginIdentity.developerId,
+    },
+    fetchWhenTrue: [connectSession?.loginIdentity.developerId],
+  })
+
   useEffect(handleSetRevisionId(appRevisions, setRevisionId), [appRevisions])
 
   useEffect(handleCancelSuccess(appsDetailRefresh, setRevisionId, appRefreshRevisions, cancelRevisionSuccess), [
     cancelRevisionSuccess,
   ])
+
+  const developerStatus = developer?.status
 
   if (isAppsEdit) {
     return (
@@ -112,11 +148,7 @@ export const Helper: FC = () => {
                 className={elMb3}
                 intent="primary"
                 loading={isRefreshing}
-                onClick={handleSetAppEditSaving(setAppEditSaving, {
-                  isListed: false,
-                  isRevalidating: true,
-                  isSaving: false,
-                })}
+                onClick={handleSetAppEditSaving(setAppEditSaving, false, openModal, developerStatus)}
               >
                 Save Changes
               </Button>
@@ -125,11 +157,7 @@ export const Helper: FC = () => {
               className={elMb3}
               intent="critical"
               loading={isRefreshing}
-              onClick={handleSetAppEditSaving(setAppEditSaving, {
-                isSaving: false,
-                isListed: true,
-                isRevalidating: true,
-              })}
+              onClick={handleSetAppEditSaving(setAppEditSaving, true, openModal, developerStatus)}
               chevronRight
             >
               Submit Review
@@ -168,11 +196,7 @@ export const Helper: FC = () => {
               className={elMb3}
               intent="primary"
               loading={isRefreshing}
-              onClick={handleSetAppEditSaving(setAppEditSaving, {
-                isListed: false,
-                isRevalidating: true,
-                isSaving: false,
-              })}
+              onClick={handleSetAppEditSaving(setAppEditSaving, false, openModal, developerStatus)}
             >
               De-list app
             </Button>
@@ -181,11 +205,7 @@ export const Helper: FC = () => {
                 className={elMb3}
                 intent="critical"
                 loading={isRefreshing}
-                onClick={handleSetAppEditSaving(setAppEditSaving, {
-                  isListed: true,
-                  isRevalidating: true,
-                  isSaving: false,
-                })}
+                onClick={handleSetAppEditSaving(setAppEditSaving, true, openModal, developerStatus)}
                 chevronRight
               >
                 Create Revision
@@ -203,11 +223,7 @@ export const Helper: FC = () => {
               className={elMb3}
               intent="primary"
               loading={isRefreshing}
-              onClick={handleSetAppEditSaving(setAppEditSaving, {
-                isListed: false,
-                isRevalidating: true,
-                isSaving: false,
-              })}
+              onClick={handleSetAppEditSaving(setAppEditSaving, false, openModal, developerStatus)}
             >
               Save Changes
             </Button>
@@ -218,6 +234,9 @@ export const Helper: FC = () => {
             <SmallText hasGreyText>Actions will appear below as you perform tasks on this page</SmallText>
           </>
         )}
+        <Modal title={getTitle(isCustomer, developerStatus)}>
+          {developer && <SubmitReviewModal developer={developer} closeModal={closeModal} />}
+        </Modal>
       </div>
     )
   }

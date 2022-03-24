@@ -6,6 +6,7 @@ import Routes from '../../../../../constants/routes'
 import { history } from '../../../../../core/router'
 import { render } from '../../../../../tests/react-testing'
 import { mockAppSummaryModelPagedResult } from '../../../../../tests/__stubs__/apps'
+import { defaultAppSavingParams } from '../../state/defaults'
 import { useAppState } from '../../state/use-app-state'
 import { mockAppState } from '../../state/__mocks__/use-app-state'
 import {
@@ -169,18 +170,55 @@ describe('Helper', () => {
 })
 
 describe('handleSetAppEditSaving', () => {
-  it('should handle app saving', () => {
+  it('should handle app saving where developer status is confirmed', () => {
     const setAppEditSaving = jest.fn()
-    const appSavingParams = {
-      isListed: true,
-      isRevalidating: true,
-      isSaving: false,
-    }
-    const curried = handleSetAppEditSaving(setAppEditSaving, appSavingParams)
+    const isListed = true
+    const openModal = jest.fn()
+    const curried = handleSetAppEditSaving(setAppEditSaving, isListed, openModal, 'confirmed')
 
     curried()
 
-    expect(setAppEditSaving).toHaveBeenCalledWith(appSavingParams)
+    expect(setAppEditSaving).toHaveBeenCalledWith({
+      ...defaultAppSavingParams,
+      isRevalidating: true,
+      isListed,
+    })
+
+    expect(openModal).not.toHaveBeenCalled()
+  })
+
+  it('should handle app saving where developer status is unconfirmed but listing is false', () => {
+    const setAppEditSaving = jest.fn()
+    const isListed = false
+    const openModal = jest.fn()
+    const curried = handleSetAppEditSaving(setAppEditSaving, isListed, openModal, 'unconfirmed')
+
+    curried()
+
+    expect(setAppEditSaving).toHaveBeenCalledWith({
+      ...defaultAppSavingParams,
+      isRevalidating: true,
+      isListed,
+    })
+
+    expect(openModal).not.toHaveBeenCalled()
+  })
+
+  it('should handle app saving where developer status is unconfirmed and listing is true', () => {
+    const setAppEditSaving = jest.fn()
+    const isListed = true
+    const openModal = jest.fn()
+    const curried = handleSetAppEditSaving(setAppEditSaving, isListed, openModal, 'unconfirmed')
+
+    curried()
+
+    expect(setAppEditSaving).toHaveBeenCalledWith({
+      ...defaultAppSavingParams,
+      isRevalidating: true,
+      isListed: false,
+    })
+
+    expect(openModal).toHaveBeenCalledTimes(1)
   })
 })
 
