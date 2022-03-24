@@ -63,8 +63,7 @@ export const createPolicies = ({
   const route53Policy = new PolicyStatement({
     effect: Effect.ALLOW,
     resources: [
-      // TODO: env
-      'arn:aws:route53:::hostedzone/Z02367201ZA0CZPSM3N2H', // is this safe to put in without env?
+      `arn:aws:route53:::hostedzone/${config.HOSTED_ZONE_ID}`,
     ],
     actions: [
       'route53:GetHostedZone',
