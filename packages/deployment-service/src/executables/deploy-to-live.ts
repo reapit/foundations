@@ -18,11 +18,14 @@ export const sendToLiveS3: SendToLiveS3Func = async ({
   buildLocation,
   fileNameTransformer,
 }: SendToS3Params): Promise<void | never> => {
+  console.log('sendToLiveS3', filePath)
   const key = fileNameTransformer
     ? fileNameTransformer(filePath.substring(buildLocation.length))
     : filePath.substring(buildLocation.length)
 
   const s3Client = await assumedS3Client()
+
+  console.log('got assumed client')
 
   return new Promise<void>((resolve, reject) =>
     s3Client.upload(
@@ -42,7 +45,7 @@ export const sendToLiveS3: SendToLiveS3Func = async ({
       (error) => {
         if (error) {
           console.error(error)
-          reject(error)
+          return reject(error)
         }
 
         resolve()
