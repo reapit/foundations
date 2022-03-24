@@ -3,7 +3,6 @@ import React from 'react'
 import { CurrentMemberRootState } from '../../../../../reducers/current-member'
 import { developerStub } from '../../../../../sagas/__stubs__/developer'
 import { reduxTestState, render } from '../../../../../tests/react-testing'
-import { defaultAppSavingParams } from '../../state/defaults'
 import { getTitle, handleCloseModal, SubmitReviewModal } from '../submit-review-modal'
 
 const mockUpdateDeveloper = jest.fn()
@@ -51,12 +50,20 @@ describe('SubmitReviewModal', () => {
         },
       },
     })
-    expect(render(<SubmitReviewModal closeModal={jest.fn()} developer={developerStub} />)).toMatchSnapshot()
+    expect(
+      render(<SubmitReviewModal closeModal={jest.fn()} developer={developerStub} refetchDeveloper={jest.fn()} />),
+    ).toMatchSnapshot()
   })
 
   it('should match a snapshot where a customer and status is pending', () => {
     expect(
-      render(<SubmitReviewModal closeModal={jest.fn()} developer={{ ...developerStub, status: 'pending' }} />),
+      render(
+        <SubmitReviewModal
+          closeModal={jest.fn()}
+          developer={{ ...developerStub, status: 'pending' }}
+          refetchDeveloper={jest.fn()}
+        />,
+      ),
     ).toMatchSnapshot()
   })
 
@@ -69,7 +76,9 @@ describe('SubmitReviewModal', () => {
         },
       } as CurrentMemberRootState,
     })
-    expect(render(<SubmitReviewModal closeModal={jest.fn()} developer={developerStub} />)).toMatchSnapshot()
+    expect(
+      render(<SubmitReviewModal closeModal={jest.fn()} developer={developerStub} refetchDeveloper={jest.fn()} />),
+    ).toMatchSnapshot()
   })
 
   it('should match a snapshot where a customer and status is incomplete and user is an admin', () => {
@@ -81,7 +90,9 @@ describe('SubmitReviewModal', () => {
         },
       } as CurrentMemberRootState,
     })
-    expect(render(<SubmitReviewModal closeModal={jest.fn()} developer={developerStub} />)).toMatchSnapshot()
+    expect(
+      render(<SubmitReviewModal closeModal={jest.fn()} developer={developerStub} refetchDeveloper={jest.fn()} />),
+    ).toMatchSnapshot()
   })
 })
 
@@ -101,24 +112,20 @@ describe('getTitle', () => {
 
 describe('handleCloseModal', () => {
   it('should close the modal', () => {
-    const setAppEditSaving = jest.fn()
     const closeModal = jest.fn()
-    const curried = handleCloseModal(setAppEditSaving, closeModal, true)
+    const refetchDeveloper = jest.fn()
+    const curried = handleCloseModal(closeModal, refetchDeveloper, true)
     curried()
     expect(closeModal).toHaveBeenCalled()
-    expect(setAppEditSaving).toHaveBeenCalledWith({
-      ...defaultAppSavingParams,
-      isRevalidating: true,
-      isListed: true,
-    })
+    expect(refetchDeveloper).toHaveBeenCalled()
   })
 
   it('should not close the modal', () => {
-    const setAppEditSaving = jest.fn()
     const closeModal = jest.fn()
-    const curried = handleCloseModal(setAppEditSaving, closeModal, false)
+    const refetchDeveloper = jest.fn()
+    const curried = handleCloseModal(closeModal, refetchDeveloper, false)
     curried()
     expect(closeModal).not.toHaveBeenCalled()
-    expect(setAppEditSaving).not.toHaveBeenCalled()
+    expect(refetchDeveloper).not.toHaveBeenCalled()
   })
 })

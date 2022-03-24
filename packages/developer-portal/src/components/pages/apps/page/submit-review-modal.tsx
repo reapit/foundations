@@ -2,7 +2,7 @@ import { useReapitConnect } from '@reapit/connect-session'
 import { BodyText, InputGroup, ButtonGroup, Button, Table, elMb6 } from '@reapit/elements'
 import { useReapitGet, useReapitUpdate } from '@reapit/utils-react'
 import { GetActionNames, getActions, UpdateActionNames, updateActions } from '@reapit/utils-common'
-import React, { Dispatch, FC, SetStateAction, useEffect } from 'react'
+import React, { FC, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { selectIsCustomer } from '../../../../selector/auth'
@@ -12,12 +12,11 @@ import { useForm } from 'react-hook-form'
 import { object, SchemaOf, string } from 'yup'
 import errorMessages from '../../../../constants/error-messages'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { AppSavingParams, useAppState } from '../state/use-app-state'
-import { defaultAppSavingParams } from '../state/defaults'
 
 interface SubmitReviewModalProps {
   developer: DeveloperModel
   closeModal: () => void
+  refetchDeveloper: () => void
 }
 
 const schema: SchemaOf<{ reapitReference: string }> = object().shape({
@@ -38,26 +37,14 @@ export const getTitle = (isCustomer: boolean, orgStatus?: string): string => {
 }
 
 export const handleCloseModal =
-  (
-    setAppEditSaving: Dispatch<SetStateAction<AppSavingParams>>,
-    closeModal: () => void,
-    updateDeveloperSuccess?: boolean,
-  ) =>
-  () => {
+  (closeModal: () => void, refetchDeveloper: () => void, updateDeveloperSuccess?: boolean) => () => {
     if (updateDeveloperSuccess) {
-      setAppEditSaving({
-        ...defaultAppSavingParams,
-        isRevalidating: true,
-        isListed: true,
-      })
-
       closeModal()
+      refetchDeveloper()
     }
   }
 
-export const SubmitReviewModal: FC<SubmitReviewModalProps> = ({ closeModal, developer }) => {
-  const { appEditState } = useAppState()
-
+export const SubmitReviewModal: FC<SubmitReviewModalProps> = ({ closeModal, refetchDeveloper, developer }) => {
   const {
     register,
     handleSubmit,
@@ -74,7 +61,6 @@ export const SubmitReviewModal: FC<SubmitReviewModalProps> = ({ closeModal, deve
 
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const currentUser = useSelector(selectCurrentMemberData)
-  const { setAppEditSaving } = appEditState
 
   const [members] = useReapitGet<MemberModelPagedResult>({
     reapitConnectBrowserSession,
@@ -101,7 +87,7 @@ export const SubmitReviewModal: FC<SubmitReviewModalProps> = ({ closeModal, deve
     },
   })
 
-  useEffect(handleCloseModal(setAppEditSaving, closeModal, updateDeveloperSuccess), [updateDeveloperSuccess])
+  useEffect(handleCloseModal(closeModal, refetchDeveloper, updateDeveloperSuccess), [updateDeveloperSuccess])
 
   const isCustomer = selectIsCustomer(connectSession)
   const userRole = currentUser.role
