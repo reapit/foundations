@@ -65,7 +65,7 @@ export const pipelineCreate = httpHandler<PipelineDto, PipelineEntity>({
         ),
       )
     } else {
-      await pusher.trigger(`private-${pipeline.developerId}`, 'pipeline-architecture-update', {
+      await pusher.trigger(`private-${pipeline.developerId}`, 'pipeline-update', {
         ...pipeline,
         message: 'Pipeline successfully created',
       })

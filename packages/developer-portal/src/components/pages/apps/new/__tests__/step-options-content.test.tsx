@@ -34,7 +34,6 @@ const getValues = jest.fn(() => ({
 const steps = [
   AppNewStepId.webServicesStep,
   AppNewStepId.reapitConnectStep,
-  AppNewStepId.otherAppStep,
   AppNewStepId.agencyCloudStep,
   AppNewStepId.dataFeedStep,
   AppNewStepId.serverSideStep,

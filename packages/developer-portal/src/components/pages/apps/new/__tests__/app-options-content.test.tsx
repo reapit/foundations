@@ -46,8 +46,13 @@ const steps = [
     authFlow: 'authorisationCode',
   },
   {
-    text: 'Other',
-    nextStep: AppNewStepId.otherAppStep,
+    text: 'Client Side App',
+    nextStep: AppNewStepId.clientSideStep,
+    authFlow: 'authorisationCode',
+  },
+  {
+    text: 'Server Side Integration',
+    nextStep: AppNewStepId.serverSideStep,
     authFlow: 'clientCredentials',
   },
 ]
