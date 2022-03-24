@@ -31,9 +31,10 @@ export class PipelineList extends AbstractCommand {
         appType: pipeline.appType,
         appId: pipeline.appId,
         repository: pipeline.repository,
+        buildStatus: pipeline.buildStatus,
         created: shleemy(new Date(pipeline.created as string)).forHumans,
       })),
-      ['id', 'name', 'appType', 'version', 'appId', 'repository', 'created'],
+      ['id', 'name', 'appType', 'version', 'appId', 'buildStatus', 'repository', 'created'],
     )
   }
 }
