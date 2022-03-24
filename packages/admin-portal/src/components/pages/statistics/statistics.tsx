@@ -88,9 +88,10 @@ export const downloadCSV = (
 
     const csv = Papa.unparse({
       fields: ['Entity Name', 'Total Number Calls', 'Total Cost'],
+
       data: apiCalls.map((item: ServiceItemBillingV2Model) => {
         const { name, amount, cost } = item
-        const formattedCost = cost ? `£${cost.toFixed(2).padStart(2, '0')}` : '£0'
+        const formattedCost = cost ? `${cost.toFixed(2).padStart(2, '0')}` : '0'
         return [name, amount, formattedCost]
       }),
     })

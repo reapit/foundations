@@ -89,12 +89,12 @@ export const HelperContent: FC = () => {
           </div>
           <div className={cx(!isFlexColumn && elW6, !isFlexColumn && elMl6)}>
             <BodyText hasGreyText>
-              On a basic level an app is is the means to authenticate against our services. To create an app, you should
-              follow the steps in the wizard on the left side of this page.
+              On a basic level an app is the means to authenticate against our services. To create an app, you should
+              follow the steps in the wizard on the left of this page.
             </BodyText>
             <BodyText hasGreyText>
               When you have completed this wizard, you will land on a dedicated page for your App, that will give you
-              the Client Id, and in the case of server-side apps, a Client Secret, that will enable you to authenticated
+              the Client Id, and in the case of server-side apps, a Client Secret, that will enable you to authenticate
               against out APIs. From here you can get started with development against our developer sandbox data.
             </BodyText>
             <BodyText hasGreyText>

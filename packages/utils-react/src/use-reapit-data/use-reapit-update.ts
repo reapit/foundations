@@ -109,6 +109,8 @@ export const send =
           return data
         case UpdateReturnTypeEnum.LOCATION:
           location = response.headers.get('Location')
+          /* Need to redirect to main platform uri **/
+          location = location?.includes('.prod.paas') ? location.replace('.prod.paas', '') : location
           if (!location) {
             throw new Error('Location was not returned by server')
           }
