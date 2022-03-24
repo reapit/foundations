@@ -111,7 +111,7 @@ export const Helper: FC = () => {
     },
   })
 
-  const [developer] = useReapitGet<DeveloperModel>({
+  const [developer, , , refetchDeveloper] = useReapitGet<DeveloperModel>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getDeveloper],
     uriParams: {
@@ -235,7 +235,9 @@ export const Helper: FC = () => {
           </>
         )}
         <Modal title={getTitle(isCustomer, developerStatus)}>
-          {developer && <SubmitReviewModal developer={developer} closeModal={closeModal} />}
+          {developer && (
+            <SubmitReviewModal developer={developer} closeModal={closeModal} refetchDeveloper={refetchDeveloper} />
+          )}
         </Modal>
       </div>
     )

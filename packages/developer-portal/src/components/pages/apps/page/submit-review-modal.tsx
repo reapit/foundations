@@ -16,6 +16,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 interface SubmitReviewModalProps {
   developer: DeveloperModel
   closeModal: () => void
+  refetchDeveloper: () => void
 }
 
 const schema: SchemaOf<{ reapitReference: string }> = object().shape({
@@ -35,13 +36,15 @@ export const getTitle = (isCustomer: boolean, orgStatus?: string): string => {
   return 'Account Verification'
 }
 
-export const handleCloseModal = (closeModal: () => void, updateDeveloperSuccess?: boolean) => () => {
-  if (updateDeveloperSuccess) {
-    closeModal()
+export const handleCloseModal =
+  (closeModal: () => void, refetchDeveloper: () => void, updateDeveloperSuccess?: boolean) => () => {
+    if (updateDeveloperSuccess) {
+      closeModal()
+      refetchDeveloper()
+    }
   }
-}
 
-export const SubmitReviewModal: FC<SubmitReviewModalProps> = ({ closeModal, developer }) => {
+export const SubmitReviewModal: FC<SubmitReviewModalProps> = ({ closeModal, refetchDeveloper, developer }) => {
   const {
     register,
     handleSubmit,
@@ -84,7 +87,7 @@ export const SubmitReviewModal: FC<SubmitReviewModalProps> = ({ closeModal, deve
     },
   })
 
-  useEffect(handleCloseModal(closeModal, updateDeveloperSuccess), [updateDeveloperSuccess])
+  useEffect(handleCloseModal(closeModal, refetchDeveloper, updateDeveloperSuccess), [updateDeveloperSuccess])
 
   const isCustomer = selectIsCustomer(connectSession)
   const userRole = currentUser.role

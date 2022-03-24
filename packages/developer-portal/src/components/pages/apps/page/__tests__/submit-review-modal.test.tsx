@@ -50,12 +50,20 @@ describe('SubmitReviewModal', () => {
         },
       },
     })
-    expect(render(<SubmitReviewModal closeModal={jest.fn()} developer={developerStub} />)).toMatchSnapshot()
+    expect(
+      render(<SubmitReviewModal closeModal={jest.fn()} developer={developerStub} refetchDeveloper={jest.fn()} />),
+    ).toMatchSnapshot()
   })
 
   it('should match a snapshot where a customer and status is pending', () => {
     expect(
-      render(<SubmitReviewModal closeModal={jest.fn()} developer={{ ...developerStub, status: 'pending' }} />),
+      render(
+        <SubmitReviewModal
+          closeModal={jest.fn()}
+          developer={{ ...developerStub, status: 'pending' }}
+          refetchDeveloper={jest.fn()}
+        />,
+      ),
     ).toMatchSnapshot()
   })
 
@@ -68,7 +76,9 @@ describe('SubmitReviewModal', () => {
         },
       } as CurrentMemberRootState,
     })
-    expect(render(<SubmitReviewModal closeModal={jest.fn()} developer={developerStub} />)).toMatchSnapshot()
+    expect(
+      render(<SubmitReviewModal closeModal={jest.fn()} developer={developerStub} refetchDeveloper={jest.fn()} />),
+    ).toMatchSnapshot()
   })
 
   it('should match a snapshot where a customer and status is incomplete and user is an admin', () => {
@@ -80,7 +90,9 @@ describe('SubmitReviewModal', () => {
         },
       } as CurrentMemberRootState,
     })
-    expect(render(<SubmitReviewModal closeModal={jest.fn()} developer={developerStub} />)).toMatchSnapshot()
+    expect(
+      render(<SubmitReviewModal closeModal={jest.fn()} developer={developerStub} refetchDeveloper={jest.fn()} />),
+    ).toMatchSnapshot()
   })
 })
 
@@ -101,15 +113,19 @@ describe('getTitle', () => {
 describe('handleCloseModal', () => {
   it('should close the modal', () => {
     const closeModal = jest.fn()
-    const curried = handleCloseModal(closeModal, true)
+    const refetchDeveloper = jest.fn()
+    const curried = handleCloseModal(closeModal, refetchDeveloper, true)
     curried()
     expect(closeModal).toHaveBeenCalled()
+    expect(refetchDeveloper).toHaveBeenCalled()
   })
 
   it('should not close the modal', () => {
     const closeModal = jest.fn()
-    const curried = handleCloseModal(closeModal, false)
+    const refetchDeveloper = jest.fn()
+    const curried = handleCloseModal(closeModal, refetchDeveloper, false)
     curried()
     expect(closeModal).not.toHaveBeenCalled()
+    expect(refetchDeveloper).not.toHaveBeenCalled()
   })
 })
