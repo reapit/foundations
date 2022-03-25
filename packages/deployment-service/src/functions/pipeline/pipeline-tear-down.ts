@@ -99,7 +99,7 @@ const tearDownR53 = (domain: string, pipelineId: string, subDomain: string): Pro
             Action: 'DELETE',
             ResourceRecordSet: {
               Type: 'A',
-              Name: `${subDomain}.dev.paas.reapit.cloud`,
+              Name: `${subDomain}.${process.env.NODE_ENV === 'PROD' ? 'prod' : 'dev'}.paas.reapit.cloud`,
               AliasTarget: {
                 DNSName: domain,
                 EvaluateTargetHealth: false,
