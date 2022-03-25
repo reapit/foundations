@@ -113,6 +113,7 @@ export class PipelineEditCommand extends AbstractCommand {
         type: 'list',
         message: 'App Type',
         name: 'appType',
+        default: pipeline.appType,
         choices: ['Node', 'React'],
       },
     ]
