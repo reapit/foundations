@@ -11,6 +11,7 @@ describe('Pipelineinfo', () => {
             id: 'pipelineId',
             buildStatus: 'IN_PROGRESS',
           }}
+          setPipeline={() => {}}
         />,
       ),
     ).toMatchSnapshot()
