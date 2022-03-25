@@ -133,6 +133,19 @@ exports[`Router should match a snapshot 1`] = `
                   },
                 }
               }
+              path="/v2/analytics"
+            />
+            <PrivateRoute
+              component={
+                Object {
+                  "$$typeof": Symbol(react.lazy),
+                  "_init": [Function],
+                  "_payload": Object {
+                    "_result": [Function],
+                    "_status": -1,
+                  },
+                }
+              }
               path="/api-docs"
             />
             <PrivateRoute
