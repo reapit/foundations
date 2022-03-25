@@ -61,12 +61,6 @@ export const AppEditPage: FC = () => {
               text: 'AgencyCloud Integration',
               isChecked: tab === AppEditTab.acIntegration,
             },
-            window.reapit.config.appEnv === 'local' && {
-              id: AppEditTab.pipelines,
-              value: AppEditTab.pipelines,
-              text: 'Pipelines',
-              isChecked: tab === AppEditTab.pipelines,
-            },
           ].filter(Boolean) as TabsOption[]
         }
       />
