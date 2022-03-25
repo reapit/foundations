@@ -91,8 +91,6 @@ export class PipelineEditCommand extends AbstractCommand {
   async run() {
     const pipeline = await this.checkExistingPipeline()
 
-    console.log('pipeline', pipeline)
-
     const questions: QuestionCollection<any>[] = [
       // {
       //   type: 'input',
