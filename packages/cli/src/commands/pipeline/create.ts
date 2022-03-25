@@ -8,6 +8,7 @@ import * as fs from 'fs'
 import { resolve } from 'path'
 import git from 'simple-git'
 import { REAPIT_PIPELINE_CONFIG_FILE } from './constants'
+import { serialisePipeline } from '@/utils'
 
 @Command({
   name: 'create',
@@ -55,7 +56,6 @@ export class PipelineCreate extends AbstractCommand {
       ])
 
       if (!answers.recreate) {
-        console.log()
         process.exit(1)
       }
     }
@@ -118,20 +118,7 @@ export class PipelineCreate extends AbstractCommand {
   }
 
   serialisePipelineJson = (pipeline: PipelineModelInterface): string => {
-    return JSON.stringify(
-      {
-        id: pipeline.id,
-        appId: pipeline.appId,
-        subDomain: pipeline.subDomain,
-        packageManager: pipeline.packageManager,
-        repospitory: pipeline.repository,
-        buildDir: pipeline.buildCommand,
-        outDir: pipeline.outDir,
-        developerId: pipeline.developerId,
-      },
-      null,
-      2,
-    )
+    return JSON.stringify(serialisePipeline(pipeline), null, 2)
   }
 
   async run() {
@@ -274,14 +261,7 @@ export class PipelineCreate extends AbstractCommand {
       choices: ['yarn', 'npm'],
     })
 
-    const answers = await inquirer.prompt([
-      ...questions,
-      {
-        type: 'confirm',
-        message: 'Would you like to create a pipeline config in this directory?',
-        name: 'create',
-      },
-    ])
+    const answers = await inquirer.prompt([...questions])
 
     const spinner = ora('Creating pipeline').start()
 
@@ -337,11 +317,7 @@ export class PipelineCreate extends AbstractCommand {
     spinner.succeed('🚀 Successfully architectured')
     this.writeLine('')
     this.writeLine("Now you're ready to deploy to your pipeline!")
-    this.writeLine(
-      `To do so, either use ${chalk.green('reapit pipeline deploy-zip')} or ${chalk.green(
-        'reapit pipeline deploy-repo',
-      )}`,
-    )
+    this.writeLine(`To do so, either use ${chalk.green('reapit release zip')} or ${chalk.green('reapit release repo')}`)
     this.writeLine('')
     this.writeLine(`You can visit your domain here ${chalk.green(`https://${event.subDomain}.dev.paas.reapit.cloud`)}`)
     process.exit(0)
