@@ -18,7 +18,7 @@ import { useForm } from 'react-hook-form'
 import Yup, { mixed, object, string } from 'yup'
 import errorMessages from '@/constants/error-messages'
 import { httpsUrlRegex, UpdateActionNames, updateActions } from '@reapit/utils-common'
-import { useReapitUpdate } from '@reapit/utils-react'
+import { UpdateReturnTypeEnum, useReapitUpdate } from '@reapit/utils-react'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 
@@ -78,6 +78,11 @@ export const EditPipeline: FC<PipelineUpdateModalInterface> = ({ pipeline, appId
   const [loading, , send, submissionErrors] = useReapitUpdate<Partial<PipelineModelInterface>, PipelineModelInterface>({
     reapitConnectBrowserSession,
     action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.updatePipeline],
+    method: 'PUT',
+    returnType: UpdateReturnTypeEnum.RESPONSE,
+    uriParams: {
+      pipelineId: pipeline.id,
+    },
     headers: {
       Authorization: connectSession?.idToken as string,
     },
