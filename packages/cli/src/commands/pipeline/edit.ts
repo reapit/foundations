@@ -92,39 +92,6 @@ export class PipelineEditCommand extends AbstractCommand {
     const pipeline = await this.checkExistingPipeline()
 
     const questions: QuestionCollection<any>[] = [
-      // {
-      //   type: 'input',
-      //   message: "What's your App Id?",
-      //   name: 'appId',
-      //   validate: (value) => {
-      //     if (!value || value.length <= 0) {
-      //       return 'Please enter an app Id'
-      //     }
-
-      //     if (!/^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/.test(value)) {
-      //       return 'Please enter a valid uuid (app Id)'
-      //     }
-
-      //     return true
-      //   },
-      // },
-      // {
-      //   type: 'input',
-      //   message: "Your project's name",
-      //   name: 'name',
-      //   default: process.cwd().split('/').pop(),
-      //   validate: (value) => {
-      //     if (!value || value.trim().length <= 0) {
-      //       return 'Please add a name'
-      //     }
-
-      //     if (value.length >= 256) {
-      //       return 'Name too long, please make it less than 255 characters'
-      //     }
-
-      //     return true
-      //   },
-      // },
       {
         type: 'input',
         message: 'Deployment branch (will deploy when merging to this branch)',
