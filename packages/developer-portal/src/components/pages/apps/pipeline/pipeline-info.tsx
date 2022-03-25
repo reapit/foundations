@@ -67,7 +67,11 @@ export const PipelineInfo: React.FC<{
   return (
     <>
       <ButtonGroup className={elMb3}>
-        <EditPipeline pipeline={pipeline} appId={pipeline.appId as string} refreshPipeline={() => {}} />
+        <EditPipeline
+          pipeline={pipeline}
+          appId={pipeline.appId as string}
+          refreshPipeline={(pipeline) => setPipeline(pipeline)}
+        />
         <Button
           loading={deleteLoading}
           intent="danger"

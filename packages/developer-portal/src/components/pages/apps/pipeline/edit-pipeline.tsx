@@ -30,7 +30,7 @@ type PipelineModelSchema = Omit<
 const pipelineUpdateFormHandle =
   (
     updatePipeline: (values: Partial<PipelineModelInterface>) => Promise<boolean | PipelineModelInterface>,
-    refresh: () => void,
+    refresh: (pipeline: PipelineModelInterface) => void,
     appId: string,
   ) =>
   async (values: PipelineModelInterface) => {
@@ -40,14 +40,14 @@ const pipelineUpdateFormHandle =
       appType: AppTypeEnum.REACT, // TODO make this an option
     })
 
-    if (result) refresh()
+    if (result && typeof result !== 'boolean') refresh(result)
   }
 
 interface PipelineUpdateModalInterface {
   // open: boolean
   // onModalClose: () => void
   appId: string
-  refreshPipeline: () => void
+  refreshPipeline: (pipeline: PipelineModelInterface) => void
   pipeline: PipelineModelInterface
 }
 
@@ -153,9 +153,9 @@ export const EditPipeline: FC<PipelineUpdateModalInterface> = ({ pipeline, appId
               onClick={handleSubmit(
                 pipelineUpdateFormHandle(
                   send,
-                  () => {
+                  (pipeline) => {
                     setIsOpen(false)
-                    refreshPipeline()
+                    refreshPipeline(pipeline)
                   },
                   appId,
                 ),
