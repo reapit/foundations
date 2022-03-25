@@ -31,11 +31,9 @@ export const AppPipeline: FC = () => {
     },
     fetchWhenTrue: [connectSession?.idToken, appId],
     onError: () => {
-      // we already display errors below, so no need to show a toast here
+      // TODO we already display errors below, so no need to show a toast here
     },
   })
-
-  console.log('details', appDetail)
 
   return (
     <>
