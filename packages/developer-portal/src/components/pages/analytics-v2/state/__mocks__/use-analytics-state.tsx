@@ -1,6 +1,8 @@
+import { defaultAnalyticsFilterState } from '../defaults'
+
 export const mockAnalyticsState = {
   analyticsDataState: {},
-  analyticsFilterState: {},
+  analyticsFilterState: defaultAnalyticsFilterState,
 }
 
 export const useAnalyticsState = jest.fn(() => mockAnalyticsState)
