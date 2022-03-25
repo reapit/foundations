@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from '../../../../../tests/react-testing'
-import { AppPipeline } from '../app-pipeline'
+import { AppPipeline } from '../../pipeline/app-pipeline'
 import { useReapitGet } from '@reapit/utils-react'
 import { useAppState } from '../../state/use-app-state'
 import { mockAppState } from '../../state/__mocks__/use-app-state'
