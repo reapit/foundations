@@ -32,6 +32,8 @@ export const appEventsHandler: SQSHandler = async (event: SQSEvent, context: Con
         case 'deleted': {
           const pipelines = await findPipelinesByAppId(payload.AppId)
 
+          if (!pipelines || pipelines.length === 0) return
+
           await Promise.all(
             pipelines.map(
               (pipeline) =>
