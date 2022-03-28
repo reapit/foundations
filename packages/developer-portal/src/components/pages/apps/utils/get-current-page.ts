@@ -6,8 +6,10 @@ export const getCurrentPage = (pathname: string) => {
   const isAppsWelcome = pathname === Routes.APPS_WELCOME
   const isAppsInstallations = /^\/apps\/[a-z0-9-]+\/installations/.test(pathname)
   const isAppsEdit = /^\/apps\/[a-z0-9-]+\/edit/.test(pathname)
-  const isAppsDetail = /^\/apps\/[a-z0-9-]+/.test(pathname) && !isAppsEdit && !isAppsNew && !isAppsInstallations
+  const isAppPipelines = /^\/apps\/[a-z0-9-]+\/pipeline/.test(pathname)
 
+  const isAppsDetail =
+    !isAppsEdit && !isAppsNew && !isAppsInstallations && !isAppPipelines && /^\/apps\/[a-z0-9-]+/.test(pathname)
   return {
     isAppsList,
     isAppsNew,
@@ -15,5 +17,6 @@ export const getCurrentPage = (pathname: string) => {
     isAppsEdit,
     isAppsDetail,
     isAppsInstallations,
+    isAppPipelines,
   }
 }

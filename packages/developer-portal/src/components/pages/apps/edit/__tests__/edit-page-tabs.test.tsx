@@ -12,20 +12,6 @@ jest.mock('react-hook-form', () => ({
 }))
 
 describe('AppEditTabs', () => {
-  it('should match a snapshot for the pipleines tab', () => {
-    expect(
-      render(
-        <AppEditTabs
-          register={jest.fn()}
-          errors={{}}
-          tab={AppEditTab.pipelines}
-          control={{} as Control<AppEditFormSchema, object>}
-          getValues={jest.fn()}
-        />,
-      ),
-    ).toMatchSnapshot()
-  })
-
   it('should match a snapshot for the authentication tab', () => {
     expect(
       render(

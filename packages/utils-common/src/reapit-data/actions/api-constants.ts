@@ -22,6 +22,7 @@ export enum PathNames {
   products = '/marketplace/products',
   sandboxes = '/marketplace/sandboxes',
   createPipeline = '/pipeline',
+  updatePipeline = '/pipeline/{pipelineId}',
   getPipelineDeployments = '/pipeline/{pipelineId}/pipeline-runner',
   createPipelineDeployments = '/pipeline/{pipelineId}/pipeline-runner',
   appPermissions = '/marketplace/scopes',

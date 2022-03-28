@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PipelineDeploymentInfo Should match snapshot 1`] = `
+exports[`Pipelineinfo Should match snapshot 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -8,6 +8,24 @@ Object {
       <div
         class="ecbqyq6-el-snack-holder"
       />
+      <div
+        class="esplruv-el-mb3 eay05y4-el-button-group"
+      >
+        <div
+          class="ebqwrow-el-button-group-inner"
+        >
+          <button
+            class="epibvz0-el-intent-secondary eqfkc7t-el-button"
+          >
+            Edit
+          </button>
+          <button
+            class="e1vxext9-el-intent-danger eqfkc7t-el-button"
+          >
+            Delete Pipeline
+          </button>
+        </div>
+      </div>
       <div
         class="e20pb60-el-grid"
       >
@@ -26,10 +44,10 @@ Object {
               class="e15ggth7-el-body-text"
             >
               <span
-                class="e1fle5tm-el-intent-neutral e1cp9zgf-el-status-indicator"
+                class="epibvz0-el-intent-secondary e1cp9zgf-el-status-indicator"
               />
                
-              in porgress
+              in progress
             </p>
           </div>
           <div
@@ -42,9 +60,7 @@ Object {
             </h2>
             <p
               class="e15ggth7-el-body-text"
-            >
-              https://github.com/bashleigh/reapit-react-test
-            </p>
+            />
           </div>
           <div
             class="e1ksxx4v-el-input-wrap"
@@ -56,9 +72,7 @@ Object {
             </h2>
             <p
               class="e15ggth7-el-body-text"
-            >
-              yarn
-            </p>
+            />
           </div>
         </div>
         <div
@@ -74,9 +88,31 @@ Object {
             </h2>
             <p
               class="e15ggth7-el-body-text"
+            />
+          </div>
+          <div
+            class="e1ksxx4v-el-input-wrap"
+          >
+            <h2
+              class="e1byern-el-subtitle"
             >
-              build
-            </p>
+              Location
+            </h2>
+            <p
+              class="e15ggth7-el-body-text"
+            />
+          </div>
+          <div
+            class="e1ksxx4v-el-input-wrap"
+          >
+            <h2
+              class="e1byern-el-subtitle"
+            >
+              Build dir
+            </h2>
+            <p
+              class="e15ggth7-el-body-text"
+            />
           </div>
           <div
             class="e1ksxx4v-el-input-wrap"
@@ -90,81 +126,6 @@ Object {
               class="e15ggth7-el-body-text"
             />
           </div>
-          <div
-            class="e1ksxx4v-el-input-wrap"
-          >
-            <h2
-              class="e1byern-el-subtitle"
-            >
-              Location
-            </h2>
-            <p
-              class="e15ggth7-el-body-text"
-            >
-              https://sub-domain.dev.paas.reapit.cloud
-            </p>
-          </div>
-        </div>
-      </div>
-      <h1
-        class="evblxhy-el-title"
-      >
-        Deployments
-      </h1>
-      <div
-        class="ez8nkuq-el-mb6 eay05y4-el-button-group"
-      >
-        <div
-          class="ebqwrow-el-button-group-inner"
-        >
-          <button
-            class="ebee6r1-el-intent-primary eqfkc7t-el-button"
-          >
-            Deploy
-          </button>
-          <button
-            class="e1iow709-el-intent-critical eqfkc7t-el-button"
-          >
-            Deploy With Cli
-          </button>
-          <button
-            class="e1vxext9-el-intent-danger eqfkc7t-el-button"
-          >
-            Delete Pipeline
-          </button>
-        </div>
-      </div>
-      <div
-        class="elkdvoz-el-table"
-      >
-        <div
-          class="e1co3p83-el-table-headers-row"
-        >
-          <div
-            class="e1qy4g2u-el-table-header"
-          >
-            Type
-          </div>
-          <div
-            class="e1qy4g2u-el-table-header"
-          >
-            Created
-          </div>
-          <div
-            class="e1qy4g2u-el-table-header"
-          >
-            Status
-          </div>
-          <div
-            class="e1qy4g2u-el-table-header"
-          >
-            Version
-          </div>
-          <div
-            class="e1qy4g2u-el-table-header"
-          >
-            Currently Deployed
-          </div>
         </div>
       </div>
     </div>
@@ -173,6 +134,24 @@ Object {
     <div
       class="ecbqyq6-el-snack-holder"
     />
+    <div
+      class="esplruv-el-mb3 eay05y4-el-button-group"
+    >
+      <div
+        class="ebqwrow-el-button-group-inner"
+      >
+        <button
+          class="epibvz0-el-intent-secondary eqfkc7t-el-button"
+        >
+          Edit
+        </button>
+        <button
+          class="e1vxext9-el-intent-danger eqfkc7t-el-button"
+        >
+          Delete Pipeline
+        </button>
+      </div>
+    </div>
     <div
       class="e20pb60-el-grid"
     >
@@ -191,10 +170,10 @@ Object {
             class="e15ggth7-el-body-text"
           >
             <span
-              class="e1fle5tm-el-intent-neutral e1cp9zgf-el-status-indicator"
+              class="epibvz0-el-intent-secondary e1cp9zgf-el-status-indicator"
             />
              
-            in porgress
+            in progress
           </p>
         </div>
         <div
@@ -207,9 +186,7 @@ Object {
           </h2>
           <p
             class="e15ggth7-el-body-text"
-          >
-            https://github.com/bashleigh/reapit-react-test
-          </p>
+          />
         </div>
         <div
           class="e1ksxx4v-el-input-wrap"
@@ -221,9 +198,7 @@ Object {
           </h2>
           <p
             class="e15ggth7-el-body-text"
-          >
-            yarn
-          </p>
+          />
         </div>
       </div>
       <div
@@ -239,20 +214,6 @@ Object {
           </h2>
           <p
             class="e15ggth7-el-body-text"
-          >
-            build
-          </p>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <h2
-            class="e1byern-el-subtitle"
-          >
-            Tests
-          </h2>
-          <p
-            class="e15ggth7-el-body-text"
           />
         </div>
         <div
@@ -265,70 +226,31 @@ Object {
           </h2>
           <p
             class="e15ggth7-el-body-text"
+          />
+        </div>
+        <div
+          class="e1ksxx4v-el-input-wrap"
+        >
+          <h2
+            class="e1byern-el-subtitle"
           >
-            https://sub-domain.dev.paas.reapit.cloud
-          </p>
-        </div>
-      </div>
-    </div>
-    <h1
-      class="evblxhy-el-title"
-    >
-      Deployments
-    </h1>
-    <div
-      class="ez8nkuq-el-mb6 eay05y4-el-button-group"
-    >
-      <div
-        class="ebqwrow-el-button-group-inner"
-      >
-        <button
-          class="ebee6r1-el-intent-primary eqfkc7t-el-button"
-        >
-          Deploy
-        </button>
-        <button
-          class="e1iow709-el-intent-critical eqfkc7t-el-button"
-        >
-          Deploy With Cli
-        </button>
-        <button
-          class="e1vxext9-el-intent-danger eqfkc7t-el-button"
-        >
-          Delete Pipeline
-        </button>
-      </div>
-    </div>
-    <div
-      class="elkdvoz-el-table"
-    >
-      <div
-        class="e1co3p83-el-table-headers-row"
-      >
-        <div
-          class="e1qy4g2u-el-table-header"
-        >
-          Type
+            Build dir
+          </h2>
+          <p
+            class="e15ggth7-el-body-text"
+          />
         </div>
         <div
-          class="e1qy4g2u-el-table-header"
+          class="e1ksxx4v-el-input-wrap"
         >
-          Created
-        </div>
-        <div
-          class="e1qy4g2u-el-table-header"
-        >
-          Status
-        </div>
-        <div
-          class="e1qy4g2u-el-table-header"
-        >
-          Version
-        </div>
-        <div
-          class="e1qy4g2u-el-table-header"
-        >
-          Currently Deployed
+          <h2
+            class="e1byern-el-subtitle"
+          >
+            Tests
+          </h2>
+          <p
+            class="e15ggth7-el-body-text"
+          />
         </div>
       </div>
     </div>
