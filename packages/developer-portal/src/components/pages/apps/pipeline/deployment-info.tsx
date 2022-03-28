@@ -57,22 +57,9 @@ export const PipelineDeploymentInfo: FC<PipelineDeploymentInfoProps> = ({ pipeli
     returnType: UpdateReturnTypeEnum.RESPONSE,
   })
 
-  const [deleteLoading, , deleteFunc] = useReapitUpdate<void, PipelineRunnerModelInterface>({
-    reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.deletePipeline],
-    uriParams: {
-      appId: pipeline.id,
-    },
-    method: 'DELETE',
-    headers: {
-      Authorization: connectSession?.idToken as string,
-    },
-    returnType: UpdateReturnTypeEnum.RESPONSE,
-  })
-
   return (
     <>
-      <PipelineInfo pipeline={pipeline} />
+      <PipelineInfo pipeline={pipeline} setPipeline={setPipeline} />
       <Title>Deployments</Title>
       <ButtonGroup className={cx(elMb6)}>
         <Button
@@ -91,19 +78,6 @@ export const PipelineDeploymentInfo: FC<PipelineDeploymentInfoProps> = ({ pipeli
           onClick={openNewPage('https://github.com/reapit/foundations/tree/master/packages/cli#readme')}
         >
           Deploy With Cli
-        </Button>
-        <Button
-          loading={deleteLoading}
-          intent="danger"
-          disabled={pipeline.buildStatus === 'DELETING'}
-          onClick={async (event) => {
-            event.preventDefault()
-            const result = await deleteFunc()
-
-            if (result && typeof result !== 'boolean') setPipeline(result)
-          }}
-        >
-          Delete Pipeline
         </Button>
       </ButtonGroup>
       <PipelineDeploymentTable
