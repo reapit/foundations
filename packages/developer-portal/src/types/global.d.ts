@@ -17,7 +17,7 @@ export type Config = {
   swaggerUri: string
   PUSHER_KEY: string
   DEPLOYMENT_SERVICE_HOST: string
-  pipelineWhitelist?: string[]
+  pipelineWhitelist: string[]
 }
 
 declare global {

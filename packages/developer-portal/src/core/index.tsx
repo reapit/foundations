@@ -27,6 +27,7 @@ window.reapit = {
     swaggerUri: '',
     PUSHER_KEY: '',
     DEPLOYMENT_SERVICE_HOST: '',
+    pipelineWhitelist: [],
   },
 }
 
