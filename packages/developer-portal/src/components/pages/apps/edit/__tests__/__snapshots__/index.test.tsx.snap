@@ -105,23 +105,6 @@ Object {
               AgencyCloud Integration
             </span>
           </label>
-          <input
-            class="enkj6b-el-tabs"
-            id="pipelines"
-            name="app-edit-tabs"
-            type="radio"
-            value="pipelines"
-          />
-          <label
-            class="e1ob8xkh-el-tabs-label"
-            for="pipelines"
-          >
-            <span
-              class="eulcr0n-el-tabs-item"
-            >
-              Pipelines
-            </span>
-          </label>
         </div>
         <div
           class="e1147ynd-el-tabs-footer"
@@ -599,23 +582,6 @@ Object {
             class="eulcr0n-el-tabs-item"
           >
             AgencyCloud Integration
-          </span>
-        </label>
-        <input
-          class="enkj6b-el-tabs"
-          id="pipelines"
-          name="app-edit-tabs"
-          type="radio"
-          value="pipelines"
-        />
-        <label
-          class="e1ob8xkh-el-tabs-label"
-          for="pipelines"
-        >
-          <span
-            class="eulcr0n-el-tabs-item"
-          >
-            Pipelines
           </span>
         </label>
       </div>
