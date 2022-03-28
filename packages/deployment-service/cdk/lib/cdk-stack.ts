@@ -478,6 +478,7 @@ export const createStack = () => {
       handler: `${fileLocPrefix}appEventsHandler`,
       policies: [...policies.commonBackendPolicies],
       queue: queues[QueueNames.APP_EVENTS],
+      timeout: 600,
     },
   }
 
