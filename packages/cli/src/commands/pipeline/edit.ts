@@ -199,7 +199,7 @@ export class PipelineEditCommand extends AbstractCommand {
       spinner,
     )
 
-    await this.serialisePipelineJson(updatedPipeline)
+    this.serialisePipelineJson(updatedPipeline)
     this.end(spinner, updatedPipeline)
     process.exit(0)
   }
