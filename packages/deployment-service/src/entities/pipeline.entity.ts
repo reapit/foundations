@@ -63,6 +63,21 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
   @Column({ default: 'master' })
   branch?: string
 
+  get hasDistro(): boolean {
+    return this.cloudFrontId !== null && this.cloudFrontId !== undefined && this.cloudFrontId !== ''
+  }
+
+  get hasRepositoryConfigured(): boolean {
+    return this.repository !== undefined && this.repository !== ''
+  }
+
+  get hasRepositoryInstalled(): boolean {
+    return this.repositoryId !== undefined
+  }
+  get hasRoute53(): boolean {
+    return this.aRecordId !== undefined && this.aRecordId !== ''
+  }
+
   get uniqueRepoName(): string {
     return `${this.developerId}/${this.subDomain}`
   }
