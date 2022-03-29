@@ -118,7 +118,7 @@ export const PipelineDeploymentInfo: FC<PipelineDeploymentInfoProps> = ({ pipeli
               event.preventDefault()
               await sendFunc()
             }}
-            disabled={pipeline.buildStatus === 'DELETING'}
+            disabled={pipeline.buildStatus === 'DELETING' || pipeline.buildStatus === 'SCHEDULED_FOR_DELETION'}
           >
             Deploy
           </Button>
