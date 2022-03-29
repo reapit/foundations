@@ -1,7 +1,10 @@
+import { mockAppSummaryModelPagedResult } from '../../../../../tests/__stubs__/apps'
 import { defaultAnalyticsFilterState } from '../defaults'
 
 export const mockAnalyticsState = {
-  analyticsDataState: {},
+  analyticsDataState: {
+    apps: mockAppSummaryModelPagedResult,
+  },
   analyticsFilterState: defaultAnalyticsFilterState,
 }
 

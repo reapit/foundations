@@ -11,23 +11,19 @@ import {
   Label,
   MultiSelectChip,
   Select,
-  SmallText,
   Subtitle,
 } from '@reapit/elements'
 import { ControlsContainer, inputFullWidth, overflowHidden } from './__styles__'
 import { cx } from '@linaria/core'
-import {
-  AppSummaryModel,
-  AppSummaryModelPagedResult,
-  InstallationModel,
-  InstallationModelPagedResult,
-} from '@reapit/foundations-ts-definitions'
+import { AppSummaryModel, InstallationModel, InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { useReapitGet } from '@reapit/utils-react'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { AnalyticsFilterState, AnalyticsDateRange, useAnalyticsState } from '../state/use-analytics-state'
 import { useForm } from 'react-hook-form'
+import { useLocation } from 'react-router'
+import Routes from '../../../../constants/routes'
 
 export const handleOnChipChange =
   (setAnalyticsFilterState: Dispatch<SetStateAction<AnalyticsFilterState>>) =>
@@ -57,18 +53,14 @@ export const handleFormChange =
   }
 
 export const Controls: FC = () => {
+  const location = useLocation()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const { setAnalyticsFilterState, analyticsFilterState } = useAnalyticsState()
+  const { setAnalyticsFilterState, analyticsFilterState, analyticsDataState } = useAnalyticsState()
+  const { pathname } = location
   const { dateRange, appId } = analyticsFilterState
+  const { apps } = analyticsDataState
   const developerId = connectSession?.loginIdentity.developerId
   const appQuery = appId ? { appId } : {}
-
-  const [apps] = useReapitGet<AppSummaryModelPagedResult>({
-    reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getApps],
-    queryParams: { showHiddenApps: 'true', developerId, pageSize: 25 },
-    fetchWhenTrue: [developerId],
-  })
 
   const [installations] = useReapitGet<InstallationModelPagedResult>({
     reapitConnectBrowserSession,
@@ -88,8 +80,7 @@ export const Controls: FC = () => {
   return (
     <div className={elFadeIn}>
       <Icon className={elMb3} icon="crmInfographic" iconSize="large" />
-      <Subtitle>Filters</Subtitle>
-      <SmallText hasGreyText>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</SmallText>
+      <Subtitle>Filter By</Subtitle>
       <div className={cx(elBorderRadius, overflowHidden)}>
         <FlexContainer className={elMb6} isFlexWrap>
           <MultiSelectChip
@@ -116,14 +107,34 @@ export const Controls: FC = () => {
         </FlexContainer>
         <form onChange={handleSubmit(handleFormChange(setAnalyticsFilterState))}>
           <ControlsContainer>
-            <InputGroup className={inputFullWidth} {...register('dateFrom')} type="date" label="Date From" />
+            <InputGroup
+              className={inputFullWidth}
+              disabled={Boolean(dateRange)}
+              {...register('dateFrom')}
+              type="date"
+              label="Date From"
+            />
           </ControlsContainer>
           <ControlsContainer>
-            <InputGroup className={inputFullWidth} {...register('dateTo')} type="date" label="Date To" />
+            <InputGroup
+              className={inputFullWidth}
+              disabled={Boolean(dateRange)}
+              {...register('dateTo')}
+              type="date"
+              label="Date To"
+            />
           </ControlsContainer>
-          <ControlsContainer>
-            <InputGroup className={inputFullWidth} {...register('month')} type="month" label="Month" />
-          </ControlsContainer>
+          {pathname !== Routes.ANALYTICS_V2_API_CALLS && (
+            <ControlsContainer>
+              <InputGroup
+                className={inputFullWidth}
+                disabled={Boolean(dateRange)}
+                {...register('month')}
+                type="month"
+                label="Month"
+              />
+            </ControlsContainer>
+          )}
           <ControlsContainer>
             <InputGroup>
               <Select className={elWFull} {...register('appId')}>

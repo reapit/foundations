@@ -11,8 +11,26 @@ Object {
       <h1
         class="evblxhy-el-title"
       >
-        Calls
+        API Calls
       </h1>
+      <div
+        class="c12q84nz-chart-wrapper"
+      >
+        <h2
+          class="e1byern-el-subtitle"
+        >
+          Hits Per Day
+        </h2>
+      </div>
+      <div
+        class="c12q84nz-chart-wrapper"
+      >
+        <h2
+          class="e1byern-el-subtitle"
+        >
+          Hits By Resource
+        </h2>
+      </div>
     </div>
   </body>,
   "container": <div>
@@ -22,8 +40,26 @@ Object {
     <h1
       class="evblxhy-el-title"
     >
-      Calls
+      API Calls
     </h1>
+    <div
+      class="c12q84nz-chart-wrapper"
+    >
+      <h2
+        class="e1byern-el-subtitle"
+      >
+        Hits Per Day
+      </h2>
+    </div>
+    <div
+      class="c12q84nz-chart-wrapper"
+    >
+      <h2
+        class="e1byern-el-subtitle"
+      >
+        Hits By Resource
+      </h2>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
