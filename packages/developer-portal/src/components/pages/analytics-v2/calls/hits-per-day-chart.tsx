@@ -13,8 +13,8 @@ export interface ChartDataModel {
 }
 
 export const handleSortChartData = (trafficEvents: TrafficEventsModel) => () =>
-  trafficEvents.requestsByDate?.reduce(
-    ({ labels, data }, { date, requestCount }): ChartDataModel => {
+  trafficEvents.requestsByDate?.reduce<ChartDataModel>(
+    ({ labels, data }, { date, requestCount }) => {
       labels.push(date)
       data.push(requestCount)
 
@@ -23,7 +23,7 @@ export const handleSortChartData = (trafficEvents: TrafficEventsModel) => () =>
         data,
       }
     },
-    { labels: [], data: [] } as ChartDataModel,
+    { labels: [], data: [] },
   )
 
 export const HitsPerDayChart: FC<HitsPerDayChartProps> = ({ trafficEvents }) => {
