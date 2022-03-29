@@ -11,7 +11,7 @@ export const ApiNames = (appEnv: AppEnv) => {
       appEnv !== 'production'
         ? 'https://api-key.dev.paas.reapit.cloud/api-key'
         : 'https://api-key.prod.paas.reapit.cloud/api-key',
-    iaas: `${appEnv !== 'production' ? '.dev' : 'prod'}.paas.reapit.cloud`
+    iaas: `${appEnv !== 'production' ? '.dev' : 'prod'}.paas.reapit.cloud`,
   }
 }
 
@@ -45,4 +45,5 @@ export enum PathNames {
   appRevisions = '/marketplace/apps/{appId}/revisions',
   cancelRevision = '/marketplace/apps/{appId}/revisions/{revisionId}/reject',
   paginatePipeline = '/pipeline',
+  trafficStatistics = '/trafficevents/trafficStatistics',
 }

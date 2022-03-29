@@ -29,7 +29,7 @@ export const getFetcher = async <DataType>({
         return path.replace(`{${uriReplaceKey}}`, uriParams[uriReplaceKey])
       }, path)
     : path
-  const query = qs.stringify(queryParams)
+  const query = qs.stringify(queryParams, { encode: false })
   const url = `${api}${deSerialisedPath}${query ? `?${query}` : ''}`
   const accessToken = connectSession?.accessToken
   const getHeaders = getMergedHeaders(accessToken, headers)

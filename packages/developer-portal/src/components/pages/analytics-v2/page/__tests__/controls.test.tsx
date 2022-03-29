@@ -1,7 +1,6 @@
 import { useReapitGet } from '@reapit/utils-react'
 import React, { ChangeEvent } from 'react'
 import { render } from '../../../../../tests/react-testing'
-import { mockAppSummaryModelPagedResult } from '../../../../../tests/__stubs__/apps'
 import { mockInstallationModelPagedResult } from '../../../../../tests/__stubs__/installations'
 import { defaultAnalyticsFilterState } from '../../state/defaults'
 import { Controls, handleFormChange, handleOnChipChange } from '../controls'
@@ -13,9 +12,7 @@ const mockUseReapitGet = useReapitGet as jest.Mock
 
 describe('Controls', () => {
   it('should match a snapshot', () => {
-    mockUseReapitGet
-      .mockReturnValueOnce([mockAppSummaryModelPagedResult])
-      .mockReturnValueOnce([mockInstallationModelPagedResult])
+    mockUseReapitGet.mockReturnValueOnce([mockInstallationModelPagedResult])
 
     expect(render(<Controls />)).toMatchSnapshot()
   })

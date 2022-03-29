@@ -48,13 +48,12 @@ export const getChartConfig = (labels: string[], data: number[]) => {
     datasets: [
       {
         fill: false,
-        lineTension: 0.1,
         backgroundColor: 'rgba(75,192,192,0.4)',
         borderColor: 'rgba(75,192,192,1)',
-        borderCapStyle: 'butt',
+        borderCapStyle: 'butt' as CanvasLineCap,
         borderDash: [],
         borderDashOffset: 0.0,
-        borderJoinStyle: 'miter',
+        borderJoinStyle: 'miter' as CanvasLineJoin,
         pointBorderColor: 'rgba(75,192,192,1)',
         pointBackgroundColor: '#fff',
         pointBorderWidth: 1,
