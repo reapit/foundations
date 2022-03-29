@@ -22,6 +22,7 @@ export const appEventsHandler: SQSHandler = async (event: SQSEvent, context: Con
           await createPipelineEntity({
             buildStatus: 'PRE_PROVISIONED',
             appId: payload.AppId,
+            id: payload.AppId,
             name: payload.ApplicationName,
             appType: payload.AuthFlow === 'authorisationCode' ? AppTypeEnum.REACT : AppTypeEnum.NODE,
             developerId: payload.DeveloperId,
@@ -56,7 +57,7 @@ export const appEventsHandler: SQSHandler = async (event: SQSEvent, context: Con
           console.log(`unsupported event type [${payload.Type}] for AppId [${payload.AppId}]`)
       }
 
-      await new Promise<void>((resolve, reject) =>
+      return await new Promise<void>((resolve, reject) =>
         sqs.deleteMessage(
           {
             ReceiptHandle: record.receiptHandle,
