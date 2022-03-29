@@ -21,8 +21,16 @@ export const pipelineDeploymentDisabled = [
   'PRE_PROVISIONED',
   'DELETING',
   'DELETED',
+  'SCHEDULED_FOR_DELETION',
 ]
-export const pipelineNotDeletable = ['IN_PROGRESS', 'DELETING', 'PROVISION_REQUEST', 'PROVISIONING', 'QUEUED']
+export const pipelineNotDeletable = [
+  'IN_PROGRESS',
+  'DELETING',
+  'PROVISION_REQUEST',
+  'PROVISIONING',
+  'QUEUED',
+  'SCHEDULED_FOR_DELETION',
+]
 
 export const isPipelineDeploymentDisabled = (pipeline: PipelineModelInterface): boolean =>
   !pipeline.buildStatus || pipelineDeploymentDisabled.includes(pipeline.buildStatus)

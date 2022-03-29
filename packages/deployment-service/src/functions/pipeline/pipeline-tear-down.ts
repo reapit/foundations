@@ -14,6 +14,7 @@ import {
   pusher,
   s3Client,
   sqs,
+  updatePipelineEntity,
 } from '../../services'
 import { PipelineEntity } from '../../entities/pipeline.entity'
 import { QueueNames } from '../../constants'
@@ -131,6 +132,9 @@ export const pipelineTearDownStart: SQSHandler = async (event: SQSEvent, context
         await disableCloudFront(pipeline.cloudFrontId as string)
 
       await Promise.all([
+        updatePipelineEntity(pipeline, {
+          buildStatus: 'SCHEDULED_FOR_DELETION',
+        }),
         new Promise<any>((resolve, reject) =>
           sqs.sendMessage(
             {
