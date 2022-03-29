@@ -4,8 +4,9 @@ import { PipelineEntity } from '../../entities/pipeline.entity'
 import * as service from './../../services/pipeline'
 import { validate } from 'class-validator'
 import { ownership, resolveCreds } from './../../utils'
-import { defaultOutputHeaders } from './../../constants'
 import { plainToClass } from 'class-transformer'
+import { pusher, sqs } from '../../services'
+import { defaultOutputHeaders, QueueNames } from '../../constants'
 
 /**
  * Update a given pipeline
@@ -24,6 +25,7 @@ export const pipelineUpdate = httpHandler<PipelineDto, PipelineEntity>({
   },
   handler: async ({ body, event }): Promise<PipelineEntity> => {
     const { developerId } = await resolveCreds(event)
+    let setupInfra = false
 
     const pipeline = await service.findPipelineById(event.pathParameters?.pipelineId as string)
 
@@ -33,6 +35,34 @@ export const pipelineUpdate = httpHandler<PipelineDto, PipelineEntity>({
 
     await ownership(pipeline.developerId, developerId)
 
-    return service.updatePipelineEntity(pipeline, body)
+    if (
+      ['PRE_PROVISIONED', 'FAILED_TO_PROVISION'].includes(pipeline.buildStatus as string) &&
+      body.buildStatus === 'PROVISION_REQUEST'
+    ) {
+      setupInfra = true
+    }
+
+    const updatedPipeline = await service.updatePipelineEntity(pipeline, body)
+
+    await pusher.trigger(`private-${pipeline.developerId}`, 'pipeline-update', updatedPipeline)
+
+    if (setupInfra) {
+      await new Promise<void>((resolve, reject) =>
+        sqs.sendMessage(
+          {
+            MessageBody: JSON.stringify(updatedPipeline),
+            QueueUrl: QueueNames.PIPELINE_SETUP,
+          },
+          (error) => {
+            if (error) {
+              reject(error)
+            }
+            resolve()
+          },
+        ),
+      )
+    }
+
+    return updatedPipeline
   },
 })

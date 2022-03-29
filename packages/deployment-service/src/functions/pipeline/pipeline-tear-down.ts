@@ -14,9 +14,11 @@ import {
   pusher,
   s3Client,
   sqs,
+  updatePipelineEntity,
 } from '../../services'
 import { PipelineEntity } from '../../entities/pipeline.entity'
 import { QueueNames } from '../../constants'
+import { plainToClass } from 'class-transformer'
 
 const tearDownCloudFront = async (Id: string): Promise<string> => {
   const frontClient = new CloudFrontClient({})
@@ -123,11 +125,16 @@ const deleteAllFromDb = async (pipeline: PipelineEntity) => {
 export const pipelineTearDownStart: SQSHandler = async (event: SQSEvent, context: Context, callback: Callback) => {
   await Promise.all(
     event.Records.map(async (record) => {
-      const pipeline: PipelineEntity = JSON.parse(record.body) as PipelineEntity
+      const payload: PipelineEntity = JSON.parse(record.body)
+      const pipeline = plainToClass(PipelineEntity, payload)
 
-      await disableCloudFront(pipeline.cloudFrontId as string)
+      if (pipeline.buildStatus !== 'PRE_PROVISIONED' && pipeline.hasDistro)
+        await disableCloudFront(pipeline.cloudFrontId as string)
 
       await Promise.all([
+        updatePipelineEntity(pipeline, {
+          buildStatus: 'SCHEDULED_FOR_DELETION',
+        }),
         new Promise<any>((resolve, reject) =>
           sqs.sendMessage(
             {
@@ -163,11 +170,15 @@ export const pipelineTearDown: SQSHandler = async (event: SQSEvent, context: Con
     event.Records.map(async (record) => {
       const pipeline: PipelineEntity = JSON.parse(record.body) as PipelineEntity
 
-      const domainName = await tearDownCloudFront(pipeline.cloudFrontId as string)
+      if (pipeline.buildStatus !== 'PRE_PROVISIONED') {
+        await tearDownLiveBucketLocation(`pipeline/${pipeline.uniqueRepoName}`)
 
-      await tearDownLiveBucketLocation(`pipeline/${pipeline.uniqueRepoName}`)
+        if (pipeline.hasDistro) {
+          const domainName = await tearDownCloudFront(pipeline.cloudFrontId as string)
 
-      await tearDownR53(domainName, pipeline.id as string, pipeline.subDomain as string)
+          if (pipeline.hasRoute53) await tearDownR53(domainName, pipeline.id as string, pipeline.subDomain as string)
+        }
+      }
 
       await deleteAllFromDb(pipeline)
       pipeline.buildStatus = 'DELETED'

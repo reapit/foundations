@@ -1,5 +1,6 @@
-import { Project, ISecret, Effect, PolicyStatement, Bucket, Queue } from '@reapit/ts-scripts/src/cdk'
+import { Project, ISecret, Effect, PolicyStatement, Bucket } from '@reapit/ts-scripts/src/cdk'
 import config from '../../config.json'
+import { aws_sqs as sqs } from 'aws-cdk-lib'
 
 export enum PolicyNames {
   // lambdaInvoke = 'lambdaInvoke',
@@ -26,7 +27,7 @@ export const createPolicies = ({
   codeBuild,
 }: {
   buckets: { [s: string]: Bucket }
-  queues: { [s: string]: Queue }
+  queues: { [s: string]: sqs.IQueue }
   secretManager: ISecret
   codeBuild: Project
 }): namedPolicyGroupType & namedPolicyType => {
@@ -62,9 +63,7 @@ export const createPolicies = ({
 
   const route53Policy = new PolicyStatement({
     effect: Effect.ALLOW,
-    resources: [
-      `arn:aws:route53:::hostedzone/${config.HOSTED_ZONE_ID}`,
-    ],
+    resources: [`arn:aws:route53:::hostedzone/${config.HOSTED_ZONE_ID}`],
     actions: [
       'route53:GetHostedZone',
       'route53:ChangeResourceRecordSets',

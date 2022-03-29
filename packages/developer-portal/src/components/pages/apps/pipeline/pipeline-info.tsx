@@ -32,6 +32,7 @@ const buildStatusToIntent = (status: string): Intent => {
     case 'FAILED':
       return 'danger'
     case 'DELETING':
+    case 'SCHEDULED_FOR_DELETION':
       return 'danger'
     case 'READY_FOR_DEPLOYMENT':
       return 'low'

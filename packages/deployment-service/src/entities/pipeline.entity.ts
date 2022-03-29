@@ -2,7 +2,7 @@ import { AppTypeEnum, PackageManagerEnum, PipelineModelInterface } from '@reapit
 import { Column, Entity, OneToMany } from 'typeorm'
 import { AbstractEntity } from './abstract-entity'
 import { PipelineRunnerEntity } from './pipeline-runner.entity'
-import { CodeBuild } from 'aws-sdk'
+import { PipelineBuildStatus } from '../dto'
 
 @Entity('pipelines')
 export class PipelineEntity extends AbstractEntity implements PipelineModelInterface {
@@ -40,7 +40,7 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
   clientId?: string
 
   @Column({ type: 'varchar' })
-  buildStatus?: CodeBuild.StatusType = 'CREATING_ARCHITECTURE'
+  buildStatus?: PipelineBuildStatus = 'CREATED'
 
   @Column({ nullable: true })
   subDomain?: string
@@ -62,6 +62,21 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
 
   @Column({ default: 'master' })
   branch?: string
+
+  get hasDistro(): boolean {
+    return this.cloudFrontId !== null && this.cloudFrontId !== undefined && this.cloudFrontId !== ''
+  }
+
+  get hasRepositoryConfigured(): boolean {
+    return this.repository !== undefined && this.repository !== ''
+  }
+
+  get hasRepositoryInstalled(): boolean {
+    return this.repositoryId !== undefined
+  }
+  get hasRoute53(): boolean {
+    return this.aRecordId !== undefined && this.aRecordId !== ''
+  }
 
   get uniqueRepoName(): string {
     return `${this.developerId}/${this.subDomain}`

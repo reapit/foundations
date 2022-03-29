@@ -6,7 +6,7 @@ import {
 } from '@homeservenow/serverless-aws-handler'
 import * as service from './../../services/pipeline'
 import { ownership, resolveCreds } from './../../utils'
-import { defaultOutputHeaders, QueueNames } from './../../constants'
+import { defaultOutputHeaders, isPipelineDeletable, QueueNames } from './../../constants'
 import { sqs, pusher } from '../../services'
 import { PipelineEntity } from '../../entities/pipeline.entity'
 
@@ -27,7 +27,7 @@ export const pipelineDelete = httpHandler({
 
     await ownership(pipeline.developerId, developerId)
 
-    if (['IN_PROGRESS', 'DELETING', 'CREATING_ARCHITECTURE', 'QUEUED'].includes(pipeline.buildStatus as string)) {
+    if (isPipelineDeletable(pipeline)) {
       throw new HttpErrorException('Cannot delete pipeline in current build status', 409 as HttpStatusCode)
     }
 

@@ -1,5 +1,11 @@
 import { resolveCreds } from '../../utils'
-import { BadRequestException, httpHandler, NotFoundException } from '@homeservenow/serverless-aws-handler'
+import {
+  BadRequestException,
+  HttpErrorException,
+  httpHandler,
+  HttpStatusCode,
+  NotFoundException,
+} from '@homeservenow/serverless-aws-handler'
 import { s3Client, createPipelineRunnerEntity, resetCurrentlyDeployed, savePipelineRunnerEntity } from '../../services'
 import { defaultOutputHeaders } from '../../constants'
 import * as pipelineService from '../../services/pipeline'
@@ -26,6 +32,10 @@ export const deployRelease = httpHandler<any, PipelineRunnerEntity>({
     }
 
     await ownership(pipeline.developerId, developerId)
+
+    if (pipeline.buildStatus !== 'PRE_PROVISIONED') {
+      throw new HttpErrorException('Cannot deploy pipeline in PRE_PROVISONED state', 409 as HttpStatusCode)
+    }
 
     const file = Buffer.from(body.file, 'base64')
 
