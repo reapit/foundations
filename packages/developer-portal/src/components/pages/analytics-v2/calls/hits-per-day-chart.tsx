@@ -42,9 +42,7 @@ export const HitsPerDayChart: FC<HitsPerDayChartProps> = ({ trafficEvents }) => 
               const chart = context.chart
               const { ctx, chartArea } = chart
 
-              if (!chartArea) {
-                return
-              }
+              if (!chartArea) return
 
               const gradient = ctx.createLinearGradient(0, chartArea.bottom, 0, chartArea.top)
               gradient.addColorStop(1, 'rgba(122, 44, 129, 0.5)')
@@ -71,6 +69,7 @@ export const HitsPerDayChart: FC<HitsPerDayChartProps> = ({ trafficEvents }) => 
         maintainAspectRatio: true,
         scales: {
           y: {
+            beginAtZero: true,
             ticks: {
               font: {
                 family: 'PT Sans',

@@ -10,7 +10,7 @@ exports[`DeveloperInstallationsChart should match a snapshot 1`] = `
       Installations By Day
     </H5>
     <FadeIn>
-      <Line
+      <ForwardRef(ChartComponent)
         data={
           Object {
             "datasets": Array [
@@ -28,7 +28,6 @@ exports[`DeveloperInstallationsChart should match a snapshot 1`] = `
                   1,
                 ],
                 "fill": false,
-                "lineTension": 0.1,
                 "pointBackgroundColor": "#fff",
                 "pointBorderColor": "rgba(75,192,192,1)",
                 "pointBorderWidth": 1,
@@ -50,7 +49,11 @@ exports[`DeveloperInstallationsChart should match a snapshot 1`] = `
         }
         options={
           Object {
-            "legend": null,
+            "plugins": Object {
+              "legend": Object {
+                "display": false,
+              },
+            },
             "tooltips": Object {
               "callbacks": Object {
                 "label": [Function],
@@ -59,6 +62,7 @@ exports[`DeveloperInstallationsChart should match a snapshot 1`] = `
             },
           }
         }
+        type="line"
       />
     </FadeIn>
   </Section>

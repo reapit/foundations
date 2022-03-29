@@ -1,5 +1,6 @@
 import React from 'react'
-import ChartComponent, { Bar, ChartData, ChartComponentProps } from 'react-chartjs-2'
+import 'chart.js/auto'
+import { Chart } from 'react-chartjs-2'
 import { H5, DATE_TIME_FORMAT, Section } from '@reapit/elements-legacy'
 import { AppSummaryModel, DeveloperModel } from '@reapit/foundations-ts-definitions'
 import { useDispatch, useSelector } from 'react-redux'
@@ -9,13 +10,14 @@ import dayjs from 'dayjs'
 import { Billing } from '@/reducers/developer'
 import { Dispatch } from 'redux'
 import { BillingOverviewForPeriodV2Model } from '@reapit/foundations-ts-definitions'
-import ChartLegend from '@/components/ui/chart-legend'
-import { ChartLegendItem } from '@/components/ui/chart-legend/chart-legend'
+// import ChartLegend from '@/components/ui/chart-legend'
+// import { ChartLegendItem } from '@/components/ui/chart-legend/chart-legend'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { getDeveloperIdFromConnectSession } from '@/utils/session'
-import { chartContainer } from './__styles__/service-chart'
+// import { chartContainer } from './__styles__/service-chart'
 import { Loader } from '@reapit/elements'
+import { ChartData } from 'chart.js'
 
 const API_CALL_INDEX = 0
 const APP_LISTING_INDEX = 1
@@ -140,19 +142,20 @@ export const handleUseEffect =
 
 export const renderChart = (
   datasets: ChartData<any>,
-  chartRef: (node: Bar) => void,
-  setChartLegendItems: React.Dispatch<React.SetStateAction<ChartLegendItem[] | undefined>>,
+  chartRef: () => void,
+  // setChartLegendItems: React.Dispatch<React.SetStateAction<ChartLegendItem[] | undefined>>,
 ) => {
   return (
-    <Bar
+    <Chart
+      type="bar"
       ref={chartRef}
       data={datasets}
       width={50}
       height={50}
       options={{
-        legendCallback: handleChartLegendCallback(setChartLegendItems),
+        // legendCallback: handleChartLegendCallback(setChartLegendItems),
         legend: {
-          display: false,
+          // display: false,
         },
         maintainAspectRatio: false,
         scales: {
@@ -170,41 +173,41 @@ export const renderChart = (
   )
 }
 
-export const handleChartLegendCallback = (
-  setChartLegendItems: React.Dispatch<React.SetStateAction<ChartLegendItem[] | undefined>>,
-) => {
-  return (chart: ChartComponentProps) => {
-    setChartLegendItems(chart.legend.legendItems)
-  }
-}
+// export const handleChartLegendCallback = (
+//   setChartLegendItems: React.Dispatch<React.SetStateAction<ChartLegendItem[] | undefined>>,
+// ) => {
+//   return (chart: Chart) => {
+//     setChartLegendItems(chart.legend.legendItems)
+//   }
+// }
 
-export const handleCallGenerateChartLegend = (chart?: ChartComponent<any>) => {
-  return () => {
-    // Need to call generateLegend whenever our billings data changed
-    // Because we are using custom legend, and legendCallback is not called automatically
-    // so we must call generateLegend() ourselves in code when creating a legend using this method.
-    // https://www.chartjs.org/docs/latest/configuration/legend.html#html-legends
-    chart?.chartInstance?.generateLegend()
-  }
-}
+// export const handleCallGenerateChartLegend = (chart?: ChartComponent<any>) => {
+//   return () => {
+//     // Need to call generateLegend whenever our billings data changed
+//     // Because we are using custom legend, and legendCallback is not called automatically
+//     // so we must call generateLegend() ourselves in code when creating a legend using this method.
+//     // https://www.chartjs.org/docs/latest/configuration/legend.html#html-legends
+//     chart?.chartInstance?.generateLegend()
+//   }
+// }
 
-export const renderChartLegend = (chart?: ChartComponent<any>, chartLegendItems?: ChartLegendItem[]) => {
-  if (!chart || !chartLegendItems) {
-    return null
-  }
-  return <ChartLegend chartInstance={chart.chartInstance} chartLegendItems={chartLegendItems} />
-}
+// export const renderChartLegend = (chart?: typeof Chart, chartLegendItems?: ChartLegendItem[]) => {
+//   if (!chart || !chartLegendItems) {
+//     return null
+//   }
+//   return <ChartLegend chartInstance={chart.chartInstance} chartLegendItems={chartLegendItems} />
+// }
 
-export const handleChartCallbackRef = (setChartElement: React.Dispatch<React.SetStateAction<Bar | undefined>>) => {
-  return (barChartElement: Bar) => {
-    setChartElement(barChartElement)
-  }
-}
+// export const handleChartCallbackRef = (setChartElement: React.Dispatch<React.SetStateAction<Bar | undefined>>) => {
+//   return (barChartElement: typeof Chart) => {
+//     setChartElement(barChartElement)
+//   }
+// }
 
 export const ServiceChart: React.FC = () => {
-  const [chartElement, setChartElement] = React.useState<Bar | undefined>()
+  // const [chartElement, setChartElement] = React.useState<typeof Chart | undefined>()
 
-  const [chartLegendItems, setChartLegendItems] = React.useState<ChartLegendItem[]>()
+  // const [chartLegendItems, setChartLegendItems] = React.useState<ChartLegendItem[]>()
   const dispatch = useDispatch()
   const myIdentity = useSelector(selectMyIdentity)
   const billing = useSelector(selectBilling)
@@ -216,9 +219,9 @@ export const ServiceChart: React.FC = () => {
 
   const dateFrom = dayjs(myIdentity.created).format(DATE_TIME_FORMAT.YYYY_MM) as string
   const dateTo = dayjs().format(DATE_TIME_FORMAT.YYYY_MM)
-  const chartRef = React.useCallback(handleChartCallbackRef(setChartElement), [])
+  // const chartRef = React.useCallback(handleChartCallbackRef(setChartElement), [])
   React.useEffect(handleUseEffect({ developerId, dateFrom, dateTo, dispatch }), [myIdentity.id, developerId])
-  React.useEffect(handleCallGenerateChartLegend(chartElement), [billing, chartElement])
+  // React.useEffect(handleCallGenerateChartLegend(chartElement), [billing, chartElement])
   const datasets = mapServiceChartDataSet(billing)
 
   if (isDeveloperLoading || isServiceChartLoading) {
@@ -228,8 +231,27 @@ export const ServiceChart: React.FC = () => {
   return (
     <Section hasMargin={false} hasBoxShadow>
       <H5>Services</H5>
-      {renderChartLegend(chartElement, chartLegendItems)}
-      <div className={chartContainer}>{renderChart(datasets, chartRef, setChartLegendItems)}</div>
+      <Chart
+        type="bar"
+        // ref={chartRef}
+        data={datasets}
+        width={50}
+        height={50}
+        options={{
+          // legendCallback: handleChartLegendCallback(setChartLegendItems),
+          // legend: {
+          // display: false,
+          // },
+          maintainAspectRatio: false,
+          scales: {
+            y: {
+              labels: ['Total Cost ( £ )'],
+            },
+          },
+        }}
+      />
+      {/* {renderChartLegend(chartElement, chartLegendItems)} */}
+      {/* <div className={chartContainer}>{renderChart(datasets, chartRef, setChartLegendItems)}</div> */}
     </Section>
   )
 }

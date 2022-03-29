@@ -1,8 +1,14 @@
+import 'chart.js/auto'
 import * as React from 'react'
-import { Line } from 'react-chartjs-2'
+import { Chart } from 'react-chartjs-2'
 import { H5, Section } from '@reapit/elements-legacy'
 import { InstallationModelWithAppName } from '@/components/pages/analytics/detailed/installation-app-section'
-import { groupInstalledAppsByDate, getChartData, groupAppsByNameAndCount } from '@/utils/developer-analytics'
+import {
+  groupInstalledAppsByDate,
+  getChartData,
+  groupAppsByNameAndCount,
+  GrouppedAppsByDate,
+} from '@/utils/developer-analytics'
 import FadeIn from '../../../../styles/fade-in'
 import { Loader } from '@reapit/elements'
 
@@ -11,9 +17,13 @@ export interface DeveloperInstallationsChartProps {
   loading: boolean
 }
 
-export const getChartOptions = (data) => {
+export const getChartOptions = (data: GrouppedAppsByDate) => {
   return {
-    legend: null,
+    plugins: {
+      legend: {
+        display: false,
+      },
+    },
     tooltips: {
       mode: 'label',
       callbacks: {
@@ -39,13 +49,12 @@ const DeveloperInstallationsChart = ({ data, loading }: DeveloperInstallationsCh
     datasets: [
       {
         fill: false,
-        lineTension: 0.1,
         backgroundColor: 'rgba(75,192,192,0.4)',
         borderColor: 'rgba(75,192,192,1)',
-        borderCapStyle: 'butt',
+        borderCapStyle: 'butt' as CanvasLineCap,
         borderDash: [],
         borderDashOffset: 0.0,
-        borderJoinStyle: 'miter',
+        borderJoinStyle: 'miter' as CanvasLineJoin,
         pointBorderColor: 'rgba(75,192,192,1)',
         pointBackgroundColor: '#fff',
         pointBorderWidth: 1,
@@ -68,7 +77,7 @@ const DeveloperInstallationsChart = ({ data, loading }: DeveloperInstallationsCh
         <Section hasMargin={false} hasBoxShadow>
           <H5>Installations By Day</H5>
           <FadeIn>
-            <Line data={chartData} options={getChartOptions(grouppedAppsByDate)} />
+            <Chart type="line" data={chartData} options={getChartOptions(grouppedAppsByDate)} />
           </FadeIn>
         </Section>
       )}
