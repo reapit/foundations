@@ -16,12 +16,7 @@ import {
 } from '@reapit/elements'
 import { ControlsContainer, inputFullWidth, overflowHidden } from './__styles__'
 import { cx } from '@linaria/core'
-import {
-  AppSummaryModel,
-  AppSummaryModelPagedResult,
-  InstallationModel,
-  InstallationModelPagedResult,
-} from '@reapit/foundations-ts-definitions'
+import { AppSummaryModel, InstallationModel, InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { useReapitGet } from '@reapit/utils-react'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
@@ -58,17 +53,11 @@ export const handleFormChange =
 
 export const Controls: FC = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const { setAnalyticsFilterState, analyticsFilterState } = useAnalyticsState()
+  const { setAnalyticsFilterState, analyticsFilterState, analyticsDataState } = useAnalyticsState()
   const { dateRange, appId } = analyticsFilterState
+  const { apps } = analyticsDataState
   const developerId = connectSession?.loginIdentity.developerId
   const appQuery = appId ? { appId } : {}
-
-  const [apps] = useReapitGet<AppSummaryModelPagedResult>({
-    reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getApps],
-    queryParams: { showHiddenApps: 'true', developerId, pageSize: 25 },
-    fetchWhenTrue: [developerId],
-  })
 
   const [installations] = useReapitGet<InstallationModelPagedResult>({
     reapitConnectBrowserSession,
