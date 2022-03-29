@@ -103,7 +103,10 @@ const UsersTab: FC = () => {
   const pageNumber = data?.pageNumber ?? 0
 
   const onComplete = () => {
-    mutate()
+    // Set timeout as a workaround for RDS replication error.
+    setTimeout(() => {
+      mutate()
+    }, 1000)
     setIndexExpandedRow(null)
   }
 
