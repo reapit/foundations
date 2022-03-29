@@ -43,4 +43,5 @@ export enum PathNames {
   terminateInstallation = '/marketplace/installations/{installationId}/terminate',
   appRevisions = '/marketplace/apps/{appId}/revisions',
   cancelRevision = '/marketplace/apps/{appId}/revisions/{revisionId}/reject',
+  trafficStatistics = '/trafficevents/trafficStatistics',
 }

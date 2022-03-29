@@ -27,6 +27,7 @@ export enum GetActionNames {
   getAppCategories = 'getAppCategories',
   getAppRevisions = 'getAppRevisions',
   getDeveloper = 'getDeveloper',
+  getTrafficStats = 'getTrafficStats',
 }
 
 export type GetActions = { [key in GetActionNames]: GetAction }
@@ -121,5 +122,10 @@ export const getActions = (appEnv: AppEnv): GetActions => ({
     api: ApiNames(appEnv).platform,
     path: PathNames.appRevisions,
     errorMessage: 'Something went wrong fetching app revisions',
+  },
+  [GetActionNames.getTrafficStats]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.trafficStatistics,
+    errorMessage: 'Something went wrong fetching API calls data',
   },
 })
