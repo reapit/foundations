@@ -63,9 +63,7 @@ export const createPolicies = ({
 
   const route53Policy = new PolicyStatement({
     effect: Effect.ALLOW,
-    resources: [
-      `arn:aws:route53:::hostedzone/${config.HOSTED_ZONE_ID}`,
-    ],
+    resources: [`arn:aws:route53:::hostedzone/${config.HOSTED_ZONE_ID}`],
     actions: [
       'route53:GetHostedZone',
       'route53:ChangeResourceRecordSets',
