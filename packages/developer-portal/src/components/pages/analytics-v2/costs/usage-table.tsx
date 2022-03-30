@@ -36,7 +36,7 @@ export const UsageTable: FC<UsageTableProps> = ({ billing }) => {
             },
             {
               label: 'Total Number Calls',
-              value: String(amount) ?? '',
+              value: String(amount),
               icon: 'homeSystem',
               cellHasDarkText: true,
               narrowTable: {
@@ -54,7 +54,7 @@ export const UsageTable: FC<UsageTableProps> = ({ billing }) => {
             },
             {
               label: 'Total Number Endpoints',
-              value: String(itemCount) ?? '',
+              value: String(itemCount),
               icon: 'homeSystem',
               cellHasDarkText: true,
               narrowTable: {
