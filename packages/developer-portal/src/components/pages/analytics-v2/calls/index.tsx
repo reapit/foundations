@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { Loader, Subtitle, Title } from '@reapit/elements'
+import { FlexContainer, Loader, Subtitle, Title } from '@reapit/elements'
 import { HitsPerDayChart } from './hits-per-day-chart'
 import { useAnalyticsState } from '../state/use-analytics-state'
 import { GetActionNames, getActions } from '@reapit/utils-common'
@@ -36,16 +36,18 @@ export const AnalyticsCalls: FC = () => {
   return (
     <>
       <Title>API Calls</Title>
-      <ChartWrapper>
-        <Subtitle>Hits Per Day</Subtitle>
-        {trafficEventsLoading && <Loader />}
-        {trafficEvents && <HitsPerDayChart trafficEvents={trafficEvents} />}
-      </ChartWrapper>
-      <ChartWrapper>
-        <Subtitle>Hits By Resource</Subtitle>
-        {trafficEventsLoading && <Loader />}
-        {trafficEvents && <HitsByResourceChart trafficEvents={trafficEvents} />}
-      </ChartWrapper>
+      <FlexContainer isFlexWrap>
+        <ChartWrapper>
+          <Subtitle>Hits Per Day</Subtitle>
+          {trafficEventsLoading && <Loader />}
+          {trafficEvents && <HitsPerDayChart trafficEvents={trafficEvents} />}
+        </ChartWrapper>
+        <ChartWrapper>
+          <Subtitle>Hits By Resource</Subtitle>
+          {trafficEventsLoading && <Loader />}
+          {trafficEvents && <HitsByResourceChart trafficEvents={trafficEvents} />}
+        </ChartWrapper>
+      </FlexContainer>
     </>
   )
 }

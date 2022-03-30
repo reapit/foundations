@@ -229,10 +229,14 @@ Object {
                   </option>
                   <option
                     value="MOCK_APP_ID"
-                  />
+                  >
+                    MOCK_APP_NAME
+                  </option>
                   <option
                     value="MOCK_OTHER_APP_ID"
-                  />
+                  >
+                    MOCK_APP_NAME_ANOTHER
+                  </option>
                 </select>
                 <label
                   class="e1nbkkrq-el-label"
@@ -504,10 +508,14 @@ Object {
                 </option>
                 <option
                   value="MOCK_APP_ID"
-                />
+                >
+                  MOCK_APP_NAME
+                </option>
                 <option
                   value="MOCK_OTHER_APP_ID"
-                />
+                >
+                  MOCK_APP_NAME_ANOTHER
+                </option>
               </select>
               <label
                 class="e1nbkkrq-el-label"
