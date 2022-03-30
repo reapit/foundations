@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { Loader, Subtitle, Title } from '@reapit/elements'
+import { FlexContainer, Loader, Subtitle, Title } from '@reapit/elements'
 import { useAnalyticsState } from '../state/use-analytics-state'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { useReapitGet } from '@reapit/utils-react'
@@ -41,16 +41,18 @@ export const AnalyticsInstallations: FC = () => {
   return (
     <>
       <Title>Installations</Title>
-      <ChartWrapper>
-        <Subtitle>Installations Per Day</Subtitle>
-        {installationsLoading && <Loader />}
-        {installations && <InstallationsPerDayChart installations={installations} />}
-      </ChartWrapper>
-      <ChartWrapper>
-        <Subtitle>Installations Per App</Subtitle>
-        {installationsLoading && <Loader />}
-        {installations && <InstallationsByAppChart installations={installations} />}
-      </ChartWrapper>
+      <FlexContainer isFlexWrap>
+        <ChartWrapper>
+          <Subtitle>Installations Per Day</Subtitle>
+          {installationsLoading && <Loader />}
+          {installations && <InstallationsPerDayChart installations={installations} />}
+        </ChartWrapper>
+        <ChartWrapper>
+          <Subtitle>Installations Per App</Subtitle>
+          {installationsLoading && <Loader />}
+          {installations && <InstallationsByAppChart installations={installations} />}
+        </ChartWrapper>
+      </FlexContainer>
     </>
   )
 }

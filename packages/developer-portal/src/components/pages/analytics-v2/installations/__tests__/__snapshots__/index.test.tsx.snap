@@ -14,6 +14,42 @@ Object {
         Installations
       </h1>
       <div
+        class="e1x57i2-el-flex-wrap e2kmzjs-el-flex-container"
+      >
+        <div
+          class="c12q84nz-chart-wrapper"
+        >
+          <h2
+            class="e1byern-el-subtitle"
+          >
+            Installations Per Day
+          </h2>
+        </div>
+        <div
+          class="c12q84nz-chart-wrapper"
+        >
+          <h2
+            class="e1byern-el-subtitle"
+          >
+            Installations Per App
+          </h2>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6-el-snack-holder"
+    />
+    <h1
+      class="evblxhy-el-title"
+    >
+      Installations
+    </h1>
+    <div
+      class="e1x57i2-el-flex-wrap e2kmzjs-el-flex-container"
+    >
+      <div
         class="c12q84nz-chart-wrapper"
       >
         <h2
@@ -31,34 +67,6 @@ Object {
           Installations Per App
         </h2>
       </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <h1
-      class="evblxhy-el-title"
-    >
-      Installations
-    </h1>
-    <div
-      class="c12q84nz-chart-wrapper"
-    >
-      <h2
-        class="e1byern-el-subtitle"
-      >
-        Installations Per Day
-      </h2>
-    </div>
-    <div
-      class="c12q84nz-chart-wrapper"
-    >
-      <h2
-        class="e1byern-el-subtitle"
-      >
-        Installations Per App
-      </h2>
     </div>
   </div>,
   "debug": [Function],
