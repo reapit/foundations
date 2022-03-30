@@ -15,6 +15,7 @@ exports[`AnalyticsPage renderTabContent should render Billing Tab 1`] = `
           "isListed": true,
           "launchUri": "https://foo.bar",
           "limitToClientIds": Array [],
+          "name": "MOCK_APP_NAME",
           "products": Array [
             "agencyCloud",
           ],
@@ -30,6 +31,7 @@ exports[`AnalyticsPage renderTabContent should render Billing Tab 1`] = `
           "isListed": true,
           "launchUri": "https://foo.bar",
           "limitToClientIds": Array [],
+          "name": "MOCK_APP_NAME_ANOTHER",
           "products": Array [
             "agencyCloud",
           ],
@@ -56,6 +58,7 @@ exports[`AnalyticsPage renderTabContent should render Detailed Tab 1`] = `
           "isListed": true,
           "launchUri": "https://foo.bar",
           "limitToClientIds": Array [],
+          "name": "MOCK_APP_NAME",
           "products": Array [
             "agencyCloud",
           ],
@@ -71,6 +74,7 @@ exports[`AnalyticsPage renderTabContent should render Detailed Tab 1`] = `
           "isListed": true,
           "launchUri": "https://foo.bar",
           "limitToClientIds": Array [],
+          "name": "MOCK_APP_NAME_ANOTHER",
           "products": Array [
             "agencyCloud",
           ],

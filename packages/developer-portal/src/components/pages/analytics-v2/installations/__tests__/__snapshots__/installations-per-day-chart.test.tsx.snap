@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AnalyticsInstallations should match snapshot 1`] = `
+exports[`InstallationsPerDayChart should match snapshot 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -8,58 +8,22 @@ Object {
       <div
         class="ecbqyq6-el-snack-holder"
       />
-      <h1
-        class="evblxhy-el-title"
-      >
-        Installations
-      </h1>
-      <div
-        class="c12q84nz-chart-wrapper"
-      >
-        <h2
-          class="e1byern-el-subtitle"
-        >
-          Installations Per Day
-        </h2>
-      </div>
-      <div
-        class="c12q84nz-chart-wrapper"
-      >
-        <h2
-          class="e1byern-el-subtitle"
-        >
-          Installations Per App
-        </h2>
-      </div>
+      <canvas
+        height="150"
+        role="img"
+        width="300"
+      />
     </div>
   </body>,
   "container": <div>
     <div
       class="ecbqyq6-el-snack-holder"
     />
-    <h1
-      class="evblxhy-el-title"
-    >
-      Installations
-    </h1>
-    <div
-      class="c12q84nz-chart-wrapper"
-    >
-      <h2
-        class="e1byern-el-subtitle"
-      >
-        Installations Per Day
-      </h2>
-    </div>
-    <div
-      class="c12q84nz-chart-wrapper"
-    >
-      <h2
-        class="e1byern-el-subtitle"
-      >
-        Installations Per App
-      </h2>
-    </div>
+    <canvas
+      height="150"
+      role="img"
+      width="300"
+    />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

@@ -123,9 +123,11 @@ describe('FilterForm', () => {
         },
         {
           value: 'MOCK_APP_ID',
+          label: 'MOCK_APP_NAME',
         },
         {
           value: 'MOCK_OTHER_APP_ID',
+          label: 'MOCK_APP_NAME_ANOTHER',
         },
       ])
     })
