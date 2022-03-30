@@ -53,7 +53,6 @@ export const AnalyticsInstallations: FC = () => {
       </ChartWrapper>
     </>
   )
-  return <Title>Installations</Title>
 }
 
 export default AnalyticsInstallations

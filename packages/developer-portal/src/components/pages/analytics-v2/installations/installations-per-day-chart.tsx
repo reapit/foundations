@@ -49,7 +49,7 @@ export const InstallationsPerDayChart: FC<InstallationsPerDayChartProps> = ({ in
     <Chart
       type="line"
       data={{
-        labels: sortedInstallations?.labels,
+        labels: sortedInstallations.labels,
         datasets: [
           {
             fill: true,
@@ -77,7 +77,7 @@ export const InstallationsPerDayChart: FC<InstallationsPerDayChartProps> = ({ in
             pointHoverBorderColor: '#7A2C81',
             pointHoverBorderWidth: 4,
 
-            data: sortedInstallations?.data,
+            data: sortedInstallations.data,
           },
         ],
       }}

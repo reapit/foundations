@@ -23,7 +23,7 @@ export const handleSortChartData =
     }
 
     const sortedInstallsByApp = installations.data.reduce<{ [key: string]: number }>((current, { appId }) => {
-      const name = apps.data?.find((app) => app && app?.id === appId)?.name ?? ''
+      const name = apps.data?.find((app) => app && app.id === appId)?.name ?? ''
 
       if (current[name]) {
         current[name] += 1
@@ -52,7 +52,7 @@ export const InstallationsByAppChart: FC<InstallationsByAppChartProps> = ({ inst
     <Chart
       type="bar"
       data={{
-        labels: sortedInstallations?.labels,
+        labels: sortedInstallations.labels,
         datasets: [
           {
             label: 'Installations',
@@ -71,7 +71,7 @@ export const InstallationsByAppChart: FC<InstallationsByAppChartProps> = ({ inst
               return gradient
             },
             borderColor: '#7A2C81',
-            data: sortedInstallations?.data,
+            data: sortedInstallations.data,
           },
         ],
       }}
