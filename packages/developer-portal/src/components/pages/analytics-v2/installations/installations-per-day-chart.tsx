@@ -24,12 +24,7 @@ export const handleSortChartData = (installations: InstallationModelPagedResult)
   const sortedInstallsByDate = installations.data.reduce<{ [key: string]: number }>((current, { created }) => {
     const date = dayjs(created).format('YYYY-MM-DD')
 
-    if (current[date]) {
-      current[date] += 1
-      return current
-    }
-
-    current[date] = 1
+    current[date] = current[date] ? (current[date] += 1) : 1
     return current
   }, {})
 

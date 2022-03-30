@@ -25,12 +25,7 @@ export const handleSortChartData =
     const sortedInstallsByApp = installations.data.reduce<{ [key: string]: number }>((current, { appId }) => {
       const name = apps.data?.find((app) => app && app.id === appId)?.name ?? ''
 
-      if (current[name]) {
-        current[name] += 1
-        return current
-      }
-
-      current[name] = 1
+      current[name] = current[name] ? (current[name] += 1) : 1
       return current
     }, {})
 
