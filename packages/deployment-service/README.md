@@ -55,6 +55,13 @@ Deleting | Currently deleting the pipeline
 Failed to Delete | Failed to delete the pipeline
 Deleted | Pipeline has been deleted (only in events, pipeline is not soft deleted)
 
+### Provisioning Flow
+
+Below is the flow of how the provisioning is completed with fallbacks and allows for retries.
+
+![Automated flow](docs/images/provisioning-flow.jpg)
+
+
 ### Deployments
 
 Below are diagrams of different deployment triggers and their processes.
@@ -83,5 +90,46 @@ Below is a diagram of the base conditions of the Codebuild Update Handler which 
 
 ![Codebuild update handler](docs/images/codebuild-update-handler.jpg)
 
+### App Event Handler
 
+The app Events handler is a very simple handler. The function is triggered from the queue provided from the Apps Team. 
+
+The Function handles both `Created` and `Deleted` events and either creates a pre-provisioned pipeline for the app or schedules a pipeline for deletion.
+
+## Important Functions
+
+### Pipeline TearDown & starter
+
+The pipeline teardown functions are as follows 
+
+#### Pipeline Teardown Start
+
+Required to disable the distro and await for the distro to be disable before deletion
+
+#### Pipeline Teardown
+
+Deletes the Distro, r53 record and pipeline info from the database
+
+
+### Pipeline codebuild executor
+
+Base there are several methods to start the codebuilder; there is a function that is triggered by an SQS queue that each codebuild trigger method publishes to.
+
+## Repository Apps
+
+### Github
+
+#### Authentication
+
+The authentication is handled between the app credentials and the installationId of the repository install. This event, unlike the bitbucket event is sent on the install of the repository.
+
+### Bitbucket
+
+The bitbucket app (plugin) requires 2 lambdas in order to function. The first is a config function that returns the required config on a `GET` call when installing/update the bitbucket app. 
+
+The other is the webhook function required for handling bitbucket events.
+
+#### Authentication
+
+Authentication with bitbucket is done using the installations (the plugin installed on the user's account) credentials sent to the webhook when the first install happens. This is an event that happens when the app is installed on an account. Not a repository!
 
