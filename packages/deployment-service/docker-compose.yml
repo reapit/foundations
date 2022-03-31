@@ -1,8 +1,0 @@
-version: '3'
-
-services:
-  elastic:
-    image: softwaremill/elasticmq
-    ports:
-      - 9324:9324
-      - 9325:9325
