@@ -1,5 +1,5 @@
 import { cx } from '@linaria/core'
-import React, { Dispatch, FC, HTMLAttributes, SetStateAction, useState, MouseEvent } from 'react'
+import React, { Dispatch, FC, HTMLAttributes, SetStateAction, useState, MouseEvent, ReactElement } from 'react'
 import {
   CardWrap,
   CardHeading,
@@ -60,10 +60,10 @@ export interface CardContextMenuProps extends HTMLAttributes<HTMLDivElement> {
 export interface CardProps extends HTMLAttributes<HTMLDivElement> {
   hasMainCard?: boolean // Should we render an Image card as the main card?
   // Supplied text options for the various fields
-  mainCardHeading?: string
+  mainCardHeading?: string | ReactElement
   mainCardSubHeading?: string
   mainCardSubHeadingAdditional?: string
-  mainCardBody?: string
+  mainCardBody?: string | ReactElement
   mainCardImgUrl?: string
   // A list of context menu options
   mainContextMenuItems?: ContextMenuItem[]

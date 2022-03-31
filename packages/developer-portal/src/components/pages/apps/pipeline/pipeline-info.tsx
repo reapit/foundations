@@ -1,4 +1,5 @@
 import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { buildStatusToIntent, buildStatusToReadable } from '@/utils/pipeline-helpers'
 import { useReapitConnect } from '@reapit/connect-session'
 import {
   BodyText,
@@ -7,7 +8,6 @@ import {
   ColSplit,
   Grid,
   InputWrap,
-  Intent,
   StatusIndicator,
   Subtitle,
   elMb3,
@@ -17,35 +17,6 @@ import { UpdateActionNames, updateActions } from '@reapit/utils-common'
 import { UpdateReturnTypeEnum, useReapitUpdate } from '@reapit/utils-react'
 import React from 'react'
 import { EditPipeline } from './edit-pipeline'
-
-const buildStatusToIntent = (status: string): Intent => {
-  switch (status) {
-    case 'CREATING_ARCHITECTURE':
-      return 'primary'
-    case 'COMPLETED':
-      return 'primary'
-    case 'IN_PROGRESS':
-      return 'secondary'
-    case 'PENDING':
-    case 'QUEUED':
-      return 'critical'
-    case 'FAILED':
-      return 'danger'
-    case 'DELETING':
-    case 'SCHEDULED_FOR_DELETION':
-      return 'danger'
-    case 'READY_FOR_DEPLOYMENT':
-      return 'low'
-    default:
-      return 'neutral'
-  }
-}
-
-const buildStatusToReadable = (status: string): string =>
-  status
-    .split('_')
-    .map((str) => str.toLowerCase())
-    .join(' ')
 
 export const PipelineInfo: React.FC<{
   pipeline: PipelineModelInterface

@@ -30,6 +30,7 @@ const ElementsPage = React.lazy(() => catchChunkError(() => import('../component
 const GraphQLPage = React.lazy(() => catchChunkError(() => import('../components/pages/graphql')))
 const SelectRolePage = React.lazy(() => catchChunkError(() => import('../components/pages/login/select-role')))
 const AnalyticsV2Page = React.lazy(() => catchChunkError(() => import('../components/pages/analytics-v2')))
+const IaaS = React.lazy(() => catchChunkError(() => import('../components/pages/iaas')))
 
 const SettingsOrganisationTabPage = React.lazy(() =>
   catchChunkError(() => import('../components/pages/settings/settings-organisation-tab')),
@@ -79,6 +80,7 @@ const Router = () => {
                 <PrivateRoute path={Routes.DEVELOPER_EDITION_DOWNLOAD} component={EditionDownloadPage} />
                 <PrivateRoute path={Routes.GRAPHQL} component={GraphQLPage} />
                 <PrivateRoute path={Routes.ELEMENTS} exact component={ElementsPage} />
+                <PrivateRoute path={Routes.IAAS} exact component={IaaS} />
                 <Route render={() => <Info infoType="404" />} />
               </Switch>
             </PrivateRouteWrapper>
