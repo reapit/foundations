@@ -1,76 +1,11 @@
-import Routes from '@/constants/routes'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
-import { buildStatusToIntent, buildStatusToReadable, pipelineViewable } from '@/utils/pipeline-helpers'
 import { useReapitConnect } from '@reapit/connect-session'
-import {
-  BodyText,
-  Button,
-  ButtonGroup,
-  elMt6,
-  Loader,
-  Pagination,
-  StatusIndicator,
-  Table,
-  TableCell,
-  TableExpandableRow,
-  TableExpandableRowTriggerCell,
-  TableHeader,
-  TableHeadersRow,
-  TableRow,
-  TableRowContainer,
-  Title,
-} from '@reapit/elements'
+import { BodyText, elMt6, Loader, Pagination, Table, TableHeader, TableHeadersRow, Title } from '@reapit/elements'
 import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
-import { ApiNames, GetActionNames, getActions } from '@reapit/utils-common'
+import { GetActionNames, getActions } from '@reapit/utils-common'
 import { useReapitGet } from '@reapit/utils-react'
 import React, { FC, useEffect, useState } from 'react'
-import { useHistory } from 'react-router'
-import { navigate, openNewPage } from '../../../utils/navigation'
-
-const PipelineRow: FC<{ pipeline: PipelineModelInterface }> = ({ pipeline }) => {
-  const history = useHistory()
-  const [isOpen, setIsOpen] = useState<boolean>(false)
-
-  return (
-    <TableRowContainer>
-      <TableRow>
-        <TableCell>{pipeline.name}</TableCell>
-        <TableCell>
-          <StatusIndicator intent={buildStatusToIntent(pipeline.buildStatus as string)} />
-          {buildStatusToReadable(pipeline.buildStatus as string)}
-        </TableCell>
-        <TableCell>{pipeline.appType}</TableCell>
-        <TableCell>
-          <a target="_blank" href={pipeline.repository} rel="noreferrer">
-            {pipeline.repository}
-          </a>
-        </TableCell>
-        <TableExpandableRowTriggerCell
-          isOpen={isOpen}
-          onClick={() => setIsOpen(!isOpen)}
-        ></TableExpandableRowTriggerCell>
-      </TableRow>
-      <TableExpandableRow isOpen={isOpen}>
-        <ButtonGroup>
-          <Button
-            intent="secondary"
-            onClick={navigate(history, Routes.APP_PIPELINE.replace(':appId', pipeline.appId as string))}
-          >
-            Manage
-          </Button>
-          {pipelineViewable(pipeline.buildStatus as string) && (
-            <Button
-              intent="primary"
-              onClick={openNewPage(`https://${pipeline.subDomain}${ApiNames(window.reapit.config.appEnv).iaas}`)}
-            >
-              View
-            </Button>
-          )}
-        </ButtonGroup>
-      </TableExpandableRow>
-    </TableRowContainer>
-  )
-}
+import { PipelineRow } from './pipeline-row'
 
 type Pagination<T> = {
   items: Array<T>
