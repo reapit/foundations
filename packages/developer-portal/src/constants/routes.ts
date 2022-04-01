@@ -41,6 +41,7 @@ const Routes = {
   GRAPHQL: '/graphql',
   ELEMENTS: '/elements',
   SELECT_ROLE: '/select-role',
+  IAAS: '/iaas',
 }
 
 export default Routes

@@ -10,6 +10,7 @@ export interface GetAction {
 export enum GetActionNames {
   getApps = 'getApps',
   getPipeline = 'getPipeline',
+  paginatePipeline = 'paginatePipeline',
   getPipelineDeployments = 'getPipelineDeployments',
   getProducts = 'getProducts',
   getSandboxes = 'getSandboxes',
@@ -121,5 +122,10 @@ export const getActions = (appEnv: AppEnv): GetActions => ({
     api: ApiNames(appEnv).platform,
     path: PathNames.appRevisions,
     errorMessage: 'Something went wrong fetching app revisions',
+  },
+  [GetActionNames.paginatePipeline]: {
+    api: ApiNames(appEnv).pipeline,
+    path: PathNames.paginatePipeline,
+    errorMessage: 'Something went wrong fetching pipelines',
   },
 })
