@@ -3,7 +3,6 @@ import { Intent } from '@reapit/elements'
 export const buildStatusToIntent = (status: string): Intent => {
   switch (status) {
     case 'PROVISIONING':
-      return 'primary'
     case 'COMPLETED':
       return 'primary'
     case 'IN_PROGRESS':
@@ -13,9 +12,9 @@ export const buildStatusToIntent = (status: string): Intent => {
     case 'QUEUED':
       return 'critical'
     case 'FAILED':
-      return 'danger'
     case 'DELETING':
     case 'SCHEDULED_FOR_DELETION':
+    case 'DELETED':
       return 'danger'
     case 'READY_FOR_DEPLOYMENT':
       return 'low'
@@ -39,4 +38,5 @@ export const pipelineViewable = (status: string): boolean =>
     'PROVISIONING',
     'PROVISION_REQUEST',
     'FAILED_TO_PROVISION',
+    'READY_FOR_DEPLOYMENT',
   ].includes(status)
