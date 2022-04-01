@@ -1,5 +1,5 @@
 import { cx } from '@linaria/core'
-import React, { Dispatch, FC, HTMLAttributes, SetStateAction, useState, MouseEvent, ReactElement } from 'react'
+import React, { Dispatch, FC, HTMLAttributes, SetStateAction, useState, MouseEvent } from 'react'
 import {
   CardWrap,
   CardHeading,
