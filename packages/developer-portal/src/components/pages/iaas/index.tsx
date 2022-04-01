@@ -1,62 +1,74 @@
 import Routes from '@/constants/routes'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { buildStatusToIntent, buildStatusToReadable, pipelineViewable } from '@/utils/pipeline-helpers'
-import { cx } from '@linaria/core'
 import { useReapitConnect } from '@reapit/connect-session'
 import {
   BodyText,
-  Card,
-  Col,
-  elFadeIn,
-  elMt3,
-  Grid,
+  Button,
+  ButtonGroup,
+  elMt6,
   Loader,
   Pagination,
   StatusIndicator,
+  Table,
+  TableCell,
+  TableExpandableRow,
+  TableExpandableRowTriggerCell,
+  TableHeader,
+  TableHeadersRow,
+  TableRow,
+  TableRowContainer,
   Title,
 } from '@reapit/elements'
 import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import { ApiNames, GetActionNames, getActions } from '@reapit/utils-common'
 import { useReapitGet } from '@reapit/utils-react'
-import React, { useEffect, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import { useHistory } from 'react-router'
-import { navigate } from '../../../utils/navigation'
-import { cardCursor } from '../apps/list/__styles__'
+import { navigate, openNewPage } from '../../../utils/navigation'
 
-const PipelineCard = ({ pipeline }: { pipeline: PipelineModelInterface }) => {
+const PipelineRow: FC<{ pipeline: PipelineModelInterface }> = ({ pipeline }) => {
   const history = useHistory()
+  const [isOpen, setIsOpen] = useState<boolean>(false)
 
   return (
-    <Card
-      className={cx(elFadeIn, cardCursor)}
-      onClick={navigate(history, Routes.APP_PIPELINE.replace(':appId', pipeline.appId as string))}
-      hasMainCard
-      mainCardHeading={
-        <>
+    <TableRowContainer>
+      <TableRow>
+        <TableCell>{pipeline.name}</TableCell>
+        <TableCell>
           <StatusIndicator intent={buildStatusToIntent(pipeline.buildStatus as string)} />
-          {pipeline.name}
-        </>
-      }
-      mainCardSubHeading={buildStatusToReadable(pipeline.buildStatus as string)}
-      mainCardSubHeadingAdditional={pipeline.appType}
-      mainCardBody={
-        <>
-          <BodyText>{pipeline.repository || <>&nbsp;</>}</BodyText>
+          {buildStatusToReadable(pipeline.buildStatus as string)}
+        </TableCell>
+        <TableCell>{pipeline.appType}</TableCell>
+        <TableCell>
+          <a target="_blank" href={pipeline.repository} rel="noreferrer">
+            {pipeline.repository}
+          </a>
+        </TableCell>
+        <TableExpandableRowTriggerCell
+          isOpen={isOpen}
+          onClick={() => setIsOpen(!isOpen)}
+        ></TableExpandableRowTriggerCell>
+      </TableRow>
+      <TableExpandableRow isOpen={isOpen}>
+        <ButtonGroup>
+          <Button
+            intent="secondary"
+            onClick={navigate(history, Routes.APP_PIPELINE.replace(':appId', pipeline.appId as string))}
+          >
+            Manage
+          </Button>
           {pipelineViewable(pipeline.buildStatus as string) && (
-            <BodyText>
-              <a
-                onClick={(e) => {
-                  e.stopPropagation()
-                }}
-                href={`https://${pipeline.subDomain}${ApiNames(window.reapit.config.appEnv).iaas}`}
-              >
-                View
-              </a>
-            </BodyText>
+            <Button
+              intent="primary"
+              onClick={openNewPage(`https://${pipeline.subDomain}${ApiNames(window.reapit.config.appEnv).iaas}`)}
+            >
+              View
+            </Button>
           )}
-        </>
-      }
-    />
+        </ButtonGroup>
+      </TableExpandableRow>
+    </TableRowContainer>
   )
 }
 
@@ -71,7 +83,7 @@ type Pagination<T> = {
   }
 }
 
-export const IaaS = () => {
+export const IaaS: FC = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [pagination, setPagination] = useState<Pagination<PipelineModelInterface>>()
   const [page, setPage] = useState<number>(1)
@@ -98,14 +110,19 @@ export const IaaS = () => {
         <Loader />
       ) : (
         <>
-          <Grid>
+          <Table>
+            <TableHeadersRow>
+              <TableHeader>Name</TableHeader>
+              <TableHeader>Status</TableHeader>
+              <TableHeader>App Type</TableHeader>
+              <TableHeader>Repository</TableHeader>
+              <TableHeader>Actions</TableHeader>
+            </TableHeadersRow>
             {pagination?.items?.map((pipeline) => (
-              <Col key={pipeline.id}>
-                <PipelineCard pipeline={pipeline} />
-              </Col>
+              <PipelineRow pipeline={pipeline} key={pipeline.id} />
             ))}
-          </Grid>
-          <div className={elMt3}>
+          </Table>
+          <div className={elMt6}>
             {pagination && (
               <Pagination
                 currentPage={pagination.meta.currentPage}
