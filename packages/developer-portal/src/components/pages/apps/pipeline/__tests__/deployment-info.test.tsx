@@ -12,7 +12,7 @@ describe('PipelineDeploymentInfo', () => {
           channel={{ bind: jest.fn(), unbind: jest.fn() }}
           pipeline={{
             id: 'pipelineId',
-            buildStatus: 'IN_PORGRESS',
+            buildStatus: 'IN_PROGRESS',
             repository: 'https://github.com/bashleigh/reapit-react-test',
             packageManager: PackageManagerEnum.YARN,
             buildCommand: 'build',
