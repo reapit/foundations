@@ -8,11 +8,81 @@ Object {
       <div
         class="ecbqyq6-el-snack-holder"
       />
+      <aside
+        class="e93m1fg-el-secondary-nav-container"
+      >
+        <h1
+          class="evblxhy-el-title"
+        >
+          IaaS
+        </h1>
+        <p
+          class="e15ggth7-el-body-text"
+        >
+          Infrastructure as a Service management.
+        </p>
+        <div
+          class="e125gftx-el-secondary-nav"
+        >
+          <div
+            class="evmehgn-el-is-active e1ohezfm-el-secondary-nav-item"
+          >
+            Pipelines
+          </div>
+        </div>
+      </aside>
+      <section
+        class="eukst9x-el-page-container"
+      >
+        <p
+          class="e15ggth7-el-body-text"
+        >
+          A List of results of your pipelines
+        </p>
+        <div
+          class="ebhrnzh-el-loader-container"
+        >
+          <div
+            class="eq1m1jz-el-loader"
+          >
+            <div
+              class="exikdu1-el-loader-moving-bar"
+            />
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6-el-snack-holder"
+    />
+    <aside
+      class="e93m1fg-el-secondary-nav-container"
+    >
       <h1
         class="evblxhy-el-title"
       >
         IaaS
       </h1>
+      <p
+        class="e15ggth7-el-body-text"
+      >
+        Infrastructure as a Service management.
+      </p>
+      <div
+        class="e125gftx-el-secondary-nav"
+      >
+        <div
+          class="evmehgn-el-is-active e1ohezfm-el-secondary-nav-item"
+        >
+          Pipelines
+        </div>
+      </div>
+    </aside>
+    <section
+      class="eukst9x-el-page-container"
+    >
       <p
         class="e15ggth7-el-body-text"
       >
@@ -29,33 +99,7 @@ Object {
           />
         </div>
       </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <h1
-      class="evblxhy-el-title"
-    >
-      IaaS
-    </h1>
-    <p
-      class="e15ggth7-el-body-text"
-    >
-      A List of results of your pipelines
-    </p>
-    <div
-      class="ebhrnzh-el-loader-container"
-    >
-      <div
-        class="eq1m1jz-el-loader"
-      >
-        <div
-          class="exikdu1-el-loader-moving-bar"
-        />
-      </div>
-    </div>
+    </section>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
