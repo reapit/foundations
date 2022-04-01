@@ -20,7 +20,7 @@ type Pagination<T> = {
 
 export const IaaS: FC = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const [pagination, setPagination] = useState<Pagination<PipelineModelInterface>>()
+  const [pagination, setPagination] = useState<Pagination<PipelineModelInterface> | null>()
   const [page, setPage] = useState<number>(1)
 
   const [pipelines, loading, , refreshPagination] = useReapitGet<Pagination<PipelineModelInterface>>({
@@ -34,7 +34,7 @@ export const IaaS: FC = () => {
       page,
     },
   })
-  useEffect(() => setPagination(pipelines || undefined), [pipelines])
+  useEffect(() => setPagination(pipelines), [pipelines])
   useEffect(() => refreshPagination(), [page])
 
   return (
