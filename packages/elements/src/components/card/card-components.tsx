@@ -60,10 +60,10 @@ export interface CardContextMenuProps extends HTMLAttributes<HTMLDivElement> {
 export interface CardProps extends HTMLAttributes<HTMLDivElement> {
   hasMainCard?: boolean // Should we render an Image card as the main card?
   // Supplied text options for the various fields
-  mainCardHeading?: string | ReactElement
+  mainCardHeading?: string
   mainCardSubHeading?: string
   mainCardSubHeadingAdditional?: string
-  mainCardBody?: string | ReactElement
+  mainCardBody?: string
   mainCardImgUrl?: string
   // A list of context menu options
   mainContextMenuItems?: ContextMenuItem[]
