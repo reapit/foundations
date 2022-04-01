@@ -2,13 +2,13 @@ import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import {
   BodyText,
+  Button,
   elMt6,
+  Icon,
   Loader,
   PageContainer,
   Pagination,
-  SecondaryNav,
   SecondaryNavContainer,
-  SecondaryNavItem,
   Table,
   TableHeader,
   TableHeadersRow,
@@ -54,24 +54,25 @@ export const IaaS: FC = () => {
     <>
       <SecondaryNavContainer>
         <Title>IaaS</Title>
-        <BodyText>Infrastructure as a Service management.</BodyText>
-        <SecondaryNav>
-          <SecondaryNavItem active={true}>Pipelines</SecondaryNavItem>
-        </SecondaryNav>
+        <Icon iconSize="large" icon={'refreshInfographic'} />
+        <BodyText>
+          Infrastructure as a Service management. Pipelines are for deploying your Reapit apps to our infrastructure to
+          simplify your development process
+        </BodyText>
+        <Button intent="critical">View Docs</Button>
       </SecondaryNavContainer>
       <PageContainer>
-        <BodyText>A List of results of your pipelines</BodyText>
+        <Title>Pipelines</Title>
         {loading ? (
           <Loader />
         ) : (
           <>
-            <Table>
+            <Table data-has-expandable-action data-num-columns-excl-action-col="3">
               <TableHeadersRow>
                 <TableHeader>Name</TableHeader>
                 <TableHeader>Status</TableHeader>
-                <TableHeader>App Type</TableHeader>
                 <TableHeader>Repository</TableHeader>
-                <TableHeader>Actions</TableHeader>
+                <TableHeader></TableHeader>
               </TableHeadersRow>
               {pagination?.items?.map((pipeline) => (
                 <PipelineRow pipeline={pipeline} key={pipeline.id} />

@@ -4,6 +4,7 @@ import Routes from '@/constants/routes'
 import {
   Button,
   ButtonGroup,
+  FlexContainer,
   StatusIndicator,
   TableCell,
   TableExpandableRow,
@@ -28,7 +29,6 @@ export const PipelineRow: FC<{ pipeline: PipelineModelInterface }> = ({ pipeline
           <StatusIndicator intent={buildStatusToIntent(pipeline.buildStatus as string)} />
           {buildStatusToReadable(pipeline.buildStatus as string)}
         </TableCell>
-        <TableCell>{pipeline.appType}</TableCell>
         <TableCell>
           <a target="_blank" href={pipeline.repository} rel="noreferrer">
             {pipeline.repository}
@@ -40,22 +40,24 @@ export const PipelineRow: FC<{ pipeline: PipelineModelInterface }> = ({ pipeline
         ></TableExpandableRowTriggerCell>
       </TableRow>
       <TableExpandableRow isOpen={isOpen}>
-        <ButtonGroup>
-          <Button
-            intent="secondary"
-            onClick={navigate(history, Routes.APP_PIPELINE.replace(':appId', pipeline.appId as string))}
-          >
-            Manage
-          </Button>
-          {pipelineViewable(pipeline.buildStatus as string) && (
+        <FlexContainer isFlexAlignCenter isFlexJustifyCenter>
+          <ButtonGroup>
             <Button
-              intent="primary"
-              onClick={openNewPage(`https://${pipeline.subDomain}${ApiNames(window.reapit.config.appEnv).iaas}`)}
+              intent="secondary"
+              onClick={navigate(history, Routes.APP_PIPELINE.replace(':appId', pipeline.appId as string))}
             >
-              View
+              Manage
             </Button>
-          )}
-        </ButtonGroup>
+            {pipelineViewable(pipeline.buildStatus as string) && (
+              <Button
+                intent="primary"
+                onClick={openNewPage(`https://${pipeline.subDomain}${ApiNames(window.reapit.config.appEnv).iaas}`)}
+              >
+                View
+              </Button>
+            )}
+          </ButtonGroup>
+        </FlexContainer>
       </TableExpandableRow>
     </TableRowContainer>
   )

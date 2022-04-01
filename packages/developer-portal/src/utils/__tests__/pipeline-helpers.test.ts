@@ -31,11 +31,11 @@ describe('pipeline helpers', () => {
 
   describe('buildStatusToReadable', () => {
     it('PROVISIONING', () => {
-      expect(buildStatusToReadable('PROVISIONING')).toBe('provisioning')
+      expect(buildStatusToReadable('PROVISIONING')).toBe('Provisioning')
     })
 
     it('SCHEDULED_FOR_DELETION', () => {
-      expect(buildStatusToReadable('SCHEDULED_FOR_DELETION')).toBe('scheduled for deletion')
+      expect(buildStatusToReadable('SCHEDULED_FOR_DELETION')).toBe('Scheduled For Deletion')
     })
   })
 
