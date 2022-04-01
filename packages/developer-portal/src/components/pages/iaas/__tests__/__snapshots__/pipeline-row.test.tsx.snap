@@ -30,15 +30,8 @@ Object {
               <span
                 class="epibvz0-el-intent-secondary e1cp9zgf-el-status-indicator"
               />
-              in progress
+              In Progress
             </div>
-          </div>
-          <div
-            class="e4zpaja-el-table-cell"
-          >
-            <div
-              class="e1t8i3z1-el-table-cell-content"
-            />
           </div>
           <div
             class="e4zpaja-el-table-cell"
@@ -82,21 +75,25 @@ Object {
             class="ejadz4k-el-table-expandable-container"
           >
             <div
-              class="eay05y4-el-button-group"
+              class="e1de2pym-el-flex-justify-center ef457sc-el-flex-align-center e2kmzjs-el-flex-container"
             >
               <div
-                class="ebqwrow-el-button-group-inner"
+                class="eay05y4-el-button-group"
               >
-                <button
-                  class="epibvz0-el-intent-secondary eqfkc7t-el-button"
+                <div
+                  class="ebqwrow-el-button-group-inner"
                 >
-                  Manage
-                </button>
-                <button
-                  class="ebee6r1-el-intent-primary eqfkc7t-el-button"
-                >
-                  View
-                </button>
+                  <button
+                    class="epibvz0-el-intent-secondary eqfkc7t-el-button"
+                  >
+                    Manage
+                  </button>
+                  <button
+                    class="ebee6r1-el-intent-primary eqfkc7t-el-button"
+                  >
+                    View
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -130,15 +127,8 @@ Object {
             <span
               class="epibvz0-el-intent-secondary e1cp9zgf-el-status-indicator"
             />
-            in progress
+            In Progress
           </div>
-        </div>
-        <div
-          class="e4zpaja-el-table-cell"
-        >
-          <div
-            class="e1t8i3z1-el-table-cell-content"
-          />
         </div>
         <div
           class="e4zpaja-el-table-cell"
@@ -182,21 +172,25 @@ Object {
           class="ejadz4k-el-table-expandable-container"
         >
           <div
-            class="eay05y4-el-button-group"
+            class="e1de2pym-el-flex-justify-center ef457sc-el-flex-align-center e2kmzjs-el-flex-container"
           >
             <div
-              class="ebqwrow-el-button-group-inner"
+              class="eay05y4-el-button-group"
             >
-              <button
-                class="epibvz0-el-intent-secondary eqfkc7t-el-button"
+              <div
+                class="ebqwrow-el-button-group-inner"
               >
-                Manage
-              </button>
-              <button
-                class="ebee6r1-el-intent-primary eqfkc7t-el-button"
-              >
-                View
-              </button>
+                <button
+                  class="epibvz0-el-intent-secondary eqfkc7t-el-button"
+                >
+                  Manage
+                </button>
+                <button
+                  class="ebee6r1-el-intent-primary eqfkc7t-el-button"
+                >
+                  View
+                </button>
+              </div>
             </div>
           </div>
         </div>

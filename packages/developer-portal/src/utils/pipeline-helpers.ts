@@ -26,7 +26,7 @@ export const buildStatusToIntent = (status: string): Intent => {
 export const buildStatusToReadable = (status: string): string =>
   status
     .split('_')
-    .map((str) => str.toLowerCase())
+    .map((str) => `${str.charAt(0).toUpperCase()}${str.slice(1).toLowerCase()}`)
     .join(' ')
 
 export const pipelineViewable = (status: string): boolean =>

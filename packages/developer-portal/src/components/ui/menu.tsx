@@ -182,7 +182,6 @@ export const Menu: React.FunctionComponent = () => {
       callback: navigate(history, Routes.IAAS),
       iconId: 'dataMenu',
       text: 'IaaS',
-      isSecondary: true,
     })
   }
 

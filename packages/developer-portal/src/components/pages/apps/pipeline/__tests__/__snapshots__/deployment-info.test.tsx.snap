@@ -44,10 +44,10 @@ Object {
               class="e15ggth7-el-body-text"
             >
               <span
-                class="e1fle5tm-el-intent-neutral e1cp9zgf-el-status-indicator"
+                class="epibvz0-el-intent-secondary e1cp9zgf-el-status-indicator"
               />
                
-              in porgress
+              In Progress
             </p>
           </div>
           <div
@@ -236,10 +236,10 @@ Object {
             class="e15ggth7-el-body-text"
           >
             <span
-              class="e1fle5tm-el-intent-neutral e1cp9zgf-el-status-indicator"
+              class="epibvz0-el-intent-secondary e1cp9zgf-el-status-indicator"
             />
              
-            in porgress
+            In Progress
           </p>
         </div>
         <div
