@@ -35,13 +35,17 @@ export interface HandleGetParams<DataType> {
   setRefreshing: Dispatch<SetStateAction<boolean>>
   setError: Dispatch<SetStateAction<string | null>>
   successSnack: (message: string) => void
-  errorSnack: (message: string) => void
+  errorSnack: (message: string, timeout?: number) => void
   prevQueryParams: MutableRefObject<Object | undefined>
   prevUriParams: MutableRefObject<Object | undefined>
   queryParams?: Object
   uriParams?: Object
   headers?: StringMap
   fetchWhenTrue?: any[]
+}
+
+export type HandleRefreshParams<DataType> = HandleGetParams<DataType> & {
+  reapitConnectBrowserSession: ReapitConnectBrowserSession
 }
 
 export const checkQueryChanged = (queryParams?: Object, prevQueryParams?: Object): boolean => {
@@ -121,7 +125,7 @@ export const handleGet =
       const error = typeof response === 'string' ? response : null
 
       if (data && successMessage) successSnack(successMessage)
-      if (error) errorSnack(errorMessage ?? error)
+      if (error) errorSnack(errorMessage ?? error, 5000)
 
       setData(data)
       setError(error)
@@ -140,10 +144,20 @@ export const handleGet =
   }
 
 export const handleRefresh =
-  <DataType>(handleGetParams: HandleGetParams<DataType>) =>
+  <DataType>(handleGetParams: HandleRefreshParams<DataType>) =>
   () => {
-    const { setData, setError, setRefreshing, action, errorSnack, connectSession, uriParams, queryParams, headers } =
-      handleGetParams
+    const {
+      setData,
+      setError,
+      setRefreshing,
+      action,
+      errorSnack,
+      uriParams,
+      queryParams,
+      headers,
+      reapitConnectBrowserSession,
+    } = handleGetParams
+    const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
     const controller = new AbortController()
     const signal = controller.signal
     const { errorMessage } = action
@@ -164,7 +178,7 @@ export const handleRefresh =
       const data = typeof response === 'string' ? null : response
       const error = typeof response === 'string' ? response : null
 
-      if (error) errorSnack(errorMessage ?? error)
+      if (error) errorSnack(errorMessage ?? error, 5000)
 
       setData(data)
       setError(error)
@@ -217,10 +231,14 @@ export const useReapitGet = <DataType>({
     errorSnack: onError || errorSnack,
   }
 
+  const handleRefreshParams: HandleRefreshParams<DataType> = {
+    ...handleGetParams,
+    reapitConnectBrowserSession,
+  }
+
   useEffect(handleGet<DataType>(handleGetParams), [connectSession, queryParams, headers, fetchWhenTrue])
 
-  const refresh = useCallback(handleRefresh<DataType>(handleGetParams), [
-    connectSession,
+  const refresh = useCallback(handleRefresh<DataType>(handleRefreshParams), [
     queryParams,
     uriParams,
     headers,

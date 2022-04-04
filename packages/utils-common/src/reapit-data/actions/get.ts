@@ -19,6 +19,7 @@ export enum GetActionNames {
   getMember = 'getMember',
   deleteApiKey = 'deleteApiKey',
   getBillingDataByMonth = 'getBillingDataByMonth',
+  getBillingDataByPeriod = 'getBillingDataByPeriod',
   getInstallations = 'getInstallations',
   getDeveloperMembers = 'getDeveloperMembers',
   getCustomersById = 'getCustomersById',
@@ -82,6 +83,11 @@ export const getActions = (appEnv: AppEnv): GetActions => ({
   [GetActionNames.getBillingDataByMonth]: {
     api: ApiNames(appEnv).platform,
     path: PathNames.billingDataByMonth,
+    errorMessage: 'Something went wrong fetching billing data',
+  },
+  [GetActionNames.getBillingDataByPeriod]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.getBillingDataByPeriod,
     errorMessage: 'Something went wrong fetching billing data',
   },
   [GetActionNames.getInstallations]: {

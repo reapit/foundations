@@ -132,3 +132,21 @@ export interface TrafficEventsModel {
   dateFrom?: string
   dateTo?: string
 }
+
+export interface MonthlyBillingDetailsModel {
+  period: string
+  periodStart?: string
+  periodEnd?: string
+  periodName?: string
+  requestCount?: number
+  endpointCount?: number
+  netAmount?: number
+  grossAmount?: number
+  vatAmount?: number
+}
+
+export interface BillingSummaryModel {
+  from?: string
+  to?: string
+  requestsByPeriod?: MonthlyBillingDetailsModel[]
+}
