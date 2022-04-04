@@ -10320,6 +10320,7 @@ export interface Properties {
   )[]
   market?: ('local' | 'openA' | 'openB' | 'openC' | 'openD')[]
   address?: string
+  countryId?: string
   departmentId?: string
   bedroomsFrom?: number
   bedroomsTo?: number
