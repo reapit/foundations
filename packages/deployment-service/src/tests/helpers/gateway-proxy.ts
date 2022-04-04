@@ -1,9 +1,12 @@
-import { APIGatewayProxyEvent } from "aws-lambda";
+import { APIGatewayProxyEvent } from 'aws-lambda'
 
-export const mockGatewayProxy = (apiProxy: Partial<APIGatewayProxyEvent>): APIGatewayProxyEvent => ({
+export const mockGatewayProxy = (apiProxy: Partial<APIGatewayProxyEvent>): APIGatewayProxyEvent =>
+  ({
     path: '',
     body: null,
-    headers: {},
+    headers: {
+      'content-type': 'application/json',
+    },
     httpMethod: 'GET',
     isBase64Encoded: false,
     multiValueHeaders: {},
@@ -11,5 +14,5 @@ export const mockGatewayProxy = (apiProxy: Partial<APIGatewayProxyEvent>): APIGa
     queryStringParameters: {},
     stageVariables: {},
     resource: '',
-  ...apiProxy,
-} as APIGatewayProxyEvent)
+    ...apiProxy,
+  } as APIGatewayProxyEvent)
