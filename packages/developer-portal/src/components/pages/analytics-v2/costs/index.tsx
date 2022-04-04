@@ -1,43 +1,92 @@
-import React, { FC } from 'react'
-import { Loader, Title } from '@reapit/elements'
-import { useAnalyticsState } from '../state/use-analytics-state'
+import React, { Dispatch, FC, SetStateAction, useEffect, useMemo, useState } from 'react'
+import { FlexContainer, Loader, Title, useSnack } from '@reapit/elements'
+import { AnalyticsFilterState, useAnalyticsState } from '../state/use-analytics-state'
 import { BillingBreakdownForMonthV2Model } from '@reapit/foundations-ts-definitions'
-import { GetActionNames, getActions } from '@reapit/utils-common'
-import { useReapitGet } from '@reapit/utils-react'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
+import qs from 'qs'
 import { UsageTable } from './usage-table'
 import { ServicesTable } from './services-table'
+import { ChartWrapper } from '../__styles__'
+import { ServicesChart } from './services-chart'
+import { DownloadResourcesTable } from './download-resources-table'
+import { getMonthsRange, handleAggregateBillingData } from './utils'
+import { batchFetchBillingService } from '../../../../services/billing'
+
+export interface BillingState {
+  loading: boolean
+  billing: BillingBreakdownForMonthV2Model[]
+}
+
+export const handleFetchBilling =
+  (
+    analyticsFilterState: AnalyticsFilterState,
+    setBillingState: Dispatch<SetStateAction<BillingState>>,
+    error: (message: string) => void,
+    developerId?: string | null,
+  ) =>
+  () => {
+    const { clientId, appId } = analyticsFilterState
+    const customerIdQuery = clientId ? { customerId: clientId } : {}
+    const appIdQuery = appId ? { applicationId: appId } : {}
+    const query = qs.stringify({ ...customerIdQuery, ...appIdQuery, developerId })
+    const monthRequests = getMonthsRange(analyticsFilterState, 'YYYY-MM')
+
+    const fetchBilling = async () => {
+      setBillingState((currentState) => ({
+        ...currentState,
+        loading: true,
+      }))
+      const billing = await batchFetchBillingService(monthRequests, query)
+
+      if (billing) {
+        const filteredBilling = billing?.filter(Boolean) as BillingBreakdownForMonthV2Model[]
+        setBillingState({
+          billing: filteredBilling,
+          loading: false,
+        })
+      } else {
+        error('Something went wrong fetching billing, this error has been logged')
+        setBillingState({
+          billing: [],
+          loading: false,
+        })
+      }
+    }
+
+    if (monthRequests.length && developerId) {
+      fetchBilling()
+    }
+  }
 
 export const AnalyticsCosts: FC = () => {
   const { analyticsFilterState } = useAnalyticsState()
-  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const { clientId, appId, month } = analyticsFilterState
-  const developerId = connectSession?.loginIdentity.developerId
-  const appIdFilter = appId ? { applicationId: appId } : {}
-  const customerIdFilter = clientId ? { customerId: clientId } : {}
-
-  const [billing, billingLoading] = useReapitGet<BillingBreakdownForMonthV2Model>({
-    reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getBillingDataByMonth],
-    queryParams: {
-      developerId,
-      type: 'trafficEvents&type=dataWarehouseUsage&type=applicationListing&type=developerEdition&type=developerRegistration&type=dataWarehouse',
-      ...appIdFilter,
-      ...customerIdFilter,
-    },
-    uriParams: { month },
-    headers: {
-      ['api-version']: '2',
-    },
-    fetchWhenTrue: [month && developerId],
+  const { error } = useSnack()
+  const [billingState, setBillingState] = useState<BillingState>({
+    loading: false,
+    billing: [],
   })
+  const { billing, loading } = billingState
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const developerId = connectSession?.loginIdentity.developerId
+  const aggregatedBilling = useMemo(handleAggregateBillingData(billing), [billing])
+
+  useEffect(handleFetchBilling(analyticsFilterState, setBillingState, error, developerId), [
+    analyticsFilterState,
+    developerId,
+  ])
 
   return (
     <>
       <Title>Costs</Title>
-      {billingLoading ? <Loader /> : <UsageTable billing={billing} />}
-      {billingLoading ? <Loader /> : <ServicesTable billing={billing} />}
+      <FlexContainer isFlexWrap>
+        <ChartWrapper>
+          <ServicesChart />
+        </ChartWrapper>
+        <ChartWrapper>{loading ? <Loader /> : <DownloadResourcesTable billing={aggregatedBilling} />}</ChartWrapper>
+        <ChartWrapper>{loading ? <Loader /> : <UsageTable billing={aggregatedBilling} />}</ChartWrapper>
+        <ChartWrapper>{loading ? <Loader /> : <ServicesTable billing={aggregatedBilling} />}</ChartWrapper>
+      </FlexContainer>
     </>
   )
 }

@@ -106,3 +106,30 @@ export const fetchBillingsByMonth = async (
     throw error
   }
 }
+
+export const batchFetchBillingService = async (monthRequests: string[], query: string) => {
+  const headers = await getPlatformHeaders(reapitConnectBrowserSession, '2')
+
+  if (!headers) return
+
+  try {
+    return Promise.all(
+      monthRequests.map(async (month) => {
+        const request = await fetch(
+          `${window.reapit.config.platformApiUrl}/trafficevents/billing/${month}?${query}&type=trafficEvents&type=dataWarehouseUsage&type=applicationListing&type=developerEdition&type=developerRegistration&type=dataWarehouse`,
+          {
+            headers,
+            method: 'GET',
+          },
+        )
+
+        if (request.ok) {
+          const events = await request.json()
+          return events as BillingBreakdownForMonthV2Model
+        }
+      }),
+    )
+  } catch (err) {
+    logger(err as Error)
+  }
+}
