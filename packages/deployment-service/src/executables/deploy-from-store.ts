@@ -4,6 +4,7 @@ import { GetObjectOutput } from 'aws-sdk/clients/s3'
 import { releaseToLiveFromZip } from './release-to-live'
 import { CloudFrontClient, CreateInvalidationCommand } from '@aws-sdk/client-cloudfront'
 import { PipelineEntity } from '../entities/pipeline.entity'
+import { InvalidPipelineResourcesException } from '../exceptions'
 
 export const getFromVersionS3 = async (location: string): Promise<GetObjectOutput | never> =>
   new Promise<GetObjectOutput>((resolve, reject) =>
@@ -56,7 +57,7 @@ export const deployFromStore = async ({
   const storageLocation = `${pipeline.uniqueRepoName}/${pipelineRunner.id}.zip`
 
   if (!pipelineRunner.pipeline?.cloudFrontId) {
-    throw new Error('Pipeline does not have sufficiant resources')
+    throw new InvalidPipelineResourcesException(pipeline.id as string)
   }
 
   const zip = await getFromVersionS3(storageLocation)
