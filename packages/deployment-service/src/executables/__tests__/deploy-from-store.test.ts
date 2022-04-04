@@ -14,7 +14,6 @@ const PIPELINE_RUNNER_ID = 'PIPELINE_RUNNER_ID'
 jest.mock('../../services/s3', () => ({
   s3Client: {
     getObject: (params: S3.GetObjectRequest, func: (error?: string, data?: S3.GetObjectOutput) => void) => {
-      console.log(params.Key)
       if (params.Key === `pipeline/${DEVELOPER_ID}/${SUCCESS}/${PIPELINE_RUNNER_ID}.zip`) {
         func(undefined, {
           Body: new Buffer(''),
@@ -25,7 +24,6 @@ jest.mock('../../services/s3', () => ({
     },
   },
   deleteObject: (params: S3.DeleteObjectRequest, func: (error?: string, data?: S3.DeleteObjectOutput) => void) => {
-    console.log(params.Key)
     if (params.Key === `pipeline/${DEVELOPER_ID}/${SUCCESS}/${PIPELINE_RUNNER_ID}.zip`) {
       func(undefined, {})
     }
@@ -40,7 +38,7 @@ jest.mock('../../services/github-app', () => ({
 }))
 
 jest.mock('./../release-to-live', () => ({
-  releaseToLiveFromZip: jest.fn((params) => {
+  releaseToLiveFromZip: jest.fn(() => {
     return Promise.resolve()
   }),
 }))
@@ -94,7 +92,7 @@ describe('Deploy-From-Store', () => {
       subDomain: SUCCESS,
       cloudFrontId: 'cloudfront_id',
     })
-    const sendFn = CloudFrontClient.prototype.send = jest.fn()
+    const sendFn = (CloudFrontClient.prototype.send = jest.fn())
 
     await deployFromStore({
       pipeline,
