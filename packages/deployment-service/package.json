@@ -28,7 +28,7 @@
   "main": "./src/index.ts",
   "scripts": {
     "start": "echo '...skipping...'",
-    "test": "cross-env TZ=UTC jest --watch --colors --silent",
+    "test": "cross-env jest --watch --colors",
     "build": "tsc -p .",
     "lint": "eslint --cache --ext=ts,tsx,js src cdk/lib",
     "check": "tsc --noEmit --skipLibCheck",
