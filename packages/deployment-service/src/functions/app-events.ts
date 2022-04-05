@@ -1,5 +1,5 @@
-import { QueueNames } from '@/constants'
-import { createPipelineEntity, findPipelinesByAppId, sqs } from '@/services'
+import { QueueNames } from '../constants'
+import { createPipelineEntity, findPipelinesByAppId, sqs } from '../services'
 import { SQSEvent, SQSHandler, Context, Callback } from 'aws-lambda'
 import { AppTypeEnum } from '@reapit/foundations-ts-definitions'
 
@@ -57,7 +57,7 @@ export const appEventsHandler: SQSHandler = async (event: SQSEvent, context: Con
           console.log(`unsupported event type [${payload.Type}] for AppId [${payload.AppId}]`)
       }
 
-      return await new Promise<void>((resolve, reject) =>
+      return new Promise<void>((resolve, reject) =>
         sqs.deleteMessage(
           {
             ReceiptHandle: record.receiptHandle,
