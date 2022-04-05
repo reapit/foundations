@@ -44,10 +44,6 @@ export interface HandleGetParams<DataType> {
   fetchWhenTrue?: any[]
 }
 
-export type HandleRefreshParams<DataType> = HandleGetParams<DataType> & {
-  reapitConnectBrowserSession: ReapitConnectBrowserSession
-}
-
 export const checkQueryChanged = (queryParams?: Object, prevQueryParams?: Object): boolean => {
   if ((queryParams && !prevQueryParams) || (!queryParams && prevQueryParams)) return true
   if (!queryParams && !prevQueryParams) return false
@@ -145,20 +141,11 @@ export const handleGet =
   }
 
 export const handleRefresh =
-  <DataType>(handleGetParams: HandleRefreshParams<DataType>) =>
+  <DataType>(handleGetParams: HandleGetParams<DataType>) =>
   () => {
-    const {
-      setData,
-      setError,
-      setRefreshing,
-      action,
-      errorSnack,
-      uriParams,
-      queryParams,
-      headers,
-      reapitConnectBrowserSession,
-    } = handleGetParams
-    const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+    const { setData, setError, setRefreshing, action, errorSnack, uriParams, queryParams, headers, connectSession } =
+      handleGetParams
+
     const controller = new AbortController()
     const signal = controller.signal
 
@@ -231,14 +218,10 @@ export const useReapitGet = <DataType>({
     errorSnack: onError || errorSnack,
   }
 
-  const handleRefreshParams: HandleRefreshParams<DataType> = {
-    ...handleGetParams,
-    reapitConnectBrowserSession,
-  }
-
   useEffect(handleGet<DataType>(handleGetParams), [connectSession, queryParams, headers, fetchWhenTrue])
 
-  const refresh = useCallback(handleRefresh<DataType>(handleRefreshParams), [
+  const refresh = useCallback(handleRefresh<DataType>(handleGetParams), [
+    connectSession,
     queryParams,
     uriParams,
     headers,
