@@ -21,11 +21,16 @@ import AnalyticsInstallationsPage from '../installations'
 import AnalyticsCallsPage from '../calls'
 import { Controls } from './controls'
 import { cx } from '@linaria/core'
+import { selectIsCustomer } from '../../../../selector/auth'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 
 export const AnalyticsPage: FC = () => {
   const history = useHistory()
   const location = useLocation()
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { pathname } = location
+  const isCustomer = selectIsCustomer(connectSession)
 
   return (
     <ErrorBoundary>
@@ -51,12 +56,14 @@ export const AnalyticsPage: FC = () => {
             >
               Installations
             </SecondaryNavItem>
-            <SecondaryNavItem
-              onClick={navigate(history, Routes.ANALYTICS_V2_COST_CALCULATOR)}
-              active={pathname === Routes.ANALYTICS_V2_COST_CALCULATOR}
-            >
-              Cost Calculator
-            </SecondaryNavItem>
+            {isCustomer && (
+              <SecondaryNavItem
+                onClick={navigate(history, Routes.ANALYTICS_V2_COST_CALCULATOR)}
+                active={pathname === Routes.ANALYTICS_V2_COST_CALCULATOR}
+              >
+                Cost Calculator
+              </SecondaryNavItem>
+            )}
           </SecondaryNav>
           <Controls />
         </SecondaryNavContainer>
