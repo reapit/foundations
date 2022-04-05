@@ -13,6 +13,124 @@ Object {
       >
         Calculator
       </h1>
+      <p
+        class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+      >
+        You can calculate the estimated monthly cost below using our Cost Calculator. Just select the number of endpoints and enter the amount of API calls below. To see the full Foundations Pricing, please click
+         
+        <a
+          href=""
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          here
+        </a>
+      </p>
+      <form>
+        <div
+          class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
+        >
+          <div
+            class="e1ksxx4v-el-input-wrap"
+          >
+            <div
+              class="e1979rmu-el-input-group"
+            >
+              <label
+                class="e1nbkkrq-el-label"
+              >
+                Endpoints Used
+              </label>
+              <select
+                class="e60u3kb-el-select"
+                name="endpointsUsed"
+              >
+                <option
+                  value=""
+                >
+                  Please select
+                </option>
+                <option
+                  value="tier1"
+                >
+                  1-5
+                </option>
+                <option
+                  value="tier2"
+                >
+                  6-10
+                </option>
+                <option
+                  value="tier3"
+                >
+                  11-20
+                </option>
+                <option
+                  value="tier4"
+                >
+                  21-30
+                </option>
+                <option
+                  value="tier5"
+                >
+                  31-40
+                </option>
+                <option
+                  value="tier6"
+                >
+                  41-50
+                </option>
+                <option
+                  value="tier7"
+                >
+                  50+
+                </option>
+              </select>
+            </div>
+          </div>
+          <div
+            class="e1ksxx4v-el-input-wrap"
+          >
+            <div
+              class="e1979rmu-el-input-group"
+            >
+              <input
+                class="e1urjlvd-el-input"
+                id="test-static-id"
+                name="apiCalls"
+                type="text"
+              />
+              <label
+                class="e1nbkkrq-el-label"
+                for="test-static-id"
+              >
+                API Calls Used
+              </label>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ec47sgk-el-mb11 eay05y4-el-button-group"
+        >
+          <div
+            class="e1cpt8yd-el-button-group-align-left ebqwrow-el-button-group-inner"
+          >
+            <button
+              class="epibvz0-el-intent-secondary eqfkc7t-el-button"
+              type="button"
+            >
+              clear
+            </button>
+            <button
+              class="ebee6r1-el-intent-primary eqfkc7t-el-button"
+              type="submit"
+            >
+              Calculate
+            </button>
+          </div>
+        </div>
+      </form>
+      
     </div>
   </body>,
   "container": <div>
@@ -24,6 +142,124 @@ Object {
     >
       Calculator
     </h1>
+    <p
+      class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+    >
+      You can calculate the estimated monthly cost below using our Cost Calculator. Just select the number of endpoints and enter the amount of API calls below. To see the full Foundations Pricing, please click
+       
+      <a
+        href=""
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        here
+      </a>
+    </p>
+    <form>
+      <div
+        class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
+      >
+        <div
+          class="e1ksxx4v-el-input-wrap"
+        >
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <label
+              class="e1nbkkrq-el-label"
+            >
+              Endpoints Used
+            </label>
+            <select
+              class="e60u3kb-el-select"
+              name="endpointsUsed"
+            >
+              <option
+                value=""
+              >
+                Please select
+              </option>
+              <option
+                value="tier1"
+              >
+                1-5
+              </option>
+              <option
+                value="tier2"
+              >
+                6-10
+              </option>
+              <option
+                value="tier3"
+              >
+                11-20
+              </option>
+              <option
+                value="tier4"
+              >
+                21-30
+              </option>
+              <option
+                value="tier5"
+              >
+                31-40
+              </option>
+              <option
+                value="tier6"
+              >
+                41-50
+              </option>
+              <option
+                value="tier7"
+              >
+                50+
+              </option>
+            </select>
+          </div>
+        </div>
+        <div
+          class="e1ksxx4v-el-input-wrap"
+        >
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              name="apiCalls"
+              type="text"
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              API Calls Used
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ec47sgk-el-mb11 eay05y4-el-button-group"
+      >
+        <div
+          class="e1cpt8yd-el-button-group-align-left ebqwrow-el-button-group-inner"
+        >
+          <button
+            class="epibvz0-el-intent-secondary eqfkc7t-el-button"
+            type="button"
+          >
+            clear
+          </button>
+          <button
+            class="ebee6r1-el-intent-primary eqfkc7t-el-button"
+            type="submit"
+          >
+            Calculate
+          </button>
+        </div>
+      </div>
+    </form>
+    
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
