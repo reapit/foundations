@@ -1,4 +1,4 @@
-import { TrafficEventsModel } from './../../reducers/traffic-statistics/list'
+import { TrafficEventsModel } from '@reapit/foundations-ts-definitions'
 
 export const mockTrafficEventsModel: TrafficEventsModel = {
   from: '2022-03-22',

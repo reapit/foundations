@@ -54,9 +54,20 @@ describe('getDefaultNavIndex', () => {
       route: Routes.ANALYTICS,
       index: 2,
     },
-
     {
-      route: Routes.ANALYTICS_TAB,
+      route: Routes.ANALYTICS_COSTS,
+      index: 2,
+    },
+    {
+      route: Routes.ANALYTICS_API_CALLS,
+      index: 2,
+    },
+    {
+      route: Routes.ANALYTICS_INSTALLATIONS,
+      index: 2,
+    },
+    {
+      route: Routes.ANALYTICS_COST_CALCULATOR,
       index: 2,
     },
     {
@@ -92,7 +103,7 @@ describe('getDefaultNavIndex', () => {
       index: 5,
     },
     {
-      route: Routes.DESKTOP,
+      route: Routes.IAAS,
       index: 6,
     },
     {

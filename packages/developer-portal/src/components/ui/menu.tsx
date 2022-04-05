@@ -48,7 +48,10 @@ export const getDefaultNavIndex = (pathname: string) => {
   if (pathname.includes('/apps')) return 1
   switch (pathname) {
     case Routes.ANALYTICS:
-    case Routes.ANALYTICS_TAB:
+    case Routes.ANALYTICS_COSTS:
+    case Routes.ANALYTICS_API_CALLS:
+    case Routes.ANALYTICS_INSTALLATIONS:
+    case Routes.ANALYTICS_COST_CALCULATOR:
       return 2
     case Routes.SWAGGER:
     case Routes.WEBHOOKS_ABOUT:
@@ -61,7 +64,7 @@ export const getDefaultNavIndex = (pathname: string) => {
       return 4
     case Routes.API_DOCS:
       return 5
-    case Routes.DESKTOP:
+    case Routes.IAAS:
       return 6
     case Routes.HELP:
       return 8
@@ -97,7 +100,7 @@ export const Menu: React.FunctionComponent = () => {
     },
     {
       itemIndex: 2,
-      callback: navigate(history, Routes.ANALYTICS),
+      callback: navigate(history, Routes.ANALYTICS_API_CALLS),
       iconId: 'analyticsMenu',
       text: 'Analytics',
     },
@@ -177,7 +180,7 @@ export const Menu: React.FunctionComponent = () => {
   ]
 
   if (loginIdentity.developerId && window.reapit.config.pipelineWhitelist.includes(loginIdentity.developerId)) {
-    navOptions.push({
+    navOptions.splice(6, 1, {
       itemIndex: 10,
       callback: navigate(history, Routes.IAAS),
       iconId: 'dataMenu',

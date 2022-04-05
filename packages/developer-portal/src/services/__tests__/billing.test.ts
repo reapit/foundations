@@ -1,11 +1,6 @@
-import { defaultAnalyticsFilterState } from './../../components/pages/analytics-v2/state/defaults'
+import { defaultAnalyticsFilterState } from '../../components/pages/analytics/state/defaults'
 import { fetcher, fetcherWithBlob } from '@reapit/utils-common'
-import {
-  batchFetchBillingService,
-  billingTransactionDownloadService,
-  fetchBillings,
-  fetchBillingsByMonth,
-} from '../billing'
+import { batchFetchBillingService, billingTransactionDownloadService } from '../billing'
 
 jest.mock('file-saver', () => ({
   saveAs: jest.fn(),
@@ -19,22 +14,6 @@ const mockedFetch = fetcher as jest.Mock
 const mockedFetchBlob = fetcherWithBlob as jest.Mock
 
 describe('billing services', () => {
-  describe('fetchBillings', () => {
-    it('should return a response from the billing service', async () => {
-      const stub = { someKey: 'some value' }
-      mockedFetch.mockReturnValueOnce(stub)
-      expect(await fetchBillings({})).toEqual(stub)
-    })
-  })
-
-  describe('fetchBillingsByMonth', () => {
-    it('should return a response from the billing service', async () => {
-      const stub = { someKey: 'some value' }
-      mockedFetch.mockReturnValueOnce(stub)
-      expect(await fetchBillingsByMonth({ month: 'SOME_MONTH' })).toEqual(stub)
-    })
-  })
-
   describe('batchFetchBillingService', () => {
     it('should return a response from the billing service', async () => {
       const stub = { someKey: 'some value' }

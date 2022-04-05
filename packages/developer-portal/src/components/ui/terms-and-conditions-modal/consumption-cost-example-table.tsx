@@ -4,9 +4,9 @@ import { Table, Grid, GridItem, H6 } from '@reapit/elements-legacy'
 import {
   endpointsUsedRange,
   useFoundationCostTable,
-} from '@/components/pages/analytics-v2/calculator/use-foundation-cost-table'
+} from '@/components/pages/analytics/calculator/use-foundation-cost-table'
 import { formatNumber } from '@/utils/number-formatter'
-import { CostCalculatorFormValues } from '../../pages/analytics-v2/calculator'
+import { CostCalculatorFormValues } from '../../pages/analytics/calculator'
 
 const totalCostFormValues: CostCalculatorFormValues = {
   apiCalls: '100000',

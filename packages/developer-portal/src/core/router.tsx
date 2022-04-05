@@ -21,7 +21,7 @@ const ApiDocsPage = React.lazy(() => catchChunkError(() => import('../components
 const SwaggerPage = React.lazy(() => catchChunkError(() => import('../components/pages/swagger')))
 const DesktopPage = React.lazy(() => catchChunkError(() => import('../components/pages/desktop')))
 const HelpPage = React.lazy(() => catchChunkError(() => import('../components/pages/help')))
-const AnalyticsPage = React.lazy(() => catchChunkError(() => import('@/components/pages/analytics')))
+const AnalyticsPage = React.lazy(() => catchChunkError(() => import('../components/pages/analytics')))
 const RegisterConfirm = React.lazy(() => catchChunkError(() => import('../components/pages/register-confirm')))
 const WebhooksPage = React.lazy(() => catchChunkError(() => import('../components/pages/webhooks')))
 const SettingsPage = React.lazy(() => catchChunkError(() => import('../components/pages/settings/')))
@@ -29,7 +29,6 @@ const Invite = React.lazy(() => catchChunkError(() => import('../components/page
 const ElementsPage = React.lazy(() => catchChunkError(() => import('../components/pages/elements')))
 const GraphQLPage = React.lazy(() => catchChunkError(() => import('../components/pages/graphql')))
 const SelectRolePage = React.lazy(() => catchChunkError(() => import('../components/pages/login/select-role')))
-const AnalyticsV2Page = React.lazy(() => catchChunkError(() => import('../components/pages/analytics-v2')))
 const IaaS = React.lazy(() => catchChunkError(() => import('../components/pages/iaas')))
 
 const SettingsOrganisationTabPage = React.lazy(() =>
@@ -62,7 +61,7 @@ const Router = () => {
               <Switch>
                 <PrivateRoute path={Routes.CUSTOMER_REGISTER} exact component={CustomerRegister} />
                 <PrivateRoute path={Routes.APPS} component={Apps} />
-                <PrivateRoute path={Routes.ANALYTICS_V2} component={AnalyticsV2Page} />
+                <PrivateRoute path={Routes.ANALYTICS} component={AnalyticsPage} />
                 <PrivateRoute path={Routes.API_DOCS} component={ApiDocsPage} />
                 <PrivateRoute path={Routes.ANALYTICS_SCHEMA_DOCS} component={ApiDocsPage} />
                 <PrivateRoute path={Routes.WEBHOOKS_MANAGE} component={WebhooksPage} />
@@ -71,7 +70,6 @@ const Router = () => {
                 <PrivateRoute path={Routes.WEBHOOKS_LOGS} component={WebhooksPage} />
                 <PrivateRoute path={Routes.SWAGGER} exact component={SwaggerPage} />
                 <PrivateRoute path={Routes.DESKTOP} exact component={DesktopPage} fetcher />
-                <PrivateRoute path={Routes.ANALYTICS_TAB} fetcher exact component={AnalyticsPage} />
                 <PrivateRoute path={Routes.SETTINGS} exact component={RedirectToSettingsProfilePage} />
                 <PrivateRoute path={Routes.SETTINGS_PROFILE_TAB} fetcher exact component={SettingsPage} />
                 <PrivateRoute path={Routes.SETTINGS_BILLING_TAB} fetcher component={SettingsBillingTabPage} />
