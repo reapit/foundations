@@ -1,9 +1,9 @@
 import { ForbiddenException } from '@homeservenow/serverless-aws-handler'
 
-export const ownership = async (
+export const ownership = (
   developerId: string | undefined,
   customerDeveloperId: string,
-): Promise<void | never> => {
+): void | never => {
   if (!developerId || developerId !== customerDeveloperId) {
     throw new ForbiddenException()
   }

@@ -24,7 +24,7 @@ export const deployVersion = httpHandler<void, PipelineRunnerEntity>({
       throw new NotFoundException(`version [${pipelineRunnerId}] did not previously exist`)
     }
 
-    await ownership(developerId, (pipelineRunner.pipeline as PipelineEntity).developerId as string)
+    ownership(developerId, (pipelineRunner.pipeline as PipelineEntity).developerId as string)
 
     await Promise.all([
       deployFromStore({

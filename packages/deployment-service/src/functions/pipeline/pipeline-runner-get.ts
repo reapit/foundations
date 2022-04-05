@@ -19,7 +19,7 @@ export const pipelineRunnerGet = httpHandler<void, PipelineRunnerEntity>({
       throw new NotFoundException()
     }
 
-    await ownership(pipelineRunner.pipeline.id as string, developerId)
+    ownership(pipelineRunner.pipeline.id as string, developerId)
 
     const tasks = await findByPipelineId(pipelineRunner.pipeline.id as string)
     pipelineRunner.tasks = tasks.filter((task) => task.pipelineRunner?.id === pipelineRunner.id)

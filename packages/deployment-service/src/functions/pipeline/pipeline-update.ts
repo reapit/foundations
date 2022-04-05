@@ -33,7 +33,7 @@ export const pipelineUpdate = httpHandler<PipelineDto, PipelineEntity>({
       throw new NotFoundException()
     }
 
-    await ownership(pipeline.developerId, developerId)
+    ownership(pipeline.developerId, developerId)
 
     if (
       ['PRE_PROVISIONED', 'FAILED_TO_PROVISION'].includes(pipeline.buildStatus as string) &&
