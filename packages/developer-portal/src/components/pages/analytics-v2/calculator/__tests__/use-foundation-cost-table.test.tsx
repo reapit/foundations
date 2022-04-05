@@ -1,5 +1,5 @@
-import { prepareData, TotalCostTableData, foundationPricing, prepareTableColumns } from '../use-foundation-cost-table'
-import { formatNumber, formatCurrency } from '@/utils/number-formatter'
+import { formatCurrency, formatNumber } from '../../../../../utils/number-formatter'
+import { prepareData, TotalCostTableData, prepareTableColumns } from '../use-foundation-cost-table'
 
 const mockEndpointsUsed = 'tier4'
 const mockApiCalls = '100000'
@@ -44,19 +44,14 @@ const mockTotalCostTableData = {
   totalMonthlyCost: 340.025,
 }
 
-describe('prepareData', () => {
-  it('should run correctly', () => {
-    const fn = prepareData(mockEndpointsUsed, mockApiCalls, foundationPricing)
-    const result: TotalCostTableData = fn()
-    expect(result).toEqual(mockTotalCostTableData)
-  })
-})
 describe('prepareTableColumns', () => {
-  const fn = prepareTableColumns(mockTotalCostTableData.totalMonthlyCost)
-  const columns = fn()
+  const curried = prepareTableColumns(mockTotalCostTableData.totalMonthlyCost)
+  const columns = curried()
+
   it('should return 3 columns in total', () => {
     expect(columns).toHaveLength(3)
   })
+
   it('should return valid Header, accessor and Footer for each column', () => {
     mockTotalCostTableData.tableData.forEach((row) => {
       columns.forEach(({ Header, accessor, Footer }, index) => {
@@ -88,5 +83,13 @@ describe('prepareTableColumns', () => {
         }
       })
     })
+  })
+})
+
+describe('prepareData', () => {
+  it('should correctly prepare data', () => {
+    const curried = prepareData(mockEndpointsUsed, mockApiCalls)
+    const result: TotalCostTableData = curried()
+    expect(result).toEqual(mockTotalCostTableData)
   })
 })

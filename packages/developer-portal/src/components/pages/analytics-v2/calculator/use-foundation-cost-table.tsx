@@ -1,5 +1,5 @@
-import * as React from 'react'
-import { formatNumber, formatCurrency } from '@/utils/number-formatter'
+import { useMemo } from 'react'
+import { formatCurrency, formatNumber } from '../../../../utils/number-formatter'
 
 export type EndpointsUsedRange = { [key: string]: string }
 
@@ -25,7 +25,7 @@ export const endpointsUsedRange: EndpointsUsedRange = {
   tier7: '50+',
 }
 
-export const foundationPricing: TierPrice = {
+export const foundationsPricing: TierPrice = {
   tier1: {
     maxPrice: 0.001,
     priceRange: [
@@ -242,96 +242,87 @@ export type TotalCostTableData = {
   totalMonthlyCost: number
 }
 
-export const prepareData = (endpointsUsed: string, apiCalls: string, foundationPricing: TierPrice) => {
-  return (): TotalCostTableData => {
-    const bands: number[] = []
-    const bandCostPerCall: number[] = []
-    let totalMonthlyCost: number = 0
+export const prepareData = (endpointsUsed: string, apiCalls: string) => (): TotalCostTableData => {
+  const bands: number[] = []
+  const bandCostPerCall: number[] = []
+  let totalMonthlyCost: number = 0
 
-    let remainingApiCalls = parseFloat(apiCalls)
-    const { priceRange, maxPrice } = foundationPricing[endpointsUsed]
+  let remainingApiCalls = parseFloat(apiCalls)
+  const { priceRange, maxPrice } = foundationsPricing[endpointsUsed]
 
-    for (const tierPriceLimit of priceRange) {
-      const { limit, price } = tierPriceLimit
-      bandCostPerCall.push(price)
+  for (const tierPriceLimit of priceRange) {
+    const { limit, price } = tierPriceLimit
+    bandCostPerCall.push(price)
 
-      if (remainingApiCalls > limit) {
-        bands.push(limit)
-        totalMonthlyCost += limit * price
-        remainingApiCalls -= limit
-      } else {
-        bands.push(remainingApiCalls)
-        totalMonthlyCost += remainingApiCalls * price
-        remainingApiCalls = 0
-        break
-      }
-    }
-
-    if (remainingApiCalls > 0) {
+    if (remainingApiCalls > limit) {
+      bands.push(limit)
+      totalMonthlyCost += limit * price
+      remainingApiCalls -= limit
+    } else {
       bands.push(remainingApiCalls)
-      bandCostPerCall.push(maxPrice)
-      totalMonthlyCost += maxPrice * remainingApiCalls
+      totalMonthlyCost += remainingApiCalls * price
+      remainingApiCalls = 0
+      break
     }
+  }
 
-    const costPerBand = bandCostPerCall.map((item, index) => {
-      return item * bands[index]
-    })
+  if (remainingApiCalls > 0) {
+    bands.push(remainingApiCalls)
+    bandCostPerCall.push(maxPrice)
+    totalMonthlyCost += maxPrice * remainingApiCalls
+  }
 
-    const tableData = bands.map((item, index) => {
-      return {
-        numberOfApiCalls: item,
-        costPerApiCall: bandCostPerCall[index],
-        totalCost: costPerBand[index],
-      }
-    })
+  const costPerBand = bandCostPerCall.map((item, index) => {
+    return item * bands[index]
+  })
+
+  const tableData = bands.map((item, index) => {
     return {
-      tableData,
-      totalMonthlyCost,
+      numberOfApiCalls: item,
+      costPerApiCall: bandCostPerCall[index],
+      totalCost: costPerBand[index],
     }
-  }
-}
-
-export const prepareTableColumns = (totalMonthlyCost: number) => {
-  return () => {
-    return [
-      {
-        Header: 'Number of API Calls',
-        accessor: (row) => {
-          return formatNumber(row.numberOfApiCalls)
-        },
-      },
-      {
-        Header: 'Cost Per API Call',
-        accessor: (row) => {
-          return formatCurrency(row.costPerApiCall, 6)
-        },
-        Footer: 'Estimated total monthly cost',
-      },
-      {
-        Header: 'Total Cost',
-        accessor: (row) => {
-          return formatCurrency(row.totalCost)
-        },
-        Footer: () => {
-          return formatCurrency(totalMonthlyCost)
-        },
-      },
-    ]
-  }
-}
-
-const useFoundationCostTable = (endpointsUsed: string, apiCalls: string) => {
-  const { tableData, totalMonthlyCost } = React.useMemo(prepareData(endpointsUsed, apiCalls, foundationPricing), [
-    endpointsUsed,
-    apiCalls,
-    foundationPricing,
-  ])
-  const tableColumns = React.useMemo(prepareTableColumns(totalMonthlyCost), [totalMonthlyCost])
+  })
   return {
-    tableColumns,
     tableData,
     totalMonthlyCost,
   }
 }
 
-export default useFoundationCostTable
+export const prepareTableColumns = (totalMonthlyCost: number) => () => {
+  return [
+    {
+      Header: 'Number of API Calls',
+      accessor: (row: TableRow) => {
+        return formatNumber(row.numberOfApiCalls)
+      },
+    },
+    {
+      Header: 'Cost Per API Call',
+      accessor: (row: TableRow) => {
+        return formatCurrency(row.costPerApiCall, 6)
+      },
+      Footer: 'Estimated total monthly cost',
+    },
+    {
+      Header: 'Total Cost',
+      accessor: (row: TableRow) => {
+        return formatCurrency(row.totalCost)
+      },
+      Footer: () => {
+        return formatCurrency(totalMonthlyCost)
+      },
+    },
+  ]
+}
+
+export const useFoundationCostTable = (endpointsUsed: string, apiCalls: string) => {
+  const { tableData, totalMonthlyCost } = useMemo(prepareData(endpointsUsed, apiCalls), [endpointsUsed, apiCalls])
+  const tableColumns = useMemo(prepareTableColumns(totalMonthlyCost), [totalMonthlyCost])
+
+  return {
+    tableData,
+    tableColumns,
+    totalMonthlyCost,
+  }
+}
