@@ -1,5 +1,5 @@
 import React, { Dispatch, FC, SetStateAction, useEffect, useMemo, useState } from 'react'
-import { FlexContainer, Loader, Title, useSnack } from '@reapit/elements'
+import { FlexContainer, Loader, Subtitle, Title, useSnack } from '@reapit/elements'
 import { AnalyticsFilterState, useAnalyticsState } from '../state/use-analytics-state'
 import { BillingBreakdownForMonthV2Model } from '@reapit/foundations-ts-definitions'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
@@ -81,11 +81,21 @@ export const AnalyticsCosts: FC = () => {
       <Title>Costs</Title>
       <FlexContainer isFlexWrap>
         <ChartWrapper>
+          <Subtitle>Costs By Month</Subtitle>
           <ServicesChart />
         </ChartWrapper>
-        <ChartWrapper>{loading ? <Loader /> : <DownloadResourcesTable billing={aggregatedBilling} />}</ChartWrapper>
-        <ChartWrapper>{loading ? <Loader /> : <UsageTable billing={aggregatedBilling} />}</ChartWrapper>
-        <ChartWrapper>{loading ? <Loader /> : <ServicesTable billing={aggregatedBilling} />}</ChartWrapper>
+        <ChartWrapper>
+          <Subtitle>Download Resources</Subtitle>
+          {loading ? <Loader /> : <DownloadResourcesTable billing={aggregatedBilling} />}
+        </ChartWrapper>
+        <ChartWrapper>
+          <Subtitle>API Calls</Subtitle>
+          {loading ? <Loader /> : <UsageTable billing={aggregatedBilling} />}
+        </ChartWrapper>
+        <ChartWrapper>
+          <Subtitle>Services and Subscriptions</Subtitle>
+          {loading ? <Loader /> : <ServicesTable billing={aggregatedBilling} />}
+        </ChartWrapper>
       </FlexContainer>
     </>
   )

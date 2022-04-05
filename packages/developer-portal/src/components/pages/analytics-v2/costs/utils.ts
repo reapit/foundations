@@ -16,7 +16,9 @@ export const getMonthsRange = (analyticsFilterState: AnalyticsFilterState, forma
 
 export const aggregateItems = (items: ServiceItemBillingV2Model[]): ServiceItemBillingV2Model[] =>
   items.reduce<ServiceItemBillingV2Model[]>((aggregatedItems, item) => {
-    const aggregatedItem = aggregatedItems.find((aggregatedItem) => aggregatedItem.name === item.name)
+    const aggregatedItem = aggregatedItems.find((aggregatedItem) => {
+      return aggregatedItem.name === item.name
+    })
 
     if (!aggregatedItem) {
       aggregatedItems.push(item)
@@ -54,4 +56,16 @@ export const handleAggregateBillingData = (billing: BillingBreakdownForMonthV2Mo
       return billingAggregated
     },
     { services: [], totalCost: 0 },
+  )
+
+export const flattenBillingData = (services: ServiceItemBillingV2Model[]) =>
+  services?.reduce<(string | number | undefined)[][]>(
+    (accumulator, { items, name, amount, cost, itemCount }) => {
+      accumulator.push([name, itemCount, amount, cost])
+      if (items?.length) {
+        accumulator.push(...flattenBillingData(items))
+      }
+      return accumulator
+    },
+    [['Service Name', 'Item Count', 'Number Items', 'Cost']],
   )

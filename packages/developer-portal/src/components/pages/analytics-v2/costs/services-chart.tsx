@@ -2,7 +2,7 @@ import 'chart.js/auto'
 import { BillingOverviewForPeriodV2Model } from '@reapit/foundations-ts-definitions'
 import React, { FC, useMemo } from 'react'
 import { Chart } from 'react-chartjs-2'
-import { Loader, Subtitle } from '@reapit/elements'
+import { Loader } from '@reapit/elements'
 import { ChartDataset } from 'chart.js/auto'
 import { useReapitGet } from '@reapit/utils-react'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
@@ -70,68 +70,65 @@ export const ServicesChart: FC = () => {
   return billingLoading ? (
     <Loader />
   ) : (
-    <>
-      <Subtitle>Costs</Subtitle>
-      <Chart
-        type="bar"
-        data={{
-          labels: sortedBilling.dataLabels,
-          datasets:
-            (sortedBilling.dataSets?.map((billing, index) => ({
-              label: billing?.label,
-              backgroundColor: (context) => {
-                const chart = context.chart
-                const { ctx, chartArea } = chart
+    <Chart
+      type="bar"
+      data={{
+        labels: sortedBilling.dataLabels,
+        datasets:
+          (sortedBilling.dataSets?.map((billing, index) => ({
+            label: billing?.label,
+            backgroundColor: (context) => {
+              const chart = context.chart
+              const { ctx, chartArea } = chart
 
-                if (!chartArea) return
+              if (!chartArea) return
 
-                const { start, end } = GRADIENTS[index] ?? GRADIENTS[Math.floor(Math.random() * 10)]
-                const gradient = ctx.createLinearGradient(0, chartArea.top, 0, chartArea.bottom)
-                gradient.addColorStop(0, start)
-                gradient.addColorStop(1, end)
+              const { start, end } = GRADIENTS[index] ?? GRADIENTS[Math.floor(Math.random() * 10)]
+              const gradient = ctx.createLinearGradient(0, chartArea.top, 0, chartArea.bottom)
+              gradient.addColorStop(0, start)
+              gradient.addColorStop(1, end)
 
-                return gradient
-              },
-              data: billing?.data,
-            })) as ChartDataset<'bar', any>[]) ?? [],
-        }}
-        options={{
-          maintainAspectRatio: true,
-          scales: {
-            y: {
-              beginAtZero: true,
-              stacked: true,
-              ticks: {
-                font: {
-                  family: 'PT Sans',
-                  size: 16,
-                },
-              },
+              return gradient
             },
-            x: {
-              stacked: true,
-              ticks: {
-                font: {
-                  family: 'PT Sans',
-                  size: 16,
-                },
+            data: billing?.data,
+          })) as ChartDataset<'bar', any>[]) ?? [],
+      }}
+      options={{
+        maintainAspectRatio: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+            stacked: true,
+            ticks: {
+              font: {
+                family: 'PT Sans',
+                size: 16,
               },
             },
           },
-          plugins: {
-            legend: {
-              align: 'start',
-              position: 'right',
-              labels: {
-                font: {
-                  family: 'PT Sans',
-                  size: 16,
-                },
+          x: {
+            stacked: true,
+            ticks: {
+              font: {
+                family: 'PT Sans',
+                size: 16,
               },
             },
           },
-        }}
-      />
-    </>
+        },
+        plugins: {
+          legend: {
+            align: 'start',
+            position: 'right',
+            labels: {
+              font: {
+                family: 'PT Sans',
+                size: 16,
+              },
+            },
+          },
+        },
+      }}
+    />
   )
 }
