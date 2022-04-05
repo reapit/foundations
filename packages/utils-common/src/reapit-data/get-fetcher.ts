@@ -23,7 +23,7 @@ export const getFetcher = async <DataType>({
   logger,
   signal,
 }: GetFetcherParams): Promise<DataType | string> => {
-  const { api, path } = action
+  const { api, path, errorMessage } = action
   const deSerialisedPath = uriParams
     ? Object.keys(uriParams).reduce<string>((path, uriReplaceKey) => {
         return path.replace(`{${uriReplaceKey}}`, uriParams[uriReplaceKey])
@@ -49,10 +49,10 @@ export const getFetcher = async <DataType>({
     }
 
     const errorRes = await res.json()
-    throw new Error(handleReapitError(errorRes ?? {}))
+    throw new Error(handleReapitError(errorRes ?? {}, errorMessage))
   } catch (err) {
     const error = err as Error
     logger(error)
-    return action.errorMessage ?? error.message
+    return error.message ?? action.errorMessage
   }
 }

@@ -111,46 +111,6 @@ Object {
         <div
           class="e1v6agxr-el-border-radius ozevh1o-overflow-hidden"
         >
-          <div
-            class="e1x57i2-el-flex-wrap ez8nkuq-el-mb6 e2kmzjs-el-flex-container"
-          >
-            <input
-              class="e1wdkc9j-el-multi-select-checkbox"
-              id="test-static-id"
-              type="checkbox"
-              value="today"
-            />
-            <label
-              class="e1x92nc7-el-multi-select-label"
-              for="test-static-id"
-            >
-              Today
-            </label>
-            <input
-              class="e1wdkc9j-el-multi-select-checkbox"
-              id="test-static-id"
-              type="checkbox"
-              value="week"
-            />
-            <label
-              class="e1x92nc7-el-multi-select-label"
-              for="test-static-id"
-            >
-              Week
-            </label>
-            <input
-              class="e1wdkc9j-el-multi-select-checkbox"
-              id="test-static-id"
-              type="checkbox"
-              value="month"
-            />
-            <label
-              class="e1x92nc7-el-multi-select-label"
-              for="test-static-id"
-            >
-              Month
-            </label>
-          </div>
           <form>
             <div
               class="c13aquxn-controls-container"
@@ -161,6 +121,8 @@ Object {
                 <input
                   class="e1urjlvd-el-input"
                   id="test-static-id"
+                  max="2019-10"
+                  min="2019-04"
                   name="dateFrom"
                   type="date"
                 />
@@ -181,6 +143,7 @@ Object {
                 <input
                   class="e1urjlvd-el-input"
                   id="test-static-id"
+                  max="2019-10-10"
                   name="dateTo"
                   type="date"
                 />
@@ -189,26 +152,6 @@ Object {
                   for="test-static-id"
                 >
                   Date To
-                </label>
-              </div>
-            </div>
-            <div
-              class="c13aquxn-controls-container"
-            >
-              <div
-                class="ip4i2d1-input-full-width e1979rmu-el-input-group"
-              >
-                <input
-                  class="e1urjlvd-el-input"
-                  id="test-static-id"
-                  name="month"
-                  type="month"
-                />
-                <label
-                  class="e1nbkkrq-el-label"
-                  for="test-static-id"
-                >
-                  Month
                 </label>
               </div>
             </div>
@@ -390,46 +333,6 @@ Object {
       <div
         class="e1v6agxr-el-border-radius ozevh1o-overflow-hidden"
       >
-        <div
-          class="e1x57i2-el-flex-wrap ez8nkuq-el-mb6 e2kmzjs-el-flex-container"
-        >
-          <input
-            class="e1wdkc9j-el-multi-select-checkbox"
-            id="test-static-id"
-            type="checkbox"
-            value="today"
-          />
-          <label
-            class="e1x92nc7-el-multi-select-label"
-            for="test-static-id"
-          >
-            Today
-          </label>
-          <input
-            class="e1wdkc9j-el-multi-select-checkbox"
-            id="test-static-id"
-            type="checkbox"
-            value="week"
-          />
-          <label
-            class="e1x92nc7-el-multi-select-label"
-            for="test-static-id"
-          >
-            Week
-          </label>
-          <input
-            class="e1wdkc9j-el-multi-select-checkbox"
-            id="test-static-id"
-            type="checkbox"
-            value="month"
-          />
-          <label
-            class="e1x92nc7-el-multi-select-label"
-            for="test-static-id"
-          >
-            Month
-          </label>
-        </div>
         <form>
           <div
             class="c13aquxn-controls-container"
@@ -440,6 +343,8 @@ Object {
               <input
                 class="e1urjlvd-el-input"
                 id="test-static-id"
+                max="2019-10"
+                min="2019-04"
                 name="dateFrom"
                 type="date"
               />
@@ -460,6 +365,7 @@ Object {
               <input
                 class="e1urjlvd-el-input"
                 id="test-static-id"
+                max="2019-10-10"
                 name="dateTo"
                 type="date"
               />
@@ -468,26 +374,6 @@ Object {
                 for="test-static-id"
               >
                 Date To
-              </label>
-            </div>
-          </div>
-          <div
-            class="c13aquxn-controls-container"
-          >
-            <div
-              class="ip4i2d1-input-full-width e1979rmu-el-input-group"
-            >
-              <input
-                class="e1urjlvd-el-input"
-                id="test-static-id"
-                name="month"
-                type="month"
-              />
-              <label
-                class="e1nbkkrq-el-label"
-                for="test-static-id"
-              >
-                Month
               </label>
             </div>
           </div>

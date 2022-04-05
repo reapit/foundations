@@ -5,7 +5,6 @@ import { GetActionNames, getActions } from '@reapit/utils-common'
 import { useReapitGet } from '@reapit/utils-react'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { ChartWrapper } from '../__styles__'
-import dayjs from 'dayjs'
 import { InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { useReapitConnect } from '@reapit/connect-session'
 import { InstallationsPerDayChart } from './installations-per-day-chart'
@@ -14,15 +13,12 @@ import { InstallationsByAppChart } from './installations-by-app-chart'
 export const AnalyticsInstallations: FC = () => {
   const { analyticsFilterState } = useAnalyticsState()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const { dateFrom, dateTo, clientId, appId, dateRange } = analyticsFilterState
+  const { dateFrom, dateTo, clientId, appId } = analyticsFilterState
   const developerId = connectSession?.loginIdentity.developerId
 
   const appsQuery = appId ? { appId } : {}
 
   const customerQuery = clientId ? { clientId } : {}
-
-  const dateFromQuery = !dateRange ? dateFrom : dayjs().subtract(1, dateRange).format('YYYY-MM-DD')
-  const dateToQuery = !dateRange ? dateTo : dayjs().format('YYYY-MM-DD')
 
   const [installations, installationsLoading] = useReapitGet<InstallationModelPagedResult>({
     reapitConnectBrowserSession,
@@ -30,12 +26,12 @@ export const AnalyticsInstallations: FC = () => {
     queryParams: {
       isInstalled: true,
       pageSize: 999,
-      installedDateFrom: dateFromQuery,
-      installedDateTo: dateToQuery,
+      installedDateFrom: dateFrom,
+      installedDateTo: dateTo,
       ...appsQuery,
       ...customerQuery,
     },
-    fetchWhenTrue: [dateFromQuery, dateToQuery, developerId],
+    fetchWhenTrue: [dateFrom, dateTo, developerId],
   })
 
   return (

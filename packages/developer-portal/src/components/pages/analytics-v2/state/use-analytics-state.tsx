@@ -10,15 +10,13 @@ export interface AnalyticsDataState {
   apps: AppSummaryModelPagedResult | null
 }
 
-export type AnalyticsDateRange = 'today' | 'week' | 'month'
-
 export interface AnalyticsFilterState {
   dateFrom: string
   dateTo: string
-  month: string
+  monthFrom: string
+  monthTo: string
   appId: string
   clientId: string
-  dateRange: AnalyticsDateRange | null
 }
 
 export interface AnalyticsStateHook {

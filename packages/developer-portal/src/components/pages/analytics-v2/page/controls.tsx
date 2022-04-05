@@ -1,18 +1,5 @@
-import React, { FC, ChangeEvent, SetStateAction, Dispatch } from 'react'
-import {
-  elBorderRadius,
-  elFadeIn,
-  elMb3,
-  elMb6,
-  elWFull,
-  FlexContainer,
-  Icon,
-  InputGroup,
-  Label,
-  MultiSelectChip,
-  Select,
-  Subtitle,
-} from '@reapit/elements'
+import React, { FC, SetStateAction, Dispatch } from 'react'
+import { elBorderRadius, elFadeIn, elMb3, elWFull, Icon, InputGroup, Label, Select, Subtitle } from '@reapit/elements'
 import { ControlsContainer, inputFullWidth, overflowHidden } from './__styles__'
 import { cx } from '@linaria/core'
 import { AppSummaryModel, InstallationModel, InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
@@ -20,36 +7,15 @@ import { useReapitGet } from '@reapit/utils-react'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
-import { AnalyticsFilterState, AnalyticsDateRange, useAnalyticsState } from '../state/use-analytics-state'
+import { AnalyticsFilterState, useAnalyticsState } from '../state/use-analytics-state'
 import { useForm } from 'react-hook-form'
 import { useLocation } from 'react-router'
 import Routes from '../../../../constants/routes'
-
-export const handleOnChipChange =
-  (setAnalyticsFilterState: Dispatch<SetStateAction<AnalyticsFilterState>>) =>
-  (event: ChangeEvent<HTMLInputElement>) => {
-    setAnalyticsFilterState((currentState) => {
-      const checkBoxVal = event.target.value as AnalyticsDateRange
-      if (currentState.dateRange !== checkBoxVal) {
-        return {
-          ...currentState,
-          dateRange: checkBoxVal,
-        }
-      }
-
-      return {
-        ...currentState,
-        dateRange: null,
-      }
-    })
-  }
+import dayjs from 'dayjs'
 
 export const handleFormChange =
   (setAnalyticsFilterState: Dispatch<SetStateAction<AnalyticsFilterState>>) => (values: AnalyticsFilterState) => {
-    setAnalyticsFilterState(({ dateRange }) => ({
-      ...values,
-      dateRange,
-    }))
+    setAnalyticsFilterState(values)
   }
 
 export const Controls: FC = () => {
@@ -57,7 +23,7 @@ export const Controls: FC = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { setAnalyticsFilterState, analyticsFilterState, analyticsDataState } = useAnalyticsState()
   const { pathname } = location
-  const { dateRange, appId } = analyticsFilterState
+  const { appId, dateTo, monthTo } = analyticsFilterState
   const { apps } = analyticsDataState
   const developerId = connectSession?.loginIdentity.developerId
   const appQuery = appId ? { appId } : {}
@@ -71,10 +37,7 @@ export const Controls: FC = () => {
 
   const { register, handleSubmit } = useForm<AnalyticsFilterState>({
     mode: 'onChange',
-    defaultValues: {
-      ...analyticsFilterState,
-      dateRange,
-    },
+    defaultValues: analyticsFilterState,
   })
 
   return (
@@ -82,58 +45,51 @@ export const Controls: FC = () => {
       <Icon className={elMb3} icon="crmInfographic" iconSize="large" />
       <Subtitle>Filter By</Subtitle>
       <div className={cx(elBorderRadius, overflowHidden)}>
-        <FlexContainer className={elMb6} isFlexWrap>
-          <MultiSelectChip
-            value="today"
-            checked={dateRange === 'today'}
-            onChange={handleOnChipChange(setAnalyticsFilterState)}
-          >
-            Today
-          </MultiSelectChip>
-          <MultiSelectChip
-            value="week"
-            checked={dateRange === 'week'}
-            onChange={handleOnChipChange(setAnalyticsFilterState)}
-          >
-            Week
-          </MultiSelectChip>
-          <MultiSelectChip
-            value="month"
-            checked={dateRange === 'month'}
-            onChange={handleOnChipChange(setAnalyticsFilterState)}
-          >
-            Month
-          </MultiSelectChip>
-        </FlexContainer>
         <form onChange={handleSubmit(handleFormChange(setAnalyticsFilterState))}>
-          <ControlsContainer>
-            <InputGroup
-              className={inputFullWidth}
-              disabled={Boolean(dateRange)}
-              {...register('dateFrom')}
-              type="date"
-              label="Date From"
-            />
-          </ControlsContainer>
-          <ControlsContainer>
-            <InputGroup
-              className={inputFullWidth}
-              disabled={Boolean(dateRange)}
-              {...register('dateTo')}
-              type="date"
-              label="Date To"
-            />
-          </ControlsContainer>
-          {pathname !== Routes.ANALYTICS_V2_API_CALLS && (
-            <ControlsContainer>
-              <InputGroup
-                className={inputFullWidth}
-                disabled={Boolean(dateRange)}
-                {...register('month')}
-                type="month"
-                label="Month"
-              />
-            </ControlsContainer>
+          {pathname !== Routes.ANALYTICS_V2_COSTS ? (
+            <>
+              <ControlsContainer>
+                <InputGroup
+                  className={inputFullWidth}
+                  {...register('dateFrom')}
+                  type="date"
+                  label="Date From"
+                  min={dayjs(dateTo).subtract(6, 'months').format('YYYY-MM')}
+                  max={dayjs(dateTo).format('YYYY-MM')}
+                />
+              </ControlsContainer>
+              <ControlsContainer>
+                <InputGroup
+                  className={inputFullWidth}
+                  {...register('dateTo')}
+                  type="date"
+                  label="Date To"
+                  max={dayjs().format('YYYY-MM-DD')}
+                />
+              </ControlsContainer>
+            </>
+          ) : (
+            <>
+              <ControlsContainer>
+                <InputGroup
+                  className={inputFullWidth}
+                  {...register('monthFrom')}
+                  type="month"
+                  label="Month From"
+                  min={dayjs(monthTo).subtract(6, 'months').format('YYYY-MM')}
+                  max={dayjs(monthTo).format('YYYY-MM')}
+                />
+              </ControlsContainer>
+              <ControlsContainer>
+                <InputGroup
+                  className={inputFullWidth}
+                  {...register('monthTo')}
+                  type="month"
+                  label="Month To"
+                  max={dayjs().format('YYYY-MM')}
+                />
+              </ControlsContainer>
+            </>
           )}
           <ControlsContainer>
             <InputGroup>

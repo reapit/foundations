@@ -10,7 +10,8 @@ export const ChartWrapper = styled.div`
   @media screen and (min-width: 1440px) {
     width: calc(50% - 0.625rem);
 
-    &:first-child {
+    &:first-child,
+    &:nth-child(3) {
       margin-right: 1.25rem;
     }
   }

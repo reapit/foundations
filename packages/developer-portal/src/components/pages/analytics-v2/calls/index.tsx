@@ -7,12 +7,11 @@ import { useReapitGet, listToBatchQuery } from '@reapit/utils-react'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { AppSummaryModel, TrafficEventsModel } from '@reapit/foundations-ts-definitions'
 import { ChartWrapper } from '../__styles__'
-import dayjs from 'dayjs'
 import { HitsByResourceChart } from './hits-by-resource-chart'
 
 export const AnalyticsCalls: FC = () => {
   const { analyticsFilterState, analyticsDataState } = useAnalyticsState()
-  const { dateFrom, dateTo, clientId, appId, dateRange } = analyticsFilterState
+  const { dateFrom, dateTo, clientId, appId } = analyticsFilterState
   const { apps } = analyticsDataState
 
   const appsQuery = appId
@@ -23,14 +22,11 @@ export const AnalyticsCalls: FC = () => {
 
   const customerQuery = clientId ? { customerId: clientId } : {}
 
-  const dateFromQuery = !dateRange ? dateFrom : dayjs().subtract(1, dateRange).format('YYYY-MM-DD')
-  const dateToQuery = !dateRange ? dateTo : dayjs().format('YYYY-MM-DD')
-
   const [trafficEvents, trafficEventsLoading] = useReapitGet<TrafficEventsModel>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getTrafficStats],
-    queryParams: { dateFrom: dateFromQuery, dateTo: dateToQuery, applicationId: appsQuery, ...customerQuery },
-    fetchWhenTrue: [dateFromQuery, dateToQuery, appsQuery],
+    queryParams: { dateFrom, dateTo, applicationId: appsQuery, ...customerQuery },
+    fetchWhenTrue: [dateFrom, dateTo, appsQuery],
   })
 
   return (

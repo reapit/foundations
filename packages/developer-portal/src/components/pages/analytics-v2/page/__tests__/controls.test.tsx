@@ -1,9 +1,9 @@
 import { useReapitGet } from '@reapit/utils-react'
-import React, { ChangeEvent } from 'react'
+import React from 'react'
 import { render } from '../../../../../tests/react-testing'
 import { mockInstallationModelPagedResult } from '../../../../../tests/__stubs__/installations'
 import { defaultAnalyticsFilterState } from '../../state/defaults'
-import { Controls, handleFormChange, handleOnChipChange } from '../controls'
+import { Controls, handleFormChange } from '../controls'
 
 jest.mock('@reapit/utils-react')
 jest.mock('../../state/use-analytics-state')
@@ -18,40 +18,6 @@ describe('Controls', () => {
   })
 })
 
-describe('handleOnChipChange', () => {
-  it('should handle selecting a chip', () => {
-    const setAnalyticsFilterState = jest.fn()
-    const event = {
-      target: {
-        value: 'week',
-      },
-    } as unknown as ChangeEvent<HTMLInputElement>
-    const curried = handleOnChipChange(setAnalyticsFilterState)
-
-    curried(event)
-
-    expect(setAnalyticsFilterState.mock.calls[0][0]({ dateRange: 'day' })).toEqual({
-      dateRange: 'week',
-    })
-  })
-
-  it('should handle deselecting a chip', () => {
-    const setAnalyticsFilterState = jest.fn()
-    const event = {
-      target: {
-        value: 'week',
-      },
-    } as unknown as ChangeEvent<HTMLInputElement>
-    const curried = handleOnChipChange(setAnalyticsFilterState)
-
-    curried(event)
-
-    expect(setAnalyticsFilterState.mock.calls[0][0]({ dateRange: 'week' })).toEqual({
-      dateRange: null,
-    })
-  })
-})
-
 describe('handleFormChange', () => {
   it('should handle selecting a chip', () => {
     const setAnalyticsFilterState = jest.fn()
@@ -60,9 +26,6 @@ describe('handleFormChange', () => {
 
     curried(values)
 
-    expect(setAnalyticsFilterState.mock.calls[0][0]({ dateRange: 'day' })).toEqual({
-      ...values,
-      dateRange: 'day',
-    })
+    expect(setAnalyticsFilterState).toHaveBeenCalledWith(values)
   })
 })
