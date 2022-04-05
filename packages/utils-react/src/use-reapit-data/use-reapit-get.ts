@@ -125,9 +125,10 @@ export const handleGet =
       const error = typeof response === 'string' ? response : null
 
       if (data && successMessage) successSnack(successMessage)
-      if (error) errorSnack(errorMessage ?? error, 5000)
+      if (error) errorSnack(error ?? errorMessage, 5000)
 
       setData(data)
+      
       setError(error)
       await setLoading(false)
     }
@@ -178,7 +179,7 @@ export const handleRefresh =
       const data = typeof response === 'string' ? null : response
       const error = typeof response === 'string' ? response : null
 
-      if (error) errorSnack(errorMessage ?? error, 5000)
+      if (error) errorSnack(error ?? errorMessage, 5000)
 
       setData(data)
       setError(error)

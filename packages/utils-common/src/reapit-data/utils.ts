@@ -25,7 +25,7 @@ export const getMergedHeaders = (accessToken?: string, headers?: StringMap): Str
 
 export const handleReapitError = ({ description, errors }: ReapitError, fallbackMessage?: string) => {
   const messageString = description ? description : fallbackMessage ? fallbackMessage : 'Something went wrong'
-  const fieldErrors = errors?.map(({ field, message }) => `Field: ${field}, Message: ${message}`)
+  const fieldErrors = errors?.map(({ field, message }) => `"${field}: ${message}"`)
   const fieldString = fieldErrors ? fieldErrors.join(', ') : ''
 
   return `${messageString} ${fieldString}`
