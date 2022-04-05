@@ -1,3 +1,4 @@
+import { PipelineRunnerHasNoDeployTask } from '../../exceptions'
 import { SQSEvent, SQSHandler, Context, Callback } from 'aws-lambda'
 import { QueueNames } from '../../constants'
 import { PipelineEntity } from '../../entities/pipeline.entity'
@@ -38,8 +39,7 @@ export const codebuildDeploy: SQSHandler = async (event: SQSEvent, context: Cont
       }
 
       const deployTaskIndex = pipelineRunner.tasks?.findIndex((task) => task.functionName === 'DEPLOY')
-
-      if (pipelineRunner.buildStatus === 'CANCEL') {
+      if (pipelineRunner.buildStatus === 'CANCEL' || pipelineRunner.buildStatus === 'CANCELED') {
         pipelineRunner.buildStatus = 'CANCELED'
 
         await Promise.all([
@@ -47,10 +47,11 @@ export const codebuildDeploy: SQSHandler = async (event: SQSEvent, context: Cont
           savePipelineRunnerEntity(pipelineRunner),
           pusher.trigger(`private-${pipelineRunner.pipeline?.developerId}`, 'pipeline-runner-update', pipelineRunner),
         ])
+        return
       }
 
       if (deployTaskIndex === -1 || typeof deployTaskIndex === 'undefined' || !pipelineRunner.tasks) {
-        throw new Error('No deployable task')
+        throw new PipelineRunnerHasNoDeployTask(pipelineRunner.id as string)
       }
 
       try {
@@ -110,6 +111,13 @@ export const codebuildDeploy: SQSHandler = async (event: SQSEvent, context: Cont
           }
           pipelineRunner.tasks[deployTaskIndex].buildStatus = 'FAILED'
           pipelineRunner.tasks[deployTaskIndex].endTime = new Date()
+
+          const updatedPipelineRunner = await savePipelineRunnerEntity(pipelineRunner)
+          await pusher.trigger(
+            `private-${pipelineRunner.pipeline?.developerId}`,
+            'pipeline-runner-update',
+            updatedPipelineRunner,
+          )
         }
         await deleteMessage(record.receiptHandle)
       }
