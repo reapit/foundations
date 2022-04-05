@@ -40,7 +40,7 @@ export const handleFetchBilling =
       const billing = await batchFetchBillingService(monthRequests, query)
 
       if (billing) {
-        const filteredBilling = billing?.filter(Boolean) as BillingBreakdownForMonthV2Model[]
+        const filteredBilling = billing.filter(Boolean) as BillingBreakdownForMonthV2Model[]
         setBillingState({
           billing: filteredBilling,
           loading: false,

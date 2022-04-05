@@ -101,7 +101,7 @@ export const handleGet =
     } = handleGetParams
 
     const shouldFetch = checkShouldFetch<DataType>(handleGetParams)
-    const { successMessage, errorMessage } = action
+    const { successMessage } = action
     const controller = new AbortController()
     const signal = controller.signal
 
@@ -125,10 +125,10 @@ export const handleGet =
       const error = typeof response === 'string' ? response : null
 
       if (data && successMessage) successSnack(successMessage)
-      if (error) errorSnack(error ?? errorMessage, 5000)
+      if (error) errorSnack(error, 5000)
 
       setData(data)
-      
+
       setError(error)
       await setLoading(false)
     }
@@ -161,7 +161,6 @@ export const handleRefresh =
     const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
     const controller = new AbortController()
     const signal = controller.signal
-    const { errorMessage } = action
 
     const getData = async () => {
       setError(null)
@@ -179,7 +178,7 @@ export const handleRefresh =
       const data = typeof response === 'string' ? null : response
       const error = typeof response === 'string' ? response : null
 
-      if (error) errorSnack(error ?? errorMessage, 5000)
+      if (error) errorSnack(error, 5000)
 
       setData(data)
       setError(error)

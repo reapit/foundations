@@ -34,7 +34,7 @@ export const handleSortChartData = (billing: BillingOverviewForPeriodV2Model | n
   billing?.periods?.forEach(({ services, periodName }) => {
     if (!periodName || !services) return
     dataLabels.push(periodName)
-    services?.forEach(({ name = '', cost = 0 }) => {
+    services.forEach(({ name = '', cost = 0 }) => {
       const currentService = dataSetsObject[name] ?? []
       dataSetsObject[name] = [...currentService, cost]
     })
@@ -83,7 +83,7 @@ export const ServicesChart: FC = () => {
 
               if (!chartArea) return
 
-              const { start, end } = GRADIENTS[index] ?? GRADIENTS[Math.floor(Math.random() * 10)]
+              const { start, end } = GRADIENTS[index] ?? GRADIENTS[0]
               const gradient = ctx.createLinearGradient(0, chartArea.top, 0, chartArea.bottom)
               gradient.addColorStop(0, start)
               gradient.addColorStop(1, end)
