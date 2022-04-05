@@ -42,7 +42,7 @@ export const handleOnClear =
   (setEndpointsUsed: (endpointsUsed: string) => void, setApiCalls: (apiCalls: string) => void) =>
   (event: MouseEvent) => {
     event.preventDefault()
-    event.stopPropagation
+    event.stopPropagation()
     setEndpointsUsed('')
     setApiCalls('')
   }
