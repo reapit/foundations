@@ -1,3 +1,4 @@
+import { NoCodebuildPhasesException } from '../../../exceptions'
 import { findPipelineRunnerByCodeBuildId, pusher, savePipelineRunnerEntity } from '../../../services'
 import { acceptedPhases, BuildPhaseChangeStatusEvent } from './types'
 
@@ -8,7 +9,7 @@ export const handlePhaseChange = async ({
   event: BuildPhaseChangeStatusEvent
   buildId: string
 }): Promise<any | never> => {
-  const phases = event.detail['additional-information'].phases.filter((phase) =>
+  const phases = event.detail['additional-information'].phases?.filter((phase) =>
     acceptedPhases.includes(phase['phase-type']),
   )
 
@@ -20,8 +21,8 @@ export const handlePhaseChange = async ({
     throw new Error('pipelineRunner not found')
   }
 
-  if (!event.detail['additional-information'].phases) {
-    throw new Error('no phases')
+  if (!event.detail['additional-information'].phases || !phases) {
+    throw new NoCodebuildPhasesException()
   }
 
   if (pipelineRunner.buildStatus === 'QUEUED') {

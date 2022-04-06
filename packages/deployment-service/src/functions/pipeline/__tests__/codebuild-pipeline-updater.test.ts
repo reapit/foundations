@@ -1,6 +1,12 @@
+import { NoCodebuildPhasesException } from '../../../exceptions'
 import { pusher } from '../../../services'
+import { handlePhaseChange } from '../codebuild-pipeline-updater/handle-phase-change'
 import { handleStateChange } from '../codebuild-pipeline-updater/handle-state-change'
-import { BuildStateChangeEvent, CodebuildEventStateEnum } from '../codebuild-pipeline-updater/types'
+import {
+  BuildStateChangeEvent,
+  CodebuildEventStateEnum,
+  BuildPhaseChangeStatusEvent,
+} from '../codebuild-pipeline-updater/types'
 
 const SUCCESS_PIPELINE_RUNNER_CODEBUILD_ID = 'SUCCESS_PIPELINE_RUNNER_CODEBUILD_ID'
 
@@ -43,6 +49,12 @@ jest.mock('../../../services/pipeline-runner', () => ({
             buildStatus: 'QUEUED',
           },
           buildStatus: 'QUEUED',
+          tasks: [
+            {
+              functionName: 'INSTALL',
+              buildStatus: 'QUEUED',
+            },
+          ],
         })
       default:
         return Promise.resolve(undefined)
@@ -108,5 +120,79 @@ describe('codebuild-pipeline-updater', () => {
     })
   })
 
-  describe('handle-phase-change', () => {})
+  describe('handle-phase-change', () => {
+    beforeEach(() => {
+      jest.resetAllMocks()
+    })
+
+    it('No phases', async () => {
+      try {
+        await handlePhaseChange({
+          event: {
+            detail: {
+              'additional-information': {},
+            },
+          } as BuildPhaseChangeStatusEvent,
+          buildId: SUCCESS_PIPELINE_RUNNER_CODEBUILD_ID,
+        })
+      } catch (e) {
+        expect(e).toBeInstanceOf(NoCodebuildPhasesException)
+      }
+    })
+
+    it('Changes made', async () => {
+      await handlePhaseChange({
+        event: {
+          id: '',
+          'detail-type': CodebuildEventStateEnum.PHASE_CHANGE,
+          detail: {
+            'build-id': SUCCESS_PIPELINE_RUNNER_CODEBUILD_ID,
+            'additional-information': {
+              phases: [
+                {
+                  'phase-type': 'TEST',
+                  'phase-status': 'TEST',
+                  'start-time': new Date(),
+                  'end-time': new Date(),
+                  'duration-in-seconds': 1234,
+                },
+              ],
+            },
+          },
+        },
+        buildId: SUCCESS_PIPELINE_RUNNER_CODEBUILD_ID,
+      })
+
+      expect(mockReturnValue.mock.calls[0][0].buildStatus).toBe('IN_PROGRESS')
+      expect(mockReturnValue.mock.calls[0][0].pipeline.buildStatus).toBe('IN_PROGRESS')
+      expect(pusher.trigger).toHaveBeenCalled()
+    })
+
+    it('Changes made to tasks', async () => {
+      await handlePhaseChange({
+        event: {
+          id: '',
+          'detail-type': CodebuildEventStateEnum.PHASE_CHANGE,
+          detail: {
+            'build-id': SUCCESS_PIPELINE_RUNNER_CODEBUILD_ID,
+            'additional-information': {
+              phases: [
+                {
+                  'phase-type': 'INSTALL',
+                  'phase-status': 'COMPLETE',
+                  'start-time': new Date(),
+                  'end-time': new Date(),
+                  'duration-in-seconds': 1234,
+                },
+              ],
+            },
+          },
+        },
+        buildId: SUCCESS_PIPELINE_RUNNER_CODEBUILD_ID,
+      })
+
+      expect(mockReturnValue.mock.calls[0][0].tasks[0].buildStatus).toBe('COMPLETE')
+      expect(pusher.trigger).toHaveBeenCalled()
+    })
+  })
 })

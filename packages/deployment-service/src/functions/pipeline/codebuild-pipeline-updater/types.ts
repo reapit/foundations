@@ -20,7 +20,7 @@ export type BuildPhaseChangeStatusEvent = {
   detail: {
     ['build-id']: string
     ['additional-information']: {
-      phases: BuildPhase[]
+      phases?: BuildPhase[]
     }
   }
 }
