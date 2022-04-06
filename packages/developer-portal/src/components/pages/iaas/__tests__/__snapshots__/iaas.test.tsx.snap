@@ -17,7 +17,7 @@ Object {
           IaaS
         </h1>
         <span
-          class="e143qafr-el-icon-size-large ej9yrfo-el-icon"
+          class="ehvkknk-el-mb5 e143qafr-el-icon-size-large ej9yrfo-el-icon"
         >
           <svg
             fill="none"
@@ -49,7 +49,7 @@ Object {
           </svg>
         </span>
         <p
-          class="e15ggth7-el-body-text"
+          class="e11jaxfn-el-has-grey-text e1wasvgh-el-small-text"
         >
           Infrastructure as a Service management. Pipelines are for deploying your Reapit apps to our infrastructure to simplify your development process
         </p>
@@ -94,7 +94,7 @@ Object {
         IaaS
       </h1>
       <span
-        class="e143qafr-el-icon-size-large ej9yrfo-el-icon"
+        class="ehvkknk-el-mb5 e143qafr-el-icon-size-large ej9yrfo-el-icon"
       >
         <svg
           fill="none"
@@ -126,7 +126,7 @@ Object {
         </svg>
       </span>
       <p
-        class="e15ggth7-el-body-text"
+        class="e11jaxfn-el-has-grey-text e1wasvgh-el-small-text"
       >
         Infrastructure as a Service management. Pipelines are for deploying your Reapit apps to our infrastructure to simplify your development process
       </p>

@@ -1,7 +1,6 @@
 import { RouteValue } from '../types/core'
 import Routes from '../constants/routes'
 import store from '../core/store'
-import { fetchMyIdentity } from '@/actions/developer'
 import { requestDeveloperData } from '@/actions/settings'
 import { fetchOrganisationMembers } from '@/actions/developers'
 import { getDeveloperId } from './session'
@@ -9,10 +8,6 @@ import { fetchCurrentMember } from '@/actions/current-member'
 
 const routeDispatcher = async (route: RouteValue) => {
   switch (route) {
-    case Routes.ANALYTICS_TAB: {
-      store.dispatch(fetchMyIdentity())
-      break
-    }
     case Routes.SETTINGS_PROFILE_TAB: {
       const developerId = await getDeveloperId()
       store.dispatch(fetchOrganisationMembers({ id: developerId }))

@@ -1,7 +1,7 @@
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import {
-  BodyText,
+  SmallText,
   Button,
   elMt6,
   Icon,
@@ -13,6 +13,7 @@ import {
   TableHeader,
   TableHeadersRow,
   Title,
+  elMb5,
 } from '@reapit/elements'
 import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import { GetActionNames, getActions } from '@reapit/utils-common'
@@ -36,7 +37,7 @@ export const IaaS: FC = () => {
   const [pagination, setPagination] = useState<Pagination<PipelineModelInterface> | null>()
   const [page, setPage] = useState<number>(1)
 
-  const [pipelines, loading, , refreshPagination] = useReapitGet<Pagination<PipelineModelInterface>>({
+  const [pipelines, loading] = useReapitGet<Pagination<PipelineModelInterface>>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.paginatePipeline],
     headers: {
@@ -48,17 +49,16 @@ export const IaaS: FC = () => {
     },
   })
   useEffect(() => setPagination(pipelines), [pipelines])
-  useEffect(() => refreshPagination(), [page])
 
   return (
     <>
       <SecondaryNavContainer>
         <Title>IaaS</Title>
-        <Icon iconSize="large" icon={'refreshInfographic'} />
-        <BodyText>
+        <Icon className={elMb5} iconSize="large" icon={'refreshInfographic'} />
+        <SmallText hasGreyText>
           Infrastructure as a Service management. Pipelines are for deploying your Reapit apps to our infrastructure to
           simplify your development process
-        </BodyText>
+        </SmallText>
         <Button intent="critical">View Docs</Button>
       </SecondaryNavContainer>
       <PageContainer>

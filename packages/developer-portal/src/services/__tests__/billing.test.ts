@@ -1,27 +1,34 @@
-import { fetcher } from '@reapit/utils-common'
-import { fetchBillings, fetchBillingsByMonth } from '../billing'
+import { defaultAnalyticsFilterState } from '../../components/pages/analytics/state/defaults'
+import { fetcher, fetcherWithBlob } from '@reapit/utils-common'
+import { batchFetchBillingService, billingTransactionDownloadService } from '../billing'
 
+jest.mock('file-saver', () => ({
+  saveAs: jest.fn(),
+}))
 jest.mock('@reapit/utils-common')
 jest.mock('@reapit/utils-react', () => ({
   getPlatformHeaders: jest.fn(() => ({})),
 }))
 
 const mockedFetch = fetcher as jest.Mock
+const mockedFetchBlob = fetcherWithBlob as jest.Mock
 
 describe('billing services', () => {
-  describe('fetchBillings', () => {
+  describe('batchFetchBillingService', () => {
     it('should return a response from the billing service', async () => {
       const stub = { someKey: 'some value' }
       mockedFetch.mockReturnValueOnce(stub)
-      expect(await fetchBillings({})).toEqual(stub)
+      expect(await batchFetchBillingService(['2022-04'], 'developerId=MOCK_DEVELOPER_ID')).toEqual([stub])
     })
   })
 
-  describe('fetchBillingsByMonth', () => {
+  describe('billingTransactionDownloadService', () => {
     it('should return a response from the billing service', async () => {
       const stub = { someKey: 'some value' }
-      mockedFetch.mockReturnValueOnce(stub)
-      expect(await fetchBillingsByMonth({ month: 'SOME_MONTH' })).toEqual(stub)
+      mockedFetchBlob.mockReturnValueOnce(stub)
+      expect(
+        await billingTransactionDownloadService(defaultAnalyticsFilterState, 'Apr 2022', 'MOCK_DEVELOPER_ID'),
+      ).toEqual(true)
     })
   })
 })

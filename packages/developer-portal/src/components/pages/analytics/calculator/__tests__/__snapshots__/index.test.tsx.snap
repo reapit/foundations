@@ -1,0 +1,316 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AnalyticsCalculator should match snapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ecbqyq6-el-snack-holder"
+      />
+      <h1
+        class="evblxhy-el-title"
+      >
+        Calculator
+      </h1>
+      <p
+        class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+      >
+        You can calculate the estimated monthly cost below using our Cost Calculator. Just select the number of endpoints and enter the amount of API calls below. To see the full Foundations Pricing, please click
+         
+        <a
+          href=""
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          here
+        </a>
+      </p>
+      <form>
+        <div
+          class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
+        >
+          <div
+            class="e1ksxx4v-el-input-wrap"
+          >
+            <div
+              class="e1979rmu-el-input-group"
+            >
+              <label
+                class="e1nbkkrq-el-label"
+              >
+                Endpoints Used
+              </label>
+              <select
+                class="e60u3kb-el-select"
+                name="endpointsUsed"
+              >
+                <option
+                  value=""
+                >
+                  Please select
+                </option>
+                <option
+                  value="tier1"
+                >
+                  1-5
+                </option>
+                <option
+                  value="tier2"
+                >
+                  6-10
+                </option>
+                <option
+                  value="tier3"
+                >
+                  11-20
+                </option>
+                <option
+                  value="tier4"
+                >
+                  21-30
+                </option>
+                <option
+                  value="tier5"
+                >
+                  31-40
+                </option>
+                <option
+                  value="tier6"
+                >
+                  41-50
+                </option>
+                <option
+                  value="tier7"
+                >
+                  50+
+                </option>
+              </select>
+            </div>
+          </div>
+          <div
+            class="e1ksxx4v-el-input-wrap"
+          >
+            <div
+              class="e1979rmu-el-input-group"
+            >
+              <input
+                class="e1urjlvd-el-input"
+                id="test-static-id"
+                name="apiCalls"
+                type="text"
+              />
+              <label
+                class="e1nbkkrq-el-label"
+                for="test-static-id"
+              >
+                API Calls Used
+              </label>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ec47sgk-el-mb11 eay05y4-el-button-group"
+        >
+          <div
+            class="e1cpt8yd-el-button-group-align-left ebqwrow-el-button-group-inner"
+          >
+            <button
+              class="epibvz0-el-intent-secondary eqfkc7t-el-button"
+              type="button"
+            >
+              clear
+            </button>
+            <button
+              class="ebee6r1-el-intent-primary eqfkc7t-el-button"
+              type="submit"
+            >
+              Calculate
+            </button>
+          </div>
+        </div>
+      </form>
+      
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6-el-snack-holder"
+    />
+    <h1
+      class="evblxhy-el-title"
+    >
+      Calculator
+    </h1>
+    <p
+      class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+    >
+      You can calculate the estimated monthly cost below using our Cost Calculator. Just select the number of endpoints and enter the amount of API calls below. To see the full Foundations Pricing, please click
+       
+      <a
+        href=""
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        here
+      </a>
+    </p>
+    <form>
+      <div
+        class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
+      >
+        <div
+          class="e1ksxx4v-el-input-wrap"
+        >
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <label
+              class="e1nbkkrq-el-label"
+            >
+              Endpoints Used
+            </label>
+            <select
+              class="e60u3kb-el-select"
+              name="endpointsUsed"
+            >
+              <option
+                value=""
+              >
+                Please select
+              </option>
+              <option
+                value="tier1"
+              >
+                1-5
+              </option>
+              <option
+                value="tier2"
+              >
+                6-10
+              </option>
+              <option
+                value="tier3"
+              >
+                11-20
+              </option>
+              <option
+                value="tier4"
+              >
+                21-30
+              </option>
+              <option
+                value="tier5"
+              >
+                31-40
+              </option>
+              <option
+                value="tier6"
+              >
+                41-50
+              </option>
+              <option
+                value="tier7"
+              >
+                50+
+              </option>
+            </select>
+          </div>
+        </div>
+        <div
+          class="e1ksxx4v-el-input-wrap"
+        >
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              name="apiCalls"
+              type="text"
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              API Calls Used
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ec47sgk-el-mb11 eay05y4-el-button-group"
+      >
+        <div
+          class="e1cpt8yd-el-button-group-align-left ebqwrow-el-button-group-inner"
+        >
+          <button
+            class="epibvz0-el-intent-secondary eqfkc7t-el-button"
+            type="button"
+          >
+            clear
+          </button>
+          <button
+            class="ebee6r1-el-intent-primary eqfkc7t-el-button"
+            type="submit"
+          >
+            Calculate
+          </button>
+        </div>
+      </div>
+    </form>
+    
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

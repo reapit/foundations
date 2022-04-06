@@ -4,6 +4,7 @@ export const mockAppSummaryModelPagedResult: AppSummaryModelPagedResult = {
   data: [
     {
       id: 'MOCK_APP_ID',
+      name: 'MOCK_APP_NAME',
       launchUri: 'https://foo.bar',
       homePage: 'https://foo.bar',
       authFlow: 'clientCredentials',
@@ -17,6 +18,7 @@ export const mockAppSummaryModelPagedResult: AppSummaryModelPagedResult = {
     },
     {
       id: 'MOCK_OTHER_APP_ID',
+      name: 'MOCK_APP_NAME_ANOTHER',
       launchUri: 'https://foo.bar',
       homePage: 'https://foo.bar',
       authFlow: 'authorisationCode',

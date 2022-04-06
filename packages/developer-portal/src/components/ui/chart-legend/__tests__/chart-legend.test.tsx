@@ -6,7 +6,6 @@ const props: ChartLegendProps = {
   chartInstance: {
     getDatasetMeta: jest.fn(),
     update: jest.fn(),
-    generateLegend: jest.fn(),
   },
   chartLegendItems: [
     {

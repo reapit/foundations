@@ -2,7 +2,6 @@ import routeDispatcher from '../route-dispatcher'
 import store from '@/core/store'
 import Routes from '@/constants/routes'
 import { RouteValue } from '@/types/core'
-import { fetchMyIdentity } from '@/actions/developer'
 import { requestDeveloperData } from '@/actions/settings'
 import { fetchCurrentMember } from '@/actions/current-member'
 
@@ -30,9 +29,5 @@ describe('routeDispatcher', () => {
   it('should dispatch correctly for th setting billing route', async () => {
     await routeDispatcher(Routes.SETTINGS_BILLING_TAB as RouteValue)
     expect(store.dispatch).toHaveBeenCalledWith(requestDeveloperData())
-  })
-  it('should dispatch to appInstallationsRequestData & developerRequestData for the analytics route', async () => {
-    await routeDispatcher(Routes.ANALYTICS_TAB as RouteValue)
-    expect(store.dispatch).toHaveBeenCalledWith(fetchMyIdentity())
   })
 })

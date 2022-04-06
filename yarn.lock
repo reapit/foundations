@@ -14673,6 +14673,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"chart.js@npm:^3.7.1":
+  version: 3.7.1
+  resolution: "chart.js@npm:3.7.1"
+  checksum: f9d118d3b7dd3c36b6da7a8d71ac9e5d9673b81095cc66c3f61ff91674e20020c6700f8c9c6f93713fa8474eb471ded106114346ccc6afa88b4a7d0eb73dcea4
+  languageName: node
+  linkType: hard
+
 "chartjs-color-string@npm:^0.6.0":
   version: 0.6.0
   resolution: "chartjs-color-string@npm:0.6.0"
@@ -17158,7 +17165,7 @@ __metadata:
     amazon-cognito-identity-js: ^4.6.3
     babel-jest: ^27.4.5
     babel-loader: ^8.2.3
-    chart.js: ^2.9.4
+    chart.js: ^3.7.1
     concurrently: ^6.4.0
     cross-env: ^6.0.3
     css-loader: ^6.5.1
@@ -17178,7 +17185,7 @@ __metadata:
     project-name-generator: ^2.1.9
     query-string: 5.1.1
     react: ^17.0.2
-    react-chartjs-2: ^2.11.2
+    react-chartjs-2: ^4.0.1
     react-copy-to-clipboard: ^5.0.4
     react-dom: ^17.0.2
     react-ga: ^2.7.0
@@ -31453,6 +31460,16 @@ fsevents@^1.2.7:
     react: ^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
     react-dom: ^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
   checksum: 874ddc9ebdd620ac2692e307dfa848d540cc84beed56910a92b8630abcc286f9b8682aba87c8635d969943586adabe5b8222adf3a7bff041d15a9698f17caa4a
+  languageName: node
+  linkType: hard
+
+"react-chartjs-2@npm:^4.0.1":
+  version: 4.0.1
+  resolution: "react-chartjs-2@npm:4.0.1"
+  peerDependencies:
+    chart.js: ^3.5.0
+    react: ^16.8.0 || ^17.0.0
+  checksum: c22e994c73c0fba8140e9228703b3a94f54a053b00b7a70a53d7056139349f3032daf1512fa38bad23e8e348affc4e36ebbfea8beb5e4c5802bfc8c72d9c68d6
   languageName: node
   linkType: hard
 

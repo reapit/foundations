@@ -1,5 +1,5 @@
 import * as React from 'react'
-import * as chartjs from 'chart.js'
+import { Chart } from 'chart.js'
 import { GridItem, Grid } from '@reapit/elements-legacy'
 import { cx } from '@linaria/core'
 
@@ -13,13 +13,13 @@ export type ChartLegendItem = {
 }
 
 export type ChartLegendProps = {
-  chartInstance: Partial<chartjs>
+  chartInstance: Partial<Chart>
   chartLegendItems: ChartLegendItem[]
 }
 
 // Follow the default implementation of ChartJS's legend onClick action
 // https://www.chartjs.org/docs/latest/configuration/legend.html#custom-on-click-actions
-export const onChartLegendItemClick = (chartInstance: Partial<chartjs>, chartLegendItem: ChartLegendItem) => {
+export const onChartLegendItemClick = (chartInstance: Partial<Chart>, chartLegendItem: ChartLegendItem) => {
   return () => {
     if (!chartLegendItem) {
       return
@@ -34,7 +34,7 @@ export const onChartLegendItemClick = (chartInstance: Partial<chartjs>, chartLeg
         chartInstance.update && chartInstance.update()
         // Also need to call generateLegend again to update our legendItems in legendCallback function
         // https://www.chartjs.org/docs/latest/configuration/legend.html#html-legends
-        chartInstance.generateLegend && chartInstance.generateLegend()
+        // chartInstance.generateLegend && chartInstance()
       }
     }
   }
