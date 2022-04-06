@@ -91,6 +91,9 @@ export const GraphQLPage: FC = () => {
           <SecondaryNavItem onClick={navigate(history, Routes.GRAPHQL)} active={pathname === Routes.GRAPHQL}>
             GraphQL
           </SecondaryNavItem>
+          <SecondaryNavItem onClick={navigate(history, Routes.DESKTOP)} active={pathname === Routes.DESKTOP}>
+            Desktop
+          </SecondaryNavItem>
         </SecondaryNav>
         <Icon className={elMb5} icon="graphQlInfographic" iconSize="large" />
         <Subtitle>GraphQL Playground</Subtitle>

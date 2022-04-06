@@ -1,7 +1,22 @@
 import React, { Dispatch, FC, SetStateAction, useState } from 'react'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { FadeIn, Modal } from '@reapit/elements-legacy'
-import { Title, Subtitle, BodyText, elMb6, elMb8, SmallText, Button, elMx4, PageContainer } from '@reapit/elements'
+import {
+  Title,
+  Subtitle,
+  BodyText,
+  elMb6,
+  elMb8,
+  SmallText,
+  Button,
+  elMx4,
+  PageContainer,
+  FlexContainer,
+  SecondaryNavContainer,
+  SecondaryNav,
+  elMb9,
+  SecondaryNavItem,
+} from '@reapit/elements'
 import DeveloperEditonModal from '@/components/ui/developer-edition-modal'
 import {
   hasGreyText,
@@ -42,6 +57,9 @@ import devEditionImgThree from '../../../assets/images/desktop/developer-edition
 import { IFRAME_URLS } from '../../../constants/iframe-urls'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
+import { navigate } from '../../../utils/navigation'
+import Routes from '../../../constants/routes'
+import { useHistory, useLocation } from 'react-router'
 
 export type SubscribingState = 'INITIAL' | 'SUBSCRIBE_NOW' | 'CONFIRMING'
 
@@ -230,28 +248,52 @@ export const SubscribeSection: FC = () => {
   )
 }
 
-export const DeveloperDesktopPage: FC = () => (
-  <ErrorBoundary>
-    <PageContainer>
-      <Title>Desktop</Title>
-      <Grid>
-        <Col span={8} spanTablet={12} spanMobile={12}>
-          <BannerSection />
+export const DeveloperDesktopPage: FC = () => {
+  const location = useLocation()
+  const history = useHistory()
+  const { pathname } = location
+  return (
+    <ErrorBoundary>
+      <FlexContainer isFlexAuto>
+        <SecondaryNavContainer>
+          <Title>API</Title>
+          <SecondaryNav className={elMb9}>
+            <SecondaryNavItem onClick={navigate(history, Routes.SWAGGER)} active={pathname === Routes.SWAGGER}>
+              REST API
+            </SecondaryNavItem>
+            <SecondaryNavItem onClick={navigate(history, Routes.WEBHOOKS_ABOUT)} active={pathname.includes('webhooks')}>
+              Webhooks
+            </SecondaryNavItem>
+            <SecondaryNavItem onClick={navigate(history, Routes.GRAPHQL)} active={pathname === Routes.GRAPHQL}>
+              GraphQL
+            </SecondaryNavItem>
+            <SecondaryNavItem onClick={navigate(history, Routes.DESKTOP)} active={pathname === Routes.DESKTOP}>
+              Desktop
+            </SecondaryNavItem>
+          </SecondaryNav>
+        </SecondaryNavContainer>
+        <PageContainer>
+          <Title>Desktop</Title>
           <Grid>
-            <Col span={6} spanTablet={6} spanMobile={12}>
-              <AboutSection />
+            <Col span={8} spanTablet={12} spanMobile={12}>
+              <BannerSection />
+              <Grid>
+                <Col span={6} spanTablet={6} spanMobile={12}>
+                  <AboutSection />
+                </Col>
+                <Col span={6} spanTablet={6} spanMobile={12}>
+                  <VideoSection />
+                </Col>
+              </Grid>
             </Col>
-            <Col span={6} spanTablet={6} spanMobile={12}>
-              <VideoSection />
+            <Col span={4} spanTablet={12} spanMobile={12}>
+              <SubscribeSection />
             </Col>
           </Grid>
-        </Col>
-        <Col span={4} spanTablet={12} spanMobile={12}>
-          <SubscribeSection />
-        </Col>
-      </Grid>
-    </PageContainer>
-  </ErrorBoundary>
-)
+        </PageContainer>
+      </FlexContainer>
+    </ErrorBoundary>
+  )
+}
 
 export default DeveloperDesktopPage

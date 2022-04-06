@@ -59,6 +59,7 @@ export const getDefaultNavIndex = (pathname: string) => {
     case Routes.WEBHOOKS_MANAGE:
     case Routes.WEBHOOKS_NEW:
     case Routes.GRAPHQL:
+    case Routes.DESKTOP:
       return 3
     case Routes.ELEMENTS:
       return 4
@@ -66,8 +67,6 @@ export const getDefaultNavIndex = (pathname: string) => {
       return 5
     case Routes.IAAS:
       return 6
-    case Routes.HELP:
-      return 8
     case Routes.SETTINGS:
     case Routes.SETTINGS_BILLING_TAB:
     case Routes.SETTINGS_ORGANISATION_TAB:
@@ -163,12 +162,6 @@ export const Menu: React.FunctionComponent = () => {
       callback: () => (window.location.href = window.reapit.config.marketplaceUrl),
       iconId: 'marketplaceMenu',
       text: 'AppMarket',
-    },
-    {
-      itemIndex: 8,
-      callback: navigate(history, Routes.HELP),
-      iconId: 'helpMenu',
-      text: 'Help',
     },
     {
       itemIndex: 9,

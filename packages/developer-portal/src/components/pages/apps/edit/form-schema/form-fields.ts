@@ -79,13 +79,13 @@ export const formFields: Record<keyof AppEditFormSchema, InputGroupProps & { nam
   supportEmail: {
     name: 'supportEmail',
     label: 'Support email',
-    placeholder: 'The contact to your support team if your users have a problem',
+    placeholder: 'Email for customers to contact you',
     type: 'email',
   },
   telephone: {
     name: 'telephone',
     label: 'Telephone',
-    placeholder: 'Should one of our developers need to contact you about your app',
+    placeholder: 'Number for customers to contact you',
     errorMessage: 'Invalid Telephone number',
     type: 'text',
   },
@@ -99,7 +99,7 @@ export const formFields: Record<keyof AppEditFormSchema, InputGroupProps & { nam
   launchUri: {
     name: 'launchUri',
     label: 'Launch URI',
-    placeholder: 'The launch page for your app. HTTPS only other than for http://localhost',
+    placeholder: 'HTTPS or HTTP only for localhost',
     errorMessage: 'Invalid Launch URI',
     type: 'text',
   },

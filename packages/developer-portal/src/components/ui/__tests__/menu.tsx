@@ -95,6 +95,10 @@ describe('getDefaultNavIndex', () => {
       index: 3,
     },
     {
+      route: Routes.DESKTOP,
+      index: 3,
+    },
+    {
       route: Routes.ELEMENTS,
       index: 4,
     },
@@ -105,10 +109,6 @@ describe('getDefaultNavIndex', () => {
     {
       route: Routes.IAAS,
       index: 6,
-    },
-    {
-      route: Routes.HELP,
-      index: 8,
     },
     {
       route: Routes.SETTINGS,

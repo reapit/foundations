@@ -60,7 +60,7 @@ Object {
               class="e1urjlvd-el-input"
               id="test-static-id"
               name="supportEmail"
-              placeholder="The contact to your support team if your users have a problem"
+              placeholder="Email for customers to contact you"
               type="email"
               value="Mock field value"
             />
@@ -82,7 +82,7 @@ Object {
               class="e1urjlvd-el-input"
               id="test-static-id"
               name="telephone"
-              placeholder="Should one of our developers need to contact you about your app"
+              placeholder="Number for customers to contact you"
               type="text"
               value="Mock field value"
             />
@@ -126,7 +126,7 @@ Object {
               class="e1urjlvd-el-input"
               id="test-static-id"
               name="launchUri"
-              placeholder="The launch page for your app. HTTPS only other than for http://localhost"
+              placeholder="HTTPS or HTTP only for localhost"
               type="text"
               value="Mock field value"
             />
@@ -372,7 +372,7 @@ Object {
             class="e1urjlvd-el-input"
             id="test-static-id"
             name="supportEmail"
-            placeholder="The contact to your support team if your users have a problem"
+            placeholder="Email for customers to contact you"
             type="email"
             value="Mock field value"
           />
@@ -394,7 +394,7 @@ Object {
             class="e1urjlvd-el-input"
             id="test-static-id"
             name="telephone"
-            placeholder="Should one of our developers need to contact you about your app"
+            placeholder="Number for customers to contact you"
             type="text"
             value="Mock field value"
           />
@@ -438,7 +438,7 @@ Object {
             class="e1urjlvd-el-input"
             id="test-static-id"
             name="launchUri"
-            placeholder="The launch page for your app. HTTPS only other than for http://localhost"
+            placeholder="HTTPS or HTTP only for localhost"
             type="text"
             value="Mock field value"
           />
@@ -741,7 +741,7 @@ Object {
               class="e1urjlvd-el-input"
               id="test-static-id"
               name="supportEmail"
-              placeholder="The contact to your support team if your users have a problem"
+              placeholder="Email for customers to contact you"
               type="email"
             />
             <span
@@ -783,7 +783,7 @@ Object {
               class="e1urjlvd-el-input"
               id="test-static-id"
               name="telephone"
-              placeholder="Should one of our developers need to contact you about your app"
+              placeholder="Number for customers to contact you"
               type="text"
             />
             <span
@@ -867,7 +867,7 @@ Object {
               class="e1urjlvd-el-input"
               id="test-static-id"
               name="launchUri"
-              placeholder="The launch page for your app. HTTPS only other than for http://localhost"
+              placeholder="HTTPS or HTTP only for localhost"
               type="text"
             />
             <span
@@ -1273,7 +1273,7 @@ Object {
             class="e1urjlvd-el-input"
             id="test-static-id"
             name="supportEmail"
-            placeholder="The contact to your support team if your users have a problem"
+            placeholder="Email for customers to contact you"
             type="email"
           />
           <span
@@ -1315,7 +1315,7 @@ Object {
             class="e1urjlvd-el-input"
             id="test-static-id"
             name="telephone"
-            placeholder="Should one of our developers need to contact you about your app"
+            placeholder="Number for customers to contact you"
             type="text"
           />
           <span
@@ -1399,7 +1399,7 @@ Object {
             class="e1urjlvd-el-input"
             id="test-static-id"
             name="launchUri"
-            placeholder="The launch page for your app. HTTPS only other than for http://localhost"
+            placeholder="HTTPS or HTTP only for localhost"
             type="text"
           />
           <span

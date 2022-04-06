@@ -26,7 +26,6 @@ const Routes = {
   SETTINGS_ORGANISATION_TAB: '/settings/organisation',
   SETTINGS_BILLING_TAB: '/settings/billing',
   SUBMIT_APP: '/submit-app',
-  HELP: '/help',
   DEVELOPER_EDITION_DOWNLOAD: '/edition-download',
   REGISTER: '/developer/register',
   REGISTER_LEGACY: '/register',

@@ -89,6 +89,8 @@ Object {
             <input
               class="e1urjlvd-el-input"
               id="test-static-id"
+              max="2021-09"
+              min="2021-03"
               name="from"
               type="date"
               value="2021-08-01"
@@ -110,6 +112,8 @@ Object {
             <input
               class="e1urjlvd-el-input"
               id="test-static-id"
+              max="2019-10-10"
+              min="2021-08-01"
               name="to"
               type="date"
               value="2021-09-01"
@@ -174,6 +178,8 @@ Object {
           <input
             class="e1urjlvd-el-input"
             id="test-static-id"
+            max="2021-09"
+            min="2021-03"
             name="from"
             type="date"
             value="2021-08-01"
@@ -195,6 +201,8 @@ Object {
           <input
             class="e1urjlvd-el-input"
             id="test-static-id"
+            max="2019-10-10"
+            min="2021-08-01"
             name="to"
             type="date"
             value="2021-09-01"

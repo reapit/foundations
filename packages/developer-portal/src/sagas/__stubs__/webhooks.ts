@@ -59,5 +59,6 @@ export const mockWebhookLogs: WebhookLogModel[] = [
       '{"eventId":"130a134e-c1d2-4090-88d5-7e5d34567566","entityId":null,"customerId":"RES","eventTime":"2021-04-13T12:17:01.6684226Z","topicId":"application.install","new":{"customerId":"RES","organisationId":"cb00cca4-0e1e-49c8-9f8d-1ddacbd393eb","customerName":"Reapit Sales","applicationName":"Online Check List","applicationId":"7gvr744qtpqn2batr1hc8hie0c","customerAddress":{"hseName":"Radcliffe House","hseNo":"5","address1":"Blenheim Court","address2":"Solihull","address3":"","address4":"","postcode":"B91 2AA","country":"GB"},"customerEmail":"sales@reapit.com"},"old":null,"diff":null}',
     topicId: 'application.install',
     statusCode: 200,
+    entityId: 'MOCK_ID',
   },
 ]
