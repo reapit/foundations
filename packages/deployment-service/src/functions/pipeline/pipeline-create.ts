@@ -1,7 +1,7 @@
 import { BadRequestException, httpHandler, ValidationException } from '@homeservenow/serverless-aws-handler'
 import { PipelineDto } from './../../dto'
 import { PipelineEntity } from '../../entities/pipeline.entity'
-import * as service from './../../services/pipeline'
+import { findPipelineById, createPipelineEntity } from './../../services'
 import { plainToClass } from 'class-transformer'
 import { validate } from 'class-validator'
 import { resolveCreds } from '../../utils'
@@ -35,9 +35,9 @@ export const pipelineCreate = httpHandler<PipelineDto, PipelineEntity>({
         })
       : new PipelineDto()
 
-    const previousPipeline = await service.findPipelineById(dto.appId as string)
+    const previousPipeline = await findPipelineById(dto.appId as string)
 
-    const pipeline = await service.createPipelineEntity({
+    const pipeline = await createPipelineEntity({
       ...dto,
       ...previousPipeline,
       buildStatus: previousPipeline ? 'READY_FOR_DEPLOYMENT' : undefined,
