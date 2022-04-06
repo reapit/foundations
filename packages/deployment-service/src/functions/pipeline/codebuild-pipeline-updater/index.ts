@@ -1,7 +1,7 @@
 import { Context, Callback, SNSEvent, SNSHandler } from 'aws-lambda'
 import { handlePhaseChange } from './handle-phase-change'
 import { handleStateChange } from './handle-state-change'
-import { BuildPhaseChangeStatusEvent, BuildStateChangeEvent, EventEnum } from './types'
+import { BuildPhaseChangeStatusEvent, BuildStateChangeEvent, CodebuildEventStateEnum } from './types'
 
 export const codebuildPipelineUpdater: SNSHandler = async (
   event: SNSEvent,
@@ -15,7 +15,7 @@ export const codebuildPipelineUpdater: SNSHandler = async (
       const buildId = event.detail['build-id']?.split(':')?.pop()
 
       switch (event['detail-type']) {
-        case EventEnum.PHASE_CHANGE:
+        case CodebuildEventStateEnum.PHASE_CHANGE:
           if (!buildId) {
             throw new Error('no buildId found')
           }
@@ -24,7 +24,7 @@ export const codebuildPipelineUpdater: SNSHandler = async (
             event,
             buildId,
           })
-        case EventEnum.STATE_CHANGE:
+        case CodebuildEventStateEnum.STATE_CHANGE:
           if (!buildId) {
             throw new Error('no buildId found')
           }
