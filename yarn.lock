@@ -6868,7 +6868,7 @@ __metadata:
     "@typescript-eslint/parser": ^5.7.0
     adm-zip: ^0.5.9
     ansi-regex: ^6.0.1
-    axios: ^0.25.0
+    axios: ^0.26.1
     babel-jest: ^27.4.5
     chalk: ^4.1.2
     cli-spinners: ^2.6.1
@@ -13332,16 +13332,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^0.25.0":
-  version: 0.25.0
-  resolution: "axios@npm:0.25.0"
-  dependencies:
-    follow-redirects: ^1.14.7
-  checksum: 2a8a3787c05f2a0c9c3878f49782357e2a9f38945b93018fb0c4fd788171c43dceefbb577988628e09fea53952744d1ecebde234b561f1e703aa43e0a598a3ad
-  languageName: node
-  linkType: hard
-
-"axios@npm:^0.26.0":
+"axios@npm:^0.26.0, axios@npm:^0.26.1":
   version: 0.26.1
   resolution: "axios@npm:0.26.1"
   dependencies:
@@ -15049,6 +15040,13 @@ __metadata:
     chartjs-color: ^2.1.0
     moment: ^2.10.2
   checksum: cbdc7abe2fa65e4838848e68b035ae6048ebcc512b9057d7cdb6d361e728400d39e3fde75e0b4da815ab43f7890c31787d8f80d4e6ab75a3e80fc75b47cd173c
+  languageName: node
+  linkType: hard
+
+"chart.js@npm:^3.7.1":
+  version: 3.7.1
+  resolution: "chart.js@npm:3.7.1"
+  checksum: f9d118d3b7dd3c36b6da7a8d71ac9e5d9673b81095cc66c3f61ff91674e20020c6700f8c9c6f93713fa8474eb471ded106114346ccc6afa88b4a7d0eb73dcea4
   languageName: node
   linkType: hard
 
@@ -17539,7 +17537,7 @@ __metadata:
     amazon-cognito-identity-js: ^4.6.3
     babel-jest: ^27.4.5
     babel-loader: ^8.2.3
-    chart.js: ^2.9.4
+    chart.js: ^3.7.1
     concurrently: ^6.4.0
     cross-env: ^6.0.3
     css-loader: ^6.5.1
@@ -17559,7 +17557,7 @@ __metadata:
     project-name-generator: ^2.1.9
     query-string: 5.1.1
     react: ^17.0.2
-    react-chartjs-2: ^2.11.2
+    react-chartjs-2: ^4.0.1
     react-copy-to-clipboard: ^5.0.4
     react-dom: ^17.0.2
     react-ga: ^2.7.0
@@ -20603,7 +20601,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"follow-redirects@npm:^1.0.0, follow-redirects@npm:^1.10.0, follow-redirects@npm:^1.14.7":
+"follow-redirects@npm:^1.0.0, follow-redirects@npm:^1.10.0":
   version: 1.14.8
   resolution: "follow-redirects@npm:1.14.8"
   peerDependenciesMeta:
@@ -21910,7 +21908,7 @@ fsevents@^1.2.7:
     apollo-server: ^3.5.0
     apollo-server-core: ^3.5.0
     apollo-server-lambda: ^3.5.0
-    axios: ^0.25.0
+    axios: ^0.26.1
     axios-mock-adapter: ^1.20.0
     axios-retry: ^3.2.4
     bufferutil: ^4.0.5
@@ -32321,6 +32319,16 @@ fsevents@^1.2.7:
     react: ^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
     react-dom: ^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
   checksum: 874ddc9ebdd620ac2692e307dfa848d540cc84beed56910a92b8630abcc286f9b8682aba87c8635d969943586adabe5b8222adf3a7bff041d15a9698f17caa4a
+  languageName: node
+  linkType: hard
+
+"react-chartjs-2@npm:^4.0.1":
+  version: 4.0.1
+  resolution: "react-chartjs-2@npm:4.0.1"
+  peerDependencies:
+    chart.js: ^3.5.0
+    react: ^16.8.0 || ^17.0.0
+  checksum: c22e994c73c0fba8140e9228703b3a94f54a053b00b7a70a53d7056139349f3032daf1512fa38bad23e8e348affc4e36ebbfea8beb5e4c5802bfc8c72d9c68d6
   languageName: node
   linkType: hard
 

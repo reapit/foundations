@@ -7,7 +7,6 @@ import developer from '@/reducers/developer'
 import error from '@/reducers/error'
 import developerSetStatus from '@/reducers/developer-set-status'
 import settingsReducer from '@/reducers/settings'
-import trafficStatistics from '@/reducers/traffic-statistics'
 import developerSubscriptions from '@/reducers/developer-subscriptions'
 import developersReducer from '@/reducers/developers'
 import installationsReducer from '@/reducers/installations'
@@ -15,7 +14,6 @@ import webhooksTopicsReducer from '@/reducers/webhooks-topics'
 import webhooksSubscriptionsReducer from '@/reducers/webhooks-subscriptions'
 import noticationMessage from '@/reducers/notification-message'
 import { currentMemberReducer } from '@/reducers/current-member'
-import { trafficStatisticsSagas } from '@/sagas/traffic-statistics'
 import developerSagas from '@/sagas/developer'
 import developerSetStatusSagas from '@/sagas/developer-set-status'
 import settingSagas from '@/sagas/settings'
@@ -50,7 +48,6 @@ export class Store {
     developerSetStatus,
     settings: settingsReducer,
     noticationMessage,
-    trafficStatistics,
     developerSubscriptions,
     developers: developersReducer,
     installations: installationsReducer,
@@ -65,7 +62,6 @@ export class Store {
       fork(developerSagas),
       fork(developerSetStatusSagas),
       fork(settingSagas),
-      fork(trafficStatisticsSagas),
       fork(webhooksEditSubscription),
       fork(developerSubscriptionsSagas),
       fork(developersSagas),

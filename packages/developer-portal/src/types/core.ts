@@ -9,7 +9,6 @@ import { DevelopersRootState } from '@/reducers/developers'
 import { InstallationsRootState } from '@/reducers/installations'
 import { WebhooksTopicsRootState } from '@/reducers/webhooks-topics'
 import { WebhooksSubscriptionsRootState } from '@/reducers/webhooks-subscriptions'
-import { TrafficStatisticsRootState } from '@/reducers/traffic-statistics'
 import { CurrentMemberRootState } from '@/reducers/current-member'
 import { WebhookLogRootState } from '../reducers/webhook-logs'
 
@@ -56,7 +55,6 @@ export interface ReduxState {
   developerSetStatus: RequestState
   settings: SettingsState
   noticationMessage: NotificationMessageState
-  trafficStatistics: TrafficStatisticsRootState
   developerSubscriptions: DeveloperSubscriptionsState
   developers: DevelopersRootState
   installations: InstallationsRootState

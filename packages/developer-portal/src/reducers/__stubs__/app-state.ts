@@ -9,11 +9,8 @@ export const appState: ReduxState = {
     formState: 'PENDING',
     isVisible: false,
     myIdentity: null,
-    billing: null,
     isServiceChartLoading: true,
     error: null,
-    isMonthlyBillingLoading: true,
-    monthlyBilling: null,
     webhookPingTestStatus: null,
   },
   error: {
@@ -64,12 +61,6 @@ export const appState: ReduxState = {
     visible: false,
     variant: '',
     message: '',
-  },
-  trafficStatistics: {
-    list: {
-      isLoading: false,
-      data: null,
-    },
   },
   webhooksSubscriptions: {
     list: {

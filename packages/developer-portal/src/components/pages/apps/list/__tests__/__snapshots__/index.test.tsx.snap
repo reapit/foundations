@@ -152,7 +152,9 @@ Object {
               >
                 <h5
                   class="e1n8fwu7-el-card-heading"
-                />
+                >
+                  MOCK_APP_NAME
+                </h5>
                 <h6
                   class="e160zim8-el-card-sub-heading"
                 />
@@ -322,7 +324,9 @@ Object {
               >
                 <h5
                   class="e1n8fwu7-el-card-heading"
-                />
+                >
+                  MOCK_APP_NAME_ANOTHER
+                </h5>
                 <h6
                   class="e160zim8-el-card-sub-heading"
                 />
@@ -511,7 +515,9 @@ Object {
             >
               <h5
                 class="e1n8fwu7-el-card-heading"
-              />
+              >
+                MOCK_APP_NAME
+              </h5>
               <h6
                 class="e160zim8-el-card-sub-heading"
               />
@@ -681,7 +687,9 @@ Object {
             >
               <h5
                 class="e1n8fwu7-el-card-heading"
-              />
+              >
+                MOCK_APP_NAME_ANOTHER
+              </h5>
               <h6
                 class="e160zim8-el-card-sub-heading"
               />

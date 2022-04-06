@@ -246,7 +246,7 @@ describe('useReapitGet', () => {
     expect(mockFetcher).toHaveBeenCalledWith(mockFetchParams)
     expect(mockFetcher).toHaveBeenCalledTimes(1)
     expect(mockSuccess).not.toHaveBeenCalled()
-    expect(mockError).toHaveBeenCalledWith('Some error message')
+    expect(mockError).toHaveBeenCalledWith('Some error message', 5000 as any)
 
     expect(result.current[0]).toBeNull()
     expect(result.current[1]).toEqual(false)

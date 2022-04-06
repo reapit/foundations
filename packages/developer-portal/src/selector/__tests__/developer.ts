@@ -3,11 +3,8 @@ import {
   selectDeveloperEmail,
   selectDeveloper,
   selectMyIdentity,
-  selectBilling,
   selectDeveloperLoading,
   selectIsServiceChartLoading,
-  selectMonthlyBilling,
-  selectMonthlyBillingLoading,
   selectWebhookTestStatus,
 } from '../developer'
 
@@ -68,25 +65,6 @@ describe('selectMyIdentity', () => {
   })
 })
 
-describe('selectBilling', () => {
-  it('should run correctly', () => {
-    const input = {
-      developer: {
-        isServiceChartLoading: false,
-        billing: {},
-      },
-    } as ReduxState
-    const result = selectBilling(input)
-    expect(result).toEqual(input.developer.billing)
-  })
-
-  it('should run correctly and return null', () => {
-    const input = {} as ReduxState
-    const result = selectBilling(input)
-    expect(result).toEqual(null)
-  })
-})
-
 describe('selectDeveloperLoading', () => {
   it('should run correctly', () => {
     const input = {
@@ -120,43 +98,6 @@ describe('selectIsServiceChartLoading', () => {
     const input = {} as ReduxState
     const result = selectIsServiceChartLoading(input)
     expect(result).toEqual(undefined)
-  })
-})
-
-describe('selectMonthlyBillingLoading', () => {
-  it('should run correctly', () => {
-    const input = {
-      developer: {
-        isMonthlyBillingLoading: true,
-      },
-    } as ReduxState
-    const result = selectMonthlyBillingLoading(input)
-    expect(result).toEqual(true)
-  })
-
-  it('should run correctly and return null', () => {
-    const input = {} as ReduxState
-    const result = selectMonthlyBillingLoading(input)
-    expect(result).toEqual(undefined)
-  })
-})
-
-describe('selectMonthlyBilling', () => {
-  it('should run correctly', () => {
-    const input = {
-      developer: {
-        isServiceChartLoading: false,
-        monthlyBilling: {},
-      },
-    } as ReduxState
-    const result = selectMonthlyBilling(input)
-    expect(result).toEqual(input.developer.monthlyBilling)
-  })
-
-  it('should run correctly and return undefined', () => {
-    const input = {} as ReduxState
-    const result = selectMonthlyBilling(input)
-    expect(result).toEqual({})
   })
 })
 
