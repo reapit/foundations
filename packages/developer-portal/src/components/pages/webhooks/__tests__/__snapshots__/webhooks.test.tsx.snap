@@ -37,6 +37,11 @@ Object {
             >
               GraphQL
             </div>
+            <div
+              class="e1ohezfm-el-secondary-nav-item"
+            >
+              Desktop
+            </div>
           </div>
           <span
             class="ehvkknk-el-mb5 e143qafr-el-icon-size-large ej9yrfo-el-icon"
@@ -230,6 +235,11 @@ Object {
             class="e1ohezfm-el-secondary-nav-item"
           >
             GraphQL
+          </div>
+          <div
+            class="e1ohezfm-el-secondary-nav-item"
+          >
+            Desktop
           </div>
         </div>
         <span
@@ -482,6 +492,11 @@ Object {
             >
               GraphQL
             </div>
+            <div
+              class="e1ohezfm-el-secondary-nav-item"
+            >
+              Desktop
+            </div>
           </div>
           <div
             class="e5lndhu-el-mb8"
@@ -489,7 +504,7 @@ Object {
             <label
               class="e1nbkkrq-el-label"
             >
-              Please select a Time slot and an App from the list below to view the associated Webhooks:
+              Please select a Time slot and an App from the list below to view the associated Webhooks. Please note, we only support a range of times up to 6 months.
             </label>
           </div>
         </aside>
@@ -622,6 +637,11 @@ Object {
           >
             GraphQL
           </div>
+          <div
+            class="e1ohezfm-el-secondary-nav-item"
+          >
+            Desktop
+          </div>
         </div>
         <div
           class="e5lndhu-el-mb8"
@@ -629,7 +649,7 @@ Object {
           <label
             class="e1nbkkrq-el-label"
           >
-            Please select a Time slot and an App from the list below to view the associated Webhooks:
+            Please select a Time slot and an App from the list below to view the associated Webhooks. Please note, we only support a range of times up to 6 months.
           </label>
         </div>
       </aside>
@@ -819,6 +839,11 @@ Object {
             >
               GraphQL
             </div>
+            <div
+              class="e1ohezfm-el-secondary-nav-item"
+            >
+              Desktop
+            </div>
           </div>
           <div
             class="e5lndhu-el-mb8"
@@ -958,6 +983,11 @@ Object {
             class="e1ohezfm-el-secondary-nav-item"
           >
             GraphQL
+          </div>
+          <div
+            class="e1ohezfm-el-secondary-nav-item"
+          >
+            Desktop
           </div>
         </div>
         <div
@@ -1156,6 +1186,11 @@ Object {
             >
               GraphQL
             </div>
+            <div
+              class="e1ohezfm-el-secondary-nav-item"
+            >
+              Desktop
+            </div>
           </div>
         </aside>
         <section
@@ -1286,6 +1321,11 @@ Object {
             class="e1ohezfm-el-secondary-nav-item"
           >
             GraphQL
+          </div>
+          <div
+            class="e1ohezfm-el-secondary-nav-item"
+          >
+            Desktop
           </div>
         </div>
       </aside>
@@ -2517,7 +2557,7 @@ Object {
         class="elkdvoz-el-table"
         data-has-call-to-action="true"
         data-has-expandable-action="false"
-        data-num-columns-excl-action-col="6"
+        data-num-columns-excl-action-col="7"
       >
         <div
           class="e1co3p83-el-table-headers-row"
@@ -2536,6 +2576,11 @@ Object {
             class="e1qy4g2u-el-table-header"
           >
             Topic
+          </div>
+          <div
+            class="e1qy4g2u-el-table-header"
+          >
+            Entity ID
           </div>
           <div
             class="e1qy4g2u-el-table-header"
@@ -2582,6 +2627,16 @@ Object {
                 data-narrow-label="Topic"
               >
                 application.install
+              </div>
+            </div>
+            <div
+              class="e4zpaja-el-table-cell"
+            >
+              <div
+                class="e1t8i3z1-el-table-cell-content"
+                data-narrow-label="Entity ID"
+              >
+                MOCK_ID
               </div>
             </div>
             <div
@@ -2663,7 +2718,7 @@ Object {
       class="elkdvoz-el-table"
       data-has-call-to-action="true"
       data-has-expandable-action="false"
-      data-num-columns-excl-action-col="6"
+      data-num-columns-excl-action-col="7"
     >
       <div
         class="e1co3p83-el-table-headers-row"
@@ -2682,6 +2737,11 @@ Object {
           class="e1qy4g2u-el-table-header"
         >
           Topic
+        </div>
+        <div
+          class="e1qy4g2u-el-table-header"
+        >
+          Entity ID
         </div>
         <div
           class="e1qy4g2u-el-table-header"
@@ -2728,6 +2788,16 @@ Object {
               data-narrow-label="Topic"
             >
               application.install
+            </div>
+          </div>
+          <div
+            class="e4zpaja-el-table-cell"
+          >
+            <div
+              class="e1t8i3z1-el-table-cell-content"
+              data-narrow-label="Entity ID"
+            >
+              MOCK_ID
             </div>
           </div>
           <div

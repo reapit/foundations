@@ -12,7 +12,7 @@ Object {
         class="elkdvoz-el-table"
         data-has-call-to-action="true"
         data-has-expandable-action="false"
-        data-num-columns-excl-action-col="6"
+        data-num-columns-excl-action-col="7"
       >
         <div
           class="e1co3p83-el-table-headers-row"
@@ -31,6 +31,11 @@ Object {
             class="e1qy4g2u-el-table-header"
           >
             Topic
+          </div>
+          <div
+            class="e1qy4g2u-el-table-header"
+          >
+            Entity ID
           </div>
           <div
             class="e1qy4g2u-el-table-header"
@@ -77,6 +82,16 @@ Object {
                 data-narrow-label="Topic"
               >
                 application.install
+              </div>
+            </div>
+            <div
+              class="e4zpaja-el-table-cell"
+            >
+              <div
+                class="e1t8i3z1-el-table-cell-content"
+                data-narrow-label="Entity ID"
+              >
+                MOCK_ID
               </div>
             </div>
             <div
@@ -158,7 +173,7 @@ Object {
       class="elkdvoz-el-table"
       data-has-call-to-action="true"
       data-has-expandable-action="false"
-      data-num-columns-excl-action-col="6"
+      data-num-columns-excl-action-col="7"
     >
       <div
         class="e1co3p83-el-table-headers-row"
@@ -177,6 +192,11 @@ Object {
           class="e1qy4g2u-el-table-header"
         >
           Topic
+        </div>
+        <div
+          class="e1qy4g2u-el-table-header"
+        >
+          Entity ID
         </div>
         <div
           class="e1qy4g2u-el-table-header"
@@ -223,6 +243,16 @@ Object {
               data-narrow-label="Topic"
             >
               application.install
+            </div>
+          </div>
+          <div
+            class="e4zpaja-el-table-cell"
+          >
+            <div
+              class="e1t8i3z1-el-table-cell-content"
+              data-narrow-label="Entity ID"
+            >
+              MOCK_ID
             </div>
           </div>
           <div

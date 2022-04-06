@@ -113,6 +113,9 @@ export const SwaggerPage: FC = () => {
             <SecondaryNavItem onClick={navigate(history, Routes.GRAPHQL)} active={pathname === Routes.GRAPHQL}>
               GraphQL
             </SecondaryNavItem>
+            <SecondaryNavItem onClick={navigate(history, Routes.DESKTOP)} active={pathname === Routes.DESKTOP}>
+              Desktop
+            </SecondaryNavItem>
           </SecondaryNav>
           <Icon className={elMb5} icon="apiInfographic" iconSize="large" />
           <Subtitle>Open API Specification</Subtitle>
@@ -160,9 +163,6 @@ export const SwaggerPage: FC = () => {
             onClick={openNewPage(`${window.reapit.config.platformApiUrl}/docs`)}
           >
             Download Spec
-          </Button>
-          <Button className={elMb5} intent="neutral" onClick={navigate(history, Routes.HELP)}>
-            See Help
           </Button>
           <Button className={elMb5} intent="neutral" onClick={openNewPage(ExternalPages.glossaryDocs)}>
             See Glossary

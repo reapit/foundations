@@ -1,9 +1,9 @@
 import * as React from 'react'
-import { mount } from 'enzyme'
 import { Provider } from 'react-redux'
 import configureStore from 'redux-mock-store'
 import appState from '@/reducers/__stubs__/app-state'
 import { DeveloperDesktopPage, handleSetSubscribingState, handleToggleModal } from '../desktop'
+import { render } from '../../../../tests/react-testing'
 
 describe('DeveloperDesktopPage', () => {
   let store
@@ -17,7 +17,7 @@ describe('DeveloperDesktopPage', () => {
   })
 
   it('should match snapshot', () => {
-    const wrapper = mount(
+    const wrapper = render(
       <Provider store={store}>
         <DeveloperDesktopPage />
       </Provider>,

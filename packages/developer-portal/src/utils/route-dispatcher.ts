@@ -31,9 +31,6 @@ const routeDispatcher = async (route: RouteValue) => {
       store.dispatch(requestDeveloperData())
       store.dispatch(fetchCurrentMember())
       break
-    case Routes.HELP:
-      // Need the fetcher to have retrieved the login session only.
-      break
     default:
       console.error('Route not found, nothing to fetch')
   }

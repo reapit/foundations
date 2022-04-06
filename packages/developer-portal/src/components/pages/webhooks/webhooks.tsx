@@ -158,6 +158,9 @@ export const WebhooksWrapper: FC = () => {
           <SecondaryNavItem onClick={navigate(history, Routes.GRAPHQL)} active={pathname === Routes.GRAPHQL}>
             GraphQL
           </SecondaryNavItem>
+          <SecondaryNavItem onClick={navigate(history, Routes.DESKTOP)} active={pathname === Routes.DESKTOP}>
+            Desktop
+          </SecondaryNavItem>
         </SecondaryNav>
         {isAboutPage && (
           <>
@@ -179,7 +182,7 @@ export const WebhooksWrapper: FC = () => {
             <Label>
               {isManagePage
                 ? 'Please select an App from the list below to view the associated Webhooks'
-                : 'Please select a Time slot and an App from the list below to view the associated Webhooks:'}
+                : 'Please select a Time slot and an App from the list below to view the associated Webhooks. Please note, we only support a range of times up to 6 months.'}
             </Label>
           </div>
         )}

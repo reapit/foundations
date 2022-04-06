@@ -12,6 +12,6 @@ export const useViewPortSize = (): ViewPortSize => {
 
   // Not sure about these dimensions - possibly allow for more breakpoints - tablet a bit big?
   if (windowWidth <= 768) return 'MOBILE'
-  if (windowWidth <= 1024) return 'TABLET'
+  if (windowWidth <= 1215) return 'TABLET'
   return 'DESKTOP'
 }
