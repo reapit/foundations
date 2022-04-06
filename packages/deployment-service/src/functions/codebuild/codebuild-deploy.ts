@@ -75,10 +75,8 @@ export const codebuildDeploy: SQSHandler = async (event: SQSEvent, context: Cont
         })
 
         pipelineRunner.buildStatus = 'SUCCEEDED'
+        ;(pipelineRunner.pipeline as PipelineEntity).buildStatus = 'SUCCEEDED'
 
-        if (pipelineRunner.pipeline) {
-          pipelineRunner.pipeline.buildStatus = 'SUCCEEDED'
-        }
         if (pipelineRunner.tasks) {
           pipelineRunner.tasks[deployTaskIndex].buildStatus = 'SUCCEEDED'
           pipelineRunner.tasks[deployTaskIndex].endTime = new Date()
