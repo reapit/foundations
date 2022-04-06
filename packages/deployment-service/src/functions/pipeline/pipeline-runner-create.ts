@@ -33,7 +33,7 @@ export const pipelineRunnerCreate = httpHandler<void, PipelineRunnerEntity>({
       throw new NotFoundException()
     }
 
-    await ownership(pipeline.developerId, developerId)
+    ownership(pipeline.developerId, developerId)
 
     if (isPipelineDeploymentDisabled(pipeline) || (await service.pipelineRunnerCountRunning(pipeline)) >= 1) {
       throw new HttpErrorException('Cannot create deployment in current state', 409 as HttpStatusCode)

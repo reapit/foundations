@@ -25,7 +25,7 @@ export const pipelineRunnerUpdate = httpHandler<{ buildStatus: string }, Pipelin
       throw new NotFoundException()
     }
 
-    await ownership(pipelineRunner.pipeline.id as string, developerId)
+    ownership(pipelineRunner.pipeline.id as string, developerId)
 
     if (pipelineRunner.buildStatus !== 'IN_PROGRESS') {
       return pipelineRunner

@@ -71,7 +71,7 @@ export const downloadBitbucketSourceToS3 = async ({
   )
 }
 
-const downloadGithubSourceToS3 = async (
+export const downloadGithubSourceToS3 = async (
   pipeline: PipelineEntity,
   pipelineRunner: PipelineRunnerEntity,
 ): Promise<string> => {

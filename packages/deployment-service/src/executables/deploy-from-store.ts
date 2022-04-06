@@ -3,9 +3,10 @@ import { PipelineRunnerEntity } from '../entities/pipeline-runner.entity'
 import { GetObjectOutput } from 'aws-sdk/clients/s3'
 import { releaseToLiveFromZip } from './release-to-live'
 import { CloudFrontClient, CreateInvalidationCommand } from '@aws-sdk/client-cloudfront'
-import { PipelineEntity } from 'src/entities/pipeline.entity'
+import { PipelineEntity } from '../entities/pipeline.entity'
+import { InvalidPipelineResourcesException } from '../exceptions'
 
-const getFromVersionS3 = async (location: string): Promise<GetObjectOutput | never> =>
+export const getFromVersionS3 = async (location: string): Promise<GetObjectOutput | never> =>
   new Promise<GetObjectOutput>((resolve, reject) =>
     s3Client.getObject(
       {
@@ -23,7 +24,7 @@ const getFromVersionS3 = async (location: string): Promise<GetObjectOutput | nev
     ),
   )
 
-const deleteCurrentLiveVersion = async (prefix: string): Promise<void | never> => {
+export const deleteCurrentLiveVersion = async (prefix: string): Promise<void | never> => {
   try {
     await new Promise<void>((resolve, reject) =>
       s3Client.deleteObject(
@@ -56,7 +57,7 @@ export const deployFromStore = async ({
   const storageLocation = `${pipeline.uniqueRepoName}/${pipelineRunner.id}.zip`
 
   if (!pipelineRunner.pipeline?.cloudFrontId) {
-    throw new Error('Pipeline does not have sufficiant resources')
+    throw new InvalidPipelineResourcesException(pipeline.id as string)
   }
 
   const zip = await getFromVersionS3(storageLocation)

@@ -25,7 +25,7 @@ export const pipelineDelete = httpHandler({
       throw new NotFoundException()
     }
 
-    await ownership(pipeline.developerId, developerId)
+    ownership(pipeline.developerId, developerId)
 
     if (isPipelineDeletable(pipeline)) {
       throw new HttpErrorException('Cannot delete pipeline in current build status', 409 as HttpStatusCode)
