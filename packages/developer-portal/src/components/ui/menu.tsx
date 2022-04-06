@@ -68,9 +68,11 @@ export const getDefaultNavIndex = (pathname: string) => {
     case Routes.IAAS:
       return 6
     case Routes.SETTINGS:
-    case Routes.SETTINGS_BILLING_TAB:
-    case Routes.SETTINGS_ORGANISATION_TAB:
-    case Routes.SETTINGS_PROFILE_TAB:
+    case Routes.SETTINGS_COMPANY:
+    case Routes.SETTINGS_MEMBERS:
+    case Routes.SETTINGS_PASSWORD:
+    case Routes.SETTINGS_PROFILE:
+    case Routes.SETTINGS_SUBSCRIPTIONS:
       return 9
     default:
       return 0
@@ -165,7 +167,7 @@ export const Menu: React.FunctionComponent = () => {
     },
     {
       itemIndex: 9,
-      callback: navigate(history, Routes.SETTINGS_PROFILE_TAB),
+      callback: navigate(history, Routes.SETTINGS_PROFILE),
       iconId: 'myAccountMenu',
       text: 'Settings',
       isSecondary: true,

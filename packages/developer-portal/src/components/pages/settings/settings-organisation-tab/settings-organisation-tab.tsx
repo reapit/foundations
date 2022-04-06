@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { Button, LevelRight, Info } from '@reapit/elements-legacy'
-import { Tabs } from '../tabs'
 import DeveloperInviteModal from '@/components/ui/developer-invite-member-modal'
 import { Members } from './members'
 import OrganisationForm from './organisation-form'
@@ -21,7 +20,6 @@ const DeveloperSettingsOrganisationTabPage: React.FC = () => {
   if (currentUser?.role === 'admin') {
     return (
       <>
-        <Tabs role={currentUser.role} />
         <OrganisationForm onInviteNewMemberClick={handleToggleVisibleModal(setIsInviteModalOpen, true)} />
         <Members />
         <LevelRight>
