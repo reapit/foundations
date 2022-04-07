@@ -48,4 +48,6 @@ export enum PathNames {
   paginatePipeline = '/pipeline',
   trafficStatistics = '/trafficevents/trafficStatistics',
   memberById = '/marketplace/developers/{developerId}/members/{memberId}',
+  subscriptions = '/marketplace/subscriptions',
+  subscriptionsById = '/marketplace/subscriptions/{subscriptionId}',
 }
