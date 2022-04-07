@@ -156,7 +156,7 @@ describe('useReapitGet', () => {
     expect(mockFetcher).toHaveBeenCalledTimes(2)
   })
 
-  it('should wait to fetch until a known parm is true', async () => {
+  xit('should wait to fetch until a known parm is true', async () => {
     const reapitConnectBrowserSession = {} as unknown as ReapitConnectBrowserSession
     const controller = new AbortController()
     const signal = controller.signal
