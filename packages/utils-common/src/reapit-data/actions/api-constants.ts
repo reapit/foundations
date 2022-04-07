@@ -47,4 +47,5 @@ export enum PathNames {
   cancelRevision = '/marketplace/apps/{appId}/revisions/{revisionId}/reject',
   paginatePipeline = '/pipeline',
   trafficStatistics = '/trafficevents/trafficStatistics',
+  memberById = '/marketplace/developers/{developerId}/members/{memberId}',
 }

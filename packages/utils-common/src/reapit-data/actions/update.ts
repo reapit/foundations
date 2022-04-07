@@ -22,6 +22,7 @@ export enum UpdateActionNames {
   fileUpload = 'fileUpload',
   terminateInstallation = 'terminateInstallation',
   cancelRevision = 'cancelRevision',
+  updateMember = 'updateMember',
 }
 
 export type UpdateActions = { [key in UpdateActionNames]: UpdateAction }
@@ -102,5 +103,11 @@ export const updateActions = (appEnv: AppEnv): UpdateActions => ({
     path: PathNames.cancelRevision,
     errorMessage: 'Failed to cancel pending revision',
     successMessage: 'Successfully cancelled pending revision',
+  },
+  [UpdateActionNames.updateMember]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.memberById,
+    errorMessage: 'Failed to update profile',
+    successMessage: 'Successfully updated profile',
   },
 })
