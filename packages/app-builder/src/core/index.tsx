@@ -1,6 +1,6 @@
 import * as Sentry from '@sentry/browser'
 import React from 'react'
-import { render } from 'react-dom'
+import { createRoot } from 'react-dom/client'
 import ReactGA from 'react-ga'
 import { Config } from '../types/global'
 import { logger } from '@reapit/utils-react'
@@ -24,7 +24,7 @@ export const renderApp = (Component: React.ComponentType) => {
   const rootElement = document.querySelector('#root') as Element
 
   if (rootElement) {
-    render(<Component />, rootElement)
+    createRoot(rootElement).render(<Component />)
   }
 }
 

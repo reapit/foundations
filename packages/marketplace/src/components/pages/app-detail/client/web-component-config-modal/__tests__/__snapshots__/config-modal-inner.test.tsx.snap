@@ -1175,7 +1175,6 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                                             aria-hidden="true"
                                             class="rc-select-selection-search-mirror"
                                           >
-                                            
                                              
                                           </span>
                                         </span>
@@ -1241,7 +1240,6 @@ exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot
                                                 aria-hidden="true"
                                                 class="rc-select-selection-search-mirror"
                                               >
-                                                
                                                  
                                               </span>
                                             </span>

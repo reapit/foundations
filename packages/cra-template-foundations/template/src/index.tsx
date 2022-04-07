@@ -1,5 +1,5 @@
 import React, { ComponentType } from 'react'
-import { render } from 'react-dom'
+import { createRoot } from 'react-dom/client'
 import { Config } from './types/global'
 import config from './reapit.config.json'
 
@@ -25,7 +25,7 @@ export const renderApp = (Component: ComponentType) => {
   }
 
   if (rootElement) {
-    render(<Component />, rootElement)
+    createRoot(rootElement).render(<Component />)
   }
 }
 
