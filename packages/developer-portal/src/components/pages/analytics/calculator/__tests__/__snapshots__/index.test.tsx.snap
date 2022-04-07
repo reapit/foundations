@@ -130,7 +130,6 @@ Object {
           </div>
         </div>
       </form>
-      
     </div>
   </body>,
   "container": <div>
@@ -259,7 +258,6 @@ Object {
         </div>
       </div>
     </form>
-    
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
