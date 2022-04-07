@@ -1,17 +1,18 @@
 import React, { FC, useState } from 'react'
-import { BodyText, elMb11, Loader, Pagination, StatusIndicator, Table, Title } from '@reapit/elements'
+import { elMb11, Loader, Pagination, StatusIndicator, Table, Title } from '@reapit/elements'
 import { useReapitGet } from '@reapit/utils-react'
 import { MemberModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { useReapitConnect } from '@reapit/connect-session'
+import { MemberUpdateControls } from './member-update-controls'
 
 export const SettingsMembersPage: FC = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [pageNumber, setPageNumber] = useState<number>(1)
   const developerId = connectSession?.loginIdentity.developerId
 
-  const [members, membersLoading] = useReapitGet<MemberModelPagedResult>({
+  const [members, membersLoading, , refreshMembers] = useReapitGet<MemberModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getDeveloperMembers],
     queryParams: { pageSize: 12, pageNumber },
@@ -25,11 +26,11 @@ export const SettingsMembersPage: FC = () => {
       {membersLoading && <Loader />}
       <Table
         className={elMb11}
-        rows={members?.data?.map(({ name, email, status }) => ({
+        rows={members?.data?.map((member) => ({
           cells: [
             {
               label: 'Name',
-              value: name ?? '',
+              value: member.name ?? '',
               icon: 'usernameSystem',
               cellHasDarkText: true,
               narrowTable: {
@@ -43,16 +44,18 @@ export const SettingsMembersPage: FC = () => {
                 <>
                   <StatusIndicator
                     intent={
-                      status === 'active'
+                      member.status === 'active'
                         ? 'success'
-                        : status === 'rejected'
+                        : member.status === 'rejected'
                         ? 'danger'
-                        : status === 'pending'
+                        : member.status === 'pending'
                         ? 'critical'
                         : 'low'
                     }
                   />{' '}
-                  {status ? `${status.charAt(0).toUpperCase()}${status.slice(1).toLowerCase()}` : ''}
+                  {member.status
+                    ? `${member.status.charAt(0).toUpperCase()}${member.status.slice(1).toLowerCase()}`
+                    : ''}
                 </>
               ),
               narrowTable: {
@@ -61,14 +64,25 @@ export const SettingsMembersPage: FC = () => {
             },
             {
               label: 'Email',
-              value: email ?? '',
+              value: member.email ?? '',
               icon: 'emailSystem',
               cellHasDarkText: true,
               narrowTable: {
                 showLabel: true,
               },
             },
+            {
+              label: 'Role',
+              value: member.role ? `${member.role.charAt(0).toUpperCase()}${member.role.slice(1).toLowerCase()}` : '',
+              cellHasDarkText: true,
+              narrowTable: {
+                showLabel: true,
+              },
+            },
           ],
+          expandableContent: {
+            content: <MemberUpdateControls member={member} refreshMembers={refreshMembers} />,
+          },
         }))}
       />
       <Pagination
