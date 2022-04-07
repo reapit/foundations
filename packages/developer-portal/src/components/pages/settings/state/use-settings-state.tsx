@@ -11,6 +11,7 @@ export interface SettingsDataState {
 
 export interface SettingsStateHook {
   settingsDataState: SettingsDataState
+  settingsRefreshCurrentMember: () => void
 }
 
 export const SettingsStateContext = createContext<SettingsStateHook>({} as SettingsStateHook)
@@ -22,12 +23,12 @@ export const SettingsProvider: FC = ({ children }) => {
   const developerId = connectSession?.loginIdentity.developerId
   const email = connectSession?.loginIdentity.email
 
-  const [members] = useReapitGet<MemberModelPagedResult>({
+  const [members, , , refreshMembers] = useReapitGet<MemberModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getDeveloperMembers],
     queryParams: { email, pageSize: 1 },
     uriParams: { developerId },
-    fetchWhenTrue: [email],
+    fetchWhenTrue: [email, developerId],
   })
 
   const settingsDataState: SettingsDataState = {
@@ -37,6 +38,7 @@ export const SettingsProvider: FC = ({ children }) => {
   return (
     <Provider
       value={{
+        settingsRefreshCurrentMember: refreshMembers,
         settingsDataState,
       }}
     >

@@ -18,7 +18,6 @@ export interface ChangePasswordParams {
   newPassword: string
   userName: string
   password: string
-  connectClientId: string
 }
 
 export interface ConfirmRegistrationParams {
@@ -31,28 +30,27 @@ export const changePasswordService = async ({
   password,
   userName,
   newPassword,
-  connectClientId,
-}: ChangePasswordParams): Promise<string> => {
+}: ChangePasswordParams): Promise<boolean> => {
   return new Promise((resolve, reject) => {
     const authenticationData = {
       Username: userName,
       Password: password,
     }
     const authenticationDetails = new AuthenticationDetails(authenticationData)
-    const cognitoUser = getNewUser(userName, connectClientId)
+    const cognitoUser = getNewUser(userName, window.reapit.config.connectClientId)
     cognitoUser.authenticateUser(authenticationDetails, {
       onSuccess: () => {
-        cognitoUser.changePassword(password, newPassword, (err, result) => {
+        cognitoUser.changePassword(password, newPassword, (err) => {
           if (err) {
             logger(new Error(err.message))
             reject(err)
           }
-          resolve(result as string)
+          resolve(true)
         })
       },
       onFailure: (err) => {
         logger(new Error(err.message))
-        reject(err)
+        resolve(false)
       },
     })
   })

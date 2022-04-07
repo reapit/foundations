@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useEffect } from 'react'
 import {
   BodyText,
   Button,
@@ -16,10 +16,10 @@ import {
 } from '@reapit/elements'
 import { useReapitConnect } from '@reapit/connect-session'
 import { selectIsUserOrUserAdmin, selectLoginIdentity } from '../../../../selector/auth'
-import { useReapitGet } from '@reapit/utils-react'
+import { useReapitGet, useReapitUpdate } from '@reapit/utils-react'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
-import { SandboxModelPagedResult } from '@reapit/foundations-ts-definitions'
-import { GetActionNames, getActions } from '@reapit/utils-common'
+import { SandboxModelPagedResult, UpdateMemberModel } from '@reapit/foundations-ts-definitions'
+import { GetActionNames, getActions, UpdateActionNames, updateActions } from '@reapit/utils-common'
 import { useForm } from 'react-hook-form'
 import { useSettingsState } from '../state/use-settings-state'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -33,8 +33,14 @@ export type MemberUpdateFormValues = {
   gitHubUsername: string
 }
 
+export const handleRefreshMember = (refreshMember: () => void, updateMemberSuccess?: boolean) => () => {
+  if (updateMemberSuccess) {
+    refreshMember()
+  }
+}
+
 export const ProfileForm: FC = () => {
-  const { settingsDataState } = useSettingsState()
+  const { settingsDataState, settingsRefreshCurrentMember } = useSettingsState()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { clientId, orgName } = selectLoginIdentity(connectSession)
   const isUserOrUserAdmin = selectIsUserOrUserAdmin(connectSession)
@@ -48,6 +54,18 @@ export const ProfileForm: FC = () => {
     fetchWhenTrue: [isDev],
   })
 
+  const [, memberUpdating, updateMember, updateMemberSuccess] = useReapitUpdate<UpdateMemberModel, boolean>({
+    reapitConnectBrowserSession,
+    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.updateMember],
+    method: 'PUT',
+    uriParams: {
+      developerId: currentMember?.developerId,
+      memberId: currentMember?.id,
+    },
+  })
+
+  useEffect(handleRefreshMember(settingsRefreshCurrentMember, updateMemberSuccess), [updateMemberSuccess])
+
   const {
     register,
     handleSubmit,
@@ -55,6 +73,7 @@ export const ProfileForm: FC = () => {
   } = useForm<MemberUpdateFormValues>({
     resolver: yupResolver(validationSchemaProfile),
     defaultValues: {
+      ...currentMember,
       name: currentMember?.name ?? '',
       jobTitle: currentMember?.jobTitle ?? '',
       gitHubUsername: currentMember?.gitHubUsername ?? '',
@@ -63,10 +82,8 @@ export const ProfileForm: FC = () => {
     },
   })
 
-  console.log(currentMember)
-
   return (
-    <form onSubmit={handleSubmit(console.log)}>
+    <form onSubmit={handleSubmit(updateMember)}>
       <Subtitle>Your Profile</Subtitle>
       <FormLayout hasMargin>
         <InputWrap>
@@ -107,8 +124,7 @@ export const ProfileForm: FC = () => {
       {isDev && (
         <BodyText hasGreyText>
           You can choose which sandbox you wish to view based on your Reapit Product. This is specific and only
-          associated to your developer profile. Please note, you will need to log out and log back in again to see this
-          change take effect.
+          associated to your developer profile.
         </BodyText>
       )}
       {(isClient || isDev) && (
@@ -150,14 +166,11 @@ export const ProfileForm: FC = () => {
           </InputWrap>
         )}
       </FormLayout>
-
       <ButtonGroup>
-        <Button intent="primary" type="submit">
+        <Button intent="primary" type="submit" disabled={memberUpdating} loading={memberUpdating}>
           Save Changes
         </Button>
       </ButtonGroup>
     </form>
   )
 }
-
-export default ProfileForm

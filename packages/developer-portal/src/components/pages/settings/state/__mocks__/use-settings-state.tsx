@@ -4,6 +4,7 @@ export const mockSettingsState = {
   settingsDataState: {
     currentMember: mockMemberModel,
   },
+  settingsRefreshCurrentMember: jest.fn(),
 }
 
 export const useMemberState = jest.fn(() => mockSettingsState)

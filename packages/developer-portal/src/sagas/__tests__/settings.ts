@@ -137,7 +137,6 @@ describe('settings', () => {
           password: '123',
           newPassword: '456',
           userName: 'abc@gmail.com',
-          connectClientId: window.reapit.config.connectClientId,
         }),
       )
     })
@@ -149,7 +148,6 @@ describe('settings', () => {
           password: '123',
           newPassword: '456',
           userName: 'abc@gmail.com',
-          connectClientId: window.reapit.config.connectClientId,
         }),
       )
       if (!clone.throw) throw new Error('Generator object cannot throw')
