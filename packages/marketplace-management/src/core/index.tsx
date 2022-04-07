@@ -1,6 +1,6 @@
 import * as Sentry from '@sentry/browser'
 import React from 'react'
-import { render } from 'react-dom'
+import { createRoot } from 'react-dom/client'
 import ReactGA from 'react-ga'
 import { Config } from '@/types/global'
 import { getMarketplaceGlobalsByKey } from '@reapit/utils-react'
@@ -31,7 +31,7 @@ export const renderApp = (Component: React.ComponentType) => {
   }
 
   if (rootElement) {
-    render(<Component />, rootElement)
+    createRoot(rootElement).render(<Component />)
   }
 }
 

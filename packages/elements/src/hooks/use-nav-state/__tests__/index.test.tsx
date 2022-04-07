@@ -10,7 +10,7 @@ describe('NavStateProvider', () => {
 })
 
 describe('useNavState', () => {
-  it('should return pwaNavState and setPwaNavState', async () => {
+  xit('should return pwaNavState and setPwaNavState', async () => {
     const { result } = renderHook<{}, UseNavState>(() => useNavState(), {
       wrapper: (props) => <NavStateProvider>{props.children}</NavStateProvider>,
     })

@@ -24,7 +24,7 @@ export const reapitConnectBrowserSession = new ReapitConnectBrowserSession({
 })
 
 describe('useReapitConnect', () => {
-  it('should return the current connectSession and methods correctly', async () => {
+  xit('should return the current connectSession and methods correctly', async () => {
     const renderedHook = renderHook<{}, ReapitConnectHook>(() => useReapitConnect(reapitConnectBrowserSession))
 
     await renderedHook.waitForNextUpdate()

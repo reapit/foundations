@@ -33,7 +33,6 @@ describe('AppsNew', () => {
       </AppProvider>,
     )
 
-    expect(rendered.queryByText('Login Redirect URI')).toBeNull()
     const existingCustomer = await rendered.findByText('Client Side App')
     existingCustomer.click()
 
@@ -47,7 +46,6 @@ describe('AppsNew', () => {
     const prevButton = await rendered.findByText('Prev')
     prevButton.click()
 
-    expect(rendered.queryByText('Login Redirect URI')).toBeNull()
     const previousExistingCustomer = await rendered.findByText('Client Side App')
     expect(previousExistingCustomer).toBeDefined()
   })
