@@ -42,6 +42,14 @@ type FunctionSetup = {
   role?: Role
 }
 
+/**
+ * TODO 
+ * 
+ * subnets need to be updated to use subnets on iaas prod account for S3 live buckets.
+ * Create IAM/role for running codebuild that cannot create resources
+ * 
+ * 
+ */
 export const createStack = () => {
   const stack = createBaseStack({
     namespace: 'cloud',
