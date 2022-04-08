@@ -243,11 +243,6 @@ exports[`Router should match a snapshot 1`] = `
               path="/desktop"
             />
             <PrivateRoute
-              component={[Function]}
-              exact={true}
-              path="/settings/"
-            />
-            <PrivateRoute
               component={
                 Object {
                   "$$typeof": Symbol(react.lazy),
@@ -258,37 +253,7 @@ exports[`Router should match a snapshot 1`] = `
                   },
                 }
               }
-              exact={true}
-              fetcher={true}
-              path="/settings/profile"
-            />
-            <PrivateRoute
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_init": [Function],
-                  "_payload": Object {
-                    "_result": [Function],
-                    "_status": -1,
-                  },
-                }
-              }
-              fetcher={true}
-              path="/settings/billing"
-            />
-            <PrivateRoute
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_init": [Function],
-                  "_payload": Object {
-                    "_result": [Function],
-                    "_status": -1,
-                  },
-                }
-              }
-              fetcher={true}
-              path="/settings/organisation"
+              path="/settings"
             />
             <PrivateRoute
               component={

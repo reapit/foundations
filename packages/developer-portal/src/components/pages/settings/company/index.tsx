@@ -17,6 +17,7 @@ export const SettingsCompanyPage: FC = () => {
     uriParams: { developerId },
     fetchWhenTrue: [developerId],
   })
+
   return (
     <>
       <Title>Company</Title>

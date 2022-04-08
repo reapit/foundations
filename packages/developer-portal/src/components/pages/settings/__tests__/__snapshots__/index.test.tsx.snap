@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SettingsPage should match a snapshot 1`] = `
+exports[`Settings should match snapshot 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>

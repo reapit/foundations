@@ -7,4 +7,4 @@ export const mockSettingsState = {
   settingsRefreshCurrentMember: jest.fn(),
 }
 
-export const useMemberState = jest.fn(() => mockSettingsState)
+export const useSettingsState = jest.fn(() => mockSettingsState)

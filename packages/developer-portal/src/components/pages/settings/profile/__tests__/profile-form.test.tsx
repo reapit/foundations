@@ -1,11 +1,11 @@
 import React from 'react'
-import { SettingsProfilePage } from '..'
+import { ProfileForm } from '../profile-form'
 import { render } from '../../../../../tests/react-testing'
 
 jest.mock('../../state/use-settings-state')
 
-describe('SettingsProfilePage', () => {
+describe('ProfileForm', () => {
   it('should match snapshot', () => {
-    expect(render(<SettingsProfilePage />)).toMatchSnapshot()
+    expect(render(<ProfileForm />)).toMatchSnapshot()
   })
 })
