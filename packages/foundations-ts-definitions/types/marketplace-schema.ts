@@ -1725,6 +1725,10 @@ export interface SubscriptionModel {
    */
   developerId?: string // uuid
   /**
+   * The developer organisation associated to the subscription
+   */
+  organisationName?: string
+  /**
    * The unique identifier of the customer associated to the subscription
    */
   customerId?: string
