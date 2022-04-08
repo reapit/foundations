@@ -4,8 +4,6 @@ import { GridFourColItem, FadeIn } from '@reapit/elements-legacy'
 import placeHolderImage from '@/assets/images/default-feature-image.jpg'
 import comingSoonImageZoopla from '@/assets/images/coming-soon/Zoopla.jpg'
 import comingSoonImageTwentyCiVMC from '@/assets/images/coming-soon/TwentyCiVMC.jpg'
-import comingSoonImageTwentyci from '@/assets/images/coming-soon/TwentyCiProspect.jpg'
-import comingSoonImageZero from '@/assets/images/coming-soon/8Zero.jpg'
 import comingSoonSmsSpeedway from '@/assets/images/coming-soon/SMS2.jpg'
 import comingSoonSmsSpeedWayIdVerification from '@/assets/images/coming-soon/SMSMobile.jpg'
 import comingSoonOnTheMarket from '@/assets/images/coming-soon/OnTheMarket.jpg'
@@ -14,17 +12,9 @@ import comingSoonRightMove from '@/assets/images/coming-soon/RightMove.jpg'
 import comingSoonBarbuck from '@/assets/images/coming-soon/Barbuck.jpg'
 import comingSoonFacebook from '@/assets/images/coming-soon/Facebook.jpg'
 import comingSoonOffr from '@/assets/images/coming-soon/Offr.jpg'
-import comingSoonApex from '@/assets/images/coming-soon/Apex.jpg'
-import comingSoonDocuSign from '@/assets/images/coming-soon/Docusign.jpg'
 import comingSoonLifeTimeLegal from '@/assets/images/coming-soon/lifetimelegal.jpg'
-import comingSoonRealMedia from '@/assets/images/coming-soon/RealMediaGroup.jpg'
-import comingSoonTheBunch from '@/assets/images/coming-soon/TheBunch.jpg'
 import comingSoonAgentPoint from '@/assets/images/coming-soon/AgentPoint.png'
 import comingSoonCannellSigns from '@/assets/images/coming-soon/CannellSigns.png'
-import comingSoonHummTech from '@/assets/images/coming-soon/HumTech.png'
-import comingSoonLawFirmServices from '@/assets/images/coming-soon/LawFirmServices.png'
-import comingSoonViewber from '@/assets/images/coming-soon/Viewber.png'
-import comingSoonWhat3Words from '@/assets/images/coming-soon/What3Words.png'
 import { ComingSoonApp } from '@/types/global'
 import {
   CategoryTitle,
@@ -52,8 +42,6 @@ export const onImageError = (event: React.SyntheticEvent<HTMLImageElement>) =>
 
 const comingSoonImagesMap = {
   comingSoonImageZoopla,
-  comingSoonImageTwentyci,
-  comingSoonImageZero,
   comingSoonSmsSpeedway,
   comingSoonImageTwentyCiVMC,
   comingSoonSmsSpeedWayIdVerification,
@@ -63,17 +51,9 @@ const comingSoonImagesMap = {
   comingSoonBarbuck,
   comingSoonFacebook,
   comingSoonOffr,
-  comingSoonApex,
-  comingSoonDocuSign,
   comingSoonLifeTimeLegal,
-  comingSoonRealMedia,
-  comingSoonTheBunch,
   comingSoonAgentPoint,
   comingSoonCannellSigns,
-  comingSoonHummTech,
-  comingSoonLawFirmServices,
-  comingSoonViewber,
-  comingSoonWhat3Words,
 }
 
 export const getComingAppLinkHref = (isDesktop: boolean, email?: string) => {
