@@ -54,7 +54,7 @@ export const IaaS: FC = () => {
     <>
       <SecondaryNavContainer>
         <Title>IaaS</Title>
-        <Icon className={elMb5} iconSize="large" icon={'refreshInfographic'} />
+        <Icon className={elMb5} iconSize="large" icon="webDeveloperInfographic" />
         <SmallText hasGreyText>
           Infrastructure as a Service management. Pipelines are for deploying your Reapit apps to our infrastructure to
           simplify your development process

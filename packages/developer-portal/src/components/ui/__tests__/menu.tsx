@@ -115,15 +115,23 @@ describe('getDefaultNavIndex', () => {
       index: 9,
     },
     {
-      route: Routes.SETTINGS_BILLING_TAB,
+      route: Routes.SETTINGS_COMPANY,
       index: 9,
     },
     {
-      route: Routes.SETTINGS_ORGANISATION_TAB,
+      route: Routes.SETTINGS_SUBSCRIPTIONS,
       index: 9,
     },
     {
-      route: Routes.SETTINGS_PROFILE_TAB,
+      route: Routes.SETTINGS_PASSWORD,
+      index: 9,
+    },
+    {
+      route: Routes.SETTINGS_MEMBERS,
+      index: 9,
+    },
+    {
+      route: Routes.SETTINGS_PROFILE,
       index: 9,
     },
     {

@@ -157,11 +157,7 @@ export const SwaggerPage: FC = () => {
           <Button className={elMb5} intent="neutral" onClick={openNewPage(ExternalPages.platformAPIDocs)}>
             View Docs
           </Button>
-          <Button
-            className={elMb5}
-            intent="neutral"
-            onClick={openNewPage(`${window.reapit.config.platformApiUrl}/docs`)}
-          >
+          <Button className={elMb5} intent="neutral" onClick={openNewPage(swaggerUri ?? '')}>
             Download Spec
           </Button>
           <Button className={elMb5} intent="neutral" onClick={openNewPage(ExternalPages.glossaryDocs)}>

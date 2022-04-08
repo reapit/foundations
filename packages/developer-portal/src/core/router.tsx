@@ -7,7 +7,6 @@ import PrivateRouteWrapper from './private-route-wrapper'
 import { createBrowserHistory } from 'history'
 import { Info } from '@reapit/elements-legacy'
 import { PortalProvider } from '@reapit/elements-legacy'
-import { RedirectToSettingsProfilePage } from '@/components/pages/settings/settings'
 import { OkayPage } from '@reapit/utils-react'
 
 export const history = createBrowserHistory()
@@ -29,15 +28,6 @@ const ElementsPage = React.lazy(() => catchChunkError(() => import('../component
 const GraphQLPage = React.lazy(() => catchChunkError(() => import('../components/pages/graphql')))
 const SelectRolePage = React.lazy(() => catchChunkError(() => import('../components/pages/login/select-role')))
 const IaaS = React.lazy(() => catchChunkError(() => import('../components/pages/iaas')))
-
-const SettingsOrganisationTabPage = React.lazy(() =>
-  catchChunkError(() => import('../components/pages/settings/settings-organisation-tab')),
-)
-
-const SettingsBillingTabPage = React.lazy(() =>
-  catchChunkError(() => import('../components/pages/settings/settings-billing-tab')),
-)
-
 const EditionDownloadPage = React.lazy(() =>
   catchChunkError(() => import('../components/pages/developer-edition-download')),
 )
@@ -69,10 +59,7 @@ const Router = () => {
                 <PrivateRoute path={Routes.WEBHOOKS_LOGS} component={WebhooksPage} />
                 <PrivateRoute path={Routes.SWAGGER} exact component={SwaggerPage} />
                 <PrivateRoute path={Routes.DESKTOP} exact component={DesktopPage} fetcher />
-                <PrivateRoute path={Routes.SETTINGS} exact component={RedirectToSettingsProfilePage} />
-                <PrivateRoute path={Routes.SETTINGS_PROFILE_TAB} fetcher exact component={SettingsPage} />
-                <PrivateRoute path={Routes.SETTINGS_BILLING_TAB} fetcher component={SettingsBillingTabPage} />
-                <PrivateRoute path={Routes.SETTINGS_ORGANISATION_TAB} fetcher component={SettingsOrganisationTabPage} />
+                <PrivateRoute path={Routes.SETTINGS} component={SettingsPage} />
                 <PrivateRoute path={Routes.DEVELOPER_EDITION_DOWNLOAD} component={EditionDownloadPage} />
                 <PrivateRoute path={Routes.GRAPHQL} component={GraphQLPage} />
                 <PrivateRoute path={Routes.ELEMENTS} exact component={ElementsPage} />

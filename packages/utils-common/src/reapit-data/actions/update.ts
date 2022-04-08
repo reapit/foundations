@@ -22,6 +22,9 @@ export enum UpdateActionNames {
   fileUpload = 'fileUpload',
   terminateInstallation = 'terminateInstallation',
   cancelRevision = 'cancelRevision',
+  updateMember = 'updateMember',
+  inviteMember = 'inviteMember',
+  deleteSubscription = 'deleteSubscription',
 }
 
 export type UpdateActions = { [key in UpdateActionNames]: UpdateAction }
@@ -102,5 +105,23 @@ export const updateActions = (appEnv: AppEnv): UpdateActions => ({
     path: PathNames.cancelRevision,
     errorMessage: 'Failed to cancel pending revision',
     successMessage: 'Successfully cancelled pending revision',
+  },
+  [UpdateActionNames.updateMember]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.memberById,
+    errorMessage: 'Failed to update developer organisation member',
+    successMessage: 'Successfully updated developer organisation member',
+  },
+  [UpdateActionNames.inviteMember]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.getMember,
+    errorMessage: 'Failed to invite member, this has been logged. Please try again.',
+    successMessage: 'Successfully invited developer orgainisation member',
+  },
+  [UpdateActionNames.deleteSubscription]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.subscriptionsById,
+    errorMessage: 'Failed to cancel subscription, this has been logged. Please try again.',
+    successMessage: 'Successfully cancelled subscription',
   },
 })
