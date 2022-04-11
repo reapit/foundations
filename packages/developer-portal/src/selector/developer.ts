@@ -3,10 +3,6 @@ import { ReduxState, FormState } from '@/types/core'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
 import { WebhookPingTestStatus } from '@/reducers/developer'
 
-export const selectDeveloperEmail = (state: ReduxState) => {
-  return state?.settings?.developerInfomation?.email
-}
-
 export const selectDeveloper = (state: ReduxState) => {
   return state.developer
 }

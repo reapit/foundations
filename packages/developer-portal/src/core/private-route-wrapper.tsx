@@ -18,6 +18,7 @@ import { Dispatch } from 'redux'
 import { ELEMENTS_V3_PAGES } from '../constants/pages'
 import { Loader, MainContainer } from '@reapit/elements'
 import { HelperWidget, HelperWidgetApps } from '@reapit/utils-react'
+import { GlobalProvider } from './use-global-state'
 
 const { Suspense } = React
 
@@ -106,30 +107,11 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   }
 
   return (
-    <MainContainer>
-      {showMenu && location.pathname !== Routes.CUSTOMER_REGISTER && <Menu />}
-      {isV3Page ? (
-        <>
-          <Suspense
-            fallback={
-              <Section>
-                <Loader fullPage />
-              </Section>
-            }
-          >
-            {children}
-          </Suspense>
-          <TermsAndConditionsModal visible={showTermsModal} onAccept={updateTerms} tapOutsideToDissmiss={false} />
-        </>
-      ) : (
-        <FlexContainerBasic flexColumn isScrollable>
-          <FlexContainerResponsive
-            hasPadding
-            flexColumn
-            // I want to allow scrolling beyond the end of the page to allow for the toast notification
-            // except on the Gitbook page because the iframe handles it's own scrolling
-            isPageContainer={location.pathname !== Routes.API_DOCS}
-          >
+    <GlobalProvider>
+      <MainContainer>
+        {showMenu && location.pathname !== Routes.CUSTOMER_REGISTER && <Menu />}
+        {isV3Page ? (
+          <>
             <Suspense
               fallback={
                 <Section>
@@ -140,11 +122,32 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
               {children}
             </Suspense>
             <TermsAndConditionsModal visible={showTermsModal} onAccept={updateTerms} tapOutsideToDissmiss={false} />
-          </FlexContainerResponsive>
-        </FlexContainerBasic>
-      )}
-      {window.reapit.config.appEnv !== 'production' && <HelperWidget appName={HelperWidgetApps.developerPortal} />}
-    </MainContainer>
+          </>
+        ) : (
+          <FlexContainerBasic flexColumn isScrollable>
+            <FlexContainerResponsive
+              hasPadding
+              flexColumn
+              // I want to allow scrolling beyond the end of the page to allow for the toast notification
+              // except on the Gitbook page because the iframe handles it's own scrolling
+              isPageContainer={location.pathname !== Routes.API_DOCS}
+            >
+              <Suspense
+                fallback={
+                  <Section>
+                    <Loader fullPage />
+                  </Section>
+                }
+              >
+                {children}
+              </Suspense>
+              <TermsAndConditionsModal visible={showTermsModal} onAccept={updateTerms} tapOutsideToDissmiss={false} />
+            </FlexContainerResponsive>
+          </FlexContainerBasic>
+        )}
+        {window.reapit.config.appEnv !== 'production' && <HelperWidget appName={HelperWidgetApps.developerPortal} />}
+      </MainContainer>
+    </GlobalProvider>
   )
 }
 

@@ -1,32 +1,11 @@
 import { ReduxState } from '@/types/core'
 import {
-  selectDeveloperEmail,
   selectDeveloper,
   selectMyIdentity,
   selectDeveloperLoading,
   selectIsServiceChartLoading,
   selectWebhookTestStatus,
 } from '../developer'
-
-describe('selectDeveloperEmail', () => {
-  it('should run correctly', () => {
-    const input = {
-      settings: {
-        developerInfomation: {
-          email: 'abc@gmail.com',
-        },
-      },
-    } as ReduxState
-    const result = selectDeveloperEmail(input)
-    expect(result).toEqual('abc@gmail.com')
-  })
-
-  it('should run correctly and return undefined', () => {
-    const input = {} as ReduxState
-    const result = selectDeveloperEmail(input)
-    expect(result).toEqual(undefined)
-  })
-})
 
 describe('selectDeveloper', () => {
   it('should run correctly', () => {

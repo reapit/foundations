@@ -1,4 +1,4 @@
-import { mockMemberModel } from '../../../../../tests/__stubs__/members'
+import { mockMemberModel } from '../../tests/__stubs__/members'
 
 export const mockSettingsState = {
   settingsDataState: {

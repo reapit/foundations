@@ -1,14 +1,14 @@
 import React from 'react'
-import { render } from '../../../../../tests/react-testing'
-import { SettingsProvider } from '../use-settings-state'
+import { render } from '../../tests/react-testing'
+import { GlobalProvider } from '../use-global-state'
 
 describe('AnalyticsProvider', () => {
   it('should match a snapshot', () => {
     expect(
       render(
-        <SettingsProvider>
+        <GlobalProvider>
           <div />
-        </SettingsProvider>,
+        </GlobalProvider>,
       ),
     ).toMatchSnapshot()
   })

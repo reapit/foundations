@@ -2,11 +2,9 @@ import Routes from '../constants/routes'
 import ActionTypes from '../constants/action-types'
 import { DeveloperState } from '../reducers/developer'
 import { ErrorState } from '../reducers/error'
-import { SettingsState } from '@/reducers/settings'
 import { NotificationMessageState } from '@/reducers/notification-message'
 import { DeveloperSubscriptionsState } from '@/reducers/developer-subscriptions'
 import { DevelopersRootState } from '@/reducers/developers'
-import { InstallationsRootState } from '@/reducers/installations'
 import { WebhooksTopicsRootState } from '@/reducers/webhooks-topics'
 import { WebhooksSubscriptionsRootState } from '@/reducers/webhooks-subscriptions'
 import { CurrentMemberRootState } from '@/reducers/current-member'
@@ -53,11 +51,9 @@ export interface ReduxState {
   developer: DeveloperState
   error: ErrorState
   developerSetStatus: RequestState
-  settings: SettingsState
   noticationMessage: NotificationMessageState
   developerSubscriptions: DeveloperSubscriptionsState
   developers: DevelopersRootState
-  installations: InstallationsRootState
   webhooksTopics: WebhooksTopicsRootState
   webhooksSubscriptions: WebhooksSubscriptionsRootState
   webhookLogs: WebhookLogRootState

@@ -21,7 +21,7 @@ import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { SandboxModelPagedResult, UpdateMemberModel } from '@reapit/foundations-ts-definitions'
 import { GetActionNames, getActions, UpdateActionNames, updateActions } from '@reapit/utils-common'
 import { useForm } from 'react-hook-form'
-import { useSettingsState } from '../state/use-settings-state'
+import { useGlobalState } from '../../../../core/use-global-state'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { validationSchemaProfile } from './validation-schema'
 
@@ -40,11 +40,11 @@ export const handleRefreshMember = (refreshMember: () => void, updateMemberSucce
 }
 
 export const ProfileForm: FC = () => {
-  const { settingsDataState, settingsRefreshCurrentMember } = useSettingsState()
+  const { globalDataState, globalRefreshCurrentMember } = useGlobalState()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { clientId, orgName } = selectLoginIdentity(connectSession)
   const isUserOrUserAdmin = selectIsUserOrUserAdmin(connectSession)
-  const { currentMember } = settingsDataState
+  const { currentMember } = globalDataState
   const isClient = clientId && isUserOrUserAdmin
   const isDev = window.reapit.config.appEnv !== 'production'
 
@@ -64,7 +64,7 @@ export const ProfileForm: FC = () => {
     },
   })
 
-  useEffect(handleRefreshMember(settingsRefreshCurrentMember, updateMemberSuccess), [updateMemberSuccess])
+  useEffect(handleRefreshMember(globalRefreshCurrentMember, updateMemberSuccess), [updateMemberSuccess])
 
   const {
     register,

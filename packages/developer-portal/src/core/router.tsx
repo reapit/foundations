@@ -58,7 +58,7 @@ const Router = () => {
                 <PrivateRoute path={Routes.WEBHOOKS_NEW} component={WebhooksPage} />
                 <PrivateRoute path={Routes.WEBHOOKS_LOGS} component={WebhooksPage} />
                 <PrivateRoute path={Routes.SWAGGER} exact component={SwaggerPage} />
-                <PrivateRoute path={Routes.DESKTOP} exact component={DesktopPage} fetcher />
+                <PrivateRoute path={Routes.DESKTOP} exact component={DesktopPage} />
                 <PrivateRoute path={Routes.SETTINGS} component={SettingsPage} />
                 <PrivateRoute path={Routes.DEVELOPER_EDITION_DOWNLOAD} component={EditionDownloadPage} />
                 <PrivateRoute path={Routes.GRAPHQL} component={GraphQLPage} />

@@ -6,22 +6,18 @@ import { ReduxState } from '../types/core'
 import developer from '@/reducers/developer'
 import error from '@/reducers/error'
 import developerSetStatus from '@/reducers/developer-set-status'
-import settingsReducer from '@/reducers/settings'
 import developerSubscriptions from '@/reducers/developer-subscriptions'
 import developersReducer from '@/reducers/developers'
-import installationsReducer from '@/reducers/installations'
 import webhooksTopicsReducer from '@/reducers/webhooks-topics'
 import webhooksSubscriptionsReducer from '@/reducers/webhooks-subscriptions'
 import noticationMessage from '@/reducers/notification-message'
 import { currentMemberReducer } from '@/reducers/current-member'
 import developerSagas from '@/sagas/developer'
 import developerSetStatusSagas from '@/sagas/developer-set-status'
-import settingSagas from '@/sagas/settings'
 import { webhooksSubscriptionsSagas, webhooksEditSubscription } from '@/sagas/webhooks-subscriptions'
 import { injectSwitchModeToWindow } from '@reapit/elements-legacy'
 import developerSubscriptionsSagas from '@/sagas/developer-subscriptions'
 import developersSagas from '@/sagas/developers'
-import installationsSagas from '@/sagas/installations'
 import { webhooksTopicsSagas } from '@/sagas/webhooks-topics'
 import { currentMemberSagas } from '@/sagas/current-member'
 import webhookLogsReducer from '../reducers/webhook-logs'
@@ -46,11 +42,9 @@ export class Store {
     developer,
     error,
     developerSetStatus,
-    settings: settingsReducer,
     noticationMessage,
     developerSubscriptions,
     developers: developersReducer,
-    installations: installationsReducer,
     webhooksTopics: webhooksTopicsReducer,
     webhooksSubscriptions: webhooksSubscriptionsReducer,
     webhookLogs: webhookLogsReducer,
@@ -61,11 +55,9 @@ export class Store {
     yield all([
       fork(developerSagas),
       fork(developerSetStatusSagas),
-      fork(settingSagas),
       fork(webhooksEditSubscription),
       fork(developerSubscriptionsSagas),
       fork(developersSagas),
-      fork(installationsSagas),
       fork(webhooksTopicsSagas),
       fork(webhooksSubscriptionsSagas),
       fork(webhookLogsSagas),

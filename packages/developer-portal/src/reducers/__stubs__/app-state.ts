@@ -20,43 +20,6 @@ export const appState: ReduxState = {
   developerSetStatus: {
     formState: 'PENDING',
   },
-  settings: {
-    loading: true,
-    developerInfomation: {
-      id: '909dcdc1-6657-4a37-a5cc-05acd79d6a47',
-      created: '2019-11-19T11:44:16',
-      modified: '2020-07-13T08:50:48',
-      externalId: '259b23bd-fc44-4493-ad57-f019bb57a315',
-      name: 'Craig Lorem Ok',
-      company: 'REAPIT Ltd.2123znww',
-      jobTitle: 'Head of Platform2z1',
-      email: 'cbryan@reapit.com',
-      notificationsEmail: 'wmcvay@reapit.com',
-      telephone: '08261826162',
-      isInactive: false,
-      about: '',
-      website: 'https://google.com',
-      taxNumber: '',
-      registrationNumber: '12341',
-      billingEmail: '',
-      billingTelephone: '',
-      billingKeyContact: '',
-      reapitReference: 'aaa111',
-      noTaxRegistration: false,
-      nationalInsurance: '010212',
-      status: 'incomplete',
-      companyAddress: {
-        buildingName: 'tes',
-        buildingNumber: '1212',
-        line1: '',
-        line2: '',
-        line3: '',
-        line4: '',
-        postcode: '1212',
-        countryId: 'AF',
-      },
-    },
-  },
   noticationMessage: {
     visible: false,
     variant: '',
@@ -125,27 +88,6 @@ export const appState: ReduxState = {
       isLoading: false,
       data: {},
       inviteStatus: 'PENDING',
-    },
-  },
-  installations: {
-    installationsList: {
-      list: {},
-      isLoading: false,
-    },
-    installationsFilterList: {
-      list: {},
-      isLoading: false,
-    },
-    formState: {
-      state: 'PENDING',
-    },
-    install: {
-      isLoading: false,
-      errorMessage: '',
-    },
-    uninstall: {
-      isLoading: false,
-      errorMessage: '',
     },
   },
   currentMember: {
