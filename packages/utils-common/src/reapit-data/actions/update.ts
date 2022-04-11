@@ -25,6 +25,8 @@ export enum UpdateActionNames {
   updateMember = 'updateMember',
   inviteMember = 'inviteMember',
   deleteSubscription = 'deleteSubscription',
+  createSubscription = 'createSubscription',
+  pingWebhook = 'pingWebhook',
 }
 
 export type UpdateActions = { [key in UpdateActionNames]: UpdateAction }
@@ -123,5 +125,17 @@ export const updateActions = (appEnv: AppEnv): UpdateActions => ({
     path: PathNames.subscriptionsById,
     errorMessage: 'Failed to cancel subscription, this has been logged. Please try again.',
     successMessage: 'Successfully cancelled subscription',
+  },
+  [UpdateActionNames.createSubscription]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.subscriptions,
+    errorMessage: 'Failed to create subscription, this has been logged. Please try again.',
+    successMessage: 'Successfully created subscription',
+  },
+  [UpdateActionNames.pingWebhook]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.webhooksPing,
+    errorMessage: 'Failed to ping webhook, this has been logged. Please try again.',
+    successMessage: 'Successfully pinged webhook',
   },
 })

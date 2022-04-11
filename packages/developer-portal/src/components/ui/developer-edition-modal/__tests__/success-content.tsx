@@ -1,11 +1,11 @@
-import * as React from 'react'
-import { shallow } from 'enzyme'
+import React from 'react'
 import { SuccessContent, handleDownload } from '../success-content'
-import { developerStub } from '@/sagas/__stubs__/developer'
+import { mockDeveloperModel } from '../../../../tests/__stubs__/developers'
+import { render } from '../../../../tests/react-testing'
 
 describe('SuccessContent', () => {
   it('should match snapshot', () => {
-    const wrapper = shallow(<SuccessContent developer={developerStub} afterClose={jest.fn()} />)
+    const wrapper = render(<SuccessContent developer={mockDeveloperModel} afterClose={jest.fn()} />)
     expect(wrapper).toMatchSnapshot()
   })
 })

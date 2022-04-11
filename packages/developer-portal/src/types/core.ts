@@ -1,9 +1,7 @@
 import Routes from '../constants/routes'
 import ActionTypes from '../constants/action-types'
-import { DeveloperState } from '../reducers/developer'
 import { ErrorState } from '../reducers/error'
 import { NotificationMessageState } from '@/reducers/notification-message'
-import { DeveloperSubscriptionsState } from '@/reducers/developer-subscriptions'
 import { DevelopersRootState } from '@/reducers/developers'
 import { WebhooksTopicsRootState } from '@/reducers/webhooks-topics'
 import { WebhooksSubscriptionsRootState } from '@/reducers/webhooks-subscriptions'
@@ -48,11 +46,9 @@ export interface FetcherParams<T> {
 }
 
 export interface ReduxState {
-  developer: DeveloperState
   error: ErrorState
   developerSetStatus: RequestState
   noticationMessage: NotificationMessageState
-  developerSubscriptions: DeveloperSubscriptionsState
   developers: DevelopersRootState
   webhooksTopics: WebhooksTopicsRootState
   webhooksSubscriptions: WebhooksSubscriptionsRootState

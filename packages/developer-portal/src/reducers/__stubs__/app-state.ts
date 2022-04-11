@@ -4,15 +4,6 @@ import { WebhookCreateEditState } from '../webhooks-subscriptions/webhook-edit-m
 import { webhookDataStub, webhookItemDataStub } from '../../sagas/__stubs__/webhook-edit'
 
 export const appState: ReduxState = {
-  developer: {
-    loading: false,
-    formState: 'PENDING',
-    isVisible: false,
-    myIdentity: null,
-    isServiceChartLoading: true,
-    error: null,
-    webhookPingTestStatus: null,
-  },
   error: {
     componentError: null,
     serverError: null,
@@ -52,18 +43,6 @@ export const appState: ReduxState = {
       isLoading: false,
       errorMessage: '',
       logs: mockWebhookLogs,
-    },
-  },
-  developerSubscriptions: {
-    create: {
-      isLoading: false,
-      error: false,
-    },
-    list: {
-      isLoading: false,
-      data: {
-        data: [],
-      },
     },
   },
   developers: {

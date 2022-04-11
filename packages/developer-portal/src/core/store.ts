@@ -2,21 +2,16 @@ import { createStore, applyMiddleware, compose, combineReducers, Store as ReduxS
 import createSagaMiddleware from 'redux-saga'
 import { fork, all } from '@redux-saga/core/effects'
 import { ReduxState } from '../types/core'
-
-import developer from '@/reducers/developer'
 import error from '@/reducers/error'
 import developerSetStatus from '@/reducers/developer-set-status'
-import developerSubscriptions from '@/reducers/developer-subscriptions'
 import developersReducer from '@/reducers/developers'
 import webhooksTopicsReducer from '@/reducers/webhooks-topics'
 import webhooksSubscriptionsReducer from '@/reducers/webhooks-subscriptions'
 import noticationMessage from '@/reducers/notification-message'
 import { currentMemberReducer } from '@/reducers/current-member'
-import developerSagas from '@/sagas/developer'
 import developerSetStatusSagas from '@/sagas/developer-set-status'
 import { webhooksSubscriptionsSagas, webhooksEditSubscription } from '@/sagas/webhooks-subscriptions'
 import { injectSwitchModeToWindow } from '@reapit/elements-legacy'
-import developerSubscriptionsSagas from '@/sagas/developer-subscriptions'
 import developersSagas from '@/sagas/developers'
 import { webhooksTopicsSagas } from '@/sagas/webhooks-topics'
 import { currentMemberSagas } from '@/sagas/current-member'
@@ -39,11 +34,9 @@ export class Store {
   static sagaMiddleware = createSagaMiddleware()
 
   static reducers = combineReducers<ReduxState>({
-    developer,
     error,
     developerSetStatus,
     noticationMessage,
-    developerSubscriptions,
     developers: developersReducer,
     webhooksTopics: webhooksTopicsReducer,
     webhooksSubscriptions: webhooksSubscriptionsReducer,
@@ -53,10 +46,8 @@ export class Store {
 
   static sagas = function* () {
     yield all([
-      fork(developerSagas),
       fork(developerSetStatusSagas),
       fork(webhooksEditSubscription),
-      fork(developerSubscriptionsSagas),
       fork(developersSagas),
       fork(webhooksTopicsSagas),
       fork(webhooksSubscriptionsSagas),

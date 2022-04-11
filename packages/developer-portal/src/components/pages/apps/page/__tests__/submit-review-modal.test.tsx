@@ -1,8 +1,8 @@
 import { useReapitConnect } from '@reapit/connect-session'
 import React from 'react'
 import { CurrentMemberRootState } from '../../../../../reducers/current-member'
-import { developerStub } from '../../../../../sagas/__stubs__/developer'
 import { reduxTestState, render } from '../../../../../tests/react-testing'
+import { mockDeveloperModel } from '../../../../../tests/__stubs__/developers'
 import { getTitle, handleCloseModal, SubmitReviewModal } from '../submit-review-modal'
 
 const mockUpdateDeveloper = jest.fn()
@@ -51,7 +51,7 @@ describe('SubmitReviewModal', () => {
       },
     })
     expect(
-      render(<SubmitReviewModal closeModal={jest.fn()} developer={developerStub} refetchDeveloper={jest.fn()} />),
+      render(<SubmitReviewModal closeModal={jest.fn()} developer={mockDeveloperModel} refetchDeveloper={jest.fn()} />),
     ).toMatchSnapshot()
   })
 
@@ -60,7 +60,7 @@ describe('SubmitReviewModal', () => {
       render(
         <SubmitReviewModal
           closeModal={jest.fn()}
-          developer={{ ...developerStub, status: 'pending' }}
+          developer={{ ...mockDeveloperModel, status: 'pending' }}
           refetchDeveloper={jest.fn()}
         />,
       ),
@@ -77,7 +77,7 @@ describe('SubmitReviewModal', () => {
       } as CurrentMemberRootState,
     })
     expect(
-      render(<SubmitReviewModal closeModal={jest.fn()} developer={developerStub} refetchDeveloper={jest.fn()} />),
+      render(<SubmitReviewModal closeModal={jest.fn()} developer={mockDeveloperModel} refetchDeveloper={jest.fn()} />),
     ).toMatchSnapshot()
   })
 
@@ -91,7 +91,7 @@ describe('SubmitReviewModal', () => {
       } as CurrentMemberRootState,
     })
     expect(
-      render(<SubmitReviewModal closeModal={jest.fn()} developer={developerStub} refetchDeveloper={jest.fn()} />),
+      render(<SubmitReviewModal closeModal={jest.fn()} developer={mockDeveloperModel} refetchDeveloper={jest.fn()} />),
     ).toMatchSnapshot()
   })
 })

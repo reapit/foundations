@@ -1,9 +1,6 @@
 import React from 'react'
 import { handlePingWebhook, handleWebhookPing, WebhooksPingForm } from '../webhook-ping-form'
 import { webhookItemDataStub } from '../../../../sagas/__stubs__/webhook-edit'
-import { updateWebhookCreateEditState } from '../../../../actions/webhooks-subscriptions'
-import { WebhookCreateEditState } from '../../../../reducers/webhooks-subscriptions/webhook-edit-modal'
-import { developerSetWebhookPingStatus, developerWebhookPing } from '../../../../actions/developer'
 import { render } from '../../../../tests/react-testing'
 import { ExpandableContentType } from '../webhooks-manage'
 
@@ -22,88 +19,71 @@ describe('WebhooksPingForm', () => {
 })
 
 describe('handleWebhookPing', () => {
-  it('should call the correct handlers when status is SUCCESS', () => {
-    const success = jest.fn()
-    const dispatch = jest.fn()
+  it('should call the correct handlers when ping is successful', () => {
     const setIndexExpandedRow = jest.fn()
     const setExpandableContentType = jest.fn()
     const setWebhookPingId = jest.fn()
     const openModal = jest.fn()
-    const webhookPingTestStatus = 'SUCCESS'
     const webhookPingId = 'SOME_ID'
 
     const curried = handleWebhookPing(
-      success,
-      dispatch,
       setIndexExpandedRow,
       setExpandableContentType,
       setWebhookPingId,
       openModal,
-      webhookPingTestStatus,
       webhookPingId,
+      null,
+      true,
     )
 
     curried()
-
-    expect(success).toHaveBeenCalledWith('Webhook was successfully pinged')
-    expect(dispatch).toHaveBeenCalledWith(updateWebhookCreateEditState(WebhookCreateEditState.INITIAL))
     expect(setIndexExpandedRow).toHaveBeenCalledWith(null)
     expect(setExpandableContentType).toHaveBeenCalledWith(ExpandableContentType.Controls)
     expect(setWebhookPingId).toHaveBeenCalledWith(null)
-    expect(dispatch).toHaveBeenLastCalledWith(developerSetWebhookPingStatus(null))
     expect(openModal).not.toHaveBeenCalled()
   })
 
-  it('should call the correct handlers when status is FAILED', () => {
-    const success = jest.fn()
-    const dispatch = jest.fn()
+  it('should call the correct handlers when ping fails', () => {
     const setIndexExpandedRow = jest.fn()
     const setExpandableContentType = jest.fn()
     const setWebhookPingId = jest.fn()
     const openModal = jest.fn()
-    const webhookPingTestStatus = 'FAILED'
     const webhookPingId = 'SOME_ID'
 
     const curried = handleWebhookPing(
-      success,
-      dispatch,
       setIndexExpandedRow,
       setExpandableContentType,
       setWebhookPingId,
       openModal,
-      webhookPingTestStatus,
       webhookPingId,
+      'Something went wrong',
+      false,
     )
 
     curried()
-
-    expect(success).not.toHaveBeenCalled()
-    expect(dispatch).toHaveBeenCalledWith(developerSetWebhookPingStatus(null))
     expect(setIndexExpandedRow).not.toHaveBeenCalled()
     expect(setExpandableContentType).not.toHaveBeenCalled()
     expect(setWebhookPingId).toHaveBeenCalledWith(null)
-    expect(openModal).toHaveBeenCalled()
+    expect(openModal).toHaveBeenCalledTimes(1)
   })
 })
 
 describe('handlePingWebhook', () => {
   it('should call the correct handlers to ping a webhook', () => {
     const setWebhookPingId = jest.fn()
-    const dispatch = jest.fn()
+    const pingWebhook = jest.fn()
     const values = {
       topicId: 'SOME_ID',
     }
 
-    const curried = handlePingWebhook(webhookItemDataStub, dispatch, setWebhookPingId)
+    const curried = handlePingWebhook(webhookItemDataStub, pingWebhook, setWebhookPingId)
 
     curried(values)
 
     expect(setWebhookPingId).toHaveBeenCalledWith(webhookItemDataStub.id)
-    expect(dispatch).toHaveBeenCalledWith(
-      developerWebhookPing({
-        id: webhookItemDataStub.id,
-        topicId: values.topicId,
-      }),
-    )
+    expect(pingWebhook).toHaveBeenCalledWith({
+      id: webhookItemDataStub.id,
+      topicId: values.topicId,
+    })
   })
 })

@@ -1,10 +1,7 @@
 import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { Dispatch as ReduxDispatch } from 'redux'
-import { updateWebhookCreateEditState } from '../../../actions/webhooks-subscriptions'
+import { useSelector } from 'react-redux'
 import { selectWebhookSubscriptionTopics } from '../../../selector/webhooks-subscriptions'
-import { PingWebhooksByIdParams, WebhookModel } from '../../../services/webhooks'
-import { developerSetWebhookPingStatus, developerWebhookPing } from '../../../actions/developer'
+import { PingEndpointModel, PingWebhooksByIdParams, WebhookModel } from '../../../services/webhooks'
 import Routes from '../../../constants/routes'
 import {
   elP8,
@@ -19,7 +16,6 @@ import {
   elMlAuto,
   Select,
   BodyText,
-  useSnack,
   InputAddOn,
   elMb6,
   useModal,
@@ -31,12 +27,12 @@ import { useForm } from 'react-hook-form'
 import Yup, { object, string } from 'yup'
 import errorMessages from '../../../constants/error-messages'
 import { handleCollapseRow } from './webhooks-manage-form'
-import { WebhookCreateEditState } from '../../../reducers/webhooks-subscriptions/webhook-edit-modal'
 import { link } from '../../../styles/elements/link'
 import { openNewPage } from '../../../utils/navigation'
-import { selectWebhookTestStatus } from '../../../selector'
-import { WebhookPingTestStatus } from '../../../reducers/developer'
 import { ExpandableContentType } from './webhooks-manage'
+import { SendFunction, useReapitUpdate } from '@reapit/utils-react'
+import { reapitConnectBrowserSession } from '../../../core/connect-session'
+import { UpdateActionNames, updateActions } from '@reapit/utils-common'
 
 interface WebhooksPingFormProps {
   webhookModel: WebhookModel
@@ -45,7 +41,11 @@ interface WebhooksPingFormProps {
 }
 
 export const handlePingWebhook =
-  (webhookModel: WebhookModel, dispatch: ReduxDispatch, setWebhookPingId: Dispatch<SetStateAction<string | null>>) =>
+  (
+    webhookModel: WebhookModel,
+    pingWebhook: SendFunction<PingEndpointModel, boolean>,
+    setWebhookPingId: Dispatch<SetStateAction<string | null>>,
+  ) =>
   (values: PingWebhookFormSchema) => {
     const { topicId } = values
     const { id: webhookId } = webhookModel
@@ -55,32 +55,27 @@ export const handlePingWebhook =
       topicId: topicId,
     }
     setWebhookPingId(webhookId)
-    dispatch(developerWebhookPing(params))
+    pingWebhook(params)
   }
 
 export const handleWebhookPing =
   (
-    success: (text: string, timeout?: number | undefined) => void,
-    dispatch: ReduxDispatch,
     setIndexExpandedRow: Dispatch<SetStateAction<number | null>>,
     setExpandableContentType: Dispatch<SetStateAction<ExpandableContentType>>,
     setWebhookPingId: Dispatch<SetStateAction<string | null>>,
     openModal: () => void,
-    webhookPingTestStatus: WebhookPingTestStatus,
     webhookPingId: string | null,
+    pingError: string | null,
+    pingSuccess?: boolean,
   ) =>
   () => {
-    if (webhookPingTestStatus === 'SUCCESS') {
-      success('Webhook was successfully pinged')
-      dispatch(updateWebhookCreateEditState(WebhookCreateEditState.INITIAL))
+    if (pingSuccess) {
       setIndexExpandedRow(null)
       setExpandableContentType(ExpandableContentType.Controls)
       setWebhookPingId(null)
-      dispatch(developerSetWebhookPingStatus(null))
     }
 
-    if (webhookPingTestStatus === 'FAILED' && webhookPingId) {
-      dispatch(developerSetWebhookPingStatus(null))
+    if (pingError && webhookPingId) {
       setWebhookPingId(null)
       openModal()
     }
@@ -99,11 +94,8 @@ export const WebhooksPingForm: FC<WebhooksPingFormProps> = ({
   setIndexExpandedRow,
   setExpandableContentType,
 }) => {
-  const dispatch = useDispatch()
   const topics = useSelector(selectWebhookSubscriptionTopics)
-  const { success } = useSnack()
   const [webhookPingId, setWebhookPingId] = useState<string | null>(null)
-  const webhookPingTestStatus = useSelector(selectWebhookTestStatus)
   const { Modal: FailedConnectionModal, openModal, closeModal } = useModal()
   const { topicIds } = webhookModel
   const {
@@ -114,6 +106,15 @@ export const WebhooksPingForm: FC<WebhooksPingFormProps> = ({
     resolver: yupResolver(schema),
     defaultValues: {
       topicId: '',
+    },
+  })
+
+  const [, pingingWebhook, pingWebhook, pingSuccess, pingError] = useReapitUpdate<PingEndpointModel, boolean>({
+    reapitConnectBrowserSession,
+    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.createDeveloper],
+    method: 'POST',
+    uriParams: {
+      subscriptionId: webhookPingId,
     },
   })
 
@@ -129,20 +130,19 @@ export const WebhooksPingForm: FC<WebhooksPingFormProps> = ({
 
   useEffect(
     handleWebhookPing(
-      success,
-      dispatch,
       setIndexExpandedRow,
       setExpandableContentType,
       setWebhookPingId,
       openModal,
-      webhookPingTestStatus,
       webhookPingId,
+      pingError,
+      pingSuccess,
     ),
-    [webhookPingTestStatus, webhookPingId],
+    [pingSuccess, pingError, webhookPingId],
   )
 
   return (
-    <form className={elP8} onSubmit={handleSubmit(handlePingWebhook(webhookModel, dispatch, setWebhookPingId))}>
+    <form className={elP8} onSubmit={handleSubmit(handlePingWebhook(webhookModel, pingWebhook, setWebhookPingId))}>
       <Subtitle className={elMl3}>Test Webhook Subscription</Subtitle>
       <Grid>
         <ColSplit>
@@ -173,12 +173,12 @@ export const WebhooksPingForm: FC<WebhooksPingFormProps> = ({
             <Button
               intent="secondary"
               type="button"
-              disabled={webhookPingTestStatus === 'LOADING'}
+              disabled={pingingWebhook}
               onClick={handleCollapseRow(setIndexExpandedRow, setExpandableContentType)}
             >
               Cancel
             </Button>
-            <Button intent="primary" chevronRight type="submit" disabled={webhookPingTestStatus === 'LOADING'}>
+            <Button intent="primary" chevronRight type="submit" disabled={pingingWebhook}>
               Test
             </Button>
           </ButtonGroup>
