@@ -44,6 +44,8 @@
     "concurrently": "^6.4.0",
     "eslint": "^8.4.1",
     "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^27.5.1",
+    "ts-jest": "^27.1.4",
     "ts-node": "^10.4.0"
   },
   "scripts": {
@@ -52,7 +54,7 @@
     "lint": "eslint --cache --ext=ts,tsx,js src",
     "check": "tsc --noEmit --skipLibCheck",
     "conf": "yarn config-manager --namespace cloud --entity cli --name local --mode fetch",
-    "test": "echo '...skipping...'",
+    "test": "jest --watch --colors",
     "release": "echo '...skipping...'",
     "publish": "yarn npm publish --access private"
   }

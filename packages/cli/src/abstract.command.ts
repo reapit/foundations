@@ -84,6 +84,8 @@ export abstract class AbstractCommand {
       },
     })
 
+    console.log('inst', instance)
+
     instance.interceptors.request.use(
       function (config) {
         return config
