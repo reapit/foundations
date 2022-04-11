@@ -1,3 +1,5 @@
 export * from './module'
 export * from './sqs-provider'
 export * from './pusher-provider'
+export * from './abstract-workflow'
+export * from './workflow-decorator'

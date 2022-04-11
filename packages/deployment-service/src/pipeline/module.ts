@@ -6,9 +6,10 @@ import { TypeOrmModule } from '@nestjs/typeorm'
 import { PipelineEntity } from '../entities/pipeline.entity'
 import { PipelineRunnerEntity } from '../entities/pipeline-runner.entity'
 import { TaskEntity } from '../entities/task.entity'
+import { S3Module } from '@/s3'
 
 @Module({
-  imports: [EventModule, TypeOrmModule.forFeature([PipelineEntity, PipelineRunnerEntity, TaskEntity])],
+  imports: [EventModule, TypeOrmModule.forFeature([PipelineEntity, PipelineRunnerEntity, TaskEntity]), S3Module],
   providers: [PipelineProvider],
   controllers: [PipelineController],
   exports: [PipelineProvider],

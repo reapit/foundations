@@ -3,6 +3,7 @@ import { SqsProvider } from './sqs-provider'
 import { SQS } from 'aws-sdk'
 import { PusherProvider } from './pusher-provider'
 import Pusher from 'pusher'
+import { WorkflowHandlerProvider } from './workflow-handler-provider'
 
 @Module({
   providers: [
@@ -23,6 +24,7 @@ import Pusher from 'pusher'
         }),
     },
     PusherProvider,
+    WorkflowHandlerProvider,
   ],
   exports: [SqsProvider, PusherProvider],
 })
