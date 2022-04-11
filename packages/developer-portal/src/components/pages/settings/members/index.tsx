@@ -7,6 +7,10 @@ import { GetActionNames, getActions } from '@reapit/utils-common'
 import { useReapitConnect } from '@reapit/connect-session'
 import { MemberUpdateControls } from './member-update-controls'
 
+export const getIntentFromStatus = (status: string) => {
+  return status === 'active' ? 'success' : status === 'rejected' ? 'danger' : status === 'pending' ? 'critical' : 'low'
+}
+
 export const SettingsMembersPage: FC = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [pageNumber, setPageNumber] = useState<number>(1)
@@ -42,20 +46,8 @@ export const SettingsMembersPage: FC = () => {
               value: '',
               children: (
                 <>
-                  <StatusIndicator
-                    intent={
-                      member.status === 'active'
-                        ? 'success'
-                        : member.status === 'rejected'
-                        ? 'danger'
-                        : member.status === 'pending'
-                        ? 'critical'
-                        : 'low'
-                    }
-                  />{' '}
-                  {member.status
-                    ? `${member.status.charAt(0).toUpperCase()}${member.status.slice(1).toLowerCase()}`
-                    : ''}
+                  <StatusIndicator intent={getIntentFromStatus(member.status ?? '')} />{' '}
+                  {`${(member.status ?? '').charAt(0).toUpperCase()}${(member.status ?? '').slice(1).toLowerCase()}`}
                 </>
               ),
               narrowTable: {
