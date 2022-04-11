@@ -76,6 +76,7 @@ export class PipelineController {
     return pipeline
   }
 
+  // TODO requires validation pipe
   @Post(':id')
   async edit(
     id: string,

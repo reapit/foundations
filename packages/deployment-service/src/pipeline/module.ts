@@ -11,5 +11,6 @@ import { TaskEntity } from '../entities/task.entity'
   imports: [EventModule, TypeOrmModule.forFeature([PipelineEntity, PipelineRunnerEntity, TaskEntity])],
   providers: [PipelineProvider],
   controllers: [PipelineController],
+  exports: [PipelineProvider],
 })
 export class PipelineModule {}
