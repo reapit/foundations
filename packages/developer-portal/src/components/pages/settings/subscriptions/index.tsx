@@ -9,14 +9,14 @@ import dayjs from 'dayjs'
 
 export const handleRefreshSubscriptions =
   (
-    refreshMembers: () => void,
-    updateMemberSuccess?: boolean,
-    deleteMemberSuccess?: boolean,
-    reinviteMemberSuccess?: boolean,
+    refreshSubscriptions: () => void,
+    updateSubscriptionSuccess?: boolean,
+    deleteSubscriptionSuccess?: boolean,
+    reinviteSubscriptionSuccess?: boolean,
   ) =>
   () => {
-    if (updateMemberSuccess || deleteMemberSuccess || reinviteMemberSuccess) {
-      refreshMembers()
+    if (updateSubscriptionSuccess || deleteSubscriptionSuccess || reinviteSubscriptionSuccess) {
+      refreshSubscriptions()
     }
   }
 
