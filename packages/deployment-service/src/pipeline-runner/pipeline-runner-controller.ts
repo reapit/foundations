@@ -1,6 +1,6 @@
-import { AuthenticatedRequest, OwnershipProvider } from '@/auth'
-import { PipelineRunnerEntity } from '@/entities/pipeline-runner.entity'
-import { PipelineEntity } from '@/entities/pipeline.entity'
+import { AuthenticatedRequest, OwnershipProvider } from '../auth'
+import { PipelineRunnerEntity } from '../entities/pipeline-runner.entity'
+import { PipelineEntity } from '../entities/pipeline.entity'
 import {
   Controller,
   Get,

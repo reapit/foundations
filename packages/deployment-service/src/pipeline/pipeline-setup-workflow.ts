@@ -1,11 +1,11 @@
-import { AbstractWorkflow, PusherProvider, SqsProvider, Workflow } from '@/events'
+import { AbstractWorkflow, PusherProvider, SqsProvider, Workflow } from '../events'
 import { S3Provider } from '../s3'
 import { PipelineProvider } from './pipeline-provider'
 import { CloudFrontClient, CreateDistributionCommand } from '@aws-sdk/client-cloudfront'
 import { PipelineEntity } from '../entities/pipeline.entity'
 import { v4 as uuid } from 'uuid'
 import { ChangeResourceRecordSetsCommand, Route53Client } from '@aws-sdk/client-route-53'
-import { QueueNamesEnum } from '@/constants'
+import { QueueNamesEnum } from '../constants'
 
 @Workflow(QueueNamesEnum.PIPELINE_SETUP)
 export class PipelineSetupWorkflow extends AbstractWorkflow {

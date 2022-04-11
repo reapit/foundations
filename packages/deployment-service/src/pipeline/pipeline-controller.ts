@@ -14,7 +14,7 @@ import {
 import { OwnershipProvider, AuthenticatedRequest } from '../auth'
 import { PipelineProvider } from './pipeline-provider'
 import { PipelineDto } from '../dto'
-import { PipelineEntity } from '@/entities/pipeline.entity'
+import { PipelineEntity } from '../entities/pipeline.entity'
 import { Pagination } from 'nestjs-typeorm-paginate'
 import { PusherProvider } from '../events'
 

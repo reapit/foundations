@@ -1,6 +1,7 @@
 import { Injectable, UnauthorizedException, Req } from '@nestjs/common'
 import { LoginIdentity } from '@reapit/connect-session'
 import decode from 'jwt-decode'
+import { Request } from 'express'
 
 @Injectable()
 export class TokenProvider {

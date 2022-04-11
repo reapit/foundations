@@ -4,7 +4,7 @@ import { In, Repository } from 'typeorm'
 import { InjectRepository } from '@nestjs/typeorm'
 import { PipelineEntity } from '../entities/pipeline.entity'
 import { SqsProvider } from '../events'
-import { QueueNamesEnum } from '@/constants'
+import { QueueNamesEnum } from '../constants'
 import { paginate, Pagination } from 'nestjs-typeorm-paginate'
 
 @Injectable()

@@ -1,15 +1,21 @@
-import { PipelineRunnerEntity } from '@/entities/pipeline-runner.entity'
-import { PipelineEntity } from '@/entities/pipeline.entity'
-import { TaskEntity } from '@/entities/task.entity'
-import { EventModule } from '@/events'
-import { PipelineModule } from '@/pipeline/module'
+import { PipelineRunnerEntity } from '../entities/pipeline-runner.entity'
+import { PipelineEntity } from '../entities/pipeline.entity'
+import { TaskEntity } from '../entities/task.entity'
+import { EventModule } from '../events'
+import { PipelineModule } from '../pipeline'
 import { PipelineRunnerController } from './pipeline-runner-controller'
 import { PipelineRunnerProvider } from './pipeline-runner-provider'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { Module } from '@nestjs/common'
+import { AuthModule } from '../auth'
 
 @Module({
-  imports: [TypeOrmModule.forFeature([PipelineRunnerEntity, PipelineEntity, TaskEntity]), PipelineModule, EventModule],
+  imports: [
+    TypeOrmModule.forFeature([PipelineRunnerEntity, PipelineEntity, TaskEntity]),
+    PipelineModule,
+    EventModule,
+    AuthModule,
+  ],
   providers: [PipelineRunnerProvider],
   controllers: [PipelineRunnerController],
 })

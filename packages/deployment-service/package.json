@@ -4,6 +4,7 @@
     "@aws-sdk/client-cloudfront": "^3.100.0",
     "@aws-sdk/client-route-53": "^3.100.0",
     "@nestjs/common": "^8.4.4",
+    "@nestjs/config": "^2.0.0",
     "@nestjs/core": "^8.4.4",
     "@nestjs/platform-express": "^8.4.4",
     "@nestjs/typeorm": "^8.0.3",
