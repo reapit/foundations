@@ -27,7 +27,7 @@ describe('check-version', () => {
 
     await checkVersionCommand.run()
 
-    expect(console.log).toHaveBeenCalledTimes(5)
+    expect(console.log).toHaveBeenCalledTimes(4)
   })
 
   it('Not inform of no changes', async () => {
@@ -44,6 +44,6 @@ describe('check-version', () => {
 
     await checkVersionCommand.run()
 
-    expect(console.log).toHaveBeenCalledTimes(1)
+    expect(console.log).not.toHaveBeenCalled()
   })
 })
