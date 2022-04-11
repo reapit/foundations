@@ -14,6 +14,17 @@ jest.mock('fs', () => ({
   },
 }))
 
+jest.mock('../../../utils/config', () => ({
+  resolveConfig: jest.fn(() =>
+    Promise.resolve({
+      from: 'test',
+      config: {
+        'api-key': '',
+      },
+    }),
+  ),
+}))
+
 jest.mock('inquirer', () => ({
   prompt: jest.fn(() => ({
     recreate: true,

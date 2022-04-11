@@ -2,6 +2,17 @@ import axios from 'axios'
 import Pusher, { ConnectionManager } from 'pusher-js'
 import { PipelineCreate } from '../create'
 
+jest.mock('../../../utils/config', () => ({
+  resolveConfig: jest.fn(() =>
+    Promise.resolve({
+      from: 'test',
+      config: {
+        'api-key': '',
+      },
+    }),
+  ),
+}))
+
 jest.mock('fs', () => ({
   existsSync: () => true,
   promises: {
