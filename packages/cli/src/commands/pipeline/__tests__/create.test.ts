@@ -7,7 +7,7 @@ jest.mock('../../../utils/config', () => ({
     Promise.resolve({
       from: 'test',
       config: {
-        'api-key': '',
+        'api-key': 'test-test-test-test',
       },
     }),
   ),

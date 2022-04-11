@@ -1,6 +1,17 @@
 import axios from 'axios'
 import { CheckVersionCommand } from '../check-version'
 
+jest.mock('../../utils/config', () => ({
+  resolveConfig: jest.fn(() =>
+    Promise.resolve({
+      from: 'test',
+      config: {
+        'api-key': 'test-test-test-test',
+      },
+    }),
+  ),
+}))
+
 jest.mock('../../../package.json', () => ({
   version: '2.0.0',
 }))
