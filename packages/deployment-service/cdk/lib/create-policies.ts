@@ -1,4 +1,4 @@
-import { Project, ISecret, Effect, PolicyStatement, Bucket, Queue, Stack } from '@reapit/ts-scripts/src/cdk'
+import { Project, ISecret, Effect, PolicyStatement, Bucket, Queue, Stack, Topic } from '@reapit/ts-scripts/src/cdk'
 import { AccountPrincipal, CompositePrincipal, Policy, Role } from 'aws-cdk-lib/aws-iam'
 import { PhysicalName } from 'aws-cdk-lib'
 import config from '../../config.json'
@@ -28,12 +28,14 @@ export const createPolicies = ({
   secretManager,
   codeBuild,
   usercodeStack,
+  codebuildSnsTopic,
 }: {
   buckets: { [s: string]: Bucket }
   queues: { [s: string]: Queue }
   secretManager: ISecret
   codeBuild: Project
   usercodeStack: Stack
+  codebuildSnsTopic: Topic
 }): namedPolicyGroupType & namedPolicyType => {
   const S3BucketPolicy = new PolicyStatement({
     effect: Effect.ALLOW,
@@ -87,9 +89,15 @@ export const createPolicies = ({
     ],
   })
 
+  const codebuildSnssubscriptionPolicy = new PolicyStatement({
+    effect: Effect.ALLOW,
+    resources: [codebuildSnsTopic.topicArn],
+    actions: ['sns:Subscribe'],
+  })
+
   // create a policy that allows the lambda to do what it needs to do in the usercode stack
   const usercodePolicy = new Policy(usercodeStack, 'UsercodePolicy')
-  usercodePolicy.addStatements(S3BucketPolicy, route53Policy, cloudFrontPolicy)
+  usercodePolicy.addStatements(S3BucketPolicy, route53Policy, cloudFrontPolicy, codebuildSnssubscriptionPolicy)
   // create a role that lambdas can assume in the usercode stack, with the policy we just created
   const usercodeStackRole = new Role(usercodeStack, 'UsercodeStackRole', {
     assumedBy: new CompositePrincipal(

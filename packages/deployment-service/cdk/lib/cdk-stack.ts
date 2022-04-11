@@ -43,12 +43,10 @@ type FunctionSetup = {
 }
 
 /**
- * TODO 
- * 
- * subnets need to be updated to use subnets on iaas prod account for S3 live buckets.
- * Create IAM/role for running codebuild that cannot create resources
- * 
- * 
+ * TODO
+ *
+ * ensure IAM/role for running codebuild cannot create resources
+ * dev/prod iaas inside same account
  */
 export const createStack = () => {
   const stack = createBaseStack({
@@ -74,8 +72,8 @@ export const createStack = () => {
     throw new Error('Failed to create rds secret')
   }
 
-  const codeBuild = createCodeBuildProject(stack, 'codebuild')
-  const topic = getCodebuildSnsTopic(stack)
+  const codeBuild = createCodeBuildProject(usercodeStack, 'codebuild')
+  const codebuildSnsTopic = getCodebuildSnsTopic(usercodeStack)
 
   const policies = createPolicies({
     buckets,
@@ -83,6 +81,7 @@ export const createStack = () => {
     secretManager,
     codeBuild,
     usercodeStack: usercodeStack,
+    codebuildSnsTopic,
   })
 
   const fileLocPrefix = 'packages/deployment-service/src/index.'
@@ -388,7 +387,7 @@ export const createStack = () => {
     codebuildUpdate: {
       handler: `${fileLocPrefix}codebuildPipelineUpdater`,
       policies: [...policies.commonBackendPolicies],
-      topic,
+      topic: codebuildSnsTopic,
       timeout: 900,
     },
     codebuildDeploy: {
@@ -536,7 +535,7 @@ export const createStack = () => {
         options.api.authorizer ? process.env.AUTHORIZER_ID : undefined,
       )
     } else if (options.topic) {
-      addLambdaSNSTrigger(lambda, topic)
+      addLambdaSNSTrigger(lambda, options.topic)
     }
   }
 
