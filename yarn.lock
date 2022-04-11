@@ -7154,6 +7154,7 @@ __metadata:
     eslint-plugin-prettier: ^4.0.0
     figlet: ^1.5.2
     inquirer: ^8.2.0
+    jest: ^27.5.1
     latest-semver: ^3.0.0
     nestjs-typeorm-paginate: ^2.6.3
     ora: ^5.4.1
@@ -7163,6 +7164,7 @@ __metadata:
     semver: ^7.3.5
     shleemy: ^1.2.2
     simple-git: ^3.3.0
+    ts-jest: ^27.1.4
     ts-node: ^10.4.0
   bin:
     reapit: ./dist/cli/src/index.js
