@@ -3,8 +3,8 @@ import { resolveApiKey } from '@reapit/api-key-verify/src'
 import { Request } from 'express'
 
 export type Credentials = {
-  developerId: string,
-  clientId: string,
+  developerId: string
+  clientId: string
 }
 
 @Injectable()
@@ -14,7 +14,10 @@ export class ApiKeyProvider {
       throw new UnauthorizedException()
     }
 
-    const apiKey = await resolveApiKey(request.headers['x-api-key'] as string, process.env.API_KEY_INVOKE_ARN?.includes('prod'))
+    const apiKey = await resolveApiKey(
+      request.headers['x-api-key'] as string,
+      process.env.API_KEY_INVOKE_ARN?.includes('prod'),
+    )
 
     return {
       developerId: apiKey?.developerId as string,

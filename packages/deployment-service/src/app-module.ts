@@ -4,10 +4,6 @@ import { EventModule } from './events'
 import { PipelineModule } from './pipeline'
 
 @Module({
-  imports: [
-    AuthModule,
-    EventModule,
-    PipelineModule,
-  ],
+  imports: [AuthModule, EventModule, PipelineModule],
 })
 export class AppModule {}

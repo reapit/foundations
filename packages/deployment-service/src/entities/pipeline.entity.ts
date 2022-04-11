@@ -4,6 +4,23 @@ import { AbstractEntity } from './abstract-entity'
 import { PipelineRunnerEntity } from './pipeline-runner.entity'
 import { PipelineBuildStatus } from '../dto'
 
+export const pipelineDeploymentDisabled = [
+  'PROVISIONING',
+  'PROVISION_REQUEST',
+  'FAILED_TO_PROVISION',
+  'PRE_PROVISIONED',
+  'DELETING',
+  'DELETED',
+  'SCHEDULED_FOR_DELETION',
+]
+export const pipelineNotDeletable = [
+  'IN_PROGRESS',
+  'DELETING',
+  'PROVISION_REQUEST',
+  'PROVISIONING',
+  'QUEUED',
+  'SCHEDULED_FOR_DELETION',
+]
 @Entity('pipelines')
 export class PipelineEntity extends AbstractEntity implements PipelineModelInterface {
   @Column()
@@ -80,5 +97,13 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
 
   get uniqueRepoName(): string {
     return `${this.developerId}/${this.subDomain}`
+  }
+
+  get isPipelineDeletable(): boolean {
+    return !this.buildStatus || !pipelineNotDeletable.includes(this.buildStatus)
+  }
+
+  get isPipelineDeploymentDisabled(): boolean {
+    return !this.buildStatus || pipelineDeploymentDisabled.includes(this.buildStatus)
   }
 }

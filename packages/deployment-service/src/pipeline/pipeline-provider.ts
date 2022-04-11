@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common'
-import { PipelineEntity } from "../entities/pipeline.entity"
-import { Repository } from "typeorm"
+import { PipelineEntity } from '../entities/pipeline.entity'
+import { Repository } from 'typeorm'
 import { InjectRepository } from '@nestjs/typeorm'
 import { paginate, Pagination } from 'nestjs-typeorm-paginate'
 import { SqsProvider } from '../events'
@@ -22,11 +22,11 @@ export class PipelineProvider {
     const qb = this.repository.createQueryBuilder()
     qb.where('developerId = :developerId', { developerId })
     qb.addOrderBy('created', 'DESC')
-  
+
     if (appId) {
       qb.where('appId = :appId', { appId })
     }
-  
+
     return paginate(qb, { limit: 10, page })
   }
 
@@ -43,5 +43,9 @@ export class PipelineProvider {
 
   async triggerPipelineSetup(pipeline: PipelineEntity): Promise<void> {
     this.sqsProvider.send(QueueNamesEnum.PIPELINE_SETUP, pipeline)
+  }
+
+  async triggerPipelineTearDown(pipeline: PipelineEntity): Promise<void> {
+    this.sqsProvider.send(QueueNamesEnum.PIPELINE_TEAR_DOWN_START, pipeline)
   }
 }
