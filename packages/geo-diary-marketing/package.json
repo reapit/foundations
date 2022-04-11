@@ -15,7 +15,7 @@
     "commit": "yarn lint"
   },
   "dependencies": {
-    "@reapit/elements": "3.7.16"
+    "@reapit/elements": "3.7.20"
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "next",
