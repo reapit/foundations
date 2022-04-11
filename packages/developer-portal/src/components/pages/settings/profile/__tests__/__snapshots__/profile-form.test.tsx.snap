@@ -1,0 +1,462 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProfileForm should match snapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ecbqyq6-el-snack-holder"
+      />
+      <form>
+        <h2
+          class="e1byern-el-subtitle"
+        >
+          Your Profile
+        </h2>
+        <div
+          class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
+        >
+          <div
+            class="e1ksxx4v-el-input-wrap"
+          >
+            <div
+              class="e1979rmu-el-input-group"
+            >
+              <input
+                class="e1urjlvd-el-input"
+                id="test-static-id"
+                name="name"
+              />
+              <label
+                class="e1nbkkrq-el-label"
+                for="test-static-id"
+              >
+                Name
+              </label>
+            </div>
+          </div>
+          <div
+            class="e1ksxx4v-el-input-wrap"
+          >
+            <div
+              class="e1979rmu-el-input-group"
+            >
+              <input
+                class="e1urjlvd-el-input"
+                id="test-static-id"
+                name="jobTitle"
+              />
+              <label
+                class="e1nbkkrq-el-label"
+                for="test-static-id"
+              >
+                Job Title
+              </label>
+            </div>
+          </div>
+          <div
+            class="e1ksxx4v-el-input-wrap"
+          >
+            <div
+              class="e1979rmu-el-input-group"
+            >
+              <input
+                class="e1urjlvd-el-input"
+                id="test-static-id"
+                name="gitHubUsername"
+              />
+              <label
+                class="e1nbkkrq-el-label"
+                for="test-static-id"
+              >
+                GitHub Username
+              </label>
+            </div>
+          </div>
+        </div>
+        <h2
+          class="e1byern-el-subtitle"
+        >
+          Customer Data
+        </h2>
+        <p
+          class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+        >
+          As your account is associated with both the Sandbox Data (SBOX) and Customer Data, you can choose to toggle between which data you want to see available in the Developer Portal.
+        </p>
+        <p
+          class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+        >
+          You can choose which sandbox you wish to view based on your Reapit Product. This is specific and only associated to your developer profile.
+        </p>
+        <p
+          class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+        >
+          <strong>
+            Please note, you will need to log out and log back in again to see this change take effect.
+          </strong>
+        </p>
+        <div
+          class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
+        >
+          <div
+            class="e1ksxx4v-el-input-wrap"
+          >
+            <div
+              class="e1979rmu-el-input-group"
+            >
+              <input
+                class="e1ih6lkl-el-toggle-checkbox"
+                id="useCustomerData"
+                name="useCustomerData"
+                type="checkbox"
+              />
+              <label
+                class="ehi76vp-el-has-grey-bg e1ott14k-el-toggle-label"
+                for="useCustomerData"
+              >
+                <span
+                  class="e18omfqv-el-toggle-item"
+                >
+                  Customer
+                </span>
+                <span
+                  class="e18omfqv-el-toggle-item"
+                >
+                  Sandbox
+                </span>
+              </label>
+              <label
+                class="e1nbkkrq-el-label"
+              >
+                Use 
+                MOCK_ORG_NAME
+                 Customer or Sandbox data
+              </label>
+            </div>
+          </div>
+          <div
+            class="e1ksxx4v-el-input-wrap"
+          >
+            <div
+              class="e1979rmu-el-input-group"
+            >
+              <div
+                class="ehi76vp-el-has-grey-bg ejhyjna-el-toggle-radio-wrap"
+              >
+                <input
+                  class="e1k4cmge-el-toggle-radio"
+                  id="AUS"
+                  name="sandboxId"
+                  type="radio"
+                  value="AUS"
+                />
+                <label
+                  class="ehi76vp-el-has-grey-bg evjm0ky-el-toggle-radio-label"
+                  for="AUS"
+                >
+                  <span
+                    class="e1dq0rz5-el-toggle-radio-item"
+                  >
+                    Australia Sandbox
+                  </span>
+                </label>
+                <input
+                  checked=""
+                  class="e1k4cmge-el-toggle-radio"
+                  id="GBR"
+                  name="sandboxId"
+                  type="radio"
+                  value="GBR"
+                />
+                <label
+                  class="ehi76vp-el-has-grey-bg evjm0ky-el-toggle-radio-label"
+                  for="GBR"
+                >
+                  <span
+                    class="e1dq0rz5-el-toggle-radio-item"
+                  >
+                    UK Sandbox
+                  </span>
+                </label>
+              </div>
+              <label
+                class="e1nbkkrq-el-label"
+              >
+                Choose Sandbox
+              </label>
+            </div>
+          </div>
+        </div>
+        <div
+          class="eay05y4-el-button-group"
+        >
+          <div
+            class="ebqwrow-el-button-group-inner"
+          >
+            <button
+              class="ebee6r1-el-intent-primary eqfkc7t-el-button"
+              type="submit"
+            >
+              Save Changes
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6-el-snack-holder"
+    />
+    <form>
+      <h2
+        class="e1byern-el-subtitle"
+      >
+        Your Profile
+      </h2>
+      <div
+        class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
+      >
+        <div
+          class="e1ksxx4v-el-input-wrap"
+        >
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              name="name"
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              Name
+            </label>
+          </div>
+        </div>
+        <div
+          class="e1ksxx4v-el-input-wrap"
+        >
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              name="jobTitle"
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              Job Title
+            </label>
+          </div>
+        </div>
+        <div
+          class="e1ksxx4v-el-input-wrap"
+        >
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              name="gitHubUsername"
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              GitHub Username
+            </label>
+          </div>
+        </div>
+      </div>
+      <h2
+        class="e1byern-el-subtitle"
+      >
+        Customer Data
+      </h2>
+      <p
+        class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+      >
+        As your account is associated with both the Sandbox Data (SBOX) and Customer Data, you can choose to toggle between which data you want to see available in the Developer Portal.
+      </p>
+      <p
+        class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+      >
+        You can choose which sandbox you wish to view based on your Reapit Product. This is specific and only associated to your developer profile.
+      </p>
+      <p
+        class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+      >
+        <strong>
+          Please note, you will need to log out and log back in again to see this change take effect.
+        </strong>
+      </p>
+      <div
+        class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
+      >
+        <div
+          class="e1ksxx4v-el-input-wrap"
+        >
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <input
+              class="e1ih6lkl-el-toggle-checkbox"
+              id="useCustomerData"
+              name="useCustomerData"
+              type="checkbox"
+            />
+            <label
+              class="ehi76vp-el-has-grey-bg e1ott14k-el-toggle-label"
+              for="useCustomerData"
+            >
+              <span
+                class="e18omfqv-el-toggle-item"
+              >
+                Customer
+              </span>
+              <span
+                class="e18omfqv-el-toggle-item"
+              >
+                Sandbox
+              </span>
+            </label>
+            <label
+              class="e1nbkkrq-el-label"
+            >
+              Use 
+              MOCK_ORG_NAME
+               Customer or Sandbox data
+            </label>
+          </div>
+        </div>
+        <div
+          class="e1ksxx4v-el-input-wrap"
+        >
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <div
+              class="ehi76vp-el-has-grey-bg ejhyjna-el-toggle-radio-wrap"
+            >
+              <input
+                class="e1k4cmge-el-toggle-radio"
+                id="AUS"
+                name="sandboxId"
+                type="radio"
+                value="AUS"
+              />
+              <label
+                class="ehi76vp-el-has-grey-bg evjm0ky-el-toggle-radio-label"
+                for="AUS"
+              >
+                <span
+                  class="e1dq0rz5-el-toggle-radio-item"
+                >
+                  Australia Sandbox
+                </span>
+              </label>
+              <input
+                checked=""
+                class="e1k4cmge-el-toggle-radio"
+                id="GBR"
+                name="sandboxId"
+                type="radio"
+                value="GBR"
+              />
+              <label
+                class="ehi76vp-el-has-grey-bg evjm0ky-el-toggle-radio-label"
+                for="GBR"
+              >
+                <span
+                  class="e1dq0rz5-el-toggle-radio-item"
+                >
+                  UK Sandbox
+                </span>
+              </label>
+            </div>
+            <label
+              class="e1nbkkrq-el-label"
+            >
+              Choose Sandbox
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="eay05y4-el-button-group"
+      >
+        <div
+          class="ebqwrow-el-button-group-inner"
+        >
+          <button
+            class="ebee6r1-el-intent-primary eqfkc7t-el-button"
+            type="submit"
+          >
+            Save Changes
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

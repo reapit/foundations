@@ -40,7 +40,7 @@ export const handleCreateAccount =
       })
 
       if (developer) {
-        window.location.href = `${window.reapit.config.connectOAuthUrl}/authorize?response_type=code&client_id=${window.reapit.config.connectClientId}&redirect_uri=${window.location.origin}${Routes.APPS}&state=${Routes.SETTINGS_ORGANISATION_TAB}`
+        window.location.href = `${window.reapit.config.connectOAuthUrl}/authorize?response_type=code&client_id=${window.reapit.config.connectClientId}&redirect_uri=${window.location.origin}${Routes.APPS}&state=${Routes.SETTINGS_COMPANY}`
       }
     }
     registerCustomer()
