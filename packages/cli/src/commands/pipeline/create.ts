@@ -8,7 +8,7 @@ import * as fs from 'fs'
 import { resolve } from 'path'
 import git from 'simple-git'
 import { REAPIT_PIPELINE_CONFIG_FILE } from './constants'
-import { serialisePipeline } from '@/utils'
+import { serialisePipeline } from '../../utils'
 
 @Command({
   name: 'create',
