@@ -63,14 +63,14 @@ describe('handleUpdateDeveloper', () => {
       about: formValues.about,
       companyAddress: {
         ...mockDeveloperModel.companyAddress,
-        buildingName: formValues?.buildingName,
-        buildingNumber: formValues?.buildingNumber,
-        line1: formValues?.line1,
-        line2: formValues?.line2,
-        line3: formValues?.line3,
-        line4: formValues?.line4,
-        postcode: formValues?.postcode,
-        countryId: formValues?.countryId,
+        buildingName: formValues.buildingName,
+        buildingNumber: formValues.buildingNumber,
+        line1: formValues.line1,
+        line2: formValues.line2,
+        line3: formValues.line3,
+        line4: formValues.line4,
+        postcode: formValues.postcode,
+        countryId: formValues.countryId,
       },
     })
   })
