@@ -1,3 +1,8 @@
+/* istanbul ignore file */
+/* Had to add because of skipped test, react hooks testing not yet supporting React 18 
+https://github.com/testing-library/react-hooks-testing-library/issues/654 can remove when tests un-skipped
+Looks like we will have to migrate to the main testing lib when this PR is merged
+https://github.com/testing-library/react-testing-library/pull/991*/
 import { logger } from '@reapit/utils-react'
 import { useState, useEffect } from 'react'
 import { useAsyncState } from '../use-async-state'
@@ -71,7 +76,7 @@ export const send =
       console.error('connect session not ready')
       return false
     }
-    const { api, path } = action
+    const { api, path, errorMessage } = action
     const deSerialisedPath = uriParams
       ? Object.keys(uriParams).reduce<string>((path, uriReplaceKey) => {
           return path.replace(`{${uriReplaceKey}}`, uriParams[uriReplaceKey])
@@ -98,7 +103,7 @@ export const send =
 
       if (!response.ok) {
         const errorRes = await response.json()
-        throw new Error(handleReapitError(errorRes ?? {}))
+        throw new Error(handleReapitError(errorRes ?? {}, errorMessage))
       }
 
       switch (returnType) {
@@ -120,6 +125,11 @@ export const send =
             method: 'GET',
           })
 
+          if (!fetchResponse.ok) {
+            const errorRes = await fetchResponse.json()
+            throw new Error(handleReapitError(errorRes ?? {}, errorMessage))
+          }
+
           data = await fetchResponse.json()
 
           await Promise.all([setLoading(false), setSuccess(true), setData(data)])
@@ -133,8 +143,8 @@ export const send =
       return true
     } catch (exception) {
       const err = exception as Error
-      const message = action.errorMessage ?? err?.message ?? error
-      errorSnack(message)
+      const message = err?.message ?? error
+      errorSnack(message, 5000)
 
       await Promise.all([setLoading(false), setSuccess(false), setError(message)])
 

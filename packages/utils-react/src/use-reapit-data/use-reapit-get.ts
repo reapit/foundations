@@ -1,3 +1,8 @@
+/* istanbul ignore file */
+/* Had to add because of skipped test, react hooks testing not yet supporting React 18 
+https://github.com/testing-library/react-hooks-testing-library/issues/654 can remove when tests un-skipped
+Looks like we will have to migrate to the main testing lib when this PR is merged
+https://github.com/testing-library/react-testing-library/pull/991*/
 import { useState, useEffect, Dispatch, SetStateAction, useRef, useCallback, MutableRefObject } from 'react'
 import { ReapitConnectBrowserSession, ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
 import { StringMap, logger } from '..'
@@ -35,7 +40,7 @@ export interface HandleGetParams<DataType> {
   setRefreshing: Dispatch<SetStateAction<boolean>>
   setError: Dispatch<SetStateAction<string | null>>
   successSnack: (message: string) => void
-  errorSnack: (message: string) => void
+  errorSnack: (message: string, timeout?: number) => void
   prevQueryParams: MutableRefObject<Object | undefined>
   prevUriParams: MutableRefObject<Object | undefined>
   queryParams?: Object
@@ -97,7 +102,7 @@ export const handleGet =
     } = handleGetParams
 
     const shouldFetch = checkShouldFetch<DataType>(handleGetParams)
-    const { successMessage, errorMessage } = action
+    const { successMessage } = action
     const controller = new AbortController()
     const signal = controller.signal
 
@@ -121,9 +126,10 @@ export const handleGet =
       const error = typeof response === 'string' ? response : null
 
       if (data && successMessage) successSnack(successMessage)
-      if (error) errorSnack(errorMessage ?? error)
+      if (error) errorSnack(error, 5000)
 
       setData(data)
+
       setError(error)
       await setLoading(false)
     }
@@ -142,11 +148,11 @@ export const handleGet =
 export const handleRefresh =
   <DataType>(handleGetParams: HandleGetParams<DataType>) =>
   () => {
-    const { setData, setError, setRefreshing, action, errorSnack, connectSession, uriParams, queryParams, headers } =
+    const { setData, setError, setRefreshing, action, errorSnack, uriParams, queryParams, headers, connectSession } =
       handleGetParams
+
     const controller = new AbortController()
     const signal = controller.signal
-    const { errorMessage } = action
 
     const getData = async () => {
       setError(null)
@@ -164,7 +170,7 @@ export const handleRefresh =
       const data = typeof response === 'string' ? null : response
       const error = typeof response === 'string' ? response : null
 
-      if (error) errorSnack(errorMessage ?? error)
+      if (error) errorSnack(error, 5000)
 
       setData(data)
       setError(error)

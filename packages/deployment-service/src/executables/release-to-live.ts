@@ -1,7 +1,7 @@
 import AdmZip from 'adm-zip'
 import rimraf from 'rimraf'
 import { recurseDir } from '../utils'
-import { sendToLiveS3 } from './deploy-to-live'
+import { deployToLiveS3 } from './deploy-to-live'
 import fs from 'fs'
 
 /**
@@ -45,7 +45,7 @@ export const releaseToLiveFromZip = async ({
       prefix: `${deploymentType}/${projectLocation}`,
       buildLocation: localLocation,
     },
-    sendToLiveS3,
+    deployToLiveS3,
   )
 
   await new Promise<void>((resolve) =>

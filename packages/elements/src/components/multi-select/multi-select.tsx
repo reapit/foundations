@@ -45,7 +45,7 @@ export type MultiSelectInputWrapped = React.ForwardRefExoticComponent<
   MultiSelectInputProps & RefAttributes<InputHTMLAttributes<HTMLInputElement>>
 >
 
-export interface MultiSelectChipProps extends HTMLAttributes<HTMLInputElement> {}
+export interface MultiSelectChipProps extends InputHTMLAttributes<HTMLInputElement> {}
 
 const setNativeInputValue = (element: HTMLElement, value: string[], testFunc?: (value: string[]) => void) => {
   const valueSetter = Object.getOwnPropertyDescriptor(element, 'value')?.set

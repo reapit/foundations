@@ -97,6 +97,7 @@ export interface WebhookLogModel {
   payload: string
   topicId: string
   statusCode: number
+  entityId: string
 }
 
 // end manual defined Model

@@ -20,7 +20,7 @@ export const TextWrap = styled.div`
 export const BannerCol = styled.div`
   grid-column-end: span 12;
 
-  @media (min-width: 1165px) {
+  @media (min-width: 1390px) {
     grid-column-end: span 4;
   }
 `

@@ -5,7 +5,7 @@ import {
   NotFoundException,
   UnauthorizedException,
 } from '@homeservenow/serverless-aws-handler'
-import { defaultOutputHeaders, QueueNames } from '../constants'
+import { defaultOutputHeaders, isPipelineDeploymentDisabled, QueueNames } from '../constants'
 import * as service from '../services'
 import { PipelineRunnerType } from '@reapit/foundations-ts-definitions'
 import { githubApp } from '../services'
@@ -61,10 +61,7 @@ export const githubWebhook = httpHandler<GithubCommitEvent | GithubRepoInstallat
         }
       }
 
-      if (
-        (pipeline.buildStatus && 'CREATING_ARCHITECTURE' === pipeline.buildStatus) ||
-        (await service.pipelineRunnerCountRunning(pipeline)) >= 1
-      ) {
+      if (isPipelineDeploymentDisabled(pipeline) || (await service.pipelineRunnerCountRunning(pipeline)) >= 1) {
         throw new HttpErrorException('Cannot create deployment in current state', 409 as HttpStatusCode)
       }
 

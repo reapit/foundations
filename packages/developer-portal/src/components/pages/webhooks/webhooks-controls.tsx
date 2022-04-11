@@ -5,6 +5,7 @@ import { ControlsContainer, inputFullWidth, overflowHidden } from './__styles__'
 import { cx } from '@linaria/core'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { WebhookQueryParams } from './webhooks'
+import dayjs from 'dayjs'
 
 export interface WebhooksControlsProps {
   selectAppIdHandler: (event?: ChangeEvent<HTMLSelectElement | HTMLInputElement>, applicationId?: string) => void
@@ -31,6 +32,8 @@ export const WebhooksControls: FC<WebhooksControlsProps> = ({ selectAppIdHandler
                     type="date"
                     name="from"
                     label="Date From"
+                    min={dayjs(webhookQueryParams.to).subtract(6, 'months').format('YYYY-MM')}
+                    max={dayjs(webhookQueryParams.to).format('YYYY-MM')}
                     onChange={selectAppIdHandler}
                   />
                 </ControlsContainer>
@@ -41,6 +44,8 @@ export const WebhooksControls: FC<WebhooksControlsProps> = ({ selectAppIdHandler
                     type="date"
                     name="to"
                     label="Date To"
+                    min={dayjs(webhookQueryParams.from).format('YYYY-MM-DD')}
+                    max={dayjs().format('YYYY-MM-DD')}
                     onChange={selectAppIdHandler}
                   />
                 </ControlsContainer>

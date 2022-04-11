@@ -1,6 +1,7 @@
 import { PipelineEntity } from '../entities/pipeline.entity'
 import { connect } from './../core'
 import { Pagination, paginate } from 'nestjs-typeorm-paginate'
+import { PipelineModelInterface } from '@reapit/foundations-ts-definitions/deployment-schema'
 
 export const createPipelineEntity = async (dto: Partial<PipelineEntity>): Promise<PipelineEntity> => {
   const connection = await connect()
@@ -70,4 +71,13 @@ export const paginatePipelines = async (
   }
 
   return paginate(qb, { limit: 10, page })
+}
+
+export const findPipelinesByAppId = async (appId: string): Promise<PipelineModelInterface[]> => {
+  const connection = await connect()
+  const repo = connection.getRepository(PipelineEntity)
+
+  return repo.find({
+    appId,
+  })
 }

@@ -1060,6 +1060,10 @@ export interface CreateDeveloperModel {
    */
   notificationsEmail?: string
   companyAddress?: CreateAddressModel
+  /**
+   * The github username for the initial member
+   */
+  gitHubUsername?: string
 }
 /**
  * The model responsible for creation of an installation between a specific client and app
@@ -1720,6 +1724,10 @@ export interface SubscriptionModel {
    * The GUID of the developer associated to the subscription
    */
   developerId?: string // uuid
+  /**
+   * The developer organisation associated to the subscription
+   */
+  organisationName?: string
   /**
    * The unique identifier of the customer associated to the subscription
    */

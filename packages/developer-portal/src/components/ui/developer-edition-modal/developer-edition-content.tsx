@@ -48,7 +48,7 @@ export const DeveloperEditionContent: React.FC<DeveloperEditionContentProps> = (
         <Content>
           Your account is currently set to use <strong>{developer.name}</strong>. In order to subscribe to the developer
           edition you will need to change your profile setting. Please{' '}
-          <Link to={Routes.SETTINGS_PROFILE_TAB}>click here</Link> to update your information.
+          <Link to={Routes.SETTINGS_PROFILE}>click here</Link> to update your information.
         </Content>
         <ButtonGroup hasSpacing isCentered>
           <Button variant="secondary" onClick={afterClose}>

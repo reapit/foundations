@@ -5103,7 +5103,7 @@ export interface CreateIdentityCheckModel {
    * Request body to attach an identity document to a new contact identity check
    * A second identity document is not required and can be ignored by being set to null
    */
-  identityDocument1: {
+  identityDocument1?: {
     /**
      * The unique identifier of the type of identity document provided
      */
@@ -5910,6 +5910,32 @@ export interface CreatePropertyLettingModel {
      */
     cableTvCompanyId?: string
   }
+  /**
+   * Representation of a property details related to deposit
+   */
+  deposit?: {
+    /**
+     * The type of deposit (weeks/months/fixed)
+     */
+    type?: string
+    /**
+     * The deposit amount. This can be the number of weeks or months rent or a monetary amount based on the `type`
+     */
+    amount?: number // double
+  }
+}
+/**
+ * Representation of a property details related to deposit
+ */
+export interface CreatePropertyLettingsDepositModel {
+  /**
+   * The type of deposit (weeks/months/fixed)
+   */
+  type?: string
+  /**
+   * The deposit amount. This can be the number of weeks or months rent or a monetary amount based on the `type`
+   */
+  amount?: number // double
 }
 /**
  * Request body used to create a new property
@@ -6325,6 +6351,19 @@ export interface CreatePropertyModel {
        * The unique identifier of the company supplying the cable tv to the property
        */
       cableTvCompanyId?: string
+    }
+    /**
+     * Representation of a property details related to deposit
+     */
+    deposit?: {
+      /**
+       * The type of deposit (weeks/months/fixed)
+       */
+      type?: string
+      /**
+       * The deposit amount. This can be the number of weeks or months rent or a monetary amount based on the `type`
+       */
+      amount?: number // double
     }
   }
   /**
@@ -10281,6 +10320,7 @@ export interface Properties {
   )[]
   market?: ('local' | 'openA' | 'openB' | 'openC' | 'openD')[]
   address?: string
+  countryId?: string
   departmentId?: string
   bedroomsFrom?: number
   bedroomsTo?: number
@@ -10706,6 +10746,32 @@ export interface PropertyLettingModel {
      */
     cableTvCompanyId?: string
   }
+  /**
+   * Representation of a property details related to deposit
+   */
+  deposit?: {
+    /**
+     * The type of deposit (weeks/months/fixed)
+     */
+    type?: string
+    /**
+     * The deposit amount. This can be the number of weeks or months rent or a monetary amount based on the `type`
+     */
+    amount?: number // double
+  }
+}
+/**
+ * Representation of a property details related to deposit
+ */
+export interface PropertyLettingsDepositModel {
+  /**
+   * The type of deposit (weeks/months/fixed)
+   */
+  type?: string
+  /**
+   * The deposit amount. This can be the number of weeks or months rent or a monetary amount based on the `type`
+   */
+  amount?: number // double
 }
 /**
  * Representation of a property. Properties can be grouped into developments in the source data, functionality that is typically used by New Homes departments.
@@ -10809,6 +10875,10 @@ export interface PropertyModel {
    * The long description of the property
    */
   longDescription?: string
+  /**
+   * The property's local authority
+   */
+  localAuthorityCompanyId?: string
   /**
    * The summary of accommodation, typically short phrases or bullet points describing the key features of the property
    */
@@ -11222,6 +11292,19 @@ export interface PropertyModel {
        */
       cableTvCompanyId?: string
     }
+    /**
+     * Representation of a property details related to deposit
+     */
+    deposit?: {
+      /**
+       * The type of deposit (weeks/months/fixed)
+       */
+      type?: string
+      /**
+       * The deposit amount. This can be the number of weeks or months rent or a monetary amount based on the `type`
+       */
+      amount?: number // double
+    }
   }
   /**
    * An properties commercial details
@@ -11437,6 +11520,10 @@ export interface PropertyModelPagedResult {
      * The long description of the property
      */
     longDescription?: string
+    /**
+     * The property's local authority
+     */
+    localAuthorityCompanyId?: string
     /**
      * The summary of accommodation, typically short phrases or bullet points describing the key features of the property
      */
@@ -11849,6 +11936,19 @@ export interface PropertyModelPagedResult {
          * The unique identifier of the company supplying the cable tv to the property
          */
         cableTvCompanyId?: string
+      }
+      /**
+       * Representation of a property details related to deposit
+       */
+      deposit?: {
+        /**
+         * The type of deposit (weeks/months/fixed)
+         */
+        type?: string
+        /**
+         * The deposit amount. This can be the number of weeks or months rent or a monetary amount based on the `type`
+         */
+        amount?: number // double
       }
     }
     /**
@@ -15879,6 +15979,32 @@ export interface UpdatePropertyLettingModel {
      */
     cableTvCompanyId?: string
   }
+  /**
+   * Representation of a property details related to deposit
+   */
+  deposit?: {
+    /**
+     * The type of deposit (weeks/months/fixed)
+     */
+    type?: string
+    /**
+     * The deposit amount. This can be the number of weeks or months rent or a monetry amount based on the `type`
+     */
+    amount?: number // double
+  }
+}
+/**
+ * Representation of a property details related to deposit
+ */
+export interface UpdatePropertyLettingsDepositModel {
+  /**
+   * The type of deposit (weeks/months/fixed)
+   */
+  type?: string
+  /**
+   * The deposit amount. This can be the number of weeks or months rent or a monetry amount based on the `type`
+   */
+  amount?: number // double
 }
 /**
  * Request body used to update an existing property
@@ -16294,6 +16420,19 @@ export interface UpdatePropertyModel {
        * The unique identifier of the company supplying the cable tv to the property
        */
       cableTvCompanyId?: string
+    }
+    /**
+     * Representation of a property details related to deposit
+     */
+    deposit?: {
+      /**
+       * The type of deposit (weeks/months/fixed)
+       */
+      type?: string
+      /**
+       * The deposit amount. This can be the number of weeks or months rent or a monetry amount based on the `type`
+       */
+      amount?: number // double
     }
   }
   /**

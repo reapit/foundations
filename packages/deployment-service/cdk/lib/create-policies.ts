@@ -1,7 +1,8 @@
-import { Project, ISecret, Effect, PolicyStatement, Bucket, Queue, Stack, Topic } from '@reapit/ts-scripts/src/cdk'
+import { Project, ISecret, Effect, PolicyStatement, Bucket, Stack, Topic } from '@reapit/ts-scripts/src/cdk'
 import { AccountPrincipal, CompositePrincipal, Policy, Role } from 'aws-cdk-lib/aws-iam'
 import { PhysicalName } from 'aws-cdk-lib'
 import config from '../../config.json'
+import { aws_sqs as sqs } from 'aws-cdk-lib'
 
 export enum PolicyNames {
   // lambdaInvoke = 'lambdaInvoke',
@@ -31,7 +32,7 @@ export const createPolicies = ({
   codebuildSnsTopic,
 }: {
   buckets: { [s: string]: Bucket }
-  queues: { [s: string]: Queue }
+  queues: { [s: string]: sqs.IQueue }
   secretManager: ISecret
   codeBuild: Project
   usercodeStack: Stack

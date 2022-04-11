@@ -25,7 +25,6 @@ export const recurseDir = async (
   const entries = await fs.promises.readdir(dir, { withFileTypes: true })
   await Promise.all(
     entries.map((dirent) => {
-      // [Promise<[Promise<[Promise<[] | void>] | void>] | void>] | void>... or Promise<void>
       const filePath = path.join(dir, dirent.name)
       if (dirent.isFile()) {
         return callback({ filePath, buildLocation, prefix, fileNameTransformer })

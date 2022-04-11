@@ -20,7 +20,7 @@ export const pipelineGet = httpHandler({
       throw new NotFoundException()
     }
 
-    await ownership(pipeline.developerId, developerId)
+    ownership(pipeline.developerId, developerId)
 
     return pipeline
   },

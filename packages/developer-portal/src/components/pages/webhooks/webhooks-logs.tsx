@@ -83,6 +83,13 @@ export const handleSortTableData = (logs: WebhookLogModel[], topics: TopicModel[
         },
       },
       {
+        label: 'Entity ID',
+        value: log.entityId,
+        narrowTable: {
+          showLabel: true,
+        },
+      },
+      {
         label: 'Status',
         value: String(log.statusCode),
         narrowTable: {
@@ -123,5 +130,5 @@ export const WebhooksLogs: FC<WebhooksLogsProps> = ({ webhookQueryParams }) => {
       </PersistantNotification>
     )
 
-  return <Table rows={rows} numberColumns={7} />
+  return <Table rows={rows} numberColumns={8} />
 }

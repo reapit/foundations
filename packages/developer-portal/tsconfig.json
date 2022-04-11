@@ -12,6 +12,6 @@
       "@reapit/connect-session": ["../connect-session/src"]
     }
   },
-  "include": ["src"],
+  "include": ["src", "../utils-react/src/use-reapit-data/list-to-batch-query.ts"],
   "exclude": ["public", "dist", "node_modules", "src/tests/coverage"]
 }

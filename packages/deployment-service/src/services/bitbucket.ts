@@ -1,4 +1,4 @@
-import { connect } from '@/core'
+import { connect } from '../core'
 import { BitbucketClientEntity } from '../entities/bitbucket-client.entity'
 import * as jwt from 'atlassian-jwt'
 import fetch from 'node-fetch'

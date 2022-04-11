@@ -38,9 +38,9 @@ export const GeneralTab: FC<AppEditTabsProps> = () => {
             your app to go live with customer data.
           </BodyText>
           <BodyText hasGreyText>
-            As an app developer, you need to provide us with a number of peices of information about your integration
+            As an app developer, you need to provide us with a number of pieces of information about your integration
             and have it approved by our team, prior to going live with customer data. For apps that wish to integrate
-            with the AgencyCloud CRM, and be publically listed in the AppMarket, the approvals process is more involved
+            with the AgencyCloud CRM, and be publicly listed in the AppMarket, the approvals process is more involved
             than for simple server-side or single customer private apps. Regardless of your target audience, you should
             start to complete your app listing as soon as possible.
           </BodyText>
@@ -74,7 +74,7 @@ export const GeneralTab: FC<AppEditTabsProps> = () => {
             have one live revision outstanding at any given time.
           </BodyText>
           <BodyText hasGreyText>
-            For guidlines on completing your app listing, visit the documentation link below before getting started.
+            For guidelines on completing your app listing, visit the documentation link below before getting started.
           </BodyText>
           <Button
             intent="low"

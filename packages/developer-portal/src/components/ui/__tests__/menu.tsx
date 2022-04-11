@@ -54,9 +54,20 @@ describe('getDefaultNavIndex', () => {
       route: Routes.ANALYTICS,
       index: 2,
     },
-
     {
-      route: Routes.ANALYTICS_TAB,
+      route: Routes.ANALYTICS_COSTS,
+      index: 2,
+    },
+    {
+      route: Routes.ANALYTICS_API_CALLS,
+      index: 2,
+    },
+    {
+      route: Routes.ANALYTICS_INSTALLATIONS,
+      index: 2,
+    },
+    {
+      route: Routes.ANALYTICS_COST_CALCULATOR,
       index: 2,
     },
     {
@@ -84,6 +95,10 @@ describe('getDefaultNavIndex', () => {
       index: 3,
     },
     {
+      route: Routes.DESKTOP,
+      index: 3,
+    },
+    {
       route: Routes.ELEMENTS,
       index: 4,
     },
@@ -92,27 +107,31 @@ describe('getDefaultNavIndex', () => {
       index: 5,
     },
     {
-      route: Routes.DESKTOP,
+      route: Routes.IAAS,
       index: 6,
-    },
-    {
-      route: Routes.HELP,
-      index: 8,
     },
     {
       route: Routes.SETTINGS,
       index: 9,
     },
     {
-      route: Routes.SETTINGS_BILLING_TAB,
+      route: Routes.SETTINGS_COMPANY,
       index: 9,
     },
     {
-      route: Routes.SETTINGS_ORGANISATION_TAB,
+      route: Routes.SETTINGS_SUBSCRIPTIONS,
       index: 9,
     },
     {
-      route: Routes.SETTINGS_PROFILE_TAB,
+      route: Routes.SETTINGS_PASSWORD,
+      index: 9,
+    },
+    {
+      route: Routes.SETTINGS_MEMBERS,
+      index: 9,
+    },
+    {
+      route: Routes.SETTINGS_PROFILE,
       index: 9,
     },
     {

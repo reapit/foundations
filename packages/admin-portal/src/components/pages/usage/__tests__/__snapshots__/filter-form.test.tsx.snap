@@ -160,7 +160,10 @@ Object {
                 <option
                   value="DXX"
                 >
-                  SOME_NAME (Code: DXX)
+                  SOME_NAME
+                   (Code: 
+                  DXX
+                  )
                 </option>
               </select>
             </div>
@@ -325,7 +328,10 @@ Object {
               <option
                 value="DXX"
               >
-                SOME_NAME (Code: DXX)
+                SOME_NAME
+                 (Code: 
+                DXX
+                )
               </option>
             </select>
           </div>

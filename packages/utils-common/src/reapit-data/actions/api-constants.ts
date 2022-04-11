@@ -11,6 +11,7 @@ export const ApiNames = (appEnv: AppEnv) => {
       appEnv !== 'production'
         ? 'https://api-key.dev.paas.reapit.cloud/api-key'
         : 'https://api-key.prod.paas.reapit.cloud/api-key',
+    iaas: `${appEnv !== 'production' ? '.dev' : 'prod'}.paas.reapit.cloud`,
   }
 }
 
@@ -22,6 +23,7 @@ export enum PathNames {
   products = '/marketplace/products',
   sandboxes = '/marketplace/sandboxes',
   createPipeline = '/pipeline',
+  updatePipeline = '/pipeline/{pipelineId}',
   getPipelineDeployments = '/pipeline/{pipelineId}/pipeline-runner',
   createPipelineDeployments = '/pipeline/{pipelineId}/pipeline-runner',
   appPermissions = '/marketplace/scopes',
@@ -30,6 +32,7 @@ export enum PathNames {
   getMember = '/marketplace/developers/{developerId}/members',
   deleteApiKey = '/{apiKeyId}',
   billingDataByMonth = '/trafficevents/billing/{month}/',
+  getBillingDataByPeriod = '/trafficevents/billing/',
   developerById = '/marketplace/developers/{developerId}',
   customersById = '/marketplace/customers/{customerId}',
   developers = '/marketplace/developers',
@@ -42,4 +45,9 @@ export enum PathNames {
   terminateInstallation = '/marketplace/installations/{installationId}/terminate',
   appRevisions = '/marketplace/apps/{appId}/revisions',
   cancelRevision = '/marketplace/apps/{appId}/revisions/{revisionId}/reject',
+  paginatePipeline = '/pipeline',
+  trafficStatistics = '/trafficevents/trafficStatistics',
+  memberById = '/marketplace/developers/{developerId}/members/{memberId}',
+  subscriptions = '/marketplace/subscriptions',
+  subscriptionsById = '/marketplace/subscriptions/{subscriptionId}',
 }

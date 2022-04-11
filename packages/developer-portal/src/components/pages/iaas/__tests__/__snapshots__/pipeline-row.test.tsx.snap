@@ -1,0 +1,252 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PipelineRow should match snapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ecbqyq6-el-snack-holder"
+      />
+      <div
+        class="e1gfmg2g-el-table-row-container"
+      >
+        <div
+          class="es3tf1j-el-table-row"
+        >
+          <div
+            class="e4zpaja-el-table-cell"
+          >
+            <div
+              class="e1t8i3z1-el-table-cell-content"
+            />
+          </div>
+          <div
+            class="e4zpaja-el-table-cell"
+          >
+            <div
+              class="e1t8i3z1-el-table-cell-content"
+            >
+              <span
+                class="epibvz0-el-intent-secondary e1cp9zgf-el-status-indicator"
+              />
+              In Progress
+            </div>
+          </div>
+          <div
+            class="e4zpaja-el-table-cell"
+          >
+            <div
+              class="e1t8i3z1-el-table-cell-content"
+            >
+              <a
+                rel="noreferrer"
+                target="_blank"
+              />
+            </div>
+          </div>
+          <div
+            class="e3q521i-el-table-expandable-row-trigger-cell"
+          >
+            <span
+              class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 18 18"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M9.00005 0C13.9627 0 18 4.03743 18 9C18 13.9627 13.9627 18 9.00005 18C4.03741 18 0 13.9626 0 9C0 4.03743 4.03741 0 9.00005 0ZM4.32346 7.20004L9 12.6001L13.6765 7.20004H4.32346Z"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </span>
+          </div>
+        </div>
+        <div
+          class="eygkx5t-el-table-expandable-row"
+        >
+          <div
+            class="ejadz4k-el-table-expandable-container"
+          >
+            <div
+              class="e1de2pym-el-flex-justify-center ef457sc-el-flex-align-center e2kmzjs-el-flex-container"
+            >
+              <div
+                class="eay05y4-el-button-group"
+              >
+                <div
+                  class="ebqwrow-el-button-group-inner"
+                >
+                  <button
+                    class="epibvz0-el-intent-secondary eqfkc7t-el-button"
+                  >
+                    Manage
+                  </button>
+                  <button
+                    class="ebee6r1-el-intent-primary eqfkc7t-el-button"
+                  >
+                    View
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6-el-snack-holder"
+    />
+    <div
+      class="e1gfmg2g-el-table-row-container"
+    >
+      <div
+        class="es3tf1j-el-table-row"
+      >
+        <div
+          class="e4zpaja-el-table-cell"
+        >
+          <div
+            class="e1t8i3z1-el-table-cell-content"
+          />
+        </div>
+        <div
+          class="e4zpaja-el-table-cell"
+        >
+          <div
+            class="e1t8i3z1-el-table-cell-content"
+          >
+            <span
+              class="epibvz0-el-intent-secondary e1cp9zgf-el-status-indicator"
+            />
+            In Progress
+          </div>
+        </div>
+        <div
+          class="e4zpaja-el-table-cell"
+        >
+          <div
+            class="e1t8i3z1-el-table-cell-content"
+          >
+            <a
+              rel="noreferrer"
+              target="_blank"
+            />
+          </div>
+        </div>
+        <div
+          class="e3q521i-el-table-expandable-row-trigger-cell"
+        >
+          <span
+            class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M9.00005 0C13.9627 0 18 4.03743 18 9C18 13.9627 13.9627 18 9.00005 18C4.03741 18 0 13.9626 0 9C0 4.03743 4.03741 0 9.00005 0ZM4.32346 7.20004L9 12.6001L13.6765 7.20004H4.32346Z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div
+        class="eygkx5t-el-table-expandable-row"
+      >
+        <div
+          class="ejadz4k-el-table-expandable-container"
+        >
+          <div
+            class="e1de2pym-el-flex-justify-center ef457sc-el-flex-align-center e2kmzjs-el-flex-container"
+          >
+            <div
+              class="eay05y4-el-button-group"
+            >
+              <div
+                class="ebqwrow-el-button-group-inner"
+              >
+                <button
+                  class="epibvz0-el-intent-secondary eqfkc7t-el-button"
+                >
+                  Manage
+                </button>
+                <button
+                  class="ebee6r1-el-intent-primary eqfkc7t-el-button"
+                >
+                  View
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

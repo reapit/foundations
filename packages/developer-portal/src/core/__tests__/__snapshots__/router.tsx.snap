@@ -133,6 +133,19 @@ exports[`Router should match a snapshot 1`] = `
                   },
                 }
               }
+              path="/analytics"
+            />
+            <PrivateRoute
+              component={
+                Object {
+                  "$$typeof": Symbol(react.lazy),
+                  "_init": [Function],
+                  "_payload": Object {
+                    "_result": [Function],
+                    "_status": -1,
+                  },
+                }
+              }
               path="/api-docs"
             />
             <PrivateRoute
@@ -240,72 +253,7 @@ exports[`Router should match a snapshot 1`] = `
                   },
                 }
               }
-              exact={true}
-              fetcher={true}
-              path="/analytics/:activeTab?"
-            />
-            <PrivateRoute
-              component={[Function]}
-              exact={true}
-              path="/settings/"
-            />
-            <PrivateRoute
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_init": [Function],
-                  "_payload": Object {
-                    "_result": [Function],
-                    "_status": -1,
-                  },
-                }
-              }
-              exact={true}
-              fetcher={true}
-              path="/settings/profile"
-            />
-            <PrivateRoute
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_init": [Function],
-                  "_payload": Object {
-                    "_result": [Function],
-                    "_status": -1,
-                  },
-                }
-              }
-              fetcher={true}
-              path="/settings/billing"
-            />
-            <PrivateRoute
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_init": [Function],
-                  "_payload": Object {
-                    "_result": [Function],
-                    "_status": -1,
-                  },
-                }
-              }
-              fetcher={true}
-              path="/settings/organisation"
-            />
-            <PrivateRoute
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_init": [Function],
-                  "_payload": Object {
-                    "_result": [Function],
-                    "_status": -1,
-                  },
-                }
-              }
-              exact={true}
-              fetcher={true}
-              path="/help"
+              path="/settings"
             />
             <PrivateRoute
               component={
@@ -346,6 +294,20 @@ exports[`Router should match a snapshot 1`] = `
               }
               exact={true}
               path="/elements"
+            />
+            <PrivateRoute
+              component={
+                Object {
+                  "$$typeof": Symbol(react.lazy),
+                  "_init": [Function],
+                  "_payload": Object {
+                    "_result": [Function],
+                    "_status": -1,
+                  },
+                }
+              }
+              exact={true}
+              path="/iaas"
             />
             <Route
               render={[Function]}

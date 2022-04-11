@@ -13,7 +13,7 @@ const stubError = {
 describe('handleReapitError', () => {
   it('should handle an error correctly', () => {
     expect(handleReapitError(stubError)).toEqual(
-      `${stubError.description} Field: ${stubError.errors[0].field}, Message: ${stubError.errors[0].message}, Field: ${stubError.errors[1].field}, Message: ${stubError.errors[1].message}`,
+      `${stubError.description} "${stubError.errors[0].field}: ${stubError.errors[0].message}", "${stubError.errors[1].field}: ${stubError.errors[1].message}"`,
     )
   })
 

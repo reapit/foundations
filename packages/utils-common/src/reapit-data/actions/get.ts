@@ -10,6 +10,7 @@ export interface GetAction {
 export enum GetActionNames {
   getApps = 'getApps',
   getPipeline = 'getPipeline',
+  paginatePipeline = 'paginatePipeline',
   getPipelineDeployments = 'getPipelineDeployments',
   getProducts = 'getProducts',
   getSandboxes = 'getSandboxes',
@@ -18,6 +19,7 @@ export enum GetActionNames {
   getMember = 'getMember',
   deleteApiKey = 'deleteApiKey',
   getBillingDataByMonth = 'getBillingDataByMonth',
+  getBillingDataByPeriod = 'getBillingDataByPeriod',
   getInstallations = 'getInstallations',
   getDeveloperMembers = 'getDeveloperMembers',
   getCustomersById = 'getCustomersById',
@@ -27,6 +29,8 @@ export enum GetActionNames {
   getAppCategories = 'getAppCategories',
   getAppRevisions = 'getAppRevisions',
   getDeveloper = 'getDeveloper',
+  getTrafficStats = 'getTrafficStats',
+  getSubscriptions = 'getSubscriptions',
 }
 
 export type GetActions = { [key in GetActionNames]: GetAction }
@@ -82,6 +86,11 @@ export const getActions = (appEnv: AppEnv): GetActions => ({
     path: PathNames.billingDataByMonth,
     errorMessage: 'Something went wrong fetching billing data',
   },
+  [GetActionNames.getBillingDataByPeriod]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.getBillingDataByPeriod,
+    errorMessage: 'Something went wrong fetching billing data',
+  },
   [GetActionNames.getInstallations]: {
     api: ApiNames(appEnv).platform,
     path: PathNames.installations,
@@ -121,5 +130,20 @@ export const getActions = (appEnv: AppEnv): GetActions => ({
     api: ApiNames(appEnv).platform,
     path: PathNames.appRevisions,
     errorMessage: 'Something went wrong fetching app revisions',
+  },
+  [GetActionNames.paginatePipeline]: {
+    api: ApiNames(appEnv).pipeline,
+    path: PathNames.paginatePipeline,
+    errorMessage: 'Something went wrong fetching pipelines',
+  },
+  [GetActionNames.getTrafficStats]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.trafficStatistics,
+    errorMessage: 'Something went wrong fetching API calls data',
+  },
+  [GetActionNames.getSubscriptions]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.subscriptions,
+    errorMessage: 'Something went wrong fetching subscriptions',
   },
 })
