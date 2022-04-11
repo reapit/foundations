@@ -30,7 +30,7 @@ DeletePipelineCommand.prototype.confirmation = jest.fn(() => Promise.resolve())
 describe('pipeline-delete', () => {
   it('Can delete pipeline', async () => {
     // @ts-ignore
-    jest.spyOn(process, 'exit').mockImplementation((code) => {})
+    jest.spyOn(process, 'exit').mockImplementation(() => {})
 
     // @ts-ignore
     Pusher.prototype.subscribe = jest.fn(() => ({
