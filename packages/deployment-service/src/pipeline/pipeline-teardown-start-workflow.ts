@@ -7,9 +7,10 @@ import {
   UpdateDistributionCommand,
 } from '@aws-sdk/client-cloudfront'
 import { PipelineProvider } from './pipeline-provider'
+import { PipelineEntity } from '../entities/pipeline.entity'
 
-@Workflow(QueueNamesEnum.PIPELINE_TEAR_DOWN_START)
-export class PipelineTearDownStartWorkflow extends AbstractWorkflow {
+@Workflow(QueueNamesEnum.PIPELINE_TEAR_DOWN_START, () => PipelineEntity)
+export class PipelineTearDownStartWorkflow extends AbstractWorkflow<PipelineEntity> {
   constructor(sqsProvider: SqsProvider, private readonly pipelineProvider: PipelineProvider) {
     super(sqsProvider)
   }
@@ -50,7 +51,7 @@ export class PipelineTearDownStartWorkflow extends AbstractWorkflow {
     )
   }
 
-  async execute(pipeline) {
+  async execute(pipeline: PipelineEntity) {
     if (pipeline.buildStatus !== 'PRE_PROVISIONED' && pipeline.hasDistro)
       await this.disableCloudFront(pipeline.cloudFrontId as string)
 

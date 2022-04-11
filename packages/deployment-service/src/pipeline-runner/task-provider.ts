@@ -1,5 +1,5 @@
-import { PipelineEntity } from '@/entities/pipeline.entity'
-import { TaskEntity } from '@/entities/task.entity'
+import { PipelineEntity } from '../entities/pipeline.entity'
+import { TaskEntity } from '../entities/task.entity'
 import { Injectable } from '@nestjs/common'
 import { InjectRepository } from '@nestjs/typeorm'
 import { Repository } from 'typeorm'

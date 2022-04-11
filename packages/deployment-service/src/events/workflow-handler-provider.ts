@@ -5,9 +5,9 @@ import { SQSRecord } from 'aws-lambda'
 
 @Injectable()
 export class WorkflowHandlerProvider {
-  private readonly workflows: AbstractWorkflow[]
+  private readonly workflows: AbstractWorkflow<any>[]
 
-  findQueueWorkflows(queue): AbstractWorkflow[] {
+  findQueueWorkflows(queue): AbstractWorkflow<any>[] {
     return this.workflows.filter((workflow) => Reflect.getMetadata(WORKFLOW_INJECTABLE, workflow) === queue)
   }
 
@@ -26,6 +26,6 @@ export class WorkflowHandlerProvider {
 
     // TODO auto handle deletes?
     // TODO try catch each?
-    await Promise.all(workflows.map((workflow) => workflow.run(JSON.parse(record.body))))
+    await Promise.all(workflows.map((workflow) => workflow.run(record)))
   }
 }

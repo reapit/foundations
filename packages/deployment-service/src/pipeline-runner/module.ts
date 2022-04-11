@@ -6,16 +6,16 @@ import { PipelineModule } from '../pipeline'
 import { PipelineRunnerController } from './pipeline-runner-controller'
 import { PipelineRunnerProvider } from './pipeline-runner-provider'
 import { TypeOrmModule } from '@nestjs/typeorm'
-import { Module } from '@nestjs/common'
+import { forwardRef, Module } from '@nestjs/common'
 import { AuthModule } from '../auth'
 import { TaskProvider } from './task-provider'
 
 @Module({
   imports: [
     TypeOrmModule.forFeature([PipelineRunnerEntity, PipelineEntity, TaskEntity]),
-    PipelineModule,
     EventModule,
     AuthModule,
+    forwardRef(() => PipelineModule),
   ],
   providers: [PipelineRunnerProvider, TaskProvider],
   controllers: [PipelineRunnerController],

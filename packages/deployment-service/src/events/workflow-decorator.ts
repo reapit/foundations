@@ -1,8 +1,9 @@
 import { QueueNamesEnum } from '@/constants'
 
 export const WORKFLOW_INJECTABLE = 'WORKFLOW_INJECTABLE'
+export const WORKFLOW_TYPE = 'WORKFLOW_TYPE'
 
-export const Workflow = (queue: QueueNamesEnum) => (target) => {
+export const Workflow = (queue: QueueNamesEnum, type?: () => Function) => (target) => {
   Reflect.defineMetadata(
     WORKFLOW_INJECTABLE,
     {
@@ -10,4 +11,5 @@ export const Workflow = (queue: QueueNamesEnum) => (target) => {
     },
     target,
   )
+  type && Reflect.defineMetadata(WORKFLOW_TYPE, type(), target)
 }

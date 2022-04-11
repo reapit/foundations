@@ -7,8 +7,8 @@ import { PipelineEntity } from '@/entities/pipeline.entity'
 import { PipelineProvider } from './pipeline-provider'
 import { PipelineRunnerProvider, TaskProvider } from '../pipeline-runner'
 
-@Workflow(QueueNamesEnum.PIPELINE_TEAR_DOWN)
-export class PipelineTearDownWorkflow extends AbstractWorkflow {
+@Workflow(QueueNamesEnum.PIPELINE_TEAR_DOWN, () => PipelineEntity)
+export class PipelineTearDownWorkflow extends AbstractWorkflow<PipelineEntity> {
   constructor(
     private readonly s3Provider: S3Provider,
     sqsProvider: SqsProvider,
@@ -78,7 +78,7 @@ export class PipelineTearDownWorkflow extends AbstractWorkflow {
     return cloudFrontDistro.Distribution?.DomainName as string
   }
 
-  async execute(pipeline) {
+  async execute(pipeline: PipelineEntity) {
     if (pipeline.buildStatus !== 'PRE_PROVISIONED') {
       await this.tearDownLiveBucketLocation(`pipeline/${pipeline.uniqueRepoName}`)
 

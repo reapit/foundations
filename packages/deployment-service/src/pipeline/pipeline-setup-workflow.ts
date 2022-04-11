@@ -7,8 +7,8 @@ import { v4 as uuid } from 'uuid'
 import { ChangeResourceRecordSetsCommand, Route53Client } from '@aws-sdk/client-route-53'
 import { QueueNamesEnum } from '../constants'
 
-@Workflow(QueueNamesEnum.PIPELINE_SETUP)
-export class PipelineSetupWorkflow extends AbstractWorkflow {
+@Workflow(QueueNamesEnum.PIPELINE_SETUP, () => PipelineEntity)
+export class PipelineSetupWorkflow extends AbstractWorkflow<PipelineEntity> {
   constructor(
     private readonly pipelineProvider: PipelineProvider,
     sqsProvider: SqsProvider,
@@ -18,7 +18,7 @@ export class PipelineSetupWorkflow extends AbstractWorkflow {
     super(sqsProvider)
   }
 
-  async execute(pipeline: PipelineEntity): Promise<void> {
+  async execute(pipeline): Promise<void> {
     pipeline.buildStatus = 'PROVISIONING'
 
     try {

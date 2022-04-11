@@ -12,6 +12,8 @@ import {
   BadRequestException,
   Body,
   Query,
+  Inject,
+  forwardRef,
 } from '@nestjs/common'
 import { PipelineRunnerProvider } from './pipeline-runner-provider'
 import { PipelineProvider } from '../pipeline'
@@ -22,7 +24,7 @@ export class PipelineRunnerController {
   constructor(
     private readonly pipelineRunnerProvider: PipelineRunnerProvider,
     private readonly ownershipProvider: OwnershipProvider,
-    private readonly pipelineProvider: PipelineProvider,
+    @Inject(forwardRef(() => PipelineProvider)) private readonly pipelineProvider: PipelineProvider,
   ) {}
 
   @Get()
