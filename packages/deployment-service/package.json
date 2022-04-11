@@ -32,7 +32,7 @@
   },
   "main": "./src/index.ts",
   "scripts": {
-    "start": "echo '...skipping...'",
+    "start": "ts-node -P ./tsconfig.json src/http.ts",
     "test": "cross-env jest --watch --colors",
     "build": "tsc -p .",
     "lint": "eslint --cache --ext=ts,tsx,js src cdk/lib",
