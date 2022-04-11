@@ -27,6 +27,7 @@ export default registerAs('database', async () => {
       throw new Error('No db secret arn present')
     }
   
+    // TODO check this promise is resolved on dev
     const secrets = await secretManager.getSecretValue({ SecretId: process.env.DATABASE_SECERT_ARN }).promise()
   
     if (!secrets.SecretString) {
