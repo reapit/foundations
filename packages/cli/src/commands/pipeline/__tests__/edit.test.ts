@@ -25,7 +25,7 @@ jest.mock('axios')
 jest.mock('pusher-js')
 
 describe('pipeline-edit', () => {
-  it('Can create pipeline', async () => {
+  it('Can edit pipeline', async () => {
     // @ts-ignore
     jest.spyOn(process, 'exit').mockImplementation((code) => {})
     //@ts-ignore
