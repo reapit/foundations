@@ -1,12 +1,11 @@
-import { registerAs } from "@nestjs/config"
+import { registerAs } from '@nestjs/config'
 import { SecretsManager } from 'aws-sdk'
-import { SubDomainSubscriber } from "../subscribers/sub-domain"
+import { SubDomainSubscriber } from '../subscribers/sub-domain'
 import migrations from './../../migrations'
-import { PipelineEntity } from "../entities/pipeline.entity"
-import { PipelineRunnerEntity } from "../entities/pipeline-runner.entity"
-import { TaskEntity } from "../entities/task.entity"
-import { BitbucketClientEntity } from "../entities/bitbucket-client.entity"
-
+import { PipelineEntity } from '../entities/pipeline.entity'
+import { PipelineRunnerEntity } from '../entities/pipeline-runner.entity'
+import { TaskEntity } from '../entities/task.entity'
+import { BitbucketClientEntity } from '../entities/bitbucket-client.entity'
 
 const defaultDatabaseConfig = {
   logging: true,
@@ -26,10 +25,10 @@ export default registerAs('database', async () => {
     if (!process.env.DATABASE_SECERT_ARN) {
       throw new Error('No db secret arn present')
     }
-  
+
     // TODO check this promise is resolved on dev
     const secrets = await secretManager.getSecretValue({ SecretId: process.env.DATABASE_SECERT_ARN }).promise()
-  
+
     if (!secrets.SecretString) {
       throw new Error('Failed to get secret')
     }

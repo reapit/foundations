@@ -8,6 +8,7 @@ import { PipelineRunnerProvider } from './pipeline-runner-provider'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { Module } from '@nestjs/common'
 import { AuthModule } from '../auth'
+import { TaskProvider } from './task-provider'
 
 @Module({
   imports: [
@@ -16,7 +17,8 @@ import { AuthModule } from '../auth'
     EventModule,
     AuthModule,
   ],
-  providers: [PipelineRunnerProvider],
+  providers: [PipelineRunnerProvider, TaskProvider],
   controllers: [PipelineRunnerController],
+  exports: [PipelineRunnerProvider, TaskProvider],
 })
 export class PipelineRunnerModule {}

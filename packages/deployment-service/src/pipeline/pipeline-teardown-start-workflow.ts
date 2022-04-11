@@ -1,0 +1,65 @@
+import { QueueNamesEnum } from '../constants'
+import { Workflow, AbstractWorkflow, SqsProvider } from '../events'
+import {
+  CloudFrontClient,
+  DistributionConfig,
+  GetDistributionCommand,
+  UpdateDistributionCommand,
+} from '@aws-sdk/client-cloudfront'
+import { PipelineProvider } from './pipeline-provider'
+
+@Workflow(QueueNamesEnum.PIPELINE_TEAR_DOWN_START)
+export class PipelineTearDownStartWorkflow extends AbstractWorkflow {
+  constructor(sqsProvider: SqsProvider, private readonly pipelineProvider: PipelineProvider) {
+    super(sqsProvider)
+  }
+
+  private async disableCloudFront(Id: string) {
+    const frontClient = new CloudFrontClient({})
+
+    const cloudFrontDistro = await frontClient.send(
+      new GetDistributionCommand({
+        Id,
+      }),
+    )
+
+    const config = cloudFrontDistro.Distribution?.DistributionConfig as DistributionConfig
+
+    return frontClient.send(
+      new UpdateDistributionCommand({
+        Id,
+        DistributionConfig: {
+          Enabled: false,
+          DefaultRootObject: config.DefaultRootObject,
+          Origins: config.Origins,
+          Comment: config.Comment,
+          DefaultCacheBehavior: config.DefaultCacheBehavior,
+          CallerReference: config.CallerReference,
+          PriceClass: config.PriceClass,
+          Aliases: config.Aliases,
+          Logging: config.Logging,
+          WebACLId: config.WebACLId,
+          HttpVersion: config.HttpVersion,
+          CacheBehaviors: config.CacheBehaviors,
+          CustomErrorResponses: config.CustomErrorResponses,
+          ViewerCertificate: config.ViewerCertificate,
+          Restrictions: config.Restrictions,
+        },
+        IfMatch: cloudFrontDistro.ETag,
+      }),
+    )
+  }
+
+  async execute(pipeline) {
+    if (pipeline.buildStatus !== 'PRE_PROVISIONED' && pipeline.hasDistro)
+      await this.disableCloudFront(pipeline.cloudFrontId as string)
+
+    await Promise.all([
+      this.pipelineProvider.update(pipeline, {
+        buildStatus: 'SCHEDULED_FOR_DELETION',
+      }),
+      this.pipelineProvider.triggerPipelineTearDown(pipeline),
+      this.deleteMessage(),
+    ])
+  }
+}

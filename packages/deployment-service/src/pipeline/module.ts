@@ -8,6 +8,7 @@ import { PipelineRunnerEntity } from '../entities/pipeline-runner.entity'
 import { TaskEntity } from '../entities/task.entity'
 import { S3Module } from '../s3'
 import { AuthModule } from '../auth'
+import { PipelineRunnerProvider } from '../pipeline-runner'
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { AuthModule } from '../auth'
     AuthModule,
     TypeOrmModule.forFeature([PipelineEntity, PipelineRunnerEntity, TaskEntity]),
     S3Module,
+    PipelineRunnerProvider,
   ],
   providers: [PipelineProvider],
   controllers: [PipelineController],

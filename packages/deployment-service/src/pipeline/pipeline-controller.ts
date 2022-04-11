@@ -131,7 +131,7 @@ export class PipelineController {
 
     await Promise.all([
       this.pusherProvider.trigger(`private-${pipeline?.developerId}`, 'pipeline-delete', updatedPipeline),
-      this.pipelineProvider.triggerPipelineTearDown(pipeline),
+      this.pipelineProvider.triggerPipelineTearDownStart(pipeline),
     ])
 
     return updatedPipeline

@@ -21,4 +21,13 @@ export class S3Provider {
       ),
     )
   }
+
+  deleteObject(params: S3.DeleteObjectRequest): Promise<void> {
+    return new Promise((resolve, reject) =>
+      this.s3Client.deleteObject(params, (error) => {
+        if (error) reject(error)
+        resolve()
+      }),
+    )
+  }
 }

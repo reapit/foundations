@@ -14,7 +14,7 @@ export abstract class AbstractWorkflow {
 
   abstract execute(payload: any): Promise<void | never>
 
-  private async run(record: SQSRecord) {
+  async run(record: SQSRecord) {
     this.record = record
     await this.execute(JSON.parse(record.body))
   }

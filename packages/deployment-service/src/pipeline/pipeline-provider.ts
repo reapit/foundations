@@ -41,11 +41,18 @@ export class PipelineProvider {
     })
   }
 
+  async delete(pipeline: PipelineEntity): Promise<void> {
+    await this.delete(pipeline)
+  }
+
   async triggerPipelineSetup(pipeline: PipelineEntity): Promise<void> {
     this.sqsProvider.send(QueueNamesEnum.PIPELINE_SETUP, pipeline)
   }
 
-  async triggerPipelineTearDown(pipeline: PipelineEntity): Promise<void> {
+  async triggerPipelineTearDownStart(pipeline: PipelineEntity): Promise<void> {
     this.sqsProvider.send(QueueNamesEnum.PIPELINE_TEAR_DOWN_START, pipeline)
+  }
+  async triggerPipelineTearDown(pipeline: PipelineEntity): Promise<void> {
+    this.sqsProvider.send(QueueNamesEnum.PIPELINE_TEAR_DOWN, pipeline)
   }
 }

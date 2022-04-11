@@ -45,6 +45,10 @@ export class PipelineRunnerProvider {
     return this.repository.findOne(id)
   }
 
+  async deleteForPipeline(pipeline: PipelineEntity): Promise<void> {
+    await this.repository.delete(pipeline)
+  }
+
   async pipelineRunnerCountRunning(pipeline: PipelineEntity): Promise<number> {
     return this.repository.count({
       where: {
