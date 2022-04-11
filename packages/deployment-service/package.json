@@ -3,7 +3,10 @@
   "dependencies": {
     "@aws-sdk/client-cloudfront": "^3.100.0",
     "@aws-sdk/client-route-53": "^3.100.0",
-    "@homeservenow/serverless-aws-handler": "^0.2.4",
+    "@nestjs/common": "^8.4.4",
+    "@nestjs/core": "^8.4.4",
+    "@nestjs/platform-express": "^8.4.4",
+    "@nestjs/typeorm": "^8.0.3",
     "@octokit/app": "^12.0.5",
     "@reapit/api-key-verify": "workspace:packages/api-key-verify",
     "@reapit/connect-session": "workspace:packages/connect-session",
@@ -19,11 +22,13 @@
     "node-fetch": "2.6.7",
     "original-fs": "^1.1.0",
     "project-name-generator": "^2.1.9",
-    "pusher": "^5.1.0-beta",
+    "pusher": "^5.0.0",
+    "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
-    "typeorm": "^0.2.45",
-    "typeorm-aurora-data-api-driver": "^2.4.2",
-    "yaml": "^2.1.1"
+    "rxjs": "^7.5.5",
+    "typeorm": "^0.2.41",
+    "typeorm-aurora-data-api-driver": "^2.3.4",
+    "yaml": "next"
   },
   "main": "./src/index.ts",
   "scripts": {
