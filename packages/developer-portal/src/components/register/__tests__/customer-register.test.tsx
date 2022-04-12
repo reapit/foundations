@@ -15,6 +15,7 @@ describe('CustomerRegister', () => {
         loginIdentity: {
           orgName: 'Some Org',
           developerId: 'SOME_ID',
+          groups: [],
         },
       },
     })
@@ -80,7 +81,9 @@ describe('handleCreateAccount', () => {
 
     const curried = handleCreateAccount(updateCustomer, createDeveloper, connectSession)
 
-    await curried()
+    curried()
+
+    await new Promise((resolve) => resolve(true))
 
     expect(updateCustomer).toHaveBeenCalledWith({
       accountApproved: '2019-10-10T22:39:51+00:00',

@@ -48,7 +48,7 @@ export const handleSwitchStep =
   () => {
     const validateStep = async () => {
       let isValid = false
-      let step: string | null = '1'
+      let step: string | null
 
       switch (selectedStep) {
         case '1':

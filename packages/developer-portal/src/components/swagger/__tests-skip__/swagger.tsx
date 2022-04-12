@@ -38,7 +38,7 @@ describe('Swagger', () => {
     expect(result).toEqual(output)
   })
 
-  it('should have a fetchInterceptor that returns the params when the url is swagger', async () => {
+  it('should have a fetchInterceptor that returns the params when the url is swagger', () => {
     window.reapit.config.platformApiUrl = 'https://some-url.com'
     const request = {
       url: 'https://some-url.com/docs',
@@ -47,7 +47,7 @@ describe('Swagger', () => {
       },
     } as InterceptorParams
     const token = 'SOME_TOKEN'
-    const result = await fetchInterceptor(request, token)
+    const result = fetchInterceptor(request, token)
     expect(result).toEqual(request)
   })
 

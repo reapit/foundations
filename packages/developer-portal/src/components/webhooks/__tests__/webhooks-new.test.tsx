@@ -29,7 +29,9 @@ describe('handleSwitchStep', () => {
 
       const curried = handleSwitchStep(selectedStep, trigger, setSelectedStep)
 
-      await curried()
+      curried()
+
+      await new Promise<boolean>((resolve) => resolve(true))
 
       if (index < 4) {
         expect(setSelectedStep).toHaveBeenCalledWith(expectedResults[index])

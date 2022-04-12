@@ -209,7 +209,7 @@ export const WebhooksManageForm: FC<WebhooksManageFormProps> = ({
             placeholder="Enter secure https:// url"
             label="Webhook URL"
             {...register('url')}
-            inputAddOnText={errors?.url?.message}
+            inputAddOnText={errors.url?.message}
             intent="danger"
           />
         </InputWrapFull>

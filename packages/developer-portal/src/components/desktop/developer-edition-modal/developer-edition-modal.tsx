@@ -46,9 +46,9 @@ export const DeveloperEditionModal: FC<DeveloperEditionModalProps> = ({ visible 
 
   // For now just have 1 item: the current developer
   // Need to change to list of developer in organisation after finish "organisation" feature
-  const developerName = loginIdentity?.name
-  const developerId = loginIdentity?.developerId || ''
-  const developerEmail = loginIdentity?.email
+  const developerName = loginIdentity.name
+  const developerId = loginIdentity.developerId || ''
+  const developerEmail = loginIdentity.email
   const agencyCloudId = loginIdentity.agencyCloudId
 
   const developer: Partial<DeveloperModel> = { id: developerId, name: developerName, email: developerEmail }
