@@ -586,6 +586,8 @@ export const createStack = () => {
     env[`${queueKey}_ARN`] = queues[queueKey].queueArn
   })
 
+  env['CODEBUILD_PIPELINE_UPDATE_TOPIC_ARN'] = topic.topicArn
+
   for (const [name, options] of Object.entries(functionSetups)) {
     const lambda = createLambda({
       stack,

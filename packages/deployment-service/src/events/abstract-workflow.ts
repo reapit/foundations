@@ -7,8 +7,8 @@ export abstract class AbstractWorkflow<T extends any> {
   protected record: SQSRecord
 
   get metadata(): {
-    url: string,
-    arn: string,
+    url: string
+    arn: string
   } {
     // TODO check `this` is child abstraction and not parent
     return Reflect.getMetadata(WORKFLOW_INJECTABLE, this)

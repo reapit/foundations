@@ -9,24 +9,19 @@ import { ModuleRef, ModulesContainer } from '@nestjs/core'
 export class WorkflowHandlerProvider implements OnModuleInit {
   private readonly workflows: AbstractWorkflow<any>[] = []
 
-  constructor(
-    private readonly moduleContainer: ModulesContainer,
-    private readonly moduleRef: ModuleRef,
-  ) {}
+  constructor(private readonly moduleContainer: ModulesContainer, private readonly moduleRef: ModuleRef) {}
 
   onModuleInit() {
-    [...this.moduleContainer.values()].forEach(({ metatype }) => {
-      const metadata = Reflect.getMetadata(MODULE_METADATA.PROVIDERS, metatype);
+    ;[...this.moduleContainer.values()].forEach(({ metatype }) => {
+      const metadata = Reflect.getMetadata(MODULE_METADATA.PROVIDERS, metatype)
 
       if (!metadata) {
-        return;
+        return
       }
 
-      const providers = [
-        ...metadata.filter((metatype: any) => typeof metatype === 'function'),
-      ];
+      const providers = [...metadata.filter((metatype: any) => typeof metatype === 'function')]
 
-      providers.map(provider => {
+      providers.map((provider) => {
         if (Reflect.hasOwnMetadata(WORKFLOW_INJECTABLE, provider)) {
           this.workflows.push(this.moduleRef.get(provider, { strict: false }))
         }

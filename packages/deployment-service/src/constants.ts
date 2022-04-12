@@ -20,10 +20,12 @@ export const QueueNames: { [key in QueueNamesEnum]: string } = {
   [QueueNamesEnum.APP_EVENTS]: process.env.APP_EVENTS_URL as string,
 }
 
-export const QueueDetails: { [key in QueueNamesEnum]: {
-  url: string,
-  arn: string,
-} } = {
+export const QueueDetails: {
+  [key in QueueNamesEnum]: {
+    url: string
+    arn: string
+  }
+} = {
   [QueueNamesEnum.CODEBUILD_EXECUTOR]: {
     url: process.env.CODEBUILD_EXECUTOR_URL as string,
     arn: process.env.CODEBUILD_EXECUTOR_ARN as string,
@@ -47,5 +49,17 @@ export const QueueDetails: { [key in QueueNamesEnum]: {
   [QueueNamesEnum.APP_EVENTS]: {
     url: process.env.APP_EVENTS_URL as string,
     arn: process.env.CODEBUILD_EXECUTOR_ARN as string,
-  }
+  },
+}
+
+export enum TopicEnum {
+  CODEBUILD_PIPELINE_UPDATE = 'CODEBUILD_PIPELINE_UPDATE',
+}
+
+export const TopicDetails: {
+  [k in TopicEnum]: { arn: string }
+} = {
+  [TopicEnum.CODEBUILD_PIPELINE_UPDATE]: {
+    arn: process.env.CODEBUILD_PIPELINE_UPDATE_TOPIC_ARN as string,
+  },
 }

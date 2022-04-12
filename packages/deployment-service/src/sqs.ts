@@ -8,7 +8,6 @@ import { SQSHandler } from 'aws-lambda'
 
 export const handle: SQSHandler = async (event) => {
   const app = await NestFactory.create<NestExpressApplication>(AppModule)
-  app.useGlobalPipes(new ValidationPipe())
   const workflowHandler = app.get(WorkflowHandlerProvider)
 
   await workflowHandler.handleMultiple(event.Records)

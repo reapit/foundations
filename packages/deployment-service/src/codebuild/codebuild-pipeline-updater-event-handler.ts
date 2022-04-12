@@ -4,19 +4,21 @@ import {
   BuildStateChangeEvent,
   CodebuildEventStateEnum,
 } from './event-types'
-import { Injectable } from '@nestjs/common'
 import { SNSEventRecord } from 'aws-lambda'
 import { NoCodebuildPhasesException } from '../exceptions'
 import { PipelineRunnerProvider } from '../pipeline-runner'
-import { EventDispatcher, PusherProvider, SnsHandlerInterface } from '../events'
+import { EventDispatcher, PusherProvider, AbstractSnsHandler, SnsEvent } from '../events'
+import { TopicEnum } from '../constants'
 
-@Injectable()
-export class CodebuildPipelineUpdaterEventHandler implements SnsHandlerInterface {
+@SnsEvent(TopicEnum.CODEBUILD_PIPELINE_UPDATE)
+export class CodebuildPipelineUpdaterEventHandler extends AbstractSnsHandler {
   constructor(
     private readonly pipelineRunnerProvider: PipelineRunnerProvider,
     private readonly pusherProvider: PusherProvider,
     private readonly eventDispatcher: EventDispatcher,
-  ) {}
+  ) {
+    super()
+  }
 
   async handle(record: SNSEventRecord) {
     const event: BuildPhaseChangeStatusEvent | BuildStateChangeEvent = JSON.parse(record.Sns.Message)

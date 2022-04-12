@@ -1,4 +1,3 @@
-import { QueueNamesEnum } from '../constants'
 import { Injectable } from '@nestjs/common'
 import { SQS } from 'aws-sdk'
 
