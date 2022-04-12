@@ -96,7 +96,11 @@ export class BitBucketWebhookController {
       pipeline,
     })
 
-    await this.eventDispatcher.triggerCodebuildExecutor(pipelineRunner)
+    await this.eventDispatcher.triggerCodebuildExecutor({
+      pipelineRunner,
+      client,
+      event,
+    })
   }
 
   protected async handleEventTypes(event: { eventType: string; clientKey: string }) {
