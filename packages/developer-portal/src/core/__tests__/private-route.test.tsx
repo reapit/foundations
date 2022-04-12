@@ -1,12 +1,14 @@
 import React from 'react'
 import { PrivateRoute, handleRedirectRegistraitionPage } from '../private-route'
 import Routes from '../../constants/routes'
-import { getMockRouterProps } from '@/utils/mock-helper'
 import { ReapitConnectSession } from '@reapit/connect-session'
-import { COGNITO_GROUP_USERS } from '../../selector/auth'
+import { COGNITO_GROUP_USERS } from '../../utils/auth'
 import { render } from '../../tests/react-testing'
+import { History } from 'history'
 
-const { history } = getMockRouterProps({})
+const history = {
+  push: jest.fn(),
+} as unknown as History
 
 jest.mock('../use-global-state')
 

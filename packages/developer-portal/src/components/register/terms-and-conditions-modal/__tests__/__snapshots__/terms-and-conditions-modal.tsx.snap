@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TermsAndConditionsModal it matches a snapshot 1`] = `
+<Modal
+  className="m1b1tqwj-modal-width"
+  footerItems={
+    <React.Fragment>
+      <Button
+        dataTest="buttonAcceptTermsAndConditions"
+        onClick={[Function]}
+      >
+        Accept
+      </Button>
+    </React.Fragment>
+  }
+  size="medium"
+  tapOutsideToDissmiss={true}
+  title="Terms and Conditions"
+  visible={true}
+>
+  <BodyText
+    hasGreyText={true}
+  >
+    These Reapit Foundations User Terms and Conditions govern access to Reapit’s Foundations Platform and incorporate the Registration Details, to the exclusion of all other terms.
+  </BodyText>
+  <PersistantNotification
+    className="ez8nkuq-el-mb6"
+    intent="secondary"
+    isExpanded={true}
+    isFullWidth={true}
+  >
+    Please agree to the Reapit Developer Terms and Conditions to proceed
+  </PersistantNotification>
+  <TermsAndConditions />
+  <ScheduleOne />
+  <ScheduleTwo />
+  <ScheduleThree />
+</Modal>
+`;

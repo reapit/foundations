@@ -1,5 +1,5 @@
 import React from 'react'
-import Menu from '../components/ui/menu'
+import Menu from './menu'
 import { Section, FlexContainerBasic } from '@reapit/elements-legacy'
 import { Redirect, useLocation } from 'react-router'
 import Routes from '../constants/routes'

@@ -10,26 +10,24 @@ import { PortalProvider } from '@reapit/elements-legacy'
 import { OkayPage } from '@reapit/utils-react'
 
 export const history = createBrowserHistory()
-const CustomerRegister = React.lazy(() =>
-  catchChunkError(() => import('../components/pages/register/customer-register')),
-)
-const Login = React.lazy(() => catchChunkError(() => import('../components/pages/login')))
-const Register = React.lazy(() => catchChunkError(() => import('../components/pages/register')))
-const Apps = React.lazy(() => catchChunkError(() => import('../components/pages/apps')))
-const ApiDocsPage = React.lazy(() => catchChunkError(() => import('../components/pages/api-docs')))
-const SwaggerPage = React.lazy(() => catchChunkError(() => import('../components/pages/swagger')))
-const DesktopPage = React.lazy(() => catchChunkError(() => import('../components/pages/desktop')))
-const AnalyticsPage = React.lazy(() => catchChunkError(() => import('../components/pages/analytics')))
-const RegisterConfirm = React.lazy(() => catchChunkError(() => import('../components/pages/register-confirm')))
-const WebhooksPage = React.lazy(() => catchChunkError(() => import('../components/pages/webhooks')))
-const SettingsPage = React.lazy(() => catchChunkError(() => import('../components/pages/settings/')))
-const Invite = React.lazy(() => catchChunkError(() => import('../components/pages/invite')))
-const ElementsPage = React.lazy(() => catchChunkError(() => import('../components/pages/elements')))
-const GraphQLPage = React.lazy(() => catchChunkError(() => import('../components/pages/graphql')))
-const SelectRolePage = React.lazy(() => catchChunkError(() => import('../components/pages/login/select-role')))
-const IaaS = React.lazy(() => catchChunkError(() => import('../components/pages/iaas')))
+const CustomerRegister = React.lazy(() => catchChunkError(() => import('../components/register/customer-register')))
+const Login = React.lazy(() => catchChunkError(() => import('../components/login')))
+const Register = React.lazy(() => catchChunkError(() => import('../components/register')))
+const Apps = React.lazy(() => catchChunkError(() => import('../components/apps')))
+const ApiDocsPage = React.lazy(() => catchChunkError(() => import('../components/api-docs')))
+const SwaggerPage = React.lazy(() => catchChunkError(() => import('../components/swagger')))
+const DesktopPage = React.lazy(() => catchChunkError(() => import('../components/desktop')))
+const AnalyticsPage = React.lazy(() => catchChunkError(() => import('../components/analytics')))
+const RegisterConfirm = React.lazy(() => catchChunkError(() => import('../components/register/register-confirm')))
+const WebhooksPage = React.lazy(() => catchChunkError(() => import('../components/webhooks')))
+const SettingsPage = React.lazy(() => catchChunkError(() => import('../components/settings')))
+const Invite = React.lazy(() => catchChunkError(() => import('../components/register/invite')))
+const ElementsPage = React.lazy(() => catchChunkError(() => import('../components/elements')))
+const GraphQLPage = React.lazy(() => catchChunkError(() => import('../components/graphql')))
+const SelectRolePage = React.lazy(() => catchChunkError(() => import('../components/login/select-role')))
+const IaaS = React.lazy(() => catchChunkError(() => import('../components/iaas')))
 const EditionDownloadPage = React.lazy(() =>
-  catchChunkError(() => import('../components/pages/developer-edition-download')),
+  catchChunkError(() => import('../components/desktop/developer-edition-download')),
 )
 
 const Router = () => {

@@ -1,4 +1,4 @@
-import { TopicModelPagedResult, WebhookModelPagedResult, WebhookLogModel, WebhookModel } from '../../services/webhooks'
+import { TopicModelPagedResult, WebhookModelPagedResult, WebhookLogModel, WebhookModel } from '../../types/webhooks'
 
 export const mockWebhookModel: WebhookModel = {
   id: 'MOCK_ID',
