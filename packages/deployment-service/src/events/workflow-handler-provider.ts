@@ -34,21 +34,22 @@ export class WorkflowHandlerProvider implements OnModuleInit {
     })
   }
 
-  findQueueWorkflows(queue): AbstractWorkflow<any>[] {
-    return this.workflows.filter((workflow) => workflow.queue === queue)
+  findQueueWorkflows(queueArn: string): AbstractWorkflow<any>[] {
+    return this.workflows.filter((workflow) => workflow.queueArn === queueArn)
   }
 
-  async handleMultiple(queue: string, records: SQSRecord[]): Promise<void[]> {
-    return Promise.all(records.map((record) => this.handle(queue, record)))
+  async handleMultiple(records: SQSRecord[]): Promise<void[]> {
+    return Promise.all(records.map((record) => this.handle(record)))
   }
 
-  async handle(queue: string, record: SQSRecord): Promise<void> {
-    record.attributes.SenderId
-    const workflows = this.findQueueWorkflows(queue)
+  async handle(record: SQSRecord): Promise<void> {
+    const queueArn = record.eventSourceARN
+
+    const workflows = this.findQueueWorkflows(queueArn)
 
     if (workflows.length === 0) {
-      // TODO delete?
-      console.log(`No configured workflows available for queue [${queue}]`)
+      // TODO delete from queue?
+      console.log(`No configured workflows available for queue [${queueArn}]`)
     }
 
     // TODO auto handle deletes?

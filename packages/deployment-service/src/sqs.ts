@@ -11,5 +11,5 @@ export const handle: SQSHandler = async (event) => {
   app.useGlobalPipes(new ValidationPipe())
   const workflowHandler = app.get(WorkflowHandlerProvider)
 
-  await workflowHandler.handleMultiple('', event.Records)
+  await workflowHandler.handleMultiple(event.Records)
 }

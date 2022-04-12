@@ -6,7 +6,7 @@ import { SQS } from 'aws-sdk'
 export class SqsProvider {
   constructor(private readonly sqs: SQS) {}
 
-  send<T>(QueueUrl: QueueNamesEnum, message: T): Promise<void> {
+  send<T>(QueueUrl: string, message: T): Promise<void> {
     return new Promise((resolve, reject) =>
       this.sqs.sendMessage(
         {

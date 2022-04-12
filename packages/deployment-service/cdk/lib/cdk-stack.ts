@@ -581,8 +581,9 @@ export const createStack = () => {
     NODE_ENV: process.env.APP_STAGE,
   }
 
-  Object.values(QueueNames).forEach((queueKey) => {
-    env[queueKey] = queues[queueKey].queueUrl
+  Object.values(QueueNames).map((queueKey) => {
+    env[`${queueKey}_URL`] = queues[queueKey].queueUrl
+    env[`${queueKey}_ARN`] = queues[queueKey].queueArn
   })
 
   for (const [name, options] of Object.entries(functionSetups)) {
