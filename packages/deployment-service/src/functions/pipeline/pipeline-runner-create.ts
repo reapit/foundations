@@ -8,7 +8,7 @@ import {
   NotFoundException,
 } from '@homeservenow/serverless-aws-handler'
 import * as service from '../../services'
-import { defaultOutputHeaders, isPipelineDeploymentDisabled } from './../../constants'
+import { defaultOutputHeaders } from './../../constants'
 import { QueueNames } from './../../constants'
 
 /**
@@ -36,7 +36,7 @@ export const pipelineRunnerCreate = httpHandler<void, PipelineRunnerEntity>({
     ownership(pipeline.developerId, developerId)
 
     if (
-      isPipelineDeploymentDisabled(pipeline) ||
+      pipeline.isPipelineDeploymentDisabled ||
       (await service.pipelineRunnerCountRunning(pipeline)) >= 1 ||
       pipeline.buildStatus === 'PRE_PROVISIONED'
     ) {
