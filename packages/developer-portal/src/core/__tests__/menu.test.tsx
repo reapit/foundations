@@ -1,41 +1,20 @@
-import * as React from 'react'
-import { shallow } from 'enzyme'
+import React from 'react'
 import { getDefaultNavIndex, Menu, XmasLogo } from '../menu'
-import configureStore from 'redux-mock-store'
-import { Provider } from 'react-redux'
 import Routes from '../../constants/routes'
-
-jest.mock('react-router', () => ({
-  ...(jest.requireActual('react-router') as Object),
-  useLocation: jest.fn(() => ({
-    location: 'location',
-  })),
-}))
+import { render } from '../../tests/react-testing'
 
 describe('Menu', () => {
-  let store
-  beforeEach(() => {
-    const mockStore = configureStore()
-    store = mockStore({})
-  })
-
   afterEach(() => {
     jest.clearAllMocks()
   })
 
   it('should match a snapshot', () => {
-    expect(
-      shallow(
-        <Provider store={store}>
-          <Menu />
-        </Provider>,
-      ),
-    ).toMatchSnapshot()
+    expect(render(<Menu />)).toMatchSnapshot()
   })
 
   describe('XmasLogo', () => {
     it('should match a snapshot', () => {
-      expect(shallow(<XmasLogo />)).toMatchSnapshot()
+      expect(render(<XmasLogo />)).toMatchSnapshot()
     })
   })
 })
