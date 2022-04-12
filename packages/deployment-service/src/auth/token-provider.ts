@@ -1,15 +1,14 @@
-import { Injectable, UnauthorizedException, Req } from '@nestjs/common'
+import { Injectable, UnauthorizedException } from '@nestjs/common'
 import { LoginIdentity } from '@reapit/connect-session'
 import decode from 'jwt-decode'
-import { Request } from 'express'
 
 @Injectable()
 export class TokenProvider {
-  async resolve(@Req() request: Request): Promise<LoginIdentity | never> {
+  resolve(authorization: string): LoginIdentity {
     let customer: LoginIdentity | undefined
 
     try {
-      const claim = decode<Partial<LoginIdentity> & { [s: string]: string }>(request.headers['authorization'] as string)
+      const claim = decode<Partial<LoginIdentity> & { [s: string]: string }>(authorization)
 
       if (!claim) {
         throw new Error('unauthorised')

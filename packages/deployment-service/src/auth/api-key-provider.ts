@@ -1,6 +1,5 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common'
-import { resolveApiKey } from '@reapit/api-key-verify/src'
-import { Request } from 'express'
+import { resolveApiKey } from '@reapit/api-key-verify'
 
 export type Credentials = {
   developerId: string
@@ -9,19 +8,16 @@ export type Credentials = {
 
 @Injectable()
 export class ApiKeyProvider {
-  async resolve(request: Request): Promise<Credentials | never> {
-    if (!request.headers['x-api-key'] || Array.isArray(request.headers['z-api-key'])) {
+  async resolve(apiKey: string): Promise<Credentials | never> {
+    if (!apiKey) {
       throw new UnauthorizedException()
     }
 
-    const apiKey = await resolveApiKey(
-      request.headers['x-api-key'] as string,
-      process.env.API_KEY_INVOKE_ARN?.includes('prod'),
-    )
+    const creds = await resolveApiKey(apiKey, process.env.API_KEY_INVOKE_ARN?.includes('prod'))
 
     return {
-      developerId: apiKey?.developerId as string,
-      clientId: apiKey?.clientCode as string,
+      developerId: creds?.developerId as string,
+      clientId: creds?.clientCode as string,
     }
   }
 }

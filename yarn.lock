@@ -6699,6 +6699,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@nestjs/passport@npm:^8.2.1":
+  version: 8.2.1
+  resolution: "@nestjs/passport@npm:8.2.1"
+  peerDependencies:
+    "@nestjs/common": ^6.0.0 || ^7.0.0 || ^8.0.0
+    passport: ^0.4.0 || ^0.5.0
+  checksum: 881f2d9ab89ecadbc88cae3bfaddcf77ae08428b2595cd1a25599be30dad6c90d1a8a78ecad731ea0d5174f9ff7930b76c536bbb4d68cabf26f54b91038e354e
+  languageName: node
+  linkType: hard
+
 "@nestjs/platform-express@npm:^8.4.4":
   version: 8.4.4
   resolution: "@nestjs/platform-express@npm:8.4.4"
@@ -11478,21 +11488,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/jsonwebtoken@npm:*, @types/jsonwebtoken@npm:^8.5.8":
+  version: 8.5.8
+  resolution: "@types/jsonwebtoken@npm:8.5.8"
+  dependencies:
+    "@types/node": "*"
+  checksum: 56738a918c543dba30786066959f801212e7fb5cd4ec53cf7b8d227711ed358834feb9e5141f7f88ec7c642bb39757330a5a8917e3b22e0ff9084940d35f0d70
+  languageName: node
+  linkType: hard
+
 "@types/jsonwebtoken@npm:^8.3.3":
   version: 8.5.6
   resolution: "@types/jsonwebtoken@npm:8.5.6"
   dependencies:
     "@types/node": "*"
   checksum: c1c0e40cb1366d3b5f72c2c283abee8e5aedc5656d8857752ed4cb318eb8e117dad87f35431f73cdc03e7b02d169d19b3a1e58422ef94776c17cfd003ee05a33
-  languageName: node
-  linkType: hard
-
-"@types/jsonwebtoken@npm:^8.5.8":
-  version: 8.5.8
-  resolution: "@types/jsonwebtoken@npm:8.5.8"
-  dependencies:
-    "@types/node": "*"
-  checksum: 56738a918c543dba30786066959f801212e7fb5cd4ec53cf7b8d227711ed358834feb9e5141f7f88ec7c642bb39757330a5a8917e3b22e0ff9084940d35f0d70
   languageName: node
   linkType: hard
 
@@ -11729,6 +11739,36 @@ __metadata:
   version: 5.0.3
   resolution: "@types/parse5@npm:5.0.3"
   checksum: d6b7495cb1850f9f2e9c5e103ede9f2d30a5320669707b105c403868adc9e4bf8d3a7ff314cc23f67826bbbbbc0e6147346ce9062ab429f099dba7a01f463919
+  languageName: node
+  linkType: hard
+
+"@types/passport-jwt@npm:^3.0.6":
+  version: 3.0.6
+  resolution: "@types/passport-jwt@npm:3.0.6"
+  dependencies:
+    "@types/express": "*"
+    "@types/jsonwebtoken": "*"
+    "@types/passport-strategy": "*"
+  checksum: aa1e89b30bf77e1147bd5d47118fec38705246d6789b687d7385f037fdc01bed4d1e222e9d3c5c04e871c9a06474853090c17968434f9affefc53bed4dfad32b
+  languageName: node
+  linkType: hard
+
+"@types/passport-strategy@npm:*":
+  version: 0.2.35
+  resolution: "@types/passport-strategy@npm:0.2.35"
+  dependencies:
+    "@types/express": "*"
+    "@types/passport": "*"
+  checksum: e5949063ad8977ce1f7cf2a5df6bc379c4d43a959c9946bfed6570ef379c6c12d1713212a29b3b5aafc631c5ebe9bfe082116f3e75ca1bf45d79dd889671532d
+  languageName: node
+  linkType: hard
+
+"@types/passport@npm:*":
+  version: 1.0.7
+  resolution: "@types/passport@npm:1.0.7"
+  dependencies:
+    "@types/express": "*"
+  checksum: 1b78fbbb589774a2d9794449e039d590c21fefd6b3f0a5cc911e2a79bac85f363121cfdc330d15840879abeb4fb2d68d521111e595bded0f5dc4356bf8dba3ec
   languageName: node
   linkType: hard
 
@@ -18824,6 +18864,7 @@ __metadata:
     "@nestjs/common": ^8.4.4
     "@nestjs/config": ^2.0.0
     "@nestjs/core": ^8.4.4
+    "@nestjs/passport": ^8.2.1
     "@nestjs/platform-express": ^8.4.4
     "@nestjs/typeorm": ^8.0.3
     "@octokit/app": ^12.0.5
@@ -18835,6 +18876,7 @@ __metadata:
     "@reapit/utils-node": "workspace:packages/utils-node"
     "@types/adm-zip": ^0.5.0
     "@types/mime-types": ^2.1.1
+    "@types/passport-jwt": ^3.0.6
     "@types/project-name-generator": ^2.1.1
     "@types/rimraf": ^3.0.2
     "@types/yaml": ^1.9.7
@@ -18857,6 +18899,7 @@ __metadata:
     node-fetch: 2.6.7
     nodemon: ^2.0.15
     original-fs: ^1.1.0
+    passport-jwt: ^4.0.0
     project-name-generator: ^2.1.9
     pusher: ^5.0.0
     reflect-metadata: ^0.1.13
@@ -27666,7 +27709,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"jsonwebtoken@npm:^8.5.1":
+"jsonwebtoken@npm:^8.2.0, jsonwebtoken@npm:^8.5.1":
   version: 8.5.1
   resolution: "jsonwebtoken@npm:8.5.1"
   dependencies:
@@ -31773,6 +31816,23 @@ fsevents@^1.2.7:
   version: 0.1.1
   resolution: "pascalcase@npm:0.1.1"
   checksum: f83681c3c8ff75fa473a2bb2b113289952f802ff895d435edd717e7cb898b0408cbdb247117a938edcbc5d141020909846cc2b92c47213d764e2a94d2ad2b925
+  languageName: node
+  linkType: hard
+
+"passport-jwt@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "passport-jwt@npm:4.0.0"
+  dependencies:
+    jsonwebtoken: ^8.2.0
+    passport-strategy: ^1.0.0
+  checksum: d0499ebb819c714d885a9c03a6c5d6dfae916c1a81ccb62357136d5bf477529327e9b8fc658f61f97c565651d2bd78eccec4543474a08e944132f0e2ec47cc3d
+  languageName: node
+  linkType: hard
+
+"passport-strategy@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "passport-strategy@npm:1.0.0"
+  checksum: 5086693f2508e538dffa55a338c89fe8192fb5f4478c71f80cd5890b8573419a098f4fec88b505374f60bbe9049f6f24b9f3992678612528a3370b4dc73354a2
   languageName: node
   linkType: hard
 
