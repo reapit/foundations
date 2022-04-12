@@ -3,14 +3,12 @@ import { Injectable } from '@nestjs/common'
 import { In, Repository } from 'typeorm'
 import { InjectRepository } from '@nestjs/typeorm'
 import { PipelineEntity } from '../entities/pipeline.entity'
-import { SqsProvider } from '../events'
 import { paginate, Pagination } from 'nestjs-typeorm-paginate'
 
 @Injectable()
 export class PipelineRunnerProvider {
   constructor(
     @InjectRepository(PipelineRunnerEntity) private readonly repository: Repository<PipelineRunnerEntity>,
-    private readonly sqsProvider: SqsProvider,
   ) {}
 
   async create(dto: Partial<PipelineRunnerEntity>): Promise<PipelineRunnerEntity> {

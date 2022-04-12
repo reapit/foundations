@@ -3,14 +3,12 @@ import { PipelineEntity } from '../entities/pipeline.entity'
 import { Repository } from 'typeorm'
 import { InjectRepository } from '@nestjs/typeorm'
 import { paginate, Pagination } from 'nestjs-typeorm-paginate'
-import { SqsProvider } from '../events'
 
 @Injectable()
 export class PipelineProvider {
   constructor(
     @InjectRepository(PipelineEntity)
     private readonly repository: Repository<PipelineEntity>,
-    private readonly sqsProvider: SqsProvider,
   ) {}
 
   async findById(id: string): Promise<PipelineEntity | undefined> {
@@ -52,5 +50,10 @@ export class PipelineProvider {
 
   async findByRepo(repository: string): Promise<PipelineEntity | undefined> {
     return this.repository.findOne({ repository })
+  }
+  async findByRepositoryId(repositoryId: number): Promise<PipelineEntity | undefined> {
+    return this.repository.findOne({
+      repositoryId,
+    })
   }
 }
