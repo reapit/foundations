@@ -7,9 +7,7 @@ import { paginate, Pagination } from 'nestjs-typeorm-paginate'
 
 @Injectable()
 export class PipelineRunnerProvider {
-  constructor(
-    @InjectRepository(PipelineRunnerEntity) private readonly repository: Repository<PipelineRunnerEntity>,
-  ) {}
+  constructor(@InjectRepository(PipelineRunnerEntity) private readonly repository: Repository<PipelineRunnerEntity>) {}
 
   async create(dto: Partial<PipelineRunnerEntity>): Promise<PipelineRunnerEntity> {
     return this.repository.save(this.repository.create(dto))

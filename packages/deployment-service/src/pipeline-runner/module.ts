@@ -9,6 +9,8 @@ import { TypeOrmModule } from '@nestjs/typeorm'
 import { forwardRef, Module } from '@nestjs/common'
 import { AuthModule } from '../auth'
 import { TaskProvider } from './task-provider'
+import { DeploymentModule } from '../deployment'
+import { S3Module } from '../s3'
 
 @Module({
   imports: [
@@ -16,6 +18,8 @@ import { TaskProvider } from './task-provider'
     EventModule,
     AuthModule,
     forwardRef(() => PipelineModule),
+    DeploymentModule,
+    S3Module,
   ],
   providers: [PipelineRunnerProvider, TaskProvider],
   controllers: [PipelineRunnerController],

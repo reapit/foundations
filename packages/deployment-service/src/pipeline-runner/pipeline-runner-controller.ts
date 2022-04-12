@@ -19,6 +19,9 @@ import { PipelineRunnerProvider } from './pipeline-runner-provider'
 import { PipelineProvider } from '../pipeline'
 import { Pagination } from 'nestjs-typeorm-paginate'
 import { EventDispatcher } from '../events'
+import { PipelineRunnerType } from '@reapit/foundations-ts-definitions/deployment-schema'
+import { S3Provider } from '../s3'
+import { DeployProvider } from '../deployment'
 
 @Controller('pipeline/:pipelineId/pipeline-runner')
 export class PipelineRunnerController {
@@ -27,6 +30,8 @@ export class PipelineRunnerController {
     private readonly ownershipProvider: OwnershipProvider,
     @Inject(forwardRef(() => PipelineProvider)) private readonly pipelineProvider: PipelineProvider,
     private readonly eventDispatcher: EventDispatcher,
+    private readonly s3Provider: S3Provider,
+    private readonly deployProvider: DeployProvider,
   ) {}
 
   @Get()
@@ -112,5 +117,89 @@ export class PipelineRunnerController {
     }
 
     return this.pipelineRunnerProvider.update(pipelineRunner, dto)
+  }
+
+  // TODO path changed from: release/{pipelineId}/{version}
+  @Post('release/:version')
+  async release(
+    @Param('pipelineId') pipelineId: string,
+    @Param('version') version: string,
+    @Req() request: AuthenticatedRequest,
+    @Body() body,
+  ) {
+    const pipeline = await this.pipelineProvider.findById(pipelineId)
+
+    if (!pipeline) {
+      throw new NotFoundException()
+    }
+
+    this.ownershipProvider.check(pipeline, request.user.developerId as string)
+
+    if (pipeline.buildStatus !== 'PRE_PROVISIONED') {
+      throw new UnprocessableEntityException('Cannot deploy pipeline in PRE_PROVISONED state')
+    }
+
+    const file = Buffer.from(body.file, 'base64')
+
+    if (!file) {
+      throw new BadRequestException('File not provided')
+    }
+
+    const pipelineRunner = await this.pipelineRunnerProvider.create({
+      pipeline,
+      type: PipelineRunnerType.RELEASE,
+      buildVersion: version,
+    })
+
+    await this.s3Provider.upload({
+      Body: file,
+      Bucket: process.env.DEPLOYMENT_VERSION_BUCKET_NAME as string,
+      Key: `pipeline/${pipelineRunner.S3Location}`,
+    })
+
+    try {
+      await Promise.all([
+        this.deployProvider.deployFromStore({
+          pipeline: pipelineRunner.pipeline as PipelineEntity,
+          pipelineRunner,
+        }),
+        this.pipelineRunnerProvider.resetCurrentlyDeployed(pipelineRunner.pipeline as PipelineEntity),
+      ])
+
+      pipelineRunner.currentlyDeployed = true
+      pipelineRunner.buildStatus = 'COMPLETED'
+
+      return this.pipelineRunnerProvider.save(pipelineRunner)
+    } catch (e) {
+      pipelineRunner.buildStatus = 'FAILED'
+
+      return this.pipelineRunnerProvider.save(pipelineRunner)
+    }
+  }
+
+  // TODO changed url from: api/release/{pipelineId}/{version}
+  @Post(':pipelineRunnerId/deploy')
+  async deploy(@Param('pipelineRunnerId') pipelineRunnerId: string, @Req() request: AuthenticatedRequest) {
+    const pipelineRunner = await this.pipelineRunnerProvider.findById(pipelineRunnerId, {
+      relations: ['pipeline'],
+    })
+
+    if (!pipelineRunner) {
+      throw new NotFoundException(`version [${pipelineRunnerId}] did not previously exist`)
+    }
+
+    this.ownershipProvider.check(pipelineRunner.pipeline as PipelineEntity, request.user.developerId as string)
+
+    await Promise.all([
+      this.deployProvider.deployFromStore({
+        pipeline: pipelineRunner.pipeline as PipelineEntity,
+        pipelineRunner,
+      }),
+      this.pipelineRunnerProvider.resetCurrentlyDeployed(pipelineRunner.pipeline as PipelineEntity),
+    ])
+
+    pipelineRunner.currentlyDeployed = true
+
+    return this.pipelineRunnerProvider.save(pipelineRunner)
   }
 }
