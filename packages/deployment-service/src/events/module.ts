@@ -6,6 +6,7 @@ import Pusher from 'pusher'
 import { WorkflowHandlerProvider } from './workflow-handler-provider'
 import { EventDispatcher } from './event-dispatcher'
 import { SnsHandlerProvider } from './sns-handler'
+import { PusherWebhookController } from './pusher-webhook-controller'
 
 @Module({
   providers: [
@@ -30,6 +31,7 @@ import { SnsHandlerProvider } from './sns-handler'
     EventDispatcher,
     SnsHandlerProvider,
   ],
+  controllers: [PusherWebhookController],
   exports: [SqsProvider, PusherProvider, EventDispatcher],
 })
 export class EventModule {}

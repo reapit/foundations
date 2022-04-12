@@ -10,6 +10,8 @@ import databaseConfig from './config/db'
 import { MysqlConnectionOptions } from 'typeorm/driver/mysql/MysqlConnectionOptions'
 import { GithubModule } from './github-module'
 import config from '../config.json'
+import { AppEventModule } from './app-event'
+import { BitbucketModule } from './bitbucket'
 
 process.env = {
   ...process.env,
@@ -34,6 +36,8 @@ process.env = {
     PipelineRunnerModule,
     S3Module,
     GithubModule,
+    AppEventModule,
+    BitbucketModule,
   ],
   exports: [EventModule, AuthModule, GithubModule],
 })

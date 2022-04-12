@@ -43,4 +43,14 @@ export class PipelineProvider {
   async delete(pipeline: PipelineEntity): Promise<void> {
     await this.delete(pipeline)
   }
+
+  async findByAppId(appId: string): Promise<PipelineEntity[]> {
+    return this.repository.find({
+      appId,
+    })
+  }
+
+  async findByRepo(repository: string): Promise<PipelineEntity | undefined> {
+    return this.repository.findOne({ repository })
+  }
 }

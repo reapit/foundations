@@ -93,7 +93,6 @@ export class PipelineRunnerController {
     return pipelineRunner
   }
 
-  // TODO implement global validationPipe
   @Post(':pipelineRunnerId')
   async update(
     @Param('pipelineRunnerId') pipelineRunnerId: string,

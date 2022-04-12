@@ -1,4 +1,4 @@
-import { isPipelineDeploymentDisabled, QueueNames } from '../constants'
+import { QueueNames } from '../constants'
 import { BitbucketClientData, BitbucketClientEntity } from '../entities/bitbucket-client.entity'
 import {
   createPipelineRunnerEntity,
@@ -118,7 +118,7 @@ const handlePushEvent = async (event: BitBucketEvent, client: BitbucketClientDat
     }
   }
 
-  if (isPipelineDeploymentDisabled(pipeline) || (await pipelineRunnerCountRunning(pipeline)) >= 1) {
+  if (pipeline.isPipelineDeploymentDisabled || (await pipelineRunnerCountRunning(pipeline)) >= 1) {
     throw new HttpErrorException('Cannot create deployment in current state', 409 as HttpStatusCode)
   }
 

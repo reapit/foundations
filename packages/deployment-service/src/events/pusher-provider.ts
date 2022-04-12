@@ -8,4 +8,8 @@ export class PusherProvider {
   trigger<T extends any>(channel: string | string[], event: string, data: T): Promise<Response> {
     return this.pusher.trigger(channel, event, data)
   }
+
+  authenticate(socket_id: string, channel_name: string) {
+    return this.pusher.authenticate(socket_id, channel_name)
+  }
 }

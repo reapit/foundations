@@ -1,6 +1,5 @@
 import { registerAs } from '@nestjs/config'
 
-
 console.log('appid', process.env.GITHUB_APP_ID)
 export default registerAs('github', () => ({
   appId: parseInt(process.env.GITHUB_APP_ID || ''),
