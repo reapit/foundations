@@ -3,7 +3,7 @@ import { S3Provider } from '../s3'
 import { Workflow, AbstractWorkflow, SqsProvider, PusherProvider } from '../events'
 import { CloudFrontClient, DeleteDistributionCommand, GetDistributionCommand } from '@aws-sdk/client-cloudfront'
 import { ChangeResourceRecordSetsCommand, Route53Client } from '@aws-sdk/client-route-53'
-import { PipelineEntity } from '@/entities/pipeline.entity'
+import { PipelineEntity } from '../entities/pipeline.entity'
 import { PipelineProvider } from './pipeline-provider'
 import { PipelineRunnerProvider, TaskProvider } from '../pipeline-runner'
 

@@ -9,6 +9,9 @@ import { TaskEntity } from '../entities/task.entity'
 import { S3Module } from '../s3'
 import { AuthModule } from '../auth'
 import { PipelineRunnerModule } from '../pipeline-runner'
+import { PipelineTearDownStartWorkflow } from './pipeline-teardown-start-workflow'
+import { PipelineTearDownWorkflow } from './pipeline-teardown-workflow'
+import { PipelineSetupWorkflow } from './pipeline-setup-workflow'
 
 @Module({
   imports: [
@@ -18,7 +21,7 @@ import { PipelineRunnerModule } from '../pipeline-runner'
     S3Module,
     forwardRef(() => PipelineRunnerModule),
   ],
-  providers: [PipelineProvider],
+  providers: [PipelineProvider, PipelineTearDownStartWorkflow, PipelineTearDownWorkflow, PipelineSetupWorkflow],
   controllers: [PipelineController],
   exports: [PipelineProvider],
 })
