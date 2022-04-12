@@ -13,8 +13,6 @@ import { GithubWebhookController } from './github-webhook-controller'
       inject: [ConfigService],
     },
   ],
-  controllers: [
-    GithubWebhookController,
-  ],
+  controllers: [GithubWebhookController],
 })
 export class GithubModule {}

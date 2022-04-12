@@ -1,6 +1,4 @@
-import { Controller } from "@nestjs/common";
+import { Controller } from '@nestjs/common'
 
 @Controller('api/github')
-export class GithubWebhookController {
-
-}
+export class GithubWebhookController {}
