@@ -4,7 +4,7 @@ import { QueueNamesEnum } from '../constants'
 import { PipelineRunnerEntity } from '../entities/pipeline-runner.entity'
 import { AbstractWorkflow, SqsProvider, Workflow, PusherProvider } from '../events'
 import { PipelineRunnerProvider, TaskProvider } from '../pipeline-runner'
-import { DeployProvider } from '@/deployment'
+import { DeployProvider } from '../deployment'
 
 @Workflow(QueueNamesEnum.CODEBUILD_VERSION_DEPLOY)
 export class CodebuildDeployWorkflow extends AbstractWorkflow<PipelineRunnerEntity> {

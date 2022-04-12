@@ -18,6 +18,7 @@ import {
 import { PipelineRunnerProvider } from './pipeline-runner-provider'
 import { PipelineProvider } from '../pipeline'
 import { Pagination } from 'nestjs-typeorm-paginate'
+import { EventDispatcher } from '../events'
 
 @Controller('pipeline/:pipelineId/pipeline-runner')
 export class PipelineRunnerController {
@@ -25,6 +26,7 @@ export class PipelineRunnerController {
     private readonly pipelineRunnerProvider: PipelineRunnerProvider,
     private readonly ownershipProvider: OwnershipProvider,
     @Inject(forwardRef(() => PipelineProvider)) private readonly pipelineProvider: PipelineProvider,
+    private readonly eventDispatcher: EventDispatcher,
   ) {}
 
   @Get()
@@ -86,7 +88,7 @@ export class PipelineRunnerController {
       throw new BadRequestException('Invalid pipeline runner payload')
     }
 
-    await this.pipelineRunnerProvider.triggerCodebuildExecutor(pipelineRunner)
+    await this.eventDispatcher.triggerCodebuildExecutor(pipelineRunner)
 
     return pipelineRunner
   }

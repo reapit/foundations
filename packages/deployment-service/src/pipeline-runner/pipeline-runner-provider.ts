@@ -4,7 +4,6 @@ import { In, Repository } from 'typeorm'
 import { InjectRepository } from '@nestjs/typeorm'
 import { PipelineEntity } from '../entities/pipeline.entity'
 import { SqsProvider } from '../events'
-import { QueueNamesEnum } from '../constants'
 import { paginate, Pagination } from 'nestjs-typeorm-paginate'
 
 @Injectable()
@@ -81,7 +80,7 @@ export class PipelineRunnerProvider {
     })
   }
 
-  async triggerCodebuildExecutor(pipelineRunner: PipelineRunnerEntity): Promise<void> {
-    return this.sqsProvider.send(QueueNamesEnum.CODEBUILD_EXECUTOR, pipelineRunner)
+  async findByCodebuildId(codebuildId: string): Promise<PipelineRunnerEntity | undefined> {
+    return this.repository.findOne({ codebuildId })
   }
 }

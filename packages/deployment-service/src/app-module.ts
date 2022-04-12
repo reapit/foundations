@@ -9,10 +9,18 @@ import { ConfigModule, ConfigService } from '@nestjs/config'
 import databaseConfig from './config/db'
 import { MysqlConnectionOptions } from 'typeorm/driver/mysql/MysqlConnectionOptions'
 import { GithubModule } from './github-module'
+import config from '../config.json'
+
+process.env = {
+  ...process.env,
+  ...config,
+}
 
 @Module({
   imports: [
     ConfigModule.forRoot({
+      envFilePath: 'config.json',
+      encoding: 'json',
       load: [databaseConfig],
     }),
     TypeOrmModule.forRootAsync({

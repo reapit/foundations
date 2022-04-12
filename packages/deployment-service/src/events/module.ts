@@ -5,6 +5,7 @@ import { PusherProvider } from './pusher-provider'
 import Pusher from 'pusher'
 import { WorkflowHandlerProvider } from './workflow-handler-provider'
 import { EventDispatcher } from './event-dispatcher'
+import { SnsHandlerProvider } from './sns-handler'
 
 @Module({
   providers: [
@@ -27,6 +28,7 @@ import { EventDispatcher } from './event-dispatcher'
     PusherProvider,
     WorkflowHandlerProvider,
     EventDispatcher,
+    SnsHandlerProvider,
   ],
   exports: [SqsProvider, PusherProvider, EventDispatcher],
 })
