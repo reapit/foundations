@@ -1,11 +1,10 @@
-import { AuthenticatedRequest, OwnershipProvider } from '../auth'
+import { CredGuard, Creds, CredsType, OwnershipProvider } from '../auth'
 import { PipelineRunnerEntity } from '../entities/pipeline-runner.entity'
 import { PipelineEntity } from '../entities/pipeline.entity'
 import {
   Controller,
   Get,
   Param,
-  Req,
   NotFoundException,
   Post,
   UnprocessableEntityException,
@@ -14,6 +13,7 @@ import {
   Query,
   Inject,
   forwardRef,
+  UseGuards,
 } from '@nestjs/common'
 import { PipelineRunnerProvider } from './pipeline-runner-provider'
 import { PipelineProvider } from '../pipeline'
@@ -23,6 +23,7 @@ import { PipelineRunnerType } from '@reapit/foundations-ts-definitions/deploymen
 import { S3Provider } from '../s3'
 import { DeployProvider } from '../deployment'
 
+@UseGuards(CredGuard)
 @Controller('pipeline/:pipelineId/pipeline-runner')
 export class PipelineRunnerController {
   constructor(
@@ -37,14 +38,14 @@ export class PipelineRunnerController {
   @Get()
   async paginate(
     @Param('pipelineId') pipelineId: string,
-    @Req() request: AuthenticatedRequest,
+    @Creds() creds: CredsType,
     @Query('page') page: number = 1,
   ): Promise<Pagination<PipelineRunnerEntity>> {
     const pipeline = await this.pipelineProvider.findById(pipelineId)
 
     if (!pipeline) throw new NotFoundException()
 
-    this.ownershipProvider.check(pipeline, request.user.developerId as string)
+    this.ownershipProvider.check(pipeline, creds.developerId as string)
 
     return this.pipelineRunnerProvider.paginate(pipeline, page)
   }
@@ -52,7 +53,7 @@ export class PipelineRunnerController {
   @Get(':pipelineRunnerId')
   async index(
     @Param('pipelineRunnerId') pipelineRunnerId: string,
-    @Req() request: AuthenticatedRequest,
+    @Creds() creds: CredsType,
   ): Promise<PipelineRunnerEntity> {
     const pipelineRunner = await this.pipelineRunnerProvider.findById(pipelineRunnerId)
 
@@ -60,23 +61,20 @@ export class PipelineRunnerController {
       throw new NotFoundException()
     }
 
-    this.ownershipProvider.check(pipelineRunner.pipeline as PipelineEntity, request.user.developerId as string)
+    this.ownershipProvider.check(pipelineRunner.pipeline as PipelineEntity, creds.developerId as string)
 
     return pipelineRunner
   }
 
   @Post()
-  async create(
-    @Param('pipelineId') pipelineId: string,
-    @Req() request: AuthenticatedRequest,
-  ): Promise<PipelineRunnerEntity> {
+  async create(@Param('pipelineId') pipelineId: string, @Creds() creds: CredsType): Promise<PipelineRunnerEntity> {
     const pipeline = await this.pipelineProvider.findById(pipelineId)
 
     if (!pipeline) {
       throw new NotFoundException()
     }
 
-    this.ownershipProvider.check(pipeline, request.user.developerId as string)
+    this.ownershipProvider.check(pipeline, creds.developerId as string)
 
     if (
       pipeline.isPipelineDeploymentDisabled ||
@@ -102,7 +100,7 @@ export class PipelineRunnerController {
   async update(
     @Param('pipelineRunnerId') pipelineRunnerId: string,
     @Body() dto: any,
-    @Req() request: AuthenticatedRequest,
+    @Creds() creds: CredsType,
   ): Promise<PipelineRunnerEntity> {
     const pipelineRunner = await this.pipelineRunnerProvider.findById(pipelineRunnerId)
 
@@ -110,7 +108,7 @@ export class PipelineRunnerController {
       throw new NotFoundException()
     }
 
-    this.ownershipProvider.check(pipelineRunner.pipeline, request.user.developerId as string)
+    this.ownershipProvider.check(pipelineRunner.pipeline, creds.developerId as string)
 
     if (pipelineRunner.buildStatus !== 'IN_PROGRESS') {
       return pipelineRunner
@@ -124,7 +122,7 @@ export class PipelineRunnerController {
   async release(
     @Param('pipelineId') pipelineId: string,
     @Param('version') version: string,
-    @Req() request: AuthenticatedRequest,
+    @Creds() creds: CredsType,
     @Body() body,
   ) {
     const pipeline = await this.pipelineProvider.findById(pipelineId)
@@ -133,7 +131,7 @@ export class PipelineRunnerController {
       throw new NotFoundException()
     }
 
-    this.ownershipProvider.check(pipeline, request.user.developerId as string)
+    this.ownershipProvider.check(pipeline, creds.developerId as string)
 
     if (pipeline.buildStatus !== 'PRE_PROVISIONED') {
       throw new UnprocessableEntityException('Cannot deploy pipeline in PRE_PROVISONED state')
@@ -179,7 +177,7 @@ export class PipelineRunnerController {
 
   // TODO changed url from: api/release/{pipelineId}/{version}
   @Post(':pipelineRunnerId/deploy')
-  async deploy(@Param('pipelineRunnerId') pipelineRunnerId: string, @Req() request: AuthenticatedRequest) {
+  async deploy(@Param('pipelineRunnerId') pipelineRunnerId: string, @Creds() creds: CredsType) {
     const pipelineRunner = await this.pipelineRunnerProvider.findById(pipelineRunnerId, {
       relations: ['pipeline'],
     })
@@ -188,7 +186,7 @@ export class PipelineRunnerController {
       throw new NotFoundException(`version [${pipelineRunnerId}] did not previously exist`)
     }
 
-    this.ownershipProvider.check(pipelineRunner.pipeline as PipelineEntity, request.user.developerId as string)
+    this.ownershipProvider.check(pipelineRunner.pipeline as PipelineEntity, creds.developerId as string)
 
     await Promise.all([
       this.deployProvider.deployFromStore({

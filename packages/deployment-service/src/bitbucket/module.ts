@@ -1,4 +1,4 @@
-import { BitBucketWebhookController } from '../bitbucket/bitbucket-webhook-controller'
+import { BitBucketWebhookController } from './bitbucket-webhook-controller'
 import { EventModule } from '../events'
 import { PipelineModule } from '../pipeline'
 import { PipelineRunnerModule } from '../pipeline-runner'
