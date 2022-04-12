@@ -1,20 +1,13 @@
-import React, { FC, useEffect, useMemo } from 'react'
+import React, { FC, useMemo } from 'react'
 import { elSpan2, PersistantNotification, RowProps, Table } from '@reapit/elements'
-import { Dispatch } from 'redux'
-import { useDispatch, useSelector } from 'react-redux'
 import dayjs from 'dayjs'
-import { selectWebhookLogs } from '../../../selector/webhook-logs'
-import { fetchWebhookLogs } from '../../../actions/webhook-logs/webhook-logs'
 import { saveAs } from 'file-saver'
-import { logger } from '@reapit/utils-react'
+import { logger, useReapitGet } from '@reapit/utils-react'
 import { Loader } from '@reapit/elements'
-import { WebhookQueryParams } from './webhooks'
 import { TopicModel, WebhookLogModel } from '../../../services/webhooks'
-import { selectWebhookSubscriptionTopics } from '../../../selector/webhooks-subscriptions'
-
-interface WebhooksLogsProps {
-  webhookQueryParams: WebhookQueryParams
-}
+import { useWebhooksState } from './state/use-webhooks-state'
+import { reapitConnectBrowserSession } from '../../../core/connect-session'
+import { GetActionNames, getActions } from '@reapit/utils-common'
 
 export interface WebhookLogsQuery {
   from: string
@@ -26,19 +19,6 @@ export interface WebhookLogsForm {
   from: Date
   to: Date
   applicationId: string
-}
-
-export const handleFilterChange = (dispatch: Dispatch, webhookQueryParams: WebhookQueryParams) => () => {
-  const { to, from, applicationId } = webhookQueryParams
-  if (!applicationId || !to || !from) return
-  const formattedFrom = dayjs(from).format('YYYY-MM-DDTHH:mm:ss')
-  const formattedTo = dayjs(to).format('YYYY-MM-DDTHH:mm:ss')
-  const payload: WebhookLogsQuery = {
-    applicationId,
-    from: formattedFrom,
-    to: formattedTo,
-  }
-  dispatch(fetchWebhookLogs(payload))
 }
 
 export const handleDownloadPayload = (payload: string, timestamp: string) => () => {
@@ -105,15 +85,23 @@ export const handleSortTableData = (logs: WebhookLogModel[], topics: TopicModel[
     },
   }))
 
-export const WebhooksLogs: FC<WebhooksLogsProps> = ({ webhookQueryParams }) => {
-  const dispatch = useDispatch()
-  const webhookLogs = useSelector(selectWebhookLogs)
-  const topics = useSelector(selectWebhookSubscriptionTopics)
-  const { logs, isLoading } = webhookLogs
-  const { applicationId, from, to } = webhookQueryParams
+export const WebhooksLogs: FC = () => {
+  const { webhooksFilterState, webhooksDataState } = useWebhooksState()
+  const { applicationId, from, to } = webhooksFilterState
+  const { topics } = webhooksDataState
 
-  useEffect(handleFilterChange(dispatch, webhookQueryParams), [webhookQueryParams])
-  const rows = useMemo(handleSortTableData(logs, topics), [logs, topics])
+  const [logs, logsLoading] = useReapitGet<WebhookLogModel[]>({
+    reapitConnectBrowserSession,
+    action: getActions(window.reapit.config.appEnv)[GetActionNames.getWebhookLogs],
+    queryParams: {
+      applicationId,
+      from: dayjs(from).format('YYYY-MM-DDTHH:mm:ss'),
+      to: dayjs(to).format('YYYY-MM-DDTHH:mm:ss'),
+    },
+    fetchWhenTrue: [applicationId, from, to],
+  })
+
+  const rows = useMemo(handleSortTableData(logs ?? [], topics?._embedded ?? []), [logs, topics])
 
   if (!applicationId || !from || !to)
     return (
@@ -121,8 +109,8 @@ export const WebhooksLogs: FC<WebhooksLogsProps> = ({ webhookQueryParams }) => {
         No app or date range selected. Please use the filters option to get started.
       </PersistantNotification>
     )
-  if (isLoading) return <Loader label="loading" />
-  if (!logs.length || !rows.length)
+  if (logsLoading) return <Loader label="loading" />
+  if (!logs?.length || !rows.length)
     return (
       <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
         No logs found for this application. Select another app, date range or trigger a webhook to see the logs appear

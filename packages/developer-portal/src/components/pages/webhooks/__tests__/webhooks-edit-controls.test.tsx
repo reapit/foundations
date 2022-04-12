@@ -1,15 +1,15 @@
 import React from 'react'
 import { handleSetContentType, WebhooksEditControls } from '../webhooks-edit-controls'
-import { webhookItemDataStub } from '../../../../sagas/__stubs__/webhook-edit'
 import { render } from '../../../../tests/react-testing'
 import { ExpandableContentType } from '../webhooks-manage'
+import { mockWebhookModel } from '../../../../tests/__stubs__/webhooks'
 
 describe('WebhooksEditControls', () => {
   it('should match a snapshot with controls content', () => {
     expect(
       render(
         <WebhooksEditControls
-          webhookModel={webhookItemDataStub}
+          webhookModel={mockWebhookModel}
           expandableContentType={ExpandableContentType.Controls}
           setExpandableContentType={jest.fn()}
           setIndexExpandedRow={jest.fn()}
@@ -22,7 +22,7 @@ describe('WebhooksEditControls', () => {
     expect(
       render(
         <WebhooksEditControls
-          webhookModel={webhookItemDataStub}
+          webhookModel={mockWebhookModel}
           expandableContentType={ExpandableContentType.Ping}
           setExpandableContentType={jest.fn()}
           setIndexExpandedRow={jest.fn()}
@@ -35,7 +35,7 @@ describe('WebhooksEditControls', () => {
     expect(
       render(
         <WebhooksEditControls
-          webhookModel={webhookItemDataStub}
+          webhookModel={mockWebhookModel}
           expandableContentType={ExpandableContentType.Manage}
           setExpandableContentType={jest.fn()}
           setIndexExpandedRow={jest.fn()}

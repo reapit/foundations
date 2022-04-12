@@ -1,37 +1,25 @@
 import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
-import { Button, StepsVertical, ButtonGroup, useSnack, elMt11, StepsVerticalStep, elMb11 } from '@reapit/elements'
+import { Button, StepsVertical, ButtonGroup, elMt11, StepsVerticalStep, elMb11 } from '@reapit/elements'
 import { DeepMap, FieldError, useForm, UseFormGetValues, UseFormRegister, UseFormTrigger } from 'react-hook-form'
 import { WebhooksNewApp } from './webhooks-new-app'
 import { WebhooksNewUrl } from './webhooks-new-url'
 import { WebhooksNewTopics } from './webhooks-new-topics'
 import { WebhooksNewCustomers } from './webhooks-new-customers'
 import { WebhooksNewStatus } from './webhooks-new-status'
-import {
-  createWebhook,
-  CreateWebhookParams,
-  updateWebhookCreateEditState,
-} from '../../../actions/webhooks-subscriptions'
 import { yupResolver } from '@hookform/resolvers/yup'
-import Yup, { boolean, object, string } from 'yup'
+import { SchemaOf, boolean, object, string } from 'yup'
 import errorMessages from '../../../constants/error-messages'
-import { httpsUrlRegex } from '@reapit/utils-common'
-import { Dispatch as ReduxDispatch } from 'redux'
-import { useDispatch, useSelector } from 'react-redux'
-import { WebhookCreateEditState } from '../../../reducers/webhooks-subscriptions/webhook-edit-modal'
-import { selectWebhookCreateEditState } from '../../../selector/webhooks-subscriptions'
+import { httpsUrlRegex, UpdateActionNames, updateActions } from '@reapit/utils-common'
 import { History } from 'history'
 import Routes from '../../../constants/routes'
 import { useHistory } from 'react-router'
-import { SelectAppIdEventHandler, WebhookQueryParams } from './webhooks'
-import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { createCta } from './__styles__'
 import { cx } from '@linaria/core'
-
-export interface WebhooksNewProps {
-  webhookQueryParams: WebhookQueryParams
-  selectAppIdHandler: SelectAppIdEventHandler
-  apps: AppSummaryModel[]
-}
+import { useWebhooksState } from './state/use-webhooks-state'
+import { handleSelectFilters } from './webhooks-controls'
+import { SendFunction, useReapitUpdate } from '@reapit/utils-react'
+import { CreateWebhookModel } from '../../../services/webhooks'
+import { reapitConnectBrowserSession } from '../../../core/connect-session'
 
 export interface CreateWebhookFormSchema {
   applicationId: string
@@ -42,7 +30,7 @@ export interface CreateWebhookFormSchema {
   active?: boolean
 }
 
-const schema: Yup.SchemaOf<CreateWebhookFormSchema> = object().shape({
+const schema: SchemaOf<CreateWebhookFormSchema> = object().shape({
   applicationId: string().trim().required(errorMessages.FIELD_REQUIRED),
   url: string().trim().required(errorMessages.FIELD_REQUIRED).matches(httpsUrlRegex, 'Should be a secure https url'),
   topicIds: string().trim().required('At least one topic is required'),
@@ -92,37 +80,33 @@ export const handleSwitchStep =
     validateStep()
   }
 
-export const handleSubmitWebhook = (dispatch: ReduxDispatch) => (values: CreateWebhookFormSchema) => {
-  const { applicationId, url, topicIds, customerIds, ignoreEtagOnlyChanges, active } = values
-  const splitCustomerIds = customerIds.split(',').filter(Boolean)
-  const customers = customerIds.includes('ALL') ? [] : splitCustomerIds
-  const topics = topicIds.split(',').filter(Boolean)
+export const handleSubmitWebhook =
+  (createWebhook: SendFunction<CreateWebhookModel, boolean>) => (values: CreateWebhookFormSchema) => {
+    const { applicationId, url, topicIds, customerIds, ignoreEtagOnlyChanges, active } = values
+    const splitCustomerIds = customerIds.split(',').filter(Boolean)
+    const customers = customerIds.includes('ALL') ? [] : splitCustomerIds
+    const topics = topicIds.split(',').filter(Boolean)
 
-  const createWebhookParams: CreateWebhookParams = {
-    applicationId,
-    url,
-    topicIds: topics,
-    customerIds: customers,
-    ignoreEtagOnlyChanges,
-    active,
+    const createWebhookParams: CreateWebhookModel = {
+      applicationId,
+      url,
+      topicIds: topics,
+      customerIds: customers,
+      ignoreEtagOnlyChanges,
+      active,
+    }
+    createWebhook(createWebhookParams)
   }
-  dispatch(updateWebhookCreateEditState(WebhookCreateEditState.LOADING))
-  dispatch(createWebhook(createWebhookParams))
-}
 
 export const getStepContent = (
   register: UseFormRegister<CreateWebhookFormSchema>,
   getValues: UseFormGetValues<CreateWebhookFormSchema>,
   errors: DeepMap<Partial<CreateWebhookFormSchema>, FieldError>,
-  webhookQueryParams: WebhookQueryParams,
-  apps: AppSummaryModel[],
 ): StepsVerticalStep[] => {
   return [
     {
       item: '1',
-      content: (
-        <WebhooksNewApp apps={apps} register={register} errors={errors} webhookQueryParams={webhookQueryParams} />
-      ),
+      content: <WebhooksNewApp register={register} errors={errors} />,
     },
     {
       item: '2',
@@ -143,29 +127,14 @@ export const getStepContent = (
   ]
 }
 
-export const handleWebhookCreation =
-  (
-    success: (text: string, timeout?: number | undefined) => void,
-    error: (text: string, timeout?: number | undefined) => void,
-    webhookCreateEditState: WebhookCreateEditState,
-    applicationId: string,
-    dispatch: ReduxDispatch,
-    history: History,
-  ) =>
-  () => {
-    if (webhookCreateEditState === WebhookCreateEditState.SUCCESS) {
-      success('Webhook was successfully created')
-      dispatch(updateWebhookCreateEditState(WebhookCreateEditState.INITIAL))
-      history.push(`${Routes.WEBHOOKS_MANAGE}?applicationId=${applicationId}`)
-    }
-
-    if (webhookCreateEditState === WebhookCreateEditState.ERROR) {
-      error('Webhook failed to correct, check the details supplied and try again')
-      dispatch(updateWebhookCreateEditState(WebhookCreateEditState.INITIAL))
-    }
+export const handleWebhookCreation = (applicationId: string, history: History, webhookCreated?: boolean) => () => {
+  if (webhookCreated) {
+    history.push(`${Routes.WEBHOOKS_MANAGE}?applicationId=${applicationId}`)
   }
+}
 
-export const WebhooksNew: FC<WebhooksNewProps> = ({ webhookQueryParams, apps, selectAppIdHandler }) => {
+export const WebhooksNew: FC = () => {
+  const { webhooksFilterState, setWebhooksFilterState } = useWebhooksState()
   const {
     register,
     getValues,
@@ -175,29 +144,30 @@ export const WebhooksNew: FC<WebhooksNewProps> = ({ webhookQueryParams, apps, se
   } = useForm<CreateWebhookFormSchema>({
     resolver: yupResolver(schema),
     defaultValues: {
-      applicationId: webhookQueryParams.applicationId,
+      applicationId: webhooksFilterState.applicationId,
     },
   })
-  const dispatch = useDispatch()
   const history = useHistory()
-  const { success, error } = useSnack()
   const [selectedStep, setSelectedStep] = useState<string>('1')
-  const webhookCreateEditState = useSelector(selectWebhookCreateEditState)
-  const steps = getStepContent(register, getValues, errors, webhookQueryParams, apps)
+  const steps = getStepContent(register, getValues, errors)
   const currentStep = steps.find((step) => step.item === selectedStep)
   const currentStepIndex = currentStep ? steps.indexOf(currentStep) : 0
   const nextStep = currentStepIndex < 4 ? String(currentStepIndex + 2) : null
   const formValues = getValues()
   const { applicationId } = formValues
 
-  useEffect(handleWebhookCreation(success, error, webhookCreateEditState, applicationId, dispatch, history), [
-    webhookCreateEditState,
-  ])
+  const [, webhookCreating, createWebhook, createWebhookSuccess] = useReapitUpdate<CreateWebhookModel, boolean>({
+    reapitConnectBrowserSession,
+    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.createWebhook],
+    method: 'POST',
+  })
 
-  useEffect(() => selectAppIdHandler(undefined, applicationId), [applicationId])
+  useEffect(handleWebhookCreation(applicationId, history, createWebhookSuccess), [createWebhookSuccess])
+
+  useEffect(() => handleSelectFilters(setWebhooksFilterState, history)(undefined, applicationId), [applicationId])
 
   useEffect(() => {
-    if (webhookQueryParams.applicationId) {
+    if (webhooksFilterState.applicationId) {
       handleSwitchStep(selectedStep, trigger, setSelectedStep)()
     }
   }, [])
@@ -205,19 +175,13 @@ export const WebhooksNew: FC<WebhooksNewProps> = ({ webhookQueryParams, apps, se
   return (
     <form
       className={elMt11}
-      onSubmit={handleSubmit(handleSubmitWebhook(dispatch))}
+      onSubmit={handleSubmit(handleSubmitWebhook(createWebhook))}
       onChange={handleSwitchStep(selectedStep, trigger, setSelectedStep)}
     >
       <StepsVertical steps={steps} selectedStep={selectedStep} onStepClick={setSelectedStep} />
       {!nextStep && (
         <ButtonGroup className={cx(elMb11, createCta)} alignment="left">
-          <Button
-            intent="critical"
-            size={2}
-            chevronRight
-            type="submit"
-            disabled={webhookCreateEditState === WebhookCreateEditState.LOADING}
-          >
+          <Button intent="critical" size={2} chevronRight type="submit" disabled={webhookCreating}>
             Create
           </Button>
         </ButtonGroup>

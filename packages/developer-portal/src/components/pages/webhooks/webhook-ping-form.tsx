@@ -1,6 +1,4 @@
 import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
-import { selectWebhookSubscriptionTopics } from '../../../selector/webhooks-subscriptions'
 import { PingEndpointModel, PingWebhooksByIdParams, WebhookModel } from '../../../services/webhooks'
 import Routes from '../../../constants/routes'
 import {
@@ -33,6 +31,7 @@ import { ExpandableContentType } from './webhooks-manage'
 import { SendFunction, useReapitUpdate } from '@reapit/utils-react'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { UpdateActionNames, updateActions } from '@reapit/utils-common'
+import { useWebhooksState } from './state/use-webhooks-state'
 
 interface WebhooksPingFormProps {
   webhookModel: WebhookModel
@@ -94,9 +93,10 @@ export const WebhooksPingForm: FC<WebhooksPingFormProps> = ({
   setIndexExpandedRow,
   setExpandableContentType,
 }) => {
-  const topics = useSelector(selectWebhookSubscriptionTopics)
+  const { webhooksDataState } = useWebhooksState()
   const [webhookPingId, setWebhookPingId] = useState<string | null>(null)
   const { Modal: FailedConnectionModal, openModal, closeModal } = useModal()
+  const { topics } = webhooksDataState
   const { topicIds } = webhookModel
   const {
     register,
@@ -111,7 +111,7 @@ export const WebhooksPingForm: FC<WebhooksPingFormProps> = ({
 
   const [, pingingWebhook, pingWebhook, pingSuccess, pingError] = useReapitUpdate<PingEndpointModel, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.createDeveloper],
+    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.pingWebhook],
     method: 'POST',
     uriParams: {
       subscriptionId: webhookPingId,
@@ -119,7 +119,7 @@ export const WebhooksPingForm: FC<WebhooksPingFormProps> = ({
   })
 
   const topicOptions = topicIds?.map((topicId) => {
-    const topic = topics.find((topicItem) => topicItem.id === topicId)
+    const topic = topics?._embedded?.find((topicItem) => topicItem.id === topicId)
     if (topic) {
       return {
         name: topic.name ?? '',

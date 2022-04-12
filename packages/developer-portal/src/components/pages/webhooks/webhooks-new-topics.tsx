@@ -1,26 +1,16 @@
 import { BodyText, InputGroup, MultiSelectInput, FormLayout, InputWrapMed, elFadeIn, elMb5 } from '@reapit/elements'
 import React, { ChangeEvent, Dispatch, FC, SetStateAction, useState } from 'react'
 import { DeepMap, FieldError, UseFormGetValues, UseFormRegister } from 'react-hook-form'
-import { useSelector } from 'react-redux'
-import { Dispatch as ReduxDispatch } from 'redux'
-import { fetchWebhooksTopics } from '../../../actions/webhooks-topics'
 import { TopicModel } from '../../../services/webhooks'
 import { CreateWebhookFormSchema } from './webhooks-new'
-import { selectWebhookSubscriptionTopics } from '../../../selector/webhooks-subscriptions'
 import { getInitialTopics } from './webhooks-manage-form'
+import { useWebhooksState } from './state/use-webhooks-state'
 
 interface WebhooksNewTopicsProps {
   register: UseFormRegister<CreateWebhookFormSchema>
   getValues: UseFormGetValues<CreateWebhookFormSchema>
   errors: DeepMap<Partial<CreateWebhookFormSchema>, FieldError>
 }
-
-export const handleFetchTopics =
-  (dispatch: ReduxDispatch, isLoading: boolean, applicationId?: string, topics?: TopicModel[]) => () => {
-    if (topics?.length || isLoading) return
-
-    dispatch(fetchWebhooksTopics({ applicationId, pageNumber: 1 }))
-  }
 
 export const handleSearchTopics =
   (
@@ -46,10 +36,12 @@ export const handleSearchTopics =
   }
 
 export const WebhooksNewTopics: FC<WebhooksNewTopicsProps> = ({ register, getValues, errors }) => {
+  const { webhooksDataState } = useWebhooksState()
   const [search, setSearch] = useState<string>('')
-  const topics = useSelector(selectWebhookSubscriptionTopics)
   const selectedTopics = getValues().topicIds?.split(',').filter(Boolean)
-  const [filteredTopics, setFilteredTopics] = useState<TopicModel[]>(getInitialTopics(topics, selectedTopics))
+  const { topics } = webhooksDataState
+  const topicsList = topics?._embedded ?? []
+  const [filteredTopics, setFilteredTopics] = useState<TopicModel[]>(getInitialTopics(topicsList, selectedTopics))
   const multiSelectOptions = filteredTopics.map((topic) => ({ name: topic.name ?? '', value: topic.id ?? '' }))
   const inputAddOnText =
     !filteredTopics.length && !search
@@ -72,7 +64,7 @@ export const WebhooksNewTopics: FC<WebhooksNewTopicsProps> = ({ register, getVal
           <InputGroup
             className={elMb5}
             label="Subscription Topics"
-            onChange={handleSearchTopics(topics, getValues, setFilteredTopics, setSearch)}
+            onChange={handleSearchTopics(topicsList, getValues, setFilteredTopics, setSearch)}
             icon="searchSystem"
             placeholder="Search"
             inputAddOnText={inputAddOnText}

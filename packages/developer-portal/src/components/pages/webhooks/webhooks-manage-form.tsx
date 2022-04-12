@@ -10,7 +10,6 @@ import {
   elP8,
   ButtonGroup,
   Button,
-  useSnack,
   useModal,
   BodyText,
   PersistantNotification,
@@ -25,27 +24,16 @@ import React, { ChangeEvent, Dispatch, FC, SetStateAction, useEffect, useMemo, u
 import { yupResolver } from '@hookform/resolvers/yup'
 import Yup, { boolean, object, string } from 'yup'
 import errorMessages from '../../../constants/error-messages'
-import { httpsUrlRegex } from '@reapit/utils-common'
+import { httpsUrlRegex, UpdateActionNames, updateActions } from '@reapit/utils-common'
 import { useForm, UseFormGetValues } from 'react-hook-form'
-import { Dispatch as ReduxDispatch } from 'redux'
-import {
-  deleteWebhook,
-  editWebhook,
-  EditWebhookParams,
-  updateWebhookCreateEditState,
-} from '../../../actions/webhooks-subscriptions'
-import { WebhookCreateEditState } from '../../../reducers/webhooks-subscriptions/webhook-edit-modal'
-import { useDispatch, useSelector } from 'react-redux'
-import { TopicModel, WebhookModel } from '../../../services/webhooks'
+import { TopicModel, UpdateWebhookModel, WebhookModel } from '../../../services/webhooks'
 import { searchMinWidth } from './__styles__'
-import {
-  selectCustomers,
-  selectWebhookCreateEditState,
-  selectWebhookSubscriptionTopics,
-} from '../../../selector/webhooks-subscriptions'
-import { handleCustomersToOptions } from './webhooks-new-customers'
+import { handleInstallationsToOptions } from './webhooks-new-customers'
 import { cx } from '@linaria/core'
 import { ExpandableContentType } from './webhooks-manage'
+import { useWebhooksState } from './state/use-webhooks-state'
+import { SendFunction, useReapitUpdate } from '@reapit/utils-react'
+import { reapitConnectBrowserSession } from '../../../core/connect-session'
 
 interface WebhooksManageFormProps {
   webhookModel: WebhookModel
@@ -93,57 +81,45 @@ export const getInitialTopics = (topics: TopicModel[], topicIds?: string[]) => {
 }
 
 export const handleSubmitWebhook =
-  (dispatch: ReduxDispatch, webhookModel: WebhookModel) => (values: EditWebhookFormSchema) => {
-    const { id: webhookId, applicationId } = webhookModel
+  (updateWebhook: SendFunction<UpdateWebhookModel, boolean>, webhookModel: WebhookModel) =>
+  (values: EditWebhookFormSchema) => {
+    const { id, applicationId } = webhookModel
     const { url, topicIds, customerIds, ignoreEtagOnlyChanges, active } = values
 
-    if (!webhookId || !applicationId) return
+    if (!id || !applicationId) return
 
     const splitCustomerIds = (customerIds || '').split(',').filter(Boolean)
     const customers = (customerIds || '').includes('ALL') ? [] : splitCustomerIds
     const topics = topicIds.split(',').filter(Boolean)
 
-    const editWebhookParams: EditWebhookParams = {
-      webhookId,
-      applicationId,
+    const editWebhookParams: UpdateWebhookModel = {
       url,
       topicIds: topics,
       customerIds: customers,
       ignoreEtagOnlyChanges,
       active,
     }
-    dispatch(updateWebhookCreateEditState(WebhookCreateEditState.LOADING))
-    dispatch(editWebhook(editWebhookParams))
+
+    updateWebhook(editWebhookParams)
   }
 
 export const handleWebhookEditing =
   (
-    success: (text: string, timeout?: number | undefined) => void,
-    error: (text: string, timeout?: number | undefined) => void,
-    webhookCreateEditState: WebhookCreateEditState,
-    dispatch: ReduxDispatch,
     setIndexExpandedRow: Dispatch<SetStateAction<number | null>>,
     setExpandableContentType: Dispatch<SetStateAction<ExpandableContentType>>,
+    updateWebhookSuccess?: boolean,
   ) =>
   () => {
-    if (webhookCreateEditState === WebhookCreateEditState.SUCCESS) {
-      success('Webhook was successfully updated')
-      dispatch(updateWebhookCreateEditState(WebhookCreateEditState.INITIAL))
+    if (updateWebhookSuccess) {
       setIndexExpandedRow(null)
       setExpandableContentType(ExpandableContentType.Controls)
-    } else if (webhookCreateEditState === WebhookCreateEditState.ERROR) {
-      error('Webhook failed to update, check the details supplied and try again')
-      dispatch(updateWebhookCreateEditState(WebhookCreateEditState.INITIAL))
     }
   }
 
-export const handleWebhookDelete =
-  (dispatch: ReduxDispatch, webhookModel: WebhookModel, closeModal: () => void) => () => {
-    const { id: webhookId, applicationId } = webhookModel
-    if (!webhookId || !applicationId) return
-    dispatch(deleteWebhook({ webhookId, applicationId }))
-    closeModal()
-  }
+export const handleWebhookDelete = (deleteWebhook: SendFunction<undefined, boolean>, closeModal: () => void) => () => {
+  deleteWebhook(undefined)
+  closeModal()
+}
 
 export const handleCollapseRow =
   (
@@ -160,13 +136,12 @@ export const WebhooksManageForm: FC<WebhooksManageFormProps> = ({
   setIndexExpandedRow,
   setExpandableContentType,
 }) => {
-  const dispatch = useDispatch()
-  const topics = useSelector(selectWebhookSubscriptionTopics)
-  const customers = useSelector(selectCustomers)
-  const webhookCreateEditState = useSelector(selectWebhookCreateEditState)
-  const { success, error } = useSnack()
+  const { webhooksDataState } = useWebhooksState()
+  const { installations, topics } = webhooksDataState
   const { id, url, topicIds, customerIds, ignoreEtagOnlyChanges, active } = webhookModel
-  const [filteredTopics, setFilteredTopics] = useState<TopicModel[]>(getInitialTopics(topics, topicIds))
+  const [filteredTopics, setFilteredTopics] = useState<TopicModel[]>(
+    getInitialTopics(topics?._embedded ?? [], topicIds),
+  )
   const { Modal: DeleteConfirmModal, openModal, closeModal } = useModal()
   const {
     register,
@@ -184,48 +159,46 @@ export const WebhooksManageForm: FC<WebhooksManageFormProps> = ({
     },
   })
 
-  const customerOptions = useMemo(handleCustomersToOptions(customers), [customers])
-  const topicOptions = filteredTopics.map((topic) => ({ name: topic.name ?? '', value: topic.id ?? '' }))
+  const [, webhookUpdating, updateWebhook, updateWebhookSuccess] = useReapitUpdate<UpdateWebhookModel, boolean>({
+    reapitConnectBrowserSession,
+    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.updateWebhook],
+    method: 'PUT',
+    uriParams: { webhookId: webhookModel.id },
+  })
 
-  useEffect(
-    handleWebhookEditing(
-      success,
-      error,
-      webhookCreateEditState,
-      dispatch,
-      setIndexExpandedRow,
-      setExpandableContentType,
-    ),
-    [webhookCreateEditState],
-  )
+  const [, webhookDeleting, deleteWebhook] = useReapitUpdate<undefined, boolean>({
+    reapitConnectBrowserSession,
+    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.deleteWebhook],
+    method: 'DELETE',
+    uriParams: { webhookId: webhookModel.id },
+  })
+
+  const customerOptions = useMemo(handleInstallationsToOptions(installations?.data ?? []), [installations])
+  const topicOptions = filteredTopics.map((topic) => ({ name: topic.name ?? '', value: topic.id ?? '' }))
+  const isLoading = webhookDeleting || webhookUpdating
+
+  useEffect(handleWebhookEditing(setIndexExpandedRow, setExpandableContentType, updateWebhookSuccess), [
+    updateWebhookSuccess,
+  ])
 
   return (
-    <form className={elP8} onSubmit={handleSubmit(handleSubmitWebhook(dispatch, webhookModel))}>
+    <form className={elP8} onSubmit={handleSubmit(handleSubmitWebhook(updateWebhook, webhookModel))}>
       <FlexContainer className={elMb11} isFlexAlignCenter isFlexJustifyBetween>
         <Subtitle hasBoldText>Edit Webhook</Subtitle>
         <ButtonGroup alignment="right">
-          <Button
-            intent="low"
-            type="button"
-            disabled={webhookCreateEditState === WebhookCreateEditState.LOADING}
-            onClick={openModal}
-          >
+          <Button intent="low" type="button" disabled={isLoading} loading={isLoading} onClick={openModal}>
             Delete
           </Button>
           <Button
             intent="secondary"
             type="button"
-            disabled={webhookCreateEditState === WebhookCreateEditState.LOADING}
+            disabled={isLoading}
+            loading={isLoading}
             onClick={handleCollapseRow(setIndexExpandedRow, setExpandableContentType)}
           >
             Cancel
           </Button>
-          <Button
-            intent="primary"
-            chevronRight
-            type="submit"
-            disabled={webhookCreateEditState === WebhookCreateEditState.LOADING}
-          >
+          <Button intent="primary" chevronRight type="submit" disabled={isLoading} loading={isLoading}>
             Update
           </Button>
         </ButtonGroup>
@@ -245,7 +218,7 @@ export const WebhooksManageForm: FC<WebhooksManageFormProps> = ({
             <InputGroup
               label="Subscription topics"
               className={searchMinWidth}
-              onChange={handleSearchTopics(topics, getValues, setFilteredTopics)}
+              onChange={handleSearchTopics(topics?._embedded ?? [], getValues, setFilteredTopics)}
               icon="searchSystem"
               placeholder="Search topics to get started"
             />
@@ -299,7 +272,7 @@ export const WebhooksManageForm: FC<WebhooksManageFormProps> = ({
             <Button intent="secondary" onClick={closeModal}>
               Cancel
             </Button>
-            <Button intent="danger" onClick={handleWebhookDelete(dispatch, webhookModel, closeModal)}>
+            <Button intent="danger" onClick={handleWebhookDelete(deleteWebhook, closeModal)}>
               Confirm
             </Button>
           </ButtonGroup>

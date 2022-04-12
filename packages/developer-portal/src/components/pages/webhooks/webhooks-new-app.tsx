@@ -12,17 +12,17 @@ import {
 import React, { FC } from 'react'
 import { DeepMap, FieldError, UseFormRegister } from 'react-hook-form'
 import { CreateWebhookFormSchema } from './webhooks-new'
-import { WebhookQueryParams } from './webhooks'
-import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
+import { useWebhooksState } from './state/use-webhooks-state'
 
 interface WebhooksNewAppProps {
   register: UseFormRegister<CreateWebhookFormSchema>
   errors: DeepMap<Partial<CreateWebhookFormSchema>, FieldError>
-  webhookQueryParams: WebhookQueryParams
-  apps: AppSummaryModel[]
 }
 
-export const WebhooksNewApp: FC<WebhooksNewAppProps> = ({ register, apps, errors, webhookQueryParams }) => {
+export const WebhooksNewApp: FC<WebhooksNewAppProps> = ({ register, errors }) => {
+  const { webhooksFilterState, webhooksDataState } = useWebhooksState()
+  const { apps } = webhooksDataState
+  const { applicationId } = webhooksFilterState
   const errorMessage = errors?.applicationId?.message
   return (
     <>
@@ -32,14 +32,14 @@ export const WebhooksNewApp: FC<WebhooksNewAppProps> = ({ register, apps, errors
       </BodyText>
       <FormLayout className={elFadeIn}>
         <InputWrap>
-          {apps && apps.length ? (
+          {apps?.data && apps.data.length ? (
             <>
               <InputGroup>
-                <Select {...register('applicationId')} defaultValue={webhookQueryParams.applicationId ?? ''}>
+                <Select {...register('applicationId')} defaultValue={applicationId}>
                   <option key="default-option" value="">
                     None selected
                   </option>
-                  {apps.map((app) => (
+                  {apps.data.map((app) => (
                     <option key={app.id} value={app.id}>
                       {app.name}
                     </option>

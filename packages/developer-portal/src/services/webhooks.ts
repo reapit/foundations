@@ -7,7 +7,7 @@ import { WebhookLogsQuery } from '../components/pages/webhooks/webhooks-logs'
 
 // Manual defined Model
 
-export type PagedResultWebhookModel_ = {
+export type WebhookModelPagedResult = {
   _embedded?: WebhookModel[]
   pageNumber?: number
   pageSize?: number
@@ -40,6 +40,7 @@ export type CreateWebhookModel = {
   topicIds?: string[]
   customerIds?: string[]
   active?: boolean
+  ignoreEtagOnlyChanges?: boolean
 }
 
 export type UpdateWebhookModel = {
@@ -48,13 +49,14 @@ export type UpdateWebhookModel = {
   topicIds?: string[]
   customerIds?: string[]
   active?: boolean
+  ignoreEtagOnlyChanges?: boolean
 }
 
 export type PingEndpointModel = {
   topicId?: string
 }
 
-export type PagedResultTopicModel_ = {
+export type TopicModelPagedResult = {
   _embedded?: TopicModel[]
   pageNumber?: number
   pageSize?: number
@@ -135,7 +137,7 @@ export type UpdateWebhooksTopicByIdParams = FetchByIdCommonParams & UpdateTopicM
 // Subscription
 export const fetchWebhooksSubscriptionsListApi = async (
   params: FetchWebhooksSubscriptionsListParams,
-): Promise<PagedResultWebhookModel_ | void> => {
+): Promise<WebhookModelPagedResult | void> => {
   try {
     const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
 
@@ -261,7 +263,7 @@ export const pingWebhooksById = async (params: PingWebhooksByIdParams) => {
 // Topic
 export const fetchWebhooksTopicsListApi = async (
   params: FetchWebhooksTopicsListParams,
-): Promise<PagedResultTopicModel_ | void> => {
+): Promise<TopicModelPagedResult | void> => {
   try {
     const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
 

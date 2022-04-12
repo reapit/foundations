@@ -4,6 +4,8 @@ import { render } from '../../../../tests/react-testing'
 import { CreateWebhookFormSchema } from '../webhooks-new'
 import { UseFormGetValues } from 'react-hook-form'
 
+jest.mock('../state/use-webhooks-state')
+
 describe('WebhooksNewCustomers', () => {
   const getValues = jest.fn(() => ({
     topicIds: 'SOME_ID',

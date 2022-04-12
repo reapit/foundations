@@ -1,15 +1,17 @@
 import React from 'react'
 import { handlePingWebhook, handleWebhookPing, WebhooksPingForm } from '../webhook-ping-form'
-import { webhookItemDataStub } from '../../../../sagas/__stubs__/webhook-edit'
 import { render } from '../../../../tests/react-testing'
 import { ExpandableContentType } from '../webhooks-manage'
+import { mockWebhookModel } from '../../../../tests/__stubs__/webhooks'
+
+jest.mock('../state/use-webhooks-state')
 
 describe('WebhooksPingForm', () => {
   it('should match a snapshot', () => {
     expect(
       render(
         <WebhooksPingForm
-          webhookModel={webhookItemDataStub}
+          webhookModel={mockWebhookModel}
           setIndexExpandedRow={jest.fn()}
           setExpandableContentType={jest.fn()}
         />,
@@ -76,13 +78,13 @@ describe('handlePingWebhook', () => {
       topicId: 'SOME_ID',
     }
 
-    const curried = handlePingWebhook(webhookItemDataStub, pingWebhook, setWebhookPingId)
+    const curried = handlePingWebhook(mockWebhookModel, pingWebhook, setWebhookPingId)
 
     curried(values)
 
-    expect(setWebhookPingId).toHaveBeenCalledWith(webhookItemDataStub.id)
+    expect(setWebhookPingId).toHaveBeenCalledWith(mockWebhookModel.id)
     expect(pingWebhook).toHaveBeenCalledWith({
-      id: webhookItemDataStub.id,
+      id: mockWebhookModel.id,
       topicId: values.topicId,
     })
   })

@@ -1,6 +1,6 @@
 import { fetcher } from '@reapit/utils-common'
 import { WebhookLogsQuery } from '../../components/pages/webhooks/webhooks-logs'
-import { mockWebhookLogs } from '../../sagas/__stubs__/webhooks'
+import { mockWebhookLogs } from '../../tests/__stubs__/webhooks'
 import { createWebhooksTopic, fetchWebhooksTopicById, updateWebhooksTopicById } from '../webhooks'
 import {
   createWebhooksSubscription,

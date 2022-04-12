@@ -8,34 +8,15 @@ import {
 } from '../webhooks-new'
 import { render } from '../../../../tests/react-testing'
 import { UseFormGetValues } from 'react-hook-form'
-import {
-  createWebhook,
-  CreateWebhookParams,
-  updateWebhookCreateEditState,
-} from '../../../../actions/webhooks-subscriptions'
-import { WebhookCreateEditState } from '../../../../reducers/webhooks-subscriptions/webhook-edit-modal'
-import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
-import { mockAppSummaryModelPagedResult } from '../../../../tests/__stubs__/apps'
+import { CreateWebhookModel } from '../../../../services/webhooks'
 
-const webhookQueryParams = {
-  applicationId: 'SOME_ID',
-  to: 'TO',
-  from: 'FROM',
-}
+jest.mock('../state/use-webhooks-state')
 
 const steps = ['1', '2', '3', '4', '5']
 
 describe('WebhooksNew', () => {
   it('should match a snapshot', () => {
-    expect(
-      render(
-        <WebhooksNew
-          webhookQueryParams={webhookQueryParams}
-          selectAppIdHandler={jest.fn()}
-          apps={mockAppSummaryModelPagedResult.data as AppSummaryModel[]}
-        />,
-      ),
-    ).toMatchSnapshot()
+    expect(render(<WebhooksNew />)).toMatchSnapshot()
   })
 })
 
@@ -71,18 +52,8 @@ describe('getStepContent', () => {
         active: true,
       })) as unknown as UseFormGetValues<CreateWebhookFormSchema>
       const errors = {}
-      const webhookQueryParams = {
-        applicationId: 'SOME_ID',
-        to: 'TO',
-        from: 'FROM',
-      }
-      const steps = getStepContent(
-        register,
-        getValues,
-        errors,
-        webhookQueryParams,
-        mockAppSummaryModelPagedResult.data as AppSummaryModel[],
-      )
+
+      const steps = getStepContent(register, getValues, errors)
       steps.forEach(({ content }) => {
         expect(render(content as ReactElement)).toMatchSnapshot()
       })
@@ -92,7 +63,7 @@ describe('getStepContent', () => {
 
 describe('handleSubmitWebhook', () => {
   it('should handle the form submit', () => {
-    const dispatch = jest.fn()
+    const createWebhook = jest.fn()
     const values = {
       applicationId: 'SOME_ID',
       topicIds: 'SOME_ID',
@@ -101,14 +72,13 @@ describe('handleSubmitWebhook', () => {
       ignoreEtagOnlyChanges: false,
       active: true,
     }
-    const createWebhookParams: CreateWebhookParams = {
+    const createWebhookModel: CreateWebhookModel = {
       ...values,
       topicIds: values.topicIds.split(',').filter(Boolean),
       customerIds: values.customerIds.split(',').filter(Boolean),
     }
-    const curried = handleSubmitWebhook(dispatch)
+    const curried = handleSubmitWebhook(createWebhook)
     curried(values)
-    expect(dispatch).toHaveBeenCalledWith(updateWebhookCreateEditState(WebhookCreateEditState.LOADING))
-    expect(dispatch).toHaveBeenLastCalledWith(createWebhook(createWebhookParams))
+    expect(createWebhook).toHaveBeenCalledWith(createWebhookModel)
   })
 })

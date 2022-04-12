@@ -1,7 +1,4 @@
 import { ReduxState } from '../../types/core'
-import { mockWebhookLogs, subscriptions } from '../../sagas/__stubs__/webhooks'
-import { WebhookCreateEditState } from '../webhooks-subscriptions/webhook-edit-modal'
-import { webhookDataStub, webhookItemDataStub } from '../../sagas/__stubs__/webhook-edit'
 
 export const appState: ReduxState = {
   error: {
@@ -15,35 +12,6 @@ export const appState: ReduxState = {
     visible: false,
     variant: '',
     message: '',
-  },
-  webhooksSubscriptions: {
-    list: {
-      isLoading: false,
-      errorMessage: '',
-      ...subscriptions,
-    },
-    edit: {
-      loading: false,
-      modalType: '',
-      webhookCreateEditState: WebhookCreateEditState.INITIAL,
-      subcriptionCustomers: webhookDataStub.subcriptionCustomers,
-      subcriptionTopics: webhookDataStub.subcriptionTopics,
-      webhookData: webhookItemDataStub,
-    },
-  },
-  webhooksTopics: {
-    list: {
-      isLoading: false,
-      errorMessage: '',
-      _embedded: [],
-    },
-  },
-  webhookLogs: {
-    list: {
-      isLoading: false,
-      errorMessage: '',
-      logs: mockWebhookLogs,
-    },
   },
   developers: {
     members: {

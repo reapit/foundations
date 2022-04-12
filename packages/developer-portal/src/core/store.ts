@@ -5,18 +5,12 @@ import { ReduxState } from '../types/core'
 import error from '@/reducers/error'
 import developerSetStatus from '@/reducers/developer-set-status'
 import developersReducer from '@/reducers/developers'
-import webhooksTopicsReducer from '@/reducers/webhooks-topics'
-import webhooksSubscriptionsReducer from '@/reducers/webhooks-subscriptions'
 import noticationMessage from '@/reducers/notification-message'
 import { currentMemberReducer } from '@/reducers/current-member'
 import developerSetStatusSagas from '@/sagas/developer-set-status'
-import { webhooksSubscriptionsSagas, webhooksEditSubscription } from '@/sagas/webhooks-subscriptions'
 import { injectSwitchModeToWindow } from '@reapit/elements-legacy'
 import developersSagas from '@/sagas/developers'
-import { webhooksTopicsSagas } from '@/sagas/webhooks-topics'
 import { currentMemberSagas } from '@/sagas/current-member'
-import webhookLogsReducer from '../reducers/webhook-logs'
-import { webhookLogsSagas } from '../sagas/webhook-logs'
 
 export class Store {
   static _instance: Store
@@ -38,22 +32,11 @@ export class Store {
     developerSetStatus,
     noticationMessage,
     developers: developersReducer,
-    webhooksTopics: webhooksTopicsReducer,
-    webhooksSubscriptions: webhooksSubscriptionsReducer,
-    webhookLogs: webhookLogsReducer,
     currentMember: currentMemberReducer,
   })
 
   static sagas = function* () {
-    yield all([
-      fork(developerSetStatusSagas),
-      fork(webhooksEditSubscription),
-      fork(developersSagas),
-      fork(webhooksTopicsSagas),
-      fork(webhooksSubscriptionsSagas),
-      fork(webhookLogsSagas),
-      fork(currentMemberSagas),
-    ])
+    yield all([fork(developerSetStatusSagas), fork(developersSagas), fork(currentMemberSagas)])
   }
 
   static composeEnhancers =

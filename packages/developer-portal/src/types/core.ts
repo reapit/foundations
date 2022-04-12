@@ -3,10 +3,7 @@ import ActionTypes from '../constants/action-types'
 import { ErrorState } from '../reducers/error'
 import { NotificationMessageState } from '@/reducers/notification-message'
 import { DevelopersRootState } from '@/reducers/developers'
-import { WebhooksTopicsRootState } from '@/reducers/webhooks-topics'
-import { WebhooksSubscriptionsRootState } from '@/reducers/webhooks-subscriptions'
 import { CurrentMemberRootState } from '@/reducers/current-member'
-import { WebhookLogRootState } from '../reducers/webhook-logs'
 
 export type ModalProps = { visible: boolean; afterClose: () => void }
 
@@ -50,8 +47,5 @@ export interface ReduxState {
   developerSetStatus: RequestState
   noticationMessage: NotificationMessageState
   developers: DevelopersRootState
-  webhooksTopics: WebhooksTopicsRootState
-  webhooksSubscriptions: WebhooksSubscriptionsRootState
-  webhookLogs: WebhookLogRootState
   currentMember: CurrentMemberRootState
 }

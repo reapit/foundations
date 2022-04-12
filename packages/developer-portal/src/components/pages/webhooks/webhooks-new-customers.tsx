@@ -1,7 +1,6 @@
 import {
   BodyText,
   MultiSelectInput,
-  Loader,
   MultiSelectOption,
   FormLayout,
   InputGroup,
@@ -10,11 +9,10 @@ import {
   InputWrapMed,
 } from '@reapit/elements'
 import React, { FC, useMemo } from 'react'
-import { useSelector } from 'react-redux'
-import { selectCustomers, selectLoading } from '../../../selector/webhooks-subscriptions'
 import { DeepMap, FieldError, UseFormGetValues, UseFormRegister } from 'react-hook-form'
 import { InstallationModel } from '@reapit/foundations-ts-definitions'
 import { CreateWebhookFormSchema } from './webhooks-new'
+import { useWebhooksState } from './state/use-webhooks-state'
 
 interface WebhooksNewCustomersProps {
   register: UseFormRegister<CreateWebhookFormSchema>
@@ -32,7 +30,7 @@ export const ALL_CLIENTS = {
   value: 'ALL',
 }
 
-export const handleCustomersToOptions = (installations: InstallationModel[]) => () => {
+export const handleInstallationsToOptions = (installations: InstallationModel[]) => () => {
   const customers = installations
     .map(({ customerName, customerId, status }) => {
       if (status === 'Active') {
@@ -55,9 +53,9 @@ export const handleCustomersToOptions = (installations: InstallationModel[]) => 
 }
 
 export const WebhooksNewCustomers: FC<WebhooksNewCustomersProps> = ({ register, getValues, errors }) => {
-  const customers = useSelector(selectCustomers)
-  const isLoading = useSelector(selectLoading)
-  const customerOptions = useMemo(handleCustomersToOptions(customers), [customers])
+  const { webhooksDataState } = useWebhooksState()
+  const { installations } = webhooksDataState
+  const customerOptions = useMemo(handleInstallationsToOptions(installations?.data ?? []), [installations])
   const selectedCustomers = getValues().customerIds?.split(',').filter(Boolean) ?? [SANDBOX_CLIENT.value]
 
   return (
@@ -70,22 +68,16 @@ export const WebhooksNewCustomers: FC<WebhooksNewCustomersProps> = ({ register, 
       </BodyText>
       <FormLayout className={elFadeIn}>
         <InputWrapMed>
-          {isLoading ? (
-            <Loader label="Loading" />
-          ) : (
-            <InputGroup>
-              <MultiSelectInput
-                id="customer-ids"
-                noneSelectedLabel={
-                  errors.customerIds ? errors.customerIds.message : 'Please select from the list below'
-                }
-                options={customerOptions}
-                defaultValues={selectedCustomers}
-                {...register('customerIds')}
-              />
-              <Label>Subscription Customers</Label>
-            </InputGroup>
-          )}
+          <InputGroup>
+            <MultiSelectInput
+              id="customer-ids"
+              noneSelectedLabel={errors.customerIds ? errors.customerIds.message : 'Please select from the list below'}
+              options={customerOptions}
+              defaultValues={selectedCustomers}
+              {...register('customerIds')}
+            />
+            <Label>Subscription Customers</Label>
+          </InputGroup>
         </InputWrapMed>
       </FormLayout>
     </>

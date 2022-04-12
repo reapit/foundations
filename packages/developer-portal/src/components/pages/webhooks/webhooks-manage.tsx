@@ -1,22 +1,12 @@
 import { elMb11, Loader, Pagination, PersistantNotification, RowProps, StatusIndicator, Table } from '@reapit/elements'
-import React, { Dispatch, FC, SetStateAction, useEffect, useMemo, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { Dispatch, FC, SetStateAction, useMemo, useState } from 'react'
 import { InstallationModel } from '@reapit/foundations-ts-definitions'
-import { fetchWebhooksSubscriptions } from '../../../actions/webhooks-subscriptions'
-import {
-  selectCustomers,
-  selectLoading,
-  selectSubscriptionsData,
-  selectSubscriptionsLoading,
-  selectWebhookSubscriptionTopics,
-} from '../../../selector/webhooks-subscriptions'
-import { TopicModel, WebhookModel } from '../../../services/webhooks'
-import { WebhookQueryParams } from './webhooks'
+import { TopicModel, WebhookModel, WebhookModelPagedResult } from '../../../services/webhooks'
 import { WebhooksEditControls } from './webhooks-edit-controls'
-
-export interface WebhooksManageProps {
-  webhookQueryParams: WebhookQueryParams
-}
+import { useWebhooksState } from './state/use-webhooks-state'
+import { useReapitGet } from '@reapit/utils-react'
+import { GetActionNames, getActions } from '@reapit/utils-common'
+import { reapitConnectBrowserSession } from '../../../core/connect-session'
 
 export enum ExpandableContentType {
   Controls,
@@ -32,13 +22,13 @@ export const renderTopicName = (topics: TopicModel[], subscriptionTopicIds?: str
     .join(' ')
 }
 
-export const renderCustomerName = (customers: InstallationModel[], customerIds?: string[]): string => {
+export const renderCustomerName = (installations: InstallationModel[], customerIds?: string[]): string => {
   if (customerIds && customerIds.length) {
     const uniqueIds = [...new Set(customerIds)]
     return uniqueIds
       .map((id) => {
         if (id === 'SBOX') return 'Sandbox Estates (SBOX)'
-        const foundCustomer = customers.find((customer) => customer.customerId === id)
+        const foundCustomer = installations.find((installation) => installation.customerId === id)
         if (foundCustomer) return `${foundCustomer.customerName} (${foundCustomer.client})`
       })
       .filter(Boolean)
@@ -54,7 +44,7 @@ export const handleSortTableData =
     expandableContentType: ExpandableContentType,
     subscriptions: WebhookModel[],
     topics: TopicModel[],
-    customers: InstallationModel[],
+    installations: InstallationModel[],
   ) =>
   (): RowProps[] => {
     return subscriptions.map((subscription: WebhookModel) => ({
@@ -70,7 +60,7 @@ export const handleSortTableData =
         },
         {
           label: 'Customer',
-          value: renderCustomerName(customers, subscription.customerIds),
+          value: renderCustomerName(installations, subscription.customerIds),
         },
         {
           label: 'Status',
@@ -96,45 +86,42 @@ export const handleSortTableData =
     }))
   }
 
-export const WebhooksManage: FC<WebhooksManageProps> = ({ webhookQueryParams }) => {
-  const dispatch = useDispatch()
+export const WebhooksManage: FC = () => {
+  const { webhooksFilterState, webhooksDataState } = useWebhooksState()
   const [pageNumber, setPageNumber] = useState<number>(1)
   const [expandableContentType, setExpandableContentType] = useState<ExpandableContentType>(
     ExpandableContentType.Controls,
   )
   const [indexExpandedRow, setIndexExpandedRow] = useState<number | null>(null)
-  const subscriptionsData = useSelector(selectSubscriptionsData)
-  const subscriptionsLoading = useSelector(selectSubscriptionsLoading)
-  const customers = useSelector(selectCustomers)
-  const customersLoading = useSelector(selectLoading)
-  const topics = useSelector(selectWebhookSubscriptionTopics)
-  const { applicationId } = webhookQueryParams
+  const { installations, topics } = webhooksDataState
+  const { applicationId } = webhooksFilterState
+
+  const [subscriptions, subscriptionsLoading] = useReapitGet<WebhookModelPagedResult>({
+    reapitConnectBrowserSession,
+    action: getActions(window.reapit.config.appEnv)[GetActionNames.getWebhookSubscriptions],
+    queryParams: { applicationId, pageSize: 12, pageNumber },
+    fetchWhenTrue: [applicationId],
+  })
 
   const rows = useMemo(
     handleSortTableData(
       setExpandableContentType,
       setIndexExpandedRow,
       expandableContentType,
-      subscriptionsData?._embedded ?? [],
-      topics,
-      customers,
+      subscriptions?._embedded ?? [],
+      topics?._embedded ?? [],
+      installations?.data ?? [],
     ),
-    [subscriptionsData, topics, customers, expandableContentType],
+    [subscriptions, topics, installations, expandableContentType],
   )
 
-  useEffect(() => {
-    if (applicationId) {
-      dispatch(fetchWebhooksSubscriptions({ applicationId: [applicationId] as string[], pageNumber }))
-    }
-  }, [applicationId, pageNumber])
-
-  if (!webhookQueryParams.applicationId)
+  if (!applicationId)
     return (
       <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
         No app selected. Please use the filter option to select an app.
       </PersistantNotification>
     )
-  if (subscriptionsLoading || customersLoading) return <Loader label="loading" />
+  if (subscriptionsLoading) return <Loader label="loading" />
   if (!rows.length)
     return (
       <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
@@ -152,7 +139,7 @@ export const WebhooksManage: FC<WebhooksManageProps> = ({ webhookQueryParams }) 
       <Pagination
         callback={setPageNumber}
         currentPage={pageNumber}
-        numberPages={Math.ceil((subscriptionsData?.totalCount ?? 1) / (subscriptionsData?.pageSize ?? 1))}
+        numberPages={Math.ceil((subscriptions?.totalCount ?? 1) / (subscriptions?.pageSize ?? 1))}
       />
     </>
   )

@@ -51,4 +51,8 @@ export enum PathNames {
   subscriptions = '/marketplace/subscriptions',
   subscriptionsById = '/marketplace/subscriptions/{subscriptionId}',
   webhooksPing = '/webhooks/subscriptions/{subscriptionId}/ping',
+  webhookSubscriptions = '/webhooks/subscriptions',
+  webhookSubscriptionsId = '/webhooks/subscriptions/{webhookId}',
+  webhookTopics = '/webhooks/topics',
+  webhookLogs = '/webhooks/logs',
 }

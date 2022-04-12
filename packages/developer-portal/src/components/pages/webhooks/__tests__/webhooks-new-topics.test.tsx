@@ -1,10 +1,11 @@
 import React, { ChangeEvent } from 'react'
-import { handleFetchTopics, handleSearchTopics, WebhooksNewTopics } from '../webhooks-new-topics'
+import { handleSearchTopics, WebhooksNewTopics } from '../webhooks-new-topics'
 import { render } from '../../../../tests/react-testing'
 import { CreateWebhookFormSchema } from '../webhooks-new'
 import { UseFormGetValues } from 'react-hook-form'
 import { TopicModel } from '../../../../services/webhooks'
-import { fetchWebhooksTopics } from '../../../../actions/webhooks-topics'
+
+jest.mock('../state/use-webhooks-state')
 
 describe('WebhooksNewTopics', () => {
   const getValues = jest.fn(() => ({
@@ -101,23 +102,5 @@ describe('handleSearchTopics', () => {
 
     expect(setFilteredTopics).toHaveBeenCalledWith([topics[0]])
     expect(setSearch).toHaveBeenCalledWith('')
-  })
-})
-
-describe('handleFetchTopics', () => {
-  it('should fetch topics if not loading', () => {
-    const dispatch = jest.fn()
-    const curried = handleFetchTopics(dispatch, false, 'SOME_ID')
-    curried()
-
-    expect(dispatch).toHaveBeenCalledWith(fetchWebhooksTopics({ applicationId: 'SOME_ID', pageNumber: 1 }))
-  })
-
-  it('should not fetch topics if  loading', () => {
-    const dispatch = jest.fn()
-    const curried = handleFetchTopics(dispatch, true, 'SOME_ID')
-    curried()
-
-    expect(dispatch).not.toHaveBeenCalled()
   })
 })
