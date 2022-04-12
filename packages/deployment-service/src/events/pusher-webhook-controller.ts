@@ -9,7 +9,7 @@ export class PusherWebhookController {
   async auth(@Body() body) {
     const { socket_id, channel_name } = body
 
-    // TODO resolve creds
+    // TODO add auth headers
 
     return this.pusherProvider.authenticate(socket_id, channel_name)
   }
