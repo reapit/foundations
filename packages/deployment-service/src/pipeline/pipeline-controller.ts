@@ -3,21 +3,23 @@ import {
   Get,
   Param,
   NotFoundException,
-  Req,
   Query,
   Post,
   Body,
   BadRequestException,
   Delete,
   UnprocessableEntityException,
+  UseGuards,
 } from '@nestjs/common'
-import { OwnershipProvider, AuthenticatedRequest } from '../auth'
+import { OwnershipProvider } from '../auth'
 import { PipelineProvider } from './pipeline-provider'
 import { PipelineDto } from '../dto'
 import { PipelineEntity } from '../entities/pipeline.entity'
 import { Pagination } from 'nestjs-typeorm-paginate'
 import { EventDispatcher, PusherProvider } from '../events'
+import { CredGuard, Creds, CredsType } from '../auth'
 
+@UseGuards(CredGuard)
 @Controller('pipeline')
 export class PipelineController {
   constructor(
@@ -28,24 +30,21 @@ export class PipelineController {
   ) {}
 
   @Get('/:id')
-  async index(@Param('id') id: string, @Req() request: AuthenticatedRequest) {
+  async index(@Param('id') id: string, @Creds() creds: CredsType) {
     const pipeline = await this.pipelineProvider.findById(id)
 
     if (!pipeline) {
       throw new NotFoundException()
     }
 
-    this.ownershipProvider.check(pipeline, request.user.developerId as string)
+    this.ownershipProvider.check(pipeline, creds.developerId as string)
 
     return pipeline
   }
 
   @Get()
-  async paginate(
-    @Query('page') page: number = 1,
-    @Req() request: AuthenticatedRequest,
-  ): Promise<Pagination<PipelineEntity>> {
-    return this.pipelineProvider.paginate(page, request.user.developerId as string)
+  async paginate(@Query('page') page: number = 1, @Creds() creds: CredsType): Promise<Pagination<PipelineEntity>> {
+    return this.pipelineProvider.paginate(page, creds.developerId as string)
   }
 
   @Post()
@@ -77,11 +76,7 @@ export class PipelineController {
   }
 
   @Post(':id')
-  async edit(
-    id: string,
-    @Req() request: AuthenticatedRequest,
-    @Body() dto: PipelineDto,
-  ): Promise<PipelineEntity | never> {
+  async edit(id: string, @Creds() creds: CredsType, @Body() dto: PipelineDto): Promise<PipelineEntity | never> {
     let setupInfra = false
 
     const pipeline = await this.pipelineProvider.findById(id)
@@ -90,7 +85,7 @@ export class PipelineController {
       throw new NotFoundException()
     }
 
-    this.ownershipProvider.check(pipeline, request.user.developerId as string)
+    this.ownershipProvider.check(pipeline, creds.developerId as string)
 
     if (
       ['PRE_PROVISIONED', 'FAILED_TO_PROVISION'].includes(pipeline.buildStatus as string) &&
@@ -111,14 +106,14 @@ export class PipelineController {
   }
 
   @Delete(':id')
-  async deletePipeline(id: string, @Req() request: AuthenticatedRequest): Promise<PipelineEntity> {
+  async deletePipeline(id: string, @Creds() creds: CredsType): Promise<PipelineEntity> {
     const pipeline = await this.pipelineProvider.findById(id)
 
     if (!pipeline) {
       throw new NotFoundException()
     }
 
-    this.ownershipProvider.check(pipeline, request.user.developerId as string)
+    this.ownershipProvider.check(pipeline, creds.developerId as string)
 
     if (!pipeline.isPipelineDeletable) {
       throw new UnprocessableEntityException('Cannot delete pipeline in current build status')
