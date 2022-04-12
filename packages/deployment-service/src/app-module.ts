@@ -12,6 +12,7 @@ import { GithubModule } from './github'
 import config from '../config.json'
 import { AppEventModule } from './app-event'
 import { BitbucketModule } from './bitbucket'
+import { DefaultHeaderInterceptor } from './default-header-interceptor'
 
 process.env = {
   ...process.env,
@@ -39,6 +40,7 @@ process.env = {
     AppEventModule,
     BitbucketModule,
   ],
+  providers: [DefaultHeaderInterceptor],
   exports: [EventModule, AuthModule, GithubModule],
 })
 export class AppModule {}
