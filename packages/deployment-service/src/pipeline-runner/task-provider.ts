@@ -18,4 +18,11 @@ export class TaskProvider {
 
     if (tasks.length >= 1) await this.repository.delete(tasks.map((task) => task.id as string))
   }
+
+  async update(task: TaskEntity, dto: Partial<TaskEntity>): Promise<TaskEntity> {
+    return this.repository.save({
+      ...task,
+      ...dto,
+    })
+  }
 }

@@ -16,7 +16,7 @@ import { PipelineProvider } from './pipeline-provider'
 import { PipelineDto } from '../dto'
 import { PipelineEntity } from '../entities/pipeline.entity'
 import { Pagination } from 'nestjs-typeorm-paginate'
-import { PusherProvider } from '../events'
+import { EventDispatcher, PusherProvider } from '../events'
 
 @Controller('pipeline')
 export class PipelineController {
@@ -24,6 +24,7 @@ export class PipelineController {
     private readonly pipelineProvider: PipelineProvider,
     private readonly ownershipProvider: OwnershipProvider,
     private readonly pusherProvider: PusherProvider,
+    private readonly eventDispatcher: EventDispatcher,
   ) {}
 
   @Get('/:id')
@@ -47,7 +48,6 @@ export class PipelineController {
     return this.pipelineProvider.paginate(page, request.user.developerId as string)
   }
 
-  // TODO implement valdation pipe globally
   @Post()
   async create(@Body() dto: PipelineDto): Promise<PipelineEntity> {
     const previousPipeline = await this.pipelineProvider.findById(dto.appId as string)
@@ -65,7 +65,7 @@ export class PipelineController {
     }
 
     if (!previousPipeline) {
-      await this.pipelineProvider.triggerPipelineSetup(pipeline)
+      await this.eventDispatcher.triggerPipelineSetup(pipeline)
     } else {
       await this.pusherProvider.trigger(`private-${pipeline.developerId}`, 'pipeline-update', {
         ...pipeline,
@@ -76,7 +76,6 @@ export class PipelineController {
     return pipeline
   }
 
-  // TODO requires validation pipe
   @Post(':id')
   async edit(
     id: string,
@@ -105,7 +104,7 @@ export class PipelineController {
     await this.pusherProvider.trigger(`private-${pipeline.developerId}`, 'pipeline-update', updatedPipeline)
 
     if (setupInfra) {
-      await this.pipelineProvider.triggerPipelineSetup(updatedPipeline)
+      await this.eventDispatcher.triggerPipelineSetup(updatedPipeline)
     }
 
     return updatedPipeline
@@ -131,7 +130,7 @@ export class PipelineController {
 
     await Promise.all([
       this.pusherProvider.trigger(`private-${pipeline?.developerId}`, 'pipeline-delete', updatedPipeline),
-      this.pipelineProvider.triggerPipelineTearDownStart(pipeline),
+      this.eventDispatcher.triggerPipelineTearDownStart(pipeline),
     ])
 
     return updatedPipeline

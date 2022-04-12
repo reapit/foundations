@@ -4,6 +4,7 @@ import { SQS } from 'aws-sdk'
 import { PusherProvider } from './pusher-provider'
 import Pusher from 'pusher'
 import { WorkflowHandlerProvider } from './workflow-handler-provider'
+import { EventDispatcher } from './event-dispatcher'
 
 @Module({
   providers: [
@@ -25,7 +26,8 @@ import { WorkflowHandlerProvider } from './workflow-handler-provider'
     },
     PusherProvider,
     WorkflowHandlerProvider,
+    EventDispatcher,
   ],
-  exports: [SqsProvider, PusherProvider],
+  exports: [SqsProvider, PusherProvider, EventDispatcher],
 })
 export class EventModule {}

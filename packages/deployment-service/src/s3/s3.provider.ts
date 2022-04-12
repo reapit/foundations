@@ -5,25 +5,12 @@ import { S3 } from 'aws-sdk'
 export class S3Provider {
   constructor(private readonly s3Client: S3) {}
 
-  upload(
-    Bucket: string,
-    Key: string,
-    Body: Buffer | string,
-    extra?: Partial<S3.PutObjectRequest>,
-  ): Promise<S3.ManagedUpload.SendData> {
+  upload(params: S3.PutObjectRequest): Promise<any> {
     return new Promise((resolve, reject) =>
-      this.s3Client.putObject(
-        {
-          Key,
-          Bucket,
-          Body,
-          ...extra,
-        },
-        (error, data) => {
-          if (error) reject(error)
-          resolve(data)
-        },
-      ),
+      this.s3Client.putObject(params, (error, data) => {
+        if (error) reject(error)
+        resolve(data)
+      }),
     )
   }
 
@@ -36,6 +23,15 @@ export class S3Provider {
       this.s3Client.deleteObject(params, (error) => {
         if (error) reject(error)
         resolve()
+      }),
+    )
+  }
+
+  getObject(params: S3.GetObjectRequest): Promise<S3.GetObjectOutput> {
+    return new Promise((resolve, reject) =>
+      this.s3Client.getObject(params, (error, data) => {
+        if (error) reject(error)
+        resolve(data)
       }),
     )
   }

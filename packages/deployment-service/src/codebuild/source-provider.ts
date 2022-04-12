@@ -62,11 +62,11 @@ export class SoruceProvider {
 
     const buffer = Buffer.from(await result.arrayBuffer())
 
-    const uploadResult = await this.s3Provider.upload(
-      process.env.DEPLOYMENT_REPO_CACHE_BUCKET_NAME as string,
-      `${pipelineRunner.id as string}.zip`,
-      buffer,
-    )
+    const uploadResult = await this.s3Provider.upload({
+      Bucket: process.env.DEPLOYMENT_REPO_CACHE_BUCKET_NAME as string,
+      Key: `${pipelineRunner.id as string}.zip`,
+      Body: buffer,
+    })
 
     return [process.env.DEPLOYMENT_REPO_CACHE_BUCKET_NAME as string, uploadResult.Key].join('/')
   }
@@ -87,11 +87,11 @@ export class SoruceProvider {
       repo: parts[parts.length - 1],
     })
 
-    const uploadResult = await this.s3Provider.upload(
-      process.env.DEPLOYMENT_REPO_CACHE_BUCKET_NAME as string,
-      `${pipelineRunner.id as string}.zip`,
-      Buffer.from(response.data as ArrayBuffer),
-    )
+    const uploadResult = await this.s3Provider.upload({
+      Bucket: process.env.DEPLOYMENT_REPO_CACHE_BUCKET_NAME as string,
+      Key: `${pipelineRunner.id as string}.zip`,
+      Body: Buffer.from(response.data as ArrayBuffer),
+    })
 
     return [process.env.DEPLOYMENT_REPO_CACHE_BUCKET_NAME as string, uploadResult.Key].join('/')
   }

@@ -1,5 +1,5 @@
 import { QueueNamesEnum } from '../constants'
-import { Workflow, AbstractWorkflow, SqsProvider } from '../events'
+import { Workflow, AbstractWorkflow, SqsProvider, EventDispatcher } from '../events'
 import {
   CloudFrontClient,
   DistributionConfig,
@@ -11,7 +11,11 @@ import { PipelineEntity } from '../entities/pipeline.entity'
 
 @Workflow(QueueNamesEnum.PIPELINE_TEAR_DOWN_START, () => PipelineEntity)
 export class PipelineTearDownStartWorkflow extends AbstractWorkflow<PipelineEntity> {
-  constructor(sqsProvider: SqsProvider, private readonly pipelineProvider: PipelineProvider) {
+  constructor(
+    sqsProvider: SqsProvider,
+    private readonly pipelineProvider: PipelineProvider,
+    private readonly eventDispatcher: EventDispatcher,
+  ) {
     super(sqsProvider)
   }
 
@@ -59,7 +63,7 @@ export class PipelineTearDownStartWorkflow extends AbstractWorkflow<PipelineEnti
       this.pipelineProvider.update(pipeline, {
         buildStatus: 'SCHEDULED_FOR_DELETION',
       }),
-      this.pipelineProvider.triggerPipelineTearDown(pipeline),
+      this.eventDispatcher.triggerPipelineTearDown(pipeline),
       this.deleteMessage(),
     ])
   }

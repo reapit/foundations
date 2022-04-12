@@ -41,8 +41,16 @@ export class PipelineRunnerProvider {
     })
   }
 
-  async findById(id: string): Promise<PipelineRunnerEntity | undefined> {
-    return this.repository.findOne(id)
+  async findById(
+    id: string,
+    extra?: {
+      relations: string[]
+    },
+  ): Promise<PipelineRunnerEntity | undefined> {
+    return this.repository.findOne({
+      where: { id },
+      ...extra,
+    })
   }
 
   async save(entity: PipelineRunnerEntity): Promise<PipelineRunnerEntity> {
@@ -51,6 +59,17 @@ export class PipelineRunnerProvider {
 
   async deleteForPipeline(pipeline: PipelineEntity): Promise<void> {
     await this.repository.delete(pipeline)
+  }
+
+  async resetCurrentlyDeployed(pipeline: PipelineEntity): Promise<void> {
+    await this.repository
+      .createQueryBuilder()
+      .update()
+      .set({
+        currentlyDeployed: false,
+      })
+      .where('pipelineId = :pipelineId', { pipelineId: pipeline.id })
+      .execute()
   }
 
   async pipelineRunnerCountRunning(pipeline: PipelineEntity): Promise<number> {

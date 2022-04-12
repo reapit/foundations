@@ -166,16 +166,14 @@ export class PipelineSetupWorkflow extends AbstractWorkflow<PipelineEntity> {
   }
 
   private async s3Provision(pipeline: PipelineEntity): Promise<void> {
-    await this.s3Provider.upload(
-      process.env.DEPLOYMENT_LIVE_BUCKET_NAME as string,
-      `pipeline/${pipeline.uniqueRepoName}/index.html`,
-      '<html><body>Deployment required</body></html>',
-      {
-        Metadata: {
-          ['Content-Type']: 'text/html',
-        },
+    await this.s3Provider.upload({
+      Bucket: process.env.DEPLOYMENT_LIVE_BUCKET_NAME as string,
+      Key: `pipeline/${pipeline.uniqueRepoName}/index.html`,
+      Body: '<html><body>Deployment required</body></html>',
+      Metadata: {
+        ['Content-Type']: 'text/html',
       },
-    )
+    })
 
     await this.pusherProvider.trigger(`private-${pipeline.developerId}`, 'pipeline-update', {
       ...pipeline,
