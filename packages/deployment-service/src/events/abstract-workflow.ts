@@ -15,7 +15,7 @@ export abstract class AbstractWorkflow<T extends any> {
 
   abstract execute(payload: T): Promise<void | never>
 
-  protected deserialisePayload(payload: string) {
+  protected deserialisePayload(payload: string): T {
     if (Reflect.hasMetadata(WORKFLOW_TYPE, this)) {
       return plainToClass(Reflect.getMetadata(WORKFLOW_TYPE, this), payload)
     }

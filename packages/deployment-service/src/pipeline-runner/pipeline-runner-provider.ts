@@ -45,6 +45,10 @@ export class PipelineRunnerProvider {
     return this.repository.findOne(id)
   }
 
+  async save(entity: PipelineRunnerEntity): Promise<PipelineRunnerEntity> {
+    return this.repository.save(entity)
+  }
+
   async deleteForPipeline(pipeline: PipelineEntity): Promise<void> {
     await this.repository.delete(pipeline)
   }

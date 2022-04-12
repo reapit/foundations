@@ -8,6 +8,7 @@ import { TypeOrmModule } from '@nestjs/typeorm'
 import { ConfigModule, ConfigService } from '@nestjs/config'
 import databaseConfig from './config/db'
 import { MysqlConnectionOptions } from 'typeorm/driver/mysql/MysqlConnectionOptions'
+import { GithubModule } from './github-module'
 
 @Module({
   imports: [
@@ -24,7 +25,8 @@ import { MysqlConnectionOptions } from 'typeorm/driver/mysql/MysqlConnectionOpti
     PipelineModule,
     PipelineRunnerModule,
     S3Module,
+    GithubModule,
   ],
-  exports: [EventModule, AuthModule],
+  exports: [EventModule, AuthModule, GithubModule],
 })
 export class AppModule {}
