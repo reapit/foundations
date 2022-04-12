@@ -13,30 +13,6 @@ export const appState: ReduxState = {
     variant: '',
     message: '',
   },
-  developers: {
-    members: {
-      isLoading: false,
-      data: [],
-      inviteMember: {
-        isLoading: false,
-      },
-      disableMember: {
-        isLoading: false,
-      },
-      setAsAdmin: {
-        isLoading: false,
-      },
-    },
-    developerDetails: {
-      isLoading: false,
-      data: {},
-    },
-    memberDetails: {
-      isLoading: false,
-      data: {},
-      inviteStatus: 'PENDING',
-    },
-  },
   currentMember: {
     isLoading: false,
     data: {

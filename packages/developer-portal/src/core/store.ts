@@ -4,12 +4,10 @@ import { fork, all } from '@redux-saga/core/effects'
 import { ReduxState } from '../types/core'
 import error from '@/reducers/error'
 import developerSetStatus from '@/reducers/developer-set-status'
-import developersReducer from '@/reducers/developers'
 import noticationMessage from '@/reducers/notification-message'
 import { currentMemberReducer } from '@/reducers/current-member'
 import developerSetStatusSagas from '@/sagas/developer-set-status'
 import { injectSwitchModeToWindow } from '@reapit/elements-legacy'
-import developersSagas from '@/sagas/developers'
 import { currentMemberSagas } from '@/sagas/current-member'
 
 export class Store {
@@ -31,12 +29,11 @@ export class Store {
     error,
     developerSetStatus,
     noticationMessage,
-    developers: developersReducer,
     currentMember: currentMemberReducer,
   })
 
   static sagas = function* () {
-    yield all([fork(developerSetStatusSagas), fork(developersSagas), fork(currentMemberSagas)])
+    yield all([fork(developerSetStatusSagas), fork(currentMemberSagas)])
   }
 
   static composeEnhancers =

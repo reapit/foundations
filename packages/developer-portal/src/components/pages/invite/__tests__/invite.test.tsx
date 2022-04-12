@@ -1,27 +1,10 @@
 import React from 'react'
-import { shallow, mount } from 'enzyme'
+import { render } from '../../../../tests/react-testing'
 import Invite, { ModalFooter, ModalFooterProps, handleReject, handleSubmit } from '../invite'
-import configureStore from 'redux-mock-store'
-import appState from '@/reducers/__stubs__/app-state'
-import * as ReactRedux from 'react-redux'
-import { MemoryRouter } from 'react-router'
-import Routes from '@/constants/routes'
-import { rejectInviteMember, acceptInviteMember } from '@/actions/developers'
 
 describe('AcceptedModal', () => {
   it('should match snapshot', () => {
-    const mockStore = configureStore()
-    const store = mockStore(appState)
-
-    expect(
-      mount(
-        <ReactRedux.Provider store={store}>
-          <MemoryRouter initialEntries={[{ pathname: Routes.INVITE, key: 'inviteRoute' }]}>
-            <Invite />
-          </MemoryRouter>
-        </ReactRedux.Provider>,
-      ),
-    ).toMatchSnapshot()
+    expect(render(<Invite />)).toMatchSnapshot()
   })
 })
 
@@ -30,34 +13,30 @@ describe('ModalFooter', () => {
     const props = {
       onConfirm: jest.fn(),
       onReject: jest.fn(),
-      inviteStatus: 'PENDING',
+      isLoading: false,
     } as ModalFooterProps
-    expect(shallow(<ModalFooter {...props} />)).toMatchSnapshot()
+    expect(render(<ModalFooter {...props} />)).toMatchSnapshot()
   })
 })
 
 describe('handleReject', () => {
-  it('should run correctly', () => {
-    const dispatch = jest.fn()
-    const developerId = 'developerId'
-    const memberId = 'memberId'
-    const fn = handleReject(dispatch, developerId, memberId)
-    fn()
-    expect(dispatch).toBeCalledWith(rejectInviteMember({ developerId, memberId }))
+  it('should correctly submit', () => {
+    const rejectInvite = jest.fn()
+    const curried = handleReject(rejectInvite)
+    curried()
+    expect(rejectInvite).toHaveBeenCalledTimes(1)
   })
 })
 
 describe('handleSubmit', () => {
-  it('should run correctly', () => {
-    const dispatch = jest.fn()
-    const developerId = 'developerId'
-    const memberId = 'memberId'
+  it('should correctly submit', () => {
+    const acceptInvite = jest.fn()
     const params = {
       name: 'name',
       jobTitle: 'CTO',
     }
-    const fn = handleSubmit(dispatch, developerId, memberId)
-    fn(params)
-    expect(dispatch).toBeCalledWith(acceptInviteMember({ developerId, memberId, ...params }))
+    const curried = handleSubmit(acceptInvite)
+    curried(params)
+    expect(acceptInvite).toBeCalledWith(params)
   })
 })

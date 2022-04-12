@@ -30,6 +30,8 @@ export enum UpdateActionNames {
   createWebhook = 'createWebhook',
   updateWebhook = 'updateWebhook',
   deleteWebhook = 'deleteWebhook',
+  acceptInviteMember = 'acceptInviteMember',
+  rejectInviteMember = 'rejectInviteMember',
 }
 
 export type UpdateActions = { [key in UpdateActionNames]: UpdateAction }
@@ -158,5 +160,17 @@ export const updateActions = (appEnv: AppEnv): UpdateActions => ({
     path: PathNames.webhookSubscriptionsId,
     errorMessage: 'Failed to delete webhook, this has been logged. Please try again.',
     successMessage: 'Successfully deleted webhook',
+  },
+  [UpdateActionNames.acceptInviteMember]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.memberInviteAccept,
+    errorMessage: 'Failed to accept invite, this has been logged. Please try again.',
+    successMessage: 'Successfully accepted invite',
+  },
+  [UpdateActionNames.rejectInviteMember]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.memberInviteReject,
+    errorMessage: 'Failed to reject invite, this has been logged. Please try again.',
+    successMessage: 'Successfully rejected invite',
   },
 })

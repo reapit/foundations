@@ -55,4 +55,6 @@ export enum PathNames {
   webhookSubscriptionsId = '/webhooks/subscriptions/{webhookId}',
   webhookTopics = '/webhooks/topics',
   webhookLogs = '/webhooks/logs',
+  memberInviteAccept = '/marketplace/developers/{developerId}/members/{memberId}/accept',
+  memberInviteReject = '/marketplace/developers/{developerId}/members/{memberId}/reject',
 }

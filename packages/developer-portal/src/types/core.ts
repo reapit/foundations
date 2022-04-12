@@ -2,7 +2,6 @@ import Routes from '../constants/routes'
 import ActionTypes from '../constants/action-types'
 import { ErrorState } from '../reducers/error'
 import { NotificationMessageState } from '@/reducers/notification-message'
-import { DevelopersRootState } from '@/reducers/developers'
 import { CurrentMemberRootState } from '@/reducers/current-member'
 
 export type ModalProps = { visible: boolean; afterClose: () => void }
@@ -46,6 +45,5 @@ export interface ReduxState {
   error: ErrorState
   developerSetStatus: RequestState
   noticationMessage: NotificationMessageState
-  developers: DevelopersRootState
   currentMember: CurrentMemberRootState
 }

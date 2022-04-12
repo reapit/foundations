@@ -2,45 +2,34 @@ import React from 'react'
 import { ModalV2, Formik, Input, Form, Content, Button } from '@reapit/elements-legacy'
 import { getParamsFromPath } from '@/utils/client-url-params'
 import { useLocation } from 'react-router'
-import { useDispatch, useSelector } from 'react-redux'
-import { selectInviteMemberStatus } from '@/selector/developers'
-import { acceptInviteMember, rejectInviteMember } from '@/actions/developers'
 import AcceptedModal from './accepted'
 import RejectedModal from './rejected'
-import { InviteMemberStatus } from '@/reducers/developers/member-details'
-import { Dispatch } from 'redux'
+import { SendFunction, useReapitUpdate } from '@reapit/utils-react'
+import { AcceptInviteModel } from '@reapit/foundations-ts-definitions'
+import { reapitConnectBrowserSession } from '../../../core/connect-session'
+import { UpdateActionNames, updateActions } from '@reapit/utils-common'
 
-export const handleSubmit = (dispatch: Dispatch, developerId: string, memberId: string) => (values) => {
-  const params = {
-    developerId,
-    memberId,
-    ...values,
-  }
-  dispatch(acceptInviteMember(params))
+export const handleSubmit = (acceptInvite: SendFunction<AcceptInviteModel, boolean>) => (values: AcceptInviteModel) => {
+  acceptInvite(values)
 }
 
-export const handleReject = (dispatch: Dispatch, developerId: string, memberId: string) => () => {
-  const params = {
-    developerId,
-    memberId,
-  }
-  dispatch(rejectInviteMember(params))
+export const handleReject = (rejectInvite: SendFunction<undefined, boolean>) => () => {
+  rejectInvite(undefined)
 }
 
 export interface ModalFooterProps {
   onConfirm: () => void
   onReject: () => void
-  inviteStatus: InviteMemberStatus
+  isLoading: boolean
 }
 
-export const ModalFooter: React.FC<ModalFooterProps> = ({ onConfirm, onReject, inviteStatus }) => {
-  const isDisabled = inviteStatus == 'REJECTING' || inviteStatus == 'ACCEPTING'
+export const ModalFooter: React.FC<ModalFooterProps> = ({ onConfirm, onReject, isLoading }) => {
   return (
     <>
       <Button
         className="mr-2"
-        loading={inviteStatus === 'REJECTING'}
-        disabled={isDisabled}
+        loading={isLoading}
+        disabled={isLoading}
         key="close"
         type="button"
         variant="danger"
@@ -48,14 +37,7 @@ export const ModalFooter: React.FC<ModalFooterProps> = ({ onConfirm, onReject, i
       >
         Decline
       </Button>
-      <Button
-        variant="primary"
-        loading={inviteStatus === 'ACCEPTING'}
-        disabled={isDisabled}
-        key="submit"
-        type="submit"
-        onClick={onConfirm}
-      >
+      <Button variant="primary" loading={isLoading} disabled={isLoading} key="submit" type="submit" onClick={onConfirm}>
         Confirm
       </Button>
     </>
@@ -63,22 +45,36 @@ export const ModalFooter: React.FC<ModalFooterProps> = ({ onConfirm, onReject, i
 }
 
 export const Invite: React.FC = () => {
-  const dispatch = useDispatch()
   const location = useLocation()
-
   const queryParams = getParamsFromPath(location.search)
   const { developerId, memberId, memberName: name, memberJobTitle: jobTitle, organisationName: company } = queryParams
 
-  const inviteStatus = useSelector(selectInviteMemberStatus)
+  const [, acceptingInvite, acceptInvite, acceptInviteSuccess] = useReapitUpdate<AcceptInviteModel, boolean>({
+    reapitConnectBrowserSession,
+    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.acceptInviteMember],
+    method: 'POST',
+    uriParams: {
+      developerId,
+      memberId,
+    },
+  })
 
-  const onSubmit = handleSubmit(dispatch, developerId, memberId)
-  const onReject = handleReject(dispatch, developerId, memberId)
+  const [, rejectingInvite, rejectInvite, rejectInviteSuccess] = useReapitUpdate<undefined, boolean>({
+    reapitConnectBrowserSession,
+    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.rejectInviteMember],
+    method: 'POST',
+    uriParams: {
+      developerId,
+      memberId,
+    },
+  })
 
-  const isFormVisible = ['PENDING', 'ACCEPTING', 'REJECTING', 'ERROR'].includes(inviteStatus)
+  const onSubmit = handleSubmit(acceptInvite)
+  const onReject = handleReject(rejectInvite)
 
   return (
     <>
-      {isFormVisible && (
+      {!acceptInviteSuccess && !rejectInviteSuccess && (
         <Formik initialValues={{ name, jobTitle }} onSubmit={onSubmit}>
           {({ handleSubmit }) => {
             return (
@@ -87,7 +83,13 @@ export const Invite: React.FC = () => {
                 visible
                 isCentered
                 closable={false}
-                footer={<ModalFooter onConfirm={handleSubmit} onReject={onReject} inviteStatus={inviteStatus} />}
+                footer={
+                  <ModalFooter
+                    onConfirm={handleSubmit}
+                    onReject={onReject}
+                    isLoading={Boolean(acceptingInvite || rejectingInvite)}
+                  />
+                }
               >
                 <Content>
                   <p>You have been invited to join the &apos;{company}&apos; organisation on Reapit Foundations.</p>
@@ -108,8 +110,8 @@ export const Invite: React.FC = () => {
           }}
         </Formik>
       )}
-      <AcceptedModal visible={inviteStatus === 'ACCEPTED'} />
-      <RejectedModal visible={inviteStatus === 'REJECTED'} />
+      <AcceptedModal visible={Boolean(acceptInviteSuccess)} />
+      <RejectedModal visible={Boolean(rejectInviteSuccess)} />
     </>
   )
 }
