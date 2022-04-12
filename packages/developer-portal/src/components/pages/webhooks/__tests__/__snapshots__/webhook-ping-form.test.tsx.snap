@@ -39,11 +39,9 @@ Object {
                 >
                   None selected
                 </option>
-                <option
-                  value="SOME_ID"
-                >
-                  SOME_NAME
-                </option>
+                <option />
+                <option />
+                <option />
               </select>
             </div>
           </div>
@@ -121,11 +119,9 @@ Object {
               >
                 None selected
               </option>
-              <option
-                value="SOME_ID"
-              >
-                SOME_NAME
-              </option>
+              <option />
+              <option />
+              <option />
             </select>
           </div>
         </div>

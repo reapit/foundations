@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`WebhooksManage should match a snapshot where there are subscriptions 1`] = `
+exports[`ErrorBoundary should call the errorThrownComponent and sets the state to hasFailed when it catches 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -9,7 +9,7 @@ Object {
         class="ecbqyq6-el-snack-holder"
       />
       <div
-        class="epibvz0-el-intent-secondary evmehgn-el-is-active e1rlwnim-el-pn-is-full-width e10l30r1-el-pn-is-inline eiq7urd-el-persistant-notification"
+        class="e1vxext9-el-intent-danger evmehgn-el-is-active e1rlwnim-el-pn-is-full-width e10l30r1-el-pn-is-inline eiq7urd-el-persistant-notification"
       >
         <div
           class="e1f8chn8-el-pn-icon"
@@ -34,7 +34,7 @@ Object {
         <div
           class="e1mwx0ir-el-pn-content"
         >
-          No app selected. Please use the filter option to select an app.
+          Something went wrong here, try refreshing your page.
         </div>
       </div>
     </div>
@@ -44,7 +44,7 @@ Object {
       class="ecbqyq6-el-snack-holder"
     />
     <div
-      class="epibvz0-el-intent-secondary evmehgn-el-is-active e1rlwnim-el-pn-is-full-width e10l30r1-el-pn-is-inline eiq7urd-el-persistant-notification"
+      class="e1vxext9-el-intent-danger evmehgn-el-is-active e1rlwnim-el-pn-is-full-width e10l30r1-el-pn-is-inline eiq7urd-el-persistant-notification"
     >
       <div
         class="e1f8chn8-el-pn-icon"
@@ -69,9 +69,78 @@ Object {
       <div
         class="e1mwx0ir-el-pn-content"
       >
-        No app selected. Please use the filter option to select an app.
+        Something went wrong here, try refreshing your page.
       </div>
     </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`ErrorBoundary should match a snapshot when no error 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ecbqyq6-el-snack-holder"
+      />
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6-el-snack-holder"
+    />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

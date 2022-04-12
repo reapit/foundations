@@ -3,15 +3,14 @@ import { BodyText, InputGroup, ButtonGroup, Button, Table, elMb6 } from '@reapit
 import { useReapitGet, useReapitUpdate } from '@reapit/utils-react'
 import { GetActionNames, getActions, UpdateActionNames, updateActions } from '@reapit/utils-common'
 import React, { FC, useEffect } from 'react'
-import { useSelector } from 'react-redux'
 import { reapitConnectBrowserSession } from '../../../../core/connect-session'
 import { selectIsCustomer } from '../../../../selector/auth'
-import { selectCurrentMemberData } from '../../../../selector/current-member'
 import { DeveloperModel, MemberModelPagedResult, UpdateDeveloperModel } from '@reapit/foundations-ts-definitions'
 import { useForm } from 'react-hook-form'
 import { object, SchemaOf, string } from 'yup'
 import errorMessages from '../../../../constants/error-messages'
 import { yupResolver } from '@hookform/resolvers/yup'
+import { useGlobalState } from '../../../../core/use-global-state'
 
 interface SubmitReviewModalProps {
   developer: DeveloperModel
@@ -45,6 +44,7 @@ export const handleCloseModal =
   }
 
 export const SubmitReviewModal: FC<SubmitReviewModalProps> = ({ closeModal, refetchDeveloper, developer }) => {
+  const { globalDataState } = useGlobalState()
   const {
     register,
     handleSubmit,
@@ -60,7 +60,6 @@ export const SubmitReviewModal: FC<SubmitReviewModalProps> = ({ closeModal, refe
   })
 
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const currentUser = useSelector(selectCurrentMemberData)
 
   const [members] = useReapitGet<MemberModelPagedResult>({
     reapitConnectBrowserSession,
@@ -89,8 +88,9 @@ export const SubmitReviewModal: FC<SubmitReviewModalProps> = ({ closeModal, refe
 
   useEffect(handleCloseModal(closeModal, refetchDeveloper, updateDeveloperSuccess), [updateDeveloperSuccess])
 
+  const { currentMember } = globalDataState
   const isCustomer = selectIsCustomer(connectSession)
-  const userRole = currentUser.role
+  const userRole = currentMember?.role
   const orgStatus = developer.status
 
   if (!isCustomer) {

@@ -1,12 +1,12 @@
 import { useReapitConnect } from '@reapit/connect-session'
 import React from 'react'
-import { CurrentMemberRootState } from '../../../../../reducers/current-member'
-import { reduxTestState, render } from '../../../../../tests/react-testing'
+import { render } from '../../../../../tests/react-testing'
 import { mockDeveloperModel } from '../../../../../tests/__stubs__/developers'
 import { getTitle, handleCloseModal, SubmitReviewModal } from '../submit-review-modal'
 
 const mockUpdateDeveloper = jest.fn()
 jest.mock('../../state/use-app-state')
+jest.mock('../../../../../core/use-global-state')
 
 jest.mock('@reapit/utils-react', () => ({
   useReapitGet: jest.fn(() => [
@@ -68,28 +68,12 @@ describe('SubmitReviewModal', () => {
   })
 
   it('should match a snapshot where a customer and status is incomplete and user not an admin', () => {
-    reduxTestState.setState({
-      currentMember: {
-        data: {
-          role: 'user',
-          name: 'MOCK_USER',
-        },
-      } as CurrentMemberRootState,
-    })
     expect(
       render(<SubmitReviewModal closeModal={jest.fn()} developer={mockDeveloperModel} refetchDeveloper={jest.fn()} />),
     ).toMatchSnapshot()
   })
 
   it('should match a snapshot where a customer and status is incomplete and user is an admin', () => {
-    reduxTestState.setState({
-      currentMember: {
-        data: {
-          role: 'admin',
-          name: 'MOCK_USER',
-        },
-      } as CurrentMemberRootState,
-    })
     expect(
       render(<SubmitReviewModal closeModal={jest.fn()} developer={mockDeveloperModel} refetchDeveloper={jest.fn()} />),
     ).toMatchSnapshot()

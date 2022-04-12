@@ -238,25 +238,12 @@ Object {
             >
               <input
                 class="eg4njbl-el-multi-select-input"
-                id="topic-edit-ids-SOME_ID"
+                id="topic-edit-ids-MOCK_ID"
                 name="topicIds"
               />
               <div
                 class="e12c6sou-el-multi-select-selected"
-              >
-                <input
-                  checked=""
-                  class="e1wdkc9j-el-multi-select-checkbox"
-                  id="test-static-id"
-                  type="checkbox"
-                />
-                <label
-                  class="e1x92nc7-el-multi-select-label"
-                  for="test-static-id"
-                >
-                  SOME_NAME
-                </label>
-              </div>
+              />
             </div>
           </div>
           <div
@@ -272,25 +259,12 @@ Object {
             >
               <input
                 class="eg4njbl-el-multi-select-input"
-                id="customer-edit-ids-SOME_ID"
+                id="customer-edit-ids-MOCK_ID"
                 name="customerIds"
               />
               <div
                 class="e12c6sou-el-multi-select-selected"
-              >
-                <input
-                  checked=""
-                  class="e1wdkc9j-el-multi-select-checkbox"
-                  id="test-static-id"
-                  type="checkbox"
-                />
-                <label
-                  class="e1x92nc7-el-multi-select-label"
-                  for="test-static-id"
-                >
-                  SOME_NAME
-                </label>
-              </div>
+              />
               <div
                 class="ef7odf0-el-multi-select-un-selected"
               >
@@ -316,6 +290,28 @@ Object {
                 >
                   Sandbox Estates
                 </label>
+                <input
+                  class="e1wdkc9j-el-multi-select-checkbox"
+                  id="test-static-id"
+                  type="checkbox"
+                />
+                <label
+                  class="ehgp5gp-el-has-grey-chips e1x92nc7-el-multi-select-label"
+                  for="test-static-id"
+                >
+                  Reapit Sales
+                </label>
+                <input
+                  class="e1wdkc9j-el-multi-select-checkbox"
+                  id="test-static-id"
+                  type="checkbox"
+                />
+                <label
+                  class="ehgp5gp-el-has-grey-chips e1x92nc7-el-multi-select-label"
+                  for="test-static-id"
+                >
+                  Foo Bar
+                </label>
               </div>
             </div>
           </div>
@@ -329,13 +325,13 @@ Object {
             </label>
             <input
               class="e1ih6lkl-el-toggle-checkbox"
-              id="status-edit-toggle-SOME_ID"
+              id="status-edit-toggle-MOCK_ID"
               name="active"
               type="checkbox"
             />
             <label
               class="ehi76vp-el-has-grey-bg e1ott14k-el-toggle-label"
-              for="status-edit-toggle-SOME_ID"
+              for="status-edit-toggle-MOCK_ID"
             >
               <span
                 class="e18omfqv-el-toggle-item"
@@ -499,25 +495,12 @@ Object {
           >
             <input
               class="eg4njbl-el-multi-select-input"
-              id="topic-edit-ids-SOME_ID"
+              id="topic-edit-ids-MOCK_ID"
               name="topicIds"
             />
             <div
               class="e12c6sou-el-multi-select-selected"
-            >
-              <input
-                checked=""
-                class="e1wdkc9j-el-multi-select-checkbox"
-                id="test-static-id"
-                type="checkbox"
-              />
-              <label
-                class="e1x92nc7-el-multi-select-label"
-                for="test-static-id"
-              >
-                SOME_NAME
-              </label>
-            </div>
+            />
           </div>
         </div>
         <div
@@ -533,25 +516,12 @@ Object {
           >
             <input
               class="eg4njbl-el-multi-select-input"
-              id="customer-edit-ids-SOME_ID"
+              id="customer-edit-ids-MOCK_ID"
               name="customerIds"
             />
             <div
               class="e12c6sou-el-multi-select-selected"
-            >
-              <input
-                checked=""
-                class="e1wdkc9j-el-multi-select-checkbox"
-                id="test-static-id"
-                type="checkbox"
-              />
-              <label
-                class="e1x92nc7-el-multi-select-label"
-                for="test-static-id"
-              >
-                SOME_NAME
-              </label>
-            </div>
+            />
             <div
               class="ef7odf0-el-multi-select-un-selected"
             >
@@ -577,6 +547,28 @@ Object {
               >
                 Sandbox Estates
               </label>
+              <input
+                class="e1wdkc9j-el-multi-select-checkbox"
+                id="test-static-id"
+                type="checkbox"
+              />
+              <label
+                class="ehgp5gp-el-has-grey-chips e1x92nc7-el-multi-select-label"
+                for="test-static-id"
+              >
+                Reapit Sales
+              </label>
+              <input
+                class="e1wdkc9j-el-multi-select-checkbox"
+                id="test-static-id"
+                type="checkbox"
+              />
+              <label
+                class="ehgp5gp-el-has-grey-chips e1x92nc7-el-multi-select-label"
+                for="test-static-id"
+              >
+                Foo Bar
+              </label>
             </div>
           </div>
         </div>
@@ -590,13 +582,13 @@ Object {
           </label>
           <input
             class="e1ih6lkl-el-toggle-checkbox"
-            id="status-edit-toggle-SOME_ID"
+            id="status-edit-toggle-MOCK_ID"
             name="active"
             type="checkbox"
           />
           <label
             class="ehi76vp-el-has-grey-bg e1ott14k-el-toggle-label"
-            for="status-edit-toggle-SOME_ID"
+            for="status-edit-toggle-MOCK_ID"
           >
             <span
               class="e18omfqv-el-toggle-item"
@@ -731,11 +723,9 @@ Object {
                 >
                   None selected
                 </option>
-                <option
-                  value="SOME_ID"
-                >
-                  SOME_NAME
-                </option>
+                <option />
+                <option />
+                <option />
               </select>
             </div>
           </div>
@@ -813,11 +803,9 @@ Object {
               >
                 None selected
               </option>
-              <option
-                value="SOME_ID"
-              >
-                SOME_NAME
-              </option>
+              <option />
+              <option />
+              <option />
             </select>
           </div>
         </div>

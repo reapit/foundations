@@ -1,10 +1,13 @@
+import { mockDeveloperModel } from '../../tests/__stubs__/developers'
 import { mockMemberModel } from '../../tests/__stubs__/members'
 
-export const mockSettingsState = {
-  settingsDataState: {
+export const mockGlobalState = {
+  globalDataState: {
     currentMember: mockMemberModel,
+    currentDeveloper: mockDeveloperModel,
   },
-  settingsRefreshCurrentMember: jest.fn(),
+  globalRefreshCurrentMember: jest.fn(),
+  globalRefreshCurrentDeveloper: jest.fn(),
 }
 
-export const useSettingsState = jest.fn(() => mockSettingsState)
+export const useGlobalState = jest.fn(() => mockGlobalState)

@@ -62,6 +62,11 @@ Object {
             >
               Subscription Topics
             </label>
+            <span
+              class="e1ymtwpu-el-intent-low e15fmnse-el-input-add-on"
+            >
+              Search to get started
+            </span>
           </div>
           <div
             class="eooz7jy-el-multi-select-input-wrapper"
@@ -72,20 +77,7 @@ Object {
             />
             <div
               class="e12c6sou-el-multi-select-selected"
-            >
-              <input
-                checked=""
-                class="e1wdkc9j-el-multi-select-checkbox"
-                id="test-static-id"
-                type="checkbox"
-              />
-              <label
-                class="e1x92nc7-el-multi-select-label"
-                for="test-static-id"
-              >
-                SOME_NAME
-              </label>
-            </div>
+            />
           </div>
         </div>
       </div>
@@ -149,6 +141,11 @@ Object {
           >
             Subscription Topics
           </label>
+          <span
+            class="e1ymtwpu-el-intent-low e15fmnse-el-input-add-on"
+          >
+            Search to get started
+          </span>
         </div>
         <div
           class="eooz7jy-el-multi-select-input-wrapper"
@@ -159,20 +156,7 @@ Object {
           />
           <div
             class="e12c6sou-el-multi-select-selected"
-          >
-            <input
-              checked=""
-              class="e1wdkc9j-el-multi-select-checkbox"
-              id="test-static-id"
-              type="checkbox"
-            />
-            <label
-              class="e1x92nc7-el-multi-select-label"
-              for="test-static-id"
-            >
-              SOME_NAME
-            </label>
-          </div>
+          />
         </div>
       </div>
     </div>
@@ -293,6 +277,11 @@ Object {
             >
               Subscription Topics
             </label>
+            <span
+              class="e1ymtwpu-el-intent-low e15fmnse-el-input-add-on"
+            >
+              Search to get started
+            </span>
           </div>
           <div
             class="eooz7jy-el-multi-select-input-wrapper"
@@ -303,20 +292,7 @@ Object {
             />
             <div
               class="e12c6sou-el-multi-select-selected"
-            >
-              <input
-                checked=""
-                class="e1wdkc9j-el-multi-select-checkbox"
-                id="test-static-id"
-                type="checkbox"
-              />
-              <label
-                class="e1x92nc7-el-multi-select-label"
-                for="test-static-id"
-              >
-                SOME_NAME
-              </label>
-            </div>
+            />
           </div>
         </div>
       </div>
@@ -380,6 +356,11 @@ Object {
           >
             Subscription Topics
           </label>
+          <span
+            class="e1ymtwpu-el-intent-low e15fmnse-el-input-add-on"
+          >
+            Search to get started
+          </span>
         </div>
         <div
           class="eooz7jy-el-multi-select-input-wrapper"
@@ -390,20 +371,7 @@ Object {
           />
           <div
             class="e12c6sou-el-multi-select-selected"
-          >
-            <input
-              checked=""
-              class="e1wdkc9j-el-multi-select-checkbox"
-              id="test-static-id"
-              type="checkbox"
-            />
-            <label
-              class="e1x92nc7-el-multi-select-label"
-              for="test-static-id"
-            >
-              SOME_NAME
-            </label>
-          </div>
+          />
         </div>
       </div>
     </div>

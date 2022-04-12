@@ -2,7 +2,7 @@ import React from 'react'
 import { render } from '../../../../../tests/react-testing'
 import { Controls, handleLogout } from '../controls'
 
-jest.mock('../../state/use-settings-state')
+jest.mock('../../../../../core/use-global-state')
 
 describe('Controls', () => {
   it('should match a snapshot', () => {

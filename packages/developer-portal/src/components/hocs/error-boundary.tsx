@@ -1,28 +1,14 @@
-import * as React from 'react'
+import React from 'react'
 import * as Sentry from '@sentry/browser'
-import { connect } from 'react-redux'
-import { ReduxState } from '../../types/core'
-import { ErrorData } from '../../reducers/error'
-import { errorThrownComponent } from '../../actions/error'
-import { Dispatch } from 'redux'
-import errorMessages from '../../constants/error-messages'
-
-interface ErrorMappedActions {
-  errorThrownComponent: (error: ErrorData) => void
-}
-
-interface ErrorMappedProps {
-  componentError: ErrorData | null
-}
+import { PersistantNotification } from '@reapit/elements'
 
 export interface ErrorState {
   hasFailed: boolean
 }
 
-export type ErrorProps = ErrorMappedActions &
-  ErrorMappedProps & {
-    children?: React.ReactNode
-  }
+export type ErrorProps = {
+  children?: React.ReactNode
+}
 
 export class ErrorBoundary extends React.Component<ErrorProps, ErrorState> {
   static getDerivedStateFromError() {
@@ -39,10 +25,6 @@ export class ErrorBoundary extends React.Component<ErrorProps, ErrorState> {
   }
 
   componentDidCatch(error: Error, info: React.ErrorInfo) {
-    this.props.errorThrownComponent({
-      type: 'COMPONENT',
-      message: errorMessages.DEFAULT_COMPONENT_ERROR,
-    })
     const isLocal = window.reapit.config.appEnv === 'local'
     if (!isLocal) {
       Sentry.withScope((scope) => {
@@ -54,19 +36,15 @@ export class ErrorBoundary extends React.Component<ErrorProps, ErrorState> {
 
   render() {
     if (this.state.hasFailed) {
-      return <p>Something went wrong here, try refreshing your page.</p>
+      return (
+        <PersistantNotification isFullWidth isExpanded isInline intent="danger">
+          Something went wrong here, try refreshing your page.
+        </PersistantNotification>
+      )
     }
 
     return this.props.children
   }
 }
 
-export const mapStateToProps = (state: ReduxState): ErrorMappedProps => ({
-  componentError: state.error.componentError,
-})
-
-export const mapDispatchToProps = (dispatch: Dispatch): ErrorMappedActions => ({
-  errorThrownComponent: (error: ErrorData) => dispatch(errorThrownComponent(error)),
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(ErrorBoundary)
+export default ErrorBoundary

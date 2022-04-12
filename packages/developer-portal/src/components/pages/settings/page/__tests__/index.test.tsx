@@ -2,7 +2,7 @@ import React from 'react'
 import { SettingsPage } from '../index'
 import { render } from '../../../../../tests/react-testing'
 
-jest.mock('../../state/use-settings-state')
+jest.mock('../../../../../core/use-global-state')
 
 describe('SettingsPage', () => {
   it('should match a snapshot', () => {

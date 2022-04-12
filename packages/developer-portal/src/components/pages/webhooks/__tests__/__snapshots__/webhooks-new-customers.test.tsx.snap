@@ -31,20 +31,7 @@ Object {
               />
               <div
                 class="e12c6sou-el-multi-select-selected"
-              >
-                <input
-                  checked=""
-                  class="e1wdkc9j-el-multi-select-checkbox"
-                  id="test-static-id"
-                  type="checkbox"
-                />
-                <label
-                  class="e1x92nc7-el-multi-select-label"
-                  for="test-static-id"
-                >
-                  SOME_NAME
-                </label>
-              </div>
+              />
               <div
                 class="ef7odf0-el-multi-select-un-selected"
               >
@@ -69,6 +56,28 @@ Object {
                   for="test-static-id"
                 >
                   Sandbox Estates
+                </label>
+                <input
+                  class="e1wdkc9j-el-multi-select-checkbox"
+                  id="test-static-id"
+                  type="checkbox"
+                />
+                <label
+                  class="ehgp5gp-el-has-grey-chips e1x92nc7-el-multi-select-label"
+                  for="test-static-id"
+                >
+                  Reapit Sales
+                </label>
+                <input
+                  class="e1wdkc9j-el-multi-select-checkbox"
+                  id="test-static-id"
+                  type="checkbox"
+                />
+                <label
+                  class="ehgp5gp-el-has-grey-chips e1x92nc7-el-multi-select-label"
+                  for="test-static-id"
+                >
+                  Foo Bar
                 </label>
               </div>
             </div>
@@ -109,20 +118,7 @@ Object {
             />
             <div
               class="e12c6sou-el-multi-select-selected"
-            >
-              <input
-                checked=""
-                class="e1wdkc9j-el-multi-select-checkbox"
-                id="test-static-id"
-                type="checkbox"
-              />
-              <label
-                class="e1x92nc7-el-multi-select-label"
-                for="test-static-id"
-              >
-                SOME_NAME
-              </label>
-            </div>
+            />
             <div
               class="ef7odf0-el-multi-select-un-selected"
             >
@@ -147,6 +143,28 @@ Object {
                 for="test-static-id"
               >
                 Sandbox Estates
+              </label>
+              <input
+                class="e1wdkc9j-el-multi-select-checkbox"
+                id="test-static-id"
+                type="checkbox"
+              />
+              <label
+                class="ehgp5gp-el-has-grey-chips e1x92nc7-el-multi-select-label"
+                for="test-static-id"
+              >
+                Reapit Sales
+              </label>
+              <input
+                class="e1wdkc9j-el-multi-select-checkbox"
+                id="test-static-id"
+                type="checkbox"
+              />
+              <label
+                class="ehgp5gp-el-has-grey-chips e1x92nc7-el-multi-select-label"
+                for="test-static-id"
+              >
+                Foo Bar
               </label>
             </div>
           </div>

@@ -4,6 +4,8 @@ import { render } from '../../../../tests/react-testing'
 import { ExpandableContentType } from '../webhooks-manage'
 import { mockWebhookModel } from '../../../../tests/__stubs__/webhooks'
 
+jest.mock('../state/use-webhooks-state')
+
 describe('WebhooksEditControls', () => {
   it('should match a snapshot with controls content', () => {
     expect(

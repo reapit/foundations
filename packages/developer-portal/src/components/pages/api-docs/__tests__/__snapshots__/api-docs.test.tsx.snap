@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ApiDocs should match a snapshot 1`] = `
-<Connect(ErrorBoundary)>
+<ErrorBoundary>
   <FlexContainer
     isFlexAuto={true}
   >
@@ -63,5 +63,5 @@ exports[`ApiDocs should match a snapshot 1`] = `
       />
     </PageContainer>
   </FlexContainer>
-</Connect(ErrorBoundary)>
+</ErrorBoundary>
 `;

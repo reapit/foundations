@@ -3,7 +3,7 @@ import { ProfileForm, handleRefreshMember } from '../profile-form'
 import { render } from '../../../../../tests/react-testing'
 import { mockSandboxModelPagedResult } from '../../../../../tests/__stubs__/standboxes'
 
-jest.mock('../../state/use-settings-state')
+jest.mock('../../../../../core/use-global-state')
 
 jest.mock('@reapit/utils-react', () => ({
   useReapitGet: jest.fn(() => [mockSandboxModelPagedResult, true]),

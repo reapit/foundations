@@ -1,8 +1,10 @@
 import React, { ChangeEvent } from 'react'
 import { getTabContent, handleChangeTab, WebhooksWrapper } from '../webhooks'
-import { reduxTestState, render } from '../../../../tests/react-testing'
+import { render } from '../../../../tests/react-testing'
 import Routes from '../../../../constants/routes'
 import { History } from 'history'
+
+jest.mock('../state/use-webhooks-state')
 
 const routes = [Routes.WEBHOOKS_NEW, Routes.WEBHOOKS_MANAGE, Routes.WEBHOOKS_LOGS, Routes.WEBHOOKS_ABOUT]
 
@@ -13,8 +15,6 @@ describe('WebhooksWrapper', () => {
       expect(render(<WebhooksWrapper />)).toMatchSnapshot()
     })
   })
-
-  reduxTestState.resetState()
 })
 
 describe('getTabContent', () => {

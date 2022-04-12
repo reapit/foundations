@@ -2,7 +2,7 @@ import React from 'react'
 import AppInstallations, { handleSetInstallationId, handleUninstallApp, handleUninstallSuccess } from '..'
 import { render } from '../../../../../tests/react-testing'
 import { useReapitGet } from '@reapit/utils-react'
-import { installationsStub as mockInstallations } from '../../../../../sagas/__stubs__/installations'
+import { mockInstallationModelPagedResult } from '../../../../../tests/__stubs__/installations'
 
 jest.mock('../../state/use-app-state')
 jest.mock('@reapit/utils-react', () => ({
@@ -14,7 +14,7 @@ const mockUseReapitGet = useReapitGet as jest.Mock
 
 describe('AppInstallations', () => {
   it('should match a snapshot', () => {
-    mockUseReapitGet.mockReturnValueOnce([{ ...mockInstallations }])
+    mockUseReapitGet.mockReturnValueOnce([{ ...mockInstallationModelPagedResult }])
 
     expect(render(<AppInstallations />)).toMatchSnapshot()
   })

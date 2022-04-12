@@ -6,7 +6,6 @@ import 'swagger-ui-react/swagger-ui.css'
 import { swagger, titleWrap, swaggerHidden } from './__styles__/swagger'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { StringMap } from '@reapit/elements-legacy'
-import { SandboxPopUp } from '@/components/ui/popup/sandbox-pop-up'
 import {
   SmallText,
   elWFull,
@@ -27,6 +26,7 @@ import {
   Select,
   BodyText,
   elMx9,
+  PersistantNotification,
 } from '@reapit/elements'
 import Routes from '../../../constants/routes'
 import { useHistory, useLocation } from 'react-router'
@@ -82,8 +82,22 @@ export const handleDefaultSwaggerDoc =
     setSwaggerUri(swaggerUri)
   }
 
+export const handleSandboxTimeout = (setSandboxVisible: Dispatch<SetStateAction<boolean>>) => () => {
+  const timeout = setTimeout(() => {
+    setSandboxVisible(false)
+  }, 5000)
+
+  return () => clearTimeout(timeout)
+}
+
+export const handleSandboxClick =
+  (setSandboxVisible: Dispatch<SetStateAction<boolean>>, sandboxVisibile: boolean) => () => {
+    setSandboxVisible(!sandboxVisibile)
+  }
+
 export const SwaggerPage: FC = () => {
   const [loading, setLoading] = useState(true)
+  const [sandboxVisible, setSandboxVisible] = useState(true)
   const [swaggerUri, setSwaggerUri] = useState<string | null>(null)
   const [productsList] = useReapitGet<ProductModelPagedResult>({
     reapitConnectBrowserSession,
@@ -92,6 +106,7 @@ export const SwaggerPage: FC = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
 
   useEffect(handleDefaultSwaggerDoc(setSwaggerUri, productsList, connectSession), [productsList, connectSession])
+  useEffect(handleSandboxTimeout(setSandboxVisible), [])
 
   const requestInterceptor = (params: InterceptorParams) => fetchInterceptor(params, connectSession?.accessToken)
   const location = useLocation()
@@ -180,8 +195,13 @@ export const SwaggerPage: FC = () => {
             docExpansion="none"
             requestInterceptor={requestInterceptor}
           />
-
-          <SandboxPopUp loading={loading} />
+          <PersistantNotification
+            onClick={handleSandboxClick(setSandboxVisible, sandboxVisible)}
+            isExpanded={sandboxVisible}
+            intent="primary"
+          >
+            This is a sandbox environment, with anonymised test data and isolated from production
+          </PersistantNotification>
         </div>
       </FlexContainer>
     </ErrorBoundary>

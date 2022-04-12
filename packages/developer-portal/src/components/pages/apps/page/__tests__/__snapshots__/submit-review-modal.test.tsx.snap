@@ -193,6 +193,71 @@ Object {
       <div
         class="ecbqyq6-el-snack-holder"
       />
+      <form>
+        <p
+          class="e15ggth7-el-body-text"
+        >
+          Any changes have been saved successfully.
+        </p>
+        <p
+          class="e15ggth7-el-body-text"
+        >
+          However, before an app can be submitted (either privately or publicly), we will first need to verify your account information as API Consumption charges will apply.
+        </p>
+        <div
+          class="ez8nkuq-el-mb6 e1979rmu-el-input-group"
+        >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            name="reapitReference"
+            placeholder="Enter your Reapit reference here"
+            type="text"
+          />
+          <label
+            class="e1nbkkrq-el-label"
+            for="test-static-id"
+          >
+            Reapit Reference
+          </label>
+        </div>
+        <p
+          class="e15ggth7-el-body-text"
+        >
+          You can find your Reapit Reference from any Reapit correspondence under the ‘Account’ section.
+        </p>
+        <p
+          class="e15ggth7-el-body-text"
+        >
+          The verification process is typically completed within 1 – 2 working days. You will be notified via email when this has been completed and you can continue with your app submission.
+        </p>
+        <div
+          class="eay05y4-el-button-group"
+        >
+          <div
+            class="e1i2en9o-el-button-group-align-right ebqwrow-el-button-group-inner"
+          >
+            <button
+              class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+            >
+              Close
+            </button>
+            <button
+              class="ebee6r1-el-intent-primary eqfkc7t-el-button"
+              type="submit"
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6-el-snack-holder"
+    />
+    <form>
       <p
         class="e15ggth7-el-body-text"
       >
@@ -201,116 +266,34 @@ Object {
       <p
         class="e15ggth7-el-body-text"
       >
-        However, before an app can be submitted (either privately or publicly), we will first need to verify your account information (which can only be submitted by an Admin) as API Consumption charges will apply.
-      </p>
-      <p
-        class="e15ggth7-el-body-text"
-      >
-        Please contact one of the Admins listed below:
+        However, before an app can be submitted (either privately or publicly), we will first need to verify your account information as API Consumption charges will apply.
       </p>
       <div
-        class="ez8nkuq-el-mb6 elkdvoz-el-table"
-        data-has-call-to-action="false"
-        data-has-expandable-action="false"
+        class="ez8nkuq-el-mb6 e1979rmu-el-input-group"
       >
-        <div
-          class="e1co3p83-el-table-headers-row"
+        <input
+          class="e1urjlvd-el-input"
+          id="test-static-id"
+          name="reapitReference"
+          placeholder="Enter your Reapit reference here"
+          type="text"
+        />
+        <label
+          class="e1nbkkrq-el-label"
+          for="test-static-id"
         >
-          <div
-            class="e1qy4g2u-el-table-header"
-          >
-            Name
-          </div>
-          <div
-            class="e1qy4g2u-el-table-header"
-          >
-            Email Admin
-          </div>
-        </div>
-        <div
-          class="e1gfmg2g-el-table-row-container"
-        >
-          <div
-            class="es3tf1j-el-table-row"
-          >
-            <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
-            >
-              <span
-                class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
-              >
-                <svg
-                  fill="none"
-                  height="1em"
-                  viewBox="0 0 20 20"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M2.92891 12.9289C4.01809 11.8398 5.31449 11.0335 6.72894 10.5454C5.21402 9.50199 4.21875 7.75578 4.21875 5.78125C4.21875 2.59348 6.81223 0 10 0C13.1878 0 15.7812 2.59348 15.7812 5.78125C15.7812 7.75578 14.786 9.50199 13.271 10.5454C14.6855 11.0335 15.9819 11.8398 17.0711 12.9289C18.9598 14.8177 20 17.3289 20 20H18.4375C18.4375 15.3475 14.6525 11.5625 10 11.5625C5.34754 11.5625 1.5625 15.3475 1.5625 20H0C0 17.3289 1.0402 14.8177 2.92891 12.9289ZM10 10C12.3262 10 14.2188 8.1075 14.2188 5.78125C14.2188 3.455 12.3262 1.5625 10 1.5625C7.67379 1.5625 5.78125 3.455 5.78125 5.78125C5.78125 8.1075 7.67379 10 10 10Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <div
-                class="e1t8i3z1-el-table-cell-content"
-                data-narrow-label="Name"
-              >
-                Some Name
-              </div>
-            </div>
-            <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
-            >
-              <span
-                class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
-              >
-                <svg
-                  fill="none"
-                  height="1em"
-                  viewBox="0 0 20 20"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <g>
-                    <path
-                      d="M18.125 2.5H1.87501C0.841067 2.5 0 3.34107 0 4.37501V15.625C0 16.659 0.841067 17.5 1.87501 17.5H18.125C19.1589 17.5 20 16.659 20 15.625V4.37501C20 3.34107 19.1589 2.5 18.125 2.5ZM18.125 3.74999C18.2099 3.74999 18.2907 3.76761 18.3645 3.79838L10 11.048L1.63542 3.79838C1.70927 3.76765 1.79005 3.74999 1.87497 3.74999H18.125ZM18.125 16.25H1.87501C1.53017 16.25 1.24999 15.9698 1.24999 15.625V5.11901L9.59045 12.3474C9.70826 12.4493 9.85413 12.5 10 12.5C10.1459 12.5 10.2917 12.4494 10.4096 12.3474L18.75 5.11901V15.625C18.75 15.9698 18.4698 16.25 18.125 16.25Z"
-                      fill="currentColor"
-                    />
-                  </g>
-                  <defs>
-                    <clippath
-                      id="clip0"
-                    >
-                      <rect
-                        fill="white"
-                        height="1em"
-                        width="1em"
-                      />
-                    </clippath>
-                  </defs>
-                </svg>
-              </span>
-              <div
-                class="e1t8i3z1-el-table-cell-content"
-                data-narrow-label="Email Admin"
-              >
-                <a
-                  href="mailto:some@email.com?subject=Developer%20Portal%20–%20Listing%20our%20app&body=Before%20we%20can%20submit%20an%20app,%20we%20need%20to%20verify%20our%20Reapit%20Reference.%20Please%20can%20you%20login%20to%20the%20Developer%20Portal,%20submit%20the%20app%20and%20enter%20the%20required%20information.%20The%20Reapit%20Reference%20can%20be%20found%20on%20any%20Reapit%20correspondence%20under%20the%20‘Account’%20section."
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  Send Email
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
+          Reapit Reference
+        </label>
       </div>
       <p
         class="e15ggth7-el-body-text"
       >
-        Alternatively, you can request the option to become an Admin. Simply ask one of the Admins above to visit the ‘Organisation’ page to view the member options.
+        You can find your Reapit Reference from any Reapit correspondence under the ‘Account’ section.
+      </p>
+      <p
+        class="e15ggth7-el-body-text"
+      >
+        The verification process is typically completed within 1 – 2 working days. You will be notified via email when this has been completed and you can continue with your app submission.
       </p>
       <div
         class="eay05y4-el-button-group"
@@ -323,146 +306,15 @@ Object {
           >
             Close
           </button>
-        </div>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="ecbqyq6-el-snack-holder"
-    />
-    <p
-      class="e15ggth7-el-body-text"
-    >
-      Any changes have been saved successfully.
-    </p>
-    <p
-      class="e15ggth7-el-body-text"
-    >
-      However, before an app can be submitted (either privately or publicly), we will first need to verify your account information (which can only be submitted by an Admin) as API Consumption charges will apply.
-    </p>
-    <p
-      class="e15ggth7-el-body-text"
-    >
-      Please contact one of the Admins listed below:
-    </p>
-    <div
-      class="ez8nkuq-el-mb6 elkdvoz-el-table"
-      data-has-call-to-action="false"
-      data-has-expandable-action="false"
-    >
-      <div
-        class="e1co3p83-el-table-headers-row"
-      >
-        <div
-          class="e1qy4g2u-el-table-header"
-        >
-          Name
-        </div>
-        <div
-          class="e1qy4g2u-el-table-header"
-        >
-          Email Admin
-        </div>
-      </div>
-      <div
-        class="e1gfmg2g-el-table-row-container"
-      >
-        <div
-          class="es3tf1j-el-table-row"
-        >
-          <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+          <button
+            class="ebee6r1-el-intent-primary eqfkc7t-el-button"
+            type="submit"
           >
-            <span
-              class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
-            >
-              <svg
-                fill="none"
-                height="1em"
-                viewBox="0 0 20 20"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M2.92891 12.9289C4.01809 11.8398 5.31449 11.0335 6.72894 10.5454C5.21402 9.50199 4.21875 7.75578 4.21875 5.78125C4.21875 2.59348 6.81223 0 10 0C13.1878 0 15.7812 2.59348 15.7812 5.78125C15.7812 7.75578 14.786 9.50199 13.271 10.5454C14.6855 11.0335 15.9819 11.8398 17.0711 12.9289C18.9598 14.8177 20 17.3289 20 20H18.4375C18.4375 15.3475 14.6525 11.5625 10 11.5625C5.34754 11.5625 1.5625 15.3475 1.5625 20H0C0 17.3289 1.0402 14.8177 2.92891 12.9289ZM10 10C12.3262 10 14.2188 8.1075 14.2188 5.78125C14.2188 3.455 12.3262 1.5625 10 1.5625C7.67379 1.5625 5.78125 3.455 5.78125 5.78125C5.78125 8.1075 7.67379 10 10 10Z"
-                  fill="currentColor"
-                />
-              </svg>
-            </span>
-            <div
-              class="e1t8i3z1-el-table-cell-content"
-              data-narrow-label="Name"
-            >
-              Some Name
-            </div>
-          </div>
-          <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
-          >
-            <span
-              class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
-            >
-              <svg
-                fill="none"
-                height="1em"
-                viewBox="0 0 20 20"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g>
-                  <path
-                    d="M18.125 2.5H1.87501C0.841067 2.5 0 3.34107 0 4.37501V15.625C0 16.659 0.841067 17.5 1.87501 17.5H18.125C19.1589 17.5 20 16.659 20 15.625V4.37501C20 3.34107 19.1589 2.5 18.125 2.5ZM18.125 3.74999C18.2099 3.74999 18.2907 3.76761 18.3645 3.79838L10 11.048L1.63542 3.79838C1.70927 3.76765 1.79005 3.74999 1.87497 3.74999H18.125ZM18.125 16.25H1.87501C1.53017 16.25 1.24999 15.9698 1.24999 15.625V5.11901L9.59045 12.3474C9.70826 12.4493 9.85413 12.5 10 12.5C10.1459 12.5 10.2917 12.4494 10.4096 12.3474L18.75 5.11901V15.625C18.75 15.9698 18.4698 16.25 18.125 16.25Z"
-                    fill="currentColor"
-                  />
-                </g>
-                <defs>
-                  <clippath
-                    id="clip0"
-                  >
-                    <rect
-                      fill="white"
-                      height="1em"
-                      width="1em"
-                    />
-                  </clippath>
-                </defs>
-              </svg>
-            </span>
-            <div
-              class="e1t8i3z1-el-table-cell-content"
-              data-narrow-label="Email Admin"
-            >
-              <a
-                href="mailto:some@email.com?subject=Developer%20Portal%20–%20Listing%20our%20app&body=Before%20we%20can%20submit%20an%20app,%20we%20need%20to%20verify%20our%20Reapit%20Reference.%20Please%20can%20you%20login%20to%20the%20Developer%20Portal,%20submit%20the%20app%20and%20enter%20the%20required%20information.%20The%20Reapit%20Reference%20can%20be%20found%20on%20any%20Reapit%20correspondence%20under%20the%20‘Account’%20section."
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                Send Email
-              </a>
-            </div>
-          </div>
+            Submit
+          </button>
         </div>
       </div>
-    </div>
-    <p
-      class="e15ggth7-el-body-text"
-    >
-      Alternatively, you can request the option to become an Admin. Simply ask one of the Admins above to visit the ‘Organisation’ page to view the member options.
-    </p>
-    <div
-      class="eay05y4-el-button-group"
-    >
-      <div
-        class="e1i2en9o-el-button-group-align-right ebqwrow-el-button-group-inner"
-      >
-        <button
-          class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
-        >
-          Close
-        </button>
-      </div>
-    </div>
+    </form>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

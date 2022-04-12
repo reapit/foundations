@@ -12,4 +12,4 @@ export const mockWebhooksState = {
   webhooksFilterState: defaultWebhooksFilterState,
 }
 
-export const useAnalyticsState = jest.fn(() => mockWebhooksState)
+export const useWebhooksState = jest.fn(() => mockWebhooksState)
