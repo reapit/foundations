@@ -1,10 +1,11 @@
-import { Body, Controller } from '@nestjs/common'
+import { Body, Controller, Post } from '@nestjs/common'
 import { PusherProvider } from './pusher-provider'
 
 @Controller('pusher')
 export class PusherWebhookController {
   constructor(private readonly pusherProvider: PusherProvider) {}
 
+  @Post('auth')
   async auth(@Body() body) {
     const { socket_id, channel_name } = body
 
