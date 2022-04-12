@@ -1,4 +1,4 @@
-import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
+import React, { Dispatch, FC, SetStateAction, useEffect } from 'react'
 import { PingEndpointModel, WebhookModel } from '../../types/webhooks'
 import Routes from '../../constants/routes'
 import {
@@ -40,11 +40,7 @@ interface WebhooksPingFormProps {
 }
 
 export const handlePingWebhook =
-  (
-    webhookModel: WebhookModel,
-    pingWebhook: SendFunction<PingEndpointModel, boolean>,
-    setWebhookPingId: Dispatch<SetStateAction<string | null>>,
-  ) =>
+  (webhookModel: WebhookModel, pingWebhook: SendFunction<PingEndpointModel, boolean>) =>
   (values: PingWebhookFormSchema) => {
     const { topicId } = values
     const { id: webhookId } = webhookModel
@@ -52,7 +48,6 @@ export const handlePingWebhook =
     const params: PingEndpointModel = {
       topicId,
     }
-    setWebhookPingId(webhookId)
     pingWebhook(params)
   }
 
@@ -60,9 +55,7 @@ export const handleWebhookPing =
   (
     setIndexExpandedRow: Dispatch<SetStateAction<number | null>>,
     setExpandableContentType: Dispatch<SetStateAction<ExpandableContentType>>,
-    setWebhookPingId: Dispatch<SetStateAction<string | null>>,
     openModal: () => void,
-    webhookPingId: string | null,
     pingError: string | null,
     pingSuccess?: boolean,
   ) =>
@@ -70,11 +63,9 @@ export const handleWebhookPing =
     if (pingSuccess) {
       setIndexExpandedRow(null)
       setExpandableContentType(ExpandableContentType.Controls)
-      setWebhookPingId(null)
     }
 
-    if (pingError && webhookPingId) {
-      setWebhookPingId(null)
+    if (pingError) {
       openModal()
     }
   }
@@ -93,7 +84,6 @@ export const WebhooksPingForm: FC<WebhooksPingFormProps> = ({
   setExpandableContentType,
 }) => {
   const { webhooksDataState } = useWebhooksState()
-  const [webhookPingId, setWebhookPingId] = useState<string | null>(null)
   const { Modal: FailedConnectionModal, openModal, closeModal } = useModal()
   const { topics } = webhooksDataState
   const { topicIds } = webhookModel
@@ -113,7 +103,7 @@ export const WebhooksPingForm: FC<WebhooksPingFormProps> = ({
     action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.pingWebhook],
     method: 'POST',
     uriParams: {
-      subscriptionId: webhookPingId,
+      subscriptionId: webhookModel.id,
     },
   })
 
@@ -127,21 +117,13 @@ export const WebhooksPingForm: FC<WebhooksPingFormProps> = ({
     }
   })
 
-  useEffect(
-    handleWebhookPing(
-      setIndexExpandedRow,
-      setExpandableContentType,
-      setWebhookPingId,
-      openModal,
-      webhookPingId,
-      pingError,
-      pingSuccess,
-    ),
-    [pingSuccess, pingError, webhookPingId],
-  )
+  useEffect(handleWebhookPing(setIndexExpandedRow, setExpandableContentType, openModal, pingError, pingSuccess), [
+    pingSuccess,
+    pingError,
+  ])
 
   return (
-    <form className={elP8} onSubmit={handleSubmit(handlePingWebhook(webhookModel, pingWebhook, setWebhookPingId))}>
+    <form className={elP8} onSubmit={handleSubmit(handlePingWebhook(webhookModel, pingWebhook))}>
       <Subtitle className={elMl3}>Test Webhook Subscription</Subtitle>
       <Grid>
         <ColSplit>

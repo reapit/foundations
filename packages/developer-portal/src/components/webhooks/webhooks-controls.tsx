@@ -77,7 +77,7 @@ export const WebhooksControls: FC = () => {
                     name="from"
                     label="Date From"
                     min={dayjs(to).subtract(6, 'months').format('YYYY-MM')}
-                    max={dayjs(to).format('YYYY-MM')}
+                    max={dayjs(to).format('YYYY-MM-DD')}
                     onChange={handleSelectFilters(setWebhooksFilterState, history)}
                   />
                 </ControlsContainer>

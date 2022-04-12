@@ -89,7 +89,7 @@ Object {
             <input
               class="e1urjlvd-el-input"
               id="test-static-id"
-              max="2019-10"
+              max="2019-10-10"
               min="2019-04"
               name="from"
               type="date"
@@ -178,7 +178,7 @@ Object {
           <input
             class="e1urjlvd-el-input"
             id="test-static-id"
-            max="2019-10"
+            max="2019-10-10"
             min="2019-04"
             name="from"
             type="date"

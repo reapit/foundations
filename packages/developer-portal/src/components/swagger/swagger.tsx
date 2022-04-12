@@ -5,7 +5,6 @@ import SwaggerUI from 'swagger-ui-react'
 import 'swagger-ui-react/swagger-ui.css'
 import { swagger, titleWrap, swaggerHidden } from './__styles__/swagger'
 import ErrorBoundary from '@/core/error-boundary'
-import { StringMap } from '@reapit/elements-legacy'
 import {
   SmallText,
   elWFull,
@@ -35,7 +34,7 @@ import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { ExternalPages, navigate, openNewPage } from '../../utils/navigation'
 import { useReapitGet } from '@reapit/utils-react'
-import { GetActionNames, getActions } from '@reapit/utils-common'
+import { GetActionNames, getActions, StringMap } from '@reapit/utils-common'
 import { ProductModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { ControlsContainer } from '../webhooks/__styles__'
 

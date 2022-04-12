@@ -49,7 +49,7 @@ export const WebhooksProvider: FC = ({ children }) => {
 
   const [topics] = useReapitGet<TopicModelPagedResult>({
     reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getApps],
+    action: getActions(window.reapit.config.appEnv)[GetActionNames.getWebhookTopics],
     queryParams: { showHiddenApps: 'true', developerId, pageSize: 999 },
     fetchWhenTrue: [developerId],
   })

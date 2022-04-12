@@ -1,11 +1,11 @@
 import React, { MouseEvent } from 'react'
 import { Register, onSubmit, onDeclineTermsAndConditions, onLoginButtonClick, formSubmit } from '../register'
-import { DATE_TIME_FORMAT } from '@reapit/elements-legacy'
 import MockDate from 'mockdate'
 import { CreateDeveloperModel } from '@reapit/foundations-ts-definitions'
 import dayjs from 'dayjs'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { render } from '../../../tests/react-testing'
+import { DATE_TIME_FORMAT } from '@reapit/utils-common'
 
 const mockRegisterFormValues: CreateDeveloperModel = {
   name: 'test',

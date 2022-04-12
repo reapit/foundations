@@ -1,5 +1,5 @@
 import React, { Dispatch, FC, SetStateAction, useState } from 'react'
-import ErrorBoundary from '@/core/error-boundary'
+import ErrorBoundary from '../../core/error-boundary'
 import { FadeIn, Modal } from '@reapit/elements-legacy'
 import {
   Title,

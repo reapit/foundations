@@ -1,6 +1,5 @@
 import React from 'react'
 import Menu from './menu'
-import { Section, FlexContainerBasic } from '@reapit/elements-legacy'
 import { Redirect, useLocation } from 'react-router'
 import Routes from '../constants/routes'
 import { useReapitConnect } from '@reapit/connect-session'
@@ -33,9 +32,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   if (!connectSession) {
     return (
       <MainContainer>
-        <FlexContainerBasic hasBackground>
-          <Loader fullPage />
-        </FlexContainerBasic>
+        <Loader fullPage />
       </MainContainer>
     )
   }
@@ -48,15 +45,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
     <GlobalProvider>
       <MainContainer>
         {showMenu && location.pathname !== Routes.CUSTOMER_REGISTER && <Menu />}
-        <Suspense
-          fallback={
-            <Section>
-              <Loader fullPage />
-            </Section>
-          }
-        >
-          {children}
-        </Suspense>
+        <Suspense fallback={<Loader fullPage />}>{children}</Suspense>
         {window.reapit.config.appEnv !== 'production' && <HelperWidget appName={HelperWidgetApps.developerPortal} />}
       </MainContainer>
     </GlobalProvider>
