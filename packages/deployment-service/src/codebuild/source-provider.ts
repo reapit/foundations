@@ -4,7 +4,7 @@ import { PipelineEntity } from '../entities/pipeline.entity'
 import { BitBucketEvent } from '../functions'
 import { S3Provider } from '../s3'
 import { Injectable } from '@nestjs/common'
-import { BitbucketProvider } from './bitbucket-provider'
+import { BitbucketProvider } from '../bitbucket'
 import { App } from '@octokit/app'
 
 @Injectable()
