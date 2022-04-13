@@ -83,6 +83,7 @@ Term | Description
 --- | ---
 Pipeline | A configuration for a deployment process
 Pipeline Runner, Deployment | A running/individual deployment of a pipeline
+Release | almost synonymous with deployment, can be used to describe a method of triggering a deployment
 Rollback | The ability to make a previously deployed version live
 
 ## Deployment
