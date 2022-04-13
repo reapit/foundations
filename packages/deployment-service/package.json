@@ -54,6 +54,7 @@
     "migration:revert": "ts-node -P ./tsconfig.json ../../node_modules/.bin/typeorm migration:revert"
   },
   "devDependencies": {
+    "@nestjs/testing": "^8.4.4",
     "@reapit/config-manager": "workspace:packages/config-manager",
     "@reapit/ts-bundler": "workspace:packages/ts-bundler",
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",

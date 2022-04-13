@@ -6725,6 +6725,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@nestjs/testing@npm:^8.4.4":
+  version: 8.4.4
+  resolution: "@nestjs/testing@npm:8.4.4"
+  dependencies:
+    optional: 0.1.4
+    tslib: 2.3.1
+  peerDependencies:
+    "@nestjs/common": ^8.0.0
+    "@nestjs/core": ^8.0.0
+    "@nestjs/microservices": ^8.0.0
+    "@nestjs/platform-express": ^8.0.0
+  peerDependenciesMeta:
+    "@nestjs/microservices":
+      optional: true
+    "@nestjs/platform-express":
+      optional: true
+  checksum: e896199b4801009f39204baaa371b7ba77ce5737847b65a281a9bf7a006ba3a7ca09e107081d7f1e131ce0c42462e245408b70b9da2de5ac000a39060c616d4d
+  languageName: node
+  linkType: hard
+
 "@nestjs/typeorm@npm:^8.0.3":
   version: 8.0.3
   resolution: "@nestjs/typeorm@npm:8.0.3"
@@ -18866,6 +18886,7 @@ __metadata:
     "@nestjs/core": ^8.4.4
     "@nestjs/passport": ^8.2.1
     "@nestjs/platform-express": ^8.4.4
+    "@nestjs/testing": ^8.4.4
     "@nestjs/typeorm": ^8.0.3
     "@octokit/app": ^12.0.5
     "@reapit/api-key-verify": "workspace:packages/api-key-verify"
@@ -31056,7 +31077,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"optional@npm:^0.1.3":
+"optional@npm:0.1.4, optional@npm:^0.1.3":
   version: 0.1.4
   resolution: "optional@npm:0.1.4"
   checksum: 81fd9884eac9c13b3624821f99aa825b71d46ffd547cd3f8cf9e1dfb0165e531448005288455895550f804bdd66459e4e7ae6e753805b8bf11a5983050d5b7c4

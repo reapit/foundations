@@ -96,6 +96,8 @@ export class DeployProvider {
       })
     }
 
+    console.log('zip', AdmZip)
+
     const zip = new AdmZip(file)
 
     // Dumb arse package, upgraded minor with new property, without updating types about it...
