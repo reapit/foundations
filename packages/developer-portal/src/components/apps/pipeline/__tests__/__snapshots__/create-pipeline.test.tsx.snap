@@ -194,7 +194,26 @@ Object {
           <p
             class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis rhoncus sem nec sagittis aliquet. Praesent malesuada non mi sed tristique. Proin fermentum metus quis ante tempor egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas et lacinia neque.
+            Pipelines are configurations used to deploy applications to our infrastructure. A Pipeline can be created via the developer portal or via CLI.
+          </p>
+          <p
+            class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+          >
+            Once you have created a Pipeline, you will be able to make deployments using
+            <ul>
+              <li>
+                Repository Commit using either Reapit's Github App or Bitbucket App
+              </li>
+              <li>
+                CLI release
+              </li>
+              <li>
+                Github Actions
+              </li>
+              <li>
+                Dashboard Trigger
+              </li>
+            </ul>
           </p>
           <button
             class="ebee6r1-el-intent-primary e19a1osy-el-button-has-right-chevron eqfkc7t-el-button"
@@ -490,7 +509,7 @@ Object {
           <p
             class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
           >
-            Praesent malesuada non mi sed tristique. Proin fermentum metus quis ante tempor egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas et lacinia neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis rhoncus sem nec sagittis aliquet.
+            Read our documentation on Pipelines and see how they can benefit you and your development process.
           </p>
           <button
             class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
@@ -694,7 +713,26 @@ Object {
         <p
           class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis rhoncus sem nec sagittis aliquet. Praesent malesuada non mi sed tristique. Proin fermentum metus quis ante tempor egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas et lacinia neque.
+          Pipelines are configurations used to deploy applications to our infrastructure. A Pipeline can be created via the developer portal or via CLI.
+        </p>
+        <p
+          class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+        >
+          Once you have created a Pipeline, you will be able to make deployments using
+          <ul>
+            <li>
+              Repository Commit using either Reapit's Github App or Bitbucket App
+            </li>
+            <li>
+              CLI release
+            </li>
+            <li>
+              Github Actions
+            </li>
+            <li>
+              Dashboard Trigger
+            </li>
+          </ul>
         </p>
         <button
           class="ebee6r1-el-intent-primary e19a1osy-el-button-has-right-chevron eqfkc7t-el-button"
@@ -990,7 +1028,7 @@ Object {
         <p
           class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
         >
-          Praesent malesuada non mi sed tristique. Proin fermentum metus quis ante tempor egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas et lacinia neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis rhoncus sem nec sagittis aliquet.
+          Read our documentation on Pipelines and see how they can benefit you and your development process.
         </p>
         <button
           class="e1ymtwpu-el-intent-low eqfkc7t-el-button"

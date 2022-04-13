@@ -202,9 +202,17 @@ export const CreatePipeline = ({ appId, refreshPipeline }: CreatePipelineInterfa
           </IconContainer>
           <Subtitle>Pipeline Deployments</Subtitle>
           <BodyText hasGreyText>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis rhoncus sem nec sagittis aliquet. Praesent
-            malesuada non mi sed tristique. Proin fermentum metus quis ante tempor egestas. Class aptent taciti sociosqu
-            ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas et lacinia neque.
+            Pipelines are configurations used to deploy applications to our infrastructure. A Pipeline can be created
+            via the developer portal or via CLI.
+            </BodyText>
+            <BodyText hasGreyText>
+            Once you have created a Pipeline, you will be able to make deployments using
+            <ul>
+              <li>Repository Commit using either Reapit&apos;s Github App or Bitbucket App</li>
+              <li>CLI release</li>
+              <li>Github Actions</li>
+              <li>Dashboard Trigger</li>
+            </ul>
           </BodyText>
           <Button
             intent="primary"
@@ -229,13 +237,11 @@ export const CreatePipeline = ({ appId, refreshPipeline }: CreatePipelineInterfa
           </IconContainer>
           <Subtitle>Pipeline Documentation</Subtitle>
           <BodyText hasGreyText>
-            Praesent malesuada non mi sed tristique. Proin fermentum metus quis ante tempor egestas. Class aptent taciti
-            sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas et lacinia neque. Lorem
-            ipsum dolor sit amet, consectetur adipiscing elit. Duis rhoncus sem nec sagittis aliquet.
+            Read our documentation on Pipelines and see how they can benefit you and your development process.
           </BodyText>
           <Button
             intent="low"
-            onClick={openNewPage(ExternalPages.webhooksDocs)}
+            onClick={openNewPage(ExternalPages.pipelineDocs)}
             onMouseOver={() => {
               setDocsIsAnimated(true)
             }}
