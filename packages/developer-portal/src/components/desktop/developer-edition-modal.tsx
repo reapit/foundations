@@ -123,9 +123,8 @@ export const DeveloperEditionModal: FC<DeveloperEditionModalProps> = ({ visible,
   const { Modal, openModal, closeModal } = useModal()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const loginIdentity = selectLoginIdentity(connectSession)
-
   const { currentDeveloper, currentMember } = globalDataState
-  const agencyCloudId = loginIdentity.agencyCloudId
+  const agencyCloudId = loginIdentity?.agencyCloudId
   const desktopIsFree = Boolean(agencyCloudId && agencyCloudId !== 'SBOX' && agencyCloudId !== 'SBXA')
   const isClientAndClientData = desktopIsFree && Boolean(connectSession?.loginIdentity.clientId !== 'SBOX')
 

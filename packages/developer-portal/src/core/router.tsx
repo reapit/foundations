@@ -40,7 +40,7 @@ const Router = () => {
         <Switch>
           <Route path={Routes.OK} exact render={() => <OkayPage />} />
           <Route path={Routes.LOGIN} exact render={() => <Login />} />
-          <Route path={Routes.REGISTER} render={() => <Register />} />
+          <Route path={Routes.REGISTER} exact render={() => <Register />} />
           <Route path={Routes.REGISTER_LEGACY} render={() => <Redirect to={Routes.SELECT_ROLE} />} />
           <Route path={Routes.SELECT_ROLE} exact component={SelectRolePage} />
           <Route path={Routes.REGISTER_CONFIRM} exact component={RegisterConfirm} />

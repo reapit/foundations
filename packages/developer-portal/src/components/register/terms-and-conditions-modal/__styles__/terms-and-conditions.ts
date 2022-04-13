@@ -27,21 +27,10 @@ export const TermsLiAlpha = styled(TermsLi)`
 `
 
 export const modalWidth = css`
-  @media only screen and (min-width: 1000px) {
-    .modal-content,
-    .modal-card {
-      max-width: 940px;
-      width: auto;
-    }
-  }
-
-  @media only screen and (min-width: 1200px) {
-    .modal-content,
-    .modal-card {
-      max-width: 1140px;
-      width: auto;
-    }
-  }
+  max-width: 1000px !important;
+  top: 50% !important;
+  height: 80vh !important;
+  overflow: scroll;
 `
 
 export const TermsUl = styled.ul`

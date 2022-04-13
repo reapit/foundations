@@ -28,7 +28,7 @@ export const GlobalProvider: FC = ({ children }) => {
   const [members, , , refreshMembers] = useReapitGet<MemberModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getDeveloperMembers],
-    queryParams: { email, pageSize: 1 },
+    queryParams: { email: encodeURIComponent(email ?? ''), pageSize: 1 },
     uriParams: { developerId },
     fetchWhenTrue: [email, developerId],
   })

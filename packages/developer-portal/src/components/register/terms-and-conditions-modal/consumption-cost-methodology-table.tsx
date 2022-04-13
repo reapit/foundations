@@ -1,4 +1,4 @@
-import { BodyText, Table } from '@reapit/elements'
+import { BodyText, elMb11, Table } from '@reapit/elements'
 import React from 'react'
 
 const consumptionCostsMethodology = [
@@ -78,6 +78,7 @@ export const ConsumptionCostMethodologyTable = () => (
   <>
     <BodyText>Calculation of Total Consumption Cost - Methodology (On last day of monthly billing period):</BodyText>
     <Table
+      className={elMb11}
       rows={consumptionCostsMethodology.map((item) => ({
         cells: [
           {

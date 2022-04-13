@@ -1,11 +1,12 @@
 import React, { MouseEvent } from 'react'
-import { Register, onSubmit, onDeclineTermsAndConditions, onLoginButtonClick, formSubmit } from '../register'
+import { Register, onSubmit, onDeclineTermsAndConditions, onLoginButtonClick, formSubmit } from '..'
 import MockDate from 'mockdate'
 import { CreateDeveloperModel } from '@reapit/foundations-ts-definitions'
 import dayjs from 'dayjs'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { render } from '../../../tests/react-testing'
 import { DATE_TIME_FORMAT } from '@reapit/utils-common'
+import { createDeveloperService } from '../../../services/developer'
 
 const mockRegisterFormValues: CreateDeveloperModel = {
   name: 'test',
@@ -14,6 +15,12 @@ const mockRegisterFormValues: CreateDeveloperModel = {
   telephone: '9991112311',
   agreedTerms: '',
 }
+
+jest.mock('../../../services/developer', () => ({
+  createDeveloperService: jest.fn(),
+}))
+
+const mockCreateDevelperService = createDeveloperService as jest.Mock
 
 describe('Register', () => {
   it('should match a snapshot', () => {
@@ -31,16 +38,38 @@ describe('onSubmit', () => {
     MockDate.reset()
   })
 
-  it('should submit correctly', () => {
-    const createDeveloper = jest.fn()
-    const curried = onSubmit(createDeveloper)
+  it('should submit correctly', async () => {
+    mockCreateDevelperService.mockReturnValue(true)
+    const setDeveloperState = jest.fn()
+    const error = jest.fn()
+    const curried = onSubmit(mockRegisterFormValues, setDeveloperState, error)
 
-    curried(mockRegisterFormValues)
+    await curried()
 
-    expect(createDeveloper).toHaveBeenCalledWith({
+    expect(createDeveloperService).toHaveBeenCalledWith({
       ...mockRegisterFormValues,
       agreedTerms: dayjs().format(DATE_TIME_FORMAT.RFC3339),
     })
+
+    expect(error).not.toHaveBeenCalled()
+    expect(setDeveloperState).toHaveBeenCalledWith('SUCCESS')
+  })
+
+  it('should fail correctly', async () => {
+    mockCreateDevelperService.mockReturnValue('Err message')
+    const setDeveloperState = jest.fn()
+    const error = jest.fn()
+    const curried = onSubmit(mockRegisterFormValues, setDeveloperState, error)
+
+    await curried()
+
+    expect(createDeveloperService).toHaveBeenCalledWith({
+      ...mockRegisterFormValues,
+      agreedTerms: dayjs().format(DATE_TIME_FORMAT.RFC3339),
+    })
+
+    expect(error.mock.calls[0][0]).toEqual('Err message')
+    expect(setDeveloperState).toHaveBeenCalledWith('ERROR')
   })
 })
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Subtitle } from '@reapit/elements/src'
+import { Subtitle } from '@reapit/elements'
 import { TermsLi, TermsOl } from './__styles__/terms-and-conditions'
 
 export const ScheduleOne = () => (

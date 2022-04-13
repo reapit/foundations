@@ -14,8 +14,8 @@ export type TermsAndConditionsModalProps = {
 }
 
 export const handleOpenCloseModal = (openModal: () => void, closeModal: () => void, visible: boolean) => () => {
-  if (visible) closeModal()
-  else openModal()
+  if (visible) openModal()
+  else closeModal()
 }
 
 export const TermsAndConditionsModal: FC<TermsAndConditionsModalProps> = ({

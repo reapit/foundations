@@ -158,7 +158,6 @@ export const CustomerRegister: FC = () => {
         </ButtonGroup>
         <TermsAndConditionsModal
           visible={termsModalVisible}
-          afterClose={handleSetModal(false, setTermsModalVisible)}
           onAccept={handleCreateAccount(updateCustomer, createDeveloper, connectSession)}
           onDecline={handleSetModal(false, setTermsModalVisible)}
           isSubmitting={creatingDeveloper || updatingCustomer}

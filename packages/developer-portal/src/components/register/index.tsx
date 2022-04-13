@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect, MouseEvent } from 'react'
+import React, { FC, useState, useEffect, MouseEvent, Dispatch, SetStateAction } from 'react'
 import dayjs from 'dayjs'
 import {
   InputGroup,
@@ -12,6 +12,7 @@ import {
   FlexContainer,
   ButtonGroup,
   elMb12,
+  useSnack,
 } from '@reapit/elements'
 import { CreateDeveloperModel } from '@reapit/foundations-ts-definitions'
 import TermsAndConditionsModal from './terms-and-conditions-modal'
@@ -19,16 +20,16 @@ import Routes from '../../constants/routes'
 import { formFields } from './form-fields'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { validationSchema } from './validation-schema'
-import { KeyAnimation, SendFunction, useReapitUpdate } from '@reapit/utils-react'
+import { KeyAnimation } from '@reapit/utils-react'
 import { useForm, UseFormGetValues } from 'react-hook-form'
 import reapitLogo from '../../assets/images/reapit-logo.svg'
 import { LoginContainer, LoginImageContainer, LoginContentWrapper } from '../login/__styles__'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { UpdateActionNames, updateActions } from '@reapit/utils-common'
+import { createDeveloperService } from '../../services/developer'
 
 const { nameField, emailField, companyNameField, telephoneField } = formFields
 
-export type RegisterProps = {}
+export type DeveloperState = 'LOADING' | 'SUCCESS' | 'ERROR' | 'INITIAL'
 
 export const registerFormInitialValues: CreateDeveloperModel = {
   name: '',
@@ -39,11 +40,23 @@ export const registerFormInitialValues: CreateDeveloperModel = {
 }
 
 export const onSubmit =
-  (createDeveloper: SendFunction<CreateDeveloperModel, boolean>) => (values: CreateDeveloperModel) => {
-    createDeveloper({
+  (
+    values: CreateDeveloperModel,
+    setDeveloperState: Dispatch<SetStateAction<DeveloperState>>,
+    error: (message: string, timeout: number) => void,
+  ) =>
+  async () => {
+    setDeveloperState('LOADING')
+    const response = await createDeveloperService({
       ...values,
       agreedTerms: dayjs().format('YYYY-MM-DDTHH:mm:ssZ'),
     })
+    if (typeof response === 'string') {
+      error(response, 5000)
+      setDeveloperState('ERROR')
+    } else {
+      setDeveloperState('SUCCESS')
+    }
   }
 
 export const onDeclineTermsAndConditions = (setTermsAndConditionsModalVisible: (isVisible: boolean) => void) => () => {
@@ -81,9 +94,11 @@ export const formChange =
     }
   }
 
-export const Register: FC<RegisterProps> = () => {
+export const Register: FC = () => {
   const [agreeModalVisable, setAgreeModalVisable] = useState<boolean>(false)
+  const [developerState, setDeveloperState] = useState<DeveloperState>('INITIAL')
   const [formStep, setFormStep] = useState<1 | 2 | 3>(1)
+  const { error } = useSnack()
   const {
     handleSubmit,
     formState: { errors },
@@ -94,20 +109,11 @@ export const Register: FC<RegisterProps> = () => {
     defaultValues: registerFormInitialValues,
   })
 
-  const [, developerCreating, createDeveloper, developerCreateSuccess, developerCreateError] = useReapitUpdate<
-    CreateDeveloperModel,
-    boolean
-  >({
-    reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.createDeveloper],
-    method: 'POST',
-  })
-
   useEffect(() => {
-    if (developerCreateError) {
+    if (developerState === 'SUCCESS' || developerState === 'ERROR') {
       setAgreeModalVisable(false)
     }
-  }, [developerCreateError])
+  }, [developerState])
 
   return (
     <LoginContainer>
@@ -122,7 +128,7 @@ export const Register: FC<RegisterProps> = () => {
           </Title>
           <Subtitle hasCenteredText>for Reapit Foundations Developer Portal</Subtitle>
         </FlexContainer>
-        {developerCreateSuccess ? (
+        {developerState === 'SUCCESS' ? (
           <>
             <PersistantNotification className={elMb12} intent="success" isExpanded isFullWidth>
               Successfully registered, if you already have a Reapit Connect account, please now login. If you do not,
@@ -198,13 +204,12 @@ export const Register: FC<RegisterProps> = () => {
               </FormLayout>
               <TermsAndConditionsModal
                 visible={agreeModalVisable}
-                afterClose={onDeclineTermsAndConditions(setAgreeModalVisable)}
-                onAccept={() => onSubmit(createDeveloper)(getValues())}
+                onAccept={onSubmit(getValues(), setDeveloperState, error)}
                 onDecline={onDeclineTermsAndConditions(setAgreeModalVisable)}
-                isSubmitting={developerCreating}
+                isSubmitting={developerState === 'LOADING'}
               />
               <ButtonGroup alignment="center" className={elMb12}>
-                <Button type="submit" loading={developerCreating} intent="critical" chevronRight size={3}>
+                <Button type="submit" loading={developerState === 'LOADING'} intent="critical" chevronRight size={3}>
                   Register
                 </Button>
               </ButtonGroup>

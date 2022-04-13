@@ -1,4 +1,4 @@
-import { Table } from '@reapit/elements'
+import { elMb11, Table } from '@reapit/elements'
 import React from 'react'
 
 const consumptionCostTypes = [
@@ -29,6 +29,7 @@ const consumptionCostTypes = [
 
 export const ConsumptionCostTypesTable = () => (
   <Table
+    className={elMb11}
     rows={consumptionCostTypes.map((item) => ({
       cells: [
         {
