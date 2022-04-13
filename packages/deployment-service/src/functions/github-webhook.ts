@@ -40,7 +40,7 @@ export const githubWebhook = httpHandler<GithubCommitEvent | GithubRepoInstallat
       throw new UnauthorizedException('No signature')
     }
 
-    const verified = await githubApp.webhooks.verify(body, signature)
+    const verified = await (await githubApp()).webhooks.verify(body, signature)
 
     if (!verified) {
       throw new UnauthorizedException('Invalid signature')

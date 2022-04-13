@@ -14,6 +14,7 @@ import {
   addLambdaSQSTrigger,
   LambdaRoute,
   Queue,
+  createSecret,
 } from '@reapit/ts-scripts/src/cdk'
 import { aws_sqs as sqs } from 'aws-cdk-lib'
 
@@ -46,8 +47,7 @@ type FunctionSetup = {
 /**
  * TODO
  *
- * ensure IAM/role for running codebuild cannot create resources
- * dev/prod iaas inside same account
+ * codebuild in secondary can push to log bucket in primary account
  */
 export const createStack = () => {
   const stack = createBaseStack({
@@ -501,6 +501,8 @@ export const createStack = () => {
 
   const MYSQL_DATABASE = databaseName
 
+  const githubPemSecret = createSecret(stack, 'githubpem', config.GITHUB_PEM)
+
   const env: any = {
     DATABASE_SECERT_ARN: secretManager.secretArn,
     MYSQL_DATABASE,
@@ -510,7 +512,8 @@ export const createStack = () => {
     DEPLOYMENT_REPO_CACHE_BUCKET_NAME: buckets['cloud-deployment-repo-cache-dev'].bucketName,
     REGION: 'eu-west-2',
     CODE_BUILD_PROJECT_NAME: codeBuild.projectName,
-    USERCODE_ROLE_ARN: policies.usercodeStackRole.roleArn,
+    USERCODE_ROLE_ARN: policies.usercodeStackRoleArn,
+    GITHUB_PEM_SECRET_ARN: githubPemSecret.secretArn,
   }
 
   Object.values(QueueNames).forEach((queueKey) => {
@@ -537,7 +540,6 @@ export const createStack = () => {
         api,
         lambda,
         options.api.routes,
-        // TODO: env
         options.api.authorizer ? process.env.AUTHORIZER_ID : undefined,
       )
     } else if (options.topic) {

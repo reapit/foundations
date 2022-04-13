@@ -83,7 +83,7 @@ export const downloadGithubSourceToS3 = async (
   }
 
   const response = await (
-    await githubApp.getInstallationOctokit(installationId)
+    await (await githubApp()).getInstallationOctokit(installationId)
   ).request('GET /repos/{owner}/{repo}/zipball/{ref}', {
     ref: '',
     owner: parts[parts.length - 2],
