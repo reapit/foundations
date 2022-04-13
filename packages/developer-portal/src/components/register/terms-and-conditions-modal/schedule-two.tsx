@@ -1,20 +1,14 @@
 import React from 'react'
-import { H5, Content, Section } from '@reapit/elements-legacy'
 import { ConsumptionCostMethodologyTable } from './consumption-cost-methodology-table'
 import { ConsumptionCostExampleTable } from './consumption-cost-example-table'
 import { ConsumptionCostTypesTable } from './consumption-cost-types-table'
+import { Subtitle } from '@reapit/elements'
 
 export const ScheduleTwo = () => (
-  <Content>
-    <H5 className="text-center">Schedule 2 - Fees</H5>
-    <Section>
-      <ConsumptionCostTypesTable />
-    </Section>
-    <Section>
-      <ConsumptionCostMethodologyTable />
-    </Section>
-    <Section>
-      <ConsumptionCostExampleTable />
-    </Section>
-  </Content>
+  <>
+    <Subtitle>Schedule 2 - Fees</Subtitle>
+    <ConsumptionCostTypesTable />
+    <ConsumptionCostMethodologyTable />
+    <ConsumptionCostExampleTable />
+  </>
 )

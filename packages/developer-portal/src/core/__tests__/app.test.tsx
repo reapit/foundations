@@ -1,8 +1,7 @@
-import * as React from 'react'
-import { shallow } from 'enzyme'
-
+import React from 'react'
 import App from '../app'
 import { render, unmountComponentAtNode } from 'react-dom'
+import { render as testRender } from '../../tests/react-testing'
 
 jest.mock('../router')
 
@@ -25,6 +24,6 @@ describe('App', () => {
   })
 
   it('should match a snapshot', () => {
-    expect(shallow(<App />)).toMatchSnapshot()
+    expect(testRender(<App />)).toMatchSnapshot()
   })
 })

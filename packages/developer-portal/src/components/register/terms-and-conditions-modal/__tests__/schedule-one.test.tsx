@@ -1,10 +1,10 @@
 import React from 'react'
+import { render } from '../../../../tests/react-testing'
 import { ScheduleOne } from '../schedule-one'
-import { shallow } from 'enzyme'
 
 describe('Schedule One', () => {
   it('it matches a snapshot', () => {
-    const wrapper = shallow(<ScheduleOne />)
+    const wrapper = render(<ScheduleOne />)
     expect(wrapper).toMatchSnapshot()
   })
 })

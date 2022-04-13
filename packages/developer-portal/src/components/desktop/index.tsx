@@ -1,6 +1,5 @@
 import React, { Dispatch, FC, SetStateAction, useState } from 'react'
 import ErrorBoundary from '../../core/error-boundary'
-import { FadeIn, Modal } from '@reapit/elements-legacy'
 import {
   Title,
   Subtitle,
@@ -16,8 +15,12 @@ import {
   SecondaryNav,
   elMb9,
   SecondaryNavItem,
+  elFadeIn,
+  useModal,
+  elMb11,
+  ButtonGroup,
 } from '@reapit/elements'
-import DeveloperEditonModal from './developer-edition-modal'
+import { DeveloperEditionModal } from './developer-edition-modal'
 import {
   hasGreyText,
   ImageTextPair,
@@ -71,7 +74,7 @@ export const handleToggleModal = (setModalVisible: Dispatch<SetStateAction<boole
   setModalVisible(!modalVisible)
 
 export const BannerSection: FC = () => (
-  <FadeIn>
+  <div className={elFadeIn}>
     <BodyText className={cx(elMb6, hasGreyText)}>
       Reapit&#39;s Agency Cloud is a desktop application that offers estate agencies a comprehensive range of market
       leading agency products, including a Sales CRM, Lettings CRM, Client Accounts, Property Management and real-time
@@ -97,11 +100,11 @@ export const BannerSection: FC = () => (
         </ImageTextPair>
       </BannerCol>
     </Grid>
-  </FadeIn>
+  </div>
 )
 
 export const AboutSection: FC = () => (
-  <FadeIn>
+  <div className={elFadeIn}>
     <Subtitle>About Foundations Desktop API</Subtitle>
     <BodyText className={cx(elMb6, hasGreyText)}>
       Developers that would like to integrate with or extend the functionality of Agency Cloud can use the Foundations
@@ -120,36 +123,37 @@ export const AboutSection: FC = () => (
         documentation.
       </a>
     </BodyText>
-  </FadeIn>
+  </div>
 )
 
 export const VideoSection: FC = () => {
-  const [modalVisible, setModalVisible] = useState<boolean>(false)
+  const { Modal, openModal, closeModal } = useModal()
   return (
-    <FadeIn>
+    <div className={elFadeIn}>
       <Subtitle>How your app integrates with the Developer Edition of Agency Cloud</Subtitle>
       <VideoContainer>
-        <img src={videoImage} onClick={handleToggleModal(setModalVisible, modalVisible)} />
+        <img src={videoImage} onClick={openModal} />
         <SmallText className={cx(hasGreyText)}>
           The Developer Edition of Agency Cloud allows developers using the Desktop API to test their apps within the
           desktop application using sandbox data.
         </SmallText>
       </VideoContainer>
-      <Modal
-        className={videoModal}
-        visible={modalVisible}
-        afterClose={handleToggleModal(setModalVisible, modalVisible)}
-        title="Desktop API"
-      >
+      <Modal className={videoModal} title="Desktop API">
         <iframe
+          className={elMb11}
           src={IFRAME_URLS.desktopVideo}
           title="YouTube video player"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
-        ></iframe>
+        />
+        <ButtonGroup alignment="center">
+          <Button onClick={closeModal} intent="low">
+            Close
+          </Button>
+        </ButtonGroup>
       </Modal>
-    </FadeIn>
+    </div>
   )
 }
 
@@ -160,7 +164,7 @@ export const SubscribeSection: FC = () => {
   const desktopIsFree = clientId && clientId !== 'SBOX'
   const isInitial = subscribingState === 'INITIAL'
   return (
-    <FadeIn>
+    <div className={elFadeIn}>
       <SubscribeContainer>
         <SubscribeHeadingContainer>
           <Title>Developer Edition</Title>
@@ -168,7 +172,7 @@ export const SubscribeSection: FC = () => {
         <Grid rowGap={0}>
           <Col span={12} spanTablet={6} spanMobile={12}>
             {subscribingState === 'INITIAL' && (
-              <FadeIn>
+              <div className={elFadeIn}>
                 <ImageTextPair className={elMx4}>
                   <img src={windowsImage} />
                   <TextWrap className={hasGreyText}>
@@ -176,7 +180,7 @@ export const SubscribeSection: FC = () => {
                     to install.
                   </TextWrap>
                 </ImageTextPair>
-              </FadeIn>
+              </div>
             )}
             <SubscribeInnerContainer
               className={cx(!isInitial ? subscribeContainerExpanded : subscribeContainerContracted)}
@@ -184,7 +188,7 @@ export const SubscribeSection: FC = () => {
               {subscribingState === 'INITIAL' ? (
                 <PriceSection>
                   <h3>{desktopIsFree ? 'FREE' : '£300'}</h3>
-                  <div>per licence / per month</div>
+                  <div className={elFadeIn}>per licence / per month</div>
                   <Button
                     onClick={handleSetSubscribingState(setSubscribingState, 'SUBSCRIBE_NOW')}
                     intent="critical"
@@ -195,7 +199,7 @@ export const SubscribeSection: FC = () => {
                   </Button>
                 </PriceSection>
               ) : (
-                <FadeIn>
+                <div className={elFadeIn}>
                   <BodyText className={cx(elMb6, hasGreyText)}>
                     The Developer Edition of Agency Cloud allows developers using the Desktop API to test their apps
                     within the desktop application using sandbox data.
@@ -221,7 +225,7 @@ export const SubscribeSection: FC = () => {
                       Subscribe
                     </Button>
                   </SubscribeButtonContainer>
-                </FadeIn>
+                </div>
               )}
             </SubscribeInnerContainer>
           </Col>
@@ -243,8 +247,8 @@ export const SubscribeSection: FC = () => {
           </Col>
         </Grid>
       </SubscribeContainer>
-      <DeveloperEditonModal visible={subscribingState === 'CONFIRMING'} setSubscribingState={setSubscribingState} />
-    </FadeIn>
+      <DeveloperEditionModal visible={subscribingState === 'CONFIRMING'} setSubscribingState={setSubscribingState} />
+    </div>
   )
 }
 

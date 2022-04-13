@@ -1,10 +1,10 @@
 import React from 'react'
+import { render } from '../../../../tests/react-testing'
 import { TermsAndConditions } from '../terms-and-conditions'
-import { shallow } from 'enzyme'
 
 describe('TermsAndConditionsModal', () => {
   it('it matches a snapshot', () => {
-    const wrapper = shallow(<TermsAndConditions />)
+    const wrapper = render(<TermsAndConditions />)
     expect(wrapper).toMatchSnapshot()
   })
 })

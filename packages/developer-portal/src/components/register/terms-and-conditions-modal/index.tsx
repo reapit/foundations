@@ -1,48 +1,33 @@
-import * as React from 'react'
-import { Button, Modal, ModalProps } from '@reapit/elements-legacy'
+import React, { FC, useEffect } from 'react'
 import { TermsAndConditions } from './terms-and-conditions'
 import { ScheduleOne } from './schedule-one'
 import { ScheduleTwo } from './schedule-two'
 import { modalWidth } from './__styles__/terms-and-conditions'
 import { ScheduleThree } from './schedule-three'
-import { BodyText, elMb6, PersistantNotification } from '@reapit/elements'
+import { BodyText, Button, ButtonGroup, elMb6, PersistantNotification, useModal } from '@reapit/elements'
 
 export type TermsAndConditionsModalProps = {
   onAccept: () => void
   onDecline?: () => void
-  tapOutsideToDissmiss?: boolean
   isSubmitting?: boolean
-} & Pick<ModalProps, 'visible' | 'afterClose'>
+  visible: boolean
+}
 
-export const TermsAndConditionsModal: React.FunctionComponent<TermsAndConditionsModalProps> = ({
-  visible = true,
-  afterClose,
+export const handleOpenCloseModal = (openModal: () => void, closeModal: () => void, visible: boolean) => () => {
+  if (visible) closeModal()
+  else openModal()
+}
+
+export const TermsAndConditionsModal: FC<TermsAndConditionsModalProps> = ({
   onAccept,
   onDecline,
-  tapOutsideToDissmiss = true,
   isSubmitting,
+  visible,
 }) => {
+  const { Modal, openModal, closeModal } = useModal()
+  useEffect(handleOpenCloseModal(openModal, closeModal, visible), [visible])
   return (
-    <Modal
-      className={modalWidth}
-      title="Terms and Conditions"
-      size="medium"
-      visible={visible}
-      afterClose={afterClose}
-      tapOutsideToDissmiss={tapOutsideToDissmiss}
-      footerItems={
-        <>
-          {onDecline && (
-            <Button variant="secondary" type="button" onClick={onDecline}>
-              Decline
-            </Button>
-          )}
-          <Button dataTest="buttonAcceptTermsAndConditions" loading={isSubmitting} onClick={onAccept}>
-            Accept
-          </Button>
-        </>
-      }
-    >
+    <Modal className={modalWidth} title="Terms and Conditions">
       <>
         <BodyText hasGreyText>
           These Reapit Foundations User Terms and Conditions govern access to Reapit’s Foundations Platform and
@@ -55,6 +40,16 @@ export const TermsAndConditionsModal: React.FunctionComponent<TermsAndConditions
         <ScheduleOne />
         <ScheduleTwo />
         <ScheduleThree />
+        <ButtonGroup alignment="center">
+          {onDecline && (
+            <Button intent="low" type="button" onClick={onDecline}>
+              Decline
+            </Button>
+          )}
+          <Button intent="primary" loading={isSubmitting} disabled={isSubmitting} onClick={onAccept}>
+            Accept
+          </Button>
+        </ButtonGroup>
       </>
     </Modal>
   )

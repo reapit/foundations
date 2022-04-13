@@ -1,10 +1,10 @@
 import React from 'react'
+import { render } from '../../../../tests/react-testing'
 import { ConsumptionCostTypesTable } from '../consumption-cost-types-table'
-import { shallow } from 'enzyme'
 
 describe('ConsumptionCostTypesTable', () => {
   it('it matches a snapshot', () => {
-    const wrapper = shallow(<ConsumptionCostTypesTable />)
+    const wrapper = render(<ConsumptionCostTypesTable />)
     expect(wrapper).toMatchSnapshot()
   })
 })

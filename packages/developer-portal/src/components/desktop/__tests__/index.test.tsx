@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { DeveloperDesktopPage, handleSetSubscribingState, handleToggleModal } from '../desktop'
+import { DeveloperDesktopPage, handleSetSubscribingState, handleToggleModal } from '..'
 import { render } from '../../../tests/react-testing'
 
 describe('DeveloperDesktopPage', () => {

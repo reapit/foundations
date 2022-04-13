@@ -1,7 +1,7 @@
 /* istanbul ignore file */
 // Can't add tests to this file because of the way Jest transpiles Swagger UI throws an error
-import * as React from 'react'
-import { shallow } from 'enzyme'
+import React from 'react'
+import { render } from '../../../tests/react-testing'
 
 import Swagger, { handleOnComplete, fetchInterceptor, InterceptorParams } from '../swagger'
 
@@ -14,7 +14,7 @@ jest.mock('swagger-ui-react')
 */
 describe('Swagger', () => {
   it('should match a snapshot', () => {
-    expect(shallow(<Swagger />)).toMatchSnapshot()
+    expect(render(<Swagger />)).toMatchSnapshot()
   })
 
   it('should have a fetchInterceptor that adds a token when the url is not swagger', () => {

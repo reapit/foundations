@@ -26,9 +26,6 @@ const ElementsPage = React.lazy(() => catchChunkError(() => import('../component
 const GraphQLPage = React.lazy(() => catchChunkError(() => import('../components/graphql')))
 const SelectRolePage = React.lazy(() => catchChunkError(() => import('../components/login/select-role')))
 const IaaS = React.lazy(() => catchChunkError(() => import('../components/iaas')))
-const EditionDownloadPage = React.lazy(() =>
-  catchChunkError(() => import('../components/desktop/developer-edition-download')),
-)
 
 export const FourOFour: FC = () => (
   <PersistantNotification isFullWidth isInline isExpanded intent="danger">
@@ -63,7 +60,6 @@ const Router = () => {
               <PrivateRoute path={Routes.SWAGGER} exact component={SwaggerPage} />
               <PrivateRoute path={Routes.DESKTOP} exact component={DesktopPage} />
               <PrivateRoute path={Routes.SETTINGS} component={SettingsPage} />
-              <PrivateRoute path={Routes.DEVELOPER_EDITION_DOWNLOAD} component={EditionDownloadPage} />
               <PrivateRoute path={Routes.GRAPHQL} component={GraphQLPage} />
               <PrivateRoute path={Routes.ELEMENTS} exact component={ElementsPage} />
               <PrivateRoute path={Routes.IAAS} exact component={IaaS} />
