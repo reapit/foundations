@@ -195,8 +195,11 @@ Object {
             class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
           >
             Pipelines are configurations used to deploy applications to our infrastructure. A Pipeline can be created via the developer portal or via CLI.
-            <br />
-            Once you've created a Pipeline, you will be able to make deployments using
+          </p>
+          <p
+            class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+          >
+            Once you have created a Pipeline, you will be able to make deployments using
             <ul>
               <li>
                 Repository Commit using either Reapit's Github App or Bitbucket App
@@ -711,8 +714,11 @@ Object {
           class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
         >
           Pipelines are configurations used to deploy applications to our infrastructure. A Pipeline can be created via the developer portal or via CLI.
-          <br />
-          Once you've created a Pipeline, you will be able to make deployments using
+        </p>
+        <p
+          class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+        >
+          Once you have created a Pipeline, you will be able to make deployments using
           <ul>
             <li>
               Repository Commit using either Reapit's Github App or Bitbucket App
