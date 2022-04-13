@@ -21,9 +21,9 @@ import {
   Subtitle,
   Title,
 } from '@reapit/elements'
-import { IconContainer } from '../../webhooks/__styles__'
-import { WebhooksAnimatedNewIcon } from '../../webhooks/webhooks-animated-new-icon'
-import { WebhooksAnimatedDocsIcon } from '../../webhooks/webhooks-animated-docs-icon'
+import { IconContainer } from '../../../webhooks/__styles__'
+import { WebhooksAnimatedNewIcon } from '../../../webhooks/webhooks-animated-new-icon'
+import { WebhooksAnimatedDocsIcon } from '../../../webhooks/webhooks-animated-docs-icon'
 import { ExternalPages, openNewPage } from '@/utils/navigation'
 import Yup, { mixed, object, string } from 'yup'
 import { AppTypeEnum, PackageManagerEnum, PipelineModelInterface } from '@reapit/foundations-ts-definitions'
