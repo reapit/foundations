@@ -1,7 +1,7 @@
-import * as React from 'react'
-import { shallow } from 'enzyme'
+import React from 'react'
 import ApiDocs, { parseIframeUrl } from '../api-docs'
 import Routes from '@/constants/routes'
+import { render } from '../../../tests/react-testing'
 
 jest.mock('react-router', () => ({
   ...(jest.requireActual('react-router') as Object),
@@ -10,7 +10,7 @@ jest.mock('react-router', () => ({
 
 describe('ApiDocs', () => {
   it('should match a snapshot', () => {
-    const wrapper = shallow(<ApiDocs />)
+    const wrapper = render(<ApiDocs />)
     expect(wrapper).toMatchSnapshot()
   })
 

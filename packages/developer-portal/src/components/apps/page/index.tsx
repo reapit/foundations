@@ -75,7 +75,7 @@ export const AppsPage: FC = () => {
                       <SecondaryNavItem onClick={navigate(history, `${Routes.APPS}/${appId}/edit`)} active={isAppsEdit}>
                         Edit App
                       </SecondaryNavItem>
-                      {loginIdentity.developerId &&
+                      {loginIdentity?.developerId &&
                         window.reapit.config.pipelineWhitelist.includes(loginIdentity.developerId) && (
                           <SecondaryNavItem
                             onClick={navigate(history, `${Routes.APPS}/${appId}/pipeline`)}
@@ -106,7 +106,7 @@ export const AppsPage: FC = () => {
                 <Route path={Routes.APPS_WELCOME} exact component={AppsWelcomePage} />
                 <Route path={Routes.APP_INSTALLATIONS} exact component={AppInstallationsPage} />
                 <Route path={Routes.APPS_EDIT} component={AppEditPage} />
-                {loginIdentity.developerId &&
+                {loginIdentity?.developerId &&
                   window.reapit.config.pipelineWhitelist.includes(loginIdentity.developerId) && (
                     <Route path={Routes.APP_PIPELINE} component={AppPipeline} />
                   )}

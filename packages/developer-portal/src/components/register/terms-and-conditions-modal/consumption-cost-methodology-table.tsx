@@ -1,5 +1,5 @@
+import { BodyText, elMb11, Table } from '@reapit/elements'
 import React from 'react'
-import { Table, FlexContainerBasic, Grid, GridItem, H6 } from '@reapit/elements-legacy'
 
 const consumptionCostsMethodology = [
   {
@@ -74,55 +74,79 @@ const consumptionCostsMethodology = [
   },
 ]
 
-const consumptionCostMethodologyColumns = [
-  {
-    Header: ' ',
-    accessor: ' ',
-  },
-  {
-    Header: 'Month API Call',
-    accessor: 'monthApiCall',
-  },
-  {
-    Header: 'First 1,000',
-    accessor: 'first1000',
-  },
-  {
-    Header: '1,001 - 2,500',
-    accessor: '1001To2500',
-  },
-  {
-    Header: '2,501 - 5,000',
-    accessor: '2501To5000',
-  },
-  {
-    Header: '5,001 - 10,000',
-    accessor: '5001To10000',
-  },
-  {
-    Header: '10,001 - 25,000',
-    accessor: '10001To25000',
-  },
-  {
-    Header: '25,001 - 50,000',
-    accessor: '25001To50000',
-  },
-  {
-    Header: 'above 50,000',
-    accessor: 'above50000',
-  },
-]
-
 export const ConsumptionCostMethodologyTable = () => (
-  <div className="mt-10">
-    <div className="mb-3">
-      <H6>Calculation of Total Consumption Cost - Methodology:</H6>
-      <FlexContainerBasic>
-        <Grid className="is-vcentered">
-          <GridItem>(On last day of monthly billing period)</GridItem>
-        </Grid>
-        <Table columns={consumptionCostMethodologyColumns} data={consumptionCostsMethodology} scrollable />
-      </FlexContainerBasic>
-    </div>
-  </div>
+  <>
+    <BodyText>Calculation of Total Consumption Cost - Methodology (On last day of monthly billing period):</BodyText>
+    <Table
+      className={elMb11}
+      rows={consumptionCostsMethodology.map((item) => ({
+        cells: [
+          {
+            label: 'Month API Call',
+            value: item['monthApiCall'],
+            cellHasDarkText: true,
+            narrowTable: {
+              showLabel: true,
+            },
+          },
+          {
+            label: 'First 1,000',
+            value: item['first1000'],
+            cellHasDarkText: true,
+            narrowTable: {
+              showLabel: true,
+            },
+          },
+          {
+            label: '1,001 - 2,500',
+            value: item['1001To2500'],
+            cellHasDarkText: true,
+            narrowTable: {
+              showLabel: true,
+            },
+          },
+          {
+            label: '2,501 - 5,000',
+            value: item['2501To5000'],
+            cellHasDarkText: true,
+            narrowTable: {
+              showLabel: true,
+            },
+          },
+          {
+            label: '5,001 - 10,000',
+            value: item['5001To10000'],
+            cellHasDarkText: true,
+            narrowTable: {
+              showLabel: true,
+            },
+          },
+          {
+            label: '10,001 - 25,000',
+            value: item['10001To25000'],
+            cellHasDarkText: true,
+            narrowTable: {
+              showLabel: true,
+            },
+          },
+          {
+            label: '25,001 - 50,000',
+            value: item['25001To50000'],
+            cellHasDarkText: true,
+            narrowTable: {
+              showLabel: true,
+            },
+          },
+          {
+            label: 'above 50,000',
+            value: item['above50000'],
+            cellHasDarkText: true,
+            narrowTable: {
+              showLabel: true,
+            },
+          },
+        ],
+      }))}
+    />
+  </>
 )

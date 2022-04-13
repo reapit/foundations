@@ -1,13 +1,13 @@
 import React from 'react'
-import { H5, Content } from '@reapit/elements-legacy'
+import { Subtitle } from '@reapit/elements'
 import { TermsLi, TermsOl } from './__styles__/terms-and-conditions'
 
 export const ScheduleOne = () => (
-  <Content>
-    <H5 className="text-center">Schedule 1 - Application User Terms Principles</H5>
+  <>
+    <Subtitle>Schedule 1 - Application User Terms Principles</Subtitle>
     <TermsOl>
       <TermsLi>
-        <H5>General</H5>
+        <Subtitle>General</Subtitle>
         <TermsOl>
           <TermsLi>
             <span>
@@ -51,9 +51,8 @@ export const ScheduleOne = () => (
           </TermsLi>
         </TermsOl>
       </TermsLi>
-
       <TermsLi>
-        <H5>Data Protection</H5>
+        <Subtitle>Data Protection</Subtitle>
         <TermsOl>
           <TermsLi>
             <span>The Application User Terms must comply with Data Protection Laws.</span>
@@ -87,5 +86,5 @@ export const ScheduleOne = () => (
         </TermsOl>
       </TermsLi>
     </TermsOl>
-  </Content>
+  </>
 )

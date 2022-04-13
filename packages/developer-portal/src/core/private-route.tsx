@@ -31,17 +31,20 @@ export const handleRedirectRegistraitionPage =
     history.push(`${Routes.CUSTOMER_REGISTER}`)
   }
 
-export const handleUpdateTerms = (updateMember: SendFunction<UpdateMemberModel, boolean>) => () => {
-  updateMember({
-    agreedTerms: dayjs().format(DATE_TIME_FORMAT.RFC3339),
-  })
-}
+export const handleUpdateTerms =
+  (updateMember: SendFunction<UpdateMemberModel, boolean>, currentMember: MemberModel | null) => () => {
+    if (!currentMember) return
+    updateMember({
+      ...currentMember,
+      agreedTerms: dayjs().format(DATE_TIME_FORMAT.RFC3339),
+    })
+  }
 
 export const handleMemberUpdate =
   (currentMember: MemberModel | null, showTermsModal: boolean, setShowTermsModal: Dispatch<SetStateAction<boolean>>) =>
   () => {
     if (showTermsModal || !currentMember) return
-    if (dayjs(currentMember.agreedTerms).isBefore(dayjs('2021-06-18'))) {
+    if (!currentMember.agreedTerms || dayjs(currentMember.agreedTerms).isBefore(dayjs('2021-06-18'))) {
       setShowTermsModal(true)
     }
   }
@@ -99,11 +102,7 @@ export const PrivateRoute = ({ component, ...rest }: PrivateRouteProps & RoutePr
           return <Component />
         }}
       />
-      <TermsAndConditionsModal
-        visible={showTermsModal}
-        onAccept={handleUpdateTerms(updateMember)}
-        tapOutsideToDissmiss={false}
-      />
+      <TermsAndConditionsModal visible={showTermsModal} onAccept={handleUpdateTerms(updateMember, currentMember)} />
     </>
   )
 }

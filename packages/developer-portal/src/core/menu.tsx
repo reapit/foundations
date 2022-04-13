@@ -127,6 +127,12 @@ export const Menu: React.FunctionComponent = () => {
           callback: navigate(history, Routes.GRAPHQL),
           text: 'GraphQL',
         },
+        {
+          itemIndex: 3,
+          callback: navigate(history, Routes.DESKTOP),
+          iconId: 'desktopMenu',
+          text: 'Desktop',
+        },
       ],
     },
     {
@@ -142,22 +148,16 @@ export const Menu: React.FunctionComponent = () => {
       text: 'Docs',
       subItems: [
         {
-          itemIndex: 3,
+          itemIndex: 4,
           callback: navigate(history, Routes.API_DOCS),
           text: 'APIs',
         },
         {
-          itemIndex: 4,
+          itemIndex: 5,
           callback: navigate(history, Routes.ANALYTICS_SCHEMA_DOCS),
           text: 'Warehouse',
         },
       ],
-    },
-    {
-      itemIndex: 6,
-      callback: navigate(history, Routes.DESKTOP),
-      iconId: 'desktopMenu',
-      text: 'Desktop',
     },
     {
       itemIndex: 7,
@@ -174,7 +174,7 @@ export const Menu: React.FunctionComponent = () => {
     },
   ]
 
-  if (loginIdentity.developerId && window.reapit.config.pipelineWhitelist.includes(loginIdentity.developerId)) {
+  if (loginIdentity?.developerId && window.reapit.config.pipelineWhitelist.includes(loginIdentity?.developerId)) {
     navOptions.splice(6, 1, {
       itemIndex: 10,
       callback: navigate(history, Routes.IAAS),

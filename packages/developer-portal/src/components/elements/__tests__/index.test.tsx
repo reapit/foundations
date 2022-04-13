@@ -1,19 +1,10 @@
-import * as React from 'react'
-import { shallow } from 'enzyme'
-import { createBrowserHistory } from 'history'
+import React from 'react'
 import ElementsPage from '..'
-import { Router, Route } from 'react-router-dom'
+import { render } from '../../../tests/react-testing'
 
 describe('ElementsPage', () => {
   it('should match a snapshot', () => {
-    const history = createBrowserHistory()
-    const wrapper = shallow(
-      <Router history={history}>
-        <Route>
-          <ElementsPage />
-        </Route>
-      </Router>,
-    )
+    const wrapper = render(<ElementsPage />)
     expect(wrapper).toMatchSnapshot()
   })
 })

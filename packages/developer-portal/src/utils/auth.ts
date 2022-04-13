@@ -8,8 +8,8 @@ export const selectIsAdmin = (connectSession: ReapitConnectSession | null) => {
   return Boolean(connectSession?.loginIdentity?.adminId)
 }
 
-export const selectLoginIdentity = (connectSession: ReapitConnectSession | null): LoginIdentity => {
-  return connectSession?.loginIdentity ?? ({} as LoginIdentity)
+export const selectLoginIdentity = (connectSession: ReapitConnectSession | null): LoginIdentity | null => {
+  return connectSession?.loginIdentity ?? null
 }
 
 export const selectClientId = (state: ReapitConnectSession | null): string => {
@@ -30,7 +30,7 @@ export const selectIsUserOrUserAdmin = (state: ReapitConnectSession | null): boo
 
 export const selectIsUserAdmin = (state: ReapitConnectSession | null): boolean => {
   const loginIdentity = selectLoginIdentity(state)
-
+  if (!loginIdentity) return false
   return Boolean(
     (loginIdentity.groups.includes(COGNITO_GROUP_ADMIN_USERS) ||
       loginIdentity.groups.includes(COGNITO_GROUP_ADMIN_USERS_LEGACY)) &&
@@ -41,7 +41,7 @@ export const selectIsUserAdmin = (state: ReapitConnectSession | null): boolean =
 
 export const selectIsCustomer = (state: ReapitConnectSession | null): boolean => {
   const loginIdentity = selectLoginIdentity(state)
-
+  if (!loginIdentity) return false
   return Boolean(
     loginIdentity.agencyCloudId &&
       loginIdentity.agencyCloudId !== 'SBOX' &&

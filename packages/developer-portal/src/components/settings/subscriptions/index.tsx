@@ -1,5 +1,14 @@
 import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
-import { elMb11, elSpan2, Loader, Pagination, StatusIndicator, Table, Title } from '@reapit/elements'
+import {
+  elMb11,
+  elSpan2,
+  Loader,
+  Pagination,
+  PersistantNotification,
+  StatusIndicator,
+  Table,
+  Title,
+} from '@reapit/elements'
 import { SendFunction, useReapitGet, useReapitUpdate } from '@reapit/utils-react'
 import { SubscriptionModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
@@ -47,8 +56,7 @@ export const SettingsSubscriptionsPage: FC = () => {
   const [subscriptions, subscriptionsLoading, , refreshSubscriptions] = useReapitGet<SubscriptionModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getSubscriptions],
-    queryParams: { pageSize: 12, pageNumber },
-    uriParams: { developerId },
+    queryParams: { pageSize: 12, pageNumber, developerId },
     fetchWhenTrue: [developerId],
   })
 
@@ -142,11 +150,17 @@ export const SettingsSubscriptionsPage: FC = () => {
           },
         }))}
       />
-      <Pagination
-        callback={setPageNumber}
-        currentPage={pageNumber}
-        numberPages={Math.ceil((subscriptions?.totalCount ?? 1) / (subscriptions?.pageSize ?? 1))}
-      />
+      {subscriptions?.data?.length ? (
+        <Pagination
+          callback={setPageNumber}
+          currentPage={pageNumber}
+          numberPages={Math.ceil((subscriptions?.totalCount ?? 1) / (subscriptions?.pageSize ?? 1))}
+        />
+      ) : (
+        <PersistantNotification intent="secondary" isExpanded isFullWidth isInline>
+          No subscriptions available for this account
+        </PersistantNotification>
+      )}
     </>
   )
 }

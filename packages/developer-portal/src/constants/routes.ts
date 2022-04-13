@@ -28,7 +28,6 @@ const Routes = {
   SETTINGS_PASSWORD: '/settings/password',
   SETTINGS_COMPANY: '/settings/company',
   SUBMIT_APP: '/submit-app',
-  DEVELOPER_EDITION_DOWNLOAD: '/edition-download',
   REGISTER: '/developer/register',
   REGISTER_LEGACY: '/register',
   REGISTER_CONFIRM: '/register/confirm',
