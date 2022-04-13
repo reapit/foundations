@@ -11,5 +11,6 @@ export * from './components/sqs-queue'
 export * from './components/stack-event-handler'
 export * from './components/stack'
 export * from './components/vpc-network'
+export * from './components/secret'
 
 export * from './utils/output'

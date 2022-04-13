@@ -1,8 +1,8 @@
 import { Project, ISecret, Effect, PolicyStatement, Bucket, Stack, Topic } from '@reapit/ts-scripts/src/cdk'
 import { AccountPrincipal, CompositePrincipal, Policy, Role } from 'aws-cdk-lib/aws-iam'
-import { PhysicalName } from 'aws-cdk-lib'
 import config from '../../config.json'
 import { aws_sqs as sqs } from 'aws-cdk-lib'
+import { BucketNames } from './create-S3-bucket'
 
 export enum PolicyNames {
   // lambdaInvoke = 'lambdaInvoke',
@@ -20,7 +20,7 @@ type namedPolicyType = {
 
 type namedPolicyGroupType = {
   commonBackendPolicies: PolicyStatement[]
-  usercodeStackRole: Role
+  usercodeStackRoleArn: string
 }
 
 export const createPolicies = ({
@@ -41,6 +41,24 @@ export const createPolicies = ({
   const S3BucketPolicy = new PolicyStatement({
     effect: Effect.ALLOW,
     resources: Object.values(buckets).map((bucket) => bucket.bucketArn),
+    actions: [
+      's3:PutObject',
+      's3:GetObject',
+      's3:ListBucket',
+      's3:PutObjectAcl',
+      's3:GetBucketAcl',
+      's3:GetObjectAcl',
+      's3:GetBucketLocation',
+      's3:GetObjectRetention',
+      's3:GetObjectVersionAcl',
+      's3:DeleteObject',
+      's3:DeleteObjectVersion',
+    ],
+  })
+
+  const LiveS3BucketPolicy = new PolicyStatement({
+    effect: Effect.ALLOW,
+    resources: [buckets[BucketNames.LIVE].bucketArn],
     actions: [
       's3:PutObject',
       's3:GetObject',
@@ -98,21 +116,24 @@ export const createPolicies = ({
 
   // create a policy that allows the lambda to do what it needs to do in the usercode stack
   const usercodePolicy = new Policy(usercodeStack, 'UsercodePolicy')
-  usercodePolicy.addStatements(S3BucketPolicy, route53Policy, cloudFrontPolicy, codebuildSnssubscriptionPolicy)
+  usercodePolicy.addStatements(LiveS3BucketPolicy, route53Policy, cloudFrontPolicy, codebuildSnssubscriptionPolicy)
+  const usercodeStackRoleName = `${usercodeStack.stackName}-UsercodeStackRole`
   // create a role that lambdas can assume in the usercode stack, with the policy we just created
   const usercodeStackRole = new Role(usercodeStack, 'UsercodeStackRole', {
     assumedBy: new CompositePrincipal(
       new AccountPrincipal(config.AWS_ACCOUNT_ID),
       new AccountPrincipal(usercodeStack.account),
     ),
-    roleName: PhysicalName.GENERATE_IF_NEEDED,
+    roleName: usercodeStackRoleName,
   })
   usercodeStackRole.attachInlinePolicy(usercodePolicy)
 
-  // a policy statement which allows lambdas in the main stack to assume that role
+  const usercodeStackRoleArn = `arn:aws:iam::${usercodeStack.account}:role/${usercodeStackRoleName}`
+
+  // a policy statement which allows lambdas in the main stack to assume that 6role
   const lambdaAssumeUsercodeRole = new PolicyStatement({
     effect: Effect.ALLOW,
-    resources: [usercodeStackRole.roleArn],
+    resources: [usercodeStackRoleArn],
     actions: ['sts:AssumeRole'],
   })
 
@@ -147,6 +168,6 @@ export const createPolicies = ({
     sqsPolicies,
     secretManagerPolicy,
     S3BucketPolicy,
-    usercodeStackRole,
+    usercodeStackRoleArn,
   }
 }
