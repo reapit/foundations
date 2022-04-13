@@ -1,0 +1,623 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SubmitReviewModal should match a snapshot where a customer and status is incomplete and user is an admin 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ecbqyq6-el-snack-holder"
+      />
+      <form>
+        <p
+          class="e15ggth7-el-body-text"
+        >
+          Any changes have been saved successfully.
+        </p>
+        <p
+          class="e15ggth7-el-body-text"
+        >
+          However, before an app can be submitted (either privately or publicly), we will first need to verify your account information as API Consumption charges will apply.
+        </p>
+        <div
+          class="ez8nkuq-el-mb6 e1979rmu-el-input-group"
+        >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            name="reapitReference"
+            placeholder="Enter your Reapit reference here"
+            type="text"
+          />
+          <label
+            class="e1nbkkrq-el-label"
+            for="test-static-id"
+          >
+            Reapit Reference
+          </label>
+        </div>
+        <p
+          class="e15ggth7-el-body-text"
+        >
+          You can find your Reapit Reference from any Reapit correspondence under the ‘Account’ section.
+        </p>
+        <p
+          class="e15ggth7-el-body-text"
+        >
+          The verification process is typically completed within 1 – 2 working days. You will be notified via email when this has been completed and you can continue with your app submission.
+        </p>
+        <div
+          class="eay05y4-el-button-group"
+        >
+          <div
+            class="e1i2en9o-el-button-group-align-right ebqwrow-el-button-group-inner"
+          >
+            <button
+              class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+            >
+              Close
+            </button>
+            <button
+              class="ebee6r1-el-intent-primary eqfkc7t-el-button"
+              type="submit"
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6-el-snack-holder"
+    />
+    <form>
+      <p
+        class="e15ggth7-el-body-text"
+      >
+        Any changes have been saved successfully.
+      </p>
+      <p
+        class="e15ggth7-el-body-text"
+      >
+        However, before an app can be submitted (either privately or publicly), we will first need to verify your account information as API Consumption charges will apply.
+      </p>
+      <div
+        class="ez8nkuq-el-mb6 e1979rmu-el-input-group"
+      >
+        <input
+          class="e1urjlvd-el-input"
+          id="test-static-id"
+          name="reapitReference"
+          placeholder="Enter your Reapit reference here"
+          type="text"
+        />
+        <label
+          class="e1nbkkrq-el-label"
+          for="test-static-id"
+        >
+          Reapit Reference
+        </label>
+      </div>
+      <p
+        class="e15ggth7-el-body-text"
+      >
+        You can find your Reapit Reference from any Reapit correspondence under the ‘Account’ section.
+      </p>
+      <p
+        class="e15ggth7-el-body-text"
+      >
+        The verification process is typically completed within 1 – 2 working days. You will be notified via email when this has been completed and you can continue with your app submission.
+      </p>
+      <div
+        class="eay05y4-el-button-group"
+      >
+        <div
+          class="e1i2en9o-el-button-group-align-right ebqwrow-el-button-group-inner"
+        >
+          <button
+            class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+          >
+            Close
+          </button>
+          <button
+            class="ebee6r1-el-intent-primary eqfkc7t-el-button"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`SubmitReviewModal should match a snapshot where a customer and status is incomplete and user not an admin 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ecbqyq6-el-snack-holder"
+      />
+      <form>
+        <p
+          class="e15ggth7-el-body-text"
+        >
+          Any changes have been saved successfully.
+        </p>
+        <p
+          class="e15ggth7-el-body-text"
+        >
+          However, before an app can be submitted (either privately or publicly), we will first need to verify your account information as API Consumption charges will apply.
+        </p>
+        <div
+          class="ez8nkuq-el-mb6 e1979rmu-el-input-group"
+        >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            name="reapitReference"
+            placeholder="Enter your Reapit reference here"
+            type="text"
+          />
+          <label
+            class="e1nbkkrq-el-label"
+            for="test-static-id"
+          >
+            Reapit Reference
+          </label>
+        </div>
+        <p
+          class="e15ggth7-el-body-text"
+        >
+          You can find your Reapit Reference from any Reapit correspondence under the ‘Account’ section.
+        </p>
+        <p
+          class="e15ggth7-el-body-text"
+        >
+          The verification process is typically completed within 1 – 2 working days. You will be notified via email when this has been completed and you can continue with your app submission.
+        </p>
+        <div
+          class="eay05y4-el-button-group"
+        >
+          <div
+            class="e1i2en9o-el-button-group-align-right ebqwrow-el-button-group-inner"
+          >
+            <button
+              class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+            >
+              Close
+            </button>
+            <button
+              class="ebee6r1-el-intent-primary eqfkc7t-el-button"
+              type="submit"
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6-el-snack-holder"
+    />
+    <form>
+      <p
+        class="e15ggth7-el-body-text"
+      >
+        Any changes have been saved successfully.
+      </p>
+      <p
+        class="e15ggth7-el-body-text"
+      >
+        However, before an app can be submitted (either privately or publicly), we will first need to verify your account information as API Consumption charges will apply.
+      </p>
+      <div
+        class="ez8nkuq-el-mb6 e1979rmu-el-input-group"
+      >
+        <input
+          class="e1urjlvd-el-input"
+          id="test-static-id"
+          name="reapitReference"
+          placeholder="Enter your Reapit reference here"
+          type="text"
+        />
+        <label
+          class="e1nbkkrq-el-label"
+          for="test-static-id"
+        >
+          Reapit Reference
+        </label>
+      </div>
+      <p
+        class="e15ggth7-el-body-text"
+      >
+        You can find your Reapit Reference from any Reapit correspondence under the ‘Account’ section.
+      </p>
+      <p
+        class="e15ggth7-el-body-text"
+      >
+        The verification process is typically completed within 1 – 2 working days. You will be notified via email when this has been completed and you can continue with your app submission.
+      </p>
+      <div
+        class="eay05y4-el-button-group"
+      >
+        <div
+          class="e1i2en9o-el-button-group-align-right ebqwrow-el-button-group-inner"
+        >
+          <button
+            class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+          >
+            Close
+          </button>
+          <button
+            class="ebee6r1-el-intent-primary eqfkc7t-el-button"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`SubmitReviewModal should match a snapshot where a customer and status is pending 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ecbqyq6-el-snack-holder"
+      />
+      <p
+        class="e15ggth7-el-body-text"
+      >
+        We are currently verifying your account information. This is typically done within 1 – 2 working days. You will be notified via email when this has been completed and you can continue with your app submission.
+      </p>
+      <div
+        class="eay05y4-el-button-group"
+      >
+        <div
+          class="e1i2en9o-el-button-group-align-right ebqwrow-el-button-group-inner"
+        >
+          <button
+            class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6-el-snack-holder"
+    />
+    <p
+      class="e15ggth7-el-body-text"
+    >
+      We are currently verifying your account information. This is typically done within 1 – 2 working days. You will be notified via email when this has been completed and you can continue with your app submission.
+    </p>
+    <div
+      class="eay05y4-el-button-group"
+    >
+      <div
+        class="e1i2en9o-el-button-group-align-right ebqwrow-el-button-group-inner"
+      >
+        <button
+          class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`SubmitReviewModal should match a snapshot where not a customer 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ecbqyq6-el-snack-holder"
+      />
+      <p
+        class="e15ggth7-el-body-text"
+      >
+        Any changes have been saved successfully.
+      </p>
+      <p
+        class="e15ggth7-el-body-text"
+      >
+        However, before you can list an app in the AppMarket ('Submit for approval'), you will first need to submit your account information.
+      </p>
+      <p
+        class="e15ggth7-el-body-text"
+      >
+        Please
+         
+        <a
+          href="mailto:dmann@reapit.com?subject=Submitting%20my%20app%20for%20approval%20/%20listing%20in%20the%20AppMarket"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+           
+          click here
+        </a>
+         
+        to contact a member of the team.
+      </p>
+      <div
+        class="eay05y4-el-button-group"
+      >
+        <div
+          class="e1i2en9o-el-button-group-align-right ebqwrow-el-button-group-inner"
+        >
+          <button
+            class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6-el-snack-holder"
+    />
+    <p
+      class="e15ggth7-el-body-text"
+    >
+      Any changes have been saved successfully.
+    </p>
+    <p
+      class="e15ggth7-el-body-text"
+    >
+      However, before you can list an app in the AppMarket ('Submit for approval'), you will first need to submit your account information.
+    </p>
+    <p
+      class="e15ggth7-el-body-text"
+    >
+      Please
+       
+      <a
+        href="mailto:dmann@reapit.com?subject=Submitting%20my%20app%20for%20approval%20/%20listing%20in%20the%20AppMarket"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+         
+        click here
+      </a>
+       
+      to contact a member of the team.
+    </p>
+    <div
+      class="eay05y4-el-button-group"
+    >
+      <div
+        class="e1i2en9o-el-button-group-align-right ebqwrow-el-button-group-inner"
+      >
+        <button
+          class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

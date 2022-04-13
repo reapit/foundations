@@ -1,4 +1,4 @@
-import { defaultAnalyticsFilterState } from '../../components/pages/analytics/state/defaults'
+import { defaultAnalyticsFilterState } from '../../components/analytics/state/defaults'
 import { fetcher, fetcherWithBlob } from '@reapit/utils-common'
 import { batchFetchBillingService, billingTransactionDownloadService } from '../billing'
 

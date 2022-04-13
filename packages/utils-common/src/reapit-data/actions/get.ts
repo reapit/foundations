@@ -31,6 +31,9 @@ export enum GetActionNames {
   getDeveloper = 'getDeveloper',
   getTrafficStats = 'getTrafficStats',
   getSubscriptions = 'getSubscriptions',
+  getWebhookSubscriptions = 'getWebhookSubscriptions',
+  getWebhookTopics = 'getWebhookTopics',
+  getWebhookLogs = 'getWebhookLogs',
 }
 
 export type GetActions = { [key in GetActionNames]: GetAction }
@@ -145,5 +148,20 @@ export const getActions = (appEnv: AppEnv): GetActions => ({
     api: ApiNames(appEnv).platform,
     path: PathNames.subscriptions,
     errorMessage: 'Something went wrong fetching subscriptions',
+  },
+  [GetActionNames.getWebhookSubscriptions]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.webhookSubscriptions,
+    errorMessage: 'Something went wrong fetching webhook subscriptions',
+  },
+  [GetActionNames.getWebhookTopics]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.webhookTopics,
+    errorMessage: 'Something went wrong fetching webhook topics',
+  },
+  [GetActionNames.getWebhookLogs]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.webhookLogs,
+    errorMessage: 'Something went wrong fetching webhook logs',
   },
 })

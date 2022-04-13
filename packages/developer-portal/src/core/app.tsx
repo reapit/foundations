@@ -1,18 +1,11 @@
 import React from 'react'
 import Router from './router'
-import { Provider } from 'react-redux'
-import store from './store'
-import Toast from '../components/ui/toast'
-import ToastMessage from '../components/ui/toast-message'
 import { css } from '@linaria/core'
 import { MediaStateProvider, NavStateProvider, SnackProvider } from '@reapit/elements'
+import { injectSwitchModeToWindow } from '@reapit/utils-react'
 
 export const globals = css`
   :global() {
-    html {
-      overflow: hidden;
-    }
-
     body {
       background: #262f69;
     }
@@ -24,20 +17,16 @@ export const globals = css`
   }
 `
 
-const App = () => {
-  return (
-    <Provider store={store.reduxStore}>
-      <SnackProvider>
-        <NavStateProvider>
-          <MediaStateProvider>
-            <Router />
-            <Toast />
-            <ToastMessage />
-          </MediaStateProvider>
-        </NavStateProvider>
-      </SnackProvider>
-    </Provider>
-  )
-}
+injectSwitchModeToWindow()
+
+const App = () => (
+  <SnackProvider>
+    <NavStateProvider>
+      <MediaStateProvider>
+        <Router />
+      </MediaStateProvider>
+    </NavStateProvider>
+  </SnackProvider>
+)
 
 export default App
