@@ -25,6 +25,13 @@ export enum UpdateActionNames {
   updateMember = 'updateMember',
   inviteMember = 'inviteMember',
   deleteSubscription = 'deleteSubscription',
+  createSubscription = 'createSubscription',
+  pingWebhook = 'pingWebhook',
+  createWebhook = 'createWebhook',
+  updateWebhook = 'updateWebhook',
+  deleteWebhook = 'deleteWebhook',
+  acceptInviteMember = 'acceptInviteMember',
+  rejectInviteMember = 'rejectInviteMember',
 }
 
 export type UpdateActions = { [key in UpdateActionNames]: UpdateAction }
@@ -123,5 +130,47 @@ export const updateActions = (appEnv: AppEnv): UpdateActions => ({
     path: PathNames.subscriptionsById,
     errorMessage: 'Failed to cancel subscription, this has been logged. Please try again.',
     successMessage: 'Successfully cancelled subscription',
+  },
+  [UpdateActionNames.createSubscription]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.subscriptions,
+    errorMessage: 'Failed to create subscription, this has been logged. Please try again.',
+    successMessage: 'Successfully created subscription',
+  },
+  [UpdateActionNames.pingWebhook]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.webhooksPing,
+    errorMessage: 'Failed to ping webhook, this has been logged. Please try again.',
+    successMessage: 'Successfully pinged webhook',
+  },
+  [UpdateActionNames.createWebhook]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.webhookSubscriptions,
+    errorMessage: 'Failed to create webhook, this has been logged. Please try again.',
+    successMessage: 'Successfully created webhook',
+  },
+  [UpdateActionNames.updateWebhook]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.webhookSubscriptionsId,
+    errorMessage: 'Failed to update webhook, this has been logged. Please try again.',
+    successMessage: 'Successfully updated webhook',
+  },
+  [UpdateActionNames.deleteWebhook]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.webhookSubscriptionsId,
+    errorMessage: 'Failed to delete webhook, this has been logged. Please try again.',
+    successMessage: 'Successfully deleted webhook',
+  },
+  [UpdateActionNames.acceptInviteMember]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.memberInviteAccept,
+    errorMessage: 'Failed to accept invite, this has been logged. Please try again.',
+    successMessage: 'Successfully accepted invite',
+  },
+  [UpdateActionNames.rejectInviteMember]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.memberInviteReject,
+    errorMessage: 'Failed to reject invite, this has been logged. Please try again.',
+    successMessage: 'Successfully rejected invite',
   },
 })

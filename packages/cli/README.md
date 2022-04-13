@@ -12,10 +12,12 @@ Command | description
 --- | ---
 `reapit config` | Starts a prompt to add the cli's config requirements (api-key)
 `reapit pipeline create` | Starts the process of creating a new pipeline
+`reapit pipeline edit` | Used to edit a given pipeline
+`reapit pipeline delete` | Deletes a given pipeline
 `reapit pipeline link` | Links repo with existing pipeline (downloads pipeline config to cwd)
-`reapit pipeline deploy-repo` | Starts a deployment using the github repo
-`reapit pipeline deploy-zip` | Starts a deployment using a locally built directory as source
 `reapit pipeline list` | List all pipelines for developer account
+`reapit release repo` | Starts a deployment using the github repo
+`reapit release zip` | Starts a deployment using a locally built directory as source
 `reapit release list` | List all pipeline releases/deployments
 `reapit release version` | Deploys a specific previously deployed version (rollback)
 
@@ -81,6 +83,7 @@ Term | Description
 --- | ---
 Pipeline | A configuration for a deployment process
 Pipeline Runner, Deployment | A running/individual deployment of a pipeline
+Release | almost synonymous with deployment, can be used to describe a method of triggering a deployment
 Rollback | The ability to make a previously deployed version live
 
 ## Deployment

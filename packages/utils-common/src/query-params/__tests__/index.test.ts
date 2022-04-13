@@ -1,4 +1,4 @@
-import { setQueryParams } from '../index'
+import { getParamsFromPath, setQueryParams } from '../index'
 
 describe('setQueryParams', () => {
   it('should create query params', () => {
@@ -11,6 +11,17 @@ describe('setQueryParams', () => {
     variants.forEach(([params, expected]) => {
       const result = setQueryParams(params)
       expect(result).toBe(expected)
+    })
+  })
+})
+
+describe('getParamsFromPath', () => {
+  it('should run correctly', () => {
+    const search = 'page=1&search=google&category=1'
+    expect(getParamsFromPath(search)).toEqual({
+      page: 1,
+      search: 'google',
+      category: '1',
     })
   })
 })

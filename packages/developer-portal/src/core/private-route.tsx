@@ -1,16 +1,20 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, LazyExoticComponent, FC, useState, Dispatch, SetStateAction } from 'react'
 import { History } from 'history'
 import { Route, RouteProps, useHistory } from 'react-router'
-import RouteFetcher from '../components/hocs/route-fetcher'
-import Routes from '@/constants/routes'
+import Routes from '../constants/routes'
 import { useReapitConnect, ReapitConnectSession } from '@reapit/connect-session'
-import { reapitConnectBrowserSession } from '@/core/connect-session'
-import { selectIsCustomer } from '../selector/auth'
+import { reapitConnectBrowserSession } from '../core/connect-session'
+import { selectIsCustomer } from '../utils/auth'
+import TermsAndConditionsModal from '../components/register/terms-and-conditions-modal'
+import { useGlobalState } from './use-global-state'
+import { SendFunction, useReapitUpdate } from '@reapit/utils-react'
+import { MemberModel, UpdateMemberModel } from '@reapit/foundations-ts-definitions'
+import { DATE_TIME_FORMAT, UpdateActionNames, updateActions } from '@reapit/utils-common'
+import dayjs from 'dayjs'
 
 export interface PrivateRouteProps {
-  component: React.FunctionComponent | React.LazyExoticComponent<any>
+  component: FC | LazyExoticComponent<any>
   exact?: boolean
-  fetcher?: boolean
 }
 
 export const handleRedirectRegistraitionPage =
@@ -27,24 +31,80 @@ export const handleRedirectRegistraitionPage =
     history.push(`${Routes.CUSTOMER_REGISTER}`)
   }
 
-export const PrivateRoute = ({ component, fetcher = false, ...rest }: PrivateRouteProps & RouteProps) => {
+export const handleUpdateTerms = (updateMember: SendFunction<UpdateMemberModel, boolean>) => () => {
+  updateMember({
+    agreedTerms: dayjs().format(DATE_TIME_FORMAT.RFC3339),
+  })
+}
+
+export const handleMemberUpdate =
+  (currentMember: MemberModel | null, showTermsModal: boolean, setShowTermsModal: Dispatch<SetStateAction<boolean>>) =>
+  () => {
+    if (showTermsModal || !currentMember) return
+    if (dayjs(currentMember.agreedTerms).isBefore(dayjs('2021-06-18'))) {
+      setShowTermsModal(true)
+    }
+  }
+
+export const handleMemberUpdated =
+  (
+    connectLoginRedirect: () => void,
+    setShowTermsModal: Dispatch<SetStateAction<boolean>>,
+    updateMemberError: string | null,
+    updateMemberSuccess?: boolean,
+  ) =>
+  () => {
+    if (updateMemberError) {
+      connectLoginRedirect()
+    }
+
+    if (updateMemberSuccess) {
+      setShowTermsModal(false)
+    }
+  }
+
+export const PrivateRoute = ({ component, ...rest }: PrivateRouteProps & RouteProps) => {
   const history = useHistory()
-  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const { globalDataState } = useGlobalState()
+  const { currentMember } = globalDataState
+  const [showTermsModal, setShowTermsModal] = useState(false)
+  const { connectSession, connectLoginRedirect } = useReapitConnect(reapitConnectBrowserSession)
+
+  const [, , updateMember, updateMemberSuccess, updateMemberError] = useReapitUpdate<UpdateMemberModel, boolean>({
+    reapitConnectBrowserSession,
+    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.updateMember],
+    method: 'PUT',
+    uriParams: {
+      developerId: currentMember?.developerId,
+      memberId: currentMember?.id,
+    },
+  })
+
+  useEffect(handleMemberUpdate(currentMember, showTermsModal, setShowTermsModal), [currentMember])
+
+  useEffect(handleMemberUpdated(connectLoginRedirect, setShowTermsModal, updateMemberError, updateMemberSuccess), [
+    updateMemberSuccess,
+    updateMemberError,
+  ])
 
   useEffect(handleRedirectRegistraitionPage(history, connectSession), [connectSession, history])
 
   return (
-    <Route
-      {...rest}
-      render={(props) => {
-        if (fetcher) {
-          return <RouteFetcher routerProps={props} Component={component} />
-        }
-        const Component = component
+    <>
+      <Route
+        {...rest}
+        render={() => {
+          const Component = component
 
-        return <Component />
-      }}
-    />
+          return <Component />
+        }}
+      />
+      <TermsAndConditionsModal
+        visible={showTermsModal}
+        onAccept={handleUpdateTerms(updateMember)}
+        tapOutsideToDissmiss={false}
+      />
+    </>
   )
 }
 
