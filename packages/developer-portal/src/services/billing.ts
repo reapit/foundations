@@ -1,9 +1,8 @@
 import { fetcher } from '@reapit/utils-common'
-import { URLS } from './constants'
 import { getPlatformHeaders, logger } from '@reapit/utils-react'
 import { BillingBreakdownForMonthV2Model } from '@reapit/foundations-ts-definitions'
 import { reapitConnectBrowserSession } from '../core/connect-session'
-import { AnalyticsFilterState } from '../components/pages/analytics/state/use-analytics-state'
+import { AnalyticsFilterState } from '../components/analytics/state/use-analytics-state'
 import qs from 'qs'
 import { fetcherWithBlob } from '@reapit/utils-common'
 import fileSaver from 'file-saver'
@@ -18,7 +17,7 @@ export const batchFetchBillingService = async (monthRequests: string[], query: s
     return Promise.all(
       monthRequests.map(async (month) => {
         const response = await fetcher({
-          url: `${URLS.trafficEventBilling}/${month}?${query}&type=trafficEvents&type=dataWarehouseUsage&type=applicationListing&type=developerEdition&type=developerRegistration&type=dataWarehouse`,
+          url: `/trafficevents/billing/${month}?${query}&type=trafficEvents&type=dataWarehouseUsage&type=applicationListing&type=developerEdition&type=developerRegistration&type=dataWarehouse`,
           api: window.reapit.config.platformApiUrl,
           method: 'GET',
           headers,
@@ -49,7 +48,7 @@ export const billingTransactionDownloadService = async (
     const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
     if (headers) {
       const blob = await fetcherWithBlob({
-        url: `${URLS.trafficEventBilling}/${month}/download?${query}`,
+        url: `/trafficevents/billing/${month}/download?${query}`,
         api: window.reapit.config.platformApiUrl,
         method: 'GET',
         headers,
