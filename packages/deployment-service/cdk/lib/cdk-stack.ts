@@ -385,7 +385,7 @@ export const createStack = () => {
     },
     codebuildExecutor: {
       handler: `${fileLocPrefix}codebuildExecutor`,
-      policies: [...policies.commonBackendPolicies, policies.codebuildExecPolicy],
+      policies: [...policies.commonBackendPolicies],
       queue: queues[QueueNames.CODEBUILD_EXECUTOR],
     },
     codebuildUpdate: {

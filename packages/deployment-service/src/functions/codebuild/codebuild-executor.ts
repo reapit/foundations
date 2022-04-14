@@ -19,10 +19,7 @@ import { PipelineEntity } from '../../entities/pipeline.entity'
 import fetch from 'node-fetch'
 import { BitbucketClientData } from '@/entities/bitbucket-client.entity'
 import { BitBucketEvent } from '..'
-
-const codebuild = new CodeBuild({
-  region: process.env.REGION,
-})
+import { getRoleCredentials } from '../../services/sts'
 
 const baseBitbucketUrl = 'https://bitbucket.org'
 
@@ -144,6 +141,11 @@ export const codebuildExecutor: SQSHandler = async (
       if (!pipeline) {
         throw new Error('pipeline not found')
       }
+
+      const codebuild = new CodeBuild({
+        region: process.env.REGION,
+        credentials: await getRoleCredentials(),
+      })
 
       const s3BuildLogsLocation = `arn:aws:s3:::${process.env.DEPLOYMENT_LOG_BUCKET_NAME}`
 

@@ -135,9 +135,21 @@ export const createPolicies = ({
     }),
   )
 
+  const codebuildExecPolicy = new PolicyStatement({
+    effect: Effect.ALLOW,
+    resources: [codeBuild.projectArn],
+    actions: ['codebuild:StartBuild'],
+  })
+
   // create a policy that allows the lambda to do what it needs to do in the usercode stack
   const usercodePolicy = new Policy(usercodeStack, 'UsercodePolicy')
-  usercodePolicy.addStatements(LiveS3BucketPolicy, route53Policy, cloudFrontPolicy, codebuildSnssubscriptionPolicy)
+  usercodePolicy.addStatements(
+    LiveS3BucketPolicy,
+    route53Policy,
+    cloudFrontPolicy,
+    codebuildSnssubscriptionPolicy,
+    codebuildExecPolicy,
+  )
   const usercodeStackRoleName = `${usercodeStack.stackName}-UsercodeStackRole`
   // create a role that lambdas can assume in the usercode stack, with the policy we just created
   const usercodeStackRole = new Role(usercodeStack, 'UsercodeStackRole', {
@@ -165,12 +177,6 @@ export const createPolicies = ({
       config.API_KEY_INVOKE_ARN,
     ],
     actions: ['lambda:InvokeFunction'],
-  })
-
-  const codebuildExecPolicy = new PolicyStatement({
-    effect: Effect.ALLOW,
-    resources: [codeBuild.projectArn],
-    actions: ['codebuild:StartBuild'],
   })
 
   const commonBackendPolicies = [
