@@ -33,7 +33,7 @@ export const deployRelease = httpHandler<any, PipelineRunnerEntity>({
 
     ownership(pipeline.developerId, developerId)
 
-    if (pipeline.buildStatus !== 'PRE_PROVISIONED') {
+    if (pipeline.buildStatus === 'PRE_PROVISIONED') {
       throw new HttpErrorException('Cannot deploy pipeline in PRE_PROVISONED state', 409 as HttpStatusCode)
     }
 
