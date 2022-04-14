@@ -15,6 +15,7 @@ describe('WebhooksEditControls', () => {
           expandableContentType={ExpandableContentType.Controls}
           setExpandableContentType={jest.fn()}
           setIndexExpandedRow={jest.fn()}
+          refreshSubscriptions={jest.fn()}
         />,
       ),
     ).toMatchSnapshot()
@@ -28,6 +29,7 @@ describe('WebhooksEditControls', () => {
           expandableContentType={ExpandableContentType.Ping}
           setExpandableContentType={jest.fn()}
           setIndexExpandedRow={jest.fn()}
+          refreshSubscriptions={jest.fn()}
         />,
       ),
     ).toMatchSnapshot()
@@ -41,6 +43,7 @@ describe('WebhooksEditControls', () => {
           expandableContentType={ExpandableContentType.Manage}
           setExpandableContentType={jest.fn()}
           setIndexExpandedRow={jest.fn()}
+          refreshSubscriptions={jest.fn()}
         />,
       ),
     ).toMatchSnapshot()

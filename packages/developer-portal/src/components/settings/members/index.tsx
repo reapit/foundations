@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
 import { elMb11, Loader, Pagination, StatusIndicator, Table, Title } from '@reapit/elements'
 import { useReapitGet } from '@reapit/utils-react'
 import { MemberModelPagedResult } from '@reapit/foundations-ts-definitions'
@@ -6,13 +6,31 @@ import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { useReapitConnect } from '@reapit/connect-session'
 import { MemberUpdateControls } from './member-update-controls'
+import { useGlobalState } from '../../../core/use-global-state'
 
 export const getIntentFromStatus = (status: string) => {
   return status === 'active' ? 'success' : status === 'rejected' ? 'danger' : status === 'pending' ? 'critical' : 'low'
 }
 
+export const handleRefreshMembers =
+  (
+    membersShouldRefresh: boolean,
+    setMembersShouldRefresh: Dispatch<SetStateAction<boolean>>,
+    refreshMembers: () => void,
+  ) =>
+  () => {
+    if (membersShouldRefresh) {
+      refreshMembers()
+      setMembersShouldRefresh(false)
+    }
+  }
+
 export const SettingsMembersPage: FC = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const { globalRefreshState } = useGlobalState()
+  const {
+    members: [membersShouldRefresh, setMembersShouldRefresh],
+  } = globalRefreshState
   const [pageNumber, setPageNumber] = useState<number>(1)
   const developerId = connectSession?.loginIdentity.developerId
 
@@ -23,6 +41,8 @@ export const SettingsMembersPage: FC = () => {
     uriParams: { developerId },
     fetchWhenTrue: [developerId],
   })
+
+  useEffect(handleRefreshMembers(membersShouldRefresh, setMembersShouldRefresh, refreshMembers), [membersShouldRefresh])
 
   return (
     <>

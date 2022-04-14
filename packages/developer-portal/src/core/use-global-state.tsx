@@ -1,5 +1,5 @@
 import { DeveloperModel, MemberModel, MemberModelPagedResult } from '@reapit/foundations-ts-definitions'
-import React, { FC, createContext, useContext } from 'react'
+import React, { FC, createContext, useContext, useState, Dispatch, SetStateAction } from 'react'
 import { useReapitConnect } from '@reapit/connect-session'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { useReapitGet } from '@reapit/utils-react'
@@ -10,8 +10,13 @@ export interface GlobalDataState {
   currentDeveloper: DeveloperModel | null
 }
 
+export interface GlobalRefreshState {
+  members: [boolean, Dispatch<SetStateAction<boolean>>]
+}
+
 export interface GlobalStateHook {
   globalDataState: GlobalDataState
+  globalRefreshState: GlobalRefreshState
   globalRefreshCurrentMember: () => void
   globalRefreshCurrentDeveloper: () => void
 }
@@ -21,6 +26,7 @@ export const GlobalStateContext = createContext<GlobalStateHook>({} as GlobalSta
 const { Provider } = GlobalStateContext
 
 export const GlobalProvider: FC = ({ children }) => {
+  const membersRefresh = useState<boolean>(false)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const developerId = connectSession?.loginIdentity.developerId
   const email = connectSession?.loginIdentity.email
@@ -45,12 +51,17 @@ export const GlobalProvider: FC = ({ children }) => {
     currentDeveloper,
   }
 
+  const globalRefreshState: GlobalRefreshState = {
+    members: membersRefresh,
+  }
+
   return (
     <Provider
       value={{
         globalRefreshCurrentMember: refreshMembers,
         globalRefreshCurrentDeveloper: refreshCurrentDeveloper,
         globalDataState,
+        globalRefreshState,
       }}
     >
       {children}

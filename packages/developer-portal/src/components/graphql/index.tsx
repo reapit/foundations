@@ -58,7 +58,7 @@ export const GraphQLPage: FC = () => {
   return (
     <>
       <Title>GraphQL</Title>
-      {!loaded && <Loader label="Loading" fullPage />}
+      {!loaded && <Loader />}
       <div className={graphQLWrapper} ref={graphQlRef} />
     </>
   )

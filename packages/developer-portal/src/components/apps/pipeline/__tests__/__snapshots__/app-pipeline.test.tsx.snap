@@ -136,25 +136,14 @@ Object {
         class="ecbqyq6-el-snack-holder"
       />
       <div
-        class="e1de2pym-el-flex-justify-center ef457sc-el-flex-align-center e2kmzjs-el-flex-container"
+        class="ebhrnzh-el-loader-container"
       >
-        <div>
-          <p
-            class="e15ggth7-el-body-text"
-          >
-            Loading
-          </p>
+        <div
+          class="eq1m1jz-el-loader"
+        >
           <div
-            class="ebhrnzh-el-loader-container"
-          >
-            <div
-              class="eq1m1jz-el-loader"
-            >
-              <div
-                class="exikdu1-el-loader-moving-bar"
-              />
-            </div>
-          </div>
+            class="exikdu1-el-loader-moving-bar"
+          />
         </div>
       </div>
     </div>
@@ -164,25 +153,14 @@ Object {
       class="ecbqyq6-el-snack-holder"
     />
     <div
-      class="e1de2pym-el-flex-justify-center ef457sc-el-flex-align-center e2kmzjs-el-flex-container"
+      class="ebhrnzh-el-loader-container"
     >
-      <div>
-        <p
-          class="e15ggth7-el-body-text"
-        >
-          Loading
-        </p>
+      <div
+        class="eq1m1jz-el-loader"
+      >
         <div
-          class="ebhrnzh-el-loader-container"
-        >
-          <div
-            class="eq1m1jz-el-loader"
-          >
-            <div
-              class="exikdu1-el-loader-moving-bar"
-            />
-          </div>
-        </div>
+          class="exikdu1-el-loader-moving-bar"
+        />
       </div>
     </div>
   </div>,

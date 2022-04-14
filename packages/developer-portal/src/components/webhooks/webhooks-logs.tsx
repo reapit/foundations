@@ -109,7 +109,7 @@ export const WebhooksLogs: FC = () => {
         No app or date range selected. Please use the filters option to get started.
       </PersistantNotification>
     )
-  if (logsLoading) return <Loader label="loading" />
+  if (logsLoading) return <Loader />
   if (!logs?.length || !rows.length)
     return (
       <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>

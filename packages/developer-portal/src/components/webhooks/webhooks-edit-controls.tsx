@@ -10,6 +10,7 @@ interface WebhooksEditControlsProps {
   expandableContentType: ExpandableContentType
   setExpandableContentType: Dispatch<SetStateAction<ExpandableContentType>>
   setIndexExpandedRow: Dispatch<SetStateAction<number | null>>
+  refreshSubscriptions: () => void
 }
 
 export const handleSetContentType =
@@ -26,6 +27,7 @@ export const WebhooksEditControls: FC<WebhooksEditControlsProps> = ({
   expandableContentType,
   setExpandableContentType,
   setIndexExpandedRow,
+  refreshSubscriptions,
 }) => (
   <>
     {expandableContentType === ExpandableContentType.Controls && (
@@ -55,6 +57,7 @@ export const WebhooksEditControls: FC<WebhooksEditControlsProps> = ({
         webhookModel={webhookModel}
         setIndexExpandedRow={setIndexExpandedRow}
         setExpandableContentType={setExpandableContentType}
+        refreshSubscriptions={refreshSubscriptions}
       />
     )}
   </>
