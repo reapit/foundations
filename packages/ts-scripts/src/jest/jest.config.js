@@ -16,13 +16,14 @@ const jestGlobalConfig = {
   moduleNameMapper: {
     '@/(.*)': '<rootDir>/src/$1',
     '^.+.(?=.*scss|sass|css|png|jpg|pdf|jpeg).*': path.join(__dirname, './css-stub.js'),
+    'swagger-ui-react': path.join(__dirname, './swagger-stub.js'),
   },
   moduleFileExtensions: [...defaults.moduleFileExtensions, 'ts', 'tsx', 'graphql', 'gql'],
   snapshotSerializers: ['enzyme-to-json/serializer'],
   verbose: false,
   projects: ['<rootDir>/jest.config.js'],
   transform: {
-    "\\.[jt]sx?$": "babel-jest",
+    '\\.[jt]sx?$': 'babel-jest',
     '^.+\\.svg$': path.join(__dirname, './svg-transform.js'),
     '\\.(gql|graphql)$': 'jest-transform-graphql',
   },
