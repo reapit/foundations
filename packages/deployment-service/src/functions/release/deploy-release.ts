@@ -6,7 +6,12 @@ import {
   HttpStatusCode,
   NotFoundException,
 } from '@homeservenow/serverless-aws-handler'
-import { s3Client, createPipelineRunnerEntity, resetCurrentlyDeployed, savePipelineRunnerEntity } from '../../services'
+import {
+  assumedS3Client,
+  createPipelineRunnerEntity,
+  resetCurrentlyDeployed,
+  savePipelineRunnerEntity,
+} from '../../services'
 import { defaultOutputHeaders } from '../../constants'
 import * as pipelineService from '../../services/pipeline'
 import { PipelineEntity } from '../../entities/pipeline.entity'
@@ -34,7 +39,7 @@ export const deployRelease = httpHandler<any, PipelineRunnerEntity>({
     ownership(pipeline.developerId, developerId)
 
     if (pipeline.buildStatus === 'PRE_PROVISIONED') {
-      throw new HttpErrorException('Cannot deploy pipeline in PRE_PROVISONED state', 409 as HttpStatusCode)
+      throw new HttpErrorException('Cannot deploy pipeline in current build state', 409 as HttpStatusCode)
     }
 
     const file = Buffer.from(body.file, 'base64')
@@ -48,6 +53,8 @@ export const deployRelease = httpHandler<any, PipelineRunnerEntity>({
       type: PipelineRunnerType.RELEASE,
       buildVersion: version,
     })
+
+    const s3Client = await assumedS3Client()
 
     await new Promise<void>((resolve, reject) =>
       s3Client.putObject(
