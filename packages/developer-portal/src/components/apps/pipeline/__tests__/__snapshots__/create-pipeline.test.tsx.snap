@@ -200,20 +200,26 @@ Object {
             class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
           >
             Once you have created a Pipeline, you will be able to make deployments using
-            <ul>
-              <li>
-                Repository Commit using either Reapit's Github App or Bitbucket App
-              </li>
-              <li>
-                CLI release
-              </li>
-              <li>
-                Github Actions
-              </li>
-              <li>
-                Dashboard Trigger
-              </li>
-            </ul>
+          </p>
+          <p
+            class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+          >
+            Repository Commit using either Reapit's Github App or Bitbucket App
+          </p>
+          <p
+            class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+          >
+            CLI release
+          </p>
+          <p
+            class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+          >
+            Github Actions
+          </p>
+          <p
+            class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+          >
+            Dashboard Trigger
           </p>
           <button
             class="ebee6r1-el-intent-primary e19a1osy-el-button-has-right-chevron eqfkc7t-el-button"
@@ -719,20 +725,26 @@ Object {
           class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
         >
           Once you have created a Pipeline, you will be able to make deployments using
-          <ul>
-            <li>
-              Repository Commit using either Reapit's Github App or Bitbucket App
-            </li>
-            <li>
-              CLI release
-            </li>
-            <li>
-              Github Actions
-            </li>
-            <li>
-              Dashboard Trigger
-            </li>
-          </ul>
+        </p>
+        <p
+          class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+        >
+          Repository Commit using either Reapit's Github App or Bitbucket App
+        </p>
+        <p
+          class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+        >
+          CLI release
+        </p>
+        <p
+          class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+        >
+          Github Actions
+        </p>
+        <p
+          class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+        >
+          Dashboard Trigger
         </p>
         <button
           class="ebee6r1-el-intent-primary e19a1osy-el-button-has-right-chevron eqfkc7t-el-button"
