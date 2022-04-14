@@ -4,7 +4,7 @@ import React, { FC, useEffect } from 'react'
 import { CreatePipeline } from './create-pipeline'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { GetActionNames, getActions } from '@reapit/utils-common'
-import { BodyText, FlexContainer, Loader, PersistantNotification, Title } from '@reapit/elements'
+import { Loader, PersistantNotification, Title } from '@reapit/elements'
 import { useReapitConnect } from '@reapit/connect-session'
 import { PusherProvider } from '@harelpls/use-pusher'
 import { URLS, COGNITO_HEADERS } from '../../../constants/api'
@@ -39,12 +39,7 @@ export const AppPipeline: FC = () => {
     <>
       {!appDetailLoading && appDetail && <Title>{appDetail.name}</Title>}
       {loading || !connectSession || appDetailLoading ? (
-        <FlexContainer isFlexJustifyCenter isFlexAlignCenter>
-          <div>
-            <BodyText>Loading</BodyText>
-            <Loader />
-          </div>
-        </FlexContainer>
+        <Loader />
       ) : !pipeline && appDetail ? (
         <CreatePipeline refreshPipeline={refresh} appId={appId} />
       ) : pipeline && appDetail ? (

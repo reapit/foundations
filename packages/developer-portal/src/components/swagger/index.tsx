@@ -1,9 +1,9 @@
 import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
 import SwaggerUI from 'swagger-ui-react'
 import 'swagger-ui-react/swagger-ui.css'
-import { swagger, titleWrap, swaggerHidden } from './__styles__/swagger'
+import { swagger, swaggerHidden } from './__styles__/swagger'
 import ErrorBoundary from '../../core/error-boundary'
-import { Loader, Title, BodyText, elMx9, PersistantNotification } from '@reapit/elements'
+import { Loader, Title, BodyText, PersistantNotification } from '@reapit/elements'
 import { cx } from '@linaria/core'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
@@ -70,9 +70,9 @@ export const SwaggerPage: FC<SwaggerPageProps> = ({ swaggerUri }) => {
         This is a sandbox environment, with anonymised test data and isolated from production
       </PersistantNotification>
       <div className={cx(swagger, (loading || !swaggerUri) && swaggerHidden)}>
-        <Title className={titleWrap}>Foundations API</Title>
+        <Title>Foundations API</Title>
         {window.reapit.config.appEnv !== 'production' && (
-          <BodyText className={elMx9} hasGreyText>
+          <BodyText hasGreyText>
             This tool is interactive and provides instant access to data hosted in our sandbox environment with
             authentication and versioning headers pre-populated. Example requests and responses are shown by default but
             you can switch to view a fully documented schema - look for the model link.

@@ -24,6 +24,7 @@ describe('WebhooksManageForm', () => {
           webhookModel={mockWebhookModel}
           setIndexExpandedRow={jest.fn()}
           setExpandableContentType={jest.fn()}
+          refreshSubscriptions={jest.fn()}
         />,
       ),
     ).toMatchSnapshot()
@@ -123,25 +124,64 @@ describe('handleWebhookEditing', () => {
   it('should handle a successful edit state', () => {
     const setIndexExpandedRow = jest.fn()
     const setExpandableContentType = jest.fn()
+    const refreshSubscriptions = jest.fn()
     const updateWebhookSuccess = true
+    const deleteWebhookSuccess = false
 
-    const curried = handleWebhookEditing(setIndexExpandedRow, setExpandableContentType, updateWebhookSuccess)
+    const curried = handleWebhookEditing(
+      setIndexExpandedRow,
+      setExpandableContentType,
+      refreshSubscriptions,
+      updateWebhookSuccess,
+      deleteWebhookSuccess,
+    )
     curried()
 
     expect(setIndexExpandedRow).toHaveBeenCalledWith(null)
     expect(setExpandableContentType).toHaveBeenCalledWith(ExpandableContentType.Controls)
+    expect(refreshSubscriptions).toHaveBeenCalledTimes(1)
+  })
+
+  it('should handle a successful delete state', () => {
+    const setIndexExpandedRow = jest.fn()
+    const setExpandableContentType = jest.fn()
+    const refreshSubscriptions = jest.fn()
+    const updateWebhookSuccess = false
+    const deleteWebhookSuccess = true
+
+    const curried = handleWebhookEditing(
+      setIndexExpandedRow,
+      setExpandableContentType,
+      refreshSubscriptions,
+      updateWebhookSuccess,
+      deleteWebhookSuccess,
+    )
+    curried()
+
+    expect(setIndexExpandedRow).toHaveBeenCalledWith(null)
+    expect(setExpandableContentType).toHaveBeenCalledWith(ExpandableContentType.Controls)
+    expect(refreshSubscriptions).toHaveBeenCalledTimes(1)
   })
 
   it('should handle a failed edit state', () => {
     const setIndexExpandedRow = jest.fn()
     const setExpandableContentType = jest.fn()
+    const refreshSubscriptions = jest.fn()
     const updateWebhookSuccess = false
+    const deleteWebhookSuccess = false
 
-    const curried = handleWebhookEditing(setIndexExpandedRow, setExpandableContentType, updateWebhookSuccess)
+    const curried = handleWebhookEditing(
+      setIndexExpandedRow,
+      setExpandableContentType,
+      refreshSubscriptions,
+      updateWebhookSuccess,
+      deleteWebhookSuccess,
+    )
     curried()
 
     expect(setIndexExpandedRow).not.toHaveBeenCalled()
     expect(setExpandableContentType).not.toHaveBeenCalled()
+    expect(refreshSubscriptions).not.toHaveBeenCalled()
   })
 })
 

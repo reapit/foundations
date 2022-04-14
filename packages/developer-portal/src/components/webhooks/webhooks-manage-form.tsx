@@ -39,6 +39,7 @@ interface WebhooksManageFormProps {
   webhookModel: WebhookModel
   setIndexExpandedRow: Dispatch<SetStateAction<number | null>>
   setExpandableContentType: Dispatch<SetStateAction<ExpandableContentType>>
+  refreshSubscriptions: () => void
 }
 
 export interface EditWebhookFormSchema {
@@ -107,12 +108,15 @@ export const handleWebhookEditing =
   (
     setIndexExpandedRow: Dispatch<SetStateAction<number | null>>,
     setExpandableContentType: Dispatch<SetStateAction<ExpandableContentType>>,
+    refreshSubscriptions: () => void,
     updateWebhookSuccess?: boolean,
+    deleteWebhookSuccess?: boolean,
   ) =>
   () => {
-    if (updateWebhookSuccess) {
+    if (updateWebhookSuccess || deleteWebhookSuccess) {
       setIndexExpandedRow(null)
       setExpandableContentType(ExpandableContentType.Controls)
+      refreshSubscriptions()
     }
   }
 
@@ -135,6 +139,7 @@ export const WebhooksManageForm: FC<WebhooksManageFormProps> = ({
   webhookModel,
   setIndexExpandedRow,
   setExpandableContentType,
+  refreshSubscriptions,
 }) => {
   const { webhooksDataState } = useWebhooksState()
   const { installations, topics } = webhooksDataState
@@ -166,7 +171,7 @@ export const WebhooksManageForm: FC<WebhooksManageFormProps> = ({
     uriParams: { webhookId: webhookModel.id },
   })
 
-  const [, webhookDeleting, deleteWebhook] = useReapitUpdate<undefined, boolean>({
+  const [, webhookDeleting, deleteWebhook, deleteWebhookSuccess] = useReapitUpdate<undefined, boolean>({
     reapitConnectBrowserSession,
     action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.deleteWebhook],
     method: 'DELETE',
@@ -177,9 +182,16 @@ export const WebhooksManageForm: FC<WebhooksManageFormProps> = ({
   const topicOptions = filteredTopics.map((topic) => ({ name: topic.name ?? '', value: topic.id ?? '' }))
   const isLoading = webhookDeleting || webhookUpdating
 
-  useEffect(handleWebhookEditing(setIndexExpandedRow, setExpandableContentType, updateWebhookSuccess), [
-    updateWebhookSuccess,
-  ])
+  useEffect(
+    handleWebhookEditing(
+      setIndexExpandedRow,
+      setExpandableContentType,
+      refreshSubscriptions,
+      updateWebhookSuccess,
+      deleteWebhookSuccess,
+    ),
+    [updateWebhookSuccess, deleteWebhookSuccess],
+  )
 
   return (
     <form className={elP8} onSubmit={handleSubmit(handleSubmitWebhook(updateWebhook, webhookModel))}>

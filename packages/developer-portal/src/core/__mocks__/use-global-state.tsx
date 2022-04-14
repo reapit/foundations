@@ -6,6 +6,9 @@ export const mockGlobalState = {
     currentMember: mockMemberModel,
     currentDeveloper: mockDeveloperModel,
   },
+  globalRefreshState: {
+    members: [false, jest.fn()],
+  },
   globalRefreshCurrentMember: jest.fn(),
   globalRefreshCurrentDeveloper: jest.fn(),
 }

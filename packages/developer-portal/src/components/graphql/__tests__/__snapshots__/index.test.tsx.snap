@@ -14,13 +14,8 @@ Object {
         GraphQL
       </h1>
       <div
-        class="ev48hx0-el-is-full-page ebhrnzh-el-loader-container"
+        class="ebhrnzh-el-loader-container"
       >
-        <p
-          class="e15h0ww-el-loader-label"
-        >
-          Loading
-        </p>
         <div
           class="eq1m1jz-el-loader"
         >
@@ -48,13 +43,8 @@ Object {
       GraphQL
     </h1>
     <div
-      class="ev48hx0-el-is-full-page ebhrnzh-el-loader-container"
+      class="ebhrnzh-el-loader-container"
     >
-      <p
-        class="e15h0ww-el-loader-label"
-      >
-        Loading
-      </p>
       <div
         class="eq1m1jz-el-loader"
       >
