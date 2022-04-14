@@ -1,5 +1,5 @@
 import React, { ChangeEvent } from 'react'
-import { getTabContent, handleChangeTab, WebhooksWrapper } from '../webhooks'
+import { handleChangeTab, WebhooksWrapper } from '..'
 import { render } from '../../../tests/react-testing'
 import Routes from '../../../constants/routes'
 import { History } from 'history'
@@ -13,14 +13,6 @@ describe('WebhooksWrapper', () => {
     it(`should match a snapshot for the ${route} page`, () => {
       window.location.pathname = route
       expect(render(<WebhooksWrapper />)).toMatchSnapshot()
-    })
-  })
-})
-
-describe('getTabContent', () => {
-  routes.forEach((route) => {
-    it(`should match a snapshot for route ${route}`, () => {
-      expect(render(getTabContent(route))).toMatchSnapshot()
     })
   })
 })

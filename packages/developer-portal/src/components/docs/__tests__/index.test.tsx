@@ -1,5 +1,5 @@
 import React from 'react'
-import ApiDocs, { parseIframeUrl } from '../api-docs'
+import DocsPage, { parseIframeUrl } from '../index'
 import Routes from '@/constants/routes'
 import { render } from '../../../tests/react-testing'
 
@@ -8,9 +8,9 @@ jest.mock('react-router', () => ({
   useLocation: jest.fn(() => ({ search: '', pathname: '/test' })),
 }))
 
-describe('ApiDocs', () => {
+describe('DocsPage', () => {
   it('should match a snapshot', () => {
-    const wrapper = render(<ApiDocs />)
+    const wrapper = render(<DocsPage />)
     expect(wrapper).toMatchSnapshot()
   })
 

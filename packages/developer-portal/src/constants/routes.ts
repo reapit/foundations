@@ -17,6 +17,7 @@ const Routes = {
   ANALYTICS_INSTALLATIONS: '/analytics/installations',
   ANALYTICS_COST_CALCULATOR: '/analytics/calculator',
   RESET_PASSWORD: '/reset-password',
+  WEBHOOKS: '/webhooks',
   WEBHOOKS_ABOUT: '/webhooks/about',
   WEBHOOKS_NEW: '/webhooks/new',
   WEBHOOKS_MANAGE: '/webhooks/manage',

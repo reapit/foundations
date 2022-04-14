@@ -1,20 +1,10 @@
-/* istanbul ignore file */
-// Can't add tests to this file because of the way Jest transpiles Swagger UI throws an error
 import React from 'react'
 import { render } from '../../../tests/react-testing'
+import Swagger, { handleOnComplete, fetchInterceptor, InterceptorParams } from '..'
 
-import Swagger, { handleOnComplete, fetchInterceptor, InterceptorParams } from '../swagger'
-
-jest.mock('../../../../core/store')
-jest.mock('@/utils/session')
-jest.mock('swagger-ui-react')
-/*
-  Skipping Swagger test for now as new version of SwaggerUI fixes a security issue however, introduces an issue where 
-  the tests fail because of an old version of core JS. Should re-introduce test when Swagger UI has upgraded CoreJS.
-*/
 describe('Swagger', () => {
   it('should match a snapshot', () => {
-    expect(render(<Swagger />)).toMatchSnapshot()
+    expect(render(<Swagger swaggerUri={'https://api.swagger.com'} />)).toMatchSnapshot()
   })
 
   it('should have a fetchInterceptor that adds a token when the url is not swagger', () => {
@@ -43,7 +33,9 @@ describe('Swagger', () => {
     const request = {
       url: 'https://some-url.com/docs',
       headers: {
+        Authorization: 'Bearer SOME_TOKEN',
         'Content-Type': 'application/json',
+        'api-version': '2020-01-31',
       },
     } as InterceptorParams
     const token = 'SOME_TOKEN'
@@ -52,14 +44,9 @@ describe('Swagger', () => {
   })
 
   it('handles onComplete', () => {
-    ;(global as any).document.querySelector = jest.fn(() => ({
-      innerHTML: '<span>text</span>',
-    }))
     const setLoading = jest.fn()
-    const fn = handleOnComplete(setLoading)
-    fn()
-    const spy = jest.spyOn(document, 'querySelector')
-    expect(spy).toBeCalledWith('a[href="https://dev.platform.reapit.cloud/docs"]')
+    const curried = handleOnComplete(setLoading)
+    curried()
     expect(setLoading).toBeCalledWith(false)
   })
 })

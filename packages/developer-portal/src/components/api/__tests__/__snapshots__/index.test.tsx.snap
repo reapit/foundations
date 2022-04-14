@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`GraphQLPage should match a snapshot 1`] = `
+exports[`Api should match a snapshot 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -8,64 +8,92 @@ Object {
       <div
         class="ecbqyq6-el-snack-holder"
       />
-      <h1
-        class="evblxhy-el-title"
-      >
-        GraphQL
-      </h1>
       <div
-        class="ev48hx0-el-is-full-page ebhrnzh-el-loader-container"
+        class="eoxpwv-el-flex-auto e2kmzjs-el-flex-container"
       >
-        <p
-          class="e15h0ww-el-loader-label"
+        <aside
+          class="e93m1fg-el-secondary-nav-container"
         >
-          Loading
-        </p>
-        <div
-          class="eq1m1jz-el-loader"
-        >
+          <h1
+            class="evblxhy-el-title"
+          >
+            API
+          </h1>
           <div
-            class="exikdu1-el-loader-moving-bar"
-          />
-        </div>
+            class="e1w1lp2k-el-mb9 e125gftx-el-secondary-nav"
+          >
+            <div
+              class="e1ohezfm-el-secondary-nav-item"
+            >
+              REST API
+            </div>
+            <div
+              class="e1ohezfm-el-secondary-nav-item"
+            >
+              Webhooks
+            </div>
+            <div
+              class="e1ohezfm-el-secondary-nav-item"
+            >
+              GraphQL
+            </div>
+            <div
+              class="e1ohezfm-el-secondary-nav-item"
+            >
+              Desktop
+            </div>
+          </div>
+        </aside>
+        <section
+          class="e12d7zo5-el-hfull eukst9x-el-page-container"
+        />
       </div>
-      <div
-        class="gpsozf3-graph-qlwrapper"
-      />
     </div>
-    <script
-      id="gql-playground-module"
-      src="//cdn.jsdelivr.net/npm/graphql-playground-react/build/static/js/middleware.js"
-    />
   </body>,
   "container": <div>
     <div
       class="ecbqyq6-el-snack-holder"
     />
-    <h1
-      class="evblxhy-el-title"
-    >
-      GraphQL
-    </h1>
     <div
-      class="ev48hx0-el-is-full-page ebhrnzh-el-loader-container"
+      class="eoxpwv-el-flex-auto e2kmzjs-el-flex-container"
     >
-      <p
-        class="e15h0ww-el-loader-label"
+      <aside
+        class="e93m1fg-el-secondary-nav-container"
       >
-        Loading
-      </p>
-      <div
-        class="eq1m1jz-el-loader"
-      >
+        <h1
+          class="evblxhy-el-title"
+        >
+          API
+        </h1>
         <div
-          class="exikdu1-el-loader-moving-bar"
-        />
-      </div>
+          class="e1w1lp2k-el-mb9 e125gftx-el-secondary-nav"
+        >
+          <div
+            class="e1ohezfm-el-secondary-nav-item"
+          >
+            REST API
+          </div>
+          <div
+            class="e1ohezfm-el-secondary-nav-item"
+          >
+            Webhooks
+          </div>
+          <div
+            class="e1ohezfm-el-secondary-nav-item"
+          >
+            GraphQL
+          </div>
+          <div
+            class="e1ohezfm-el-secondary-nav-item"
+          >
+            Desktop
+          </div>
+        </div>
+      </aside>
+      <section
+        class="e12d7zo5-el-hfull eukst9x-el-page-container"
+      />
     </div>
-    <div
-      class="gpsozf3-graph-qlwrapper"
-    />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

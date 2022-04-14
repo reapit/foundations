@@ -1,6 +1,6 @@
 import React from 'react'
-import { Grid, Col } from '../'
-import { render } from '../../../tests/react-testing'
+import { Grid, Col } from '..'
+import { render } from '../../../../tests/react-testing'
 
 describe('Grid component', () => {
   it('should match a snapshot and render children', () => {
