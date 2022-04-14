@@ -58,7 +58,7 @@ export const createPolicies = ({
 
   const LiveS3BucketPolicy = new PolicyStatement({
     effect: Effect.ALLOW,
-    resources: [buckets[BucketNames.LIVE].bucketArn],
+    resources: [buckets[BucketNames.LIVE].bucketArn, buckets[BucketNames.LOG].bucketArn],
     actions: [
       's3:PutObject',
       's3:GetObject',

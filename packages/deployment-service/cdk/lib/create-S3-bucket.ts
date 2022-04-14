@@ -20,6 +20,7 @@ export const createS3Buckets = (stack: Stack, usercodeStack: Stack): Record<Buck
     },
     [BucketNames.LOG]: {
       put: true,
+      stack: usercodeStack,
     },
     [BucketNames.REPO_CACHE]: {
       put: true,

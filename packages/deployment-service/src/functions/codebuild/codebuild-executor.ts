@@ -6,7 +6,15 @@ import { CodeBuild } from 'aws-sdk'
 import yaml from 'yaml'
 import { PackageManagerEnum } from '../../../../foundations-ts-definitions/deployment-schema'
 import { QueueNames } from '../../constants'
-import { sqs, savePipelineRunnerEntity, s3Client, githubApp, getBitBucketToken, pusher } from '../../services'
+import {
+  sqs,
+  savePipelineRunnerEntity,
+  s3Client,
+  githubApp,
+  getBitBucketToken,
+  pusher,
+  assumedS3Client,
+} from '../../services'
 import { PipelineEntity } from '../../entities/pipeline.entity'
 import fetch from 'node-fetch'
 import { BitbucketClientData } from '@/entities/bitbucket-client.entity'
@@ -206,7 +214,8 @@ export const codebuildExecutor: SQSHandler = async (
 
         pipelineRunner.codebuildId = result.build?.id?.split(':').pop()
 
-        const signedUrl = await s3Client.getSignedUrlPromise('getObject', {
+        const usercodeS3client = await assumedS3Client()
+        const signedUrl = await usercodeS3client.getSignedUrlPromise('getObject', {
           Key: `${pipelineRunner.codebuildId}.gz`,
           Bucket: process.env.DEPLOYMENT_LOG_BUCKET_NAME,
           Expires: 60 * 60 * 24 * 7,
