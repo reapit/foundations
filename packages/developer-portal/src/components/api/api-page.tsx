@@ -199,12 +199,14 @@ export const ApiPage: FC = () => {
           {isWebhooksPage && apps?.data && <WebhooksControls />}
         </SecondaryNavContainer>
         <PageContainer className={elHFull}>
-          <Switch>
-            <Route path={Routes.SWAGGER} exact component={() => <SwaggerPage swaggerUri={swaggerUri} />} />
-            <Route path={Routes.WEBHOOKS} component={WebhooksPage} />
-            <Route path={Routes.GRAPHQL} exact component={GraphQLPage} />
-            <Route path={Routes.DESKTOP} exact component={DesktopPage} />
-          </Switch>
+          <ErrorBoundary>
+            <Switch>
+              <Route path={Routes.SWAGGER} exact component={() => <SwaggerPage swaggerUri={swaggerUri} />} />
+              <Route path={Routes.WEBHOOKS} component={WebhooksPage} />
+              <Route path={Routes.GRAPHQL} exact component={GraphQLPage} />
+              <Route path={Routes.DESKTOP} exact component={DesktopPage} />
+            </Switch>
+          </ErrorBoundary>
         </PageContainer>
       </FlexContainer>
     </ErrorBoundary>

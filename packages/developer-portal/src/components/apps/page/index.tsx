@@ -100,18 +100,20 @@ export const AppsPage: FC = () => {
               </SecondaryNavContainer>
             )}
             <PageContainer className={elHFull}>
-              <Switch>
-                <Route path={Routes.APPS} exact component={AppsListPage} />
-                <Route path={Routes.APPS_NEW} exact component={AppsNewPage} />
-                <Route path={Routes.APPS_WELCOME} exact component={AppsWelcomePage} />
-                <Route path={Routes.APP_INSTALLATIONS} exact component={AppInstallationsPage} />
-                <Route path={Routes.APPS_EDIT} component={AppEditPage} />
-                {loginIdentity?.developerId &&
-                  window.reapit.config.pipelineWhitelist.includes(loginIdentity.developerId) && (
-                    <Route path={Routes.APP_PIPELINE} component={AppPipeline} />
-                  )}
-                <Route path={Routes.APP_DETAIL} component={AppsDetailPage} />
-              </Switch>
+              <ErrorBoundary>
+                <Switch>
+                  <Route path={Routes.APPS} exact component={AppsListPage} />
+                  <Route path={Routes.APPS_NEW} exact component={AppsNewPage} />
+                  <Route path={Routes.APPS_WELCOME} exact component={AppsWelcomePage} />
+                  <Route path={Routes.APP_INSTALLATIONS} exact component={AppInstallationsPage} />
+                  <Route path={Routes.APPS_EDIT} component={AppEditPage} />
+                  {loginIdentity?.developerId &&
+                    window.reapit.config.pipelineWhitelist.includes(loginIdentity.developerId) && (
+                      <Route path={Routes.APP_PIPELINE} component={AppPipeline} />
+                    )}
+                  <Route path={Routes.APP_DETAIL} component={AppsDetailPage} />
+                </Switch>
+              </ErrorBoundary>
             </PageContainer>
           </>
         )}

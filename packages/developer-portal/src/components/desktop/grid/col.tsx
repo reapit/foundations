@@ -31,7 +31,7 @@ const Col: FC<ColProps> = ({
   const spanClass = styles[`span${spanId}`]
   const offsetClass = offset > 0 && styles[`offset${offsetId}`]
 
-  return <div className={cx(styles.col, spanClass, offsetClass, className && className)}>{children}</div>
+  return <div className={cx(styles.col, spanClass, offsetClass, className)}>{children}</div>
 }
 
 export default Col
