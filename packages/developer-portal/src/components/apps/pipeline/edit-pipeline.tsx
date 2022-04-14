@@ -34,6 +34,7 @@ const pipelineUpdateFormHandle =
     appId: string,
   ) =>
   async (values: PipelineModelInterface) => {
+    delete values.buildStatus
     const result = await updatePipeline({
       ...values,
       appId,
