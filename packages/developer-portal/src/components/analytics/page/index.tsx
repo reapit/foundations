@@ -33,49 +33,49 @@ export const AnalyticsPage: FC = () => {
   const isCustomer = selectIsCustomer(connectSession)
 
   return (
-    <ErrorBoundary>
-      <FlexContainer isFlexAuto>
-        <SecondaryNavContainer>
-          <Title>Analytics</Title>
-          <SecondaryNav className={cx(elMb8, elFadeIn)}>
+    <FlexContainer isFlexAuto>
+      <SecondaryNavContainer>
+        <Title>Analytics</Title>
+        <SecondaryNav className={cx(elMb8, elFadeIn)}>
+          <SecondaryNavItem
+            onClick={navigate(history, Routes.ANALYTICS_API_CALLS)}
+            active={pathname === Routes.ANALYTICS_API_CALLS}
+          >
+            API Usage
+          </SecondaryNavItem>
+          <SecondaryNavItem
+            onClick={navigate(history, Routes.ANALYTICS_COSTS)}
+            active={pathname === Routes.ANALYTICS_COSTS}
+          >
+            Costs
+          </SecondaryNavItem>
+          <SecondaryNavItem
+            onClick={navigate(history, Routes.ANALYTICS_INSTALLATIONS)}
+            active={pathname === Routes.ANALYTICS_INSTALLATIONS}
+          >
+            Installations
+          </SecondaryNavItem>
+          {isCustomer && (
             <SecondaryNavItem
-              onClick={navigate(history, Routes.ANALYTICS_API_CALLS)}
-              active={pathname === Routes.ANALYTICS_API_CALLS}
+              onClick={navigate(history, Routes.ANALYTICS_COST_CALCULATOR)}
+              active={pathname === Routes.ANALYTICS_COST_CALCULATOR}
             >
-              API Usage
+              Cost Calculator
             </SecondaryNavItem>
-            <SecondaryNavItem
-              onClick={navigate(history, Routes.ANALYTICS_COSTS)}
-              active={pathname === Routes.ANALYTICS_COSTS}
-            >
-              Costs
-            </SecondaryNavItem>
-            <SecondaryNavItem
-              onClick={navigate(history, Routes.ANALYTICS_INSTALLATIONS)}
-              active={pathname === Routes.ANALYTICS_INSTALLATIONS}
-            >
-              Installations
-            </SecondaryNavItem>
-            {isCustomer && (
-              <SecondaryNavItem
-                onClick={navigate(history, Routes.ANALYTICS_COST_CALCULATOR)}
-                active={pathname === Routes.ANALYTICS_COST_CALCULATOR}
-              >
-                Cost Calculator
-              </SecondaryNavItem>
-            )}
-          </SecondaryNav>
-          <Controls />
-        </SecondaryNavContainer>
-        <PageContainer className={elHFull}>
+          )}
+        </SecondaryNav>
+        <Controls />
+      </SecondaryNavContainer>
+      <PageContainer className={elHFull}>
+        <ErrorBoundary>
           <Switch>
             <Route path={Routes.ANALYTICS_API_CALLS} exact component={AnalyticsCallsPage} />
             <Route path={Routes.ANALYTICS_COSTS} exact component={AnalyticsCostsPage} />
             <Route path={Routes.ANALYTICS_INSTALLATIONS} exact component={AnalyticsInstallationsPage} />
             <Route path={Routes.ANALYTICS_COST_CALCULATOR} exact component={AnalyticsCalculatorPage} />
           </Switch>
-        </PageContainer>
-      </FlexContainer>
-    </ErrorBoundary>
+        </ErrorBoundary>
+      </PageContainer>
+    </FlexContainer>
   )
 }

@@ -14,21 +14,15 @@ const CustomerRegister = React.lazy(() => catchChunkError(() => import('../compo
 const Login = React.lazy(() => catchChunkError(() => import('../components/login')))
 const Register = React.lazy(() => catchChunkError(() => import('../components/register')))
 const Apps = React.lazy(() => catchChunkError(() => import('../components/apps')))
-const ApiDocsPage = React.lazy(() => catchChunkError(() => import('../components/api-docs')))
-const SwaggerPage = React.lazy(() => catchChunkError(() => import('../components/swagger')))
-const DesktopPage = React.lazy(() => catchChunkError(() => import('../components/desktop')))
+const ApiPage = React.lazy(() => catchChunkError(() => import('../components/api')))
+const ApiDocsPage = React.lazy(() => catchChunkError(() => import('../components/docs')))
 const AnalyticsPage = React.lazy(() => catchChunkError(() => import('../components/analytics')))
 const RegisterConfirm = React.lazy(() => catchChunkError(() => import('../components/register/register-confirm')))
-const WebhooksPage = React.lazy(() => catchChunkError(() => import('../components/webhooks')))
 const SettingsPage = React.lazy(() => catchChunkError(() => import('../components/settings')))
 const Invite = React.lazy(() => catchChunkError(() => import('../components/register/invite')))
 const ElementsPage = React.lazy(() => catchChunkError(() => import('../components/elements')))
-const GraphQLPage = React.lazy(() => catchChunkError(() => import('../components/graphql')))
 const SelectRolePage = React.lazy(() => catchChunkError(() => import('../components/login/select-role')))
 const IaaS = React.lazy(() => catchChunkError(() => import('../components/iaas')))
-const EditionDownloadPage = React.lazy(() =>
-  catchChunkError(() => import('../components/desktop/developer-edition-download')),
-)
 
 export const FourOFour: FC = () => (
   <PersistantNotification isFullWidth isInline isExpanded intent="danger">
@@ -43,7 +37,7 @@ const Router = () => {
         <Switch>
           <Route path={Routes.OK} exact render={() => <OkayPage />} />
           <Route path={Routes.LOGIN} exact render={() => <Login />} />
-          <Route path={Routes.REGISTER} render={() => <Register />} />
+          <Route path={Routes.REGISTER} exact render={() => <Register />} />
           <Route path={Routes.REGISTER_LEGACY} render={() => <Redirect to={Routes.SELECT_ROLE} />} />
           <Route path={Routes.SELECT_ROLE} exact component={SelectRolePage} />
           <Route path={Routes.REGISTER_CONFIRM} exact component={RegisterConfirm} />
@@ -56,15 +50,15 @@ const Router = () => {
               <PrivateRoute path={Routes.ANALYTICS} component={AnalyticsPage} />
               <PrivateRoute path={Routes.API_DOCS} component={ApiDocsPage} />
               <PrivateRoute path={Routes.ANALYTICS_SCHEMA_DOCS} component={ApiDocsPage} />
-              <PrivateRoute path={Routes.WEBHOOKS_MANAGE} component={WebhooksPage} />
-              <PrivateRoute path={Routes.WEBHOOKS_ABOUT} component={WebhooksPage} />
-              <PrivateRoute path={Routes.WEBHOOKS_NEW} component={WebhooksPage} />
-              <PrivateRoute path={Routes.WEBHOOKS_LOGS} component={WebhooksPage} />
-              <PrivateRoute path={Routes.SWAGGER} exact component={SwaggerPage} />
-              <PrivateRoute path={Routes.DESKTOP} exact component={DesktopPage} />
+              <PrivateRoute path={Routes.WEBHOOKS} component={ApiPage} />
+              <PrivateRoute path={Routes.WEBHOOKS_MANAGE} component={ApiPage} />
+              <PrivateRoute path={Routes.WEBHOOKS_ABOUT} component={ApiPage} />
+              <PrivateRoute path={Routes.WEBHOOKS_NEW} component={ApiPage} />
+              <PrivateRoute path={Routes.WEBHOOKS_LOGS} component={ApiPage} />
+              <PrivateRoute path={Routes.SWAGGER} exact component={ApiPage} />
+              <PrivateRoute path={Routes.DESKTOP} exact component={ApiPage} />
+              <PrivateRoute path={Routes.GRAPHQL} component={ApiPage} />
               <PrivateRoute path={Routes.SETTINGS} component={SettingsPage} />
-              <PrivateRoute path={Routes.DEVELOPER_EDITION_DOWNLOAD} component={EditionDownloadPage} />
-              <PrivateRoute path={Routes.GRAPHQL} component={GraphQLPage} />
               <PrivateRoute path={Routes.ELEMENTS} exact component={ElementsPage} />
               <PrivateRoute path={Routes.IAAS} exact component={IaaS} />
               <Route render={() => <FourOFour />} />

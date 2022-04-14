@@ -1,5 +1,4 @@
 import { useMemo } from 'react'
-import { formatCurrency, formatNumber } from '../../../utils/number-formatter'
 
 export type EndpointsUsedRange = { [key: string]: string }
 
@@ -289,40 +288,11 @@ export const prepareData = (endpointsUsed: string, apiCalls: string) => (): Tota
   }
 }
 
-export const prepareTableColumns = (totalMonthlyCost: number) => () => {
-  return [
-    {
-      Header: 'Number of API Calls',
-      accessor: (row: TableRow) => {
-        return formatNumber(row.numberOfApiCalls)
-      },
-    },
-    {
-      Header: 'Cost Per API Call',
-      accessor: (row: TableRow) => {
-        return formatCurrency(row.costPerApiCall, 6)
-      },
-      Footer: 'Estimated total monthly cost',
-    },
-    {
-      Header: 'Total Cost',
-      accessor: (row: TableRow) => {
-        return formatCurrency(row.totalCost)
-      },
-      Footer: () => {
-        return formatCurrency(totalMonthlyCost)
-      },
-    },
-  ]
-}
-
 export const useFoundationCostTable = (endpointsUsed: string, apiCalls: string) => {
   const { tableData, totalMonthlyCost } = useMemo(prepareData(endpointsUsed, apiCalls), [endpointsUsed, apiCalls])
-  const tableColumns = useMemo(prepareTableColumns(totalMonthlyCost), [totalMonthlyCost])
 
   return {
     tableData,
-    tableColumns,
     totalMonthlyCost,
   }
 }

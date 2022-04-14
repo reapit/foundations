@@ -6,6 +6,7 @@ export * from './styles/borders'
 export * from './styles/typography'
 export * from './styles/helpers'
 export * from './styles/media'
+export * from './styles/states'
 
 export * from './components/button'
 export * from './components/card'

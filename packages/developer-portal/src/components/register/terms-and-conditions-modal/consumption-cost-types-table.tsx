@@ -1,5 +1,5 @@
+import { elMb11, Table } from '@reapit/elements'
 import React from 'react'
-import { Table } from '@reapit/elements-legacy'
 
 const consumptionCostTypes = [
   { type: 'Annual Registration Fee', amount: '£995', payable: 'Per Contract year, payable in advance' },
@@ -7,7 +7,6 @@ const consumptionCostTypes = [
     type: 'Annual App Marketplace Fee',
     amount: '£595',
     payable:
-      /* eslint-disable-next-line max-len */
       'Payable for each Application approved in accordance with clauses 2.5 and 2.5.3, and payable per contract year, in advance',
   },
   {
@@ -28,29 +27,36 @@ const consumptionCostTypes = [
   },
 ]
 
-const consumptionCostTableColumns = [
-  {
-    Header: 'Type',
-    accessor: 'type',
-  },
-  {
-    Header: 'Amount',
-    accessor: 'amount',
-  },
-  {
-    Header: 'Payable',
-    accessor: 'payable',
-  },
-]
-
 export const ConsumptionCostTypesTable = () => (
-  <div>
-    <Table
-      striped={false}
-      bordered={true}
-      loading={false}
-      data={consumptionCostTypes}
-      columns={consumptionCostTableColumns}
-    />
-  </div>
+  <Table
+    className={elMb11}
+    rows={consumptionCostTypes.map((item) => ({
+      cells: [
+        {
+          label: 'Type',
+          value: item.type,
+          cellHasDarkText: true,
+          narrowTable: {
+            showLabel: true,
+          },
+        },
+        {
+          label: 'Amount',
+          value: item.amount,
+          cellHasDarkText: true,
+          narrowTable: {
+            showLabel: true,
+          },
+        },
+        {
+          label: 'Payable',
+          value: item.payable,
+          cellHasDarkText: true,
+          narrowTable: {
+            showLabel: true,
+          },
+        },
+      ],
+    }))}
+  />
 )

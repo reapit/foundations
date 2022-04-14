@@ -15,7 +15,7 @@ import {
   ToggleRadioOption,
 } from '@reapit/elements'
 import { useReapitConnect } from '@reapit/connect-session'
-import { selectIsUserOrUserAdmin, selectLoginIdentity } from '../../../utils/auth'
+import { selectIsUserOrUserAdmin } from '../../../utils/auth'
 import { useReapitGet, useReapitUpdate } from '@reapit/utils-react'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { SandboxModelPagedResult, UpdateMemberModel } from '@reapit/foundations-ts-definitions'
@@ -42,7 +42,8 @@ export const handleRefreshMember = (refreshMember: () => void, updateMemberSucce
 export const ProfileForm: FC = () => {
   const { globalDataState, globalRefreshCurrentMember } = useGlobalState()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const { clientId, orgName } = selectLoginIdentity(connectSession)
+  const clientId = connectSession?.loginIdentity.clientId
+  const orgName = connectSession?.loginIdentity.orgName
   const isUserOrUserAdmin = selectIsUserOrUserAdmin(connectSession)
   const { currentMember } = globalDataState
   const isClient = clientId && isUserOrUserAdmin

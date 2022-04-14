@@ -35,12 +35,12 @@ export const pipelineRunnerCreate = httpHandler<void, PipelineRunnerEntity>({
 
     ownership(pipeline.developerId, developerId)
 
-    if (isPipelineDeploymentDisabled(pipeline) || (await service.pipelineRunnerCountRunning(pipeline)) >= 1) {
+    if (
+      isPipelineDeploymentDisabled(pipeline) ||
+      (await service.pipelineRunnerCountRunning(pipeline)) >= 1 ||
+      pipeline.buildStatus === 'PRE_PROVISIONED'
+    ) {
       throw new HttpErrorException('Cannot create deployment in current state', 409 as HttpStatusCode)
-    }
-
-    if (pipeline.buildStatus !== 'PRE_PROVISIONED') {
-      throw new HttpErrorException('Cannot deploy pipeline in PRE_PROVISONED state', 409 as HttpStatusCode)
     }
 
     const pipelineRunner = await service.createPipelineRunnerEntity({

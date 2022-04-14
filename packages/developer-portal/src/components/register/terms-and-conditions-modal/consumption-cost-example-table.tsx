@@ -1,9 +1,9 @@
-import React from 'react'
-import { Table, Grid, GridItem, H6 } from '@reapit/elements-legacy'
-// eslint-disable-next-line max-len
-import { endpointsUsedRange, useFoundationCostTable } from '@/components/analytics/calculator/use-foundation-cost-table'
-import { formatNumber } from '@/utils/number-formatter'
+import React, { FC } from 'react'
+import { endpointsUsedRange } from '../../analytics/calculator/use-foundation-cost-table'
+import { formatNumber } from '../../../utils/number-formatter'
 import { CostCalculatorFormValues } from '../../analytics/calculator'
+import { BodyText, Grid, ColSplit } from '@reapit/elements'
+import { AnalyticsCalculatorTable } from '../../analytics/calculator/results-table'
 
 const totalCostFormValues: CostCalculatorFormValues = {
   apiCalls: '100000',
@@ -11,26 +11,23 @@ const totalCostFormValues: CostCalculatorFormValues = {
 }
 const { apiCalls, endpointsUsed } = totalCostFormValues
 
-export const ConsumptionCostExampleTable: React.FC = () => {
-  const { tableColumns, tableData } = useFoundationCostTable(endpointsUsed, apiCalls)
+export const ConsumptionCostExampleTable: FC = () => {
   return (
-    <div className="mt-10">
-      <div className="mb-3">
-        <H6>Calculation of Total Consumption Cost - Example for representative purposes only: </H6>
-      </div>
-      <Grid className="is-vcentered is-mobile">
-        <GridItem className="is-one-quarter-tablet is-half-mobile">
-          <H6>Endpoints Used</H6>
-        </GridItem>
-        <GridItem>{endpointsUsedRange[endpointsUsed]}</GridItem>
+    <>
+      <BodyText>Calculation of Total Consumption Cost - Example for representative purposes only: </BodyText>
+      <Grid>
+        <ColSplit>
+          <BodyText>Endpoints Used</BodyText>
+        </ColSplit>
+        <ColSplit>{endpointsUsedRange[endpointsUsed]}</ColSplit>
       </Grid>
-      <Grid className="is-vcentered is-mobile">
-        <GridItem className="is-one-quarter-tablet is-half-mobile">
-          <H6>Monthly API Calls</H6>
-        </GridItem>
-        <GridItem className="is-half-mobile">{formatNumber(parseFloat(apiCalls))}</GridItem>
+      <Grid>
+        <ColSplit>
+          <BodyText>Monthly API Calls</BodyText>
+        </ColSplit>
+        <ColSplit className="is-half-mobile">{formatNumber(parseFloat(apiCalls))}</ColSplit>
       </Grid>
-      <Table bordered scrollable columns={tableColumns} data={tableData} />
-    </div>
+      <AnalyticsCalculatorTable apiCalls={apiCalls} endpointsUsed={endpointsUsed} />
+    </>
   )
 }

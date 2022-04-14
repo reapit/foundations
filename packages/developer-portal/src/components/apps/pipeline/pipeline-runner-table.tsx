@@ -17,7 +17,7 @@ import {
 } from '@reapit/elements'
 import { PipelineModelInterface, PipelineRunnerModelInterface } from '@reapit/foundations-ts-definitions'
 import { useEvent } from '@harelpls/use-pusher'
-import { DateTime } from 'luxon'
+import dayjs from 'dayjs'
 import { PipelineRunnerMeta } from './deployment-info'
 
 interface PipelineRunnerSetterInterface {
@@ -100,8 +100,8 @@ const TaskList = ({ tasks }: { tasks: PipelineRunnerModelInterface['tasks'] }) =
   )
 }
 
-const isoDateToHuman = (isoDateStr: string) => DateTime.fromISO(isoDateStr).toLocaleString(DateTime.DATETIME_SHORT)
-const dateToHuman = (date: Date) => DateTime.fromJSDate(date).toLocaleString(DateTime.DATETIME_SHORT)
+const isoDateToHuman = (isoDateStr: string) => dayjs(isoDateStr).format('DD MMM YYYY hh:mm:ss')
+const dateToHuman = (date: Date) => dayjs(date).format('DD MMM YYYY hh:mm:ss')
 
 export const PipelineDeploymentTable: React.FC<{
   pipeline: PipelineModelInterface

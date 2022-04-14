@@ -1,19 +1,10 @@
-import * as React from 'react'
-import { shallow } from 'enzyme'
-import { createBrowserHistory } from 'history'
+import React from 'react'
 import GraphQLPage from '..'
-import { Router, Route } from 'react-router-dom'
+import { render } from '../../../tests/react-testing'
 
 describe('GraphQLPage', () => {
   it('should match a snapshot', () => {
-    const history = createBrowserHistory()
-    const wrapper = shallow(
-      <Router history={history}>
-        <Route>
-          <GraphQLPage />
-        </Route>
-      </Router>,
-    )
+    const wrapper = render(<GraphQLPage />)
     expect(wrapper).toMatchSnapshot()
   })
 })

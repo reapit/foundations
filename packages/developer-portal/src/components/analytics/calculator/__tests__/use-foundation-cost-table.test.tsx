@@ -1,5 +1,4 @@
-import { formatCurrency, formatNumber } from '../../../../utils/number-formatter'
-import { prepareData, TotalCostTableData, prepareTableColumns } from '../use-foundation-cost-table'
+import { prepareData, TotalCostTableData } from '../use-foundation-cost-table'
 
 const mockEndpointsUsed = 'tier4'
 const mockApiCalls = '100000'
@@ -43,48 +42,6 @@ const mockTotalCostTableData = {
   ],
   totalMonthlyCost: 340.025,
 }
-
-describe('prepareTableColumns', () => {
-  const curried = prepareTableColumns(mockTotalCostTableData.totalMonthlyCost)
-  const columns = curried()
-
-  it('should return 3 columns in total', () => {
-    expect(columns).toHaveLength(3)
-  })
-
-  it('should return valid Header, accessor and Footer for each column', () => {
-    mockTotalCostTableData.tableData.forEach((row) => {
-      columns.forEach(({ Header, accessor, Footer }, index) => {
-        if (index === 0) {
-          expect(Header).toEqual('Number of API Calls')
-          if (typeof accessor === 'function') {
-            const numberOfApiCalls = accessor(row)
-            expect(numberOfApiCalls).toEqual(formatNumber(row.numberOfApiCalls))
-          }
-        }
-        if (index === 1) {
-          expect(Header).toEqual('Cost Per API Call')
-          if (typeof accessor === 'function') {
-            const costPerApiCall = accessor(row)
-            expect(costPerApiCall).toBe(formatCurrency(row.costPerApiCall, 6))
-          }
-          expect(Footer).toEqual('Estimated total monthly cost')
-        }
-        if (index === 2) {
-          expect(Header).toEqual('Total Cost')
-          if (typeof accessor === 'function') {
-            const totalCost = accessor(row)
-            expect(totalCost).toEqual(formatCurrency(row.totalCost))
-          }
-          if (typeof Footer === 'function') {
-            const totalMonthlyCost = Footer()
-            expect(totalMonthlyCost).toBe(formatCurrency(mockTotalCostTableData.totalMonthlyCost))
-          }
-        }
-      })
-    })
-  })
-})
 
 describe('prepareData', () => {
   it('should correctly prepare data', () => {

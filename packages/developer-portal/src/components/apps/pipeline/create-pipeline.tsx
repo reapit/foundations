@@ -94,6 +94,9 @@ const PipelineCreationModal = ({ open, onModalClose, appId, refreshPipeline }: P
   const [loading, , send, submissionErrors] = useReapitUpdate<Partial<PipelineModelInterface>, PipelineModelInterface>({
     reapitConnectBrowserSession,
     action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.updatePipeline],
+    uriParams: {
+      pipelineId: appId,
+    },
     headers: {
       Authorization: connectSession?.idToken as string,
     },
@@ -202,10 +205,14 @@ export const CreatePipeline = ({ appId, refreshPipeline }: CreatePipelineInterfa
           </IconContainer>
           <Subtitle>Pipeline Deployments</Subtitle>
           <BodyText hasGreyText>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis rhoncus sem nec sagittis aliquet. Praesent
-            malesuada non mi sed tristique. Proin fermentum metus quis ante tempor egestas. Class aptent taciti sociosqu
-            ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas et lacinia neque.
+            Pipelines are configurations used to deploy applications to our infrastructure. A Pipeline can be created
+            via the developer portal or via CLI.
           </BodyText>
+          <BodyText hasGreyText>Once you have created a Pipeline, you will be able to make deployments using</BodyText>
+          <BodyText hasGreyText>Repository Commit using either Reapit&apos;s Github App or Bitbucket App</BodyText>
+          <BodyText hasGreyText>CLI release</BodyText>
+          <BodyText hasGreyText>Github Actions</BodyText>
+          <BodyText hasGreyText>Dashboard Trigger</BodyText>
           <Button
             intent="primary"
             chevronRight
@@ -229,13 +236,11 @@ export const CreatePipeline = ({ appId, refreshPipeline }: CreatePipelineInterfa
           </IconContainer>
           <Subtitle>Pipeline Documentation</Subtitle>
           <BodyText hasGreyText>
-            Praesent malesuada non mi sed tristique. Proin fermentum metus quis ante tempor egestas. Class aptent taciti
-            sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas et lacinia neque. Lorem
-            ipsum dolor sit amet, consectetur adipiscing elit. Duis rhoncus sem nec sagittis aliquet.
+            Read our documentation on Pipelines and see how they can benefit you and your development process.
           </BodyText>
           <Button
             intent="low"
-            onClick={openNewPage(ExternalPages.webhooksDocs)}
+            onClick={openNewPage(ExternalPages.pipelineDocs)}
             onMouseOver={() => {
               setDocsIsAnimated(true)
             }}

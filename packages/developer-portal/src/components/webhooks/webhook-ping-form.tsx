@@ -25,7 +25,6 @@ import { useForm } from 'react-hook-form'
 import Yup, { object, string } from 'yup'
 import errorMessages from '../../constants/error-messages'
 import { handleCollapseRow } from './webhooks-manage-form'
-import { link } from '../../styles/elements/link'
 import { openNewPage } from '../../utils/navigation'
 import { ExpandableContentType } from './webhooks-manage'
 import { SendFunction, useReapitUpdate } from '@reapit/utils-react'
@@ -146,9 +145,7 @@ export const WebhooksPingForm: FC<WebhooksPingFormProps> = ({
           <BodyText>
             To test your Webhook subscription, please select a subscription topic and an example payload for that topic
             will be sent to the configured URL. For more information, please{' '}
-            <a className={link} onClick={openNewPage(`${Routes.API_DOCS}/api/webhooks#testing`)}>
-              click here
-            </a>
+            <a onClick={openNewPage(`${Routes.API_DOCS}/api/webhooks#testing`)}>click here</a>
           </BodyText>
           <ButtonGroup className={elMlAuto}>
             <Button

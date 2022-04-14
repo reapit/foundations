@@ -1,11 +1,10 @@
+import { Subtitle } from '@reapit/elements'
 import React from 'react'
-import { H5, Content } from '@reapit/elements-legacy'
 import { TermsLi, TermsOl, TermsUl, TermsLiBullet } from './__styles__/terms-and-conditions'
 
 export const ScheduleThree = () => (
-  <Content>
-    <H5 className="text-center">Schedule 3 - Developer Obligations</H5>
-
+  <>
+    <Subtitle>Schedule 3 - Developer Obligations</Subtitle>
     <TermsOl>
       <TermsLi>
         The Developer agrees that:
@@ -44,8 +43,8 @@ export const ScheduleThree = () => (
             and provide Reapit with the results of such test;
           </TermsLiBullet>
           <TermsLiBullet>
-            it will not use the Foundations Platform in a manner, develop an Application, or share any content or
-            Developer Feedback, that:
+            it will not use the Foundations Platform in a manner, develop an Application, or share any or Developer
+            Feedback, that:
             <TermsUl>
               <TermsLiBullet>is false or misleading;</TermsLiBullet>
               <TermsLiBullet>
@@ -123,5 +122,5 @@ export const ScheduleThree = () => (
         before submitting new ones
       </TermsLi>
     </TermsOl>
-  </Content>
+  </>
 )
