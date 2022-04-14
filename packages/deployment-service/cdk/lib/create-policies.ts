@@ -1,5 +1,5 @@
 import { Project, ISecret, Effect, PolicyStatement, Bucket, Stack, Topic } from '@reapit/ts-scripts/src/cdk'
-import { AccountPrincipal, CompositePrincipal, Policy, Role } from 'aws-cdk-lib/aws-iam'
+import { AccountPrincipal, ArnPrincipal, CompositePrincipal, Policy, Role } from 'aws-cdk-lib/aws-iam'
 import config from '../../config.json'
 import { aws_sqs as sqs } from 'aws-cdk-lib'
 import { BucketNames } from './create-S3-bucket'
@@ -113,6 +113,19 @@ export const createPolicies = ({
     resources: [codebuildSnsTopic.topicArn],
     actions: ['sns:Subscribe'],
   })
+
+  codebuildSnsTopic.addToResourcePolicy(
+    new PolicyStatement({
+      effect: Effect.ALLOW,
+      actions: ['sns:Subscribe'],
+      principals: [
+        new ArnPrincipal(
+          `arn:aws:iam::${config.AWS_ACCOUNT_ID}:role/cdk-hnb659fds-cfn-exec-role-${config.AWS_ACCOUNT_ID}-${usercodeStack.region}`, // todo: is hnb659fds always the same?, is usercodeStack region always the same as primary stack?
+        ),
+      ],
+      resources: [codebuildSnsTopic.topicArn],
+    }),
+  )
 
   // create a policy that allows the lambda to do what it needs to do in the usercode stack
   const usercodePolicy = new Policy(usercodeStack, 'UsercodePolicy')

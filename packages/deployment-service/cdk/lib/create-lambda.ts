@@ -16,6 +16,8 @@ const filteredEnvironment = (obj: Record<string, string>) => {
   return env
 }
 
+const fe = filteredEnvironment(environment)
+
 export const createLambda = ({
   stack,
   name,
@@ -39,7 +41,7 @@ export const createLambda = ({
     entrypoint,
     handler,
     {
-      ...filteredEnvironment(environment),
+      ...fe,
       ...env,
     },
     vpc,

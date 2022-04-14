@@ -513,7 +513,7 @@ export const createStack = () => {
     REGION: 'eu-west-2',
     CODE_BUILD_PROJECT_NAME: codeBuild.projectName,
     USERCODE_ROLE_ARN: policies.usercodeStackRoleArn,
-    GITHUB_PEM_SECRET_ARN: githubPemSecret.secretArn,
+    GITHUB_PEM_SECRET_ARN: githubPemSecret.ref,
   }
 
   Object.values(QueueNames).forEach((queueKey) => {
