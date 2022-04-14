@@ -205,15 +205,11 @@ export const CreatePipeline = ({ appId, refreshPipeline }: CreatePipelineInterfa
             Pipelines are configurations used to deploy applications to our infrastructure. A Pipeline can be created
             via the developer portal or via CLI.
           </BodyText>
-          <BodyText hasGreyText>
-            Once you have created a Pipeline, you will be able to make deployments using
-            <ul>
-              <li>Repository Commit using either Reapit&apos;s Github App or Bitbucket App</li>
-              <li>CLI release</li>
-              <li>Github Actions</li>
-              <li>Dashboard Trigger</li>
-            </ul>
-          </BodyText>
+          <BodyText hasGreyText>Once you have created a Pipeline, you will be able to make deployments using</BodyText>
+          <BodyText hasGreyText>Repository Commit using either Reapit&apos;s Github App or Bitbucket App</BodyText>
+          <BodyText hasGreyText>CLI release</BodyText>
+          <BodyText hasGreyText>Github Actions</BodyText>
+          <BodyText hasGreyText>Dashboard Trigger</BodyText>
           <Button
             intent="primary"
             chevronRight
