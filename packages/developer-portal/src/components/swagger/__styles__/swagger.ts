@@ -32,7 +32,6 @@ export const swagger = css`
   }
 
   height: 100vh;
-  overflow: scroll;
   width: 100%;
   background: #fff;
 
@@ -111,7 +110,6 @@ export const swagger = css`
 
     .wrapper .block {
       background: #fff;
-      padding: 2rem;
     }
 
     .information-container {
@@ -168,9 +166,6 @@ export const swagger = css`
 `
 /* purgecss end ignore */
 
-export const titleWrap = css`
-  padding: 2rem 1.5rem 0 1.5rem;
-`
 export const swaggerHidden = css`
   display: none;
 `

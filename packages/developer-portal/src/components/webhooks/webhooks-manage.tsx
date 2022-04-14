@@ -41,6 +41,7 @@ export const handleSortTableData =
   (
     setExpandableContentType: Dispatch<SetStateAction<ExpandableContentType>>,
     setIndexExpandedRow: Dispatch<SetStateAction<number | null>>,
+    refreshSubscriptions: () => void,
     expandableContentType: ExpandableContentType,
     subscriptions: WebhookModel[],
     topics: TopicModel[],
@@ -80,6 +81,7 @@ export const handleSortTableData =
             expandableContentType={expandableContentType}
             setExpandableContentType={setExpandableContentType}
             webhookModel={subscription}
+            refreshSubscriptions={refreshSubscriptions}
           />
         ),
       },
@@ -96,7 +98,7 @@ export const WebhooksManage: FC = () => {
   const { installations, topics } = webhooksDataState
   const { applicationId } = webhooksFilterState
 
-  const [subscriptions, subscriptionsLoading] = useReapitGet<WebhookModelPagedResult>({
+  const [subscriptions, subscriptionsLoading, , refreshSubscriptions] = useReapitGet<WebhookModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getWebhookSubscriptions],
     queryParams: { applicationId, pageSize: 12, pageNumber },
@@ -107,6 +109,7 @@ export const WebhooksManage: FC = () => {
     handleSortTableData(
       setExpandableContentType,
       setIndexExpandedRow,
+      refreshSubscriptions,
       expandableContentType,
       subscriptions?._embedded ?? [],
       topics?._embedded ?? [],
@@ -121,7 +124,7 @@ export const WebhooksManage: FC = () => {
         No app selected. Please use the filter option to select an app.
       </PersistantNotification>
     )
-  if (subscriptionsLoading) return <Loader label="loading" />
+  if (subscriptionsLoading) return <Loader />
   if (!rows.length)
     return (
       <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
