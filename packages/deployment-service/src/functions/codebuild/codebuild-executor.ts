@@ -6,15 +6,7 @@ import { CodeBuild } from 'aws-sdk'
 import yaml from 'yaml'
 import { PackageManagerEnum } from '../../../../foundations-ts-definitions/deployment-schema'
 import { QueueNames } from '../../constants'
-import {
-  sqs,
-  savePipelineRunnerEntity,
-  s3Client,
-  githubApp,
-  getBitBucketToken,
-  pusher,
-  assumedS3Client,
-} from '../../services'
+import { sqs, savePipelineRunnerEntity, githubApp, getBitBucketToken, pusher, assumedS3Client } from '../../services'
 import { PipelineEntity } from '../../entities/pipeline.entity'
 import fetch from 'node-fetch'
 import { BitbucketClientData } from '@/entities/bitbucket-client.entity'

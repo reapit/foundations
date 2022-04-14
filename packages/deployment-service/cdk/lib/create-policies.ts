@@ -64,6 +64,7 @@ export const createPolicies = ({
       buckets[BucketNames.LIVE].bucketArn,
       buckets[BucketNames.LOG].bucketArn,
       buckets[BucketNames.REPO_CACHE].bucketArn,
+      buckets[BucketNames.VERSION].bucketArn,
     ],
     actions: [
       's3:PutObject',

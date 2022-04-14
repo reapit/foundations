@@ -1,4 +1,4 @@
-import { s3Client } from '../services'
+import { assumedS3Client } from '../services'
 import { PipelineRunnerEntity } from '../entities/pipeline-runner.entity'
 import { GetObjectOutput } from 'aws-sdk/clients/s3'
 import { releaseToLiveFromZip } from './release-to-live'
@@ -7,9 +7,10 @@ import { PipelineEntity } from '../entities/pipeline.entity'
 import { InvalidPipelineResourcesException } from '../exceptions'
 import { getRoleCredentials } from '../services/sts'
 
-export const getFromVersionS3 = async (location: string): Promise<GetObjectOutput | never> =>
-  new Promise<GetObjectOutput>((resolve, reject) =>
-    s3Client.getObject(
+export const getFromVersionS3 = async (location: string): Promise<GetObjectOutput | never> => {
+  const client = await assumedS3Client()
+  return new Promise<GetObjectOutput>((resolve, reject) =>
+    client.getObject(
       {
         Bucket: process.env.DEPLOYMENT_VERSION_BUCKET_NAME as string,
         Key: `pipeline/${location}`,
@@ -24,11 +25,13 @@ export const getFromVersionS3 = async (location: string): Promise<GetObjectOutpu
       },
     ),
   )
+}
 
 export const deleteCurrentLiveVersion = async (prefix: string): Promise<void | never> => {
+  const client = await assumedS3Client()
   try {
     await new Promise<void>((resolve, reject) =>
-      s3Client.deleteObject(
+      client.deleteObject(
         {
           Bucket: process.env.DEPLOYMENT_LIVE_BUCKET_NAME as string,
           Key: prefix,
