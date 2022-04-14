@@ -169,7 +169,13 @@ export const codebuildExecutor: SQSHandler = async (
                 ],
               },
               build: {
-                commands: [`${pipeline.packageManager} ${pipeline.buildCommand}`],
+                commands: [
+                  `${
+                    pipeline.packageManager === PackageManagerEnum.NPM
+                      ? `${pipeline.packageManager} run`
+                      : pipeline.packageManager
+                  } ${pipeline.buildCommand}`,
+                ],
               },
             },
             artifacts: {
