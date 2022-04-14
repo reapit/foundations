@@ -4,8 +4,8 @@ import environment from '../../config.json'
 
 // lambda environment is limited to 4KB total, added this to make sure we don't go near that limit
 // if you have long things they should probably live in secrets
-const filteredEnvironment = (obj: Record<string, string>) => {
-  const env = Object.keys(obj).reduce<Record<string, string>>((acc, key) => {
+const filteredEnvironment = (obj: Record<string, string>) =>
+  Object.keys(obj).reduce<Record<string, string>>((acc, key) => {
     if (obj[key].length < 100) {
       acc[key] = obj[key]
     } else {
@@ -13,8 +13,6 @@ const filteredEnvironment = (obj: Record<string, string>) => {
     }
     return acc
   }, {})
-  return env
-}
 
 const fe = filteredEnvironment(environment)
 

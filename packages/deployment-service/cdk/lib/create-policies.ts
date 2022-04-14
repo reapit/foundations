@@ -133,7 +133,7 @@ export const createPolicies = ({
       actions: ['sns:Subscribe'],
       principals: [
         new ArnPrincipal(
-          `arn:aws:iam::${config.AWS_ACCOUNT_ID}:role/cdk-hnb659fds-cfn-exec-role-${config.AWS_ACCOUNT_ID}-${usercodeStack.region}`, // todo: is hnb659fds always the same?, is usercodeStack region always the same as primary stack?
+          `arn:aws:iam::${config.AWS_ACCOUNT_ID}:role/cdk-hnb659fds-cfn-exec-role-${config.AWS_ACCOUNT_ID}-${usercodeStack.region}`, // is hnb659fds always the same?, is usercodeStack region always the same as primary stack?
         ),
       ],
       resources: [codebuildSnsTopic.topicArn],

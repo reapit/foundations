@@ -16,9 +16,7 @@ export const createBaseStack = ({
   region?: string
 }): cdk.Stack => {
   const name = `${namespace}-${appName}-${component}`
-  const stack = new cdk.Stack(scope, name, { env: { account: accountId, region: region || 'eu-west-2' } })
-
-  return stack
+  return new cdk.Stack(scope, name, { env: { account: accountId, region: region || 'eu-west-2' } })
 }
 
 export type Stack = cdk.Stack

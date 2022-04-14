@@ -44,11 +44,6 @@ type FunctionSetup = {
   role?: Role
 }
 
-/**
- * TODO
- *
- * codebuild in secondary can push to log bucket in primary account
- */
 export const createStack = () => {
   const stack = createBaseStack({
     namespace: 'cloud',
