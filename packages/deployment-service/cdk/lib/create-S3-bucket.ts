@@ -25,6 +25,7 @@ export const createS3Buckets = (stack: Stack, usercodeStack: Stack): Record<Buck
     [BucketNames.REPO_CACHE]: {
       put: true,
       get: true,
+      stack: usercodeStack,
     },
     [BucketNames.VERSION]: {
       get: true,

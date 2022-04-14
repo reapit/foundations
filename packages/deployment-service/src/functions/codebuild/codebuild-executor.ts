@@ -60,9 +60,9 @@ export const downloadBitbucketSourceToS3 = async ({
   }
 
   const buffer = Buffer.from(await result.arrayBuffer())
-
+  const usercodeS3client = await assumedS3Client()
   return new Promise<string>((resolve, reject) =>
-    s3Client.upload(
+    usercodeS3client.upload(
       {
         Bucket: process.env.DEPLOYMENT_REPO_CACHE_BUCKET_NAME as string,
         Key: `${pipelineRunner.id as string}.zip`,
@@ -95,8 +95,9 @@ export const downloadGithubSourceToS3 = async (
     repo: parts[parts.length - 1],
   })
 
+  const usercodeS3client = await assumedS3Client()
   return new Promise<string>((resolve, reject) =>
-    s3Client.upload(
+    usercodeS3client.upload(
       {
         Bucket: process.env.DEPLOYMENT_REPO_CACHE_BUCKET_NAME as string,
         Key: `${pipelineRunner.id as string}.zip`,
