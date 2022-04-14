@@ -120,3 +120,5 @@ export const WebhooksLogs: FC = () => {
 
   return <Table rows={rows} numberColumns={8} />
 }
+
+export default WebhooksLogs

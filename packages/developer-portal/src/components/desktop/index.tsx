@@ -9,12 +9,6 @@ import {
   SmallText,
   Button,
   elMx4,
-  PageContainer,
-  FlexContainer,
-  SecondaryNavContainer,
-  SecondaryNav,
-  elMb9,
-  SecondaryNavItem,
   elFadeIn,
   useModal,
   elMb11,
@@ -47,7 +41,7 @@ import {
   imgDevicesSubscribing,
   videoModal,
 } from './__styles__/styles'
-import { Grid, Col } from '../../styles/grid'
+import { Grid, Col } from './grid'
 import { cx } from '@linaria/core'
 import crmImage from '../../assets/images/desktop/crm-sandbox.svg'
 import phoneImage from '../../assets/images/desktop/marketplace-agency-cloud.svg'
@@ -60,9 +54,6 @@ import devEditionImgThree from '../../assets/images/desktop/developer-edition/de
 import { IFRAME_URLS } from '../../constants/iframe-urls'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { navigate } from '../../utils/navigation'
-import Routes from '../../constants/routes'
-import { useHistory, useLocation } from 'react-router'
 
 export type SubscribingState = 'INITIAL' | 'SUBSCRIBE_NOW' | 'CONFIRMING'
 
@@ -253,49 +244,25 @@ export const SubscribeSection: FC = () => {
 }
 
 export const DeveloperDesktopPage: FC = () => {
-  const location = useLocation()
-  const history = useHistory()
-  const { pathname } = location
   return (
     <ErrorBoundary>
-      <FlexContainer isFlexAuto>
-        <SecondaryNavContainer>
-          <Title>API</Title>
-          <SecondaryNav className={elMb9}>
-            <SecondaryNavItem onClick={navigate(history, Routes.SWAGGER)} active={pathname === Routes.SWAGGER}>
-              REST API
-            </SecondaryNavItem>
-            <SecondaryNavItem onClick={navigate(history, Routes.WEBHOOKS_ABOUT)} active={pathname.includes('webhooks')}>
-              Webhooks
-            </SecondaryNavItem>
-            <SecondaryNavItem onClick={navigate(history, Routes.GRAPHQL)} active={pathname === Routes.GRAPHQL}>
-              GraphQL
-            </SecondaryNavItem>
-            <SecondaryNavItem onClick={navigate(history, Routes.DESKTOP)} active={pathname === Routes.DESKTOP}>
-              Desktop
-            </SecondaryNavItem>
-          </SecondaryNav>
-        </SecondaryNavContainer>
-        <PageContainer>
-          <Title>Desktop</Title>
+      <Title>Desktop</Title>
+      <Grid>
+        <Col span={8} spanTablet={12} spanMobile={12}>
+          <BannerSection />
           <Grid>
-            <Col span={8} spanTablet={12} spanMobile={12}>
-              <BannerSection />
-              <Grid>
-                <Col span={6} spanTablet={6} spanMobile={12}>
-                  <AboutSection />
-                </Col>
-                <Col span={6} spanTablet={6} spanMobile={12}>
-                  <VideoSection />
-                </Col>
-              </Grid>
+            <Col span={6} spanTablet={6} spanMobile={12}>
+              <AboutSection />
             </Col>
-            <Col span={4} spanTablet={12} spanMobile={12}>
-              <SubscribeSection />
+            <Col span={6} spanTablet={6} spanMobile={12}>
+              <VideoSection />
             </Col>
           </Grid>
-        </PageContainer>
-      </FlexContainer>
+        </Col>
+        <Col span={4} spanTablet={12} spanMobile={12}>
+          <SubscribeSection />
+        </Col>
+      </Grid>
     </ErrorBoundary>
   )
 }

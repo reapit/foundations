@@ -189,3 +189,5 @@ export const WebhooksNew: FC = () => {
     </form>
   )
 }
+
+export default WebhooksNew

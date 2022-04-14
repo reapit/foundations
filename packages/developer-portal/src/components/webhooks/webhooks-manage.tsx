@@ -144,3 +144,5 @@ export const WebhooksManage: FC = () => {
     </>
   )
 }
+
+export default WebhooksManage

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ApiDocs should match a snapshot 1`] = `
+exports[`DocsPage should match a snapshot 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -115,7 +115,7 @@ Object {
             Analytics Schema Docs
           </h1>
           <iframe
-            class="ikz45wh-iframe-wrapper"
+            class="i10xqvqy-iframe-wrapper"
             frameborder="0"
           />
         </section>
@@ -233,7 +233,7 @@ Object {
           Analytics Schema Docs
         </h1>
         <iframe
-          class="ikz45wh-iframe-wrapper"
+          class="i10xqvqy-iframe-wrapper"
           frameborder="0"
         />
       </section>

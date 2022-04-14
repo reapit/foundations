@@ -175,7 +175,7 @@ export const Menu: React.FunctionComponent = () => {
   ]
 
   if (loginIdentity?.developerId && window.reapit.config.pipelineWhitelist.includes(loginIdentity?.developerId)) {
-    navOptions.splice(6, 1, {
+    navOptions.splice(5, 0, {
       itemIndex: 10,
       callback: navigate(history, Routes.IAAS),
       iconId: 'dataMenu',

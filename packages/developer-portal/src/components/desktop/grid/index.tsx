@@ -34,7 +34,7 @@ const Grid: FC<GridProps> = ({
   const colGapClass = styles[`colGap${colGapId}`]
   const rowGapClass = rowGap > 0 && styles[`rowGap${rowGapId}`]
 
-  return <div className={cx(styles.grid, rowGapClass, colGapClass, className && className)}>{children}</div>
+  return <div className={cx(styles.grid, rowGapClass, colGapClass, className)}>{children}</div>
 }
 
 export default Grid

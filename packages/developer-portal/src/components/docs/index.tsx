@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { FC } from 'react'
 import { useHistory, useLocation } from 'react-router'
 import ErrorBoundary from '@/core/error-boundary'
 import Routes from '@/constants/routes'
@@ -26,7 +26,7 @@ export const parseIframeUrl = (pathname: string, hash: string): string => {
   return `${documentPagePath}${hash}`
 }
 
-const ApiDocsPage: React.FC = () => {
+const DocsPage: FC = () => {
   const location = useLocation()
   const history = useHistory()
   const { pathname } = location
@@ -87,4 +87,4 @@ const ApiDocsPage: React.FC = () => {
   )
 }
 
-export default ApiDocsPage
+export default DocsPage

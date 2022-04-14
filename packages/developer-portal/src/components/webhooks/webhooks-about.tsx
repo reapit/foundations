@@ -74,3 +74,5 @@ export const WebhooksAbout: FC = () => {
     </>
   )
 }
+
+export default WebhooksAbout
