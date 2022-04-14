@@ -55,7 +55,7 @@ export const githubWebhook = httpHandler<GithubCommitEvent | GithubRepoInstallat
         throw new NotFoundException()
       }
 
-      if (pipeline.branch !== body.ref) {
+      if (`refs/head/${pipeline.branch}` !== body.ref) {
         return {
           statusCode: HttpStatusCode.OK,
         }
