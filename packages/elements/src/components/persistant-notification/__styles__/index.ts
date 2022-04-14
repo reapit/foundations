@@ -37,15 +37,16 @@ export const elPnContent = css`
 
 export const ElPersistantNotification = styled.div`
   display: flex;
-  position: relative;
+  position: absolute;
   max-width: 50%;
-  transform: translateX(100%);
+  right: 0;
+  transform: translateX(calc(100% - 2rem));
   transition: 0.5s;
   z-index: 10;
 
   &.${elIsActive} {
     right: 0;
-    transform: translateX(0);
+    transform: translateX(calc(0%));
 
     .${elPnContent} {
       opacity: 1;
@@ -65,6 +66,7 @@ export const ElPersistantNotification = styled.div`
   }
 
   &.${elPnIsInline} {
+    position: relative;
     background: var(--color-white);
     .${elPnContent} {
       border-radius: 0 var(--default-border-radius) var(--default-border-radius) 0;
