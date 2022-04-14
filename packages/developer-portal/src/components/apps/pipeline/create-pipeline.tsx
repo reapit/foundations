@@ -94,6 +94,9 @@ const PipelineCreationModal = ({ open, onModalClose, appId, refreshPipeline }: P
   const [loading, , send, submissionErrors] = useReapitUpdate<Partial<PipelineModelInterface>, PipelineModelInterface>({
     reapitConnectBrowserSession,
     action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.updatePipeline],
+    uriParams: {
+      pipelineId: appId,
+    },
     headers: {
       Authorization: connectSession?.idToken as string,
     },
