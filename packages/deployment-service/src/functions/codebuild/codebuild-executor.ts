@@ -148,7 +148,7 @@ export const codebuildExecutor: SQSHandler = async (
       const s3BuildLogsLocation = `arn:aws:s3:::${process.env.DEPLOYMENT_LOG_BUCKET_NAME}`
 
       try {
-        const repoLocation = pipeline.repository?.includes('github')
+        const repoLocation = pipeline.repository?.includes('github.com')
           ? await downloadGithubSourceToS3(pipeline, pipelineRunner)
           : await downloadBitbucketSourceToS3({
               pipeline,
