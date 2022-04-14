@@ -30,6 +30,7 @@ export const createPolicies = ({
   codeBuild,
   usercodeStack,
   codebuildSnsTopic,
+  githubPemSecretArn,
 }: {
   buckets: { [s: string]: Bucket }
   queues: { [s: string]: sqs.IQueue }
@@ -37,6 +38,7 @@ export const createPolicies = ({
   codeBuild: Project
   usercodeStack: Stack
   codebuildSnsTopic: Topic
+  githubPemSecretArn: string
 }): namedPolicyGroupType & namedPolicyType => {
   const S3BucketPolicy = new PolicyStatement({
     effect: Effect.ALLOW,
@@ -72,6 +74,12 @@ export const createPolicies = ({
       's3:DeleteObject',
       's3:DeleteObjectVersion',
     ],
+  })
+
+  const githubPemSecretPolicy = new PolicyStatement({
+    effect: Effect.ALLOW,
+    resources: [githubPemSecretArn],
+    actions: ['secretsmanager:GetSecretValue'],
   })
 
   const sqsPolicies = new PolicyStatement({
@@ -171,6 +179,7 @@ export const createPolicies = ({
     S3BucketPolicy,
     sqsPolicies,
     lambdaAssumeUsercodeRole,
+    githubPemSecretPolicy,
   ]
 
   return {

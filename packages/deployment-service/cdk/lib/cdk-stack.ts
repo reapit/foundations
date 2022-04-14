@@ -76,6 +76,8 @@ export const createStack = () => {
   const codeBuild = createCodeBuildProject(usercodeStack, 'codebuild')
   const codebuildSnsTopic = getCodebuildSnsTopic(usercodeStack)
 
+  const githubPemSecret = createSecret(stack, 'githubpem', config.GITHUB_PEM)
+
   const policies = createPolicies({
     buckets,
     queues,
@@ -83,6 +85,7 @@ export const createStack = () => {
     codeBuild,
     usercodeStack: usercodeStack,
     codebuildSnsTopic,
+    githubPemSecretArn: githubPemSecret.ref,
   })
 
   const fileLocPrefix = 'packages/deployment-service/src/index.'
@@ -500,8 +503,6 @@ export const createStack = () => {
   }
 
   const MYSQL_DATABASE = databaseName
-
-  const githubPemSecret = createSecret(stack, 'githubpem', config.GITHUB_PEM)
 
   const env: any = {
     DATABASE_SECERT_ARN: secretManager.secretArn,
