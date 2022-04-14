@@ -108,6 +108,7 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
 
         const r53Client = new Route53Client({
           region: 'us-east-1',
+          credentials: await getRoleCredentials(),
         })
 
         const ACommand = new ChangeResourceRecordSetsCommand({
