@@ -1064,6 +1064,10 @@ export interface CreateDeveloperModel {
    * The github username for the initial member
    */
   gitHubUsername?: string
+  /**
+   * The maximum number of apps the developer can have unlisted
+   */
+  maxAppsUnlisted?: number // int32
 }
 /**
  * The model responsible for creation of an installation between a specific client and app
@@ -1325,6 +1329,10 @@ export interface DeveloperModel {
    * Alternative email address for marketplace developer notifications
    */
   notificationsEmail?: string
+  /**
+   * The maximum number of unlisted apps
+   */
+  maxAppsUnlisted?: number // int32
   companyAddress?: CompanyAddressModel
 }
 /**
@@ -1936,6 +1944,10 @@ export interface UpdateDeveloperModel {
    */
   notificationsEmail?: string
   companyAddress?: UpdateAddressModel
+  /**
+   * The maximum number of apps the developer can have unlisted
+   */
+  maxAppsUnlisted?: number // int32
 }
 /**
  * The model responsible for updating a member
