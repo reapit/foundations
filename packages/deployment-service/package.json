@@ -21,7 +21,7 @@
     "project-name-generator": "^2.1.9",
     "pusher": "^5.0.0",
     "rimraf": "^3.0.2",
-    "typeorm": "^0.2.41",
+    "typeorm": "^0.3.3",
     "typeorm-aurora-data-api-driver": "^2.3.4",
     "yaml": "next"
   },
