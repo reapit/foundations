@@ -31,7 +31,7 @@ export const createS3Buckets = (stack: Stack, usercodeStack: Stack): Record<Buck
       get: true,
       list: true,
       put: true,
-      stack: usercodeStack,
+      stack: stack,
     },
   }
 
