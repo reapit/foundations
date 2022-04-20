@@ -4,7 +4,7 @@ import { plainToClass } from 'class-transformer'
 import { PipelineEntity } from '../../entities/pipeline.entity'
 import { v4 as uuid } from 'uuid'
 import { Route53Client, ChangeResourceRecordSetsCommand } from '@aws-sdk/client-route-53'
-import { s3Client, sqs, updatePipelineEntity, pusher } from '../../services'
+import { sqs, updatePipelineEntity, pusher, assumedS3Client } from '../../services'
 import { QueueNames } from '../../constants'
 import { getRoleCredentials } from '../../services/sts'
 
@@ -14,6 +14,8 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
       const message = JSON.parse(record.body)
       const pipeline = plainToClass(PipelineEntity, message)
       pipeline.buildStatus = 'PROVISIONING'
+
+      const s3Client = await assumedS3Client()
 
       try {
         await updatePipelineEntity(pipeline, {})
@@ -43,12 +45,16 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
           message: 'Bucket built',
         })
 
+        const assumedRoles = await getRoleCredentials()
+
         const frontClient = new CloudFrontClient({
           region: process.env.REGION,
-          credentials: await getRoleCredentials(),
+          credentials: assumedRoles,
         })
 
         const id = uuid()
+
+        console.log('ssl', process.env.CERT_ARN, process.env.ROOT_DOMAIN)
 
         const distroCommand = new CreateDistributionCommand({
           DistributionConfig: {
@@ -107,8 +113,8 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
         const cloudFrontId = distroResult.Distribution?.Id
 
         const r53Client = new Route53Client({
-          region: 'us-east-1',
-          credentials: await getRoleCredentials(),
+          region: process.env.REGION,
+          credentials: assumedRoles,
         })
 
         const ACommand = new ChangeResourceRecordSetsCommand({
