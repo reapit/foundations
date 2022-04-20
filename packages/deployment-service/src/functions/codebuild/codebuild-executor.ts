@@ -162,16 +162,16 @@ export const codebuildExecutor: SQSHandler = async (
                   nodejs: 12,
                 },
                 commands: [
-                  "CACHE_FOLDER=$(find . -maxdepth 1 -mindepth 1 -type d)",
-                  "echo $CACHE_FOLDER",
-                  "mv $CACHE_FOLDER/* ./",
-                  "rm -rf $CACHE_FOLDER",
+                  'CACHE_FOLDER=$(find . -maxdepth 1 -mindepth 1 -type d)',
+                  'echo $CACHE_FOLDER',
+                  'mv $CACHE_FOLDER/* ./',
+                  'rm -rf $CACHE_FOLDER',
                   pipeline.packageManager === PackageManagerEnum.YARN
                     ? pipeline.packageManager
                     : `${pipeline.packageManager} install`,
                 ],
               },
-              'pre_build': {
+              pre_build: {
                 commands: [
                   `${
                     pipeline.packageManager === PackageManagerEnum.NPM
@@ -191,7 +191,7 @@ export const codebuildExecutor: SQSHandler = async (
               },
             },
             artifacts: {
-              files: `**/*`,
+              files: '**/*',
               'base-directory': pipeline.outDir,
             },
           }),
