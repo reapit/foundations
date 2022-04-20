@@ -162,10 +162,22 @@ export const codebuildExecutor: SQSHandler = async (
                   nodejs: 12,
                 },
                 commands: [
-                  'cd */',
+                  "CACHE_FOLDER=$(find . -maxdepth 1 -mindepth 1 -type d)",
+                  "echo $CACHE_FOLDER",
+                  "mv $CACHE_FOLDER/* ./",
+                  "rm -rf $CACHE_FOLDER",
                   pipeline.packageManager === PackageManagerEnum.YARN
                     ? pipeline.packageManager
                     : `${pipeline.packageManager} install`,
+                ],
+              },
+              'pre_build': {
+                commands: [
+                  `${
+                    pipeline.packageManager === PackageManagerEnum.NPM
+                      ? `${pipeline.packageManager} run`
+                      : pipeline.packageManager
+                  } ${pipeline.buildCommand}`,
                 ],
               },
               build: {
@@ -179,7 +191,8 @@ export const codebuildExecutor: SQSHandler = async (
               },
             },
             artifacts: {
-              files: `${pipeline.outDir}/**/*`,
+              files: `**/*`,
+              'base-directory': pipeline.outDir,
             },
           }),
           sourceTypeOverride: 'S3',
