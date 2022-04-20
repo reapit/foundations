@@ -31,13 +31,13 @@ export const createS3Buckets = (stack: Stack, usercodeStack: Stack): Record<Buck
       get: true,
       list: true,
       put: true,
-      stack: stack,
+      stack: usercodeStack,
     },
   }
 
   return (Object.keys(bucketOptions) as Array<BucketNames>).reduce<{ [k in BucketNames]: Bucket }>(
     (buckets, bucketName) => {
-      buckets[bucketName] = createBucket(stack, bucketName, bucketOptions[bucketName])
+      buckets[bucketName] = createBucket(bucketOptions[bucketName].stack || stack, bucketName, bucketOptions[bucketName])
       return buckets
     },
     {} as any,
