@@ -24,6 +24,7 @@ export const createLambda = ({
   handler,
   env,
   duration,
+  ram,
 }: {
   stack: Stack
   name: string
@@ -32,6 +33,7 @@ export const createLambda = ({
   handler: string
   env?: { [s: string]: any }
   duration?: number
+  ram?: number
 }): Function => {
   return createFunction(
     stack,
@@ -44,5 +46,6 @@ export const createLambda = ({
     },
     vpc,
     duration,
+    ram,
   )
 }

@@ -31,6 +31,7 @@ type FunctionSetup = {
   handler: string
   policies: PolicyStatement[]
   timeout?: number
+  RAM?: number
   api?: {
     routes: LambdaRoute | LambdaRoute[]
     cors: {
@@ -392,7 +393,8 @@ export const createStack = () => {
     codebuildDeploy: {
       handler: `${fileLocPrefix}codebuildDeploy`,
       policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy],
-      timeout: 300,
+      timeout: 600,
+      RAM: 2048,
       queue: queues[QueueNames.CODEBUILD_VERSION_DEPLOY],
     },
     pipelineSetup: {
@@ -525,6 +527,7 @@ export const createStack = () => {
       env,
       vpc,
       duration: options.timeout,
+      ram: options.RAM,
     })
     options.policies.forEach((policy) => lambda.addToRolePolicy(policy))
 
