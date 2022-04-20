@@ -87,6 +87,7 @@ export const deployRelease = httpHandler<any, PipelineRunnerEntity>({
 
       return savePipelineRunnerEntity(pipelineRunner)
     } catch (e) {
+      console.error(e)
       pipelineRunner.buildStatus = 'FAILED'
 
       return savePipelineRunnerEntity(pipelineRunner)

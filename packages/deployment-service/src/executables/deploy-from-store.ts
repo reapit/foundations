@@ -66,7 +66,6 @@ export const deployFromStore = async ({
   }
 
   const zip = await getFromVersionS3(storageLocation)
-  console.log('got zip')
 
   if (!zip.Body) {
     throw new Error('Failed to find stored version')
@@ -82,9 +81,13 @@ export const deployFromStore = async ({
   })
   console.log('released to live from zip')
 
+  const assumedCreds = await getRoleCredentials()
+
   const cloudFrontClient = new CloudFrontClient({
-    credentials: await getRoleCredentials(),
+    credentials: assumedCreds,
+    region: process.env.REGION,
   })
+
   const invalidateCommand = new CreateInvalidationCommand({
     DistributionId: pipelineRunner.pipeline?.cloudFrontId,
     InvalidationBatch: {
@@ -97,5 +100,4 @@ export const deployFromStore = async ({
   })
 
   await cloudFrontClient.send(invalidateCommand)
-  console.log('invalidated cloudfront')
 }
