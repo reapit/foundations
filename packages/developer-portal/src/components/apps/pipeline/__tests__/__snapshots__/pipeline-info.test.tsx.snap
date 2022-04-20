@@ -96,6 +96,18 @@ Object {
             <h2
               class="e1byern-el-subtitle"
             >
+              Out Dir
+            </h2>
+            <p
+              class="e15ggth7-el-body-text"
+            />
+          </div>
+          <div
+            class="e1ksxx4v-el-input-wrap"
+          >
+            <h2
+              class="e1byern-el-subtitle"
+            >
               Location
             </h2>
             <p
@@ -211,6 +223,18 @@ Object {
             class="e1byern-el-subtitle"
           >
             Build Command
+          </h2>
+          <p
+            class="e15ggth7-el-body-text"
+          />
+        </div>
+        <div
+          class="e1ksxx4v-el-input-wrap"
+        >
+          <h2
+            class="e1byern-el-subtitle"
+          >
+            Out Dir
           </h2>
           <p
             class="e15ggth7-el-body-text"
