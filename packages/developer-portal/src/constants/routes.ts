@@ -5,6 +5,8 @@ const Routes = {
   APPS_NEW: '/apps/new',
   APP_DETAIL: '/apps/:appId',
   APP_PIPELINE: '/apps/:appId/pipeline',
+  APP_PIPELINE_CONFIGURE: '/apps/:appId/pipeline/configure',
+  APP_PIPELINE_NEW: '/apps/:appId/pipeline/new',
   APP_INSTALLATIONS: '/apps/:appId/installations',
   SWAGGER: '/swagger',
   DESKTOP: '/desktop',

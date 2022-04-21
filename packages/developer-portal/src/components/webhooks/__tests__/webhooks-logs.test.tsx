@@ -1,11 +1,59 @@
+import { useReapitGet } from '@reapit/utils-react'
 import React from 'react'
-import { WebhooksLogs } from '../webhooks-logs'
 import { render } from '../../../tests/react-testing'
+import { mockWebhookLogs } from '../../../tests/__stubs__/webhooks'
+import { useWebhooksState } from '../state/use-webhooks-state'
+import { mockWebhooksState } from '../state/__mocks__/use-webhooks-state'
+import { WebhooksLogs } from '../webhooks-logs'
 
 jest.mock('../state/use-webhooks-state')
 
+jest.mock('@reapit/utils-react', () => ({
+  useReapitGet: jest.fn(() => [mockWebhookLogs, false, undefined, jest.fn()]),
+}))
+
+const mockUseReapitGet = useReapitGet as jest.Mock
+const mockUseWebhooksState = useWebhooksState as jest.Mock
+
 describe('WebhooksLogs', () => {
-  it('should match a snapshot where there are logs', () => {
+  it('should match a snapshot where there are subscriptions', () => {
+    mockUseWebhooksState.mockReturnValue({
+      ...mockWebhooksState,
+      webhooksFilterState: {
+        ...mockWebhooksState.webhooksFilterState,
+        applicationId: 'MOCK_ID',
+      },
+    })
+    expect(render(<WebhooksLogs />)).toMatchSnapshot()
+  })
+
+  it('should match a snapshot where loading', () => {
+    mockUseWebhooksState.mockReturnValue({
+      ...mockWebhooksState,
+      webhooksFilterState: {
+        ...mockWebhooksState.webhooksFilterState,
+        applicationId: 'MOCK_ID',
+      },
+    })
+    mockUseReapitGet.mockReturnValue([null, true, undefined, jest.fn()])
+    expect(render(<WebhooksLogs />)).toMatchSnapshot()
+  })
+
+  it('should match a snapshot where no data', () => {
+    mockUseWebhooksState.mockReturnValue({
+      ...mockWebhooksState,
+      webhooksFilterState: {
+        ...mockWebhooksState.webhooksFilterState,
+        applicationId: 'MOCK_ID',
+      },
+    })
+    mockUseReapitGet.mockReturnValue([[], false, undefined, jest.fn()])
+    expect(render(<WebhooksLogs />)).toMatchSnapshot()
+  })
+
+  it('should match a snapshot where no appId', () => {
+    mockUseWebhooksState.mockReturnValue(mockWebhooksState)
+    mockUseReapitGet.mockReturnValue([null, false, undefined, jest.fn()])
     expect(render(<WebhooksLogs />)).toMatchSnapshot()
   })
 })

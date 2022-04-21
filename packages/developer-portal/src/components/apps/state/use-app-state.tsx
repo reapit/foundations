@@ -2,6 +2,7 @@ import {
   AppDetailModel,
   AppRevisionModelPagedResult,
   AppSummaryModelPagedResult,
+  PipelineModelInterface,
 } from '@reapit/foundations-ts-definitions'
 import { useReapitGet } from '@reapit/utils-react'
 import React, { useState, Dispatch, SetStateAction, FC, createContext, useContext, useEffect } from 'react'
@@ -13,6 +14,7 @@ import { AppEditFormSchema, defaultValues } from '../edit/form-schema/form-field
 import { defaultAppSavingParams, defaultAppWizardState } from './defaults'
 import { handleSetDefaultFormValues } from '../utils/handle-default-form-values'
 import { FieldNamesMarkedBoolean } from 'react-hook-form'
+import { handleSetInitialPipeline } from '../utils/handle-pipeline-event'
 
 export interface AppUriParams {
   appId: string
@@ -59,10 +61,22 @@ export interface AppEditState {
   setIncompleteFields: Dispatch<SetStateAction<(keyof AppEditFormSchema)[]>>
 }
 
+export interface AppPipelineState {
+  appPipeline: PipelineModelInterface | null
+  appPipelineLoading: boolean
+  appPipelineDeploying: boolean
+  appPipelineSaving: boolean
+  appPipelineRefresh: () => void
+  setAppPipeline: Dispatch<SetStateAction<PipelineModelInterface | null>>
+  setAppPipelineDeploying: Dispatch<SetStateAction<boolean>>
+  setAppPipelineSaving: Dispatch<SetStateAction<boolean>>
+}
+
 export interface AppStateHook {
   appWizardState: AppWizardState
   appsDataState: AppsDataState
   appEditState: AppEditState
+  appPipelineState: AppPipelineState
   setAppWizardState: Dispatch<SetStateAction<AppWizardState>>
   appId: string | null
   setAppId: Dispatch<SetStateAction<string | null>>
@@ -74,6 +88,9 @@ const { Provider } = AppStateContext
 
 export const AppProvider: FC = ({ children }) => {
   const [appWizardState, setAppWizardState] = useState<AppWizardState>(defaultAppWizardState as AppWizardState)
+  const [appPipeline, setAppPipeline] = useState<PipelineModelInterface | null>(null)
+  const [appPipelineDeploying, setAppPipelineDeploying] = useState<boolean>(false)
+  const [appPipelineSaving, setAppPipelineSaving] = useState<boolean>(false)
   const [appEditForm, setAppEditForm] = useState<AppEditFormSchema>(defaultValues)
   const [appEditSaving, setAppEditSaving] = useState<AppSavingParams>(defaultAppSavingParams)
   const [appUnsavedFields, setAppUnsavedFields] = useState<FieldNamesMarkedBoolean<AppEditFormSchema>>({})
@@ -106,7 +123,22 @@ export const AppProvider: FC = ({ children }) => {
       fetchWhenTrue: [appId],
     })
 
+  const [pipeline, appPipelineLoading, , appPipelineRefresh] = useReapitGet<PipelineModelInterface>({
+    reapitConnectBrowserSession,
+    action: getActions(window.reapit.config.appEnv)[GetActionNames.getPipeline],
+    uriParams: { appId },
+    headers: {
+      Authorization: connectSession?.idToken as string,
+    },
+    fetchWhenTrue: [connectSession?.idToken, appId],
+    onError: () => {
+      // TODO we already display errors below, so no need to show a toast here
+    },
+  })
+
   useEffect(handleSetDefaultFormValues(setAppEditForm, appDetail, developerId), [appDetail, developerId])
+
+  useEffect(handleSetInitialPipeline(pipeline, setAppPipeline), [pipeline])
 
   const appsDataState: AppsDataState = {
     apps,
@@ -134,12 +166,24 @@ export const AppProvider: FC = ({ children }) => {
     setIncompleteFields,
   }
 
+  const appPipelineState: AppPipelineState = {
+    appPipeline,
+    appPipelineLoading,
+    appPipelineDeploying,
+    appPipelineSaving,
+    appPipelineRefresh,
+    setAppPipeline,
+    setAppPipelineDeploying,
+    setAppPipelineSaving,
+  }
+
   return (
     <Provider
       value={{
         appWizardState,
         appsDataState,
         appEditState,
+        appPipelineState,
         setAppWizardState,
         appId,
         setAppId,

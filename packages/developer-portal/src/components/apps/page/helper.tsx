@@ -1,9 +1,9 @@
 import { Button, elFadeIn, elMb3, Icon, SmallText, Subtitle } from '@reapit/elements'
-import { AppRevisionModelPagedResult, DeveloperModel, RejectRevisionModel } from '@reapit/foundations-ts-definitions'
-import { SendFunction, useReapitUpdate, useReapitGet } from '@reapit/utils-react'
+import { AppRevisionModelPagedResult, RejectRevisionModel } from '@reapit/foundations-ts-definitions'
+import { SendFunction, useReapitUpdate } from '@reapit/utils-react'
 import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
-import { GetActionNames, getActions, UpdateActionNames, updateActions } from '@reapit/utils-common'
+import { UpdateActionNames, updateActions } from '@reapit/utils-common'
 import { openNewPage, ExternalPages } from '../../../utils/navigation'
 import { AppSavingParams, useAppState } from '../state/use-app-state'
 import { getCurrentPage } from '../utils/get-current-page'
@@ -13,6 +13,8 @@ import { getTitle, SubmitReviewModal } from './submit-review-modal'
 import { useModal } from '@reapit/elements'
 import { selectIsCustomer } from '../../../utils/auth'
 import { defaultAppSavingParams } from '../state/defaults'
+import { PipelineControls } from '../pipeline/pipeline-controls'
+import { useGlobalState } from '../../../core/use-global-state'
 
 export const handleSetAppEditSaving =
   (
@@ -80,12 +82,14 @@ export const handleCancelSuccess =
 export const Helper: FC = () => {
   const location = useLocation()
   const { appId, appEditState, appsDataState } = useAppState()
+  const { globalDataState, globalRefreshCurrentDeveloper } = useGlobalState()
   const [revisionId, setRevisionId] = useState<string | null>(null)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { Modal, openModal, closeModal } = useModal()
   const isCustomer = selectIsCustomer(connectSession)
   const { pathname } = location
-  const { isAppsEdit, isAppsDetail } = getCurrentPage(pathname)
+  const { isAppsEdit, isAppsDetail, isAppPipelines } = getCurrentPage(pathname)
+  const { currentDeveloper } = globalDataState
   const { setAppEditSaving, appUnsavedFields, appIncompleteFields } = appEditState
   const {
     appsDetailRefresh,
@@ -111,22 +115,13 @@ export const Helper: FC = () => {
     },
   })
 
-  const [developer, , , refetchDeveloper] = useReapitGet<DeveloperModel>({
-    reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getDeveloper],
-    uriParams: {
-      developerId: connectSession?.loginIdentity.developerId,
-    },
-    fetchWhenTrue: [connectSession?.loginIdentity.developerId],
-  })
-
   useEffect(handleSetRevisionId(appRevisions, setRevisionId), [appRevisions])
 
   useEffect(handleCancelSuccess(appsDetailRefresh, setRevisionId, appRefreshRevisions, cancelRevisionSuccess), [
     cancelRevisionSuccess,
   ])
 
-  const developerStatus = developer?.status
+  const developerStatus = currentDeveloper?.status
 
   if (isAppsEdit) {
     return (
@@ -235,8 +230,12 @@ export const Helper: FC = () => {
           </>
         )}
         <Modal title={getTitle(isCustomer, developerStatus)}>
-          {developer && (
-            <SubmitReviewModal developer={developer} closeModal={closeModal} refetchDeveloper={refetchDeveloper} />
+          {currentDeveloper && (
+            <SubmitReviewModal
+              developer={currentDeveloper}
+              closeModal={closeModal}
+              refetchDeveloper={globalRefreshCurrentDeveloper}
+            />
           )}
         </Modal>
       </div>
@@ -260,6 +259,10 @@ export const Helper: FC = () => {
         </Button>
       </div>
     )
+  }
+
+  if (isAppPipelines) {
+    return <PipelineControls />
   }
 
   return (

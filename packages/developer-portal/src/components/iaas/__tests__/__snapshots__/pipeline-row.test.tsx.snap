@@ -86,12 +86,17 @@ Object {
                   <button
                     class="epibvz0-el-intent-secondary eqfkc7t-el-button"
                   >
-                    Manage
+                    Configure
                   </button>
                   <button
                     class="ebee6r1-el-intent-primary eqfkc7t-el-button"
                   >
-                    View
+                    Deployments
+                  </button>
+                  <button
+                    class="e1iow709-el-intent-critical e19a1osy-el-button-has-right-chevron eqfkc7t-el-button"
+                  >
+                    View App
                   </button>
                 </div>
               </div>
@@ -183,12 +188,17 @@ Object {
                 <button
                   class="epibvz0-el-intent-secondary eqfkc7t-el-button"
                 >
-                  Manage
+                  Configure
                 </button>
                 <button
                   class="ebee6r1-el-intent-primary eqfkc7t-el-button"
                 >
-                  View
+                  Deployments
+                </button>
+                <button
+                  class="e1iow709-el-intent-critical e19a1osy-el-button-has-right-chevron eqfkc7t-el-button"
+                >
+                  View App
                 </button>
               </div>
             </div>
