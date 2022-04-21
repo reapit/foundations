@@ -141,7 +141,7 @@ Object {
             <p
               class="e11jaxfn-el-has-grey-text e1wasvgh-el-small-text"
             >
-              Please note, there is a max 6 month date range for filters. You can move your date from filter to earlier but you need to move your date to filter in line with this.
+              Please use the filters below to search. You can select a date range of 6 months or less.
             </p>
             <div
               class="e1v6agxr-el-border-radius o1ft4rva-overflow-hidden"
@@ -428,7 +428,7 @@ Object {
           <p
             class="e11jaxfn-el-has-grey-text e1wasvgh-el-small-text"
           >
-            Please note, there is a max 6 month date range for filters. You can move your date from filter to earlier but you need to move your date to filter in line with this.
+            Please use the filters below to search. You can select a date range of 6 months or less.
           </p>
           <div
             class="e1v6agxr-el-border-radius o1ft4rva-overflow-hidden"

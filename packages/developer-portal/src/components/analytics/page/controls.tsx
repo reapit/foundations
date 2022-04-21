@@ -59,8 +59,7 @@ export const Controls: FC = () => {
       <Icon className={cx(isCalcPage && visiblyHidden, elMb3)} icon="crmInfographic" iconSize="large" />
       <Subtitle className={cx(isCalcPage && visiblyHidden)}>Filter By</Subtitle>
       <SmallText hasGreyText>
-        Please note, there is a max 6 month date range for filters. You can move your date from filter to earlier but
-        you need to move your date to filter in line with this.
+        Please use the filters below to search. You can select a date range of 6 months or less.
       </SmallText>
       <div className={cx(elBorderRadius, overflowHidden)}>
         <form onChange={handleSubmit(handleFormChange(setAnalyticsFilterState))}>

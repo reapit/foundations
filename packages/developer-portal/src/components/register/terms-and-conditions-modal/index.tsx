@@ -42,11 +42,11 @@ export const TermsAndConditionsModal: FC<TermsAndConditionsModalProps> = ({
         <ScheduleThree />
         <ButtonGroup alignment="center">
           {onDecline && (
-            <Button intent="low" type="button" onClick={onDecline}>
+            <Button fixedWidth intent="low" type="button" onClick={onDecline}>
               Decline
             </Button>
           )}
-          <Button intent="primary" loading={isSubmitting} disabled={isSubmitting} onClick={onAccept}>
+          <Button fixedWidth intent="primary" loading={isSubmitting} disabled={isSubmitting} onClick={onAccept}>
             Accept
           </Button>
         </ButtonGroup>

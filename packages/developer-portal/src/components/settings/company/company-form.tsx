@@ -1,5 +1,5 @@
 import React, { FC, useEffect } from 'react'
-import { Button, ButtonGroup, FormLayout, InputGroup, InputWrap, Select, TextArea } from '@reapit/elements'
+import { Button, ButtonGroup, FormLayout, InputError, InputGroup, InputWrap, Select, TextArea } from '@reapit/elements'
 import { SendFunction, useReapitUpdate } from '@reapit/utils-react'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { DeveloperModel, UpdateDeveloperModel } from '@reapit/foundations-ts-definitions'
@@ -232,6 +232,7 @@ export const CompanyForm: FC<CompanyFormProps> = ({ developer, refreshDeveloper 
           <InputGroup>
             <TextArea {...register('about')} />
             <Label>About Company</Label>
+            {errors?.about?.message && <InputError message={errors.about.message} />}
           </InputGroup>
         </InputWrapFull>
         <InputWrap>

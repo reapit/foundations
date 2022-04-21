@@ -153,10 +153,24 @@ export const Invite: FC = () => {
                   </InputWrap>
                 </FormLayout>
                 <ButtonGroup alignment="center">
-                  <Button intent="danger" loading={isLoading} disabled={isLoading} type="button" onClick={onReject}>
+                  <Button
+                    fixedWidth
+                    intent="danger"
+                    loading={isLoading}
+                    disabled={isLoading}
+                    type="button"
+                    onClick={onReject}
+                  >
                     Decline
                   </Button>
-                  <Button intent="primary" loading={isLoading} disabled={isLoading} type="submit" onClick={onReject}>
+                  <Button
+                    fixedWidth
+                    intent="primary"
+                    loading={isLoading}
+                    disabled={isLoading}
+                    type="submit"
+                    onClick={onReject}
+                  >
                     Confirm
                   </Button>
                 </ButtonGroup>
@@ -172,7 +186,7 @@ export const Invite: FC = () => {
                 credentials.
               </BodyText>
               <ButtonGroup alignment="center">
-                <Button intent="primary" onClick={handleLogin(history, session)}>
+                <Button fixedWidth intent="primary" onClick={handleLogin(history, session)}>
                   Login
                 </Button>
               </ButtonGroup>

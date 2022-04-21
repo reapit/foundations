@@ -184,13 +184,13 @@ export const PipelineControls: FC = () => {
       <Modal title="Delete Pipeline">
         <BodyText hasGreyText>
           Are you sure you want to delete this pipeline? This will tear down any infrastructure you have provisioned and
-          cannout be recovered,
+          cannot be recovered.
         </BodyText>
         <ButtonGroup alignment="center">
-          <Button intent="low" onClick={closeModal}>
+          <Button fixedWidth intent="low" onClick={closeModal}>
             Close
           </Button>
-          <Button intent="danger" onClick={handleDeletePipeline(deleteFunc, setAppPipeline, closeModal)}>
+          <Button fixedWidth intent="danger" onClick={handleDeletePipeline(deleteFunc, setAppPipeline, closeModal)}>
             Delete
           </Button>
         </ButtonGroup>

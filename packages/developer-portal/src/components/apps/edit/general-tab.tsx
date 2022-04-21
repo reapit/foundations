@@ -120,7 +120,7 @@ export const GeneralTab: FC<AppEditTabsProps> = () => {
           )}
         </div>
         <ButtonGroup alignment="center">
-          <Button intent="low" onClick={closeModal}>
+          <Button fixedWidth intent="low" onClick={closeModal}>
             Close
           </Button>
         </ButtonGroup>

@@ -289,7 +289,7 @@ export const HelperContent: FC = () => {
           allowFullScreen
         />
         <ButtonGroup alignment="center">
-          <Button intent="low" onClick={closeModal}>
+          <Button fixedWidth intent="low" onClick={closeModal}>
             Close
           </Button>
         </ButtonGroup>
