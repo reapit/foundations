@@ -91,13 +91,13 @@ Object {
                 class="ej73pla-el-button-group-align-center ebqwrow-el-button-group-inner"
               >
                 <button
-                  class="e1vxext9-el-intent-danger eqfkc7t-el-button"
+                  class="e1vxext9-el-intent-danger e1f2ikqj-el-button-fixed-width eqfkc7t-el-button"
                   type="button"
                 >
                   Decline
                 </button>
                 <button
-                  class="ebee6r1-el-intent-primary eqfkc7t-el-button"
+                  class="ebee6r1-el-intent-primary e1f2ikqj-el-button-fixed-width eqfkc7t-el-button"
                   type="submit"
                 >
                   Confirm
@@ -196,13 +196,13 @@ Object {
               class="ej73pla-el-button-group-align-center ebqwrow-el-button-group-inner"
             >
               <button
-                class="e1vxext9-el-intent-danger eqfkc7t-el-button"
+                class="e1vxext9-el-intent-danger e1f2ikqj-el-button-fixed-width eqfkc7t-el-button"
                 type="button"
               >
                 Decline
               </button>
               <button
-                class="ebee6r1-el-intent-primary eqfkc7t-el-button"
+                class="ebee6r1-el-intent-primary e1f2ikqj-el-button-fixed-width eqfkc7t-el-button"
                 type="submit"
               >
                 Confirm
@@ -306,7 +306,7 @@ Object {
               class="ej73pla-el-button-group-align-center ebqwrow-el-button-group-inner"
             >
               <button
-                class="ebee6r1-el-intent-primary eqfkc7t-el-button"
+                class="ebee6r1-el-intent-primary e1f2ikqj-el-button-fixed-width eqfkc7t-el-button"
               >
                 Login
               </button>
@@ -356,7 +356,7 @@ Object {
             class="ej73pla-el-button-group-align-center ebqwrow-el-button-group-inner"
           >
             <button
-              class="ebee6r1-el-intent-primary eqfkc7t-el-button"
+              class="ebee6r1-el-intent-primary e1f2ikqj-el-button-fixed-width eqfkc7t-el-button"
             >
               Login
             </button>

@@ -41,12 +41,12 @@ Object {
                 class="ej73pla-el-button-group-align-center ebqwrow-el-button-group-inner"
               >
                 <button
-                  class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+                  class="e1ymtwpu-el-intent-low e1f2ikqj-el-button-fixed-width eqfkc7t-el-button"
                 >
                   Close
                 </button>
                 <button
-                  class="ebee6r1-el-intent-primary eqfkc7t-el-button"
+                  class="ebee6r1-el-intent-primary e1f2ikqj-el-button-fixed-width eqfkc7t-el-button"
                   type="submit"
                 >
                   Download Now
@@ -167,7 +167,7 @@ Object {
                 class="ej73pla-el-button-group-align-center ebqwrow-el-button-group-inner"
               >
                 <button
-                  class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+                  class="e1ymtwpu-el-intent-low e1f2ikqj-el-button-fixed-width eqfkc7t-el-button"
                 >
                   Cancel
                 </button>
@@ -303,7 +303,7 @@ Object {
                 class="ej73pla-el-button-group-align-center ebqwrow-el-button-group-inner"
               >
                 <button
-                  class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+                  class="e1ymtwpu-el-intent-low e1f2ikqj-el-button-fixed-width eqfkc7t-el-button"
                 >
                   Cancel
                 </button>
@@ -435,7 +435,7 @@ Object {
                 class="ej73pla-el-button-group-align-center ebqwrow-el-button-group-inner"
               >
                 <button
-                  class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+                  class="e1ymtwpu-el-intent-low e1f2ikqj-el-button-fixed-width eqfkc7t-el-button"
                 >
                   Cancel
                 </button>
@@ -580,12 +580,12 @@ Object {
                 class="ej73pla-el-button-group-align-center ebqwrow-el-button-group-inner"
               >
                 <button
-                  class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+                  class="e1ymtwpu-el-intent-low e1f2ikqj-el-button-fixed-width eqfkc7t-el-button"
                 >
                   Close
                 </button>
                 <button
-                  class="ebee6r1-el-intent-primary eqfkc7t-el-button"
+                  class="ebee6r1-el-intent-primary e1f2ikqj-el-button-fixed-width eqfkc7t-el-button"
                   type="submit"
                 >
                   Download Now
@@ -796,12 +796,12 @@ Object {
                 class="ej73pla-el-button-group-align-center ebqwrow-el-button-group-inner"
               >
                 <button
-                  class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+                  class="e1ymtwpu-el-intent-low e1f2ikqj-el-button-fixed-width eqfkc7t-el-button"
                 >
                   Cancel
                 </button>
                 <button
-                  class="ebee6r1-el-intent-primary eqfkc7t-el-button"
+                  class="ebee6r1-el-intent-primary e1f2ikqj-el-button-fixed-width eqfkc7t-el-button"
                   type="submit"
                 >
                   Confirm Subscription
