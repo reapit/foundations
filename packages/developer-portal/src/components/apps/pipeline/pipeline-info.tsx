@@ -47,8 +47,8 @@ export const PipelineInfo: FC = () => {
         <Col>
           <Subtitle hasNoMargin>Status</Subtitle>
           <BodyText hasNoMargin hasGreyText>
-            <StatusIndicator intent={buildStatusToIntent(appPipeline?.buildStatus as string)} />{' '}
-            {buildStatusToReadable(appPipeline?.buildStatus as string)}
+            <StatusIndicator intent={buildStatusToIntent(appPipeline?.buildStatus ?? '')} />{' '}
+            {buildStatusToReadable(appPipeline?.buildStatus ?? '')}
           </BodyText>
         </Col>
         <Col>

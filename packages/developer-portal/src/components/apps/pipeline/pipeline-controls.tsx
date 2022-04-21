@@ -157,7 +157,7 @@ export const PipelineControls: FC = () => {
             loading={pipelineRunnerLoading}
             intent="primary"
             onClick={handleUpdatePipelineRunner(updatePipelineRunner)}
-            disabled={appPipeline?.buildStatus === 'DELETING' || appPipeline?.buildStatus === 'SCHEDULED_FOR_DELETION'}
+            disabled={appPipeline.buildStatus === 'DELETING' || appPipeline.buildStatus === 'SCHEDULED_FOR_DELETION'}
           >
             Deploy
           </Button>
@@ -175,7 +175,7 @@ export const PipelineControls: FC = () => {
           className={elMb3}
           loading={deleteLoading}
           intent="neutral"
-          disabled={appPipeline?.buildStatus === 'DELETING'}
+          disabled={appPipeline.buildStatus === 'DELETING'}
           onClick={openModal}
         >
           Delete Pipeline
