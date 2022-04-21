@@ -11,7 +11,32 @@ const DEVELOPER_ID = 'developer_id'
 const SUCCESS = 'success'
 const PIPELINE_RUNNER_ID = 'PIPELINE_RUNNER_ID'
 
+jest.mock('../../services/sts', () => ({
+  getRoleCredentials: jest.fn(() => ({
+    accessKeyId: 'test',
+    secretAccessKey: 'test',
+    sessionToken: 'test',
+  })),
+}))
+
 jest.mock('../../services/s3', () => ({
+  assumedS3Client: jest.fn(() => ({
+    getObject: (params: S3.GetObjectRequest, func: (error?: string, data?: S3.GetObjectOutput) => void) => {
+      if (params.Key === `pipeline/${DEVELOPER_ID}/${SUCCESS}/${PIPELINE_RUNNER_ID}.zip`) {
+        func(undefined, {
+          Body: new Buffer(''),
+        })
+      }
+
+      func('error')
+    },
+    deleteObject: (params: S3.DeleteObjectRequest, func: (error?: string, data?: S3.DeleteObjectOutput) => void) => {
+      if (params.Key === `pipeline/${DEVELOPER_ID}/${SUCCESS}/${PIPELINE_RUNNER_ID}.zip`) {
+        func(undefined, {})
+      }
+      func('error')
+    },
+  })),
   s3Client: {
     getObject: (params: S3.GetObjectRequest, func: (error?: string, data?: S3.GetObjectOutput) => void) => {
       if (params.Key === `pipeline/${DEVELOPER_ID}/${SUCCESS}/${PIPELINE_RUNNER_ID}.zip`) {
@@ -22,12 +47,12 @@ jest.mock('../../services/s3', () => ({
 
       func('error')
     },
-  },
-  deleteObject: (params: S3.DeleteObjectRequest, func: (error?: string, data?: S3.DeleteObjectOutput) => void) => {
-    if (params.Key === `pipeline/${DEVELOPER_ID}/${SUCCESS}/${PIPELINE_RUNNER_ID}.zip`) {
-      func(undefined, {})
-    }
-    func('error')
+    deleteObject: (params: S3.DeleteObjectRequest, func: (error?: string, data?: S3.DeleteObjectOutput) => void) => {
+      if (params.Key === `pipeline/${DEVELOPER_ID}/${SUCCESS}/${PIPELINE_RUNNER_ID}.zip`) {
+        func(undefined, {})
+      }
+      func('error')
+    },
   },
 }))
 

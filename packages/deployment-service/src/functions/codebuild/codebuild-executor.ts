@@ -6,15 +6,12 @@ import { CodeBuild } from 'aws-sdk'
 import yaml from 'yaml'
 import { PackageManagerEnum } from '../../../../foundations-ts-definitions/deployment-schema'
 import { QueueNames } from '../../constants'
-import { sqs, savePipelineRunnerEntity, s3Client, githubApp, getBitBucketToken, pusher } from '../../services'
+import { sqs, savePipelineRunnerEntity, githubApp, getBitBucketToken, pusher, assumedS3Client } from '../../services'
 import { PipelineEntity } from '../../entities/pipeline.entity'
 import fetch from 'node-fetch'
 import { BitbucketClientData } from '@/entities/bitbucket-client.entity'
 import { BitBucketEvent } from '..'
-
-const codebuild = new CodeBuild({
-  region: process.env.REGION,
-})
+import { getRoleCredentials } from '../../services/sts'
 
 const baseBitbucketUrl = 'https://bitbucket.org'
 
@@ -55,9 +52,9 @@ export const downloadBitbucketSourceToS3 = async ({
   }
 
   const buffer = Buffer.from(await result.arrayBuffer())
-
+  const usercodeS3client = await assumedS3Client()
   return new Promise<string>((resolve, reject) =>
-    s3Client.upload(
+    usercodeS3client.upload(
       {
         Bucket: process.env.DEPLOYMENT_REPO_CACHE_BUCKET_NAME as string,
         Key: `${pipelineRunner.id as string}.zip`,
@@ -83,15 +80,16 @@ export const downloadGithubSourceToS3 = async (
   }
 
   const response = await (
-    await githubApp.getInstallationOctokit(installationId)
+    await (await githubApp()).getInstallationOctokit(installationId)
   ).request('GET /repos/{owner}/{repo}/zipball/{ref}', {
     ref: '',
     owner: parts[parts.length - 2],
     repo: parts[parts.length - 1],
   })
 
+  const usercodeS3client = await assumedS3Client()
   return new Promise<string>((resolve, reject) =>
-    s3Client.upload(
+    usercodeS3client.upload(
       {
         Bucket: process.env.DEPLOYMENT_REPO_CACHE_BUCKET_NAME as string,
         Key: `${pipelineRunner.id as string}.zip`,
@@ -137,10 +135,15 @@ export const codebuildExecutor: SQSHandler = async (
         throw new Error('pipeline not found')
       }
 
+      const codebuild = new CodeBuild({
+        region: process.env.REGION,
+        credentials: await getRoleCredentials(),
+      })
+
       const s3BuildLogsLocation = `arn:aws:s3:::${process.env.DEPLOYMENT_LOG_BUCKET_NAME}`
 
       try {
-        const repoLocation = pipeline.repository?.includes('github')
+        const repoLocation = pipeline.repository?.includes('github.com')
           ? await downloadGithubSourceToS3(pipeline, pipelineRunner)
           : await downloadBitbucketSourceToS3({
               pipeline,
@@ -159,18 +162,37 @@ export const codebuildExecutor: SQSHandler = async (
                   nodejs: 12,
                 },
                 commands: [
-                  'cd */',
+                  'CACHE_FOLDER=$(find . -maxdepth 1 -mindepth 1 -type d)',
+                  'echo $CACHE_FOLDER',
+                  'mv $CACHE_FOLDER/* ./',
+                  'rm -rf $CACHE_FOLDER',
                   pipeline.packageManager === PackageManagerEnum.YARN
                     ? pipeline.packageManager
                     : `${pipeline.packageManager} install`,
                 ],
               },
+              pre_build: {
+                commands: [
+                  `${
+                    pipeline.packageManager === PackageManagerEnum.NPM
+                      ? `${pipeline.packageManager} run`
+                      : pipeline.packageManager
+                  } ${pipeline.buildCommand}`,
+                ],
+              },
               build: {
-                commands: [`${pipeline.packageManager} ${pipeline.buildCommand}`],
+                commands: [
+                  `${
+                    pipeline.packageManager === PackageManagerEnum.NPM
+                      ? `${pipeline.packageManager} run`
+                      : pipeline.packageManager
+                  } ${pipeline.buildCommand}`,
+                ],
               },
             },
             artifacts: {
-              files: `${pipeline.outDir}/**/*`,
+              files: '**/*',
+              'base-directory': pipeline.outDir,
             },
           }),
           sourceTypeOverride: 'S3',
@@ -206,7 +228,8 @@ export const codebuildExecutor: SQSHandler = async (
 
         pipelineRunner.codebuildId = result.build?.id?.split(':').pop()
 
-        const signedUrl = await s3Client.getSignedUrlPromise('getObject', {
+        const usercodeS3client = await assumedS3Client()
+        const signedUrl = await usercodeS3client.getSignedUrlPromise('getObject', {
           Key: `${pipelineRunner.codebuildId}.gz`,
           Bucket: process.env.DEPLOYMENT_LOG_BUCKET_NAME,
           Expires: 60 * 60 * 24 * 7,

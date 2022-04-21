@@ -1,19 +1,21 @@
 import * as cdk from 'aws-cdk-lib'
-import { aws_s3 as s3, aws_iam as iam } from 'aws-cdk-lib'
+import { aws_s3 as s3, aws_iam as iam, PhysicalName } from 'aws-cdk-lib'
 
 const { ArnPrincipal, Effect, PolicyStatement } = iam
 
-type BucketOptions = {
+export type BucketOptions = {
   public?: boolean
   get?: boolean
   list?: boolean
   put?: boolean
+  stack?: cdk.Stack
 }
 
 export const createBucket = (stack: cdk.Stack, bucketName: string, options?: BucketOptions): s3.Bucket => {
-  const bucket = new s3.Bucket(stack, bucketName, {
+  const bucket = new s3.Bucket(options?.stack || stack, bucketName, {
     publicReadAccess: options?.public,
     websiteIndexDocument: options?.public ? 'index.html' : undefined,
+    bucketName: PhysicalName.GENERATE_IF_NEEDED,
   })
   const actions: string[] = []
   if (options?.get) {

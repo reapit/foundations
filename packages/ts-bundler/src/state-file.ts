@@ -33,5 +33,9 @@ export const readStateFile = (moduleDir: string): IncrementalState | undefined =
     return undefined
   }
 
-  return JSON.parse(fs.readFileSync(stateFile, 'utf-8'))
+  const state = JSON.parse(fs.readFileSync(stateFile, 'utf-8')) as IncrementalState
+  if (!fs.existsSync(state.prevContext.tmpDir) || fs.readdirSync(state.prevContext.tmpDir).length === 0) {
+    return undefined
+  }
+  return state
 }

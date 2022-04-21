@@ -82,6 +82,10 @@ export const PipelineInfo: React.FC<{
             <BodyText>{pipeline.buildCommand}</BodyText>
           </InputWrap>
           <InputWrap>
+            <Subtitle>Out Dir</Subtitle>
+            <BodyText>{pipeline.outDir}</BodyText>
+          </InputWrap>
+          <InputWrap>
             <Subtitle>Location</Subtitle>
             <BodyText>{pipeline.subDomain ? `https://${pipeline.subDomain}.dev.paas.reapit.cloud` : ''}</BodyText>
           </InputWrap>
