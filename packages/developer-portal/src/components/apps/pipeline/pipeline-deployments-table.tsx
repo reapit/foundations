@@ -1,28 +1,15 @@
 import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
-import {
-  elMt3,
-  Loader,
-  Pagination,
-  PersistantNotification,
-  Table,
-  TableCell,
-  TableExpandableRow,
-  TableExpandableRowTriggerCell,
-  TableHeader,
-  TableHeadersRow,
-  TableRow,
-  TableRowContainer,
-} from '@reapit/elements'
-import { PipelineRunnerModelInterface } from '@reapit/foundations-ts-definitions'
-// import { useChannel, useEvent } from '@harelpls/use-pusher'
-import dayjs from 'dayjs'
+import { elMb11, Loader, Pagination, Table } from '@reapit/elements'
+import { PipelineModelInterface, PipelineRunnerModelInterface } from '@reapit/foundations-ts-definitions'
 import { useAppState } from '../state/use-app-state'
 import { buildStatusToReadable } from '../../../utils/pipeline-helpers'
-import { fourColTable } from './__styles__'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { useReapitGet } from '@reapit/utils-react'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
+import { TaskList } from './pipeline-tasks-list'
+import { isoDateToHuman } from '../../../utils/date-time'
+import { useChannel, useEvent } from '@harelpls/use-pusher'
 
 export type PipelineRunnerMeta = {
   totalItems: number
@@ -37,14 +24,7 @@ export interface PipelineRunnerResponse {
   meta: PipelineRunnerMeta
 }
 
-interface PipelineRunnerSetterInterface {
-  initialDeployments: null | { items: PipelineRunnerModelInterface[] }
-  setPagination: (
-    value: React.SetStateAction<{
-      items: PipelineRunnerModelInterface[]
-    } | null>,
-  ) => void
-}
+export type PipelineRunnerEvent = PipelineRunnerModelInterface & { pipeline: PipelineModelInterface }
 
 export const handlePipelineRunnerRefresh =
   (
@@ -59,71 +39,46 @@ export const handlePipelineRunnerRefresh =
     }
   }
 
-export const pipelineRunnerSetter =
-  ({ initialDeployments, setPagination }: PipelineRunnerSetterInterface) =>
+export const handleInitialRunners =
+  (
+    pipelineDeployments: PipelineRunnerResponse | null,
+    setPipelineDeploymentItems: Dispatch<SetStateAction<PipelineRunnerModelInterface[]>>,
+  ) =>
   () => {
-    if (!initialDeployments) {
+    if (pipelineDeployments && pipelineDeployments.items) {
+      setPipelineDeploymentItems(pipelineDeployments.items)
+    }
+  }
+
+export const handleNewRunner =
+  (
+    appPipeline: PipelineModelInterface | null,
+    pipelineDeploymentsItems: PipelineRunnerModelInterface[],
+    setPipelineDeploymentItems: Dispatch<SetStateAction<PipelineRunnerModelInterface[]>>,
+  ) =>
+  (event?: PipelineRunnerEvent) => {
+    if (!event) {
       return
     }
 
-    const deploymentIds = initialDeployments.items.map((item) => item.id)
+    if (!event.pipeline || appPipeline?.id !== event.pipeline.id) {
+      return
+    }
 
-    setPagination((currentState) => {
-      if (currentState === null || (!currentState.items && initialDeployments !== null)) {
-        return initialDeployments
-      }
-
-      return {
-        items: currentState.items.reduce<PipelineRunnerModelInterface[]>((items, runner) => {
-          if (deploymentIds.includes(runner.id)) {
-            return items
-          }
-
-          items.push(runner)
-
-          return items
-        }, initialDeployments.items),
-      }
-    })
+    if (!pipelineDeploymentsItems.length) {
+      setPipelineDeploymentItems([event])
+    } else {
+      setPipelineDeploymentItems(
+        pipelineDeploymentsItems.map((item) => {
+          return item.id === event.id ? event : item
+        }),
+      )
+    }
   }
-
-interface TaskListProps {
-  tasks: PipelineRunnerModelInterface['tasks']
-}
-
-export const TaskList: FC<TaskListProps> = ({ tasks }) => {
-  if (!tasks || !tasks.length) {
-    return (
-      <PersistantNotification isInline isFullWidth isExpanded intent="secondary">
-        No progress reported for this deployment
-      </PersistantNotification>
-    )
-  }
-  return (
-    <Table>
-      <TableHeadersRow className={fourColTable}>
-        <TableHeader>Task</TableHeader>
-        <TableHeader>Status</TableHeader>
-        <TableHeader>Started</TableHeader>
-        <TableHeader>Finished</TableHeader>
-      </TableHeadersRow>
-      {tasks.map((task) => (
-        <TableRow key={task.id} className={fourColTable}>
-          <TableCell>{task.functionName}</TableCell>
-          <TableCell>{buildStatusToReadable(task.buildStatus as string)}</TableCell>
-          <TableCell>{task.startTime ? dateToHuman(task.startTime) : '-'}</TableCell>
-          <TableCell>{task.endTime ? dateToHuman(task.endTime) : '-'}</TableCell>
-        </TableRow>
-      ))}
-    </Table>
-  )
-}
-
-const isoDateToHuman = (isoDateStr: string) => dayjs(isoDateStr).format('DD MMM YYYY hh:mm:ss')
-const dateToHuman = (date: Date) => dayjs(date).format('DD MMM YYYY hh:mm:ss')
 
 export const PipelineDeploymentTable: FC = () => {
   const [page, setPage] = useState(1)
+  const [pipelineDeploymentsItems, setPipelineDeploymentItems] = useState<PipelineRunnerModelInterface[]>([])
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { appPipelineState } = useAppState()
   const { appPipeline, setAppPipelineDeploying, appPipelineDeploying } = appPipelineState
@@ -143,55 +98,15 @@ export const PipelineDeploymentTable: FC = () => {
     },
   })
 
-  const [pagination, setPagination] = useState<{
-    items: PipelineRunnerModelInterface[]
-  } | null>(pipelineDeployments)
+  const channel = useChannel(`private-${connectSession?.loginIdentity.developerId}`)
 
-  const [isOpen, setIsOpen] = useState<string>('')
-
-  useEffect(
-    pipelineRunnerSetter({
-      initialDeployments: pipelineDeployments,
-      setPagination,
-    }),
-    [pipelineDeployments],
+  useEvent<PipelineRunnerEvent>(
+    channel,
+    'pipeline-runner-update',
+    handleNewRunner(appPipeline, pipelineDeploymentsItems, setPipelineDeploymentItems),
   )
 
-  // useEffect(
-  //   addNewPipelineDeployment({
-  //     newRunner,
-  //     setPagination,
-  //     pagination,
-  //   }),
-  //   [newRunner],
-  // )
-
-  // const channel = useChannel(`private-${connectSession?.loginIdentity.developerId}`)
-
-  // useEvent<PipelineRunnerModelInterface & { pipeline: PipelineModelInterface }>(
-  //   channel,
-  //   'pipeline-runner-update',
-  //   (event) => {
-  //     if (!event) {
-  //       return
-  //     }
-
-  //     if (!event.pipeline || appPipeline?.id !== event.pipeline.id) {
-  //       return
-  //     }
-
-  //     if (pagination === null) {
-  //       setPagination({ items: [event] })
-  //       return
-  //     }
-
-  //     setPagination({
-  //       items: pagination.items.map((item) => {
-  //         return item.id === event.id ? event : item
-  //       }),
-  //     })
-  //   },
-  // )
+  useEffect(handleInitialRunners(pipelineDeployments, setPipelineDeploymentItems), [pipelineDeployments])
 
   useEffect(handlePipelineRunnerRefresh(setAppPipelineDeploying, refreshPipelineRunners, appPipelineDeploying), [
     appPipelineDeploying,
@@ -203,55 +118,64 @@ export const PipelineDeploymentTable: FC = () => {
         <Loader />
       ) : (
         <>
-          <Table data-has-expandable-action data-num-columns-excl-action-col="5">
-            <TableHeadersRow>
-              <TableHeader>Type</TableHeader>
-              <TableHeader>Created</TableHeader>
-              <TableHeader>Status</TableHeader>
-              <TableHeader>Version</TableHeader>
-              <TableHeader>Currently Deployed</TableHeader>
-              {pagination?.items.some((item) => !!item.tasks?.length) && <TableHeader></TableHeader>}
-            </TableHeadersRow>
-            {pagination !== null
-              ? pagination.items.map((deployment) => (
-                  <TableRowContainer key={deployment.id}>
-                    <TableRow>
-                      <TableCell>{deployment.type}</TableCell>
-                      <TableCell>{deployment.created && isoDateToHuman(deployment.created)}</TableCell>
-                      <TableCell>{buildStatusToReadable(deployment.buildStatus as string)}</TableCell>
-                      <TableCell>{deployment.buildVersion}</TableCell>
-                      <TableCell>{deployment.currentlyDeployed ? 'Deployed' : ''}</TableCell>
-                      <TableExpandableRowTriggerCell
-                        isOpen={isOpen === deployment.id}
-                        onClick={() => {
-                          if (!deployment.id) {
-                            return
-                          }
-                          if (isOpen === deployment.id) {
-                            setIsOpen('')
-                          } else {
-                            setIsOpen(deployment.id)
-                          }
-                        }}
-                      />
-                    </TableRow>
-                    <TableExpandableRow isOpen={isOpen === deployment.id}>
-                      <TaskList tasks={deployment.tasks} />
-                    </TableExpandableRow>
-                  </TableRowContainer>
-                ))
-              : null}
-          </Table>
+          <Table
+            className={elMb11}
+            rows={pipelineDeploymentsItems.map(
+              ({ type, created, buildStatus, buildVersion, currentlyDeployed, tasks }) => ({
+                cells: [
+                  {
+                    label: 'Type',
+                    value: type ?? '',
+                    cellHasDarkText: true,
+                    narrowTable: {
+                      showLabel: true,
+                    },
+                  },
+                  {
+                    label: 'Created',
+                    value: created ? isoDateToHuman(created) : '-',
+                    cellHasDarkText: true,
+                    narrowTable: {
+                      showLabel: true,
+                    },
+                  },
+                  {
+                    label: 'Status',
+                    value: buildStatusToReadable(buildStatus as string),
+                    cellHasDarkText: true,
+                    narrowTable: {
+                      showLabel: true,
+                    },
+                  },
+                  {
+                    label: 'Version',
+                    value: buildVersion,
+                    cellHasDarkText: true,
+                    narrowTable: {
+                      showLabel: true,
+                    },
+                  },
+                  {
+                    label: 'Currently Deployed',
+                    value: currentlyDeployed ? 'Deployed' : 'Not Deployed',
+                    cellHasDarkText: true,
+                    narrowTable: {
+                      showLabel: true,
+                    },
+                  },
+                ],
+                expandableContent: {
+                  content: <TaskList tasks={tasks} />,
+                },
+              }),
+            )}
+          />
           {pipelineDeployments && (
-            <div className={elMt3}>
-              <Pagination
-                currentPage={pipelineDeployments.meta.currentPage}
-                numberPages={pipelineDeployments.meta.totalPages}
-                callback={(page) => {
-                  setPage(page)
-                }}
-              />
-            </div>
+            <Pagination
+              currentPage={pipelineDeployments.meta.currentPage}
+              numberPages={pipelineDeployments.meta.totalPages}
+              callback={setPage}
+            />
           )}
         </>
       )}

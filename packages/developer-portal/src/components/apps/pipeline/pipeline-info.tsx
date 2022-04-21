@@ -7,6 +7,7 @@ import { useChannel, useEvent } from '@harelpls/use-pusher'
 import { useAppState } from '../state/use-app-state'
 import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import { PipelineDeploymentTable } from './pipeline-deployments-table'
+import { PipelineTabs } from './pipeline-tabs'
 
 export interface PipelinePusherEvent {
   pipeline: PipelineModelInterface
@@ -41,6 +42,7 @@ export const PipelineInfo: FC = () => {
 
   return (
     <>
+      <PipelineTabs />
       <Grid className={elMb11}>
         <Col>
           <Subtitle hasNoMargin>Status</Subtitle>

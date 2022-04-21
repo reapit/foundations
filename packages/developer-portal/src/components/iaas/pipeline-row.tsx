@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react'
-import { buildStatusToIntent, buildStatusToReadable, pipelineViewable } from '@/utils/pipeline-helpers'
+import { buildStatusToIntent, buildStatusToReadable, pipelineViewable } from '../../utils/pipeline-helpers'
 import Routes from '@/constants/routes'
 import {
   Button,
@@ -15,7 +15,6 @@ import {
 import { useHistory } from 'react-router'
 import { navigate, openNewPage } from '../../utils/navigation'
 import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
-import { ApiNames } from '@reapit/utils-common'
 
 interface PipelineRowProps {
   pipeline: PipelineModelInterface
@@ -62,7 +61,7 @@ export const PipelineRow: FC<PipelineRowProps> = ({ pipeline }) => {
               <Button
                 intent="critical"
                 chevronRight
-                onClick={openNewPage(`https://${pipeline.subDomain}${ApiNames(window.reapit.config.appEnv).iaas}`)}
+                onClick={openNewPage(`https://${pipeline.subDomain}.iaas.reapit.cloud`)}
               >
                 View App
               </Button>

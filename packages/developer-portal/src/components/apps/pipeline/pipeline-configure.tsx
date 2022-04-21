@@ -8,7 +8,6 @@ import {
   InputGroup,
   InputWrap,
   Label,
-  Title,
   Toggle,
 } from '@reapit/elements'
 import { boolean, object, SchemaOf, string } from 'yup'
@@ -26,9 +25,10 @@ import { useReapitUpdate } from '@reapit/utils-react'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { useAppState } from '../state/use-app-state'
-import { useHistory } from 'react-router'
+import { useHistory, useLocation } from 'react-router'
 import { History } from 'history'
 import Routes from '../../../constants/routes'
+import { PipelineTabs } from './pipeline-tabs'
 
 type PipelineModelSchema = Omit<
   PipelineModelInterface,
@@ -42,9 +42,22 @@ type PipelineModelSchema = Omit<
   | 'buildStatus'
   | 'subDomain'
   | 'packageManager'
+  | 'testCommand'
 > & {
   packageManager: boolean
 }
+
+const schema: SchemaOf<PipelineModelSchema> = object().shape({
+  name: string().required('Required - defaults to your app name'),
+  branch: string().required('Required - eg "main", "master"'),
+  repository: string()
+    .trim()
+    .required(errorMessages.FIELD_REQUIRED)
+    .matches(httpsUrlRegex, 'Should be a secure https url'),
+  buildCommand: string().trim().required('A build command is required eg "build" or "bundle"'),
+  packageManager: boolean().required('Required - either yarn or NPM'),
+  outDir: string().required('Required eg "dist" or "public'),
+})
 
 export const handlePipelineUpdate =
   (
@@ -54,7 +67,6 @@ export const handlePipelineUpdate =
     appId: string | null,
   ) =>
   async (values: PipelineModelSchema) => {
-    console.log(values)
     const result = await updatePipeline({
       ...values,
       packageManager: values.packageManager ? PackageManagerEnum.YARN : PackageManagerEnum.NPM,
@@ -67,19 +79,6 @@ export const handlePipelineUpdate =
       refresh()
     }
   }
-
-const schema: SchemaOf<PipelineModelSchema> = object().shape({
-  name: string().required('Required - defaults to your app name'),
-  branch: string().required('Required - eg "main", "master"'),
-  repository: string()
-    .trim()
-    .required(errorMessages.FIELD_REQUIRED)
-    .matches(httpsUrlRegex, 'Should be a secure https url'),
-  buildCommand: string().trim().required('A build command is required eg "build" or "bundle"'),
-  packageManager: boolean().required('Required - either yarn or NPM'),
-  outDir: string().required('Required eg "dist" or "public'),
-  testCommand: string(),
-})
 
 export const handleUpdateSuccess = (history: History, appId: string | null, updateSuccessful?: boolean) => () => {
   if (updateSuccessful && appId) {
@@ -98,9 +97,14 @@ export const handleSavePipeline =
 
 export const getDefaultValues = (appPipeline: PipelineModelInterface | null, appDetail: AppDetailModel | null) => {
   if (appPipeline) {
+    const { name, branch, repository, buildCommand, packageManager, outDir } = appPipeline
     return {
-      ...appPipeline,
-      packageManager: appPipeline.packageManager === PackageManagerEnum.YARN,
+      name,
+      branch,
+      repository,
+      buildCommand,
+      outDir,
+      packageManager: packageManager === PackageManagerEnum.YARN,
     }
   }
 
@@ -114,6 +118,7 @@ export const getDefaultValues = (appPipeline: PipelineModelInterface | null, app
 
 export const PipelineConfigure: FC = () => {
   const history = useHistory()
+  const location = useLocation()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { appPipelineState, appId, appsDataState } = useAppState()
   const { appPipelineRefresh, appPipelineSaving, appPipeline, setAppPipelineSaving } = appPipelineState
@@ -153,7 +158,7 @@ export const PipelineConfigure: FC = () => {
 
   return (
     <>
-      <Title>Configure Pipeline</Title>
+      {!location.pathname.includes('new') && <PipelineTabs />}
       <BodyText hasGreyText hasSectionMargin>
         Tell us about how we should build your application here. We assume that your application is a front end app and
         that, it uses either yarn or npm to run scripts decalared in a package.json file. We assume also that your
@@ -204,13 +209,6 @@ export const PipelineConfigure: FC = () => {
               <Label>Build Directory</Label>
               <Input {...register('outDir')} />
               {errors.outDir?.message && <InputError message={errors.outDir.message} />}
-            </InputGroup>
-          </InputWrap>
-          <InputWrap>
-            <InputGroup>
-              <Label>Test Command</Label>
-              <Input {...register('testCommand')} />
-              {errors.testCommand?.message && <InputError message={errors.testCommand.message} />}
             </InputGroup>
           </InputWrap>
         </FormLayout>

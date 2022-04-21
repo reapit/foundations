@@ -34,7 +34,7 @@ export const PipelinesAbout = () => {
         <Button
           intent="primary"
           chevronRight
-          onClick={navigate(history, Routes.APP_PIPELINE_CONFIGURE.replace(':appId', appId as string))}
+          onClick={navigate(history, Routes.APP_PIPELINE_NEW.replace(':appId', appId as string))}
           onMouseOver={() => {
             setNewPipelineAnimated(true)
           }}

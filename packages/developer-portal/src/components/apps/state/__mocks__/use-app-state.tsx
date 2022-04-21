@@ -1,6 +1,7 @@
 import { defaultAppTabsState as mockAppTabsSate, defaultAppWizardState as mockAppWizardState } from '../defaults'
 import { defaultValues as mockAppEditForm } from '../../edit/form-schema/form-fields'
 import { mockAppDetailModel, mockAppSummaryModelPagedResult } from '../../../../tests/__stubs__/apps'
+import { mockPipelineModelInterface } from '../../../../tests/__stubs__/pipeline'
 
 export const mockAppState = {
   appWizardState: {
@@ -31,7 +32,7 @@ export const mockAppState = {
     setIncompleteFields: jest.fn(),
   },
   appPipelineState: {
-    appPipeline: {},
+    appPipeline: mockPipelineModelInterface,
     appPipelineLoading: false,
     appPipelineDeploying: false,
     appPipelineSaving: false,

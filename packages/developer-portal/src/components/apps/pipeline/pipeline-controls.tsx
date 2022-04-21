@@ -3,12 +3,11 @@ import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { BodyText, Button, ButtonGroup, Subtitle, elMb3, elFadeIn, Icon, SmallText, useModal } from '@reapit/elements'
 import { UpdateActionNames, updateActions } from '@reapit/utils-common'
-import { UpdateReturnTypeEnum, useReapitUpdate } from '@reapit/utils-react'
+import { SendFunction, UpdateReturnTypeEnum, useReapitUpdate } from '@reapit/utils-react'
 import { useAppState } from '../state/use-app-state'
 import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
-import { navigate, openNewPage } from '../../../utils/navigation'
-import { useHistory, useLocation } from 'react-router'
-import Routes from '../../../constants/routes'
+import { openNewPage } from '../../../utils/navigation'
+import { useLocation } from 'react-router'
 
 export const handlePipelineRunnerSuccess =
   (setAppPipelineDeploying: Dispatch<SetStateAction<boolean>>, updatePipelineRunnerSuccess?: boolean) => () => {
@@ -17,11 +16,41 @@ export const handlePipelineRunnerSuccess =
     }
   }
 
+export const handleSaveConfig = (setAppPipelineSaving: Dispatch<SetStateAction<boolean>>) => () => {
+  setAppPipelineSaving(true)
+}
+
+export const handleSavePipeline =
+  (
+    sendPipelineUpdate: SendFunction<PipelineModelInterface, boolean | PipelineModelInterface>,
+    pipelineUpdate: PipelineModelInterface,
+  ) =>
+  () => {
+    sendPipelineUpdate(pipelineUpdate)
+  }
+
+export const handleUpdatePipelineRunner = (updatePipelineRunner: SendFunction<void, boolean>) => () => {
+  updatePipelineRunner()
+}
+
+export const handleDeletePipeline =
+  (
+    deletePipeline: SendFunction<void, boolean>,
+    setAppPipeline: Dispatch<SetStateAction<PipelineModelInterface | null>>,
+    closeModal: () => void,
+  ) =>
+  async () => {
+    const response = await deletePipeline()
+    if (response) {
+      setAppPipeline(null)
+      closeModal()
+    }
+  }
+
 export const PipelineControls: FC = () => {
   const location = useLocation()
-  const history = useHistory()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const { appPipelineState, appId } = useAppState()
+  const { appPipelineState } = useAppState()
   const { Modal, openModal, closeModal } = useModal()
   const { appPipeline, setAppPipeline, setAppPipelineSaving, setAppPipelineDeploying } = appPipelineState
   const { pathname } = location
@@ -101,10 +130,7 @@ export const PipelineControls: FC = () => {
           loading={deleteLoading}
           intent="primary"
           disabled={appPipeline?.buildStatus === 'DELETING'}
-          onClick={async (event) => {
-            event.preventDefault()
-            setAppPipelineSaving(true)
-          }}
+          onClick={handleSaveConfig(setAppPipelineSaving)}
         >
           Save Config
         </Button>
@@ -114,29 +140,23 @@ export const PipelineControls: FC = () => {
       ) ? (
         <Button
           className={elMb3}
-          onClick={async (event) => {
-            event.preventDefault()
-            await sendPipelineUpdate({
-              ...(appPipeline ?? {}),
-              buildStatus: 'PROVISION_REQUEST',
-            })
-          }}
+          onClick={handleSavePipeline(sendPipelineUpdate, {
+            ...(appPipeline ?? {}),
+            buildStatus: 'PROVISION_REQUEST',
+          })}
           disabled={isLoading}
           loading={isLoading}
           intent="success"
         >
           Provision
         </Button>
-      ) : appPipeline ? (
+      ) : appPipeline && !isConfigPage ? (
         <>
           <Button
             className={elMb3}
             loading={pipelineRunnerLoading}
             intent="primary"
-            onClick={async (event) => {
-              event.preventDefault()
-              await updatePipelineRunner()
-            }}
+            onClick={handleUpdatePipelineRunner(updatePipelineRunner)}
             disabled={appPipeline?.buildStatus === 'DELETING' || appPipeline?.buildStatus === 'SCHEDULED_FOR_DELETION'}
           >
             Deploy
@@ -150,17 +170,6 @@ export const PipelineControls: FC = () => {
           </Button>
         </>
       ) : null}
-      {appPipeline && !isConfigPage && (
-        <Button
-          className={elMb3}
-          loading={deleteLoading}
-          intent="secondary"
-          disabled={appPipeline?.buildStatus === 'DELETING'}
-          onClick={navigate(history, Routes.APP_PIPELINE_CONFIGURE.replace(':appId', appId as string))}
-        >
-          Configure
-        </Button>
-      )}
       {appPipeline && (
         <Button
           className={elMb3}
@@ -181,18 +190,7 @@ export const PipelineControls: FC = () => {
           <Button intent="low" onClick={closeModal}>
             Close
           </Button>
-          <Button
-            intent="danger"
-            onClick={async (event) => {
-              event.preventDefault()
-              const result = await deleteFunc()
-
-              if (result) {
-                setAppPipeline(null)
-                closeModal()
-              }
-            }}
-          >
+          <Button intent="danger" onClick={handleDeletePipeline(deleteFunc, setAppPipeline, closeModal)}>
             Delete
           </Button>
         </ButtonGroup>

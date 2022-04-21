@@ -7,9 +7,9 @@ import { PipelinePage } from './pipeline-page'
 import ErrorBoundary from '../../../core/error-boundary'
 import { Route, Switch, useParams } from 'react-router'
 import Routes from '../../../constants/routes'
-import { PipelineConfigure } from './pipeline-configure'
 import { AppUriParams, useAppState } from '../state/use-app-state'
 import { handleSetAppId } from '../utils/handle-set-app-id'
+import { PipelineNew } from './pipeline-new'
 
 export const AppPipeline: FC = () => {
   const { setAppId } = useAppState()
@@ -34,7 +34,7 @@ export const AppPipeline: FC = () => {
     >
       <ErrorBoundary>
         <Switch>
-          <Route path={Routes.APP_PIPELINE_CONFIGURE} exact component={PipelineConfigure} />
+          <Route path={Routes.APP_PIPELINE_NEW} exact component={PipelineNew} />
           <Route path={Routes.APP_PIPELINE} component={PipelinePage} />
         </Switch>
       </ErrorBoundary>
