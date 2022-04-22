@@ -6,7 +6,7 @@ import { defaultWebhooksFilterState } from '../defaults'
 export const mockWebhooksState = {
   webhooksDataState: {
     apps: mockAppSummaryModelPagedResult,
-    topics: mockTopicModelPagedResult,
+    topics: mockTopicModelPagedResult._embedded ?? [],
     installations: mockInstallationModelPagedResult,
   },
   webhooksFilterState: defaultWebhooksFilterState,

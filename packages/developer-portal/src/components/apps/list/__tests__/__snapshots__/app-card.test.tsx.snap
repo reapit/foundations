@@ -57,6 +57,7 @@ Object {
             >
               <span
                 class="ej9yrfo-el-icon"
+                style="font-size: 1.25rem;"
               >
                 <svg
                   fill="none"
@@ -79,6 +80,7 @@ Object {
             >
               <span
                 class="ej9yrfo-el-icon"
+                style="font-size: 1.25rem;"
               >
                 <svg
                   fill="none"
@@ -98,7 +100,8 @@ Object {
               class="euknxbk-el-card-context-menu-item"
             >
               <span
-                class="e1vxext9-el-intent-danger ej9yrfo-el-icon"
+                class="ej9yrfo-el-icon"
+                style="font-size: 1.25rem;"
               >
                 <svg
                   fill="none"
@@ -234,6 +237,7 @@ Object {
           >
             <span
               class="ej9yrfo-el-icon"
+              style="font-size: 1.25rem;"
             >
               <svg
                 fill="none"
@@ -256,6 +260,7 @@ Object {
           >
             <span
               class="ej9yrfo-el-icon"
+              style="font-size: 1.25rem;"
             >
               <svg
                 fill="none"
@@ -275,7 +280,8 @@ Object {
             class="euknxbk-el-card-context-menu-item"
           >
             <span
-              class="e1vxext9-el-intent-danger ej9yrfo-el-icon"
+              class="ej9yrfo-el-icon"
+              style="font-size: 1.25rem;"
             >
               <svg
                 fill="none"

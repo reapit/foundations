@@ -14,6 +14,12 @@ export type InterceptorParams = {
   headers: StringMap
 }
 
+export type InterceptorResponse = {
+  url: string
+  ok: boolean
+  text: Blob
+}
+
 export interface SwaggerPageProps {
   swaggerUri: string | null
 }
@@ -35,6 +41,15 @@ export const fetchInterceptor = (params: InterceptorParams, accessToken?: string
       Authorization: `Bearer ${accessToken}`,
     },
   }
+}
+
+export const responseInterceptor = (response: InterceptorResponse) => {
+  if (response.url.includes('download') && response.ok) {
+    const url = window.URL.createObjectURL(response.text)
+    window.open(url, '_blank')
+    return response.ok
+  }
+  return response
 }
 
 export const handleSandboxTimeout = (setSandboxVisible: Dispatch<SetStateAction<boolean>>) => () => {
@@ -65,24 +80,23 @@ export const SwaggerPage: FC<SwaggerPageProps> = ({ swaggerUri }) => {
       <PersistantNotification
         onClick={handleSandboxClick(setSandboxVisible, sandboxVisible)}
         isExpanded={sandboxVisible}
-        intent="primary"
+        intent="secondary"
       >
         This is a sandbox environment, with anonymised test data and isolated from production
       </PersistantNotification>
       <div className={cx(swagger, (loading || !swaggerUri) && swaggerHidden)}>
         <Title>Foundations API</Title>
-        {window.reapit.config.appEnv !== 'production' && (
-          <BodyText hasGreyText>
-            This tool is interactive and provides instant access to data hosted in our sandbox environment with
-            authentication and versioning headers pre-populated. Example requests and responses are shown by default but
-            you can switch to view a fully documented schema - look for the model link.
-          </BodyText>
-        )}
+        <BodyText hasGreyText>
+          This tool is interactive and provides instant access to data hosted in our sandbox environment with
+          authentication and versioning headers pre-populated. Example requests and responses are shown by default but
+          you can switch to view a fully documented schema - look for the model link.
+        </BodyText>
         <SwaggerUI
           url={swaggerUri}
           onComplete={handleOnComplete(setLoading)}
           docExpansion="none"
           requestInterceptor={requestInterceptor}
+          responseInterceptor={responseInterceptor}
         />
       </div>
     </ErrorBoundary>

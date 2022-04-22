@@ -1,6 +1,7 @@
 import * as React from 'react'
 // @ts-ignore: no available type definition
 import { init } from 'pell'
+import './__styles__/index.css'
 
 export interface EditorProps {
   onChange?: (html: string) => void

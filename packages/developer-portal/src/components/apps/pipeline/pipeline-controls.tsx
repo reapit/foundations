@@ -146,7 +146,7 @@ export const PipelineControls: FC = () => {
           })}
           disabled={isLoading}
           loading={isLoading}
-          intent="success"
+          intent="primary"
         >
           Provision
         </Button>

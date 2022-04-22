@@ -22,6 +22,7 @@ Object {
                 class="e1urjlvd-el-input"
                 id="test-static-id"
                 name="company"
+                placeholder="This will be the display name of the company in our AppMarket"
               />
               <label
                 class="e1nbkkrq-el-label"
@@ -41,6 +42,7 @@ Object {
                 class="e1urjlvd-el-input"
                 id="test-static-id"
                 name="telephone"
+                placeholder="A number we can discuss your developer account on"
               />
               <label
                 class="e1nbkkrq-el-label"
@@ -60,6 +62,7 @@ Object {
                 class="e1urjlvd-el-input"
                 id="test-static-id"
                 name="website"
+                placeholder="Your company's corporate website"
               />
               <label
                 class="e1nbkkrq-el-label"
@@ -99,6 +102,7 @@ Object {
                 class="e1urjlvd-el-input"
                 id="test-static-id"
                 name="billingEmail"
+                placeholder="An email address we can send notifications about your developer account to"
               />
               <label
                 class="e1nbkkrq-el-label"
@@ -138,12 +142,13 @@ Object {
                 class="e1urjlvd-el-input"
                 id="test-static-id"
                 name="taxNumber"
+                placeholder="If VAT registered, your must supply your VAT Number"
               />
               <label
                 class="e1nbkkrq-el-label"
                 for="test-static-id"
               >
-                VAT Number if registered
+                VAT Number
               </label>
             </div>
           </div>
@@ -177,6 +182,7 @@ Object {
                 class="e1urjlvd-el-input"
                 id="test-static-id"
                 name="registrationNumber"
+                placeholder="If you have a formal company, your should supply the registration number"
               />
               <label
                 class="e1nbkkrq-el-label"
@@ -195,6 +201,7 @@ Object {
               <textarea
                 class="e16rclfx-el-text-area"
                 name="about"
+                placeholder="Tell us about your company in a few words. This will appear on your AppMarket listing pages"
               />
               <label
                 class="e1nbkkrq-el-label"
@@ -213,6 +220,7 @@ Object {
                 class="e1urjlvd-el-input"
                 id="test-static-id"
                 name="buildingName"
+                placeholder="The building of your corporate office"
               />
               <label
                 class="e1nbkkrq-el-label"
@@ -232,6 +240,7 @@ Object {
                 class="e1urjlvd-el-input"
                 id="test-static-id"
                 name="buildingNumber"
+                placeholder="The number of your corporate office"
               />
               <label
                 class="e1nbkkrq-el-label"
@@ -251,6 +260,7 @@ Object {
                 class="e1urjlvd-el-input"
                 id="test-static-id"
                 name="line1"
+                placeholder="Line one of the address for your office"
               />
               <label
                 class="e1nbkkrq-el-label"
@@ -270,6 +280,7 @@ Object {
                 class="e1urjlvd-el-input"
                 id="test-static-id"
                 name="line2"
+                placeholder="Line two of the address for your office"
               />
               <label
                 class="e1nbkkrq-el-label"
@@ -289,6 +300,7 @@ Object {
                 class="e1urjlvd-el-input"
                 id="test-static-id"
                 name="line3"
+                placeholder="Line three of the address for your office"
               />
               <label
                 class="e1nbkkrq-el-label"
@@ -308,6 +320,7 @@ Object {
                 class="e1urjlvd-el-input"
                 id="test-static-id"
                 name="line4"
+                placeholder="Line four of the address for your office"
               />
               <label
                 class="e1nbkkrq-el-label"
@@ -327,6 +340,7 @@ Object {
                 class="e1urjlvd-el-input"
                 id="test-static-id"
                 name="postcode"
+                placeholder="Your office postcode"
               />
               <label
                 class="e1nbkkrq-el-label"
@@ -1635,6 +1649,7 @@ Object {
               class="e1urjlvd-el-input"
               id="test-static-id"
               name="company"
+              placeholder="This will be the display name of the company in our AppMarket"
             />
             <label
               class="e1nbkkrq-el-label"
@@ -1654,6 +1669,7 @@ Object {
               class="e1urjlvd-el-input"
               id="test-static-id"
               name="telephone"
+              placeholder="A number we can discuss your developer account on"
             />
             <label
               class="e1nbkkrq-el-label"
@@ -1673,6 +1689,7 @@ Object {
               class="e1urjlvd-el-input"
               id="test-static-id"
               name="website"
+              placeholder="Your company's corporate website"
             />
             <label
               class="e1nbkkrq-el-label"
@@ -1712,6 +1729,7 @@ Object {
               class="e1urjlvd-el-input"
               id="test-static-id"
               name="billingEmail"
+              placeholder="An email address we can send notifications about your developer account to"
             />
             <label
               class="e1nbkkrq-el-label"
@@ -1751,12 +1769,13 @@ Object {
               class="e1urjlvd-el-input"
               id="test-static-id"
               name="taxNumber"
+              placeholder="If VAT registered, your must supply your VAT Number"
             />
             <label
               class="e1nbkkrq-el-label"
               for="test-static-id"
             >
-              VAT Number if registered
+              VAT Number
             </label>
           </div>
         </div>
@@ -1790,6 +1809,7 @@ Object {
               class="e1urjlvd-el-input"
               id="test-static-id"
               name="registrationNumber"
+              placeholder="If you have a formal company, your should supply the registration number"
             />
             <label
               class="e1nbkkrq-el-label"
@@ -1808,6 +1828,7 @@ Object {
             <textarea
               class="e16rclfx-el-text-area"
               name="about"
+              placeholder="Tell us about your company in a few words. This will appear on your AppMarket listing pages"
             />
             <label
               class="e1nbkkrq-el-label"
@@ -1826,6 +1847,7 @@ Object {
               class="e1urjlvd-el-input"
               id="test-static-id"
               name="buildingName"
+              placeholder="The building of your corporate office"
             />
             <label
               class="e1nbkkrq-el-label"
@@ -1845,6 +1867,7 @@ Object {
               class="e1urjlvd-el-input"
               id="test-static-id"
               name="buildingNumber"
+              placeholder="The number of your corporate office"
             />
             <label
               class="e1nbkkrq-el-label"
@@ -1864,6 +1887,7 @@ Object {
               class="e1urjlvd-el-input"
               id="test-static-id"
               name="line1"
+              placeholder="Line one of the address for your office"
             />
             <label
               class="e1nbkkrq-el-label"
@@ -1883,6 +1907,7 @@ Object {
               class="e1urjlvd-el-input"
               id="test-static-id"
               name="line2"
+              placeholder="Line two of the address for your office"
             />
             <label
               class="e1nbkkrq-el-label"
@@ -1902,6 +1927,7 @@ Object {
               class="e1urjlvd-el-input"
               id="test-static-id"
               name="line3"
+              placeholder="Line three of the address for your office"
             />
             <label
               class="e1nbkkrq-el-label"
@@ -1921,6 +1947,7 @@ Object {
               class="e1urjlvd-el-input"
               id="test-static-id"
               name="line4"
+              placeholder="Line four of the address for your office"
             />
             <label
               class="e1nbkkrq-el-label"
@@ -1940,6 +1967,7 @@ Object {
               class="e1urjlvd-el-input"
               id="test-static-id"
               name="postcode"
+              placeholder="Your office postcode"
             />
             <label
               class="e1nbkkrq-el-label"

@@ -61,6 +61,7 @@ export const AppCard: FC<AppCardProps> = ({ app }) => {
           {
             icon: 'editSystem',
             onClick: navigate(history, `${Routes.APPS}/${id}/edit`),
+            intent: 'primary',
           },
           {
             icon: 'trashSystem',

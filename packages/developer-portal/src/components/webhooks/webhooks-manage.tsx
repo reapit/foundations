@@ -112,7 +112,7 @@ export const WebhooksManage: FC = () => {
       refreshSubscriptions,
       expandableContentType,
       subscriptions?._embedded ?? [],
-      topics?._embedded ?? [],
+      topics,
       installations?.data ?? [],
     ),
     [subscriptions, topics, installations, expandableContentType],

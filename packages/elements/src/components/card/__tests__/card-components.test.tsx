@@ -3,6 +3,7 @@ import { shallow } from 'enzyme'
 import {
   Card,
   CardContextMenu,
+  handleMouseHover,
   handleToggleBothMobileOpen,
   handleToggleContextMenu,
   handleToggleListMobileOpen,
@@ -155,5 +156,18 @@ describe('handleToggleBothMobileOpen', () => {
     expect(mockSetSecondValue).toHaveBeenCalledTimes(1)
     expect(mockSetSecondValue).toHaveBeenCalledWith(true)
     expect(event.stopPropagation).toHaveBeenCalledTimes(1)
+  })
+})
+
+describe('handleMouseHover', () => {
+  it('should set the hover index', () => {
+    const hoverIndex = 1
+    const setHoverIndex = jest.fn()
+
+    const curried = handleMouseHover(hoverIndex, setHoverIndex)
+
+    curried()
+
+    expect(setHoverIndex).toHaveBeenCalledWith(hoverIndex)
   })
 })

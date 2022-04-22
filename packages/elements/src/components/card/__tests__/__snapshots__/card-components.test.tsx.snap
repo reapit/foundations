@@ -140,6 +140,7 @@ exports[`CardContextMenu should match a snapshot and render children with full p
       onClick={[Function]}
     >
       <Icon
+        fontSize="1.25rem"
         icon="closeSystem"
       />
     </CardContextMenuItem>
@@ -148,8 +149,10 @@ exports[`CardContextMenu should match a snapshot and render children with full p
       onClick={[Function]}
     >
       <Icon
+        fontSize="1.25rem"
         icon="trashSystem"
-        intent="danger"
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
       />
     </CardContextMenuItem>
     <CardContextMenuItem
@@ -157,7 +160,10 @@ exports[`CardContextMenu should match a snapshot and render children with full p
       onClick={[Function]}
     >
       <Icon
+        fontSize="1.25rem"
         icon="shareSystem"
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
       />
     </CardContextMenuItem>
   </CardContextMenuItems>

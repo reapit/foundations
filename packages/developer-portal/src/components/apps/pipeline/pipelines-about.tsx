@@ -32,7 +32,7 @@ export const PipelinesAbout = () => {
           the Reapit Platform Cloud.
         </BodyText>
         <Button
-          intent="primary"
+          intent="critical"
           chevronRight
           onClick={navigate(history, Routes.APP_PIPELINE_NEW.replace(':appId', appId as string))}
           onMouseOver={() => {
