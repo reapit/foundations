@@ -90,8 +90,8 @@ export const ProfileForm: FC = () => {
             {...register('name')}
             label="Name"
             placeholder="Your full name here"
-            errorMessage={errors?.name?.message}
-            icon={errors?.name?.message ? 'asteriskSystem' : null}
+            errorMessage={errors.name?.message}
+            icon={errors.name?.message ? 'asteriskSystem' : null}
             intent="danger"
           />
         </InputWrap>
@@ -100,8 +100,8 @@ export const ProfileForm: FC = () => {
             {...register('jobTitle')}
             label="Job Title"
             placeholder="What role do you have at your company"
-            errorMessage={errors?.jobTitle?.message}
-            icon={errors?.jobTitle?.message ? 'asteriskSystem' : null}
+            errorMessage={errors.jobTitle?.message}
+            icon={errors.jobTitle?.message ? 'asteriskSystem' : null}
             intent="danger"
           />
         </InputWrap>
@@ -110,8 +110,8 @@ export const ProfileForm: FC = () => {
             {...register('gitHubUsername')}
             label="GitHub Username"
             placeholder="Github handles help us tracking issues"
-            errorMessage={errors?.gitHubUsername?.message}
-            icon={errors?.gitHubUsername?.message ? 'asteriskSystem' : null}
+            errorMessage={errors.gitHubUsername?.message}
+            icon={errors.gitHubUsername?.message ? 'asteriskSystem' : null}
             intent="danger"
           />
         </InputWrap>
