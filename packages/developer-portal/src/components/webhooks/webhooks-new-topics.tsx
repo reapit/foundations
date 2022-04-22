@@ -40,8 +40,7 @@ export const WebhooksNewTopics: FC<WebhooksNewTopicsProps> = ({ register, getVal
   const [search, setSearch] = useState<string>('')
   const selectedTopics = getValues().topicIds?.split(',').filter(Boolean)
   const { topics } = webhooksDataState
-  const topicsList = topics?._embedded ?? []
-  const [filteredTopics, setFilteredTopics] = useState<TopicModel[]>(getInitialTopics(topicsList, selectedTopics))
+  const [filteredTopics, setFilteredTopics] = useState<TopicModel[]>(getInitialTopics(topics, selectedTopics))
   const multiSelectOptions = filteredTopics.map((topic) => ({ name: topic.name ?? '', value: topic.id ?? '' }))
   const inputAddOnText =
     !filteredTopics.length && !search
@@ -64,7 +63,7 @@ export const WebhooksNewTopics: FC<WebhooksNewTopicsProps> = ({ register, getVal
           <InputGroup
             className={elMb5}
             label="Subscription Topics"
-            onChange={handleSearchTopics(topicsList, getValues, setFilteredTopics, setSearch)}
+            onChange={handleSearchTopics(topics, getValues, setFilteredTopics, setSearch)}
             icon="searchSystem"
             placeholder="Search"
             inputAddOnText={inputAddOnText}

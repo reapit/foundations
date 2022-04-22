@@ -107,6 +107,7 @@ export const Controls: FC = () => {
               <InputGroup
                 {...register('name')}
                 label="Name"
+                placeholder="Your colleague's full name"
                 errorMessage={errors?.name?.message}
                 icon={errors?.name?.message ? 'asteriskSystem' : null}
                 intent="danger"
@@ -117,6 +118,7 @@ export const Controls: FC = () => {
                 {...register('email')}
                 type="email"
                 label="Email"
+                placeholder="An email address we can contact your colleague at"
                 errorMessage={errors?.email?.message}
                 icon={errors?.email?.message ? 'asteriskSystem' : null}
                 intent="danger"
@@ -126,6 +128,7 @@ export const Controls: FC = () => {
               <InputGroup
                 {...register('jobTitle')}
                 label="Job Title"
+                placeholder="Your colleague's role at your company'"
                 errorMessage={errors?.jobTitle?.message}
                 icon={errors?.jobTitle?.message ? 'asteriskSystem' : null}
                 intent="danger"
@@ -135,6 +138,7 @@ export const Controls: FC = () => {
               <InputGroup
                 {...register('message')}
                 label="Invite Message"
+                placeholder="An optional invite message"
                 errorMessage={errors?.message?.message}
                 icon={errors?.message?.message ? 'asteriskSystem' : null}
                 intent="danger"

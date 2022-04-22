@@ -59,21 +59,15 @@ const initZendeskBot = (loginIdentity) => {
 }
 
 const openChatbot = (loginIdentity) => {
-  const isDev = window.reapit.config.appEnv !== 'production'
+  const isDev = window.reapit.config.appEnv === 'development'
 
   if (isDev) {
     if (!window.zE) {
       initZendeskBot(loginIdentity)
     }
   } else {
-    if (window._chatlio) {
-      window._chatlio.open()
-    } else {
-      initChatlioBot(loginIdentity).then(() => {
-        if (window._chatlio) {
-          window._chatlio.open()
-        }
-      })
+    if (!window._chatlio) {
+      initChatlioBot(loginIdentity)
     }
   }
 }

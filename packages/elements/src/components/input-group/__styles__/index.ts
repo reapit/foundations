@@ -51,6 +51,12 @@ export const ElInputGroup = styled.div`
         border-bottom: var(--component-input-border-bottom-focus);
       }
     }
+
+    &:disabled {
+      ~ ${ElIcon}, ~ ${ElInputAddOn}, ~ ${ElLabel} {
+        color: rgba(100, 100, 100, 0.35);
+      }
+    }
   }
 
   ${ElInputAddOn} {

@@ -107,7 +107,7 @@ export const WebhooksPingForm: FC<WebhooksPingFormProps> = ({
   })
 
   const topicOptions = topicIds?.map((topicId) => {
-    const topic = topics?._embedded?.find((topicItem) => topicItem.id === topicId)
+    const topic = topics.find((topicItem) => topicItem.id === topicId)
     if (topic) {
       return {
         name: topic.name ?? '',

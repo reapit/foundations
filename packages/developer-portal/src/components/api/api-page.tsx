@@ -113,37 +113,23 @@ export const ApiPage: FC = () => {
                 <Label>API Location</Label>
                 <p className={elMb5}>https://platform.reapit.cloud</p>
               </div>
-              {window.reapit.config.appEnv !== 'production' ? (
-                <>
-                  <SmallText hasGreyText>
-                    Reapit now supports multiple products in the Developer Portal, each with a corresponding API
-                    document. For most developers the default will be Agency Cloud but if you wish to select a different
-                    product API you can do this below.
-                  </SmallText>
-                  <ControlsContainer className={cx(elBorderRadius, elMb5)}>
-                    <InputGroup>
-                      <Select
-                        className={elWFull}
-                        value={swaggerUri ?? ''}
-                        onChange={handleChangeSwaggerDoc(setSwaggerUri)}
-                      >
-                        {productsList?.data?.map((option) => (
-                          <option key={option.id} value={option.openApiUrl}>
-                            {option.name}
-                          </option>
-                        ))}
-                      </Select>
-                      <Label htmlFor="myId">Select Product</Label>
-                    </InputGroup>
-                  </ControlsContainer>
-                </>
-              ) : (
-                <SmallText hasGreyText>
-                  This tool is interactive and provides instant access to data hosted in our sandbox environment with
-                  authentication and versioning headers pre-populated. Example requests and responses are shown by
-                  default but you can switch to view a fully documented schema - look for the model link.
-                </SmallText>
-              )}
+              <SmallText hasGreyText>
+                Reapit now supports multiple products in the Developer Portal, each with a corresponding API document.
+                For most developers the default will be Agency Cloud but if you wish to select a different product API
+                you can do this below.
+              </SmallText>
+              <ControlsContainer className={cx(elBorderRadius, elMb5)}>
+                <InputGroup>
+                  <Select className={elWFull} value={swaggerUri ?? ''} onChange={handleChangeSwaggerDoc(setSwaggerUri)}>
+                    {productsList?.data?.map((option) => (
+                      <option key={option.id} value={option.openApiUrl}>
+                        {option.name}
+                      </option>
+                    ))}
+                  </Select>
+                  <Label htmlFor="myId">Select Product</Label>
+                </InputGroup>
+              </ControlsContainer>
               <Button className={elMb5} intent="neutral" onClick={openNewPage(ExternalPages.platformAPIDocs)}>
                 View Docs
               </Button>

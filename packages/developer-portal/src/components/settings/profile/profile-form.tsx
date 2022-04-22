@@ -47,12 +47,10 @@ export const ProfileForm: FC = () => {
   const isUserOrUserAdmin = selectIsUserOrUserAdmin(connectSession)
   const { currentMember } = globalDataState
   const isClient = clientId && isUserOrUserAdmin
-  const isDev = window.reapit.config.appEnv !== 'production'
 
   const [sandboxes] = useReapitGet<SandboxModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getSandboxes],
-    fetchWhenTrue: [isDev],
   })
 
   const [, memberUpdating, updateMember, updateMemberSuccess] = useReapitUpdate<UpdateMemberModel, boolean>({
@@ -91,8 +89,9 @@ export const ProfileForm: FC = () => {
           <InputGroup
             {...register('name')}
             label="Name"
-            errorMessage={errors?.name?.message}
-            icon={errors?.name?.message ? 'asteriskSystem' : null}
+            placeholder="Your full name here"
+            errorMessage={errors.name?.message}
+            icon={errors.name?.message ? 'asteriskSystem' : null}
             intent="danger"
           />
         </InputWrap>
@@ -100,8 +99,9 @@ export const ProfileForm: FC = () => {
           <InputGroup
             {...register('jobTitle')}
             label="Job Title"
-            errorMessage={errors?.jobTitle?.message}
-            icon={errors?.jobTitle?.message ? 'asteriskSystem' : null}
+            placeholder="What role do you have at your company"
+            errorMessage={errors.jobTitle?.message}
+            icon={errors.jobTitle?.message ? 'asteriskSystem' : null}
             intent="danger"
           />
         </InputWrap>
@@ -109,30 +109,27 @@ export const ProfileForm: FC = () => {
           <InputGroup
             {...register('gitHubUsername')}
             label="GitHub Username"
-            errorMessage={errors?.gitHubUsername?.message}
-            icon={errors?.gitHubUsername?.message ? 'asteriskSystem' : null}
+            placeholder="Github handles help us tracking issues"
+            errorMessage={errors.gitHubUsername?.message}
+            icon={errors.gitHubUsername?.message ? 'asteriskSystem' : null}
             intent="danger"
           />
         </InputWrap>
       </FormLayout>
-      {(isClient || isDev) && <Subtitle>Customer Data</Subtitle>}
+      <Subtitle>Customer Data</Subtitle>
       {isClient && (
         <BodyText hasGreyText>
           As your account is associated with both the Sandbox Data (SBOX) and Customer Data, you can choose to toggle
           between which data you want to see available in the Developer Portal.
         </BodyText>
       )}
-      {isDev && (
-        <BodyText hasGreyText>
-          You can choose which sandbox you wish to view based on your Reapit Product. This is specific and only
-          associated to your developer profile.
-        </BodyText>
-      )}
-      {(isClient || isDev) && (
-        <BodyText hasGreyText>
-          <strong>Please note, you will need to log out and log back in again to see this change take effect.</strong>
-        </BodyText>
-      )}
+      <BodyText hasGreyText>
+        You can choose which sandbox you wish to view based on your Reapit Product. This is specific and only associated
+        to your developer profile.
+      </BodyText>
+      <BodyText hasGreyText>
+        <strong>Please note, you will need to log out and log back in again to see this change take effect.</strong>
+      </BodyText>
       <FormLayout hasMargin>
         {isClient && (
           <InputWrap>
@@ -146,26 +143,24 @@ export const ProfileForm: FC = () => {
             </InputGroup>
           </InputWrap>
         )}
-        {isDev && (
-          <InputWrap>
-            <InputGroup>
-              <ToggleRadio
-                hasGreyBg
-                {...register('sandboxId')}
-                options={
-                  (sandboxes?.data?.map((sandbox) => ({
-                    id: sandbox.id ?? '',
-                    text: sandbox.name ?? '',
-                    value: sandbox.id ?? '',
-                    isChecked: currentMember?.sandboxId === sandbox.id,
-                  })) as ToggleRadioOption[]) ?? []
-                }
-              />
-              <Label>Choose Sandbox</Label>
-              {errors.sandboxId?.message && <InputError message={errors.sandboxId?.message} />}
-            </InputGroup>
-          </InputWrap>
-        )}
+        <InputWrap>
+          <InputGroup>
+            <ToggleRadio
+              hasGreyBg
+              {...register('sandboxId')}
+              options={
+                (sandboxes?.data?.map((sandbox) => ({
+                  id: sandbox.id ?? '',
+                  text: sandbox.name ?? '',
+                  value: sandbox.id ?? '',
+                  isChecked: currentMember?.sandboxId === sandbox.id,
+                })) as ToggleRadioOption[]) ?? []
+              }
+            />
+            <Label>Choose Sandbox</Label>
+            {errors.sandboxId?.message && <InputError message={errors.sandboxId?.message} />}
+          </InputGroup>
+        </InputWrap>
       </FormLayout>
       <ButtonGroup>
         <Button intent="primary" type="submit" disabled={memberUpdating} loading={memberUpdating}>

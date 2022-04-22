@@ -135,7 +135,7 @@ export const FileInput: FileInputWrapped = forwardRef(
                   onClick={handleFileView(onFileView, fileUrl)}
                   className={elMr4}
                   intent="primary"
-                  icon="previewSystem"
+                  icon="viewSolidSystem"
                 />
               )}
               <Icon

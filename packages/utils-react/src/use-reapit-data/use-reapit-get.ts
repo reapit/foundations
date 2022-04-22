@@ -47,6 +47,11 @@ export interface HandleGetParams<DataType> {
   uriParams?: Object
   headers?: StringMap
   fetchWhenTrue?: any[]
+  failSilently?: boolean
+}
+
+export type HandleRefreshParams<DataType> = HandleGetParams<DataType> & {
+  reapitConnectBrowserSession: ReapitConnectBrowserSession
 }
 
 export const checkQueryChanged = (queryParams?: Object, prevQueryParams?: Object): boolean => {
@@ -99,6 +104,7 @@ export const handleGet =
       headers,
       successSnack,
       errorSnack,
+      failSilently,
     } = handleGetParams
 
     const shouldFetch = checkShouldFetch<DataType>(handleGetParams)
@@ -121,6 +127,7 @@ export const handleGet =
         headers,
         logger,
         signal,
+        failSilently,
       })
       const data = typeof response === 'string' ? null : response
       const error = typeof response === 'string' ? response : null
@@ -146,10 +153,19 @@ export const handleGet =
   }
 
 export const handleRefresh =
-  <DataType>(handleGetParams: HandleGetParams<DataType>) =>
+  <DataType>(handleRefreshParams: HandleRefreshParams<DataType>) =>
   () => {
-    const { setData, setError, setRefreshing, action, errorSnack, uriParams, queryParams, headers, connectSession } =
-      handleGetParams
+    const {
+      setData,
+      setError,
+      setRefreshing,
+      action,
+      errorSnack,
+      uriParams,
+      queryParams,
+      headers,
+      reapitConnectBrowserSession,
+    } = handleRefreshParams
 
     const controller = new AbortController()
     const signal = controller.signal
@@ -157,6 +173,7 @@ export const handleRefresh =
     const getData = async () => {
       setError(null)
       setRefreshing(true)
+      const connectSession = (await reapitConnectBrowserSession.connectSession()) ?? null
 
       const response = await getFetcher<DataType>({
         action,
@@ -221,11 +238,12 @@ export const useReapitGet = <DataType>({
     setError,
     successSnack: onSuccess || successSnack,
     errorSnack: onError || errorSnack,
+    failSilently: Boolean(onError),
   }
 
   useEffect(handleGet<DataType>(handleGetParams), [connectSession, queryParams, headers, fetchWhenTrue])
 
-  const refresh = useCallback(handleRefresh<DataType>(handleGetParams), [
+  const refresh = useCallback(handleRefresh<DataType>({ ...handleGetParams, reapitConnectBrowserSession }), [
     connectSession,
     queryParams,
     uriParams,

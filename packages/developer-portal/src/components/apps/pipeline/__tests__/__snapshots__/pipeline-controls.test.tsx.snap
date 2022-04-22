@@ -1682,7 +1682,7 @@ Object {
           Save Config
         </button>
         <button
-          class="esplruv-el-mb3 e11oi1zt-el-intent-success esjgurx-el-is-loading eqfkc7t-el-button"
+          class="esplruv-el-mb3 ebee6r1-el-intent-primary esjgurx-el-is-loading eqfkc7t-el-button"
           disabled=""
         >
           Provision
@@ -1897,7 +1897,7 @@ Object {
         Save Config
       </button>
       <button
-        class="esplruv-el-mb3 e11oi1zt-el-intent-success esjgurx-el-is-loading eqfkc7t-el-button"
+        class="esplruv-el-mb3 ebee6r1-el-intent-primary esjgurx-el-is-loading eqfkc7t-el-button"
         disabled=""
       >
         Provision

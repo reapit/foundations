@@ -101,7 +101,7 @@ export const WebhooksLogs: FC = () => {
     fetchWhenTrue: [applicationId, from, to],
   })
 
-  const rows = useMemo(handleSortTableData(logs ?? [], topics?._embedded ?? []), [logs, topics])
+  const rows = useMemo(handleSortTableData(logs ?? [], topics), [logs, topics])
 
   if (!applicationId || !from || !to)
     return (

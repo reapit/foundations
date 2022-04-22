@@ -112,8 +112,16 @@ export const handleToggleBothMobileOpen = (
   setListMobileOpen(!listMobileOpen)
 }
 
+export const handleMouseHover = (
+  hoverIndex: number | null,
+  setHoverIndex: Dispatch<SetStateAction<number | null>>,
+) => () => {
+  setHoverIndex(hoverIndex)
+}
+
 export const CardContextMenu: FC<CardContextMenuProps> = ({ className, contextMenuItems, ...rest }) => {
   const [contextMenuOpen, setContextMenuOpen] = useState<boolean>(false)
+  const [hoverIndex, setHoverIndex] = useState<number | null>(null)
   if (!contextMenuItems) return null
   return (
     <CardContextMenuWrapper className={className} {...rest}>
@@ -122,11 +130,17 @@ export const CardContextMenu: FC<CardContextMenuProps> = ({ className, contextMe
       </CardContextMenuToggle>
       <CardContextMenuItems className={cx(contextMenuOpen && elCardContextMenuOpen)}>
         <CardContextMenuItem onClick={handleToggleContextMenu(contextMenuOpen, setContextMenuOpen)}>
-          <Icon icon="closeSystem" />
+          <Icon icon="closeSystem" fontSize="1.25rem" />
         </CardContextMenuItem>
         {contextMenuItems.map(({ icon, intent, onClick }, index) => (
           <CardContextMenuItem key={index} onClick={onClick}>
-            <Icon icon={icon} intent={intent} />
+            <Icon
+              icon={icon}
+              onMouseEnter={handleMouseHover(index, setHoverIndex)}
+              onMouseLeave={handleMouseHover(null, setHoverIndex)}
+              intent={hoverIndex === index ? intent : undefined}
+              fontSize="1.25rem"
+            />
           </CardContextMenuItem>
         ))}
       </CardContextMenuItems>

@@ -1,6 +1,12 @@
 import React from 'react'
 import { render } from '../../../tests/react-testing'
-import Swagger, { handleOnComplete, fetchInterceptor, InterceptorParams } from '..'
+import Swagger, {
+  handleOnComplete,
+  fetchInterceptor,
+  InterceptorParams,
+  handleSandboxClick,
+  responseInterceptor,
+} from '..'
 
 describe('Swagger', () => {
   it('should match a snapshot', () => {
@@ -48,5 +54,42 @@ describe('Swagger', () => {
     const curried = handleOnComplete(setLoading)
     curried()
     expect(setLoading).toBeCalledWith(false)
+  })
+
+  it('handles handleSandboxClick', () => {
+    const setSandboxVisible = jest.fn()
+    const sandboxVisibile = true
+    const curried = handleSandboxClick(setSandboxVisible, sandboxVisibile)
+    curried()
+    expect(setSandboxVisible).toBeCalledWith(false)
+  })
+
+  it('handles a non download', () => {
+    const openSpy = jest.spyOn(window, 'open')
+    const response = {
+      url: 'https://example.com',
+      ok: true,
+      text: new Blob(),
+    }
+
+    const result = responseInterceptor(response)
+
+    expect(openSpy).not.toHaveBeenCalled()
+    expect(result).toEqual(response)
+  })
+
+  it('handles a download blob', () => {
+    const openSpy = jest.spyOn(window, 'open')
+    window.URL.createObjectURL = jest.fn()
+    const response = {
+      url: 'https://download.com',
+      ok: true,
+      text: new Blob(),
+    }
+
+    const result = responseInterceptor(response)
+
+    expect(openSpy).toHaveBeenCalledTimes(1)
+    expect(result).toEqual(response.ok)
   })
 })

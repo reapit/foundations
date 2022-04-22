@@ -178,7 +178,7 @@ Object {
             When you have created a pipeline for your app, you can either deploy it from the command line from a zip file, or by pulling directly from a Github or Bitbucket repo. This will give you a link to your deployed service in the Reapit Platform Cloud.
           </p>
           <button
-            class="ebee6r1-el-intent-primary e19a1osy-el-button-has-right-chevron eqfkc7t-el-button"
+            class="e1iow709-el-intent-critical e19a1osy-el-button-has-right-chevron eqfkc7t-el-button"
           >
             Create Pipeline
           </button>
@@ -661,7 +661,7 @@ Object {
           When you have created a pipeline for your app, you can either deploy it from the command line from a zip file, or by pulling directly from a Github or Bitbucket repo. This will give you a link to your deployed service in the Reapit Platform Cloud.
         </p>
         <button
-          class="ebee6r1-el-intent-primary e19a1osy-el-button-has-right-chevron eqfkc7t-el-button"
+          class="e1iow709-el-intent-critical e19a1osy-el-button-has-right-chevron eqfkc7t-el-button"
         >
           Create Pipeline
         </button>
