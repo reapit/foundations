@@ -1,11 +1,14 @@
-import React, { useState } from 'react'
+import React, { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
-import { useReapitGet, useReapitUpdate } from '@reapit/utils-react'
+import { SendFunction, useReapitGet, useReapitUpdate } from '@reapit/utils-react'
 import { GetActionNames, getActions, UpdateActionNames, updateActions } from '@reapit/utils-common'
-import { Button, ButtonGroup, elMb11, Pagination, Table, useModal } from '@reapit/elements'
+import { Button, ButtonGroup, elMb11, elMb3, FlexContainer, Table, useModal } from '@reapit/elements'
 import { useReapitConnect } from '@reapit/connect-session'
-import { ApiKeyInterface } from '@reapit/foundations-ts-definitions'
+import { ApiKeyEntityType, ApiKeyInterface } from '@reapit/foundations-ts-definitions'
 import { useGlobalState } from '../../../core/use-global-state'
+import { isoDateToHuman } from '../../../utils/date-time'
+import CopyToClipboard from 'react-copy-to-clipboard'
+import { elMr3 } from '@reapit/elements'
 
 export interface ApiKeyMeta {
   totalItems: number
@@ -20,14 +23,81 @@ interface ApiKeysResponse {
   meta: ApiKeyMeta
 }
 
+export const handleSetApikey = (setApiKeyId: Dispatch<SetStateAction<string | null>>, apiKeyid?: string) => () => {
+  if (apiKeyid) {
+    setApiKeyId(apiKeyid)
+  }
+}
+
+export const handleDeleteApiKey =
+  (
+    setApiKeyId: Dispatch<SetStateAction<string | null>>,
+    deleteApiKey: SendFunction<void, boolean | void>,
+    refreshApiKeys: () => void,
+    apiKeyId: string | null,
+  ) =>
+  () => {
+    const handleDelete = async () => {
+      const response = await deleteApiKey()
+      if (response) {
+        refreshApiKeys()
+        setApiKeyId(null)
+      }
+    }
+
+    if (apiKeyId) {
+      handleDelete()
+    }
+  }
+
+export const handleCreateApiKey =
+  (
+    createApiKey: SendFunction<Partial<ApiKeyInterface>, boolean | ApiKeyInterface>,
+    refreshApiKeys: () => void,
+    developerId?: string,
+    email?: string,
+  ) =>
+  () => {
+    const handleCreate = async () => {
+      const keyExpiresAt = new Date()
+      keyExpiresAt.setFullYear(keyExpiresAt.getFullYear() + 1)
+
+      const response = await createApiKey({
+        email,
+        keyExpiresAt: keyExpiresAt.toISOString(),
+        entityType: ApiKeyEntityType.DEPLOYMENT,
+        developerId,
+      })
+
+      if (response) {
+        refreshApiKeys()
+      }
+    }
+
+    if (developerId && email) {
+      handleCreate()
+    }
+  }
+
+export const handleCopyCode = (setCopyState: Dispatch<SetStateAction<string>>, copied: string) => () => {
+  setCopyState(copied)
+
+  setTimeout(() => {
+    setCopyState('')
+  }, 5000)
+}
+
 export const ApiKeys = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { Modal, openModal, closeModal } = useModal()
   const { globalDataState } = useGlobalState()
-  const { currentDeveloper } = globalDataState
+  const [copyState, setCopyState] = useState<string>('')
   const [apiKeyId, setApiKeyId] = useState<string | null>(null)
+  const { currentDeveloper } = globalDataState
+  const developerId = connectSession?.loginIdentity?.developerId ?? undefined
+  const email = connectSession?.loginIdentity?.email
 
-  const [apiKeys, apiKeysLoading] = useReapitGet<ApiKeysResponse>({
+  const [apiKeys, apiKeysLoading, , refreshApiKeys] = useReapitGet<ApiKeysResponse>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getApiKeysByUserId],
     uriParams: {
@@ -39,7 +109,7 @@ export const ApiKeys = () => {
     fetchWhenTrue: [connectSession?.idToken, currentDeveloper?.email],
   })
 
-  const [creatingApiKey, , createApiKey, apiKeyCreated] = useReapitUpdate<Partial<ApiKeyInterface>, ApiKeyInterface>({
+  const [creatingApiKey, , createApiKey] = useReapitUpdate<Partial<ApiKeyInterface>, ApiKeyInterface>({
     action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.createApiKeyByMember],
     reapitConnectBrowserSession,
     method: 'POST',
@@ -48,7 +118,7 @@ export const ApiKeys = () => {
     },
   })
 
-  const [deletingApiKey, , deleteApiKey, apiKeyDeleted] = useReapitUpdate<void, void>({
+  const [deletingApiKey, , deleteApiKey] = useReapitUpdate<void, void>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.deleteApiKey],
     uriParams: {
@@ -60,21 +130,31 @@ export const ApiKeys = () => {
     method: 'DELETE',
   })
 
+  useEffect(handleDeleteApiKey(setApiKeyId, deleteApiKey, refreshApiKeys, apiKeyId), [apiKeyId])
+
   const isLoading = apiKeysLoading || creatingApiKey || deletingApiKey
 
   return (
     <>
-      <Button intent="primary" onClick={openModal}>
+      <Button className={elMb3} intent="secondary" onClick={openModal}>
         Api Keys
       </Button>
       <Modal title="API Keys Management">
         <Table
           className={elMb11}
+          numberColumns={3}
           rows={apiKeys?.items.map((item) => ({
             cells: [
               {
                 label: 'API Key',
-                value: item.apiKey ?? '',
+                value: (
+                  <FlexContainer>
+                    <span className={elMr3}>{item.apiKey ?? ''}</span>
+                    <CopyToClipboard text={item.apiKey ?? ''} onCopy={handleCopyCode(setCopyState, item.apiKey ?? '')}>
+                      <Button intent="low">{copyState === item.apiKey ? 'Copied' : 'Copy'}</Button>
+                    </CopyToClipboard>
+                  </FlexContainer>
+                ),
                 cellHasDarkText: true,
                 narrowTable: {
                   showLabel: true,
@@ -82,7 +162,7 @@ export const ApiKeys = () => {
               },
               {
                 label: 'Expires',
-                value: item.apiKey ?? '',
+                value: item.keyExpiresAt ? isoDateToHuman(item.keyExpiresAt) : '',
                 cellHasDarkText: true,
                 narrowTable: {
                   showLabel: true,
@@ -93,23 +173,21 @@ export const ApiKeys = () => {
               icon: 'trashSystem',
               headerContent: 'Delete Key',
               isCallToAction: true,
-              onClick: handleSetApikey(),
+              onClick: handleSetApikey(setApiKeyId, item.id),
             },
           }))}
         />
-        {/* {apiKeys && (
-          <Pagination
-            className={elMb11}
-            currentPage={apiKeys.meta.currentPage}
-            numberPages={apiKeys.meta.totalPages}
-            callback={setPage}
-          />
-        )} */}
         <ButtonGroup alignment="center">
           <Button intent="low" fixedWidth onClick={closeModal} loading={isLoading} disabled={isLoading}>
             Close
           </Button>
-          <Button intent="primary" fixedWidth onClick={handleCreateApiKey()} loading={isLoading} disabled={isLoading}>
+          <Button
+            intent="primary"
+            fixedWidth
+            onClick={handleCreateApiKey(createApiKey, refreshApiKeys, developerId, email)}
+            loading={isLoading}
+            disabled={isLoading}
+          >
             Create API Key
           </Button>
         </ButtonGroup>

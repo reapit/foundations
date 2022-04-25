@@ -17,5 +17,5 @@ export const validationSchemaChangePassword = object().shape({
   confirmPassword: string()
     .trim()
     .required(FIELD_REQUIRED)
-    .oneOf([ref('password'), ''], 'Passwords do not match.'),
+    .oneOf([ref('newPassword'), ''], 'Passwords do not match.'),
 })
