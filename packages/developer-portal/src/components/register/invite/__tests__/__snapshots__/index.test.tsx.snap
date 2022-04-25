@@ -20,7 +20,7 @@ Object {
           Reapit Foundations Invitation
         </div>
         <div
-          class="e8lauwf-el-modal-bg"
+          class="egkth73-el-modal-body"
         >
           <p
             class="e15ggth7-el-body-text"
@@ -43,7 +43,7 @@ Object {
           </p>
           <form>
             <div
-              class="ee6e7by-el-form-layout"
+              class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
             >
               <div
                 class="e1ksxx4v-el-input-wrap"
@@ -125,7 +125,7 @@ Object {
         Reapit Foundations Invitation
       </div>
       <div
-        class="e8lauwf-el-modal-bg"
+        class="egkth73-el-modal-body"
       >
         <p
           class="e15ggth7-el-body-text"
@@ -148,7 +148,7 @@ Object {
         </p>
         <form>
           <div
-            class="ee6e7by-el-form-layout"
+            class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
           >
             <div
               class="e1ksxx4v-el-input-wrap"
@@ -284,39 +284,94 @@ Object {
         <div
           class="e1jrhqcv-el-modal-header"
         >
-          Invite Accepted
+          Reapit Foundations Invitation
         </div>
         <div
-          class="e8lauwf-el-modal-bg"
+          class="egkth73-el-modal-body"
         >
           <p
             class="e15ggth7-el-body-text"
           >
-            Thank you for confirming your invite to Reapit Foundations.
+            You have been invited to join the '
+            ' organisation on Reapit Foundations.
           </p>
           <p
             class="e15ggth7-el-body-text"
           >
-            If you already had a Developer account, you can use your existing credentials to login to the Developers Portal. If not, you will shortly receive an email with instructions on setting up your login credentials.
+            Before confirming your account, please ensure your details are correct below.
           </p>
-          <div
-            class="eay05y4-el-button-group"
+          <p
+            class="e15ggth7-el-body-text"
           >
+            <strong>
+              Important: 
+            </strong>
+            If you already have an account and confirm this invitation, any data on your existing account will no longer be available.
+          </p>
+          <form>
             <div
-              class="ej73pla-el-button-group-align-center ebqwrow-el-button-group-inner"
+              class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
             >
-              <button
-                class="ebee6r1-el-intent-primary e1f2ikqj-el-button-fixed-width eqfkc7t-el-button"
+              <div
+                class="e1ksxx4v-el-input-wrap"
               >
-                Login
-              </button>
+                <div
+                  class="e1979rmu-el-input-group"
+                >
+                  <input
+                    class="e1urjlvd-el-input"
+                    id="test-static-id"
+                    name="name"
+                  />
+                  <label
+                    class="e1nbkkrq-el-label"
+                    for="test-static-id"
+                  >
+                    Name
+                  </label>
+                </div>
+              </div>
+              <div
+                class="e1ksxx4v-el-input-wrap"
+              >
+                <div
+                  class="e1979rmu-el-input-group"
+                >
+                  <input
+                    class="e1urjlvd-el-input"
+                    id="test-static-id"
+                    name="jobTitle"
+                  />
+                  <label
+                    class="e1nbkkrq-el-label"
+                    for="test-static-id"
+                  >
+                    Job Title
+                  </label>
+                </div>
+              </div>
             </div>
-          </div>
-          <p
-            class="e15ggth7-el-body-text"
-          >
-            You have successfully declined the invitation to Reapit Foundations.
-          </p>
+            <div
+              class="eay05y4-el-button-group"
+            >
+              <div
+                class="ej73pla-el-button-group-align-center ebqwrow-el-button-group-inner"
+              >
+                <button
+                  class="e1vxext9-el-intent-danger e1f2ikqj-el-button-fixed-width eqfkc7t-el-button"
+                  type="button"
+                >
+                  Decline
+                </button>
+                <button
+                  class="ebee6r1-el-intent-primary e1f2ikqj-el-button-fixed-width eqfkc7t-el-button"
+                  type="submit"
+                >
+                  Confirm
+                </button>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>
@@ -334,39 +389,94 @@ Object {
       <div
         class="e1jrhqcv-el-modal-header"
       >
-        Invite Accepted
+        Reapit Foundations Invitation
       </div>
       <div
-        class="e8lauwf-el-modal-bg"
+        class="egkth73-el-modal-body"
       >
         <p
           class="e15ggth7-el-body-text"
         >
-          Thank you for confirming your invite to Reapit Foundations.
+          You have been invited to join the '
+          ' organisation on Reapit Foundations.
         </p>
         <p
           class="e15ggth7-el-body-text"
         >
-          If you already had a Developer account, you can use your existing credentials to login to the Developers Portal. If not, you will shortly receive an email with instructions on setting up your login credentials.
+          Before confirming your account, please ensure your details are correct below.
         </p>
-        <div
-          class="eay05y4-el-button-group"
+        <p
+          class="e15ggth7-el-body-text"
         >
+          <strong>
+            Important: 
+          </strong>
+          If you already have an account and confirm this invitation, any data on your existing account will no longer be available.
+        </p>
+        <form>
           <div
-            class="ej73pla-el-button-group-align-center ebqwrow-el-button-group-inner"
+            class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
           >
-            <button
-              class="ebee6r1-el-intent-primary e1f2ikqj-el-button-fixed-width eqfkc7t-el-button"
+            <div
+              class="e1ksxx4v-el-input-wrap"
             >
-              Login
-            </button>
+              <div
+                class="e1979rmu-el-input-group"
+              >
+                <input
+                  class="e1urjlvd-el-input"
+                  id="test-static-id"
+                  name="name"
+                />
+                <label
+                  class="e1nbkkrq-el-label"
+                  for="test-static-id"
+                >
+                  Name
+                </label>
+              </div>
+            </div>
+            <div
+              class="e1ksxx4v-el-input-wrap"
+            >
+              <div
+                class="e1979rmu-el-input-group"
+              >
+                <input
+                  class="e1urjlvd-el-input"
+                  id="test-static-id"
+                  name="jobTitle"
+                />
+                <label
+                  class="e1nbkkrq-el-label"
+                  for="test-static-id"
+                >
+                  Job Title
+                </label>
+              </div>
+            </div>
           </div>
-        </div>
-        <p
-          class="e15ggth7-el-body-text"
-        >
-          You have successfully declined the invitation to Reapit Foundations.
-        </p>
+          <div
+            class="eay05y4-el-button-group"
+          >
+            <div
+              class="ej73pla-el-button-group-align-center ebqwrow-el-button-group-inner"
+            >
+              <button
+                class="e1vxext9-el-intent-danger e1f2ikqj-el-button-fixed-width eqfkc7t-el-button"
+                type="button"
+              >
+                Decline
+              </button>
+              <button
+                class="ebee6r1-el-intent-primary e1f2ikqj-el-button-fixed-width eqfkc7t-el-button"
+                type="submit"
+              >
+                Confirm
+              </button>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   </div>,

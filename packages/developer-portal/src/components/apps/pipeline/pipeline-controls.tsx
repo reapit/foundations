@@ -8,6 +8,7 @@ import { useAppState } from '../state/use-app-state'
 import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import { openNewPage } from '../../../utils/navigation'
 import { useLocation } from 'react-router'
+import { ApiKeys } from './pipeline-api-keys'
 
 export const handlePipelineRunnerSuccess =
   (setAppPipelineDeploying: Dispatch<SetStateAction<boolean>>, updatePipelineRunnerSuccess?: boolean) => () => {
@@ -168,6 +169,7 @@ export const PipelineControls: FC = () => {
           >
             Deploy CLI
           </Button>
+          <ApiKeys />
         </>
       ) : null}
       {appPipeline && (
