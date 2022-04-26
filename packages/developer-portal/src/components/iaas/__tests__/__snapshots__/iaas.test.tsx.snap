@@ -201,7 +201,7 @@ Object {
           Infrastructure as a Service management. Pipelines are for deploying your Reapit apps to our infrastructure to simplify your development process
         </p>
         <button
-          class="e1iow709-el-intent-critical eqfkc7t-el-button"
+          class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
         >
           View Docs
         </button>
@@ -425,7 +425,7 @@ Object {
         Infrastructure as a Service management. Pipelines are for deploying your Reapit apps to our infrastructure to simplify your development process
       </p>
       <button
-        class="e1iow709-el-intent-critical eqfkc7t-el-button"
+        class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
       >
         View Docs
       </button>

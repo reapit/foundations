@@ -19,6 +19,7 @@ import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { useReapitGet } from '@reapit/utils-react'
 import React, { FC, useEffect, useState } from 'react'
+import { ExternalPages, openNewPage } from '../../utils/navigation'
 import { PipelineRow } from './pipeline-row'
 
 type Pagination<T> = {
@@ -59,7 +60,9 @@ export const IaaS: FC = () => {
           Infrastructure as a Service management. Pipelines are for deploying your Reapit apps to our infrastructure to
           simplify your development process
         </SmallText>
-        <Button intent="critical">View Docs</Button>
+        <Button intent="low" onClick={openNewPage(ExternalPages.pipelineDocs)}>
+          View Docs
+        </Button>
       </SecondaryNavContainer>
       <PageContainer>
         <Title>Pipelines</Title>

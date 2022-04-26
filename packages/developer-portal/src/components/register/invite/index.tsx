@@ -1,37 +1,19 @@
-import React, { FC, MouseEvent } from 'react'
+import React, { Dispatch, FC, MouseEvent, SetStateAction, useState } from 'react'
 import { useHistory, useLocation } from 'react-router'
-import { SendFunction, useReapitUpdate } from '@reapit/utils-react'
 import { AcceptInviteModel } from '@reapit/foundations-ts-definitions'
 import { History } from 'history'
-import { ReapitConnectHook, useReapitConnect } from '@reapit/connect-session'
-import {
-  getParamsFromPath,
-  letterNumberSpaceRegex,
-  personNameRegex,
-  UpdateActionNames,
-  updateActions,
-} from '@reapit/utils-common'
+import { getParamsFromPath, letterNumberSpaceRegex, personNameRegex } from '@reapit/utils-common'
 import { useForm } from 'react-hook-form'
-import {
-  ModalBg,
-  elIsActive,
-  ModalContainer,
-  ModalBody,
-  BodyText,
-  ModalHeader,
-  ButtonGroup,
-  Button,
-  FormLayout,
-  InputWrap,
-  InputGroup,
-} from '@reapit/elements'
+import { BodyText, ButtonGroup, Button, FormLayout, InputWrap, InputGroup, useSnack, Modal } from '@reapit/elements'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import Routes from '../../../constants/routes'
 import { object, string } from 'yup'
 import errorMessages from '../../../constants/error-messages'
+import { acceptInviteService, rejectInviteService } from '../../../services/developer'
 
 const { FIELD_REQUIRED, MAXIMUM_CHARACTER_LENGTH } = errorMessages
+
+export type InviteState = 'DEFAULT' | 'LOADING' | 'ACCEPT_SUCCESS' | 'REJECT_SUCCESS'
 
 export const validationSchema = object().shape({
   name: string()
@@ -47,52 +29,63 @@ export const validationSchema = object().shape({
     .max(256, MAXIMUM_CHARACTER_LENGTH(256)),
 })
 
-export const handleSubmit = (acceptInvite: SendFunction<AcceptInviteModel, boolean>) => (values: AcceptInviteModel) => {
-  acceptInvite(values)
-}
+export const handleAccept =
+  (
+    error: (message: string) => void,
+    setInviteState: Dispatch<SetStateAction<InviteState>>,
+    developerId?: string,
+    memberId?: string,
+  ) =>
+  async (values: AcceptInviteModel) => {
+    if (!developerId || !memberId) return
+
+    setInviteState('LOADING')
+
+    const response = await acceptInviteService(values, developerId, memberId)
+
+    if (typeof response === 'string') {
+      error(response)
+      setInviteState('DEFAULT')
+    } else {
+      setInviteState('ACCEPT_SUCCESS')
+    }
+  }
 
 export const handleReject =
-  (rejectInvite: SendFunction<undefined, boolean>) => (event: MouseEvent<HTMLButtonElement>) => {
+  (
+    error: (message: string) => void,
+    setInviteState: Dispatch<SetStateAction<InviteState>>,
+    developerId?: string,
+    memberId?: string,
+  ) =>
+  async (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault()
     event.stopPropagation()
-    rejectInvite(undefined)
+    if (!developerId || !memberId) return
+
+    setInviteState('LOADING')
+
+    const response = await rejectInviteService(developerId, memberId)
+
+    if (typeof response === 'string') {
+      error(response)
+      setInviteState('DEFAULT')
+    } else {
+      setInviteState('REJECT_SUCCESS')
+    }
   }
 
-export const handleLogin = (history: History, session: ReapitConnectHook) => () => {
-  const { connectHasSession, connectLogoutRedirect } = session
-  if (connectHasSession) {
-    connectLogoutRedirect()
-    return
-  }
+export const handleLogin = (history: History) => () => {
   history.replace(Routes.LOGIN)
 }
 
 export const Invite: FC = () => {
   const location = useLocation()
   const history = useHistory()
-  const session = useReapitConnect(reapitConnectBrowserSession)
+  const { error } = useSnack()
+  const [inviteState, setInviteState] = useState<InviteState>('DEFAULT')
   const queryParams = getParamsFromPath(location.search)
   const { developerId, memberId, memberName: name, memberJobTitle: jobTitle, organisationName: company } = queryParams
-
-  const [, acceptingInvite, acceptInvite, acceptInviteSuccess] = useReapitUpdate<AcceptInviteModel, boolean>({
-    reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.acceptInviteMember],
-    method: 'POST',
-    uriParams: {
-      developerId,
-      memberId,
-    },
-  })
-
-  const [, rejectingInvite, rejectInvite, rejectInviteSuccess] = useReapitUpdate<undefined, boolean>({
-    reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.rejectInviteMember],
-    method: 'POST',
-    uriParams: {
-      developerId,
-      memberId,
-    },
-  })
 
   const {
     register,
@@ -106,84 +99,85 @@ export const Invite: FC = () => {
     },
   })
 
-  const onSubmit = handleSubmit(acceptInvite)
-  const onReject = handleReject(rejectInvite)
-  const isLoading = acceptingInvite || rejectingInvite
-  const title = acceptInviteSuccess
-    ? 'Invite Accepted'
-    : rejectInviteSuccess
-    ? 'Invite Rejected'
-    : 'Reapit Foundations Invitation'
+  const onSubmit = handleSubmit(handleAccept(error, setInviteState, developerId, memberId))
+  const onReject = handleReject(error, setInviteState, developerId, memberId)
+  const isLoading = inviteState === 'LOADING'
+  const title =
+    inviteState === 'ACCEPT_SUCCESS'
+      ? 'Invite Accepted'
+      : inviteState === 'REJECT_SUCCESS'
+      ? 'Invite Rejected'
+      : 'Reapit Foundations Invitation'
 
   return (
-    <>
-      <ModalBg className={elIsActive} />
-      <ModalContainer className={elIsActive}>
-        <ModalHeader>{title}</ModalHeader>
-        <ModalBody>
-          {Boolean(!acceptInviteSuccess && !rejectInviteSuccess) && (
-            <>
-              <BodyText>
-                You have been invited to join the &apos;{company}&apos; organisation on Reapit Foundations.
-              </BodyText>
-              <BodyText>Before confirming your account, please ensure your details are correct below.</BodyText>
-              <BodyText>
-                <strong>Important: </strong>If you already have an account and confirm this invitation, any data on your
-                existing account will no longer be available.
-              </BodyText>
-              <form onSubmit={onSubmit}>
-                <FormLayout>
-                  <InputWrap>
-                    <InputGroup
-                      {...register('name')}
-                      label="Name"
-                      errorMessage={errors.name?.message}
-                      icon={errors.name?.message ? 'asteriskSystem' : null}
-                      intent="danger"
-                    />
-                  </InputWrap>
-                  <InputWrap>
-                    <InputGroup
-                      {...register('jobTitle')}
-                      label="Job Title"
-                      errorMessage={errors.jobTitle?.message}
-                      icon={errors.jobTitle?.message ? 'asteriskSystem' : null}
-                      intent="danger"
-                    />
-                  </InputWrap>
-                </FormLayout>
-                <ButtonGroup alignment="center">
-                  <Button intent="danger" loading={isLoading} disabled={isLoading} type="button" onClick={onReject}>
-                    Decline
-                  </Button>
-                  <Button intent="primary" loading={isLoading} disabled={isLoading} type="submit" onClick={onReject}>
-                    Confirm
-                  </Button>
-                </ButtonGroup>
-              </form>
-            </>
-          )}
-          {acceptInviteSuccess && (
-            <>
-              <BodyText>Thank you for confirming your invite to Reapit Foundations.</BodyText>
-              <BodyText>
-                If you already had a Developer account, you can use your existing credentials to login to the Developers
-                Portal. If not, you will shortly receive an email with instructions on setting up your login
-                credentials.
-              </BodyText>
-              <ButtonGroup alignment="center">
-                <Button intent="primary" onClick={handleLogin(history, session)}>
-                  Login
-                </Button>
-              </ButtonGroup>
-            </>
-          )}
-          {rejectInviteSuccess && (
-            <BodyText>You have successfully declined the invitation to Reapit Foundations.</BodyText>
-          )}
-        </ModalBody>
-      </ModalContainer>
-    </>
+    <Modal title={title} isOpen={true} onModalClose={console.log}>
+      {!inviteState.includes('SUCCESS') && (
+        <>
+          <BodyText>
+            You have been invited to join the &apos;{company}&apos; organisation on Reapit Foundations.
+          </BodyText>
+          <BodyText>Before confirming your account, please ensure your details are correct below.</BodyText>
+          <BodyText>
+            <strong>Important: </strong>If you already have an account and confirm this invitation, any data on your
+            existing account will no longer be available.
+          </BodyText>
+          <form onSubmit={onSubmit}>
+            <FormLayout hasMargin>
+              <InputWrap>
+                <InputGroup
+                  {...register('name')}
+                  label="Name"
+                  errorMessage={errors.name?.message}
+                  icon={errors.name?.message ? 'asteriskSystem' : null}
+                  intent="danger"
+                />
+              </InputWrap>
+              <InputWrap>
+                <InputGroup
+                  {...register('jobTitle')}
+                  label="Job Title"
+                  errorMessage={errors.jobTitle?.message}
+                  icon={errors.jobTitle?.message ? 'asteriskSystem' : null}
+                  intent="danger"
+                />
+              </InputWrap>
+            </FormLayout>
+            <ButtonGroup alignment="center">
+              <Button
+                fixedWidth
+                intent="danger"
+                loading={isLoading}
+                disabled={isLoading}
+                type="button"
+                onClick={onReject}
+              >
+                Decline
+              </Button>
+              <Button fixedWidth intent="primary" loading={isLoading} disabled={isLoading} type="submit">
+                Confirm
+              </Button>
+            </ButtonGroup>
+          </form>
+        </>
+      )}
+      {inviteState === 'ACCEPT_SUCCESS' && (
+        <>
+          <BodyText>Thank you for confirming your invite to Reapit Foundations.</BodyText>
+          <BodyText>
+            If you already had a Developer account, you can use your existing credentials to login to the Developers
+            Portal. If not, you will shortly receive an email with instructions on setting up your login credentials.
+          </BodyText>
+          <ButtonGroup alignment="center">
+            <Button fixedWidth intent="primary" onClick={handleLogin(history)}>
+              Login
+            </Button>
+          </ButtonGroup>
+        </>
+      )}
+      {inviteState === 'REJECT_SUCCESS' && (
+        <BodyText>You have successfully declined the invitation to Reapit Foundations.</BodyText>
+      )}
+    </Modal>
   )
 }
 

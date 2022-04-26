@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react'
-import { buildStatusToIntent, buildStatusToReadable, pipelineViewable } from '@/utils/pipeline-helpers'
+import { buildStatusToIntent, buildStatusToReadable, pipelineViewable } from '../../utils/pipeline-helpers'
 import Routes from '@/constants/routes'
 import {
   Button,
@@ -15,9 +15,12 @@ import {
 import { useHistory } from 'react-router'
 import { navigate, openNewPage } from '../../utils/navigation'
 import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
-import { ApiNames } from '@reapit/utils-common'
 
-export const PipelineRow: FC<{ pipeline: PipelineModelInterface }> = ({ pipeline }) => {
+interface PipelineRowProps {
+  pipeline: PipelineModelInterface
+}
+
+export const PipelineRow: FC<PipelineRowProps> = ({ pipeline }) => {
   const history = useHistory()
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
@@ -44,16 +47,23 @@ export const PipelineRow: FC<{ pipeline: PipelineModelInterface }> = ({ pipeline
           <ButtonGroup>
             <Button
               intent="secondary"
+              onClick={navigate(history, Routes.APP_PIPELINE_CONFIGURE.replace(':appId', pipeline.appId as string))}
+            >
+              Configure
+            </Button>
+            <Button
+              intent="primary"
               onClick={navigate(history, Routes.APP_PIPELINE.replace(':appId', pipeline.appId as string))}
             >
-              Manage
+              Deployments
             </Button>
             {pipelineViewable(pipeline.buildStatus as string) && (
               <Button
-                intent="primary"
-                onClick={openNewPage(`https://${pipeline.subDomain}${ApiNames(window.reapit.config.appEnv).iaas}`)}
+                intent="critical"
+                chevronRight
+                onClick={openNewPage(`https://${pipeline.subDomain}.iaas.reapit.cloud`)}
               >
-                View
+                View App
               </Button>
             )}
           </ButtonGroup>

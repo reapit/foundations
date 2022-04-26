@@ -9,7 +9,7 @@ export const processYarnLock = (yarnLockLocation: string, { tmpDir, subdirs, pac
 
   Object.keys(mainLock)
     .filter((lockDepName) => lockDepName.includes('@workspace'))
-    .filter((lockDepName) => {
+    .forEach((lockDepName) => {
       // lockDepName looks like "@reapit/api-key-verify@workspace:packages/api-key-verify"
       const depName = lockDepName.split('@workspace')[0]
       const folderName = depName.split('/')[1]

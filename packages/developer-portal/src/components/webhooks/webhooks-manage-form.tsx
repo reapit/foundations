@@ -144,9 +144,7 @@ export const WebhooksManageForm: FC<WebhooksManageFormProps> = ({
   const { webhooksDataState } = useWebhooksState()
   const { installations, topics } = webhooksDataState
   const { id, url, topicIds, customerIds, ignoreEtagOnlyChanges, active } = webhookModel
-  const [filteredTopics, setFilteredTopics] = useState<TopicModel[]>(
-    getInitialTopics(topics?._embedded ?? [], topicIds),
-  )
+  const [filteredTopics, setFilteredTopics] = useState<TopicModel[]>(getInitialTopics(topics, topicIds))
   const { Modal: DeleteConfirmModal, openModal, closeModal } = useModal()
   const {
     register,
@@ -230,7 +228,7 @@ export const WebhooksManageForm: FC<WebhooksManageFormProps> = ({
             <InputGroup
               label="Subscription topics"
               className={searchMinWidth}
-              onChange={handleSearchTopics(topics?._embedded ?? [], getValues, setFilteredTopics)}
+              onChange={handleSearchTopics(topics, getValues, setFilteredTopics)}
               icon="searchSystem"
               placeholder="Search topics to get started"
             />

@@ -18,6 +18,7 @@ import {
 } from '../helper'
 
 jest.mock('../../state/use-app-state')
+jest.mock('../../../../core/use-global-state')
 
 const mockUseAppState = useAppState as jest.Mock
 

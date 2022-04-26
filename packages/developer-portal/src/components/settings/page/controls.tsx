@@ -21,6 +21,8 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { validationSchemaMember } from './validation-schema'
 import { useForm } from 'react-hook-form'
 import { InputWrapFull } from '@reapit/elements'
+import { useLocation } from 'react-router'
+import Routes from '../../../constants/routes'
 
 export const handleLogout = (connectLogoutRedirect: () => void) => () => {
   connectLogoutRedirect()
@@ -40,11 +42,13 @@ export const handleInviteMemberSuccess =
   }
 
 export const Controls: FC = () => {
+  const location = useLocation()
   const { connectLogoutRedirect, connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { globalDataState, globalRefreshState } = useGlobalState()
   const { Modal, openModal, closeModal } = useModal()
   const { currentMember } = globalDataState
   const { members } = globalRefreshState
+  const { pathname } = location
 
   const [, membersShouldRefresh] = members
 
@@ -86,9 +90,11 @@ export const Controls: FC = () => {
           <SmallText hasGreyText>
             Additionally, as an admin, you can manage your developer organisation, members and subscriptions.
           </SmallText>
-          <Button className={elMb5} onClick={openModal} intent="primary">
-            Invite Developer
-          </Button>
+          {pathname === Routes.SETTINGS_MEMBERS && (
+            <Button className={elMb5} onClick={openModal} intent="primary">
+              Invite Developer
+            </Button>
+          )}
         </>
       )}
       <Button onClick={handleLogout(connectLogoutRedirect)} intent="critical" chevronRight>
@@ -101,6 +107,7 @@ export const Controls: FC = () => {
               <InputGroup
                 {...register('name')}
                 label="Name"
+                placeholder="Your colleague's full name"
                 errorMessage={errors?.name?.message}
                 icon={errors?.name?.message ? 'asteriskSystem' : null}
                 intent="danger"
@@ -111,6 +118,7 @@ export const Controls: FC = () => {
                 {...register('email')}
                 type="email"
                 label="Email"
+                placeholder="An email address we can contact your colleague at"
                 errorMessage={errors?.email?.message}
                 icon={errors?.email?.message ? 'asteriskSystem' : null}
                 intent="danger"
@@ -120,6 +128,7 @@ export const Controls: FC = () => {
               <InputGroup
                 {...register('jobTitle')}
                 label="Job Title"
+                placeholder="Your colleague's role at your company'"
                 errorMessage={errors?.jobTitle?.message}
                 icon={errors?.jobTitle?.message ? 'asteriskSystem' : null}
                 intent="danger"
@@ -129,6 +138,7 @@ export const Controls: FC = () => {
               <InputGroup
                 {...register('message')}
                 label="Invite Message"
+                placeholder="An optional invite message"
                 errorMessage={errors?.message?.message}
                 icon={errors?.message?.message ? 'asteriskSystem' : null}
                 intent="danger"
@@ -136,10 +146,10 @@ export const Controls: FC = () => {
             </InputWrapFull>
           </FormLayout>
           <ButtonGroup alignment="center">
-            <Button intent="low" onClick={closeModal}>
+            <Button fixedWidth intent="low" onClick={closeModal}>
               Close
             </Button>
-            <Button intent="primary" type="submit">
+            <Button fixedWidth intent="primary" type="submit">
               Send Invite
             </Button>
           </ButtonGroup>

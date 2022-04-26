@@ -1,4 +1,4 @@
-import { Stack, Bucket, createBucket } from '@reapit/ts-scripts/src/cdk'
+import { Stack, Bucket, createBucket, BucketOptions } from '@reapit/ts-scripts/src/cdk'
 
 export enum BucketNames {
   LIVE = 'cloud-deployment-live-dev',
@@ -7,38 +7,41 @@ export enum BucketNames {
   REPO_CACHE = 'cloud-deployment-repo-cache-dev',
 }
 
-export const createS3Buckets = (stack: Stack): Record<BucketNames, Bucket> => {
+export const createS3Buckets = (stack: Stack, usercodeStack: Stack): Record<BucketNames, Bucket> => {
   const bucketOptions: {
-    [k in BucketNames]: {
-      public?: boolean
-      get?: boolean
-      list?: boolean
-      put?: boolean
-    }
+    [k in BucketNames]: BucketOptions
   } = {
     [BucketNames.LIVE]: {
       public: true,
       get: true,
       list: true,
       put: true,
+      stack: usercodeStack,
     },
     [BucketNames.LOG]: {
       put: true,
+      stack: usercodeStack,
     },
     [BucketNames.REPO_CACHE]: {
       put: true,
       get: true,
+      stack: usercodeStack,
     },
     [BucketNames.VERSION]: {
       get: true,
       list: true,
       put: true,
+      stack: usercodeStack,
     },
   }
 
   return (Object.keys(bucketOptions) as Array<BucketNames>).reduce<{ [k in BucketNames]: Bucket }>(
     (buckets, bucketName) => {
-      buckets[bucketName] = createBucket(stack, bucketName, bucketOptions[bucketName])
+      buckets[bucketName] = createBucket(
+        bucketOptions[bucketName].stack || stack,
+        bucketName,
+        bucketOptions[bucketName],
+      )
       return buckets
     },
     {} as any,

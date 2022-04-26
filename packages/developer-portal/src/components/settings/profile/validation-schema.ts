@@ -21,7 +21,12 @@ export const validationSchemaProfile = object().shape({
 
   gitHubUsername: string()
     .trim()
-    .notRequired()
-    .matches(githubUsernameRegex, 'GitHub username is not valid')
-    .max(256, MAXIMUM_CHARACTER_LENGTH(256)),
+    .test({
+      name: 'isValidDescription',
+      message: 'GitHub Username is not valid',
+      test: (value) => {
+        if (!value) return true
+        return githubUsernameRegex.test(value)
+      },
+    }),
 })

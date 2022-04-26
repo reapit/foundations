@@ -3,18 +3,18 @@ import { Intent } from '@reapit/elements'
 export const buildStatusToIntent = (status: string): Intent => {
   switch (status) {
     case 'PROVISIONING':
-    case 'COMPLETED':
       return 'primary'
+    case 'COMPLETED':
+      return 'success'
     case 'IN_PROGRESS':
-    case 'PROVISION_REQUEST':
       return 'secondary'
-    case 'PENDING':
+    case 'PRE_PROVISIONED':
     case 'QUEUED':
       return 'critical'
     case 'FAILED':
     case 'DELETING':
-    case 'SCHEDULED_FOR_DELETION':
     case 'DELETED':
+    case 'FAILED_TO_PROVISION':
       return 'danger'
     case 'READY_FOR_DEPLOYMENT':
       return 'low'

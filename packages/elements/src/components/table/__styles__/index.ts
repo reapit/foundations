@@ -409,5 +409,5 @@ export const ElTableExpandableRow = styled.div`
 `
 
 export const ElTableExpandableContainer = styled.div`
-  padding: 0.75rem;
+  padding: 1.25rem;
 `

@@ -1,4 +1,5 @@
 import React from 'react'
+import Routes from '../../../../constants/routes'
 import { render } from '../../../../tests/react-testing'
 import { mockMemberModel } from '../../../../tests/__stubs__/members'
 import { Controls, handleInviteMember, handleInviteMemberSuccess, handleLogout } from '../controls'
@@ -7,6 +8,11 @@ jest.mock('../../../../core/use-global-state')
 
 describe('Controls', () => {
   it('should match a snapshot', () => {
+    expect(render(<Controls />)).toMatchSnapshot()
+  })
+
+  it('should match a snapshot for the members page', () => {
+    window.location.pathname = Routes.SETTINGS_MEMBERS
     expect(render(<Controls />)).toMatchSnapshot()
   })
 })

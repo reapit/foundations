@@ -15,7 +15,6 @@ import {
   Label,
   elBorderRadius,
   ButtonGroup,
-  useMediaQuery,
   useModal,
   elMt5,
   InputGroup,
@@ -27,6 +26,7 @@ import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { ControlsContainer, MetabaseContainer } from './__styles__/styles'
 import { embedPowerBi, PowerBIParams } from '../../utils/power-bi'
 import { getInstalledReportsService, InstalledReport } from '../../platform-api/installed-reports'
+import { isMobile } from 'react-device-detect'
 
 export const handleSelectReport =
   (setInstalledReports: Dispatch<SetStateAction<PowerBIParams | null>>, installedReports: InstalledReport[] | null) =>
@@ -76,7 +76,6 @@ export const Home: FC = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [selectedReport, setSelectedReport] = useState<PowerBIParams | null>(null)
   const [installedReports, setInstalledReports] = useState<InstalledReport[] | null>(null)
-  const { isMobile } = useMediaQuery()
   const { Modal, openModal, closeModal } = useModal()
   const [loading, setLoading] = useState<boolean>(false)
   const reportRef = useRef<HTMLDivElement | null>(null)
@@ -93,31 +92,33 @@ export const Home: FC = () => {
 
   return (
     <FlexContainer isFlexAuto>
-      <SecondaryNavContainer>
-        <Title>Reports</Title>
-        <Icon className={elMb5} icon="apiInfographic" iconSize="large" />
-        <Subtitle>Welcome</Subtitle>
-        <BodyText hasGreyText>
-          We have provided comprehensive documentation for the Insights Services. Please click below to view before
-          getting started
-        </BodyText>
-        <Button className={elMb5} intent="neutral">
-          View Docs
-        </Button>
-        <ControlsContainer className={elBorderRadius}>
-          <InputGroup>
-            <Select className={elWFull} onChange={handleSelectReport(setSelectedReport, installedReports)}>
-              <option key="default-option">Please Select</option>
-              {installedReports?.map((report) => (
-                <option key={report.id} value={report.id}>
-                  {report.name}
-                </option>
-              ))}
-            </Select>
-            <Label htmlFor="myId">Select Report</Label>
-          </InputGroup>
-        </ControlsContainer>
-      </SecondaryNavContainer>
+      {!isMobile && (
+        <SecondaryNavContainer>
+          <Title>Reports</Title>
+          <Icon className={elMb5} icon="apiInfographic" iconSize="large" />
+          <Subtitle>Welcome</Subtitle>
+          <BodyText hasGreyText>
+            We have provided comprehensive documentation for the Insights Services. Please click below to view before
+            getting started
+          </BodyText>
+          <Button className={elMb5} intent="neutral">
+            View Docs
+          </Button>
+          <ControlsContainer className={elBorderRadius}>
+            <InputGroup>
+              <Select className={elWFull} onChange={handleSelectReport(setSelectedReport, installedReports)}>
+                <option key="default-option">Please Select</option>
+                {installedReports?.map((report) => (
+                  <option key={report.id} value={report.id}>
+                    {report.name}
+                  </option>
+                ))}
+              </Select>
+              <Label htmlFor="myId">Select Report</Label>
+            </InputGroup>
+          </ControlsContainer>
+        </SecondaryNavContainer>
+      )}
       <PageContainer>
         <FlexContainer isFlexJustifyBetween>
           <Title>Reapit Insights</Title>

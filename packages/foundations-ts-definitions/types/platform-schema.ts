@@ -5768,7 +5768,7 @@ export interface CreatePropertyImageModel {
    */
   caption: string
   /**
-   * The type of image (picture/floorPlan/epc/map)
+   * The type of image (photograph/floorPlan/epc/map)
    */
   type: string
 }
@@ -10512,7 +10512,7 @@ export interface PropertyImageModel {
    */
   caption?: string
   /**
-   * The type of image (picture/floorPlan/epc/map)
+   * The type of image (photograph/floorPlan/epc/map)
    */
   type?: string
   /**
@@ -10563,7 +10563,7 @@ export interface PropertyImageModelPagedResult {
      */
     caption?: string
     /**
-     * The type of image (picture/floorPlan/epc/map)
+     * The type of image (photograph/floorPlan/epc/map)
      */
     type?: string
     /**
@@ -15833,7 +15833,7 @@ export interface UpdatePropertyImageModel {
    */
   caption?: string
   /**
-   * The type of image (picture/floorPlan/epc/map)
+   * The type of image (photograph/floorPlan/epc/map)
    */
   type?: string
 }

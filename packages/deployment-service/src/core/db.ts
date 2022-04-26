@@ -1,5 +1,4 @@
 import { Connection, createConnection } from 'typeorm'
-import { SecretsManager } from 'aws-sdk'
 import { SubDomainSubscriber } from '../subscribers/sub-domain'
 import { TaskEntity } from '../entities/task.entity'
 import { PipelineEntity } from '../entities/pipeline.entity'
@@ -7,24 +6,18 @@ import { PipelineRunnerEntity } from '../entities/pipeline-runner.entity'
 import { BitbucketClientEntity } from '../entities/bitbucket-client.entity'
 import migrations from './../../migrations'
 import { MysqlConnectionOptions } from 'typeorm/driver/mysql/MysqlConnectionOptions'
+import { getSecretValue } from '../utils/get-secret-value'
 
 let connection: Connection | null = null
 
 export const connect = async (): Promise<Connection | never> => {
-  const secretManager = new SecretsManager({
-    region: 'eu-west-2',
-  })
   if (!process.env.DATABASE_SECERT_ARN) {
     throw new Error('No db secret arn present')
   }
 
-  const secrets = await secretManager.getSecretValue({ SecretId: process.env.DATABASE_SECERT_ARN }).promise()
+  const secret = await getSecretValue(process.env.DATABASE_SECERT_ARN)
 
-  if (!secrets.SecretString) {
-    throw new Error('Failed to get secret')
-  }
-
-  const data = JSON.parse(secrets.SecretString)
+  const data = JSON.parse(secret)
 
   const mysqlConfig: MysqlConnectionOptions = {
     logging: true,

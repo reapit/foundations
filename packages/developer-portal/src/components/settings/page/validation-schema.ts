@@ -24,5 +24,5 @@ export const validationSchemaMember = object().shape({
     .matches(letterNumberSpaceRegex, 'Job title is not valid')
     .max(256, MAXIMUM_CHARACTER_LENGTH(256)),
 
-  message: string().trim().required(FIELD_REQUIRED).max(256, MAXIMUM_CHARACTER_LENGTH(256)),
+  message: string().trim(),
 })

@@ -9,125 +9,110 @@ Object {
         class="ecbqyq6-el-snack-holder"
       />
       <div
-        class="esplruv-el-mb3 eay05y4-el-button-group"
+        class="e6l6sr3-el-tabs-full-width exshuwa-el-tabs-wrap"
       >
         <div
-          class="ebqwrow-el-button-group-inner"
+          class="egmnxi3-el-tabs-options-wrap"
         >
-          <button
-            class="epibvz0-el-intent-secondary eqfkc7t-el-button"
+          <input
+            checked=""
+            class="enkj6b-el-tabs"
+            id="deployments"
+            name="pipeline-tabs"
+            type="radio"
+            value="deployments"
+          />
+          <label
+            class="e1ob8xkh-el-tabs-label"
+            for="deployments"
           >
-            Edit
-          </button>
-          <button
-            class="e1vxext9-el-intent-danger eqfkc7t-el-button"
+            <span
+              class="eulcr0n-el-tabs-item"
+            >
+              Deployments
+            </span>
+          </label>
+          <input
+            class="enkj6b-el-tabs"
+            id="configure"
+            name="pipeline-tabs"
+            type="radio"
+            value="configure"
+          />
+          <label
+            class="e1ob8xkh-el-tabs-label"
+            for="configure"
           >
-            Delete Pipeline
-          </button>
+            <span
+              class="eulcr0n-el-tabs-item"
+            >
+              Configure
+            </span>
+          </label>
+        </div>
+        <div
+          class="e1147ynd-el-tabs-footer"
+        />
+      </div>
+      <div
+        class="ec47sgk-el-mb11 e20pb60-el-grid"
+      >
+        <div
+          class="e14pp0yd-el-col"
+        >
+          <h2
+            class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+          >
+            Status
+          </h2>
+          <p
+            class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
+          >
+            <span
+              class="e1vxext9-el-intent-danger e1cp9zgf-el-status-indicator"
+            />
+             
+            Failed
+          </p>
+        </div>
+        <div
+          class="e14pp0yd-el-col"
+        >
+          <h2
+            class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+          >
+            Repository
+          </h2>
+          <p
+            class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
+          >
+            https://github.com/bashleigh/reapit-react-test
+          </p>
+        </div>
+        <div
+          class="e14pp0yd-el-col"
+        >
+          <h2
+            class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+          >
+            Location
+          </h2>
+          <p
+            class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
+          >
+            <a
+              href="https://beautiful-land.iaas.paas.reapit.cloud"
+              rel="noreferrer"
+              target="_blank"
+            >
+              https://beautiful-land.iaas.paas.reapit.cloud
+            </a>
+          </p>
         </div>
       </div>
       <div
-        class="e20pb60-el-grid"
-      >
-        <div
-          class="eb3z2eu-el-col-split"
-        >
-          <div
-            class="e1ksxx4v-el-input-wrap"
-          >
-            <h2
-              class="e1byern-el-subtitle"
-            >
-              Status
-            </h2>
-            <p
-              class="e15ggth7-el-body-text"
-            >
-              <span
-                class="epibvz0-el-intent-secondary e1cp9zgf-el-status-indicator"
-              />
-               
-              In Progress
-            </p>
-          </div>
-          <div
-            class="e1ksxx4v-el-input-wrap"
-          >
-            <h2
-              class="e1byern-el-subtitle"
-            >
-              Repository
-            </h2>
-            <p
-              class="e15ggth7-el-body-text"
-            />
-          </div>
-          <div
-            class="e1ksxx4v-el-input-wrap"
-          >
-            <h2
-              class="e1byern-el-subtitle"
-            >
-              Package Manager
-            </h2>
-            <p
-              class="e15ggth7-el-body-text"
-            />
-          </div>
-        </div>
-        <div
-          class="eb3z2eu-el-col-split"
-        >
-          <div
-            class="e1ksxx4v-el-input-wrap"
-          >
-            <h2
-              class="e1byern-el-subtitle"
-            >
-              Build Command
-            </h2>
-            <p
-              class="e15ggth7-el-body-text"
-            />
-          </div>
-          <div
-            class="e1ksxx4v-el-input-wrap"
-          >
-            <h2
-              class="e1byern-el-subtitle"
-            >
-              Location
-            </h2>
-            <p
-              class="e15ggth7-el-body-text"
-            />
-          </div>
-          <div
-            class="e1ksxx4v-el-input-wrap"
-          >
-            <h2
-              class="e1byern-el-subtitle"
-            >
-              Build dir
-            </h2>
-            <p
-              class="e15ggth7-el-body-text"
-            />
-          </div>
-          <div
-            class="e1ksxx4v-el-input-wrap"
-          >
-            <h2
-              class="e1byern-el-subtitle"
-            >
-              Tests
-            </h2>
-            <p
-              class="e15ggth7-el-body-text"
-            />
-          </div>
-        </div>
-      </div>
+        class="ec47sgk-el-mb11 elkdvoz-el-table"
+      />
     </div>
   </body>,
   "container": <div>
@@ -135,125 +120,110 @@ Object {
       class="ecbqyq6-el-snack-holder"
     />
     <div
-      class="esplruv-el-mb3 eay05y4-el-button-group"
+      class="e6l6sr3-el-tabs-full-width exshuwa-el-tabs-wrap"
     >
       <div
-        class="ebqwrow-el-button-group-inner"
+        class="egmnxi3-el-tabs-options-wrap"
       >
-        <button
-          class="epibvz0-el-intent-secondary eqfkc7t-el-button"
+        <input
+          checked=""
+          class="enkj6b-el-tabs"
+          id="deployments"
+          name="pipeline-tabs"
+          type="radio"
+          value="deployments"
+        />
+        <label
+          class="e1ob8xkh-el-tabs-label"
+          for="deployments"
         >
-          Edit
-        </button>
-        <button
-          class="e1vxext9-el-intent-danger eqfkc7t-el-button"
+          <span
+            class="eulcr0n-el-tabs-item"
+          >
+            Deployments
+          </span>
+        </label>
+        <input
+          class="enkj6b-el-tabs"
+          id="configure"
+          name="pipeline-tabs"
+          type="radio"
+          value="configure"
+        />
+        <label
+          class="e1ob8xkh-el-tabs-label"
+          for="configure"
         >
-          Delete Pipeline
-        </button>
+          <span
+            class="eulcr0n-el-tabs-item"
+          >
+            Configure
+          </span>
+        </label>
+      </div>
+      <div
+        class="e1147ynd-el-tabs-footer"
+      />
+    </div>
+    <div
+      class="ec47sgk-el-mb11 e20pb60-el-grid"
+    >
+      <div
+        class="e14pp0yd-el-col"
+      >
+        <h2
+          class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+        >
+          Status
+        </h2>
+        <p
+          class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
+        >
+          <span
+            class="e1vxext9-el-intent-danger e1cp9zgf-el-status-indicator"
+          />
+           
+          Failed
+        </p>
+      </div>
+      <div
+        class="e14pp0yd-el-col"
+      >
+        <h2
+          class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+        >
+          Repository
+        </h2>
+        <p
+          class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
+        >
+          https://github.com/bashleigh/reapit-react-test
+        </p>
+      </div>
+      <div
+        class="e14pp0yd-el-col"
+      >
+        <h2
+          class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+        >
+          Location
+        </h2>
+        <p
+          class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
+        >
+          <a
+            href="https://beautiful-land.iaas.paas.reapit.cloud"
+            rel="noreferrer"
+            target="_blank"
+          >
+            https://beautiful-land.iaas.paas.reapit.cloud
+          </a>
+        </p>
       </div>
     </div>
     <div
-      class="e20pb60-el-grid"
-    >
-      <div
-        class="eb3z2eu-el-col-split"
-      >
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <h2
-            class="e1byern-el-subtitle"
-          >
-            Status
-          </h2>
-          <p
-            class="e15ggth7-el-body-text"
-          >
-            <span
-              class="epibvz0-el-intent-secondary e1cp9zgf-el-status-indicator"
-            />
-             
-            In Progress
-          </p>
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <h2
-            class="e1byern-el-subtitle"
-          >
-            Repository
-          </h2>
-          <p
-            class="e15ggth7-el-body-text"
-          />
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <h2
-            class="e1byern-el-subtitle"
-          >
-            Package Manager
-          </h2>
-          <p
-            class="e15ggth7-el-body-text"
-          />
-        </div>
-      </div>
-      <div
-        class="eb3z2eu-el-col-split"
-      >
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <h2
-            class="e1byern-el-subtitle"
-          >
-            Build Command
-          </h2>
-          <p
-            class="e15ggth7-el-body-text"
-          />
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <h2
-            class="e1byern-el-subtitle"
-          >
-            Location
-          </h2>
-          <p
-            class="e15ggth7-el-body-text"
-          />
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <h2
-            class="e1byern-el-subtitle"
-          >
-            Build dir
-          </h2>
-          <p
-            class="e15ggth7-el-body-text"
-          />
-        </div>
-        <div
-          class="e1ksxx4v-el-input-wrap"
-        >
-          <h2
-            class="e1byern-el-subtitle"
-          >
-            Tests
-          </h2>
-          <p
-            class="e15ggth7-el-body-text"
-          />
-        </div>
-      </div>
-    </div>
+      class="ec47sgk-el-mb11 elkdvoz-el-table"
+    />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

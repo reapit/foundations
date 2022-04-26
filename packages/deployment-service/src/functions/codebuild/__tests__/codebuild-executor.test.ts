@@ -47,7 +47,7 @@ jest.mock('../../../services/pipeline-runner', () => ({
 }))
 
 jest.mock('../../../services/github-app', () => ({
-  githubApp: {
+  githubApp: jest.fn(() => ({
     getInstallationOctokit: () => {
       return Promise.resolve({
         request: () =>
@@ -56,17 +56,21 @@ jest.mock('../../../services/github-app', () => ({
           }),
       })
     },
-  },
+  })),
 }))
 
 jest.mock('../../../services/s3', () => ({
-  s3Client: {
+  assumedS3Client: jest.fn(() => ({
     upload: (params, callback) =>
       callback(undefined, {
         Key: DATA_LOCATION_STRING,
       }),
     getSignedUrlPromise: () => Promise.resolve('s3-url'),
-  },
+  })),
+}))
+
+jest.mock('../../../services/sts', () => ({
+  getRoleCredentials: jest.fn(),
 }))
 
 jest.mock('aws-sdk', () => ({

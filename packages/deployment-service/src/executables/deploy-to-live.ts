@@ -1,4 +1,4 @@
-import { s3Client } from '../services'
+import { assumedS3Client } from '../services'
 import fs from 'fs'
 import mime from 'mime-types'
 import path from 'path'
@@ -12,6 +12,15 @@ export type DeployToS3Params = {
 
 export type DeployToLiveS3Func = (params: DeployToS3Params) => Promise<void | never>
 
+let s3Client
+
+const getS3Client = async () => {
+  if (!s3Client) {
+    s3Client = await assumedS3Client()
+  }
+  return s3Client
+}
+
 export const deployToLiveS3: DeployToLiveS3Func = async ({
   filePath,
   prefix,
@@ -21,6 +30,8 @@ export const deployToLiveS3: DeployToLiveS3Func = async ({
   const key = fileNameTransformer
     ? fileNameTransformer(filePath.substring(buildLocation.length))
     : filePath.substring(buildLocation.length)
+
+  const s3Client = await getS3Client()
 
   return new Promise<void>((resolve, reject) =>
     s3Client.upload(
@@ -40,7 +51,7 @@ export const deployToLiveS3: DeployToLiveS3Func = async ({
       (error) => {
         if (error) {
           console.error(error)
-          reject(error)
+          return reject(error)
         }
 
         resolve()

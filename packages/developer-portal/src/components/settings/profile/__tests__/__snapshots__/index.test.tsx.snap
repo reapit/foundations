@@ -32,6 +32,7 @@ Object {
                 class="e1urjlvd-el-input"
                 id="test-static-id"
                 name="name"
+                placeholder="Your full name here"
               />
               <label
                 class="e1nbkkrq-el-label"
@@ -51,6 +52,7 @@ Object {
                 class="e1urjlvd-el-input"
                 id="test-static-id"
                 name="jobTitle"
+                placeholder="What role do you have at your company"
               />
               <label
                 class="e1nbkkrq-el-label"
@@ -70,6 +72,7 @@ Object {
                 class="e1urjlvd-el-input"
                 id="test-static-id"
                 name="gitHubUsername"
+                placeholder="Github handles help us tracking issues"
               />
               <label
                 class="e1nbkkrq-el-label"
@@ -162,6 +165,7 @@ Object {
               class="e1urjlvd-el-input"
               id="test-static-id"
               name="name"
+              placeholder="Your full name here"
             />
             <label
               class="e1nbkkrq-el-label"
@@ -181,6 +185,7 @@ Object {
               class="e1urjlvd-el-input"
               id="test-static-id"
               name="jobTitle"
+              placeholder="What role do you have at your company"
             />
             <label
               class="e1nbkkrq-el-label"
@@ -200,6 +205,7 @@ Object {
               class="e1urjlvd-el-input"
               id="test-static-id"
               name="gitHubUsername"
+              placeholder="Github handles help us tracking issues"
             />
             <label
               class="e1nbkkrq-el-label"

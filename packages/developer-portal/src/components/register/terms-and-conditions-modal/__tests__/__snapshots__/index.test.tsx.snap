@@ -105,7 +105,7 @@ Object {
               These Reapit Foundations User Terms and Conditions govern access to Reapit’s Foundations Platform and incorporate the Registration Details, to the exclusion of all other terms.
             </p>
             <div
-              class="ez8nkuq-el-mb6 epibvz0-el-intent-secondary evmehgn-el-is-active e1rlwnim-el-pn-is-full-width eiq7urd-el-persistant-notification"
+              class="ez8nkuq-el-mb6 epibvz0-el-intent-secondary evmehgn-el-is-active e1rlwnim-el-pn-is-full-width e10l30r1-el-pn-is-inline eiq7urd-el-persistant-notification"
             >
               <div
                 class="e1f8chn8-el-pn-icon"
@@ -3721,13 +3721,13 @@ Object {
                 class="ej73pla-el-button-group-align-center ebqwrow-el-button-group-inner"
               >
                 <button
-                  class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+                  class="e1ymtwpu-el-intent-low e1f2ikqj-el-button-fixed-width eqfkc7t-el-button"
                   type="button"
                 >
                   Decline
                 </button>
                 <button
-                  class="ebee6r1-el-intent-primary eqfkc7t-el-button"
+                  class="ebee6r1-el-intent-primary e1f2ikqj-el-button-fixed-width eqfkc7t-el-button"
                 >
                   Accept
                 </button>

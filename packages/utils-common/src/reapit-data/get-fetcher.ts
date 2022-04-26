@@ -12,6 +12,7 @@ export interface GetFetcherParams {
   headers?: StringMap
   logger: (error: Error) => void
   signal: AbortSignal
+  failSilently?: boolean
 }
 
 export const getFetcher = async <DataType>({
@@ -22,6 +23,7 @@ export const getFetcher = async <DataType>({
   headers,
   logger,
   signal,
+  failSilently,
 }: GetFetcherParams): Promise<DataType | string> => {
   const { api, path, errorMessage } = action
   const deSerialisedPath = uriParams
@@ -52,7 +54,9 @@ export const getFetcher = async <DataType>({
     throw new Error(handleReapitError(errorRes ?? {}, errorMessage))
   } catch (err) {
     const error = err as Error
-    logger(error)
+    if (!failSilently) {
+      logger(error)
+    }
     return error.message ?? action.errorMessage
   }
 }

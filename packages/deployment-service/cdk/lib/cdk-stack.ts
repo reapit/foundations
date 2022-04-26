@@ -14,13 +14,16 @@ import {
   addLambdaSQSTrigger,
   LambdaRoute,
   Queue,
+  createSecret,
 } from '@reapit/ts-scripts/src/cdk'
+import { aws_sqs as sqs } from 'aws-cdk-lib'
 
 import { createLambda } from './create-lambda'
 import { createS3Buckets } from './create-S3-bucket'
 import { createSqsQueues, QueueNames } from './create-sqs'
 import { createPolicies } from './create-policies'
-import { aws_sqs as sqs } from 'aws-cdk-lib'
+import { Role } from 'aws-cdk-lib/aws-iam'
+import config from '../../config.json'
 
 export const databaseName = 'deployment_service'
 
@@ -28,6 +31,7 @@ type FunctionSetup = {
   handler: string
   policies: PolicyStatement[]
   timeout?: number
+  RAM?: number
   api?: {
     routes: LambdaRoute | LambdaRoute[]
     cors: {
@@ -38,6 +42,7 @@ type FunctionSetup = {
   }
   queue?: sqs.IQueue
   topic?: Topic
+  role?: Role
 }
 
 export const createStack = () => {
@@ -45,10 +50,17 @@ export const createStack = () => {
     namespace: 'cloud',
     appName: 'deployment',
     component: 'service',
+    accountId: config.AWS_ACCOUNT_ID,
+  })
+  const usercodeStack = createBaseStack({
+    namespace: 'cloud',
+    appName: 'deployment',
+    component: 'usercode',
+    accountId: config.USERCODE_ACCOUNT_ID,
   })
   const api = createApi(stack, 'apigateway', undefined)
   const vpc = createVpc(stack, 'vpc')
-  const buckets = createS3Buckets(stack)
+  const buckets = createS3Buckets(stack, usercodeStack)
   const queues = createSqsQueues(stack)
   const database = createDatabase(stack, 'database', databaseName, vpc)
   const secretManager = database.secret
@@ -57,14 +69,19 @@ export const createStack = () => {
     throw new Error('Failed to create rds secret')
   }
 
-  const codeBuild = createCodeBuildProject(stack, 'codebuild')
-  const topic = getCodebuildSnsTopic(stack)
+  const codeBuild = createCodeBuildProject(usercodeStack, 'codebuild')
+  const codebuildSnsTopic = getCodebuildSnsTopic(usercodeStack)
+
+  const githubPemSecret = createSecret(stack, 'githubpem', config.GITHUB_PEM)
 
   const policies = createPolicies({
     buckets,
     queues,
     secretManager,
     codeBuild,
+    usercodeStack: usercodeStack,
+    codebuildSnsTopic,
+    githubPemSecretArn: githubPemSecret.ref,
   })
 
   const fileLocPrefix = 'packages/deployment-service/src/index.'
@@ -364,19 +381,20 @@ export const createStack = () => {
     },
     codebuildExecutor: {
       handler: `${fileLocPrefix}codebuildExecutor`,
-      policies: [...policies.commonBackendPolicies, policies.codebuildExecPolicy],
+      policies: [...policies.commonBackendPolicies],
       queue: queues[QueueNames.CODEBUILD_EXECUTOR],
     },
     codebuildUpdate: {
       handler: `${fileLocPrefix}codebuildPipelineUpdater`,
       policies: [...policies.commonBackendPolicies],
-      topic,
+      topic: codebuildSnsTopic,
       timeout: 900,
     },
     codebuildDeploy: {
       handler: `${fileLocPrefix}codebuildDeploy`,
       policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy],
-      timeout: 300,
+      timeout: 600,
+      RAM: 2048,
       queue: queues[QueueNames.CODEBUILD_VERSION_DEPLOY],
     },
     pipelineSetup: {
@@ -492,9 +510,11 @@ export const createStack = () => {
     DEPLOYMENT_REPO_CACHE_BUCKET_NAME: buckets['cloud-deployment-repo-cache-dev'].bucketName,
     REGION: 'eu-west-2',
     CODE_BUILD_PROJECT_NAME: codeBuild.projectName,
+    USERCODE_ROLE_ARN: policies.usercodeStackRoleArn,
+    GITHUB_PEM_SECRET_ARN: githubPemSecret.ref,
   }
 
-  Object.values(QueueNames).map((queueKey) => {
+  Object.values(QueueNames).forEach((queueKey) => {
     env[queueKey] = queues[queueKey].queueUrl
   })
 
@@ -507,6 +527,7 @@ export const createStack = () => {
       env,
       vpc,
       duration: options.timeout,
+      ram: options.RAM,
     })
     options.policies.forEach((policy) => lambda.addToRolePolicy(policy))
 
@@ -518,11 +539,10 @@ export const createStack = () => {
         api,
         lambda,
         options.api.routes,
-        // TODO: env
         options.api.authorizer ? process.env.AUTHORIZER_ID : undefined,
       )
     } else if (options.topic) {
-      addLambdaSNSTrigger(lambda, topic)
+      addLambdaSNSTrigger(lambda, options.topic)
     }
   }
 

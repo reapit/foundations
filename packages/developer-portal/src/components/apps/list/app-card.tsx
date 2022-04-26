@@ -61,6 +61,7 @@ export const AppCard: FC<AppCardProps> = ({ app }) => {
           {
             icon: 'editSystem',
             onClick: navigate(history, `${Routes.APPS}/${id}/edit`),
+            intent: 'primary',
           },
           {
             icon: 'trashSystem',
@@ -80,10 +81,10 @@ export const AppCard: FC<AppCardProps> = ({ app }) => {
           all app data including all revisions and listings.
         </BodyText>
         <ButtonGroup alignment="center">
-          <Button intent="secondary" onClick={closeModal}>
+          <Button fixedWidth intent="secondary" onClick={closeModal}>
             Cancel
           </Button>
-          <Button intent="danger" onClick={handleDeleteApp(deleteApp)}>
+          <Button fixedWidth intent="danger" onClick={handleDeleteApp(deleteApp)}>
             Confirm
           </Button>
         </ButtonGroup>

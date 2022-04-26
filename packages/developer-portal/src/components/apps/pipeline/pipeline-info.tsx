@@ -1,100 +1,76 @@
-import { reapitConnectBrowserSession } from '@/core/connect-session'
-import { buildStatusToIntent, buildStatusToReadable } from '@/utils/pipeline-helpers'
+import React, { Dispatch, FC, SetStateAction } from 'react'
+import { reapitConnectBrowserSession } from '../../../core/connect-session'
+import { buildStatusToIntent, buildStatusToReadable } from '../../../utils/pipeline-helpers'
 import { useReapitConnect } from '@reapit/connect-session'
-import {
-  BodyText,
-  Button,
-  ButtonGroup,
-  ColSplit,
-  Grid,
-  InputWrap,
-  StatusIndicator,
-  Subtitle,
-  elMb3,
-} from '@reapit/elements'
-import { PipelineModelInterface, PipelineRunnerModelInterface } from '@reapit/foundations-ts-definitions'
-import { UpdateActionNames, updateActions } from '@reapit/utils-common'
-import { UpdateReturnTypeEnum, useReapitUpdate } from '@reapit/utils-react'
-import React from 'react'
-import { EditPipeline } from './edit-pipeline'
+import { BodyText, Col, elMb11, Grid, StatusIndicator, Subtitle } from '@reapit/elements'
+import { useChannel, useEvent } from '@harelpls/use-pusher'
+import { useAppState } from '../state/use-app-state'
+import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
+import { PipelineDeploymentTable } from './pipeline-deployments-table'
+import { PipelineTabs } from './pipeline-tabs'
 
-export const PipelineInfo: React.FC<{
+export interface PipelinePusherEvent {
   pipeline: PipelineModelInterface
-  setPipeline: (pipeline: PipelineModelInterface) => void
-}> = ({ pipeline, setPipeline }) => {
-  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+}
 
-  const [deleteLoading, , deleteFunc] = useReapitUpdate<void, PipelineRunnerModelInterface>({
-    reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.deletePipeline],
-    uriParams: {
-      appId: pipeline.id,
-    },
-    method: 'DELETE',
-    headers: {
-      Authorization: connectSession?.idToken as string,
-    },
-    returnType: UpdateReturnTypeEnum.RESPONSE,
-  })
+export const handlePipelineEvent =
+  (pipeline: PipelineModelInterface | null, setPipeline: Dispatch<SetStateAction<PipelineModelInterface | null>>) =>
+  (event?: PipelinePusherEvent) => {
+    if (!event) {
+      return
+    }
+
+    if (!pipeline) {
+      return
+    }
+
+    if (event.pipeline.id !== pipeline.id) {
+      return
+    }
+
+    setPipeline(event.pipeline)
+  }
+
+export const PipelineInfo: FC = () => {
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const { appPipelineState } = useAppState()
+  const { appPipeline, setAppPipeline } = appPipelineState
+  const pipelineUri = `https://${appPipeline?.subDomain}.iaas.paas.reapit.cloud`
+
+  const channel = useChannel(`private-${connectSession?.loginIdentity.developerId}`)
+  useEvent<PipelinePusherEvent>(channel, 'pipeline-runner-update', handlePipelineEvent(appPipeline, setAppPipeline))
+
   return (
     <>
-      <ButtonGroup className={elMb3}>
-        <EditPipeline
-          pipeline={pipeline}
-          appId={pipeline.appId as string}
-          refreshPipeline={(pipeline) => setPipeline(pipeline)}
-        />
-        <Button
-          loading={deleteLoading}
-          intent="danger"
-          disabled={pipeline.buildStatus === 'DELETING'}
-          onClick={async (event) => {
-            event.preventDefault()
-            const result = await deleteFunc()
-
-            if (result && typeof result !== 'boolean') setPipeline(result)
-          }}
-        >
-          Delete Pipeline
-        </Button>
-      </ButtonGroup>
-      <Grid>
-        <ColSplit>
-          <InputWrap>
-            <Subtitle>Status</Subtitle>
-            <BodyText>
-              <StatusIndicator intent={buildStatusToIntent(pipeline.buildStatus as string)} />{' '}
-              {buildStatusToReadable(pipeline.buildStatus as string)}
-            </BodyText>
-          </InputWrap>
-          <InputWrap>
-            <Subtitle>Repository</Subtitle>
-            <BodyText>{pipeline.repository}</BodyText>
-          </InputWrap>
-          <InputWrap>
-            <Subtitle>Package Manager</Subtitle>
-            <BodyText>{pipeline.packageManager}</BodyText>
-          </InputWrap>
-        </ColSplit>
-        <ColSplit>
-          <InputWrap>
-            <Subtitle>Build Command</Subtitle>
-            <BodyText>{pipeline.buildCommand}</BodyText>
-          </InputWrap>
-          <InputWrap>
-            <Subtitle>Location</Subtitle>
-            <BodyText>{pipeline.subDomain ? `https://${pipeline.subDomain}.dev.paas.reapit.cloud` : ''}</BodyText>
-          </InputWrap>
-          <InputWrap>
-            <Subtitle>Build dir</Subtitle>
-            <BodyText>{pipeline.outDir}</BodyText>
-          </InputWrap>
-          <InputWrap>
-            <Subtitle>Tests</Subtitle>
-            <BodyText>{pipeline.testCommand || ''}</BodyText>
-          </InputWrap>
-        </ColSplit>
+      <PipelineTabs />
+      <Grid className={elMb11}>
+        <Col>
+          <Subtitle hasNoMargin>Status</Subtitle>
+          <BodyText hasNoMargin hasGreyText>
+            <StatusIndicator intent={buildStatusToIntent(appPipeline?.buildStatus ?? '')} />{' '}
+            {buildStatusToReadable(appPipeline?.buildStatus ?? '')}
+          </BodyText>
+        </Col>
+        <Col>
+          <Subtitle hasNoMargin>Repository</Subtitle>
+          <BodyText hasNoMargin hasGreyText>
+            {appPipeline?.repository ?? 'Not configured'}
+          </BodyText>
+        </Col>
+        <Col>
+          <Subtitle hasNoMargin>Location</Subtitle>
+          <BodyText hasNoMargin hasGreyText>
+            {appPipeline?.subDomain ? (
+              <a href={pipelineUri} target="_blank" rel="noreferrer">
+                {pipelineUri}
+              </a>
+            ) : (
+              'Not yet deployed'
+            )}
+          </BodyText>
+        </Col>
       </Grid>
+      <PipelineDeploymentTable />
     </>
   )
 }

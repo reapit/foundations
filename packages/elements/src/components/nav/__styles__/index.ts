@@ -47,6 +47,7 @@ export const ElNavItem = styled.a`
   height: 0;
   padding: 0 0.75rem;
   opacity: 0;
+  cursor: pointer;
   transition: height 0.3s linear, opacity 0.3s linear, padding-top 0.3s linear, padding-bottom 0.3s linear;
 
   svg {

@@ -4,23 +4,26 @@ describe('pipeline helpers', () => {
   describe('buildStatusToIntent', () => {
     it('primary', () => {
       expect(buildStatusToIntent('PROVISIONING')).toBe('primary')
-      expect(buildStatusToIntent('COMPLETED')).toBe('primary')
+      expect(buildStatusToIntent('COMPLETED')).toBe('success')
     })
 
     it('secondary', () => {
       expect(buildStatusToIntent('IN_PROGRESS')).toBe('secondary')
-      expect(buildStatusToIntent('PROVISION_REQUEST')).toBe('secondary')
+      expect(buildStatusToIntent('PROVISION_REQUEST')).toBe('neutral')
     })
 
     it('critical', () => {
-      expect(buildStatusToIntent('PENDING')).toBe('critical')
       expect(buildStatusToIntent('QUEUED')).toBe('critical')
+    })
+
+    it('neutral', () => {
+      expect(buildStatusToIntent('PENDING')).toBe('neutral')
+      expect(buildStatusToIntent('SCHEDULED_FOR_DELETION')).toBe('neutral')
     })
 
     it('danger', () => {
       expect(buildStatusToIntent('FAILED')).toBe('danger')
       expect(buildStatusToIntent('DELETING')).toBe('danger')
-      expect(buildStatusToIntent('SCHEDULED_FOR_DELETION')).toBe('danger')
       expect(buildStatusToIntent('DELETED')).toBe('danger')
     })
 

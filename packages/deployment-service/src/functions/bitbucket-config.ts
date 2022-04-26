@@ -10,7 +10,7 @@ export const bitbucketConfig = httpHandler({
         name: 'Reapit Foundations',
         url: 'https://www.reapit.com/foundations/',
       },
-      baseUrl: 'https://deployments.dev.paas.reapit.cloud/api/bitbucket',
+      baseUrl: `https://deployments.${process.env.ROOT_DOMAIN}/api/bitbucket`,
       authentication: {
         type: 'jwt',
       },

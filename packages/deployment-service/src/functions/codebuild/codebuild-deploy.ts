@@ -95,6 +95,7 @@ export const codebuildDeploy: SQSHandler = async (event: SQSEvent, context: Cont
           updatedPipelineRunner,
         )
       } catch (error: any) {
+        console.log('deploy error')
         console.error(error)
 
         pipelineRunner.buildStatus = 'FAILED'

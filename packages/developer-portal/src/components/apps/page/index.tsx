@@ -21,13 +21,13 @@ import AppsListPage from '../list'
 import AppsNewPage from '../new'
 import AppsDetailPage from '../detail'
 import AppEditPage from '../edit'
+import AppPipelinePage from '../pipeline'
 import AppInstallationsPage from '../installations'
 import { useAppState } from '../state/use-app-state'
 import { getCurrentPage } from '../utils/get-current-page'
 import { Helper } from './helper'
 import { cx } from '@linaria/core'
-import { AppPipeline } from '../pipeline/app-pipeline'
-import { selectLoginIdentity } from '@/utils/auth'
+import { selectLoginIdentity } from '../../../utils/auth'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 
@@ -43,6 +43,9 @@ export const AppsPage: FC = () => {
     getCurrentPage(pathname)
 
   const loginIdentity = selectLoginIdentity(connectSession)
+
+  const hasPipelines =
+    loginIdentity?.developerId && window.reapit.config.pipelineWhitelist.includes(loginIdentity.developerId)
 
   return (
     <ErrorBoundary>
@@ -75,21 +78,20 @@ export const AppsPage: FC = () => {
                       <SecondaryNavItem onClick={navigate(history, `${Routes.APPS}/${appId}/edit`)} active={isAppsEdit}>
                         Edit App
                       </SecondaryNavItem>
-                      {loginIdentity?.developerId &&
-                        window.reapit.config.pipelineWhitelist.includes(loginIdentity.developerId) && (
-                          <SecondaryNavItem
-                            onClick={navigate(history, `${Routes.APPS}/${appId}/pipeline`)}
-                            active={isAppPipelines}
-                          >
-                            Pipelines
-                          </SecondaryNavItem>
-                        )}
                       <SecondaryNavItem
                         onClick={navigate(history, `${Routes.APPS}/${appId}/installations`)}
                         active={isAppsInstallations}
                       >
                         Installations
                       </SecondaryNavItem>
+                      {hasPipelines && (
+                        <SecondaryNavItem
+                          onClick={navigate(history, `${Routes.APPS}/${appId}/pipeline`)}
+                          active={isAppPipelines}
+                        >
+                          Pipeline
+                        </SecondaryNavItem>
+                      )}
                     </>
                   )}
                   <SecondaryNavItem onClick={navigate(history, Routes.APPS_NEW)} active={isAppsNew}>
@@ -107,10 +109,7 @@ export const AppsPage: FC = () => {
                   <Route path={Routes.APPS_WELCOME} exact component={AppsWelcomePage} />
                   <Route path={Routes.APP_INSTALLATIONS} exact component={AppInstallationsPage} />
                   <Route path={Routes.APPS_EDIT} component={AppEditPage} />
-                  {loginIdentity?.developerId &&
-                    window.reapit.config.pipelineWhitelist.includes(loginIdentity.developerId) && (
-                      <Route path={Routes.APP_PIPELINE} component={AppPipeline} />
-                    )}
+                  {hasPipelines && <Route path={Routes.APP_PIPELINE} component={AppPipelinePage} />}
                   <Route path={Routes.APP_DETAIL} component={AppsDetailPage} />
                 </Switch>
               </ErrorBoundary>

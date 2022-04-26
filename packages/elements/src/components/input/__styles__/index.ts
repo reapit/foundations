@@ -33,17 +33,17 @@ export const ElInput = styled.input`
   }
 
   &:disabled {
-    color: var(--color-grey-light);
+    color: rgba(100, 100, 100, 0.35);
 
     ::placeholder {
-      color: var(--color-grey-light);
+      color: rgba(100, 100, 100, 0.35);
     }
   }
 
   &[type='checkbox'] {
     appearance: none;
     border: 1px solid var(--color-grey-light);
-    background-color: var(--color-grey-light);
+    background-color: var(--color-white);
     border-radius: 0.25rem;
     width: 1.5rem;
     height: 1.5rem;
@@ -62,11 +62,13 @@ export const ElInput = styled.input`
   &[type='radio'] {
     appearance: none;
     border: 1px solid var(--color-grey-light);
-    background-color: var(--color-grey-light);
+    background-color: var(--color-white);
     border-radius: 100%;
     width: 1.5rem;
     height: 1.5rem;
     position: relative;
+    display: inline-block;
+    margin-right: 0.375rem;
 
     &:checked {
       &:after {
