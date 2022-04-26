@@ -4,7 +4,7 @@ export const buildStatusToIntent = (status: string): Intent => {
   switch (status) {
     case 'PROVISIONING':
       return 'primary'
-    case 'COMPLETED':
+    case 'SUCCEEDED':
       return 'success'
     case 'IN_PROGRESS':
       return 'secondary'
