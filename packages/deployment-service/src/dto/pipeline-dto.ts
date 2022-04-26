@@ -1,4 +1,4 @@
-import { IsString, IsNotEmpty, IsOptional, IsEnum, MaxLength, IsUUID, Matches } from 'class-validator'
+import { IsString, IsNotEmpty, IsOptional, IsEnum, MaxLength, IsUUID, Matches, IsUrl } from 'class-validator'
 import { CodeBuild } from 'aws-sdk'
 
 export enum AppTypeEnum {
@@ -36,7 +36,8 @@ export class PipelineDto {
 
   @IsString()
   @IsOptional()
-  repo?: string
+  @IsUrl()
+  repository?: string
 
   @IsEnum(AppTypeEnum)
   @IsNotEmpty()
