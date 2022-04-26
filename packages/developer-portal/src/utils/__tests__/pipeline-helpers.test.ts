@@ -4,7 +4,7 @@ describe('pipeline helpers', () => {
   describe('buildStatusToIntent', () => {
     it('primary', () => {
       expect(buildStatusToIntent('PROVISIONING')).toBe('primary')
-      expect(buildStatusToIntent('COMPLETED')).toBe('success')
+      expect(buildStatusToIntent('SUCCEEDED')).toBe('success')
     })
 
     it('secondary', () => {
