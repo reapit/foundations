@@ -8,11 +8,15 @@ Object {
       <div
         class="ecbqyq6-el-snack-holder"
       />
-      <h1
-        class="evblxhy-el-title"
+      <div
+        class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
       >
-        New Pipeline
-      </h1>
+        <h1
+          class="evblxhy-el-title"
+        >
+          New Pipeline
+        </h1>
+      </div>
       <div
         class="e6l6sr3-el-tabs-full-width exshuwa-el-tabs-wrap"
       >
@@ -196,11 +200,487 @@ Object {
     <div
       class="ecbqyq6-el-snack-holder"
     />
-    <h1
-      class="evblxhy-el-title"
+    <div
+      class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
     >
-      New Pipeline
-    </h1>
+      <h1
+        class="evblxhy-el-title"
+      >
+        New Pipeline
+      </h1>
+    </div>
+    <div
+      class="e6l6sr3-el-tabs-full-width exshuwa-el-tabs-wrap"
+    >
+      <div
+        class="egmnxi3-el-tabs-options-wrap"
+      >
+        <input
+          checked=""
+          class="enkj6b-el-tabs"
+          id="deployments"
+          name="pipeline-tabs"
+          type="radio"
+          value="deployments"
+        />
+        <label
+          class="e1ob8xkh-el-tabs-label"
+          for="deployments"
+        >
+          <span
+            class="eulcr0n-el-tabs-item"
+          >
+            Deployments
+          </span>
+        </label>
+        <input
+          class="enkj6b-el-tabs"
+          id="configure"
+          name="pipeline-tabs"
+          type="radio"
+          value="configure"
+        />
+        <label
+          class="e1ob8xkh-el-tabs-label"
+          for="configure"
+        >
+          <span
+            class="eulcr0n-el-tabs-item"
+          >
+            Configure
+          </span>
+        </label>
+      </div>
+      <div
+        class="e1147ynd-el-tabs-footer"
+      />
+    </div>
+    <p
+      class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e15ggth7-el-body-text"
+    >
+      Tell us about how we should build your application here. We assume that your application is a front end app and that, it uses either yarn or npm to run scripts decalared in a package.json file. We assume also that your application is bundled and that bundle is output to a local directory that we can deploy for you.
+    </p>
+    <form>
+      <div
+        class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
+      >
+        <div
+          class="e1ksxx4v-el-input-wrap"
+        >
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <label
+              class="e1nbkkrq-el-label"
+            >
+              Name
+            </label>
+            <input
+              class="e1urjlvd-el-input"
+              name="name"
+            />
+          </div>
+        </div>
+        <div
+          class="e1ksxx4v-el-input-wrap"
+        >
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <label
+              class="e1nbkkrq-el-label"
+            >
+              Deployment Branch
+            </label>
+            <input
+              class="e1urjlvd-el-input"
+              name="branch"
+            />
+          </div>
+        </div>
+        <div
+          class="e1ksxx4v-el-input-wrap"
+        >
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <label
+              class="e1nbkkrq-el-label"
+            >
+              Github Repository
+            </label>
+            <input
+              class="e1urjlvd-el-input"
+              name="repository"
+              placeholder="https://github.com/org/repo"
+            />
+          </div>
+        </div>
+        <div
+          class="e1ksxx4v-el-input-wrap"
+        >
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <input
+              class="e1ih6lkl-el-toggle-checkbox"
+              id="package-manager-toggle"
+              name="packageManager"
+              type="checkbox"
+            />
+            <label
+              class="ehi76vp-el-has-grey-bg e1ott14k-el-toggle-label"
+              for="package-manager-toggle"
+            >
+              <span
+                class="e18omfqv-el-toggle-item"
+              >
+                Yarn
+              </span>
+              <span
+                class="e18omfqv-el-toggle-item"
+              >
+                NPM
+              </span>
+            </label>
+            <label
+              class="e1nbkkrq-el-label"
+            >
+              Package Manager
+            </label>
+          </div>
+        </div>
+        <div
+          class="e1ksxx4v-el-input-wrap"
+        >
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <label
+              class="e1nbkkrq-el-label"
+            >
+              Build Command
+            </label>
+            <input
+              class="e1urjlvd-el-input"
+              name="buildCommand"
+            />
+          </div>
+        </div>
+        <div
+          class="e1ksxx4v-el-input-wrap"
+        >
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <label
+              class="e1nbkkrq-el-label"
+            >
+              Build Directory
+            </label>
+            <input
+              class="e1urjlvd-el-input"
+              name="outDir"
+            />
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`PipelineNew should match snapshot for mobile view 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div
+      id="root"
+    >
+      <div />
+    </div>
+    <div>
+      <div
+        class="ecbqyq6-el-snack-holder"
+      />
+      <div
+        class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
+      >
+        <h1
+          class="evblxhy-el-title"
+        >
+          New Pipeline
+        </h1>
+        <div
+          class="eay05y4-el-button-group"
+        >
+          <div
+            class="e1i2en9o-el-button-group-align-right ebqwrow-el-button-group-inner"
+          >
+            <button
+              class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+            >
+              Controls
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="e6l6sr3-el-tabs-full-width exshuwa-el-tabs-wrap"
+      >
+        <div
+          class="egmnxi3-el-tabs-options-wrap"
+        >
+          <input
+            checked=""
+            class="enkj6b-el-tabs"
+            id="deployments"
+            name="pipeline-tabs"
+            type="radio"
+            value="deployments"
+          />
+          <label
+            class="e1ob8xkh-el-tabs-label"
+            for="deployments"
+          >
+            <span
+              class="eulcr0n-el-tabs-item"
+            >
+              Deployments
+            </span>
+          </label>
+          <input
+            class="enkj6b-el-tabs"
+            id="configure"
+            name="pipeline-tabs"
+            type="radio"
+            value="configure"
+          />
+          <label
+            class="e1ob8xkh-el-tabs-label"
+            for="configure"
+          >
+            <span
+              class="eulcr0n-el-tabs-item"
+            >
+              Configure
+            </span>
+          </label>
+        </div>
+        <div
+          class="e1147ynd-el-tabs-footer"
+        />
+      </div>
+      <p
+        class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e15ggth7-el-body-text"
+      >
+        Tell us about how we should build your application here. We assume that your application is a front end app and that, it uses either yarn or npm to run scripts decalared in a package.json file. We assume also that your application is bundled and that bundle is output to a local directory that we can deploy for you.
+      </p>
+      <form>
+        <div
+          class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
+        >
+          <div
+            class="e1ksxx4v-el-input-wrap"
+          >
+            <div
+              class="e1979rmu-el-input-group"
+            >
+              <label
+                class="e1nbkkrq-el-label"
+              >
+                Name
+              </label>
+              <input
+                class="e1urjlvd-el-input"
+                name="name"
+              />
+            </div>
+          </div>
+          <div
+            class="e1ksxx4v-el-input-wrap"
+          >
+            <div
+              class="e1979rmu-el-input-group"
+            >
+              <label
+                class="e1nbkkrq-el-label"
+              >
+                Deployment Branch
+              </label>
+              <input
+                class="e1urjlvd-el-input"
+                name="branch"
+              />
+            </div>
+          </div>
+          <div
+            class="e1ksxx4v-el-input-wrap"
+          >
+            <div
+              class="e1979rmu-el-input-group"
+            >
+              <label
+                class="e1nbkkrq-el-label"
+              >
+                Github Repository
+              </label>
+              <input
+                class="e1urjlvd-el-input"
+                name="repository"
+                placeholder="https://github.com/org/repo"
+              />
+            </div>
+          </div>
+          <div
+            class="e1ksxx4v-el-input-wrap"
+          >
+            <div
+              class="e1979rmu-el-input-group"
+            >
+              <input
+                class="e1ih6lkl-el-toggle-checkbox"
+                id="package-manager-toggle"
+                name="packageManager"
+                type="checkbox"
+              />
+              <label
+                class="ehi76vp-el-has-grey-bg e1ott14k-el-toggle-label"
+                for="package-manager-toggle"
+              >
+                <span
+                  class="e18omfqv-el-toggle-item"
+                >
+                  Yarn
+                </span>
+                <span
+                  class="e18omfqv-el-toggle-item"
+                >
+                  NPM
+                </span>
+              </label>
+              <label
+                class="e1nbkkrq-el-label"
+              >
+                Package Manager
+              </label>
+            </div>
+          </div>
+          <div
+            class="e1ksxx4v-el-input-wrap"
+          >
+            <div
+              class="e1979rmu-el-input-group"
+            >
+              <label
+                class="e1nbkkrq-el-label"
+              >
+                Build Command
+              </label>
+              <input
+                class="e1urjlvd-el-input"
+                name="buildCommand"
+              />
+            </div>
+          </div>
+          <div
+            class="e1ksxx4v-el-input-wrap"
+          >
+            <div
+              class="e1979rmu-el-input-group"
+            >
+              <label
+                class="e1nbkkrq-el-label"
+              >
+                Build Directory
+              </label>
+              <input
+                class="e1urjlvd-el-input"
+                name="outDir"
+              />
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6-el-snack-holder"
+    />
+    <div
+      class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
+    >
+      <h1
+        class="evblxhy-el-title"
+      >
+        New Pipeline
+      </h1>
+      <div
+        class="eay05y4-el-button-group"
+      >
+        <div
+          class="e1i2en9o-el-button-group-align-right ebqwrow-el-button-group-inner"
+        >
+          <button
+            class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+          >
+            Controls
+          </button>
+        </div>
+      </div>
+    </div>
     <div
       class="e6l6sr3-el-tabs-full-width exshuwa-el-tabs-wrap"
     >

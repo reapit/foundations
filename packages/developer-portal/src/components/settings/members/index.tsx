@@ -1,5 +1,17 @@
 import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
-import { elMb11, Loader, Pagination, StatusIndicator, Table, Title } from '@reapit/elements'
+import {
+  Button,
+  ButtonGroup,
+  elMb11,
+  FlexContainer,
+  Loader,
+  Pagination,
+  StatusIndicator,
+  Table,
+  Title,
+  useMediaQuery,
+  useModal,
+} from '@reapit/elements'
 import { useReapitGet } from '@reapit/utils-react'
 import { MemberModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
@@ -7,6 +19,7 @@ import { GetActionNames, getActions } from '@reapit/utils-common'
 import { useReapitConnect } from '@reapit/connect-session'
 import { MemberUpdateControls } from './member-update-controls'
 import { useGlobalState } from '../../../core/use-global-state'
+import { Controls } from '../page/controls'
 
 export const getIntentFromStatus = (status: string) => {
   return status === 'active' ? 'success' : status === 'rejected' ? 'danger' : status === 'pending' ? 'critical' : 'low'
@@ -28,6 +41,8 @@ export const handleRefreshMembers =
 export const SettingsMembersPage: FC = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { globalRefreshState } = useGlobalState()
+  const { isMobile } = useMediaQuery()
+  const { Modal, openModal, closeModal } = useModal()
   const {
     members: [membersShouldRefresh, setMembersShouldRefresh],
   } = globalRefreshState
@@ -46,7 +61,26 @@ export const SettingsMembersPage: FC = () => {
 
   return (
     <>
-      <Title>Members</Title>
+      <FlexContainer isFlexJustifyBetween>
+        <Title>Members</Title>
+        {isMobile && (
+          <ButtonGroup alignment="right">
+            <Button intent="low" onClick={openModal}>
+              Controls
+            </Button>
+          </ButtonGroup>
+        )}
+      </FlexContainer>
+      {isMobile && (
+        <Modal title="Controls">
+          <Controls />
+          <ButtonGroup alignment="center">
+            <Button fixedWidth intent="secondary" onClick={closeModal}>
+              Close
+            </Button>
+          </ButtonGroup>
+        </Modal>
+      )}
       {membersLoading && <Loader />}
       <Table
         className={elMb11}

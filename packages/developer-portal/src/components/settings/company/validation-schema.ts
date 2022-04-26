@@ -2,6 +2,7 @@
 import { emailRegex, isValidHttpsUrl, telephoneRegex } from '@reapit/utils-common'
 import errorMessage from '@/constants/error-messages'
 import { boolean, object, string } from 'yup'
+import { specialCharsTest } from '../../../utils/yup'
 
 const { MAXIMUM_CHARACTER_LENGTH, FIELD_REQUIRED } = errorMessage
 
@@ -12,7 +13,8 @@ export const companyInformationValidationSchema = object().shape({
     .trim()
     .required(FIELD_REQUIRED)
     .matches(telephoneRegex, 'Invalid telephone number')
-    .max(20, MAXIMUM_CHARACTER_LENGTH(20)),
+    .max(20, MAXIMUM_CHARACTER_LENGTH(20))
+    .test(specialCharsTest),
 
   website: string()
     .trim()
@@ -30,8 +32,8 @@ export const companyInformationValidationSchema = object().shape({
 
   taxNumber: string().when('noTaxRegistration', {
     is: false,
-    then: string().trim().required(FIELD_REQUIRED).max(50, MAXIMUM_CHARACTER_LENGTH(50)),
-    otherwise: string().notRequired(),
+    then: string().trim().required(FIELD_REQUIRED).max(50, MAXIMUM_CHARACTER_LENGTH(50)).test(specialCharsTest),
+    otherwise: string().notRequired().test(specialCharsTest),
   }),
 
   noRegistrationNumber: boolean(),
@@ -39,8 +41,8 @@ export const companyInformationValidationSchema = object().shape({
   // when unchecked "NO COMPANY REGISTRATION NUMBER" -> validate
   registrationNumber: string().when('noRegistrationNumber', {
     is: false,
-    then: string().trim().required(FIELD_REQUIRED).max(50, MAXIMUM_CHARACTER_LENGTH(50)),
-    otherwise: string().notRequired(),
+    then: string().trim().required(FIELD_REQUIRED).max(50, MAXIMUM_CHARACTER_LENGTH(50)).test(specialCharsTest),
+    otherwise: string().notRequired().test(specialCharsTest),
   }),
 
   about: string().trim().required(FIELD_REQUIRED).max(250, MAXIMUM_CHARACTER_LENGTH(250)),
@@ -48,23 +50,23 @@ export const companyInformationValidationSchema = object().shape({
   // when checked "NO COMPANY REGISTRATION NUMBER" -> validate
   nationalInsurance: string().when('noRegistrationNumber', {
     is: true,
-    then: string().trim().required(FIELD_REQUIRED).max(20, MAXIMUM_CHARACTER_LENGTH(20)),
-    otherwise: string().notRequired(),
+    then: string().trim().required(FIELD_REQUIRED).max(20, MAXIMUM_CHARACTER_LENGTH(20)).test(specialCharsTest),
+    otherwise: string().notRequired().test(specialCharsTest),
   }),
 
-  buildingName: string().trim().max(35, MAXIMUM_CHARACTER_LENGTH(35)),
+  buildingName: string().trim().max(35, MAXIMUM_CHARACTER_LENGTH(35)).test(specialCharsTest),
 
-  buildingNumber: string().trim().max(8, MAXIMUM_CHARACTER_LENGTH(8)),
+  buildingNumber: string().trim().max(8, MAXIMUM_CHARACTER_LENGTH(8)).test(specialCharsTest),
 
-  line1: string().trim().required(FIELD_REQUIRED).max(35, MAXIMUM_CHARACTER_LENGTH(35)),
+  line1: string().trim().required(FIELD_REQUIRED).max(35, MAXIMUM_CHARACTER_LENGTH(35)).test(specialCharsTest),
 
-  line2: string().trim().max(30, MAXIMUM_CHARACTER_LENGTH(30)),
+  line2: string().trim().max(30, MAXIMUM_CHARACTER_LENGTH(30)).test(specialCharsTest),
 
-  line3: string().trim().max(30, MAXIMUM_CHARACTER_LENGTH(30)),
+  line3: string().trim().max(30, MAXIMUM_CHARACTER_LENGTH(30)).test(specialCharsTest),
 
-  line4: string().trim().required(FIELD_REQUIRED).max(30, MAXIMUM_CHARACTER_LENGTH(30)),
+  line4: string().trim().required(FIELD_REQUIRED).max(30, MAXIMUM_CHARACTER_LENGTH(30)).test(specialCharsTest),
 
-  postcode: string().trim().required(FIELD_REQUIRED).max(9, MAXIMUM_CHARACTER_LENGTH(9)),
+  postcode: string().trim().required(FIELD_REQUIRED).max(9, MAXIMUM_CHARACTER_LENGTH(9)).test(specialCharsTest),
   countryId: string().trim().required(FIELD_REQUIRED),
 
   billingEmail: string().test({

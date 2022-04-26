@@ -10,6 +10,7 @@ import Routes from '../../../constants/routes'
 import { object, string } from 'yup'
 import errorMessages from '../../../constants/error-messages'
 import { acceptInviteService, rejectInviteService } from '../../../services/developer'
+import { specialCharsTest } from '../../../utils/yup'
 
 const { FIELD_REQUIRED, MAXIMUM_CHARACTER_LENGTH } = errorMessages
 
@@ -20,13 +21,15 @@ export const validationSchema = object().shape({
     .trim()
     .required(FIELD_REQUIRED)
     .matches(personNameRegex, 'Full name is not valid')
-    .max(256, MAXIMUM_CHARACTER_LENGTH(256)),
+    .max(256, MAXIMUM_CHARACTER_LENGTH(256))
+    .test(specialCharsTest),
 
   jobTitle: string()
     .trim()
     .required(FIELD_REQUIRED)
     .matches(letterNumberSpaceRegex, 'Job title is not valid')
-    .max(256, MAXIMUM_CHARACTER_LENGTH(256)),
+    .max(256, MAXIMUM_CHARACTER_LENGTH(256))
+    .test(specialCharsTest),
 })
 
 export const handleAccept =

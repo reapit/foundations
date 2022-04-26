@@ -20,7 +20,7 @@ Object {
           <div
             class="e1qy4g2u-el-table-header"
           >
-            Type
+            Type Release
           </div>
           <div
             class="e1qy4g2u-el-table-header"
@@ -77,8 +77,10 @@ Object {
             >
               <div
                 class="e1t8i3z1-el-table-cell-content"
-                data-narrow-label="Type"
-              />
+                data-narrow-label="Type Release"
+              >
+                Unknown
+              </div>
             </div>
             <div
               class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
@@ -97,6 +99,9 @@ Object {
                 class="e1t8i3z1-el-table-cell-content"
                 data-narrow-label="Status"
               >
+                <span
+                  class="e11oi1zt-el-intent-success e1cp9zgf-el-status-indicator"
+                />
                 Succeeded
               </div>
             </div>
@@ -183,7 +188,7 @@ Object {
                     <div
                       class="e1t8i3z1-el-table-cell-content"
                     >
-                      INSTALL
+                      Install
                     </div>
                   </div>
                   <div
@@ -192,6 +197,9 @@ Object {
                     <div
                       class="e1t8i3z1-el-table-cell-content"
                     >
+                      <span
+                        class="e11oi1zt-el-intent-success e1cp9zgf-el-status-indicator"
+                      />
                       Succeeded
                     </div>
                   </div>
@@ -223,7 +231,7 @@ Object {
                     <div
                       class="e1t8i3z1-el-table-cell-content"
                     >
-                      DEPLOY
+                      Deploy
                     </div>
                   </div>
                   <div
@@ -232,6 +240,9 @@ Object {
                     <div
                       class="e1t8i3z1-el-table-cell-content"
                     >
+                      <span
+                        class="e11oi1zt-el-intent-success e1cp9zgf-el-status-indicator"
+                      />
                       Succeeded
                     </div>
                   </div>
@@ -263,7 +274,7 @@ Object {
                     <div
                       class="e1t8i3z1-el-table-cell-content"
                     >
-                      BUILD
+                      Build
                     </div>
                   </div>
                   <div
@@ -272,6 +283,9 @@ Object {
                     <div
                       class="e1t8i3z1-el-table-cell-content"
                     >
+                      <span
+                        class="e11oi1zt-el-intent-success e1cp9zgf-el-status-indicator"
+                      />
                       Succeeded
                     </div>
                   </div>
@@ -303,7 +317,7 @@ Object {
                     <div
                       class="e1t8i3z1-el-table-cell-content"
                     >
-                      DOWNLOAD_SOURCE
+                      Download Source
                     </div>
                   </div>
                   <div
@@ -312,6 +326,9 @@ Object {
                     <div
                       class="e1t8i3z1-el-table-cell-content"
                     >
+                      <span
+                        class="e11oi1zt-el-intent-success e1cp9zgf-el-status-indicator"
+                      />
                       Succeeded
                     </div>
                   </div>
@@ -412,7 +429,7 @@ Object {
         <div
           class="e1qy4g2u-el-table-header"
         >
-          Type
+          Type Release
         </div>
         <div
           class="e1qy4g2u-el-table-header"
@@ -469,8 +486,10 @@ Object {
           >
             <div
               class="e1t8i3z1-el-table-cell-content"
-              data-narrow-label="Type"
-            />
+              data-narrow-label="Type Release"
+            >
+              Unknown
+            </div>
           </div>
           <div
             class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
@@ -489,6 +508,9 @@ Object {
               class="e1t8i3z1-el-table-cell-content"
               data-narrow-label="Status"
             >
+              <span
+                class="e11oi1zt-el-intent-success e1cp9zgf-el-status-indicator"
+              />
               Succeeded
             </div>
           </div>
@@ -575,7 +597,7 @@ Object {
                   <div
                     class="e1t8i3z1-el-table-cell-content"
                   >
-                    INSTALL
+                    Install
                   </div>
                 </div>
                 <div
@@ -584,6 +606,9 @@ Object {
                   <div
                     class="e1t8i3z1-el-table-cell-content"
                   >
+                    <span
+                      class="e11oi1zt-el-intent-success e1cp9zgf-el-status-indicator"
+                    />
                     Succeeded
                   </div>
                 </div>
@@ -615,7 +640,7 @@ Object {
                   <div
                     class="e1t8i3z1-el-table-cell-content"
                   >
-                    DEPLOY
+                    Deploy
                   </div>
                 </div>
                 <div
@@ -624,6 +649,9 @@ Object {
                   <div
                     class="e1t8i3z1-el-table-cell-content"
                   >
+                    <span
+                      class="e11oi1zt-el-intent-success e1cp9zgf-el-status-indicator"
+                    />
                     Succeeded
                   </div>
                 </div>
@@ -655,7 +683,7 @@ Object {
                   <div
                     class="e1t8i3z1-el-table-cell-content"
                   >
-                    BUILD
+                    Build
                   </div>
                 </div>
                 <div
@@ -664,6 +692,9 @@ Object {
                   <div
                     class="e1t8i3z1-el-table-cell-content"
                   >
+                    <span
+                      class="e11oi1zt-el-intent-success e1cp9zgf-el-status-indicator"
+                    />
                     Succeeded
                   </div>
                 </div>
@@ -695,7 +726,7 @@ Object {
                   <div
                     class="e1t8i3z1-el-table-cell-content"
                   >
-                    DOWNLOAD_SOURCE
+                    Download Source
                   </div>
                 </div>
                 <div
@@ -704,6 +735,9 @@ Object {
                   <div
                     class="e1t8i3z1-el-table-cell-content"
                   >
+                    <span
+                      class="e11oi1zt-el-intent-success e1cp9zgf-el-status-indicator"
+                    />
                     Succeeded
                   </div>
                 </div>

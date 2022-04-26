@@ -7,6 +7,7 @@ import {
   Label,
   elFadeIn,
   InputWrapMed,
+  elMb11,
 } from '@reapit/elements'
 import React, { FC, useMemo } from 'react'
 import { DeepMap, FieldError, UseFormGetValues, UseFormRegister } from 'react-hook-form'
@@ -60,12 +61,14 @@ export const WebhooksNewCustomers: FC<WebhooksNewCustomersProps> = ({ register, 
 
   return (
     <>
-      <BodyText hasSectionMargin hasGreyText>
-        Select customers from the list below by default we have prepopulated this with &lsquo;Sandbox Estates
-        (SBOX)&rsquo;. If you select one customer, you will need to specify each customer individually. If you select
-        &lsquo;All Customers&rsquo;, the sandbox environment will be excluded and you will need to create a separate
-        webhook for &lsquo;Sandbox Estates (SBOX)&rsquo;.
-      </BodyText>
+      <div className={elMb11}>
+        <BodyText hasNoMargin hasGreyText>
+          Select customers from the list below by default we have prepopulated this with &lsquo;Sandbox Estates
+          (SBOX)&rsquo;. If you select one customer, you will need to specify each customer individually. If you select
+          &lsquo;All Customers&rsquo;, the sandbox environment will be excluded and you will need to create a separate
+          webhook for &lsquo;Sandbox Estates (SBOX)&rsquo;.
+        </BodyText>
+      </div>
       <FormLayout className={elFadeIn}>
         <InputWrapMed>
           <InputGroup>

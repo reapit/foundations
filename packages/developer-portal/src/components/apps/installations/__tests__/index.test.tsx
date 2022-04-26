@@ -1,6 +1,6 @@
 import React from 'react'
 import AppInstallations, { handleSetInstallationId, handleUninstallApp, handleUninstallSuccess } from '..'
-import { render } from '../../../../tests/react-testing'
+import { render, setViewport } from '../../../../tests/react-testing'
 import { useReapitGet } from '@reapit/utils-react'
 import { mockInstallationModelPagedResult } from '../../../../tests/__stubs__/installations'
 
@@ -34,6 +34,16 @@ describe('AppInstallations', () => {
   it('should match a snapshot when no response', () => {
     mockUseReapitGet.mockReturnValueOnce([null, false])
 
+    expect(render(<AppInstallations />)).toMatchSnapshot()
+  })
+
+  it('should match snapshot for mobile view', () => {
+    mockUseReapitGet.mockReturnValueOnce([{ ...mockInstallationModelPagedResult }])
+    const testElem = document.createElement('div')
+    testElem.id = 'root'
+    document.body.appendChild(testElem)
+
+    setViewport('Mobile')
     expect(render(<AppInstallations />)).toMatchSnapshot()
   })
 })

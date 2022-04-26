@@ -1,4 +1,4 @@
-import { BodyText, elFadeIn, FormLayout, InputGroup, InputWrapMed } from '@reapit/elements'
+import { BodyText, elFadeIn, elMb11, FormLayout, InputGroup, InputWrapMed } from '@reapit/elements'
 import React, { FC } from 'react'
 import { DeepMap, FieldError, UseFormRegister } from 'react-hook-form'
 import { CreateWebhookFormSchema } from './webhooks-new'
@@ -10,9 +10,11 @@ interface WebhooksNewUrlProps {
 
 export const WebhooksNewUrl: FC<WebhooksNewUrlProps> = ({ register, errors }) => (
   <>
-    <BodyText hasSectionMargin hasGreyText>
-      Add a url to receive your webhook payload here. The url must be a secure https endpoint.
-    </BodyText>
+    <div className={elMb11}>
+      <BodyText hasNoMargin hasGreyText>
+        Add a url to receive your webhook payload here. The url must be a secure https endpoint.
+      </BodyText>
+    </div>
     <FormLayout className={elFadeIn}>
       <InputWrapMed>
         <InputGroup

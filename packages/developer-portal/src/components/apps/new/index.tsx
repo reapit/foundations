@@ -10,6 +10,8 @@ import {
   SmallText,
   Subtitle,
   Title,
+  useMediaQuery,
+  useModal,
 } from '@reapit/elements'
 import React, { Dispatch, FC, SetStateAction, MouseEvent, useEffect } from 'react'
 import { AppAuthFlow, AppNewStepId, getAppWizardStep } from './config'
@@ -33,6 +35,7 @@ import { History } from 'history'
 import { useHistory } from 'react-router-dom'
 import { HelperContent } from './helper-content'
 import { defaultAppWizardState } from '../state/defaults'
+import { Helper } from '../page/helper'
 
 export interface CreateAppFormSchema {
   redirectUris?: string
@@ -174,6 +177,9 @@ export const handleNavigateOnSuccess =
 export const AppsNewPage: FC = () => {
   const { appWizardState, setAppWizardState, appsDataState } = useAppState()
   const history = useHistory()
+  const { isMobile } = useMediaQuery()
+  const { Modal, openModal, closeModal } = useModal()
+
   const { currentStep, prevStep, nextStep, stepHistory, authFlow, lastStep } = appWizardState
   const { appsRefresh } = appsDataState
   const {
@@ -207,7 +213,26 @@ export const AppsNewPage: FC = () => {
         spanSuperWideScreen={5}
         span4KScreen={7}
       >
-        <Title>Create App</Title>
+        <FlexContainer isFlexJustifyBetween>
+          <Title>Create App</Title>
+          {isMobile && (
+            <ButtonGroup alignment="right">
+              <Button intent="low" onClick={openModal}>
+                Controls
+              </Button>
+            </ButtonGroup>
+          )}
+        </FlexContainer>
+        {isMobile && (
+          <Modal title="Controls">
+            <Helper />
+            <ButtonGroup alignment="center">
+              <Button fixedWidth intent="secondary" onClick={closeModal}>
+                Close
+              </Button>
+            </ButtonGroup>
+          </Modal>
+        )}
         <form onSubmit={handleSubmit(handleSubmitApp(authFlow, connectSession, stepHistory, createApp))}>
           <StepContainer>
             <Subtitle hasBoldText>{headingText}</Subtitle>

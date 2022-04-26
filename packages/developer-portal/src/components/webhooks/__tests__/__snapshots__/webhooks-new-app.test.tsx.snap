@@ -8,11 +8,15 @@ Object {
       <div
         class="ecbqyq6-el-snack-holder"
       />
-      <p
-        class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e15ggth7-el-body-text"
+      <div
+        class="ec47sgk-el-mb11"
       >
-        First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
-      </p>
+        <p
+          class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
+        >
+          First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+        </p>
+      </div>
       <div
         class="e6p05ya-el-fade-in ee6e7by-el-form-layout"
       >
@@ -56,11 +60,15 @@ Object {
     <div
       class="ecbqyq6-el-snack-holder"
     />
-    <p
-      class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e15ggth7-el-body-text"
+    <div
+      class="ec47sgk-el-mb11"
     >
-      First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
-    </p>
+      <p
+        class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
+      >
+        First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
+      </p>
+    </div>
     <div
       class="e6p05ya-el-fade-in ee6e7by-el-form-layout"
     >

@@ -8,11 +8,15 @@ Object {
       <div
         class="ecbqyq6-el-snack-holder"
       />
-      <p
-        class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e15ggth7-el-body-text"
+      <div
+        class="ec47sgk-el-mb11"
       >
-        Selecting active status will determine whether the webhook will fire when changes are made. This will effect your consumption costs so you may wish to disable it periodically. Ignoring when the etag only changes will mean the webhoook only fires when customer data changes.
-      </p>
+        <p
+          class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
+        >
+          Selecting active status will determine whether the webhook will fire when changes are made. This will effect your consumption costs so you may wish to disable it periodically. Ignoring when the etag only changes will mean the webhoook only fires when customer data changes.
+        </p>
+      </div>
       <div
         class="e6p05ya-el-fade-in ee6e7by-el-form-layout"
       >
@@ -80,11 +84,15 @@ Object {
     <div
       class="ecbqyq6-el-snack-holder"
     />
-    <p
-      class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e15ggth7-el-body-text"
+    <div
+      class="ec47sgk-el-mb11"
     >
-      Selecting active status will determine whether the webhook will fire when changes are made. This will effect your consumption costs so you may wish to disable it periodically. Ignoring when the etag only changes will mean the webhoook only fires when customer data changes.
-    </p>
+      <p
+        class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
+      >
+        Selecting active status will determine whether the webhook will fire when changes are made. This will effect your consumption costs so you may wish to disable it periodically. Ignoring when the etag only changes will mean the webhoook only fires when customer data changes.
+      </p>
+    </div>
     <div
       class="e6p05ya-el-fade-in ee6e7by-el-form-layout"
     >

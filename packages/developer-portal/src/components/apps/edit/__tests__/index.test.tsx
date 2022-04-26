@@ -1,6 +1,6 @@
 import React, { ChangeEvent } from 'react'
 import { AppEditPage, handleChangeTab } from '..'
-import { render } from '../../../../tests/react-testing'
+import { render, setViewport } from '../../../../tests/react-testing'
 import { useAppState } from '../../state/use-app-state'
 import { mockAppState } from '../../state/__mocks__/use-app-state'
 
@@ -34,6 +34,15 @@ describe('AppEditPage', () => {
     })
     expect(render(<AppEditPage />)).toMatchSnapshot()
   })
+})
+
+it('should match snapshot for mobile view', () => {
+  const testElem = document.createElement('div')
+  testElem.id = 'root'
+  document.body.appendChild(testElem)
+
+  setViewport('Mobile')
+  expect(render(<AppEditPage />)).toMatchSnapshot()
 })
 
 describe('handleChangeTab', () => {

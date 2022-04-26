@@ -8,6 +8,7 @@ import {
   Select,
   FormLayout,
   elFadeIn,
+  elMb11,
 } from '@reapit/elements'
 import React, { FC } from 'react'
 import { DeepMap, FieldError, UseFormRegister } from 'react-hook-form'
@@ -26,10 +27,13 @@ export const WebhooksNewApp: FC<WebhooksNewAppProps> = ({ register, errors }) =>
   const errorMessage = errors?.applicationId?.message
   return (
     <>
-      <BodyText hasGreyText hasSectionMargin>
-        First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has
-        installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment notifications.
-      </BodyText>
+      <div className={elMb11}>
+        <BodyText hasGreyText hasNoMargin>
+          First select an app to receive your webhook. Webhooks subscriptions can be set up for any customer who has
+          installed your application. Additionally, you can choose ‘SBOX’ to listen for sandbox environment
+          notifications.
+        </BodyText>
+      </div>
       <FormLayout className={elFadeIn}>
         <InputWrap>
           {apps?.data && apps.data.length ? (

@@ -2,6 +2,7 @@
 import { personNameRegex, letterNumberSpaceRegex, emailRegex } from '@reapit/utils-common'
 import errorMessages from '../../../constants/error-messages'
 import { object, string } from 'yup'
+import { specialCharsTest } from '../../../utils/yup'
 
 const { FIELD_REQUIRED, MAXIMUM_CHARACTER_LENGTH } = errorMessages
 
@@ -10,7 +11,8 @@ export const validationSchemaMember = object().shape({
     .trim()
     .required(FIELD_REQUIRED)
     .matches(personNameRegex, 'Full name is not valid')
-    .max(256, MAXIMUM_CHARACTER_LENGTH(256)),
+    .max(256, MAXIMUM_CHARACTER_LENGTH(256))
+    .test(specialCharsTest),
 
   email: string()
     .trim()
@@ -22,7 +24,8 @@ export const validationSchemaMember = object().shape({
     .trim()
     .required(FIELD_REQUIRED)
     .matches(letterNumberSpaceRegex, 'Job title is not valid')
-    .max(256, MAXIMUM_CHARACTER_LENGTH(256)),
+    .max(256, MAXIMUM_CHARACTER_LENGTH(256))
+    .test(specialCharsTest),
 
-  message: string().trim(),
+  message: string().trim().test(specialCharsTest),
 })

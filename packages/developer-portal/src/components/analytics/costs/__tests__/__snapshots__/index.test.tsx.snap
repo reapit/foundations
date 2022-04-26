@@ -1,18 +1,46 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AnalyticsCosts should match snapshot where billing is returned 1`] = `
+exports[`AnalyticsCosts should match snapshot for mobile view 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
+    <div
+      id="root"
+    >
+      <div />
+    </div>
     <div>
       <div
         class="ecbqyq6-el-snack-holder"
       />
-      <h1
-        class="evblxhy-el-title"
+      <div
+        class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
       >
-        Costs
-      </h1>
+        <h1
+          class="evblxhy-el-title"
+        >
+          Costs
+        </h1>
+        <div
+          class="eay05y4-el-button-group"
+        >
+          <div
+            class="e1i2en9o-el-button-group-align-right ebqwrow-el-button-group-inner"
+          >
+            <button
+              class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+            >
+              Controls
+            </button>
+          </div>
+        </div>
+      </div>
+      <h2
+        class="e1byern-el-subtitle"
+      >
+        Total for period: £
+        £0
+      </h2>
       <div
         class="e1x57i2-el-flex-wrap e2kmzjs-el-flex-container"
       >
@@ -93,11 +121,281 @@ Object {
     <div
       class="ecbqyq6-el-snack-holder"
     />
-    <h1
-      class="evblxhy-el-title"
+    <div
+      class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
     >
-      Costs
-    </h1>
+      <h1
+        class="evblxhy-el-title"
+      >
+        Costs
+      </h1>
+      <div
+        class="eay05y4-el-button-group"
+      >
+        <div
+          class="e1i2en9o-el-button-group-align-right ebqwrow-el-button-group-inner"
+        >
+          <button
+            class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+          >
+            Controls
+          </button>
+        </div>
+      </div>
+    </div>
+    <h2
+      class="e1byern-el-subtitle"
+    >
+      Total for period: £
+      £0
+    </h2>
+    <div
+      class="e1x57i2-el-flex-wrap e2kmzjs-el-flex-container"
+    >
+      <div
+        class="c1r46xm1-chart-wrapper"
+      >
+        <h2
+          class="e1byern-el-subtitle"
+        >
+          Costs By Month
+        </h2>
+        <div />
+      </div>
+      <div
+        class="c1r46xm1-chart-wrapper"
+      >
+        <h2
+          class="e1byern-el-subtitle"
+        >
+          Download Resources
+        </h2>
+        <div
+          class="ebhrnzh-el-loader-container"
+        >
+          <div
+            class="eq1m1jz-el-loader"
+          >
+            <div
+              class="exikdu1-el-loader-moving-bar"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="c1r46xm1-chart-wrapper"
+      >
+        <h2
+          class="e1byern-el-subtitle"
+        >
+          API Calls
+        </h2>
+        <div
+          class="ebhrnzh-el-loader-container"
+        >
+          <div
+            class="eq1m1jz-el-loader"
+          >
+            <div
+              class="exikdu1-el-loader-moving-bar"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="c1r46xm1-chart-wrapper"
+      >
+        <h2
+          class="e1byern-el-subtitle"
+        >
+          Services and Subscriptions
+        </h2>
+        <div
+          class="ebhrnzh-el-loader-container"
+        >
+          <div
+            class="eq1m1jz-el-loader"
+          >
+            <div
+              class="exikdu1-el-loader-moving-bar"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`AnalyticsCosts should match snapshot where billing is returned 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ecbqyq6-el-snack-holder"
+      />
+      <div
+        class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
+      >
+        <h1
+          class="evblxhy-el-title"
+        >
+          Costs
+        </h1>
+      </div>
+      <h2
+        class="e1byern-el-subtitle"
+      >
+        Total for period: £
+        £0
+      </h2>
+      <div
+        class="e1x57i2-el-flex-wrap e2kmzjs-el-flex-container"
+      >
+        <div
+          class="c1r46xm1-chart-wrapper"
+        >
+          <h2
+            class="e1byern-el-subtitle"
+          >
+            Costs By Month
+          </h2>
+          <div />
+        </div>
+        <div
+          class="c1r46xm1-chart-wrapper"
+        >
+          <h2
+            class="e1byern-el-subtitle"
+          >
+            Download Resources
+          </h2>
+          <div
+            class="ebhrnzh-el-loader-container"
+          >
+            <div
+              class="eq1m1jz-el-loader"
+            >
+              <div
+                class="exikdu1-el-loader-moving-bar"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="c1r46xm1-chart-wrapper"
+        >
+          <h2
+            class="e1byern-el-subtitle"
+          >
+            API Calls
+          </h2>
+          <div
+            class="ebhrnzh-el-loader-container"
+          >
+            <div
+              class="eq1m1jz-el-loader"
+            >
+              <div
+                class="exikdu1-el-loader-moving-bar"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="c1r46xm1-chart-wrapper"
+        >
+          <h2
+            class="e1byern-el-subtitle"
+          >
+            Services and Subscriptions
+          </h2>
+          <div
+            class="ebhrnzh-el-loader-container"
+          >
+            <div
+              class="eq1m1jz-el-loader"
+            >
+              <div
+                class="exikdu1-el-loader-moving-bar"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6-el-snack-holder"
+    />
+    <div
+      class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
+    >
+      <h1
+        class="evblxhy-el-title"
+      >
+        Costs
+      </h1>
+    </div>
+    <h2
+      class="e1byern-el-subtitle"
+    >
+      Total for period: £
+      £0
+    </h2>
     <div
       class="e1x57i2-el-flex-wrap e2kmzjs-el-flex-container"
     >
@@ -235,11 +533,21 @@ Object {
       <div
         class="ecbqyq6-el-snack-holder"
       />
-      <h1
-        class="evblxhy-el-title"
+      <div
+        class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
       >
-        Costs
-      </h1>
+        <h1
+          class="evblxhy-el-title"
+        >
+          Costs
+        </h1>
+      </div>
+      <h2
+        class="e1byern-el-subtitle"
+      >
+        Total for period: £
+        £0
+      </h2>
       <div
         class="e1x57i2-el-flex-wrap e2kmzjs-el-flex-container"
       >
@@ -320,11 +628,21 @@ Object {
     <div
       class="ecbqyq6-el-snack-holder"
     />
-    <h1
-      class="evblxhy-el-title"
+    <div
+      class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
     >
-      Costs
-    </h1>
+      <h1
+        class="evblxhy-el-title"
+      >
+        Costs
+      </h1>
+    </div>
+    <h2
+      class="e1byern-el-subtitle"
+    >
+      Total for period: £
+      £0
+    </h2>
     <div
       class="e1x57i2-el-flex-wrap e2kmzjs-el-flex-container"
     >

@@ -1,5 +1,5 @@
 import React from 'react'
-import { getDefaultNavIndex, Menu, XmasLogo } from '../menu'
+import { getDefaultNavIndex, Menu } from '../menu'
 import Routes from '../../constants/routes'
 import { render } from '../../tests/react-testing'
 
@@ -12,11 +12,11 @@ describe('Menu', () => {
     expect(render(<Menu />)).toMatchSnapshot()
   })
 
-  describe('XmasLogo', () => {
-    it('should match a snapshot', () => {
-      expect(render(<XmasLogo />)).toMatchSnapshot()
-    })
-  })
+  // describe('XmasLogo', () => {
+  //   it('should match a snapshot', () => {
+  //     expect(render(<XmasLogo />)).toMatchSnapshot()
+  //   })
+  // })
 })
 
 describe('getDefaultNavIndex', () => {
@@ -28,10 +28,6 @@ describe('getDefaultNavIndex', () => {
     {
       route: Routes.APP_DETAIL,
       index: 1,
-    },
-    {
-      route: Routes.ANALYTICS,
-      index: 2,
     },
     {
       route: Routes.ANALYTICS_COSTS,
@@ -83,35 +79,39 @@ describe('getDefaultNavIndex', () => {
     },
     {
       route: Routes.API_DOCS,
-      index: 5,
-    },
-    {
-      route: Routes.IAAS,
       index: 6,
     },
     {
+      route: Routes.ANALYTICS_SCHEMA_DOCS,
+      index: 6,
+    },
+    {
+      route: Routes.IAAS,
+      index: 5,
+    },
+    {
       route: Routes.SETTINGS,
-      index: 9,
+      index: 8,
     },
     {
       route: Routes.SETTINGS_COMPANY,
-      index: 9,
+      index: 8,
     },
     {
       route: Routes.SETTINGS_SUBSCRIPTIONS,
-      index: 9,
+      index: 8,
     },
     {
       route: Routes.SETTINGS_PASSWORD,
-      index: 9,
+      index: 8,
     },
     {
       route: Routes.SETTINGS_MEMBERS,
-      index: 9,
+      index: 8,
     },
     {
       route: Routes.SETTINGS_PROFILE,
-      index: 9,
+      index: 8,
     },
     {
       route: '/',

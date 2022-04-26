@@ -5,7 +5,7 @@ import { AppProvider } from '../../state/use-app-state'
 import { History } from 'history'
 import Routes from '../../../../constants/routes'
 import { AppNewStepId } from '../config'
-import { render } from '../../../../tests/react-testing'
+import { render, setViewport } from '../../../../tests/react-testing'
 import { defaultAppWizardState } from '../../state/defaults'
 
 jest.mock('project-name-generator', () => ({
@@ -17,6 +17,21 @@ jest.mock('project-name-generator', () => ({
 
 describe('AppsNew', () => {
   it('should match a snapshot', () => {
+    expect(
+      render(
+        <AppProvider>
+          <AppsNewPage />
+        </AppProvider>,
+      ),
+    ).toMatchSnapshot()
+  })
+
+  it('should match snapshot for mobile view', () => {
+    const testElem = document.createElement('div')
+    testElem.id = 'root'
+    document.body.appendChild(testElem)
+
+    setViewport('Mobile')
     expect(
       render(
         <AppProvider>
