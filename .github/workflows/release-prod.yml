@@ -14,6 +14,7 @@ env:
   AWS_REGION: ${{secrets.AWS_REGION}}
   CI: true
   IS_RELEASE: true
+  NODE_ENV: 'production'
 
 jobs:
   release-prod:
