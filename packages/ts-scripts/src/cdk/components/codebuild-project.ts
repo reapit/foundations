@@ -28,10 +28,10 @@ export const createCodeBuildProject = (stack: cdk.Stack, name: string): codebuil
   return project
 }
 
-export const getCodebuildSnsTopic = (stack: cdk.Stack): Topic => {
-  const topic = createSnsTopic(stack, 'codebuild-sns-topic')
+export const getCodebuildSnsTopic = (stack: cdk.Stack, name: string): Topic => {
+  const topic = createSnsTopic(stack, name)
 
-  const rule = new events.Rule(stack, 'codebuild-sns-topic-rule', {
+  const rule = new events.Rule(stack, `${name}-rule`, {
     eventPattern: {
       source: ['aws.codebuild'],
     },

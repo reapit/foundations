@@ -58,9 +58,11 @@ export const createStack = () => {
     component: 'usercode',
     accountId: config.USERCODE_ACCOUNT_ID,
   })
+  const envStage = process.env.APP_STAGE === 'production' ? 'prod' : 'dev'
+
   const api = createApi(stack, 'apigateway', undefined)
   const vpc = createVpc(stack, 'vpc')
-  const buckets = createS3Buckets(stack, usercodeStack)
+  const buckets = createS3Buckets(stack, usercodeStack, envStage)
   const queues = createSqsQueues(stack)
   const database = createDatabase(stack, 'database', databaseName, vpc)
   const secretManager = database.secret
@@ -69,8 +71,8 @@ export const createStack = () => {
     throw new Error('Failed to create rds secret')
   }
 
-  const codeBuild = createCodeBuildProject(usercodeStack, 'codebuild')
-  const codebuildSnsTopic = getCodebuildSnsTopic(usercodeStack)
+  const codeBuild = createCodeBuildProject(usercodeStack, `codebuild-${envStage}`)
+  const codebuildSnsTopic = getCodebuildSnsTopic(usercodeStack, `codebuild-sns-topic-${envStage}`)
 
   const githubPemSecret = createSecret(stack, 'githubpem', config.GITHUB_PEM)
 
@@ -512,6 +514,7 @@ export const createStack = () => {
     CODE_BUILD_PROJECT_NAME: codeBuild.projectName,
     USERCODE_ROLE_ARN: policies.usercodeStackRoleArn,
     GITHUB_PEM_SECRET_ARN: githubPemSecret.ref,
+    NODE_ENV: process.env.APP_STAGE,
   }
 
   Object.values(QueueNames).forEach((queueKey) => {
