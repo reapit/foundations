@@ -7,7 +7,7 @@
   ],
   "main": "./types/index.ts",
   "scripts": {
-    "start": "node './scripts/fetch-definitions.js' ",
+    "start": "node './scripts/fetch-definitions.js' && node './scripts/handle-cronjob.js'",
     "test": "echo '...skipping...'",
     "build": "echo '...skipping...'",
     "lint": "echo '...skipping...'",
