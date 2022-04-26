@@ -54,8 +54,6 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
 
         const id = uuid()
 
-        console.log('ssl', process.env.CERT_ARN, process.env.ROOT_DOMAIN)
-
         const distroCommand = new CreateDistributionCommand({
           DistributionConfig: {
             DefaultRootObject: 'index.html',
