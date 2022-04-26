@@ -133,6 +133,24 @@ Object {
             </span>
             Apps
           </a>
+          <div
+            class="ej3nojh-el-nav-sub-container"
+          >
+            <a
+              class="e1wzco0v-el-nav-sub-item"
+            >
+              <span>
+                My Apps
+              </span>
+            </a>
+            <a
+              class="e1wzco0v-el-nav-sub-item"
+            >
+              <span>
+                New App
+              </span>
+            </a>
+          </div>
           <a
             class="e1walk9-el-nav-item"
           >
@@ -178,6 +196,31 @@ Object {
             </span>
             Analytics
           </a>
+          <div
+            class="ej3nojh-el-nav-sub-container"
+          >
+            <a
+              class="e1wzco0v-el-nav-sub-item"
+            >
+              <span>
+                API Usage
+              </span>
+            </a>
+            <a
+              class="e1wzco0v-el-nav-sub-item"
+            >
+              <span>
+                Costs
+              </span>
+            </a>
+            <a
+              class="e1wzco0v-el-nav-sub-item"
+            >
+              <span>
+                Installations
+              </span>
+            </a>
+          </div>
           <a
             class="e1walk9-el-nav-item"
           >
@@ -387,6 +430,45 @@ Object {
             </span>
             Settings
           </a>
+          <div
+            class="ej3nojh-el-nav-sub-container"
+          >
+            <a
+              class="e1wzco0v-el-nav-sub-item"
+            >
+              <span>
+                Profile
+              </span>
+            </a>
+            <a
+              class="e1wzco0v-el-nav-sub-item"
+            >
+              <span>
+                Password
+              </span>
+            </a>
+            <a
+              class="e1wzco0v-el-nav-sub-item"
+            >
+              <span>
+                Members
+              </span>
+            </a>
+            <a
+              class="e1wzco0v-el-nav-sub-item"
+            >
+              <span>
+                Company
+              </span>
+            </a>
+            <a
+              class="e1wzco0v-el-nav-sub-item"
+            >
+              <span>
+                Subscriptions
+              </span>
+            </a>
+          </div>
         </nav>
       </main>
     </div>
@@ -520,6 +602,24 @@ Object {
           </span>
           Apps
         </a>
+        <div
+          class="ej3nojh-el-nav-sub-container"
+        >
+          <a
+            class="e1wzco0v-el-nav-sub-item"
+          >
+            <span>
+              My Apps
+            </span>
+          </a>
+          <a
+            class="e1wzco0v-el-nav-sub-item"
+          >
+            <span>
+              New App
+            </span>
+          </a>
+        </div>
         <a
           class="e1walk9-el-nav-item"
         >
@@ -565,6 +665,31 @@ Object {
           </span>
           Analytics
         </a>
+        <div
+          class="ej3nojh-el-nav-sub-container"
+        >
+          <a
+            class="e1wzco0v-el-nav-sub-item"
+          >
+            <span>
+              API Usage
+            </span>
+          </a>
+          <a
+            class="e1wzco0v-el-nav-sub-item"
+          >
+            <span>
+              Costs
+            </span>
+          </a>
+          <a
+            class="e1wzco0v-el-nav-sub-item"
+          >
+            <span>
+              Installations
+            </span>
+          </a>
+        </div>
         <a
           class="e1walk9-el-nav-item"
         >
@@ -774,6 +899,45 @@ Object {
           </span>
           Settings
         </a>
+        <div
+          class="ej3nojh-el-nav-sub-container"
+        >
+          <a
+            class="e1wzco0v-el-nav-sub-item"
+          >
+            <span>
+              Profile
+            </span>
+          </a>
+          <a
+            class="e1wzco0v-el-nav-sub-item"
+          >
+            <span>
+              Password
+            </span>
+          </a>
+          <a
+            class="e1wzco0v-el-nav-sub-item"
+          >
+            <span>
+              Members
+            </span>
+          </a>
+          <a
+            class="e1wzco0v-el-nav-sub-item"
+          >
+            <span>
+              Company
+            </span>
+          </a>
+          <a
+            class="e1wzco0v-el-nav-sub-item"
+          >
+            <span>
+              Subscriptions
+            </span>
+          </a>
+        </div>
       </nav>
     </main>
   </div>,

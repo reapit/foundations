@@ -12,6 +12,7 @@ import {
   isValidHttpsUrl,
 } from '@reapit/utils-common'
 import { boolean, object, string } from 'yup'
+import { specialCharsTest } from '../../../../utils/yup'
 
 const { USER_SESSION, CLIENT_SECRET } = authFlows
 const { FIELD_REQUIRED, MAXIMUM_CHARACTER_LENGTH, FIELD_WRONG_EMAIL_FORMAT } = errorMessages
@@ -40,7 +41,7 @@ const {
 } = formFields
 
 export const appEditValidationSchema = object().shape({
-  [name.name]: string().trim().required(FIELD_REQUIRED).max(100, MAXIMUM_CHARACTER_LENGTH(100)),
+  [name.name]: string().trim().required(FIELD_REQUIRED).max(100, MAXIMUM_CHARACTER_LENGTH(100)).test(specialCharsTest),
 
   [isListed.name]: boolean(),
 
@@ -50,11 +51,13 @@ export const appEditValidationSchema = object().shape({
       .trim()
       .required(FIELD_REQUIRED)
       .matches(telephoneRegex, telephone.errorMessage)
-      .max(20, MAXIMUM_CHARACTER_LENGTH(20)),
+      .max(20, MAXIMUM_CHARACTER_LENGTH(20))
+      .test(specialCharsTest),
     otherwise: string()
       .trim()
       .matches(telephoneRegex, { excludeEmptyString: true, message: telephone.errorMessage })
-      .max(20, MAXIMUM_CHARACTER_LENGTH(20)),
+      .max(20, MAXIMUM_CHARACTER_LENGTH(20))
+      .test(specialCharsTest),
   }),
 
   [supportEmail.name]: string()
@@ -138,7 +141,8 @@ export const appEditValidationSchema = object().shape({
         .trim()
         .required(FIELD_REQUIRED)
         .min(50, errorMessages.BETWEEN_MIN_MAX_CHARACTER_LENGTH(50, 150))
-        .max(150, errorMessages.BETWEEN_MIN_MAX_CHARACTER_LENGTH(50, 150)),
+        .max(150, errorMessages.BETWEEN_MIN_MAX_CHARACTER_LENGTH(50, 150))
+        .test(specialCharsTest),
       otherwise: string()
         .trim()
         .test({
@@ -148,7 +152,8 @@ export const appEditValidationSchema = object().shape({
             if (!value) return true
             return value.length >= 50 && value.length <= 150
           },
-        }),
+        })
+        .test(specialCharsTest),
     }),
 
   [authFlow.name]: string().trim().required(FIELD_REQUIRED).oneOf([USER_SESSION, CLIENT_SECRET]),
@@ -197,7 +202,8 @@ export const appEditValidationSchema = object().shape({
         return true
       },
       message: limitToClientIds.errorMessage,
-    }),
+    })
+    .test(specialCharsTest),
 
   [termsAndConditionsUrl.name]: string()
     .trim()

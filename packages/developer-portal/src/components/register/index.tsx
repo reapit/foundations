@@ -27,7 +27,7 @@ import { LoginContainer, LoginImageContainer, LoginContentWrapper } from '../log
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { createDeveloperService } from '../../services/developer'
 
-const { nameField, emailField, companyNameField, telephoneField } = formFields
+const { nameField, emailField, companyNameField, telephoneField, gitHubUsernameField } = formFields
 
 export type DeveloperState = 'LOADING' | 'SUCCESS' | 'ERROR' | 'INITIAL'
 
@@ -37,6 +37,7 @@ export const registerFormInitialValues: CreateDeveloperModel = {
   email: '',
   telephone: '',
   agreedTerms: '',
+  gitHubUsername: '',
 }
 
 export const onSubmit =
@@ -199,6 +200,17 @@ export const Register: FC = () => {
                     {...register('telephone')}
                     intent={errors?.telephone?.message ? 'danger' : undefined}
                     inputAddOnText={errors?.telephone?.message}
+                  />
+                </InputWrapFull>
+                <InputWrapFull>
+                  <InputGroup
+                    type="tel"
+                    label={gitHubUsernameField.label as string}
+                    id={gitHubUsernameField.name}
+                    placeholder={gitHubUsernameField.placeHolder}
+                    {...register('gitHubUsername')}
+                    intent={errors?.gitHubUsername?.message ? 'danger' : undefined}
+                    inputAddOnText={errors?.gitHubUsername?.message}
                   />
                 </InputWrapFull>
               </FormLayout>

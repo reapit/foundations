@@ -2,11 +2,12 @@ import React, { ChangeEvent } from 'react'
 import { ApiPage, handleChangeSwaggerDoc, handleDefaultSwaggerDoc } from '../api-page'
 import { render } from '../../../tests/react-testing'
 import Routes from '../../../constants/routes'
-import { ReapitConnectSession } from '@reapit/connect-session'
 import { mockProductModelPagedResult } from '../../../tests/__stubs__/products'
 import { ProductModel } from '@reapit/foundations-ts-definitions'
+import { mockMemberModel } from '../../../tests/__stubs__/members'
 
 jest.mock('../../webhooks/state/use-webhooks-state')
+jest.mock('../../../core/use-global-state')
 
 const routes = [
   Routes.WEBHOOKS,
@@ -32,13 +33,9 @@ describe('handleDefaultSwaggerDoc', () => {
   it('should set the swagger uri', () => {
     const setSwaggerUri = jest.fn()
     const productsList = mockProductModelPagedResult
-    const connectSession = {
-      loginIdentity: {
-        orgProduct: 'agencyCloud',
-      },
-    } as unknown as ReapitConnectSession
+    const currentMember = mockMemberModel
 
-    const curried = handleDefaultSwaggerDoc(setSwaggerUri, productsList, connectSession)
+    const curried = handleDefaultSwaggerDoc(setSwaggerUri, productsList, currentMember)
 
     curried()
 

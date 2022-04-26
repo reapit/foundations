@@ -1,15 +1,18 @@
 import React, { FC } from 'react'
-import { Loader, Title } from '@reapit/elements'
+import { Button, ButtonGroup, FlexContainer, Loader, Title, useMediaQuery, useModal } from '@reapit/elements'
 import { useReapitGet } from '@reapit/utils-react'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { CompanyForm } from './company-form'
+import { Controls } from '../page/controls'
 
 export const SettingsCompanyPage: FC = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const developerId = connectSession?.loginIdentity.developerId
+  const { Modal, openModal, closeModal } = useModal()
+  const { isMobile } = useMediaQuery()
 
   const [developer, developerLoading, , refreshDeveloper] = useReapitGet<DeveloperModel>({
     reapitConnectBrowserSession,
@@ -20,7 +23,26 @@ export const SettingsCompanyPage: FC = () => {
 
   return (
     <>
-      <Title>Company</Title>
+      <FlexContainer isFlexJustifyBetween>
+        <Title>Company</Title>
+        {isMobile && (
+          <ButtonGroup alignment="right">
+            <Button intent="low" onClick={openModal}>
+              Controls
+            </Button>
+          </ButtonGroup>
+        )}
+      </FlexContainer>
+      {isMobile && (
+        <Modal title="Controls">
+          <Controls />
+          <ButtonGroup alignment="center">
+            <Button fixedWidth intent="secondary" onClick={closeModal}>
+              Close
+            </Button>
+          </ButtonGroup>
+        </Modal>
+      )}
       {developerLoading && <Loader />}
       {developer && <CompanyForm developer={developer} refreshDeveloper={refreshDeveloper} />}
     </>

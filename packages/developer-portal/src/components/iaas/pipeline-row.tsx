@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { Dispatch, FC, SetStateAction, useState } from 'react'
 import { buildStatusToIntent, buildStatusToReadable, pipelineViewable } from '../../utils/pipeline-helpers'
 import Routes from '@/constants/routes'
 import {
@@ -15,6 +15,10 @@ import {
 import { useHistory } from 'react-router'
 import { navigate, openNewPage } from '../../utils/navigation'
 import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '../../core/connect-session'
+import { handlePipelineEvent, PipelinePusherEvent } from '../apps/pipeline/pipeline-info'
+import { useChannel, useEvent } from '@harelpls/use-pusher'
 
 interface PipelineRowProps {
   pipeline: PipelineModelInterface
@@ -22,19 +26,28 @@ interface PipelineRowProps {
 
 export const PipelineRow: FC<PipelineRowProps> = ({ pipeline }) => {
   const history = useHistory()
+  const [appPipeline, setAppPipeline] = useState<PipelineModelInterface>(pipeline)
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [isOpen, setIsOpen] = useState<boolean>(false)
+
+  const channel = useChannel(`private-${connectSession?.loginIdentity.developerId}`)
+  useEvent<PipelinePusherEvent>(
+    channel,
+    'pipeline-runner-update',
+    handlePipelineEvent(appPipeline, setAppPipeline as Dispatch<SetStateAction<PipelineModelInterface | null>>),
+  )
 
   return (
     <TableRowContainer>
       <TableRow>
-        <TableCell>{pipeline.name}</TableCell>
+        <TableCell>{appPipeline.name}</TableCell>
         <TableCell>
-          <StatusIndicator intent={buildStatusToIntent(pipeline.buildStatus as string)} />
-          {buildStatusToReadable(pipeline.buildStatus as string)}
+          <StatusIndicator intent={buildStatusToIntent(appPipeline.buildStatus as string)} />
+          {buildStatusToReadable(appPipeline.buildStatus as string)}
         </TableCell>
         <TableCell>
-          <a target="_blank" href={pipeline.repository} rel="noreferrer">
-            {pipeline.repository}
+          <a target="_blank" href={appPipeline.repository} rel="noreferrer">
+            {appPipeline.repository}
           </a>
         </TableCell>
         <TableExpandableRowTriggerCell
@@ -47,21 +60,21 @@ export const PipelineRow: FC<PipelineRowProps> = ({ pipeline }) => {
           <ButtonGroup>
             <Button
               intent="secondary"
-              onClick={navigate(history, Routes.APP_PIPELINE_CONFIGURE.replace(':appId', pipeline.appId as string))}
+              onClick={navigate(history, Routes.APP_PIPELINE_CONFIGURE.replace(':appId', appPipeline.appId as string))}
             >
               Configure
             </Button>
             <Button
               intent="primary"
-              onClick={navigate(history, Routes.APP_PIPELINE.replace(':appId', pipeline.appId as string))}
+              onClick={navigate(history, Routes.APP_PIPELINE.replace(':appId', appPipeline.appId as string))}
             >
               Deployments
             </Button>
-            {pipelineViewable(pipeline.buildStatus as string) && (
+            {pipelineViewable(appPipeline.buildStatus as string) && (
               <Button
                 intent="critical"
                 chevronRight
-                onClick={openNewPage(`https://${pipeline.subDomain}.iaas.reapit.cloud`)}
+                onClick={openNewPage(`https://${appPipeline.subDomain}.iaas.paas.reapit.cloud`)}
               >
                 View App
               </Button>

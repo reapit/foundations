@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { FlexContainer, Loader, Subtitle, Title } from '@reapit/elements'
+import { Button, ButtonGroup, FlexContainer, Loader, Subtitle, Title, useMediaQuery, useModal } from '@reapit/elements'
 import { useAnalyticsState } from '../state/use-analytics-state'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { useReapitGet } from '@reapit/utils-react'
@@ -9,12 +9,15 @@ import { InstallationModelPagedResult } from '@reapit/foundations-ts-definitions
 import { useReapitConnect } from '@reapit/connect-session'
 import { InstallationsPerDayChart } from './installations-per-day-chart'
 import { InstallationsByAppChart } from './installations-by-app-chart'
+import { Controls } from '../page/controls'
 
 export const AnalyticsInstallations: FC = () => {
   const { analyticsFilterState } = useAnalyticsState()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { dateFrom, dateTo, clientId, appId } = analyticsFilterState
   const developerId = connectSession?.loginIdentity.developerId
+  const { Modal, openModal, closeModal } = useModal()
+  const { isMobile } = useMediaQuery()
 
   const appsQuery = appId ? { appId } : {}
 
@@ -36,7 +39,26 @@ export const AnalyticsInstallations: FC = () => {
 
   return (
     <>
-      <Title>Installations</Title>
+      <FlexContainer isFlexJustifyBetween>
+        <Title>Installations</Title>
+        {isMobile && (
+          <ButtonGroup alignment="right">
+            <Button intent="low" onClick={openModal}>
+              Controls
+            </Button>
+          </ButtonGroup>
+        )}
+      </FlexContainer>
+      {isMobile && (
+        <Modal title="Controls">
+          <Controls />
+          <ButtonGroup alignment="center">
+            <Button fixedWidth intent="secondary" onClick={closeModal}>
+              Close
+            </Button>
+          </ButtonGroup>
+        </Modal>
+      )}
       <FlexContainer isFlexWrap>
         <ChartWrapper>
           <Subtitle>Installations Per Day</Subtitle>

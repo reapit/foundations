@@ -194,6 +194,27 @@ Object {
                   </label>
                 </div>
               </div>
+              <div
+                class="ep31he9-el-input-wrap-full"
+              >
+                <div
+                  class="e1979rmu-el-input-group"
+                >
+                  <input
+                    class="e1urjlvd-el-input"
+                    id="gitHubUsername"
+                    name="gitHubUsername"
+                    placeholder="Gihub handle"
+                    type="tel"
+                  />
+                  <label
+                    class="e1nbkkrq-el-label"
+                    for="gitHubUsername"
+                  >
+                    GitHub Username
+                  </label>
+                </div>
+              </div>
             </div>
             <div
               class="e7eari0-el-mb12 eay05y4-el-button-group"
@@ -404,6 +425,27 @@ Object {
                   for="telephone"
                 >
                   Telephone
+                </label>
+              </div>
+            </div>
+            <div
+              class="ep31he9-el-input-wrap-full"
+            >
+              <div
+                class="e1979rmu-el-input-group"
+              >
+                <input
+                  class="e1urjlvd-el-input"
+                  id="gitHubUsername"
+                  name="gitHubUsername"
+                  placeholder="Gihub handle"
+                  type="tel"
+                />
+                <label
+                  class="e1nbkkrq-el-label"
+                  for="gitHubUsername"
+                >
+                  GitHub Username
                 </label>
               </div>
             </div>

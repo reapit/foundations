@@ -29,6 +29,7 @@ import { useHistory, useLocation } from 'react-router'
 import { History } from 'history'
 import Routes from '../../../constants/routes'
 import { PipelineTabs } from './pipeline-tabs'
+import { specialCharsTest } from '../../../utils/yup'
 
 type PipelineModelSchema = Omit<
   PipelineModelInterface,
@@ -48,15 +49,15 @@ type PipelineModelSchema = Omit<
 }
 
 const schema: SchemaOf<PipelineModelSchema> = object().shape({
-  name: string().required('Required - defaults to your app name'),
-  branch: string().required('Required - eg "main", "master"'),
+  name: string().required('Required - defaults to your app name').test(specialCharsTest),
+  branch: string().required('Required - eg "main", "master"').test(specialCharsTest),
   repository: string()
     .trim()
     .required(errorMessages.FIELD_REQUIRED)
     .matches(httpsUrlRegex, 'Should be a secure https url'),
-  buildCommand: string().trim().required('A build command is required eg "build" or "bundle"'),
+  buildCommand: string().trim().required('A build command is required eg "build" or "bundle"').test(specialCharsTest),
   packageManager: boolean().required('Required - either yarn or NPM'),
-  outDir: string().required('Required eg "dist" or "public'),
+  outDir: string().required('Required eg "dist" or "public').test(specialCharsTest),
 })
 
 export const handlePipelineUpdate =

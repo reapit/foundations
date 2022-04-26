@@ -1,8 +1,8 @@
 import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
-import { elMb11, Loader, Pagination, Table } from '@reapit/elements'
+import { elMb11, Loader, Pagination, StatusIndicator, Table } from '@reapit/elements'
 import { PipelineModelInterface, PipelineRunnerModelInterface } from '@reapit/foundations-ts-definitions'
 import { useAppState } from '../state/use-app-state'
-import { buildStatusToReadable } from '../../../utils/pipeline-helpers'
+import { buildStatusToIntent, buildStatusToReadable, runnerTypeToReadable } from '../../../utils/pipeline-helpers'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { useReapitGet } from '@reapit/utils-react'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
@@ -124,8 +124,8 @@ export const PipelineDeploymentTable: FC = () => {
               ({ type, created, buildStatus, buildVersion, currentlyDeployed, tasks }) => ({
                 cells: [
                   {
-                    label: 'Type',
-                    value: type ?? '',
+                    label: 'Release Type',
+                    value: type ? runnerTypeToReadable(type) : 'Unknown',
                     cellHasDarkText: true,
                     narrowTable: {
                       showLabel: true,
@@ -141,7 +141,13 @@ export const PipelineDeploymentTable: FC = () => {
                   },
                   {
                     label: 'Status',
-                    value: buildStatusToReadable(buildStatus as string),
+                    value: '',
+                    children: (
+                      <>
+                        <StatusIndicator intent={buildStatusToIntent(buildStatus as string)} />
+                        {buildStatusToReadable(buildStatus as string)}
+                      </>
+                    ),
                     cellHasDarkText: true,
                     narrowTable: {
                       showLabel: true,

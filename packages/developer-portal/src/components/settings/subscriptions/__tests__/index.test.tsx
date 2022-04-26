@@ -5,7 +5,7 @@ import {
   handleSetSubscriptionId,
   SettingsSubscriptionsPage,
 } from '..'
-import { render } from '../../../../tests/react-testing'
+import { render, setViewport } from '../../../../tests/react-testing'
 import { mockSubscriptionModelPagedResult } from '../../../../tests/__stubs__/subscriptions'
 
 jest.mock('@reapit/utils-react', () => ({
@@ -15,6 +15,15 @@ jest.mock('@reapit/utils-react', () => ({
 
 describe('SettingsSubscriptionsPage', () => {
   it('should match snapshot', () => {
+    expect(render(<SettingsSubscriptionsPage />)).toMatchSnapshot()
+  })
+
+  it('should match snapshot for mobile view', () => {
+    const testElem = document.createElement('div')
+    testElem.id = 'root'
+    document.body.appendChild(testElem)
+
+    setViewport('Mobile')
     expect(render(<SettingsSubscriptionsPage />)).toMatchSnapshot()
   })
 })

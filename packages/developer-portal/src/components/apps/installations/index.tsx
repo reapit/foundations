@@ -4,6 +4,7 @@ import {
   Button,
   ButtonGroup,
   elMb11,
+  FlexContainer,
   FormLayout,
   InputGroup,
   InputWrapFull,
@@ -12,6 +13,7 @@ import {
   PersistantNotification,
   Table,
   Title,
+  useMediaQuery,
   useModal,
 } from '@reapit/elements'
 import { useParams } from 'react-router-dom'
@@ -28,6 +30,8 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { object, SchemaOf, string } from 'yup'
 import errorMessages from '../../../constants/error-messages'
+import { specialCharsTest } from '../../../utils/yup'
+import { Helper } from '../page/helper'
 
 const uninstallAppSchema: SchemaOf<TerminateInstallationModel> = object().shape({
   appId: string().trim().required(errorMessages.FIELD_REQUIRED),
@@ -35,7 +39,8 @@ const uninstallAppSchema: SchemaOf<TerminateInstallationModel> = object().shape(
   terminatedReason: string()
     .trim()
     .required(errorMessages.FIELD_REQUIRED)
-    .min(10, 'Must be a minimum of 10 characters'),
+    .min(10, 'Must be a minimum of 10 characters')
+    .test(specialCharsTest),
   terminatesOn: string().trim().required(errorMessages.FIELD_REQUIRED),
 })
 
@@ -77,6 +82,8 @@ export const AppInstallations: FC = () => {
   const [pageNumber, setPageNumber] = useState<number>(1)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { Modal, openModal, closeModal } = useModal()
+  const { Modal: ModalDocs, openModal: openModalDocs, closeModal: closeModalDocs } = useModal()
+  const { isMobile } = useMediaQuery()
   const appName = appsDataState?.appDetail?.name ?? ''
   const developerId = connectSession?.loginIdentity.developerId
   const email = connectSession?.loginIdentity.email ?? ''
@@ -122,7 +129,26 @@ export const AppInstallations: FC = () => {
 
   return (
     <>
-      <Title>Installations</Title>
+      <FlexContainer isFlexJustifyBetween>
+        <Title>Installations</Title>
+        {isMobile && (
+          <ButtonGroup alignment="right">
+            <Button intent="low" onClick={openModalDocs}>
+              Controls
+            </Button>
+          </ButtonGroup>
+        )}
+      </FlexContainer>
+      {isMobile && (
+        <ModalDocs title="Controls">
+          <Helper />
+          <ButtonGroup alignment="center">
+            <Button fixedWidth intent="secondary" onClick={closeModalDocs}>
+              Close
+            </Button>
+          </ButtonGroup>
+        </ModalDocs>
+      )}
       {installationsLoading ? (
         <Loader />
       ) : installations?.totalCount ? (

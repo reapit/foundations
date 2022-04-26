@@ -8,11 +8,15 @@ Object {
       <div
         class="ecbqyq6-el-snack-holder"
       />
-      <p
-        class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e15ggth7-el-body-text"
+      <div
+        class="ec47sgk-el-mb11"
       >
-        Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
-      </p>
+        <p
+          class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
+        >
+          Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
+        </p>
+      </div>
       <div
         class="e6p05ya-el-fade-in ee6e7by-el-form-layout"
       >
@@ -95,11 +99,15 @@ Object {
     <div
       class="ecbqyq6-el-snack-holder"
     />
-    <p
-      class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e15ggth7-el-body-text"
+    <div
+      class="ec47sgk-el-mb11"
     >
-      Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
-    </p>
+      <p
+        class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
+      >
+        Select customers from the list below by default we have prepopulated this with ‘Sandbox Estates (SBOX)’. If you select one customer, you will need to specify each customer individually. If you select ‘All Customers’, the sandbox environment will be excluded and you will need to create a separate webhook for ‘Sandbox Estates (SBOX)’.
+      </p>
+    </div>
     <div
       class="e6p05ya-el-fade-in ee6e7by-el-form-layout"
     >

@@ -1,10 +1,22 @@
 import React, { ChangeEvent, Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
-import { Loader, PersistantNotification, Tabs, TabsOption, Title } from '@reapit/elements'
+import {
+  Button,
+  ButtonGroup,
+  FlexContainer,
+  Loader,
+  PersistantNotification,
+  Tabs,
+  TabsOption,
+  Title,
+  useMediaQuery,
+  useModal,
+} from '@reapit/elements'
 import { AppUriParams, useAppState } from '../state/use-app-state'
 import { handleSetAppId } from '../utils/handle-set-app-id'
 import { useParams } from 'react-router-dom'
 import { AppEditTab } from './edit-page-tabs'
 import { AppEditForm } from './app-edit-form'
+import { Helper } from '../page/helper'
 
 export const handleChangeTab =
   (setTab: Dispatch<SetStateAction<AppEditTab>>) => (event: ChangeEvent<HTMLInputElement>) => {
@@ -15,6 +27,8 @@ export const AppEditPage: FC = () => {
   const [tab, setTab] = useState<AppEditTab>(AppEditTab.general)
   const { appId } = useParams<AppUriParams>()
   const { appsDataState, setAppId } = useAppState()
+  const { isMobile } = useMediaQuery()
+  const { Modal, openModal, closeModal } = useModal()
 
   useEffect(handleSetAppId(appId, setAppId), [appId])
 
@@ -24,7 +38,26 @@ export const AppEditPage: FC = () => {
     <Loader />
   ) : appDetail ? (
     <>
-      <Title>{appDetail.name}</Title>
+      <FlexContainer isFlexJustifyBetween>
+        <Title>{appDetail.name}</Title>
+        {isMobile && (
+          <ButtonGroup alignment="right">
+            <Button intent="low" onClick={openModal}>
+              Controls
+            </Button>
+          </ButtonGroup>
+        )}
+      </FlexContainer>
+      {isMobile && (
+        <Modal title="Controls">
+          <Helper />
+          <ButtonGroup alignment="center">
+            <Button fixedWidth intent="secondary" onClick={closeModal}>
+              Close
+            </Button>
+          </ButtonGroup>
+        </Modal>
+      )}
       <Tabs
         isFullWidth
         name="app-edit-tabs"

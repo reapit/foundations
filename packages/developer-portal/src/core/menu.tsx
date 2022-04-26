@@ -1,109 +1,158 @@
-import * as React from 'react'
+import React, { FC } from 'react'
 import { useHistory, useLocation } from 'react-router'
 import Routes from '../constants/routes'
 import { Icon, NavResponsive, NavResponsiveOption } from '@reapit/elements'
 import { memo } from 'react'
 import { navigate } from '../utils/navigation'
-import dayjs from 'dayjs'
-import isBetween from 'dayjs/plugin/isBetween'
-import WeekOneXmas from '../assets/images/xmas-logos/Week1.png'
-import WeekTwoXmas from '../assets/images/xmas-logos/Week2.png'
-import WeekThreeXmas from '../assets/images/xmas-logos/Week3.png'
-import WeekFourXmas from '../assets/images/xmas-logos/Week4.png'
-import { styled } from '@linaria/react'
-import { selectLoginIdentity } from '@/utils/auth'
+// Commenting out until next Christmas
+// import dayjs from 'dayjs'
+// import isBetween from 'dayjs/plugin/isBetween'
+// import WeekOneXmas from '../assets/images/xmas-logos/Week1.png'
+// import WeekTwoXmas from '../assets/images/xmas-logos/Week2.png'
+// import WeekThreeXmas from '../assets/images/xmas-logos/Week3.png'
+// import WeekFourXmas from '../assets/images/xmas-logos/Week4.png'
+// import { styled } from '@linaria/react'
+import { selectIsCustomer, selectLoginIdentity } from '@/utils/auth'
 import { useReapitConnect } from '@reapit/connect-session'
-import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { reapitConnectBrowserSession } from './connect-session'
 
-const XmasImage = styled.img`
-  height: 2.5rem;
-  width: 2.5rem;
-`
+// const XmasImage = styled.img`
+//   height: 2.5rem;
+//   width: 2.5rem;
+// `
 
-dayjs.extend(isBetween)
+// dayjs.extend(isBetween)
 
-export const XmasLogo: React.FC = () => {
-  const now = dayjs()
+// export const XmasLogo: React.FC = () => {
+//   const now = dayjs()
 
-  if (now.isBetween('2021-11-30', '2021-12-07', 'day')) {
-    return <XmasImage src={WeekOneXmas} />
-  }
+//   if (now.isBetween('2021-11-30', '2021-12-07', 'day')) {
+//     return <XmasImage src={WeekOneXmas} />
+//   }
 
-  if (now.isBetween('2021-12-06', '2021-12-14', 'day')) {
-    return <XmasImage src={WeekTwoXmas} />
-  }
+//   if (now.isBetween('2021-12-06', '2021-12-14', 'day')) {
+//     return <XmasImage src={WeekTwoXmas} />
+//   }
 
-  if (now.isBetween('2021-12-13', '2021-12-21', 'day')) {
-    return <XmasImage src={WeekThreeXmas} />
-  }
+//   if (now.isBetween('2021-12-13', '2021-12-21', 'day')) {
+//     return <XmasImage src={WeekThreeXmas} />
+//   }
 
-  if (now.isBetween('2021-12-20', '2021-12-27', 'day')) {
-    return <XmasImage src={WeekFourXmas} />
-  }
+//   if (now.isBetween('2021-12-20', '2021-12-27', 'day')) {
+//     return <XmasImage src={WeekFourXmas} />
+//   }
 
-  return <Icon iconSize="medium" icon="reapitLogoMenu" />
-}
+//   return <Icon iconSize="medium" icon="reapitLogoMenu" />
+// }
 
 export const getDefaultNavIndex = (pathname: string) => {
   if (pathname.includes('/apps')) return 1
+  if (pathname.includes('/analytics/')) return 2
+  if (pathname.includes('/webhooks')) return 3
+  if (pathname.includes('/settings')) return 8
+
   switch (pathname) {
-    case Routes.ANALYTICS:
-    case Routes.ANALYTICS_COSTS:
-    case Routes.ANALYTICS_API_CALLS:
-    case Routes.ANALYTICS_INSTALLATIONS:
-    case Routes.ANALYTICS_COST_CALCULATOR:
-      return 2
     case Routes.SWAGGER:
-    case Routes.WEBHOOKS_ABOUT:
-    case Routes.WEBHOOKS_LOGS:
-    case Routes.WEBHOOKS_MANAGE:
-    case Routes.WEBHOOKS_NEW:
     case Routes.GRAPHQL:
     case Routes.DESKTOP:
       return 3
     case Routes.ELEMENTS:
       return 4
-    case Routes.API_DOCS:
-      return 5
     case Routes.IAAS:
+      return 5
+    case Routes.API_DOCS:
+    case Routes.ANALYTICS_SCHEMA_DOCS:
       return 6
-    case Routes.SETTINGS:
-    case Routes.SETTINGS_COMPANY:
-    case Routes.SETTINGS_MEMBERS:
-    case Routes.SETTINGS_PASSWORD:
-    case Routes.SETTINGS_PROFILE:
-    case Routes.SETTINGS_SUBSCRIPTIONS:
-      return 9
     default:
       return 0
   }
 }
 
-export const Menu: React.FunctionComponent = () => {
+export const Menu: FC = () => {
   const location = useLocation()
   const history = useHistory()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const loginIdentity = selectLoginIdentity(connectSession)
+  const { pathname } = location
+  const appId = pathname.includes('apps') ? pathname.split('/')[2] : ''
+  const hasPipelines =
+    loginIdentity?.developerId && window.reapit.config.pipelineWhitelist.includes(loginIdentity.developerId)
+  const isCustomer = selectIsCustomer(connectSession)
 
-  if (location.pathname === Routes.INVITE) return null
+  if (pathname === Routes.INVITE) return null
 
-  const navOptions: Array<NavResponsiveOption> = [
+  const navOptions = [
     {
       itemIndex: 0,
       callback: navigate(history, Routes.APPS),
-      icon: <XmasLogo />,
+      icon: <Icon iconSize="medium" icon="reapitLogoMenu" />,
     },
     {
       itemIndex: 1,
       callback: navigate(history, Routes.APPS),
       iconId: 'appsMenu',
       text: 'Apps',
+      subItems: [
+        {
+          itemIndex: 0,
+          callback: navigate(history, Routes.APPS),
+          text: 'My Apps',
+        },
+        appId && {
+          itemIndex: 1,
+          callback: navigate(history, `${Routes.APPS}/${appId}`),
+          text: 'App Details',
+        },
+        appId && {
+          itemIndex: 2,
+          callback: navigate(history, `${Routes.APPS}/${appId}/edit`),
+          text: 'Edit App',
+        },
+        appId && {
+          itemIndex: 3,
+          callback: navigate(history, `${Routes.APPS}/${appId}/installations`),
+          text: 'Installations',
+        },
+        appId &&
+          hasPipelines && {
+            itemIndex: 4,
+            callback: navigate(history, `${Routes.APPS}/${appId}/pipeline`),
+            text: 'Pipeline',
+          },
+        {
+          itemIndex: 5,
+          callback: navigate(history, Routes.APPS_NEW),
+          text: 'New App',
+        },
+      ].filter(Boolean),
     },
     {
       itemIndex: 2,
       callback: navigate(history, Routes.ANALYTICS_API_CALLS),
       iconId: 'analyticsMenu',
       text: 'Analytics',
+      subItems: [
+        {
+          itemIndex: 6,
+          callback: navigate(history, Routes.ANALYTICS_API_CALLS),
+          text: 'API Usage',
+        },
+        {
+          itemIndex: 7,
+          callback: navigate(history, Routes.ANALYTICS_COSTS),
+          text: 'Costs',
+        },
+        {
+          itemIndex: 8,
+          callback: navigate(history, Routes.ANALYTICS_INSTALLATIONS),
+          text: 'Installations',
+        },
+        isCustomer && {
+          itemIndex: 9,
+          callback: navigate(history, Routes.ANALYTICS_COST_CALCULATOR),
+          text: 'Cost Calculator',
+        },
+      ].filter(Boolean),
     },
     {
       itemIndex: 3,
@@ -112,25 +161,23 @@ export const Menu: React.FunctionComponent = () => {
       text: 'API',
       subItems: [
         {
-          itemIndex: 0,
+          itemIndex: 10,
           callback: navigate(history, Routes.SWAGGER),
           text: 'Foundations API',
         },
         {
-          itemIndex: 1,
+          itemIndex: 11,
           callback: navigate(history, Routes.WEBHOOKS_ABOUT),
-          iconId: 'webhooksMenu',
           text: 'Webhooks',
         },
         {
-          itemIndex: 2,
+          itemIndex: 12,
           callback: navigate(history, Routes.GRAPHQL),
           text: 'GraphQL',
         },
         {
-          itemIndex: 3,
+          itemIndex: 13,
           callback: navigate(history, Routes.DESKTOP),
-          iconId: 'desktopMenu',
           text: 'Desktop',
         },
       ],
@@ -141,19 +188,26 @@ export const Menu: React.FunctionComponent = () => {
       iconId: 'uiMenu',
       text: 'UI',
     },
+    loginIdentity?.developerId &&
+      window.reapit.config.pipelineWhitelist.includes(loginIdentity?.developerId) && {
+        itemIndex: 5,
+        callback: navigate(history, Routes.IAAS),
+        iconId: 'dataMenu',
+        text: 'IaaS',
+      },
     {
-      itemIndex: 5,
+      itemIndex: 6,
       callback: navigate(history, Routes.API_DOCS),
       iconId: 'docsMenu',
       text: 'Docs',
       subItems: [
         {
-          itemIndex: 4,
+          itemIndex: 14,
           callback: navigate(history, Routes.API_DOCS),
           text: 'APIs',
         },
         {
-          itemIndex: 5,
+          itemIndex: 15,
           callback: navigate(history, Routes.ANALYTICS_SCHEMA_DOCS),
           text: 'Warehouse',
         },
@@ -166,24 +220,42 @@ export const Menu: React.FunctionComponent = () => {
       text: 'AppMarket',
     },
     {
-      itemIndex: 9,
+      itemIndex: 8,
       callback: navigate(history, Routes.SETTINGS_PROFILE),
       iconId: 'myAccountMenu',
       text: 'Settings',
       isSecondary: true,
+      subItems: [
+        {
+          itemIndex: 16,
+          callback: navigate(history, Routes.SETTINGS_PROFILE),
+          text: 'Profile',
+        },
+        {
+          itemIndex: 17,
+          callback: navigate(history, Routes.SETTINGS_PASSWORD),
+          text: 'Password',
+        },
+        {
+          itemIndex: 18,
+          callback: navigate(history, Routes.SETTINGS_MEMBERS),
+          text: 'Members',
+        },
+        {
+          itemIndex: 19,
+          callback: navigate(history, Routes.SETTINGS_COMPANY),
+          text: 'Company',
+        },
+        {
+          itemIndex: 20,
+          callback: navigate(history, Routes.SETTINGS_SUBSCRIPTIONS),
+          text: 'Subscriptions',
+        },
+      ],
     },
-  ]
+  ].filter(Boolean) as NavResponsiveOption[]
 
-  if (loginIdentity?.developerId && window.reapit.config.pipelineWhitelist.includes(loginIdentity?.developerId)) {
-    navOptions.splice(5, 0, {
-      itemIndex: 10,
-      callback: navigate(history, Routes.IAAS),
-      iconId: 'dataMenu',
-      text: 'IaaS',
-    })
-  }
-
-  return <NavResponsive defaultNavIndex={getDefaultNavIndex(location.pathname)} options={navOptions} />
+  return <NavResponsive defaultNavIndex={getDefaultNavIndex(pathname)} options={navOptions} />
 }
 
 export default memo(Menu)

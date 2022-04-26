@@ -1,4 +1,13 @@
-import { BodyText, InputGroup, MultiSelectInput, FormLayout, InputWrapMed, elFadeIn, elMb5 } from '@reapit/elements'
+import {
+  BodyText,
+  InputGroup,
+  MultiSelectInput,
+  FormLayout,
+  InputWrapMed,
+  elFadeIn,
+  elMb5,
+  elMb11,
+} from '@reapit/elements'
 import React, { ChangeEvent, Dispatch, FC, SetStateAction, useState } from 'react'
 import { DeepMap, FieldError, UseFormGetValues, UseFormRegister } from 'react-hook-form'
 import { TopicModel } from '../../types/webhooks'
@@ -53,11 +62,13 @@ export const WebhooksNewTopics: FC<WebhooksNewTopicsProps> = ({ register, getVal
 
   return (
     <>
-      <BodyText hasSectionMargin hasGreyText>
-        Select topics for your webhook from the list below to allow your application to receive real-time notifications
-        about the topics you choose to subscribe to. A single webhook subscription can receive notifications for
-        multiple topics so long as your application has been granted the required permissions.
-      </BodyText>
+      <div className={elMb11}>
+        <BodyText hasNoMargin hasGreyText>
+          Select topics for your webhook from the list below to allow your application to receive real-time
+          notifications about the topics you choose to subscribe to. A single webhook subscription can receive
+          notifications for multiple topics so long as your application has been granted the required permissions.
+        </BodyText>
+      </div>
       <FormLayout className={elFadeIn}>
         <InputWrapMed>
           <InputGroup

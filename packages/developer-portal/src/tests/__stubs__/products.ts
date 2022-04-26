@@ -5,11 +5,13 @@ export const mockProductModelPagedResult: ProductModelPagedResult = {
     {
       id: 'agencyCloud',
       name: 'AgencyCloud',
+      defaultSandboxId: 'GBR',
       openApiUrl: 'https://platform.dev.paas.reapit.cloud/docs/swagger/agencyCloud_swagger.json',
     },
     {
       id: 'agencyCloudAus',
       name: 'AgencyCloud Australia',
+      defaultSandboxId: 'AUS',
       openApiUrl: 'https://platform.dev.paas.reapit.cloud/docs/swagger/agencyCloudAus_swagger.json',
     },
     {

@@ -1,13 +1,18 @@
 import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
 import {
+  Button,
+  ButtonGroup,
   elMb11,
   elSpan2,
+  FlexContainer,
   Loader,
   Pagination,
   PersistantNotification,
   StatusIndicator,
   Table,
   Title,
+  useMediaQuery,
+  useModal,
 } from '@reapit/elements'
 import { SendFunction, useReapitGet, useReapitUpdate } from '@reapit/utils-react'
 import { SubscriptionModelPagedResult } from '@reapit/foundations-ts-definitions'
@@ -15,6 +20,7 @@ import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { GetActionNames, getActions, UpdateActionNames, updateActions } from '@reapit/utils-common'
 import { useReapitConnect } from '@reapit/connect-session'
 import dayjs from 'dayjs'
+import { Controls } from '../page/controls'
 
 export const handleRefreshSubscriptions =
   (
@@ -52,6 +58,8 @@ export const SettingsSubscriptionsPage: FC = () => {
   const [subscriptionId, setSubscriptionId] = useState<string | null>(null)
   const [pageNumber, setPageNumber] = useState<number>(1)
   const developerId = connectSession?.loginIdentity.developerId
+  const { Modal, openModal, closeModal } = useModal()
+  const { isMobile } = useMediaQuery()
 
   const [subscriptions, subscriptionsLoading, , refreshSubscriptions] = useReapitGet<SubscriptionModelPagedResult>({
     reapitConnectBrowserSession,
@@ -75,7 +83,26 @@ export const SettingsSubscriptionsPage: FC = () => {
 
   return (
     <>
-      <Title>Subscriptions</Title>
+      <FlexContainer isFlexJustifyBetween>
+        <Title>Subscriptions</Title>
+        {isMobile && (
+          <ButtonGroup alignment="right">
+            <Button intent="low" onClick={openModal}>
+              Controls
+            </Button>
+          </ButtonGroup>
+        )}
+      </FlexContainer>
+      {isMobile && (
+        <Modal title="Controls">
+          <Controls />
+          <ButtonGroup alignment="center">
+            <Button fixedWidth intent="secondary" onClick={closeModal}>
+              Close
+            </Button>
+          </ButtonGroup>
+        </Modal>
+      )}
       {subscriptionsLoading && <Loader />}
       <Table
         className={elMb11}

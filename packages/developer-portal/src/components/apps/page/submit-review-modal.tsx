@@ -11,6 +11,7 @@ import { object, SchemaOf, string } from 'yup'
 import errorMessages from '../../../constants/error-messages'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useGlobalState } from '../../../core/use-global-state'
+import { specialCharsTest } from '../../../utils/yup'
 
 interface SubmitReviewModalProps {
   developer: DeveloperModel
@@ -19,8 +20,8 @@ interface SubmitReviewModalProps {
 }
 
 const schema: SchemaOf<{ reapitReference: string }> = object().shape({
-  reapitReference: string().trim().required(errorMessages.FIELD_REQUIRED),
-  status: string().trim().required(errorMessages.FIELD_REQUIRED),
+  reapitReference: string().trim().required(errorMessages.FIELD_REQUIRED).test(specialCharsTest),
+  status: string().trim().required(errorMessages.FIELD_REQUIRED).test(specialCharsTest),
 })
 
 export const getTitle = (isCustomer: boolean, orgStatus?: string): string => {

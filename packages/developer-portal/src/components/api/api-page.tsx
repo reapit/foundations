@@ -30,14 +30,14 @@ import DesktopPage from '../desktop'
 import GraphQLPage from '../graphql'
 import SwaggerPage from '../swagger'
 import { cx } from '@linaria/core'
-import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { ControlsContainer } from '../webhooks/__styles__'
 import { useReapitGet } from '@reapit/utils-react'
 import { GetActionNames, getActions } from '@reapit/utils-common'
-import { ProductModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { MemberModel, ProductModelPagedResult } from '@reapit/foundations-ts-definitions'
 import WebhooksControls from '../webhooks/webhooks-controls'
 import { useWebhooksState } from '../webhooks/state/use-webhooks-state'
+import { useGlobalState } from '../../core/use-global-state'
 
 export const handleChangeSwaggerDoc =
   (setSwaggerUri: Dispatch<SetStateAction<string | null>>) => (event: ChangeEvent<HTMLSelectElement>) => {
@@ -49,20 +49,20 @@ export const handleDefaultSwaggerDoc =
   (
     setSwaggerUri: Dispatch<SetStateAction<string | null>>,
     productsList: ProductModelPagedResult | null,
-    connectSession: ReapitConnectSession | null,
+    currentMember: MemberModel | null,
   ) =>
   () => {
-    const orgProduct = connectSession?.loginIdentity.orgProduct
-    if (!orgProduct || !productsList) return
-    const swaggerUri = productsList.data?.find((product) => product.id === orgProduct)?.openApiUrl ?? null
+    const sandboxId = currentMember?.sandboxId
+    if (!sandboxId || !productsList) return
+    const swaggerUri = productsList.data?.find((product) => product.defaultSandboxId === sandboxId)?.openApiUrl ?? null
     setSwaggerUri(swaggerUri)
   }
 
 export const ApiPage: FC = () => {
   const history = useHistory()
   const location = useLocation()
+  const { globalDataState } = useGlobalState()
   const { webhooksDataState } = useWebhooksState()
-  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [swaggerUri, setSwaggerUri] = useState<string | null>(null)
 
   const [productsList] = useReapitGet<ProductModelPagedResult>({
@@ -70,7 +70,9 @@ export const ApiPage: FC = () => {
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getProducts],
   })
 
-  useEffect(handleDefaultSwaggerDoc(setSwaggerUri, productsList, connectSession), [productsList, connectSession])
+  const { currentMember } = globalDataState
+
+  useEffect(handleDefaultSwaggerDoc(setSwaggerUri, productsList, currentMember), [productsList, currentMember])
 
   const { apps } = webhooksDataState
   const { pathname } = location
@@ -187,7 +189,11 @@ export const ApiPage: FC = () => {
         <PageContainer className={elHFull}>
           <ErrorBoundary>
             <Switch>
-              <Route path={Routes.SWAGGER} exact component={() => <SwaggerPage swaggerUri={swaggerUri} />} />
+              <Route
+                path={Routes.SWAGGER}
+                exact
+                render={(props) => <SwaggerPage {...props} swaggerUri={swaggerUri} />}
+              />
               <Route path={Routes.WEBHOOKS} component={WebhooksPage} />
               <Route path={Routes.GRAPHQL} exact component={GraphQLPage} />
               <Route path={Routes.DESKTOP} exact component={DesktopPage} />

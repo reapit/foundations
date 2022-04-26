@@ -1613,6 +1613,10 @@ export interface ProductModel {
    * The URL at which the OpenAPI specification JSON document for the product can be obtained
    */
   openApiUrl?: string
+  /**
+   * The identifier of the default sandbox that should be used by the product
+   */
+  defaultSandboxId?: string
 }
 /**
  * Model to handle paged data and information

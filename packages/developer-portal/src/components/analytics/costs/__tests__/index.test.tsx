@@ -1,6 +1,6 @@
 import React from 'react'
 import { batchFetchBillingService } from '../../../../services/billing'
-import { render } from '../../../../tests/react-testing'
+import { render, setViewport } from '../../../../tests/react-testing'
 import { mockMonthlyBillingData } from '../../../../tests/__stubs__/billing'
 import { defaultAnalyticsFilterState } from '../../state/defaults'
 import { AnalyticsCosts, handleFetchBilling } from '../index'
@@ -35,6 +35,15 @@ describe('AnalyticsCosts', () => {
 
   it('should match snapshot where no billing is returned', () => {
     mockBatchFetchBillingService.mockReturnValueOnce(false)
+    expect(render(<AnalyticsCosts />)).toMatchSnapshot()
+  })
+
+  it('should match snapshot for mobile view', () => {
+    const testElem = document.createElement('div')
+    testElem.id = 'root'
+    document.body.appendChild(testElem)
+
+    setViewport('Mobile')
     expect(render(<AnalyticsCosts />)).toMatchSnapshot()
   })
 })

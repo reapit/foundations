@@ -2,7 +2,7 @@ import React, { Dispatch, FC, SetStateAction } from 'react'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { buildStatusToIntent, buildStatusToReadable } from '../../../utils/pipeline-helpers'
 import { useReapitConnect } from '@reapit/connect-session'
-import { BodyText, Col, elMb11, Grid, StatusIndicator, Subtitle } from '@reapit/elements'
+import { BodyText, Col, elMb11, elMr4, FlexContainer, Grid, Icon, StatusIndicator, Subtitle } from '@reapit/elements'
 import { useChannel, useEvent } from '@harelpls/use-pusher'
 import { useAppState } from '../state/use-app-state'
 import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
@@ -45,29 +45,50 @@ export const PipelineInfo: FC = () => {
       <PipelineTabs />
       <Grid className={elMb11}>
         <Col>
-          <Subtitle hasNoMargin>Status</Subtitle>
-          <BodyText hasNoMargin hasGreyText>
-            <StatusIndicator intent={buildStatusToIntent(appPipeline?.buildStatus ?? '')} />{' '}
-            {buildStatusToReadable(appPipeline?.buildStatus ?? '')}
-          </BodyText>
+          <FlexContainer isFlexAlignCenter>
+            <Icon className={elMr4} icon="refreshInfographic" iconSize="medium" />
+            <div>
+              <Subtitle hasNoMargin>Status</Subtitle>
+              <BodyText hasNoMargin hasGreyText>
+                <StatusIndicator intent={buildStatusToIntent(appPipeline?.buildStatus ?? '')} />{' '}
+                {buildStatusToReadable(appPipeline?.buildStatus ?? '')}
+              </BodyText>
+            </div>
+          </FlexContainer>
         </Col>
         <Col>
-          <Subtitle hasNoMargin>Repository</Subtitle>
-          <BodyText hasNoMargin hasGreyText>
-            {appPipeline?.repository ?? 'Not configured'}
-          </BodyText>
+          <FlexContainer isFlexAlignCenter>
+            <Icon className={elMr4} icon="apiDocsInfographic" iconSize="medium" />
+            <div>
+              <Subtitle hasNoMargin>Repository</Subtitle>
+              <BodyText hasNoMargin hasGreyText>
+                {appPipeline?.repository ? (
+                  <a href={appPipeline.repository} target="_blank" rel="noreferrer">
+                    {appPipeline.repository}
+                  </a>
+                ) : (
+                  'Not configured'
+                )}
+              </BodyText>
+            </div>
+          </FlexContainer>
         </Col>
         <Col>
-          <Subtitle hasNoMargin>Location</Subtitle>
-          <BodyText hasNoMargin hasGreyText>
-            {appPipeline?.subDomain ? (
-              <a href={pipelineUri} target="_blank" rel="noreferrer">
-                {pipelineUri}
-              </a>
-            ) : (
-              'Not yet deployed'
-            )}
-          </BodyText>
+          <FlexContainer isFlexAlignCenter>
+            <Icon className={elMr4} icon="globeInfographic" iconSize="medium" />
+            <div>
+              <Subtitle hasNoMargin>Location</Subtitle>
+              <BodyText hasNoMargin hasGreyText>
+                {appPipeline?.subDomain ? (
+                  <a href={pipelineUri} target="_blank" rel="noreferrer">
+                    {pipelineUri}
+                  </a>
+                ) : (
+                  'Not yet deployed'
+                )}
+              </BodyText>
+            </div>
+          </FlexContainer>
         </Col>
       </Grid>
       <PipelineDeploymentTable />

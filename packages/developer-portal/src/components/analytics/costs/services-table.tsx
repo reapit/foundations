@@ -17,7 +17,7 @@ export interface ServicesTableProps {
 }
 
 export const ServicesTable: FC<ServicesTableProps> = ({ billing }) => {
-  const services = billing?.services ?? []
+  const services = billing?.services?.filter((service) => service.name !== 'API Requests') ?? []
 
   return services.length ? (
     <Table
@@ -25,7 +25,6 @@ export const ServicesTable: FC<ServicesTableProps> = ({ billing }) => {
       rows={
         services
           .map(({ name, amount, cost, itemCount, items }) => {
-            if (name === 'API Requests') return
             return {
               cells: [
                 {

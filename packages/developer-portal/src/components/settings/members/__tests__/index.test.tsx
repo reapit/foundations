@@ -1,6 +1,6 @@
 import React from 'react'
 import { getIntentFromStatus, handleRefreshMembers, SettingsMembersPage } from '..'
-import { render } from '../../../../tests/react-testing'
+import { render, setViewport } from '../../../../tests/react-testing'
 import { mockMembersPagedResult } from '../../../../tests/__stubs__/members'
 
 jest.mock('../../../../core/use-global-state')
@@ -12,6 +12,15 @@ jest.mock('@reapit/utils-react', () => ({
 
 describe('SettingsMembersPage', () => {
   it('should match snapshot', () => {
+    expect(render(<SettingsMembersPage />)).toMatchSnapshot()
+  })
+
+  it('should match snapshot for mobile view', () => {
+    const testElem = document.createElement('div')
+    testElem.id = 'root'
+    document.body.appendChild(testElem)
+
+    setViewport('Mobile')
     expect(render(<SettingsMembersPage />)).toMatchSnapshot()
   })
 })

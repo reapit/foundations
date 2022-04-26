@@ -24,8 +24,19 @@ const CombinedProvider: FC = ({ children }) => {
 const customRender = (ui: ReactElement, options?: RenderOptions<typeof queries, HTMLElement>) =>
   render(<CombinedProvider>{ui}</CombinedProvider>, { ...options })
 
+const setViewport = (size: 'Mobile' | 'Desktop') => {
+  const width = size === 'Mobile' ? 450 : 1440
+  Object.defineProperty(window, 'innerWidth', {
+    writable: true,
+    configurable: true,
+    value: width,
+  })
+
+  window.dispatchEvent(new Event('resize'))
+}
+
 // re-export everything
 export * from '@testing-library/react'
 
 // override render method
-export { customRender as render }
+export { customRender as render, setViewport }

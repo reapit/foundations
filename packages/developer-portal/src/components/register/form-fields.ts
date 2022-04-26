@@ -1,6 +1,6 @@
 import { FormFieldInfo } from '@reapit/utils-common'
 
-export type FieldKey = 'nameField' | 'companyNameField' | 'emailField' | 'telephoneField'
+export type FieldKey = 'nameField' | 'companyNameField' | 'emailField' | 'telephoneField' | 'gitHubUsernameField'
 
 export const formFields: Record<FieldKey, FormFieldInfo> = {
   nameField: {
@@ -25,5 +25,11 @@ export const formFields: Record<FieldKey, FormFieldInfo> = {
     label: 'Telephone',
     placeHolder: '0800 800 800',
     errorMessage: 'Invalid phone number',
+  },
+  gitHubUsernameField: {
+    name: 'gitHubUsername',
+    label: 'GitHub Username',
+    placeHolder: 'Gihub handle',
+    errorMessage: 'Invalid GitHub Username',
   },
 }

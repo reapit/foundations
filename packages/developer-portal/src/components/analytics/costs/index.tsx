@@ -1,5 +1,15 @@
 import React, { Dispatch, FC, SetStateAction, useEffect, useMemo, useState } from 'react'
-import { FlexContainer, Loader, Subtitle, Title, useSnack } from '@reapit/elements'
+import {
+  Button,
+  ButtonGroup,
+  FlexContainer,
+  Loader,
+  Subtitle,
+  Title,
+  useMediaQuery,
+  useModal,
+  useSnack,
+} from '@reapit/elements'
 import { AnalyticsFilterState, useAnalyticsState } from '../state/use-analytics-state'
 import { BillingBreakdownForMonthV2Model } from '@reapit/foundations-ts-definitions'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
@@ -12,6 +22,7 @@ import { ServicesChart } from './services-chart'
 import { DownloadResourcesTable } from './download-resources-table'
 import { getMonthsRange, handleAggregateBillingData } from './utils'
 import { batchFetchBillingService } from '../../../services/billing'
+import { Controls } from '../page/controls'
 
 export interface BillingState {
   loading: boolean
@@ -61,6 +72,8 @@ export const handleFetchBilling =
 
 export const AnalyticsCosts: FC = () => {
   const { analyticsFilterState } = useAnalyticsState()
+  const { Modal, openModal, closeModal } = useModal()
+  const { isMobile } = useMediaQuery()
   const { error } = useSnack()
   const [billingState, setBillingState] = useState<BillingState>({
     loading: false,
@@ -78,7 +91,29 @@ export const AnalyticsCosts: FC = () => {
 
   return (
     <>
-      <Title>Costs</Title>
+      <FlexContainer isFlexJustifyBetween>
+        <Title>Costs</Title>
+        {isMobile && (
+          <ButtonGroup alignment="right">
+            <Button intent="low" onClick={openModal}>
+              Controls
+            </Button>
+          </ButtonGroup>
+        )}
+      </FlexContainer>
+      {isMobile && (
+        <Modal title="Controls">
+          <Controls />
+          <ButtonGroup alignment="center">
+            <Button fixedWidth intent="secondary" onClick={closeModal}>
+              Close
+            </Button>
+          </ButtonGroup>
+        </Modal>
+      )}
+      <Subtitle>
+        Total for period: £{aggregatedBilling.totalCost ? aggregatedBilling.totalCost.toFixed(2).padStart(2, '0') : '0'}
+      </Subtitle>
       <FlexContainer isFlexWrap>
         <ChartWrapper>
           <Subtitle>Costs By Month</Subtitle>

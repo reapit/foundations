@@ -1,10 +1,12 @@
 import { Intent } from '@reapit/elements'
+import { PipelineRunnerType } from '@reapit/foundations-ts-definitions'
 
 export const buildStatusToIntent = (status: string): Intent => {
   switch (status) {
     case 'PROVISIONING':
       return 'primary'
     case 'SUCCEEDED':
+    case 'COMPLETED':
       return 'success'
     case 'IN_PROGRESS':
       return 'secondary'
@@ -20,6 +22,19 @@ export const buildStatusToIntent = (status: string): Intent => {
       return 'low'
     default:
       return 'neutral'
+  }
+}
+
+export const runnerTypeToReadable = (type: PipelineRunnerType): string => {
+  switch (type) {
+    case 'BUILD':
+      return 'Pulled from repo'
+    case 'RELEASE':
+      return 'Built from zip'
+    case 'REPO':
+      return 'Git pushed'
+    default:
+      return 'Unknown'
   }
 }
 
