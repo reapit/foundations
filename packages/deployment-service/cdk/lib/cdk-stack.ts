@@ -58,7 +58,7 @@ export const createStack = () => {
     component: 'usercode',
     accountId: config.USERCODE_ACCOUNT_ID,
   })
-  const envStage = process.env.NODE_ENV === 'production' ? 'prod' : 'dev'
+  const envStage = process.env.APP_STAGE === 'production' ? 'prod' : 'dev'
 
   const api = createApi(stack, 'apigateway', undefined)
   const vpc = createVpc(stack, 'vpc')
@@ -514,6 +514,7 @@ export const createStack = () => {
     CODE_BUILD_PROJECT_NAME: codeBuild.projectName,
     USERCODE_ROLE_ARN: policies.usercodeStackRoleArn,
     GITHUB_PEM_SECRET_ARN: githubPemSecret.ref,
+    NODE_ENV: process.env.APP_STAGE,
   }
 
   Object.values(QueueNames).forEach((queueKey) => {

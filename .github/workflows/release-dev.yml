@@ -12,7 +12,7 @@ env:
   AWS_REGION: ${{secrets.AWS_REGION}}
   SENTRY_AUTH_TOKEN: ${{secrets.SENTRY_AUTH_TOKEN}}
   CI: true
-  NODE_ENV: 'development'
+  APP_STAGE: 'development'
 
 jobs:
   release-dev:
