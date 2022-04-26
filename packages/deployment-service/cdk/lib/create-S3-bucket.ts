@@ -7,7 +7,7 @@ export enum BucketNames {
   REPO_CACHE = 'cloud-deployment-repo-cache-dev',
 }
 
-export const createS3Buckets = (stack: Stack, usercodeStack: Stack): Record<BucketNames, Bucket> => {
+export const createS3Buckets = (stack: Stack, usercodeStack: Stack, envStage: string): Record<BucketNames, Bucket> => {
   const bucketOptions: {
     [k in BucketNames]: BucketOptions
   } = {
@@ -39,7 +39,7 @@ export const createS3Buckets = (stack: Stack, usercodeStack: Stack): Record<Buck
     (buckets, bucketName) => {
       buckets[bucketName] = createBucket(
         bucketOptions[bucketName].stack || stack,
-        bucketName,
+        `${bucketName}-${envStage}`,
         bucketOptions[bucketName],
       )
       return buckets
