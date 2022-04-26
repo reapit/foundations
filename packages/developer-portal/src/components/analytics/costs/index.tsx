@@ -112,8 +112,7 @@ export const AnalyticsCosts: FC = () => {
         </Modal>
       )}
       <Subtitle>
-        Total for period: £
-        {aggregatedBilling.totalCost ? aggregatedBilling.totalCost.toFixed(2).padStart(2, '0') : '£0'}
+        Total for period: £{aggregatedBilling.totalCost ? aggregatedBilling.totalCost.toFixed(2).padStart(2, '0') : '0'}
       </Subtitle>
       <FlexContainer isFlexWrap>
         <ChartWrapper>

@@ -20,7 +20,7 @@ Object {
           <div
             class="e1qy4g2u-el-table-header"
           >
-            Type Release
+            Release Type
           </div>
           <div
             class="e1qy4g2u-el-table-header"
@@ -77,7 +77,7 @@ Object {
             >
               <div
                 class="e1t8i3z1-el-table-cell-content"
-                data-narrow-label="Type Release"
+                data-narrow-label="Release Type"
               >
                 Unknown
               </div>
@@ -429,7 +429,7 @@ Object {
         <div
           class="e1qy4g2u-el-table-header"
         >
-          Type Release
+          Release Type
         </div>
         <div
           class="e1qy4g2u-el-table-header"
@@ -486,7 +486,7 @@ Object {
           >
             <div
               class="e1t8i3z1-el-table-cell-content"
-              data-narrow-label="Type Release"
+              data-narrow-label="Release Type"
             >
               Unknown
             </div>

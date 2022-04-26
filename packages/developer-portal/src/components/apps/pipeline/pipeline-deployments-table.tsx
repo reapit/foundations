@@ -124,7 +124,7 @@ export const PipelineDeploymentTable: FC = () => {
               ({ type, created, buildStatus, buildVersion, currentlyDeployed, tasks }) => ({
                 cells: [
                   {
-                    label: 'Type Release',
+                    label: 'Release Type',
                     value: type ? runnerTypeToReadable(type) : 'Unknown',
                     cellHasDarkText: true,
                     narrowTable: {
