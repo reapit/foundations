@@ -116,7 +116,7 @@ export const Menu: FC = () => {
         appId &&
           hasPipelines && {
             itemIndex: 4,
-            callback: appId && navigate(history, `${Routes.APPS}/${appId}/pipeline`),
+            callback: navigate(history, `${Routes.APPS}/${appId}/pipeline`),
             text: 'Pipeline',
           },
         {
