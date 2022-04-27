@@ -46,6 +46,7 @@ type FunctionSetup = {
 }
 
 export const createStack = () => {
+  const envStage = process.env.APP_STAGE === 'production' ? 'prod' : 'dev'
   const stack = createBaseStack({
     namespace: 'cloud',
     appName: 'deployment',
@@ -55,10 +56,9 @@ export const createStack = () => {
   const usercodeStack = createBaseStack({
     namespace: 'cloud',
     appName: 'deployment',
-    component: 'usercode',
+    component: `usercode-${envStage}`,
     accountId: config.USERCODE_ACCOUNT_ID,
   })
-  const envStage = process.env.APP_STAGE === 'production' ? 'prod' : 'dev'
 
   const api = createApi(stack, 'apigateway', undefined)
   const vpc = createVpc(stack, 'vpc')
