@@ -1,10 +1,10 @@
 import { Stack, Bucket, createBucket, BucketOptions } from '@reapit/ts-scripts/src/cdk'
 
 export enum BucketNames {
-  LIVE = 'cloud-deployment-live-dev',
-  LOG = 'cloud-deployment-log-dev',
-  VERSION = 'cloud-deployment-version-dev',
-  REPO_CACHE = 'cloud-deployment-repo-cache-dev',
+  LIVE = 'cloud-deployment-live',
+  LOG = 'cloud-deployment-log',
+  VERSION = 'cloud-deployment-version',
+  REPO_CACHE = 'cloud-deployment-repo-cache',
 }
 
 export const createS3Buckets = (stack: Stack, usercodeStack: Stack, envStage: string): Record<BucketNames, Bucket> => {
