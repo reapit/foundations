@@ -1,5 +1,5 @@
 import React from 'react'
-import { render } from '@testing-library/react'
+import { act, render, RenderResult } from '@testing-library/react'
 import Router, { catchChunkError } from '../router'
 import { MediaStateProvider, NavStateProvider } from '@reapit/elements'
 import { Router as ReactRouter, Switch } from 'react-router-dom'
@@ -18,9 +18,11 @@ jest.mock('@reapit/connect-session', () => ({
 }))
 
 describe('Router', () => {
-  it('should match a snapshot', () => {
-    expect(
-      render(
+  it('should match a snapshot', async () => {
+    let component: RenderResult
+
+    await act(() => {
+      component = render(
         <ReactRouter history={history}>
           <Switch>
             <NavStateProvider>
@@ -30,8 +32,12 @@ describe('Router', () => {
             </NavStateProvider>
           </Switch>
         </ReactRouter>,
-      ),
-    ).toMatchSnapshot()
+      )
+    })
+
+    act(() => {
+      expect(component).toMatchSnapshot()
+    })
   })
 
   describe('catchChunkError', () => {
