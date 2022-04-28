@@ -2,6 +2,7 @@ import { PipelineEntity } from '../entities/pipeline.entity'
 import { connect } from './../core'
 import { Pagination, paginate } from 'nestjs-typeorm-paginate'
 import { PipelineModelInterface } from '@reapit/foundations-ts-definitions/deployment-schema'
+import { UpdateResult } from 'typeorm'
 
 export const createPipelineEntity = async (dto: Partial<PipelineEntity>): Promise<PipelineEntity> => {
   const connection = await connect()
@@ -80,4 +81,21 @@ export const findPipelinesByAppId = async (appId: string): Promise<PipelineModel
   return repo.find({
     appId,
   })
+}
+
+export const updatePipelinesWithRepo = async (
+  repository: string,
+  data: Partial<PipelineEntity>,
+): Promise<UpdateResult> => {
+  const connection = await connect()
+  const repo = connection.getRepository(PipelineEntity)
+
+  return repo
+    .createQueryBuilder()
+    .update()
+    .set(data)
+    .where('repository = :repository', {
+      repository,
+    })
+    .execute()
 }

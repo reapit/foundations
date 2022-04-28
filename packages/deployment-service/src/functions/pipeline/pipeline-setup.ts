@@ -79,7 +79,9 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
               Quantity: 1,
               Items: [`${pipeline.subDomain}.${process.env.ROOT_DOMAIN}`],
             },
-            Comment: `Cloudfront distribution for pipeline [${pipeline.id}] [${process.env.NODE_ENV === 'production' ? 'prod' : 'dev'}]`,
+            Comment: `Cloudfront distribution for pipeline [${pipeline.id}] [${
+              process.env.NODE_ENV === 'production' ? 'prod' : 'dev'
+            }]`,
             Enabled: true,
             CallerReference: `${pipeline.subDomain}`, // another unique reference to prevent distribution duplication
             DefaultCacheBehavior: {
@@ -132,7 +134,9 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
                 },
               },
             ],
-            Comment: `Adding additional A record for pipeline [${pipeline.id}]  [${process.env.NODE_ENV === 'production' ? 'prod' : 'dev'}]`,
+            Comment: `Adding additional A record for pipeline [${pipeline.id}]  [${
+              process.env.NODE_ENV === 'production' ? 'prod' : 'dev'
+            }]`,
           },
         })
 
