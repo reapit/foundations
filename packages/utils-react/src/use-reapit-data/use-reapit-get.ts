@@ -170,10 +170,11 @@ export const handleRefresh =
     const controller = new AbortController()
     const signal = controller.signal
 
-    try {
-      const getData = async () => {
-        setError(null)
-        setRefreshing(true)
+    const getData = async () => {
+      setError(null)
+      setRefreshing(true)
+
+      try {
         const connectSession = (await reapitConnectBrowserSession.connectSession()) ?? null
 
         const response = await getFetcher<DataType>({
@@ -193,16 +194,16 @@ export const handleRefresh =
         setData(data)
         setError(error)
         setRefreshing(false)
+      } catch (err) {
+        const error = err as Error
+        logger(error)
       }
+    }
 
-      getData()
+    getData()
 
-      return () => {
-        controller.abort()
-      }
-    } catch (err) {
-      const error = err as Error
-      logger(error)
+    return () => {
+      controller.abort()
     }
   }
 
