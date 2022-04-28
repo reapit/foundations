@@ -1985,4 +1985,8 @@ export interface UpdateMemberModel {
    * The github username for this member
    */
   gitHubUsername?: string
+  /**
+   * The status of the member (active/inactive/pending/rejected)
+   */
+  status?: string
 }

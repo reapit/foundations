@@ -170,34 +170,39 @@ export const handleRefresh =
     const controller = new AbortController()
     const signal = controller.signal
 
-    const getData = async () => {
-      setError(null)
-      setRefreshing(true)
-      const connectSession = (await reapitConnectBrowserSession.connectSession()) ?? null
+    try {
+      const getData = async () => {
+        setError(null)
+        setRefreshing(true)
+        const connectSession = (await reapitConnectBrowserSession.connectSession()) ?? null
 
-      const response = await getFetcher<DataType>({
-        action,
-        connectSession,
-        queryParams,
-        uriParams,
-        headers,
-        logger,
-        signal,
-      })
-      const data = typeof response === 'string' ? null : response
-      const error = typeof response === 'string' ? response : null
+        const response = await getFetcher<DataType>({
+          action,
+          connectSession,
+          queryParams,
+          uriParams,
+          headers,
+          logger,
+          signal,
+        })
+        const data = typeof response === 'string' ? null : response
+        const error = typeof response === 'string' ? response : null
 
-      if (error) errorSnack(error, 5000)
+        if (error) errorSnack(error, 5000)
 
-      setData(data)
-      setError(error)
-      setRefreshing(false)
-    }
+        setData(data)
+        setError(error)
+        setRefreshing(false)
+      }
 
-    getData()
+      getData()
 
-    return () => {
-      controller.abort()
+      return () => {
+        controller.abort()
+      }
+    } catch (err) {
+      const error = err as Error
+      logger(error)
     }
   }
 

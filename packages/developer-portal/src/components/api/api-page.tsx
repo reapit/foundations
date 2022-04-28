@@ -4,9 +4,11 @@ import ErrorBoundary from '../../core/error-boundary'
 import Routes from '../../constants/routes'
 import {
   Button,
+  ButtonGroup,
   elBorderRadius,
   elHFull,
   elMb5,
+  elMb7,
   elMb8,
   elMb9,
   elWFull,
@@ -22,6 +24,7 @@ import {
   SmallText,
   Subtitle,
   Title,
+  useModal,
 } from '@reapit/elements'
 import { ExternalPages, navigate, openNewPage } from '../../utils/navigation'
 import { Route, Switch, useLocation } from 'react-router-dom'
@@ -52,7 +55,7 @@ export const handleDefaultSwaggerDoc =
     currentMember: MemberModel | null,
   ) =>
   () => {
-    const sandboxId = currentMember?.sandboxId
+    const sandboxId = currentMember?.sandboxId || 'GBR'
     if (!sandboxId || !productsList) return
     const swaggerUri = productsList.data?.find((product) => product.defaultSandboxId === sandboxId)?.openApiUrl ?? null
     setSwaggerUri(swaggerUri)
@@ -63,6 +66,7 @@ export const ApiPage: FC = () => {
   const location = useLocation()
   const { globalDataState } = useGlobalState()
   const { webhooksDataState } = useWebhooksState()
+  const { Modal, openModal, closeModal } = useModal()
   const [swaggerUri, setSwaggerUri] = useState<string | null>(null)
 
   const [productsList] = useReapitGet<ProductModelPagedResult>({
@@ -70,7 +74,8 @@ export const ApiPage: FC = () => {
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getProducts],
   })
 
-  const { currentMember } = globalDataState
+  const { currentMember, currentDeveloper } = globalDataState
+  const hasProducts = window.reapit.config.swaggerWhitelist.includes(currentDeveloper?.id as string)
 
   useEffect(handleDefaultSwaggerDoc(setSwaggerUri, productsList, currentMember), [productsList, currentMember])
 
@@ -81,6 +86,7 @@ export const ApiPage: FC = () => {
   const isGrapQlPage = pathname === Routes.GRAPHQL
   const isDesktopPage = pathname === Routes.DESKTOP
   const isAboutPage = pathname === Routes.WEBHOOKS_ABOUT
+  const isNewPage = pathname === Routes.WEBHOOKS_NEW
   const isManagePage = pathname === Routes.WEBHOOKS_MANAGE
   const isLogsPage = pathname === Routes.WEBHOOKS_LOGS
 
@@ -115,32 +121,57 @@ export const ApiPage: FC = () => {
                 <Label>API Location</Label>
                 <p className={elMb5}>https://platform.reapit.cloud</p>
               </div>
-              <SmallText hasGreyText>
-                Reapit now supports multiple products in the Developer Portal, each with a corresponding API document.
-                For most developers the default will be Agency Cloud but if you wish to select a different product API
-                you can do this below.
-              </SmallText>
-              <ControlsContainer className={cx(elBorderRadius, elMb5)}>
-                <InputGroup>
-                  <Select className={elWFull} value={swaggerUri ?? ''} onChange={handleChangeSwaggerDoc(setSwaggerUri)}>
-                    {productsList?.data?.map((option) => (
-                      <option key={option.id} value={option.openApiUrl}>
-                        {option.name}
-                      </option>
-                    ))}
-                  </Select>
-                  <Label htmlFor="myId">Select Product</Label>
-                </InputGroup>
-              </ControlsContainer>
+              {hasProducts && (
+                <>
+                  <SmallText hasGreyText>
+                    Reapit now supports multiple products in the Developer Portal, each with a corresponding API
+                    document. For most developers the default will be Agency Cloud but if you wish to select a different
+                    product API you can do this below.
+                  </SmallText>
+                  <ControlsContainer className={cx(elBorderRadius, elMb5)}>
+                    <InputGroup>
+                      <Select
+                        className={elWFull}
+                        value={swaggerUri ?? ''}
+                        onChange={handleChangeSwaggerDoc(setSwaggerUri)}
+                      >
+                        {productsList?.data?.map((option) => (
+                          <option key={option.id} value={option.openApiUrl}>
+                            {option.name}
+                          </option>
+                        ))}
+                      </Select>
+                      <Label htmlFor="myId">Select Product</Label>
+                    </InputGroup>
+                  </ControlsContainer>
+                </>
+              )}
               <Button className={elMb5} intent="neutral" onClick={openNewPage(ExternalPages.platformAPIDocs)}>
                 View Docs
               </Button>
               <Button className={elMb5} intent="neutral" onClick={openNewPage(swaggerUri ?? '')}>
                 Download Spec
               </Button>
-              <Button className={elMb5} intent="neutral" onClick={openNewPage(ExternalPages.glossaryDocs)}>
-                See Glossary
+              <Button className={elMb5} intent="neutral" onClick={openModal}>
+                Video
               </Button>
+              <Modal title="Swagger">
+                <iframe
+                  className={elMb7}
+                  width="100%"
+                  height="315"
+                  src="https://www.youtube.com/embed/JGrUHbhoRgY"
+                  title="YouTube video player"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+                <ButtonGroup alignment="center">
+                  <Button fixedWidth intent="low" onClick={closeModal}>
+                    Close
+                  </Button>
+                </ButtonGroup>
+              </Modal>
             </>
           )}
           {isGrapQlPage && (
@@ -160,7 +191,7 @@ export const ApiPage: FC = () => {
               </Button>
             </>
           )}
-          {isAboutPage && (
+          {(isAboutPage || isNewPage) && (
             <>
               <Icon className={elMb5} icon="webhooksInfographic" iconSize="large" />
               <Subtitle>Webhooks Documentation</Subtitle>
@@ -176,13 +207,17 @@ export const ApiPage: FC = () => {
             </>
           )}
           {(isManagePage || isLogsPage) && (
-            <div className={elMb8}>
-              <Label>
-                {isManagePage
-                  ? 'Please select an App from the list below to view the associated Webhooks'
-                  : 'Please select a Time slot and an App from the list below to view the associated Webhooks. Please note, we only support a range of times up to 6 months.'}
-              </Label>
-            </div>
+            <>
+              <Icon className={elMb5} icon="webhooksInfographic" iconSize="large" />
+              <Subtitle>Filters</Subtitle>
+              <div className={elMb8}>
+                <Label>
+                  {isManagePage
+                    ? 'Please select an App from the list below to view the associated Webhooks'
+                    : 'Please select a Time slot and an App from the list below to view the associated Webhooks. Please note, we only support a range of times up to 6 months.'}
+                </Label>
+              </div>
+            </>
           )}
           {isWebhooksPage && apps?.data && <WebhooksControls />}
         </SecondaryNavContainer>
