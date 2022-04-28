@@ -6,7 +6,6 @@ import {
   FormLayout,
   Icon,
   InputGroup,
-  InputWrap,
   SmallText,
   Subtitle,
   useModal,
@@ -103,7 +102,7 @@ export const Controls: FC = () => {
       <Modal title="Invite Developer">
         <form onSubmit={handleSubmit(handleInviteMember(inviteMember, closeModal))}>
           <FormLayout hasMargin>
-            <InputWrap>
+            <InputWrapFull>
               <InputGroup
                 {...register('name')}
                 label="Name"
@@ -112,8 +111,8 @@ export const Controls: FC = () => {
                 icon={errors?.name?.message ? 'asteriskSystem' : null}
                 intent="danger"
               />
-            </InputWrap>
-            <InputWrap>
+            </InputWrapFull>
+            <InputWrapFull>
               <InputGroup
                 {...register('email')}
                 type="email"
@@ -123,8 +122,8 @@ export const Controls: FC = () => {
                 icon={errors?.email?.message ? 'asteriskSystem' : null}
                 intent="danger"
               />
-            </InputWrap>
-            <InputWrap>
+            </InputWrapFull>
+            <InputWrapFull>
               <InputGroup
                 {...register('jobTitle')}
                 label="Job Title"
@@ -133,7 +132,7 @@ export const Controls: FC = () => {
                 icon={errors?.jobTitle?.message ? 'asteriskSystem' : null}
                 intent="danger"
               />
-            </InputWrap>
+            </InputWrapFull>
             <InputWrapFull>
               <InputGroup
                 {...register('message')}

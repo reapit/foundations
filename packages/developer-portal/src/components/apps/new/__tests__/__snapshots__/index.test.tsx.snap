@@ -951,21 +951,38 @@ Object {
               >
                 Server Side Apps
               </h2>
-              <p
-                class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+              <div
+                class="e1jxji48-el-flex-column e2kmzjs-el-flex-container"
               >
-                Server-side applications authenticate against our API using the
-                 
-                <a>
-                  Client Credentials authentication flow.
-                </a>
-                 This process involves the exchange of a Client Id and Secret for a JWT access token to authenticate against all requests.
-              </p>
-              <p
-                class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
-              >
-                Unlike client-side applications, you do not have to re-direct to Reapit Connect, nor do your users have to log into your application. Because of this, the flow must only be used on the Server Side to ensure the Client Secret you will be issued at the end of this wizard is held in a secure location.
-              </p>
+                <div
+                  class="e1g28qe3-el-mb7"
+                >
+                  <img
+                    alt="Video placeholder"
+                    src="[object Object]"
+                    style="width: 100%;"
+                  />
+                </div>
+                <div
+                  class=""
+                >
+                  <p
+                    class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+                  >
+                    Server-side applications authenticate against our API using the
+                     
+                    <a>
+                      Client Credentials authentication flow.
+                    </a>
+                     This process involves the exchange of a Client Id and Secret for a JWT access token to authenticate against all requests.
+                  </p>
+                  <p
+                    class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+                  >
+                    Unlike client-side applications, you do not have to re-direct to Reapit Connect, nor do your users have to log into your application. Because of this, the flow must only be used on the Server Side to ensure the Client Secret you will be issued at the end of this wizard is held in a secure location.
+                  </p>
+                </div>
+              </div>
             </div>
             <div
               class="s1u7t7z0-step-is-hidden"
@@ -1977,21 +1994,38 @@ Object {
             >
               Server Side Apps
             </h2>
-            <p
-              class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+            <div
+              class="e1jxji48-el-flex-column e2kmzjs-el-flex-container"
             >
-              Server-side applications authenticate against our API using the
-               
-              <a>
-                Client Credentials authentication flow.
-              </a>
-               This process involves the exchange of a Client Id and Secret for a JWT access token to authenticate against all requests.
-            </p>
-            <p
-              class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
-            >
-              Unlike client-side applications, you do not have to re-direct to Reapit Connect, nor do your users have to log into your application. Because of this, the flow must only be used on the Server Side to ensure the Client Secret you will be issued at the end of this wizard is held in a secure location.
-            </p>
+              <div
+                class="e1g28qe3-el-mb7"
+              >
+                <img
+                  alt="Video placeholder"
+                  src="[object Object]"
+                  style="width: 100%;"
+                />
+              </div>
+              <div
+                class=""
+              >
+                <p
+                  class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+                >
+                  Server-side applications authenticate against our API using the
+                   
+                  <a>
+                    Client Credentials authentication flow.
+                  </a>
+                   This process involves the exchange of a Client Id and Secret for a JWT access token to authenticate against all requests.
+                </p>
+                <p
+                  class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+                >
+                  Unlike client-side applications, you do not have to re-direct to Reapit Connect, nor do your users have to log into your application. Because of this, the flow must only be used on the Server Side to ensure the Client Secret you will be issued at the end of this wizard is held in a secure location.
+                </p>
+              </div>
+            </div>
           </div>
           <div
             class="s1u7t7z0-step-is-hidden"
@@ -2116,6 +2150,7 @@ Object {
     <div
       id="root"
     >
+      <div />
       <div />
       <div />
     </div>
@@ -3079,21 +3114,38 @@ Object {
               >
                 Server Side Apps
               </h2>
-              <p
-                class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+              <div
+                class="e1jxji48-el-flex-column e2kmzjs-el-flex-container"
               >
-                Server-side applications authenticate against our API using the
-                 
-                <a>
-                  Client Credentials authentication flow.
-                </a>
-                 This process involves the exchange of a Client Id and Secret for a JWT access token to authenticate against all requests.
-              </p>
-              <p
-                class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
-              >
-                Unlike client-side applications, you do not have to re-direct to Reapit Connect, nor do your users have to log into your application. Because of this, the flow must only be used on the Server Side to ensure the Client Secret you will be issued at the end of this wizard is held in a secure location.
-              </p>
+                <div
+                  class="e1g28qe3-el-mb7"
+                >
+                  <img
+                    alt="Video placeholder"
+                    src="[object Object]"
+                    style="width: 100%;"
+                  />
+                </div>
+                <div
+                  class=""
+                >
+                  <p
+                    class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+                  >
+                    Server-side applications authenticate against our API using the
+                     
+                    <a>
+                      Client Credentials authentication flow.
+                    </a>
+                     This process involves the exchange of a Client Id and Secret for a JWT access token to authenticate against all requests.
+                  </p>
+                  <p
+                    class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+                  >
+                    Unlike client-side applications, you do not have to re-direct to Reapit Connect, nor do your users have to log into your application. Because of this, the flow must only be used on the Server Side to ensure the Client Secret you will be issued at the end of this wizard is held in a secure location.
+                  </p>
+                </div>
+              </div>
             </div>
             <div
               class="s1u7t7z0-step-is-hidden"
@@ -4118,21 +4170,38 @@ Object {
             >
               Server Side Apps
             </h2>
-            <p
-              class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+            <div
+              class="e1jxji48-el-flex-column e2kmzjs-el-flex-container"
             >
-              Server-side applications authenticate against our API using the
-               
-              <a>
-                Client Credentials authentication flow.
-              </a>
-               This process involves the exchange of a Client Id and Secret for a JWT access token to authenticate against all requests.
-            </p>
-            <p
-              class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
-            >
-              Unlike client-side applications, you do not have to re-direct to Reapit Connect, nor do your users have to log into your application. Because of this, the flow must only be used on the Server Side to ensure the Client Secret you will be issued at the end of this wizard is held in a secure location.
-            </p>
+              <div
+                class="e1g28qe3-el-mb7"
+              >
+                <img
+                  alt="Video placeholder"
+                  src="[object Object]"
+                  style="width: 100%;"
+                />
+              </div>
+              <div
+                class=""
+              >
+                <p
+                  class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+                >
+                  Server-side applications authenticate against our API using the
+                   
+                  <a>
+                    Client Credentials authentication flow.
+                  </a>
+                   This process involves the exchange of a Client Id and Secret for a JWT access token to authenticate against all requests.
+                </p>
+                <p
+                  class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+                >
+                  Unlike client-side applications, you do not have to re-direct to Reapit Connect, nor do your users have to log into your application. Because of this, the flow must only be used on the Server Side to ensure the Client Secret you will be issued at the end of this wizard is held in a secure location.
+                </p>
+              </div>
+            </div>
           </div>
           <div
             class="s1u7t7z0-step-is-hidden"

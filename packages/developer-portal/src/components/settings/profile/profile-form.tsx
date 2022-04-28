@@ -45,8 +45,9 @@ export const ProfileForm: FC = () => {
   const clientId = connectSession?.loginIdentity.clientId
   const orgName = connectSession?.loginIdentity.orgName
   const isUserOrUserAdmin = selectIsUserOrUserAdmin(connectSession)
-  const { currentMember } = globalDataState
+  const { currentMember, currentDeveloper } = globalDataState
   const isClient = clientId && isUserOrUserAdmin
+  const hasProducts = window.reapit.config.swaggerWhitelist.includes(currentDeveloper?.id as string)
 
   const [sandboxes] = useReapitGet<SandboxModelPagedResult>({
     reapitConnectBrowserSession,
@@ -116,20 +117,24 @@ export const ProfileForm: FC = () => {
           />
         </InputWrap>
       </FormLayout>
-      <Subtitle>Customer Data</Subtitle>
+      {(isClient || hasProducts) && <Subtitle>Customer Data</Subtitle>}
       {isClient && (
         <BodyText hasGreyText>
           As your account is associated with both the Sandbox Data (SBOX) and Customer Data, you can choose to toggle
           between which data you want to see available in the Developer Portal.
         </BodyText>
       )}
-      <BodyText hasGreyText>
-        You can choose which sandbox you wish to view based on your Reapit Product. This is specific and only associated
-        to your developer profile.
-      </BodyText>
-      <BodyText hasGreyText>
-        <strong>Please note, you will need to log out and log back in again to see this change take effect.</strong>
-      </BodyText>
+      {hasProducts && (
+        <BodyText hasGreyText>
+          You can choose which sandbox you wish to view based on your Reapit Product. This is specific and only
+          associated to your developer profile.
+        </BodyText>
+      )}
+      {(isClient || hasProducts) && (
+        <BodyText hasGreyText>
+          <strong>Please note, you will need to log out and log back in again to see this change take effect.</strong>
+        </BodyText>
+      )}
       <FormLayout hasMargin>
         {isClient && (
           <InputWrap>
@@ -143,24 +148,26 @@ export const ProfileForm: FC = () => {
             </InputGroup>
           </InputWrap>
         )}
-        <InputWrap>
-          <InputGroup>
-            <ToggleRadio
-              hasGreyBg
-              {...register('sandboxId')}
-              options={
-                (sandboxes?.data?.map((sandbox) => ({
-                  id: sandbox.id ?? '',
-                  text: sandbox.name ?? '',
-                  value: sandbox.id ?? '',
-                  isChecked: currentMember?.sandboxId === sandbox.id,
-                })) as ToggleRadioOption[]) ?? []
-              }
-            />
-            <Label>Choose Sandbox</Label>
-            {errors.sandboxId?.message && <InputError message={errors.sandboxId?.message} />}
-          </InputGroup>
-        </InputWrap>
+        {hasProducts && (
+          <InputWrap>
+            <InputGroup>
+              <ToggleRadio
+                hasGreyBg
+                {...register('sandboxId')}
+                options={
+                  (sandboxes?.data?.map((sandbox) => ({
+                    id: sandbox.id ?? '',
+                    text: sandbox.name ?? '',
+                    value: sandbox.id ?? '',
+                    isChecked: currentMember?.sandboxId === sandbox.id,
+                  })) as ToggleRadioOption[]) ?? []
+                }
+              />
+              <Label>Choose Sandbox</Label>
+              {errors.sandboxId?.message && <InputError message={errors.sandboxId?.message} />}
+            </InputGroup>
+          </InputWrap>
+        )}
       </FormLayout>
       <ButtonGroup>
         <Button intent="primary" type="submit" disabled={memberUpdating} loading={memberUpdating}>
