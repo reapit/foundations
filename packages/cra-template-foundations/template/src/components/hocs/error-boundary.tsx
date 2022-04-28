@@ -1,19 +1,17 @@
-import React, { Component, ReactNode } from 'react'
+import { PersistantNotification } from '@reapit/elements'
+import React, { Component } from 'react'
 
 export interface ErrorState {
   hasFailed: boolean
 }
 
-export type ErrorProps = {
-  children?: ReactNode
-}
+export class ErrorBoundary extends Component {
+  state = {
+    hasFailed: false,
+  }
 
-export class ErrorBoundary extends Component<ErrorProps, ErrorState> {
-  constructor(props: ErrorProps) {
+  constructor(props) {
     super(props)
-    this.state = {
-      hasFailed: false,
-    }
   }
 
   static getDerivedStateFromError() {
@@ -28,10 +26,14 @@ export class ErrorBoundary extends Component<ErrorProps, ErrorState> {
 
   render() {
     if (this.state.hasFailed) {
-      return <p>Something went wrong here, try refreshing your page.</p>
+      return (
+        <PersistantNotification isFullWidth isExpanded isInline intent="danger">
+          Something went wrong here, try refreshing your page.
+        </PersistantNotification>
+      )
     }
 
-    return this.props.children
+    return <>{this.props.children}</>
   }
 }
 
