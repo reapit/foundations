@@ -56,7 +56,7 @@ export const handleDefaultSwaggerDoc =
   ) =>
   () => {
     const sandboxId = currentMember?.sandboxId || 'GBR'
-    if (!sandboxId || !productsList) return
+    if (!productsList) return
     const swaggerUri = productsList.data?.find((product) => product.defaultSandboxId === sandboxId)?.openApiUrl ?? null
     setSwaggerUri(swaggerUri)
   }
