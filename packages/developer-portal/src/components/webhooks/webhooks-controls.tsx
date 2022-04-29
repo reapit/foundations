@@ -1,5 +1,16 @@
 import React, { ChangeEvent, Dispatch, FC, SetStateAction } from 'react'
-import { elBorderRadius, elWFull, InputGroup, Label, Select } from '@reapit/elements'
+import {
+  Button,
+  ButtonGroup,
+  elBorderRadius,
+  elMb5,
+  elMb7,
+  elWFull,
+  InputGroup,
+  Label,
+  Select,
+  useModal,
+} from '@reapit/elements'
 import Routes from '../../constants/routes'
 import { ControlsContainer, inputFullWidth, overflowHidden } from './__styles__'
 import { cx } from '@linaria/core'
@@ -9,6 +20,7 @@ import { StringMap } from '@reapit/utils-common'
 import { useWebhooksState, WebhooksFilterState } from './state/use-webhooks-state'
 import { History } from 'history'
 import { useHistory } from 'react-router'
+import { ExternalPages, openNewPage } from '../../utils/navigation'
 
 export type HandleSelectFilters = (
   setWebhookQueryParams: Dispatch<SetStateAction<WebhooksFilterState>>,
@@ -56,6 +68,7 @@ export const handleSelectFilters: HandleSelectFilters =
 export const WebhooksControls: FC = () => {
   const { webhooksFilterState, webhooksDataState, setWebhooksFilterState } = useWebhooksState()
   const history = useHistory()
+  const { Modal, openModal, closeModal } = useModal()
   const { to, from, applicationId } = webhooksFilterState
   const { apps } = webhooksDataState
   const { pathname } = window.location
@@ -66,7 +79,7 @@ export const WebhooksControls: FC = () => {
     <>
       {(isManagePage || isLogsPage) && (
         <>
-          <div className={cx(elBorderRadius, overflowHidden)}>
+          <div className={cx(elBorderRadius, overflowHidden, elMb5)}>
             {isLogsPage && (
               <>
                 <ControlsContainer>
@@ -116,8 +129,31 @@ export const WebhooksControls: FC = () => {
               </InputGroup>
             </ControlsContainer>
           </div>
+          <Button className={elMb5} intent="neutral" onClick={openNewPage(ExternalPages.webhooksDocs)}>
+            View Docs
+          </Button>
         </>
       )}
+      <Button className={elMb5} intent="neutral" onClick={openModal}>
+        Video
+      </Button>
+      <Modal title="Webhooks">
+        <iframe
+          className={elMb7}
+          width="100%"
+          height="315"
+          src="https://www.youtube.com/embed/FmrxP-bn1Vw"
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+        <ButtonGroup alignment="center">
+          <Button fixedWidth intent="low" onClick={closeModal}>
+            Close
+          </Button>
+        </ButtonGroup>
+      </Modal>
     </>
   )
 }

@@ -2,6 +2,7 @@ import { useReapitConnect } from '@reapit/connect-session'
 import React from 'react'
 import { SettingsProfilePage } from '..'
 import { render, setViewport } from '../../../../tests/react-testing'
+import { mockDeveloperModel } from '../../../../tests/__stubs__/developers'
 
 jest.mock('../../../../core/use-global-state')
 jest.mock('@reapit/connect-session')
@@ -9,6 +10,7 @@ jest.mock('@reapit/connect-session')
 const mockUseReapitConnect = useReapitConnect as jest.Mock
 
 describe('SettingsProfilePage', () => {
+  window.reapit.config.swaggerWhitelist = [mockDeveloperModel.id as string]
   it('should match snapshot', () => {
     mockUseReapitConnect.mockReturnValue({
       connectSession: {

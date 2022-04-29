@@ -490,6 +490,11 @@ Object {
               Desktop
             </div>
           </div>
+          <button
+            class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
+          >
+            Video
+          </button>
         </aside>
         <section
           class="e12d7zo5-el-hfull eukst9x-el-page-container"
@@ -536,6 +541,11 @@ Object {
             Desktop
           </div>
         </div>
+        <button
+          class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
+        >
+          Video
+        </button>
       </aside>
       <section
         class="e12d7zo5-el-hfull eukst9x-el-page-container"
@@ -639,6 +649,11 @@ Object {
               Desktop
             </div>
           </div>
+          <button
+            class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
+          >
+            Video
+          </button>
         </aside>
         <section
           class="e12d7zo5-el-hfull eukst9x-el-page-container"
@@ -775,6 +790,11 @@ Object {
             Desktop
           </div>
         </div>
+        <button
+          class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
+        >
+          Video
+        </button>
       </aside>
       <section
         class="e12d7zo5-el-hfull eukst9x-el-page-container"
@@ -969,7 +989,7 @@ Object {
             </div>
           </div>
           <div
-            class="e1v6agxr-el-border-radius o27jdjf-overflow-hidden"
+            class="e1v6agxr-el-border-radius o27jdjf-overflow-hidden ehvkknk-el-mb5"
           >
             <div
               class="c1dc4ecv-controls-container"
@@ -1051,6 +1071,16 @@ Object {
               </div>
             </div>
           </div>
+          <button
+            class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
+          >
+            View Docs
+          </button>
+          <button
+            class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
+          >
+            Video
+          </button>
         </aside>
         <section
           class="e12d7zo5-el-hfull eukst9x-el-page-container"
@@ -1188,7 +1218,7 @@ Object {
           </div>
         </div>
         <div
-          class="e1v6agxr-el-border-radius o27jdjf-overflow-hidden"
+          class="e1v6agxr-el-border-radius o27jdjf-overflow-hidden ehvkknk-el-mb5"
         >
           <div
             class="c1dc4ecv-controls-container"
@@ -1270,6 +1300,16 @@ Object {
             </div>
           </div>
         </div>
+        <button
+          class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
+        >
+          View Docs
+        </button>
+        <button
+          class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
+        >
+          Video
+        </button>
       </aside>
       <section
         class="e12d7zo5-el-hfull eukst9x-el-page-container"
@@ -1464,7 +1504,7 @@ Object {
             </div>
           </div>
           <div
-            class="e1v6agxr-el-border-radius o27jdjf-overflow-hidden"
+            class="e1v6agxr-el-border-radius o27jdjf-overflow-hidden ehvkknk-el-mb5"
           >
             <div
               class="c1dc4ecv-controls-container"
@@ -1500,6 +1540,16 @@ Object {
               </div>
             </div>
           </div>
+          <button
+            class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
+          >
+            View Docs
+          </button>
+          <button
+            class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
+          >
+            Video
+          </button>
         </aside>
         <section
           class="e12d7zo5-el-hfull eukst9x-el-page-container"
@@ -1637,7 +1687,7 @@ Object {
           </div>
         </div>
         <div
-          class="e1v6agxr-el-border-radius o27jdjf-overflow-hidden"
+          class="e1v6agxr-el-border-radius o27jdjf-overflow-hidden ehvkknk-el-mb5"
         >
           <div
             class="c1dc4ecv-controls-container"
@@ -1673,6 +1723,16 @@ Object {
             </div>
           </div>
         </div>
+        <button
+          class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
+        >
+          View Docs
+        </button>
+        <button
+          class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
+        >
+          Video
+        </button>
       </aside>
       <section
         class="e12d7zo5-el-hfull eukst9x-el-page-container"
@@ -1866,6 +1926,11 @@ Object {
               Desktop
             </div>
           </div>
+          <button
+            class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
+          >
+            Video
+          </button>
         </aside>
         <section
           class="e12d7zo5-el-hfull eukst9x-el-page-container"
@@ -2002,6 +2067,11 @@ Object {
             Desktop
           </div>
         </div>
+        <button
+          class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
+        >
+          Video
+        </button>
       </aside>
       <section
         class="e12d7zo5-el-hfull eukst9x-el-page-container"
