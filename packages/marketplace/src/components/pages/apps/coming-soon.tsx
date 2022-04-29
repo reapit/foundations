@@ -2,13 +2,10 @@ import * as React from 'react'
 import { GridFourColItem, FadeIn } from '@reapit/elements-legacy'
 
 import placeHolderImage from '@/assets/images/default-feature-image.jpg'
-import comingSoonImageZoopla from '@/assets/images/coming-soon/Zoopla.jpg'
 import comingSoonImageTwentyCiVMC from '@/assets/images/coming-soon/TwentyCiVMC.jpg'
 import comingSoonSmsSpeedway from '@/assets/images/coming-soon/SMS2.jpg'
 import comingSoonSmsSpeedWayIdVerification from '@/assets/images/coming-soon/SMSMobile.jpg'
-import comingSoonOnTheMarket from '@/assets/images/coming-soon/OnTheMarket.jpg'
 import comingSoonPerfectPortal from '@/assets/images/coming-soon/PerfectPortal.jpg'
-import comingSoonRightMove from '@/assets/images/coming-soon/RightMove.jpg'
 import comingSoonBarbuck from '@/assets/images/coming-soon/Barbuck.jpg'
 import comingSoonFacebook from '@/assets/images/coming-soon/Facebook.jpg'
 import comingSoonOffr from '@/assets/images/coming-soon/Offr.jpg'
@@ -41,13 +38,10 @@ export const onImageError = (event: React.SyntheticEvent<HTMLImageElement>) =>
   (event.currentTarget.src = placeHolderImage)
 
 const comingSoonImagesMap = {
-  comingSoonImageZoopla,
   comingSoonSmsSpeedway,
   comingSoonImageTwentyCiVMC,
   comingSoonSmsSpeedWayIdVerification,
-  comingSoonOnTheMarket,
   comingSoonPerfectPortal,
-  comingSoonRightMove,
   comingSoonBarbuck,
   comingSoonFacebook,
   comingSoonOffr,
