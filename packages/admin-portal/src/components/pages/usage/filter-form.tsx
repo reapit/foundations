@@ -35,16 +35,16 @@ export const FilterForm: FC<FilterFormProps> = ({ setUsageFilters, apps, install
           <BodyText hasGreyText>Apply a filter to get started. Developer and month are required by default.</BodyText>
         </InputWrapFull>
         <InputWrap>
-          <Label>Developer</Label>
+          <Label>Company</Label>
           <SearchableDropdown
             id="developer-search-box"
             {...register('developerId')}
             getResults={(company: string) =>
-              fetchDevelopersList({ company }).then((developers) => developers?.data ?? [])
+              fetchDevelopersList({ company, status: 'confirmed' }).then((developers) => developers?.data ?? [])
             }
-            getResultLabel={(result) => result.company ?? ''}
+            getResultLabel={(result) => `${result.company} -  ${result.name}`}
             getResultValue={(result) => result.id ?? ''}
-            placeholder="Search developers"
+            placeholder="Search developer organisations"
           />
         </InputWrap>
         <InputWrap>
