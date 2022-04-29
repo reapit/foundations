@@ -18,7 +18,10 @@ export type PrivateRouteWrapperProps = {
 }
 
 export const handleOpenChatbot = (connectSession: ReapitConnectSession | null) => () => {
-  if (connectSession?.loginIdentity) {
+  if (
+    connectSession?.loginIdentity.developerId &&
+    window.reapit.config.liveChatWhitelist.includes(connectSession.loginIdentity.developerId)
+  ) {
     openChatbot(connectSession.loginIdentity)
   }
 }

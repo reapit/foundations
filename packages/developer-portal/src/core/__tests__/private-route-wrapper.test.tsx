@@ -3,6 +3,7 @@ import { PrivateRouteWrapper } from '../private-route-wrapper'
 import { render } from '../../tests/react-testing'
 
 window.reapit.config.pipelineWhitelist = []
+window.reapit.config.liveChatWhitelist = []
 
 jest.mock('@reapit/connect-session', () => ({
   ReapitConnectBrowserSession: jest.fn(),
