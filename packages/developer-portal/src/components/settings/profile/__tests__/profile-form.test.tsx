@@ -2,6 +2,7 @@ import React from 'react'
 import { ProfileForm, handleRefreshMember } from '../profile-form'
 import { render } from '../../../../tests/react-testing'
 import { mockSandboxModelPagedResult } from '../../../../tests/__stubs__/standboxes'
+import { mockDeveloperModel } from '../../../../tests/__stubs__/developers'
 
 jest.mock('../../../../core/use-global-state')
 
@@ -25,6 +26,8 @@ jest.mock('@reapit/connect-session', () => ({
 }))
 
 describe('ProfileForm', () => {
+  window.reapit.config.swaggerWhitelist = [mockDeveloperModel.id as string]
+
   it('should match snapshot', () => {
     expect(render(<ProfileForm />)).toMatchSnapshot()
   })

@@ -109,9 +109,19 @@ export const MemberUpdateControls: FC<MemberUpdateControlsProps> = ({ member, re
       <Button intent="secondary" onClick={handleReinviteMember(reinviteMember, member, connectSession)}>
         Invite Again
       </Button>
-      <Button intent="low" disabled={isLoading} loading={isLoading} onClick={console.log}>
-        Disable
-      </Button>
+      {member.status === 'active' && (
+        <Button
+          intent="low"
+          disabled={isLoading}
+          loading={isLoading}
+          onClick={handleUpdateMember(updateMember, {
+            ...member,
+            status: 'inactive',
+          })}
+        >
+          Disable
+        </Button>
+      )}
       <Button intent="danger" disabled={isLoading} loading={isLoading} onClick={handleDeleteMember(deleteMember)}>
         Delete
       </Button>

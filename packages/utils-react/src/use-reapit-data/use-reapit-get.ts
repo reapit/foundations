@@ -173,25 +173,31 @@ export const handleRefresh =
     const getData = async () => {
       setError(null)
       setRefreshing(true)
-      const connectSession = (await reapitConnectBrowserSession.connectSession()) ?? null
 
-      const response = await getFetcher<DataType>({
-        action,
-        connectSession,
-        queryParams,
-        uriParams,
-        headers,
-        logger,
-        signal,
-      })
-      const data = typeof response === 'string' ? null : response
-      const error = typeof response === 'string' ? response : null
+      try {
+        const connectSession = (await reapitConnectBrowserSession.connectSession()) ?? null
 
-      if (error) errorSnack(error, 5000)
+        const response = await getFetcher<DataType>({
+          action,
+          connectSession,
+          queryParams,
+          uriParams,
+          headers,
+          logger,
+          signal,
+        })
+        const data = typeof response === 'string' ? null : response
+        const error = typeof response === 'string' ? response : null
 
-      setData(data)
-      setError(error)
-      setRefreshing(false)
+        if (error) errorSnack(error, 5000)
+
+        setData(data)
+        setError(error)
+        setRefreshing(false)
+      } catch (err) {
+        const error = err as Error
+        logger(error)
+      }
     }
 
     getData()
