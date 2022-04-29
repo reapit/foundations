@@ -139,7 +139,9 @@ export const PipelineConfigure: FC = () => {
     PipelineModelInterface
   >({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.updatePipeline],
+    action: updateActions(window.reapit.config.appEnv)[
+      appPipeline ? UpdateActionNames.updatePipeline : UpdateActionNames.createPipeline
+    ],
     method: appPipeline ? 'PUT' : 'POST',
     uriParams: {
       pipelineId: appId,
