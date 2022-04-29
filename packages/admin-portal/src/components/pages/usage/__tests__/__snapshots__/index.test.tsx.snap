@@ -34,7 +34,7 @@ Object {
             <label
               class="el-label"
             >
-              Developer
+              Company
             </label>
             <div
               class="el-searchable-dropdown-container"
@@ -81,7 +81,7 @@ Object {
               <input
                 class="el-searchable-dropdown-search-input el-input"
                 name="developerId"
-                placeholder="Search developers"
+                placeholder="Search developer organisations"
                 value=""
               />
             </div>
@@ -220,7 +220,7 @@ Object {
           <label
             class="el-label"
           >
-            Developer
+            Company
           </label>
           <div
             class="el-searchable-dropdown-container"
@@ -267,7 +267,7 @@ Object {
             <input
               class="el-searchable-dropdown-search-input el-input"
               name="developerId"
-              placeholder="Search developers"
+              placeholder="Search developer organisations"
               value=""
             />
           </div>

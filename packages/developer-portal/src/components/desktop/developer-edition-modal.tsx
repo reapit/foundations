@@ -165,7 +165,7 @@ export const DeveloperEditionModal: FC<DeveloperEditionModalProps> = ({ visible,
               Close
             </Button>
             <Button fixedWidth intent="primary" type="submit" onClick={handleDownload}>
-              Download Now
+              Download
             </Button>
           </ButtonGroup>
         </>
@@ -184,7 +184,7 @@ export const DeveloperEditionModal: FC<DeveloperEditionModalProps> = ({ visible,
               Close
             </Button>
             <Button fixedWidth intent="primary" type="submit" onClick={handleDownload}>
-              Download Now
+              Download
             </Button>
           </ButtonGroup>
         </>
@@ -234,7 +234,7 @@ export const DeveloperEditionModal: FC<DeveloperEditionModalProps> = ({ visible,
               loading={subscriptionCreating}
               disabled={subscriptionCreating}
             >
-              Confirm Subscription
+              Confirm
             </Button>
           </ButtonGroup>
         </>
