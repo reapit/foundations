@@ -159,9 +159,11 @@ export const codebuildExecutor: SQSHandler = async (
             phases: {
               install: {
                 'runtime-versions': {
-                  nodejs: 14,
+                  nodejs: 12,
                 },
                 commands: [
+                  'n install 14',
+                  'n use 14',
                   'CACHE_FOLDER=$(find . -maxdepth 1 -mindepth 1 -type d)',
                   'echo $CACHE_FOLDER',
                   'mv $CACHE_FOLDER/* ./',
