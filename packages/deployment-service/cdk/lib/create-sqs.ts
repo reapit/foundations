@@ -18,7 +18,7 @@ export const createSqsQueues = (stack: Stack): Record<QueueNames, sqs.IQueue> =>
   } = {
     [QueueNames.CODEBUILD_EXECUTOR]: {},
     [QueueNames.CODEBUILD_VERSION_DEPLOY]: {
-      visibilityTimeout: 300,
+      visibilityTimeout: 600,
     },
     [QueueNames.PIPELINE_SETUP]: {
       visibilityTimeout: 900,
