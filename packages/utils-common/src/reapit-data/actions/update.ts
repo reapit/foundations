@@ -10,6 +10,7 @@ export interface UpdateAction {
 export enum UpdateActionNames {
   updatePipeline = 'updatePipeline',
   createPipelineDeployment = 'createPipelineDeployment',
+  createPipeline = 'createPipeline',
   createApp = 'createApp',
   createApiKeyByMember = 'createApiKeyByMember',
   updateDeveloper = 'updateDeveloper',
@@ -40,6 +41,16 @@ export const updateActions = (appEnv: AppEnv): UpdateActions => ({
   [UpdateActionNames.updatePipeline]: {
     api: ApiNames(appEnv).pipeline,
     path: PathNames.updatePipeline,
+    errorMessage:
+      'Something went wrong updating your pipleline, this has been logged. Please check for errors and resubmit.',
+    successMessage: 'Your pipeline has been successfully updated',
+  },
+  [UpdateActionNames.createPipeline]: {
+    api: ApiNames(appEnv).pipeline,
+    path: PathNames.createPipeline,
+    errorMessage:
+      'Something went wrong creating your pipleline, this has been logged. Please check for errors and resubmit.',
+    successMessage: 'Your pipeline has been successfully created',
   },
   [UpdateActionNames.createPipelineDeployment]: {
     api: ApiNames(appEnv).pipeline,
