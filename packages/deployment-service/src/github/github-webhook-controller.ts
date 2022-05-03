@@ -80,7 +80,6 @@ export class GithubWebhookController {
         repositories.map(async (repository) => {
           const repo = `https://github.com/${repository.full_name}`
 
-
           const results = await this.pipelineProvider.updatePipelinesWithRepo(repo, {
             installationId: body.installation.id,
             repositoryId: repository.id,

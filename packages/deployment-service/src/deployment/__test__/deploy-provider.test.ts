@@ -7,11 +7,14 @@ import { PipelineEntity } from '../../entities/pipeline.entity'
 import { PipelineRunnerEntity } from '../../entities/pipeline-runner.entity'
 import { S3 } from 'aws-sdk'
 
-jest.mock('adm-zip', jest.fn(() => ({
-  extractAllToAsync: jest.fn((file: string, something, another, callback) => {
-    callback()
-  }),
-})))
+jest.mock(
+  'adm-zip',
+  jest.fn(() => ({
+    extractAllToAsync: jest.fn((file: string, something, another, callback) => {
+      callback()
+    }),
+  })),
+)
 
 class MockS3Provider extends S3Provider {
   upload(params): Promise<any> {
@@ -39,9 +42,9 @@ describe('DeploymentProvider', () => {
     module = await Test.createTestingModule({
       imports: [S3Module, DeploymentModule],
     })
-    .overrideProvider(S3Provider)
-    .useClass(MockS3Provider)
-    .compile()
+      .overrideProvider(S3Provider)
+      .useClass(MockS3Provider)
+      .compile()
   })
 
   it('deployFromStore', async () => {

@@ -59,12 +59,12 @@ export class PipelineProvider {
 
   async updatePipelinesWithRepo(repository, data: Partial<PipelineEntity>): Promise<UpdateResult> {
     return this.repository
-    .createQueryBuilder()
-    .update()
-    .set(data)
-    .where('repository = :repository', {
-      repository,
-    })
-    .execute()
+      .createQueryBuilder()
+      .update()
+      .set(data)
+      .where('repository = :repository', {
+        repository,
+      })
+      .execute()
   }
 }
