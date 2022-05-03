@@ -8,7 +8,7 @@ import {
 import { defaultOutputHeaders, isPipelineDeploymentDisabled, QueueNames } from '../constants'
 import * as service from '../services'
 import { PipelineRunnerType } from '@reapit/foundations-ts-definitions'
-import { githubApp } from '../services'
+import { githubApp, updatePipelinesWithRepo } from '../services'
 
 type GithubCommitEvent = {
   ref: string
@@ -90,16 +90,16 @@ export const githubWebhook = httpHandler<GithubCommitEvent | GithubRepoInstallat
         repositories.map(async (repository) => {
           const repo = `https://github.com/${repository.full_name}`
 
-          const pipeline = await service.findPipelineByRepo(repo)
-
-          if (!pipeline) {
-            throw new NotFoundException()
-          }
-
-          return service.updatePipelineEntity(pipeline, {
+          const results = await updatePipelinesWithRepo(repo, {
             installationId: body.installation.id,
             repositoryId: repository.id,
           })
+
+          if (results && results.affected && results.affected >= 1) {
+            return
+          }
+
+          throw new NotFoundException()
         }),
       )
     }
