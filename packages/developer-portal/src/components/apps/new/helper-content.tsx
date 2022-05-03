@@ -70,7 +70,8 @@ export const checkHasHelpers =
 export const HelperContent: FC = () => {
   const { appWizardState } = useAppState()
   const { isMobile, isTablet, isDesktop } = useMediaQuery()
-  const { Modal, openModal, closeModal } = useModal()
+  const { Modal: ModalServerSide, openModal: openModalServerSide, closeModal: closeModalServerSide } = useModal()
+  const { Modal: ModalDesktop, openModal: openModalDesktop, closeModal: closeModalDesktop } = useModal()
   const shouldShowStep = checkHasHelpers(appWizardState)
   const isFlexColumn = isMobile || isTablet || isDesktop
 
@@ -108,7 +109,10 @@ export const HelperContent: FC = () => {
       <div className={cx(shouldShowStep(AppNewStepId.agencyCloudStep) ? elFadeIn : stepIsHidden)}>
         <Subtitle hasBoldText>AgencyCloud Functionality</Subtitle>
         <FlexContainer isFlexAlignStart={!isFlexColumn} isFlexColumn={isFlexColumn}>
-          <div className={cx(!isFlexColumn && elW6, !isFlexColumn && elMr6, isFlexColumn && elMb7)} onClick={openModal}>
+          <div
+            className={cx(!isFlexColumn && elW6, !isFlexColumn && elMr6, isFlexColumn && elMb7)}
+            onClick={openModalDesktop}
+          >
             <BodyText hasGreyText>
               For the greatest integration with our AgencyCloud Desktop CRM, we support the ability to load client-side
               apps using an internal web browser, inside of the CRM.
@@ -231,17 +235,27 @@ export const HelperContent: FC = () => {
       </div>
       <div className={cx(shouldShowStep(AppNewStepId.serverSideStep) ? elFadeIn : stepIsHidden)}>
         <Subtitle hasBoldText>Server Side Apps</Subtitle>
-        <BodyText hasGreyText>
-          Server-side applications authenticate against our API using the{' '}
-          <a onClick={openNewPage(ExternalPages.clientCredentials)}>Client Credentials authentication flow.</a> This
-          process involves the exchange of a Client Id and Secret for a JWT access token to authenticate against all
-          requests.
-        </BodyText>
-        <BodyText hasGreyText>
-          Unlike client-side applications, you do not have to re-direct to Reapit Connect, nor do your users have to log
-          into your application. Because of this, the flow must only be used on the Server Side to ensure the Client
-          Secret you will be issued at the end of this wizard is held in a secure location.
-        </BodyText>
+        <FlexContainer isFlexAlignStart={!isFlexColumn} isFlexColumn={isFlexColumn}>
+          <div
+            className={cx(!isFlexColumn && elW6, !isFlexColumn && elMr6, isFlexColumn && elMb7)}
+            onClick={openModalServerSide}
+          >
+            <img src={videoImage} style={{ width: '100%' }} alt="Video placeholder" />
+          </div>
+          <div className={cx(!isFlexColumn && elW6, !isFlexColumn && elMl6)}>
+            <BodyText hasGreyText>
+              Server-side applications authenticate against our API using the{' '}
+              <a onClick={openNewPage(ExternalPages.clientCredentials)}>Client Credentials authentication flow.</a> This
+              process involves the exchange of a Client Id and Secret for a JWT access token to authenticate against all
+              requests.
+            </BodyText>
+            <BodyText hasGreyText>
+              Unlike client-side applications, you do not have to re-direct to Reapit Connect, nor do your users have to
+              log into your application. Because of this, the flow must only be used on the Server Side to ensure the
+              Client Secret you will be issued at the end of this wizard is held in a secure location.
+            </BodyText>
+          </div>
+        </FlexContainer>
       </div>
       <div className={cx(shouldShowStep(AppNewStepId.rcRedirectsStep) ? elFadeIn : stepIsHidden)}>
         <Subtitle hasBoldText>Reapit Connect Redirects</Subtitle>
@@ -277,7 +291,24 @@ export const HelperContent: FC = () => {
           wish to add or remove them before your app goes live.
         </BodyText>
       </div>
-      <Modal title="Desktop API">
+      <ModalServerSide title="Server Side Apps">
+        <iframe
+          className={elMb7}
+          width="100%"
+          height="315"
+          src="https://www.youtube.com/embed/s2OEO9RSZ8M"
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+        <ButtonGroup alignment="center">
+          <Button fixedWidth intent="low" onClick={closeModalServerSide}>
+            Close
+          </Button>
+        </ButtonGroup>
+      </ModalServerSide>
+      <ModalDesktop title="Desktop API">
         <iframe
           className={elMb7}
           width="100%"
@@ -289,11 +320,11 @@ export const HelperContent: FC = () => {
           allowFullScreen
         />
         <ButtonGroup alignment="center">
-          <Button fixedWidth intent="low" onClick={closeModal}>
+          <Button fixedWidth intent="low" onClick={closeModalDesktop}>
             Close
           </Button>
         </ButtonGroup>
-      </Modal>
+      </ModalDesktop>
     </HelperContentContainer>
   )
 }

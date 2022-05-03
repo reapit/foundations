@@ -27,6 +27,7 @@ window.reapit = {
     PUSHER_KEY: '',
     DEPLOYMENT_SERVICE_HOST: '',
     pipelineWhitelist: [],
+    swaggerWhitelist: [],
   },
 }
 
@@ -64,7 +65,10 @@ const run = async () => {
       ReactGA.pageview(window.location.pathname + window.location.search)
     }
 
-    window.reapit.config = config
+    window.reapit.config = {
+      ...window.reapit.config,
+      ...config,
+    }
 
     const { default: App } = await import('./app')
     renderApp(App)

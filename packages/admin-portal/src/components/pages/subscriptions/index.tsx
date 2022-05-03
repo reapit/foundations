@@ -112,6 +112,7 @@ const Subscriptions: React.FC = () => {
     { Header: 'Subscription Type', accessor: 'type' },
     { Header: 'Summary', accessor: 'summary' },
     { Header: 'Application ID', accessor: 'applicationId' },
+    { Header: 'Company Name', accessor: 'organisationName' },
     { Header: 'Member Name', accessor: 'developerId', Cell: MemberNameCell },
     { Header: 'Member Email', accessor: 'user' },
     {

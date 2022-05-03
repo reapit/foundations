@@ -5,6 +5,7 @@ import Routes from '../../../constants/routes'
 import { mockProductModelPagedResult } from '../../../tests/__stubs__/products'
 import { ProductModel } from '@reapit/foundations-ts-definitions'
 import { mockMemberModel } from '../../../tests/__stubs__/members'
+import { mockDeveloperModel } from '../../../tests/__stubs__/developers'
 
 jest.mock('../../webhooks/state/use-webhooks-state')
 jest.mock('../../../core/use-global-state')
@@ -21,6 +22,8 @@ const routes = [
 ]
 
 describe('ApiPage', () => {
+  window.reapit.config.swaggerWhitelist = [mockDeveloperModel.id as string]
+
   routes.forEach((route) => {
     it(`should match a snapshot for the ${route} page`, () => {
       window.location.pathname = route
