@@ -80,16 +80,17 @@ export class GithubWebhookController {
         repositories.map(async (repository) => {
           const repo = `https://github.com/${repository.full_name}`
 
-          const pipeline = await this.pipelineProvider.findByRepo(repo)
 
-          if (!pipeline) {
-            throw new NotFoundException()
-          }
-
-          return this.pipelineProvider.update(pipeline, {
+          const results = await this.pipelineProvider.updatePipelinesWithRepo(repo, {
             installationId: body.installation.id,
             repositoryId: repository.id,
           })
+
+          if (results && results.affected && results.affected >= 1) {
+            return
+          }
+
+          throw new NotFoundException()
         }),
       )
     }

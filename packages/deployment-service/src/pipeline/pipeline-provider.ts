@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import { PipelineEntity } from '../entities/pipeline.entity'
-import { Repository } from 'typeorm'
+import { Repository, UpdateResult } from 'typeorm'
 import { InjectRepository } from '@nestjs/typeorm'
 import { paginate, Pagination } from 'nestjs-typeorm-paginate'
 
@@ -55,5 +55,16 @@ export class PipelineProvider {
     return this.repository.findOne({
       repositoryId,
     })
+  }
+
+  async updatePipelinesWithRepo(repository, data: Partial<PipelineEntity>): Promise<UpdateResult> {
+    return this.repository
+    .createQueryBuilder()
+    .update()
+    .set(data)
+    .where('repository = :repository', {
+      repository,
+    })
+    .execute()
   }
 }
