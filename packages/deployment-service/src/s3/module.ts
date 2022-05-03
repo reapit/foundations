@@ -14,9 +14,11 @@ import { getRoleCredentials } from './assumed-s3-client'
       useFactory: async (config: ConfigService) => {
         return new S3({
           region: process.env.REGION,
-          credentials: await getRoleCredentials(
-            config.get<RoleCredentialsType>('role-credentials') as RoleCredentialsType,
-          ),
+          // TODO check node_env is correct here
+          credentials:
+            process.env.NODE_ENV === 'production'
+              ? await getRoleCredentials(config.get<RoleCredentialsType>('role-credentials') as RoleCredentialsType)
+              : undefined,
         })
       },
       inject: [ConfigService],
