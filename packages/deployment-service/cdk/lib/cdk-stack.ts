@@ -542,7 +542,8 @@ export const createStack = () => {
         api,
         lambda,
         options.api.routes,
-        options.api.authorizer ? process.env.AUTHORIZER_ID : undefined,
+        // @ts-ignore
+        options.api.authorizer ? config.AUTHORIZER_ID as string : undefined,
       )
     } else if (options.topic) {
       addLambdaSNSTrigger(lambda, options.topic)
