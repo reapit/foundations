@@ -137,7 +137,12 @@ export class CodebuildExecutorWorkflow extends AbstractWorkflow<{
               nodejs: 12,
             },
             commands: [
-              'cd */',
+              'n install 14',
+              'n use 14',
+              'CACHE_FOLDER=$(find . -maxdepth 1 -mindepth 1 -type d)',
+              'echo $CACHE_FOLDER',
+              'mv $CACHE_FOLDER/* ./',
+              'rm -rf $CACHE_FOLDER',
               pipeline.packageManager === PackageManagerEnum.YARN
                 ? pipeline.packageManager
                 : `${pipeline.packageManager} install`,
