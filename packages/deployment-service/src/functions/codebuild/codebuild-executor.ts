@@ -173,15 +173,15 @@ export const codebuildExecutor: SQSHandler = async (
                     : `${pipeline.packageManager} install`,
                 ],
               },
-              pre_build: {
-                commands: [
-                  `${
-                    pipeline.packageManager === PackageManagerEnum.NPM
-                      ? `${pipeline.packageManager} run`
-                      : pipeline.packageManager
-                  } ${pipeline.buildCommand}`,
-                ],
-              },
+              // pre_build: {
+              //   commands: [
+              //     `${
+              //       pipeline.packageManager === PackageManagerEnum.NPM
+              //         ? `${pipeline.packageManager} run`
+              //         : pipeline.packageManager
+              //     } ${pipeline.buildCommand}`,
+              //   ],
+              // },
               build: {
                 commands: [
                   `${
