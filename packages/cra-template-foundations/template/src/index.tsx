@@ -1,4 +1,4 @@
-import React, { ComponentType } from 'react'
+import React, { FC } from 'react'
 import { createRoot } from 'react-dom/client'
 import { Config } from './types/global'
 import config from './reapit.config.json'
@@ -15,7 +15,7 @@ window.reapit = {
   },
 }
 
-export const renderApp = (Component: ComponentType) => {
+export const renderApp = (Component: FC) => {
   const rootElement = document.querySelector('#root') || document.body
   const isDesktop = Boolean(window['__REAPIT_MARKETPLACE_GLOBALS__'])
   const html = document.querySelector('html')

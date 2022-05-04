@@ -1,5 +1,5 @@
 import * as Sentry from '@sentry/browser'
-import React from 'react'
+import React, { FC } from 'react'
 import { createRoot } from 'react-dom/client'
 import ReactGA from 'react-ga'
 import { Config } from '@/types/global'
@@ -31,7 +31,7 @@ window.reapit = {
   },
 }
 
-export const renderApp = (Component: React.ComponentType) => {
+export const renderApp = (Component: FC) => {
   const rootElement = document.querySelector('#root') as Element
   const isDesktop = getMarketplaceGlobalsByKey()
   const html = document.querySelector('html')
