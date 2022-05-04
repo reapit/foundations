@@ -6157,6 +6157,10 @@ export interface CreatePropertyModel {
      */
     price?: number // int32
     /**
+     * The fee charged by the agent to reserve a property (typically a new build)
+     */
+    reservationFee?: number // int32
+    /**
      * The price qualifier (askingPrice/priceOnApplication/guidePrice/offersInRegion/offersOver/offersInExcess/fixedPrice/priceReducedTo)
      */
     qualifier?: string
@@ -6477,6 +6481,10 @@ export interface CreatePropertySellingModel {
    * The marketing price of the property
    */
   price?: number // int32
+  /**
+   * The fee charged by the agent to reserve a property (typically a new build)
+   */
+  reservationFee?: number // int32
   /**
    * The price qualifier (askingPrice/priceOnApplication/guidePrice/offersInRegion/offersOver/offersInExcess/fixedPrice/priceReducedTo)
    */
@@ -11069,6 +11077,10 @@ export interface PropertyModel {
      */
     priceTo?: number // double
     /**
+     * The fee charged by the agent to reserve a property (typically a new build)
+     */
+    reservationFee?: number // int32
+    /**
      * The price qualifier (askingPrice/priceOnApplication/guidePrice/offersInRegion/offersOver/offersInExcess/fixedPrice/priceReducedTo)
      */
     qualifier?: string
@@ -11714,6 +11726,10 @@ export interface PropertyModelPagedResult {
        */
       priceTo?: number // double
       /**
+       * The fee charged by the agent to reserve a property (typically a new build)
+       */
+      reservationFee?: number // int32
+      /**
        * The price qualifier (askingPrice/priceOnApplication/guidePrice/offersInRegion/offersOver/offersInExcess/fixedPrice/priceReducedTo)
        */
       qualifier?: string
@@ -12126,6 +12142,10 @@ export interface PropertySellingModel {
    * The maximum price of a property on the development plot
    */
   priceTo?: number // double
+  /**
+   * The fee charged by the agent to reserve a property (typically a new build)
+   */
+  reservationFee?: number // int32
   /**
    * The price qualifier (askingPrice/priceOnApplication/guidePrice/offersInRegion/offersOver/offersInExcess/fixedPrice/priceReducedTo)
    */
@@ -16218,6 +16238,10 @@ export interface UpdatePropertyModel {
      */
     price?: number // int32
     /**
+     * The fee charged by the agent to reserve a property (typically a new build)
+     */
+    reservationFee?: number // int32
+    /**
      * The price qualifier (askingPrice/priceOnApplication/guidePrice/offersInRegion/offersOver/offersInExcess/fixedPrice/priceReducedTo)
      */
     qualifier?: string
@@ -16512,6 +16536,10 @@ export interface UpdatePropertySellingModel {
    * The marketing price of the property
    */
   price?: number // int32
+  /**
+   * The fee charged by the agent to reserve a property (typically a new build)
+   */
+  reservationFee?: number // int32
   /**
    * The price qualifier (askingPrice/priceOnApplication/guidePrice/offersInRegion/offersOver/offersInExcess/fixedPrice/priceReducedTo)
    */
