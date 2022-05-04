@@ -1,16 +1,18 @@
 import { useEffect, useState } from 'react'
 
 export interface UseThemeInterface<T> {
-  togglTheme: (theme: keyof T) => void
-  currentTheme: string
+  togglTheme: (theme: T) => void
+  currentTheme: keyof T
 }
 
-export type UseThemeHookFunction<T> = (props: { initialSelection?: keyof T; themes?: T }) => UseThemeInterface<T>
-
-export const THEME_BODY_CLASS = 'theme'
+export const THEME_BODY_CLASS = 'reapit-theme'
 export const THEME_LOCAL_STOREAGE_KEY = `reapit-foundations-${THEME_BODY_CLASS}`
 
-export const useTheme: UseThemeHookFunction<{}> = ({ initialSelection = 'default' }) => {
+export const useTheme = <T extends string[]>({
+  initialSelection = 'default' as keyof T,
+}: {
+  initialSelection?: keyof T
+}): UseThemeInterface<T> => {
   useEffect(() => {
     if (localStorage) {
       const storedValue = localStorage.getItem(`reapit-foundations-${THEME_BODY_CLASS}`)
@@ -20,12 +22,12 @@ export const useTheme: UseThemeHookFunction<{}> = ({ initialSelection = 'default
       const initialSelection = json.theme
 
       if (typeof initialSelection === 'string') {
-        setTheme(initialSelection)
+        setTheme(initialSelection as keyof T)
       }
     }
   }, [])
 
-  const [theme, setTheme] = useState(initialSelection)
+  const [theme, setTheme] = useState<keyof T>(initialSelection)
 
   useEffect(() => {
     const body = document.getElementsByTagName('body')
