@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 export interface UseThemeInterface<T> {
   togglTheme: (theme: T) => void
@@ -13,6 +13,7 @@ export const useTheme = <T extends string[]>({
 }: {
   initialSelection?: keyof T
 }): UseThemeInterface<T> => {
+  // Initial setting of theme from localStorage
   useEffect(() => {
     if (localStorage) {
       const storedValue = localStorage.getItem(`reapit-foundations-${THEME_BODY_CLASS}`)
@@ -28,13 +29,21 @@ export const useTheme = <T extends string[]>({
   }, [])
 
   const [theme, setTheme] = useState<keyof T>(initialSelection)
+  const themeRef = useRef<keyof T>(initialSelection)
 
+  // When theme is changed, toggle body classes and reset localStorage value
   useEffect(() => {
     const body = document.getElementsByTagName('body')
 
     if (body.length >= 1) {
-      theme ? body[0].classList.add(THEME_BODY_CLASS) : body[0].classList.remove(THEME_BODY_CLASS)
+      body[0].classList.add(`${THEME_BODY_CLASS}-${theme}`)
+
+      if (themeRef.current) {
+        body[0].classList.remove(`${THEME_BODY_CLASS}-${themeRef.current}`)
+      }
     }
+
+    themeRef.current = theme
     localStorage && localStorage.setItem(THEME_LOCAL_STOREAGE_KEY, JSON.stringify({ theme }))
   }, [theme])
 
