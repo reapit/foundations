@@ -1,18 +1,19 @@
 import { useEffect, useRef, useState } from 'react'
 
-export interface UseThemeInterface<T> {
-  togglTheme: (theme: T) => void
-  currentTheme: keyof T
+export interface UseThemeInterface {
+  toggleTheme: (theme: string) => void
+  currentTheme: string
 }
 
 export const THEME_BODY_CLASS = 'reapit-theme'
 export const THEME_LOCAL_STOREAGE_KEY = `reapit-foundations-${THEME_BODY_CLASS}`
 
-export const useTheme = <T extends string[]>({
-  initialSelection = 'default' as keyof T,
+// TODO determine dark theme on default by using media selectors?
+export const useTheme = ({
+  initialSelection = 'default',
 }: {
-  initialSelection?: keyof T
-}): UseThemeInterface<T> => {
+  initialSelection?: string
+}): UseThemeInterface => {
   // Initial setting of theme from localStorage
   useEffect(() => {
     if (localStorage) {
@@ -23,13 +24,13 @@ export const useTheme = <T extends string[]>({
       const initialSelection = json.theme
 
       if (typeof initialSelection === 'string') {
-        setTheme(initialSelection as keyof T)
+        setTheme(initialSelection)
       }
     }
   }, [])
 
-  const [theme, setTheme] = useState<keyof T>(initialSelection)
-  const themeRef = useRef<keyof T>(initialSelection)
+  const [theme, setTheme] = useState<string>(initialSelection)
+  const themeRef = useRef<string>(initialSelection)
 
   // When theme is changed, toggle body classes and reset localStorage value
   useEffect(() => {
@@ -47,10 +48,10 @@ export const useTheme = <T extends string[]>({
     localStorage && localStorage.setItem(THEME_LOCAL_STOREAGE_KEY, JSON.stringify({ theme }))
   }, [theme])
 
-  const togglTheme = (theme) => setTheme(theme)
+  const toggleTheme = (theme) => setTheme(theme)
 
   return {
-    togglTheme,
+    toggleTheme,
     currentTheme: theme,
   }
 }
