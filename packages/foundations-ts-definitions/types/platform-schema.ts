@@ -10680,6 +10680,10 @@ export interface PropertyLettingModel {
    */
   propertyManagerId?: string
   /**
+   * The unique identifiers of the management companies associated to the property
+   */
+  managementCompanyIds?: string[]
+  /**
    * The unique identifier of the document used for the lettings brochure
    */
   brochureId?: string
@@ -11229,6 +11233,10 @@ export interface PropertyModel {
      * The unique identifier of the negotiator that manages the property
      */
     propertyManagerId?: string
+    /**
+     * The unique identifiers of the management companies associated to the property
+     */
+    managementCompanyIds?: string[]
     /**
      * The unique identifier of the document used for the lettings brochure
      */
@@ -11878,6 +11886,10 @@ export interface PropertyModelPagedResult {
        * The unique identifier of the negotiator that manages the property
        */
       propertyManagerId?: string
+      /**
+       * The unique identifiers of the management companies associated to the property
+       */
+      managementCompanyIds?: string[]
       /**
        * The unique identifier of the document used for the lettings brochure
        */
