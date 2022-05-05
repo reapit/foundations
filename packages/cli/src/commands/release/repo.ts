@@ -35,6 +35,7 @@ export class RepoCommand extends AbstractCommand {
       process.exit(1)
     } else {
       spinner.fail('Deployment creation failed')
+      console.log(`Response: ${response.statusText}`)
       process.exit(1)
     }
 

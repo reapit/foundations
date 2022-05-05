@@ -45,6 +45,7 @@ export class VersionCommand extends AbstractCommand {
       }
 
       spinner.fail(message)
+      console.log(`Response: ${response.statusText}`)
       process.exit(1)
     }
 

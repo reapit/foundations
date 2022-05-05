@@ -124,6 +124,7 @@ export class ZipCommand extends AbstractCommand {
 
     if (response.status !== 200) {
       spinner.fail('Failed to publish zip to reapit')
+      console.log(`Response: ${response.statusText}`)
       process.exit(1)
     }
 
@@ -139,6 +140,7 @@ export class ZipCommand extends AbstractCommand {
       spinner.succeed('Successfully found pipeline')
     } else {
       spinner.fail('No pipeline exists with id provided')
+      console.log(`Response: ${response.statusText}`)
       process.exit(1)
     }
 
