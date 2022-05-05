@@ -13,7 +13,7 @@ export interface Command {
 }
 
 export abstract class AbstractCommand {
-  protected baseUrl: string = 'https://deployments.dev.paas.reapit.cloud/api/'
+  protected baseUrl: string = 'https://deployments.prod.paas.reapit.cloud/api/'
 
   get commandOptions(): CommandOptions {
     return Reflect.getOwnMetadata(COMMAND_OPTIONS, this.constructor)
@@ -74,7 +74,15 @@ export abstract class AbstractCommand {
       process.exit(1)
     }
 
-    // spinner?.info(`Config found from: [${config.from}]`)
+    if (!config?.config['api-key']) {
+      this.writeLine(
+        `${chalk.red('No api-key found. Please run')} ${chalk.bold.green('reapit config')} ${chalk.red(
+          'and enter your api-key',
+        )}`,
+      )
+      spinner?.stop()
+      process.exit(1)
+    }
 
     const instance = axios.create({
       baseURL: config?.config?.baseUrl || this.baseUrl,
