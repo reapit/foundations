@@ -80,6 +80,7 @@ export class PipelineEditCommand extends AbstractCommand {
       spinner.fail('Failed to create pipeline')
       console.log(chalk.red('Check your internet connection'))
       console.log(chalk.red('Report this error if it persists'))
+      console.log(`Response: ${response.statusText}`)
       process.exit(1)
     }
   }

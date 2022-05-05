@@ -54,6 +54,7 @@ export class DeletePipelineCommand extends AbstractCommand {
       } else {
         console.log(response.response)
         spinner.fail('Pipeline deletion failed')
+        console.log(`response: ${response.statusText}`)
         process.exit(1)
       }
     }

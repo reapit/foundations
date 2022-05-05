@@ -20,6 +20,7 @@ export class ReleaseListCommand extends AbstractCommand {
 
     if (response.status !== 200) {
       spinner.fail('Failed to fetch releases')
+      console.log(`Response: ${response.statusText}`)
       process.exit(1)
     }
 
