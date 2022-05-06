@@ -335,6 +335,16 @@ Object {
           </div>
         </div>
       </div>
+      <div
+        class="e1s056ze-el-mt6"
+      >
+        <button
+          class="epibvz0-el-intent-secondary eqfkc7t-el-button"
+          disabled=""
+        >
+          Download Logs
+        </button>
+      </div>
     </div>
   </body>,
   "container": <div>
@@ -540,6 +550,16 @@ Object {
           </div>
         </div>
       </div>
+    </div>
+    <div
+      class="e1s056ze-el-mt6"
+    >
+      <button
+        class="epibvz0-el-intent-secondary eqfkc7t-el-button"
+        disabled=""
+      >
+        Download Logs
+      </button>
     </div>
   </div>,
   "debug": [Function],
