@@ -419,7 +419,6 @@ export const createStack = () => {
         ...policies.commonBackendPolicies,
         policies.cloudFrontPolicy,
         policies.route53Policy,
-        policies.parameterStorePolicy,
       ],
     },
     pusherAuth: {
@@ -506,7 +505,7 @@ export const createStack = () => {
     },
     parameterStoreUpsert: {
       handler: `${fileLocPrefix}parameterUpsert`,
-      policies: [...policies.commonBackendPolicies, policies.parameterStorePolicy],
+      policies: [...policies.commonBackendPolicies],
       api: {
         routes: [
           {
@@ -522,7 +521,7 @@ export const createStack = () => {
     },
     apiParameterStoreUpsert: {
       handler: `${fileLocPrefix}parameterUpsert`,
-      policies: [...policies.commonBackendPolicies, policies.parameterStorePolicy],
+      policies: [...policies.commonBackendPolicies],
       api: {
         routes: [
           {
@@ -538,7 +537,7 @@ export const createStack = () => {
     },
     parameterKeys: {
       handler: `${fileLocPrefix}parameterKeys`,
-      policies: [...policies.commonBackendPolicies, policies.parameterStorePolicy],
+      policies: [...policies.commonBackendPolicies],
       api: {
         routes: [
           {
@@ -554,7 +553,7 @@ export const createStack = () => {
     },
     apiParameterKeys: {
       handler: `${fileLocPrefix}parameterKeys`,
-      policies: [...policies.commonBackendPolicies, policies.parameterStorePolicy],
+      policies: [...policies.commonBackendPolicies],
       api: {
         routes: [
           {

@@ -12,7 +12,6 @@ export enum PolicyNames {
   sqsPolices = 'sqsPolicies',
   secretManagerPolicy = 'secretManagerPolicy',
   S3BucketPolicy = 'S3BucketPolicy',
-  parameterStorePolicy = 'parameterStorePolicy',
 }
 
 type namedPolicyType = {
@@ -151,6 +150,20 @@ export const createPolicies = ({
     actions: ['codebuild:StartBuild'],
   })
 
+  const parameterStorePolicy = new PolicyStatement({
+    effect: Effect.ALLOW,
+    resources: ['*'],
+    actions: [
+      'ssm:PutParameter',
+      'ssm:GetParameter',
+      'ssm:GetParameters',
+      'ssm:DeleteParameter',
+      'ssm:GetParameterHistory',
+      'ssm:DeleteParameters',
+      'ssm:GetParametersByPath',
+    ],
+  })
+
   // create a policy that allows the lambda to do what it needs to do in the usercode stack
   const usercodePolicy = new Policy(usercodeStack, 'UsercodePolicy')
   usercodePolicy.addStatements(
@@ -159,6 +172,7 @@ export const createPolicies = ({
     cloudFrontPolicy,
     codebuildSnssubscriptionPolicy,
     codebuildExecPolicy,
+    parameterStorePolicy,
   )
   const usercodeStackRoleName = `${usercodeStack.stackName}-UsercodeStackRole`
   // create a role that lambdas can assume in the usercode stack, with the policy we just created
@@ -189,20 +203,6 @@ export const createPolicies = ({
     actions: ['lambda:InvokeFunction'],
   })
 
-  const parameterStorePolicy = new PolicyStatement({
-    effect: Effect.ALLOW,
-    resources: ['*'],
-    actions: [
-      'ssm:PutParameter',
-      'ssm:GetParameter',
-      'ssm:GetParameters',
-      'ssm:DeleteParameter',
-      'ssm:GetParameterHistory',
-      'ssm:DeleteParameters',
-      'ssm:GetParametersByPath',
-    ],
-  })
-
   const commonBackendPolicies = [
     lambdaInvoke,
     secretManagerPolicy,
@@ -221,6 +221,5 @@ export const createPolicies = ({
     secretManagerPolicy,
     S3BucketPolicy,
     usercodeStackRoleArn,
-    parameterStorePolicy,
   }
 }
