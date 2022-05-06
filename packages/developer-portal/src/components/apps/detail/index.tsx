@@ -20,7 +20,7 @@ import { AppClientSecretModel, AppDetailModel } from '@reapit/foundations-ts-def
 import { useReapitGet } from '@reapit/utils-react'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
-import { PermissionChip, textOverflow, textOverflowContainer } from './__styles__'
+import { LinkChip, PermissionChip, textOverflow, textOverflowContainer } from './__styles__'
 import { ExternalPages, openNewPage } from '../../../utils/navigation'
 
 export interface CopyState {
@@ -124,12 +124,15 @@ export const AppDetail: FC = () => {
             process involves the exchange of a Client Id and Client Secret for a JWT access token to authenticate
             against all requests.
           </BodyText>
-          <BodyText hasGreyText hasSectionMargin>
+          <BodyText hasGreyText>
             To make this process easier, we provide you with a NodeJS authentication module for server-side apps,{' '}
-            <a onClick={openNewPage(ExternalPages.connectSessionDocs)}>Connect Session</a>. For developers in other back
-            end languages, you might find the{' '}
-            <a onClick={openNewPage(ExternalPages.connectSessionNodeExample)}>source code</a> helpful as an
-            implementation example.
+            <a onClick={openNewPage(ExternalPages.connectSessionDocs)}>Connect Session</a>.
+          </BodyText>
+          <BodyText hasGreyText hasSectionMargin>
+            For website developers, you might find our code examples useful. We offer examples in the following
+            languages <LinkChip onClick={openNewPage(ExternalPages.codeExampleNodeWebsite)}>Node JS</LinkChip>
+            <LinkChip onClick={openNewPage(ExternalPages.codeExamplePHPWebsite)}>.NET</LinkChip>
+            <LinkChip onClick={openNewPage(ExternalPages.codeExampleNetWebsite)}>PHP</LinkChip>
           </BodyText>
         </>
       )}

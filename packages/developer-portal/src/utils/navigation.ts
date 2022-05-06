@@ -26,6 +26,9 @@ export enum ExternalPages {
   acLaunchableDocs = 'https://foundations-documentation.reapit.cloud/listing-your-app#apps-launchable-inside-of-agencycloud',
   customerIdFindDocs = 'https://foundations-documentation.reapit.cloud/faqs#how-do-i-find-a-customer-id',
   pipelineDocs = 'https://foundations-documentation.reapit.cloud/iaas',
+  codeExampleNodeWebsite = 'https://github.com/reapit/foundations-code-examples/tree/main/node-website-feed',
+  codeExamplePHPWebsite = 'https://github.com/reapit/foundations-code-examples/tree/main/php-website-feed',
+  codeExampleNetWebsite = 'https://github.com/reapit/foundations-code-examples/tree/main/dotnet-website-feed',
 }
 
 export const openNewPage = (uri: ExternalPages | string) => (event?: MouseEvent) => {

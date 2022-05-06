@@ -140,7 +140,7 @@ Object {
               </svg>
             </span>
             <div
-              class="t11sr6l7-text-overflow-container"
+              class="ttq29n6-text-overflow-container"
             >
               <h2
                 class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
@@ -148,7 +148,7 @@ Object {
                 Authentication Client Secret
               </h2>
               <p
-                class="t1vkdn49-text-overflow e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+                class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
               >
                 MOCK_SECRET
               </p>
@@ -505,7 +505,7 @@ Object {
             </svg>
           </span>
           <div
-            class="t11sr6l7-text-overflow-container"
+            class="ttq29n6-text-overflow-container"
           >
             <h2
               class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
@@ -513,7 +513,7 @@ Object {
               Authentication Client Secret
             </h2>
             <p
-              class="t1vkdn49-text-overflow e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+              class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
             >
               MOCK_SECRET
             </p>
