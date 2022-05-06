@@ -191,7 +191,7 @@ export const createPolicies = ({
 
   const parameterStorePolicy = new PolicyStatement({
     effect: Effect.ALLOW,
-    resources: ['ssm:*'],
+    resources: ['*'],
     actions: [
       'ssm:PutParameter',
       'ssm:GetParameter',
