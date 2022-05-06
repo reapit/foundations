@@ -29,7 +29,7 @@ export const parameterKeys = httpHandler<ParameterDto, Array<string>>({
           Name: `cloud-${pipeline.id}`,
         },
         (err, data) => {
-          if (err) reject(err)
+          if (err && err.code !== 'ParameterNotFound') reject(err)
           resolve(data && data.Parameter && data.Parameter.Value ? JSON.parse(data.Parameter.Value) : {})
         },
       ),
