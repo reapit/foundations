@@ -121,7 +121,7 @@ export const PipelineDeploymentTable: FC = () => {
           <Table
             className={elMb11}
             rows={pipelineDeploymentsItems.map(
-              ({ type, created, buildStatus, buildVersion, currentlyDeployed, tasks }) => ({
+              ({ type, created, buildStatus, buildVersion, currentlyDeployed, tasks, s3BuildLogsLocation }) => ({
                 cells: [
                   {
                     label: 'Release Type',
@@ -171,7 +171,14 @@ export const PipelineDeploymentTable: FC = () => {
                   },
                 ],
                 expandableContent: {
-                  content: <TaskList tasks={tasks} />,
+                  content: (
+                    <TaskList
+                      tasks={tasks}
+                      s3BuildLogsLocation={s3BuildLogsLocation}
+                      buildStatus={buildStatus as string}
+                      created={new Date(created as string)}
+                    />
+                  ),
                 },
               }),
             )}
