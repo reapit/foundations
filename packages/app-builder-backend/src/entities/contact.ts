@@ -1,5 +1,5 @@
 import { gql } from 'apollo-server-core'
-import { ObjectType, Field, ID, InputType, registerEnumType } from 'type-graphql'
+import { ObjectType, Field, ID, InputType, registerEnumType, GraphQLISODateTime } from 'type-graphql'
 import { Negotiator, NegotiatorFragment } from './negotiator'
 import { Office, OfficeFragment } from './office'
 
@@ -16,6 +16,12 @@ registerEnumType(MarketingConsent, {
 export class Contact {
   @Field(() => ID)
   id: string
+
+  @Field(() => GraphQLISODateTime)
+  created: Date
+
+  @Field(() => GraphQLISODateTime)
+  modified: Date
 
   @Field()
   forename: string
@@ -37,6 +43,27 @@ export class Contact {
 
   @Field(() => [Negotiator])
   negotiators?: Negotiator[]
+
+  @Field({ nullable: true })
+  homePhone: string
+
+  @Field({ nullable: true })
+  workPhone: string
+
+  @Field({ nullable: true })
+  mobilePhone: string
+
+  @Field({ nullable: true })
+  communicationPreferenceLetter: boolean
+
+  @Field({ nullable: true })
+  communicationPreferenceEmail: boolean
+
+  @Field({ nullable: true })
+  communicationPreferenceSMS: boolean
+
+  @Field({ nullable: true })
+  communicationPreferencePhone: boolean
 
   metadata?: any
 }
@@ -64,6 +91,27 @@ export class ContactInput {
   @Field(() => [String], { description: '@idOf(Office)' })
   officeIds: string[]
 
+  @Field({ nullable: true })
+  homePhone: string
+
+  @Field({ nullable: true })
+  workPhone: string
+
+  @Field({ nullable: true })
+  mobilePhone: string
+
+  @Field({ nullable: true })
+  communicationPreferenceLetter: boolean
+
+  @Field({ nullable: true })
+  communicationPreferenceEmail: boolean
+
+  @Field({ nullable: true })
+  communicationPreferenceSMS: boolean
+
+  @Field({ nullable: true })
+  communicationPreferencePhone: boolean
+
   metadata?: any
 }
 
@@ -78,6 +126,15 @@ export const ContactFragment = gql`
     email
     marketingConsent
     metadata
+    communicationPreferenceLetter
+    communicationPreferenceEmail
+    communicationPreferenceSMS
+    communicationPreferencePhone
+    created
+    modified
+    homePhone
+    workPhone
+    mobilePhone
     _embedded {
       offices {
         ...OfficeFragment

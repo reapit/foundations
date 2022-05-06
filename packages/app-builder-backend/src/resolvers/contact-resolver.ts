@@ -112,6 +112,12 @@ const hoistEmbeds = <T, E>(object: T & { _embedded: any }): T & E => {
   return { ...rest, ..._embedded }
 }
 
+const convertDates = (contact: Contact): Contact => ({
+  ...contact,
+  created: new Date(contact.created),
+  modified: new Date(contact.modified),
+})
+
 const updateContact = async (
   id: string,
   contact: ContactInput,
@@ -148,11 +154,8 @@ const getContacts = async (accessToken: string, idToken: string): Promise<Contac
 
   return contacts._embedded
     .map((c) => hoistEmbeds<ContactAPIResponse<ContactsEmbeds>, ContactsEmbeds>(c))
-    .map((c) => ({
-      ...c,
-      offices: c.offices || [],
-      negotiators: c.negotiators || [],
-    }))
+    .map(addDefaultEmbeds)
+    .map(convertDates)
 }
 
 const getApiContact = async (
@@ -174,7 +177,7 @@ const getContact = async (id: string, accessToken: string, idToken: string): Pro
   }
 
   const hoistedContact = hoistEmbeds<ContactAPIResponse<ContactsEmbeds>, ContactsEmbeds>(contact)
-  return addDefaultEmbeds(hoistedContact)
+  return convertDates(addDefaultEmbeds(hoistedContact))
 }
 
 const createContact = async (contact: ContactInput, accessToken: string, idToken: string): Promise<Contact> => {
