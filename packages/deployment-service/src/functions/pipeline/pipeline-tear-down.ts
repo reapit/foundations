@@ -9,6 +9,7 @@ import { ChangeResourceRecordSetsCommand, Route53Client } from '@aws-sdk/client-
 import { SQSEvent, SQSHandler, Context, Callback } from 'aws-lambda'
 import {
   assumedS3Client,
+  createParameterStoreClient,
   deletePipelineEntity,
   deletePipelineRunners,
   deleteTasksFromPipeline,
@@ -128,6 +129,21 @@ const tearDownR53 = async (domain: string, pipelineId: string, subDomain: string
   )
 }
 
+const destroyParameters = async (pipelineId: string): Promise<void> => {
+  const client = await createParameterStoreClient()
+  return new Promise<void>((resolve) => {
+    client.deleteParameter(
+      {
+        Name: `cloud-${pipelineId}`,
+      },
+      (err) => {
+        console.error(err)
+        resolve()
+      },
+    )
+  })
+}
+
 const deleteAllFromDb = async (pipeline: PipelineEntity) => {
   await deleteTasksFromPipeline(pipeline)
   await deletePipelineRunners(pipeline)
@@ -191,6 +207,8 @@ export const pipelineTearDown: SQSHandler = async (event: SQSEvent, context: Con
           if (pipeline.hasRoute53) await tearDownR53(domainName, pipeline.id as string, pipeline.subDomain as string)
         }
       }
+
+      await destroyParameters(pipeline.id as string)
 
       await deleteAllFromDb(pipeline)
       pipeline.buildStatus = 'DELETED'
