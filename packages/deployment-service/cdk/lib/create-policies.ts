@@ -12,6 +12,7 @@ export enum PolicyNames {
   sqsPolices = 'sqsPolicies',
   secretManagerPolicy = 'secretManagerPolicy',
   S3BucketPolicy = 'S3BucketPolicy',
+  parameterStorePolicy = 'parameterStorePolicy',
 }
 
 type namedPolicyType = {
@@ -188,6 +189,20 @@ export const createPolicies = ({
     actions: ['lambda:InvokeFunction'],
   })
 
+  const parameterStorePolicy = new PolicyStatement({
+    effect: Effect.ALLOW,
+    resources: ['ssm:*'],
+    actions: [
+      'ssm:PutParameter',
+      'ssm:GetParameter',
+      'ssm:GetParameters',
+      'ssm:DeleteParameter',
+      'ssm:GetParameterHistory',
+      'ssm:DeleteParameters',
+      'ssm:GetParametersByPath',
+    ],
+  })
+
   const commonBackendPolicies = [
     lambdaInvoke,
     secretManagerPolicy,
@@ -206,5 +221,6 @@ export const createPolicies = ({
     secretManagerPolicy,
     S3BucketPolicy,
     usercodeStackRoleArn,
+    parameterStorePolicy,
   }
 }
