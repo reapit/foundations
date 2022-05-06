@@ -536,6 +536,38 @@ export const createStack = () => {
         headers: ['Content-Type', 'Authorization', 'api-version', 'X-Api-Key'],
       },
     },
+    parameterKeys: {
+      handler: `${fileLocPrefix}parameterKeys`,
+      policies: [...policies.commonBackendPolicies, policies.parameterStorePolicy],
+      api: {
+        routes: [
+          {
+            method: 'GET',
+            path: '/pipeline/{pipelineId}/parameter',
+          },
+        ],
+        cors: {
+          origin: '*',
+        },
+        headers: ['Content-Type', 'Authorization', 'api-version'],
+      },
+    },
+    apiParameterKeys: {
+      handler: `${fileLocPrefix}parameterKeys`,
+      policies: [...policies.commonBackendPolicies, policies.parameterStorePolicy],
+      api: {
+        routes: [
+          {
+            method: 'GET',
+            path: 'api/pipeline/{pipelineId}/parameter',
+          },
+        ],
+        cors: {
+          origin: '*',
+        },
+        headers: ['Content-Type', 'Authorization', 'api-version', 'X-Api-Key'],
+      },
+    },
   }
 
   const MYSQL_DATABASE = databaseName
