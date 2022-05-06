@@ -176,6 +176,7 @@ export const PipelineDeploymentTable: FC = () => {
                       tasks={tasks}
                       s3BuildLogsLocation={s3BuildLogsLocation}
                       buildStatus={buildStatus as string}
+                      created={new Date(created as string)}
                     />
                   ),
                 },

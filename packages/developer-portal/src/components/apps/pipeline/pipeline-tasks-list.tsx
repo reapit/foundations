@@ -21,9 +21,10 @@ interface TaskListProps {
   tasks: PipelineRunnerModelInterface['tasks']
   s3BuildLogsLocation?: string
   buildStatus: string
+  created: Date
 }
 
-export const TaskList: FC<TaskListProps> = ({ tasks, s3BuildLogsLocation, buildStatus }) => {
+export const TaskList: FC<TaskListProps> = ({ tasks, s3BuildLogsLocation, buildStatus, created }) => {
   if (!tasks || !tasks.length) {
     return (
       <PersistantNotification isInline isFullWidth isExpanded intent="secondary">
@@ -31,6 +32,14 @@ export const TaskList: FC<TaskListProps> = ({ tasks, s3BuildLogsLocation, buildS
       </PersistantNotification>
     )
   }
+
+  const expires = created
+  expires.setDate(7)
+
+  const logsExpired = expires.getTime() < new Date().getTime()
+
+  console.log(expires.getTime(), logsExpired)
+
   return (
     <>
       <Table>
@@ -55,7 +64,7 @@ export const TaskList: FC<TaskListProps> = ({ tasks, s3BuildLogsLocation, buildS
       <div className={cx(elMt6)}>
         <Button
           intent="secondary"
-          disabled={!s3BuildLogsLocation || !['FAILED', 'SUCCEEDED'].includes(buildStatus)}
+          disabled={!s3BuildLogsLocation || !['FAILED', 'SUCCEEDED'].includes(buildStatus) || logsExpired}
           onClick={() => {
             s3BuildLogsLocation && openNewPage(s3BuildLogsLocation)()
           }}

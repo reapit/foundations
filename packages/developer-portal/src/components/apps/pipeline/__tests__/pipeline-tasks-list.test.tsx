@@ -6,11 +6,13 @@ import { mockPipelineRunnerResponse } from '../../../../tests/__stubs__/pipeline
 describe('TaskList', () => {
   it('should match snapshot with tasks', () => {
     expect(
-      render(<TaskList buildStatus="IN_PROGRESS" tasks={mockPipelineRunnerResponse.items[0].tasks} />),
+      render(
+        <TaskList created={new Date()} buildStatus="IN_PROGRESS" tasks={mockPipelineRunnerResponse.items[0].tasks} />,
+      ),
     ).toMatchSnapshot()
   })
 
   it('should match snapshot with no tasks', () => {
-    expect(render(<TaskList buildStatus="IN_PROGRESS" tasks={[]} />)).toMatchSnapshot()
+    expect(render(<TaskList created={new Date()} buildStatus="IN_PROGRESS" tasks={[]} />)).toMatchSnapshot()
   })
 })
