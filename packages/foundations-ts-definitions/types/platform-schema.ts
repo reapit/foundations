@@ -6412,6 +6412,10 @@ export interface CreatePropertyModel {
     description?: string
   }[]
   /**
+   * A flag determining whether or not the property's room details have been approved by the vendor or landlord
+   */
+  roomDetailsApproved?: boolean
+  /**
    * The unique identifier of the negotiator managing the property
    */
   negotiatorId: string
@@ -11399,6 +11403,10 @@ export interface PropertyModel {
     description?: string
   }[]
   /**
+   * A flag determining whether or not the property's room details have been approved by the vendor or landlord
+   */
+  roomDetailsApproved?: boolean
+  /**
    * A collection of unique identifiers of offices attached to the property
    */
   officeIds?: string[]
@@ -12051,6 +12059,10 @@ export interface PropertyModelPagedResult {
        */
       description?: string
     }[]
+    /**
+     * A flag determining whether or not the property's room details have been approved by the vendor or landlord
+     */
+    roomDetailsApproved?: boolean
     /**
      * A collection of unique identifiers of offices attached to the property
      */
@@ -12758,6 +12770,10 @@ export interface Tenancies {
   createdTo?: string
   modifiedFrom?: string
   modifiedTo?: string
+  endDateFrom?: string
+  endDateTo?: string
+  startDateFrom?: string
+  startDateTo?: string
   metadata?: string[]
 }
 /**
@@ -16044,6 +16060,10 @@ export interface UpdatePropertyLettingsDepositModel {
  * [object Object]
  */
 export interface UpdatePropertyModel {
+  /**
+   * A flag determining whether or not the property's room details have been approved by the vendor or landlord
+   */
+  roomDetailsApproved?: boolean
   /**
    * The strapline description containing a short summary about the property
    */
