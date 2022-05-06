@@ -38,8 +38,6 @@ export const TaskList: FC<TaskListProps> = ({ tasks, s3BuildLogsLocation, buildS
 
   const logsExpired = expires.getTime() < new Date().getTime()
 
-  console.log(expires.getTime(), logsExpired)
-
   return (
     <>
       <Table>
@@ -69,7 +67,11 @@ export const TaskList: FC<TaskListProps> = ({ tasks, s3BuildLogsLocation, buildS
             s3BuildLogsLocation && openNewPage(s3BuildLogsLocation)()
           }}
         >
-          Download Logs
+          {logsExpired
+            ? 'Logs Expired'
+            : !['FAILED', 'SUCCEEDED'].includes(buildStatus)
+            ? 'Logs Unavailable'
+            : 'Download Logs'}
         </Button>
       </div>
     </>
