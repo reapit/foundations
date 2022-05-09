@@ -155,7 +155,6 @@ export const send =
 
 export const handleSuccess =
   (action: UpdateAction, success: boolean | undefined, successSnack: (message: string) => void) => () => {
-    console.log('action', action)
     const { successMessage } = action
 
     if (success && successMessage) {
