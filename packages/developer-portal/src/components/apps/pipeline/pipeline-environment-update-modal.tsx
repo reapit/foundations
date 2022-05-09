@@ -67,6 +67,7 @@ export const PipelineEnvUpdateModal = ({
     })
     if (result) {
       reset()
+      setModalOpen(false)
     }
   })
 

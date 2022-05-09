@@ -1,5 +1,5 @@
 import { useReapitConnect } from '@reapit/connect-session'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useAppState } from '../state/use-app-state'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { PipelineTabs } from './pipeline-tabs'
@@ -45,8 +45,9 @@ export const PipelineEnvironment = () => {
   const { appId } = useAppState()
   const [isInserting, setIsInserting] = useState<boolean>(false)
   const [modalOpen, setModalOpen] = useState<string | false>(false)
+  const [keys, setKeys] = useState<string[]>([])
 
-  const [keys, isFetching] = useReapitGet<string[]>({
+  const [fetchedKeys, isFetching] = useReapitGet<string[]>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getPipelineEnvironment],
     uriParams: {
@@ -70,6 +71,10 @@ export const PipelineEnvironment = () => {
     },
   })
 
+  useEffect(() => {
+    if (fetchedKeys) setKeys(fetchedKeys)
+  }, [fetchedKeys])
+
   const {
     register,
     handleSubmit,
@@ -83,6 +88,8 @@ export const PipelineEnvironment = () => {
     const result = await func(values)
     if (result) {
       reset()
+      setIsInserting(false)
+      setKeys([...keys, values.key])
     }
   })
 
