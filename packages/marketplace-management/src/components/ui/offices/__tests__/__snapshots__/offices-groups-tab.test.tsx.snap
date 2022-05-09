@@ -265,7 +265,7 @@ Object {
         class="el-fade-in el-mb11 el-table"
         data-has-call-to-action="false"
         data-has-expandable-action="true"
-        data-num-columns-excl-action-col="3"
+        data-num-columns-excl-action-col="4"
       >
         <div
           class="el-table-headers-row"
@@ -274,6 +274,11 @@ Object {
             class="el-table-header"
           >
             Group Name
+          </div>
+          <div
+            class="el-table-header"
+          >
+            Office Group Id
           </div>
           <div
             class="el-table-header"
@@ -323,6 +328,16 @@ Object {
                 data-narrow-label="Group Name"
               >
                 Hi World Again
+              </div>
+            </div>
+            <div
+              class="el-table-cell"
+            >
+              <div
+                class="el-table-cell-content"
+                data-narrow-label="Office Group Id"
+              >
+                SBOX-GHIO
               </div>
             </div>
             <div
@@ -790,6 +805,16 @@ Object {
             >
               <div
                 class="el-table-cell-content"
+                data-narrow-label="Office Group Id"
+              >
+                SBOX-GHIW
+              </div>
+            </div>
+            <div
+              class="el-table-cell"
+            >
+              <div
+                class="el-table-cell-content"
                 data-narrow-label="Office List"
               />
             </div>
@@ -1243,6 +1268,16 @@ Object {
                 data-narrow-label="Group Name"
               >
                 Hello World Group
+              </div>
+            </div>
+            <div
+              class="el-table-cell"
+            >
+              <div
+                class="el-table-cell-content"
+                data-narrow-label="Office Group Id"
+              >
+                SBOX-GHWG
               </div>
             </div>
             <div
@@ -1710,6 +1745,16 @@ Object {
             >
               <div
                 class="el-table-cell-content"
+                data-narrow-label="Office Group Id"
+              >
+                SBOX-GGRO
+              </div>
+            </div>
+            <div
+              class="el-table-cell"
+            >
+              <div
+                class="el-table-cell-content"
                 data-narrow-label="Office List"
               />
             </div>
@@ -2163,6 +2208,16 @@ Object {
                 data-narrow-label="Group Name"
               >
                 Group test 1
+              </div>
+            </div>
+            <div
+              class="el-table-cell"
+            >
+              <div
+                class="el-table-cell-content"
+                data-narrow-label="Office Group Id"
+              >
+                SBOX-GGRT
               </div>
             </div>
             <div
@@ -2630,6 +2685,16 @@ Object {
             >
               <div
                 class="el-table-cell-content"
+                data-narrow-label="Office Group Id"
+              >
+                SBOX-GOFF
+              </div>
+            </div>
+            <div
+              class="el-table-cell"
+            >
+              <div
+                class="el-table-cell-content"
                 data-narrow-label="Office List"
               />
             </div>
@@ -3083,6 +3148,16 @@ Object {
                 data-narrow-label="Group Name"
               >
                 Another test group
+              </div>
+            </div>
+            <div
+              class="el-table-cell"
+            >
+              <div
+                class="el-table-cell-content"
+                data-narrow-label="Office Group Id"
+              >
+                SBOX-GATG
               </div>
             </div>
             <div
@@ -3550,6 +3625,16 @@ Object {
             >
               <div
                 class="el-table-cell-content"
+                data-narrow-label="Office Group Id"
+              >
+                SBOX-GNOG
+              </div>
+            </div>
+            <div
+              class="el-table-cell"
+            >
+              <div
+                class="el-table-cell-content"
                 data-narrow-label="Office List"
               />
             </div>
@@ -4003,6 +4088,16 @@ Object {
                 data-narrow-label="Group Name"
               >
                 Hello World 2 Group
+              </div>
+            </div>
+            <div
+              class="el-table-cell"
+            >
+              <div
+                class="el-table-cell-content"
+                data-narrow-label="Office Group Id"
+              >
+                SBOX-GHEW
               </div>
             </div>
             <div
@@ -4470,6 +4565,16 @@ Object {
             >
               <div
                 class="el-table-cell-content"
+                data-narrow-label="Office Group Id"
+              >
+                SBOX-GHIY
+              </div>
+            </div>
+            <div
+              class="el-table-cell"
+            >
+              <div
+                class="el-table-cell-content"
                 data-narrow-label="Office List"
               />
             </div>
@@ -4923,6 +5028,16 @@ Object {
                 data-narrow-label="Group Name"
               >
                 long test 5.2
+              </div>
+            </div>
+            <div
+              class="el-table-cell"
+            >
+              <div
+                class="el-table-cell-content"
+                data-narrow-label="Office Group Id"
+              >
+                SBOX-GLOE
               </div>
             </div>
             <div
@@ -5390,6 +5505,16 @@ Object {
             >
               <div
                 class="el-table-cell-content"
+                data-narrow-label="Office Group Id"
+              >
+                SBOX-GHWA
+              </div>
+            </div>
+            <div
+              class="el-table-cell"
+            >
+              <div
+                class="el-table-cell-content"
                 data-narrow-label="Office List"
               />
             </div>
@@ -5843,6 +5968,16 @@ Object {
                 data-narrow-label="Group Name"
               >
                 long test 1.1
+              </div>
+            </div>
+            <div
+              class="el-table-cell"
+            >
+              <div
+                class="el-table-cell-content"
+                data-narrow-label="Office Group Id"
+              >
+                SBOX-GLOT
               </div>
             </div>
             <div
@@ -6310,6 +6445,16 @@ Object {
             >
               <div
                 class="el-table-cell-content"
+                data-narrow-label="Office Group Id"
+              >
+                SBOX-GHOT
+              </div>
+            </div>
+            <div
+              class="el-table-cell"
+            >
+              <div
+                class="el-table-cell-content"
                 data-narrow-label="Office List"
               />
             </div>
@@ -6763,6 +6908,16 @@ Object {
                 data-narrow-label="Group Name"
               >
                 long test 4
+              </div>
+            </div>
+            <div
+              class="el-table-cell"
+            >
+              <div
+                class="el-table-cell-content"
+                data-narrow-label="Office Group Id"
+              >
+                SBOX-GLOG
               </div>
             </div>
             <div
@@ -7230,6 +7385,16 @@ Object {
             >
               <div
                 class="el-table-cell-content"
+                data-narrow-label="Office Group Id"
+              >
+                SBOX-GTEG
+              </div>
+            </div>
+            <div
+              class="el-table-cell"
+            >
+              <div
+                class="el-table-cell-content"
                 data-narrow-label="Office List"
               />
             </div>
@@ -7683,6 +7848,16 @@ Object {
                 data-narrow-label="Group Name"
               >
                 Group test 1
+              </div>
+            </div>
+            <div
+              class="el-table-cell"
+            >
+              <div
+                class="el-table-cell-content"
+                data-narrow-label="Office Group Id"
+              >
+                SBOX-GGRP
               </div>
             </div>
             <div
@@ -8150,6 +8325,16 @@ Object {
             >
               <div
                 class="el-table-cell-content"
+                data-narrow-label="Office Group Id"
+              >
+                SBOX-GLOS
+              </div>
+            </div>
+            <div
+              class="el-table-cell"
+            >
+              <div
+                class="el-table-cell-content"
                 data-narrow-label="Office List"
               />
             </div>
@@ -8603,6 +8788,16 @@ Object {
                 data-narrow-label="Group Name"
               >
                 Testing RLTD
+              </div>
+            </div>
+            <div
+              class="el-table-cell"
+            >
+              <div
+                class="el-table-cell-content"
+                data-narrow-label="Office Group Id"
+              >
+                SBOX-GTER
               </div>
             </div>
             <div
@@ -9070,6 +9265,16 @@ Object {
             >
               <div
                 class="el-table-cell-content"
+                data-narrow-label="Office Group Id"
+              >
+                SBOX-GLNG
+              </div>
+            </div>
+            <div
+              class="el-table-cell"
+            >
+              <div
+                class="el-table-cell-content"
                 data-narrow-label="Office List"
               />
             </div>
@@ -9530,6 +9735,16 @@ Object {
             >
               <div
                 class="el-table-cell-content"
+                data-narrow-label="Office Group Id"
+              >
+                SBOX-GHPT
+              </div>
+            </div>
+            <div
+              class="el-table-cell"
+            >
+              <div
+                class="el-table-cell-content"
                 data-narrow-label="Office List"
               />
             </div>
@@ -9983,6 +10198,16 @@ Object {
                 data-narrow-label="Group Name"
               >
                 long test 2
+              </div>
+            </div>
+            <div
+              class="el-table-cell"
+            >
+              <div
+                class="el-table-cell-content"
+                data-narrow-label="Office Group Id"
+              >
+                SBOX-GLON
               </div>
             </div>
             <div
@@ -10502,7 +10727,7 @@ Object {
       class="el-fade-in el-mb11 el-table"
       data-has-call-to-action="false"
       data-has-expandable-action="true"
-      data-num-columns-excl-action-col="3"
+      data-num-columns-excl-action-col="4"
     >
       <div
         class="el-table-headers-row"
@@ -10511,6 +10736,11 @@ Object {
           class="el-table-header"
         >
           Group Name
+        </div>
+        <div
+          class="el-table-header"
+        >
+          Office Group Id
         </div>
         <div
           class="el-table-header"
@@ -10560,6 +10790,16 @@ Object {
               data-narrow-label="Group Name"
             >
               Hi World Again
+            </div>
+          </div>
+          <div
+            class="el-table-cell"
+          >
+            <div
+              class="el-table-cell-content"
+              data-narrow-label="Office Group Id"
+            >
+              SBOX-GHIO
             </div>
           </div>
           <div
@@ -11027,6 +11267,16 @@ Object {
           >
             <div
               class="el-table-cell-content"
+              data-narrow-label="Office Group Id"
+            >
+              SBOX-GHIW
+            </div>
+          </div>
+          <div
+            class="el-table-cell"
+          >
+            <div
+              class="el-table-cell-content"
               data-narrow-label="Office List"
             />
           </div>
@@ -11480,6 +11730,16 @@ Object {
               data-narrow-label="Group Name"
             >
               Hello World Group
+            </div>
+          </div>
+          <div
+            class="el-table-cell"
+          >
+            <div
+              class="el-table-cell-content"
+              data-narrow-label="Office Group Id"
+            >
+              SBOX-GHWG
             </div>
           </div>
           <div
@@ -11947,6 +12207,16 @@ Object {
           >
             <div
               class="el-table-cell-content"
+              data-narrow-label="Office Group Id"
+            >
+              SBOX-GGRO
+            </div>
+          </div>
+          <div
+            class="el-table-cell"
+          >
+            <div
+              class="el-table-cell-content"
               data-narrow-label="Office List"
             />
           </div>
@@ -12400,6 +12670,16 @@ Object {
               data-narrow-label="Group Name"
             >
               Group test 1
+            </div>
+          </div>
+          <div
+            class="el-table-cell"
+          >
+            <div
+              class="el-table-cell-content"
+              data-narrow-label="Office Group Id"
+            >
+              SBOX-GGRT
             </div>
           </div>
           <div
@@ -12867,6 +13147,16 @@ Object {
           >
             <div
               class="el-table-cell-content"
+              data-narrow-label="Office Group Id"
+            >
+              SBOX-GOFF
+            </div>
+          </div>
+          <div
+            class="el-table-cell"
+          >
+            <div
+              class="el-table-cell-content"
               data-narrow-label="Office List"
             />
           </div>
@@ -13320,6 +13610,16 @@ Object {
               data-narrow-label="Group Name"
             >
               Another test group
+            </div>
+          </div>
+          <div
+            class="el-table-cell"
+          >
+            <div
+              class="el-table-cell-content"
+              data-narrow-label="Office Group Id"
+            >
+              SBOX-GATG
             </div>
           </div>
           <div
@@ -13787,6 +14087,16 @@ Object {
           >
             <div
               class="el-table-cell-content"
+              data-narrow-label="Office Group Id"
+            >
+              SBOX-GNOG
+            </div>
+          </div>
+          <div
+            class="el-table-cell"
+          >
+            <div
+              class="el-table-cell-content"
               data-narrow-label="Office List"
             />
           </div>
@@ -14240,6 +14550,16 @@ Object {
               data-narrow-label="Group Name"
             >
               Hello World 2 Group
+            </div>
+          </div>
+          <div
+            class="el-table-cell"
+          >
+            <div
+              class="el-table-cell-content"
+              data-narrow-label="Office Group Id"
+            >
+              SBOX-GHEW
             </div>
           </div>
           <div
@@ -14707,6 +15027,16 @@ Object {
           >
             <div
               class="el-table-cell-content"
+              data-narrow-label="Office Group Id"
+            >
+              SBOX-GHIY
+            </div>
+          </div>
+          <div
+            class="el-table-cell"
+          >
+            <div
+              class="el-table-cell-content"
               data-narrow-label="Office List"
             />
           </div>
@@ -15160,6 +15490,16 @@ Object {
               data-narrow-label="Group Name"
             >
               long test 5.2
+            </div>
+          </div>
+          <div
+            class="el-table-cell"
+          >
+            <div
+              class="el-table-cell-content"
+              data-narrow-label="Office Group Id"
+            >
+              SBOX-GLOE
             </div>
           </div>
           <div
@@ -15627,6 +15967,16 @@ Object {
           >
             <div
               class="el-table-cell-content"
+              data-narrow-label="Office Group Id"
+            >
+              SBOX-GHWA
+            </div>
+          </div>
+          <div
+            class="el-table-cell"
+          >
+            <div
+              class="el-table-cell-content"
               data-narrow-label="Office List"
             />
           </div>
@@ -16080,6 +16430,16 @@ Object {
               data-narrow-label="Group Name"
             >
               long test 1.1
+            </div>
+          </div>
+          <div
+            class="el-table-cell"
+          >
+            <div
+              class="el-table-cell-content"
+              data-narrow-label="Office Group Id"
+            >
+              SBOX-GLOT
             </div>
           </div>
           <div
@@ -16547,6 +16907,16 @@ Object {
           >
             <div
               class="el-table-cell-content"
+              data-narrow-label="Office Group Id"
+            >
+              SBOX-GHOT
+            </div>
+          </div>
+          <div
+            class="el-table-cell"
+          >
+            <div
+              class="el-table-cell-content"
               data-narrow-label="Office List"
             />
           </div>
@@ -17000,6 +17370,16 @@ Object {
               data-narrow-label="Group Name"
             >
               long test 4
+            </div>
+          </div>
+          <div
+            class="el-table-cell"
+          >
+            <div
+              class="el-table-cell-content"
+              data-narrow-label="Office Group Id"
+            >
+              SBOX-GLOG
             </div>
           </div>
           <div
@@ -17467,6 +17847,16 @@ Object {
           >
             <div
               class="el-table-cell-content"
+              data-narrow-label="Office Group Id"
+            >
+              SBOX-GTEG
+            </div>
+          </div>
+          <div
+            class="el-table-cell"
+          >
+            <div
+              class="el-table-cell-content"
               data-narrow-label="Office List"
             />
           </div>
@@ -17920,6 +18310,16 @@ Object {
               data-narrow-label="Group Name"
             >
               Group test 1
+            </div>
+          </div>
+          <div
+            class="el-table-cell"
+          >
+            <div
+              class="el-table-cell-content"
+              data-narrow-label="Office Group Id"
+            >
+              SBOX-GGRP
             </div>
           </div>
           <div
@@ -18387,6 +18787,16 @@ Object {
           >
             <div
               class="el-table-cell-content"
+              data-narrow-label="Office Group Id"
+            >
+              SBOX-GLOS
+            </div>
+          </div>
+          <div
+            class="el-table-cell"
+          >
+            <div
+              class="el-table-cell-content"
               data-narrow-label="Office List"
             />
           </div>
@@ -18840,6 +19250,16 @@ Object {
               data-narrow-label="Group Name"
             >
               Testing RLTD
+            </div>
+          </div>
+          <div
+            class="el-table-cell"
+          >
+            <div
+              class="el-table-cell-content"
+              data-narrow-label="Office Group Id"
+            >
+              SBOX-GTER
             </div>
           </div>
           <div
@@ -19307,6 +19727,16 @@ Object {
           >
             <div
               class="el-table-cell-content"
+              data-narrow-label="Office Group Id"
+            >
+              SBOX-GLNG
+            </div>
+          </div>
+          <div
+            class="el-table-cell"
+          >
+            <div
+              class="el-table-cell-content"
               data-narrow-label="Office List"
             />
           </div>
@@ -19767,6 +20197,16 @@ Object {
           >
             <div
               class="el-table-cell-content"
+              data-narrow-label="Office Group Id"
+            >
+              SBOX-GHPT
+            </div>
+          </div>
+          <div
+            class="el-table-cell"
+          >
+            <div
+              class="el-table-cell-content"
               data-narrow-label="Office List"
             />
           </div>
@@ -20220,6 +20660,16 @@ Object {
               data-narrow-label="Group Name"
             >
               long test 2
+            </div>
+          </div>
+          <div
+            class="el-table-cell"
+          >
+            <div
+              class="el-table-cell-content"
+              data-narrow-label="Office Group Id"
+            >
+              SBOX-GLON
             </div>
           </div>
           <div

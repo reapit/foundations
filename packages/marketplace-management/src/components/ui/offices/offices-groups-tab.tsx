@@ -66,6 +66,13 @@ export const handleSortTableData =
           },
         },
         {
+          label: 'Office Group Id',
+          value: officeGroup.customerId ?? '',
+          narrowTable: {
+            showLabel: true,
+          },
+        },
+        {
           label: 'Office List',
           value: officeGroup.offices?.map((office) => office.name).join(', ') ?? '',
           narrowTable: {
