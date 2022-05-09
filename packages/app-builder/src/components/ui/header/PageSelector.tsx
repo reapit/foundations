@@ -1,6 +1,6 @@
 import { nodesObjtoToArr } from '@/components/hooks/apps/node-helpers'
 import { useApp } from '@/components/hooks/apps/use-app'
-import { useUpdatePage } from '@/components/hooks/apps/use-update-app'
+import { useDeletePage, useUpdatePage } from '@/components/hooks/apps/use-update-app'
 import { usePageId } from '@/components/hooks/use-page-id'
 import { cx } from '@linaria/core'
 import { Button, elFlex, elFlex1, elFlexAlignCenter, elFlexJustifyStart, elM1, Select } from '@reapit/elements'
@@ -18,10 +18,11 @@ export const newPage = (name: string) => {
 }
 
 export const PageSelector = ({ pageId, onChange }: { pageId?: string; onChange: (id: string) => void }) => {
-  const { appId } = usePageId()
+  const { appId, setPageId } = usePageId()
   const { app } = useApp(appId)
   const pages = app?.pages || []
   const { updatePage } = useUpdatePage()
+  const { deletePage, loading } = useDeletePage()
 
   return (
     <div className={cx(elFlex1, elFlex, elFlexAlignCenter, elFlexJustifyStart)}>
@@ -57,6 +58,21 @@ export const PageSelector = ({ pageId, onChange }: { pageId?: string; onChange: 
         }}
       >
         New
+      </Button>
+      <Button
+        size={2}
+        loading={loading}
+        style={{ zoom: 0.8 }}
+        onClick={() => {
+          if (pageId) {
+            deletePage(appId, pageId).then(() => {
+              setPageId('')
+            })
+          }
+        }}
+        intent="danger"
+      >
+        delete page
       </Button>
     </div>
   )

@@ -59,20 +59,7 @@ describe('Viewport', () => {
     const { asFragment } = render(
       <MockedProvider>
         <Editor>
-          <Viewport isSaving={false} iframeRef={undefined} deserialize={() => {}} rendererDivRefHandler={() => {}}>
-            <></>
-          </Viewport>
-        </Editor>
-      </MockedProvider>,
-    )
-    expect(asFragment()).toMatchSnapshot()
-  })
-
-  it('should match a snapshot - saving', () => {
-    const { asFragment } = render(
-      <MockedProvider>
-        <Editor>
-          <Viewport isSaving iframeRef={undefined} deserialize={() => {}} rendererDivRefHandler={() => {}}>
+          <Viewport iframeRef={undefined} deserialize={() => {}} rendererDivRefHandler={() => {}}>
             <></>
           </Viewport>
         </Editor>

@@ -30,12 +30,9 @@ const ToolboxDiv = styled.div`
   width: 45px;
 `
 
-export const Toolbox = ({ enabled, create }: { enabled: boolean; create: (ref: HTMLElement, ele: any) => void }) => {
+export const Toolbox = ({ create }: { create: (ref: HTMLElement, ele: any) => void }) => {
   return (
-    <ToolboxDiv
-      style={{ width: enabled ? undefined : 0, opacity: enabled ? undefined : 0 }}
-      className={cx(transition, elW12, elHFull, elFlex, elFlexColumn, bgWhite)}
-    >
+    <ToolboxDiv className={cx(transition, elW12, elHFull, elFlex, elFlexColumn, bgWhite)}>
       <div className={cx(elFlex, elFlex1, elFlexColumn, elFlexAlignCenter, elPt6)}>
         <div
           ref={(ref) =>
@@ -83,13 +80,12 @@ export const Toolbox = ({ enabled, create }: { enabled: boolean; create: (ref: H
 
 const ConnectedToolbox = () => {
   const {
-    enabled,
     connectors: { create },
   } = useEditor((state) => ({
     enabled: state.options.enabled,
   }))
 
-  return <Toolbox create={create} enabled={enabled} />
+  return <Toolbox create={create} />
 }
 
 export default ConnectedToolbox

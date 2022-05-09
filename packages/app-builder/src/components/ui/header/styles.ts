@@ -1,8 +1,9 @@
 import { css } from '@linaria/core'
 
 export const header = css`
-  background: var(--nav-menu-background-dark);
+  background: #fff;
   height: 45px;
+  border-bottom: 1px solid #e3e3e3;
 `
 
 export const item = css`

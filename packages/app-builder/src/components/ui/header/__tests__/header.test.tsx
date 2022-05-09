@@ -41,18 +41,7 @@ describe('Header', () => {
     const { asFragment } = render(
       <MockedProvider>
         <Editor>
-          <Header isSaving={false} />
-        </Editor>
-      </MockedProvider>,
-    )
-    expect(asFragment()).toMatchSnapshot()
-  })
-
-  it('should match a snapshot - saving', () => {
-    const { asFragment } = render(
-      <MockedProvider>
-        <Editor>
-          <Header isSaving={true} />
+          <Header setBreakpoint={undefined} breakpoint={undefined} />
         </Editor>
       </MockedProvider>,
     )

@@ -10,16 +10,21 @@ import SidebarItem from './sidebar-item'
 import CustomizeIcon from '../icons/customize'
 import LayerIcon from '../icons/layer'
 import Toolbar from './toolbar'
+import Toolbox from './toolbox'
 
 export const SidebarDiv = styled.div<{ enabled: boolean }>`
-  width: 280px;
+  display: flex;
+  width: calc(280px + 45px);
   opacity: ${(props) => {
     return props.enabled ? 1 : 0
   }};
   background: #fff;
   margin-right: ${(props) => {
-    return props.enabled ? 0 : -280
+    return props.enabled ? 0 : -280 - 45
   }}px;
+  margin-top: 5px;
+  border-top-left-radius: 4px;
+  overflow: hidden;
 `
 
 const Sidebar = () => {
@@ -31,7 +36,8 @@ const Sidebar = () => {
 
   return (
     <SidebarDiv enabled={enabled} className={cx(transition, bgWhite, elW2)}>
-      <div className={cx(elFlex, elFlexColumn)} style={{ height: 'calc(100vh - 45px)' }}>
+      <Toolbox />
+      <div className={cx(elFlex, elFlexColumn)} style={{ height: 'calc(100vh - 45px)', flex: 1 }}>
         <SidebarItem
           icon={CustomizeIcon}
           title="Customize"

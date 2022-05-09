@@ -6,7 +6,6 @@ import { MainContainer } from '@reapit/elements'
 
 import Routes from '../constants/routes'
 import PrivateRouteWrapper from './private-route-wrapper'
-import Menu from '../components/ui/nav'
 import { usePageId } from '@/components/hooks/use-page-id'
 import { useApp } from '@/components/hooks/apps/use-app'
 import { getReapitConnectBrowserSession, reapitConnectBrowserSession } from './connect-session'
@@ -48,7 +47,6 @@ const AppEditor = () => (
   <ApolloProvider client={createClient(reapitConnectBrowserSession)}>
     <PrivateRouteWrapper reapitConnectBrowserSession={reapitConnectBrowserSession}>
       <MainContainer>
-        <Menu />
         <Switch>
           <Route path={Routes.APP_VIEW} component={AppView} />
           <Route path={Routes.APP_EDIT} component={HomePage} />

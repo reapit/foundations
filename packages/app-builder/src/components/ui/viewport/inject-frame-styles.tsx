@@ -29,7 +29,7 @@ export const InjectFrameStyles = ({ children }: { children: React.ReactChildren 
       observer.observe(document.head, { childList: true, subtree: true })
     }
 
-    frame.body.style.background = '#e0e0e0'
+    frame.body.style.background = '#efefef'
     frame.body.style.overflow = 'auto'
 
     return () => {
