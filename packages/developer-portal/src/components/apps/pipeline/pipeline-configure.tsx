@@ -44,6 +44,8 @@ type PipelineModelSchema = Omit<
   | 'subDomain'
   | 'packageManager'
   | 'testCommand'
+  | 'installationId'
+  | 'repositoryId'
 > & {
   packageManager: boolean
 }
