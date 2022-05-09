@@ -9,7 +9,6 @@ import {
   elMb6,
   elMt6,
   FormLayout,
-  Icon,
   Input,
   InputError,
   InputGroup,
@@ -21,16 +20,31 @@ import {
   TableHeadersRow,
   TableRow,
   TableCell,
+  Modal,
+  Title,
+  ButtonGroup,
 } from '@reapit/elements'
 import { useForm } from 'react-hook-form'
 import { cx } from '@linaria/core'
-import { useReapitGet } from '@reapit/utils-react'
-import { GetActionNames, getActions } from '@reapit/utils-common'
+import { useReapitGet, useReapitUpdate } from '@reapit/utils-react'
+import { GetActionNames, getActions, UpdateActionNames, updateActions } from '@reapit/utils-common'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { object, SchemaOf, string } from 'yup'
+import { PipelineEnvUpdateModal } from './pipeline-environment-update-modal'
+
+const schema: SchemaOf<{
+  key: string
+  value: any
+}> = object().shape({
+  key: string().required('Required - key cannot be blank'), // TODO check key is not already in use
+  value: string().required('Required - env needs a value'),
+})
 
 export const PipelineEnvironment = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { appId } = useAppState()
   const [isInserting, setIsInserting] = useState<boolean>(false)
+  const [modalOpen, setModalOpen] = useState<string | false>(false)
 
   const [keys, isFetching] = useReapitGet<string[]>({
     reapitConnectBrowserSession,
@@ -44,10 +58,33 @@ export const PipelineEnvironment = () => {
     fetchWhenTrue: [connectSession?.idToken],
   })
 
+  const [sending, , func] = useReapitUpdate<{ key: string; value: string }, void>({
+    reapitConnectBrowserSession,
+    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.upsertPipelineEnvironment],
+    uriParams: {
+      pipelineId: appId,
+    },
+    method: 'PUT',
+    headers: {
+      Authorization: connectSession?.idToken as string,
+    },
+  })
+
   const {
     register,
+    handleSubmit,
     formState: { errors },
-  } = useForm()
+    reset,
+  } = useForm<{ key: string; value: any }>({
+    resolver: yupResolver(schema),
+  })
+
+  const submitParameter = handleSubmit(async (values) => {
+    const result = await func(values)
+    if (result) {
+      reset()
+    }
+  })
 
   return (
     <>
@@ -63,48 +100,67 @@ export const PipelineEnvironment = () => {
           </TableHeadersRow>
           {isFetching ? (
             <TableRow>
-              <Loader />
+              <TableCell>
+                <Loader />
+              </TableCell>
             </TableRow>
           ) : (
             <>
               {(keys || []).map((key) => (
                 <TableRow key={key}>
                   <TableCell>{key}</TableCell>
-                  <TableCell></TableCell>
+                  <TableCell>
+                    <Button
+                      intent="secondary"
+                      onClick={() => {
+                        reset()
+                        setModalOpen(key)
+                      }}
+                    >
+                      Update
+                    </Button>
+                  </TableCell>
                 </TableRow>
               ))}
             </>
           )}
         </Table>
       </div>
-      {isInserting && (
-        <div className={cx(elMb6, elMt6)}>
-          <form>
-            <FormLayout>
-              <InputWrap>
-                <InputGroup>
-                  <Label>Key</Label>
-                  <Input {...register('key')} />
-                  {errors.key?.message && <InputError message={errors.key.message} />}
-                </InputGroup>
-              </InputWrap>
-              <InputWrap>
-                <InputGroup>
-                  <Label>Value</Label>
-                  <Input {...register('value')} />
-                  {errors.value?.message && <InputError message={errors.value.message} />}
-                </InputGroup>
-              </InputWrap>
-              <InputWrap>
-                <Button intent="primary">Save</Button>
-              </InputWrap>
-            </FormLayout>
-          </form>
-        </div>
-      )}
+      <Modal isOpen={isInserting} onModalClose={() => setIsInserting(false)} className={cx(elMb6, elMt6)}>
+        <Title>Add new Environment Variable</Title>
+        <form onSubmit={submitParameter}>
+          <FormLayout hasMargin>
+            <InputWrap>
+              <InputGroup>
+                <Label>Key</Label>
+                <Input {...register('key')} />
+                {errors.key?.message && <InputError message={errors.key.message} />}
+              </InputGroup>
+            </InputWrap>
+            <InputWrap>
+              <InputGroup>
+                <Label>Value</Label>
+                <Input {...register('value')} />
+                {errors.value?.message && <InputError message={errors.value.message} />}
+              </InputGroup>
+            </InputWrap>
+          </FormLayout>
+          <ButtonGroup>
+            <Button intent="primary" disabled={sending} loading={sending}>
+              Create
+            </Button>
+          </ButtonGroup>
+        </form>
+      </Modal>
       <Button intent="primary" onClick={() => setIsInserting(!isInserting)}>
-        <Icon intent="neutral" icon={!isInserting ? 'addSystem' : 'closeSystem'} />
+        New
       </Button>
+      <PipelineEnvUpdateModal
+        appId={appId as string}
+        connectSession={connectSession}
+        keyValue={modalOpen}
+        setModalOpen={setModalOpen}
+      />
     </>
   )
 }
