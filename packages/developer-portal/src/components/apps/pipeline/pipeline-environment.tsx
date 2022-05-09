@@ -29,17 +29,20 @@ import { cx } from '@linaria/core'
 import { useReapitGet, useReapitUpdate } from '@reapit/utils-react'
 import { GetActionNames, getActions, UpdateActionNames, updateActions } from '@reapit/utils-common'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { object, SchemaOf, string } from 'yup'
+import { array, object, ref, SchemaOf, string } from 'yup'
 import { PipelineEnvUpdateModal } from './pipeline-environment-update-modal'
 
 const schema: SchemaOf<{
   key: string
   value: any
+  existingKeys: string[]
 }> = object().shape({
   key: string()
     .matches(/^[a-zA-Z_]+$/, 'Can only container letters and underscores')
-    .required('Required - key cannot be blank'), // TODO check key is not already in use
+    .notOneOf([ref('existingKeys')], 'Key already exists')
+    .required('Required - key cannot be blank'),
   value: string().required('Required - env needs a value'),
+  existingKeys: array(),
 })
 
 export const PipelineEnvironment = () => {
@@ -61,7 +64,7 @@ export const PipelineEnvironment = () => {
     fetchWhenTrue: [connectSession?.idToken],
   })
 
-  const [sending, , func] = useReapitUpdate<{ key: string; value: string }, void>({
+  const [sending, , func] = useReapitUpdate<{ key: string; value: string; existingKeys: string[] }, void>({
     reapitConnectBrowserSession,
     action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.upsertPipelineEnvironment],
     uriParams: {
@@ -73,23 +76,32 @@ export const PipelineEnvironment = () => {
     },
   })
 
-  useEffect(() => {
-    if (fetchedKeys) setKeys(fetchedKeys)
-  }, [fetchedKeys])
-
   const {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
-  } = useForm<{ key: string; value: any }>({
+    setValue,
+    resetField,
+  } = useForm<{ key: string; value: any; existingKeys: string[] }>({
     resolver: yupResolver(schema),
+    defaultValues: {
+      existingKeys: [],
+    },
   })
+
+  useEffect(() => {
+    if (fetchedKeys) {
+      setKeys(fetchedKeys)
+
+      setValue('existingKeys', fetchedKeys)
+    }
+  }, [fetchedKeys])
 
   const submitParameter = handleSubmit(async (values) => {
     const result = await func(values)
     if (result) {
-      reset()
+      resetField('key')
+      resetField('value')
       setIsInserting(false)
       setKeys([...keys, values.key])
     }
@@ -122,7 +134,8 @@ export const PipelineEnvironment = () => {
                     <Button
                       intent="secondary"
                       onClick={() => {
-                        reset()
+                        resetField('key')
+                        resetField('value')
                         setModalOpen(key)
                       }}
                     >
