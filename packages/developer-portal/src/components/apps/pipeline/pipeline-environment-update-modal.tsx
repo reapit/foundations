@@ -25,7 +25,9 @@ import { reapitConnectBrowserSession } from '../../../core/connect-session'
 const updateSchema: SchemaOf<{
   value: any
 }> = object().shape({
-  value: string().required('Required - env needs a value'),
+  value: string()
+    .matches(/^[a-zA-Z_]+$/, 'Can only container letters and underscores')
+    .required('Required - env needs a value'),
 })
 
 export const PipelineEnvUpdateModal = ({

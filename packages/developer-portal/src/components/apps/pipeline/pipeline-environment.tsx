@@ -36,7 +36,9 @@ const schema: SchemaOf<{
   key: string
   value: any
 }> = object().shape({
-  key: string().required('Required - key cannot be blank'), // TODO check key is not already in use
+  key: string()
+    .matches(/^[a-zA-Z_]+$/, 'Can only container letters and underscores')
+    .required('Required - key cannot be blank'), // TODO check key is not already in use
   value: string().required('Required - env needs a value'),
 })
 
