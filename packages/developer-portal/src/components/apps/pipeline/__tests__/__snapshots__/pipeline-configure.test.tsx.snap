@@ -49,6 +49,23 @@ Object {
               Configure
             </span>
           </label>
+          <input
+            class="enkj6b-el-tabs"
+            id="environment"
+            name="pipeline-tabs"
+            type="radio"
+            value="environment"
+          />
+          <label
+            class="e1ob8xkh-el-tabs-label"
+            for="environment"
+          >
+            <span
+              class="eulcr0n-el-tabs-item"
+            >
+              Environment
+            </span>
+          </label>
         </div>
         <div
           class="e1147ynd-el-tabs-footer"
@@ -230,6 +247,23 @@ Object {
             class="eulcr0n-el-tabs-item"
           >
             Configure
+          </span>
+        </label>
+        <input
+          class="enkj6b-el-tabs"
+          id="environment"
+          name="pipeline-tabs"
+          type="radio"
+          value="environment"
+        />
+        <label
+          class="e1ob8xkh-el-tabs-label"
+          for="environment"
+        >
+          <span
+            class="eulcr0n-el-tabs-item"
+          >
+            Environment
           </span>
         </label>
       </div>
