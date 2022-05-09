@@ -27,6 +27,7 @@ export const parameterKeys = httpHandler<ParameterDto, Array<string>>({
       parameterStoreClient.getParameter(
         {
           Name: `cloud-${pipeline.id}`,
+          WithDecryption: true,
         },
         (err, data) => {
           if (err && err.code !== 'ParameterNotFound') reject(err)
