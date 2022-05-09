@@ -40,6 +40,7 @@ export const parameterUpsert = httpHandler<ParameterDto, void>({
       parameterStoreClient.getParameter(
         {
           Name: `cloud-${pipeline.id}`,
+          WithDecryption: true,
         },
         (err, data) => {
           if (err && err.code !== 'ParameterNotFound') reject(err)
