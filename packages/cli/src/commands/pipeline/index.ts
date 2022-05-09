@@ -5,7 +5,7 @@ import { PipelineList } from './list'
 import { LinkPipelineCommand } from './link'
 import { DeletePipelineCommand } from './delete'
 import { PipelineEditCommand } from './edit'
-import { PipelineParametersListCommand } from './parameters'
+import { PipelineParameterUpsertCommand, PipelineParametersListCommand } from './parameters'
 
 @Command({
   name: 'pipeline',
@@ -19,5 +19,6 @@ export class PipelineCommand extends ParentCommand {
     new DeletePipelineCommand(),
     new PipelineEditCommand(),
     new PipelineParametersListCommand(),
+    new PipelineParameterUpsertCommand(),
   ]
 }
