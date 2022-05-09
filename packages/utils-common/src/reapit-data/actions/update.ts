@@ -33,6 +33,7 @@ export enum UpdateActionNames {
   deleteWebhook = 'deleteWebhook',
   acceptInviteMember = 'acceptInviteMember',
   rejectInviteMember = 'rejectInviteMember',
+  upsertPipelineEnvironment = 'upsertPipelineEnvironment',
 }
 
 export type UpdateActions = { [key in UpdateActionNames]: UpdateAction }
@@ -183,5 +184,11 @@ export const updateActions = (appEnv: AppEnv): UpdateActions => ({
     path: PathNames.memberInviteReject,
     errorMessage: 'Failed to reject invite, this has been logged. Please try again.',
     successMessage: 'Successfully rejected invite',
+  },
+  [UpdateActionNames.upsertPipelineEnvironment]: {
+    api: ApiNames(appEnv).pipeline,
+    path: PathNames.upsertPipelineEnvironment,
+    successMessage: 'Added Environment variable',
+    errorMessage: 'Failed to add Environment variable',
   },
 })
