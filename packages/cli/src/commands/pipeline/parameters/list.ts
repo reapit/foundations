@@ -44,6 +44,6 @@ export class PipelineParametersListCommand extends AbstractCommand {
 
     const keys = await this.fetchEnvironmentKeys(spinner, pipeline.id as string)
 
-    keys.map((key) => this.writeLine(chalk.green.bold(key)))
+    keys.forEach((key) => this.writeLine(chalk.green.bold(key)))
   }
 }
