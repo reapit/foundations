@@ -33,7 +33,7 @@ export const PipelineRow: FC<PipelineRowProps> = ({ pipeline }) => {
   const channel = useChannel(`private-${connectSession?.loginIdentity.developerId}`)
   useEvent<PipelinePusherEvent>(
     channel,
-    'pipeline-runner-update',
+    'pipeline-update',
     handlePipelineEvent(
       appPipeline,
       setAppPipeline as Dispatch<SetStateAction<PipelineModelInterface | null>>,

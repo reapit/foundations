@@ -21,8 +21,8 @@ export const handlePipelineEvent =
   ) =>
   (event?: PipelinePusherEvent) => {
     const pipelineId = pipeline?.id || appId
-
-    if (!event || !pipelineId || event.pipeline.id !== pipelineId) {
+    console.log(event)
+    if (!event || !pipelineId || event.pipeline?.id !== pipelineId) {
       return
     }
 
@@ -36,11 +36,7 @@ export const PipelineInfo: FC = () => {
   const pipelineUri = `https://${appPipeline?.subDomain}.iaas.paas.reapit.cloud`
 
   const channel = useChannel(`private-${connectSession?.loginIdentity.developerId}`)
-  useEvent<PipelinePusherEvent>(
-    channel,
-    'pipeline-runner-update',
-    handlePipelineEvent(appPipeline, setAppPipeline, appId),
-  )
+  useEvent<PipelinePusherEvent>(channel, 'pipeline-update', handlePipelineEvent(appPipeline, setAppPipeline, appId))
 
   return (
     <>

@@ -38,14 +38,16 @@ export const AppsPage: FC = () => {
   const { appsDataState, appId } = useAppState()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
 
-  const { apps, appsLoading } = appsDataState
+  const { apps, appsLoading, appDetail } = appsDataState
   const { isAppsList, isAppsNew, isAppsWelcome, isAppsEdit, isAppsDetail, isAppsInstallations, isAppPipelines } =
     getCurrentPage(pathname)
 
   const loginIdentity = selectLoginIdentity(connectSession)
 
   const hasPipelines =
-    loginIdentity?.developerId && window.reapit.config.pipelineWhitelist.includes(loginIdentity.developerId)
+    loginIdentity?.developerId &&
+    window.reapit.config.pipelineWhitelist.includes(loginIdentity.developerId) &&
+    appDetail?.authFlow !== 'clientCredentials'
 
   return (
     <ErrorBoundary>
