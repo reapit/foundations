@@ -34,7 +34,11 @@ export const PipelineRow: FC<PipelineRowProps> = ({ pipeline }) => {
   useEvent<PipelinePusherEvent>(
     channel,
     'pipeline-runner-update',
-    handlePipelineEvent(appPipeline, setAppPipeline as Dispatch<SetStateAction<PipelineModelInterface | null>>),
+    handlePipelineEvent(
+      appPipeline,
+      setAppPipeline as Dispatch<SetStateAction<PipelineModelInterface | null>>,
+      pipeline.id ?? null,
+    ),
   )
 
   return (

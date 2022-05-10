@@ -14,17 +14,15 @@ export interface PipelinePusherEvent {
 }
 
 export const handlePipelineEvent =
-  (pipeline: PipelineModelInterface | null, setPipeline: Dispatch<SetStateAction<PipelineModelInterface | null>>) =>
+  (
+    pipeline: PipelineModelInterface | null,
+    setPipeline: Dispatch<SetStateAction<PipelineModelInterface | null>>,
+    appId: string | null,
+  ) =>
   (event?: PipelinePusherEvent) => {
-    if (!event) {
-      return
-    }
+    const pipelineId = pipeline?.id || appId
 
-    if (!pipeline) {
-      return
-    }
-
-    if (event.pipeline.id !== pipeline.id) {
+    if (!event || !pipelineId || event.pipeline.id !== pipelineId) {
       return
     }
 
@@ -33,12 +31,16 @@ export const handlePipelineEvent =
 
 export const PipelineInfo: FC = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const { appPipelineState } = useAppState()
+  const { appPipelineState, appId } = useAppState()
   const { appPipeline, setAppPipeline } = appPipelineState
   const pipelineUri = `https://${appPipeline?.subDomain}.iaas.paas.reapit.cloud`
 
   const channel = useChannel(`private-${connectSession?.loginIdentity.developerId}`)
-  useEvent<PipelinePusherEvent>(channel, 'pipeline-runner-update', handlePipelineEvent(appPipeline, setAppPipeline))
+  useEvent<PipelinePusherEvent>(
+    channel,
+    'pipeline-runner-update',
+    handlePipelineEvent(appPipeline, setAppPipeline, appId),
+  )
 
   return (
     <>

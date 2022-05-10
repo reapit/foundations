@@ -15,7 +15,7 @@ describe('handlePipelineEvent', () => {
   it('should handle pipeline event', () => {
     const appPipeline = mockPipelineModelInterface
     const setPipeline = jest.fn()
-    const curried = handlePipelineEvent(appPipeline, setPipeline)
+    const curried = handlePipelineEvent(appPipeline, setPipeline, appPipeline.id ?? null)
 
     curried({ pipeline: mockPipelineModelInterface } as PipelinePusherEvent)
 
@@ -31,6 +31,7 @@ describe('handlePipelineEvent', () => {
         id: 'SOME_RANDOM_ID',
       },
       setPipeline,
+      appPipeline.id ?? null,
     )
 
     curried({ pipeline: mockPipelineModelInterface } as PipelinePusherEvent)
@@ -41,7 +42,7 @@ describe('handlePipelineEvent', () => {
   it('should handle pipeline where no pipeline', () => {
     const appPipeline = null
     const setPipeline = jest.fn()
-    const curried = handlePipelineEvent(appPipeline, setPipeline)
+    const curried = handlePipelineEvent(appPipeline, setPipeline, null)
 
     curried({ pipeline: mockPipelineModelInterface } as PipelinePusherEvent)
 
@@ -51,7 +52,7 @@ describe('handlePipelineEvent', () => {
   it('should handle pipeline where no event', () => {
     const appPipeline = mockPipelineModelInterface
     const setPipeline = jest.fn()
-    const curried = handlePipelineEvent(appPipeline, setPipeline)
+    const curried = handlePipelineEvent(appPipeline, setPipeline, appPipeline.id ?? null)
 
     curried()
 
