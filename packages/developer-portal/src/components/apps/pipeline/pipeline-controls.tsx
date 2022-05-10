@@ -5,10 +5,11 @@ import { BodyText, Button, ButtonGroup, Subtitle, elMb3, elFadeIn, Icon, SmallTe
 import { UpdateActionNames, updateActions } from '@reapit/utils-common'
 import { SendFunction, UpdateReturnTypeEnum, useReapitUpdate } from '@reapit/utils-react'
 import { useAppState } from '../state/use-app-state'
-import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
+import { AppDetailModel, CreateAppRevisionModel, PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import { openNewPage } from '../../../utils/navigation'
 import { useLocation } from 'react-router'
 import { ApiKeys } from './pipeline-api-keys'
+import { sanitizeAppData } from '../utils/format-form-values'
 
 export const handlePipelineRunnerSuccess =
   (setAppPipelineDeploying: Dispatch<SetStateAction<boolean>>, updatePipelineRunnerSuccess?: boolean) => () => {
@@ -24,10 +25,20 @@ export const handleSaveConfig = (setAppPipelineSaving: Dispatch<SetStateAction<b
 export const handleSavePipeline =
   (
     sendPipelineUpdate: SendFunction<PipelineModelInterface, boolean | PipelineModelInterface>,
+    createAppRevision: SendFunction<CreateAppRevisionModel, boolean | AppDetailModel>,
+    appsDetailRefresh: () => void,
+    appDetail: AppDetailModel | null,
     pipelineUpdate: PipelineModelInterface,
   ) =>
-  () => {
-    sendPipelineUpdate(pipelineUpdate)
+  async () => {
+    const savedPipeline = await sendPipelineUpdate(pipelineUpdate)
+
+    if (appDetail && savedPipeline && typeof savedPipeline !== 'boolean' && savedPipeline.subDomain) {
+      appDetail?.redirectUris?.push(`https://${savedPipeline.subDomain}.iaas.paas.reapit.cloud`)
+      appDetail?.signoutUris?.push(`https://${savedPipeline.subDomain}.iaas.paas.reapit.cloud/login`)
+      const appRevsion = await createAppRevision(sanitizeAppData(appDetail as CreateAppRevisionModel))
+      if (appRevsion) appsDetailRefresh()
+    }
   }
 
 export const handleUpdatePipelineRunner = (updatePipelineRunner: SendFunction<void, boolean>) => () => {
@@ -51,11 +62,12 @@ export const handleDeletePipeline =
 export const PipelineControls: FC = () => {
   const location = useLocation()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const { appPipelineState } = useAppState()
+  const { appPipelineState, appId, appsDataState } = useAppState()
   const { Modal, openModal, closeModal } = useModal()
   const { appPipeline, setAppPipeline, setAppPipelineSaving, setAppPipelineDeploying } = appPipelineState
   const { pathname } = location
   const isConfigPage = pathname.includes('new') || pathname.includes('configure')
+  const { appDetail, appsDetailRefresh } = appsDataState
 
   const [deleteLoading, , deleteFunc] = useReapitUpdate<void, boolean>({
     reapitConnectBrowserSession,
@@ -95,6 +107,16 @@ export const PipelineControls: FC = () => {
       returnType: UpdateReturnTypeEnum.RESPONSE,
     },
   )
+
+  const [, , createAppRevision] = useReapitUpdate<CreateAppRevisionModel, AppDetailModel>({
+    reapitConnectBrowserSession,
+    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.createAppRevsion],
+    method: 'POST',
+    uriParams: {
+      appId,
+    },
+    returnType: UpdateReturnTypeEnum.LOCATION,
+  })
 
   useEffect(handlePipelineRunnerSuccess(setAppPipelineDeploying, updatePipelineRunnerSuccess), [
     updatePipelineRunnerSuccess,
@@ -141,7 +163,7 @@ export const PipelineControls: FC = () => {
       ) ? (
         <Button
           className={elMb3}
-          onClick={handleSavePipeline(sendPipelineUpdate, {
+          onClick={handleSavePipeline(sendPipelineUpdate, createAppRevision, appsDetailRefresh, appDetail, {
             ...(appPipeline ?? {}),
             buildStatus: 'PROVISION_REQUEST',
           })}

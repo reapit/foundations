@@ -5,6 +5,7 @@ import { mockAppState } from '../../state/__mocks__/use-app-state'
 import { PipelinePage } from '../pipeline-page'
 
 jest.mock('../../state/use-app-state')
+jest.mock('../../../../core/use-global-state')
 
 jest.mock('@reapit/connect-session', () => ({
   ReapitConnectBrowserSession: jest.fn(),

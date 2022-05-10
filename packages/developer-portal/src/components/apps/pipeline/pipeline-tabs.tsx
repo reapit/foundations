@@ -22,7 +22,6 @@ export const handleChangeTab = (history: History, appId: string | null) => (even
   const tab = event.target.value as PipelineTabs
 
   const route = resolveRoute(tab)
-  console.log('route', route)
 
   if (appId) {
     history.push(route.replace(':appId', appId))

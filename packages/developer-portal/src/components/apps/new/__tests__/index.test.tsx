@@ -153,14 +153,16 @@ describe('AppsNew', () => {
       push: jest.fn(),
     } as unknown as History
     const appsRefresh = jest.fn()
+    const appPipelineRefresh = jest.fn()
     const setAppWizardState = jest.fn()
 
-    const curried = handleNavigateOnSuccess(appCreated, history, appsRefresh, setAppWizardState)
+    const curried = handleNavigateOnSuccess(appCreated, history, appsRefresh, appPipelineRefresh, setAppWizardState)
 
     curried()
 
     expect(history.push).toHaveBeenCalledWith(`${Routes.APPS}/${appCreated.id}`)
     expect(appsRefresh).toHaveBeenCalledTimes(1)
+    expect(appPipelineRefresh).toHaveBeenCalledTimes(1)
     expect(setAppWizardState).toHaveBeenCalledWith(defaultAppWizardState)
   })
 

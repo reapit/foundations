@@ -8,6 +8,8 @@ import { history } from '../../../../core/router'
 import Routes from '../../../../constants/routes'
 
 jest.mock('../../state/use-app-state')
+jest.mock('../../../../core/use-global-state')
+window.reapit.config.pipelineWhitelist = ['MOCK_APP_ID']
 
 const mockUseAppState = useAppState as jest.Mock
 

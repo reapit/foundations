@@ -6,6 +6,7 @@ import { mockAppState } from '../../apps/state/__mocks__/use-app-state'
 import { IaaS } from '../index'
 
 jest.mock('../../apps/state/use-app-state')
+jest.mock('../../../core/use-global-state')
 
 jest.mock('@reapit/utils-react', () => ({
   useReapitGet: jest.fn(() => [
