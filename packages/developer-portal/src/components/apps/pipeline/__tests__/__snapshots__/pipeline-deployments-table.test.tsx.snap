@@ -357,8 +357,9 @@ Object {
               >
                 <button
                   class="epibvz0-el-intent-secondary eqfkc7t-el-button"
+                  disabled=""
                 >
-                  Download Logs
+                  Logs Expired
                 </button>
               </div>
             </div>
@@ -775,8 +776,9 @@ Object {
             >
               <button
                 class="epibvz0-el-intent-secondary eqfkc7t-el-button"
+                disabled=""
               >
-                Download Logs
+                Logs Expired
               </button>
             </div>
           </div>
