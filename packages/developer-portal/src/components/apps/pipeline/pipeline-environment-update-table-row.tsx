@@ -12,8 +12,8 @@ import {
   InputGroup,
   InputWrap,
   Label,
-  Modal,
-  Title,
+  Subtitle,
+  TableExpandableRow,
 } from '@reapit/elements'
 import { UpdateActionNames, updateActions } from '@reapit/utils-common'
 import { useReapitUpdate } from '@reapit/utils-react'
@@ -30,16 +30,16 @@ const updateSchema: SchemaOf<{
     .required('Required - env needs a value'),
 })
 
-export const PipelineEnvUpdateModal = ({
+export const PipelineEnvUpdateTableRow = ({
   appId,
   connectSession,
   keyValue,
-  setModalOpen,
+  isOpen,
 }: {
   appId: string
   connectSession: ReapitConnectSession | null
   keyValue: string | false
-  setModalOpen: (value: string | false) => void
+  isOpen: boolean
 }) => {
   const [sending, , func] = useReapitUpdate<{ key: string; value: string }, void>({
     reapitConnectBrowserSession,
@@ -69,21 +69,14 @@ export const PipelineEnvUpdateModal = ({
     })
     if (result) {
       reset()
-      setModalOpen(false)
     }
   })
 
   return (
-    <Modal
-      isOpen={Boolean(keyValue)}
-      onModalClose={() => {
-        reset()
-        setModalOpen(false)
-      }}
-    >
+    <TableExpandableRow isOpen={isOpen}>
       <div className={cx(elMb6, elMt6)}>
         <form onSubmit={submitParameter}>
-          <Title>Update Environment Variable</Title>
+          <Subtitle>Update Environment Variable</Subtitle>
           <FormLayout hasMargin>
             <InputWrap>
               <InputGroup>
@@ -107,6 +100,6 @@ export const PipelineEnvUpdateModal = ({
           </ButtonGroup>
         </form>
       </div>
-    </Modal>
+    </TableExpandableRow>
   )
 }

@@ -23,6 +23,7 @@ import {
   Modal,
   Title,
   ButtonGroup,
+  TableRowContainer,
 } from '@reapit/elements'
 import { useForm } from 'react-hook-form'
 import { cx } from '@linaria/core'
@@ -30,7 +31,7 @@ import { useReapitGet, useReapitUpdate } from '@reapit/utils-react'
 import { GetActionNames, getActions, UpdateActionNames, updateActions } from '@reapit/utils-common'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { array, object, ref, SchemaOf, string } from 'yup'
-import { PipelineEnvUpdateModal } from './pipeline-environment-update-modal'
+import { PipelineEnvUpdateTableRow } from './pipeline-environment-update-table-row'
 
 const schema: SchemaOf<{
   key: string
@@ -49,8 +50,8 @@ export const PipelineEnvironment = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { appId } = useAppState()
   const [isInserting, setIsInserting] = useState<boolean>(false)
-  const [modalOpen, setModalOpen] = useState<string | false>(false)
   const [keys, setKeys] = useState<string[]>([])
+  const [tableExpanded, setTableExpanded] = useState<false | string>(false)
 
   const [fetchedKeys, isFetching] = useReapitGet<string[]>({
     reapitConnectBrowserSession,
@@ -128,21 +129,29 @@ export const PipelineEnvironment = () => {
           ) : (
             <>
               {(keys || []).map((key) => (
-                <TableRow key={key}>
-                  <TableCell>{key}</TableCell>
-                  <TableCell>
-                    <Button
-                      intent="secondary"
-                      onClick={() => {
-                        resetField('key')
-                        resetField('value')
-                        setModalOpen(key)
-                      }}
-                    >
-                      Update
-                    </Button>
-                  </TableCell>
-                </TableRow>
+                <TableRowContainer key={key}>
+                  <TableRow>
+                    <TableCell>{key}</TableCell>
+                    <TableCell>
+                      <Button
+                        intent="secondary"
+                        onClick={() => {
+                          resetField('key')
+                          resetField('value')
+                          setTableExpanded(key === tableExpanded ? false : key)
+                        }}
+                      >
+                        Update
+                      </Button>
+                    </TableCell>
+                  </TableRow>
+                  <PipelineEnvUpdateTableRow
+                    appId={appId as string}
+                    connectSession={connectSession}
+                    keyValue={key}
+                    isOpen={typeof tableExpanded === 'string' && key === tableExpanded}
+                  />
+                </TableRowContainer>
               ))}
             </>
           )}
@@ -177,12 +186,6 @@ export const PipelineEnvironment = () => {
       <Button intent="primary" onClick={() => setIsInserting(!isInserting)}>
         New
       </Button>
-      <PipelineEnvUpdateModal
-        appId={appId as string}
-        connectSession={connectSession}
-        keyValue={modalOpen}
-        setModalOpen={setModalOpen}
-      />
     </>
   )
 }
