@@ -130,10 +130,11 @@ describe('handleDownload', () => {
 describe('handleOnConfirm', () => {
   it('should correctly handle creating a sub', async () => {
     const developer = mockDeveloperModel
+    const email = 'test@example.com'
     const createSubscription = jest.fn(() => new Promise<boolean>((resolve) => resolve(true)))
     const setSubscribingState = jest.fn()
 
-    const curried = handleOnConfirm(developer, createSubscription, setSubscribingState)
+    const curried = handleOnConfirm(developer, createSubscription, setSubscribingState, email)
 
     await curried()
 
