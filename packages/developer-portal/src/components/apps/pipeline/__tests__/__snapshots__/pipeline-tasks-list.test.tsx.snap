@@ -342,7 +342,7 @@ Object {
           class="epibvz0-el-intent-secondary eqfkc7t-el-button"
           disabled=""
         >
-          Logs Expired
+          Logs Unavailable
         </button>
       </div>
     </div>
@@ -558,7 +558,7 @@ Object {
         class="epibvz0-el-intent-secondary eqfkc7t-el-button"
         disabled=""
       >
-        Logs Expired
+        Logs Unavailable
       </button>
     </div>
   </div>,

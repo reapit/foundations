@@ -34,9 +34,9 @@ export const TaskList: FC<TaskListProps> = ({ tasks, s3BuildLogsLocation, buildS
   }
 
   const expires = created
-  expires.setDate(7)
+  expires.setDate(1)
 
-  const logsExpired = expires.getTime() < new Date().getTime()
+  const logsExpired = new Date().getTime() < expires.getTime()
 
   return (
     <>
