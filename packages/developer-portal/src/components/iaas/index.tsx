@@ -22,6 +22,7 @@ import { useReapitGet } from '@reapit/utils-react'
 import React, { FC, useEffect, useState } from 'react'
 import { COGNITO_HEADERS, URLS } from '../../constants/api'
 import ErrorBoundary from '../../core/error-boundary'
+import { useGlobalState } from '../../core/use-global-state'
 import { ExternalPages, openNewPage } from '../../utils/navigation'
 import { PipelineRow } from './pipeline-row'
 
@@ -40,6 +41,8 @@ export const IaaS: FC = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [pagination, setPagination] = useState<Pagination<PipelineModelInterface> | null>()
   const [page, setPage] = useState<number>(1)
+  const { globalDataState } = useGlobalState()
+  const { currentDeveloper } = globalDataState
 
   const [pipelines, loading] = useReapitGet<Pagination<PipelineModelInterface>>({
     reapitConnectBrowserSession,
@@ -83,7 +86,7 @@ export const IaaS: FC = () => {
             }}
           >
             <Title>Pipelines</Title>
-            {loading ? (
+            {loading || !currentDeveloper ? (
               <Loader />
             ) : (
               <>

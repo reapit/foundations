@@ -12,6 +12,8 @@ import Routes from '../../../../constants/routes'
 import { useAppState } from '../../state/use-app-state'
 import { mockAppState } from '../../state/__mocks__/use-app-state'
 import { mockPipelineModelInterface } from '../../../../tests/__stubs__/pipeline'
+import { mockAppDetailModel } from '../../../../tests/__stubs__/apps'
+import { AppDetailModel, PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 
 jest.mock('../../state/use-app-state')
 jest.mock('../../../../core/use-global-state')
@@ -91,14 +93,27 @@ describe('handleSaveConfig', () => {
 })
 
 describe('handleSavePipeline', () => {
-  it('should handle pipeline saving', () => {
-    const sendPipelineUpdate = jest.fn()
+  it('should handle pipeline saving', async () => {
+    const sendPipelineUpdate = jest.fn(
+      () => new Promise<PipelineModelInterface>((resolve) => resolve({ subDomain: 'foo-bar' })),
+    )
+    const createAppRevision = jest.fn(() => new Promise<AppDetailModel>((resolve) => resolve({})))
+    const appsDetailRefresh = jest.fn()
+    const appDetail = mockAppDetailModel
     const pipelineUpdate = mockPipelineModelInterface
-    const curried = handleSavePipeline(sendPipelineUpdate, pipelineUpdate)
+    const curried = handleSavePipeline(
+      sendPipelineUpdate,
+      createAppRevision,
+      appsDetailRefresh,
+      appDetail,
+      pipelineUpdate,
+    )
 
-    curried()
+    await curried()
 
     expect(sendPipelineUpdate).toHaveBeenCalledWith(pipelineUpdate)
+    expect(createAppRevision).toHaveBeenCalledTimes(1)
+    expect(appsDetailRefresh).toHaveBeenCalledTimes(1)
   })
 })
 

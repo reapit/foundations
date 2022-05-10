@@ -17,7 +17,7 @@ import { navigate, openNewPage } from '../../utils/navigation'
 import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { handlePipelineEvent, PipelinePusherEvent } from '../apps/pipeline/pipeline-info'
+import { handlePipelineEvent } from '../apps/pipeline/pipeline-info'
 import { useChannel, useEvent } from '@harelpls/use-pusher'
 
 interface PipelineRowProps {
@@ -31,7 +31,7 @@ export const PipelineRow: FC<PipelineRowProps> = ({ pipeline }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   const channel = useChannel(`private-${connectSession?.loginIdentity.developerId}`)
-  useEvent<PipelinePusherEvent>(
+  useEvent<PipelineModelInterface>(
     channel,
     'pipeline-update',
     handlePipelineEvent(

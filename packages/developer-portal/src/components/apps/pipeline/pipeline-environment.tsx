@@ -134,7 +134,7 @@ export const PipelineEnvironment = () => {
                     <TableCell>{key}</TableCell>
                     <TableCell>
                       <Button
-                        intent="secondary"
+                        intent="low"
                         onClick={() => {
                           resetField('key')
                           resetField('value')
