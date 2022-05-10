@@ -53,7 +53,9 @@ export class LinkPipelineCommand extends AbstractCommand {
       spinner.succeed('Successfully found pipeline')
       fs.writeFileSync(resolve(process.cwd(), REAPIT_PIPELINE_CONFIG_FILE), JSON.stringify(response.data, null, 2))
     } else {
+      console.log('response', response)
       console.log(`Repsonse: ${response.statusText}`)
+      this.resolveAxiosResponseError(response)
       spinner.fail(
         (response.data as any)?.message ? (response.data as any).message : 'No pipeline exists with id provided',
       )

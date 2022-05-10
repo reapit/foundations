@@ -17,6 +17,8 @@ import { PipelineInfo } from './pipeline-info'
 import { useLocation } from 'react-router'
 import { PipelineConfigure } from './pipeline-configure'
 import { Helper } from '../page/helper'
+import { PipelineTabs } from './pipeline-tabs'
+import { PipelineEnvironment } from './pipeline-environment'
 
 export const PipelinePage: FC = () => {
   const location = useLocation()
@@ -27,7 +29,12 @@ export const PipelinePage: FC = () => {
   const { pathname } = location
   const { appDetail, appDetailLoading } = appsDataState
   const { appPipeline, appPipelineLoading } = appPipelineState
-  const isConfigPage = pathname.includes('configure')
+
+  const tab: PipelineTabs = pathname.includes('configure')
+    ? 'configure'
+    : pathname.includes('environment')
+    ? 'environment'
+    : 'deployments'
 
   return (
     <>
@@ -56,7 +63,15 @@ export const PipelinePage: FC = () => {
       ) : !appPipeline && appDetail ? (
         <PipelinesAbout />
       ) : appPipeline && appDetail ? (
-        <>{isConfigPage ? <PipelineConfigure /> : <PipelineInfo />}</>
+        <>
+          {tab === 'configure' ? (
+            <PipelineConfigure />
+          ) : tab === 'deployments' ? (
+            <PipelineInfo />
+          ) : (
+            <PipelineEnvironment />
+          )}
+        </>
       ) : (
         <PersistantNotification intent="secondary" isExpanded isFullWidth isInline>
           No record of this app found, please select an app from the My Apps page.
