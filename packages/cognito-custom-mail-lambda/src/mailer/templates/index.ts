@@ -1,9 +1,10 @@
 import { ForgottenPasswordTemplateParams, ConfirmPasswordTemplateParams } from './types'
 
 export const forgotPasswordTemplate = ({ userName }: ForgottenPasswordTemplateParams) => `
+<html>
   <div style="background-color:#f5f7f9; padding: 24px;">
     <article style="font-family: Helvetica, Arial, sans-serif;margin:0px auto;background-color:white;line-height: 1.5rem; max-width: 950px;">
-      <img style="width: 25%; margin: 0 auto; padding: 16px; display: block;" src="https://web-components.prod.paas.reapit.cloud/reapit-connect.jpeg" />
+      <img alt="Reapit Connect Logo" style="width: 50%; margin: 0 auto; padding: 16px; display: block;" src="https://web-components.prod.paas.reapit.cloud/reapit-connect.jpeg" />
       <h1 style="text-align: center;font-size: 24px; font-style: normal; padding:0 16px 24px 16px;">Reapit Connect - Forgotten Password</h1>
       <div style="padding:0 16px 16px 16px;">
         <p>Hi ${userName}</p>
@@ -16,12 +17,14 @@ export const forgotPasswordTemplate = ({ userName }: ForgottenPasswordTemplatePa
       </div>
     </article>
   </div>
+</html>
 `
 
 export const confirmRegistrationTemplate = ({ url }: ConfirmPasswordTemplateParams) => `
+<html>
   <div style="background-color:#f5f7f9; padding: 24px;">
     <article style="font-family: Helvetica, Arial, sans-serif;margin:0px auto;background-color:white;line-height: 1.5rem; max-width: 950px;">
-      <img style="width: 25%; margin: 0 auto; padding: 16px; display: block;" src="https://web-components.prod.paas.reapit.cloud/reapit-connect.jpeg" />
+      <img alt="Reapit Connect Logo" style="width: 50%; margin: 0 auto; padding: 16px; display: block;" src="https://web-components.prod.paas.reapit.cloud/reapit-connect.jpeg" />
       <h1 style="text-align: center;font-size: 24px; font-style: normal; padding:0 16px 24px 16px;">Welcome to Reapit Connect</h1>
       <div style="padding:0 16px 16px 16px;">
         <p>Hi {username},</p>
@@ -38,12 +41,14 @@ export const confirmRegistrationTemplate = ({ url }: ConfirmPasswordTemplatePara
       </div>
     </article>
   </div>
+</html>
 `
 
 export const adminUserInviteTemplate = ({ url }: ConfirmPasswordTemplateParams) => `
+<html>
   <div style="background-color:#f5f7f9; padding: 24px;">
     <article style="font-family: Helvetica, Arial, sans-serif;margin:0px auto;background-color:white;line-height: 1.5rem; max-width: 950px;">
-      <img style="width: 25%; margin: 0 auto; padding: 16px; display: block;" src="https://web-components.prod.paas.reapit.cloud/reapit-connect.jpeg" />
+      <img alt="Reapit Connect Logo" style="width: 50%; margin: 0 auto; padding: 16px; display: block;" src="https://web-components.prod.paas.reapit.cloud/reapit-connect.jpeg" />
       <h1 style="text-align: center;font-size: 24px; font-style: normal; padding:0 16px 24px 16px;">Welcome to Reapit Connect</h1>
       <div style="padding:0 16px 16px 16px;">
         <p>Hi {username},</p>
@@ -62,4 +67,5 @@ export const adminUserInviteTemplate = ({ url }: ConfirmPasswordTemplateParams) 
       </div>
     </article>
   </div>
+</html>
 `
