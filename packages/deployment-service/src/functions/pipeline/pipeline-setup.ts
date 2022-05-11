@@ -77,7 +77,7 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
             },
             Aliases: {
               Quantity: 1,
-              Items: [`${pipeline.subDomain}.${process.env.ROOT_DOMAIN}`],
+              Items: [`${pipeline.subDomain}.${process.env.IAAS_DOMAIN}`],
             },
             Comment: `Cloudfront distribution for pipeline [${pipeline.id}] [${
               process.env.NODE_ENV === 'production' ? 'prod' : 'dev'
@@ -125,7 +125,7 @@ export const pipelineSetup: SQSHandler = async (event: SQSEvent, context: Contex
                 Action: 'UPSERT',
                 ResourceRecordSet: {
                   Type: 'A',
-                  Name: `${pipeline.subDomain}.${process.env.ROOT_DOMAIN}`,
+                  Name: `${pipeline.subDomain}.${process.env.IAAS_DOMAIN}`,
                   AliasTarget: {
                     DNSName: frontDomain,
                     EvaluateTargetHealth: false,
