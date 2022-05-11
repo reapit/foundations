@@ -2,7 +2,9 @@ import { css } from '@linaria/core'
 
 export const header = css`
   background: #fff;
-  height: 45px;
+  /* height: 52px; */
+  padding-top: 12px;
+  padding-bottom: 8px;
   border-bottom: 1px solid #e3e3e3;
 `
 

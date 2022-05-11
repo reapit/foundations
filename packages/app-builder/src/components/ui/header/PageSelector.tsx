@@ -2,8 +2,11 @@ import { nodesObjtoToArr } from '@/components/hooks/apps/node-helpers'
 import { useApp } from '@/components/hooks/apps/use-app'
 import { useDeletePage, useUpdatePage } from '@/components/hooks/apps/use-update-app'
 import { usePageId } from '@/components/hooks/use-page-id'
+import Delete from '@/components/icons/delete'
+import Plus from '@/components/icons/plus'
 import { cx } from '@linaria/core'
-import { Button, elFlex, elFlex1, elFlexAlignCenter, elFlexJustifyStart, elM1, Select } from '@reapit/elements'
+import { styled } from '@linaria/react'
+import { Button, elFlex, elFlex1, elFlexAlignCenter, elFlexJustifyStart, elM2, Select } from '@reapit/elements'
 import React from 'react'
 import slugify from 'slugify'
 import { emptyState } from '../../hooks/apps/emptyState'
@@ -17,6 +20,40 @@ export const newPage = (name: string) => {
   return page
 }
 
+const AppBuilderSelect = styled(Select)`
+  border: 1px solid #e3e3e3;
+  border-radius: 4px;
+  max-width: 297px;
+  margin-right: 4px;
+
+  &:focus {
+    border-bottom-color: #e3e3e3;
+  }
+`
+
+export const AppBuilderIconButton = styled(Button)`
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  margin: 0;
+  margin-left: 4px;
+  margin-right: 4px;
+  border: none;
+  border-radius: 4px;
+
+  svg {
+    fill: white;
+  }
+
+  background: ${({ intent }) => {
+    if (intent === 'primary') {
+      return '#23A4DE'
+    }
+
+    return '#f2f2f2'
+  }};
+`
+
 export const PageSelector = ({ pageId, onChange }: { pageId?: string; onChange: (id: string) => void }) => {
   const { appId, setPageId } = usePageId()
   const { app } = useApp(appId)
@@ -26,8 +63,7 @@ export const PageSelector = ({ pageId, onChange }: { pageId?: string; onChange: 
 
   return (
     <div className={cx(elFlex1, elFlex, elFlexAlignCenter, elFlexJustifyStart)}>
-      <Select
-        style={{ maxWidth: 150 }}
+      <AppBuilderSelect
         id="page_selector"
         name="page_selector"
         value={pageId}
@@ -40,10 +76,9 @@ export const PageSelector = ({ pageId, onChange }: { pageId?: string; onChange: 
             {label || 'Home'}
           </option>
         ))}
-      </Select>
-      <Button
-        style={{ zoom: 0.78 }}
-        className={elM1}
+      </AppBuilderSelect>
+      <AppBuilderIconButton
+        className={elM2}
         onClick={() => {
           const pageName = prompt('Page name?')
           if (!pageName) {
@@ -57,12 +92,10 @@ export const PageSelector = ({ pageId, onChange }: { pageId?: string; onChange: 
           onChange(page.id)
         }}
       >
-        New
-      </Button>
-      <Button
-        size={2}
+        <Plus />
+      </AppBuilderIconButton>
+      <AppBuilderIconButton
         loading={loading}
-        style={{ zoom: 0.8 }}
         onClick={() => {
           if (pageId) {
             deletePage(appId, pageId).then(() => {
@@ -70,10 +103,9 @@ export const PageSelector = ({ pageId, onChange }: { pageId?: string; onChange: 
             })
           }
         }}
-        intent="danger"
       >
-        delete page
-      </Button>
+        <Delete />
+      </AppBuilderIconButton>
     </div>
   )
 }
