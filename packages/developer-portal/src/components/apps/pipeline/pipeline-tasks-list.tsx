@@ -67,9 +67,9 @@ export const TaskList: FC<TaskListProps> = ({ tasks, s3BuildLogsLocation, buildS
             s3BuildLogsLocation && openNewPage(s3BuildLogsLocation)()
           }}
         >
-          {logsExpired
+          {!logsExpired
             ? 'Logs Expired'
-            : !['FAILED', 'SUCCEEDED'].includes(buildStatus)
+            : ['FAILED', 'SUCCEEDED'].includes(buildStatus)
             ? 'Logs Unavailable'
             : 'Download Logs'}
         </Button>
