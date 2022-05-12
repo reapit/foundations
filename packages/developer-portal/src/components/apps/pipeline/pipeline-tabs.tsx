@@ -5,11 +5,24 @@ import { useHistory, useLocation } from 'react-router'
 import { History } from 'history'
 import Routes from '../../../constants/routes'
 
-export type PipelineTabs = 'configure' | 'deployments'
+export type PipelineTabs = 'configure' | 'deployments' | 'environment'
+
+const resolveRoute = (tab: PipelineTabs): string => {
+  switch (tab) {
+    case 'configure':
+      return Routes.APP_PIPELINE_CONFIGURE
+    case 'deployments':
+      return Routes.APP_PIPELINE
+    case 'environment':
+      return Routes.APP_PIPELINE_ENVIRONMENT
+  }
+}
 
 export const handleChangeTab = (history: History, appId: string | null) => (event: ChangeEvent<HTMLInputElement>) => {
   const tab = event.target.value as PipelineTabs
-  const route = tab === 'configure' ? Routes.APP_PIPELINE_CONFIGURE : Routes.APP_PIPELINE
+
+  const route = resolveRoute(tab)
+
   if (appId) {
     history.push(route.replace(':appId', appId))
   }
@@ -20,7 +33,6 @@ export const PipelineTabs: FC = () => {
   const history = useHistory()
   const { appId } = useAppState()
   const { pathname } = location
-  const isConfigPage = pathname.includes('configure')
 
   return (
     <Tabs
@@ -32,13 +44,19 @@ export const PipelineTabs: FC = () => {
           id: 'deployments',
           value: 'deployments',
           text: 'Deployments',
-          isChecked: !isConfigPage,
+          isChecked: !pathname.includes('configure') && !pathname.includes('environment'),
         },
         {
           id: 'configure',
           value: 'configure',
           text: 'Configure',
-          isChecked: isConfigPage,
+          isChecked: pathname.includes('configure'),
+        },
+        {
+          id: 'environment',
+          value: 'environment',
+          text: 'Environment',
+          isChecked: pathname.includes('environment'),
         },
       ]}
     />

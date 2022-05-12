@@ -55,13 +55,12 @@ export const handleNewRunner =
     appPipeline: PipelineModelInterface | null,
     pipelineDeploymentsItems: PipelineRunnerModelInterface[],
     setPipelineDeploymentItems: Dispatch<SetStateAction<PipelineRunnerModelInterface[]>>,
+    appId: string | null,
   ) =>
   (event?: PipelineRunnerEvent) => {
-    if (!event) {
-      return
-    }
+    const pipelineId = appPipeline?.id || appId
 
-    if (!event.pipeline || appPipeline?.id !== event.pipeline.id) {
+    if (!event || !pipelineId || event.pipeline?.id !== pipelineId) {
       return
     }
 
@@ -80,7 +79,7 @@ export const PipelineDeploymentTable: FC = () => {
   const [page, setPage] = useState(1)
   const [pipelineDeploymentsItems, setPipelineDeploymentItems] = useState<PipelineRunnerModelInterface[]>([])
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const { appPipelineState } = useAppState()
+  const { appPipelineState, appId } = useAppState()
   const { appPipeline, setAppPipelineDeploying, appPipelineDeploying } = appPipelineState
 
   const [pipelineDeployments, loading, , refreshPipelineRunners] = useReapitGet<PipelineRunnerResponse>({
@@ -103,7 +102,7 @@ export const PipelineDeploymentTable: FC = () => {
   useEvent<PipelineRunnerEvent>(
     channel,
     'pipeline-runner-update',
-    handleNewRunner(appPipeline, pipelineDeploymentsItems, setPipelineDeploymentItems),
+    handleNewRunner(appPipeline, pipelineDeploymentsItems, setPipelineDeploymentItems, appId),
   )
 
   useEffect(handleInitialRunners(pipelineDeployments, setPipelineDeploymentItems), [pipelineDeployments])
@@ -121,7 +120,7 @@ export const PipelineDeploymentTable: FC = () => {
           <Table
             className={elMb11}
             rows={pipelineDeploymentsItems.map(
-              ({ type, created, buildStatus, buildVersion, currentlyDeployed, tasks }) => ({
+              ({ type, created, buildStatus, buildVersion, currentlyDeployed, tasks, s3BuildLogsLocation }) => ({
                 cells: [
                   {
                     label: 'Release Type',
@@ -171,7 +170,14 @@ export const PipelineDeploymentTable: FC = () => {
                   },
                 ],
                 expandableContent: {
-                  content: <TaskList tasks={tasks} />,
+                  content: (
+                    <TaskList
+                      tasks={tasks}
+                      s3BuildLogsLocation={s3BuildLogsLocation}
+                      buildStatus={buildStatus as string}
+                      created={new Date(created as string)}
+                    />
+                  ),
                 },
               }),
             )}

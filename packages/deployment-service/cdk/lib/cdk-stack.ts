@@ -499,6 +499,70 @@ export const createStack = () => {
       policies: [...policies.commonBackendPolicies],
       queue: queues[QueueNames.APP_EVENTS],
     },
+    parameterStoreUpsert: {
+      handler: `${fileLocPrefix}parameterUpsert`,
+      policies: [...policies.commonBackendPolicies],
+      api: {
+        routes: [
+          {
+            method: 'PUT',
+            path: '/pipeline/{pipelineId}/parameter',
+          },
+        ],
+        cors: {
+          origin: '*',
+        },
+        headers: ['Content-Type', 'Authorization', 'api-version'],
+      },
+    },
+    apiParameterStoreUpsert: {
+      handler: `${fileLocPrefix}parameterUpsert`,
+      policies: [...policies.commonBackendPolicies],
+      api: {
+        routes: [
+          {
+            method: 'PUT',
+            path: 'api/pipeline/{pipelineId}/parameter',
+          },
+        ],
+        cors: {
+          origin: '*',
+        },
+        headers: ['Content-Type', 'Authorization', 'api-version', 'X-Api-Key'],
+      },
+    },
+    parameterKeys: {
+      handler: `${fileLocPrefix}parameterKeys`,
+      policies: [...policies.commonBackendPolicies],
+      api: {
+        routes: [
+          {
+            method: 'GET',
+            path: '/pipeline/{pipelineId}/parameter',
+          },
+        ],
+        cors: {
+          origin: '*',
+        },
+        headers: ['Content-Type', 'Authorization', 'api-version'],
+      },
+    },
+    apiParameterKeys: {
+      handler: `${fileLocPrefix}parameterKeys`,
+      policies: [...policies.commonBackendPolicies],
+      api: {
+        routes: [
+          {
+            method: 'GET',
+            path: 'api/pipeline/{pipelineId}/parameter',
+          },
+        ],
+        cors: {
+          origin: '*',
+        },
+        headers: ['Content-Type', 'Authorization', 'api-version', 'X-Api-Key'],
+      },
+    },
   }
 
   const MYSQL_DATABASE = databaseName
@@ -543,7 +607,7 @@ export const createStack = () => {
         lambda,
         options.api.routes,
         // @ts-ignore
-        options.api.authorizer ? config.AUTHORIZER_ID as string : undefined,
+        options.api.authorizer ? (config.AUTHORIZER_ID as string) : undefined,
       )
     } else if (options.topic) {
       addLambdaSNSTrigger(lambda, options.topic)

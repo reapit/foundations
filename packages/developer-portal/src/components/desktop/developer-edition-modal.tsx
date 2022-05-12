@@ -28,11 +28,13 @@ export const handleOnConfirm =
     developer: Partial<DeveloperModel> | null,
     createSubscription: SendFunction<CreateSubscriptionModel, boolean>,
     setSubscribingState: Dispatch<SetStateAction<SubscribingState>>,
+    email?: string,
   ) =>
   async () => {
+    if (!email || !developer) return
     const subscription = await createSubscription({
       developerId: developer?.id || '',
-      user: developer?.email || '',
+      user: email,
       type: 'developerEdition',
     })
 
@@ -230,7 +232,7 @@ export const DeveloperEditionModal: FC<DeveloperEditionModalProps> = ({ visible,
               fixedWidth
               intent="primary"
               type="submit"
-              onClick={handleOnConfirm(currentDeveloper, createSubscription, setSubscribingState)}
+              onClick={handleOnConfirm(currentDeveloper, createSubscription, setSubscribingState, currentMember?.email)}
               loading={subscriptionCreating}
               disabled={subscriptionCreating}
             >

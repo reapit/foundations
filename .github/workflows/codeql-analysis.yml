@@ -6,8 +6,9 @@
 name: 'CodeQL Analyze'
 
 on:
-  pull_request:
-    types: ['opened', 'synchronize']
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron: '0 0 * * 1-5'
 
 jobs:
   analyze:

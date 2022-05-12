@@ -27,25 +27,24 @@ import { useAppState } from '../state/use-app-state'
 import { getCurrentPage } from '../utils/get-current-page'
 import { Helper } from './helper'
 import { cx } from '@linaria/core'
-import { selectLoginIdentity } from '../../../utils/auth'
-import { useReapitConnect } from '@reapit/connect-session'
-import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { useGlobalState } from '../../../core/use-global-state'
 
 export const AppsPage: FC = () => {
   const history = useHistory()
   const location = useLocation()
   const { pathname } = location
   const { appsDataState, appId } = useAppState()
-  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const { globalDataState } = useGlobalState()
+  const { currentDeveloper } = globalDataState
 
-  const { apps, appsLoading } = appsDataState
+  const { apps, appsLoading, appDetail } = appsDataState
   const { isAppsList, isAppsNew, isAppsWelcome, isAppsEdit, isAppsDetail, isAppsInstallations, isAppPipelines } =
     getCurrentPage(pathname)
 
-  const loginIdentity = selectLoginIdentity(connectSession)
-
   const hasPipelines =
-    loginIdentity?.developerId && window.reapit.config.pipelineWhitelist.includes(loginIdentity.developerId)
+    currentDeveloper?.id &&
+    window.reapit.config.pipelineWhitelist.includes(currentDeveloper.id) &&
+    appDetail?.authFlow !== 'clientCredentials'
 
   return (
     <ErrorBoundary>

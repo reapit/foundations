@@ -164,24 +164,27 @@ export const handleNavigateOnSuccess =
     app: AppDetailModel | undefined,
     history: History,
     appsRefresh: () => void,
+    appPipelineRefresh: () => void,
     setAppWizardState: Dispatch<SetStateAction<AppWizardState>>,
   ) =>
   () => {
     if (app) {
       appsRefresh()
+      appPipelineRefresh()
       setAppWizardState(defaultAppWizardState)
       history.push(`${Routes.APPS}/${app.id}`)
     }
   }
 
 export const AppsNewPage: FC = () => {
-  const { appWizardState, setAppWizardState, appsDataState } = useAppState()
+  const { appWizardState, setAppWizardState, appsDataState, appPipelineState } = useAppState()
   const history = useHistory()
   const { isMobile } = useMediaQuery()
   const { Modal, openModal, closeModal } = useModal()
 
   const { currentStep, prevStep, nextStep, stepHistory, authFlow, lastStep } = appWizardState
   const { appsRefresh } = appsDataState
+  const { appPipelineRefresh } = appPipelineState
   const {
     register,
     getValues,
@@ -199,7 +202,7 @@ export const AppsNewPage: FC = () => {
     returnType: UpdateReturnTypeEnum.LOCATION,
   })
 
-  useEffect(handleNavigateOnSuccess(app, history, appsRefresh, setAppWizardState), [app])
+  useEffect(handleNavigateOnSuccess(app, history, appsRefresh, appPipelineRefresh, setAppWizardState), [app])
 
   const { headingText, headerText, iconName } = getAppWizardStep(currentStep)
 

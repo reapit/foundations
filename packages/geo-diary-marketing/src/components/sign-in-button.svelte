@@ -1,4 +1,9 @@
-<a class="login-reapit-button" href="https://marketplace.reapit.cloud/apps/fac7f629-2628-4f9b-84ee-2dbc4d54d225">
+<a
+  class="login-reapit-button"
+  href="https://marketplace.reapit.cloud/apps/fac7f629-2628-4f9b-84ee-2dbc4d54d225"
+  target="_blank"
+  rel="noopener noreferrer"
+>
   <svg width="100%" height="37px" viewBox="0 0 290 42">
     <path
       d="M63,29.0354821 C64.5054873,30.5366092 66.5305784,31.360458 68.6282424,31.3251673 C72.0285031,31.3251673

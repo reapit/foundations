@@ -49,6 +49,23 @@ Object {
               Configure
             </span>
           </label>
+          <input
+            class="enkj6b-el-tabs"
+            id="environment"
+            name="pipeline-tabs"
+            type="radio"
+            value="environment"
+          />
+          <label
+            class="e1ob8xkh-el-tabs-label"
+            for="environment"
+          >
+            <span
+              class="eulcr0n-el-tabs-item"
+            >
+              Environment
+            </span>
+          </label>
         </div>
         <div
           class="e1147ynd-el-tabs-footer"
@@ -180,6 +197,10 @@ Object {
               <p
                 class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
               >
+                <span
+                  class="e1ymtwpu-el-intent-low e1cp9zgf-el-status-indicator"
+                />
+                 
                 <a
                   href="https://github.com/bashleigh/reapit-react-test"
                   rel="noreferrer"
@@ -348,6 +369,23 @@ Object {
             Configure
           </span>
         </label>
+        <input
+          class="enkj6b-el-tabs"
+          id="environment"
+          name="pipeline-tabs"
+          type="radio"
+          value="environment"
+        />
+        <label
+          class="e1ob8xkh-el-tabs-label"
+          for="environment"
+        >
+          <span
+            class="eulcr0n-el-tabs-item"
+          >
+            Environment
+          </span>
+        </label>
       </div>
       <div
         class="e1147ynd-el-tabs-footer"
@@ -479,6 +517,10 @@ Object {
             <p
               class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
             >
+              <span
+                class="e1ymtwpu-el-intent-low e1cp9zgf-el-status-indicator"
+              />
+               
               <a
                 href="https://github.com/bashleigh/reapit-react-test"
                 rel="noreferrer"

@@ -188,7 +188,7 @@ Object {
                     <div
                       class="e1t8i3z1-el-table-cell-content"
                     >
-                      Install
+                      Download Source
                     </div>
                   </div>
                   <div
@@ -231,7 +231,7 @@ Object {
                     <div
                       class="e1t8i3z1-el-table-cell-content"
                     >
-                      Deploy
+                      Install
                     </div>
                   </div>
                   <div
@@ -317,7 +317,7 @@ Object {
                     <div
                       class="e1t8i3z1-el-table-cell-content"
                     >
-                      Download Source
+                      Deploy
                     </div>
                   </div>
                   <div
@@ -351,6 +351,16 @@ Object {
                     </div>
                   </div>
                 </div>
+              </div>
+              <div
+                class="e1s056ze-el-mt6"
+              >
+                <button
+                  class="epibvz0-el-intent-secondary eqfkc7t-el-button"
+                  disabled=""
+                >
+                  Logs Unavailable
+                </button>
               </div>
             </div>
           </div>
@@ -597,7 +607,7 @@ Object {
                   <div
                     class="e1t8i3z1-el-table-cell-content"
                   >
-                    Install
+                    Download Source
                   </div>
                 </div>
                 <div
@@ -640,7 +650,7 @@ Object {
                   <div
                     class="e1t8i3z1-el-table-cell-content"
                   >
-                    Deploy
+                    Install
                   </div>
                 </div>
                 <div
@@ -726,7 +736,7 @@ Object {
                   <div
                     class="e1t8i3z1-el-table-cell-content"
                   >
-                    Download Source
+                    Deploy
                   </div>
                 </div>
                 <div
@@ -760,6 +770,16 @@ Object {
                   </div>
                 </div>
               </div>
+            </div>
+            <div
+              class="e1s056ze-el-mt6"
+            >
+              <button
+                class="epibvz0-el-intent-secondary eqfkc7t-el-button"
+                disabled=""
+              >
+                Logs Unavailable
+              </button>
             </div>
           </div>
         </div>

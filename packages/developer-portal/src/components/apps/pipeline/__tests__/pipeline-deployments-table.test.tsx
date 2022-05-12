@@ -47,7 +47,12 @@ describe('handleNewRunner', () => {
     const appPipeline = mockPipelineModelInterface
     const pipelineDeploymentsItems = mockPipelineRunnerResponse.items
     const setPipelineDeploymentItems = jest.fn()
-    const curried = handleNewRunner(appPipeline, pipelineDeploymentsItems, setPipelineDeploymentItems)
+    const curried = handleNewRunner(
+      appPipeline,
+      pipelineDeploymentsItems,
+      setPipelineDeploymentItems,
+      appPipeline.id ?? null,
+    )
 
     curried({ pipeline: mockPipelineModelInterface } as PipelineRunnerEvent)
 
@@ -61,7 +66,7 @@ describe('handleNewRunner', () => {
   it('should handle pipeline runner refresh where no current items', () => {
     const appPipeline = mockPipelineModelInterface
     const setPipelineDeploymentItems = jest.fn()
-    const curried = handleNewRunner(appPipeline, [], setPipelineDeploymentItems)
+    const curried = handleNewRunner(appPipeline, [], setPipelineDeploymentItems, appPipeline.id ?? null)
 
     curried({ pipeline: mockPipelineModelInterface } as PipelineRunnerEvent)
 
@@ -71,7 +76,7 @@ describe('handleNewRunner', () => {
   it('should handle pipeline runner refresh where there is no event pipeline', () => {
     const appPipeline = mockPipelineModelInterface
     const setPipelineDeploymentItems = jest.fn()
-    const curried = handleNewRunner(appPipeline, [], setPipelineDeploymentItems)
+    const curried = handleNewRunner(appPipeline, [], setPipelineDeploymentItems, appPipeline.id ?? null)
 
     curried({} as PipelineRunnerEvent)
 
@@ -81,7 +86,7 @@ describe('handleNewRunner', () => {
   it('should handle pipeline runner refresh with no event', () => {
     const appPipeline = mockPipelineModelInterface
     const setPipelineDeploymentItems = jest.fn()
-    const curried = handleNewRunner(appPipeline, [], setPipelineDeploymentItems)
+    const curried = handleNewRunner(appPipeline, [], setPipelineDeploymentItems, appPipeline.id ?? null)
 
     curried()
 

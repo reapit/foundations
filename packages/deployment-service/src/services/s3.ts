@@ -7,6 +7,7 @@ export const s3Client = new S3({
 
 export const assumedS3Client = async () =>
   new S3({
+    signatureVersion: 'v4',
     region: process.env.REGION,
     credentials: await getRoleCredentials(),
   })

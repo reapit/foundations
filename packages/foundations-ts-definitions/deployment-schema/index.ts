@@ -12,6 +12,8 @@ export interface PipelineModelInterface {
   testCommand?: string
   packageManager?: PackageManagerEnum
   repository?: string
+  installationId?: number
+  repositoryId?: number
   branch?: string
   outDir?: string
   buildStatus?: string

@@ -1,30 +1,41 @@
 import React, { Dispatch, FC, SetStateAction } from 'react'
-import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { buildStatusToIntent, buildStatusToReadable } from '../../../utils/pipeline-helpers'
-import { useReapitConnect } from '@reapit/connect-session'
 import { BodyText, Col, elMb11, elMr4, FlexContainer, Grid, Icon, StatusIndicator, Subtitle } from '@reapit/elements'
 import { useChannel, useEvent } from '@harelpls/use-pusher'
 import { useAppState } from '../state/use-app-state'
 import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import { PipelineDeploymentTable } from './pipeline-deployments-table'
 import { PipelineTabs } from './pipeline-tabs'
+import { useGlobalState } from '../../../core/use-global-state'
 
 export interface PipelinePusherEvent {
   pipeline: PipelineModelInterface
 }
 
 export const handlePipelineEvent =
-  (pipeline: PipelineModelInterface | null, setPipeline: Dispatch<SetStateAction<PipelineModelInterface | null>>) =>
+  (
+    pipeline: PipelineModelInterface | null,
+    setPipeline: Dispatch<SetStateAction<PipelineModelInterface | null>>,
+    appId: string | null,
+  ) =>
+  (event?: PipelineModelInterface) => {
+    const pipelineId = pipeline?.id || appId
+    if (!event || !pipelineId || event?.id !== pipelineId) {
+      return
+    }
+
+    setPipeline(event)
+  }
+
+export const handleRunnerEvent =
+  (
+    pipeline: PipelineModelInterface | null,
+    setPipeline: Dispatch<SetStateAction<PipelineModelInterface | null>>,
+    appId: string | null,
+  ) =>
   (event?: PipelinePusherEvent) => {
-    if (!event) {
-      return
-    }
-
-    if (!pipeline) {
-      return
-    }
-
-    if (event.pipeline.id !== pipeline.id) {
+    const pipelineId = pipeline?.id || appId
+    if (!event || !pipelineId || event.pipeline?.id !== pipelineId) {
       return
     }
 
@@ -32,13 +43,19 @@ export const handlePipelineEvent =
   }
 
 export const PipelineInfo: FC = () => {
-  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const { appPipelineState } = useAppState()
+  const { appPipelineState, appId } = useAppState()
+  const { globalDataState } = useGlobalState()
+  const { currentDeveloper } = globalDataState
   const { appPipeline, setAppPipeline } = appPipelineState
   const pipelineUri = `https://${appPipeline?.subDomain}.iaas.paas.reapit.cloud`
 
-  const channel = useChannel(`private-${connectSession?.loginIdentity.developerId}`)
-  useEvent<PipelinePusherEvent>(channel, 'pipeline-runner-update', handlePipelineEvent(appPipeline, setAppPipeline))
+  const channel = useChannel(`private-${currentDeveloper?.id}`)
+  useEvent<PipelineModelInterface>(channel, 'pipeline-update', handlePipelineEvent(appPipeline, setAppPipeline, appId))
+  useEvent<PipelinePusherEvent>(
+    channel,
+    'pipeline-runner-update',
+    handleRunnerEvent(appPipeline, setAppPipeline, appId),
+  )
 
   return (
     <>
@@ -62,6 +79,7 @@ export const PipelineInfo: FC = () => {
             <div>
               <Subtitle hasNoMargin>Repository</Subtitle>
               <BodyText hasNoMargin hasGreyText>
+                <StatusIndicator intent={appPipeline?.installationId ? 'success' : 'low'} />{' '}
                 {appPipeline?.repository ? (
                   <a href={appPipeline.repository} target="_blank" rel="noreferrer">
                     {appPipeline.repository}

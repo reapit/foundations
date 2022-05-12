@@ -2,9 +2,10 @@ import { httpHandler } from '@homeservenow/serverless-aws-handler'
 
 export const bitbucketConfig = httpHandler({
   handler: async () => {
+    const STAGE = process.env.ROOT_DOMAIN?.includes('prod.paas') ? '' : '-dev'
     return {
-      key: 'reapit',
-      name: 'Reapit App',
+      key: `reapit${STAGE}`,
+      name: `Reapit App ${STAGE}`,
       description: "Reapit's BitBucket app for running pipelines",
       vendor: {
         name: 'Reapit Foundations',

@@ -6,7 +6,15 @@ import { CodeBuild } from 'aws-sdk'
 import yaml from 'yaml'
 import { PackageManagerEnum } from '../../../../foundations-ts-definitions/deployment-schema'
 import { QueueNames } from '../../constants'
-import { sqs, savePipelineRunnerEntity, githubApp, getBitBucketToken, pusher, assumedS3Client } from '../../services'
+import {
+  sqs,
+  savePipelineRunnerEntity,
+  githubApp,
+  getBitBucketToken,
+  pusher,
+  assumedS3Client,
+  createParameterStoreClient,
+} from '../../services'
 import { PipelineEntity } from '../../entities/pipeline.entity'
 import fetch from 'node-fetch'
 import { BitbucketClientData } from '@/entities/bitbucket-client.entity'
@@ -14,6 +22,23 @@ import { BitBucketEvent } from '..'
 import { getRoleCredentials } from '../../services/sts'
 
 const baseBitbucketUrl = 'https://bitbucket.org'
+
+const obtainParameterStore = async (pipelineId: string) => {
+  const parameterStoreClient = await createParameterStoreClient()
+
+  return new Promise<Record<string, any>>((resolve, reject) =>
+    parameterStoreClient.getParameter(
+      {
+        Name: `cloud-${pipelineId}`,
+        WithDecryption: true,
+      },
+      (err, data) => {
+        if (err && err.code !== 'ParameterNotFound') reject(err)
+        resolve(data && data.Parameter && data.Parameter.Value ? JSON.parse(data.Parameter.Value) : {})
+      },
+    ),
+  )
+}
 
 export const downloadBitbucketSourceToS3 = async ({
   pipeline,
@@ -142,6 +167,8 @@ export const codebuildExecutor: SQSHandler = async (
 
       const s3BuildLogsLocation = `arn:aws:s3:::${process.env.DEPLOYMENT_LOG_BUCKET_NAME}`
 
+      const params = await obtainParameterStore(pipeline.id as string)
+
       try {
         const repoLocation = pipeline.repository?.includes('github.com')
           ? await downloadGithubSourceToS3(pipeline, pipelineRunner)
@@ -156,6 +183,9 @@ export const codebuildExecutor: SQSHandler = async (
           projectName: process.env.CODE_BUILD_PROJECT_NAME as string,
           buildspecOverride: yaml.stringify({
             version: 0.2,
+            env: {
+              variables: params,
+            },
             phases: {
               install: {
                 'runtime-versions': {

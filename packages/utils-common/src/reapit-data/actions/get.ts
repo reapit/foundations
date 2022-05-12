@@ -34,6 +34,7 @@ export enum GetActionNames {
   getWebhookSubscriptions = 'getWebhookSubscriptions',
   getWebhookTopics = 'getWebhookTopics',
   getWebhookLogs = 'getWebhookLogs',
+  getPipelineEnvironment = 'getPipelineEnvironment',
 }
 
 export type GetActions = { [key in GetActionNames]: GetAction }
@@ -163,5 +164,9 @@ export const getActions = (appEnv: AppEnv): GetActions => ({
     api: ApiNames(appEnv).platform,
     path: PathNames.webhookLogs,
     errorMessage: 'Something went wrong fetching webhook logs',
+  },
+  [GetActionNames.getPipelineEnvironment]: {
+    api: ApiNames(appEnv).pipeline,
+    path: PathNames.getPipelineEnvironment,
   },
 })

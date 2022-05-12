@@ -6412,6 +6412,10 @@ export interface CreatePropertyModel {
     description?: string
   }[]
   /**
+   * A flag determining whether or not the property's room details have been approved by the vendor or landlord
+   */
+  roomDetailsApproved?: boolean
+  /**
    * The unique identifier of the negotiator managing the property
    */
   negotiatorId: string
@@ -11399,6 +11403,10 @@ export interface PropertyModel {
     description?: string
   }[]
   /**
+   * A flag determining whether or not the property's room details have been approved by the vendor or landlord
+   */
+  roomDetailsApproved?: boolean
+  /**
    * A collection of unique identifiers of offices attached to the property
    */
   officeIds?: string[]
@@ -12052,6 +12060,10 @@ export interface PropertyModelPagedResult {
       description?: string
     }[]
     /**
+     * A flag determining whether or not the property's room details have been approved by the vendor or landlord
+     */
+    roomDetailsApproved?: boolean
+    /**
      * A collection of unique identifiers of offices attached to the property
      */
     officeIds?: string[]
@@ -12286,6 +12298,226 @@ export interface RecurrenceModel {
    * 2019-08-14T12:30:02.0000000Z
    */
   until?: string // date-time
+}
+/**
+ * Representation of a referral
+ */
+export interface ReferralModel {
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+  /**
+   * The unique identifier of the referral
+   */
+  id?: string
+  /**
+   * The date and time when the referral was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the referral was amended
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  modified?: string // date-time
+  /**
+   * The unique identifier of the referrer
+   */
+  referrerId?: string
+  /**
+   * The unique identifier of the Negotiator
+   */
+  negotiatorId?: string
+  /**
+   * The unique identifier of the Property
+   */
+  propertyId?: string
+  /**
+   * The unique identifier of the Applicant
+   */
+  applicantId?: string
+  /**
+   * The unique identifier of the Contact
+   */
+  contactId?: string
+  /**
+   * The unique identifier of the Status
+   */
+  status?: string
+  /**
+   * The unique identifier of the Amount
+   */
+  amount?: number // double
+  /**
+   * The date and time when the referral was paid
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  paid?: string // date-time
+  /**
+   * The date and time when the referral was accepted
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  accepted?: string // date-time
+  /**
+   * The ETag for the current version of the contact. Used for managing update concurrency
+   */
+  readonly _eTag?: string
+}
+export interface ReferralModelPagedResult {
+  _embedded?: {
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+    /**
+     * The unique identifier of the referral
+     */
+    id?: string
+    /**
+     * The date and time when the referral was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the referral was amended
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * The unique identifier of the referrer
+     */
+    referrerId?: string
+    /**
+     * The unique identifier of the Negotiator
+     */
+    negotiatorId?: string
+    /**
+     * The unique identifier of the Property
+     */
+    propertyId?: string
+    /**
+     * The unique identifier of the Applicant
+     */
+    applicantId?: string
+    /**
+     * The unique identifier of the Contact
+     */
+    contactId?: string
+    /**
+     * The unique identifier of the Status
+     */
+    status?: string
+    /**
+     * The unique identifier of the Amount
+     */
+    amount?: number // double
+    /**
+     * The date and time when the referral was paid
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    paid?: string // date-time
+    /**
+     * The date and time when the referral was accepted
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    accepted?: string // date-time
+    /**
+     * The ETag for the current version of the contact. Used for managing update concurrency
+     */
+    readonly _eTag?: string
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalPageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+/**
+ * Representation of a referral type
+ */
+export interface ReferralTypeModel {
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+  id?: string
+  /**
+   * The name of the referral type
+   */
+  name?: string
+}
+export interface ReferralTypeModelPagedResult {
+  _embedded?: {
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+    id?: string
+    /**
+     * The name of the referral type
+     */
+    name?: string
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalPageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+export interface Referrals {
+  ids?: string[]
+  propertyIds?: string[]
+  applicantIds?: string[]
+  contactIds?: string[]
+  negotiatorIds?: string[]
+  statusIds?: string[]
+  pageSize?: number
+  pageNumber?: number
+  sortBy?: string
+  createdFrom?: string
+  createdTo?: string
+  modifiedFrom?: string
+  modifiedTo?: string
+}
+export interface ReferralsTypes {
+  pageSize?: number
+  pageNumber?: number
+  sortBy?: string
 }
 export interface Resthooks {
   pageSize?: number
@@ -12758,6 +12990,10 @@ export interface Tenancies {
   createdTo?: string
   modifiedFrom?: string
   modifiedTo?: string
+  endDateFrom?: string
+  endDateTo?: string
+  startDateFrom?: string
+  startDateTo?: string
   metadata?: string[]
 }
 /**
@@ -13963,6 +14199,8 @@ export interface Transactions {
   )[]
   createdFrom?: string
   createdTo?: string
+  outstandingFrom?: number
+  outstandingTo?: number
 }
 /**
  * Representation of all of the available configurable items
@@ -16044,6 +16282,10 @@ export interface UpdatePropertyLettingsDepositModel {
  * [object Object]
  */
 export interface UpdatePropertyModel {
+  /**
+   * A flag determining whether or not the property's room details have been approved by the vendor or landlord
+   */
+  roomDetailsApproved?: boolean
   /**
    * The strapline description containing a short summary about the property
    */

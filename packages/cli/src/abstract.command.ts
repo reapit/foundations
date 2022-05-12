@@ -1,5 +1,5 @@
 import { ReapitCliConfigResolve, resolveConfig } from './utils'
-import axios, { AxiosInstance } from 'axios'
+import axios, { AxiosInstance, AxiosResponse } from 'axios'
 import { CommandOptions, COMMAND_OPTIONS, ARGUMENT_OPTIONS, ArgsType } from './decorators'
 import chalk from 'chalk'
 import { Ora } from 'ora'
@@ -111,6 +111,24 @@ export abstract class AbstractCommand {
     )
 
     return instance
+  }
+
+  resolveAxiosResponseError(response: AxiosResponse): void {
+    switch (response.status) {
+      case 401:
+        this.writeLine(chalk.red.bold('Api-key expired or invalid'))
+        break
+      case 403:
+        this.writeLine(chalk.red.bold("The api-key supplied doesn't have access to the requested resource"))
+        break
+      case 400:
+        this.writeLine(chalk.red.bold('Validation errors:'))
+        console.log(JSON.stringify(response.data))
+        break
+      case 500:
+      case 502:
+        this.writeLine(chalk.red.bold('Unkown error, please report to Reapit'))
+    }
   }
 
   printConfig({ parent, singular = false }: { parent?: AbstractCommand; singular?: boolean }) {

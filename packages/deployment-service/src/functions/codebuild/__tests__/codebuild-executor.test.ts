@@ -18,6 +18,20 @@ jest.mock('../../../services/bitbucket', () => ({
   ),
 }))
 
+jest.mock('../../../services/parameter-store', () => ({
+  createParameterStoreClient: jest.fn(() =>
+    Promise.resolve({
+      getParameter: (params, callback) => {
+        callback(undefined, {
+          Parameter: {
+            Value: '{}',
+          },
+        })
+      },
+    }),
+  ),
+}))
+
 jest.mock('node-fetch', () =>
   jest.fn(() =>
     Promise.resolve({
