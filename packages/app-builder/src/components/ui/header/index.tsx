@@ -6,13 +6,14 @@ import ReactTooltip from 'react-tooltip'
 import HomeIcon from '../../icons/home'
 import { header } from './styles'
 
-import { AppBuilderIconButton, PageSelector } from './PageSelector'
+import { PageSelector } from './PageSelector'
 import { usePageId } from '@/components/hooks/use-page-id'
 import { DESKTOP_BREAKPOINT, MOBILE_BREAKPOINT, TABLET_BREAKPOINT } from '../viewport/__styles__/media'
 import { styled } from '@linaria/react'
 import { useApp } from '@/components/hooks/apps/use-app'
 import { Link } from 'react-router-dom'
 import Play from '@/components/icons/play'
+import { AppBuilderIconButton } from '../components'
 
 const Breakpoints = styled.div`
   height: 35px;
