@@ -24,6 +24,8 @@ interface TaskListProps {
   created: Date
 }
 
+const intendedTaskOrder = ['DOWNLOAD_SOURCE', 'INSTALL', 'BUILD', 'TEST', 'DEPLOY']
+
 export const TaskList: FC<TaskListProps> = ({ tasks, s3BuildLogsLocation, buildStatus, created }) => {
   if (!tasks || !tasks.length) {
     return (
@@ -47,17 +49,23 @@ export const TaskList: FC<TaskListProps> = ({ tasks, s3BuildLogsLocation, buildS
           <TableHeader>Started</TableHeader>
           <TableHeader>Finished</TableHeader>
         </TableHeadersRow>
-        {tasks.map((task) => (
-          <TableRow key={task.id} className={fourColTable}>
-            <TableCell>{buildStatusToReadable(task.functionName as string)}</TableCell>
-            <TableCell>
-              <StatusIndicator intent={buildStatusToIntent(task.buildStatus as string)} />
-              {buildStatusToReadable(task.buildStatus as string)}
-            </TableCell>
-            <TableCell>{task.startTime ? dateToHuman(task.startTime) : '-'}</TableCell>
-            <TableCell>{task.endTime ? dateToHuman(task.endTime) : '-'}</TableCell>
-          </TableRow>
-        ))}
+        {tasks
+          .sort((a, b) => {
+            return (
+              intendedTaskOrder.indexOf(a.functionName as string) - intendedTaskOrder.indexOf(b.functionName as string)
+            )
+          })
+          .map((task) => (
+            <TableRow key={task.id} className={fourColTable}>
+              <TableCell>{buildStatusToReadable(task.functionName as string)}</TableCell>
+              <TableCell>
+                <StatusIndicator intent={buildStatusToIntent(task.buildStatus as string)} />
+                {buildStatusToReadable(task.buildStatus as string)}
+              </TableCell>
+              <TableCell>{task.startTime ? dateToHuman(task.startTime) : '-'}</TableCell>
+              <TableCell>{task.endTime ? dateToHuman(task.endTime) : '-'}</TableCell>
+            </TableRow>
+          ))}
       </Table>
       <div className={cx(elMt6)}>
         <Button
