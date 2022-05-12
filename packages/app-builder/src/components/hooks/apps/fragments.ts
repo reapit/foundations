@@ -8,6 +8,7 @@ export const AppFragment = gql`
     subdomain
     createdAt
     updatedAt
+    developerName
     pages {
       id
       name
@@ -58,5 +59,6 @@ export type App = {
   createdAt: string
   updatedAt: string
   subdomain: string
+  developerName: string
   pages: Array<Page>
 }

@@ -16,6 +16,9 @@ export class App {
   @Field()
   subdomain: string
 
+  @Field()
+  developerName: string
+
   @Field(() => [Page])
   pages: Array<Page>
 

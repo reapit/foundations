@@ -1,4 +1,4 @@
-import React, { FC, useRef, useState } from 'react'
+import React, { FC, useRef } from 'react'
 import { Editor, Frame } from '@craftjs/core'
 import { debounce } from 'throttle-debounce'
 import { useSnack } from '@reapit/elements'
@@ -34,17 +34,14 @@ export const resolver = {
 export const Authenticated: FC<AuthenticatedProps> = () => {
   const iframeRef = useRef()
   const { updatePage } = useUpdatePage()
-  const [isSaving, setIsSaving] = useState(false)
   const { pageId } = usePageId()
   const { error } = useSnack()
   const debouncedUpdatePage = debounce(1000, async (appId: string, page: Partial<Page>) => {
-    setIsSaving(true)
     try {
       await Promise.all([updatePage(appId, page), new Promise((resolve) => setTimeout(resolve, 750))])
     } catch (e: any) {
       error(e.message)
     }
-    setIsSaving(false)
   })
 
   return (
@@ -62,7 +59,7 @@ export const Authenticated: FC<AuthenticatedProps> = () => {
         }
       }}
     >
-      <Viewport isSaving={isSaving} iframeRef={iframeRef} key={pageId}>
+      <Viewport iframeRef={iframeRef} key={pageId}>
         <Frame>
           <div />
         </Frame>

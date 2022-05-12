@@ -3,6 +3,7 @@ import { render } from '@testing-library/react'
 import Header from '../index'
 import { MockedProvider } from '@apollo/client/testing'
 import routeData from 'react-router'
+import { MemoryRouter } from 'react-router-dom'
 import { Editor } from '@craftjs/core'
 
 // mock react-tooltip's uuid generation to have consistent class names in the snapshots https://github.com/wwayne/react-tooltip/issues/595#issuecomment-730875047
@@ -40,20 +41,11 @@ describe('Header', () => {
   it('should match a snapshot', () => {
     const { asFragment } = render(
       <MockedProvider>
-        <Editor>
-          <Header isSaving={false} />
-        </Editor>
-      </MockedProvider>,
-    )
-    expect(asFragment()).toMatchSnapshot()
-  })
-
-  it('should match a snapshot - saving', () => {
-    const { asFragment } = render(
-      <MockedProvider>
-        <Editor>
-          <Header isSaving={true} />
-        </Editor>
+        <MemoryRouter>
+          <Editor>
+            <Header setBreakpoint={undefined} breakpoint={undefined} />
+          </Editor>
+        </MemoryRouter>
       </MockedProvider>,
     )
     expect(asFragment()).toMatchSnapshot()

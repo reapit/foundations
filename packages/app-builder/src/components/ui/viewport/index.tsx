@@ -1,23 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useEditor } from '@craftjs/core'
-import {
-  elFlex,
-  elFlex1,
-  elFlexColumn,
-  elFlexRow,
-  elHFull,
-  elMAuto,
-  elPb6,
-  elPt6,
-  elWFull,
-  ToggleRadio,
-} from '@reapit/elements'
+import { elFlex, elFlex1, elFlexColumn, elFlexRow, elHFull, elMAuto, elPb6, elPt6, elWFull } from '@reapit/elements'
 import { cx } from '@linaria/core'
 import { styled } from '@linaria/react'
 import IFrame from 'react-frame-component'
-import { DESKTOP_BREAKPOINT, MOBILE_BREAKPOINT, TABLET_BREAKPOINT } from './__styles__/media'
 
-import Toolbox from '../toolbox'
 import Header from '../header'
 import Sidebar from '../sidebar'
 
@@ -34,6 +21,7 @@ import { InjectFrameStyles } from './inject-frame-styles'
 import { usePageId } from '@/components/hooks/use-page-id'
 import { useApp } from '@/components/hooks/apps/use-app'
 import { nodesArrToObj } from '@/components/hooks/apps/node-helpers'
+import { TABLET_BREAKPOINT } from './__styles__/media'
 
 const Container = styled.div`
   flex: 1;
@@ -41,17 +29,10 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #e0e0e0;
+  background-color: #efefef;
 `
 
-const Breakpoints = styled.div`
-  height: 35px;
-  display: flex;
-  justify-content: center;
-  margin-top: 8px;
-`
-
-export const Viewport = ({ children, isSaving, iframeRef, deserialize, rendererDivRefHandler }) => {
+export const Viewport = ({ children, iframeRef, deserialize, rendererDivRefHandler }) => {
   const [breakpoint, setBreakpoint] = useState(TABLET_BREAKPOINT)
 
   const { pageId, appId } = usePageId()
@@ -69,37 +50,9 @@ export const Viewport = ({ children, isSaving, iframeRef, deserialize, rendererD
 
   return (
     <div className={cx(elFlex1, elFlexColumn, justifyStretch, hScreen)}>
-      <Header isSaving={isSaving} />
+      <Header breakpoint={breakpoint} setBreakpoint={setBreakpoint} />
       <div className={cx(elFlex, overflowHidden, elFlexRow, elWFull)} style={{ height: 'calc(100vh - 45px)' }}>
-        <Toolbox />
         <Container>
-          <Breakpoints>
-            <ToggleRadio
-              name="responsive preview"
-              isFullWidth
-              onChange={(e) => setBreakpoint(parseInt(e.currentTarget.value, 10))}
-              options={[
-                {
-                  id: DESKTOP_BREAKPOINT.toString(),
-                  value: DESKTOP_BREAKPOINT.toString(),
-                  text: 'Desktop',
-                  isChecked: breakpoint === DESKTOP_BREAKPOINT,
-                },
-                {
-                  id: TABLET_BREAKPOINT.toString(),
-                  value: TABLET_BREAKPOINT.toString(),
-                  text: 'Tablet',
-                  isChecked: breakpoint === TABLET_BREAKPOINT,
-                },
-                {
-                  id: MOBILE_BREAKPOINT.toString(),
-                  value: MOBILE_BREAKPOINT.toString(),
-                  text: 'Mobile',
-                  isChecked: breakpoint === MOBILE_BREAKPOINT,
-                },
-              ]}
-            />
-          </Breakpoints>
           <IFrame
             style={{ transition: 'width 350ms', width: breakpoint, flex: 1 }}
             ref={iframeRef}
@@ -128,12 +81,11 @@ export const Viewport = ({ children, isSaving, iframeRef, deserialize, rendererD
   )
 }
 
-const ConnectedViewport = ({ children, iframeRef, isSaving }) => {
+const ConnectedViewport = ({ children, iframeRef }) => {
   const { connectors, actions } = useEditor()
 
   return (
     <Viewport
-      isSaving={isSaving}
       iframeRef={iframeRef}
       deserialize={actions.deserialize}
       rendererDivRefHandler={(ref) => ref && connectors.select(connectors.hover(ref, ''), '')}
