@@ -63,7 +63,7 @@ export const ensureTables = async () => {
   return Promise.all(tables.map(ensureTable))
 }
 
-export type DDBApp = Omit<Omit<App, 'clientId'>, 'name'>
+export type DDBApp = Omit<Omit<Omit<App, 'clientId'>, 'name'>, 'developerName'>
 
 const ddbItemToApp = (item: { [key: string]: AttributeValue }): DDBApp => {
   const { id, createdAt, updatedAt, pages, subdomain, customEntities } = item
