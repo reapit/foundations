@@ -9,124 +9,260 @@ exports[`Home should match a snapshot 1`] = `
       class="el-flex-justify-center header el-flex-container"
     >
       <div
-        class="el-flex-justify-end el-flex-align-center el-flex1 el-mt-auto el-mb-auto el-pr1 el-flex-container"
+        class="el-flex-justify-end el-flex-align-center el-flex1 el-mt-auto el-mb-auto el-flex-container"
+        style="padding-left: 17px; padding-right: 17px;"
       >
-        <div
-          class="el-flex el-flex1"
+        <a
+          class="home"
+          href="/"
+          style="margin-right: 8px;"
         >
-          <a
-            class="item disabled"
-            currentitem="false"
-            data-tip="Undo"
+          <svg
+            fill="none"
+            height="19"
+            viewBox="0 0 20 19"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <svg
-              height="18"
-              viewBox="0 0 18 18"
-              width="18"
-              xmlns="http://www.w3.org/2000/svg"
+            <g
+              clip-path="url(#clip0_204_5076)"
             >
-              <title>
-                Undo
-              </title>
-              <rect
-                fill="white"
-                height="18"
-                id="Canvas"
-                opacity="0"
-                width="18"
-              />
               <path
-                d="M15.3315,6.271A5.19551,5.19551,0,0,0,11.8355,5H5.5V2.4A.4.4,0,0,0,5.1,2a.39352.39352,0,0,0-.2635.1L1.072,5.8245a.25.25,0,0,0,0,.35L4.834,9.9a.39352.39352,0,0,0,.2635.1.4.4,0,0,0,.4-.4V7h6.441A3.06949,3.06949,0,0,1,15.05,9.9a2.9445,2.9445,0,0,1-2.78274,3.09783Q12.13375,13.005,12,13H8.5a.5.5,0,0,0-.5.5v1a.5.5,0,0,0,.5.5h3.263a5.16751,5.16751,0,0,0,5.213-4.5065A4.97351,4.97351,0,0,0,15.3315,6.271Z"
-                fill="white"
+                d="M12.8075 18.8042H15.9475C16.5755 18.8042 17.0892 18.2875 17.0892 17.6559V10.4781H18.7448C19.23 10.4781 19.6296 10.1909 19.8295 9.73164C20.0007 9.27222 19.8867 8.78418 19.544 8.4683L10.7237 0.371771C10.2669 -0.0301738 9.61046 -0.0301738 9.18239 0.371771L0.390656 8.4683C0.0481816 8.78414 -0.0661035 9.30082 0.105128 9.73164C0.276366 10.1911 0.704667 10.4781 1.18987 10.4781H2.84546V17.6271C2.84546 18.2588 3.35916 18.7755 3.98714 18.7755H7.09866C7.72664 18.7755 8.24034 18.2588 8.24034 17.6271V13.3205H11.6656V17.5985C11.6658 18.2875 12.1795 18.8042 12.8075 18.8042L12.8075 18.8042Z"
+                fill="#23A4DE"
               />
-            </svg>
-          </a>
-          <a
-            class="item disabled"
-            currentitem="false"
-            data-tip="Redo"
-          >
-            <svg
-              height="18"
-              viewBox="0 0 18 18"
-              width="18"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <title>
-                Redo
-              </title>
-              <rect
-                fill="white"
-                height="18"
-                id="Canvas"
-                opacity="0"
-                width="18"
-              />
-              <path
-                d="M2.6685,6.271A5.19551,5.19551,0,0,1,6.1645,5H12.5V2.4a.4.4,0,0,1,.4-.4.39352.39352,0,0,1,.2635.1l3.762,3.7225a.25.25,0,0,1,0,.35L13.166,9.9a.39352.39352,0,0,1-.2635.1.4.4,0,0,1-.4-.4V7H6.0615A3.06949,3.06949,0,0,0,2.95,9.9a2.9445,2.9445,0,0,0,2.78274,3.09783Q5.86626,13.005,6,13H9.5a.5.5,0,0,1,.5.5v1a.5.5,0,0,1-.5.5H6.237a5.16751,5.16751,0,0,1-5.213-4.5065A4.97349,4.97349,0,0,1,2.6685,6.271Z"
-                fill="white"
-              />
-            </svg>
-          </a>
-        </div>
+            </g>
+            <defs>
+              <clippath
+                id="clip0_204_5076"
+              >
+                <rect
+                  fill="white"
+                  height="18.8889"
+                  width="20"
+                />
+              </clippath>
+            </defs>
+          </svg>
+        </a>
         <div
           class="el-flex1 el-flex el-flex-align-center el-flex-justify-start"
         >
           <select
-            class="el-select"
+            class="app-builder-select el-select"
             id="page_selector"
             name="page_selector"
-            style="max-width: 150px;"
           />
           <button
-            class="el-m1 el-button"
+            class="el-m2 app-builder-icon-button el-button"
+            style="--awfk8ev-0: #f2f2f2;"
           >
-            New
+            <svg
+              fill="none"
+              height="18"
+              viewBox="0 0 18 18"
+              width="18"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M0 10.2038V7.77328C0 7.15416 0.504503 6.64969 1.14652 6.64969H6.64969V1.14652C6.64969 0.504504 7.15419 0 7.77328 0H10.2038C10.8458 0 11.3503 0.504504 11.3503 1.14652V6.64969H16.8535C17.4726 6.64969 18 7.15419 18 7.77328V10.2038C18 10.8458 17.4726 11.3503 16.8535 11.3503H11.3503V16.8535C11.3503 17.4726 10.8458 18 10.2038 18H7.77328C7.15416 18 6.64969 17.4726 6.64969 16.8535V11.3503H1.14652C0.504503 11.3503 0 10.8458 0 10.2038Z"
+                fill="#BEBEBE"
+                fill-rule="evenodd"
+              />
+            </svg>
           </button>
-        </div>
-        <span
-          class="el-mr4 el-text-right"
-          style="color: white; width: 100px;"
-        >
-          Saved
-        </span>
-        <div
-          class="el-button-group"
-        >
-          <div
-            class="el-button-group-inner"
+          <button
+            class="app-builder-icon-button el-button"
+            style="--awfk8ev-0: #f2f2f2;"
           >
-            <button
-              class="el-intent-danger el-button-size2 el-button"
+            <svg
+              fill="none"
+              height="18"
+              viewBox="0 0 17 18"
+              width="17"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              delete page
-            </button>
-            <button
-              class="transition cursor-pointer bg-green-400 el-intent-success el-button-size2 el-button"
-            >
-              <div
-                class="button-icon"
+              <g
+                clip-path="url(#clip0_204_5057)"
               >
-                <svg
-                  viewBox="0 0 18 18"
-                  xmlns="http://www.w3.org/2000/svg"
+                <path
+                  clip-rule="evenodd"
+                  d="M11.3164 2.125H14.875C15.6343 2.125 16.3358 2.48243 16.7153 3.0625C17.0949 3.64257 17.0949 4.35743 16.7153 4.9375H0.284718C-0.0949059 4.35743 -0.0949059 3.64257 0.284718 3.0625C0.664183 2.48243 1.36572 2.125 2.12497 2.125H5.67661C5.67726 1.62796 5.90147 1.15124 6.29975 0.799821C6.69815 0.448243 7.23827 0.250558 7.80162 0.25H9.19348C9.75618 0.252071 10.295 0.450325 10.6928 0.801607C11.0905 1.15275 11.3147 1.6285 11.3164 2.125ZM9.19364 1.5H7.80178C7.61411 1.50028 7.43402 1.56612 7.30121 1.6833C7.1684 1.80049 7.09377 1.95925 7.09345 2.12498H9.90057C9.90025 1.95954 9.82578 1.80092 9.69328 1.68373C9.56077 1.56669 9.38116 1.50056 9.19364 1.5ZM1.53791 5.07269C1.73159 5.10463 1.92797 5.12207 2.12497 5.125L14.8749 5.12486C15.072 5.12193 15.2683 5.10449 15.462 5.07255L14.8639 15.9858C14.8315 16.4629 14.5938 16.9111 14.1997 17.239C13.8055 17.5668 13.2844 17.7496 12.7427 17.75H4.25723C3.71553 17.7496 3.19441 17.5668 2.80024 17.239C2.40608 16.9111 2.16844 16.463 2.13602 15.9859L1.53791 5.07269ZM11.625 8.12503C12.1181 8.61814 12.1181 9.41763 11.625 9.91075L10.2857 11.25L11.625 12.5893C12.1181 13.0824 12.1181 13.8819 11.625 14.375C11.1319 14.8681 10.3324 14.8681 9.83928 14.375L8.50003 13.0357L7.16075 14.375C6.66763 14.8681 5.86814 14.8681 5.37503 14.375C4.88192 13.8819 4.88192 13.0824 5.37503 12.5893L6.71431 11.25L5.375 9.91072C4.88189 9.41761 4.88189 8.61811 5.375 8.125C5.86811 7.63189 6.6676 7.63189 7.16071 8.125L8.50003 9.46432L9.83932 8.12503C10.3324 7.63192 11.1319 7.63192 11.625 8.12503Z"
+                  fill="#BEBEBE"
+                  fill-rule="evenodd"
+                />
+              </g>
+              <defs>
+                <clippath
+                  id="clip0_204_5057"
                 >
                   <rect
-                    fill="#ff13dc"
+                    fill="white"
                     height="18"
-                    id="Canvas"
-                    opacity="0"
-                    width="18"
+                    width="17"
                   />
-                  <path
-                    d="M15.656,3.8625l-.7275-.5665a.5.5,0,0,0-.7.0875L7.411,12.1415,4.0875,8.8355a.5.5,0,0,0-.707,0L2.718,9.5a.5.5,0,0,0,0,.707l4.463,4.45a.5.5,0,0,0,.75-.0465L15.7435,4.564A.5.5,0,0,0,15.656,3.8625Z"
-                  />
-                </svg>
-              </div>
-              Preview
-            </button>
+                </clippath>
+              </defs>
+            </svg>
+          </button>
+        </div>
+        <div
+          class="breakpoints"
+        >
+          <div
+            class="app-builder-toggle-radio el-toggle-full-width el-toggle-radio-wrap"
+          >
+            <input
+              class="el-toggle-radio"
+              id="1440"
+              name="responsive preview"
+              type="radio"
+              value="1440"
+            />
+            <label
+              class="el-toggle-full-width el-toggle-radio-label"
+              for="1440"
+            >
+              <span
+                class="el-toggle-radio-item"
+              >
+                <div
+                  class="toggle-radio-container"
+                >
+                  <svg
+                    fill="none"
+                    height="19"
+                    viewBox="0 0 20 19"
+                    width="20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M1.17043 0.0239258H18.8296C19.4641 0.0239258 19.984 0.549426 19.984 1.1921V11.1279H0.0165263V1.1921C0.0165263 0.550017 0.535869 0.0239258 1.17102 0.0239258H1.17043ZM4.49857 17.1169H6.90335L7.19147 15.1936H12.8072L13.096 17.1169H15.5008V18.0712H4.49786V17.1169H4.49857ZM19.984 12.0824V13.0714C19.984 13.7135 19.4646 14.2395 18.8295 14.2395H1.17036C0.535796 14.2395 0.0158691 13.714 0.0158691 13.0714V12.0824H19.984Z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                   Desktop
+                </div>
+              </span>
+            </label>
+            <input
+              checked=""
+              class="el-toggle-radio"
+              id="1024"
+              name="responsive preview"
+              type="radio"
+              value="1024"
+            />
+            <label
+              class="el-toggle-full-width el-toggle-radio-label"
+              for="1024"
+            >
+              <span
+                class="el-toggle-radio-item"
+              >
+                <div
+                  class="toggle-radio-container"
+                >
+                  <svg
+                    fill="none"
+                    height="17"
+                    viewBox="0 0 24 17"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M22.2949 0C23.2357 0 24 0.688477 24 1.53604V15.1596C24 16.0072 23.2357 16.6956 22.2949 16.6956H1.70508C0.764248 16.6956 0 16.0072 0 15.1596V1.53604C0 0.688477 0.764248 0 1.70508 0H22.2949ZM19.3043 7.30434C18.4399 7.30434 17.7391 8.00511 17.7391 8.86955C17.7391 9.734 18.4399 10.4348 19.3043 10.4348C20.1688 10.4348 20.8695 9.734 20.8695 8.86955C20.8695 8.00511 20.1688 7.30434 19.3043 7.30434Z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                   Tablet
+                </div>
+              </span>
+            </label>
+            <input
+              class="el-toggle-radio"
+              id="768"
+              name="responsive preview"
+              type="radio"
+              value="768"
+            />
+            <label
+              class="el-toggle-full-width el-toggle-radio-label"
+              for="768"
+            >
+              <span
+                class="el-toggle-radio-item"
+              >
+                <div
+                  class="toggle-radio-container"
+                >
+                  <svg
+                    fill="none"
+                    height="20"
+                    viewBox="0 0 13 20"
+                    width="13"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g
+                      clip-path="url(#clip0_204_5115)"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M12.2222 1.6356C12.2222 0.733102 11.5185 0 10.6522 0H1.57001C0.703707 0 0 0.733102 0 1.6356V18.3644C0 19.2669 0.703707 20 1.57001 20H10.6522C11.5185 20 12.2222 19.2669 12.2222 18.3644V1.6356ZM4.44444 17.2222C4.44444 16.3017 5.19064 15.5556 6.11111 15.5556C7.03159 15.5556 7.77778 16.3017 7.77778 17.2222C7.77778 18.1427 7.03159 18.8889 6.11111 18.8889C5.19064 18.8889 4.44444 18.1427 4.44444 17.2222ZM4.44444 1.11111C3.83079 1.11111 3.33333 1.60857 3.33333 2.22222C3.33333 2.83587 3.83079 3.33333 4.44444 3.33333H7.77778C8.39143 3.33333 8.88889 2.83587 8.88889 2.22222C8.88889 1.60857 8.39143 1.11111 7.77778 1.11111H4.44444Z"
+                        fill-rule="evenodd"
+                      />
+                    </g>
+                    <defs>
+                      <clippath
+                        id="clip0_204_5115"
+                      >
+                        <rect
+                          fill="white"
+                          height="20"
+                          width="12.2222"
+                        />
+                      </clippath>
+                    </defs>
+                  </svg>
+                   Mobile
+                </div>
+              </span>
+            </label>
           </div>
         </div>
+        <button
+          class="app-builder-icon-button el-intent-primary el-button"
+          style="--awfk8ev-0: #23A4DE; margin-left: 21px; margin-right: 0px;"
+        >
+          <svg
+            fill="none"
+            height="14"
+            viewBox="0 0 12 14"
+            width="12"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              clip-path="url(#clip0_204_5088)"
+            >
+              <path
+                d="M2.21098 0.900395C1.91473 0.723748 1.52406 0.726368 1.22796 0.905637C0.929128 1.08738 0.743713 1.4232 0.743713 1.78248V12.2151C0.743713 12.5744 0.92827 12.9102 1.22623 13.0902C1.37643 13.1824 1.5482 13.2312 1.72427 13.2312C1.89603 13.2312 2.0642 13.185 2.21024 13.0981L11.0535 7.88324C11.3584 7.70149 11.5481 7.36392 11.5481 7.00028C11.5481 6.63578 11.3584 6.29836 11.0527 6.11822L2.21098 0.900395Z"
+              />
+            </g>
+            <defs>
+              <clippath
+                id="clip0_204_5088"
+              >
+                <rect
+                  height="14"
+                  width="11.6667"
+                />
+              </clippath>
+            </defs>
+          </svg>
+        </button>
       </div>
       <div
         class="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-bottom type-dark"
@@ -219,237 +355,8 @@ exports[`Home should match a snapshot 1`] = `
       style="height: calc(100vh - 45px);"
     >
       <div
-        class="transition el-w12 el-hfull el-flex el-flex-column bg-white toolbox-div"
-      >
-        <div
-          class="el-flex el-flex1 el-flex-column el-flex-align-center el-pt6"
-        >
-          <div
-            draggable="true"
-          >
-            <a
-              class="el-m3 el-pb3 block cursor-move item"
-              currentitem="false"
-              data-tip="Container"
-            >
-              <svg
-                viewBox="0 0 18 18"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <defs>
-                  <style />
-                </defs>
-                <title>
-                  S Rectangle 18 N
-                </title>
-                <path
-                  d="M1 2.5v13a.5.5 0 0 0 .5.5h15a.5.5 0 0 0 .5-.5v-13a.5.5 0 0 0-.5-.5h-15a.5.5 0 0 0-.5.5zM16 15H2V3h14z"
-                />
-              </svg>
-            </a>
-          </div>
-          <div
-            draggable="true"
-          >
-            <a
-              class="el-m3 el-pb3 cursor-move block item"
-              currentitem="false"
-              data-tip="Text"
-            >
-              <svg
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0h24v24H0z"
-                  fill="none"
-                />
-                <path
-                  d="M5 5v14h14V5H5zM4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm9 7v7h-2v-7H7V8h10v2h-4z"
-                />
-              </svg>
-            </a>
-          </div>
-          <div
-            draggable="true"
-          >
-            <a
-              class="el-m3 el-pb3 cursor-move block item"
-              currentitem="false"
-              data-tip="Link"
-            >
-              <svg
-                viewBox="0 0 512 512"
-              >
-                <path
-                  d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"
-                />
-              </svg>
-            </a>
-          </div>
-          <div
-            draggable="true"
-          >
-            <a
-              class="el-m3 el-pb3 block cursor-move item"
-              currentitem="false"
-              data-tip="Info"
-            >
-              <svg
-                viewBox="0 0 18 18"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <defs>
-                  <style />
-                </defs>
-                <title>
-                  S Rectangle 18 N
-                </title>
-                <path
-                  d="M1 2.5v13a.5.5 0 0 0 .5.5h15a.5.5 0 0 0 .5-.5v-13a.5.5 0 0 0-.5-.5h-15a.5.5 0 0 0-.5.5zM16 15H2V3h14z"
-                />
-              </svg>
-            </a>
-          </div>
-          <div
-            draggable="true"
-          >
-            <a
-              class="el-m3 el-pb3 block cursor-move item"
-              currentitem="false"
-              data-tip="Table"
-            >
-              <svg
-                viewBox="0 0 18 18"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <defs>
-                  <style />
-                </defs>
-                <title>
-                  S Rectangle 18 N
-                </title>
-                <path
-                  d="M1 2.5v13a.5.5 0 0 0 .5.5h15a.5.5 0 0 0 .5-.5v-13a.5.5 0 0 0-.5-.5h-15a.5.5 0 0 0-.5.5zM16 15H2V3h14z"
-                />
-              </svg>
-            </a>
-          </div>
-          <div
-            draggable="true"
-          >
-            <a
-              class="el-m3 el-pb3 block cursor-move item"
-              currentitem="false"
-              data-tip="Form"
-            >
-              <svg
-                viewBox="0 0 18 18"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <defs>
-                  <style />
-                </defs>
-                <title>
-                  S Rectangle 18 N
-                </title>
-                <path
-                  d="M1 2.5v13a.5.5 0 0 0 .5.5h15a.5.5 0 0 0 .5-.5v-13a.5.5 0 0 0-.5-.5h-15a.5.5 0 0 0-.5.5zM16 15H2V3h14z"
-                />
-              </svg>
-            </a>
-          </div>
-          <div
-            draggable="true"
-          >
-            <a
-              class="el-m3 el-pb3 block cursor-move item"
-              currentitem="false"
-              data-tip="QR Code"
-            >
-              <svg
-                viewBox="0 0 18 18"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <defs>
-                  <style />
-                </defs>
-                <title>
-                  S Rectangle 18 N
-                </title>
-                <path
-                  d="M1 2.5v13a.5.5 0 0 0 .5.5h15a.5.5 0 0 0 .5-.5v-13a.5.5 0 0 0-.5-.5h-15a.5.5 0 0 0-.5.5zM16 15H2V3h14z"
-                />
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div
         class="container"
       >
-        <div
-          class="breakpoints"
-        >
-          <div
-            class="el-toggle-full-width el-toggle-radio-wrap"
-          >
-            <input
-              class="el-toggle-radio"
-              id="1440"
-              name="responsive preview"
-              type="radio"
-              value="1440"
-            />
-            <label
-              class="el-toggle-full-width el-toggle-radio-label"
-              for="1440"
-            >
-              <span
-                class="el-toggle-radio-item"
-              >
-                Desktop
-              </span>
-            </label>
-            <input
-              checked=""
-              class="el-toggle-radio"
-              id="1024"
-              name="responsive preview"
-              type="radio"
-              value="1024"
-            />
-            <label
-              class="el-toggle-full-width el-toggle-radio-label"
-              for="1024"
-            >
-              <span
-                class="el-toggle-radio-item"
-              >
-                Tablet
-              </span>
-            </label>
-            <input
-              class="el-toggle-radio"
-              id="768"
-              name="responsive preview"
-              type="radio"
-              value="768"
-            />
-            <label
-              class="el-toggle-full-width el-toggle-radio-label"
-              for="768"
-            >
-              <span
-                class="el-toggle-radio-item"
-              >
-                Mobile
-              </span>
-            </label>
-          </div>
-        </div>
         <div
           class="el-flex el-flex1 el-hfull el-flex-column el-pt6"
           id="page-container"
@@ -471,8 +378,177 @@ exports[`Home should match a snapshot 1`] = `
         style="--s1xt9yg4-0: 1; --s1xt9yg4-1: 0px;"
       >
         <div
+          class="transition el-w12 el-hfull el-flex el-flex-column bg-white toolbox-div"
+        >
+          <div
+            class="el-flex el-flex1 el-flex-column el-flex-align-center el-pt6"
+          >
+            <div
+              draggable="true"
+            >
+              <a
+                class="el-m3 el-pb3 block cursor-move item"
+                currentitem="false"
+                data-tip="Container"
+              >
+                <svg
+                  viewBox="0 0 18 18"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <defs>
+                    <style />
+                  </defs>
+                  <title>
+                    S Rectangle 18 N
+                  </title>
+                  <path
+                    d="M1 2.5v13a.5.5 0 0 0 .5.5h15a.5.5 0 0 0 .5-.5v-13a.5.5 0 0 0-.5-.5h-15a.5.5 0 0 0-.5.5zM16 15H2V3h14z"
+                  />
+                </svg>
+              </a>
+            </div>
+            <div
+              draggable="true"
+            >
+              <a
+                class="el-m3 el-pb3 cursor-move block item"
+                currentitem="false"
+                data-tip="Text"
+              >
+                <svg
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0 0h24v24H0z"
+                    fill="none"
+                  />
+                  <path
+                    d="M5 5v14h14V5H5zM4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm9 7v7h-2v-7H7V8h10v2h-4z"
+                  />
+                </svg>
+              </a>
+            </div>
+            <div
+              draggable="true"
+            >
+              <a
+                class="el-m3 el-pb3 cursor-move block item"
+                currentitem="false"
+                data-tip="Link"
+              >
+                <svg
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"
+                  />
+                </svg>
+              </a>
+            </div>
+            <div
+              draggable="true"
+            >
+              <a
+                class="el-m3 el-pb3 block cursor-move item"
+                currentitem="false"
+                data-tip="Info"
+              >
+                <svg
+                  viewBox="0 0 18 18"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <defs>
+                    <style />
+                  </defs>
+                  <title>
+                    S Rectangle 18 N
+                  </title>
+                  <path
+                    d="M1 2.5v13a.5.5 0 0 0 .5.5h15a.5.5 0 0 0 .5-.5v-13a.5.5 0 0 0-.5-.5h-15a.5.5 0 0 0-.5.5zM16 15H2V3h14z"
+                  />
+                </svg>
+              </a>
+            </div>
+            <div
+              draggable="true"
+            >
+              <a
+                class="el-m3 el-pb3 block cursor-move item"
+                currentitem="false"
+                data-tip="Table"
+              >
+                <svg
+                  viewBox="0 0 18 18"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <defs>
+                    <style />
+                  </defs>
+                  <title>
+                    S Rectangle 18 N
+                  </title>
+                  <path
+                    d="M1 2.5v13a.5.5 0 0 0 .5.5h15a.5.5 0 0 0 .5-.5v-13a.5.5 0 0 0-.5-.5h-15a.5.5 0 0 0-.5.5zM16 15H2V3h14z"
+                  />
+                </svg>
+              </a>
+            </div>
+            <div
+              draggable="true"
+            >
+              <a
+                class="el-m3 el-pb3 block cursor-move item"
+                currentitem="false"
+                data-tip="Form"
+              >
+                <svg
+                  viewBox="0 0 18 18"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <defs>
+                    <style />
+                  </defs>
+                  <title>
+                    S Rectangle 18 N
+                  </title>
+                  <path
+                    d="M1 2.5v13a.5.5 0 0 0 .5.5h15a.5.5 0 0 0 .5-.5v-13a.5.5 0 0 0-.5-.5h-15a.5.5 0 0 0-.5.5zM16 15H2V3h14z"
+                  />
+                </svg>
+              </a>
+            </div>
+            <div
+              draggable="true"
+            >
+              <a
+                class="el-m3 el-pb3 block cursor-move item"
+                currentitem="false"
+                data-tip="QR Code"
+              >
+                <svg
+                  viewBox="0 0 18 18"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <defs>
+                    <style />
+                  </defs>
+                  <title>
+                    S Rectangle 18 N
+                  </title>
+                  <path
+                    d="M1 2.5v13a.5.5 0 0 0 .5.5h15a.5.5 0 0 0 .5-.5v-13a.5.5 0 0 0-.5-.5h-15a.5.5 0 0 0-.5.5zM16 15H2V3h14z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
           class="el-flex el-flex-column"
-          style="height: calc(100vh - 45px);"
+          style="height: calc(100vh - 45px); flex: 1;"
         >
           <div
             class="el-flex el-flex-column sidebar-item-div"

@@ -139,7 +139,7 @@ export class AppResolver {
       return []
     }
     const appBuilderApps = await Promise.all(
-      apps.map(async ({ id, externalId, name }) => {
+      apps.map(async ({ id, externalId, name, developer }) => {
         if (!id) {
           return undefined
         }
@@ -151,6 +151,7 @@ export class AppResolver {
           ...appBuilderApp,
           name: name as string,
           clientId: externalId as string,
+          developerName: developer as string,
         }
       }),
     )
@@ -162,11 +163,12 @@ export class AppResolver {
   async getApp(@Arg('idOrSubdomain') idOrSubdomain: string, @Ctx() context: Context): Promise<App> {
     const app = (await getApp(idOrSubdomain)) || (await getDomainApps(idOrSubdomain))[0]
     if (app) {
-      const { externalId, name } = await getMarketplaceApp(app.id, context.accessToken)
+      const { externalId, name, developer } = await getMarketplaceApp(app.id, context.accessToken)
       return {
         ...app,
         name: name as string,
         clientId: externalId as string,
+        developerName: developer as string,
       }
     }
     throw new Error(`App ${idOrSubdomain} not found`)
@@ -203,7 +205,7 @@ export class AppResolver {
         })),
       },
     ])
-    const { externalId } = await getMarketplaceApp(id, context.accessToken)
+    const { externalId, developer } = await getMarketplaceApp(id, context.accessToken)
     if (!externalId) {
       throw new Error('Failed to create app - no clientId created')
     }
@@ -212,6 +214,7 @@ export class AppResolver {
       ...app,
       name: name as string,
       clientId: externalId as string,
+      developerName: developer as string,
     }
   }
 
@@ -232,11 +235,12 @@ export class AppResolver {
     await ensureScopes(app, context.accessToken)
     const newApp = await updateApp(app)
 
-    const { externalId, name } = await getMarketplaceApp(id, context.accessToken)
+    const { externalId, name, developer } = await getMarketplaceApp(id, context.accessToken)
     return {
       ...newApp,
       name: name as string,
       clientId: externalId as string,
+      developerName: developer as string,
     }
   }
 
@@ -247,12 +251,13 @@ export class AppResolver {
     if (!app) {
       throw new Error('App not found')
     }
-    const { externalId, name } = await getMarketplaceApp(id, ctx.accessToken)
+    const { externalId, name, developer } = await getMarketplaceApp(id, ctx.accessToken)
     return ejectApp(
       {
         ...app,
         name: name as string,
         clientId: externalId as string,
+        developerName: developer as string,
       },
       ctx,
     )

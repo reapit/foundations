@@ -8,7 +8,7 @@ describe('Toolbox', () => {
   it('should match a snapshot', () => {
     const { asFragment } = render(
       <MockedProvider>
-        <Toolbox enabled={false} create={() => {}} />
+        <Toolbox create={() => {}} />
       </MockedProvider>,
     )
     expect(asFragment()).toMatchSnapshot()

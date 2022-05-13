@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { render } from '@testing-library/react'
-import routeData from 'react-router'
+import routeData, { MemoryRouter } from 'react-router'
 import { MockedProvider } from '@apollo/client/testing'
 import { Viewport } from '../index'
 import { Editor } from '@craftjs/core'
@@ -58,24 +58,13 @@ describe('Viewport', () => {
   it('should match a snapshot', () => {
     const { asFragment } = render(
       <MockedProvider>
-        <Editor>
-          <Viewport isSaving={false} iframeRef={undefined} deserialize={() => {}} rendererDivRefHandler={() => {}}>
-            <></>
-          </Viewport>
-        </Editor>
-      </MockedProvider>,
-    )
-    expect(asFragment()).toMatchSnapshot()
-  })
-
-  it('should match a snapshot - saving', () => {
-    const { asFragment } = render(
-      <MockedProvider>
-        <Editor>
-          <Viewport isSaving iframeRef={undefined} deserialize={() => {}} rendererDivRefHandler={() => {}}>
-            <></>
-          </Viewport>
-        </Editor>
+        <MemoryRouter>
+          <Editor>
+            <Viewport iframeRef={undefined} deserialize={() => {}} rendererDivRefHandler={() => {}}>
+              <></>
+            </Viewport>
+          </Editor>
+        </MemoryRouter>
       </MockedProvider>,
     )
     expect(asFragment()).toMatchSnapshot()

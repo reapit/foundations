@@ -4,7 +4,6 @@ exports[`Toolbox should match a snapshot 1`] = `
 <DocumentFragment>
   <div
     class="transition el-w12 el-hfull el-flex el-flex-column bg-white toolbox-div"
-    style="width: 0px; opacity: 0;"
   >
     <div
       class="el-flex el-flex1 el-flex-column el-flex-align-center el-pt6"
