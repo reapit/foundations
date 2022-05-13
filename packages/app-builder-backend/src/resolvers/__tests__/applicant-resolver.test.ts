@@ -258,6 +258,39 @@ describe('applicant-resolver', () => {
               notes
               lastCall
               nextCall
+              type
+              style
+              situation
+              parking
+              age
+              locality
+              bedroomsMin
+              bedroomsMax
+              receptionsMin
+              receptionsMax
+              bathroomsMin
+              bathroomsMax
+              locationType
+              locationOptions
+              buying {
+                priceFrom
+                priceTo
+              }
+              externalArea {
+                type
+                amountFrom
+                amountTo
+              }
+              internalArea {
+                type
+                amount
+              }
+              source {
+                id
+                type
+              }
+              negotiatorIds
+              officeIds
             }
           }
         `,
@@ -269,6 +302,39 @@ describe('applicant-resolver', () => {
             notes: 'Looking to move his mother back into the area',
             lastCall: '2019-11-12',
             nextCall: '2022-12-29',
+            type: ['house', 'maisonette', 'cottage'],
+            style: ['detached', 'semiDetached'],
+            situation: ['garden', 'patio'],
+            parking: ['garage'],
+            age: ['period'],
+            locality: ['rural'],
+            bedroomsMin: 23,
+            bedroomsMax: 25,
+            receptionsMin: 1,
+            receptionsMax: 2,
+            bathroomsMin: 1,
+            bathroomsMax: 0,
+            locationType: 'areas',
+            locationOptions: ['SOL', 'BHM', 'WLV'],
+            buying: {
+              priceFrom: 250000,
+              priceTo: 275000,
+            },
+            externalArea: {
+              type: 'acres',
+              amountFrom: 2,
+              amountTo: 3,
+            },
+            internalArea: {
+              type: 'squareFeet',
+              amount: 1500,
+            },
+            source: {
+              id: 'RMV',
+              type: 'source',
+            },
+            negotiatorIds: ['negotiatorIds'],
+            officeIds: ['officeIds'],
           },
         },
       })
