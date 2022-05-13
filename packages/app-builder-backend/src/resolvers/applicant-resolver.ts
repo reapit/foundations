@@ -49,7 +49,7 @@ const getApplicants = async (accessToken: string, idToken: string): Promise<Appl
   const applicants = await query<{ _embedded: ApplicantAPIResponse<ApplicantsEmbeds>[] }>(
     getApplicationQuery,
     {},
-    'listApplicants',
+    'GetApplicants',
     {
       accessToken,
       idToken,

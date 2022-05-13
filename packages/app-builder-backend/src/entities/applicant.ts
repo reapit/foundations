@@ -10,15 +10,6 @@ class ApplicantBuying {
 
   @Field()
   priceTo: number
-
-  @Field({ nullable: true })
-  decoration: string
-
-  @Field({ nullable: true })
-  reasonId: string
-
-  @Field({ nullable: true })
-  positionId: string
 }
 
 @ObjectType()
@@ -51,6 +42,12 @@ class ApplicantSource {
   type: string
 }
 
+// @ObjectType()
+// class ApplicantRenting {
+//   @Field()
+
+// }
+
 @ObjectType({ description: '@labelKeys(title, forename, surname) @supportsCustomFields()' })
 export class Applicant {
   @Field(() => ID)
@@ -73,12 +70,6 @@ export class Applicant {
 
   @Field()
   notes: string
-
-  @Field({ nullable: true })
-  sellingStatus: string
-
-  @Field({ nullable: true })
-  sellingPosition: string
 
   @Field()
   lastCall: string
@@ -112,9 +103,6 @@ export class Applicant {
   @Field(() => [String])
   locality: string[]
 
-  @Field({ nullable: true })
-  specialFeatures: string
-
   @Field()
   bedroomsMin: number
 
@@ -134,28 +122,13 @@ export class Applicant {
   bathroomsMax: number
 
   @Field()
-  parkingSpacesMin: number
-
-  @Field()
-  parkingSpacesMax: number
-
-  @Field()
   locationType: string
 
   @Field(() => [String])
   locationOptions: string[]
 
-  @Field(() => GraphQLISODateTime, { nullable: true })
-  archivedOn: Date
-
-  @Field()
-  fromArchive: boolean
-
   @Field(() => ApplicantBuying)
   buying: ApplicantBuying
-
-  @Field({ nullable: true })
-  renting: string
 
   @Field(() => ApplicantExternalArea)
   externalArea: ApplicantExternalArea
@@ -166,11 +139,8 @@ export class Applicant {
   @Field(() => ApplicantSource)
   source: ApplicantSource
 
-  @Field({ nullable: true })
-  commercial: string
-
-  @Field({ nullable: true })
-  regional: string
+  // @Field({ nullable: true })
+  // commercial: string
 
   @Field(() => [Office])
   offices?: Office[]
@@ -199,12 +169,6 @@ export class ApplicantInput {
   @Field()
   notes: string
 
-  @Field({ nullable: true })
-  sellingStatus: string
-
-  @Field({ nullable: true })
-  sellingPosition: string
-
   @Field()
   lastCall: string
 
@@ -229,9 +193,6 @@ export class ApplicantInput {
   @Field(() => [String])
   locality: string[]
 
-  @Field({ nullable: true })
-  specialFeatures: string
-
   @Field()
   bedroomsMin: number
 
@@ -251,28 +212,13 @@ export class ApplicantInput {
   bathroomsMax: number
 
   @Field()
-  parkingSpacesMin: number
-
-  @Field()
-  parkingSpacesMax: number
-
-  @Field()
   locationType: string
 
   @Field(() => [String])
   locationOptions: string[]
 
-  @Field(() => GraphQLISODateTime, { nullable: true })
-  archivedOn: Date
-
-  @Field()
-  fromArchive: boolean
-
   @Field(() => ApplicantBuying)
   buying: ApplicantBuying
-
-  @Field({ nullable: true })
-  renting: string
 
   @Field(() => ApplicantExternalArea)
   externalArea: ApplicantExternalArea
@@ -283,11 +229,8 @@ export class ApplicantInput {
   @Field(() => ApplicantSource)
   source: ApplicantSource
 
-  @Field({ nullable: true })
-  commercial: string
-
-  @Field({ nullable: true })
-  regional: string
+  // @Field({ nullable: true })
+  // commercial: string
 
   @Field(() => [String], { description: '@idOf(Negotiator)' })
   negotiatorIds: string[]
@@ -315,8 +258,6 @@ export const ApplicantFragment = gql`
     currency
     active
     notes
-    sellingStatus
-    sellingPosition
     lastCall
     nextCall
     type
@@ -325,26 +266,31 @@ export const ApplicantFragment = gql`
     parking
     age
     locality
-    specialFeatures
     bedroomsMin
     bedroomsMax
     receptionsMin
     receptionsMax
     bathroomsMin
     bathroomsMax
-    parkingSpacesMin
-    parkingSpacesMax
     locationType
     locationOptions
-    archivedOn
-    fromArchive
-    buying
-    renting
-    externalArea
-    internalArea
-    source
-    commercial
-    regional
+    buying {
+      priceFrom
+      priceTo
+    }
+    externalArea {
+      type
+      amountFrom
+      amountTo
+    }
+    internalArea {
+      type
+      amount
+    }
+    source {
+      id
+      type
+    }
 
     _embedded {
       offices {
