@@ -156,6 +156,45 @@ export class Applicant {
 }
 
 @InputType()
+export class ApplicantBuyingInput {
+  @Field()
+  priceFrom: number
+
+  @Field()
+  priceTo: number
+}
+
+@InputType()
+export class ApplicantExternalAreaInput {
+  @Field()
+  type: string
+
+  @Field()
+  amountFrom: number
+
+  @Field()
+  amountTo: number
+}
+
+@InputType()
+export class ApplicantInternalAreaInput {
+  @Field()
+  type: string
+
+  @Field()
+  amount: number
+}
+
+@InputType()
+export class ApplicantSourceInput {
+  @Field()
+  id: string
+
+  @Field()
+  type: string
+}
+
+@InputType()
 export class ApplicantInput {
   @Field()
   marketingMode: string
@@ -217,17 +256,17 @@ export class ApplicantInput {
   @Field(() => [String])
   locationOptions: string[]
 
-  @Field(() => ApplicantBuying)
-  buying: ApplicantBuying
+  @Field(() => ApplicantBuyingInput)
+  buying: ApplicantBuyingInput
 
-  @Field(() => ApplicantExternalArea)
-  externalArea: ApplicantExternalArea
+  @Field(() => ApplicantExternalAreaInput)
+  externalArea: ApplicantExternalAreaInput
 
-  @Field(() => ApplicantInternalArea)
-  internalArea: ApplicantInternalArea
+  @Field(() => ApplicantInternalAreaInput)
+  internalArea: ApplicantInternalAreaInput
 
-  @Field(() => ApplicantSource)
-  source: ApplicantSource
+  @Field(() => ApplicantSourceInput)
+  source: ApplicantSourceInput
 
   // @Field({ nullable: true })
   // commercial: string
