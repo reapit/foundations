@@ -194,4 +194,18 @@ export class ApplicantResolver {
     storeCachedMetadata(entityName, applicant.id, applicant.metadata)
     return applicant
   }
+
+  @Authorized()
+  @Query(() => Applicant)
+  async getApplicant(
+    @Ctx() { accessToken, idToken, storeCachedMetadata }: Context,
+    @Arg('id') id: string,
+  ): Promise<Applicant> {
+    const applicant = await getApplicant(id, accessToken, idToken)
+    if (!applicant) {
+      throw new Error(`Contact with id ${id} not found`)
+    }
+    storeCachedMetadata(entityName, id, applicant.metadata)
+    return applicant
+  }
 }
