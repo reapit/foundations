@@ -193,7 +193,7 @@ const getApplicants = async (accessToken: string, idToken: string): Promise<Appl
     },
   )
 
-  return applicants._embedded
+  return applicants?._embedded
     .map((c) => hoistEmbeds<ApplicantAPIResponse<ApplicantsEmbeds>, ApplicantsEmbeds>(c))
     .map(addDefaultEmbeds)
     .map(convertDates)
