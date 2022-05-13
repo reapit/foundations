@@ -90,6 +90,71 @@ const createApplicantMutation = gql`
   }
 `
 
+const updateApplicantMutation = gql`
+  ${ApplicantFragment}
+  mutation UpdateApplicant(
+    $id: String!
+    $marketingMode: String!
+    $currency: String!
+    $active: Boolean!
+    $notes: String!
+    $lastCall: Date!
+    $nextCall: Date!
+    $type: [String!]!
+    $style: [String!]!
+    $situation: [String!]!
+    $parking: [String!]!
+    $age: [String!]!
+    $locality: [String!]!
+    $bedroomsMin: Number!
+    $bedroomsMax: Nubmer!
+    $receptionsMin: Number!
+    $receptionsMax: Number!
+    $bathroomsMin: Number!
+    $bathroomsMax: Number!
+    $locationType: String!
+    $locationOptions: [String!]!
+    $buying: ApplicantBuyingInput
+    $renting: ApplicantRentingInput
+    $externalArea: ApplicantExternalAreaInput
+    $internalArea: ApplicantInternalAreaInput
+    $source: ApplicantSourceInput
+    $officeIds: [String!]!
+    $negotiatorIds: [String!]!
+    $metadata: JSON
+  ) {
+    updateApplicant(
+      id: $id
+      marketingMode: $marketingMode
+      currency: $currency
+      active: $active
+      notes: $notes
+      lastCall: $lastCall
+      nextCall: $nextCall
+      type: $type
+      style: $style
+      situation: $situation
+      parking: $parking
+      age: $age
+      locality: $locality
+      bedroomsMin: $bedroomsMin
+      bedroomsMax: $bedroomsMax
+      receptionsMin: $receptionsMin
+      receptionsMax: $receptionsMax
+      bathroomsMin: $bathroomsMin
+      bathroomsMax: $bathroomsMax
+      locationType: $locationType
+      locationOptions: $locationOptions
+
+      negotiatorIds: $negotiatorIds
+      officeIds: $officeIds
+      metadata: $metadata
+    ) {
+      ...ApplicantFragment
+    }
+  }
+`
+
 type ApplicantAPIResponse<T> = Omit<Omit<Applicant, 'offices'>, 'negotiators'> & {
   _embedded: T
   _eTag: string
@@ -169,6 +234,29 @@ const createApplicant = async (applicant: ApplicantInput, accessToken: string, i
   return newApplicant
 }
 
+const updateApplicant = async (
+  id: string,
+  contact: ApplicantInput,
+  accessToken: string,
+  idToken: string,
+): Promise<Applicant> => {
+  const existingContact = await getApiApplicant(id, accessToken, idToken)
+  if (!existingContact) {
+    throw new Error(`Contact with id ${id} not found`)
+  }
+  const { _eTag } = existingContact
+  await query<ApplicantAPIResponse<null>>(updateApplicantMutation, { ...contact, id, _eTag }, 'UpdateContact', {
+    accessToken,
+    idToken,
+  })
+
+  const newContact = await getApiApplicant(id, accessToken, idToken)
+  if (!newContact) {
+    throw new Error('Contact not found')
+  }
+  return newContact
+}
+
 const entityName: MetadataSchemaType = 'applicant'
 
 @Resolver(() => Applicant)
@@ -206,6 +294,20 @@ export class ApplicantResolver {
       throw new Error(`Contact with id ${id} not found`)
     }
     storeCachedMetadata(entityName, id, applicant.metadata)
+    return applicant
+  }
+
+  @Authorized()
+  @Mutation(() => Applicant)
+  async updateApplicant(
+    @Ctx() context: Context,
+    @Arg('id') id: string,
+    @Arg(entityName) applicantDto: ApplicantInput,
+  ): Promise<Applicant> {
+    const { accessToken, idToken, operationMetadata, storeCachedMetadata } = context
+    const { [entityName]: metadata } = operationMetadata
+    const applicant = await updateApplicant(id, { ...applicantDto, metadata }, accessToken, idToken)
+    storeCachedMetadata(entityName, applicant.id, applicantDto.metadata)
     return applicant
   }
 }
