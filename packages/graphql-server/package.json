@@ -39,7 +39,7 @@
     "graphql-depth-limit": "^1.1.0",
     "graphql-import": "^1.0.2",
     "graphql-type-json": "^0.3.2",
-    "https-proxy-agent": "5.0.0",
+    "https-proxy-agent": "5.0.1",
     "lodash.merge": "^4.6.2",
     "merge-graphql-schemas": "^1.7.8",
     "query-string": "^6.14.1",
