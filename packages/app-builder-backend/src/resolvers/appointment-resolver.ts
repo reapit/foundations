@@ -1,0 +1,122 @@
+import { Appointment, AppointmentFragment } from '../entities/appointments'
+import { gql } from 'apollo-server-core'
+import { Authorized, Ctx, Query, Resolver } from 'type-graphql'
+import { Context } from '@apollo/client'
+import { query } from '../utils/graphql-fetch'
+import { Office } from '../entities/office'
+import { Negotiator } from '../entities/negotiator'
+import { Property } from '../entities/property'
+
+const getAppointmentQuery = gql`
+  ${AppointmentFragment}
+  query GetAppointment($id: String!) {
+    GetAppointmentById(id: $id, embed: [offices, negotiators, property, contacts]) {
+      ...AppointmentFragment
+    }
+  }
+`
+
+const getAppointmentsQuery = gql`
+  ${AppointmentFragment}
+  {
+    GetApplicants(embed: [offices, negotiators, property, contacts]) {
+      _embedded {
+        ...ApplicantFragment
+      }
+    }
+  }
+`
+
+type AppointmentAPIResponse<T> = Omit<Omit<Omit<Appointment, 'offices'>, 'negotiators'>, 'property'> & {
+  _embedded: T
+  _eTag: string
+}
+
+type AppointmentsEmbeds = {
+  offices: Office[]
+  negotiators: Negotiator[]
+  property: Property
+}
+
+const hoistEmbeds = <T, E>(object: T & { _embedded: any }): T & E => {
+  const { _embedded, ...rest } = object
+  return { ...rest, ..._embedded }
+}
+
+const addDefaultEmbeds = (appointment: Appointment): Appointment => ({
+  ...appointment,
+  offices: appointment.offices || [],
+  // attachedStaffMemebers: appointment.negotiators || [],
+})
+
+const convertDates = (applicant: Appointment): Appointment => ({
+  ...applicant,
+  // lastCreated: new Date(applicant.created),
+  // lastModified: new Date(applicant.modified),
+})
+
+const getApiAppointment = async (
+  id: string,
+  accessToken: string,
+  idToken: string,
+): Promise<AppointmentAPIResponse<AppointmentsEmbeds> | null> => {
+  return query<AppointmentAPIResponse<AppointmentsEmbeds> | null>(getAppointmentQuery, { id }, 'GetAppointmentById', {
+    accessToken,
+    idToken,
+  })
+}
+
+const getAppointment = async (id: string, accessToken: string, idToken: string): Promise<Appointment | null> => {
+  const appointment = await getApiAppointment(id, accessToken, idToken)
+
+  if (!appointment) {
+    return null
+  }
+
+  const hoistedAppointment = hoistEmbeds<AppointmentAPIResponse<AppointmentsEmbeds>, AppointmentsEmbeds>(appointment)
+  return convertDates(addDefaultEmbeds(hoistedAppointment))
+}
+
+const getAppointments = async (accessToken: string, idToken: string): Promise<Appointment[]> => {
+  const appointments = await query<{ _embedded: AppointmentAPIResponse<AppointmentsEmbeds>[] }>(
+    getAppointmentsQuery,
+    {},
+    'GetApplicants',
+    {
+      accessToken,
+      idToken,
+    },
+  )
+
+  return appointments._embedded
+    .map((c) => hoistEmbeds<AppointmentAPIResponse<AppointmentsEmbeds>, AppointmentsEmbeds>(c))
+    .map(addDefaultEmbeds)
+    .map(convertDates)
+}
+
+const entityName = 'appointment'
+
+@Resolver(() => Appointment)
+export class AppointmentResolver {
+  @Authorized()
+  @Query(() => [Appointment])
+  async listAppointments(@Ctx() { accessToken, idToken, storeCachedMetadata }: Context): Promise<Appointment[]> {
+    const appointments = await getAppointments(accessToken, idToken)
+    appointments?.forEach((appointment) => {
+      storeCachedMetadata(entityName, appointment.id, appointment.metadata)
+    })
+    return appointments
+  }
+
+  @Authorized()
+  @Query(() => [Appointment])
+  async getAppointment(@Ctx() { accessToken, idToken, storeCachedMetadata, id }: Context): Promise<Appointment> {
+    const appointment = await getAppointment(id, accessToken, idToken)
+
+    if (!appointment) {
+      throw new Error(`Appointment with id ${id} not found`)
+    }
+    storeCachedMetadata(entityName, id, appointment.metadata)
+    return appointment
+  }
+}

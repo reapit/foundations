@@ -42,7 +42,6 @@ class ApplicantSource {
   type: string
 }
 
-
 @ObjectType({ description: '@labelKeys(title, forename, surname) @supportsCustomFields()' })
 export class Applicant {
   @Field(() => ID)
