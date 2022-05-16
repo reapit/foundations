@@ -14,6 +14,8 @@ export const mockApplicant = {
   parking: ['garage'],
   age: ['period'],
   locality: ['rural'],
+  negotiatorIds: [],
+  officeIds: [],
   bedroomsMin: 23,
   bedroomsMax: 25,
   receptionsMin: 1,

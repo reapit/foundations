@@ -123,7 +123,7 @@ const updateApplicantMutation = gql`
     $negotiatorIds: [String!]!
     $metadata: JSON
   ) {
-    updateApplicant(
+    UpdateApplicant(
       id: $id
       marketingMode: $marketingMode
       currency: $currency
@@ -193,7 +193,7 @@ const getApplicants = async (accessToken: string, idToken: string): Promise<Appl
     },
   )
 
-  return applicants?._embedded
+  return applicants._embedded
     .map((c) => hoistEmbeds<ApplicantAPIResponse<ApplicantsEmbeds>, ApplicantsEmbeds>(c))
     .map(addDefaultEmbeds)
     .map(convertDates)
@@ -211,14 +211,14 @@ const getApiApplicant = async (
 }
 
 const getApplicant = async (id: string, accessToken: string, idToken: string): Promise<Applicant | null> => {
-  const contact = await getApiApplicant(id, accessToken, idToken)
+  const applicant = await getApiApplicant(id, accessToken, idToken)
 
-  if (!contact) {
+  if (!applicant) {
     return null
   }
 
-  const hoistedContact = hoistEmbeds<ApplicantAPIResponse<ApplicantsEmbeds>, ApplicantsEmbeds>(contact)
-  return convertDates(addDefaultEmbeds(hoistedContact))
+  const hoistedApplicant = hoistEmbeds<ApplicantAPIResponse<ApplicantsEmbeds>, ApplicantsEmbeds>(applicant)
+  return convertDates(addDefaultEmbeds(hoistedApplicant))
 }
 
 const createApplicant = async (applicant: ApplicantInput, accessToken: string, idToken: string): Promise<Applicant> => {
@@ -236,25 +236,26 @@ const createApplicant = async (applicant: ApplicantInput, accessToken: string, i
 
 const updateApplicant = async (
   id: string,
-  contact: ApplicantInput,
+  applicant: ApplicantInput,
   accessToken: string,
   idToken: string,
 ): Promise<Applicant> => {
-  const existingContact = await getApiApplicant(id, accessToken, idToken)
-  if (!existingContact) {
-    throw new Error(`Contact with id ${id} not found`)
+  const existingApplicant = await getApiApplicant(id, accessToken, idToken)
+  if (!existingApplicant) {
+    throw new Error(`Applicant with id ${id} not found`)
   }
-  const { _eTag } = existingContact
-  await query<ApplicantAPIResponse<null>>(updateApplicantMutation, { ...contact, id, _eTag }, 'UpdateContact', {
+
+  const { _eTag } = existingApplicant
+  await query<ApplicantAPIResponse<null>>(updateApplicantMutation, { ...applicant, id, _eTag }, 'UpdateApplicant', {
     accessToken,
     idToken,
   })
 
-  const newContact = await getApiApplicant(id, accessToken, idToken)
-  if (!newContact) {
-    throw new Error('Contact not found')
+  const newApplicant = await getApiApplicant(id, accessToken, idToken)
+  if (!newApplicant) {
+    throw new Error('Applicant not found')
   }
-  return newContact
+  return newApplicant
 }
 
 const entityName: MetadataSchemaType = 'applicant'
@@ -265,8 +266,8 @@ export class ApplicantResolver {
   @Query(() => [Applicant])
   async listApplicants(@Ctx() { accessToken, idToken, storeCachedMetadata }: Context): Promise<Applicant[]> {
     const applicants = await getApplicants(accessToken, idToken)
-    applicants.forEach((contact) => {
-      storeCachedMetadata(entityName, contact.id, contact.metadata)
+    applicants?.forEach((applicant) => {
+      storeCachedMetadata(entityName, applicant.id, applicant.metadata)
     })
     return applicants
   }
@@ -291,7 +292,7 @@ export class ApplicantResolver {
   ): Promise<Applicant> {
     const applicant = await getApplicant(id, accessToken, idToken)
     if (!applicant) {
-      throw new Error(`Contact with id ${id} not found`)
+      throw new Error(`Applicant with id ${id} not found`)
     }
     storeCachedMetadata(entityName, id, applicant.metadata)
     return applicant

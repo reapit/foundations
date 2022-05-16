@@ -71,10 +71,10 @@ export class Applicant {
   @Field()
   notes: string
 
-  @Field()
+  @Field({ nullable: true })
   lastCall: string
 
-  @Field()
+  @Field({ nullable: true })
   nextCall: string
 
   // TODO add departments
@@ -205,13 +205,13 @@ export class ApplicantInput {
   @Field()
   active: boolean
 
-  @Field()
+  @Field({ nullable: true })
   notes: string
 
-  @Field()
+  @Field({ nullable: true })
   lastCall: string
 
-  @Field()
+  @Field({ nullable: true })
   nextCall: string
 
   @Field(() => [String])

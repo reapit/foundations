@@ -56,6 +56,7 @@ const setupApplicantsMocks = () => {
   mockQuery(
     'CreateApplicant',
     {
+      id: 'MKT220017',
       marketingMode: 'buying',
       currency: 'GBP',
       active: true,
@@ -75,6 +76,8 @@ const setupApplicantsMocks = () => {
       bathroomsMin: 1,
       bathroomsMax: 0,
       locationType: 'areas',
+      negotiatorIds: [],
+      officeIds: [],
       locationOptions: ['SOL', 'BHM', 'WLV'],
       buying: {
         priceFrom: 250000,
@@ -95,7 +98,7 @@ const setupApplicantsMocks = () => {
       },
     },
     {
-      CreateApplicaant: mockApplicant,
+      CreateApplicant: mockApplicant,
     },
   )
   mockQuery(
@@ -126,6 +129,8 @@ const setupApplicantsMocks = () => {
         priceFrom: 250000,
         priceTo: 275000,
       },
+      negotiatorIds: [],
+      officeIds: [],
       externalArea: {
         type: 'acres',
         amountFrom: 2,
@@ -141,7 +146,7 @@ const setupApplicantsMocks = () => {
       },
     },
     {
-      UpdateApplicaant: mockApplicant,
+      UpdateApplicant: mockApplicant,
     },
   )
 }
@@ -197,8 +202,8 @@ describe('applicant-resolver', () => {
       expect(result.data.listApplicants[0]).toEqual({
         __typename: 'Applicant',
         id: 'MKT220017',
-        created: '2022-03-08T09:12:20Z',
-        modified: '2022-03-08T09:12:20Z',
+        created: '2022-03-08T09:12:20.000Z',
+        modified: '2022-03-08T09:12:20.000Z',
         marketingMode: 'buying',
         currency: 'GBP',
         active: true,
