@@ -4896,6 +4896,10 @@ export interface CreateDocumentModel {
    */
   name: string
   /**
+   * A flag denoting whether or not the document is private
+   */
+  isPrivate?: boolean
+  /**
    * The base64 encoded document content, prefixed with the content type (eg. data:text/plain;base64,VGVzdCBmaWxl)
    * This supports upto 6MB
    */
@@ -7273,6 +7277,10 @@ export interface DocumentModel {
    */
   associatedType?: string
   /**
+   * A flag denoting whether or not the document is private
+   */
+  isPrivate?: boolean
+  /**
    * The unique identifier of the entity that the document is associated with
    */
   associatedId?: string
@@ -7325,6 +7333,10 @@ export interface DocumentModelPagedResult {
      * The type of entity that the document is associated with
      */
     associatedType?: string
+    /**
+     * A flag denoting whether or not the document is private
+     */
+    isPrivate?: boolean
     /**
      * The unique identifier of the entity that the document is associated with
      */
@@ -12328,31 +12340,31 @@ export interface ReferralModel {
    */
   modified?: string // date-time
   /**
-   * The unique identifier of the referrer
+   * The unique identifier of the referralTypeId the referral is associated with, where applicable
    */
-  referrerId?: string
+  referralTypeId?: string
   /**
-   * The unique identifier of the Negotiator
+   * The unique identifier of the negotiator the referral is associated with, where applicable
    */
   negotiatorId?: string
   /**
-   * The unique identifier of the Property
+   * The unique identifier of the property the referral is associated with, where applicable
    */
   propertyId?: string
   /**
-   * The unique identifier of the Applicant
+   * The unique identifier of the applicant the referral is associated with, where applicable
    */
   applicantId?: string
   /**
-   * The unique identifier of the Contact
+   * The unique identifier of the applicant the referral is associated with, where applicable
    */
   contactId?: string
   /**
-   * The unique identifier of the Status
+   * The unique identifier of the status the referral is associated with, where applicable
    */
   status?: string
   /**
-   * The unique identifier of the Amount
+   * The referral amount
    */
   amount?: number // double
   /**
@@ -12368,7 +12380,7 @@ export interface ReferralModel {
    */
   accepted?: string // date-time
   /**
-   * The ETag for the current version of the contact. Used for managing update concurrency
+   * The ETag for the current version of the referral. Used for managing update concurrency
    */
   readonly _eTag?: string
 }
@@ -12399,31 +12411,31 @@ export interface ReferralModelPagedResult {
      */
     modified?: string // date-time
     /**
-     * The unique identifier of the referrer
+     * The unique identifier of the referralTypeId the referral is associated with, where applicable
      */
-    referrerId?: string
+    referralTypeId?: string
     /**
-     * The unique identifier of the Negotiator
+     * The unique identifier of the negotiator the referral is associated with, where applicable
      */
     negotiatorId?: string
     /**
-     * The unique identifier of the Property
+     * The unique identifier of the property the referral is associated with, where applicable
      */
     propertyId?: string
     /**
-     * The unique identifier of the Applicant
+     * The unique identifier of the applicant the referral is associated with, where applicable
      */
     applicantId?: string
     /**
-     * The unique identifier of the Contact
+     * The unique identifier of the applicant the referral is associated with, where applicable
      */
     contactId?: string
     /**
-     * The unique identifier of the Status
+     * The unique identifier of the status the referral is associated with, where applicable
      */
     status?: string
     /**
-     * The unique identifier of the Amount
+     * The referral amount
      */
     amount?: number // double
     /**
@@ -12439,7 +12451,7 @@ export interface ReferralModelPagedResult {
      */
     accepted?: string // date-time
     /**
-     * The ETag for the current version of the contact. Used for managing update concurrency
+     * The ETag for the current version of the referral. Used for managing update concurrency
      */
     readonly _eTag?: string
   }[]
@@ -12500,12 +12512,13 @@ export interface ReferralTypeModelPagedResult {
   }
 }
 export interface Referrals {
-  ids?: string[]
-  propertyIds?: string[]
-  applicantIds?: string[]
-  contactIds?: string[]
-  negotiatorIds?: string[]
-  statusIds?: string[]
+  id?: string[]
+  propertyId?: string[]
+  applicantId?: string[]
+  contactId?: string[]
+  negotiatorId?: string[]
+  referralTypeId?: string[]
+  status?: ('sent' | 'succeeded' | 'cancelled' | 'failed' | 'paid' | 'declined')[]
   pageSize?: number
   pageNumber?: number
   sortBy?: string
@@ -15582,6 +15595,10 @@ export interface UpdateDocumentModel {
    * The filename of the document
    */
   name?: string
+  /**
+   * A flag denoting whether or not the document is private
+   */
+  isPrivate?: boolean
   /**
    * App specific metadata to set against the document
    */
