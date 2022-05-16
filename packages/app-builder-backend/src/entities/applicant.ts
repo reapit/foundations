@@ -42,11 +42,6 @@ class ApplicantSource {
   type: string
 }
 
-// @ObjectType()
-// class ApplicantRenting {
-//   @Field()
-
-// }
 
 @ObjectType({ description: '@labelKeys(title, forename, surname) @supportsCustomFields()' })
 export class Applicant {
@@ -77,11 +72,9 @@ export class Applicant {
   @Field({ nullable: true })
   nextCall: string
 
-  // TODO add departments
   @Field()
   departmentId: string
 
-  // TODO add solicitors
   @Field()
   solicitorId: string
 
@@ -139,18 +132,11 @@ export class Applicant {
   @Field(() => ApplicantSource)
   source: ApplicantSource
 
-  // @Field({ nullable: true })
-  // commercial: string
-
   @Field(() => [Office])
   offices?: Office[]
 
   @Field(() => [Negotiator])
   negotiators?: Negotiator[]
-
-  // TODO solve related type
-  // @Field()
-  // related: []
 
   metadata?: any
 }
@@ -268,20 +254,11 @@ export class ApplicantInput {
   @Field(() => ApplicantSourceInput)
   source: ApplicantSourceInput
 
-  // @Field({ nullable: true })
-  // commercial: string
-
   @Field(() => [String], { description: '@idOf(Negotiator)' })
   negotiatorIds: string[]
 
   @Field(() => [String], { description: '@idOf(Office)' })
   officeIds: string[]
-
-  // @Field({ description: '@idOf(Department)' })
-  // departmentId: string
-
-  // @Field({ description: '@idOf(Solicitor)' })
-  // solicitorId: string
 
   metadata?: any
 }
