@@ -186,7 +186,7 @@ const getAppointments = async (
 const createAppointment = async (
   accessToken: string,
   idToken: string,
-  appointment: Appointment,
+  appointment: AppointmentInput,
 ): Promise<Appointment> => {
   const res = await query<AppointmentAPIResponse<null>>(createAppointmentMutation, appointment, 'CreateAppointment', {
     accessToken,
@@ -262,7 +262,7 @@ export class AppointmentResolver {
   @Query(() => Appointment)
   async createAppointment(
     @Ctx() { accessToken, idToken, storeCachedMetadata, operationMetadata }: Context,
-    @Arg(entityName) appointment: Appointment,
+    @Arg(entityName) appointment: AppointmentInput,
   ): Promise<Appointment> {
     const { [entityName]: metadata } = operationMetadata
     const newAppointment = await createAppointment(accessToken, idToken, { ...appointment, metadata })
