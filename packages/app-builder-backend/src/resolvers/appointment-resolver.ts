@@ -46,13 +46,14 @@ const hoistEmbeds = <T, E>(object: T & { _embedded: any }): T & E => {
 const addDefaultEmbeds = (appointment: Appointment): Appointment => ({
   ...appointment,
   offices: appointment.offices || [],
-  // attachedStaffMemebers: appointment.negotiators || [],
+  negotiators: appointment.negotiators || [],
+  property: appointment.property,
 })
 
 const convertDates = (appointment: Appointment): Appointment => ({
   ...appointment,
-  // lastCreated: new Date(appointment.created),
-  // lastModified: new Date(appointment.modified),
+  created: new Date(appointment.created),
+  modified: new Date(appointment.modified),
 })
 
 const getApiAppointment = async (

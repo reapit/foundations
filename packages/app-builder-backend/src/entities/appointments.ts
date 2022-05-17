@@ -96,7 +96,7 @@ export class Appointment {
   @Field(() => AppointmentFollowUp)
   followUp: AppointmentFollowUp
 
-  @Field(() => Property)
+  @Field(() => Property, { nullable: true })
   property?: Property
 
   @Field()
