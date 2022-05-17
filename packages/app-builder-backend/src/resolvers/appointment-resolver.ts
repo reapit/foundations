@@ -1,4 +1,4 @@
-import { Appointment, AppointmentFragment } from '../entities/appointments'
+import { Appointment, AppointmentFragment, AppointmentInput } from '../entities/appointments'
 import { gql } from 'apollo-server-core'
 import { Arg, Authorized, Ctx, Query, Resolver } from 'type-graphql'
 import { Context } from '@apollo/client'
@@ -47,6 +47,49 @@ const createAppointmentMutation = gql`
     $metadata: JSON
   ) {
     CreateAppointment(
+      start: $start
+      end: $end
+      recurring: $recurring
+      cancelled: $cancelled
+      followUp: $followUp
+      attendee: $attendee
+      organiserId: $organiserId
+      accompanied: $accompanied
+      negotiatorConfirmed: $negotiatorConfirmed
+      attendeeConfirmed: $attendeeConfirmed
+      propertyConfirmed: $propertyConfirmed
+      propertyId: $propertyId
+      negotiatorIds: $negotiatorIds
+      officeIds: $officeIds
+      metadata: $metadata
+    ) {
+      ...AppointmentFragment
+    }
+  }
+`
+
+const updateAppointmentMutation = gql`
+  ${AppointmentFragment}
+  mutation UpdateAppointment(
+    $id: String!
+    $start: String!
+    $end: String!
+    $recurring: Boolean
+    $cancelled: Boolean
+    $followUp: AppointmentFollowUpInput
+    $attendee: AppointmentAttendeeInput
+    $organiserId: String!
+    $accompanied: Boolean!
+    $negotiatorConfirmed: Boolean!
+    $attendeeConfirmed: Boolean!
+    $propertyConfirmed: Boolean!
+    $propertyId: String
+    $officeIds: [String!]!
+    $negotiatorIds: [String!]!
+    $metadata: JSON
+  ) {
+    UpdateAppointment(
+      id: $id
       start: $start
       end: $end
       recurring: $recurring
@@ -157,6 +200,34 @@ const createAppointment = async (
   return newAppointment
 }
 
+const updateAppointment = async (
+  id: string,
+  accessToken: string,
+  idToken: string,
+  appointment: AppointmentInput,
+): Promise<Appointment> => {
+  const existingAppointment = await getApiAppointment(id, accessToken, idToken)
+  if (!existingAppointment) {
+    throw new Error(`Contact with id ${id} not found`)
+  }
+  const { _eTag } = existingAppointment
+  await query<AppointmentAPIResponse<null>>(
+    updateAppointmentMutation,
+    { ...appointment, id, _eTag },
+    'UpdateAppointment',
+    {
+      accessToken,
+      idToken,
+    },
+  )
+
+  const newContact = await getAppointment(id, accessToken, idToken)
+  if (!newContact) {
+    throw new Error('Contact not found')
+  }
+  return newContact
+}
+
 const entityName = 'appointment'
 
 @Resolver(() => Appointment)
@@ -195,6 +266,20 @@ export class AppointmentResolver {
   ): Promise<Appointment> {
     const { [entityName]: metadata } = operationMetadata
     const newAppointment = await createAppointment(accessToken, idToken, { ...appointment, metadata })
+    storeCachedMetadata(entityName, newAppointment.id, appointment.metadata)
+
+    return newAppointment
+  }
+
+  @Authorized()
+  @Query(() => Appointment)
+  async updateAppointment(
+    @Ctx() { accessToken, idToken, storeCachedMetadata, operationMetadata }: Context,
+    @Arg('id') id: string,
+    @Arg(entityName) appointment: AppointmentInput,
+  ): Promise<Appointment> {
+    const { [entityName]: metadata } = operationMetadata
+    const newAppointment = await updateAppointment(accessToken, idToken, id, { ...appointment, metadata })
     storeCachedMetadata(entityName, newAppointment.id, appointment.metadata)
 
     return newAppointment
