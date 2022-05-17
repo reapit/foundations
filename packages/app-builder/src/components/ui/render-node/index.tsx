@@ -1,5 +1,4 @@
 import { useNode, useEditor } from '@craftjs/core'
-import { ROOT_NODE } from '@craftjs/utils'
 import { cx } from '@linaria/core'
 import React, { useEffect, useRef, useCallback } from 'react'
 import ReactDOM from 'react-dom'
@@ -145,7 +144,7 @@ export const RenderNode = ({ render, iframeRef }) => {
                 <Move />
               </div>
             )}
-            {id !== ROOT_NODE && (
+            {id !== 'ROOT' && (
               <a
                 className={cx(littleButton, elMr3, cursorPointer)}
                 onClick={() => {

@@ -4,178 +4,15 @@ exports[`Sidebar should match a snapshot 1`] = `
 <DocumentFragment>
   <div
     class="transition bg-white el-w2 sidebar-div"
-    style="--s1xt9yg4-0: 1; --s1xt9yg4-1: 0px;"
   >
-    <div
-      class="transition el-w12 el-hfull el-flex el-flex-column bg-white toolbox-div"
-    >
-      <div
-        class="el-flex el-flex1 el-flex-column el-flex-align-center el-pt6"
-      >
-        <div
-          draggable="true"
-        >
-          <a
-            class="el-m3 el-pb3 block cursor-move item"
-            data-tip="Container"
-          >
-            <svg
-              viewBox="0 0 18 18"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <defs>
-                <style />
-              </defs>
-              <title>
-                S Rectangle 18 N
-              </title>
-              <path
-                d="M1 2.5v13a.5.5 0 0 0 .5.5h15a.5.5 0 0 0 .5-.5v-13a.5.5 0 0 0-.5-.5h-15a.5.5 0 0 0-.5.5zM16 15H2V3h14z"
-              />
-            </svg>
-          </a>
-        </div>
-        <div
-          draggable="true"
-        >
-          <a
-            class="el-m3 el-pb3 cursor-move block item"
-            data-tip="Text"
-          >
-            <svg
-              height="24"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 0h24v24H0z"
-                fill="none"
-              />
-              <path
-                d="M5 5v14h14V5H5zM4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm9 7v7h-2v-7H7V8h10v2h-4z"
-              />
-            </svg>
-          </a>
-        </div>
-        <div
-          draggable="true"
-        >
-          <a
-            class="el-m3 el-pb3 cursor-move block item"
-            data-tip="Link"
-          >
-            <svg
-              viewBox="0 0 512 512"
-            >
-              <path
-                d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"
-              />
-            </svg>
-          </a>
-        </div>
-        <div
-          draggable="true"
-        >
-          <a
-            class="el-m3 el-pb3 block cursor-move item"
-            data-tip="Info"
-          >
-            <svg
-              viewBox="0 0 18 18"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <defs>
-                <style />
-              </defs>
-              <title>
-                S Rectangle 18 N
-              </title>
-              <path
-                d="M1 2.5v13a.5.5 0 0 0 .5.5h15a.5.5 0 0 0 .5-.5v-13a.5.5 0 0 0-.5-.5h-15a.5.5 0 0 0-.5.5zM16 15H2V3h14z"
-              />
-            </svg>
-          </a>
-        </div>
-        <div
-          draggable="true"
-        >
-          <a
-            class="el-m3 el-pb3 block cursor-move item"
-            data-tip="Table"
-          >
-            <svg
-              viewBox="0 0 18 18"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <defs>
-                <style />
-              </defs>
-              <title>
-                S Rectangle 18 N
-              </title>
-              <path
-                d="M1 2.5v13a.5.5 0 0 0 .5.5h15a.5.5 0 0 0 .5-.5v-13a.5.5 0 0 0-.5-.5h-15a.5.5 0 0 0-.5.5zM16 15H2V3h14z"
-              />
-            </svg>
-          </a>
-        </div>
-        <div
-          draggable="true"
-        >
-          <a
-            class="el-m3 el-pb3 block cursor-move item"
-            data-tip="Form"
-          >
-            <svg
-              viewBox="0 0 18 18"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <defs>
-                <style />
-              </defs>
-              <title>
-                S Rectangle 18 N
-              </title>
-              <path
-                d="M1 2.5v13a.5.5 0 0 0 .5.5h15a.5.5 0 0 0 .5-.5v-13a.5.5 0 0 0-.5-.5h-15a.5.5 0 0 0-.5.5zM16 15H2V3h14z"
-              />
-            </svg>
-          </a>
-        </div>
-        <div
-          draggable="true"
-        >
-          <a
-            class="el-m3 el-pb3 block cursor-move item"
-            data-tip="QR Code"
-          >
-            <svg
-              viewBox="0 0 18 18"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <defs>
-                <style />
-              </defs>
-              <title>
-                S Rectangle 18 N
-              </title>
-              <path
-                d="M1 2.5v13a.5.5 0 0 0 .5.5h15a.5.5 0 0 0 .5-.5v-13a.5.5 0 0 0-.5-.5h-15a.5.5 0 0 0-.5.5zM16 15H2V3h14z"
-              />
-            </svg>
-          </a>
-        </div>
-      </div>
-    </div>
     <div
       class="el-flex el-flex-column"
       style="height: calc(100vh - 45px); flex: 1;"
     >
       <div
         class="el-flex el-flex-column sidebar-item-div"
-        height="55%"
-        style="--s1re9lvo-0: 55%; --s1re9lvo-1: unset;"
+        height="0%"
+        style="--s1re9lvo-0: auto; --s1re9lvo-1: unset;"
       >
         <div
           class="cursor-pointer bg-white el-border-grey-b el-flex el-flex-align-center el-px3 header-div"
@@ -183,19 +20,16 @@ exports[`Sidebar should match a snapshot 1`] = `
           <div
             class="el-flex el-flex1 el-flex-align-center"
           >
-            <div
-              class="icon-container"
-            />
-            <p
-              class="uppercase el-small-text"
+            <h2
+              class="subtitle-bold"
               style="margin-bottom: 0px;"
             >
-              Customize
-            </p>
+              Components
+            </h2>
           </div>
           <a
             class="chevron"
-            style="--ckrrxc3-0: 180deg;"
+            style="--ckrrxc3-0: 0deg;"
           >
             <svg
               viewBox="0 0 10 6"
@@ -206,33 +40,12 @@ exports[`Sidebar should match a snapshot 1`] = `
               />
             </svg>
           </a>
-        </div>
-        <div
-          class="el-wfull el-flex1 overflow-auto"
-        >
-          <div
-            class="el-py1 el-hfull"
-          >
-            <div
-              class="el-px6 el-py3 el-flex el-flex-column el-flex-align-center el-hfull el-flex-justify-center el-text-center"
-              style="color: rgba(0, 0, 0, 0.5607843137254902); font-size: 11px;"
-            >
-              <p
-                class="el-has-bold-text el-small-text"
-              >
-                Click on a component to start editing.
-              </p>
-              <h2>
-                You could also double click on the layers below to edit their names, like in Photoshop
-              </h2>
-            </div>
-          </div>
         </div>
       </div>
       <div
         class="el-flex el-flex-column sidebar-item-div"
-        height="45%"
-        style="--s1re9lvo-0: 45%; --s1re9lvo-1: unset;"
+        height="full"
+        style="--s1re9lvo-0: auto; --s1re9lvo-1: unset;"
       >
         <div
           class="cursor-pointer bg-white el-border-grey-b el-flex el-flex-align-center el-px3 header-div"
@@ -240,19 +53,16 @@ exports[`Sidebar should match a snapshot 1`] = `
           <div
             class="el-flex el-flex1 el-flex-align-center"
           >
-            <div
-              class="icon-container"
-            />
-            <p
-              class="uppercase el-small-text"
+            <h2
+              class="subtitle-bold"
               style="margin-bottom: 0px;"
             >
-              Layers
-            </p>
+              Customise
+            </h2>
           </div>
           <a
             class="chevron"
-            style="--ckrrxc3-0: 180deg;"
+            style="--ckrrxc3-0: 0deg;"
           >
             <svg
               viewBox="0 0 10 6"
@@ -263,11 +73,6 @@ exports[`Sidebar should match a snapshot 1`] = `
               />
             </svg>
           </a>
-        </div>
-        <div
-          class="el-wfull el-flex1 overflow-auto"
-        >
-          <div />
         </div>
       </div>
     </div>
