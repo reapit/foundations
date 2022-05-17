@@ -3903,20 +3903,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@craftjs/layers@npm:0.2.0-beta.2":
-  version: 0.2.0-beta.2
-  resolution: "@craftjs/layers@npm:0.2.0-beta.2"
-  dependencies:
-    "@craftjs/utils": ^0.2.0-beta.2
-    react-contenteditable: ^3.3.3
-  peerDependencies:
-    "@craftjs/core": ^0.2.0-alpha.19
-    react: ^16.8.0 || ^17
-    styled-components: ">= 4"
-  checksum: 26529e283c80350afd98fa7a273b38c101e4aa60cc4c3ab5aac51579d2005bad810d05d28cd615add4602300d32335051fb28ae14c720700b2e3370eed0614dc
-  languageName: node
-  linkType: hard
-
 "@craftjs/utils@npm:^0.2.0-beta.2":
   version: 0.2.0-beta.2
   resolution: "@craftjs/utils@npm:0.2.0-beta.2"
@@ -7436,7 +7422,6 @@ __metadata:
   dependencies:
     "@apollo/client": ^3.5.6
     "@craftjs/core": "patch:@craftjs/core@npm:0.2.0-beta.2#../../.yarn/patches/@craftjs-core-npm-0.2.0-beta.2-7286daa8e6"
-    "@craftjs/layers": 0.2.0-beta.2
     "@linaria/core": ^3.0.0-beta.15
     "@linaria/react": ^3.0.0-beta.15
     "@linaria/shaker": ^3.0.0-beta.15
@@ -7471,10 +7456,8 @@ __metadata:
     react-dom: ^18.0.0
     react-frame-component: ^5.2.1
     react-ga: ^2.7.0
-    react-qr-code: ^2.0.3
     react-router: ^5.2.1
     react-router-dom: ^5.3.0
-    react-to-print: ^2.14.2
     react-tooltip: ^4.2.21
     rimraf: ^3.0.2
     serverless: ^2.69.1
@@ -32954,13 +32937,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"qr.js@npm:0.0.0":
-  version: 0.0.0
-  resolution: "qr.js@npm:0.0.0"
-  checksum: 5ac6c393967bdeaa660e7fd3a501a25eb538c1f6008a4d30ab2b97bbe520e5c236530090773f1578aa0a523cdaa6923c866615e21143f9e7cd22abd41c789b69
-  languageName: node
-  linkType: hard
-
 "qrcode-terminal@npm:^0.12.0":
   version: 0.12.0
   resolution: "qrcode-terminal@npm:0.12.0"
@@ -33406,7 +33382,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-contenteditable@npm:^3.3.3, react-contenteditable@npm:^3.3.6":
+"react-contenteditable@npm:^3.3.6":
   version: 3.3.6
   resolution: "react-contenteditable@npm:3.3.6"
   dependencies:
@@ -33815,19 +33791,6 @@ fsevents@^1.2.7:
     "@popperjs/core": ^2.0.0
     react: ^16.8.0 || ^17
   checksum: 02cdce8d815ab005905562ff4705bbc84a3e4bf7558d026051f8d459f30dc1506efeafec83ebd3e52a623e9da1f6b946270d2854774f66bbe0037a2507f02972
-  languageName: node
-  linkType: hard
-
-"react-qr-code@npm:^2.0.3":
-  version: 2.0.3
-  resolution: "react-qr-code@npm:2.0.3"
-  dependencies:
-    prop-types: ^15.7.2
-    qr.js: 0.0.0
-  peerDependencies:
-    react: ^16.x || ^17.x
-    react-native-svg: "*"
-  checksum: d82d3c2e8929bc40fdcbab714d088890744bc67aa5de5a998c14352f1fe56ca10032613abb49ea649bd9b8363ed5f482a942e5ed5e676a6f5e0b00a7e9960cb0
   languageName: node
   linkType: hard
 
