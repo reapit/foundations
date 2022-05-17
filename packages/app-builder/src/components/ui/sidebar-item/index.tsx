@@ -1,29 +1,28 @@
 import { cx } from '@linaria/core'
-import {
-  elBorderGreyB,
-  elFlex,
-  elFlex1,
-  elFlexAlignCenter,
-  elFlexColumn,
-  elPx3,
-  ElSmallText,
-  elWFull,
-} from '@reapit/elements'
-import React, { FC } from 'react'
+import { styled } from '@linaria/react'
+import { elBorderGreyB, elFlex, elFlex1, elFlexAlignCenter, elFlexColumn, elPx3, elWFull } from '@reapit/elements'
+import React from 'react'
 
 import Arrow from '../../icons/arrow'
-import { bgWhite, cursorPointer, overflowAuto, uppercase } from '../styles'
-import { Chevron, HeaderDiv, IconContainer, SidebarItemDiv } from './styles'
+import { bgWhite, cursorPointer, overflowAuto } from '../styles'
+import { Chevron, HeaderDiv, SidebarItemDiv } from './styles'
 
 type SidebarItemProps = {
   title: string
   height?: string
-  icon: FC
   expanded?: boolean
   onChange?: (bool: boolean) => void
 }
 
-const SidebarItem: React.FC<SidebarItemProps> = ({ expanded, icon, title, children, height, onChange }) => {
+const SubtitleBold = styled.h2`
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: black;
+  font-feature-settings: 'liga' off;
+`
+
+const SidebarItem: React.FC<SidebarItemProps> = ({ expanded, title, children, height, onChange }) => {
   return (
     <SidebarItemDiv expanded={expanded} height={height} className={cx(elFlex, elFlexColumn)}>
       <HeaderDiv
@@ -35,10 +34,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ expanded, icon, title, childr
         className={cx(cursorPointer, bgWhite, elBorderGreyB, elFlex, elFlexAlignCenter, elPx3)}
       >
         <div className={cx(elFlex, elFlex1, elFlexAlignCenter)}>
-          <IconContainer>{icon}</IconContainer>
-          <ElSmallText className={cx(uppercase)} style={{ marginBottom: 0 }}>
-            {title}
-          </ElSmallText>
+          <SubtitleBold style={{ marginBottom: 0 }}>{title}</SubtitleBold>
         </div>
         <Chevron expanded={!!expanded}>
           <Arrow />

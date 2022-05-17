@@ -51,7 +51,7 @@ export const Viewport = ({ children, iframeRef, deserialize, rendererDivRefHandl
   return (
     <div className={cx(elFlex1, elFlexColumn, justifyStretch, hScreen)}>
       <Header breakpoint={breakpoint} setBreakpoint={setBreakpoint} />
-      <div className={cx(elFlex, overflowHidden, elFlexRow, elWFull)} style={{ height: 'calc(100vh - 45px)' }}>
+      <div className={cx(elFlex, overflowHidden, elFlexRow, elWFull)} style={{ height: 'calc(100vh - 56px)' }}>
         <Container>
           <IFrame
             style={{ transition: 'width 350ms', width: breakpoint, flex: 1 }}

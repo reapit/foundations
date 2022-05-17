@@ -16,15 +16,24 @@ export const Chevron = styled.a<{ expanded: boolean }>`
       return props.expanded ? 180 : 0
     }}deg
   );
+  background: #f2f2f2;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
   svg {
-    width: 8px !important;
+    width: 10px !important;
     height: 8px !important;
   }
 `
 
 export const HeaderDiv = styled.div`
   color: #615c5c;
-  height: 45px;
+  height: 60px;
+  padding-left: 16px;
+  padding-right: 19px;
   svg {
     fill: #707070;
     width: 16px;
