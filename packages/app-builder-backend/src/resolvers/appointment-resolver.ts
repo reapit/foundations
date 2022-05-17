@@ -19,9 +19,9 @@ const getAppointmentQuery = gql`
 const getAppointmentsQuery = gql`
   ${AppointmentFragment}
   {
-    GetApplicants(embed: [offices, negotiators, property, contacts]) {
+    GetAppointments(embed: [offices, negotiators, property, contacts]) {
       _embedded {
-        ...ApplicantFragment
+        ...AppointmentFragment
       }
     }
   }
@@ -49,10 +49,10 @@ const addDefaultEmbeds = (appointment: Appointment): Appointment => ({
   // attachedStaffMemebers: appointment.negotiators || [],
 })
 
-const convertDates = (applicant: Appointment): Appointment => ({
-  ...applicant,
-  // lastCreated: new Date(applicant.created),
-  // lastModified: new Date(applicant.modified),
+const convertDates = (appointment: Appointment): Appointment => ({
+  ...appointment,
+  // lastCreated: new Date(appointment.created),
+  // lastModified: new Date(appointment.modified),
 })
 
 const getApiAppointment = async (
@@ -81,7 +81,7 @@ const getAppointments = async (accessToken: string, idToken: string): Promise<Ap
   const appointments = await query<{ _embedded: AppointmentAPIResponse<AppointmentsEmbeds>[] }>(
     getAppointmentsQuery,
     {},
-    'GetApplicants',
+    'GetAppointments',
     {
       accessToken,
       idToken,

@@ -1,8 +1,8 @@
 import { gql } from 'apollo-server-core'
 import { Field, GraphQLISODateTime, InputType, ObjectType } from 'type-graphql'
 import { Contact, ContactFragment } from './contact'
-import { Negotiator, NegotiatorFragment } from './negotiator'
-import { Office, OfficeFragment } from './office'
+import { Negotiator } from './negotiator'
+import { Office } from './office'
 import { Property, PropertyFragment } from './property'
 
 @ObjectType()
@@ -116,8 +116,6 @@ export class Appointment {
 export class AppointmentInput {}
 
 export const AppointmentFragment = gql`
-  ${NegotiatorFragment}
-  ${OfficeFragment}
   ${PropertyFragment}
   ${ContactFragment}
   fragment AppointmentFragment on AppointmentModel {
