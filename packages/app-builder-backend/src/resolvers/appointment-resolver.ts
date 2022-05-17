@@ -1,6 +1,6 @@
 import { Appointment, AppointmentFragment, AppointmentInput } from '../entities/appointments'
 import { gql } from 'apollo-server-core'
-import { Arg, Authorized, Ctx, Query, Resolver } from 'type-graphql'
+import { Arg, Authorized, Ctx, Mutation, Query, Resolver } from 'type-graphql'
 import { Context } from '@apollo/client'
 import { query } from '../utils/graphql-fetch'
 import { Office } from '../entities/office'
@@ -259,7 +259,7 @@ export class AppointmentResolver {
   }
 
   @Authorized()
-  @Query(() => Appointment)
+  @Mutation(() => Appointment)
   async createAppointment(
     @Ctx() { accessToken, idToken, storeCachedMetadata, operationMetadata }: Context,
     @Arg(entityName) appointment: AppointmentInput,
@@ -272,7 +272,7 @@ export class AppointmentResolver {
   }
 
   @Authorized()
-  @Query(() => Appointment)
+  @Mutation(() => Appointment)
   async updateAppointment(
     @Ctx() { accessToken, idToken, storeCachedMetadata, operationMetadata }: Context,
     @Arg('id') id: string,
