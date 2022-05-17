@@ -27,6 +27,47 @@ const getAppointmentsQuery = gql`
   }
 `
 
+const createAppointmentMutation = gql`
+  ${AppointmentFragment}
+  mutation CreateAppointment(
+    $start: String!
+    $end: String!
+    $recurring: Boolean
+    $cancelled: Boolean
+    $followUp: AppointmentFollowUpInput
+    $attendee: AppointmentAttendeeInput
+    $organiserId: String!
+    $accompanied: Boolean!
+    $negotiatorConfirmed: Boolean!
+    $attendeeConfirmed: Boolean!
+    $propertyConfirmed: Boolean!
+    $propertyId: String
+    $officeIds: [String!]!
+    $negotiatorIds: [String!]!
+    $metadata: JSON
+  ) {
+    CreateAppointment(
+      start: $start
+      end: $end
+      recurring: $recurring
+      cancelled: $cancelled
+      followUp: $followUp
+      attendee: $attendee
+      organiserId: $organiserId
+      accompanied: $accompanied
+      negotiatorConfirmed: $negotiatorConfirmed
+      attendeeConfirmed: $attendeeConfirmed
+      propertyConfirmed: $propertyConfirmed
+      propertyId: $propertyId
+      negotiatorIds: $negotiatorIds
+      officeIds: $officeIds
+      metadata: $metadata
+    ) {
+      ...AppointmentFragment
+    }
+  }
+`
+
 type AppointmentAPIResponse<T> = Omit<Omit<Omit<Appointment, 'offices'>, 'negotiators'>, 'property'> & {
   _embedded: T
   _eTag: string
@@ -99,6 +140,23 @@ const getAppointments = async (
     .map(convertDates)
 }
 
+const createAppointment = async (
+  accessToken: string,
+  idToken: string,
+  appointment: Appointment,
+): Promise<Appointment> => {
+  const res = await query<AppointmentAPIResponse<null>>(createAppointmentMutation, appointment, 'CreateAppointment', {
+    accessToken,
+    idToken,
+  })
+  const { id } = res
+  const newAppointment = await getAppointment(id, accessToken, idToken)
+  if (!newAppointment) {
+    throw new Error('Failed to create appointment')
+  }
+  return newAppointment
+}
+
 const entityName = 'appointment'
 
 @Resolver(() => Appointment)
@@ -110,7 +168,6 @@ export class AppointmentResolver {
     @Arg('start') start: string,
     @Arg('end') end: string,
   ): Promise<Appointment[]> {
-    console.log('startend', start, end)
     const appointments = await getAppointments(accessToken, idToken, { start, end })
     appointments?.forEach((appointment) => {
       storeCachedMetadata(entityName, appointment.id, appointment.metadata)
@@ -128,5 +185,18 @@ export class AppointmentResolver {
     }
     storeCachedMetadata(entityName, id, appointment.metadata)
     return appointment
+  }
+
+  @Authorized()
+  @Query(() => Appointment)
+  async createAppointment(
+    @Ctx() { accessToken, idToken, storeCachedMetadata, operationMetadata }: Context,
+    @Arg(entityName) appointment: Appointment,
+  ): Promise<Appointment> {
+    const { [entityName]: metadata } = operationMetadata
+    const newAppointment = await createAppointment(accessToken, idToken, { ...appointment, metadata })
+    storeCachedMetadata(entityName, newAppointment.id, appointment.metadata)
+
+    return newAppointment
   }
 }

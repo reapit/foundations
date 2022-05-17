@@ -72,10 +72,10 @@ export class Appointment {
   @Field(() => GraphQLISODateTime)
   modified: Date
 
-  @Field(() => GraphQLISODateTime, { nullable: true })
+  @Field(() => String, { nullable: false })
   start?: Date
 
-  @Field(() => GraphQLISODateTime, { nullable: true })
+  @Field(() => String, { nullable: false })
   end?: Date
 
   @Field({ nullable: true })
@@ -127,7 +127,117 @@ export class Appointment {
 }
 
 @InputType()
-export class AppointmentInput {}
+class AppointmentRecurrenceInput {
+  @Field(() => Number)
+  interval?: number
+
+  @Field()
+  type: string
+
+  @Field(() => GraphQLISODateTime)
+  until: Date
+}
+
+@InputType()
+class AppointmentFollowUpInput {
+  @Field()
+  due: string
+
+  @Field()
+  responseId: string
+
+  @Field({ nullable: true })
+  notes: string
+}
+
+@InputType()
+class AppointmentContactInput {
+  @Field()
+  id: string
+
+  @Field()
+  name: string
+
+  @Field({ nullable: true })
+  homePhone?: string
+
+  @Field({ nullable: true })
+  workPhone?: string
+
+  @Field({ nullable: true })
+  mobilePhone?: string
+
+  @Field({ nullable: true })
+  email?: string
+}
+
+@InputType()
+class AppointmentAttendeeInput {
+  @Field()
+  id: string
+
+  @Field()
+  type: string
+
+  @Field(() => AppointmentContactInput)
+  contact: AppointmentContactInput
+}
+
+@InputType()
+export class AppointmentInput {
+  @Field(() => String)
+  start?: Date
+
+  @Field(() => String)
+  end?: Date
+
+  @Field({ nullable: true })
+  typeId?: string
+
+  @Field({ nullable: true })
+  description?: string
+
+  @Field()
+  recurring: boolean
+
+  @Field(() => AppointmentRecurrenceInput)
+  recurrence: AppointmentRecurrenceInput
+
+  @Field()
+  cancelled: boolean
+
+  @Field(() => AppointmentFollowUpInput)
+  followUp: AppointmentFollowUpInput
+
+  @Field(() => String, { nullable: true, description: '@idOf(Property)' })
+  propertyId?: string
+
+  @Field()
+  organiserId?: string
+
+  @Field(() => [String], { description: '@idOf(Negotiator)' })
+  negotiatorIds: string[]
+
+  @Field(() => [String], { description: '@idOf(Office)' })
+  officeIds: string[]
+
+  @Field(() => [AppointmentAttendeeInput])
+  attendees: AppointmentAttendeeInput[]
+
+  @Field()
+  accompanied: boolean
+
+  @Field()
+  negotiatorConfirmed: boolean
+
+  @Field()
+  attendeeConfirmed: boolean
+
+  @Field()
+  propertyConfirmed: boolean
+
+  metadata?: any
+}
 
 export const AppointmentFragment = gql`
   ${PropertyFragment}
