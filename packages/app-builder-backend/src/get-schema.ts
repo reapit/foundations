@@ -16,6 +16,7 @@ import { PropertyResolver } from './resolvers/property-resolver'
 import { KeyTypeResolver } from './resolvers/key-type-resolver'
 import { customAuthChecker } from './utils/auth-checker'
 import { OfficeResolver } from './resolvers/offices-resolver'
+import { ApplicantResolver } from './resolvers/applicant-resolver'
 import { Context } from './types'
 import {
   createMetadataObject,
@@ -316,6 +317,7 @@ export const getSchema = async (context?: Context): Promise<GraphQLSchema> => {
       KeyTypeResolver,
       OfficeResolver,
       CustomEntityResolver,
+      ApplicantResolver,
     ],
     authChecker: customAuthChecker,
   })
