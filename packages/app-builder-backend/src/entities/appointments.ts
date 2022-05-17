@@ -1,8 +1,7 @@
 import { gql } from 'apollo-server-core'
 import { Field, GraphQLISODateTime, InputType, ObjectType } from 'type-graphql'
-import { Contact, ContactFragment } from './contact'
-import { Negotiator } from './negotiator'
-import { Office } from './office'
+import { Negotiator, NegotiatorFragment } from './negotiator'
+import { Office, OfficeFragment } from './office'
 import { Property, PropertyFragment } from './property'
 
 @ObjectType()
@@ -30,6 +29,27 @@ class AppointmentFollowUp {
 }
 
 @ObjectType()
+class AppointmentContact {
+  @Field()
+  id: string
+
+  @Field()
+  name: string
+
+  @Field({ nullable: true })
+  homePhone?: string
+
+  @Field({ nullable: true })
+  workPhone?: string
+
+  @Field({ nullable: true })
+  mobilePhone?: string
+
+  @Field({ nullable: true })
+  email?: string
+}
+
+@ObjectType()
 class AppointmentAttendee {
   @Field()
   id: string
@@ -37,8 +57,8 @@ class AppointmentAttendee {
   @Field()
   type: string
 
-  @Field(() => Contact)
-  contact: Contact
+  @Field(() => AppointmentContact)
+  contact: AppointmentContact
 }
 
 @ObjectType()
@@ -47,16 +67,16 @@ export class Appointment {
   id: string
 
   @Field(() => GraphQLISODateTime)
-  firstCreated: Date
+  created: Date
 
   @Field(() => GraphQLISODateTime)
-  lastModified: Date
+  modified: Date
 
   @Field(() => GraphQLISODateTime, { nullable: true })
-  startDate?: Date
+  start?: Date
 
   @Field(() => GraphQLISODateTime, { nullable: true })
-  endDate?: Date
+  end?: Date
 
   @Field({ nullable: true })
   typeId?: string
@@ -77,25 +97,22 @@ export class Appointment {
   followUp: AppointmentFollowUp
 
   @Field(() => Property)
-  attachedProperties?: Property
+  property?: Property
 
   @Field()
   organiserId?: string
 
   @Field(() => [Negotiator])
-  attachedStaffMemebers?: Negotiator[]
+  negotiators?: Negotiator[]
 
   @Field(() => [Office])
   offices?: Office[]
 
   @Field(() => [AppointmentAttendee])
-  attachedContacts: AppointmentAttendee[]
+  attendees: AppointmentAttendee[]
 
   @Field()
   accompanied: boolean
-
-  @Field()
-  virtual: boolean
 
   @Field()
   negotiatorConfirmed: boolean
@@ -106,9 +123,6 @@ export class Appointment {
   @Field()
   propertyConfirmed: boolean
 
-  @Field()
-  fromArchive: boolean
-
   metadata?: any
 }
 
@@ -117,48 +131,47 @@ export class AppointmentInput {}
 
 export const AppointmentFragment = gql`
   ${PropertyFragment}
-  ${ContactFragment}
+  ${NegotiatorFragment}
+  ${OfficeFragment}
   fragment AppointmentFragment on AppointmentModel {
     id
-    lastCreated
-    lastModified
-    startDate
-    endDate
+    created
+    modified
+    start
+    end
     recurring
-    recurrence {
-      interval
-      type
-      until
-    }
     cancelled
     followUp {
       due
       responseId
       notes
     }
-    attachedContacts {
+    attendee {
       type
       id
-      contact {
-        ...ContactFragment
+      contacts {
+        id
+        name
+        workPhone
+        homePhone
+        mobilePhone
+        email
       }
     }
     organiserId
     accompanied
-    virtual
     negotiatorConfirmed
     attendeeConfirmed
     propertyConfirmed
-    fromArchive
 
     _embedded {
-      attachedProperties {
-        ...PropertyFragment
+      offices {
+        ...OfficeFragment
       }
-      attachedStaffMembers {
+      negotiators {
         ...NegotiatorFragment
       }
-      attachedProperties {
+      property {
         ...PropertyFragment
       }
     }

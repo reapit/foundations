@@ -1,6 +1,6 @@
 import { Appointment, AppointmentFragment } from '../entities/appointments'
 import { gql } from 'apollo-server-core'
-import { Authorized, Ctx, Query, Resolver } from 'type-graphql'
+import { Arg, Authorized, Ctx, Query, Resolver } from 'type-graphql'
 import { Context } from '@apollo/client'
 import { query } from '../utils/graphql-fetch'
 import { Office } from '../entities/office'
@@ -10,7 +10,7 @@ import { Property } from '../entities/property'
 const getAppointmentQuery = gql`
   ${AppointmentFragment}
   query GetAppointment($id: String!) {
-    GetAppointmentById(id: $id, embed: [offices, negotiators, property, contacts]) {
+    GetAppointmentById(id: $id, embed: [offices, negotiators, property]) {
       ...AppointmentFragment
     }
   }
@@ -18,8 +18,8 @@ const getAppointmentQuery = gql`
 
 const getAppointmentsQuery = gql`
   ${AppointmentFragment}
-  {
-    GetAppointments(embed: [offices, negotiators, property, contacts]) {
+  query GetAppointments($start: String!, $end: String!) {
+    GetAppointments(start: $start, end: $end, embed: [offices, negotiators, property]) {
       _embedded {
         ...AppointmentFragment
       }
@@ -77,10 +77,14 @@ const getAppointment = async (id: string, accessToken: string, idToken: string):
   return convertDates(addDefaultEmbeds(hoistedAppointment))
 }
 
-const getAppointments = async (accessToken: string, idToken: string): Promise<Appointment[]> => {
+const getAppointments = async (
+  accessToken: string,
+  idToken: string,
+  dates: { start: string; end: string },
+): Promise<Appointment[]> => {
   const appointments = await query<{ _embedded: AppointmentAPIResponse<AppointmentsEmbeds>[] }>(
     getAppointmentsQuery,
-    {},
+    dates,
     'GetAppointments',
     {
       accessToken,
@@ -100,8 +104,13 @@ const entityName = 'appointment'
 export class AppointmentResolver {
   @Authorized()
   @Query(() => [Appointment])
-  async listAppointments(@Ctx() { accessToken, idToken, storeCachedMetadata }: Context): Promise<Appointment[]> {
-    const appointments = await getAppointments(accessToken, idToken)
+  async listAppointments(
+    @Ctx() { accessToken, idToken, storeCachedMetadata }: Context,
+    @Arg('start') start: string,
+    @Arg('end') end: string,
+  ): Promise<Appointment[]> {
+    console.log('startend', start, end)
+    const appointments = await getAppointments(accessToken, idToken, { start, end })
     appointments?.forEach((appointment) => {
       storeCachedMetadata(entityName, appointment.id, appointment.metadata)
     })
