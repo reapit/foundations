@@ -9,7 +9,7 @@ import { elFlex, elFlex1, elFlexAlignCenter, elFlexJustifyStart, elM2 } from '@r
 import React from 'react'
 import slugify from 'slugify'
 import { emptyState } from '../../hooks/apps/emptyState'
-import { AppBuilderIconButton, AppBuilderSelect } from '../components'
+import { AppBuilderIconButton, AppBuilderSelect, SelectOrInput } from '../components'
 
 export const newPage = (name: string) => {
   const page = {
@@ -26,23 +26,37 @@ export const PageSelector = ({ pageId, onChange }: { pageId?: string; onChange: 
   const pages = app?.pages || []
   const { updatePage } = useUpdatePage()
   const { deletePage, loading } = useDeletePage()
+  const currentPage = pages.find((page) => page.id === pageId)
 
   return (
     <div className={cx(elFlex1, elFlex, elFlexAlignCenter, elFlexJustifyStart)}>
-      <AppBuilderSelect
-        id="page_selector"
-        name="page_selector"
-        value={pageId}
-        onChange={(e) => {
-          onChange(e.target.value)
+      <SelectOrInput
+        defaultValue={currentPage?.name || ''}
+        onInputSubmit={(e) => {
+          e.preventDefault()
+          const newPage = {
+            ...currentPage,
+            name: e.currentTarget.value,
+          }
+          console.log(newPage)
+          updatePage(appId, newPage)
         }}
       >
-        {pages.map(({ id: value, name: label }) => (
-          <option key={value} value={value}>
-            {label || 'Home'}
-          </option>
-        ))}
-      </AppBuilderSelect>
+        <AppBuilderSelect
+          id="page_selector"
+          name="page_selector"
+          value={pageId}
+          onChange={(e) => {
+            onChange(e.target.value)
+          }}
+        >
+          {pages.map(({ id: value, name: label }) => (
+            <option key={value} value={value}>
+              {label || 'Home'}
+            </option>
+          ))}
+        </AppBuilderSelect>
+      </SelectOrInput>
       <AppBuilderIconButton
         className={elM2}
         onClick={() => {

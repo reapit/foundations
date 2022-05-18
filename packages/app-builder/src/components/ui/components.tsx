@@ -1,5 +1,6 @@
 import { styled } from '@linaria/react'
 import { Button, Select } from '@reapit/elements'
+import React from 'react'
 
 export const AppBuilderIconButton = styled(Button)`
   width: 32px;
@@ -23,6 +24,52 @@ export const AppBuilderIconButton = styled(Button)`
     return '#f2f2f2'
   }};
 `
+
+const SelectOrInputContainer = styled.div`
+  position: relative;
+  width: 100%;
+  display: flex;
+  max-width: 297px;
+`
+
+const OverlayInput = styled.input`
+  position: absolute;
+  font-family: var(--font-sans-serif);
+  font-size: 1rem;
+  height: calc(2rem - 2px);
+  border: none;
+  margin: 1px;
+  padding-left: 9px;
+  width: 100%;
+  max-width: 267px;
+  background: white;
+  :focus {
+    outline: none;
+  }
+`
+
+export const SelectOrInput = ({
+  children,
+  onInputSubmit,
+  defaultValue,
+}: {
+  children: React.ReactNode
+  defaultValue: string
+  onInputSubmit: React.DOMAttributes<HTMLInputElement>['onSubmit']
+}) => (
+  <SelectOrInputContainer>
+    {children}
+    <OverlayInput
+      defaultValue={defaultValue}
+      onSubmit={onInputSubmit}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter') {
+          onInputSubmit && onInputSubmit(e)
+        }
+      }}
+    />
+  </SelectOrInputContainer>
+)
 
 export const AppBuilderSelect = styled(Select)`
   border: 1px solid #e3e3e3;
