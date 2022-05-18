@@ -5,8 +5,8 @@ import { MetadataSchemaType } from '../utils/extract-metadata'
 import { Contact, ContactFragment, ContactInput } from '../entities/contact'
 import { Context } from '../types'
 import { query } from '../utils/graphql-fetch'
-import { Office } from '@/entities/office'
-import { Negotiator } from '@/entities/negotiator'
+import { Office } from '../entities/office'
+import { Negotiator } from '../entities/negotiator'
 
 const getContactsQuery = gql`
   ${ContactFragment}
