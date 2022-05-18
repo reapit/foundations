@@ -29,6 +29,7 @@ import { notEmpty } from './utils/helpers'
 import { CustomEntityResolver } from './resolvers/custom-entity-resolver'
 import { CustomEntity, CustomEntityField } from './entities/custom-entity'
 import { extractMetadata, isIdEntityType } from './utils/extract-metadata'
+import { AppointmentResolver } from './resolvers/appointment-resolver'
 
 const customEntityFieldTypeToGraphQLType = (fieldType: CustomEntityField['type']) => {
   switch (fieldType) {
@@ -318,6 +319,7 @@ export const getSchema = async (context?: Context): Promise<GraphQLSchema> => {
       OfficeResolver,
       CustomEntityResolver,
       ApplicantResolver,
+      AppointmentResolver,
     ],
     authChecker: customAuthChecker,
   })
