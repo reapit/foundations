@@ -7,7 +7,7 @@ describe('SidebarItem', () => {
   it('should match a snapshot', () => {
     const { asFragment } = render(
       <MockedProvider>
-        <SidebarItem title={''} icon={() => null} />
+        <SidebarItem title={''} />
       </MockedProvider>,
     )
     expect(asFragment()).toMatchSnapshot()

@@ -12,11 +12,8 @@ exports[`SidebarItem should match a snapshot 1`] = `
       <div
         class="el-flex el-flex1 el-flex-align-center"
       >
-        <div
-          class="icon-container"
-        />
-        <p
-          class="uppercase el-small-text"
+        <h2
+          class="subtitle-bold"
           style="margin-bottom: 0px;"
         />
       </div>

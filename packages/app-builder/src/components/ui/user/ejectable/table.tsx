@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useRef } from 'react'
+import React, { forwardRef } from 'react'
 import {
   Button,
   elFlex,
@@ -15,7 +15,6 @@ import { useHistory } from 'react-router'
 import qs from 'query-string'
 import path from 'path'
 import { cx } from '@linaria/core'
-import { useReactToPrint } from 'react-to-print'
 
 import { Container, ContainerProps } from './container'
 import { uppercaseSentence } from './utils'
@@ -27,7 +26,6 @@ import { lowercaseFirstLetter, useSubObjects } from '../../../../components/hook
 import { notEmpty } from '../../../../components/hooks/use-introspection/helpers'
 import { usePageId } from '../../../../components/hooks/use-page-id'
 import { useObjectSpecials } from '../../../../components/hooks/objects/use-object-specials'
-import { QRCode } from './qr-code'
 
 export interface TableProps extends ContainerProps {
   typeName?: string
@@ -114,37 +112,6 @@ const getDataCells = (row: any, subobjectNames: string[]) =>
       },
     }))
 
-const PrintableQR = ({ destination, context, size }) => {
-  const ref = useRef<HTMLDivElement>()
-  const handlePrint = useReactToPrint({
-    content: () => ref.current || null,
-    onBeforeGetContent: () => {
-      if (ref.current) {
-        ref.current.style.display = 'block'
-      }
-    },
-    onAfterPrint: () => {
-      if (ref.current) {
-        ref.current.style.display = 'none'
-      }
-    },
-  })
-
-  useEffect(() => {
-    if (ref.current) {
-      ref.current.style.display = 'none'
-    }
-  }, [ref])
-
-  return (
-    <>
-      <Button onClick={handlePrint}>Print QR</Button>
-      {/* @ts-ignore incompatible refs */}
-      <QRCode ref={ref} width={size} destination={destination} context={context} />
-    </>
-  )
-}
-
 const AdditionalCells = ({
   specialsAndSubobjects,
   props,
@@ -165,8 +132,6 @@ const AdditionalCells = ({
   <>
     {specialsAndSubobjects.map(({ name, label }) => {
       const pageId = props[`${name}Page`]
-      const printableQrPageId = !!props[`${name}PagePrintableQR`]
-      const printableQrSize = parseInt(props[`${name}PagePrintableQRSize`], 10)
       if (!pageId) return null
 
       return (
@@ -184,16 +149,6 @@ const AdditionalCells = ({
           >
             {label}
           </Button>
-          {printableQrPageId && (
-            <PrintableQR
-              size={printableQrSize}
-              destination={pageId}
-              context={{
-                ...context,
-                [lowercaseFirstLetter(`${typeName}Id`)]: rowId,
-              }}
-            />
-          )}
         </React.Fragment>
       )
     })}

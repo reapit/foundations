@@ -16,6 +16,7 @@ import { PropertyResolver } from './resolvers/property-resolver'
 import { KeyTypeResolver } from './resolvers/key-type-resolver'
 import { customAuthChecker } from './utils/auth-checker'
 import { OfficeResolver } from './resolvers/offices-resolver'
+import { ApplicantResolver } from './resolvers/applicant-resolver'
 import { Context } from './types'
 import {
   createMetadataObject,
@@ -28,6 +29,7 @@ import { notEmpty } from './utils/helpers'
 import { CustomEntityResolver } from './resolvers/custom-entity-resolver'
 import { CustomEntity, CustomEntityField } from './entities/custom-entity'
 import { extractMetadata, isIdEntityType } from './utils/extract-metadata'
+import { AppointmentResolver } from './resolvers/appointment-resolver'
 
 const customEntityFieldTypeToGraphQLType = (fieldType: CustomEntityField['type']) => {
   switch (fieldType) {
@@ -316,6 +318,8 @@ export const getSchema = async (context?: Context): Promise<GraphQLSchema> => {
       KeyTypeResolver,
       OfficeResolver,
       CustomEntityResolver,
+      ApplicantResolver,
+      AppointmentResolver,
     ],
     authChecker: customAuthChecker,
   })

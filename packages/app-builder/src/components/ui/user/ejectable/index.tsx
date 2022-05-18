@@ -1,5 +1,6 @@
 export * from './container'
 export * from './form'
+export * from './form-input'
 export * from './link'
 export * from './table'
 export * from './text'
