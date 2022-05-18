@@ -48,11 +48,19 @@ exports[`Viewport should match a snapshot 1`] = `
         <div
           class="el-flex1 el-flex el-flex-align-center el-flex-justify-start"
         >
-          <select
-            class="app-builder-select el-select"
-            id="page_selector"
-            name="page_selector"
-          />
+          <div
+            class="select-or-input-container"
+          >
+            <select
+              class="app-builder-select el-select"
+              id="page_selector"
+              name="page_selector"
+            />
+            <input
+              class="overlay-input"
+              value=""
+            />
+          </div>
           <button
             class="el-m2 app-builder-icon-button el-button"
             style="--awfk8ev-0: #f2f2f2;"
