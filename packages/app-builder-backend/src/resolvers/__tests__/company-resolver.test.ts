@@ -210,37 +210,6 @@ describe('company-resolver', () => {
     })
   })
 
-  // describe('searchContacts', () => {
-  //   it('should return contacts', async () => {
-  //     const result = await client.query({
-  //       query: gql`
-  //         query SearchContacts($query: String!) {
-  //           searchContacts(query: $query) {
-  //             id
-  //             forename
-  //             surname
-  //             title
-  //             email
-  //             marketingConsent
-  //           }
-  //         }
-  //       `,
-  //       variables: {
-  //         query: 'Smith',
-  //       },
-  //     })
-  //     expect(result.data.searchContacts).toBeDefined()
-  //     expect(result.data.searchContacts[0]).toEqual({
-  //       __typename: 'Contact',
-  //       id: 'RPT20000017',
-  //       title: 'Mr',
-  //       forename: 'John',
-  //       surname: 'Smith',
-  //       email: 'example@email.com',
-  //       marketingConsent: 'grant',
-  //     })
-  //   })
-  // })
 
   describe('getCompany', () => {
     it('should return company', async () => {
