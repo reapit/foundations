@@ -99,7 +99,7 @@ export class Appointment {
   @Field(() => Property, { nullable: true })
   property?: Property
 
-  @Field()
+  @Field({ nullable: true })
   organiserId?: string
 
   @Field(() => [Negotiator])
@@ -111,7 +111,7 @@ export class Appointment {
   @Field(() => [AppointmentAttendee])
   attendees: AppointmentAttendee[]
 
-  @Field()
+  @Field({ nullable: true })
   accompanied: boolean
 
   @Field()
@@ -153,9 +153,6 @@ class AppointmentFollowUpInput {
 @InputType()
 class AppointmentContactInput {
   @Field()
-  id: string
-
-  @Field()
   name: string
 
   @Field({ nullable: true })
@@ -173,9 +170,6 @@ class AppointmentContactInput {
 
 @InputType()
 class AppointmentAttendeeInput {
-  @Field()
-  id: string
-
   @Field()
   type: string
 
