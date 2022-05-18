@@ -1,31 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Toolbar should match a snapshot - active 1`] = `
+exports[`Toolbar should match a snapshot 1`] = `
 <DocumentFragment>
   <div
     class="el-py1 el-hfull"
   />
-</DocumentFragment>
-`;
-
-exports[`Toolbar should match a snapshot - inactive 1`] = `
-<DocumentFragment>
-  <div
-    class="el-py1 el-hfull"
-  >
-    <div
-      class="el-px6 el-py3 el-flex el-flex-column el-flex-align-center el-hfull el-flex-justify-center el-text-center"
-      style="color: rgba(0, 0, 0, 0.5607843137254902); font-size: 11px;"
-    >
-      <p
-        class="el-has-bold-text el-small-text"
-      >
-        Click on a component to start editing.
-      </p>
-      <h2>
-        You could also double click on the layers below to edit their names, like in Photoshop
-      </h2>
-    </div>
-  </div>
 </DocumentFragment>
 `;
