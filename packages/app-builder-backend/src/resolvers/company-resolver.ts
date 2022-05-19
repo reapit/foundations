@@ -209,7 +209,7 @@ export class CompanyResolver {
 
   @Authorized()
   @Query(() => Company)
-  async GetCompany(
+  async getCompany(
     @Ctx() { idToken, accessToken, storeCachedMetadata }: Context,
     @Arg('id') id: string,
   ): Promise<Company> {

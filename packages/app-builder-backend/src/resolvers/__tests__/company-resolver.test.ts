@@ -230,7 +230,6 @@ describe('company-resolver', () => {
               workPhone
               mobilePhone
               email
-              metadata
               address {
                 buildingName
                 buildingNumber
@@ -265,6 +264,7 @@ describe('company-resolver', () => {
         mobilePhone: null,
         email: 'example@email.com',
         address: {
+          __typename: 'CompanyAddress',
           buildingNumber: '15',
           buildingName: '123',
           line1: 'Example street',
