@@ -210,7 +210,6 @@ describe('company-resolver', () => {
     })
   })
 
-
   describe('getCompany', () => {
     it('should return company', async () => {
       const result = await client.query({
