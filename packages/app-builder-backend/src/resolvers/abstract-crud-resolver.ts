@@ -57,8 +57,6 @@ export abstract class AbstractCrudService<Entity, Embeds extends any, EntityInpu
       return null
     }
 
-    entity
-
     const hoistedEntity = this.hoistEmbeds(entity)
     return this.convertDates(this.addDefaultEmbeds(hoistedEntity))
   }
