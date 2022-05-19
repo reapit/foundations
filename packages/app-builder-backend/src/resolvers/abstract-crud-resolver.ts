@@ -83,8 +83,6 @@ export abstract class AbstractCrudService<Entity, Embeds extends any, EntityInpu
       },
     )
 
-    console.log('entities', entities)
-
     return entities._embedded
       .map((entity) => this.hoistEmbeds(entity))
       .map(this.addDefaultEmbeds)
