@@ -1,18 +1,15 @@
-import { Offer, OfferFragment, OfferInput } from "../entities/offer"
-import { Context } from "@apollo/client"
-import { gql } from "apollo-server-core"
-import { Arg, Authorized, Ctx, Mutation, Query, Resolver } from "type-graphql"
-import { AbstractCrudService } from "./abstract-crud-resolver"
+import { Offer, OfferFragment, OfferInput } from '../entities/offer'
+import { Context } from '@apollo/client'
+import { gql } from 'apollo-server-core'
+import { Arg, Authorized, Ctx, Mutation, Query, Resolver } from 'type-graphql'
+import { AbstractCrudService } from './abstract-crud-resolver'
 
-type OfferEmbed = {
+type OfferEmbed = {}
 
-}
-
-class OfferService extends AbstractCrudService<Offer, OfferEmbed, OfferInput> {
-}
+class OfferService extends AbstractCrudService<Offer, OfferEmbed, OfferInput> {}
 
 const getOfferQuery = gql`
-${OfferFragment}
+  ${OfferFragment}
   query GetOffer($id: String!) {
     GetOfferById(id: $id) {
       ...OfferFragment
@@ -21,50 +18,50 @@ ${OfferFragment}
 `
 
 const getOffersQuery = gql`
-${OfferFragment}
-{
-  GetOffers {
-    _embedded {
-      ...OfferFragment
+  ${OfferFragment}
+  {
+    GetOffers {
+      _embedded {
+        ...OfferFragment
+      }
     }
   }
-}
 `
 
 const createOfferMutation = gql`
-${OfferFragment}
-mutation CreateOffer(
-  $id: String!
-  $currency: String
-  $applicantId: String
-  $propertyId: String
-  $OfferId: String
-  $date: String
-  $amount: String
-  $status: String
-  $inclusions: String
-  $exclusions: String
-  $conditions: String
-  $metadata: JSON
-) {
-  CreateOffer(
-    id: $id
-    currency: $currency
-    applicantId: $applicantId
-    propertyId: $propertyId
-    OfferId: $OfferId
-    date: $date
-    amount: $amount
-    status: $status
-    inclusions: $inclusions
-    exclusions: $exclusions
-    conditions: $conditions
-    metadata: $metadata
-  ){
-    OfferFragment
+  ${OfferFragment}
+  mutation CreateOffer(
+    $id: String!
+    $currency: String
+    $applicantId: String
+    $propertyId: String
+    $OfferId: String
+    $date: String
+    $amount: String
+    $status: String
+    $inclusions: String
+    $exclusions: String
+    $conditions: String
+    $metadata: JSON
+  ) {
+    CreateOffer(
+      id: $id
+      currency: $currency
+      applicantId: $applicantId
+      propertyId: $propertyId
+      OfferId: $OfferId
+      date: $date
+      amount: $amount
+      status: $status
+      inclusions: $inclusions
+      exclusions: $exclusions
+      conditions: $conditions
+      metadata: $metadata
+    ) {
+      OfferFragment
+    }
   }
-}
-  `
+`
 
 const updateOfferMutation = gql`
   mutation UpdateOffer(
@@ -94,10 +91,10 @@ const updateOfferMutation = gql`
       exclusions: $exclusions
       conditions: $conditions
       metadata: $metadata
-    ){
-    OfferFragment
+    ) {
+      OfferFragment
+    }
   }
-}
 `
 
 const entityName = 'offer'
@@ -106,21 +103,12 @@ const entityName = 'offer'
 export class OfferResolver {
   readonly service: OfferService
   constructor() {
-    this.service = new OfferService(
-      getOfferQuery,
-      getOffersQuery,
-      updateOfferMutation,
-      createOfferMutation,
-      'Offer',
-    )
+    this.service = new OfferService(getOfferQuery, getOffersQuery, updateOfferMutation, createOfferMutation, 'Offer')
   }
 
   @Query(() => Offer)
   @Authorized()
-  async getOffer(
-    @Ctx() { idToken, accessToken, storeCachedMetadata }: Context,
-    @Arg('id') id: string,
-  ): Promise<Offer> {
+  async getOffer(@Ctx() { idToken, accessToken, storeCachedMetadata }: Context, @Arg('id') id: string): Promise<Offer> {
     const offer = await this.service.getEntity({
       id,
       idToken,
@@ -137,9 +125,7 @@ export class OfferResolver {
 
   @Query(() => [Offer])
   @Authorized()
-  async listOffers(
-    @Ctx() { idToken, accessToken }: Context,
-  ): Promise<Offer[]> {
+  async listOffers(@Ctx() { idToken, accessToken }: Context): Promise<Offer[]> {
     return this.service.getEntities({
       idToken,
       accessToken,

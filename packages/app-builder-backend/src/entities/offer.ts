@@ -1,5 +1,5 @@
-import { gql } from "apollo-server-core";
-import { Field, GraphQLISODateTime, InputType, ObjectType } from "type-graphql";
+import { gql } from 'apollo-server-core'
+import { Field, GraphQLISODateTime, InputType, ObjectType } from 'type-graphql'
 
 @ObjectType()
 export class Offer {
@@ -79,20 +79,20 @@ export class OfferInput {
 }
 
 export const OfferFragment = gql`
-fragment OfferFragment on OfferModel {
-  id
-  created
-  modified
-  currency
-  applicantId
-  propertyId
-  OfferId
-  date
-  amount
-  status
-  inclusions
-  exclusions
-  conditions
-  metadata
-}
+  fragment OfferFragment on OfferModel {
+    id
+    created
+    modified
+    currency
+    applicantId
+    propertyId
+    OfferId
+    date
+    amount
+    status
+    inclusions
+    exclusions
+    conditions
+    metadata
+  }
 `
