@@ -1,8 +1,8 @@
 import { Company, CompanyFragment, CompanyInput } from '../entities/company'
-import { query } from '../utils/graphql-fetch'
 import { Context } from '@apollo/client'
 import { gql } from 'apollo-server-core'
 import { Arg, Authorized, Ctx, Mutation, Query, Resolver } from 'type-graphql'
+import { AbstractCrudService } from './abstract-crud-resolver'
 
 const getCompaniesQuery = gql`
   ${CompanyFragment}
@@ -96,111 +96,32 @@ const updateCompanyMutation = gql`
   }
 `
 
-type CompanyAPIResponse<T> = Company & {
-  _embedded: T
-  _eTag: string
-}
-
 type CompaniesEmbeds = {}
-
-const getApiCompany = async (
-  id: string,
-  accessToken: string,
-  idToken: string,
-): Promise<CompanyAPIResponse<CompaniesEmbeds> | null> => {
-  return query<CompanyAPIResponse<CompaniesEmbeds> | null>(getCompanyQuery, { id }, 'GetCompanyById', {
-    accessToken,
-    idToken,
-  })
-}
-
-const addDefaultEmbeds = (company: Company): Company => ({
-  ...company,
-})
-
-const hoistEmbeds = <T, E>(object: T & { _embedded: any }): T & E => {
-  const { _embedded, ...rest } = object
-  return { ...rest, ..._embedded }
-}
-
-const convertDates = (company: Company): Company => ({
-  ...company,
-  created: new Date(company.created),
-  modified: new Date(company.modified),
-})
-
-const getCompany = async (id: string, accessToken: string, idToken: string): Promise<Company | null> => {
-  const company = await getApiCompany(id, accessToken, idToken)
-
-  if (!company) {
-    return null
-  }
-
-  // const hoistedCompanies = hoistEmbeds<CompanyAPIResponse<CompaniesEmbeds>, CompaniesEmbeds>(company)
-  return convertDates(addDefaultEmbeds(company))
-}
-
-const getCompanies = async (accessToken: string, idToken: string): Promise<Company[]> => {
-  const companies = await query<{ _embedded: CompanyAPIResponse<CompaniesEmbeds>[] }>(
-    getCompaniesQuery,
-    {},
-    'GetCompanies',
-    {
-      accessToken,
-      idToken,
-    },
-  )
-
-  return companies._embedded
-    .map((c) => hoistEmbeds<CompanyAPIResponse<CompaniesEmbeds>, CompaniesEmbeds>(c))
-    .map(addDefaultEmbeds)
-    .map(convertDates)
-}
-
-const createCompany = async (accessToken: string, idToken: string, company: CompanyInput): Promise<Company> => {
-  const res = await query<CompanyAPIResponse<null>>(createCompanyMutation, company, 'CreateCompany', {
-    accessToken,
-    idToken,
-  })
-  const { id } = res
-  const newCompany = await getCompany(id, accessToken, idToken)
-  if (!newCompany) {
-    throw new Error('Failed to create company')
-  }
-  return newCompany
-}
-
-const updateCompany = async (
-  accessToken: string,
-  idToken: string,
-  id: string,
-  company: CompanyInput,
-): Promise<Company> => {
-  const existingCompany = await getApiCompany(id, accessToken, idToken)
-  if (!existingCompany) {
-    throw new Error(`Company with id ${id} not found`)
-  }
-  const { _eTag } = existingCompany
-  await query<CompanyAPIResponse<null>>(updateCompanyMutation, { ...company, id, _eTag }, 'UpdateCompany', {
-    accessToken,
-    idToken,
-  })
-
-  const newCompany = await getCompany(id, accessToken, idToken)
-  if (!newCompany) {
-    throw new Error('Company not found')
-  }
-  return newCompany
-}
 
 const entityName = 'company'
 
+class CompanyService extends AbstractCrudService<Company, CompaniesEmbeds, CompanyInput> {
+  getManyQueryName = () => 'GetCompanies'
+}
+
 @Resolver(() => Company)
 export class CompanyResolver {
+  readonly companyService: CompanyService
+
+  constructor() {
+    this.companyService = new CompanyService(
+      getCompanyQuery,
+      getCompaniesQuery,
+      updateCompanyMutation,
+      createCompanyMutation,
+      'Company',
+    )
+  }
+
   @Authorized()
   @Query(() => [Company])
   async listCompanies(@Ctx() { idToken, accessToken, storeCachedMetadata }: Context): Promise<Company[]> {
-    const companies = await getCompanies(accessToken, idToken)
+    const companies = await this.companyService.getEntities({ accessToken, idToken })
     companies?.forEach((company) => {
       storeCachedMetadata(entityName, company.id, company.metadata)
     })
@@ -213,7 +134,7 @@ export class CompanyResolver {
     @Ctx() { idToken, accessToken, storeCachedMetadata }: Context,
     @Arg('id') id: string,
   ): Promise<Company> {
-    const company = await getCompany(id, accessToken, idToken)
+    const company = await this.companyService.getEntity({ id, accessToken, idToken })
     if (!company) {
       throw new Error(`Company with id ${id} not found`)
     }
@@ -228,7 +149,12 @@ export class CompanyResolver {
     @Arg(entityName) company: CompanyInput,
   ): Promise<Company> {
     const { [entityName]: metadata } = operationMetadata
-    const newCompany = await createCompany(accessToken, idToken, { ...company, metadata })
+    const newCompany = await this.companyService.createEntity({
+      accessToken,
+      idToken,
+      entityInput: { ...company, metadata },
+    })
+
     storeCachedMetadata(entityName, newCompany.id, newCompany.metadata)
     return newCompany
   }
@@ -241,7 +167,12 @@ export class CompanyResolver {
     @Arg(entityName) company: CompanyInput,
   ): Promise<Company> {
     const { [entityName]: metadata } = operationMetadata
-    const newCompany = await updateCompany(accessToken, idToken, id, { ...company, metadata })
+    const newCompany = await this.companyService.updateEntity({
+      accessToken,
+      idToken,
+      id,
+      entityInput: { ...company, metadata },
+    })
     storeCachedMetadata(entityName, newCompany.id, newCompany.metadata)
     return newCompany
   }
