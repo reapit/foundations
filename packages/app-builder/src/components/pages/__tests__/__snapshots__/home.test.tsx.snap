@@ -58,6 +58,7 @@ exports[`Home should match a snapshot 1`] = `
             />
             <input
               class="overlay-input"
+              data-form-type="other"
               value=""
             />
           </div>
@@ -240,6 +241,35 @@ exports[`Home should match a snapshot 1`] = `
               </span>
             </label>
           </div>
+        </div>
+        <div
+          class="select-or-input-small select-or-input-container"
+        >
+          <select
+            class="app-builder-select el-select"
+            style="max-width: 84px;"
+          >
+            <option
+              value="0.5"
+            >
+              50%
+            </option>
+            <option
+              value="1"
+            >
+              100%
+            </option>
+            <option
+              value="1.5"
+            >
+              150%
+            </option>
+          </select>
+          <input
+            class="overlay-input"
+            data-form-type="other"
+            value="100%"
+          />
         </div>
         <button
           class="app-builder-icon-button el-intent-primary el-button"

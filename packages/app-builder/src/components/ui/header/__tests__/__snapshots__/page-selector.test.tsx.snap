@@ -15,6 +15,7 @@ exports[`PageSelector should match a snapshot 1`] = `
       />
       <input
         class="overlay-input"
+        data-form-type="other"
         value=""
       />
     </div>
