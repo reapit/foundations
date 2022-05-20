@@ -1,9 +1,11 @@
-import { ObjectType, Field, ID } from 'type-graphql'
+import { ObjectType, Field, ID, InputType, GraphQLISODateTime } from 'type-graphql'
 import { gql } from 'apollo-server-core'
 
 export const PropertyFragment = gql`
   fragment PropertyFragment on PropertyModel {
     id
+    created
+    modified
     type
     description
     bedrooms
@@ -17,7 +19,7 @@ export const PropertyFragment = gql`
       buildingName
       buildingNumber
       postcode
-      geolocation {
+      geoLocation {
         latitude
         longitude
       }
@@ -41,7 +43,7 @@ export const PropertyFragment = gql`
 `
 
 @ObjectType()
-class Geolocation {
+class GeoLocation {
   @Field()
   latitude?: number
 
@@ -50,7 +52,7 @@ class Geolocation {
 }
 
 @ObjectType()
-class Address {
+class PropertyAddress {
   @Field()
   line1?: string
 
@@ -72,8 +74,8 @@ class Address {
   @Field()
   postcode?: string
 
-  @Field(() => Geolocation)
-  geolocation?: Geolocation
+  @Field(() => GeoLocation)
+  geoLocation?: GeoLocation
 }
 
 @ObjectType()
@@ -88,6 +90,21 @@ class Image {
   order: number
 }
 
+@ObjectType()
+class PropertyLetting {
+  @Field()
+  rent: number
+
+  @Field()
+  rentFrequency: string
+}
+
+@ObjectType()
+class PropertySelling {
+  @Field()
+  price: number
+}
+
 @ObjectType({
   description: '@supportsCustomFields()',
 })
@@ -96,6 +113,12 @@ export class Property {
     description: '@acKey(prpCode)',
   })
   id: string
+
+  @Field(() => GraphQLISODateTime)
+  created: Date
+
+  @Field(() => GraphQLISODateTime)
+  modified: Date
 
   @Field(() => [String])
   type?: string[]
@@ -112,8 +135,8 @@ export class Property {
   @Field()
   bathrooms?: number
 
-  @Field(() => Address)
-  address?: Address
+  @Field(() => PropertyAddress)
+  address?: PropertyAddress
 
   @Field({ nullable: true })
   lettingRentPrice?: number
@@ -135,6 +158,122 @@ export class Property {
 
   @Field({ nullable: true })
   status?: string
+
+  @Field(() => PropertyLetting, { nullable: true })
+  letting: PropertyLetting
+
+  @Field(() => PropertySelling, { nullable: true })
+  selling: PropertySelling
+
+  metadata?: any
+}
+
+@InputType()
+class PropertyGeoLocationInput {
+  @Field()
+  latitude?: number
+
+  @Field()
+  longitude?: number
+}
+
+@InputType()
+export class PropertyAddressInput {
+  @Field()
+  line1?: string
+
+  @Field()
+  line2?: string
+
+  @Field()
+  line3?: string
+
+  @Field()
+  line4?: string
+
+  @Field()
+  buildingName?: string
+
+  @Field()
+  buildingNumber?: string
+
+  @Field()
+  postcode?: string
+
+  @Field(() => PropertyGeoLocationInput)
+  geoLocation?: PropertyGeoLocationInput
+}
+
+// @InputType()
+// class PropertyImageInput {
+//   @Field()
+//   url: string
+
+//   @Field()
+//   order: number
+// }
+
+@InputType()
+class PropertyLettingInput {
+  @Field()
+  rent: number
+
+  @Field()
+  rentFrequency: string
+}
+
+@InputType()
+class PropertySellingInput {
+  @Field()
+  price: number
+}
+
+@InputType()
+export class PropertyInput {
+  @Field(() => [String])
+  type?: string[]
+
+  @Field({ nullable: true })
+  description?: string
+
+  @Field()
+  bedrooms?: number
+
+  @Field()
+  receptions?: number
+
+  @Field()
+  bathrooms?: number
+
+  @Field(() => PropertyAddressInput)
+  address?: PropertyAddressInput
+
+  @Field({ nullable: true })
+  lettingRentPrice?: number
+
+  @Field({ nullable: true })
+  lettingRentFrequency?: string
+
+  @Field({ nullable: true })
+  salePrice?: number
+
+  // @Field(() => [Image])
+  // images: Image[]
+
+  @Field({ nullable: true })
+  marketingMode?: string
+
+  @Field({ nullable: true })
+  saleOrLetting?: string
+
+  @Field({ nullable: true })
+  status?: string
+
+  @Field(() => PropertyLettingInput, { nullable: true })
+  letting: PropertyLettingInput
+
+  @Field(() => PropertySellingInput, { nullable: true })
+  selling: PropertySellingInput
 
   metadata?: any
 }
