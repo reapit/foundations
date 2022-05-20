@@ -16,7 +16,7 @@ export const OfficeFragment = gql`
       line3
       line4
       postcode
-      countryId
+      country
     }
     workPhone
     email
@@ -65,10 +65,10 @@ export class Office {
   @Field(() => GraphQLISODateTime)
   created: Date
 
-  @Field()
+  @Field({ nullable: true })
   manager: string
 
-  @Field(() => OfficeAddress)
+  @Field(() => OfficeAddress, { nullable: true })
   address: OfficeAddress
 
   @Field({ nullable: true })
@@ -112,10 +112,10 @@ export class OfficeInput {
   @Field()
   name: string
 
-  @Field()
+  @Field({ nullable: true })
   manager: string
 
-  @Field(() => OfficeAddressInput)
+  @Field(() => OfficeAddressInput, { nullable: true })
   address: OfficeAddressInput
 
   @Field({ nullable: true })

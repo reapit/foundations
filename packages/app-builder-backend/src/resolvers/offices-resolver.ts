@@ -1,5 +1,5 @@
 import { gql } from 'apollo-server-core'
-import { Resolver, Query, Ctx, Arg } from 'type-graphql'
+import { Resolver, Query, Ctx, Arg, Authorized, Mutation } from 'type-graphql'
 import { Office, OfficeFragment, OfficeInput } from '../entities/office'
 import { Context } from '../types'
 import { AbstractCrudService } from './abstract-crud-resolver'
@@ -50,6 +50,7 @@ const updateOfficeMutation = gql`
 `
 
 const createOfficeMutation = gql`
+  ${OfficeFragment}
   mutation CreateOffice(
     $name: String!
     $manager: String
@@ -93,10 +94,13 @@ export class OfficeResolver {
   }
 
   @Query(() => [Office])
+  @Authorized()
   async listOffices(@Ctx() { accessToken, idToken }: Context): Promise<Office[]> {
     return this.service.getEntities({ accessToken, idToken })
   }
 
+  @Query(() => Office)
+  @Authorized()
   async getOffice(
     @Ctx() { storeCachedMetadata, idToken, accessToken }: Context,
     @Arg('id') id: string,
@@ -109,6 +113,8 @@ export class OfficeResolver {
     return office
   }
 
+  @Authorized()
+  @Mutation(() => Office)
   async createOffice(
     @Ctx() { idToken, accessToken, storeCachedMetadata }: Context,
     @Arg(entityName) entityInput: OfficeInput,
@@ -123,6 +129,8 @@ export class OfficeResolver {
     return office
   }
 
+  @Authorized()
+  @Mutation(() => Office)
   async updateOffice(
     @Ctx() { idToken, accessToken, storeCachedMetadata }: Context,
     @Arg(entityName) entityInput: OfficeInput,
