@@ -14,6 +14,7 @@ import { useApp } from '@/components/hooks/apps/use-app'
 import { Link } from 'react-router-dom'
 import Play from '@/components/icons/play'
 import { AppBuilderIconButton } from '../components'
+import { Zoomer } from './zoomer'
 
 const Breakpoints = styled.div`
   height: 35px;
@@ -198,6 +199,7 @@ const Header = ({ setBreakpoint, breakpoint }) => {
             ]}
           />
         </Breakpoints>
+        <Zoomer />
         <AppBuilderIconButton intent="primary" style={{ marginLeft: 21, marginRight: 0 }}>
           <Play />
         </AppBuilderIconButton>
