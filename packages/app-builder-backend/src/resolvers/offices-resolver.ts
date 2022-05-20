@@ -1,9 +1,8 @@
 import { gql } from 'apollo-server-core'
-import { Resolver, Query, Ctx } from 'type-graphql'
-
-import { query } from '../utils/graphql-fetch'
-import { Office, OfficeFragment } from '../entities/office'
+import { Resolver, Query, Ctx, Arg } from 'type-graphql'
+import { Office, OfficeFragment, OfficeInput } from '../entities/office'
 import { Context } from '../types'
+import { AbstractCrudService } from './abstract-crud-resolver'
 
 const getOfficesQuery = gql`
   ${OfficeFragment}
@@ -16,24 +15,127 @@ const getOfficesQuery = gql`
   }
 `
 
-const getOffices = async (accessToken: string, idToken: string) => {
-  const { _embedded } = await query<{ _embedded: Office[] }>(getOfficesQuery, {}, 'GetOffices', {
-    accessToken,
-    idToken,
-  })
-  return _embedded.map((office) => ({
-    ...(office.metadata || {}),
-    ...office,
-  }))
+const getOfficeQuery = gql`
+  ${OfficeFragment}
+  query GetOffice($id: String!) {
+    GetOfficeById(id: $id) {
+      ...OfficeFragment
+    }
+  }
+`
+
+const updateOfficeMutation = gql`
+  ${OfficeFragment}
+  mutation UpdateOffice(
+    $id: String!
+    $name: String!
+    $manager: String
+    $workPhone: String
+    $email: String!
+    $metadata: JSON
+    $address: OfficeAddressInput!
+  ) {
+    UpdateOffice(
+      id: $id
+      name: $name
+      manager: $manager
+      workPhone: $workPhone
+      email: $email
+      metadata: $metadata
+      address: $address
+    ) {
+      ...OfficeFragment
+    }
+  }
+`
+
+const createOfficeMutation = gql`
+  mutation CreateOffice(
+    $name: String!
+    $manager: String
+    $workPhone: String
+    $email: String!
+    $metadata: JSON
+    $address: OfficeAddressInput!
+  ) {
+    CreateOffice(
+      name: $name
+      manager: $manager
+      workPhone: $workPhone
+      email: $email
+      metadata: $metadata
+      address: $address
+    ) {
+      ...OfficeFragment
+    }
+  }
+`
+
+type OfficeEmbeds<Office> = Office & {
+  _embedded: {}
 }
+
+class OfficeService extends AbstractCrudService<Office, OfficeEmbeds<Office>, OfficeInput> {}
+
+const entityName = 'office'
 
 @Resolver(() => Office)
 export class OfficeResolver {
-  constructor() {}
+  readonly service: OfficeService
+  constructor() {
+    this.service = new OfficeService(
+      getOfficeQuery,
+      getOfficesQuery,
+      updateOfficeMutation,
+      createOfficeMutation,
+      'Office',
+    )
+  }
 
   @Query(() => [Office])
-  async listOffices(@Ctx() ctx: Context) {
-    const { accessToken, idToken } = ctx
-    return getOffices(accessToken, idToken)
+  async listOffices(@Ctx() { accessToken, idToken }: Context): Promise<Office[]> {
+    return this.service.getEntities({ accessToken, idToken })
+  }
+
+  async getOffice(
+    @Ctx() { storeCachedMetadata, idToken, accessToken }: Context,
+    @Arg('id') id: string,
+  ): Promise<Office> {
+    const office = await this.service.getEntity({ id, idToken, accessToken })
+    if (!office) throw new Error(`Office with id [${id}] was not found`)
+
+    storeCachedMetadata(entityName, office.id, office)
+
+    return office
+  }
+
+  async createOffice(
+    @Ctx() { idToken, accessToken, storeCachedMetadata }: Context,
+    @Arg(entityName) entityInput: OfficeInput,
+  ): Promise<Office> {
+    const office = await this.service.createEntity({
+      accessToken,
+      idToken,
+      entityInput,
+    })
+    storeCachedMetadata(entityName, office.id, office.metadata)
+
+    return office
+  }
+
+  async updateOffice(
+    @Ctx() { idToken, accessToken, storeCachedMetadata }: Context,
+    @Arg(entityName) entityInput: OfficeInput,
+    @Arg('id') id: string,
+  ): Promise<Office> {
+    const office = await this.service.updateEntity({
+      accessToken,
+      idToken,
+      entityInput,
+      id,
+    })
+    storeCachedMetadata(entityName, office.id, office.metadata)
+
+    return office
   }
 }

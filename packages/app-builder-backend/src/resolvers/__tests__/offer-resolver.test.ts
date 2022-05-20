@@ -164,7 +164,6 @@ describe('offer-resolver', () => {
       const result = await client.query({
         query: listOffersQuery,
       })
-      console.log('res', result)
       expect(result.data.listOffers).toBeDefined()
       expect(result.data.listOffers[0]).toEqual({
         __typename: 'Offer',
