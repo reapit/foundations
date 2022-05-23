@@ -32,6 +32,7 @@ import { extractMetadata, isIdEntityType } from './utils/extract-metadata'
 import { AppointmentResolver } from './resolvers/appointment-resolver'
 import { CompanyResolver } from './resolvers/company-resolver'
 import { OfferResolver } from './resolvers/offer-resolver'
+import { PropertyImageResolver } from './resolvers/property-image-resolver'
 
 const customEntityFieldTypeToGraphQLType = (fieldType: CustomEntityField['type']) => {
   switch (fieldType) {
@@ -324,6 +325,7 @@ export const getSchema = async (context?: Context): Promise<GraphQLSchema> => {
       AppointmentResolver,
       CompanyResolver,
       OfferResolver,
+      PropertyImageResolver,
     ],
     authChecker: customAuthChecker,
   })
