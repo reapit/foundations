@@ -48,6 +48,7 @@ export interface AppsDataState {
   appsRefresh: (queryParams?: Object | undefined) => void
   appsDetailRefresh: (queryParams?: Object | undefined) => void
   appRefreshRevisions: () => void
+  appsSetPageNumber: Dispatch<SetStateAction<number>>
 }
 
 export interface AppEditState {
@@ -89,6 +90,7 @@ const { Provider } = AppStateContext
 export const AppProvider: FC = ({ children }) => {
   const [appWizardState, setAppWizardState] = useState<AppWizardState>(defaultAppWizardState as AppWizardState)
   const [appPipeline, setAppPipeline] = useState<PipelineModelInterface | null>(null)
+  const [appsPageNumber, appsSetPageNumber] = useState<number>(1)
   const [appPipelineDeploying, setAppPipelineDeploying] = useState<boolean>(false)
   const [appPipelineSaving, setAppPipelineSaving] = useState<boolean>(false)
   const [appEditForm, setAppEditForm] = useState<AppEditFormSchema>(defaultValues)
@@ -103,7 +105,7 @@ export const AppProvider: FC = ({ children }) => {
   const [apps, appsLoading, , appsRefresh, appsRefreshing] = useReapitGet<AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getApps],
-    queryParams: { showHiddenApps: 'true', developerId, pageSize: 25 },
+    queryParams: { showHiddenApps: 'true', developerId, pageSize: 25, pageNumber: appsPageNumber },
     fetchWhenTrue: [developerId],
   })
 
@@ -153,6 +155,7 @@ export const AppProvider: FC = ({ children }) => {
     appsRefresh,
     appsDetailRefresh,
     appRefreshRevisions,
+    appsSetPageNumber,
   }
 
   const appEditState: AppEditState = {
