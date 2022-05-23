@@ -1,6 +1,6 @@
 import { CredGuard, OwnershipProvider, Creds, CredsType } from '../auth'
 import { PipelineProvider } from '../pipeline'
-import { Controller, Get, UseGuards, Param, NotFoundException, Post, Body } from '@nestjs/common'
+import { Controller, Get, UseGuards, Param, NotFoundException, Put, Body } from '@nestjs/common'
 import { SSM } from 'aws-sdk'
 import { ParameterDto } from '../dto'
 
@@ -39,7 +39,7 @@ export class KeyController {
     return Object.keys(parameters)
   }
 
-  @Post()
+  @Put()
   async upsert(
     @Body() parameterDto: ParameterDto,
     @Creds() creds: CredsType,
