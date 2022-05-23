@@ -23,6 +23,9 @@ jest.mock('@reapit/connect-session', () => ({
   useReapitConnect: jest.fn(() => ({
     connectSession: {
       idToken: 'MOCK_TOKEN',
+      loginIdentity: {
+        developerId: 'MOCK_DEVELOPER_ID',
+      },
     },
   })),
 }))
@@ -99,13 +102,17 @@ describe('handleSavePipeline', () => {
     )
     const createAppRevision = jest.fn(() => new Promise<AppDetailModel>((resolve) => resolve({})))
     const appsDetailRefresh = jest.fn()
+    const appRefreshRevisions = jest.fn()
+    const developerId = 'MOCK_DEVELOPER_ID'
     const appDetail = mockAppDetailModel
     const pipelineUpdate = mockPipelineModelInterface
     const curried = handleSavePipeline(
       sendPipelineUpdate,
       createAppRevision,
       appsDetailRefresh,
+      appRefreshRevisions,
       appDetail,
+      developerId,
       pipelineUpdate,
     )
 
@@ -114,6 +121,7 @@ describe('handleSavePipeline', () => {
     expect(sendPipelineUpdate).toHaveBeenCalledWith(pipelineUpdate)
     expect(createAppRevision).toHaveBeenCalledTimes(1)
     expect(appsDetailRefresh).toHaveBeenCalledTimes(1)
+    expect(appRefreshRevisions).toHaveBeenCalledTimes(1)
   })
 })
 
