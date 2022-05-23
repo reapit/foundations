@@ -96,7 +96,7 @@ export const WebhooksLogs: FC = () => {
     queryParams: {
       applicationId,
       from: dayjs(from).format('YYYY-MM-DDTHH:mm:ss'),
-      to: dayjs(to).format('YYYY-MM-DDTHH:mm:ss'),
+      to: dayjs(to).add(1, 'day').subtract(1, 'second').format('YYYY-MM-DDTHH:mm:ss'),
     },
     fetchWhenTrue: [applicationId, from, to],
   })

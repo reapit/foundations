@@ -103,7 +103,7 @@ Object {
               min="2019-04"
               name="from"
               type="date"
-              value="2019-10-03"
+              value="2019-10-10"
             />
             <label
               class="e1nbkkrq-el-label"
@@ -123,7 +123,7 @@ Object {
               class="e1urjlvd-el-input"
               id="test-static-id"
               max="2019-10-10"
-              min="2019-10-03"
+              min="2019-10-10"
               name="to"
               type="date"
               value="2019-10-10"
@@ -202,7 +202,7 @@ Object {
             min="2019-04"
             name="from"
             type="date"
-            value="2019-10-03"
+            value="2019-10-10"
           />
           <label
             class="e1nbkkrq-el-label"
@@ -222,7 +222,7 @@ Object {
             class="e1urjlvd-el-input"
             id="test-static-id"
             max="2019-10-10"
-            min="2019-10-03"
+            min="2019-10-10"
             name="to"
             type="date"
             value="2019-10-10"
