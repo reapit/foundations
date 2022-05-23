@@ -8,8 +8,7 @@ export type RoleCredentialsType = {
 export default registerAs(
   'role-credentials',
   (): RoleCredentialsType => ({
-    RoleArn:
-      (process.env.USERCODE_ROLE_ARN as string),
+    RoleArn: process.env.USERCODE_ROLE_ARN as string,
     RoleSessionName: 'deployment-service',
   }),
 )
