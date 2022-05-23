@@ -1,6 +1,19 @@
 /**
  * Representation of additional contact details
  */
+export interface AdditionalCompanyContactDetailsModel {
+  /**
+   * The type of contact detail
+   */
+  type?: string
+  /**
+   * The contact detail
+   */
+  value?: string
+}
+/**
+ * Representation of additional contact details
+ */
 export interface AdditionalContactDetailModel {
   /**
    * The type of contact detail
@@ -2248,6 +2261,19 @@ export interface CompanyModel {
     country?: string
   }
   /**
+   * A collection of additional contact details
+   */
+  additionalContactDetails?: {
+    /**
+     * The type of contact detail
+     */
+    type?: string
+    /**
+     * The contact detail
+     */
+    value?: string
+  }[]
+  /**
    * App specific metadata that has been set against the company
    */
   metadata?: {
@@ -2371,6 +2397,19 @@ export interface CompanyModelPagedResult {
        */
       country?: string
     }
+    /**
+     * A collection of additional contact details
+     */
+    additionalContactDetails?: {
+      /**
+       * The type of contact detail
+       */
+      type?: string
+      /**
+       * The contact detail
+       */
+      value?: string
+    }[]
     /**
      * App specific metadata that has been set against the company
      */
@@ -5225,6 +5264,11 @@ export interface CreateIndividualKeyModel {
  */
 export interface CreateJournalEntryModel {
   /**
+   * The unique identifier of the type the journal entry is related to.
+   * Default value set to MI
+   */
+  typeId?: string
+  /**
    * The unique identifier of the property the journal entry is related to. Can additionally be associated to another type (Required when 'associatedId' is not given)
    */
   propertyId?: string
@@ -6038,7 +6082,7 @@ export interface CreatePropertyModel {
    */
   parkingSpaces?: number // int32
   /**
-   * The council tax banding of the property (A/B/C/D/E/F/G/H)
+   * The council tax banding of the property (A/B/C/D/E/F/G/H/I/notYetAvailable)
    */
   councilTax?: string
   /**
@@ -10924,6 +10968,10 @@ export interface PropertyModel {
    */
   bedrooms?: number // int32
   /**
+   * The maximum number of bedrooms in the property or properties. This is typically used when marketing development sites and would be set on the master record. This is only supported by some departments. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
+   */
+  bedroomsMax?: number // int32
+  /**
    * The total number of reception rooms in the property. This is only supported by some departments. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
    */
   receptions?: number // int32
@@ -10936,7 +10984,7 @@ export interface PropertyModel {
    */
   parkingSpaces?: number // int32
   /**
-   * The council tax banding of the property (A/B/C/D/E/F/G/H)
+   * The council tax banding of the property (A/B/C/D/E/F/G/H/I/notYetAvailable)
    */
   councilTax?: string
   /**
@@ -11581,6 +11629,10 @@ export interface PropertyModelPagedResult {
      */
     bedrooms?: number // int32
     /**
+     * The maximum number of bedrooms in the property or properties. This is typically used when marketing development sites and would be set on the master record. This is only supported by some departments. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
+     */
+    bedroomsMax?: number // int32
+    /**
      * The total number of reception rooms in the property. This is only supported by some departments. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
      */
     receptions?: number // int32
@@ -11593,7 +11645,7 @@ export interface PropertyModelPagedResult {
      */
     parkingSpaces?: number // int32
     /**
-     * The council tax banding of the property (A/B/C/D/E/F/G/H)
+     * The council tax banding of the property (A/B/C/D/E/F/G/H/I/notYetAvailable)
      */
     councilTax?: string
     /**
@@ -16386,7 +16438,7 @@ export interface UpdatePropertyModel {
    */
   parkingSpaces?: number // int32
   /**
-   * The council tax banding of the property (A/B/C/D/E/F/G/H)
+   * The council tax banding of the property (A/B/C/D/E/F/G/H/I/notYetAvailable)
    */
   councilTax?: string
   /**
