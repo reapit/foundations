@@ -30,7 +30,7 @@ export class PropertyImage {
   @Field()
   type: string
 
-  @Field()
+  @Field({ nullable: true })
   order: number
 
   @Field()
@@ -51,6 +51,6 @@ export class PropertyImageInput {
   @Field({ nullable: true })
   type: string
 
-  @Field()
+  @Field({ nullable: true })
   order: number
 }

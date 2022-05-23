@@ -61,8 +61,8 @@ export class PropertyImageResolver {
     this.service = new PropertyImageService(
       getPropertyImageQuery,
       getPropertyImagesQuery,
-      createPropertyImageMutation,
       updatePropetyImageMutation,
+      createPropertyImageMutation,
       'PropertyImage',
     )
   }
@@ -102,8 +102,6 @@ export class PropertyImageResolver {
       },
     })
 
-    console.log('propertyImages', propertyImages)
-
     return propertyImages
   }
 
@@ -111,15 +109,15 @@ export class PropertyImageResolver {
   @Authorized()
   async createPropertyImage(
     @Ctx() { accessToken, idToken, storeCachedMetadata }: Context,
-    @Arg('propertyId') propertyId: string,
     @Arg(entityName) entityInput: PropertyImageInput,
   ): Promise<PropertyImage> {
+    console.log('incoming', entityInput)
     const propertyImage = await this.service.createEntity({
       accessToken,
       idToken,
       entityInput,
       variables: {
-        propertyId,
+        propertyId: entityInput.propertyId,
       },
     })
 
@@ -135,6 +133,7 @@ export class PropertyImageResolver {
     @Arg('id') id: string,
     @Arg(entityName) entityInput: PropertyImageInput,
   ): Promise<PropertyImage> {
+    console.log('incoming', entityInput)
     const propertyImage = await this.service.updateEntity({
       id,
       accessToken,
