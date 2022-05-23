@@ -52,16 +52,21 @@ export const SelectOrInput = ({
   children,
   onInputSubmit,
   defaultValue,
+  style,
+  className,
 }: {
   children: React.ReactNode
   defaultValue: string
+  style?: React.CSSProperties
+  className?: string
   onInputSubmit: React.DOMAttributes<HTMLInputElement>['onSubmit']
 }) => (
-  <SelectOrInputContainer>
+  <SelectOrInputContainer style={style} className={className}>
     {children}
     <OverlayInput
       defaultValue={defaultValue}
       onSubmit={onInputSubmit}
+      data-form-type="other" // stops extentions autofilling this field
       onKeyDown={(e) => {
         if (e.key === 'Enter') {
           onInputSubmit && onInputSubmit(e)

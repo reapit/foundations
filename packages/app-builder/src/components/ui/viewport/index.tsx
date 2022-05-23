@@ -22,6 +22,7 @@ import { usePageId } from '@/components/hooks/use-page-id'
 import { useApp } from '@/components/hooks/apps/use-app'
 import { nodesArrToObj } from '@/components/hooks/apps/node-helpers'
 import { TABLET_BREAKPOINT } from './__styles__/media'
+import { useZoom } from '@/components/hooks/use-zoom'
 
 const Container = styled.div`
   flex: 1;
@@ -30,10 +31,12 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   background-color: #efefef;
+  overflow: auto;
 `
 
 export const Viewport = ({ children, iframeRef, deserialize, rendererDivRefHandler }) => {
   const [breakpoint, setBreakpoint] = useState(TABLET_BREAKPOINT)
+  const { zoom } = useZoom()
 
   const { pageId, appId } = usePageId()
   const { app } = useApp(appId)
@@ -54,7 +57,13 @@ export const Viewport = ({ children, iframeRef, deserialize, rendererDivRefHandl
       <div className={cx(elFlex, overflowHidden, elFlexRow, elWFull)} style={{ height: 'calc(100vh - 56px)' }}>
         <Container>
           <IFrame
-            style={{ transition: 'width 350ms', width: breakpoint, flex: 1 }}
+            style={{
+              transition: 'width 350ms, transform 350ms',
+              width: breakpoint,
+              flex: 1,
+              transform: `scale(${zoom})`,
+              transformOrigin: 'top left',
+            }}
             ref={iframeRef}
             head={
               <>
