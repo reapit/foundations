@@ -75,13 +75,16 @@ export const getGetQuery = (
   const listDict = queryableFieldToNestedDict(list.type, queryableObjectTypes)
   const listTypeStr = listDict && nestedFieldsToString(listDict)
   const args = parseArgs(list.args, inputObjectTypes, queryableObjectTypes, enums)
-  const listQuery = `query ${list.name}(${stringifyArgs(args, true)}) {
+  const getQuery = `query ${list.name}(${stringifyArgs(args, true)}) {
         ${list.name}(${stringifyArgs(args, false)})
           ${listTypeStr ? ` ${listTypeStr}` : ''}
     }`
+  if (!args.length) {
+    throw new Error(`get query for ${list.name} has no args`)
+  }
   return {
     query: gql`
-      ${listQuery}
+      ${getQuery}
     `,
     args,
   }

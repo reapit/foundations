@@ -248,7 +248,10 @@ export class AppointmentResolver {
 
   @Authorized()
   @Query(() => Appointment)
-  async getAppointment(@Ctx() { accessToken, idToken, storeCachedMetadata, id }: Context): Promise<Appointment> {
+  async getAppointment(
+    @Ctx() { accessToken, idToken, storeCachedMetadata }: Context,
+    @Arg('id') id: string,
+  ): Promise<Appointment> {
     const appointment = await getAppointment(id, accessToken, idToken)
 
     if (!appointment) {
