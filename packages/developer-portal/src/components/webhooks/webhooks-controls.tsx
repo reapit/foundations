@@ -36,7 +36,7 @@ export const handleHistoryToQueryParams = (history: History): WebhooksFilterStat
   const queryParams = new URLSearchParams(history.location.search)
   return {
     applicationId: queryParams.get('applicationId') ?? '',
-    from: queryParams.get('from') ?? dayjs().subtract(1, 'day').format('YYYY-MM-DD'),
+    from: queryParams.get('from') ?? dayjs().format('YYYY-MM-DD'),
     to: queryParams.get('to') ?? dayjs().format('YYYY-MM-DD'),
   }
 }
