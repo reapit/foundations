@@ -9,7 +9,9 @@ import { AppDetailModel, CreateAppRevisionModel, PipelineModelInterface } from '
 import { openNewPage } from '../../../utils/navigation'
 import { useLocation } from 'react-router'
 import { ApiKeys } from './pipeline-api-keys'
-import { sanitizeAppData } from '../utils/format-form-values'
+import { formatFormValues } from '../utils/format-form-values'
+import { formatAppFields } from '../utils/handle-default-form-values'
+import { AppEditFormSchema } from '../edit/form-schema/form-fields'
 
 export const handlePipelineRunnerSuccess =
   (setAppPipelineDeploying: Dispatch<SetStateAction<boolean>>, updatePipelineRunnerSuccess?: boolean) => () => {
@@ -27,17 +29,25 @@ export const handleSavePipeline =
     sendPipelineUpdate: SendFunction<PipelineModelInterface, boolean | PipelineModelInterface>,
     createAppRevision: SendFunction<CreateAppRevisionModel, boolean | AppDetailModel>,
     appsDetailRefresh: () => void,
+    appRefreshRevisions: () => void,
     appDetail: AppDetailModel | null,
+    developerId: string | null,
     pipelineUpdate: PipelineModelInterface,
   ) =>
   async () => {
     const savedPipeline = await sendPipelineUpdate(pipelineUpdate)
+    if (appDetail && savedPipeline && typeof savedPipeline !== 'boolean' && savedPipeline.subDomain && developerId) {
+      const formattedFields = formatAppFields(appDetail, developerId)
+      const sanitisedAppDetail = formatFormValues(formattedFields as AppEditFormSchema)
 
-    if (appDetail && savedPipeline && typeof savedPipeline !== 'boolean' && savedPipeline.subDomain) {
-      appDetail?.redirectUris?.push(`https://${savedPipeline.subDomain}.iaas.paas.reapit.cloud`)
-      appDetail?.signoutUris?.push(`https://${savedPipeline.subDomain}.iaas.paas.reapit.cloud/login`)
-      const appRevsion = await createAppRevision(sanitizeAppData(appDetail as CreateAppRevisionModel))
-      if (appRevsion) appsDetailRefresh()
+      sanitisedAppDetail?.redirectUris?.push(`https://${savedPipeline.subDomain}.iaas.paas.reapit.cloud`)
+      sanitisedAppDetail?.signoutUris?.push(`https://${savedPipeline.subDomain}.iaas.paas.reapit.cloud/login`)
+
+      const appRevsion = await createAppRevision(sanitisedAppDetail)
+      if (appRevsion) {
+        appsDetailRefresh()
+        appRefreshRevisions()
+      }
     }
   }
 
@@ -67,7 +77,8 @@ export const PipelineControls: FC = () => {
   const { appPipeline, setAppPipeline, setAppPipelineSaving, setAppPipelineDeploying } = appPipelineState
   const { pathname } = location
   const isConfigPage = pathname.includes('new') || pathname.includes('configure')
-  const { appDetail, appsDetailRefresh } = appsDataState
+  const { appDetail, appsDetailRefresh, appRefreshRevisions } = appsDataState
+  const developerId = connectSession?.loginIdentity.developerId ?? null
 
   const [deleteLoading, , deleteFunc] = useReapitUpdate<void, boolean>({
     reapitConnectBrowserSession,
@@ -163,10 +174,18 @@ export const PipelineControls: FC = () => {
       ) ? (
         <Button
           className={elMb3}
-          onClick={handleSavePipeline(sendPipelineUpdate, createAppRevision, appsDetailRefresh, appDetail, {
-            ...(appPipeline ?? {}),
-            buildStatus: 'PROVISION_REQUEST',
-          })}
+          onClick={handleSavePipeline(
+            sendPipelineUpdate,
+            createAppRevision,
+            appsDetailRefresh,
+            appRefreshRevisions,
+            appDetail,
+            developerId,
+            {
+              ...(appPipeline ?? {}),
+              buildStatus: 'PROVISION_REQUEST',
+            },
+          )}
           disabled={isLoading}
           loading={isLoading}
           intent="primary"
