@@ -17,7 +17,7 @@ export const mockProperties = {
         buildingName: '',
         buildingNumber: '123',
         postcode: '',
-        geoLocation: {
+        geolocation: {
           latitude: 52.479744,
           longitude: -1.894379,
         },
@@ -47,7 +47,7 @@ export const mockProperties = {
         buildingName: '',
         buildingNumber: '15',
         postcode: 'B91 2XX',
-        geoLocation: {
+        geolocation: {
           latitude: 52.415859,
           longitude: 1.777338,
         },
@@ -83,7 +83,7 @@ export const mockProperties = {
         buildingName: '',
         buildingNumber: '15',
         postcode: 'B91 2XX',
-        geoLocation: {
+        geolocation: {
           latitude: 52.415859,
           longitude: 1.777338,
         },
@@ -119,7 +119,7 @@ export const mockProperties = {
         buildingName: '',
         buildingNumber: '15',
         postcode: 'B91 2XX',
-        geoLocation: {
+        geolocation: {
           latitude: 52.415859,
           longitude: 1.777338,
         },
@@ -154,7 +154,7 @@ export const mockProperties = {
         buildingName: '',
         buildingNumber: '15',
         postcode: 'B91 2XX',
-        geoLocation: {
+        geolocation: {
           latitude: 52.415859,
           longitude: 1.777338,
         },
@@ -190,7 +190,7 @@ export const mockProperties = {
         buildingName: '',
         buildingNumber: '15',
         postcode: 'B91 2XX',
-        geoLocation: {
+        geolocation: {
           latitude: 52.415859,
           longitude: 1.777338,
         },
@@ -226,7 +226,7 @@ export const mockProperties = {
         buildingName: '',
         buildingNumber: '15',
         postcode: 'B91 2XX',
-        geoLocation: {
+        geolocation: {
           latitude: 52.415859,
           longitude: 1.777338,
         },
@@ -262,7 +262,7 @@ export const mockProperties = {
         buildingName: '',
         buildingNumber: '15',
         postcode: 'B91 2XX',
-        geoLocation: {
+        geolocation: {
           latitude: 52.415859,
           longitude: 1.777338,
         },
@@ -298,7 +298,7 @@ export const mockProperties = {
         buildingName: '',
         buildingNumber: '15',
         postcode: 'B91 2XX',
-        geoLocation: {
+        geolocation: {
           latitude: 52.415859,
           longitude: 1.777338,
         },

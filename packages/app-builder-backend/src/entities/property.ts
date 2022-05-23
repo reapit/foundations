@@ -1,5 +1,6 @@
 import { ObjectType, Field, ID, InputType, GraphQLISODateTime } from 'type-graphql'
 import { gql } from 'apollo-server-core'
+import { PropertyImage } from './property-image'
 
 export const PropertyFragment = gql`
   fragment PropertyFragment on PropertyModel {
@@ -19,7 +20,7 @@ export const PropertyFragment = gql`
       buildingName
       buildingNumber
       postcode
-      geoLocation {
+      geolocation {
         latitude
         longitude
       }
@@ -35,6 +36,10 @@ export const PropertyFragment = gql`
       images {
         id
         url
+        type
+        created
+        modified
+        caption
         order
       }
     }
@@ -75,19 +80,7 @@ class PropertyAddress {
   postcode?: string
 
   @Field(() => GeoLocation)
-  geoLocation?: GeoLocation
-}
-
-@ObjectType()
-class Image {
-  @Field(() => ID)
-  id: string
-
-  @Field()
-  url: string
-
-  @Field()
-  order: number
+  geolocation?: GeoLocation
 }
 
 @ObjectType()
@@ -147,8 +140,8 @@ export class Property {
   @Field({ nullable: true })
   salePrice?: number
 
-  @Field(() => [Image])
-  images: Image[]
+  @Field(() => [PropertyImage])
+  images: PropertyImage[]
 
   @Field({ nullable: true })
   marketingMode?: string
@@ -201,17 +194,8 @@ export class PropertyAddressInput {
   postcode?: string
 
   @Field(() => PropertyGeoLocationInput)
-  geoLocation?: PropertyGeoLocationInput
+  geolocation?: PropertyGeoLocationInput
 }
-
-// @InputType()
-// class PropertyImageInput {
-//   @Field()
-//   url: string
-
-//   @Field()
-//   order: number
-// }
 
 @InputType()
 class PropertyLettingInput {
@@ -256,9 +240,6 @@ export class PropertyInput {
 
   @Field({ nullable: true })
   salePrice?: number
-
-  // @Field(() => [Image])
-  // images: Image[]
 
   @Field({ nullable: true })
   marketingMode?: string
