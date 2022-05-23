@@ -1,6 +1,19 @@
 /**
  * Representation of additional contact details
  */
+export interface AdditionalCompanyContactDetailsModel {
+  /**
+   * The type of contact detail
+   */
+  type?: string
+  /**
+   * The contact detail
+   */
+  value?: string
+}
+/**
+ * Representation of additional contact details
+ */
 export interface AdditionalContactDetailModel {
   /**
    * The type of contact detail
@@ -2248,6 +2261,19 @@ export interface CompanyModel {
     country?: string
   }
   /**
+   * A collection of additional contact details
+   */
+  additionalContactDetails?: {
+    /**
+     * The type of contact detail
+     */
+    type?: string
+    /**
+     * The contact detail
+     */
+    value?: string
+  }[]
+  /**
    * App specific metadata that has been set against the company
    */
   metadata?: {
@@ -2371,6 +2397,19 @@ export interface CompanyModelPagedResult {
        */
       country?: string
     }
+    /**
+     * A collection of additional contact details
+     */
+    additionalContactDetails?: {
+      /**
+       * The type of contact detail
+       */
+      type?: string
+      /**
+       * The contact detail
+       */
+      value?: string
+    }[]
     /**
      * App specific metadata that has been set against the company
      */
@@ -5224,6 +5263,11 @@ export interface CreateIndividualKeyModel {
  * [object Object]
  */
 export interface CreateJournalEntryModel {
+  /**
+   * The unique identifier of the type the journal entry is related to.
+   * Default value set to MI
+   */
+  typeId?: string
   /**
    * The unique identifier of the property the journal entry is related to. Can additionally be associated to another type (Required when 'associatedId' is not given)
    */
