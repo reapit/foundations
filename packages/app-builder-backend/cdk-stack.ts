@@ -35,7 +35,14 @@ export const createStack = () => {
     SUBDOMAIN_IDX_NAME,
   })
   appsTable.grantReadWriteData(lambdaFunction)
-  const api = createApi(stack, 'api', lambdaFunction)
+  const api = createApi(
+    stack,
+    'api',
+    lambdaFunction,
+    true,
+    ['*'],
+    ['Content-Type', 'Authorization', 'X-Api-Key', 'api-version', 'reapit-connect-token', 'reapit-customer', 'app-id'],
+  )
   output(stack, 'api-url', api.url)
 }
 
