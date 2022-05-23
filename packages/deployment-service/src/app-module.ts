@@ -13,7 +13,7 @@ import config from '../config.json'
 import { AppEventModule } from './app-event'
 import { BitbucketModule } from './bitbucket'
 import { DefaultHeaderInterceptor } from './default-header-interceptor'
-import { KeyModule } from './keys/key-module'
+import { KeyModule } from './keys'
 
 process.env = {
   ...process.env,
