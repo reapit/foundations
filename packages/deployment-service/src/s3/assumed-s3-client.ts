@@ -2,6 +2,8 @@ import { RoleCredentialsType } from '../config/role-credentials'
 import { STS } from 'aws-sdk'
 
 export const getRoleCredentials = async (config: RoleCredentialsType) => {
+  if (process.env.NODE_ENV === 'development') return undefined
+
   const assumeRole = await new STS({
     region: process.env.REGION,
   })
