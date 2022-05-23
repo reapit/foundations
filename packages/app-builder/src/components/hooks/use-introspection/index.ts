@@ -9,7 +9,14 @@ export const introspectionQuery = gql`
 
 export const useIntrospection = (): { loading: boolean; error?: ApolloError; data?: IntrospectionResult[] } => {
   const { loading, data, error } = useQuery(introspectionQuery)
-  const parsedIntrospection = useMemo(() => parseIntrospectionResult(data), [data])
+  const parsedIntrospection = useMemo(() => {
+    try {
+      return parseIntrospectionResult(data)
+    } catch (e) {
+      console.error('Error parsing introspection result', e)
+      return undefined
+    }
+  }, [data])
 
   return {
     loading,
