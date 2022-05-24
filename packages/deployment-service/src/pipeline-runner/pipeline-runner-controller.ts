@@ -14,6 +14,7 @@ import {
   Inject,
   forwardRef,
   UseGuards,
+  Put,
 } from '@nestjs/common'
 import { PipelineRunnerProvider } from './pipeline-runner-provider'
 import { PipelineProvider } from '../pipeline'
@@ -63,6 +64,7 @@ export class PipelineRunnerController {
 
     this.ownershipProvider.check(pipelineRunner.pipeline as PipelineEntity, creds.developerId as string)
 
+    // TODO hydrate tasks - potentially not hydrated by typeorm as previous code suggests
     return pipelineRunner
   }
 
@@ -78,7 +80,8 @@ export class PipelineRunnerController {
 
     if (
       pipeline.isPipelineDeploymentDisabled ||
-      (await this.pipelineRunnerProvider.pipelineRunnerCountRunning(pipeline)) >= 1
+      (await this.pipelineRunnerProvider.pipelineRunnerCountRunning(pipeline)) >= 1 ||
+      pipeline.buildStatus === 'PRE_PROVISIONED'
     ) {
       throw new UnprocessableEntityException('Cannot create deployment in current state')
     }
@@ -96,7 +99,7 @@ export class PipelineRunnerController {
     return pipelineRunner
   }
 
-  @Post(':pipelineRunnerId')
+  @Put(':pipelineRunnerId')
   async update(
     @Param('pipelineRunnerId') pipelineRunnerId: string,
     @Body() dto: any,
