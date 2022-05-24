@@ -28,6 +28,8 @@
     "@reapit/utils-common": "workspace:packages/utils-common",
     "@reapit/utils-react": "workspace:packages/utils-react",
     "@sentry/browser": "^6.19.7",
+    "@sentry/react": "^6.19.7",
+    "@sentry/tracing": "^6.19.7",
     "amazon-cognito-identity-js": "^4.6.3",
     "chart.js": "^3.8.0",
     "dayjs": "^1.11.2",

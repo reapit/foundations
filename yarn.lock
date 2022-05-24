@@ -8569,7 +8569,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sentry/browser@npm:^6.19.7":
+"@sentry/browser@npm:6.19.7, @sentry/browser@npm:^6.19.7":
   version: 6.19.7
   resolution: "@sentry/browser@npm:6.19.7"
   dependencies:
@@ -8701,6 +8701,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@sentry/react@npm:^6.19.7":
+  version: 6.19.7
+  resolution: "@sentry/react@npm:6.19.7"
+  dependencies:
+    "@sentry/browser": 6.19.7
+    "@sentry/minimal": 6.19.7
+    "@sentry/types": 6.19.7
+    "@sentry/utils": 6.19.7
+    hoist-non-react-statics: ^3.3.2
+    tslib: ^1.9.3
+  peerDependencies:
+    react: 15.x || 16.x || 17.x || 18.x
+  checksum: f49b74c617e3d5094109417a4ab957d4304ec5c3c6d7208c93fe484f263c70c9656259471ae0367b75a303466d7715285ae9ac4876927d6bc285dab4d8e1591d
+  languageName: node
+  linkType: hard
+
 "@sentry/tracing@npm:6.16.1":
   version: 6.16.1
   resolution: "@sentry/tracing@npm:6.16.1"
@@ -8711,6 +8727,19 @@ __metadata:
     "@sentry/utils": 6.16.1
     tslib: ^1.9.3
   checksum: c6a6f7acbdad9c181a0bec8ddc73a0f891869cef7978ccadccaab0f01b5c2000fe204dcbe2e5728484e1568b738f5aeaebd269c53f3c4db4bfbf83e95e1010d9
+  languageName: node
+  linkType: hard
+
+"@sentry/tracing@npm:^6.19.7":
+  version: 6.19.7
+  resolution: "@sentry/tracing@npm:6.19.7"
+  dependencies:
+    "@sentry/hub": 6.19.7
+    "@sentry/minimal": 6.19.7
+    "@sentry/types": 6.19.7
+    "@sentry/utils": 6.19.7
+    tslib: ^1.9.3
+  checksum: 26e7bf435f0478356d95fab50fe4acd2cf449bfdfd457996111aeedd082f6c76f0592abd0c5f5dcfe2b582d3fd7988ffef07787e7ecc7f5d228278731ce6264e
   languageName: node
   linkType: hard
 
@@ -19174,6 +19203,8 @@ __metadata:
     "@reapit/utils-common": "workspace:packages/utils-common"
     "@reapit/utils-react": "workspace:packages/utils-react"
     "@sentry/browser": ^6.19.7
+    "@sentry/react": ^6.19.7
+    "@sentry/tracing": ^6.19.7
     "@testing-library/react": ^13.3.0
     "@typescript-eslint/eslint-plugin": ^5.27.0
     "@typescript-eslint/parser": ^5.27.0
