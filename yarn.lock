@@ -3873,41 +3873,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@craftjs/core@npm:0.2.0-beta.2":
-  version: 0.2.0-beta.2
-  resolution: "@craftjs/core@npm:0.2.0-beta.2"
+"@craftjs/core@npm:0.2.0-beta.4":
+  version: 0.2.0-beta.4
+  resolution: "@craftjs/core@npm:0.2.0-beta.4"
   dependencies:
-    "@craftjs/utils": ^0.2.0-beta.2
-    "@types/react": ^17.0.5
+    "@craftjs/utils": ^0.2.0-beta.4
     debounce: ^1.2.0
     lodash: ^4.17.20
     tiny-invariant: ^1.0.6
   peerDependencies:
     react: ^16.8.0 || ^17
-  checksum: 7080851289cafd0aa44de3965bd07f92363874b8bbdd4ba48a25842da236be18baf14ec3b61feee30b823e9dc86fa04622bcf924886d444972d5d9d92f3e9dbd
+  checksum: 0b3521794784210c1b290992376456d443c670daadb5d0d811a4a9743ce5c776f8be369942665a1851c2fb72c60bc23821b3d986cb9a1542436b78207568e4a1
   languageName: node
   linkType: hard
 
-"@craftjs/core@patch:@craftjs/core@npm:0.2.0-beta.2#../../.yarn/patches/@craftjs-core-npm-0.2.0-beta.2-7286daa8e6::locator=%40reapit%2Fapp-builder%40workspace%3Apackages%2Fapp-builder":
-  version: 0.2.0-beta.2
-  resolution: "@craftjs/core@patch:@craftjs/core@npm%3A0.2.0-beta.2#../../.yarn/patches/@craftjs-core-npm-0.2.0-beta.2-7286daa8e6::version=0.2.0-beta.2&hash=280294&locator=%40reapit%2Fapp-builder%40workspace%3Apackages%2Fapp-builder"
+"@craftjs/utils@npm:^0.2.0-beta.4":
+  version: 0.2.0-beta.4
+  resolution: "@craftjs/utils@npm:0.2.0-beta.4"
   dependencies:
-    "@craftjs/utils": ^0.2.0-beta.2
-    "@types/react": ^17.0.5
-    debounce: ^1.2.0
-    lodash: ^4.17.20
-    tiny-invariant: ^1.0.6
-  peerDependencies:
-    react: ^16.8.0 || ^17
-  checksum: 631261b97a19b0f3b4f04d4bd7afd1174964a37a9d30d3a752b65507804855e780abee260d34ce7635d1db77346dfab3e1c8966d69dd9ab20eabb3f019a3e612
-  languageName: node
-  linkType: hard
-
-"@craftjs/utils@npm:^0.2.0-beta.2":
-  version: 0.2.0-beta.2
-  resolution: "@craftjs/utils@npm:0.2.0-beta.2"
-  dependencies:
-    "@types/react": ^17.0.5
     immer: ^9.0.6
     lodash: ^4.17.20
     nanoid: ^3.1.23
@@ -3915,7 +3898,7 @@ __metadata:
     tiny-invariant: ^1.0.6
   peerDependencies:
     react: ^16.8.0 || ^17
-  checksum: 3a34e3f28592ad97a750b36dc8dc1772e57a506373fd16e1e267259e273a8872ba3fc20ed15d366c09a5d2da9055ef3906827abdcb5fd9d1572cd5a94f444ea1
+  checksum: 14aadacce65d04447622528a249c354995f7858030f201545ddd9d8c95a7333820e6ca5942b7604ce8b499cb67216f235de55f5f0a09854232c51038a0cbc1d6
   languageName: node
   linkType: hard
 
@@ -7421,7 +7404,7 @@ __metadata:
   resolution: "@reapit/app-builder@workspace:packages/app-builder"
   dependencies:
     "@apollo/client": ^3.5.6
-    "@craftjs/core": "patch:@craftjs/core@npm:0.2.0-beta.2#../../.yarn/patches/@craftjs-core-npm-0.2.0-beta.2-7286daa8e6"
+    "@craftjs/core": 0.2.0-beta.4
     "@linaria/core": ^3.0.0-beta.15
     "@linaria/react": ^3.0.0-beta.15
     "@linaria/shaker": ^3.0.0-beta.15
@@ -11552,7 +11535,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:>=16.9.0, @types/react@npm:^17.0.5":
+"@types/react@npm:*, @types/react@npm:>=16.9.0":
   version: 17.0.37
   resolution: "@types/react@npm:17.0.37"
   dependencies:

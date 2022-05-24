@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.5.6",
-    "@craftjs/core": "patch:@craftjs/core@npm:0.2.0-beta.2#../../.yarn/patches/@craftjs-core-npm-0.2.0-beta.2-7286daa8e6",
+    "@craftjs/core": "0.2.0-beta.4",
     "@linaria/core": "^3.0.0-beta.15",
     "@linaria/react": "^3.0.0-beta.15",
     "@reapit/connect-session": "workspace:packages/connect-session",
