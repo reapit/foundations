@@ -16,7 +16,7 @@ export const mockProperty = {
     buildingName: '',
     buildingNumber: '15',
     postcode: 'B91 2XX',
-    geoLocation: {
+    geolocation: {
       latitude: 52.415859,
       longitude: 1.777338,
     },

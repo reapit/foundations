@@ -1,6 +1,10 @@
 import { Button, ButtonGroup, FlexContainer } from '@reapit/elements'
-import React, { Dispatch, FC, SetStateAction } from 'react'
-import { WebhookModel } from '../../types/webhooks'
+import { GetActionNames, getActions } from '@reapit/utils-common'
+import { useReapitGet } from '@reapit/utils-react'
+import React, { Dispatch, FC, SetStateAction, useState } from 'react'
+import CopyToClipboard from 'react-copy-to-clipboard'
+import { reapitConnectBrowserSession } from '../../core/connect-session'
+import { WebhookModel, WebhookPublicKeyResponse } from '../../types/webhooks'
 import { WebhooksPingForm } from './webhook-ping-form'
 import { ExpandableContentType } from './webhooks-manage'
 import { WebhooksManageForm } from './webhooks-manage-form'
@@ -22,43 +26,91 @@ export const handleSetContentType =
     setExpandableContentType(expandableContentType)
   }
 
+export const handleCopyPublicKey = (setCopyState: Dispatch<SetStateAction<boolean>>) => () => {
+  setCopyState(true)
+
+  setTimeout(() => {
+    setCopyState(false)
+  }, 5000)
+}
+
+export const handleFetchKey = (setFetchKey: Dispatch<SetStateAction<boolean>>) => () => {
+  setFetchKey(true)
+}
+
 export const WebhooksEditControls: FC<WebhooksEditControlsProps> = ({
   webhookModel,
   expandableContentType,
   setExpandableContentType,
   setIndexExpandedRow,
   refreshSubscriptions,
-}) => (
-  <>
-    {expandableContentType === ExpandableContentType.Controls && (
-      <FlexContainer isFlexJustifyCenter>
-        <ButtonGroup>
-          <Button
-            intent="primary"
-            onClick={handleSetContentType(ExpandableContentType.Manage, setExpandableContentType)}
-          >
-            Edit
-          </Button>
-          <Button intent="primary" onClick={handleSetContentType(ExpandableContentType.Ping, setExpandableContentType)}>
-            Ping
-          </Button>
-        </ButtonGroup>
-      </FlexContainer>
-    )}
-    {expandableContentType === ExpandableContentType.Ping && (
-      <WebhooksPingForm
-        webhookModel={webhookModel}
-        setIndexExpandedRow={setIndexExpandedRow}
-        setExpandableContentType={setExpandableContentType}
-      />
-    )}
-    {expandableContentType === ExpandableContentType.Manage && (
-      <WebhooksManageForm
-        webhookModel={webhookModel}
-        setIndexExpandedRow={setIndexExpandedRow}
-        setExpandableContentType={setExpandableContentType}
-        refreshSubscriptions={refreshSubscriptions}
-      />
-    )}
-  </>
-)
+}) => {
+  const [copyState, setCopyState] = useState<boolean>(false)
+  const [fetchKey, setFetchKey] = useState<boolean>(false)
+
+  const isDev = window.reapit.config.appEnv !== 'production'
+
+  const [publicKeyResponse, fetchingPublicKey] = useReapitGet<WebhookPublicKeyResponse>({
+    reapitConnectBrowserSession,
+    action: getActions(window.reapit.config.appEnv)[GetActionNames.getPublicWebhookKey],
+    queryParams: {
+      applicationId: webhookModel.applicationId,
+    },
+    fetchWhenTrue: [webhookModel.applicationId, fetchKey],
+  })
+
+  return (
+    <>
+      {expandableContentType === ExpandableContentType.Controls && (
+        <FlexContainer isFlexJustifyCenter>
+          <ButtonGroup>
+            <Button
+              intent="primary"
+              onClick={handleSetContentType(ExpandableContentType.Manage, setExpandableContentType)}
+            >
+              Edit
+            </Button>
+            <Button
+              intent="primary"
+              onClick={handleSetContentType(ExpandableContentType.Ping, setExpandableContentType)}
+            >
+              Ping
+            </Button>
+            {publicKeyResponse && publicKeyResponse.keys && isDev ? (
+              <CopyToClipboard
+                text={JSON.stringify(publicKeyResponse.keys[0])}
+                onCopy={handleCopyPublicKey(setCopyState)}
+              >
+                <Button intent="low">{copyState ? 'Public Key Copied' : 'Copy Public Key'}</Button>
+              </CopyToClipboard>
+            ) : isDev ? (
+              <Button
+                intent="primary"
+                loading={fetchingPublicKey}
+                disabled={fetchingPublicKey}
+                onClick={handleFetchKey(setFetchKey)}
+              >
+                Fetch Public Key
+              </Button>
+            ) : null}
+          </ButtonGroup>
+        </FlexContainer>
+      )}
+      {expandableContentType === ExpandableContentType.Ping && (
+        <WebhooksPingForm
+          webhookModel={webhookModel}
+          setIndexExpandedRow={setIndexExpandedRow}
+          setExpandableContentType={setExpandableContentType}
+        />
+      )}
+      {expandableContentType === ExpandableContentType.Manage && (
+        <WebhooksManageForm
+          webhookModel={webhookModel}
+          setIndexExpandedRow={setIndexExpandedRow}
+          setExpandableContentType={setExpandableContentType}
+          refreshSubscriptions={refreshSubscriptions}
+        />
+      )}
+    </>
+  )
+}

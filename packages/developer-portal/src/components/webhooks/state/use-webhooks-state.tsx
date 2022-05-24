@@ -66,7 +66,7 @@ export const WebhooksProvider: FC = ({ children }) => {
   const [apps] = useReapitGet<AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getApps],
-    queryParams: { showHiddenApps: 'true', developerId, pageSize: 25 },
+    queryParams: { showHiddenApps: 'true', developerId, pageSize: 100 },
     fetchWhenTrue: [developerId],
   })
 

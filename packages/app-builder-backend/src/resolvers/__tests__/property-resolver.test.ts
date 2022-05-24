@@ -71,7 +71,7 @@ const setupPropertiesMocks = () => {
         buildingName: '',
         buildingNumber: '15',
         postcode: 'B91 2XX',
-        geoLocation: {
+        geolocation: {
           latitude: 52.415859,
           longitude: 1.777338,
         },
@@ -112,7 +112,7 @@ const setupPropertiesMocks = () => {
         buildingName: '',
         buildingNumber: '15',
         postcode: 'B91 2XX',
-        geoLocation: {
+        geolocation: {
           latitude: 52.415859,
           longitude: 1.777338,
         },
@@ -172,7 +172,7 @@ const listPropertiesQuery = gql`
         buildingName
         buildingNumber
         postcode
-        geoLocation {
+        geolocation {
           latitude
           longitude
         }
@@ -215,7 +215,7 @@ const getPropertyQuery = gql`
         buildingName
         buildingNumber
         postcode
-        geoLocation {
+        geolocation {
           latitude
           longitude
         }
@@ -272,7 +272,7 @@ describe('property-resolver', () => {
           buildingName: '',
           buildingNumber: '123',
           postcode: '',
-          geoLocation: {
+          geolocation: {
             __typename: 'GeoLocation',
             latitude: 52.479744,
             longitude: -1.894379,
@@ -316,7 +316,7 @@ describe('property-resolver', () => {
           buildingName: '',
           buildingNumber: '15',
           postcode: 'B91 2XX',
-          geoLocation: {
+          geolocation: {
             __typename: 'GeoLocation',
             latitude: 52.415859,
             longitude: 1.777338,
@@ -358,7 +358,7 @@ describe('property-resolver', () => {
                 buildingName
                 buildingNumber
                 postcode
-                geoLocation {
+                geolocation {
                   latitude
                   longitude
                 }
@@ -397,7 +397,7 @@ describe('property-resolver', () => {
               buildingName: '',
               buildingNumber: '15',
               postcode: 'B91 2XX',
-              geoLocation: {
+              geolocation: {
                 latitude: 52.415859,
                 longitude: 1.777338,
               },
@@ -438,7 +438,7 @@ describe('property-resolver', () => {
                 buildingName
                 buildingNumber
                 postcode
-                geoLocation {
+                geolocation {
                   latitude
                   longitude
                 }
@@ -478,7 +478,7 @@ describe('property-resolver', () => {
               buildingName: '',
               buildingNumber: '15',
               postcode: 'B91 2XX',
-              geoLocation: {
+              geolocation: {
                 latitude: 52.415859,
                 longitude: 1.777338,
               },

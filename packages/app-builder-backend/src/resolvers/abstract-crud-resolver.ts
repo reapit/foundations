@@ -91,16 +91,18 @@ export abstract class AbstractCrudService<Entity, Embeds extends any, EntityInpu
     accessToken,
     idToken,
     entityInput,
+    variables,
   }: {
     accessToken: string
     idToken: string
     entityInput: EntityInput
+    variables?: any
   }): Promise<Entity> {
     const result = await query<ApiResponse<null, null>>(
       this.createEntityMutation,
       entityInput,
       this.createQueryName(),
-      { idToken, accessToken },
+      { idToken, accessToken, ...variables },
     )
 
     const { id } = result
@@ -123,11 +125,13 @@ export abstract class AbstractCrudService<Entity, Embeds extends any, EntityInpu
     idToken,
     id,
     entityInput,
+    variables,
   }: {
     accessToken: string
     idToken: string
     id: string
     entityInput: EntityInput
+    variables?: any
   }): Promise<Entity> {
     const existingEntity = await this.getEntity({
       id,
@@ -153,6 +157,7 @@ export abstract class AbstractCrudService<Entity, Embeds extends any, EntityInpu
       {
         idToken,
         accessToken,
+        ...variables,
       },
     )
 

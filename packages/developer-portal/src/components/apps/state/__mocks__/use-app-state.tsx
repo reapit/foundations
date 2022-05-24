@@ -20,6 +20,7 @@ export const mockAppState = {
     appsRefresh: jest.fn(),
     appsDetailRefresh: jest.fn(),
     appRefreshRevisions: jest.fn(),
+    appsSetPageNumber: jest.fn(),
   },
   appEditState: {
     appEditForm: mockAppEditForm,

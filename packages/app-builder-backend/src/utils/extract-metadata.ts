@@ -12,6 +12,7 @@ export type MetadataSchemaType =
   | 'offer'
   | 'office'
   | 'property'
+  | 'propertyImage'
   | 'task'
   | 'vendor'
   | 'worksOrder'
@@ -28,6 +29,7 @@ const metadataTypes = [
   'offer',
   'office',
   'property',
+  'propertyImage',
   'task',
   'vendor',
   'worksOrder',
