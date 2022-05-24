@@ -2,7 +2,7 @@ import React, { Dispatch, FC, SetStateAction, useEffect } from 'react'
 import { AppSavingParams, AppUriParams, useAppState } from '../state/use-app-state'
 import { handleSetAppId } from '../utils/handle-set-app-id'
 import { useParams } from 'react-router-dom'
-import { AppEditTab, AppEditTabs } from './edit-page-tabs'
+import { AppEditTabs } from './edit-page-tabs'
 import { AppEditFormSchema } from './form-schema/form-fields'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { appEditValidationSchema } from './form-schema/validation-schema'
@@ -13,10 +13,6 @@ import { UpdateActionNames, updateActions } from '@reapit/utils-common'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { formatFormValues } from '../utils/format-form-values'
 import { handleSetIncompletedFields } from '../utils/validate-schema'
-
-export interface AppEditFormProps {
-  tab: AppEditTab
-}
 
 export const handleResetForm = (appEditForm: AppEditFormSchema, reset: UseFormReset<AppEditFormSchema>) => () => {
   reset(appEditForm)
@@ -83,7 +79,7 @@ export const handleSetAppSubmitting =
     }
   }
 
-export const AppEditForm: FC<AppEditFormProps> = ({ tab }) => {
+export const AppEditForm: FC = () => {
   const { appId } = useParams<AppUriParams>()
   const { appEditState, setAppId, appsDataState } = useAppState()
   const { appEditForm, setAppEditSaving, appEditSaving, setAppUnsavedFields, setIncompleteFields } = appEditState
@@ -144,7 +140,7 @@ export const AppEditForm: FC<AppEditFormProps> = ({ tab }) => {
 
   return (
     <form>
-      <AppEditTabs tab={tab} register={register} errors={errors} control={control} getValues={getValues} />
+      <AppEditTabs register={register} errors={errors} control={control} getValues={getValues} />
     </form>
   )
 }

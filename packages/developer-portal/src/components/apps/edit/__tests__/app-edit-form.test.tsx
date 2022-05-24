@@ -7,7 +7,6 @@ import {
   handleSetRevalidating,
   handleUnsavedChanges,
 } from '../app-edit-form'
-import { AppEditTab } from '../edit-page-tabs'
 import { AppEditFormSchema, defaultValues } from '../form-schema/form-fields'
 import { formatFormValues } from '../../utils/format-form-values'
 import { defaultAppSavingParams } from '../../state/defaults'
@@ -17,7 +16,7 @@ jest.mock('../../state/use-app-state')
 
 describe('AppEditForm', () => {
   it('should match a snapshot', () => {
-    expect(render(<AppEditForm tab={AppEditTab.permissions} />)).toMatchSnapshot()
+    expect(render(<AppEditForm />)).toMatchSnapshot()
   })
 })
 
