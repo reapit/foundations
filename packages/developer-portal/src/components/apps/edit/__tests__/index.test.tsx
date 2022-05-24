@@ -3,6 +3,8 @@ import { AppEditPage, handleChangeTab } from '..'
 import { render, setViewport } from '../../../../tests/react-testing'
 import { useAppState } from '../../state/use-app-state'
 import { mockAppState } from '../../state/__mocks__/use-app-state'
+import { History } from 'history'
+import Routes from '../../../../constants/routes'
 
 jest.mock('../../state/use-app-state')
 
@@ -47,17 +49,20 @@ it('should match snapshot for mobile view', () => {
 
 describe('handleChangeTab', () => {
   it('should handle tab change', () => {
-    const setTab = jest.fn()
+    const appId = 'MOCK_ID'
     const event = {
       target: {
         value: 'MOCK_VALUE',
       },
     } as ChangeEvent<HTMLInputElement>
+    const history = {
+      push: jest.fn(),
+    } as unknown as History
 
-    const curried = handleChangeTab(setTab)
+    const curried = handleChangeTab(appId, history)
 
     curried(event)
 
-    expect(setTab).toHaveBeenCalledWith(event.target.value)
+    expect(history.push).toHaveBeenCalledWith(`${Routes.APPS}/${appId}/edit/${event.target.value}`)
   })
 })

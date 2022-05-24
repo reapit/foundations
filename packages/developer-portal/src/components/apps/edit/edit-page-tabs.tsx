@@ -1,5 +1,7 @@
 import React, { FC } from 'react'
 import { Control, DeepMap, FieldError, UseFormGetValues, UseFormRegister } from 'react-hook-form'
+import { Route, Switch } from 'react-router'
+import Routes from '../../../constants/routes'
 import { AcIntegrationTab } from './ac-integration-tab'
 import { AppListingTab } from './app-listing-tab'
 import { AuthenticationTab } from './authentication-tab'
@@ -11,12 +13,11 @@ export enum AppEditTab {
   general = 'general',
   authentication = 'authentication',
   permissions = 'permissions',
-  acIntegration = 'acIntegration',
-  appListing = 'appListing',
+  acIntegration = 'ac-integration',
+  appListing = 'app-listing',
 }
 
 export interface AppEditTabsProps {
-  tab: AppEditTab
   register: UseFormRegister<AppEditFormSchema>
   errors: DeepMap<Partial<AppEditFormSchema>, FieldError>
   control: Control<AppEditFormSchema, object>
@@ -24,19 +25,33 @@ export interface AppEditTabsProps {
 }
 
 export const AppEditTabs: FC<AppEditTabsProps> = (props) => {
-  const { tab } = props
-
-  switch (tab) {
-    case AppEditTab.authentication:
-      return <AuthenticationTab {...props} />
-    case AppEditTab.permissions:
-      return <PermissionsTab {...props} />
-    case AppEditTab.appListing:
-      return <AppListingTab {...props} />
-    case AppEditTab.acIntegration:
-      return <AcIntegrationTab {...props} />
-    case AppEditTab.general:
-    default:
-      return <GeneralTab {...props} />
-  }
+  return (
+    <Switch>
+      <Route
+        path={Routes.APPS_EDIT_AUTHENTICATION}
+        exact
+        render={(routerProps) => <AuthenticationTab {...routerProps} {...props} />}
+      />
+      <Route
+        path={Routes.APPS_EDIT_PERMISSIONS}
+        exact
+        render={(routerProps) => <PermissionsTab {...routerProps} {...props} />}
+      />
+      <Route
+        path={Routes.APPS_EDIT_APP_LISTING}
+        exact
+        render={(routerProps) => <AppListingTab {...routerProps} {...props} />}
+      />
+      <Route
+        path={Routes.APPS_EDIT_AC_INTEGRATION}
+        exact
+        render={(routerProps) => <AcIntegrationTab {...routerProps} {...props} />}
+      />
+      <Route
+        path={Routes.APPS_EDIT_GENERAL}
+        exact
+        render={(routerProps) => <GeneralTab {...routerProps} {...props} />}
+      />
+    </Switch>
+  )
 }
