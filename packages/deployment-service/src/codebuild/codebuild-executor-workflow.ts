@@ -12,6 +12,7 @@ import { PipelineRunnerProvider } from '../pipeline-runner'
 import { plainToClass } from 'class-transformer'
 import { BitbucketClientData } from '../entities/bitbucket-client.entity'
 import { BitBucketEvent } from '../functions'
+import { ParameterProvider } from '../parameters'
 
 @Workflow(QueueNamesEnum.CODEBUILD_EXECUTOR)
 export class CodebuildExecutorWorkflow extends AbstractWorkflow<{
@@ -28,6 +29,7 @@ export class CodebuildExecutorWorkflow extends AbstractWorkflow<{
     private readonly s3Provider: S3Provider,
     private readonly pipelineRunnerProvider: PipelineRunnerProvider,
     private readonly pusherProvider: PusherProvider,
+    private readonly parameterProvider: ParameterProvider,
   ) {
     super(sqsProvider)
   }
@@ -126,11 +128,15 @@ export class CodebuildExecutorWorkflow extends AbstractWorkflow<{
     const codebuild = new CodeBuild({
       region: process.env.REGION,
     })
+    const params = await this.parameterProvider.obtainParameters(pipeline.id as string)
 
     const start = codebuild.startBuild({
       projectName: process.env.CODE_BUILD_PROJECT_NAME as string,
       buildspecOverride: yaml.stringify({
         version: 0.2,
+        env: {
+          variables: params,
+        },
         phases: {
           install: {
             'runtime-versions': {
@@ -149,11 +155,18 @@ export class CodebuildExecutorWorkflow extends AbstractWorkflow<{
             ],
           },
           build: {
-            commands: [`${pipeline.packageManager} ${pipeline.buildCommand}`],
+            commands: [
+              `${
+                pipeline.packageManager === PackageManagerEnum.NPM
+                  ? `${pipeline.packageManager} run`
+                  : pipeline.packageManager
+              } ${pipeline.buildCommand}`,
+            ],
           },
         },
         artifacts: {
-          files: `${pipeline.outDir}/**/*`,
+          files: '**/*',
+          'base-directory': pipeline.outDir,
         },
       }),
       sourceTypeOverride: 'S3',
