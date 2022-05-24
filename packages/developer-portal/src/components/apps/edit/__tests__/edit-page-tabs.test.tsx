@@ -1,8 +1,11 @@
 import React from 'react'
 import { Control, UseFormGetValues } from 'react-hook-form'
+import Routes from '../../../../constants/routes'
 import { render } from '../../../../tests/react-testing'
-import { AppEditTab, AppEditTabs } from '../edit-page-tabs'
+import { AppEditTabs } from '../edit-page-tabs'
 import { AppEditFormSchema, defaultValues } from '../form-schema/form-fields'
+import { createBrowserHistory } from 'history'
+import { Router } from 'react-router'
 
 jest.mock('../../state/use-app-state')
 
@@ -11,73 +14,85 @@ jest.mock('react-hook-form', () => ({
   useWatch: jest.fn(),
 }))
 
+const history = createBrowserHistory()
+
 describe('AppEditTabs', () => {
   it('should match a snapshot for the authentication tab', () => {
+    history.push(Routes.APPS_EDIT_AUTHENTICATION)
     expect(
       render(
-        <AppEditTabs
-          register={jest.fn()}
-          errors={{}}
-          tab={AppEditTab.authentication}
-          control={{} as Control<AppEditFormSchema, object>}
-          getValues={jest.fn()}
-        />,
+        <Router history={history}>
+          <AppEditTabs
+            register={jest.fn()}
+            errors={{}}
+            control={{} as Control<AppEditFormSchema, object>}
+            getValues={jest.fn()}
+          />
+        </Router>,
       ),
     ).toMatchSnapshot()
   })
 
   it('should match a snapshot for the permissions tab', () => {
+    history.push(Routes.APPS_EDIT_PERMISSIONS)
     expect(
       render(
-        <AppEditTabs
-          register={jest.fn()}
-          errors={{}}
-          tab={AppEditTab.permissions}
-          control={{} as Control<AppEditFormSchema, object>}
-          getValues={jest.fn()}
-        />,
+        <Router history={history}>
+          <AppEditTabs
+            register={jest.fn()}
+            errors={{}}
+            control={{} as Control<AppEditFormSchema, object>}
+            getValues={jest.fn()}
+          />
+        </Router>,
       ),
     ).toMatchSnapshot()
   })
 
   it('should match a snapshot for the app listing tab', () => {
+    history.push(Routes.APPS_EDIT_APP_LISTING)
     expect(
       render(
-        <AppEditTabs
-          register={jest.fn()}
-          errors={{}}
-          tab={AppEditTab.appListing}
-          control={{} as Control<AppEditFormSchema, object>}
-          getValues={jest.fn(() => defaultValues) as unknown as UseFormGetValues<AppEditFormSchema>}
-        />,
+        <Router history={history}>
+          <AppEditTabs
+            register={jest.fn()}
+            errors={{}}
+            control={{} as Control<AppEditFormSchema, object>}
+            getValues={jest.fn(() => defaultValues) as unknown as UseFormGetValues<AppEditFormSchema>}
+          />
+        </Router>,
       ),
     ).toMatchSnapshot()
   })
 
   it('should match a snapshot for the ac integration tab', () => {
+    history.push(Routes.APPS_EDIT_AC_INTEGRATION)
     expect(
       render(
-        <AppEditTabs
-          register={jest.fn()}
-          errors={{}}
-          tab={AppEditTab.acIntegration}
-          control={{} as Control<AppEditFormSchema, object>}
-          getValues={jest.fn()}
-        />,
+        <Router history={history}>
+          <AppEditTabs
+            register={jest.fn()}
+            errors={{}}
+            control={{} as Control<AppEditFormSchema, object>}
+            getValues={jest.fn()}
+          />
+        </Router>,
       ),
     ).toMatchSnapshot()
   })
 
   it('should match a snapshot for the general tab', () => {
+    history.push(Routes.APPS_EDIT_GENERAL)
     expect(
       render(
-        <AppEditTabs
-          register={jest.fn()}
-          errors={{}}
-          tab={AppEditTab.general}
-          control={{} as Control<AppEditFormSchema, object>}
-          getValues={jest.fn(() => defaultValues) as unknown as UseFormGetValues<AppEditFormSchema>}
-        />,
+        <Router history={history}>
+          <AppEditTabs
+            register={jest.fn()}
+            errors={{}}
+            control={{} as Control<AppEditFormSchema, object>}
+            getValues={jest.fn(() => defaultValues) as unknown as UseFormGetValues<AppEditFormSchema>}
+          />
+        </Router>,
       ),
     ).toMatchSnapshot()
   })

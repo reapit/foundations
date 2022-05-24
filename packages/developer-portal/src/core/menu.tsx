@@ -105,7 +105,7 @@ export const Menu: FC = () => {
         },
         appId && {
           itemIndex: 2,
-          callback: navigate(history, `${Routes.APPS}/${appId}/edit`),
+          callback: navigate(history, `${Routes.APPS}/${appId}/edit/general`),
           text: 'Edit App',
         },
         appId && {

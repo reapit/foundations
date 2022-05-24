@@ -1,7 +1,6 @@
 import React, { MouseEvent } from 'react'
 import { Control, UseFormGetValues } from 'react-hook-form'
 import { render } from '../../../../tests/react-testing'
-import { AppEditTab } from '../edit-page-tabs'
 import { AppEditFormSchema } from '../form-schema/form-fields'
 import { GeneralTab, handleMouseOver, handleOpenModal } from '../general-tab'
 import { defaultValues as mockAppEditForm } from '../form-schema/form-fields'
@@ -15,7 +14,6 @@ describe('GeneralTab', () => {
         <GeneralTab
           register={jest.fn()}
           errors={{}}
-          tab={AppEditTab.general}
           control={{} as Control<AppEditFormSchema, object>}
           getValues={jest.fn(() => mockAppEditForm) as unknown as UseFormGetValues<AppEditFormSchema>}
         />,
