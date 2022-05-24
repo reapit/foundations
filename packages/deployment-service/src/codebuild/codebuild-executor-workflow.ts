@@ -30,6 +30,7 @@ export class CodebuildExecutorWorkflow extends AbstractWorkflow<{
     private readonly pipelineRunnerProvider: PipelineRunnerProvider,
     private readonly pusherProvider: PusherProvider,
     private readonly parameterProvider: ParameterProvider,
+    private readonly codeBuild: CodeBuild,
   ) {
     super(sqsProvider)
   }
@@ -125,12 +126,9 @@ export class CodebuildExecutorWorkflow extends AbstractWorkflow<{
     pipelineRunner: PipelineRunnerEntity
     repoLocation: string
   }) {
-    const codebuild = new CodeBuild({
-      region: process.env.REGION,
-    })
     const params = await this.parameterProvider.obtainParameters(pipeline.id as string)
 
-    const start = codebuild.startBuild({
+    const start = this.codeBuild.startBuild({
       projectName: process.env.CODE_BUILD_PROJECT_NAME as string,
       buildspecOverride: yaml.stringify({
         version: 0.2,
