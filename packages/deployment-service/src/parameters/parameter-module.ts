@@ -3,9 +3,10 @@ import { Module } from '@nestjs/common'
 import { SSM } from 'aws-sdk'
 import { ConfigModule, ConfigService } from '@nestjs/config'
 import roleCredentials, { RoleCredentialsType } from '../config/role-credentials'
-import { KeyController } from './key-controller'
+import { ParameterController } from './parameter-controller'
 import { AuthModule } from '../auth'
 import { PipelineModule } from '../pipeline'
+import { ParameterProvider } from './parameter-provider'
 
 @Module({
   imports: [ConfigModule.forFeature(roleCredentials), AuthModule, PipelineModule],
@@ -20,7 +21,9 @@ import { PipelineModule } from '../pipeline'
         }),
       inject: [ConfigService],
     },
+    ParameterProvider,
   ],
-  controllers: [KeyController],
+  controllers: [ParameterController],
+  exports: [ParameterProvider],
 })
-export class KeyModule {}
+export class ParameterModule {}
