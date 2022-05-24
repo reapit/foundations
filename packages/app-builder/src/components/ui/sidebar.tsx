@@ -21,20 +21,18 @@ export const SidebarDiv = styled.div`
 const Sidebar = () => {
   const { active } = useEditor((state, query) => {
     const currentlySelectedNodeId = query.getEvent('selected').first()
+    const isRoot = currentlySelectedNodeId && query.node(currentlySelectedNodeId).isRoot()
     return {
-      active: !!currentlySelectedNodeId,
+      active: !!currentlySelectedNodeId && !isRoot,
     }
   })
-  const [customizeVisible, setCustomizeVisible] = useState(true)
-  const [toolbarVisible, setToolbarVisible] = useState(true)
+  const [customizeVisible, setCustomizeVisible] = useState(false)
 
   useEffect(() => {
     if (active) {
       setCustomizeVisible(true)
-      setToolbarVisible(true)
     } else {
       setCustomizeVisible(false)
-      setToolbarVisible(false)
     }
   }, [active])
 
@@ -43,20 +41,22 @@ const Sidebar = () => {
       <div className={cx(elFlex, elFlexColumn)} style={{ height: 'calc(100vh - 45px)', flex: 1 }}>
         <SidebarItem
           title="Components"
-          height={customizeVisible ? 'full' : '0%'}
-          expanded={customizeVisible}
-          onChange={(val) => setCustomizeVisible(val)}
+          height={!customizeVisible ? '100%' : '0%'}
+          expanded={!customizeVisible}
+          onChange={(val) => setCustomizeVisible(!val)}
         >
           <Toolbox />
         </SidebarItem>
-        <SidebarItem
-          title="Customise"
-          height={!customizeVisible ? 'full' : '0%'}
-          expanded={toolbarVisible}
-          onChange={(val) => setToolbarVisible(val)}
-        >
-          <Toolbar />
-        </SidebarItem>
+        {active && (
+          <SidebarItem
+            title="Customise"
+            height={customizeVisible ? '100%' : '0%'}
+            expanded={customizeVisible}
+            onChange={(val) => setCustomizeVisible(val)}
+          >
+            <Toolbar />
+          </SidebarItem>
+        )}
       </div>
     </SidebarDiv>
   )
