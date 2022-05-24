@@ -38,7 +38,7 @@ export class BitBucketWebhookController {
         name: 'Reapit Foundations',
         url: 'https://www.reapit.com/foundations/',
       },
-      baseUrl:  `https://deployments.${process.env.ROOT_DOMAIN}/api/bitbucket`,
+      baseUrl: `https://deployments.${process.env.ROOT_DOMAIN}/api/bitbucket`,
       authentication: {
         type: 'jwt',
       },

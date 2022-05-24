@@ -20,7 +20,7 @@ export type DeployToS3Params = {
 
 @Injectable()
 export class DeployProvider {
-  constructor(private readonly s3Provider: S3Provider) {}
+  constructor(private readonly s3Provider: S3Provider, private readonly cloudfrontClient: CloudFrontClient) {}
 
   protected getFromVersionS3(location: string) {
     return this.s3Provider.getObject({
@@ -64,7 +64,6 @@ export class DeployProvider {
       projectLocation: pipeline.uniqueRepoName,
     })
 
-    const cloudFrontClient = new CloudFrontClient({})
     const invalidateCommand = new CreateInvalidationCommand({
       DistributionId: pipelineRunner.pipeline?.cloudFrontId,
       InvalidationBatch: {
@@ -76,7 +75,7 @@ export class DeployProvider {
       },
     })
 
-    await cloudFrontClient.send(invalidateCommand)
+    await this.cloudfrontClient.send(invalidateCommand)
   }
 
   async releaseToLiveFromZip({
@@ -95,8 +94,6 @@ export class DeployProvider {
         recursive: true,
       })
     }
-
-    console.log('zip', AdmZip)
 
     const zip = new AdmZip(file)
 
