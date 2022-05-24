@@ -5,7 +5,7 @@ import path from 'path'
 import { v4 } from 'uuid'
 import { Button, FormLayout, Loader, useSnack } from '@reapit/elements'
 
-import { Container, ContainerProps } from './container'
+import { ComponentWrapper, ContainerProps } from './container'
 
 import { useObjectMutate } from '../../../hooks/objects/use-object-mutate'
 import { useObjectGet } from '../../../hooks/objects/use-object-get'
@@ -64,7 +64,7 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
     }
 
     return (
-      <Container {...props} ref={ref}>
+      <ComponentWrapper {...props} ref={ref}>
         {!typeName && <div>No type selected</div>}
         <form
           onSubmit={(e) => {
@@ -118,7 +118,7 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
             </FormLayout>
           </FormContextProvider>
         </form>
-      </Container>
+      </ComponentWrapper>
     )
   },
 )

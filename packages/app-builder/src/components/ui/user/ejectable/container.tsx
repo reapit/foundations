@@ -5,20 +5,22 @@ const MOBILE_BREAKPOINT = 768
 const TABLET_BREAKPOINT = 1024
 
 const ContainerDiv = styled.div<{ width: number }>`
-  display: flex;
-  align-items: center;
-  justify-items: space-between;
-
-  flex: ${(props) => props.width};
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  justify-self: stretch;
+  grid-column: span ${(props) => props.width};
 
   @media (max-width: ${TABLET_BREAKPOINT}px) {
-    flex: ${(props) => props.width * 2};
+    grid-template-columns: repeat(6, 1fr);
   }
   @media (max-width: ${MOBILE_BREAKPOINT}px) {
-    align-items: flex-start;
-    flex-direction: column;
-    flex: 12;
+    grid-template-columns: repeat(1, 1fr);
   }
+`
+
+export const ComponentWrapper = styled.div<{ width: number }>`
+  justify-self: stretch;
+  grid-column: span ${(props) => props.width};
 `
 
 export interface ContainerProps {
@@ -39,9 +41,7 @@ export const Container = forwardRef<HTMLDivElement, ContainerProps>(
         background,
         height,
         padding: `${padding}px`,
-        flex: isRoot ? 'unset' : undefined,
         width: isRoot ? '100%' : undefined,
-        display: isRoot ? 'block' : undefined,
       }}
     >
       {children}
