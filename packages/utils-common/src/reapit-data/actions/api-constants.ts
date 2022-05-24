@@ -59,4 +59,5 @@ export enum PathNames {
   memberInviteReject = '/marketplace/developers/{developerId}/members/{memberId}/reject',
   getPipelineEnvironment = '/pipeline/{pipelineId}/parameter',
   upsertPipelineEnvironment = '/pipeline/{pipelineId}/parameter',
+  publicWebhookKey = '/webhooks/signing',
 }
