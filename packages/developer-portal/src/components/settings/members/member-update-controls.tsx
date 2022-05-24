@@ -55,6 +55,7 @@ export const handleReinviteMember =
 
 export const MemberUpdateControls: FC<MemberUpdateControlsProps> = ({ member, refreshMembers }) => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const currentMemberEmail = connectSession?.loginIdentity.email
 
   const [, memberUpdating, updateMember, updateMemberSuccess] = useReapitUpdate<UpdateMemberModel, boolean>({
     reapitConnectBrowserSession,
@@ -92,13 +93,14 @@ export const MemberUpdateControls: FC<MemberUpdateControlsProps> = ({ member, re
   ])
 
   const isLoading = memberDeleting || memberUpdating || memberReinviting
+  const isDisabled = isLoading || member.email === currentMemberEmail
 
   return (
     <ButtonGroup alignment="center">
       <Button
         intent="primary"
-        disabled={memberUpdating}
-        loading={memberUpdating}
+        disabled={isDisabled}
+        loading={isLoading}
         onClick={handleUpdateMember(updateMember, {
           ...member,
           role: member.role === 'admin' ? 'user' : 'admin',
@@ -106,13 +108,18 @@ export const MemberUpdateControls: FC<MemberUpdateControlsProps> = ({ member, re
       >
         Set As {member.role === 'admin' ? 'User' : 'Admin'}
       </Button>
-      <Button intent="secondary" onClick={handleReinviteMember(reinviteMember, member, connectSession)}>
+      <Button
+        intent="secondary"
+        disabled={isDisabled}
+        loading={isLoading}
+        onClick={handleReinviteMember(reinviteMember, member, connectSession)}
+      >
         Invite Again
       </Button>
       {member.status === 'active' && (
         <Button
           intent="low"
-          disabled={isLoading}
+          disabled={isDisabled}
           loading={isLoading}
           onClick={handleUpdateMember(updateMember, {
             ...member,
@@ -122,7 +129,7 @@ export const MemberUpdateControls: FC<MemberUpdateControlsProps> = ({ member, re
           Disable
         </Button>
       )}
-      <Button intent="danger" disabled={isLoading} loading={isLoading} onClick={handleDeleteMember(deleteMember)}>
+      <Button intent="danger" disabled={isDisabled} loading={isLoading} onClick={handleDeleteMember(deleteMember)}>
         Delete
       </Button>
     </ButtonGroup>
