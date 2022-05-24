@@ -27,6 +27,11 @@ Object {
             >
               Ping
             </button>
+            <button
+              class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+            >
+              Copy Public Key
+            </button>
           </div>
         </div>
       </div>
@@ -54,6 +59,11 @@ Object {
             class="ebee6r1-el-intent-primary eqfkc7t-el-button"
           >
             Ping
+          </button>
+          <button
+            class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+          >
+            Copy Public Key
           </button>
         </div>
       </div>
