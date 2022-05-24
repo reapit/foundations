@@ -167,6 +167,8 @@ export const elGlobals = css`
 
     a {
       text-decoration: none;
+      cursor: pointer;
+      color: #0061a8;
     }
 
     strong {
