@@ -10,6 +10,7 @@ import {
   Delete,
   UnprocessableEntityException,
   UseGuards,
+  Put,
 } from '@nestjs/common'
 import { OwnershipProvider } from '../auth'
 import { PipelineProvider } from './pipeline-provider'
@@ -75,7 +76,7 @@ export class PipelineController {
     return pipeline
   }
 
-  @Post(':id')
+  @Put(':id')
   async edit(id: string, @Creds() creds: CredsType, @Body() dto: PipelineDto): Promise<PipelineEntity | never> {
     let setupInfra = false
 
