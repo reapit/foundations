@@ -112,7 +112,7 @@ export const formFields: Record<keyof AppEditFormSchema, InputGroupProps & { nam
     name: 'description',
     label: 'Description',
     placeholder:
-      'A detailed description for your app listing. Must be between 150 and 1500 characters. Please note: As this field supports HTML, special characters will be included in the character count',
+      'A detailed description for your app listing. Must be between 150 and 20000 characters. Please note: As this field supports HTML, special characters will be included in the character count',
   },
   termsAndConditionsUrl: {
     name: 'termsAndConditionsUrl',
