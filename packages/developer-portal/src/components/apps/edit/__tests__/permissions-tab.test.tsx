@@ -2,7 +2,6 @@ import React from 'react'
 import { Control } from 'react-hook-form'
 import { useReapitGet } from '@reapit/utils-react'
 import { render } from '../../../../tests/react-testing'
-import { AppEditTab } from '../edit-page-tabs'
 import { AppEditFormSchema } from '../form-schema/form-fields'
 import { PermissionsTab } from '../permissions-tab'
 
@@ -27,7 +26,6 @@ describe('PermissionsTab', () => {
         <PermissionsTab
           register={jest.fn()}
           errors={{}}
-          tab={AppEditTab.permissions}
           control={{} as Control<AppEditFormSchema, object>}
           getValues={jest.fn()}
         />,
@@ -43,7 +41,6 @@ describe('PermissionsTab', () => {
         <PermissionsTab
           register={jest.fn()}
           errors={{}}
-          tab={AppEditTab.permissions}
           control={{} as Control<AppEditFormSchema, object>}
           getValues={jest.fn()}
         />,

@@ -60,7 +60,7 @@ export const AppCard: FC<AppCardProps> = ({ app }) => {
         mainContextMenuItems={[
           {
             icon: 'editSystem',
-            onClick: navigate(history, `${Routes.APPS}/${id}/edit`),
+            onClick: navigate(history, `${Routes.APPS}/${id}/edit/general`),
             intent: 'primary',
           },
           {

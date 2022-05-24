@@ -74,7 +74,10 @@ export const AppsPage: FC = () => {
                       <SecondaryNavItem onClick={navigate(history, `${Routes.APPS}/${appId}`)} active={isAppsDetail}>
                         App Details
                       </SecondaryNavItem>
-                      <SecondaryNavItem onClick={navigate(history, `${Routes.APPS}/${appId}/edit`)} active={isAppsEdit}>
+                      <SecondaryNavItem
+                        onClick={navigate(history, `${Routes.APPS}/${appId}/edit/general`)}
+                        active={isAppsEdit}
+                      >
                         Edit App
                       </SecondaryNavItem>
                       <SecondaryNavItem
