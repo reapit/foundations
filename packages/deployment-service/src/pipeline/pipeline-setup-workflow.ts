@@ -138,7 +138,9 @@ export class PipelineSetupWorkflow extends AbstractWorkflow<PipelineEntity> {
             },
           },
         ],
-        Comment: `Adding additional A record for pipeline [${pipeline.id}]`,
+        Comment: `Adding additional A record for pipeline [${pipeline.id}] [${
+          process.env.NODE_ENV === 'production' ? 'prod' : 'dev'
+        }]`,
       },
     })
 
