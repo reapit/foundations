@@ -57,7 +57,7 @@ export class GithubWebhookController {
         throw new NotFoundException()
       }
 
-      if (pipeline.branch !== body.ref) {
+      if (body.ref.includes(pipeline.branch as string)) {
         return
       }
 
