@@ -18,6 +18,7 @@ import { getRoleCredentials } from '../s3/assumed-s3-client'
 import { ConfigModule, ConfigService } from '@nestjs/config'
 import roleCredentials, { RoleCredentialsType } from '../config/role-credentials'
 import { ParameterController } from './parameter-controller'
+import { CloudFrontClient } from '@aws-sdk/client-cloudfront'
 
 @Module({
   imports: [
@@ -37,6 +38,16 @@ import { ParameterController } from './parameter-controller'
       provide: SSM,
       useFactory: async (config: ConfigService) =>
         new SSM({
+          credentials: await getRoleCredentials(
+            config.get<RoleCredentialsType>('role-credentials') as RoleCredentialsType,
+          ),
+        }),
+      inject: [ConfigService],
+    },
+    {
+      provide: CloudFrontClient,
+      useFactory: async (config: ConfigService) =>
+        new CloudFrontClient({
           credentials: await getRoleCredentials(
             config.get<RoleCredentialsType>('role-credentials') as RoleCredentialsType,
           ),

@@ -18,6 +18,7 @@ export class PipelineTearDownWorkflow extends AbstractWorkflow<PipelineEntity> {
     private readonly taskProvider: TaskProvider,
     private readonly pipelineRunnerProvider: PipelineRunnerProvider,
     private readonly parameterProvider: ParameterProvider,
+    private readonly cloudfrontClient: CloudFrontClient,
   ) {
     super(sqsProvider)
   }
@@ -62,15 +63,13 @@ export class PipelineTearDownWorkflow extends AbstractWorkflow<PipelineEntity> {
   }
 
   private tearDownCloudFront = async (Id: string): Promise<string> => {
-    const frontClient = new CloudFrontClient({})
-
-    const cloudFrontDistro = await frontClient.send(
+    const cloudFrontDistro = await this.cloudfrontClient.send(
       new GetDistributionCommand({
         Id,
       }),
     )
 
-    await frontClient.send(
+    await this.cloudfrontClient.send(
       new DeleteDistributionCommand({
         Id,
         IfMatch: cloudFrontDistro.ETag,

@@ -14,6 +14,7 @@ export class PipelineSetupWorkflow extends AbstractWorkflow<PipelineEntity> {
     sqsProvider: SqsProvider,
     private readonly pusherProvider: PusherProvider,
     private readonly s3Provider: S3Provider,
+    private readonly cloudfrontClient: CloudFrontClient,
   ) {
     super(sqsProvider)
   }
@@ -60,10 +61,6 @@ export class PipelineSetupWorkflow extends AbstractWorkflow<PipelineEntity> {
   }
 
   private async createDistro(pipeline: PipelineEntity) {
-    const frontClient = new CloudFrontClient({
-      region: process.env.REGION,
-    })
-
     const id = uuid()
 
     const distroCommand = new CreateDistributionCommand({
@@ -113,7 +110,7 @@ export class PipelineSetupWorkflow extends AbstractWorkflow<PipelineEntity> {
       message: 'Distro created',
     })
 
-    return frontClient.send(distroCommand)
+    return this.cloudfrontClient.send(distroCommand)
   }
 
   private async createARecord(pipeline: PipelineEntity, frontDomain: string): Promise<string> {
