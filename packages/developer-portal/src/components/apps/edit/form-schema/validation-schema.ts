@@ -119,16 +119,16 @@ export const appEditValidationSchema = object().shape({
       then: string()
         .trim()
         .required(FIELD_REQUIRED)
-        .min(150, errorMessages.BETWEEN_MIN_MAX_CHARACTER_LENGTH(150, 1500))
-        .max(1500, errorMessages.BETWEEN_MIN_MAX_CHARACTER_LENGTH(150, 1500)),
+        .min(150, errorMessages.BETWEEN_MIN_MAX_CHARACTER_LENGTH(150, 200000))
+        .max(200000, errorMessages.BETWEEN_MIN_MAX_CHARACTER_LENGTH(150, 200000)),
       otherwise: string()
         .trim()
         .test({
           name: 'isValidDescription',
-          message: errorMessages.BETWEEN_MIN_MAX_CHARACTER_LENGTH(150, 1500),
+          message: errorMessages.BETWEEN_MIN_MAX_CHARACTER_LENGTH(150, 200000),
           test: (value) => {
             if (!value) return true
-            return value.length >= 150 && value.length <= 1500
+            return value.length >= 150 && value.length <= 200000
           },
         }),
     }),
