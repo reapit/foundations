@@ -36,4 +36,18 @@ export class ParameterProvider {
       ),
     )
   }
+
+  async destroyParameters(pipelineId: string): Promise<void> {
+    return new Promise<void>((resolve) => {
+      this.ssm.deleteParameter(
+        {
+          Name: `cloud-${pipelineId}`,
+        },
+        (err) => {
+          console.error(err)
+          resolve()
+        },
+      )
+    })
+  }
 }

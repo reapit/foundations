@@ -12,7 +12,7 @@ import { PipelineRunnerProvider } from '../pipeline-runner'
 import { plainToClass } from 'class-transformer'
 import { BitbucketClientData } from '../entities/bitbucket-client.entity'
 import { BitBucketEvent } from '../functions'
-import { ParameterProvider } from '../parameters'
+import { ParameterProvider } from '../pipeline'
 
 @Workflow(QueueNamesEnum.CODEBUILD_EXECUTOR)
 export class CodebuildExecutorWorkflow extends AbstractWorkflow<{

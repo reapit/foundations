@@ -10,7 +10,6 @@ import { SoruceProvider } from './source-provider'
 import { BitbucketModule } from '../bitbucket'
 import { CodebuildPipelineUpdaterEventHandler } from './codebuild-pipeline-updater-event-handler'
 import { CodebuildDeployWorkflow } from './coebuild-deploy-workflow'
-import { ParameterModule } from '../parameters'
 
 @Module({
   imports: [
@@ -21,7 +20,6 @@ import { ParameterModule } from '../parameters'
     EventModule,
     DeploymentModule,
     BitbucketModule,
-    ParameterModule,
   ],
   providers: [SoruceProvider, CodebuildExecutorWorkflow, CodebuildPipelineUpdaterEventHandler, CodebuildDeployWorkflow],
 })

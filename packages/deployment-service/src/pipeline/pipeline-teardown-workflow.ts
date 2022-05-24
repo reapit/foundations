@@ -6,6 +6,7 @@ import { ChangeResourceRecordSetsCommand, Route53Client } from '@aws-sdk/client-
 import { PipelineEntity } from '../entities/pipeline.entity'
 import { PipelineProvider } from './pipeline-provider'
 import { PipelineRunnerProvider, TaskProvider } from '../pipeline-runner'
+import { ParameterProvider } from './parameter-provider'
 
 @Workflow(QueueNamesEnum.PIPELINE_TEAR_DOWN, () => PipelineEntity)
 export class PipelineTearDownWorkflow extends AbstractWorkflow<PipelineEntity> {
@@ -16,6 +17,7 @@ export class PipelineTearDownWorkflow extends AbstractWorkflow<PipelineEntity> {
     private readonly pipelineProvider: PipelineProvider,
     private readonly taskProvider: TaskProvider,
     private readonly pipelineRunnerProvider: PipelineRunnerProvider,
+    private readonly parameterProvider: ParameterProvider,
   ) {
     super(sqsProvider)
   }
@@ -88,6 +90,8 @@ export class PipelineTearDownWorkflow extends AbstractWorkflow<PipelineEntity> {
         if (pipeline.hasRoute53) await this.tearDownR53(domainName, pipeline.id as string, pipeline.subDomain as string)
       }
     }
+
+    await this.parameterProvider.destroyParameters(pipeline.id as string)
 
     await this.deleteAllFromDb(pipeline)
     pipeline.buildStatus = 'DELETED'
