@@ -2,7 +2,6 @@ import React from 'react'
 import { Control, DeepMap, FieldError, UseFormGetValues } from 'react-hook-form'
 import { render } from '../../../../tests/react-testing'
 import { AppListingTab } from '../app-listing-tab'
-import { AppEditTab } from '../edit-page-tabs'
 import { AppEditFormSchema } from '../form-schema/form-fields'
 
 jest.mock('../../state/use-app-state')
@@ -47,7 +46,6 @@ describe('AppListingTab', () => {
             return fields[name]
           }}
           errors={{}}
-          tab={AppEditTab.appListing}
           control={{} as Control<AppEditFormSchema, object>}
           getValues={
             jest.fn(() => ({
@@ -90,7 +88,6 @@ describe('AppListingTab', () => {
               screen5ImageUrl: { message: 'An Error' },
             } as DeepMap<Partial<AppEditFormSchema>, FieldError>
           }
-          tab={AppEditTab.appListing}
           control={{} as Control<AppEditFormSchema, object>}
           getValues={
             jest.fn(() => ({
