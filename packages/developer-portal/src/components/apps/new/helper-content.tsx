@@ -20,7 +20,6 @@ import { ExternalPages, openNewPage } from '../../../utils/navigation'
 import { Link } from 'react-router-dom'
 import Routes from '../../../constants/routes'
 import { cx } from '@linaria/core'
-import { HelperGraphic } from './helper-graphic'
 import videoImage from '../../../assets/images/desktop/video-placeholder.svg'
 
 export type HelperContentRef = {
@@ -72,6 +71,8 @@ export const HelperContent: FC = () => {
   const { isMobile, isTablet, isDesktop } = useMediaQuery()
   const { Modal: ModalServerSide, openModal: openModalServerSide, closeModal: closeModalServerSide } = useModal()
   const { Modal: ModalDesktop, openModal: openModalDesktop, closeModal: closeModalDesktop } = useModal()
+  const { Modal: ModalWebsite, openModal: openModalWebsite, closeModal: closeModalWebsite } = useModal()
+  const { Modal: ModalApps, openModal: openModalApps, closeModal: closeModalApps } = useModal()
   const shouldShowStep = checkHasHelpers(appWizardState)
   const isFlexColumn = isMobile || isTablet || isDesktop
 
@@ -80,13 +81,16 @@ export const HelperContent: FC = () => {
       <div className={cx(shouldShowStep(AppNewStepId.applicationTypeStep) ? elFadeIn : stepIsHidden)}>
         <Subtitle hasBoldText>About Apps</Subtitle>
         <FlexContainer isFlexAlignStart={!isFlexColumn} isFlexColumn={isFlexColumn}>
-          <div className={cx(!isFlexColumn && elW6, !isFlexColumn && elMr6, isFlexColumn && elMb7)}>
+          <div
+            className={cx(!isFlexColumn && elW6, !isFlexColumn && elMr6, isFlexColumn && elMb7)}
+            onClick={openModalApps}
+          >
             <BodyText hasGreyText>
               Every developer will have different use cases for our Platform and it is unlikely you will need to use all
               of the APIs and tooling we provide. However, the starting point for all integrations is to create an
               &lsquo;App&rsquo;,
             </BodyText>
-            <HelperGraphic />
+            <img src={videoImage} style={{ width: '100%' }} alt="Video placeholder" />
           </div>
           <div className={cx(!isFlexColumn && elW6, !isFlexColumn && elMl6)}>
             <BodyText hasGreyText>
@@ -171,15 +175,29 @@ export const HelperContent: FC = () => {
       </div>
       <div className={cx(shouldShowStep(AppNewStepId.websiteFeedStep) ? elFadeIn : stepIsHidden)}>
         <Subtitle hasBoldText>Website Feeds</Subtitle>
-        <BodyText hasGreyText>
-          When building a public website for a Reapit Customer, you will have no user authentication so your integration
-          must be server-side, using our{' '}
-          <a onClick={openNewPage(ExternalPages.clientCredentials)}>Client Credentials authentication flow.</a>
-        </BodyText>
-        <BodyText hasGreyText>
-          Your application will be read-only and by selecting this option, we will pre-populate the typical API
-          permissions your integration will need for most website development.
-        </BodyText>
+        <FlexContainer isFlexAlignStart={!isFlexColumn} isFlexColumn={isFlexColumn}>
+          <div
+            className={cx(!isFlexColumn && elW6, !isFlexColumn && elMr6, isFlexColumn && elMb7)}
+            onClick={openModalWebsite}
+          >
+            <BodyText hasGreyText>
+              It is possible to get up and running with a website feed from the Platform API. You will want to optimise
+              this flow, implementing webhooks and caching however, the below video is our quick start guide.
+            </BodyText>
+            <img src={videoImage} style={{ width: '100%' }} alt="Video placeholder" />
+          </div>
+          <div className={cx(!isFlexColumn && elW6, !isFlexColumn && elMl6)}>
+            <BodyText hasGreyText>
+              When building a public website for a Reapit Customer, you will have no user authentication so your
+              integration must be server-side, using our{' '}
+              <a onClick={openNewPage(ExternalPages.clientCredentials)}>Client Credentials authentication flow.</a>
+            </BodyText>
+            <BodyText hasGreyText>
+              Your application will be read-only and by selecting this option, we will pre-populate the typical API
+              permissions your integration will need for most website development.
+            </BodyText>
+          </div>
+        </FlexContainer>
       </div>
       <div className={cx(shouldShowStep(AppNewStepId.webServicesStep) ? elFadeIn : stepIsHidden)}>
         <Subtitle hasBoldText>Web Services to Platform</Subtitle>
@@ -325,6 +343,40 @@ export const HelperContent: FC = () => {
           </Button>
         </ButtonGroup>
       </ModalDesktop>
+      <ModalWebsite title="Website Feeds">
+        <iframe
+          className={elMb7}
+          width="100%"
+          height="315"
+          src="https://www.youtube.com/embed/EJWB5u1ja_U"
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+        <ButtonGroup alignment="center">
+          <Button fixedWidth intent="low" onClick={closeModalWebsite}>
+            Close
+          </Button>
+        </ButtonGroup>
+      </ModalWebsite>
+      <ModalApps title="About Apps">
+        <iframe
+          className={elMb7}
+          width="100%"
+          height="315"
+          src="https://www.youtube.com/embed/sjXvs72ZWB8"
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+        <ButtonGroup alignment="center">
+          <Button fixedWidth intent="low" onClick={closeModalApps}>
+            Close
+          </Button>
+        </ButtonGroup>
+      </ModalApps>
     </HelperContentContainer>
   )
 }
