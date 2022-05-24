@@ -496,6 +496,11 @@ Object {
                     >
                       Ping
                     </button>
+                    <button
+                      class="ebee6r1-el-intent-primary eqfkc7t-el-button"
+                    >
+                      Fetch Public Key
+                    </button>
                   </div>
                 </div>
               </div>
@@ -706,6 +711,11 @@ Object {
                     class="ebee6r1-el-intent-primary eqfkc7t-el-button"
                   >
                     Ping
+                  </button>
+                  <button
+                    class="ebee6r1-el-intent-primary eqfkc7t-el-button"
+                  >
+                    Fetch Public Key
                   </button>
                 </div>
               </div>

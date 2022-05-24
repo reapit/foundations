@@ -92,3 +92,13 @@ export interface WebhookLogModel {
   statusCode: number
   entityId: string
 }
+
+export interface WebhookPublicKey {
+  id: string
+  curve: string
+  x: string
+}
+
+export interface WebhookPublicKeyResponse {
+  keys: WebhookPublicKey[]
+}

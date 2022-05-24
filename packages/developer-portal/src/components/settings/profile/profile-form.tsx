@@ -3,12 +3,15 @@ import {
   BodyText,
   Button,
   ButtonGroup,
+  elMb11,
+  elMb6,
   ElToggleItem,
   FormLayout,
   InputError,
   InputGroup,
   InputWrap,
   Label,
+  PersistantNotification,
   Subtitle,
   Toggle,
   ToggleRadio,
@@ -84,40 +87,63 @@ export const ProfileForm: FC = () => {
 
   return (
     <form onSubmit={handleSubmit(updateMember)}>
-      <Subtitle>Your Profile</Subtitle>
-      <FormLayout hasMargin>
-        <InputWrap>
-          <InputGroup
-            {...register('name')}
-            label="Name"
-            placeholder="Your full name here"
-            errorMessage={errors.name?.message}
-            icon={errors.name?.message ? 'asteriskSystem' : null}
-            intent="danger"
-          />
-        </InputWrap>
-        <InputWrap>
-          <InputGroup
-            {...register('jobTitle')}
-            label="Job Title"
-            placeholder="What role do you have at your company"
-            errorMessage={errors.jobTitle?.message}
-            icon={errors.jobTitle?.message ? 'asteriskSystem' : null}
-            intent="danger"
-          />
-        </InputWrap>
-        <InputWrap>
-          <InputGroup
-            {...register('gitHubUsername')}
-            label="GitHub Username"
-            placeholder="Github handles help us tracking issues"
-            errorMessage={errors.gitHubUsername?.message}
-            icon={errors.gitHubUsername?.message ? 'asteriskSystem' : null}
-            intent="danger"
-          />
-        </InputWrap>
-      </FormLayout>
-      {(isClient || hasProducts) && <Subtitle>Customer Data</Subtitle>}
+      <div className={elMb11}>
+        <FormLayout>
+          <InputWrap>
+            <InputGroup
+              {...register('name')}
+              label="Name"
+              placeholder="Your full name here"
+              errorMessage={errors.name?.message}
+              icon={errors.name?.message ? 'asteriskSystem' : null}
+              intent="danger"
+            />
+          </InputWrap>
+          <InputWrap>
+            <InputGroup
+              {...register('jobTitle')}
+              label="Job Title"
+              placeholder="What role do you have at your company"
+              errorMessage={errors.jobTitle?.message}
+              icon={errors.jobTitle?.message ? 'asteriskSystem' : null}
+              intent="danger"
+            />
+          </InputWrap>
+          <InputWrap>
+            <InputGroup
+              {...register('gitHubUsername')}
+              label="GitHub Username"
+              placeholder="Github handles help us tracking issues"
+              errorMessage={errors.gitHubUsername?.message}
+              icon={errors.gitHubUsername?.message ? 'asteriskSystem' : null}
+              intent="danger"
+            />
+          </InputWrap>
+        </FormLayout>
+      </div>
+      <div className={elMb11}>
+        <FormLayout>
+          <InputWrap>
+            <Subtitle hasNoMargin>Company Name</Subtitle>
+            <BodyText hasNoMargin hasGreyText>
+              {currentDeveloper?.company}
+            </BodyText>
+          </InputWrap>
+          <InputWrap>
+            <Subtitle hasNoMargin>Email Address</Subtitle>
+            <BodyText hasNoMargin hasGreyText>
+              {currentMember?.email}
+            </BodyText>
+          </InputWrap>
+          <InputWrap>
+            <Subtitle hasNoMargin>Profile Settings</Subtitle>
+            <BodyText hasNoMargin hasGreyText>
+              {connectSession?.loginIdentity.clientId}
+            </BodyText>
+          </InputWrap>
+        </FormLayout>
+      </div>
+      {(isClient || hasProducts) && <Subtitle hasNoMargin>Customer Data</Subtitle>}
       {isClient && (
         <BodyText hasGreyText>
           As your account is associated with both the Sandbox Data (SBOX) and Customer Data, you can choose to toggle
@@ -130,12 +156,7 @@ export const ProfileForm: FC = () => {
           associated to your developer profile.
         </BodyText>
       )}
-      {(isClient || hasProducts) && (
-        <BodyText hasGreyText>
-          <strong>Please note, you will need to log out and log back in again to see this change take effect.</strong>
-        </BodyText>
-      )}
-      <FormLayout hasMargin>
+      <FormLayout className={elMb6}>
         {isClient && (
           <InputWrap>
             <InputGroup>
@@ -169,6 +190,11 @@ export const ProfileForm: FC = () => {
           </InputWrap>
         )}
       </FormLayout>
+      {(isClient || hasProducts) && (
+        <PersistantNotification className={elMb11} isInline isExpanded isFullWidth intent="secondary">
+          Please note, you will need to log out and log back in again to see this change take effect
+        </PersistantNotification>
+      )}
       <ButtonGroup>
         <Button intent="primary" type="submit" disabled={memberUpdating} loading={memberUpdating}>
           Save Changes

@@ -35,6 +35,7 @@ export enum GetActionNames {
   getWebhookTopics = 'getWebhookTopics',
   getWebhookLogs = 'getWebhookLogs',
   getPipelineEnvironment = 'getPipelineEnvironment',
+  getPublicWebhookKey = 'getPublicWebhookKey',
 }
 
 export type GetActions = { [key in GetActionNames]: GetAction }
@@ -168,5 +169,9 @@ export const getActions = (appEnv: AppEnv): GetActions => ({
   [GetActionNames.getPipelineEnvironment]: {
     api: ApiNames(appEnv).pipeline,
     path: PathNames.getPipelineEnvironment,
+  },
+  [GetActionNames.getPublicWebhookKey]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.publicWebhookKey,
   },
 })
