@@ -87,7 +87,7 @@ export class PipelineSetupWorkflow extends AbstractWorkflow<PipelineEntity> {
         },
         Aliases: {
           Quantity: 1,
-          Items: [`${pipeline.subDomain}.${process.env.NODE_ENV === 'PROD' ? 'prod' : 'dev'}.paas.reapit.cloud`],
+          Items: [`${pipeline.subDomain}.${process.env.NODE_ENV === 'production' ? 'prod' : 'dev'}.paas.reapit.cloud`],
         },
         Comment: `Cloudfront distribution for pipeline [${pipeline.id}]`,
         Enabled: true,
@@ -123,7 +123,7 @@ export class PipelineSetupWorkflow extends AbstractWorkflow<PipelineEntity> {
             Action: 'UPSERT',
             ResourceRecordSet: {
               Type: 'A',
-              Name: `${pipeline.subDomain}.${process.env.NODE_ENV === 'PROD' ? 'prod' : 'dev'}.paas.reapit.cloud`,
+              Name: `${pipeline.subDomain}.${process.env.NODE_ENV === 'production' ? 'prod' : 'dev'}.paas.reapit.cloud`,
               AliasTarget: {
                 DNSName: frontDomain,
                 EvaluateTargetHealth: false,
