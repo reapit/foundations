@@ -7,13 +7,13 @@ import { WorkflowHandlerProvider } from './workflow-handler-provider'
 import { EventDispatcher } from './event-dispatcher'
 import { SnsHandlerProvider } from './sns-handler-provider'
 import { PusherWebhookController } from './pusher-webhook-controller'
+import { AwsModule } from '../aws'
 
 @Module({
+  imports: [
+    AwsModule,
+  ],
   providers: [
-    {
-      provide: SQS,
-      useFactory: () => new SQS({ apiVersion: '2012-11-05', endpoint: process.env.SQS_ENDPOINT }),
-    },
     SqsProvider,
     {
       provide: Pusher,

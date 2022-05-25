@@ -3,7 +3,7 @@ import { getRoleCredentials, RoleCredentialsType } from './assumed-role-credenti
 import { CloudFrontClient } from '@aws-sdk/client-cloudfront'
 import { Module } from '@nestjs/common'
 import { ConfigModule, ConfigService } from '@nestjs/config'
-import { CodeBuild, Credentials, S3, SSM } from 'aws-sdk'
+import { CodeBuild, Credentials, S3, SSM, SQS } from 'aws-sdk'
 import { Route53Client } from '@aws-sdk/client-route-53'
 
 export const ROLE_CREDENTIALS = 'ROLE_CREDENTIALS'
@@ -57,7 +57,11 @@ export const ROLE_CREDENTIALS = 'ROLE_CREDENTIALS'
           region: 'us-east-1',
         }),
     },
+    {
+      provide: SQS,
+      useFactory: () => new SQS({ apiVersion: '2012-11-05', endpoint: process.env.SQS_ENDPOINT }),
+    },
   ],
-  exports: [S3, CodeBuild, SSM, ROLE_CREDENTIALS, CloudFrontClient, Route53Client],
+  exports: [S3, CodeBuild, SSM, ROLE_CREDENTIALS, CloudFrontClient, Route53Client, SQS],
 })
 export class AwsModule {}
