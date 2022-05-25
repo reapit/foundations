@@ -5888,6 +5888,10 @@ export interface CreatePropertyLettingModel {
    */
   landlordId?: string
   /**
+   * A note to accompany any works orders created for the property
+   */
+  worksOrderNote?: string
+  /**
    * Request body used to set the commission fee for a property
    */
   managementFee?: {
@@ -6333,6 +6337,10 @@ export interface CreatePropertyModel {
      * The unique identifier of the landlord letting the property
      */
     landlordId?: string
+    /**
+     * A note to accompany any works orders created for the property
+     */
+    worksOrderNote?: string
     /**
      * Request body used to set the commission fee for a property
      */
@@ -10736,6 +10744,10 @@ export interface PropertyLettingModel {
    */
   landlordId?: string
   /**
+   * A note to accompany any works orders created for the property
+   */
+  worksOrderNote?: string
+  /**
    * The unique identifier of the negotiator that manages the property
    */
   propertyManagerId?: string
@@ -11293,6 +11305,10 @@ export interface PropertyModel {
      * The unique identifier of the landlord letting the property
      */
     landlordId?: string
+    /**
+     * A note to accompany any works orders created for the property
+     */
+    worksOrderNote?: string
     /**
      * The unique identifier of the negotiator that manages the property
      */
@@ -11954,6 +11970,10 @@ export interface PropertyModelPagedResult {
        * The unique identifier of the landlord letting the property
        */
       landlordId?: string
+      /**
+       * A note to accompany any works orders created for the property
+       */
+      worksOrderNote?: string
       /**
        * The unique identifier of the negotiator that manages the property
        */
@@ -16248,6 +16268,10 @@ export interface UpdatePropertyLettingModel {
    */
   brochureId?: string
   /**
+   * A note to accompany any works orders created for the property
+   */
+  worksOrderNote?: string
+  /**
    * Request body used to update the commission fee for a property
    */
   managementFee?: {
@@ -16697,6 +16721,10 @@ export interface UpdatePropertyModel {
      * The unique identifier of the document used for the lettings brochure
      */
     brochureId?: string
+    /**
+     * A note to accompany any works orders created for the property
+     */
+    worksOrderNote?: string
     /**
      * Request body used to update the commission fee for a property
      */
