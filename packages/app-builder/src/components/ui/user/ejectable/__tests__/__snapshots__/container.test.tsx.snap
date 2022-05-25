@@ -4,7 +4,7 @@ exports[`Container should match a snapshot 1`] = `
 <DocumentFragment>
   <div
     class="container-div"
-    style="--c14oj12m-0: 0; --c14oj12m-2: 0;"
+    style="--c14oj12m-0: 0;"
     width="0"
   />
 </DocumentFragment>
