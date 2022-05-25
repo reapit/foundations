@@ -3,8 +3,8 @@
 exports[`Table should match a snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="container-div"
-    style="--c14oj12m-0: undefined; --c14oj12m-2: NaN;"
+    class="component-wrapper"
+    style="--c1uzxtdh-0: undefined;"
   >
     <div
       class="el-flex el-flex1 el-flex-column"

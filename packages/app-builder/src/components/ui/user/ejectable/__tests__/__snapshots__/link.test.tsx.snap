@@ -6,8 +6,8 @@ exports[`Link should match a snapshot 1`] = `
     href="/123"
   >
     <div
-      class="container-div"
-      style="--c14oj12m-0: 0; --c14oj12m-2: 0;"
+      class="component-wrapper"
+      style="--c1uzxtdh-0: 0;"
       width="0"
     />
   </a>

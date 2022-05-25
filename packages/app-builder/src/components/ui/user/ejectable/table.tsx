@@ -16,7 +16,7 @@ import qs from 'query-string'
 import path from 'path'
 import { cx } from '@linaria/core'
 
-import { Container, ContainerProps } from './container'
+import { ComponentWrapper, ContainerProps } from './container'
 import { uppercaseSentence } from './utils'
 
 import { useObjectList } from '../../../hooks/objects/use-object-list'
@@ -277,7 +277,7 @@ export const Table = forwardRef<HTMLDivElement, TableProps & { disabled?: boolea
     const displayNoResultsFound = searchAvailable && queryStr
 
     return (
-      <Container {...props} ref={ref}>
+      <ComponentWrapper {...props} ref={ref}>
         <div className={cx(elFlex, elFlex1, elFlexColumn)}>
           {displaySearch && (
             <Input type="text" placeholder="Search" value={queryStr} onChange={(e) => setQueryStr(e.target.value)} />
@@ -294,7 +294,7 @@ export const Table = forwardRef<HTMLDivElement, TableProps & { disabled?: boolea
           {displayNothingFound && !displayNoResultsFound && <span>Nothing found</span>}
           {displayNoType && <div>No type selected</div>}
         </div>
-      </Container>
+      </ComponentWrapper>
     )
   },
 )

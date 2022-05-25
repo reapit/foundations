@@ -2,7 +2,7 @@ import { useObjectGet } from '@/components/hooks/objects/use-object-get'
 import { usePageId } from '@/components/hooks/use-page-id'
 import React, { forwardRef } from 'react'
 import { FormLayout, InputWrap, Label, Loader } from '@reapit/elements'
-import { Container, ContainerProps } from './container'
+import { ComponentWrapper, ContainerProps } from './container'
 import { Text } from './text'
 
 export type InfoProps = ContainerProps & {
@@ -19,7 +19,7 @@ export const Info = forwardRef<HTMLDivElement, InfoProps>(({ typeName, ...props 
   }
 
   return (
-    <Container ref={ref} {...props}>
+    <ComponentWrapper ref={ref} {...props}>
       <FormLayout>
         {data &&
           Object.entries(data).map(([key, value]) => (
@@ -29,6 +29,6 @@ export const Info = forwardRef<HTMLDivElement, InfoProps>(({ typeName, ...props 
             </InputWrap>
           ))}
       </FormLayout>
-    </Container>
+    </ComponentWrapper>
   )
 })

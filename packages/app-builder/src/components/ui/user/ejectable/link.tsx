@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react'
 import path from 'path'
 import qs from 'query-string'
 import { Link as RRLink, useParams } from 'react-router-dom'
-import { Container, ContainerProps } from './container'
+import { ComponentWrapper, ContainerProps } from './container'
 import { usePageId } from '../../../hooks/use-page-id'
 
 export interface LinkProps extends ContainerProps {
@@ -35,7 +35,7 @@ export const Link = forwardRef<HTMLDivElement, LinkProps & { disabled?: boolean 
           : undefined
       }
     >
-      <Container {...props} ref={ref} />
+      <ComponentWrapper {...props} ref={ref} />
     </RRLink>
   )
 })
