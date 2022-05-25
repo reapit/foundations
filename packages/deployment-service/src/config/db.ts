@@ -33,7 +33,6 @@ export const liveDatabaseConfig = async (): Promise<MysqlConnectionOptions> => {
   }
 
   const data = JSON.parse(secrets.SecretString)
-  console.log('data', data)
 
   return {
     ...defaultDatabaseConfig,
