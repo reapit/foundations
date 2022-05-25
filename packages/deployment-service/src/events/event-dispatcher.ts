@@ -4,7 +4,7 @@ import { Injectable } from '@nestjs/common'
 import { SqsProvider } from './sqs-provider'
 import { PipelineRunnerEntity } from '../entities/pipeline-runner.entity'
 import { BitbucketClientData } from '../entities/bitbucket-client.entity'
-import { BitBucketEvent } from '../functions'
+import { BitBucketEvent } from '../bitbucket'
 
 @Injectable()
 export class EventDispatcher {

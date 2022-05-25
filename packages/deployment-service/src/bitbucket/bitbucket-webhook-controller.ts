@@ -1,6 +1,5 @@
 import { BitbucketClientData, BitbucketClientEntity } from '../entities/bitbucket-client.entity'
 import { EventDispatcher } from '../events'
-import { BitBucketEvent } from '../functions'
 import { PipelineProvider } from '../pipeline'
 import { PipelineRunnerProvider } from '../pipeline-runner'
 import {
@@ -17,6 +16,7 @@ import { PipelineRunnerType } from '@reapit/foundations-ts-definitions/deploymen
 import * as jwt from 'atlassian-jwt'
 import { Request } from 'express'
 import { BitbucketProvider } from './bitbucket-provider'
+import { BitBucketEvent } from './bitbucket-event'
 
 @Controller('bitbucket')
 export class BitBucketWebhookController {

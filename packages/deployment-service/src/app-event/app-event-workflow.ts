@@ -1,5 +1,5 @@
 import { QueueNamesEnum } from '../constants'
-import { AppTypeEnum } from '../dto'
+import { AppTypeEnum } from '../pipeline/pipeline-dto'
 import { PipelineProvider } from '../pipeline'
 import { AbstractWorkflow, EventDispatcher, SqsProvider, Workflow } from '../events'
 
