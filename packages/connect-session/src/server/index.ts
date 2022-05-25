@@ -5,7 +5,8 @@ import { DecodedToken } from '../utils'
 
 export class ReapitConnectServerSession {
   // Static constants
-  static TOKEN_EXPIRY = Math.round(new Date().getTime() / 1000) + 300 // 5 minutes from now
+  static TOKEN_EXPIRY = Math.round(new Date().getTime() / 1000) + 3300 // 55 minutes from now - expiry is 1hr, 5mins
+  // to allow for clock drift - unused, not removing as don't want to make any breaking changes
 
   // Private cached variables, I don't want users to reference these directly or it will get confusing.
   // and cause bugs
@@ -28,8 +29,9 @@ export class ReapitConnectServerSession {
     if (this.accessToken) {
       const decoded = decode<DecodedToken<CoginitoAccess>>(this.accessToken)
       const expiry = decoded['exp']
-
-      return expiry ? expiry < ReapitConnectServerSession.TOKEN_EXPIRY : true
+      // 5mins to allow for clock drift
+      const fiveMinsFromNow = Math.round(new Date().getTime() / 1000) + 300
+      return expiry ? expiry < fiveMinsFromNow : true
     }
 
     return true
