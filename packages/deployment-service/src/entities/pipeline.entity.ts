@@ -2,7 +2,7 @@ import { AppTypeEnum, PackageManagerEnum, PipelineModelInterface } from '@reapit
 import { Column, Entity, OneToMany } from 'typeorm'
 import { AbstractEntity } from './abstract-entity'
 import { PipelineRunnerEntity } from './pipeline-runner.entity'
-import { PipelineBuildStatus } from '../dto'
+import { PipelineBuildStatus } from '../pipeline/pipeline-dto'
 
 export const pipelineDeploymentDisabled = [
   'PROVISIONING',
