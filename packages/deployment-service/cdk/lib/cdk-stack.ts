@@ -40,7 +40,7 @@ type FunctionSetup = {
     headers: string[]
     authorizer?: boolean
   }
-  queue?: sqs.IQueue
+  queues?: sqs.IQueue[]
   topic?: Topic
   role?: Role
 }
@@ -86,475 +86,41 @@ export const createStack = () => {
     githubPemSecretArn: githubPemSecret.ref,
   })
 
-  const fileLocPrefix = 'packages/deployment-service/src/index.'
+  const createFileLoc = (file: string, func: string) => `packages/deployment-service/src/${file}.${func}`
 
   const functionSetups: { [s: string]: FunctionSetup } = {
-    pipelineCreate: {
-      handler: `${fileLocPrefix}pipelineCreate`,
-      policies: [...policies.commonBackendPolicies],
-      api: {
-        routes: {
-          method: 'POST',
-          path: 'pipeline',
-        },
-        cors: {
-          origin: '*',
-        },
-        headers: ['Content-Type', 'Authorization', 'api-version'],
-        authorizer: true,
-      },
+    sqs: {
+      handler: createFileLoc('sqs', 'handle'),
+      policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy, policies.route53Policy],
+      queues: [
+        queues[QueueNames.CODEBUILD_EXECUTOR],
+        queues[QueueNames.CODEBUILD_VERSION_DEPLOY],
+        queues[QueueNames.PIPELINE_SETUP],
+        queues[QueueNames.PIPELINE_TEAR_DOWN_START],
+        queues[QueueNames.PIPELINE_TEAR_DOWN],
+      ],
+      timeout: 900,
+      RAM: 2048,
     },
-    apiPipelineCreate: {
-      handler: `${fileLocPrefix}pipelineCreate`,
-      policies: [...policies.commonBackendPolicies],
-      api: {
-        routes: {
-          method: 'POST',
-          path: 'api/pipeline',
-        },
-        cors: {
-          origin: '*',
-        },
-        headers: ['Content-Type', 'Authorization', 'X-Api-Key', 'api-version'],
-      },
+    appEvents: {
+      handler: createFileLoc('sqs', 'handle'),
+      policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy, policies.route53Policy],
+      queues: [queues[QueueNames.APP_EVENTS]],
     },
-    pipelineUpdate: {
-      handler: `${fileLocPrefix}pipelineUpdate`,
-      policies: [...policies.commonBackendPolicies],
-      api: {
-        routes: {
-          method: 'PUT',
-          path: 'pipeline/{pipelineId}',
-        },
-        cors: {
-          origin: '*',
-        },
-        headers: ['Content-Type', 'Authorization', 'api-version'],
-        authorizer: true,
-      },
-    },
-    apiPipelineUpdate: {
-      handler: `${fileLocPrefix}pipelineUpdate`,
-      policies: [...policies.commonBackendPolicies],
-      api: {
-        routes: {
-          method: 'PUT',
-          path: 'api/pipeline/{pipelineId}',
-        },
-        cors: {
-          origin: '*',
-        },
-        headers: ['Content-Type', 'Authorization', 'X-Api-Key', 'api-version'],
-      },
-    },
-    pipelineGet: {
-      handler: `${fileLocPrefix}pipelineGet`,
-      policies: [...policies.commonBackendPolicies],
-      api: {
-        routes: {
-          method: 'GET',
-          path: 'pipeline/{pipelineId}',
-        },
-        cors: {
-          origin: '*',
-        },
-        headers: ['Content-Type', 'Authorization', 'api-version'],
-        authorizer: true,
-      },
-    },
-    apiPipelineGet: {
-      handler: `${fileLocPrefix}pipelineGet`,
-      policies: [...policies.commonBackendPolicies],
-      api: {
-        routes: {
-          method: 'GET',
-          path: 'api/pipeline/{pipelineId}',
-        },
-        cors: {
-          origin: '*',
-        },
-        headers: ['Content-Type', 'Authorization', 'X-Api-Key', 'api-version'],
-      },
-    },
-    pipelineDelete: {
-      handler: `${fileLocPrefix}pipelineDelete`,
-      policies: [...policies.commonBackendPolicies],
-      api: {
-        routes: {
-          method: 'DELETE',
-          path: 'pipeline/{pipelineId}',
-        },
-        cors: {
-          origin: '*',
-        },
-        headers: ['Content-Type', 'Authorization', 'api-version'],
-        authorizer: true,
-      },
-    },
-    apiPipelineDelete: {
-      handler: `${fileLocPrefix}pipelineDelete`,
-      policies: [...policies.commonBackendPolicies],
-      api: {
-        routes: {
-          method: 'DELETE',
-          path: 'api/pipeline/{pipelineId}',
-        },
-        cors: {
-          origin: '*',
-        },
-        headers: ['Content-Type', 'Authorization', 'X-Api-Key', 'api-version'],
-      },
-    },
-    pipelinePaginate: {
-      handler: `${fileLocPrefix}pipelinePaginate`,
-      policies: [...policies.commonBackendPolicies],
-      api: {
-        routes: {
-          method: 'GET',
-          path: 'pipeline',
-        },
-        cors: {
-          origin: '*',
-        },
-        headers: ['Content-Type', 'Authorization', 'api-version'],
-        authorizer: true,
-      },
-    },
-    apiPipelinePaginate: {
-      handler: `${fileLocPrefix}pipelinePaginate`,
-      policies: [...policies.commonBackendPolicies],
-      api: {
-        routes: {
-          method: 'GET',
-          path: 'api/pipeline',
-        },
-        cors: {
-          origin: '*',
-        },
-        headers: ['Content-Type', 'Authorization', 'X-Api-Key', 'api-version'],
-      },
-    },
-    pipelineRunnerCreate: {
-      handler: `${fileLocPrefix}pipelineRunnerCreate`,
-      policies: [...policies.commonBackendPolicies],
-      api: {
-        routes: {
-          method: 'POST',
-          path: 'pipeline/{pipelineId}/pipeline-runner',
-        },
-        cors: {
-          origin: '*',
-        },
-        headers: ['Content-Type', 'Authorization', 'api-version'],
-        authorizer: true,
-      },
-    },
-    apiPipelineRunnerCreate: {
-      handler: `${fileLocPrefix}pipelineRunnerCreate`,
-      policies: [...policies.commonBackendPolicies],
-      api: {
-        routes: {
-          method: 'POST',
-          path: 'api/pipeline/{pipelineId}/pipeline-runner',
-        },
-        cors: {
-          origin: '*',
-        },
-        headers: ['Content-Type', 'Authorization', 'X-Api-Key', 'api-version'],
-      },
-    },
-    pipelineRunnerUpdate: {
-      handler: `${fileLocPrefix}pipelineRunnerUpdate`,
-      policies: [...policies.commonBackendPolicies],
-      api: {
-        routes: {
-          method: 'PUT',
-          path: 'pipeline/{pipelineId}/pipeline-runner',
-        },
-        cors: {
-          origin: '*',
-        },
-        headers: ['Content-Type', 'Authorization', 'api-version'],
-        authorizer: true,
-      },
-    },
-    apiPipelineRunnerUpdate: {
-      handler: `${fileLocPrefix}pipelineRunnerUpdate`,
-      policies: [...policies.commonBackendPolicies],
-      api: {
-        routes: {
-          method: 'PUT',
-          path: 'api/pipeline/{pipelineId}/pipeline-runner',
-        },
-        cors: {
-          origin: '*',
-        },
-        headers: ['Content-Type', 'Authorization', 'X-Api-Key', 'api-version'],
-      },
-    },
-    pipelineRunnerPaginate: {
-      handler: `${fileLocPrefix}pipelineRunnerPaginate`,
-      policies: [...policies.commonBackendPolicies],
-      api: {
-        routes: {
-          method: 'GET',
-          path: 'pipeline/{pipelineId}/pipeline-runner',
-        },
-        cors: {
-          origin: '*',
-        },
-        headers: ['Content-Type', 'Authorization', 'api-version'],
-        authorizer: true,
-      },
-    },
-    apiPipelineRunnerPaginate: {
-      handler: `${fileLocPrefix}pipelineRunnerPaginate`,
-      policies: [...policies.commonBackendPolicies],
-      api: {
-        routes: {
-          method: 'GET',
-          path: 'api/pipeline/{pipelineId}/pipeline-runner',
-        },
-        cors: {
-          origin: '*',
-        },
-        headers: ['Content-Type', 'Authorization', 'X-Api-Key', 'api-version'],
-      },
-    },
-    deployRelease: {
-      handler: `${fileLocPrefix}deployRelease`,
-      policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy],
-      api: {
-        routes: {
-          method: 'POST',
-          path: 'release/{pipelineId}/{version}',
-        },
-        cors: {
-          origin: '*',
-        },
-        headers: ['Content-Type', 'Authorization', 'api-version'],
-        authorizer: true,
-      },
-      timeout: 300,
-    },
-    apiDeployRelease: {
-      handler: `${fileLocPrefix}deployRelease`,
-      policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy],
-      api: {
-        routes: {
-          method: 'POST',
-          path: 'api/release/{pipelineId}/{version}',
-        },
-        cors: {
-          origin: '*',
-        },
-        headers: ['Content-Type', 'Authorization', 'X-Api-Key', 'api-version'],
-      },
-      timeout: 300,
-    },
-    deployVersion: {
-      handler: `${fileLocPrefix}deployVersion`,
-      policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy],
-      api: {
-        routes: {
-          method: 'POST',
-          path: 'deploy/version/{pipelineRunnerId}',
-        },
-        cors: {
-          origin: '*',
-        },
-        headers: ['Content-Type', 'Authorization', 'api-version'],
-        authorizer: true,
-      },
-    },
-    apiDeployVersion: {
-      handler: `${fileLocPrefix}deployVersion`,
-      policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy],
-      api: {
-        routes: {
-          method: 'POST',
-          path: 'api/deploy/version/{pipelineRunnerId}',
-        },
-        cors: {
-          origin: '*',
-        },
-        headers: ['Content-Type', 'Authorization', 'X-Api-Key', 'api-version'],
-      },
-    },
-    codebuildExecutor: {
-      handler: `${fileLocPrefix}codebuildExecutor`,
-      policies: [...policies.commonBackendPolicies],
-      queue: queues[QueueNames.CODEBUILD_EXECUTOR],
-    },
-    codebuildUpdate: {
-      handler: `${fileLocPrefix}codebuildPipelineUpdater`,
+    sns: {
+      handler: createFileLoc('sns', 'handle'),
       policies: [...policies.commonBackendPolicies],
       topic: codebuildSnsTopic,
       timeout: 900,
     },
-    codebuildDeploy: {
-      handler: `${fileLocPrefix}codebuildDeploy`,
-      policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy],
-      timeout: 600,
-      RAM: 2048,
-      queue: queues[QueueNames.CODEBUILD_VERSION_DEPLOY],
-    },
-    pipelineSetup: {
-      handler: `${fileLocPrefix}pipelineSetup`,
+    http: {
+      handler: createFileLoc('http', 'bootstrap'),
       policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy, policies.route53Policy],
-      timeout: 900,
-      queue: queues[QueueNames.PIPELINE_SETUP],
-    },
-    pipelineTearDownStart: {
-      handler: `${fileLocPrefix}pipelineTearDownStart`,
-      queue: queues[QueueNames.PIPELINE_TEAR_DOWN_START],
-      timeout: 300,
-      policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy],
-    },
-    pipelineTearDown: {
-      handler: `${fileLocPrefix}pipelineTearDown`,
-      queue: queues[QueueNames.PIPELINE_TEAR_DOWN],
-      timeout: 600,
-      policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy, policies.route53Policy],
-    },
-    pusherAuth: {
-      handler: `${fileLocPrefix}pusherAuthentication`,
-      policies: [...policies.commonBackendPolicies],
-      api: {
-        routes: {
-          method: 'POST',
-          path: 'pusher/auth',
-        },
-        cors: {
-          origin: '*',
-        },
-        headers: ['Content-Type', 'Authorization', 'api-version'],
-        authorizer: true,
-      },
-    },
-    apiPusherAuth: {
-      handler: `${fileLocPrefix}pusherAuthentication`,
-      policies: [...policies.commonBackendPolicies],
-      api: {
-        routes: {
-          method: 'POST',
-          path: 'api/pusher/auth',
-        },
-        cors: {
-          origin: '*',
-        },
-        headers: ['Content-Type', 'Authorization', 'api-version', 'X-Api-Key'],
-      },
-    },
-    githubWebhook: {
-      handler: `${fileLocPrefix}githubWebhook`,
-      policies: [...policies.commonBackendPolicies],
-      api: {
-        routes: {
-          method: 'POST',
-          path: 'api/github',
-        },
-        cors: {
-          origin: '*',
-        },
-        headers: ['Content-Type', 'Authorization', 'api-version', 'X-Api-Key'],
-      },
-    },
-    bitbucketConfig: {
-      handler: `${fileLocPrefix}bitbucketConfig`,
-      policies: [...policies.commonBackendPolicies],
-      api: {
-        routes: {
-          method: 'GET',
-          path: 'api/bitbucket',
-        },
-        cors: {
-          origin: '*',
-        },
-        headers: ['Content-Type', 'Authorization', 'api-version', 'X-Api-Key'],
-      },
-    },
-    bitbucketWebhook: {
-      handler: `${fileLocPrefix}bitbucketWebhook`,
-      policies: [...policies.commonBackendPolicies],
       api: {
         routes: [
           {
-            method: 'POST',
-            path: 'api/bitbucket/{proxy+}',
-          },
-          {
-            method: 'POST',
-            path: 'api/bitbucket',
-          },
-        ],
-        cors: {
-          origin: '*',
-        },
-        headers: ['Content-Type', 'Authorization', 'api-version', 'X-Api-Key'],
-      },
-    },
-    appEventsHandler: {
-      handler: `${fileLocPrefix}appEventsHandler`,
-      policies: [...policies.commonBackendPolicies],
-      queue: queues[QueueNames.APP_EVENTS],
-    },
-    parameterStoreUpsert: {
-      handler: `${fileLocPrefix}parameterUpsert`,
-      policies: [...policies.commonBackendPolicies],
-      api: {
-        routes: [
-          {
-            method: 'PUT',
-            path: '/pipeline/{pipelineId}/parameter',
-          },
-        ],
-        cors: {
-          origin: '*',
-        },
-        headers: ['Content-Type', 'Authorization', 'api-version'],
-      },
-    },
-    apiParameterStoreUpsert: {
-      handler: `${fileLocPrefix}parameterUpsert`,
-      policies: [...policies.commonBackendPolicies],
-      api: {
-        routes: [
-          {
-            method: 'PUT',
-            path: 'api/pipeline/{pipelineId}/parameter',
-          },
-        ],
-        cors: {
-          origin: '*',
-        },
-        headers: ['Content-Type', 'Authorization', 'api-version', 'X-Api-Key'],
-      },
-    },
-    parameterKeys: {
-      handler: `${fileLocPrefix}parameterKeys`,
-      policies: [...policies.commonBackendPolicies],
-      api: {
-        routes: [
-          {
-            method: 'GET',
-            path: '/pipeline/{pipelineId}/parameter',
-          },
-        ],
-        cors: {
-          origin: '*',
-        },
-        headers: ['Content-Type', 'Authorization', 'api-version'],
-      },
-    },
-    apiParameterKeys: {
-      handler: `${fileLocPrefix}parameterKeys`,
-      policies: [...policies.commonBackendPolicies],
-      api: {
-        routes: [
-          {
-            method: 'GET',
-            path: 'api/pipeline/{pipelineId}/parameter',
+            method: 'ANY',
+            path: '/{proxy+}',
           },
         ],
         cors: {
@@ -601,8 +167,8 @@ export const createStack = () => {
     })
     options.policies.forEach((policy) => lambda.addToRolePolicy(policy))
 
-    if (options.queue) {
-      addLambdaSQSTrigger(lambda, options.queue as Queue)
+    if (options.queues) {
+      options.queues.map((queue) => addLambdaSQSTrigger(lambda, queue as Queue))
     } else if (options.api) {
       addLambdaToApi(
         stack,
@@ -629,7 +195,7 @@ export const createStack = () => {
     stack,
     name: 'cloud-deployment-migration',
     entrypoint: path.resolve('bundle.zip'),
-    handler: `${fileLocPrefix}migrationRun`,
+    handler: createFileLoc('functions/migrationRun', 'migrationRun'),
     env,
     vpc,
   })
