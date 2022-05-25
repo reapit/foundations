@@ -151,7 +151,7 @@ export const createStack = () => {
   const MYSQL_DATABASE = databaseName
 
   const env: any = {
-    DATABASE_SECERT_ARN: secretManager.secretArn,
+    DATABASE_SECRET_ARN: secretManager.secretArn,
     MYSQL_DATABASE,
     DEPLOYMENT_LIVE_BUCKET_NAME: buckets['cloud-deployment-live'].bucketName,
     DEPLOYMENT_VERSION_BUCKET_NAME: buckets['cloud-deployment-version'].bucketName,
@@ -161,7 +161,7 @@ export const createStack = () => {
     CODE_BUILD_PROJECT_NAME: codeBuild.projectName,
     USERCODE_ROLE_ARN: policies.usercodeStackRoleArn,
     GITHUB_PEM_SECRET_ARN: githubPemSecret.ref,
-    NODE_ENV: process.env.APP_STAGE,
+    NODE_ENV: process.env.NODE_ENV || 'development',
   }
 
   Object.values(QueueNames).map((queueKey) => {

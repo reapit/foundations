@@ -6,7 +6,7 @@ import { PipelineRunnerModule } from './pipeline-runner'
 import { S3Module } from './s3'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { ConfigModule, ConfigService } from '@nestjs/config'
-import databaseConfig from './config/db'
+import databaseConfig, { liveDatabaseConfig } from './config/db'
 import { MysqlConnectionOptions } from 'typeorm/driver/mysql/MysqlConnectionOptions'
 import { GithubModule } from './github'
 import config from '../config.json'
@@ -28,7 +28,13 @@ process.env = {
       load: [databaseConfig],
     }),
     TypeOrmModule.forRootAsync({
-      useFactory: (config: ConfigService) => config.get<MysqlConnectionOptions>('database') as MysqlConnectionOptions,
+      useFactory: async (config: ConfigService) => {
+        if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'development') {
+          return liveDatabaseConfig()
+        }
+
+        return config.get<MysqlConnectionOptions>('database') as MysqlConnectionOptions
+      },
       inject: [ConfigService],
       imports: [ConfigModule],
     }),
