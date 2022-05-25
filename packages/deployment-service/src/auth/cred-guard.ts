@@ -16,8 +16,6 @@ export class CredGuard implements CanActivate {
   async canActivate(context: ExecutionContext) {
     const request = context.switchToHttp().getRequest<Request & { credentials?: CredsType }>()
 
-    console.log('headers', request.headers)
-
     if (Object.keys(request.headers).includes('x-api-key')) {
       const apiKeyCreds = await this.apiKeyProvider.resolve(request.headers['x-api-key'] as string)
 
@@ -32,6 +30,8 @@ export class CredGuard implements CanActivate {
     }
 
     const tokenCreds = this.tokenProvider.resolve(request.headers?.authorization as string)
+
+    if (!tokenCreds || !tokenCreds.developerId) return false
 
     if (tokenCreds) {
       request.credentials = {
