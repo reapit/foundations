@@ -14,7 +14,7 @@ import {
 } from '@nestjs/common'
 import { OwnershipProvider } from '../auth'
 import { PipelineProvider } from './pipeline-provider'
-import { PipelineDto } from '../dto'
+import { PipelineDto } from './pipeline-dto'
 import { PipelineEntity } from '../entities/pipeline.entity'
 import { Pagination } from 'nestjs-typeorm-paginate'
 import { EventDispatcher, PusherProvider } from '../events'

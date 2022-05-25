@@ -1,7 +1,7 @@
 import { CredGuard, OwnershipProvider, Creds, CredsType } from '../auth'
 import { PipelineProvider } from './pipeline-provider'
 import { Controller, Get, UseGuards, Param, NotFoundException, Put, Body } from '@nestjs/common'
-import { ParameterDto } from '../dto'
+import { ParameterDto } from './parameter-dto'
 import { ParameterProvider } from './parameter-provider'
 
 @Controller('/pipeline/:pipelineId/parameter')

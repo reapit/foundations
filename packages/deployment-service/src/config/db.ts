@@ -1,6 +1,6 @@
 import { registerAs } from '@nestjs/config'
 import { SecretsManager } from 'aws-sdk'
-import { SubDomainSubscriber } from '../subscribers/sub-domain'
+import { SubDomainSubscriber } from '../pipeline/sub-domain'
 import migrations from './../../migrations'
 import { PipelineEntity } from '../entities/pipeline.entity'
 import { PipelineRunnerEntity } from '../entities/pipeline-runner.entity'
