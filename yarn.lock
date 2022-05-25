@@ -10910,6 +10910,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/adm-zip@npm:^0.4.34":
+  version: 0.4.34
+  resolution: "@types/adm-zip@npm:0.4.34"
+  dependencies:
+    "@types/node": "*"
+  checksum: dc9dfda261c7fa898185c6d73e89c4a2f6db1faa0d47cd14ce8fadf882078a7b8de8d953dac2bba321bcdde2059da67daacfdfb878ca459d317f32de36b0be6d
+  languageName: node
+  linkType: hard
+
 "@types/adm-zip@npm:^0.5.0":
   version: 0.5.0
   resolution: "@types/adm-zip@npm:0.5.0"
@@ -10933,6 +10942,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/aws-lambda@npm:*":
+  version: 8.10.97
+  resolution: "@types/aws-lambda@npm:8.10.97"
+  checksum: 0a79e5d8533fa317e6855a3319abdb62645d826370a274444ada0fc2cac64e82f39cb4f6416bd075e2031df91809e57e7ad430f9aeea28bbe2f3be8d4c03ea6d
+  languageName: node
+  linkType: hard
+
 "@types/aws-lambda@npm:^8.10.76, @types/aws-lambda@npm:^8.10.83":
   version: 8.10.92
   resolution: "@types/aws-lambda@npm:8.10.92"
@@ -10941,9 +10957,20 @@ __metadata:
   linkType: hard
 
 "@types/aws-lambda@npm:^8.10.97":
-  version: 8.10.97
-  resolution: "@types/aws-lambda@npm:8.10.97"
-  checksum: 0a79e5d8533fa317e6855a3319abdb62645d826370a274444ada0fc2cac64e82f39cb4f6416bd075e2031df91809e57e7ad430f9aeea28bbe2f3be8d4c03ea6d
+  version: 8.10.98
+  resolution: "@types/aws-lambda@npm:8.10.98"
+  checksum: dad5d2ba3374a9b5401c826a9a9f8341c0c871d5b5033012067c26c2f8865a98f097c7e1c7f077e7887c2f84b4a450fb4b24cf03f41850379dc89a3e8c5be7da
+  languageName: node
+  linkType: hard
+
+"@types/aws-serverless-express@npm:^3.3.5":
+  version: 3.3.5
+  resolution: "@types/aws-serverless-express@npm:3.3.5"
+  dependencies:
+    "@types/aws-lambda": "*"
+    "@types/express": "*"
+    "@types/node": "*"
+  checksum: fcc39ca17fc6d69215a95f9f77a3aa17e0e39b8604afa8a8b57b77fbc8622514fded19277d6757bdd12d13a9689b91a837271d771181b5b88be0a55da8f61e8f
   languageName: node
   linkType: hard
 
@@ -12572,6 +12599,16 @@ __metadata:
     "@typescript-eslint/types": 5.27.0
     eslint-visitor-keys: ^3.3.0
   checksum: 7781f35e25a09d0986b4ba97c707102394cf94738a92d68eca6382b00ffba1b0fac3e937ca4ee6266295dd40ec837a61889fd715f594549f2c3d837594999c29
+  languageName: node
+  linkType: hard
+
+"@vendia/serverless-express@npm:^3.4.0":
+  version: 3.4.0
+  resolution: "@vendia/serverless-express@npm:3.4.0"
+  dependencies:
+    binary-case: ^1.0.0
+    type-is: ^1.6.16
+  checksum: 706a5b70f44fde29d539545266579ae749087aa170a77bf14ee90f944d858d7779bbf228bc2ce789e6ed07030661fba9c92c76288e85337b486d1ffe81c7a489
   languageName: node
   linkType: hard
 
@@ -14680,6 +14717,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"aws-serverless-express@npm:^3.4.0":
+  version: 3.4.0
+  resolution: "aws-serverless-express@npm:3.4.0"
+  dependencies:
+    "@vendia/serverless-express": ^3.4.0
+    binary-case: ^1.0.0
+    type-is: ^1.6.16
+  checksum: f2d7e4f7db4f82ecca38e70640154af854ad27b2af9d2104784bf3f3b8a20f6b77b306d960027b936aef00cfb3683a601e3c29b9a6468036961ccd2b470656c6
+  languageName: node
+  linkType: hard
+
 "aws-sign2@npm:~0.7.0":
   version: 0.7.0
   resolution: "aws-sign2@npm:0.7.0"
@@ -15358,6 +15406,13 @@ __metadata:
     execa: ^1.0.0
     find-versions: ^3.0.0
   checksum: 59ef7194420fc30f3a4ea8ce569ad11f7eb736019ca765778739f14702faf2b23b3bcf757e0d29b3839c14bcca9dc38c10c083d3d601363ef06436424204579d
+  languageName: node
+  linkType: hard
+
+"binary-case@npm:^1.0.0":
+  version: 1.1.4
+  resolution: "binary-case@npm:1.1.4"
+  checksum: e3b7e5375ebd9c1f127d12d0831480310d75021c97d43955034e179ea40b9120c4f81a3de5767431f27bd7cc75e2ebc3d5352f56d8326d94873a77af21416580
   languageName: node
   linkType: hard
 
@@ -18895,7 +18950,8 @@ __metadata:
     "@reapit/ts-bundler": "workspace:packages/ts-bundler"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/utils-node": "workspace:packages/utils-node"
-    "@types/adm-zip": ^0.5.0
+    "@types/adm-zip": ^0.4.34
+    "@types/aws-serverless-express": ^3.3.5
     "@types/mime-types": ^2.1.1
     "@types/passport-jwt": ^3.0.6
     "@types/project-name-generator": ^2.1.1
@@ -18905,6 +18961,7 @@ __metadata:
     "@typescript-eslint/parser": ^5.27.0
     adm-zip: ^0.5.9
     atlassian-jwt: ^2.0.2
+    aws-serverless-express: ^3.4.0
     class-transformer: ^0.5.1
     class-validator: ^0.13.2
     concurrently: ^6.5.1

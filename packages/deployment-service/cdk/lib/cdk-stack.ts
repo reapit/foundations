@@ -114,7 +114,7 @@ export const createStack = () => {
       timeout: 900,
     },
     httpApi: {
-      handler: createFileLoc('http', 'bootstrap'),
+      handler: createFileLoc('http', 'handler'),
       policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy, policies.route53Policy],
       api: {
         routes: [
@@ -130,7 +130,7 @@ export const createStack = () => {
       },
     },
     http: {
-      handler: createFileLoc('http', 'bootstrap'),
+      handler: createFileLoc('http', 'handler'),
       policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy, policies.route53Policy],
       api: {
         routes: [

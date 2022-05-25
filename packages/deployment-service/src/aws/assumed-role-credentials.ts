@@ -2,7 +2,6 @@ import { RoleCredentialsType } from '../config/role-credentials'
 import { STS, Credentials } from 'aws-sdk'
 
 export const getRoleCredentials = async (config: RoleCredentialsType): Promise<Credentials | undefined> => {
-  console.log('test', process.env.NODE_ENV)
   if (process.env.NODE_ENV === 'local') return undefined
 
   const assumeRole = await new STS({
