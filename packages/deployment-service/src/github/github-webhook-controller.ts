@@ -18,7 +18,7 @@ type GithubRepoInstallation = {
   repositories: { full_name: string; id: number }[]
 }
 
-@Controller('api/github')
+@Controller('github')
 export class GithubWebhookController {
   constructor(
     private readonly githubProvider: App,

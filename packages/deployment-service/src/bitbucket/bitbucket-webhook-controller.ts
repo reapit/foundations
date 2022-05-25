@@ -18,7 +18,7 @@ import * as jwt from 'atlassian-jwt'
 import { Request } from 'express'
 import { BitbucketProvider } from './bitbucket-provider'
 
-@Controller('api/bitbucket')
+@Controller('bitbucket')
 export class BitBucketWebhookController {
   constructor(
     private readonly bitbucketProvider: BitbucketProvider,
