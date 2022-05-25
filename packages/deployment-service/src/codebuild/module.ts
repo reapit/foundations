@@ -10,10 +10,7 @@ import { SoruceProvider } from './source-provider'
 import { BitbucketModule } from '../bitbucket'
 import { CodebuildPipelineUpdaterEventHandler } from './codebuild-pipeline-updater-event-handler'
 import { CodebuildDeployWorkflow } from './coebuild-deploy-workflow'
-import { CodeBuild } from 'aws-sdk'
-import { ConfigModule, ConfigService } from '@nestjs/config'
-import roleCredentials, { RoleCredentialsType } from '@/config/role-credentials'
-import { getRoleCredentials } from '@/s3/assumed-s3-client'
+import { AwsModule } from '../aws'
 
 @Module({
   imports: [
@@ -24,23 +21,8 @@ import { getRoleCredentials } from '@/s3/assumed-s3-client'
     EventModule,
     DeploymentModule,
     BitbucketModule,
-    ConfigModule.forFeature(roleCredentials),
+    AwsModule,
   ],
-  providers: [
-    {
-      provide: CodeBuild,
-      useFactory: async (config: ConfigService) =>
-        new CodeBuild({
-          credentials: await getRoleCredentials(
-            config.get<RoleCredentialsType>('role-credentials') as RoleCredentialsType,
-          ),
-        }),
-      inject: [ConfigService],
-    },
-    SoruceProvider,
-    CodebuildExecutorWorkflow,
-    CodebuildPipelineUpdaterEventHandler,
-    CodebuildDeployWorkflow,
-  ],
+  providers: [SoruceProvider, CodebuildExecutorWorkflow, CodebuildPipelineUpdaterEventHandler, CodebuildDeployWorkflow],
 })
 export class CodeBuildModule {}

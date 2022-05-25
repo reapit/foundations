@@ -13,6 +13,7 @@ import config from '../config.json'
 import { AppEventModule } from './app-event'
 import { BitbucketModule } from './bitbucket'
 import { DefaultHeaderInterceptor } from './default-header-interceptor'
+import { AwsModule } from './aws'
 
 process.env = {
   ...process.env,
@@ -39,6 +40,7 @@ process.env = {
     GithubModule,
     AppEventModule,
     BitbucketModule,
+    AwsModule,
   ],
   providers: [DefaultHeaderInterceptor],
   exports: [EventModule, AuthModule, GithubModule],

@@ -113,6 +113,22 @@ export const createStack = () => {
       topic: codebuildSnsTopic,
       timeout: 900,
     },
+    httpApi: {
+      handler: createFileLoc('http', 'bootstrap'),
+      policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy, policies.route53Policy],
+      api: {
+        routes: [
+          {
+            method: 'ANY',
+            path: 'api/{proxy+}',
+          },
+        ],
+        cors: {
+          origin: '*',
+        },
+        headers: ['Content-Type', 'api-version', 'X-Api-Key'],
+      },
+    },
     http: {
       handler: createFileLoc('http', 'bootstrap'),
       policies: [...policies.commonBackendPolicies, policies.cloudFrontPolicy, policies.route53Policy],
@@ -126,7 +142,8 @@ export const createStack = () => {
         cors: {
           origin: '*',
         },
-        headers: ['Content-Type', 'Authorization', 'api-version', 'X-Api-Key'],
+        headers: ['Content-Type', 'Authorization', 'api-version'],
+        authorizer: true,
       },
     },
   }

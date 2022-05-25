@@ -6725,12 +6725,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nestjs/testing@npm:^8.4.4":
-  version: 8.4.4
-  resolution: "@nestjs/testing@npm:8.4.4"
+"@nestjs/testing@npm:^8.4.5":
+  version: 8.4.5
+  resolution: "@nestjs/testing@npm:8.4.5"
   dependencies:
     optional: 0.1.4
-    tslib: 2.3.1
+    tslib: 2.4.0
   peerDependencies:
     "@nestjs/common": ^8.0.0
     "@nestjs/core": ^8.0.0
@@ -6741,7 +6741,7 @@ __metadata:
       optional: true
     "@nestjs/platform-express":
       optional: true
-  checksum: e896199b4801009f39204baaa371b7ba77ce5737847b65a281a9bf7a006ba3a7ca09e107081d7f1e131ce0c42462e245408b70b9da2de5ac000a39060c616d4d
+  checksum: 273ed54aab7f7774068e6d78800edac7a12243d4be0d2114be07d13090cc74ba8ea96f453bb471291de8dc4fe7d25f187b3675780108357a8b13791d7e81cbd3
   languageName: node
   linkType: hard
 
@@ -18886,7 +18886,7 @@ __metadata:
     "@nestjs/core": ^8.4.4
     "@nestjs/passport": ^8.2.1
     "@nestjs/platform-express": ^8.4.4
-    "@nestjs/testing": ^8.4.4
+    "@nestjs/testing": ^8.4.5
     "@nestjs/typeorm": ^8.0.3
     "@octokit/app": ^12.0.5
     "@reapit/api-key-verify": "workspace:packages/api-key-verify"

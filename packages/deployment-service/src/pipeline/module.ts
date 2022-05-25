@@ -13,12 +13,8 @@ import { PipelineTearDownStartWorkflow } from './pipeline-teardown-start-workflo
 import { PipelineTearDownWorkflow } from './pipeline-teardown-workflow'
 import { PipelineSetupWorkflow } from './pipeline-setup-workflow'
 import { ParameterProvider } from './parameter-provider'
-import { SSM } from 'aws-sdk'
-import { getRoleCredentials } from '../s3/assumed-s3-client'
-import { ConfigModule, ConfigService } from '@nestjs/config'
-import roleCredentials, { RoleCredentialsType } from '../config/role-credentials'
 import { ParameterController } from './parameter-controller'
-import { CloudFrontClient } from '@aws-sdk/client-cloudfront'
+import { AwsModule } from '../aws'
 
 @Module({
   imports: [
@@ -27,33 +23,13 @@ import { CloudFrontClient } from '@aws-sdk/client-cloudfront'
     TypeOrmModule.forFeature([PipelineEntity, PipelineRunnerEntity, TaskEntity]),
     S3Module,
     forwardRef(() => PipelineRunnerModule),
-    ConfigModule.forFeature(roleCredentials),
+    AwsModule,
   ],
   providers: [
     PipelineProvider,
     PipelineTearDownStartWorkflow,
     PipelineTearDownWorkflow,
     PipelineSetupWorkflow,
-    {
-      provide: SSM,
-      useFactory: async (config: ConfigService) =>
-        new SSM({
-          credentials: await getRoleCredentials(
-            config.get<RoleCredentialsType>('role-credentials') as RoleCredentialsType,
-          ),
-        }),
-      inject: [ConfigService],
-    },
-    {
-      provide: CloudFrontClient,
-      useFactory: async (config: ConfigService) =>
-        new CloudFrontClient({
-          credentials: await getRoleCredentials(
-            config.get<RoleCredentialsType>('role-credentials') as RoleCredentialsType,
-          ),
-        }),
-      inject: [ConfigService],
-    },
     ParameterProvider,
   ],
   controllers: [PipelineController, ParameterController],

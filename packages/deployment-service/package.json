@@ -35,7 +35,7 @@
   },
   "main": "./src/index.ts",
   "scripts": {
-    "start": "nodemon src/http.ts",
+    "start": "NODE_ENV=local nodemon src/http.ts",
     "test": "cross-env jest --watch --colors",
     "build": "tsc -p .",
     "lint": "eslint --cache --ext=ts,tsx,js src cdk/lib",

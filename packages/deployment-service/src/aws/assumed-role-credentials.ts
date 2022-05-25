@@ -1,8 +1,9 @@
 import { RoleCredentialsType } from '../config/role-credentials'
-import { STS } from 'aws-sdk'
+import { STS, Credentials } from 'aws-sdk'
 
-export const getRoleCredentials = async (config: RoleCredentialsType) => {
-  if (process.env.NODE_ENV === 'development') return undefined
+export const getRoleCredentials = async (config: RoleCredentialsType): Promise<Credentials | undefined> => {
+  console.log('test', process.env.NODE_ENV)
+  if (process.env.NODE_ENV === 'local') return undefined
 
   const assumeRole = await new STS({
     region: process.env.REGION,
@@ -21,9 +22,5 @@ export const getRoleCredentials = async (config: RoleCredentialsType) => {
     throw new Error('Could not assume role')
   }
 
-  return credentials as {
-    accessKeyId: string
-    secretAccessKey: string
-    sessionToken?: string
-  }
+  return credentials as Credentials
 }

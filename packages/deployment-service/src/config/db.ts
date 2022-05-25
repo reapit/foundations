@@ -18,7 +18,7 @@ const defaultDatabaseConfig = {
 }
 
 export default registerAs('database', async () => {
-  if (process.env.NODE_ENV === 'production') {
+  if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'development') {
     const secretManager = new SecretsManager({
       region: 'eu-west-2',
     })
