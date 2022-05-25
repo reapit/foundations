@@ -1,9 +1,5 @@
+import { RoleCredentialsType } from '../aws/assumed-role-credentials'
 import { registerAs } from '@nestjs/config'
-
-export type RoleCredentialsType = {
-  RoleArn: string
-  RoleSessionName: string
-}
 
 export default registerAs(
   'role-credentials',

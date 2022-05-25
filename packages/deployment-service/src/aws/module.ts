@@ -1,5 +1,5 @@
-import roleCredentials, { RoleCredentialsType } from '../config/role-credentials'
-import { getRoleCredentials } from './assumed-role-credentials'
+import roleCredentials from '../config/role-credentials'
+import { getRoleCredentials, RoleCredentialsType } from './assumed-role-credentials'
 import { CloudFrontClient } from '@aws-sdk/client-cloudfront'
 import { Module } from '@nestjs/common'
 import { ConfigModule, ConfigService } from '@nestjs/config'
