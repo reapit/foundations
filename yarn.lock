@@ -7891,7 +7891,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@reapit/ts-types@workspace:packages/ts-types"
   dependencies:
-    "@types/adm-zip": ^0.4.34
+    "@types/adm-zip": ^0.5.0
     "@types/aws-lambda": ^8.10.88
     "@types/body-parser": ^1.19.2
     "@types/cors": ^2.8.12
@@ -10570,6 +10570,15 @@ __metadata:
   dependencies:
     "@types/node": "*"
   checksum: dc9dfda261c7fa898185c6d73e89c4a2f6db1faa0d47cd14ce8fadf882078a7b8de8d953dac2bba321bcdde2059da67daacfdfb878ca459d317f32de36b0be6d
+  languageName: node
+  linkType: hard
+
+"@types/adm-zip@npm:^0.5.0":
+  version: 0.5.0
+  resolution: "@types/adm-zip@npm:0.5.0"
+  dependencies:
+    "@types/node": "*"
+  checksum: 11dd013584e47d431bdf7c115b73cd3162c1a1eca0fbb911f691c9734e904cfe4a01ac1d2d3cbf76d0a952e01fcce8a01fd6fb1c150675a29d740a7fb15325b2
   languageName: node
   linkType: hard
 
