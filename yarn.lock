@@ -22798,7 +22798,7 @@ fsevents@^1.2.7:
     graphql-import: ^1.0.2
     graphql-tag: ^2.12.6
     graphql-type-json: ^0.3.2
-    https-proxy-agent: 5.0.0
+    https-proxy-agent: 5.0.1
     jest: ^27.4.5
     jest-coverage-badges: ^1.1.2
     lodash.merge: ^4.6.2
@@ -23665,13 +23665,13 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"https-proxy-agent@npm:5.0.0, https-proxy-agent@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "https-proxy-agent@npm:5.0.0"
+"https-proxy-agent@npm:5.0.1":
+  version: 5.0.1
+  resolution: "https-proxy-agent@npm:5.0.1"
   dependencies:
     agent-base: 6
     debug: 4
-  checksum: 165bfb090bd26d47693597661298006841ab733d0c7383a8cb2f17373387a94c903a3ac687090aa739de05e379ab6f868bae84ab4eac288ad85c328cd1ec9e53
+  checksum: 571fccdf38184f05943e12d37d6ce38197becdd69e58d03f43637f7fa1269cf303a7d228aa27e5b27bbd3af8f09fd938e1c91dcfefff2df7ba77c20ed8dfc765
   languageName: node
   linkType: hard
 
@@ -23682,6 +23682,16 @@ fsevents@^1.2.7:
     agent-base: 5
     debug: 4
   checksum: 19471d5aae3e747b1c98b17556647e2a1362e68220c6b19585a8527498f32e62e03c41d2872d059d8720d56846bd7460a80ac06f876bccfa786468ff40dd5eef
+  languageName: node
+  linkType: hard
+
+"https-proxy-agent@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "https-proxy-agent@npm:5.0.0"
+  dependencies:
+    agent-base: 6
+    debug: 4
+  checksum: 165bfb090bd26d47693597661298006841ab733d0c7383a8cb2f17373387a94c903a3ac687090aa739de05e379ab6f868bae84ab4eac288ad85c328cd1ec9e53
   languageName: node
   linkType: hard
 
