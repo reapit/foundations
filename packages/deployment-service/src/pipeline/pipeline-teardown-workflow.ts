@@ -19,6 +19,7 @@ export class PipelineTearDownWorkflow extends AbstractWorkflow<PipelineEntity> {
     private readonly pipelineRunnerProvider: PipelineRunnerProvider,
     private readonly parameterProvider: ParameterProvider,
     private readonly cloudfrontClient: CloudFrontClient,
+    private readonly route53Client: Route53Client,
   ) {
     super(sqsProvider)
   }
@@ -31,8 +32,7 @@ export class PipelineTearDownWorkflow extends AbstractWorkflow<PipelineEntity> {
   }
 
   private tearDownR53 = (domain: string, pipelineId: string, subDomain: string): Promise<any> => {
-    const r53Client = new Route53Client({})
-    return r53Client.send(
+    return this.route53Client.send(
       new ChangeResourceRecordSetsCommand({
         HostedZoneId: process.env.HOSTED_ZONE_ID,
         ChangeBatch: {

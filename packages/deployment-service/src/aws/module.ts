@@ -4,6 +4,7 @@ import { CloudFrontClient } from '@aws-sdk/client-cloudfront'
 import { Module } from '@nestjs/common'
 import { ConfigModule, ConfigService } from '@nestjs/config'
 import { CodeBuild, Credentials, S3, SSM } from 'aws-sdk'
+import { Route53Client } from '@aws-sdk/client-route-53'
 
 export const ROLE_CREDENTIALS = 'ROLE_CREDENTIALS'
 
@@ -49,7 +50,14 @@ export const ROLE_CREDENTIALS = 'ROLE_CREDENTIALS'
         }),
       inject: [ROLE_CREDENTIALS],
     },
+    {
+      provide: Route53Client,
+      useFactory: () =>
+        new Route53Client({
+          region: 'us-east-1',
+        }),
+    },
   ],
-  exports: [S3, CodeBuild, SSM, ROLE_CREDENTIALS, CloudFrontClient],
+  exports: [S3, CodeBuild, SSM, ROLE_CREDENTIALS, CloudFrontClient, Route53Client],
 })
 export class AwsModule {}

@@ -15,6 +15,7 @@ export class PipelineSetupWorkflow extends AbstractWorkflow<PipelineEntity> {
     private readonly pusherProvider: PusherProvider,
     private readonly s3Provider: S3Provider,
     private readonly cloudfrontClient: CloudFrontClient,
+    private readonly route53Client: Route53Client,
   ) {
     super(sqsProvider)
   }
@@ -114,10 +115,6 @@ export class PipelineSetupWorkflow extends AbstractWorkflow<PipelineEntity> {
   }
 
   private async createARecord(pipeline: PipelineEntity, frontDomain: string): Promise<string> {
-    const r53Client = new Route53Client({
-      region: 'us-east-1',
-    })
-
     const ACommand = new ChangeResourceRecordSetsCommand({
       HostedZoneId: process.env.HOSTED_ZONE_ID,
       ChangeBatch: {
@@ -141,7 +138,7 @@ export class PipelineSetupWorkflow extends AbstractWorkflow<PipelineEntity> {
       },
     })
 
-    const r53Result = await r53Client.send(ACommand)
+    const r53Result = await this.route53Client.send(ACommand)
 
     await this.pusherProvider.trigger(`private-${pipeline.developerId}`, 'pipeline-update', {
       ...pipeline,
