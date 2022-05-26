@@ -32,9 +32,8 @@ export class WorkflowHandlerProvider implements OnModuleInit {
   }
 
   findQueueWorkflows(queueArn: string): AbstractWorkflow<any>[] {
-    Logger.log(queueArn, WorkflowHandlerProvider)
+    Logger.log(queueArn.split(':').pop(), 'WorkflowHandlerProvider')
     return this.workflows.filter((workflow) => {
-      console.log('workflow', workflow.queueArn, queueArn)
       return workflow.queueArn === queueArn
     })
   }
@@ -50,7 +49,7 @@ export class WorkflowHandlerProvider implements OnModuleInit {
 
     if (workflows.length === 0) {
       // TODO delete from queue?
-      console.log(`No configured workflows available for queue [${queueArn}]`)
+      Logger.error(`No configured workflows available for queue [${queueArn}]`, 'WorkflowHandlerProvider')
     }
 
     // TODO auto handle deletes?
