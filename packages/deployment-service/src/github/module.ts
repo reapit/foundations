@@ -17,5 +17,6 @@ import { GithubWebhookController } from './github-webhook-controller'
     },
   ],
   controllers: [GithubWebhookController],
+  exports: [App],
 })
 export class GithubModule {}
