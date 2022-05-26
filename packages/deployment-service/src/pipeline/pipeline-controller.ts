@@ -76,13 +76,13 @@ export class PipelineController {
     return pipeline
   }
 
-  @Put(':id')
-  async edit(id: string, @Creds() creds: CredsType, @Body() dto: PipelineDto): Promise<PipelineEntity | never> {
+  @Put('/:id')
+  async edit(@Param('id') id: string, @Creds() creds: CredsType, @Body() dto: PipelineDto): Promise<PipelineEntity | never> {
     let setupInfra = false
 
     const pipeline = await this.pipelineProvider.findById(id)
 
-    if (!pipeline) {
+    if (!pipeline || !id) {
       throw new NotFoundException()
     }
 
@@ -97,7 +97,11 @@ export class PipelineController {
 
     const updatedPipeline = await this.pipelineProvider.update(pipeline, dto)
 
-    await this.pusherProvider.trigger(`private-${pipeline.developerId}`, 'pipeline-update', updatedPipeline)
+    await this.pusherProvider.trigger(`private-${pipeline.developerId}`, 'pipeline-update', {
+      message: "updating pipeline",
+      updatedPipeline,
+      pipeline,
+    })
 
     if (setupInfra) {
       await this.eventDispatcher.triggerPipelineSetup(updatedPipeline)
@@ -106,8 +110,8 @@ export class PipelineController {
     return updatedPipeline
   }
 
-  @Delete(':id')
-  async deletePipeline(id: string, @Creds() creds: CredsType): Promise<PipelineEntity> {
+  @Delete('/:id')
+  async deletePipeline(@Param('id') id: string, @Creds() creds: CredsType): Promise<PipelineEntity> {
     const pipeline = await this.pipelineProvider.findById(id)
 
     if (!pipeline) {
