@@ -37,6 +37,8 @@
   "main": "./src/index.ts",
   "scripts": {
     "start": "NODE_ENV=local nodemon src/local-http.ts",
+    "start:sqs": "NODE_ENV=local nodemon src/sqs.ts",
+    "start:sns": "NODE_ENV=local nodemon src/sns.ts",
     "test": "cross-env jest --watch --colors",
     "build": "tsc -p .",
     "lint": "eslint --cache --ext=ts,tsx,js src cdk/lib",

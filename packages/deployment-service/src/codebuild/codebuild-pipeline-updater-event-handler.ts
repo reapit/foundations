@@ -10,8 +10,6 @@ import { PipelineRunnerProvider } from '../pipeline-runner'
 import { EventDispatcher, PusherProvider, AbstractSnsHandler, SnsEvent } from '../events'
 import { TopicEnum } from '../constants'
 
-console.log('here?')
-
 @SnsEvent(TopicEnum.CODEBUILD_PIPELINE_UPDATE)
 export class CodebuildPipelineUpdaterEventHandler extends AbstractSnsHandler {
   constructor(
