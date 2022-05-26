@@ -32,23 +32,23 @@ export const QueueDetails: {
   },
   [QueueNamesEnum.CODEBUILD_VERSION_DEPLOY]: {
     url: process.env.CODEBUILD_VERSION_DEPLOY_URL as string,
-    arn: process.env.CODEBUILD_EXECUTOR_ARN as string,
+    arn: process.env.CODEBUILD_VERSION_DEPLOY_ARN as string,
   },
   [QueueNamesEnum.PIPELINE_SETUP]: {
     url: process.env.PIPELINE_SETUP_URL as string,
-    arn: process.env.CODEBUILD_EXECUTOR_ARN as string,
+    arn: process.env.PIPELINE_SETUP_ARN as string,
   },
   [QueueNamesEnum.PIPELINE_TEAR_DOWN]: {
     url: process.env.PIPELINE_TEAR_DOWN_URL as string,
-    arn: process.env.CODEBUILD_EXECUTOR_ARN as string,
+    arn: process.env.PIPELINE_TEAR_DOWN_ARN as string,
   },
   [QueueNamesEnum.PIPELINE_TEAR_DOWN_START]: {
     url: process.env.PIPELINE_TEAR_DOWN_START_URL as string,
-    arn: process.env.CODEBUILD_EXECUTOR_ARN as string,
+    arn: process.env.PIPELINE_TEAR_DOWN_START_ARN as string,
   },
   [QueueNamesEnum.APP_EVENTS]: {
     url: process.env.APP_EVENTS_URL as string,
-    arn: process.env.CODEBUILD_EXECUTOR_ARN as string,
+    arn: process.env.APP_EVENTS_ARN as string,
   },
 }
 
