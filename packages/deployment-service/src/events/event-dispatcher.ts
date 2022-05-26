@@ -31,7 +31,12 @@ export class EventDispatcher {
           event: BitBucketEvent
         },
   ): Promise<void> {
-    return this.sqsProvider.send(QueueDetails[QueueNamesEnum.CODEBUILD_EXECUTOR].url, pipelineRunner)
+    return this.sqsProvider.send(
+      QueueDetails[QueueNamesEnum.CODEBUILD_EXECUTOR].url,
+      pipelineRunner instanceof PipelineRunnerEntity
+        ? { pipelineRunner, pipeline: pipelineRunner.pipeline }
+        : pipelineRunner,
+    )
   }
 
   async triggerCodebuildVersionDeploy(pipelineRunner: PipelineRunnerEntity): Promise<void> {
