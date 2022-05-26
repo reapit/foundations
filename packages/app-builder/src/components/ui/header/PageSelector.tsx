@@ -38,8 +38,7 @@ export const PageSelector = ({ pageId, onChange }: { pageId?: string; onChange: 
             ...currentPage,
             name: e.currentTarget.value,
           }
-          console.log(newPage)
-          updatePage(appId, newPage)
+          updatePage(appId, newPage, { header: [], footer: [] })
         }}
       >
         <AppBuilderSelect
@@ -65,10 +64,14 @@ export const PageSelector = ({ pageId, onChange }: { pageId?: string; onChange: 
             return
           }
           const page = newPage(pageName)
-          updatePage(appId, {
-            ...page,
-            nodes: nodesObjtoToArr(appId, page.id, page.nodes),
-          })
+          updatePage(
+            appId,
+            {
+              ...page,
+              nodes: nodesObjtoToArr(appId, page.id, page.nodes),
+            },
+            { header: [], footer: [] },
+          )
           onChange(page.id)
         }}
       >

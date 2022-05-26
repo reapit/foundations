@@ -16,6 +16,7 @@ describe('node-helpers', () => {
             linkedNodes: {},
             props: {},
             custom: {},
+            parent: null,
             type: {
               resolvedName: 'div',
             },

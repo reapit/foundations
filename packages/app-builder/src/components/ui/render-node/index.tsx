@@ -1,5 +1,6 @@
 import { useNode, useEditor } from '@craftjs/core'
 import { cx } from '@linaria/core'
+import { styled } from '@linaria/react'
 import React, { useEffect, useRef, useCallback } from 'react'
 import ReactDOM from 'react-dom'
 import { elFlex, elFlex1, elFlexAlignCenter, elMr3, elMr6, elP3 } from '@reapit/elements'
@@ -9,6 +10,28 @@ import Delete from '../../icons/delete'
 import Move from '../../icons/move'
 import { cursorMove, cursorPointer, textWhite } from '../styles'
 import { componentSelected, indicator, littleButton } from './styles'
+
+const HeaderContainer = styled.header`
+  grid-column: span 12;
+  overflow: hidden;
+  border-radius: 4px;
+`
+
+const FooterContainer = styled.footer`
+  grid-column: span 12;
+  overflow: hidden;
+  border-radius: 4px;
+`
+
+const BodyContainer = styled.section`
+  margin-top: 20px;
+  margin-bottom: 20px;
+  grid-column: span 12;
+  overflow: hidden;
+  border-radius: 4px;
+`
+
+const RootContainer = styled.section``
 
 export const RenderNode = ({ render, iframeRef }) => {
   const { id } = useNode()
@@ -26,31 +49,45 @@ export const RenderNode = ({ render, iframeRef }) => {
     connectors: { drag },
     parent,
     actions: { setProp },
+    isRoot,
   } = useNode((node) => {
-    let deletable = query.node(node.id).isDeletable()
+    const isRoot = query.node(node.id).isRoot()
+    let deletable =
+      query.node(node.id).isDeletable() && node.id !== 'header' && node.id !== 'body' && node.id !== 'footer' && !isRoot
     if (deletable && node.data.custom.isDeletable) {
       deletable = node.data.custom.isDeletable(node)
     }
+
     return {
       isHover: node.events.hovered,
       dom: node.dom,
       name: node.data.custom.displayName || node.data.displayName,
-      moveable: query.node(node.id).isDraggable(),
+      moveable:
+        query.node(node.id).isDraggable() &&
+        node.id !== 'header' &&
+        node.id !== 'body' &&
+        node.id !== 'footer' &&
+        !isRoot,
       deletable,
       parent: node.data.parent,
       props: node.data.props,
+      isRoot,
     }
   })
 
   const currentRef = useRef<HTMLDivElement>()
 
   useEffect(() => {
+    if (isRoot) {
+      return
+    }
+
     if (isActive || isHover) {
       dom?.classList.add(componentSelected)
     } else {
       dom?.classList.remove(componentSelected)
     }
-  }, [dom, isActive, isHover])
+  }, [dom, isActive, isHover, isRoot])
 
   const getPos = useCallback((dom: HTMLElement) => {
     const { top, left, bottom, right } = dom ? dom.getBoundingClientRect() : { top: 0, left: 0, bottom: 0, right: 0 }
@@ -81,9 +118,14 @@ export const RenderNode = ({ render, iframeRef }) => {
 
   const container = iframeRef?.contentDocument?.body.querySelector('#page-container')
 
+  const isHeader = id === 'header'
+  const isFooter = id === 'footer'
+  const isBody = id === 'body'
+
   return (
     <>
       {(isHover || isActive) &&
+        !isRoot &&
         enabled &&
         container &&
         dom &&
@@ -99,7 +141,12 @@ export const RenderNode = ({ render, iframeRef }) => {
               zIndex: 9999,
             }}
           >
-            <h2 className={cx(elFlex1, elMr6)}>{name}</h2>
+            <h2 className={cx(elFlex1, elMr6)}>
+              {isHeader && 'Header'}
+              {isFooter && 'Footer'}
+              {isBody && 'Body'}
+              {!isHeader && !isFooter && !isBody && name}
+            </h2>
             {moveable && (
               <>
                 <a
@@ -144,7 +191,7 @@ export const RenderNode = ({ render, iframeRef }) => {
                 <Move />
               </div>
             )}
-            {id !== 'ROOT' && (
+            {id !== 'ROOT' && id !== 'header' && id !== 'footer' && id !== 'body' && (
               <a
                 className={cx(littleButton, elMr3, cursorPointer)}
                 onClick={() => {
@@ -168,7 +215,11 @@ export const RenderNode = ({ render, iframeRef }) => {
           </div>,
           container,
         )}
-      {render}
+      {isHeader && <HeaderContainer>{render}</HeaderContainer>}
+      {isFooter && <FooterContainer>{render}</FooterContainer>}
+      {isBody && <BodyContainer>{render}</BodyContainer>}
+      {isRoot && <RootContainer>{render}</RootContainer>}
+      {!isHeader && !isFooter && !isBody && !isRoot && render}
     </>
   )
 }

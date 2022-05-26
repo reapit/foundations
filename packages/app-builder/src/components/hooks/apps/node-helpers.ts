@@ -1,7 +1,79 @@
 import cloneDeep from 'clone-deep'
 import omitDeep from 'omit-deep'
-import { ReduceCompType, SerializedNode } from '@craftjs/core'
-import { Page } from './fragments'
+import { ReduceCompType, SerializedNode, ROOT_NODE } from '@craftjs/core'
+import { Page, Node } from './fragments'
+import { notEmpty } from '../use-introspection/helpers'
+
+const getAllChildNodes = (nodeId: string, nodes: Node[]) => {
+  const node = nodes.find((n) => n.nodeId === nodeId)
+  if (!node) {
+    return []
+  }
+  const children = node.nodes || []
+  const childNodes = children.map((child) => getAllChildNodes(child, nodes))
+  return [node, ...[].concat(...childNodes)]
+}
+
+export const splitPageNodesIntoSections = (nodes: Node[]): { header: Node[]; footer: Node[]; nodes: Node[] } => {
+  const header = getAllChildNodes('header', nodes)
+  const footer = getAllChildNodes('footer', nodes)
+  const rootNode = nodes.find((n) => n.nodeId === ROOT_NODE)
+  if (!rootNode) {
+    throw new Error('unable to find root node')
+  }
+
+  return {
+    header,
+    footer,
+    nodes: [
+      ...nodes.filter((node) => !header.includes(node) && !footer.includes(node) && node.nodeId !== ROOT_NODE),
+      {
+        ...rootNode,
+        nodes: rootNode.nodes.filter((node) => node !== 'header' && node !== 'footer'),
+      },
+    ],
+  }
+}
+
+const nodeDoesntContainerSelf = (node: Node): Node => {
+  return {
+    ...node,
+    nodes: node.nodes.filter((n) => n !== node.nodeId),
+  }
+}
+
+export const mergeHeaderFooterIntoPage = (nodes: Node[], header: Node[] = [], footer: Node[] = []): Node[] => {
+  const rootNode = nodes.find((n) => n.nodeId === ROOT_NODE)
+  if (!rootNode) {
+    throw new Error('unable to find root node')
+  }
+
+  const bodyNode = nodes.find((n) => n.nodeId === 'body') || {
+    ...rootNode,
+    nodes: rootNode.nodes.filter((node) => node !== 'header' && node !== 'footer' && node !== 'body'),
+    id: `${rootNode.id}-body`,
+    nodeId: 'body',
+  }
+
+  const pageNodes = [
+    ...header,
+    nodeDoesntContainerSelf(bodyNode),
+    ...nodes
+      .filter((node) => node.nodeId !== ROOT_NODE)
+      .map((node) => ({
+        ...node,
+        parent: node.parent === ROOT_NODE ? 'body' : node.parent,
+      })),
+    ...footer,
+    {
+      ...rootNode,
+      nodes: [header.length ? 'header' : undefined, 'body', footer.length ? 'footer' : undefined].filter(notEmpty),
+    },
+  ]
+  console.log(JSON.stringify(pageNodes, null, 2))
+
+  return pageNodes
+}
 
 export const isInitialLoad = (nodes: Record<string, SerializedNode>) => {
   if (Object.keys(nodes).length <= 2) {
