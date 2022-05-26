@@ -1,13 +1,13 @@
-import { NestFactory } from '@nestjs/core'
+import { NestApplication, NestFactory } from '@nestjs/core'
 import { AppModule } from './app-module'
 import { WorkflowHandlerProvider } from './events/workflow-handler-provider'
 import { SQSHandler } from 'aws-lambda'
-import { INestMicroservice } from '@nestjs/common'
+import { INestApplication } from '@nestjs/common'
 
-let app: INestMicroservice
+let app: INestApplication
 
-const initApp = async (): Promise<INestMicroservice> => {
-  const app = await NestFactory.createMicroservice(AppModule)
+const initApp = async (): Promise<NestApplication> => {
+  const app = await NestFactory.create<NestApplication>(AppModule)
   await app.init()
 
   return app
