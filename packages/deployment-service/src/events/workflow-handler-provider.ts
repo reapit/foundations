@@ -1,4 +1,4 @@
-import { Injectable, OnModuleInit } from '@nestjs/common'
+import { Injectable, Logger, OnModuleInit } from '@nestjs/common'
 import { AbstractWorkflow } from './abstract-workflow'
 import { WORKFLOW_INJECTABLE } from './workflow-decorator'
 import { SQSRecord } from 'aws-lambda'
@@ -23,14 +23,20 @@ export class WorkflowHandlerProvider implements OnModuleInit {
 
       providers.map((provider) => {
         if (Reflect.hasOwnMetadata(WORKFLOW_INJECTABLE, provider)) {
-          this.workflows.push(this.moduleRef.get(provider, { strict: false }))
+          const injectable = this.moduleRef.get(provider, { strict: false })
+          Logger.log(`added [${injectable.constructor.name}] to SQS workflows`, 'WorkflowHandlerProvider')
+          this.workflows.push(injectable)
         }
       })
     })
   }
 
   findQueueWorkflows(queueArn: string): AbstractWorkflow<any>[] {
-    return this.workflows.filter((workflow) => workflow.queueArn === queueArn)
+    Logger.log(queueArn, WorkflowHandlerProvider)
+    return this.workflows.filter((workflow) => {
+      console.log('workflow', workflow.queueArn, queueArn)
+      return workflow.queueArn === queueArn
+    })
   }
 
   async handleMultiple(records: SQSRecord[]): Promise<void[]> {

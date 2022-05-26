@@ -1,4 +1,4 @@
-import { Injectable, OnModuleInit } from '@nestjs/common'
+import { Injectable, Logger, OnModuleInit } from '@nestjs/common'
 import { MODULE_METADATA } from '@nestjs/common/constants'
 import { ModuleRef, ModulesContainer } from '@nestjs/core'
 import { AbstractSnsHandler } from './abstract-sns'
@@ -7,7 +7,7 @@ import { SNSEventRecord } from 'aws-lambda'
 
 @Injectable()
 export class SnsHandlerProvider implements OnModuleInit {
-  handlers: AbstractSnsHandler[]
+  handlers: AbstractSnsHandler[] = []
 
   constructor(private readonly moduleContainer: ModulesContainer, private readonly moduleRef: ModuleRef) {}
 
@@ -32,6 +32,7 @@ export class SnsHandlerProvider implements OnModuleInit {
   }
 
   onModuleInit() {
+
     ;[...this.moduleContainer.values()].forEach(({ metatype }) => {
       const metadata = Reflect.getMetadata(MODULE_METADATA.PROVIDERS, metatype)
 
@@ -43,7 +44,9 @@ export class SnsHandlerProvider implements OnModuleInit {
 
       providers.map((provider) => {
         if (Reflect.hasOwnMetadata(SNS_HANDLER, provider)) {
-          this.handlers.push(this.moduleRef.get(provider, { strict: false }))
+          const injectable = this.moduleRef.get(provider, { strict: false })
+          Logger.log(`Synced [${injectable.constructor.name}] to SNS workflows`, 'SnsHandlerProvider')
+          this.handlers.push(injectable)
         }
       })
     })
