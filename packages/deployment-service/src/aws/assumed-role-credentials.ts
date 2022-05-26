@@ -1,8 +1,8 @@
 import { STS, Credentials } from 'aws-sdk'
 
 export type RoleCredentialsType = {
-  RoleArn: string,
-  RoleSessionName: string,
+  RoleArn: string
+  RoleSessionName: string
 }
 
 export const getRoleCredentials = async (config: RoleCredentialsType): Promise<Credentials | undefined> => {

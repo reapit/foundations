@@ -32,7 +32,6 @@ export class SnsHandlerProvider implements OnModuleInit {
   }
 
   onModuleInit() {
-
     ;[...this.moduleContainer.values()].forEach(({ metatype }) => {
       const metadata = Reflect.getMetadata(MODULE_METADATA.PROVIDERS, metatype)
 

@@ -14,7 +14,7 @@ const initApp = async (): Promise<NestApplication> => {
 }
 
 export const handle: SNSHandler = async (event) => {
-  app = app || await initApp()
+  app = app || (await initApp())
 
   const snsHandler = app.get(SnsHandlerProvider)
 

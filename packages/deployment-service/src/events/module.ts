@@ -9,9 +9,7 @@ import { PusherWebhookController } from './pusher-webhook-controller'
 import { AwsModule } from '../aws'
 
 @Module({
-  imports: [
-    AwsModule,
-  ],
+  imports: [AwsModule],
   providers: [
     SqsProvider,
     {
