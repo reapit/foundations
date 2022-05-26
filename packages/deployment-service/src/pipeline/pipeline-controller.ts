@@ -77,7 +77,11 @@ export class PipelineController {
   }
 
   @Put('/:id')
-  async edit(@Param('id') id: string, @Creds() creds: CredsType, @Body() dto: PipelineDto): Promise<PipelineEntity | never> {
+  async edit(
+    @Param('id') id: string,
+    @Creds() creds: CredsType,
+    @Body() dto: PipelineDto,
+  ): Promise<PipelineEntity | never> {
     let setupInfra = false
 
     const pipeline = await this.pipelineProvider.findById(id)
@@ -98,7 +102,7 @@ export class PipelineController {
     const updatedPipeline = await this.pipelineProvider.update(pipeline, dto)
 
     await this.pusherProvider.trigger(`private-${pipeline.developerId}`, 'pipeline-update', {
-      message: "updating pipeline",
+      message: 'updating pipeline',
       updatedPipeline,
       pipeline,
     })
