@@ -6,7 +6,6 @@ import { Injectable } from '@nestjs/common'
 import { S3Provider } from '../s3'
 import fs from 'fs'
 import AdmZip from 'adm-zip'
-import { recurseDir } from '../utils'
 import rimraf from 'rimraf'
 import mime from 'mime-types'
 import path from 'path'
@@ -16,6 +15,13 @@ export type DeployToS3Params = {
   prefix: string
   buildLocation: string
   fileNameTransformer?: (string) => string
+}
+
+export type recurseDirProps = {
+  filePath: string
+  buildLocation: string
+  prefix: string
+  fileNameTransformer?: (path: string) => string
 }
 
 @Injectable()
@@ -110,14 +116,11 @@ export class DeployProvider {
     )
     // await the files to all exist. Some reason when extracting, some files don't exist for readdir
     await new Promise((resolve) => setTimeout(resolve, 6000))
-    await recurseDir(
-      {
-        dir: localLocation,
-        prefix: `${deploymentType}/${projectLocation}`,
-        buildLocation: localLocation,
-      },
-      this.deployToLiveS3,
-    )
+    await this.recurseDir({
+      dir: localLocation,
+      prefix: `${deploymentType}/${projectLocation}`,
+      buildLocation: localLocation,
+    })
 
     await new Promise<void>((resolve) =>
       rimraf(localLocation, () => {
@@ -144,5 +147,34 @@ export class DeployProvider {
         ['Content-Type']: String(mime.lookup(path.extname(filePath))),
       },
     })
+  }
+
+  async recurseDir({
+    dir,
+    prefix,
+    buildLocation,
+    fileNameTransformer,
+  }: {
+    dir: string
+    prefix: string
+    buildLocation: string
+    fileNameTransformer?: (path: string) => string
+  }): Promise<void> {
+    const entries = await fs.promises.readdir(dir, { withFileTypes: true })
+    await Promise.all(
+      entries.map((dirent) => {
+        const filePath = path.join(dir, dirent.name)
+        if (dirent.isFile()) {
+          return this.deployToLiveS3({ filePath, buildLocation, prefix, fileNameTransformer })
+        } else if (dirent.isDirectory()) {
+          return this.recurseDir({
+            dir: filePath,
+            prefix,
+            buildLocation,
+            fileNameTransformer,
+          })
+        }
+      }),
+    )
   }
 }
