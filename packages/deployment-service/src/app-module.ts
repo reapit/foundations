@@ -14,6 +14,7 @@ import { AppEventModule } from './app-event'
 import { BitbucketModule } from './bitbucket'
 import { DefaultHeaderInterceptor } from './default-header-interceptor'
 import { AwsModule } from './aws'
+import { CodeBuildModule } from './codebuild'
 
 process.env = {
   ...process.env,
@@ -47,6 +48,7 @@ process.env = {
     AppEventModule,
     BitbucketModule,
     AwsModule,
+    CodeBuildModule,
   ],
   providers: [DefaultHeaderInterceptor],
   exports: [EventModule, AuthModule, GithubModule],

@@ -5,13 +5,13 @@ import { AbstractWorkflow, PusherProvider, SqsProvider, Workflow } from '../even
 import { SoruceProvider } from './source-provider'
 import { CodeBuild } from 'aws-sdk'
 import yaml from 'yaml'
-import { PackageManagerEnum } from '../dto'
+import { PackageManagerEnum } from '../pipeline/pipeline-dto'
 import { S3Provider } from '../s3'
 import { TaskEntity } from '../entities/task.entity'
 import { PipelineRunnerProvider } from '../pipeline-runner'
 import { plainToClass } from 'class-transformer'
 import { BitbucketClientData } from '../entities/bitbucket-client.entity'
-import { BitBucketEvent } from '../functions'
+import { BitBucketEvent } from '../bitbucket'
 import { ParameterProvider } from '../pipeline'
 
 @Workflow(QueueNamesEnum.CODEBUILD_EXECUTOR)

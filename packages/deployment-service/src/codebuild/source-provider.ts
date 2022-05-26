@@ -1,7 +1,7 @@
 import { BitbucketClientData } from '../entities/bitbucket-client.entity'
 import { PipelineRunnerEntity } from '../entities/pipeline-runner.entity'
 import { PipelineEntity } from '../entities/pipeline.entity'
-import { BitBucketEvent } from '../functions'
+import { BitBucketEvent } from '../bitbucket'
 import { S3Provider } from '../s3'
 import { Injectable } from '@nestjs/common'
 import { BitbucketProvider } from '../bitbucket'
