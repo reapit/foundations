@@ -14,7 +14,7 @@ const initApp = async (): Promise<NestApplication> => {
 }
 
 export const handle: SQSHandler = async (event) => {
-  app = app || await initApp()
+  app = app || (await initApp())
 
   const workflowHandler = app.get(WorkflowHandlerProvider)
 
