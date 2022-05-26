@@ -7,7 +7,7 @@ export abstract class AbstractSnsHandler {
   get metadata(): {
     arn: string
   } {
-    return Reflect.getMetadata(SNS_HANDLER, this)
+    return Reflect.getMetadata(SNS_HANDLER, this.constructor)
   }
 
   get topicArn(): string {
