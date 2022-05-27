@@ -20,7 +20,7 @@ export class PipelineSetupWorkflow extends AbstractWorkflow<PipelineEntity> {
     super(sqsProvider)
   }
 
-  async execute(pipeline): Promise<void> {
+  async execute(pipeline: PipelineEntity): Promise<void> {
     pipeline.buildStatus = 'PROVISIONING'
 
     try {

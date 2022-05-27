@@ -1,7 +1,7 @@
 import { SqsProvider } from './sqs-provider'
 import { SQSRecord } from 'aws-lambda'
 import { WORKFLOW_INJECTABLE, WORKFLOW_TYPE } from './workflow-decorator'
-import { plainToClass } from 'class-transformer'
+import { plainToInstance } from 'class-transformer'
 
 export abstract class AbstractWorkflow<T extends any> {
   protected record: SQSRecord
@@ -27,7 +27,7 @@ export abstract class AbstractWorkflow<T extends any> {
 
   protected deserialisePayload(payload: string): T {
     if (Reflect.hasMetadata(WORKFLOW_TYPE, this.constructor)) {
-      return plainToClass(Reflect.getMetadata(WORKFLOW_TYPE, this.constructor), payload)
+      return plainToInstance<T, T>(Reflect.getMetadata(WORKFLOW_TYPE, this.constructor), JSON.parse(payload)) as T
     }
 
     return JSON.parse(payload)
