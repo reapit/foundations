@@ -1,9 +1,9 @@
-const Adapter = require('@wojtekmaj/enzyme-adapter-react-17')
-const Enzyme = require('enzyme')
+// const Adapter = require('@cfaester/enzyme-adapter-react-18')
+// const Enzyme = require('enzyme')
 const fetchMock = require('jest-fetch-mock')
 const MockDate = require('mockdate')
 
-Enzyme.configure({ adapter: new Adapter() })
+// Enzyme.configure({ adapter: new Adapter() })
 global.fetch = fetchMock
 
 jest.mock('react-chartjs-2', () => ({
