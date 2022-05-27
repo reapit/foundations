@@ -6,10 +6,10 @@ import React, { FC, ReactElement } from 'react'
 import { queries, render, RenderOptions } from '@testing-library/react'
 import { MediaStateProvider, NavStateProvider, SnackProvider } from '@reapit/elements'
 import { Router } from 'react-router-dom'
-import { createBrowserHistory } from 'history'
+import { createBrowserHistory, History } from 'history'
 
 const CombinedProvider: FC = ({ children }) => {
-  const history = createBrowserHistory()
+  const history: History<any> = createBrowserHistory()
   return (
     <Router history={history}>
       <SnackProvider>

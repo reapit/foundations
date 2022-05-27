@@ -1,5 +1,5 @@
 import React from 'react'
-import { createBrowserHistory } from 'history'
+import { createBrowserHistory, History } from 'history'
 import { Route, Router } from 'react-router-dom'
 import { PrivateRouteWrapper } from '../private-route-wrapper'
 import { getMockRouterProps } from '../__mocks__/mock-router'
@@ -26,7 +26,7 @@ describe('PrivateRouter', () => {
       path: '/client/apps',
       ...getMockRouterProps({ params: {}, search: '?username=wmcvay@reapit.com&desktopToken=TOKEN' }),
     }
-    const history = createBrowserHistory()
+    const history: History<any> = createBrowserHistory()
     const wrapper = shallow(
       <Router history={history}>
         <Route>

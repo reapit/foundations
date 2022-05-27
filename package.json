@@ -41,7 +41,7 @@
   },
   "scripts": {
     "build-all": "yarn workspaces foreach --parallel --verbose run build",
-    "test-all": "yarn workspaces foreach --parallel --verbose --interlaced run test --watch=false --coverage --ci --silent --forceExit --detectOpenHandles --runInBand",
+    "test-all": "yarn workspaces foreach --parallel --verbose --interlaced run test --watch=false --coverage --ci --silent --forceExit --detectOpenHandles --runInBand -u",
     "conf-all": "yarn workspaces foreach --parallel --verbose run conf",
     "lint-all": "yarn workspaces foreach --parallel --verbose run lint",
     "check-all": "yarn workspaces foreach --parallel --verbose run check",
@@ -49,7 +49,7 @@
     "postinstall": "husky install"
   },
   "devDependencies": {
-    "@apollo/client": "^3.5.8",
+    "@apollo/client": "^3.6.6",
     "husky": "^7.0.4",
     "json": "^11.0.0"
   },

@@ -3,12 +3,12 @@ import { Route, Router as BrowserRouter, Switch } from 'react-router-dom'
 import { catchChunkError } from '@reapit/utils-react'
 import Routes from '../constants/routes'
 import PrivateRoute from './private-route'
-import { createBrowserHistory } from 'history'
+import { createBrowserHistory, History } from 'history'
 import { Info } from '@reapit/elements-legacy'
 import { PortalProvider } from '@reapit/elements-legacy'
 import { OkayPage } from '@reapit/utils-react'
 
-export const history = createBrowserHistory()
+export const history: History<any> = createBrowserHistory()
 
 const PrivateRouteWrapper = React.lazy(() => catchChunkError(() => import('./private-route-wrapper')))
 const Login = React.lazy(() => catchChunkError(() => import('../components/pages/login')))

@@ -26,29 +26,29 @@
   },
   "dependencies": {
     "@homeservenow/serverless-aws-handler": "^0.2.4",
-    "@linaria/core": "^3.0.0-beta.15",
-    "@linaria/react": "^3.0.0-beta.15",
+    "@linaria/core": "^3.0.0-beta.18",
+    "@linaria/react": "^3.0.0-beta.18",
     "@reapit/connect-session": "workspace:packages/connect-session",
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions",
     "@reapit/utils-common": "workspace:packages/utils-common",
-    "@sentry/node": "^6.16.1",
+    "@sentry/node": "^6.19.7",
     "error-polyfill": "^0.1.3",
     "serialize-error": "^7.0.1",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "@linaria/shaker": "^3.0.0-beta.15",
+    "@linaria/shaker": "^3.0.0-beta.18",
     "@reapit/config-manager": "workspace:packages/config-manager",
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",
     "@reapit/ts-types": "workspace:packages/ts-types",
-    "@typescript-eslint/eslint-plugin": "^5.7.0",
-    "@typescript-eslint/parser": "^5.7.0",
+    "@typescript-eslint/eslint-plugin": "^5.26.0",
+    "@typescript-eslint/parser": "^5.26.0",
     "babel-jest": "^27.5.1",
-    "concurrently": "^6.4.0",
+    "concurrently": "^6.5.1",
     "cross-env": "^7.0.3",
-    "eslint": "8.4.1",
+    "eslint": "8.16.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "jest": "^27.4.5",
+    "jest": "^27.5.1",
     "jest-coverage-badges": "^1.1.2"
   }
 }

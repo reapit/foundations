@@ -2,7 +2,7 @@ import * as React from 'react'
 import { render } from '@testing-library/react'
 import OfficesPage, { handleDocs } from '../offices'
 import { Router, Switch } from 'react-router-dom'
-import { createBrowserHistory } from 'history'
+import { createBrowserHistory, History } from 'history'
 import Routes from '../../../constants/routes'
 import { OFFICE_GROUPS_DOCS_URL } from '../../../constants/api'
 
@@ -10,7 +10,7 @@ jest.mock('../../../utils/use-org-id')
 jest.mock('../../ui/offices/office-group-create', () => () => <div />)
 jest.mock('../../ui/offices/offices-groups-tab', () => () => <div />)
 
-export const history = createBrowserHistory()
+export const history: History<any> = createBrowserHistory()
 
 describe('OfficesPage', () => {
   it('should match a snapshot for the offices tab', () => {

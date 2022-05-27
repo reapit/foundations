@@ -7,8 +7,8 @@
     "yosay": "^2.0.2"
   },
   "devDependencies": {
-    "concurrently": "^7.0.0",
-    "eslint": "^8.7.0"
+    "concurrently": "^7.2.1",
+    "eslint": "^8.16.0"
   },
   "description": "An opinionated gnerator for scaffolding TypeScript Node apps",
   "keywords": [
