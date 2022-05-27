@@ -23,7 +23,7 @@
     "rimraf": "^3.0.2",
     "typeorm": "^0.2.41",
     "typeorm-aurora-data-api-driver": "^2.3.4",
-    "yaml": "next"
+    "yaml": "2.0.1"
   },
   "main": "./src/index.ts",
   "scripts": {
