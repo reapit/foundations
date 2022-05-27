@@ -11,6 +11,7 @@ Object {
     "linkedNodes": Object {},
     "nodeId": Object {},
     "nodes": Array [],
+    "parent": null,
     "props": Object {},
     "type": Object {
       "resolvedName": "div",
