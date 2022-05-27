@@ -44,8 +44,10 @@ export class SnsHandlerProvider implements OnModuleInit {
       providers.map((provider) => {
         if (Reflect.hasOwnMetadata(SNS_HANDLER, provider)) {
           const injectable = this.moduleRef.get(provider, { strict: false })
-          Logger.log(`Synced [${injectable.constructor.name}] to SNS workflows`, 'SnsHandlerProvider')
-          this.handlers.push(injectable)
+          if (!this.handlers.find((handler) => handler.constructor.name === injectable.constructor.name)) {
+            Logger.log(`Synced [${injectable.constructor.name}] to SNS workflows`, 'SnsHandlerProvider')
+            this.handlers.push(injectable)
+          }
         }
       })
     })

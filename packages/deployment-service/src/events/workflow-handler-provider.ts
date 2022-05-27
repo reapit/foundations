@@ -24,8 +24,10 @@ export class WorkflowHandlerProvider implements OnModuleInit {
       providers.map((provider) => {
         if (Reflect.hasOwnMetadata(WORKFLOW_INJECTABLE, provider)) {
           const injectable = this.moduleRef.get(provider, { strict: false })
-          Logger.log(`added [${injectable.constructor.name}] to SQS workflows`, 'WorkflowHandlerProvider')
-          this.workflows.push(injectable)
+          if (!this.workflows.find((workflow) => workflow.constructor.name === injectable.constructor.name)) {
+            this.workflows.push(injectable)
+            Logger.log(`added [${injectable.constructor.name}] to SQS workflows`, 'WorkflowHandlerProvider')
+          }
         }
       })
     })
@@ -39,6 +41,7 @@ export class WorkflowHandlerProvider implements OnModuleInit {
   }
 
   async handleMultiple(records: SQSRecord[]): Promise<void[]> {
+    console.log('records', records)
     return Promise.all(records.map((record) => this.handle(record)))
   }
 
@@ -46,6 +49,8 @@ export class WorkflowHandlerProvider implements OnModuleInit {
     const queueArn = record.eventSourceARN
 
     const workflows = this.findQueueWorkflows(queueArn)
+
+    console.log('workflows', workflows)
 
     if (workflows.length === 0) {
       // TODO delete from queue?
