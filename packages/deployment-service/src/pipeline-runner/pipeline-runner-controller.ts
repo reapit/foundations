@@ -120,7 +120,6 @@ export class PipelineRunnerController {
     return this.pipelineRunnerProvider.update(pipelineRunner, dto)
   }
 
-  // TODO path changed from: release/{pipelineId}/{version}
   @Post('release/:version')
   async release(
     @Param('pipelineId') pipelineId: string,
@@ -178,7 +177,6 @@ export class PipelineRunnerController {
     }
   }
 
-  // TODO changed url from: api/release/{pipelineId}/{version}
   @Post(':pipelineRunnerId/deploy')
   async deploy(@Param('pipelineRunnerId') pipelineRunnerId: string, @Creds() creds: CredsType) {
     const pipelineRunner = await this.pipelineRunnerProvider.findById(pipelineRunnerId, {
