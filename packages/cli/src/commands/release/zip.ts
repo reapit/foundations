@@ -118,7 +118,7 @@ export class ZipCommand extends AbstractCommand {
 
     const response = await (
       await this.axios(spinner)
-    ).post(`release/${pipeline.id}/${version}`, {
+    ).post(`pipeline/${pipeline.id}/pipeline-runner/release/${version}`, {
       file: buffer.toString('base64'),
     })
 
