@@ -36,7 +36,7 @@ export class GithubWebhookController {
 
   @Post()
   async handler(@Req() request: Request, @Body() body) {
-    const signature = request.headers['X-Hub-Signature-256'] as string
+    const signature = request.headers['x-hub-signature-256'] as string
 
     if (!signature) {
       throw new UnauthorizedException('No signature')
