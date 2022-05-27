@@ -6699,6 +6699,50 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@nestjs/microservices@npm:^8.4.5":
+  version: 8.4.5
+  resolution: "@nestjs/microservices@npm:8.4.5"
+  dependencies:
+    iterare: 1.2.1
+    json-socket: 0.3.0
+    tslib: 2.4.0
+  peerDependencies:
+    "@grpc/grpc-js": "*"
+    "@nestjs/common": ^8.0.0
+    "@nestjs/core": ^8.0.0
+    "@nestjs/websockets": ^8.0.0
+    amqp-connection-manager: "*"
+    amqplib: "*"
+    cache-manager: "*"
+    kafkajs: "*"
+    mqtt: "*"
+    nats: "*"
+    redis: "*"
+    reflect-metadata: ^0.1.12
+    rxjs: ^7.1.0
+  peerDependenciesMeta:
+    "@grpc/grpc-js":
+      optional: true
+    "@nestjs/websockets":
+      optional: true
+    amqp-connection-manager:
+      optional: true
+    amqplib:
+      optional: true
+    cache-manager:
+      optional: true
+    kafkajs:
+      optional: true
+    mqtt:
+      optional: true
+    nats:
+      optional: true
+    redis:
+      optional: true
+  checksum: 0a2ed9b249399eb8943cc0e7fcac3744ce542e42946aa8ad7962a78e8daf031826d2160bffcad7b3c4e8b2cf1257f5e1d500a6fff9efc7f66bd54d2b21fb4f22
+  languageName: node
+  linkType: hard
+
 "@nestjs/passport@npm:^8.2.1":
   version: 8.2.1
   resolution: "@nestjs/passport@npm:8.2.1"
@@ -18939,6 +18983,7 @@ __metadata:
     "@nestjs/common": ^8.4.4
     "@nestjs/config": ^2.0.0
     "@nestjs/core": ^8.4.4
+    "@nestjs/microservices": ^8.4.5
     "@nestjs/passport": ^8.2.1
     "@nestjs/platform-express": ^8.4.4
     "@nestjs/testing": ^8.4.5
@@ -27633,6 +27678,13 @@ fsevents@^1.2.7:
   version: 0.4.0
   resolution: "json-schema@npm:0.4.0"
   checksum: 66389434c3469e698da0df2e7ac5a3281bcff75e797a5c127db7c5b56270e01ae13d9afa3c03344f76e32e81678337a8c912bdbb75101c62e487dc3778461d72
+  languageName: node
+  linkType: hard
+
+"json-socket@npm:0.3.0":
+  version: 0.3.0
+  resolution: "json-socket@npm:0.3.0"
+  checksum: 43e112523547c26a7f54259ac2cc222276d59a619d4d467554d8903f4d56752fd5ed6e23f27b14767dbe55bf0d8eab98640e0c09825fdf329cb8257e38eb6a45
   languageName: node
   linkType: hard
 
