@@ -1,437 +1,939 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`admin-approvals AdminApprovals should match a snapshot 1`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <MemoryRouter
-    initialEntries={
-      Array [
-        Object {
-          "key": "adminApprovalRoute",
-          "pathname": "/approvals",
-        },
-      ]
-    }
-  >
-    <Router
-      history={
-        Object {
-          "action": "POP",
-          "block": [Function],
-          "canGo": [Function],
-          "createHref": [Function],
-          "entries": Array [
-            Object {
-              "hash": "",
-              "key": "adminApprovalRoute",
-              "pathname": "/approvals",
-              "search": "",
-            },
-          ],
-          "go": [Function],
-          "goBack": [Function],
-          "goForward": [Function],
-          "index": 0,
-          "length": 1,
-          "listen": [Function],
-          "location": Object {
-            "hash": "",
-            "key": "adminApprovalRoute",
-            "pathname": "/approvals",
-            "search": "",
-          },
-          "push": [Function],
-          "replace": [Function],
-        }
-      }
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <h3
+        class="title is-3"
+        id=""
+      >
+        App Revision Approvals
+      </h3>
+      <div
+        class="notification helper-wrap helper-info"
+      >
+        There are no updates that require approval
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <h3
+      class="title is-3"
+      id=""
     >
-      <AdminApprovals>
-        <H3>
-          <h3
-            className="title is-3"
-            id=""
-          >
-            App Revision Approvals
-          </h3>
-        </H3>
-        <Content
-          loading={false}
-          tableColumns={
-            Array [
-              Object {
-                "Cell": [Function],
-                "Header": "#",
-                "id": "id",
-              },
-              Object {
-                "Header": "AppId",
-                "accessor": "appId",
-              },
-              Object {
-                "Header": "Type",
-                "accessor": "type",
-              },
-              Object {
-                "Header": "Description",
-                "accessor": "description",
-              },
-              Object {
-                "Cell": [Function],
-                "Header": "Created On",
-                "accessor": "created",
-              },
-              Object {
-                "Cell": [Function],
-                "Header": "",
-                "id": "buttonColumn",
-              },
-            ]
-          }
-          waitingApprovalList={Array []}
-        >
-          <Helper
-            variant="info"
-          >
-            <div
-              className="notification helper-wrap helper-info"
-            >
-              There are no updates that require approval
-            </div>
-          </Helper>
-        </Content>
-        <Pagination
-          onChange={[Function]}
-          pageNumber={1}
-          pageSize={0}
-          totalCount={0}
-        />
-        <ApprovalModal
-          afterClose={[Function]}
-          visible={false}
-        >
-          <Modal
-            afterClose={[Function]}
-            deps={Array []}
-            visible={false}
-          />
-          <ApproveRevisionModal
-            afterClose={[Function]}
-            onApproveSuccess={[Function]}
-            visible={false}
-          >
-            <Modal
-              afterClose={[Function]}
-              renderChildren={true}
-              visible={false}
-            />
-          </ApproveRevisionModal>
-          <DeclineRevisionModal
-            afterClose={[Function]}
-            onDeclineSuccess={[Function]}
-            visible={false}
-          >
-            <Modal
-              afterClose={[Function]}
-              renderChildren={true}
-              visible={false}
-            />
-          </DeclineRevisionModal>
-        </ApprovalModal>
-      </AdminApprovals>
-    </Router>
-  </MemoryRouter>
-</Provider>
+      App Revision Approvals
+    </h3>
+    <div
+      class="notification helper-wrap helper-info"
+    >
+      There are no updates that require approval
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`admin-approvals Content should match snapshot 1`] = `
-<Table
-  columns={
-    Array [
-      Object {
-        "Header": "AppId",
-        "accessor": "appId",
-      },
-      Object {
-        "Header": "Type",
-        "accessor": "type",
-      },
-      Object {
-        "Header": "Description",
-        "accessor": "description",
-      },
-    ]
-  }
-  data={
-    Array [
-      Object {
-        "appId": "ddc8b25e-42a2-468e-aa8f-4091eee6958f",
-        "appRevisionId": "4afb0bb9-c1f8-403a-8fd6-1c92b4244906",
-        "description": "A developer has submitted a request to modify their application",
-        "links": Array [
-          Object {
-            "action": "GET",
-            "href": "http://reapit.cloud.tyk.io/marketplace/apps/ddc8b25e-42a2-468e-aa8f-4091eee6958f/revisions/4afb0bb9-c1f8-403a-8fd6-1c92b4244906",
-            "rel": "self",
-          },
-          Object {
-            "action": "GET",
-            "href": "http://reapit.cloud.tyk.io/marketplace/apps/ddc8b25e-42a2-468e-aa8f-4091eee6958f/revisions/4afb0bb9-c1f8-403a-8fd6-1c92b4244906/approve",
-            "rel": "approve",
-          },
-          Object {
-            "action": "GET",
-            "href": "http://reapit.cloud.tyk.io/marketplace/apps/ddc8b25e-42a2-468e-aa8f-4091eee6958f/revisions/4afb0bb9-c1f8-403a-8fd6-1c92b4244906/reject",
-            "rel": "reject",
-          },
-        ],
-        "type": "App Revision",
-      },
-      Object {
-        "appId": "c9cbb8cd-74c3-4cc7-b632-d8e86b0b7d26",
-        "appRevisionId": "0d55cee6-b8c0-4fb9-be45-506c5992d267",
-        "description": "A developer has submitted a request to modify their application",
-        "links": Array [
-          Object {
-            "action": "GET",
-            "href": "http://reapit.cloud.tyk.io/marketplace/apps/c9cbb8cd-74c3-4cc7-b632-d8e86b0b7d26/revisions/0d55cee6-b8c0-4fb9-be45-506c5992d267",
-            "rel": "self",
-          },
-          Object {
-            "action": "GET",
-            "href": "http://reapit.cloud.tyk.io/marketplace/apps/c9cbb8cd-74c3-4cc7-b632-d8e86b0b7d26/revisions/0d55cee6-b8c0-4fb9-be45-506c5992d267/approve",
-            "rel": "approve",
-          },
-          Object {
-            "action": "GET",
-            "href": "http://reapit.cloud.tyk.io/marketplace/apps/c9cbb8cd-74c3-4cc7-b632-d8e86b0b7d26/revisions/0d55cee6-b8c0-4fb9-be45-506c5992d267/reject",
-            "rel": "reject",
-          },
-        ],
-        "type": "App Revision",
-      },
-      Object {
-        "appId": "bbd8ed62-64a5-4bb9-a269-7aa987923897",
-        "appRevisionId": "1c6f4453-06c6-424b-855a-9a77a718f83f",
-        "description": "A developer has submitted a request to modify their application",
-        "links": Array [
-          Object {
-            "action": "GET",
-            "href": "http://reapit.cloud.tyk.io/marketplace/apps/bbd8ed62-64a5-4bb9-a269-7aa987923897/revisions/1c6f4453-06c6-424b-855a-9a77a718f83f",
-            "rel": "self",
-          },
-          Object {
-            "action": "GET",
-            "href": "http://reapit.cloud.tyk.io/marketplace/apps/bbd8ed62-64a5-4bb9-a269-7aa987923897/revisions/1c6f4453-06c6-424b-855a-9a77a718f83f/approve",
-            "rel": "approve",
-          },
-          Object {
-            "action": "GET",
-            "href": "http://reapit.cloud.tyk.io/marketplace/apps/bbd8ed62-64a5-4bb9-a269-7aa987923897/revisions/1c6f4453-06c6-424b-855a-9a77a718f83f/reject",
-            "rel": "reject",
-          },
-        ],
-        "type": "App Revision",
-      },
-      Object {
-        "appId": "38c30c86-984f-4e20-8133-93c42f69a283",
-        "appRevisionId": "371e1640-6d07-413c-8be2-214a6ee32c14",
-        "description": "A developer has submitted a request to modify their application",
-        "links": Array [
-          Object {
-            "action": "GET",
-            "href": "http://reapit.cloud.tyk.io/marketplace/apps/38c30c86-984f-4e20-8133-93c42f69a283/revisions/371e1640-6d07-413c-8be2-214a6ee32c14",
-            "rel": "self",
-          },
-          Object {
-            "action": "GET",
-            "href": "http://reapit.cloud.tyk.io/marketplace/apps/38c30c86-984f-4e20-8133-93c42f69a283/revisions/371e1640-6d07-413c-8be2-214a6ee32c14/approve",
-            "rel": "approve",
-          },
-          Object {
-            "action": "GET",
-            "href": "http://reapit.cloud.tyk.io/marketplace/apps/38c30c86-984f-4e20-8133-93c42f69a283/revisions/371e1640-6d07-413c-8be2-214a6ee32c14/reject",
-            "rel": "reject",
-          },
-        ],
-        "type": "App Revision",
-      },
-      Object {
-        "appId": "b50fe8e3-0195-4ce5-9150-d6b6250aa93f",
-        "appRevisionId": "ca0e95f2-8dbe-4d62-b533-a7c695f5de9b",
-        "description": "A developer has submitted a request to modify their application",
-        "links": Array [
-          Object {
-            "action": "GET",
-            "href": "http://reapit.cloud.tyk.io/marketplace/apps/b50fe8e3-0195-4ce5-9150-d6b6250aa93f/revisions/ca0e95f2-8dbe-4d62-b533-a7c695f5de9b",
-            "rel": "self",
-          },
-          Object {
-            "action": "GET",
-            "href": "http://reapit.cloud.tyk.io/marketplace/apps/b50fe8e3-0195-4ce5-9150-d6b6250aa93f/revisions/ca0e95f2-8dbe-4d62-b533-a7c695f5de9b/approve",
-            "rel": "approve",
-          },
-          Object {
-            "action": "GET",
-            "href": "http://reapit.cloud.tyk.io/marketplace/apps/b50fe8e3-0195-4ce5-9150-d6b6250aa93f/revisions/ca0e95f2-8dbe-4d62-b533-a7c695f5de9b/reject",
-            "rel": "reject",
-          },
-        ],
-        "type": "App Revision",
-      },
-      Object {
-        "appId": "ce069a76-6be1-4640-b412-b3c2a1e80dff",
-        "appRevisionId": "9ec2b8e8-209c-422f-a221-7d45e832a848",
-        "description": "A developer has submitted a request to modify their application",
-        "links": Array [
-          Object {
-            "action": "GET",
-            "href": "http://reapit.cloud.tyk.io/marketplace/apps/ce069a76-6be1-4640-b412-b3c2a1e80dff/revisions/9ec2b8e8-209c-422f-a221-7d45e832a848",
-            "rel": "self",
-          },
-          Object {
-            "action": "GET",
-            "href": "http://reapit.cloud.tyk.io/marketplace/apps/ce069a76-6be1-4640-b412-b3c2a1e80dff/revisions/9ec2b8e8-209c-422f-a221-7d45e832a848/approve",
-            "rel": "approve",
-          },
-          Object {
-            "action": "GET",
-            "href": "http://reapit.cloud.tyk.io/marketplace/apps/ce069a76-6be1-4640-b412-b3c2a1e80dff/revisions/9ec2b8e8-209c-422f-a221-7d45e832a848/reject",
-            "rel": "reject",
-          },
-        ],
-        "type": "App Revision",
-      },
-      Object {
-        "appId": "e5854bf2-8a2b-4d41-b51b-c226dbac3ffb",
-        "appRevisionId": "c5d25de8-93e7-4f64-af41-e35833868ec4",
-        "description": "A developer has submitted a request to modify their application",
-        "links": Array [
-          Object {
-            "action": "GET",
-            "href": "http://reapit.cloud.tyk.io/marketplace/apps/e5854bf2-8a2b-4d41-b51b-c226dbac3ffb/revisions/c5d25de8-93e7-4f64-af41-e35833868ec4",
-            "rel": "self",
-          },
-          Object {
-            "action": "GET",
-            "href": "http://reapit.cloud.tyk.io/marketplace/apps/e5854bf2-8a2b-4d41-b51b-c226dbac3ffb/revisions/c5d25de8-93e7-4f64-af41-e35833868ec4/approve",
-            "rel": "approve",
-          },
-          Object {
-            "action": "GET",
-            "href": "http://reapit.cloud.tyk.io/marketplace/apps/e5854bf2-8a2b-4d41-b51b-c226dbac3ffb/revisions/c5d25de8-93e7-4f64-af41-e35833868ec4/reject",
-            "rel": "reject",
-          },
-        ],
-        "type": "App Revision",
-      },
-      Object {
-        "appId": "2421665e-7154-4bf7-bf7b-ad80bc7ed191",
-        "appRevisionId": "ff820e01-6444-409f-be13-466b6f527c76",
-        "description": "A developer has submitted a request to modify their application",
-        "links": Array [
-          Object {
-            "action": "GET",
-            "href": "http://reapit.cloud.tyk.io/marketplace/apps/2421665e-7154-4bf7-bf7b-ad80bc7ed191/revisions/ff820e01-6444-409f-be13-466b6f527c76",
-            "rel": "self",
-          },
-          Object {
-            "action": "GET",
-            "href": "http://reapit.cloud.tyk.io/marketplace/apps/2421665e-7154-4bf7-bf7b-ad80bc7ed191/revisions/ff820e01-6444-409f-be13-466b6f527c76/approve",
-            "rel": "approve",
-          },
-          Object {
-            "action": "GET",
-            "href": "http://reapit.cloud.tyk.io/marketplace/apps/2421665e-7154-4bf7-bf7b-ad80bc7ed191/revisions/ff820e01-6444-409f-be13-466b6f527c76/reject",
-            "rel": "reject",
-          },
-        ],
-        "type": "App Revision",
-      },
-      Object {
-        "appId": "2baf738b-ab70-4de2-8a62-547a5ff68866",
-        "appRevisionId": "76b5b475-22d9-4437-b9bf-44a6afb5df14",
-        "description": "A developer has submitted a request to modify their application",
-        "links": Array [
-          Object {
-            "action": "GET",
-            "href": "http://reapit.cloud.tyk.io/marketplace/apps/2baf738b-ab70-4de2-8a62-547a5ff68866/revisions/76b5b475-22d9-4437-b9bf-44a6afb5df14",
-            "rel": "self",
-          },
-          Object {
-            "action": "GET",
-            "href": "http://reapit.cloud.tyk.io/marketplace/apps/2baf738b-ab70-4de2-8a62-547a5ff68866/revisions/76b5b475-22d9-4437-b9bf-44a6afb5df14/approve",
-            "rel": "approve",
-          },
-          Object {
-            "action": "GET",
-            "href": "http://reapit.cloud.tyk.io/marketplace/apps/2baf738b-ab70-4de2-8a62-547a5ff68866/revisions/76b5b475-22d9-4437-b9bf-44a6afb5df14/reject",
-            "rel": "reject",
-          },
-        ],
-        "type": "App Revision",
-      },
-      Object {
-        "appId": "d36137d1-cc86-4b9a-a164-069183065f37",
-        "appRevisionId": "c6d3160b-b299-4764-87bf-e1f26065d282",
-        "description": "A developer has submitted a request to modify their application",
-        "links": Array [
-          Object {
-            "action": "GET",
-            "href": "http://reapit.cloud.tyk.io/marketplace/apps/d36137d1-cc86-4b9a-a164-069183065f37/revisions/c6d3160b-b299-4764-87bf-e1f26065d282",
-            "rel": "self",
-          },
-          Object {
-            "action": "GET",
-            "href": "http://reapit.cloud.tyk.io/marketplace/apps/d36137d1-cc86-4b9a-a164-069183065f37/revisions/c6d3160b-b299-4764-87bf-e1f26065d282/approve",
-            "rel": "approve",
-          },
-          Object {
-            "action": "GET",
-            "href": "http://reapit.cloud.tyk.io/marketplace/apps/d36137d1-cc86-4b9a-a164-069183065f37/revisions/c6d3160b-b299-4764-87bf-e1f26065d282/reject",
-            "rel": "reject",
-          },
-        ],
-        "type": "App Revision",
-      },
-    ]
-  }
-  loading={false}
-  scrollable={true}
-/>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <div
+        style="overflow: scroll;"
+      >
+        <table
+          class="table is-striped is-fullwidth "
+          role="table"
+        >
+          <thead>
+            <tr
+              role="row"
+            >
+              <th
+                colspan="1"
+                role="columnheader"
+              >
+                AppId
+              </th>
+              <th
+                colspan="1"
+                role="columnheader"
+              >
+                Type
+              </th>
+              <th
+                colspan="1"
+                role="columnheader"
+              >
+                Description
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              class=""
+              role="row"
+            >
+              <td
+                role="cell"
+              >
+                ddc8b25e-42a2-468e-aa8f-4091eee6958f
+              </td>
+              <td
+                role="cell"
+              >
+                App Revision
+              </td>
+              <td
+                role="cell"
+              >
+                A developer has submitted a request to modify their application
+              </td>
+            </tr>
+            <tr
+              class=""
+              role="row"
+            >
+              <td
+                role="cell"
+              >
+                c9cbb8cd-74c3-4cc7-b632-d8e86b0b7d26
+              </td>
+              <td
+                role="cell"
+              >
+                App Revision
+              </td>
+              <td
+                role="cell"
+              >
+                A developer has submitted a request to modify their application
+              </td>
+            </tr>
+            <tr
+              class=""
+              role="row"
+            >
+              <td
+                role="cell"
+              >
+                bbd8ed62-64a5-4bb9-a269-7aa987923897
+              </td>
+              <td
+                role="cell"
+              >
+                App Revision
+              </td>
+              <td
+                role="cell"
+              >
+                A developer has submitted a request to modify their application
+              </td>
+            </tr>
+            <tr
+              class=""
+              role="row"
+            >
+              <td
+                role="cell"
+              >
+                38c30c86-984f-4e20-8133-93c42f69a283
+              </td>
+              <td
+                role="cell"
+              >
+                App Revision
+              </td>
+              <td
+                role="cell"
+              >
+                A developer has submitted a request to modify their application
+              </td>
+            </tr>
+            <tr
+              class=""
+              role="row"
+            >
+              <td
+                role="cell"
+              >
+                b50fe8e3-0195-4ce5-9150-d6b6250aa93f
+              </td>
+              <td
+                role="cell"
+              >
+                App Revision
+              </td>
+              <td
+                role="cell"
+              >
+                A developer has submitted a request to modify their application
+              </td>
+            </tr>
+            <tr
+              class=""
+              role="row"
+            >
+              <td
+                role="cell"
+              >
+                ce069a76-6be1-4640-b412-b3c2a1e80dff
+              </td>
+              <td
+                role="cell"
+              >
+                App Revision
+              </td>
+              <td
+                role="cell"
+              >
+                A developer has submitted a request to modify their application
+              </td>
+            </tr>
+            <tr
+              class=""
+              role="row"
+            >
+              <td
+                role="cell"
+              >
+                e5854bf2-8a2b-4d41-b51b-c226dbac3ffb
+              </td>
+              <td
+                role="cell"
+              >
+                App Revision
+              </td>
+              <td
+                role="cell"
+              >
+                A developer has submitted a request to modify their application
+              </td>
+            </tr>
+            <tr
+              class=""
+              role="row"
+            >
+              <td
+                role="cell"
+              >
+                2421665e-7154-4bf7-bf7b-ad80bc7ed191
+              </td>
+              <td
+                role="cell"
+              >
+                App Revision
+              </td>
+              <td
+                role="cell"
+              >
+                A developer has submitted a request to modify their application
+              </td>
+            </tr>
+            <tr
+              class=""
+              role="row"
+            >
+              <td
+                role="cell"
+              >
+                2baf738b-ab70-4de2-8a62-547a5ff68866
+              </td>
+              <td
+                role="cell"
+              >
+                App Revision
+              </td>
+              <td
+                role="cell"
+              >
+                A developer has submitted a request to modify their application
+              </td>
+            </tr>
+            <tr
+              class=""
+              role="row"
+            >
+              <td
+                role="cell"
+              >
+                d36137d1-cc86-4b9a-a164-069183065f37
+              </td>
+              <td
+                role="cell"
+              >
+                App Revision
+              </td>
+              <td
+                role="cell"
+              >
+                A developer has submitted a request to modify their application
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <div
+      style="overflow: scroll;"
+    >
+      <table
+        class="table is-striped is-fullwidth "
+        role="table"
+      >
+        <thead>
+          <tr
+            role="row"
+          >
+            <th
+              colspan="1"
+              role="columnheader"
+            >
+              AppId
+            </th>
+            <th
+              colspan="1"
+              role="columnheader"
+            >
+              Type
+            </th>
+            <th
+              colspan="1"
+              role="columnheader"
+            >
+              Description
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            class=""
+            role="row"
+          >
+            <td
+              role="cell"
+            >
+              ddc8b25e-42a2-468e-aa8f-4091eee6958f
+            </td>
+            <td
+              role="cell"
+            >
+              App Revision
+            </td>
+            <td
+              role="cell"
+            >
+              A developer has submitted a request to modify their application
+            </td>
+          </tr>
+          <tr
+            class=""
+            role="row"
+          >
+            <td
+              role="cell"
+            >
+              c9cbb8cd-74c3-4cc7-b632-d8e86b0b7d26
+            </td>
+            <td
+              role="cell"
+            >
+              App Revision
+            </td>
+            <td
+              role="cell"
+            >
+              A developer has submitted a request to modify their application
+            </td>
+          </tr>
+          <tr
+            class=""
+            role="row"
+          >
+            <td
+              role="cell"
+            >
+              bbd8ed62-64a5-4bb9-a269-7aa987923897
+            </td>
+            <td
+              role="cell"
+            >
+              App Revision
+            </td>
+            <td
+              role="cell"
+            >
+              A developer has submitted a request to modify their application
+            </td>
+          </tr>
+          <tr
+            class=""
+            role="row"
+          >
+            <td
+              role="cell"
+            >
+              38c30c86-984f-4e20-8133-93c42f69a283
+            </td>
+            <td
+              role="cell"
+            >
+              App Revision
+            </td>
+            <td
+              role="cell"
+            >
+              A developer has submitted a request to modify their application
+            </td>
+          </tr>
+          <tr
+            class=""
+            role="row"
+          >
+            <td
+              role="cell"
+            >
+              b50fe8e3-0195-4ce5-9150-d6b6250aa93f
+            </td>
+            <td
+              role="cell"
+            >
+              App Revision
+            </td>
+            <td
+              role="cell"
+            >
+              A developer has submitted a request to modify their application
+            </td>
+          </tr>
+          <tr
+            class=""
+            role="row"
+          >
+            <td
+              role="cell"
+            >
+              ce069a76-6be1-4640-b412-b3c2a1e80dff
+            </td>
+            <td
+              role="cell"
+            >
+              App Revision
+            </td>
+            <td
+              role="cell"
+            >
+              A developer has submitted a request to modify their application
+            </td>
+          </tr>
+          <tr
+            class=""
+            role="row"
+          >
+            <td
+              role="cell"
+            >
+              e5854bf2-8a2b-4d41-b51b-c226dbac3ffb
+            </td>
+            <td
+              role="cell"
+            >
+              App Revision
+            </td>
+            <td
+              role="cell"
+            >
+              A developer has submitted a request to modify their application
+            </td>
+          </tr>
+          <tr
+            class=""
+            role="row"
+          >
+            <td
+              role="cell"
+            >
+              2421665e-7154-4bf7-bf7b-ad80bc7ed191
+            </td>
+            <td
+              role="cell"
+            >
+              App Revision
+            </td>
+            <td
+              role="cell"
+            >
+              A developer has submitted a request to modify their application
+            </td>
+          </tr>
+          <tr
+            class=""
+            role="row"
+          >
+            <td
+              role="cell"
+            >
+              2baf738b-ab70-4de2-8a62-547a5ff68866
+            </td>
+            <td
+              role="cell"
+            >
+              App Revision
+            </td>
+            <td
+              role="cell"
+            >
+              A developer has submitted a request to modify their application
+            </td>
+          </tr>
+          <tr
+            class=""
+            role="row"
+          >
+            <td
+              role="cell"
+            >
+              d36137d1-cc86-4b9a-a164-069183065f37
+            </td>
+            <td
+              role="cell"
+            >
+              App Revision
+            </td>
+            <td
+              role="cell"
+            >
+              A developer has submitted a request to modify their application
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`admin-approvals Content should match snapshot 2`] = `
-<div
-  className="pin absolute flex items-center justify-center"
->
-  <Loader />
-</div>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <div
+        class="pin absolute flex items-center justify-center"
+      >
+        <div
+          class="loader-spinner body"
+          data-test=""
+        >
+          <div />
+          <div />
+          <div />
+          <div />
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <div
+      class="pin absolute flex items-center justify-center"
+    >
+      <div
+        class="loader-spinner body"
+        data-test=""
+      >
+        <div />
+        <div />
+        <div />
+        <div />
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`admin-approvals renderId should renderId correctly 1`] = `
-<div>
-  <Component />
-</div>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <div />
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <div />
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`admin-approvals renderId should renderId correctly 2`] = `
-<div>
-  <Component />
-</div>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <div />
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <div />
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`admin-approvals renderViewDetailButton should render correctly 1`] = `
-<div>
-  <Component />
-</div>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <div />
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <div />
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

@@ -1,339 +1,177 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AdminBilling should match a snapshot 1`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <AdminBilling>
-    <H3>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
       <h3
-        className="title is-3"
+        class="title is-3"
         id=""
       >
         Billing
       </h3>
-    </H3>
-    <Formik
-      initialValues={
-        Object {
-          "month": "10",
-          "year": "2019",
-        }
-      }
-      onSubmit={[Function]}
-    >
-      <Form
-        onChange={[Function]}
+      <form
+        action="#"
       >
-        <form
-          action="#"
-          onChange={[Function]}
-          onReset={[Function]}
-          onSubmit={[Function]}
+        <div
+          class="columns"
+          data-test=""
         >
-          <Grid>
+          <div
+            class="column"
+            data-test=""
+          >
             <div
-              className="columns"
-              data-test=""
+              class="field"
             >
-              <GridItem>
-                <div
-                  className="column"
-                  data-test=""
+              <div
+                class="control"
+              >
+                <label
+                  class="label "
+                  for="month"
                 >
-                  <SelectBox
-                    id="month"
-                    labelText="Month"
-                    name="month"
-                    options={
-                      Array [
-                        Object {
-                          "label": "January",
-                          "value": "01",
-                        },
-                        Object {
-                          "label": "February",
-                          "value": "02",
-                        },
-                        Object {
-                          "label": "March",
-                          "value": "03",
-                        },
-                        Object {
-                          "label": "April",
-                          "value": "04",
-                        },
-                        Object {
-                          "label": "May",
-                          "value": "05",
-                        },
-                        Object {
-                          "label": "June",
-                          "value": "06",
-                        },
-                        Object {
-                          "label": "July",
-                          "value": "07",
-                        },
-                        Object {
-                          "label": "August",
-                          "value": "08",
-                        },
-                        Object {
-                          "label": "September",
-                          "value": "09",
-                        },
-                        Object {
-                          "label": "October",
-                          "value": "10",
-                        },
-                        Object {
-                          "label": "November",
-                          "value": "11",
-                        },
-                        Object {
-                          "label": "December",
-                          "value": "12",
-                        },
-                      ]
-                    }
-                  >
-                    <Field
-                      name="month"
-                      validate={null}
-                    >
-                      <div
-                        className="field"
-                      >
-                        <div
-                          className="control"
-                        >
-                          <label
-                            className="label "
-                            htmlFor="month"
-                          >
-                            Month
-                          </label>
-                          <select
-                            className="input is-primary "
-                            data-test=""
-                            name="month"
-                            onBlur={[Function]}
-                            onChange={[Function]}
-                            value="10"
-                          >
-                            <option
-                              key="01"
-                              value="01"
-                            >
-                              January
-                            </option>
-                            <option
-                              key="02"
-                              value="02"
-                            >
-                              February
-                            </option>
-                            <option
-                              key="03"
-                              value="03"
-                            >
-                              March
-                            </option>
-                            <option
-                              key="04"
-                              value="04"
-                            >
-                              April
-                            </option>
-                            <option
-                              key="05"
-                              value="05"
-                            >
-                              May
-                            </option>
-                            <option
-                              key="06"
-                              value="06"
-                            >
-                              June
-                            </option>
-                            <option
-                              key="07"
-                              value="07"
-                            >
-                              July
-                            </option>
-                            <option
-                              key="08"
-                              value="08"
-                            >
-                              August
-                            </option>
-                            <option
-                              key="09"
-                              value="09"
-                            >
-                              September
-                            </option>
-                            <option
-                              key="10"
-                              value="10"
-                            >
-                              October
-                            </option>
-                            <option
-                              key="11"
-                              value="11"
-                            >
-                              November
-                            </option>
-                            <option
-                              key="12"
-                              value="12"
-                            >
-                              December
-                            </option>
-                            <option
-                              disabled={true}
-                              hidden={true}
-                              value=""
-                            >
-                              Please select
-                            </option>
-                          </select>
-                        </div>
-                      </div>
-                    </Field>
-                  </SelectBox>
-                </div>
-              </GridItem>
-              <GridItem>
-                <div
-                  className="column"
+                  Month
+                </label>
+                <select
+                  class="input is-primary "
                   data-test=""
+                  name="month"
                 >
-                  <SelectBox
-                    id="year"
-                    labelText="Year"
-                    name="year"
-                    options={Array []}
+                  <option
+                    value="01"
                   >
-                    <Field
-                      name="year"
-                      validate={null}
-                    >
-                      <div
-                        className="field"
-                      >
-                        <div
-                          className="control"
-                        >
-                          <label
-                            className="label "
-                            htmlFor="year"
-                          >
-                            Year
-                          </label>
-                          <select
-                            className="input is-primary "
-                            data-test=""
-                            name="year"
-                            onBlur={[Function]}
-                            onChange={[Function]}
-                            value="2019"
-                          >
-                            <option
-                              disabled={true}
-                              hidden={true}
-                              value=""
-                            >
-                              Please select
-                            </option>
-                          </select>
-                        </div>
-                      </div>
-                    </Field>
-                  </SelectBox>
-                </div>
-              </GridItem>
+                    January
+                  </option>
+                  <option
+                    value="02"
+                  >
+                    February
+                  </option>
+                  <option
+                    value="03"
+                  >
+                    March
+                  </option>
+                  <option
+                    value="04"
+                  >
+                    April
+                  </option>
+                  <option
+                    value="05"
+                  >
+                    May
+                  </option>
+                  <option
+                    value="06"
+                  >
+                    June
+                  </option>
+                  <option
+                    value="07"
+                  >
+                    July
+                  </option>
+                  <option
+                    value="08"
+                  >
+                    August
+                  </option>
+                  <option
+                    value="09"
+                  >
+                    September
+                  </option>
+                  <option
+                    value="10"
+                  >
+                    October
+                  </option>
+                  <option
+                    value="11"
+                  >
+                    November
+                  </option>
+                  <option
+                    value="12"
+                  >
+                    December
+                  </option>
+                  <option
+                    disabled=""
+                    hidden=""
+                    value=""
+                  >
+                    Please select
+                  </option>
+                </select>
+              </div>
             </div>
-          </Grid>
-        </form>
-      </Form>
-    </Formik>
-    <Table
-      columns={
-        Array [
-          Object {
-            "Header": "Billing Period",
-            "accessor": "period",
-          },
-          Object {
-            "Cell": [Function],
-            "Header": "Developer Billing",
-          },
-          Object {
-            "Cell": [Function],
-            "Header": "Data Warehouse Billing",
-          },
-        ]
-      }
-      data={
-        Array [
-          Object {
-            "billingDwFile": null,
-            "billingFile": null,
-            "period": "2019-10",
-          },
-        ]
-      }
-      loading={true}
-      scrollable={true}
-    >
+          </div>
+          <div
+            class="column"
+            data-test=""
+          >
+            <div
+              class="field"
+            >
+              <div
+                class="control"
+              >
+                <label
+                  class="label "
+                  for="year"
+                >
+                  Year
+                </label>
+                <select
+                  class="input is-primary "
+                  data-test=""
+                  name="year"
+                >
+                  <option
+                    disabled=""
+                    hidden=""
+                    value=""
+                  >
+                    Please select
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
       <div
-        style={
-          Object {
-            "maxHeight": undefined,
-            "overflow": "scroll",
-          }
-        }
+        style="overflow: scroll;"
       >
         <table
-          className="table is-striped is-fullwidth "
+          class="table is-striped is-fullwidth "
           role="table"
         >
           <thead>
             <tr
-              key="headerGroup_0"
               role="row"
             >
               <th
-                colSpan={1}
-                key="header_period"
+                colspan="1"
                 role="columnheader"
               >
                 Billing Period
               </th>
               <th
-                colSpan={1}
-                key="header_Developer Billing"
+                colspan="1"
                 role="columnheader"
               >
                 Developer Billing
               </th>
               <th
-                colSpan={1}
-                key="header_Data Warehouse Billing"
+                colspan="1"
                 role="columnheader"
               >
                 Data Warehouse Billing
@@ -344,46 +182,429 @@ exports[`AdminBilling should match a snapshot 1`] = `
             <tr>
               <td>
                 <div
-                  className="table-loading"
+                  class="table-loading"
                 >
-                  <Loader>
-                    <div
-                      className="loader-spinner body"
-                      data-test=""
-                    >
-                      <div />
-                      <div />
-                      <div />
-                      <div />
-                    </div>
-                  </Loader>
+                  <div
+                    class="loader-spinner body"
+                    data-test=""
+                  >
+                    <div />
+                    <div />
+                    <div />
+                    <div />
+                  </div>
                 </div>
               </td>
             </tr>
           </tbody>
         </table>
       </div>
-    </Table>
-  </AdminBilling>
-</Provider>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <h3
+      class="title is-3"
+      id=""
+    >
+      Billing
+    </h3>
+    <form
+      action="#"
+    >
+      <div
+        class="columns"
+        data-test=""
+      >
+        <div
+          class="column"
+          data-test=""
+        >
+          <div
+            class="field"
+          >
+            <div
+              class="control"
+            >
+              <label
+                class="label "
+                for="month"
+              >
+                Month
+              </label>
+              <select
+                class="input is-primary "
+                data-test=""
+                name="month"
+              >
+                <option
+                  value="01"
+                >
+                  January
+                </option>
+                <option
+                  value="02"
+                >
+                  February
+                </option>
+                <option
+                  value="03"
+                >
+                  March
+                </option>
+                <option
+                  value="04"
+                >
+                  April
+                </option>
+                <option
+                  value="05"
+                >
+                  May
+                </option>
+                <option
+                  value="06"
+                >
+                  June
+                </option>
+                <option
+                  value="07"
+                >
+                  July
+                </option>
+                <option
+                  value="08"
+                >
+                  August
+                </option>
+                <option
+                  value="09"
+                >
+                  September
+                </option>
+                <option
+                  value="10"
+                >
+                  October
+                </option>
+                <option
+                  value="11"
+                >
+                  November
+                </option>
+                <option
+                  value="12"
+                >
+                  December
+                </option>
+                <option
+                  disabled=""
+                  hidden=""
+                  value=""
+                >
+                  Please select
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div
+          class="column"
+          data-test=""
+        >
+          <div
+            class="field"
+          >
+            <div
+              class="control"
+            >
+              <label
+                class="label "
+                for="year"
+              >
+                Year
+              </label>
+              <select
+                class="input is-primary "
+                data-test=""
+                name="year"
+              >
+                <option
+                  disabled=""
+                  hidden=""
+                  value=""
+                >
+                  Please select
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div
+      style="overflow: scroll;"
+    >
+      <table
+        class="table is-striped is-fullwidth "
+        role="table"
+      >
+        <thead>
+          <tr
+            role="row"
+          >
+            <th
+              colspan="1"
+              role="columnheader"
+            >
+              Billing Period
+            </th>
+            <th
+              colspan="1"
+              role="columnheader"
+            >
+              Developer Billing
+            </th>
+            <th
+              colspan="1"
+              role="columnheader"
+            >
+              Data Warehouse Billing
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div
+                class="table-loading"
+              >
+                <div
+                  class="loader-spinner body"
+                  data-test=""
+                >
+                  <div />
+                  <div />
+                  <div />
+                  <div />
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`renderDownloadBillingCell should match a snapshot 1`] = `
-<div>
-  <a
-    onClick={[Function]}
-  >
-    Download
-  </a>
-</div>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <div>
+        <a>
+          Download
+        </a>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <div>
+      <a>
+        Download
+      </a>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`renderDownloadDwBillingCell should match a snapshot 1`] = `
-<div>
-  <a
-    onClick={[Function]}
-  >
-    Download
-  </a>
-</div>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <div>
+        <a>
+          Download
+        </a>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <div>
+      <a>
+        Download
+      </a>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

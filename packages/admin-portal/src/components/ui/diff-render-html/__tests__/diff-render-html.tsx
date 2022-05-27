@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../../tests/react-testing'
 import { DiffRenderHTML, DiffRenderHTMLProps } from '../diff-render-html'
 
 const mockProps: DiffRenderHTMLProps = {
@@ -9,7 +9,7 @@ const mockProps: DiffRenderHTMLProps = {
 
 describe('DiffRenderHTML', () => {
   it('should match snapshot', () => {
-    const wrapper = shallow(<DiffRenderHTML {...mockProps} />)
+    const wrapper = render(<DiffRenderHTML {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
   })
 })

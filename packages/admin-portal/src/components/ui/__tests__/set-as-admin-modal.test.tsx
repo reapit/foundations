@@ -1,5 +1,5 @@
 import SetAsAdminModal, { handleSetAsAdmin, handleAfterSetAdmin } from '../set-as-admin-modal'
-import { mount } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import * as React from 'react'
 import configureStore from 'redux-mock-store'
 import appState from '@/reducers/__stubs__/app-state'
@@ -15,7 +15,7 @@ describe('SetAsAdminModal', () => {
     const store = mockStore(appState)
 
     expect(
-      mount(
+      render(
         <ReactRedux.Provider store={store}>
           <SetAsAdminModal visible user={user} />
         </ReactRedux.Provider>,

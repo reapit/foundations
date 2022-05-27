@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../../tests/react-testing'
 
 import {
   AppRevisionComparison,
@@ -34,7 +34,7 @@ const props = (loading: boolean, error: boolean): AppRevisionComparisonProps => 
 
 describe('AdminRevisionModalInner', () => {
   it('should match a snapshot', () => {
-    expect(shallow(<AppRevisionComparison {...props(true, false)} />)).toMatchSnapshot()
+    expect(render(<AppRevisionComparison {...props(true, false)} />)).toMatchSnapshot()
   })
 })
 
@@ -87,18 +87,6 @@ describe('renderCheckboxesDiff', () => {
       revisionScopes: scopes,
     })
     expect(checkboxes).toHaveLength(3)
-  })
-})
-
-describe('renderAdditionalCheckboxes', () => {
-  it('should render Is Listed checkbox', () => {
-    const wrapper = shallow(<AppRevisionComparison {...props(false, false)}></AppRevisionComparison>)
-    expect(wrapper.find('h4[data-test="chkIsListed"]')).toHaveLength(1)
-  })
-
-  it('should render Is Direct API checkbox', () => {
-    const wrapper = shallow(<AppRevisionComparison {...props(false, false)}></AppRevisionComparison>)
-    expect(wrapper.find('h4[data-test="chkIsDirectApi"]')).toHaveLength(1)
   })
 })
 

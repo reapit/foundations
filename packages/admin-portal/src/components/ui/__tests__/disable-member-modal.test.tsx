@@ -1,6 +1,6 @@
 import React from 'react'
 import * as ReactRedux from 'react-redux'
-import { mount } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import configureStore from 'redux-mock-store'
 import appState from '@/reducers/__stubs__/app-state'
 import SetMemberStatusModal, {
@@ -27,7 +27,7 @@ describe('SetMemberStatusModal', () => {
   })
 
   it('should match snapshot', () => {
-    const wrapper = mount(
+    const wrapper = render(
       <ReactRedux.Provider store={store}>
         <SetMemberStatusModal {...props} />
       </ReactRedux.Provider>,

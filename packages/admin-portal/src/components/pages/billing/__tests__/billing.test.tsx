@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { mount, shallow } from 'enzyme'
+import { render } from '../../../../tests/react-testing'
 import AdminBilling, {
   handleDownloadBillingPeriod,
   renderDownloadBillingCell,
@@ -9,13 +9,14 @@ import AdminBilling, {
   handleSaveFile,
   renderDownloadDwBillingCell,
 } from '../billing'
-import { Provider } from 'react-redux'
-import configureStore from 'redux-mock-store'
-import appState from '@/reducers/__stubs__/app-state'
 import * as developerServices from '@/services/developers'
 import * as customerServices from '@/services/customers'
 import { MONTHS } from '@/constants/datetime'
 import FileSaver from 'file-saver'
+
+jest.mock('uuid', () => ({
+  v4: jest.fn(),
+}))
 
 const mockBillingServices = jest.spyOn(developerServices, 'fetchDeveloperBillingPeriod').mockImplementation(
   () =>
@@ -33,14 +34,7 @@ const mockBillingDwServices = jest.spyOn(customerServices, 'fetchCustomerWarehou
 
 describe('AdminBilling', () => {
   it('should match a snapshot', () => {
-    const mockStore = configureStore()
-    const store = mockStore(appState)
-
-    const wrapper = mount(
-      <Provider store={store}>
-        <AdminBilling />
-      </Provider>,
-    )
+    const wrapper = render(<AdminBilling />)
     expect(wrapper).toMatchSnapshot()
   })
 })
@@ -120,7 +114,7 @@ describe('renderDownloadBillingCell', () => {
         },
       },
     }
-    expect(shallow(<div>{renderDownloadBillingCell(input)}</div>)).toMatchSnapshot()
+    expect(render(<div>{renderDownloadBillingCell(input)}</div>)).toMatchSnapshot()
   })
 })
 
@@ -134,7 +128,7 @@ describe('renderDownloadDwBillingCell', () => {
         },
       },
     }
-    expect(shallow(<div>{renderDownloadDwBillingCell(input)}</div>)).toMatchSnapshot()
+    expect(render(<div>{renderDownloadDwBillingCell(input)}</div>)).toMatchSnapshot()
   })
 })
 

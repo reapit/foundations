@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 
 import { DevsManagementFilterForm, DevsManagementFilterFormProps } from '../devs-management-filter-form'
 
@@ -16,6 +16,6 @@ const initProps = (): DevsManagementFilterFormProps => ({
 
 describe('DevsManagementFilterForm', () => {
   it('should match a snapshot', () => {
-    expect(shallow(<DevsManagementFilterForm {...initProps()} />)).toMatchSnapshot()
+    expect(render(<DevsManagementFilterForm {...initProps()} />)).toMatchSnapshot()
   })
 })

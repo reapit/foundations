@@ -1,569 +1,159 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CancelConfirmModal should render CancelConfirmModal 1`] = `
-<CancelConfirmModal
-  isCanceling={false}
-  isShowConfirmModal={true}
-  onConfirm={[MockFunction]}
-  setCancelSubId={
-    [MockFunction] {
-      "calls": Array [
-        Array [
-          "",
-        ],
-      ],
-      "results": Array [
-        Object {
-          "type": "return",
-          "value": undefined,
-        },
-      ],
-    }
-  }
->
-  <ModalV2
-    destroyOnClose={true}
-    onClose={[Function]}
-    visible={true}
+Object {
+  "asFragment": [Function],
+  "baseElement": <body
+    class="ant-scrolling-effect"
+    style="overflow: hidden; overflow-x: hidden; overflow-y: hidden;"
   >
-    <Dialog
-      className="modal-container"
-      closeIcon={
-        <span
-          aria-label="close"
-          className="delete"
-        />
-      }
-      destroyOnClose={true}
-      onClose={[Function]}
-      title={<ModalHeaderV2 />}
-      visible={true}
-      wrapClassName=""
-    >
-      <PortalWrapper
-        visible={true}
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+    </div>
+    <div>
+      <div
+        class="rc-dialog-root"
       >
-        <ForwardRef
-          getContainer={[Function]}
+        <div
+          class="rc-dialog-mask"
+        />
+        <div
+          aria-labelledby="test-id"
+          class="rc-dialog-wrap"
+          tabindex="-1"
         >
-          <Portal
-            containerInfo={
-              <div>
-                <div
-                  class="rc-dialog-root"
-                >
-                  <div
-                    class="rc-dialog-mask"
-                  />
-                  <div
-                    aria-labelledby="rcDialogTitle0"
-                    class="rc-dialog-wrap"
-                    role="dialog"
-                    tabindex="-1"
-                  >
-                    <div
-                      class="rc-dialog modal-container"
-                      role="document"
-                    >
-                      <div
-                        aria-hidden="true"
-                        style="width: 0px; height: 0px; overflow: hidden; outline: none;"
-                        tabindex="0"
-                      />
-                      <div
-                        class="rc-dialog-content"
-                      >
-                        <button
-                          aria-label="Close"
-                          class="rc-dialog-close"
-                          type="button"
-                        >
-                          <span
-                            aria-label="close"
-                            class="delete"
-                          />
-                        </button>
-                        <div
-                          class="rc-dialog-header"
-                        >
-                          <div
-                            class="rc-dialog-title"
-                            id="rcDialogTitle0"
-                          >
-                            <h4
-                              class="modal-card-title is-4 pt-2 pb-2"
-                            />
-                          </div>
-                        </div>
-                        <div
-                          class="rc-dialog-body"
-                        >
-                          <h5
-                            class="title is-5"
-                            id=""
-                          >
-                            Are you sure you want to cancel this appointment?
-                          </h5>
-                          <section
-                            class="section is-flex has-background"
-                            data-test=""
-                          >
-                            <button
-                              class="button   is-info "
-                              data-test=""
-                              type="button"
-                            >
-                              Yes
-                            </button>
-                            <button
-                              class="button   is-info "
-                              data-test=""
-                              type="button"
-                            >
-                              No
-                            </button>
-                          </section>
-                        </div>
-                      </div>
-                      <div
-                        aria-hidden="true"
-                        style="width: 0px; height: 0px; overflow: hidden; outline: none;"
-                        tabindex="0"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            }
+          <div
+            aria-modal="true"
+            class="rc-dialog modal-container"
+            role="dialog"
           >
-            <Dialog
-              afterClose={[Function]}
-              className="modal-container"
-              closeIcon={
+            <div
+              aria-hidden="true"
+              style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+              tabindex="0"
+            />
+            <div
+              class="rc-dialog-content"
+            >
+              <button
+                aria-label="Close"
+                class="rc-dialog-close"
+                type="button"
+              >
                 <span
                   aria-label="close"
-                  className="delete"
+                  class="delete"
                 />
-              }
-              destroyOnClose={true}
-              getContainer={[Function]}
-              getOpenCount={[Function]}
-              onClose={[Function]}
-              scrollLocker={
-                ScrollLocker {
-                  "getContainer": [Function],
-                  "lock": [Function],
-                  "lockTarget": 0,
-                  "options": Object {
-                    "container": <body
-                      class="ant-scrolling-effect"
-                      style="width: calc(100% - 0px); overflow: hidden; overflow-x: hidden; overflow-y: hidden;"
-                    >
-                      <div>
-                        <div
-                          class="rc-dialog-root"
-                        >
-                          <div
-                            class="rc-dialog-mask"
-                          />
-                          <div
-                            aria-labelledby="rcDialogTitle0"
-                            class="rc-dialog-wrap"
-                            role="dialog"
-                            tabindex="-1"
-                          >
-                            <div
-                              class="rc-dialog modal-container"
-                              role="document"
-                            >
-                              <div
-                                aria-hidden="true"
-                                style="width: 0px; height: 0px; overflow: hidden; outline: none;"
-                                tabindex="0"
-                              />
-                              <div
-                                class="rc-dialog-content"
-                              >
-                                <button
-                                  aria-label="Close"
-                                  class="rc-dialog-close"
-                                  type="button"
-                                >
-                                  <span
-                                    aria-label="close"
-                                    class="delete"
-                                  />
-                                </button>
-                                <div
-                                  class="rc-dialog-header"
-                                >
-                                  <div
-                                    class="rc-dialog-title"
-                                    id="rcDialogTitle0"
-                                  >
-                                    <h4
-                                      class="modal-card-title is-4 pt-2 pb-2"
-                                    />
-                                  </div>
-                                </div>
-                                <div
-                                  class="rc-dialog-body"
-                                >
-                                  <h5
-                                    class="title is-5"
-                                    id=""
-                                  >
-                                    Are you sure you want to cancel this appointment?
-                                  </h5>
-                                  <section
-                                    class="section is-flex has-background"
-                                    data-test=""
-                                  >
-                                    <button
-                                      class="button   is-info "
-                                      data-test=""
-                                      type="button"
-                                    >
-                                      Yes
-                                    </button>
-                                    <button
-                                      class="button   is-info "
-                                      data-test=""
-                                      type="button"
-                                    >
-                                      No
-                                    </button>
-                                  </section>
-                                </div>
-                              </div>
-                              <div
-                                aria-hidden="true"
-                                style="width: 0px; height: 0px; overflow: hidden; outline: none;"
-                                tabindex="0"
-                              />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </body>,
-                  },
-                  "reLock": [Function],
-                  "unLock": [Function],
-                }
-              }
-              switchScrollingEffect={[Function]}
-              title={<ModalHeaderV2 />}
-              visible={true}
-              wrapClassName=""
-            >
+              </button>
               <div
-                className="rc-dialog-root"
+                class="rc-dialog-header"
               >
-                <Mask
-                  prefixCls="rc-dialog"
-                  style={
-                    Object {
-                      "zIndex": undefined,
-                    }
-                  }
-                  visible={true}
-                >
-                  <CSSMotion
-                    key="mask"
-                    leavedClassName="rc-dialog-mask-hidden"
-                    visible={true}
-                  >
-                    <DomWrapper>
-                      <div
-                        className="rc-dialog-mask"
-                        style={
-                          Object {
-                            "zIndex": undefined,
-                          }
-                        }
-                      />
-                    </DomWrapper>
-                  </CSSMotion>
-                </Mask>
                 <div
-                  aria-labelledby="rcDialogTitle0"
-                  className="rc-dialog-wrap"
-                  onClick={[Function]}
-                  onKeyDown={[Function]}
-                  role="dialog"
-                  style={
-                    Object {
-                      "display": null,
-                      "zIndex": undefined,
-                    }
-                  }
-                  tabIndex={-1}
+                  class="rc-dialog-title"
+                  id="test-id"
                 >
-                  <Content
-                    afterClose={[Function]}
-                    ariaId="rcDialogTitle0"
-                    className="modal-container"
-                    closable={true}
-                    closeIcon={
-                      <span
-                        aria-label="close"
-                        className="delete"
-                      />
-                    }
-                    destroyOnClose={true}
-                    getContainer={[Function]}
-                    getOpenCount={[Function]}
-                    onClose={[Function]}
-                    onMouseDown={[Function]}
-                    onMouseUp={[Function]}
-                    onVisibleChanged={[Function]}
-                    prefixCls="rc-dialog"
-                    scrollLocker={
-                      ScrollLocker {
-                        "getContainer": [Function],
-                        "lock": [Function],
-                        "lockTarget": 0,
-                        "options": Object {
-                          "container": <body
-                            class="ant-scrolling-effect"
-                            style="width: calc(100% - 0px); overflow: hidden; overflow-x: hidden; overflow-y: hidden;"
-                          >
-                            <div>
-                              <div
-                                class="rc-dialog-root"
-                              >
-                                <div
-                                  class="rc-dialog-mask"
-                                />
-                                <div
-                                  aria-labelledby="rcDialogTitle0"
-                                  class="rc-dialog-wrap"
-                                  role="dialog"
-                                  tabindex="-1"
-                                >
-                                  <div
-                                    class="rc-dialog modal-container"
-                                    role="document"
-                                  >
-                                    <div
-                                      aria-hidden="true"
-                                      style="width: 0px; height: 0px; overflow: hidden; outline: none;"
-                                      tabindex="0"
-                                    />
-                                    <div
-                                      class="rc-dialog-content"
-                                    >
-                                      <button
-                                        aria-label="Close"
-                                        class="rc-dialog-close"
-                                        type="button"
-                                      >
-                                        <span
-                                          aria-label="close"
-                                          class="delete"
-                                        />
-                                      </button>
-                                      <div
-                                        class="rc-dialog-header"
-                                      >
-                                        <div
-                                          class="rc-dialog-title"
-                                          id="rcDialogTitle0"
-                                        >
-                                          <h4
-                                            class="modal-card-title is-4 pt-2 pb-2"
-                                          />
-                                        </div>
-                                      </div>
-                                      <div
-                                        class="rc-dialog-body"
-                                      >
-                                        <h5
-                                          class="title is-5"
-                                          id=""
-                                        >
-                                          Are you sure you want to cancel this appointment?
-                                        </h5>
-                                        <section
-                                          class="section is-flex has-background"
-                                          data-test=""
-                                        >
-                                          <button
-                                            class="button   is-info "
-                                            data-test=""
-                                            type="button"
-                                          >
-                                            Yes
-                                          </button>
-                                          <button
-                                            class="button   is-info "
-                                            data-test=""
-                                            type="button"
-                                          >
-                                            No
-                                          </button>
-                                        </section>
-                                      </div>
-                                    </div>
-                                    <div
-                                      aria-hidden="true"
-                                      style="width: 0px; height: 0px; overflow: hidden; outline: none;"
-                                      tabindex="0"
-                                    />
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </body>,
-                        },
-                        "reLock": [Function],
-                        "unLock": [Function],
-                      }
-                    }
-                    switchScrollingEffect={[Function]}
-                    title={<ModalHeaderV2 />}
-                    visible={true}
-                    wrapClassName=""
-                  >
-                    <CSSMotion
-                      onAppearPrepare={[Function]}
-                      onEnterPrepare={[Function]}
-                      onVisibleChanged={[Function]}
-                      removeOnLeave={true}
-                      visible={true}
-                    >
-                      <DomWrapper>
-                        <div
-                          className="rc-dialog modal-container"
-                          key="dialog-element"
-                          onMouseDown={[Function]}
-                          onMouseUp={[Function]}
-                          role="document"
-                          style={Object {}}
-                        >
-                          <div
-                            aria-hidden="true"
-                            style={
-                              Object {
-                                "height": 0,
-                                "outline": "none",
-                                "overflow": "hidden",
-                                "width": 0,
-                              }
-                            }
-                            tabIndex={0}
-                          />
-                          <Component
-                            shouldUpdate={true}
-                          >
-                            <div
-                              className="rc-dialog-content"
-                            >
-                              <button
-                                aria-label="Close"
-                                className="rc-dialog-close"
-                                onClick={[Function]}
-                                type="button"
-                              >
-                                <span
-                                  aria-label="close"
-                                  className="delete"
-                                />
-                              </button>
-                              <div
-                                className="rc-dialog-header"
-                              >
-                                <div
-                                  className="rc-dialog-title"
-                                  id="rcDialogTitle0"
-                                >
-                                  <ModalHeaderV2>
-                                    <h4
-                                      className="modal-card-title is-4 pt-2 pb-2"
-                                    />
-                                  </ModalHeaderV2>
-                                </div>
-                              </div>
-                              <div
-                                className="rc-dialog-body"
-                              >
-                                <H5>
-                                  <h5
-                                    className="title is-5"
-                                    id=""
-                                  >
-                                    Are you sure you want to cancel this appointment?
-                                  </h5>
-                                </H5>
-                                <Section
-                                  hasMargin={false}
-                                  hasPadding={false}
-                                  isFlex={true}
-                                >
-                                  <section
-                                    className="section is-flex has-background"
-                                    data-test=""
-                                  >
-                                    <Button
-                                      loading={false}
-                                      onClick={[MockFunction]}
-                                      type="button"
-                                      variant="info"
-                                    >
-                                      <button
-                                        className="button   is-info "
-                                        data-test=""
-                                        disabled={false}
-                                        onClick={[MockFunction]}
-                                        type="button"
-                                      >
-                                        Yes
-                                      </button>
-                                    </Button>
-                                    <Button
-                                      disabled={false}
-                                      onClick={[Function]}
-                                      type="button"
-                                      variant="info"
-                                    >
-                                      <button
-                                        className="button   is-info "
-                                        data-test=""
-                                        disabled={false}
-                                        onClick={[Function]}
-                                        type="button"
-                                      >
-                                        No
-                                      </button>
-                                    </Button>
-                                  </section>
-                                </Section>
-                              </div>
-                            </div>
-                          </Component>
-                          <div
-                            aria-hidden="true"
-                            style={
-                              Object {
-                                "height": 0,
-                                "outline": "none",
-                                "overflow": "hidden",
-                                "width": 0,
-                              }
-                            }
-                            tabIndex={0}
-                          />
-                        </div>
-                      </DomWrapper>
-                    </CSSMotion>
-                  </Content>
+                  <h4
+                    class="modal-card-title is-4 pt-2 pb-2"
+                  />
                 </div>
               </div>
-            </Dialog>
-          </Portal>
-        </ForwardRef>
-      </PortalWrapper>
-    </Dialog>
-  </ModalV2>
-</CancelConfirmModal>
+              <div
+                class="rc-dialog-body"
+              >
+                <h5
+                  class="title is-5"
+                  id=""
+                >
+                  Are you sure you want to cancel this appointment?
+                </h5>
+                <section
+                  class="section is-flex has-background"
+                  data-test=""
+                >
+                  <button
+                    class="button   is-info "
+                    data-test=""
+                    type="button"
+                  >
+                    Yes
+                  </button>
+                  <button
+                    class="button   is-info "
+                    data-test=""
+                    type="button"
+                  >
+                    No
+                  </button>
+                </section>
+              </div>
+            </div>
+            <div
+              aria-hidden="true"
+              style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+              tabindex="0"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

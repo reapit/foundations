@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { mount } from 'enzyme'
+import { render } from '../../../../tests/react-testing'
 
 import CancelConfirmModal, { CancelConfirmModalProps } from '../../subscriptions/subscription-cancel-confirm'
 
@@ -12,6 +12,6 @@ const initProps = (): CancelConfirmModalProps => ({
 
 describe('CancelConfirmModal', () => {
   it('should render CancelConfirmModal', () => {
-    expect(mount(<CancelConfirmModal {...initProps()} />)).toMatchSnapshot()
+    expect(render(<CancelConfirmModal {...initProps()} />)).toMatchSnapshot()
   })
 })
