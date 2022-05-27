@@ -52,10 +52,12 @@ export const ROLE_CREDENTIALS = 'ROLE_CREDENTIALS'
     },
     {
       provide: Route53Client,
-      useFactory: () =>
+      useFactory: (credentials) =>
         new Route53Client({
           region: 'us-east-1',
+          credentials,
         }),
+      inject: [ROLE_CREDENTIALS],
     },
     {
       provide: SQS,
