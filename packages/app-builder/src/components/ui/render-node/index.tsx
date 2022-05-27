@@ -51,11 +51,15 @@ export const RenderNode = ({ render, iframeRef }) => {
     actions: { setProp },
     isRoot,
   } = useNode((node) => {
-    const isRoot = query.node(node.id).isRoot()
-    let deletable =
-      query.node(node.id).isDeletable() && node.id !== 'header' && node.id !== 'body' && node.id !== 'footer' && !isRoot
+    const nodeIsRoot = query.node(node.id).isRoot()
+    let isDeletable =
+      query.node(node.id).isDeletable() &&
+      node.id !== 'header' &&
+      node.id !== 'body' &&
+      node.id !== 'footer' &&
+      !nodeIsRoot
     if (deletable && node.data.custom.isDeletable) {
-      deletable = node.data.custom.isDeletable(node)
+      isDeletable = node.data.custom.isDeletable(node)
     }
 
     return {
@@ -67,11 +71,11 @@ export const RenderNode = ({ render, iframeRef }) => {
         node.id !== 'header' &&
         node.id !== 'body' &&
         node.id !== 'footer' &&
-        !isRoot,
-      deletable,
+        !nodeIsRoot,
+      deletable: isDeletable,
       parent: node.data.parent,
       props: node.data.props,
-      isRoot,
+      isRoot: nodeIsRoot,
     }
   })
 

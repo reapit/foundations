@@ -45,12 +45,10 @@ const nodeToString = (node: Node, allNodes: Array<Node>) => {
     : `<${type.resolvedName} ${attributes} />`
 }
 
-const nodeDoesntContainerSelf = (node: Node): Node => {
-  return {
-    ...node,
-    nodes: node.nodes.filter((n) => n !== node.nodeId),
-  }
-}
+const nodeDoesntContainerSelf = (node: Node): Node => ({
+  ...node,
+  nodes: node.nodes.filter((n) => n !== node.nodeId),
+})
 
 export const mergeHeaderFooterIntoPage = (nodes: Node[], header: Node[] = [], footer: Node[] = []): Node[] => {
   const rootNode = nodes.find((n) => n.nodeId === 'ROOT')
@@ -65,7 +63,7 @@ export const mergeHeaderFooterIntoPage = (nodes: Node[], header: Node[] = [], fo
     nodeId: 'body',
   }
 
-  const pageNodes = [
+  return [
     ...header,
     nodeDoesntContainerSelf(bodyNode),
     ...nodes
@@ -80,8 +78,6 @@ export const mergeHeaderFooterIntoPage = (nodes: Node[], header: Node[] = [], fo
       nodes: [header.length ? 'header' : undefined, 'body', footer.length ? 'footer' : undefined].filter(notEmpty),
     },
   ]
-
-  return pageNodes
 }
 
 const pageToString = (page: Page, header: Node[], footer: Node[]) => {
