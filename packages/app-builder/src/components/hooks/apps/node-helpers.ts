@@ -70,7 +70,6 @@ export const mergeHeaderFooterIntoPage = (nodes: Node[], header: Node[] = [], fo
       nodes: [header.length ? 'header' : undefined, 'body', footer.length ? 'footer' : undefined].filter(notEmpty),
     },
   ]
-  console.log(JSON.stringify(pageNodes, null, 2))
 
   return pageNodes
 }
