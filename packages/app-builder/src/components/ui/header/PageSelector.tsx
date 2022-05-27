@@ -38,7 +38,10 @@ export const PageSelector = ({ pageId, onChange }: { pageId?: string; onChange: 
             ...currentPage,
             name: e.currentTarget.value,
           }
-          updatePage(appId, newPage, { header: [], footer: [] })
+          if (!app) {
+            return
+          }
+          updatePage(appId, newPage, { header: app.header, footer: app.footer })
         }}
       >
         <AppBuilderSelect
@@ -59,6 +62,9 @@ export const PageSelector = ({ pageId, onChange }: { pageId?: string; onChange: 
       <AppBuilderIconButton
         className={elM2}
         onClick={() => {
+          if (!app) {
+            return
+          }
           const pageName = prompt('Page name?')
           if (!pageName) {
             return
@@ -70,7 +76,7 @@ export const PageSelector = ({ pageId, onChange }: { pageId?: string; onChange: 
               ...page,
               nodes: nodesObjtoToArr(appId, page.id, page.nodes),
             },
-            { header: [], footer: [] },
+            { header: app.header, footer: app.footer },
           )
           onChange(page.id)
         }}
