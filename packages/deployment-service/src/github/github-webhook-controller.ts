@@ -51,6 +51,7 @@ export class GithubWebhookController {
     if (this.isCommitEvent(body)) {
       const repositoryId = body.repository.id
 
+      // TODO needs to be changed to multiple of pipelines
       const pipeline = await this.pipelineProvider.findByRepositoryId(repositoryId)
 
       if (!pipeline) {
