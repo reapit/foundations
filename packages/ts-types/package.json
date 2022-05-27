@@ -25,7 +25,7 @@
     "commit": "yarn lint"
   },
   "dependencies": {
-    "@types/adm-zip": "^0.4.34",
+    "@types/adm-zip": "^0.5.0",
     "@types/aws-lambda": "^8.10.88",
     "@types/body-parser": "^1.19.2",
     "@types/cors": "^2.8.12",
