@@ -28,7 +28,7 @@ export class RepoCommand extends AbstractCommand {
       await this.axios(spinner)
     ).post<PipelineRunnerModelInterface>(`/pipeline/${pipeline.id}/pipeline-runner`)
 
-    if (response.status === 200) {
+    if (response.status === 201) {
       spinner.succeed('Deployment started')
     } else if (response.status === 409) {
       spinner.fail('Cannot deploy, deploying already in progress')
