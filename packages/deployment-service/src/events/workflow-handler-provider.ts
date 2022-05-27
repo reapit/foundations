@@ -41,7 +41,6 @@ export class WorkflowHandlerProvider implements OnModuleInit {
   }
 
   async handleMultiple(records: SQSRecord[]): Promise<void[]> {
-    console.log('records', records)
     return Promise.all(records.map((record) => this.handle(record)))
   }
 
@@ -49,8 +48,6 @@ export class WorkflowHandlerProvider implements OnModuleInit {
     const queueArn = record.eventSourceARN
 
     const workflows = this.findQueueWorkflows(queueArn)
-
-    console.log('workflows', workflows)
 
     if (workflows.length === 0) {
       // TODO delete from queue?
