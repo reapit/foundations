@@ -53,7 +53,7 @@ export class PipelineEditCommand extends AbstractCommand {
   ): Promise<PipelineModelInterface> {
     const response = await (
       await this.axios(spinner)
-    ).post<PipelineModelInterface>(`/pipeline/${id}`, {
+    ).put<PipelineModelInterface>(`/pipeline/${id}`, {
       id,
       name,
       appType: appType.toLowerCase(),
@@ -66,18 +66,18 @@ export class PipelineEditCommand extends AbstractCommand {
     })
 
     if (response.status === 200) {
-      spinner.succeed(`Pipeline ${response.data.name} created`)
+      spinner.succeed(`Pipeline ${response.data.name} updated`)
 
       if (create) {
         spinner.start('Creating local pipeline config')
         fs.writeFileSync(resolve(process.cwd(), REAPIT_PIPELINE_CONFIG_FILE), this.serialisePipelineJson(response.data))
-        spinner.succeed('Created local pipeline config')
+        spinner.succeed('Updated local pipeline config')
       }
       // console.log('Now make a commit to your project or use `reapit pipeline deploy` to start a deployment manually')
 
       return response.data
     } else {
-      spinner.fail('Failed to create pipeline')
+      spinner.fail('Failed to update pipeline')
       console.log(chalk.red('Check your internet connection'))
       console.log(chalk.red('Report this error if it persists'))
       console.log(`Response: ${response.statusText}`)
@@ -195,6 +195,7 @@ export class PipelineEditCommand extends AbstractCommand {
 
     const updatedPipeline = await this.updatePipeline(
       {
+        ...pipeline,
         ...answers,
       },
       spinner,
