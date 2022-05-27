@@ -57,7 +57,7 @@ export class GithubWebhookController {
         throw new NotFoundException()
       }
 
-      if (body.ref.includes(pipeline.branch as string)) {
+      if (!body.ref.includes(pipeline.branch as string)) {
         return
       }
 
@@ -74,6 +74,7 @@ export class GithubWebhookController {
       })
 
       await this.eventDispatcher.triggerCodebuildExecutor(pipelineRunner)
+      return
     } else if (this.isRepoInstallEvent(body)) {
       const repositories = body.repositories_added || body.repositories
       await Promise.all(
