@@ -43,7 +43,7 @@
     "react-responsive": "8.2.0",
     "react-router": "^5.2.1",
     "react-router-dom": "^5.3.0",
-    "react-slick": "^0.28.1",
+    "react-slick": "^0.29.0",
     "react-transition-group": "^4.4.2",
     "redux": "^4.1.2",
     "redux-saga": "^1.1.3",
