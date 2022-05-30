@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render } from '../../../../tests/react-testing'
 import AnalyticsUsageModal, { NewUsageComponent } from '../analytics-usage-modal'
 import { MessageProvider } from '../../../../context/message-context'
 

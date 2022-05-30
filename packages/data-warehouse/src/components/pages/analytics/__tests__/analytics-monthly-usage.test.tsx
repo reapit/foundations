@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render } from '../../../../tests/react-testing'
 import AnalyticsMonthlyUsage from '../analytics-monthly-usage'
 import { MessageProvider } from '../../../../context/message-context'
 

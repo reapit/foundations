@@ -1,5 +1,5 @@
 import React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render } from '../../../../tests/react-testing'
 import SharesTable from '../shares-table'
 import { stubShares } from '../../../../services/__stubs__/shares'
 

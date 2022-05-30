@@ -1,232 +1,70 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AccountProvisionForm should match a snapshot 1`] = `
-<Form
-  className="form"
->
-  <FormSection>
-    <FormHeading>
-      Account details
-    </FormHeading>
-    <FormSubHeading>
-      The information below will be used to access your data warehouse account
-    </FormSubHeading>
-    <Input
-      id="username"
-      labelText="Username"
-      name="username"
-      placeholder="Your username here"
-      type="text"
-    />
-    <Input
-      id="password"
-      labelText="Password"
-      name="password"
-      placeholder="*********"
-      type="password"
-    />
-    <Input
-      id="passwordConfirm"
-      labelText="Confirm Password"
-      name="passwordConfirm"
-      placeholder="*********"
-      type="password"
-    />
-    <LevelRight>
-      <Button
-        onClick={[MockFunction]}
-        type="button"
-        variant="secondary"
-      >
-        Cancel
-      </Button>
-      <Button
-        type="submit"
-        variant="primary"
-      >
-        Provision
-      </Button>
-    </LevelRight>
-  </FormSection>
-</Form>
-`;
-
 exports[`AccountProvisionModal should match a snapshot 1`] = `
-<Modal
-  afterClose={[MockFunction]}
-  title="Provision Data Warehouse Account"
-  visible={true}
->
-  <Formik
-    initialValues={
-      Object {
-        "devMode": false,
-        "isAdmin": false,
-        "organisationId": undefined,
-        "organisationName": undefined,
-        "password": "",
-        "passwordConfirm": "",
-        "username": "",
-      }
-    }
-    onSubmit={[Function]}
-    validationSchema={
-      ObjectSchema {
-        "_blacklist": ReferenceSet {
-          "list": Set {},
-          "refs": Map {},
-        },
-        "_excludedEdges": Array [],
-        "_mutate": undefined,
-        "_nodes": Array [
-          "passwordConfirm",
-          "password",
-          "username",
-        ],
-        "_sortErrors": [Function],
-        "_typeError": [Function],
-        "_whitelist": ReferenceSet {
-          "list": Set {},
-          "refs": Map {},
-        },
-        "conditions": Array [],
-        "deps": Array [],
-        "exclusiveTests": Object {},
-        "fields": Object {
-          "password": StringSchema {
-            "_blacklist": ReferenceSet {
-              "list": Set {},
-              "refs": Map {},
-            },
-            "_blacklistError": undefined,
-            "_typeError": [Function],
-            "_whitelist": ReferenceSet {
-              "list": Set {},
-              "refs": Map {},
-            },
-            "_whitelistError": undefined,
-            "conditions": Array [],
-            "deps": Array [],
-            "exclusiveTests": Object {
-              "matches": false,
-              "required": true,
-            },
-            "spec": Object {
-              "abortEarly": true,
-              "nullable": false,
-              "presence": "required",
-              "recursive": true,
-              "strict": false,
-              "strip": false,
-            },
-            "tests": Array [
-              [Function],
-              [Function],
-            ],
-            "transforms": Array [
-              [Function],
-            ],
-            "type": "string",
-          },
-          "passwordConfirm": StringSchema {
-            "_blacklist": ReferenceSet {
-              "list": Set {},
-              "refs": Map {},
-            },
-            "_blacklistError": undefined,
-            "_mutate": undefined,
-            "_typeError": [Function],
-            "_whitelist": ReferenceSet {
-              "list": Set {},
-              "refs": Map {
-                "password" => Reference {
-                  "getter": [Function],
-                  "isContext": false,
-                  "isSibling": true,
-                  "isValue": false,
-                  "key": "password",
-                  "map": undefined,
-                  "path": "password",
-                },
-              },
-            },
-            "_whitelistError": [Function],
-            "conditions": Array [],
-            "deps": Array [],
-            "exclusiveTests": Object {
-              "required": true,
-            },
-            "spec": Object {
-              "abortEarly": true,
-              "nullable": false,
-              "presence": "required",
-              "recursive": true,
-              "strict": false,
-              "strip": false,
-            },
-            "tests": Array [
-              [Function],
-            ],
-            "transforms": Array [
-              [Function],
-            ],
-            "type": "string",
-          },
-          "username": StringSchema {
-            "_blacklist": ReferenceSet {
-              "list": Set {},
-              "refs": Map {},
-            },
-            "_blacklistError": undefined,
-            "_typeError": [Function],
-            "_whitelist": ReferenceSet {
-              "list": Set {},
-              "refs": Map {},
-            },
-            "_whitelistError": undefined,
-            "conditions": Array [],
-            "deps": Array [],
-            "exclusiveTests": Object {
-              "matches": false,
-              "required": true,
-            },
-            "spec": Object {
-              "abortEarly": true,
-              "nullable": false,
-              "presence": "required",
-              "recursive": true,
-              "strict": false,
-              "strip": false,
-            },
-            "tests": Array [
-              [Function],
-              [Function],
-            ],
-            "transforms": Array [
-              [Function],
-            ],
-            "type": "string",
-          },
-        },
-        "spec": Object {
-          "abortEarly": true,
-          "nullable": false,
-          "presence": "optional",
-          "recursive": true,
-          "strict": false,
-          "strip": false,
-        },
-        "tests": Array [],
-        "transforms": Array [
-          [Function],
-        ],
-        "type": "object",
-      }
-    }
-  >
-    <AccountProvisionForm
-      handleClose={[MockFunction]}
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ecbqyq6"
+      />
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6"
     />
-  </Formik>
-</Modal>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

@@ -1,6 +1,6 @@
 import React from 'react'
-import { render } from '../../../tests/react-testing'
-import AccountProvisionModal, { AccountProvisionForm } from '../account-provision-modal'
+import { render } from '../../../../tests/react-testing'
+import AccountProvisionModal from '../account-provision-modal'
 
 describe('AccountProvisionModal', () => {
   it('should match a snapshot', () => {
@@ -15,11 +15,5 @@ describe('AccountProvisionModal', () => {
         />,
       ),
     ).toMatchSnapshot()
-  })
-})
-
-describe('AccountProvisionForm', () => {
-  it('should match a snapshot', () => {
-    expect(render(<AccountProvisionForm handleClose={jest.fn()} />)).toMatchSnapshot()
   })
 })

@@ -1,5 +1,5 @@
 import React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render } from '../../../../tests/react-testing'
 import AccountsTable from '../accounts-table'
 import { stubAccounts } from '../../../../services/__stubs__/accounts'
 

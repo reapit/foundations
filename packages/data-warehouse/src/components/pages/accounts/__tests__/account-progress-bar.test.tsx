@@ -1,5 +1,5 @@
 import React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render } from '../../../../tests/react-testing'
 import AccountProgressBar from '../account-progress-bar'
 
 describe('AccountProgressBar', () => {
