@@ -1,5 +1,5 @@
 import React from 'react'
-import { mount } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import NotificationApi from '../'
 
 describe('notification.hooks', () => {
@@ -39,7 +39,7 @@ describe('notification.hooks', () => {
       )
     }
 
-    const wrapper = mount(<Demo />)
+    const wrapper = render(<Demo />)
     wrapper.find('button').simulate('click')
     expect(document.querySelectorAll('.reapit-notification-notice').length).toBe(1)
     const messageEl = document.querySelector('.hook-test-result')

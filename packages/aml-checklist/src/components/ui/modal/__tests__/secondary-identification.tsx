@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { contact } from '@/sagas/__stubs__/contact'
 import { SecondaryIdentification, mapStateToProps, mapDispatchToProps } from '../secondary-identification'
 import { ReduxState } from '@/types/core'
@@ -16,7 +16,7 @@ describe('SecondaryIdentification', () => {
         onNextHandler: jest.fn(),
         onPrevHandler: jest.fn(),
       }
-      const wrapper = shallow(<SecondaryIdentification {...mockProps} />)
+      const wrapper = render(<SecondaryIdentification {...mockProps} />)
       expect(wrapper).toMatchSnapshot()
     })
   })

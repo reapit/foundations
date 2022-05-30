@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { appointment } from '../../../../graphql/__mocks__/appointment'
 import { AppointmentItems, handleOpenContactDrawer } from '../appointment-items'
 import { ContactDrawerType } from '../../contact-drawer'
@@ -9,7 +9,7 @@ describe('AppointmentItems', () => {
     const mockProps = {
       appointment: appointment,
     }
-    const wrapper = shallow(<AppointmentItems {...mockProps} />)
+    const wrapper = render(<AppointmentItems {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
   })
 })

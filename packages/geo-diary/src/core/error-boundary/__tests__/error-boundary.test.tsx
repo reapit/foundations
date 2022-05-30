@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { ErrorBoundary } from '../error-boundary'
 
 const Component: React.FC = () => <div>I am a component!</div>
@@ -11,12 +11,12 @@ const props = {
 
 describe('ErrorBoundary', () => {
   it('should match a snapshot when no error', () => {
-    const wrapper = shallow(<ErrorBoundary {...props} />)
+    const wrapper = render(<ErrorBoundary {...props} />)
     expect(wrapper).toMatchSnapshot()
   })
 
   it('should match a snapshot when has an error', () => {
-    const wrapper = shallow(<ErrorBoundary {...props} />)
+    const wrapper = render(<ErrorBoundary {...props} />)
     wrapper.setState({
       hasFailed: true,
     })

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { mount } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { Menu, generateMenuConfig, MenuProps } from '../menu'
 import { Router } from 'react-router'
 import { createBrowserHistory } from 'history'
@@ -8,7 +8,7 @@ describe('Menu', () => {
   it('should match a snapshot', () => {
     const history = createBrowserHistory()
     const props = {} as MenuProps
-    const wrapper = mount(
+    const wrapper = render(
       <Router history={history}>
         <Menu {...props} />
       </Router>,

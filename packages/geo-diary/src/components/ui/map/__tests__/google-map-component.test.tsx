@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import {
   clearMap,
   GoogleMapComponent,
@@ -101,7 +101,7 @@ export const mockAppState = {
 
 describe('GoogleMapComponent', () => {
   it('should match snapshot with an appointment', () => {
-    expect(shallow(<GoogleMapComponent appointments={appointments} />)).toMatchSnapshot()
+    expect(render(<GoogleMapComponent appointments={appointments} />)).toMatchSnapshot()
   })
 
   it('should handle set appointment', () => {

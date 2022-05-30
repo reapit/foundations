@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow, mount } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import CallToAction, { CallToActionCardProps } from '../call-to-action'
 import { Button } from '@reapit/elements-legacy'
 
@@ -10,7 +10,7 @@ const props: CallToActionCardProps = {
 
 describe('CallToAction', () => {
   it('should match a snapshot', () => {
-    expect(shallow(<CallToAction {...props} />)).toMatchSnapshot()
+    expect(render(<CallToAction {...props} />)).toMatchSnapshot()
   })
 
   it('should match snapshot with footerItems', () => {
@@ -27,17 +27,17 @@ describe('CallToAction', () => {
         </>
       ),
     }
-    expect(shallow(<CallToAction {...props} />)).toMatchSnapshot()
+    expect(render(<CallToAction {...props} />)).toMatchSnapshot()
   })
 
   it('should allow custom className', () => {
-    const wrapper = shallow(<CallToAction {...props} className="addition" />)
+    const wrapper = render(<CallToAction {...props} className="addition" />)
     expect(wrapper.find('.addition')).toHaveLength(1)
   })
 
   it('simulates onButtonClick event', () => {
     const mockButtonClick = jest.fn()
-    const wrapper = mount(<CallToAction {...props} onButtonClick={mockButtonClick} />)
+    const wrapper = render(<CallToAction {...props} onButtonClick={mockButtonClick} />)
     wrapper.find(Button).simulate('click')
     expect(mockButtonClick).toBeCalledTimes(1)
   })

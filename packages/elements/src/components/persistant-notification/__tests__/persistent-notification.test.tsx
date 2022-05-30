@@ -1,27 +1,27 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { PersistantNotification } from '..'
 import { elPnIcon } from '../__styles__'
 
 describe('PersistantNotification component', () => {
   it('should match a snapshot', () => {
-    const wrapper = shallow(<PersistantNotification>I am notification</PersistantNotification>)
+    const wrapper = render(<PersistantNotification>I am notification</PersistantNotification>)
     expect(wrapper).toMatchSnapshot()
   })
 
   it('should match a snapshot when given an intent', () => {
-    const wrapper = shallow(<PersistantNotification intent="critical">I am notification</PersistantNotification>)
+    const wrapper = render(<PersistantNotification intent="critical">I am notification</PersistantNotification>)
     expect(wrapper).toMatchSnapshot()
   })
 
   it('should match a snapshot when expanded', () => {
-    const wrapper = shallow(<PersistantNotification isExpanded={true}>I am notification</PersistantNotification>)
+    const wrapper = render(<PersistantNotification isExpanded={true}>I am notification</PersistantNotification>)
     expect(wrapper).toMatchSnapshot()
   })
 
   it('should fire the onStepClick event correctly', () => {
     const spy = jest.fn()
-    const wrapper = shallow(
+    const wrapper = render(
       <PersistantNotification intent="critical" onExpansionToggle={spy}>
         I am notification
       </PersistantNotification>,
@@ -31,7 +31,7 @@ describe('PersistantNotification component', () => {
   })
 
   it('should match a snapshot for an inline notification', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <PersistantNotification isExpanded isInline isFullWidth intent="primary">
         I am notification
       </PersistantNotification>,

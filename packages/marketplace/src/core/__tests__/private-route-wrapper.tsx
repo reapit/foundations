@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { PrivateRouteWrapper } from '../private-route-wrapper'
 
 const locationMock = { search: '?state=CLIENT', pathname: '/test' }
@@ -43,7 +43,7 @@ describe('PrivateRouteWrapper', () => {
   })
 
   it('should match snapshot', () => {
-    const wrapper = shallow(<PrivateRouteWrapper path="/" />)
+    const wrapper = render(<PrivateRouteWrapper path="/" />)
     expect(wrapper).toMatchSnapshot()
   })
 })

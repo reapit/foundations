@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { PropertyItem } from '../property-item'
 import { mockAppointmentsQuery } from '../../../pages/appointment/__mocks__/appointments-query'
 import { ExtendedAppointmentModel } from '../../../../types/global'
@@ -9,10 +9,10 @@ const apppointmentWithProperty = mockAppointmentsQuery.data.GetAppointments._emb
 
 describe('PropertyItem', () => {
   it('should match snapshot without a property', () => {
-    expect(shallow(<PropertyItem appointment={apppointmentWithoutProperty} />)).toMatchSnapshot()
+    expect(render(<PropertyItem appointment={apppointmentWithoutProperty} />)).toMatchSnapshot()
   })
 
   it('should match snapshot with a property', () => {
-    expect(shallow(<PropertyItem appointment={apppointmentWithProperty} />)).toMatchSnapshot()
+    expect(render(<PropertyItem appointment={apppointmentWithProperty} />)).toMatchSnapshot()
   })
 })

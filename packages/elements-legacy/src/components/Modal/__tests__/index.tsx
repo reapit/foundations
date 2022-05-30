@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { mount, shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { act } from 'react-dom/test-utils'
 import { Modal } from '../'
 import { renderWithPortalProvider } from '../../../hooks/UsePortal/__tests__/portal-provider'
@@ -79,26 +79,26 @@ const AppCloseModalFromChildModal: React.FunctionComponent<any> = () => {
 
 describe('Modal', () => {
   it('should match a snapshot for ModalFooter', () => {
-    expect(toJson(shallow(<ModalFooter footerItems={<div>Some footer content</div>} />))).toMatchSnapshot()
+    expect(toJson(render(<ModalFooter footerItems={<div>Some footer content</div>} />))).toMatchSnapshot()
   })
 
   it('should match a snapshot for ModalBody', () => {
-    expect(toJson(shallow(<ModalBody body={<div>Some body content</div>} />))).toMatchSnapshot()
+    expect(toJson(render(<ModalBody body={<div>Some body content</div>} />))).toMatchSnapshot()
   })
 
   it('should match a snapshot for ModalHeader', () => {
-    expect(toJson(shallow(<ModalHeader title="Some body content" afterClose={jest.fn()} />))).toMatchSnapshot()
+    expect(toJson(render(<ModalHeader title="Some body content" afterClose={jest.fn()} />))).toMatchSnapshot()
   })
 
   it('should match a snapshot for ModalHeader', () => {
     const afterClose = jest.fn()
-    const component = shallow(<ModalHeader title="Some body content" afterClose={afterClose} />)
+    const component = render(<ModalHeader title="Some body content" afterClose={afterClose} />)
     component.find('button').simulate('click', { preventDefault: jest.fn() })
     expect(afterClose).toHaveBeenCalledTimes(1)
   })
 
   it('should show Modal when visible prop is true', () => {
-    const wrapper = mount(renderWithPortalProvider(<App />))
+    const wrapper = render(renderWithPortalProvider(<App />))
     const showModalButton = wrapper.find('[data-test="show-modal-button"]')
     expect(wrapper.find('[data-test="modal"]')).toHaveLength(0)
     showModalButton.simulate('click')
@@ -107,7 +107,7 @@ describe('Modal', () => {
 
   // CLD-250: https://reapit.atlassian.net/secure/RapidBoard.jspa?rapidView=200&view=planning&selectedIssue=CLD-250
   it('should close Modal after press escape button', (done) => {
-    const wrapper = mount(renderWithPortalProvider(<App />))
+    const wrapper = render(renderWithPortalProvider(<App />))
     const showModalButton = wrapper.find('[data-test="show-modal-button"]')
     showModalButton.simulate('click')
     const evt = new KeyboardEvent('keydown', { key: 'Esc' })
@@ -127,7 +127,7 @@ describe('Modal', () => {
   })
 
   it('should close Modal when click on modal overlay', (done) => {
-    const wrapper = mount(renderWithPortalProvider(<App />))
+    const wrapper = render(renderWithPortalProvider(<App />))
     const showModalButton = wrapper.find('[data-test="show-modal-button"]')
     showModalButton.simulate('click')
     const modalOverlay = wrapper.find('[data-test="modal-background"]')
@@ -154,7 +154,7 @@ describe('Modal', () => {
   })
 
   it('should hide modal when click on close button', () => {
-    const wrapper = mount(renderWithPortalProvider(<App defaultVisible={true} />))
+    const wrapper = render(renderWithPortalProvider(<App defaultVisible={true} />))
     const closeModalButton = wrapper.find('[data-test="modal-close-button"]')
     expect(wrapper.find('[data-test="modal"]')).toHaveLength(1)
     closeModalButton.simulate('click')
@@ -162,7 +162,7 @@ describe('Modal', () => {
   })
 
   it('Should render multiple Modals correctly', () => {
-    const wrapper = mount(
+    const wrapper = render(
       renderWithPortalProvider(
         <>
           <Modal visible={true}>Modal 1</Modal>
@@ -174,7 +174,7 @@ describe('Modal', () => {
   })
 
   it('Should render a component containing a Modal inside a Modal', () => {
-    const wrapper = mount(renderWithPortalProvider(<AppModalInsideModal />))
+    const wrapper = render(renderWithPortalProvider(<AppModalInsideModal />))
     const showSecondModalButton = wrapper.find('[data-test="show-second-modal"]')
     expect(wrapper.find('[data-test="modal"]')).toHaveLength(1)
     expect(showSecondModalButton).toHaveLength(1)
@@ -183,7 +183,7 @@ describe('Modal', () => {
   })
 
   it('Can terminate a parent Modal from its child Modal', () => {
-    const wrapper = mount(renderWithPortalProvider(<AppCloseModalFromChildModal />))
+    const wrapper = render(renderWithPortalProvider(<AppCloseModalFromChildModal />))
     wrapper.find('[data-test="modal-two-open-button"]').simulate('click')
     expect(wrapper.find('[data-test="modal"]')).toHaveLength(2)
     wrapper.find('[data-test="modal-one-close-button"]').simulate('click')
@@ -191,7 +191,7 @@ describe('Modal', () => {
   })
 
   it('should not hide Modal when tapOutsideToDissmiss prop is false', (done) => {
-    const wrapper = mount(renderWithPortalProvider(<App tapOutsideToDissmiss={false} />))
+    const wrapper = render(renderWithPortalProvider(<App tapOutsideToDissmiss={false} />))
     const showModalButton = wrapper.find('[data-test="show-modal-button"]')
     showModalButton.simulate('click')
     const modalOverlay = wrapper.find('[data-test="modal-background"]')

@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { LandlordDrawer } from '../landlord-drawer'
 import { mockAppointmentsQuery } from '../../../pages/appointment/__mocks__/appointments-query'
 import { ExtendedAppointmentModel } from '../../../../types/global'
@@ -13,7 +13,7 @@ jest.mock('../../../../core/app-state')
 
 describe('LandlordDrawer', () => {
   it('should match snapshot without landlords in state', () => {
-    expect(shallow(<LandlordDrawer />)).toMatchSnapshot()
+    expect(render(<LandlordDrawer />)).toMatchSnapshot()
   })
 
   it('should match snapshot with landlords in state and an AML App', () => {
@@ -28,6 +28,6 @@ describe('LandlordDrawer', () => {
       setAppState: jest.fn(),
     }))
 
-    expect(shallow(<LandlordDrawer />)).toMatchSnapshot()
+    expect(render(<LandlordDrawer />)).toMatchSnapshot()
   })
 })

@@ -1,5 +1,5 @@
 import React from 'react'
-import { mount } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import AccountProgressBar from '../account-progress-bar'
 
 describe('AccountProgressBar', () => {
@@ -8,7 +8,7 @@ describe('AccountProgressBar', () => {
   percentages.forEach((percent) => {
     it(`should match a snapshot for ${percent} complete`, () => {
       expect(
-        mount(<AccountProgressBar percentageComplete={percent} setPercentageComplete={jest.fn()} />),
+        render(<AccountProgressBar percentageComplete={percent} setPercentageComplete={jest.fn()} />),
       ).toMatchSnapshot()
     })
   })

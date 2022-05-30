@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow, mount } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { TextArea, TextAreaProps } from '../index'
 import { Formik, Form } from 'formik'
 import toJson from 'enzyme-to-json'
@@ -13,15 +13,15 @@ const props: TextAreaProps = {
 
 describe('Input', () => {
   it('should match a snapshot', () => {
-    expect(toJson(shallow(<TextArea {...props} />))).toMatchSnapshot()
+    expect(toJson(render(<TextArea {...props} />))).toMatchSnapshot()
   })
 
   it('should match a snapshot when required', () => {
-    expect(toJson(shallow(<TextArea {...props} required />))).toMatchSnapshot()
+    expect(toJson(render(<TextArea {...props} required />))).toMatchSnapshot()
   })
 
   it('should work when integrating with Formik', async () => {
-    const wrapper = mount(
+    const wrapper = render(
       <Formik initialValues={{ username: '' }} onSubmit={jest.fn()}>
         {() => (
           <Form>

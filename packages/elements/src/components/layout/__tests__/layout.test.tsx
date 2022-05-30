@@ -1,10 +1,10 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { MainContainer, PageContainer, SecondaryNavContainer, Molecule, FlexContainer } from '../index'
 
 describe('MainContainer', () => {
   it('should match a snapshot and render children', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <MainContainer>
         <p>I am child</p>
       </MainContainer>,
@@ -15,7 +15,7 @@ describe('MainContainer', () => {
 
 describe('PageContainer', () => {
   it('should match a snapshot and render children', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <PageContainer>
         <p>I am child</p>
       </PageContainer>,
@@ -26,7 +26,7 @@ describe('PageContainer', () => {
 
 describe('SecondaryNavContainer', () => {
   it('should match a snapshot and render children', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <SecondaryNavContainer>
         <p>I am child</p>
       </SecondaryNavContainer>,
@@ -37,7 +37,7 @@ describe('SecondaryNavContainer', () => {
 
 describe('Molecule', () => {
   it('should match a snapshot and render children', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <Molecule>
         <p>I am child</p>
       </Molecule>,
@@ -48,7 +48,7 @@ describe('Molecule', () => {
 
 describe('FlexContainer', () => {
   it('should match a snapshot and render children', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <FlexContainer>
         <p>I am child</p>
       </FlexContainer>,
@@ -57,7 +57,7 @@ describe('FlexContainer', () => {
   })
 
   it('should match a snapshot and render children with all props applied', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <FlexContainer
         isFlexRow
         isFlexRowReverse

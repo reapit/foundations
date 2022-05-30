@@ -1,6 +1,6 @@
 import React from 'react'
 import { act } from 'react-dom/test-utils'
-import { shallow, mount } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import {
   SearchableDropdown,
   ControlledSearchableDropdown,
@@ -10,7 +10,7 @@ import {
 
 describe('SearchableDropdown component', () => {
   it('should match a snapshot', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <SearchableDropdown
         id="some-id"
         getResults={async () => []}
@@ -25,7 +25,7 @@ describe('SearchableDropdown component', () => {
     const getResults = jest.fn().mockResolvedValue([{ id: '1', name: 'one' }])
     let wrapper
     await act(() => {
-      wrapper = mount(
+      wrapper = render(
         <SearchableDropdown
           getResults={getResults}
           // @ts-ignore
@@ -45,7 +45,7 @@ describe('SearchableDropdown component', () => {
   it('should display results returned from the given function', async () => {
     let wrapper
     await act(() => {
-      wrapper = mount(
+      wrapper = render(
         <SearchableDropdown
           getResults={async () => [{ id: '1', name: 'one' }]}
           getResultLabel={({ name }) => name}
@@ -64,7 +64,7 @@ describe('SearchableDropdown component', () => {
     let wrapper
     const onChange = jest.fn()
     await act(() => {
-      wrapper = mount(
+      wrapper = render(
         <SearchableDropdown
           getResults={async () => [{ id: '1', name: 'one' }]}
           getResultLabel={({ name }) => name}
@@ -89,7 +89,7 @@ describe('SearchableDropdown component', () => {
 
 describe('ControlledSearchableDropdown component', () => {
   it('should match a snapshot', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <ControlledSearchableDropdown
         id="some-id"
         resultsList={[]}
@@ -106,7 +106,7 @@ describe('ControlledSearchableDropdown component', () => {
   })
 
   it('should show a list of results when given', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <SearchableDropdownControlledInner
         resultsList={[{ label: 'test', result: 'test' }]}
         onChange={() => {}}
@@ -122,7 +122,7 @@ describe('ControlledSearchableDropdown component', () => {
   })
 
   it('should not show a list of results when not given', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <SearchableDropdownControlledInner
         resultsList={[]}
         onChange={() => {}}
@@ -138,7 +138,7 @@ describe('ControlledSearchableDropdown component', () => {
   })
 
   it('should show the clear button when isClearVisible is true', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <SearchableDropdownControlledInner
         resultsList={[]}
         onChange={() => {}}
@@ -154,7 +154,7 @@ describe('ControlledSearchableDropdown component', () => {
   })
 
   it('should not show the clear button when isClearVisible is false', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <SearchableDropdownControlledInner
         resultsList={[]}
         onChange={() => {}}
@@ -170,7 +170,7 @@ describe('ControlledSearchableDropdown component', () => {
   })
 
   it('should show the loader when loading is true', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <SearchableDropdownControlledInner
         resultsList={[]}
         onChange={() => {}}
@@ -186,7 +186,7 @@ describe('ControlledSearchableDropdown component', () => {
   })
 
   it('should not show the loader when loading is false', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <SearchableDropdownControlledInner
         resultsList={[]}
         onChange={() => {}}
@@ -203,7 +203,7 @@ describe('ControlledSearchableDropdown component', () => {
 
   it('should call onClear when the clear button is clicked', () => {
     const onClear = jest.fn()
-    const wrapper = shallow(
+    const wrapper = render(
       <SearchableDropdownControlledInner
         resultsList={[]}
         onChange={() => {}}
@@ -221,7 +221,7 @@ describe('ControlledSearchableDropdown component', () => {
 
   it('should call onChange when the text input is typed into', () => {
     const onChange = jest.fn()
-    const wrapper = shallow(
+    const wrapper = render(
       <SearchableDropdownControlledInner
         resultsList={[]}
         onChange={onChange}
@@ -238,7 +238,7 @@ describe('ControlledSearchableDropdown component', () => {
   })
   it('should call onResultClick when a result is clicked on', () => {
     const onResultClick = jest.fn()
-    const wrapper = shallow(
+    const wrapper = render(
       <SearchableDropdownControlledInner
         resultsList={[{ label: 'test', result: 'test' }]}
         onChange={() => {}}
@@ -256,7 +256,7 @@ describe('ControlledSearchableDropdown component', () => {
 
   it('should display the selected value in the ref input when present', () => {
     const ref = React.createRef<HTMLInputElement>()
-    mount(
+    render(
       <ControlledSearchableDropdown
         resultsList={[]}
         onChange={() => {}}
@@ -273,7 +273,7 @@ describe('ControlledSearchableDropdown component', () => {
   })
 
   it('should display the given value in the search box', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <SearchableDropdownControlledInner
         resultsList={[{ label: 'test', result: 'test' }]}
         onChange={() => {}}
@@ -290,7 +290,7 @@ describe('ControlledSearchableDropdown component', () => {
   })
 
   it('should display the search icon by default', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <SearchableDropdownControlledInner
         resultsList={[{ label: 'test', result: 'test' }]}
         onChange={() => {}}
@@ -306,7 +306,7 @@ describe('ControlledSearchableDropdown component', () => {
     expect(wrapper.find('Icon').prop('icon')).toEqual('searchSystem')
   })
   it('should display the given icon', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <SearchableDropdownControlledInner
         resultsList={[{ label: 'test', result: 'test' }]}
         onChange={() => {}}
@@ -324,7 +324,7 @@ describe('ControlledSearchableDropdown component', () => {
   })
 
   it('should display default value', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <SearchableDropdown<{ id: string; name: string }>
         id="some-id"
         getResults={async () => {
@@ -359,7 +359,7 @@ describe('ControlledSearchableDropdown component', () => {
 
 describe('SearchableDropdownSearchLabel component', () => {
   it('should match a snapshot', () => {
-    const wrapper = shallow(<SearchableDropdownSearchLabel>I am a label</SearchableDropdownSearchLabel>)
+    const wrapper = render(<SearchableDropdownSearchLabel>I am a label</SearchableDropdownSearchLabel>)
     expect(wrapper).toMatchSnapshot()
   })
 })

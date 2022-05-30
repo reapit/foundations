@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import PaymentPage from '../payment'
 import { useLocation } from 'react-router'
 
@@ -20,11 +20,11 @@ jest.mock('react-router', () => ({
 describe('PaymentPage', () => {
   it('should match a snapshot when has a session', () => {
     mockUseLocation.mockReturnValue({ search: `?session=${session}&clientCode=${clientCode}` })
-    expect(shallow(<PaymentPage />)).toMatchSnapshot()
+    expect(render(<PaymentPage />)).toMatchSnapshot()
   })
 
   it('should match a snapshot when has no session', () => {
     mockUseLocation.mockReturnValue({ location: { search: '' } })
-    expect(shallow(<PaymentPage />)).toMatchSnapshot()
+    expect(render(<PaymentPage />)).toMatchSnapshot()
   })
 })

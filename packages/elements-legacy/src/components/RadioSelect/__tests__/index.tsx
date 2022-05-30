@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow, mount } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import RadioSelect, { renderAdditionalField } from '../index'
 import { Formik, Form, FormikValues, FormikProps } from 'formik'
 
@@ -15,7 +15,7 @@ describe('RadioSelect', () => {
         { label: 'label1', value: 'value1' },
       ],
     }
-    const wrapper = shallow(<RadioSelect setFieldValue={jest.fn()} state={'value'} {...mockProps} />)
+    const wrapper = render(<RadioSelect setFieldValue={jest.fn()} state={'value'} {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
   })
 
@@ -30,7 +30,7 @@ describe('RadioSelect', () => {
         { label: 'label1', value: 'value1' },
       ],
     }
-    const wrapper = mount(
+    const wrapper = render(
       <Formik initialValues={{ username: '' } as FormikValues} onSubmit={jest.fn()}>
         {({ setFieldValue, values }) => (
           <Form>

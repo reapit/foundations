@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import toJson from 'enzyme-to-json'
 import { Tile } from '../index'
 
@@ -9,7 +9,7 @@ describe('Tile', () => {
       heading: 'mockHeading',
       hightlight: false,
     }
-    const wrapper = shallow(
+    const wrapper = render(
       <Tile {...mockProps}>
         <div>City</div>
         <div>Country</div>
@@ -25,7 +25,7 @@ describe('Tile', () => {
       heading: 'mockHeading',
       hightlight: true,
     }
-    const wrapper = shallow(
+    const wrapper = render(
       <Tile {...mockProps}>
         <div>City</div>
         <div>Country</div>

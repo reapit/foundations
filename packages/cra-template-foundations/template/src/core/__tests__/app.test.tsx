@@ -11,7 +11,7 @@ describe('App', () => {
     act(() => {
       const root = createRoot(div)
       root.render(<App />)
-      root.unmount()
+      root.unrender()
     })
   })
 

@@ -1,10 +1,10 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { PaginationWrap, PaginationText, PaginationButton, Pagination } from '../index'
 
 describe('PaginationWrap', () => {
   it('should match a snapshot and render children', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <PaginationWrap>
         <div>I am a child</div>
       </PaginationWrap>,
@@ -15,7 +15,7 @@ describe('PaginationWrap', () => {
 
 describe('PaginationText', () => {
   it('should match a snapshot and render children', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <PaginationText>
         <div>I am a child</div>
       </PaginationText>,
@@ -26,7 +26,7 @@ describe('PaginationText', () => {
 
 describe('PaginationButton', () => {
   it('should match a snapshot and render children', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <PaginationButton>
         <div>I am a child</div>
       </PaginationButton>,
@@ -37,13 +37,13 @@ describe('PaginationButton', () => {
 
 describe('Pagination', () => {
   it('should match a snapshot', () => {
-    const wrapper = shallow(<Pagination callback={jest.fn()} currentPage={2} numberPages={4} />)
+    const wrapper = render(<Pagination callback={jest.fn()} currentPage={2} numberPages={4} />)
     expect(wrapper).toMatchSnapshot()
   })
 
   it('should callback onClick correctly', () => {
     const mockCallback = jest.fn()
-    const wrapper = shallow(<Pagination callback={mockCallback} currentPage={2} numberPages={4} />)
+    const wrapper = render(<Pagination callback={mockCallback} currentPage={2} numberPages={4} />)
     const buttons = wrapper.find(PaginationButton)
 
     buttons.first().simulate('click')

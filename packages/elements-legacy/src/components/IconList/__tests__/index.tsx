@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { FaClock, FaStreetView, FaStickyNote } from 'react-icons/fa'
 import { IconList } from '..'
 import toJson from 'enzyme-to-json'
@@ -23,7 +23,7 @@ describe('IconList', () => {
   it('should match a snapshot with custom props', () => {
     expect(
       toJson(
-        shallow(
+        render(
           <IconList
             items={items}
             textClassName="text-class-name"
@@ -36,7 +36,7 @@ describe('IconList', () => {
   })
 
   it('should match a snapshot with default props', () => {
-    expect(toJson(shallow(<IconList items={items} />))).toMatchSnapshot()
+    expect(toJson(render(<IconList items={items} />))).toMatchSnapshot()
   })
 
   afterEach(() => {

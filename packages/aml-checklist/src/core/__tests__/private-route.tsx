@@ -1,15 +1,15 @@
 import * as React from 'react'
-import { shallow, mount } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { MemoryRouter } from 'react-router'
 import { PrivateRoute } from '../private-route'
 
 describe('PrivateRouter', () => {
   it('should match a snapshot', () => {
-    expect(shallow(<PrivateRoute component={() => null} />)).toMatchSnapshot()
+    expect(render(<PrivateRoute component={() => null} />)).toMatchSnapshot()
   })
 
   it('should return render component', () => {
-    const wrapper = mount(
+    const wrapper = render(
       <MemoryRouter initialEntries={['/client']}>
         <PrivateRoute component={() => <div className="render-class" />} path="/client" />
       </MemoryRouter>,

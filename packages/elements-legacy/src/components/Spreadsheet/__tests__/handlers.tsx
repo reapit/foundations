@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import {
   onDoubleClickCell,
   valueRenderer,
@@ -226,7 +226,7 @@ describe('onSelectCell', () => {
 describe('customCellRenderer', () => {
   it('should match snapshot without CustomComponent', () => {
     const CellComponent = customCellRenderer(data, setData, setSelected, afterCellsChanged)
-    expect(shallow(<CellComponent {...cellRenderProps} />)).toMatchSnapshot()
+    expect(render(<CellComponent {...cellRenderProps} />)).toMatchSnapshot()
   })
   it('should match snapshot with CustomComponent', () => {
     const CustomComponent = () => <div>Custom Component</div>
@@ -238,7 +238,7 @@ describe('customCellRenderer', () => {
       },
     }
     const CellComponent = customCellRenderer(data, setData, setSelected, afterCellsChanged)
-    expect(shallow(<CellComponent {...cellRenderPropsCustomComponent} />)).toMatchSnapshot()
+    expect(render(<CellComponent {...cellRenderPropsCustomComponent} />)).toMatchSnapshot()
   })
 
   it('should match snapshot with invalid cell', () => {
@@ -248,7 +248,7 @@ describe('customCellRenderer', () => {
     }
 
     const CellComponent = customCellRenderer(data, setData, setSelected, afterCellsChanged)
-    expect(shallow(<CellComponent {...cellRenderPropsInvalid} />)).toMatchSnapshot()
+    expect(render(<CellComponent {...cellRenderPropsInvalid} />)).toMatchSnapshot()
   })
 })
 

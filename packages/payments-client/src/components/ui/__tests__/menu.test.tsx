@@ -1,11 +1,11 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { Menu, generateMenuConfig, MenuProps } from '../menu'
 
 describe('Menu', () => {
   it('should match a snapshot', () => {
     const props = {} as MenuProps
-    const wrapper = shallow(<Menu {...props} />)
+    const wrapper = render(<Menu {...props} />)
     expect(wrapper).toMatchSnapshot()
   })
 

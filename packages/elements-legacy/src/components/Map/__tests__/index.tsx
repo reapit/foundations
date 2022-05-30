@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import notification from '../../Notification'
 import createGoogleMapsMock from '../../../helpers/mock-google-maps'
 import {
@@ -323,7 +323,7 @@ describe('Map', () => {
         onDrawingPolygonComplete: mockOnDrawingPolygonComplete,
       })
       const component = fn(mockGoogleMaps, undefined)
-      const wrapper = shallow(<div>{component}</div>)
+      const wrapper = render(<div>{component}</div>)
       expect(wrapper).toMatchSnapshot()
       expect(wrapper.find('t')).toHaveLength(1)
     })
@@ -361,7 +361,7 @@ describe('Map', () => {
         onDrawingPolygonComplete: mockOnDrawingPolygonComplete,
       })
       const component = fn(mockGoogleMaps, mockError)
-      const wrapper = shallow(<div>{component}</div>)
+      const wrapper = render(<div>{component}</div>)
       expect(wrapper).toMatchSnapshot()
     })
     it('should run correctly when error network', () => {
@@ -398,7 +398,7 @@ describe('Map', () => {
         onDrawingPolygonComplete: mockOnDrawingPolygonComplete,
       })
       const component = fn(mockGoogleMaps, new Error('Network Error'))
-      const wrapper = shallow(<div>{component}</div>)
+      const wrapper = render(<div>{component}</div>)
       expect(wrapper).toMatchSnapshot()
     })
   })
@@ -504,7 +504,7 @@ describe('Map', () => {
         travelMode: 'DRIVING',
         onLoadedDirection: mockOnLoadedDirection,
       }
-      const wrapper = shallow(<Map {...mockProps} />)
+      const wrapper = render(<Map {...mockProps} />)
       expect(wrapper).toMatchSnapshot()
     })
   })

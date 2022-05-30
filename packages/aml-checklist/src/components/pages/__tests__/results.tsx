@@ -1,6 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
-import toJson from 'enzyme-to-json'
+import { render } from '../../../tests/react-testing'
 import { ContactModelPagedResult } from '@reapit/foundations-ts-definitions'
 import {
   Result,
@@ -29,11 +28,11 @@ const props = (search: SearchParams, contacts: ContactModelPagedResult | null): 
 
 describe('Result', () => {
   it('should match a snapshot when LOADING true', () => {
-    expect(toJson(shallow(<Result {...props({}, null)} />))).toMatchSnapshot()
+    expect(render(<Result {...props({}, null)} />)).toMatchSnapshot()
   })
 
   it('should match a snapshot when LOADING false', () => {
-    expect(toJson(shallow(<Result {...props({ name: '1' }, contacts)} />))).toMatchSnapshot()
+    expect(render(<Result {...props({ name: '1' }, contacts)} />)).toMatchSnapshot()
   })
 
   describe('generateColumn', () => {

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow, mount } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { ErrorBoundary, ErrorState } from '../error-boundary'
 
 jest.mock('../../../utils/route-dispatcher')
@@ -7,11 +7,11 @@ jest.mock('rc-animate')
 
 describe('ErrorBoundary', () => {
   it('should match a snapshot when no error', () => {
-    expect(shallow(<ErrorBoundary />)).toMatchSnapshot()
+    expect(render(<ErrorBoundary />)).toMatchSnapshot()
   })
 
   it('should match a snapshot when has an error', () => {
-    const component = shallow(<ErrorBoundary />)
+    const component = render(<ErrorBoundary />)
     component.setState({
       hasFailed: true,
     })
@@ -24,7 +24,7 @@ describe('ErrorBoundary', () => {
       throw new Error('Catch me if you can')
     }
 
-    const component = mount(
+    const component = render(
       <ErrorBoundary>
         <DangerousChild />
       </ErrorBoundary>,

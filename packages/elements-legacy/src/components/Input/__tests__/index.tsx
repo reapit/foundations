@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow, mount } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { Input, InputProps } from '../index'
 import { Formik, Form } from 'formik'
 import toJson from 'enzyme-to-json'
@@ -40,23 +40,23 @@ const helperTextComponentInputProps: InputProps = {
 
 describe('Input', () => {
   it('should match a snapshot', () => {
-    expect(toJson(shallow(<Input {...props} />))).toMatchSnapshot()
+    expect(toJson(render(<Input {...props} />))).toMatchSnapshot()
   })
 
   it('should match a snapshot with right icon', () => {
-    expect(toJson(shallow(<Input {...hasRightIconInputProps} />))).toMatchSnapshot()
+    expect(toJson(render(<Input {...hasRightIconInputProps} />))).toMatchSnapshot()
   })
 
   it('should match a snapshot if field is required', () => {
-    expect(toJson(shallow(<Input {...requiredInputProps} />))).toMatchSnapshot()
+    expect(toJson(render(<Input {...requiredInputProps} />))).toMatchSnapshot()
   })
 
   it('should match a snapshot if helperText is a component', () => {
-    expect(toJson(shallow(<Input {...helperTextComponentInputProps} />))).toMatchSnapshot()
+    expect(toJson(render(<Input {...helperTextComponentInputProps} />))).toMatchSnapshot()
   })
 
   it('should work when integrating with Formik', async () => {
-    const wrapper = mount(
+    const wrapper = render(
       <Formik initialValues={{ username: '' }} onSubmit={jest.fn()}>
         {() => (
           <Form>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { mount } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import {
   ColResponsive,
   ColResponsiveProps,
@@ -12,7 +12,7 @@ import { MediaStateProvider, MediaType } from '../../../hooks/use-media-query'
 
 describe('GridResponsive', () => {
   it('should match a snapshot and render children with no props', () => {
-    const wrapper = mount(
+    const wrapper = render(
       <MediaStateProvider>
         <GridResponsive>
           <p>I am child</p>
@@ -23,7 +23,7 @@ describe('GridResponsive', () => {
   })
 
   it('hould render with the correct classNames when supplied all props', () => {
-    const wrapper = mount(
+    const wrapper = render(
       <MediaStateProvider>
         <GridResponsive
           colGapMobile={1}
@@ -49,7 +49,7 @@ describe('GridResponsive', () => {
 
 describe('ColResponsive', () => {
   it('should match a snapshot and render children with no props', () => {
-    const wrapper = mount(
+    const wrapper = render(
       <MediaStateProvider>
         <ColResponsive>
           <p>I am child</p>
@@ -60,7 +60,7 @@ describe('ColResponsive', () => {
   })
 
   it('should render with the correct classNames when supplied all props', () => {
-    const wrapper = mount(
+    const wrapper = render(
       <MediaStateProvider>
         <ColResponsive
           spanMobile={1}

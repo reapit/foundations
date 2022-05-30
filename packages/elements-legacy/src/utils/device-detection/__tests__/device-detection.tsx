@@ -1,6 +1,6 @@
 import React from 'react'
 import { isAndroid, isIOS, isMacLike, isMobile } from '../device-detection'
-import { mount } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 
 let userAgentGetter
 
@@ -8,7 +8,7 @@ const TestHook = ({ callback }) => {
   return callback()
 }
 const testHook = (callback) => {
-  mount(<TestHook callback={callback} />)
+  render(<TestHook callback={callback} />)
 }
 
 describe('device-detection', () => {

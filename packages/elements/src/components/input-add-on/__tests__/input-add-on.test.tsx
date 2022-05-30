@@ -1,10 +1,10 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { InputAddOn } from '../'
 
 describe('InputAddOn component', () => {
   it('should match a snapshot', () => {
-    const wrapper = shallow(<InputAddOn />)
+    const wrapper = render(<InputAddOn />)
     expect(wrapper).toMatchSnapshot()
   })
 })

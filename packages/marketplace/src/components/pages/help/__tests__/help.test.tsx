@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { Help } from '../help'
 
 jest.mock('@/core/router', () => ({
@@ -10,6 +10,6 @@ jest.mock('@/core/router', () => ({
 
 describe('ClientHelpPage', () => {
   it('should match a snapshot', () => {
-    expect(shallow(<Help />)).toMatchSnapshot()
+    expect(render(<Help />)).toMatchSnapshot()
   })
 })

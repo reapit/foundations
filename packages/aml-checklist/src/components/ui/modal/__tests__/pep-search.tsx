@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import {
   PepSearch,
   mapStateToProps,
@@ -22,7 +22,7 @@ describe('pep-search', () => {
         onNextHandler: jest.fn(),
         isSubmitting: false,
       }
-      const wrapper = shallow(<PepSearch {...mockProps} />)
+      const wrapper = render(<PepSearch {...mockProps} />)
       expect(wrapper).toMatchSnapshot()
     })
   })
@@ -87,21 +87,21 @@ describe('pep-search', () => {
         contact: contact,
       }
       const component = renderForm(mockProps)()
-      const wrapper = shallow(<div>{component}</div>)
+      const wrapper = render(<div>{component}</div>)
       expect(wrapper).toMatchSnapshot()
     })
   })
   describe('renderNoResult', () => {
     it('should match snapshot', () => {
       const component = renderNoResult('param', 'time')
-      const wrapper = shallow(<div>{component}</div>)
+      const wrapper = render(<div>{component}</div>)
       expect(wrapper).toMatchSnapshot()
     })
   })
   describe('renderLoading', () => {
     it('should match snapshot', () => {
       const component = renderLoading()
-      const wrapper = shallow(<div>{component}</div>)
+      const wrapper = render(<div>{component}</div>)
       expect(wrapper).toMatchSnapshot()
     })
   })

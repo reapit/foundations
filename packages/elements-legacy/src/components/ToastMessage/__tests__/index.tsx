@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import toJson from 'enzyme-to-json'
 import { ToastMessage, ToastMessageProps } from '..'
 
@@ -16,15 +16,15 @@ const defaultProps: ToastMessageProps = {
 
 describe('ToastMessage', () => {
   it('should match a snapshot with default baseProps', () => {
-    expect(toJson(shallow(<ToastMessage {...baseProps} />))).toMatchSnapshot()
+    expect(toJson(render(<ToastMessage {...baseProps} />))).toMatchSnapshot()
   })
 
   it('should match a snapshot when pass different props', () => {
-    expect(toJson(shallow(<ToastMessage {...defaultProps} />))).toMatchSnapshot()
+    expect(toJson(render(<ToastMessage {...defaultProps} />))).toMatchSnapshot()
   })
 
   it('should dismiss toast when click', () => {
-    shallow(<ToastMessage {...defaultProps} visible={true} />)
+    render(<ToastMessage {...defaultProps} visible={true} />)
       .find('[data-test="toast-wrapper"]')
       .first()
       .simulate('click')

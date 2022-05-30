@@ -1,678 +1,1243 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[` 1`] = `
-<div>
-  <FadeIn
-    key="0"
-  >
-    <Section
-      hasPadding={false}
-    >
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
       <div
-        className="card"
-      >
+        class="el-snack-holder"
+      />
+      <div>
         <div
-          className="card-content"
+          class="fade-in"
         >
-          <div
-            className="media"
+          <section
+            class="section has-margin has-background"
+            data-test=""
           >
             <div
-              className="media-content"
+              class="card"
             >
-              <H5>
-                Personal Details
-              </H5>
-            </div>
-            <div
-              className="media-right"
-            >
-               
-              <div>
+              <div
+                class="card-content"
+              >
                 <div
-                  className="undefined undefined"
+                  class="media"
                 >
-                  <FaCheck />
+                  <div
+                    class="media-content"
+                  >
+                    <h5
+                      class="title is-5"
+                      id=""
+                    >
+                      Personal Details
+                    </h5>
+                  </div>
+                  <div
+                    class="media-right"
+                  >
+                     
+                    <div>
+                      <div
+                        class="undefined undefined"
+                      >
+                        <svg
+                          fill="currentColor"
+                          height="1em"
+                          stroke="currentColor"
+                          stroke-width="0"
+                          viewBox="0 0 512 512"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                          />
+                        </svg>
+                        <span>
+                          Completed
+                        </span>
+                      </div>
+                      <button
+                        class="button   is-primary "
+                        data-test=""
+                        type="button"
+                      >
+                        Edit
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="undefined undefined"
+                >
+                  <svg
+                    fill="currentColor"
+                    height="1em"
+                    stroke="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 512 512"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                    />
+                  </svg>
                   <span>
                     Completed
                   </span>
                 </div>
-                <Button
-                  onClick={[MockFunction]}
-                  type="button"
-                  variant="primary"
-                >
-                  Edit
-                </Button>
               </div>
             </div>
-          </div>
-          <div
-            className="undefined undefined"
-          >
-            <FaCheck />
-            <span>
-              Completed
-            </span>
-          </div>
+          </section>
         </div>
-      </div>
-    </Section>
-  </FadeIn>
-  <FadeIn
-    key="1"
-  >
-    <Section
-      hasPadding={false}
-    >
-      <div
-        className="card"
-      >
         <div
-          className="card-content"
+          class="fade-in"
         >
-          <div
-            className="media"
+          <section
+            class="section has-margin has-background"
+            data-test=""
           >
             <div
-              className="media-content"
+              class="card"
             >
-              <H5>
-                Primary ID
-              </H5>
-            </div>
-            <div
-              className="media-right"
-            >
-               
-              <div>
+              <div
+                class="card-content"
+              >
                 <div
-                  className="undefined undefined"
+                  class="media"
                 >
-                  <FaTimes />
+                  <div
+                    class="media-content"
+                  >
+                    <h5
+                      class="title is-5"
+                      id=""
+                    >
+                      Primary ID
+                    </h5>
+                  </div>
+                  <div
+                    class="media-right"
+                  >
+                     
+                    <div>
+                      <div
+                        class="undefined undefined"
+                      >
+                        <svg
+                          fill="currentColor"
+                          height="1em"
+                          stroke="currentColor"
+                          stroke-width="0"
+                          viewBox="0 0 352 512"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                          />
+                        </svg>
+                        <span>
+                          Incomplete
+                        </span>
+                      </div>
+                      <button
+                        class="button   is-primary "
+                        data-test=""
+                        type="button"
+                      >
+                        Edit
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="undefined undefined"
+                >
+                  <svg
+                    fill="currentColor"
+                    height="1em"
+                    stroke="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 352 512"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                    />
+                  </svg>
                   <span>
                     Incomplete
                   </span>
                 </div>
-                <Button
-                  onClick={[MockFunction]}
-                  type="button"
-                  variant="primary"
-                >
-                  Edit
-                </Button>
               </div>
             </div>
-          </div>
-          <div
-            className="undefined undefined"
-          >
-            <FaTimes />
-            <span>
-              Incomplete
-            </span>
-          </div>
+          </section>
         </div>
-      </div>
-    </Section>
-  </FadeIn>
-  <FadeIn
-    key="2"
-  >
-    <Section
-      hasPadding={false}
-    >
-      <div
-        className="card"
-      >
         <div
-          className="card-content"
+          class="fade-in"
         >
-          <div
-            className="media"
+          <section
+            class="section has-margin has-background"
+            data-test=""
           >
             <div
-              className="media-content"
+              class="card"
             >
-              <H5>
-                Secondary ID
-              </H5>
-            </div>
-            <div
-              className="media-right"
-            >
-               
-              <div>
+              <div
+                class="card-content"
+              >
                 <div
-                  className="undefined undefined"
+                  class="media"
                 >
-                  <FaCheck />
+                  <div
+                    class="media-content"
+                  >
+                    <h5
+                      class="title is-5"
+                      id=""
+                    >
+                      Secondary ID
+                    </h5>
+                  </div>
+                  <div
+                    class="media-right"
+                  >
+                     
+                    <div>
+                      <div
+                        class="undefined undefined"
+                      >
+                        <svg
+                          fill="currentColor"
+                          height="1em"
+                          stroke="currentColor"
+                          stroke-width="0"
+                          viewBox="0 0 512 512"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                          />
+                        </svg>
+                        <span>
+                          Completed
+                        </span>
+                      </div>
+                      <button
+                        class="button   is-primary "
+                        data-test=""
+                        type="button"
+                      >
+                        Edit
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="undefined undefined"
+                >
+                  <svg
+                    fill="currentColor"
+                    height="1em"
+                    stroke="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 512 512"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                    />
+                  </svg>
                   <span>
                     Completed
                   </span>
                 </div>
-                <Button
-                  onClick={[MockFunction]}
-                  type="button"
-                  variant="primary"
-                >
-                  Edit
-                </Button>
               </div>
             </div>
-          </div>
-          <div
-            className="undefined undefined"
-          >
-            <FaCheck />
-            <span>
-              Completed
-            </span>
-          </div>
+          </section>
         </div>
-      </div>
-    </Section>
-  </FadeIn>
-  <FadeIn
-    key="3"
-  >
-    <Section
-      hasPadding={false}
-    >
-      <div
-        className="card"
-      >
         <div
-          className="card-content"
+          class="fade-in"
         >
-          <div
-            className="media"
+          <section
+            class="section has-margin has-background"
+            data-test=""
           >
             <div
-              className="media-content"
+              class="card"
             >
-              <H5>
-                Address Information
-              </H5>
-            </div>
-            <div
-              className="media-right"
-            >
-               
-              <div>
+              <div
+                class="card-content"
+              >
                 <div
-                  className="undefined undefined"
+                  class="media"
                 >
-                  <FaTimes />
+                  <div
+                    class="media-content"
+                  >
+                    <h5
+                      class="title is-5"
+                      id=""
+                    >
+                      Address Information
+                    </h5>
+                  </div>
+                  <div
+                    class="media-right"
+                  >
+                     
+                    <div>
+                      <div
+                        class="undefined undefined"
+                      >
+                        <svg
+                          fill="currentColor"
+                          height="1em"
+                          stroke="currentColor"
+                          stroke-width="0"
+                          viewBox="0 0 352 512"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                          />
+                        </svg>
+                        <span>
+                          Incomplete
+                        </span>
+                      </div>
+                      <button
+                        class="button   is-primary "
+                        data-test=""
+                        type="button"
+                      >
+                        Edit
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="undefined undefined"
+                >
+                  <svg
+                    fill="currentColor"
+                    height="1em"
+                    stroke="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 352 512"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                    />
+                  </svg>
                   <span>
                     Incomplete
                   </span>
                 </div>
-                <Button
-                  onClick={[MockFunction]}
-                  type="button"
-                  variant="primary"
-                >
-                  Edit
-                </Button>
               </div>
             </div>
-          </div>
-          <div
-            className="undefined undefined"
-          >
-            <FaTimes />
-            <span>
-              Incomplete
-            </span>
-          </div>
+          </section>
         </div>
-      </div>
-    </Section>
-  </FadeIn>
-  <FadeIn
-    key="4"
-  >
-    <Section
-      hasPadding={false}
-    >
-      <div
-        className="card"
-      >
         <div
-          className="card-content"
+          class="fade-in"
         >
-          <div
-            className="media"
+          <section
+            class="section has-margin has-background"
+            data-test=""
           >
             <div
-              className="media-content"
+              class="card"
             >
-              <H5>
-                Declaration Risk Management
-              </H5>
-            </div>
-            <div
-              className="media-right"
-            >
-               
-              <div>
+              <div
+                class="card-content"
+              >
                 <div
-                  className="undefined undefined"
+                  class="media"
                 >
-                  <FaTimes />
+                  <div
+                    class="media-content"
+                  >
+                    <h5
+                      class="title is-5"
+                      id=""
+                    >
+                      Declaration Risk Management
+                    </h5>
+                  </div>
+                  <div
+                    class="media-right"
+                  >
+                     
+                    <div>
+                      <div
+                        class="undefined undefined"
+                      >
+                        <svg
+                          fill="currentColor"
+                          height="1em"
+                          stroke="currentColor"
+                          stroke-width="0"
+                          viewBox="0 0 352 512"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                          />
+                        </svg>
+                        <span>
+                          Incomplete
+                        </span>
+                      </div>
+                      <button
+                        class="button   is-primary "
+                        data-test=""
+                        type="button"
+                      >
+                        Edit
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="undefined undefined"
+                >
+                  <svg
+                    fill="currentColor"
+                    height="1em"
+                    stroke="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 352 512"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                    />
+                  </svg>
                   <span>
                     Incomplete
                   </span>
                 </div>
-                <Button
-                  onClick={[MockFunction]}
-                  type="button"
-                  variant="primary"
-                >
-                  Edit
-                </Button>
               </div>
             </div>
-          </div>
-          <div
-            className="undefined undefined"
+          </section>
+        </div>
+        <div
+          class="fade-in"
+        >
+          <section
+            class="section has-margin has-background"
+            data-test=""
           >
-            <FaTimes />
-            <span>
-              Incomplete
-            </span>
-          </div>
+            <div
+              class="card"
+            >
+              <div
+                class="card-content"
+              >
+                <div
+                  class="media"
+                >
+                  <div
+                    class="media-content"
+                  >
+                    <h5
+                      class="title is-5"
+                      id=""
+                    >
+                      Report
+                    </h5>
+                  </div>
+                  <div
+                    class="media-right"
+                  >
+                     
+                    <div>
+                      <button
+                        class="button   is-primary "
+                        data-test=""
+                        type="button"
+                      >
+                        View
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
       </div>
-    </Section>
-  </FadeIn>
-  <FadeIn
-    key="5"
-  >
-    <Section
-      hasPadding={false}
-    >
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <div>
       <div
-        className="card"
+        class="fade-in"
       >
-        <div
-          className="card-content"
+        <section
+          class="section has-margin has-background"
+          data-test=""
         >
           <div
-            className="media"
+            class="card"
           >
             <div
-              className="media-content"
+              class="card-content"
             >
-              <H5>
-                Report
-              </H5>
-            </div>
-            <div
-              className="media-right"
-            >
-               
-              <div>
-                <Button
-                  onClick={[MockFunction]}
-                  type="button"
-                  variant="primary"
+              <div
+                class="media"
+              >
+                <div
+                  class="media-content"
                 >
-                  View
-                </Button>
+                  <h5
+                    class="title is-5"
+                    id=""
+                  >
+                    Personal Details
+                  </h5>
+                </div>
+                <div
+                  class="media-right"
+                >
+                   
+                  <div>
+                    <div
+                      class="undefined undefined"
+                    >
+                      <svg
+                        fill="currentColor"
+                        height="1em"
+                        stroke="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 512 512"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                        />
+                      </svg>
+                      <span>
+                        Completed
+                      </span>
+                    </div>
+                    <button
+                      class="button   is-primary "
+                      data-test=""
+                      type="button"
+                    >
+                      Edit
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="undefined undefined"
+              >
+                <svg
+                  fill="currentColor"
+                  height="1em"
+                  stroke="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 512 512"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                  />
+                </svg>
+                <span>
+                  Completed
+                </span>
               </div>
             </div>
           </div>
-        </div>
+        </section>
       </div>
-    </Section>
-  </FadeIn>
-</div>
+      <div
+        class="fade-in"
+      >
+        <section
+          class="section has-margin has-background"
+          data-test=""
+        >
+          <div
+            class="card"
+          >
+            <div
+              class="card-content"
+            >
+              <div
+                class="media"
+              >
+                <div
+                  class="media-content"
+                >
+                  <h5
+                    class="title is-5"
+                    id=""
+                  >
+                    Primary ID
+                  </h5>
+                </div>
+                <div
+                  class="media-right"
+                >
+                   
+                  <div>
+                    <div
+                      class="undefined undefined"
+                    >
+                      <svg
+                        fill="currentColor"
+                        height="1em"
+                        stroke="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 352 512"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                        />
+                      </svg>
+                      <span>
+                        Incomplete
+                      </span>
+                    </div>
+                    <button
+                      class="button   is-primary "
+                      data-test=""
+                      type="button"
+                    >
+                      Edit
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="undefined undefined"
+              >
+                <svg
+                  fill="currentColor"
+                  height="1em"
+                  stroke="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 352 512"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                  />
+                </svg>
+                <span>
+                  Incomplete
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div
+        class="fade-in"
+      >
+        <section
+          class="section has-margin has-background"
+          data-test=""
+        >
+          <div
+            class="card"
+          >
+            <div
+              class="card-content"
+            >
+              <div
+                class="media"
+              >
+                <div
+                  class="media-content"
+                >
+                  <h5
+                    class="title is-5"
+                    id=""
+                  >
+                    Secondary ID
+                  </h5>
+                </div>
+                <div
+                  class="media-right"
+                >
+                   
+                  <div>
+                    <div
+                      class="undefined undefined"
+                    >
+                      <svg
+                        fill="currentColor"
+                        height="1em"
+                        stroke="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 512 512"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                        />
+                      </svg>
+                      <span>
+                        Completed
+                      </span>
+                    </div>
+                    <button
+                      class="button   is-primary "
+                      data-test=""
+                      type="button"
+                    >
+                      Edit
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="undefined undefined"
+              >
+                <svg
+                  fill="currentColor"
+                  height="1em"
+                  stroke="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 512 512"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                  />
+                </svg>
+                <span>
+                  Completed
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div
+        class="fade-in"
+      >
+        <section
+          class="section has-margin has-background"
+          data-test=""
+        >
+          <div
+            class="card"
+          >
+            <div
+              class="card-content"
+            >
+              <div
+                class="media"
+              >
+                <div
+                  class="media-content"
+                >
+                  <h5
+                    class="title is-5"
+                    id=""
+                  >
+                    Address Information
+                  </h5>
+                </div>
+                <div
+                  class="media-right"
+                >
+                   
+                  <div>
+                    <div
+                      class="undefined undefined"
+                    >
+                      <svg
+                        fill="currentColor"
+                        height="1em"
+                        stroke="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 352 512"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                        />
+                      </svg>
+                      <span>
+                        Incomplete
+                      </span>
+                    </div>
+                    <button
+                      class="button   is-primary "
+                      data-test=""
+                      type="button"
+                    >
+                      Edit
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="undefined undefined"
+              >
+                <svg
+                  fill="currentColor"
+                  height="1em"
+                  stroke="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 352 512"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                  />
+                </svg>
+                <span>
+                  Incomplete
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div
+        class="fade-in"
+      >
+        <section
+          class="section has-margin has-background"
+          data-test=""
+        >
+          <div
+            class="card"
+          >
+            <div
+              class="card-content"
+            >
+              <div
+                class="media"
+              >
+                <div
+                  class="media-content"
+                >
+                  <h5
+                    class="title is-5"
+                    id=""
+                  >
+                    Declaration Risk Management
+                  </h5>
+                </div>
+                <div
+                  class="media-right"
+                >
+                   
+                  <div>
+                    <div
+                      class="undefined undefined"
+                    >
+                      <svg
+                        fill="currentColor"
+                        height="1em"
+                        stroke="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 352 512"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                        />
+                      </svg>
+                      <span>
+                        Incomplete
+                      </span>
+                    </div>
+                    <button
+                      class="button   is-primary "
+                      data-test=""
+                      type="button"
+                    >
+                      Edit
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="undefined undefined"
+              >
+                <svg
+                  fill="currentColor"
+                  height="1em"
+                  stroke="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 352 512"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                  />
+                </svg>
+                <span>
+                  Incomplete
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div
+        class="fade-in"
+      >
+        <section
+          class="section has-margin has-background"
+          data-test=""
+        >
+          <div
+            class="card"
+          >
+            <div
+              class="card-content"
+            >
+              <div
+                class="media"
+              >
+                <div
+                  class="media-content"
+                >
+                  <h5
+                    class="title is-5"
+                    id=""
+                  >
+                    Report
+                  </h5>
+                </div>
+                <div
+                  class="media-right"
+                >
+                   
+                  <div>
+                    <button
+                      class="button   is-primary "
+                      data-test=""
+                      type="button"
+                    >
+                      View
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`checklist-detail ChecklistDetail should match snapshot when loading 1`] = `
-<Loader
-  fullPage={true}
-  label="Loading"
-/>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <div
+        class="el-is-full-page el-loader-container"
+      >
+        <p
+          class="el-loader-label"
+        >
+          Loading
+        </p>
+        <div
+          class="el-loader"
+        >
+          <div
+            class="el-loader-moving-bar"
+          />
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <div
+      class="el-is-full-page el-loader-container"
+    >
+      <p
+        class="el-loader-label"
+      >
+        Loading
+      </p>
+      <div
+        class="el-loader"
+      >
+        <div
+          class="el-loader-moving-bar"
+        />
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`checklist-detail ChecklistDetail should match snapshot when not loading 1`] = `
-<Section
-  hasMargin={false}
-  hasPadding={false}
->
-  <ErrorBoundary>
-    <Connect(AMLProgressBar) />
-    <Section>
-      <FadeIn
-        key="0"
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <section
+        class="section has-background"
+        data-test=""
       >
-        <Section
-          hasPadding={false}
-        >
+        <p>
+          Something went wrong here, try refreshing your page.
+        </p>
+      </section>
+    </div>
+    <div>
+      <div
+        class="reapit-notification reapit-notification-topRight"
+        style="right: 0px; top: 24px;"
+      >
+        <div>
           <div
-            className="card"
+            class="reapit-notification-notice reapit-notification-notice-closable"
           >
             <div
-              className="card-content"
+              class="reapit-notification-notice-content"
             >
               <div
-                className="media"
+                class="notification reapit-notification-content is-warning-message"
               >
-                <div
-                  className="media-content"
+                <svg
+                  class=""
+                  fill="none"
+                  height="36"
+                  viewBox="0 0 36 36"
+                  width="36"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <H5>
-                    Personal Details
-                  </H5>
-                </div>
-                <div
-                  className="media-right"
-                >
-                   
-                  <div>
-                    <div
-                      className="undefined undefined"
-                    >
-                      <FaCheck />
-                      <span>
-                        Completed
-                      </span>
-                    </div>
-                    <Button
-                      type="button"
-                      variant="primary"
-                    >
-                      Edit
-                    </Button>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="undefined undefined"
-              >
-                <FaCheck />
-                <span>
-                  Completed
-                </span>
+                  <path
+                    d="M10 0C4.4775 0 0 4.4775 0 10C0 15.5225 4.4775 20 10 20C15.5225 20 20 15.5225 20 10C20 4.4775 15.5225 0 10 0ZM10 16.3833C9.21833 16.3833 8.68333 15.7808 8.68333 15C8.68333 14.1967 9.24083 13.6167 10 13.6167C10.8025 13.6167 11.3167 14.1967 11.3167 15C11.3167 15.7817 10.8025 16.3833 10 16.3833ZM10.5183 11.1008C10.3192 11.78 9.69167 11.7917 9.4825 11.1008C9.24167 10.3042 8.38583 7.28 8.38583 5.31583C8.38583 2.72417 11.6283 2.71167 11.6283 5.31583C11.6275 7.29167 10.7258 10.3942 10.5183 11.1008Z"
+                    fill="#D3033D"
+                  />
+                </svg>
+                Something went wrong with this component
               </div>
             </div>
-          </div>
-        </Section>
-      </FadeIn>
-      <FadeIn
-        key="1"
-      >
-        <Section
-          hasPadding={false}
-        >
-          <div
-            className="card"
-          >
-            <div
-              className="card-content"
+            <a
+              class="reapit-notification-notice-close"
+              tabindex="0"
             >
-              <div
-                className="media"
-              >
-                <div
-                  className="media-content"
-                >
-                  <H5>
-                    Primary ID
-                  </H5>
-                </div>
-                <div
-                  className="media-right"
-                >
-                   
-                  <div>
-                    <div
-                      className="undefined undefined"
-                    >
-                      <FaTimes />
-                      <span>
-                        Incomplete
-                      </span>
-                    </div>
-                    <Button
-                      type="button"
-                      variant="primary"
-                    >
-                      Edit
-                    </Button>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="undefined undefined"
-              >
-                <FaTimes />
-                <span>
-                  Incomplete
-                </span>
-              </div>
-            </div>
+              <span
+                class="reapit-notification-notice-close-x"
+              />
+            </a>
           </div>
-        </Section>
-      </FadeIn>
-      <FadeIn
-        key="2"
-      >
-        <Section
-          hasPadding={false}
-        >
-          <div
-            className="card"
-          >
-            <div
-              className="card-content"
-            >
-              <div
-                className="media"
-              >
-                <div
-                  className="media-content"
-                >
-                  <H5>
-                    Secondary ID
-                  </H5>
-                </div>
-                <div
-                  className="media-right"
-                >
-                   
-                  <div>
-                    <div
-                      className="undefined undefined"
-                    >
-                      <FaCheck />
-                      <span>
-                        Completed
-                      </span>
-                    </div>
-                    <Button
-                      type="button"
-                      variant="primary"
-                    >
-                      Edit
-                    </Button>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="undefined undefined"
-              >
-                <FaCheck />
-                <span>
-                  Completed
-                </span>
-              </div>
-            </div>
-          </div>
-        </Section>
-      </FadeIn>
-      <FadeIn
-        key="3"
-      >
-        <Section
-          hasPadding={false}
-        >
-          <div
-            className="card"
-          >
-            <div
-              className="card-content"
-            >
-              <div
-                className="media"
-              >
-                <div
-                  className="media-content"
-                >
-                  <H5>
-                    Address Information
-                  </H5>
-                </div>
-                <div
-                  className="media-right"
-                >
-                   
-                  <div>
-                    <div
-                      className="undefined undefined"
-                    >
-                      <FaTimes />
-                      <span>
-                        Incomplete
-                      </span>
-                    </div>
-                    <Button
-                      type="button"
-                      variant="primary"
-                    >
-                      Edit
-                    </Button>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="undefined undefined"
-              >
-                <FaTimes />
-                <span>
-                  Incomplete
-                </span>
-              </div>
-            </div>
-          </div>
-        </Section>
-      </FadeIn>
-      <FadeIn
-        key="4"
-      >
-        <Section
-          hasPadding={false}
-        >
-          <div
-            className="card"
-          >
-            <div
-              className="card-content"
-            >
-              <div
-                className="media"
-              >
-                <div
-                  className="media-content"
-                >
-                  <H5>
-                    Declaration Risk Management
-                  </H5>
-                </div>
-                <div
-                  className="media-right"
-                >
-                   
-                  <div>
-                    <div
-                      className="undefined undefined"
-                    >
-                      <FaTimes />
-                      <span>
-                        Incomplete
-                      </span>
-                    </div>
-                    <Button
-                      type="button"
-                      variant="primary"
-                    >
-                      Edit
-                    </Button>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="undefined undefined"
-              >
-                <FaTimes />
-                <span>
-                  Incomplete
-                </span>
-              </div>
-            </div>
-          </div>
-        </Section>
-      </FadeIn>
-      <FadeIn
-        key="5"
-      >
-        <Section
-          hasPadding={false}
-        >
-          <div
-            className="card"
-          >
-            <div
-              className="card-content"
-            >
-              <div
-                className="media"
-              >
-                <div
-                  className="media-content"
-                >
-                  <H5>
-                    Report
-                  </H5>
-                </div>
-                <div
-                  className="media-right"
-                >
-                   
-                  <div>
-                    <Button
-                      type="button"
-                      variant="primary"
-                    >
-                      View
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </Section>
-      </FadeIn>
-    </Section>
-    <withRouter(ProfileModal)
-      afterClose={[MockFunction]}
-      id="123"
-      modalContentType="PROFILE"
-      visible={true}
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
     />
-  </ErrorBoundary>
-</Section>
+    <section
+      class="section has-background"
+      data-test=""
+    >
+      <p>
+        Something went wrong here, try refreshing your page.
+      </p>
+    </section>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

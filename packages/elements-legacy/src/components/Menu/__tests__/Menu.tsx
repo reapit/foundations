@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow, mount } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { MemoryRouter } from 'react-router'
 import toJson from 'enzyme-to-json'
 import { Menu, getActiveItemKey, LinkItem } from '../index'
@@ -13,12 +13,12 @@ jest.mock('../../DynamicLinks', () => ({
 
 describe('Menu', () => {
   it('should render menu correctly', () => {
-    const wrapper = shallow(<Menu {...mockMenuProps} />)
+    const wrapper = render(<Menu {...mockMenuProps} />)
     expect(toJson(wrapper)).toMatchSnapshot()
   })
 
   it('should render menu correctly when mode prop is undefined', () => {
-    const wrapper = shallow(<Menu {...mockMenuProps} mode={undefined} />)
+    const wrapper = render(<Menu {...mockMenuProps} mode={undefined} />)
     expect(toJson(wrapper)).toMatchSnapshot()
   })
 
@@ -30,7 +30,7 @@ describe('Menu', () => {
         {item.title && <div className="nav-item-title">{item.title}</div>}
       </>
     )
-    const wrapper = shallow(<LinkItem item={item}>{children}</LinkItem>)
+    const wrapper = render(<LinkItem item={item}>{children}</LinkItem>)
     expect(toJson(wrapper)).toMatchSnapshot()
   })
 
@@ -42,7 +42,7 @@ describe('Menu', () => {
         {item.title && <div className="nav-item-title">{item.title}</div>}
       </>
     )
-    const wrapper = shallow(<LinkItem item={item}>{children}</LinkItem>)
+    const wrapper = render(<LinkItem item={item}>{children}</LinkItem>)
     expect(toJson(wrapper)).toMatchSnapshot()
   })
 
@@ -54,7 +54,7 @@ describe('Menu', () => {
         {item.title && <div className="nav-item-title">{item.title}</div>}
       </>
     )
-    const wrapper = shallow(<LinkItem item={item}>{children}</LinkItem>)
+    const wrapper = render(<LinkItem item={item}>{children}</LinkItem>)
     expect(toJson(wrapper)).toMatchSnapshot()
   })
 
@@ -98,7 +98,7 @@ describe('Menu', () => {
       // jsdom does not implement scrollIntoView => have to mock it
       // tslint:disable-next-line: no-empty
       Element.prototype.scrollIntoView = () => {}
-      const wrapper = mount(<Component {...mockMenuProps} />)
+      const wrapper = render(<Component {...mockMenuProps} />)
 
       expect(wrapper.find('.is-active').at(0).childAt(1).text()).toEqual(currentSelectedItem.title)
 

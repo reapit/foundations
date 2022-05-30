@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { mount } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import Analytics from '../analytics'
 import { MessageProvider } from '../../../../context/message-context'
 
@@ -13,7 +13,7 @@ jest.mock('@reapit/connect-session', () => ({
 describe('Analytics', () => {
   it('should match a snapshot', () => {
     expect(
-      mount(
+      render(
         <MessageProvider>
           <Analytics />
         </MessageProvider>,

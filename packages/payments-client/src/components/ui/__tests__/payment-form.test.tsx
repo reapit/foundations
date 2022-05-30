@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { OpayoProvider } from '../../../services/providers'
 import PaymentForm from '../payment-form'
 import { stubPaymentWithPropertyModel } from '../__stubs__/payment'
@@ -10,7 +10,7 @@ const paymentId = 'MKT20000010'
 describe('PaymentForm', () => {
   it('should match a snapshot', () => {
     expect(
-      shallow(
+      render(
         <PaymentForm
           payment={stubPaymentWithPropertyModel}
           paymentProvider={new OpayoProvider({ merchantSessionKey: 'merchantSessionKey', expiry: 'expiry' })}

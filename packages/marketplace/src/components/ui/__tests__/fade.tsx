@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { Fade } from '../fade'
 
 describe('Fade', () => {
@@ -8,7 +8,7 @@ describe('Fade', () => {
       in: true,
       timeout: 300,
     }
-    const wrapper = shallow(
+    const wrapper = render(
       <Fade {...mockProps}>
         <div>MockChildren</div>
       </Fade>,
@@ -20,7 +20,7 @@ describe('Fade', () => {
       in: false,
       timeout: 300,
     }
-    const wrapper = shallow(
+    const wrapper = render(
       <Fade {...mockProps}>
         <div>MockChildren</div>
       </Fade>,

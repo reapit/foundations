@@ -1,10 +1,10 @@
 import React from 'react'
-import { mount } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { Loader } from '..'
 
 describe('Loader component', () => {
   it('should match a snapshot', () => {
-    const wrapper = mount(<Loader />)
+    const wrapper = render(<Loader />)
     expect(wrapper).toMatchSnapshot()
   })
 })

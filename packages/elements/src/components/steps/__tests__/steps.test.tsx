@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { ElStep } from '../__styles__'
 import { Steps, StepsProps, StepsVertical, StepsVerticalProps } from '../index'
 
@@ -10,15 +10,15 @@ describe('Steps', () => {
   }
 
   it('should match a snapshot', () => {
-    expect(shallow(<Steps {...props} />)).toMatchSnapshot()
+    expect(render(<Steps {...props} />)).toMatchSnapshot()
   })
 
   it('should match a snapshot when selectedStep is different', () => {
-    expect(shallow(<Steps {...props} selectedStep="2" />)).toMatchSnapshot()
+    expect(render(<Steps {...props} selectedStep="2" />)).toMatchSnapshot()
   })
 
   it('should fire the onStepClick event correctly', () => {
-    const wrapper = shallow(<Steps {...props} />)
+    const wrapper = render(<Steps {...props} />)
     wrapper.find(ElStep).first().simulate('click')
     expect(props.onStepClick).toHaveBeenCalledTimes(1)
   })
@@ -57,15 +57,15 @@ describe('StepsVertical', () => {
   }
 
   it('should match a snapshot', () => {
-    expect(shallow(<StepsVertical {...props} />)).toMatchSnapshot()
+    expect(render(<StepsVertical {...props} />)).toMatchSnapshot()
   })
 
   it('should match a snapshot when selectedStep is different', () => {
-    expect(shallow(<StepsVertical {...props} selectedStep="2" />)).toMatchSnapshot()
+    expect(render(<StepsVertical {...props} selectedStep="2" />)).toMatchSnapshot()
   })
 
   it('should fire the onStepClick event correctly', () => {
-    const wrapper = shallow(<StepsVertical {...props} />)
+    const wrapper = render(<StepsVertical {...props} />)
     wrapper.find(ElStep).first().simulate('click')
     expect(props.onStepClick).toHaveBeenCalledTimes(1)
   })

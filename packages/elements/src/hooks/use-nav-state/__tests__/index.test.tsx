@@ -1,11 +1,11 @@
 import React, { MouseEvent } from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { UseNavState, NavStateProvider, useNavState } from '../index'
 import { renderHook, act } from '@testing-library/react-hooks'
 
 describe('NavStateProvider', () => {
   it('should match snapshot', () => {
-    expect(shallow(<NavStateProvider />)).toMatchSnapshot()
+    expect(render(<NavStateProvider />)).toMatchSnapshot()
   })
 })
 

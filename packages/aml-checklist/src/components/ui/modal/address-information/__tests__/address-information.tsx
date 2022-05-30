@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { ReduxState } from '@/types/core'
 import { contact } from '@/sagas/__stubs__/contact'
 import {
@@ -21,7 +21,7 @@ describe('AddressInformation', () => {
       onPrevHandler: jest.fn(),
       onHandleSubmit: jest.fn(),
     }
-    const wrapper = shallow(<AddressInformation {...mockProps} />)
+    const wrapper = render(<AddressInformation {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
   })
 
@@ -34,7 +34,7 @@ describe('AddressInformation', () => {
 
   describe('renderSencondaryAddress', () => {
     it('should match snapshot', () => {
-      const wrapper = shallow(
+      const wrapper = render(
         renderSencondaryAddress(contact.secondaryAddress, false, jest.fn(), { documentId: 'SOME_ID' }),
       )
       expect(wrapper).toMatchSnapshot()
@@ -102,7 +102,7 @@ describe('AddressInformation', () => {
           documentId: 'https://someimage.com',
         },
       }
-      const wrapper = shallow(<AddressInput {...mockProps} />)
+      const wrapper = render(<AddressInput {...mockProps} />)
       expect(wrapper).toMatchSnapshot()
     })
   })

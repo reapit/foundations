@@ -1,14 +1,14 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { ErrorBoundary } from '../error-boundary'
 
 describe('ErrorBoundary', () => {
   it('should match snapshot', () => {
-    expect(shallow(<ErrorBoundary />)).toMatchSnapshot()
+    expect(render(<ErrorBoundary />)).toMatchSnapshot()
   })
 
   it('should match snapshot when error', () => {
-    const wrapper = shallow(<ErrorBoundary />)
+    const wrapper = render(<ErrorBoundary />)
     wrapper.setState({
       hasFailed: true,
     })

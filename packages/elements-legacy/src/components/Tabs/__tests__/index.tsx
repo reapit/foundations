@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { Tabs, TabConfig } from '../index'
 import toJson from 'enzyme-to-json'
 
@@ -25,11 +25,11 @@ const props: Partial<any> = {
 
 describe('Tabs', () => {
   it('should match a snapshot', () => {
-    expect(toJson(shallow(<Tabs tabConfigs={tabConfigs(props)} />))).toMatchSnapshot()
+    expect(toJson(render(<Tabs tabConfigs={tabConfigs(props)} />))).toMatchSnapshot()
   })
 
   it('simulates afterClose event', () => {
-    const wrapper = shallow(<Tabs tabConfigs={tabConfigs(props)} />)
+    const wrapper = render(<Tabs tabConfigs={tabConfigs(props)} />)
     wrapper.find('a').first().simulate('click', {
       preventDefault: jest.fn(),
     })

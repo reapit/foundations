@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 
 import InstalledAppCard, { InstalledAppCardProps } from '../installed-app-card'
 
@@ -31,7 +31,7 @@ const props: InstalledAppCardProps = {
 }
 
 describe('InstalledAppCard', () => {
-  const wrapper = shallow(<InstalledAppCard {...props} />)
+  const wrapper = render(<InstalledAppCard {...props} />)
   it('should match a snapshot', () => {
     expect(wrapper).toMatchSnapshot()
   })

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { mount } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { Editor, EditorProps } from '../index'
 
 const defaultProps = {
@@ -14,7 +14,7 @@ const defaultProps = {
 
 describe('Editor', () => {
   it('should match a snapshot', () => {
-    const mounted = mount(<Editor {...defaultProps} />).html()
+    const mounted = render(<Editor {...defaultProps} />).html()
     expect(mounted).toMatchSnapshot()
   })
 })

@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { ReduxState } from '@/types/core'
 import { contact } from '@/sagas/__stubs__/contact'
 import { DeclarationAndRiskAssessment, mapStateToProps, mapDispatchToProps } from '../declaration-and-risk-assessment'
@@ -13,7 +13,7 @@ describe('DeclarationAndRiskAssessment', () => {
       onPrevHandler: jest.fn(),
       onHandleSubmit: jest.fn(),
     }
-    const wrapper = shallow(<DeclarationAndRiskAssessment {...mockProps} />)
+    const wrapper = render(<DeclarationAndRiskAssessment {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
   })
 

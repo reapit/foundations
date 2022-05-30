@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import {
   ContextMenu,
   handleContextClick,
@@ -21,7 +21,7 @@ afterEach(() => {
 describe('ContextMenu', () => {
   it('should match snapshot with visible true', () => {
     expect(
-      shallow(
+      render(
         <ContextMenu
           data={data}
           selected={selectedMatrix}
@@ -35,7 +35,7 @@ describe('ContextMenu', () => {
 
   it('should match snapshot with visible false', () => {
     expect(
-      shallow(
+      render(
         <ContextMenu
           data={data}
           selected={selectedMatrix}

@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-no-undef */
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { onImageError, getComingAppLinkHref, ComingSoonAppComponent } from '../coming-soon'
 
 jest.mock('@/assets/images/default-feature-image.jpg', () => 'placeHolderImage')
@@ -35,7 +35,7 @@ const config = {
 
 describe('ComingSoonAppComponent', () => {
   it('should match a snapshot', () => {
-    expect(shallow(<ComingSoonAppComponent app={config.comingSoonApps[0]} isDesktop={false} />)).toMatchSnapshot()
+    expect(render(<ComingSoonAppComponent app={config.comingSoonApps[0]} isDesktop={false} />)).toMatchSnapshot()
   })
 })
 

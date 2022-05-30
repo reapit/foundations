@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { Icon } from '..'
 import { iconSet } from '../icons'
 import { getIconSize } from '../index'
@@ -13,19 +13,19 @@ import {
 
 describe('Icon component', () => {
   it('should match a snapshot', () => {
-    const wrapper = shallow(<Icon icon="addSystem" />)
+    const wrapper = render(<Icon icon="addSystem" />)
     expect(wrapper).toMatchSnapshot()
   })
 
   it('should match a snapshot when intent prop is supplied', () => {
-    const wrapper = shallow(<Icon icon="addSystem" intent="primary" />)
+    const wrapper = render(<Icon icon="addSystem" intent="primary" />)
     expect(wrapper).toMatchSnapshot()
   })
 
   Object.keys(iconSet).forEach((icon) => {
     it(`should match a snapshot of icon ${icon}`, () => {
       const Icon = iconSet[icon]
-      const wrapper = shallow(<Icon />)
+      const wrapper = render(<Icon />)
       expect(wrapper).toMatchSnapshot()
     })
   })

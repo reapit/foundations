@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { mount } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { usePortal } from '../use-portal'
 import { renderWithPortalProvider } from './portal-provider'
 
@@ -20,7 +20,7 @@ const App: React.FunctionComponent<any> = () => {
 
 describe('usePortal', () => {
   it('Should append a node inside body', () => {
-    const wrapper = mount(renderWithPortalProvider(<App />))
+    const wrapper = render(renderWithPortalProvider(<App />))
     const button = wrapper.find('button')
     expect(wrapper.find('div')).toHaveLength(0)
     button.simulate('click')

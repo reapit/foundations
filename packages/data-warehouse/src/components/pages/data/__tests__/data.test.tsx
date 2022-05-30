@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { mount } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import Data from '../data'
 import { MessageProvider } from '../../../../context/message-context'
 
@@ -21,7 +21,7 @@ jest.mock('@reapit/connect-session', () => ({
 describe('Data', () => {
   it('should match a snapshot', () => {
     expect(
-      mount(
+      render(
         <MessageProvider>
           <Data />
         </MessageProvider>,

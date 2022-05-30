@@ -1,5 +1,5 @@
 import React, { MouseEvent } from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import {
   Card,
   CardContextMenu,
@@ -12,7 +12,7 @@ import {
 
 describe('Card', () => {
   it('should match a snapshot and render children with no props', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <Card>
         <div>I am a child</div>
       </Card>,
@@ -21,7 +21,7 @@ describe('Card', () => {
   })
 
   it('should match a snapshot and render children with full props', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <Card
         hasMainCard
         hasListCard
@@ -64,7 +64,7 @@ describe('Card', () => {
 
 describe('CardContextMenu', () => {
   it('should match a snapshot and render children with no props', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <CardContextMenu>
         <div>I am a child</div>
       </CardContextMenu>,
@@ -73,7 +73,7 @@ describe('CardContextMenu', () => {
   })
 
   it('should match a snapshot and render children with full props', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <CardContextMenu
         contextMenuItems={[
           { icon: 'trashSystem', onClick: () => console.log('Clicking'), intent: 'danger' },

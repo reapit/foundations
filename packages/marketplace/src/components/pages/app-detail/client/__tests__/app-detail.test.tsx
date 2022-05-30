@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as ReactRedux from 'react-redux'
 import { MemoryRouter } from 'react-router'
-import { mount } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import configureStore from 'redux-mock-store'
 import { getMockRouterProps } from '@/utils/mock-helper'
 import AppDetail, {
@@ -45,7 +45,7 @@ describe('AppDetail', () => {
       },
     })
 
-    const wrapper = mount(
+    const wrapper = render(
       <ReactRedux.Provider store={customStore}>
         <MemoryRouter initialEntries={[{ pathname: Routes.APP_DETAIL, key: 'clientAppDetailRoute' }]}>
           <AppDetail />
@@ -70,7 +70,7 @@ describe('AppDetail', () => {
       },
     })
 
-    const wrapper = mount(
+    const wrapper = render(
       <ReactRedux.Provider store={customStore}>
         <MemoryRouter initialEntries={[{ pathname: Routes.APP_DETAIL, key: 'clientAppDetailRoute' }]}>
           <AppDetail />
@@ -85,7 +85,7 @@ describe('AppDetail', () => {
 
   it('should match a snapshot', () => {
     expect(
-      mount(
+      render(
         <ReactRedux.Provider store={store}>
           <MemoryRouter initialEntries={[{ pathname: Routes.APP_DETAIL, key: 'clientAppDetailRoute' }]}>
             <AppDetail />

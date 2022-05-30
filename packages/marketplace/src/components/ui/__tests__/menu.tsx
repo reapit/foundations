@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { getDefaultNavIndex, Menu, XmasLogo } from '../menu'
 import configureStore from 'redux-mock-store'
 import { Provider } from 'react-redux'
@@ -25,7 +25,7 @@ describe('Menu', () => {
 
   it('should match a snapshot', () => {
     expect(
-      shallow(
+      render(
         <Provider store={store}>
           <Menu />
         </Provider>,
@@ -35,7 +35,7 @@ describe('Menu', () => {
 
   describe('XmasLogo', () => {
     it('should match a snapshot', () => {
-      expect(shallow(<XmasLogo />)).toMatchSnapshot()
+      expect(render(<XmasLogo />)).toMatchSnapshot()
     })
   })
 })

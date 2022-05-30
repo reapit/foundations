@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { Section, SectionProps } from '../section'
 import developerPortalImage from '@/assets/images/DeveloperPortalGraphic.jpg'
 
@@ -12,7 +12,7 @@ describe('Section', () => {
       image: developerPortalImage,
     }
 
-    expect(shallow(<Section {...mockProps} />)).toMatchSnapshot()
+    expect(render(<Section {...mockProps} />)).toMatchSnapshot()
   })
 
   it('should match snapshot when image in right', () => {
@@ -23,7 +23,7 @@ describe('Section', () => {
       image: developerPortalImage,
     }
 
-    expect(shallow(<Section {...mockProps} />)).toMatchSnapshot()
+    expect(render(<Section {...mockProps} />)).toMatchSnapshot()
   })
 
   it('should match snapshot when has button', () => {
@@ -35,6 +35,6 @@ describe('Section', () => {
       button: <a href="/test">My button</a>,
     }
 
-    expect(shallow(<Section {...mockProps} />)).toMatchSnapshot()
+    expect(render(<Section {...mockProps} />)).toMatchSnapshot()
   })
 })

@@ -1,5 +1,5 @@
 import React from 'react'
-import { mount } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import InstallationsTable, { handleMemoisedData, handleSetPageNumber } from '../installations-table'
 import { Provider } from 'react-redux'
 import configureStore from 'redux-mock-store'
@@ -13,7 +13,7 @@ describe('InstallationsTable', () => {
 
   it('should match a snapshot', () => {
     expect(
-      mount(
+      render(
         <Provider store={store}>
           <InstallationsTable />
         </Provider>,

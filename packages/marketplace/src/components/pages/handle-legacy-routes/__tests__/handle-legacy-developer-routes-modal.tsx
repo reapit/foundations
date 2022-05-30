@@ -1,6 +1,6 @@
 import React from 'react'
 import routes from '@/constants/routes'
-import { mount } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import HandleLegacyDeveloperRoutesModal, {
   handleBtnBackToMarketplace,
   handleBtnGoThereNow,
@@ -26,6 +26,6 @@ describe('HandleLegacyDeveloperRoutesModal', () => {
   })
 
   test('HandleLegacyDeveloperRoutesModal - should match snapshoot', () => {
-    expect(mount(<HandleLegacyDeveloperRoutesModal />)).toMatchSnapshot()
+    expect(render(<HandleLegacyDeveloperRoutesModal />)).toMatchSnapshot()
   })
 })

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow, mount } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { SelectBox, SelectBoxOptions, SelectBoxProps } from '../index'
 import { Formik, Form, FormikErrors } from 'formik'
 import toJson from 'enzyme-to-json'
@@ -19,7 +19,7 @@ const selectBoxProps: SelectBoxProps = {
 }
 
 const createFormikWrapper = () => {
-  const wrapper = mount(
+  const wrapper = render(
     <Formik onSubmit={jest.fn()} initialValues={{ demo: 'b' }}>
       {() => (
         <Form>
@@ -65,12 +65,12 @@ const ErrorFomrikComponent = () => {
 
 describe('SelectBox', () => {
   it('should match a snapshot', () => {
-    expect(toJson(shallow(<SelectBox {...selectBoxProps} />))).toMatchSnapshot()
+    expect(toJson(render(<SelectBox {...selectBoxProps} />))).toMatchSnapshot()
   })
 
   describe('should work when integrating with Formik', () => {
     it('Render error correctly', async () => {
-      const wrapper = mount(<ErrorFomrikComponent />)
+      const wrapper = render(<ErrorFomrikComponent />)
       const select = wrapper.find('select')
       await act(async () => {
         select.simulate('change', { target: { name: 'demo', value: 'b' } })

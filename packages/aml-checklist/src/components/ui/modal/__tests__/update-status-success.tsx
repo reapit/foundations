@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { UpdateStatusSuccess, mapDispatchToProps } from '../update-status-success'
 import { History } from 'history'
 
@@ -9,7 +9,7 @@ describe('UpdateStatusSuccess', () => {
       hideModal: jest.fn(),
       history: {} as History,
     }
-    const wrapper = shallow(<UpdateStatusSuccess {...mockProps} />)
+    const wrapper = render(<UpdateStatusSuccess {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
   })
 

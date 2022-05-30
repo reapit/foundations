@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow, mount } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { DatePicker, DatePickerProps, CustomInput } from '../index'
 import { Formik, Form } from 'formik'
 import { act } from 'react-dom/test-utils'
@@ -15,7 +15,7 @@ const props: DatePickerProps = {
 describe('Date-time picker', () => {
   describe('DatePicker', () => {
     it('should match a snapshot', () => {
-      expect(shallow(<DatePicker {...props} />)).toMatchSnapshot()
+      expect(render(<DatePicker {...props} />)).toMatchSnapshot()
     })
   })
 
@@ -28,7 +28,7 @@ describe('Date-time picker', () => {
         onClick: jest.fn(),
         className: '',
       }
-      expect(shallow(<CustomInput {...mockProps} />)).toMatchSnapshot()
+      expect(render(<CustomInput {...mockProps} />)).toMatchSnapshot()
     })
   })
 
@@ -39,7 +39,7 @@ describe('Date-time picker', () => {
         value: '22/11/1997',
       },
     }
-    const wrapper = mount(
+    const wrapper = render(
       <Formik initialValues={{ test: '1997-11-20T17:00:00' }} onSubmit={submitCallback}>
         {() => {
           return (
@@ -68,7 +68,7 @@ describe('Date-time picker', () => {
 
   describe('should map value correctly from formik to text box', () => {
     it('handles error case', () => {
-      const wrapper = mount(
+      const wrapper = render(
         <Formik initialValues={{ test: 'asdfasd' }} onSubmit={jest.fn()}>
           {() => {
             return (
@@ -84,7 +84,7 @@ describe('Date-time picker', () => {
       expect(input.props().value).toBe('')
     })
     it('handles empty case', () => {
-      const wrapper = mount(
+      const wrapper = render(
         <Formik initialValues={{ test: '' }} onSubmit={jest.fn()}>
           {() => {
             return (
@@ -100,7 +100,7 @@ describe('Date-time picker', () => {
       expect(input.props().value).toBe('')
     })
     it('handles normal case', (done) => {
-      const wrapper = mount(
+      const wrapper = render(
         <Formik initialValues={{ test: '1997-11-20T17:00:00' }} onSubmit={jest.fn()}>
           {() => {
             return (
@@ -131,7 +131,7 @@ describe('Date-time picker', () => {
   })
 
   it('should work when integrating with Formik', () => {
-    const wrapper = mount(
+    const wrapper = render(
       <Formik initialValues={{ test: false }} onSubmit={jest.fn()}>
         {() => (
           <Form>
@@ -152,7 +152,7 @@ describe('Date-time picker', () => {
       onClick: jest.fn(),
       className: '',
     }
-    const wrapper = shallow(<CustomInput {...mockProps} />)
+    const wrapper = render(<CustomInput {...mockProps} />)
     const inputWrapper = wrapper.find('input')
     inputWrapper.simulate('blur')
     expect(inputWrapper.props().value).toEqual('')

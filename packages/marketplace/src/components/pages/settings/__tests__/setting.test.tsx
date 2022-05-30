@@ -1,5 +1,5 @@
 import React from 'react'
-import { mount } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { Dispatch } from 'redux'
 import { Settings, createDispatchers } from '../setting'
 import { Provider } from 'react-redux'
@@ -22,7 +22,7 @@ describe('Settings', () => {
     const store = mockStore(appState)
 
     expect(
-      mount(
+      render(
         <Provider store={store}>
           <MemoryRouter initialEntries={[{ pathname: Routes.SETTINGS, key: 'clientSettingsRoute' }]}>
             <Settings />

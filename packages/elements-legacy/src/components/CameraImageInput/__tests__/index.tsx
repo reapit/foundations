@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { FileInputProps } from '../../FileInput'
 import { CameraImageInput } from '../index'
 import toJson from 'enzyme-to-json'
@@ -12,7 +12,7 @@ const props: FileInputProps = {
 
 describe('CameraImageInput', () => {
   it('should match a snapshot', () => {
-    expect(toJson(shallow(<CameraImageInput {...props} />))).toMatchSnapshot()
+    expect(toJson(render(<CameraImageInput {...props} />))).toMatchSnapshot()
   })
 
   afterEach(() => {

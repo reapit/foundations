@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { LandlordItem } from '../landlord-item'
 import { mockAppointmentsQuery } from '../../../pages/appointment/__mocks__/appointments-query'
 import { ExtendedAppointmentModel } from '../../../../types/global'
@@ -13,7 +13,7 @@ jest.mock('../../../../core/app-state')
 
 describe('LandlordItem', () => {
   it('should match snapshot without landlords in state', () => {
-    expect(shallow(<LandlordItem appointment={appointment} />)).toMatchSnapshot()
+    expect(render(<LandlordItem appointment={appointment} />)).toMatchSnapshot()
   })
 
   it('should match snapshot with landlords in state', () => {
@@ -24,6 +24,6 @@ describe('LandlordItem', () => {
       setAppState: jest.fn(),
     }))
 
-    expect(shallow(<LandlordItem appointment={appointment} />)).toMatchSnapshot()
+    expect(render(<LandlordItem appointment={appointment} />)).toMatchSnapshot()
   })
 })

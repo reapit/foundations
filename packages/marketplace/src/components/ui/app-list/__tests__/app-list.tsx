@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 
 import { AppList, AppListProps } from '../app-list'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
@@ -18,33 +18,33 @@ const props: AppListProps = {
 
 describe('AppList', () => {
   it('should match a snapshot', () => {
-    expect(shallow(<AppList {...props} />)).toMatchSnapshot()
+    expect(render(<AppList {...props} />)).toMatchSnapshot()
   })
 
   it('should match a snapshot when use empty infoType', () => {
-    expect(shallow(<AppList {...props} infoType={''} />)).toMatchSnapshot()
+    expect(render(<AppList {...props} infoType={''} />)).toMatchSnapshot()
   })
 
   it('should show loading', () => {
-    const wrapper = shallow(<AppList {...props} loading />)
+    const wrapper = render(<AppList {...props} loading />)
     expect(wrapper.find(Loader)).toHaveLength(1)
   })
 
   it('should respond to a card click event', () => {
-    const wrapper = shallow(<AppList {...props} />)
+    const wrapper = render(<AppList {...props} />)
     wrapper.find(AppCard).first().simulate('click', { stopPropagation: jest.fn() })
     expect(props.onCardClick).toHaveBeenCalledTimes(1)
     expect(props.onCardClick).toHaveBeenCalledWith(appsDataStub?.data?.[0])
   })
 
   it('should contain GridFourColItem', () => {
-    const wrapper = shallow(<AppList {...props} />)
+    const wrapper = render(<AppList {...props} />)
     expect(wrapper.find(GridFourColItem).length).toBeGreaterThan(0)
   })
 
   it('should match the empty search message', () => {
     const emptyListProps: AppListProps = { ...props, list: [], infoType: '' }
-    const wrapper = shallow(<AppList {...emptyListProps} />)
+    const wrapper = render(<AppList {...emptyListProps} />)
     const EMPTY_SEARCH_MESSAGE = 'We are unable to find any Apps that match your search criteria. Please try again.'
 
     const alert = wrapper.find(Helper).dive()

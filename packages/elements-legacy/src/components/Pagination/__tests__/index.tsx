@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { shallow, mount } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import toJson from 'enzyme-to-json'
 import { Pagination, PaginationProps, generatePagination } from '..'
 
@@ -12,16 +12,16 @@ const props: PaginationProps = {
 
 describe('Pagination render test', () => {
   it('Should match a snapshot', () => {
-    expect(toJson(shallow(<Pagination {...props} />))).toMatchSnapshot()
+    expect(toJson(render(<Pagination {...props} />))).toMatchSnapshot()
   })
 
   it('Page 4 should be the current', () => {
-    const wrapper = shallow(<Pagination {...props} />)
+    const wrapper = render(<Pagination {...props} />)
     expect(wrapper.find('[aria-label="Goto page 4"]').hasClass('is-current')).toBeTruthy()
   })
 
   it('onChange should only be called on not a is-current button', () => {
-    const wrapper = shallow(<Pagination {...props} />)
+    const wrapper = render(<Pagination {...props} />)
     const event = { preventDefault: jest.fn() }
     wrapper.find('[aria-label="Goto page 4"]').simulate('click', event)
     wrapper.find('[aria-label="Goto page 2"]').simulate('click', event)
@@ -38,7 +38,7 @@ const PaginatorBehaviorTest = () => {
 
 describe('Pagination behavior test', () => {
   it('Previous/Next button should work as expected', () => {
-    const wrapper = mount(<PaginatorBehaviorTest />)
+    const wrapper = render(<PaginatorBehaviorTest />)
     expect(wrapper.find('[aria-label="Goto page 1"]').hasClass('is-current')).toBeTruthy()
     wrapper.find('.pagination-next').simulate('click').simulate('click')
     expect(wrapper.find('[aria-label="Goto page 3"]').hasClass('is-current')).toBeTruthy()
@@ -47,7 +47,7 @@ describe('Pagination behavior test', () => {
   })
 
   it('Paging button should work as expected', () => {
-    const wrapper = mount(<PaginatorBehaviorTest />)
+    const wrapper = render(<PaginatorBehaviorTest />)
     expect(wrapper.find('[aria-label="Goto page 2"]').hasClass('is-current')).not.toBeTruthy()
     wrapper.find('[aria-label="Goto page 2"]').simulate('click')
     expect(wrapper.find('[aria-label="Goto page 2"]').hasClass('is-current')).toBeTruthy()

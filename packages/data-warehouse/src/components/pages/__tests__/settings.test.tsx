@@ -1,9 +1,9 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import Settings from '../settings'
 
 describe('Settings', () => {
   it('should match a snapshot', () => {
-    expect(shallow(<Settings />)).toMatchSnapshot()
+    expect(render(<Settings />)).toMatchSnapshot()
   })
 })

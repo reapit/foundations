@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow, mount } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { AppSidebar, FilterForm, handleSelectCategory, handleSearchApp } from '../app-sidebar'
 import { FormFields, formFields } from '../form-fields'
 import { addQuery, removeQuery } from '@/utils/client-url-params'
@@ -44,11 +44,11 @@ describe('AppSidebar', () => {
   })
   ;(useSelector as jest.Mocked<any>).mockImplementation(() => categoriesStub.data as CategoryModel[])
   it('should match a snapshot', () => {
-    expect(shallow(<AppSidebar />)).toMatchSnapshot()
+    expect(render(<AppSidebar />)).toMatchSnapshot()
   })
 
   it('should call all hooks correctly', () => {
-    mount(<AppSidebar />)
+    render(<AppSidebar />)
     expect(useHistory).toHaveBeenCalled()
     expect(useLocation).toHaveBeenCalled()
     expect(useSelector).toHaveBeenCalledWith(selectCategories)
@@ -63,7 +63,7 @@ describe('FilterForm', () => {
     },
   } as FormikProps<FormFields>
   it('should match a snapshot', () => {
-    expect(shallow(<FilterForm {...props} />)).toMatchSnapshot()
+    expect(render(<FilterForm {...props} />)).toMatchSnapshot()
   })
 })
 

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow, mount } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { FileInput, FileInputProps, handleChangeCroppedImage, clearFile } from '../index'
 import { Formik } from 'formik'
 import toJson from 'enzyme-to-json'
@@ -16,7 +16,7 @@ const props: FileInputProps = {
 
 describe('FileInput', () => {
   it('should match a snapshot', () => {
-    expect(toJson(shallow(<FileInput {...props} />))).toMatchSnapshot()
+    expect(toJson(render(<FileInput {...props} />))).toMatchSnapshot()
   })
 
   it('should render label correctly', () => {
@@ -28,7 +28,7 @@ describe('FileInput', () => {
       </Formik>
     )
 
-    const wrapper = mount(<Wrapper />)
+    const wrapper = render(<Wrapper />)
     const label = wrapper.find('[data-test="file-input-label"]')
     expect(label.text()).toBe('test')
   })
@@ -72,7 +72,7 @@ describe('FileInput', () => {
 
     // trigger upload even
     const file = new File(['a'], 'test.png', { type: 'image/png' })
-    const wrapper = mount(<Wrapper />)
+    const wrapper = render(<Wrapper />)
     const fileUploader = wrapper.find('input')
 
     fileUploader.simulate('change', {
@@ -113,7 +113,7 @@ describe('FileInput', () => {
       </Formik>
     )
 
-    const wrapper = mount(<Wrapper />)
+    const wrapper = render(<Wrapper />)
     expect(wrapper.find('input[demo="test"]').length).toBe(1)
   })
 
@@ -143,7 +143,7 @@ describe('FileInput', () => {
 
     // trigger upload even
     const file = new File(['a'], 'test.png', { type: 'image/png' })
-    const wrapper = mount(<Wrapper />)
+    const wrapper = render(<Wrapper />)
     const fileUploader = wrapper.find('input')
 
     fileUploader.simulate('change', {

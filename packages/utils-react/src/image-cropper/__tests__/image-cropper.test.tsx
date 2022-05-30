@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { ImageCropperFileInput } from '../image-cropper'
 
 describe('ImageCropperWithInput', () => {
@@ -9,14 +9,14 @@ describe('ImageCropperWithInput', () => {
       name: 'inputImage',
       labelText: 'input image',
     }
-    const wrapper1 = shallow(<ImageCropperFileInput {...props1} />)
+    const wrapper1 = render(<ImageCropperFileInput {...props1} />)
     expect(wrapper1).toMatchSnapshot()
 
     const props2 = {
       ...props1,
       aspect: undefined,
     }
-    const wrapper2 = shallow(<ImageCropperFileInput {...props2} />)
+    const wrapper2 = render(<ImageCropperFileInput {...props2} />)
     expect(wrapper2).toMatchSnapshot()
   })
 })

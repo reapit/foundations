@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow, mount } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import {
   CategorySection,
   DesktopIntegrationSection,
@@ -26,22 +26,22 @@ import { categoriesStub } from '@/sagas/__stubs__/categories'
 
 describe('CategorySection', () => {
   it('should match a snapshot where category undefined and not sidebar', () => {
-    expect(shallow(<CategorySection category={undefined} />)).toMatchSnapshot()
+    expect(render(<CategorySection category={undefined} />)).toMatchSnapshot()
   })
 
   it('should match a snapshot where category is defined and is sidebar', () => {
-    expect(shallow(<CategorySection category={categoriesStub.data?.[0]} isSidebar />)).toMatchSnapshot()
+    expect(render(<CategorySection category={categoriesStub.data?.[0]} isSidebar />)).toMatchSnapshot()
   })
 })
 
 describe('DesktopIntegrationSection', () => {
   it('should match a snapshot where desktopIntegrationTypes empty and not sidebar', () => {
-    expect(shallow(<DesktopIntegrationSection desktopIntegrationTypes={[]} />)).toMatchSnapshot()
+    expect(render(<DesktopIntegrationSection desktopIntegrationTypes={[]} />)).toMatchSnapshot()
   })
 
   it('should match a snapshot where desktopIntegrationTypes hasLength and is sidebar', () => {
     expect(
-      shallow(
+      render(
         <DesktopIntegrationSection
           desktopIntegrationTypes={desktopIntegrationTypesStub.data as DesktopIntegrationTypeModel[]}
           isSidebar
@@ -53,42 +53,42 @@ describe('DesktopIntegrationSection', () => {
 
 describe('PrivateAppSection', () => {
   it('should match a snapshot where limitToClientIds empty and not sidebar', () => {
-    expect(shallow(<PrivateAppSection limitToClientIds={[]} />)).toMatchSnapshot()
+    expect(render(<PrivateAppSection limitToClientIds={[]} />)).toMatchSnapshot()
   })
 
   it('should match a snapshot where limitToClientIds hasLength and is sidebar', () => {
-    expect(shallow(<PrivateAppSection limitToClientIds={['ID_ONE', 'ID_TWO']} isSidebar />)).toMatchSnapshot()
+    expect(render(<PrivateAppSection limitToClientIds={['ID_ONE', 'ID_TWO']} isSidebar />)).toMatchSnapshot()
   })
 })
 
 describe('DirectApiSection', () => {
   it('should match a snapshot where isDirectApi false and not sidebar', () => {
-    expect(shallow(<DirectApiSection isDirectApi={false} />)).toMatchSnapshot()
+    expect(render(<DirectApiSection isDirectApi={false} />)).toMatchSnapshot()
   })
 
   it('should match a snapshot where isDirectApi true and is sidebar', () => {
-    expect(shallow(<DirectApiSection isDirectApi isSidebar />)).toMatchSnapshot()
+    expect(render(<DirectApiSection isDirectApi isSidebar />)).toMatchSnapshot()
   })
 })
 
 describe('StatusSection', () => {
   it('should match a snapshot where isListed false and not sidebar', () => {
-    expect(shallow(<StatusSection isListed={false} />)).toMatchSnapshot()
+    expect(render(<StatusSection isListed={false} />)).toMatchSnapshot()
   })
 
   it('should match a snapshot where isListed true and is sidebar', () => {
-    expect(shallow(<StatusSection isListed isSidebar />)).toMatchSnapshot()
+    expect(render(<StatusSection isListed isSidebar />)).toMatchSnapshot()
   })
 })
 
 describe('BackToAppsSection', () => {
   it('should match a snapshot', () => {
-    expect(shallow(<BackToAppsSection onClick={jest.fn()} />)).toMatchSnapshot()
+    expect(render(<BackToAppsSection onClick={jest.fn()} />)).toMatchSnapshot()
   })
 
   it('should respond to a button click', () => {
     const onClick = jest.fn()
-    const button = shallow(<BackToAppsSection onClick={onClick} />)
+    const button = render(<BackToAppsSection onClick={onClick} />)
       .find(Button)
       .first()
 
@@ -99,12 +99,12 @@ describe('BackToAppsSection', () => {
 
 describe('ListingPreviewSection', () => {
   it('should match a snapshot', () => {
-    expect(shallow(<ListingPreviewSection onClick={jest.fn()} isSidebar />)).toMatchSnapshot()
+    expect(render(<ListingPreviewSection onClick={jest.fn()} isSidebar />)).toMatchSnapshot()
   })
 
   it('should respond to a link click', () => {
     const onClick = jest.fn()
-    const link = mount(<ListingPreviewSection onClick={onClick} />)
+    const link = render(<ListingPreviewSection onClick={onClick} />)
       .find('a')
       .first()
 
@@ -115,13 +115,13 @@ describe('ListingPreviewSection', () => {
 
 describe('SummarySection', () => {
   it('should match a snapshot', () => {
-    expect(shallow(<SummarySection summary="Lorem ipsum" />)).toMatchSnapshot()
+    expect(render(<SummarySection summary="Lorem ipsum" />)).toMatchSnapshot()
   })
 })
 
 describe('InstallationsTableSection', () => {
   it('should render a table and match a snapshot when has data', () => {
-    const wrapper = mount(
+    const wrapper = render(
       <InstallationsTableSection data={installationsStub.data as InstallationModel[]} columns={[]} />,
     )
     expect(wrapper.find('[data-test="render-installations-table"]').length).toBe(1)
@@ -129,7 +129,7 @@ describe('InstallationsTableSection', () => {
   })
 
   it('should not render a table when has no data', () => {
-    const wrapper = mount(<InstallationsTableSection data={[]} columns={[]} />)
+    const wrapper = render(<InstallationsTableSection data={[]} columns={[]} />)
     expect(wrapper.find('[data-test="render-installations-table-empty-text"]').length).toBe(1)
     expect(wrapper).toMatchSnapshot()
   })
@@ -138,7 +138,7 @@ describe('InstallationsTableSection', () => {
 describe('AdditionalImagesSection', () => {
   it('should match a snapshot where has images', () => {
     expect(
-      shallow(
+      render(
         <AdditionalImagesSection
           images={appDetailDataStub.data.media as MediaModel[]}
           splitIndex={0}
@@ -149,24 +149,22 @@ describe('AdditionalImagesSection', () => {
   })
 
   it('should match a snapshot where has no images', () => {
-    expect(shallow(<AdditionalImagesSection images={[]} splitIndex={0} numberImages={2} />)).toMatchSnapshot()
+    expect(render(<AdditionalImagesSection images={[]} splitIndex={0} numberImages={2} />)).toMatchSnapshot()
   })
 })
 
 describe('PermissionsSection', () => {
   it('should match a snapshot where has permissions', () => {
-    expect(
-      shallow(<PermissionsSection permissions={appDetailDataStub.data.scopes as ScopeModel[]} />),
-    ).toMatchSnapshot()
+    expect(render(<PermissionsSection permissions={appDetailDataStub.data.scopes as ScopeModel[]} />)).toMatchSnapshot()
   })
 
   it('should match a snapshot where has no permissions', () => {
-    expect(shallow(<PermissionsSection permissions={[]} />)).toMatchSnapshot()
+    expect(render(<PermissionsSection permissions={[]} />)).toMatchSnapshot()
   })
 })
 
 describe('DescriptionSection', () => {
   it('should match a snapshot', () => {
-    expect(shallow(<DescriptionSection description="Lorem ipsum" />)).toMatchSnapshot()
+    expect(render(<DescriptionSection description="Lorem ipsum" />)).toMatchSnapshot()
   })
 })

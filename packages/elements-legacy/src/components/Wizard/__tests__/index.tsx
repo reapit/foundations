@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { mount } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { Wizard } from '..'
 
 const WizardWrapper = ({ defaultVisible = false }) => {
@@ -43,7 +43,7 @@ const WizardWrapper = ({ defaultVisible = false }) => {
 
 describe('Wizard', () => {
   it('should be visible when trigger open button click and close when click on cross icon', () => {
-    const wrapper = mount(<WizardWrapper />)
+    const wrapper = render(<WizardWrapper />)
     wrapper.find('.open-wizard-button-1').first().simulate('click')
     expect(wrapper.find('.modal').hasClass('is-active')).toBeTruthy()
     wrapper.find('.wizard-close').first().simulate('click')
@@ -51,7 +51,7 @@ describe('Wizard', () => {
   })
 
   it('can open nth step pane when open', () => {
-    const wrapper = mount(<WizardWrapper />)
+    const wrapper = render(<WizardWrapper />)
     Array.from({ length: 4 }, (v, k) => k).forEach((i) => {
       const index = i + 1
       wrapper.find(`.open-wizard-button-${index}`).first().simulate('click')
@@ -61,7 +61,7 @@ describe('Wizard', () => {
   })
 
   it('Navigate buttons should work/display correctly', () => {
-    const wrapper = mount(<WizardWrapper defaultVisible />)
+    const wrapper = render(<WizardWrapper defaultVisible />)
     expect(wrapper.find('[data-test="wizard-prev-btn"]')).toHaveLength(0)
     expect(wrapper.find('[data-test="wizard-save-btn"]')).toHaveLength(1)
     expect(wrapper.find('[data-test="wizard-next-btn"]')).toHaveLength(1)

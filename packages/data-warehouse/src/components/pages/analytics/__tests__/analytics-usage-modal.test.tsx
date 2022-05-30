@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { mount } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import AnalyticsUsageModal, { NewUsageComponent } from '../analytics-usage-modal'
 import { MessageProvider } from '../../../../context/message-context'
 
@@ -21,7 +21,7 @@ jest.mock('formik', () => ({
 describe('AnalyticsUsageModal', () => {
   it('should match a snapshot', () => {
     expect(
-      mount(
+      render(
         <MessageProvider>
           <AnalyticsUsageModal visible handleClose={jest.fn()} />
         </MessageProvider>,
@@ -32,10 +32,10 @@ describe('AnalyticsUsageModal', () => {
 
 describe('NewUsageComponent', () => {
   it('should match a snapshot for an updated usage', () => {
-    expect(mount(<NewUsageComponent currentSettings={{ monthlyUsageCap: 2 }} />)).toMatchSnapshot()
+    expect(render(<NewUsageComponent currentSettings={{ monthlyUsageCap: 2 }} />)).toMatchSnapshot()
   })
 
   it('should match a snapshot for a non-updated usage', () => {
-    expect(mount(<NewUsageComponent currentSettings={{ monthlyUsageCap: 5 }} />)).toMatchSnapshot()
+    expect(render(<NewUsageComponent currentSettings={{ monthlyUsageCap: 5 }} />)).toMatchSnapshot()
   })
 })

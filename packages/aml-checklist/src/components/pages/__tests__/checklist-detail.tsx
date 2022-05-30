@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import {
   mapDispatchToProps,
   mapStateToProps,
@@ -85,7 +85,7 @@ describe('checklist-detail', () => {
         mode: 'WEB',
         ...getMockRouterProps({ id: '123' }),
       } as CheckListDetailProps
-      const wrapper = shallow(<ChecklistDetail {...mockProps} />)
+      const wrapper = render(<ChecklistDetail {...mockProps} />)
       expect(wrapper).toMatchSnapshot()
     })
     it('should match snapshot when not loading', () => {
@@ -101,7 +101,7 @@ describe('checklist-detail', () => {
         modalContentType: 'PROFILE',
         ...getMockRouterProps({ id: '123' }),
       } as CheckListDetailProps
-      const wrapper = shallow(<ChecklistDetail {...mockProps} />)
+      const wrapper = render(<ChecklistDetail {...mockProps} />)
       expect(wrapper).toMatchSnapshot()
       expect(wrapper.find('Loader')).toHaveLength(0)
     })
@@ -118,7 +118,7 @@ describe('checklist-detail', () => {
     const sections = generateSection(sectionsStatus, mockOnClick)
     const result = renderSections(sections)
     expect(result).toHaveLength(6)
-    const wrapper = shallow(<div>{result}</div>)
+    const wrapper = render(<div>{result}</div>)
     expect(wrapper).toMatchSnapshot()
   })
 })

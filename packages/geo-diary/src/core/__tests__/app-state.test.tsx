@@ -1,12 +1,12 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { AppStateContextProps, AppStateProvider, defaultAppState, useAppState } from '../app-state'
 import { renderHook, act } from '@testing-library/react-hooks'
 
 describe('AppStateProvider', () => {
   it('should match snapshot', () => {
     expect(
-      shallow(
+      render(
         <AppStateProvider>
           <div />
         </AppStateProvider>,

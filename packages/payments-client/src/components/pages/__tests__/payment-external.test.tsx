@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import PaymentExternalPage from '../payment-external'
 import { stubPaymentWithPropertyModel } from '../../ui/__stubs__/payment'
 import useSWR from 'swr'
@@ -17,7 +17,7 @@ describe('PaymentExternalPage', () => {
       error: null,
       mutate: jest.fn(),
     })
-    expect(shallow(<PaymentExternalPage session={session} paymentId="MKT20000010" clientId="SBOX" />)).toMatchSnapshot()
+    expect(render(<PaymentExternalPage session={session} paymentId="MKT20000010" clientId="SBOX" />)).toMatchSnapshot()
   })
 
   it('should match a snapshot when has an error', () => {
@@ -26,7 +26,7 @@ describe('PaymentExternalPage', () => {
       error: new Error(''),
       mutate: jest.fn(),
     })
-    expect(shallow(<PaymentExternalPage session={session} paymentId="MKT20000010" clientId="SBOX" />)).toMatchSnapshot()
+    expect(render(<PaymentExternalPage session={session} paymentId="MKT20000010" clientId="SBOX" />)).toMatchSnapshot()
   })
 
   it('should match a snapshot when has no merchantKey and no error', () => {
@@ -37,7 +37,7 @@ describe('PaymentExternalPage', () => {
       error: null,
       mutate: jest.fn(),
     })
-    expect(shallow(<PaymentExternalPage session={session} paymentId="MKT20000010" clientId="SBOX" />)).toMatchSnapshot()
+    expect(render(<PaymentExternalPage session={session} paymentId="MKT20000010" clientId="SBOX" />)).toMatchSnapshot()
   })
 
   it('should match a snapshot when has data and a merchantKey', () => {
@@ -49,7 +49,7 @@ describe('PaymentExternalPage', () => {
       mutate: jest.fn(),
     })
     expect(
-      shallow(
+      render(
         <PaymentExternalPage
           session={session}
           paymentId="MKT20000010"

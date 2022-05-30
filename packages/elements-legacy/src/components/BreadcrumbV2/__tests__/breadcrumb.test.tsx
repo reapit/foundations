@@ -1,6 +1,6 @@
 import React, { cloneElement } from 'react'
 import { toArray, getBreadcrumbName, defaultItemRenderer, getPath, genForRoutes, Breadcrumb } from '../breadcrumb'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 
 describe('breadcrumb', () => {
   describe('toArray', () => {
@@ -18,7 +18,7 @@ describe('breadcrumb', () => {
       const element = <div>Mock Element</div>
       const result = cloneElement(element, { separator: '/' })
       expect(result).toBeDefined()
-      const wrapper = shallow(<div>{result}</div>)
+      const wrapper = render(<div>{result}</div>)
       expect(wrapper).toMatchSnapshot()
     })
   })
@@ -60,7 +60,7 @@ describe('breadcrumb', () => {
       }
       const result = defaultItemRenderer(input.route, input.params, input.routes, input.paths)
       expect(result).toBeDefined()
-      const wrapper = shallow(<div>{result}</div>)
+      const wrapper = render(<div>{result}</div>)
       expect(wrapper).toMatchSnapshot()
     })
   })
@@ -99,7 +99,7 @@ describe('breadcrumb', () => {
       }
       const result = genForRoutes(input)
       expect(result).toHaveLength(3)
-      const wrapper = shallow(<div>{result}</div>)
+      const wrapper = render(<div>{result}</div>)
       expect(wrapper).toMatchSnapshot()
     })
 
@@ -131,7 +131,7 @@ describe('breadcrumb', () => {
       }
       const result = genForRoutes(input)
       expect(result).toHaveLength(3)
-      const wrapper = shallow(<div>{result}</div>)
+      const wrapper = render(<div>{result}</div>)
       expect(wrapper).toMatchSnapshot()
     })
   })
@@ -145,7 +145,7 @@ describe('breadcrumb', () => {
         params: { id: 1 },
         separator: '/',
       }
-      const wrapper = shallow(
+      const wrapper = render(
         <Breadcrumb {...mockProps}>
           <div>mock Menu</div>
         </Breadcrumb>,
@@ -180,7 +180,7 @@ describe('breadcrumb', () => {
         routes,
         itemRender,
       }
-      const wrapper = shallow(<Breadcrumb {...mockProps} />)
+      const wrapper = render(<Breadcrumb {...mockProps} />)
       expect(wrapper).toMatchSnapshot()
     })
   })

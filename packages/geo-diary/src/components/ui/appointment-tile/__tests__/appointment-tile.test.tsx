@@ -1,5 +1,5 @@
 import React, { MutableRefObject } from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { appointment } from '@/graphql/__mocks__/appointment'
 import { AppointmentTile, handleSetAppointmentId, handleScrollIntoView } from '../appointment-tile'
 
@@ -10,7 +10,7 @@ describe('AppointmentTile', () => {
     const mockProps = {
       appointment: appointment,
     }
-    const wrapper = shallow(<AppointmentTile {...mockProps} />)
+    const wrapper = render(<AppointmentTile {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
   })
 })

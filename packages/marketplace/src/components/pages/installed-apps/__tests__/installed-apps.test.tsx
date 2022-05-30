@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { mount } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
 import routes from '@/constants/routes'
@@ -29,7 +29,7 @@ describe('InstalledApps', () => {
     const store = mockStore(createState(false))
 
     expect(
-      mount(
+      render(
         <Provider store={store}>
           <MemoryRouter initialEntries={[{ pathname: Routes.INSTALLED_APPS, key: 'installedAppsRoute' }]}>
             <InstalledApps />
@@ -43,7 +43,7 @@ describe('InstalledApps', () => {
     const mockStore = configureStore()
     const store = mockStore(createState(true))
     expect(
-      mount(
+      render(
         <Provider store={store}>
           <MemoryRouter initialEntries={[{ pathname: Routes.INSTALLED_APPS, key: 'installedAppsRoute' }]}>
             <InstalledApps />

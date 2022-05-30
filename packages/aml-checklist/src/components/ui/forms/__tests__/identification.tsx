@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { contact } from '@/sagas/__stubs__/contact'
 import Identification, { onSubmitHandler, handleFilenameClick, IdentityDocumentForm } from '../identification'
 import { IDENTIFICATION_FORM_DEFAULT_VALUES } from '../identification'
@@ -41,7 +41,7 @@ describe('Identification', () => {
         onNextHandler: jest.fn(),
         onPrevHandler: jest.fn(),
       }
-      const wrapper = shallow(<Identification {...mockProps} />)
+      const wrapper = render(<Identification {...mockProps} />)
       expect(wrapper).toMatchSnapshot()
     })
     it('should match snapshot when loading is true', () => {
@@ -54,7 +54,7 @@ describe('Identification', () => {
         onNextHandler: jest.fn(),
         onPrevHandler: jest.fn(),
       }
-      const wrapper = shallow(<Identification {...mockProps} />)
+      const wrapper = render(<Identification {...mockProps} />)
       expect(wrapper).toMatchSnapshot()
     })
     it('should show warning about primary id label', () => {
@@ -68,7 +68,7 @@ describe('Identification', () => {
         onPrevHandler: jest.fn(),
         disabled: true,
       }
-      const wrapper = shallow(<Identification {...mockProps} />)
+      const wrapper = render(<Identification {...mockProps} />)
       expect(wrapper.dive().find('p[data-test="primaryIdWarinLabel"]').length).toBe(1)
     })
   })

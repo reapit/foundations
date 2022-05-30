@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow, mount } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import toJson from 'enzyme-to-json'
 import { HTMLRender } from '..'
 import { htmlElements } from '../__stubs__/html'
@@ -26,22 +26,22 @@ const exampleHTML = `
 
 describe('HTMLRender', () => {
   it('should render match to snapshot', () => {
-    expect(toJson(shallow(<HTMLRender html={exampleHTML} />))).toMatchSnapshot()
+    expect(toJson(render(<HTMLRender html={exampleHTML} />))).toMatchSnapshot()
   })
 
   it('should contain <b /> tag', () => {
-    const wrapper = mount(<HTMLRender html={exampleHTML} />)
+    const wrapper = render(<HTMLRender html={exampleHTML} />)
     expect(wrapper.find('b')).toHaveLength(1)
   })
 
   it('should contain <H1 /> tag', () => {
-    const wrapper = mount(<HTMLRender html={exampleHTML} />)
+    const wrapper = render(<HTMLRender html={exampleHTML} />)
     expect(wrapper.find('h1')).toHaveLength(1)
   })
 
   it('should contain text node', () => {
     const text = 'sample text'
-    const wrapper = mount(<HTMLRender html={text} />)
+    const wrapper = render(<HTMLRender html={text} />)
     expect(wrapper.first().text()).toEqual(text)
   })
 })
@@ -211,7 +211,7 @@ describe('sortTags', () => {
     it(`should match a snapshot and be of correct type for the returned component from domTag ${node.tag}`, () => {
       const element = { tagName: node.tag, ...coreProps } as Element
       const styledComponent = rendererModule.sortTags(element, 0, false) as React.ReactElement
-      const wrappedComponent = shallow(styledComponent)
+      const wrappedComponent = render(styledComponent)
       expect(wrappedComponent.type()).toEqual(node.actualTag || node.tag)
       expect(toJson(wrappedComponent)).toMatchSnapshot()
     })

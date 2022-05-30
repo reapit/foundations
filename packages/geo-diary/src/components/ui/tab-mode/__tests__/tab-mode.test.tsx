@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { TabMode, handleChangeTabMode } from '../tab-mode'
 import { AppTab } from '../../../../core/app-state'
 
@@ -7,7 +7,7 @@ jest.mock('../../../../core/app-state')
 
 describe('TabMode', () => {
   it('should match snapshot', () => {
-    const wrapper = shallow(<TabMode />)
+    const wrapper = render(<TabMode />)
     expect(wrapper).toMatchSnapshot()
   })
 })

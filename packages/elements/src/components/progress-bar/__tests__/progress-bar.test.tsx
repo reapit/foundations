@@ -1,5 +1,5 @@
 import React from 'react'
-import { mount } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import {
   ProgressBarPercentage,
   ProgressBarSteps,
@@ -12,35 +12,35 @@ import {
 
 describe('ProgressBarContainer', () => {
   it('should match a snapshot', () => {
-    const wrapper = mount(<ProgressBarContainer />)
+    const wrapper = render(<ProgressBarContainer />)
     expect(wrapper).toMatchSnapshot()
   })
 })
 
 describe('ProgressBarInner', () => {
   it('should match a snapshot', () => {
-    const wrapper = mount(<ProgressBarInner />)
+    const wrapper = render(<ProgressBarInner />)
     expect(wrapper).toMatchSnapshot()
   })
 })
 
 describe('ProgressBarItem', () => {
   it('should match a snapshot', () => {
-    const wrapper = mount(<ProgressBarItem />)
+    const wrapper = render(<ProgressBarItem />)
     expect(wrapper).toMatchSnapshot()
   })
 })
 
 describe('ProgressBarPercentage', () => {
   it('should match a snapshot', () => {
-    const wrapper = mount(<ProgressBarPercentage duration={20} />)
+    const wrapper = render(<ProgressBarPercentage duration={20} />)
     expect(wrapper).toMatchSnapshot()
   })
 })
 
 describe('ProgressBarSteps', () => {
   it('should match a snapshot', () => {
-    const wrapper = mount(<ProgressBarSteps numberSteps={10} currentStep={5} />)
+    const wrapper = render(<ProgressBarSteps numberSteps={10} currentStep={5} />)
     expect(wrapper).toMatchSnapshot()
   })
 })

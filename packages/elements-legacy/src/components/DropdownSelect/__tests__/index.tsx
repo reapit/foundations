@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow, mount } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { DropdownSelect, DropdownSelectProps } from '../index'
 import { Formik, Form } from 'formik'
 import toJson from 'enzyme-to-json'
@@ -13,7 +13,7 @@ const dropdownSelectProps: DropdownSelectProps = {
 }
 
 const createFormikWrapper = () => {
-  const wrapper = mount(
+  const wrapper = render(
     <Formik onSubmit={jest.fn()} initialValues={{ demo: [] }}>
       {() => (
         <Form>
@@ -30,7 +30,7 @@ const createFormikWrapper = () => {
 
 describe('Dropdown-select', () => {
   it('should match a snapshot', () => {
-    expect(toJson(shallow(<DropdownSelect {...dropdownSelectProps} />))).toMatchSnapshot()
+    expect(toJson(render(<DropdownSelect {...dropdownSelectProps} />))).toMatchSnapshot()
   })
 
   it('Render label correctly', () => {

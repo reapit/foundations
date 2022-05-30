@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { renderLinks, BreadcrumbItem } from '../breadcrumb-item'
 
 describe('breadcrumb-item', () => {
@@ -14,7 +14,7 @@ describe('breadcrumb-item', () => {
         className: 'mockClassName',
         isLast: true,
       }
-      const wrapper = shallow(<div>{renderLinks(mockProps)}</div>)
+      const wrapper = render(<div>{renderLinks(mockProps)}</div>)
       expect(wrapper).toMatchSnapshot()
     })
 
@@ -28,7 +28,7 @@ describe('breadcrumb-item', () => {
         className: 'mockClassName',
         isLast: false,
       }
-      const wrapper = shallow(<div>{renderLinks(mockProps)}</div>)
+      const wrapper = render(<div>{renderLinks(mockProps)}</div>)
       expect(wrapper).toMatchSnapshot()
     })
   })
@@ -44,7 +44,7 @@ describe('breadcrumb-item', () => {
         className: 'mockClassName',
         style: { font: '10rem' },
       }
-      const wrapper = shallow(<BreadcrumbItem {...mockProps} />)
+      const wrapper = render(<BreadcrumbItem {...mockProps} />)
       expect(wrapper).toMatchSnapshot()
     })
 
@@ -57,7 +57,7 @@ describe('breadcrumb-item', () => {
         className: 'mockClassName',
         style: { font: '10rem' },
       }
-      const wrapper = shallow(<BreadcrumbItem {...mockProps} />)
+      const wrapper = render(<BreadcrumbItem {...mockProps} />)
       expect(wrapper).toMatchSnapshot()
     })
 
@@ -67,7 +67,7 @@ describe('breadcrumb-item', () => {
         onClick: () => null,
         className: 'mockClassName',
       }
-      const wrapper = shallow(<BreadcrumbItem {...mockProps} />)
+      const wrapper = render(<BreadcrumbItem {...mockProps} />)
       expect(wrapper).toMatchSnapshot()
     })
 
@@ -77,7 +77,7 @@ describe('breadcrumb-item', () => {
         onClick: () => null,
         className: 'mockClassName',
       }
-      const wrapper = shallow(<BreadcrumbItem {...mockProps} />)
+      const wrapper = render(<BreadcrumbItem {...mockProps} />)
       expect(wrapper).toMatchSnapshot()
     })
 
@@ -87,7 +87,7 @@ describe('breadcrumb-item', () => {
         onClick: () => null,
         className: 'mockClassName',
       }
-      const wrapper = shallow(
+      const wrapper = render(
         <BreadcrumbItem {...mockProps}>
           <div>Application</div>
         </BreadcrumbItem>,

@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { AttendeeDrawer } from '../attendee-drawer'
 import { mockAppointmentsQuery } from '../../../pages/appointment/__mocks__/appointments-query'
 import { ExtendedAppointmentModel } from '../../../../types/global'
@@ -12,7 +12,7 @@ jest.mock('../../../../core/app-state')
 
 describe('AttendeeDrawer', () => {
   it('should match snapshot without an appointment in state', () => {
-    expect(shallow(<AttendeeDrawer />)).toMatchSnapshot()
+    expect(render(<AttendeeDrawer />)).toMatchSnapshot()
   })
 
   it('should match snapshot with an appointment in state and an AML App', () => {
@@ -27,6 +27,6 @@ describe('AttendeeDrawer', () => {
       setAppState: jest.fn(),
     }))
 
-    expect(shallow(<AttendeeDrawer />)).toMatchSnapshot()
+    expect(render(<AttendeeDrawer />)).toMatchSnapshot()
   })
 })

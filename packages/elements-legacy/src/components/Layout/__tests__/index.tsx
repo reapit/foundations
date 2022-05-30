@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import * as LayoutComponents from '../index'
 import toJson from 'enzyme-to-json'
 
@@ -15,7 +15,7 @@ describe('LayoutComponents', () => {
       const Component = LayoutComponents[componentName] as React.FC
       expect(
         toJson(
-          shallow(
+          render(
             <Component>
               <Placeholder text={componentName} />
             </Component>,

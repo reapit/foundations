@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { handleOpenNativeMap, MapPanel } from '../map-panel'
 import { AppState } from '../../../../core/app-state'
 
@@ -15,7 +15,7 @@ jest.mock('../../../../core/app-state')
 describe('MapPanel', () => {
   it('should match snapshot without an appointment in state', () => {
     expect(
-      shallow(
+      render(
         <MapPanel
           routeInformation={{ duration: { text: 'TEXT', value: 1000 }, distance: { text: 'TEXT', value: 1000 } }}
         />,

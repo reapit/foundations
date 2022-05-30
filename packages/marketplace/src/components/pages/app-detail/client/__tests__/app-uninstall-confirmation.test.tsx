@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as ReactRedux from 'react-redux'
-import { mount, shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import configureStore from 'redux-mock-store'
 import { MemoryRouter } from 'react-router'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
@@ -49,7 +49,7 @@ describe('ClientAppUninstallConfirmation', () => {
 
   it('should match a snapshot', () => {
     expect(
-      mount(
+      render(
         <ReactRedux.Provider store={store}>
           <MemoryRouter initialEntries={[{ pathname: Routes.APP_DETAIL, key: 'clientAppDetailRoute' }]}>
             <ClientAppUninstallConfirmation {...mockProps} />
@@ -138,7 +138,7 @@ describe('ClientAppUninstallConfirmation', () => {
 
   describe('renderUninstallConfirmationModalFooter', () => {
     it('should match snapshot', () => {
-      const wrapper = shallow(
+      const wrapper = render(
         <div>
           {renderUninstallConfirmationModalFooter(
             false,
@@ -158,7 +158,7 @@ describe('ClientAppUninstallConfirmation', () => {
 
   describe('UninstallationsSuccessModal', () => {
     it('should match a snapshot', () => {
-      expect(mount(<UninstallationsSuccessModal {...mockUninstallationsSuccessModalProps} />)).toMatchSnapshot()
+      expect(render(<UninstallationsSuccessModal {...mockUninstallationsSuccessModalProps} />)).toMatchSnapshot()
     })
   })
 })

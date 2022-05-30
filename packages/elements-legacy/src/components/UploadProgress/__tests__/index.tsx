@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { UploadProgress, UploadProgressProps } from '../.'
 
 describe('UploadProgress', () => {
@@ -10,7 +10,7 @@ describe('UploadProgress', () => {
       totalCount: 10,
       completedCount: 4,
     }
-    const wrapper = shallow(<UploadProgress {...mockProps} />)
+    const wrapper = render(<UploadProgress {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
   })
 
@@ -19,7 +19,7 @@ describe('UploadProgress', () => {
       percentage: -1,
       visible: true,
     }
-    const wrapper = shallow(<UploadProgress {...mockProps} />)
+    const wrapper = render(<UploadProgress {...mockProps} />)
     expect(wrapper.find('.upload-progress-bg').prop('style')).toEqual({ width: '0%' })
   })
 
@@ -28,7 +28,7 @@ describe('UploadProgress', () => {
       percentage: 101,
       visible: true,
     }
-    const wrapper = shallow(<UploadProgress {...mockProps} />)
+    const wrapper = render(<UploadProgress {...mockProps} />)
     expect(wrapper.find('.upload-progress-bg').prop('style')).toEqual({ width: '100%' })
   })
 })

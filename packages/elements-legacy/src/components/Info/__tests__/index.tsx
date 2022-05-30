@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import toJson from 'enzyme-to-json'
 import { Info, InfoType } from '..'
 import { infoText } from '../index'
@@ -17,13 +17,13 @@ const variants: InfoType[] = [
 describe('Info', () => {
   variants.forEach((variant) => {
     it('should match a snapshot for variant ' + variant, () => {
-      expect(toJson(shallow(<Info infoType={variant} />))).toMatchSnapshot()
+      expect(toJson(render(<Info infoType={variant} />))).toMatchSnapshot()
     })
   })
 
   variants.forEach((variant) => {
     it(`should have message "${infoText(variant)}" when info type is "${variant}"`, () => {
-      const alert = shallow(<Info infoType={variant} />)
+      const alert = render(<Info infoType={variant} />)
         .find(Alert)
         .dive()
       expect(alert.text()).toBe(infoText(variant))

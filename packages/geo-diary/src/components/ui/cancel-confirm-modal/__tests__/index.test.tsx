@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { CancelConfirmModal, handleUpdateAppointment } from '../index'
 import { mockAppointmentsQuery } from '../../../pages/appointment/__mocks__/appointments-query'
 import { ExtendedAppointmentModel } from '../../../../types/global'
@@ -10,7 +10,7 @@ const appointment = mockAppointmentsQuery.data.GetAppointments._embedded[2] as E
 describe('CancelConfirmModal', () => {
   it('should match snapshot', () => {
     expect(
-      shallow(
+      render(
         <MockedProvider mocks={[]} addTypename={false}>
           <CancelConfirmModal appointment={appointment} closeModal={jest.fn()} />
         </MockedProvider>,

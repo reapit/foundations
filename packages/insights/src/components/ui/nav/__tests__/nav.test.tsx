@@ -1,10 +1,10 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { Nav, callbackAppClick } from '../nav'
 
 describe('Nav', () => {
   it('should match a snapshot', () => {
-    const wrapper = shallow(<Nav />)
+    const wrapper = render(<Nav />)
     expect(wrapper).toMatchSnapshot()
   })
 

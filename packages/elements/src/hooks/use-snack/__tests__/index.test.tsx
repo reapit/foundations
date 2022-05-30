@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { SnackProvider, UseSnack, useSnack } from '../index'
 import { renderHook } from '@testing-library/react-hooks'
 
@@ -19,6 +19,6 @@ describe('useSnack', () => {
 
 describe('SnackProvider', () => {
   it('should match snapshot', () => {
-    expect(shallow(<SnackProvider />)).toMatchSnapshot()
+    expect(render(<SnackProvider />)).toMatchSnapshot()
   })
 })

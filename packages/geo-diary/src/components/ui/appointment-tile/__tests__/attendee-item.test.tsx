@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { AttendeeItem } from '../attendee-item'
 import { mockAppointmentsQuery } from '../../../pages/appointment/__mocks__/appointments-query'
 import { ExtendedAppointmentModel } from '../../../../types/global'
@@ -9,10 +9,10 @@ const apppointmentWithContacts = mockAppointmentsQuery.data.GetAppointments._emb
 
 describe('AttendeeItem', () => {
   it('should match snapshot with no contacts', () => {
-    expect(shallow(<AttendeeItem appointment={apppointmentWithoutContacts} />)).toMatchSnapshot()
+    expect(render(<AttendeeItem appointment={apppointmentWithoutContacts} />)).toMatchSnapshot()
   })
 
   it('should match snapshot with contacts', () => {
-    expect(shallow(<AttendeeItem appointment={apppointmentWithContacts} />)).toMatchSnapshot()
+    expect(render(<AttendeeItem appointment={apppointmentWithContacts} />)).toMatchSnapshot()
   })
 })

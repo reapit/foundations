@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { mount } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { usePortal } from '../use-portal'
 import { PortalProvider } from '../portal-provider'
 
@@ -17,7 +17,7 @@ const App: React.FunctionComponent<any> = () => {
 
 describe('PortalProvider', () => {
   it('Should render a component via Portal', () => {
-    const wrapper = mount(renderWithPortalProvider(<App />))
+    const wrapper = render(renderWithPortalProvider(<App />))
     expect(wrapper.find('.component-inside-portal')).toHaveLength(1)
   })
 

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { ResendConfirmButton } from '../payment-resend-confirm-button'
 import { stubPaymentWithPropertyModel } from '../__stubs__/payment'
 
@@ -13,7 +13,7 @@ jest.mock('@reapit/elements-legacy', () => ({
 describe('ResendConfirmButton', () => {
   it('should match a snapshot', () => {
     expect(
-      shallow(<ResendConfirmButton payment={stubPaymentWithPropertyModel} session="some-session" />),
+      render(<ResendConfirmButton payment={stubPaymentWithPropertyModel} session="some-session" />),
     ).toMatchSnapshot()
   })
 })

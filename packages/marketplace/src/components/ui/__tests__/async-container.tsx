@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 
 import AsyncContainer, { AsyncContainerProps } from '../async-container'
 
@@ -11,7 +11,7 @@ describe('AsyncContainer', () => {
       data: [],
     }
 
-    expect(shallow(<AsyncContainer {...props} />)).toMatchSnapshot()
+    expect(render(<AsyncContainer {...props} />)).toMatchSnapshot()
   })
 
   it('should match a snapshot when error = true', () => {
@@ -21,7 +21,7 @@ describe('AsyncContainer', () => {
       data: [],
     }
 
-    expect(shallow(<AsyncContainer {...props} />)).toMatchSnapshot()
+    expect(render(<AsyncContainer {...props} />)).toMatchSnapshot()
   })
 
   it('should match a snapshot when data = null', () => {
@@ -31,6 +31,6 @@ describe('AsyncContainer', () => {
       data: null,
     }
 
-    expect(shallow(<AsyncContainer {...props} />)).toMatchSnapshot()
+    expect(render(<AsyncContainer {...props} />)).toMatchSnapshot()
   })
 })

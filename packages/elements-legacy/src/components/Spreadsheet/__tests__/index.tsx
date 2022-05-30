@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import {
   Spreadsheet,
   UploadButton,
@@ -13,11 +13,11 @@ import { Cell } from '../types'
 
 describe('Spreadsheet', () => {
   it('should match snapshot with default props', () => {
-    expect(shallow(<Spreadsheet data={data} />)).toMatchSnapshot()
+    expect(render(<Spreadsheet data={data} />)).toMatchSnapshot()
   })
   it('should match snapshot with full props', () => {
     expect(
-      shallow(
+      render(
         <Spreadsheet
           data={data}
           description="des"
@@ -33,33 +33,33 @@ describe('Spreadsheet', () => {
 describe('UploadButton', () => {
   it('should match snapshot', () => {
     const onChangeInput = jest.fn()
-    expect(shallow(<UploadButton onChangeInput={onChangeInput} />)).toMatchSnapshot()
+    expect(render(<UploadButton onChangeInput={onChangeInput} />)).toMatchSnapshot()
   })
 })
 
 describe('DownloadButton', () => {
   it('should match snapshot', () => {
-    expect(shallow(<DownloadButton data={data} />)).toMatchSnapshot
+    expect(render(<DownloadButton data={data} />)).toMatchSnapshot
   })
 })
 
 describe('AddRowButton', () => {
   it('should match snapshot', () => {
     const addNewRow = jest.fn()
-    expect(shallow(<AddRowButton addNewRow={addNewRow} />)).toMatchSnapshot()
+    expect(render(<AddRowButton addNewRow={addNewRow} />)).toMatchSnapshot()
   })
 })
 
 describe('getErrorsFromData', () => {
   it('should match snapshot', () => {
     const errors = [[{ error: 'error', touched: true }]] as Cell[][]
-    expect(shallow(<div>{getErrorsFromData(errors)}</div>)).toMatchSnapshot()
+    expect(render(<div>{getErrorsFromData(errors)}</div>)).toMatchSnapshot()
   })
 })
 
 describe('renderErrorElements', () => {
   it('should match snapshot', () => {
     const errors = [[{ error: 'error', touched: true }]] as Cell[][]
-    expect(shallow(<div>{renderErrorElements(errors)}</div>)).toMatchSnapshot()
+    expect(render(<div>{renderErrorElements(errors)}</div>)).toMatchSnapshot()
   })
 })

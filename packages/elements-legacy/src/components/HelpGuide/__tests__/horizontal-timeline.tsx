@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { HorizontalTimeline, caculateCircleRef, caculateLineRef, calculateElement } from '../horizontal-timeline'
 
 describe('NumberedTimeline', () => {
@@ -9,7 +9,7 @@ describe('NumberedTimeline', () => {
       currentIndex: 3,
       onSelect: jest.fn(),
     }
-    expect(shallow(<HorizontalTimeline {...mockProps} />)).toMatchSnapshot()
+    expect(render(<HorizontalTimeline {...mockProps} />)).toMatchSnapshot()
   })
 
   it('caculateCircleRef should run correctly', () => {

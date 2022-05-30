@@ -1,5 +1,5 @@
 import React, { ChangeEvent } from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import {
   MultiSelectChip,
   MultiSelect,
@@ -13,7 +13,7 @@ import {
 
 describe('MultiSelectChip', () => {
   it('should match a snapshot and render children', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <MultiSelectChip id="test-id">
         <span>Some Value</span>
       </MultiSelectChip>,
@@ -24,7 +24,7 @@ describe('MultiSelectChip', () => {
 
 describe('MultiSelect', () => {
   it('should match a snapshot and render children', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <MultiSelect>
         <span>Some Value</span>
       </MultiSelect>,
@@ -35,7 +35,7 @@ describe('MultiSelect', () => {
 
 describe('MultiSelectSelected', () => {
   it('should match a snapshot and render children', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <MultiSelectSelected>
         <span>Some Value</span>
       </MultiSelectSelected>,
@@ -46,7 +46,7 @@ describe('MultiSelectSelected', () => {
 
 describe('MultiSelectUnSelected', () => {
   it('should match a snapshot and render children', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <MultiSelectUnSelected>
         <span>Some Value</span>
       </MultiSelectUnSelected>,
@@ -57,7 +57,7 @@ describe('MultiSelectUnSelected', () => {
 
 describe('MultiSelectInput', () => {
   it('should match a snapshot and render children', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <MultiSelectInput
         id="react-example"
         options={[
@@ -72,7 +72,7 @@ describe('MultiSelectInput', () => {
   })
 
   it('should match a snapshot and render non selected message where there are no selected items', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <MultiSelectInput
         id="react-example"
         noneSelectedLabel="No items selected"

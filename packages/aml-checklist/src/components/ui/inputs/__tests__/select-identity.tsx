@@ -1,6 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
-import toJson from 'enzyme-to-json'
+import { render } from '../../../../tests/react-testing'
 import { SelectIdentity, SelectIdentityProps, mapStateToProps, generateListIdentity } from '../select-identity'
 import { identityTypes } from '@/sagas/__stubs__/identity-types'
 import { ReduxState } from '@/types/core'
@@ -17,11 +16,11 @@ const props = (loading: boolean): SelectIdentityProps => ({
 
 describe('Select identity', () => {
   it('should match a snapshot when LOADING true', () => {
-    expect(toJson(shallow(<SelectIdentity {...props(true)} />))).toMatchSnapshot()
+    expect(render(<SelectIdentity {...props(true)} />)).toMatchSnapshot()
   })
 
   it('should match a snapshot when LOADING false', () => {
-    expect(toJson(shallow(<SelectIdentity {...props(false)} />))).toMatchSnapshot()
+    expect(render(<SelectIdentity {...props(false)} />)).toMatchSnapshot()
   })
 
   describe('generateListIdentity', () => {

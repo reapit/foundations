@@ -1,6 +1,6 @@
 import React from 'react'
 import { ContactDeveloperSection, ContactDeveloperSectionType } from '../contact-developer-section'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 
 const props: ContactDeveloperSectionType = {
   contact: {
@@ -17,10 +17,10 @@ const props: ContactDeveloperSectionType = {
 
 describe('ContactDeveloperSection', () => {
   test('should match snapshot without gutter', () => {
-    expect(shallow(<ContactDeveloperSection {...props} hasGutter={false} />)).toMatchSnapshot()
+    expect(render(<ContactDeveloperSection {...props} hasGutter={false} />)).toMatchSnapshot()
   })
 
   test('should match snapshot with gutter', () => {
-    expect(shallow(<ContactDeveloperSection {...props} hasGutter />)).toMatchSnapshot()
+    expect(render(<ContactDeveloperSection {...props} hasGutter />)).toMatchSnapshot()
   })
 })

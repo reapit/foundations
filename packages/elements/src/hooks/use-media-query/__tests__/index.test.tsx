@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { MediaStateProvider, MediaType, useMediaQuery } from '../index'
 import { renderHook } from '@testing-library/react-hooks'
 
@@ -18,6 +18,6 @@ describe('useMediaQuery', () => {
 
 describe('MediaStateProvider', () => {
   it('should match snapshot', () => {
-    expect(shallow(<MediaStateProvider />)).toMatchSnapshot()
+    expect(render(<MediaStateProvider />)).toMatchSnapshot()
   })
 })

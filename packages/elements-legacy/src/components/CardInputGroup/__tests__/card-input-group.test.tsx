@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { mount } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { Formik, Form } from 'formik'
 import { CardInputGroup, CardInputGroupProps } from '../card-input-group'
 
@@ -10,7 +10,7 @@ const props: CardInputGroupProps = {
 
 describe('CardInputGroup', () => {
   it('should match a snapshot for hasBillingAddress', () => {
-    const wrapper = mount(
+    const wrapper = render(
       <Formik
         initialValues={{
           customerFirstName: '',
@@ -38,7 +38,7 @@ describe('CardInputGroup', () => {
   })
 
   it('should match a snapshot for no billing address', () => {
-    const wrapper = mount(
+    const wrapper = render(
       <Formik
         initialValues={{
           customerFirstName: '',

@@ -1,11 +1,11 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { Toggle, ToggleRadio } from '../index'
 import { ElToggleItem } from '../__styles__/index'
 
 describe('Toggle', () => {
   it('should match a snapshot and render children', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <Toggle>
         <ElToggleItem>On</ElToggleItem>
         <ElToggleItem>Off</ElToggleItem>
@@ -17,7 +17,7 @@ describe('Toggle', () => {
 
 describe('ToggleRadio', () => {
   it('should match a snapshot and render children', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <ToggleRadio
         name="my-cool-toggle-radio"
         isFullWidth

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { AcLink, AcButton } from '../index'
 import toJson from 'enzyme-to-json'
 import { dynamicLinkScenarios } from '../__stubs__/scenarios'
@@ -19,7 +19,7 @@ describe('AcButton AcLink', () => {
     it('should match a snapshot for scenario ' + scenario.description, () => {
       expect(
         toJson(
-          shallow(
+          render(
             <div>
               <AcButton
                 buttonProps={{
@@ -48,7 +48,7 @@ describe('AcButton AcLink', () => {
     })
 
     it('should respond to a button click event by navigating to expected url for ' + scenario.description, () => {
-      const component = shallow(
+      const component = render(
         <AcButton
           buttonProps={{
             variant: 'primary',
@@ -73,7 +73,7 @@ describe('AcButton AcLink', () => {
     })
 
     it('should respond to a link click event by navigating to expected url for ' + scenario.description, () => {
-      const component = shallow(
+      const component = render(
         <AcLink dynamicLinkParams={scenario.dynamicLinkParams} navigateParentWindow={mockWindow}>
           Navigate
         </AcLink>,

@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { BreadcrumbSeparator } from '../breadcrumb-separator'
 
 describe('breadcrumb-separator', () => {
@@ -9,7 +9,7 @@ describe('breadcrumb-separator', () => {
         style: { font: '1rem' },
         className: 'mockClassname',
       }
-      const wrapper = shallow(<BreadcrumbSeparator {...mockProps} />)
+      const wrapper = render(<BreadcrumbSeparator {...mockProps} />)
       expect(wrapper).toMatchSnapshot()
     })
 
@@ -18,7 +18,7 @@ describe('breadcrumb-separator', () => {
         style: { font: '1rem' },
         className: 'mockClassname',
       }
-      const wrapper = shallow(<BreadcrumbSeparator {...mockProps}>:</BreadcrumbSeparator>)
+      const wrapper = render(<BreadcrumbSeparator {...mockProps}>:</BreadcrumbSeparator>)
       expect(wrapper).toMatchSnapshot()
     })
   })

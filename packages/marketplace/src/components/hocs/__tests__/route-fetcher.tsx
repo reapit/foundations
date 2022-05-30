@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow, mount } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import RouteFetcher from '../route-fetcher'
 import Routes from '@/constants/routes'
 import { RouteComponentProps, StaticContext } from 'react-router'
@@ -24,11 +24,11 @@ const props = {
 
 describe('RouteFetcher', () => {
   it('should match a snapshot', () => {
-    expect(shallow(<RouteFetcher {...props} />)).toMatchSnapshot()
+    expect(render(<RouteFetcher {...props} />)).toMatchSnapshot()
   })
 
   it('should call the routeDispatcher with the route path', () => {
-    mount(<RouteFetcher {...props} />)
+    render(<RouteFetcher {...props} />)
     expect(routeDispatcher).toHaveBeenCalledTimes(1)
     expect(routeDispatcher).toHaveBeenCalledWith(
       props.routerProps.match.path,

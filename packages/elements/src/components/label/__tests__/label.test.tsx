@@ -1,10 +1,10 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { Label } from '..'
 
 describe('Label component', () => {
   it('should match a snapshot', () => {
-    const wrapper = shallow(<Label />)
+    const wrapper = render(<Label />)
     expect(wrapper).toMatchSnapshot()
   })
 })
