@@ -122,7 +122,7 @@ export class ZipCommand extends AbstractCommand {
       file: buffer.toString('base64'),
     })
 
-    if (response.status !== 200) {
+    if (response.status !== 201) {
       spinner.fail('Failed to publish zip to reapit')
       console.log(`Response: ${response.statusText}`)
       process.exit(1)

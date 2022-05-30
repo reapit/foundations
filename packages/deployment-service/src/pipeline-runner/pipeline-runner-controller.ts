@@ -135,7 +135,7 @@ export class PipelineRunnerController {
 
     this.ownershipProvider.check(pipeline, creds.developerId as string)
 
-    if (pipeline.buildStatus !== 'PRE_PROVISIONED') {
+    if (pipeline.buildStatus === 'PRE_PROVISIONED') {
       throw new UnprocessableEntityException('Cannot deploy pipeline in PRE_PROVISONED state')
     }
 

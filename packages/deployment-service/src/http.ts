@@ -8,6 +8,7 @@ import { Handler, Context, APIGatewayEvent } from 'aws-lambda'
 import { eventContext } from 'aws-serverless-express/middleware'
 import { Server } from 'http'
 import express, { Express } from 'express'
+import * as bodyParser from 'body-parser'
 
 export const bootstrapApplication = async (): Promise<[INestApplication, Express]> => {
   const expressApp = express()
@@ -15,6 +16,8 @@ export const bootstrapApplication = async (): Promise<[INestApplication, Express
 
   app.useGlobalPipes(new ValidationPipe())
   app.useGlobalInterceptors(new DefaultHeaderInterceptor())
+  app.use(bodyParser.json({limit: '50mb' }))
+  app.use(bodyParser.urlencoded({limit: '50mb', extended: true }))
 
   return [app, expressApp]
 }
