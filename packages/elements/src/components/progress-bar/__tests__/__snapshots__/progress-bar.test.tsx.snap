@@ -1,255 +1,458 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ProgressBarContainer should match a snapshot 1`] = `
-<ProgressBarContainer>
-  <ElProgressBarContainer>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-progress-bar-container"
+      />
+    </div>
+  </body>,
+  "container": <div>
     <div
-      className="el-progress-bar-container"
+      class="el-progress-bar-container"
     />
-  </ElProgressBarContainer>
-</ProgressBarContainer>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`ProgressBarInner should match a snapshot 1`] = `
-<ProgressBarInner>
-  <ElProgressBarInner>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-progress-bar-inner"
+      />
+    </div>
+  </body>,
+  "container": <div>
     <div
-      className="el-progress-bar-inner"
+      class="el-progress-bar-inner"
     />
-  </ElProgressBarInner>
-</ProgressBarInner>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`ProgressBarItem should match a snapshot 1`] = `
-<ProgressBarItem>
-  <ElProgressBarItem>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-progress-bar-item"
+      />
+    </div>
+  </body>,
+  "container": <div>
     <div
-      className="el-progress-bar-item"
+      class="el-progress-bar-item"
     />
-  </ElProgressBarItem>
-</ProgressBarItem>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`ProgressBarPercentage should match a snapshot 1`] = `
-<ProgressBarPercentage
-  duration={20}
->
-  <ProgressBarContainer>
-    <ElProgressBarContainer>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
       <div
-        className="el-progress-bar-container"
+        class="el-progress-bar-container"
       >
-        <ProgressBarInner
-          style={
-            Object {
-              "transitionDuration": "0.3333333333333333s",
-              "width": "0%",
-            }
-          }
+        <div
+          class="el-progress-bar-inner"
+          style="width: 0%; transition-duration: 0.3333333333333333s;"
         >
-          <ElProgressBarInner
-            style={
-              Object {
-                "transitionDuration": "0.3333333333333333s",
-                "width": "0%",
-              }
-            }
-          >
-            <div
-              className="el-progress-bar-inner"
-              style={
-                Object {
-                  "transitionDuration": "0.3333333333333333s",
-                  "width": "0%",
-                }
-              }
-            >
-              <ProgressBarItem
-                className="el-progress-bar-item-dark-blue"
-              >
-                <ElProgressBarItem
-                  className="el-progress-bar-item-dark-blue"
-                >
-                  <div
-                    className="el-progress-bar-item-dark-blue el-progress-bar-item"
-                  />
-                </ElProgressBarItem>
-              </ProgressBarItem>
-              <ProgressBarItem
-                className="el-progress-bar-item-medium-blue"
-              >
-                <ElProgressBarItem
-                  className="el-progress-bar-item-medium-blue"
-                >
-                  <div
-                    className="el-progress-bar-item-medium-blue el-progress-bar-item"
-                  />
-                </ElProgressBarItem>
-              </ProgressBarItem>
-              <ProgressBarItem
-                className="el-progress-bar-item-light-blue"
-              >
-                <ElProgressBarItem
-                  className="el-progress-bar-item-light-blue"
-                >
-                  <div
-                    className="el-progress-bar-item-light-blue el-progress-bar-item"
-                  />
-                </ElProgressBarItem>
-              </ProgressBarItem>
-              <ProgressBarItem
-                className="el-progress-bar-item-lightest-blue"
-              >
-                <ElProgressBarItem
-                  className="el-progress-bar-item-lightest-blue"
-                >
-                  <div
-                    className="el-progress-bar-item-lightest-blue el-progress-bar-item"
-                  />
-                </ElProgressBarItem>
-              </ProgressBarItem>
-              <ProgressBarItem
-                className="el-progress-bar-item-orange"
-              >
-                <ElProgressBarItem
-                  className="el-progress-bar-item-orange"
-                >
-                  <div
-                    className="el-progress-bar-item-orange el-progress-bar-item"
-                  />
-                </ElProgressBarItem>
-              </ProgressBarItem>
-            </div>
-          </ElProgressBarInner>
-        </ProgressBarInner>
-        <ProgressBarLabel
-          className="el-progress-bar-label-right"
+          <div
+            class="el-progress-bar-item-dark-blue el-progress-bar-item"
+          />
+          <div
+            class="el-progress-bar-item-medium-blue el-progress-bar-item"
+          />
+          <div
+            class="el-progress-bar-item-light-blue el-progress-bar-item"
+          />
+          <div
+            class="el-progress-bar-item-lightest-blue el-progress-bar-item"
+          />
+          <div
+            class="el-progress-bar-item-orange el-progress-bar-item"
+          />
+        </div>
+        <div
+          class="el-progress-bar-label-right el-progress-bar-label"
         >
-          <ElProgressBarLabel
-            className="el-progress-bar-label-right"
-          >
-            <div
-              className="el-progress-bar-label-right el-progress-bar-label"
-            >
-              0
-              %
-            </div>
-          </ElProgressBarLabel>
-        </ProgressBarLabel>
+          0
+          %
+        </div>
       </div>
-    </ElProgressBarContainer>
-  </ProgressBarContainer>
-</ProgressBarPercentage>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-progress-bar-container"
+    >
+      <div
+        class="el-progress-bar-inner"
+        style="width: 0%; transition-duration: 0.3333333333333333s;"
+      >
+        <div
+          class="el-progress-bar-item-dark-blue el-progress-bar-item"
+        />
+        <div
+          class="el-progress-bar-item-medium-blue el-progress-bar-item"
+        />
+        <div
+          class="el-progress-bar-item-light-blue el-progress-bar-item"
+        />
+        <div
+          class="el-progress-bar-item-lightest-blue el-progress-bar-item"
+        />
+        <div
+          class="el-progress-bar-item-orange el-progress-bar-item"
+        />
+      </div>
+      <div
+        class="el-progress-bar-label-right el-progress-bar-label"
+      >
+        0
+        %
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`ProgressBarSteps should match a snapshot 1`] = `
-<ProgressBarSteps
-  currentStep={5}
-  numberSteps={10}
->
-  <ProgressBarContainer>
-    <ElProgressBarContainer>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
       <div
-        className="el-progress-bar-container"
+        class="el-progress-bar-container"
       >
-        <ProgressBarInner
-          style={
-            Object {
-              "width": "50%",
-            }
-          }
+        <div
+          class="el-progress-bar-inner"
+          style="width: 50%;"
         >
-          <ElProgressBarInner
-            style={
-              Object {
-                "width": "50%",
-              }
-            }
-          >
-            <div
-              className="el-progress-bar-inner"
-              style={
-                Object {
-                  "width": "50%",
-                }
-              }
-            >
-              <ProgressBarItem
-                className="el-progress-bar-item-dark-blue"
-              >
-                <ElProgressBarItem
-                  className="el-progress-bar-item-dark-blue"
-                >
-                  <div
-                    className="el-progress-bar-item-dark-blue el-progress-bar-item"
-                  />
-                </ElProgressBarItem>
-              </ProgressBarItem>
-              <ProgressBarItem
-                className="el-progress-bar-item-medium-blue"
-              >
-                <ElProgressBarItem
-                  className="el-progress-bar-item-medium-blue"
-                >
-                  <div
-                    className="el-progress-bar-item-medium-blue el-progress-bar-item"
-                  />
-                </ElProgressBarItem>
-              </ProgressBarItem>
-              <ProgressBarItem
-                className="el-progress-bar-item-light-blue"
-              >
-                <ElProgressBarItem
-                  className="el-progress-bar-item-light-blue"
-                >
-                  <div
-                    className="el-progress-bar-item-light-blue el-progress-bar-item"
-                  />
-                </ElProgressBarItem>
-              </ProgressBarItem>
-              <ProgressBarItem
-                className="el-progress-bar-item-lightest-blue"
-              >
-                <ElProgressBarItem
-                  className="el-progress-bar-item-lightest-blue"
-                >
-                  <div
-                    className="el-progress-bar-item-lightest-blue el-progress-bar-item"
-                  />
-                </ElProgressBarItem>
-              </ProgressBarItem>
-              <ProgressBarItem
-                className="el-progress-bar-item-orange"
-              >
-                <ElProgressBarItem
-                  className="el-progress-bar-item-orange"
-                >
-                  <div
-                    className="el-progress-bar-item-orange el-progress-bar-item"
-                  />
-                </ElProgressBarItem>
-              </ProgressBarItem>
-            </div>
-          </ElProgressBarInner>
-        </ProgressBarInner>
-        <ProgressBarLabel
-          className="el-progress-bar-label-left"
+          <div
+            class="el-progress-bar-item-dark-blue el-progress-bar-item"
+          />
+          <div
+            class="el-progress-bar-item-medium-blue el-progress-bar-item"
+          />
+          <div
+            class="el-progress-bar-item-light-blue el-progress-bar-item"
+          />
+          <div
+            class="el-progress-bar-item-lightest-blue el-progress-bar-item"
+          />
+          <div
+            class="el-progress-bar-item-orange el-progress-bar-item"
+          />
+        </div>
+        <div
+          class="el-progress-bar-label-left el-progress-bar-label"
         >
-          <ElProgressBarLabel
-            className="el-progress-bar-label-left"
-          >
-            <div
-              className="el-progress-bar-label-left el-progress-bar-label"
-            >
-              5
-              /
-              10
-               Completed
-            </div>
-          </ElProgressBarLabel>
-        </ProgressBarLabel>
+          5
+          /
+          10
+           Completed
+        </div>
       </div>
-    </ElProgressBarContainer>
-  </ProgressBarContainer>
-</ProgressBarSteps>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-progress-bar-container"
+    >
+      <div
+        class="el-progress-bar-inner"
+        style="width: 50%;"
+      >
+        <div
+          class="el-progress-bar-item-dark-blue el-progress-bar-item"
+        />
+        <div
+          class="el-progress-bar-item-medium-blue el-progress-bar-item"
+        />
+        <div
+          class="el-progress-bar-item-light-blue el-progress-bar-item"
+        />
+        <div
+          class="el-progress-bar-item-lightest-blue el-progress-bar-item"
+        />
+        <div
+          class="el-progress-bar-item-orange el-progress-bar-item"
+        />
+      </div>
+      <div
+        class="el-progress-bar-label-left el-progress-bar-label"
+      >
+        5
+        /
+        10
+         Completed
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

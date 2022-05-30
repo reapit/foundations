@@ -1,10 +1,10 @@
 import React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render } from '@testing-library/react'
 import { usePortal, Portal } from '../index'
 import { renderHook } from '@testing-library/react-hooks'
 
 describe('usePortal', () => {
-  xit('should return a target  div correctly', async () => {
+  it('should return a target  div correctly', async () => {
     const { result } = renderHook<{}, {}>(() => usePortal('some-div'))
 
     expect(result.current).toMatchSnapshot()

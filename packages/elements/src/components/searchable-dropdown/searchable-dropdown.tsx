@@ -55,11 +55,15 @@ export const SearchableDropdownControlledInner = <T extends unknown>(
       <ElSearchableDropdownSearchInputAddOn>
         <Icon icon={icon} />
       </ElSearchableDropdownSearchInputAddOn>
-      <ElSearchableDropdownSearchInput value={value} {...inputProps} />
+      <ElSearchableDropdownSearchInput data-testid="search-input" value={value} {...inputProps} />
       {isResultsListVisible && (
         <ElSearchableDropdownResultsContainer>
-          {resultsList.map((result) => (
-            <ElSearchableDropdownResult key={generateRandomId()} onClick={() => onResultClick(result)}>
+          {resultsList.map((result, index) => (
+            <ElSearchableDropdownResult
+              data-testid={`dropdown-result-${index}`}
+              key={generateRandomId()}
+              onClick={() => onResultClick(result)}
+            >
               {result.label}
             </ElSearchableDropdownResult>
           ))}

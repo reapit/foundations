@@ -1,6 +1,7 @@
 import React from 'react'
-import { render } from '../../../tests/react-testing'
-import { ElStep } from '../__styles__'
+import { render } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import { screen } from '@testing-library/dom'
 import { Steps, StepsProps, StepsVertical, StepsVerticalProps } from '../index'
 
 describe('Steps', () => {
@@ -17,9 +18,10 @@ describe('Steps', () => {
     expect(render(<Steps {...props} selectedStep="2" />)).toMatchSnapshot()
   })
 
-  it('should fire the onStepClick event correctly', () => {
-    const wrapper = render(<Steps {...props} />)
-    wrapper.find(ElStep).first().simulate('click')
+  it('should fire the onStepClick event correctly', async () => {
+    const user = userEvent.setup()
+    render(<Steps {...props} />)
+    await user.click(screen.getByTestId('step-1'))
     expect(props.onStepClick).toHaveBeenCalledTimes(1)
   })
 
@@ -64,9 +66,13 @@ describe('StepsVertical', () => {
     expect(render(<StepsVertical {...props} selectedStep="2" />)).toMatchSnapshot()
   })
 
-  it('should fire the onStepClick event correctly', () => {
-    const wrapper = render(<StepsVertical {...props} />)
-    wrapper.find(ElStep).first().simulate('click')
+  it('should fire the onStepClick event correctly', async () => {
+    const user = userEvent.setup()
+
+    render(<StepsVertical {...props} />)
+
+    await user.click(screen.getByTestId('step-1'))
+
     expect(props.onStepClick).toHaveBeenCalledTimes(1)
   })
 

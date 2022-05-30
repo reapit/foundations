@@ -50,7 +50,6 @@
     "winston": "^3.7.2"
   },
   "devDependencies": {
-    "@babel/preset-typescript": "^7.17.12",
     "@reapit/config-manager": "workspace:packages/config-manager",
     "@reapit/ts-bundler": "workspace:packages/ts-bundler",
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",

@@ -1,5 +1,5 @@
 import React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render } from '@testing-library/react'
 import { Icon } from '..'
 import { iconSet } from '../icons'
 import { getIconSize } from '../index'

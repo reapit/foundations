@@ -1,5 +1,5 @@
 import React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render } from '@testing-library/react'
 import { Toggle, ToggleRadio } from '../index'
 import { ElToggleItem } from '../__styles__/index'
 

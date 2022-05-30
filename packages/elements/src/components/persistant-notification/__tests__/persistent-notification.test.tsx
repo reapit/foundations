@@ -1,7 +1,8 @@
 import React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import { screen } from '@testing-library/dom'
 import { PersistantNotification } from '..'
-import { elPnIcon } from '../__styles__'
 
 describe('PersistantNotification component', () => {
   it('should match a snapshot', () => {
@@ -19,14 +20,15 @@ describe('PersistantNotification component', () => {
     expect(wrapper).toMatchSnapshot()
   })
 
-  it('should fire the onStepClick event correctly', () => {
+  it('should fire the onStepClick event correctly', async () => {
     const spy = jest.fn()
-    const wrapper = render(
+    const user = userEvent.setup()
+    render(
       <PersistantNotification intent="critical" onExpansionToggle={spy}>
         I am notification
       </PersistantNotification>,
     )
-    wrapper.find(`.${elPnIcon}`).first().simulate('click')
+    await user.click(screen.getByTestId('close-icon'))
     expect(spy).toHaveBeenCalledTimes(1)
   })
 

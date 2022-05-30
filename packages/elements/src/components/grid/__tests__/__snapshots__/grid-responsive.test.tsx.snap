@@ -1,123 +1,309 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ColResponsive should match a snapshot and render children with no props 1`] = `
-<MediaStateProvider>
-  <ColResponsive>
-    <ElCol
-      className=""
-    >
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
       <div
-        className="el-col"
+        class="el-col"
       >
         <p>
           I am child
         </p>
       </div>
-    </ElCol>
-  </ColResponsive>
-</MediaStateProvider>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-col"
+    >
+      <p>
+        I am child
+      </p>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`ColResponsive should render with the correct classNames when supplied all props 1`] = `
-<MediaStateProvider>
-  <ColResponsive
-    offset4KScreen={1}
-    offsetDesktop={1}
-    offsetMobile={1}
-    offsetSuperWideScreen={1}
-    offsetTablet={1}
-    offsetWideScreen={1}
-    span4KScreen={1}
-    spanDesktop={1}
-    spanMobile={1}
-    spanSuperWideScreen={1}
-    spanTablet={1}
-    spanWideScreen={1}
-  >
-    <ElCol
-      className="el-span1 el-offset1"
-      offset4KScreen={1}
-      offsetDesktop={1}
-      offsetMobile={1}
-      offsetSuperWideScreen={1}
-      offsetTablet={1}
-      offsetWideScreen={1}
-      span4KScreen={1}
-      spanDesktop={1}
-      spanMobile={1}
-      spanSuperWideScreen={1}
-      spanTablet={1}
-      spanWideScreen={1}
-    >
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
       <div
-        className="el-span1 el-offset1 el-col"
+        class="el-span1 el-offset1 el-col"
       >
         <p>
           I am child
         </p>
       </div>
-    </ElCol>
-  </ColResponsive>
-</MediaStateProvider>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-span1 el-offset1 el-col"
+    >
+      <p>
+        I am child
+      </p>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`GridResponsive hould render with the correct classNames when supplied all props 1`] = `
-<MediaStateProvider>
-  <GridResponsive
-    colGap4KScreen={8}
-    colGapDesktop={3}
-    colGapMobile={1}
-    colGapSuperWideScreen={6}
-    colGapTablet={2}
-    colGapWideScreen={4}
-    rowGap4KScreen={8}
-    rowGapDesktop={3}
-    rowGapMobile={1}
-    rowGapSuperWideScreen={6}
-    rowGapTablet={2}
-    rowGapWideScreen={4}
-  >
-    <ElGrid
-      className="el-col-gap3 el-row-gap3"
-      colGap4KScreen={8}
-      colGapDesktop={3}
-      colGapMobile={1}
-      colGapSuperWideScreen={6}
-      colGapTablet={2}
-      colGapWideScreen={4}
-      rowGap4KScreen={8}
-      rowGapDesktop={3}
-      rowGapMobile={1}
-      rowGapSuperWideScreen={6}
-      rowGapTablet={2}
-      rowGapWideScreen={4}
-    >
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
       <div
-        className="el-col-gap3 el-row-gap3 el-grid"
+        class="el-col-gap3 el-row-gap3 el-grid"
       >
         <p>
           I am child
         </p>
       </div>
-    </ElGrid>
-  </GridResponsive>
-</MediaStateProvider>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-col-gap3 el-row-gap3 el-grid"
+    >
+      <p>
+        I am child
+      </p>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`GridResponsive should match a snapshot and render children with no props 1`] = `
-<MediaStateProvider>
-  <GridResponsive>
-    <ElGrid
-      className=""
-    >
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
       <div
-        className="el-grid"
+        class="el-grid"
       >
         <p>
           I am child
         </p>
       </div>
-    </ElGrid>
-  </GridResponsive>
-</MediaStateProvider>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-grid"
+    >
+      <p>
+        I am child
+      </p>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

@@ -1,10 +1,10 @@
 import React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render } from '@testing-library/react'
 import { MediaStateProvider, MediaType, useMediaQuery } from '../index'
 import { renderHook } from '@testing-library/react-hooks'
 
 describe('useMediaQuery', () => {
-  xit('should return mediaType', async () => {
+  it('should return mediaType', async () => {
     const { result } = renderHook<{}, MediaType>(() => useMediaQuery(), {
       wrapper: MediaStateProvider,
     })

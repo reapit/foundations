@@ -47,7 +47,11 @@ export const PersistantNotification: FC<IPersistantNotification> = ({
 
   return (
     <ElPersistantNotification className={combinedClassName} {...rest}>
-      <div className={elPnIcon} onClick={() => onExpansionToggle && onExpansionToggle(!isExpanded)}>
+      <div
+        className={elPnIcon}
+        data-testid="close-icon"
+        onClick={() => onExpansionToggle && onExpansionToggle(!isExpanded)}
+      >
         <Icon icon={icon} />
       </div>
       <div className={elPnContent}>{children}</div>

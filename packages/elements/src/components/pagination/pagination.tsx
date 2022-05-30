@@ -43,10 +43,10 @@ export const Pagination: FC<PaginationProps> = ({ callback, currentPage, numberP
       <PaginationText>
         <strong>{currentPage}</strong> of {numberPages}
       </PaginationText>
-      <PaginationButton onClick={handlePageChange(prevPage, callback)}>
+      <PaginationButton data-testid="back-button" onClick={handlePageChange(prevPage, callback)}>
         <Icon icon="backSystem" className={cx(prevPage && elPaginationPrimary)} />
       </PaginationButton>
-      <PaginationButton onClick={handlePageChange(nextPage, callback)}>
+      <PaginationButton data-testid="forward-button" onClick={handlePageChange(nextPage, callback)}>
         <Icon icon="nextSystem" className={cx(nextPage && elPaginationPrimary)} />
       </PaginationButton>
     </PaginationWrap>

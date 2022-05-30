@@ -1,10 +1,10 @@
 import React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render } from '@testing-library/react'
 import { SnackProvider, UseSnack, useSnack } from '../index'
 import { renderHook } from '@testing-library/react-hooks'
 
 describe('useSnack', () => {
-  xit('should return UseSnack state', async () => {
+  it('should return UseSnack state', async () => {
     const { result } = renderHook<{}, UseSnack>(() => useSnack(), {
       wrapper: (props) => <SnackProvider>{props.children}</SnackProvider>,
     })

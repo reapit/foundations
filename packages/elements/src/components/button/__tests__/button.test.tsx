@@ -1,5 +1,7 @@
 import React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import { screen } from '@testing-library/dom'
 import { Button, ButtonProps, FloatingButton, ButtonGroup, resolveButtonSize } from '../index'
 import { elButtonSize2, elButtonSize3, elButtonSize4 } from '../__styles__'
 
@@ -39,9 +41,12 @@ describe('Button', () => {
     ).toMatchSnapshot()
   })
 
-  it('should fire a click event correctly', () => {
-    const wrapper = render(<Button {...props}>button text</Button>)
-    wrapper.simulate('click')
+  it('should fire a click event correctly', async () => {
+    render(<Button {...props}>button text</Button>)
+    const user = userEvent.setup()
+
+    await user.click(screen.getByText('button text'))
+
     expect(props.onClick).toHaveBeenCalledTimes(1)
   })
 

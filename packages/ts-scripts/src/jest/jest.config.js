@@ -28,6 +28,7 @@ const jestGlobalConfig = {
     '\\.(gql|graphql)$': 'jest-transform-graphql',
   },
   globalSetup: path.join(__dirname, './jest-global.js'),
+  resolver: path.join(__dirname, './resolver.js'),
   coverageThreshold: {
     global: {
       branches: 90,
