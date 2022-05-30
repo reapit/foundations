@@ -7,7 +7,7 @@ jest.mock('../router')
 describe('App', () => {
   it('should render without crashing', () => {
     const app = render(<App />)
-    app.unrender()
+    app.unmount()
   })
 
   it('should match a snapshot', () => {

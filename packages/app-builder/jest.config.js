@@ -6,6 +6,7 @@ module.exports = {
   ...jestGlobalConfig,
   testPathIgnorePatterns: ['<rootDir>/src/tests/'],
   moduleNameMapper: {
+    '^nanoid': '@craftjs/utils/node_modules/nanoid/index.cjs',
     ...jestGlobalConfig.moduleNameMapper,
     ...pathsToModuleNameMapper(compilerOptions.paths, {
       prefix: '<rootDir>/',
