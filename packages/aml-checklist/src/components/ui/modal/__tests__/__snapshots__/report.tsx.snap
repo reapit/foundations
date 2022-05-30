@@ -1,93 +1,793 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ReportContainer handleTrigger 1`] = `
-<div>
-  <Button
-    className="mr-2"
-    type="button"
-    variant="primary"
-  >
-    Print Report
-  </Button>
-</div>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <div>
+        <button
+          class="button   is-primary mr-2"
+          data-test=""
+          type="button"
+        >
+          Print Report
+        </button>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <div>
+      <button
+        class="button   is-primary mr-2"
+        data-test=""
+        type="button"
+      >
+        Print Report
+      </button>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`ReportContainer should match snapshot 1`] = `
-<Fragment>
-  <div>
-    <p>
-      Mrs H Phillips
-    </p>
-    <p>
-      Status: 
-      pass
-    </p>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
     <div>
-      <Table
-        bordered={true}
-        columns={
-          Array [
-            Object {
-              "Header": "Section",
-              "accessor": "section",
-            },
-            Object {
-              "Cell": [Function],
-              "Header": "Description",
-              "accessor": "description",
-              "id": "description",
-            },
-            Object {
-              "Cell": [Function],
-              "Header": "Status",
-              "accessor": "status",
-              "id": "status",
-            },
-          ]
-        }
-        data={
-          Array [
-            Object {
-              "description": [Function],
-              "section": "Personal Detail",
-              "status": true,
-            },
-            Object {
-              "description": [Function],
-              "section": "Primary ID",
-              "status": false,
-            },
-            Object {
-              "description": [Function],
-              "section": "Secondary ID",
-              "status": true,
-            },
-            Object {
-              "description": [Function],
-              "section": "Address History",
-              "status": false,
-            },
-            Object {
-              "description": [Function],
-              "section": "Declaration and Risk Assessment",
-              "status": false,
-            },
-          ]
-        }
-        loading={false}
-        striped={true}
+      <div
+        class="el-snack-holder"
       />
+      <div>
+        <p>
+          Mrs H Phillips
+        </p>
+        <p>
+          Status: 
+          pass
+        </p>
+        <div>
+          <table
+            class="table is-striped is-fullwidth is-bordered"
+            role="table"
+          >
+            <thead>
+              <tr
+                role="row"
+              >
+                <th
+                  colspan="1"
+                  role="columnheader"
+                >
+                  Section
+                </th>
+                <th
+                  colspan="1"
+                  role="columnheader"
+                >
+                  Description
+                </th>
+                <th
+                  colspan="1"
+                  role="columnheader"
+                >
+                  Status
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                class=""
+                role="row"
+              >
+                <td
+                  role="cell"
+                >
+                  Personal Detail
+                </td>
+                <td
+                  role="cell"
+                >
+                  <div>
+                    <p>
+                      Name: 
+                      Mrs H Phillips
+                    </p>
+                    <p>
+                      Date of Birth: 
+                      12/12/2019
+                    </p>
+                    <p>
+                      Home: 
+                      asd
+                    </p>
+                    <p>
+                      Work: 
+                      asd
+                    </p>
+                    <p>
+                      Mobile: 
+                      asd
+                    </p>
+                    <p>
+                      E-Mail: 
+                      sad@gmail.com
+                    </p>
+                  </div>
+                </td>
+                <td
+                  role="cell"
+                >
+                  <div>
+                    <svg
+                      fill="currentColor"
+                      height="1em"
+                      stroke="currentColor"
+                      stroke-width="0"
+                      viewBox="0 0 512 512"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                      />
+                    </svg>
+                    <span>
+                      Completed
+                    </span>
+                  </div>
+                </td>
+              </tr>
+              <tr
+                class=""
+                role="row"
+              >
+                <td
+                  role="cell"
+                >
+                  Primary ID
+                </td>
+                <td
+                  role="cell"
+                >
+                  <div>
+                    <p>
+                      Type: 
+                      Current tax bill
+                    </p>
+                    <p>
+                      Reference: 
+                      Hshs
+                    </p>
+                    <p>
+                      Expiry Date: 
+                      07/02/2020
+                    </p>
+                  </div>
+                </td>
+                <td
+                  role="cell"
+                >
+                  <div>
+                    <svg
+                      fill="currentColor"
+                      height="1em"
+                      stroke="currentColor"
+                      stroke-width="0"
+                      viewBox="0 0 352 512"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                      />
+                    </svg>
+                    <span>
+                      Incomplete
+                    </span>
+                  </div>
+                </td>
+              </tr>
+              <tr
+                class=""
+                role="row"
+              >
+                <td
+                  role="cell"
+                >
+                  Secondary ID
+                </td>
+                <td
+                  role="cell"
+                >
+                  <div>
+                    <p>
+                      Type: 
+                      Certificate of Incorporation
+                    </p>
+                    <p>
+                      Reference: 
+                      a
+                    </p>
+                    <p>
+                      Expiry Date: 
+                      21/12/2019
+                    </p>
+                  </div>
+                </td>
+                <td
+                  role="cell"
+                >
+                  <div>
+                    <svg
+                      fill="currentColor"
+                      height="1em"
+                      stroke="currentColor"
+                      stroke-width="0"
+                      viewBox="0 0 512 512"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                      />
+                    </svg>
+                    <span>
+                      Completed
+                    </span>
+                  </div>
+                </td>
+              </tr>
+              <tr
+                class=""
+                role="row"
+              >
+                <td
+                  role="cell"
+                >
+                  Address History
+                </td>
+                <td
+                  role="cell"
+                >
+                  <div>
+                    <p>
+                      37
+                       
+                      aa
+                       
+                      Kingsway Place
+                       
+                      London
+                    </p>
+                    <p>
+                      a
+                       
+                      EC1R 0LU
+                    </p>
+                  </div>
+                  <div>
+                    <p>
+                      1
+                       
+                      cuong
+                       
+                      Line1
+                       
+                      Line2
+                    </p>
+                    <p>
+                      Line3
+                       
+                      EC1R 0LU
+                    </p>
+                  </div>
+                </td>
+                <td
+                  role="cell"
+                >
+                  <div>
+                    <svg
+                      fill="currentColor"
+                      height="1em"
+                      stroke="currentColor"
+                      stroke-width="0"
+                      viewBox="0 0 352 512"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                      />
+                    </svg>
+                    <span>
+                      Incomplete
+                    </span>
+                  </div>
+                </td>
+              </tr>
+              <tr
+                class=""
+                role="row"
+              >
+                <td
+                  role="cell"
+                >
+                  Declaration and Risk Assessment
+                </td>
+                <td
+                  role="cell"
+                >
+                  <div />
+                </td>
+                <td
+                  role="cell"
+                >
+                  <div>
+                    <svg
+                      fill="currentColor"
+                      height="1em"
+                      stroke="currentColor"
+                      stroke-width="0"
+                      viewBox="0 0 352 512"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                      />
+                    </svg>
+                    <span>
+                      Incomplete
+                    </span>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div>
+        <button
+          class="button   is-primary mr-2"
+          data-test=""
+          type="button"
+        >
+          Print Report
+        </button>
+      </div>
     </div>
-  </div>
-  <div>
-    <o
-      content={[Function]}
-      copyStyles={true}
-      pageStyle="@page { size: auto;  margin: 0mm; } @media print { body { -webkit-print-color-adjust: exact; } }"
-      removeAfterPrint={false}
-      suppressErrors={false}
-      trigger={[Function]}
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
     />
-  </div>
-</Fragment>
+    <div>
+      <p>
+        Mrs H Phillips
+      </p>
+      <p>
+        Status: 
+        pass
+      </p>
+      <div>
+        <table
+          class="table is-striped is-fullwidth is-bordered"
+          role="table"
+        >
+          <thead>
+            <tr
+              role="row"
+            >
+              <th
+                colspan="1"
+                role="columnheader"
+              >
+                Section
+              </th>
+              <th
+                colspan="1"
+                role="columnheader"
+              >
+                Description
+              </th>
+              <th
+                colspan="1"
+                role="columnheader"
+              >
+                Status
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              class=""
+              role="row"
+            >
+              <td
+                role="cell"
+              >
+                Personal Detail
+              </td>
+              <td
+                role="cell"
+              >
+                <div>
+                  <p>
+                    Name: 
+                    Mrs H Phillips
+                  </p>
+                  <p>
+                    Date of Birth: 
+                    12/12/2019
+                  </p>
+                  <p>
+                    Home: 
+                    asd
+                  </p>
+                  <p>
+                    Work: 
+                    asd
+                  </p>
+                  <p>
+                    Mobile: 
+                    asd
+                  </p>
+                  <p>
+                    E-Mail: 
+                    sad@gmail.com
+                  </p>
+                </div>
+              </td>
+              <td
+                role="cell"
+              >
+                <div>
+                  <svg
+                    fill="currentColor"
+                    height="1em"
+                    stroke="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 512 512"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                    />
+                  </svg>
+                  <span>
+                    Completed
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class=""
+              role="row"
+            >
+              <td
+                role="cell"
+              >
+                Primary ID
+              </td>
+              <td
+                role="cell"
+              >
+                <div>
+                  <p>
+                    Type: 
+                    Current tax bill
+                  </p>
+                  <p>
+                    Reference: 
+                    Hshs
+                  </p>
+                  <p>
+                    Expiry Date: 
+                    07/02/2020
+                  </p>
+                </div>
+              </td>
+              <td
+                role="cell"
+              >
+                <div>
+                  <svg
+                    fill="currentColor"
+                    height="1em"
+                    stroke="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 352 512"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                    />
+                  </svg>
+                  <span>
+                    Incomplete
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class=""
+              role="row"
+            >
+              <td
+                role="cell"
+              >
+                Secondary ID
+              </td>
+              <td
+                role="cell"
+              >
+                <div>
+                  <p>
+                    Type: 
+                    Certificate of Incorporation
+                  </p>
+                  <p>
+                    Reference: 
+                    a
+                  </p>
+                  <p>
+                    Expiry Date: 
+                    21/12/2019
+                  </p>
+                </div>
+              </td>
+              <td
+                role="cell"
+              >
+                <div>
+                  <svg
+                    fill="currentColor"
+                    height="1em"
+                    stroke="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 512 512"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                    />
+                  </svg>
+                  <span>
+                    Completed
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class=""
+              role="row"
+            >
+              <td
+                role="cell"
+              >
+                Address History
+              </td>
+              <td
+                role="cell"
+              >
+                <div>
+                  <p>
+                    37
+                     
+                    aa
+                     
+                    Kingsway Place
+                     
+                    London
+                  </p>
+                  <p>
+                    a
+                     
+                    EC1R 0LU
+                  </p>
+                </div>
+                <div>
+                  <p>
+                    1
+                     
+                    cuong
+                     
+                    Line1
+                     
+                    Line2
+                  </p>
+                  <p>
+                    Line3
+                     
+                    EC1R 0LU
+                  </p>
+                </div>
+              </td>
+              <td
+                role="cell"
+              >
+                <div>
+                  <svg
+                    fill="currentColor"
+                    height="1em"
+                    stroke="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 352 512"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                    />
+                  </svg>
+                  <span>
+                    Incomplete
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class=""
+              role="row"
+            >
+              <td
+                role="cell"
+              >
+                Declaration and Risk Assessment
+              </td>
+              <td
+                role="cell"
+              >
+                <div />
+              </td>
+              <td
+                role="cell"
+              >
+                <div>
+                  <svg
+                    fill="currentColor"
+                    height="1em"
+                    stroke="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 352 512"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                    />
+                  </svg>
+                  <span>
+                    Incomplete
+                  </span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div>
+      <button
+        class="button   is-primary mr-2"
+        data-test=""
+        type="button"
+      >
+        Print Report
+      </button>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

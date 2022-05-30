@@ -1,5 +1,5 @@
 import React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render } from '../../../../tests/react-testing'
 import { ReduxState } from '@/types/core'
 import { contact } from '@/sagas/__stubs__/contact'
 import { UpdateStatus, mapStateToProps, mapDispatchToProps } from '../update-status'

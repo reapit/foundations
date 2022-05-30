@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render as testRender } from '../../tests/react-testing'
 
 import App from '../app'
 import { render, unmountComponentAtNode } from 'react-dom'
@@ -35,6 +35,6 @@ describe('App', () => {
   })
 
   it('should match a snapshot', () => {
-    expect(render(<App />)).toMatchSnapshot()
+    expect(testRender(<App />)).toMatchSnapshot()
   })
 })

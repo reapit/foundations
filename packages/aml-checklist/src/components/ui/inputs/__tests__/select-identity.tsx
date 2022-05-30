@@ -1,28 +1,8 @@
-import * as React from 'react'
-import { render } from '../../../../tests/react-testing'
-import { SelectIdentity, SelectIdentityProps, mapStateToProps, generateListIdentity } from '../select-identity'
+import { mapStateToProps, generateListIdentity } from '../select-identity'
 import { identityTypes } from '@/sagas/__stubs__/identity-types'
 import { ReduxState } from '@/types/core'
 
-const props = (loading: boolean): SelectIdentityProps => ({
-  labelText: 'idType',
-  id: 'idType',
-  name: 'idType',
-  identityState: {
-    loading: loading,
-    identityTypes: identityTypes,
-  },
-})
-
 describe('Select identity', () => {
-  it('should match a snapshot when LOADING true', () => {
-    expect(render(<SelectIdentity {...props(true)} />)).toMatchSnapshot()
-  })
-
-  it('should match a snapshot when LOADING false', () => {
-    expect(render(<SelectIdentity {...props(false)} />)).toMatchSnapshot()
-  })
-
   describe('generateListIdentity', () => {
     it('should run correctly', () => {
       const identityTypes = []

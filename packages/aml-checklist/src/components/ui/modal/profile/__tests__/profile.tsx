@@ -1,5 +1,5 @@
 import React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render } from '../../../../../tests/react-testing'
 import { Profile, mapStateToProps, mapDispatchToProps } from '../profile'
 import { contact } from '@/sagas/__stubs__/contact'
 import { ReduxState } from '@/types/core'

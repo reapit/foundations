@@ -1,5 +1,5 @@
 import React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render } from '../../../../tests/react-testing'
 import { UpdateStatusSuccess, mapDispatchToProps } from '../update-status-success'
 import { History } from 'history'
 

@@ -1,27 +1,382 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`UpdateStatus should match snapshot 1`] = `
-<Fragment>
-  <p
-    className="mb-4"
-  >
-    You have completed 
-    2
-     out of 
-    5
-     sections for contact 
-    Mrs H Phillips
-    . Please now select one of the following options in order to continue
-  </p>
-  <Formik
-    initialValues={
-      Object {
-        "status": "unchecked",
-      }
-    }
-    onSubmit={[Function]}
-  >
-    <Component />
-  </Formik>
-</Fragment>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <p
+        class="mb-4"
+      >
+        You have completed 
+        2
+         out of 
+        5
+         sections for contact 
+        Mrs H Phillips
+        . Please now select one of the following options in order to continue
+      </p>
+      <form
+        action="#"
+      >
+        <div
+          class="field pb-2 "
+        >
+          <div
+            class="control"
+          >
+            <label
+              class="label"
+              for="status"
+            >
+              Identity Check Status
+            </label>
+            <div
+              class="columns is-multiline"
+              data-test=""
+            >
+              <div
+                class="column is-narrow"
+                data-test=""
+              >
+                <div
+                  class="radio-wrap"
+                >
+                  <input
+                    class="checkbox "
+                    id="statusPassed"
+                    name="status"
+                    type="radio"
+                    value="pass"
+                  />
+                  <label
+                    class="label"
+                    for="statusPassed"
+                  >
+                    Passed
+                  </label>
+                </div>
+              </div>
+              <div
+                class="column is-narrow"
+                data-test=""
+              >
+                <div
+                  class="radio-wrap"
+                >
+                  <input
+                    class="checkbox "
+                    id="statusFail"
+                    name="status"
+                    type="radio"
+                    value="fail"
+                  />
+                  <label
+                    class="label"
+                    for="statusFail"
+                  >
+                    Fail
+                  </label>
+                </div>
+              </div>
+              <div
+                class="column is-narrow"
+                data-test=""
+              >
+                <div
+                  class="radio-wrap"
+                >
+                  <input
+                    class="checkbox "
+                    id="statusPending"
+                    name="status"
+                    type="radio"
+                    value="pending"
+                  />
+                  <label
+                    class="label"
+                    for="statusPending"
+                  >
+                    Pending
+                  </label>
+                </div>
+              </div>
+              <div
+                class="column is-narrow"
+                data-test=""
+              >
+                <div
+                  class="radio-wrap"
+                >
+                  <input
+                    class="checkbox "
+                    id="statusCancelled"
+                    name="status"
+                    type="radio"
+                    value="cancelled"
+                  />
+                  <label
+                    class="label"
+                    for="statusCancelled"
+                  >
+                    Cancelled
+                  </label>
+                </div>
+              </div>
+              <div
+                class="column is-narrow"
+                data-test=""
+              >
+                <div
+                  class="radio-wrap"
+                >
+                  <input
+                    checked=""
+                    class="checkbox "
+                    id="statusUnchecked"
+                    name="status"
+                    type="radio"
+                    value="unchecked"
+                  />
+                  <label
+                    class="label"
+                    for="statusUnchecked"
+                  >
+                    Unchecked
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="is-centered buttons mx-auto"
+        >
+          <button
+            class="button   is-primary "
+            data-test=""
+            type="submit"
+          >
+            Save Status
+          </button>
+        </div>
+      </form>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <p
+      class="mb-4"
+    >
+      You have completed 
+      2
+       out of 
+      5
+       sections for contact 
+      Mrs H Phillips
+      . Please now select one of the following options in order to continue
+    </p>
+    <form
+      action="#"
+    >
+      <div
+        class="field pb-2 "
+      >
+        <div
+          class="control"
+        >
+          <label
+            class="label"
+            for="status"
+          >
+            Identity Check Status
+          </label>
+          <div
+            class="columns is-multiline"
+            data-test=""
+          >
+            <div
+              class="column is-narrow"
+              data-test=""
+            >
+              <div
+                class="radio-wrap"
+              >
+                <input
+                  class="checkbox "
+                  id="statusPassed"
+                  name="status"
+                  type="radio"
+                  value="pass"
+                />
+                <label
+                  class="label"
+                  for="statusPassed"
+                >
+                  Passed
+                </label>
+              </div>
+            </div>
+            <div
+              class="column is-narrow"
+              data-test=""
+            >
+              <div
+                class="radio-wrap"
+              >
+                <input
+                  class="checkbox "
+                  id="statusFail"
+                  name="status"
+                  type="radio"
+                  value="fail"
+                />
+                <label
+                  class="label"
+                  for="statusFail"
+                >
+                  Fail
+                </label>
+              </div>
+            </div>
+            <div
+              class="column is-narrow"
+              data-test=""
+            >
+              <div
+                class="radio-wrap"
+              >
+                <input
+                  class="checkbox "
+                  id="statusPending"
+                  name="status"
+                  type="radio"
+                  value="pending"
+                />
+                <label
+                  class="label"
+                  for="statusPending"
+                >
+                  Pending
+                </label>
+              </div>
+            </div>
+            <div
+              class="column is-narrow"
+              data-test=""
+            >
+              <div
+                class="radio-wrap"
+              >
+                <input
+                  class="checkbox "
+                  id="statusCancelled"
+                  name="status"
+                  type="radio"
+                  value="cancelled"
+                />
+                <label
+                  class="label"
+                  for="statusCancelled"
+                >
+                  Cancelled
+                </label>
+              </div>
+            </div>
+            <div
+              class="column is-narrow"
+              data-test=""
+            >
+              <div
+                class="radio-wrap"
+              >
+                <input
+                  checked=""
+                  class="checkbox "
+                  id="statusUnchecked"
+                  name="status"
+                  type="radio"
+                  value="unchecked"
+                />
+                <label
+                  class="label"
+                  for="statusUnchecked"
+                >
+                  Unchecked
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="is-centered buttons mx-auto"
+      >
+        <button
+          class="button   is-primary "
+          data-test=""
+          type="submit"
+        >
+          Save Status
+        </button>
+      </div>
+    </form>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

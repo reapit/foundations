@@ -1,5 +1,5 @@
 import React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render } from '../../../../tests/react-testing'
 import ProfileModal, { renderContent, STEPS, ID_STATUS } from '../modal'
 import { contact } from '@/sagas/__stubs__/contact'
 

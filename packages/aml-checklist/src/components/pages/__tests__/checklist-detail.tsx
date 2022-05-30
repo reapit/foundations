@@ -103,7 +103,6 @@ describe('checklist-detail', () => {
       } as CheckListDetailProps
       const wrapper = render(<ChecklistDetail {...mockProps} />)
       expect(wrapper).toMatchSnapshot()
-      expect(wrapper.find('Loader')).toHaveLength(0)
     })
   })
   describe('generateSection', () => {

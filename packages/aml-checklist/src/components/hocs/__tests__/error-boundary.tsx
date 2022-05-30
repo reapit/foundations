@@ -1,36 +1,33 @@
-import * as React from 'react'
+import React from 'react'
+import { ErrorBoundary } from '../error-boundary'
 import { render } from '../../../tests/react-testing'
-import { ErrorBoundary, ErrorState } from '../error-boundary'
 
-jest.mock('../../../utils/route-dispatcher')
-jest.mock('rc-animate')
+const Children = () => <div>I am a component!</div>
+const props = {
+  children: Children,
+}
 
 describe('ErrorBoundary', () => {
   it('should match a snapshot when no error', () => {
-    expect(render(<ErrorBoundary />)).toMatchSnapshot()
+    expect(render(<ErrorBoundary {...props} />)).toMatchSnapshot()
   })
 
-  it('should match a snapshot when has an error', () => {
-    const component = render(<ErrorBoundary />)
-    component.setState({
-      hasFailed: true,
-    })
-    expect(component).toMatchSnapshot()
-  })
-
-  it('should call the notification sets the state to hasFailed when it catches', () => {
+  it('should call the errorThrownComponent and sets the state to hasFailed when it catches', () => {
     ;(console.error as any) = jest.fn()
-    const DangerousChild = () => {
-      throw new Error('Catch me if you can')
-    }
 
-    const component = render(
-      <ErrorBoundary>
-        <DangerousChild />
-      </ErrorBoundary>,
-    )
+    const DangerousChild = (props: { someProp?: false }) => {
+      if (!props.someProp) {
+        throw new Error('Catch me if you can')
+      }
+      return <div />
+    }
+    const newPops = { ...props, children: <DangerousChild /> }
+
+    const component = render(<ErrorBoundary {...newPops} />)
+
     expect(DangerousChild).toThrow()
-    expect((component.state() as ErrorState).hasFailed).toBe(true)
+
+    expect(component).toMatchSnapshot()
   })
 
   afterEach(() => {

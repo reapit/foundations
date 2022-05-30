@@ -1126,53 +1126,561 @@ Object {
         class="section has-background"
         data-test=""
       >
-        <p>
-          Something went wrong here, try refreshing your page.
-        </p>
-      </section>
-    </div>
-    <div>
-      <div
-        class="reapit-notification reapit-notification-topRight"
-        style="right: 0px; top: 24px;"
-      >
-        <div>
-          <div
-            class="reapit-notification-notice reapit-notification-notice-closable"
+        <div
+          class="fade-in"
+        >
+          <section
+            class="section has-padding has-background"
+            data-test=""
           >
             <div
-              class="reapit-notification-notice-content"
+              class="level"
+              data-test=""
             >
               <div
-                class="notification reapit-notification-content is-warning-message"
+                class="level-left"
+                data-test=""
               >
-                <svg
-                  class=""
-                  fill="none"
-                  height="36"
-                  viewBox="0 0 36 36"
-                  width="36"
-                  xmlns="http://www.w3.org/2000/svg"
+                <div
+                  class="level-item"
+                  data-test=""
                 >
-                  <path
-                    d="M10 0C4.4775 0 0 4.4775 0 10C0 15.5225 4.4775 20 10 20C15.5225 20 20 15.5225 20 10C20 4.4775 15.5225 0 10 0ZM10 16.3833C9.21833 16.3833 8.68333 15.7808 8.68333 15C8.68333 14.1967 9.24083 13.6167 10 13.6167C10.8025 13.6167 11.3167 14.1967 11.3167 15C11.3167 15.7817 10.8025 16.3833 10 16.3833ZM10.5183 11.1008C10.3192 11.78 9.69167 11.7917 9.4825 11.1008C9.24167 10.3042 8.38583 7.28 8.38583 5.31583C8.38583 2.72417 11.6283 2.71167 11.6283 5.31583C11.6275 7.29167 10.7258 10.3942 10.5183 11.1008Z"
-                    fill="#D3033D"
-                  />
-                </svg>
-                Something went wrong with this component
+                  <section
+                    class="section is-flex is-flex-column has-background"
+                    data-test=""
+                  >
+                    <h3
+                      class="title is-3 mb-5"
+                      id=""
+                    >
+                      <a
+                        class="dynamic-link "
+                        href="#"
+                      />
+                    </h3>
+                    <h5
+                      class="subtitle is-5"
+                      id=""
+                    />
+                  </section>
+                </div>
+              </div>
+              <div
+                class="level-right"
+                data-test=""
+              >
+                <div
+                  class="level-item"
+                  data-test=""
+                >
+                  <button
+                    class="button   is-primary "
+                    data-test=""
+                    disabled=""
+                    type="button"
+                  >
+                    Update Status
+                  </button>
+                </div>
               </div>
             </div>
-            <a
-              class="reapit-notification-notice-close"
-              tabindex="0"
+            <div
+              class="progress-bar"
             >
-              <span
-                class="reapit-notification-notice-close-x"
+              <div
+                class="filler"
+                style="width: 0%;"
               />
-            </a>
-          </div>
+            </div>
+            <div
+              class="has-text-right"
+            >
+              0
+              /
+              5
+               
+              <span>
+                Completed
+              </span>
+            </div>
+          </section>
         </div>
-      </div>
+        <section
+          class="section has-padding has-margin has-background"
+          data-test=""
+        >
+          <div
+            class="fade-in"
+          >
+            <section
+              class="section has-margin has-background"
+              data-test=""
+            >
+              <div
+                class="card"
+              >
+                <div
+                  class="card-content"
+                >
+                  <div
+                    class="media"
+                  >
+                    <div
+                      class="media-content"
+                    >
+                      <h5
+                        class="title is-5"
+                        id=""
+                      >
+                        Personal Details
+                      </h5>
+                    </div>
+                    <div
+                      class="media-right"
+                    >
+                       
+                      <div>
+                        <div
+                          class="undefined undefined"
+                        >
+                          <svg
+                            fill="currentColor"
+                            height="1em"
+                            stroke="currentColor"
+                            stroke-width="0"
+                            viewBox="0 0 512 512"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                            />
+                          </svg>
+                          <span>
+                            Completed
+                          </span>
+                        </div>
+                        <button
+                          class="button   is-primary "
+                          data-test=""
+                          type="button"
+                        >
+                          Edit
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="undefined undefined"
+                  >
+                    <svg
+                      fill="currentColor"
+                      height="1em"
+                      stroke="currentColor"
+                      stroke-width="0"
+                      viewBox="0 0 512 512"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                      />
+                    </svg>
+                    <span>
+                      Completed
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+          <div
+            class="fade-in"
+          >
+            <section
+              class="section has-margin has-background"
+              data-test=""
+            >
+              <div
+                class="card"
+              >
+                <div
+                  class="card-content"
+                >
+                  <div
+                    class="media"
+                  >
+                    <div
+                      class="media-content"
+                    >
+                      <h5
+                        class="title is-5"
+                        id=""
+                      >
+                        Primary ID
+                      </h5>
+                    </div>
+                    <div
+                      class="media-right"
+                    >
+                       
+                      <div>
+                        <div
+                          class="undefined undefined"
+                        >
+                          <svg
+                            fill="currentColor"
+                            height="1em"
+                            stroke="currentColor"
+                            stroke-width="0"
+                            viewBox="0 0 352 512"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                            />
+                          </svg>
+                          <span>
+                            Incomplete
+                          </span>
+                        </div>
+                        <button
+                          class="button   is-primary "
+                          data-test=""
+                          type="button"
+                        >
+                          Edit
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="undefined undefined"
+                  >
+                    <svg
+                      fill="currentColor"
+                      height="1em"
+                      stroke="currentColor"
+                      stroke-width="0"
+                      viewBox="0 0 352 512"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                      />
+                    </svg>
+                    <span>
+                      Incomplete
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+          <div
+            class="fade-in"
+          >
+            <section
+              class="section has-margin has-background"
+              data-test=""
+            >
+              <div
+                class="card"
+              >
+                <div
+                  class="card-content"
+                >
+                  <div
+                    class="media"
+                  >
+                    <div
+                      class="media-content"
+                    >
+                      <h5
+                        class="title is-5"
+                        id=""
+                      >
+                        Secondary ID
+                      </h5>
+                    </div>
+                    <div
+                      class="media-right"
+                    >
+                       
+                      <div>
+                        <div
+                          class="undefined undefined"
+                        >
+                          <svg
+                            fill="currentColor"
+                            height="1em"
+                            stroke="currentColor"
+                            stroke-width="0"
+                            viewBox="0 0 512 512"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                            />
+                          </svg>
+                          <span>
+                            Completed
+                          </span>
+                        </div>
+                        <button
+                          class="button   is-primary "
+                          data-test=""
+                          type="button"
+                        >
+                          Edit
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="undefined undefined"
+                  >
+                    <svg
+                      fill="currentColor"
+                      height="1em"
+                      stroke="currentColor"
+                      stroke-width="0"
+                      viewBox="0 0 512 512"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                      />
+                    </svg>
+                    <span>
+                      Completed
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+          <div
+            class="fade-in"
+          >
+            <section
+              class="section has-margin has-background"
+              data-test=""
+            >
+              <div
+                class="card"
+              >
+                <div
+                  class="card-content"
+                >
+                  <div
+                    class="media"
+                  >
+                    <div
+                      class="media-content"
+                    >
+                      <h5
+                        class="title is-5"
+                        id=""
+                      >
+                        Address Information
+                      </h5>
+                    </div>
+                    <div
+                      class="media-right"
+                    >
+                       
+                      <div>
+                        <div
+                          class="undefined undefined"
+                        >
+                          <svg
+                            fill="currentColor"
+                            height="1em"
+                            stroke="currentColor"
+                            stroke-width="0"
+                            viewBox="0 0 352 512"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                            />
+                          </svg>
+                          <span>
+                            Incomplete
+                          </span>
+                        </div>
+                        <button
+                          class="button   is-primary "
+                          data-test=""
+                          type="button"
+                        >
+                          Edit
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="undefined undefined"
+                  >
+                    <svg
+                      fill="currentColor"
+                      height="1em"
+                      stroke="currentColor"
+                      stroke-width="0"
+                      viewBox="0 0 352 512"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                      />
+                    </svg>
+                    <span>
+                      Incomplete
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+          <div
+            class="fade-in"
+          >
+            <section
+              class="section has-margin has-background"
+              data-test=""
+            >
+              <div
+                class="card"
+              >
+                <div
+                  class="card-content"
+                >
+                  <div
+                    class="media"
+                  >
+                    <div
+                      class="media-content"
+                    >
+                      <h5
+                        class="title is-5"
+                        id=""
+                      >
+                        Declaration Risk Management
+                      </h5>
+                    </div>
+                    <div
+                      class="media-right"
+                    >
+                       
+                      <div>
+                        <div
+                          class="undefined undefined"
+                        >
+                          <svg
+                            fill="currentColor"
+                            height="1em"
+                            stroke="currentColor"
+                            stroke-width="0"
+                            viewBox="0 0 352 512"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                            />
+                          </svg>
+                          <span>
+                            Incomplete
+                          </span>
+                        </div>
+                        <button
+                          class="button   is-primary "
+                          data-test=""
+                          type="button"
+                        >
+                          Edit
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="undefined undefined"
+                  >
+                    <svg
+                      fill="currentColor"
+                      height="1em"
+                      stroke="currentColor"
+                      stroke-width="0"
+                      viewBox="0 0 352 512"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                      />
+                    </svg>
+                    <span>
+                      Incomplete
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+          <div
+            class="fade-in"
+          >
+            <section
+              class="section has-margin has-background"
+              data-test=""
+            >
+              <div
+                class="card"
+              >
+                <div
+                  class="card-content"
+                >
+                  <div
+                    class="media"
+                  >
+                    <div
+                      class="media-content"
+                    >
+                      <h5
+                        class="title is-5"
+                        id=""
+                      >
+                        Report
+                      </h5>
+                    </div>
+                    <div
+                      class="media-right"
+                    >
+                       
+                      <div>
+                        <button
+                          class="button   is-primary "
+                          data-test=""
+                          type="button"
+                        >
+                          View
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </section>
+      </section>
     </div>
   </body>,
   "container": <div>
@@ -1183,9 +1691,560 @@ Object {
       class="section has-background"
       data-test=""
     >
-      <p>
-        Something went wrong here, try refreshing your page.
-      </p>
+      <div
+        class="fade-in"
+      >
+        <section
+          class="section has-padding has-background"
+          data-test=""
+        >
+          <div
+            class="level"
+            data-test=""
+          >
+            <div
+              class="level-left"
+              data-test=""
+            >
+              <div
+                class="level-item"
+                data-test=""
+              >
+                <section
+                  class="section is-flex is-flex-column has-background"
+                  data-test=""
+                >
+                  <h3
+                    class="title is-3 mb-5"
+                    id=""
+                  >
+                    <a
+                      class="dynamic-link "
+                      href="#"
+                    />
+                  </h3>
+                  <h5
+                    class="subtitle is-5"
+                    id=""
+                  />
+                </section>
+              </div>
+            </div>
+            <div
+              class="level-right"
+              data-test=""
+            >
+              <div
+                class="level-item"
+                data-test=""
+              >
+                <button
+                  class="button   is-primary "
+                  data-test=""
+                  disabled=""
+                  type="button"
+                >
+                  Update Status
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="progress-bar"
+          >
+            <div
+              class="filler"
+              style="width: 0%;"
+            />
+          </div>
+          <div
+            class="has-text-right"
+          >
+            0
+            /
+            5
+             
+            <span>
+              Completed
+            </span>
+          </div>
+        </section>
+      </div>
+      <section
+        class="section has-padding has-margin has-background"
+        data-test=""
+      >
+        <div
+          class="fade-in"
+        >
+          <section
+            class="section has-margin has-background"
+            data-test=""
+          >
+            <div
+              class="card"
+            >
+              <div
+                class="card-content"
+              >
+                <div
+                  class="media"
+                >
+                  <div
+                    class="media-content"
+                  >
+                    <h5
+                      class="title is-5"
+                      id=""
+                    >
+                      Personal Details
+                    </h5>
+                  </div>
+                  <div
+                    class="media-right"
+                  >
+                     
+                    <div>
+                      <div
+                        class="undefined undefined"
+                      >
+                        <svg
+                          fill="currentColor"
+                          height="1em"
+                          stroke="currentColor"
+                          stroke-width="0"
+                          viewBox="0 0 512 512"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                          />
+                        </svg>
+                        <span>
+                          Completed
+                        </span>
+                      </div>
+                      <button
+                        class="button   is-primary "
+                        data-test=""
+                        type="button"
+                      >
+                        Edit
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="undefined undefined"
+                >
+                  <svg
+                    fill="currentColor"
+                    height="1em"
+                    stroke="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 512 512"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                    />
+                  </svg>
+                  <span>
+                    Completed
+                  </span>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div
+          class="fade-in"
+        >
+          <section
+            class="section has-margin has-background"
+            data-test=""
+          >
+            <div
+              class="card"
+            >
+              <div
+                class="card-content"
+              >
+                <div
+                  class="media"
+                >
+                  <div
+                    class="media-content"
+                  >
+                    <h5
+                      class="title is-5"
+                      id=""
+                    >
+                      Primary ID
+                    </h5>
+                  </div>
+                  <div
+                    class="media-right"
+                  >
+                     
+                    <div>
+                      <div
+                        class="undefined undefined"
+                      >
+                        <svg
+                          fill="currentColor"
+                          height="1em"
+                          stroke="currentColor"
+                          stroke-width="0"
+                          viewBox="0 0 352 512"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                          />
+                        </svg>
+                        <span>
+                          Incomplete
+                        </span>
+                      </div>
+                      <button
+                        class="button   is-primary "
+                        data-test=""
+                        type="button"
+                      >
+                        Edit
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="undefined undefined"
+                >
+                  <svg
+                    fill="currentColor"
+                    height="1em"
+                    stroke="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 352 512"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                    />
+                  </svg>
+                  <span>
+                    Incomplete
+                  </span>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div
+          class="fade-in"
+        >
+          <section
+            class="section has-margin has-background"
+            data-test=""
+          >
+            <div
+              class="card"
+            >
+              <div
+                class="card-content"
+              >
+                <div
+                  class="media"
+                >
+                  <div
+                    class="media-content"
+                  >
+                    <h5
+                      class="title is-5"
+                      id=""
+                    >
+                      Secondary ID
+                    </h5>
+                  </div>
+                  <div
+                    class="media-right"
+                  >
+                     
+                    <div>
+                      <div
+                        class="undefined undefined"
+                      >
+                        <svg
+                          fill="currentColor"
+                          height="1em"
+                          stroke="currentColor"
+                          stroke-width="0"
+                          viewBox="0 0 512 512"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                          />
+                        </svg>
+                        <span>
+                          Completed
+                        </span>
+                      </div>
+                      <button
+                        class="button   is-primary "
+                        data-test=""
+                        type="button"
+                      >
+                        Edit
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="undefined undefined"
+                >
+                  <svg
+                    fill="currentColor"
+                    height="1em"
+                    stroke="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 512 512"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                    />
+                  </svg>
+                  <span>
+                    Completed
+                  </span>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div
+          class="fade-in"
+        >
+          <section
+            class="section has-margin has-background"
+            data-test=""
+          >
+            <div
+              class="card"
+            >
+              <div
+                class="card-content"
+              >
+                <div
+                  class="media"
+                >
+                  <div
+                    class="media-content"
+                  >
+                    <h5
+                      class="title is-5"
+                      id=""
+                    >
+                      Address Information
+                    </h5>
+                  </div>
+                  <div
+                    class="media-right"
+                  >
+                     
+                    <div>
+                      <div
+                        class="undefined undefined"
+                      >
+                        <svg
+                          fill="currentColor"
+                          height="1em"
+                          stroke="currentColor"
+                          stroke-width="0"
+                          viewBox="0 0 352 512"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                          />
+                        </svg>
+                        <span>
+                          Incomplete
+                        </span>
+                      </div>
+                      <button
+                        class="button   is-primary "
+                        data-test=""
+                        type="button"
+                      >
+                        Edit
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="undefined undefined"
+                >
+                  <svg
+                    fill="currentColor"
+                    height="1em"
+                    stroke="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 352 512"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                    />
+                  </svg>
+                  <span>
+                    Incomplete
+                  </span>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div
+          class="fade-in"
+        >
+          <section
+            class="section has-margin has-background"
+            data-test=""
+          >
+            <div
+              class="card"
+            >
+              <div
+                class="card-content"
+              >
+                <div
+                  class="media"
+                >
+                  <div
+                    class="media-content"
+                  >
+                    <h5
+                      class="title is-5"
+                      id=""
+                    >
+                      Declaration Risk Management
+                    </h5>
+                  </div>
+                  <div
+                    class="media-right"
+                  >
+                     
+                    <div>
+                      <div
+                        class="undefined undefined"
+                      >
+                        <svg
+                          fill="currentColor"
+                          height="1em"
+                          stroke="currentColor"
+                          stroke-width="0"
+                          viewBox="0 0 352 512"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                          />
+                        </svg>
+                        <span>
+                          Incomplete
+                        </span>
+                      </div>
+                      <button
+                        class="button   is-primary "
+                        data-test=""
+                        type="button"
+                      >
+                        Edit
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="undefined undefined"
+                >
+                  <svg
+                    fill="currentColor"
+                    height="1em"
+                    stroke="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 352 512"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                    />
+                  </svg>
+                  <span>
+                    Incomplete
+                  </span>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div
+          class="fade-in"
+        >
+          <section
+            class="section has-margin has-background"
+            data-test=""
+          >
+            <div
+              class="card"
+            >
+              <div
+                class="card-content"
+              >
+                <div
+                  class="media"
+                >
+                  <div
+                    class="media-content"
+                  >
+                    <h5
+                      class="title is-5"
+                      id=""
+                    >
+                      Report
+                    </h5>
+                  </div>
+                  <div
+                    class="media-right"
+                  >
+                     
+                    <div>
+                      <button
+                        class="button   is-primary "
+                        data-test=""
+                        type="button"
+                      >
+                        View
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
     </section>
   </div>,
   "debug": [Function],

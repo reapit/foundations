@@ -1,13 +1,6 @@
 import React from 'react'
-import { render } from '../../../tests/react-testing'
-import {
-  PepSearch,
-  mapStateToProps,
-  mapDispatchToProps,
-  renderNoResult,
-  renderLoading,
-  renderForm,
-} from '../pep-search'
+import { render } from '../../../../tests/react-testing'
+import { PepSearch, mapStateToProps, mapDispatchToProps, renderNoResult, renderLoading } from '../pep-search'
 import { ReduxState } from '@/types/core'
 import { contact } from '@/sagas/__stubs__/contact'
 import { ContactModel } from '@reapit/foundations-ts-definitions'
@@ -77,20 +70,6 @@ describe('pep-search', () => {
     })
   })
 
-  describe('renderForm', () => {
-    it('should match snapshot', () => {
-      const mockProps = {
-        onPrevHandler: jest.fn(),
-        onNextHandler: jest.fn(),
-        isSubmitting: false,
-        pepSearchStatus: { AYL19000001: { param: 'a', result: [], time: '1' } },
-        contact: contact,
-      }
-      const component = renderForm(mockProps)()
-      const wrapper = render(<div>{component}</div>)
-      expect(wrapper).toMatchSnapshot()
-    })
-  })
   describe('renderNoResult', () => {
     it('should match snapshot', () => {
       const component = renderNoResult('param', 'time')

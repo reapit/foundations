@@ -1,1537 +1,3910 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AddressInformation AddressInput should render correctly 1`] = `
-<div
-  key="primaryAddress"
->
-  <Input
-    id="primaryAddress[type]"
-    labelText="Type"
-    name="primaryAddress[type]"
-    type="hidden"
-  />
-  <Input
-    id="primaryAddress[buildingName]"
-    labelText="Building Name"
-    name="primaryAddress[buildingName]"
-    type="text"
-  />
-  <Input
-    id="primaryAddress[buildingNumber]"
-    labelText="Building Number"
-    name="primaryAddress[buildingNumber]"
-    type="text"
-  />
-  <Input
-    id="primaryAddress[line1]"
-    labelText="Line 1"
-    name="primaryAddress[line1]"
-    required={true}
-    type="text"
-  />
-  <Input
-    id="primaryAddress[line2]"
-    labelText="Line 2"
-    name="primaryAddress[line2]"
-    type="text"
-  />
-  <Input
-    id="primaryAddress[line3]"
-    labelText="Line 3"
-    name="primaryAddress[line3]"
-    required={true}
-    type="text"
-  />
-  <Input
-    id="primaryAddress[line4]"
-    labelText="Line 4"
-    name="primaryAddress[line4]"
-    type="text"
-  />
-  <Input
-    id="primaryAddress[postcode]"
-    labelText="Post Code"
-    name="primaryAddress[postcode]"
-    required={true}
-    type="text"
-  />
-  <SelectBox
-    id="metadata.primaryAddress[year]"
-    labelText="Number of Years at Address"
-    name="metadata.primaryAddress[year]"
-    options={
-      Array [
-        Object {
-          "label": "0",
-          "value": "0",
-        },
-        Object {
-          "label": "1",
-          "value": "1",
-        },
-        Object {
-          "label": "2",
-          "value": "2",
-        },
-        Object {
-          "label": "3",
-          "value": "3",
-        },
-        Object {
-          "label": "4",
-          "value": "4",
-        },
-        Object {
-          "label": "5",
-          "value": "5",
-        },
-        Object {
-          "label": "6",
-          "value": "6",
-        },
-        Object {
-          "label": "7",
-          "value": "7",
-        },
-        Object {
-          "label": "8",
-          "value": "8",
-        },
-        Object {
-          "label": "9",
-          "value": "9",
-        },
-        Object {
-          "label": "10",
-          "value": "10",
-        },
-        Object {
-          "label": "11",
-          "value": "11",
-        },
-        Object {
-          "label": "12",
-          "value": "12",
-        },
-        Object {
-          "label": "13",
-          "value": "13",
-        },
-        Object {
-          "label": "14",
-          "value": "14",
-        },
-        Object {
-          "label": "15",
-          "value": "15",
-        },
-        Object {
-          "label": "16",
-          "value": "16",
-        },
-        Object {
-          "label": "17",
-          "value": "17",
-        },
-        Object {
-          "label": "18",
-          "value": "18",
-        },
-        Object {
-          "label": "19",
-          "value": "19",
-        },
-        Object {
-          "label": "20",
-          "value": "20",
-        },
-        Object {
-          "label": "21",
-          "value": "21",
-        },
-        Object {
-          "label": "22",
-          "value": "22",
-        },
-        Object {
-          "label": "23",
-          "value": "23",
-        },
-        Object {
-          "label": "24",
-          "value": "24",
-        },
-        Object {
-          "label": "25",
-          "value": "25",
-        },
-        Object {
-          "label": "26",
-          "value": "26",
-        },
-        Object {
-          "label": "27",
-          "value": "27",
-        },
-        Object {
-          "label": "28",
-          "value": "28",
-        },
-        Object {
-          "label": "29",
-          "value": "29",
-        },
-        Object {
-          "label": "30",
-          "value": "30",
-        },
-        Object {
-          "label": "31",
-          "value": "31",
-        },
-        Object {
-          "label": "32",
-          "value": "32",
-        },
-        Object {
-          "label": "33",
-          "value": "33",
-        },
-        Object {
-          "label": "34",
-          "value": "34",
-        },
-        Object {
-          "label": "35",
-          "value": "35",
-        },
-        Object {
-          "label": "36",
-          "value": "36",
-        },
-        Object {
-          "label": "37",
-          "value": "37",
-        },
-        Object {
-          "label": "38",
-          "value": "38",
-        },
-        Object {
-          "label": "39",
-          "value": "39",
-        },
-        Object {
-          "label": "40",
-          "value": "40",
-        },
-        Object {
-          "label": "41",
-          "value": "41",
-        },
-        Object {
-          "label": "42",
-          "value": "42",
-        },
-        Object {
-          "label": "43",
-          "value": "43",
-        },
-        Object {
-          "label": "44",
-          "value": "44",
-        },
-        Object {
-          "label": "45",
-          "value": "45",
-        },
-        Object {
-          "label": "46",
-          "value": "46",
-        },
-        Object {
-          "label": "47",
-          "value": "47",
-        },
-        Object {
-          "label": "48",
-          "value": "48",
-        },
-        Object {
-          "label": "49",
-          "value": "49",
-        },
-        Object {
-          "label": "50",
-          "value": "50",
-        },
-        Object {
-          "label": "51",
-          "value": "51",
-        },
-        Object {
-          "label": "52",
-          "value": "52",
-        },
-        Object {
-          "label": "53",
-          "value": "53",
-        },
-        Object {
-          "label": "54",
-          "value": "54",
-        },
-        Object {
-          "label": "55",
-          "value": "55",
-        },
-        Object {
-          "label": "56",
-          "value": "56",
-        },
-        Object {
-          "label": "57",
-          "value": "57",
-        },
-        Object {
-          "label": "58",
-          "value": "58",
-        },
-        Object {
-          "label": "59",
-          "value": "59",
-        },
-        Object {
-          "label": "60",
-          "value": "60",
-        },
-        Object {
-          "label": "61",
-          "value": "61",
-        },
-        Object {
-          "label": "62",
-          "value": "62",
-        },
-        Object {
-          "label": "63",
-          "value": "63",
-        },
-        Object {
-          "label": "64",
-          "value": "64",
-        },
-        Object {
-          "label": "65",
-          "value": "65",
-        },
-        Object {
-          "label": "66",
-          "value": "66",
-        },
-        Object {
-          "label": "67",
-          "value": "67",
-        },
-        Object {
-          "label": "68",
-          "value": "68",
-        },
-        Object {
-          "label": "69",
-          "value": "69",
-        },
-        Object {
-          "label": "70",
-          "value": "70",
-        },
-        Object {
-          "label": "71",
-          "value": "71",
-        },
-        Object {
-          "label": "72",
-          "value": "72",
-        },
-        Object {
-          "label": "73",
-          "value": "73",
-        },
-        Object {
-          "label": "74",
-          "value": "74",
-        },
-        Object {
-          "label": "75",
-          "value": "75",
-        },
-        Object {
-          "label": "76",
-          "value": "76",
-        },
-        Object {
-          "label": "77",
-          "value": "77",
-        },
-        Object {
-          "label": "78",
-          "value": "78",
-        },
-        Object {
-          "label": "79",
-          "value": "79",
-        },
-        Object {
-          "label": "80",
-          "value": "80",
-        },
-        Object {
-          "label": "81",
-          "value": "81",
-        },
-        Object {
-          "label": "82",
-          "value": "82",
-        },
-        Object {
-          "label": "83",
-          "value": "83",
-        },
-        Object {
-          "label": "84",
-          "value": "84",
-        },
-        Object {
-          "label": "85",
-          "value": "85",
-        },
-        Object {
-          "label": "86",
-          "value": "86",
-        },
-        Object {
-          "label": "87",
-          "value": "87",
-        },
-        Object {
-          "label": "88",
-          "value": "88",
-        },
-        Object {
-          "label": "89",
-          "value": "89",
-        },
-        Object {
-          "label": "90",
-          "value": "90",
-        },
-        Object {
-          "label": "91",
-          "value": "91",
-        },
-        Object {
-          "label": "92",
-          "value": "92",
-        },
-        Object {
-          "label": "93",
-          "value": "93",
-        },
-        Object {
-          "label": "94",
-          "value": "94",
-        },
-        Object {
-          "label": "95",
-          "value": "95",
-        },
-        Object {
-          "label": "96",
-          "value": "96",
-        },
-        Object {
-          "label": "97",
-          "value": "97",
-        },
-        Object {
-          "label": "98",
-          "value": "98",
-        },
-        Object {
-          "label": "99",
-          "value": "99",
-        },
-        Object {
-          "label": "100",
-          "value": "100",
-        },
-      ]
-    }
-    required={true}
-  />
-  <SelectBox
-    id="metadata.primaryAddress[month]"
-    labelText="Number of Months at Address"
-    name="metadata.primaryAddress[month]"
-    options={
-      Array [
-        Object {
-          "label": "0",
-          "value": "0",
-        },
-        Object {
-          "label": "1",
-          "value": "1",
-        },
-        Object {
-          "label": "2",
-          "value": "2",
-        },
-        Object {
-          "label": "3",
-          "value": "3",
-        },
-        Object {
-          "label": "4",
-          "value": "4",
-        },
-        Object {
-          "label": "5",
-          "value": "5",
-        },
-        Object {
-          "label": "6",
-          "value": "6",
-        },
-        Object {
-          "label": "7",
-          "value": "7",
-        },
-        Object {
-          "label": "8",
-          "value": "8",
-        },
-        Object {
-          "label": "9",
-          "value": "9",
-        },
-        Object {
-          "label": "10",
-          "value": "10",
-        },
-        Object {
-          "label": "11",
-          "value": "11",
-        },
-        Object {
-          "label": "12",
-          "value": "12",
-        },
-      ]
-    }
-    required={true}
-  />
-  <SelectBox
-    id="metadata.primaryAddress[documentType]"
-    labelText="Document Type"
-    name="metadata.primaryAddress[documentType]"
-    options={
-      Array [
-        Object {
-          "label": "Please Select",
-          "value": "",
-        },
-        Object {
-          "label": "Mortgage Statement or Mortgage Redemption Statement",
-          "value": "Mortgage Statement or Mortgage Redemption Statement",
-        },
-        Object {
-          "label": "Recent Utility Bill – Gas, Electricity, Water, Telephone (Not mobile phones)",
-          "value": "Recent Utility Bill – Gas, Electricity, Water, Telephone (Not mobile phones)",
-        },
-        Object {
-          "label": "Current Council Tax Bill",
-          "value": "Current Council Tax Bill",
-        },
-        Object {
-          "label": "Current Full UK Driving Licence",
-          "value": "Current Full UK Driving Licence",
-        },
-        Object {
-          "label": "Current UK / EU Photocard Driving Licence with Counterpart",
-          "value": "Current UK / EU Photocard Driving Licence with Counterpart",
-        },
-        Object {
-          "label": "House or motor insurance certificate",
-          "value": "House or motor insurance certificate",
-        },
-        Object {
-          "label": "Current State Pension notification letter",
-          "value": "Current State Pension notification letter",
-        },
-        Object {
-          "label": "Current Benefits Agency letter",
-          "value": "Current Benefits Agency letter",
-        },
-        Object {
-          "label": "Bank / Building Society / Statement",
-          "value": "Bank / Building Society / Statement",
-        },
-        Object {
-          "label": "Solicitor letter confirming completion of house purchase",
-          "value": "Solicitor letter confirming completion of house purchase",
-        },
-        Object {
-          "label": "Credit Card Statements from main provider",
-          "value": "Credit Card Statements from main provider",
-        },
-        Object {
-          "label": "HMRC Tax notification documentation (this does not include P60’s)",
-          "value": "HMRC Tax notification documentation (this does not include P60’s)",
-        },
-        Object {
-          "label": "Account, investment or insurance documents",
-          "value": "Account, investment or insurance documents",
-        },
-        Object {
-          "label": "Letter from Council Confirming Electoral Roll Listing",
-          "value": "Letter from Council Confirming Electoral Roll Listing",
-        },
-        Object {
-          "label": "Smartsearch CDD Report",
-          "value": "Smartsearch CDD Report",
-        },
-      ]
-    }
-    required={true}
-  />
-  <CameraImageInput
-    allowClear={true}
-    id="metadata.primaryAddress[documentImage]"
-    isNarrowWidth={true}
-    labelText="Upload File"
-    name="metadata.primaryAddress[documentImage]"
-    onFilenameClick={[Function]}
-    required={true}
-  />
-  <ModalV2
-    afterClose={[Function]}
-    isCentered={true}
-    isResponsive={true}
-    title="Viewing document"
-    visible={false}
-  >
-    <Section>
-      <img
-        onError={[Function]}
-        src=""
-      />
-    </Section>
-  </ModalV2>
-</div>
-`;
-
-exports[`AddressInformation renderSencondaryAddress should match snapshot 1`] = `
-<div
-  key="secondaryAddress"
->
-  <Input
-    id="secondaryAddress[type]"
-    labelText="Type"
-    name="secondaryAddress[type]"
-    type="hidden"
-  />
-  <Input
-    id="secondaryAddress[buildingName]"
-    labelText="Building Name"
-    name="secondaryAddress[buildingName]"
-    type="text"
-  />
-  <Input
-    id="secondaryAddress[buildingNumber]"
-    labelText="Building Number"
-    name="secondaryAddress[buildingNumber]"
-    type="text"
-  />
-  <Input
-    id="secondaryAddress[line1]"
-    labelText="Line 1"
-    name="secondaryAddress[line1]"
-    required={true}
-    type="text"
-  />
-  <Input
-    id="secondaryAddress[line2]"
-    labelText="Line 2"
-    name="secondaryAddress[line2]"
-    type="text"
-  />
-  <Input
-    id="secondaryAddress[line3]"
-    labelText="Line 3"
-    name="secondaryAddress[line3]"
-    required={true}
-    type="text"
-  />
-  <Input
-    id="secondaryAddress[line4]"
-    labelText="Line 4"
-    name="secondaryAddress[line4]"
-    type="text"
-  />
-  <Input
-    id="secondaryAddress[postcode]"
-    labelText="Post Code"
-    name="secondaryAddress[postcode]"
-    required={true}
-    type="text"
-  />
-  <SelectBox
-    id="metadata.secondaryAddress[year]"
-    labelText="Number of Years at Address"
-    name="metadata.secondaryAddress[year]"
-    options={
-      Array [
-        Object {
-          "label": "0",
-          "value": "0",
-        },
-        Object {
-          "label": "1",
-          "value": "1",
-        },
-        Object {
-          "label": "2",
-          "value": "2",
-        },
-        Object {
-          "label": "3",
-          "value": "3",
-        },
-        Object {
-          "label": "4",
-          "value": "4",
-        },
-        Object {
-          "label": "5",
-          "value": "5",
-        },
-        Object {
-          "label": "6",
-          "value": "6",
-        },
-        Object {
-          "label": "7",
-          "value": "7",
-        },
-        Object {
-          "label": "8",
-          "value": "8",
-        },
-        Object {
-          "label": "9",
-          "value": "9",
-        },
-        Object {
-          "label": "10",
-          "value": "10",
-        },
-        Object {
-          "label": "11",
-          "value": "11",
-        },
-        Object {
-          "label": "12",
-          "value": "12",
-        },
-        Object {
-          "label": "13",
-          "value": "13",
-        },
-        Object {
-          "label": "14",
-          "value": "14",
-        },
-        Object {
-          "label": "15",
-          "value": "15",
-        },
-        Object {
-          "label": "16",
-          "value": "16",
-        },
-        Object {
-          "label": "17",
-          "value": "17",
-        },
-        Object {
-          "label": "18",
-          "value": "18",
-        },
-        Object {
-          "label": "19",
-          "value": "19",
-        },
-        Object {
-          "label": "20",
-          "value": "20",
-        },
-        Object {
-          "label": "21",
-          "value": "21",
-        },
-        Object {
-          "label": "22",
-          "value": "22",
-        },
-        Object {
-          "label": "23",
-          "value": "23",
-        },
-        Object {
-          "label": "24",
-          "value": "24",
-        },
-        Object {
-          "label": "25",
-          "value": "25",
-        },
-        Object {
-          "label": "26",
-          "value": "26",
-        },
-        Object {
-          "label": "27",
-          "value": "27",
-        },
-        Object {
-          "label": "28",
-          "value": "28",
-        },
-        Object {
-          "label": "29",
-          "value": "29",
-        },
-        Object {
-          "label": "30",
-          "value": "30",
-        },
-        Object {
-          "label": "31",
-          "value": "31",
-        },
-        Object {
-          "label": "32",
-          "value": "32",
-        },
-        Object {
-          "label": "33",
-          "value": "33",
-        },
-        Object {
-          "label": "34",
-          "value": "34",
-        },
-        Object {
-          "label": "35",
-          "value": "35",
-        },
-        Object {
-          "label": "36",
-          "value": "36",
-        },
-        Object {
-          "label": "37",
-          "value": "37",
-        },
-        Object {
-          "label": "38",
-          "value": "38",
-        },
-        Object {
-          "label": "39",
-          "value": "39",
-        },
-        Object {
-          "label": "40",
-          "value": "40",
-        },
-        Object {
-          "label": "41",
-          "value": "41",
-        },
-        Object {
-          "label": "42",
-          "value": "42",
-        },
-        Object {
-          "label": "43",
-          "value": "43",
-        },
-        Object {
-          "label": "44",
-          "value": "44",
-        },
-        Object {
-          "label": "45",
-          "value": "45",
-        },
-        Object {
-          "label": "46",
-          "value": "46",
-        },
-        Object {
-          "label": "47",
-          "value": "47",
-        },
-        Object {
-          "label": "48",
-          "value": "48",
-        },
-        Object {
-          "label": "49",
-          "value": "49",
-        },
-        Object {
-          "label": "50",
-          "value": "50",
-        },
-        Object {
-          "label": "51",
-          "value": "51",
-        },
-        Object {
-          "label": "52",
-          "value": "52",
-        },
-        Object {
-          "label": "53",
-          "value": "53",
-        },
-        Object {
-          "label": "54",
-          "value": "54",
-        },
-        Object {
-          "label": "55",
-          "value": "55",
-        },
-        Object {
-          "label": "56",
-          "value": "56",
-        },
-        Object {
-          "label": "57",
-          "value": "57",
-        },
-        Object {
-          "label": "58",
-          "value": "58",
-        },
-        Object {
-          "label": "59",
-          "value": "59",
-        },
-        Object {
-          "label": "60",
-          "value": "60",
-        },
-        Object {
-          "label": "61",
-          "value": "61",
-        },
-        Object {
-          "label": "62",
-          "value": "62",
-        },
-        Object {
-          "label": "63",
-          "value": "63",
-        },
-        Object {
-          "label": "64",
-          "value": "64",
-        },
-        Object {
-          "label": "65",
-          "value": "65",
-        },
-        Object {
-          "label": "66",
-          "value": "66",
-        },
-        Object {
-          "label": "67",
-          "value": "67",
-        },
-        Object {
-          "label": "68",
-          "value": "68",
-        },
-        Object {
-          "label": "69",
-          "value": "69",
-        },
-        Object {
-          "label": "70",
-          "value": "70",
-        },
-        Object {
-          "label": "71",
-          "value": "71",
-        },
-        Object {
-          "label": "72",
-          "value": "72",
-        },
-        Object {
-          "label": "73",
-          "value": "73",
-        },
-        Object {
-          "label": "74",
-          "value": "74",
-        },
-        Object {
-          "label": "75",
-          "value": "75",
-        },
-        Object {
-          "label": "76",
-          "value": "76",
-        },
-        Object {
-          "label": "77",
-          "value": "77",
-        },
-        Object {
-          "label": "78",
-          "value": "78",
-        },
-        Object {
-          "label": "79",
-          "value": "79",
-        },
-        Object {
-          "label": "80",
-          "value": "80",
-        },
-        Object {
-          "label": "81",
-          "value": "81",
-        },
-        Object {
-          "label": "82",
-          "value": "82",
-        },
-        Object {
-          "label": "83",
-          "value": "83",
-        },
-        Object {
-          "label": "84",
-          "value": "84",
-        },
-        Object {
-          "label": "85",
-          "value": "85",
-        },
-        Object {
-          "label": "86",
-          "value": "86",
-        },
-        Object {
-          "label": "87",
-          "value": "87",
-        },
-        Object {
-          "label": "88",
-          "value": "88",
-        },
-        Object {
-          "label": "89",
-          "value": "89",
-        },
-        Object {
-          "label": "90",
-          "value": "90",
-        },
-        Object {
-          "label": "91",
-          "value": "91",
-        },
-        Object {
-          "label": "92",
-          "value": "92",
-        },
-        Object {
-          "label": "93",
-          "value": "93",
-        },
-        Object {
-          "label": "94",
-          "value": "94",
-        },
-        Object {
-          "label": "95",
-          "value": "95",
-        },
-        Object {
-          "label": "96",
-          "value": "96",
-        },
-        Object {
-          "label": "97",
-          "value": "97",
-        },
-        Object {
-          "label": "98",
-          "value": "98",
-        },
-        Object {
-          "label": "99",
-          "value": "99",
-        },
-        Object {
-          "label": "100",
-          "value": "100",
-        },
-      ]
-    }
-    required={true}
-  />
-  <SelectBox
-    id="metadata.secondaryAddress[month]"
-    labelText="Number of Months at Address"
-    name="metadata.secondaryAddress[month]"
-    options={
-      Array [
-        Object {
-          "label": "0",
-          "value": "0",
-        },
-        Object {
-          "label": "1",
-          "value": "1",
-        },
-        Object {
-          "label": "2",
-          "value": "2",
-        },
-        Object {
-          "label": "3",
-          "value": "3",
-        },
-        Object {
-          "label": "4",
-          "value": "4",
-        },
-        Object {
-          "label": "5",
-          "value": "5",
-        },
-        Object {
-          "label": "6",
-          "value": "6",
-        },
-        Object {
-          "label": "7",
-          "value": "7",
-        },
-        Object {
-          "label": "8",
-          "value": "8",
-        },
-        Object {
-          "label": "9",
-          "value": "9",
-        },
-        Object {
-          "label": "10",
-          "value": "10",
-        },
-        Object {
-          "label": "11",
-          "value": "11",
-        },
-        Object {
-          "label": "12",
-          "value": "12",
-        },
-      ]
-    }
-    required={true}
-  />
-  <SelectBox
-    id="metadata.secondaryAddress[documentType]"
-    labelText="Document Type"
-    name="metadata.secondaryAddress[documentType]"
-    options={
-      Array [
-        Object {
-          "label": "Please Select",
-          "value": "",
-        },
-        Object {
-          "label": "Mortgage Statement or Mortgage Redemption Statement",
-          "value": "Mortgage Statement or Mortgage Redemption Statement",
-        },
-        Object {
-          "label": "Recent Utility Bill – Gas, Electricity, Water, Telephone (Not mobile phones)",
-          "value": "Recent Utility Bill – Gas, Electricity, Water, Telephone (Not mobile phones)",
-        },
-        Object {
-          "label": "Current Council Tax Bill",
-          "value": "Current Council Tax Bill",
-        },
-        Object {
-          "label": "Current Full UK Driving Licence",
-          "value": "Current Full UK Driving Licence",
-        },
-        Object {
-          "label": "Current UK / EU Photocard Driving Licence with Counterpart",
-          "value": "Current UK / EU Photocard Driving Licence with Counterpart",
-        },
-        Object {
-          "label": "House or motor insurance certificate",
-          "value": "House or motor insurance certificate",
-        },
-        Object {
-          "label": "Current State Pension notification letter",
-          "value": "Current State Pension notification letter",
-        },
-        Object {
-          "label": "Current Benefits Agency letter",
-          "value": "Current Benefits Agency letter",
-        },
-        Object {
-          "label": "Bank / Building Society / Statement",
-          "value": "Bank / Building Society / Statement",
-        },
-        Object {
-          "label": "Solicitor letter confirming completion of house purchase",
-          "value": "Solicitor letter confirming completion of house purchase",
-        },
-        Object {
-          "label": "Credit Card Statements from main provider",
-          "value": "Credit Card Statements from main provider",
-        },
-        Object {
-          "label": "HMRC Tax notification documentation (this does not include P60’s)",
-          "value": "HMRC Tax notification documentation (this does not include P60’s)",
-        },
-        Object {
-          "label": "Account, investment or insurance documents",
-          "value": "Account, investment or insurance documents",
-        },
-        Object {
-          "label": "Letter from Council Confirming Electoral Roll Listing",
-          "value": "Letter from Council Confirming Electoral Roll Listing",
-        },
-        Object {
-          "label": "Smartsearch CDD Report",
-          "value": "Smartsearch CDD Report",
-        },
-      ]
-    }
-    required={true}
-  />
-  <CameraImageInput
-    allowClear={true}
-    id="metadata.secondaryAddress[documentImage]"
-    isNarrowWidth={true}
-    labelText="Upload File"
-    name="metadata.secondaryAddress[documentImage]"
-    onFilenameClick={[Function]}
-    required={true}
-  />
-  <ModalV2
-    afterClose={[Function]}
-    isCentered={true}
-    isResponsive={true}
-    title="Viewing document"
-    visible={false}
-  >
-    <Section>
-      <img
-        onError={[Function]}
-        src=""
-      />
-    </Section>
-  </ModalV2>
-</div>
-`;
-
 exports[`AddressInformation should match snapshot 1`] = `
-<div>
-  <Formik
-    initialValues={
-      Object {
-        "metadata": Object {
-          "primaryAddress": Object {
-            "documentImage": "",
-          },
-          "secondaryAddress": Object {
-            "documentImage": "",
-          },
-        },
-        "primaryAddress": Object {
-          "buildingName": "aa",
-          "buildingNumber": "37",
-          "countryId": "GB",
-          "line1": "Kingsway Place",
-          "line2": "London",
-          "line3": "a",
-          "line4": "a",
-          "postcode": "EC1R 0LU",
-          "type": "primary",
-        },
-        "secondaryAddress": Object {
-          "buildingName": "cuong",
-          "buildingNumber": "1",
-          "countryId": "GB",
-          "line1": "Line1",
-          "line2": "Line2",
-          "line3": "Line3",
-          "line4": "Line4",
-          "postcode": "EC1R 0LU",
-          "type": "secondary",
-        },
-      }
-    }
-    onSubmit={[MockFunction]}
-    validateOnMount={true}
-    validationSchema={
-      ObjectSchema {
-        "_blacklist": ReferenceSet {
-          "list": Set {},
-          "refs": Map {},
-        },
-        "_blacklistError": undefined,
-        "_excludedEdges": Array [],
-        "_nodes": Array [
-          "metadata",
-        ],
-        "_sortErrors": [Function],
-        "_typeError": [Function],
-        "_whitelist": ReferenceSet {
-          "list": Set {},
-          "refs": Map {},
-        },
-        "_whitelistError": undefined,
-        "conditions": Array [],
-        "deps": Array [],
-        "exclusiveTests": Object {},
-        "fields": Object {
-          "metadata": ObjectSchema {
-            "_blacklist": ReferenceSet {
-              "list": Set {},
-              "refs": Map {},
-            },
-            "_blacklistError": undefined,
-            "_excludedEdges": Array [],
-            "_nodes": Array [
-              "secondaryAddress",
-              "primaryAddress",
-            ],
-            "_sortErrors": [Function],
-            "_typeError": [Function],
-            "_whitelist": ReferenceSet {
-              "list": Set {},
-              "refs": Map {},
-            },
-            "_whitelistError": undefined,
-            "conditions": Array [],
-            "deps": Array [],
-            "exclusiveTests": Object {},
-            "fields": Object {
-              "primaryAddress": ObjectSchema {
-                "_blacklist": ReferenceSet {
-                  "list": Set {},
-                  "refs": Map {},
-                },
-                "_blacklistError": undefined,
-                "_excludedEdges": Array [],
-                "_nodes": Array [
-                  "documentImage",
-                ],
-                "_sortErrors": [Function],
-                "_typeError": [Function],
-                "_whitelist": ReferenceSet {
-                  "list": Set {},
-                  "refs": Map {},
-                },
-                "_whitelistError": undefined,
-                "conditions": Array [],
-                "deps": Array [],
-                "exclusiveTests": Object {},
-                "fields": Object {
-                  "documentImage": StringSchema {
-                    "_blacklist": ReferenceSet {
-                      "list": Set {},
-                      "refs": Map {},
-                    },
-                    "_blacklistError": undefined,
-                    "_typeError": [Function],
-                    "_whitelist": ReferenceSet {
-                      "list": Set {},
-                      "refs": Map {},
-                    },
-                    "_whitelistError": undefined,
-                    "conditions": Array [],
-                    "deps": Array [],
-                    "exclusiveTests": Object {
-                      "isValidBase64": false,
-                      "required": true,
-                    },
-                    "spec": Object {
-                      "abortEarly": true,
-                      "nullable": false,
-                      "presence": "required",
-                      "recursive": true,
-                      "strict": false,
-                      "strip": false,
-                    },
-                    "tests": Array [
-                      [Function],
-                      [Function],
-                    ],
-                    "transforms": Array [
-                      [Function],
-                    ],
-                    "type": "string",
-                  },
-                },
-                "spec": Object {
-                  "abortEarly": true,
-                  "nullable": false,
-                  "presence": "optional",
-                  "recursive": true,
-                  "strict": false,
-                  "strip": false,
-                },
-                "tests": Array [],
-                "transforms": Array [
-                  [Function],
-                ],
-                "type": "object",
-              },
-              "secondaryAddress": ObjectSchema {
-                "_blacklist": ReferenceSet {
-                  "list": Set {},
-                  "refs": Map {},
-                },
-                "_blacklistError": undefined,
-                "_excludedEdges": Array [],
-                "_nodes": Array [
-                  "secondaryAddress",
-                  "documentImage",
-                ],
-                "_sortErrors": [Function],
-                "_typeError": [Function],
-                "_whitelist": ReferenceSet {
-                  "list": Set {},
-                  "refs": Map {},
-                },
-                "_whitelistError": undefined,
-                "conditions": Array [],
-                "deps": Array [],
-                "exclusiveTests": Object {},
-                "fields": Object {
-                  "documentImage": StringSchema {
-                    "_blacklist": ReferenceSet {
-                      "list": Set {},
-                      "refs": Map {},
-                    },
-                    "_blacklistError": undefined,
-                    "_typeError": [Function],
-                    "_whitelist": ReferenceSet {
-                      "list": Set {},
-                      "refs": Map {},
-                    },
-                    "_whitelistError": undefined,
-                    "conditions": Array [
-                      Condition {
-                        "fn": [Function],
-                        "refs": Array [
-                          Reference {
-                            "getter": [Function],
-                            "isContext": false,
-                            "isSibling": true,
-                            "isValue": false,
-                            "key": "secondaryAddress[line1]",
-                            "map": undefined,
-                            "path": "secondaryAddress[line1]",
-                          },
-                        ],
-                      },
-                    ],
-                    "deps": Array [
-                      "secondaryAddress[line1]",
-                    ],
-                    "exclusiveTests": Object {},
-                    "spec": Object {
-                      "abortEarly": true,
-                      "nullable": false,
-                      "presence": "optional",
-                      "recursive": true,
-                      "strict": false,
-                      "strip": false,
-                    },
-                    "tests": Array [],
-                    "transforms": Array [
-                      [Function],
-                    ],
-                    "type": "string",
-                  },
-                },
-                "spec": Object {
-                  "abortEarly": true,
-                  "nullable": false,
-                  "presence": "optional",
-                  "recursive": true,
-                  "strict": false,
-                  "strip": false,
-                },
-                "tests": Array [],
-                "transforms": Array [
-                  [Function],
-                ],
-                "type": "object",
-              },
-            },
-            "spec": Object {
-              "abortEarly": true,
-              "nullable": false,
-              "presence": "optional",
-              "recursive": true,
-              "strict": false,
-              "strip": false,
-            },
-            "tests": Array [],
-            "transforms": Array [
-              [Function],
-            ],
-            "type": "object",
-          },
-        },
-        "spec": Object {
-          "abortEarly": true,
-          "nullable": false,
-          "presence": "optional",
-          "recursive": true,
-          "strict": false,
-          "strip": false,
-        },
-        "tests": Array [],
-        "transforms": Array [
-          [Function],
-        ],
-        "type": "object",
-      }
-    }
-  >
-    <Component />
-  </Formik>
-</div>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <div>
+        <form
+          action="#"
+        >
+          <div>
+            <div
+              class="field"
+            >
+              <div
+                class="control "
+              >
+                <input
+                  class="input is-primary"
+                  data-test=""
+                  id="primaryAddress[type]"
+                  name="primaryAddress[type]"
+                  placeholder=""
+                  type="hidden"
+                  value="primary"
+                />
+              </div>
+            </div>
+            <div
+              class="field"
+            >
+              <div
+                class="control "
+              >
+                <label
+                  class="label inline-block "
+                  for="primaryAddress[buildingName]"
+                >
+                  Building Name
+                </label>
+                <input
+                  class="input is-primary"
+                  data-test=""
+                  id="primaryAddress[buildingName]"
+                  name="primaryAddress[buildingName]"
+                  placeholder=""
+                  type="text"
+                  value="aa"
+                />
+              </div>
+            </div>
+            <div
+              class="field"
+            >
+              <div
+                class="control "
+              >
+                <label
+                  class="label inline-block "
+                  for="primaryAddress[buildingNumber]"
+                >
+                  Building Number
+                </label>
+                <input
+                  class="input is-primary"
+                  data-test=""
+                  id="primaryAddress[buildingNumber]"
+                  name="primaryAddress[buildingNumber]"
+                  placeholder=""
+                  type="text"
+                  value="37"
+                />
+              </div>
+            </div>
+            <div
+              class="field"
+            >
+              <div
+                class="control "
+              >
+                <label
+                  class="label inline-block required-label"
+                  for="primaryAddress[line1]"
+                >
+                  Line 1
+                </label>
+                <input
+                  class="input is-primary"
+                  data-test=""
+                  id="primaryAddress[line1]"
+                  name="primaryAddress[line1]"
+                  placeholder=""
+                  type="text"
+                  value="Kingsway Place"
+                />
+              </div>
+            </div>
+            <div
+              class="field"
+            >
+              <div
+                class="control "
+              >
+                <label
+                  class="label inline-block "
+                  for="primaryAddress[line2]"
+                >
+                  Line 2
+                </label>
+                <input
+                  class="input is-primary"
+                  data-test=""
+                  id="primaryAddress[line2]"
+                  name="primaryAddress[line2]"
+                  placeholder=""
+                  type="text"
+                  value="London"
+                />
+              </div>
+            </div>
+            <div
+              class="field"
+            >
+              <div
+                class="control "
+              >
+                <label
+                  class="label inline-block required-label"
+                  for="primaryAddress[line3]"
+                >
+                  Line 3
+                </label>
+                <input
+                  class="input is-primary"
+                  data-test=""
+                  id="primaryAddress[line3]"
+                  name="primaryAddress[line3]"
+                  placeholder=""
+                  type="text"
+                  value="a"
+                />
+              </div>
+            </div>
+            <div
+              class="field"
+            >
+              <div
+                class="control "
+              >
+                <label
+                  class="label inline-block "
+                  for="primaryAddress[line4]"
+                >
+                  Line 4
+                </label>
+                <input
+                  class="input is-primary"
+                  data-test=""
+                  id="primaryAddress[line4]"
+                  name="primaryAddress[line4]"
+                  placeholder=""
+                  type="text"
+                  value="a"
+                />
+              </div>
+            </div>
+            <div
+              class="field"
+            >
+              <div
+                class="control "
+              >
+                <label
+                  class="label inline-block required-label"
+                  for="primaryAddress[postcode]"
+                >
+                  Post Code
+                </label>
+                <input
+                  class="input is-primary"
+                  data-test=""
+                  id="primaryAddress[postcode]"
+                  name="primaryAddress[postcode]"
+                  placeholder=""
+                  type="text"
+                  value="EC1R 0LU"
+                />
+              </div>
+            </div>
+            <div
+              class="field"
+            >
+              <div
+                class="control"
+              >
+                <label
+                  class="label required-label"
+                  for="metadata.primaryAddress[year]"
+                >
+                  Number of Years at Address
+                </label>
+                <select
+                  class="input is-primary "
+                  data-test=""
+                  name="metadata.primaryAddress[year]"
+                >
+                  <option
+                    value="0"
+                  >
+                    0
+                  </option>
+                  <option
+                    value="1"
+                  >
+                    1
+                  </option>
+                  <option
+                    value="2"
+                  >
+                    2
+                  </option>
+                  <option
+                    value="3"
+                  >
+                    3
+                  </option>
+                  <option
+                    value="4"
+                  >
+                    4
+                  </option>
+                  <option
+                    value="5"
+                  >
+                    5
+                  </option>
+                  <option
+                    value="6"
+                  >
+                    6
+                  </option>
+                  <option
+                    value="7"
+                  >
+                    7
+                  </option>
+                  <option
+                    value="8"
+                  >
+                    8
+                  </option>
+                  <option
+                    value="9"
+                  >
+                    9
+                  </option>
+                  <option
+                    value="10"
+                  >
+                    10
+                  </option>
+                  <option
+                    value="11"
+                  >
+                    11
+                  </option>
+                  <option
+                    value="12"
+                  >
+                    12
+                  </option>
+                  <option
+                    value="13"
+                  >
+                    13
+                  </option>
+                  <option
+                    value="14"
+                  >
+                    14
+                  </option>
+                  <option
+                    value="15"
+                  >
+                    15
+                  </option>
+                  <option
+                    value="16"
+                  >
+                    16
+                  </option>
+                  <option
+                    value="17"
+                  >
+                    17
+                  </option>
+                  <option
+                    value="18"
+                  >
+                    18
+                  </option>
+                  <option
+                    value="19"
+                  >
+                    19
+                  </option>
+                  <option
+                    value="20"
+                  >
+                    20
+                  </option>
+                  <option
+                    value="21"
+                  >
+                    21
+                  </option>
+                  <option
+                    value="22"
+                  >
+                    22
+                  </option>
+                  <option
+                    value="23"
+                  >
+                    23
+                  </option>
+                  <option
+                    value="24"
+                  >
+                    24
+                  </option>
+                  <option
+                    value="25"
+                  >
+                    25
+                  </option>
+                  <option
+                    value="26"
+                  >
+                    26
+                  </option>
+                  <option
+                    value="27"
+                  >
+                    27
+                  </option>
+                  <option
+                    value="28"
+                  >
+                    28
+                  </option>
+                  <option
+                    value="29"
+                  >
+                    29
+                  </option>
+                  <option
+                    value="30"
+                  >
+                    30
+                  </option>
+                  <option
+                    value="31"
+                  >
+                    31
+                  </option>
+                  <option
+                    value="32"
+                  >
+                    32
+                  </option>
+                  <option
+                    value="33"
+                  >
+                    33
+                  </option>
+                  <option
+                    value="34"
+                  >
+                    34
+                  </option>
+                  <option
+                    value="35"
+                  >
+                    35
+                  </option>
+                  <option
+                    value="36"
+                  >
+                    36
+                  </option>
+                  <option
+                    value="37"
+                  >
+                    37
+                  </option>
+                  <option
+                    value="38"
+                  >
+                    38
+                  </option>
+                  <option
+                    value="39"
+                  >
+                    39
+                  </option>
+                  <option
+                    value="40"
+                  >
+                    40
+                  </option>
+                  <option
+                    value="41"
+                  >
+                    41
+                  </option>
+                  <option
+                    value="42"
+                  >
+                    42
+                  </option>
+                  <option
+                    value="43"
+                  >
+                    43
+                  </option>
+                  <option
+                    value="44"
+                  >
+                    44
+                  </option>
+                  <option
+                    value="45"
+                  >
+                    45
+                  </option>
+                  <option
+                    value="46"
+                  >
+                    46
+                  </option>
+                  <option
+                    value="47"
+                  >
+                    47
+                  </option>
+                  <option
+                    value="48"
+                  >
+                    48
+                  </option>
+                  <option
+                    value="49"
+                  >
+                    49
+                  </option>
+                  <option
+                    value="50"
+                  >
+                    50
+                  </option>
+                  <option
+                    value="51"
+                  >
+                    51
+                  </option>
+                  <option
+                    value="52"
+                  >
+                    52
+                  </option>
+                  <option
+                    value="53"
+                  >
+                    53
+                  </option>
+                  <option
+                    value="54"
+                  >
+                    54
+                  </option>
+                  <option
+                    value="55"
+                  >
+                    55
+                  </option>
+                  <option
+                    value="56"
+                  >
+                    56
+                  </option>
+                  <option
+                    value="57"
+                  >
+                    57
+                  </option>
+                  <option
+                    value="58"
+                  >
+                    58
+                  </option>
+                  <option
+                    value="59"
+                  >
+                    59
+                  </option>
+                  <option
+                    value="60"
+                  >
+                    60
+                  </option>
+                  <option
+                    value="61"
+                  >
+                    61
+                  </option>
+                  <option
+                    value="62"
+                  >
+                    62
+                  </option>
+                  <option
+                    value="63"
+                  >
+                    63
+                  </option>
+                  <option
+                    value="64"
+                  >
+                    64
+                  </option>
+                  <option
+                    value="65"
+                  >
+                    65
+                  </option>
+                  <option
+                    value="66"
+                  >
+                    66
+                  </option>
+                  <option
+                    value="67"
+                  >
+                    67
+                  </option>
+                  <option
+                    value="68"
+                  >
+                    68
+                  </option>
+                  <option
+                    value="69"
+                  >
+                    69
+                  </option>
+                  <option
+                    value="70"
+                  >
+                    70
+                  </option>
+                  <option
+                    value="71"
+                  >
+                    71
+                  </option>
+                  <option
+                    value="72"
+                  >
+                    72
+                  </option>
+                  <option
+                    value="73"
+                  >
+                    73
+                  </option>
+                  <option
+                    value="74"
+                  >
+                    74
+                  </option>
+                  <option
+                    value="75"
+                  >
+                    75
+                  </option>
+                  <option
+                    value="76"
+                  >
+                    76
+                  </option>
+                  <option
+                    value="77"
+                  >
+                    77
+                  </option>
+                  <option
+                    value="78"
+                  >
+                    78
+                  </option>
+                  <option
+                    value="79"
+                  >
+                    79
+                  </option>
+                  <option
+                    value="80"
+                  >
+                    80
+                  </option>
+                  <option
+                    value="81"
+                  >
+                    81
+                  </option>
+                  <option
+                    value="82"
+                  >
+                    82
+                  </option>
+                  <option
+                    value="83"
+                  >
+                    83
+                  </option>
+                  <option
+                    value="84"
+                  >
+                    84
+                  </option>
+                  <option
+                    value="85"
+                  >
+                    85
+                  </option>
+                  <option
+                    value="86"
+                  >
+                    86
+                  </option>
+                  <option
+                    value="87"
+                  >
+                    87
+                  </option>
+                  <option
+                    value="88"
+                  >
+                    88
+                  </option>
+                  <option
+                    value="89"
+                  >
+                    89
+                  </option>
+                  <option
+                    value="90"
+                  >
+                    90
+                  </option>
+                  <option
+                    value="91"
+                  >
+                    91
+                  </option>
+                  <option
+                    value="92"
+                  >
+                    92
+                  </option>
+                  <option
+                    value="93"
+                  >
+                    93
+                  </option>
+                  <option
+                    value="94"
+                  >
+                    94
+                  </option>
+                  <option
+                    value="95"
+                  >
+                    95
+                  </option>
+                  <option
+                    value="96"
+                  >
+                    96
+                  </option>
+                  <option
+                    value="97"
+                  >
+                    97
+                  </option>
+                  <option
+                    value="98"
+                  >
+                    98
+                  </option>
+                  <option
+                    value="99"
+                  >
+                    99
+                  </option>
+                  <option
+                    value="100"
+                  >
+                    100
+                  </option>
+                  <option
+                    disabled=""
+                    hidden=""
+                    value=""
+                  >
+                    Please select
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div
+              class="field"
+            >
+              <div
+                class="control"
+              >
+                <label
+                  class="label required-label"
+                  for="metadata.primaryAddress[month]"
+                >
+                  Number of Months at Address
+                </label>
+                <select
+                  class="input is-primary "
+                  data-test=""
+                  name="metadata.primaryAddress[month]"
+                >
+                  <option
+                    value="0"
+                  >
+                    0
+                  </option>
+                  <option
+                    value="1"
+                  >
+                    1
+                  </option>
+                  <option
+                    value="2"
+                  >
+                    2
+                  </option>
+                  <option
+                    value="3"
+                  >
+                    3
+                  </option>
+                  <option
+                    value="4"
+                  >
+                    4
+                  </option>
+                  <option
+                    value="5"
+                  >
+                    5
+                  </option>
+                  <option
+                    value="6"
+                  >
+                    6
+                  </option>
+                  <option
+                    value="7"
+                  >
+                    7
+                  </option>
+                  <option
+                    value="8"
+                  >
+                    8
+                  </option>
+                  <option
+                    value="9"
+                  >
+                    9
+                  </option>
+                  <option
+                    value="10"
+                  >
+                    10
+                  </option>
+                  <option
+                    value="11"
+                  >
+                    11
+                  </option>
+                  <option
+                    value="12"
+                  >
+                    12
+                  </option>
+                  <option
+                    disabled=""
+                    hidden=""
+                    value=""
+                  >
+                    Please select
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div
+              class="field"
+            >
+              <div
+                class="control"
+              >
+                <label
+                  class="label required-label"
+                  for="metadata.primaryAddress[documentType]"
+                >
+                  Document Type
+                </label>
+                <select
+                  class="input is-primary "
+                  data-test=""
+                  name="metadata.primaryAddress[documentType]"
+                >
+                  <option
+                    value=""
+                  >
+                    Please Select
+                  </option>
+                  <option
+                    value="Mortgage Statement or Mortgage Redemption Statement"
+                  >
+                    Mortgage Statement or Mortgage Redemption Statement
+                  </option>
+                  <option
+                    value="Recent Utility Bill – Gas, Electricity, Water, Telephone (Not mobile phones)"
+                  >
+                    Recent Utility Bill – Gas, Electricity, Water, Telephone (Not mobile phones)
+                  </option>
+                  <option
+                    value="Current Council Tax Bill"
+                  >
+                    Current Council Tax Bill
+                  </option>
+                  <option
+                    value="Current Full UK Driving Licence"
+                  >
+                    Current Full UK Driving Licence
+                  </option>
+                  <option
+                    value="Current UK / EU Photocard Driving Licence with Counterpart"
+                  >
+                    Current UK / EU Photocard Driving Licence with Counterpart
+                  </option>
+                  <option
+                    value="House or motor insurance certificate"
+                  >
+                    House or motor insurance certificate
+                  </option>
+                  <option
+                    value="Current State Pension notification letter"
+                  >
+                    Current State Pension notification letter
+                  </option>
+                  <option
+                    value="Current Benefits Agency letter"
+                  >
+                    Current Benefits Agency letter
+                  </option>
+                  <option
+                    value="Bank / Building Society / Statement"
+                  >
+                    Bank / Building Society / Statement
+                  </option>
+                  <option
+                    value="Solicitor letter confirming completion of house purchase"
+                  >
+                    Solicitor letter confirming completion of house purchase
+                  </option>
+                  <option
+                    value="Credit Card Statements from main provider"
+                  >
+                    Credit Card Statements from main provider
+                  </option>
+                  <option
+                    value="HMRC Tax notification documentation (this does not include P60’s)"
+                  >
+                    HMRC Tax notification documentation (this does not include P60’s)
+                  </option>
+                  <option
+                    value="Account, investment or insurance documents"
+                  >
+                    Account, investment or insurance documents
+                  </option>
+                  <option
+                    value="Letter from Council Confirming Electoral Roll Listing"
+                  >
+                    Letter from Council Confirming Electoral Roll Listing
+                  </option>
+                  <option
+                    value="Smartsearch CDD Report"
+                  >
+                    Smartsearch CDD Report
+                  </option>
+                  <option
+                    disabled=""
+                    hidden=""
+                    value=""
+                  >
+                    Please select
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div
+              class="file is-primary  field pb-2"
+            >
+              <div
+                class="control file-input-container"
+              >
+                <label
+                  class="file-label"
+                  data-test="file-input-label"
+                  for="metadata.primaryAddress[documentImage]"
+                >
+                  <input
+                    accept=""
+                    capture="camera"
+                    class="file-input"
+                    data-test=""
+                    id="metadata.primaryAddress[documentImage]"
+                    type="file"
+                  />
+                  <span
+                    class="file-cta required-label"
+                  >
+                    Upload File
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div
+              class="field"
+            >
+              <div
+                class="control "
+              >
+                <input
+                  class="input is-primary"
+                  data-test=""
+                  id="secondaryAddress[type]"
+                  name="secondaryAddress[type]"
+                  placeholder=""
+                  type="hidden"
+                  value="secondary"
+                />
+              </div>
+            </div>
+            <div
+              class="field"
+            >
+              <div
+                class="control "
+              >
+                <label
+                  class="label inline-block "
+                  for="secondaryAddress[buildingName]"
+                >
+                  Building Name
+                </label>
+                <input
+                  class="input is-primary"
+                  data-test=""
+                  id="secondaryAddress[buildingName]"
+                  name="secondaryAddress[buildingName]"
+                  placeholder=""
+                  type="text"
+                  value="cuong"
+                />
+              </div>
+            </div>
+            <div
+              class="field"
+            >
+              <div
+                class="control "
+              >
+                <label
+                  class="label inline-block "
+                  for="secondaryAddress[buildingNumber]"
+                >
+                  Building Number
+                </label>
+                <input
+                  class="input is-primary"
+                  data-test=""
+                  id="secondaryAddress[buildingNumber]"
+                  name="secondaryAddress[buildingNumber]"
+                  placeholder=""
+                  type="text"
+                  value="1"
+                />
+              </div>
+            </div>
+            <div
+              class="field"
+            >
+              <div
+                class="control "
+              >
+                <label
+                  class="label inline-block required-label"
+                  for="secondaryAddress[line1]"
+                >
+                  Line 1
+                </label>
+                <input
+                  class="input is-primary"
+                  data-test=""
+                  id="secondaryAddress[line1]"
+                  name="secondaryAddress[line1]"
+                  placeholder=""
+                  type="text"
+                  value="Line1"
+                />
+              </div>
+            </div>
+            <div
+              class="field"
+            >
+              <div
+                class="control "
+              >
+                <label
+                  class="label inline-block "
+                  for="secondaryAddress[line2]"
+                >
+                  Line 2
+                </label>
+                <input
+                  class="input is-primary"
+                  data-test=""
+                  id="secondaryAddress[line2]"
+                  name="secondaryAddress[line2]"
+                  placeholder=""
+                  type="text"
+                  value="Line2"
+                />
+              </div>
+            </div>
+            <div
+              class="field"
+            >
+              <div
+                class="control "
+              >
+                <label
+                  class="label inline-block required-label"
+                  for="secondaryAddress[line3]"
+                >
+                  Line 3
+                </label>
+                <input
+                  class="input is-primary"
+                  data-test=""
+                  id="secondaryAddress[line3]"
+                  name="secondaryAddress[line3]"
+                  placeholder=""
+                  type="text"
+                  value="Line3"
+                />
+              </div>
+            </div>
+            <div
+              class="field"
+            >
+              <div
+                class="control "
+              >
+                <label
+                  class="label inline-block "
+                  for="secondaryAddress[line4]"
+                >
+                  Line 4
+                </label>
+                <input
+                  class="input is-primary"
+                  data-test=""
+                  id="secondaryAddress[line4]"
+                  name="secondaryAddress[line4]"
+                  placeholder=""
+                  type="text"
+                  value="Line4"
+                />
+              </div>
+            </div>
+            <div
+              class="field"
+            >
+              <div
+                class="control "
+              >
+                <label
+                  class="label inline-block required-label"
+                  for="secondaryAddress[postcode]"
+                >
+                  Post Code
+                </label>
+                <input
+                  class="input is-primary"
+                  data-test=""
+                  id="secondaryAddress[postcode]"
+                  name="secondaryAddress[postcode]"
+                  placeholder=""
+                  type="text"
+                  value="EC1R 0LU"
+                />
+              </div>
+            </div>
+            <div
+              class="field"
+            >
+              <div
+                class="control"
+              >
+                <label
+                  class="label required-label"
+                  for="metadata.secondaryAddress[year]"
+                >
+                  Number of Years at Address
+                </label>
+                <select
+                  class="input is-primary "
+                  data-test=""
+                  name="metadata.secondaryAddress[year]"
+                >
+                  <option
+                    value="0"
+                  >
+                    0
+                  </option>
+                  <option
+                    value="1"
+                  >
+                    1
+                  </option>
+                  <option
+                    value="2"
+                  >
+                    2
+                  </option>
+                  <option
+                    value="3"
+                  >
+                    3
+                  </option>
+                  <option
+                    value="4"
+                  >
+                    4
+                  </option>
+                  <option
+                    value="5"
+                  >
+                    5
+                  </option>
+                  <option
+                    value="6"
+                  >
+                    6
+                  </option>
+                  <option
+                    value="7"
+                  >
+                    7
+                  </option>
+                  <option
+                    value="8"
+                  >
+                    8
+                  </option>
+                  <option
+                    value="9"
+                  >
+                    9
+                  </option>
+                  <option
+                    value="10"
+                  >
+                    10
+                  </option>
+                  <option
+                    value="11"
+                  >
+                    11
+                  </option>
+                  <option
+                    value="12"
+                  >
+                    12
+                  </option>
+                  <option
+                    value="13"
+                  >
+                    13
+                  </option>
+                  <option
+                    value="14"
+                  >
+                    14
+                  </option>
+                  <option
+                    value="15"
+                  >
+                    15
+                  </option>
+                  <option
+                    value="16"
+                  >
+                    16
+                  </option>
+                  <option
+                    value="17"
+                  >
+                    17
+                  </option>
+                  <option
+                    value="18"
+                  >
+                    18
+                  </option>
+                  <option
+                    value="19"
+                  >
+                    19
+                  </option>
+                  <option
+                    value="20"
+                  >
+                    20
+                  </option>
+                  <option
+                    value="21"
+                  >
+                    21
+                  </option>
+                  <option
+                    value="22"
+                  >
+                    22
+                  </option>
+                  <option
+                    value="23"
+                  >
+                    23
+                  </option>
+                  <option
+                    value="24"
+                  >
+                    24
+                  </option>
+                  <option
+                    value="25"
+                  >
+                    25
+                  </option>
+                  <option
+                    value="26"
+                  >
+                    26
+                  </option>
+                  <option
+                    value="27"
+                  >
+                    27
+                  </option>
+                  <option
+                    value="28"
+                  >
+                    28
+                  </option>
+                  <option
+                    value="29"
+                  >
+                    29
+                  </option>
+                  <option
+                    value="30"
+                  >
+                    30
+                  </option>
+                  <option
+                    value="31"
+                  >
+                    31
+                  </option>
+                  <option
+                    value="32"
+                  >
+                    32
+                  </option>
+                  <option
+                    value="33"
+                  >
+                    33
+                  </option>
+                  <option
+                    value="34"
+                  >
+                    34
+                  </option>
+                  <option
+                    value="35"
+                  >
+                    35
+                  </option>
+                  <option
+                    value="36"
+                  >
+                    36
+                  </option>
+                  <option
+                    value="37"
+                  >
+                    37
+                  </option>
+                  <option
+                    value="38"
+                  >
+                    38
+                  </option>
+                  <option
+                    value="39"
+                  >
+                    39
+                  </option>
+                  <option
+                    value="40"
+                  >
+                    40
+                  </option>
+                  <option
+                    value="41"
+                  >
+                    41
+                  </option>
+                  <option
+                    value="42"
+                  >
+                    42
+                  </option>
+                  <option
+                    value="43"
+                  >
+                    43
+                  </option>
+                  <option
+                    value="44"
+                  >
+                    44
+                  </option>
+                  <option
+                    value="45"
+                  >
+                    45
+                  </option>
+                  <option
+                    value="46"
+                  >
+                    46
+                  </option>
+                  <option
+                    value="47"
+                  >
+                    47
+                  </option>
+                  <option
+                    value="48"
+                  >
+                    48
+                  </option>
+                  <option
+                    value="49"
+                  >
+                    49
+                  </option>
+                  <option
+                    value="50"
+                  >
+                    50
+                  </option>
+                  <option
+                    value="51"
+                  >
+                    51
+                  </option>
+                  <option
+                    value="52"
+                  >
+                    52
+                  </option>
+                  <option
+                    value="53"
+                  >
+                    53
+                  </option>
+                  <option
+                    value="54"
+                  >
+                    54
+                  </option>
+                  <option
+                    value="55"
+                  >
+                    55
+                  </option>
+                  <option
+                    value="56"
+                  >
+                    56
+                  </option>
+                  <option
+                    value="57"
+                  >
+                    57
+                  </option>
+                  <option
+                    value="58"
+                  >
+                    58
+                  </option>
+                  <option
+                    value="59"
+                  >
+                    59
+                  </option>
+                  <option
+                    value="60"
+                  >
+                    60
+                  </option>
+                  <option
+                    value="61"
+                  >
+                    61
+                  </option>
+                  <option
+                    value="62"
+                  >
+                    62
+                  </option>
+                  <option
+                    value="63"
+                  >
+                    63
+                  </option>
+                  <option
+                    value="64"
+                  >
+                    64
+                  </option>
+                  <option
+                    value="65"
+                  >
+                    65
+                  </option>
+                  <option
+                    value="66"
+                  >
+                    66
+                  </option>
+                  <option
+                    value="67"
+                  >
+                    67
+                  </option>
+                  <option
+                    value="68"
+                  >
+                    68
+                  </option>
+                  <option
+                    value="69"
+                  >
+                    69
+                  </option>
+                  <option
+                    value="70"
+                  >
+                    70
+                  </option>
+                  <option
+                    value="71"
+                  >
+                    71
+                  </option>
+                  <option
+                    value="72"
+                  >
+                    72
+                  </option>
+                  <option
+                    value="73"
+                  >
+                    73
+                  </option>
+                  <option
+                    value="74"
+                  >
+                    74
+                  </option>
+                  <option
+                    value="75"
+                  >
+                    75
+                  </option>
+                  <option
+                    value="76"
+                  >
+                    76
+                  </option>
+                  <option
+                    value="77"
+                  >
+                    77
+                  </option>
+                  <option
+                    value="78"
+                  >
+                    78
+                  </option>
+                  <option
+                    value="79"
+                  >
+                    79
+                  </option>
+                  <option
+                    value="80"
+                  >
+                    80
+                  </option>
+                  <option
+                    value="81"
+                  >
+                    81
+                  </option>
+                  <option
+                    value="82"
+                  >
+                    82
+                  </option>
+                  <option
+                    value="83"
+                  >
+                    83
+                  </option>
+                  <option
+                    value="84"
+                  >
+                    84
+                  </option>
+                  <option
+                    value="85"
+                  >
+                    85
+                  </option>
+                  <option
+                    value="86"
+                  >
+                    86
+                  </option>
+                  <option
+                    value="87"
+                  >
+                    87
+                  </option>
+                  <option
+                    value="88"
+                  >
+                    88
+                  </option>
+                  <option
+                    value="89"
+                  >
+                    89
+                  </option>
+                  <option
+                    value="90"
+                  >
+                    90
+                  </option>
+                  <option
+                    value="91"
+                  >
+                    91
+                  </option>
+                  <option
+                    value="92"
+                  >
+                    92
+                  </option>
+                  <option
+                    value="93"
+                  >
+                    93
+                  </option>
+                  <option
+                    value="94"
+                  >
+                    94
+                  </option>
+                  <option
+                    value="95"
+                  >
+                    95
+                  </option>
+                  <option
+                    value="96"
+                  >
+                    96
+                  </option>
+                  <option
+                    value="97"
+                  >
+                    97
+                  </option>
+                  <option
+                    value="98"
+                  >
+                    98
+                  </option>
+                  <option
+                    value="99"
+                  >
+                    99
+                  </option>
+                  <option
+                    value="100"
+                  >
+                    100
+                  </option>
+                  <option
+                    disabled=""
+                    hidden=""
+                    value=""
+                  >
+                    Please select
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div
+              class="field"
+            >
+              <div
+                class="control"
+              >
+                <label
+                  class="label required-label"
+                  for="metadata.secondaryAddress[month]"
+                >
+                  Number of Months at Address
+                </label>
+                <select
+                  class="input is-primary "
+                  data-test=""
+                  name="metadata.secondaryAddress[month]"
+                >
+                  <option
+                    value="0"
+                  >
+                    0
+                  </option>
+                  <option
+                    value="1"
+                  >
+                    1
+                  </option>
+                  <option
+                    value="2"
+                  >
+                    2
+                  </option>
+                  <option
+                    value="3"
+                  >
+                    3
+                  </option>
+                  <option
+                    value="4"
+                  >
+                    4
+                  </option>
+                  <option
+                    value="5"
+                  >
+                    5
+                  </option>
+                  <option
+                    value="6"
+                  >
+                    6
+                  </option>
+                  <option
+                    value="7"
+                  >
+                    7
+                  </option>
+                  <option
+                    value="8"
+                  >
+                    8
+                  </option>
+                  <option
+                    value="9"
+                  >
+                    9
+                  </option>
+                  <option
+                    value="10"
+                  >
+                    10
+                  </option>
+                  <option
+                    value="11"
+                  >
+                    11
+                  </option>
+                  <option
+                    value="12"
+                  >
+                    12
+                  </option>
+                  <option
+                    disabled=""
+                    hidden=""
+                    value=""
+                  >
+                    Please select
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div
+              class="field"
+            >
+              <div
+                class="control"
+              >
+                <label
+                  class="label required-label"
+                  for="metadata.secondaryAddress[documentType]"
+                >
+                  Document Type
+                </label>
+                <select
+                  class="input is-primary "
+                  data-test=""
+                  name="metadata.secondaryAddress[documentType]"
+                >
+                  <option
+                    value=""
+                  >
+                    Please Select
+                  </option>
+                  <option
+                    value="Mortgage Statement or Mortgage Redemption Statement"
+                  >
+                    Mortgage Statement or Mortgage Redemption Statement
+                  </option>
+                  <option
+                    value="Recent Utility Bill – Gas, Electricity, Water, Telephone (Not mobile phones)"
+                  >
+                    Recent Utility Bill – Gas, Electricity, Water, Telephone (Not mobile phones)
+                  </option>
+                  <option
+                    value="Current Council Tax Bill"
+                  >
+                    Current Council Tax Bill
+                  </option>
+                  <option
+                    value="Current Full UK Driving Licence"
+                  >
+                    Current Full UK Driving Licence
+                  </option>
+                  <option
+                    value="Current UK / EU Photocard Driving Licence with Counterpart"
+                  >
+                    Current UK / EU Photocard Driving Licence with Counterpart
+                  </option>
+                  <option
+                    value="House or motor insurance certificate"
+                  >
+                    House or motor insurance certificate
+                  </option>
+                  <option
+                    value="Current State Pension notification letter"
+                  >
+                    Current State Pension notification letter
+                  </option>
+                  <option
+                    value="Current Benefits Agency letter"
+                  >
+                    Current Benefits Agency letter
+                  </option>
+                  <option
+                    value="Bank / Building Society / Statement"
+                  >
+                    Bank / Building Society / Statement
+                  </option>
+                  <option
+                    value="Solicitor letter confirming completion of house purchase"
+                  >
+                    Solicitor letter confirming completion of house purchase
+                  </option>
+                  <option
+                    value="Credit Card Statements from main provider"
+                  >
+                    Credit Card Statements from main provider
+                  </option>
+                  <option
+                    value="HMRC Tax notification documentation (this does not include P60’s)"
+                  >
+                    HMRC Tax notification documentation (this does not include P60’s)
+                  </option>
+                  <option
+                    value="Account, investment or insurance documents"
+                  >
+                    Account, investment or insurance documents
+                  </option>
+                  <option
+                    value="Letter from Council Confirming Electoral Roll Listing"
+                  >
+                    Letter from Council Confirming Electoral Roll Listing
+                  </option>
+                  <option
+                    value="Smartsearch CDD Report"
+                  >
+                    Smartsearch CDD Report
+                  </option>
+                  <option
+                    disabled=""
+                    hidden=""
+                    value=""
+                  >
+                    Please select
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div
+              class="file is-primary  field pb-2"
+            >
+              <div
+                class="control file-input-container"
+              >
+                <label
+                  class="file-label"
+                  data-test="file-input-label"
+                  for="metadata.secondaryAddress[documentImage]"
+                >
+                  <input
+                    accept=""
+                    capture="camera"
+                    class="file-input"
+                    data-test=""
+                    id="metadata.secondaryAddress[documentImage]"
+                    type="file"
+                  />
+                  <span
+                    class="file-cta required-label"
+                  >
+                    Upload File
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div
+            class="field pb-2"
+          >
+            <div
+              class="columns undefined"
+            >
+              <div
+                class="is-centered buttons mx-auto"
+              >
+                <button
+                  class="button   is-success mr-2"
+                  data-test=""
+                  type="submit"
+                >
+                  Save
+                </button>
+                <button
+                  class="button   is-secondary mr-2"
+                  data-test=""
+                  type="button"
+                >
+                  Previous
+                </button>
+                <button
+                  class="button   is-primary "
+                  data-test=""
+                  type="button"
+                >
+                  Next
+                </button>
+              </div>
+            </div>
+          </div>
+          <p
+            class="is-size-6"
+          >
+            * Indicates fields that are required in order to ‘Complete’ this section.
+          </p>
+        </form>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <div>
+      <form
+        action="#"
+      >
+        <div>
+          <div
+            class="field"
+          >
+            <div
+              class="control "
+            >
+              <input
+                class="input is-primary"
+                data-test=""
+                id="primaryAddress[type]"
+                name="primaryAddress[type]"
+                placeholder=""
+                type="hidden"
+                value="primary"
+              />
+            </div>
+          </div>
+          <div
+            class="field"
+          >
+            <div
+              class="control "
+            >
+              <label
+                class="label inline-block "
+                for="primaryAddress[buildingName]"
+              >
+                Building Name
+              </label>
+              <input
+                class="input is-primary"
+                data-test=""
+                id="primaryAddress[buildingName]"
+                name="primaryAddress[buildingName]"
+                placeholder=""
+                type="text"
+                value="aa"
+              />
+            </div>
+          </div>
+          <div
+            class="field"
+          >
+            <div
+              class="control "
+            >
+              <label
+                class="label inline-block "
+                for="primaryAddress[buildingNumber]"
+              >
+                Building Number
+              </label>
+              <input
+                class="input is-primary"
+                data-test=""
+                id="primaryAddress[buildingNumber]"
+                name="primaryAddress[buildingNumber]"
+                placeholder=""
+                type="text"
+                value="37"
+              />
+            </div>
+          </div>
+          <div
+            class="field"
+          >
+            <div
+              class="control "
+            >
+              <label
+                class="label inline-block required-label"
+                for="primaryAddress[line1]"
+              >
+                Line 1
+              </label>
+              <input
+                class="input is-primary"
+                data-test=""
+                id="primaryAddress[line1]"
+                name="primaryAddress[line1]"
+                placeholder=""
+                type="text"
+                value="Kingsway Place"
+              />
+            </div>
+          </div>
+          <div
+            class="field"
+          >
+            <div
+              class="control "
+            >
+              <label
+                class="label inline-block "
+                for="primaryAddress[line2]"
+              >
+                Line 2
+              </label>
+              <input
+                class="input is-primary"
+                data-test=""
+                id="primaryAddress[line2]"
+                name="primaryAddress[line2]"
+                placeholder=""
+                type="text"
+                value="London"
+              />
+            </div>
+          </div>
+          <div
+            class="field"
+          >
+            <div
+              class="control "
+            >
+              <label
+                class="label inline-block required-label"
+                for="primaryAddress[line3]"
+              >
+                Line 3
+              </label>
+              <input
+                class="input is-primary"
+                data-test=""
+                id="primaryAddress[line3]"
+                name="primaryAddress[line3]"
+                placeholder=""
+                type="text"
+                value="a"
+              />
+            </div>
+          </div>
+          <div
+            class="field"
+          >
+            <div
+              class="control "
+            >
+              <label
+                class="label inline-block "
+                for="primaryAddress[line4]"
+              >
+                Line 4
+              </label>
+              <input
+                class="input is-primary"
+                data-test=""
+                id="primaryAddress[line4]"
+                name="primaryAddress[line4]"
+                placeholder=""
+                type="text"
+                value="a"
+              />
+            </div>
+          </div>
+          <div
+            class="field"
+          >
+            <div
+              class="control "
+            >
+              <label
+                class="label inline-block required-label"
+                for="primaryAddress[postcode]"
+              >
+                Post Code
+              </label>
+              <input
+                class="input is-primary"
+                data-test=""
+                id="primaryAddress[postcode]"
+                name="primaryAddress[postcode]"
+                placeholder=""
+                type="text"
+                value="EC1R 0LU"
+              />
+            </div>
+          </div>
+          <div
+            class="field"
+          >
+            <div
+              class="control"
+            >
+              <label
+                class="label required-label"
+                for="metadata.primaryAddress[year]"
+              >
+                Number of Years at Address
+              </label>
+              <select
+                class="input is-primary "
+                data-test=""
+                name="metadata.primaryAddress[year]"
+              >
+                <option
+                  value="0"
+                >
+                  0
+                </option>
+                <option
+                  value="1"
+                >
+                  1
+                </option>
+                <option
+                  value="2"
+                >
+                  2
+                </option>
+                <option
+                  value="3"
+                >
+                  3
+                </option>
+                <option
+                  value="4"
+                >
+                  4
+                </option>
+                <option
+                  value="5"
+                >
+                  5
+                </option>
+                <option
+                  value="6"
+                >
+                  6
+                </option>
+                <option
+                  value="7"
+                >
+                  7
+                </option>
+                <option
+                  value="8"
+                >
+                  8
+                </option>
+                <option
+                  value="9"
+                >
+                  9
+                </option>
+                <option
+                  value="10"
+                >
+                  10
+                </option>
+                <option
+                  value="11"
+                >
+                  11
+                </option>
+                <option
+                  value="12"
+                >
+                  12
+                </option>
+                <option
+                  value="13"
+                >
+                  13
+                </option>
+                <option
+                  value="14"
+                >
+                  14
+                </option>
+                <option
+                  value="15"
+                >
+                  15
+                </option>
+                <option
+                  value="16"
+                >
+                  16
+                </option>
+                <option
+                  value="17"
+                >
+                  17
+                </option>
+                <option
+                  value="18"
+                >
+                  18
+                </option>
+                <option
+                  value="19"
+                >
+                  19
+                </option>
+                <option
+                  value="20"
+                >
+                  20
+                </option>
+                <option
+                  value="21"
+                >
+                  21
+                </option>
+                <option
+                  value="22"
+                >
+                  22
+                </option>
+                <option
+                  value="23"
+                >
+                  23
+                </option>
+                <option
+                  value="24"
+                >
+                  24
+                </option>
+                <option
+                  value="25"
+                >
+                  25
+                </option>
+                <option
+                  value="26"
+                >
+                  26
+                </option>
+                <option
+                  value="27"
+                >
+                  27
+                </option>
+                <option
+                  value="28"
+                >
+                  28
+                </option>
+                <option
+                  value="29"
+                >
+                  29
+                </option>
+                <option
+                  value="30"
+                >
+                  30
+                </option>
+                <option
+                  value="31"
+                >
+                  31
+                </option>
+                <option
+                  value="32"
+                >
+                  32
+                </option>
+                <option
+                  value="33"
+                >
+                  33
+                </option>
+                <option
+                  value="34"
+                >
+                  34
+                </option>
+                <option
+                  value="35"
+                >
+                  35
+                </option>
+                <option
+                  value="36"
+                >
+                  36
+                </option>
+                <option
+                  value="37"
+                >
+                  37
+                </option>
+                <option
+                  value="38"
+                >
+                  38
+                </option>
+                <option
+                  value="39"
+                >
+                  39
+                </option>
+                <option
+                  value="40"
+                >
+                  40
+                </option>
+                <option
+                  value="41"
+                >
+                  41
+                </option>
+                <option
+                  value="42"
+                >
+                  42
+                </option>
+                <option
+                  value="43"
+                >
+                  43
+                </option>
+                <option
+                  value="44"
+                >
+                  44
+                </option>
+                <option
+                  value="45"
+                >
+                  45
+                </option>
+                <option
+                  value="46"
+                >
+                  46
+                </option>
+                <option
+                  value="47"
+                >
+                  47
+                </option>
+                <option
+                  value="48"
+                >
+                  48
+                </option>
+                <option
+                  value="49"
+                >
+                  49
+                </option>
+                <option
+                  value="50"
+                >
+                  50
+                </option>
+                <option
+                  value="51"
+                >
+                  51
+                </option>
+                <option
+                  value="52"
+                >
+                  52
+                </option>
+                <option
+                  value="53"
+                >
+                  53
+                </option>
+                <option
+                  value="54"
+                >
+                  54
+                </option>
+                <option
+                  value="55"
+                >
+                  55
+                </option>
+                <option
+                  value="56"
+                >
+                  56
+                </option>
+                <option
+                  value="57"
+                >
+                  57
+                </option>
+                <option
+                  value="58"
+                >
+                  58
+                </option>
+                <option
+                  value="59"
+                >
+                  59
+                </option>
+                <option
+                  value="60"
+                >
+                  60
+                </option>
+                <option
+                  value="61"
+                >
+                  61
+                </option>
+                <option
+                  value="62"
+                >
+                  62
+                </option>
+                <option
+                  value="63"
+                >
+                  63
+                </option>
+                <option
+                  value="64"
+                >
+                  64
+                </option>
+                <option
+                  value="65"
+                >
+                  65
+                </option>
+                <option
+                  value="66"
+                >
+                  66
+                </option>
+                <option
+                  value="67"
+                >
+                  67
+                </option>
+                <option
+                  value="68"
+                >
+                  68
+                </option>
+                <option
+                  value="69"
+                >
+                  69
+                </option>
+                <option
+                  value="70"
+                >
+                  70
+                </option>
+                <option
+                  value="71"
+                >
+                  71
+                </option>
+                <option
+                  value="72"
+                >
+                  72
+                </option>
+                <option
+                  value="73"
+                >
+                  73
+                </option>
+                <option
+                  value="74"
+                >
+                  74
+                </option>
+                <option
+                  value="75"
+                >
+                  75
+                </option>
+                <option
+                  value="76"
+                >
+                  76
+                </option>
+                <option
+                  value="77"
+                >
+                  77
+                </option>
+                <option
+                  value="78"
+                >
+                  78
+                </option>
+                <option
+                  value="79"
+                >
+                  79
+                </option>
+                <option
+                  value="80"
+                >
+                  80
+                </option>
+                <option
+                  value="81"
+                >
+                  81
+                </option>
+                <option
+                  value="82"
+                >
+                  82
+                </option>
+                <option
+                  value="83"
+                >
+                  83
+                </option>
+                <option
+                  value="84"
+                >
+                  84
+                </option>
+                <option
+                  value="85"
+                >
+                  85
+                </option>
+                <option
+                  value="86"
+                >
+                  86
+                </option>
+                <option
+                  value="87"
+                >
+                  87
+                </option>
+                <option
+                  value="88"
+                >
+                  88
+                </option>
+                <option
+                  value="89"
+                >
+                  89
+                </option>
+                <option
+                  value="90"
+                >
+                  90
+                </option>
+                <option
+                  value="91"
+                >
+                  91
+                </option>
+                <option
+                  value="92"
+                >
+                  92
+                </option>
+                <option
+                  value="93"
+                >
+                  93
+                </option>
+                <option
+                  value="94"
+                >
+                  94
+                </option>
+                <option
+                  value="95"
+                >
+                  95
+                </option>
+                <option
+                  value="96"
+                >
+                  96
+                </option>
+                <option
+                  value="97"
+                >
+                  97
+                </option>
+                <option
+                  value="98"
+                >
+                  98
+                </option>
+                <option
+                  value="99"
+                >
+                  99
+                </option>
+                <option
+                  value="100"
+                >
+                  100
+                </option>
+                <option
+                  disabled=""
+                  hidden=""
+                  value=""
+                >
+                  Please select
+                </option>
+              </select>
+            </div>
+          </div>
+          <div
+            class="field"
+          >
+            <div
+              class="control"
+            >
+              <label
+                class="label required-label"
+                for="metadata.primaryAddress[month]"
+              >
+                Number of Months at Address
+              </label>
+              <select
+                class="input is-primary "
+                data-test=""
+                name="metadata.primaryAddress[month]"
+              >
+                <option
+                  value="0"
+                >
+                  0
+                </option>
+                <option
+                  value="1"
+                >
+                  1
+                </option>
+                <option
+                  value="2"
+                >
+                  2
+                </option>
+                <option
+                  value="3"
+                >
+                  3
+                </option>
+                <option
+                  value="4"
+                >
+                  4
+                </option>
+                <option
+                  value="5"
+                >
+                  5
+                </option>
+                <option
+                  value="6"
+                >
+                  6
+                </option>
+                <option
+                  value="7"
+                >
+                  7
+                </option>
+                <option
+                  value="8"
+                >
+                  8
+                </option>
+                <option
+                  value="9"
+                >
+                  9
+                </option>
+                <option
+                  value="10"
+                >
+                  10
+                </option>
+                <option
+                  value="11"
+                >
+                  11
+                </option>
+                <option
+                  value="12"
+                >
+                  12
+                </option>
+                <option
+                  disabled=""
+                  hidden=""
+                  value=""
+                >
+                  Please select
+                </option>
+              </select>
+            </div>
+          </div>
+          <div
+            class="field"
+          >
+            <div
+              class="control"
+            >
+              <label
+                class="label required-label"
+                for="metadata.primaryAddress[documentType]"
+              >
+                Document Type
+              </label>
+              <select
+                class="input is-primary "
+                data-test=""
+                name="metadata.primaryAddress[documentType]"
+              >
+                <option
+                  value=""
+                >
+                  Please Select
+                </option>
+                <option
+                  value="Mortgage Statement or Mortgage Redemption Statement"
+                >
+                  Mortgage Statement or Mortgage Redemption Statement
+                </option>
+                <option
+                  value="Recent Utility Bill – Gas, Electricity, Water, Telephone (Not mobile phones)"
+                >
+                  Recent Utility Bill – Gas, Electricity, Water, Telephone (Not mobile phones)
+                </option>
+                <option
+                  value="Current Council Tax Bill"
+                >
+                  Current Council Tax Bill
+                </option>
+                <option
+                  value="Current Full UK Driving Licence"
+                >
+                  Current Full UK Driving Licence
+                </option>
+                <option
+                  value="Current UK / EU Photocard Driving Licence with Counterpart"
+                >
+                  Current UK / EU Photocard Driving Licence with Counterpart
+                </option>
+                <option
+                  value="House or motor insurance certificate"
+                >
+                  House or motor insurance certificate
+                </option>
+                <option
+                  value="Current State Pension notification letter"
+                >
+                  Current State Pension notification letter
+                </option>
+                <option
+                  value="Current Benefits Agency letter"
+                >
+                  Current Benefits Agency letter
+                </option>
+                <option
+                  value="Bank / Building Society / Statement"
+                >
+                  Bank / Building Society / Statement
+                </option>
+                <option
+                  value="Solicitor letter confirming completion of house purchase"
+                >
+                  Solicitor letter confirming completion of house purchase
+                </option>
+                <option
+                  value="Credit Card Statements from main provider"
+                >
+                  Credit Card Statements from main provider
+                </option>
+                <option
+                  value="HMRC Tax notification documentation (this does not include P60’s)"
+                >
+                  HMRC Tax notification documentation (this does not include P60’s)
+                </option>
+                <option
+                  value="Account, investment or insurance documents"
+                >
+                  Account, investment or insurance documents
+                </option>
+                <option
+                  value="Letter from Council Confirming Electoral Roll Listing"
+                >
+                  Letter from Council Confirming Electoral Roll Listing
+                </option>
+                <option
+                  value="Smartsearch CDD Report"
+                >
+                  Smartsearch CDD Report
+                </option>
+                <option
+                  disabled=""
+                  hidden=""
+                  value=""
+                >
+                  Please select
+                </option>
+              </select>
+            </div>
+          </div>
+          <div
+            class="file is-primary  field pb-2"
+          >
+            <div
+              class="control file-input-container"
+            >
+              <label
+                class="file-label"
+                data-test="file-input-label"
+                for="metadata.primaryAddress[documentImage]"
+              >
+                <input
+                  accept=""
+                  capture="camera"
+                  class="file-input"
+                  data-test=""
+                  id="metadata.primaryAddress[documentImage]"
+                  type="file"
+                />
+                <span
+                  class="file-cta required-label"
+                >
+                  Upload File
+                </span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div
+            class="field"
+          >
+            <div
+              class="control "
+            >
+              <input
+                class="input is-primary"
+                data-test=""
+                id="secondaryAddress[type]"
+                name="secondaryAddress[type]"
+                placeholder=""
+                type="hidden"
+                value="secondary"
+              />
+            </div>
+          </div>
+          <div
+            class="field"
+          >
+            <div
+              class="control "
+            >
+              <label
+                class="label inline-block "
+                for="secondaryAddress[buildingName]"
+              >
+                Building Name
+              </label>
+              <input
+                class="input is-primary"
+                data-test=""
+                id="secondaryAddress[buildingName]"
+                name="secondaryAddress[buildingName]"
+                placeholder=""
+                type="text"
+                value="cuong"
+              />
+            </div>
+          </div>
+          <div
+            class="field"
+          >
+            <div
+              class="control "
+            >
+              <label
+                class="label inline-block "
+                for="secondaryAddress[buildingNumber]"
+              >
+                Building Number
+              </label>
+              <input
+                class="input is-primary"
+                data-test=""
+                id="secondaryAddress[buildingNumber]"
+                name="secondaryAddress[buildingNumber]"
+                placeholder=""
+                type="text"
+                value="1"
+              />
+            </div>
+          </div>
+          <div
+            class="field"
+          >
+            <div
+              class="control "
+            >
+              <label
+                class="label inline-block required-label"
+                for="secondaryAddress[line1]"
+              >
+                Line 1
+              </label>
+              <input
+                class="input is-primary"
+                data-test=""
+                id="secondaryAddress[line1]"
+                name="secondaryAddress[line1]"
+                placeholder=""
+                type="text"
+                value="Line1"
+              />
+            </div>
+          </div>
+          <div
+            class="field"
+          >
+            <div
+              class="control "
+            >
+              <label
+                class="label inline-block "
+                for="secondaryAddress[line2]"
+              >
+                Line 2
+              </label>
+              <input
+                class="input is-primary"
+                data-test=""
+                id="secondaryAddress[line2]"
+                name="secondaryAddress[line2]"
+                placeholder=""
+                type="text"
+                value="Line2"
+              />
+            </div>
+          </div>
+          <div
+            class="field"
+          >
+            <div
+              class="control "
+            >
+              <label
+                class="label inline-block required-label"
+                for="secondaryAddress[line3]"
+              >
+                Line 3
+              </label>
+              <input
+                class="input is-primary"
+                data-test=""
+                id="secondaryAddress[line3]"
+                name="secondaryAddress[line3]"
+                placeholder=""
+                type="text"
+                value="Line3"
+              />
+            </div>
+          </div>
+          <div
+            class="field"
+          >
+            <div
+              class="control "
+            >
+              <label
+                class="label inline-block "
+                for="secondaryAddress[line4]"
+              >
+                Line 4
+              </label>
+              <input
+                class="input is-primary"
+                data-test=""
+                id="secondaryAddress[line4]"
+                name="secondaryAddress[line4]"
+                placeholder=""
+                type="text"
+                value="Line4"
+              />
+            </div>
+          </div>
+          <div
+            class="field"
+          >
+            <div
+              class="control "
+            >
+              <label
+                class="label inline-block required-label"
+                for="secondaryAddress[postcode]"
+              >
+                Post Code
+              </label>
+              <input
+                class="input is-primary"
+                data-test=""
+                id="secondaryAddress[postcode]"
+                name="secondaryAddress[postcode]"
+                placeholder=""
+                type="text"
+                value="EC1R 0LU"
+              />
+            </div>
+          </div>
+          <div
+            class="field"
+          >
+            <div
+              class="control"
+            >
+              <label
+                class="label required-label"
+                for="metadata.secondaryAddress[year]"
+              >
+                Number of Years at Address
+              </label>
+              <select
+                class="input is-primary "
+                data-test=""
+                name="metadata.secondaryAddress[year]"
+              >
+                <option
+                  value="0"
+                >
+                  0
+                </option>
+                <option
+                  value="1"
+                >
+                  1
+                </option>
+                <option
+                  value="2"
+                >
+                  2
+                </option>
+                <option
+                  value="3"
+                >
+                  3
+                </option>
+                <option
+                  value="4"
+                >
+                  4
+                </option>
+                <option
+                  value="5"
+                >
+                  5
+                </option>
+                <option
+                  value="6"
+                >
+                  6
+                </option>
+                <option
+                  value="7"
+                >
+                  7
+                </option>
+                <option
+                  value="8"
+                >
+                  8
+                </option>
+                <option
+                  value="9"
+                >
+                  9
+                </option>
+                <option
+                  value="10"
+                >
+                  10
+                </option>
+                <option
+                  value="11"
+                >
+                  11
+                </option>
+                <option
+                  value="12"
+                >
+                  12
+                </option>
+                <option
+                  value="13"
+                >
+                  13
+                </option>
+                <option
+                  value="14"
+                >
+                  14
+                </option>
+                <option
+                  value="15"
+                >
+                  15
+                </option>
+                <option
+                  value="16"
+                >
+                  16
+                </option>
+                <option
+                  value="17"
+                >
+                  17
+                </option>
+                <option
+                  value="18"
+                >
+                  18
+                </option>
+                <option
+                  value="19"
+                >
+                  19
+                </option>
+                <option
+                  value="20"
+                >
+                  20
+                </option>
+                <option
+                  value="21"
+                >
+                  21
+                </option>
+                <option
+                  value="22"
+                >
+                  22
+                </option>
+                <option
+                  value="23"
+                >
+                  23
+                </option>
+                <option
+                  value="24"
+                >
+                  24
+                </option>
+                <option
+                  value="25"
+                >
+                  25
+                </option>
+                <option
+                  value="26"
+                >
+                  26
+                </option>
+                <option
+                  value="27"
+                >
+                  27
+                </option>
+                <option
+                  value="28"
+                >
+                  28
+                </option>
+                <option
+                  value="29"
+                >
+                  29
+                </option>
+                <option
+                  value="30"
+                >
+                  30
+                </option>
+                <option
+                  value="31"
+                >
+                  31
+                </option>
+                <option
+                  value="32"
+                >
+                  32
+                </option>
+                <option
+                  value="33"
+                >
+                  33
+                </option>
+                <option
+                  value="34"
+                >
+                  34
+                </option>
+                <option
+                  value="35"
+                >
+                  35
+                </option>
+                <option
+                  value="36"
+                >
+                  36
+                </option>
+                <option
+                  value="37"
+                >
+                  37
+                </option>
+                <option
+                  value="38"
+                >
+                  38
+                </option>
+                <option
+                  value="39"
+                >
+                  39
+                </option>
+                <option
+                  value="40"
+                >
+                  40
+                </option>
+                <option
+                  value="41"
+                >
+                  41
+                </option>
+                <option
+                  value="42"
+                >
+                  42
+                </option>
+                <option
+                  value="43"
+                >
+                  43
+                </option>
+                <option
+                  value="44"
+                >
+                  44
+                </option>
+                <option
+                  value="45"
+                >
+                  45
+                </option>
+                <option
+                  value="46"
+                >
+                  46
+                </option>
+                <option
+                  value="47"
+                >
+                  47
+                </option>
+                <option
+                  value="48"
+                >
+                  48
+                </option>
+                <option
+                  value="49"
+                >
+                  49
+                </option>
+                <option
+                  value="50"
+                >
+                  50
+                </option>
+                <option
+                  value="51"
+                >
+                  51
+                </option>
+                <option
+                  value="52"
+                >
+                  52
+                </option>
+                <option
+                  value="53"
+                >
+                  53
+                </option>
+                <option
+                  value="54"
+                >
+                  54
+                </option>
+                <option
+                  value="55"
+                >
+                  55
+                </option>
+                <option
+                  value="56"
+                >
+                  56
+                </option>
+                <option
+                  value="57"
+                >
+                  57
+                </option>
+                <option
+                  value="58"
+                >
+                  58
+                </option>
+                <option
+                  value="59"
+                >
+                  59
+                </option>
+                <option
+                  value="60"
+                >
+                  60
+                </option>
+                <option
+                  value="61"
+                >
+                  61
+                </option>
+                <option
+                  value="62"
+                >
+                  62
+                </option>
+                <option
+                  value="63"
+                >
+                  63
+                </option>
+                <option
+                  value="64"
+                >
+                  64
+                </option>
+                <option
+                  value="65"
+                >
+                  65
+                </option>
+                <option
+                  value="66"
+                >
+                  66
+                </option>
+                <option
+                  value="67"
+                >
+                  67
+                </option>
+                <option
+                  value="68"
+                >
+                  68
+                </option>
+                <option
+                  value="69"
+                >
+                  69
+                </option>
+                <option
+                  value="70"
+                >
+                  70
+                </option>
+                <option
+                  value="71"
+                >
+                  71
+                </option>
+                <option
+                  value="72"
+                >
+                  72
+                </option>
+                <option
+                  value="73"
+                >
+                  73
+                </option>
+                <option
+                  value="74"
+                >
+                  74
+                </option>
+                <option
+                  value="75"
+                >
+                  75
+                </option>
+                <option
+                  value="76"
+                >
+                  76
+                </option>
+                <option
+                  value="77"
+                >
+                  77
+                </option>
+                <option
+                  value="78"
+                >
+                  78
+                </option>
+                <option
+                  value="79"
+                >
+                  79
+                </option>
+                <option
+                  value="80"
+                >
+                  80
+                </option>
+                <option
+                  value="81"
+                >
+                  81
+                </option>
+                <option
+                  value="82"
+                >
+                  82
+                </option>
+                <option
+                  value="83"
+                >
+                  83
+                </option>
+                <option
+                  value="84"
+                >
+                  84
+                </option>
+                <option
+                  value="85"
+                >
+                  85
+                </option>
+                <option
+                  value="86"
+                >
+                  86
+                </option>
+                <option
+                  value="87"
+                >
+                  87
+                </option>
+                <option
+                  value="88"
+                >
+                  88
+                </option>
+                <option
+                  value="89"
+                >
+                  89
+                </option>
+                <option
+                  value="90"
+                >
+                  90
+                </option>
+                <option
+                  value="91"
+                >
+                  91
+                </option>
+                <option
+                  value="92"
+                >
+                  92
+                </option>
+                <option
+                  value="93"
+                >
+                  93
+                </option>
+                <option
+                  value="94"
+                >
+                  94
+                </option>
+                <option
+                  value="95"
+                >
+                  95
+                </option>
+                <option
+                  value="96"
+                >
+                  96
+                </option>
+                <option
+                  value="97"
+                >
+                  97
+                </option>
+                <option
+                  value="98"
+                >
+                  98
+                </option>
+                <option
+                  value="99"
+                >
+                  99
+                </option>
+                <option
+                  value="100"
+                >
+                  100
+                </option>
+                <option
+                  disabled=""
+                  hidden=""
+                  value=""
+                >
+                  Please select
+                </option>
+              </select>
+            </div>
+          </div>
+          <div
+            class="field"
+          >
+            <div
+              class="control"
+            >
+              <label
+                class="label required-label"
+                for="metadata.secondaryAddress[month]"
+              >
+                Number of Months at Address
+              </label>
+              <select
+                class="input is-primary "
+                data-test=""
+                name="metadata.secondaryAddress[month]"
+              >
+                <option
+                  value="0"
+                >
+                  0
+                </option>
+                <option
+                  value="1"
+                >
+                  1
+                </option>
+                <option
+                  value="2"
+                >
+                  2
+                </option>
+                <option
+                  value="3"
+                >
+                  3
+                </option>
+                <option
+                  value="4"
+                >
+                  4
+                </option>
+                <option
+                  value="5"
+                >
+                  5
+                </option>
+                <option
+                  value="6"
+                >
+                  6
+                </option>
+                <option
+                  value="7"
+                >
+                  7
+                </option>
+                <option
+                  value="8"
+                >
+                  8
+                </option>
+                <option
+                  value="9"
+                >
+                  9
+                </option>
+                <option
+                  value="10"
+                >
+                  10
+                </option>
+                <option
+                  value="11"
+                >
+                  11
+                </option>
+                <option
+                  value="12"
+                >
+                  12
+                </option>
+                <option
+                  disabled=""
+                  hidden=""
+                  value=""
+                >
+                  Please select
+                </option>
+              </select>
+            </div>
+          </div>
+          <div
+            class="field"
+          >
+            <div
+              class="control"
+            >
+              <label
+                class="label required-label"
+                for="metadata.secondaryAddress[documentType]"
+              >
+                Document Type
+              </label>
+              <select
+                class="input is-primary "
+                data-test=""
+                name="metadata.secondaryAddress[documentType]"
+              >
+                <option
+                  value=""
+                >
+                  Please Select
+                </option>
+                <option
+                  value="Mortgage Statement or Mortgage Redemption Statement"
+                >
+                  Mortgage Statement or Mortgage Redemption Statement
+                </option>
+                <option
+                  value="Recent Utility Bill – Gas, Electricity, Water, Telephone (Not mobile phones)"
+                >
+                  Recent Utility Bill – Gas, Electricity, Water, Telephone (Not mobile phones)
+                </option>
+                <option
+                  value="Current Council Tax Bill"
+                >
+                  Current Council Tax Bill
+                </option>
+                <option
+                  value="Current Full UK Driving Licence"
+                >
+                  Current Full UK Driving Licence
+                </option>
+                <option
+                  value="Current UK / EU Photocard Driving Licence with Counterpart"
+                >
+                  Current UK / EU Photocard Driving Licence with Counterpart
+                </option>
+                <option
+                  value="House or motor insurance certificate"
+                >
+                  House or motor insurance certificate
+                </option>
+                <option
+                  value="Current State Pension notification letter"
+                >
+                  Current State Pension notification letter
+                </option>
+                <option
+                  value="Current Benefits Agency letter"
+                >
+                  Current Benefits Agency letter
+                </option>
+                <option
+                  value="Bank / Building Society / Statement"
+                >
+                  Bank / Building Society / Statement
+                </option>
+                <option
+                  value="Solicitor letter confirming completion of house purchase"
+                >
+                  Solicitor letter confirming completion of house purchase
+                </option>
+                <option
+                  value="Credit Card Statements from main provider"
+                >
+                  Credit Card Statements from main provider
+                </option>
+                <option
+                  value="HMRC Tax notification documentation (this does not include P60’s)"
+                >
+                  HMRC Tax notification documentation (this does not include P60’s)
+                </option>
+                <option
+                  value="Account, investment or insurance documents"
+                >
+                  Account, investment or insurance documents
+                </option>
+                <option
+                  value="Letter from Council Confirming Electoral Roll Listing"
+                >
+                  Letter from Council Confirming Electoral Roll Listing
+                </option>
+                <option
+                  value="Smartsearch CDD Report"
+                >
+                  Smartsearch CDD Report
+                </option>
+                <option
+                  disabled=""
+                  hidden=""
+                  value=""
+                >
+                  Please select
+                </option>
+              </select>
+            </div>
+          </div>
+          <div
+            class="file is-primary  field pb-2"
+          >
+            <div
+              class="control file-input-container"
+            >
+              <label
+                class="file-label"
+                data-test="file-input-label"
+                for="metadata.secondaryAddress[documentImage]"
+              >
+                <input
+                  accept=""
+                  capture="camera"
+                  class="file-input"
+                  data-test=""
+                  id="metadata.secondaryAddress[documentImage]"
+                  type="file"
+                />
+                <span
+                  class="file-cta required-label"
+                >
+                  Upload File
+                </span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div
+          class="field pb-2"
+        >
+          <div
+            class="columns undefined"
+          >
+            <div
+              class="is-centered buttons mx-auto"
+            >
+              <button
+                class="button   is-success mr-2"
+                data-test=""
+                type="submit"
+              >
+                Save
+              </button>
+              <button
+                class="button   is-secondary mr-2"
+                data-test=""
+                type="button"
+              >
+                Previous
+              </button>
+              <button
+                class="button   is-primary "
+                data-test=""
+                type="button"
+              >
+                Next
+              </button>
+            </div>
+          </div>
+        </div>
+        <p
+          class="is-size-6"
+        >
+          * Indicates fields that are required in order to ‘Complete’ this section.
+        </p>
+      </form>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
