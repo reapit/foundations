@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@reapit/utils-node": "workspace:packages/utils-node",
-    "@snyk/protect": "^1.942.0",
+    "@snyk/protect": "^1.944.0",
     "apollo-server": "^3.8.1",
     "apollo-server-core": "^3.8.1",
     "apollo-server-lambda": "^3.8.1",
