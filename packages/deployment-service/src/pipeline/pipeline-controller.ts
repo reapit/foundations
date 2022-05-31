@@ -49,12 +49,14 @@ export class PipelineController {
   }
 
   @Post()
-  async create(@Body() dto: PipelineDto): Promise<PipelineEntity> {
+  async create(@Body() dto: PipelineDto, @Creds() creds: CredsType): Promise<PipelineEntity> {
     const previousPipeline = await this.pipelineProvider.findById(dto.appId as string)
 
     const pipeline = await this.pipelineProvider.create({
       ...dto,
       ...previousPipeline,
+      developerId: creds.developerId as string,
+      clientId: creds.clientId,
       buildStatus: previousPipeline ? 'READY_FOR_DEPLOYMENT' : undefined,
       // Temp plug, singular appId/clientId for pipeline - later requires multiple pipelines
       id: dto.appId,
