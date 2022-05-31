@@ -38,4 +38,4 @@ jobs:
 
       - name: Test
         run: |
-          yarn changed foreach --parallel --verbose --interlaced --git-range origin/master run test --watch=false --ci --forceExit --detectOpenHandles --runInBand --shard=${{ matrix.shard }}
+          yarn changed foreach --parallel --verbose --interlaced --git-range origin/master run test --watch=false --ci --forceExit --detectOpenHandles --runInBand --passWithNoTests --shard=${{ matrix.shard }}
