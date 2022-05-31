@@ -1,10 +1,7 @@
-import * as React from 'react'
-import { render } from '@testing-library/react'
 import {
   onDoubleClickCell,
   valueRenderer,
   onSelectCells,
-  customCellRenderer,
   handleAddNewRow,
   handleCellsChanged,
   handleOnChangeInput,
@@ -220,35 +217,6 @@ describe('onSelectCell', () => {
     const fn = onSelectCells(setSelected)
     fn(selectedMatrix)
     expect(setSelected).toHaveBeenCalledWith(selectedMatrix)
-  })
-})
-
-describe('customCellRenderer', () => {
-  it('should match snapshot without CustomComponent', () => {
-    const CellComponent = customCellRenderer(data, setData, setSelected, afterCellsChanged)
-    expect(render(<CellComponent {...cellRenderProps} />)).toMatchSnapshot()
-  })
-  it('should match snapshot with CustomComponent', () => {
-    const CustomComponent = () => <div>Custom Component</div>
-    const cellRenderPropsCustomComponent = {
-      ...cellRenderProps,
-      cell: {
-        ...cellRenderProps.cell,
-        CustomComponent,
-      },
-    }
-    const CellComponent = customCellRenderer(data, setData, setSelected, afterCellsChanged)
-    expect(render(<CellComponent {...cellRenderPropsCustomComponent} />)).toMatchSnapshot()
-  })
-
-  it('should match snapshot with invalid cell', () => {
-    const cellRenderPropsInvalid = {
-      ...cellRenderProps,
-      cell: { value: '11aa', isValidated: false },
-    }
-
-    const CellComponent = customCellRenderer(data, setData, setSelected, afterCellsChanged)
-    expect(render(<CellComponent {...cellRenderPropsInvalid} />)).toMatchSnapshot()
   })
 })
 
