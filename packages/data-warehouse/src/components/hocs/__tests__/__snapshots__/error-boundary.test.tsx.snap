@@ -13,6 +13,7 @@ Object {
       >
         <div
           class="e1f8chn8"
+          data-testid="close-icon"
         >
           <span
             class="ej9yrfo"
@@ -48,6 +49,7 @@ Object {
     >
       <div
         class="e1f8chn8"
+        data-testid="close-icon"
       >
         <span
           class="ej9yrfo"

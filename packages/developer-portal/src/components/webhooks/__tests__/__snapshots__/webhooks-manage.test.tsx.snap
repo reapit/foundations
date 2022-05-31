@@ -104,6 +104,7 @@ Object {
       >
         <div
           class="e1f8chn8-el-pn-icon"
+          data-testid="close-icon"
         >
           <span
             class="ej9yrfo-el-icon"
@@ -139,6 +140,7 @@ Object {
     >
       <div
         class="e1f8chn8-el-pn-icon"
+        data-testid="close-icon"
       >
         <span
           class="ej9yrfo-el-icon"
@@ -231,6 +233,7 @@ Object {
       >
         <div
           class="e1f8chn8-el-pn-icon"
+          data-testid="close-icon"
         >
           <span
             class="ej9yrfo-el-icon"
@@ -266,6 +269,7 @@ Object {
     >
       <div
         class="e1f8chn8-el-pn-icon"
+        data-testid="close-icon"
       >
         <span
           class="ej9yrfo-el-icon"
@@ -522,6 +526,7 @@ Object {
         </div>
         <button
           class="e1yynswi-el-pagination-button"
+          data-testid="back-button"
           type="button"
         >
           <span
@@ -543,6 +548,7 @@ Object {
         </button>
         <button
           class="e1yynswi-el-pagination-button"
+          data-testid="forward-button"
           type="button"
         >
           <span
@@ -738,6 +744,7 @@ Object {
       </div>
       <button
         class="e1yynswi-el-pagination-button"
+        data-testid="back-button"
         type="button"
       >
         <span
@@ -759,6 +766,7 @@ Object {
       </button>
       <button
         class="e1yynswi-el-pagination-button"
+        data-testid="forward-button"
         type="button"
       >
         <span
