@@ -1,33 +1,452 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`IconButton component should match a snapshot 1`] = `
-<button
-  className="icon-button-container"
->
-  <Icon
-    icon="add"
-  />
-</button>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+       
+      <button
+        class="icon-button-container"
+      >
+        <span
+          class="icon-container"
+        >
+          <svg
+            height="15px"
+            version="1.1"
+            viewBox="0 0 15 15"
+            width="15px"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title>
+              +
+            </title>
+            <desc>
+              Created with Sketch.
+            </desc>
+            <g
+              fill="none"
+              fill-rule="evenodd"
+              id="Symbols"
+              stroke="none"
+              stroke-width="1"
+            >
+              <g
+                fill="currentColor"
+                fill-rule="nonzero"
+                id="+"
+              >
+                <polygon
+                  points="8.62792969 14.8681641 8.62792969 8.61328125 14.8681641 8.61328125 14.8681641 6.24023438 8.62792969 6.24023438 8.62792969 0 6.25488281 0 6.25488281 6.24023438 0 6.24023438 0 8.61328125 6.25488281 8.61328125 6.25488281 14.8681641"
+                />
+              </g>
+            </g>
+          </svg>
+        </span>
+      </button>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+     
+    <button
+      class="icon-button-container"
+    >
+      <span
+        class="icon-container"
+      >
+        <svg
+          height="15px"
+          version="1.1"
+          viewBox="0 0 15 15"
+          width="15px"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <title>
+            +
+          </title>
+          <desc>
+            Created with Sketch.
+          </desc>
+          <g
+            fill="none"
+            fill-rule="evenodd"
+            id="Symbols"
+            stroke="none"
+            stroke-width="1"
+          >
+            <g
+              fill="currentColor"
+              fill-rule="nonzero"
+              id="+"
+            >
+              <polygon
+                points="8.62792969 14.8681641 8.62792969 8.61328125 14.8681641 8.61328125 14.8681641 6.24023438 8.62792969 6.24023438 8.62792969 0 6.25488281 0 6.25488281 6.24023438 0 6.24023438 0 8.61328125 6.25488281 8.61328125 6.25488281 14.8681641"
+              />
+            </g>
+          </g>
+        </svg>
+      </span>
+    </button>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`IconButton component should match a snapshot when disabled 1`] = `
-<button
-  className="icon-button-container disabled-button"
-  disabled={true}
->
-  <Icon
-    icon="add"
-  />
-</button>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+       
+      <button
+        class="icon-button-container disabled-button"
+        disabled=""
+      >
+        <span
+          class="icon-container"
+        >
+          <svg
+            height="15px"
+            version="1.1"
+            viewBox="0 0 15 15"
+            width="15px"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title>
+              +
+            </title>
+            <desc>
+              Created with Sketch.
+            </desc>
+            <g
+              fill="none"
+              fill-rule="evenodd"
+              id="Symbols"
+              stroke="none"
+              stroke-width="1"
+            >
+              <g
+                fill="currentColor"
+                fill-rule="nonzero"
+                id="+"
+              >
+                <polygon
+                  points="8.62792969 14.8681641 8.62792969 8.61328125 14.8681641 8.61328125 14.8681641 6.24023438 8.62792969 6.24023438 8.62792969 0 6.25488281 0 6.25488281 6.24023438 0 6.24023438 0 8.61328125 6.25488281 8.61328125 6.25488281 14.8681641"
+                />
+              </g>
+            </g>
+          </svg>
+        </span>
+      </button>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+     
+    <button
+      class="icon-button-container disabled-button"
+      disabled=""
+    >
+      <span
+        class="icon-container"
+      >
+        <svg
+          height="15px"
+          version="1.1"
+          viewBox="0 0 15 15"
+          width="15px"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <title>
+            +
+          </title>
+          <desc>
+            Created with Sketch.
+          </desc>
+          <g
+            fill="none"
+            fill-rule="evenodd"
+            id="Symbols"
+            stroke="none"
+            stroke-width="1"
+          >
+            <g
+              fill="currentColor"
+              fill-rule="nonzero"
+              id="+"
+            >
+              <polygon
+                points="8.62792969 14.8681641 8.62792969 8.61328125 14.8681641 8.61328125 14.8681641 6.24023438 8.62792969 6.24023438 8.62792969 0 6.25488281 0 6.25488281 6.24023438 0 6.24023438 0 8.61328125 6.25488281 8.61328125 6.25488281 14.8681641"
+              />
+            </g>
+          </g>
+        </svg>
+      </span>
+    </button>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`IconButton component should match a snapshot when in dark mode 1`] = `
-<button
-  className="icon-button-container dark-mode-button"
->
-  <Icon
-    color="white"
-    icon="add"
-  />
-</button>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+       
+      <button
+        class="icon-button-container dark-mode-button"
+      >
+        <span
+          class="icon-container"
+          style="color: white;"
+        >
+          <svg
+            height="15px"
+            version="1.1"
+            viewBox="0 0 15 15"
+            width="15px"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title>
+              +
+            </title>
+            <desc>
+              Created with Sketch.
+            </desc>
+            <g
+              fill="none"
+              fill-rule="evenodd"
+              id="Symbols"
+              stroke="none"
+              stroke-width="1"
+            >
+              <g
+                fill="currentColor"
+                fill-rule="nonzero"
+                id="+"
+              >
+                <polygon
+                  points="8.62792969 14.8681641 8.62792969 8.61328125 14.8681641 8.61328125 14.8681641 6.24023438 8.62792969 6.24023438 8.62792969 0 6.25488281 0 6.25488281 6.24023438 0 6.24023438 0 8.61328125 6.25488281 8.61328125 6.25488281 14.8681641"
+                />
+              </g>
+            </g>
+          </svg>
+        </span>
+      </button>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+     
+    <button
+      class="icon-button-container dark-mode-button"
+    >
+      <span
+        class="icon-container"
+        style="color: white;"
+      >
+        <svg
+          height="15px"
+          version="1.1"
+          viewBox="0 0 15 15"
+          width="15px"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <title>
+            +
+          </title>
+          <desc>
+            Created with Sketch.
+          </desc>
+          <g
+            fill="none"
+            fill-rule="evenodd"
+            id="Symbols"
+            stroke="none"
+            stroke-width="1"
+          >
+            <g
+              fill="currentColor"
+              fill-rule="nonzero"
+              id="+"
+            >
+              <polygon
+                points="8.62792969 14.8681641 8.62792969 8.61328125 14.8681641 8.61328125 14.8681641 6.24023438 8.62792969 6.24023438 8.62792969 0 6.25488281 0 6.25488281 6.24023438 0 6.24023438 0 8.61328125 6.25488281 8.61328125 6.25488281 14.8681641"
+              />
+            </g>
+          </g>
+        </svg>
+      </span>
+    </button>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

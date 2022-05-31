@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../../tests/react-testing'
 import { ReduxState } from '@/types/core'
 import { contact } from '@/sagas/__stubs__/contact'
 import { UpdateStatus, mapStateToProps, mapDispatchToProps } from '../update-status'
@@ -18,7 +18,7 @@ describe('UpdateStatus', () => {
       updateIdentityCheckStatus: jest.fn(),
       idCheckStatus: 'unchecked',
     }
-    const wrapper = shallow(<UpdateStatus {...mockProps} />)
+    const wrapper = render(<UpdateStatus {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
   })
 

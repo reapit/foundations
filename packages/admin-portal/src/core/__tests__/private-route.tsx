@@ -1,12 +1,16 @@
 import * as React from 'react'
 import * as ReactRedux from 'react-redux'
-import { mount } from 'enzyme'
+import { render } from '../../tests/react-testing'
 import configureStore from 'redux-mock-store'
 import { PrivateRoute } from '../private-route'
 import appState from '@/reducers/__stubs__/app-state'
 import Routes from '@/constants/routes'
 import { MemoryRouter } from 'react-router'
 import { getAccess } from '../../utils/get-access'
+
+jest.mock('uuid', () => ({
+  v4: jest.fn(),
+}))
 
 jest.mock('../../utils/get-access', () => ({
   getAccess: jest.fn(() => true),
@@ -22,7 +26,7 @@ describe('PrivateRouter', () => {
 
   it('should match a snapshot if has access', () => {
     expect(
-      mount(
+      render(
         <ReactRedux.Provider store={store}>
           <MemoryRouter initialEntries={[{ pathname: Routes.LOGIN, key: 'loginRoute' }]}>
             <PrivateRoute component={() => null} />
@@ -36,7 +40,7 @@ describe('PrivateRouter', () => {
     ;(getAccess as jest.Mock).mockReturnValue(false)
 
     expect(
-      mount(
+      render(
         <ReactRedux.Provider store={store}>
           <MemoryRouter initialEntries={[{ pathname: Routes.LOGIN, key: 'loginRoute' }]}>
             <PrivateRoute component={() => null} />

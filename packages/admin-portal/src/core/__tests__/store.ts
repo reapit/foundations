@@ -1,5 +1,9 @@
 import StoreInstance, { Store } from '../store'
 
+jest.mock('uuid', () => ({
+  v4: jest.fn(),
+}))
+
 describe('Store', () => {
   it('should return a singleton instance of Store', () => {
     expect(StoreInstance instanceof Store).toBe(true)

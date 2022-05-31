@@ -1,16 +1,16 @@
 {
   "name": "auto-reply-bot",
   "dependencies": {
-    "@probot/adapter-github-actions": "^3.0.1"
+    "@probot/adapter-github-actions": "^3.1.1"
   },
   "devDependencies": {
-    "@types/node": "^16.11.13",
-    "@typescript-eslint/eslint-plugin": "^5.7.0",
-    "@typescript-eslint/parser": "^5.7.0",
+    "@types/node": "^16.11.36",
+    "@typescript-eslint/eslint-plugin": "^5.27.0",
+    "@typescript-eslint/parser": "^5.27.0",
     "@zeit/ncc": "^0.22.3",
-    "eslint": "8.4.1",
+    "eslint": "8.16.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "serverless-deployment-bucket": "^1.5.1"
+    "serverless-deployment-bucket": "^1.6.0"
   },
   "scripts": {
     "start": "echo 'no local script'",

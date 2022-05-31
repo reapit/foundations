@@ -1,21 +1,21 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '@testing-library/react'
 import { Table, handleToggleExpandedRow } from '../'
 import { elSpan2 } from '../../grid'
 
 describe('Table Component', () => {
   it('should match a snapshot', () => {
-    const wrapper = shallow(<Table />)
+    const wrapper = render(<Table />)
     expect(wrapper).toMatchSnapshot()
   })
 
   it('should match a snapshot with varied number columns', () => {
-    const wrapper = shallow(<Table numberColumns={4} />)
+    const wrapper = render(<Table numberColumns={4} />)
     expect(wrapper).toMatchSnapshot()
   })
 
   it('should match a snapshot with full props and expandable content', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <Table
         numberColumns={9}
         indexExpandedRow={0}
@@ -72,7 +72,7 @@ describe('Table Component', () => {
   })
 
   it('should match a snapshot for expandable content alternate settings', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <Table
         rows={[
           {
@@ -92,7 +92,7 @@ describe('Table Component', () => {
   })
 
   it('should match a snapshot with full props and cta content', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <Table
         numberColumns={9}
         indexExpandedRow={0}
@@ -152,7 +152,7 @@ describe('Table Component', () => {
   })
 
   it('should match a snapshot for cta content alternate settings', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <Table
         rows={[
           {

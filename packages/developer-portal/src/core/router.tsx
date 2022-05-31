@@ -4,12 +4,12 @@ import { catchChunkError } from '@reapit/utils-react'
 import Routes from '../constants/routes'
 import PrivateRoute from './private-route'
 import PrivateRouteWrapper from './private-route-wrapper'
-import { createBrowserHistory } from 'history'
+import { createBrowserHistory, History } from 'history'
 import { OkayPage } from '@reapit/utils-react'
 import { PersistantNotification } from '@reapit/elements'
 import { FC } from 'react'
 
-export const history = createBrowserHistory()
+export const history: History<any> = createBrowserHistory()
 const CustomerRegister = React.lazy(() => catchChunkError(() => import('../components/register/customer-register')))
 const Login = React.lazy(() => catchChunkError(() => import('../components/login')))
 const Register = React.lazy(() => catchChunkError(() => import('../components/register')))

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { mount } from 'enzyme'
+import { render } from '../../../../tests/react-testing'
 import { CreateSubscriptionsButton, CreateSubscriptionsButtonProps } from '../create-subscriptions-button'
 import appState from '../../../../reducers/__stubs__/app-state'
 import configureStore from 'redux-mock-store'
@@ -20,7 +20,7 @@ describe('CreateSubscriptionsButton', () => {
 
   it('should match a snapshot', () => {
     expect(
-      mount(
+      render(
         <ReactRedux.Provider store={store}>
           <CreateSubscriptionsButton {...props} />
         </ReactRedux.Provider>,

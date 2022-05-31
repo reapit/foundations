@@ -14,7 +14,6 @@
       "packages/cli",
       "packages/config-manager",
       "packages/connect-session",
-      "packages/cognito-custom-mail-lambda",
       "packages/cra-template-foundations",
       "packages/create-node-app-generator",
       "packages/data-warehouse",
@@ -29,7 +28,7 @@
       "packages/marketplace",
       "packages/marketplace-management",
       "packages/react-app-scaffolder",
-      "packages/security-header-lambda:",
+      "packages/security-header-lambda",
       "packages/seed-data-workflow",
       "packages/ts-bundler",
       "packages/ts-scripts",
@@ -49,7 +48,7 @@
     "postinstall": "husky install"
   },
   "devDependencies": {
-    "@apollo/client": "^3.5.8",
+    "@apollo/client": "^3.6.6",
     "husky": "^7.0.4",
     "json": "^11.0.0"
   },

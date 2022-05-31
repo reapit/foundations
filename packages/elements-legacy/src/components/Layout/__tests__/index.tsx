@@ -1,7 +1,6 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '@testing-library/react'
 import * as LayoutComponents from '../index'
-import toJson from 'enzyme-to-json'
 
 const Placeholder = ({ text }) => (
   <div style={{ width: '100%', height: '100px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
@@ -14,12 +13,10 @@ describe('LayoutComponents', () => {
     it('should match a snapshot for ' + componentName, () => {
       const Component = LayoutComponents[componentName] as React.FC
       expect(
-        toJson(
-          shallow(
-            <Component>
-              <Placeholder text={componentName} />
-            </Component>,
-          ),
+        render(
+          <Component>
+            <Placeholder text={componentName} />
+          </Component>,
         ),
       ).toMatchSnapshot()
     })

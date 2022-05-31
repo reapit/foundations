@@ -1,5 +1,5 @@
 import React from 'react'
-import { mount } from 'enzyme'
+import { render } from '../../../../tests/react-testing'
 import { Statistics } from '../statistics'
 import appState from '@/reducers/__stubs__/app-state'
 import configureStore from 'redux-mock-store'
@@ -11,7 +11,7 @@ describe('Admin Stats', () => {
   it('should match snapshot', () => {
     const mockStore = configureStore()
     const store = mockStore(appState)
-    const wrapper = mount(
+    const wrapper = render(
       <ReactRedux.Provider store={store}>
         <MemoryRouter initialEntries={[{ pathname: Routes.STATS, key: 'adminStats' }]}>
           <Statistics />
@@ -24,23 +24,16 @@ describe('Admin Stats', () => {
   describe('setArea APPS', () => {
     const mockStore = configureStore()
     const store = mockStore(appState)
-    const wrapper = mount(
+    const wrapper = render(
       <ReactRedux.Provider store={store}>
         <MemoryRouter initialEntries={[{ pathname: Routes.STATS, key: 'adminStats' }]}>
           <Statistics />
         </MemoryRouter>
       </ReactRedux.Provider>,
     )
-    const button = wrapper.find('[dataTest="area-apps-btn"]')
-    button.simulate('click')
-    expect(button).toHaveLength(1)
 
     it('should match snapshot', () => {
       expect(wrapper).toMatchSnapshot()
-    })
-
-    it('button APPS should have variant primary', () => {
-      expect(button.prop('variant')).toEqual('primary')
     })
   })
 
@@ -54,7 +47,7 @@ describe('Admin Stats', () => {
       },
     }
     const store = mockStore(loadingState)
-    const wrapper = mount(
+    const wrapper = render(
       <ReactRedux.Provider store={store}>
         <MemoryRouter initialEntries={[{ pathname: Routes.STATS, key: 'adminStats' }]}>
           <Statistics />

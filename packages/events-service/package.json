@@ -38,7 +38,6 @@
     "uuid": "^3.4.0"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-decorators": "^7.16.5",
     "@reapit/config-manager": "workspace:packages/config-manager",
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",
     "@reapit/ts-types": "workspace:packages/ts-types",

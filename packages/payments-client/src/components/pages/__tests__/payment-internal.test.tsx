@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import PaymentInternalPage from '../payment-internal'
 import { stubPaymentModel } from '../../ui/__stubs__/payment'
 import { stubPropertyModel } from '../../ui/__stubs__/property'
@@ -18,7 +18,7 @@ describe('PaymentInternalPage', () => {
       error: null,
       mutate: jest.fn(),
     })
-    expect(shallow(<PaymentInternalPage paymentId="MKT20000010" />)).toMatchSnapshot()
+    expect(render(<PaymentInternalPage paymentId="MKT20000010" />)).toMatchSnapshot()
   })
 
   it('should match a snapshot when has a merchantKey and data', () => {
@@ -28,7 +28,7 @@ describe('PaymentInternalPage', () => {
       mutate: jest.fn(),
     })
     expect(
-      shallow(
+      render(
         <PaymentInternalPage
           paymentId="MKT20000010"
           defaultPaymentProvider={new OpayoProvider({ merchantSessionKey: 'SomeKey', expiry: 'SomeDateTime' })}
@@ -43,7 +43,7 @@ describe('PaymentInternalPage', () => {
       error: null,
       mutate: jest.fn(),
     })
-    expect(shallow(<PaymentInternalPage paymentId="MKT20000010" />)).toMatchSnapshot()
+    expect(render(<PaymentInternalPage paymentId="MKT20000010" />)).toMatchSnapshot()
   })
 
   it('should match a snapshot when has a merchantKey and data', () => {
@@ -53,7 +53,7 @@ describe('PaymentInternalPage', () => {
       mutate: jest.fn(),
     })
     expect(
-      shallow(
+      render(
         <PaymentInternalPage
           paymentId="MKT20000010"
           defaultPaymentProvider={new OpayoProvider({ merchantSessionKey: 'SomeKey', expiry: 'SomeDateTime' })}

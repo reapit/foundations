@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../../tests/react-testing'
 import { DiffMedia, DiffMediaProps } from '../diff-media'
 
 const mockProps: DiffMediaProps = {
@@ -10,7 +10,7 @@ const mockProps: DiffMediaProps = {
 
 describe('DiffMedia', () => {
   it('should match snapshot', () => {
-    const wrapper = shallow(<DiffMedia {...mockProps} />)
+    const wrapper = render(<DiffMedia {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
   })
 })

@@ -3,11 +3,11 @@ import { render } from '@testing-library/react'
 import { PrivateRouteWrapper } from '../private-route-wrapper'
 import { MediaStateProvider, NavStateProvider } from '@reapit/elements'
 import { Router, Switch } from 'react-router-dom'
-import { createBrowserHistory } from 'history'
+import { createBrowserHistory, History } from 'history'
 
 jest.mock('../../components/ui/nav/nav', () => ({ Nav: () => <div /> }))
 
-export const history = createBrowserHistory()
+export const history: History<any> = createBrowserHistory()
 
 jest.mock('@reapit/connect-session', () => ({
   ReapitConnectBrowserSession: jest.fn(),

@@ -1,6 +1,7 @@
 import * as React from 'react'
-import { mount } from 'enzyme'
+import { render } from '@testing-library/react'
 import { Editor, EditorProps } from '../index'
+import { Formik } from 'formik'
 
 const defaultProps = {
   onChange: () => {},
@@ -14,7 +15,9 @@ const defaultProps = {
 
 describe('Editor', () => {
   it('should match a snapshot', () => {
-    const mounted = mount(<Editor {...defaultProps} />).html()
+    const mounted = render(
+      <Formik initialValues={{}} onSubmit={jest.fn()} render={() => <Editor {...defaultProps} />} />,
+    )
     expect(mounted).toMatchSnapshot()
   })
 })

@@ -1,70 +1,265 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CallToAction should match a snapshot 1`] = `
-<div
-  className=""
-  data-test=""
->
-  <Alert
-    className="mb-0"
-    message="My title"
-    type="success"
-  />
-  <FlexContainerBasic
-    flexColumn={true}
-    hasBackground={true}
-    hasPadding={true}
-  >
-    <p />
-    <div
-      className="has-text-right"
-    >
-      <Button
-        dataTest=""
-        type="button"
-        variant="primary"
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <div
+        class=""
+        data-test=""
       >
-        My button
-      </Button>
+        <div
+          class="notification is-success mb-0"
+          data-test=""
+          role="alert"
+        >
+          My title
+        </div>
+        <div
+          class="container-flex is-column has-background has-padding"
+        >
+          <p />
+          <div
+            class="has-text-right"
+          >
+            <button
+              class="button   is-primary "
+              data-test=""
+              type="button"
+            >
+              My button
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
-  </FlexContainerBasic>
-</div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <div
+      class=""
+      data-test=""
+    >
+      <div
+        class="notification is-success mb-0"
+        data-test=""
+        role="alert"
+      >
+        My title
+      </div>
+      <div
+        class="container-flex is-column has-background has-padding"
+      >
+        <p />
+        <div
+          class="has-text-right"
+        >
+          <button
+            class="button   is-primary "
+            data-test=""
+            type="button"
+          >
+            My button
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`CallToAction should match snapshot with footerItems 1`] = `
-<div
-  className=""
-  data-test=""
->
-  <Alert
-    className="mb-0"
-    message="Test"
-    type="success"
-  />
-  <FlexContainerBasic
-    flexColumn={true}
-    hasBackground={true}
-    hasPadding={true}
-  >
-    <p />
-    <div
-      className="has-text-right"
-    >
-      <Button
-        onClick={[MockFunction]}
-        type="button"
-        variant="primary"
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <div
+        class=""
+        data-test=""
       >
-        My Apps
-      </Button>
-      <Button
-        onClick={[MockFunction]}
-        type="button"
-        variant="primary"
-      >
-        Submit another app
-      </Button>
+        <div
+          class="notification is-success mb-0"
+          data-test=""
+          role="alert"
+        >
+          Test
+        </div>
+        <div
+          class="container-flex is-column has-background has-padding"
+        >
+          <p />
+          <div
+            class="has-text-right"
+          >
+            <button
+              class="button   is-primary "
+              data-test=""
+              type="button"
+            >
+              My Apps
+            </button>
+            <button
+              class="button   is-primary "
+              data-test=""
+              type="button"
+            >
+              Submit another app
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
-  </FlexContainerBasic>
-</div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <div
+      class=""
+      data-test=""
+    >
+      <div
+        class="notification is-success mb-0"
+        data-test=""
+        role="alert"
+      >
+        Test
+      </div>
+      <div
+        class="container-flex is-column has-background has-padding"
+      >
+        <p />
+        <div
+          class="has-text-right"
+        >
+          <button
+            class="button   is-primary "
+            data-test=""
+            type="button"
+          >
+            My Apps
+          </button>
+          <button
+            class="button   is-primary "
+            data-test=""
+            type="button"
+          >
+            Submit another app
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

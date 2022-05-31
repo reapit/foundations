@@ -2,13 +2,13 @@ import * as React from 'react'
 import { handleDocs, UsersPage } from '../users'
 import { render } from '@testing-library/react'
 import { Router, Switch } from 'react-router-dom'
-import { createBrowserHistory } from 'history'
+import { createBrowserHistory, History } from 'history'
 import Routes from '../../../constants/routes'
 import { GLOSSARY_USER_ROLES_URL } from '../../../constants/api'
 
 jest.mock('../../../utils/use-org-id')
 
-export const history = createBrowserHistory()
+export const history: History<any> = createBrowserHistory()
 
 describe('UsersPage', () => {
   it('should match a snapshot for the users tab', () => {

@@ -1,10 +1,10 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../tests/react-testing'
 import { MessageProvider } from '../message-context'
 
 describe('Toast', () => {
   it('should match a snapshot', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <MessageProvider>
         <div>Child Component</div>
       </MessageProvider>,

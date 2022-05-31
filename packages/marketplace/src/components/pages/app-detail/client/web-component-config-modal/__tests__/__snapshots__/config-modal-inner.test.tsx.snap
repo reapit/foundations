@@ -1,1550 +1,1209 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Config-modal-inner should WebComponentConfigModalFooter match a snapshot 1`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <WebComponentConfigModalFooter
-    closeModal={[MockFunction]}
-    formikProps={Object {}}
-  >
-    <Button
-      className="mr-2"
-      fullWidth={true}
-      onClick={[MockFunction]}
-      type="button"
-      variant="danger"
-    >
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ecbqyq6-el-snack-holder"
+      />
       <button
-        className="button is-fullwidth  is-danger mr-2"
+        class="button is-fullwidth  is-danger mr-2"
         data-test=""
-        disabled={false}
-        onClick={[MockFunction]}
         type="button"
       >
         CANCEL
       </button>
-    </Button>
-    <Button
-      fullWidth={true}
-      type="submit"
-      variant="primary"
-    >
       <button
-        className="button is-fullwidth  is-primary "
+        class="button is-fullwidth  is-primary "
         data-test=""
-        disabled={false}
         type="submit"
       >
         SAVE CHANGES
       </button>
-    </Button>
-  </WebComponentConfigModalFooter>
-</Provider>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6-el-snack-holder"
+    />
+    <button
+      class="button is-fullwidth  is-danger mr-2"
+      data-test=""
+      type="button"
+    >
+      CANCEL
+    </button>
+    <button
+      class="button is-fullwidth  is-primary "
+      data-test=""
+      type="submit"
+    >
+      SAVE CHANGES
+    </button>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`Config-modal-inner should WebComponentConfigModalInner match a snapshot 1`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <WebComponentConfigModalInner
-    closeModal={[MockFunction]}
-  >
-    <Formik
-      initialValues={
-        Object {
-          "appointmentLength": 30,
-          "appointmentTimeGap": 30,
-          "daysOfWeek": Array [
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-          ],
-        }
-      }
-      onSubmit={[Function]}
-    >
-      <ModalHeader
-        title="undefined Configuration"
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ecbqyq6-el-snack-holder"
+      />
+      <header
+        class="modal-card-head"
       >
-        <header
-          className="modal-card-head"
+        <h4
+          class="modal-card-title is-4"
         >
-          <h4
-            className="modal-card-title is-4"
-          >
-            undefined Configuration
-          </h4>
-        </header>
-      </ModalHeader>
-      <ModalBody
-        body={
-          <WebComponentConfigModalBody
-            formikProps={
-              Object {
-                "dirty": false,
-                "errors": Object {},
-                "getFieldHelpers": [Function],
-                "getFieldMeta": [Function],
-                "getFieldProps": [Function],
-                "handleBlur": [Function],
-                "handleChange": [Function],
-                "handleReset": [Function],
-                "handleSubmit": [Function],
-                "initialErrors": Object {},
-                "initialStatus": undefined,
-                "initialTouched": Object {},
-                "initialValues": Object {
-                  "appointmentLength": 30,
-                  "appointmentTimeGap": 30,
-                  "daysOfWeek": Array [
-                    "1",
-                    "2",
-                    "3",
-                    "4",
-                    "5",
-                    "6",
-                  ],
-                },
-                "isSubmitting": false,
-                "isValid": true,
-                "isValidating": false,
-                "registerField": [Function],
-                "resetForm": [Function],
-                "setErrors": [Function],
-                "setFieldError": [Function],
-                "setFieldTouched": [Function],
-                "setFieldValue": [Function],
-                "setFormikState": [Function],
-                "setStatus": [Function],
-                "setSubmitting": [Function],
-                "setTouched": [Function],
-                "setValues": [Function],
-                "status": undefined,
-                "submitCount": 0,
-                "submitForm": [Function],
-                "touched": Object {},
-                "unregisterField": [Function],
-                "validateField": [Function],
-                "validateForm": [Function],
-                "validateOnBlur": true,
-                "validateOnChange": true,
-                "validateOnMount": false,
-                "values": Object {
-                  "appointmentLength": 30,
-                  "appointmentTimeGap": 30,
-                  "daysOfWeek": Array [
-                    "1",
-                    "2",
-                    "3",
-                    "4",
-                    "5",
-                    "6",
-                  ],
-                },
-              }
-            }
-            subtext="Please use the following form to configure your diary settings for your 
-                    ‘undefined’ widget on your website"
-          />
-        }
+          undefined Configuration
+        </h4>
+      </header>
+      <section
+        class="modal-card-body"
       >
-        <section
-          className="modal-card-body"
-        >
-          <WebComponentConfigModalBody
-            formikProps={
-              Object {
-                "dirty": false,
-                "errors": Object {},
-                "getFieldHelpers": [Function],
-                "getFieldMeta": [Function],
-                "getFieldProps": [Function],
-                "handleBlur": [Function],
-                "handleChange": [Function],
-                "handleReset": [Function],
-                "handleSubmit": [Function],
-                "initialErrors": Object {},
-                "initialStatus": undefined,
-                "initialTouched": Object {},
-                "initialValues": Object {
-                  "appointmentLength": 30,
-                  "appointmentTimeGap": 30,
-                  "daysOfWeek": Array [
-                    "1",
-                    "2",
-                    "3",
-                    "4",
-                    "5",
-                    "6",
-                  ],
-                },
-                "isSubmitting": false,
-                "isValid": true,
-                "isValidating": false,
-                "registerField": [Function],
-                "resetForm": [Function],
-                "setErrors": [Function],
-                "setFieldError": [Function],
-                "setFieldTouched": [Function],
-                "setFieldValue": [Function],
-                "setFormikState": [Function],
-                "setStatus": [Function],
-                "setSubmitting": [Function],
-                "setTouched": [Function],
-                "setValues": [Function],
-                "status": undefined,
-                "submitCount": 0,
-                "submitForm": [Function],
-                "touched": Object {},
-                "unregisterField": [Function],
-                "validateField": [Function],
-                "validateForm": [Function],
-                "validateOnBlur": true,
-                "validateOnChange": true,
-                "validateOnMount": false,
-                "values": Object {
-                  "appointmentLength": 30,
-                  "appointmentTimeGap": 30,
-                  "daysOfWeek": Array [
-                    "1",
-                    "2",
-                    "3",
-                    "4",
-                    "5",
-                    "6",
-                  ],
-                },
-              }
-            }
-            subtext="Please use the following form to configure your diary settings for your 
-                    ‘undefined’ widget on your website"
-          >
-            <p>
-              Please use the following form to configure your diary settings for your 
+        <p>
+          Please use the following form to configure your diary settings for your 
                     ‘undefined’ widget on your website
-            </p>
-            <RadioSelect
-              className="checkbox-inline mt-5"
-              id="appointmentTimeGap"
-              isHorizontal={true}
-              labelText="Time between appointments"
-              name="appointmentTimeGap"
-              options={
-                Array [
-                  Object {
-                    "label": "15 mins",
-                    "value": 15,
-                  },
-                  Object {
-                    "label": "30 mins",
-                    "value": 30,
-                  },
-                  Object {
-                    "label": "1hr",
-                    "value": 60,
-                  },
-                  Object {
-                    "label": "1hr 30mins",
-                    "value": 90,
-                  },
-                ]
-              }
-              setFieldValue={[Function]}
-              state={30}
-              subText="Select a time between each appointment"
+        </p>
+        <div
+          class="field pb-2 checkbox-inline mt-5"
+        >
+          <div
+            class="control"
+          >
+            <label
+              class="label"
+              for="appointmentTimeGap"
             >
-              <Field
-                name="appointmentTimeGap"
-                type="radio"
-              >
-                <div
-                  className="field pb-2 checkbox-inline mt-5"
-                >
-                  <div
-                    className="control"
-                  >
-                    <label
-                      className="label"
-                      htmlFor="appointmentTimeGap"
-                    >
-                      Time between appointments
-                    </label>
-                    <label
-                      className="subtext mb-2"
-                    >
-                      Select a time between each appointment
-                    </label>
-                    <Grid
-                      className=""
-                      isMultiLine={true}
-                    >
-                      <div
-                        className="columns is-multiline"
-                        data-test=""
-                      >
-                        <GridItem
-                          className="is-narrow"
-                          key="0"
-                        >
-                          <div
-                            className="column is-narrow"
-                            data-test=""
-                          >
-                            <div
-                              className="radio-wrap"
-                            >
-                              <input
-                                checked={false}
-                                className="checkbox "
-                                disabled={false}
-                                id="appointmentTimeGap15 mins"
-                                key="15"
-                                name="appointmentTimeGap"
-                                onChange={[Function]}
-                                type="radio"
-                                value={15}
-                              />
-                              <label
-                                className="label"
-                                htmlFor="appointmentTimeGap15 mins"
-                              >
-                                15 mins
-                              </label>
-                            </div>
-                          </div>
-                        </GridItem>
-                        <GridItem
-                          className="is-narrow"
-                          key="1"
-                        >
-                          <div
-                            className="column is-narrow"
-                            data-test=""
-                          >
-                            <div
-                              className="radio-wrap"
-                            >
-                              <input
-                                checked={true}
-                                className="checkbox "
-                                disabled={false}
-                                id="appointmentTimeGap30 mins"
-                                key="30"
-                                name="appointmentTimeGap"
-                                onChange={[Function]}
-                                type="radio"
-                                value={30}
-                              />
-                              <label
-                                className="label"
-                                htmlFor="appointmentTimeGap30 mins"
-                              >
-                                30 mins
-                              </label>
-                            </div>
-                          </div>
-                        </GridItem>
-                        <GridItem
-                          className="is-narrow"
-                          key="2"
-                        >
-                          <div
-                            className="column is-narrow"
-                            data-test=""
-                          >
-                            <div
-                              className="radio-wrap"
-                            >
-                              <input
-                                checked={false}
-                                className="checkbox "
-                                disabled={false}
-                                id="appointmentTimeGap1hr"
-                                key="60"
-                                name="appointmentTimeGap"
-                                onChange={[Function]}
-                                type="radio"
-                                value={60}
-                              />
-                              <label
-                                className="label"
-                                htmlFor="appointmentTimeGap1hr"
-                              >
-                                1hr
-                              </label>
-                            </div>
-                          </div>
-                        </GridItem>
-                        <GridItem
-                          className="is-narrow"
-                          key="3"
-                        >
-                          <div
-                            className="column is-narrow"
-                            data-test=""
-                          >
-                            <div
-                              className="radio-wrap"
-                            >
-                              <input
-                                checked={false}
-                                className="checkbox "
-                                disabled={false}
-                                id="appointmentTimeGap1hr 30mins"
-                                key="90"
-                                name="appointmentTimeGap"
-                                onChange={[Function]}
-                                type="radio"
-                                value={90}
-                              />
-                              <label
-                                className="label"
-                                htmlFor="appointmentTimeGap1hr 30mins"
-                              >
-                                1hr 30mins
-                              </label>
-                            </div>
-                          </div>
-                        </GridItem>
-                      </div>
-                    </Grid>
-                  </div>
-                </div>
-              </Field>
-            </RadioSelect>
-            <RadioSelect
-              className="checkbox-inline mt-5"
-              id="appointmentLength"
-              isHorizontal={true}
-              labelText="Length of Appointments"
-              name="appointmentLength"
-              options={
-                Array [
-                  Object {
-                    "label": "15 mins",
-                    "value": 15,
-                  },
-                  Object {
-                    "label": "30 mins",
-                    "value": 30,
-                  },
-                  Object {
-                    "label": "1hr",
-                    "value": 60,
-                  },
-                  Object {
-                    "label": "1hr 30mins",
-                    "value": 90,
-                  },
-                ]
-              }
-              setFieldValue={[Function]}
-              state={30}
-              subText="Select a length of appointments"
+              Time between appointments
+            </label>
+            <label
+              class="subtext mb-2"
             >
-              <Field
-                name="appointmentLength"
-                type="radio"
-              >
-                <div
-                  className="field pb-2 checkbox-inline mt-5"
-                >
-                  <div
-                    className="control"
-                  >
-                    <label
-                      className="label"
-                      htmlFor="appointmentLength"
-                    >
-                      Length of Appointments
-                    </label>
-                    <label
-                      className="subtext mb-2"
-                    >
-                      Select a length of appointments
-                    </label>
-                    <Grid
-                      className=""
-                      isMultiLine={true}
-                    >
-                      <div
-                        className="columns is-multiline"
-                        data-test=""
-                      >
-                        <GridItem
-                          className="is-narrow"
-                          key="0"
-                        >
-                          <div
-                            className="column is-narrow"
-                            data-test=""
-                          >
-                            <div
-                              className="radio-wrap"
-                            >
-                              <input
-                                checked={false}
-                                className="checkbox "
-                                disabled={false}
-                                id="appointmentLength15 mins"
-                                key="15"
-                                name="appointmentLength"
-                                onChange={[Function]}
-                                type="radio"
-                                value={15}
-                              />
-                              <label
-                                className="label"
-                                htmlFor="appointmentLength15 mins"
-                              >
-                                15 mins
-                              </label>
-                            </div>
-                          </div>
-                        </GridItem>
-                        <GridItem
-                          className="is-narrow"
-                          key="1"
-                        >
-                          <div
-                            className="column is-narrow"
-                            data-test=""
-                          >
-                            <div
-                              className="radio-wrap"
-                            >
-                              <input
-                                checked={true}
-                                className="checkbox "
-                                disabled={false}
-                                id="appointmentLength30 mins"
-                                key="30"
-                                name="appointmentLength"
-                                onChange={[Function]}
-                                type="radio"
-                                value={30}
-                              />
-                              <label
-                                className="label"
-                                htmlFor="appointmentLength30 mins"
-                              >
-                                30 mins
-                              </label>
-                            </div>
-                          </div>
-                        </GridItem>
-                        <GridItem
-                          className="is-narrow"
-                          key="2"
-                        >
-                          <div
-                            className="column is-narrow"
-                            data-test=""
-                          >
-                            <div
-                              className="radio-wrap"
-                            >
-                              <input
-                                checked={false}
-                                className="checkbox "
-                                disabled={false}
-                                id="appointmentLength1hr"
-                                key="60"
-                                name="appointmentLength"
-                                onChange={[Function]}
-                                type="radio"
-                                value={60}
-                              />
-                              <label
-                                className="label"
-                                htmlFor="appointmentLength1hr"
-                              >
-                                1hr
-                              </label>
-                            </div>
-                          </div>
-                        </GridItem>
-                        <GridItem
-                          className="is-narrow"
-                          key="3"
-                        >
-                          <div
-                            className="column is-narrow"
-                            data-test=""
-                          >
-                            <div
-                              className="radio-wrap"
-                            >
-                              <input
-                                checked={false}
-                                className="checkbox "
-                                disabled={false}
-                                id="appointmentLength1hr 30mins"
-                                key="90"
-                                name="appointmentLength"
-                                onChange={[Function]}
-                                type="radio"
-                                value={90}
-                              />
-                              <label
-                                className="label"
-                                htmlFor="appointmentLength1hr 30mins"
-                              >
-                                1hr 30mins
-                              </label>
-                            </div>
-                          </div>
-                        </GridItem>
-                      </div>
-                    </Grid>
-                  </div>
-                </div>
-              </Field>
-            </RadioSelect>
+              Select a time between each appointment
+            </label>
             <div
-              className="field mt-5"
+              class="columns is-multiline"
+              data-test=""
             >
               <div
-                className="control"
+                class="column is-narrow"
+                data-test=""
               >
-                <label
-                  className="label"
-                >
-                  Days of the week
-                </label>
-                <label
-                  className="subtext mb-5"
-                >
-                  Select which days of the week you would like to display
-                </label>
                 <div
-                  className="container-flex flex-wrap"
+                  class="radio-wrap"
                 >
-                  <Checkbox
-                    className="mr-5"
-                    id="Monday"
-                    labelText="Monday"
-                    name="daysOfWeek"
-                    value="1"
+                  <input
+                    class="checkbox "
+                    id="appointmentTimeGap15 mins"
+                    name="appointmentTimeGap"
+                    type="radio"
+                    value="15"
+                  />
+                  <label
+                    class="label"
+                    for="appointmentTimeGap15 mins"
                   >
-                    <div
-                      className="field mr-5"
-                    >
-                      <div
-                        className="control"
-                      >
-                        <Field
-                          name="daysOfWeek"
-                          type="checkbox"
-                        >
-                          <div
-                            className="field field-checkbox"
-                          >
-                            <input
-                              checked={true}
-                              className="checkbox"
-                              data-test=""
-                              disabled={false}
-                              id="Monday"
-                              onChange={[Function]}
-                              type="checkbox"
-                              value="1"
-                            />
-                            <label
-                              className="label"
-                              htmlFor="Monday"
-                            >
-                              Monday
-                            </label>
-                          </div>
-                        </Field>
-                      </div>
-                    </div>
-                  </Checkbox>
-                  <Checkbox
-                    className="mr-5"
-                    id="Tuesday"
-                    labelText="Tuesday"
-                    name="daysOfWeek"
-                    value="2"
+                    15 mins
+                  </label>
+                </div>
+              </div>
+              <div
+                class="column is-narrow"
+                data-test=""
+              >
+                <div
+                  class="radio-wrap"
+                >
+                  <input
+                    checked=""
+                    class="checkbox "
+                    id="appointmentTimeGap30 mins"
+                    name="appointmentTimeGap"
+                    type="radio"
+                    value="30"
+                  />
+                  <label
+                    class="label"
+                    for="appointmentTimeGap30 mins"
                   >
-                    <div
-                      className="field mr-5"
-                    >
-                      <div
-                        className="control"
-                      >
-                        <Field
-                          name="daysOfWeek"
-                          type="checkbox"
-                        >
-                          <div
-                            className="field field-checkbox"
-                          >
-                            <input
-                              checked={true}
-                              className="checkbox"
-                              data-test=""
-                              disabled={false}
-                              id="Tuesday"
-                              onChange={[Function]}
-                              type="checkbox"
-                              value="2"
-                            />
-                            <label
-                              className="label"
-                              htmlFor="Tuesday"
-                            >
-                              Tuesday
-                            </label>
-                          </div>
-                        </Field>
-                      </div>
-                    </div>
-                  </Checkbox>
-                  <Checkbox
-                    className="mr-5"
-                    id="Wednesday"
-                    labelText="Wednesday"
-                    name="daysOfWeek"
-                    value="3"
+                    30 mins
+                  </label>
+                </div>
+              </div>
+              <div
+                class="column is-narrow"
+                data-test=""
+              >
+                <div
+                  class="radio-wrap"
+                >
+                  <input
+                    class="checkbox "
+                    id="appointmentTimeGap1hr"
+                    name="appointmentTimeGap"
+                    type="radio"
+                    value="60"
+                  />
+                  <label
+                    class="label"
+                    for="appointmentTimeGap1hr"
                   >
-                    <div
-                      className="field mr-5"
-                    >
-                      <div
-                        className="control"
-                      >
-                        <Field
-                          name="daysOfWeek"
-                          type="checkbox"
-                        >
-                          <div
-                            className="field field-checkbox"
-                          >
-                            <input
-                              checked={true}
-                              className="checkbox"
-                              data-test=""
-                              disabled={false}
-                              id="Wednesday"
-                              onChange={[Function]}
-                              type="checkbox"
-                              value="3"
-                            />
-                            <label
-                              className="label"
-                              htmlFor="Wednesday"
-                            >
-                              Wednesday
-                            </label>
-                          </div>
-                        </Field>
-                      </div>
-                    </div>
-                  </Checkbox>
-                  <Checkbox
-                    className="mr-5"
-                    id="Thursday"
-                    labelText="Thursday"
-                    name="daysOfWeek"
-                    value="4"
+                    1hr
+                  </label>
+                </div>
+              </div>
+              <div
+                class="column is-narrow"
+                data-test=""
+              >
+                <div
+                  class="radio-wrap"
+                >
+                  <input
+                    class="checkbox "
+                    id="appointmentTimeGap1hr 30mins"
+                    name="appointmentTimeGap"
+                    type="radio"
+                    value="90"
+                  />
+                  <label
+                    class="label"
+                    for="appointmentTimeGap1hr 30mins"
                   >
-                    <div
-                      className="field mr-5"
-                    >
-                      <div
-                        className="control"
-                      >
-                        <Field
-                          name="daysOfWeek"
-                          type="checkbox"
-                        >
-                          <div
-                            className="field field-checkbox"
-                          >
-                            <input
-                              checked={true}
-                              className="checkbox"
-                              data-test=""
-                              disabled={false}
-                              id="Thursday"
-                              onChange={[Function]}
-                              type="checkbox"
-                              value="4"
-                            />
-                            <label
-                              className="label"
-                              htmlFor="Thursday"
-                            >
-                              Thursday
-                            </label>
-                          </div>
-                        </Field>
-                      </div>
-                    </div>
-                  </Checkbox>
-                  <Checkbox
-                    className="mr-5"
-                    id="Friday"
-                    labelText="Friday"
-                    name="daysOfWeek"
-                    value="5"
-                  >
-                    <div
-                      className="field mr-5"
-                    >
-                      <div
-                        className="control"
-                      >
-                        <Field
-                          name="daysOfWeek"
-                          type="checkbox"
-                        >
-                          <div
-                            className="field field-checkbox"
-                          >
-                            <input
-                              checked={true}
-                              className="checkbox"
-                              data-test=""
-                              disabled={false}
-                              id="Friday"
-                              onChange={[Function]}
-                              type="checkbox"
-                              value="5"
-                            />
-                            <label
-                              className="label"
-                              htmlFor="Friday"
-                            >
-                              Friday
-                            </label>
-                          </div>
-                        </Field>
-                      </div>
-                    </div>
-                  </Checkbox>
-                  <Checkbox
-                    className="mr-5"
-                    id="Saturday"
-                    labelText="Saturday"
-                    name="daysOfWeek"
-                    value="6"
-                  >
-                    <div
-                      className="field mr-5"
-                    >
-                      <div
-                        className="control"
-                      >
-                        <Field
-                          name="daysOfWeek"
-                          type="checkbox"
-                        >
-                          <div
-                            className="field field-checkbox"
-                          >
-                            <input
-                              checked={true}
-                              className="checkbox"
-                              data-test=""
-                              disabled={false}
-                              id="Saturday"
-                              onChange={[Function]}
-                              type="checkbox"
-                              value="6"
-                            />
-                            <label
-                              className="label"
-                              htmlFor="Saturday"
-                            >
-                              Saturday
-                            </label>
-                          </div>
-                        </Field>
-                      </div>
-                    </div>
-                  </Checkbox>
-                  <Checkbox
-                    id="Sunday"
-                    labelText="Sunday"
-                    name="daysOfWeek"
-                    value="0"
-                  >
-                    <div
-                      className="field "
-                    >
-                      <div
-                        className="control"
-                      >
-                        <Field
-                          name="daysOfWeek"
-                          type="checkbox"
-                        >
-                          <div
-                            className="field field-checkbox"
-                          >
-                            <input
-                              checked={false}
-                              className="checkbox"
-                              data-test=""
-                              disabled={false}
-                              id="Sunday"
-                              onChange={[Function]}
-                              type="checkbox"
-                              value="0"
-                            />
-                            <label
-                              className="label"
-                              htmlFor="Sunday"
-                            >
-                              Sunday
-                            </label>
-                          </div>
-                        </Field>
-                      </div>
-                    </div>
-                  </Checkbox>
+                    1hr 30mins
+                  </label>
                 </div>
               </div>
             </div>
-            <DropdownSelect
-              dropdownStyle={
-                Object {
-                  "zIndex": 41,
-                }
-              }
-              id="negotiatorIds"
-              labelText="Negotiators"
-              name="negotiatorIds"
-              options={Array []}
-              subText="Select which negotiators will be avaiable to attend appointments"
+          </div>
+        </div>
+        <div
+          class="field pb-2 checkbox-inline mt-5"
+        >
+          <div
+            class="control"
+          >
+            <label
+              class="label"
+              for="appointmentLength"
+            >
+              Length of Appointments
+            </label>
+            <label
+              class="subtext mb-2"
+            >
+              Select a length of appointments
+            </label>
+            <div
+              class="columns is-multiline"
+              data-test=""
             >
               <div
-                className="field"
+                class="column is-narrow"
+                data-test=""
               >
                 <div
-                  className="control"
+                  class="radio-wrap"
                 >
-                  <Field
-                    name="negotiatorIds"
-                    validate={null}
+                  <input
+                    class="checkbox "
+                    id="appointmentLength15 mins"
+                    name="appointmentLength"
+                    type="radio"
+                    value="15"
+                  />
+                  <label
+                    class="label"
+                    for="appointmentLength15 mins"
                   >
-                    <div
-                      className="field field-dropdown-select"
-                    >
-                      <label
-                        className="label "
-                      >
-                        Negotiators
-                      </label>
-                      <label
-                        className="subtext mb-2"
-                      >
-                        Select which negotiators will be avaiable to attend appointments
-                      </label>
-                      <Select
-                        className="is-primary input"
-                        dropdownStyle={
-                          Object {
-                            "zIndex": 41,
-                          }
-                        }
-                        id="negotiatorIds"
-                        mode="tags"
-                        onBlur={[Function]}
-                        onChange={[Function]}
-                        tagRender={[Function]}
-                        value={Array []}
-                      >
-                        <ForwardRef(Select)
-                          className="is-primary input"
-                          dropdownStyle={
-                            Object {
-                              "zIndex": 41,
-                            }
-                          }
-                          id="negotiatorIds"
-                          mode="tags"
-                          onBlur={[Function]}
-                          onChange={[Function]}
-                          tagRender={[Function]}
-                          value={Array []}
-                        >
-                          <div
-                            className="rc-select is-primary input rc-select-multiple rc-select-show-search"
-                            onBlur={[Function]}
-                            onFocus={[Function]}
-                            onKeyDown={[Function]}
-                            onKeyUp={[Function]}
-                            onMouseDown={[Function]}
-                          >
-                            <SelectTrigger
-                              containerWidth={null}
-                              dropdownStyle={
-                                Object {
-                                  "zIndex": 41,
-                                }
-                              }
-                              empty={true}
-                              getTriggerDOMNode={[Function]}
-                              popupElement={
-                                <OptionList
-                                  childrenAsData={true}
-                                  defaultActiveFirstOption={true}
-                                  flattenOptions={Array []}
-                                  height={200}
-                                  id="negotiatorIds"
-                                  itemHeight={20}
-                                  multiple={true}
-                                  notFoundContent="Not Found"
-                                  onActiveValue={[Function]}
-                                  onSelect={[Function]}
-                                  onToggleOpen={[Function]}
-                                  options={Array []}
-                                  prefixCls="rc-select"
-                                  searchValue=""
-                                  values={Set {}}
-                                  virtual={true}
-                                />
-                              }
-                              prefixCls="rc-select"
-                            >
-                              <Trigger
-                                action={Array []}
-                                afterPopupVisibleChange={[Function]}
-                                autoDestroy={false}
-                                blurDelay={0.15}
-                                builtinPlacements={
-                                  Object {
-                                    "bottomLeft": Object {
-                                      "offset": Array [
-                                        0,
-                                        4,
-                                      ],
-                                      "overflow": Object {
-                                        "adjustX": 0,
-                                        "adjustY": 1,
-                                      },
-                                      "points": Array [
-                                        "tl",
-                                        "bl",
-                                      ],
-                                    },
-                                    "bottomRight": Object {
-                                      "offset": Array [
-                                        0,
-                                        4,
-                                      ],
-                                      "overflow": Object {
-                                        "adjustX": 0,
-                                        "adjustY": 1,
-                                      },
-                                      "points": Array [
-                                        "tr",
-                                        "br",
-                                      ],
-                                    },
-                                    "topLeft": Object {
-                                      "offset": Array [
-                                        0,
-                                        -4,
-                                      ],
-                                      "overflow": Object {
-                                        "adjustX": 0,
-                                        "adjustY": 1,
-                                      },
-                                      "points": Array [
-                                        "bl",
-                                        "tl",
-                                      ],
-                                    },
-                                    "topRight": Object {
-                                      "offset": Array [
-                                        0,
-                                        -4,
-                                      ],
-                                      "overflow": Object {
-                                        "adjustX": 0,
-                                        "adjustY": 1,
-                                      },
-                                      "points": Array [
-                                        "br",
-                                        "tr",
-                                      ],
-                                    },
-                                  }
-                                }
-                                defaultPopupVisible={false}
-                                destroyPopupOnHide={false}
-                                focusDelay={0}
-                                getDocument={[Function]}
-                                getPopupClassNameFromAlign={[Function]}
-                                getTriggerDOMNode={[Function]}
-                                hideAction={Array []}
-                                mask={false}
-                                maskClosable={true}
-                                mouseEnterDelay={0}
-                                mouseLeaveDelay={0.1}
-                                onPopupAlign={[Function]}
-                                onPopupVisibleChange={[Function]}
-                                popup={
-                                  <div>
-                                    <OptionList
-                                      childrenAsData={true}
-                                      defaultActiveFirstOption={true}
-                                      flattenOptions={Array []}
-                                      height={200}
-                                      id="negotiatorIds"
-                                      itemHeight={20}
-                                      multiple={true}
-                                      notFoundContent="Not Found"
-                                      onActiveValue={[Function]}
-                                      onSelect={[Function]}
-                                      onToggleOpen={[Function]}
-                                      options={Array []}
-                                      prefixCls="rc-select"
-                                      searchValue=""
-                                      values={Set {}}
-                                      virtual={true}
-                                    />
-                                  </div>
-                                }
-                                popupAlign={Object {}}
-                                popupClassName="rc-select-dropdown-empty"
-                                popupPlacement="bottomLeft"
-                                popupStyle={
-                                  Object {
-                                    "minWidth": null,
-                                    "width": null,
-                                    "zIndex": 41,
-                                  }
-                                }
-                                prefixCls="rc-select-dropdown"
-                                showAction={Array []}
-                              >
-                                <Selector
-                                  accessibilityIndex={0}
-                                  activeValue={null}
-                                  className="is-primary input"
-                                  domRef={
-                                    Object {
-                                      "current": <div
-                                        class="rc-select-selector"
-                                      >
-                                        <span
-                                          class="rc-select-selection-search"
-                                          style="width: 0px;"
-                                        >
-                                          <input
-                                            aria-activedescendant="negotiatorIds_list_0"
-                                            aria-autocomplete="list"
-                                            aria-controls="negotiatorIds_list"
-                                            aria-haspopup="listbox"
-                                            aria-owns="negotiatorIds_list"
-                                            autocomplete="off"
-                                            class="rc-select-selection-search-input"
-                                            id="negotiatorIds"
-                                            role="combobox"
-                                            value=""
-                                          />
-                                          <span
-                                            aria-hidden="true"
-                                            class="rc-select-selection-search-mirror"
-                                          >
-                                             
-                                          </span>
-                                        </span>
-                                        <span
-                                          class="rc-select-selection-placeholder"
-                                        />
-                                      </div>,
-                                    }
-                                  }
-                                  dropdownStyle={
-                                    Object {
-                                      "zIndex": 41,
-                                    }
-                                  }
-                                  id="negotiatorIds"
-                                  inputElement={null}
-                                  key="trigger"
-                                  mode="tags"
-                                  multiple={true}
-                                  onBlur={[Function]}
-                                  onChange={[Function]}
-                                  onSearch={[Function]}
-                                  onSelect={[Function]}
-                                  onToggleOpen={[Function]}
-                                  prefixCls="rc-select"
-                                  searchValue=""
-                                  showSearch={true}
-                                  tagRender={[Function]}
-                                  value={Array []}
-                                  values={Array []}
-                                >
-                                  <div
-                                    className="rc-select-selector"
-                                    onClick={[Function]}
-                                    onMouseDown={[Function]}
-                                  >
-                                    <SelectSelector
-                                      accessibilityIndex={0}
-                                      activeValue={null}
-                                      className="is-primary input"
-                                      domRef={
-                                        Object {
-                                          "current": <div
-                                            class="rc-select-selector"
-                                          >
-                                            <span
-                                              class="rc-select-selection-search"
-                                              style="width: 0px;"
-                                            >
-                                              <input
-                                                aria-activedescendant="negotiatorIds_list_0"
-                                                aria-autocomplete="list"
-                                                aria-controls="negotiatorIds_list"
-                                                aria-haspopup="listbox"
-                                                aria-owns="negotiatorIds_list"
-                                                autocomplete="off"
-                                                class="rc-select-selection-search-input"
-                                                id="negotiatorIds"
-                                                role="combobox"
-                                                value=""
-                                              />
-                                              <span
-                                                aria-hidden="true"
-                                                class="rc-select-selection-search-mirror"
-                                              >
-                                                 
-                                              </span>
-                                            </span>
-                                            <span
-                                              class="rc-select-selection-placeholder"
-                                            />
-                                          </div>,
-                                        }
-                                      }
-                                      dropdownStyle={
-                                        Object {
-                                          "zIndex": 41,
-                                        }
-                                      }
-                                      id="negotiatorIds"
-                                      inputElement={null}
-                                      inputRef={
-                                        Object {
-                                          "current": <input
-                                            aria-activedescendant="negotiatorIds_list_0"
-                                            aria-autocomplete="list"
-                                            aria-controls="negotiatorIds_list"
-                                            aria-haspopup="listbox"
-                                            aria-owns="negotiatorIds_list"
-                                            autocomplete="off"
-                                            class="rc-select-selection-search-input"
-                                            id="negotiatorIds"
-                                            role="combobox"
-                                            value=""
-                                          />,
-                                        }
-                                      }
-                                      mode="tags"
-                                      multiple={true}
-                                      onBlur={[Function]}
-                                      onChange={[Function]}
-                                      onInputChange={[Function]}
-                                      onInputKeyDown={[Function]}
-                                      onInputMouseDown={[Function]}
-                                      onInputPaste={[Function]}
-                                      onSearch={[Function]}
-                                      onSelect={[Function]}
-                                      onToggleOpen={[Function]}
-                                      prefixCls="rc-select"
-                                      searchValue=""
-                                      showSearch={true}
-                                      tagRender={[Function]}
-                                      value={Array []}
-                                      values={Array []}
-                                    >
-                                      <CSSMotionList
-                                        component={false}
-                                        keys={Array []}
-                                        motionAppear={true}
-                                      />
-                                      <span
-                                        className="rc-select-selection-search"
-                                        style={
-                                          Object {
-                                            "width": 0,
-                                          }
-                                        }
-                                      >
-                                        <Input
-                                          accessibilityIndex={0}
-                                          attrs={Object {}}
-                                          editable={true}
-                                          id="negotiatorIds"
-                                          inputElement={null}
-                                          onChange={[Function]}
-                                          onKeyDown={[Function]}
-                                          onMouseDown={[Function]}
-                                          onPaste={[Function]}
-                                          prefixCls="rc-select"
-                                          value=""
-                                        >
-                                          <input
-                                            aria-activedescendant="negotiatorIds_list_0"
-                                            aria-autocomplete="list"
-                                            aria-controls="negotiatorIds_list"
-                                            aria-haspopup="listbox"
-                                            aria-owns="negotiatorIds_list"
-                                            autoComplete="off"
-                                            className="rc-select-selection-search-input"
-                                            id="negotiatorIds"
-                                            onChange={[Function]}
-                                            onKeyDown={[Function]}
-                                            onMouseDown={[Function]}
-                                            onPaste={[Function]}
-                                            readOnly={false}
-                                            role="combobox"
-                                            style={
-                                              Object {
-                                                "opacity": null,
-                                              }
-                                            }
-                                            unselectable={null}
-                                            value=""
-                                          />
-                                        </Input>
-                                        <span
-                                          aria-hidden={true}
-                                          className="rc-select-selection-search-mirror"
-                                        >
-                                           
-                                        </span>
-                                      </span>
-                                      <span
-                                        className="rc-select-selection-placeholder"
-                                      />
-                                    </SelectSelector>
-                                  </div>
-                                </Selector>
-                              </Trigger>
-                            </SelectTrigger>
-                          </div>
-                        </ForwardRef(Select)>
-                      </Select>
-                    </div>
-                  </Field>
+                    15 mins
+                  </label>
                 </div>
               </div>
-              <div />
-            </DropdownSelect>
-          </WebComponentConfigModalBody>
-        </section>
-      </ModalBody>
-      <ModalFooter
-        footerItems={
-          <WebComponentConfigModalFooter
-            closeModal={[MockFunction]}
-            formikProps={
-              Object {
-                "dirty": false,
-                "errors": Object {},
-                "getFieldHelpers": [Function],
-                "getFieldMeta": [Function],
-                "getFieldProps": [Function],
-                "handleBlur": [Function],
-                "handleChange": [Function],
-                "handleReset": [Function],
-                "handleSubmit": [Function],
-                "initialErrors": Object {},
-                "initialStatus": undefined,
-                "initialTouched": Object {},
-                "initialValues": Object {
-                  "appointmentLength": 30,
-                  "appointmentTimeGap": 30,
-                  "daysOfWeek": Array [
-                    "1",
-                    "2",
-                    "3",
-                    "4",
-                    "5",
-                    "6",
-                  ],
-                },
-                "isSubmitting": false,
-                "isValid": true,
-                "isValidating": false,
-                "registerField": [Function],
-                "resetForm": [Function],
-                "setErrors": [Function],
-                "setFieldError": [Function],
-                "setFieldTouched": [Function],
-                "setFieldValue": [Function],
-                "setFormikState": [Function],
-                "setStatus": [Function],
-                "setSubmitting": [Function],
-                "setTouched": [Function],
-                "setValues": [Function],
-                "status": undefined,
-                "submitCount": 0,
-                "submitForm": [Function],
-                "touched": Object {},
-                "unregisterField": [Function],
-                "validateField": [Function],
-                "validateForm": [Function],
-                "validateOnBlur": true,
-                "validateOnChange": true,
-                "validateOnMount": false,
-                "values": Object {
-                  "appointmentLength": 30,
-                  "appointmentTimeGap": 30,
-                  "daysOfWeek": Array [
-                    "1",
-                    "2",
-                    "3",
-                    "4",
-                    "5",
-                    "6",
-                  ],
-                },
-              }
-            }
-          />
-        }
-      >
-        <footer
-          className="modal-card-foot"
+              <div
+                class="column is-narrow"
+                data-test=""
+              >
+                <div
+                  class="radio-wrap"
+                >
+                  <input
+                    checked=""
+                    class="checkbox "
+                    id="appointmentLength30 mins"
+                    name="appointmentLength"
+                    type="radio"
+                    value="30"
+                  />
+                  <label
+                    class="label"
+                    for="appointmentLength30 mins"
+                  >
+                    30 mins
+                  </label>
+                </div>
+              </div>
+              <div
+                class="column is-narrow"
+                data-test=""
+              >
+                <div
+                  class="radio-wrap"
+                >
+                  <input
+                    class="checkbox "
+                    id="appointmentLength1hr"
+                    name="appointmentLength"
+                    type="radio"
+                    value="60"
+                  />
+                  <label
+                    class="label"
+                    for="appointmentLength1hr"
+                  >
+                    1hr
+                  </label>
+                </div>
+              </div>
+              <div
+                class="column is-narrow"
+                data-test=""
+              >
+                <div
+                  class="radio-wrap"
+                >
+                  <input
+                    class="checkbox "
+                    id="appointmentLength1hr 30mins"
+                    name="appointmentLength"
+                    type="radio"
+                    value="90"
+                  />
+                  <label
+                    class="label"
+                    for="appointmentLength1hr 30mins"
+                  >
+                    1hr 30mins
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="field mt-5"
         >
-          <WebComponentConfigModalFooter
-            closeModal={[MockFunction]}
-            formikProps={
-              Object {
-                "dirty": false,
-                "errors": Object {},
-                "getFieldHelpers": [Function],
-                "getFieldMeta": [Function],
-                "getFieldProps": [Function],
-                "handleBlur": [Function],
-                "handleChange": [Function],
-                "handleReset": [Function],
-                "handleSubmit": [Function],
-                "initialErrors": Object {},
-                "initialStatus": undefined,
-                "initialTouched": Object {},
-                "initialValues": Object {
-                  "appointmentLength": 30,
-                  "appointmentTimeGap": 30,
-                  "daysOfWeek": Array [
-                    "1",
-                    "2",
-                    "3",
-                    "4",
-                    "5",
-                    "6",
-                  ],
-                },
-                "isSubmitting": false,
-                "isValid": true,
-                "isValidating": false,
-                "registerField": [Function],
-                "resetForm": [Function],
-                "setErrors": [Function],
-                "setFieldError": [Function],
-                "setFieldTouched": [Function],
-                "setFieldValue": [Function],
-                "setFormikState": [Function],
-                "setStatus": [Function],
-                "setSubmitting": [Function],
-                "setTouched": [Function],
-                "setValues": [Function],
-                "status": undefined,
-                "submitCount": 0,
-                "submitForm": [Function],
-                "touched": Object {},
-                "unregisterField": [Function],
-                "validateField": [Function],
-                "validateForm": [Function],
-                "validateOnBlur": true,
-                "validateOnChange": true,
-                "validateOnMount": false,
-                "values": Object {
-                  "appointmentLength": 30,
-                  "appointmentTimeGap": 30,
-                  "daysOfWeek": Array [
-                    "1",
-                    "2",
-                    "3",
-                    "4",
-                    "5",
-                    "6",
-                  ],
-                },
-              }
-            }
+          <div
+            class="control"
           >
-            <Button
-              className="mr-2"
-              fullWidth={true}
-              onClick={[MockFunction]}
-              type="button"
-              variant="danger"
+            <label
+              class="label"
             >
-              <button
-                className="button is-fullwidth  is-danger mr-2"
-                data-test=""
-                disabled={false}
-                onClick={[MockFunction]}
-                type="button"
-              >
-                CANCEL
-              </button>
-            </Button>
-            <Button
-              fullWidth={true}
-              onClick={[Function]}
-              type="submit"
-              variant="primary"
+              Days of the week
+            </label>
+            <label
+              class="subtext mb-5"
             >
-              <button
-                className="button is-fullwidth  is-primary "
-                data-test=""
-                disabled={false}
-                onClick={[Function]}
-                type="submit"
+              Select which days of the week you would like to display
+            </label>
+            <div
+              class="container-flex flex-wrap"
+            >
+              <div
+                class="field mr-5"
               >
-                SAVE CHANGES
-              </button>
-            </Button>
-          </WebComponentConfigModalFooter>
-        </footer>
-      </ModalFooter>
-    </Formik>
-  </WebComponentConfigModalInner>
-</Provider>
+                <div
+                  class="control"
+                >
+                  <div
+                    class="field field-checkbox"
+                  >
+                    <input
+                      checked=""
+                      class="checkbox"
+                      data-test=""
+                      id="Monday"
+                      type="checkbox"
+                      value="1"
+                    />
+                    <label
+                      class="label"
+                      for="Monday"
+                    >
+                      Monday
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="field mr-5"
+              >
+                <div
+                  class="control"
+                >
+                  <div
+                    class="field field-checkbox"
+                  >
+                    <input
+                      checked=""
+                      class="checkbox"
+                      data-test=""
+                      id="Tuesday"
+                      type="checkbox"
+                      value="2"
+                    />
+                    <label
+                      class="label"
+                      for="Tuesday"
+                    >
+                      Tuesday
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="field mr-5"
+              >
+                <div
+                  class="control"
+                >
+                  <div
+                    class="field field-checkbox"
+                  >
+                    <input
+                      checked=""
+                      class="checkbox"
+                      data-test=""
+                      id="Wednesday"
+                      type="checkbox"
+                      value="3"
+                    />
+                    <label
+                      class="label"
+                      for="Wednesday"
+                    >
+                      Wednesday
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="field mr-5"
+              >
+                <div
+                  class="control"
+                >
+                  <div
+                    class="field field-checkbox"
+                  >
+                    <input
+                      checked=""
+                      class="checkbox"
+                      data-test=""
+                      id="Thursday"
+                      type="checkbox"
+                      value="4"
+                    />
+                    <label
+                      class="label"
+                      for="Thursday"
+                    >
+                      Thursday
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="field mr-5"
+              >
+                <div
+                  class="control"
+                >
+                  <div
+                    class="field field-checkbox"
+                  >
+                    <input
+                      checked=""
+                      class="checkbox"
+                      data-test=""
+                      id="Friday"
+                      type="checkbox"
+                      value="5"
+                    />
+                    <label
+                      class="label"
+                      for="Friday"
+                    >
+                      Friday
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="field mr-5"
+              >
+                <div
+                  class="control"
+                >
+                  <div
+                    class="field field-checkbox"
+                  >
+                    <input
+                      checked=""
+                      class="checkbox"
+                      data-test=""
+                      id="Saturday"
+                      type="checkbox"
+                      value="6"
+                    />
+                    <label
+                      class="label"
+                      for="Saturday"
+                    >
+                      Saturday
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="field "
+              >
+                <div
+                  class="control"
+                >
+                  <div
+                    class="field field-checkbox"
+                  >
+                    <input
+                      class="checkbox"
+                      data-test=""
+                      id="Sunday"
+                      type="checkbox"
+                      value="0"
+                    />
+                    <label
+                      class="label"
+                      for="Sunday"
+                    >
+                      Sunday
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="field"
+        >
+          <div
+            class="control"
+          >
+            <div
+              class="field field-dropdown-select"
+            >
+              <label
+                class="label "
+              >
+                Negotiators
+              </label>
+              <label
+                class="subtext mb-2"
+              >
+                Select which negotiators will be avaiable to attend appointments
+              </label>
+              <div
+                class="rc-select is-primary input rc-select-multiple rc-select-show-search"
+              >
+                <div
+                  class="rc-select-selector"
+                >
+                  <span
+                    class="rc-select-selection-search"
+                    style="width: 0px;"
+                  >
+                    <input
+                      aria-activedescendant="negotiatorIds_list_0"
+                      aria-autocomplete="list"
+                      aria-controls="negotiatorIds_list"
+                      aria-haspopup="listbox"
+                      aria-owns="negotiatorIds_list"
+                      autocomplete="off"
+                      class="rc-select-selection-search-input"
+                      id="negotiatorIds"
+                      role="combobox"
+                      value=""
+                    />
+                    <span
+                      aria-hidden="true"
+                      class="rc-select-selection-search-mirror"
+                    >
+                       
+                    </span>
+                  </span>
+                  <span
+                    class="rc-select-selection-placeholder"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div />
+      </section>
+      <footer
+        class="modal-card-foot"
+      >
+        <button
+          class="button is-fullwidth  is-danger mr-2"
+          data-test=""
+          type="button"
+        >
+          CANCEL
+        </button>
+        <button
+          class="button is-fullwidth  is-primary "
+          data-test=""
+          type="submit"
+        >
+          SAVE CHANGES
+        </button>
+      </footer>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6-el-snack-holder"
+    />
+    <header
+      class="modal-card-head"
+    >
+      <h4
+        class="modal-card-title is-4"
+      >
+        undefined Configuration
+      </h4>
+    </header>
+    <section
+      class="modal-card-body"
+    >
+      <p>
+        Please use the following form to configure your diary settings for your 
+                    ‘undefined’ widget on your website
+      </p>
+      <div
+        class="field pb-2 checkbox-inline mt-5"
+      >
+        <div
+          class="control"
+        >
+          <label
+            class="label"
+            for="appointmentTimeGap"
+          >
+            Time between appointments
+          </label>
+          <label
+            class="subtext mb-2"
+          >
+            Select a time between each appointment
+          </label>
+          <div
+            class="columns is-multiline"
+            data-test=""
+          >
+            <div
+              class="column is-narrow"
+              data-test=""
+            >
+              <div
+                class="radio-wrap"
+              >
+                <input
+                  class="checkbox "
+                  id="appointmentTimeGap15 mins"
+                  name="appointmentTimeGap"
+                  type="radio"
+                  value="15"
+                />
+                <label
+                  class="label"
+                  for="appointmentTimeGap15 mins"
+                >
+                  15 mins
+                </label>
+              </div>
+            </div>
+            <div
+              class="column is-narrow"
+              data-test=""
+            >
+              <div
+                class="radio-wrap"
+              >
+                <input
+                  checked=""
+                  class="checkbox "
+                  id="appointmentTimeGap30 mins"
+                  name="appointmentTimeGap"
+                  type="radio"
+                  value="30"
+                />
+                <label
+                  class="label"
+                  for="appointmentTimeGap30 mins"
+                >
+                  30 mins
+                </label>
+              </div>
+            </div>
+            <div
+              class="column is-narrow"
+              data-test=""
+            >
+              <div
+                class="radio-wrap"
+              >
+                <input
+                  class="checkbox "
+                  id="appointmentTimeGap1hr"
+                  name="appointmentTimeGap"
+                  type="radio"
+                  value="60"
+                />
+                <label
+                  class="label"
+                  for="appointmentTimeGap1hr"
+                >
+                  1hr
+                </label>
+              </div>
+            </div>
+            <div
+              class="column is-narrow"
+              data-test=""
+            >
+              <div
+                class="radio-wrap"
+              >
+                <input
+                  class="checkbox "
+                  id="appointmentTimeGap1hr 30mins"
+                  name="appointmentTimeGap"
+                  type="radio"
+                  value="90"
+                />
+                <label
+                  class="label"
+                  for="appointmentTimeGap1hr 30mins"
+                >
+                  1hr 30mins
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="field pb-2 checkbox-inline mt-5"
+      >
+        <div
+          class="control"
+        >
+          <label
+            class="label"
+            for="appointmentLength"
+          >
+            Length of Appointments
+          </label>
+          <label
+            class="subtext mb-2"
+          >
+            Select a length of appointments
+          </label>
+          <div
+            class="columns is-multiline"
+            data-test=""
+          >
+            <div
+              class="column is-narrow"
+              data-test=""
+            >
+              <div
+                class="radio-wrap"
+              >
+                <input
+                  class="checkbox "
+                  id="appointmentLength15 mins"
+                  name="appointmentLength"
+                  type="radio"
+                  value="15"
+                />
+                <label
+                  class="label"
+                  for="appointmentLength15 mins"
+                >
+                  15 mins
+                </label>
+              </div>
+            </div>
+            <div
+              class="column is-narrow"
+              data-test=""
+            >
+              <div
+                class="radio-wrap"
+              >
+                <input
+                  checked=""
+                  class="checkbox "
+                  id="appointmentLength30 mins"
+                  name="appointmentLength"
+                  type="radio"
+                  value="30"
+                />
+                <label
+                  class="label"
+                  for="appointmentLength30 mins"
+                >
+                  30 mins
+                </label>
+              </div>
+            </div>
+            <div
+              class="column is-narrow"
+              data-test=""
+            >
+              <div
+                class="radio-wrap"
+              >
+                <input
+                  class="checkbox "
+                  id="appointmentLength1hr"
+                  name="appointmentLength"
+                  type="radio"
+                  value="60"
+                />
+                <label
+                  class="label"
+                  for="appointmentLength1hr"
+                >
+                  1hr
+                </label>
+              </div>
+            </div>
+            <div
+              class="column is-narrow"
+              data-test=""
+            >
+              <div
+                class="radio-wrap"
+              >
+                <input
+                  class="checkbox "
+                  id="appointmentLength1hr 30mins"
+                  name="appointmentLength"
+                  type="radio"
+                  value="90"
+                />
+                <label
+                  class="label"
+                  for="appointmentLength1hr 30mins"
+                >
+                  1hr 30mins
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="field mt-5"
+      >
+        <div
+          class="control"
+        >
+          <label
+            class="label"
+          >
+            Days of the week
+          </label>
+          <label
+            class="subtext mb-5"
+          >
+            Select which days of the week you would like to display
+          </label>
+          <div
+            class="container-flex flex-wrap"
+          >
+            <div
+              class="field mr-5"
+            >
+              <div
+                class="control"
+              >
+                <div
+                  class="field field-checkbox"
+                >
+                  <input
+                    checked=""
+                    class="checkbox"
+                    data-test=""
+                    id="Monday"
+                    type="checkbox"
+                    value="1"
+                  />
+                  <label
+                    class="label"
+                    for="Monday"
+                  >
+                    Monday
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div
+              class="field mr-5"
+            >
+              <div
+                class="control"
+              >
+                <div
+                  class="field field-checkbox"
+                >
+                  <input
+                    checked=""
+                    class="checkbox"
+                    data-test=""
+                    id="Tuesday"
+                    type="checkbox"
+                    value="2"
+                  />
+                  <label
+                    class="label"
+                    for="Tuesday"
+                  >
+                    Tuesday
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div
+              class="field mr-5"
+            >
+              <div
+                class="control"
+              >
+                <div
+                  class="field field-checkbox"
+                >
+                  <input
+                    checked=""
+                    class="checkbox"
+                    data-test=""
+                    id="Wednesday"
+                    type="checkbox"
+                    value="3"
+                  />
+                  <label
+                    class="label"
+                    for="Wednesday"
+                  >
+                    Wednesday
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div
+              class="field mr-5"
+            >
+              <div
+                class="control"
+              >
+                <div
+                  class="field field-checkbox"
+                >
+                  <input
+                    checked=""
+                    class="checkbox"
+                    data-test=""
+                    id="Thursday"
+                    type="checkbox"
+                    value="4"
+                  />
+                  <label
+                    class="label"
+                    for="Thursday"
+                  >
+                    Thursday
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div
+              class="field mr-5"
+            >
+              <div
+                class="control"
+              >
+                <div
+                  class="field field-checkbox"
+                >
+                  <input
+                    checked=""
+                    class="checkbox"
+                    data-test=""
+                    id="Friday"
+                    type="checkbox"
+                    value="5"
+                  />
+                  <label
+                    class="label"
+                    for="Friday"
+                  >
+                    Friday
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div
+              class="field mr-5"
+            >
+              <div
+                class="control"
+              >
+                <div
+                  class="field field-checkbox"
+                >
+                  <input
+                    checked=""
+                    class="checkbox"
+                    data-test=""
+                    id="Saturday"
+                    type="checkbox"
+                    value="6"
+                  />
+                  <label
+                    class="label"
+                    for="Saturday"
+                  >
+                    Saturday
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div
+              class="field "
+            >
+              <div
+                class="control"
+              >
+                <div
+                  class="field field-checkbox"
+                >
+                  <input
+                    class="checkbox"
+                    data-test=""
+                    id="Sunday"
+                    type="checkbox"
+                    value="0"
+                  />
+                  <label
+                    class="label"
+                    for="Sunday"
+                  >
+                    Sunday
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="field"
+      >
+        <div
+          class="control"
+        >
+          <div
+            class="field field-dropdown-select"
+          >
+            <label
+              class="label "
+            >
+              Negotiators
+            </label>
+            <label
+              class="subtext mb-2"
+            >
+              Select which negotiators will be avaiable to attend appointments
+            </label>
+            <div
+              class="rc-select is-primary input rc-select-multiple rc-select-show-search"
+            >
+              <div
+                class="rc-select-selector"
+              >
+                <span
+                  class="rc-select-selection-search"
+                  style="width: 0px;"
+                >
+                  <input
+                    aria-activedescendant="negotiatorIds_list_0"
+                    aria-autocomplete="list"
+                    aria-controls="negotiatorIds_list"
+                    aria-haspopup="listbox"
+                    aria-owns="negotiatorIds_list"
+                    autocomplete="off"
+                    class="rc-select-selection-search-input"
+                    id="negotiatorIds"
+                    role="combobox"
+                    value=""
+                  />
+                  <span
+                    aria-hidden="true"
+                    class="rc-select-selection-search-mirror"
+                  >
+                     
+                  </span>
+                </span>
+                <span
+                  class="rc-select-selection-placeholder"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div />
+    </section>
+    <footer
+      class="modal-card-foot"
+    >
+      <button
+        class="button is-fullwidth  is-danger mr-2"
+        data-test=""
+        type="button"
+      >
+        CANCEL
+      </button>
+      <button
+        class="button is-fullwidth  is-primary "
+        data-test=""
+        type="submit"
+      >
+        SAVE CHANGES
+      </button>
+    </footer>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

@@ -1,2247 +1,1602 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <MemoryRouter
-    initialEntries={
-      Array [
-        Object {
-          "key": "adminDevManagementRoute",
-          "pathname": "/dev-management",
-        },
-      ]
-    }
-  >
-    <Router
-      history={
-        Object {
-          "action": "POP",
-          "block": [Function],
-          "canGo": [Function],
-          "createHref": [Function],
-          "entries": Array [
-            Object {
-              "hash": "",
-              "key": "adminDevManagementRoute",
-              "pathname": "/dev-management",
-              "search": "",
-            },
-          ],
-          "go": [Function],
-          "goBack": [Function],
-          "goForward": [Function],
-          "index": 0,
-          "length": 1,
-          "listen": [Function],
-          "location": Object {
-            "hash": "",
-            "key": "adminDevManagementRoute",
-            "pathname": "/dev-management",
-            "search": "",
-          },
-          "push": [Function],
-          "replace": [Function],
-        }
-      }
-    >
-      <DevsManagement>
-        <ErrorBoundary>
-          <H3>
-            <h3
-              className="title is-3"
-              id=""
-            >
-              Developer Management
-            </h3>
-          </H3>
-          <DevsManagementFilterForm
-            filterValues={
-              Object {
-                "company": "",
-                "name": "",
-                "registeredFrom": "",
-                "registeredTo": "",
-                "status": "",
-              }
-            }
-            onSearch={[Function]}
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <h3
+        class="title is-3"
+        id=""
+      >
+        Developer Management
+      </h3>
+      <form
+        action="#"
+        novalidate=""
+      >
+        <div
+          class="form-section"
+        >
+          <div
+            class="form-heading"
           >
-            <Formik
-              initialValues={
-                Object {
-                  "company": "",
-                  "name": "",
-                  "registeredFrom": "",
-                  "registeredTo": "",
-                  "status": "",
-                }
-              }
-              onSubmit={[Function]}
-            >
-              <Form
-                noValidate={true}
-              >
-                <form
-                  action="#"
-                  noValidate={true}
-                  onReset={[Function]}
-                  onSubmit={[Function]}
-                >
-                  <FormSection>
-                    <div
-                      className="form-section"
-                    >
-                      <FormHeading>
-                        <div
-                          className="form-heading"
-                        >
-                          Developer Management Filter Form
-                        </div>
-                      </FormHeading>
-                      <FormSubHeading>
-                        <div
-                          className="form-subheading"
-                        >
-                          Filter the result by Name and Company
-                        </div>
-                      </FormSubHeading>
-                      <Grid
-                        className="items-center"
-                      >
-                        <div
-                          className="columns items-center"
-                          data-test=""
-                        >
-                          <GridItem>
-                            <div
-                              className="column"
-                              data-test=""
-                            >
-                              <Input
-                                id="name"
-                                labelText="Name"
-                                maxLength={256}
-                                name="name"
-                                type="text"
-                              >
-                                <Field
-                                  name="name"
-                                  validate={[Function]}
-                                >
-                                  <div
-                                    className="field"
-                                  >
-                                    <div
-                                      className="control "
-                                    >
-                                      <label
-                                        className="label inline-block "
-                                        htmlFor="name"
-                                      >
-                                        Name
-                                      </label>
-                                      <input
-                                        className="input is-primary"
-                                        data-test=""
-                                        disabled={false}
-                                        id="name"
-                                        maxLength={256}
-                                        name="name"
-                                        onBlur={[Function]}
-                                        onChange={[Function]}
-                                        placeholder=""
-                                        type="text"
-                                        value=""
-                                      />
-                                    </div>
-                                  </div>
-                                </Field>
-                              </Input>
-                            </div>
-                          </GridItem>
-                          <GridItem>
-                            <div
-                              className="column"
-                              data-test=""
-                            >
-                              <Input
-                                id="company"
-                                labelText="Company"
-                                maxLength={256}
-                                name="company"
-                                type="text"
-                              >
-                                <Field
-                                  name="company"
-                                  validate={[Function]}
-                                >
-                                  <div
-                                    className="field"
-                                  >
-                                    <div
-                                      className="control "
-                                    >
-                                      <label
-                                        className="label inline-block "
-                                        htmlFor="company"
-                                      >
-                                        Company
-                                      </label>
-                                      <input
-                                        className="input is-primary"
-                                        data-test=""
-                                        disabled={false}
-                                        id="company"
-                                        maxLength={256}
-                                        name="company"
-                                        onBlur={[Function]}
-                                        onChange={[Function]}
-                                        placeholder=""
-                                        type="text"
-                                        value=""
-                                      />
-                                    </div>
-                                  </div>
-                                </Field>
-                              </Input>
-                            </div>
-                          </GridItem>
-                          <GridItem>
-                            <div
-                              className="column"
-                              data-test=""
-                            >
-                              <DatePicker
-                                id="registeredFrom"
-                                labelText="Registered From"
-                                name="registeredFrom"
-                                reactDatePickerProps={
-                                  Object {
-                                    "maxDate": 2019-10-10T22:39:51.389Z,
-                                  }
-                                }
-                              >
-                                <Field
-                                  name="registeredFrom"
-                                  validate={null}
-                                >
-                                  <div
-                                    className="field"
-                                  >
-                                    <div
-                                      className="control"
-                                    >
-                                      <label
-                                        className="label "
-                                        htmlFor="registeredFrom"
-                                      >
-                                        Registered From
-                                      </label>
-                                      <o
-                                        allowSameDay={false}
-                                        className="input is-primary"
-                                        customInput={
-                                          <CustomInput
-                                            className="input is-primary"
-                                          />
-                                        }
-                                        customTimeInput={null}
-                                        dateFormat="MM/dd/yyyy"
-                                        dateFormatCalendar="LLLL yyyy"
-                                        disabled={false}
-                                        disabledKeyboardNavigation={false}
-                                        dropdownMode="scroll"
-                                        enableTabLoop={true}
-                                        excludeScrollbar={true}
-                                        id="registeredFrom"
-                                        inlineFocusSelectedMonth={false}
-                                        maxDate={2019-10-10T22:39:51.389Z}
-                                        monthsShown={1}
-                                        name="registeredFrom"
-                                        nextMonthButtonLabel="Next Month"
-                                        nextYearButtonLabel="Next Year"
-                                        onBlur={[Function]}
-                                        onCalendarClose={[Function]}
-                                        onCalendarOpen={[Function]}
-                                        onChange={[Function]}
-                                        onClickOutside={[Function]}
-                                        onFocus={[Function]}
-                                        onInputClick={[Function]}
-                                        onInputError={[Function]}
-                                        onKeyDown={[Function]}
-                                        onMonthChange={[Function]}
-                                        onSelect={[Function]}
-                                        onYearChange={[Function]}
-                                        popperPlacement="top"
-                                        preventOpenOnFocus={false}
-                                        previousMonthButtonLabel="Previous Month"
-                                        previousYearButtonLabel="Previous Year"
-                                        readOnly={false}
-                                        renderDayContents={[Function]}
-                                        shouldCloseOnSelect={true}
-                                        showFullMonthYearPicker={false}
-                                        showMonthYearPicker={false}
-                                        showPopperArrow={true}
-                                        showPreviousMonths={false}
-                                        showQuarterYearPicker={false}
-                                        showTimeInput={false}
-                                        showTimeSelect={false}
-                                        showYearPicker={false}
-                                        strictParsing={false}
-                                        timeCaption="Time"
-                                        timeInputLabel="Time"
-                                        timeIntervals={30}
-                                        value=""
-                                        withPortal={false}
-                                      >
-                                        <a
-                                          enableTabLoop={true}
-                                          hidePopper={true}
-                                          popperComponent={null}
-                                          popperModifiers={
-                                            Object {
-                                              "preventOverflow": Object {
-                                                "boundariesElement": "viewport",
-                                                "enabled": true,
-                                                "escapeWithReference": true,
-                                              },
-                                            }
-                                          }
-                                          popperOnKeyDown={[Function]}
-                                          popperPlacement="top"
-                                          popperProps={Object {}}
-                                          targetComponent={
-                                            <div
-                                              className="react-datepicker__input-container"
-                                            >
-                                              <CustomInput
-                                                className="input is-primary input is-primary"
-                                                disabled={false}
-                                                id="registeredFrom"
-                                                name="registeredFrom"
-                                                onBlur={[Function]}
-                                                onChange={[Function]}
-                                                onClick={[Function]}
-                                                onFocus={[Function]}
-                                                onKeyDown={[Function]}
-                                                readOnly={false}
-                                                value=""
-                                              />
-                                            </div>
-                                          }
-                                        >
-                                          <Manager
-                                            className="react-datepicker-manager"
-                                          >
-                                            <Reference>
-                                              <InnerReference
-                                                setReferenceNode={[Function]}
-                                              >
-                                                <div
-                                                  className="react-datepicker-wrapper"
-                                                >
-                                                  <div
-                                                    className="react-datepicker__input-container"
-                                                  >
-                                                    <CustomInput
-                                                      className="input is-primary input is-primary"
-                                                      disabled={false}
-                                                      id="registeredFrom"
-                                                      name="registeredFrom"
-                                                      onBlur={[Function]}
-                                                      onChange={[Function]}
-                                                      onClick={[Function]}
-                                                      onFocus={[Function]}
-                                                      onKeyDown={[Function]}
-                                                      readOnly={false}
-                                                      value=""
-                                                    >
-                                                      <input
-                                                        className="input is-primary input is-primary"
-                                                        disabled={false}
-                                                        id="registeredFrom"
-                                                        name="registeredFrom"
-                                                        onBlur={[Function]}
-                                                        onChange={[Function]}
-                                                        onClick={[Function]}
-                                                        onFocus={[Function]}
-                                                        onKeyDown={[Function]}
-                                                        readOnly={false}
-                                                        type="input"
-                                                        value=""
-                                                      />
-                                                    </CustomInput>
-                                                  </div>
-                                                </div>
-                                              </InnerReference>
-                                            </Reference>
-                                          </Manager>
-                                        </a>
-                                      </o>
-                                    </div>
-                                  </div>
-                                </Field>
-                              </DatePicker>
-                            </div>
-                          </GridItem>
-                          <GridItem>
-                            <div
-                              className="column"
-                              data-test=""
-                            >
-                              <DatePicker
-                                id="registeredTo"
-                                labelText="Registered To"
-                                name="registeredTo"
-                                reactDatePickerProps={
-                                  Object {
-                                    "maxDate": 2019-10-10T22:39:51.389Z,
-                                    "minDate": Date { NaN },
-                                  }
-                                }
-                              >
-                                <Field
-                                  name="registeredTo"
-                                  validate={null}
-                                >
-                                  <div
-                                    className="field"
-                                  >
-                                    <div
-                                      className="control"
-                                    >
-                                      <label
-                                        className="label "
-                                        htmlFor="registeredTo"
-                                      >
-                                        Registered To
-                                      </label>
-                                      <o
-                                        allowSameDay={false}
-                                        className="input is-primary"
-                                        customInput={
-                                          <CustomInput
-                                            className="input is-primary"
-                                          />
-                                        }
-                                        customTimeInput={null}
-                                        dateFormat="MM/dd/yyyy"
-                                        dateFormatCalendar="LLLL yyyy"
-                                        disabled={false}
-                                        disabledKeyboardNavigation={false}
-                                        dropdownMode="scroll"
-                                        enableTabLoop={true}
-                                        excludeScrollbar={true}
-                                        id="registeredTo"
-                                        inlineFocusSelectedMonth={false}
-                                        maxDate={2019-10-10T22:39:51.389Z}
-                                        minDate={Date { NaN }}
-                                        monthsShown={1}
-                                        name="registeredTo"
-                                        nextMonthButtonLabel="Next Month"
-                                        nextYearButtonLabel="Next Year"
-                                        onBlur={[Function]}
-                                        onCalendarClose={[Function]}
-                                        onCalendarOpen={[Function]}
-                                        onChange={[Function]}
-                                        onClickOutside={[Function]}
-                                        onFocus={[Function]}
-                                        onInputClick={[Function]}
-                                        onInputError={[Function]}
-                                        onKeyDown={[Function]}
-                                        onMonthChange={[Function]}
-                                        onSelect={[Function]}
-                                        onYearChange={[Function]}
-                                        popperPlacement="top"
-                                        preventOpenOnFocus={false}
-                                        previousMonthButtonLabel="Previous Month"
-                                        previousYearButtonLabel="Previous Year"
-                                        readOnly={false}
-                                        renderDayContents={[Function]}
-                                        shouldCloseOnSelect={true}
-                                        showFullMonthYearPicker={false}
-                                        showMonthYearPicker={false}
-                                        showPopperArrow={true}
-                                        showPreviousMonths={false}
-                                        showQuarterYearPicker={false}
-                                        showTimeInput={false}
-                                        showTimeSelect={false}
-                                        showYearPicker={false}
-                                        strictParsing={false}
-                                        timeCaption="Time"
-                                        timeInputLabel="Time"
-                                        timeIntervals={30}
-                                        value=""
-                                        withPortal={false}
-                                      >
-                                        <a
-                                          enableTabLoop={true}
-                                          hidePopper={true}
-                                          popperComponent={null}
-                                          popperModifiers={
-                                            Object {
-                                              "preventOverflow": Object {
-                                                "boundariesElement": "viewport",
-                                                "enabled": true,
-                                                "escapeWithReference": true,
-                                              },
-                                            }
-                                          }
-                                          popperOnKeyDown={[Function]}
-                                          popperPlacement="top"
-                                          popperProps={Object {}}
-                                          targetComponent={
-                                            <div
-                                              className="react-datepicker__input-container"
-                                            >
-                                              <CustomInput
-                                                className="input is-primary input is-primary"
-                                                disabled={false}
-                                                id="registeredTo"
-                                                name="registeredTo"
-                                                onBlur={[Function]}
-                                                onChange={[Function]}
-                                                onClick={[Function]}
-                                                onFocus={[Function]}
-                                                onKeyDown={[Function]}
-                                                readOnly={false}
-                                                value=""
-                                              />
-                                            </div>
-                                          }
-                                        >
-                                          <Manager
-                                            className="react-datepicker-manager"
-                                          >
-                                            <Reference>
-                                              <InnerReference
-                                                setReferenceNode={[Function]}
-                                              >
-                                                <div
-                                                  className="react-datepicker-wrapper"
-                                                >
-                                                  <div
-                                                    className="react-datepicker__input-container"
-                                                  >
-                                                    <CustomInput
-                                                      className="input is-primary input is-primary"
-                                                      disabled={false}
-                                                      id="registeredTo"
-                                                      name="registeredTo"
-                                                      onBlur={[Function]}
-                                                      onChange={[Function]}
-                                                      onClick={[Function]}
-                                                      onFocus={[Function]}
-                                                      onKeyDown={[Function]}
-                                                      readOnly={false}
-                                                      value=""
-                                                    >
-                                                      <input
-                                                        className="input is-primary input is-primary"
-                                                        disabled={false}
-                                                        id="registeredTo"
-                                                        name="registeredTo"
-                                                        onBlur={[Function]}
-                                                        onChange={[Function]}
-                                                        onClick={[Function]}
-                                                        onFocus={[Function]}
-                                                        onKeyDown={[Function]}
-                                                        readOnly={false}
-                                                        type="input"
-                                                        value=""
-                                                      />
-                                                    </CustomInput>
-                                                  </div>
-                                                </div>
-                                              </InnerReference>
-                                            </Reference>
-                                          </Manager>
-                                        </a>
-                                      </o>
-                                    </div>
-                                  </div>
-                                </Field>
-                              </DatePicker>
-                            </div>
-                          </GridItem>
-                          <GridItem>
-                            <div
-                              className="column"
-                              data-test=""
-                            >
-                              <SelectBox
-                                id="status"
-                                labelText="Status"
-                                name="status"
-                                options={
-                                  Array [
-                                    Object {
-                                      "label": "Incomplete",
-                                      "value": "incomplete",
-                                    },
-                                    Object {
-                                      "label": "Pending",
-                                      "value": "pending",
-                                    },
-                                    Object {
-                                      "label": "Confirmed",
-                                      "value": "confirmed",
-                                    },
-                                    Object {
-                                      "label": "Under Review",
-                                      "value": "underReview",
-                                    },
-                                    Object {
-                                      "label": "Removed",
-                                      "value": "removed",
-                                    },
-                                  ]
-                                }
-                              >
-                                <Field
-                                  name="status"
-                                  validate={null}
-                                >
-                                  <div
-                                    className="field"
-                                  >
-                                    <div
-                                      className="control"
-                                    >
-                                      <label
-                                        className="label "
-                                        htmlFor="status"
-                                      >
-                                        Status
-                                      </label>
-                                      <select
-                                        className="input is-primary "
-                                        data-test=""
-                                        name="status"
-                                        onBlur={[Function]}
-                                        onChange={[Function]}
-                                        value=""
-                                      >
-                                        <option
-                                          key="incomplete"
-                                          value="incomplete"
-                                        >
-                                          Incomplete
-                                        </option>
-                                        <option
-                                          key="pending"
-                                          value="pending"
-                                        >
-                                          Pending
-                                        </option>
-                                        <option
-                                          key="confirmed"
-                                          value="confirmed"
-                                        >
-                                          Confirmed
-                                        </option>
-                                        <option
-                                          key="underReview"
-                                          value="underReview"
-                                        >
-                                          Under Review
-                                        </option>
-                                        <option
-                                          key="removed"
-                                          value="removed"
-                                        >
-                                          Removed
-                                        </option>
-                                        <option
-                                          disabled={true}
-                                          hidden={true}
-                                          value=""
-                                        >
-                                          Please select
-                                        </option>
-                                      </select>
-                                    </div>
-                                  </div>
-                                </Field>
-                              </SelectBox>
-                            </div>
-                          </GridItem>
-                          <GridItem
-                            className="mt-4"
-                          >
-                            <div
-                              className="column mt-4"
-                              data-test=""
-                            >
-                              <Button
-                                type="submit"
-                                variant="primary"
-                              >
-                                <button
-                                  className="button   is-primary "
-                                  data-test=""
-                                  disabled={false}
-                                  type="submit"
-                                >
-                                  Search
-                                </button>
-                              </Button>
-                            </div>
-                          </GridItem>
-                        </div>
-                      </Grid>
-                    </div>
-                  </FormSection>
-                </form>
-              </Form>
-            </Formik>
-          </DevsManagementFilterForm>
-          <Alert
-            message="No Results "
-            type="info"
+            Developer Management Filter Form
+          </div>
+          <div
+            class="form-subheading"
+          >
+            Filter the result by Name and Company
+          </div>
+          <div
+            class="columns items-center"
+            data-test=""
           >
             <div
-              className="notification is-info "
+              class="column"
               data-test=""
-              role="alert"
             >
-              No Results 
+              <div
+                class="field"
+              >
+                <div
+                  class="control "
+                >
+                  <label
+                    class="label inline-block "
+                    for="name"
+                  >
+                    Name
+                  </label>
+                  <input
+                    class="input is-primary"
+                    data-test=""
+                    id="name"
+                    maxlength="256"
+                    name="name"
+                    placeholder=""
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
             </div>
-          </Alert>
-          <Pagination
-            onChange={[Function]}
-            pageNumber={0}
-            pageSize={0}
-            totalCount={0}
-          />
-          <StatusModal
-            developer={Object {}}
-            resetModal={[Function]}
-            visible={false}
-          />
-          <DisableMemberModal
-            member={null}
-            onCancel={[Function]}
-            onSuccess={[Function]}
-            visible={false}
-          />
-          <SetAsAdminModal
-            onClose={[Function]}
-            user={null}
-            visible={false}
-          />
-        </ErrorBoundary>
-      </DevsManagement>
-    </Router>
-  </MemoryRouter>
-</Provider>
+            <div
+              class="column"
+              data-test=""
+            >
+              <div
+                class="field"
+              >
+                <div
+                  class="control "
+                >
+                  <label
+                    class="label inline-block "
+                    for="company"
+                  >
+                    Company
+                  </label>
+                  <input
+                    class="input is-primary"
+                    data-test=""
+                    id="company"
+                    maxlength="256"
+                    name="company"
+                    placeholder=""
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="column"
+              data-test=""
+            >
+              <div
+                class="field"
+              >
+                <div
+                  class="control"
+                >
+                  <label
+                    class="label "
+                    for="registeredFrom"
+                  >
+                    Registered From
+                  </label>
+                  <div
+                    class="react-datepicker-wrapper"
+                  >
+                    <div
+                      class="react-datepicker__input-container"
+                    >
+                      <input
+                        class="input is-primary input is-primary"
+                        id="registeredFrom"
+                        name="registeredFrom"
+                        type="input"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="column"
+              data-test=""
+            >
+              <div
+                class="field"
+              >
+                <div
+                  class="control"
+                >
+                  <label
+                    class="label "
+                    for="registeredTo"
+                  >
+                    Registered To
+                  </label>
+                  <div
+                    class="react-datepicker-wrapper"
+                  >
+                    <div
+                      class="react-datepicker__input-container"
+                    >
+                      <input
+                        class="input is-primary input is-primary"
+                        id="registeredTo"
+                        name="registeredTo"
+                        type="input"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="column"
+              data-test=""
+            >
+              <div
+                class="field"
+              >
+                <div
+                  class="control"
+                >
+                  <label
+                    class="label "
+                    for="status"
+                  >
+                    Status
+                  </label>
+                  <select
+                    class="input is-primary "
+                    data-test=""
+                    name="status"
+                  >
+                    <option
+                      value="incomplete"
+                    >
+                      Incomplete
+                    </option>
+                    <option
+                      value="pending"
+                    >
+                      Pending
+                    </option>
+                    <option
+                      value="confirmed"
+                    >
+                      Confirmed
+                    </option>
+                    <option
+                      value="underReview"
+                    >
+                      Under Review
+                    </option>
+                    <option
+                      value="removed"
+                    >
+                      Removed
+                    </option>
+                    <option
+                      disabled=""
+                      hidden=""
+                      value=""
+                    >
+                      Please select
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div
+              class="column mt-4"
+              data-test=""
+            >
+              <button
+                class="button   is-primary "
+                data-test=""
+                type="submit"
+              >
+                Search
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div
+        class="notification is-info "
+        data-test=""
+        role="alert"
+      >
+        No Results 
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <h3
+      class="title is-3"
+      id=""
+    >
+      Developer Management
+    </h3>
+    <form
+      action="#"
+      novalidate=""
+    >
+      <div
+        class="form-section"
+      >
+        <div
+          class="form-heading"
+        >
+          Developer Management Filter Form
+        </div>
+        <div
+          class="form-subheading"
+        >
+          Filter the result by Name and Company
+        </div>
+        <div
+          class="columns items-center"
+          data-test=""
+        >
+          <div
+            class="column"
+            data-test=""
+          >
+            <div
+              class="field"
+            >
+              <div
+                class="control "
+              >
+                <label
+                  class="label inline-block "
+                  for="name"
+                >
+                  Name
+                </label>
+                <input
+                  class="input is-primary"
+                  data-test=""
+                  id="name"
+                  maxlength="256"
+                  name="name"
+                  placeholder=""
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="column"
+            data-test=""
+          >
+            <div
+              class="field"
+            >
+              <div
+                class="control "
+              >
+                <label
+                  class="label inline-block "
+                  for="company"
+                >
+                  Company
+                </label>
+                <input
+                  class="input is-primary"
+                  data-test=""
+                  id="company"
+                  maxlength="256"
+                  name="company"
+                  placeholder=""
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="column"
+            data-test=""
+          >
+            <div
+              class="field"
+            >
+              <div
+                class="control"
+              >
+                <label
+                  class="label "
+                  for="registeredFrom"
+                >
+                  Registered From
+                </label>
+                <div
+                  class="react-datepicker-wrapper"
+                >
+                  <div
+                    class="react-datepicker__input-container"
+                  >
+                    <input
+                      class="input is-primary input is-primary"
+                      id="registeredFrom"
+                      name="registeredFrom"
+                      type="input"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="column"
+            data-test=""
+          >
+            <div
+              class="field"
+            >
+              <div
+                class="control"
+              >
+                <label
+                  class="label "
+                  for="registeredTo"
+                >
+                  Registered To
+                </label>
+                <div
+                  class="react-datepicker-wrapper"
+                >
+                  <div
+                    class="react-datepicker__input-container"
+                  >
+                    <input
+                      class="input is-primary input is-primary"
+                      id="registeredTo"
+                      name="registeredTo"
+                      type="input"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="column"
+            data-test=""
+          >
+            <div
+              class="field"
+            >
+              <div
+                class="control"
+              >
+                <label
+                  class="label "
+                  for="status"
+                >
+                  Status
+                </label>
+                <select
+                  class="input is-primary "
+                  data-test=""
+                  name="status"
+                >
+                  <option
+                    value="incomplete"
+                  >
+                    Incomplete
+                  </option>
+                  <option
+                    value="pending"
+                  >
+                    Pending
+                  </option>
+                  <option
+                    value="confirmed"
+                  >
+                    Confirmed
+                  </option>
+                  <option
+                    value="underReview"
+                  >
+                    Under Review
+                  </option>
+                  <option
+                    value="removed"
+                  >
+                    Removed
+                  </option>
+                  <option
+                    disabled=""
+                    hidden=""
+                    value=""
+                  >
+                    Please select
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div
+            class="column mt-4"
+            data-test=""
+          >
+            <button
+              class="button   is-primary "
+              data-test=""
+              type="submit"
+            >
+              Search
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div
+      class="notification is-info "
+      data-test=""
+      role="alert"
+    >
+      No Results 
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <MemoryRouter
-    initialEntries={
-      Array [
-        Object {
-          "key": "adminDevManagementRoute",
-          "pathname": "/dev-management",
-        },
-      ]
-    }
-  >
-    <Router
-      history={
-        Object {
-          "action": "POP",
-          "block": [Function],
-          "canGo": [Function],
-          "createHref": [Function],
-          "entries": Array [
-            Object {
-              "hash": "",
-              "key": "adminDevManagementRoute",
-              "pathname": "/dev-management",
-              "search": "",
-            },
-          ],
-          "go": [Function],
-          "goBack": [Function],
-          "goForward": [Function],
-          "index": 0,
-          "length": 1,
-          "listen": [Function],
-          "location": Object {
-            "hash": "",
-            "key": "adminDevManagementRoute",
-            "pathname": "/dev-management",
-            "search": "",
-          },
-          "push": [Function],
-          "replace": [Function],
-        }
-      }
-    >
-      <DevsManagement>
-        <ErrorBoundary>
-          <H3>
-            <h3
-              className="title is-3"
-              id=""
-            >
-              Developer Management
-            </h3>
-          </H3>
-          <DevsManagementFilterForm
-            filterValues={
-              Object {
-                "company": "",
-                "name": "",
-                "registeredFrom": "",
-                "registeredTo": "",
-                "status": "",
-              }
-            }
-            onSearch={[Function]}
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <h3
+        class="title is-3"
+        id=""
+      >
+        Developer Management
+      </h3>
+      <form
+        action="#"
+        novalidate=""
+      >
+        <div
+          class="form-section"
+        >
+          <div
+            class="form-heading"
           >
-            <Formik
-              initialValues={
-                Object {
-                  "company": "",
-                  "name": "",
-                  "registeredFrom": "",
-                  "registeredTo": "",
-                  "status": "",
-                }
-              }
-              onSubmit={[Function]}
-            >
-              <Form
-                noValidate={true}
-              >
-                <form
-                  action="#"
-                  noValidate={true}
-                  onReset={[Function]}
-                  onSubmit={[Function]}
-                >
-                  <FormSection>
-                    <div
-                      className="form-section"
-                    >
-                      <FormHeading>
-                        <div
-                          className="form-heading"
-                        >
-                          Developer Management Filter Form
-                        </div>
-                      </FormHeading>
-                      <FormSubHeading>
-                        <div
-                          className="form-subheading"
-                        >
-                          Filter the result by Name and Company
-                        </div>
-                      </FormSubHeading>
-                      <Grid
-                        className="items-center"
-                      >
-                        <div
-                          className="columns items-center"
-                          data-test=""
-                        >
-                          <GridItem>
-                            <div
-                              className="column"
-                              data-test=""
-                            >
-                              <Input
-                                id="name"
-                                labelText="Name"
-                                maxLength={256}
-                                name="name"
-                                type="text"
-                              >
-                                <Field
-                                  name="name"
-                                  validate={[Function]}
-                                >
-                                  <div
-                                    className="field"
-                                  >
-                                    <div
-                                      className="control "
-                                    >
-                                      <label
-                                        className="label inline-block "
-                                        htmlFor="name"
-                                      >
-                                        Name
-                                      </label>
-                                      <input
-                                        className="input is-primary"
-                                        data-test=""
-                                        disabled={false}
-                                        id="name"
-                                        maxLength={256}
-                                        name="name"
-                                        onBlur={[Function]}
-                                        onChange={[Function]}
-                                        placeholder=""
-                                        type="text"
-                                        value=""
-                                      />
-                                    </div>
-                                  </div>
-                                </Field>
-                              </Input>
-                            </div>
-                          </GridItem>
-                          <GridItem>
-                            <div
-                              className="column"
-                              data-test=""
-                            >
-                              <Input
-                                id="company"
-                                labelText="Company"
-                                maxLength={256}
-                                name="company"
-                                type="text"
-                              >
-                                <Field
-                                  name="company"
-                                  validate={[Function]}
-                                >
-                                  <div
-                                    className="field"
-                                  >
-                                    <div
-                                      className="control "
-                                    >
-                                      <label
-                                        className="label inline-block "
-                                        htmlFor="company"
-                                      >
-                                        Company
-                                      </label>
-                                      <input
-                                        className="input is-primary"
-                                        data-test=""
-                                        disabled={false}
-                                        id="company"
-                                        maxLength={256}
-                                        name="company"
-                                        onBlur={[Function]}
-                                        onChange={[Function]}
-                                        placeholder=""
-                                        type="text"
-                                        value=""
-                                      />
-                                    </div>
-                                  </div>
-                                </Field>
-                              </Input>
-                            </div>
-                          </GridItem>
-                          <GridItem>
-                            <div
-                              className="column"
-                              data-test=""
-                            >
-                              <DatePicker
-                                id="registeredFrom"
-                                labelText="Registered From"
-                                name="registeredFrom"
-                                reactDatePickerProps={
-                                  Object {
-                                    "maxDate": 2019-10-10T22:39:51.389Z,
-                                  }
-                                }
-                              >
-                                <Field
-                                  name="registeredFrom"
-                                  validate={null}
-                                >
-                                  <div
-                                    className="field"
-                                  >
-                                    <div
-                                      className="control"
-                                    >
-                                      <label
-                                        className="label "
-                                        htmlFor="registeredFrom"
-                                      >
-                                        Registered From
-                                      </label>
-                                      <o
-                                        allowSameDay={false}
-                                        className="input is-primary"
-                                        customInput={
-                                          <CustomInput
-                                            className="input is-primary"
-                                          />
-                                        }
-                                        customTimeInput={null}
-                                        dateFormat="MM/dd/yyyy"
-                                        dateFormatCalendar="LLLL yyyy"
-                                        disabled={false}
-                                        disabledKeyboardNavigation={false}
-                                        dropdownMode="scroll"
-                                        enableTabLoop={true}
-                                        excludeScrollbar={true}
-                                        id="registeredFrom"
-                                        inlineFocusSelectedMonth={false}
-                                        maxDate={2019-10-10T22:39:51.389Z}
-                                        monthsShown={1}
-                                        name="registeredFrom"
-                                        nextMonthButtonLabel="Next Month"
-                                        nextYearButtonLabel="Next Year"
-                                        onBlur={[Function]}
-                                        onCalendarClose={[Function]}
-                                        onCalendarOpen={[Function]}
-                                        onChange={[Function]}
-                                        onClickOutside={[Function]}
-                                        onFocus={[Function]}
-                                        onInputClick={[Function]}
-                                        onInputError={[Function]}
-                                        onKeyDown={[Function]}
-                                        onMonthChange={[Function]}
-                                        onSelect={[Function]}
-                                        onYearChange={[Function]}
-                                        popperPlacement="top"
-                                        preventOpenOnFocus={false}
-                                        previousMonthButtonLabel="Previous Month"
-                                        previousYearButtonLabel="Previous Year"
-                                        readOnly={false}
-                                        renderDayContents={[Function]}
-                                        shouldCloseOnSelect={true}
-                                        showFullMonthYearPicker={false}
-                                        showMonthYearPicker={false}
-                                        showPopperArrow={true}
-                                        showPreviousMonths={false}
-                                        showQuarterYearPicker={false}
-                                        showTimeInput={false}
-                                        showTimeSelect={false}
-                                        showYearPicker={false}
-                                        strictParsing={false}
-                                        timeCaption="Time"
-                                        timeInputLabel="Time"
-                                        timeIntervals={30}
-                                        value=""
-                                        withPortal={false}
-                                      >
-                                        <a
-                                          enableTabLoop={true}
-                                          hidePopper={true}
-                                          popperComponent={null}
-                                          popperModifiers={
-                                            Object {
-                                              "preventOverflow": Object {
-                                                "boundariesElement": "viewport",
-                                                "enabled": true,
-                                                "escapeWithReference": true,
-                                              },
-                                            }
-                                          }
-                                          popperOnKeyDown={[Function]}
-                                          popperPlacement="top"
-                                          popperProps={Object {}}
-                                          targetComponent={
-                                            <div
-                                              className="react-datepicker__input-container"
-                                            >
-                                              <CustomInput
-                                                className="input is-primary input is-primary"
-                                                disabled={false}
-                                                id="registeredFrom"
-                                                name="registeredFrom"
-                                                onBlur={[Function]}
-                                                onChange={[Function]}
-                                                onClick={[Function]}
-                                                onFocus={[Function]}
-                                                onKeyDown={[Function]}
-                                                readOnly={false}
-                                                value=""
-                                              />
-                                            </div>
-                                          }
-                                        >
-                                          <Manager
-                                            className="react-datepicker-manager"
-                                          >
-                                            <Reference>
-                                              <InnerReference
-                                                setReferenceNode={[Function]}
-                                              >
-                                                <div
-                                                  className="react-datepicker-wrapper"
-                                                >
-                                                  <div
-                                                    className="react-datepicker__input-container"
-                                                  >
-                                                    <CustomInput
-                                                      className="input is-primary input is-primary"
-                                                      disabled={false}
-                                                      id="registeredFrom"
-                                                      name="registeredFrom"
-                                                      onBlur={[Function]}
-                                                      onChange={[Function]}
-                                                      onClick={[Function]}
-                                                      onFocus={[Function]}
-                                                      onKeyDown={[Function]}
-                                                      readOnly={false}
-                                                      value=""
-                                                    >
-                                                      <input
-                                                        className="input is-primary input is-primary"
-                                                        disabled={false}
-                                                        id="registeredFrom"
-                                                        name="registeredFrom"
-                                                        onBlur={[Function]}
-                                                        onChange={[Function]}
-                                                        onClick={[Function]}
-                                                        onFocus={[Function]}
-                                                        onKeyDown={[Function]}
-                                                        readOnly={false}
-                                                        type="input"
-                                                        value=""
-                                                      />
-                                                    </CustomInput>
-                                                  </div>
-                                                </div>
-                                              </InnerReference>
-                                            </Reference>
-                                          </Manager>
-                                        </a>
-                                      </o>
-                                    </div>
-                                  </div>
-                                </Field>
-                              </DatePicker>
-                            </div>
-                          </GridItem>
-                          <GridItem>
-                            <div
-                              className="column"
-                              data-test=""
-                            >
-                              <DatePicker
-                                id="registeredTo"
-                                labelText="Registered To"
-                                name="registeredTo"
-                                reactDatePickerProps={
-                                  Object {
-                                    "maxDate": 2019-10-10T22:39:51.389Z,
-                                    "minDate": Date { NaN },
-                                  }
-                                }
-                              >
-                                <Field
-                                  name="registeredTo"
-                                  validate={null}
-                                >
-                                  <div
-                                    className="field"
-                                  >
-                                    <div
-                                      className="control"
-                                    >
-                                      <label
-                                        className="label "
-                                        htmlFor="registeredTo"
-                                      >
-                                        Registered To
-                                      </label>
-                                      <o
-                                        allowSameDay={false}
-                                        className="input is-primary"
-                                        customInput={
-                                          <CustomInput
-                                            className="input is-primary"
-                                          />
-                                        }
-                                        customTimeInput={null}
-                                        dateFormat="MM/dd/yyyy"
-                                        dateFormatCalendar="LLLL yyyy"
-                                        disabled={false}
-                                        disabledKeyboardNavigation={false}
-                                        dropdownMode="scroll"
-                                        enableTabLoop={true}
-                                        excludeScrollbar={true}
-                                        id="registeredTo"
-                                        inlineFocusSelectedMonth={false}
-                                        maxDate={2019-10-10T22:39:51.389Z}
-                                        minDate={Date { NaN }}
-                                        monthsShown={1}
-                                        name="registeredTo"
-                                        nextMonthButtonLabel="Next Month"
-                                        nextYearButtonLabel="Next Year"
-                                        onBlur={[Function]}
-                                        onCalendarClose={[Function]}
-                                        onCalendarOpen={[Function]}
-                                        onChange={[Function]}
-                                        onClickOutside={[Function]}
-                                        onFocus={[Function]}
-                                        onInputClick={[Function]}
-                                        onInputError={[Function]}
-                                        onKeyDown={[Function]}
-                                        onMonthChange={[Function]}
-                                        onSelect={[Function]}
-                                        onYearChange={[Function]}
-                                        popperPlacement="top"
-                                        preventOpenOnFocus={false}
-                                        previousMonthButtonLabel="Previous Month"
-                                        previousYearButtonLabel="Previous Year"
-                                        readOnly={false}
-                                        renderDayContents={[Function]}
-                                        shouldCloseOnSelect={true}
-                                        showFullMonthYearPicker={false}
-                                        showMonthYearPicker={false}
-                                        showPopperArrow={true}
-                                        showPreviousMonths={false}
-                                        showQuarterYearPicker={false}
-                                        showTimeInput={false}
-                                        showTimeSelect={false}
-                                        showYearPicker={false}
-                                        strictParsing={false}
-                                        timeCaption="Time"
-                                        timeInputLabel="Time"
-                                        timeIntervals={30}
-                                        value=""
-                                        withPortal={false}
-                                      >
-                                        <a
-                                          enableTabLoop={true}
-                                          hidePopper={true}
-                                          popperComponent={null}
-                                          popperModifiers={
-                                            Object {
-                                              "preventOverflow": Object {
-                                                "boundariesElement": "viewport",
-                                                "enabled": true,
-                                                "escapeWithReference": true,
-                                              },
-                                            }
-                                          }
-                                          popperOnKeyDown={[Function]}
-                                          popperPlacement="top"
-                                          popperProps={Object {}}
-                                          targetComponent={
-                                            <div
-                                              className="react-datepicker__input-container"
-                                            >
-                                              <CustomInput
-                                                className="input is-primary input is-primary"
-                                                disabled={false}
-                                                id="registeredTo"
-                                                name="registeredTo"
-                                                onBlur={[Function]}
-                                                onChange={[Function]}
-                                                onClick={[Function]}
-                                                onFocus={[Function]}
-                                                onKeyDown={[Function]}
-                                                readOnly={false}
-                                                value=""
-                                              />
-                                            </div>
-                                          }
-                                        >
-                                          <Manager
-                                            className="react-datepicker-manager"
-                                          >
-                                            <Reference>
-                                              <InnerReference
-                                                setReferenceNode={[Function]}
-                                              >
-                                                <div
-                                                  className="react-datepicker-wrapper"
-                                                >
-                                                  <div
-                                                    className="react-datepicker__input-container"
-                                                  >
-                                                    <CustomInput
-                                                      className="input is-primary input is-primary"
-                                                      disabled={false}
-                                                      id="registeredTo"
-                                                      name="registeredTo"
-                                                      onBlur={[Function]}
-                                                      onChange={[Function]}
-                                                      onClick={[Function]}
-                                                      onFocus={[Function]}
-                                                      onKeyDown={[Function]}
-                                                      readOnly={false}
-                                                      value=""
-                                                    >
-                                                      <input
-                                                        className="input is-primary input is-primary"
-                                                        disabled={false}
-                                                        id="registeredTo"
-                                                        name="registeredTo"
-                                                        onBlur={[Function]}
-                                                        onChange={[Function]}
-                                                        onClick={[Function]}
-                                                        onFocus={[Function]}
-                                                        onKeyDown={[Function]}
-                                                        readOnly={false}
-                                                        type="input"
-                                                        value=""
-                                                      />
-                                                    </CustomInput>
-                                                  </div>
-                                                </div>
-                                              </InnerReference>
-                                            </Reference>
-                                          </Manager>
-                                        </a>
-                                      </o>
-                                    </div>
-                                  </div>
-                                </Field>
-                              </DatePicker>
-                            </div>
-                          </GridItem>
-                          <GridItem>
-                            <div
-                              className="column"
-                              data-test=""
-                            >
-                              <SelectBox
-                                id="status"
-                                labelText="Status"
-                                name="status"
-                                options={
-                                  Array [
-                                    Object {
-                                      "label": "Incomplete",
-                                      "value": "incomplete",
-                                    },
-                                    Object {
-                                      "label": "Pending",
-                                      "value": "pending",
-                                    },
-                                    Object {
-                                      "label": "Confirmed",
-                                      "value": "confirmed",
-                                    },
-                                    Object {
-                                      "label": "Under Review",
-                                      "value": "underReview",
-                                    },
-                                    Object {
-                                      "label": "Removed",
-                                      "value": "removed",
-                                    },
-                                  ]
-                                }
-                              >
-                                <Field
-                                  name="status"
-                                  validate={null}
-                                >
-                                  <div
-                                    className="field"
-                                  >
-                                    <div
-                                      className="control"
-                                    >
-                                      <label
-                                        className="label "
-                                        htmlFor="status"
-                                      >
-                                        Status
-                                      </label>
-                                      <select
-                                        className="input is-primary "
-                                        data-test=""
-                                        name="status"
-                                        onBlur={[Function]}
-                                        onChange={[Function]}
-                                        value=""
-                                      >
-                                        <option
-                                          key="incomplete"
-                                          value="incomplete"
-                                        >
-                                          Incomplete
-                                        </option>
-                                        <option
-                                          key="pending"
-                                          value="pending"
-                                        >
-                                          Pending
-                                        </option>
-                                        <option
-                                          key="confirmed"
-                                          value="confirmed"
-                                        >
-                                          Confirmed
-                                        </option>
-                                        <option
-                                          key="underReview"
-                                          value="underReview"
-                                        >
-                                          Under Review
-                                        </option>
-                                        <option
-                                          key="removed"
-                                          value="removed"
-                                        >
-                                          Removed
-                                        </option>
-                                        <option
-                                          disabled={true}
-                                          hidden={true}
-                                          value=""
-                                        >
-                                          Please select
-                                        </option>
-                                      </select>
-                                    </div>
-                                  </div>
-                                </Field>
-                              </SelectBox>
-                            </div>
-                          </GridItem>
-                          <GridItem
-                            className="mt-4"
-                          >
-                            <div
-                              className="column mt-4"
-                              data-test=""
-                            >
-                              <Button
-                                type="submit"
-                                variant="primary"
-                              >
-                                <button
-                                  className="button   is-primary "
-                                  data-test=""
-                                  disabled={false}
-                                  type="submit"
-                                >
-                                  Search
-                                </button>
-                              </Button>
-                            </div>
-                          </GridItem>
-                        </div>
-                      </Grid>
-                    </div>
-                  </FormSection>
-                </form>
-              </Form>
-            </Formik>
-          </DevsManagementFilterForm>
-          <Alert
-            message="No Results "
-            type="info"
+            Developer Management Filter Form
+          </div>
+          <div
+            class="form-subheading"
+          >
+            Filter the result by Name and Company
+          </div>
+          <div
+            class="columns items-center"
+            data-test=""
           >
             <div
-              className="notification is-info "
+              class="column"
               data-test=""
-              role="alert"
             >
-              No Results 
+              <div
+                class="field"
+              >
+                <div
+                  class="control "
+                >
+                  <label
+                    class="label inline-block "
+                    for="name"
+                  >
+                    Name
+                  </label>
+                  <input
+                    class="input is-primary"
+                    data-test=""
+                    id="name"
+                    maxlength="256"
+                    name="name"
+                    placeholder=""
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
             </div>
-          </Alert>
-          <Pagination
-            onChange={[Function]}
-            pageNumber={0}
-            pageSize={0}
-            totalCount={0}
-          />
-          <StatusModal
-            developer={Object {}}
-            resetModal={[Function]}
-            visible={false}
-          />
-          <DisableMemberModal
-            member={null}
-            onCancel={[Function]}
-            onSuccess={[Function]}
-            visible={false}
-          />
-          <SetAsAdminModal
-            onClose={[Function]}
-            user={null}
-            visible={false}
-          />
-        </ErrorBoundary>
-      </DevsManagement>
-    </Router>
-  </MemoryRouter>
-</Provider>
+            <div
+              class="column"
+              data-test=""
+            >
+              <div
+                class="field"
+              >
+                <div
+                  class="control "
+                >
+                  <label
+                    class="label inline-block "
+                    for="company"
+                  >
+                    Company
+                  </label>
+                  <input
+                    class="input is-primary"
+                    data-test=""
+                    id="company"
+                    maxlength="256"
+                    name="company"
+                    placeholder=""
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="column"
+              data-test=""
+            >
+              <div
+                class="field"
+              >
+                <div
+                  class="control"
+                >
+                  <label
+                    class="label "
+                    for="registeredFrom"
+                  >
+                    Registered From
+                  </label>
+                  <div
+                    class="react-datepicker-wrapper"
+                  >
+                    <div
+                      class="react-datepicker__input-container"
+                    >
+                      <input
+                        class="input is-primary input is-primary"
+                        id="registeredFrom"
+                        name="registeredFrom"
+                        type="input"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="column"
+              data-test=""
+            >
+              <div
+                class="field"
+              >
+                <div
+                  class="control"
+                >
+                  <label
+                    class="label "
+                    for="registeredTo"
+                  >
+                    Registered To
+                  </label>
+                  <div
+                    class="react-datepicker-wrapper"
+                  >
+                    <div
+                      class="react-datepicker__input-container"
+                    >
+                      <input
+                        class="input is-primary input is-primary"
+                        id="registeredTo"
+                        name="registeredTo"
+                        type="input"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="column"
+              data-test=""
+            >
+              <div
+                class="field"
+              >
+                <div
+                  class="control"
+                >
+                  <label
+                    class="label "
+                    for="status"
+                  >
+                    Status
+                  </label>
+                  <select
+                    class="input is-primary "
+                    data-test=""
+                    name="status"
+                  >
+                    <option
+                      value="incomplete"
+                    >
+                      Incomplete
+                    </option>
+                    <option
+                      value="pending"
+                    >
+                      Pending
+                    </option>
+                    <option
+                      value="confirmed"
+                    >
+                      Confirmed
+                    </option>
+                    <option
+                      value="underReview"
+                    >
+                      Under Review
+                    </option>
+                    <option
+                      value="removed"
+                    >
+                      Removed
+                    </option>
+                    <option
+                      disabled=""
+                      hidden=""
+                      value=""
+                    >
+                      Please select
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div
+              class="column mt-4"
+              data-test=""
+            >
+              <button
+                class="button   is-primary "
+                data-test=""
+                type="submit"
+              >
+                Search
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div
+        class="notification is-info "
+        data-test=""
+        role="alert"
+      >
+        No Results 
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <h3
+      class="title is-3"
+      id=""
+    >
+      Developer Management
+    </h3>
+    <form
+      action="#"
+      novalidate=""
+    >
+      <div
+        class="form-section"
+      >
+        <div
+          class="form-heading"
+        >
+          Developer Management Filter Form
+        </div>
+        <div
+          class="form-subheading"
+        >
+          Filter the result by Name and Company
+        </div>
+        <div
+          class="columns items-center"
+          data-test=""
+        >
+          <div
+            class="column"
+            data-test=""
+          >
+            <div
+              class="field"
+            >
+              <div
+                class="control "
+              >
+                <label
+                  class="label inline-block "
+                  for="name"
+                >
+                  Name
+                </label>
+                <input
+                  class="input is-primary"
+                  data-test=""
+                  id="name"
+                  maxlength="256"
+                  name="name"
+                  placeholder=""
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="column"
+            data-test=""
+          >
+            <div
+              class="field"
+            >
+              <div
+                class="control "
+              >
+                <label
+                  class="label inline-block "
+                  for="company"
+                >
+                  Company
+                </label>
+                <input
+                  class="input is-primary"
+                  data-test=""
+                  id="company"
+                  maxlength="256"
+                  name="company"
+                  placeholder=""
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="column"
+            data-test=""
+          >
+            <div
+              class="field"
+            >
+              <div
+                class="control"
+              >
+                <label
+                  class="label "
+                  for="registeredFrom"
+                >
+                  Registered From
+                </label>
+                <div
+                  class="react-datepicker-wrapper"
+                >
+                  <div
+                    class="react-datepicker__input-container"
+                  >
+                    <input
+                      class="input is-primary input is-primary"
+                      id="registeredFrom"
+                      name="registeredFrom"
+                      type="input"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="column"
+            data-test=""
+          >
+            <div
+              class="field"
+            >
+              <div
+                class="control"
+              >
+                <label
+                  class="label "
+                  for="registeredTo"
+                >
+                  Registered To
+                </label>
+                <div
+                  class="react-datepicker-wrapper"
+                >
+                  <div
+                    class="react-datepicker__input-container"
+                  >
+                    <input
+                      class="input is-primary input is-primary"
+                      id="registeredTo"
+                      name="registeredTo"
+                      type="input"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="column"
+            data-test=""
+          >
+            <div
+              class="field"
+            >
+              <div
+                class="control"
+              >
+                <label
+                  class="label "
+                  for="status"
+                >
+                  Status
+                </label>
+                <select
+                  class="input is-primary "
+                  data-test=""
+                  name="status"
+                >
+                  <option
+                    value="incomplete"
+                  >
+                    Incomplete
+                  </option>
+                  <option
+                    value="pending"
+                  >
+                    Pending
+                  </option>
+                  <option
+                    value="confirmed"
+                  >
+                    Confirmed
+                  </option>
+                  <option
+                    value="underReview"
+                  >
+                    Under Review
+                  </option>
+                  <option
+                    value="removed"
+                  >
+                    Removed
+                  </option>
+                  <option
+                    disabled=""
+                    hidden=""
+                    value=""
+                  >
+                    Please select
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div
+            class="column mt-4"
+            data-test=""
+          >
+            <button
+              class="button   is-primary "
+              data-test=""
+              type="submit"
+            >
+              Search
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div
+      class="notification is-info "
+      data-test=""
+      role="alert"
+    >
+      No Results 
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`AdminDevManagement should show loader when LOADING true 1`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <MemoryRouter
-    initialEntries={
-      Array [
-        Object {
-          "key": "adminDevManagementRoute",
-          "pathname": "/dev-management",
-        },
-      ]
-    }
-  >
-    <Router
-      history={
-        Object {
-          "action": "POP",
-          "block": [Function],
-          "canGo": [Function],
-          "createHref": [Function],
-          "entries": Array [
-            Object {
-              "hash": "",
-              "key": "adminDevManagementRoute",
-              "pathname": "/dev-management",
-              "search": "",
-            },
-          ],
-          "go": [Function],
-          "goBack": [Function],
-          "goForward": [Function],
-          "index": 0,
-          "length": 1,
-          "listen": [Function],
-          "location": Object {
-            "hash": "",
-            "key": "adminDevManagementRoute",
-            "pathname": "/dev-management",
-            "search": "",
-          },
-          "push": [Function],
-          "replace": [Function],
-        }
-      }
-    >
-      <DevsManagement>
-        <ErrorBoundary>
-          <H3>
-            <h3
-              className="title is-3"
-              id=""
-            >
-              Developer Management
-            </h3>
-          </H3>
-          <DevsManagementFilterForm
-            filterValues={
-              Object {
-                "company": "",
-                "name": "",
-                "registeredFrom": "",
-                "registeredTo": "",
-                "status": "",
-              }
-            }
-            onSearch={[Function]}
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <h3
+        class="title is-3"
+        id=""
+      >
+        Developer Management
+      </h3>
+      <form
+        action="#"
+        novalidate=""
+      >
+        <div
+          class="form-section"
+        >
+          <div
+            class="form-heading"
           >
-            <Formik
-              initialValues={
-                Object {
-                  "company": "",
-                  "name": "",
-                  "registeredFrom": "",
-                  "registeredTo": "",
-                  "status": "",
-                }
-              }
-              onSubmit={[Function]}
-            >
-              <Form
-                noValidate={true}
-              >
-                <form
-                  action="#"
-                  noValidate={true}
-                  onReset={[Function]}
-                  onSubmit={[Function]}
-                >
-                  <FormSection>
-                    <div
-                      className="form-section"
-                    >
-                      <FormHeading>
-                        <div
-                          className="form-heading"
-                        >
-                          Developer Management Filter Form
-                        </div>
-                      </FormHeading>
-                      <FormSubHeading>
-                        <div
-                          className="form-subheading"
-                        >
-                          Filter the result by Name and Company
-                        </div>
-                      </FormSubHeading>
-                      <Grid
-                        className="items-center"
-                      >
-                        <div
-                          className="columns items-center"
-                          data-test=""
-                        >
-                          <GridItem>
-                            <div
-                              className="column"
-                              data-test=""
-                            >
-                              <Input
-                                id="name"
-                                labelText="Name"
-                                maxLength={256}
-                                name="name"
-                                type="text"
-                              >
-                                <Field
-                                  name="name"
-                                  validate={[Function]}
-                                >
-                                  <div
-                                    className="field"
-                                  >
-                                    <div
-                                      className="control "
-                                    >
-                                      <label
-                                        className="label inline-block "
-                                        htmlFor="name"
-                                      >
-                                        Name
-                                      </label>
-                                      <input
-                                        className="input is-primary"
-                                        data-test=""
-                                        disabled={false}
-                                        id="name"
-                                        maxLength={256}
-                                        name="name"
-                                        onBlur={[Function]}
-                                        onChange={[Function]}
-                                        placeholder=""
-                                        type="text"
-                                        value=""
-                                      />
-                                    </div>
-                                  </div>
-                                </Field>
-                              </Input>
-                            </div>
-                          </GridItem>
-                          <GridItem>
-                            <div
-                              className="column"
-                              data-test=""
-                            >
-                              <Input
-                                id="company"
-                                labelText="Company"
-                                maxLength={256}
-                                name="company"
-                                type="text"
-                              >
-                                <Field
-                                  name="company"
-                                  validate={[Function]}
-                                >
-                                  <div
-                                    className="field"
-                                  >
-                                    <div
-                                      className="control "
-                                    >
-                                      <label
-                                        className="label inline-block "
-                                        htmlFor="company"
-                                      >
-                                        Company
-                                      </label>
-                                      <input
-                                        className="input is-primary"
-                                        data-test=""
-                                        disabled={false}
-                                        id="company"
-                                        maxLength={256}
-                                        name="company"
-                                        onBlur={[Function]}
-                                        onChange={[Function]}
-                                        placeholder=""
-                                        type="text"
-                                        value=""
-                                      />
-                                    </div>
-                                  </div>
-                                </Field>
-                              </Input>
-                            </div>
-                          </GridItem>
-                          <GridItem>
-                            <div
-                              className="column"
-                              data-test=""
-                            >
-                              <DatePicker
-                                id="registeredFrom"
-                                labelText="Registered From"
-                                name="registeredFrom"
-                                reactDatePickerProps={
-                                  Object {
-                                    "maxDate": 2019-10-10T22:39:51.389Z,
-                                  }
-                                }
-                              >
-                                <Field
-                                  name="registeredFrom"
-                                  validate={null}
-                                >
-                                  <div
-                                    className="field"
-                                  >
-                                    <div
-                                      className="control"
-                                    >
-                                      <label
-                                        className="label "
-                                        htmlFor="registeredFrom"
-                                      >
-                                        Registered From
-                                      </label>
-                                      <o
-                                        allowSameDay={false}
-                                        className="input is-primary"
-                                        customInput={
-                                          <CustomInput
-                                            className="input is-primary"
-                                          />
-                                        }
-                                        customTimeInput={null}
-                                        dateFormat="MM/dd/yyyy"
-                                        dateFormatCalendar="LLLL yyyy"
-                                        disabled={false}
-                                        disabledKeyboardNavigation={false}
-                                        dropdownMode="scroll"
-                                        enableTabLoop={true}
-                                        excludeScrollbar={true}
-                                        id="registeredFrom"
-                                        inlineFocusSelectedMonth={false}
-                                        maxDate={2019-10-10T22:39:51.389Z}
-                                        monthsShown={1}
-                                        name="registeredFrom"
-                                        nextMonthButtonLabel="Next Month"
-                                        nextYearButtonLabel="Next Year"
-                                        onBlur={[Function]}
-                                        onCalendarClose={[Function]}
-                                        onCalendarOpen={[Function]}
-                                        onChange={[Function]}
-                                        onClickOutside={[Function]}
-                                        onFocus={[Function]}
-                                        onInputClick={[Function]}
-                                        onInputError={[Function]}
-                                        onKeyDown={[Function]}
-                                        onMonthChange={[Function]}
-                                        onSelect={[Function]}
-                                        onYearChange={[Function]}
-                                        popperPlacement="top"
-                                        preventOpenOnFocus={false}
-                                        previousMonthButtonLabel="Previous Month"
-                                        previousYearButtonLabel="Previous Year"
-                                        readOnly={false}
-                                        renderDayContents={[Function]}
-                                        shouldCloseOnSelect={true}
-                                        showFullMonthYearPicker={false}
-                                        showMonthYearPicker={false}
-                                        showPopperArrow={true}
-                                        showPreviousMonths={false}
-                                        showQuarterYearPicker={false}
-                                        showTimeInput={false}
-                                        showTimeSelect={false}
-                                        showYearPicker={false}
-                                        strictParsing={false}
-                                        timeCaption="Time"
-                                        timeInputLabel="Time"
-                                        timeIntervals={30}
-                                        value=""
-                                        withPortal={false}
-                                      >
-                                        <a
-                                          enableTabLoop={true}
-                                          hidePopper={true}
-                                          popperComponent={null}
-                                          popperModifiers={
-                                            Object {
-                                              "preventOverflow": Object {
-                                                "boundariesElement": "viewport",
-                                                "enabled": true,
-                                                "escapeWithReference": true,
-                                              },
-                                            }
-                                          }
-                                          popperOnKeyDown={[Function]}
-                                          popperPlacement="top"
-                                          popperProps={Object {}}
-                                          targetComponent={
-                                            <div
-                                              className="react-datepicker__input-container"
-                                            >
-                                              <CustomInput
-                                                className="input is-primary input is-primary"
-                                                disabled={false}
-                                                id="registeredFrom"
-                                                name="registeredFrom"
-                                                onBlur={[Function]}
-                                                onChange={[Function]}
-                                                onClick={[Function]}
-                                                onFocus={[Function]}
-                                                onKeyDown={[Function]}
-                                                readOnly={false}
-                                                value=""
-                                              />
-                                            </div>
-                                          }
-                                        >
-                                          <Manager
-                                            className="react-datepicker-manager"
-                                          >
-                                            <Reference>
-                                              <InnerReference
-                                                setReferenceNode={[Function]}
-                                              >
-                                                <div
-                                                  className="react-datepicker-wrapper"
-                                                >
-                                                  <div
-                                                    className="react-datepicker__input-container"
-                                                  >
-                                                    <CustomInput
-                                                      className="input is-primary input is-primary"
-                                                      disabled={false}
-                                                      id="registeredFrom"
-                                                      name="registeredFrom"
-                                                      onBlur={[Function]}
-                                                      onChange={[Function]}
-                                                      onClick={[Function]}
-                                                      onFocus={[Function]}
-                                                      onKeyDown={[Function]}
-                                                      readOnly={false}
-                                                      value=""
-                                                    >
-                                                      <input
-                                                        className="input is-primary input is-primary"
-                                                        disabled={false}
-                                                        id="registeredFrom"
-                                                        name="registeredFrom"
-                                                        onBlur={[Function]}
-                                                        onChange={[Function]}
-                                                        onClick={[Function]}
-                                                        onFocus={[Function]}
-                                                        onKeyDown={[Function]}
-                                                        readOnly={false}
-                                                        type="input"
-                                                        value=""
-                                                      />
-                                                    </CustomInput>
-                                                  </div>
-                                                </div>
-                                              </InnerReference>
-                                            </Reference>
-                                          </Manager>
-                                        </a>
-                                      </o>
-                                    </div>
-                                  </div>
-                                </Field>
-                              </DatePicker>
-                            </div>
-                          </GridItem>
-                          <GridItem>
-                            <div
-                              className="column"
-                              data-test=""
-                            >
-                              <DatePicker
-                                id="registeredTo"
-                                labelText="Registered To"
-                                name="registeredTo"
-                                reactDatePickerProps={
-                                  Object {
-                                    "maxDate": 2019-10-10T22:39:51.389Z,
-                                    "minDate": Date { NaN },
-                                  }
-                                }
-                              >
-                                <Field
-                                  name="registeredTo"
-                                  validate={null}
-                                >
-                                  <div
-                                    className="field"
-                                  >
-                                    <div
-                                      className="control"
-                                    >
-                                      <label
-                                        className="label "
-                                        htmlFor="registeredTo"
-                                      >
-                                        Registered To
-                                      </label>
-                                      <o
-                                        allowSameDay={false}
-                                        className="input is-primary"
-                                        customInput={
-                                          <CustomInput
-                                            className="input is-primary"
-                                          />
-                                        }
-                                        customTimeInput={null}
-                                        dateFormat="MM/dd/yyyy"
-                                        dateFormatCalendar="LLLL yyyy"
-                                        disabled={false}
-                                        disabledKeyboardNavigation={false}
-                                        dropdownMode="scroll"
-                                        enableTabLoop={true}
-                                        excludeScrollbar={true}
-                                        id="registeredTo"
-                                        inlineFocusSelectedMonth={false}
-                                        maxDate={2019-10-10T22:39:51.389Z}
-                                        minDate={Date { NaN }}
-                                        monthsShown={1}
-                                        name="registeredTo"
-                                        nextMonthButtonLabel="Next Month"
-                                        nextYearButtonLabel="Next Year"
-                                        onBlur={[Function]}
-                                        onCalendarClose={[Function]}
-                                        onCalendarOpen={[Function]}
-                                        onChange={[Function]}
-                                        onClickOutside={[Function]}
-                                        onFocus={[Function]}
-                                        onInputClick={[Function]}
-                                        onInputError={[Function]}
-                                        onKeyDown={[Function]}
-                                        onMonthChange={[Function]}
-                                        onSelect={[Function]}
-                                        onYearChange={[Function]}
-                                        popperPlacement="top"
-                                        preventOpenOnFocus={false}
-                                        previousMonthButtonLabel="Previous Month"
-                                        previousYearButtonLabel="Previous Year"
-                                        readOnly={false}
-                                        renderDayContents={[Function]}
-                                        shouldCloseOnSelect={true}
-                                        showFullMonthYearPicker={false}
-                                        showMonthYearPicker={false}
-                                        showPopperArrow={true}
-                                        showPreviousMonths={false}
-                                        showQuarterYearPicker={false}
-                                        showTimeInput={false}
-                                        showTimeSelect={false}
-                                        showYearPicker={false}
-                                        strictParsing={false}
-                                        timeCaption="Time"
-                                        timeInputLabel="Time"
-                                        timeIntervals={30}
-                                        value=""
-                                        withPortal={false}
-                                      >
-                                        <a
-                                          enableTabLoop={true}
-                                          hidePopper={true}
-                                          popperComponent={null}
-                                          popperModifiers={
-                                            Object {
-                                              "preventOverflow": Object {
-                                                "boundariesElement": "viewport",
-                                                "enabled": true,
-                                                "escapeWithReference": true,
-                                              },
-                                            }
-                                          }
-                                          popperOnKeyDown={[Function]}
-                                          popperPlacement="top"
-                                          popperProps={Object {}}
-                                          targetComponent={
-                                            <div
-                                              className="react-datepicker__input-container"
-                                            >
-                                              <CustomInput
-                                                className="input is-primary input is-primary"
-                                                disabled={false}
-                                                id="registeredTo"
-                                                name="registeredTo"
-                                                onBlur={[Function]}
-                                                onChange={[Function]}
-                                                onClick={[Function]}
-                                                onFocus={[Function]}
-                                                onKeyDown={[Function]}
-                                                readOnly={false}
-                                                value=""
-                                              />
-                                            </div>
-                                          }
-                                        >
-                                          <Manager
-                                            className="react-datepicker-manager"
-                                          >
-                                            <Reference>
-                                              <InnerReference
-                                                setReferenceNode={[Function]}
-                                              >
-                                                <div
-                                                  className="react-datepicker-wrapper"
-                                                >
-                                                  <div
-                                                    className="react-datepicker__input-container"
-                                                  >
-                                                    <CustomInput
-                                                      className="input is-primary input is-primary"
-                                                      disabled={false}
-                                                      id="registeredTo"
-                                                      name="registeredTo"
-                                                      onBlur={[Function]}
-                                                      onChange={[Function]}
-                                                      onClick={[Function]}
-                                                      onFocus={[Function]}
-                                                      onKeyDown={[Function]}
-                                                      readOnly={false}
-                                                      value=""
-                                                    >
-                                                      <input
-                                                        className="input is-primary input is-primary"
-                                                        disabled={false}
-                                                        id="registeredTo"
-                                                        name="registeredTo"
-                                                        onBlur={[Function]}
-                                                        onChange={[Function]}
-                                                        onClick={[Function]}
-                                                        onFocus={[Function]}
-                                                        onKeyDown={[Function]}
-                                                        readOnly={false}
-                                                        type="input"
-                                                        value=""
-                                                      />
-                                                    </CustomInput>
-                                                  </div>
-                                                </div>
-                                              </InnerReference>
-                                            </Reference>
-                                          </Manager>
-                                        </a>
-                                      </o>
-                                    </div>
-                                  </div>
-                                </Field>
-                              </DatePicker>
-                            </div>
-                          </GridItem>
-                          <GridItem>
-                            <div
-                              className="column"
-                              data-test=""
-                            >
-                              <SelectBox
-                                id="status"
-                                labelText="Status"
-                                name="status"
-                                options={
-                                  Array [
-                                    Object {
-                                      "label": "Incomplete",
-                                      "value": "incomplete",
-                                    },
-                                    Object {
-                                      "label": "Pending",
-                                      "value": "pending",
-                                    },
-                                    Object {
-                                      "label": "Confirmed",
-                                      "value": "confirmed",
-                                    },
-                                    Object {
-                                      "label": "Under Review",
-                                      "value": "underReview",
-                                    },
-                                    Object {
-                                      "label": "Removed",
-                                      "value": "removed",
-                                    },
-                                  ]
-                                }
-                              >
-                                <Field
-                                  name="status"
-                                  validate={null}
-                                >
-                                  <div
-                                    className="field"
-                                  >
-                                    <div
-                                      className="control"
-                                    >
-                                      <label
-                                        className="label "
-                                        htmlFor="status"
-                                      >
-                                        Status
-                                      </label>
-                                      <select
-                                        className="input is-primary "
-                                        data-test=""
-                                        name="status"
-                                        onBlur={[Function]}
-                                        onChange={[Function]}
-                                        value=""
-                                      >
-                                        <option
-                                          key="incomplete"
-                                          value="incomplete"
-                                        >
-                                          Incomplete
-                                        </option>
-                                        <option
-                                          key="pending"
-                                          value="pending"
-                                        >
-                                          Pending
-                                        </option>
-                                        <option
-                                          key="confirmed"
-                                          value="confirmed"
-                                        >
-                                          Confirmed
-                                        </option>
-                                        <option
-                                          key="underReview"
-                                          value="underReview"
-                                        >
-                                          Under Review
-                                        </option>
-                                        <option
-                                          key="removed"
-                                          value="removed"
-                                        >
-                                          Removed
-                                        </option>
-                                        <option
-                                          disabled={true}
-                                          hidden={true}
-                                          value=""
-                                        >
-                                          Please select
-                                        </option>
-                                      </select>
-                                    </div>
-                                  </div>
-                                </Field>
-                              </SelectBox>
-                            </div>
-                          </GridItem>
-                          <GridItem
-                            className="mt-4"
-                          >
-                            <div
-                              className="column mt-4"
-                              data-test=""
-                            >
-                              <Button
-                                type="submit"
-                                variant="primary"
-                              >
-                                <button
-                                  className="button   is-primary "
-                                  data-test=""
-                                  disabled={false}
-                                  type="submit"
-                                >
-                                  Search
-                                </button>
-                              </Button>
-                            </div>
-                          </GridItem>
-                        </div>
-                      </Grid>
-                    </div>
-                  </FormSection>
-                </form>
-              </Form>
-            </Formik>
-          </DevsManagementFilterForm>
-          <Alert
-            message="No Results "
-            type="info"
+            Developer Management Filter Form
+          </div>
+          <div
+            class="form-subheading"
+          >
+            Filter the result by Name and Company
+          </div>
+          <div
+            class="columns items-center"
+            data-test=""
           >
             <div
-              className="notification is-info "
+              class="column"
               data-test=""
-              role="alert"
             >
-              No Results 
+              <div
+                class="field"
+              >
+                <div
+                  class="control "
+                >
+                  <label
+                    class="label inline-block "
+                    for="name"
+                  >
+                    Name
+                  </label>
+                  <input
+                    class="input is-primary"
+                    data-test=""
+                    id="name"
+                    maxlength="256"
+                    name="name"
+                    placeholder=""
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
             </div>
-          </Alert>
-          <Pagination
-            onChange={[Function]}
-            pageNumber={0}
-            pageSize={0}
-            totalCount={0}
-          />
-          <StatusModal
-            developer={Object {}}
-            resetModal={[Function]}
-            visible={false}
-          />
-          <DisableMemberModal
-            member={null}
-            onCancel={[Function]}
-            onSuccess={[Function]}
-            visible={false}
-          />
-          <SetAsAdminModal
-            onClose={[Function]}
-            user={null}
-            visible={false}
-          />
-        </ErrorBoundary>
-      </DevsManagement>
-    </Router>
-  </MemoryRouter>
-</Provider>
+            <div
+              class="column"
+              data-test=""
+            >
+              <div
+                class="field"
+              >
+                <div
+                  class="control "
+                >
+                  <label
+                    class="label inline-block "
+                    for="company"
+                  >
+                    Company
+                  </label>
+                  <input
+                    class="input is-primary"
+                    data-test=""
+                    id="company"
+                    maxlength="256"
+                    name="company"
+                    placeholder=""
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="column"
+              data-test=""
+            >
+              <div
+                class="field"
+              >
+                <div
+                  class="control"
+                >
+                  <label
+                    class="label "
+                    for="registeredFrom"
+                  >
+                    Registered From
+                  </label>
+                  <div
+                    class="react-datepicker-wrapper"
+                  >
+                    <div
+                      class="react-datepicker__input-container"
+                    >
+                      <input
+                        class="input is-primary input is-primary"
+                        id="registeredFrom"
+                        name="registeredFrom"
+                        type="input"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="column"
+              data-test=""
+            >
+              <div
+                class="field"
+              >
+                <div
+                  class="control"
+                >
+                  <label
+                    class="label "
+                    for="registeredTo"
+                  >
+                    Registered To
+                  </label>
+                  <div
+                    class="react-datepicker-wrapper"
+                  >
+                    <div
+                      class="react-datepicker__input-container"
+                    >
+                      <input
+                        class="input is-primary input is-primary"
+                        id="registeredTo"
+                        name="registeredTo"
+                        type="input"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="column"
+              data-test=""
+            >
+              <div
+                class="field"
+              >
+                <div
+                  class="control"
+                >
+                  <label
+                    class="label "
+                    for="status"
+                  >
+                    Status
+                  </label>
+                  <select
+                    class="input is-primary "
+                    data-test=""
+                    name="status"
+                  >
+                    <option
+                      value="incomplete"
+                    >
+                      Incomplete
+                    </option>
+                    <option
+                      value="pending"
+                    >
+                      Pending
+                    </option>
+                    <option
+                      value="confirmed"
+                    >
+                      Confirmed
+                    </option>
+                    <option
+                      value="underReview"
+                    >
+                      Under Review
+                    </option>
+                    <option
+                      value="removed"
+                    >
+                      Removed
+                    </option>
+                    <option
+                      disabled=""
+                      hidden=""
+                      value=""
+                    >
+                      Please select
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div
+              class="column mt-4"
+              data-test=""
+            >
+              <button
+                class="button   is-primary "
+                data-test=""
+                type="submit"
+              >
+                Search
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div
+        class="notification is-info "
+        data-test=""
+        role="alert"
+      >
+        No Results 
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <h3
+      class="title is-3"
+      id=""
+    >
+      Developer Management
+    </h3>
+    <form
+      action="#"
+      novalidate=""
+    >
+      <div
+        class="form-section"
+      >
+        <div
+          class="form-heading"
+        >
+          Developer Management Filter Form
+        </div>
+        <div
+          class="form-subheading"
+        >
+          Filter the result by Name and Company
+        </div>
+        <div
+          class="columns items-center"
+          data-test=""
+        >
+          <div
+            class="column"
+            data-test=""
+          >
+            <div
+              class="field"
+            >
+              <div
+                class="control "
+              >
+                <label
+                  class="label inline-block "
+                  for="name"
+                >
+                  Name
+                </label>
+                <input
+                  class="input is-primary"
+                  data-test=""
+                  id="name"
+                  maxlength="256"
+                  name="name"
+                  placeholder=""
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="column"
+            data-test=""
+          >
+            <div
+              class="field"
+            >
+              <div
+                class="control "
+              >
+                <label
+                  class="label inline-block "
+                  for="company"
+                >
+                  Company
+                </label>
+                <input
+                  class="input is-primary"
+                  data-test=""
+                  id="company"
+                  maxlength="256"
+                  name="company"
+                  placeholder=""
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="column"
+            data-test=""
+          >
+            <div
+              class="field"
+            >
+              <div
+                class="control"
+              >
+                <label
+                  class="label "
+                  for="registeredFrom"
+                >
+                  Registered From
+                </label>
+                <div
+                  class="react-datepicker-wrapper"
+                >
+                  <div
+                    class="react-datepicker__input-container"
+                  >
+                    <input
+                      class="input is-primary input is-primary"
+                      id="registeredFrom"
+                      name="registeredFrom"
+                      type="input"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="column"
+            data-test=""
+          >
+            <div
+              class="field"
+            >
+              <div
+                class="control"
+              >
+                <label
+                  class="label "
+                  for="registeredTo"
+                >
+                  Registered To
+                </label>
+                <div
+                  class="react-datepicker-wrapper"
+                >
+                  <div
+                    class="react-datepicker__input-container"
+                  >
+                    <input
+                      class="input is-primary input is-primary"
+                      id="registeredTo"
+                      name="registeredTo"
+                      type="input"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="column"
+            data-test=""
+          >
+            <div
+              class="field"
+            >
+              <div
+                class="control"
+              >
+                <label
+                  class="label "
+                  for="status"
+                >
+                  Status
+                </label>
+                <select
+                  class="input is-primary "
+                  data-test=""
+                  name="status"
+                >
+                  <option
+                    value="incomplete"
+                  >
+                    Incomplete
+                  </option>
+                  <option
+                    value="pending"
+                  >
+                    Pending
+                  </option>
+                  <option
+                    value="confirmed"
+                  >
+                    Confirmed
+                  </option>
+                  <option
+                    value="underReview"
+                  >
+                    Under Review
+                  </option>
+                  <option
+                    value="removed"
+                  >
+                    Removed
+                  </option>
+                  <option
+                    disabled=""
+                    hidden=""
+                    value=""
+                  >
+                    Please select
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div
+            class="column mt-4"
+            data-test=""
+          >
+            <button
+              class="button   is-primary "
+              data-test=""
+              type="submit"
+            >
+              Search
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div
+      class="notification is-info "
+      data-test=""
+      role="alert"
+    >
+      No Results 
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`renderResult should match snapshot when has result data 1`] = `

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '@testing-library/react'
 import { ModalUpload } from '../modal-upload'
 import { data } from '../__stubs__'
 
@@ -14,7 +14,7 @@ describe('ModalUpload', () => {
     header: [],
   }
   it('should match snapshot with default prop', () => {
-    const wrapper = shallow(<ModalUpload uploadData={uploadData} setUploadData={jest.fn()} />)
+    const wrapper = render(<ModalUpload uploadData={uploadData} setUploadData={jest.fn()} />)
     expect(wrapper).toMatchSnapshot()
   })
 
@@ -40,7 +40,7 @@ describe('ModalUpload', () => {
         { value: 'col 6' },
       ],
     }
-    const wrapper = shallow(<ModalUpload uploadData={uploadData} setUploadData={jest.fn()} />)
+    const wrapper = render(<ModalUpload uploadData={uploadData} setUploadData={jest.fn()} />)
     expect(wrapper).toMatchSnapshot()
   })
 })

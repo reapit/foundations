@@ -1,5 +1,5 @@
 import SuccessModal from '../success-modal'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import * as React from 'react'
 
 describe('SetAsAdminModal', () => {
@@ -7,6 +7,6 @@ describe('SetAsAdminModal', () => {
     const user = {
       name: 'Jill Hill',
     }
-    expect(shallow(<SuccessModal name={user.name} />)).toMatchSnapshot()
+    expect(render(<SuccessModal name={user.name} />)).toMatchSnapshot()
   })
 })

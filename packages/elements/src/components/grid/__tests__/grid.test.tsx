@@ -1,10 +1,10 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '@testing-library/react'
 import { Grid, Col, ColSplit } from '../grid'
 
 describe('Grid', () => {
   it('should match a snapshot and render children', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <Grid>
         <p>I am child</p>
       </Grid>,
@@ -15,7 +15,7 @@ describe('Grid', () => {
 
 describe('Col', () => {
   it('should match a snapshot and render children', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <Col>
         <p>I am child</p>
       </Col>,
@@ -26,7 +26,7 @@ describe('Col', () => {
 
 describe('ColSplit', () => {
   it('should match a snapshot and render children', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <ColSplit>
         <p>I am child</p>
       </ColSplit>,

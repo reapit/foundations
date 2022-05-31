@@ -1,9 +1,9 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { Login } from '../login'
 
 describe('Login', () => {
   it('should match snapshot', () => {
-    expect(shallow(<Login />)).toMatchSnapshot()
+    expect(render(<Login />)).toMatchSnapshot()
   })
 })

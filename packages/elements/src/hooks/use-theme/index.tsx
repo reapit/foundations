@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { useEffect, useRef, useState } from 'react'
 
 export interface UseThemeInterface {
@@ -9,11 +10,7 @@ export const THEME_BODY_CLASS = 'reapit-theme'
 export const THEME_LOCAL_STOREAGE_KEY = `reapit-foundations-${THEME_BODY_CLASS}`
 
 // TODO determine dark theme on default by using media selectors?
-export const useTheme = ({
-  initialSelection = 'default',
-}: {
-  initialSelection?: string
-}): UseThemeInterface => {
+export const useTheme = ({ initialSelection = 'default' }: { initialSelection?: string }): UseThemeInterface => {
   // Initial setting of theme from localStorage
   useEffect(() => {
     if (localStorage) {

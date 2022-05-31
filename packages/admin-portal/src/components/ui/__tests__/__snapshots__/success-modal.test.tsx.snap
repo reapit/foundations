@@ -1,28 +1,149 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SetAsAdminModal should match snapshot 1`] = `
-<ModalV2
-  closable={false}
-  footer={
-    <Button
-      className="mr-2"
-      type="button"
-    >
-      Close
-    </Button>
-  }
-  isCentered={true}
-  title="Success"
-  visible={true}
->
-  <Content>
-    <p>
-      Admin status for ‘
-      <strong>
-        Jill Hill
-      </strong>
-      ’ has successfully been updated
-    </p>
-  </Content>
-</ModalV2>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body
+    class="ant-scrolling-effect"
+    style="overflow: hidden; overflow-x: hidden; overflow-y: hidden;"
+  >
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+    </div>
+    <div>
+      <div
+        class="rc-dialog-root"
+      >
+        <div
+          class="rc-dialog-mask"
+        />
+        <div
+          aria-labelledby="test-id"
+          class="rc-dialog-wrap modal-centered"
+          tabindex="-1"
+        >
+          <div
+            aria-modal="true"
+            class="rc-dialog modal-container"
+            role="dialog"
+          >
+            <div
+              aria-hidden="true"
+              style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+              tabindex="0"
+            />
+            <div
+              class="rc-dialog-content"
+            >
+              <div
+                class="rc-dialog-header"
+              >
+                <div
+                  class="rc-dialog-title"
+                  id="test-id"
+                >
+                  <h4
+                    class="modal-card-title is-4 pt-2 pb-2"
+                  >
+                    Success
+                  </h4>
+                </div>
+              </div>
+              <div
+                class="rc-dialog-body"
+              >
+                <div
+                  class="content"
+                  data-test=""
+                >
+                  <p>
+                    Admin status for ‘
+                    <strong>
+                      Jill Hill
+                    </strong>
+                    ’ has successfully been updated
+                  </p>
+                </div>
+              </div>
+              <div
+                class="rc-dialog-footer"
+              >
+                <button
+                  class="button   is-primary mr-2"
+                  data-test=""
+                  type="button"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+            <div
+              aria-hidden="true"
+              style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+              tabindex="0"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

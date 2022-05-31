@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { App, isUserWithDevIdOnly } from '../app'
 import { LoginIdentity, useReapitConnect } from '@reapit/connect-session'
 
@@ -47,7 +47,7 @@ describe('App', () => {
     mockedUseReapitConnect.mockReturnValueOnce({
       connectSession: { ...mockSession, loginIdentity: loginIdentitiyWithDeveloperIdOnly },
     })
-    shallow(<App />)
+    render(<App />)
     expect(location.href).toBe(window.reapit.config.developerPortalUrl)
   })
 
@@ -56,7 +56,7 @@ describe('App', () => {
     mockedUseReapitConnect.mockReturnValue({
       connectSession: mockSession,
     })
-    shallow(<App />)
+    render(<App />)
     expect(location.href).toBe('')
   })
 
@@ -65,10 +65,10 @@ describe('App', () => {
       connectSession: mockSession,
     }))
 
-    expect(shallow(<App />)).toMatchSnapshot()
+    expect(render(<App />)).toMatchSnapshot()
   })
 
   it('should match snapshot when session is empty', () => {
-    expect(shallow(<App />)).toMatchSnapshot()
+    expect(render(<App />)).toMatchSnapshot()
   })
 })

@@ -1,10 +1,10 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import PaymentsFilterForm from '../payments-filter-form'
 
 describe('PaymentsFilterForm', () => {
   it('should match a snapshot', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <PaymentsFilterForm
         filterValues={{
           pageSize: '12',

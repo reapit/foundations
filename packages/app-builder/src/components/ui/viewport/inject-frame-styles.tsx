@@ -11,7 +11,7 @@ export const InjectFrameStyles = ({ children }: { children: React.ReactChildren 
     const stylesheets = [...links, ...styles]
 
     stylesheets.forEach((style) => {
-      frame.head.appendChild(style.cloneNode(true))
+      frame?.head.appendChild(style.cloneNode(true))
     })
 
     let observer: MutationObserver | undefined
@@ -21,7 +21,7 @@ export const InjectFrameStyles = ({ children }: { children: React.ReactChildren 
         mutationsList.forEach((mutation) => {
           if (mutation.type === 'childList') {
             mutation.addedNodes.forEach((node) => {
-              frame.head.appendChild(node.cloneNode(true))
+              frame?.head.appendChild(node.cloneNode(true))
             })
           }
         })
@@ -29,8 +29,10 @@ export const InjectFrameStyles = ({ children }: { children: React.ReactChildren 
       observer.observe(document.head, { childList: true, subtree: true })
     }
 
-    frame.body.style.background = '#efefef'
-    frame.body.style.overflow = 'auto'
+    if (frame) {
+      frame.body.style.background = '#efefef'
+      frame.body.style.overflow = 'auto'
+    }
 
     return () => {
       if (!isLocal) {

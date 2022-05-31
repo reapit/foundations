@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import Payments, {
   AmountCell,
   PropertyCell,
@@ -30,7 +30,7 @@ describe('Payments ', () => {
       error: null,
       mutate: jest.fn(),
     })
-    expect(shallow(<Payments />)).toMatchSnapshot()
+    expect(render(<Payments />)).toMatchSnapshot()
   })
 
   it('should match a snapshot where has payments list', () => {
@@ -44,7 +44,7 @@ describe('Payments ', () => {
       error: null,
       mutate: jest.fn(),
     })
-    expect(shallow(<Payments />)).toMatchSnapshot()
+    expect(render(<Payments />)).toMatchSnapshot()
   })
 
   it('should match a snapshot where payments list is empty', () => {
@@ -58,33 +58,33 @@ describe('Payments ', () => {
       error: null,
       mutate: jest.fn(),
     })
-    expect(shallow(<Payments />)).toMatchSnapshot()
+    expect(render(<Payments />)).toMatchSnapshot()
   })
 })
 
 describe('RequestedCell', () => {
   it('should match a snapshot', () => {
-    expect(shallow(<RequestedCell cell={{ value: new Date('2020-01-01') }} />)).toMatchSnapshot()
+    expect(render(<RequestedCell cell={{ value: new Date('2020-01-01') }} />)).toMatchSnapshot()
   })
 })
 
 describe('AmountCell', () => {
   it('should match a snapshot', () => {
-    expect(shallow(<AmountCell cell={{ value: 10000 }} />)).toMatchSnapshot()
+    expect(render(<AmountCell cell={{ value: 10000 }} />)).toMatchSnapshot()
   })
 
   it('should match a snapshot where no value', () => {
-    expect(shallow(<AmountCell cell={{ value: undefined }} />)).toMatchSnapshot()
+    expect(render(<AmountCell cell={{ value: undefined }} />)).toMatchSnapshot()
   })
 })
 
 describe('StatusCell', () => {
   it('should match a snapshot', () => {
-    expect(shallow(<StatusCell cell={{ value: 'posted' }} />)).toMatchSnapshot()
+    expect(render(<StatusCell cell={{ value: 'posted' }} />)).toMatchSnapshot()
   })
 
   it('should match a snapshot for default status', () => {
-    expect(shallow(<StatusCell cell={{ value: 'rubbish' }} />)).toMatchSnapshot()
+    expect(render(<StatusCell cell={{ value: 'rubbish' }} />)).toMatchSnapshot()
   })
 })
 
@@ -95,7 +95,7 @@ describe('PropertyCell', () => {
       error: null,
       mutate: jest.fn(),
     })
-    expect(shallow(<PropertyCell cell={{ value: 'posted' }} />)).toMatchSnapshot()
+    expect(render(<PropertyCell cell={{ value: 'posted' }} />)).toMatchSnapshot()
   })
 
   it('should match a snapshot for default status', () => {
@@ -106,7 +106,7 @@ describe('PropertyCell', () => {
       error: null,
       mutate: jest.fn(),
     })
-    expect(shallow(<PropertyCell cell={{ value: 'rubbish' }} />)).toMatchSnapshot()
+    expect(render(<PropertyCell cell={{ value: 'rubbish' }} />)).toMatchSnapshot()
   })
 })
 

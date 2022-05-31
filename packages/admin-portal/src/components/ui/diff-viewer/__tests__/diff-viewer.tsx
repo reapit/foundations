@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../../tests/react-testing'
 import { DiffViewer, DiffViewerProps } from '../diff-viewer'
 
 const mockProps: DiffViewerProps = {
@@ -10,7 +10,7 @@ const mockProps: DiffViewerProps = {
 
 describe('DiffViewer', () => {
   it('should match snapshot', () => {
-    const wrapper = shallow(<DiffViewer {...mockProps} />)
+    const wrapper = render(<DiffViewer {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
   })
 })

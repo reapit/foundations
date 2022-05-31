@@ -1,153 +1,772 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ImageCropper should match snapshots with multiple conditions 1`] = `
-<Fragment>
-  <div
-    className="react-image-crop-global-styles image-cropper-outer"
-  >
-    <div
-      className="image-cropper-inner"
-    >
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
       <div
-        className="image-cropper-content"
+        class="react-image-crop-global-styles image-cropper-outer"
       >
         <div
-          className="image-cropper-crop-panel-wrapper"
+          class="image-cropper-inner"
         >
-          <H5
-            isCentered={true}
+          <div
+            class="image-cropper-content"
           >
-            Crop Image
-          </H5>
-          <f
-            circularCrop={false}
-            className="image-cropper-crop-panel"
-            crop={
-              Object {
-                "aspect": 1.7777777777777777,
-                "height": undefined,
-                "unit": "%",
-                "width": 50,
-              }
-            }
-            disabled={false}
-            imageAlt=""
-            keepSelection={false}
-            locked={false}
-            minHeight={0}
-            minWidth={0}
-            onChange={[Function]}
-            onComplete={[Function]}
-            onDragEnd={[Function]}
-            onDragStart={[Function]}
-            onImageError={[Function]}
-            onImageLoaded={[Function]}
-            ruleOfThirds={true}
-            src=""
-          />
-        </div>
-        <div
-          className="image-cropper-preview-wrapper"
-        >
-          <H5
-            isCentered={true}
+            <div
+              class="image-cropper-crop-panel-wrapper"
+            >
+              <h5
+                class="title is-5 has-text-centered"
+                id=""
+              >
+                Crop Image
+              </h5>
+              <div
+                class="ReactCrop image-cropper-crop-panel ReactCrop--fixed-aspect ReactCrop--rule-of-thirds"
+                tabindex="0"
+              >
+                <div>
+                  <img
+                    alt=""
+                    class="ReactCrop__image"
+                    src=""
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="image-cropper-preview-wrapper"
+            >
+              <h5
+                class="title is-5 has-text-centered"
+                id=""
+              >
+                Preview
+              </h5>
+            </div>
+          </div>
+          <div
+            class="image-cropper-action-wrapper"
           >
-            Preview
-          </H5>
+            <button
+              class="button   is-secondary "
+              data-test=""
+              type="button"
+            >
+              Cancel
+            </button>
+            <button
+              class="button   is-primary "
+              data-test=""
+              disabled=""
+              type="button"
+            >
+              Crop
+            </button>
+          </div>
         </div>
-      </div>
-      <div
-        className="image-cropper-action-wrapper"
-      >
-        <Button
-          onClick={[MockFunction]}
-          type="button"
-          variant="secondary"
-        >
-          Cancel
-        </Button>
-        <Button
-          disabled={true}
-          onClick={[Function]}
-          type="button"
-          variant="primary"
-        >
-          Crop
-        </Button>
       </div>
     </div>
-  </div>
-</Fragment>
+  </body>,
+  "container": <div>
+    <div
+      class="react-image-crop-global-styles image-cropper-outer"
+    >
+      <div
+        class="image-cropper-inner"
+      >
+        <div
+          class="image-cropper-content"
+        >
+          <div
+            class="image-cropper-crop-panel-wrapper"
+          >
+            <h5
+              class="title is-5 has-text-centered"
+              id=""
+            >
+              Crop Image
+            </h5>
+            <div
+              class="ReactCrop image-cropper-crop-panel ReactCrop--fixed-aspect ReactCrop--rule-of-thirds"
+              tabindex="0"
+            >
+              <div>
+                <img
+                  alt=""
+                  class="ReactCrop__image"
+                  src=""
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="image-cropper-preview-wrapper"
+          >
+            <h5
+              class="title is-5 has-text-centered"
+              id=""
+            >
+              Preview
+            </h5>
+          </div>
+        </div>
+        <div
+          class="image-cropper-action-wrapper"
+        >
+          <button
+            class="button   is-secondary "
+            data-test=""
+            type="button"
+          >
+            Cancel
+          </button>
+          <button
+            class="button   is-primary "
+            data-test=""
+            disabled=""
+            type="button"
+          >
+            Crop
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`ImageCropper should match snapshots with multiple conditions 2`] = `
-<Fragment>
-  <div>
-    <div
-      afterLoadedImage={[Function]}
-      croppedImage=""
-      key=".0"
-    >
-      value
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="react-image-crop-global-styles image-cropper-outer"
+      >
+        <div
+          class="image-cropper-inner"
+        >
+          <div
+            class="image-cropper-content"
+          >
+            <div
+              class="image-cropper-crop-panel-wrapper"
+            >
+              <h5
+                class="title is-5 has-text-centered"
+                id=""
+              >
+                Crop Image
+              </h5>
+              <div
+                class="ReactCrop image-cropper-crop-panel ReactCrop--fixed-aspect ReactCrop--rule-of-thirds"
+                tabindex="0"
+              >
+                <div>
+                  <img
+                    alt=""
+                    class="ReactCrop__image"
+                    src=""
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="image-cropper-preview-wrapper"
+            >
+              <h5
+                class="title is-5 has-text-centered"
+                id=""
+              >
+                Preview
+              </h5>
+            </div>
+          </div>
+          <div
+            class="image-cropper-action-wrapper"
+          >
+            <button
+              class="button   is-secondary "
+              data-test=""
+              type="button"
+            >
+              Cancel
+            </button>
+            <button
+              class="button   is-primary "
+              data-test=""
+              disabled=""
+              type="button"
+            >
+              Crop
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</Fragment>
+    <div>
+      <div>
+        <div
+          croppedimage=""
+        >
+          value
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div>
+      <div
+        croppedimage=""
+      >
+        value
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`ImageCropperWithInput should match snapshots with multiple conditions 1`] = `
-<ImageCropper
-  aspect={1.7777777777777777}
-  croppedImage={null}
-  onClose={[Function]}
-  onCropClick={[Function]}
-  setCroppedImage={[Function]}
-  setUpImg={[Function]}
-  setVisible={[Function]}
-  upImg=""
-  visible={false}
->
-  <ImageInput
-    labelText="input image"
-    name="inputImage"
-  />
-</ImageCropper>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div>
+        <div
+          class="file is-primary  field pb-2"
+        >
+          <div
+            class="control file-input-container is-full-width"
+          >
+            <label
+              class="file-label"
+              data-test="file-input-label"
+              for="inputImage"
+            >
+              <input
+                accept="image/*"
+                class="file-input"
+                data-test=""
+                id="inputImage"
+                type="file"
+              />
+              <span
+                class="file-cta "
+              >
+                input image
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div>
+      <div
+        class="file is-primary  field pb-2"
+      >
+        <div
+          class="control file-input-container is-full-width"
+        >
+          <label
+            class="file-label"
+            data-test="file-input-label"
+            for="inputImage"
+          >
+            <input
+              accept="image/*"
+              class="file-input"
+              data-test=""
+              id="inputImage"
+              type="file"
+            />
+            <span
+              class="file-cta "
+            >
+              input image
+            </span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`ImageCropperWithInput should match snapshots with multiple conditions 2`] = `
-<ImageCropper
-  croppedImage={null}
-  onClose={[Function]}
-  onCropClick={[Function]}
-  setCroppedImage={[Function]}
-  setUpImg={[Function]}
-  setVisible={[Function]}
-  upImg=""
-  visible={false}
->
-  <ImageInput
-    labelText="input image"
-    name="inputImage"
-  />
-</ImageCropper>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div>
+        <div
+          class="file is-primary  field pb-2"
+        >
+          <div
+            class="control file-input-container is-full-width"
+          >
+            <label
+              class="file-label"
+              data-test="file-input-label"
+              for="inputImage"
+            >
+              <input
+                accept="image/*"
+                class="file-input"
+                data-test=""
+                id="inputImage"
+                type="file"
+              />
+              <span
+                class="file-cta "
+              >
+                input image
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div>
+        <div
+          class="file is-primary  field pb-2"
+        >
+          <div
+            class="control file-input-container is-full-width"
+          >
+            <label
+              class="file-label"
+              data-test="file-input-label"
+              for="inputImage"
+            >
+              <input
+                accept="image/*"
+                class="file-input"
+                data-test=""
+                id="inputImage"
+                type="file"
+              />
+              <span
+                class="file-cta "
+              >
+                input image
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div>
+      <div
+        class="file is-primary  field pb-2"
+      >
+        <div
+          class="control file-input-container is-full-width"
+        >
+          <label
+            class="file-label"
+            data-test="file-input-label"
+            for="inputImage"
+          >
+            <input
+              accept="image/*"
+              class="file-input"
+              data-test=""
+              id="inputImage"
+              type="file"
+            />
+            <span
+              class="file-cta "
+            >
+              input image
+            </span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`renderChildrenWithProps should match snapshots with multiple conditions 1`] = `
-<div>
-  <div>
-    <div
-      key=".$1"
-      value="value"
-    >
-      1
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div>
+        <div>
+          <div
+            value="value"
+          >
+            1
+          </div>
+          <div
+            value="value"
+          >
+            2
+          </div>
+        </div>
+      </div>
     </div>
-    <div
-      key=".$2"
-      value="value"
-    >
-      2
+  </body>,
+  "container": <div>
+    <div>
+      <div>
+        <div
+          value="value"
+        >
+          1
+        </div>
+        <div
+          value="value"
+        >
+          2
+        </div>
+      </div>
     </div>
-  </div>
-</div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
-exports[`renderChildrenWithProps should match snapshots with multiple conditions 2`] = `<div />`;
+exports[`renderChildrenWithProps should match snapshots with multiple conditions 2`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div>
+        <div>
+          <div
+            value="value"
+          >
+            1
+          </div>
+          <div
+            value="value"
+          >
+            2
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div />
+    </div>
+  </body>,
+  "container": <div>
+    <div />
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

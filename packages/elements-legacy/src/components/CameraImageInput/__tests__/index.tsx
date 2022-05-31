@@ -1,8 +1,8 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '@testing-library/react'
 import { FileInputProps } from '../../FileInput'
 import { CameraImageInput } from '../index'
-import toJson from 'enzyme-to-json'
+import { Formik } from 'formik'
 
 const props: FileInputProps = {
   name: 'test',
@@ -12,7 +12,9 @@ const props: FileInputProps = {
 
 describe('CameraImageInput', () => {
   it('should match a snapshot', () => {
-    expect(toJson(shallow(<CameraImageInput {...props} />))).toMatchSnapshot()
+    expect(
+      render(<Formik initialValues={{}} onSubmit={jest.fn()} render={() => <CameraImageInput {...props} />} />),
+    ).toMatchSnapshot()
   })
 
   afterEach(() => {

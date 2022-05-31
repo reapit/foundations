@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as ReactRedux from 'react-redux'
-import { shallow } from 'enzyme'
+import { render } from '../../../../tests/react-testing'
 import configureStore from 'redux-mock-store'
 
 import {
@@ -34,7 +34,7 @@ describe('DeclineRevisionModal', () => {
 
   it('should match a snapshot', () => {
     expect(
-      shallow(
+      render(
         <ReactRedux.Provider store={store}>
           <DeclineRevisionModal {...props} />
         </ReactRedux.Provider>,

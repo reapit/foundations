@@ -4,7 +4,7 @@ import Routes from '../../../../constants/routes'
 import { render } from '../../../../tests/react-testing'
 import { AppEditTabs } from '../edit-page-tabs'
 import { AppEditFormSchema, defaultValues } from '../form-schema/form-fields'
-import { createBrowserHistory } from 'history'
+import { createBrowserHistory, History } from 'history'
 import { Router } from 'react-router'
 
 jest.mock('../../state/use-app-state')
@@ -14,7 +14,7 @@ jest.mock('react-hook-form', () => ({
   useWatch: jest.fn(),
 }))
 
-const history = createBrowserHistory()
+const history: History<any> = createBrowserHistory()
 
 describe('AppEditTabs', () => {
   it('should match a snapshot for the authentication tab', () => {

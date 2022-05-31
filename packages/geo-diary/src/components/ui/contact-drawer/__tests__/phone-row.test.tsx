@@ -1,9 +1,9 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../../tests/react-testing'
 import PhoneRow from '../phone-row'
 
 describe('PhoneRow', () => {
   it('should match snapshot', () => {
-    expect(shallow(<PhoneRow label="Label" phoneNumber="07777777" showMobileActions />)).toMatchSnapshot()
+    expect(render(<PhoneRow label="Label" phoneNumber="07777777" showMobileActions />)).toMatchSnapshot()
   })
 })

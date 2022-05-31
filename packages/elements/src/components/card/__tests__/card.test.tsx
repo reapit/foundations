@@ -1,12 +1,12 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '@testing-library/react'
 import * as Cards from '../card'
 
 describe('Card', () => {
   Object.keys(Cards).forEach((cardKey) => {
     it('should match a snapshot and render children', () => {
       const Component = Cards[cardKey]
-      const wrapper = shallow(
+      const wrapper = render(
         <Component>
           <div>I am a child</div>
         </Component>,

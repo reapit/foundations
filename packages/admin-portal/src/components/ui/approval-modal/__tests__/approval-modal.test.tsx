@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as ReactRedux from 'react-redux'
-import { mount } from 'enzyme'
+import { render } from '../../../../tests/react-testing'
 import configureStore from 'redux-mock-store'
 import appState from '@/reducers/__stubs__/app-state'
 import {
@@ -26,7 +26,7 @@ describe('AdminRevisionModalInner', () => {
   })
   it('should match a snapshot when ERROR true', () => {
     expect(
-      mount(
+      render(
         <ReactRedux.Provider store={store}>
           <ApprovalModalInner {...props} />
         </ReactRedux.Provider>,

@@ -1,6 +1,6 @@
 import { WebComponentModal, WebComponentModalProps } from '../config-modal'
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../../../../tests/react-testing'
 
 describe('Config-modal', () => {
   it('should match snapshot', () => {
@@ -10,6 +10,6 @@ describe('Config-modal', () => {
       closeModal: jest.fn(),
     } as WebComponentModalProps
 
-    expect(shallow(<WebComponentModal {...mockProps} />)).toMatchSnapshot()
+    expect(render(<WebComponentModal {...mockProps} />)).toMatchSnapshot()
   })
 })

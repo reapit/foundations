@@ -1,71 +1,275 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Toggle should match a snapshot and render children 1`] = `
-<Fragment>
-  <ElToggleCheckbox
-    type="checkbox"
-  />
-  <ElToggleLabel
-    className=""
-  >
-    <ElToggleItem>
-      On
-    </ElToggleItem>
-    <ElToggleItem>
-      Off
-    </ElToggleItem>
-  </ElToggleLabel>
-</Fragment>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <input
+        class="el-toggle-checkbox"
+        type="checkbox"
+      />
+      <label
+        class="el-toggle-label"
+      >
+        <span
+          class="el-toggle-item"
+        >
+          On
+        </span>
+        <span
+          class="el-toggle-item"
+        >
+          Off
+        </span>
+      </label>
+    </div>
+  </body>,
+  "container": <div>
+    <input
+      class="el-toggle-checkbox"
+      type="checkbox"
+    />
+    <label
+      class="el-toggle-label"
+    >
+      <span
+        class="el-toggle-item"
+      >
+        On
+      </span>
+      <span
+        class="el-toggle-item"
+      >
+        Off
+      </span>
+    </label>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`ToggleRadio should match a snapshot and render children 1`] = `
-<ElToggleRadioWrap
-  className="el-toggle-full-width"
->
-  <ElToggleRadio
-    defaultChecked={true}
-    id="option-1"
-    name="my-cool-toggle-radio"
-    type="radio"
-    value="option-1"
-  />
-  <ElToggleRadioLabel
-    className="el-toggle-full-width"
-    htmlFor="option-1"
-  >
-    <ElToggleRadioItem>
-      Option 1
-    </ElToggleRadioItem>
-  </ElToggleRadioLabel>
-  <ElToggleRadio
-    defaultChecked={false}
-    id="option-2"
-    name="my-cool-toggle-radio"
-    type="radio"
-    value="option-2"
-  />
-  <ElToggleRadioLabel
-    className="el-toggle-full-width"
-    htmlFor="option-2"
-  >
-    <ElToggleRadioItem>
-      Option 2
-    </ElToggleRadioItem>
-  </ElToggleRadioLabel>
-  <ElToggleRadio
-    defaultChecked={false}
-    id="option-3"
-    name="my-cool-toggle-radio"
-    type="radio"
-    value="option-3"
-  />
-  <ElToggleRadioLabel
-    className="el-toggle-full-width"
-    htmlFor="option-3"
-  >
-    <ElToggleRadioItem>
-      Option 3
-    </ElToggleRadioItem>
-  </ElToggleRadioLabel>
-</ElToggleRadioWrap>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-toggle-full-width el-toggle-radio-wrap"
+      >
+        <input
+          checked=""
+          class="el-toggle-radio"
+          id="option-1"
+          name="my-cool-toggle-radio"
+          type="radio"
+          value="option-1"
+        />
+        <label
+          class="el-toggle-full-width el-toggle-radio-label"
+          for="option-1"
+        >
+          <span
+            class="el-toggle-radio-item"
+          >
+            Option 1
+          </span>
+        </label>
+        <input
+          class="el-toggle-radio"
+          id="option-2"
+          name="my-cool-toggle-radio"
+          type="radio"
+          value="option-2"
+        />
+        <label
+          class="el-toggle-full-width el-toggle-radio-label"
+          for="option-2"
+        >
+          <span
+            class="el-toggle-radio-item"
+          >
+            Option 2
+          </span>
+        </label>
+        <input
+          class="el-toggle-radio"
+          id="option-3"
+          name="my-cool-toggle-radio"
+          type="radio"
+          value="option-3"
+        />
+        <label
+          class="el-toggle-full-width el-toggle-radio-label"
+          for="option-3"
+        >
+          <span
+            class="el-toggle-radio-item"
+          >
+            Option 3
+          </span>
+        </label>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-toggle-full-width el-toggle-radio-wrap"
+    >
+      <input
+        checked=""
+        class="el-toggle-radio"
+        id="option-1"
+        name="my-cool-toggle-radio"
+        type="radio"
+        value="option-1"
+      />
+      <label
+        class="el-toggle-full-width el-toggle-radio-label"
+        for="option-1"
+      >
+        <span
+          class="el-toggle-radio-item"
+        >
+          Option 1
+        </span>
+      </label>
+      <input
+        class="el-toggle-radio"
+        id="option-2"
+        name="my-cool-toggle-radio"
+        type="radio"
+        value="option-2"
+      />
+      <label
+        class="el-toggle-full-width el-toggle-radio-label"
+        for="option-2"
+      >
+        <span
+          class="el-toggle-radio-item"
+        >
+          Option 2
+        </span>
+      </label>
+      <input
+        class="el-toggle-radio"
+        id="option-3"
+        name="my-cool-toggle-radio"
+        type="radio"
+        value="option-3"
+      />
+      <label
+        class="el-toggle-full-width el-toggle-radio-label"
+        for="option-3"
+      >
+        <span
+          class="el-toggle-radio-item"
+        >
+          Option 3
+        </span>
+      </label>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

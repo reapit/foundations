@@ -15,9 +15,9 @@
     "commit": "yarn lint"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.7.0",
-    "@typescript-eslint/parser": "^5.7.0",
-    "eslint": "8.4.1",
+    "@typescript-eslint/eslint-plugin": "^5.27.0",
+    "@typescript-eslint/parser": "^5.27.0",
+    "eslint": "8.16.0",
     "eslint-plugin-prettier": "^4.0.0"
   }
 }

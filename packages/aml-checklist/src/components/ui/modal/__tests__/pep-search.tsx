@@ -1,13 +1,6 @@
 import React from 'react'
-import { shallow } from 'enzyme'
-import {
-  PepSearch,
-  mapStateToProps,
-  mapDispatchToProps,
-  renderNoResult,
-  renderLoading,
-  renderForm,
-} from '../pep-search'
+import { render } from '../../../../tests/react-testing'
+import { PepSearch, mapStateToProps, mapDispatchToProps, renderNoResult, renderLoading } from '../pep-search'
 import { ReduxState } from '@/types/core'
 import { contact } from '@/sagas/__stubs__/contact'
 import { ContactModel } from '@reapit/foundations-ts-definitions'
@@ -22,7 +15,7 @@ describe('pep-search', () => {
         onNextHandler: jest.fn(),
         isSubmitting: false,
       }
-      const wrapper = shallow(<PepSearch {...mockProps} />)
+      const wrapper = render(<PepSearch {...mockProps} />)
       expect(wrapper).toMatchSnapshot()
     })
   })
@@ -77,31 +70,17 @@ describe('pep-search', () => {
     })
   })
 
-  describe('renderForm', () => {
-    it('should match snapshot', () => {
-      const mockProps = {
-        onPrevHandler: jest.fn(),
-        onNextHandler: jest.fn(),
-        isSubmitting: false,
-        pepSearchStatus: { AYL19000001: { param: 'a', result: [], time: '1' } },
-        contact: contact,
-      }
-      const component = renderForm(mockProps)()
-      const wrapper = shallow(<div>{component}</div>)
-      expect(wrapper).toMatchSnapshot()
-    })
-  })
   describe('renderNoResult', () => {
     it('should match snapshot', () => {
       const component = renderNoResult('param', 'time')
-      const wrapper = shallow(<div>{component}</div>)
+      const wrapper = render(<div>{component}</div>)
       expect(wrapper).toMatchSnapshot()
     })
   })
   describe('renderLoading', () => {
     it('should match snapshot', () => {
       const component = renderLoading()
-      const wrapper = shallow(<div>{component}</div>)
+      const wrapper = render(<div>{component}</div>)
       expect(wrapper).toMatchSnapshot()
     })
   })

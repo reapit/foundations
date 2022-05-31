@@ -1,8 +1,7 @@
 import * as React from 'react'
-import { shallow, mount } from 'enzyme'
+import { render } from '@testing-library/react'
 import { Checkbox, CheckboxProps, handleOnCheckboxChange } from '../index'
-import { Formik, Form } from 'formik'
-import toJson from 'enzyme-to-json'
+import { Formik } from 'formik'
 
 const props: CheckboxProps = {
   id: 'test',
@@ -12,20 +11,9 @@ const props: CheckboxProps = {
 
 describe('Checkbox', () => {
   it('should match a snapshot', () => {
-    expect(toJson(shallow(<Checkbox {...props} />))).toMatchSnapshot()
-  })
-
-  it('should work when integrating with Formik', () => {
-    const wrapper = mount(
-      <Formik initialValues={{ test: false }} onSubmit={jest.fn()}>
-        {() => (
-          <Form>
-            <Checkbox {...props} />
-          </Form>
-        )}
-      </Formik>,
-    )
-    expect(wrapper.find('label')).toHaveLength(1)
+    expect(
+      render(<Formik initialValues={{}} onSubmit={jest.fn()} render={() => <Checkbox {...props} />} />),
+    ).toMatchSnapshot()
   })
 
   describe('handleOnCheckboxChange', () => {

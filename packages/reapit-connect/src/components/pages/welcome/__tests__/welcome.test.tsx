@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { Welcome, handleIsShowAgencyCloudSectionMemo } from '../welcome'
 import { ReapitConnectHook } from '@reapit/connect-session'
 
@@ -50,7 +50,7 @@ describe('Welcome', () => {
       connectSession: mockSession,
     }))
 
-    expect(shallow(<Welcome />)).toMatchSnapshot()
+    expect(render(<Welcome />)).toMatchSnapshot()
   })
 
   it('should match snapshot for developer', () => {
@@ -64,7 +64,7 @@ describe('Welcome', () => {
       },
     }))
 
-    expect(shallow(<Welcome />)).toMatchSnapshot()
+    expect(render(<Welcome />)).toMatchSnapshot()
   })
 
   it('should match snapshot for client', () => {
@@ -78,6 +78,6 @@ describe('Welcome', () => {
       },
     }))
 
-    expect(shallow(<Welcome />)).toMatchSnapshot()
+    expect(render(<Welcome />)).toMatchSnapshot()
   })
 })

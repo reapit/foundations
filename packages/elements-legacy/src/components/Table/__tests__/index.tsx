@@ -1,7 +1,6 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '@testing-library/react'
 import { Table, expanderColumn, addExpandableColumnToColumnsIfExpandableIsTrue } from '../index'
-import toJson from 'enzyme-to-json'
 
 describe('Table', () => {
   describe('addExpandableColumnToColumnsIfExpandableIsTrue', () => {
@@ -38,7 +37,7 @@ describe('Table', () => {
         accessor: 'lastName',
       },
     ]
-    expect(toJson(shallow(<Table data={data} columns={columns} loading={false} />))).toMatchSnapshot()
+    expect(render(<Table data={data} columns={columns} loading={false} />)).toMatchSnapshot()
   })
   it('should match a snapshot when LOADING true', () => {
     const data = [{ firstName: 'a', middleName: 'b', lastName: 'c' }]
@@ -56,7 +55,7 @@ describe('Table', () => {
         accessor: 'lastName',
       },
     ]
-    expect(toJson(shallow(<Table data={data} columns={columns} loading />))).toMatchSnapshot()
+    expect(render(<Table data={data} columns={columns} loading />)).toMatchSnapshot()
   })
   it('should match a snapshot when table is scrollable', () => {
     const data = [{ firstName: 'a', middleName: 'b', lastName: 'c' }]
@@ -74,6 +73,6 @@ describe('Table', () => {
         accessor: 'lastName',
       },
     ]
-    expect(toJson(shallow(<Table scrollable data={data} columns={columns} loading={false} />))).toMatchSnapshot()
+    expect(render(<Table scrollable data={data} columns={columns} loading={false} />)).toMatchSnapshot()
   })
 })

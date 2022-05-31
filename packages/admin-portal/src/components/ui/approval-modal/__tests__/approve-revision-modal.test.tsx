@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as ReactRedux from 'react-redux'
-import { mount } from 'enzyme'
+import { render } from '../../../../tests/react-testing'
 import configureStore from 'redux-mock-store'
 import {
   ApproveRevisionModal,
@@ -29,7 +29,7 @@ describe('ApproveRevisionModal', () => {
 
   it('should match a snapshot', () => {
     expect(
-      mount(
+      render(
         <ReactRedux.Provider store={store}>
           <ApproveRevisionModal {...props} />
         </ReactRedux.Provider>,

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { PrivateRouteWrapper } from '../private-route-wrapper'
 
 const locationMock = { pathname: '/test' }
@@ -19,6 +19,6 @@ jest.mock('@reapit/connect-session', () => ({
 
 describe('PrivateRouter', () => {
   it('should match a snapshot', () => {
-    expect(shallow(<PrivateRouteWrapper />)).toMatchSnapshot()
+    expect(render(<PrivateRouteWrapper />)).toMatchSnapshot()
   })
 })

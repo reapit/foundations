@@ -1,11 +1,11 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '@testing-library/react'
 import { ModalV2, ModalHeaderV2 } from '../index'
 
 describe('modal', () => {
   describe('Modal', () => {
     it('should match snapshot', () => {
-      const wrapper = shallow(
+      const wrapper = render(
         <ModalV2 visible={true}>
           <div>children</div>
         </ModalV2>,
@@ -15,7 +15,7 @@ describe('modal', () => {
   })
   describe('ModalHeaderV2', () => {
     it('should match snapshot', () => {
-      const wrapper = shallow(<ModalHeaderV2>ModalHeaderV2</ModalHeaderV2>)
+      const wrapper = render(<ModalHeaderV2>ModalHeaderV2</ModalHeaderV2>)
       expect(wrapper).toMatchSnapshot()
     })
   })

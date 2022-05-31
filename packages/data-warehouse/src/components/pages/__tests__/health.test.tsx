@@ -1,9 +1,9 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import Health from '../health'
 
 describe('Health', () => {
   it('should match a snapshot', () => {
-    expect(shallow(<Health />)).toMatchSnapshot()
+    expect(render(<Health />)).toMatchSnapshot()
   })
 })

@@ -1,13 +1,13 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '@testing-library/react'
 import { useModal, UseModal } from '../index'
 import { renderHook, act } from '@testing-library/react-hooks'
 
 describe('useModal', () => {
-  xit('should return UseModal type correctly', async () => {
+  it('should return UseModal type correctly', async () => {
     const { result } = renderHook<{}, UseModal>(() => useModal('some-div'))
 
-    expect(shallow(<result.current.Modal />)).toMatchSnapshot()
+    expect(render(<result.current.Modal />)).toMatchSnapshot()
 
     act(() => {
       result.current.openModal()

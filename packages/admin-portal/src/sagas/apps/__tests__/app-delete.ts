@@ -12,6 +12,9 @@ import { notification } from '@reapit/elements-legacy'
 
 jest.mock('@/services/apps')
 jest.mock('@reapit/elements')
+jest.mock('uuid', () => ({
+  v4: jest.fn(),
+}))
 
 const params: Action<string> = {
   data: '1',

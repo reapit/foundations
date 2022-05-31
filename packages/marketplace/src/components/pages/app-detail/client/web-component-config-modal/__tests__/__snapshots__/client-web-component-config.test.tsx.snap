@@ -1,103 +1,106 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`WebComponentConfig Should match snapshot 1`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <MemoryRouter
-    initialEntries={
-      Array [
-        Object {
-          "key": "appDetailsRoute",
-          "pathname": "/apps/:appid",
-        },
-      ]
-    }
-  >
-    <Router
-      history={
-        Object {
-          "action": "POP",
-          "block": [Function],
-          "canGo": [Function],
-          "createHref": [Function],
-          "entries": Array [
-            Object {
-              "hash": "",
-              "key": "appDetailsRoute",
-              "pathname": "/apps/:appid",
-              "search": "",
-            },
-          ],
-          "go": [Function],
-          "goBack": [Function],
-          "goForward": [Function],
-          "index": 0,
-          "length": 1,
-          "listen": [Function],
-          "location": Object {
-            "hash": "",
-            "key": "appDetailsRoute",
-            "pathname": "/apps/:appid",
-            "search": "",
-          },
-          "push": [Function],
-          "replace": [Function],
-        }
-      }
-    >
-      <WebComponentConfig>
-        <AppDetailSection
-          headerText="Settings"
-          isSidebar={true}
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ecbqyq6-el-snack-holder"
+      />
+      <div
+        class="content"
+        data-test=""
+      >
+        <h5
+          class="title is-5 mb-2"
+          id=""
         >
-          <Content
-            dataTest=""
-          >
-            <div
-              className="content"
-              data-test=""
-            >
-              <H5
-                className="mb-2"
-              >
-                <h5
-                  className="title is-5 mb-2"
-                  id=""
-                >
-                  Settings
-                </h5>
-              </H5>
-              <Button
-                fullWidth={true}
-                onClick={[Function]}
-                type="button"
-                variant="primary"
-              >
-                <button
-                  className="button is-fullwidth  is-primary "
-                  data-test=""
-                  disabled={false}
-                  onClick={[Function]}
-                  type="button"
-                >
-                  Configuration
-                </button>
-              </Button>
-            </div>
-          </Content>
-        </AppDetailSection>
-      </WebComponentConfig>
-    </Router>
-  </MemoryRouter>
-</Provider>
+          Settings
+        </h5>
+        <button
+          class="button is-fullwidth  is-primary "
+          data-test=""
+          type="button"
+        >
+          Configuration
+        </button>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6-el-snack-holder"
+    />
+    <div
+      class="content"
+      data-test=""
+    >
+      <h5
+        class="title is-5 mb-2"
+        id=""
+      >
+        Settings
+      </h5>
+      <button
+        class="button is-fullwidth  is-primary "
+        data-test=""
+        type="button"
+      >
+        Configuration
+      </button>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

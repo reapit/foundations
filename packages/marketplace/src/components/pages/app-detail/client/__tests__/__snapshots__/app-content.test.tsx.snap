@@ -1,79 +1,206 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ClientAppContent ClientAppContent - should match snapshot 1`] = `
-<Section
-  hasMargin={false}
-  hasPadding={false}
-  isFlex={true}
-  isFlexColumn={true}
->
-  <FadeIn>
-    <SummarySection
-      summary="vitae elementum curabitur vitae"
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ecbqyq6-el-snack-holder"
+      />
+      <section
+        class="section is-flex is-flex-column has-background"
+        data-test=""
+      >
+        <div
+          class="fvmt8oy-fade-in"
+        >
+          <div
+            class="content"
+            data-test=""
+          >
+            vitae elementum curabitur vitae
+          </div>
+          <div
+            class="columns is-multiline is-desktop flex-col-min-height"
+            data-test=""
+          >
+            <div
+              class="column is-half-desktop"
+              data-test=""
+            >
+              <div
+                class="content flex justify-center items-center"
+                data-test=""
+              >
+                <img
+                  alt=""
+                  src="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/65bd3b97-e78c-41cd-b75f-e06e1d2f00df.png"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="content html-render"
+            data-test=""
+          >
+            enim facilisis
+          </div>
+          <div
+            class="content"
+            data-test=""
+          >
+            <h5
+              class="title is-5"
+              id=""
+            >
+              Permissions required
+            </h5>
+            <div
+              class="columns is-multiline"
+              data-test=""
+            >
+              <div
+                class="column is-multiline is-full-mobile is-half-tablet is-one-third-widescreen is-one-quarter-fullhd"
+                data-test=""
+              >
+                Read data about developers
+              </div>
+              <div
+                class="column is-multiline is-full-mobile is-half-tablet is-one-third-widescreen is-one-quarter-fullhd"
+                data-test=""
+              >
+                Write data about developers
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6-el-snack-holder"
     />
-    <AdditionalImagesSection
-      images={
-        Array [
-          Object {
-            "description": "Application Icon",
-            "type": "icon",
-            "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/7d88729f-2366-4561-9d5c-282615f3946b.jpeg",
-          },
-          Object {
-            "description": "Application Image",
-            "type": "image",
-            "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/c4a36706-aa44-47f9-9fb6-9053eef4e581.png",
-          },
-          Object {
-            "description": "Application Image",
-            "type": "image",
-            "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/65bd3b97-e78c-41cd-b75f-e06e1d2f00df.png",
-          },
-        ]
-      }
-      numberImages={2}
-      splitIndex={1}
-    />
-    <DescriptionSection
-      description="enim facilisis"
-    />
-    <AdditionalImagesSection
-      images={
-        Array [
-          Object {
-            "description": "Application Icon",
-            "type": "icon",
-            "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/7d88729f-2366-4561-9d5c-282615f3946b.jpeg",
-          },
-          Object {
-            "description": "Application Image",
-            "type": "image",
-            "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/c4a36706-aa44-47f9-9fb6-9053eef4e581.png",
-          },
-          Object {
-            "description": "Application Image",
-            "type": "image",
-            "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/65bd3b97-e78c-41cd-b75f-e06e1d2f00df.png",
-          },
-        ]
-      }
-      numberImages={2}
-      splitIndex={3}
-    />
-    <PermissionsSection
-      permissions={
-        Array [
-          Object {
-            "description": "Read data about developers",
-            "name": "Marketplace/developers.read",
-          },
-          Object {
-            "description": "Write data about developers",
-            "name": "Marketplace/developers.write",
-          },
-        ]
-      }
-    />
-  </FadeIn>
-</Section>
+    <section
+      class="section is-flex is-flex-column has-background"
+      data-test=""
+    >
+      <div
+        class="fvmt8oy-fade-in"
+      >
+        <div
+          class="content"
+          data-test=""
+        >
+          vitae elementum curabitur vitae
+        </div>
+        <div
+          class="columns is-multiline is-desktop flex-col-min-height"
+          data-test=""
+        >
+          <div
+            class="column is-half-desktop"
+            data-test=""
+          >
+            <div
+              class="content flex justify-center items-center"
+              data-test=""
+            >
+              <img
+                alt=""
+                src="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/65bd3b97-e78c-41cd-b75f-e06e1d2f00df.png"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="content html-render"
+          data-test=""
+        >
+          enim facilisis
+        </div>
+        <div
+          class="content"
+          data-test=""
+        >
+          <h5
+            class="title is-5"
+            id=""
+          >
+            Permissions required
+          </h5>
+          <div
+            class="columns is-multiline"
+            data-test=""
+          >
+            <div
+              class="column is-multiline is-full-mobile is-half-tablet is-one-third-widescreen is-one-quarter-fullhd"
+              data-test=""
+            >
+              Read data about developers
+            </div>
+            <div
+              class="column is-multiline is-full-mobile is-half-tablet is-one-third-widescreen is-one-quarter-fullhd"
+              data-test=""
+            >
+              Write data about developers
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

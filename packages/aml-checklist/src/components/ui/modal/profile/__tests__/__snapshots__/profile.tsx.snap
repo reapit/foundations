@@ -1,273 +1,564 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[` 1`] = `
-<div>
-  <Formik
-    initialValues={
-      Object {
-        "dateOfBirth": "2019-12-12",
-        "email": "sad@gmail.com",
-        "forename": "H",
-        "homePhone": "asd",
-        "mobilePhone": "asd",
-        "surname": "Phillips",
-        "title": "Mrs",
-        "workPhone": "asd",
-      }
-    }
-    onSubmit={[Function]}
-    validateOnMount={true}
-    validationSchema={
-      ObjectSchema {
-        "_blacklist": ReferenceSet {
-          "list": Set {},
-          "refs": Map {},
-        },
-        "_blacklistError": undefined,
-        "_excludedEdges": Array [],
-        "_nodes": Array [
-          "workPhone",
-          "mobilePhone",
-          "homePhone",
-          "email",
-          "surname",
-          "forename",
-          "title",
-        ],
-        "_sortErrors": [Function],
-        "_typeError": [Function],
-        "_whitelist": ReferenceSet {
-          "list": Set {},
-          "refs": Map {},
-        },
-        "_whitelistError": undefined,
-        "conditions": Array [],
-        "deps": Array [],
-        "exclusiveTests": Object {},
-        "fields": Object {
-          "email": StringSchema {
-            "_blacklist": ReferenceSet {
-              "list": Set {},
-              "refs": Map {},
-            },
-            "_blacklistError": undefined,
-            "_typeError": [Function],
-            "_whitelist": ReferenceSet {
-              "list": Set {},
-              "refs": Map {},
-            },
-            "_whitelistError": undefined,
-            "conditions": Array [],
-            "deps": Array [],
-            "exclusiveTests": Object {
-              "email": false,
-              "required": true,
-              "trim": false,
-            },
-            "spec": Object {
-              "abortEarly": true,
-              "nullable": false,
-              "presence": "required",
-              "recursive": true,
-              "strict": false,
-              "strip": false,
-            },
-            "tests": Array [
-              [Function],
-              [Function],
-              [Function],
-            ],
-            "transforms": Array [
-              [Function],
-              [Function],
-            ],
-            "type": "string",
-          },
-          "forename": StringSchema {
-            "_blacklist": ReferenceSet {
-              "list": Set {},
-              "refs": Map {},
-            },
-            "_blacklistError": undefined,
-            "_mutate": undefined,
-            "_typeError": [Function],
-            "_whitelist": ReferenceSet {
-              "list": Set {},
-              "refs": Map {},
-            },
-            "_whitelistError": undefined,
-            "conditions": Array [],
-            "deps": Array [],
-            "exclusiveTests": Object {
-              "required": true,
-              "trim": false,
-            },
-            "spec": Object {
-              "abortEarly": true,
-              "nullable": false,
-              "presence": "required",
-              "recursive": true,
-              "strict": false,
-              "strip": false,
-            },
-            "tests": Array [
-              [Function],
-              [Function],
-            ],
-            "transforms": Array [
-              [Function],
-              [Function],
-            ],
-            "type": "string",
-          },
-          "homePhone": StringSchema {
-            "_blacklist": ReferenceSet {
-              "list": Set {},
-              "refs": Map {},
-            },
-            "_blacklistError": undefined,
-            "_typeError": [Function],
-            "_whitelist": ReferenceSet {
-              "list": Set {},
-              "refs": Map {},
-            },
-            "_whitelistError": undefined,
-            "conditions": Array [
-              Condition {
-                "fn": [Function],
-                "refs": Array [
-                  Reference {
-                    "getter": [Function],
-                    "isContext": false,
-                    "isSibling": true,
-                    "isValue": false,
-                    "key": "mobilePhone",
-                    "map": undefined,
-                    "path": "mobilePhone",
-                  },
-                  Reference {
-                    "getter": [Function],
-                    "isContext": false,
-                    "isSibling": true,
-                    "isValue": false,
-                    "key": "workPhone",
-                    "map": undefined,
-                    "path": "workPhone",
-                  },
-                ],
-              },
-            ],
-            "deps": Array [
-              "mobilePhone",
-              "workPhone",
-            ],
-            "exclusiveTests": Object {},
-            "spec": Object {
-              "abortEarly": true,
-              "nullable": true,
-              "presence": "optional",
-              "recursive": true,
-              "strict": false,
-              "strip": false,
-            },
-            "tests": Array [],
-            "transforms": Array [
-              [Function],
-            ],
-            "type": "string",
-          },
-          "surname": StringSchema {
-            "_blacklist": ReferenceSet {
-              "list": Set {},
-              "refs": Map {},
-            },
-            "_blacklistError": undefined,
-            "_mutate": undefined,
-            "_typeError": [Function],
-            "_whitelist": ReferenceSet {
-              "list": Set {},
-              "refs": Map {},
-            },
-            "_whitelistError": undefined,
-            "conditions": Array [],
-            "deps": Array [],
-            "exclusiveTests": Object {
-              "required": true,
-              "trim": false,
-            },
-            "spec": Object {
-              "abortEarly": true,
-              "nullable": false,
-              "presence": "required",
-              "recursive": true,
-              "strict": false,
-              "strip": false,
-            },
-            "tests": Array [
-              [Function],
-              [Function],
-            ],
-            "transforms": Array [
-              [Function],
-              [Function],
-            ],
-            "type": "string",
-          },
-          "title": StringSchema {
-            "_blacklist": ReferenceSet {
-              "list": Set {},
-              "refs": Map {},
-            },
-            "_blacklistError": undefined,
-            "_mutate": undefined,
-            "_typeError": [Function],
-            "_whitelist": ReferenceSet {
-              "list": Set {},
-              "refs": Map {},
-            },
-            "_whitelistError": undefined,
-            "conditions": Array [],
-            "deps": Array [],
-            "exclusiveTests": Object {
-              "required": true,
-              "trim": false,
-            },
-            "spec": Object {
-              "abortEarly": true,
-              "nullable": false,
-              "presence": "required",
-              "recursive": true,
-              "strict": false,
-              "strip": false,
-            },
-            "tests": Array [
-              [Function],
-              [Function],
-            ],
-            "transforms": Array [
-              [Function],
-              [Function],
-            ],
-            "type": "string",
-          },
-        },
-        "spec": Object {
-          "abortEarly": true,
-          "nullable": false,
-          "presence": "optional",
-          "recursive": true,
-          "strict": false,
-          "strip": false,
-        },
-        "tests": Array [],
-        "transforms": Array [
-          [Function],
-        ],
-        "type": "object",
-      }
-    }
-  >
-    <Component />
-  </Formik>
-</div>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <div>
+        <form
+          action="#"
+        >
+          <section
+            class="section has-margin has-background"
+            data-test=""
+          >
+            <div
+              class="field"
+            >
+              <div
+                class="control "
+              >
+                <label
+                  class="label inline-block "
+                  for="title"
+                >
+                  Title
+                </label>
+                <input
+                  class="input is-primary"
+                  data-test=""
+                  id="title"
+                  name="title"
+                  placeholder=""
+                  type="text"
+                  value="Mrs"
+                />
+              </div>
+            </div>
+            <div
+              class="field"
+            >
+              <div
+                class="control "
+              >
+                <label
+                  class="label inline-block "
+                  for="forename"
+                >
+                  Forename
+                </label>
+                <input
+                  class="input is-primary"
+                  data-test=""
+                  id="forename"
+                  name="forename"
+                  placeholder=""
+                  type="text"
+                  value="H"
+                />
+              </div>
+            </div>
+            <div
+              class="field"
+            >
+              <div
+                class="control "
+              >
+                <label
+                  class="label inline-block "
+                  for="surname"
+                >
+                  Surname
+                </label>
+                <input
+                  class="input is-primary"
+                  data-test=""
+                  id="surname"
+                  name="surname"
+                  placeholder=""
+                  type="text"
+                  value="Phillips"
+                />
+              </div>
+            </div>
+            <div
+              class="field"
+            >
+              <div
+                class="control "
+              >
+                <label
+                  class="label inline-block "
+                  for="dateOfBirth"
+                >
+                  Date Of Birth
+                </label>
+                <input
+                  class="input is-primary"
+                  data-test=""
+                  id="dateOfBirth"
+                  name="dateOfBirth"
+                  placeholder=""
+                  type="date"
+                  value="2019-12-12"
+                />
+              </div>
+            </div>
+            <p
+              class="is-size-6"
+            >
+              * At least one telephone number is required
+            </p>
+            <div
+              class="field"
+            >
+              <div
+                class="control "
+              >
+                <label
+                  class="label inline-block "
+                  for="homePhone"
+                >
+                  Home
+                </label>
+                <input
+                  class="input is-primary"
+                  data-test=""
+                  id="homePhone"
+                  name="homePhone"
+                  placeholder=""
+                  type="text"
+                  value="asd"
+                />
+              </div>
+            </div>
+            <div
+              class="field"
+            >
+              <div
+                class="control "
+              >
+                <label
+                  class="label inline-block "
+                  for="mobilePhone"
+                >
+                  Mobile
+                </label>
+                <input
+                  class="input is-primary"
+                  data-test=""
+                  id="mobilePhone"
+                  name="mobilePhone"
+                  placeholder=""
+                  type="text"
+                  value="asd"
+                />
+              </div>
+            </div>
+            <div
+              class="field"
+            >
+              <div
+                class="control "
+              >
+                <label
+                  class="label inline-block "
+                  for="workPhone"
+                >
+                  Work
+                </label>
+                <input
+                  class="input is-primary"
+                  data-test=""
+                  id="workPhone"
+                  name="workPhone"
+                  placeholder=""
+                  type="text"
+                  value="asd"
+                />
+              </div>
+            </div>
+            <div
+              class="field"
+            >
+              <div
+                class="control "
+              >
+                <label
+                  class="label inline-block "
+                  for="email"
+                >
+                  Email
+                </label>
+                <input
+                  class="input is-primary"
+                  data-test=""
+                  id="email"
+                  name="email"
+                  placeholder=""
+                  type="email"
+                  value="sad@gmail.com"
+                />
+              </div>
+            </div>
+          </section>
+          <div
+            class="field pb-4"
+          >
+            <div
+              class="columns undefined"
+            >
+              <div
+                class="column"
+              >
+                <div
+                  class="undefined flex items-center"
+                >
+                  <span>
+                    RPS Ref:
+                  </span>
+                  <span
+                    class="ml-1"
+                  >
+                    AYL19000001
+                  </span>
+                </div>
+              </div>
+              <div
+                class="is-centered buttons mx-auto"
+              >
+                <button
+                  class="button   is-success mr-2"
+                  data-test=""
+                  type="submit"
+                >
+                  Save
+                </button>
+                <button
+                  class="button   is-primary "
+                  data-test="submit-revision-modal-edit-button"
+                  type="button"
+                >
+                  Next
+                </button>
+              </div>
+            </div>
+          </div>
+          <p
+            class="is-size-6"
+          >
+            * Indicates fields that are required in order to ‘Complete’ this section.
+          </p>
+        </form>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <div>
+      <form
+        action="#"
+      >
+        <section
+          class="section has-margin has-background"
+          data-test=""
+        >
+          <div
+            class="field"
+          >
+            <div
+              class="control "
+            >
+              <label
+                class="label inline-block "
+                for="title"
+              >
+                Title
+              </label>
+              <input
+                class="input is-primary"
+                data-test=""
+                id="title"
+                name="title"
+                placeholder=""
+                type="text"
+                value="Mrs"
+              />
+            </div>
+          </div>
+          <div
+            class="field"
+          >
+            <div
+              class="control "
+            >
+              <label
+                class="label inline-block "
+                for="forename"
+              >
+                Forename
+              </label>
+              <input
+                class="input is-primary"
+                data-test=""
+                id="forename"
+                name="forename"
+                placeholder=""
+                type="text"
+                value="H"
+              />
+            </div>
+          </div>
+          <div
+            class="field"
+          >
+            <div
+              class="control "
+            >
+              <label
+                class="label inline-block "
+                for="surname"
+              >
+                Surname
+              </label>
+              <input
+                class="input is-primary"
+                data-test=""
+                id="surname"
+                name="surname"
+                placeholder=""
+                type="text"
+                value="Phillips"
+              />
+            </div>
+          </div>
+          <div
+            class="field"
+          >
+            <div
+              class="control "
+            >
+              <label
+                class="label inline-block "
+                for="dateOfBirth"
+              >
+                Date Of Birth
+              </label>
+              <input
+                class="input is-primary"
+                data-test=""
+                id="dateOfBirth"
+                name="dateOfBirth"
+                placeholder=""
+                type="date"
+                value="2019-12-12"
+              />
+            </div>
+          </div>
+          <p
+            class="is-size-6"
+          >
+            * At least one telephone number is required
+          </p>
+          <div
+            class="field"
+          >
+            <div
+              class="control "
+            >
+              <label
+                class="label inline-block "
+                for="homePhone"
+              >
+                Home
+              </label>
+              <input
+                class="input is-primary"
+                data-test=""
+                id="homePhone"
+                name="homePhone"
+                placeholder=""
+                type="text"
+                value="asd"
+              />
+            </div>
+          </div>
+          <div
+            class="field"
+          >
+            <div
+              class="control "
+            >
+              <label
+                class="label inline-block "
+                for="mobilePhone"
+              >
+                Mobile
+              </label>
+              <input
+                class="input is-primary"
+                data-test=""
+                id="mobilePhone"
+                name="mobilePhone"
+                placeholder=""
+                type="text"
+                value="asd"
+              />
+            </div>
+          </div>
+          <div
+            class="field"
+          >
+            <div
+              class="control "
+            >
+              <label
+                class="label inline-block "
+                for="workPhone"
+              >
+                Work
+              </label>
+              <input
+                class="input is-primary"
+                data-test=""
+                id="workPhone"
+                name="workPhone"
+                placeholder=""
+                type="text"
+                value="asd"
+              />
+            </div>
+          </div>
+          <div
+            class="field"
+          >
+            <div
+              class="control "
+            >
+              <label
+                class="label inline-block "
+                for="email"
+              >
+                Email
+              </label>
+              <input
+                class="input is-primary"
+                data-test=""
+                id="email"
+                name="email"
+                placeholder=""
+                type="email"
+                value="sad@gmail.com"
+              />
+            </div>
+          </div>
+        </section>
+        <div
+          class="field pb-4"
+        >
+          <div
+            class="columns undefined"
+          >
+            <div
+              class="column"
+            >
+              <div
+                class="undefined flex items-center"
+              >
+                <span>
+                  RPS Ref:
+                </span>
+                <span
+                  class="ml-1"
+                >
+                  AYL19000001
+                </span>
+              </div>
+            </div>
+            <div
+              class="is-centered buttons mx-auto"
+            >
+              <button
+                class="button   is-success mr-2"
+                data-test=""
+                type="submit"
+              >
+                Save
+              </button>
+              <button
+                class="button   is-primary "
+                data-test="submit-revision-modal-edit-button"
+                type="button"
+              >
+                Next
+              </button>
+            </div>
+          </div>
+        </div>
+        <p
+          class="is-size-6"
+        >
+          * Indicates fields that are required in order to ‘Complete’ this section.
+        </p>
+      </form>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

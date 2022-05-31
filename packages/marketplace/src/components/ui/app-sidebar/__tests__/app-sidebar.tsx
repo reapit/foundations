@@ -1,10 +1,10 @@
 import * as React from 'react'
-import { shallow, mount } from 'enzyme'
+import { render } from '../../../../tests/react-testing'
 import { AppSidebar, FilterForm, handleSelectCategory, handleSearchApp } from '../app-sidebar'
 import { FormFields, formFields } from '../form-fields'
 import { addQuery, removeQuery } from '@/utils/client-url-params'
 import { selectCategories } from '@/selector/categories'
-import { FormikProps } from '@reapit/elements-legacy'
+import { Formik, FormikProps } from '@reapit/elements-legacy'
 import { useHistory, useLocation } from 'react-router'
 import { useSelector } from 'react-redux'
 import { CategoryModel } from '@reapit/foundations-ts-definitions'
@@ -44,11 +44,11 @@ describe('AppSidebar', () => {
   })
   ;(useSelector as jest.Mocked<any>).mockImplementation(() => categoriesStub.data as CategoryModel[])
   it('should match a snapshot', () => {
-    expect(shallow(<AppSidebar />)).toMatchSnapshot()
+    expect(render(<AppSidebar />)).toMatchSnapshot()
   })
 
   it('should call all hooks correctly', () => {
-    mount(<AppSidebar />)
+    render(<AppSidebar />)
     expect(useHistory).toHaveBeenCalled()
     expect(useLocation).toHaveBeenCalled()
     expect(useSelector).toHaveBeenCalledWith(selectCategories)
@@ -63,7 +63,9 @@ describe('FilterForm', () => {
     },
   } as FormikProps<FormFields>
   it('should match a snapshot', () => {
-    expect(shallow(<FilterForm {...props} />)).toMatchSnapshot()
+    expect(
+      render(<Formik initialValues={{}} onSubmit={jest.fn()} render={() => <FilterForm {...props} />} />),
+    ).toMatchSnapshot()
   })
 })
 

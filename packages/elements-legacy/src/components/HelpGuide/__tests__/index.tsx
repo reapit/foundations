@@ -1,11 +1,11 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '@testing-library/react'
 import { HelpGuide, handleGoNext, handleGoPrev, handleGoTo, renderTimeline, NavigationProps } from '..'
 
 describe('HelpGuide', () => {
   it('should match a snapshot', () => {
     expect(
-      shallow(
+      render(
         <HelpGuide>
           <HelpGuide.Step id="step-1" component={() => <div className="step-1">Step 1</div>}></HelpGuide.Step>
           <HelpGuide.Step id="step-2" component={() => <div className="step-2">Step 2</div>}></HelpGuide.Step>
@@ -19,7 +19,7 @@ describe('HelpGuide', () => {
   describe('HelpGuide.Step', () => {
     it('should match a snapshot', () => {
       expect(
-        shallow(<HelpGuide.Step id="step-3" component={() => <div className="step-3">Step 3</div>} />),
+        render(<HelpGuide.Step id="step-3" component={() => <div className="step-3">Step 3</div>} />),
       ).toMatchSnapshot()
     })
   })

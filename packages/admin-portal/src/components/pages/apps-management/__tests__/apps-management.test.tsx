@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow, mount } from 'enzyme'
+import { render } from '../../../../tests/react-testing'
 import configureStore from 'redux-mock-store'
 import * as ReactRedux from 'react-redux'
 import { MemoryRouter } from 'react-router'
@@ -9,7 +9,6 @@ import {
   renderIsFeature,
   renderForm,
   handleCloseAppDeleteModal,
-  generateColumns,
   renderCreatedAt,
   renderDeleteAction,
   refreshForm,
@@ -22,6 +21,10 @@ import {
 import Routes from '@/constants/routes'
 import appState from '@/reducers/__stubs__/app-state'
 import { setDeleteAppInitFormState } from '@/actions/app-delete'
+
+jest.mock('uuid', () => ({
+  v4: jest.fn(),
+}))
 
 describe('admin-apps', () => {
   describe('renderIsFeature', () => {
@@ -38,7 +41,7 @@ describe('admin-apps', () => {
   describe('renderCreatedAt', () => {
     it('should match snapshot', () => {
       const cell = { value: '2020-01-01T00:00:00Z' }
-      const wrapper = shallow(<div>{renderCreatedAt({ cell })}</div>)
+      const wrapper = render(<div>{renderCreatedAt({ cell })}</div>)
       expect(wrapper).toMatchSnapshot()
     })
   })
@@ -59,62 +62,7 @@ describe('admin-apps', () => {
           appName: 'mockAppName',
         },
       }
-      const wrapper = shallow(<div>{fn({ row })}</div>)
-      expect(wrapper).toMatchSnapshot()
-    })
-
-    it('should call delete action', () => {
-      const setDataDeleteModal = jest.fn()
-      const deleteModalData = {
-        visible: true,
-        appId: '123',
-        appName: '123',
-        developerName: '123',
-      }
-      const fn = renderDeleteAction({ deleteModalData, setDataDeleteModal })
-      const row = {
-        original: {
-          id: '123',
-          appName: 'mockAppName',
-        },
-      }
-      const wrapper = mount(<div>{fn({ row })}</div>)
-      const button = wrapper.find('button')
-      button.simulate('click')
-      expect(setDataDeleteModal).toBeCalled()
-      expect(wrapper).toMatchSnapshot()
-    })
-  })
-
-  describe('generateColumns', () => {
-    window.reapit.config.limitedUserAccessWhitelist = []
-    it('should match snapshot', () => {
-      const dispatch = jest.fn()
-      const setDataDeleteModal = jest.fn()
-      const hasLimitedAccess = false
-      const deleteModalData = {
-        visible: true,
-        appId: '123',
-        appName: '123',
-        developerName: '123',
-      }
-      const fn = generateColumns({ dispatch, setDataDeleteModal, deleteModalData, hasLimitedAccess })
-      const wrapper = shallow(<div>{fn()}</div>)
-      expect(wrapper).toMatchSnapshot()
-    })
-
-    it('should match snapshot if the user has limited access', () => {
-      const dispatch = jest.fn()
-      const setDataDeleteModal = jest.fn()
-      const hasLimitedAccess = true
-      const deleteModalData = {
-        visible: true,
-        appId: '123',
-        appName: '123',
-        developerName: '123',
-      }
-      const fn = generateColumns({ dispatch, setDataDeleteModal, deleteModalData, hasLimitedAccess })
-      const wrapper = shallow(<div>{fn()}</div>)
+      const wrapper = render(<div>{fn({ row })}</div>)
       expect(wrapper).toMatchSnapshot()
     })
   })
@@ -176,7 +124,7 @@ describe('admin-apps', () => {
 
   describe('renderContent', () => {
     const mockProps = {
-      adminAppsData: appsDataStub,
+      adminAppsData: appsDataStub.data,
       columns: [
         {
           Header: 'AppID',
@@ -213,11 +161,12 @@ describe('admin-apps', () => {
         },
       ],
     }
-    const wrapper = shallow(<div>{renderContent(mockProps)}</div>)
+    const wrapper = render(<div>{renderContent(mockProps)}</div>)
     expect(wrapper).toMatchSnapshot()
   })
 
   describe('AdminApprovals', () => {
+    window.reapit.config.limitedUserAccessWhitelist = []
     let store
     beforeEach(() => {
       const mockStore = configureStore()
@@ -225,7 +174,7 @@ describe('admin-apps', () => {
     })
     it('should match a snapshot', () => {
       expect(
-        mount(
+        render(
           <ReactRedux.Provider store={store}>
             <MemoryRouter initialEntries={[{ pathname: Routes.APPROVALS, key: 'adminApps' }]}>
               <AppsManagement />
@@ -238,11 +187,11 @@ describe('admin-apps', () => {
 
   describe('renderChecked', () => {
     it('should return checked icon', () => {
-      expect(shallow(<div>{renderChecked({ cell: { value: true } })}</div>)).toMatchSnapshot()
+      expect(render(<div>{renderChecked({ cell: { value: true } })}</div>)).toMatchSnapshot()
     })
 
     it('should return null', () => {
-      expect(shallow(<div>{renderChecked({ cell: { value: false } })}</div>)).toMatchSnapshot()
+      expect(render(<div>{renderChecked({ cell: { value: false } })}</div>)).toMatchSnapshot()
     })
   })
 })

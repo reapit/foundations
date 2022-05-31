@@ -1,14 +1,16 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../../tests/react-testing'
 import { appointment } from '@/graphql/__mocks__/appointment'
 import { AppointmentList } from '../appointment-list'
+
+jest.mock('../../../../core/app-state')
 
 describe('AppointmentList', () => {
   it('should match snapshot with appointments', () => {
     const mockProps = {
       appointments: [appointment],
     }
-    const wrapper = shallow(<AppointmentList {...mockProps} />)
+    const wrapper = render(<AppointmentList {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
   })
 
@@ -16,7 +18,7 @@ describe('AppointmentList', () => {
     const mockProps = {
       appointments: [],
     }
-    const wrapper = shallow(<AppointmentList {...mockProps} />)
+    const wrapper = render(<AppointmentList {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
   })
 })

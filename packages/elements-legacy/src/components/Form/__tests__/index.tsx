@@ -1,6 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
-import toJson from 'enzyme-to-json'
+import { render } from '@testing-library/react'
 import { FormHeading, FormSubHeading, FormSection } from '../index'
 import { Grid, GridItem, FlexContainerBasic } from '../../Layout'
 import { Formik, Form } from 'formik'
@@ -105,11 +104,11 @@ const FormExample: React.FC = () => (
 
 describe('LayoutComponents', () => {
   it('should match a snapshot for an example form', () => {
-    expect(toJson(shallow(<FormExample />))).toMatchSnapshot()
+    expect(render(<FormExample />)).toMatchSnapshot()
   })
   describe('FormHeading', () => {
     it('should match snapshot', () => {
-      const wrapper = shallow(
+      const wrapper = render(
         <FormHeading className="mockClassName">
           <div>mockChildren</div>
         </FormHeading>,
@@ -120,7 +119,7 @@ describe('LayoutComponents', () => {
 
   describe('FormSubHeading', () => {
     it('should match snapshot', () => {
-      const wrapper = shallow(
+      const wrapper = render(
         <FormSubHeading className="mockClassName">
           <div>mockChildren</div>
         </FormSubHeading>,
@@ -131,7 +130,7 @@ describe('LayoutComponents', () => {
 
   describe('FormSection', () => {
     it('should match snapshot', () => {
-      const wrapper = shallow(
+      const wrapper = render(
         <FormSection className="mockClassName">
           <div>mockChildren</div>
         </FormSection>,

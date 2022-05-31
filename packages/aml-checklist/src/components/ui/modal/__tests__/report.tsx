@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../../tests/react-testing'
 import { ReportContainer, handleContent, handleTrigger, mapStateToProps, mapDispatchToProps } from '../report'
 import { contact } from '@/sagas/__stubs__/contact'
 import { ReduxState } from '@/types/core'
@@ -10,7 +10,7 @@ import { identityTypes } from '@/sagas/__stubs__/identity-types'
 
 describe('ReportContainer', () => {
   it('should match snapshot', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <ReportContainer contact={contact} idCheck={idCheck} status={sectionsStatus} identityTypes={identityTypes} />,
     )
     expect(wrapper).toMatchSnapshot()
@@ -27,7 +27,7 @@ describe('ReportContainer', () => {
 
   it('handleTrigger', () => {
     const component = handleTrigger()
-    const wrapper = shallow(<div>{component}</div>)
+    const wrapper = render(<div>{component}</div>)
     expect(wrapper).toMatchSnapshot()
   })
 

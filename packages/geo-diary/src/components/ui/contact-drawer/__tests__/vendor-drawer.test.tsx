@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../../tests/react-testing'
 import { VendorDrawer } from '../vendor-drawer'
 import { mockAppointmentsQuery } from '../../../pages/appointment/__mocks__/appointments-query'
 import { ExtendedAppointmentModel } from '../../../../types/global'
@@ -13,7 +13,7 @@ jest.mock('../../../../core/app-state')
 
 describe('VendorDrawer', () => {
   it('should match snapshot without vendors in state', () => {
-    expect(shallow(<VendorDrawer />)).toMatchSnapshot()
+    expect(render(<VendorDrawer />)).toMatchSnapshot()
   })
 
   it('should match snapshot with vendors in state and an AML app', () => {
@@ -28,6 +28,6 @@ describe('VendorDrawer', () => {
       setAppState: jest.fn(),
     }))
 
-    expect(shallow(<VendorDrawer />)).toMatchSnapshot()
+    expect(render(<VendorDrawer />)).toMatchSnapshot()
   })
 })

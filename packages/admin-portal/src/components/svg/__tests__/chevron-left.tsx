@@ -1,10 +1,10 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import ChevronLeft from '../chevron-left'
 
 describe('ChevronLeft', () => {
   it('should match snapshot', () => {
-    const wrapper = shallow(<ChevronLeft />)
+    const wrapper = render(<ChevronLeft />)
     expect(wrapper).toMatchSnapshot()
   })
 })

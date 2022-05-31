@@ -1,6 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
-import toJson from 'enzyme-to-json'
+import { render } from '@testing-library/react'
 import { Tile } from '../index'
 
 describe('Tile', () => {
@@ -9,7 +8,7 @@ describe('Tile', () => {
       heading: 'mockHeading',
       hightlight: false,
     }
-    const wrapper = shallow(
+    const wrapper = render(
       <Tile {...mockProps}>
         <div>City</div>
         <div>Country</div>
@@ -17,7 +16,7 @@ describe('Tile', () => {
         <div>contactPerson</div>
       </Tile>,
     )
-    expect(toJson(wrapper)).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot()
   })
 
   it('should match snapshot when HIGHTLIGHT true', () => {
@@ -25,7 +24,7 @@ describe('Tile', () => {
       heading: 'mockHeading',
       hightlight: true,
     }
-    const wrapper = shallow(
+    const wrapper = render(
       <Tile {...mockProps}>
         <div>City</div>
         <div>Country</div>
@@ -33,6 +32,6 @@ describe('Tile', () => {
         <div>contactPerson</div>
       </Tile>,
     )
-    expect(toJson(wrapper)).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot()
   })
 })

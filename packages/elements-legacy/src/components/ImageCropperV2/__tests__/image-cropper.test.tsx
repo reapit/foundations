@@ -1,6 +1,7 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '@testing-library/react'
 import { ImageCropper, ImageCropperWithInput, renderChildrenWithProps } from '../'
+import { Formik } from 'formik'
 
 describe('ImageCropper', () => {
   it('should match snapshots with multiple conditions', () => {
@@ -15,7 +16,7 @@ describe('ImageCropper', () => {
       onCropClick: jest.fn(),
       aspect: 16 / 9,
     }
-    const wrapper1 = shallow(<ImageCropper {...props1} />)
+    const wrapper1 = render(<ImageCropper {...props1} />)
     expect(wrapper1).toMatchSnapshot()
 
     const props2 = {
@@ -24,7 +25,9 @@ describe('ImageCropper', () => {
       visible: false,
       children: <div>value</div>,
     }
-    const wrapper2 = shallow(<ImageCropper {...props2} />)
+    const wrapper2 = render(
+      <Formik initialValues={{}} onSubmit={jest.fn()} render={() => <ImageCropper {...props2} />} />,
+    )
     expect(wrapper2).toMatchSnapshot()
   })
 })
@@ -36,14 +39,18 @@ describe('ImageCropperWithInput', () => {
       name: 'inputImage',
       labelText: 'input image',
     }
-    const wrapper1 = shallow(<ImageCropperWithInput {...props1} />)
+    const wrapper1 = render(
+      <Formik initialValues={{}} onSubmit={jest.fn()} render={() => <ImageCropperWithInput {...props1} />} />,
+    )
     expect(wrapper1).toMatchSnapshot()
 
     const props2 = {
       ...props1,
       aspect: undefined,
     }
-    const wrapper2 = shallow(<ImageCropperWithInput {...props2} />)
+    const wrapper2 = render(
+      <Formik initialValues={{}} onSubmit={jest.fn()} render={() => <ImageCropperWithInput {...props2} />} />,
+    )
     expect(wrapper2).toMatchSnapshot()
   })
 })
@@ -56,14 +63,14 @@ describe('renderChildrenWithProps', () => {
         value: 'value',
       },
     }
-    const wrapper1 = shallow(<div>{renderChildrenWithProps(props1.children, props1.props)}</div>)
+    const wrapper1 = render(<div>{renderChildrenWithProps(props1.children, props1.props)}</div>)
     expect(wrapper1).toMatchSnapshot()
 
     const props2 = {
       ...props1,
       children: undefined,
     }
-    const wrapper2 = shallow(<div>{renderChildrenWithProps(props2.children, props2.props)}</div>)
+    const wrapper2 = render(<div>{renderChildrenWithProps(props2.children, props2.props)}</div>)
     expect(wrapper2).toMatchSnapshot()
   })
 })

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow, mount } from 'enzyme'
+import { render } from '../../../../tests/react-testing'
 import configureStore from 'redux-mock-store'
 import * as ReactRedux from 'react-redux'
 import { MemoryRouter } from 'react-router'
@@ -57,13 +57,13 @@ describe('admin-approvals', () => {
       },
     ]
     it('should match snapshot', () => {
-      const wrapper = shallow(
+      const wrapper = render(
         <Content loading={false} waitingApprovalList={approvalsStub.data.data || []} tableColumns={mockTableColumns} />,
       )
       expect(wrapper).toMatchSnapshot()
     })
     it('should match snapshot', () => {
-      const wrapper = shallow(<Content loading={true} waitingApprovalList={[]} tableColumns={mockTableColumns} />)
+      const wrapper = render(<Content loading={true} waitingApprovalList={[]} tableColumns={mockTableColumns} />)
       expect(wrapper).toMatchSnapshot()
     })
   })
@@ -73,7 +73,7 @@ describe('admin-approvals', () => {
       const input = {
         page: 1,
       }
-      const wrapper = shallow(<div>{renderId(input)}</div>)
+      const wrapper = render(<div>{renderId(input)}</div>)
       expect(wrapper).toMatchSnapshot()
     })
 
@@ -81,7 +81,7 @@ describe('admin-approvals', () => {
       const input = {
         page: 2,
       }
-      const wrapper = shallow(<div>{renderId(input)}</div>)
+      const wrapper = render(<div>{renderId(input)}</div>)
       expect(wrapper).toMatchSnapshot()
     })
   })
@@ -94,7 +94,7 @@ describe('admin-approvals', () => {
         setIsModalOpen: jest.fn(),
         dispatch: jest.fn(),
       }
-      const wrapper = shallow(<div>{renderViewDetailButton(mockProps)}</div>)
+      const wrapper = render(<div>{renderViewDetailButton(mockProps)}</div>)
       expect(wrapper).toMatchSnapshot()
     })
   })
@@ -121,7 +121,7 @@ describe('admin-approvals', () => {
     })
     it('should match a snapshot', () => {
       expect(
-        mount(
+        render(
           <ReactRedux.Provider store={store}>
             <MemoryRouter initialEntries={[{ pathname: Routes.APPROVALS, key: 'adminApprovalRoute' }]}>
               <AdminApprovals />

@@ -4,12 +4,12 @@ import { catchChunkError } from '@reapit/utils-react'
 import Routes from '../constants/routes'
 import PrivateRoute from './private-route'
 import PrivateRouteWrapper from './private-route-wrapper'
-import { createBrowserHistory } from 'history'
+import { createBrowserHistory, History } from 'history'
 import { Info } from '@reapit/elements-legacy'
 import { PortalProvider } from '@reapit/elements-legacy'
 import { OkayPage } from '@reapit/utils-react'
 
-export const history = createBrowserHistory()
+export const history: History<any> = createBrowserHistory()
 const AppDetail = React.lazy(() => catchChunkError(() => import('../components/pages/app-detail/client')))
 const AppsManagement = React.lazy(() => catchChunkError(() => import('../components/pages/app-management')))
 const Apps = React.lazy(() => catchChunkError(() => import('../components/pages/apps')))

@@ -1,37 +1,236 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AmlCheckRow should match snapshot 1`] = `
-<div
-  className="contact-option-row"
->
-  <Grid>
-    <Col
-      span={8}
-    >
-      <Label>
-        AML Check
-      </Label>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
       <div
-        className="contact-option-value"
-      >
-        Will
-      </div>
-    </Col>
-    <Col
-      span={8}
-    >
+        class="el-snack-holder"
+      />
+       
       <div
-        className="contact-option-icons"
+        class="contact-option-row"
       >
-        <a
-          href="https://some-url/SOME_ID"
+        <div
+          class="grid"
         >
-          <IconButton
-            icon="edit"
-          />
-        </a>
+          <div
+            class="col span8"
+          >
+            <label
+              class="el-label"
+            >
+              AML Check
+            </label>
+            <div
+              class="contact-option-value"
+            >
+              Will
+            </div>
+          </div>
+          <div
+            class="col span8"
+          >
+            <div
+              class="contact-option-icons"
+            >
+              <a
+                href="https://some-url/SOME_ID"
+              >
+                <button
+                  class="icon-button-container"
+                >
+                  <span
+                    class="icon-container"
+                  >
+                    <svg
+                      height="21px"
+                      version="1.1"
+                      viewBox="0 0 20 21"
+                      width="20px"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <title>
+                        noun_edit_2964091
+                      </title>
+                      <desc>
+                        Created with Sketch.
+                      </desc>
+                      <g
+                        fill="none"
+                        fill-rule="evenodd"
+                        id="Symbols"
+                        stroke="none"
+                        stroke-width="1"
+                      >
+                        <g
+                          fill="currentColor"
+                          id="icon_edit"
+                        >
+                          <g
+                            id="noun_edit_2964091"
+                          >
+                            <path
+                              d="M18.0307022,0.272504315 L19.5748933,1.81669543 C19.892815,2.13461713 19.892815,2.67962576 19.5748933,2.99754746 L17.7127805,4.85966028 L14.9877373,2.13461713 L16.8498501,0.272504315 C17.1677718,-0.0454173858 17.7127805,-0.0454173858 18.0307022,0.272504315 Z M17.0769371,5.49550368 L8.26596421,14.3064765 L5.54092106,11.5814334 L14.3518939,2.77046053 L17.0769371,5.49550368 Z M7.53928604,14.8514851 L4.36006903,15.8506676 C4.13298211,15.896085 3.95131256,15.7144155 3.99672995,15.4873285 L4.99591244,12.3081115 L7.53928604,14.8514851 Z"
+                              id="Shape"
+                            />
+                            <path
+                              d="M16.6681806,9.67390317 C16.6681806,9.35598147 16.9406849,9.08347716 17.2586066,9.08347716 C17.5765283,9.08347716 17.8490326,9.35598147 17.8490326,9.67390317 L17.8490326,17.4402761 C17.8490326,19.1207194 16.4410937,20.5286584 14.7606504,20.5286584 L3.08838223,20.5286584 C1.36252157,20.5286584 0,19.1207194 0,17.4402761 L0,5.76800799 C0,4.04214733 1.36252157,2.67962576 3.08838223,2.67962576 L9.53765101,2.67962576 C9.85557271,2.67962576 10.0826596,2.95213008 10.0826596,3.27005178 C10.0826596,3.58797348 9.85557271,3.81506041 9.53765101,3.81506041 L3.08838223,3.81506041 C1.99836497,3.81506041 1.13543464,4.67799073 1.13543464,5.76800799 L1.13543464,17.4402761 C1.13543464,18.484876 1.99836497,19.3478063 3.08838223,19.3478063 L14.7606504,19.3478063 C15.8052502,19.3478063 16.6681806,18.484876 16.6681806,17.4402761 L16.6681806,9.67390317 Z"
+                              fill-rule="nonzero"
+                              id="Path"
+                            />
+                          </g>
+                        </g>
+                      </g>
+                    </svg>
+                  </span>
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
-    </Col>
-  </Grid>
-</div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+     
+    <div
+      class="contact-option-row"
+    >
+      <div
+        class="grid"
+      >
+        <div
+          class="col span8"
+        >
+          <label
+            class="el-label"
+          >
+            AML Check
+          </label>
+          <div
+            class="contact-option-value"
+          >
+            Will
+          </div>
+        </div>
+        <div
+          class="col span8"
+        >
+          <div
+            class="contact-option-icons"
+          >
+            <a
+              href="https://some-url/SOME_ID"
+            >
+              <button
+                class="icon-button-container"
+              >
+                <span
+                  class="icon-container"
+                >
+                  <svg
+                    height="21px"
+                    version="1.1"
+                    viewBox="0 0 20 21"
+                    width="20px"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <title>
+                      noun_edit_2964091
+                    </title>
+                    <desc>
+                      Created with Sketch.
+                    </desc>
+                    <g
+                      fill="none"
+                      fill-rule="evenodd"
+                      id="Symbols"
+                      stroke="none"
+                      stroke-width="1"
+                    >
+                      <g
+                        fill="currentColor"
+                        id="icon_edit"
+                      >
+                        <g
+                          id="noun_edit_2964091"
+                        >
+                          <path
+                            d="M18.0307022,0.272504315 L19.5748933,1.81669543 C19.892815,2.13461713 19.892815,2.67962576 19.5748933,2.99754746 L17.7127805,4.85966028 L14.9877373,2.13461713 L16.8498501,0.272504315 C17.1677718,-0.0454173858 17.7127805,-0.0454173858 18.0307022,0.272504315 Z M17.0769371,5.49550368 L8.26596421,14.3064765 L5.54092106,11.5814334 L14.3518939,2.77046053 L17.0769371,5.49550368 Z M7.53928604,14.8514851 L4.36006903,15.8506676 C4.13298211,15.896085 3.95131256,15.7144155 3.99672995,15.4873285 L4.99591244,12.3081115 L7.53928604,14.8514851 Z"
+                            id="Shape"
+                          />
+                          <path
+                            d="M16.6681806,9.67390317 C16.6681806,9.35598147 16.9406849,9.08347716 17.2586066,9.08347716 C17.5765283,9.08347716 17.8490326,9.35598147 17.8490326,9.67390317 L17.8490326,17.4402761 C17.8490326,19.1207194 16.4410937,20.5286584 14.7606504,20.5286584 L3.08838223,20.5286584 C1.36252157,20.5286584 0,19.1207194 0,17.4402761 L0,5.76800799 C0,4.04214733 1.36252157,2.67962576 3.08838223,2.67962576 L9.53765101,2.67962576 C9.85557271,2.67962576 10.0826596,2.95213008 10.0826596,3.27005178 C10.0826596,3.58797348 9.85557271,3.81506041 9.53765101,3.81506041 L3.08838223,3.81506041 C1.99836497,3.81506041 1.13543464,4.67799073 1.13543464,5.76800799 L1.13543464,17.4402761 C1.13543464,18.484876 1.99836497,19.3478063 3.08838223,19.3478063 L14.7606504,19.3478063 C15.8052502,19.3478063 16.6681806,18.484876 16.6681806,17.4402761 L16.6681806,9.67390317 Z"
+                            fill-rule="nonzero"
+                            id="Path"
+                          />
+                        </g>
+                      </g>
+                    </g>
+                  </svg>
+                </span>
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

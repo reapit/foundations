@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../tests/react-testing'
 import { PrivateRouteWrapper } from '../private-route-wrapper'
 
 const locationMock = { pathname: '/test' }
@@ -12,14 +12,17 @@ jest.mock('react-router', () => ({
 jest.mock('@reapit/connect-session', () => ({
   ReapitConnectBrowserSession: jest.fn(),
   useReapitConnect: () => ({
-    connectSession: {},
+    connectSession: {
+      loginIdentity: { email: 'foo@bar.com' },
+    },
     connectInternalRedirect: '',
   }),
 }))
 
 describe('PrivateRouteWrapper', () => {
   it('should match snapshot', () => {
-    const wrapper = shallow(<PrivateRouteWrapper path="/" />)
+    window.reapit.config.limitedUserAccessWhitelist = []
+    const wrapper = render(<PrivateRouteWrapper path="/" />)
     expect(wrapper).toMatchSnapshot()
   })
 })

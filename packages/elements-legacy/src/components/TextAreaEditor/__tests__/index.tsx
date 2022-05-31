@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '@testing-library/react'
 import { FieldInputProps, Formik } from 'formik'
 import {
   TextAreaEditor,
@@ -19,7 +19,7 @@ const props: TextAreaEditorProps = {
 describe('TextAreaEditor', () => {
   it('should match a snapshot', () => {
     expect(
-      shallow(
+      render(
         <Formik onSubmit={jest.fn()} initialValues={{}}>
           {() => <TextAreaEditor {...props} />}
         </Formik>,
@@ -29,7 +29,7 @@ describe('TextAreaEditor', () => {
 
   it('should match a snapshot when required', () => {
     expect(
-      shallow(
+      render(
         <Formik onSubmit={jest.fn()} initialValues={{}}>
           {() => <TextAreaEditor {...props} required />}
         </Formik>,

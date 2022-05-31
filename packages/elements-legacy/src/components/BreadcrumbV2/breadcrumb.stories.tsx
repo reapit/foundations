@@ -2,11 +2,11 @@ import React from 'react'
 import { Story } from '@storybook/react/types-6-0'
 import { Link, Router as BrowserRouter } from 'react-router-dom'
 import { FaHome, FaHeart } from 'react-icons/fa'
-import { createBrowserHistory } from 'history'
+import { createBrowserHistory, History } from 'history'
 import { Breadcrumb, BreadcrumbItem, BreadcrumbSeparator } from './index'
 import { BreadcrumbProps } from './breadcrumb'
 
-const history = createBrowserHistory()
+const history: History<any> = createBrowserHistory()
 
 const routes = [
   {

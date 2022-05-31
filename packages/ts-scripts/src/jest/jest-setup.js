@@ -1,14 +1,14 @@
-const Adapter = require('@wojtekmaj/enzyme-adapter-react-17')
-const Enzyme = require('enzyme')
 const fetchMock = require('jest-fetch-mock')
 const MockDate = require('mockdate')
-
-Enzyme.configure({ adapter: new Adapter() })
 global.fetch = fetchMock
 
 jest.mock('react-chartjs-2', () => ({
   Bar: () => null,
   Line: () => null,
+}))
+
+jest.mock('uuid', () => ({
+  v4: jest.fn(() => 'MOCK_UUID'),
 }))
 
 /* tslint:disable */

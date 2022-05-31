@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../../tests/react-testing'
 
 import FeaturedApp, { FeaturedAppProps } from '../featured-app'
 
@@ -32,6 +32,6 @@ const props: FeaturedAppProps = {
 
 describe('FeaturedApp', () => {
   it('should match a snapshot', () => {
-    expect(shallow(<FeaturedApp {...props} />)).toMatchSnapshot()
+    expect(render(<FeaturedApp {...props} />)).toMatchSnapshot()
   })
 })

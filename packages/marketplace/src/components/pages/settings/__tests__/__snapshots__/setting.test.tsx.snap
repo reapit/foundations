@@ -1,720 +1,692 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Settings should match snapshot 1`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <MemoryRouter
-    initialEntries={
-      Array [
-        Object {
-          "key": "clientSettingsRoute",
-          "pathname": "/settings",
-        },
-      ]
-    }
-  >
-    <Router
-      history={
-        Object {
-          "action": "POP",
-          "block": [Function],
-          "canGo": [Function],
-          "createHref": [Function],
-          "entries": Array [
-            Object {
-              "hash": "",
-              "key": "clientSettingsRoute",
-              "pathname": "/settings",
-              "search": "",
-            },
-          ],
-          "go": [Function],
-          "goBack": [Function],
-          "goForward": [Function],
-          "index": 0,
-          "length": 1,
-          "listen": [Function],
-          "location": Object {
-            "hash": "",
-            "key": "clientSettingsRoute",
-            "pathname": "/settings",
-            "search": "",
-          },
-          "push": [Function],
-          "replace": [Function],
-        }
-      }
-    >
-      <Settings>
-        <FlexContainerResponsive
-          flexColumn={true}
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ecbqyq6-el-snack-holder"
+      />
+      <div
+        class="container is-column"
+      >
+        <section
+          class="section has-padding has-margin has-background"
+          data-test=""
         >
-          <div
-            className="container is-column"
+          <section
+            class="section is-flex has-margin has-background justify-between items-center"
+            data-test=""
           >
-            <Section>
-              <section
-                className="section has-padding has-margin has-background"
+            <h3
+              class="title is-3 mb-0"
+              id=""
+            >
+              Settings
+            </h3>
+            <button
+              class="button   is-primary "
+              data-test="logout-btn"
+              type="button"
+            >
+              Logout
+            </button>
+          </section>
+          <section
+            class="section has-margin has-background"
+            data-test=""
+          >
+            <div
+              class="columns"
+              data-test=""
+            >
+              <div
+                class="column"
                 data-test=""
               >
-                <Section
-                  className="justify-between items-center"
-                  hasPadding={false}
-                  isFlex={true}
+                <div
+                  class="columns"
+                  data-test=""
                 >
-                  <section
-                    className="section is-flex has-margin has-background justify-between items-center"
+                  <div
+                    class="column"
                     data-test=""
                   >
-                    <H3
-                      className="mb-0"
+                    <h6
+                      class="subtitle is-6"
+                      id=""
                     >
-                      <h3
-                        className="title is-3 mb-0"
-                        id=""
-                      >
-                        Settings
-                      </h3>
-                    </H3>
-                    <Button
-                      dataTest="logout-btn"
-                      onClick={[Function]}
-                      type="button"
-                      variant="primary"
-                    >
-                      <button
-                        className="button   is-primary "
-                        data-test="logout-btn"
-                        disabled={false}
-                        onClick={[Function]}
-                        type="button"
-                      >
-                        Logout
-                      </button>
-                    </Button>
-                  </section>
-                </Section>
-                <Section
-                  hasPadding={false}
-                >
-                  <section
-                    className="section has-margin has-background"
+                      NAME:
+                    </h6>
+                  </div>
+                  <div
+                    class="column"
                     data-test=""
                   >
-                    <Grid>
-                      <div
-                        className="columns"
-                        data-test=""
-                      >
-                        <GridItem>
-                          <div
-                            className="column"
-                            data-test=""
-                          >
-                            <Grid>
-                              <div
-                                className="columns"
-                                data-test=""
-                              >
-                                <GridItem>
-                                  <div
-                                    className="column"
-                                    data-test=""
-                                  >
-                                    <SubTitleH6>
-                                      <h6
-                                        className="subtitle is-6"
-                                        id=""
-                                      >
-                                        NAME:
-                                      </h6>
-                                    </SubTitleH6>
-                                  </div>
-                                </GridItem>
-                                <GridItem>
-                                  <div
-                                    className="column"
-                                    data-test=""
-                                  >
-                                    <p />
-                                  </div>
-                                </GridItem>
-                              </div>
-                            </Grid>
-                          </div>
-                        </GridItem>
-                        <GridItem>
-                          <div
-                            className="column"
-                            data-test=""
-                          >
-                            <Grid>
-                              <div
-                                className="columns"
-                                data-test=""
-                              >
-                                <GridItem>
-                                  <div
-                                    className="column"
-                                    data-test=""
-                                  >
-                                    <SubTitleH6>
-                                      <h6
-                                        className="subtitle is-6"
-                                        id=""
-                                      >
-                                        EMAIL ADDRESS:
-                                      </h6>
-                                    </SubTitleH6>
-                                  </div>
-                                </GridItem>
-                                <GridItem>
-                                  <div
-                                    className="column"
-                                    data-test=""
-                                  >
-                                    <p />
-                                  </div>
-                                </GridItem>
-                              </div>
-                            </Grid>
-                          </div>
-                        </GridItem>
-                      </div>
-                    </Grid>
-                    <Grid>
-                      <div
-                        className="columns"
-                        data-test=""
-                      >
-                        <GridItem>
-                          <div
-                            className="column"
-                            data-test=""
-                          >
-                            <Grid>
-                              <div
-                                className="columns"
-                                data-test=""
-                              >
-                                <GridItem>
-                                  <div
-                                    className="column"
-                                    data-test=""
-                                  >
-                                    <SubTitleH6>
-                                      <h6
-                                        className="subtitle is-6"
-                                        id=""
-                                      >
-                                        COMPANY:
-                                      </h6>
-                                    </SubTitleH6>
-                                  </div>
-                                </GridItem>
-                                <GridItem>
-                                  <div
-                                    className="column"
-                                    data-test=""
-                                  >
-                                    <p />
-                                  </div>
-                                </GridItem>
-                              </div>
-                            </Grid>
-                          </div>
-                        </GridItem>
-                        <GridItem>
-                          <div
-                            className="column"
-                            data-test=""
-                          >
-                            <Grid>
-                              <div
-                                className="columns"
-                                data-test=""
-                              >
-                                <GridItem>
-                                  <div
-                                    className="column"
-                                    data-test=""
-                                  >
-                                    <SubTitleH6>
-                                      <h6
-                                        className="subtitle is-6"
-                                        id=""
-                                      >
-                                        CUSTOMER ID:
-                                      </h6>
-                                    </SubTitleH6>
-                                  </div>
-                                </GridItem>
-                                <GridItem>
-                                  <div
-                                    className="column"
-                                    data-test=""
-                                  >
-                                    <p>
-                                      SBOX
-                                    </p>
-                                  </div>
-                                </GridItem>
-                              </div>
-                            </Grid>
-                          </div>
-                        </GridItem>
-                      </div>
-                    </Grid>
-                    <Grid>
-                      <div
-                        className="columns"
-                        data-test=""
-                      >
-                        <GridItem>
-                          <div
-                            className="column"
-                            data-test=""
-                          >
-                            <Grid>
-                              <div
-                                className="columns"
-                                data-test=""
-                              >
-                                <GridItem>
-                                  <div
-                                    className="column"
-                                    data-test=""
-                                  >
-                                    <SubTitleH6>
-                                      <h6
-                                        className="subtitle is-6"
-                                        id=""
-                                      >
-                                        ROLE:
-                                      </h6>
-                                    </SubTitleH6>
-                                  </div>
-                                </GridItem>
-                                <GridItem>
-                                  <div
-                                    className="column"
-                                    data-test=""
-                                  />
-                                </GridItem>
-                              </div>
-                            </Grid>
-                          </div>
-                        </GridItem>
-                        <GridItem>
-                          <div
-                            className="column"
-                            data-test=""
-                          />
-                        </GridItem>
-                      </div>
-                    </Grid>
-                  </section>
-                </Section>
-                <ChangePasswordForm
-                  changePassword={[Function]}
-                  loading={false}
+                    <p />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="column"
+                data-test=""
+              >
+                <div
+                  class="columns"
+                  data-test=""
                 >
-                  <FormSection>
+                  <div
+                    class="column"
+                    data-test=""
+                  >
+                    <h6
+                      class="subtitle is-6"
+                      id=""
+                    >
+                      EMAIL ADDRESS:
+                    </h6>
+                  </div>
+                  <div
+                    class="column"
+                    data-test=""
+                  >
+                    <p />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="columns"
+              data-test=""
+            >
+              <div
+                class="column"
+                data-test=""
+              >
+                <div
+                  class="columns"
+                  data-test=""
+                >
+                  <div
+                    class="column"
+                    data-test=""
+                  >
+                    <h6
+                      class="subtitle is-6"
+                      id=""
+                    >
+                      COMPANY:
+                    </h6>
+                  </div>
+                  <div
+                    class="column"
+                    data-test=""
+                  >
+                    <p />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="column"
+                data-test=""
+              >
+                <div
+                  class="columns"
+                  data-test=""
+                >
+                  <div
+                    class="column"
+                    data-test=""
+                  >
+                    <h6
+                      class="subtitle is-6"
+                      id=""
+                    >
+                      CUSTOMER ID:
+                    </h6>
+                  </div>
+                  <div
+                    class="column"
+                    data-test=""
+                  >
+                    <p>
+                      SBOX
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="columns"
+              data-test=""
+            >
+              <div
+                class="column"
+                data-test=""
+              >
+                <div
+                  class="columns"
+                  data-test=""
+                >
+                  <div
+                    class="column"
+                    data-test=""
+                  >
+                    <h6
+                      class="subtitle is-6"
+                      id=""
+                    >
+                      ROLE:
+                    </h6>
+                  </div>
+                  <div
+                    class="column"
+                    data-test=""
+                  />
+                </div>
+              </div>
+              <div
+                class="column"
+                data-test=""
+              />
+            </div>
+          </section>
+          <div
+            class="form-section"
+          >
+            <form
+              action="#"
+            >
+              <div
+                class="form-heading"
+              >
+                Change password
+              </div>
+              <div
+                class="form-subheading"
+              >
+                Please complete the following fields to change your password. You will be automatically logged out for the changes to be applied
+              </div>
+              <div
+                class="columns"
+                data-test=""
+              >
+                <div
+                  class="column"
+                  data-test=""
+                >
+                  <div
+                    class="field"
+                  >
                     <div
-                      className="form-section"
+                      class="control "
                     >
-                      <Formik
-                        initialValues={
-                          Object {
-                            "confirmPassword": "",
-                            "currentPassword": "",
-                            "password": "",
-                          }
-                        }
-                        onSubmit={[Function]}
-                        validationSchema={
-                          ObjectSchema {
-                            "_blacklist": ReferenceSet {
-                              "list": Set {},
-                              "refs": Map {},
-                            },
-                            "_blacklistError": undefined,
-                            "_excludedEdges": Array [],
-                            "_nodes": Array [
-                              "confirmPassword",
-                              "password",
-                              "currentPassword",
-                            ],
-                            "_sortErrors": [Function],
-                            "_typeError": [Function],
-                            "_whitelist": ReferenceSet {
-                              "list": Set {},
-                              "refs": Map {},
-                            },
-                            "_whitelistError": undefined,
-                            "conditions": Array [],
-                            "deps": Array [],
-                            "exclusiveTests": Object {},
-                            "fields": Object {
-                              "confirmPassword": StringSchema {
-                                "_blacklist": ReferenceSet {
-                                  "list": Set {},
-                                  "refs": Map {},
-                                },
-                                "_blacklistError": undefined,
-                                "_typeError": [Function],
-                                "_whitelist": ReferenceSet {
-                                  "list": Set {
-                                    "",
-                                  },
-                                  "refs": Map {
-                                    "password" => Reference {
-                                      "getter": [Function],
-                                      "isContext": false,
-                                      "isSibling": true,
-                                      "isValue": false,
-                                      "key": "password",
-                                      "map": undefined,
-                                      "path": "password",
-                                    },
-                                  },
-                                },
-                                "_whitelistError": [Function],
-                                "conditions": Array [],
-                                "deps": Array [],
-                                "exclusiveTests": Object {
-                                  "required": true,
-                                  "trim": false,
-                                },
-                                "spec": Object {
-                                  "abortEarly": true,
-                                  "nullable": false,
-                                  "presence": "required",
-                                  "recursive": true,
-                                  "strict": false,
-                                  "strip": false,
-                                },
-                                "tests": Array [
-                                  [Function],
-                                  [Function],
-                                ],
-                                "transforms": Array [
-                                  [Function],
-                                  [Function],
-                                ],
-                                "type": "string",
-                              },
-                              "currentPassword": StringSchema {
-                                "_blacklist": ReferenceSet {
-                                  "list": Set {},
-                                  "refs": Map {},
-                                },
-                                "_blacklistError": undefined,
-                                "_mutate": undefined,
-                                "_typeError": [Function],
-                                "_whitelist": ReferenceSet {
-                                  "list": Set {},
-                                  "refs": Map {},
-                                },
-                                "_whitelistError": undefined,
-                                "conditions": Array [],
-                                "deps": Array [],
-                                "exclusiveTests": Object {
-                                  "required": true,
-                                  "trim": false,
-                                },
-                                "spec": Object {
-                                  "abortEarly": true,
-                                  "nullable": false,
-                                  "presence": "required",
-                                  "recursive": true,
-                                  "strict": false,
-                                  "strip": false,
-                                },
-                                "tests": Array [
-                                  [Function],
-                                  [Function],
-                                ],
-                                "transforms": Array [
-                                  [Function],
-                                  [Function],
-                                ],
-                                "type": "string",
-                              },
-                              "password": StringSchema {
-                                "_blacklist": ReferenceSet {
-                                  "list": Set {},
-                                  "refs": Map {},
-                                },
-                                "_blacklistError": undefined,
-                                "_typeError": [Function],
-                                "_whitelist": ReferenceSet {
-                                  "list": Set {},
-                                  "refs": Map {},
-                                },
-                                "_whitelistError": undefined,
-                                "conditions": Array [],
-                                "deps": Array [],
-                                "exclusiveTests": Object {
-                                  "matches": false,
-                                  "required": true,
-                                  "trim": false,
-                                },
-                                "spec": Object {
-                                  "abortEarly": true,
-                                  "nullable": false,
-                                  "presence": "required",
-                                  "recursive": true,
-                                  "strict": false,
-                                  "strip": false,
-                                },
-                                "tests": Array [
-                                  [Function],
-                                  [Function],
-                                  [Function],
-                                ],
-                                "transforms": Array [
-                                  [Function],
-                                  [Function],
-                                ],
-                                "type": "string",
-                              },
-                            },
-                            "spec": Object {
-                              "abortEarly": true,
-                              "nullable": false,
-                              "presence": "optional",
-                              "recursive": true,
-                              "strict": false,
-                              "strip": false,
-                            },
-                            "tests": Array [],
-                            "transforms": Array [
-                              [Function],
-                            ],
-                            "type": "object",
-                          }
-                        }
+                      <label
+                        class="label inline-block "
+                        for="currentPassword"
                       >
-                        <Form>
-                          <form
-                            action="#"
-                            onReset={[Function]}
-                            onSubmit={[Function]}
-                          >
-                            <FormHeading>
-                              <div
-                                className="form-heading"
-                              >
-                                Change password
-                              </div>
-                            </FormHeading>
-                            <FormSubHeading>
-                              <div
-                                className="form-subheading"
-                              >
-                                Please complete the following fields to change your password. You will be automatically logged out for the changes to be applied
-                              </div>
-                            </FormSubHeading>
-                            <Grid>
-                              <div
-                                className="columns"
-                                data-test=""
-                              >
-                                <GridItem>
-                                  <div
-                                    className="column"
-                                    data-test=""
-                                  >
-                                    <Input
-                                      dataTest="current-password"
-                                      id="currentPassword"
-                                      labelText="Current Password"
-                                      name="currentPassword"
-                                      type="password"
-                                    >
-                                      <Field
-                                        name="currentPassword"
-                                        validate={[Function]}
-                                      >
-                                        <div
-                                          className="field"
-                                        >
-                                          <div
-                                            className="control "
-                                          >
-                                            <label
-                                              className="label inline-block "
-                                              htmlFor="currentPassword"
-                                            >
-                                              Current Password
-                                            </label>
-                                            <input
-                                              className="input is-primary"
-                                              data-test="current-password"
-                                              disabled={false}
-                                              id="currentPassword"
-                                              name="currentPassword"
-                                              onBlur={[Function]}
-                                              onChange={[Function]}
-                                              placeholder=""
-                                              type="password"
-                                              value=""
-                                            />
-                                          </div>
-                                        </div>
-                                      </Field>
-                                    </Input>
-                                  </div>
-                                </GridItem>
-                                <GridItem>
-                                  <div
-                                    className="column"
-                                    data-test=""
-                                  >
-                                    <Input
-                                      dataTest="password"
-                                      id="password"
-                                      labelText="Password"
-                                      name="password"
-                                      type="password"
-                                    >
-                                      <Field
-                                        name="password"
-                                        validate={[Function]}
-                                      >
-                                        <div
-                                          className="field"
-                                        >
-                                          <div
-                                            className="control "
-                                          >
-                                            <label
-                                              className="label inline-block "
-                                              htmlFor="password"
-                                            >
-                                              Password
-                                            </label>
-                                            <input
-                                              className="input is-primary"
-                                              data-test="password"
-                                              disabled={false}
-                                              id="password"
-                                              name="password"
-                                              onBlur={[Function]}
-                                              onChange={[Function]}
-                                              placeholder=""
-                                              type="password"
-                                              value=""
-                                            />
-                                          </div>
-                                        </div>
-                                      </Field>
-                                    </Input>
-                                  </div>
-                                </GridItem>
-                              </div>
-                            </Grid>
-                            <Grid>
-                              <div
-                                className="columns"
-                                data-test=""
-                              >
-                                <GridItem
-                                  className="is-half"
-                                >
-                                  <div
-                                    className="column is-half"
-                                    data-test=""
-                                  >
-                                    <Input
-                                      dataTest="confirmPassword"
-                                      id="confirmPassword"
-                                      labelText="Confirm Password"
-                                      name="confirmPassword"
-                                      type="password"
-                                    >
-                                      <Field
-                                        name="confirmPassword"
-                                        validate={[Function]}
-                                      >
-                                        <div
-                                          className="field"
-                                        >
-                                          <div
-                                            className="control "
-                                          >
-                                            <label
-                                              className="label inline-block "
-                                              htmlFor="confirmPassword"
-                                            >
-                                              Confirm Password
-                                            </label>
-                                            <input
-                                              className="input is-primary"
-                                              data-test="confirmPassword"
-                                              disabled={false}
-                                              id="confirmPassword"
-                                              name="confirmPassword"
-                                              onBlur={[Function]}
-                                              onChange={[Function]}
-                                              placeholder=""
-                                              type="password"
-                                              value=""
-                                            />
-                                          </div>
-                                        </div>
-                                      </Field>
-                                    </Input>
-                                  </div>
-                                </GridItem>
-                              </div>
-                            </Grid>
-                            <LevelRight>
-                              <div
-                                className="level-right"
-                                data-test=""
-                              >
-                                <Button
-                                  dataTest="button-change-password"
-                                  disabled={true}
-                                  loading={false}
-                                  type="submit"
-                                  variant="primary"
-                                >
-                                  <button
-                                    className="button   is-primary "
-                                    data-test="button-change-password"
-                                    disabled={true}
-                                    type="submit"
-                                  >
-                                    Change Password
-                                  </button>
-                                </Button>
-                              </div>
-                            </LevelRight>
-                          </form>
-                        </Form>
-                      </Formik>
+                        Current Password
+                      </label>
+                      <input
+                        class="input is-primary"
+                        data-test="current-password"
+                        id="currentPassword"
+                        name="currentPassword"
+                        placeholder=""
+                        type="password"
+                        value=""
+                      />
                     </div>
-                  </FormSection>
-                </ChangePasswordForm>
-              </section>
-            </Section>
+                  </div>
+                </div>
+                <div
+                  class="column"
+                  data-test=""
+                >
+                  <div
+                    class="field"
+                  >
+                    <div
+                      class="control "
+                    >
+                      <label
+                        class="label inline-block "
+                        for="password"
+                      >
+                        Password
+                      </label>
+                      <input
+                        class="input is-primary"
+                        data-test="password"
+                        id="password"
+                        name="password"
+                        placeholder=""
+                        type="password"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="columns"
+                data-test=""
+              >
+                <div
+                  class="column is-half"
+                  data-test=""
+                >
+                  <div
+                    class="field"
+                  >
+                    <div
+                      class="control "
+                    >
+                      <label
+                        class="label inline-block "
+                        for="confirmPassword"
+                      >
+                        Confirm Password
+                      </label>
+                      <input
+                        class="input is-primary"
+                        data-test="confirmPassword"
+                        id="confirmPassword"
+                        name="confirmPassword"
+                        placeholder=""
+                        type="password"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="level-right"
+                data-test=""
+              >
+                <button
+                  class="button   is-primary "
+                  data-test="button-change-password"
+                  disabled=""
+                  type="submit"
+                >
+                  Change Password
+                </button>
+              </div>
+            </form>
           </div>
-        </FlexContainerResponsive>
-      </Settings>
-    </Router>
-  </MemoryRouter>
-</Provider>
+        </section>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6-el-snack-holder"
+    />
+    <div
+      class="container is-column"
+    >
+      <section
+        class="section has-padding has-margin has-background"
+        data-test=""
+      >
+        <section
+          class="section is-flex has-margin has-background justify-between items-center"
+          data-test=""
+        >
+          <h3
+            class="title is-3 mb-0"
+            id=""
+          >
+            Settings
+          </h3>
+          <button
+            class="button   is-primary "
+            data-test="logout-btn"
+            type="button"
+          >
+            Logout
+          </button>
+        </section>
+        <section
+          class="section has-margin has-background"
+          data-test=""
+        >
+          <div
+            class="columns"
+            data-test=""
+          >
+            <div
+              class="column"
+              data-test=""
+            >
+              <div
+                class="columns"
+                data-test=""
+              >
+                <div
+                  class="column"
+                  data-test=""
+                >
+                  <h6
+                    class="subtitle is-6"
+                    id=""
+                  >
+                    NAME:
+                  </h6>
+                </div>
+                <div
+                  class="column"
+                  data-test=""
+                >
+                  <p />
+                </div>
+              </div>
+            </div>
+            <div
+              class="column"
+              data-test=""
+            >
+              <div
+                class="columns"
+                data-test=""
+              >
+                <div
+                  class="column"
+                  data-test=""
+                >
+                  <h6
+                    class="subtitle is-6"
+                    id=""
+                  >
+                    EMAIL ADDRESS:
+                  </h6>
+                </div>
+                <div
+                  class="column"
+                  data-test=""
+                >
+                  <p />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="columns"
+            data-test=""
+          >
+            <div
+              class="column"
+              data-test=""
+            >
+              <div
+                class="columns"
+                data-test=""
+              >
+                <div
+                  class="column"
+                  data-test=""
+                >
+                  <h6
+                    class="subtitle is-6"
+                    id=""
+                  >
+                    COMPANY:
+                  </h6>
+                </div>
+                <div
+                  class="column"
+                  data-test=""
+                >
+                  <p />
+                </div>
+              </div>
+            </div>
+            <div
+              class="column"
+              data-test=""
+            >
+              <div
+                class="columns"
+                data-test=""
+              >
+                <div
+                  class="column"
+                  data-test=""
+                >
+                  <h6
+                    class="subtitle is-6"
+                    id=""
+                  >
+                    CUSTOMER ID:
+                  </h6>
+                </div>
+                <div
+                  class="column"
+                  data-test=""
+                >
+                  <p>
+                    SBOX
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="columns"
+            data-test=""
+          >
+            <div
+              class="column"
+              data-test=""
+            >
+              <div
+                class="columns"
+                data-test=""
+              >
+                <div
+                  class="column"
+                  data-test=""
+                >
+                  <h6
+                    class="subtitle is-6"
+                    id=""
+                  >
+                    ROLE:
+                  </h6>
+                </div>
+                <div
+                  class="column"
+                  data-test=""
+                />
+              </div>
+            </div>
+            <div
+              class="column"
+              data-test=""
+            />
+          </div>
+        </section>
+        <div
+          class="form-section"
+        >
+          <form
+            action="#"
+          >
+            <div
+              class="form-heading"
+            >
+              Change password
+            </div>
+            <div
+              class="form-subheading"
+            >
+              Please complete the following fields to change your password. You will be automatically logged out for the changes to be applied
+            </div>
+            <div
+              class="columns"
+              data-test=""
+            >
+              <div
+                class="column"
+                data-test=""
+              >
+                <div
+                  class="field"
+                >
+                  <div
+                    class="control "
+                  >
+                    <label
+                      class="label inline-block "
+                      for="currentPassword"
+                    >
+                      Current Password
+                    </label>
+                    <input
+                      class="input is-primary"
+                      data-test="current-password"
+                      id="currentPassword"
+                      name="currentPassword"
+                      placeholder=""
+                      type="password"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="column"
+                data-test=""
+              >
+                <div
+                  class="field"
+                >
+                  <div
+                    class="control "
+                  >
+                    <label
+                      class="label inline-block "
+                      for="password"
+                    >
+                      Password
+                    </label>
+                    <input
+                      class="input is-primary"
+                      data-test="password"
+                      id="password"
+                      name="password"
+                      placeholder=""
+                      type="password"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="columns"
+              data-test=""
+            >
+              <div
+                class="column is-half"
+                data-test=""
+              >
+                <div
+                  class="field"
+                >
+                  <div
+                    class="control "
+                  >
+                    <label
+                      class="label inline-block "
+                      for="confirmPassword"
+                    >
+                      Confirm Password
+                    </label>
+                    <input
+                      class="input is-primary"
+                      data-test="confirmPassword"
+                      id="confirmPassword"
+                      name="confirmPassword"
+                      placeholder=""
+                      type="password"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="level-right"
+              data-test=""
+            >
+              <button
+                class="button   is-primary "
+                data-test="button-change-password"
+                disabled=""
+                type="submit"
+              >
+                Change Password
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

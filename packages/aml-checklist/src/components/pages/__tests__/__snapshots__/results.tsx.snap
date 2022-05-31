@@ -1,608 +1,1393 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Result should match a snapshot when LOADING false 1`] = `
-<ErrorBoundary>
-  <Section
-    className="justify-between items-center"
-    isFlex={true}
-  >
-    <H3
-      className="mb-0"
-    >
-      Showing Results for "1"
-    </H3>
-    <Link
-      to="/"
-    >
-      <Button
-        type="button"
-        variant="primary"
-      >
-        New Search
-      </Button>
-    </Link>
-  </Section>
-  <Section>
-    <FadeIn>
-      <Table
-        columns={
-          Array [
-            Object {
-              "Header": "Name",
-              "accessor": [Function],
-              "id": "name",
-            },
-            Object {
-              "Cell": [Function],
-              "Header": "Address",
-              "accessor": "primaryAddress",
-              "id": "primaryAddress",
-            },
-            Object {
-              "Cell": [Function],
-              "Header": "Postcode",
-              "accessor": "postcode",
-              "id": "postcode",
-            },
-            Object {
-              "Cell": [Function],
-              "Header": "Status",
-              "accessor": "identityCheck",
-              "id": "identityCheck",
-            },
-            Object {
-              "Cell": [Function],
-              "Header": "",
-              "id": "action",
-            },
-          ]
-        }
-        data={
-          Array [
-            Object {
-              "_links": Object {
-                "documents": Object {
-                  "href": "/documents/?OwnerType=contact&OwnerId=MKC19000013",
-                },
-                "identityChecks": Object {
-                  "href": "/identityChecks/?ContactId=MKC19000013",
-                },
-                "self": Object {
-                  "href": "/contacts/MKC19000013",
-                },
-              },
-              "active": true,
-              "created": "2019-07-30T10:06:43.0000000Z",
-              "dateOfBirth": "2019-10-09",
-              "email": "dwillis@reapit.com",
-              "forename": "Dan",
-              "homePhone": "",
-              "id": "MKC19000013",
-              "marketingConsent": "deny",
-              "metadata": Object {},
-              "mobilePhone": "07808768760",
-              "modified": "2019-10-30T10:27:58.0000000Z",
-              "negotiatorIds": Array [
-                "HJA",
-              ],
-              "officeIds": Array [
-                "MKC",
-                "RPT",
-              ],
-              "primaryAddress": Object {
-                "buildingName": "7",
-                "buildingNumber": "",
-                "countryId": "GB",
-                "line1": "Clyd Eplave",
-                "line2": "",
-                "line3": "",
-                "line4": "",
-                "postcode": "MK3 7QN",
-                "type": "primary",
-              },
-              "source": Object {
-                "id": "",
-                "type": "",
-              },
-              "surname": "Willis",
-              "title": "Dan",
-              "workPhone": "",
-            },
-            Object {
-              "_links": Object {
-                "documents": Object {
-                  "href": "/documents/?OwnerType=contact&OwnerId=BED16000182",
-                },
-                "identityChecks": Object {
-                  "href": "/identityChecks/?ContactId=BED16000182",
-                },
-                "self": Object {
-                  "href": "/contacts/BED16000182",
-                },
-              },
-              "active": true,
-              "created": "2019-04-18T06:56:07.0000000Z",
-              "email": "chaldane836@rpsfiction.net",
-              "forename": "Cerys",
-              "homePhone": "01632 963892",
-              "id": "BED16000182",
-              "marketingConsent": "notAsked",
-              "mobilePhone": "07700 903892",
-              "negotiatorIds": Array [
-                "JWB",
-              ],
-              "officeIds": Array [
-                "BED",
-              ],
-              "primaryAddress": Object {
-                "buildingName": "",
-                "buildingNumber": "102",
-                "countryId": "",
-                "line1": "Holwelbury Road",
-                "line2": "",
-                "line3": "",
-                "line4": "",
-                "postcode": "SG5 3FL",
-                "type": "primary",
-              },
-              "source": Object {
-                "id": "",
-                "type": "",
-              },
-              "surname": "Haldane",
-              "title": "Ms",
-              "workPhone": "020 7946 3892",
-            },
-            Object {
-              "_links": Object {
-                "documents": Object {
-                  "href": "/documents/?OwnerType=contact&OwnerId=MKC16000060",
-                },
-                "identityChecks": Object {
-                  "href": "/identityChecks/?ContactId=MKC16000060",
-                },
-                "self": Object {
-                  "href": "/contacts/MKC16000060",
-                },
-              },
-              "active": true,
-              "created": "2019-04-16T10:41:55.0000000Z",
-              "email": "dscott290@rpsfiction.net",
-              "forename": "Daniel",
-              "homePhone": "01632 969167",
-              "id": "MKC16000060",
-              "marketingConsent": "notAsked",
-              "mobilePhone": "07700 909167",
-              "modified": "2019-04-16T10:42:11.0000000Z",
-              "negotiatorIds": Array [
-                "GEC",
-              ],
-              "officeIds": Array [
-                "MKC",
-              ],
-              "primaryAddress": Object {
-                "buildingName": "",
-                "buildingNumber": "6",
-                "countryId": "GB",
-                "line1": "Lydbrook Lane",
-                "line2": "Woburn Sands",
-                "line3": "Milton Keynes",
-                "line4": "Buckinghamshire",
-                "postcode": "MK17 8GJ",
-                "type": "primary",
-              },
-              "source": Object {
-                "id": "",
-                "type": "",
-              },
-              "surname": "Scott",
-              "title": "Mr",
-              "workPhone": "020 7946 9167",
-            },
-            Object {
-              "_links": Object {
-                "documents": Object {
-                  "href": "/documents/?OwnerType=contact&OwnerId=BED16000099",
-                },
-                "identityChecks": Object {
-                  "href": "/identityChecks/?ContactId=BED16000099",
-                },
-                "self": Object {
-                  "href": "/contacts/BED16000099",
-                },
-              },
-              "active": true,
-              "created": "2019-04-05T10:53:49.0000000Z",
-              "email": "acruickshank983@rpsfiction.net",
-              "forename": "Aidan",
-              "homePhone": "01632 962097",
-              "id": "BED16000099",
-              "marketingConsent": "notAsked",
-              "mobilePhone": "07700 902097",
-              "negotiatorIds": Array [
-                "SLB",
-              ],
-              "officeIds": Array [
-                "BED",
-              ],
-              "primaryAddress": Object {
-                "buildingName": "",
-                "buildingNumber": "7",
-                "countryId": "GB",
-                "line1": "Church Lane",
-                "line2": "Oakley",
-                "line3": "Bedford",
-                "line4": "Bedfordshire",
-                "postcode": "MK43 7RJ",
-                "type": "primary",
-              },
-              "source": Object {
-                "id": "",
-                "type": "",
-              },
-              "surname": "Cruickshank",
-              "title": "Mr",
-              "workPhone": "020 7946 2097",
-            },
-            Object {
-              "_links": Object {
-                "documents": Object {
-                  "href": "/documents/?OwnerType=contact&OwnerId=MKC16000011",
-                },
-                "identityChecks": Object {
-                  "href": "/identityChecks/?ContactId=MKC16000011",
-                },
-                "self": Object {
-                  "href": "/contacts/MKC16000011",
-                },
-              },
-              "active": true,
-              "created": "2019-03-28T14:29:20.0000000Z",
-              "email": "dkhan918@rpsfiction.net",
-              "forename": "Danny",
-              "homePhone": "01632 965040",
-              "id": "MKC16000011",
-              "marketingConsent": "notAsked",
-              "mobilePhone": "07700 905040",
-              "negotiatorIds": Array [
-                "RMK",
-              ],
-              "officeIds": Array [
-                "MKC",
-              ],
-              "primaryAddress": Object {
-                "buildingName": "",
-                "buildingNumber": "7",
-                "countryId": "GB",
-                "line1": "Abraham Close",
-                "line2": "Willen Park",
-                "line3": "Milton Keynes",
-                "line4": "Buckinghamshire",
-                "postcode": "MK15 9JA",
-                "type": "primary",
-              },
-              "source": Object {
-                "id": "",
-                "type": "",
-              },
-              "surname": "Khan",
-              "title": "Mr",
-              "workPhone": "020 7946 5040",
-            },
-            Object {
-              "_links": Object {
-                "documents": Object {
-                  "href": "/documents/?OwnerType=contact&OwnerId=MKC15000909",
-                },
-                "identityChecks": Object {
-                  "href": "/identityChecks/?ContactId=MKC15000909",
-                },
-                "self": Object {
-                  "href": "/contacts/MKC15000909",
-                },
-              },
-              "active": true,
-              "created": "2019-03-05T12:55:09.0000000Z",
-              "email": "adaniel908@rpsfiction.net",
-              "forename": "Ayaan",
-              "homePhone": "01632 962222",
-              "id": "MKC15000909",
-              "marketingConsent": "notAsked",
-              "mobilePhone": "07700 902222",
-              "negotiatorIds": Array [
-                "GEC",
-              ],
-              "officeIds": Array [
-                "MKC",
-              ],
-              "primaryAddress": Object {
-                "buildingName": "",
-                "buildingNumber": "48",
-                "countryId": "GB",
-                "line1": "Pickering Drive",
-                "line2": "Emerson Valley",
-                "line3": "Milton Keynes",
-                "line4": "Buckinghamshire",
-                "postcode": "MK4 2EE",
-                "type": "primary",
-              },
-              "source": Object {
-                "id": "",
-                "type": "",
-              },
-              "surname": "Daniel",
-              "title": "Mr",
-              "workPhone": "020 7946 2222",
-            },
-            Object {
-              "_links": Object {
-                "documents": Object {
-                  "href": "/documents/?OwnerType=contact&OwnerId=BUC15000679",
-                },
-                "identityChecks": Object {
-                  "href": "/identityChecks/?ContactId=BUC15000679",
-                },
-                "self": Object {
-                  "href": "/contacts/BUC15000679",
-                },
-              },
-              "active": true,
-              "created": "2019-02-22T11:41:16.0000000Z",
-              "email": "lsheridan305@rpsfiction.net",
-              "forename": "Lola",
-              "homePhone": "01632 969317",
-              "id": "BUC15000679",
-              "marketingConsent": "notAsked",
-              "mobilePhone": "07700 909317",
-              "modified": "2019-03-19T15:12:43.0000000Z",
-              "negotiatorIds": Array [
-                "FHA",
-              ],
-              "officeIds": Array [
-                "BUC",
-              ],
-              "primaryAddress": Object {
-                "buildingName": "Modbury House",
-                "buildingNumber": "",
-                "countryId": "GB",
-                "line1": "The Close",
-                "line2": "Thornton",
-                "line3": "Milton Keynes",
-                "line4": "Buckinghamshire",
-                "postcode": "MK17 0HD",
-                "type": "primary",
-              },
-              "source": Object {
-                "id": "",
-                "type": "",
-              },
-              "surname": "Sheridan",
-              "title": "Ms",
-              "workPhone": "020 7946 9317",
-            },
-            Object {
-              "_links": Object {
-                "documents": Object {
-                  "href": "/documents/?OwnerType=contact&OwnerId=BED15002235",
-                },
-                "identityChecks": Object {
-                  "href": "/identityChecks/?ContactId=BED15002235",
-                },
-                "self": Object {
-                  "href": "/contacts/BED15002235",
-                },
-              },
-              "active": true,
-              "created": "2019-02-19T22:05:56.0000000Z",
-              "email": "bmccrindle312@rpsfiction.net",
-              "forename": "Brendan",
-              "homePhone": "01632 966385",
-              "id": "BED15002235",
-              "marketingConsent": "notAsked",
-              "mobilePhone": "07700 906385",
-              "modified": "2019-04-03T16:24:32.0000000Z",
-              "negotiatorIds": Array [
-                "JWB",
-              ],
-              "officeIds": Array [
-                "BED",
-              ],
-              "primaryAddress": Object {
-                "buildingName": "",
-                "buildingNumber": "",
-                "countryId": "",
-                "line1": "Osprey Road",
-                "line2": "Biggleswade",
-                "line3": "Bedfordshire",
-                "line4": "",
-                "postcode": "SG18 8DZ",
-                "type": "primary",
-              },
-              "source": Object {
-                "id": "",
-                "type": "",
-              },
-              "surname": "Mccrindle",
-              "title": "Mr",
-              "workPhone": "020 7946 6385",
-            },
-            Object {
-              "_links": Object {
-                "documents": Object {
-                  "href": "/documents/?OwnerType=contact&OwnerId=BED15002208",
-                },
-                "identityChecks": Object {
-                  "href": "/identityChecks/?ContactId=BED15002208",
-                },
-                "self": Object {
-                  "href": "/contacts/BED15002208",
-                },
-              },
-              "active": true,
-              "created": "2019-02-14T10:22:25.0000000Z",
-              "email": "dclark15@rpsfiction.net",
-              "forename": "Danny",
-              "homePhone": "01632 961651",
-              "id": "BED15002208",
-              "marketingConsent": "notAsked",
-              "mobilePhone": "07700 901651",
-              "modified": "2019-04-18T11:01:56.0000000Z",
-              "negotiatorIds": Array [
-                "SLB",
-              ],
-              "officeIds": Array [
-                "BED",
-              ],
-              "primaryAddress": Object {
-                "buildingName": "",
-                "buildingNumber": "30",
-                "countryId": "GB",
-                "line1": "Francis Groves Close",
-                "line2": "Bedford",
-                "line3": "Bedfordshire",
-                "line4": "",
-                "postcode": "MK41 7DH",
-                "type": "primary",
-              },
-              "source": Object {
-                "id": "",
-                "type": "",
-              },
-              "surname": "Clark",
-              "title": "Mr",
-              "workPhone": "020 7946 1651",
-            },
-            Object {
-              "_links": Object {
-                "documents": Object {
-                  "href": "/documents/?OwnerType=contact&OwnerId=BED15001889",
-                },
-                "identityChecks": Object {
-                  "href": "/identityChecks/?ContactId=BED15001889",
-                },
-                "self": Object {
-                  "href": "/contacts/BED15001889",
-                },
-              },
-              "active": true,
-              "created": "2018-12-25T13:01:32.0000000Z",
-              "email": "esheridan191@rpsfiction.net",
-              "forename": "Esme",
-              "homePhone": "01632 969316",
-              "id": "BED15001889",
-              "marketingConsent": "notAsked",
-              "mobilePhone": "07700 909316",
-              "negotiatorIds": Array [
-                "JWB",
-              ],
-              "officeIds": Array [
-                "BED",
-              ],
-              "primaryAddress": Object {
-                "buildingName": "",
-                "buildingNumber": "22",
-                "countryId": "GB",
-                "line1": "Richmond Road",
-                "line2": "Bedford",
-                "line3": "Bedfordshire",
-                "line4": "",
-                "postcode": "MK40 3DG",
-                "type": "primary",
-              },
-              "source": Object {
-                "id": "",
-                "type": "",
-              },
-              "surname": "Sheridan",
-              "title": "Ms",
-              "workPhone": "020 7946 9316",
-            },
-          ]
-        }
-        loading={false}
-        scrollable={true}
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
       />
-    </FadeIn>
-  </Section>
-  <FadeIn>
-    <Pagination
-      onChange={[Function]}
-      pageNumber={1}
-      pageSize={10}
-      totalCount={26}
+      <section
+        class="section is-flex has-padding has-margin has-background justify-between items-center"
+        data-test=""
+      >
+        <h3
+          class="title is-3 mb-0"
+          id=""
+        >
+          Showing Results for "1"
+        </h3>
+        <a
+          href="/"
+        >
+          <button
+            class="button   is-primary "
+            data-test=""
+            type="button"
+          >
+            New Search
+          </button>
+        </a>
+      </section>
+      <section
+        class="section has-padding has-margin has-background"
+        data-test=""
+      >
+        <div
+          class="fade-in"
+        >
+          <div
+            style="overflow: scroll;"
+          >
+            <table
+              class="table is-striped is-fullwidth "
+              role="table"
+            >
+              <thead>
+                <tr
+                  role="row"
+                >
+                  <th
+                    colspan="1"
+                    role="columnheader"
+                  >
+                    Name
+                  </th>
+                  <th
+                    colspan="1"
+                    role="columnheader"
+                  >
+                    Address
+                  </th>
+                  <th
+                    colspan="1"
+                    role="columnheader"
+                  >
+                    Postcode
+                  </th>
+                  <th
+                    colspan="1"
+                    role="columnheader"
+                  >
+                    Status
+                  </th>
+                  <th
+                    colspan="1"
+                    role="columnheader"
+                  />
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  class=""
+                  role="row"
+                >
+                  <td
+                    role="cell"
+                  >
+                    Dan Willis
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    <span>
+                      7, Clyd Eplave
+                    </span>
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    <span>
+                      MK3 7QN
+                    </span>
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    <span
+                      class="capitalize"
+                    />
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    <button
+                      class="button   is-primary "
+                      data-test=""
+                      type="button"
+                    >
+                      Edit
+                    </button>
+                  </td>
+                </tr>
+                <tr
+                  class=""
+                  role="row"
+                >
+                  <td
+                    role="cell"
+                  >
+                    Cerys Haldane
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    <span>
+                      102, Holwelbury Road
+                    </span>
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    <span>
+                      SG5 3FL
+                    </span>
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    <span
+                      class="capitalize"
+                    />
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    <button
+                      class="button   is-primary "
+                      data-test=""
+                      type="button"
+                    >
+                      Edit
+                    </button>
+                  </td>
+                </tr>
+                <tr
+                  class=""
+                  role="row"
+                >
+                  <td
+                    role="cell"
+                  >
+                    Daniel Scott
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    <span>
+                      6, Lydbrook Lane, Woburn Sands
+                    </span>
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    <span>
+                      MK17 8GJ
+                    </span>
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    <span
+                      class="capitalize"
+                    />
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    <button
+                      class="button   is-primary "
+                      data-test=""
+                      type="button"
+                    >
+                      Edit
+                    </button>
+                  </td>
+                </tr>
+                <tr
+                  class=""
+                  role="row"
+                >
+                  <td
+                    role="cell"
+                  >
+                    Aidan Cruickshank
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    <span>
+                      7, Church Lane, Oakley
+                    </span>
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    <span>
+                      MK43 7RJ
+                    </span>
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    <span
+                      class="capitalize"
+                    />
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    <button
+                      class="button   is-primary "
+                      data-test=""
+                      type="button"
+                    >
+                      Edit
+                    </button>
+                  </td>
+                </tr>
+                <tr
+                  class=""
+                  role="row"
+                >
+                  <td
+                    role="cell"
+                  >
+                    Danny Khan
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    <span>
+                      7, Abraham Close, Willen Park
+                    </span>
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    <span>
+                      MK15 9JA
+                    </span>
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    <span
+                      class="capitalize"
+                    />
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    <button
+                      class="button   is-primary "
+                      data-test=""
+                      type="button"
+                    >
+                      Edit
+                    </button>
+                  </td>
+                </tr>
+                <tr
+                  class=""
+                  role="row"
+                >
+                  <td
+                    role="cell"
+                  >
+                    Ayaan Daniel
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    <span>
+                      48, Pickering Drive, Emerson Valley
+                    </span>
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    <span>
+                      MK4 2EE
+                    </span>
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    <span
+                      class="capitalize"
+                    />
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    <button
+                      class="button   is-primary "
+                      data-test=""
+                      type="button"
+                    >
+                      Edit
+                    </button>
+                  </td>
+                </tr>
+                <tr
+                  class=""
+                  role="row"
+                >
+                  <td
+                    role="cell"
+                  >
+                    Lola Sheridan
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    <span>
+                      Modbury House, The Close, Thornton
+                    </span>
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    <span>
+                      MK17 0HD
+                    </span>
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    <span
+                      class="capitalize"
+                    />
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    <button
+                      class="button   is-primary "
+                      data-test=""
+                      type="button"
+                    >
+                      Edit
+                    </button>
+                  </td>
+                </tr>
+                <tr
+                  class=""
+                  role="row"
+                >
+                  <td
+                    role="cell"
+                  >
+                    Brendan Mccrindle
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    <span>
+                      Osprey Road, Biggleswade
+                    </span>
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    <span>
+                      SG18 8DZ
+                    </span>
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    <span
+                      class="capitalize"
+                    />
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    <button
+                      class="button   is-primary "
+                      data-test=""
+                      type="button"
+                    >
+                      Edit
+                    </button>
+                  </td>
+                </tr>
+                <tr
+                  class=""
+                  role="row"
+                >
+                  <td
+                    role="cell"
+                  >
+                    Danny Clark
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    <span>
+                      30, Francis Groves Close, Bedford
+                    </span>
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    <span>
+                      MK41 7DH
+                    </span>
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    <span
+                      class="capitalize"
+                    />
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    <button
+                      class="button   is-primary "
+                      data-test=""
+                      type="button"
+                    >
+                      Edit
+                    </button>
+                  </td>
+                </tr>
+                <tr
+                  class=""
+                  role="row"
+                >
+                  <td
+                    role="cell"
+                  >
+                    Esme Sheridan
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    <span>
+                      22, Richmond Road, Bedford
+                    </span>
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    <span>
+                      MK40 3DG
+                    </span>
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    <span
+                      class="capitalize"
+                    />
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    <button
+                      class="button   is-primary "
+                      data-test=""
+                      type="button"
+                    >
+                      Edit
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+      <div
+        class="fade-in"
+      >
+        <section
+          class="section is-flex is-centered has-padding has-margin has-background"
+          data-test=""
+        >
+          <nav
+            aria-label="pagination"
+            class="pagination is-centered"
+            role="navigation"
+          >
+            <a
+              class="pagination-previous pagination-disabled"
+            >
+              Previous
+            </a>
+            <a
+              class="pagination-next  "
+            >
+              Next page
+            </a>
+            <ul
+              class="pagination-list"
+            >
+              <li>
+                <a
+                  aria-label="Goto page 1"
+                  class="pagination-link is-current"
+                >
+                  1
+                </a>
+              </li>
+              <li>
+                <a
+                  aria-label="Goto page 2"
+                  class="pagination-link"
+                >
+                  2
+                </a>
+              </li>
+              <li>
+                <a
+                  aria-label="Goto page 3"
+                  class="pagination-link"
+                >
+                  3
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </section>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
     />
-  </FadeIn>
-</ErrorBoundary>
+    <section
+      class="section is-flex has-padding has-margin has-background justify-between items-center"
+      data-test=""
+    >
+      <h3
+        class="title is-3 mb-0"
+        id=""
+      >
+        Showing Results for "1"
+      </h3>
+      <a
+        href="/"
+      >
+        <button
+          class="button   is-primary "
+          data-test=""
+          type="button"
+        >
+          New Search
+        </button>
+      </a>
+    </section>
+    <section
+      class="section has-padding has-margin has-background"
+      data-test=""
+    >
+      <div
+        class="fade-in"
+      >
+        <div
+          style="overflow: scroll;"
+        >
+          <table
+            class="table is-striped is-fullwidth "
+            role="table"
+          >
+            <thead>
+              <tr
+                role="row"
+              >
+                <th
+                  colspan="1"
+                  role="columnheader"
+                >
+                  Name
+                </th>
+                <th
+                  colspan="1"
+                  role="columnheader"
+                >
+                  Address
+                </th>
+                <th
+                  colspan="1"
+                  role="columnheader"
+                >
+                  Postcode
+                </th>
+                <th
+                  colspan="1"
+                  role="columnheader"
+                >
+                  Status
+                </th>
+                <th
+                  colspan="1"
+                  role="columnheader"
+                />
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                class=""
+                role="row"
+              >
+                <td
+                  role="cell"
+                >
+                  Dan Willis
+                </td>
+                <td
+                  role="cell"
+                >
+                  <span>
+                    7, Clyd Eplave
+                  </span>
+                </td>
+                <td
+                  role="cell"
+                >
+                  <span>
+                    MK3 7QN
+                  </span>
+                </td>
+                <td
+                  role="cell"
+                >
+                  <span
+                    class="capitalize"
+                  />
+                </td>
+                <td
+                  role="cell"
+                >
+                  <button
+                    class="button   is-primary "
+                    data-test=""
+                    type="button"
+                  >
+                    Edit
+                  </button>
+                </td>
+              </tr>
+              <tr
+                class=""
+                role="row"
+              >
+                <td
+                  role="cell"
+                >
+                  Cerys Haldane
+                </td>
+                <td
+                  role="cell"
+                >
+                  <span>
+                    102, Holwelbury Road
+                  </span>
+                </td>
+                <td
+                  role="cell"
+                >
+                  <span>
+                    SG5 3FL
+                  </span>
+                </td>
+                <td
+                  role="cell"
+                >
+                  <span
+                    class="capitalize"
+                  />
+                </td>
+                <td
+                  role="cell"
+                >
+                  <button
+                    class="button   is-primary "
+                    data-test=""
+                    type="button"
+                  >
+                    Edit
+                  </button>
+                </td>
+              </tr>
+              <tr
+                class=""
+                role="row"
+              >
+                <td
+                  role="cell"
+                >
+                  Daniel Scott
+                </td>
+                <td
+                  role="cell"
+                >
+                  <span>
+                    6, Lydbrook Lane, Woburn Sands
+                  </span>
+                </td>
+                <td
+                  role="cell"
+                >
+                  <span>
+                    MK17 8GJ
+                  </span>
+                </td>
+                <td
+                  role="cell"
+                >
+                  <span
+                    class="capitalize"
+                  />
+                </td>
+                <td
+                  role="cell"
+                >
+                  <button
+                    class="button   is-primary "
+                    data-test=""
+                    type="button"
+                  >
+                    Edit
+                  </button>
+                </td>
+              </tr>
+              <tr
+                class=""
+                role="row"
+              >
+                <td
+                  role="cell"
+                >
+                  Aidan Cruickshank
+                </td>
+                <td
+                  role="cell"
+                >
+                  <span>
+                    7, Church Lane, Oakley
+                  </span>
+                </td>
+                <td
+                  role="cell"
+                >
+                  <span>
+                    MK43 7RJ
+                  </span>
+                </td>
+                <td
+                  role="cell"
+                >
+                  <span
+                    class="capitalize"
+                  />
+                </td>
+                <td
+                  role="cell"
+                >
+                  <button
+                    class="button   is-primary "
+                    data-test=""
+                    type="button"
+                  >
+                    Edit
+                  </button>
+                </td>
+              </tr>
+              <tr
+                class=""
+                role="row"
+              >
+                <td
+                  role="cell"
+                >
+                  Danny Khan
+                </td>
+                <td
+                  role="cell"
+                >
+                  <span>
+                    7, Abraham Close, Willen Park
+                  </span>
+                </td>
+                <td
+                  role="cell"
+                >
+                  <span>
+                    MK15 9JA
+                  </span>
+                </td>
+                <td
+                  role="cell"
+                >
+                  <span
+                    class="capitalize"
+                  />
+                </td>
+                <td
+                  role="cell"
+                >
+                  <button
+                    class="button   is-primary "
+                    data-test=""
+                    type="button"
+                  >
+                    Edit
+                  </button>
+                </td>
+              </tr>
+              <tr
+                class=""
+                role="row"
+              >
+                <td
+                  role="cell"
+                >
+                  Ayaan Daniel
+                </td>
+                <td
+                  role="cell"
+                >
+                  <span>
+                    48, Pickering Drive, Emerson Valley
+                  </span>
+                </td>
+                <td
+                  role="cell"
+                >
+                  <span>
+                    MK4 2EE
+                  </span>
+                </td>
+                <td
+                  role="cell"
+                >
+                  <span
+                    class="capitalize"
+                  />
+                </td>
+                <td
+                  role="cell"
+                >
+                  <button
+                    class="button   is-primary "
+                    data-test=""
+                    type="button"
+                  >
+                    Edit
+                  </button>
+                </td>
+              </tr>
+              <tr
+                class=""
+                role="row"
+              >
+                <td
+                  role="cell"
+                >
+                  Lola Sheridan
+                </td>
+                <td
+                  role="cell"
+                >
+                  <span>
+                    Modbury House, The Close, Thornton
+                  </span>
+                </td>
+                <td
+                  role="cell"
+                >
+                  <span>
+                    MK17 0HD
+                  </span>
+                </td>
+                <td
+                  role="cell"
+                >
+                  <span
+                    class="capitalize"
+                  />
+                </td>
+                <td
+                  role="cell"
+                >
+                  <button
+                    class="button   is-primary "
+                    data-test=""
+                    type="button"
+                  >
+                    Edit
+                  </button>
+                </td>
+              </tr>
+              <tr
+                class=""
+                role="row"
+              >
+                <td
+                  role="cell"
+                >
+                  Brendan Mccrindle
+                </td>
+                <td
+                  role="cell"
+                >
+                  <span>
+                    Osprey Road, Biggleswade
+                  </span>
+                </td>
+                <td
+                  role="cell"
+                >
+                  <span>
+                    SG18 8DZ
+                  </span>
+                </td>
+                <td
+                  role="cell"
+                >
+                  <span
+                    class="capitalize"
+                  />
+                </td>
+                <td
+                  role="cell"
+                >
+                  <button
+                    class="button   is-primary "
+                    data-test=""
+                    type="button"
+                  >
+                    Edit
+                  </button>
+                </td>
+              </tr>
+              <tr
+                class=""
+                role="row"
+              >
+                <td
+                  role="cell"
+                >
+                  Danny Clark
+                </td>
+                <td
+                  role="cell"
+                >
+                  <span>
+                    30, Francis Groves Close, Bedford
+                  </span>
+                </td>
+                <td
+                  role="cell"
+                >
+                  <span>
+                    MK41 7DH
+                  </span>
+                </td>
+                <td
+                  role="cell"
+                >
+                  <span
+                    class="capitalize"
+                  />
+                </td>
+                <td
+                  role="cell"
+                >
+                  <button
+                    class="button   is-primary "
+                    data-test=""
+                    type="button"
+                  >
+                    Edit
+                  </button>
+                </td>
+              </tr>
+              <tr
+                class=""
+                role="row"
+              >
+                <td
+                  role="cell"
+                >
+                  Esme Sheridan
+                </td>
+                <td
+                  role="cell"
+                >
+                  <span>
+                    22, Richmond Road, Bedford
+                  </span>
+                </td>
+                <td
+                  role="cell"
+                >
+                  <span>
+                    MK40 3DG
+                  </span>
+                </td>
+                <td
+                  role="cell"
+                >
+                  <span
+                    class="capitalize"
+                  />
+                </td>
+                <td
+                  role="cell"
+                >
+                  <button
+                    class="button   is-primary "
+                    data-test=""
+                    type="button"
+                  >
+                    Edit
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <div
+      class="fade-in"
+    >
+      <section
+        class="section is-flex is-centered has-padding has-margin has-background"
+        data-test=""
+      >
+        <nav
+          aria-label="pagination"
+          class="pagination is-centered"
+          role="navigation"
+        >
+          <a
+            class="pagination-previous pagination-disabled"
+          >
+            Previous
+          </a>
+          <a
+            class="pagination-next  "
+          >
+            Next page
+          </a>
+          <ul
+            class="pagination-list"
+          >
+            <li>
+              <a
+                aria-label="Goto page 1"
+                class="pagination-link is-current"
+              >
+                1
+              </a>
+            </li>
+            <li>
+              <a
+                aria-label="Goto page 2"
+                class="pagination-link"
+              >
+                2
+              </a>
+            </li>
+            <li>
+              <a
+                aria-label="Goto page 3"
+                class="pagination-link"
+              >
+                3
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </section>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`Result should match a snapshot when LOADING true 1`] = `
-<ErrorBoundary>
-  <Section
-    className="justify-between items-center"
-    isFlex={true}
-  >
-    <H3
-      className="mb-0"
-    >
-      Showing Results for ""
-    </H3>
-    <Link
-      to="/"
-    >
-      <Button
-        type="button"
-        variant="primary"
-      >
-        New Search
-      </Button>
-    </Link>
-  </Section>
-  <Section>
-    <FadeIn>
-      <Table
-        columns={
-          Array [
-            Object {
-              "Header": "Name",
-              "accessor": [Function],
-              "id": "name",
-            },
-            Object {
-              "Cell": [Function],
-              "Header": "Address",
-              "accessor": "primaryAddress",
-              "id": "primaryAddress",
-            },
-            Object {
-              "Cell": [Function],
-              "Header": "Postcode",
-              "accessor": "postcode",
-              "id": "postcode",
-            },
-            Object {
-              "Cell": [Function],
-              "Header": "Status",
-              "accessor": "identityCheck",
-              "id": "identityCheck",
-            },
-            Object {
-              "Cell": [Function],
-              "Header": "",
-              "id": "action",
-            },
-          ]
-        }
-        data={Array []}
-        loading={false}
-        scrollable={true}
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
       />
-    </FadeIn>
-  </Section>
-  <FadeIn>
-    <Pagination
-      onChange={[Function]}
-      pageNumber={1}
+      <section
+        class="section is-flex has-padding has-margin has-background justify-between items-center"
+        data-test=""
+      >
+        <h3
+          class="title is-3 mb-0"
+          id=""
+        >
+          Showing Results for ""
+        </h3>
+        <a
+          href="/"
+        >
+          <button
+            class="button   is-primary "
+            data-test=""
+            type="button"
+          >
+            New Search
+          </button>
+        </a>
+      </section>
+      <section
+        class="section has-padding has-margin has-background"
+        data-test=""
+      >
+        <div
+          class="fade-in"
+        >
+          <div
+            style="overflow: scroll;"
+          >
+            <table
+              class="table is-striped is-fullwidth "
+              role="table"
+            >
+              <thead>
+                <tr
+                  role="row"
+                >
+                  <th
+                    colspan="1"
+                    role="columnheader"
+                  >
+                    Name
+                  </th>
+                  <th
+                    colspan="1"
+                    role="columnheader"
+                  >
+                    Address
+                  </th>
+                  <th
+                    colspan="1"
+                    role="columnheader"
+                  >
+                    Postcode
+                  </th>
+                  <th
+                    colspan="1"
+                    role="columnheader"
+                  >
+                    Status
+                  </th>
+                  <th
+                    colspan="1"
+                    role="columnheader"
+                  />
+                </tr>
+              </thead>
+              <tbody />
+            </table>
+          </div>
+        </div>
+      </section>
+      <div
+        class="fade-in"
+      />
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
     />
-  </FadeIn>
-</ErrorBoundary>
+    <section
+      class="section is-flex has-padding has-margin has-background justify-between items-center"
+      data-test=""
+    >
+      <h3
+        class="title is-3 mb-0"
+        id=""
+      >
+        Showing Results for ""
+      </h3>
+      <a
+        href="/"
+      >
+        <button
+          class="button   is-primary "
+          data-test=""
+          type="button"
+        >
+          New Search
+        </button>
+      </a>
+    </section>
+    <section
+      class="section has-padding has-margin has-background"
+      data-test=""
+    >
+      <div
+        class="fade-in"
+      >
+        <div
+          style="overflow: scroll;"
+        >
+          <table
+            class="table is-striped is-fullwidth "
+            role="table"
+          >
+            <thead>
+              <tr
+                role="row"
+              >
+                <th
+                  colspan="1"
+                  role="columnheader"
+                >
+                  Name
+                </th>
+                <th
+                  colspan="1"
+                  role="columnheader"
+                >
+                  Address
+                </th>
+                <th
+                  colspan="1"
+                  role="columnheader"
+                >
+                  Postcode
+                </th>
+                <th
+                  colspan="1"
+                  role="columnheader"
+                >
+                  Status
+                </th>
+                <th
+                  colspan="1"
+                  role="columnheader"
+                />
+              </tr>
+            </thead>
+            <tbody />
+          </table>
+        </div>
+      </div>
+    </section>
+    <div
+      class="fade-in"
+    />
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

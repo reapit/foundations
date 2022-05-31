@@ -1,10 +1,10 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '@testing-library/react'
 import { Tabs } from '../index'
 
 describe('Tabs', () => {
   it('should match a snapshot and render children', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <Tabs
         name="my-cool-toggle-radio"
         isFullWidth

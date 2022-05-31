@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import Home, { handleEmbedReport, handleInstalledReports, handleSelectReport } from '../home'
 import { InstalledReport, getInstalledReportsService } from '../../../platform-api/installed-reports'
 import { ChangeEvent, MutableRefObject } from 'react'
@@ -16,7 +16,7 @@ jest.mock('../../../platform-api/installed-reports', () => ({
 
 describe('Home', () => {
   it('should match a snapshot', () => {
-    expect(shallow(<Home />)).toMatchSnapshot()
+    expect(render(<Home />)).toMatchSnapshot()
   })
 })
 
