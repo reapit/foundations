@@ -22,7 +22,7 @@
     "commit": "yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges && yarn lint --fix && yarn check"
   },
   "dependencies": {
-    "@apollo/client": "^3.6.5",
+    "@apollo/client": "^3.6.6",
     "@craftjs/core": "0.2.0-beta.4",
     "@linaria/core": "^3.0.0-beta.15",
     "@linaria/react": "^3.0.0-beta.15",
@@ -46,7 +46,7 @@
     "react-router-dom": "^5.3.3",
     "react-tooltip": "^4.2.21",
     "slugify": "^1.6.5",
-    "snyk": "^1.942.0",
+    "snyk": "^1.944.0",
     "styled-components": "^5.3.5",
     "throttle-debounce": "^3.0.1",
     "uuid": "^8.3.2",
@@ -59,8 +59,8 @@
     "@reapit/ts-types": "workspace:packages/ts-types",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
-    "@typescript-eslint/eslint-plugin": "^5.26.0",
-    "@typescript-eslint/parser": "^5.26.0",
+    "@typescript-eslint/eslint-plugin": "^5.27.0",
+    "@typescript-eslint/parser": "^5.27.0",
     "babel-loader": "^8.2.5",
     "concurrently": "^6.5.1",
     "cross-env": "^6.0.3",

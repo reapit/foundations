@@ -33,7 +33,7 @@
     "react-ga": "^2.7.0",
     "react-router": "^5.3.3",
     "react-router-dom": "^5.3.3",
-    "snyk": "^1.942.0",
+    "snyk": "^1.944.0",
     "yup": "^0.32.11"
   },
   "devDependencies": {
@@ -41,8 +41,8 @@
     "@reapit/config-manager": "workspace:packages/config-manager",
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",
     "@reapit/ts-types": "workspace:packages/ts-types",
-    "@typescript-eslint/eslint-plugin": "^5.26.0",
-    "@typescript-eslint/parser": "^5.26.0",
+    "@typescript-eslint/eslint-plugin": "^5.27.0",
+    "@typescript-eslint/parser": "^5.27.0",
     "babel-jest": "^28.1.0",
     "babel-loader": "^8.2.5",
     "concurrently": "^6.5.1",

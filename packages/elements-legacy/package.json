@@ -66,7 +66,7 @@
     "react-image-crop": "8.6.12",
     "react-table": "^7.8.0",
     "react-transition-group": "^4.4.2",
-    "snyk": "^1.942.0"
+    "snyk": "^1.944.0"
   },
   "devDependencies": {
     "@linaria/babel-preset": "^3.0.0-beta.15",
@@ -96,8 +96,8 @@
     "@storybook/theming": "6.4.22",
     "@svgr/rollup": "^6.2.1",
     "@svgr/webpack": "^6.2.1",
-    "@typescript-eslint/eslint-plugin": "^5.26.0",
-    "@typescript-eslint/parser": "^5.26.0",
+    "@typescript-eslint/eslint-plugin": "^5.27.0",
+    "@typescript-eslint/parser": "^5.27.0",
     "babel-jest": "^28.1.0",
     "babel-loader": "^8.2.5",
     "concurrently": "^6.5.1",

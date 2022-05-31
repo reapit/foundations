@@ -35,8 +35,8 @@
   },
   "devDependencies": {
     "@reapit/config-manager": "^2.0.8",
-    "@typescript-eslint/eslint-plugin": "^5.26.0",
-    "@typescript-eslint/parser": "^5.26.0",
+    "@typescript-eslint/eslint-plugin": "^5.27.0",
+    "@typescript-eslint/parser": "^5.27.0",
     "concurrently": "^6.5.1",
     "eslint": "8.16.0",
     "eslint-plugin-prettier": "^4.0.0"
