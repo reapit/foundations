@@ -6629,6 +6629,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@nestjs/axios@npm:^0.0.8":
+  version: 0.0.8
+  resolution: "@nestjs/axios@npm:0.0.8"
+  dependencies:
+    axios: 0.27.2
+  peerDependencies:
+    "@nestjs/common": ^7.0.0 || ^8.0.0
+    reflect-metadata: ^0.1.12
+    rxjs: ^6.0.0 || ^7.0.0
+  checksum: bc6b18c6e8bcfab1e8e9371a089cbba293a7b1df6d5de7fa15bb80db1966e6f62ba62d2b30c7378674f7d2272a1a1d0c694e1192c767c269c0aae04b7bdfea9b
+  languageName: node
+  linkType: hard
+
 "@nestjs/common@npm:^8.4.4":
   version: 8.4.4
   resolution: "@nestjs/common@npm:8.4.4"
@@ -14827,22 +14840,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^0.21.1":
-  version: 0.21.1
-  resolution: "axios@npm:0.21.1"
-  dependencies:
-    follow-redirects: ^1.10.0
-  checksum: c87915fa0b18c15c63350112b6b3563a3e2ae524d7707de0a73d2e065e0d30c5d3da8563037bc29d4cc1b7424b5a350cb7274fa52525c6c04a615fe561c6ab11
-  languageName: node
-  linkType: hard
-
-"axios@npm:^0.27.2":
+"axios@npm:0.27.2, axios@npm:^0.27.2":
   version: 0.27.2
   resolution: "axios@npm:0.27.2"
   dependencies:
     follow-redirects: ^1.14.9
     form-data: ^4.0.0
   checksum: 38cb7540465fe8c4102850c4368053c21683af85c5fdf0ea619f9628abbcb59415d1e22ebc8a6390d2bbc9b58a9806c874f139767389c862ec9b772235f06854
+  languageName: node
+  linkType: hard
+
+"axios@npm:^0.21.1":
+  version: 0.21.1
+  resolution: "axios@npm:0.21.1"
+  dependencies:
+    follow-redirects: ^1.10.0
+  checksum: c87915fa0b18c15c63350112b6b3563a3e2ae524d7707de0a73d2e065e0d30c5d3da8563037bc29d4cc1b7424b5a350cb7274fa52525c6c04a615fe561c6ab11
   languageName: node
   linkType: hard
 
@@ -18980,6 +18993,7 @@ __metadata:
   dependencies:
     "@aws-sdk/client-cloudfront": ^3.100.0
     "@aws-sdk/client-route-53": ^3.100.0
+    "@nestjs/axios": ^0.0.8
     "@nestjs/common": ^8.4.4
     "@nestjs/config": ^2.0.0
     "@nestjs/core": ^8.4.4
@@ -19019,7 +19033,6 @@ __metadata:
     mime-types: ^2.1.35
     mysql: ^2.18.1
     nestjs-typeorm-paginate: ^2.6.3
-    node-fetch: 2.6.7
     nodemon: ^2.0.15
     original-fs: ^1.1.0
     passport-jwt: ^4.0.0

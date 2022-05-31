@@ -11,6 +11,7 @@ import { BitbucketModule } from '../bitbucket'
 import { CodebuildPipelineUpdaterEventHandler } from './codebuild-pipeline-updater-event-handler'
 import { CodebuildDeployWorkflow } from './coebuild-deploy-workflow'
 import { AwsModule } from '../aws'
+import { HttpModule } from '@nestjs/axios'
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { AwsModule } from '../aws'
     EventModule,
     DeploymentModule,
     BitbucketModule,
+    HttpModule,
     AwsModule,
   ],
   providers: [SoruceProvider, CodebuildExecutorWorkflow, CodebuildPipelineUpdaterEventHandler, CodebuildDeployWorkflow],

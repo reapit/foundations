@@ -3,12 +3,14 @@ import { Injectable } from '@nestjs/common'
 import { InjectRepository } from '@nestjs/typeorm'
 import { Repository } from 'typeorm'
 import * as jwt from 'atlassian-jwt'
-import fetch from 'node-fetch'
+import { HttpService } from '@nestjs/axios'
+import { firstValueFrom } from 'rxjs'
 
 @Injectable()
 export class BitbucketProvider {
   constructor(
     @InjectRepository(BitbucketClientEntity) private readonly repository: Repository<BitbucketClientEntity>,
+    private readonly httpService: HttpService,
   ) {}
 
   async create(clientKey: string, data: any) {
@@ -17,7 +19,7 @@ export class BitbucketProvider {
     return this.repository.save(
       this.repository.create({
         clientKey,
-        ...data,
+        data,
       }),
     )
   }
@@ -58,18 +60,19 @@ export class BitbucketProvider {
     }
 
     const jwtToken = jwt.encodeSymmetric(tokenData, process.env.BITBUCKET_SHARED_SECRET as string)
-    const options = {
-      method: opts.method,
-      headers: {
-        ...opts.headers,
-        Authorization: `JWT ${jwtToken}`,
-      },
-      body: qs(opts.body),
+
+    const res = await firstValueFrom(
+      this.httpService.post<{ access_token: string }>(url, qs(opts.body), {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          Authorization: `JWT ${jwtToken}`,
+        },
+      }),
+    )
+
+    if (!res || res.status !== 200) {
+      throw new Error(`Failed to get access token: ${res?.status || 'no res'}`)
     }
-    const res = await fetch(url, options)
-    if (res.status !== 200) {
-      throw new Error(`Failed to get access token: ${res.status}`)
-    }
-    return res.json()
+    return res.data
   }
 }

@@ -16,8 +16,8 @@ export const bootstrapApplication = async (): Promise<[INestApplication, Express
 
   app.useGlobalPipes(new ValidationPipe())
   app.useGlobalInterceptors(new DefaultHeaderInterceptor())
-  app.use(bodyParser.json({limit: '50mb' }))
-  app.use(bodyParser.urlencoded({limit: '50mb', extended: true }))
+  app.use(bodyParser.json({ limit: '50mb' }))
+  app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }))
 
   return [app, expressApp]
 }

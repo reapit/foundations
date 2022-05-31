@@ -41,8 +41,9 @@ export class CodebuildExecutorWorkflow extends AbstractWorkflow<{
     const pipeline = plainToClass(PipelineEntity, json.pipeline)
     const pipelineRunner = plainToClass(PipelineRunnerEntity, json.pipelineRunner)
     const client = json.client
+    const event = json.event
 
-    return { pipeline, pipelineRunner, client }
+    return { pipeline, pipelineRunner, client, event }
   }
 
   async execute({

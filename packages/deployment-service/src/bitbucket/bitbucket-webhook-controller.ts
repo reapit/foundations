@@ -98,6 +98,7 @@ export class BitBucketWebhookController {
     })
 
     await this.eventDispatcher.triggerCodebuildExecutor({
+      pipeline: pipelineRunner.pipeline,
       pipelineRunner,
       client,
       event,

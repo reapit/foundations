@@ -6,6 +6,8 @@ import { S3Provider } from '../s3'
 import { Injectable } from '@nestjs/common'
 import { BitbucketProvider } from '../bitbucket'
 import { App } from '@octokit/app'
+import { HttpService } from '@nestjs/axios'
+import { firstValueFrom } from 'rxjs'
 
 @Injectable()
 export class SoruceProvider {
@@ -13,6 +15,7 @@ export class SoruceProvider {
     private readonly bitbucketProvider: BitbucketProvider,
     private readonly s3Provider: S3Provider,
     private readonly githubProvider: App,
+    private readonly httpService: HttpService,
   ) {}
 
   readonly baseBitbucketUrl = 'https://bitbucket.org'
@@ -50,17 +53,19 @@ export class SoruceProvider {
       clientKey: client.clientKey,
     })
 
-    const result = await fetch(url, {
-      headers: {
-        Authorization: event?.data.repository.is_private ? `Bearer ${tokenData.access_token}` : '',
-      },
-    })
+    const result = await firstValueFrom(
+      this.httpService.get(url, {
+        headers: {
+          Authorization: event?.data.repository.is_private ? `Bearer ${tokenData.access_token}` : '',
+        },
+      }),
+    )
 
     if (result.status !== 200) {
       throw new Error('failed to fetch zip from bitbucket')
     }
 
-    const buffer = Buffer.from(await result.arrayBuffer())
+    const buffer = Buffer.from(result.data)
 
     const uploadResult = await this.s3Provider.upload({
       Bucket: process.env.DEPLOYMENT_REPO_CACHE_BUCKET_NAME as string,
