@@ -1,5 +1,5 @@
 import React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render } from '../../../../tests/react-testing'
 import { ChangePasswordForm, handleSubmitChangePassword, ChangePasswordValues } from '../change-password-form'
 import { FormikHelpers } from '@reapit/elements-legacy'
 

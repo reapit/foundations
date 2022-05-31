@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render } from '../../../../tests/react-testing'
 import {
   InstalledAppList,
   InstalledAppListProps,
@@ -8,7 +8,6 @@ import {
   ListDesktopScreen,
 } from '../installed-app-list'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
-import { Loader } from '@reapit/elements'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 
 const app = appsDataStub.data?.[0] as AppSummaryModel
@@ -55,8 +54,7 @@ describe('InstalledAppList', () => {
   })
 
   it('should show loading', () => {
-    const wrapper = render(<InstalledAppList {...props} loading />)
-    expect(wrapper.find(Loader)).toHaveLength(1)
+    expect(render(<ListDesktopScreen {...listProps} loading />)).toMatchSnapshot()
   })
 
   describe('onClickHandler', () => {

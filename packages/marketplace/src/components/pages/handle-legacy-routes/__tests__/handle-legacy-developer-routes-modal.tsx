@@ -1,6 +1,6 @@
 import React from 'react'
 import routes from '@/constants/routes'
-import { render } from '../../../tests/react-testing'
+import { render } from '../../../../tests/react-testing'
 import HandleLegacyDeveloperRoutesModal, {
   handleBtnBackToMarketplace,
   handleBtnGoThereNow,

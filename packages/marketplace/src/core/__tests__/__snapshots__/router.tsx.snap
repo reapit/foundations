@@ -1,207 +1,120 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Router should match a snapshot 1`] = `
-<Router
-  history={
-    Object {
-      "action": "POP",
-      "block": [Function],
-      "createHref": [Function],
-      "go": [Function],
-      "goBack": [Function],
-      "goForward": [Function],
-      "length": 1,
-      "listen": [Function],
-      "location": Object {
-        "hash": "",
-        "pathname": "/",
-        "search": "",
-      },
-      "push": [Function],
-      "replace": [Function],
-    }
-  }
->
-  <Suspense
-    fallback={null}
-  >
-    <PortalProvider>
-      <Switch>
-        <Route
-          exact={true}
-          path="/register"
-          render={[Function]}
-        />
-        <Route
-          exact={true}
-          path="/ok"
-          render={[Function]}
-        />
-        <Route
-          exact={true}
-          path="/login"
-          render={[Function]}
-        />
-        <Route
-          exact={true}
-          path="/404"
-          render={[Function]}
-        />
-        <PrivateRouteWrapper
-          path="/admin"
-          showMenu={false}
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ecbqyq6-el-snack-holder"
+      />
+      <div
+        class="app-nav-container"
+        data-test=""
+      >
+        <div
+          class="container-flex has-background has-padding"
         >
-          <Switch>
-            <PrivateRoute
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_init": [Function],
-                  "_payload": Object {
-                    "_result": [Function],
-                    "_status": -1,
-                  },
-                }
-              }
-              path="/*"
-            />
-          </Switch>
-        </PrivateRouteWrapper>
-        <PrivateRouteWrapper
-          path="/developer"
-          showMenu={false}
+          <div
+            class="ev48hx0-el-is-full-page ebhrnzh-el-loader-container"
+          >
+            <p
+              class="e15h0ww-el-loader-label"
+            >
+              Loading
+            </p>
+            <div
+              class="eq1m1jz-el-loader"
+            >
+              <div
+                class="exikdu1-el-loader-moving-bar"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6-el-snack-holder"
+    />
+    <div
+      class="app-nav-container"
+      data-test=""
+    >
+      <div
+        class="container-flex has-background has-padding"
+      >
+        <div
+          class="ev48hx0-el-is-full-page ebhrnzh-el-loader-container"
         >
-          <Switch>
-            <PrivateRoute
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_init": [Function],
-                  "_payload": Object {
-                    "_result": [Function],
-                    "_status": -1,
-                  },
-                }
-              }
-              path="/*"
+          <p
+            class="e15h0ww-el-loader-label"
+          >
+            Loading
+          </p>
+          <div
+            class="eq1m1jz-el-loader"
+          >
+            <div
+              class="exikdu1-el-loader-moving-bar"
             />
-          </Switch>
-        </PrivateRouteWrapper>
-        <PrivateRouteWrapper>
-          <Switch>
-            <PrivateRoute
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_init": [Function],
-                  "_payload": Object {
-                    "_result": [Function],
-                    "_status": -1,
-                  },
-                }
-              }
-              path="/authentication"
-            />
-            <PrivateRoute
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_init": [Function],
-                  "_payload": Object {
-                    "_result": [Function],
-                    "_status": -1,
-                  },
-                }
-              }
-              exact={true}
-              fetcher={true}
-              path="/installed"
-            />
-            <PrivateRoute
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_init": [Function],
-                  "_payload": Object {
-                    "_result": [Function],
-                    "_status": -1,
-                  },
-                }
-              }
-              exact={true}
-              fetcher={true}
-              path="/manage"
-            />
-            <PrivateRoute
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_init": [Function],
-                  "_payload": Object {
-                    "_result": [Function],
-                    "_status": -1,
-                  },
-                }
-              }
-              exact={true}
-              fetcher={true}
-              path="/apps"
-            />
-            <PrivateRoute
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_init": [Function],
-                  "_payload": Object {
-                    "_result": [Function],
-                    "_status": -1,
-                  },
-                }
-              }
-              exact={true}
-              fetcher={true}
-              path="/apps/:appid"
-            />
-            <PrivateRoute
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_init": [Function],
-                  "_payload": Object {
-                    "_result": [Function],
-                    "_status": -1,
-                  },
-                }
-              }
-              exact={true}
-              fetcher={true}
-              path="/apps/:appid/manage"
-            />
-            <PrivateRoute
-              component={
-                Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_init": [Function],
-                  "_payload": Object {
-                    "_result": [Function],
-                    "_status": -1,
-                  },
-                }
-              }
-              exact={true}
-              fetcher={true}
-              path="/settings"
-            />
-            <Route
-              render={[Function]}
-            />
-          </Switch>
-        </PrivateRouteWrapper>
-        <Redirect
-          to="/login"
-        />
-      </Switch>
-    </PortalProvider>
-  </Suspense>
-</Router>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

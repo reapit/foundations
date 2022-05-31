@@ -469,6 +469,7 @@ Object {
       >
         <div
           class="el-pn-icon"
+          data-testid="close-icon"
         >
           <span
             class="el-icon"
@@ -558,6 +559,7 @@ Object {
     >
       <div
         class="el-pn-icon"
+        data-testid="close-icon"
       >
         <span
           class="el-icon"

@@ -1,1399 +1,388 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AppDetail should match a snapshot 1`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <MemoryRouter
-    initialEntries={
-      Array [
-        Object {
-          "key": "clientAppDetailRoute",
-          "pathname": "/apps/:appid",
-        },
-      ]
-    }
-  >
-    <Router
-      history={
-        Object {
-          "action": "POP",
-          "block": [Function],
-          "canGo": [Function],
-          "createHref": [Function],
-          "entries": Array [
-            Object {
-              "hash": "",
-              "key": "clientAppDetailRoute",
-              "pathname": "/apps/:appid",
-              "search": "",
-            },
-          ],
-          "go": [Function],
-          "goBack": [Function],
-          "goForward": [Function],
-          "index": 0,
-          "length": 1,
-          "listen": [Function],
-          "location": Object {
-            "hash": "",
-            "key": "clientAppDetailRoute",
-            "pathname": "/apps/:appid",
-            "search": "",
-          },
-          "push": [Function],
-          "replace": [Function],
-        }
-      }
-    >
-      <AppDetail>
-        <FlexContainerResponsive
-          flexColumn={true}
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ecbqyq6-el-snack-holder"
+      />
+      <div
+        class="container is-column"
+      >
+        <section
+          class="section has-padding has-margin has-background"
+          data-test=""
         >
           <div
-            className="container is-column"
+            class="columns cspg16s-container"
+            data-test="client-app-detail-container"
           >
-            <Section>
-              <section
-                className="section has-padding has-margin has-background"
-                data-test=""
+            <div
+              class="ev48hx0-el-is-full-page ebhrnzh-el-loader-container"
+            >
+              <p
+                class="e15h0ww-el-loader-label"
               >
-                <Grid
-                  className="cspg16s-container"
-                  dataTest="client-app-detail-container"
-                >
-                  <div
-                    className="columns cspg16s-container"
-                    data-test="client-app-detail-container"
-                  >
-                    <Loader
-                      fullPage={true}
-                      label="Loading"
-                    >
-                      <ElLoaderContainer
-                        className="ev48hx0-el-is-full-page"
-                      >
-                        <div
-                          className="ev48hx0-el-is-full-page ebhrnzh-el-loader-container"
-                        >
-                          <ElLoaderLabel>
-                            <p
-                              className="e15h0ww-el-loader-label"
-                            >
-                              Loading
-                            </p>
-                          </ElLoaderLabel>
-                          <ElLoader>
-                            <div
-                              className="eq1m1jz-el-loader"
-                            >
-                              <ElLoaderMovingBar>
-                                <div
-                                  className="exikdu1-el-loader-moving-bar"
-                                />
-                              </ElLoaderMovingBar>
-                            </div>
-                          </ElLoader>
-                        </div>
-                      </ElLoaderContainer>
-                    </Loader>
-                    <AppUninstallConfirmation
-                      appDetailData={Object {}}
-                      closeUninstallConfirmationModal={[Function]}
-                      visible={false}
-                    >
-                      <ModalV2
-                        afterClose={[Function]}
-                        footer={
-                          <ButtonGroup
-                            className="is-flex"
-                            hasSpacing={true}
-                            isCentered={true}
-                          >
-                            <Button
-                              dataTest="disagree-btn"
-                              disabled={false}
-                              onClick={[Function]}
-                              type="button"
-                              variant="secondary"
-                            >
-                              Cancel
-                            </Button>
-                            <Button
-                              dataTest="agree-btn"
-                              loading={false}
-                              onClick={[Function]}
-                              type="button"
-                              variant="danger"
-                            >
-                              Confirm
-                            </Button>
-                          </ButtonGroup>
-                        }
-                        isCentered={true}
-                        title="Confirm undefined uninstallation"
-                        visible={false}
-                      >
-                        <Dialog
-                          className="m36ncwu-modal-container"
-                          closeIcon={
-                            <span
-                              aria-label="close"
-                              className="delete"
-                              onClick={[Function]}
-                            />
-                          }
-                          destroyOnClose={true}
-                          footer={
-                            <ButtonGroup
-                              className="is-flex"
-                              hasSpacing={true}
-                              isCentered={true}
-                            >
-                              <Button
-                                dataTest="disagree-btn"
-                                disabled={false}
-                                onClick={[Function]}
-                                type="button"
-                                variant="secondary"
-                              >
-                                Cancel
-                              </Button>
-                              <Button
-                                dataTest="agree-btn"
-                                loading={false}
-                                onClick={[Function]}
-                                type="button"
-                                variant="danger"
-                              >
-                                Confirm
-                              </Button>
-                            </ButtonGroup>
-                          }
-                          title={
-                            <ModalHeaderV2>
-                              Confirm undefined uninstallation
-                            </ModalHeaderV2>
-                          }
-                          visible={false}
-                          wrapClassName="m140lwlu-modal-centered"
-                        />
-                      </ModalV2>
-                      <UninstallationsSuccessModal
-                        afterClose={[Function]}
-                        appDetailData={Object {}}
-                        hasPermissionError={false}
-                        onSuccessAlertButtonClick={[Function]}
-                        visible={false}
-                      >
-                        <ModalV2
-                          hasHeader={false}
-                          isCentered={true}
-                          isPadding={false}
-                          onClose={[Function]}
-                          visible={false}
-                        >
-                          <Dialog
-                            className="m36ncwu-modal-container m1pyzxrx-modal-no-header"
-                            closeIcon={
-                              <span
-                                aria-label="close"
-                                className="delete"
-                              />
-                            }
-                            destroyOnClose={true}
-                            onClose={[Function]}
-                            title={<ModalHeaderV2 />}
-                            visible={false}
-                            wrapClassName="m140lwlu-modal-centered mhi5uvy-modal-no-padding"
-                          />
-                        </ModalV2>
-                      </UninstallationsSuccessModal>
-                    </AppUninstallConfirmation>
-                    <AppInstallConfirmation
-                      appDetailData={Object {}}
-                      closeInstallConfirmationModal={[Function]}
-                      visible={false}
-                    >
-                      <ModalV2
-                        footer={
-                          <ButtonGroup
-                            hasSpacing={true}
-                            isCentered={true}
-                          >
-                            <Button
-                              dataTest="disagree-btn"
-                              disabled={false}
-                              onClick={[Function]}
-                              type="button"
-                              variant="secondary"
-                            >
-                              Cancel
-                            </Button>
-                            <Button
-                              dataTest="agree-btn"
-                              loading={false}
-                              onClick={[Function]}
-                              type="button"
-                              variant="primary"
-                            >
-                              Confirm
-                            </Button>
-                          </ButtonGroup>
-                        }
-                        isCentered={true}
-                        onClose={[Function]}
-                        title="Confirm undefined installation"
-                        visible={false}
-                      >
-                        <Dialog
-                          className="m36ncwu-modal-container"
-                          closeIcon={
-                            <span
-                              aria-label="close"
-                              className="delete"
-                            />
-                          }
-                          destroyOnClose={true}
-                          footer={
-                            <ButtonGroup
-                              hasSpacing={true}
-                              isCentered={true}
-                            >
-                              <Button
-                                dataTest="disagree-btn"
-                                disabled={false}
-                                onClick={[Function]}
-                                type="button"
-                                variant="secondary"
-                              >
-                                Cancel
-                              </Button>
-                              <Button
-                                dataTest="agree-btn"
-                                loading={false}
-                                onClick={[Function]}
-                                type="button"
-                                variant="primary"
-                              >
-                                Confirm
-                              </Button>
-                            </ButtonGroup>
-                          }
-                          onClose={[Function]}
-                          title={
-                            <ModalHeaderV2>
-                              Confirm undefined installation
-                            </ModalHeaderV2>
-                          }
-                          visible={false}
-                          wrapClassName="m140lwlu-modal-centered"
-                        />
-                      </ModalV2>
-                      <InstallDirectApiAppSucesfullyModal
-                        afterClose={[Function]}
-                        appDetailData={Object {}}
-                        isDesktopMode={false}
-                        onSuccessAlertButtonClick={[Function]}
-                        visible={false}
-                      >
-                        <ModalV2
-                          hasHeader={false}
-                          isCentered={true}
-                          isPadding={false}
-                          onClose={[Function]}
-                          visible={false}
-                        >
-                          <Dialog
-                            className="m36ncwu-modal-container m1pyzxrx-modal-no-header"
-                            closeIcon={
-                              <span
-                                aria-label="close"
-                                className="delete"
-                              />
-                            }
-                            destroyOnClose={true}
-                            onClose={[Function]}
-                            title={<ModalHeaderV2 />}
-                            visible={false}
-                            wrapClassName="m140lwlu-modal-centered mhi5uvy-modal-no-padding"
-                          />
-                        </ModalV2>
-                      </InstallDirectApiAppSucesfullyModal>
-                      <InstallNonDirectApiAppSucesfullyModal
-                        afterClose={[Function]}
-                        appDetailData={Object {}}
-                        isDesktopMode={false}
-                        onSuccessAlertButtonClick={[Function]}
-                        visible={false}
-                      >
-                        <ModalV2
-                          hasHeader={false}
-                          isCentered={true}
-                          isPadding={false}
-                          onClose={[Function]}
-                          visible={false}
-                        >
-                          <Dialog
-                            className="m36ncwu-modal-container m1pyzxrx-modal-no-header"
-                            closeIcon={
-                              <span
-                                aria-label="close"
-                                className="delete"
-                              />
-                            }
-                            destroyOnClose={true}
-                            onClose={[Function]}
-                            title={<ModalHeaderV2 />}
-                            visible={false}
-                            wrapClassName="m140lwlu-modal-centered mhi5uvy-modal-no-padding"
-                          />
-                        </ModalV2>
-                      </InstallNonDirectApiAppSucesfullyModal>
-                    </AppInstallConfirmation>
-                    <NonAdminInstallModal
-                      onClose={[Function]}
-                      title=""
-                      visible={false}
-                    >
-                      <ModalV2
-                        closable={false}
-                        footer={
-                          <Button
-                            onClick={[Function]}
-                          >
-                            Close
-                          </Button>
-                        }
-                        isCentered={true}
-                        onClose={[Function]}
-                        title="Installing "
-                        visible={false}
-                      >
-                        <Dialog
-                          className="m36ncwu-modal-container"
-                          closable={false}
-                          closeIcon={
-                            <span
-                              aria-label="close"
-                              className="delete"
-                            />
-                          }
-                          destroyOnClose={true}
-                          footer={
-                            <Button
-                              onClick={[Function]}
-                            >
-                              Close
-                            </Button>
-                          }
-                          onClose={[Function]}
-                          title={
-                            <ModalHeaderV2>
-                              Installing 
-                            </ModalHeaderV2>
-                          }
-                          visible={false}
-                          wrapClassName="m140lwlu-modal-centered"
-                        />
-                      </ModalV2>
-                    </NonAdminInstallModal>
-                    <NonAdminUninstallModal
-                      onClose={[Function]}
-                      title=""
-                      visible={false}
-                    >
-                      <ModalV2
-                        closable={false}
-                        footer={
-                          <Button
-                            onClick={[Function]}
-                          >
-                            Close
-                          </Button>
-                        }
-                        isCentered={true}
-                        onClose={[Function]}
-                        title="Uninstalling "
-                        visible={false}
-                      >
-                        <Dialog
-                          className="m36ncwu-modal-container"
-                          closable={false}
-                          closeIcon={
-                            <span
-                              aria-label="close"
-                              className="delete"
-                            />
-                          }
-                          destroyOnClose={true}
-                          footer={
-                            <Button
-                              onClick={[Function]}
-                            >
-                              Close
-                            </Button>
-                          }
-                          onClose={[Function]}
-                          title={
-                            <ModalHeaderV2>
-                              Uninstalling 
-                            </ModalHeaderV2>
-                          }
-                          visible={false}
-                          wrapClassName="m140lwlu-modal-centered"
-                        />
-                      </ModalV2>
-                    </NonAdminUninstallModal>
-                  </div>
-                </Grid>
-              </section>
-            </Section>
+                Loading
+              </p>
+              <div
+                class="eq1m1jz-el-loader"
+              >
+                <div
+                  class="exikdu1-el-loader-moving-bar"
+                />
+              </div>
+            </div>
           </div>
-        </FlexContainerResponsive>
-      </AppDetail>
-    </Router>
-  </MemoryRouter>
-</Provider>
+        </section>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6-el-snack-holder"
+    />
+    <div
+      class="container is-column"
+    >
+      <section
+        class="section has-padding has-margin has-background"
+        data-test=""
+      >
+        <div
+          class="columns cspg16s-container"
+          data-test="client-app-detail-container"
+        >
+          <div
+            class="ev48hx0-el-is-full-page ebhrnzh-el-loader-container"
+          >
+            <p
+              class="e15h0ww-el-loader-label"
+            >
+              Loading
+            </p>
+            <div
+              class="eq1m1jz-el-loader"
+            >
+              <div
+                class="exikdu1-el-loader-moving-bar"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`AppDetail should render loader when client.appDetail.data is an empty object 1`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <MemoryRouter
-    initialEntries={
-      Array [
-        Object {
-          "key": "clientAppDetailRoute",
-          "pathname": "/apps/:appid",
-        },
-      ]
-    }
-  >
-    <Router
-      history={
-        Object {
-          "action": "POP",
-          "block": [Function],
-          "canGo": [Function],
-          "createHref": [Function],
-          "entries": Array [
-            Object {
-              "hash": "",
-              "key": "clientAppDetailRoute",
-              "pathname": "/apps/:appid",
-              "search": "",
-            },
-          ],
-          "go": [Function],
-          "goBack": [Function],
-          "goForward": [Function],
-          "index": 0,
-          "length": 1,
-          "listen": [Function],
-          "location": Object {
-            "hash": "",
-            "key": "clientAppDetailRoute",
-            "pathname": "/apps/:appid",
-            "search": "",
-          },
-          "push": [Function],
-          "replace": [Function],
-        }
-      }
-    >
-      <AppDetail>
-        <FlexContainerResponsive
-          flexColumn={true}
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ecbqyq6-el-snack-holder"
+      />
+      <div
+        class="container is-column"
+      >
+        <section
+          class="section has-padding has-margin has-background"
+          data-test=""
         >
           <div
-            className="container is-column"
+            class="columns cspg16s-container"
+            data-test="client-app-detail-container"
           >
-            <Section>
-              <section
-                className="section has-padding has-margin has-background"
-                data-test=""
+            <div
+              class="ev48hx0-el-is-full-page ebhrnzh-el-loader-container"
+            >
+              <p
+                class="e15h0ww-el-loader-label"
               >
-                <Grid
-                  className="cspg16s-container"
-                  dataTest="client-app-detail-container"
-                >
-                  <div
-                    className="columns cspg16s-container"
-                    data-test="client-app-detail-container"
-                  >
-                    <Loader
-                      fullPage={true}
-                      label="Loading"
-                    >
-                      <ElLoaderContainer
-                        className="ev48hx0-el-is-full-page"
-                      >
-                        <div
-                          className="ev48hx0-el-is-full-page ebhrnzh-el-loader-container"
-                        >
-                          <ElLoaderLabel>
-                            <p
-                              className="e15h0ww-el-loader-label"
-                            >
-                              Loading
-                            </p>
-                          </ElLoaderLabel>
-                          <ElLoader>
-                            <div
-                              className="eq1m1jz-el-loader"
-                            >
-                              <ElLoaderMovingBar>
-                                <div
-                                  className="exikdu1-el-loader-moving-bar"
-                                />
-                              </ElLoaderMovingBar>
-                            </div>
-                          </ElLoader>
-                        </div>
-                      </ElLoaderContainer>
-                    </Loader>
-                    <AppUninstallConfirmation
-                      appDetailData={Object {}}
-                      closeUninstallConfirmationModal={[Function]}
-                      visible={false}
-                    >
-                      <ModalV2
-                        afterClose={[Function]}
-                        footer={
-                          <ButtonGroup
-                            className="is-flex"
-                            hasSpacing={true}
-                            isCentered={true}
-                          >
-                            <Button
-                              dataTest="disagree-btn"
-                              disabled={false}
-                              onClick={[Function]}
-                              type="button"
-                              variant="secondary"
-                            >
-                              Cancel
-                            </Button>
-                            <Button
-                              dataTest="agree-btn"
-                              loading={false}
-                              onClick={[Function]}
-                              type="button"
-                              variant="danger"
-                            >
-                              Confirm
-                            </Button>
-                          </ButtonGroup>
-                        }
-                        isCentered={true}
-                        title="Confirm undefined uninstallation"
-                        visible={false}
-                      >
-                        <Dialog
-                          className="m36ncwu-modal-container"
-                          closeIcon={
-                            <span
-                              aria-label="close"
-                              className="delete"
-                              onClick={[Function]}
-                            />
-                          }
-                          destroyOnClose={true}
-                          footer={
-                            <ButtonGroup
-                              className="is-flex"
-                              hasSpacing={true}
-                              isCentered={true}
-                            >
-                              <Button
-                                dataTest="disagree-btn"
-                                disabled={false}
-                                onClick={[Function]}
-                                type="button"
-                                variant="secondary"
-                              >
-                                Cancel
-                              </Button>
-                              <Button
-                                dataTest="agree-btn"
-                                loading={false}
-                                onClick={[Function]}
-                                type="button"
-                                variant="danger"
-                              >
-                                Confirm
-                              </Button>
-                            </ButtonGroup>
-                          }
-                          title={
-                            <ModalHeaderV2>
-                              Confirm undefined uninstallation
-                            </ModalHeaderV2>
-                          }
-                          visible={false}
-                          wrapClassName="m140lwlu-modal-centered"
-                        />
-                      </ModalV2>
-                      <UninstallationsSuccessModal
-                        afterClose={[Function]}
-                        appDetailData={Object {}}
-                        hasPermissionError={false}
-                        onSuccessAlertButtonClick={[Function]}
-                        visible={false}
-                      >
-                        <ModalV2
-                          hasHeader={false}
-                          isCentered={true}
-                          isPadding={false}
-                          onClose={[Function]}
-                          visible={false}
-                        >
-                          <Dialog
-                            className="m36ncwu-modal-container m1pyzxrx-modal-no-header"
-                            closeIcon={
-                              <span
-                                aria-label="close"
-                                className="delete"
-                              />
-                            }
-                            destroyOnClose={true}
-                            onClose={[Function]}
-                            title={<ModalHeaderV2 />}
-                            visible={false}
-                            wrapClassName="m140lwlu-modal-centered mhi5uvy-modal-no-padding"
-                          />
-                        </ModalV2>
-                      </UninstallationsSuccessModal>
-                    </AppUninstallConfirmation>
-                    <AppInstallConfirmation
-                      appDetailData={Object {}}
-                      closeInstallConfirmationModal={[Function]}
-                      visible={false}
-                    >
-                      <ModalV2
-                        footer={
-                          <ButtonGroup
-                            hasSpacing={true}
-                            isCentered={true}
-                          >
-                            <Button
-                              dataTest="disagree-btn"
-                              disabled={false}
-                              onClick={[Function]}
-                              type="button"
-                              variant="secondary"
-                            >
-                              Cancel
-                            </Button>
-                            <Button
-                              dataTest="agree-btn"
-                              loading={false}
-                              onClick={[Function]}
-                              type="button"
-                              variant="primary"
-                            >
-                              Confirm
-                            </Button>
-                          </ButtonGroup>
-                        }
-                        isCentered={true}
-                        onClose={[Function]}
-                        title="Confirm undefined installation"
-                        visible={false}
-                      >
-                        <Dialog
-                          className="m36ncwu-modal-container"
-                          closeIcon={
-                            <span
-                              aria-label="close"
-                              className="delete"
-                            />
-                          }
-                          destroyOnClose={true}
-                          footer={
-                            <ButtonGroup
-                              hasSpacing={true}
-                              isCentered={true}
-                            >
-                              <Button
-                                dataTest="disagree-btn"
-                                disabled={false}
-                                onClick={[Function]}
-                                type="button"
-                                variant="secondary"
-                              >
-                                Cancel
-                              </Button>
-                              <Button
-                                dataTest="agree-btn"
-                                loading={false}
-                                onClick={[Function]}
-                                type="button"
-                                variant="primary"
-                              >
-                                Confirm
-                              </Button>
-                            </ButtonGroup>
-                          }
-                          onClose={[Function]}
-                          title={
-                            <ModalHeaderV2>
-                              Confirm undefined installation
-                            </ModalHeaderV2>
-                          }
-                          visible={false}
-                          wrapClassName="m140lwlu-modal-centered"
-                        />
-                      </ModalV2>
-                      <InstallDirectApiAppSucesfullyModal
-                        afterClose={[Function]}
-                        appDetailData={Object {}}
-                        isDesktopMode={false}
-                        onSuccessAlertButtonClick={[Function]}
-                        visible={false}
-                      >
-                        <ModalV2
-                          hasHeader={false}
-                          isCentered={true}
-                          isPadding={false}
-                          onClose={[Function]}
-                          visible={false}
-                        >
-                          <Dialog
-                            className="m36ncwu-modal-container m1pyzxrx-modal-no-header"
-                            closeIcon={
-                              <span
-                                aria-label="close"
-                                className="delete"
-                              />
-                            }
-                            destroyOnClose={true}
-                            onClose={[Function]}
-                            title={<ModalHeaderV2 />}
-                            visible={false}
-                            wrapClassName="m140lwlu-modal-centered mhi5uvy-modal-no-padding"
-                          />
-                        </ModalV2>
-                      </InstallDirectApiAppSucesfullyModal>
-                      <InstallNonDirectApiAppSucesfullyModal
-                        afterClose={[Function]}
-                        appDetailData={Object {}}
-                        isDesktopMode={false}
-                        onSuccessAlertButtonClick={[Function]}
-                        visible={false}
-                      >
-                        <ModalV2
-                          hasHeader={false}
-                          isCentered={true}
-                          isPadding={false}
-                          onClose={[Function]}
-                          visible={false}
-                        >
-                          <Dialog
-                            className="m36ncwu-modal-container m1pyzxrx-modal-no-header"
-                            closeIcon={
-                              <span
-                                aria-label="close"
-                                className="delete"
-                              />
-                            }
-                            destroyOnClose={true}
-                            onClose={[Function]}
-                            title={<ModalHeaderV2 />}
-                            visible={false}
-                            wrapClassName="m140lwlu-modal-centered mhi5uvy-modal-no-padding"
-                          />
-                        </ModalV2>
-                      </InstallNonDirectApiAppSucesfullyModal>
-                    </AppInstallConfirmation>
-                    <NonAdminInstallModal
-                      onClose={[Function]}
-                      title=""
-                      visible={false}
-                    >
-                      <ModalV2
-                        closable={false}
-                        footer={
-                          <Button
-                            onClick={[Function]}
-                          >
-                            Close
-                          </Button>
-                        }
-                        isCentered={true}
-                        onClose={[Function]}
-                        title="Installing "
-                        visible={false}
-                      >
-                        <Dialog
-                          className="m36ncwu-modal-container"
-                          closable={false}
-                          closeIcon={
-                            <span
-                              aria-label="close"
-                              className="delete"
-                            />
-                          }
-                          destroyOnClose={true}
-                          footer={
-                            <Button
-                              onClick={[Function]}
-                            >
-                              Close
-                            </Button>
-                          }
-                          onClose={[Function]}
-                          title={
-                            <ModalHeaderV2>
-                              Installing 
-                            </ModalHeaderV2>
-                          }
-                          visible={false}
-                          wrapClassName="m140lwlu-modal-centered"
-                        />
-                      </ModalV2>
-                    </NonAdminInstallModal>
-                    <NonAdminUninstallModal
-                      onClose={[Function]}
-                      title=""
-                      visible={false}
-                    >
-                      <ModalV2
-                        closable={false}
-                        footer={
-                          <Button
-                            onClick={[Function]}
-                          >
-                            Close
-                          </Button>
-                        }
-                        isCentered={true}
-                        onClose={[Function]}
-                        title="Uninstalling "
-                        visible={false}
-                      >
-                        <Dialog
-                          className="m36ncwu-modal-container"
-                          closable={false}
-                          closeIcon={
-                            <span
-                              aria-label="close"
-                              className="delete"
-                            />
-                          }
-                          destroyOnClose={true}
-                          footer={
-                            <Button
-                              onClick={[Function]}
-                            >
-                              Close
-                            </Button>
-                          }
-                          onClose={[Function]}
-                          title={
-                            <ModalHeaderV2>
-                              Uninstalling 
-                            </ModalHeaderV2>
-                          }
-                          visible={false}
-                          wrapClassName="m140lwlu-modal-centered"
-                        />
-                      </ModalV2>
-                    </NonAdminUninstallModal>
-                  </div>
-                </Grid>
-              </section>
-            </Section>
+                Loading
+              </p>
+              <div
+                class="eq1m1jz-el-loader"
+              >
+                <div
+                  class="exikdu1-el-loader-moving-bar"
+                />
+              </div>
+            </div>
           </div>
-        </FlexContainerResponsive>
-      </AppDetail>
-    </Router>
-  </MemoryRouter>
-</Provider>
+        </section>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6-el-snack-holder"
+    />
+    <div
+      class="container is-column"
+    >
+      <section
+        class="section has-padding has-margin has-background"
+        data-test=""
+      >
+        <div
+          class="columns cspg16s-container"
+          data-test="client-app-detail-container"
+        >
+          <div
+            class="ev48hx0-el-is-full-page ebhrnzh-el-loader-container"
+          >
+            <p
+              class="e15h0ww-el-loader-label"
+            >
+              Loading
+            </p>
+            <div
+              class="eq1m1jz-el-loader"
+            >
+              <div
+                class="exikdu1-el-loader-moving-bar"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`AppDetail should render loader when isLoadingAppDetail = true 1`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <MemoryRouter
-    initialEntries={
-      Array [
-        Object {
-          "key": "clientAppDetailRoute",
-          "pathname": "/apps/:appid",
-        },
-      ]
-    }
-  >
-    <Router
-      history={
-        Object {
-          "action": "POP",
-          "block": [Function],
-          "canGo": [Function],
-          "createHref": [Function],
-          "entries": Array [
-            Object {
-              "hash": "",
-              "key": "clientAppDetailRoute",
-              "pathname": "/apps/:appid",
-              "search": "",
-            },
-          ],
-          "go": [Function],
-          "goBack": [Function],
-          "goForward": [Function],
-          "index": 0,
-          "length": 1,
-          "listen": [Function],
-          "location": Object {
-            "hash": "",
-            "key": "clientAppDetailRoute",
-            "pathname": "/apps/:appid",
-            "search": "",
-          },
-          "push": [Function],
-          "replace": [Function],
-        }
-      }
-    >
-      <AppDetail>
-        <FlexContainerResponsive
-          flexColumn={true}
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ecbqyq6-el-snack-holder"
+      />
+      <div
+        class="container is-column"
+      >
+        <section
+          class="section has-padding has-margin has-background"
+          data-test=""
         >
           <div
-            className="container is-column"
+            class="columns cspg16s-container"
+            data-test="client-app-detail-container"
           >
-            <Section>
-              <section
-                className="section has-padding has-margin has-background"
-                data-test=""
+            <div
+              class="ev48hx0-el-is-full-page ebhrnzh-el-loader-container"
+            >
+              <p
+                class="e15h0ww-el-loader-label"
               >
-                <Grid
-                  className="cspg16s-container"
-                  dataTest="client-app-detail-container"
-                >
-                  <div
-                    className="columns cspg16s-container"
-                    data-test="client-app-detail-container"
-                  >
-                    <Loader
-                      fullPage={true}
-                      label="Loading"
-                    >
-                      <ElLoaderContainer
-                        className="ev48hx0-el-is-full-page"
-                      >
-                        <div
-                          className="ev48hx0-el-is-full-page ebhrnzh-el-loader-container"
-                        >
-                          <ElLoaderLabel>
-                            <p
-                              className="e15h0ww-el-loader-label"
-                            >
-                              Loading
-                            </p>
-                          </ElLoaderLabel>
-                          <ElLoader>
-                            <div
-                              className="eq1m1jz-el-loader"
-                            >
-                              <ElLoaderMovingBar>
-                                <div
-                                  className="exikdu1-el-loader-moving-bar"
-                                />
-                              </ElLoaderMovingBar>
-                            </div>
-                          </ElLoader>
-                        </div>
-                      </ElLoaderContainer>
-                    </Loader>
-                    <AppUninstallConfirmation
-                      appDetailData={Object {}}
-                      closeUninstallConfirmationModal={[Function]}
-                      visible={false}
-                    >
-                      <ModalV2
-                        afterClose={[Function]}
-                        footer={
-                          <ButtonGroup
-                            className="is-flex"
-                            hasSpacing={true}
-                            isCentered={true}
-                          >
-                            <Button
-                              dataTest="disagree-btn"
-                              disabled={false}
-                              onClick={[Function]}
-                              type="button"
-                              variant="secondary"
-                            >
-                              Cancel
-                            </Button>
-                            <Button
-                              dataTest="agree-btn"
-                              loading={false}
-                              onClick={[Function]}
-                              type="button"
-                              variant="danger"
-                            >
-                              Confirm
-                            </Button>
-                          </ButtonGroup>
-                        }
-                        isCentered={true}
-                        title="Confirm undefined uninstallation"
-                        visible={false}
-                      >
-                        <Dialog
-                          className="m36ncwu-modal-container"
-                          closeIcon={
-                            <span
-                              aria-label="close"
-                              className="delete"
-                              onClick={[Function]}
-                            />
-                          }
-                          destroyOnClose={true}
-                          footer={
-                            <ButtonGroup
-                              className="is-flex"
-                              hasSpacing={true}
-                              isCentered={true}
-                            >
-                              <Button
-                                dataTest="disagree-btn"
-                                disabled={false}
-                                onClick={[Function]}
-                                type="button"
-                                variant="secondary"
-                              >
-                                Cancel
-                              </Button>
-                              <Button
-                                dataTest="agree-btn"
-                                loading={false}
-                                onClick={[Function]}
-                                type="button"
-                                variant="danger"
-                              >
-                                Confirm
-                              </Button>
-                            </ButtonGroup>
-                          }
-                          title={
-                            <ModalHeaderV2>
-                              Confirm undefined uninstallation
-                            </ModalHeaderV2>
-                          }
-                          visible={false}
-                          wrapClassName="m140lwlu-modal-centered"
-                        />
-                      </ModalV2>
-                      <UninstallationsSuccessModal
-                        afterClose={[Function]}
-                        appDetailData={Object {}}
-                        hasPermissionError={false}
-                        onSuccessAlertButtonClick={[Function]}
-                        visible={false}
-                      >
-                        <ModalV2
-                          hasHeader={false}
-                          isCentered={true}
-                          isPadding={false}
-                          onClose={[Function]}
-                          visible={false}
-                        >
-                          <Dialog
-                            className="m36ncwu-modal-container m1pyzxrx-modal-no-header"
-                            closeIcon={
-                              <span
-                                aria-label="close"
-                                className="delete"
-                              />
-                            }
-                            destroyOnClose={true}
-                            onClose={[Function]}
-                            title={<ModalHeaderV2 />}
-                            visible={false}
-                            wrapClassName="m140lwlu-modal-centered mhi5uvy-modal-no-padding"
-                          />
-                        </ModalV2>
-                      </UninstallationsSuccessModal>
-                    </AppUninstallConfirmation>
-                    <AppInstallConfirmation
-                      appDetailData={Object {}}
-                      closeInstallConfirmationModal={[Function]}
-                      visible={false}
-                    >
-                      <ModalV2
-                        footer={
-                          <ButtonGroup
-                            hasSpacing={true}
-                            isCentered={true}
-                          >
-                            <Button
-                              dataTest="disagree-btn"
-                              disabled={false}
-                              onClick={[Function]}
-                              type="button"
-                              variant="secondary"
-                            >
-                              Cancel
-                            </Button>
-                            <Button
-                              dataTest="agree-btn"
-                              loading={false}
-                              onClick={[Function]}
-                              type="button"
-                              variant="primary"
-                            >
-                              Confirm
-                            </Button>
-                          </ButtonGroup>
-                        }
-                        isCentered={true}
-                        onClose={[Function]}
-                        title="Confirm undefined installation"
-                        visible={false}
-                      >
-                        <Dialog
-                          className="m36ncwu-modal-container"
-                          closeIcon={
-                            <span
-                              aria-label="close"
-                              className="delete"
-                            />
-                          }
-                          destroyOnClose={true}
-                          footer={
-                            <ButtonGroup
-                              hasSpacing={true}
-                              isCentered={true}
-                            >
-                              <Button
-                                dataTest="disagree-btn"
-                                disabled={false}
-                                onClick={[Function]}
-                                type="button"
-                                variant="secondary"
-                              >
-                                Cancel
-                              </Button>
-                              <Button
-                                dataTest="agree-btn"
-                                loading={false}
-                                onClick={[Function]}
-                                type="button"
-                                variant="primary"
-                              >
-                                Confirm
-                              </Button>
-                            </ButtonGroup>
-                          }
-                          onClose={[Function]}
-                          title={
-                            <ModalHeaderV2>
-                              Confirm undefined installation
-                            </ModalHeaderV2>
-                          }
-                          visible={false}
-                          wrapClassName="m140lwlu-modal-centered"
-                        />
-                      </ModalV2>
-                      <InstallDirectApiAppSucesfullyModal
-                        afterClose={[Function]}
-                        appDetailData={Object {}}
-                        isDesktopMode={false}
-                        onSuccessAlertButtonClick={[Function]}
-                        visible={false}
-                      >
-                        <ModalV2
-                          hasHeader={false}
-                          isCentered={true}
-                          isPadding={false}
-                          onClose={[Function]}
-                          visible={false}
-                        >
-                          <Dialog
-                            className="m36ncwu-modal-container m1pyzxrx-modal-no-header"
-                            closeIcon={
-                              <span
-                                aria-label="close"
-                                className="delete"
-                              />
-                            }
-                            destroyOnClose={true}
-                            onClose={[Function]}
-                            title={<ModalHeaderV2 />}
-                            visible={false}
-                            wrapClassName="m140lwlu-modal-centered mhi5uvy-modal-no-padding"
-                          />
-                        </ModalV2>
-                      </InstallDirectApiAppSucesfullyModal>
-                      <InstallNonDirectApiAppSucesfullyModal
-                        afterClose={[Function]}
-                        appDetailData={Object {}}
-                        isDesktopMode={false}
-                        onSuccessAlertButtonClick={[Function]}
-                        visible={false}
-                      >
-                        <ModalV2
-                          hasHeader={false}
-                          isCentered={true}
-                          isPadding={false}
-                          onClose={[Function]}
-                          visible={false}
-                        >
-                          <Dialog
-                            className="m36ncwu-modal-container m1pyzxrx-modal-no-header"
-                            closeIcon={
-                              <span
-                                aria-label="close"
-                                className="delete"
-                              />
-                            }
-                            destroyOnClose={true}
-                            onClose={[Function]}
-                            title={<ModalHeaderV2 />}
-                            visible={false}
-                            wrapClassName="m140lwlu-modal-centered mhi5uvy-modal-no-padding"
-                          />
-                        </ModalV2>
-                      </InstallNonDirectApiAppSucesfullyModal>
-                    </AppInstallConfirmation>
-                    <NonAdminInstallModal
-                      onClose={[Function]}
-                      title=""
-                      visible={false}
-                    >
-                      <ModalV2
-                        closable={false}
-                        footer={
-                          <Button
-                            onClick={[Function]}
-                          >
-                            Close
-                          </Button>
-                        }
-                        isCentered={true}
-                        onClose={[Function]}
-                        title="Installing "
-                        visible={false}
-                      >
-                        <Dialog
-                          className="m36ncwu-modal-container"
-                          closable={false}
-                          closeIcon={
-                            <span
-                              aria-label="close"
-                              className="delete"
-                            />
-                          }
-                          destroyOnClose={true}
-                          footer={
-                            <Button
-                              onClick={[Function]}
-                            >
-                              Close
-                            </Button>
-                          }
-                          onClose={[Function]}
-                          title={
-                            <ModalHeaderV2>
-                              Installing 
-                            </ModalHeaderV2>
-                          }
-                          visible={false}
-                          wrapClassName="m140lwlu-modal-centered"
-                        />
-                      </ModalV2>
-                    </NonAdminInstallModal>
-                    <NonAdminUninstallModal
-                      onClose={[Function]}
-                      title=""
-                      visible={false}
-                    >
-                      <ModalV2
-                        closable={false}
-                        footer={
-                          <Button
-                            onClick={[Function]}
-                          >
-                            Close
-                          </Button>
-                        }
-                        isCentered={true}
-                        onClose={[Function]}
-                        title="Uninstalling "
-                        visible={false}
-                      >
-                        <Dialog
-                          className="m36ncwu-modal-container"
-                          closable={false}
-                          closeIcon={
-                            <span
-                              aria-label="close"
-                              className="delete"
-                            />
-                          }
-                          destroyOnClose={true}
-                          footer={
-                            <Button
-                              onClick={[Function]}
-                            >
-                              Close
-                            </Button>
-                          }
-                          onClose={[Function]}
-                          title={
-                            <ModalHeaderV2>
-                              Uninstalling 
-                            </ModalHeaderV2>
-                          }
-                          visible={false}
-                          wrapClassName="m140lwlu-modal-centered"
-                        />
-                      </ModalV2>
-                    </NonAdminUninstallModal>
-                  </div>
-                </Grid>
-              </section>
-            </Section>
+                Loading
+              </p>
+              <div
+                class="eq1m1jz-el-loader"
+              >
+                <div
+                  class="exikdu1-el-loader-moving-bar"
+                />
+              </div>
+            </div>
           </div>
-        </FlexContainerResponsive>
-      </AppDetail>
-    </Router>
-  </MemoryRouter>
-</Provider>
+        </section>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6-el-snack-holder"
+    />
+    <div
+      class="container is-column"
+    >
+      <section
+        class="section has-padding has-margin has-background"
+        data-test=""
+      >
+        <div
+          class="columns cspg16s-container"
+          data-test="client-app-detail-container"
+        >
+          <div
+            class="ev48hx0-el-is-full-page ebhrnzh-el-loader-container"
+          >
+            <p
+              class="e15h0ww-el-loader-label"
+            >
+              Loading
+            </p>
+            <div
+              class="eq1m1jz-el-loader"
+            >
+              <div
+                class="exikdu1-el-loader-moving-bar"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

@@ -1,6 +1,6 @@
 import React from 'react'
 import { AppDetailButtonGroup } from '../app-detail-button-group'
-import { render } from '../../../tests/react-testing'
+import { render } from '../../../../../tests/react-testing'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 
 describe('ClientAppDetailButtonGroup', () => {

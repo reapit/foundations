@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render } from '../../../../tests/react-testing'
 import { FeaturedApps } from '../featured'
 import { featuredAppsDataStub } from '../../../../sagas/__stubs__/apps'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'

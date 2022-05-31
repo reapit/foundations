@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { MemoryRouter } from 'react-router'
 import * as ReactRedux from 'react-redux'
-import { render } from '../../../tests/react-testing'
+import { render } from '../../../../tests/react-testing'
 import configureStore from 'redux-mock-store'
 import { Login, handleShowNotificationAfterPasswordChanged, onLoginButtonClick } from '../login'
 import appState from '@/reducers/__stubs__/app-state'

@@ -30,18 +30,6 @@ describe('CallToAction', () => {
     expect(render(<CallToAction {...props} />)).toMatchSnapshot()
   })
 
-  it('should allow custom className', () => {
-    const wrapper = render(<CallToAction {...props} className="addition" />)
-    expect(wrapper.find('.addition')).toHaveLength(1)
-  })
-
-  it('simulates onButtonClick event', () => {
-    const mockButtonClick = jest.fn()
-    const wrapper = render(<CallToAction {...props} onButtonClick={mockButtonClick} />)
-    wrapper.find(Button).simulate('click')
-    expect(mockButtonClick).toBeCalledTimes(1)
-  })
-
   afterEach(() => {
     jest.resetAllMocks()
   })

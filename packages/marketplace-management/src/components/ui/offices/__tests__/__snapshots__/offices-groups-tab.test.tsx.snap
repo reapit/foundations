@@ -20,6 +20,7 @@ Object {
       >
         <div
           class="el-pn-icon"
+          data-testid="close-icon"
         >
           <span
             class="el-icon"
@@ -62,6 +63,7 @@ Object {
     >
       <div
         class="el-pn-icon"
+        data-testid="close-icon"
       >
         <span
           class="el-icon"
@@ -10669,6 +10671,7 @@ Object {
         </div>
         <button
           class="el-pagination-button"
+          data-testid="back-button"
           type="button"
         >
           <span
@@ -10690,6 +10693,7 @@ Object {
         </button>
         <button
           class="el-pagination-button"
+          data-testid="forward-button"
           type="button"
         >
           <span
@@ -21131,6 +21135,7 @@ Object {
       </div>
       <button
         class="el-pagination-button"
+        data-testid="back-button"
         type="button"
       >
         <span
@@ -21152,6 +21157,7 @@ Object {
       </button>
       <button
         class="el-pagination-button"
+        data-testid="forward-button"
         type="button"
       >
         <span
@@ -21246,6 +21252,7 @@ Object {
       >
         <div
           class="el-pn-icon"
+          data-testid="close-icon"
         >
           <span
             class="el-icon"
@@ -21287,6 +21294,7 @@ Object {
     >
       <div
         class="el-pn-icon"
+        data-testid="close-icon"
       >
         <span
           class="el-icon"

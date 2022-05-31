@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as ReactRedux from 'react-redux'
-import { render } from '../../../tests/react-testing'
+import { render } from '../../tests/react-testing'
 import configureStore from 'redux-mock-store'
 import { PrivateRoute, handleRedirectToAuthenticationPage } from '../private-route'
 import appState from '@/reducers/__stubs__/app-state'

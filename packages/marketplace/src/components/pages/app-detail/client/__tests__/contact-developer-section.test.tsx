@@ -1,6 +1,6 @@
 import React from 'react'
 import { ContactDeveloperSection, ContactDeveloperSectionType } from '../contact-developer-section'
-import { render } from '../../../tests/react-testing'
+import { render } from '../../../../../tests/react-testing'
 
 const props: ContactDeveloperSectionType = {
   contact: {

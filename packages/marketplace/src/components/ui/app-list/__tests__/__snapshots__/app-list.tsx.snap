@@ -1,165 +1,871 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AppList should match a snapshot 1`] = `
-<div
-  className="mb-4"
->
-  <GridFourCol
-    className=""
-    data-test="app-list-container"
-  >
-    <GridFourColItem
-      className=""
-      key="09043eb8-9e5e-4650-b7f1-f0cb62699027"
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ecbqyq6-el-snack-holder"
+      />
+      <div
+        class="mb-4"
+      >
+        <div
+          class="columns is-multiline"
+          data-test=""
+        >
+          <div
+            class="column is-multiline is-full-mobile is-half-tablet is-one-third-widescreen is-one-quarter-fullhd"
+            data-test=""
+          >
+            <div
+              class="fvmt8oy-fade-in"
+            >
+              <div
+                class="bcn8i89-banner-wrap"
+                data-test-app-id="09043eb8-9e5e-4650-b7f1-f0cb62699027"
+                data-test-app-name="test"
+              >
+                <div
+                  class="bv0d7a6-banner-inner"
+                >
+                  In Development
+                </div>
+                <div
+                  class="card  is-clickable"
+                  data-test="app-card_09043eb8-9e5e-4650-b7f1-f0cb62699027_isNoPending_test"
+                >
+                  <div
+                    class="card-content"
+                  >
+                    <div
+                      class="media"
+                    >
+                      <div
+                        class="celd5vt-card-image-wrap"
+                      >
+                        <div
+                          class="media-left"
+                        >
+                          <div
+                            class="media-image"
+                          >
+                            <img
+                              alt="test"
+                              class="image"
+                              src="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/d10e790c-2bf2-40ae-9c43-82c1534bde31.png"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="media-content"
+                      >
+                        <h5
+                          class="cx2tpjh-card-heading"
+                        >
+                          <div
+                            class="aw81558-app-title"
+                          >
+                            test
+                          </div>
+                        </h5>
+                        <h6
+                          class="text-ellipsis-5 c13mgq47-card-sub-heading"
+                        >
+                          Pete's Proptech World Ltd
+                        </h6>
+                        <h6
+                          class="c70e4ht-card-sub-heading-additional"
+                        >
+                          <div
+                            class="flex justify-between"
+                          >
+                            <span />
+                             
+                          </div>
+                        </h6>
+                      </div>
+                    </div>
+                    <div
+                      class="c5hhdto-card-body-wrap"
+                    >
+                      <p
+                        class="chbr8km-content"
+                      >
+                        nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsicr8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="column is-multiline is-full-mobile is-half-tablet is-one-third-widescreen is-one-quarter-fullhd"
+            data-test=""
+          >
+            <div
+              class="fvmt8oy-fade-in"
+            >
+              <div
+                class="bcn8i89-banner-wrap"
+                data-test-app-id="261da083-cee2-4f5c-a18f-8f9375f1f5af"
+                data-test-app-name="asd"
+              >
+                <div
+                  class="bv0d7a6-banner-inner"
+                >
+                  In Development
+                </div>
+                <div
+                  class="card  is-clickable"
+                  data-test="app-card_261da083-cee2-4f5c-a18f-8f9375f1f5af_isNoPending_asd"
+                >
+                  <div
+                    class="card-content"
+                  >
+                    <div
+                      class="media"
+                    >
+                      <div
+                        class="celd5vt-card-image-wrap"
+                      >
+                        <div
+                          class="media-left"
+                        >
+                          <div
+                            class="media-image"
+                          >
+                            <img
+                              alt="asd"
+                              class="image"
+                              src="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/1d38c5ec-e3c0-4138-9fe0-e77bce4034d1.octet-stream"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="media-content"
+                      >
+                        <h5
+                          class="cx2tpjh-card-heading"
+                        >
+                          <div
+                            class="aw81558-app-title"
+                          >
+                            asd
+                          </div>
+                        </h5>
+                        <h6
+                          class="text-ellipsis-5 c13mgq47-card-sub-heading"
+                        >
+                          Pete's Proptech World Ltd
+                        </h6>
+                        <h6
+                          class="c70e4ht-card-sub-heading-additional"
+                        >
+                          <div
+                            class="flex justify-between"
+                          >
+                            <span />
+                             
+                          </div>
+                        </h6>
+                      </div>
+                    </div>
+                    <div
+                      class="c5hhdto-card-body-wrap"
+                    >
+                      <p
+                        class="chbr8km-content"
+                      >
+                        asdQiiAJTmXGxPin7pwUiCsepZWXz1EJS71eGlvgPKH4hpE6J8DRDpzP2kDdOwpQPr4aHCCwWwxBJwzARLa7wMpJh5J61GhmQjLfKZkcDd47L9WEfQYVYAj0DTPJP0BuUMAAg2
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6-el-snack-holder"
+    />
+    <div
+      class="mb-4"
     >
-      <FadeIn>
-        <AppCard
-          app={
-            Object {
-              "created": "2020-02-02T10:45:57",
-              "developer": "Pete's Proptech World Ltd",
-              "developerId": "28c9ea52-7f73-4814-9e00-4e3714b8adeb",
-              "homePage": "http://google.com/abc",
-              "iconUri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/d10e790c-2bf2-40ae-9c43-82c1534bde31.png",
-              "id": "09043eb8-9e5e-4650-b7f1-f0cb62699027",
-              "links": Array [
-                Object {
-                  "action": "GET",
-                  "href": "http://platformdemo.reapit.net/marketplace/apps/09043eb8-9e5e-4650-b7f1-f0cb62699027",
-                  "rel": "self",
-                },
-                Object {
-                  "action": "GET",
-                  "href": "http://platformdemo.reapit.net/marketplace/developers/28c9ea52-7f73-4814-9e00-4e3714b8adeb",
-                  "rel": "developer",
-                },
-              ],
-              "name": "test",
-              "summary": "nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsicr8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz",
-            }
-          }
-          onClick={[Function]}
-          onSettingsClick={[Function]}
-        />
-      </FadeIn>
-    </GridFourColItem>
-    <GridFourColItem
-      className=""
-      key="261da083-cee2-4f5c-a18f-8f9375f1f5af"
-    >
-      <FadeIn>
-        <AppCard
-          app={
-            Object {
-              "created": "2020-02-02T10:45:57",
-              "developer": "Pete's Proptech World Ltd",
-              "developerId": "28c9ea52-7f73-4814-9e00-4e3714b8adeb",
-              "homePage": "http://www.contoso.com/path",
-              "iconUri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/1d38c5ec-e3c0-4138-9fe0-e77bce4034d1.octet-stream",
-              "id": "261da083-cee2-4f5c-a18f-8f9375f1f5af",
-              "links": Array [
-                Object {
-                  "action": "GET",
-                  "href": "http://platformdemo.reapit.net/marketplace/apps/261da083-cee2-4f5c-a18f-8f9375f1f5af",
-                  "rel": "self",
-                },
-                Object {
-                  "action": "GET",
-                  "href": "http://platformdemo.reapit.net/marketplace/developers/28c9ea52-7f73-4814-9e00-4e3714b8adeb",
-                  "rel": "developer",
-                },
-              ],
-              "name": "asd",
-              "summary": "asdQiiAJTmXGxPin7pwUiCsepZWXz1EJS71eGlvgPKH4hpE6J8DRDpzP2kDdOwpQPr4aHCCwWwxBJwzARLa7wMpJh5J61GhmQjLfKZkcDd47L9WEfQYVYAj0DTPJP0BuUMAAg2",
-            }
-          }
-          onClick={[Function]}
-          onSettingsClick={[Function]}
-        />
-      </FadeIn>
-    </GridFourColItem>
-  </GridFourCol>
-</div>
+      <div
+        class="columns is-multiline"
+        data-test=""
+      >
+        <div
+          class="column is-multiline is-full-mobile is-half-tablet is-one-third-widescreen is-one-quarter-fullhd"
+          data-test=""
+        >
+          <div
+            class="fvmt8oy-fade-in"
+          >
+            <div
+              class="bcn8i89-banner-wrap"
+              data-test-app-id="09043eb8-9e5e-4650-b7f1-f0cb62699027"
+              data-test-app-name="test"
+            >
+              <div
+                class="bv0d7a6-banner-inner"
+              >
+                In Development
+              </div>
+              <div
+                class="card  is-clickable"
+                data-test="app-card_09043eb8-9e5e-4650-b7f1-f0cb62699027_isNoPending_test"
+              >
+                <div
+                  class="card-content"
+                >
+                  <div
+                    class="media"
+                  >
+                    <div
+                      class="celd5vt-card-image-wrap"
+                    >
+                      <div
+                        class="media-left"
+                      >
+                        <div
+                          class="media-image"
+                        >
+                          <img
+                            alt="test"
+                            class="image"
+                            src="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/d10e790c-2bf2-40ae-9c43-82c1534bde31.png"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="media-content"
+                    >
+                      <h5
+                        class="cx2tpjh-card-heading"
+                      >
+                        <div
+                          class="aw81558-app-title"
+                        >
+                          test
+                        </div>
+                      </h5>
+                      <h6
+                        class="text-ellipsis-5 c13mgq47-card-sub-heading"
+                      >
+                        Pete's Proptech World Ltd
+                      </h6>
+                      <h6
+                        class="c70e4ht-card-sub-heading-additional"
+                      >
+                        <div
+                          class="flex justify-between"
+                        >
+                          <span />
+                           
+                        </div>
+                      </h6>
+                    </div>
+                  </div>
+                  <div
+                    class="c5hhdto-card-body-wrap"
+                  >
+                    <p
+                      class="chbr8km-content"
+                    >
+                      nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsicr8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="column is-multiline is-full-mobile is-half-tablet is-one-third-widescreen is-one-quarter-fullhd"
+          data-test=""
+        >
+          <div
+            class="fvmt8oy-fade-in"
+          >
+            <div
+              class="bcn8i89-banner-wrap"
+              data-test-app-id="261da083-cee2-4f5c-a18f-8f9375f1f5af"
+              data-test-app-name="asd"
+            >
+              <div
+                class="bv0d7a6-banner-inner"
+              >
+                In Development
+              </div>
+              <div
+                class="card  is-clickable"
+                data-test="app-card_261da083-cee2-4f5c-a18f-8f9375f1f5af_isNoPending_asd"
+              >
+                <div
+                  class="card-content"
+                >
+                  <div
+                    class="media"
+                  >
+                    <div
+                      class="celd5vt-card-image-wrap"
+                    >
+                      <div
+                        class="media-left"
+                      >
+                        <div
+                          class="media-image"
+                        >
+                          <img
+                            alt="asd"
+                            class="image"
+                            src="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/1d38c5ec-e3c0-4138-9fe0-e77bce4034d1.octet-stream"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="media-content"
+                    >
+                      <h5
+                        class="cx2tpjh-card-heading"
+                      >
+                        <div
+                          class="aw81558-app-title"
+                        >
+                          asd
+                        </div>
+                      </h5>
+                      <h6
+                        class="text-ellipsis-5 c13mgq47-card-sub-heading"
+                      >
+                        Pete's Proptech World Ltd
+                      </h6>
+                      <h6
+                        class="c70e4ht-card-sub-heading-additional"
+                      >
+                        <div
+                          class="flex justify-between"
+                        >
+                          <span />
+                           
+                        </div>
+                      </h6>
+                    </div>
+                  </div>
+                  <div
+                    class="c5hhdto-card-body-wrap"
+                  >
+                    <p
+                      class="chbr8km-content"
+                    >
+                      asdQiiAJTmXGxPin7pwUiCsepZWXz1EJS71eGlvgPKH4hpE6J8DRDpzP2kDdOwpQPr4aHCCwWwxBJwzARLa7wMpJh5J61GhmQjLfKZkcDd47L9WEfQYVYAj0DTPJP0BuUMAAg2
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`AppList should match a snapshot when use empty infoType 1`] = `
-<div
-  className="mb-4"
->
-  <GridFourCol
-    className=""
-    data-test="app-list-container"
-  >
-    <GridFourColItem
-      className=""
-      key="09043eb8-9e5e-4650-b7f1-f0cb62699027"
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ecbqyq6-el-snack-holder"
+      />
+      <div
+        class="mb-4"
+      >
+        <div
+          class="columns is-multiline"
+          data-test=""
+        >
+          <div
+            class="column is-multiline is-full-mobile is-half-tablet is-one-third-widescreen is-one-quarter-fullhd"
+            data-test=""
+          >
+            <div
+              class="fvmt8oy-fade-in"
+            >
+              <div
+                class="bcn8i89-banner-wrap"
+                data-test-app-id="09043eb8-9e5e-4650-b7f1-f0cb62699027"
+                data-test-app-name="test"
+              >
+                <div
+                  class="bv0d7a6-banner-inner"
+                >
+                  In Development
+                </div>
+                <div
+                  class="card  is-clickable"
+                  data-test="app-card_09043eb8-9e5e-4650-b7f1-f0cb62699027_isNoPending_test"
+                >
+                  <div
+                    class="card-content"
+                  >
+                    <div
+                      class="media"
+                    >
+                      <div
+                        class="celd5vt-card-image-wrap"
+                      >
+                        <div
+                          class="media-left"
+                        >
+                          <div
+                            class="media-image"
+                          >
+                            <img
+                              alt="test"
+                              class="image"
+                              src="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/d10e790c-2bf2-40ae-9c43-82c1534bde31.png"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="media-content"
+                      >
+                        <h5
+                          class="cx2tpjh-card-heading"
+                        >
+                          <div
+                            class="aw81558-app-title"
+                          >
+                            test
+                          </div>
+                        </h5>
+                        <h6
+                          class="text-ellipsis-5 c13mgq47-card-sub-heading"
+                        >
+                          Pete's Proptech World Ltd
+                        </h6>
+                        <h6
+                          class="c70e4ht-card-sub-heading-additional"
+                        >
+                          <div
+                            class="flex justify-between"
+                          >
+                            <span />
+                             
+                          </div>
+                        </h6>
+                      </div>
+                    </div>
+                    <div
+                      class="c5hhdto-card-body-wrap"
+                    >
+                      <p
+                        class="chbr8km-content"
+                      >
+                        nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsicr8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="column is-multiline is-full-mobile is-half-tablet is-one-third-widescreen is-one-quarter-fullhd"
+            data-test=""
+          >
+            <div
+              class="fvmt8oy-fade-in"
+            >
+              <div
+                class="bcn8i89-banner-wrap"
+                data-test-app-id="261da083-cee2-4f5c-a18f-8f9375f1f5af"
+                data-test-app-name="asd"
+              >
+                <div
+                  class="bv0d7a6-banner-inner"
+                >
+                  In Development
+                </div>
+                <div
+                  class="card  is-clickable"
+                  data-test="app-card_261da083-cee2-4f5c-a18f-8f9375f1f5af_isNoPending_asd"
+                >
+                  <div
+                    class="card-content"
+                  >
+                    <div
+                      class="media"
+                    >
+                      <div
+                        class="celd5vt-card-image-wrap"
+                      >
+                        <div
+                          class="media-left"
+                        >
+                          <div
+                            class="media-image"
+                          >
+                            <img
+                              alt="asd"
+                              class="image"
+                              src="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/1d38c5ec-e3c0-4138-9fe0-e77bce4034d1.octet-stream"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="media-content"
+                      >
+                        <h5
+                          class="cx2tpjh-card-heading"
+                        >
+                          <div
+                            class="aw81558-app-title"
+                          >
+                            asd
+                          </div>
+                        </h5>
+                        <h6
+                          class="text-ellipsis-5 c13mgq47-card-sub-heading"
+                        >
+                          Pete's Proptech World Ltd
+                        </h6>
+                        <h6
+                          class="c70e4ht-card-sub-heading-additional"
+                        >
+                          <div
+                            class="flex justify-between"
+                          >
+                            <span />
+                             
+                          </div>
+                        </h6>
+                      </div>
+                    </div>
+                    <div
+                      class="c5hhdto-card-body-wrap"
+                    >
+                      <p
+                        class="chbr8km-content"
+                      >
+                        asdQiiAJTmXGxPin7pwUiCsepZWXz1EJS71eGlvgPKH4hpE6J8DRDpzP2kDdOwpQPr4aHCCwWwxBJwzARLa7wMpJh5J61GhmQjLfKZkcDd47L9WEfQYVYAj0DTPJP0BuUMAAg2
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6-el-snack-holder"
+    />
+    <div
+      class="mb-4"
     >
-      <FadeIn>
-        <AppCard
-          app={
-            Object {
-              "created": "2020-02-02T10:45:57",
-              "developer": "Pete's Proptech World Ltd",
-              "developerId": "28c9ea52-7f73-4814-9e00-4e3714b8adeb",
-              "homePage": "http://google.com/abc",
-              "iconUri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/d10e790c-2bf2-40ae-9c43-82c1534bde31.png",
-              "id": "09043eb8-9e5e-4650-b7f1-f0cb62699027",
-              "links": Array [
-                Object {
-                  "action": "GET",
-                  "href": "http://platformdemo.reapit.net/marketplace/apps/09043eb8-9e5e-4650-b7f1-f0cb62699027",
-                  "rel": "self",
-                },
-                Object {
-                  "action": "GET",
-                  "href": "http://platformdemo.reapit.net/marketplace/developers/28c9ea52-7f73-4814-9e00-4e3714b8adeb",
-                  "rel": "developer",
-                },
-              ],
-              "name": "test",
-              "summary": "nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsicr8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz",
-            }
-          }
-          onClick={[Function]}
-          onSettingsClick={[Function]}
-        />
-      </FadeIn>
-    </GridFourColItem>
-    <GridFourColItem
-      className=""
-      key="261da083-cee2-4f5c-a18f-8f9375f1f5af"
-    >
-      <FadeIn>
-        <AppCard
-          app={
-            Object {
-              "created": "2020-02-02T10:45:57",
-              "developer": "Pete's Proptech World Ltd",
-              "developerId": "28c9ea52-7f73-4814-9e00-4e3714b8adeb",
-              "homePage": "http://www.contoso.com/path",
-              "iconUri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/1d38c5ec-e3c0-4138-9fe0-e77bce4034d1.octet-stream",
-              "id": "261da083-cee2-4f5c-a18f-8f9375f1f5af",
-              "links": Array [
-                Object {
-                  "action": "GET",
-                  "href": "http://platformdemo.reapit.net/marketplace/apps/261da083-cee2-4f5c-a18f-8f9375f1f5af",
-                  "rel": "self",
-                },
-                Object {
-                  "action": "GET",
-                  "href": "http://platformdemo.reapit.net/marketplace/developers/28c9ea52-7f73-4814-9e00-4e3714b8adeb",
-                  "rel": "developer",
-                },
-              ],
-              "name": "asd",
-              "summary": "asdQiiAJTmXGxPin7pwUiCsepZWXz1EJS71eGlvgPKH4hpE6J8DRDpzP2kDdOwpQPr4aHCCwWwxBJwzARLa7wMpJh5J61GhmQjLfKZkcDd47L9WEfQYVYAj0DTPJP0BuUMAAg2",
-            }
-          }
-          onClick={[Function]}
-          onSettingsClick={[Function]}
-        />
-      </FadeIn>
-    </GridFourColItem>
-  </GridFourCol>
-</div>
+      <div
+        class="columns is-multiline"
+        data-test=""
+      >
+        <div
+          class="column is-multiline is-full-mobile is-half-tablet is-one-third-widescreen is-one-quarter-fullhd"
+          data-test=""
+        >
+          <div
+            class="fvmt8oy-fade-in"
+          >
+            <div
+              class="bcn8i89-banner-wrap"
+              data-test-app-id="09043eb8-9e5e-4650-b7f1-f0cb62699027"
+              data-test-app-name="test"
+            >
+              <div
+                class="bv0d7a6-banner-inner"
+              >
+                In Development
+              </div>
+              <div
+                class="card  is-clickable"
+                data-test="app-card_09043eb8-9e5e-4650-b7f1-f0cb62699027_isNoPending_test"
+              >
+                <div
+                  class="card-content"
+                >
+                  <div
+                    class="media"
+                  >
+                    <div
+                      class="celd5vt-card-image-wrap"
+                    >
+                      <div
+                        class="media-left"
+                      >
+                        <div
+                          class="media-image"
+                        >
+                          <img
+                            alt="test"
+                            class="image"
+                            src="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/d10e790c-2bf2-40ae-9c43-82c1534bde31.png"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="media-content"
+                    >
+                      <h5
+                        class="cx2tpjh-card-heading"
+                      >
+                        <div
+                          class="aw81558-app-title"
+                        >
+                          test
+                        </div>
+                      </h5>
+                      <h6
+                        class="text-ellipsis-5 c13mgq47-card-sub-heading"
+                      >
+                        Pete's Proptech World Ltd
+                      </h6>
+                      <h6
+                        class="c70e4ht-card-sub-heading-additional"
+                      >
+                        <div
+                          class="flex justify-between"
+                        >
+                          <span />
+                           
+                        </div>
+                      </h6>
+                    </div>
+                  </div>
+                  <div
+                    class="c5hhdto-card-body-wrap"
+                  >
+                    <p
+                      class="chbr8km-content"
+                    >
+                      nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsicr8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="column is-multiline is-full-mobile is-half-tablet is-one-third-widescreen is-one-quarter-fullhd"
+          data-test=""
+        >
+          <div
+            class="fvmt8oy-fade-in"
+          >
+            <div
+              class="bcn8i89-banner-wrap"
+              data-test-app-id="261da083-cee2-4f5c-a18f-8f9375f1f5af"
+              data-test-app-name="asd"
+            >
+              <div
+                class="bv0d7a6-banner-inner"
+              >
+                In Development
+              </div>
+              <div
+                class="card  is-clickable"
+                data-test="app-card_261da083-cee2-4f5c-a18f-8f9375f1f5af_isNoPending_asd"
+              >
+                <div
+                  class="card-content"
+                >
+                  <div
+                    class="media"
+                  >
+                    <div
+                      class="celd5vt-card-image-wrap"
+                    >
+                      <div
+                        class="media-left"
+                      >
+                        <div
+                          class="media-image"
+                        >
+                          <img
+                            alt="asd"
+                            class="image"
+                            src="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/1d38c5ec-e3c0-4138-9fe0-e77bce4034d1.octet-stream"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="media-content"
+                    >
+                      <h5
+                        class="cx2tpjh-card-heading"
+                      >
+                        <div
+                          class="aw81558-app-title"
+                        >
+                          asd
+                        </div>
+                      </h5>
+                      <h6
+                        class="text-ellipsis-5 c13mgq47-card-sub-heading"
+                      >
+                        Pete's Proptech World Ltd
+                      </h6>
+                      <h6
+                        class="c70e4ht-card-sub-heading-additional"
+                      >
+                        <div
+                          class="flex justify-between"
+                        >
+                          <span />
+                           
+                        </div>
+                      </h6>
+                    </div>
+                  </div>
+                  <div
+                    class="c5hhdto-card-body-wrap"
+                  >
+                    <p
+                      class="chbr8km-content"
+                    >
+                      asdQiiAJTmXGxPin7pwUiCsepZWXz1EJS71eGlvgPKH4hpE6J8DRDpzP2kDdOwpQPr4aHCCwWwxBJwzARLa7wMpJh5J61GhmQjLfKZkcDd47L9WEfQYVYAj0DTPJP0BuUMAAg2
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

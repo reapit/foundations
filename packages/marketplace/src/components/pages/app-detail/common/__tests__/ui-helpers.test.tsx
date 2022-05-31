@@ -1,6 +1,6 @@
 import React from 'react'
 import { Tag, AppDetailSection, ImageSection } from '../ui-helpers'
-import { render } from '../../../tests/react-testing'
+import { render } from '../../../../../tests/react-testing'
 
 describe('Ui Sections', () => {
   test('<AppDetailSection /> should match snapshot', () => {

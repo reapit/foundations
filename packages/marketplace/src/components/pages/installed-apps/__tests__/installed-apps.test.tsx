@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render } from '../../../../tests/react-testing'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
 import routes from '@/constants/routes'

@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-no-undef */
 import * as React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render } from '../../../../tests/react-testing'
 import { onImageError, getComingAppLinkHref, ComingSoonAppComponent } from '../coming-soon'
 
 jest.mock('@/assets/images/default-feature-image.jpg', () => 'placeHolderImage')

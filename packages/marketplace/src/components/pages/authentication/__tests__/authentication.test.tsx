@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as ReactRedux from 'react-redux'
-import { render } from '../../../tests/react-testing'
+import { render } from '../../../../tests/react-testing'
 import configureStore from 'redux-mock-store'
 import { MemoryRouter } from 'react-router'
 import Routes from '@/constants/routes'

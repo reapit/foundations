@@ -1,5 +1,5 @@
 import React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render } from '../../../../tests/react-testing'
 import { Dispatch } from 'redux'
 import { Settings, createDispatchers } from '../setting'
 import { Provider } from 'react-redux'

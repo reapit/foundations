@@ -1,5 +1,5 @@
 import { NonAdminUninstallModal, NonAdminInstallModal } from '../non-admin-modal'
-import { render } from '../../../tests/react-testing'
+import { render } from '../../../../../tests/react-testing'
 import React from 'react'
 describe('NonAdminModal', () => {
   it('INSTALL MODAL', () => {

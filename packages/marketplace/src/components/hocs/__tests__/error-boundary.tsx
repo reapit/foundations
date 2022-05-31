@@ -1,8 +1,7 @@
-import * as React from 'react'
-import { render } from '../../../tests/react-testing'
+import React from 'react'
 import { ErrorBoundary } from '../error-boundary'
+import { render } from '../../../tests/react-testing'
 
-jest.mock('@/utils/route-dispatcher')
 const Children = () => <div>I am a component!</div>
 const props = {
   children: Children,
@@ -13,11 +12,21 @@ describe('ErrorBoundary', () => {
     expect(render(<ErrorBoundary {...props} />)).toMatchSnapshot()
   })
 
-  it('should match a snapshot when has an error', () => {
-    const component = render(<ErrorBoundary {...props} />)
-    component.setState({
-      hasFailed: true,
-    })
+  it('should call the errorThrownComponent and sets the state to hasFailed when it catches', () => {
+    ;(console.error as any) = jest.fn()
+
+    const DangerousChild = (props: { someProp?: false }) => {
+      if (!props.someProp) {
+        throw new Error('Catch me if you can')
+      }
+      return <div />
+    }
+    const newPops = { ...props, children: <DangerousChild /> }
+
+    const component = render(<ErrorBoundary {...newPops} />)
+
+    expect(DangerousChild).toThrow()
+
     expect(component).toMatchSnapshot()
   })
 

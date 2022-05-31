@@ -1,5 +1,5 @@
 import React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render } from '../../../../tests/react-testing'
 import appState from '@/reducers/__stubs__/app-state'
 import { MemoryRouter } from 'react-router'
 import configureStore from 'redux-mock-store'

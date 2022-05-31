@@ -1,127 +1,182 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`InstallationsTable should match a snapshot 1`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <InstallationsTable>
-    <H5>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ecbqyq6-el-snack-holder"
+      />
       <h5
-        className="title is-5"
+        class="title is-5"
         id=""
       >
         Installation Details
       </h5>
-    </H5>
-    <FadeIn>
       <div
-        className="fvmt8oy-fade-in"
+        class="fvmt8oy-fade-in"
       >
-        <Table
-          bordered={true}
-          columns={
-            Array [
-              Object {
-                "Header": "App Name",
-                "accessor": "appName",
-              },
-              Object {
-                "Header": "Installed By",
-                "accessor": "installedBy",
-              },
-              Object {
-                "Header": "Date of Installation",
-                "accessor": [Function],
-              },
-              Object {
-                "Header": "Uninstalled By",
-                "accessor": "uninstalledBy",
-              },
-              Object {
-                "Header": "Date of Uninstallation",
-                "accessor": [Function],
-              },
-            ]
-          }
-          data={Array []}
-          loading={false}
-          scrollable={true}
+        <div
+          style="overflow: scroll;"
         >
-          <div
-            style={
-              Object {
-                "maxHeight": undefined,
-                "overflow": "scroll",
-              }
-            }
+          <table
+            class="table is-striped is-fullwidth is-bordered"
+            role="table"
           >
-            <table
-              className="table is-striped is-fullwidth is-bordered"
-              role="table"
-            >
-              <thead>
-                <tr
-                  key="headerGroup_0"
-                  role="row"
+            <thead>
+              <tr
+                role="row"
+              >
+                <th
+                  colspan="1"
+                  role="columnheader"
                 >
-                  <th
-                    colSpan={1}
-                    key="header_appName"
-                    role="columnheader"
-                  >
-                    App Name
-                  </th>
-                  <th
-                    colSpan={1}
-                    key="header_installedBy"
-                    role="columnheader"
-                  >
-                    Installed By
-                  </th>
-                  <th
-                    colSpan={1}
-                    key="header_Date of Installation"
-                    role="columnheader"
-                  >
-                    Date of Installation
-                  </th>
-                  <th
-                    colSpan={1}
-                    key="header_uninstalledBy"
-                    role="columnheader"
-                  >
-                    Uninstalled By
-                  </th>
-                  <th
-                    colSpan={1}
-                    key="header_Date of Uninstallation"
-                    role="columnheader"
-                  >
-                    Date of Uninstallation
-                  </th>
-                </tr>
-              </thead>
-              <tbody />
-            </table>
-          </div>
-        </Table>
+                  App Name
+                </th>
+                <th
+                  colspan="1"
+                  role="columnheader"
+                >
+                  Installed By
+                </th>
+                <th
+                  colspan="1"
+                  role="columnheader"
+                >
+                  Date of Installation
+                </th>
+                <th
+                  colspan="1"
+                  role="columnheader"
+                >
+                  Uninstalled By
+                </th>
+                <th
+                  colspan="1"
+                  role="columnheader"
+                >
+                  Date of Uninstallation
+                </th>
+              </tr>
+            </thead>
+            <tbody />
+          </table>
+        </div>
       </div>
-    </FadeIn>
-    <Pagination
-      onChange={[Function]}
-      pageNumber={1}
-      pageSize={5}
-      totalCount={0}
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6-el-snack-holder"
     />
-  </InstallationsTable>
-</Provider>
+    <h5
+      class="title is-5"
+      id=""
+    >
+      Installation Details
+    </h5>
+    <div
+      class="fvmt8oy-fade-in"
+    >
+      <div
+        style="overflow: scroll;"
+      >
+        <table
+          class="table is-striped is-fullwidth is-bordered"
+          role="table"
+        >
+          <thead>
+            <tr
+              role="row"
+            >
+              <th
+                colspan="1"
+                role="columnheader"
+              >
+                App Name
+              </th>
+              <th
+                colspan="1"
+                role="columnheader"
+              >
+                Installed By
+              </th>
+              <th
+                colspan="1"
+                role="columnheader"
+              >
+                Date of Installation
+              </th>
+              <th
+                colspan="1"
+                role="columnheader"
+              >
+                Uninstalled By
+              </th>
+              <th
+                colspan="1"
+                role="columnheader"
+              >
+                Date of Uninstallation
+              </th>
+            </tr>
+          </thead>
+          <tbody />
+        </table>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

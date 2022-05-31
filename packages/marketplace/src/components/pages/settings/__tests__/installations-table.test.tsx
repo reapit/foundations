@@ -1,5 +1,5 @@
 import React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render } from '../../../../tests/react-testing'
 import InstallationsTable, { handleMemoisedData, handleSetPageNumber } from '../installations-table'
 import { Provider } from 'react-redux'
 import configureStore from 'redux-mock-store'

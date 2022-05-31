@@ -5,7 +5,7 @@ import {
   genarateNegotiatorOptions,
   handleUpdateWebComponentConfig,
 } from '../config-modal-inner'
-import { render } from '../../../tests/react-testing'
+import { render } from '../../../../../../tests/react-testing'
 import configureStore from 'redux-mock-store'
 import { Provider } from 'react-redux'
 import { UpdateWebComponentConfigParams } from '@/services/web-component'

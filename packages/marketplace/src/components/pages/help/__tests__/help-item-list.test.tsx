@@ -1,11 +1,10 @@
 import * as React from 'react'
-import { render } from '../../../tests/react-testing'
-import toJson from 'enzyme-to-json'
+import { render } from '../../../../tests/react-testing'
 
 import { HelpItemList } from '../help-item-list'
 
 describe('HelpItemList', () => {
   it('should match a snapshot', () => {
-    expect(toJson(render(<HelpItemList items={[]} />))).toMatchSnapshot()
+    expect(render(<HelpItemList items={[]} />)).toMatchSnapshot()
   })
 })

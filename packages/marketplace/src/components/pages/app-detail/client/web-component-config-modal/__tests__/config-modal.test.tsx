@@ -1,6 +1,6 @@
 import { WebComponentModal, WebComponentModalProps } from '../config-modal'
 import React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render } from '../../../../../../tests/react-testing'
 
 describe('Config-modal', () => {
   it('should match snapshot', () => {
