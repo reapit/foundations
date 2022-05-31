@@ -15,14 +15,13 @@ export class PipelineTearDownStartWorkflow extends AbstractWorkflow<PipelineEnti
     sqsProvider: SqsProvider,
     private readonly pipelineProvider: PipelineProvider,
     private readonly eventDispatcher: EventDispatcher,
+    private readonly cloudfrontClient: CloudFrontClient,
   ) {
     super(sqsProvider)
   }
 
   private async disableCloudFront(Id: string) {
-    const frontClient = new CloudFrontClient({})
-
-    const cloudFrontDistro = await frontClient.send(
+    const cloudFrontDistro = await this.cloudfrontClient.send(
       new GetDistributionCommand({
         Id,
       }),
@@ -30,7 +29,7 @@ export class PipelineTearDownStartWorkflow extends AbstractWorkflow<PipelineEnti
 
     const config = cloudFrontDistro.Distribution?.DistributionConfig as DistributionConfig
 
-    return frontClient.send(
+    return this.cloudfrontClient.send(
       new UpdateDistributionCommand({
         Id,
         DistributionConfig: {
@@ -57,7 +56,7 @@ export class PipelineTearDownStartWorkflow extends AbstractWorkflow<PipelineEnti
 
   async execute(pipeline: PipelineEntity) {
     if (pipeline.buildStatus !== 'PRE_PROVISIONED' && pipeline.hasDistro)
-      await this.disableCloudFront(pipeline.cloudFrontId as string)
+      console.log('disable result', await this.disableCloudFront(pipeline.cloudFrontId as string))
 
     await Promise.all([
       this.pipelineProvider.update(pipeline, {

@@ -79,6 +79,7 @@ export class PipelineTearDownWorkflow extends AbstractWorkflow<PipelineEntity> {
     return cloudFrontDistro.Distribution?.DomainName as string
   }
 
+  // TODO add try catch for failure results
   async execute(pipeline: PipelineEntity) {
     if (pipeline.buildStatus !== 'PRE_PROVISIONED') {
       await this.tearDownLiveBucketLocation(`pipeline/${pipeline.uniqueRepoName}`)
