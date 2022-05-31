@@ -22,6 +22,8 @@ export const ElTabs = styled.input`
   height: 0;
   width: 0;
   visibility: hidden;
+  margin: 0;
+  position: absolute;
 
   + label .${elTabsItem} {
     transition: all 0.1s linear;
@@ -34,20 +36,23 @@ export const ElTabs = styled.input`
   }
 
   &:checked + label .${elTabsItem} {
-    font-weight: bold;
+    text-shadow: 0px 0px 1px black;
     border-bottom: 2px solid var(--intent-secondary);
   }
 `
 
 export const ElTabsLabel = styled.label`
   cursor: pointer;
-  min-width: 72px;
   background: var(--color-white);
   display: flex;
   align-items: center;
   margin: 0 auto;
   height: 100%;
   border-radius: 1.5rem;
+
+  &:last-child {
+    margin-right: 0;
+  }
 `
 
 export const ElTabsWrap = styled.div`
