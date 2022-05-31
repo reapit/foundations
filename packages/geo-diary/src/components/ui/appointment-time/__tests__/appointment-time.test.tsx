@@ -1,5 +1,5 @@
 import React, { ChangeEvent } from 'react'
-import { render } from '../../../tests/react-testing'
+import { render } from '../../../../tests/react-testing'
 import { AppointmentTime, handleChangeTime } from '../appointment-time'
 
 jest.mock('../../../../core/app-state')

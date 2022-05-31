@@ -1,6 +1,6 @@
 import React, { cloneElement } from 'react'
 import { toArray, getBreadcrumbName, defaultItemRenderer, getPath, genForRoutes, Breadcrumb } from '../breadcrumb'
-import { render } from '../../../tests/react-testing'
+import { render } from '@testing-library/react'
 
 describe('breadcrumb', () => {
   describe('toArray', () => {

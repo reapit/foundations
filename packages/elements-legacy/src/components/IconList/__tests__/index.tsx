@@ -1,8 +1,7 @@
 import * as React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render } from '@testing-library/react'
 import { FaClock, FaStreetView, FaStickyNote } from 'react-icons/fa'
 import { IconList } from '..'
-import toJson from 'enzyme-to-json'
 
 export const items = [
   {
@@ -22,21 +21,19 @@ export const items = [
 describe('IconList', () => {
   it('should match a snapshot with custom props', () => {
     expect(
-      toJson(
-        render(
-          <IconList
-            items={items}
-            textClassName="text-class-name"
-            listClassName="list-class-name"
-            iconClassName="icon-class-name"
-          />,
-        ),
+      render(
+        <IconList
+          items={items}
+          textClassName="text-class-name"
+          listClassName="list-class-name"
+          iconClassName="icon-class-name"
+        />,
       ),
     ).toMatchSnapshot()
   })
 
   it('should match a snapshot with default props', () => {
-    expect(toJson(render(<IconList items={items} />))).toMatchSnapshot()
+    expect(render(<IconList items={items} />)).toMatchSnapshot()
   })
 
   afterEach(() => {

@@ -1,25 +1,243 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PropertyItem should match snapshot with a property 1`] = `
-<CardListItem
-  className="el-card-list-item-expanded"
->
-  <CardListIcon>
-    <Icon
-      icon="houseInfographic"
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+       
+      <div
+        class="el-card-list-item-expanded el-card-list-item"
+      >
+        <div
+          class="el-card-list-icon"
+        >
+          <span
+            class="el-icon"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 20 20"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M2 20H18V7.88218L10 2L2 7.88218V20Z"
+                fill="#7BC9EB"
+              />
+              <path
+                d="M1.22096 10L10 2.65656L18.779 10L20 8.36478L10 0L7.62939e-06 8.36478L1.22096 10Z"
+                fill="#23A4DE"
+              />
+              <path
+                d="M6 12H14V20H6V12Z"
+                fill="#F2F2F2"
+              />
+              <path
+                d="M8 14H12V20H8V14Z"
+                fill="#0061A8"
+              />
+            </svg>
+          </span>
+        </div>
+        <div
+          class="el-card-list-item-text-wrap"
+        >
+          <div
+            class="el-card-list-item-text-primary"
+          >
+            Property
+          </div>
+          <div
+            class="el-card-list-item-text-secondary"
+          >
+            Yew Tree Cottage Church Walk
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
     />
-  </CardListIcon>
-  <CardListItemTextWrap
-    onClick={[Function]}
-  >
-    <CardListItemTextPrimary>
-      Property
-    </CardListItemTextPrimary>
-    <CardListItemTextSecondary>
-      Yew Tree Cottage Church Walk
-    </CardListItemTextSecondary>
-  </CardListItemTextWrap>
-</CardListItem>
+     
+    <div
+      class="el-card-list-item-expanded el-card-list-item"
+    >
+      <div
+        class="el-card-list-icon"
+      >
+        <span
+          class="el-icon"
+        >
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 20 20"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M2 20H18V7.88218L10 2L2 7.88218V20Z"
+              fill="#7BC9EB"
+            />
+            <path
+              d="M1.22096 10L10 2.65656L18.779 10L20 8.36478L10 0L7.62939e-06 8.36478L1.22096 10Z"
+              fill="#23A4DE"
+            />
+            <path
+              d="M6 12H14V20H6V12Z"
+              fill="#F2F2F2"
+            />
+            <path
+              d="M8 14H12V20H8V14Z"
+              fill="#0061A8"
+            />
+          </svg>
+        </span>
+      </div>
+      <div
+        class="el-card-list-item-text-wrap"
+      >
+        <div
+          class="el-card-list-item-text-primary"
+        >
+          Property
+        </div>
+        <div
+          class="el-card-list-item-text-secondary"
+        >
+          Yew Tree Cottage Church Walk
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
-exports[`PropertyItem should match snapshot without a property 1`] = `""`;
+exports[`PropertyItem should match snapshot without a property 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+       
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+     
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

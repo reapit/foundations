@@ -1,5 +1,5 @@
 import React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render } from '../../../../tests/react-testing'
 import {
   clearMap,
   GoogleMapComponent,
@@ -23,6 +23,7 @@ import { DirectionsResult, MapRefs } from '../types'
 const appointments = mockAppointmentsQuery.data.GetAppointments._embedded as ExtendedAppointmentModel[]
 
 jest.mock('../../../../core/app-state')
+jest.mock('react-google-map')
 
 const mockGetMarkerPostion = jest.fn()
 const mockSetDirection = jest.fn()

@@ -1,5 +1,3 @@
-import React from 'react'
-import { render } from '../../../tests/react-testing'
 import notification from '../../Notification'
 import createGoogleMapsMock from '../../../helpers/mock-google-maps'
 import {
@@ -10,10 +8,8 @@ import {
   setZoomAndCenter,
   renderDirectionAndMarkers,
   handleOnLoaded,
-  renderMap,
   handleUseEffect,
   clearMap,
-  Map,
 } from '../index'
 jest.mock('../../Notification')
 
@@ -40,8 +36,6 @@ describe('Map', () => {
   const mockOnDrawingMarkerComplete = jest.fn()
   const mockOnDrawingPolygonClick = jest.fn()
   const mockOnDrawingPolygonComplete = jest.fn()
-  const mockMarkerComponent = () => <div>Test</div>
-  const mockError = new Error('some error')
   const currentLocationLatLng = {
     lat: 0,
     lng: 0,
@@ -288,120 +282,6 @@ describe('Map', () => {
     })
   })
 
-  describe('renderMap', () => {
-    it('should run correctly', () => {
-      const fn = renderMap({
-        mapContainerStyles: '',
-        googleMapsRef: {
-          current: mockGoogleMaps,
-        },
-        mapRef: {
-          current: mockMap,
-        },
-        onLoaded: mockOnLoadedDirection,
-        directionsRendererRef: {
-          current: mockDirectionsRenderer,
-        },
-        boundsRef: {
-          current: mockBounds,
-        },
-        directionsServiceRef: {
-          current: mockDirectionsService,
-        },
-        center: {},
-        zoom: 10,
-        coordinates: mockCoordinates,
-        component: mockMarkerComponent,
-        drawingManagerRef: {
-          current: mockDrawingManager,
-        },
-        drawingOptions: mockDrawingOptions,
-        libraries: mockLibrary,
-        onDrawingMarkerClick: mockOnDrawingMarkerClick,
-        onDrawingMarkerComplete: mockOnDrawingMarkerComplete,
-        onDrawingPolygonClick: mockOnDrawingPolygonClick,
-        onDrawingPolygonComplete: mockOnDrawingPolygonComplete,
-      })
-      const component = fn(mockGoogleMaps, undefined)
-      const wrapper = render(<div>{component}</div>)
-      expect(wrapper).toMatchSnapshot()
-      expect(wrapper.find('t')).toHaveLength(1)
-    })
-    it('should run correctly when error', () => {
-      const fn = renderMap({
-        mapContainerStyles: '',
-        googleMapsRef: {
-          current: mockGoogleMaps,
-        },
-        mapRef: {
-          current: mockMap,
-        },
-        onLoaded: mockOnLoadedDirection,
-        directionsRendererRef: {
-          current: mockDirectionsRenderer,
-        },
-        boundsRef: {
-          current: mockBounds,
-        },
-        directionsServiceRef: {
-          current: mockDirectionsService,
-        },
-        center: {},
-        zoom: 10,
-        coordinates: mockCoordinates,
-        component: mockMarkerComponent,
-        drawingManagerRef: {
-          current: mockDrawingManager,
-        },
-        drawingOptions: mockDrawingOptions,
-        libraries: mockLibrary,
-        onDrawingMarkerClick: mockOnDrawingMarkerClick,
-        onDrawingMarkerComplete: mockOnDrawingMarkerComplete,
-        onDrawingPolygonClick: mockOnDrawingPolygonClick,
-        onDrawingPolygonComplete: mockOnDrawingPolygonComplete,
-      })
-      const component = fn(mockGoogleMaps, mockError)
-      const wrapper = render(<div>{component}</div>)
-      expect(wrapper).toMatchSnapshot()
-    })
-    it('should run correctly when error network', () => {
-      const fn = renderMap({
-        mapContainerStyles: '',
-        googleMapsRef: {
-          current: mockGoogleMaps,
-        },
-        mapRef: {
-          current: mockMap,
-        },
-        onLoaded: mockOnLoadedDirection,
-        directionsRendererRef: {
-          current: mockDirectionsRenderer,
-        },
-        boundsRef: {
-          current: mockBounds,
-        },
-        directionsServiceRef: {
-          current: mockDirectionsService,
-        },
-        center: {},
-        zoom: 10,
-        coordinates: mockCoordinates,
-        component: mockMarkerComponent,
-        drawingManagerRef: {
-          current: mockDrawingManager,
-        },
-        drawingOptions: mockDrawingOptions,
-        libraries: mockLibrary,
-        onDrawingMarkerClick: mockOnDrawingMarkerClick,
-        onDrawingMarkerComplete: mockOnDrawingMarkerComplete,
-        onDrawingPolygonClick: mockOnDrawingPolygonClick,
-        onDrawingPolygonComplete: mockOnDrawingPolygonComplete,
-      })
-      const component = fn(mockGoogleMaps, new Error('Network Error'))
-      const wrapper = render(<div>{component}</div>)
-      expect(wrapper).toMatchSnapshot()
-    })
-  })
   describe('handleUseEffect', () => {
     it('should run correctly', () => {
       const fn = handleUseEffect({
@@ -488,24 +368,6 @@ describe('Map', () => {
       fn()
       expect(mockDirectionsRenderer.setMap).not.toBeCalledWith(null)
       expect(mockMarker.setMap).not.toBeCalledWith(null)
-    })
-  })
-  describe('Map', () => {
-    it('should match snapshot', () => {
-      const mockProps = {
-        apiKey: 'MOCK_API_KEY',
-        libraries: 'places',
-        coordinates: mockCoordinates,
-        component: mockMarkerComponent,
-        center: {},
-        zoom: 10,
-        onLoaded: jest.fn(),
-        destinationPoint: mockDestinationPoint,
-        travelMode: 'DRIVING',
-        onLoadedDirection: mockOnLoadedDirection,
-      }
-      const wrapper = render(<Map {...mockProps} />)
-      expect(wrapper).toMatchSnapshot()
     })
   })
 })

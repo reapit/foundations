@@ -1,6 +1,6 @@
 import React from 'react'
 import { MockedProvider } from '@apollo/react-testing'
-import { render } from '../../../tests/react-testing'
+import { render } from '../../../../tests/react-testing'
 import {
   Appointment,
   AppointmentContent,
@@ -20,12 +20,15 @@ import { mockVendorsQuery } from '../__mocks__/vendors-query'
 import { ExtendedAppointmentModel } from '../../../../types/global'
 import { mockLandlordsQuery } from '../__mocks__/landlords-query'
 
+jest.mock('react-google-map')
+
 jest.mock('@reapit/elements-legacy', () => ({
   FadeIn: ({ children }) => <div>{children}</div>,
   fetcher: jest.fn(() => ({ totalCount: 1 })),
   DATE_TIME_FORMAT: {
     RFC3339: 'yyyy-MM-dd',
   },
+  getTime: jest.fn(),
 }))
 
 jest.mock('../../../../core/app-state')

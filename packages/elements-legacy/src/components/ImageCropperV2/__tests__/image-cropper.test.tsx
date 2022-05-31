@@ -1,6 +1,7 @@
 import * as React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render } from '@testing-library/react'
 import { ImageCropper, ImageCropperWithInput, renderChildrenWithProps } from '../'
+import { Formik } from 'formik'
 
 describe('ImageCropper', () => {
   it('should match snapshots with multiple conditions', () => {
@@ -24,7 +25,9 @@ describe('ImageCropper', () => {
       visible: false,
       children: <div>value</div>,
     }
-    const wrapper2 = render(<ImageCropper {...props2} />)
+    const wrapper2 = render(
+      <Formik initialValues={{}} onSubmit={jest.fn()} render={() => <ImageCropper {...props2} />} />,
+    )
     expect(wrapper2).toMatchSnapshot()
   })
 })
@@ -36,14 +39,18 @@ describe('ImageCropperWithInput', () => {
       name: 'inputImage',
       labelText: 'input image',
     }
-    const wrapper1 = render(<ImageCropperWithInput {...props1} />)
+    const wrapper1 = render(
+      <Formik initialValues={{}} onSubmit={jest.fn()} render={() => <ImageCropperWithInput {...props1} />} />,
+    )
     expect(wrapper1).toMatchSnapshot()
 
     const props2 = {
       ...props1,
       aspect: undefined,
     }
-    const wrapper2 = render(<ImageCropperWithInput {...props2} />)
+    const wrapper2 = render(
+      <Formik initialValues={{}} onSubmit={jest.fn()} render={() => <ImageCropperWithInput {...props2} />} />,
+    )
     expect(wrapper2).toMatchSnapshot()
   })
 })

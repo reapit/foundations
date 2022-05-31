@@ -1,8 +1,8 @@
 import * as React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render } from '@testing-library/react'
 import { FileInputProps } from '../../FileInput'
 import { ImageInput, validateType, isImageType, getTypeFromBase64 } from '../index'
-import toJson from 'enzyme-to-json'
+import { Formik } from 'formik'
 
 describe('getTypeFromBase64', () => {
   it('should return correctly', () => {
@@ -30,7 +30,9 @@ const props: FileInputProps = {
 
 describe('ImageInput', () => {
   it('should match a snapshot', () => {
-    expect(toJson(render(<ImageInput {...props} />))).toMatchSnapshot()
+    expect(
+      render(<Formik initialValues={{}} onSubmit={jest.fn()} render={() => <ImageInput {...props} />} />),
+    ).toMatchSnapshot()
   })
 
   afterEach(() => {

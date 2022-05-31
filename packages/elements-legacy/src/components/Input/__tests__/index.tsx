@@ -1,11 +1,9 @@
 import * as React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render } from '@testing-library/react'
 import { Input, InputProps } from '../index'
-import { Formik, Form } from 'formik'
-import toJson from 'enzyme-to-json'
 import { FaSearch } from 'react-icons/fa'
 import { fieldValidateRequire } from '../../../utils/validators'
-import { act } from 'react-dom/test-utils'
+import { Formik } from 'formik'
 
 const props: InputProps = {
   id: 'username',
@@ -40,42 +38,29 @@ const helperTextComponentInputProps: InputProps = {
 
 describe('Input', () => {
   it('should match a snapshot', () => {
-    expect(toJson(render(<Input {...props} />))).toMatchSnapshot()
+    expect(
+      render(<Formik initialValues={{}} onSubmit={jest.fn()} render={() => <Input {...props} />} />),
+    ).toMatchSnapshot()
   })
 
   it('should match a snapshot with right icon', () => {
-    expect(toJson(render(<Input {...hasRightIconInputProps} />))).toMatchSnapshot()
+    expect(
+      render(<Formik initialValues={{}} onSubmit={jest.fn()} render={() => <Input {...hasRightIconInputProps} />} />),
+    ).toMatchSnapshot()
   })
 
   it('should match a snapshot if field is required', () => {
-    expect(toJson(render(<Input {...requiredInputProps} />))).toMatchSnapshot()
+    expect(
+      render(<Formik initialValues={{}} onSubmit={jest.fn()} render={() => <Input {...requiredInputProps} />} />),
+    ).toMatchSnapshot()
   })
 
   it('should match a snapshot if helperText is a component', () => {
-    expect(toJson(render(<Input {...helperTextComponentInputProps} />))).toMatchSnapshot()
-  })
-
-  it('should work when integrating with Formik', async () => {
-    const wrapper = render(
-      <Formik initialValues={{ username: '' }} onSubmit={jest.fn()}>
-        {() => (
-          <Form>
-            <Input {...props} />
-          </Form>
-        )}
-      </Formik>,
-    )
-    expect(wrapper.find('label')).toHaveLength(1)
-    await act(async () => {
-      wrapper.find('input').simulate('change', {
-        target: {
-          value: 'abcxyz',
-          name: 'username',
-        },
-      })
-    })
-    wrapper.update()
-    expect(wrapper.find('input').prop('value')).toEqual('abcxyz')
+    expect(
+      render(
+        <Formik initialValues={{}} onSubmit={jest.fn()} render={() => <Input {...helperTextComponentInputProps} />} />,
+      ),
+    ).toMatchSnapshot()
   })
 
   afterEach(() => {

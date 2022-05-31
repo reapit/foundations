@@ -1,5 +1,5 @@
 import React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render } from '../../../../tests/react-testing'
 import EmailRow from '../email-row'
 
 describe('EmailRow', () => {

@@ -44,7 +44,7 @@
     "react-hook-form": "^7.31.3",
     "react-router": "^5.3.3",
     "react-router-dom": "^5.3.3",
-    "snyk": "^1.941.0",
+    "snyk": "^1.942.0",
     "swagger-ui-react": "^4.11.1",
     "yup": "^0.32.11"
   },

@@ -1,5 +1,5 @@
 import React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render } from '../../tests/react-testing'
 import { AppStateContextProps, AppStateProvider, defaultAppState, useAppState } from '../app-state'
 import { renderHook, act } from '@testing-library/react-hooks'
 
@@ -16,7 +16,7 @@ describe('AppStateProvider', () => {
 })
 
 describe('useAppState', () => {
-  xit('should return appState and setAppState', async () => {
+  it('should return appState and setAppState', async () => {
     const { result } = renderHook<{}, AppStateContextProps>(() => useAppState(), {
       wrapper: (props) => <AppStateProvider>{props.children}</AppStateProvider>,
     })

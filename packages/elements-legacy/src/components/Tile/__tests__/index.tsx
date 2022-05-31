@@ -1,6 +1,5 @@
 import React from 'react'
-import { render } from '../../../tests/react-testing'
-import toJson from 'enzyme-to-json'
+import { render } from '@testing-library/react'
 import { Tile } from '../index'
 
 describe('Tile', () => {
@@ -17,7 +16,7 @@ describe('Tile', () => {
         <div>contactPerson</div>
       </Tile>,
     )
-    expect(toJson(wrapper)).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot()
   })
 
   it('should match snapshot when HIGHTLIGHT true', () => {
@@ -33,6 +32,6 @@ describe('Tile', () => {
         <div>contactPerson</div>
       </Tile>,
     )
-    expect(toJson(wrapper)).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot()
   })
 })

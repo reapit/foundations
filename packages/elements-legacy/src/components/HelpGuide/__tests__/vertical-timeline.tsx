@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render } from '@testing-library/react'
 import { VerticalTimeline, caculateCircleRef, caculateLineRef, calculateElement, LI_MARGIN } from '../vertical-timeline'
 
 describe('NumberedTimeline', () => {

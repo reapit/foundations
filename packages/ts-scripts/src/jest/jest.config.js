@@ -19,14 +19,14 @@ const jestGlobalConfig = {
     'swagger-ui-react': path.join(__dirname, './swagger-stub.js'),
   },
   moduleFileExtensions: [...defaults.moduleFileExtensions, 'ts', 'tsx', 'graphql', 'gql'],
-  snapshotSerializers: ['enzyme-to-json/serializer'],
   verbose: false,
   projects: ['<rootDir>/jest.config.js'],
   transform: {
     '\\.[jt]sx?$': 'babel-jest',
     '^.+\\.svg$': path.join(__dirname, './svg-transform.js'),
-    '\\.(gql|graphql)$': 'jest-transform-graphql',
+    '\\.(gql|graphql)$': '@graphql-tools/jest-transform',
   },
+  reporters: ['default', 'github-actions'],
   globalSetup: path.join(__dirname, './jest-global.js'),
   resolver: path.join(__dirname, './resolver.js'),
   coverageThreshold: {

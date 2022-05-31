@@ -1,6 +1,5 @@
 import * as React from 'react'
-import { render } from '../../../tests/react-testing'
-import toJson from 'enzyme-to-json'
+import { render } from '@testing-library/react'
 import { Toast, ToastProps } from '..'
 
 const defaultProps = {
@@ -26,38 +25,14 @@ describe('Toast', () => {
     const newProps = {
       componentError: null,
     }
-    expect(toJson(render(<Toast {...props(newProps)} />))).toMatchSnapshot()
+    expect(render(<Toast {...props(newProps)} />)).toMatchSnapshot()
   })
 
   it('should match a snapshot for a componentError', () => {
     const newProps = {
       serverError: null,
     }
-    expect(toJson(render(<Toast {...props(newProps)} />))).toMatchSnapshot()
-  })
-
-  it('should dismiss a server error onClick', () => {
-    const newProps = {
-      componentError: null,
-    }
-    render(<Toast {...props(newProps)} />)
-      .find('[data-test="toast-wrapper"]')
-      .first()
-      .simulate('click')
-
-    expect(defaultProps.errorClearedServer).toHaveBeenCalledTimes(1)
-  })
-
-  it('should dismiss a component error onClick', () => {
-    const newProps = {
-      serverError: null,
-    }
-    render(<Toast {...props(newProps)} />)
-      .find('[data-test="toast-wrapper"]')
-      .first()
-      .simulate('click')
-
-    expect(defaultProps.errorClearedComponent).toHaveBeenCalledTimes(1)
+    expect(render(<Toast {...props(newProps)} />)).toMatchSnapshot()
   })
 
   it('should dismiss a server error after 5 seconds', () => {

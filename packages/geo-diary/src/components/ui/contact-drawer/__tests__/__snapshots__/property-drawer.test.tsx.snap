@@ -1,122 +1,700 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`KeyInfo should match snapshot with an appointment in state 1`] = `
-<Fragment>
-  <Label>
-    Key Number
-  </Label>
-  <p
-    className="el-mb3"
-  >
-    123
-  </p>
-  <Label>
-    Keys in set
-  </Label>
-  <div
-    className="el-mb3"
-  >
-    <p
-      key="Front door key"
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+       
+      <label
+        class="el-label"
+      >
+        Key Number
+      </label>
+      <p
+        class="el-mb3"
+      >
+        123
+      </p>
+      <label
+        class="el-label"
+      >
+        Keys in set
+      </label>
+      <div
+        class="el-mb3"
+      >
+        <p>
+          Front door key
+        </p>
+      </div>
+      <label
+        class="el-label"
+      >
+        Office
+      </label>
+      <p
+        class="el-mb3"
+      >
+        Camberwell
+      </p>
+      <label
+        class="el-label"
+      >
+        Status
+      </label>
+      <p
+        class="el-mb3"
+      >
+        Checked in at 13/01/2022 10:50
+      </p>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+     
+    <label
+      class="el-label"
     >
-      Front door key
+      Key Number
+    </label>
+    <p
+      class="el-mb3"
+    >
+      123
     </p>
-  </div>
-  <Label>
-    Office
-  </Label>
-  <p
-    className="el-mb3"
-  >
-    Camberwell
-  </p>
-  <Label>
-    Status
-  </Label>
-  <p
-    className="el-mb3"
-  >
-    Checked in at 13/01/2022 10:50
-  </p>
-</Fragment>
+    <label
+      class="el-label"
+    >
+      Keys in set
+    </label>
+    <div
+      class="el-mb3"
+    >
+      <p>
+        Front door key
+      </p>
+    </div>
+    <label
+      class="el-label"
+    >
+      Office
+    </label>
+    <p
+      class="el-mb3"
+    >
+      Camberwell
+    </p>
+    <label
+      class="el-label"
+    >
+      Status
+    </label>
+    <p
+      class="el-mb3"
+    >
+      Checked in at 13/01/2022 10:50
+    </p>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`PropertyDrawer should match snapshot with an appointment in state 1`] = `
-<Fragment>
-  <DrawerHeader
-    handleClose={[Function]}
-    title="Property Information"
-  />
-  <TextRow
-    content={
-      <React.Fragment>
-        <p>
-          Yew Tree Cottage
-        </p>
-        <p>
-          
-          Church Walk
-        </p>
-        <p>
-          Ambrosden
-        </p>
-        <p>
-          Bicester
-        </p>
-        <p>
-          Oxfordshire
-        </p>
-        <p>
-          OX25 2UJ
-        </p>
-      </React.Fragment>
-    }
-    label="Address"
-  />
-  <TextRow
-    content="£300000"
-    label="Price"
-  />
-  <TextRow
-    content="Knock three times"
-    label="Viewing Arrangements"
-  />
-  <TextRow
-    content={
-      <ul>
-        <li>
-          <KeyInfo
-            keyModel={
-              Object {
-                "__typename": "KeyModel",
-                "id": "RPT22000001",
-                "keysInSet": Array [
-                  Object {
-                    "__typename": "IndividualKeyModel",
-                    "name": "Front door key",
-                  },
-                ],
-                "modified": "2022-01-13T10:50:02.0000000Z",
-                "movements": Array [],
-                "number": "123",
-                "office": Object {
-                  "__typename": "OfficeModel",
-                  "name": "Camberwell",
-                },
-                "status": "checkedIn",
-                "type": Object {
-                  "__typename": "KeyType",
-                  "value": "Sales",
-                },
-              }
-            }
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+       
+      <div
+        class="drawer-header"
+      >
+        <h5
+          class="title is-5 mb-0"
+          id=""
+        >
+          Property Information
+        </h5>
+        <button
+          class="icon-button-container small-button"
+        >
+          <span
+            class="icon-container"
+          >
+            <svg
+              height="16px"
+              version="1.1"
+              viewBox="0 0 16 16"
+              width="16px"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title>
+                Path
+              </title>
+              <g
+                fill="none"
+                fill-rule="evenodd"
+                id="Wireframes-v2"
+                stroke="none"
+                stroke-width="1"
+              >
+                <g
+                  fill="currentColor"
+                  fill-rule="nonzero"
+                  id="Search-for-property"
+                  transform="translate(-325.000000, -98.000000)"
+                >
+                  <g
+                    id="Search"
+                    transform="translate(10.000000, 83.000000)"
+                  >
+                    <path
+                      d="M324.75,23 L330.55,17.2 C331.033333,16.7166667 331.033333,15.9333333 330.55,15.45 C330.066667,14.9666667 329.283333,14.9666667 328.8,15.45 L323,21.25 L317.2,15.45 C316.716667,14.9666667 315.933333,14.9666667 315.45,15.45 C314.966667,15.9333333 314.966667,16.7166667 315.45,17.2 L321.25,23 L315.45,28.8 C314.966667,29.2833333 314.966667,30.0666667 315.45,30.55 C315.683333,30.7833333 316,30.9166667 316.316667,30.9166667 C316.633333,30.9166667 316.95,30.8 317.183333,30.55 L323,24.75 L328.8,30.55 C329.033333,30.7833333 329.35,30.9166667 329.666667,30.9166667 C329.983333,30.9166667 330.3,30.8 330.533333,30.55 C331.016667,30.0666667 331.016667,29.2833333 330.533333,28.8 L324.75,23 Z"
+                      id="Path"
+                    />
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div
+        class="contact-option-row"
+      >
+        <div
+          class="grid"
+        >
+          <div
+            class="col span16"
+          >
+            <label
+              class="el-label"
+            >
+              Address
+            </label>
+          </div>
+          <div
+            class="col span16"
+          >
+            <p>
+              Yew Tree Cottage
+            </p>
+            <p>
+              Church Walk
+            </p>
+            <p>
+              Ambrosden
+            </p>
+            <p>
+              Bicester
+            </p>
+            <p>
+              Oxfordshire
+            </p>
+            <p>
+              OX25 2UJ
+            </p>
+          </div>
+        </div>
+      </div>
+      <div
+        class="contact-option-row"
+      >
+        <div
+          class="grid"
+        >
+          <div
+            class="col span16"
+          >
+            <label
+              class="el-label"
+            >
+              Price
+            </label>
+          </div>
+          <div
+            class="col span16"
+          >
+            £300000
+          </div>
+        </div>
+      </div>
+      <div
+        class="contact-option-row"
+      >
+        <div
+          class="grid"
+        >
+          <div
+            class="col span16"
+          >
+            <label
+              class="el-label"
+            >
+              Viewing Arrangements
+            </label>
+          </div>
+          <div
+            class="col span16"
+          >
+            Knock three times
+          </div>
+        </div>
+      </div>
+      <div
+        class="contact-option-row"
+      >
+        <div
+          class="grid"
+        >
+          <div
+            class="col span16"
+          >
+            <label
+              class="el-label"
+            />
+          </div>
+          <div
+            class="col span16"
+          >
+            <ul>
+              <li>
+                <label
+                  class="el-label"
+                >
+                  Key Number
+                </label>
+                <p
+                  class="el-mb3"
+                >
+                  123
+                </p>
+                <label
+                  class="el-label"
+                >
+                  Keys in set
+                </label>
+                <div
+                  class="el-mb3"
+                >
+                  <p>
+                    Front door key
+                  </p>
+                </div>
+                <label
+                  class="el-label"
+                >
+                  Office
+                </label>
+                <p
+                  class="el-mb3"
+                >
+                  Camberwell
+                </p>
+                <label
+                  class="el-label"
+                >
+                  Status
+                </label>
+                <p
+                  class="el-mb3"
+                >
+                  Checked in at 13/01/2022 10:50
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+     
+    <div
+      class="drawer-header"
+    >
+      <h5
+        class="title is-5 mb-0"
+        id=""
+      >
+        Property Information
+      </h5>
+      <button
+        class="icon-button-container small-button"
+      >
+        <span
+          class="icon-container"
+        >
+          <svg
+            height="16px"
+            version="1.1"
+            viewBox="0 0 16 16"
+            width="16px"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title>
+              Path
+            </title>
+            <g
+              fill="none"
+              fill-rule="evenodd"
+              id="Wireframes-v2"
+              stroke="none"
+              stroke-width="1"
+            >
+              <g
+                fill="currentColor"
+                fill-rule="nonzero"
+                id="Search-for-property"
+                transform="translate(-325.000000, -98.000000)"
+              >
+                <g
+                  id="Search"
+                  transform="translate(10.000000, 83.000000)"
+                >
+                  <path
+                    d="M324.75,23 L330.55,17.2 C331.033333,16.7166667 331.033333,15.9333333 330.55,15.45 C330.066667,14.9666667 329.283333,14.9666667 328.8,15.45 L323,21.25 L317.2,15.45 C316.716667,14.9666667 315.933333,14.9666667 315.45,15.45 C314.966667,15.9333333 314.966667,16.7166667 315.45,17.2 L321.25,23 L315.45,28.8 C314.966667,29.2833333 314.966667,30.0666667 315.45,30.55 C315.683333,30.7833333 316,30.9166667 316.316667,30.9166667 C316.633333,30.9166667 316.95,30.8 317.183333,30.55 L323,24.75 L328.8,30.55 C329.033333,30.7833333 329.35,30.9166667 329.666667,30.9166667 C329.983333,30.9166667 330.3,30.8 330.533333,30.55 C331.016667,30.0666667 331.016667,29.2833333 330.533333,28.8 L324.75,23 Z"
+                    id="Path"
+                  />
+                </g>
+              </g>
+            </g>
+          </svg>
+        </span>
+      </button>
+    </div>
+    <div
+      class="contact-option-row"
+    >
+      <div
+        class="grid"
+      >
+        <div
+          class="col span16"
+        >
+          <label
+            class="el-label"
+          >
+            Address
+          </label>
+        </div>
+        <div
+          class="col span16"
+        >
+          <p>
+            Yew Tree Cottage
+          </p>
+          <p>
+            Church Walk
+          </p>
+          <p>
+            Ambrosden
+          </p>
+          <p>
+            Bicester
+          </p>
+          <p>
+            Oxfordshire
+          </p>
+          <p>
+            OX25 2UJ
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="contact-option-row"
+    >
+      <div
+        class="grid"
+      >
+        <div
+          class="col span16"
+        >
+          <label
+            class="el-label"
+          >
+            Price
+          </label>
+        </div>
+        <div
+          class="col span16"
+        >
+          £300000
+        </div>
+      </div>
+    </div>
+    <div
+      class="contact-option-row"
+    >
+      <div
+        class="grid"
+      >
+        <div
+          class="col span16"
+        >
+          <label
+            class="el-label"
+          >
+            Viewing Arrangements
+          </label>
+        </div>
+        <div
+          class="col span16"
+        >
+          Knock three times
+        </div>
+      </div>
+    </div>
+    <div
+      class="contact-option-row"
+    >
+      <div
+        class="grid"
+      >
+        <div
+          class="col span16"
+        >
+          <label
+            class="el-label"
           />
-        </li>
-      </ul>
-    }
-    label=""
-  />
-</Fragment>
+        </div>
+        <div
+          class="col span16"
+        >
+          <ul>
+            <li>
+              <label
+                class="el-label"
+              >
+                Key Number
+              </label>
+              <p
+                class="el-mb3"
+              >
+                123
+              </p>
+              <label
+                class="el-label"
+              >
+                Keys in set
+              </label>
+              <div
+                class="el-mb3"
+              >
+                <p>
+                  Front door key
+                </p>
+              </div>
+              <label
+                class="el-label"
+              >
+                Office
+              </label>
+              <p
+                class="el-mb3"
+              >
+                Camberwell
+              </p>
+              <label
+                class="el-label"
+              >
+                Status
+              </label>
+              <p
+                class="el-mb3"
+              >
+                Checked in at 13/01/2022 10:50
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
-exports[`PropertyDrawer should match snapshot without an appointment in state 1`] = `""`;
+exports[`PropertyDrawer should match snapshot without an appointment in state 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+       
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+     
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

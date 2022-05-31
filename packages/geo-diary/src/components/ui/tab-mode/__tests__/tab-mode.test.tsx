@@ -1,5 +1,5 @@
 import React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render } from '../../../../tests/react-testing'
 import { TabMode, handleChangeTabMode } from '../tab-mode'
 import { AppTab } from '../../../../core/app-state'
 

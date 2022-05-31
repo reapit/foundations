@@ -1,7 +1,6 @@
 import * as React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render } from '@testing-library/react'
 import { Tabs, TabConfig } from '../index'
-import toJson from 'enzyme-to-json'
 
 const tabConfigs = ({ tab, handleChangeTab }: any): TabConfig[] => [
   {
@@ -25,15 +24,7 @@ const props: Partial<any> = {
 
 describe('Tabs', () => {
   it('should match a snapshot', () => {
-    expect(toJson(render(<Tabs tabConfigs={tabConfigs(props)} />))).toMatchSnapshot()
-  })
-
-  it('simulates afterClose event', () => {
-    const wrapper = render(<Tabs tabConfigs={tabConfigs(props)} />)
-    wrapper.find('a').first().simulate('click', {
-      preventDefault: jest.fn(),
-    })
-    expect(props.handleChangeTab).toBeCalledTimes(1)
+    expect(render(<Tabs tabConfigs={tabConfigs(props)} />)).toMatchSnapshot()
   })
 
   afterEach(() => {

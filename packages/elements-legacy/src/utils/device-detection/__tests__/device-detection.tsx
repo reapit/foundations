@@ -1,6 +1,6 @@
 import React from 'react'
 import { isAndroid, isIOS, isMacLike, isMobile } from '../device-detection'
-import { render } from '../../../tests/react-testing'
+import { render } from '@testing-library/react'
 
 let userAgentGetter
 

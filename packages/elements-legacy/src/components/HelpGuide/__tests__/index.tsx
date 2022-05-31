@@ -1,5 +1,5 @@
 import React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render } from '@testing-library/react'
 import { HelpGuide, handleGoNext, handleGoPrev, handleGoTo, renderTimeline, NavigationProps } from '..'
 
 describe('HelpGuide', () => {

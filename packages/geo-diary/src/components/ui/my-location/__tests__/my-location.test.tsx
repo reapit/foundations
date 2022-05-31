@@ -1,5 +1,5 @@
 import React, { ChangeEvent, MouseEvent } from 'react'
-import { render } from '../../../tests/react-testing'
+import { render } from '../../../../tests/react-testing'
 import {
   MyLocation,
   fetchLocationResults,

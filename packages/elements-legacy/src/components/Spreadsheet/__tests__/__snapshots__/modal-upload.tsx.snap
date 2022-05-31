@@ -1,162 +1,123 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ModalUpload should match snapshot with default prop 1`] = `
-<Modal
-  afterClose={[Function]}
-  footerItems={
-    <React.Fragment>
-      <Button
-        onClick={[Function]}
-        type="button"
-        variant="secondary"
-      >
-        Close
-      </Button>
-      <Button
-        onClick={[Function]}
-        type="button"
-        variant="primary"
-      >
-        Process valid rows
-      </Button>
-    </React.Fragment>
-  }
-  tapOutsideToDissmiss={false}
-  title="Process with 1 valid rows?"
-  visible={true}
->
-  <div>
-    <H4
-      className="has-text-info"
-    >
-      All rows are valid!
-    </H4>
-    <ul />
-  </div>
-</Modal>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div />
+  </body>,
+  "container": <div />,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`ModalUpload should match snapshot with modified props 1`] = `
-<Modal
-  afterClose={[Function]}
-  footerItems={
-    <React.Fragment>
-      <Button
-        onClick={[Function]}
-        type="button"
-        variant="secondary"
-      >
-        Close
-      </Button>
-      <Button
-        onClick={[Function]}
-        type="button"
-        variant="primary"
-      >
-        Process valid rows
-      </Button>
-    </React.Fragment>
-  }
-  tapOutsideToDissmiss={false}
-  title="Process with 4 valid rows?"
-  visible={true}
->
-  <div>
-    <H4
-      className="has-text-danger"
-    >
-      Found 2 invalid rows
-    </H4>
-    <ul>
-      <li
-        key="0"
-      >
-        Row: 
-        <span
-          className="has-text-danger"
-        >
-          2
-        </span>
-        , Columns:
-         
-        <span
-          className="has-text-danger"
-        >
-          col 3
-        </span>
-        , Error:
-         
-        <span
-          className="has-text-danger"
-        />
-      </li>
-      <li
-        key="1"
-      >
-        Row: 
-        <span
-          className="has-text-danger"
-        >
-          3
-        </span>
-        , Columns:
-         
-        <span
-          className="has-text-danger"
-        >
-          col 3
-        </span>
-        , Error:
-         
-        <span
-          className="has-text-danger"
-        />
-      </li>
-      <li
-        key="2"
-      >
-        Row: 
-        <span
-          className="has-text-danger"
-        >
-          2
-        </span>
-        , Columns:
-         
-        <span
-          className="has-text-danger"
-        >
-          col 5
-        </span>
-        , Error:
-         
-        <span
-          className="has-text-danger"
-        />
-      </li>
-      <li
-        key="3"
-      >
-        Row: 
-        <span
-          className="has-text-danger"
-        >
-          2
-        </span>
-        , Columns:
-         
-        <span
-          className="has-text-danger"
-        >
-          col 6
-        </span>
-        , Error:
-         
-        <span
-          className="has-text-danger"
-        />
-      </li>
-    </ul>
-  </div>
-</Modal>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div />
+  </body>,
+  "container": <div />,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

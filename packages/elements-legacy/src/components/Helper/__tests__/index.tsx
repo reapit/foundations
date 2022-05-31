@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render } from '@testing-library/react'
 import { Helper, Variant } from '../index'
 
 const variants: Variant[] = ['info', 'warning']

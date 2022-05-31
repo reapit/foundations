@@ -1,5 +1,5 @@
 import React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render } from '../../../../tests/react-testing'
 import { TravelMode, handleChangeTravelMode } from '../travel-mode'
 import { AppTravelMode } from '../../../../core/app-state'
 

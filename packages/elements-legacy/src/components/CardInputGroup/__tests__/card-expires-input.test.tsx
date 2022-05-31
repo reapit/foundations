@@ -1,7 +1,6 @@
 import * as React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render } from '@testing-library/react'
 import { Formik, Form } from 'formik'
-import { act } from 'react-dom/test-utils'
 import { CardExpiresInput, CardExpiresInputProps } from '../card-expires-input'
 
 const props: CardExpiresInputProps = {
@@ -64,28 +63,5 @@ describe('CardExpiresInput', () => {
       </Formik>,
     )
     expect(wrapper).toMatchSnapshot()
-  })
-
-  it('should work when integrating with Formik', async () => {
-    const wrapper = render(
-      <Formik initialValues={{ expiryDate: '' }} onSubmit={jest.fn()}>
-        {() => (
-          <Form>
-            <CardExpiresInput {...props} />
-          </Form>
-        )}
-      </Formik>,
-    )
-    expect(wrapper.find('label')).toHaveLength(1)
-    await act(async () => {
-      wrapper.find('input').simulate('change', {
-        target: {
-          value: '1224',
-          name: 'expiryDate',
-        },
-      })
-    })
-    wrapper.update()
-    expect(wrapper.find('input').prop('value')).toEqual('12 / 24')
   })
 })

@@ -15,6 +15,9 @@ jobs:
   test-pr:
     name: Test
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        shard: [1/4, 2/4, 3/4, 4/4]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -33,10 +36,6 @@ jobs:
         run: |
           yarn changed foreach --parallel --verbose --git-range origin/master run conf --name development
 
-      - name: Lint
-        run: |
-          yarn changed foreach --parallel --verbose --git-range origin/master run lint
-
       - name: Test
         run: |
-          yarn changed foreach --parallel --verbose --interlaced --git-range origin/master run test --watch=false --coverage --ci --forceExit --detectOpenHandles --runInBand
+          yarn changed foreach --parallel --verbose --interlaced --git-range origin/master run test --watch=false --ci --forceExit --detectOpenHandles --runInBand --shard=${{ matrix.shard }}

@@ -1,6 +1,5 @@
 import * as React from 'react'
-import { render } from '../../../tests/react-testing'
-import toJson from 'enzyme-to-json'
+import { render } from '@testing-library/react'
 import { FormHeading, FormSubHeading, FormSection } from '../index'
 import { Grid, GridItem, FlexContainerBasic } from '../../Layout'
 import { Formik, Form } from 'formik'
@@ -105,7 +104,7 @@ const FormExample: React.FC = () => (
 
 describe('LayoutComponents', () => {
   it('should match a snapshot for an example form', () => {
-    expect(toJson(render(<FormExample />))).toMatchSnapshot()
+    expect(render(<FormExample />)).toMatchSnapshot()
   })
   describe('FormHeading', () => {
     it('should match snapshot', () => {

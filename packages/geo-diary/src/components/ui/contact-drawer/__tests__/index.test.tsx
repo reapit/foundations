@@ -1,5 +1,5 @@
 import React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render } from '../../../../tests/react-testing'
 import ContactDrawer, { handleClose } from '../index'
 
 import { useAppState } from '../../../../core/app-state'

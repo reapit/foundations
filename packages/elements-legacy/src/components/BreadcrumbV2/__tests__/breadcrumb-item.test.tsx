@@ -1,5 +1,5 @@
 import React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render } from '@testing-library/react'
 import { renderLinks, BreadcrumbItem } from '../breadcrumb-item'
 
 describe('breadcrumb-item', () => {

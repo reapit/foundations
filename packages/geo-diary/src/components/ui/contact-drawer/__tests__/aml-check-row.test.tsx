@@ -1,5 +1,5 @@
 import React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render } from '../../../../tests/react-testing'
 import { AmlCheckRow } from '../aml-check-row'
 
 describe('AmlCheckRow', () => {

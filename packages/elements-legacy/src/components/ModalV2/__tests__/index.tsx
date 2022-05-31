@@ -1,5 +1,5 @@
 import React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render } from '@testing-library/react'
 import { ModalV2, ModalHeaderV2 } from '../index'
 
 describe('modal', () => {

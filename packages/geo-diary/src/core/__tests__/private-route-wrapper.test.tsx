@@ -3,7 +3,7 @@ import { createBrowserHistory, History } from 'history'
 import { Route, Router } from 'react-router-dom'
 import { PrivateRouteWrapper } from '../private-route-wrapper'
 import { getMockRouterProps } from '../__mocks__/mock-router'
-import { render } from '../../../tests/react-testing'
+import { render } from '../../tests/react-testing'
 
 jest.mock('@reapit/connect-session', () => ({
   ReapitConnectBrowserSession: jest.fn(),

@@ -1,5 +1,5 @@
 import React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render } from '../../../../tests/react-testing'
 import { GoogleMapsError } from '../google-maps-error'
 
 describe('GoogleMapsError', () => {

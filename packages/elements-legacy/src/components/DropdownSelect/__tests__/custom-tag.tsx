@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render } from '@testing-library/react'
 import { CustomTag, CustomTagProps } from '../custom-tag'
 
 const props: CustomTagProps = {
@@ -13,12 +13,5 @@ const props: CustomTagProps = {
 describe('CustomTag', () => {
   it('should match a snapshot', () => {
     expect(render(<CustomTag {...props} />)).toMatchSnapshot()
-  })
-
-  it('should call onClose when click remove', () => {
-    const wrapper = render(<CustomTag {...props} />)
-    const element = wrapper.find('a')
-    element.simulate('click')
-    expect(props.onClose).toHaveBeenCalled()
   })
 })
