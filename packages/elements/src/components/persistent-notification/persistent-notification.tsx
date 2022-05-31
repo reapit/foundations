@@ -1,18 +1,18 @@
 import { cx } from '@linaria/core'
 import React, { FC, HTMLAttributes } from 'react'
 import {
-  ElPersistantNotification,
-  elPnIcon,
-  elPnContent,
-  elPnIsFullWidth,
-  elPnIsFixed,
-  elPnIsInline,
+  ElPersistentNotification,
+  elPersistentNotificationIcon,
+  elPersistentNotificationContent,
+  elPersistentNotificationIsFullWidth,
+  elPersistentNotificationIsFixed,
+  elPersistentNotificationIsInline,
 } from './__styles__'
 import { Icon, IconNames } from '../icon'
 import { elIsActive } from '../../styles/states'
 import { Intent, getIntentClassName } from '../../helpers/intent'
 
-export interface IPersistantNotification extends HTMLAttributes<HTMLDivElement> {
+export interface PersistentNotificationProps extends HTMLAttributes<HTMLDivElement> {
   icon?: IconNames
   intent?: Intent
   className?: string
@@ -23,7 +23,7 @@ export interface IPersistantNotification extends HTMLAttributes<HTMLDivElement> 
   onExpansionToggle?: (newState: boolean) => void
 }
 
-export const PersistantNotification: FC<IPersistantNotification> = ({
+export const PersistentNotification: FC<PersistentNotificationProps> = ({
   icon = 'infoSolidSystem',
   intent = 'secondary',
   className,
@@ -40,23 +40,21 @@ export const PersistantNotification: FC<IPersistantNotification> = ({
     className,
     intentClassName,
     isExpanded && elIsActive,
-    isFullWidth && elPnIsFullWidth,
-    isFixed && elPnIsFixed,
-    isInline && elPnIsInline,
+    isFullWidth && elPersistentNotificationIsFullWidth,
+    isFixed && elPersistentNotificationIsFixed,
+    isInline && elPersistentNotificationIsInline,
   )
-  console.info(
-    'This component has been re-named PersistentNotification to correct a spelling mistake. You should update your components as this will be removed in future versions',
-  )
+
   return (
-    <ElPersistantNotification className={combinedClassName} {...rest}>
+    <ElPersistentNotification className={combinedClassName} {...rest}>
       <div
-        className={elPnIcon}
+        className={elPersistentNotificationIcon}
         data-testid="close-icon"
         onClick={() => onExpansionToggle && onExpansionToggle(!isExpanded)}
       >
         <Icon icon={icon} />
       </div>
-      <div className={elPnContent}>{children}</div>
-    </ElPersistantNotification>
+      <div className={elPersistentNotificationContent}>{children}</div>
+    </ElPersistentNotification>
   )
 }

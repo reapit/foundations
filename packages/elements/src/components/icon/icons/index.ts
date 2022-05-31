@@ -109,6 +109,10 @@ import usernameSystem from './system-icons/usernameSystem'
 import viewSolidSystem from './system-icons/viewSolidSystem'
 import walkingSolidSystem from './system-icons/walkingSolidSystem'
 import warningSolidSystem from './system-icons/warningSolidSystem'
+import bulletListSystem from './system-icons/bulletListSystem'
+import poundSystem from './system-icons/poundSystem'
+import euroSystem from './system-icons/euroSystem'
+import dollarSystem from './system-icons/dollarSystem'
 import devicesInfographic from './infographic-icons/devicesInfographic'
 import doorLockInfographic from './infographic-icons/doorLockInfographic'
 import feedAltInfographic from './infographic-icons/feedAltInfographic'
@@ -278,4 +282,8 @@ export const iconSet = {
   appMarketInfographic,
   editAppInfographic,
   lockedInfographic,
+  poundSystem,
+  bulletListSystem,
+  dollarSystem,
+  euroSystem,
 }
