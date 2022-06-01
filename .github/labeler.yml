@@ -23,6 +23,9 @@ app-builder:
 app-builder-backend:
   - packages/app-builder-backend/**
 
+app-market:
+  - packages/app-builder/**
+
 auto-bump:
   - packages/auto-bump/**
 
