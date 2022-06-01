@@ -12782,6 +12782,7 @@ export interface Referrals {
   negotiatorId?: string[]
   referralTypeId?: string[]
   status?: ('sent' | 'succeeded' | 'cancelled' | 'failed' | 'paid' | 'declined')[]
+  embed?: ('applicant' | 'contact' | 'negotiator' | 'property' | 'type')[]
   pageSize?: number
   pageNumber?: number
   sortBy?: string
@@ -12791,6 +12792,7 @@ export interface Referrals {
   modifiedTo?: string
 }
 export interface ReferralsTypes {
+  id?: string[]
   pageSize?: number
   pageNumber?: number
   sortBy?: string
