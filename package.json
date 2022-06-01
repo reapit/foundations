@@ -9,6 +9,7 @@
       "packages/api-key-verify",
       "packages/app-builder",
       "packages/app-builder-backend",
+      "packages/app-market",
       "packages/auto-bump",
       "packages/auto-reply-bot",
       "packages/cli",
