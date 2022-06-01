@@ -14,7 +14,7 @@ export const createSqsQueues = (stack: Stack): Record<QueueNames, sqs.IQueue> =>
   const queueConfig: {
     [k in QueueNames]: {
       visibilityTimeout?: number
-      receiveMessageWaitTime?: Duration
+      deliveryDelay?: Duration
     }
   } = {
     [QueueNames.CODEBUILD_EXECUTOR]: {
@@ -31,7 +31,7 @@ export const createSqsQueues = (stack: Stack): Record<QueueNames, sqs.IQueue> =>
     },
     [QueueNames.PIPELINE_TEAR_DOWN]: {
       visibilityTimeout: 900,
-      receiveMessageWaitTime: Duration.minutes(5),
+      deliveryDelay: Duration.minutes(5),
     },
     [QueueNames.APP_EVENTS]: {},
   }
@@ -42,7 +42,7 @@ export const createSqsQueues = (stack: Stack): Record<QueueNames, sqs.IQueue> =>
         stack,
         queueName,
         queueConfig[queueName].visibilityTimeout,
-        queueConfig[queueName].receiveMessageWaitTime,
+        queueConfig[queueName].deliveryDelay,
       )
 
       return queues
