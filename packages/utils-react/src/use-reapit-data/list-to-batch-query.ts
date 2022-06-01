@@ -19,6 +19,12 @@
  * 
  */
 
+import { StringMap } from '@reapit/utils-common'
+
+// export interface QueryObjectType {
+//   [key: string]: string | number | boolean | (string | number)[]
+// }
+
 export const listToBatchQuery = <ListType>(list: ListType[], listKey: keyof ListType, queryKey: string): string =>
   list.reduce((query: string, nextItem: ListType, index: number) => {
     const listValue = String(nextItem[listKey])
@@ -27,3 +33,24 @@ export const listToBatchQuery = <ListType>(list: ListType[], listKey: keyof List
     }
     return `${query}&${queryKey}=${listValue}`
   }, '')
+
+export const stringListToBatchQuery = (list: (string | number)[], queryKey: string): string =>
+  list.reduce((query: string, nextItem: string | number, index: number) => {
+    if (!index) {
+      return String(nextItem)
+    }
+    return `${query}&${queryKey}=${nextItem}`
+  }, '')
+
+export const objectToQuery = <QueryObjectType>(queryObject: QueryObjectType): StringMap =>
+  Object.keys(queryObject).reduce((currentQuery: StringMap, nextItem: string) => {
+    const objectItem = queryObject[nextItem]
+
+    if (Array.isArray(objectItem)) {
+      currentQuery[nextItem] = stringListToBatchQuery(objectItem, nextItem)
+    } else {
+      currentQuery[nextItem] = String(objectItem)
+    }
+
+    return currentQuery
+  }, {} as StringMap)
