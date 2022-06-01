@@ -22,7 +22,7 @@ import {
 
 export const FormExample: FC = () => (
   <>
-    <Title>Table Example</Title>
+    <Title>Form Example</Title>
     <PersistantNotification className={elMb7} isExpanded intent="secondary" isInline isFullWidth>
       The form example is designed to show the various form and responsive form layout components. You can use any Form
       library or just straight React to manage your form state however, we strongly recommend React Hook Form (we use
