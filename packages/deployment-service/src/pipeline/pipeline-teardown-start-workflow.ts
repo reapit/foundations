@@ -56,7 +56,7 @@ export class PipelineTearDownStartWorkflow extends AbstractWorkflow<PipelineEnti
 
   async execute(pipeline: PipelineEntity) {
     if (pipeline.buildStatus !== 'PRE_PROVISIONED' && pipeline.hasDistro)
-      console.log('disable result', await this.disableCloudFront(pipeline.cloudFrontId as string))
+      await this.disableCloudFront(pipeline.cloudFrontId as string)
 
     await Promise.all([
       this.pipelineProvider.update(pipeline, {
