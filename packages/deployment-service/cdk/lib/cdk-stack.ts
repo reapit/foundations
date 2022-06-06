@@ -212,10 +212,12 @@ export const createStack = () => {
     stack,
     name: 'cloud-deployment-migration',
     entrypoint: path.resolve('bundle.zip'),
-    handler: createFileLoc('functions/migrationRun', 'migrationRun'),
+    handler: createFileLoc('migration-run', 'migrationRun'),
     env,
     vpc,
   })
+
+  policies.commonBackendPolicies.forEach((policy) => migrationHandler.addToRolePolicy(policy))
 
   Object.values(policies)
     .filter((policy) => policy instanceof PolicyStatement)
