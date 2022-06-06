@@ -6,19 +6,22 @@ import { plainToClass } from 'class-transformer'
 import { PipelineEntity } from '../../entities/pipeline.entity'
 import { PipelineRunnerEntity } from '../../entities/pipeline-runner.entity'
 import { S3 } from 'aws-sdk'
+import { CloudFrontClient } from '@aws-sdk/client-cloudfront'
 
-jest.mock(
-  'adm-zip',
-  jest.fn(() => ({
-    extractAllToAsync: jest.fn((file: string, something, another, callback) => {
+process.env.NODE_ENV = 'local'
+
+jest.mock('adm-zip', () => {
+  class MockAdmZip {
+    extractAllToAsync = jest.fn((file: string, something, another, callback) => {
       callback()
-    }),
-  })),
-)
+    })
+  }
+
+  return MockAdmZip
+})
 
 class MockS3Provider extends S3Provider {
   upload(params): Promise<any> {
-    console.log('upload called', params)
     return Promise.resolve({
       Key: params.Key,
     })
@@ -29,10 +32,15 @@ class MockS3Provider extends S3Provider {
       Body: Buffer.from(''),
     })
   }
+  cd
 
   deleteObject(): Promise<void> {
     return Promise.resolve()
   }
+}
+
+class MockCloudFrontProvider {
+  send = jest.fn(() => Promise.resolve())
 }
 
 describe('DeploymentProvider', () => {
@@ -44,6 +52,8 @@ describe('DeploymentProvider', () => {
     })
       .overrideProvider(S3Provider)
       .useClass(MockS3Provider)
+      .overrideProvider(CloudFrontClient)
+      .useClass(MockCloudFrontProvider)
       .compile()
   })
 
