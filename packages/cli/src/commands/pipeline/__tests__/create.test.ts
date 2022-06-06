@@ -42,7 +42,7 @@ describe('pipeline-create', () => {
     axios.create.mockImplementation(() => axios)
     // @ts-ignore
     axios.post = jest.fn(() => ({
-      status: 200,
+      status: 201,
       data: {
         name: 'name',
         developerId: 'DEVELOPER_ID',
@@ -57,7 +57,7 @@ describe('pipeline-create', () => {
             id: 'pipeline-runner-id',
             buildStatus: 'READY_FOR_DEPLOYMENT',
           })
-        }, 200)
+        }, 201)
       }),
     }))
     // @ts-ignore
