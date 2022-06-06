@@ -330,6 +330,37 @@ exports[`Sidebar should match a snapshot 1`] = `
                   Form
                 </div>
               </div>
+              <div
+                class="item-container"
+                draggable="true"
+              >
+                <a
+                  class="el-m3 block cursor-move item"
+                />
+                <a
+                  class="item"
+                >
+                  <svg
+                    viewBox="0 0 18 18"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <defs>
+                      <style />
+                    </defs>
+                    <title>
+                      S Rectangle 18 N
+                    </title>
+                    <path
+                      d="M1 2.5v13a.5.5 0 0 0 .5.5h15a.5.5 0 0 0 .5-.5v-13a.5.5 0 0 0-.5-.5h-15a.5.5 0 0 0-.5.5zM16 15H2V3h14z"
+                    />
+                  </svg>
+                </a>
+                <div
+                  class="item-name"
+                >
+                  Navigation Bar
+                </div>
+              </div>
             </div>
           </div>
         </div>

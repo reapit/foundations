@@ -66,7 +66,7 @@
     "jest-coverage-badges": "^1.1.2",
     "prettier": "^2.6.2",
     "ts-node": "^10.8.0",
-    "ts-node-dev": "^1.1.8",
+    "ts-node-dev": "^2.0.0",
     "tsconfig-paths": "^3.14.1",
     "typescript": "^4.7.2"
   },
