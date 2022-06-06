@@ -1088,10 +1088,10 @@ Object {
         </h1>
       </div>
       <div
-        class="epibvz0-el-intent-secondary evmehgn-el-is-active e1rlwnim-el-pn-is-full-width e10l30r1-el-pn-is-inline eiq7urd-el-persistant-notification"
+        class="epibvz0-el-intent-secondary evmehgn-el-is-active e1qwk99x-el-pn-is-full-width e15e3rd4-el-pn-is-inline e1rlwnim-el-persistant-notification"
       >
         <div
-          class="e1f8chn8-el-pn-icon"
+          class="eta6kcl-el-pn-icon"
           data-testid="close-icon"
         >
           <span
@@ -1112,7 +1112,7 @@ Object {
           </span>
         </div>
         <div
-          class="e1mwx0ir-el-pn-content"
+          class="e1geon40-el-pn-content"
         >
           No installations for the application.
         </div>
@@ -1133,10 +1133,10 @@ Object {
       </h1>
     </div>
     <div
-      class="epibvz0-el-intent-secondary evmehgn-el-is-active e1rlwnim-el-pn-is-full-width e10l30r1-el-pn-is-inline eiq7urd-el-persistant-notification"
+      class="epibvz0-el-intent-secondary evmehgn-el-is-active e1qwk99x-el-pn-is-full-width e15e3rd4-el-pn-is-inline e1rlwnim-el-persistant-notification"
     >
       <div
-        class="e1f8chn8-el-pn-icon"
+        class="eta6kcl-el-pn-icon"
         data-testid="close-icon"
       >
         <span
@@ -1157,7 +1157,7 @@ Object {
         </span>
       </div>
       <div
-        class="e1mwx0ir-el-pn-content"
+        class="e1geon40-el-pn-content"
       >
         No installations for the application.
       </div>

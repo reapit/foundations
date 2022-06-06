@@ -1,6 +1,4 @@
-import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
-import { ElIcon } from '../../icon/__styles__'
 import { elIsActive } from '../../../styles/states'
 import {
   elIntentPrimary,
@@ -9,31 +7,7 @@ import {
   elIntentSuccess,
   elIntentDanger,
 } from '../../../styles/intent'
-
-export const elPnIsFullWidth = css``
-
-export const elPnIsFixed = css``
-
-export const elPnIsInline = css``
-
-export const elPnIcon = css`
-  padding: 0 0.5rem;
-  display: flex;
-  align-items: center;
-  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-  cursor: pointer;
-
-  ${ElIcon} {
-    color: var(--color-white);
-  }
-`
-
-export const elPnContent = css`
-  padding: 0.75rem 1.25rem;
-  opacity: 0;
-  transition: 0.5s;
-  width: 100%;
-`
+import { elPnContent, elPnIcon, elPnIsFixed, elPnIsFullWidth, elPnIsInline } from '../../persistent-notification'
 
 export const ElPersistantNotification = styled.div`
   display: flex;
