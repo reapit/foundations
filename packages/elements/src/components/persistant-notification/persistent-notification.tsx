@@ -1,16 +1,10 @@
 import { cx } from '@linaria/core'
 import React, { FC, HTMLAttributes } from 'react'
-import {
-  ElPersistantNotification,
-  elPnIcon,
-  elPnContent,
-  elPnIsFullWidth,
-  elPnIsFixed,
-  elPnIsInline,
-} from './__styles__'
+import { ElPersistantNotification } from './__styles__'
 import { Icon, IconNames } from '../icon'
 import { elIsActive } from '../../styles/states'
 import { Intent, getIntentClassName } from '../../helpers/intent'
+import { elPnContent, elPnIcon, elPnIsFixed, elPnIsFullWidth, elPnIsInline } from '../persistent-notification'
 
 export interface IPersistantNotification extends HTMLAttributes<HTMLDivElement> {
   icon?: IconNames
