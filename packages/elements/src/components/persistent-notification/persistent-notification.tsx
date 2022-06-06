@@ -2,11 +2,11 @@ import { cx } from '@linaria/core'
 import React, { FC, HTMLAttributes } from 'react'
 import {
   ElPersistentNotification,
-  elPersistentNotificationIcon,
-  elPersistentNotificationContent,
-  elPersistentNotificationIsFullWidth,
-  elPersistentNotificationIsFixed,
-  elPersistentNotificationIsInline,
+  elPnIcon,
+  elPnContent,
+  elPnIsFullWidth,
+  elPnIsFixed,
+  elPnIsInline,
 } from './__styles__'
 import { Icon, IconNames } from '../icon'
 import { elIsActive } from '../../styles/states'
@@ -40,21 +40,21 @@ export const PersistentNotification: FC<PersistentNotificationProps> = ({
     className,
     intentClassName,
     isExpanded && elIsActive,
-    isFullWidth && elPersistentNotificationIsFullWidth,
-    isFixed && elPersistentNotificationIsFixed,
-    isInline && elPersistentNotificationIsInline,
+    isFullWidth && elPnIsFullWidth,
+    isFixed && elPnIsFixed,
+    isInline && elPnIsInline,
   )
 
   return (
     <ElPersistentNotification className={combinedClassName} {...rest}>
       <div
-        className={elPersistentNotificationIcon}
+        className={elPnIcon}
         data-testid="close-icon"
         onClick={() => onExpansionToggle && onExpansionToggle(!isExpanded)}
       >
         <Icon icon={icon} />
       </div>
-      <div className={elPersistentNotificationContent}>{children}</div>
+      <div className={elPnContent}>{children}</div>
     </ElPersistentNotification>
   )
 }

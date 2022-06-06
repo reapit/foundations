@@ -10,13 +10,13 @@ import {
   elIntentDanger,
 } from '../../../styles/intent'
 
-export const elPersistentNotificationIsFullWidth = css``
+export const elPnIsFullWidth = css``
 
-export const elPersistentNotificationIsFixed = css``
+export const elPnIsFixed = css``
 
-export const elPersistentNotificationIsInline = css``
+export const elPnIsInline = css``
 
-export const elPersistentNotificationIcon = css`
+export const elPnIcon = css`
   padding: 0 0.5rem;
   display: flex;
   align-items: center;
@@ -28,7 +28,7 @@ export const elPersistentNotificationIcon = css`
   }
 `
 
-export const elPersistentNotificationContent = css`
+export const elPnContent = css`
   padding: 0.75rem 1.25rem;
   opacity: 0;
   transition: 0.5s;
@@ -48,49 +48,49 @@ export const ElPersistentNotification = styled.div`
     right: 0;
     transform: translateX(calc(0%));
 
-    .${elPersistentNotificationContent} {
+    .${elPnContent} {
       opacity: 1;
     }
   }
 
-  &.${elPersistentNotificationIsFullWidth} {
+  &.${elPnIsFullWidth} {
     width: 100%;
     max-width: 100%;
     flex: 1 0 auto;
   }
 
-  &.${elPersistentNotificationIsFixed} {
+  &.${elPnIsFixed} {
     position: fixed;
     top: 1rem;
-    right: 2rem; // should be the width of the elPersistentNotificationIcon element (icon is 1rem and padding is 0.5rem each side)
+    right: 2rem; // should be the width of the elPnIcon element (icon is 1rem and padding is 0.5rem each side)
   }
 
-  &.${elPersistentNotificationIsInline} {
+  &.${elPnIsInline} {
     position: relative;
     background: var(--color-white);
-    .${elPersistentNotificationContent} {
+    .${elPnContent} {
       border-radius: 0 var(--default-border-radius) var(--default-border-radius) 0;
     }
   }
 
   &.${elIntentPrimary} {
-    .${elPersistentNotificationContent} {
+    .${elPnContent} {
       background: var(--intent-primary-light);
       color: var(--intent-primary-light-text);
     }
 
-    .${elPersistentNotificationIcon} {
+    .${elPnIcon} {
       background: var(--intent-primary);
       color: var(--intent-primary-text);
     }
 
-    &.${elPersistentNotificationIsInline} {
-      .${elPersistentNotificationContent} {
+    &.${elPnIsInline} {
+      .${elPnContent} {
         background: var(--color-white);
         border: 2px var(--intent-primary-light) solid;
       }
 
-      .${elPersistentNotificationIcon} {
+      .${elPnIcon} {
         background: var(--intent-primary-light);
         border: 2px var(--intent-primary-light) solid;
 
@@ -102,22 +102,22 @@ export const ElPersistentNotification = styled.div`
   }
 
   &.${elIntentSecondary} {
-    .${elPersistentNotificationContent} {
+    .${elPnContent} {
       background: var(--intent-secondary-light);
       color: var(--intent-secondary-light-text);
     }
-    .${elPersistentNotificationIcon} {
+    .${elPnIcon} {
       background: var(--intent-secondary);
       color: var(--intent-secondary-text);
     }
 
-    &.${elPersistentNotificationIsInline} {
-      .${elPersistentNotificationContent} {
+    &.${elPnIsInline} {
+      .${elPnContent} {
         background: var(--color-white);
         border: 2px var(--intent-secondary-light) solid;
       }
 
-      .${elPersistentNotificationIcon} {
+      .${elPnIcon} {
         background: var(--intent-secondary-light);
         border: 2px var(--intent-secondary-light) solid;
 
@@ -129,23 +129,23 @@ export const ElPersistentNotification = styled.div`
   }
 
   &.${elIntentCritical} {
-    .${elPersistentNotificationContent} {
+    .${elPnContent} {
       background: var(--intent-critical-light);
       color: var(--intent-critical-light-text);
     }
 
-    .${elPersistentNotificationIcon} {
+    .${elPnIcon} {
       background: var(--intent-critical);
       color: var(--intent-critical-text);
     }
 
-    &.${elPersistentNotificationIsInline} {
-      .${elPersistentNotificationContent} {
+    &.${elPnIsInline} {
+      .${elPnContent} {
         background: var(--color-white);
         border: 2px var(--intent-critical-light) solid;
       }
 
-      .${elPersistentNotificationIcon} {
+      .${elPnIcon} {
         background: var(--intent-critical-light);
         border: 2px var(--intent-critical-light) solid;
 
@@ -157,23 +157,23 @@ export const ElPersistentNotification = styled.div`
   }
 
   &.${elIntentSuccess} {
-    .${elPersistentNotificationContent} {
+    .${elPnContent} {
       background: var(--intent-success-light);
       color: var(--intent-success-light-text);
     }
 
-    .${elPersistentNotificationIcon} {
+    .${elPnIcon} {
       background: var(--intent-success);
       color: var(--intent-success-text);
     }
 
-    &.${elPersistentNotificationIsInline} {
-      .${elPersistentNotificationContent} {
+    &.${elPnIsInline} {
+      .${elPnContent} {
         background: var(--color-white);
         border: 2px var(--intent-success-light) solid;
       }
 
-      .${elPersistentNotificationIcon} {
+      .${elPnIcon} {
         background: var(--intent-success-light);
         border: 2px var(--intent-success-light) solid;
 
@@ -185,23 +185,23 @@ export const ElPersistentNotification = styled.div`
   }
 
   &.${elIntentDanger} {
-    .${elPersistentNotificationContent} {
+    .${elPnContent} {
       background: var(--intent-danger-light);
       color: var(--intent-danger-light-text);
     }
 
-    .${elPersistentNotificationIcon} {
+    .${elPnIcon} {
       background: var(--intent-danger);
       color: var(--intent-danger-text);
     }
 
-    &.${elPersistentNotificationIsInline} {
-      .${elPersistentNotificationContent} {
+    &.${elPnIsInline} {
+      .${elPnContent} {
         background: var(--color-white);
         border: 2px var(--intent-danger-light) solid;
       }
 
-      .${elPersistentNotificationIcon} {
+      .${elPnIcon} {
         background: var(--intent-danger-light);
         border: 2px var(--intent-danger-light) solid;
 

@@ -9,7 +9,6 @@ Object {
         class="el-intent-secondary el-persistant-notification"
       >
         <div
-          class="el-pn-icon"
           data-testid="close-icon"
         >
           <span
@@ -29,9 +28,7 @@ Object {
             </svg>
           </span>
         </div>
-        <div
-          class="el-pn-content"
-        >
+        <div>
           I am notification
         </div>
       </div>
@@ -42,7 +39,6 @@ Object {
       class="el-intent-secondary el-persistant-notification"
     >
       <div
-        class="el-pn-icon"
         data-testid="close-icon"
       >
         <span
@@ -62,9 +58,7 @@ Object {
           </svg>
         </span>
       </div>
-      <div
-        class="el-pn-content"
-      >
+      <div>
         I am notification
       </div>
     </div>
@@ -129,10 +123,9 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistant-notification"
+        class="el-intent-primary el-is-active el-persistant-notification"
       >
         <div
-          class="el-pn-icon"
           data-testid="close-icon"
         >
           <span
@@ -152,9 +145,7 @@ Object {
             </svg>
           </span>
         </div>
-        <div
-          class="el-pn-content"
-        >
+        <div>
           I am notification
         </div>
       </div>
@@ -162,10 +153,9 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistant-notification"
+      class="el-intent-primary el-is-active el-persistant-notification"
     >
       <div
-        class="el-pn-icon"
         data-testid="close-icon"
       >
         <span
@@ -185,9 +175,7 @@ Object {
           </svg>
         </span>
       </div>
-      <div
-        class="el-pn-content"
-      >
+      <div>
         I am notification
       </div>
     </div>
@@ -255,7 +243,6 @@ Object {
         class="el-intent-secondary el-is-active el-persistant-notification"
       >
         <div
-          class="el-pn-icon"
           data-testid="close-icon"
         >
           <span
@@ -275,9 +262,7 @@ Object {
             </svg>
           </span>
         </div>
-        <div
-          class="el-pn-content"
-        >
+        <div>
           I am notification
         </div>
       </div>
@@ -288,7 +273,6 @@ Object {
       class="el-intent-secondary el-is-active el-persistant-notification"
     >
       <div
-        class="el-pn-icon"
         data-testid="close-icon"
       >
         <span
@@ -308,9 +292,7 @@ Object {
           </svg>
         </span>
       </div>
-      <div
-        class="el-pn-content"
-      >
+      <div>
         I am notification
       </div>
     </div>
@@ -378,7 +360,6 @@ Object {
         class="el-intent-critical el-persistant-notification"
       >
         <div
-          class="el-pn-icon"
           data-testid="close-icon"
         >
           <span
@@ -398,9 +379,7 @@ Object {
             </svg>
           </span>
         </div>
-        <div
-          class="el-pn-content"
-        >
+        <div>
           I am notification
         </div>
       </div>
@@ -411,7 +390,6 @@ Object {
       class="el-intent-critical el-persistant-notification"
     >
       <div
-        class="el-pn-icon"
         data-testid="close-icon"
       >
         <span
@@ -431,9 +409,7 @@ Object {
           </svg>
         </span>
       </div>
-      <div
-        class="el-pn-content"
-      >
+      <div>
         I am notification
       </div>
     </div>

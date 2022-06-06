@@ -9,7 +9,7 @@ Object {
         class="el-intent-secondary el-persistent-notification"
       >
         <div
-          class="el-persistent-notification-icon"
+          class="el-pn-icon"
           data-testid="close-icon"
         >
           <span
@@ -30,7 +30,7 @@ Object {
           </span>
         </div>
         <div
-          class="el-persistent-notification-content"
+          class="el-pn-content"
         >
           I am notification
         </div>
@@ -42,7 +42,7 @@ Object {
       class="el-intent-secondary el-persistent-notification"
     >
       <div
-        class="el-persistent-notification-icon"
+        class="el-pn-icon"
         data-testid="close-icon"
       >
         <span
@@ -63,7 +63,7 @@ Object {
         </span>
       </div>
       <div
-        class="el-persistent-notification-content"
+        class="el-pn-content"
       >
         I am notification
       </div>
@@ -129,10 +129,10 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="el-intent-primary el-is-active el-persistent-notification-is-full-width el-persistent-notification-is-inline el-persistent-notification"
+        class="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
       >
         <div
-          class="el-persistent-notification-icon"
+          class="el-pn-icon"
           data-testid="close-icon"
         >
           <span
@@ -153,7 +153,7 @@ Object {
           </span>
         </div>
         <div
-          class="el-persistent-notification-content"
+          class="el-pn-content"
         >
           I am notification
         </div>
@@ -162,10 +162,10 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="el-intent-primary el-is-active el-persistent-notification-is-full-width el-persistent-notification-is-inline el-persistent-notification"
+      class="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
     >
       <div
-        class="el-persistent-notification-icon"
+        class="el-pn-icon"
         data-testid="close-icon"
       >
         <span
@@ -186,7 +186,7 @@ Object {
         </span>
       </div>
       <div
-        class="el-persistent-notification-content"
+        class="el-pn-content"
       >
         I am notification
       </div>
@@ -255,7 +255,7 @@ Object {
         class="el-intent-secondary el-is-active el-persistent-notification"
       >
         <div
-          class="el-persistent-notification-icon"
+          class="el-pn-icon"
           data-testid="close-icon"
         >
           <span
@@ -276,7 +276,7 @@ Object {
           </span>
         </div>
         <div
-          class="el-persistent-notification-content"
+          class="el-pn-content"
         >
           I am notification
         </div>
@@ -288,7 +288,7 @@ Object {
       class="el-intent-secondary el-is-active el-persistent-notification"
     >
       <div
-        class="el-persistent-notification-icon"
+        class="el-pn-icon"
         data-testid="close-icon"
       >
         <span
@@ -309,7 +309,7 @@ Object {
         </span>
       </div>
       <div
-        class="el-persistent-notification-content"
+        class="el-pn-content"
       >
         I am notification
       </div>
@@ -378,7 +378,7 @@ Object {
         class="el-intent-critical el-persistent-notification"
       >
         <div
-          class="el-persistent-notification-icon"
+          class="el-pn-icon"
           data-testid="close-icon"
         >
           <span
@@ -399,7 +399,7 @@ Object {
           </span>
         </div>
         <div
-          class="el-persistent-notification-content"
+          class="el-pn-content"
         >
           I am notification
         </div>
@@ -411,7 +411,7 @@ Object {
       class="el-intent-critical el-persistent-notification"
     >
       <div
-        class="el-persistent-notification-icon"
+        class="el-pn-icon"
         data-testid="close-icon"
       >
         <span
@@ -432,7 +432,7 @@ Object {
         </span>
       </div>
       <div
-        class="el-persistent-notification-content"
+        class="el-pn-content"
       >
         I am notification
       </div>
