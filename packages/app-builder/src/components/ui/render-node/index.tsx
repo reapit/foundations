@@ -58,7 +58,7 @@ export const RenderNode = ({ render, iframeRef }) => {
       node.id !== 'body' &&
       node.id !== 'footer' &&
       !nodeIsRoot
-    if (deletable && node.data.custom.isDeletable) {
+    if (isDeletable && node.data.custom.isDeletable) {
       isDeletable = node.data.custom.isDeletable(node)
     }
 
