@@ -41,7 +41,7 @@ export class PipelineTearDownWorkflow extends AbstractWorkflow<PipelineEntity> {
               Action: 'DELETE',
               ResourceRecordSet: {
                 Type: 'A',
-                Name: `${subDomain}.${process.env.NODE_ENV === 'production' ? 'prod' : 'dev'}.paas.reapit.cloud`,
+                Name: `${subDomain}.iaas.paas.reapit.cloud`,
                 AliasTarget: {
                   DNSName: domain,
                   EvaluateTargetHealth: false,
