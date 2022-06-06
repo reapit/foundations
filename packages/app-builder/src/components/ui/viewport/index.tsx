@@ -20,7 +20,7 @@ import {
 import { InjectFrameStyles } from './inject-frame-styles'
 import { usePageId } from '@/components/hooks/use-page-id'
 import { useApp } from '@/components/hooks/apps/use-app'
-import { nodesArrToObj } from '@/components/hooks/apps/node-helpers'
+import { mergeHeaderFooterIntoPage, nodesArrToObj } from '@/components/hooks/apps/node-helpers'
 import { TABLET_BREAKPOINT } from './__styles__/media'
 import { useZoom } from '@/components/hooks/use-zoom'
 
@@ -45,7 +45,8 @@ export const Viewport = ({ children, iframeRef, deserialize, rendererDivRefHandl
   useEffect(() => {
     if (page && !loaded) {
       setTimeout(() => {
-        deserialize(nodesArrToObj(page.nodes))
+        const nodes = mergeHeaderFooterIntoPage(page.nodes, app?.header, app?.footer)
+        deserialize(nodesArrToObj(nodes))
         setLoaded(true)
       }, 300)
     }

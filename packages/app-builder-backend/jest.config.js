@@ -4,7 +4,7 @@ module.exports = {
   testEnvironment: 'node',
   modulePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|dist)[/\\\\]'],
   coveragePathIgnorePatterns: [
-    '<rootDir>[/\\\\](node_modules|src/types|src/tests|src/scripts)[/\\\\]',
+    '<rootDir>[/\\\\](node_modules|src/types|src/tests|src/scripts|dist)[/\\\\]',
     'index.tsx',
     '.d.ts',
   ],

@@ -1,6 +1,25 @@
 import { gql } from '@apollo/client'
 
+export const NodeFragment = gql`
+  fragment NodeFragment on _Node {
+    id
+    nodeId
+    displayName
+    hidden
+    isCanvas
+    nodes
+    linkedNodes
+    props
+    parent
+    custom
+    type {
+      resolvedName
+    }
+  }
+`
+
 export const AppFragment = gql`
+  ${NodeFragment}
   fragment AppFragment on _App {
     id
     name
@@ -13,20 +32,14 @@ export const AppFragment = gql`
       id
       name
       nodes {
-        id
-        nodeId
-        displayName
-        hidden
-        isCanvas
-        nodes
-        linkedNodes
-        props
-        parent
-        custom
-        type {
-          resolvedName
-        }
+        ...NodeFragment
       }
+    }
+    header {
+      ...NodeFragment
+    }
+    footer {
+      ...NodeFragment
     }
   }
 `
@@ -38,6 +51,7 @@ export type Node = {
   hidden: boolean
   isCanvas: boolean
   nodes: Array<string>
+  parent: string | null
   linkedNodes: Record<string, string>
   props: any
   custom?: any
@@ -61,4 +75,6 @@ export type App = {
   subdomain: string
   developerName: string
   pages: Array<Page>
+  header: Array<Node>
+  footer: Array<Node>
 }

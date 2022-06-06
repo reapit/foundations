@@ -1,6 +1,6 @@
 import { ObjectType, Field, ID } from 'type-graphql'
 import { CustomEntity } from './custom-entity'
-import { Page } from './page'
+import { Page, Node } from './page'
 
 @ObjectType('_App')
 export class App {
@@ -21,6 +21,12 @@ export class App {
 
   @Field(() => [Page])
   pages: Array<Page>
+
+  @Field(() => [Node])
+  header: Array<Node>
+
+  @Field(() => [Node])
+  footer: Array<Node>
 
   @Field()
   createdAt: Date
