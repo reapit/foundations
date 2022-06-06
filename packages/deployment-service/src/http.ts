@@ -43,7 +43,7 @@ async function bootstrapServer(): Promise<Server> {
 export const handler: Handler = async (event: APIGatewayEvent, context: Context) => {
   cachedServer = await bootstrapServer()
 
-  event.path = event.path.replace('api/', '')
+  event.path = event.path?.replace('api/', '')
 
   return proxy(cachedServer, event, context, 'PROMISE').promise
 }
