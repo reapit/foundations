@@ -124,6 +124,7 @@ export abstract class AbstractCommand {
       case 404:
         this.writeLine(chalk.red.bold('Not Found:'))
         console.log(JSON.stringify(response.data))
+        break
       case 400:
         this.writeLine(chalk.red.bold('Validation errors:'))
         console.log(JSON.stringify(response.data))
