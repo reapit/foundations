@@ -39,7 +39,7 @@ export class PipelineProvider {
   }
 
   async delete(pipeline: PipelineEntity): Promise<void> {
-    await this.delete(pipeline)
+    await this.repository.delete(pipeline)
   }
 
   async findByAppId(appId: string): Promise<PipelineEntity[]> {
