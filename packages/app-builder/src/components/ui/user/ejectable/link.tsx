@@ -8,9 +8,11 @@ import { usePageId } from '../../../hooks/use-page-id'
 export interface LinkProps extends ContainerProps {
   destination?: string
   context?: { [key: string]: any }
+  disabled?: boolean
+  className?: string
 }
 
-export const Link = forwardRef<HTMLDivElement, LinkProps & { disabled?: boolean }>(({ disabled, ...props }, ref) => {
+export const Link = forwardRef<HTMLDivElement, LinkProps>(({ disabled, ...props }, ref) => {
   const { appId } = useParams<{ appId?: string }>()
   const dest = props.destination || ''
   const pathname = path.join('/', appId || '', dest === '~' ? '' : dest)
