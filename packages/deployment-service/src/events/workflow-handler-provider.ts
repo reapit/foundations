@@ -21,7 +21,7 @@ export class WorkflowHandlerProvider implements OnModuleInit {
 
       const providers = [...metadata.filter((metatype: any) => typeof metatype === 'function')]
 
-      providers.map((provider) => {
+      providers.forEach((provider) => {
         if (Reflect.hasOwnMetadata(WORKFLOW_INJECTABLE, provider)) {
           const injectable = this.moduleRef.get(provider, { strict: false })
           if (!this.workflows.find((workflow) => workflow.constructor.name === injectable.constructor.name)) {

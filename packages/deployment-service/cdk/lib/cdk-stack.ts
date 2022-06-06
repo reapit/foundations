@@ -164,7 +164,7 @@ export const createStack = () => {
     NODE_ENV: process.env.NODE_ENV || 'development',
   }
 
-  Object.values(QueueNames).map((queueKey) => {
+  Object.values(QueueNames).forEach((queueKey) => {
     env[`${queueKey}_URL`] = queues[queueKey].queueUrl
     env[`${queueKey}_ARN`] = queues[queueKey].queueArn
   })
@@ -185,7 +185,7 @@ export const createStack = () => {
     options.policies.forEach((policy) => lambda.addToRolePolicy(policy))
 
     if (options.queues) {
-      options.queues.map((queue) => addLambdaSQSTrigger(lambda, queue as Queue))
+      options.queues.forEach((queue) => addLambdaSQSTrigger(lambda, queue as Queue))
     } else if (options.api) {
       addLambdaToApi(
         stack,

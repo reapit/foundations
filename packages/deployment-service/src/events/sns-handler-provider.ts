@@ -41,7 +41,7 @@ export class SnsHandlerProvider implements OnModuleInit {
 
       const providers = [...metadata.filter((metatype: any) => typeof metatype === 'function')]
 
-      providers.map((provider) => {
+      providers.forEach((provider) => {
         if (Reflect.hasOwnMetadata(SNS_HANDLER, provider)) {
           const injectable = this.moduleRef.get(provider, { strict: false })
           if (!this.handlers.find((handler) => handler.constructor.name === injectable.constructor.name)) {
