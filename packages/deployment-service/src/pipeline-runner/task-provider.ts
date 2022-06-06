@@ -15,7 +15,7 @@ export class TaskProvider {
       .where('pr.pipelineId = :pipelineId', { pipelineId: pipeline.id })
       .getMany()
 
-      if (tasks.length >= 1) await this.repository.delete(tasks.map(task => task.id as string))
+    if (tasks.length >= 1) await this.repository.delete(tasks.map((task) => task.id as string))
   }
 
   async update(task: TaskEntity, dto: Partial<TaskEntity>): Promise<TaskEntity> {

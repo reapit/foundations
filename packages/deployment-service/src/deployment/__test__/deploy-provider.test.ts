@@ -24,13 +24,13 @@ class MockS3Provider extends S3Provider {
     })
   }
 
-  getObject(params): Promise<S3.GetObjectOutput> {
+  getObject(): Promise<S3.GetObjectOutput> {
     return Promise.resolve({
       Body: Buffer.from(''),
     })
   }
 
-  deleteObject(params): Promise<void> {
+  deleteObject(): Promise<void> {
     return Promise.resolve()
   }
 }
