@@ -139,10 +139,14 @@ export const CreatePage = ({
         sourcePageId,
         [operationType, typeName].join(' '),
       )
-      updatePage(appId, {
-        ...page,
-        nodes: nodesObjtoToArr(appId, page.id, page.nodes),
-      }).then(() => {
+      updatePage(
+        appId,
+        {
+          ...page,
+          nodes: nodesObjtoToArr(appId, page.id, page.nodes),
+        },
+        { header: [], footer: [] },
+      ).then(() => {
         onCreate(pageId)
       })
     }

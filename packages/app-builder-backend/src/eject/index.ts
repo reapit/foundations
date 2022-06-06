@@ -17,6 +17,7 @@ import { generateEslintrc } from './templates/eslintrc'
 import { generatePrivateRouterWrapper } from './templates/private-router-wrapper'
 import { generateSession } from './templates/session'
 import { Context } from '../types'
+import { notEmpty } from '../utils/helpers'
 
 const propsToAttributes = (props: Object) =>
   Object.keys(props)
@@ -44,15 +45,51 @@ const nodeToString = (node: Node, allNodes: Array<Node>) => {
     : `<${type.resolvedName} ${attributes} />`
 }
 
-const pageToString = (page: Page) => {
-  const rootNode = page.nodes.find((node) => node.nodeId === 'ROOT')
+const nodeDoesntContainerSelf = (node: Node): Node => ({
+  ...node,
+  nodes: node.nodes.filter((n) => n !== node.nodeId),
+})
+
+export const mergeHeaderFooterIntoPage = (nodes: Node[], header: Node[] = [], footer: Node[] = []): Node[] => {
+  const rootNode = nodes.find((n) => n.nodeId === 'ROOT')
+  if (!rootNode) {
+    throw new Error('unable to find root node')
+  }
+
+  const bodyNode = nodes.find((n) => n.nodeId === 'body') || {
+    ...rootNode,
+    nodes: rootNode.nodes.filter((node) => node !== 'header' && node !== 'footer' && node !== 'body'),
+    id: `${rootNode.id}-body`,
+    nodeId: 'body',
+  }
+
+  return [
+    ...header,
+    nodeDoesntContainerSelf(bodyNode),
+    ...nodes
+      .filter((node) => node.nodeId !== 'ROOT')
+      .map((node) => ({
+        ...node,
+        parent: node.parent === 'ROOT' ? 'body' : node.parent,
+      })),
+    ...footer,
+    {
+      ...rootNode,
+      nodes: [header.length ? 'header' : undefined, 'body', footer.length ? 'footer' : undefined].filter(notEmpty),
+    },
+  ]
+}
+
+const pageToString = (page: Page, header: Node[], footer: Node[]) => {
+  const nodes = mergeHeaderFooterIntoPage(page.nodes, header, footer)
+  const rootNode = nodes.find((node) => node.nodeId === 'ROOT')
   if (!rootNode) {
     throw new Error(`No root node found for page ${page.id}`)
   }
-  const jsx = nodeToString(rootNode, page.nodes)
+  const jsx = nodeToString(rootNode, nodes)
   const components = [
     ...new Set(
-      page.nodes
+      nodes
         .filter((node) => {
           const firstLetter = node.type.resolvedName[0]
           return firstLetter.toUpperCase() === firstLetter
@@ -70,7 +107,7 @@ const pageToString = (page: Page) => {
 const generatePages = (app: App): Promise<Pages> =>
   Promise.all(
     app.pages.map(async (page) => {
-      const { jsx, components } = pageToString(page)
+      const { jsx, components } = pageToString(page, app.header, app.footer)
       return {
         id: page.id,
         name: page.name,

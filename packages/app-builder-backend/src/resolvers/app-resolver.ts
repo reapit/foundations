@@ -3,7 +3,7 @@ import Pluralize from 'pluralize'
 
 import { App } from '../entities/app'
 import { getApp, createApp, updateApp, getDomainApps, getUnqDomain, DDBApp } from '../ddb'
-import { Page } from '../entities/page'
+import { Page, Node } from '../entities/page'
 import { ejectApp } from '../eject'
 import { Context } from '../types'
 import {
@@ -15,6 +15,60 @@ import {
 } from '../platform/apps'
 import { notEmpty } from '../utils/helpers'
 
+const defaultHeaderNodes = [
+  {
+    nodeId: 'header',
+    type: { resolvedName: 'Container' },
+    isCanvas: true,
+    props: { width: 12, background: 'white', padding: 40 },
+    displayName: 'Container',
+    custom: { displayName: 'Header' },
+    parent: 'ROOT',
+    hidden: false,
+    nodes: ['asdfgh'],
+    linkedNodes: {},
+  },
+  {
+    nodeId: 'asdfgh',
+    type: { resolvedName: 'Text' },
+    isCanvas: false,
+    props: { fontSize: 12, width: 12, text: 'some header content' },
+    displayName: 'Text',
+    custom: {},
+    parent: 'header',
+    hidden: false,
+    nodes: [],
+    linkedNodes: {},
+  },
+]
+
+const defaultFooterNodes = [
+  {
+    nodeId: 'footer',
+    type: { resolvedName: 'Container' },
+    isCanvas: true,
+    props: { width: 12, background: 'white', padding: 40 },
+    displayName: 'Container',
+    custom: { displayName: 'Footer' },
+    parent: 'ROOT',
+    hidden: false,
+    nodes: ['asdfg'],
+    linkedNodes: {},
+  },
+  {
+    nodeId: 'asdfg',
+    type: { resolvedName: 'Text' },
+    isCanvas: false,
+    props: { fontSize: 12, width: 12, text: '© 2022 your company name' },
+    displayName: 'Text',
+    custom: {},
+    parent: 'footer',
+    hidden: false,
+    nodes: [],
+    linkedNodes: {},
+  },
+]
+
 export const defaultNodes = [
   {
     nodeId: 'ROOT',
@@ -23,7 +77,6 @@ export const defaultNodes = [
     props: { width: 12, background: 'white', padding: 40 },
     displayName: 'Container',
     custom: { displayName: 'App' },
-    // @ts-ignore until they update their types
     parent: null,
     hidden: false,
     nodes: ['tPwDk5SDAg'],
@@ -42,6 +95,11 @@ export const defaultNodes = [
     linkedNodes: {},
   },
 ]
+
+const addId = (id: string) => (obj: Omit<Node, 'id'>) => ({
+  ...obj,
+  id: [obj.nodeId, id].join('-'),
+})
 
 const getAppUrl = (apiUrl: string, subdomain: string) => {
   const url = new URL(apiUrl)
@@ -149,6 +207,8 @@ export class AppResolver {
         }
         return {
           ...appBuilderApp,
+          header: appBuilderApp.header.length ? appBuilderApp.header : defaultHeaderNodes.map(addId(id)),
+          footer: appBuilderApp.footer.length ? appBuilderApp.footer : defaultFooterNodes.map(addId(id)),
           name: name as string,
           clientId: externalId as string,
           developerName: developer as string,
@@ -166,6 +226,8 @@ export class AppResolver {
       const { externalId, name, developer } = await getMarketplaceApp(app.id, context.accessToken)
       return {
         ...app,
+        header: app.header.length ? app.header : defaultHeaderNodes.map(addId(app.id)),
+        footer: app.footer.length ? app.footer : defaultFooterNodes.map(addId(app.id)),
         name: name as string,
         clientId: externalId as string,
         developerName: developer as string,
@@ -212,6 +274,8 @@ export class AppResolver {
 
     return {
       ...app,
+      header: app.header.length ? app.header : defaultHeaderNodes.map(addId(id)),
+      footer: app.footer.length ? app.footer : defaultFooterNodes.map(addId(id)),
       name: name as string,
       clientId: externalId as string,
       developerName: developer as string,
@@ -224,6 +288,8 @@ export class AppResolver {
     @Ctx() context: Context,
     @Arg('id', () => ID) id: string,
     @Arg('pages', () => [Page], { nullable: true }) pages?: Array<Page>,
+    @Arg('header', () => [Node], { nullable: true }) header?: Array<Node>,
+    @Arg('footer', () => [Node], { nullable: true }) footer?: Array<Node>,
   ): Promise<App> {
     const app = await getApp(id)
     if (!app) {
@@ -232,12 +298,20 @@ export class AppResolver {
     if (pages) {
       app.pages = pages
     }
+    if (header) {
+      app.header = header
+    }
+    if (footer) {
+      app.footer = footer
+    }
     await ensureScopes(app, context.accessToken)
     const newApp = await updateApp(app)
 
     const { externalId, name, developer } = await getMarketplaceApp(id, context.accessToken)
     return {
       ...newApp,
+      header: newApp.header.length ? newApp.header : defaultHeaderNodes.map(addId(id)),
+      footer: newApp.footer.length ? newApp.footer : defaultFooterNodes.map(addId(id)),
       name: name as string,
       clientId: externalId as string,
       developerName: developer as string,

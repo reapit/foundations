@@ -406,7 +406,11 @@ exports[`Home should match a snapshot 1`] = `
             <div
               class="el-flex el-flex-row flex-align-stretch relative el-pt6 el-mauto"
             >
-              <div />
+              <section
+                class="root-container"
+              >
+                <div />
+              </section>
             </div>
           </div>
         </div>
