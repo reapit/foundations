@@ -9,14 +9,12 @@ export class TaskProvider {
   constructor(@InjectRepository(TaskEntity) private readonly repository: Repository<TaskEntity>) {}
 
   async deleteForPipeline(pipeline: PipelineEntity): Promise<void> {
-    const tasks = await this.repository
+    await this.repository
       .createQueryBuilder('t')
       .leftJoin('t.pipelineRunner', 'pr')
-      .leftJoin('pr.pipeline', 'p')
-      .where('p.id = :pipelineId', { pipelineId: pipeline.id })
-      .getMany()
-
-    if (tasks.length >= 1) await this.repository.delete(tasks.map((task) => task.id as string))
+      .where('pr.pipelineId = :pipelineId', { pipelineId: pipeline.id })
+      .delete()
+      .execute()
   }
 
   async update(task: TaskEntity, dto: Partial<TaskEntity>): Promise<TaskEntity> {

@@ -53,7 +53,9 @@ export class PipelineRunnerProvider {
   }
 
   async deleteForPipeline(pipeline: PipelineEntity): Promise<void> {
-    await this.repository.delete(pipeline)
+    await this.repository.delete({
+      pipeline,
+    })
   }
 
   async resetCurrentlyDeployed(pipeline: PipelineEntity): Promise<void> {
