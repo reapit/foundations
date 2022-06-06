@@ -1,37 +1,39 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import { screen } from '@testing-library/dom'
 import { PersistantNotification } from '..'
-import { elPnIcon } from '../__styles__'
 
 describe('PersistantNotification component', () => {
   it('should match a snapshot', () => {
-    const wrapper = shallow(<PersistantNotification>I am notification</PersistantNotification>)
+    const wrapper = render(<PersistantNotification>I am notification</PersistantNotification>)
     expect(wrapper).toMatchSnapshot()
   })
 
   it('should match a snapshot when given an intent', () => {
-    const wrapper = shallow(<PersistantNotification intent="critical">I am notification</PersistantNotification>)
+    const wrapper = render(<PersistantNotification intent="critical">I am notification</PersistantNotification>)
     expect(wrapper).toMatchSnapshot()
   })
 
   it('should match a snapshot when expanded', () => {
-    const wrapper = shallow(<PersistantNotification isExpanded={true}>I am notification</PersistantNotification>)
+    const wrapper = render(<PersistantNotification isExpanded={true}>I am notification</PersistantNotification>)
     expect(wrapper).toMatchSnapshot()
   })
 
-  it('should fire the onStepClick event correctly', () => {
+  it('should fire the onStepClick event correctly', async () => {
     const spy = jest.fn()
-    const wrapper = shallow(
+    const user = userEvent.setup()
+    render(
       <PersistantNotification intent="critical" onExpansionToggle={spy}>
         I am notification
       </PersistantNotification>,
     )
-    wrapper.find(`.${elPnIcon}`).first().simulate('click')
+    await user.click(screen.getByTestId('close-icon'))
     expect(spy).toHaveBeenCalledTimes(1)
   })
 
   it('should match a snapshot for an inline notification', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <PersistantNotification isExpanded isInline isFullWidth intent="primary">
         I am notification
       </PersistantNotification>,

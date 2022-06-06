@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../../tests/react-testing'
 import {
   InstalledAppList,
   InstalledAppListProps,
@@ -8,7 +8,6 @@ import {
   ListDesktopScreen,
 } from '../installed-app-list'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
-import { Loader } from '@reapit/elements'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 
 const app = appsDataStub.data?.[0] as AppSummaryModel
@@ -39,24 +38,23 @@ const listProps = {
 
 describe('InstalledAppList', () => {
   it('should match a snapshot', () => {
-    expect(shallow(<InstalledAppList {...props} />)).toMatchSnapshot()
+    expect(render(<InstalledAppList {...props} />)).toMatchSnapshot()
   })
 
   it('should match a snapshot when use empty infoType', () => {
-    expect(shallow(<InstalledAppList {...props} />)).toMatchSnapshot()
+    expect(render(<InstalledAppList {...props} />)).toMatchSnapshot()
   })
 
   it('should match a snappshot ListMobileScreen', () => {
-    expect(shallow(<ListMobileScreen {...listProps} />)).toMatchSnapshot()
+    expect(render(<ListMobileScreen {...listProps} />)).toMatchSnapshot()
   })
 
   it('should match a snappshot ListDesktopScreen', () => {
-    expect(shallow(<ListDesktopScreen {...listProps} />)).toMatchSnapshot()
+    expect(render(<ListDesktopScreen {...listProps} />)).toMatchSnapshot()
   })
 
   it('should show loading', () => {
-    const wrapper = shallow(<InstalledAppList {...props} loading />)
-    expect(wrapper.find(Loader)).toHaveLength(1)
+    expect(render(<ListDesktopScreen {...listProps} loading />)).toMatchSnapshot()
   })
 
   describe('onClickHandler', () => {

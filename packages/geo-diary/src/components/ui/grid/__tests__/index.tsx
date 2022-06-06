@@ -1,10 +1,10 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../../tests/react-testing'
 import Grid, { Col } from '../'
 
 describe('Grid component', () => {
   it('should match a snapshot and render children', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <Grid>
         <p>I am child</p>
       </Grid>,
@@ -15,7 +15,7 @@ describe('Grid component', () => {
 
 describe('Col component', () => {
   it('should match a snapshot and render children', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <Col>
         <p>I am child</p>
       </Col>,
@@ -24,7 +24,7 @@ describe('Col component', () => {
   })
 
   it('should render with the correct classNames when supplied span and offset props', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <Col span={4} offset={2}>
         <p>I am child</p>
       </Col>,

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { Menu, generateMenuConfig } from '../menu'
 import configureStore from 'redux-mock-store'
 import { Provider } from 'react-redux'
@@ -23,8 +23,9 @@ describe('Menu', () => {
   })
 
   it('should match a snapshot', () => {
+    window.reapit.config.limitedUserAccessWhitelist = []
     expect(
-      shallow(
+      render(
         <Provider store={store}>
           <Menu />
         </Provider>,

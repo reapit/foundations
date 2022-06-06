@@ -21,8 +21,8 @@
     "@reapit/config-manager": "workspace:packages/config-manager",
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",
     "@reapit/ts-types": "workspace:packages/ts-types",
-    "concurrently": "^6.4.0",
-    "eslint": "8.4.1",
+    "concurrently": "^6.5.1",
+    "eslint": "8.16.0",
     "sw2dts": "^2.6.3"
   }
 }

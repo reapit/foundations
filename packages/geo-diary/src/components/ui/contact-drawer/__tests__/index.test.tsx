@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../../tests/react-testing'
 import ContactDrawer, { handleClose } from '../index'
 
 import { useAppState } from '../../../../core/app-state'
@@ -10,7 +10,7 @@ jest.mock('../../../../core/app-state')
 
 describe('ContactDrawer', () => {
   it('should match snapshot with default state', () => {
-    expect(shallow(<ContactDrawer />)).toMatchSnapshot()
+    expect(render(<ContactDrawer />)).toMatchSnapshot()
   })
 
   it('should match snapshot with drawer open and ATTENDEE type', () => {
@@ -22,7 +22,7 @@ describe('ContactDrawer', () => {
       setAppState: jest.fn(),
     }))
 
-    expect(shallow(<ContactDrawer />)).toMatchSnapshot()
+    expect(render(<ContactDrawer />)).toMatchSnapshot()
   })
 
   it('should match snapshot with drawer open and PROPERTY type', () => {
@@ -34,7 +34,7 @@ describe('ContactDrawer', () => {
       setAppState: jest.fn(),
     }))
 
-    expect(shallow(<ContactDrawer />)).toMatchSnapshot()
+    expect(render(<ContactDrawer />)).toMatchSnapshot()
   })
 
   it('should match snapshot with drawer open and VENDOR type', () => {
@@ -46,7 +46,7 @@ describe('ContactDrawer', () => {
       setAppState: jest.fn(),
     }))
 
-    expect(shallow(<ContactDrawer />)).toMatchSnapshot()
+    expect(render(<ContactDrawer />)).toMatchSnapshot()
   })
 
   it('should handle close', () => {

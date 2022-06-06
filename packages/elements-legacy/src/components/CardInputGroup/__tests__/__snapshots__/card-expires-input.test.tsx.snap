@@ -1,256 +1,493 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CardExpiresInput should match a snapshot for amex 1`] = `
-<Formik
-  initialValues={
-    Object {
-      "expiryDate": "",
-    }
-  }
-  onSubmit={[MockFunction]}
->
-  <Form>
-    <form
-      action="#"
-      onReset={[Function]}
-      onSubmit={[Function]}
-    >
-      <CardExpiresInput
-        cardType="amex"
-        className="some-class"
-        disabled={false}
-        id="expiryDate"
-        labelText="Card Expires"
-        name="expiryDate"
-        required={true}
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <form
+        action="#"
       >
-        <Field
-          name="expiryDate"
-          validate={[Function]}
+        <div
+          class="field some-class"
         >
           <div
-            className="field some-class"
+            class="control"
           >
-            <div
-              className="control"
+            <label
+              class="label inline-block required-label"
+              for="expiryDate"
             >
-              <label
-                className="label inline-block required-label"
-                htmlFor="expiryDate"
-              >
-                Card Expires
-              </label>
-              <input
-                autoComplete="expiryDate"
-                className="input is-primary"
-                data-test=""
-                disabled={false}
-                id="expiryDate"
-                inputMode="numeric"
-                maxLength={7}
-                name="expiryDate"
-                onBlur={[Function]}
-                onChange={[Function]}
-                placeholder="MM / YY"
-                type="text"
-                value=""
-              />
-            </div>
+              Card Expires
+            </label>
+            <input
+              autocomplete="expiryDate"
+              class="input is-primary"
+              data-test=""
+              id="expiryDate"
+              inputmode="numeric"
+              maxlength="7"
+              name="expiryDate"
+              placeholder="MM / YY"
+              type="text"
+              value=""
+            />
           </div>
-        </Field>
-      </CardExpiresInput>
+        </div>
+      </form>
+    </div>
+  </body>,
+  "container": <div>
+    <form
+      action="#"
+    >
+      <div
+        class="field some-class"
+      >
+        <div
+          class="control"
+        >
+          <label
+            class="label inline-block required-label"
+            for="expiryDate"
+          >
+            Card Expires
+          </label>
+          <input
+            autocomplete="expiryDate"
+            class="input is-primary"
+            data-test=""
+            id="expiryDate"
+            inputmode="numeric"
+            maxlength="7"
+            name="expiryDate"
+            placeholder="MM / YY"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
     </form>
-  </Form>
-</Formik>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`CardExpiresInput should match a snapshot for an unknown card 1`] = `
-<Formik
-  initialValues={
-    Object {
-      "expiryDate": "",
-    }
-  }
-  onSubmit={[MockFunction]}
->
-  <Form>
-    <form
-      action="#"
-      onReset={[Function]}
-      onSubmit={[Function]}
-    >
-      <CardExpiresInput
-        className="some-class"
-        disabled={false}
-        id="expiryDate"
-        labelText="Card Expires"
-        name="expiryDate"
-        required={true}
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <form
+        action="#"
       >
-        <Field
-          name="expiryDate"
-          validate={[Function]}
+        <div
+          class="field some-class"
         >
           <div
-            className="field some-class"
+            class="control"
           >
-            <div
-              className="control"
+            <label
+              class="label inline-block required-label"
+              for="expiryDate"
             >
-              <label
-                className="label inline-block required-label"
-                htmlFor="expiryDate"
-              >
-                Card Expires
-              </label>
-              <input
-                autoComplete="expiryDate"
-                className="input is-primary"
-                data-test=""
-                disabled={false}
-                id="expiryDate"
-                inputMode="numeric"
-                maxLength={7}
-                name="expiryDate"
-                onBlur={[Function]}
-                onChange={[Function]}
-                placeholder="MM / YY"
-                type="text"
-                value=""
-              />
-            </div>
+              Card Expires
+            </label>
+            <input
+              autocomplete="expiryDate"
+              class="input is-primary"
+              data-test=""
+              id="expiryDate"
+              inputmode="numeric"
+              maxlength="7"
+              name="expiryDate"
+              placeholder="MM / YY"
+              type="text"
+              value=""
+            />
           </div>
-        </Field>
-      </CardExpiresInput>
+        </div>
+      </form>
+    </div>
+  </body>,
+  "container": <div>
+    <form
+      action="#"
+    >
+      <div
+        class="field some-class"
+      >
+        <div
+          class="control"
+        >
+          <label
+            class="label inline-block required-label"
+            for="expiryDate"
+          >
+            Card Expires
+          </label>
+          <input
+            autocomplete="expiryDate"
+            class="input is-primary"
+            data-test=""
+            id="expiryDate"
+            inputmode="numeric"
+            maxlength="7"
+            name="expiryDate"
+            placeholder="MM / YY"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
     </form>
-  </Form>
-</Formik>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`CardExpiresInput should match a snapshot for mastercard 1`] = `
-<Formik
-  initialValues={
-    Object {
-      "expiryDate": "",
-    }
-  }
-  onSubmit={[MockFunction]}
->
-  <Form>
-    <form
-      action="#"
-      onReset={[Function]}
-      onSubmit={[Function]}
-    >
-      <CardExpiresInput
-        cardType="mastercard"
-        className="some-class"
-        disabled={false}
-        id="expiryDate"
-        labelText="Card Expires"
-        name="expiryDate"
-        required={true}
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <form
+        action="#"
       >
-        <Field
-          name="expiryDate"
-          validate={[Function]}
+        <div
+          class="field some-class"
         >
           <div
-            className="field some-class"
+            class="control"
           >
-            <div
-              className="control"
+            <label
+              class="label inline-block required-label"
+              for="expiryDate"
             >
-              <label
-                className="label inline-block required-label"
-                htmlFor="expiryDate"
-              >
-                Card Expires
-              </label>
-              <input
-                autoComplete="expiryDate"
-                className="input is-primary"
-                data-test=""
-                disabled={false}
-                id="expiryDate"
-                inputMode="numeric"
-                maxLength={7}
-                name="expiryDate"
-                onBlur={[Function]}
-                onChange={[Function]}
-                placeholder="MM / YY"
-                type="text"
-                value=""
-              />
-            </div>
+              Card Expires
+            </label>
+            <input
+              autocomplete="expiryDate"
+              class="input is-primary"
+              data-test=""
+              id="expiryDate"
+              inputmode="numeric"
+              maxlength="7"
+              name="expiryDate"
+              placeholder="MM / YY"
+              type="text"
+              value=""
+            />
           </div>
-        </Field>
-      </CardExpiresInput>
+        </div>
+      </form>
+    </div>
+  </body>,
+  "container": <div>
+    <form
+      action="#"
+    >
+      <div
+        class="field some-class"
+      >
+        <div
+          class="control"
+        >
+          <label
+            class="label inline-block required-label"
+            for="expiryDate"
+          >
+            Card Expires
+          </label>
+          <input
+            autocomplete="expiryDate"
+            class="input is-primary"
+            data-test=""
+            id="expiryDate"
+            inputmode="numeric"
+            maxlength="7"
+            name="expiryDate"
+            placeholder="MM / YY"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
     </form>
-  </Form>
-</Formik>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`CardExpiresInput should match a snapshot for visa 1`] = `
-<Formik
-  initialValues={
-    Object {
-      "expiryDate": "",
-    }
-  }
-  onSubmit={[MockFunction]}
->
-  <Form>
-    <form
-      action="#"
-      onReset={[Function]}
-      onSubmit={[Function]}
-    >
-      <CardExpiresInput
-        cardType="visa"
-        className="some-class"
-        disabled={false}
-        id="expiryDate"
-        labelText="Card Expires"
-        name="expiryDate"
-        required={true}
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <form
+        action="#"
       >
-        <Field
-          name="expiryDate"
-          validate={[Function]}
+        <div
+          class="field some-class"
         >
           <div
-            className="field some-class"
+            class="control"
           >
-            <div
-              className="control"
+            <label
+              class="label inline-block required-label"
+              for="expiryDate"
             >
-              <label
-                className="label inline-block required-label"
-                htmlFor="expiryDate"
-              >
-                Card Expires
-              </label>
-              <input
-                autoComplete="expiryDate"
-                className="input is-primary"
-                data-test=""
-                disabled={false}
-                id="expiryDate"
-                inputMode="numeric"
-                maxLength={7}
-                name="expiryDate"
-                onBlur={[Function]}
-                onChange={[Function]}
-                placeholder="MM / YY"
-                type="text"
-                value=""
-              />
-            </div>
+              Card Expires
+            </label>
+            <input
+              autocomplete="expiryDate"
+              class="input is-primary"
+              data-test=""
+              id="expiryDate"
+              inputmode="numeric"
+              maxlength="7"
+              name="expiryDate"
+              placeholder="MM / YY"
+              type="text"
+              value=""
+            />
           </div>
-        </Field>
-      </CardExpiresInput>
+        </div>
+      </form>
+    </div>
+  </body>,
+  "container": <div>
+    <form
+      action="#"
+    >
+      <div
+        class="field some-class"
+      >
+        <div
+          class="control"
+        >
+          <label
+            class="label inline-block required-label"
+            for="expiryDate"
+          >
+            Card Expires
+          </label>
+          <input
+            autocomplete="expiryDate"
+            class="input is-primary"
+            data-test=""
+            id="expiryDate"
+            inputmode="numeric"
+            maxlength="7"
+            name="expiryDate"
+            placeholder="MM / YY"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
     </form>
-  </Form>
-</Formik>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '@testing-library/react'
 import {
   AccountIcon,
   AnalyticsIcon,
@@ -33,142 +33,142 @@ import {
 
 describe('Icons', () => {
   it('should match a snapshot for AnalyticsIcon', () => {
-    const mounted = shallow(<AnalyticsIcon />)
+    const mounted = render(<AnalyticsIcon />)
     expect(mounted).toMatchSnapshot()
   })
 
   it('should match a snapshot for ApiIcon', () => {
-    const mounted = shallow(<ApiIcon />)
+    const mounted = render(<ApiIcon />)
     expect(mounted).toMatchSnapshot()
   })
 
   it('should match a snapshot for AppsIcon', () => {
-    const mounted = shallow(<AppsIcon />)
+    const mounted = render(<AppsIcon />)
     expect(mounted).toMatchSnapshot()
   })
 
   it('should match a snapshot for DesktopIcon', () => {
-    const mounted = shallow(<DesktopIcon />)
+    const mounted = render(<DesktopIcon />)
     expect(mounted).toMatchSnapshot()
   })
 
   it('should match a snapshot for DocsIcon', () => {
-    const mounted = shallow(<DocsIcon />)
+    const mounted = render(<DocsIcon />)
     expect(mounted).toMatchSnapshot()
   })
 
   it('should match a snapshot for HelpIcon', () => {
-    const mounted = shallow(<HelpIcon />)
+    const mounted = render(<HelpIcon />)
     expect(mounted).toMatchSnapshot()
   })
 
   it('should match a snapshot for MarketplaceIcon', () => {
-    const mounted = shallow(<MarketplaceIcon />)
+    const mounted = render(<MarketplaceIcon />)
     expect(mounted).toMatchSnapshot()
   })
 
   it('should match a snapshot for AccountIcon', () => {
-    const mounted = shallow(<AccountIcon />)
+    const mounted = render(<AccountIcon />)
     expect(mounted).toMatchSnapshot()
   })
 
   it('should match a snapshot for WebhooksIcon', () => {
-    const mounted = shallow(<WebhooksIcon />)
+    const mounted = render(<WebhooksIcon />)
     expect(mounted).toMatchSnapshot()
   })
 
   it('should match a snapshot for NoIcon', () => {
-    const mounted = shallow(<NoIcon />)
+    const mounted = render(<NoIcon />)
     expect(mounted).toMatchSnapshot()
   })
 
   it('should match a snapshot for ProfileIcon', () => {
-    const mounted = shallow(<ProfileIcon />)
+    const mounted = render(<ProfileIcon />)
     expect(mounted).toMatchSnapshot()
   })
 
   it('should match a snapshot for PaymentsIcon', () => {
-    const mounted = shallow(<PaymentsIcon />)
+    const mounted = render(<PaymentsIcon />)
     expect(mounted).toMatchSnapshot()
   })
 
   it('should match a snapshot for SearchIcon', () => {
-    const mounted = shallow(<SearchIcon />)
+    const mounted = render(<SearchIcon />)
     expect(mounted).toMatchSnapshot()
   })
 
   it('should match a snapshot for ManageIcon', () => {
-    const mounted = shallow(<ManageIcon />)
+    const mounted = render(<ManageIcon />)
     expect(mounted).toMatchSnapshot()
   })
 
   it('should match a snapshot for UsersIcon', () => {
-    const mounted = shallow(<UsersIcon />)
+    const mounted = render(<UsersIcon />)
     expect(mounted).toMatchSnapshot()
   })
 
   it('should match a snapshot for DataIcon', () => {
-    const mounted = shallow(<DataIcon />)
+    const mounted = render(<DataIcon />)
     expect(mounted).toMatchSnapshot()
   })
 
   it('should match a snapshot for InstalledIcon', () => {
-    const mounted = shallow(<InstalledIcon />)
+    const mounted = render(<InstalledIcon />)
     expect(mounted).toMatchSnapshot()
   })
 
   it('should match a snapshot for DevelopersIcon', () => {
-    const mounted = shallow(<DevelopersIcon />)
+    const mounted = render(<DevelopersIcon />)
     expect(mounted).toMatchSnapshot()
   })
 
   it('should match a snapshot for OfficesIcon', () => {
-    const mounted = shallow(<OfficesIcon />)
+    const mounted = render(<OfficesIcon />)
     expect(mounted).toMatchSnapshot()
   })
 
   it('should match a snapshot for ResultsIcon', () => {
-    const mounted = shallow(<ResultsIcon />)
+    const mounted = render(<ResultsIcon />)
     expect(mounted).toMatchSnapshot()
   })
 
   it('should match a snapshot for ReapitHouseIcon', () => {
-    const mounted = shallow(<ReapitHouseIcon />)
+    const mounted = render(<ReapitHouseIcon />)
     expect(mounted).toMatchSnapshot()
   })
 
   it('should match a snapshot for FinishIcon', () => {
-    const mounted = shallow(<FinishIcon />)
+    const mounted = render(<FinishIcon />)
     expect(mounted).toMatchSnapshot()
   })
 
   it('should match a snapshot for LoginIcon', () => {
-    const mounted = shallow(<LoginIcon />)
+    const mounted = render(<LoginIcon />)
     expect(mounted).toMatchSnapshot()
   })
 
   it('should match a snapshot for WelcomeIcon', () => {
-    const mounted = shallow(<WelcomeIcon />)
+    const mounted = render(<WelcomeIcon />)
     expect(mounted).toMatchSnapshot()
   })
 
   it('should match a snapshot for SnackbarWarningIcon', () => {
-    const mounted = shallow(<SnackbarWarningIcon />)
+    const mounted = render(<SnackbarWarningIcon />)
     expect(mounted).toMatchSnapshot()
   })
 
   it('should match a snapshot for SnackbarSuccessIcon', () => {
-    const mounted = shallow(<SnackbarSuccessIcon />)
+    const mounted = render(<SnackbarSuccessIcon />)
     expect(mounted).toMatchSnapshot()
   })
 
   it('should match a snapshot for SnackbarInfoIcon', () => {
-    const mounted = shallow(<SnackbarInfoIcon />)
+    const mounted = render(<SnackbarInfoIcon />)
     expect(mounted).toMatchSnapshot()
   })
 
   it('should match a snapshot for SnackbarErrorIcon', () => {
-    const mounted = shallow(<SnackbarErrorIcon />)
+    const mounted = render(<SnackbarErrorIcon />)
     expect(mounted).toMatchSnapshot()
   })
 })

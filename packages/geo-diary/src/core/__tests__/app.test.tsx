@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render as testRender } from '../../tests/react-testing'
 import App from '../app'
 import { render, unmountComponentAtNode } from 'react-dom'
 
@@ -13,7 +13,7 @@ describe('App', () => {
   })
 
   it('should match a snapshot', () => {
-    const wrapper = shallow(<App />)
+    const wrapper = testRender(<App />)
     expect(wrapper).toMatchSnapshot()
   })
 })

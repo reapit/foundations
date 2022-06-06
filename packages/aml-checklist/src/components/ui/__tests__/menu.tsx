@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { Menu } from '../menu'
 import configureStore from 'redux-mock-store'
 import { Provider } from 'react-redux'
@@ -22,7 +22,7 @@ describe('Menu', () => {
     jest.clearAllMocks()
   })
   it('should match snapshot', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <Provider store={store}>
         <Menu />
       </Provider>,

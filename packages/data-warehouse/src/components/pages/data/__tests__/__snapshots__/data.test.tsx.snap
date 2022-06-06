@@ -1,34 +1,110 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Data should match a snapshot 1`] = `
-<MessageProvider>
-  <Data>
-    <Content>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
       <div
-        className="content"
+        class="ecbqyq6"
+      />
+      <div
+        class="content"
         data-test=""
       >
-        <H3>
-          <h3
-            className="title is-3"
-            id=""
-          >
-            Data
-          </h3>
-        </H3>
-        <Loader>
-          <div
-            className="loader-spinner body"
-            data-test=""
-          >
-            <div />
-            <div />
-            <div />
-            <div />
-          </div>
-        </Loader>
+        <h3
+          class="title is-3"
+          id=""
+        >
+          Data
+        </h3>
+        <div
+          class="loader-spinner body"
+          data-test=""
+        >
+          <div />
+          <div />
+          <div />
+          <div />
+        </div>
       </div>
-    </Content>
-  </Data>
-</MessageProvider>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6"
+    />
+    <div
+      class="content"
+      data-test=""
+    >
+      <h3
+        class="title is-3"
+        id=""
+      >
+        Data
+      </h3>
+      <div
+        class="loader-spinner body"
+        data-test=""
+      >
+        <div />
+        <div />
+        <div />
+        <div />
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

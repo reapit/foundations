@@ -5,7 +5,7 @@ import {
   genarateNegotiatorOptions,
   handleUpdateWebComponentConfig,
 } from '../config-modal-inner'
-import { mount } from 'enzyme'
+import { render } from '../../../../../../tests/react-testing'
 import configureStore from 'redux-mock-store'
 import { Provider } from 'react-redux'
 import { UpdateWebComponentConfigParams } from '@/services/web-component'
@@ -46,7 +46,7 @@ describe('Config-modal-inner', () => {
       formikProps: {} as FormikProps<any>,
     }
     expect(
-      mount(
+      render(
         <Provider store={store}>
           <WebComponentConfigModalFooter {...mockProps} />
         </Provider>,
@@ -67,7 +67,7 @@ describe('Config-modal-inner', () => {
       }),
     )
     expect(
-      mount(
+      render(
         <Provider store={store}>
           <WebComponentConfigModalInner closeModal={jest.fn()} />
         </Provider>,

@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../../tests/react-testing'
 import EtaTextRow, { getNegotiator } from '../eta-text-row'
 import { mockAppointmentsQuery } from '../../../pages/appointment/__mocks__/appointments-query'
 import { ExtendedAppointmentModel } from '../../../../types/global'
@@ -27,7 +27,7 @@ jest.mock('@reapit/connect-session', () => ({
 
 describe('EtaTextRow', () => {
   it('should match snapshot without phone number and default state', () => {
-    expect(shallow(<EtaTextRow name="Bob" />)).toMatchSnapshot()
+    expect(render(<EtaTextRow name="Bob" />)).toMatchSnapshot()
   })
 
   it('should match snapshot with a phone number and populated state', () => {
@@ -41,7 +41,7 @@ describe('EtaTextRow', () => {
       setAppState: jest.fn(),
     }))
 
-    expect(shallow(<EtaTextRow phoneNumber="0777777777" name="Bob" />)).toMatchSnapshot()
+    expect(render(<EtaTextRow phoneNumber="0777777777" name="Bob" />)).toMatchSnapshot()
   })
 })
 

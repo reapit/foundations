@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as ReactRedux from 'react-redux'
 import { MemoryRouter } from 'react-router'
-import { mount } from 'enzyme'
+import { render } from '../../../../../tests/react-testing'
 import configureStore from 'redux-mock-store'
 import { getMockRouterProps } from '@/utils/mock-helper'
 import AppDetail, {
@@ -14,7 +14,6 @@ import AppDetail, {
 } from '../app-detail'
 import Routes from '@/constants/routes'
 import appState from '@/reducers/__stubs__/app-state'
-import { Loader } from '@reapit/elements'
 
 describe('AppDetail', () => {
   const { history } = getMockRouterProps({})
@@ -45,7 +44,7 @@ describe('AppDetail', () => {
       },
     })
 
-    const wrapper = mount(
+    const wrapper = render(
       <ReactRedux.Provider store={customStore}>
         <MemoryRouter initialEntries={[{ pathname: Routes.APP_DETAIL, key: 'clientAppDetailRoute' }]}>
           <AppDetail />
@@ -54,8 +53,6 @@ describe('AppDetail', () => {
     )
 
     expect(wrapper).toMatchSnapshot()
-    const loader = wrapper.find(Loader)
-    expect(loader.length).toBe(1)
   })
 
   it('should render loader when client.appDetail.data is an empty object', () => {
@@ -70,7 +67,7 @@ describe('AppDetail', () => {
       },
     })
 
-    const wrapper = mount(
+    const wrapper = render(
       <ReactRedux.Provider store={customStore}>
         <MemoryRouter initialEntries={[{ pathname: Routes.APP_DETAIL, key: 'clientAppDetailRoute' }]}>
           <AppDetail />
@@ -79,13 +76,11 @@ describe('AppDetail', () => {
     )
 
     expect(wrapper).toMatchSnapshot()
-    const loader = wrapper.find(Loader)
-    expect(loader.length).toBe(1)
   })
 
   it('should match a snapshot', () => {
     expect(
-      mount(
+      render(
         <ReactRedux.Provider store={store}>
           <MemoryRouter initialEntries={[{ pathname: Routes.APP_DETAIL, key: 'clientAppDetailRoute' }]}>
             <AppDetail />

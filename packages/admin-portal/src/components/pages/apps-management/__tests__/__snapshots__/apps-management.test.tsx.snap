@@ -1,972 +1,1333 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[` 1`] = `
-<div>
-  <div
-    className="mb-5"
-  >
-    <Table
-      columns={
-        Array [
-          Object {
-            "Header": "AppID",
-            "accessor": "id",
-          },
-          Object {
-            "Header": "App Name",
-            "accessor": "name",
-          },
-          Object {
-            "Header": "App Summary",
-            "accessor": "summary",
-          },
-          Object {
-            "Header": "Developer Name",
-            "accessor": "developer",
-          },
-          Object {
-            "Header": "Is Listed",
-            "accessor": "isListed",
-          },
-          Object {
-            "Header": "Pending Revisions",
-            "accessor": "pendingRevisions",
-          },
-          Object {
-            "Header": "Direct API",
-            "accessor": "isDirectApi",
-          },
-          Object {
-            "Cell": [Function],
-            "Header": "Created",
-            "accessor": "created",
-          },
-        ]
-      }
-      data={
-        Object {
-          "data": Array [
-            Object {
-              "created": "2020-02-02T10:45:57",
-              "developer": "Pete's Proptech World Ltd",
-              "developerId": "28c9ea52-7f73-4814-9e00-4e3714b8adeb",
-              "homePage": "http://google.com/abc",
-              "iconUri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/d10e790c-2bf2-40ae-9c43-82c1534bde31.png",
-              "id": "09043eb8-9e5e-4650-b7f1-f0cb62699027",
-              "links": Array [
-                Object {
-                  "action": "GET",
-                  "href": "http://platformdemo.reapit.net/marketplace/apps/09043eb8-9e5e-4650-b7f1-f0cb62699027",
-                  "rel": "self",
-                },
-                Object {
-                  "action": "GET",
-                  "href": "http://platformdemo.reapit.net/marketplace/developers/28c9ea52-7f73-4814-9e00-4e3714b8adeb",
-                  "rel": "developer",
-                },
-              ],
-              "name": "test",
-              "summary": "nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsicr8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz",
-            },
-            Object {
-              "created": "2020-02-02T10:45:57",
-              "developer": "Pete's Proptech World Ltd",
-              "developerId": "28c9ea52-7f73-4814-9e00-4e3714b8adeb",
-              "homePage": "http://www.contoso.com/path",
-              "iconUri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/1d38c5ec-e3c0-4138-9fe0-e77bce4034d1.octet-stream",
-              "id": "261da083-cee2-4f5c-a18f-8f9375f1f5af",
-              "links": Array [
-                Object {
-                  "action": "GET",
-                  "href": "http://platformdemo.reapit.net/marketplace/apps/261da083-cee2-4f5c-a18f-8f9375f1f5af",
-                  "rel": "self",
-                },
-                Object {
-                  "action": "GET",
-                  "href": "http://platformdemo.reapit.net/marketplace/developers/28c9ea52-7f73-4814-9e00-4e3714b8adeb",
-                  "rel": "developer",
-                },
-              ],
-              "name": "asd",
-              "summary": "asdQiiAJTmXGxPin7pwUiCsepZWXz1EJS71eGlvgPKH4hpE6J8DRDpzP2kDdOwpQPr4aHCCwWwxBJwzARLa7wMpJh5J61GhmQjLfKZkcDd47L9WEfQYVYAj0DTPJP0BuUMAAg2",
-            },
-          ],
-          "pageCount": 2,
-          "pageNumber": 1,
-          "pageSize": 2,
-          "totalCount": 6,
-        }
-      }
-      loading={false}
-      scrollable={true}
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <div>
+        <div
+          class="mb-5"
+        >
+          <div
+            style="overflow: scroll;"
+          >
+            <table
+              class="table is-striped is-fullwidth "
+              role="table"
+            >
+              <thead>
+                <tr
+                  role="row"
+                >
+                  <th
+                    colspan="1"
+                    role="columnheader"
+                  >
+                    AppID
+                  </th>
+                  <th
+                    colspan="1"
+                    role="columnheader"
+                  >
+                    App Name
+                  </th>
+                  <th
+                    colspan="1"
+                    role="columnheader"
+                  >
+                    App Summary
+                  </th>
+                  <th
+                    colspan="1"
+                    role="columnheader"
+                  >
+                    Developer Name
+                  </th>
+                  <th
+                    colspan="1"
+                    role="columnheader"
+                  >
+                    Is Listed
+                  </th>
+                  <th
+                    colspan="1"
+                    role="columnheader"
+                  >
+                    Pending Revisions
+                  </th>
+                  <th
+                    colspan="1"
+                    role="columnheader"
+                  >
+                    Direct API
+                  </th>
+                  <th
+                    colspan="1"
+                    role="columnheader"
+                  >
+                    Created
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  class=""
+                  role="row"
+                >
+                  <td
+                    role="cell"
+                  >
+                    09043eb8-9e5e-4650-b7f1-f0cb62699027
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    test
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsicr8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    Pete's Proptech World Ltd
+                  </td>
+                  <td
+                    role="cell"
+                  />
+                  <td
+                    role="cell"
+                  />
+                  <td
+                    role="cell"
+                  />
+                  <td
+                    role="cell"
+                  >
+                    <p>
+                      02 Feb 2020 10:45
+                    </p>
+                  </td>
+                </tr>
+                <tr
+                  class=""
+                  role="row"
+                >
+                  <td
+                    role="cell"
+                  >
+                    261da083-cee2-4f5c-a18f-8f9375f1f5af
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    asd
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    asdQiiAJTmXGxPin7pwUiCsepZWXz1EJS71eGlvgPKH4hpE6J8DRDpzP2kDdOwpQPr4aHCCwWwxBJwzARLa7wMpJh5J61GhmQjLfKZkcDd47L9WEfQYVYAj0DTPJP0BuUMAAg2
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    Pete's Proptech World Ltd
+                  </td>
+                  <td
+                    role="cell"
+                  />
+                  <td
+                    role="cell"
+                  />
+                  <td
+                    role="cell"
+                  />
+                  <td
+                    role="cell"
+                  >
+                    <p>
+                      02 Feb 2020 10:45
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
     />
-  </div>
-</div>
+    <div>
+      <div
+        class="mb-5"
+      >
+        <div
+          style="overflow: scroll;"
+        >
+          <table
+            class="table is-striped is-fullwidth "
+            role="table"
+          >
+            <thead>
+              <tr
+                role="row"
+              >
+                <th
+                  colspan="1"
+                  role="columnheader"
+                >
+                  AppID
+                </th>
+                <th
+                  colspan="1"
+                  role="columnheader"
+                >
+                  App Name
+                </th>
+                <th
+                  colspan="1"
+                  role="columnheader"
+                >
+                  App Summary
+                </th>
+                <th
+                  colspan="1"
+                  role="columnheader"
+                >
+                  Developer Name
+                </th>
+                <th
+                  colspan="1"
+                  role="columnheader"
+                >
+                  Is Listed
+                </th>
+                <th
+                  colspan="1"
+                  role="columnheader"
+                >
+                  Pending Revisions
+                </th>
+                <th
+                  colspan="1"
+                  role="columnheader"
+                >
+                  Direct API
+                </th>
+                <th
+                  colspan="1"
+                  role="columnheader"
+                >
+                  Created
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                class=""
+                role="row"
+              >
+                <td
+                  role="cell"
+                >
+                  09043eb8-9e5e-4650-b7f1-f0cb62699027
+                </td>
+                <td
+                  role="cell"
+                >
+                  test
+                </td>
+                <td
+                  role="cell"
+                >
+                  nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsicr8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz
+                </td>
+                <td
+                  role="cell"
+                >
+                  Pete's Proptech World Ltd
+                </td>
+                <td
+                  role="cell"
+                />
+                <td
+                  role="cell"
+                />
+                <td
+                  role="cell"
+                />
+                <td
+                  role="cell"
+                >
+                  <p>
+                    02 Feb 2020 10:45
+                  </p>
+                </td>
+              </tr>
+              <tr
+                class=""
+                role="row"
+              >
+                <td
+                  role="cell"
+                >
+                  261da083-cee2-4f5c-a18f-8f9375f1f5af
+                </td>
+                <td
+                  role="cell"
+                >
+                  asd
+                </td>
+                <td
+                  role="cell"
+                >
+                  asdQiiAJTmXGxPin7pwUiCsepZWXz1EJS71eGlvgPKH4hpE6J8DRDpzP2kDdOwpQPr4aHCCwWwxBJwzARLa7wMpJh5J61GhmQjLfKZkcDd47L9WEfQYVYAj0DTPJP0BuUMAAg2
+                </td>
+                <td
+                  role="cell"
+                >
+                  Pete's Proptech World Ltd
+                </td>
+                <td
+                  role="cell"
+                />
+                <td
+                  role="cell"
+                />
+                <td
+                  role="cell"
+                />
+                <td
+                  role="cell"
+                >
+                  <p>
+                    02 Feb 2020 10:45
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`admin-apps AdminApprovals should match a snapshot 1`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <MemoryRouter
-    initialEntries={
-      Array [
-        Object {
-          "key": "adminApps",
-          "pathname": "/approvals",
-        },
-      ]
-    }
-  >
-    <Router
-      history={
-        Object {
-          "action": "POP",
-          "block": [Function],
-          "canGo": [Function],
-          "createHref": [Function],
-          "entries": Array [
-            Object {
-              "hash": "",
-              "key": "adminApps",
-              "pathname": "/approvals",
-              "search": "",
-            },
-          ],
-          "go": [Function],
-          "goBack": [Function],
-          "goForward": [Function],
-          "index": 0,
-          "length": 1,
-          "listen": [Function],
-          "location": Object {
-            "hash": "",
-            "key": "adminApps",
-            "pathname": "/approvals",
-            "search": "",
-          },
-          "push": [Function],
-          "replace": [Function],
-        }
-      }
-    >
-      <AppsManagement>
-        <H3>
-          <h3
-            className="title is-3"
-            id=""
-          >
-            App Management
-          </h3>
-        </H3>
-        <Formik
-          initialValues={
-            Object {
-              "registeredFrom": "",
-              "registeredTo": "",
-            }
-          }
-          onReset={[Function]}
-          onSubmit={[Function]}
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <h3
+        class="title is-3"
+        id=""
+      >
+        App Management
+      </h3>
+      <form
+        action="#"
+      >
+        <div
+          class="form-section"
         >
-          <Form>
-            <form
-              action="#"
-              onReset={[Function]}
-              onSubmit={[Function]}
-            >
-              <FormSection>
-                <div
-                  className="form-section"
-                >
-                  <FormHeading>
-                    <div
-                      className="form-heading"
-                    >
-                      Admin Apps Filter Form
-                    </div>
-                  </FormHeading>
-                  <FormSubHeading>
-                    <div
-                      className="form-subheading"
-                    >
-                      Filter the result by App, Developer and Company
-                    </div>
-                  </FormSubHeading>
-                  <Grid>
-                    <div
-                      className="columns"
-                      data-test=""
-                    >
-                      <GridItem>
-                        <div
-                          className="column"
-                          data-test=""
-                        >
-                          <Input
-                            id="appName"
-                            labelText="App Name"
-                            maxLength={256}
-                            name="appName"
-                            type="text"
-                          >
-                            <Field
-                              name="appName"
-                              validate={[Function]}
-                            >
-                              <div
-                                className="field"
-                              >
-                                <div
-                                  className="control "
-                                >
-                                  <label
-                                    className="label inline-block "
-                                    htmlFor="appName"
-                                  >
-                                    App Name
-                                  </label>
-                                  <input
-                                    className="input is-primary"
-                                    data-test=""
-                                    disabled={false}
-                                    id="appName"
-                                    maxLength={256}
-                                    name="appName"
-                                    onBlur={[Function]}
-                                    onChange={[Function]}
-                                    placeholder=""
-                                    type="text"
-                                    value=""
-                                  />
-                                </div>
-                              </div>
-                            </Field>
-                          </Input>
-                        </div>
-                      </GridItem>
-                      <GridItem>
-                        <div
-                          className="column"
-                          data-test=""
-                        >
-                          <Input
-                            id="developerName"
-                            labelText="Developer Name"
-                            maxLength={256}
-                            name="developerName"
-                            type="text"
-                          >
-                            <Field
-                              name="developerName"
-                              validate={[Function]}
-                            >
-                              <div
-                                className="field"
-                              >
-                                <div
-                                  className="control "
-                                >
-                                  <label
-                                    className="label inline-block "
-                                    htmlFor="developerName"
-                                  >
-                                    Developer Name
-                                  </label>
-                                  <input
-                                    className="input is-primary"
-                                    data-test=""
-                                    disabled={false}
-                                    id="developerName"
-                                    maxLength={256}
-                                    name="developerName"
-                                    onBlur={[Function]}
-                                    onChange={[Function]}
-                                    placeholder=""
-                                    type="text"
-                                    value=""
-                                  />
-                                </div>
-                              </div>
-                            </Field>
-                          </Input>
-                        </div>
-                      </GridItem>
-                      <GridItem>
-                        <div
-                          className="column"
-                          data-test=""
-                        >
-                          <Input
-                            id="companyName"
-                            labelText="Company Name"
-                            maxLength={256}
-                            name="companyName"
-                            type="text"
-                          >
-                            <Field
-                              name="companyName"
-                              validate={[Function]}
-                            >
-                              <div
-                                className="field"
-                              >
-                                <div
-                                  className="control "
-                                >
-                                  <label
-                                    className="label inline-block "
-                                    htmlFor="companyName"
-                                  >
-                                    Company Name
-                                  </label>
-                                  <input
-                                    className="input is-primary"
-                                    data-test=""
-                                    disabled={false}
-                                    id="companyName"
-                                    maxLength={256}
-                                    name="companyName"
-                                    onBlur={[Function]}
-                                    onChange={[Function]}
-                                    placeholder=""
-                                    type="text"
-                                    value=""
-                                  />
-                                </div>
-                              </div>
-                            </Field>
-                          </Input>
-                        </div>
-                      </GridItem>
-                    </div>
-                  </Grid>
-                  <Grid>
-                    <div
-                      className="columns"
-                      data-test=""
-                    >
-                      <GridItem>
-                        <div
-                          className="column"
-                          data-test=""
-                        >
-                          <DatePicker
-                            id="registeredFrom"
-                            labelText="Registered From"
-                            name="registeredFrom"
-                            reactDatePickerProps={
-                              Object {
-                                "endDate": "",
-                                "selectsStart": true,
-                                "startDate": "",
-                              }
-                            }
-                          >
-                            <Field
-                              name="registeredFrom"
-                              validate={null}
-                            >
-                              <div
-                                className="field"
-                              >
-                                <div
-                                  className="control"
-                                >
-                                  <label
-                                    className="label "
-                                    htmlFor="registeredFrom"
-                                  >
-                                    Registered From
-                                  </label>
-                                  <o
-                                    allowSameDay={false}
-                                    className="input is-primary"
-                                    customInput={
-                                      <CustomInput
-                                        className="input is-primary"
-                                      />
-                                    }
-                                    customTimeInput={null}
-                                    dateFormat="MM/dd/yyyy"
-                                    dateFormatCalendar="LLLL yyyy"
-                                    disabled={false}
-                                    disabledKeyboardNavigation={false}
-                                    dropdownMode="scroll"
-                                    enableTabLoop={true}
-                                    endDate=""
-                                    excludeScrollbar={true}
-                                    id="registeredFrom"
-                                    inlineFocusSelectedMonth={false}
-                                    monthsShown={1}
-                                    name="registeredFrom"
-                                    nextMonthButtonLabel="Next Month"
-                                    nextYearButtonLabel="Next Year"
-                                    onBlur={[Function]}
-                                    onCalendarClose={[Function]}
-                                    onCalendarOpen={[Function]}
-                                    onChange={[Function]}
-                                    onClickOutside={[Function]}
-                                    onFocus={[Function]}
-                                    onInputClick={[Function]}
-                                    onInputError={[Function]}
-                                    onKeyDown={[Function]}
-                                    onMonthChange={[Function]}
-                                    onSelect={[Function]}
-                                    onYearChange={[Function]}
-                                    popperPlacement="top"
-                                    preventOpenOnFocus={false}
-                                    previousMonthButtonLabel="Previous Month"
-                                    previousYearButtonLabel="Previous Year"
-                                    readOnly={false}
-                                    renderDayContents={[Function]}
-                                    selectsStart={true}
-                                    shouldCloseOnSelect={true}
-                                    showFullMonthYearPicker={false}
-                                    showMonthYearPicker={false}
-                                    showPopperArrow={true}
-                                    showPreviousMonths={false}
-                                    showQuarterYearPicker={false}
-                                    showTimeInput={false}
-                                    showTimeSelect={false}
-                                    showYearPicker={false}
-                                    startDate=""
-                                    strictParsing={false}
-                                    timeCaption="Time"
-                                    timeInputLabel="Time"
-                                    timeIntervals={30}
-                                    value=""
-                                    withPortal={false}
-                                  >
-                                    <a
-                                      enableTabLoop={true}
-                                      hidePopper={true}
-                                      popperComponent={null}
-                                      popperModifiers={
-                                        Object {
-                                          "preventOverflow": Object {
-                                            "boundariesElement": "viewport",
-                                            "enabled": true,
-                                            "escapeWithReference": true,
-                                          },
-                                        }
-                                      }
-                                      popperOnKeyDown={[Function]}
-                                      popperPlacement="top"
-                                      popperProps={Object {}}
-                                      targetComponent={
-                                        <div
-                                          className="react-datepicker__input-container"
-                                        >
-                                          <CustomInput
-                                            className="input is-primary input is-primary"
-                                            disabled={false}
-                                            id="registeredFrom"
-                                            name="registeredFrom"
-                                            onBlur={[Function]}
-                                            onChange={[Function]}
-                                            onClick={[Function]}
-                                            onFocus={[Function]}
-                                            onKeyDown={[Function]}
-                                            readOnly={false}
-                                            value=""
-                                          />
-                                        </div>
-                                      }
-                                    >
-                                      <Manager
-                                        className="react-datepicker-manager"
-                                      >
-                                        <Reference>
-                                          <InnerReference
-                                            setReferenceNode={[Function]}
-                                          >
-                                            <div
-                                              className="react-datepicker-wrapper"
-                                            >
-                                              <div
-                                                className="react-datepicker__input-container"
-                                              >
-                                                <CustomInput
-                                                  className="input is-primary input is-primary"
-                                                  disabled={false}
-                                                  id="registeredFrom"
-                                                  name="registeredFrom"
-                                                  onBlur={[Function]}
-                                                  onChange={[Function]}
-                                                  onClick={[Function]}
-                                                  onFocus={[Function]}
-                                                  onKeyDown={[Function]}
-                                                  readOnly={false}
-                                                  value=""
-                                                >
-                                                  <input
-                                                    className="input is-primary input is-primary"
-                                                    disabled={false}
-                                                    id="registeredFrom"
-                                                    name="registeredFrom"
-                                                    onBlur={[Function]}
-                                                    onChange={[Function]}
-                                                    onClick={[Function]}
-                                                    onFocus={[Function]}
-                                                    onKeyDown={[Function]}
-                                                    readOnly={false}
-                                                    type="input"
-                                                    value=""
-                                                  />
-                                                </CustomInput>
-                                              </div>
-                                            </div>
-                                          </InnerReference>
-                                        </Reference>
-                                      </Manager>
-                                    </a>
-                                  </o>
-                                </div>
-                              </div>
-                            </Field>
-                          </DatePicker>
-                        </div>
-                      </GridItem>
-                      <GridItem>
-                        <div
-                          className="column"
-                          data-test=""
-                        >
-                          <DatePicker
-                            id="registeredTo"
-                            labelText="Registered To"
-                            name="registeredTo"
-                            reactDatePickerProps={
-                              Object {
-                                "endDate": "",
-                                "minDate": "",
-                                "selectsEnd": true,
-                                "startDate": "",
-                              }
-                            }
-                          >
-                            <Field
-                              name="registeredTo"
-                              validate={null}
-                            >
-                              <div
-                                className="field"
-                              >
-                                <div
-                                  className="control"
-                                >
-                                  <label
-                                    className="label "
-                                    htmlFor="registeredTo"
-                                  >
-                                    Registered To
-                                  </label>
-                                  <o
-                                    allowSameDay={false}
-                                    className="input is-primary"
-                                    customInput={
-                                      <CustomInput
-                                        className="input is-primary"
-                                      />
-                                    }
-                                    customTimeInput={null}
-                                    dateFormat="MM/dd/yyyy"
-                                    dateFormatCalendar="LLLL yyyy"
-                                    disabled={false}
-                                    disabledKeyboardNavigation={false}
-                                    dropdownMode="scroll"
-                                    enableTabLoop={true}
-                                    endDate=""
-                                    excludeScrollbar={true}
-                                    id="registeredTo"
-                                    inlineFocusSelectedMonth={false}
-                                    minDate=""
-                                    monthsShown={1}
-                                    name="registeredTo"
-                                    nextMonthButtonLabel="Next Month"
-                                    nextYearButtonLabel="Next Year"
-                                    onBlur={[Function]}
-                                    onCalendarClose={[Function]}
-                                    onCalendarOpen={[Function]}
-                                    onChange={[Function]}
-                                    onClickOutside={[Function]}
-                                    onFocus={[Function]}
-                                    onInputClick={[Function]}
-                                    onInputError={[Function]}
-                                    onKeyDown={[Function]}
-                                    onMonthChange={[Function]}
-                                    onSelect={[Function]}
-                                    onYearChange={[Function]}
-                                    popperPlacement="top"
-                                    preventOpenOnFocus={false}
-                                    previousMonthButtonLabel="Previous Month"
-                                    previousYearButtonLabel="Previous Year"
-                                    readOnly={false}
-                                    renderDayContents={[Function]}
-                                    selectsEnd={true}
-                                    shouldCloseOnSelect={true}
-                                    showFullMonthYearPicker={false}
-                                    showMonthYearPicker={false}
-                                    showPopperArrow={true}
-                                    showPreviousMonths={false}
-                                    showQuarterYearPicker={false}
-                                    showTimeInput={false}
-                                    showTimeSelect={false}
-                                    showYearPicker={false}
-                                    startDate=""
-                                    strictParsing={false}
-                                    timeCaption="Time"
-                                    timeInputLabel="Time"
-                                    timeIntervals={30}
-                                    value=""
-                                    withPortal={false}
-                                  >
-                                    <a
-                                      enableTabLoop={true}
-                                      hidePopper={true}
-                                      popperComponent={null}
-                                      popperModifiers={
-                                        Object {
-                                          "preventOverflow": Object {
-                                            "boundariesElement": "viewport",
-                                            "enabled": true,
-                                            "escapeWithReference": true,
-                                          },
-                                        }
-                                      }
-                                      popperOnKeyDown={[Function]}
-                                      popperPlacement="top"
-                                      popperProps={Object {}}
-                                      targetComponent={
-                                        <div
-                                          className="react-datepicker__input-container"
-                                        >
-                                          <CustomInput
-                                            className="input is-primary input is-primary"
-                                            disabled={false}
-                                            id="registeredTo"
-                                            name="registeredTo"
-                                            onBlur={[Function]}
-                                            onChange={[Function]}
-                                            onClick={[Function]}
-                                            onFocus={[Function]}
-                                            onKeyDown={[Function]}
-                                            readOnly={false}
-                                            value=""
-                                          />
-                                        </div>
-                                      }
-                                    >
-                                      <Manager
-                                        className="react-datepicker-manager"
-                                      >
-                                        <Reference>
-                                          <InnerReference
-                                            setReferenceNode={[Function]}
-                                          >
-                                            <div
-                                              className="react-datepicker-wrapper"
-                                            >
-                                              <div
-                                                className="react-datepicker__input-container"
-                                              >
-                                                <CustomInput
-                                                  className="input is-primary input is-primary"
-                                                  disabled={false}
-                                                  id="registeredTo"
-                                                  name="registeredTo"
-                                                  onBlur={[Function]}
-                                                  onChange={[Function]}
-                                                  onClick={[Function]}
-                                                  onFocus={[Function]}
-                                                  onKeyDown={[Function]}
-                                                  readOnly={false}
-                                                  value=""
-                                                >
-                                                  <input
-                                                    className="input is-primary input is-primary"
-                                                    disabled={false}
-                                                    id="registeredTo"
-                                                    name="registeredTo"
-                                                    onBlur={[Function]}
-                                                    onChange={[Function]}
-                                                    onClick={[Function]}
-                                                    onFocus={[Function]}
-                                                    onKeyDown={[Function]}
-                                                    readOnly={false}
-                                                    type="input"
-                                                    value=""
-                                                  />
-                                                </CustomInput>
-                                              </div>
-                                            </div>
-                                          </InnerReference>
-                                        </Reference>
-                                      </Manager>
-                                    </a>
-                                  </o>
-                                </div>
-                              </div>
-                            </Field>
-                          </DatePicker>
-                        </div>
-                      </GridItem>
-                      <GridItem>
-                        <div
-                          className="column"
-                          data-test=""
-                        >
-                          <Checkbox
-                            id="isListed"
-                            labelText="Is Listed"
-                            name="isListed"
-                          >
-                            <div
-                              className="field "
-                            >
-                              <div
-                                className="control"
-                              >
-                                <Field
-                                  name="isListed"
-                                  type="checkbox"
-                                >
-                                  <div
-                                    className="field field-checkbox"
-                                  >
-                                    <input
-                                      checked={false}
-                                      className="checkbox"
-                                      data-test=""
-                                      disabled={false}
-                                      id="isListed"
-                                      onChange={[Function]}
-                                      type="checkbox"
-                                      value=""
-                                    />
-                                    <label
-                                      className="label"
-                                      htmlFor="isListed"
-                                    >
-                                      Is Listed
-                                    </label>
-                                  </div>
-                                </Field>
-                              </div>
-                            </div>
-                          </Checkbox>
-                        </div>
-                      </GridItem>
-                    </div>
-                  </Grid>
-                  <Grid>
-                    <div
-                      className="columns"
-                      data-test=""
-                    >
-                      <GridItem>
-                        <div
-                          className="column"
-                          data-test=""
-                        >
-                           
-                        </div>
-                      </GridItem>
-                      <GridItem>
-                        <div
-                          className="column"
-                          data-test=""
-                        >
-                          <LevelRight
-                            className="mt-5 pt-2"
-                          >
-                            <div
-                              className="level-right mt-5 pt-2"
-                              data-test=""
-                            >
-                              <Button
-                                type="submit"
-                                variant="primary"
-                              >
-                                <button
-                                  className="button   is-primary "
-                                  data-test=""
-                                  disabled={false}
-                                  type="submit"
-                                >
-                                  Search
-                                </button>
-                              </Button>
-                              <Button
-                                type="reset"
-                                variant="primary"
-                              >
-                                <button
-                                  className="button   is-primary "
-                                  data-test=""
-                                  disabled={false}
-                                  type="reset"
-                                >
-                                  Refresh
-                                </button>
-                              </Button>
-                            </div>
-                          </LevelRight>
-                        </div>
-                      </GridItem>
-                    </div>
-                  </Grid>
-                </div>
-              </FormSection>
-            </form>
-          </Form>
-        </Formik>
-        <Section>
-          <section
-            className="section has-padding has-margin has-background"
+          <div
+            class="form-heading"
+          >
+            Admin Apps Filter Form
+          </div>
+          <div
+            class="form-subheading"
+          >
+            Filter the result by App, Developer and Company
+          </div>
+          <div
+            class="columns"
             data-test=""
           >
-            <span>
-              Total apps: 
-              0
-            </span>
-          </section>
-        </Section>
-        <Section>
-          <section
-            className="section has-padding has-margin has-background"
-            data-test=""
-          >
-            <Alert
-              message="No Results "
-              type="info"
+            <div
+              class="column"
+              data-test=""
             >
               <div
-                className="notification is-info "
-                data-test=""
-                role="alert"
+                class="field"
               >
-                No Results 
+                <div
+                  class="control "
+                >
+                  <label
+                    class="label inline-block "
+                    for="appName"
+                  >
+                    App Name
+                  </label>
+                  <input
+                    class="input is-primary"
+                    data-test=""
+                    id="appName"
+                    maxlength="256"
+                    name="appName"
+                    placeholder=""
+                    type="text"
+                    value=""
+                  />
+                </div>
               </div>
-            </Alert>
-          </section>
-        </Section>
-        <Pagination
-          onChange={[Function]}
-          pageNumber={1}
-          pageSize={0}
-          totalCount={0}
-        />
-        <DeleteAppModal
-          afterClose={[Function]}
-          appId=""
-          appName=""
-          onDeleteSuccess={[Function]}
-          visible={false}
+            </div>
+            <div
+              class="column"
+              data-test=""
+            >
+              <div
+                class="field"
+              >
+                <div
+                  class="control "
+                >
+                  <label
+                    class="label inline-block "
+                    for="developerName"
+                  >
+                    Developer Name
+                  </label>
+                  <input
+                    class="input is-primary"
+                    data-test=""
+                    id="developerName"
+                    maxlength="256"
+                    name="developerName"
+                    placeholder=""
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="column"
+              data-test=""
+            >
+              <div
+                class="field"
+              >
+                <div
+                  class="control "
+                >
+                  <label
+                    class="label inline-block "
+                    for="companyName"
+                  >
+                    Company Name
+                  </label>
+                  <input
+                    class="input is-primary"
+                    data-test=""
+                    id="companyName"
+                    maxlength="256"
+                    name="companyName"
+                    placeholder=""
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="columns"
+            data-test=""
+          >
+            <div
+              class="column"
+              data-test=""
+            >
+              <div
+                class="field"
+              >
+                <div
+                  class="control"
+                >
+                  <label
+                    class="label "
+                    for="registeredFrom"
+                  >
+                    Registered From
+                  </label>
+                  <div
+                    class="react-datepicker-wrapper"
+                  >
+                    <div
+                      class="react-datepicker__input-container"
+                    >
+                      <input
+                        class="input is-primary input is-primary"
+                        id="registeredFrom"
+                        name="registeredFrom"
+                        type="input"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="column"
+              data-test=""
+            >
+              <div
+                class="field"
+              >
+                <div
+                  class="control"
+                >
+                  <label
+                    class="label "
+                    for="registeredTo"
+                  >
+                    Registered To
+                  </label>
+                  <div
+                    class="react-datepicker-wrapper"
+                  >
+                    <div
+                      class="react-datepicker__input-container"
+                    >
+                      <input
+                        class="input is-primary input is-primary"
+                        id="registeredTo"
+                        name="registeredTo"
+                        type="input"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="column"
+              data-test=""
+            >
+              <div
+                class="field "
+              >
+                <div
+                  class="control"
+                >
+                  <div
+                    class="field field-checkbox"
+                  >
+                    <input
+                      class="checkbox"
+                      data-test=""
+                      id="isListed"
+                      type="checkbox"
+                      value=""
+                    />
+                    <label
+                      class="label"
+                      for="isListed"
+                    >
+                      Is Listed
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="columns"
+            data-test=""
+          >
+            <div
+              class="column"
+              data-test=""
+            >
+               
+            </div>
+            <div
+              class="column"
+              data-test=""
+            >
+              <div
+                class="level-right mt-5 pt-2"
+                data-test=""
+              >
+                <button
+                  class="button   is-primary "
+                  data-test=""
+                  type="submit"
+                >
+                  Search
+                </button>
+                <button
+                  class="button   is-primary "
+                  data-test=""
+                  type="reset"
+                >
+                  Refresh
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <section
+        class="section has-padding has-margin has-background"
+        data-test=""
+      >
+        <span>
+          Total apps: 
+          0
+        </span>
+      </section>
+      <section
+        class="section has-padding has-margin has-background"
+        data-test=""
+      >
+        <div
+          class="notification is-info "
+          data-test=""
+          role="alert"
         >
-          <Modal
-            afterClose={[Function]}
-            renderChildren={true}
-            visible={false}
-          />
-        </DeleteAppModal>
-      </AppsManagement>
-    </Router>
-  </MemoryRouter>
-</Provider>
-`;
-
-exports[`admin-apps generateColumns should match snapshot 1`] = `
-<div>
-  <Component />
-  <Component />
-  <Component />
-  <Component />
-  <Component />
-  <Component />
-  <Component />
-  <Component />
-  <Component />
-  <Component />
-  <Component />
-  <Component />
-  <Component />
-  <Component />
-</div>
-`;
-
-exports[`admin-apps generateColumns should match snapshot if the user has limited access 1`] = `
-<div>
-  <Component />
-  <Component />
-  <Component />
-  <Component />
-  <Component />
-  <Component />
-  <Component />
-  <Component />
-  <Component />
-  <Component />
-  <Component />
-</div>
+          No Results 
+        </div>
+      </section>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <h3
+      class="title is-3"
+      id=""
+    >
+      App Management
+    </h3>
+    <form
+      action="#"
+    >
+      <div
+        class="form-section"
+      >
+        <div
+          class="form-heading"
+        >
+          Admin Apps Filter Form
+        </div>
+        <div
+          class="form-subheading"
+        >
+          Filter the result by App, Developer and Company
+        </div>
+        <div
+          class="columns"
+          data-test=""
+        >
+          <div
+            class="column"
+            data-test=""
+          >
+            <div
+              class="field"
+            >
+              <div
+                class="control "
+              >
+                <label
+                  class="label inline-block "
+                  for="appName"
+                >
+                  App Name
+                </label>
+                <input
+                  class="input is-primary"
+                  data-test=""
+                  id="appName"
+                  maxlength="256"
+                  name="appName"
+                  placeholder=""
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="column"
+            data-test=""
+          >
+            <div
+              class="field"
+            >
+              <div
+                class="control "
+              >
+                <label
+                  class="label inline-block "
+                  for="developerName"
+                >
+                  Developer Name
+                </label>
+                <input
+                  class="input is-primary"
+                  data-test=""
+                  id="developerName"
+                  maxlength="256"
+                  name="developerName"
+                  placeholder=""
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="column"
+            data-test=""
+          >
+            <div
+              class="field"
+            >
+              <div
+                class="control "
+              >
+                <label
+                  class="label inline-block "
+                  for="companyName"
+                >
+                  Company Name
+                </label>
+                <input
+                  class="input is-primary"
+                  data-test=""
+                  id="companyName"
+                  maxlength="256"
+                  name="companyName"
+                  placeholder=""
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="columns"
+          data-test=""
+        >
+          <div
+            class="column"
+            data-test=""
+          >
+            <div
+              class="field"
+            >
+              <div
+                class="control"
+              >
+                <label
+                  class="label "
+                  for="registeredFrom"
+                >
+                  Registered From
+                </label>
+                <div
+                  class="react-datepicker-wrapper"
+                >
+                  <div
+                    class="react-datepicker__input-container"
+                  >
+                    <input
+                      class="input is-primary input is-primary"
+                      id="registeredFrom"
+                      name="registeredFrom"
+                      type="input"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="column"
+            data-test=""
+          >
+            <div
+              class="field"
+            >
+              <div
+                class="control"
+              >
+                <label
+                  class="label "
+                  for="registeredTo"
+                >
+                  Registered To
+                </label>
+                <div
+                  class="react-datepicker-wrapper"
+                >
+                  <div
+                    class="react-datepicker__input-container"
+                  >
+                    <input
+                      class="input is-primary input is-primary"
+                      id="registeredTo"
+                      name="registeredTo"
+                      type="input"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="column"
+            data-test=""
+          >
+            <div
+              class="field "
+            >
+              <div
+                class="control"
+              >
+                <div
+                  class="field field-checkbox"
+                >
+                  <input
+                    class="checkbox"
+                    data-test=""
+                    id="isListed"
+                    type="checkbox"
+                    value=""
+                  />
+                  <label
+                    class="label"
+                    for="isListed"
+                  >
+                    Is Listed
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="columns"
+          data-test=""
+        >
+          <div
+            class="column"
+            data-test=""
+          >
+             
+          </div>
+          <div
+            class="column"
+            data-test=""
+          >
+            <div
+              class="level-right mt-5 pt-2"
+              data-test=""
+            >
+              <button
+                class="button   is-primary "
+                data-test=""
+                type="submit"
+              >
+                Search
+              </button>
+              <button
+                class="button   is-primary "
+                data-test=""
+                type="reset"
+              >
+                Refresh
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    <section
+      class="section has-padding has-margin has-background"
+      data-test=""
+    >
+      <span>
+        Total apps: 
+        0
+      </span>
+    </section>
+    <section
+      class="section has-padding has-margin has-background"
+      data-test=""
+    >
+      <div
+        class="notification is-info "
+        data-test=""
+        role="alert"
+      >
+        No Results 
+      </div>
+    </section>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`admin-apps renderChecked should return checked icon 1`] = `
-<div>
-  <FaCheck />
-</div>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <div>
+        <svg
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 512 512"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+          />
+        </svg>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <div>
+      <svg
+        fill="currentColor"
+        height="1em"
+        stroke="currentColor"
+        stroke-width="0"
+        viewBox="0 0 512 512"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+        />
+      </svg>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
-exports[`admin-apps renderChecked should return null 1`] = `<div />`;
+exports[`admin-apps renderChecked should return null 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <div />
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <div />
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
 
 exports[`admin-apps renderCreatedAt should match snapshot 1`] = `
-<div>
-  <p>
-    01 Jan 2020 00:00
-  </p>
-</div>
-`;
-
-exports[`admin-apps renderDeleteAction should call delete action 1`] = `
-<div>
-  <Button
-    onClick={[Function]}
-    type="button"
-    variant="danger"
-  >
-    <button
-      className="button   is-danger "
-      data-test=""
-      disabled={false}
-      onClick={[Function]}
-      type="button"
-    >
-      Delete
-    </button>
-  </Button>
-</div>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <div>
+        <p>
+          01 Jan 2020 00:00
+        </p>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <div>
+      <p>
+        01 Jan 2020 00:00
+      </p>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`admin-apps renderDeleteAction should render DeleteActions 1`] = `
-<div>
-  <Button
-    onClick={[Function]}
-    type="button"
-    variant="danger"
-  >
-    Delete
-  </Button>
-</div>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <div>
+        <button
+          class="button   is-danger "
+          data-test=""
+          type="button"
+        >
+          Delete
+        </button>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <div>
+      <button
+        class="button   is-danger "
+        data-test=""
+        type="button"
+      >
+        Delete
+      </button>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`admin-apps renderForm should return correctly 1`] = `

@@ -1,32 +1,32 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '@testing-library/react'
 import { FormLayout } from '..'
 import { InputWrapMed, InputWrap, InputWrapFull } from '../form-layout'
 
 describe('FormLayout component', () => {
   it('should match a snapshot', () => {
-    const wrapper = shallow(<FormLayout />)
+    const wrapper = render(<FormLayout />)
     expect(wrapper).toMatchSnapshot()
   })
 })
 
 describe('InputWrap component', () => {
   it('should match a snapshot', () => {
-    const wrapper = shallow(<InputWrap />)
+    const wrapper = render(<InputWrap />)
     expect(wrapper).toMatchSnapshot()
   })
 })
 
 describe('InputWrapMed component', () => {
   it('should match a snapshot', () => {
-    const wrapper = shallow(<InputWrapMed />)
+    const wrapper = render(<InputWrapMed />)
     expect(wrapper).toMatchSnapshot()
   })
 })
 
 describe('InputWrapFull component', () => {
   it('should match a snapshot', () => {
-    const wrapper = shallow(<InputWrapFull />)
+    const wrapper = render(<InputWrapFull />)
     expect(wrapper).toMatchSnapshot()
   })
 })

@@ -1,67 +1,274 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ImageCropperWithInput should match snapshots with multiple conditions 1`] = `
-<Fragment>
-  <ElFileInputWrap>
-    <FlexContainer
-      isFlexAlignCenter={true}
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="e1ndspjz"
+      >
+        <div
+          class="ef457sc e2kmzjs"
+        >
+          <button
+            class="elmeic8 e1ymtwpu eqfkc7t"
+            type="button"
+          >
+            Upload
+          </button>
+          <input
+            class="eqyxiu0"
+            type="file"
+          />
+          <input
+            class="e17gdmv2"
+            id="test-static-id"
+            name="inputImage"
+            value=""
+          />
+          <p
+            class="e11jaxfn ewfctk4 e1wasvgh"
+          >
+            Upload File
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="e1ndspjz"
     >
-      <Button
-        className="elmeic8"
-        intent="low"
-        type="button"
+      <div
+        class="ef457sc e2kmzjs"
       >
-        Upload
-      </Button>
-      <ElFileInput
-        onChange={[Function]}
-        type="file"
-      />
-      <ElFileInputHidden
-        id="test-static-id"
-        labelText="input image"
-        name="inputImage"
-      />
-      <SmallText
-        hasGreyText={true}
-        hasNoMargin={true}
-      >
-        Upload File
-      </SmallText>
-    </FlexContainer>
-  </ElFileInputWrap>
-</Fragment>
+        <button
+          class="elmeic8 e1ymtwpu eqfkc7t"
+          type="button"
+        >
+          Upload
+        </button>
+        <input
+          class="eqyxiu0"
+          type="file"
+        />
+        <input
+          class="e17gdmv2"
+          id="test-static-id"
+          name="inputImage"
+          value=""
+        />
+        <p
+          class="e11jaxfn ewfctk4 e1wasvgh"
+        >
+          Upload File
+        </p>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`ImageCropperWithInput should match snapshots with multiple conditions 2`] = `
-<Fragment>
-  <ElFileInputWrap>
-    <FlexContainer
-      isFlexAlignCenter={true}
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="e1ndspjz"
+      >
+        <div
+          class="ef457sc e2kmzjs"
+        >
+          <button
+            class="elmeic8 e1ymtwpu eqfkc7t"
+            type="button"
+          >
+            Upload
+          </button>
+          <input
+            class="eqyxiu0"
+            type="file"
+          />
+          <input
+            class="e17gdmv2"
+            id="test-static-id"
+            name="inputImage"
+            value=""
+          />
+          <p
+            class="e11jaxfn ewfctk4 e1wasvgh"
+          >
+            Upload File
+          </p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="e1ndspjz"
+      >
+        <div
+          class="ef457sc e2kmzjs"
+        >
+          <button
+            class="elmeic8 e1ymtwpu eqfkc7t"
+            type="button"
+          >
+            Upload
+          </button>
+          <input
+            class="eqyxiu0"
+            type="file"
+          />
+          <input
+            class="e17gdmv2"
+            id="test-static-id"
+            name="inputImage"
+            value=""
+          />
+          <p
+            class="e11jaxfn ewfctk4 e1wasvgh"
+          >
+            Upload File
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="e1ndspjz"
     >
-      <Button
-        className="elmeic8"
-        intent="low"
-        type="button"
+      <div
+        class="ef457sc e2kmzjs"
       >
-        Upload
-      </Button>
-      <ElFileInput
-        onChange={[Function]}
-        type="file"
-      />
-      <ElFileInputHidden
-        id="test-static-id"
-        labelText="input image"
-        name="inputImage"
-      />
-      <SmallText
-        hasGreyText={true}
-        hasNoMargin={true}
-      >
-        Upload File
-      </SmallText>
-    </FlexContainer>
-  </ElFileInputWrap>
-</Fragment>
+        <button
+          class="elmeic8 e1ymtwpu eqfkc7t"
+          type="button"
+        >
+          Upload
+        </button>
+        <input
+          class="eqyxiu0"
+          type="file"
+        />
+        <input
+          class="e17gdmv2"
+          id="test-static-id"
+          name="inputImage"
+          value=""
+        />
+        <p
+          class="e11jaxfn ewfctk4 e1wasvgh"
+        >
+          Upload File
+        </p>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

@@ -1,10 +1,10 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '@testing-library/react'
 import { Modal, ModalBg, ModalBody, ModalContainer, ModalHeader } from '..'
 
 describe('Modal component', () => {
   it('should match a snapshot when closed', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <Modal isOpen={false} onModalClose={() => {}} title="test">
         Content within modal
       </Modal>,
@@ -13,7 +13,7 @@ describe('Modal component', () => {
   })
 
   it('should match a snapshot when open', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <Modal isOpen={true} onModalClose={() => {}} title="test">
         Content within modal
       </Modal>,
@@ -24,28 +24,28 @@ describe('Modal component', () => {
 
 describe('ModalBg', () => {
   it('should match a snapshot', () => {
-    const wrapper = shallow(<ModalBg>Content within modal</ModalBg>)
+    const wrapper = render(<ModalBg>Content within modal</ModalBg>)
     expect(wrapper).toMatchSnapshot()
   })
 })
 
 describe('ModalContainer', () => {
   it('should match a snapshot', () => {
-    const wrapper = shallow(<ModalContainer>Content within modal</ModalContainer>)
+    const wrapper = render(<ModalContainer>Content within modal</ModalContainer>)
     expect(wrapper).toMatchSnapshot()
   })
 })
 
 describe('ModalHeader', () => {
   it('should match a snapshot', () => {
-    const wrapper = shallow(<ModalHeader>Content within modal</ModalHeader>)
+    const wrapper = render(<ModalHeader>Content within modal</ModalHeader>)
     expect(wrapper).toMatchSnapshot()
   })
 })
 
 describe('ModalBody', () => {
   it('should match a snapshot', () => {
-    const wrapper = shallow(<ModalBody>Content within modal</ModalBody>)
+    const wrapper = render(<ModalBody>Content within modal</ModalBody>)
     expect(wrapper).toMatchSnapshot()
   })
 })

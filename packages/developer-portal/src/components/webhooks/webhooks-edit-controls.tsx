@@ -48,8 +48,6 @@ export const WebhooksEditControls: FC<WebhooksEditControlsProps> = ({
   const [copyState, setCopyState] = useState<boolean>(false)
   const [fetchKey, setFetchKey] = useState<boolean>(false)
 
-  const isDev = window.reapit.config.appEnv !== 'production'
-
   const [publicKeyResponse, fetchingPublicKey] = useReapitGet<WebhookPublicKeyResponse>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getPublicWebhookKey],
@@ -76,14 +74,14 @@ export const WebhooksEditControls: FC<WebhooksEditControlsProps> = ({
             >
               Ping
             </Button>
-            {publicKeyResponse && publicKeyResponse.keys && isDev ? (
+            {publicKeyResponse && publicKeyResponse.keys ? (
               <CopyToClipboard
                 text={JSON.stringify(publicKeyResponse.keys[0])}
                 onCopy={handleCopyPublicKey(setCopyState)}
               >
                 <Button intent="low">{copyState ? 'Public Key Copied' : 'Copy Public Key'}</Button>
               </CopyToClipboard>
-            ) : isDev ? (
+            ) : (
               <Button
                 intent="primary"
                 loading={fetchingPublicKey}
@@ -92,7 +90,7 @@ export const WebhooksEditControls: FC<WebhooksEditControlsProps> = ({
               >
                 Fetch Public Key
               </Button>
-            ) : null}
+            )}
           </ButtonGroup>
         </FlexContainer>
       )}

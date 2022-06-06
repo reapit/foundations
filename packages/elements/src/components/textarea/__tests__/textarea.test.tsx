@@ -1,10 +1,10 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '@testing-library/react'
 import { TextArea } from '..'
 
 describe('TextArea component', () => {
   it('should match a snapshot', () => {
-    const wrapper = shallow(<TextArea />)
+    const wrapper = render(<TextArea />)
     expect(wrapper).toMatchSnapshot()
   })
 })

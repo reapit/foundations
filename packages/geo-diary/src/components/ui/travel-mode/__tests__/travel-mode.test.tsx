@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../../tests/react-testing'
 import { TravelMode, handleChangeTravelMode } from '../travel-mode'
 import { AppTravelMode } from '../../../../core/app-state'
 
@@ -8,7 +8,7 @@ jest.mock('../../../../core/app-state')
 describe('travel-mode', () => {
   describe('TravelMode', () => {
     it('should match snapshot', () => {
-      const wrapper = shallow(<TravelMode />)
+      const wrapper = render(<TravelMode />)
       expect(wrapper).toMatchSnapshot()
     })
   })

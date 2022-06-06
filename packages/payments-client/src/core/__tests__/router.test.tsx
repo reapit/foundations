@@ -1,11 +1,11 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import toJson from 'enzyme-to-json'
 import Router, { catchChunkError } from '../router'
 
 describe('Router', () => {
   it('should match a snapshot', () => {
-    expect(toJson(shallow(<Router />))).toMatchSnapshot()
+    expect(toJson(render(<Router />))).toMatchSnapshot()
   })
 
   describe('catchChunkError', () => {

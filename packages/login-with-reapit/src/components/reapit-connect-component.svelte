@@ -18,7 +18,7 @@
     connectHasSessionCallback(reapitConnectBrowserSession)
   }
 
-  onMount(async () => {
+  onrender(async () => {
     const params = new URLSearchParams(window.location.search)
     const authorizationCode = params.get('code')
     if (authorizationCode) {

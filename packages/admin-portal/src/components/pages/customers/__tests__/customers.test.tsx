@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { mount, shallow } from 'enzyme'
+import { render } from '../../../../tests/react-testing'
 import {
   Customers,
   onSearchHandler,
@@ -32,7 +32,7 @@ describe('Customers', () => {
   it('should match a snapshot when LOADING false', () => {
     store = mockStore(appState)
     expect(
-      mount(
+      render(
         <ReactRedux.Provider store={store}>
           <MemoryRouter initialEntries={[{ pathname: Routes.CUSTOMERS, key: 'customersRoute' }]}>
             <Customers />
@@ -52,7 +52,7 @@ describe('Customers', () => {
       },
     })
     expect(
-      mount(
+      render(
         <ReactRedux.Provider store={store}>
           <MemoryRouter initialEntries={[{ pathname: Routes.CUSTOMERS, key: 'customersRoute' }]}>
             <Customers />
@@ -72,7 +72,7 @@ describe('Customers', () => {
       },
     })
     expect(
-      mount(
+      render(
         <ReactRedux.Provider store={store}>
           <MemoryRouter initialEntries={[{ pathname: Routes.CUSTOMERS, key: 'customersRoute' }]}>
             <Customers />
@@ -87,7 +87,7 @@ describe('Customers', () => {
       customerData: customersList.data,
       columns,
     }
-    const wrapper = shallow(<div>{renderContent(mockProps)}</div>)
+    const wrapper = render(<div>{renderContent(mockProps)}</div>)
     expect(wrapper).toMatchSnapshot()
   })
 })
@@ -129,18 +129,18 @@ describe('generateFilterValues', () => {
 
 describe('LogoUploadButtonCell', () => {
   it('should match snapshot', () => {
-    const wrapper = shallow(<LogoUploadButtonCell />)
+    const wrapper = render(<LogoUploadButtonCell />)
     expect(wrapper).toMatchSnapshot()
   })
 })
 
 describe('CheckMarkCell', () => {
   it('should match snapshot with value', () => {
-    const wrapper = shallow(<CheckMarkCell cell={{ value: 'yes' }} />)
+    const wrapper = render(<CheckMarkCell cell={{ value: 'yes' }} />)
     expect(wrapper).toMatchSnapshot()
   })
   it('should match snapshot without value', () => {
-    const wrapper = shallow(<CheckMarkCell cell={{ value: null }} />)
+    const wrapper = render(<CheckMarkCell cell={{ value: null }} />)
     expect(wrapper).toMatchSnapshot()
   })
 })
@@ -150,7 +150,7 @@ describe('CustomersFilterForm', () => {
     const history = {
       push: jest.fn(),
     } as any
-    const wrapper = shallow(
+    const wrapper = render(
       <CustomersFilterForm filterValues={{ name: 'test' }} onSearch={jest.fn()} history={history} />,
     )
     expect(wrapper).toMatchSnapshot()

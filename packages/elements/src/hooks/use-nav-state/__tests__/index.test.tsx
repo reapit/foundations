@@ -1,16 +1,16 @@
 import React, { MouseEvent } from 'react'
-import { shallow } from 'enzyme'
+import { render } from '@testing-library/react'
 import { UseNavState, NavStateProvider, useNavState } from '../index'
 import { renderHook, act } from '@testing-library/react-hooks'
 
 describe('NavStateProvider', () => {
   it('should match snapshot', () => {
-    expect(shallow(<NavStateProvider />)).toMatchSnapshot()
+    expect(render(<NavStateProvider />)).toMatchSnapshot()
   })
 })
 
 describe('useNavState', () => {
-  xit('should return pwaNavState and setPwaNavState', async () => {
+  it('should return pwaNavState and setPwaNavState', async () => {
     const { result } = renderHook<{}, UseNavState>(() => useNavState(), {
       wrapper: (props) => <NavStateProvider>{props.children}</NavStateProvider>,
     })

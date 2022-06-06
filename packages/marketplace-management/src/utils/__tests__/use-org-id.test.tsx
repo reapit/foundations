@@ -12,7 +12,7 @@ jest.mock('../../services/user', () => ({
 const mockGetUserInfo = getUserInfo as jest.Mock
 
 describe('useOrgId', () => {
-  xit('should return UseOrgIdState', async () => {
+  it('should return UseOrgIdState', async () => {
     const { result } = renderHook<{}, UseOrgIdState>(() => useOrgId(), {
       wrapper: (props) => <OrgIdStateProvider>{props.children}</OrgIdStateProvider>,
     })

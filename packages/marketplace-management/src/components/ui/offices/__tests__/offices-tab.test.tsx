@@ -42,7 +42,7 @@ describe('OfficesTab', () => {
 
 describe('onPageChangeHandler', () => {
   it('should return a function when executing', () => {
-    const history = createBrowserHistory()
+    const history: History<any> = createBrowserHistory()
     jest.spyOn(history, 'push')
     const onPageChangeHandlerFn = onPageChangeHandler(history, { name: 'reapit' })
     expect(onPageChangeHandlerFn).toBeDefined()

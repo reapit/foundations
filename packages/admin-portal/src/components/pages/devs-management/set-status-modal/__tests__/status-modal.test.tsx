@@ -1,8 +1,7 @@
-import { onSubmitStatus, reapitRefInput, StatusModal, onAfterSubmit } from '../status-modal'
+import { onSubmitStatus, StatusModal, onAfterSubmit } from '../status-modal'
 import { setRequestDeveloperStatusFormState } from '@/actions/developer-set-status'
-import { shallow, mount } from 'enzyme'
+import { render } from '../../../../../tests/react-testing'
 import React from 'react'
-import { FormikProps } from '@reapit/elements-legacy'
 import configureStore from 'redux-mock-store'
 import { DeveloperModelPagedResult } from '@reapit/foundations-ts-definitions'
 import appState from '@/reducers/__stubs__/app-state'
@@ -48,15 +47,6 @@ describe('onAfterSubmit', () => {
   expect(onClose).toBeCalled()
 })
 
-describe('ReapitRefInput', () => {
-  const form = {
-    values: {
-      status: 'confirmed',
-    },
-  } as FormikProps<any>
-  expect(shallow(<div>{reapitRefInput(form)}</div>)).toMatchSnapshot()
-})
-
 describe('StatusModal', () => {
   let store, mockStore
   beforeEach(() => {
@@ -66,7 +56,7 @@ describe('StatusModal', () => {
     store = mockStore(createStore(false, {}))
 
     expect(
-      mount(
+      render(
         <ReactRedux.Provider store={store}>
           <StatusModal visible developer={{}} resetModal={jest.fn()} />
         </ReactRedux.Provider>,

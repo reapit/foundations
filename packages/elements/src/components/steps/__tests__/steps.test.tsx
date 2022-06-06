@@ -1,6 +1,7 @@
 import React from 'react'
-import { shallow } from 'enzyme'
-import { ElStep } from '../__styles__'
+import { render } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import { screen } from '@testing-library/dom'
 import { Steps, StepsProps, StepsVertical, StepsVerticalProps } from '../index'
 
 describe('Steps', () => {
@@ -10,16 +11,17 @@ describe('Steps', () => {
   }
 
   it('should match a snapshot', () => {
-    expect(shallow(<Steps {...props} />)).toMatchSnapshot()
+    expect(render(<Steps {...props} />)).toMatchSnapshot()
   })
 
   it('should match a snapshot when selectedStep is different', () => {
-    expect(shallow(<Steps {...props} selectedStep="2" />)).toMatchSnapshot()
+    expect(render(<Steps {...props} selectedStep="2" />)).toMatchSnapshot()
   })
 
-  it('should fire the onStepClick event correctly', () => {
-    const wrapper = shallow(<Steps {...props} />)
-    wrapper.find(ElStep).first().simulate('click')
+  it('should fire the onStepClick event correctly', async () => {
+    const user = userEvent.setup()
+    render(<Steps {...props} />)
+    await user.click(screen.getByTestId('step-1'))
     expect(props.onStepClick).toHaveBeenCalledTimes(1)
   })
 
@@ -57,16 +59,20 @@ describe('StepsVertical', () => {
   }
 
   it('should match a snapshot', () => {
-    expect(shallow(<StepsVertical {...props} />)).toMatchSnapshot()
+    expect(render(<StepsVertical {...props} />)).toMatchSnapshot()
   })
 
   it('should match a snapshot when selectedStep is different', () => {
-    expect(shallow(<StepsVertical {...props} selectedStep="2" />)).toMatchSnapshot()
+    expect(render(<StepsVertical {...props} selectedStep="2" />)).toMatchSnapshot()
   })
 
-  it('should fire the onStepClick event correctly', () => {
-    const wrapper = shallow(<StepsVertical {...props} />)
-    wrapper.find(ElStep).first().simulate('click')
+  it('should fire the onStepClick event correctly', async () => {
+    const user = userEvent.setup()
+
+    render(<StepsVertical {...props} />)
+
+    await user.click(screen.getByTestId('step-1'))
+
     expect(props.onStepClick).toHaveBeenCalledTimes(1)
   })
 

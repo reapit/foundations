@@ -44,10 +44,16 @@ export const PersistantNotification: FC<IPersistantNotification> = ({
     isFixed && elPnIsFixed,
     isInline && elPnIsInline,
   )
-
+  console.info(
+    'This component has been re-named PersistentNotification to correct a spelling mistake. You should update your components as this will be removed in future versions',
+  )
   return (
     <ElPersistantNotification className={combinedClassName} {...rest}>
-      <div className={elPnIcon} onClick={() => onExpansionToggle && onExpansionToggle(!isExpanded)}>
+      <div
+        className={elPnIcon}
+        data-testid="close-icon"
+        onClick={() => onExpansionToggle && onExpansionToggle(!isExpanded)}
+      >
         <Icon icon={icon} />
       </div>
       <div className={elPnContent}>{children}</div>

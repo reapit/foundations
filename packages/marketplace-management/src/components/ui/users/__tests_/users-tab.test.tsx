@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { render } from '@testing-library/react'
-import { createBrowserHistory } from 'history'
+import { createBrowserHistory, History } from 'history'
 import Routes from '@/constants/routes'
 import UsersTab, { onPageChangeHandler } from '../users-tab'
 import useSWR from 'swr'
@@ -55,7 +55,7 @@ describe('UsersTab', () => {
 
 describe('onPageChangeHandler', () => {
   it('should return a function when executing', () => {
-    const history = createBrowserHistory()
+    const history: History<any> = createBrowserHistory()
     jest.spyOn(history, 'push')
     const onPageChangeHandlerFn = onPageChangeHandler(history)
     expect(onPageChangeHandlerFn).toBeDefined()

@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '@testing-library/react'
 import {
   TableHeadersRow,
   TableHeader,
@@ -15,33 +15,33 @@ import * as styles from '../__styles__'
 
 describe('TableHeadersRow Component', () => {
   it('should match a snapshot', () => {
-    const wrapper = shallow(<TableHeadersRow />)
+    const wrapper = render(<TableHeadersRow />)
     expect(wrapper).toMatchSnapshot()
   })
 })
 
 describe('TableHeader Component', () => {
   it('should match a snapshot', () => {
-    const wrapper = shallow(<TableHeader />)
+    const wrapper = render(<TableHeader />)
     expect(wrapper).toMatchSnapshot()
   })
 })
 
 describe('TableRow Component', () => {
   it('should match a snapshot', () => {
-    const wrapper = shallow(<TableRow />)
+    const wrapper = render(<TableRow />)
     expect(wrapper).toMatchSnapshot()
   })
 })
 
 describe('TableCell Component', () => {
   it('should match a snapshot with no props', () => {
-    const wrapper = shallow(<TableCell />)
+    const wrapper = render(<TableCell />)
     expect(wrapper).toMatchSnapshot()
   })
 
   it('should match a snapshot with full props', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <TableCell className="foo-bar" icon="addSystem" darkText narrowLabel="Label" narrowIsFullWidth narrowOrder={1} />,
     )
     expect(wrapper).toMatchSnapshot()
@@ -50,17 +50,17 @@ describe('TableCell Component', () => {
 
 describe('TableExpandableRowTriggerCell Component', () => {
   it('should match a snapshot with no children and open', () => {
-    const wrapper = shallow(<TableExpandableRowTriggerCell isOpen narrowIsFullWidth />)
+    const wrapper = render(<TableExpandableRowTriggerCell isOpen narrowIsFullWidth />)
     expect(wrapper).toMatchSnapshot()
   })
 
   it('should match a snapshot with no children and closed', () => {
-    const wrapper = shallow(<TableExpandableRowTriggerCell />)
+    const wrapper = render(<TableExpandableRowTriggerCell />)
     expect(wrapper).toMatchSnapshot()
   })
 
   it('should match a snapshot with children', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <TableExpandableRowTriggerCell>
         <div>I am a child</div>
       </TableExpandableRowTriggerCell>,
@@ -71,12 +71,12 @@ describe('TableExpandableRowTriggerCell Component', () => {
 
 describe('TableCtaTriggerCell Component', () => {
   it('should match a snapshot with no children and an icon', () => {
-    const wrapper = shallow(<TableCtaTriggerCell icon="addSystem" />)
+    const wrapper = render(<TableCtaTriggerCell icon="addSystem" />)
     expect(wrapper).toMatchSnapshot()
   })
 
   it('should match a snapshot with children and no icon', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <TableCtaTriggerCell>
         <div>I am a child</div>
       </TableCtaTriggerCell>,
@@ -85,31 +85,31 @@ describe('TableCtaTriggerCell Component', () => {
   })
 
   it('should match a snapshot with no children and no icon', () => {
-    const wrapper = shallow(<TableCtaTriggerCell />)
+    const wrapper = render(<TableCtaTriggerCell />)
     expect(wrapper).toMatchSnapshot()
   })
 })
 
 describe('TableExpandableRow Component', () => {
   it('should match a snapshot when open', () => {
-    const wrapper = shallow(<TableExpandableRow isOpen />)
+    const wrapper = render(<TableExpandableRow isOpen />)
     expect(wrapper).toMatchSnapshot()
   })
 
   it('should match a snapshot when not open', () => {
-    const wrapper = shallow(<TableExpandableRow isOpen />)
+    const wrapper = render(<TableExpandableRow isOpen />)
     expect(wrapper).toMatchSnapshot()
   })
 })
 
 describe('TableRowContainer Component', () => {
   it('should match a snapshot when open', () => {
-    const wrapper = shallow(<TableRowContainer isOpen />)
+    const wrapper = render(<TableRowContainer isOpen />)
     expect(wrapper).toMatchSnapshot()
   })
 
   it('should match a snapshot when not open', () => {
-    const wrapper = shallow(<TableRowContainer isOpen />)
+    const wrapper = render(<TableRowContainer isOpen />)
     expect(wrapper).toMatchSnapshot()
   })
 })

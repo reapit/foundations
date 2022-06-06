@@ -38,7 +38,12 @@ export const Steps: FC<StepsProps> = ({ steps = [], selectedStep, onStepClick, c
         const stepClassName = cx(index === selectedStepIndex && elIsActive, index < selectedStepIndex && elIsUsed)
 
         return (
-          <ElStep key={step} onClick={() => onStepClick && onStepClick(step)} className={stepClassName}>
+          <ElStep
+            key={step}
+            data-testid={`step-${index}`}
+            onClick={() => onStepClick && onStepClick(step)}
+            className={stepClassName}
+          >
             {step}
           </ElStep>
         )
@@ -65,7 +70,11 @@ export const StepsVertical: FC<StepsVerticalProps> = ({
         return (
           <ElStepVertical key={item}>
             <ElStepVerticalItem>
-              <ElStep onClick={() => onStepClick && onStepClick(item)} className={stepClassName}>
+              <ElStep
+                data-testid={`step-${index}`}
+                onClick={() => onStepClick && onStepClick(item)}
+                className={stepClassName}
+              >
                 {item}
               </ElStep>
             </ElStepVerticalItem>

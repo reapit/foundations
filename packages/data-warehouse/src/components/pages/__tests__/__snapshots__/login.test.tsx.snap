@@ -1,56 +1,174 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Login should match a snapshot 1`] = `
-<div
-  className="l1j1jlu5"
->
-  <div
-    className="isu86xr"
-  >
-    <div
-      className="ljg4mpd"
-    >
-      <img
-        className="lwhtf64 l1v65u0x"
-        src={Object {}}
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ecbqyq6"
       />
-      <img
-        className="lwhtf64"
-        src={Object {}}
-      />
-      <img
-        className="lwhtf64"
-        src={Object {}}
-      />
-    </div>
-  </div>
-  <div
-    className="w19u410w"
-  >
-    <Level>
-      <img
-        alt="Reapit Connect Graphic"
-        src=""
-      />
-    </Level>
-    <Level
-      className="l17kjd1m"
-    >
-      <Button
-        dataTest="login-button"
-        disabled={false}
-        fullWidth={true}
-        loading={false}
-        onClick={[Function]}
-        type="button"
-        variant="primary"
+      <div
+        class="l1j1jlu5"
       >
-        Login
-      </Button>
-    </Level>
-    <FlexContainerBasic
-      centerContent={true}
+        <div
+          class="isu86xr"
+        >
+          <div
+            class="ljg4mpd"
+          >
+            <img
+              class="lwhtf64 l1v65u0x"
+              src="[object Object]"
+            />
+            <img
+              class="lwhtf64"
+              src="[object Object]"
+            />
+            <img
+              class="lwhtf64"
+              src="[object Object]"
+            />
+          </div>
+        </div>
+        <div
+          class="w19u410w"
+        >
+          <div
+            class="level"
+            data-test=""
+          >
+            <img
+              alt="Reapit Connect Graphic"
+              src=""
+            />
+          </div>
+          <div
+            class="level l17kjd1m"
+            data-test=""
+          >
+            <button
+              class="button is-fullwidth  is-primary "
+              data-test="login-button"
+              type="button"
+            >
+              Login
+            </button>
+          </div>
+          <div
+            class="container-flex is-centered"
+          />
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6"
     />
-  </div>
-</div>
+    <div
+      class="l1j1jlu5"
+    >
+      <div
+        class="isu86xr"
+      >
+        <div
+          class="ljg4mpd"
+        >
+          <img
+            class="lwhtf64 l1v65u0x"
+            src="[object Object]"
+          />
+          <img
+            class="lwhtf64"
+            src="[object Object]"
+          />
+          <img
+            class="lwhtf64"
+            src="[object Object]"
+          />
+        </div>
+      </div>
+      <div
+        class="w19u410w"
+      >
+        <div
+          class="level"
+          data-test=""
+        >
+          <img
+            alt="Reapit Connect Graphic"
+            src=""
+          />
+        </div>
+        <div
+          class="level l17kjd1m"
+          data-test=""
+        >
+          <button
+            class="button is-fullwidth  is-primary "
+            data-test="login-button"
+            type="button"
+          >
+            Login
+          </button>
+        </div>
+        <div
+          class="container-flex is-centered"
+        />
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

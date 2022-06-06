@@ -1,37 +1,216 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`EmailRow should match snapshot 1`] = `
-<div
-  className="contact-option-row"
->
-  <Grid>
-    <Col
-      span={10}
-    >
-      <Label>
-        Label
-      </Label>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
       <div
-        className="contact-option-value"
-      >
-        mail@example.com
-      </div>
-    </Col>
-    <Col
-      span={6}
-    >
+        class="el-snack-holder"
+      />
+       
       <div
-        className="contact-option-icons"
+        class="contact-option-row"
       >
-        <a
-          href="mailto:mail@example.com"
+        <div
+          class="grid"
         >
-          <IconButton
-            icon="email"
-          />
-        </a>
+          <div
+            class="col span10"
+          >
+            <label
+              class="el-label"
+            >
+              Label
+            </label>
+            <div
+              class="contact-option-value"
+            >
+              mail@example.com
+            </div>
+          </div>
+          <div
+            class="col span6"
+          >
+            <div
+              class="contact-option-icons"
+            >
+              <a
+                href="mailto:mail@example.com"
+              >
+                <button
+                  class="icon-button-container"
+                >
+                  <span
+                    class="icon-container"
+                  >
+                    <svg
+                      height="15px"
+                      version="1.1"
+                      viewBox="0 0 20 15"
+                      width="20px"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <title>
+                        Shape
+                      </title>
+                      <g
+                        fill="none"
+                        fill-rule="evenodd"
+                        id="Wireframes-v2"
+                        stroke="none"
+                        stroke-width="1"
+                      >
+                        <g
+                          fill="currentColor"
+                          fill-rule="nonzero"
+                          id="Property-Details---Events"
+                          transform="translate(-323.000000, -285.000000)"
+                        >
+                          <path
+                            d="M323,288.980434 L323,297.57804 C323,298.919268 324.23449,300 325.769432,300 L340.230317,300 C341.765007,300 343,298.919518 343,297.57804 L343,288.981934 C340.971514,290.132914 338.097238,291.763137 336.012433,292.944868 C333.928885,294.128848 332.114109,294.140098 330.008435,292.951617 L323,288.980434 Z M325.769432,285 C324.234742,285 323,286.079482 323,287.42046 L323,287.567957 C324.762229,288.567941 328.310068,290.578157 330.372245,291.743638 C332.434674,292.908618 333.604045,292.898368 335.645606,291.738388 C337.688423,290.578157 341.238526,288.566441 342.999749,287.567957 L342.999749,287.42046 C342.999749,286.079732 341.764755,285 340.230065,285 L325.769432,285 Z"
+                            id="Shape"
+                          />
+                        </g>
+                      </g>
+                    </svg>
+                  </span>
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
-    </Col>
-  </Grid>
-</div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+     
+    <div
+      class="contact-option-row"
+    >
+      <div
+        class="grid"
+      >
+        <div
+          class="col span10"
+        >
+          <label
+            class="el-label"
+          >
+            Label
+          </label>
+          <div
+            class="contact-option-value"
+          >
+            mail@example.com
+          </div>
+        </div>
+        <div
+          class="col span6"
+        >
+          <div
+            class="contact-option-icons"
+          >
+            <a
+              href="mailto:mail@example.com"
+            >
+              <button
+                class="icon-button-container"
+              >
+                <span
+                  class="icon-container"
+                >
+                  <svg
+                    height="15px"
+                    version="1.1"
+                    viewBox="0 0 20 15"
+                    width="20px"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <title>
+                      Shape
+                    </title>
+                    <g
+                      fill="none"
+                      fill-rule="evenodd"
+                      id="Wireframes-v2"
+                      stroke="none"
+                      stroke-width="1"
+                    >
+                      <g
+                        fill="currentColor"
+                        fill-rule="nonzero"
+                        id="Property-Details---Events"
+                        transform="translate(-323.000000, -285.000000)"
+                      >
+                        <path
+                          d="M323,288.980434 L323,297.57804 C323,298.919268 324.23449,300 325.769432,300 L340.230317,300 C341.765007,300 343,298.919518 343,297.57804 L343,288.981934 C340.971514,290.132914 338.097238,291.763137 336.012433,292.944868 C333.928885,294.128848 332.114109,294.140098 330.008435,292.951617 L323,288.980434 Z M325.769432,285 C324.234742,285 323,286.079482 323,287.42046 L323,287.567957 C324.762229,288.567941 328.310068,290.578157 330.372245,291.743638 C332.434674,292.908618 333.604045,292.898368 335.645606,291.738388 C337.688423,290.578157 341.238526,288.566441 342.999749,287.567957 L342.999749,287.42046 C342.999749,286.079732 341.764755,285 340.230065,285 L325.769432,285 Z"
+                          id="Shape"
+                        />
+                      </g>
+                    </g>
+                  </svg>
+                </span>
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

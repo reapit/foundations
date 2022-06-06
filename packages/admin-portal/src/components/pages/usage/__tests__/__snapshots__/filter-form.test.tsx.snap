@@ -75,6 +75,7 @@ Object {
               </span>
               <input
                 class="el-searchable-dropdown-search-input el-input"
+                data-testid="search-input"
                 name="developerId"
                 placeholder="Search developer organisations"
                 value=""
@@ -243,6 +244,7 @@ Object {
             </span>
             <input
               class="el-searchable-dropdown-search-input el-input"
+              data-testid="search-input"
               name="developerId"
               placeholder="Search developer organisations"
               value=""
@@ -468,6 +470,7 @@ Object {
               </span>
               <input
                 class="el-searchable-dropdown-search-input el-input"
+                data-testid="search-input"
                 name="developerId"
                 placeholder="Search developer organisations"
                 value=""
@@ -618,6 +621,7 @@ Object {
             </span>
             <input
               class="el-searchable-dropdown-search-input el-input"
+              data-testid="search-input"
               name="developerId"
               placeholder="Search developer organisations"
               value=""

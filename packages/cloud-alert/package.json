@@ -15,8 +15,6 @@
     "commit": "echo '...skipping...'"
   },
   "devDependencies": {
-    "@babel/core": "^7.16.5",
-    "@babel/preset-env": "^7.16.5",
     "@cypress/webpack-preprocessor": "^5.10.0",
     "@reapit/config-manager": "workspace:packages/config-manager",
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",

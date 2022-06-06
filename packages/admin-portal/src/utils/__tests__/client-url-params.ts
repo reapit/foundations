@@ -1,6 +1,10 @@
 import { history } from '@/core/router'
 import { addQuery, removeQuery, getParamsFromPath, stringifyObjectIntoQueryString } from '../client-url-params'
 
+jest.mock('uuid', () => ({
+  v4: jest.fn(),
+}))
+
 describe('addQuery', () => {
   it('should return correct route path', () => {
     const query = { page: 1, search: 'google' }

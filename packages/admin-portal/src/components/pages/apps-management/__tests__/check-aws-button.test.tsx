@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../../tests/react-testing'
 import {
   AWSStatus,
   CheckAWSButton,
@@ -17,15 +17,15 @@ const mockedFetchSubs = fetchWebookSubscriptions as jest.Mock
 
 describe('CheckAWSButton', () => {
   it('should match a snapshot where the AWS status is unfetched', () => {
-    expect(shallow(<CheckAWSButton appId="SOME_ID" status={AWSStatus.Unfetched} />)).toMatchSnapshot()
+    expect(render(<CheckAWSButton appId="SOME_ID" status={AWSStatus.Unfetched} />)).toMatchSnapshot()
   })
 
   it('should match a snapshot where the AWS status is AllUsers', () => {
-    expect(shallow(<CheckAWSButton appId="SOME_ID" status={AWSStatus.AllUsers} />)).toMatchSnapshot()
+    expect(render(<CheckAWSButton appId="SOME_ID" status={AWSStatus.AllUsers} />)).toMatchSnapshot()
   })
 
   it('should match a snapshot where the AWS status is AWSOnly', () => {
-    expect(shallow(<CheckAWSButton appId="SOME_ID" status={AWSStatus.AWSOnly} />)).toMatchSnapshot()
+    expect(render(<CheckAWSButton appId="SOME_ID" status={AWSStatus.AWSOnly} />)).toMatchSnapshot()
   })
 })
 

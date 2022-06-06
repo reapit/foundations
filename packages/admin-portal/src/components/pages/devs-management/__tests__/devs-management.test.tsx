@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { mount } from 'enzyme'
+import { render } from '../../../../tests/react-testing'
 import {
   DevsManagement,
   onPageChangeHandler,
@@ -22,6 +22,10 @@ import { DeveloperModelPagedResult, MemberModel } from '@reapit/foundations-ts-d
 import { fetchDeveloperList, fetchDeveloperMemberList } from '@/actions/devs-management'
 import { DevsManagementFilterFormValues } from '@/components/ui/devs-management-filter-form'
 
+jest.mock('uuid', () => ({
+  v4: jest.fn(),
+}))
+
 const createStore = (loading: boolean, data?: DeveloperModelPagedResult) => {
   return {
     ...appState,
@@ -43,7 +47,7 @@ describe('AdminDevManagement', () => {
   it('should match a snapshot when LOADING false', () => {
     store = mockStore(createStore(false, {}))
     expect(
-      mount(
+      render(
         <ReactRedux.Provider store={store}>
           <MemoryRouter initialEntries={[{ pathname: Routes.DEV_MANAGEMENT, key: 'adminDevManagementRoute' }]}>
             <DevsManagement />
@@ -56,7 +60,7 @@ describe('AdminDevManagement', () => {
   it('should show loader when LOADING true', () => {
     store = mockStore(createStore(true, {}))
     expect(
-      mount(
+      render(
         <ReactRedux.Provider store={store}>
           <MemoryRouter initialEntries={[{ pathname: Routes.DEV_MANAGEMENT, key: 'adminDevManagementRoute' }]}>
             <DevsManagement />
@@ -69,7 +73,7 @@ describe('AdminDevManagement', () => {
   it('should render blank Info when data is empty', () => {
     store = mockStore(createStore(true))
     expect(
-      mount(
+      render(
         <ReactRedux.Provider store={store}>
           <MemoryRouter initialEntries={[{ pathname: Routes.DEV_MANAGEMENT, key: 'adminDevManagementRoute' }]}>
             <DevsManagement />

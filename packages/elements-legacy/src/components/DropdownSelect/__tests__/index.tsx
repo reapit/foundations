@@ -1,9 +1,8 @@
 import * as React from 'react'
-import { shallow, mount } from 'enzyme'
+import { render } from '@testing-library/react'
 import { DropdownSelect, DropdownSelectProps } from '../index'
-import { Formik, Form } from 'formik'
-import toJson from 'enzyme-to-json'
 import { options as mockOptions } from '../__stubs__/options'
+import { Formik } from 'formik'
 
 const dropdownSelectProps: DropdownSelectProps = {
   id: 'demo',
@@ -12,31 +11,13 @@ const dropdownSelectProps: DropdownSelectProps = {
   options: mockOptions,
 }
 
-const createFormikWrapper = () => {
-  const wrapper = mount(
-    <Formik onSubmit={jest.fn()} initialValues={{ demo: [] }}>
-      {() => (
-        <Form>
-          <div className="column is-half-desktop">
-            <DropdownSelect id="demo" name="demo" mode="tags" labelText="Demo" options={mockOptions} />
-          </div>
-        </Form>
-      )}
-    </Formik>,
-  )
-
-  return wrapper
-}
-
 describe('Dropdown-select', () => {
   it('should match a snapshot', () => {
-    expect(toJson(shallow(<DropdownSelect {...dropdownSelectProps} />))).toMatchSnapshot()
-  })
-
-  it('Render label correctly', () => {
-    const wrapper = createFormikWrapper()
-    const label = wrapper.find('label').first()
-    expect(label.text()).toBe('Demo')
+    expect(
+      render(
+        <Formik initialValues={{}} onSubmit={jest.fn()} render={() => <DropdownSelect {...dropdownSelectProps} />} />,
+      ),
+    ).toMatchSnapshot()
   })
 
   afterEach(() => {

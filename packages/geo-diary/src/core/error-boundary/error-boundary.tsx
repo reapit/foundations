@@ -1,6 +1,6 @@
-import * as React from 'react'
-import { notification, Helper } from '@reapit/elements-legacy'
-import { logger } from '@reapit/utils-react'
+import React from 'react'
+import * as Sentry from '@sentry/browser'
+import { PersistantNotification } from '@reapit/elements'
 
 export interface ErrorState {
   hasFailed: boolean
@@ -11,6 +11,12 @@ export type ErrorProps = {
 }
 
 export class ErrorBoundary extends React.Component<ErrorProps, ErrorState> {
+  static getDerivedStateFromError() {
+    return {
+      hasFailed: true,
+    }
+  }
+
   constructor(props: ErrorProps) {
     super(props)
     this.state = {
@@ -18,24 +24,23 @@ export class ErrorBoundary extends React.Component<ErrorProps, ErrorState> {
     }
   }
 
-  static getDerivedStateFromError() {
-    return {
-      hasFailed: true,
-    }
-  }
-
   componentDidCatch(error: Error, info: React.ErrorInfo) {
-    console.error('ERROR BOUNDARY CAUGHT', error.message, info)
     const isLocal = window.reapit.config.appEnv === 'local'
     if (!isLocal) {
-      logger(error)
+      Sentry.withScope((scope) => {
+        scope.setExtras(info as Record<string, any>)
+        Sentry.captureException(error)
+      })
     }
-    notification.error({ message: error.message })
   }
 
   render() {
     if (this.state.hasFailed) {
-      return <Helper variant="warning">Something went wrong here, try refreshing your page.</Helper>
+      return (
+        <PersistantNotification isFullWidth isExpanded isInline intent="danger">
+          Something went wrong here, try refreshing your page.
+        </PersistantNotification>
+      )
     }
 
     return this.props.children

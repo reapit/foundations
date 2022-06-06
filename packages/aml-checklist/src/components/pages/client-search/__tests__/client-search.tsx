@@ -1,6 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
-import toJson from 'enzyme-to-json'
+import { render } from '../../../../tests/react-testing'
 import { ClientSearch, ClientSearchProps, renderForm, mapDispatchToProps, searchContacts } from '../client-search'
 import Routes from '@/constants/routes'
 
@@ -12,7 +11,7 @@ const props: ClientSearchProps = {
 
 describe('ClientSearch', () => {
   it('should match a snapshot', () => {
-    expect(toJson(shallow(<ClientSearch {...props} />))).toMatchSnapshot()
+    expect(render(<ClientSearch {...props} />)).toMatchSnapshot()
   })
 
   it('renderForm should match a snapshot when loginMode is DESKTOP', () => {

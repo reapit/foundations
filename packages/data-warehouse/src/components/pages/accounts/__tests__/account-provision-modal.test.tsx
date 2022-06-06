@@ -1,11 +1,11 @@
 import React from 'react'
-import { shallow } from 'enzyme'
-import AccountProvisionModal, { AccountProvisionForm } from '../account-provision-modal'
+import { render } from '../../../../tests/react-testing'
+import AccountProvisionModal from '../account-provision-modal'
 
 describe('AccountProvisionModal', () => {
   it('should match a snapshot', () => {
     expect(
-      shallow(
+      render(
         <AccountProvisionModal
           visible={true}
           setAccounts={jest.fn()}
@@ -15,11 +15,5 @@ describe('AccountProvisionModal', () => {
         />,
       ),
     ).toMatchSnapshot()
-  })
-})
-
-describe('AccountProvisionForm', () => {
-  it('should match a snapshot', () => {
-    expect(shallow(<AccountProvisionForm handleClose={jest.fn()} />)).toMatchSnapshot()
   })
 })

@@ -51,7 +51,7 @@ jest.mock('@reapit/utils-common', () => ({
 }))
 
 describe('useReapitUpdate', () => {
-  xit('should correctly set loading, send data without data update', async () => {
+  it('should correctly set loading, send data without data update', async () => {
     const reapitConnectBrowserSession = {} as unknown as ReapitConnectBrowserSession
     const objectBody = {
       test: true,
@@ -97,7 +97,7 @@ describe('useReapitUpdate', () => {
     expect(mockFetcher).toHaveBeenCalledTimes(1)
   })
 
-  xit('should correctly set loading, send data with data update', async () => {
+  it('should correctly set loading, send data with data update', async () => {
     const reapitConnectBrowserSession = {} as unknown as ReapitConnectBrowserSession
     const objectBody = {
       test: true,

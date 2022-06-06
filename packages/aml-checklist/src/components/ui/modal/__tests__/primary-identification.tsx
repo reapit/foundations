@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../../tests/react-testing'
 import { contact } from '@/sagas/__stubs__/contact'
 import { PrimaryIdentification, mapStateToProps, mapDispatchToProps } from '../primary-identification'
 import { ReduxState } from '@/types/core'
@@ -18,7 +18,7 @@ describe('PrimaryIdentification', () => {
         onNextHandler: jest.fn(),
         onPrevHandler: jest.fn(),
       }
-      const wrapper = shallow(<PrimaryIdentification {...mockProps} />)
+      const wrapper = render(<PrimaryIdentification {...mockProps} />)
       expect(wrapper).toMatchSnapshot()
     })
   })

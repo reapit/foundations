@@ -5,7 +5,7 @@ import OfficesGroupsTab, {
   mergeOfficesGroups,
   onPageChangeHandler,
 } from '../offices-groups-tab'
-import { createBrowserHistory } from 'history'
+import { createBrowserHistory, History } from 'history'
 import Routes from '@/constants/routes'
 import { mockOfficeGroups } from '../../../../services/__stubs__/office-groups'
 import useSWR from 'swr'
@@ -89,7 +89,7 @@ describe('getOfficeQueryFromGroups', () => {
 
 describe('onPageChangeHandler', () => {
   it('should return a function when executing', () => {
-    const history = createBrowserHistory()
+    const history: History<any> = createBrowserHistory()
     jest.spyOn(history, 'push')
     const onPageChangeHandlerFn = onPageChangeHandler(history)
     expect(onPageChangeHandlerFn).toBeDefined()

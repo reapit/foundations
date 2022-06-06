@@ -19,7 +19,6 @@ module.exports = {
     'index.ts',
     'api.ts',
   ],
-  snapshotSerializers: ['enzyme-to-json/serializer'],
   coverageThreshold: {
     global: {
       branches: 56,

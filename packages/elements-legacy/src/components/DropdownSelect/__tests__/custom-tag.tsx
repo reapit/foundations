@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '@testing-library/react'
 import { CustomTag, CustomTagProps } from '../custom-tag'
 
 const props: CustomTagProps = {
@@ -12,13 +12,6 @@ const props: CustomTagProps = {
 
 describe('CustomTag', () => {
   it('should match a snapshot', () => {
-    expect(shallow(<CustomTag {...props} />)).toMatchSnapshot()
-  })
-
-  it('should call onClose when click remove', () => {
-    const wrapper = shallow(<CustomTag {...props} />)
-    const element = wrapper.find('a')
-    element.simulate('click')
-    expect(props.onClose).toHaveBeenCalled()
+    expect(render(<CustomTag {...props} />)).toMatchSnapshot()
   })
 })

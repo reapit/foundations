@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as ReactRedux from 'react-redux'
-import { mount, shallow } from 'enzyme'
+import { render } from '../../../../../tests/react-testing'
 import configureStore from 'redux-mock-store'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import { MemoryRouter } from 'react-router'
@@ -37,7 +37,7 @@ describe('InstallNonDirectApiAppSucesfullyModal', () => {
       isDesktopMode: true,
     }
 
-    expect(mount(<InstallNonDirectApiAppSucesfullyModal {...props} />)).toMatchSnapshot()
+    expect(render(<InstallNonDirectApiAppSucesfullyModal {...props} />)).toMatchSnapshot()
   })
 })
 
@@ -51,7 +51,7 @@ describe('InstallDirectApiAppSucesfullyModal', () => {
       isDesktopMode: true,
     }
 
-    expect(mount(<InstallDirectApiAppSucesfullyModal {...props} />)).toMatchSnapshot()
+    expect(render(<InstallDirectApiAppSucesfullyModal {...props} />)).toMatchSnapshot()
   })
 })
 
@@ -71,7 +71,7 @@ describe('ClientAppInstallConfirmation', () => {
 
   it('should match a snapshot', () => {
     expect(
-      mount(
+      render(
         <ReactRedux.Provider store={store}>
           <MemoryRouter initialEntries={[{ pathname: Routes.APP_DETAIL, key: 'clientAppDetailRoute' }]}>
             <AppInstallConfirmation {...mockProps} />
@@ -148,7 +148,7 @@ describe('ClientAppInstallConfirmation', () => {
       isDesktopMode: false,
     }
     it('should match a snapshot where is orgAdmin and offGrouping', () => {
-      expect(shallow(<InstallForGroupHeading {...baseProps} />)).toMatchSnapshot()
+      expect(render(<InstallForGroupHeading {...baseProps} />)).toMatchSnapshot()
     })
 
     it('should match a snapshot where is not orgAdmin is offGrouping and foundations admin', () => {
@@ -156,7 +156,7 @@ describe('ClientAppInstallConfirmation', () => {
         ...baseProps,
         isOrgAdmin: false,
       }
-      expect(shallow(<InstallForGroupHeading {...updatedProps} />)).toMatchSnapshot()
+      expect(render(<InstallForGroupHeading {...updatedProps} />)).toMatchSnapshot()
     })
 
     it('should match a snapshot where is not orgAdmin not offGrouping and foundations admin', () => {
@@ -165,7 +165,7 @@ describe('ClientAppInstallConfirmation', () => {
         isOrgAdmin: false,
         isOffGrouping: false,
       }
-      expect(shallow(<InstallForGroupHeading {...updatedProps} />)).toMatchSnapshot()
+      expect(render(<InstallForGroupHeading {...updatedProps} />)).toMatchSnapshot()
     })
   })
 })

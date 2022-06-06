@@ -1,60 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Accounts should match a snapshot 1`] = `
-<MessageProvider>
-  <Accounts>
-    <Section
-      className="justify-between items-center"
-      hasPadding={false}
-      isFlex={true}
-    >
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ecbqyq6"
+      />
       <section
-        className="section is-flex has-margin has-background justify-between items-center"
+        class="section is-flex has-margin has-background justify-between items-center"
         data-test=""
       >
-        <H3
-          className="mb-0"
+        <h3
+          class="title is-3 mb-0"
+          id=""
         >
-          <h3
-            className="title is-3 mb-0"
-            id=""
-          >
-            Users
-          </h3>
-        </H3>
-        <Button
-          disabled={true}
-          loading={false}
-          onClick={[Function]}
+          Users
+        </h3>
+        <button
+          class="button   is-primary "
+          data-test=""
+          disabled=""
+          type="button"
         >
-          <button
-            className="button   is-primary "
-            data-test=""
-            disabled={true}
-            onClick={[Function]}
-            type="button"
-          >
-            Provision User Account
-          </button>
-        </Button>
-        <AccountProvisionModal
-          handleClose={[Function]}
-          setAccounts={[Function]}
-          setPercentageComplete={[Function]}
-          setProvisionInProgress={[Function]}
-          visible={false}
-        >
-          <Modal
-            afterClose={[Function]}
-            title="Provision Data Warehouse Account"
-            visible={false}
-          />
-        </AccountProvisionModal>
+          Provision User Account
+        </button>
       </section>
-    </Section>
-    <Loader>
       <div
-        className="loader-spinner body"
+        class="loader-spinner body"
         data-test=""
       >
         <div />
@@ -62,7 +36,91 @@ exports[`Accounts should match a snapshot 1`] = `
         <div />
         <div />
       </div>
-    </Loader>
-  </Accounts>
-</MessageProvider>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6"
+    />
+    <section
+      class="section is-flex has-margin has-background justify-between items-center"
+      data-test=""
+    >
+      <h3
+        class="title is-3 mb-0"
+        id=""
+      >
+        Users
+      </h3>
+      <button
+        class="button   is-primary "
+        data-test=""
+        disabled=""
+        type="button"
+      >
+        Provision User Account
+      </button>
+    </section>
+    <div
+      class="loader-spinner body"
+      data-test=""
+    >
+      <div />
+      <div />
+      <div />
+      <div />
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

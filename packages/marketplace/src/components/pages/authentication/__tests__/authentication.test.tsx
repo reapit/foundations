@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as ReactRedux from 'react-redux'
-import { mount, shallow } from 'enzyme'
+import { render } from '../../../../tests/react-testing'
 import configureStore from 'redux-mock-store'
 import { MemoryRouter } from 'react-router'
 import Routes from '@/constants/routes'
@@ -25,7 +25,7 @@ describe('Authentication', () => {
   })
   it('should match a snapshot', () => {
     expect(
-      mount(
+      render(
         <ReactRedux.Provider store={store}>
           <MemoryRouter initialEntries={[{ pathname: Routes.AUTHENTICATION, key: 'authenticationRoute' }]}>
             <Authentication />
@@ -37,7 +37,7 @@ describe('Authentication', () => {
   describe('renderModal', () => {
     it('should match snapshot', () => {
       const DEVELOPER_PORTAL = 'DEVELOPER_PORTAL'
-      const wrapper = shallow(<div>{renderModal(spyDispatch, DEVELOPER_PORTAL)}</div>)
+      const wrapper = render(<div>{renderModal(spyDispatch, DEVELOPER_PORTAL)}</div>)
       expect(wrapper).toMatchSnapshot()
     })
   })

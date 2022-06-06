@@ -1,12 +1,9 @@
 import * as React from 'react'
-import { Provider } from 'react-redux'
-import { mount } from 'enzyme'
+import { render } from '../../../../tests/react-testing'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
 import { Apps, handleAfterClose, handleOnChange, handleOnCardClick, handleLoadMore } from '../apps'
 import { addQuery } from '@/utils/client-url-params'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
-import ClientWelcomeMessageModal from '@/components/ui/client-welcome-message'
-import { BrowserRouter as Router } from 'react-router-dom'
 import configureStore from 'redux-mock-store'
 import * as ReactRedux from 'react-redux'
 import { MemoryRouter } from 'react-router'
@@ -42,7 +39,7 @@ describe('Client', () => {
     const mockStore = configureStore()
     store = mockStore(createState(appSummaryState))
     expect(
-      mount(
+      render(
         <ReactRedux.Provider store={store}>
           <MemoryRouter initialEntries={[{ pathname: Routes.APPS, key: 'clientRoute' }]}>
             <Apps />
@@ -59,7 +56,7 @@ describe('Client', () => {
     const mockStore = configureStore()
     store = mockStore(createState(appSummaryState))
     expect(
-      mount(
+      render(
         <ReactRedux.Provider store={store}>
           <MemoryRouter initialEntries={[{ pathname: Routes.APPS, key: 'clientRoute' }]}>
             <Apps />
@@ -80,7 +77,7 @@ describe('Client', () => {
     const mockStore = configureStore()
     store = mockStore(createState(appSummaryState))
     expect(
-      mount(
+      render(
         <ReactRedux.Provider store={store}>
           <MemoryRouter initialEntries={[{ pathname: Routes.APPS, key: 'clientRoute' }]}>
             <Apps />
@@ -101,7 +98,7 @@ describe('Client', () => {
     const mockStore = configureStore()
     store = mockStore(createState(appSummaryState))
     expect(
-      mount(
+      render(
         <ReactRedux.Provider store={store}>
           <MemoryRouter initialEntries={[{ pathname: Routes.APPS, key: 'clientRoute' }]}>
             <Apps />
@@ -152,30 +149,6 @@ describe('Client', () => {
       const fn = handleOnCardClick(history)
       fn(mockAppSummary)
       expect(history.push).toBeCalledWith(`${Routes.APPS}/${mockAppSummary.id}`)
-    })
-  })
-
-  describe('show welcome modal when firstLogin', () => {
-    it('should run correctly', () => {
-      const appSummaryState = {
-        isLoading: false,
-        data: {
-          list: [] as AppSummaryModel[],
-          featuredApps: appsDataStub,
-        },
-      }
-      const mockStore = configureStore()
-      store = mockStore(createState(appSummaryState))
-      const wrapper = mount(
-        <Provider store={store}>
-          <Router>
-            <Apps />
-          </Router>
-        </Provider>,
-      )
-      setTimeout(() => {
-        expect(wrapper.find(<ClientWelcomeMessageModal visible={true} onAccept={jest.fn()} />)).toEqual(1)
-      }, 200)
     })
   })
 })

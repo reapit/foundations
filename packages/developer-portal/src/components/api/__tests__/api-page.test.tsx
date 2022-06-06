@@ -7,7 +7,7 @@ import { ProductModel } from '@reapit/foundations-ts-definitions'
 import { mockMemberModel } from '../../../tests/__stubs__/members'
 import { mockDeveloperModel } from '../../../tests/__stubs__/developers'
 import { Router } from 'react-router'
-import { createBrowserHistory } from 'history'
+import { createBrowserHistory, History } from 'history'
 
 jest.mock('../../webhooks/state/use-webhooks-state')
 jest.mock('../../../core/use-global-state')
@@ -22,7 +22,7 @@ const routes = [
   Routes.GRAPHQL,
   Routes.DESKTOP,
 ]
-const history = createBrowserHistory()
+const history: History<any> = createBrowserHistory()
 
 describe('ApiPage', () => {
   window.reapit.config.swaggerWhitelist = [mockDeveloperModel.id as string]

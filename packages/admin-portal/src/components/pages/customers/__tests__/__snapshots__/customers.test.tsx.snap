@@ -1,689 +1,1406 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[` 1`] = `
-<div>
-  <div
-    className="mb-5"
-  >
-    <Table
-      columns={
-        Array [
-          Object {
-            "Header": "Customer ID",
-            "accessor": "agencyCloudId",
-          },
-          Object {
-            "Header": "Company",
-            "accessor": "name",
-          },
-          Object {
-            "Header": "Address",
-            "accessor": [Function],
-          },
-          Object {
-            "Cell": [Function],
-            "Header": "Logo",
-            "accessor": "logo",
-          },
-          Object {
-            "Cell": [Function],
-            "Header": "",
-            "id": "logoUpload",
-          },
-        ]
-      }
-      data={
-        Array [
-          Object {
-            "address": Object {
-              "buildingName": "",
-              "buildingNumber": "11",
-              "countryId": "GB",
-              "line1": "Birmingham Road",
-              "line2": "string",
-              "line3": "string",
-              "line4": "string",
-              "postcode": "string",
-            },
-            "agencyCloudId": "SBOS",
-            "created": "2020-08-04T14:49:06",
-            "id": "ee25966c-294a-4ffc-b640-bccd7eae889c",
-            "modified": "2020-08-04T14:59:22",
-            "name": "RyanWilcoxNew",
-          },
-        ]
-      }
-      loading={false}
-      scrollable={true}
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <div>
+        <div
+          class="mb-5"
+        >
+          <div
+            style="overflow: scroll;"
+          >
+            <table
+              class="table is-striped is-fullwidth "
+              role="table"
+            >
+              <thead>
+                <tr
+                  role="row"
+                >
+                  <th
+                    colspan="1"
+                    role="columnheader"
+                  >
+                    Customer ID
+                  </th>
+                  <th
+                    colspan="1"
+                    role="columnheader"
+                  >
+                    Company
+                  </th>
+                  <th
+                    colspan="1"
+                    role="columnheader"
+                  >
+                    Address
+                  </th>
+                  <th
+                    colspan="1"
+                    role="columnheader"
+                  >
+                    Logo
+                  </th>
+                  <th
+                    colspan="1"
+                    role="columnheader"
+                  />
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  class=""
+                  role="row"
+                >
+                  <td
+                    role="cell"
+                  >
+                    SBOS
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    RyanWilcoxNew
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                     11 Birmingham Road string string string string GB
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    <svg
+                      class="has-text-danger"
+                      fill="currentColor"
+                      height="1em"
+                      stroke="currentColor"
+                      stroke-width="0"
+                      viewBox="0 0 352 512"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                      />
+                    </svg>
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    <button
+                      class="button   is-primary "
+                      data-test=""
+                      type="button"
+                    >
+                      LOGO UPLOAD
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
     />
-  </div>
-</div>
+    <div>
+      <div
+        class="mb-5"
+      >
+        <div
+          style="overflow: scroll;"
+        >
+          <table
+            class="table is-striped is-fullwidth "
+            role="table"
+          >
+            <thead>
+              <tr
+                role="row"
+              >
+                <th
+                  colspan="1"
+                  role="columnheader"
+                >
+                  Customer ID
+                </th>
+                <th
+                  colspan="1"
+                  role="columnheader"
+                >
+                  Company
+                </th>
+                <th
+                  colspan="1"
+                  role="columnheader"
+                >
+                  Address
+                </th>
+                <th
+                  colspan="1"
+                  role="columnheader"
+                >
+                  Logo
+                </th>
+                <th
+                  colspan="1"
+                  role="columnheader"
+                />
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                class=""
+                role="row"
+              >
+                <td
+                  role="cell"
+                >
+                  SBOS
+                </td>
+                <td
+                  role="cell"
+                >
+                  RyanWilcoxNew
+                </td>
+                <td
+                  role="cell"
+                >
+                   11 Birmingham Road string string string string GB
+                </td>
+                <td
+                  role="cell"
+                >
+                  <svg
+                    class="has-text-danger"
+                    fill="currentColor"
+                    height="1em"
+                    stroke="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 352 512"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                    />
+                  </svg>
+                </td>
+                <td
+                  role="cell"
+                >
+                  <button
+                    class="button   is-primary "
+                    data-test=""
+                    type="button"
+                  >
+                    LOGO UPLOAD
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`CheckMarkCell should match snapshot with value 1`] = `
-<FaCheck
-  className="has-text-success"
-/>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <svg
+        class="has-text-success"
+        fill="currentColor"
+        height="1em"
+        stroke="currentColor"
+        stroke-width="0"
+        viewBox="0 0 512 512"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+        />
+      </svg>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <svg
+      class="has-text-success"
+      fill="currentColor"
+      height="1em"
+      stroke="currentColor"
+      stroke-width="0"
+      viewBox="0 0 512 512"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+      />
+    </svg>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`CheckMarkCell should match snapshot without value 1`] = `
-<FaTimes
-  className="has-text-danger"
-/>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <svg
+        class="has-text-danger"
+        fill="currentColor"
+        height="1em"
+        stroke="currentColor"
+        stroke-width="0"
+        viewBox="0 0 352 512"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+        />
+      </svg>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <svg
+      class="has-text-danger"
+      fill="currentColor"
+      height="1em"
+      stroke="currentColor"
+      stroke-width="0"
+      viewBox="0 0 352 512"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+      />
+    </svg>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`Customers should match a snapshot when LOADING false 1`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <MemoryRouter
-    initialEntries={
-      Array [
-        Object {
-          "key": "customersRoute",
-          "pathname": "/customers",
-        },
-      ]
-    }
-  >
-    <Router
-      history={
-        Object {
-          "action": "POP",
-          "block": [Function],
-          "canGo": [Function],
-          "createHref": [Function],
-          "entries": Array [
-            Object {
-              "hash": "",
-              "key": "customersRoute",
-              "pathname": "/customers",
-              "search": "",
-            },
-          ],
-          "go": [Function],
-          "goBack": [Function],
-          "goForward": [Function],
-          "index": 0,
-          "length": 1,
-          "listen": [Function],
-          "location": Object {
-            "hash": "",
-            "key": "customersRoute",
-            "pathname": "/customers",
-            "search": "",
-          },
-          "push": [Function],
-          "replace": [Function],
-        }
-      }
-    >
-      <Customers>
-        <ErrorBoundary>
-          <H3>
-            <h3
-              className="title is-3"
-              id=""
-            >
-              Customers
-            </h3>
-          </H3>
-          <CustomersFilterForm
-            filterValues={
-              Object {
-                "name": "",
-              }
-            }
-            history={
-              Object {
-                "action": "POP",
-                "block": [Function],
-                "canGo": [Function],
-                "createHref": [Function],
-                "entries": Array [
-                  Object {
-                    "hash": "",
-                    "key": "customersRoute",
-                    "pathname": "/customers",
-                    "search": "",
-                  },
-                ],
-                "go": [Function],
-                "goBack": [Function],
-                "goForward": [Function],
-                "index": 0,
-                "length": 1,
-                "listen": [Function],
-                "location": Object {
-                  "hash": "",
-                  "key": "customersRoute",
-                  "pathname": "/customers",
-                  "search": "",
-                },
-                "push": [Function],
-                "replace": [Function],
-              }
-            }
-            onSearch={[Function]}
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <div>
+        <div
+          class="mb-5"
+        >
+          <div
+            style="overflow: scroll;"
           >
-            <Formik
-              initialValues={
-                Object {
-                  "name": "",
-                }
-              }
-              onReset={[Function]}
-              onSubmit={[Function]}
+            <table
+              class="table is-striped is-fullwidth "
+              role="table"
             >
-              <Form
-                noValidate={true}
-              >
-                <form
-                  action="#"
-                  noValidate={true}
-                  onReset={[Function]}
-                  onSubmit={[Function]}
+              <thead>
+                <tr
+                  role="row"
                 >
-                  <FormSection>
-                    <div
-                      className="form-section"
+                  <th
+                    colspan="1"
+                    role="columnheader"
+                  >
+                    Customer ID
+                  </th>
+                  <th
+                    colspan="1"
+                    role="columnheader"
+                  >
+                    Company
+                  </th>
+                  <th
+                    colspan="1"
+                    role="columnheader"
+                  >
+                    Address
+                  </th>
+                  <th
+                    colspan="1"
+                    role="columnheader"
+                  >
+                    Logo
+                  </th>
+                  <th
+                    colspan="1"
+                    role="columnheader"
+                  />
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  class=""
+                  role="row"
+                >
+                  <td
+                    role="cell"
+                  >
+                    SBOS
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    RyanWilcoxNew
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                     11 Birmingham Road string string string string GB
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    <svg
+                      class="has-text-danger"
+                      fill="currentColor"
+                      height="1em"
+                      stroke="currentColor"
+                      stroke-width="0"
+                      viewBox="0 0 352 512"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
-                      <Grid
-                        className="items-center"
-                      >
-                        <div
-                          className="columns items-center"
-                          data-test=""
-                        >
-                          <GridItem>
-                            <div
-                              className="column"
-                              data-test=""
-                            >
-                              <Input
-                                id="name"
-                                labelText="Company Name"
-                                maxLength={256}
-                                name="name"
-                                type="text"
-                              >
-                                <Field
-                                  name="name"
-                                  validate={[Function]}
-                                >
-                                  <div
-                                    className="field"
-                                  >
-                                    <div
-                                      className="control "
-                                    >
-                                      <label
-                                        className="label inline-block "
-                                        htmlFor="name"
-                                      >
-                                        Company Name
-                                      </label>
-                                      <input
-                                        className="input is-primary"
-                                        data-test=""
-                                        disabled={false}
-                                        id="name"
-                                        maxLength={256}
-                                        name="name"
-                                        onBlur={[Function]}
-                                        onChange={[Function]}
-                                        placeholder=""
-                                        type="text"
-                                        value=""
-                                      />
-                                    </div>
-                                  </div>
-                                </Field>
-                              </Input>
-                            </div>
-                          </GridItem>
-                          <GridItem
-                            className="mt-4"
-                          >
-                            <div
-                              className="column mt-4"
-                              data-test=""
-                            >
-                              <Button
-                                type="submit"
-                                variant="primary"
-                              >
-                                <button
-                                  className="button   is-primary "
-                                  data-test=""
-                                  disabled={false}
-                                  type="submit"
-                                >
-                                  Search
-                                </button>
-                              </Button>
-                              <Button
-                                type="reset"
-                                variant="primary"
-                              >
-                                <button
-                                  className="button   is-primary "
-                                  data-test=""
-                                  disabled={false}
-                                  type="reset"
-                                >
-                                  Refresh
-                                </button>
-                              </Button>
-                            </div>
-                          </GridItem>
-                        </div>
-                      </Grid>
-                    </div>
-                  </FormSection>
-                </form>
-              </Form>
-            </Formik>
-          </CustomersFilterForm>
-          <Section
-            hasPadding={false}
-          >
-            <section
-              className="section has-margin has-background"
-              data-test=""
-            >
-              <div>
-                Total: 
-                0
-              </div>
-            </section>
-          </Section>
-          <Alert
-            message="No Results "
-            type="info"
+                      <path
+                        d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                      />
+                    </svg>
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    <button
+                      class="button   is-primary "
+                      data-test=""
+                      type="button"
+                    >
+                      LOGO UPLOAD
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <h3
+        class="title is-3"
+        id=""
+      >
+        Customers
+      </h3>
+      <form
+        action="#"
+        novalidate=""
+      >
+        <div
+          class="form-section"
+        >
+          <div
+            class="columns items-center"
+            data-test=""
           >
             <div
-              className="notification is-info "
+              class="column"
               data-test=""
-              role="alert"
             >
-              No Results 
+              <div
+                class="field"
+              >
+                <div
+                  class="control "
+                >
+                  <label
+                    class="label inline-block "
+                    for="name"
+                  >
+                    Company Name
+                  </label>
+                  <input
+                    class="input is-primary"
+                    data-test=""
+                    id="name"
+                    maxlength="256"
+                    name="name"
+                    placeholder=""
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
             </div>
-          </Alert>
-          <Pagination
-            onChange={[Function]}
-            pageNumber={0}
-            pageSize={0}
-            totalCount={0}
-          />
-        </ErrorBoundary>
-      </Customers>
-    </Router>
-  </MemoryRouter>
-</Provider>
+            <div
+              class="column mt-4"
+              data-test=""
+            >
+              <button
+                class="button   is-primary "
+                data-test=""
+                type="submit"
+              >
+                Search
+              </button>
+              <button
+                class="button   is-primary "
+                data-test=""
+                type="reset"
+              >
+                Refresh
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+      <section
+        class="section has-margin has-background"
+        data-test=""
+      >
+        <div>
+          Total: 
+          0
+        </div>
+      </section>
+      <div
+        class="notification is-info "
+        data-test=""
+        role="alert"
+      >
+        No Results 
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <h3
+      class="title is-3"
+      id=""
+    >
+      Customers
+    </h3>
+    <form
+      action="#"
+      novalidate=""
+    >
+      <div
+        class="form-section"
+      >
+        <div
+          class="columns items-center"
+          data-test=""
+        >
+          <div
+            class="column"
+            data-test=""
+          >
+            <div
+              class="field"
+            >
+              <div
+                class="control "
+              >
+                <label
+                  class="label inline-block "
+                  for="name"
+                >
+                  Company Name
+                </label>
+                <input
+                  class="input is-primary"
+                  data-test=""
+                  id="name"
+                  maxlength="256"
+                  name="name"
+                  placeholder=""
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="column mt-4"
+            data-test=""
+          >
+            <button
+              class="button   is-primary "
+              data-test=""
+              type="submit"
+            >
+              Search
+            </button>
+            <button
+              class="button   is-primary "
+              data-test=""
+              type="reset"
+            >
+              Refresh
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <section
+      class="section has-margin has-background"
+      data-test=""
+    >
+      <div>
+        Total: 
+        0
+      </div>
+    </section>
+    <div
+      class="notification is-info "
+      data-test=""
+      role="alert"
+    >
+      No Results 
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`Customers should match a snapshot when LOADING true 1`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <MemoryRouter
-    initialEntries={
-      Array [
-        Object {
-          "key": "customersRoute",
-          "pathname": "/customers",
-        },
-      ]
-    }
-  >
-    <Router
-      history={
-        Object {
-          "action": "POP",
-          "block": [Function],
-          "canGo": [Function],
-          "createHref": [Function],
-          "entries": Array [
-            Object {
-              "hash": "",
-              "key": "customersRoute",
-              "pathname": "/customers",
-              "search": "",
-            },
-          ],
-          "go": [Function],
-          "goBack": [Function],
-          "goForward": [Function],
-          "index": 0,
-          "length": 1,
-          "listen": [Function],
-          "location": Object {
-            "hash": "",
-            "key": "customersRoute",
-            "pathname": "/customers",
-            "search": "",
-          },
-          "push": [Function],
-          "replace": [Function],
-        }
-      }
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <div
+        class="loader-spinner body"
+        data-test=""
+      >
+        <div />
+        <div />
+        <div />
+        <div />
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <div
+      class="loader-spinner body"
+      data-test=""
     >
-      <Customers>
-        <Loader>
-          <div
-            className="loader-spinner body"
-            data-test=""
-          >
-            <div />
-            <div />
-            <div />
-            <div />
-          </div>
-        </Loader>
-      </Customers>
-    </Router>
-  </MemoryRouter>
-</Provider>
+      <div />
+      <div />
+      <div />
+      <div />
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`Customers should match a snapshot when data is empty 1`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <MemoryRouter
-    initialEntries={
-      Array [
-        Object {
-          "key": "customersRoute",
-          "pathname": "/customers",
-        },
-      ]
-    }
-  >
-    <Router
-      history={
-        Object {
-          "action": "POP",
-          "block": [Function],
-          "canGo": [Function],
-          "createHref": [Function],
-          "entries": Array [
-            Object {
-              "hash": "",
-              "key": "customersRoute",
-              "pathname": "/customers",
-              "search": "",
-            },
-          ],
-          "go": [Function],
-          "goBack": [Function],
-          "goForward": [Function],
-          "index": 0,
-          "length": 1,
-          "listen": [Function],
-          "location": Object {
-            "hash": "",
-            "key": "customersRoute",
-            "pathname": "/customers",
-            "search": "",
-          },
-          "push": [Function],
-          "replace": [Function],
-        }
-      }
-    >
-      <Customers>
-        <ErrorBoundary>
-          <H3>
-            <h3
-              className="title is-3"
-              id=""
-            >
-              Customers
-            </h3>
-          </H3>
-          <CustomersFilterForm
-            filterValues={
-              Object {
-                "name": "",
-              }
-            }
-            history={
-              Object {
-                "action": "POP",
-                "block": [Function],
-                "canGo": [Function],
-                "createHref": [Function],
-                "entries": Array [
-                  Object {
-                    "hash": "",
-                    "key": "customersRoute",
-                    "pathname": "/customers",
-                    "search": "",
-                  },
-                ],
-                "go": [Function],
-                "goBack": [Function],
-                "goForward": [Function],
-                "index": 0,
-                "length": 1,
-                "listen": [Function],
-                "location": Object {
-                  "hash": "",
-                  "key": "customersRoute",
-                  "pathname": "/customers",
-                  "search": "",
-                },
-                "push": [Function],
-                "replace": [Function],
-              }
-            }
-            onSearch={[Function]}
-          >
-            <Formik
-              initialValues={
-                Object {
-                  "name": "",
-                }
-              }
-              onReset={[Function]}
-              onSubmit={[Function]}
-            >
-              <Form
-                noValidate={true}
-              >
-                <form
-                  action="#"
-                  noValidate={true}
-                  onReset={[Function]}
-                  onSubmit={[Function]}
-                >
-                  <FormSection>
-                    <div
-                      className="form-section"
-                    >
-                      <Grid
-                        className="items-center"
-                      >
-                        <div
-                          className="columns items-center"
-                          data-test=""
-                        >
-                          <GridItem>
-                            <div
-                              className="column"
-                              data-test=""
-                            >
-                              <Input
-                                id="name"
-                                labelText="Company Name"
-                                maxLength={256}
-                                name="name"
-                                type="text"
-                              >
-                                <Field
-                                  name="name"
-                                  validate={[Function]}
-                                >
-                                  <div
-                                    className="field"
-                                  >
-                                    <div
-                                      className="control "
-                                    >
-                                      <label
-                                        className="label inline-block "
-                                        htmlFor="name"
-                                      >
-                                        Company Name
-                                      </label>
-                                      <input
-                                        className="input is-primary"
-                                        data-test=""
-                                        disabled={false}
-                                        id="name"
-                                        maxLength={256}
-                                        name="name"
-                                        onBlur={[Function]}
-                                        onChange={[Function]}
-                                        placeholder=""
-                                        type="text"
-                                        value=""
-                                      />
-                                    </div>
-                                  </div>
-                                </Field>
-                              </Input>
-                            </div>
-                          </GridItem>
-                          <GridItem
-                            className="mt-4"
-                          >
-                            <div
-                              className="column mt-4"
-                              data-test=""
-                            >
-                              <Button
-                                type="submit"
-                                variant="primary"
-                              >
-                                <button
-                                  className="button   is-primary "
-                                  data-test=""
-                                  disabled={false}
-                                  type="submit"
-                                >
-                                  Search
-                                </button>
-                              </Button>
-                              <Button
-                                type="reset"
-                                variant="primary"
-                              >
-                                <button
-                                  className="button   is-primary "
-                                  data-test=""
-                                  disabled={false}
-                                  type="reset"
-                                >
-                                  Refresh
-                                </button>
-                              </Button>
-                            </div>
-                          </GridItem>
-                        </div>
-                      </Grid>
-                    </div>
-                  </FormSection>
-                </form>
-              </Form>
-            </Formik>
-          </CustomersFilterForm>
-          <Section
-            hasPadding={false}
-          >
-            <section
-              className="section has-margin has-background"
-              data-test=""
-            >
-              <div>
-                Total: 
-                0
-              </div>
-            </section>
-          </Section>
-          <Alert
-            message="No Results "
-            type="info"
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <h3
+        class="title is-3"
+        id=""
+      >
+        Customers
+      </h3>
+      <form
+        action="#"
+        novalidate=""
+      >
+        <div
+          class="form-section"
+        >
+          <div
+            class="columns items-center"
+            data-test=""
           >
             <div
-              className="notification is-info "
+              class="column"
               data-test=""
-              role="alert"
             >
-              No Results 
+              <div
+                class="field"
+              >
+                <div
+                  class="control "
+                >
+                  <label
+                    class="label inline-block "
+                    for="name"
+                  >
+                    Company Name
+                  </label>
+                  <input
+                    class="input is-primary"
+                    data-test=""
+                    id="name"
+                    maxlength="256"
+                    name="name"
+                    placeholder=""
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
             </div>
-          </Alert>
-          <Pagination
-            onChange={[Function]}
-            pageNumber={0}
-            pageSize={0}
-            totalCount={0}
-          />
-        </ErrorBoundary>
-      </Customers>
-    </Router>
-  </MemoryRouter>
-</Provider>
+            <div
+              class="column mt-4"
+              data-test=""
+            >
+              <button
+                class="button   is-primary "
+                data-test=""
+                type="submit"
+              >
+                Search
+              </button>
+              <button
+                class="button   is-primary "
+                data-test=""
+                type="reset"
+              >
+                Refresh
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+      <section
+        class="section has-margin has-background"
+        data-test=""
+      >
+        <div>
+          Total: 
+          0
+        </div>
+      </section>
+      <div
+        class="notification is-info "
+        data-test=""
+        role="alert"
+      >
+        No Results 
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <h3
+      class="title is-3"
+      id=""
+    >
+      Customers
+    </h3>
+    <form
+      action="#"
+      novalidate=""
+    >
+      <div
+        class="form-section"
+      >
+        <div
+          class="columns items-center"
+          data-test=""
+        >
+          <div
+            class="column"
+            data-test=""
+          >
+            <div
+              class="field"
+            >
+              <div
+                class="control "
+              >
+                <label
+                  class="label inline-block "
+                  for="name"
+                >
+                  Company Name
+                </label>
+                <input
+                  class="input is-primary"
+                  data-test=""
+                  id="name"
+                  maxlength="256"
+                  name="name"
+                  placeholder=""
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="column mt-4"
+            data-test=""
+          >
+            <button
+              class="button   is-primary "
+              data-test=""
+              type="submit"
+            >
+              Search
+            </button>
+            <button
+              class="button   is-primary "
+              data-test=""
+              type="reset"
+            >
+              Refresh
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <section
+      class="section has-margin has-background"
+      data-test=""
+    >
+      <div>
+        Total: 
+        0
+      </div>
+    </section>
+    <div
+      class="notification is-info "
+      data-test=""
+      role="alert"
+    >
+      No Results 
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`CustomersFilterForm should match snapshot 1`] = `
-<Formik
-  initialValues={
-    Object {
-      "name": "test",
-    }
-  }
-  onReset={[Function]}
-  onSubmit={[MockFunction]}
->
-  <Component />
-</Formik>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <form
+        action="#"
+        novalidate=""
+      >
+        <div
+          class="form-section"
+        >
+          <div
+            class="columns items-center"
+            data-test=""
+          >
+            <div
+              class="column"
+              data-test=""
+            >
+              <div
+                class="field"
+              >
+                <div
+                  class="control "
+                >
+                  <label
+                    class="label inline-block "
+                    for="name"
+                  >
+                    Company Name
+                  </label>
+                  <input
+                    class="input is-primary"
+                    data-test=""
+                    id="name"
+                    maxlength="256"
+                    name="name"
+                    placeholder=""
+                    type="text"
+                    value="test"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="column mt-4"
+              data-test=""
+            >
+              <button
+                class="button   is-primary "
+                data-test=""
+                type="submit"
+              >
+                Search
+              </button>
+              <button
+                class="button   is-primary "
+                data-test=""
+                type="reset"
+              >
+                Refresh
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <form
+      action="#"
+      novalidate=""
+    >
+      <div
+        class="form-section"
+      >
+        <div
+          class="columns items-center"
+          data-test=""
+        >
+          <div
+            class="column"
+            data-test=""
+          >
+            <div
+              class="field"
+            >
+              <div
+                class="control "
+              >
+                <label
+                  class="label inline-block "
+                  for="name"
+                >
+                  Company Name
+                </label>
+                <input
+                  class="input is-primary"
+                  data-test=""
+                  id="name"
+                  maxlength="256"
+                  name="name"
+                  placeholder=""
+                  type="text"
+                  value="test"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="column mt-4"
+            data-test=""
+          >
+            <button
+              class="button   is-primary "
+              data-test=""
+              type="submit"
+            >
+              Search
+            </button>
+            <button
+              class="button   is-primary "
+              data-test=""
+              type="reset"
+            >
+              Refresh
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`LogoUploadButtonCell should match snapshot 1`] = `
-<Button
-  type="button"
-  variant="primary"
->
-  LOGO UPLOAD
-</Button>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <button
+        class="button   is-primary "
+        data-test=""
+        type="button"
+      >
+        LOGO UPLOAD
+      </button>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <button
+      class="button   is-primary "
+      data-test=""
+      type="button"
+    >
+      LOGO UPLOAD
+    </button>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

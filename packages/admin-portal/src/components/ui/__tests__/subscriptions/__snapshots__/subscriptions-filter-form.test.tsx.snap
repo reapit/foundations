@@ -1,444 +1,494 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SubscriptionsFilterForm should render developer filter form 1`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <MemoryRouter
-    initialEntries={
-      Array [
-        Object {
-          "key": "adminDevManagementRoute",
-          "pathname": "/subscriptions",
-        },
-      ]
-    }
-  >
-    <Router
-      history={
-        Object {
-          "action": "POP",
-          "block": [Function],
-          "canGo": [Function],
-          "createHref": [Function],
-          "entries": Array [
-            Object {
-              "hash": "",
-              "key": "adminDevManagementRoute",
-              "pathname": "/subscriptions",
-              "search": "",
-            },
-          ],
-          "go": [Function],
-          "goBack": [Function],
-          "goForward": [Function],
-          "index": 0,
-          "length": 1,
-          "listen": [Function],
-          "location": Object {
-            "hash": "",
-            "key": "adminDevManagementRoute",
-            "pathname": "/subscriptions",
-            "search": "",
-          },
-          "push": [Function],
-          "replace": [Function],
-        }
-      }
-    >
-      <SubscriptionsFilterForm
-        filterValues={
-          Object {
-            "appName": "appName",
-            "developerName": "developerName",
-            "status": "active",
-            "type": "type",
-            "userEmail": "mail@example.com",
-          }
-        }
-        onSearch={[MockFunction]}
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <form
+        action="#"
+        novalidate=""
       >
-        <Formik
-          initialValues={
-            Object {
-              "appName": "appName",
-              "developerName": "developerName",
-              "status": "active",
-              "type": "type",
-              "userEmail": "mail@example.com",
-            }
-          }
-          onSubmit={[MockFunction]}
+        <div
+          class="form-section"
         >
-          <Form
-            noValidate={true}
+          <div
+            class="form-heading"
           >
-            <form
-              action="#"
-              noValidate={true}
-              onReset={[Function]}
-              onSubmit={[Function]}
+            Subscriptions Filter Form
+          </div>
+          <div
+            class="form-subheading"
+          >
+            Filter the result by type and developer
+          </div>
+          <div
+            class="columns items-center"
+            data-test=""
+          >
+            <div
+              class="column"
+              data-test=""
             >
-              <FormSection>
+              <div
+                class="field"
+              >
                 <div
-                  className="form-section"
+                  class="control"
                 >
-                  <FormHeading>
-                    <div
-                      className="form-heading"
-                    >
-                      Subscriptions Filter Form
-                    </div>
-                  </FormHeading>
-                  <FormSubHeading>
-                    <div
-                      className="form-subheading"
-                    >
-                      Filter the result by type and developer
-                    </div>
-                  </FormSubHeading>
-                  <Grid
-                    className="items-center"
+                  <label
+                    class="label "
+                    for="type"
                   >
-                    <div
-                      className="columns items-center"
-                      data-test=""
+                    Type
+                  </label>
+                  <select
+                    class="input is-primary "
+                    data-test=""
+                    name="type"
+                  >
+                    <option
+                      value="applicationListing"
                     >
-                      <GridItem>
-                        <div
-                          className="column"
-                          data-test=""
-                        >
-                          <SelectBox
-                            id="type"
-                            labelText="Type"
-                            name="type"
-                            options={
-                              Array [
-                                Object {
-                                  "label": "Application Listing",
-                                  "value": "applicationListing",
-                                },
-                                Object {
-                                  "label": "Developer Registration",
-                                  "value": "developerRegistration",
-                                },
-                                Object {
-                                  "label": "Developer Edition",
-                                  "value": "developerEdition",
-                                },
-                              ]
-                            }
-                          >
-                            <Field
-                              name="type"
-                              validate={null}
-                            >
-                              <div
-                                className="field"
-                              >
-                                <div
-                                  className="control"
-                                >
-                                  <label
-                                    className="label "
-                                    htmlFor="type"
-                                  >
-                                    Type
-                                  </label>
-                                  <select
-                                    className="input is-primary "
-                                    data-test=""
-                                    name="type"
-                                    onBlur={[Function]}
-                                    onChange={[Function]}
-                                    value="type"
-                                  >
-                                    <option
-                                      key="applicationListing"
-                                      value="applicationListing"
-                                    >
-                                      Application Listing
-                                    </option>
-                                    <option
-                                      key="developerRegistration"
-                                      value="developerRegistration"
-                                    >
-                                      Developer Registration
-                                    </option>
-                                    <option
-                                      key="developerEdition"
-                                      value="developerEdition"
-                                    >
-                                      Developer Edition
-                                    </option>
-                                    <option
-                                      disabled={true}
-                                      hidden={true}
-                                      value=""
-                                    >
-                                      Please select
-                                    </option>
-                                  </select>
-                                </div>
-                              </div>
-                            </Field>
-                          </SelectBox>
-                        </div>
-                      </GridItem>
-                      <GridItem>
-                        <div
-                          className="column"
-                          data-test=""
-                        >
-                          <Input
-                            id="developerName"
-                            labelText="Developer Name"
-                            maxLength={256}
-                            name="developerName"
-                            type="text"
-                          >
-                            <Field
-                              name="developerName"
-                              validate={[Function]}
-                            >
-                              <div
-                                className="field"
-                              >
-                                <div
-                                  className="control "
-                                >
-                                  <label
-                                    className="label inline-block "
-                                    htmlFor="developerName"
-                                  >
-                                    Developer Name
-                                  </label>
-                                  <input
-                                    className="input is-primary"
-                                    data-test=""
-                                    disabled={false}
-                                    id="developerName"
-                                    maxLength={256}
-                                    name="developerName"
-                                    onBlur={[Function]}
-                                    onChange={[Function]}
-                                    placeholder=""
-                                    type="text"
-                                    value="developerName"
-                                  />
-                                </div>
-                              </div>
-                            </Field>
-                          </Input>
-                        </div>
-                      </GridItem>
-                      <GridItem>
-                        <div
-                          className="column"
-                          data-test=""
-                        >
-                          <Input
-                            id="userEmail"
-                            labelText="User Email"
-                            maxLength={256}
-                            name="userEmail"
-                            type="text"
-                          >
-                            <Field
-                              name="userEmail"
-                              validate={[Function]}
-                            >
-                              <div
-                                className="field"
-                              >
-                                <div
-                                  className="control "
-                                >
-                                  <label
-                                    className="label inline-block "
-                                    htmlFor="userEmail"
-                                  >
-                                    User Email
-                                  </label>
-                                  <input
-                                    className="input is-primary"
-                                    data-test=""
-                                    disabled={false}
-                                    id="userEmail"
-                                    maxLength={256}
-                                    name="userEmail"
-                                    onBlur={[Function]}
-                                    onChange={[Function]}
-                                    placeholder=""
-                                    type="text"
-                                    value="mail@example.com"
-                                  />
-                                </div>
-                              </div>
-                            </Field>
-                          </Input>
-                        </div>
-                      </GridItem>
-                      <GridItem>
-                        <div
-                          className="column"
-                          data-test=""
-                        >
-                          <Input
-                            id="appName"
-                            labelText="App Name"
-                            maxLength={256}
-                            name="appName"
-                            type="text"
-                          >
-                            <Field
-                              name="appName"
-                              validate={[Function]}
-                            >
-                              <div
-                                className="field"
-                              >
-                                <div
-                                  className="control "
-                                >
-                                  <label
-                                    className="label inline-block "
-                                    htmlFor="appName"
-                                  >
-                                    App Name
-                                  </label>
-                                  <input
-                                    className="input is-primary"
-                                    data-test=""
-                                    disabled={false}
-                                    id="appName"
-                                    maxLength={256}
-                                    name="appName"
-                                    onBlur={[Function]}
-                                    onChange={[Function]}
-                                    placeholder=""
-                                    type="text"
-                                    value="appName"
-                                  />
-                                </div>
-                              </div>
-                            </Field>
-                          </Input>
-                        </div>
-                      </GridItem>
-                      <GridItem>
-                        <div
-                          className="column"
-                          data-test=""
-                        >
-                          <SelectBox
-                            id="status"
-                            labelText="Status"
-                            name="status"
-                            options={
-                              Array [
-                                Object {
-                                  "label": "Active",
-                                  "value": "active",
-                                },
-                                Object {
-                                  "label": "Cancelled",
-                                  "value": "cancelled",
-                                },
-                              ]
-                            }
-                          >
-                            <Field
-                              name="status"
-                              validate={null}
-                            >
-                              <div
-                                className="field"
-                              >
-                                <div
-                                  className="control"
-                                >
-                                  <label
-                                    className="label "
-                                    htmlFor="status"
-                                  >
-                                    Status
-                                  </label>
-                                  <select
-                                    className="input is-primary "
-                                    data-test=""
-                                    name="status"
-                                    onBlur={[Function]}
-                                    onChange={[Function]}
-                                    value="active"
-                                  >
-                                    <option
-                                      key="active"
-                                      value="active"
-                                    >
-                                      Active
-                                    </option>
-                                    <option
-                                      key="cancelled"
-                                      value="cancelled"
-                                    >
-                                      Cancelled
-                                    </option>
-                                    <option
-                                      disabled={true}
-                                      hidden={true}
-                                      value=""
-                                    >
-                                      Please select
-                                    </option>
-                                  </select>
-                                </div>
-                              </div>
-                            </Field>
-                          </SelectBox>
-                        </div>
-                      </GridItem>
-                      <GridItem
-                        className="mt-4"
-                      >
-                        <div
-                          className="column mt-4"
-                          data-test=""
-                        >
-                          <Button
-                            type="submit"
-                            variant="primary"
-                          >
-                            <button
-                              className="button   is-primary "
-                              data-test=""
-                              disabled={false}
-                              type="submit"
-                            >
-                              Search
-                            </button>
-                          </Button>
-                        </div>
-                      </GridItem>
-                    </div>
-                  </Grid>
+                      Application Listing
+                    </option>
+                    <option
+                      value="developerRegistration"
+                    >
+                      Developer Registration
+                    </option>
+                    <option
+                      value="developerEdition"
+                    >
+                      Developer Edition
+                    </option>
+                    <option
+                      disabled=""
+                      hidden=""
+                      value=""
+                    >
+                      Please select
+                    </option>
+                  </select>
                 </div>
-              </FormSection>
-            </form>
-          </Form>
-        </Formik>
-      </SubscriptionsFilterForm>
-    </Router>
-  </MemoryRouter>
-</Provider>
+              </div>
+            </div>
+            <div
+              class="column"
+              data-test=""
+            >
+              <div
+                class="field"
+              >
+                <div
+                  class="control "
+                >
+                  <label
+                    class="label inline-block "
+                    for="developerName"
+                  >
+                    Developer Name
+                  </label>
+                  <input
+                    class="input is-primary"
+                    data-test=""
+                    id="developerName"
+                    maxlength="256"
+                    name="developerName"
+                    placeholder=""
+                    type="text"
+                    value="developerName"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="column"
+              data-test=""
+            >
+              <div
+                class="field"
+              >
+                <div
+                  class="control "
+                >
+                  <label
+                    class="label inline-block "
+                    for="userEmail"
+                  >
+                    User Email
+                  </label>
+                  <input
+                    class="input is-primary"
+                    data-test=""
+                    id="userEmail"
+                    maxlength="256"
+                    name="userEmail"
+                    placeholder=""
+                    type="text"
+                    value="mail@example.com"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="column"
+              data-test=""
+            >
+              <div
+                class="field"
+              >
+                <div
+                  class="control "
+                >
+                  <label
+                    class="label inline-block "
+                    for="appName"
+                  >
+                    App Name
+                  </label>
+                  <input
+                    class="input is-primary"
+                    data-test=""
+                    id="appName"
+                    maxlength="256"
+                    name="appName"
+                    placeholder=""
+                    type="text"
+                    value="appName"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="column"
+              data-test=""
+            >
+              <div
+                class="field"
+              >
+                <div
+                  class="control"
+                >
+                  <label
+                    class="label "
+                    for="status"
+                  >
+                    Status
+                  </label>
+                  <select
+                    class="input is-primary "
+                    data-test=""
+                    name="status"
+                  >
+                    <option
+                      value="active"
+                    >
+                      Active
+                    </option>
+                    <option
+                      value="cancelled"
+                    >
+                      Cancelled
+                    </option>
+                    <option
+                      disabled=""
+                      hidden=""
+                      value=""
+                    >
+                      Please select
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div
+              class="column mt-4"
+              data-test=""
+            >
+              <button
+                class="button   is-primary "
+                data-test=""
+                type="submit"
+              >
+                Search
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <form
+      action="#"
+      novalidate=""
+    >
+      <div
+        class="form-section"
+      >
+        <div
+          class="form-heading"
+        >
+          Subscriptions Filter Form
+        </div>
+        <div
+          class="form-subheading"
+        >
+          Filter the result by type and developer
+        </div>
+        <div
+          class="columns items-center"
+          data-test=""
+        >
+          <div
+            class="column"
+            data-test=""
+          >
+            <div
+              class="field"
+            >
+              <div
+                class="control"
+              >
+                <label
+                  class="label "
+                  for="type"
+                >
+                  Type
+                </label>
+                <select
+                  class="input is-primary "
+                  data-test=""
+                  name="type"
+                >
+                  <option
+                    value="applicationListing"
+                  >
+                    Application Listing
+                  </option>
+                  <option
+                    value="developerRegistration"
+                  >
+                    Developer Registration
+                  </option>
+                  <option
+                    value="developerEdition"
+                  >
+                    Developer Edition
+                  </option>
+                  <option
+                    disabled=""
+                    hidden=""
+                    value=""
+                  >
+                    Please select
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div
+            class="column"
+            data-test=""
+          >
+            <div
+              class="field"
+            >
+              <div
+                class="control "
+              >
+                <label
+                  class="label inline-block "
+                  for="developerName"
+                >
+                  Developer Name
+                </label>
+                <input
+                  class="input is-primary"
+                  data-test=""
+                  id="developerName"
+                  maxlength="256"
+                  name="developerName"
+                  placeholder=""
+                  type="text"
+                  value="developerName"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="column"
+            data-test=""
+          >
+            <div
+              class="field"
+            >
+              <div
+                class="control "
+              >
+                <label
+                  class="label inline-block "
+                  for="userEmail"
+                >
+                  User Email
+                </label>
+                <input
+                  class="input is-primary"
+                  data-test=""
+                  id="userEmail"
+                  maxlength="256"
+                  name="userEmail"
+                  placeholder=""
+                  type="text"
+                  value="mail@example.com"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="column"
+            data-test=""
+          >
+            <div
+              class="field"
+            >
+              <div
+                class="control "
+              >
+                <label
+                  class="label inline-block "
+                  for="appName"
+                >
+                  App Name
+                </label>
+                <input
+                  class="input is-primary"
+                  data-test=""
+                  id="appName"
+                  maxlength="256"
+                  name="appName"
+                  placeholder=""
+                  type="text"
+                  value="appName"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="column"
+            data-test=""
+          >
+            <div
+              class="field"
+            >
+              <div
+                class="control"
+              >
+                <label
+                  class="label "
+                  for="status"
+                >
+                  Status
+                </label>
+                <select
+                  class="input is-primary "
+                  data-test=""
+                  name="status"
+                >
+                  <option
+                    value="active"
+                  >
+                    Active
+                  </option>
+                  <option
+                    value="cancelled"
+                  >
+                    Cancelled
+                  </option>
+                  <option
+                    disabled=""
+                    hidden=""
+                    value=""
+                  >
+                    Please select
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div
+            class="column mt-4"
+            data-test=""
+          >
+            <button
+              class="button   is-primary "
+              data-test=""
+              type="submit"
+            >
+              Search
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

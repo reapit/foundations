@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import { AMLProgressBar, calculateProgress, mapStateToProps, mapDispatchToProps } from '../aml-progressbar'
 import { sectionsStatus } from '@/sagas/__stubs__/status'
 import { contact } from '@/sagas/__stubs__/contact'
@@ -19,7 +19,7 @@ describe('AMLProgressBar', () => {
         showModal: jest.fn(),
         idCheck: {},
       }
-      const wrapper = shallow(<AMLProgressBar {...mockProps} />)
+      const wrapper = render(<AMLProgressBar {...mockProps} />)
       expect(wrapper).toMatchSnapshot()
     })
   })

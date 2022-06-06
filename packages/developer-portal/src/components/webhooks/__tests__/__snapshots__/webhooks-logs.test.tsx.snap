@@ -104,6 +104,7 @@ Object {
       >
         <div
           class="e1f8chn8-el-pn-icon"
+          data-testid="close-icon"
         >
           <span
             class="ej9yrfo-el-icon"
@@ -139,6 +140,7 @@ Object {
     >
       <div
         class="e1f8chn8-el-pn-icon"
+        data-testid="close-icon"
       >
         <span
           class="ej9yrfo-el-icon"
@@ -231,6 +233,7 @@ Object {
       >
         <div
           class="e1f8chn8-el-pn-icon"
+          data-testid="close-icon"
         >
           <span
             class="ej9yrfo-el-icon"
@@ -266,6 +269,7 @@ Object {
     >
       <div
         class="e1f8chn8-el-pn-icon"
+        data-testid="close-icon"
       >
         <span
           class="ej9yrfo-el-icon"

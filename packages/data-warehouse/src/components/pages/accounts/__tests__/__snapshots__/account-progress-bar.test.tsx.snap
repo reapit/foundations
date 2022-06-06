@@ -1,358 +1,851 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AccountProgressBar should match a snapshot for 0 complete 1`] = `
-<AccountProgressBar
-  percentageComplete={0}
-  setPercentageComplete={[MockFunction]}
->
-  <Section>
-    <section
-      className="section has-padding has-margin has-background"
-      data-test=""
-    >
-      <ProgressBar
-        width={0}
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ecbqyq6"
+      />
+      <section
+        class="section has-padding has-margin has-background"
+        data-test=""
       >
         <div
-          className="p1qkupc0"
-          style={
-            Object {
-              "--p1qkupc0-0": "0%",
-            }
-          }
-          width={0}
+          class="p1qkupc0"
+          style="--p1qkupc0-0: 0%;"
+          width="0"
         >
           0
           %
         </div>
-      </ProgressBar>
-      <ProgressMessage
-        percentageComplete={0}
-      >
-        <ProgressMessageText
-          key="1"
+        <div
+          class="pjhu68s"
         >
-          <div
-            className="pjhu68s"
-          >
-            Initializing...
-          </div>
-        </ProgressMessageText>
-      </ProgressMessage>
+          Initializing...
+        </div>
+      </section>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6"
+    />
+    <section
+      class="section has-padding has-margin has-background"
+      data-test=""
+    >
+      <div
+        class="p1qkupc0"
+        style="--p1qkupc0-0: 0%;"
+        width="0"
+      >
+        0
+        %
+      </div>
+      <div
+        class="pjhu68s"
+      >
+        Initializing...
+      </div>
     </section>
-  </Section>
-</AccountProgressBar>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`AccountProgressBar should match a snapshot for 19 complete 1`] = `
-<AccountProgressBar
-  percentageComplete={19}
-  setPercentageComplete={[MockFunction]}
->
-  <Section>
-    <section
-      className="section has-padding has-margin has-background"
-      data-test=""
-    >
-      <ProgressBar
-        width={19}
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ecbqyq6"
+      />
+      <section
+        class="section has-padding has-margin has-background"
+        data-test=""
       >
         <div
-          className="p1qkupc0"
-          style={
-            Object {
-              "--p1qkupc0-0": "19%",
-            }
-          }
-          width={19}
+          class="p1qkupc0"
+          style="--p1qkupc0-0: 19%;"
+          width="19"
         >
           19
           %
         </div>
-      </ProgressBar>
-      <ProgressMessage
-        percentageComplete={19}
-      >
-        <ProgressMessageText
-          key="1"
+        <div
+          class="pjhu68s"
         >
-          <div
-            className="pjhu68s"
-          >
-            Initializing...
-          </div>
-        </ProgressMessageText>
-      </ProgressMessage>
+          Initializing...
+        </div>
+      </section>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6"
+    />
+    <section
+      class="section has-padding has-margin has-background"
+      data-test=""
+    >
+      <div
+        class="p1qkupc0"
+        style="--p1qkupc0-0: 19%;"
+        width="19"
+      >
+        19
+        %
+      </div>
+      <div
+        class="pjhu68s"
+      >
+        Initializing...
+      </div>
     </section>
-  </Section>
-</AccountProgressBar>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`AccountProgressBar should match a snapshot for 39 complete 1`] = `
-<AccountProgressBar
-  percentageComplete={39}
-  setPercentageComplete={[MockFunction]}
->
-  <Section>
-    <section
-      className="section has-padding has-margin has-background"
-      data-test=""
-    >
-      <ProgressBar
-        width={39}
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ecbqyq6"
+      />
+      <section
+        class="section has-padding has-margin has-background"
+        data-test=""
       >
         <div
-          className="p1qkupc0"
-          style={
-            Object {
-              "--p1qkupc0-0": "39%",
-            }
-          }
-          width={39}
+          class="p1qkupc0"
+          style="--p1qkupc0-0: 39%;"
+          width="39"
         >
           39
           %
         </div>
-      </ProgressBar>
-      <ProgressMessage
-        percentageComplete={39}
-      >
-        <ProgressMessageText
-          key="2"
+        <div
+          class="pjhu68s"
         >
-          <div
-            className="pjhu68s"
-          >
-            Creating account...
-          </div>
-        </ProgressMessageText>
-      </ProgressMessage>
+          Creating account...
+        </div>
+      </section>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6"
+    />
+    <section
+      class="section has-padding has-margin has-background"
+      data-test=""
+    >
+      <div
+        class="p1qkupc0"
+        style="--p1qkupc0-0: 39%;"
+        width="39"
+      >
+        39
+        %
+      </div>
+      <div
+        class="pjhu68s"
+      >
+        Creating account...
+      </div>
     </section>
-  </Section>
-</AccountProgressBar>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`AccountProgressBar should match a snapshot for 59 complete 1`] = `
-<AccountProgressBar
-  percentageComplete={59}
-  setPercentageComplete={[MockFunction]}
->
-  <Section>
-    <section
-      className="section has-padding has-margin has-background"
-      data-test=""
-    >
-      <ProgressBar
-        width={59}
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ecbqyq6"
+      />
+      <section
+        class="section has-padding has-margin has-background"
+        data-test=""
       >
         <div
-          className="p1qkupc0"
-          style={
-            Object {
-              "--p1qkupc0-0": "59%",
-            }
-          }
-          width={59}
+          class="p1qkupc0"
+          style="--p1qkupc0-0: 59%;"
+          width="59"
         >
           59
           %
         </div>
-      </ProgressBar>
-      <ProgressMessage
-        percentageComplete={59}
-      >
-        <ProgressMessageText
-          key="3"
+        <div
+          class="pjhu68s"
         >
-          <div
-            className="pjhu68s"
-          >
-            Provisioning compute...
-          </div>
-        </ProgressMessageText>
-      </ProgressMessage>
+          Provisioning compute...
+        </div>
+      </section>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6"
+    />
+    <section
+      class="section has-padding has-margin has-background"
+      data-test=""
+    >
+      <div
+        class="p1qkupc0"
+        style="--p1qkupc0-0: 59%;"
+        width="59"
+      >
+        59
+        %
+      </div>
+      <div
+        class="pjhu68s"
+      >
+        Provisioning compute...
+      </div>
     </section>
-  </Section>
-</AccountProgressBar>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`AccountProgressBar should match a snapshot for 79 complete 1`] = `
-<AccountProgressBar
-  percentageComplete={79}
-  setPercentageComplete={[MockFunction]}
->
-  <Section>
-    <section
-      className="section has-padding has-margin has-background"
-      data-test=""
-    >
-      <ProgressBar
-        width={79}
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ecbqyq6"
+      />
+      <section
+        class="section has-padding has-margin has-background"
+        data-test=""
       >
         <div
-          className="p1qkupc0"
-          style={
-            Object {
-              "--p1qkupc0-0": "79%",
-            }
-          }
-          width={79}
+          class="p1qkupc0"
+          style="--p1qkupc0-0: 79%;"
+          width="79"
         >
           79
           %
         </div>
-      </ProgressBar>
-      <ProgressMessage
-        percentageComplete={79}
-      >
-        <ProgressMessageText
-          key="4"
+        <div
+          class="pjhu68s"
         >
-          <div
-            className="pjhu68s"
-          >
-            Preparing permissions...
-          </div>
-        </ProgressMessageText>
-      </ProgressMessage>
+          Preparing permissions...
+        </div>
+      </section>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6"
+    />
+    <section
+      class="section has-padding has-margin has-background"
+      data-test=""
+    >
+      <div
+        class="p1qkupc0"
+        style="--p1qkupc0-0: 79%;"
+        width="79"
+      >
+        79
+        %
+      </div>
+      <div
+        class="pjhu68s"
+      >
+        Preparing permissions...
+      </div>
     </section>
-  </Section>
-</AccountProgressBar>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`AccountProgressBar should match a snapshot for 94 complete 1`] = `
-<AccountProgressBar
-  percentageComplete={94}
-  setPercentageComplete={[MockFunction]}
->
-  <Section>
-    <section
-      className="section has-padding has-margin has-background"
-      data-test=""
-    >
-      <ProgressBar
-        width={94}
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ecbqyq6"
+      />
+      <section
+        class="section has-padding has-margin has-background"
+        data-test=""
       >
         <div
-          className="p1qkupc0"
-          style={
-            Object {
-              "--p1qkupc0-0": "94%",
-            }
-          }
-          width={94}
+          class="p1qkupc0"
+          style="--p1qkupc0-0: 94%;"
+          width="94"
         >
           94
           %
         </div>
-      </ProgressBar>
-      <ProgressMessage
-        percentageComplete={94}
-      >
-        <ProgressMessageText
-          key="5"
+        <div
+          class="pjhu68s"
         >
-          <div
-            className="pjhu68s"
-          >
-            Setting up defaults...
-          </div>
-        </ProgressMessageText>
-      </ProgressMessage>
+          Setting up defaults...
+        </div>
+      </section>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6"
+    />
+    <section
+      class="section has-padding has-margin has-background"
+      data-test=""
+    >
+      <div
+        class="p1qkupc0"
+        style="--p1qkupc0-0: 94%;"
+        width="94"
+      >
+        94
+        %
+      </div>
+      <div
+        class="pjhu68s"
+      >
+        Setting up defaults...
+      </div>
     </section>
-  </Section>
-</AccountProgressBar>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`AccountProgressBar should match a snapshot for 99 complete 1`] = `
-<AccountProgressBar
-  percentageComplete={99}
-  setPercentageComplete={[MockFunction]}
->
-  <Section>
-    <section
-      className="section has-padding has-margin has-background"
-      data-test=""
-    >
-      <ProgressBar
-        width={99}
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ecbqyq6"
+      />
+      <section
+        class="section has-padding has-margin has-background"
+        data-test=""
       >
         <div
-          className="p1qkupc0"
-          style={
-            Object {
-              "--p1qkupc0-0": "99%",
-            }
-          }
-          width={99}
+          class="p1qkupc0"
+          style="--p1qkupc0-0: 99%;"
+          width="99"
         >
           99
           %
         </div>
-      </ProgressBar>
-      <ProgressMessage
-        percentageComplete={99}
-      >
-        <ProgressMessageText
-          key="6"
+        <div
+          class="pjhu68s"
         >
-          <div
-            className="pjhu68s"
-          >
-            Nearly there, final checks... please note, on the first user account provision, this can take a few minutes...
-          </div>
-        </ProgressMessageText>
-      </ProgressMessage>
+          Nearly there, final checks... please note, on the first user account provision, this can take a few minutes...
+        </div>
+      </section>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6"
+    />
+    <section
+      class="section has-padding has-margin has-background"
+      data-test=""
+    >
+      <div
+        class="p1qkupc0"
+        style="--p1qkupc0-0: 99%;"
+        width="99"
+      >
+        99
+        %
+      </div>
+      <div
+        class="pjhu68s"
+      >
+        Nearly there, final checks... please note, on the first user account provision, this can take a few minutes...
+      </div>
     </section>
-  </Section>
-</AccountProgressBar>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`AccountProgressBar should match a snapshot for 100 complete 1`] = `
-<AccountProgressBar
-  percentageComplete={100}
-  setPercentageComplete={[MockFunction]}
->
-  <Section>
-    <section
-      className="section has-padding has-margin has-background"
-      data-test=""
-    >
-      <ProgressBar
-        width={100}
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ecbqyq6"
+      />
+      <section
+        class="section has-padding has-margin has-background"
+        data-test=""
       >
         <div
-          className="p1qkupc0"
-          style={
-            Object {
-              "--p1qkupc0-0": "100%",
-            }
-          }
-          width={100}
+          class="p1qkupc0"
+          style="--p1qkupc0-0: 100%;"
+          width="100"
         >
           100
           %
         </div>
-      </ProgressBar>
-      <ProgressMessage
-        percentageComplete={100}
-      >
-        <ProgressMessageText
-          key="7"
+        <div
+          class="pjhu68s"
         >
-          <div
-            className="pjhu68s"
+          Your account is ready! 
+          <span
+            role="img"
           >
-            Your account is ready! 
-            <span
-              role="img"
-            >
-              🚀
-            </span>
-          </div>
-        </ProgressMessageText>
-      </ProgressMessage>
+            🚀
+          </span>
+        </div>
+      </section>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6"
+    />
+    <section
+      class="section has-padding has-margin has-background"
+      data-test=""
+    >
+      <div
+        class="p1qkupc0"
+        style="--p1qkupc0-0: 100%;"
+        width="100"
+      >
+        100
+        %
+      </div>
+      <div
+        class="pjhu68s"
+      >
+        Your account is ready! 
+        <span
+          role="img"
+        >
+          🚀
+        </span>
+      </div>
     </section>
-  </Section>
-</AccountProgressBar>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

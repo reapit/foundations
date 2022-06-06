@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Route, Router as BrowserRouter, Switch, Redirect } from 'react-router-dom'
-import { createBrowserHistory } from 'history'
+import { createBrowserHistory, History } from 'history'
 import qs from 'query-string'
 import { MainContainer } from '@reapit/elements'
 
@@ -15,7 +15,7 @@ import { useIntrospection } from '@/components/hooks/use-introspection'
 import { getDesktopContext, unsetDesktopContext } from './desktop-integration'
 import { useEffect } from 'react'
 
-export const history = createBrowserHistory()
+export const history: History<any> = createBrowserHistory()
 
 export const catchChunkError = (
   fn: Function,

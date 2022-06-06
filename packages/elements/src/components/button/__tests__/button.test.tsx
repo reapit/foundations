@@ -1,5 +1,7 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import { screen } from '@testing-library/dom'
 import { Button, ButtonProps, FloatingButton, ButtonGroup, resolveButtonSize } from '../index'
 import { elButtonSize2, elButtonSize3, elButtonSize4 } from '../__styles__'
 
@@ -13,7 +15,7 @@ const props: ButtonProps = {
 
 describe('Button', () => {
   it('should match a snapshot', () => {
-    expect(shallow(<Button {...props}>button text</Button>)).toMatchSnapshot()
+    expect(render(<Button {...props}>button text</Button>)).toMatchSnapshot()
   })
 
   it('should match a snapshot with all modifiers', () => {
@@ -26,12 +28,12 @@ describe('Button', () => {
       fixedWidth: true,
       className: 'some-class',
     }
-    expect(shallow(<Button {...fullProps}>button text</Button>)).toMatchSnapshot()
+    expect(render(<Button {...fullProps}>button text</Button>)).toMatchSnapshot()
   })
 
   it('should match a snapshot', () => {
     expect(
-      shallow(
+      render(
         <FloatingButton icon="addSystem" {...props}>
           button text
         </FloatingButton>,
@@ -39,9 +41,12 @@ describe('Button', () => {
     ).toMatchSnapshot()
   })
 
-  it('should fire a click event correctly', () => {
-    const wrapper = shallow(<Button {...props}>button text</Button>)
-    wrapper.simulate('click')
+  it('should fire a click event correctly', async () => {
+    render(<Button {...props}>button text</Button>)
+    const user = userEvent.setup()
+
+    await user.click(screen.getByText('button text'))
+
     expect(props.onClick).toHaveBeenCalledTimes(1)
   })
 
@@ -59,7 +64,7 @@ describe('Button', () => {
 describe('ButtonGroup', () => {
   it('should match a snapshot for align left', () => {
     expect(
-      shallow(
+      render(
         <ButtonGroup alignment="left">
           <Button>1</Button>
           <Button>2</Button>
@@ -71,7 +76,7 @@ describe('ButtonGroup', () => {
 
   it('should match a snapshot for align right', () => {
     expect(
-      shallow(
+      render(
         <ButtonGroup alignment="right">
           <Button>1</Button>
           <Button>2</Button>
@@ -83,7 +88,7 @@ describe('ButtonGroup', () => {
 
   it('should match a snapshot for align center', () => {
     expect(
-      shallow(
+      render(
         <ButtonGroup alignment="center">
           <Button>1</Button>
           <Button>2</Button>

@@ -5581,6 +5581,10 @@ export interface CreateOfficeModel {
    */
   name: string
   /**
+   * A flag denoting whether or not this office is active
+   */
+  active?: boolean
+  /**
    * The name of the office manager
    */
   manager?: string
@@ -6221,7 +6225,7 @@ export interface CreatePropertyModel {
      */
     status?: string
     /**
-     * The method used to sell the property (auction/confidential/tender/offersInvited/privateTreaty)
+     * The method used to sell the property (auction/confidential/tender/offersInvited/privateTreaty/sharedOwnership)
      */
     disposal?: string
     /**
@@ -6286,6 +6290,23 @@ export interface CreatePropertyModel {
      * The property's decorative condition (unmodernised/fair/good/veryGood)
      */
     decoration?: string[]
+    /**
+     * Details relating to the shared ownership of the property
+     */
+    sharedOwnership?: {
+      /**
+       * The percentage of the shared ownership property being sold by the vendor
+       */
+      sharedPercentage?: number // double
+      /**
+       * The rent payable on the remainder of the shared ownership property
+       */
+      rent?: number // double
+      /**
+       * The frequency at which the shared ownership rent should be paid
+       */
+      rentFrequency?: string
+    }
   }
   /**
    * Request body used to set details specific to lettings marketing on a new property
@@ -6496,6 +6517,16 @@ export interface CreatePropertyModel {
    */
   groundRentComment?: string
   /**
+   * The date when the ground rent payable on the property should be reviewed
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  groundRentReviewDate?: string // date-time
+  /**
+   * The annual percentage increase of the ground rent after being reviewed
+   */
+  groundRentIncrease?: number // double
+  /**
    * Any service charge payment that applies to the property
    */
   serviceCharge?: number // double
@@ -6554,7 +6585,7 @@ export interface CreatePropertySellingModel {
    */
   status?: string
   /**
-   * The method used to sell the property (auction/confidential/tender/offersInvited/privateTreaty)
+   * The method used to sell the property (auction/confidential/tender/offersInvited/privateTreaty/sharedOwnership)
    */
   disposal?: string
   /**
@@ -6619,6 +6650,40 @@ export interface CreatePropertySellingModel {
    * The property's decorative condition (unmodernised/fair/good/veryGood)
    */
   decoration?: string[]
+  /**
+   * Details relating to the shared ownership of the property
+   */
+  sharedOwnership?: {
+    /**
+     * The percentage of the shared ownership property being sold by the vendor
+     */
+    sharedPercentage?: number // double
+    /**
+     * The rent payable on the remainder of the shared ownership property
+     */
+    rent?: number // double
+    /**
+     * The frequency at which the shared ownership rent should be paid
+     */
+    rentFrequency?: string
+  }
+}
+/**
+ * Details relating to the shared ownership of the property
+ */
+export interface CreatePropertySharedOwnershipModel {
+  /**
+   * The percentage of the shared ownership property being sold by the vendor
+   */
+  sharedPercentage?: number // double
+  /**
+   * The rent payable on the remainder of the shared ownership property
+   */
+  rent?: number // double
+  /**
+   * The frequency at which the shared ownership rent should be paid
+   */
+  rentFrequency?: string
 }
 /**
  * Request body used to set the tenure of a new property
@@ -9892,6 +9957,10 @@ export interface OfficeModel {
    */
   manager?: string
   /**
+   * A flag denoting whether or not this office is active
+   */
+  active?: boolean
+  /**
    * Representation of the physical address of a building or premise
    */
   address?: {
@@ -9987,6 +10056,10 @@ export interface OfficeModelPagedResult {
      * The name of the office manager
      */
     manager?: string
+    /**
+     * A flag denoting whether or not this office is active
+     */
+    active?: boolean
     /**
      * Representation of the physical address of a building or premise
      */
@@ -10760,6 +10833,11 @@ export interface PropertyLettingModel {
    */
   brochureId?: string
   /**
+   * The URL at which the brochure can be publicly accessed when the
+   * property is being actively marketed
+   */
+  publicBrochureUrl?: string // uri
+  /**
    * Representation of the the commission fee for a property
    */
   managementFee?: {
@@ -11056,6 +11134,16 @@ export interface PropertyModel {
    */
   groundRentComment?: string
   /**
+   * The date when the ground rent payable on the property should be reviewed
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  groundRentReviewDate?: string // date-time
+  /**
+   * The annual percentage increase of the ground rent after being reviewed
+   */
+  groundRentIncrease?: number // double
+  /**
    * Any service charge payment that applies to the property
    */
   serviceCharge?: number // double
@@ -11169,7 +11257,7 @@ export interface PropertyModel {
      */
     status?: string
     /**
-     * The method used to sell the property (auction/confidential/tender/offersInvited/privateTreaty)
+     * The method used to sell the property (auction/confidential/tender/offersInvited/privateTreaty/sharedOwnership)
      */
     disposal?: string
     /**
@@ -11243,6 +11331,11 @@ export interface PropertyModel {
      */
     brochureId?: string
     /**
+     * The URL at which the brochure can be publicly accessed when the
+     * property is being actively marketed
+     */
+    publicBrochureUrl?: string // uri
+    /**
      * The price the property exchanged/sold for
      */
     exchangedPrice?: number // int32
@@ -11254,6 +11347,23 @@ export interface PropertyModel {
      * The property's decorative condition (unmodernised/fair/good/veryGood)
      */
     decoration?: string[]
+    /**
+     * Details relating to the shared ownership of the property
+     */
+    sharedOwnership?: {
+      /**
+       * The percentage of the shared ownership property being sold by the vendor
+       */
+      sharedPercentage?: number // double
+      /**
+       * The rent payable on the remainder of the shared ownership property
+       */
+      rent?: number // double
+      /**
+       * The frequency at which the shared ownership rent should be paid
+       */
+      rentFrequency?: string
+    }
   }
   /**
    * Representation of property details specific to lettings marketing
@@ -11321,6 +11431,11 @@ export interface PropertyModel {
      * The unique identifier of the document used for the lettings brochure
      */
     brochureId?: string
+    /**
+     * The URL at which the brochure can be publicly accessed when the
+     * property is being actively marketed
+     */
+    publicBrochureUrl?: string // uri
     /**
      * Representation of the the commission fee for a property
      */
@@ -11721,6 +11836,16 @@ export interface PropertyModelPagedResult {
      */
     groundRentComment?: string
     /**
+     * The date when the ground rent payable on the property should be reviewed
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    groundRentReviewDate?: string // date-time
+    /**
+     * The annual percentage increase of the ground rent after being reviewed
+     */
+    groundRentIncrease?: number // double
+    /**
      * Any service charge payment that applies to the property
      */
     serviceCharge?: number // double
@@ -11834,7 +11959,7 @@ export interface PropertyModelPagedResult {
        */
       status?: string
       /**
-       * The method used to sell the property (auction/confidential/tender/offersInvited/privateTreaty)
+       * The method used to sell the property (auction/confidential/tender/offersInvited/privateTreaty/sharedOwnership)
        */
       disposal?: string
       /**
@@ -11908,6 +12033,11 @@ export interface PropertyModelPagedResult {
        */
       brochureId?: string
       /**
+       * The URL at which the brochure can be publicly accessed when the
+       * property is being actively marketed
+       */
+      publicBrochureUrl?: string // uri
+      /**
        * The price the property exchanged/sold for
        */
       exchangedPrice?: number // int32
@@ -11919,6 +12049,23 @@ export interface PropertyModelPagedResult {
        * The property's decorative condition (unmodernised/fair/good/veryGood)
        */
       decoration?: string[]
+      /**
+       * Details relating to the shared ownership of the property
+       */
+      sharedOwnership?: {
+        /**
+         * The percentage of the shared ownership property being sold by the vendor
+         */
+        sharedPercentage?: number // double
+        /**
+         * The rent payable on the remainder of the shared ownership property
+         */
+        rent?: number // double
+        /**
+         * The frequency at which the shared ownership rent should be paid
+         */
+        rentFrequency?: string
+      }
     }
     /**
      * Representation of property details specific to lettings marketing
@@ -11986,6 +12133,11 @@ export interface PropertyModelPagedResult {
        * The unique identifier of the document used for the lettings brochure
        */
       brochureId?: string
+      /**
+       * The URL at which the brochure can be publicly accessed when the
+       * property is being actively marketed
+       */
+      publicBrochureUrl?: string // uri
       /**
        * Representation of the the commission fee for a property
        */
@@ -12263,7 +12415,7 @@ export interface PropertySellingModel {
    */
   status?: string
   /**
-   * The method used to sell the property (auction/confidential/tender/offersInvited/privateTreaty)
+   * The method used to sell the property (auction/confidential/tender/offersInvited/privateTreaty/sharedOwnership)
    */
   disposal?: string
   /**
@@ -12337,6 +12489,11 @@ export interface PropertySellingModel {
    */
   brochureId?: string
   /**
+   * The URL at which the brochure can be publicly accessed when the
+   * property is being actively marketed
+   */
+  publicBrochureUrl?: string // uri
+  /**
    * The price the property exchanged/sold for
    */
   exchangedPrice?: number // int32
@@ -12348,6 +12505,40 @@ export interface PropertySellingModel {
    * The property's decorative condition (unmodernised/fair/good/veryGood)
    */
   decoration?: string[]
+  /**
+   * Details relating to the shared ownership of the property
+   */
+  sharedOwnership?: {
+    /**
+     * The percentage of the shared ownership property being sold by the vendor
+     */
+    sharedPercentage?: number // double
+    /**
+     * The rent payable on the remainder of the shared ownership property
+     */
+    rent?: number // double
+    /**
+     * The frequency at which the shared ownership rent should be paid
+     */
+    rentFrequency?: string
+  }
+}
+/**
+ * Details relating to the shared ownership of the property
+ */
+export interface PropertySharedOwnershipModel {
+  /**
+   * The percentage of the shared ownership property being sold by the vendor
+   */
+  sharedPercentage?: number // double
+  /**
+   * The rent payable on the remainder of the shared ownership property
+   */
+  rent?: number // double
+  /**
+   * The frequency at which the shared ownership rent should be paid
+   */
+  rentFrequency?: string
 }
 /**
  * Representation of the tenure of a property
@@ -12591,6 +12782,7 @@ export interface Referrals {
   negotiatorId?: string[]
   referralTypeId?: string[]
   status?: ('sent' | 'succeeded' | 'cancelled' | 'failed' | 'paid' | 'declined')[]
+  embed?: ('applicant' | 'contact' | 'negotiator' | 'property' | 'type')[]
   pageSize?: number
   pageNumber?: number
   sortBy?: string
@@ -12600,6 +12792,7 @@ export interface Referrals {
   modifiedTo?: string
 }
 export interface ReferralsTypes {
+  id?: string[]
   pageSize?: number
   pageNumber?: number
   sortBy?: string
@@ -15993,6 +16186,10 @@ export interface UpdateOfficeModel {
    */
   name?: string
   /**
+   * A flag denoting whether or not this office is active
+   */
+  active?: boolean
+  /**
    * The name of the office manager
    */
   manager?: string
@@ -16597,7 +16794,7 @@ export interface UpdatePropertyModel {
      */
     status?: string
     /**
-     * The method used to sell the property (auction/confidential/tender/offersInvited/privateTreaty)
+     * The method used to sell the property (auction/confidential/tender/offersInvited/privateTreaty/sharedOwnership)
      */
     disposal?: string
     /**
@@ -16666,6 +16863,23 @@ export interface UpdatePropertyModel {
      * The property's decorative condition (unmodernised/fair/good/veryGood)
      */
     decoration?: string[]
+    /**
+     * Details relating to the shared ownership of the property
+     */
+    sharedOwnership?: {
+      /**
+       * The percentage of the shared ownership property being sold by the vendor
+       */
+      sharedPercentage?: number // double
+      /**
+       * The rent payable on the remainder of the shared ownership property
+       */
+      rent?: number // double
+      /**
+       * The frequency at which the shared ownership rent should be paid
+       */
+      rentFrequency?: string
+    }
   }
   /**
    * Request body used to update details specific to lettings marketing on an existing property
@@ -16859,6 +17073,16 @@ export interface UpdatePropertyModel {
    */
   groundRentComment?: string
   /**
+   * The date when the ground rent payable on the property should be reviewed
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  groundRentReviewDate?: string // date-time
+  /**
+   * The annual percentage increase of the ground rent after being reviewed
+   */
+  groundRentIncrease?: number // double
+  /**
    * Any service charge payment that applies to the property
    */
   serviceCharge?: number // double
@@ -16900,7 +17124,7 @@ export interface UpdatePropertySellingModel {
    */
   status?: string
   /**
-   * The method used to sell the property (auction/confidential/tender/offersInvited/privateTreaty)
+   * The method used to sell the property (auction/confidential/tender/offersInvited/privateTreaty/sharedOwnership)
    */
   disposal?: string
   /**
@@ -16969,6 +17193,40 @@ export interface UpdatePropertySellingModel {
    * The property's decorative condition (unmodernised/fair/good/veryGood)
    */
   decoration?: string[]
+  /**
+   * Details relating to the shared ownership of the property
+   */
+  sharedOwnership?: {
+    /**
+     * The percentage of the shared ownership property being sold by the vendor
+     */
+    sharedPercentage?: number // double
+    /**
+     * The rent payable on the remainder of the shared ownership property
+     */
+    rent?: number // double
+    /**
+     * The frequency at which the shared ownership rent should be paid
+     */
+    rentFrequency?: string
+  }
+}
+/**
+ * Details relating to the shared ownership of the property
+ */
+export interface UpdatePropertySharedOwnershipModel {
+  /**
+   * The percentage of the shared ownership property being sold by the vendor
+   */
+  sharedPercentage?: number // double
+  /**
+   * The rent payable on the remainder of the shared ownership property
+   */
+  rent?: number // double
+  /**
+   * The frequency at which the shared ownership rent should be paid
+   */
+  rentFrequency?: string
 }
 /**
  * Request body used to set the tenure of an existing property

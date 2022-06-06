@@ -1,724 +1,683 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Admin Stats setArea APPS should match snapshot 1`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <MemoryRouter
-    initialEntries={
-      Array [
-        Object {
-          "key": "adminStats",
-          "pathname": "/stats",
-        },
-      ]
-    }
-  >
-    <Router
-      history={
-        Object {
-          "action": "POP",
-          "block": [Function],
-          "canGo": [Function],
-          "createHref": [Function],
-          "entries": Array [
-            Object {
-              "hash": "",
-              "key": "adminStats",
-              "pathname": "/stats",
-              "search": "",
-            },
-          ],
-          "go": [Function],
-          "goBack": [Function],
-          "goForward": [Function],
-          "index": 0,
-          "length": 1,
-          "listen": [Function],
-          "location": Object {
-            "hash": "",
-            "key": "adminStats",
-            "pathname": "/stats",
-            "search": "",
-          },
-          "push": [Function],
-          "replace": [Function],
-        }
-      }
-    >
-      <Statistics>
-        <H3>
-          <h3
-            className="title is-3"
-            id=""
-          >
-            Stats
-          </h3>
-        </H3>
-        <H6>
-          <h6
-            className="title is-6"
-            id=""
-          >
-            Please select an area:
-          </h6>
-        </H6>
-        <ButtonGroup>
-          <div
-            className="is-centered buttons has-addons"
-          >
-            <Button
-              className="ml-0"
-              dataTest="area-apps-btn"
-              onClick={[Function]}
-              type="button"
-              variant="primary"
-            >
-              <button
-                className="button   is-primary ml-0"
-                data-test="area-apps-btn"
-                disabled={false}
-                onClick={[Function]}
-                type="button"
-              >
-                Apps
-              </button>
-            </Button>
-            <Button
-              dataTest="area-developers-btn"
-              onClick={[Function]}
-              type="button"
-              variant="secondary"
-            >
-              <button
-                className="button   is-secondary "
-                data-test="area-developers-btn"
-                disabled={false}
-                onClick={[Function]}
-                type="button"
-              >
-                Developers
-              </button>
-            </Button>
-            <Button
-              dataTest="area-installations-btn"
-              onClick={[Function]}
-              type="button"
-              variant="secondary"
-            >
-              <button
-                className="button   is-secondary "
-                data-test="area-installations-btn"
-                disabled={false}
-                onClick={[Function]}
-                type="button"
-              >
-                Installations
-              </button>
-            </Button>
-          </div>
-        </ButtonGroup>
-        <H6>
-          <h6
-            className="title is-6"
-            id=""
-          >
-            Please select a time range:
-          </h6>
-        </H6>
-        <ButtonGroup>
-          <div
-            className="is-centered buttons has-addons"
-          >
-            <Button
-              className="ml-0"
-              dataTest="range-week-btn"
-              onClick={[Function]}
-              type="button"
-              variant="primary"
-            >
-              <button
-                className="button   is-primary ml-0"
-                data-test="range-week-btn"
-                disabled={false}
-                onClick={[Function]}
-                type="button"
-              >
-                Last week
-              </button>
-            </Button>
-            <Button
-              dataTest="range-month-btn"
-              onClick={[Function]}
-              type="button"
-              variant="secondary"
-            >
-              <button
-                className="button   is-secondary "
-                data-test="range-month-btn"
-                disabled={false}
-                onClick={[Function]}
-                type="button"
-              >
-                Last Month
-              </button>
-            </Button>
-            <Button
-              dataTest="range-all-btn"
-              onClick={[Function]}
-              type="button"
-              variant="secondary"
-            >
-              <button
-                className="button   is-secondary "
-                data-test="range-all-btn"
-                disabled={false}
-                onClick={[Function]}
-                type="button"
-              >
-                All time
-              </button>
-            </Button>
-          </div>
-        </ButtonGroup>
-        <H6>
-          <h6
-            className="title is-6"
-            id=""
-          >
-            Showing results for ‘
-            APPS
-            ’ and ‘
-            Last Week
-            ’
-          </h6>
-        </H6>
-        <H5>
-          <h5
-            className="title is-5"
-            id=""
-          >
-            Download as CSV
-          </h5>
-        </H5>
-        <Section
-          hasMargin={false}
-          hasPadding={false}
-        >
-          <section
-            className="section has-background"
-            data-test=""
-          >
-            <Button
-              onClick={[Function]}
-              type="button"
-              variant="primary"
-            >
-              <button
-                className="button   is-primary "
-                data-test=""
-                disabled={false}
-                onClick={[Function]}
-                type="button"
-              >
-                Download
-              </button>
-            </Button>
-          </section>
-        </Section>
-      </Statistics>
-    </Router>
-  </MemoryRouter>
-</Provider>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body />,
+  "container": <div />,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`Admin Stats should match snapshot 1`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <MemoryRouter
-    initialEntries={
-      Array [
-        Object {
-          "key": "adminStats",
-          "pathname": "/stats",
-        },
-      ]
-    }
-  >
-    <Router
-      history={
-        Object {
-          "action": "POP",
-          "block": [Function],
-          "canGo": [Function],
-          "createHref": [Function],
-          "entries": Array [
-            Object {
-              "hash": "",
-              "key": "adminStats",
-              "pathname": "/stats",
-              "search": "",
-            },
-          ],
-          "go": [Function],
-          "goBack": [Function],
-          "goForward": [Function],
-          "index": 0,
-          "length": 1,
-          "listen": [Function],
-          "location": Object {
-            "hash": "",
-            "key": "adminStats",
-            "pathname": "/stats",
-            "search": "",
-          },
-          "push": [Function],
-          "replace": [Function],
-        }
-      }
-    >
-      <Statistics>
-        <H3>
-          <h3
-            className="title is-3"
-            id=""
-          >
-            Stats
-          </h3>
-        </H3>
-        <H6>
-          <h6
-            className="title is-6"
-            id=""
-          >
-            Please select an area:
-          </h6>
-        </H6>
-        <ButtonGroup>
-          <div
-            className="is-centered buttons has-addons"
-          >
-            <Button
-              className="ml-0"
-              dataTest="area-apps-btn"
-              onClick={[Function]}
-              type="button"
-              variant="primary"
-            >
-              <button
-                className="button   is-primary ml-0"
-                data-test="area-apps-btn"
-                disabled={false}
-                onClick={[Function]}
-                type="button"
-              >
-                Apps
-              </button>
-            </Button>
-            <Button
-              dataTest="area-developers-btn"
-              onClick={[Function]}
-              type="button"
-              variant="secondary"
-            >
-              <button
-                className="button   is-secondary "
-                data-test="area-developers-btn"
-                disabled={false}
-                onClick={[Function]}
-                type="button"
-              >
-                Developers
-              </button>
-            </Button>
-            <Button
-              dataTest="area-installations-btn"
-              onClick={[Function]}
-              type="button"
-              variant="secondary"
-            >
-              <button
-                className="button   is-secondary "
-                data-test="area-installations-btn"
-                disabled={false}
-                onClick={[Function]}
-                type="button"
-              >
-                Installations
-              </button>
-            </Button>
-          </div>
-        </ButtonGroup>
-        <H6>
-          <h6
-            className="title is-6"
-            id=""
-          >
-            Please select a time range:
-          </h6>
-        </H6>
-        <ButtonGroup>
-          <div
-            className="is-centered buttons has-addons"
-          >
-            <Button
-              className="ml-0"
-              dataTest="range-week-btn"
-              onClick={[Function]}
-              type="button"
-              variant="primary"
-            >
-              <button
-                className="button   is-primary ml-0"
-                data-test="range-week-btn"
-                disabled={false}
-                onClick={[Function]}
-                type="button"
-              >
-                Last week
-              </button>
-            </Button>
-            <Button
-              dataTest="range-month-btn"
-              onClick={[Function]}
-              type="button"
-              variant="secondary"
-            >
-              <button
-                className="button   is-secondary "
-                data-test="range-month-btn"
-                disabled={false}
-                onClick={[Function]}
-                type="button"
-              >
-                Last Month
-              </button>
-            </Button>
-            <Button
-              dataTest="range-all-btn"
-              onClick={[Function]}
-              type="button"
-              variant="secondary"
-            >
-              <button
-                className="button   is-secondary "
-                data-test="range-all-btn"
-                disabled={false}
-                onClick={[Function]}
-                type="button"
-              >
-                All time
-              </button>
-            </Button>
-          </div>
-        </ButtonGroup>
-        <H6>
-          <h6
-            className="title is-6"
-            id=""
-          >
-            Showing results for ‘
-            APPS
-            ’ and ‘
-            Last Week
-            ’
-          </h6>
-        </H6>
-        <H5>
-          <h5
-            className="title is-5"
-            id=""
-          >
-            Download as CSV
-          </h5>
-        </H5>
-        <Section
-          hasMargin={false}
-          hasPadding={false}
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <h3
+        class="title is-3"
+        id=""
+      >
+        Stats
+      </h3>
+      <h6
+        class="title is-6"
+        id=""
+      >
+        Please select an area:
+      </h6>
+      <div
+        class="is-centered buttons has-addons"
+      >
+        <button
+          class="button   is-primary ml-0"
+          data-test="area-apps-btn"
+          type="button"
         >
-          <section
-            className="section has-background"
-            data-test=""
-          >
-            <Button
-              onClick={[Function]}
-              type="button"
-              variant="primary"
-            >
-              <button
-                className="button   is-primary "
-                data-test=""
-                disabled={false}
-                onClick={[Function]}
-                type="button"
-              >
-                Download
-              </button>
-            </Button>
-          </section>
-        </Section>
-      </Statistics>
-    </Router>
-  </MemoryRouter>
-</Provider>
+          Apps
+        </button>
+        <button
+          class="button   is-secondary "
+          data-test="area-developers-btn"
+          type="button"
+        >
+          Developers
+        </button>
+        <button
+          class="button   is-secondary "
+          data-test="area-installations-btn"
+          type="button"
+        >
+          Installations
+        </button>
+      </div>
+      <h6
+        class="title is-6"
+        id=""
+      >
+        Please select a time range:
+      </h6>
+      <div
+        class="is-centered buttons has-addons"
+      >
+        <button
+          class="button   is-primary ml-0"
+          data-test="range-week-btn"
+          type="button"
+        >
+          Last week
+        </button>
+        <button
+          class="button   is-secondary "
+          data-test="range-month-btn"
+          type="button"
+        >
+          Last Month
+        </button>
+        <button
+          class="button   is-secondary "
+          data-test="range-all-btn"
+          type="button"
+        >
+          All time
+        </button>
+      </div>
+      <h6
+        class="title is-6"
+        id=""
+      >
+        Showing results for ‘
+        APPS
+        ’ and ‘
+        Last Week
+        ’
+      </h6>
+      <h5
+        class="title is-5"
+        id=""
+      >
+        Download as CSV
+      </h5>
+      <section
+        class="section has-background"
+        data-test=""
+      >
+        <button
+          class="button   is-primary "
+          data-test=""
+          type="button"
+        >
+          Download
+        </button>
+      </section>
+    </div>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <h3
+        class="title is-3"
+        id=""
+      >
+        Stats
+      </h3>
+      <h6
+        class="title is-6"
+        id=""
+      >
+        Please select an area:
+      </h6>
+      <div
+        class="is-centered buttons has-addons"
+      >
+        <button
+          class="button   is-primary ml-0"
+          data-test="area-apps-btn"
+          type="button"
+        >
+          Apps
+        </button>
+        <button
+          class="button   is-secondary "
+          data-test="area-developers-btn"
+          type="button"
+        >
+          Developers
+        </button>
+        <button
+          class="button   is-secondary "
+          data-test="area-installations-btn"
+          type="button"
+        >
+          Installations
+        </button>
+      </div>
+      <h6
+        class="title is-6"
+        id=""
+      >
+        Please select a time range:
+      </h6>
+      <div
+        class="is-centered buttons has-addons"
+      >
+        <button
+          class="button   is-primary ml-0"
+          data-test="range-week-btn"
+          type="button"
+        >
+          Last week
+        </button>
+        <button
+          class="button   is-secondary "
+          data-test="range-month-btn"
+          type="button"
+        >
+          Last Month
+        </button>
+        <button
+          class="button   is-secondary "
+          data-test="range-all-btn"
+          type="button"
+        >
+          All time
+        </button>
+      </div>
+      <h6
+        class="title is-6"
+        id=""
+      >
+        Showing results for ‘
+        APPS
+        ’ and ‘
+        Last Week
+        ’
+      </h6>
+      <h5
+        class="title is-5"
+        id=""
+      >
+        Download as CSV
+      </h5>
+      <section
+        class="section has-background"
+        data-test=""
+      >
+        <button
+          class="button   is-primary "
+          data-test=""
+          type="button"
+        >
+          Download
+        </button>
+      </section>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <h3
+      class="title is-3"
+      id=""
+    >
+      Stats
+    </h3>
+    <h6
+      class="title is-6"
+      id=""
+    >
+      Please select an area:
+    </h6>
+    <div
+      class="is-centered buttons has-addons"
+    >
+      <button
+        class="button   is-primary ml-0"
+        data-test="area-apps-btn"
+        type="button"
+      >
+        Apps
+      </button>
+      <button
+        class="button   is-secondary "
+        data-test="area-developers-btn"
+        type="button"
+      >
+        Developers
+      </button>
+      <button
+        class="button   is-secondary "
+        data-test="area-installations-btn"
+        type="button"
+      >
+        Installations
+      </button>
+    </div>
+    <h6
+      class="title is-6"
+      id=""
+    >
+      Please select a time range:
+    </h6>
+    <div
+      class="is-centered buttons has-addons"
+    >
+      <button
+        class="button   is-primary ml-0"
+        data-test="range-week-btn"
+        type="button"
+      >
+        Last week
+      </button>
+      <button
+        class="button   is-secondary "
+        data-test="range-month-btn"
+        type="button"
+      >
+        Last Month
+      </button>
+      <button
+        class="button   is-secondary "
+        data-test="range-all-btn"
+        type="button"
+      >
+        All time
+      </button>
+    </div>
+    <h6
+      class="title is-6"
+      id=""
+    >
+      Showing results for ‘
+      APPS
+      ’ and ‘
+      Last Week
+      ’
+    </h6>
+    <h5
+      class="title is-5"
+      id=""
+    >
+      Download as CSV
+    </h5>
+    <section
+      class="section has-background"
+      data-test=""
+    >
+      <button
+        class="button   is-primary "
+        data-test=""
+        type="button"
+      >
+        Download
+      </button>
+    </section>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`Admin Stats should show loading 1`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <MemoryRouter
-    initialEntries={
-      Array [
-        Object {
-          "key": "adminStats",
-          "pathname": "/stats",
-        },
-      ]
-    }
-  >
-    <Router
-      history={
-        Object {
-          "action": "POP",
-          "block": [Function],
-          "canGo": [Function],
-          "createHref": [Function],
-          "entries": Array [
-            Object {
-              "hash": "",
-              "key": "adminStats",
-              "pathname": "/stats",
-              "search": "",
-            },
-          ],
-          "go": [Function],
-          "goBack": [Function],
-          "goForward": [Function],
-          "index": 0,
-          "length": 1,
-          "listen": [Function],
-          "location": Object {
-            "hash": "",
-            "key": "adminStats",
-            "pathname": "/stats",
-            "search": "",
-          },
-          "push": [Function],
-          "replace": [Function],
-        }
-      }
-    >
-      <Statistics>
-        <H3>
-          <h3
-            className="title is-3"
-            id=""
-          >
-            Stats
-          </h3>
-        </H3>
-        <H6>
-          <h6
-            className="title is-6"
-            id=""
-          >
-            Please select an area:
-          </h6>
-        </H6>
-        <ButtonGroup>
-          <div
-            className="is-centered buttons has-addons"
-          >
-            <Button
-              className="ml-0"
-              dataTest="area-apps-btn"
-              onClick={[Function]}
-              type="button"
-              variant="primary"
-            >
-              <button
-                className="button   is-primary ml-0"
-                data-test="area-apps-btn"
-                disabled={false}
-                onClick={[Function]}
-                type="button"
-              >
-                Apps
-              </button>
-            </Button>
-            <Button
-              dataTest="area-developers-btn"
-              onClick={[Function]}
-              type="button"
-              variant="secondary"
-            >
-              <button
-                className="button   is-secondary "
-                data-test="area-developers-btn"
-                disabled={false}
-                onClick={[Function]}
-                type="button"
-              >
-                Developers
-              </button>
-            </Button>
-            <Button
-              dataTest="area-installations-btn"
-              onClick={[Function]}
-              type="button"
-              variant="secondary"
-            >
-              <button
-                className="button   is-secondary "
-                data-test="area-installations-btn"
-                disabled={false}
-                onClick={[Function]}
-                type="button"
-              >
-                Installations
-              </button>
-            </Button>
-          </div>
-        </ButtonGroup>
-        <H6>
-          <h6
-            className="title is-6"
-            id=""
-          >
-            Please select a time range:
-          </h6>
-        </H6>
-        <ButtonGroup>
-          <div
-            className="is-centered buttons has-addons"
-          >
-            <Button
-              className="ml-0"
-              dataTest="range-week-btn"
-              onClick={[Function]}
-              type="button"
-              variant="primary"
-            >
-              <button
-                className="button   is-primary ml-0"
-                data-test="range-week-btn"
-                disabled={false}
-                onClick={[Function]}
-                type="button"
-              >
-                Last week
-              </button>
-            </Button>
-            <Button
-              dataTest="range-month-btn"
-              onClick={[Function]}
-              type="button"
-              variant="secondary"
-            >
-              <button
-                className="button   is-secondary "
-                data-test="range-month-btn"
-                disabled={false}
-                onClick={[Function]}
-                type="button"
-              >
-                Last Month
-              </button>
-            </Button>
-            <Button
-              dataTest="range-all-btn"
-              onClick={[Function]}
-              type="button"
-              variant="secondary"
-            >
-              <button
-                className="button   is-secondary "
-                data-test="range-all-btn"
-                disabled={false}
-                onClick={[Function]}
-                type="button"
-              >
-                All time
-              </button>
-            </Button>
-          </div>
-        </ButtonGroup>
-        <H6>
-          <h6
-            className="title is-6"
-            id=""
-          >
-            Showing results for ‘
-            APPS
-            ’ and ‘
-            Last Week
-            ’
-          </h6>
-        </H6>
-        <H5>
-          <h5
-            className="title is-5"
-            id=""
-          >
-            Download as CSV
-          </h5>
-        </H5>
-        <Section
-          hasMargin={false}
-          hasPadding={false}
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <h3
+        class="title is-3"
+        id=""
+      >
+        Stats
+      </h3>
+      <h6
+        class="title is-6"
+        id=""
+      >
+        Please select an area:
+      </h6>
+      <div
+        class="is-centered buttons has-addons"
+      >
+        <button
+          class="button   is-primary ml-0"
+          data-test="area-apps-btn"
+          type="button"
         >
-          <section
-            className="section has-background"
-            data-test=""
-          >
-            <Button
-              onClick={[Function]}
-              type="button"
-              variant="primary"
-            >
-              <button
-                className="button   is-primary "
-                data-test=""
-                disabled={false}
-                onClick={[Function]}
-                type="button"
-              >
-                Download
-              </button>
-            </Button>
-          </section>
-        </Section>
-      </Statistics>
-    </Router>
-  </MemoryRouter>
-</Provider>
+          Apps
+        </button>
+        <button
+          class="button   is-secondary "
+          data-test="area-developers-btn"
+          type="button"
+        >
+          Developers
+        </button>
+        <button
+          class="button   is-secondary "
+          data-test="area-installations-btn"
+          type="button"
+        >
+          Installations
+        </button>
+      </div>
+      <h6
+        class="title is-6"
+        id=""
+      >
+        Please select a time range:
+      </h6>
+      <div
+        class="is-centered buttons has-addons"
+      >
+        <button
+          class="button   is-primary ml-0"
+          data-test="range-week-btn"
+          type="button"
+        >
+          Last week
+        </button>
+        <button
+          class="button   is-secondary "
+          data-test="range-month-btn"
+          type="button"
+        >
+          Last Month
+        </button>
+        <button
+          class="button   is-secondary "
+          data-test="range-all-btn"
+          type="button"
+        >
+          All time
+        </button>
+      </div>
+      <h6
+        class="title is-6"
+        id=""
+      >
+        Showing results for ‘
+        APPS
+        ’ and ‘
+        Last Week
+        ’
+      </h6>
+      <h5
+        class="title is-5"
+        id=""
+      >
+        Download as CSV
+      </h5>
+      <section
+        class="section has-background"
+        data-test=""
+      >
+        <button
+          class="button   is-primary "
+          data-test=""
+          type="button"
+        >
+          Download
+        </button>
+      </section>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <h3
+      class="title is-3"
+      id=""
+    >
+      Stats
+    </h3>
+    <h6
+      class="title is-6"
+      id=""
+    >
+      Please select an area:
+    </h6>
+    <div
+      class="is-centered buttons has-addons"
+    >
+      <button
+        class="button   is-primary ml-0"
+        data-test="area-apps-btn"
+        type="button"
+      >
+        Apps
+      </button>
+      <button
+        class="button   is-secondary "
+        data-test="area-developers-btn"
+        type="button"
+      >
+        Developers
+      </button>
+      <button
+        class="button   is-secondary "
+        data-test="area-installations-btn"
+        type="button"
+      >
+        Installations
+      </button>
+    </div>
+    <h6
+      class="title is-6"
+      id=""
+    >
+      Please select a time range:
+    </h6>
+    <div
+      class="is-centered buttons has-addons"
+    >
+      <button
+        class="button   is-primary ml-0"
+        data-test="range-week-btn"
+        type="button"
+      >
+        Last week
+      </button>
+      <button
+        class="button   is-secondary "
+        data-test="range-month-btn"
+        type="button"
+      >
+        Last Month
+      </button>
+      <button
+        class="button   is-secondary "
+        data-test="range-all-btn"
+        type="button"
+      >
+        All time
+      </button>
+    </div>
+    <h6
+      class="title is-6"
+      id=""
+    >
+      Showing results for ‘
+      APPS
+      ’ and ‘
+      Last Week
+      ’
+    </h6>
+    <h5
+      class="title is-5"
+      id=""
+    >
+      Download as CSV
+    </h5>
+    <section
+      class="section has-background"
+      data-test=""
+    >
+      <button
+        class="button   is-primary "
+        data-test=""
+        type="button"
+      >
+        Download
+      </button>
+    </section>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

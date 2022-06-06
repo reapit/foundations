@@ -1,20 +1,112 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`HelpGuide HelpGuide.Step should match a snapshot 1`] = `
-<Fragment>
-  <Section
-    hasMargin={false}
-  >
-    <H3 />
-    <SubTitleH6 />
-  </Section>
-  <Section
-    hasMargin={false}
-    isFlex={true}
-  >
-    <component />
-  </Section>
-</Fragment>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <section
+        class="section has-padding has-background"
+        data-test=""
+      >
+        <h3
+          class="title is-3"
+          id=""
+        />
+        <h6
+          class="subtitle is-6"
+          id=""
+        />
+      </section>
+      <section
+        class="section is-flex has-padding has-background"
+        data-test=""
+      >
+        <div
+          class="step-3"
+        >
+          Step 3
+        </div>
+      </section>
+    </div>
+  </body>,
+  "container": <div>
+    <section
+      class="section has-padding has-background"
+      data-test=""
+    >
+      <h3
+        class="title is-3"
+        id=""
+      />
+      <h6
+        class="subtitle is-6"
+        id=""
+      />
+    </section>
+    <section
+      class="section is-flex has-padding has-background"
+      data-test=""
+    >
+      <div
+        class="step-3"
+      >
+        Step 3
+      </div>
+    </section>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`HelpGuide renderTimeline should match a snapshot when isMobileScreen FALSE 1`] = `
@@ -34,39 +126,180 @@ exports[`HelpGuide renderTimeline should match a snapshot when isMobileScreen TR
 `;
 
 exports[`HelpGuide should match a snapshot 1`] = `
-<ContextProvider
-  value={
-    Object {
-      "current": 0,
-      "goNext": [Function],
-      "goPrev": [Function],
-      "isFirst": true,
-      "isLast": false,
-      "isLoading": false,
-    }
-  }
->
-  <Section
-    className="help-guide"
-    hasMargin={false}
-    isFlex={true}
-    isFlexColumn={false}
-  >
-    <VerticalTimeline
-      currentIndex={0}
-      onSelect={[Function]}
-      total={4}
-    />
-    <Fade
-      in={true}
-      timeout={300}
-      unmountOnExit={true}
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <section
+        class="section is-flex has-padding has-background help-guide"
+        data-test=""
+      >
+        <ul
+          class="vertical-timeline"
+        >
+          <div
+            class="circle-active"
+            style="transform: translateY(0px);"
+          />
+          <div
+            class="line-active"
+            style="height: 60px;"
+          />
+          <li
+            class="active "
+          />
+          <li
+            class=" "
+          />
+          <li
+            class=" "
+          />
+          <li
+            class=" "
+          />
+        </ul>
+        <div
+          class="help-guide-content"
+        >
+          <div>
+            <section
+              class="section has-padding has-background"
+              data-test=""
+            >
+              <h3
+                class="title is-3"
+                id=""
+              />
+              <h6
+                class="subtitle is-6"
+                id=""
+              />
+            </section>
+            <section
+              class="section is-flex has-padding has-background"
+              data-test=""
+            >
+              <div
+                class="step-1"
+              >
+                Step 1
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>,
+  "container": <div>
+    <section
+      class="section is-flex has-padding has-background help-guide"
+      data-test=""
     >
-      <HelpGuideStep
-        component={[Function]}
-        id="step-1"
-      />
-    </Fade>
-  </Section>
-</ContextProvider>
+      <ul
+        class="vertical-timeline"
+      >
+        <div
+          class="circle-active"
+          style="transform: translateY(0px);"
+        />
+        <div
+          class="line-active"
+          style="height: 60px;"
+        />
+        <li
+          class="active "
+        />
+        <li
+          class=" "
+        />
+        <li
+          class=" "
+        />
+        <li
+          class=" "
+        />
+      </ul>
+      <div
+        class="help-guide-content"
+      >
+        <div>
+          <section
+            class="section has-padding has-background"
+            data-test=""
+          >
+            <h3
+              class="title is-3"
+              id=""
+            />
+            <h6
+              class="subtitle is-6"
+              id=""
+            />
+          </section>
+          <section
+            class="section is-flex has-padding has-background"
+            data-test=""
+          >
+            <div
+              class="step-1"
+            >
+              Step 1
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

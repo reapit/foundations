@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../../tests/react-testing'
 import { ChangePasswordForm, handleSubmitChangePassword, ChangePasswordValues } from '../change-password-form'
 import { FormikHelpers } from '@reapit/elements-legacy'
 
@@ -9,7 +9,7 @@ describe('ChangePasswordForm', () => {
       changePassword: jest.fn(),
       loading: false,
     }
-    const wrapper = shallow(<ChangePasswordForm {...mockProps} />)
+    const wrapper = render(<ChangePasswordForm {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
   })
 })

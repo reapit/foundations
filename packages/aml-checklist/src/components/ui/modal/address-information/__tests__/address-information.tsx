@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../../../tests/react-testing'
 import { ReduxState } from '@/types/core'
 import { contact } from '@/sagas/__stubs__/contact'
 import {
@@ -7,9 +7,7 @@ import {
   handleMoreThreeYear,
   mapStateToProps,
   mapDispatchToProps,
-  AddressInput,
   renderYearOptions,
-  renderSencondaryAddress,
 } from '../address-information'
 
 describe('AddressInformation', () => {
@@ -21,7 +19,7 @@ describe('AddressInformation', () => {
       onPrevHandler: jest.fn(),
       onHandleSubmit: jest.fn(),
     }
-    const wrapper = shallow(<AddressInformation {...mockProps} />)
+    const wrapper = render(<AddressInformation {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
   })
 
@@ -29,15 +27,6 @@ describe('AddressInformation', () => {
     it('should run correctly', () => {
       const result = renderYearOptions()
       expect(result).toHaveLength(101)
-    })
-  })
-
-  describe('renderSencondaryAddress', () => {
-    it('should match snapshot', () => {
-      const wrapper = shallow(
-        renderSencondaryAddress(contact.secondaryAddress, false, jest.fn(), { documentId: 'SOME_ID' }),
-      )
-      expect(wrapper).toMatchSnapshot()
     })
   })
 
@@ -90,20 +79,6 @@ describe('AddressInformation', () => {
       const { onPrevHandler } = mapDispatchToProps(mockDispatch)
       onPrevHandler()
       expect(mockDispatch).toBeCalled()
-    })
-  })
-
-  describe('AddressInput', () => {
-    it('should render correctly', () => {
-      const mockProps = {
-        index: 0,
-        addressType: 'primaryAddress' as 'primaryAddress' | 'secondaryAddress',
-        documentImage: {
-          documentId: 'https://someimage.com',
-        },
-      }
-      const wrapper = shallow(<AddressInput {...mockProps} />)
-      expect(wrapper).toMatchSnapshot()
     })
   })
 })

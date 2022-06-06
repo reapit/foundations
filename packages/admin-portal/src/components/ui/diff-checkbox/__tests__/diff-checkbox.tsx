@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../../tests/react-testing'
 import { DiffCheckbox, DiffCheckboxProps } from '../diff-checkbox'
 
 const mockProps: DiffCheckboxProps = {
@@ -9,7 +9,7 @@ const mockProps: DiffCheckboxProps = {
 
 describe('DiffCheckbox', () => {
   it('should match snapshot', () => {
-    const wrapper = shallow(<DiffCheckbox {...mockProps} />)
+    const wrapper = render(<DiffCheckbox {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
   })
 })

@@ -1,21 +1,168 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Dropdown-select should match a snapshot 1`] = `
-<Fragment>
-  <div
-    className="field"
-  >
-    <div
-      className="control"
-    >
-      <Field
-        name="demo"
-        validate={null}
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="field"
       >
-        <Component />
-      </Field>
+        <div
+          class="control"
+        >
+          <div
+            class="field field-dropdown-select"
+          >
+            <label
+              class="label "
+            >
+              demo
+            </label>
+            <div
+              class="rc-select is-primary input rc-select-multiple rc-select-show-search"
+            >
+              <div
+                class="rc-select-selector"
+              >
+                <span
+                  class="rc-select-selection-search"
+                  style="width: 0px;"
+                >
+                  <input
+                    aria-activedescendant="demo_list_0"
+                    aria-autocomplete="list"
+                    aria-controls="demo_list"
+                    aria-haspopup="listbox"
+                    aria-owns="demo_list"
+                    autocomplete="off"
+                    class="rc-select-selection-search-input"
+                    id="demo"
+                    role="combobox"
+                    value=""
+                  />
+                  <span
+                    aria-hidden="true"
+                    class="rc-select-selection-search-mirror"
+                  >
+                     
+                  </span>
+                </span>
+                <span
+                  class="rc-select-selection-placeholder"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div />
     </div>
-  </div>
-  <div />
-</Fragment>
+  </body>,
+  "container": <div>
+    <div
+      class="field"
+    >
+      <div
+        class="control"
+      >
+        <div
+          class="field field-dropdown-select"
+        >
+          <label
+            class="label "
+          >
+            demo
+          </label>
+          <div
+            class="rc-select is-primary input rc-select-multiple rc-select-show-search"
+          >
+            <div
+              class="rc-select-selector"
+            >
+              <span
+                class="rc-select-selection-search"
+                style="width: 0px;"
+              >
+                <input
+                  aria-activedescendant="demo_list_0"
+                  aria-autocomplete="list"
+                  aria-controls="demo_list"
+                  aria-haspopup="listbox"
+                  aria-owns="demo_list"
+                  autocomplete="off"
+                  class="rc-select-selection-search-input"
+                  id="demo"
+                  role="combobox"
+                  value=""
+                />
+                <span
+                  aria-hidden="true"
+                  class="rc-select-selection-search-mirror"
+                >
+                   
+                </span>
+              </span>
+              <span
+                class="rc-select-selection-placeholder"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div />
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

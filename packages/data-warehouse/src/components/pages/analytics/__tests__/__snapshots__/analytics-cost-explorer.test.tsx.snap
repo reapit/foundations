@@ -1,344 +1,276 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AnalyticsCostExplorer should match a snapshot 1`] = `
-<MessageProvider>
-  <AnalyticsCostExplorer>
-    <Section
-      hasBoxShadow={true}
-      hasMargin={false}
-    >
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ecbqyq6"
+      />
       <section
-        className="section has-padding has-background has-box-shadow"
+        class="section has-padding has-background has-box-shadow"
         data-test=""
       >
-        <H5>
-          <h5
-            className="title is-5"
-            id=""
-          >
-            Cost Explorer
-          </h5>
-        </H5>
-        <FadeIn>
+        <h5
+          class="title is-5"
+          id=""
+        >
+          Cost Explorer
+        </h5>
+        <div
+          class="fvmt8oy"
+        >
           <div
-            className="fvmt8oy"
+            class="columns"
+            data-test=""
           >
-            <Grid>
-              <div
-                className="columns"
-                data-test=""
+            <div
+              class="column is-half-desktop"
+              data-test=""
+            >
+              <form
+                action="#"
               >
-                <GridItem
-                  className="is-half-desktop"
+                <div
+                  class="field"
                 >
                   <div
-                    className="column is-half-desktop"
-                    data-test=""
+                    class="control"
                   >
-                    <Formik
-                      initialValues={
-                        Object {
-                          "month": 2019-10-10T22:39:51.389Z,
-                        }
-                      }
-                      onSubmit={[Function]}
-                    >
-                      <Form>
-                        <form
-                          action="#"
-                          onReset={[Function]}
-                          onSubmit={[Function]}
-                        >
-                          <DatePicker
-                            id="month"
-                            name="month"
-                            reactDatePickerProps={
-                              Object {
-                                "dateFormat": "MMMM YYYY",
-                                "maxDate": 2019-10-10T22:39:51.389Z,
-                                "minDate": 2020-12-01T00:00:00.000Z,
-                                "showMonthDropdown": true,
-                                "showMonthYearPicker": true,
-                              }
-                            }
-                            useCustomInput={false}
-                          >
-                            <Field
-                              name="month"
-                              validate={null}
-                            >
-                              <div
-                                className="field"
-                              >
-                                <div
-                                  className="control"
-                                >
-                                  <o
-                                    allowSameDay={false}
-                                    className="input is-primary"
-                                    customInput={false}
-                                    customTimeInput={null}
-                                    dateFormat="MMMM YYYY"
-                                    dateFormatCalendar="LLLL yyyy"
-                                    disabled={false}
-                                    disabledKeyboardNavigation={false}
-                                    dropdownMode="scroll"
-                                    enableTabLoop={true}
-                                    excludeScrollbar={true}
-                                    id="month"
-                                    inlineFocusSelectedMonth={false}
-                                    maxDate={2019-10-10T22:39:51.389Z}
-                                    minDate={2020-12-01T00:00:00.000Z}
-                                    monthsShown={1}
-                                    name="month"
-                                    nextMonthButtonLabel="Next Month"
-                                    nextYearButtonLabel="Next Year"
-                                    onBlur={[Function]}
-                                    onCalendarClose={[Function]}
-                                    onCalendarOpen={[Function]}
-                                    onChange={[Function]}
-                                    onClickOutside={[Function]}
-                                    onFocus={[Function]}
-                                    onInputClick={[Function]}
-                                    onInputError={[Function]}
-                                    onKeyDown={[Function]}
-                                    onMonthChange={[Function]}
-                                    onSelect={[Function]}
-                                    onYearChange={[Function]}
-                                    popperPlacement="top"
-                                    preventOpenOnFocus={false}
-                                    previousMonthButtonLabel="Previous Month"
-                                    previousYearButtonLabel="Previous Year"
-                                    readOnly={false}
-                                    renderDayContents={[Function]}
-                                    selected={2019-10-10T00:00:00.000Z}
-                                    shouldCloseOnSelect={true}
-                                    showFullMonthYearPicker={false}
-                                    showMonthDropdown={true}
-                                    showMonthYearPicker={true}
-                                    showPopperArrow={true}
-                                    showPreviousMonths={false}
-                                    showQuarterYearPicker={false}
-                                    showTimeInput={false}
-                                    showTimeSelect={false}
-                                    showYearPicker={false}
-                                    strictParsing={false}
-                                    timeCaption="Time"
-                                    timeInputLabel="Time"
-                                    timeIntervals={30}
-                                    value="October 2019"
-                                    withPortal={false}
-                                  >
-                                    <a
-                                      enableTabLoop={true}
-                                      hidePopper={true}
-                                      popperComponent={null}
-                                      popperModifiers={
-                                        Object {
-                                          "preventOverflow": Object {
-                                            "boundariesElement": "viewport",
-                                            "enabled": true,
-                                            "escapeWithReference": true,
-                                          },
-                                        }
-                                      }
-                                      popperOnKeyDown={[Function]}
-                                      popperPlacement="top"
-                                      popperProps={Object {}}
-                                      targetComponent={
-                                        <div
-                                          className="react-datepicker__input-container"
-                                        >
-                                          <input
-                                            className="input is-primary"
-                                            disabled={false}
-                                            id="month"
-                                            name="month"
-                                            onBlur={[Function]}
-                                            onChange={[Function]}
-                                            onClick={[Function]}
-                                            onFocus={[Function]}
-                                            onKeyDown={[Function]}
-                                            readOnly={false}
-                                            type="text"
-                                            value="October 2019"
-                                          />
-                                        </div>
-                                      }
-                                    >
-                                      <Manager
-                                        className="react-datepicker-manager"
-                                      >
-                                        <Reference>
-                                          <InnerReference
-                                            setReferenceNode={[Function]}
-                                          >
-                                            <div
-                                              className="react-datepicker-wrapper"
-                                            >
-                                              <div
-                                                className="react-datepicker__input-container"
-                                              >
-                                                <input
-                                                  className="input is-primary"
-                                                  disabled={false}
-                                                  id="month"
-                                                  name="month"
-                                                  onBlur={[Function]}
-                                                  onChange={[Function]}
-                                                  onClick={[Function]}
-                                                  onFocus={[Function]}
-                                                  onKeyDown={[Function]}
-                                                  readOnly={false}
-                                                  type="text"
-                                                  value="October 2019"
-                                                />
-                                              </div>
-                                            </div>
-                                          </InnerReference>
-                                        </Reference>
-                                      </Manager>
-                                    </a>
-                                  </o>
-                                </div>
-                              </div>
-                            </Field>
-                          </DatePicker>
-                          <FormikConnect(FormikAutoSave)
-                            onSave={[Function]}
-                          >
-                            <FormikAutoSave
-                              formik={
-                                Object {
-                                  "dirty": false,
-                                  "errors": Object {},
-                                  "getFieldHelpers": [Function],
-                                  "getFieldMeta": [Function],
-                                  "getFieldProps": [Function],
-                                  "handleBlur": [Function],
-                                  "handleChange": [Function],
-                                  "handleReset": [Function],
-                                  "handleSubmit": [Function],
-                                  "initialErrors": Object {},
-                                  "initialStatus": undefined,
-                                  "initialTouched": Object {},
-                                  "initialValues": Object {
-                                    "month": 2019-10-10T22:39:51.389Z,
-                                  },
-                                  "isSubmitting": false,
-                                  "isValid": true,
-                                  "isValidating": false,
-                                  "registerField": [Function],
-                                  "resetForm": [Function],
-                                  "setErrors": [Function],
-                                  "setFieldError": [Function],
-                                  "setFieldTouched": [Function],
-                                  "setFieldValue": [Function],
-                                  "setFormikState": [Function],
-                                  "setStatus": [Function],
-                                  "setSubmitting": [Function],
-                                  "setTouched": [Function],
-                                  "setValues": [Function],
-                                  "status": undefined,
-                                  "submitCount": 0,
-                                  "submitForm": [Function],
-                                  "touched": Object {},
-                                  "unregisterField": [Function],
-                                  "validateField": [Function],
-                                  "validateForm": [Function],
-                                  "validateOnBlur": true,
-                                  "validateOnChange": true,
-                                  "validateOnMount": false,
-                                  "values": Object {
-                                    "month": 2019-10-10T22:39:51.389Z,
-                                  },
-                                }
-                              }
-                              onSave={[Function]}
-                            />
-                          </FormikConnect(FormikAutoSave)>
-                        </form>
-                      </Form>
-                    </Formik>
-                  </div>
-                </GridItem>
-                <GridItem
-                  className="is-half-desktop"
-                >
-                  <div
-                    className="column is-half-desktop"
-                    data-test=""
-                  >
-                    <LevelRight
-                      className="has-text-right"
+                    <div
+                      class="react-datepicker-wrapper"
                     >
                       <div
-                        className="level-right has-text-right"
-                        data-test=""
+                        class="react-datepicker__input-container"
                       >
-                        <Button
-                          onClick={[Function]}
-                        >
-                          <button
-                            className="button   is-primary "
-                            data-test=""
-                            disabled={false}
-                            onClick={[Function]}
-                            type="button"
-                          >
-                            Download
-                          </button>
-                        </Button>
+                        <input
+                          class="input is-primary"
+                          id="month"
+                          name="month"
+                          type="text"
+                          value="October 2019"
+                        />
                       </div>
-                    </LevelRight>
+                    </div>
                   </div>
-                </GridItem>
-              </div>
-            </Grid>
-            <Grid>
+                </div>
+              </form>
+            </div>
+            <div
+              class="column is-half-desktop"
+              data-test=""
+            >
               <div
-                className="columns"
+                class="level-right has-text-right"
                 data-test=""
               >
-                <GridItem>
-                  <div
-                    className="column"
-                    data-test=""
-                  >
-                    <Loader>
-                      <div
-                        className="loader-spinner body"
-                        data-test=""
-                      >
-                        <div />
-                        <div />
-                        <div />
-                        <div />
-                      </div>
-                    </Loader>
-                    <p
-                      className="mt-4"
-                    >
-                      * All charges are subject to VAT. Your totals for each month will be sent to our Accounts Department and you will be automatically invoiced at the end of each billing period.
-                    </p>
-                    <p
-                      className="mt-4"
-                    >
-                      ** Data warehouse uptime costs may take upwards of an hour to appear in the Cost Explorer
-                    </p>
-                    <p
-                      className="mt-4"
-                    >
-                      *** Partially used hours are rounded upwards for the purposes of billing 
-                    </p>
-                  </div>
-                </GridItem>
+                <button
+                  class="button   is-primary "
+                  data-test=""
+                  type="button"
+                >
+                  Download
+                </button>
               </div>
-            </Grid>
+            </div>
           </div>
-        </FadeIn>
+          <div
+            class="columns"
+            data-test=""
+          >
+            <div
+              class="column"
+              data-test=""
+            >
+              <div
+                class="loader-spinner body"
+                data-test=""
+              >
+                <div />
+                <div />
+                <div />
+                <div />
+              </div>
+              <p
+                class="mt-4"
+              >
+                * All charges are subject to VAT. Your totals for each month will be sent to our Accounts Department and you will be automatically invoiced at the end of each billing period.
+              </p>
+              <p
+                class="mt-4"
+              >
+                ** Data warehouse uptime costs may take upwards of an hour to appear in the Cost Explorer
+              </p>
+              <p
+                class="mt-4"
+              >
+                *** Partially used hours are rounded upwards for the purposes of billing 
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
-    </Section>
-  </AnalyticsCostExplorer>
-</MessageProvider>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6"
+    />
+    <section
+      class="section has-padding has-background has-box-shadow"
+      data-test=""
+    >
+      <h5
+        class="title is-5"
+        id=""
+      >
+        Cost Explorer
+      </h5>
+      <div
+        class="fvmt8oy"
+      >
+        <div
+          class="columns"
+          data-test=""
+        >
+          <div
+            class="column is-half-desktop"
+            data-test=""
+          >
+            <form
+              action="#"
+            >
+              <div
+                class="field"
+              >
+                <div
+                  class="control"
+                >
+                  <div
+                    class="react-datepicker-wrapper"
+                  >
+                    <div
+                      class="react-datepicker__input-container"
+                    >
+                      <input
+                        class="input is-primary"
+                        id="month"
+                        name="month"
+                        type="text"
+                        value="October 2019"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div
+            class="column is-half-desktop"
+            data-test=""
+          >
+            <div
+              class="level-right has-text-right"
+              data-test=""
+            >
+              <button
+                class="button   is-primary "
+                data-test=""
+                type="button"
+              >
+                Download
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="columns"
+          data-test=""
+        >
+          <div
+            class="column"
+            data-test=""
+          >
+            <div
+              class="loader-spinner body"
+              data-test=""
+            >
+              <div />
+              <div />
+              <div />
+              <div />
+            </div>
+            <p
+              class="mt-4"
+            >
+              * All charges are subject to VAT. Your totals for each month will be sent to our Accounts Department and you will be automatically invoiced at the end of each billing period.
+            </p>
+            <p
+              class="mt-4"
+            >
+              ** Data warehouse uptime costs may take upwards of an hour to appear in the Cost Explorer
+            </p>
+            <p
+              class="mt-4"
+            >
+              *** Partially used hours are rounded upwards for the purposes of billing 
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

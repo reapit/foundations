@@ -43,7 +43,7 @@ describe('handleSetState', () => {
 })
 
 describe('useAsyncState', () => {
-  xit('should return generic StateType', async () => {
+  it('should return generic StateType', async () => {
     type StateType = [state: boolean, setState: (state: boolean) => Promise<boolean>]
 
     const { result } = renderHook<{}, StateType>(() => useAsyncState<boolean>(false))

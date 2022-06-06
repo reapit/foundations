@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import ClientWelcomeMessageModal, { ClientWelcomeMessageModalProps } from '../client-welcome-message'
 
 const props: ClientWelcomeMessageModalProps = {
@@ -9,6 +9,6 @@ const props: ClientWelcomeMessageModalProps = {
 
 describe('Menu', () => {
   it('should match a snapshot', () => {
-    expect(shallow(<ClientWelcomeMessageModal {...props} />)).toMatchSnapshot()
+    expect(render(<ClientWelcomeMessageModal {...props} />)).toMatchSnapshot()
   })
 })

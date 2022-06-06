@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../../tests/react-testing'
 import { VendorItem } from '../vendor-item'
 import { mockAppointmentsQuery } from '../../../pages/appointment/__mocks__/appointments-query'
 import { ExtendedAppointmentModel } from '../../../../types/global'
@@ -13,7 +13,7 @@ jest.mock('../../../../core/app-state')
 
 describe('VendorItem', () => {
   it('should match snapshot without vendors in state', () => {
-    expect(shallow(<VendorItem appointment={appointment} />)).toMatchSnapshot()
+    expect(render(<VendorItem appointment={appointment} />)).toMatchSnapshot()
   })
 
   it('should match snapshot with vendors in state', () => {
@@ -24,6 +24,6 @@ describe('VendorItem', () => {
       setAppState: jest.fn(),
     }))
 
-    expect(shallow(<VendorItem appointment={appointment} />)).toMatchSnapshot()
+    expect(render(<VendorItem appointment={appointment} />)).toMatchSnapshot()
   })
 })

@@ -1,39 +1,188 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`GoogleMapComponent should match snapshot with an appointment 1`] = `
-<Fragment>
-  <MapContentContainer
-    className=""
-  >
-    <t
-      apiKey=""
-      autoFitBounds={true}
-      boundsOffset={0.002}
-      center={
-        Object {
-          "lat": 51.509865,
-          "lng": -0.118092,
-        }
-      }
-      coordinates={Array []}
-      fullscreenControl={false}
-      mapTypeControl={false}
-      onLoaded={[Function]}
-      streetViewControlOptions={
-        Object {
-          "position": undefined,
-        }
-      }
-      zoom={10}
-      zoomControlOptions={
-        Object {
-          "position": undefined,
-        }
-      }
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+       
+      <div
+        class="map-content-container"
+      />
+      <div
+        class="map-panel-container"
+      >
+        <div
+          class="map-panel-item"
+        >
+          <input
+            checked=""
+            class="toggle-travel-checkbox"
+            id="travel-mode"
+            type="checkbox"
+          />
+          <label
+            class="toggle-travel-label"
+            for="travel-mode"
+          >
+            <img
+              src="[object Object]"
+            />
+            <img
+              src="[object Object]"
+            />
+          </label>
+        </div>
+        <div
+          class="map-panel-item"
+        >
+          <h2
+            class="el-has-bold-text el-subtitle"
+          >
+            ETA
+          </h2>
+          <p />
+        </div>
+        <div
+          class="map-panel-item"
+        >
+          <h2
+            class="el-has-bold-text el-subtitle"
+          >
+            Distance
+          </h2>
+          <p />
+        </div>
+        <div
+          class="map-panel-item"
+        >
+          <button
+            class="el-intent-critical el-button"
+            type="button"
+          >
+            Start Journey
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
     />
-  </MapContentContainer>
-  <MapPanel
-    routeInformation={null}
-  />
-</Fragment>
+     
+    <div
+      class="map-content-container"
+    />
+    <div
+      class="map-panel-container"
+    >
+      <div
+        class="map-panel-item"
+      >
+        <input
+          checked=""
+          class="toggle-travel-checkbox"
+          id="travel-mode"
+          type="checkbox"
+        />
+        <label
+          class="toggle-travel-label"
+          for="travel-mode"
+        >
+          <img
+            src="[object Object]"
+          />
+          <img
+            src="[object Object]"
+          />
+        </label>
+      </div>
+      <div
+        class="map-panel-item"
+      >
+        <h2
+          class="el-has-bold-text el-subtitle"
+        >
+          ETA
+        </h2>
+        <p />
+      </div>
+      <div
+        class="map-panel-item"
+      >
+        <h2
+          class="el-has-bold-text el-subtitle"
+        >
+          Distance
+        </h2>
+        <p />
+      </div>
+      <div
+        class="map-panel-item"
+      >
+        <button
+          class="el-intent-critical el-button"
+          type="button"
+        >
+          Start Journey
+        </button>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

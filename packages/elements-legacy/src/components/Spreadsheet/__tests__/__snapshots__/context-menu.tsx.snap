@@ -1,63 +1,215 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ContextMenu should match snapshot with visible false 1`] = `""`;
+exports[`ContextMenu should match snapshot with visible false 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div />
+  </body>,
+  "container": <div />,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
 
 exports[`ContextMenu should match snapshot with visible true 1`] = `
-<div
-  className="spreadsheet-context-menu spreadsheet-context-menu-visible"
-  onClick={[Function]}
-  style={
-    Object {
-      "left": 0,
-      "top": 0,
-    }
-  }
->
-  <div
-    className="wrap-section"
-    key="Clear"
-  >
-    <p
-      className="menu-label"
-    >
-      Clear
-    </p>
-    <ul
-      className="menu-list"
-    >
-      <li
-        key="clear-row"
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="spreadsheet-context-menu spreadsheet-context-menu-visible"
+        style="top: 0px; left: 0px;"
       >
-        <a
-          id="clear-row"
+        <div
+          class="wrap-section"
         >
-          Clear row
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div
-    className="wrap-section"
-    key="Remove"
-  >
-    <p
-      className="menu-label"
+          <p
+            class="menu-label"
+          >
+            Clear
+          </p>
+          <ul
+            class="menu-list"
+          >
+            <li>
+              <a
+                id="clear-row"
+              >
+                Clear row
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div
+          class="wrap-section"
+        >
+          <p
+            class="menu-label"
+          >
+            Remove
+          </p>
+          <ul
+            class="menu-list"
+          >
+            <li>
+              <a
+                id="remove-row"
+              >
+                Remove row
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="spreadsheet-context-menu spreadsheet-context-menu-visible"
+      style="top: 0px; left: 0px;"
     >
-      Remove
-    </p>
-    <ul
-      className="menu-list"
-    >
-      <li
-        key="remove-row"
+      <div
+        class="wrap-section"
       >
-        <a
-          id="remove-row"
+        <p
+          class="menu-label"
         >
-          Remove row
-        </a>
-      </li>
-    </ul>
-  </div>
-</div>
+          Clear
+        </p>
+        <ul
+          class="menu-list"
+        >
+          <li>
+            <a
+              id="clear-row"
+            >
+              Clear row
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="wrap-section"
+      >
+        <p
+          class="menu-label"
+        >
+          Remove
+        </p>
+        <ul
+          class="menu-list"
+        >
+          <li>
+            <a
+              id="remove-row"
+            >
+              Remove row
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

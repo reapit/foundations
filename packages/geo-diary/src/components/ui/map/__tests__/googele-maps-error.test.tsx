@@ -1,9 +1,9 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../../tests/react-testing'
 import { GoogleMapsError } from '../google-maps-error'
 
 describe('GoogleMapsError', () => {
   it('should match snapshot', () => {
-    expect(shallow(<GoogleMapsError />)).toMatchSnapshot()
+    expect(render(<GoogleMapsError />)).toMatchSnapshot()
   })
 })

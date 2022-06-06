@@ -1,10 +1,10 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../tests/react-testing'
 import Check from '../check'
 
 describe('Check', () => {
   it('should match snapshot', () => {
-    const wrapper = shallow(<Check />)
+    const wrapper = render(<Check />)
     expect(wrapper).toMatchSnapshot()
   })
 })

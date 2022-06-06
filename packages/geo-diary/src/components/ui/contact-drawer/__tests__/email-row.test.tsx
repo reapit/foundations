@@ -1,9 +1,9 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../../tests/react-testing'
 import EmailRow from '../email-row'
 
 describe('EmailRow', () => {
   it('should match snapshot', () => {
-    expect(shallow(<EmailRow label="Label" email="mail@example.com" />)).toMatchSnapshot()
+    expect(render(<EmailRow label="Label" email="mail@example.com" />)).toMatchSnapshot()
   })
 })

@@ -380,6 +380,7 @@ Object {
         </div>
         <button
           class="e1yynswi-el-pagination-button"
+          data-testid="back-button"
           type="button"
         >
           <span
@@ -401,6 +402,7 @@ Object {
         </button>
         <button
           class="e1yynswi-el-pagination-button"
+          data-testid="forward-button"
           type="button"
         >
           <span
@@ -799,6 +801,7 @@ Object {
       </div>
       <button
         class="e1yynswi-el-pagination-button"
+        data-testid="back-button"
         type="button"
       >
         <span
@@ -820,6 +823,7 @@ Object {
       </button>
       <button
         class="e1yynswi-el-pagination-button"
+        data-testid="forward-button"
         type="button"
       >
         <span

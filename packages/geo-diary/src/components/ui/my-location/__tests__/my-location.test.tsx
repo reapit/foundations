@@ -1,5 +1,5 @@
 import React, { ChangeEvent, MouseEvent } from 'react'
-import { shallow } from 'enzyme'
+import { render } from '../../../../tests/react-testing'
 import {
   MyLocation,
   fetchLocationResults,
@@ -24,7 +24,7 @@ jest.mock('../../../../utils/map-utils', () => ({
 
 describe('MyLocation', () => {
   it('should match snapshot', () => {
-    expect(shallow(<MyLocation />)).toMatchSnapshot()
+    expect(render(<MyLocation />)).toMatchSnapshot()
   })
 })
 

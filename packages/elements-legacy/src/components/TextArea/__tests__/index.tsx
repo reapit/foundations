@@ -1,9 +1,7 @@
 import * as React from 'react'
-import { shallow, mount } from 'enzyme'
+import { render } from '@testing-library/react'
 import { TextArea, TextAreaProps } from '../index'
-import { Formik, Form } from 'formik'
-import toJson from 'enzyme-to-json'
-import { act } from 'react-dom/test-utils'
+import { Formik } from 'formik'
 
 const props: TextAreaProps = {
   id: 'username',
@@ -13,34 +11,15 @@ const props: TextAreaProps = {
 
 describe('Input', () => {
   it('should match a snapshot', () => {
-    expect(toJson(shallow(<TextArea {...props} />))).toMatchSnapshot()
+    expect(
+      render(<Formik initialValues={{}} onSubmit={jest.fn()} render={() => <TextArea {...props} />} />),
+    ).toMatchSnapshot()
   })
 
   it('should match a snapshot when required', () => {
-    expect(toJson(shallow(<TextArea {...props} required />))).toMatchSnapshot()
-  })
-
-  it('should work when integrating with Formik', async () => {
-    const wrapper = mount(
-      <Formik initialValues={{ username: '' }} onSubmit={jest.fn()}>
-        {() => (
-          <Form>
-            <TextArea {...props} />
-          </Form>
-        )}
-      </Formik>,
-    )
-    expect(wrapper.find('label')).toHaveLength(1)
-    await act(async () => {
-      wrapper.find('textarea').simulate('change', {
-        target: {
-          value: 'abcxyz',
-          name: 'username',
-        },
-      })
-    })
-    wrapper.update()
-    expect(wrapper.find('textarea').prop('value')).toEqual('abcxyz')
+    expect(
+      render(<Formik initialValues={{}} onSubmit={jest.fn()} render={() => <TextArea {...props} required />} />),
+    ).toMatchSnapshot()
   })
 
   afterEach(() => {

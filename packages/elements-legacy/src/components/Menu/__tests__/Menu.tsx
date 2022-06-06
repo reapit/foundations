@@ -1,25 +1,35 @@
 import React from 'react'
-import { shallow, mount } from 'enzyme'
-import { MemoryRouter } from 'react-router'
-import toJson from 'enzyme-to-json'
+import { render } from '@testing-library/react'
 import { Menu, getActiveItemKey, LinkItem } from '../index'
 import { Location } from 'history'
 import { mockMenuProps } from '../__mocks__/menu-props'
+import { createBrowserHistory, History } from 'history'
+import { Router } from 'react-router'
 
 jest.mock('../../DynamicLinks', () => ({
   ...(jest.requireActual('../../DynamicLinks') as Object),
   getMarketplaceGlobalsByKey: jest.fn(() => ({})),
 }))
 
+const history: History<any> = createBrowserHistory()
+
 describe('Menu', () => {
   it('should render menu correctly', () => {
-    const wrapper = shallow(<Menu {...mockMenuProps} />)
-    expect(toJson(wrapper)).toMatchSnapshot()
+    const wrapper = render(
+      <Router history={history}>
+        <Menu {...mockMenuProps} />
+      </Router>,
+    )
+    expect(wrapper).toMatchSnapshot()
   })
 
   it('should render menu correctly when mode prop is undefined', () => {
-    const wrapper = shallow(<Menu {...mockMenuProps} mode={undefined} />)
-    expect(toJson(wrapper)).toMatchSnapshot()
+    const wrapper = render(
+      <Router history={history}>
+        <Menu {...mockMenuProps} mode={undefined} />
+      </Router>,
+    )
+    expect(wrapper).toMatchSnapshot()
   })
 
   it('should render link item logo correctly', () => {
@@ -30,8 +40,12 @@ describe('Menu', () => {
         {item.title && <div className="nav-item-title">{item.title}</div>}
       </>
     )
-    const wrapper = shallow(<LinkItem item={item}>{children}</LinkItem>)
-    expect(toJson(wrapper)).toMatchSnapshot()
+    const wrapper = render(
+      <Router history={history}>
+        <LinkItem item={item}>{children}</LinkItem>
+      </Router>,
+    )
+    expect(wrapper).toMatchSnapshot()
   })
 
   it('should render link item primary correctly', () => {
@@ -42,8 +56,12 @@ describe('Menu', () => {
         {item.title && <div className="nav-item-title">{item.title}</div>}
       </>
     )
-    const wrapper = shallow(<LinkItem item={item}>{children}</LinkItem>)
-    expect(toJson(wrapper)).toMatchSnapshot()
+    const wrapper = render(
+      <Router history={history}>
+        <LinkItem item={item}>{children}</LinkItem>
+      </Router>,
+    )
+    expect(wrapper).toMatchSnapshot()
   })
 
   it('should render link item secondary correctly', () => {
@@ -54,8 +72,12 @@ describe('Menu', () => {
         {item.title && <div className="nav-item-title">{item.title}</div>}
       </>
     )
-    const wrapper = shallow(<LinkItem item={item}>{children}</LinkItem>)
-    expect(toJson(wrapper)).toMatchSnapshot()
+    const wrapper = render(
+      <Router history={history}>
+        <LinkItem item={item}>{children}</LinkItem>
+      </Router>,
+    )
+    expect(wrapper).toMatchSnapshot()
   })
 
   describe('getActiveItemKey', () => {
@@ -78,34 +100,6 @@ describe('Menu', () => {
     it('should default back to defaultActiveKey if pathname === /', () => {
       const result = getActiveItemKey(mockMenuProps.menu, { pathname: '/' } as Location<any>)
       expect(result).toBe(null)
-    })
-  })
-
-  describe('Change active menu item when location change', () => {
-    it('should hightlight correct item', () => {
-      const currentSelectedItem = mockMenuProps.menu[1]
-      const newSelectedItem = mockMenuProps.menu[2]
-
-      const currentLocation = { pathname: currentSelectedItem.url }
-      mockMenuProps.location = currentLocation as Location<any>
-
-      const Component = (props) => (
-        <MemoryRouter initialEntries={['/']}>
-          <Menu {...props} />
-        </MemoryRouter>
-      )
-
-      // jsdom does not implement scrollIntoView => have to mock it
-      // tslint:disable-next-line: no-empty
-      Element.prototype.scrollIntoView = () => {}
-      const wrapper = mount(<Component {...mockMenuProps} />)
-
-      expect(wrapper.find('.is-active').at(0).childAt(1).text()).toEqual(currentSelectedItem.title)
-
-      wrapper.setProps({ location: { pathname: newSelectedItem.url } })
-      wrapper.update()
-
-      expect(wrapper.find('.is-active').at(0).childAt(1).text()).toEqual(newSelectedItem.title)
     })
   })
 })

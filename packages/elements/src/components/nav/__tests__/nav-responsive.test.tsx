@@ -1,12 +1,12 @@
 import React from 'react'
-import { mount } from 'enzyme'
+import { render } from '@testing-library/react'
 import { handleToggleLogo, NavResponsive } from '../nav-responsive'
 import { NavStateProvider } from '../../../hooks/use-nav-state'
 import { MediaStateProvider } from '../../../hooks/use-media-query'
 
 describe('NavResponsive component', () => {
   it('should match a snapshot', () => {
-    const wrapper = mount(
+    const wrapper = render(
       <NavStateProvider>
         <MediaStateProvider>
           <NavResponsive

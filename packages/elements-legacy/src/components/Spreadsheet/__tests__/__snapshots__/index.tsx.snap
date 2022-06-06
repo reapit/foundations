@@ -1,238 +1,2421 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AddRowButton should match snapshot 1`] = `
-<div
-  className="add-button"
->
-  <Button
-    onClick={[MockFunction]}
-    type="submit"
-    variant="primary"
-  >
-    Add new
-  </Button>
-</div>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="add-button"
+      >
+        <button
+          class="button   is-primary "
+          data-test=""
+          type="submit"
+        >
+          Add new
+        </button>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="add-button"
+    >
+      <button
+        class="button   is-primary "
+        data-test=""
+        type="submit"
+      >
+        Add new
+      </button>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`Spreadsheet should match snapshot with default props 1`] = `
-<div
-  className="spreadsheet"
->
-  <div
-    className="wrap-top"
-  >
-    <div
-      className="description"
-    />
-    <div
-      className="button-group"
-    >
-      <UploadButton
-        onChangeInput={[Function]}
-      />
-      <DownloadButton
-        data={
-          Array [
-            Array [],
-          ]
-        }
-      />
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="spreadsheet"
+      >
+        <div
+          class="wrap-top"
+        >
+          <div
+            class="description"
+          />
+          <div
+            class="button-group"
+          >
+            <div
+              class="upload-button"
+            >
+              <button
+                class="button   is-primary "
+                data-test=""
+                type="submit"
+              >
+                Upload file
+              </button>
+              <input
+                accept=".csv"
+                hidden=""
+                name="file-upload"
+                type="file"
+              />
+            </div>
+            <div
+              class="download-button"
+            >
+              <button
+                class="button   is-primary "
+                data-test=""
+                type="submit"
+              >
+                Download file
+              </button>
+            </div>
+          </div>
+        </div>
+        <span
+          class="data-grid-container"
+          tabindex="0"
+        >
+          <table
+            class="data-grid wrap"
+          >
+            <tbody>
+              <tr>
+                <td
+                  class="cell  "
+                  value="Office name"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    Office name
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value="Building Name"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    Building Name
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value="Building No."
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    Building No.
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value="Address 1"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    Address 1
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value="Address 2"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    Address 2
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value="Address 3"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    Address 3
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value="Address 4"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    Address 4
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value="Post Code"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    Post Code
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value="Telephone"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    Telephone
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value="Fax"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    Fax
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value="Email"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    Email
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td
+                  class="cell  "
+                  value="London"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    London
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value="The White House"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    The White House
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value="15"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    15
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value="London 1"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    London 1
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value=""
+                >
+                  <span
+                    class="value-viewer"
+                  />
+                </td>
+                <td
+                  class="cell  "
+                  value="Londom 3"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    Londom 3
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value=""
+                >
+                  <span
+                    class="value-viewer"
+                  />
+                </td>
+                <td
+                  class="cell  "
+                  value="EC12NH"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    EC12NH
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value="0845 0000"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    0845 0000
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value=""
+                >
+                  <span
+                    class="value-viewer"
+                  />
+                </td>
+                <td
+                  class="cell  "
+                  value="row1@gmail.com"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    row1@gmail.com
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td
+                  class="cell  "
+                  value="London2"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    London2
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value="The Black House"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    The Black House
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value="11"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    11
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value="Test Addres"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    Test Addres
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value=""
+                >
+                  <span
+                    class="value-viewer"
+                  />
+                </td>
+                <td
+                  class="cell  "
+                  value="Adress 3"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    Adress 3
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value=""
+                >
+                  <span
+                    class="value-viewer"
+                  />
+                </td>
+                <td
+                  class="cell  "
+                  value="EC12NH"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    EC12NH
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value="087 471 929"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    087 471 929
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value=""
+                >
+                  <span
+                    class="value-viewer"
+                  />
+                </td>
+                <td
+                  class="cell  "
+                  value="row2@gmail.com"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    row2@gmail.com
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td
+                  class="cell  "
+                  value="New York"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    New York
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value="Building A"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    Building A
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value="11"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    11
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value=""
+                >
+                  <span
+                    class="value-viewer"
+                  />
+                </td>
+                <td
+                  class="cell  "
+                  value=""
+                >
+                  <span
+                    class="value-viewer"
+                  />
+                </td>
+                <td
+                  class="cell  "
+                  value="City Z"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    City Z
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value=""
+                >
+                  <span
+                    class="value-viewer"
+                  />
+                </td>
+                <td
+                  class="cell  "
+                  value="AL7187"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    AL7187
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value="017 7162 9121"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    017 7162 9121
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value=""
+                >
+                  <span
+                    class="value-viewer"
+                  />
+                </td>
+                <td
+                  class="cell  "
+                  value="row3@gmail.com"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    row3@gmail.com
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </span>
+        <div
+          class="wrap-bottom"
+        >
+          <div
+            class="add-button"
+          >
+            <button
+              class="button   is-primary "
+              data-test=""
+              type="submit"
+            >
+              Add new
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-  <MyReactDataSheet
-    cellRenderer={[Function]}
-    data={
-      Array [
-        Array [],
-      ]
-    }
-    dataEditor={[Function]}
-    onCellsChanged={[Function]}
-    onContextMenu={[Function]}
-    onSelect={[Function]}
-    overflow="wrap"
-    rowRenderer={[Function]}
-    selected={null}
-    sheetRenderer={[Function]}
-    valueRenderer={[Function]}
-    valueViewer={[Function]}
-  />
-  <div
-    className="wrap-bottom"
-  >
-    <AddRowButton
-      addNewRow={[Function]}
-    />
-  </div>
-  <ContextMenu
-    contextMenuProp={
-      Object {
-        "left": 0,
-        "top": 0,
-        "visible": false,
-      }
-    }
-    data={
-      Array [
-        Array [],
-      ]
-    }
-    onCellsChanged={[Function]}
-    selected={null}
-    setContextMenuProp={[Function]}
-  />
-  <ModalUpload
-    setUploadData={[Function]}
-    uploadData={
-      Object {
-        "exceedMaxRow": false,
-        "header": Array [],
-        "invalidIndies": Array [],
-        "isModalOpen": false,
-        "shouldProcess": false,
-        "totalRow": 0,
-        "validatedData": Array [
-          Array [],
-        ],
-      }
-    }
-  />
-</div>
+  </body>,
+  "container": <div>
+    <div
+      class="spreadsheet"
+    >
+      <div
+        class="wrap-top"
+      >
+        <div
+          class="description"
+        />
+        <div
+          class="button-group"
+        >
+          <div
+            class="upload-button"
+          >
+            <button
+              class="button   is-primary "
+              data-test=""
+              type="submit"
+            >
+              Upload file
+            </button>
+            <input
+              accept=".csv"
+              hidden=""
+              name="file-upload"
+              type="file"
+            />
+          </div>
+          <div
+            class="download-button"
+          >
+            <button
+              class="button   is-primary "
+              data-test=""
+              type="submit"
+            >
+              Download file
+            </button>
+          </div>
+        </div>
+      </div>
+      <span
+        class="data-grid-container"
+        tabindex="0"
+      >
+        <table
+          class="data-grid wrap"
+        >
+          <tbody>
+            <tr>
+              <td
+                class="cell  "
+                value="Office name"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  Office name
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value="Building Name"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  Building Name
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value="Building No."
+              >
+                <span
+                  class="value-viewer"
+                >
+                  Building No.
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value="Address 1"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  Address 1
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value="Address 2"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  Address 2
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value="Address 3"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  Address 3
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value="Address 4"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  Address 4
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value="Post Code"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  Post Code
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value="Telephone"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  Telephone
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value="Fax"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  Fax
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value="Email"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  Email
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="cell  "
+                value="London"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  London
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value="The White House"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  The White House
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value="15"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  15
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value="London 1"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  London 1
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value=""
+              >
+                <span
+                  class="value-viewer"
+                />
+              </td>
+              <td
+                class="cell  "
+                value="Londom 3"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  Londom 3
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value=""
+              >
+                <span
+                  class="value-viewer"
+                />
+              </td>
+              <td
+                class="cell  "
+                value="EC12NH"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  EC12NH
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value="0845 0000"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  0845 0000
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value=""
+              >
+                <span
+                  class="value-viewer"
+                />
+              </td>
+              <td
+                class="cell  "
+                value="row1@gmail.com"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  row1@gmail.com
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="cell  "
+                value="London2"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  London2
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value="The Black House"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  The Black House
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value="11"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  11
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value="Test Addres"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  Test Addres
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value=""
+              >
+                <span
+                  class="value-viewer"
+                />
+              </td>
+              <td
+                class="cell  "
+                value="Adress 3"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  Adress 3
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value=""
+              >
+                <span
+                  class="value-viewer"
+                />
+              </td>
+              <td
+                class="cell  "
+                value="EC12NH"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  EC12NH
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value="087 471 929"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  087 471 929
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value=""
+              >
+                <span
+                  class="value-viewer"
+                />
+              </td>
+              <td
+                class="cell  "
+                value="row2@gmail.com"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  row2@gmail.com
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="cell  "
+                value="New York"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  New York
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value="Building A"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  Building A
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value="11"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  11
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value=""
+              >
+                <span
+                  class="value-viewer"
+                />
+              </td>
+              <td
+                class="cell  "
+                value=""
+              >
+                <span
+                  class="value-viewer"
+                />
+              </td>
+              <td
+                class="cell  "
+                value="City Z"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  City Z
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value=""
+              >
+                <span
+                  class="value-viewer"
+                />
+              </td>
+              <td
+                class="cell  "
+                value="AL7187"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  AL7187
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value="017 7162 9121"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  017 7162 9121
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value=""
+              >
+                <span
+                  class="value-viewer"
+                />
+              </td>
+              <td
+                class="cell  "
+                value="row3@gmail.com"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  row3@gmail.com
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </span>
+      <div
+        class="wrap-bottom"
+      >
+        <div
+          class="add-button"
+        >
+          <button
+            class="button   is-primary "
+            data-test=""
+            type="submit"
+          >
+            Add new
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`Spreadsheet should match snapshot with full props 1`] = `
-<div
-  className="spreadsheet"
->
-  <div
-    className="wrap-top"
-  >
-    <div
-      className="description"
-    >
-      des
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="spreadsheet"
+      >
+        <div
+          class="wrap-top"
+        >
+          <div
+            class="description"
+          >
+            des
+          </div>
+          <div
+            class="button-group"
+          />
+        </div>
+        <span
+          class="data-grid-container"
+          tabindex="0"
+        >
+          <table
+            class="data-grid wrap"
+          >
+            <tbody>
+              <tr>
+                <td
+                  class="cell  "
+                  value="Office name"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    Office name
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value="Building Name"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    Building Name
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value="Building No."
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    Building No.
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value="Address 1"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    Address 1
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value="Address 2"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    Address 2
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value="Address 3"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    Address 3
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value="Address 4"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    Address 4
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value="Post Code"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    Post Code
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value="Telephone"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    Telephone
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value="Fax"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    Fax
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value="Email"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    Email
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td
+                  class="cell  "
+                  value="London"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    London
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value="The White House"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    The White House
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value="15"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    15
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value="London 1"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    London 1
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value=""
+                >
+                  <span
+                    class="value-viewer"
+                  />
+                </td>
+                <td
+                  class="cell  "
+                  value="Londom 3"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    Londom 3
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value=""
+                >
+                  <span
+                    class="value-viewer"
+                  />
+                </td>
+                <td
+                  class="cell  "
+                  value="EC12NH"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    EC12NH
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value="0845 0000"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    0845 0000
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value=""
+                >
+                  <span
+                    class="value-viewer"
+                  />
+                </td>
+                <td
+                  class="cell  "
+                  value="row1@gmail.com"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    row1@gmail.com
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td
+                  class="cell  "
+                  value="London2"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    London2
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value="The Black House"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    The Black House
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value="11"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    11
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value="Test Addres"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    Test Addres
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value=""
+                >
+                  <span
+                    class="value-viewer"
+                  />
+                </td>
+                <td
+                  class="cell  "
+                  value="Adress 3"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    Adress 3
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value=""
+                >
+                  <span
+                    class="value-viewer"
+                  />
+                </td>
+                <td
+                  class="cell  "
+                  value="EC12NH"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    EC12NH
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value="087 471 929"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    087 471 929
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value=""
+                >
+                  <span
+                    class="value-viewer"
+                  />
+                </td>
+                <td
+                  class="cell  "
+                  value="row2@gmail.com"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    row2@gmail.com
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td
+                  class="cell  "
+                  value="New York"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    New York
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value="Building A"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    Building A
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value="11"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    11
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value=""
+                >
+                  <span
+                    class="value-viewer"
+                  />
+                </td>
+                <td
+                  class="cell  "
+                  value=""
+                >
+                  <span
+                    class="value-viewer"
+                  />
+                </td>
+                <td
+                  class="cell  "
+                  value="City Z"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    City Z
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value=""
+                >
+                  <span
+                    class="value-viewer"
+                  />
+                </td>
+                <td
+                  class="cell  "
+                  value="AL7187"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    AL7187
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value="017 7162 9121"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    017 7162 9121
+                  </span>
+                </td>
+                <td
+                  class="cell  "
+                  value=""
+                >
+                  <span
+                    class="value-viewer"
+                  />
+                </td>
+                <td
+                  class="cell  "
+                  value="row3@gmail.com"
+                >
+                  <span
+                    class="value-viewer"
+                  >
+                    row3@gmail.com
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </span>
+        <div
+          class="wrap-bottom"
+        />
+      </div>
     </div>
+  </body>,
+  "container": <div>
     <div
-      className="button-group"
-    />
-  </div>
-  <MyReactDataSheet
-    cellRenderer={[Function]}
-    data={
-      Array [
-        Array [],
-      ]
-    }
-    dataEditor={[Function]}
-    onCellsChanged={[Function]}
-    onContextMenu={[Function]}
-    onSelect={[Function]}
-    overflow="wrap"
-    rowRenderer={[Function]}
-    selected={null}
-    sheetRenderer={[Function]}
-    valueRenderer={[Function]}
-    valueViewer={[Function]}
-  />
-  <div
-    className="wrap-bottom"
-  />
-  <ContextMenu
-    contextMenuProp={
-      Object {
-        "left": 0,
-        "top": 0,
-        "visible": false,
-      }
-    }
-    data={
-      Array [
-        Array [],
-      ]
-    }
-    onCellsChanged={[Function]}
-    selected={null}
-    setContextMenuProp={[Function]}
-  />
-  <ModalUpload
-    setUploadData={[Function]}
-    uploadData={
-      Object {
-        "exceedMaxRow": false,
-        "header": Array [],
-        "invalidIndies": Array [],
-        "isModalOpen": false,
-        "shouldProcess": false,
-        "totalRow": 0,
-        "validatedData": Array [
-          Array [],
-        ],
-      }
-    }
-  />
-</div>
+      class="spreadsheet"
+    >
+      <div
+        class="wrap-top"
+      >
+        <div
+          class="description"
+        >
+          des
+        </div>
+        <div
+          class="button-group"
+        />
+      </div>
+      <span
+        class="data-grid-container"
+        tabindex="0"
+      >
+        <table
+          class="data-grid wrap"
+        >
+          <tbody>
+            <tr>
+              <td
+                class="cell  "
+                value="Office name"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  Office name
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value="Building Name"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  Building Name
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value="Building No."
+              >
+                <span
+                  class="value-viewer"
+                >
+                  Building No.
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value="Address 1"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  Address 1
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value="Address 2"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  Address 2
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value="Address 3"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  Address 3
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value="Address 4"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  Address 4
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value="Post Code"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  Post Code
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value="Telephone"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  Telephone
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value="Fax"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  Fax
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value="Email"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  Email
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="cell  "
+                value="London"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  London
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value="The White House"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  The White House
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value="15"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  15
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value="London 1"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  London 1
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value=""
+              >
+                <span
+                  class="value-viewer"
+                />
+              </td>
+              <td
+                class="cell  "
+                value="Londom 3"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  Londom 3
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value=""
+              >
+                <span
+                  class="value-viewer"
+                />
+              </td>
+              <td
+                class="cell  "
+                value="EC12NH"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  EC12NH
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value="0845 0000"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  0845 0000
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value=""
+              >
+                <span
+                  class="value-viewer"
+                />
+              </td>
+              <td
+                class="cell  "
+                value="row1@gmail.com"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  row1@gmail.com
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="cell  "
+                value="London2"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  London2
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value="The Black House"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  The Black House
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value="11"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  11
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value="Test Addres"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  Test Addres
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value=""
+              >
+                <span
+                  class="value-viewer"
+                />
+              </td>
+              <td
+                class="cell  "
+                value="Adress 3"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  Adress 3
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value=""
+              >
+                <span
+                  class="value-viewer"
+                />
+              </td>
+              <td
+                class="cell  "
+                value="EC12NH"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  EC12NH
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value="087 471 929"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  087 471 929
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value=""
+              >
+                <span
+                  class="value-viewer"
+                />
+              </td>
+              <td
+                class="cell  "
+                value="row2@gmail.com"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  row2@gmail.com
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="cell  "
+                value="New York"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  New York
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value="Building A"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  Building A
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value="11"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  11
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value=""
+              >
+                <span
+                  class="value-viewer"
+                />
+              </td>
+              <td
+                class="cell  "
+                value=""
+              >
+                <span
+                  class="value-viewer"
+                />
+              </td>
+              <td
+                class="cell  "
+                value="City Z"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  City Z
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value=""
+              >
+                <span
+                  class="value-viewer"
+                />
+              </td>
+              <td
+                class="cell  "
+                value="AL7187"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  AL7187
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value="017 7162 9121"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  017 7162 9121
+                </span>
+              </td>
+              <td
+                class="cell  "
+                value=""
+              >
+                <span
+                  class="value-viewer"
+                />
+              </td>
+              <td
+                class="cell  "
+                value="row3@gmail.com"
+              >
+                <span
+                  class="value-viewer"
+                >
+                  row3@gmail.com
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </span>
+      <div
+        class="wrap-bottom"
+      />
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`UploadButton should match snapshot 1`] = `
-<div
-  className="upload-button"
->
-  <Button
-    onClick={[Function]}
-    type="submit"
-    variant="primary"
-  >
-    Upload file
-  </Button>
-  <input
-    accept=".csv"
-    hidden={true}
-    name="file-upload"
-    onChange={[MockFunction]}
-    type="file"
-  />
-</div>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="upload-button"
+      >
+        <button
+          class="button   is-primary "
+          data-test=""
+          type="submit"
+        >
+          Upload file
+        </button>
+        <input
+          accept=".csv"
+          hidden=""
+          name="file-upload"
+          type="file"
+        />
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="upload-button"
+    >
+      <button
+        class="button   is-primary "
+        data-test=""
+        type="submit"
+      >
+        Upload file
+      </button>
+      <input
+        accept=".csv"
+        hidden=""
+        name="file-upload"
+        type="file"
+      />
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`getErrorsFromData should match snapshot 1`] = `
-<div>
-  <p
-    className="has-text-danger"
-  >
-    Field 
-    <b />
-     row 
-    <b>
-      0
-    </b>
-     has the following problem: 
-    error
-  </p>
-</div>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div>
+        <p
+          class="has-text-danger"
+        >
+          Field 
+          <b />
+           row 
+          <b>
+            0
+          </b>
+           has the following problem: 
+          error
+        </p>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div>
+      <p
+        class="has-text-danger"
+      >
+        Field 
+        <b />
+         row 
+        <b>
+          0
+        </b>
+         has the following problem: 
+        error
+      </p>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`renderErrorElements should match snapshot 1`] = `
-<div>
-  <div
-    className="has-text-danger pt-4"
-  >
-    <H6
-      className="has-text-danger mb-1"
-    >
-      The following validation errors have occurred:
-    </H6>
-    <p
-      className="has-text-danger"
-    >
-      Field 
-      <b />
-       row 
-      <b>
-        0
-      </b>
-       has the following problem: 
-      error
-    </p>
-  </div>
-</div>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div>
+        <div
+          class="has-text-danger pt-4"
+        >
+          <h6
+            class="title is-6 has-text-danger mb-1"
+            id=""
+          >
+            The following validation errors have occurred:
+          </h6>
+          <p
+            class="has-text-danger"
+          >
+            Field 
+            <b />
+             row 
+            <b>
+              0
+            </b>
+             has the following problem: 
+            error
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div>
+      <div
+        class="has-text-danger pt-4"
+      >
+        <h6
+          class="title is-6 has-text-danger mb-1"
+          id=""
+        >
+          The following validation errors have occurred:
+        </h6>
+        <p
+          class="has-text-danger"
+        >
+          Field 
+          <b />
+           row 
+          <b>
+            0
+          </b>
+           has the following problem: 
+          error
+        </p>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
