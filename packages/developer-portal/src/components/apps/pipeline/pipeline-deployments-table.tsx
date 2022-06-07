@@ -25,6 +25,10 @@ export interface PipelineRunnerResponse {
   meta: PipelineRunnerMeta
 }
 
+export interface PipelineDeploymentTablePropsInterface {
+  channel?: Channel & PresenceChannel
+}
+
 export type PipelineRunnerEvent = PipelineRunnerModelInterface & { pipeline: PipelineModelInterface }
 
 export const handlePipelineRunnerRefresh =
@@ -76,7 +80,7 @@ export const handleNewRunner =
     }
   }
 
-export const PipelineDeploymentTable: FC<{ channel?: Channel & PresenceChannel }> = ({ channel }) => {
+export const PipelineDeploymentTable: FC<PipelineDeploymentTablePropsInterface> = ({ channel }) => {
   const [page, setPage] = useState(1)
   const [pipelineDeploymentsItems, setPipelineDeploymentItems] = useState<PipelineRunnerModelInterface[]>([])
   const { appPipelineState, appId } = useAppState()
