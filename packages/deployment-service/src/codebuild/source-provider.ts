@@ -1,10 +1,9 @@
 import { BitbucketClientData } from '../entities/bitbucket-client.entity'
 import { PipelineRunnerEntity } from '../entities/pipeline-runner.entity'
 import { PipelineEntity } from '../entities/pipeline.entity'
-import { BitBucketEvent } from '../bitbucket'
+import { BitBucketEvent, BitbucketProvider } from '../bitbucket'
 import { S3Provider } from '../s3'
 import { Injectable } from '@nestjs/common'
-import { BitbucketProvider } from '../bitbucket'
 import { App } from '@octokit/app'
 import { HttpService } from '@nestjs/axios'
 import { firstValueFrom } from 'rxjs'
@@ -39,7 +38,7 @@ export class SoruceProvider {
       throw new Error('Cannot process bitbucket source request without client or event')
     }
 
-    const parts = pipeline.repository.split('/') as string[]
+    const parts = pipeline.repository.split('/')
     const url = `${this.baseBitbucketUrl}/${parts[parts.length - 2]}/${parts[parts.length - 1]}/get/${
       pipeline.branch
     }.zip`
