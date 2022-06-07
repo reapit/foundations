@@ -23,7 +23,7 @@ export const logger = (error: Error, connectSession?: ReapitConnectSession | nul
         id: connectSession?.loginIdentity.clientId ?? 'No client id logged',
       })
     }
-    Sentry.captureException(error)?
+    Sentry.captureException(error)
   } else {
     console.error(error.message)
   }
