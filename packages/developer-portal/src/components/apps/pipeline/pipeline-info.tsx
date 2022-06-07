@@ -109,7 +109,7 @@ export const PipelineInfo: FC = () => {
           </FlexContainer>
         </Col>
       </Grid>
-      <PipelineDeploymentTable />
+      <PipelineDeploymentTable channel={channel as any} />
     </>
   )
 }

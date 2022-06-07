@@ -79,6 +79,11 @@ export class PipelineRunnerProvider {
   }
 
   async findByCodebuildId(codebuildId: string): Promise<PipelineRunnerEntity | undefined> {
-    return this.repository.findOne({ codebuildId })
+    return this.repository.findOne({
+      where: {
+        codebuildId,
+      },
+      relations: ['pipeline'],
+    })
   }
 }
