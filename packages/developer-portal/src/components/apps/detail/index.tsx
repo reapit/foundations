@@ -173,7 +173,9 @@ export const AppDetail: FC = () => {
               <Icon className={elMr4} icon="myAppsInfographic" iconSize="medium" />
               <div>
                 <Subtitle hasNoMargin>App Id</Subtitle>
-                <BodyText hasGreyText>{id}</BodyText>
+                <BodyText className={textOverflow} hasGreyText>
+                  {id}
+                </BodyText>
               </div>
             </FlexContainer>
             <CopyToClipboard text={id} onCopy={handleCopyCode(setCopyState, 'appId')}>
@@ -185,7 +187,7 @@ export const AppDetail: FC = () => {
           <Col>
             <Subtitle hasNoMargin>Redirect Uri(s)</Subtitle>
             {redirectUris?.map((uri) => (
-              <BodyText key={uri} hasGreyText hasNoMargin>
+              <BodyText className={textOverflow} key={uri} hasGreyText hasNoMargin>
                 {uri}
               </BodyText>
             ))}
@@ -195,7 +197,7 @@ export const AppDetail: FC = () => {
           <Col>
             <Subtitle hasNoMargin>Sign Out Uri(s)</Subtitle>
             {signoutUris?.map((uri) => (
-              <BodyText key={uri} hasGreyText hasNoMargin>
+              <BodyText className={textOverflow} key={uri} hasGreyText hasNoMargin>
                 {uri}
               </BodyText>
             ))}
