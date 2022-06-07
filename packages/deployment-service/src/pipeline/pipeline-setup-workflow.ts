@@ -92,6 +92,14 @@ export class PipelineSetupWorkflow extends AbstractWorkflow<PipelineEntity> {
         Comment: `Cloudfront distribution for pipeline [${pipeline.id}] [${
           process.env.NODE_ENV === 'production' ? 'prod' : 'dev'
         }]`,
+        CustomErrorResponses: {
+          Quantity: 1,
+          Items: [{
+            ErrorCode: 404,
+            ResponsePagePath: '/',
+            ResponseCode: '200',
+          }],
+        },
         Enabled: true,
         CallerReference: `${pipeline.subDomain}`, // another unique reference to prevent distribution duplication
         DefaultCacheBehavior: {
