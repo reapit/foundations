@@ -47,7 +47,10 @@ describe('getFetcher', () => {
       })
       expect(response).toBeUndefined()
     } catch (err) {
-      expect(mockLogger).toHaveBeenCalledWith(new Error(`${getActions('local')[GetActionNames.getApps].errorMessage} `))
+      expect(mockLogger).toHaveBeenCalledWith(
+        new Error(`${getActions('local')[GetActionNames.getApps].errorMessage} `),
+        mockConnectSession,
+      )
     }
   })
 
@@ -66,7 +69,7 @@ describe('getFetcher', () => {
       })
       expect(response).toBeUndefined()
     } catch (err) {
-      expect(mockLogger).toHaveBeenCalledWith(new Error('Missing valid Reapit Connect Session'))
+      expect(mockLogger).toHaveBeenCalledWith(new Error('Missing valid Reapit Connect Session'), {})
     }
   })
 

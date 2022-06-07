@@ -1,14 +1,14 @@
-import * as Sentry from '@sentry/browser'
+import * as Sentry from '@sentry/react'
 import { logger } from '..'
 
 describe('sentryLogger', () => {
-  const spyWithScope = jest.spyOn(Sentry, 'withScope')
+  const spyWithContext = jest.spyOn(Sentry, 'setContext')
   const spyCaptureException = jest.spyOn(Sentry, 'captureException')
-  it('shoudl run correctly', () => {
+  it('should correctly capture', () => {
     process.env.NODE_ENV = 'production'
     const error = new Error('mockError')
     logger(error)
-    expect(spyWithScope).toBeCalled()
+    expect(spyWithContext).toBeCalled()
     expect(spyCaptureException).toBeCalled()
   })
 })

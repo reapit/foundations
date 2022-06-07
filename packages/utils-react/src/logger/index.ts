@@ -18,12 +18,12 @@ export const logger = (error: Error, connectSession?: ReapitConnectSession | nul
     })
     if (connectSession) {
       Sentry.setUser({
-        email: connectSession.loginIdentity.email ?? 'No email logged',
-        username: connectSession.loginIdentity.name ?? 'No name logged',
-        id: connectSession.loginIdentity.clientId ?? 'No client id logged',
+        email: connectSession?.loginIdentity.email ?? 'No email logged',
+        username: connectSession?.loginIdentity.name ?? 'No name logged',
+        id: connectSession?.loginIdentity.clientId ?? 'No client id logged',
       })
     }
-    Sentry.captureException(error)
+    Sentry.captureException(error)?
   } else {
     console.error(error.message)
   }
