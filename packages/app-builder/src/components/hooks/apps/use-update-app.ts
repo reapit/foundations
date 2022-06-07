@@ -7,8 +7,8 @@ import { GetAppQuery } from './use-app'
 
 const UpdateAppMutation = gql`
   ${AppFragment}
-  mutation UpdateApp($id: ID!, $pages: [_PageInput!], $header: [_NodeInput!], $footer: [_NodeInput!]) {
-    _updateApp(id: $id, pages: $pages, header: $header, footer: $footer) {
+  mutation UpdateApp($id: ID!, $name: String!, $pages: [_PageInput!], $header: [_NodeInput!], $footer: [_NodeInput!]) {
+    _updateApp(id: $id, name: $name, pages: $pages, header: $header, footer: $footer) {
       ...AppFragment
     }
   }
@@ -20,8 +20,32 @@ export const useUpdateApp = () => {
   return {
     updateApp: (app: App, header: Node[], footer: Node[], pages?: Array<Partial<Page>>) =>
       updateApp({
-        variables: { id: app.id, pages, header, footer },
+        variables: { id: app.id, name: app.name, pages, header, footer },
       }),
+    loading,
+    error,
+  }
+}
+
+export const useUpdateAppName = (appId: string) => {
+  const client = useApolloClient()
+  const { updateApp, loading, error } = useUpdateApp()
+
+  return {
+    updateAppName: async (name: string) => {
+      const { data } = await client.query<{ _getApp: App }>({ query: GetAppQuery, variables: { idOrSubdomain: appId } })
+      const app: App = data?._getApp
+      if (!app) return
+      return updateApp(
+        {
+          ...app,
+          name,
+        },
+        omitDeep(cloneDeep(app.header), ['__typename']),
+        omitDeep(cloneDeep(app.footer), ['__typename']),
+        omitDeep(cloneDeep(app.pages), ['__typename']),
+      )
+    },
     loading,
     error,
   }

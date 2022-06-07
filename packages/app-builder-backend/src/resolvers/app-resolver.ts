@@ -148,6 +148,17 @@ const updateMarketplaceAppScopes = async (appId: string, scopes: string[], acces
   }
 }
 
+const updateMarketplaceAppName = async (appId: string, name: string, accessToken: string) => {
+  const marketplaceApp = await getMarketplaceApp(appId, accessToken)
+  if (marketplaceApp.name !== name) {
+    const appRevision = removeEmpty({
+      ...marketplaceApp,
+      name,
+    })
+    return createMarketplaceAppRevision(appId, appRevision, accessToken)
+  }
+}
+
 const ensureScopes = async (app: DDBApp, accessToken: string) => {
   const nodes = app.pages.map((page) => page.nodes).flat()
   const requiredAccess: { objectName: string; access: Access[] }[] = nodes
@@ -287,6 +298,7 @@ export class AppResolver {
   async updateApp(
     @Ctx() context: Context,
     @Arg('id', () => ID) id: string,
+    @Arg('name') name: string,
     @Arg('pages', () => [Page], { nullable: true }) pages?: Array<Page>,
     @Arg('header', () => [Node], { nullable: true }) header?: Array<Node>,
     @Arg('footer', () => [Node], { nullable: true }) footer?: Array<Node>,
@@ -306,8 +318,10 @@ export class AppResolver {
     }
     await ensureScopes(app, context.accessToken)
     const newApp = await updateApp(app)
+    await updateMarketplaceAppName(id, name, context.accessToken)
 
-    const { externalId, name, developer } = await getMarketplaceApp(id, context.accessToken)
+    const { externalId, developer } = await getMarketplaceApp(id, context.accessToken)
+
     return {
       ...newApp,
       header: newApp.header.length ? newApp.header : defaultHeaderNodes.map(addId(id)),

@@ -15,6 +15,7 @@ import { Link } from 'react-router-dom'
 import Play from '@/components/icons/play'
 import { AppBuilderIconButton } from '../components'
 import { Zoomer } from './zoomer'
+import { useUpdateAppName } from '@/components/hooks/apps/use-update-app'
 
 const Breakpoints = styled.div`
   height: 35px;
@@ -31,18 +32,33 @@ const AppNameContainer = styled.div`
   border: 1px solid #e3e3e3;
   border-radius: 4px;
   padding-left: 12px;
-  width: 297px;
 
   margin-right: 21px;
+  display: flex;
+  align-items: center;
 `
 
 const DeveloperName = styled.span`
   color: #646464;
 `
 
+const AppNameInput = styled.input`
+  border: none;
+  outline: none;
+  background: none;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 32px;
+
+  letter-spacing: -0.01em;
+  margin-left: 8px;
+`
+
 const AppName = () => {
   const { appId } = usePageId()
   const { app } = useApp(appId)
+  const { updateAppName } = useUpdateAppName(appId)
 
   if (!app) {
     return null
@@ -50,7 +66,24 @@ const AppName = () => {
 
   return (
     <AppNameContainer>
-      <DeveloperName>{app.developerName} /</DeveloperName> {app.name}
+      <DeveloperName>{app.developerName} /</DeveloperName>{' '}
+      <AppNameInput
+        defaultValue={app.name}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter') {
+            e.preventDefault()
+            e.stopPropagation()
+            if (e.currentTarget.value !== app.name) {
+              updateAppName(e.currentTarget.value)
+            }
+          }
+        }}
+        onBlur={(e) => {
+          if (e.currentTarget.value !== app.name) {
+            updateAppName(e.currentTarget.value)
+          }
+        }}
+      />
     </AppNameContainer>
   )
 }
