@@ -11,7 +11,7 @@ export const logger = (error: Error, connectSession?: ReapitConnectSession | nul
     Sentry.setContext('Error', {
       message: error.message ?? 'No error message caputured',
       page: window.location.href,
-      connectSession: connectSession?.loginIdentity ?? 'No Session Logged',
+      identity: connectSession?.loginIdentity ?? 'No Session Logged',
       permissionGroups: connectSession?.loginIdentity.groups ?? [],
       accessToken: connectSession?.accessToken ?? 'No Access Token Logged',
       idToken: connectSession?.idToken ?? 'No Id Token Logged',
