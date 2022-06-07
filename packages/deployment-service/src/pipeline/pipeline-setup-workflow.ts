@@ -93,7 +93,7 @@ export class PipelineSetupWorkflow extends AbstractWorkflow<PipelineEntity> {
           process.env.NODE_ENV === 'production' ? 'prod' : 'dev'
         }]`,
         CustomErrorResponses: {
-          Quantity: 1,
+          Quantity: 2,
           Items: [
             {
               ErrorCode: 403,
