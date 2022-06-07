@@ -143,7 +143,7 @@ export const send =
 
       await Promise.all([setLoading(false), setSuccess(false), setError(message)])
 
-      logger(err)
+      logger(err, connectSession)
       return false
     }
   }

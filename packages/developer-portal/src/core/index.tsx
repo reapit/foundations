@@ -1,4 +1,5 @@
-import * as Sentry from '@sentry/browser'
+import * as Sentry from '@sentry/react'
+import { BrowserTracing } from '@sentry/tracing'
 import React, { FC } from 'react'
 import { createRoot } from 'react-dom/client'
 import ReactGA from 'react-ga'
@@ -54,9 +55,11 @@ const run = async () => {
     const isLocal = config.appEnv !== 'production'
     if (!isLocal && config.sentryDns && !window.location.hostname.includes('prod.paas')) {
       Sentry.init({
+        integrations: [new BrowserTracing()],
         release: process.env.APP_VERSION,
         dsn: config.sentryDns,
         environment: config.appEnv,
+        tracesSampleRate: 1.0,
       })
     }
 

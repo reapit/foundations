@@ -10,7 +10,7 @@ export interface GetFetcherParams {
   queryParams?: Object
   uriParams?: Object
   headers?: StringMap
-  logger: (error: Error) => void
+  logger: (error: Error, connectSession?: ReapitConnectSession | null) => void
   signal: AbortSignal
   failSilently?: boolean
 }
@@ -55,7 +55,7 @@ export const getFetcher = async <DataType>({
   } catch (err) {
     const error = err as Error
     if (!failSilently) {
-      logger(error)
+      logger(error, connectSession)
     }
     return error.message ?? action.errorMessage
   }
