@@ -3,6 +3,7 @@ import React, { forwardRef, LegacyRef } from 'react'
 
 import SquareSvg from '../icons/square'
 import LinkSVG from '../icons/link'
+import NavigationSvg from '../icons/navigation'
 
 import Container from './user/container'
 import Text from './user/text'
@@ -128,12 +129,9 @@ export const Toolbox = ({ create }: { create: (ref: HTMLElement, ele: any) => vo
             <FormIcon />
           </Item>
         </ToolboxItem>
-        <ToolboxItem
-          name="Navigation Bar"
-          ref={(ref: HTMLElement) => ref && create(ref, <Element canvas is={Navbar} />)}
-        >
+        <ToolboxItem name="Navigation" ref={(ref: HTMLElement) => ref && create(ref, <Element canvas is={Navbar} />)}>
           <Item>
-            <SquareSvg />
+            <NavigationSvg />
           </Item>
         </ToolboxItem>
       </div>
