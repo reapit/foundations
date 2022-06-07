@@ -347,7 +347,7 @@ Object {
                     App Id
                   </h2>
                   <p
-                    class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+                    class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
                   >
                     MOCK_APP_ID
                   </p>
@@ -368,7 +368,7 @@ Object {
                 Redirect Uri(s)
               </h2>
               <p
-                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
+                class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
               >
                 https://foo.bar
               </p>
@@ -382,7 +382,7 @@ Object {
                 Sign Out Uri(s)
               </h2>
               <p
-                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
+                class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
               >
                 https://foo.bar
               </p>
@@ -795,7 +795,7 @@ Object {
                   App Id
                 </h2>
                 <p
-                  class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+                  class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
                 >
                   MOCK_APP_ID
                 </p>
@@ -816,7 +816,7 @@ Object {
               Redirect Uri(s)
             </h2>
             <p
-              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
+              class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
             >
               https://foo.bar
             </p>
@@ -830,7 +830,7 @@ Object {
               Sign Out Uri(s)
             </h2>
             <p
-              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
+              class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
             >
               https://foo.bar
             </p>
