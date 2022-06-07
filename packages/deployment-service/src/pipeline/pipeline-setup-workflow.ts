@@ -94,11 +94,18 @@ export class PipelineSetupWorkflow extends AbstractWorkflow<PipelineEntity> {
         }]`,
         CustomErrorResponses: {
           Quantity: 1,
-          Items: [{
-            ErrorCode: 404,
-            ResponsePagePath: '/',
-            ResponseCode: '200',
-          }],
+          Items: [
+            {
+              ErrorCode: 403,
+              ResponsePagePath: '/',
+              ResponseCode: '200',
+            },
+            {
+              ErrorCode: 404,
+              ResponsePagePath: '/',
+              ResponseCode: '200',
+            },
+          ],
         },
         Enabled: true,
         CallerReference: `${pipeline.subDomain}`, // another unique reference to prevent distribution duplication
