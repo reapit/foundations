@@ -118,11 +118,11 @@ export class ZipCommand extends AbstractCommand {
 
     const response = await (
       await this.axios(spinner)
-    ).post(`release/${pipeline.id}/${version}`, {
+    ).post(`pipeline/${pipeline.id}/pipeline-runner/release/${version}`, {
       file: buffer.toString('base64'),
     })
 
-    if (response.status !== 200) {
+    if (response.status !== 201) {
       spinner.fail('Failed to publish zip to reapit')
       console.log(`Response: ${response.statusText}`)
       process.exit(1)

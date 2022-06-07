@@ -42,7 +42,7 @@ describe('pipeline-edit', () => {
     //@ts-ignore
     axios.create.mockImplementation(() => axios)
     // @ts-ignore
-    axios.post = jest.fn(() => ({
+    axios.put = jest.fn(() => ({
       status: 200,
       data: {
         name: 'name',
@@ -54,6 +54,6 @@ describe('pipeline-edit', () => {
 
     await command.run()
 
-    expect(axios.post).toHaveBeenCalled()
+    expect(axios.put).toHaveBeenCalled()
   })
 })

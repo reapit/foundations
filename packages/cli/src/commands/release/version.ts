@@ -31,8 +31,10 @@ export class VersionCommand extends AbstractCommand {
    * deploy version to reapit
    *
    */
-  async deployVersion(pipelineRunnerId: string, spinner: Ora): Promise<void | never> {
-    const response = await (await this.axios(spinner)).post(`/deploy/version/${pipelineRunnerId}`)
+  async deployVersion(pipelineId: string, pipelineRunnerId: string, spinner: Ora): Promise<void | never> {
+    const response = await (
+      await this.axios(spinner)
+    ).post(`pipeline/${pipelineId}/pipeline-runner/${pipelineRunnerId}/deploy`)
 
     if (response.status !== 200) {
       let message: string
@@ -132,6 +134,6 @@ export class VersionCommand extends AbstractCommand {
       process.exit(1)
     }
 
-    await this.deployVersion(version.id as string, spinner)
+    await this.deployVersion(pipeline.id as string, version.id as string, spinner)
   }
 }

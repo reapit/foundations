@@ -27,6 +27,7 @@ yarn-error.log*
 
 public-keys.json
 
+*.ormconfig.json
 ormconfig.json
 
 .cdk.staging

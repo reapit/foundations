@@ -98,7 +98,7 @@ export class PipelineCreate extends AbstractCommand {
       branch,
     })
 
-    if (response.status === 200) {
+    if (response.status === 201) {
       spinner.succeed(`Pipeline ${response.data.name} created`)
 
       if (create) {

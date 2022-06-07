@@ -1,5 +1,5 @@
 import { createSqsQueue, Stack } from '@reapit/ts-scripts/src/cdk'
-import { aws_sqs as sqs } from 'aws-cdk-lib'
+import { aws_sqs as sqs, Duration } from 'aws-cdk-lib'
 
 export enum QueueNames {
   CODEBUILD_EXECUTOR = 'CODEBUILD_EXECUTOR',
@@ -14,27 +14,36 @@ export const createSqsQueues = (stack: Stack): Record<QueueNames, sqs.IQueue> =>
   const queueConfig: {
     [k in QueueNames]: {
       visibilityTimeout?: number
+      deliveryDelay?: Duration
     }
   } = {
-    [QueueNames.CODEBUILD_EXECUTOR]: {},
+    [QueueNames.CODEBUILD_EXECUTOR]: {
+      visibilityTimeout: 900,
+    },
     [QueueNames.CODEBUILD_VERSION_DEPLOY]: {
-      visibilityTimeout: 600,
+      visibilityTimeout: 900,
     },
     [QueueNames.PIPELINE_SETUP]: {
       visibilityTimeout: 900,
     },
     [QueueNames.PIPELINE_TEAR_DOWN_START]: {
-      visibilityTimeout: 300,
+      visibilityTimeout: 900,
     },
     [QueueNames.PIPELINE_TEAR_DOWN]: {
-      visibilityTimeout: 600,
+      visibilityTimeout: 900,
+      deliveryDelay: Duration.minutes(5),
     },
     [QueueNames.APP_EVENTS]: {},
   }
 
   const queues = (Object.keys(queueConfig) as Array<QueueNames>).reduce<{ [k in QueueNames]: sqs.IQueue }>(
     (queues, queueName) => {
-      queues[queueName] = createSqsQueue(stack, queueName, queueConfig[queueName].visibilityTimeout)
+      queues[queueName] = createSqsQueue(
+        stack,
+        queueName,
+        queueConfig[queueName].visibilityTimeout,
+        queueConfig[queueName].deliveryDelay,
+      )
 
       return queues
     },

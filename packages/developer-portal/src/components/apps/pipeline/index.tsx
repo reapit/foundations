@@ -2,7 +2,7 @@ import React, { FC, useEffect } from 'react'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { PusherProvider } from '@harelpls/use-pusher'
-import { URLS, COGNITO_HEADERS } from '../../../constants/api'
+import { URLS } from '../../../constants/api'
 import { PipelinePage } from './pipeline-page'
 import ErrorBoundary from '../../../core/error-boundary'
 import { Route, Switch, useParams } from 'react-router'
@@ -27,7 +27,6 @@ export const AppPipeline: FC = () => {
       authEndpoint={`${URLS.DEPLOYMENT_SERVICE_HOST}pusher/auth`}
       auth={{
         headers: {
-          ...COGNITO_HEADERS,
           Authorization: connectSession.idToken,
         },
       }}
