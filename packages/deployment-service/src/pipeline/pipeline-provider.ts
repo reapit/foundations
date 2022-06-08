@@ -67,10 +67,10 @@ export class PipelineProvider {
 
   async removeBitbucketClient(bitbucketClient: BitbucketClientEntity): Promise<void> {
     await this.repository
-      .createQueryBuilder('p')
+      .createQueryBuilder()
       .update()
       .set({ bitbucketClient: undefined })
-      .where('p.bitbucketClientId = :bitbucketClientId', {
+      .where('bitbucketClientId = :bitbucketClientId', {
         bitbucketClientId: bitbucketClient.id,
       })
       .execute()
