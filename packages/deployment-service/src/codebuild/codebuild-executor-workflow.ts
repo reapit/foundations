@@ -63,7 +63,7 @@ export class CodebuildExecutorWorkflow extends AbstractWorkflow<{
         : await this.sourceProvider.downloadBitbucketSourceToS3({
             pipeline,
             pipelineRunner,
-            client,
+            client: client || pipeline.bitbucketClient?.data,
             event,
           })
 
