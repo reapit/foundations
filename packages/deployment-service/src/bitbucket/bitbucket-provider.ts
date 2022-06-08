@@ -66,6 +66,7 @@ export class BitbucketProvider {
 
   async installClient(clientKey: string, data: any): Promise<void> {
     const client = await this.create(clientKey, data)
+    // TODO loop until all pages complete?
     const repositories = await this.listRepositories(client)
 
     const pipelines = await this.pipelineProvider.findByRepos(repositories.values.map((repo) => repo.links.html.href))
