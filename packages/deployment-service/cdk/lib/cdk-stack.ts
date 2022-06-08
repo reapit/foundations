@@ -16,6 +16,7 @@ import {
   Queue,
   createSecret,
 } from '@reapit/ts-scripts/src/cdk'
+import fs from 'fs/promises'
 import { aws_sqs as sqs } from 'aws-cdk-lib'
 
 import { createLambda } from './create-lambda'
@@ -45,7 +46,12 @@ type FunctionSetup = {
   role?: Role
 }
 
-export const createStack = () => {
+const getNumberOfMigrations = async () => {
+  const migrations = await fs.readdir(path.join(__dirname, '../../migrations'))
+  return migrations.length
+}
+
+export const createStack = async () => {
   const envStage = process.env.APP_STAGE === 'production' ? 'prod' : 'dev'
   const stack = createBaseStack({
     namespace: 'cloud',
@@ -223,5 +229,7 @@ export const createStack = () => {
     .filter((policy) => policy instanceof PolicyStatement)
     .forEach((policy) => migrationHandler.addToRolePolicy(policy as PolicyStatement))
 
-  createStackEventHandler(stack, 'migration-event', migrationHandler)
+  const numberOfMigrations = await getNumberOfMigrations()
+
+  createStackEventHandler(stack, 'migration-event', migrationHandler, `${numberOfMigrations}`)
 }

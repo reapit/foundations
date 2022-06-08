@@ -13,7 +13,7 @@ const bootstrap = async () => {
     cwd: __dirname,
     stdio: 'inherit',
   })
-  createStack()
+  await createStack()
 }
 
 bootstrap()
