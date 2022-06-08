@@ -61,6 +61,10 @@ export class PipelineProvider {
     })
   }
 
+  async saveAll(pipelines: PipelineEntity[]): Promise<void> {
+    await this.repository.save(pipelines)
+  }
+
   async removeBitbucketClient(bitbucketClient: BitbucketClientEntity): Promise<void> {
     await this.repository
       .createQueryBuilder('p')

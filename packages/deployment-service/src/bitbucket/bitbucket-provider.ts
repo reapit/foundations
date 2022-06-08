@@ -70,16 +70,11 @@ export class BitbucketProvider {
 
     const pipelines = await this.pipelineProvider.findByRepos(repositories.values.map((repo) => repo.links.html.href))
 
-    console.log('pipelines', pipelines)
+    pipelines.forEach(pipeline => {
+      pipeline.bitbucketClient = client
+    })
 
-    await Promise.all(
-      repositories.values.map(async (repository) => {
-        const pipeline = await this.pipelineProvider.findByRepo(repository.links.html.href)
-
-        console.log('pipeline', pipeline)
-        // TODO update pipeline with clientKey
-      }),
-    )
+    await this.pipelineProvider.saveAll(pipelines)
   }
 
   async getBitBucketToken({ key, clientKey }: { key: string; clientKey: string }): Promise<{ access_token: string }> {
