@@ -5,6 +5,7 @@ export const createStackEventHandler = (
   scope: cdk.Stack,
   name: string,
   handler: customResources.ProviderProps['onEventHandler'],
+  changeThisStringToTriggerFunction: string,
 ): cdk.CustomResource => {
   const resourceProvider = new customResources.Provider(scope, `${name}-rp`, {
     onEventHandler: handler,
@@ -13,6 +14,9 @@ export const createStackEventHandler = (
 
   return new cdk.CustomResource(scope, name, {
     serviceToken: resourceProvider.serviceToken,
+    properties: {
+      changeThisStringToTriggerFunction,
+    },
   })
 }
 
