@@ -19,6 +19,7 @@ export interface PipelineModelInterface {
   buildStatus?: string
   appId?: string
   subDomain?: string
+  bitbucketClientId?: string
 }
 
 export interface PipelineRunnerModelInterface {
