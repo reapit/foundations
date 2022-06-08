@@ -1,8 +1,9 @@
 import { AppTypeEnum, PackageManagerEnum, PipelineModelInterface } from '@reapit/foundations-ts-definitions'
-import { Column, Entity, OneToMany } from 'typeorm'
+import { Column, Entity, ManyToOne, OneToMany } from 'typeorm'
 import { AbstractEntity } from './abstract-entity'
 import { PipelineRunnerEntity } from './pipeline-runner.entity'
 import { PipelineBuildStatus } from '../pipeline/pipeline-dto'
+import { BitbucketClientEntity } from './bitbucket-client.entity'
 
 export const pipelineDeploymentDisabled = [
   'PROVISIONING',
@@ -46,6 +47,9 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
 
   @OneToMany(() => PipelineRunnerEntity, (pipelineRunner) => pipelineRunner.pipeline)
   runners?: PipelineRunnerEntity[]
+
+  @ManyToOne(() => BitbucketClientEntity, (bitbucketClient) => bitbucketClient.pipelines)
+  bitbucketClient?: BitbucketClientEntity
 
   @Column()
   developerId?: string

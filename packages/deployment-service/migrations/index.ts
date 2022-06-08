@@ -15,6 +15,7 @@ import { startTimeFix1638286917874 } from './1638286917874-startTimeFix'
 import { bitBucket1645444063726 } from './1645444063726-bitBucket'
 import { pipelineBranch1645524699376 } from './1645524699376-pipelineBranch'
 import { installationId1645008177818 } from './1645008177818-installationId'
+import { pipelineBitbucketRelation1654693666828 } from './1654693666828-pipelineBitbucketRelation'
 
 export default [
   pipelines1625758770110,
@@ -34,4 +35,5 @@ export default [
   bitBucket1645444063726,
   pipelineBranch1645524699376,
   installationId1645008177818,
+  pipelineBitbucketRelation1654693666828,
 ]

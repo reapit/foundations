@@ -1,9 +1,11 @@
-import { Column, Entity } from 'typeorm'
+import { Column, Entity, OneToMany } from 'typeorm'
 import { AbstractEntity } from './abstract-entity'
+import { PipelineEntity } from './pipeline.entity'
 
 export type BitbucketClientData = {
   productType: 'bitbucket'
-  principle: {
+  principal: {
+    uuid: string
     account_id: string
     display_name?: string
     type: 'user'
@@ -32,4 +34,7 @@ export class BitbucketClientEntity extends AbstractEntity {
     type: 'json',
   })
   data: BitbucketClientData
+
+  @OneToMany(() => PipelineEntity, (pipeline) => pipeline.bitbucketClient)
+  pipelines?: PipelineEntity[]
 }
