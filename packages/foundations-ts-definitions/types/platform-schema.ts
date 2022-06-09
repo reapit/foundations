@@ -2538,11 +2538,13 @@ export interface ConfigurationTypes {
   type?: (
     | 'agencyTypes'
     | 'appointmentTypes'
+    | 'applicantStatuses'
     | 'boardStatuses'
     | 'buyingPositions'
     | 'buyingReasons'
     | 'certificateTypes'
     | 'companyTypes'
+    | 'contactCategories'
     | 'identityDocumentTypes'
     | 'documentTypes'
     | 'journalEntryTypes'
@@ -6077,6 +6079,10 @@ export interface CreatePropertyModel {
    * The total number of bedrooms in the property
    */
   bedrooms?: number // int32
+  /**
+   * The number of units offered on the market. This is typically used when marketing development sites.
+   */
+  numberOfUnits?: number // int32
   /**
    * The total number of reception rooms in the property
    */
@@ -11070,6 +11076,10 @@ export interface PropertyModel {
    */
   bathrooms?: number // int32
   /**
+   * The number of units offered on the market. This is typically used when marketing development sites.
+   */
+  numberOfUnits?: number // int32
+  /**
    * The total number of parking spaces the property has. This is only supported by some departments. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
    */
   parkingSpaces?: number // int32
@@ -11771,6 +11781,10 @@ export interface PropertyModelPagedResult {
      * The total number of bathrooms in the property. This is only supported by some departments. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
      */
     bathrooms?: number // int32
+    /**
+     * The number of units offered on the market. This is typically used when marketing development sites.
+     */
+    numberOfUnits?: number // int32
     /**
      * The total number of parking spaces the property has. This is only supported by some departments. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
      */
@@ -14511,6 +14525,19 @@ export interface TypeModel {
     value?: string
   }[]
   /**
+   * A list of configurable applicant statuses
+   */
+  applicantStatuses?: {
+    /**
+     * The unique identifier of the list item
+     */
+    id?: string
+    /**
+     * The textual value for the list item
+     */
+    value?: string
+  }[]
+  /**
    * A list of configurable board statuses
    */
   boardStatuses?: {
@@ -14566,6 +14593,19 @@ export interface TypeModel {
    * A list of configurable company types
    */
   companyTypes?: {
+    /**
+     * The unique identifier of the list item
+     */
+    id?: string
+    /**
+     * The textual value for the list item
+     */
+    value?: string
+  }[]
+  /**
+   * A list of configurable contact categories
+   */
+  contactCategories?: {
     /**
      * The unique identifier of the list item
      */
@@ -16646,6 +16686,10 @@ export interface UpdatePropertyModel {
    * The total number of bedrooms in the property
    */
   bedrooms?: number // int32
+  /**
+   * The number of units offered on the market. This is typically used when marketing development sites.
+   */
+  numberOfUnits?: number // int32
   /**
    * The total number of reception rooms in the property
    */
