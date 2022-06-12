@@ -2,20 +2,20 @@ import { NestFactory } from '@nestjs/core'
 import { INestApplication, ValidationPipe } from '@nestjs/common'
 import { AppModule } from './app-module'
 import { ExpressAdapter } from '@nestjs/platform-express'
-import { DefaultHeaderInterceptor } from './default-header-interceptor'
 import { createServer, proxy } from 'aws-serverless-express'
 import { Handler, Context, APIGatewayEvent } from 'aws-lambda'
 import { eventContext } from 'aws-serverless-express/middleware'
 import { Server } from 'http'
 import express, { Express } from 'express'
 import * as bodyParser from 'body-parser'
+import { CorsHeaderInterceptor } from '@reapit/utils-node'
 
 export const bootstrapApplication = async (): Promise<[INestApplication, Express]> => {
   const expressApp = express()
   const app = await NestFactory.create(AppModule, new ExpressAdapter(expressApp))
 
   app.useGlobalPipes(new ValidationPipe())
-  app.useGlobalInterceptors(new DefaultHeaderInterceptor())
+  app.useGlobalInterceptors(new CorsHeaderInterceptor())
   app.use(bodyParser.json({ limit: '50mb' }))
   app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }))
 
