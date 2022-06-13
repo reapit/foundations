@@ -8,15 +8,7 @@ import IFrame from 'react-frame-component'
 import Header from '../header'
 import Sidebar from '../sidebar'
 
-import {
-  flexAlignStretch,
-  hScreen,
-  justifyStretch,
-  overflowAuto,
-  overflowHidden,
-  relative,
-  transition,
-} from '../styles'
+import { flexAlignStretch, hScreen, justifyStretch, overflowAuto, relative, transition } from '../styles'
 import { InjectFrameStyles } from './inject-frame-styles'
 import { usePageId } from '@/components/hooks/use-page-id'
 import { useApp } from '@/components/hooks/apps/use-app'
@@ -55,15 +47,14 @@ export const Viewport = ({ children, iframeRef, deserialize, rendererDivRefHandl
   return (
     <div className={cx(elFlex1, elFlexColumn, justifyStretch, hScreen)}>
       <Header breakpoint={breakpoint} setBreakpoint={setBreakpoint} />
-      <div className={cx(elFlex, overflowHidden, elFlexRow, elWFull)} style={{ height: 'calc(100vh - 56px)' }}>
+      <div className={cx(elFlex, elFlexRow)} style={{ height: 'calc(100vh - 56px)', width: '100vw' }}>
         <Container>
           <IFrame
             style={{
-              transition: 'width 350ms, transform 350ms',
+              transition: 'width 350ms',
               width: breakpoint,
               flex: 1,
-              transform: `scale(${zoom})`,
-              transformOrigin: 'top left',
+              margin: 'auto',
             }}
             ref={iframeRef}
             head={
@@ -72,7 +63,15 @@ export const Viewport = ({ children, iframeRef, deserialize, rendererDivRefHandl
               </>
             }
           >
-            <div id="page-container" className={cx(elFlex, elFlex1, elHFull, elFlexColumn, elPt6)}>
+            <div
+              id="page-container"
+              className={cx(elFlex, elFlex1, elHFull, elFlexColumn, elPt6)}
+              style={{
+                transition: 'transform 350ms',
+                transform: `scale(${zoom})`,
+                transformOrigin: 'top left',
+              }}
+            >
               <div
                 id="craftjs-renderer"
                 className={cx(elFlex1, elHFull, elWFull, transition, elPb6, overflowAuto)}
