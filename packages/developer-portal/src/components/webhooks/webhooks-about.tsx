@@ -1,4 +1,4 @@
-import { BodyText, ColSplit, Grid, PersistantNotification, elMb11, elMb10, Button, Subtitle } from '@reapit/elements'
+import { BodyText, ColSplit, Grid, PersistentNotification, elMb11, elMb10, Button, Subtitle } from '@reapit/elements'
 import React, { Dispatch, FC, SetStateAction, useState } from 'react'
 import { useHistory } from 'react-router'
 import Routes from '../../constants/routes'
@@ -23,10 +23,10 @@ export const WebhooksAbout: FC = () => {
 
   return (
     <>
-      <PersistantNotification className={elMb11} isFullWidth isExpanded intent="secondary" isInline>
+      <PersistentNotification className={elMb11} isFullWidth isExpanded intent="secondary" isInline>
         Please note that apps and integrations developed using Webhooks for topics other than application
         install/uninstall will only be visible in the Marketplace to customers who have been migrated to AWS.
-      </PersistantNotification>
+      </PersistentNotification>
       <Grid>
         <ColSplit>
           <IconContainer className={elMb10}>

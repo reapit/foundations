@@ -12,7 +12,7 @@ import {
   Button,
   useModal,
   BodyText,
-  PersistantNotification,
+  PersistentNotification,
   elMb6,
   FormLayout,
   InputWrapFull,
@@ -240,9 +240,9 @@ export const WebhooksManageForm: FC<WebhooksManageFormProps> = ({
             {...register('topicIds')}
           />
           {errors.topicIds && (
-            <PersistantNotification className={elMb6} isFullWidth isExpanded intent="danger" isInline>
+            <PersistentNotification className={elMb6} isFullWidth isExpanded intent="danger" isInline>
               {errors.topicIds.message}
-            </PersistantNotification>
+            </PersistentNotification>
           )}
         </InputWrapFull>
         <InputWrapFull>

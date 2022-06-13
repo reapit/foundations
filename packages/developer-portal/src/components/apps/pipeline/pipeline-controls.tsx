@@ -39,11 +39,19 @@ export const handleSavePipeline =
     if (appDetail && savedPipeline && typeof savedPipeline !== 'boolean' && savedPipeline.subDomain && developerId) {
       const formattedFields = formatAppFields(appDetail, developerId)
       const sanitisedAppDetail = formatFormValues(formattedFields as AppEditFormSchema)
+      const redirectUri = `https://${savedPipeline.subDomain}.iaas.paas.reapit.cloud`
+      const signoutUri = `https://${savedPipeline.subDomain}.iaas.paas.reapit.cloud/login`
 
-      sanitisedAppDetail?.redirectUris?.push(`https://${savedPipeline.subDomain}.iaas.paas.reapit.cloud`)
-      sanitisedAppDetail?.signoutUris?.push(`https://${savedPipeline.subDomain}.iaas.paas.reapit.cloud/login`)
+      if (!sanitisedAppDetail?.redirectUris?.includes(redirectUri)) {
+        sanitisedAppDetail?.redirectUris?.push()
+      }
+
+      if (!sanitisedAppDetail?.signoutUris?.includes(signoutUri)) {
+        sanitisedAppDetail?.signoutUris?.push(signoutUri)
+      }
 
       const appRevsion = await createAppRevision(sanitisedAppDetail)
+
       if (appRevsion) {
         appsDetailRefresh()
         appRefreshRevisions()
@@ -56,15 +64,9 @@ export const handleUpdatePipelineRunner = (updatePipelineRunner: SendFunction<vo
 }
 
 export const handleDeletePipeline =
-  (
-    deletePipeline: SendFunction<void, boolean>,
-    setAppPipeline: Dispatch<SetStateAction<PipelineModelInterface | null>>,
-    closeModal: () => void,
-  ) =>
-  async () => {
+  (deletePipeline: SendFunction<void, boolean>, closeModal: () => void) => async () => {
     const response = await deletePipeline()
     if (response) {
-      setAppPipeline(null)
       closeModal()
     }
   }
@@ -74,7 +76,7 @@ export const PipelineControls: FC = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { appPipelineState, appId, appsDataState } = useAppState()
   const { Modal, openModal, closeModal } = useModal()
-  const { appPipeline, setAppPipeline, setAppPipelineSaving, setAppPipelineDeploying } = appPipelineState
+  const { appPipeline, setAppPipelineSaving, setAppPipelineDeploying } = appPipelineState
   const { pathname } = location
   const isConfigPage = pathname.includes('new') || pathname.includes('configure')
   const { appDetail, appsDetailRefresh, appRefreshRevisions } = appsDataState
@@ -138,6 +140,8 @@ export const PipelineControls: FC = () => {
     appPipeline?.buildStatus === 'PROVISIONING' ||
     appPipeline?.buildStatus === 'PROVISION_REQUEST'
 
+  const isDeleting = appPipeline?.buildStatus === 'DELETING' || appPipeline?.buildStatus === 'SCHEDULED_FOR_DELETION'
+
   return (
     <div className={elFadeIn}>
       <Icon className={elMb3} icon="webDeveloperInfographic" iconSize="large" />
@@ -199,13 +203,14 @@ export const PipelineControls: FC = () => {
             loading={pipelineRunnerLoading}
             intent="primary"
             onClick={handleUpdatePipelineRunner(updatePipelineRunner)}
-            disabled={appPipeline.buildStatus === 'DELETING' || appPipeline.buildStatus === 'SCHEDULED_FOR_DELETION'}
+            disabled={isDeleting}
           >
             Deploy
           </Button>
           <Button
             className={elMb3}
             intent="secondary"
+            disabled={isDeleting}
             onClick={openNewPage('https://github.com/reapit/foundations/tree/master/packages/cli#readme')}
           >
             Deploy CLI
@@ -214,13 +219,7 @@ export const PipelineControls: FC = () => {
         </>
       ) : null}
       {appPipeline && (
-        <Button
-          className={elMb3}
-          loading={deleteLoading}
-          intent="neutral"
-          disabled={appPipeline.buildStatus === 'DELETING'}
-          onClick={openModal}
-        >
+        <Button className={elMb3} loading={deleteLoading} intent="neutral" disabled={isDeleting} onClick={openModal}>
           Delete Pipeline
         </Button>
       )}
@@ -233,7 +232,7 @@ export const PipelineControls: FC = () => {
           <Button fixedWidth intent="low" onClick={closeModal}>
             Close
           </Button>
-          <Button fixedWidth intent="danger" onClick={handleDeletePipeline(deleteFunc, setAppPipeline, closeModal)}>
+          <Button fixedWidth intent="danger" onClick={handleDeletePipeline(deleteFunc, closeModal)}>
             Delete
           </Button>
         </ButtonGroup>

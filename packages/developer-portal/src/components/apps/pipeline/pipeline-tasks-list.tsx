@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import {
   Button,
-  PersistantNotification,
+  PersistentNotification,
   StatusIndicator,
   Table,
   TableCell,
@@ -29,9 +29,9 @@ const intendedTaskOrder = ['DOWNLOAD_SOURCE', 'INSTALL', 'BUILD', 'TEST', 'DEPLO
 export const TaskList: FC<TaskListProps> = ({ tasks, s3BuildLogsLocation, buildStatus, created }) => {
   if (!tasks || !tasks.length) {
     return (
-      <PersistantNotification isInline isFullWidth isExpanded intent="secondary">
+      <PersistentNotification isInline isFullWidth isExpanded intent="secondary">
         No progress reported for this deployment
-      </PersistantNotification>
+      </PersistentNotification>
     )
   }
 
@@ -75,11 +75,7 @@ export const TaskList: FC<TaskListProps> = ({ tasks, s3BuildLogsLocation, buildS
             s3BuildLogsLocation && openNewPage(s3BuildLogsLocation)()
           }}
         >
-          {!logsExpired
-            ? 'Logs Expired'
-            : ['FAILED', 'SUCCEEDED'].includes(buildStatus)
-            ? 'Logs Unavailable'
-            : 'Download Logs'}
+          {logsExpired ? 'Logs Expired' : 'FAILED'.includes(buildStatus) ? 'Logs Unavailable' : 'Download Logs'}
         </Button>
       </div>
     </>
