@@ -4,7 +4,7 @@ import {
   InputGroup,
   FormLayout,
   InputWrapFull,
-  PersistantNotification,
+  PersistentNotification,
   Title,
   Subtitle,
   BodyText,
@@ -131,10 +131,10 @@ export const Register: FC = () => {
         </FlexContainer>
         {developerState === 'SUCCESS' ? (
           <>
-            <PersistantNotification className={elMb12} intent="success" isExpanded isFullWidth isInline>
+            <PersistentNotification className={elMb12} intent="success" isExpanded isFullWidth isInline>
               Successfully registered, if you already have a Reapit Connect account, please now login. If you do not,
               please check your email to confirm your account.
-            </PersistantNotification>
+            </PersistentNotification>
             <ButtonGroup alignment="center" className={elMb12}>
               <Button onClick={onLoginButtonClick()} intent="primary" size={3}>
                 Login With Reapit

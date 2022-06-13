@@ -139,14 +139,12 @@ describe('handleUpdatePipelineRunner', () => {
 describe('handleDeletePipeline', () => {
   it('should handle pipeline deletion', async () => {
     const deletePipeline = jest.fn(() => new Promise<boolean>((resolve) => resolve(true)))
-    const setAppPipeline = jest.fn()
     const closeModal = jest.fn()
-    const curried = handleDeletePipeline(deletePipeline, setAppPipeline, closeModal)
+    const curried = handleDeletePipeline(deletePipeline, closeModal)
 
     await curried()
 
     expect(deletePipeline).toHaveBeenCalledTimes(1)
-    expect(setAppPipeline).toHaveBeenCalledWith(null)
     expect(closeModal).toHaveBeenCalledTimes(1)
   })
 })

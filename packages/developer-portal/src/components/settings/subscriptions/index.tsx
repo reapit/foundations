@@ -7,7 +7,7 @@ import {
   FlexContainer,
   Loader,
   Pagination,
-  PersistantNotification,
+  PersistentNotification,
   StatusIndicator,
   Table,
   Title,
@@ -184,9 +184,9 @@ export const SettingsSubscriptionsPage: FC = () => {
           numberPages={Math.ceil((subscriptions?.totalCount ?? 1) / (subscriptions?.pageSize ?? 1))}
         />
       ) : (
-        <PersistantNotification intent="secondary" isExpanded isFullWidth isInline>
+        <PersistentNotification intent="secondary" isExpanded isFullWidth isInline>
           No subscriptions available for this account
-        </PersistantNotification>
+        </PersistentNotification>
       )}
     </>
   )

@@ -3,7 +3,7 @@ import SwaggerUI from 'swagger-ui-react'
 import 'swagger-ui-react/swagger-ui.css'
 import { swagger, swaggerHidden } from './__styles__/swagger'
 import ErrorBoundary from '../../core/error-boundary'
-import { Loader, Title, BodyText, PersistantNotification } from '@reapit/elements'
+import { Loader, Title, BodyText, PersistentNotification } from '@reapit/elements'
 import { cx } from '@linaria/core'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
@@ -77,13 +77,13 @@ export const SwaggerPage: FC<SwaggerPageProps> = ({ swaggerUri }) => {
   return (
     <ErrorBoundary>
       {(loading || !connectSession?.accessToken || !swaggerUri) && <Loader fullPage />}
-      <PersistantNotification
+      <PersistentNotification
         onClick={handleSandboxClick(setSandboxVisible, sandboxVisible)}
         isExpanded={sandboxVisible}
         intent="secondary"
       >
         This is a sandbox environment, with anonymised test data and isolated from production
-      </PersistantNotification>
+      </PersistentNotification>
       <div className={cx(swagger, (loading || !swaggerUri) && swaggerHidden)}>
         <Title>Foundations API</Title>
         <BodyText hasGreyText>

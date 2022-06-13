@@ -1,5 +1,5 @@
 import React, { FC, useMemo } from 'react'
-import { elSpan2, PersistantNotification, RowProps, Table } from '@reapit/elements'
+import { elSpan2, PersistentNotification, RowProps, Table } from '@reapit/elements'
 import dayjs from 'dayjs'
 import { saveAs } from 'file-saver'
 import { logger, useReapitGet } from '@reapit/utils-react'
@@ -105,17 +105,17 @@ export const WebhooksLogs: FC = () => {
 
   if (!applicationId || !from || !to)
     return (
-      <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
+      <PersistentNotification isFullWidth isExpanded intent="secondary" isInline>
         No app or date range selected. Please use the filters option to get started.
-      </PersistantNotification>
+      </PersistentNotification>
     )
   if (logsLoading) return <Loader />
   if (!logs?.length || !rows.length)
     return (
-      <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
+      <PersistentNotification isFullWidth isExpanded intent="secondary" isInline>
         No logs found for this application. Select another app, date range or trigger a webhook to see the logs appear
         here.
-      </PersistantNotification>
+      </PersistentNotification>
     )
 
   return <Table rows={rows} numberColumns={8} />

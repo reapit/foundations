@@ -10,7 +10,7 @@ import {
   InputWrapFull,
   Loader,
   Pagination,
-  PersistantNotification,
+  PersistentNotification,
   Table,
   Title,
   useMediaQuery,
@@ -248,9 +248,9 @@ export const AppInstallations: FC = () => {
           </Modal>
         </>
       ) : installations ? (
-        <PersistantNotification intent="secondary" isExpanded isFullWidth isInline>
+        <PersistentNotification intent="secondary" isExpanded isFullWidth isInline>
           No installations for the application.
-        </PersistantNotification>
+        </PersistentNotification>
       ) : null}
     </>
   )

@@ -8,7 +8,7 @@ import {
   Grid,
   Icon,
   Loader,
-  PersistantNotification,
+  PersistentNotification,
   Subtitle,
   Title,
 } from '@reapit/elements'
@@ -230,9 +230,9 @@ export const AppDetail: FC = () => {
       </Grid>
     </>
   ) : (
-    <PersistantNotification intent="secondary" isExpanded isFullWidth isInline>
+    <PersistentNotification intent="secondary" isExpanded isFullWidth isInline>
       No record of this app found
-    </PersistantNotification>
+    </PersistentNotification>
   )
 }
 

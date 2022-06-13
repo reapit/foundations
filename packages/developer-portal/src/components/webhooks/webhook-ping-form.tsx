@@ -17,7 +17,7 @@ import {
   InputAddOn,
   elMb6,
   useModal,
-  PersistantNotification,
+  PersistentNotification,
   FlexContainer,
 } from '@reapit/elements'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -161,9 +161,9 @@ export const WebhooksPingForm: FC<WebhooksPingFormProps> = ({
             </Button>
           </ButtonGroup>
           <FailedConnectionModal title="Connection Unsuccessful">
-            <PersistantNotification className={elMb6} isExpanded isInline isFullWidth intent="danger">
+            <PersistentNotification className={elMb6} isExpanded isInline isFullWidth intent="danger">
               Unfortunately the connection was unsuccessful, please check to ensure you have entered a valid URL.
-            </PersistantNotification>
+            </PersistentNotification>
             <FlexContainer isFlexJustifyCenter>
               <Button intent="danger" onClick={closeModal}>
                 OK

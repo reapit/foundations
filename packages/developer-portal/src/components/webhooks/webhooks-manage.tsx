@@ -1,4 +1,4 @@
-import { elMb11, Loader, Pagination, PersistantNotification, RowProps, StatusIndicator, Table } from '@reapit/elements'
+import { elMb11, Loader, Pagination, PersistentNotification, RowProps, StatusIndicator, Table } from '@reapit/elements'
 import React, { Dispatch, FC, SetStateAction, useMemo, useState } from 'react'
 import { InstallationModel } from '@reapit/foundations-ts-definitions'
 import { TopicModel, WebhookModel, WebhookModelPagedResult } from '../../types/webhooks'
@@ -120,16 +120,16 @@ export const WebhooksManage: FC = () => {
 
   if (!applicationId)
     return (
-      <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
+      <PersistentNotification isFullWidth isExpanded intent="secondary" isInline>
         No app selected. Please use the filter option to select an app.
-      </PersistantNotification>
+      </PersistentNotification>
     )
   if (subscriptionsLoading) return <Loader />
   if (!rows.length)
     return (
-      <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
+      <PersistentNotification isFullWidth isExpanded intent="secondary" isInline>
         No webhooks found for your application. You can create one from the New Webhook wizard.
-      </PersistantNotification>
+      </PersistentNotification>
     )
   return (
     <>

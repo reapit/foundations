@@ -11,7 +11,7 @@ import {
   InputGroup,
   InputWrap,
   Label,
-  PersistantNotification,
+  PersistentNotification,
   Subtitle,
   Toggle,
   ToggleRadio,
@@ -191,9 +191,9 @@ export const ProfileForm: FC = () => {
         )}
       </FormLayout>
       {(isClient || hasProducts) && (
-        <PersistantNotification className={elMb11} isInline isExpanded isFullWidth intent="secondary">
+        <PersistentNotification className={elMb11} isInline isExpanded isFullWidth intent="secondary">
           Please note, you will need to log out and log back in again to see this change take effect
-        </PersistantNotification>
+        </PersistentNotification>
       )}
       <ButtonGroup>
         <Button intent="primary" type="submit" disabled={memberUpdating} loading={memberUpdating}>

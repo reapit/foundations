@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { BillingBreakdownForMonthV2Model } from '@reapit/foundations-ts-definitions'
 import {
-  PersistantNotification,
+  PersistentNotification,
   Table,
   TableCell,
   TableHeader,
@@ -82,9 +82,9 @@ export const UsageTable: FC<UsageTableProps> = ({ billing }) => {
     />
   ) : (
     <div>
-      <PersistantNotification isExpanded isFullWidth isInline intent="secondary">
+      <PersistentNotification isExpanded isFullWidth isInline intent="secondary">
         No results found for your selected filters
-      </PersistantNotification>
+      </PersistentNotification>
     </div>
   )
 }
