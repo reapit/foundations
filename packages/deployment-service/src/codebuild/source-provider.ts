@@ -1,7 +1,7 @@
 import { BitbucketClientData } from '../entities/bitbucket-client.entity'
 import { PipelineRunnerEntity } from '../entities/pipeline-runner.entity'
 import { PipelineEntity } from '../entities/pipeline.entity'
-import { BitBucketEvent, BitbucketProvider } from '../bitbucket'
+import { BitbucketProvider } from '../bitbucket'
 import { S3Provider } from '../s3'
 import { Injectable } from '@nestjs/common'
 import { App } from '@octokit/app'
@@ -23,12 +23,10 @@ export class SoruceProvider {
     pipeline,
     pipelineRunner,
     client,
-    event,
   }: {
     pipeline: PipelineEntity
     pipelineRunner: PipelineRunnerEntity
     client?: BitbucketClientData
-    event?: BitBucketEvent
   }): Promise<string> {
     if (!pipeline.repository) {
       throw new Error('Pipeline repository is not configured')
@@ -66,13 +64,15 @@ export class SoruceProvider {
 
     const buffer = Buffer.from(result.data)
 
-    const uploadResult = await this.s3Provider.upload({
+    const Key = `${pipelineRunner.id as string}.zip`
+
+    await this.s3Provider.upload({
       Bucket: process.env.DEPLOYMENT_REPO_CACHE_BUCKET_NAME as string,
-      Key: `${pipelineRunner.id as string}.zip`,
+      Key,
       Body: buffer,
     })
 
-    return [process.env.DEPLOYMENT_REPO_CACHE_BUCKET_NAME as string, uploadResult.Key].join('/')
+    return Key
   }
 
   async downloadGithubSourceToS3(pipeline: PipelineEntity, pipelineRunner: PipelineRunnerEntity): Promise<string> {

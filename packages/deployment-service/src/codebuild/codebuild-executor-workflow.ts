@@ -50,7 +50,6 @@ export class CodebuildExecutorWorkflow extends AbstractWorkflow<{
     pipeline,
     pipelineRunner,
     client,
-    event,
   }: {
     pipeline: PipelineEntity
     pipelineRunner: PipelineRunnerEntity
@@ -64,7 +63,6 @@ export class CodebuildExecutorWorkflow extends AbstractWorkflow<{
             pipeline,
             pipelineRunner,
             client: client || pipeline.bitbucketClient?.data,
-            event,
           })
 
       const codebuildId = await this.executeCodebuild({
