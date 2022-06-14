@@ -122,7 +122,7 @@ describe('handleResetForm', () => {
 })
 
 describe('handleSendConstents', () => {
-  it('should reset the form', () => {
+  it('should send consent emails', () => {
     const createConsentEmails = jest.fn()
     const closeModal = jest.fn()
     const developerEmail = 'mail@example.com'
