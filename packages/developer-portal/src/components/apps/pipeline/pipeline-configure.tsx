@@ -46,6 +46,7 @@ type PipelineModelSchema = Omit<
   | 'testCommand'
   | 'installationId'
   | 'repositoryId'
+  | 'bitbucketClientId'
 > & {
   packageManager: boolean
 }

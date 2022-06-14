@@ -1,8 +1,9 @@
 import { Injectable } from '@nestjs/common'
 import { PipelineEntity } from '../entities/pipeline.entity'
-import { Repository, UpdateResult } from 'typeorm'
+import { In, Repository, UpdateResult } from 'typeorm'
 import { InjectRepository } from '@nestjs/typeorm'
 import { paginate, Pagination } from 'nestjs-typeorm-paginate'
+import { BitbucketClientEntity } from '../entities/bitbucket-client.entity'
 
 @Injectable()
 export class PipelineProvider {
@@ -53,6 +54,28 @@ export class PipelineProvider {
   async findByRepo(repository: string): Promise<PipelineEntity | undefined> {
     return this.repository.findOne({ repository })
   }
+
+  async findByRepos(repositories: string[]): Promise<PipelineEntity[]> {
+    return this.repository.find({
+      repository: In(repositories),
+    })
+  }
+
+  async saveAll(pipelines: PipelineEntity[]): Promise<void> {
+    await this.repository.save(pipelines)
+  }
+
+  async removeBitbucketClient(bitbucketClient: BitbucketClientEntity): Promise<void> {
+    await this.repository
+      .createQueryBuilder()
+      .update()
+      .set({ bitbucketClient: undefined })
+      .where('bitbucketClientId = :bitbucketClientId', {
+        bitbucketClientId: bitbucketClient.id,
+      })
+      .execute()
+  }
+
   async findByRepositoryId(repositoryId: number): Promise<PipelineEntity | undefined> {
     return this.repository.findOne({
       repositoryId,

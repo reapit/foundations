@@ -79,7 +79,19 @@ export const PipelineInfo: FC = () => {
             <div>
               <Subtitle hasNoMargin>Repository</Subtitle>
               <BodyText hasNoMargin hasGreyText>
-                <StatusIndicator intent={appPipeline?.installationId ? 'success' : 'low'} />{' '}
+                <StatusIndicator
+                  intent={
+                    appPipeline?.repository?.includes('github')
+                      ? appPipeline?.installationId
+                        ? 'success'
+                        : 'critical'
+                      : appPipeline?.repository?.includes('bitbucket')
+                      ? appPipeline?.bitbucketClientId
+                        ? 'success'
+                        : 'critical'
+                      : 'danger'
+                  }
+                />{' '}
                 {appPipeline?.repository ? (
                   <a href={appPipeline.repository} target="_blank" rel="noreferrer">
                     {appPipeline.repository}
