@@ -86,6 +86,10 @@ export interface AppDetailModel {
    */
   installationId?: string // uuid
   /**
+   * Gets public listed date of this application
+   */
+  publicListedDate?: string // date-time
+  /**
    * Gets client id of this application
    */
   externalId?: string
@@ -434,6 +438,10 @@ export interface AppSummaryModel {
    */
   id?: string // uuid
   /**
+   * Gets public listed date of this application
+   */
+  publicListedDate?: string // date-time
+  /**
    * Gets external client id of this application
    */
   externalId?: string
@@ -598,6 +606,10 @@ export interface ApproveModel {
    * Sets the email of the admin approving
    */
   email?: string
+  /**
+   * Sets the public listed date of the approval
+   */
+  publicListedDate?: string // date-time
 }
 /**
  * The model responsible for batch updating installations
