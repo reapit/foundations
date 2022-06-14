@@ -1,5 +1,5 @@
 import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
-import { Loader, PersistentNotification, Table, Title } from '@reapit/elements'
+import { Button, ButtonGroup, elMb11, Loader, PersistentNotification, Table, Title } from '@reapit/elements'
 import { AppUriParams, useAppState } from '../state/use-app-state'
 import { useParams } from 'react-router-dom'
 import { handleSetAppId } from '../utils/handle-set-app-id'
@@ -9,6 +9,7 @@ import { GetActionNames, getActions, UpdateActionNames, updateActions } from '@r
 import { useGlobalState } from '../../../core/use-global-state'
 import {
   AppRevisionConsentModel,
+  CreateAppRevisionConsentsModel,
   InstallationModelPagedResult,
   ResendAppRevisionConsentModel,
 } from '@reapit/foundations-ts-definitions'
@@ -43,6 +44,20 @@ export const handleSetConsentId = (setConsentId: Dispatch<SetStateAction<string 
   }
 }
 
+export const handleSendConstents =
+  (
+    createConsentEmails: SendFunction<CreateAppRevisionConsentsModel, boolean>,
+    appConsentsRefresh: () => void,
+    developerEmail?: string,
+  ) =>
+  async () => {
+    const response = await createConsentEmails({ actionedBy: developerEmail })
+
+    if (response) {
+      appConsentsRefresh()
+    }
+  }
+
 export const AppConsentsPage: FC = () => {
   const { globalDataState } = useGlobalState()
   const [consentId, setConsentId] = useState<string | null>(null)
@@ -66,6 +81,16 @@ export const AppConsentsPage: FC = () => {
       revisionId: latestRevision?.id,
     },
     fetchWhenTrue: [appId, latestRevision, appDetail?.pendingRevisions, appDetail?.isListed],
+  })
+
+  const [, , createConsentEmails] = useReapitUpdate<CreateAppRevisionConsentsModel, boolean>({
+    reapitConnectBrowserSession,
+    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.createConsentEmails],
+    method: 'POST',
+    uriParams: {
+      appId,
+      revisionId: latestRevision?.id,
+    },
   })
 
   const [installations] = useReapitGet<InstallationModelPagedResult>({
@@ -153,9 +178,23 @@ export const AppConsentsPage: FC = () => {
           />
         </>
       ) : (
-        <PersistentNotification intent="secondary" isExpanded isFullWidth isInline>
-          No record of any consents for this app
-        </PersistentNotification>
+        <>
+          <Title>{name} Consents</Title>
+          <PersistentNotification className={elMb11} intent="secondary" isExpanded isFullWidth isInline>
+            No record of any consents for this app - it looks like you need to send an email requesting that your
+            customers agree to your new permission settings. You can do this below or our team will do it as part of the
+            review process.
+          </PersistentNotification>
+          <ButtonGroup alignment="left">
+            <Button
+              fixedWidth
+              onClick={handleSendConstents(createConsentEmails, appConsentsRefresh, developerEmail)}
+              intent="primary"
+            >
+              Send Requests
+            </Button>
+          </ButtonGroup>
+        </>
       )}
     </>
   )

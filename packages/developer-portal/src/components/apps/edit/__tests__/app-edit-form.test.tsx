@@ -41,6 +41,7 @@ describe('handleSetAppSubmitting', () => {
     const appRefreshRevisions = jest.fn()
     const openModal = jest.fn()
     const appDetail = mockAppDetailModel
+    const appHasInstallations = true
 
     const curried = handleSetAppSubmitting(
       setAppEditSaving,
@@ -52,6 +53,7 @@ describe('handleSetAppSubmitting', () => {
       appRefreshRevisions,
       appDetail,
       openModal,
+      appHasInstallations,
     )
 
     curried()

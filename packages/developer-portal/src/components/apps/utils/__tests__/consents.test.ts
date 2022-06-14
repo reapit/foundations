@@ -3,11 +3,15 @@ import { checkShouldRenderConsents, checkShouldSendConsents } from '../consents'
 
 describe('checkShouldSendConsents', () => {
   it('should check if we need to send consent email and return true', () => {
-    const result = checkShouldSendConsents(mockAppDetailModel, {
-      ...mockCreateAppModel,
-      isListed: true,
-      scopes: ['apps-create'],
-    })
+    const result = checkShouldSendConsents(
+      mockAppDetailModel,
+      {
+        ...mockCreateAppModel,
+        isListed: true,
+        scopes: ['apps-create'],
+      },
+      true,
+    )
     expect(result).toBe(true)
   })
 
@@ -18,6 +22,7 @@ describe('checkShouldSendConsents', () => {
         ...mockCreateAppModel,
         isListed: false,
       },
+      true,
     )
     expect(result).toBe(false)
   })
@@ -25,16 +30,20 @@ describe('checkShouldSendConsents', () => {
 
 describe('checkShouldRenderConsents', () => {
   it('should check if we need to render the consents page and return true', () => {
-    const result = checkShouldRenderConsents(mockAppDetailModel, {
-      ...mockAppDetailModel,
-      scopes: [{ name: 'apps-create' }],
-    })
+    const result = checkShouldRenderConsents(
+      mockAppDetailModel,
+      {
+        ...mockAppDetailModel,
+        scopes: [{ name: 'apps-create' }],
+      },
+      true,
+    )
 
     expect(result).toBe(true)
   })
 
   it('should check if we need to render the consents page and return false', () => {
-    const result = checkShouldRenderConsents(mockAppDetailModel, mockAppDetailModel)
+    const result = checkShouldRenderConsents(mockAppDetailModel, mockAppDetailModel, true)
 
     expect(result).toBe(false)
   })

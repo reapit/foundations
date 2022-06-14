@@ -18,7 +18,7 @@ import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { formatFormValues } from '../utils/format-form-values'
 import { handleSetIncompletedFields } from '../utils/validate-schema'
 import { checkShouldSendConsents } from '../utils/consents'
-import { Button, ButtonGroup, useModal } from '@reapit/elements'
+import { BodyText, Button, ButtonGroup, useModal } from '@reapit/elements'
 import { useGlobalState } from '../../../core/use-global-state'
 
 export const handleResetForm = (appEditForm: AppEditFormSchema, reset: UseFormReset<AppEditFormSchema>) => () => {
@@ -65,6 +65,7 @@ export const handleSetAppSubmitting =
     appRefreshRevisions: () => void,
     appDetail: AppDetailModel | null,
     openModal: () => void,
+    appHasInstallations: boolean,
   ) =>
   () => {
     if (appEditSaving.isSaving) {
@@ -85,7 +86,7 @@ export const handleSetAppSubmitting =
           appsRefresh()
         }
 
-        const shouldShowConsents = checkShouldSendConsents(appDetail, formattedModel)
+        const shouldShowConsents = checkShouldSendConsents(appDetail, formattedModel, appHasInstallations)
 
         if (shouldShowConsents) {
           openModal()
@@ -100,7 +101,7 @@ export const handleSendConstents =
     closeModal: () => void,
     developerEmail?: string,
   ) =>
-  () => {
+  async () => {
     createConsentEmails({ actionedBy: developerEmail })
     closeModal()
   }
@@ -109,7 +110,14 @@ export const AppEditForm: FC = () => {
   const { appId } = useParams<AppUriParams>()
   const { appEditState, setAppId, appsDataState } = useAppState()
   const { globalDataState } = useGlobalState()
-  const { appEditForm, setAppEditSaving, appEditSaving, setAppUnsavedFields, setIncompleteFields } = appEditState
+  const {
+    appEditForm,
+    setAppEditSaving,
+    appEditSaving,
+    setAppUnsavedFields,
+    setIncompleteFields,
+    appHasInstallations,
+  } = appEditState
   const { appsRefresh, appsDetailRefresh, appRefreshRevisions, appDetail, appRevisions } = appsDataState
   const latestRevision = appRevisions?.data ? appRevisions.data[0] : null
   const developerEmail = globalDataState?.currentDeveloper?.email
@@ -176,6 +184,7 @@ export const AppEditForm: FC = () => {
       appRefreshRevisions,
       appDetail,
       openModal,
+      appHasInstallations,
     ),
     [appEditSaving],
   )
@@ -184,6 +193,21 @@ export const AppEditForm: FC = () => {
     <form>
       <AppEditTabs register={register} errors={errors} control={control} getValues={getValues} />
       <Modal title="Additional Permissions Requested">
+        <BodyText hasGreyText>
+          Because you have asked for addtional permissions for your application, before our team can approve your
+          revision, we will need the consent of all clients that have installed your app.
+        </BodyText>
+        <BodyText hasGreyText>
+          By sending the request below, we will email the installer of your app requesting that they agree to the new
+          permissions set. When all of your installed customers have agreed to the new permissions, we will review your
+          app revision as normal. If you choose not to send the request emails, we will do it for you as part of the
+          review process.
+        </BodyText>
+        <BodyText hasGreyText>
+          Because you have asked for addtional permissions for your application, before our team can approve your
+          revision, we will need the consent of all clients that have installed your app. You can either track progress
+          in the App Consents page, or reach out to your customer to expedite their response to our message.
+        </BodyText>
         <ButtonGroup alignment="center">
           <Button fixedWidth onClick={closeModal} intent="low">
             Close

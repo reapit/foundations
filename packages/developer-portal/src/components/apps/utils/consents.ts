@@ -3,18 +3,20 @@ import { AppDetailModel, AppRevisionModel, CreateAppRevisionModel } from '@reapi
 export const checkShouldSendConsents = (
   app: AppDetailModel | null,
   createAppModel: CreateAppRevisionModel,
+  hasInstallations: boolean,
 ): boolean => {
   const { isListed: isListedNew, scopes: newScopes } = createAppModel
   const isListedOld = app?.isListed
   const oldScopes = app?.scopes?.map((scope) => scope.name)
   const hasNewScopes = Boolean(newScopes?.filter((scope) => !oldScopes?.includes(scope)).length)
-  console.log(isListedNew, isListedOld, hasNewScopes)
-  return Boolean(isListedNew && isListedOld && hasNewScopes)
+
+  return Boolean(isListedNew && isListedOld && hasNewScopes && hasInstallations)
 }
 
 export const checkShouldRenderConsents = (
   app: AppDetailModel | null,
   latestRevision: AppRevisionModel | null,
+  hasInstallations: boolean,
 ): boolean => {
   const isListedNew = latestRevision?.isListed
   const newScopes = latestRevision?.scopes?.map((scope) => scope.name)
@@ -22,5 +24,5 @@ export const checkShouldRenderConsents = (
   const oldScopes = app?.scopes?.map((scope) => scope.name)
   const hasNewScopes = Boolean(newScopes?.filter((scope) => !oldScopes?.includes(scope)).length)
 
-  return Boolean(isListedNew && isListedOld && hasNewScopes)
+  return Boolean(isListedNew && isListedOld && hasNewScopes && hasInstallations)
 }
