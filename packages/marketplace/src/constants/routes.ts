@@ -1,5 +1,6 @@
 const Routes = {
   AUTHENTICATION: '/authentication',
+  ACCEPT_PERMISSION_CHANGE: '/apps/:appId/revisions/:revisionId/consents/:consentId/approve',
   APPS: '/apps',
   APP_DETAIL: '/apps/:appid',
   INSTALLED_APPS: '/installed',
