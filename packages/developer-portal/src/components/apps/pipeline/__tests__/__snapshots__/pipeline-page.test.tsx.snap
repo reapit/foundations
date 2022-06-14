@@ -207,7 +207,7 @@ Object {
                 class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
               >
                 <span
-                  class="e1ymtwpu-el-intent-low e1cp9zgf-el-status-indicator"
+                  class="e1iow709-el-intent-critical e1cp9zgf-el-status-indicator"
                 />
                  
                 <a
@@ -536,7 +536,7 @@ Object {
               class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
             >
               <span
-                class="e1ymtwpu-el-intent-low e1cp9zgf-el-status-indicator"
+                class="e1iow709-el-intent-critical e1cp9zgf-el-status-indicator"
               />
                
               <a
@@ -940,7 +940,7 @@ Object {
                 class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
               >
                 <span
-                  class="e1ymtwpu-el-intent-low e1cp9zgf-el-status-indicator"
+                  class="e1iow709-el-intent-critical e1cp9zgf-el-status-indicator"
                 />
                  
                 <a
@@ -1282,7 +1282,7 @@ Object {
               class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
             >
               <span
-                class="e1ymtwpu-el-intent-low e1cp9zgf-el-status-indicator"
+                class="e1iow709-el-intent-critical e1cp9zgf-el-status-indicator"
               />
                
               <a
