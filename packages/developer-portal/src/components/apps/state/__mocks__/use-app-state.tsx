@@ -32,6 +32,7 @@ export const mockAppState = {
     appIncompleteFields: [],
     setIncompleteFields: jest.fn(),
     appLatestRevision: (mockAppSummaryModelPagedResult?.data ?? [])[0],
+    appHasInstallations: true,
   },
   appPipelineState: {
     appPipeline: mockPipelineModelInterface,

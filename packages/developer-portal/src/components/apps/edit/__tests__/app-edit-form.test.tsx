@@ -41,6 +41,7 @@ describe('handleSetAppSubmitting', () => {
     const appRefreshRevisions = jest.fn()
     const openModal = jest.fn()
     const appDetail = mockAppDetailModel
+    const appHasInstallations = true
 
     const curried = handleSetAppSubmitting(
       setAppEditSaving,
@@ -52,6 +53,7 @@ describe('handleSetAppSubmitting', () => {
       appRefreshRevisions,
       appDetail,
       openModal,
+      appHasInstallations,
     )
 
     curried()
@@ -120,7 +122,7 @@ describe('handleResetForm', () => {
 })
 
 describe('handleSendConstents', () => {
-  it('should reset the form', () => {
+  it('should send consent emails', () => {
     const createConsentEmails = jest.fn()
     const closeModal = jest.fn()
     const developerEmail = 'mail@example.com'

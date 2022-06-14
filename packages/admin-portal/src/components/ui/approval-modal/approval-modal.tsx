@@ -6,12 +6,29 @@ import DeclineRevisionModal from './decline-revision-modal'
 import AppRevisionComparison from '../app-revision-comparison/app-revision-comparison'
 import { selectAppRevisionDetail } from '@/selector/app-revisions'
 import { selectAppDetailState } from '@/selector/app-detail'
+import { reapitConnectBrowserSession } from '../../../core/connect-session'
+import { CreateAppRevisionConsentsModel } from '@reapit/foundations-ts-definitions'
+import { SendFunction, useReapitUpdate } from '@reapit/utils-react'
+import { UpdateActionNames, updateActions } from '@reapit/utils-common'
+import { useReapitConnect } from '@reapit/connect-session'
 
 export type ApprovalModalInnerProps = {
   closeParentModal?: () => void
   onApprovalClick: () => void
   onDeclineClick: () => void
 }
+
+export const handleSendConstents =
+  (
+    createConsentEmails: SendFunction<CreateAppRevisionConsentsModel, boolean>,
+    closeModal: () => void,
+    email?: string,
+  ) =>
+  async () => {
+    createConsentEmails({ actionedBy: email })
+    closeModal()
+  }
+
 export const ApprovalModalInner: React.FunctionComponent<ApprovalModalInnerProps> = ({
   closeParentModal,
   onApprovalClick,
@@ -19,6 +36,21 @@ export const ApprovalModalInner: React.FunctionComponent<ApprovalModalInnerProps
 }) => {
   const revisionDetailState = useSelector(selectAppRevisionDetail)
   const appDetailState = useSelector(selectAppDetailState)
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+
+  const appId = appDetailState.data?.id
+  const revisionId = revisionDetailState.data?.data?.id
+  const email = connectSession?.loginIdentity.email
+
+  const [, , createConsentEmails] = useReapitUpdate<CreateAppRevisionConsentsModel, boolean>({
+    reapitConnectBrowserSession,
+    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.createConsentEmails],
+    method: 'POST',
+    uriParams: {
+      appId,
+      revisionId,
+    },
+  })
 
   if (!revisionDetailState || appDetailState.isLoading) {
     return <ModalBody body={<Loader />} />
@@ -48,6 +80,14 @@ export const ApprovalModalInner: React.FunctionComponent<ApprovalModalInnerProps
       <ModalFooter
         footerItems={
           <React.Fragment>
+            <Button
+              className="mr-2"
+              variant="primary"
+              type="button"
+              onClick={handleSendConstents(createConsentEmails, closeParentModal as () => void, email)}
+            >
+              Send Consents Email
+            </Button>
             <Button
               className="mr-2"
               variant="primary"

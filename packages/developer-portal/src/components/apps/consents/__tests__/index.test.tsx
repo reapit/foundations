@@ -2,7 +2,7 @@ import { useReapitGet } from '@reapit/utils-react'
 import React from 'react'
 import { render } from '../../../../tests/react-testing'
 import { mockAppRevisionConsentModelResponse } from '../../../../tests/__stubs__/consents'
-import { AppConsentsPage, handleResendEmail, handleSetConsentId } from '../index'
+import { AppConsentsPage, handleResendEmail, handleSendConstents, handleSetConsentId } from '../index'
 
 jest.mock('../../state/use-app-state')
 jest.mock('../../../../core/use-global-state')
@@ -59,5 +59,20 @@ describe('handleSetConsentId', () => {
     curried()
 
     expect(setConsentId).toHaveBeenCalledWith(consentId)
+  })
+})
+
+describe('handleSendConstents', () => {
+  it('should send the consents emails', async () => {
+    const createConsentEmails = jest.fn(() => new Promise<boolean>((resolve) => resolve(true)))
+    const appConsentsRefresh = jest.fn()
+    const developerEmail = 'mail@example.com'
+
+    const curried = handleSendConstents(createConsentEmails, appConsentsRefresh, developerEmail)
+
+    await curried()
+
+    expect(createConsentEmails).toHaveBeenCalledWith({ actionedBy: developerEmail })
+    expect(appConsentsRefresh).toHaveBeenCalledTimes(1)
   })
 })

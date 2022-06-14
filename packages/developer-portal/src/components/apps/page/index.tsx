@@ -38,7 +38,7 @@ export const AppsPage: FC = () => {
   const { appsDataState, appId, appEditState } = useAppState()
   const { globalDataState } = useGlobalState()
   const { currentDeveloper } = globalDataState
-  const { appLatestRevision } = appEditState
+  const { appLatestRevision, appHasInstallations } = appEditState
 
   const { apps, appsLoading, appDetail } = appsDataState
   const {
@@ -57,7 +57,7 @@ export const AppsPage: FC = () => {
     window.reapit.config.pipelineWhitelist.includes(currentDeveloper.id) &&
     appDetail?.authFlow !== 'clientCredentials'
 
-  const shouldRenderConsents = checkShouldRenderConsents(appDetail, appLatestRevision)
+  const shouldRenderConsents = checkShouldRenderConsents(appDetail, appLatestRevision, appHasInstallations)
 
   return (
     <ErrorBoundary>
