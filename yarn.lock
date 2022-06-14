@@ -6667,6 +6667,31 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@nestjs/common@npm:^8.4.6":
+  version: 8.4.6
+  resolution: "@nestjs/common@npm:8.4.6"
+  dependencies:
+    axios: 0.27.2
+    iterare: 1.2.1
+    tslib: 2.4.0
+    uuid: 8.3.2
+  peerDependencies:
+    cache-manager: "*"
+    class-transformer: "*"
+    class-validator: "*"
+    reflect-metadata: ^0.1.12
+    rxjs: ^7.1.0
+  peerDependenciesMeta:
+    cache-manager:
+      optional: true
+    class-transformer:
+      optional: true
+    class-validator:
+      optional: true
+  checksum: db95e4195cd666c5a8feca1da90f4246ddabe0770c6c51f43d0b827bcea98e1019ee58a068ac1012adc3ac91314942a611869d04d44d480c486a0b482eddfaf3
+  languageName: node
+  linkType: hard
+
 "@nestjs/config@npm:^2.0.0":
   version: 2.0.0
   resolution: "@nestjs/config@npm:2.0.0"
@@ -6680,6 +6705,22 @@ __metadata:
     reflect-metadata: ^0.1.13
     rxjs: ^6.0.0 || ^7.2.0
   checksum: f0aedec1b6a6fd44f686121c05d38b7ff32f3e70c5df1ded91fae788ee73e1371f6f1a6a9223c82f41c5e15a38ccf09aaf6650fc71714c0813452595fb5f3917
+  languageName: node
+  linkType: hard
+
+"@nestjs/config@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "@nestjs/config@npm:2.1.0"
+  dependencies:
+    dotenv: 16.0.1
+    dotenv-expand: 8.0.3
+    lodash: 4.17.21
+    uuid: 8.3.2
+  peerDependencies:
+    "@nestjs/common": ^7.0.0 || ^8.0.0
+    reflect-metadata: ^0.1.13
+    rxjs: ^6.0.0 || ^7.2.0
+  checksum: 6e7af8a981d315f0ada49b7d9b833e6e716eb84e5a087810042bb05dd560b4aba1b3c92a177fde9b073f1865bee13dc00c7903ebee0a390bfda0dd41c1fa3575
   languageName: node
   linkType: hard
 
@@ -6709,6 +6750,35 @@ __metadata:
     "@nestjs/websockets":
       optional: true
   checksum: 65cc143c8e43cf009a94988a25e5c85cdab4c915990b8f840a06e7029d364e52baa381e3e0d05590f057332e0bd8c4ffce73b59f61e062ebe50ba166de156b58
+  languageName: node
+  linkType: hard
+
+"@nestjs/core@npm:^8.4.6":
+  version: 8.4.6
+  resolution: "@nestjs/core@npm:8.4.6"
+  dependencies:
+    "@nuxtjs/opencollective": 0.3.2
+    fast-safe-stringify: 2.1.1
+    iterare: 1.2.1
+    object-hash: 3.0.0
+    path-to-regexp: 3.2.0
+    tslib: 2.4.0
+    uuid: 8.3.2
+  peerDependencies:
+    "@nestjs/common": ^8.0.0
+    "@nestjs/microservices": ^8.0.0
+    "@nestjs/platform-express": ^8.0.0
+    "@nestjs/websockets": ^8.0.0
+    reflect-metadata: ^0.1.12
+    rxjs: ^7.1.0
+  peerDependenciesMeta:
+    "@nestjs/microservices":
+      optional: true
+    "@nestjs/platform-express":
+      optional: true
+    "@nestjs/websockets":
+      optional: true
+  checksum: 9e8a387f5da724880a2c739ba73d516de8459063753465154872a314d87f83facc1ed434e782232f92deb3da51d9aac7ec2ab96b207c4966507cc4753563eb5f
   languageName: node
   linkType: hard
 
@@ -6779,6 +6849,22 @@ __metadata:
     "@nestjs/common": ^8.0.0
     "@nestjs/core": ^8.0.0
   checksum: 69616a33f5bf731ecec74e11b05d240b1c2ac52fca5c40e7120bac2dadb60e7c2942c885147914822e9507235326ea0ee8b185cbc55a3be7a61df0900ad9d202
+  languageName: node
+  linkType: hard
+
+"@nestjs/platform-express@npm:^8.4.6":
+  version: 8.4.6
+  resolution: "@nestjs/platform-express@npm:8.4.6"
+  dependencies:
+    body-parser: 1.20.0
+    cors: 2.8.5
+    express: 4.18.1
+    multer: 1.4.4
+    tslib: 2.4.0
+  peerDependencies:
+    "@nestjs/common": ^8.0.0
+    "@nestjs/core": ^8.0.0
+  checksum: 1006b2255947a30d91deab9327ec94d33d1097531bbc758b7ddf6390a45f1bd5cc5f5d8004b902fd81c4f2320fedb4f3518abf6d474898b0e9df6d4cbef61763
   languageName: node
   linkType: hard
 
@@ -13780,6 +13866,10 @@ __metadata:
   resolution: "api-key-service@workspace:packages/api-key-service"
   dependencies:
     "@homeservenow/serverless-aws-handler": ^0.2.4
+    "@nestjs/common": ^8.4.6
+    "@nestjs/config": ^2.1.0
+    "@nestjs/core": ^8.4.6
+    "@nestjs/platform-express": ^8.4.6
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
@@ -13789,6 +13879,8 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.27.0
     "@typescript-eslint/parser": ^5.27.0
     aws-lambda: ^1.0.7
+    aws-sdk: ^2.1152.0
+    aws-serverless-express: ^3.4.0
     babel-jest: ^28.1.0
     class-transformer: ^0.5.1
     class-validator: ^0.13.2
@@ -13796,6 +13888,7 @@ __metadata:
     cross-env: ^7.0.3
     eslint: ^8.16.0
     eslint-plugin-prettier: ^4.0.0
+    express: ^4.18.1
     jest: 28.1.0
     serverless: ^2.72.3
     serverless-offline: ^8.8.0
@@ -14800,6 +14893,23 @@ __metadata:
     uuid: 3.3.2
     xml2js: 0.4.19
   checksum: 698ace0e4c67ecc0ff02f06517911e78f928f4279a97b22f2657f4c9d34d2f55676d630c0cb66ec10fe39fdd59810b8518ff6203568136e4deb062377f11a9c5
+  languageName: node
+  linkType: hard
+
+"aws-sdk@npm:^2.1152.0":
+  version: 2.1152.0
+  resolution: "aws-sdk@npm:2.1152.0"
+  dependencies:
+    buffer: 4.9.2
+    events: 1.1.1
+    ieee754: 1.1.13
+    jmespath: 0.16.0
+    querystring: 0.2.0
+    sax: 1.2.1
+    url: 0.10.3
+    uuid: 8.0.0
+    xml2js: 0.4.19
+  checksum: 77cf65206dd4e7df584eab56bd3c34aa925d12fff4af3aae7e739cc2f4c431d1f3c86b35ce9cc66f9d3957756e8a77980f2b684fe521135da6b5b2b8e3d989aa
   languageName: node
   linkType: hard
 
@@ -19560,6 +19670,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dotenv-expand@npm:8.0.3":
+  version: 8.0.3
+  resolution: "dotenv-expand@npm:8.0.3"
+  checksum: 128ce90ac825b543de3ece0154a51b056ab0dc36bb26d97a68cd0b8707327ecd3c182fb6ac63b26a0fcdfa85064419906a1065cb634f1f9dc08ad311375f1fc0
+  languageName: node
+  linkType: hard
+
 "dotenv-expand@npm:^5.1.0":
   version: 5.1.0
   resolution: "dotenv-expand@npm:5.1.0"
@@ -19571,6 +19688,13 @@ __metadata:
   version: 16.0.0
   resolution: "dotenv@npm:16.0.0"
   checksum: 664cebb51f0a9a1d1b930f51f0271e72e26d62feaecc9dc03df39453dd494b4e724809ca480fb3ec3213382b1ed3f791aaeb83569a137f9329ce58efd4853dbf
+  languageName: node
+  linkType: hard
+
+"dotenv@npm:16.0.1":
+  version: 16.0.1
+  resolution: "dotenv@npm:16.0.1"
+  checksum: f459ffce07b977b7f15d8cc4ee69cdff77d4dd8c5dc8c85d2d485ee84655352c2415f9dd09d42b5b5985ced3be186130871b34e2f3e2569ebc72fbc2e8096792
   languageName: node
   linkType: hard
 
@@ -21388,45 +21512,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"express@npm:^4.17.1":
-  version: 4.17.1
-  resolution: "express@npm:4.17.1"
-  dependencies:
-    accepts: ~1.3.7
-    array-flatten: 1.1.1
-    body-parser: 1.19.0
-    content-disposition: 0.5.3
-    content-type: ~1.0.4
-    cookie: 0.4.0
-    cookie-signature: 1.0.6
-    debug: 2.6.9
-    depd: ~1.1.2
-    encodeurl: ~1.0.2
-    escape-html: ~1.0.3
-    etag: ~1.8.1
-    finalhandler: ~1.1.2
-    fresh: 0.5.2
-    merge-descriptors: 1.0.1
-    methods: ~1.1.2
-    on-finished: ~2.3.0
-    parseurl: ~1.3.3
-    path-to-regexp: 0.1.7
-    proxy-addr: ~2.0.5
-    qs: 6.7.0
-    range-parser: ~1.2.1
-    safe-buffer: 5.1.2
-    send: 0.17.1
-    serve-static: 1.14.1
-    setprototypeof: 1.1.1
-    statuses: ~1.5.0
-    type-is: ~1.6.18
-    utils-merge: 1.0.1
-    vary: ~1.1.2
-  checksum: d964e9e17af331ea6fa2f84999b063bc47189dd71b4a735df83f9126d3bb2b92e830f1cb1d7c2742530eb625e2689d7a9a9c71f0c3cc4dd6015c3cd32a01abd5
-  languageName: node
-  linkType: hard
-
-"express@npm:^4.17.3, express@npm:^4.18.1":
+"express@npm:4.18.1, express@npm:^4.17.3, express@npm:^4.18.1":
   version: 4.18.1
   resolution: "express@npm:4.18.1"
   dependencies:
@@ -21462,6 +21548,44 @@ __metadata:
     utils-merge: 1.0.1
     vary: ~1.1.2
   checksum: c3d44c92e48226ef32ec978becfedb0ecf0ca21316bfd33674b3c5d20459840584f2325726a4f17f33d9c99f769636f728982d1c5433a5b6fe6eb95b8cf0c854
+  languageName: node
+  linkType: hard
+
+"express@npm:^4.17.1":
+  version: 4.17.1
+  resolution: "express@npm:4.17.1"
+  dependencies:
+    accepts: ~1.3.7
+    array-flatten: 1.1.1
+    body-parser: 1.19.0
+    content-disposition: 0.5.3
+    content-type: ~1.0.4
+    cookie: 0.4.0
+    cookie-signature: 1.0.6
+    debug: 2.6.9
+    depd: ~1.1.2
+    encodeurl: ~1.0.2
+    escape-html: ~1.0.3
+    etag: ~1.8.1
+    finalhandler: ~1.1.2
+    fresh: 0.5.2
+    merge-descriptors: 1.0.1
+    methods: ~1.1.2
+    on-finished: ~2.3.0
+    parseurl: ~1.3.3
+    path-to-regexp: 0.1.7
+    proxy-addr: ~2.0.5
+    qs: 6.7.0
+    range-parser: ~1.2.1
+    safe-buffer: 5.1.2
+    send: 0.17.1
+    serve-static: 1.14.1
+    setprototypeof: 1.1.1
+    statuses: ~1.5.0
+    type-is: ~1.6.18
+    utils-merge: 1.0.1
+    vary: ~1.1.2
+  checksum: d964e9e17af331ea6fa2f84999b063bc47189dd71b4a735df83f9126d3bb2b92e830f1cb1d7c2742530eb625e2689d7a9a9c71f0c3cc4dd6015c3cd32a01abd5
   languageName: node
   linkType: hard
 
@@ -41009,6 +41133,15 @@ typescript@^3.7.3:
   bin:
     uuid: ./bin/uuid
   checksum: 8793629d2799f500aeea9fcd0aec6c4e9fbcc4d62ed42159ad96be345c3fffac1bbf61a23e18e2782600884fee05e6d4012ce4b70d0037c8e987533ae6a77870
+  languageName: node
+  linkType: hard
+
+"uuid@npm:8.0.0":
+  version: 8.0.0
+  resolution: "uuid@npm:8.0.0"
+  bin:
+    uuid: dist/bin/uuid
+  checksum: 56d4e23aa7ac26fa2db6bd1778db34cb8c9f5a10df1770a27167874bf6705fc8f14a4ac414af58a0d96c7653b2bd4848510b29d1c2ef8c91ccb17429c1872b5e
   languageName: node
   linkType: hard
 

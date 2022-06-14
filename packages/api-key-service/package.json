@@ -2,9 +2,16 @@
   "name": "api-key-service",
   "dependencies": {
     "@homeservenow/serverless-aws-handler": "^0.2.4",
+    "@nestjs/common": "^8.4.6",
+    "@nestjs/config": "^2.1.0",
+    "@nestjs/core": "^8.4.6",
+    "@nestjs/platform-express": "^8.4.6",
     "aws-lambda": "^1.0.7",
+    "aws-sdk": "^2.1152.0",
+    "aws-serverless-express": "^3.4.0",
     "class-transformer": "^0.5.1",
-    "class-validator": "^0.13.2"
+    "class-validator": "^0.13.2",
+    "express": "^4.18.1"
   },
   "devDependencies": {
     "@reapit/config-manager": "workspace:packages/config-manager",
