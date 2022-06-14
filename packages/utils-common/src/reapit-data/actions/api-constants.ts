@@ -60,4 +60,6 @@ export enum PathNames {
   getPipelineEnvironment = '/pipeline/{pipelineId}/parameter',
   upsertPipelineEnvironment = '/pipeline/{pipelineId}/parameter',
   publicWebhookKey = '/webhooks/signing',
+  appConsents = '/marketplace/apps/{appId}/revisions/{revisionId}/consents',
+  appConsentResend = '/marketplace/apps/{appId}/revisions/{revisionId}/consents/{consentId}/resend',
 }

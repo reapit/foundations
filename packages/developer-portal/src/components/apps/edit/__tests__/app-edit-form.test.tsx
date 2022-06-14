@@ -11,6 +11,7 @@ import { AppEditFormSchema, defaultValues } from '../form-schema/form-fields'
 import { formatFormValues } from '../../utils/format-form-values'
 import { defaultAppSavingParams } from '../../state/defaults'
 import { FieldNamesMarkedBoolean } from 'react-hook-form'
+import { mockAppDetailModel } from '../../../../tests/__stubs__/apps'
 
 jest.mock('../../state/use-app-state')
 
@@ -34,6 +35,8 @@ describe('handleSetAppSubmitting', () => {
     const appsRefresh = jest.fn()
     const appsDetailRefresh = jest.fn()
     const appRefreshRevisions = jest.fn()
+    const openModal = jest.fn()
+    const appDetail = mockAppDetailModel
 
     const curried = handleSetAppSubmitting(
       setAppEditSaving,
@@ -43,6 +46,8 @@ describe('handleSetAppSubmitting', () => {
       appsRefresh,
       appsDetailRefresh,
       appRefreshRevisions,
+      appDetail,
+      openModal,
     )
 
     curried()

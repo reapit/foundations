@@ -28,18 +28,28 @@ import { getCurrentPage } from '../utils/get-current-page'
 import { Helper } from './helper'
 import { cx } from '@linaria/core'
 import { useGlobalState } from '../../../core/use-global-state'
+import AppConsentsPage from '../consents'
 
 export const AppsPage: FC = () => {
   const history = useHistory()
   const location = useLocation()
   const { pathname } = location
-  const { appsDataState, appId } = useAppState()
+  const { appsDataState, appId, appEditState } = useAppState()
   const { globalDataState } = useGlobalState()
   const { currentDeveloper } = globalDataState
+  const { appConsents } = appEditState
 
   const { apps, appsLoading, appDetail } = appsDataState
-  const { isAppsList, isAppsNew, isAppsWelcome, isAppsEdit, isAppsDetail, isAppsInstallations, isAppPipelines } =
-    getCurrentPage(pathname)
+  const {
+    isAppsList,
+    isAppsNew,
+    isAppsWelcome,
+    isAppsEdit,
+    isAppsDetail,
+    isAppsInstallations,
+    isAppPipelines,
+    isAppConsents,
+  } = getCurrentPage(pathname)
 
   const hasPipelines =
     currentDeveloper?.id &&
@@ -69,7 +79,7 @@ export const AppsPage: FC = () => {
                   <SecondaryNavItem onClick={navigate(history, Routes.APPS)} active={isAppsList}>
                     My Apps
                   </SecondaryNavItem>
-                  {(isAppsEdit || isAppsDetail || isAppsInstallations || isAppPipelines) && (
+                  {(isAppsEdit || isAppsDetail || isAppsInstallations || isAppPipelines || isAppConsents) && (
                     <>
                       <SecondaryNavItem onClick={navigate(history, `${Routes.APPS}/${appId}`)} active={isAppsDetail}>
                         App Details
@@ -94,6 +104,14 @@ export const AppsPage: FC = () => {
                           Pipeline
                         </SecondaryNavItem>
                       )}
+                      {appConsents && (
+                        <SecondaryNavItem
+                          onClick={navigate(history, `${Routes.APPS}/${appId}/consents`)}
+                          active={isAppConsents}
+                        >
+                          App Consents
+                        </SecondaryNavItem>
+                      )}
                     </>
                   )}
                   <SecondaryNavItem onClick={navigate(history, Routes.APPS_NEW)} active={isAppsNew}>
@@ -111,6 +129,7 @@ export const AppsPage: FC = () => {
                   <Route path={Routes.APPS_WELCOME} exact component={AppsWelcomePage} />
                   <Route path={Routes.APP_INSTALLATIONS} exact component={AppInstallationsPage} />
                   <Route path={Routes.APPS_EDIT} component={AppEditPage} />
+                  <Route path={Routes.APPS_CONSENTS} component={AppConsentsPage} />
                   {hasPipelines && <Route path={Routes.APP_PIPELINE} component={AppPipelinePage} />}
                   <Route path={Routes.APP_DETAIL} component={AppsDetailPage} />
                 </Switch>

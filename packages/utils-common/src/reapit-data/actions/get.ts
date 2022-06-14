@@ -36,6 +36,7 @@ export enum GetActionNames {
   getWebhookLogs = 'getWebhookLogs',
   getPipelineEnvironment = 'getPipelineEnvironment',
   getPublicWebhookKey = 'getPublicWebhookKey',
+  getRevisionConsents = 'getRevisionConsents',
 }
 
 export type GetActions = { [key in GetActionNames]: GetAction }
@@ -173,5 +174,10 @@ export const getActions = (appEnv: AppEnv): GetActions => ({
   [GetActionNames.getPublicWebhookKey]: {
     api: ApiNames(appEnv).platform,
     path: PathNames.publicWebhookKey,
+  },
+  [GetActionNames.getRevisionConsents]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.appConsents,
+    errorMessage: 'Failed to fetch app revision consents',
   },
 })

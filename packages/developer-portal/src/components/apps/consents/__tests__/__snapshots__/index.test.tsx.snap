@@ -1,0 +1,1008 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppDetail should match snapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ecbqyq6-el-snack-holder"
+      />
+      <h1
+        class="evblxhy-el-title"
+      >
+        will-test-dev-co-voracious-person
+      </h1>
+      <h2
+        class="e1byern-el-subtitle"
+      >
+        Authenticating Your App
+      </h2>
+      <p
+        class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+      >
+        Client-side Apps use our identity provider
+         
+        <a>
+          Reapit Connect
+        </a>
+         to authenticate against our API. Your application will need to re-direct to Reapit Connect where we will handle user login and in turn, re-direct back to your app with a code in the URL that you exchange for access and id JWTs, referred to as
+         
+        <a>
+          Authorization Code flow.
+        </a>
+         You will need the Client Id and Redirect Uris below to configure Reapit Connect.
+      </p>
+      <p
+        class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e15ggth7-el-body-text"
+      >
+        To make this process easier, we provide you with an authentication module for client-side apps,
+         
+        <a>
+          Connect Session
+        </a>
+        , which comes bundled with our
+         
+        <a>
+          Create React App Template
+        </a>
+         for quick start client-side development.
+      </p>
+      <div
+        class="e20pb60-el-grid"
+      >
+        <div
+          class="e14pp0yd-el-col"
+        >
+          <div
+            class="e2kmzjs-el-flex-container"
+          >
+            <span
+              class="elmeic8-el-mr4 emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 38 40"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M24.7684 16.5518H23.2632C16.4211 16.552 7.5 16.5516 2.73684 16.5518H1.23158C0.547369 16.5518 0 17.1035 0 17.7932V38.7587C0 39.4345 0.547369 40.0001 1.23158 40.0001H24.7684C25.4526 40.0001 26 39.4345 26 38.7587V17.7932C26 17.1035 25.4526 16.5518 24.7684 16.5518ZM9.57895 26.8966C9.57895 24.9932 11.1116 23.4483 13 23.4483C14.8884 23.4483 16.4211 24.9932 16.4211 26.8966C16.4211 28.0001 15.9147 29.007 15.0526 29.6552V32.4139C15.0526 33.5587 14.1358 34.4828 13 34.4828C11.8642 34.4828 10.9474 33.5587 10.9474 32.4139V29.6552C10.0853 29.007 9.57895 28.0001 9.57895 26.8966Z"
+                  fill="#23A4DE"
+                />
+                <path
+                  d="M23.2626 16.5517V10.3448C23.2626 4.63448 18.6647 0 12.9995 0C7.33422 0 2.73633 4.63448 2.73633 10.3448V16.5517C4.5 16.5517 21.5004 16.5517 23.2626 16.5517ZM6.84158 10.3448C6.84158 6.92414 9.6058 4.13793 12.9995 4.13793C16.3932 4.13793 19.1574 6.92414 19.1574 10.3448V16.5517H6.84158V10.3448Z"
+                  fill="#0061A8"
+                />
+                <path
+                  d="M32.0357 37.0047L31.9979 39.9254L37.9244 40L38 34.1585L28.4924 24.5449C29.2691 21.7795 28.568 18.7034 26.374 16.4849C23.156 13.231 17.8222 13.1639 14.521 16.3358C11.2198 19.5076 11.1518 24.7649 14.3697 28.0188C16.5638 30.2373 19.6657 31.0066 22.4903 30.3118L23.2216 31.0514L26.1849 31.0886L26.147 34.0094L29.1103 34.0467L29.0725 36.9674L32.0357 37.0047ZM15.9459 20.7355C15.2145 19.996 15.2334 18.5356 15.9837 17.8148C16.734 17.0939 18.2156 17.1125 18.9469 17.852C19.8246 18.7395 19.6594 20.0519 18.9091 20.7728C18.0088 21.6378 16.8235 21.6229 15.9459 20.7355Z"
+                  fill="#FFB71B"
+                />
+              </svg>
+            </span>
+            <div>
+              <h2
+                class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+              >
+                Authentication Client Id
+              </h2>
+              <p
+                class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+              >
+                MOCK_EXTERNAL_ID
+              </p>
+            </div>
+          </div>
+          <button
+            class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+          >
+            Copy
+          </button>
+        </div>
+        <div
+          class="e14pp0yd-el-col"
+        >
+          <div
+            class="e2kmzjs-el-flex-container"
+          >
+            <span
+              class="elmeic8-el-mr4 emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 40 40"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g>
+                  <path
+                    d="M25.9286 4.46338H8.5V33.6208H25.9286C26.5203 33.6208 27 33.1212 27 32.5051V5.5791C27 4.96292 26.5203 4.46338 25.9286 4.46338Z"
+                    fill="#7BC9EB"
+                  />
+                  <path
+                    d="M35.2895 18.6897H34.4211V15.431C34.4211 12.4331 31.7684 10 28.5 10C25.2316 10 22.5789 12.4331 22.5789 15.431V18.6897H21.7105C21.3158 18.6897 21 18.9793 21 19.3414V30.3483C21 30.7031 21.3158 31 21.7105 31H35.2895C35.6842 31 36 30.7031 36 30.3483V19.3414C36 18.9793 35.6842 18.6897 35.2895 18.6897ZM26.5263 24.1207C26.5263 23.1214 27.4105 22.3103 28.5 22.3103C29.5895 22.3103 30.4737 23.1214 30.4737 24.1207C30.4737 24.7 30.1816 25.2286 29.6842 25.569V27.0172C29.6842 27.6183 29.1553 28.1034 28.5 28.1034C27.8447 28.1034 27.3158 27.6183 27.3158 27.0172V25.569C26.8184 25.2286 26.5263 24.7 26.5263 24.1207ZM24.9474 15.431C24.9474 13.6352 26.5421 12.1724 28.5 12.1724C30.4579 12.1724 32.0526 13.6352 32.0526 15.431V18.6897H24.9474V15.431Z"
+                    fill="#262F69"
+                  />
+                  <path
+                    d="M17.9848 0.21065C17.7054 0.000895559 17.3463 -0.0561548 17.0195 0.0572764L4.16233 4.52014C3.72483 4.67203 3.42969 5.09838 3.42969 5.57859V32.5046C3.42969 32.9848 3.72476 33.4111 4.16233 33.563L17.0195 38.0259C17.349 38.1403 17.708 38.0802 17.9848 37.8725C18.2641 37.6629 18.4297 37.3261 18.4297 36.9674V1.11572C18.4297 0.757129 18.2641 0.420331 17.9848 0.21065ZM13.0725 20.1573C12.4808 20.1573 12.0011 19.6577 12.0011 19.0416C12.0011 18.4254 12.4808 17.9259 13.0725 17.9259C13.6643 17.9259 14.144 18.4254 14.144 19.0416C14.144 19.6577 13.6643 20.1573 13.0725 20.1573Z"
+                    fill="#0061A8"
+                  />
+                </g>
+                <defs>
+                  <rect
+                    fill="white"
+                    height="1em"
+                    width="1em"
+                  />
+                </defs>
+              </svg>
+            </span>
+            <div
+              class="ttq29n6-text-overflow-container"
+            >
+              <h2
+                class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+              >
+                Authentication Client Secret
+              </h2>
+              <p
+                class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+              >
+                MOCK_SECRET
+              </p>
+            </div>
+          </div>
+          <button
+            class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+          >
+            Copy
+          </button>
+        </div>
+        <div
+          class="e14pp0yd-el-col"
+        >
+          <div
+            class="e2kmzjs-el-flex-container"
+          >
+            <span
+              class="elmeic8-el-mr4 emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 80 81"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M68.0839 32.5781L39.9172 22.6511L11.7505 32.5781L39.9172 42.6555L68.0839 32.5781Z"
+                  fill="#23A4DE"
+                />
+                <path
+                  d="M68.0842 32.5781L39.9175 22.6511V42.6555L68.0842 32.5781Z"
+                  fill="#0061A8"
+                />
+                <path
+                  d="M50.5783 7.46606H28.611C26.4797 7.46606 24.7457 9.23906 24.7457 11.4178V58.7411C24.7457 60.9199 26.4797 62.6929 28.611 62.6929H50.5783C52.7097 62.6929 54.4441 60.9199 54.4441 58.7411V11.4178C54.4441 9.23906 52.7097 7.46606 50.5783 7.46606V7.46606Z"
+                  fill="#262F69"
+                />
+                <path
+                  d="M32.189 10.3965C31.9798 10.0786 31.8576 9.69614 31.8576 9.28426C31.8576 8.47572 32.3286 7.78095 33.0042 7.46606H28.6113C26.4764 7.46606 24.7455 9.2355 24.7455 11.4178V58.7411C24.7455 60.9235 26.4764 62.6924 28.6113 62.6924H33.2815V13.8597C33.2815 12.6169 32.8676 11.428 32.189 10.3965Z"
+                  fill="#262F69"
+                />
+                <path
+                  d="M26.9832 32.426V58.7411C26.9832 59.6603 27.712 60.4054 28.6108 60.4054H50.578C51.4768 60.4054 52.2056 59.6603 52.2056 58.7411C52.2056 57.8381 52.2056 44.6557 52.2056 32.426H26.9832Z"
+                  fill="#262F69"
+                />
+                <path
+                  d="M50.5653 9.75391H47.3006C46.9926 9.75391 46.7432 10.0089 46.7432 10.3232C46.7432 11.0784 46.1391 11.696 45.4008 11.696H33.7636C33.0248 11.696 32.4207 11.0784 32.4207 10.3232C32.4207 10.0089 32.1712 9.75391 31.8632 9.75391H28.5986C27.6993 9.75391 26.9705 10.499 26.9705 11.4177V48.7548H52.1934V11.4177C52.1934 10.499 51.4645 9.75391 50.5653 9.75391Z"
+                  fill="white"
+                />
+                <path
+                  d="M28.9352 28.5258L39.6076 18.0381L50.2801 28.5258V43.0087H28.9352V28.5258Z"
+                  fill="#262F69"
+                />
+                <path
+                  d="M28.9352 28.5258L39.6076 18.0381L50.2801 28.5258V36.7661L28.9352 28.5258Z"
+                  fill="#7BC9EB"
+                />
+                <path
+                  d="M50.2801 43.0087H44.0328L35.1825 22.3866L39.6077 18.0381L50.2801 28.5258V43.0087Z"
+                  fill="#0061A8"
+                />
+                <path
+                  d="M50.2801 28.5258V36.7661L39.6077 32.6977L35.1825 22.3866L39.6077 18.0381L50.2801 28.5258Z"
+                  fill="#32BCFA"
+                />
+                <path
+                  d="M39.9172 42.6831L11.7505 32.5779V68.9179L39.9172 78.0015V42.6831Z"
+                  fill="#31448F"
+                />
+                <path
+                  d="M68.0842 68.9179V32.5779L39.9175 42.6831V78.0015L68.0842 68.9179Z"
+                  fill="#262F69"
+                />
+                <path
+                  d="M11.7504 32.5784L1.99976 44.3104L30.6966 54.9142L39.9171 42.6558L11.7504 32.5784Z"
+                  fill="#7BC9EB"
+                />
+                <path
+                  d="M68.0842 32.5781L77.8381 44.3101L49.1413 54.9139L39.9175 42.6555L68.0842 32.5781Z"
+                  fill="#FABE3D"
+                />
+                <path
+                  d="M68.0842 32.5779L77.8381 44.3099L49.1413 54.9137L39.9175 42.6553L68.0842 32.5779Z"
+                  fill="#23A4DE"
+                />
+                <rect
+                  fill="#FFE5C7"
+                  height="10.2818"
+                  rx="4"
+                  transform="matrix(0.762524 -0.64696 0.631676 0.775232 44.3977 27.4504)"
+                  width="10.2439"
+                />
+                <rect
+                  fill="#FFB71B"
+                  height="19.3572"
+                  rx="6"
+                  transform="matrix(0.849949 0.526866 -0.514212 0.857663 19.7162 2)"
+                  width="19.2099"
+                />
+                <rect
+                  fill="#FFE5C7"
+                  height="7.85"
+                  rx="3"
+                  transform="matrix(0.950312 0.311297 -0.302034 0.953297 58.7117 2.60693)"
+                  width="7.74445"
+                />
+              </svg>
+            </span>
+            <div>
+              <h2
+                class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+              >
+                App Id
+              </h2>
+              <p
+                class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+              >
+                MOCK_APP_ID
+              </p>
+            </div>
+          </div>
+          <button
+            class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+          >
+            Copy
+          </button>
+        </div>
+        <div
+          class="e14pp0yd-el-col"
+        >
+          <h2
+            class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+          >
+            Redirect Uri(s)
+          </h2>
+          <p
+            class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
+          >
+            https://foo.bar
+          </p>
+        </div>
+        <div
+          class="e14pp0yd-el-col"
+        >
+          <h2
+            class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+          >
+            Sign Out Uri(s)
+          </h2>
+          <p
+            class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
+          >
+            https://foo.bar
+          </p>
+        </div>
+        <div
+          class="e14pp0yd-el-col"
+        >
+          <div
+            class="e14pp0yd-el-col"
+          >
+            <h2
+              class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+            >
+              Integration Type
+            </h2>
+            <p
+              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
+            >
+              You have a client side authenticated integration that will not render within the AgencyCloud desktop CRM
+            </p>
+          </div>
+        </div>
+        <div
+          class="e14pp0yd-el-col"
+        >
+          <div
+            class="e14pp0yd-el-col"
+          >
+            <h2
+              class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+            >
+              App Status
+            </h2>
+            <p
+              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
+            >
+              Your app is live and public in the AppMarket with a pending revision under review
+            </p>
+          </div>
+        </div>
+        <div
+          class="e14pp0yd-el-col"
+        >
+          <h2
+            class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+          >
+            Permissions
+          </h2>
+          <div
+            class="p11sa0f-permission-chip"
+          >
+            Read applicants
+          </div>
+          <div
+            class="p11sa0f-permission-chip"
+          >
+            Read property images
+          </div>
+          <div
+            class="p11sa0f-permission-chip"
+          >
+            Read properties
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6-el-snack-holder"
+    />
+    <h1
+      class="evblxhy-el-title"
+    >
+      will-test-dev-co-voracious-person
+    </h1>
+    <h2
+      class="e1byern-el-subtitle"
+    >
+      Authenticating Your App
+    </h2>
+    <p
+      class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+    >
+      Client-side Apps use our identity provider
+       
+      <a>
+        Reapit Connect
+      </a>
+       to authenticate against our API. Your application will need to re-direct to Reapit Connect where we will handle user login and in turn, re-direct back to your app with a code in the URL that you exchange for access and id JWTs, referred to as
+       
+      <a>
+        Authorization Code flow.
+      </a>
+       You will need the Client Id and Redirect Uris below to configure Reapit Connect.
+    </p>
+    <p
+      class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e15ggth7-el-body-text"
+    >
+      To make this process easier, we provide you with an authentication module for client-side apps,
+       
+      <a>
+        Connect Session
+      </a>
+      , which comes bundled with our
+       
+      <a>
+        Create React App Template
+      </a>
+       for quick start client-side development.
+    </p>
+    <div
+      class="e20pb60-el-grid"
+    >
+      <div
+        class="e14pp0yd-el-col"
+      >
+        <div
+          class="e2kmzjs-el-flex-container"
+        >
+          <span
+            class="elmeic8-el-mr4 emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 38 40"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M24.7684 16.5518H23.2632C16.4211 16.552 7.5 16.5516 2.73684 16.5518H1.23158C0.547369 16.5518 0 17.1035 0 17.7932V38.7587C0 39.4345 0.547369 40.0001 1.23158 40.0001H24.7684C25.4526 40.0001 26 39.4345 26 38.7587V17.7932C26 17.1035 25.4526 16.5518 24.7684 16.5518ZM9.57895 26.8966C9.57895 24.9932 11.1116 23.4483 13 23.4483C14.8884 23.4483 16.4211 24.9932 16.4211 26.8966C16.4211 28.0001 15.9147 29.007 15.0526 29.6552V32.4139C15.0526 33.5587 14.1358 34.4828 13 34.4828C11.8642 34.4828 10.9474 33.5587 10.9474 32.4139V29.6552C10.0853 29.007 9.57895 28.0001 9.57895 26.8966Z"
+                fill="#23A4DE"
+              />
+              <path
+                d="M23.2626 16.5517V10.3448C23.2626 4.63448 18.6647 0 12.9995 0C7.33422 0 2.73633 4.63448 2.73633 10.3448V16.5517C4.5 16.5517 21.5004 16.5517 23.2626 16.5517ZM6.84158 10.3448C6.84158 6.92414 9.6058 4.13793 12.9995 4.13793C16.3932 4.13793 19.1574 6.92414 19.1574 10.3448V16.5517H6.84158V10.3448Z"
+                fill="#0061A8"
+              />
+              <path
+                d="M32.0357 37.0047L31.9979 39.9254L37.9244 40L38 34.1585L28.4924 24.5449C29.2691 21.7795 28.568 18.7034 26.374 16.4849C23.156 13.231 17.8222 13.1639 14.521 16.3358C11.2198 19.5076 11.1518 24.7649 14.3697 28.0188C16.5638 30.2373 19.6657 31.0066 22.4903 30.3118L23.2216 31.0514L26.1849 31.0886L26.147 34.0094L29.1103 34.0467L29.0725 36.9674L32.0357 37.0047ZM15.9459 20.7355C15.2145 19.996 15.2334 18.5356 15.9837 17.8148C16.734 17.0939 18.2156 17.1125 18.9469 17.852C19.8246 18.7395 19.6594 20.0519 18.9091 20.7728C18.0088 21.6378 16.8235 21.6229 15.9459 20.7355Z"
+                fill="#FFB71B"
+              />
+            </svg>
+          </span>
+          <div>
+            <h2
+              class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+            >
+              Authentication Client Id
+            </h2>
+            <p
+              class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+            >
+              MOCK_EXTERNAL_ID
+            </p>
+          </div>
+        </div>
+        <button
+          class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+        >
+          Copy
+        </button>
+      </div>
+      <div
+        class="e14pp0yd-el-col"
+      >
+        <div
+          class="e2kmzjs-el-flex-container"
+        >
+          <span
+            class="elmeic8-el-mr4 emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 40 40"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g>
+                <path
+                  d="M25.9286 4.46338H8.5V33.6208H25.9286C26.5203 33.6208 27 33.1212 27 32.5051V5.5791C27 4.96292 26.5203 4.46338 25.9286 4.46338Z"
+                  fill="#7BC9EB"
+                />
+                <path
+                  d="M35.2895 18.6897H34.4211V15.431C34.4211 12.4331 31.7684 10 28.5 10C25.2316 10 22.5789 12.4331 22.5789 15.431V18.6897H21.7105C21.3158 18.6897 21 18.9793 21 19.3414V30.3483C21 30.7031 21.3158 31 21.7105 31H35.2895C35.6842 31 36 30.7031 36 30.3483V19.3414C36 18.9793 35.6842 18.6897 35.2895 18.6897ZM26.5263 24.1207C26.5263 23.1214 27.4105 22.3103 28.5 22.3103C29.5895 22.3103 30.4737 23.1214 30.4737 24.1207C30.4737 24.7 30.1816 25.2286 29.6842 25.569V27.0172C29.6842 27.6183 29.1553 28.1034 28.5 28.1034C27.8447 28.1034 27.3158 27.6183 27.3158 27.0172V25.569C26.8184 25.2286 26.5263 24.7 26.5263 24.1207ZM24.9474 15.431C24.9474 13.6352 26.5421 12.1724 28.5 12.1724C30.4579 12.1724 32.0526 13.6352 32.0526 15.431V18.6897H24.9474V15.431Z"
+                  fill="#262F69"
+                />
+                <path
+                  d="M17.9848 0.21065C17.7054 0.000895559 17.3463 -0.0561548 17.0195 0.0572764L4.16233 4.52014C3.72483 4.67203 3.42969 5.09838 3.42969 5.57859V32.5046C3.42969 32.9848 3.72476 33.4111 4.16233 33.563L17.0195 38.0259C17.349 38.1403 17.708 38.0802 17.9848 37.8725C18.2641 37.6629 18.4297 37.3261 18.4297 36.9674V1.11572C18.4297 0.757129 18.2641 0.420331 17.9848 0.21065ZM13.0725 20.1573C12.4808 20.1573 12.0011 19.6577 12.0011 19.0416C12.0011 18.4254 12.4808 17.9259 13.0725 17.9259C13.6643 17.9259 14.144 18.4254 14.144 19.0416C14.144 19.6577 13.6643 20.1573 13.0725 20.1573Z"
+                  fill="#0061A8"
+                />
+              </g>
+              <defs>
+                <rect
+                  fill="white"
+                  height="1em"
+                  width="1em"
+                />
+              </defs>
+            </svg>
+          </span>
+          <div
+            class="ttq29n6-text-overflow-container"
+          >
+            <h2
+              class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+            >
+              Authentication Client Secret
+            </h2>
+            <p
+              class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+            >
+              MOCK_SECRET
+            </p>
+          </div>
+        </div>
+        <button
+          class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+        >
+          Copy
+        </button>
+      </div>
+      <div
+        class="e14pp0yd-el-col"
+      >
+        <div
+          class="e2kmzjs-el-flex-container"
+        >
+          <span
+            class="elmeic8-el-mr4 emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 80 81"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M68.0839 32.5781L39.9172 22.6511L11.7505 32.5781L39.9172 42.6555L68.0839 32.5781Z"
+                fill="#23A4DE"
+              />
+              <path
+                d="M68.0842 32.5781L39.9175 22.6511V42.6555L68.0842 32.5781Z"
+                fill="#0061A8"
+              />
+              <path
+                d="M50.5783 7.46606H28.611C26.4797 7.46606 24.7457 9.23906 24.7457 11.4178V58.7411C24.7457 60.9199 26.4797 62.6929 28.611 62.6929H50.5783C52.7097 62.6929 54.4441 60.9199 54.4441 58.7411V11.4178C54.4441 9.23906 52.7097 7.46606 50.5783 7.46606V7.46606Z"
+                fill="#262F69"
+              />
+              <path
+                d="M32.189 10.3965C31.9798 10.0786 31.8576 9.69614 31.8576 9.28426C31.8576 8.47572 32.3286 7.78095 33.0042 7.46606H28.6113C26.4764 7.46606 24.7455 9.2355 24.7455 11.4178V58.7411C24.7455 60.9235 26.4764 62.6924 28.6113 62.6924H33.2815V13.8597C33.2815 12.6169 32.8676 11.428 32.189 10.3965Z"
+                fill="#262F69"
+              />
+              <path
+                d="M26.9832 32.426V58.7411C26.9832 59.6603 27.712 60.4054 28.6108 60.4054H50.578C51.4768 60.4054 52.2056 59.6603 52.2056 58.7411C52.2056 57.8381 52.2056 44.6557 52.2056 32.426H26.9832Z"
+                fill="#262F69"
+              />
+              <path
+                d="M50.5653 9.75391H47.3006C46.9926 9.75391 46.7432 10.0089 46.7432 10.3232C46.7432 11.0784 46.1391 11.696 45.4008 11.696H33.7636C33.0248 11.696 32.4207 11.0784 32.4207 10.3232C32.4207 10.0089 32.1712 9.75391 31.8632 9.75391H28.5986C27.6993 9.75391 26.9705 10.499 26.9705 11.4177V48.7548H52.1934V11.4177C52.1934 10.499 51.4645 9.75391 50.5653 9.75391Z"
+                fill="white"
+              />
+              <path
+                d="M28.9352 28.5258L39.6076 18.0381L50.2801 28.5258V43.0087H28.9352V28.5258Z"
+                fill="#262F69"
+              />
+              <path
+                d="M28.9352 28.5258L39.6076 18.0381L50.2801 28.5258V36.7661L28.9352 28.5258Z"
+                fill="#7BC9EB"
+              />
+              <path
+                d="M50.2801 43.0087H44.0328L35.1825 22.3866L39.6077 18.0381L50.2801 28.5258V43.0087Z"
+                fill="#0061A8"
+              />
+              <path
+                d="M50.2801 28.5258V36.7661L39.6077 32.6977L35.1825 22.3866L39.6077 18.0381L50.2801 28.5258Z"
+                fill="#32BCFA"
+              />
+              <path
+                d="M39.9172 42.6831L11.7505 32.5779V68.9179L39.9172 78.0015V42.6831Z"
+                fill="#31448F"
+              />
+              <path
+                d="M68.0842 68.9179V32.5779L39.9175 42.6831V78.0015L68.0842 68.9179Z"
+                fill="#262F69"
+              />
+              <path
+                d="M11.7504 32.5784L1.99976 44.3104L30.6966 54.9142L39.9171 42.6558L11.7504 32.5784Z"
+                fill="#7BC9EB"
+              />
+              <path
+                d="M68.0842 32.5781L77.8381 44.3101L49.1413 54.9139L39.9175 42.6555L68.0842 32.5781Z"
+                fill="#FABE3D"
+              />
+              <path
+                d="M68.0842 32.5779L77.8381 44.3099L49.1413 54.9137L39.9175 42.6553L68.0842 32.5779Z"
+                fill="#23A4DE"
+              />
+              <rect
+                fill="#FFE5C7"
+                height="10.2818"
+                rx="4"
+                transform="matrix(0.762524 -0.64696 0.631676 0.775232 44.3977 27.4504)"
+                width="10.2439"
+              />
+              <rect
+                fill="#FFB71B"
+                height="19.3572"
+                rx="6"
+                transform="matrix(0.849949 0.526866 -0.514212 0.857663 19.7162 2)"
+                width="19.2099"
+              />
+              <rect
+                fill="#FFE5C7"
+                height="7.85"
+                rx="3"
+                transform="matrix(0.950312 0.311297 -0.302034 0.953297 58.7117 2.60693)"
+                width="7.74445"
+              />
+            </svg>
+          </span>
+          <div>
+            <h2
+              class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+            >
+              App Id
+            </h2>
+            <p
+              class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+            >
+              MOCK_APP_ID
+            </p>
+          </div>
+        </div>
+        <button
+          class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+        >
+          Copy
+        </button>
+      </div>
+      <div
+        class="e14pp0yd-el-col"
+      >
+        <h2
+          class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+        >
+          Redirect Uri(s)
+        </h2>
+        <p
+          class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
+        >
+          https://foo.bar
+        </p>
+      </div>
+      <div
+        class="e14pp0yd-el-col"
+      >
+        <h2
+          class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+        >
+          Sign Out Uri(s)
+        </h2>
+        <p
+          class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
+        >
+          https://foo.bar
+        </p>
+      </div>
+      <div
+        class="e14pp0yd-el-col"
+      >
+        <div
+          class="e14pp0yd-el-col"
+        >
+          <h2
+            class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+          >
+            Integration Type
+          </h2>
+          <p
+            class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
+          >
+            You have a client side authenticated integration that will not render within the AgencyCloud desktop CRM
+          </p>
+        </div>
+      </div>
+      <div
+        class="e14pp0yd-el-col"
+      >
+        <div
+          class="e14pp0yd-el-col"
+        >
+          <h2
+            class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+          >
+            App Status
+          </h2>
+          <p
+            class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
+          >
+            Your app is live and public in the AppMarket with a pending revision under review
+          </p>
+        </div>
+      </div>
+      <div
+        class="e14pp0yd-el-col"
+      >
+        <h2
+          class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+        >
+          Permissions
+        </h2>
+        <div
+          class="p11sa0f-permission-chip"
+        >
+          Read applicants
+        </div>
+        <div
+          class="p11sa0f-permission-chip"
+        >
+          Read property images
+        </div>
+        <div
+          class="p11sa0f-permission-chip"
+        >
+          Read properties
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`AppDetail should match snapshot where loading apps 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ecbqyq6-el-snack-holder"
+      />
+      <div
+        class="ebhrnzh-el-loader-container"
+      >
+        <div
+          class="eq1m1jz-el-loader"
+        >
+          <div
+            class="exikdu1-el-loader-moving-bar"
+          />
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6-el-snack-holder"
+    />
+    <div
+      class="ebhrnzh-el-loader-container"
+    >
+      <div
+        class="eq1m1jz-el-loader"
+      >
+        <div
+          class="exikdu1-el-loader-moving-bar"
+        />
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`AppDetail should match snapshot where no app found 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ecbqyq6-el-snack-holder"
+      />
+      <div
+        class="epibvz0-el-intent-secondary evmehgn-el-is-active e1qwk99x-el-pn-is-full-width e15e3rd4-el-pn-is-inline erhlo5n-el-persistent-notification"
+      >
+        <div
+          class="eta6kcl-el-pn-icon"
+          data-testid="close-icon"
+        >
+          <span
+            class="ej9yrfo-el-icon"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 20 20"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9.99958 0C4.47746 0 0 4.47746 0 9.99958C0 15.5217 4.47746 20 9.99958 20C15.5217 20 20 15.5217 20 9.99958C20 4.47746 15.5217 0 9.99958 0ZM12.0813 15.498C11.5666 15.7012 11.1568 15.8552 10.8495 15.9619C10.5431 16.0686 10.1867 16.1219 9.78116 16.1219C9.1581 16.1219 8.67302 15.9695 8.32762 15.6656C7.98222 15.3617 7.81037 14.9765 7.81037 14.5084C7.81037 14.3263 7.82307 14.1401 7.84847 13.9505C7.87471 13.7608 7.91619 13.5475 7.97291 13.3079L8.61714 11.0324C8.67386 10.814 8.72296 10.6066 8.7619 10.4135C8.80085 10.2188 8.81947 10.0402 8.81947 9.87767C8.81947 9.58815 8.75937 9.38497 8.64 9.27069C8.51894 9.1564 8.29122 9.10053 7.95175 9.10053C7.78582 9.10053 7.61481 9.12508 7.43958 9.17672C7.26603 9.23005 7.11534 9.27831 6.99175 9.32571L7.1619 8.62476C7.58349 8.45291 7.9873 8.30561 8.37249 8.1837C8.75767 8.06011 9.12169 7.99915 9.46455 7.99915C10.0834 7.99915 10.5608 8.14984 10.8969 8.44783C11.2313 8.74667 11.3998 9.13524 11.3998 9.6127C11.3998 9.71175 11.3879 9.88614 11.3651 10.135C11.3422 10.3848 11.299 10.6125 11.2364 10.8216L10.5956 13.0904C10.5431 13.2724 10.4965 13.4806 10.4542 13.7134C10.4127 13.9462 10.3924 14.124 10.3924 14.2434C10.3924 14.5448 10.4593 14.7505 10.5947 14.8597C10.7285 14.9689 10.963 15.0239 11.2948 15.0239C11.4514 15.0239 11.6267 14.996 11.8248 14.9418C12.0212 14.8876 12.1634 14.8394 12.2531 14.7979L12.0813 15.498ZM11.9678 6.2891C11.669 6.56677 11.3092 6.70561 10.8885 6.70561C10.4686 6.70561 10.1062 6.56677 9.80487 6.2891C9.50519 6.01143 9.35365 5.67365 9.35365 5.27915C9.35365 4.8855 9.50603 4.54688 9.80487 4.26667C10.1062 3.98561 10.4686 3.84593 10.8885 3.84593C11.3092 3.84593 11.6698 3.98561 11.9678 4.26667C12.2667 4.54688 12.4165 4.8855 12.4165 5.27915C12.4165 5.6745 12.2667 6.01143 11.9678 6.2891Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+        </div>
+        <div
+          class="e1geon40-el-pn-content"
+        >
+          No record of this app found
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6-el-snack-holder"
+    />
+    <div
+      class="epibvz0-el-intent-secondary evmehgn-el-is-active e1qwk99x-el-pn-is-full-width e15e3rd4-el-pn-is-inline erhlo5n-el-persistent-notification"
+    >
+      <div
+        class="eta6kcl-el-pn-icon"
+        data-testid="close-icon"
+      >
+        <span
+          class="ej9yrfo-el-icon"
+        >
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 20 20"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9.99958 0C4.47746 0 0 4.47746 0 9.99958C0 15.5217 4.47746 20 9.99958 20C15.5217 20 20 15.5217 20 9.99958C20 4.47746 15.5217 0 9.99958 0ZM12.0813 15.498C11.5666 15.7012 11.1568 15.8552 10.8495 15.9619C10.5431 16.0686 10.1867 16.1219 9.78116 16.1219C9.1581 16.1219 8.67302 15.9695 8.32762 15.6656C7.98222 15.3617 7.81037 14.9765 7.81037 14.5084C7.81037 14.3263 7.82307 14.1401 7.84847 13.9505C7.87471 13.7608 7.91619 13.5475 7.97291 13.3079L8.61714 11.0324C8.67386 10.814 8.72296 10.6066 8.7619 10.4135C8.80085 10.2188 8.81947 10.0402 8.81947 9.87767C8.81947 9.58815 8.75937 9.38497 8.64 9.27069C8.51894 9.1564 8.29122 9.10053 7.95175 9.10053C7.78582 9.10053 7.61481 9.12508 7.43958 9.17672C7.26603 9.23005 7.11534 9.27831 6.99175 9.32571L7.1619 8.62476C7.58349 8.45291 7.9873 8.30561 8.37249 8.1837C8.75767 8.06011 9.12169 7.99915 9.46455 7.99915C10.0834 7.99915 10.5608 8.14984 10.8969 8.44783C11.2313 8.74667 11.3998 9.13524 11.3998 9.6127C11.3998 9.71175 11.3879 9.88614 11.3651 10.135C11.3422 10.3848 11.299 10.6125 11.2364 10.8216L10.5956 13.0904C10.5431 13.2724 10.4965 13.4806 10.4542 13.7134C10.4127 13.9462 10.3924 14.124 10.3924 14.2434C10.3924 14.5448 10.4593 14.7505 10.5947 14.8597C10.7285 14.9689 10.963 15.0239 11.2948 15.0239C11.4514 15.0239 11.6267 14.996 11.8248 14.9418C12.0212 14.8876 12.1634 14.8394 12.2531 14.7979L12.0813 15.498ZM11.9678 6.2891C11.669 6.56677 11.3092 6.70561 10.8885 6.70561C10.4686 6.70561 10.1062 6.56677 9.80487 6.2891C9.50519 6.01143 9.35365 5.67365 9.35365 5.27915C9.35365 4.8855 9.50603 4.54688 9.80487 4.26667C10.1062 3.98561 10.4686 3.84593 10.8885 3.84593C11.3092 3.84593 11.6698 3.98561 11.9678 4.26667C12.2667 4.54688 12.4165 4.8855 12.4165 5.27915C12.4165 5.6745 12.2667 6.01143 11.9678 6.2891Z"
+              fill="currentColor"
+            />
+          </svg>
+        </span>
+      </div>
+      <div
+        class="e1geon40-el-pn-content"
+      >
+        No record of this app found
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
