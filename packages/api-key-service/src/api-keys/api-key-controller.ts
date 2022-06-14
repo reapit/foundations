@@ -1,7 +1,11 @@
-import { Body, Controller, Delete, Get, Param, Post, Query } from "@nestjs/common"
+import { Body, Controller, Delete, Get, Param, Post, Query, UseGuards } from "@nestjs/common"
 import { ApiKeyDto } from "./api-key-dto"
 import { ApiKeyMemberDto } from "./api-key-member-dto"
 import { ApiKeyProvider } from "./api-key-provider"
+import { CredGuard, Creds, CredsType } from '@reapit/utils-node'
+import { ApiKeyModel } from '@reapit/api-key-verify'
+import { QueryIterator } from '@aws/dynamodb-data-mapper'
+import { UnauthorizedException } from "@homeservenow/serverless-aws-handler"
 
 type Pagination<T> = {
   items: T[]
@@ -12,12 +16,12 @@ type Pagination<T> = {
 }
 
 @Controller('api-key')
-@AuthGuard(CredsGuard)
+@UseGuards(CredGuard)
 export class ApiKeyController {
 
   constructor(private readonly apiKeyProvider: ApiKeyProvider) {}
 
-  protected async resolvePaginationObject(apiKeys: ApiKeyModel[]): Promise<Pagination<ApiKeyModel>> {
+  protected async resolvePaginationObject(apiKeys: QueryIterator<ApiKeyModel>): Promise<Pagination<ApiKeyModel>> {
     const pagination: Pagination<ApiKeyModel> = {
       items: [],
       meta: apiKeys[1],
@@ -35,27 +39,29 @@ export class ApiKeyController {
     @Creds() creds: CredsType,
     @Query('nextCursor') nextCursor?: string,
   ): Promise<Pagination<ApiKeyModel>> {
+    if (!creds.developerId || !creds.email) throw new UnauthorizedException
+
     const response = await this.apiKeyProvider.batchGet({
-      keys: creds,
+      keys: creds as { developerId: string},
       indexName: 'developerIdOwnership',
-      startKey: { nextCursor },
+      startKey: nextCursor? { id: nextCursor } : undefined,
     })
 
-    return this.resolvePaginationObject(response)
+    return this.resolvePaginationObject(response[0])
   }
 
   @Get('/member/:email')
   async paginateByMember(
     @Param('email') email: string,
-    @Query('nextCursor') nextCursor:? string,
+    @Query('nextCursor') nextCursor?: string,
   ): Promise<Pagination<ApiKeyModel>> {
     const response = await this.apiKeyProvider.batchGet({
       keys: {email},
       indexName: 'email',
-      startKey: { id: nextCursor },
+      startKey: nextCursor? { id: nextCursor } : undefined,
     })
 
-    return this.resolvePaginationObject(response)
+    return this.resolvePaginationObject(response[0])
   }
 
   @Post()
@@ -74,12 +80,12 @@ export class ApiKeyController {
 
   @Get('/:id')
   async getApiKey(
-    @Param('id') id
+    @Param('id') id,
     @Creds() creds: CredsType,
-  ): Promise<ApiKeyModel> {
+  ): Promise<ApiKeyModel | undefined> {
     return this.apiKeyProvider.findOne({
       id,
-      developerId: creds?.developerId,
+      developerId: creds.developerId as string,
     })
   }
 

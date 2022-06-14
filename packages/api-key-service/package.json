@@ -33,7 +33,7 @@
     "serverless-plugin-log-retention": "^2.0.0"
   },
   "scripts": {
-    "start": "yarn serverless offline start --runtime nodejs12.x --stage local",
+    "start": "NODE_ENV=local nodemon src/local-http.ts",
     "build": "echo '...skipping...'",
     "lint": "eslint --cache --ext=ts,tsx,js src",
     "check": "tsc --noEmit --skipLibCheck",
