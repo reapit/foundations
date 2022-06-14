@@ -63,7 +63,7 @@ describe('handleSetConsentId', () => {
 })
 
 describe('handleSendConstents', () => {
-  it('should reset the form', async () => {
+  it('should send the consents emails', async () => {
     const createConsentEmails = jest.fn(() => new Promise<boolean>((resolve) => resolve(true)))
     const appConsentsRefresh = jest.fn()
     const developerEmail = 'mail@example.com'
