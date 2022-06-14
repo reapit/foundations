@@ -41,10 +41,6 @@ export class SoruceProvider {
       pipeline.branch
     }.zip`
 
-    if (!client) {
-      throw new Error('Cannot pull from bitbucket without client data')
-    }
-
     const tokenData = await this.bitbucketProvider.getBitBucketToken({
       key: client.key,
       clientKey: client.clientKey,
