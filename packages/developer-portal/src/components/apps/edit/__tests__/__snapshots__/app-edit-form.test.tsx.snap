@@ -4,6 +4,11 @@ exports[`AppEditForm should match a snapshot 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
+    <div
+      id="root"
+    >
+      <div />
+    </div>
     <div>
       <div
         class="ecbqyq6-el-snack-holder"

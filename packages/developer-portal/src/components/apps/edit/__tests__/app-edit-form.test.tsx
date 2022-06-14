@@ -3,6 +3,7 @@ import { render } from '../../../../tests/react-testing'
 import {
   AppEditForm,
   handleResetForm,
+  handleSendConstents,
   handleSetAppSubmitting,
   handleSetRevalidating,
   handleUnsavedChanges,
@@ -17,6 +18,9 @@ jest.mock('../../state/use-app-state')
 
 describe('AppEditForm', () => {
   it('should match a snapshot', () => {
+    const testElem = document.createElement('div')
+    testElem.id = 'root'
+    document.body.appendChild(testElem)
     expect(render(<AppEditForm />)).toMatchSnapshot()
   })
 })
@@ -112,5 +116,20 @@ describe('handleResetForm', () => {
     curried()
 
     expect(reset).toHaveBeenCalledWith(appEditForm)
+  })
+})
+
+describe('handleSendConstents', () => {
+  it('should reset the form', () => {
+    const createConsentEmails = jest.fn()
+    const closeModal = jest.fn()
+    const developerEmail = 'mail@example.com'
+
+    const curried = handleSendConstents(createConsentEmails, closeModal, developerEmail)
+
+    curried()
+
+    expect(createConsentEmails).toHaveBeenCalledWith({ actionedBy: developerEmail })
+    expect(closeModal).toHaveBeenCalledTimes(1)
   })
 })
