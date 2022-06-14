@@ -6,7 +6,7 @@ import PrivateRoute from './private-route'
 import PrivateRouteWrapper from './private-route-wrapper'
 import { createBrowserHistory, History } from 'history'
 import { OkayPage } from '@reapit/utils-react'
-import { PersistantNotification } from '@reapit/elements'
+import { PersistentNotification } from '@reapit/elements'
 import { FC } from 'react'
 
 export const history: History<any> = createBrowserHistory()
@@ -25,9 +25,9 @@ const SelectRolePage = React.lazy(() => catchChunkError(() => import('../compone
 const IaaS = React.lazy(() => catchChunkError(() => import('../components/iaas')))
 
 export const FourOFour: FC = () => (
-  <PersistantNotification isFullWidth isInline isExpanded intent="danger">
+  <PersistentNotification isFullWidth isInline isExpanded intent="danger">
     Page not found
-  </PersistantNotification>
+  </PersistentNotification>
 )
 
 const Router = () => {

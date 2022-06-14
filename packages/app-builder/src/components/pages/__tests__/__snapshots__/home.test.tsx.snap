@@ -389,8 +389,8 @@ exports[`Home should match a snapshot 1`] = `
       </div>
     </div>
     <div
-      class="el-flex overflow-hidden el-flex-row el-wfull"
-      style="height: calc(100vh - 56px);"
+      class="el-flex el-flex-row"
+      style="height: calc(100vh - 56px); width: 100vw;"
     >
       <div
         class="container"
@@ -398,6 +398,7 @@ exports[`Home should match a snapshot 1`] = `
         <div
           class="el-flex el-flex1 el-hfull el-flex-column el-pt6"
           id="page-container"
+          style="transition: transform 350ms; transform: scale(1); transform-origin: top left;"
         >
           <div
             class="el-flex1 el-hfull el-wfull transition el-pb6 overflow-auto"

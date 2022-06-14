@@ -4,7 +4,7 @@ import {
   ButtonGroup,
   FlexContainer,
   Loader,
-  PersistantNotification,
+  PersistentNotification,
   Tabs,
   TabsOption,
   Title,
@@ -104,9 +104,9 @@ export const AppEditPage: FC = () => {
       <AppEditForm />
     </>
   ) : (
-    <PersistantNotification intent="secondary" isExpanded isFullWidth isInline>
+    <PersistentNotification intent="secondary" isExpanded isFullWidth isInline>
       No record of this app found
-    </PersistantNotification>
+    </PersistentNotification>
   )
 }
 

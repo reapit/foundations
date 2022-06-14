@@ -6,7 +6,7 @@ import {
   ButtonGroup,
   FlexContainer,
   Loader,
-  PersistantNotification,
+  PersistentNotification,
   Title,
   useMediaQuery,
   useModal,
@@ -73,9 +73,9 @@ export const PipelinePage: FC = () => {
           )}
         </>
       ) : (
-        <PersistantNotification intent="secondary" isExpanded isFullWidth isInline>
+        <PersistentNotification intent="secondary" isExpanded isFullWidth isInline>
           No record of this app found, please select an app from the My Apps page.
-        </PersistantNotification>
+        </PersistentNotification>
       )}
     </>
   )

@@ -4,7 +4,7 @@ import {
   InputAddOn,
   InputGroup,
   Label,
-  PersistantNotification,
+  PersistentNotification,
   Select,
   FormLayout,
   elFadeIn,
@@ -54,10 +54,10 @@ export const WebhooksNewApp: FC<WebhooksNewAppProps> = ({ register, errors }) =>
               </InputGroup>
             </>
           ) : (
-            <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
+            <PersistentNotification isFullWidth isExpanded intent="secondary" isInline>
               No apps found. This is probably because you have not yet created an app from the apps page. When you have
               created your first app, you will be able to add a webhook here.
-            </PersistantNotification>
+            </PersistentNotification>
           )}
         </InputWrap>
       </FormLayout>
