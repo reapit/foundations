@@ -7,7 +7,7 @@ import { EventDispatcher } from './event-dispatcher'
 import { SnsHandlerProvider } from './sns-handler-provider'
 import { PusherWebhookController } from './pusher-webhook-controller'
 import { AwsModule } from '../aws'
-import { AuthModule } from '../auth'
+import { AuthModule } from '@reapit/utils-node'
 
 @Module({
   imports: [AwsModule, AuthModule],

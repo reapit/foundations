@@ -1,4 +1,4 @@
-import { CredGuard } from '../auth'
+import { CredGuard } from '@reapit/utils-node'
 import { Body, Controller, HttpCode, HttpStatus, Post, UseGuards, BadRequestException } from '@nestjs/common'
 import { PusherProvider } from './pusher-provider'
 
