@@ -28,6 +28,7 @@ export class SoruceProvider {
     pipelineRunner: PipelineRunnerEntity
     client?: BitbucketClientData
   }): Promise<string> {
+
     if (!pipeline.repository) {
       throw new Error('Pipeline repository is not configured')
     }
@@ -54,7 +55,9 @@ export class SoruceProvider {
       this.httpService.get(url, {
         headers: {
           Authorization: `Bearer ${tokenData.access_token}`,
+          'Content-type': 'application/zip',
         },
+        responseType: 'arraybuffer',
       }),
     )
 
@@ -62,14 +65,12 @@ export class SoruceProvider {
       throw new Error('failed to fetch zip from bitbucket')
     }
 
-    const buffer = Buffer.from(result.data)
-
     const Key = `${pipelineRunner.id as string}.zip`
 
     await this.s3Provider.upload({
       Bucket: process.env.DEPLOYMENT_REPO_CACHE_BUCKET_NAME as string,
       Key,
-      Body: buffer,
+      Body: result.data,
     })
 
     return [process.env.DEPLOYMENT_REPO_CACHE_BUCKET_NAME as string, Key].join('/')
