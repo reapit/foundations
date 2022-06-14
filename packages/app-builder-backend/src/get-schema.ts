@@ -7,8 +7,6 @@ import { delegateToSchema } from '@graphql-tools/delegate'
 import Pluralize from 'pluralize'
 
 import { AppResolver } from './resolvers/app-resolver'
-import { AuthorResolver } from './resolvers/author-resolver'
-import { BookResolver } from './resolvers/book-resolver'
 import { ContactResolver } from './resolvers/contact-resolver'
 import { KeyResolver } from './resolvers/key-resolver'
 import { NegotiatorResolver } from './resolvers/negotiator-resolver'
@@ -311,8 +309,6 @@ const generateDynamicSchema = (
 export const getSchema = async (context?: Context): Promise<GraphQLSchema> => {
   const baseSchema = await buildSchema({
     resolvers: [
-      BookResolver,
-      AuthorResolver,
       AppResolver,
       PropertyResolver,
       KeyResolver,
