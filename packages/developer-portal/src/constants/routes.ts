@@ -17,6 +17,7 @@ const Routes = {
   APPS_EDIT_PERMISSIONS: '/apps/:appId/edit/permissions',
   APPS_EDIT_AC_INTEGRATION: '/apps/:appId/edit/ac-integration',
   APPS_EDIT_APP_LISTING: '/apps/:appId/edit/app-listing',
+  APPS_CONSENTS: '/apps/:appId/consents',
   API_DOCS: '/api-docs',
   ANALYTICS_SCHEMA_DOCS: '/analytics-schema-docs',
   ANALYTICS: '/analytics',
