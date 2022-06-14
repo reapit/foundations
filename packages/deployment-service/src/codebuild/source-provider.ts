@@ -28,7 +28,6 @@ export class SoruceProvider {
     pipelineRunner: PipelineRunnerEntity
     client?: BitbucketClientData
   }): Promise<string> {
-
     if (!pipeline.repository) {
       throw new Error('Pipeline repository is not configured')
     }
