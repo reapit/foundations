@@ -45,6 +45,16 @@ Object {
             <div
               class="e1ohezfm-el-secondary-nav-item"
             >
+              Pipeline
+            </div>
+            <div
+              class="e1ohezfm-el-secondary-nav-item"
+            >
+              App Consents
+            </div>
+            <div
+              class="e1ohezfm-el-secondary-nav-item"
+            >
               New App
             </div>
           </div>
@@ -489,6 +499,16 @@ Object {
             class="e1ohezfm-el-secondary-nav-item"
           >
             Installations
+          </div>
+          <div
+            class="e1ohezfm-el-secondary-nav-item"
+          >
+            Pipeline
+          </div>
+          <div
+            class="e1ohezfm-el-secondary-nav-item"
+          >
+            App Consents
           </div>
           <div
             class="e1ohezfm-el-secondary-nav-item"
