@@ -3,6 +3,7 @@ import { render } from '../../../../tests/react-testing'
 import {
   AppEditForm,
   handleResetForm,
+  handleSendConstents,
   handleSetAppSubmitting,
   handleSetRevalidating,
   handleUnsavedChanges,
@@ -11,11 +12,15 @@ import { AppEditFormSchema, defaultValues } from '../form-schema/form-fields'
 import { formatFormValues } from '../../utils/format-form-values'
 import { defaultAppSavingParams } from '../../state/defaults'
 import { FieldNamesMarkedBoolean } from 'react-hook-form'
+import { mockAppDetailModel } from '../../../../tests/__stubs__/apps'
 
 jest.mock('../../state/use-app-state')
 
 describe('AppEditForm', () => {
   it('should match a snapshot', () => {
+    const testElem = document.createElement('div')
+    testElem.id = 'root'
+    document.body.appendChild(testElem)
     expect(render(<AppEditForm />)).toMatchSnapshot()
   })
 })
@@ -34,6 +39,8 @@ describe('handleSetAppSubmitting', () => {
     const appsRefresh = jest.fn()
     const appsDetailRefresh = jest.fn()
     const appRefreshRevisions = jest.fn()
+    const openModal = jest.fn()
+    const appDetail = mockAppDetailModel
 
     const curried = handleSetAppSubmitting(
       setAppEditSaving,
@@ -43,6 +50,8 @@ describe('handleSetAppSubmitting', () => {
       appsRefresh,
       appsDetailRefresh,
       appRefreshRevisions,
+      appDetail,
+      openModal,
     )
 
     curried()
@@ -107,5 +116,20 @@ describe('handleResetForm', () => {
     curried()
 
     expect(reset).toHaveBeenCalledWith(appEditForm)
+  })
+})
+
+describe('handleSendConstents', () => {
+  it('should reset the form', () => {
+    const createConsentEmails = jest.fn()
+    const closeModal = jest.fn()
+    const developerEmail = 'mail@example.com'
+
+    const curried = handleSendConstents(createConsentEmails, closeModal, developerEmail)
+
+    curried()
+
+    expect(createConsentEmails).toHaveBeenCalledWith({ actionedBy: developerEmail })
+    expect(closeModal).toHaveBeenCalledTimes(1)
   })
 })

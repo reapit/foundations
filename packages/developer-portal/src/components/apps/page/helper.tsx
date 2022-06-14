@@ -88,7 +88,7 @@ export const Helper: FC = () => {
   const { Modal, openModal, closeModal } = useModal()
   const isCustomer = selectIsCustomer(connectSession)
   const { pathname } = location
-  const { isAppsEdit, isAppsDetail, isAppPipelines } = getCurrentPage(pathname)
+  const { isAppsEdit, isAppsDetail, isAppPipelines, isAppConsents } = getCurrentPage(pathname)
   const { currentDeveloper } = globalDataState
   const { setAppEditSaving, appUnsavedFields, appIncompleteFields } = appEditState
   const {
@@ -263,6 +263,28 @@ export const Helper: FC = () => {
 
   if (isAppPipelines) {
     return <PipelineControls />
+  }
+
+  if (isAppConsents) {
+    return (
+      <div className={elFadeIn}>
+        <Icon className={elMb3} icon="editAppInfographic" iconSize="large" />
+        <Subtitle>App Consents</Subtitle>
+        <SmallText hasGreyText>
+          This page is visible because you have requested new permissions as part of your current outstanding app
+          revision. We have emailed each of the customers who installed your app, requesting they agree to the new
+          permissions you have requested.
+        </SmallText>
+        <SmallText hasGreyText>
+          Each customer will have to agree to the new permission before our team can approve your revision. You can
+          either track this process here or reach out to your customer to expedite their response to our message.
+        </SmallText>
+        <SmallText hasGreyText>You can also request that the email is re-sent to each customer individually.</SmallText>
+        <Button className={elMb3} intent="neutral" onClick={openNewPage(ExternalPages.developerPortalDocs)}>
+          View Docs
+        </Button>
+      </div>
+    )
   }
 
   return (

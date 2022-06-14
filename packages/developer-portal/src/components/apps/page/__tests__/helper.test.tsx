@@ -168,6 +168,28 @@ describe('Helper', () => {
       ),
     ).toMatchSnapshot()
   })
+
+  it('should match a snapshot for the consents page', () => {
+    history.push(`${Routes.APPS}/mock-id/consents`)
+    expect(
+      render(
+        <Router history={history}>
+          <Helper />
+        </Router>,
+      ),
+    ).toMatchSnapshot()
+  })
+
+  it('should match a snapshot for the pipelines page', () => {
+    history.push(`${Routes.APPS}/mock-id/pipeline`)
+    expect(
+      render(
+        <Router history={history}>
+          <Helper />
+        </Router>,
+      ),
+    ).toMatchSnapshot()
+  })
 })
 
 describe('handleSetAppEditSaving', () => {

@@ -31,6 +31,7 @@ export const mockAppState = {
     setAppUnsavedFields: jest.fn(),
     appIncompleteFields: [],
     setIncompleteFields: jest.fn(),
+    appLatestRevision: (mockAppSummaryModelPagedResult?.data ?? [])[0],
   },
   appPipelineState: {
     appPipeline: mockPipelineModelInterface,

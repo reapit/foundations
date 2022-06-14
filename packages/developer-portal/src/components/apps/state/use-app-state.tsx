@@ -1,5 +1,6 @@
 import {
   AppDetailModel,
+  AppRevisionModel,
   AppRevisionModelPagedResult,
   AppSummaryModelPagedResult,
   PipelineModelInterface,
@@ -60,6 +61,7 @@ export interface AppEditState {
   setAppUnsavedFields: Dispatch<SetStateAction<FieldNamesMarkedBoolean<AppEditFormSchema>>>
   appIncompleteFields: (keyof AppEditFormSchema)[]
   setIncompleteFields: Dispatch<SetStateAction<(keyof AppEditFormSchema)[]>>
+  appLatestRevision: AppRevisionModel | null
 }
 
 export interface AppPipelineState {
@@ -138,6 +140,8 @@ export const AppProvider: FC = ({ children }) => {
     },
   })
 
+  const appLatestRevision = appRevisions?.data ? appRevisions.data[0] : null
+
   useEffect(handleSetDefaultFormValues(setAppEditForm, appDetail, developerId), [appDetail, developerId])
 
   useEffect(handleSetInitialPipeline(pipeline, setAppPipeline), [pipeline])
@@ -167,6 +171,7 @@ export const AppProvider: FC = ({ children }) => {
     setAppUnsavedFields,
     appIncompleteFields,
     setIncompleteFields,
+    appLatestRevision,
   }
 
   const appPipelineState: AppPipelineState = {

@@ -1,26 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AppEditForm should match a snapshot 1`] = `
+exports[`AcceptPermissionChangePage should match snapshot  1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
-    <div
-      id="root"
-    >
-      <div />
-    </div>
     <div>
       <div
         class="ecbqyq6-el-snack-holder"
       />
-      <form />
     </div>
   </body>,
   "container": <div>
     <div
       class="ecbqyq6-el-snack-holder"
     />
-    <form />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

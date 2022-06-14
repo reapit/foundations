@@ -34,6 +34,9 @@ export enum UpdateActionNames {
   acceptInviteMember = 'acceptInviteMember',
   rejectInviteMember = 'rejectInviteMember',
   upsertPipelineEnvironment = 'upsertPipelineEnvironment',
+  createConsentEmails = 'createConsentEmails',
+  resendConsentEmail = 'resendConsentEmail',
+  approveConsent = 'approveConsent',
 }
 
 export type UpdateActions = { [key in UpdateActionNames]: UpdateAction }
@@ -190,5 +193,23 @@ export const updateActions = (appEnv: AppEnv): UpdateActions => ({
     path: PathNames.upsertPipelineEnvironment,
     successMessage: 'Added Environment variable',
     errorMessage: 'Failed to add Environment variable',
+  },
+  [UpdateActionNames.createConsentEmails]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.appConsents,
+    successMessage: 'Sent consent request emails',
+    errorMessage: 'Failed to send consent request emails',
+  },
+  [UpdateActionNames.resendConsentEmail]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.appConsentResend,
+    successMessage: 'Resent consent request email',
+    errorMessage: 'Failed to resense consent request email',
+  },
+  [UpdateActionNames.approveConsent]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.appConsentApprove,
+    successMessage: 'App permission change request accepted',
+    errorMessage: 'Failed to accept app permission change, this has been logged. Please try again.',
   },
 })
