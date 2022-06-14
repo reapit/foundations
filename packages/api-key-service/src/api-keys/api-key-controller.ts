@@ -1,11 +1,11 @@
-import { Body, Controller, Delete, Get, Param, Post, Query, UseGuards } from "@nestjs/common"
-import { ApiKeyDto } from "./api-key-dto"
-import { ApiKeyMemberDto } from "./api-key-member-dto"
-import { ApiKeyProvider } from "./api-key-provider"
+import { Body, Controller, Delete, Get, Param, Post, Query, UseGuards } from '@nestjs/common'
+import { ApiKeyDto } from './api-key-dto'
+import { ApiKeyMemberDto } from './api-key-member-dto'
+import { ApiKeyProvider } from './api-key-provider'
 import { CredGuard, Creds, CredsType } from '@reapit/utils-node'
 import { ApiKeyModel } from '@reapit/api-key-verify'
 import { QueryIterator } from '@aws/dynamodb-data-mapper'
-import { UnauthorizedException } from "@homeservenow/serverless-aws-handler"
+import { UnauthorizedException } from '@homeservenow/serverless-aws-handler'
 
 type Pagination<T> = {
   items: T[]
@@ -18,7 +18,6 @@ type Pagination<T> = {
 @Controller('api-key')
 @UseGuards(CredGuard)
 export class ApiKeyController {
-
   constructor(private readonly apiKeyProvider: ApiKeyProvider) {}
 
   protected async resolvePaginationObject(apiKeys: QueryIterator<ApiKeyModel>): Promise<Pagination<ApiKeyModel>> {
@@ -39,12 +38,12 @@ export class ApiKeyController {
     @Creds() creds: CredsType,
     @Query('nextCursor') nextCursor?: string,
   ): Promise<Pagination<ApiKeyModel>> {
-    if (!creds.developerId || !creds.email) throw new UnauthorizedException
+    if (!creds.developerId || !creds.email) throw new UnauthorizedException()
 
     const response = await this.apiKeyProvider.batchGet({
-      keys: creds as { developerId: string},
+      keys: creds as { developerId: string },
       indexName: 'developerIdOwnership',
-      startKey: nextCursor? { id: nextCursor } : undefined,
+      startKey: nextCursor ? { id: nextCursor } : undefined,
     })
 
     return this.resolvePaginationObject(response[0])
@@ -56,33 +55,26 @@ export class ApiKeyController {
     @Query('nextCursor') nextCursor?: string,
   ): Promise<Pagination<ApiKeyModel>> {
     const response = await this.apiKeyProvider.batchGet({
-      keys: {email},
+      keys: { email },
       indexName: 'email',
-      startKey: nextCursor? { id: nextCursor } : undefined,
+      startKey: nextCursor ? { id: nextCursor } : undefined,
     })
 
     return this.resolvePaginationObject(response[0])
   }
 
   @Post()
-  async createApiKey(
-    @Body() apiKey: ApiKeyDto,
-  ): Promise<ApiKeyModel> {
+  async createApiKey(@Body() apiKey: ApiKeyDto): Promise<ApiKeyModel> {
     return this.apiKeyProvider.create(apiKey)
   }
 
   @Post('/member')
-  async creatApiKeyByMember(
-    @Body() apiKey: ApiKeyMemberDto,
-  ): Promise<ApiKeyModel> {
+  async creatApiKeyByMember(@Body() apiKey: ApiKeyMemberDto): Promise<ApiKeyModel> {
     return this.apiKeyProvider.create(apiKey)
   }
 
   @Get('/:id')
-  async getApiKey(
-    @Param('id') id,
-    @Creds() creds: CredsType,
-  ): Promise<ApiKeyModel | undefined> {
+  async getApiKey(@Param('id') id, @Creds() creds: CredsType): Promise<ApiKeyModel | undefined> {
     return this.apiKeyProvider.findOne({
       id,
       developerId: creds.developerId as string,
@@ -90,9 +82,7 @@ export class ApiKeyController {
   }
 
   @Delete('/:id')
-  async delete(
-    @Param('id') id: string,
-  ): Promise<void> {
+  async delete(@Param('id') id: string): Promise<void> {
     return this.apiKeyProvider.delete(id)
   }
 }

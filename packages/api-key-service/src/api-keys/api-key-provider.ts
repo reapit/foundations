@@ -1,5 +1,5 @@
-import { DataMapper, QueryIterator } from "@aws/dynamodb-data-mapper"
-import { Injectable } from "@nestjs/common"
+import { DataMapper, QueryIterator } from '@aws/dynamodb-data-mapper'
+import { Injectable } from '@nestjs/common'
 import { ApiKeyModel } from '@reapit/api-key-verify'
 
 @Injectable()
@@ -11,7 +11,7 @@ export class ApiKeyProvider {
     indexName: string
     startKey?: Partial<ApiKeyModel>
   }): Promise<[QueryIterator<ApiKeyModel>, { nextCursor: string }]> {
-    const { keys, startKey, indexName = 'developerIdOwnership'} = props
+    const { keys, startKey, indexName = 'developerIdOwnership' } = props
 
     const dynamoResponse = await this.datamapper.query(ApiKeyModel, keys, {
       indexName,
@@ -23,29 +23,35 @@ export class ApiKeyProvider {
       dynamoResponse,
       {
         nextCursor: '',
-      }
+      },
     ]
   }
 
   async create(apiKey: Partial<ApiKeyModel>): Promise<ApiKeyModel> {
-    return this.datamapper.put(Object.assign(new ApiKeyModel, { ...apiKey }))
+    return this.datamapper.put(Object.assign(new ApiKeyModel(), { ...apiKey }))
   }
 
   async update(apiKey: ApiKeyModel, dto: Partial<ApiKeyModel>): Promise<ApiKeyModel> {
-    return this.datamapper.put(Object.assign(new ApiKeyModel, { 
-      ...apiKey,
-      ...dto,
-    }))
+    return this.datamapper.put(
+      Object.assign(new ApiKeyModel(), {
+        ...apiKey,
+        ...dto,
+      }),
+    )
   }
 
   async findOne(apiKey: Partial<ApiKeyModel>): Promise<ApiKeyModel | undefined> {
-    return this.datamapper.get(Object.assign(new ApiKeyModel, apiKey))
+    return this.datamapper.get(Object.assign(new ApiKeyModel(), apiKey))
   }
 
-  async getApiKeyByKey (apiKey: string): Promise<ApiKeyModel | undefined> {
-    const result = await this.datamapper.query<ApiKeyModel>(ApiKeyModel, { apiKey }, {
-      indexName: 'apiKey',
-    })
+  async getApiKeyByKey(apiKey: string): Promise<ApiKeyModel | undefined> {
+    const result = await this.datamapper.query<ApiKeyModel>(
+      ApiKeyModel,
+      { apiKey },
+      {
+        indexName: 'apiKey',
+      },
+    )
 
     const apiKeys: ApiKeyModel[] = []
 

@@ -1,12 +1,12 @@
-import { INestApplication, ValidationPipe } from "@nestjs/common"
-import { NestFactory } from "@nestjs/core"
-import { ApiKeyModule } from "./api-keys"
+import { INestApplication, ValidationPipe } from '@nestjs/common'
+import { NestFactory } from '@nestjs/core'
+import { ApiKeyModule } from './api-keys'
 import { createServer, proxy } from 'aws-serverless-express'
 import express, { Express } from 'express'
 import { ExpressAdapter } from '@nestjs/platform-express'
 import { eventContext } from 'aws-serverless-express/middleware'
 import { Server } from 'http'
-import { Handler, APIGatewayEvent, Context } from "aws-lambda"
+import { Handler, APIGatewayEvent, Context } from 'aws-lambda'
 import { CorsHeaderInterceptor } from '@reapit/utils-node'
 
 export const bootstrapApplication = async (): Promise<[INestApplication, Express]> => {
