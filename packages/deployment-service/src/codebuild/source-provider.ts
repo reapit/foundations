@@ -34,7 +34,7 @@ export class SoruceProvider {
       throw new Error('Pipeline repository is not configured')
     }
 
-    if (!client || !event) {
+    if (!client) {
       throw new Error('Cannot process bitbucket source request without client or event')
     }
 
@@ -55,7 +55,7 @@ export class SoruceProvider {
     const result = await firstValueFrom(
       this.httpService.get(url, {
         headers: {
-          Authorization: event?.data.repository.is_private ? `Bearer ${tokenData.access_token}` : '',
+          Authorization: `Bearer ${tokenData.access_token}`,
         },
       }),
     )
