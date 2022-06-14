@@ -23,6 +23,9 @@ const HandleLegacyAdminRoutesModal = React.lazy(() =>
 const InstalledApps = React.lazy(() => catchChunkError(() => import('../components/pages/installed-apps')))
 const Login = React.lazy(() => catchChunkError(() => import('../components/pages/login')))
 const Setting = React.lazy(() => catchChunkError(() => import('../components/pages/settings')))
+const AcceptPermissionChangePage = React.lazy(() =>
+  catchChunkError(() => import('../components/pages/accept-permission-change')),
+)
 
 const Router = () => {
   return (
@@ -63,6 +66,7 @@ const Router = () => {
                 <PrivateRoute path={Routes.APP_DETAIL} component={AppDetail} exact fetcher />
                 <PrivateRoute path={Routes.APP_DETAIL_MANAGE} component={AppDetail} exact fetcher />
                 <PrivateRoute path={Routes.SETTINGS} exact fetcher component={Setting} />
+                <PrivateRoute path={Routes.ACCEPT_PERMISSION_CHANGE} exact component={AcceptPermissionChangePage} />
                 <Route render={() => <Info infoType="404" />} />
               </Switch>
             </PrivateRouteWrapper>

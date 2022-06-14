@@ -36,6 +36,7 @@ export enum UpdateActionNames {
   upsertPipelineEnvironment = 'upsertPipelineEnvironment',
   createConsentEmails = 'createConsentEmails',
   resendConsentEmail = 'resendConsentEmail',
+  approveConsent = 'approveConsent',
 }
 
 export type UpdateActions = { [key in UpdateActionNames]: UpdateAction }
@@ -204,5 +205,11 @@ export const updateActions = (appEnv: AppEnv): UpdateActions => ({
     path: PathNames.appConsentResend,
     successMessage: 'Resent consent request email',
     errorMessage: 'Failed to resense consent request email',
+  },
+  [UpdateActionNames.approveConsent]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.appConsentApprove,
+    successMessage: 'App permission change request accepted',
+    errorMessage: 'Failed to accept app permission change, this has been logged. Please try again.',
   },
 })
