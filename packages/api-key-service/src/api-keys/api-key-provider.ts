@@ -1,5 +1,6 @@
 import { DataMapper, QueryIterator } from "@aws/dynamodb-data-mapper"
 import { Injectable } from "@nestjs/common"
+import { ApiKeyModel } from '@reapit/api-key-verify'
 
 @Injectable()
 export class ApiKeyProvider {
@@ -38,11 +39,11 @@ export class ApiKeyProvider {
   }
 
   async findOne(apiKey: Partial<ApiKeyModel>): Promise<ApiKeyModel | undefined> {
-    return this.datamapper.get(new ApiKeyModel, apiKey)
+    return this.datamapper.get(Object.assign(new ApiKeyModel, apiKey))
   }
 
   async getApiKeyByKey (apiKey: string): Promise<ApiKeyModel | undefined> {
-    const result = await this.datamapper.query(new ApiKeyModel, { apiKey }, {
+    const result = await this.datamapper.query<ApiKeyModel>(ApiKeyModel, { apiKey }, {
       indexName: 'apiKey',
     })
 
