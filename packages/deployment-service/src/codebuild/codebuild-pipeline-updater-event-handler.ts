@@ -138,9 +138,11 @@ export class CodebuildPipelineUpdaterEventHandler extends AbstractSnsHandler {
             pipelineRunner,
           ),
         )
+      } else {
+        promises.push(this.eventDispatcher.triggerCodebuildVersionDeploy(pipelineRunner))
       }
 
-      return Promise.all([...promises, this.eventDispatcher.triggerCodebuildVersionDeploy(pipelineRunner)])
+      return Promise.all(promises)
     }
 
     if (pipelineRunner.buildStatus === 'QUEUED') {
