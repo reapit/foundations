@@ -71,7 +71,7 @@ export class BitbucketProvider {
 
     const pipelines = await this.pipelineProvider.findByRepos(repositories.values.map((repo) => repo.links.html.href))
 
-    pipelines.forEach(pipeline => {
+    pipelines.forEach((pipeline) => {
       pipeline.bitbucketClient = client
     })
 
