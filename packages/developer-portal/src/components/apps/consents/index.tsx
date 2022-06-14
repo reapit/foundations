@@ -7,7 +7,11 @@ import { SendFunction, useReapitGet, useReapitUpdate } from '@reapit/utils-react
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { GetActionNames, getActions, UpdateActionNames, updateActions } from '@reapit/utils-common'
 import { useGlobalState } from '../../../core/use-global-state'
-import { InstallationModelPagedResult, ResendAppRevisionConsentModel } from '@reapit/foundations-ts-definitions'
+import {
+  AppRevisionConsentModel,
+  InstallationModelPagedResult,
+  ResendAppRevisionConsentModel,
+} from '@reapit/foundations-ts-definitions'
 import dayjs from 'dayjs'
 
 export const handleResendEmail =
@@ -42,8 +46,7 @@ export const handleSetConsentId = (setConsentId: Dispatch<SetStateAction<string 
 export const AppConsentsPage: FC = () => {
   const { globalDataState } = useGlobalState()
   const [consentId, setConsentId] = useState<string | null>(null)
-  const { appsDataState, appEditState, setAppId } = useAppState()
-  const { appConsents, appConsentsLoading, appConsentsRefresh } = appEditState
+  const { appsDataState, setAppId } = useAppState()
   const { currentDeveloper } = globalDataState
   const developerId = currentDeveloper?.id
   const developerEmail = currentDeveloper?.email
@@ -54,6 +57,16 @@ export const AppConsentsPage: FC = () => {
   const { appDetail, appRevisions } = appsDataState
   const { name } = appDetail ?? {}
   const latestRevision = appRevisions?.data ? appRevisions.data[0] : null
+
+  const [appConsents, appConsentsLoading, , appConsentsRefresh] = useReapitGet<AppRevisionConsentModel[]>({
+    reapitConnectBrowserSession,
+    action: getActions(window.reapit.config.appEnv)[GetActionNames.getRevisionConsents],
+    uriParams: {
+      appId,
+      revisionId: latestRevision?.id,
+    },
+    fetchWhenTrue: [appId, latestRevision, appDetail?.pendingRevisions, appDetail?.isListed],
+  })
 
   const [installations] = useReapitGet<InstallationModelPagedResult>({
     reapitConnectBrowserSession,

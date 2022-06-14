@@ -1,6 +1,6 @@
 import {
   AppDetailModel,
-  AppRevisionConsentModel,
+  AppRevisionModel,
   AppRevisionModelPagedResult,
   AppSummaryModelPagedResult,
   PipelineModelInterface,
@@ -16,7 +16,6 @@ import { defaultAppSavingParams, defaultAppWizardState } from './defaults'
 import { handleSetDefaultFormValues } from '../utils/handle-default-form-values'
 import { FieldNamesMarkedBoolean } from 'react-hook-form'
 import { handleSetInitialPipeline } from '../utils/handle-pipeline-event'
-// import { handleSetConsents } from '../utils/consents'
 
 export interface AppUriParams {
   appId: string
@@ -62,9 +61,7 @@ export interface AppEditState {
   setAppUnsavedFields: Dispatch<SetStateAction<FieldNamesMarkedBoolean<AppEditFormSchema>>>
   appIncompleteFields: (keyof AppEditFormSchema)[]
   setIncompleteFields: Dispatch<SetStateAction<(keyof AppEditFormSchema)[]>>
-  appConsents: AppRevisionConsentModel[] | null
-  appConsentsLoading: boolean
-  appConsentsRefresh: () => void
+  appLatestRevision: AppRevisionModel | null
 }
 
 export interface AppPipelineState {
@@ -95,7 +92,6 @@ const { Provider } = AppStateContext
 export const AppProvider: FC = ({ children }) => {
   const [appWizardState, setAppWizardState] = useState<AppWizardState>(defaultAppWizardState as AppWizardState)
   const [appPipeline, setAppPipeline] = useState<PipelineModelInterface | null>(null)
-  // const [appConsents, setAppConsents] = useState<AppRevisionConsentModel[] | null>(null)
   const [appsPageNumber, appsSetPageNumber] = useState<number>(1)
   const [appPipelineDeploying, setAppPipelineDeploying] = useState<boolean>(false)
   const [appPipelineSaving, setAppPipelineSaving] = useState<boolean>(false)
@@ -144,23 +140,11 @@ export const AppProvider: FC = ({ children }) => {
     },
   })
 
-  const latestRevision = appRevisions?.data ? appRevisions.data[0] : null
-
-  const [appConsents, appConsentsLoading, , appConsentsRefresh] = useReapitGet<AppRevisionConsentModel[]>({
-    reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getRevisionConsents],
-    uriParams: {
-      appId,
-      revisionId: latestRevision?.id,
-    },
-    fetchWhenTrue: [appId, latestRevision, appDetail?.pendingRevisions, appDetail?.isListed],
-  })
+  const appLatestRevision = appRevisions?.data ? appRevisions.data[0] : null
 
   useEffect(handleSetDefaultFormValues(setAppEditForm, appDetail, developerId), [appDetail, developerId])
 
   useEffect(handleSetInitialPipeline(pipeline, setAppPipeline), [pipeline])
-
-  // useEffect(handleSetConsents(appId, fetchedConsents, setAppConsents), [fetchedConsents, appId])
 
   const appsDataState: AppsDataState = {
     apps,
@@ -187,9 +171,7 @@ export const AppProvider: FC = ({ children }) => {
     setAppUnsavedFields,
     appIncompleteFields,
     setIncompleteFields,
-    appConsents,
-    appConsentsLoading,
-    appConsentsRefresh,
+    appLatestRevision,
   }
 
   const appPipelineState: AppPipelineState = {

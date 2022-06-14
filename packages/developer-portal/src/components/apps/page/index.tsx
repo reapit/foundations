@@ -29,6 +29,7 @@ import { Helper } from './helper'
 import { cx } from '@linaria/core'
 import { useGlobalState } from '../../../core/use-global-state'
 import AppConsentsPage from '../consents'
+import { checkShouldRenderConsents } from '../utils/consents'
 
 export const AppsPage: FC = () => {
   const history = useHistory()
@@ -37,7 +38,7 @@ export const AppsPage: FC = () => {
   const { appsDataState, appId, appEditState } = useAppState()
   const { globalDataState } = useGlobalState()
   const { currentDeveloper } = globalDataState
-  const { appConsents } = appEditState
+  const { appLatestRevision } = appEditState
 
   const { apps, appsLoading, appDetail } = appsDataState
   const {
@@ -55,6 +56,8 @@ export const AppsPage: FC = () => {
     currentDeveloper?.id &&
     window.reapit.config.pipelineWhitelist.includes(currentDeveloper.id) &&
     appDetail?.authFlow !== 'clientCredentials'
+
+  const shouldRenderConsents = checkShouldRenderConsents(appDetail, appLatestRevision)
 
   return (
     <ErrorBoundary>
@@ -104,7 +107,7 @@ export const AppsPage: FC = () => {
                           Pipeline
                         </SecondaryNavItem>
                       )}
-                      {appConsents && (
+                      {shouldRenderConsents && (
                         <SecondaryNavItem
                           onClick={navigate(history, `${Routes.APPS}/${appId}/consents`)}
                           active={isAppConsents}

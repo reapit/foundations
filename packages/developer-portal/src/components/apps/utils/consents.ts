@@ -1,4 +1,3 @@
-// import { Dispatch, SetStateAction } from 'react'
 import { AppDetailModel, AppRevisionModel, CreateAppRevisionModel } from '@reapit/foundations-ts-definitions'
 
 export const checkShouldSendConsents = (app: AppDetailModel | null, createAppModel: CreateAppRevisionModel) => {
@@ -19,18 +18,3 @@ export const checkShouldRenderConsents = (app: AppDetailModel | null, latestRevi
 
   return isListedNew && isListedOld && hasNewScopes
 }
-
-// export const handleSetConsents =
-//   (
-//     appId: string | null,
-//     fetchedConsents: AppRevisionConsentModel[] | null,
-//     setAppConsents: Dispatch<SetStateAction<AppRevisionConsentModel[] | null>>,
-//   ) =>
-//   () => {
-//     if (appId && fetchedConsents && fetchedConsents[0]?.applicationId && fetchedConsents
-// [0]?.applicationId !== appId) {
-//       setAppConsents(null)
-//     } else {
-//       setAppConsents(fetchedConsents)
-//     }
-//   }
