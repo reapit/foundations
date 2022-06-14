@@ -72,7 +72,7 @@ export class SoruceProvider {
       Body: buffer,
     })
 
-    return Key
+    return [process.env.DEPLOYMENT_REPO_CACHE_BUCKET_NAME as string, Key].join('/')
   }
 
   async downloadGithubSourceToS3(pipeline: PipelineEntity, pipelineRunner: PipelineRunnerEntity): Promise<string> {
