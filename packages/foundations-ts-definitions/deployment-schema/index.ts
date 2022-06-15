@@ -1,5 +1,50 @@
 import { CodeBuild } from 'aws-sdk'
 
+export const pipelineDeploymentDisabled = [
+  'PROVISIONING',
+  'PROVISION_REQUEST',
+  'FAILED_TO_PROVISION',
+  'PRE_PROVISIONED',
+  'DELETING',
+  'DELETED',
+  'SCHEDULED_FOR_DELETION',
+  'DELETION_REQUEST',
+  'CREATED',
+]
+export const pipelineNotDeletable = [
+  'IN_PROGRESS',
+  'DELETING',
+  'PROVISION_REQUEST',
+  'PROVISIONING',
+  'QUEUED',
+  'SCHEDULED_FOR_DELETION',
+  'DELETION_REQUEST',
+  'CREATED',
+  'DELETED',
+]
+
+export const pipelineProvisioning = ['PROVISIONING', 'PROVISION_REQUEST']
+
+export const pipelinePreprovisionedFlow = ['PRE_PROVISIONED', 'PROVISIONING', 'PROVISION_REQUEST', 'FAILED_TO_PROVISION']
+
+export type PipelineProvisionBuildStatuses =
+  | 'PRE_PROVISIONED'
+  | 'PROVISIONING'
+  | 'PROVISION_REQUEST'
+  | 'FAILED_TO_PROVISION'
+
+export type PipelineDeployingBuildStatues = 'QUEUED' | 'COMPLETED' | 'FAILED'
+
+export type PipelineDeleteBuildStatuses = 'DELETED' | 'DELETING' | 'SCHEDULED_FOR_DELETION' | 'DELETION_REQUEST'
+
+export type PipelineBuildStatus =
+  | 'CREATED'
+  | ('READY_FOR_DEPLOYMENT' &
+      PipelineDeleteBuildStatuses &
+      PipelineDeployingBuildStatues &
+      PipelineProvisionBuildStatuses)
+  | CodeBuild.StatusType
+
 export interface PipelineModelInterface {
   id?: string
   name?: string
@@ -16,7 +61,7 @@ export interface PipelineModelInterface {
   repositoryId?: number
   branch?: string
   outDir?: string
-  buildStatus?: string
+  buildStatus?: PipelineBuildStatus | string
   appId?: string
   subDomain?: string
   bitbucketClientId?: string
