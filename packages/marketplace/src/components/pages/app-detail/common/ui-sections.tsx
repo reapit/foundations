@@ -202,8 +202,8 @@ export const AdditionalImagesSection: React.FC<AdditionalImagesSectionProps> = (
 export const PermissionsSection: React.FC<PermissionSectionProps> = ({ permissions }) => (
   <AppDetailSection headerText="Permissions required">
     <GridFourCol>
-      {permissions.map((permission) => (
-        <GridFourColItem key={permission.name}>{permission?.description ?? ''}</GridFourColItem>
+      {permissions?.map((permission) => (
+        <GridFourColItem key={permission?.name}>{permission?.description ?? ''}</GridFourColItem>
       ))}
     </GridFourCol>
   </AppDetailSection>

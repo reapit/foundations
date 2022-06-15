@@ -109,7 +109,7 @@ describe('admin-approvals', () => {
         dispatch: jest.fn(),
       }
       const result = generateTableColumn(mockProps)
-      expect(result).toHaveLength(6)
+      expect(result).toHaveLength(7)
     })
   })
 
