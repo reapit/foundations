@@ -82,6 +82,12 @@ export class PipelineProvider {
     })
   }
 
+  async findPipelinesByRepositoryId(repositoryId: number): Promise<PipelineEntity[]> {
+    return this.repository.find({
+      repositoryId,
+    })
+  }
+
   async updatePipelinesWithRepo(repository, data: Partial<PipelineEntity>): Promise<UpdateResult> {
     return this.repository
       .createQueryBuilder()

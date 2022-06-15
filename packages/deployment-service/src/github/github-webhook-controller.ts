@@ -99,6 +99,14 @@ export class GithubWebhookController {
           })
 
           if (results && results.affected && results.affected >= 1) {
+            const pipelines = await this.pipelineProvider.findPipelinesByRepositoryId(repository.id)
+            await this.pusherProvider.triggerArray(
+              pipelines.map((pipeline) => ({
+                channel: `private-${pipeline.developerId}`,
+                name: 'pipeline-update',
+                data: pipeline,
+              })),
+            )
             return
           }
 
