@@ -2531,7 +2531,13 @@ export interface CompanyRoleModelPagedResult {
     }
   }
 }
+export interface ConfigurationApplicantStatuses {
+  id?: string[]
+}
 export interface ConfigurationCompanyTypes {
+  id?: string[]
+}
+export interface ConfigurationContactCategories {
   id?: string[]
 }
 export interface ConfigurationTypes {
@@ -2828,6 +2834,10 @@ export interface ContactModel {
    * A collection of unique identifiers of negotiators attached to the contact. The first item in the collection is considered the primary negotiator
    */
   negotiatorIds?: string[]
+  /**
+   * A collection of categories associated to the contact.
+   */
+  categoryIds?: string[]
   /**
    * A flag determining whether or not the contact is happy to receive communications by letter
    */
@@ -3139,6 +3149,10 @@ export interface ContactModelPagedResult {
      * A collection of unique identifiers of negotiators attached to the contact. The first item in the collection is considered the primary negotiator
      */
     negotiatorIds?: string[]
+    /**
+     * A collection of categories associated to the contact.
+     */
+    categoryIds?: string[]
     /**
      * A flag determining whether or not the contact is happy to receive communications by letter
      */
@@ -4755,6 +4769,10 @@ export interface CreateContactModel {
    * A collection of unique identifiers of negotiators attached to the contact. The first item in the collection is considered the primary negotiator
    */
   negotiatorIds: string[]
+  /**
+   * A collection of categories associated to the contact.
+   */
+  categoryIds?: string[]
   /**
    * Request body used to set an address against a new contact
    */
@@ -15547,6 +15565,10 @@ export interface UpdateContactModel {
    * A collection of unique identifiers of negotiators attached to the contact. The first item in the collection is considered the primary negotiator
    */
   negotiatorIds?: string[]
+  /**
+   * A collection of categories associated to the contact.
+   */
+  categoryIds?: string[]
   /**
    * Request body used to update an address on an existing contact
    */
