@@ -13,6 +13,7 @@ import { selectAppRevisionDetailData } from '@/selector/app-revisions'
 import ApprovalModal from '@/components/ui/approval-modal'
 import { selectApprovals } from '@/selector/admin'
 import dayjs from 'dayjs'
+import { AppConsents } from '../../ui/consents'
 
 export type HandleCloseModalParams = {
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>
@@ -96,6 +97,20 @@ export const handleViewDetailOnClick =
     setIsModalOpen(true)
   }
 
+export const handleLoadConsents =
+  ({ dispatch, appRevisionId, currentRevisionId, appId, currentAppId }: HandleViewDetailOnClickParams) =>
+  () => {
+    const shouldFetchRevision = currentRevisionId !== appRevisionId
+    const shouldFetchAppDetail = currentAppId !== appId
+    if (appRevisionId && appId && shouldFetchRevision) {
+      dispatch(fetchRevision({ appId, appRevisionId }))
+    }
+
+    if (appRevisionId && appId && shouldFetchAppDetail) {
+      dispatch(fetchAppDetail({ id: appId }))
+    }
+  }
+
 export type RenderViewDetailButtonParams = {
   revisionDetail: AppRevisionModel
   appDetail: AppDetailModel
@@ -174,6 +189,32 @@ export const generateTableColumn = ({
     id: 'buttonColumn',
     Cell: renderViewDetailButton({ revisionDetail, appDetail, dispatch, setIsModalOpen }),
   },
+  {
+    Header: '',
+    id: 'consentButtonColumn',
+    Cell: ({ row: { original } }: RowDetailButtonParams) => {
+      const { appId, appRevisionId } = original
+      const currentRevisionId = revisionDetail?.id
+      const currentAppId = appDetail?.id
+      return (
+        <Button
+          dataTest={`view-details-button_${appId}`}
+          type="button"
+          variant="primary"
+          onClick={handleLoadConsents({
+            appRevisionId,
+            currentRevisionId,
+            currentAppId,
+            dispatch,
+            setIsModalOpen,
+            appId,
+          })}
+        >
+          Consents
+        </Button>
+      )
+    },
+  },
 ]
 
 export const AdminApprovals: React.FC = () => {
@@ -213,6 +254,7 @@ export const AdminApprovals: React.FC = () => {
         />
       )}
       <ApprovalModal visible={isModalOpen} afterClose={handleCloseModal({ setIsModalOpen })} />
+      <AppConsents />
     </>
   )
 }

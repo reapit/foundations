@@ -8,12 +8,18 @@ Object {
       <div
         class="ecbqyq6-el-snack-holder"
       />
+      <div
+        class="ecbqyq6-el-snack-holder"
+      />
       <div>
         I am a router
       </div>
     </div>
   </body>,
   "container": <div>
+    <div
+      class="ecbqyq6-el-snack-holder"
+    />
     <div
       class="ecbqyq6-el-snack-holder"
     />

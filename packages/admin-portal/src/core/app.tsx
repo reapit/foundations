@@ -3,6 +3,7 @@ import Router from './router'
 import { Provider } from 'react-redux'
 import store from './store'
 import { css } from '@linaria/core'
+import { SnackProvider } from '@reapit/elements'
 
 export const globals = css`
   :global() {
@@ -23,7 +24,9 @@ export const globals = css`
 const App = () => {
   return (
     <Provider store={store.reduxStore}>
-      <Router />
+      <SnackProvider>
+        <Router />
+      </SnackProvider>
     </Provider>
   )
 }
