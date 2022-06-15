@@ -1,5 +1,5 @@
 import { QueueNamesEnum } from '../constants'
-import { Workflow, AbstractWorkflow, SqsProvider, EventDispatcher } from '../events'
+import { Workflow, AbstractWorkflow, SqsProvider, EventDispatcher, PusherProvider } from '../events'
 import {
   CloudFrontClient,
   DistributionConfig,
@@ -16,6 +16,7 @@ export class PipelineTearDownStartWorkflow extends AbstractWorkflow<PipelineEnti
     private readonly pipelineProvider: PipelineProvider,
     private readonly eventDispatcher: EventDispatcher,
     private readonly cloudfrontClient: CloudFrontClient,
+    private readonly pusherProvider: PusherProvider,
   ) {
     super(sqsProvider)
   }
@@ -60,6 +61,10 @@ export class PipelineTearDownStartWorkflow extends AbstractWorkflow<PipelineEnti
 
     await Promise.all([
       this.pipelineProvider.update(pipeline, {
+        buildStatus: 'SCHEDULED_FOR_DELETION',
+      }),
+      this.pusherProvider.trigger(`private-${pipeline.developerId}`, 'pipeline-update', {
+        ...pipeline,
         buildStatus: 'SCHEDULED_FOR_DELETION',
       }),
       this.eventDispatcher.triggerPipelineTearDown(pipeline),

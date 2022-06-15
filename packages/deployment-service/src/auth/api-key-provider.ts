@@ -19,7 +19,7 @@ export class ApiKeyProvider {
       creds = await resolveApiKey(apiKey, process.env.API_KEY_INVOKE_ARN?.includes('prod'))
     } catch (e) {
       console.error(e)
-      throw new UnauthorizedException
+      throw new UnauthorizedException()
     }
 
     return {

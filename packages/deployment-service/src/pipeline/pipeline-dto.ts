@@ -19,7 +19,7 @@ export type PipelineProvisionBuildStatuses =
 
 export type PipelineDeployingBuildStatues = 'QUEUED' | 'COMPLETED' | 'FAILED'
 
-export type PipelineDeleteBuildStatuses = 'DELETED' | 'DELETING' | 'SCHEDULED_FOR_DELETION'
+export type PipelineDeleteBuildStatuses = 'DELETED' | 'DELETING' | 'SCHEDULED_FOR_DELETION' | 'DELETION_REQUEST'
 
 export type PipelineBuildStatus =
   | 'CREATED'

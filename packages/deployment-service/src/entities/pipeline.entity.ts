@@ -14,6 +14,7 @@ export const pipelineDeploymentDisabled = [
   'DELETING',
   'DELETED',
   'SCHEDULED_FOR_DELETION',
+  'DELETION_REQUEST',
 ]
 export const pipelineNotDeletable = [
   'IN_PROGRESS',
@@ -22,6 +23,7 @@ export const pipelineNotDeletable = [
   'PROVISIONING',
   'QUEUED',
   'SCHEDULED_FOR_DELETION',
+  'DELETION_REQUEST',
 ]
 @Entity('pipelines')
 export class PipelineEntity extends AbstractEntity implements PipelineModelInterface {

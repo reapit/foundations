@@ -130,7 +130,7 @@ export class PipelineController {
     }
 
     const updatedPipeline = await this.pipelineProvider.update(pipeline, {
-      buildStatus: 'DELETING',
+      buildStatus: 'DELETION_REQUEST',
     })
 
     await Promise.all([
