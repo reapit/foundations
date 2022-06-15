@@ -63,12 +63,14 @@ describe('DeploymentProvider', () => {
     const pipeline = plainToClass(PipelineEntity, {
       repositoryId: 12345,
       repo: 'https://github.com/bashleigh/i-am-cool',
-      cloudFrontId: 'cloud-front-id',
     })
 
     const pipelineRunner = plainToClass(PipelineRunnerEntity, {
       pipeline,
     })
+
+    // @ts-ignore
+    pipelineRunner.pipeline.cloudFrontId = 'cloud-front-id'
 
     await deployProvider.deployFromStore({
       pipeline,

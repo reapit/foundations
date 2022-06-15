@@ -1700,6 +1700,7 @@ Object {
         </button>
         <button
           class="esplruv-el-mb3 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
+          disabled=""
         >
           Delete Pipeline
         </button>
@@ -1915,6 +1916,7 @@ Object {
       </button>
       <button
         class="esplruv-el-mb3 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
+        disabled=""
       >
         Delete Pipeline
       </button>

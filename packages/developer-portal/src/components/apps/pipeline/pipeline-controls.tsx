@@ -5,7 +5,15 @@ import { BodyText, Button, ButtonGroup, Subtitle, elMb3, elFadeIn, Icon, SmallTe
 import { UpdateActionNames, updateActions } from '@reapit/utils-common'
 import { SendFunction, UpdateReturnTypeEnum, useReapitUpdate } from '@reapit/utils-react'
 import { useAppState } from '../state/use-app-state'
-import { AppDetailModel, CreateAppRevisionModel, PipelineModelInterface } from '@reapit/foundations-ts-definitions'
+import {
+  AppDetailModel,
+  CreateAppRevisionModel,
+  pipelineDeploymentDisabled,
+  PipelineModelInterface,
+  pipelineNotDeletable,
+  pipelinePreprovisionedFlow,
+  pipelineProvisioning,
+} from '@reapit/foundations-ts-definitions'
 import { openNewPage } from '../../../utils/navigation'
 import { useLocation } from 'react-router'
 import { ApiKeys } from './pipeline-api-keys'
@@ -106,20 +114,18 @@ export const PipelineControls: FC = () => {
     returnType: UpdateReturnTypeEnum.RESPONSE,
   })
 
-  const [pipelineUpdateLoading, , sendPipelineUpdate] = useReapitUpdate<PipelineModelInterface, PipelineModelInterface>(
-    {
-      reapitConnectBrowserSession,
-      method: 'PUT',
-      action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.updatePipeline],
-      uriParams: {
-        pipelineId: appPipeline?.id,
-      },
-      headers: {
-        Authorization: connectSession?.idToken as string,
-      },
-      returnType: UpdateReturnTypeEnum.RESPONSE,
+  const [, , sendPipelineUpdate] = useReapitUpdate<PipelineModelInterface, PipelineModelInterface>({
+    reapitConnectBrowserSession,
+    method: 'PUT',
+    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.updatePipeline],
+    uriParams: {
+      pipelineId: appPipeline?.id,
     },
-  )
+    headers: {
+      Authorization: connectSession?.idToken as string,
+    },
+    returnType: UpdateReturnTypeEnum.RESPONSE,
+  })
 
   const [, , createAppRevision] = useReapitUpdate<CreateAppRevisionModel, AppDetailModel>({
     reapitConnectBrowserSession,
@@ -134,13 +140,6 @@ export const PipelineControls: FC = () => {
   useEffect(handlePipelineRunnerSuccess(setAppPipelineDeploying, updatePipelineRunnerSuccess), [
     updatePipelineRunnerSuccess,
   ])
-
-  const isLoading =
-    pipelineUpdateLoading ||
-    appPipeline?.buildStatus === 'PROVISIONING' ||
-    appPipeline?.buildStatus === 'PROVISION_REQUEST'
-
-  const isDeleting = appPipeline?.buildStatus === 'DELETING' || appPipeline?.buildStatus === 'SCHEDULED_FOR_DELETION'
 
   return (
     <div className={elFadeIn}>
@@ -167,15 +166,12 @@ export const PipelineControls: FC = () => {
           className={elMb3}
           loading={deleteLoading}
           intent="primary"
-          disabled={appPipeline?.buildStatus === 'DELETING'}
           onClick={handleSaveConfig(setAppPipelineSaving)}
         >
           Save Config
         </Button>
       )}
-      {['PRE_PROVISIONED', 'PROVISIONING', 'PROVISION_REQUEST', 'FAILED_TO_PROVISION'].includes(
-        appPipeline?.buildStatus as string,
-      ) ? (
+      {pipelinePreprovisionedFlow.includes(appPipeline?.buildStatus as string) ? (
         <Button
           className={elMb3}
           onClick={handleSavePipeline(
@@ -190,8 +186,8 @@ export const PipelineControls: FC = () => {
               buildStatus: 'PROVISION_REQUEST',
             },
           )}
-          disabled={isLoading}
-          loading={isLoading}
+          disabled={pipelineProvisioning.includes(appPipeline?.buildStatus as string)}
+          loading={pipelineProvisioning.includes(appPipeline?.buildStatus as string)}
           intent="primary"
         >
           Provision
@@ -200,17 +196,20 @@ export const PipelineControls: FC = () => {
         <>
           <Button
             className={elMb3}
-            loading={pipelineRunnerLoading}
+            loading={pipelineRunnerLoading || appPipeline.buildStatus === 'IN_PROGRESS'}
             intent="primary"
             onClick={handleUpdatePipelineRunner(updatePipelineRunner)}
-            disabled={isDeleting}
+            disabled={
+              pipelineDeploymentDisabled.includes(appPipeline.buildStatus as string) ||
+              pipelineNotDeletable.includes(appPipeline.buildStatus as string) ||
+              appPipeline.buildStatus === 'QUEUED'
+            }
           >
             Deploy
           </Button>
           <Button
             className={elMb3}
             intent="secondary"
-            disabled={isDeleting}
             onClick={openNewPage('https://github.com/reapit/foundations/tree/master/packages/cli#readme')}
           >
             Deploy CLI
@@ -219,7 +218,13 @@ export const PipelineControls: FC = () => {
         </>
       ) : null}
       {appPipeline && (
-        <Button className={elMb3} loading={deleteLoading} intent="neutral" disabled={isDeleting} onClick={openModal}>
+        <Button
+          className={elMb3}
+          loading={deleteLoading}
+          intent="neutral"
+          disabled={pipelineNotDeletable.includes(appPipeline.buildStatus as string)}
+          onClick={openModal}
+        >
           Delete Pipeline
         </Button>
       )}

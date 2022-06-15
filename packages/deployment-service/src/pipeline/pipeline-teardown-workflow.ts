@@ -81,6 +81,10 @@ export class PipelineTearDownWorkflow extends AbstractWorkflow<PipelineEntity> {
 
   // TODO add try catch for failure results
   async execute(pipeline: PipelineEntity) {
+    await this.pusherProvider.trigger(`private-${pipeline.developerId}`, 'pipeline-update', {
+      ...pipeline,
+      buildStatus: 'DELETING',
+    })
     if (pipeline.buildStatus !== 'PRE_PROVISIONED') {
       await this.tearDownLiveBucketLocation(`pipeline/${pipeline.uniqueRepoName}`)
 
