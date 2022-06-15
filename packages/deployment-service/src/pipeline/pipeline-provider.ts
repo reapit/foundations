@@ -61,8 +61,8 @@ export class PipelineProvider {
     })
   }
 
-  async saveAll(pipelines: PipelineEntity[]): Promise<void> {
-    await this.repository.save(pipelines)
+  async saveAll(pipelines: PipelineEntity[]): Promise<PipelineEntity[]> {
+    return this.repository.save(pipelines)
   }
 
   async removeBitbucketClient(bitbucketClient: BitbucketClientEntity): Promise<void> {
