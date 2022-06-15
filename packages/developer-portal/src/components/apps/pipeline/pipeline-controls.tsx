@@ -11,6 +11,8 @@ import {
   pipelineDeploymentDisabled,
   PipelineModelInterface,
   pipelineNotDeletable,
+  pipelinePreprovisionedFlow,
+  pipelineProvisioning,
 } from '@reapit/foundations-ts-definitions'
 import { openNewPage } from '../../../utils/navigation'
 import { useLocation } from 'react-router'
@@ -169,9 +171,7 @@ export const PipelineControls: FC = () => {
           Save Config
         </Button>
       )}
-      {['PRE_PROVISIONED', 'PROVISIONING', 'PROVISION_REQUEST', 'FAILED_TO_PROVISION'].includes(
-        appPipeline?.buildStatus as string,
-      ) ? (
+      {pipelinePreprovisionedFlow.includes(appPipeline?.buildStatus as string) ? (
         <Button
           className={elMb3}
           onClick={handleSavePipeline(
@@ -186,8 +186,8 @@ export const PipelineControls: FC = () => {
               buildStatus: 'PROVISION_REQUEST',
             },
           )}
-          disabled={['PROVISIONING', 'PROVISION_REQUEST'].includes(appPipeline?.buildStatus as string)}
-          loading={['PROVISIONING', 'PROVISION_REQUEST'].includes(appPipeline?.buildStatus as string)}
+          disabled={pipelineProvisioning.includes(appPipeline?.buildStatus as string)}
+          loading={pipelineProvisioning.includes(appPipeline?.buildStatus as string)}
           intent="primary"
         >
           Provision

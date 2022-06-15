@@ -9,6 +9,7 @@ export const pipelineDeploymentDisabled = [
   'DELETED',
   'SCHEDULED_FOR_DELETION',
   'DELETION_REQUEST',
+  'CREATED',
 ]
 export const pipelineNotDeletable = [
   'IN_PROGRESS',
@@ -18,7 +19,13 @@ export const pipelineNotDeletable = [
   'QUEUED',
   'SCHEDULED_FOR_DELETION',
   'DELETION_REQUEST',
+  'CREATED',
+  'DELETED',
 ]
+
+export const pipelineProvisioning = ['PROVISIONING', 'PROVISION_REQUEST']
+
+export const pipelinePreprovisionedFlow = ['PRE_PROVISIONED', 'PROVISIONING', 'PROVISION_REQUEST', 'FAILED_TO_PROVISION']
 
 export type PipelineProvisionBuildStatuses =
   | 'PRE_PROVISIONED'
