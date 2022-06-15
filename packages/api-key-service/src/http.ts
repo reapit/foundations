@@ -37,9 +37,8 @@ async function bootstrapServer(): Promise<Server> {
   return cachedServer
 }
 
-export const invokeAPiKeyVerify: Handler = async (event: APIGatewayEvent, context: Context) => {
+export const handler: Handler = async (event: APIGatewayEvent, context: Context) => {
   cachedServer = await bootstrapServer()
-  event.path = event.path?.replace('api/', '')
 
   return proxy(cachedServer, event, context, 'PROMISE').promise
 }
