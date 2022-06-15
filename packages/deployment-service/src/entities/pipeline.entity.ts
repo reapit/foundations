@@ -1,4 +1,11 @@
-import { AppTypeEnum, PackageManagerEnum, pipelineDeploymentDisabled, PipelineModelInterface, pipelineNotDeletable, PipelineBuildStatus } from '@reapit/foundations-ts-definitions'
+import {
+  AppTypeEnum,
+  PackageManagerEnum,
+  pipelineDeploymentDisabled,
+  PipelineModelInterface,
+  pipelineNotDeletable,
+  PipelineBuildStatus,
+} from '@reapit/foundations-ts-definitions'
 import { Column, Entity, ManyToOne, OneToMany } from 'typeorm'
 import { AbstractEntity } from './abstract-entity'
 import { PipelineRunnerEntity } from './pipeline-runner.entity'

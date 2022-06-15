@@ -104,8 +104,7 @@ export class PipelineController {
 
     await this.pusherProvider.trigger(`private-${pipeline.developerId}`, 'pipeline-update', {
       message: 'updating pipeline',
-      updatedPipeline,
-      pipeline,
+      ...updatedPipeline,
     })
 
     if (setupInfra) {
