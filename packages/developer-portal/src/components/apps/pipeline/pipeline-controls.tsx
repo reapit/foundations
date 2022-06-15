@@ -196,10 +196,14 @@ export const PipelineControls: FC = () => {
         <>
           <Button
             className={elMb3}
-            loading={pipelineRunnerLoading}
+            loading={pipelineRunnerLoading || appPipeline.buildStatus === 'IN_PROGRESS'}
             intent="primary"
             onClick={handleUpdatePipelineRunner(updatePipelineRunner)}
-            disabled={pipelineDeploymentDisabled.includes(appPipeline.buildStatus as string)}
+            disabled={
+              pipelineDeploymentDisabled.includes(appPipeline.buildStatus as string) ||
+              pipelineNotDeletable.includes(appPipeline.buildStatus as string) ||
+              appPipeline.buildStatus === 'QUEUED'
+            }
           >
             Deploy
           </Button>
