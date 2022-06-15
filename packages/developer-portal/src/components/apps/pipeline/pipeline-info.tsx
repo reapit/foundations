@@ -50,6 +50,7 @@ export const PipelineInfo: FC = () => {
   const pipelineUri = `https://${appPipeline?.subDomain}.iaas.paas.reapit.cloud`
 
   const channel = useChannel(`private-${currentDeveloper?.id}`)
+
   useEvent<PipelineModelInterface>(channel, 'pipeline-update', handlePipelineEvent(appPipeline, setAppPipeline, appId))
   useEvent<PipelinePusherEvent>(
     channel,
@@ -114,7 +115,7 @@ export const PipelineInfo: FC = () => {
                     {pipelineUri}
                   </a>
                 ) : (
-                  'Not yet deployed'
+                  'Awaiting provision request'
                 )}
               </BodyText>
             </div>
