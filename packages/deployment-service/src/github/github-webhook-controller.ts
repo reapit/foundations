@@ -1,9 +1,17 @@
 import { PipelineProvider } from '../pipeline'
 import { PipelineRunnerProvider } from '../pipeline-runner'
-import { Body, Controller, NotFoundException, Post, Req, UnauthorizedException } from '@nestjs/common'
+import {
+  Body,
+  Controller,
+  NotFoundException,
+  Post,
+  Req,
+  UnauthorizedException,
+  UnprocessableEntityException,
+} from '@nestjs/common'
 import { App } from '@octokit/app'
 import { PipelineRunnerType } from '@reapit/foundations-ts-definitions/deployment-schema'
-import { EventDispatcher } from '../events'
+import { EventDispatcher, PusherProvider } from '../events'
 import { Request } from 'express'
 
 type GithubCommitEvent = {
@@ -25,6 +33,7 @@ export class GithubWebhookController {
     private readonly pipelineProvider: PipelineProvider,
     private readonly pipelineRunnerProvider: PipelineRunnerProvider,
     private readonly eventDispatcher: EventDispatcher,
+    private readonly pusherProvider: PusherProvider,
   ) {}
 
   isCommitEvent = (value: any): value is GithubCommitEvent => value.ref && value.commits
@@ -66,15 +75,17 @@ export class GithubWebhookController {
         pipeline.isPipelineDeploymentDisabled ||
         (await this.pipelineRunnerProvider.pipelineRunnerCountRunning(pipeline)) >= 1
       ) {
-        throw new UnauthorizedException('Cannot create deployment in current state')
+        throw new UnprocessableEntityException('Cannot create deployment in current state')
       }
 
       const pipelineRunner = await this.pipelineRunnerProvider.create({
         type: PipelineRunnerType.REPO,
         pipeline,
       })
-
-      await this.eventDispatcher.triggerCodebuildExecutor(pipelineRunner)
+      await Promise.all([
+        this.eventDispatcher.triggerCodebuildExecutor(pipelineRunner),
+        this.pusherProvider.trigger(`private-${pipeline.developerId}`, 'pipeline-runner-create', pipelineRunner),
+      ])
       return
     } else if (this.isRepoInstallEvent(body)) {
       const repositories = body.repositories_added || body.repositories
