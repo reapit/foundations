@@ -7,6 +7,7 @@ import { PipelineEntity } from '../../entities/pipeline.entity'
 import { PipelineRunnerEntity } from '../../entities/pipeline-runner.entity'
 import { S3 } from 'aws-sdk'
 import { CloudFrontClient } from '@aws-sdk/client-cloudfront'
+import { InvalidPipelineResourcesException } from '../../exceptions'
 
 process.env.NODE_ENV = 'local'
 
@@ -76,5 +77,27 @@ describe('DeploymentProvider', () => {
       pipeline,
       pipelineRunner,
     })
+  })
+
+  it('deployFromStore with pipeline exception', async () => {
+    const deployProvider = module.get<DeployProvider>(DeployProvider)
+
+    const pipeline = plainToClass(PipelineEntity, {
+      repositoryId: 12345,
+      repo: 'https://github.com/bashleigh/i-am-cool',
+    })
+
+    const pipelineRunner = plainToClass(PipelineRunnerEntity, {
+      pipeline,
+    })
+
+    try {
+      await deployProvider.deployFromStore({
+        pipeline,
+        pipelineRunner,
+      })
+    } catch (e) {
+      expect(e).toBeInstanceOf(InvalidPipelineResourcesException)
+    }
   })
 })

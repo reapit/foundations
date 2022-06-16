@@ -32,7 +32,7 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
   })
   packageManager?: PackageManagerEnum
 
-  @Column()
+  @Column({ nullable: true, default: null })
   repository?: string
 
   @OneToMany(() => PipelineRunnerEntity, (pipelineRunner) => pipelineRunner.pipeline)
