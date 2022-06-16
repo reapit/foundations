@@ -40,7 +40,6 @@ export const validateConfig = (appPipeline: PipelineModelInterface | null) => {
 
     return true
   } catch (err) {
-    console.log(err)
     return false
   }
 }
@@ -75,7 +74,7 @@ export const handleSavePipeline =
       const signoutUri = `https://${savedPipeline.subDomain}.iaas.paas.reapit.cloud/login`
 
       if (!sanitisedAppDetail?.redirectUris?.includes(redirectUri)) {
-        sanitisedAppDetail?.redirectUris?.push()
+        sanitisedAppDetail?.redirectUris?.push(redirectUri)
       }
 
       if (!sanitisedAppDetail?.signoutUris?.includes(signoutUri)) {
