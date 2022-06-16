@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Apps should match a snapshot 1`] = `
+exports[`PusherEventWrapper Should match snapshot 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>

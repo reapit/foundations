@@ -1,14 +1,25 @@
-import React, { Dispatch, SetStateAction, useEffect, useState } from 'react'
+import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { SendFunction, useReapitGet, useReapitUpdate } from '@reapit/utils-react'
 import { GetActionNames, getActions, UpdateActionNames, updateActions } from '@reapit/utils-common'
-import { Button, ButtonGroup, elMb11, elMb3, FlexContainer, Table, useModal } from '@reapit/elements'
+import {
+  BodyText,
+  Button,
+  ButtonGroup,
+  elMb11,
+  FlexContainer,
+  Loader,
+  PersistentNotification,
+  Table,
+} from '@reapit/elements'
 import { useReapitConnect } from '@reapit/connect-session'
 import { ApiKeyEntityType, ApiKeyInterface } from '@reapit/foundations-ts-definitions'
 import { useGlobalState } from '../../../core/use-global-state'
 import { isoDateToHuman } from '../../../utils/date-time'
 import CopyToClipboard from 'react-copy-to-clipboard'
 import { elMr3 } from '@reapit/elements'
+import { PipelineTabs } from './pipeline-tabs'
+import { ExternalPages, openNewPage } from '../../../utils/navigation'
 
 export interface ApiKeyMeta {
   totalItems: number
@@ -87,9 +98,8 @@ export const handleCopyCode = (setCopyState: Dispatch<SetStateAction<string>>, c
   }, 5000)
 }
 
-export const ApiKeys = () => {
+export const ApiKeys: FC = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const { Modal, openModal, closeModal } = useModal()
   const { globalDataState } = useGlobalState()
   const [copyState, setCopyState] = useState<string>('')
   const [apiKeyId, setApiKeyId] = useState<string | null>(null)
@@ -136,62 +146,80 @@ export const ApiKeys = () => {
 
   return (
     <>
-      <Button className={elMb3} intent="secondary" onClick={openModal}>
-        Api Keys
-      </Button>
-      <Modal title="API Keys Management">
-        <Table
-          className={elMb11}
-          numberColumns={3}
-          rows={apiKeys?.items.map((item) => ({
-            cells: [
-              {
-                label: 'API Key',
-                value: (
-                  <FlexContainer>
-                    <span className={elMr3}>{item.apiKey ?? ''}</span>
-                    <CopyToClipboard text={item.apiKey ?? ''} onCopy={handleCopyCode(setCopyState, item.apiKey ?? '')}>
-                      <Button intent="low">{copyState === item.apiKey ? 'Copied' : 'Copy'}</Button>
-                    </CopyToClipboard>
-                  </FlexContainer>
-                ),
-                cellHasDarkText: true,
-                narrowTable: {
-                  showLabel: true,
+      <PipelineTabs />
+      <BodyText hasGreyText>
+        Manage your API keys here for use with the Reapit CLI tool. The CLI allows you to deploy your application as a
+        zip folder from a local build on the command line, rather than having to grant access to your private repos.
+      </BodyText>
+      <BodyText hasGreyText>
+        You only need an API key to use the Reapit CLI. If you prefer to use the web UI to manage your deployments, you
+        can pass on this page.
+      </BodyText>
+      <BodyText hasGreyText>
+        For more on the Reapit CLI visit <a onClick={openNewPage(ExternalPages.cliDocs)}>the docs here.</a>
+      </BodyText>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <>
+          {apiKeys?.items.length ? (
+            <Table
+              className={elMb11}
+              numberColumns={3}
+              rows={apiKeys?.items.map((item) => ({
+                cells: [
+                  {
+                    label: 'API Key',
+                    value: (
+                      <FlexContainer>
+                        <span className={elMr3}>{item.apiKey ?? ''}</span>
+                        <CopyToClipboard
+                          text={item.apiKey ?? ''}
+                          onCopy={handleCopyCode(setCopyState, item.apiKey ?? '')}
+                        >
+                          <Button intent="low">{copyState === item.apiKey ? 'Copied' : 'Copy'}</Button>
+                        </CopyToClipboard>
+                      </FlexContainer>
+                    ),
+                    cellHasDarkText: true,
+                    narrowTable: {
+                      showLabel: true,
+                    },
+                  },
+                  {
+                    label: 'Expires',
+                    value: item.keyExpiresAt ? isoDateToHuman(item.keyExpiresAt) : '',
+                    cellHasDarkText: true,
+                    narrowTable: {
+                      showLabel: true,
+                    },
+                  },
+                ],
+                ctaContent: {
+                  icon: 'trashSystem',
+                  headerContent: 'Delete Key',
+                  isCallToAction: true,
+                  onClick: handleSetApikey(setApiKeyId, item.id),
                 },
-              },
-              {
-                label: 'Expires',
-                value: item.keyExpiresAt ? isoDateToHuman(item.keyExpiresAt) : '',
-                cellHasDarkText: true,
-                narrowTable: {
-                  showLabel: true,
-                },
-              },
-            ],
-            ctaContent: {
-              icon: 'trashSystem',
-              headerContent: 'Delete Key',
-              isCallToAction: true,
-              onClick: handleSetApikey(setApiKeyId, item.id),
-            },
-          }))}
-        />
-        <ButtonGroup alignment="center">
-          <Button intent="low" fixedWidth onClick={closeModal} loading={isLoading} disabled={isLoading}>
-            Close
-          </Button>
-          <Button
-            intent="primary"
-            fixedWidth
-            onClick={handleCreateApiKey(createApiKey, refreshApiKeys, developerId, email)}
-            loading={isLoading}
-            disabled={isLoading}
-          >
-            Create API Key
-          </Button>
-        </ButtonGroup>
-      </Modal>
+              }))}
+            />
+          ) : (
+            <PersistentNotification className={elMb11} intent="secondary" isExpanded isFullWidth isInline>
+              No API keys currently configured for your organisation. You can create an API key below.
+            </PersistentNotification>
+          )}
+          <ButtonGroup alignment="left">
+            <Button
+              intent="primary"
+              fixedWidth
+              onClick={handleCreateApiKey(createApiKey, refreshApiKeys, developerId, email)}
+              disabled={isLoading}
+            >
+              Create API Key
+            </Button>
+          </ButtonGroup>
+        </>
+      )}
     </>
   )
 }

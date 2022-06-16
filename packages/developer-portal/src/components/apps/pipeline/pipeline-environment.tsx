@@ -20,10 +20,11 @@ import {
   TableHeadersRow,
   TableRow,
   TableCell,
-  Modal,
-  Title,
+  useModal,
   ButtonGroup,
   TableRowContainer,
+  elMb11,
+  PersistentNotification,
 } from '@reapit/elements'
 import { useForm } from 'react-hook-form'
 import { cx } from '@linaria/core'
@@ -49,7 +50,7 @@ const schema: SchemaOf<{
 export const PipelineEnvironment = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { appId } = useAppState()
-  const [isInserting, setIsInserting] = useState<boolean>(false)
+  const { Modal, openModal, closeModal } = useModal()
   const [keys, setKeys] = useState<string[]>([])
   const [tableExpanded, setTableExpanded] = useState<false | string>(false)
 
@@ -103,7 +104,7 @@ export const PipelineEnvironment = () => {
     if (result) {
       resetField('key')
       resetField('value')
-      setIsInserting(false)
+      closeModal()
       setKeys([...keys, values.key])
     }
   })
@@ -111,24 +112,29 @@ export const PipelineEnvironment = () => {
   return (
     <>
       <PipelineTabs />
-      <BodyText hasGreyText hasSectionMargin>
-        Here you can add your Environment variables for your application.
+      <BodyText hasGreyText>
+        You can add your Environment variables for your application here. If you supply any key value pair we will write
+        them to the process.ENV object at compile time when building your app.
       </BodyText>
-      <div className={cx(elMb6, elMt6)}>
-        <Table>
-          <TableHeadersRow>
-            <TableHeader>Key</TableHeader>
-            <TableHeader></TableHeader>
-          </TableHeadersRow>
-          {isFetching ? (
-            <TableRow>
-              <TableCell>
-                <Loader />
-              </TableCell>
-            </TableRow>
-          ) : (
-            <>
-              {(keys || []).map((key) => (
+      <BodyText hasGreyText>
+        All variables are stored in a secure and encrypted format however, if you are building a web app environment
+        variables are inherently insecure. As such, you should only store values that can be exposed on the client side.
+      </BodyText>
+      <BodyText hasGreyText>
+        Currently we do not surface your variables over an API when you have stored them for security reasons. If you
+        need to confirm a variable value, we would advise updating it and re-deploying your app.
+      </BodyText>
+      {isFetching ? (
+        <Loader />
+      ) : (
+        <>
+          {keys.length ? (
+            <Table className={elMb11}>
+              <TableHeadersRow>
+                <TableHeader>Variable Key</TableHeader>
+                <TableHeader>Update Variable</TableHeader>
+              </TableHeadersRow>
+              {keys.map((key) => (
                 <TableRowContainer key={key}>
                   <TableRow>
                     <TableCell>{key}</TableCell>
@@ -153,12 +159,21 @@ export const PipelineEnvironment = () => {
                   />
                 </TableRowContainer>
               ))}
-            </>
+            </Table>
+          ) : (
+            <PersistentNotification className={elMb11} intent="secondary" isExpanded isFullWidth isInline>
+              No environment variables currently configured for your pipeline. You can create an environment variable
+              below.
+            </PersistentNotification>
           )}
-        </Table>
-      </div>
-      <Modal isOpen={isInserting} onModalClose={() => setIsInserting(false)} className={cx(elMb6, elMt6)}>
-        <Title>Add new Environment Variable</Title>
+          <ButtonGroup alignment="left">
+            <Button intent="primary" onClick={openModal}>
+              Create Environment Variable:
+            </Button>
+          </ButtonGroup>
+        </>
+      )}
+      <Modal title="Add new Environment Variable" className={cx(elMb6, elMt6)}>
         <form onSubmit={submitParameter}>
           <FormLayout hasMargin>
             <InputWrap>
@@ -176,16 +191,16 @@ export const PipelineEnvironment = () => {
               </InputGroup>
             </InputWrap>
           </FormLayout>
-          <ButtonGroup>
-            <Button intent="primary" disabled={sending} loading={sending}>
+          <ButtonGroup alignment="center">
+            <Button fixedWidth intent="low" onClick={closeModal}>
+              Close
+            </Button>
+            <Button fixedWidth intent="primary" type="submit" disabled={sending} loading={sending}>
               Create
             </Button>
           </ButtonGroup>
         </form>
       </Modal>
-      <Button intent="primary" onClick={() => setIsInserting(!isInserting)}>
-        New
-      </Button>
     </>
   )
 }
