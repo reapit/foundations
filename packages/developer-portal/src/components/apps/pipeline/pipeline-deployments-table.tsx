@@ -9,7 +9,6 @@ import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { TaskList } from './pipeline-tasks-list'
 import { isoDateToHuman } from '../../../utils/date-time'
 import { useEvent } from '@harelpls/use-pusher'
-import { Channel, PresenceChannel } from 'pusher-js'
 import { useReapitConnect } from '@reapit/connect-session'
 
 export type PipelineRunnerMeta = {
@@ -23,10 +22,6 @@ export type PipelineRunnerMeta = {
 export interface PipelineRunnerResponse {
   items: PipelineRunnerModelInterface[]
   meta: PipelineRunnerMeta
-}
-
-export interface PipelineDeploymentTablePropsInterface {
-  channel?: Channel & PresenceChannel
 }
 
 export type PipelineRunnerEvent = PipelineRunnerModelInterface & { pipeline: PipelineModelInterface }
@@ -80,12 +75,12 @@ export const handleNewRunner =
     }
   }
 
-export const PipelineDeploymentTable: FC<PipelineDeploymentTablePropsInterface> = ({ channel }) => {
+export const PipelineDeploymentTable: FC = () => {
   const [page, setPage] = useState(1)
   const [pipelineDeploymentsItems, setPipelineDeploymentItems] = useState<PipelineRunnerModelInterface[]>([])
   const { appPipelineState, appId } = useAppState()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const { appPipeline, setAppPipelineDeploying, appPipelineDeploying } = appPipelineState
+  const { appPipeline, setAppPipelineDeploying, appPipelineDeploying, appPipelinePusherChannel } = appPipelineState
 
   const [pipelineDeployments, loading, , refreshPipelineRunners] = useReapitGet<PipelineRunnerResponse>({
     reapitConnectBrowserSession,
@@ -103,7 +98,7 @@ export const PipelineDeploymentTable: FC<PipelineDeploymentTablePropsInterface> 
   })
 
   useEvent<PipelineRunnerEvent>(
-    channel as any,
+    appPipelinePusherChannel,
     'pipeline-runner-update',
     handleNewRunner(appPipeline, pipelineDeploymentsItems, setPipelineDeploymentItems, appId),
   )

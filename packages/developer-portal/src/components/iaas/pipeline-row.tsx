@@ -17,8 +17,8 @@ import { navigate, openNewPage } from '../../utils/navigation'
 import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { handlePipelineEvent } from '../apps/pipeline/pipeline-info'
 import { useChannel, useEvent } from '@harelpls/use-pusher'
+import { handlePipelineEvent } from '../apps/page/pusher-event-wrapper'
 
 interface PipelineRowProps {
   pipeline: PipelineModelInterface

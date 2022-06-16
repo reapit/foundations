@@ -51,6 +51,23 @@ Object {
           </label>
           <input
             class="enkj6b-el-tabs"
+            id="apiKeys"
+            name="pipeline-tabs"
+            type="radio"
+            value="apiKeys"
+          />
+          <label
+            class="e1ob8xkh-el-tabs-label"
+            for="apiKeys"
+          >
+            <span
+              class="eulcr0n-el-tabs-item"
+            >
+              Manage API Keys
+            </span>
+          </label>
+          <input
+            class="enkj6b-el-tabs"
             id="environment"
             name="pipeline-tabs"
             type="radio"
@@ -63,7 +80,7 @@ Object {
             <span
               class="eulcr0n-el-tabs-item"
             >
-              Environment
+              Environment Variables
             </span>
           </label>
         </div>
@@ -72,7 +89,7 @@ Object {
         />
       </div>
       <p
-        class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e15ggth7-el-body-text"
+        class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
       >
         Tell us about how we should build your application here. We assume that your application is a front end app and that, it uses either yarn or npm to run scripts decalared in a package.json file. We assume also that your application is bundled and that bundle is output to a local directory that we can deploy for you.
       </p>
@@ -251,6 +268,23 @@ Object {
         </label>
         <input
           class="enkj6b-el-tabs"
+          id="apiKeys"
+          name="pipeline-tabs"
+          type="radio"
+          value="apiKeys"
+        />
+        <label
+          class="e1ob8xkh-el-tabs-label"
+          for="apiKeys"
+        >
+          <span
+            class="eulcr0n-el-tabs-item"
+          >
+            Manage API Keys
+          </span>
+        </label>
+        <input
+          class="enkj6b-el-tabs"
           id="environment"
           name="pipeline-tabs"
           type="radio"
@@ -263,7 +297,7 @@ Object {
           <span
             class="eulcr0n-el-tabs-item"
           >
-            Environment
+            Environment Variables
           </span>
         </label>
       </div>
@@ -272,7 +306,7 @@ Object {
       />
     </div>
     <p
-      class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e15ggth7-el-body-text"
+      class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
     >
       Tell us about how we should build your application here. We assume that your application is a front end app and that, it uses either yarn or npm to run scripts decalared in a package.json file. We assume also that your application is bundled and that bundle is output to a local directory that we can deploy for you.
     </p>

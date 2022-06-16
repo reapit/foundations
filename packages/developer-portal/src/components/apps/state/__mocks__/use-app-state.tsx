@@ -39,6 +39,7 @@ export const mockAppState = {
     appPipelineLoading: false,
     appPipelineDeploying: false,
     appPipelineSaving: false,
+    appPipelinePusherChannel: undefined,
     appPipelineRefresh: jest.fn(),
     setAppPipeline: jest.fn(),
     setAppPipelineSaving: jest.fn(),

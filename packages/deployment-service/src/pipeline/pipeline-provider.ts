@@ -61,8 +61,8 @@ export class PipelineProvider {
     })
   }
 
-  async saveAll(pipelines: PipelineEntity[]): Promise<void> {
-    await this.repository.save(pipelines)
+  async saveAll(pipelines: PipelineEntity[]): Promise<PipelineEntity[]> {
+    return this.repository.save(pipelines)
   }
 
   async removeBitbucketClient(bitbucketClient: BitbucketClientEntity): Promise<void> {
@@ -78,6 +78,12 @@ export class PipelineProvider {
 
   async findByRepositoryId(repositoryId: number): Promise<PipelineEntity | undefined> {
     return this.repository.findOne({
+      repositoryId,
+    })
+  }
+
+  async findPipelinesByRepositoryId(repositoryId: number): Promise<PipelineEntity[]> {
+    return this.repository.find({
       repositoryId,
     })
   }

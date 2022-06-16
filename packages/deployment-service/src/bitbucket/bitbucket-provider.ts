@@ -6,6 +6,7 @@ import * as jwt from 'atlassian-jwt'
 import { HttpService } from '@nestjs/axios'
 import { firstValueFrom } from 'rxjs'
 import { PipelineProvider } from '../pipeline'
+import { PipelineEntity } from '@/entities/pipeline.entity'
 
 type PaginatedRepositories = {
   pagelen: number
@@ -64,7 +65,7 @@ export class BitbucketProvider {
     return response.data
   }
 
-  async installClient(clientKey: string, data: any): Promise<void> {
+  async installClient(clientKey: string, data: any): Promise<PipelineEntity[]> {
     const client = await this.create(clientKey, data)
     // TODO loop until all pages complete?
     const repositories = await this.listRepositories(client)
@@ -75,7 +76,7 @@ export class BitbucketProvider {
       pipeline.bitbucketClient = client
     })
 
-    await this.pipelineProvider.saveAll(pipelines)
+    return this.pipelineProvider.saveAll(pipelines)
   }
 
   async getBitBucketToken({ key, clientKey }: { key: string; clientKey: string }): Promise<{ access_token: string }> {
