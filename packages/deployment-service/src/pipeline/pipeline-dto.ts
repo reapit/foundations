@@ -15,7 +15,6 @@ export class PipelineDto {
   @IsNotEmpty()
   name?: string
 
-  @IsString()
   @IsOptional()
   @IsUrl()
   repository?: string
