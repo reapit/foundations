@@ -31,6 +31,7 @@ export enum ExternalPages {
   codeExampleNodeWebsite = 'https://github.com/reapit/foundations-code-examples/tree/main/node-website-feed',
   codeExamplePHPWebsite = 'https://github.com/reapit/foundations-code-examples/tree/main/php-website-feed',
   codeExampleNetWebsite = 'https://github.com/reapit/foundations-code-examples/tree/main/dotnet-website-feed',
+  iaasBugs = 'https://github.com/reapit/foundations/issues/new?assignees=&labels=bug%2C+needs-triage%2C+iaas%2C+front-end&template=bug_report.md&title=',
 }
 
 export const openNewPage = (uri: ExternalPages | string) => (event?: MouseEvent) => {
