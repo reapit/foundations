@@ -24,7 +24,6 @@ export const getAppFromPipeline = (isGithub: boolean) => {
   if (isBitbucket) return 'https://bitbucket.org/site/addons/authorize?addon_key=reapit-dev'
   if (isGithub && isProd) return 'https://github.com/apps/reapit'
   if (isGithub) return 'https://github.com/apps/reapit-dev'
-  return ''
 }
 
 export const PipelineInfo: FC = () => {
