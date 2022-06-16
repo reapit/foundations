@@ -96,7 +96,7 @@ describe('DeploymentProvider', () => {
         pipeline,
         pipelineRunner,
       })
-    } catch(e) {
+    } catch (e) {
       expect(e).toBeInstanceOf(InvalidPipelineResourcesException)
     }
   })

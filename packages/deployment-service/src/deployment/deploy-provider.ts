@@ -44,10 +44,10 @@ export class DeployProvider {
 
   /**
    * Deploys to live bucket from an archived bucket
-   * 
+   *
    * Codebuild will 'archive' to an 'archive' bucket and store zip against pipeline-runner Id
    * This function will find that archived build zip, publish to the live bucket and invalidate cloudfront
-   * 
+   *
    */
   async deployFromStore({
     pipeline,
