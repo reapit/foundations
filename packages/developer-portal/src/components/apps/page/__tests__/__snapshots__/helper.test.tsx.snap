@@ -3035,19 +3035,14 @@ Object {
           Deploy
         </button>
         <button
-          class="esplruv-el-mb3 epibvz0-el-intent-secondary eqfkc7t-el-button"
+          class="esplruv-el-mb3 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
         >
-          Deploy CLI
-        </button>
-        <button
-          class="esplruv-el-mb3 epibvz0-el-intent-secondary eqfkc7t-el-button"
-        >
-          Api Keys
+          Delete Pipeline
         </button>
         <button
           class="esplruv-el-mb3 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
         >
-          Delete Pipeline
+          View Docs
         </button>
       </div>
     </div>
@@ -3254,19 +3249,14 @@ Object {
         Deploy
       </button>
       <button
-        class="esplruv-el-mb3 epibvz0-el-intent-secondary eqfkc7t-el-button"
+        class="esplruv-el-mb3 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
       >
-        Deploy CLI
-      </button>
-      <button
-        class="esplruv-el-mb3 epibvz0-el-intent-secondary eqfkc7t-el-button"
-      >
-        Api Keys
+        Delete Pipeline
       </button>
       <button
         class="esplruv-el-mb3 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
       >
-        Delete Pipeline
+        View Docs
       </button>
     </div>
   </div>,

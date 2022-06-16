@@ -19,6 +19,7 @@ import { PipelineConfigure } from './pipeline-configure'
 import { Helper } from '../page/helper'
 import { PipelineTabs } from './pipeline-tabs'
 import { PipelineEnvironment } from './pipeline-environment'
+import { ApiKeys } from './pipeline-api-keys'
 
 export const PipelinePage: FC = () => {
   const location = useLocation()
@@ -34,6 +35,8 @@ export const PipelinePage: FC = () => {
     ? 'configure'
     : pathname.includes('environment')
     ? 'environment'
+    : pathname.includes('api-keys')
+    ? 'apiKeys'
     : 'deployments'
 
   return (
@@ -68,6 +71,8 @@ export const PipelinePage: FC = () => {
             <PipelineConfigure />
           ) : tab === 'deployments' ? (
             <PipelineInfo />
+          ) : tab === 'apiKeys' ? (
+            <ApiKeys />
           ) : (
             <PipelineEnvironment />
           )}

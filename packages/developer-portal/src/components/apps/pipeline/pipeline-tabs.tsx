@@ -5,7 +5,7 @@ import { useHistory, useLocation } from 'react-router'
 import { History } from 'history'
 import Routes from '../../../constants/routes'
 
-export type PipelineTabs = 'configure' | 'deployments' | 'environment'
+export type PipelineTabs = 'configure' | 'deployments' | 'environment' | 'apiKeys'
 
 const resolveRoute = (tab: PipelineTabs): string => {
   switch (tab) {
@@ -15,6 +15,8 @@ const resolveRoute = (tab: PipelineTabs): string => {
       return Routes.APP_PIPELINE
     case 'environment':
       return Routes.APP_PIPELINE_ENVIRONMENT
+    case 'apiKeys':
+      return Routes.APP_PIPELINE_API_KEYS
   }
 }
 
@@ -53,9 +55,15 @@ export const PipelineTabs: FC = () => {
           isChecked: pathname.includes('configure'),
         },
         {
+          id: 'apiKeys',
+          value: 'apiKeys',
+          text: 'Manage API Keys',
+          isChecked: pathname.includes('api-keys'),
+        },
+        {
           id: 'environment',
           value: 'environment',
-          text: 'Environment',
+          text: 'Environment Variables',
           isChecked: pathname.includes('environment'),
         },
       ]}

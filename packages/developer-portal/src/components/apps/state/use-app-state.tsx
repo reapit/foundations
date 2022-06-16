@@ -17,6 +17,7 @@ import { defaultAppSavingParams, defaultAppWizardState } from './defaults'
 import { handleSetDefaultFormValues } from '../utils/handle-default-form-values'
 import { FieldNamesMarkedBoolean } from 'react-hook-form'
 import { handleSetInitialPipeline } from '../utils/handle-pipeline-event'
+import { useChannel } from '@harelpls/use-pusher'
 
 export interface AppUriParams {
   appId: string
@@ -71,6 +72,7 @@ export interface AppPipelineState {
   appPipelineLoading: boolean
   appPipelineDeploying: boolean
   appPipelineSaving: boolean
+  appPipelinePusherChannel: any
   appPipelineRefresh: () => void
   setAppPipeline: Dispatch<SetStateAction<PipelineModelInterface | null>>
   setAppPipelineDeploying: Dispatch<SetStateAction<boolean>>
@@ -154,6 +156,8 @@ export const AppProvider: FC = ({ children }) => {
     },
   })
 
+  const pusherChannel = useChannel(`private-${developerId}`)
+  const appPipelinePusherChannel = developerId ? pusherChannel : undefined
   const appLatestRevision = appRevisions?.data ? appRevisions.data[0] : null
   const appHasInstallations = Boolean(installations?.totalCount)
 
@@ -195,6 +199,7 @@ export const AppProvider: FC = ({ children }) => {
     appPipelineLoading,
     appPipelineDeploying,
     appPipelineSaving,
+    appPipelinePusherChannel,
     appPipelineRefresh,
     setAppPipeline,
     setAppPipelineDeploying,

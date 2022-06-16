@@ -2,7 +2,7 @@ import React, { Dispatch, FC, SetStateAction, useEffect } from 'react'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { BodyText, Button, ButtonGroup, Subtitle, elMb3, elFadeIn, Icon, SmallText, useModal } from '@reapit/elements'
-import { UpdateActionNames, updateActions } from '@reapit/utils-common'
+import { httpsUrlRegex, UpdateActionNames, updateActions } from '@reapit/utils-common'
 import { SendFunction, UpdateReturnTypeEnum, useReapitUpdate } from '@reapit/utils-react'
 import { useAppState } from '../state/use-app-state'
 import {
@@ -14,12 +14,36 @@ import {
   pipelinePreprovisionedFlow,
   pipelineProvisioning,
 } from '@reapit/foundations-ts-definitions'
-import { openNewPage } from '../../../utils/navigation'
-import { useLocation } from 'react-router'
-import { ApiKeys } from './pipeline-api-keys'
+import { ExternalPages, navigate, openNewPage } from '../../../utils/navigation'
+import { useHistory, useLocation } from 'react-router'
 import { formatFormValues } from '../utils/format-form-values'
 import { formatAppFields } from '../utils/handle-default-form-values'
 import { AppEditFormSchema } from '../edit/form-schema/form-fields'
+import { object, string } from 'yup'
+import { yarnNpmTest } from '../../../utils/yup'
+import Routes from '../../../constants/routes'
+
+export const validateConfig = (appPipeline: PipelineModelInterface | null) => {
+  if (!appPipeline) return false
+
+  try {
+    object()
+      .shape({
+        name: string().required(),
+        branch: string().required(),
+        repository: string().trim().required().matches(httpsUrlRegex),
+        buildCommand: string().trim().required(),
+        packageManager: string().trim().required().test(yarnNpmTest),
+        outDir: string().required(),
+      })
+      .validateSync(appPipeline)
+
+    return true
+  } catch (err) {
+    console.log(err)
+    return false
+  }
+}
 
 export const handlePipelineRunnerSuccess =
   (setAppPipelineDeploying: Dispatch<SetStateAction<boolean>>, updatePipelineRunnerSuccess?: boolean) => () => {
@@ -81,6 +105,7 @@ export const handleDeletePipeline =
 
 export const PipelineControls: FC = () => {
   const location = useLocation()
+  const history = useHistory()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { appPipelineState, appId, appsDataState } = useAppState()
   const { Modal, openModal, closeModal } = useModal()
@@ -89,6 +114,7 @@ export const PipelineControls: FC = () => {
   const isConfigPage = pathname.includes('new') || pathname.includes('configure')
   const { appDetail, appsDetailRefresh, appRefreshRevisions } = appsDataState
   const developerId = connectSession?.loginIdentity.developerId ?? null
+  const isValidPipeline = validateConfig(appPipeline)
 
   const [deleteLoading, , deleteFunc] = useReapitUpdate<void, boolean>({
     reapitConnectBrowserSession,
@@ -192,7 +218,7 @@ export const PipelineControls: FC = () => {
         >
           Provision
         </Button>
-      ) : appPipeline && !isConfigPage ? (
+      ) : appPipeline && !isConfigPage && isValidPipeline ? (
         <>
           <Button
             className={elMb3}
@@ -207,15 +233,15 @@ export const PipelineControls: FC = () => {
           >
             Deploy
           </Button>
-          <Button
-            className={elMb3}
-            intent="secondary"
-            onClick={openNewPage('https://github.com/reapit/foundations/tree/master/packages/cli#readme')}
-          >
-            Deploy CLI
-          </Button>
-          <ApiKeys />
         </>
+      ) : appPipeline && !isValidPipeline ? (
+        <Button
+          className={elMb3}
+          intent="secondary"
+          onClick={navigate(history, `${Routes.APPS}/${appId}/pipeline/configure`)}
+        >
+          Configure
+        </Button>
       ) : null}
       {appPipeline && (
         <Button
@@ -228,6 +254,9 @@ export const PipelineControls: FC = () => {
           Delete Pipeline
         </Button>
       )}
+      <Button className={elMb3} intent="neutral" onClick={openNewPage(ExternalPages.iaasDocs)}>
+        View Docs
+      </Button>
       <Modal title="Delete Pipeline">
         <BodyText hasGreyText>
           Are you sure you want to delete this pipeline? This will tear down any infrastructure you have provisioned and

@@ -7,6 +7,7 @@ const Routes = {
   APP_PIPELINE: '/apps/:appId/pipeline',
   APP_PIPELINE_CONFIGURE: '/apps/:appId/pipeline/configure',
   APP_PIPELINE_ENVIRONMENT: '/apps/:appId/pipeline/environment',
+  APP_PIPELINE_API_KEYS: '/apps/:appId/pipeline/api-keys',
   APP_PIPELINE_NEW: '/apps/:appId/pipeline/new',
   APP_INSTALLATIONS: '/apps/:appId/installations',
   SWAGGER: '/swagger',
