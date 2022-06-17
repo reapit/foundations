@@ -1,5 +1,4 @@
 import { Test, TestingModule } from '@nestjs/testing'
-import { AwsModule } from '../../aws'
 import { PipelineController } from '../pipeline-controller'
 import { PipelineProvider } from '../pipeline-provider'
 import { OwnershipProvider, CredGuard } from '../../auth'
@@ -43,7 +42,6 @@ describe('PipelineController', () => {
 
   beforeAll(async () => {
     app = await Test.createTestingModule({
-      imports: [AwsModule],
       controllers: [PipelineController],
       providers: [
         {
