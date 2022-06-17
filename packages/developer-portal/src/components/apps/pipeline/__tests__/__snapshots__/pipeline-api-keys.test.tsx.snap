@@ -8,86 +8,6 @@ Object {
       <div
         class="ecbqyq6-el-snack-holder"
       />
-      <div
-        class="e6l6sr3-el-tabs-full-width exshuwa-el-tabs-wrap"
-      >
-        <div
-          class="egmnxi3-el-tabs-options-wrap"
-        >
-          <input
-            checked=""
-            class="enkj6b-el-tabs"
-            id="deployments"
-            name="pipeline-tabs"
-            type="radio"
-            value="deployments"
-          />
-          <label
-            class="e1ob8xkh-el-tabs-label"
-            for="deployments"
-          >
-            <span
-              class="eulcr0n-el-tabs-item"
-            >
-              Deployments
-            </span>
-          </label>
-          <input
-            class="enkj6b-el-tabs"
-            id="configure"
-            name="pipeline-tabs"
-            type="radio"
-            value="configure"
-          />
-          <label
-            class="e1ob8xkh-el-tabs-label"
-            for="configure"
-          >
-            <span
-              class="eulcr0n-el-tabs-item"
-            >
-              Configure
-            </span>
-          </label>
-          <input
-            class="enkj6b-el-tabs"
-            id="apiKeys"
-            name="pipeline-tabs"
-            type="radio"
-            value="apiKeys"
-          />
-          <label
-            class="e1ob8xkh-el-tabs-label"
-            for="apiKeys"
-          >
-            <span
-              class="eulcr0n-el-tabs-item"
-            >
-              Manage API Keys
-            </span>
-          </label>
-          <input
-            class="enkj6b-el-tabs"
-            id="environment"
-            name="pipeline-tabs"
-            type="radio"
-            value="environment"
-          />
-          <label
-            class="e1ob8xkh-el-tabs-label"
-            for="environment"
-          >
-            <span
-              class="eulcr0n-el-tabs-item"
-            >
-              Environment Variables
-            </span>
-          </label>
-        </div>
-        <div
-          class="e1147ynd-el-tabs-footer"
-        />
-      </div>
       <p
         class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
       >
@@ -214,8 +134,13 @@ Object {
         class="eay05y4-el-button-group"
       >
         <div
-          class="e1cpt8yd-el-button-group-align-left ebqwrow-el-button-group-inner"
+          class="ej73pla-el-button-group-align-center ebqwrow-el-button-group-inner"
         >
+          <button
+            class="e1ymtwpu-el-intent-low e1f2ikqj-el-button-fixed-width eqfkc7t-el-button"
+          >
+            Close
+          </button>
           <button
             class="ebee6r1-el-intent-primary e1f2ikqj-el-button-fixed-width eqfkc7t-el-button"
           >
@@ -229,86 +154,6 @@ Object {
     <div
       class="ecbqyq6-el-snack-holder"
     />
-    <div
-      class="e6l6sr3-el-tabs-full-width exshuwa-el-tabs-wrap"
-    >
-      <div
-        class="egmnxi3-el-tabs-options-wrap"
-      >
-        <input
-          checked=""
-          class="enkj6b-el-tabs"
-          id="deployments"
-          name="pipeline-tabs"
-          type="radio"
-          value="deployments"
-        />
-        <label
-          class="e1ob8xkh-el-tabs-label"
-          for="deployments"
-        >
-          <span
-            class="eulcr0n-el-tabs-item"
-          >
-            Deployments
-          </span>
-        </label>
-        <input
-          class="enkj6b-el-tabs"
-          id="configure"
-          name="pipeline-tabs"
-          type="radio"
-          value="configure"
-        />
-        <label
-          class="e1ob8xkh-el-tabs-label"
-          for="configure"
-        >
-          <span
-            class="eulcr0n-el-tabs-item"
-          >
-            Configure
-          </span>
-        </label>
-        <input
-          class="enkj6b-el-tabs"
-          id="apiKeys"
-          name="pipeline-tabs"
-          type="radio"
-          value="apiKeys"
-        />
-        <label
-          class="e1ob8xkh-el-tabs-label"
-          for="apiKeys"
-        >
-          <span
-            class="eulcr0n-el-tabs-item"
-          >
-            Manage API Keys
-          </span>
-        </label>
-        <input
-          class="enkj6b-el-tabs"
-          id="environment"
-          name="pipeline-tabs"
-          type="radio"
-          value="environment"
-        />
-        <label
-          class="e1ob8xkh-el-tabs-label"
-          for="environment"
-        >
-          <span
-            class="eulcr0n-el-tabs-item"
-          >
-            Environment Variables
-          </span>
-        </label>
-      </div>
-      <div
-        class="e1147ynd-el-tabs-footer"
-      />
-    </div>
     <p
       class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
     >
@@ -435,8 +280,13 @@ Object {
       class="eay05y4-el-button-group"
     >
       <div
-        class="e1cpt8yd-el-button-group-align-left ebqwrow-el-button-group-inner"
+        class="ej73pla-el-button-group-align-center ebqwrow-el-button-group-inner"
       >
+        <button
+          class="e1ymtwpu-el-intent-low e1f2ikqj-el-button-fixed-width eqfkc7t-el-button"
+        >
+          Close
+        </button>
         <button
           class="ebee6r1-el-intent-primary e1f2ikqj-el-button-fixed-width eqfkc7t-el-button"
         >
