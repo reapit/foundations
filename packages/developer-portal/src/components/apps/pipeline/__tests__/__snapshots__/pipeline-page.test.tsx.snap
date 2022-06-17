@@ -60,23 +60,6 @@ Object {
           </label>
           <input
             class="enkj6b-el-tabs"
-            id="apiKeys"
-            name="pipeline-tabs"
-            type="radio"
-            value="apiKeys"
-          />
-          <label
-            class="e1ob8xkh-el-tabs-label"
-            for="apiKeys"
-          >
-            <span
-              class="eulcr0n-el-tabs-item"
-            >
-              Manage API Keys
-            </span>
-          </label>
-          <input
-            class="enkj6b-el-tabs"
             id="environment"
             name="pipeline-tabs"
             type="radio"
@@ -501,23 +484,6 @@ Object {
             class="eulcr0n-el-tabs-item"
           >
             Configure
-          </span>
-        </label>
-        <input
-          class="enkj6b-el-tabs"
-          id="apiKeys"
-          name="pipeline-tabs"
-          type="radio"
-          value="apiKeys"
-        />
-        <label
-          class="e1ob8xkh-el-tabs-label"
-          for="apiKeys"
-        >
-          <span
-            class="eulcr0n-el-tabs-item"
-          >
-            Manage API Keys
           </span>
         </label>
         <input
@@ -1025,23 +991,6 @@ Object {
           </label>
           <input
             class="enkj6b-el-tabs"
-            id="apiKeys"
-            name="pipeline-tabs"
-            type="radio"
-            value="apiKeys"
-          />
-          <label
-            class="e1ob8xkh-el-tabs-label"
-            for="apiKeys"
-          >
-            <span
-              class="eulcr0n-el-tabs-item"
-            >
-              Manage API Keys
-            </span>
-          </label>
-          <input
-            class="enkj6b-el-tabs"
             id="environment"
             name="pipeline-tabs"
             type="radio"
@@ -1479,23 +1428,6 @@ Object {
             class="eulcr0n-el-tabs-item"
           >
             Configure
-          </span>
-        </label>
-        <input
-          class="enkj6b-el-tabs"
-          id="apiKeys"
-          name="pipeline-tabs"
-          type="radio"
-          value="apiKeys"
-        />
-        <label
-          class="e1ob8xkh-el-tabs-label"
-          for="apiKeys"
-        >
-          <span
-            class="eulcr0n-el-tabs-item"
-          >
-            Manage API Keys
           </span>
         </label>
         <input

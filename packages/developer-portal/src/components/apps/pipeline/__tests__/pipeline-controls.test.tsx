@@ -45,7 +45,6 @@ describe('PipelineControls', () => {
     Routes.APP_PIPELINE_CONFIGURE,
     Routes.APP_PIPELINE_NEW,
     Routes.APP_PIPELINE_ENVIRONMENT,
-    Routes.APP_PIPELINE_API_KEYS,
   ]
 
   routes.forEach((route) => {

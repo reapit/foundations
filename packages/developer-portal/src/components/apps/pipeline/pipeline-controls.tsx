@@ -22,6 +22,7 @@ import { AppEditFormSchema } from '../edit/form-schema/form-fields'
 import { object, string } from 'yup'
 import { yarnNpmTest } from '../../../utils/yup'
 import Routes from '../../../constants/routes'
+import { ApiKeys } from './pipeline-api-keys'
 
 export const validateConfig = (appPipeline: PipelineModelInterface | null) => {
   if (!appPipeline) return false
@@ -108,6 +109,7 @@ export const PipelineControls: FC = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { appPipelineState, appId, appsDataState } = useAppState()
   const { Modal, openModal, closeModal } = useModal()
+  const { Modal: ModalApiKeys, openModal: openModalApiKeys, closeModal: closeModalApiKeys } = useModal()
   const { appPipeline, setAppPipelineSaving, setAppPipelineDeploying } = appPipelineState
   const { pathname } = location
   const isConfigPage = pathname.includes('new') || pathname.includes('configure')
@@ -246,6 +248,9 @@ export const PipelineControls: FC = () => {
           Configure
         </Button>
       ) : null}
+      <Button className={elMb3} intent="secondary" onClick={openModalApiKeys}>
+        API Keys
+      </Button>
       {appPipeline && (
         <Button
           className={elMb3}
@@ -274,6 +279,9 @@ export const PipelineControls: FC = () => {
           </Button>
         </ButtonGroup>
       </Modal>
+      <ModalApiKeys title="Api Keys Management">
+        <ApiKeys closeModal={closeModalApiKeys} />
+      </ModalApiKeys>
     </div>
   )
 }
