@@ -3036,6 +3036,11 @@ Object {
           Deploy
         </button>
         <button
+          class="esplruv-el-mb3 epibvz0-el-intent-secondary eqfkc7t-el-button"
+        >
+          API Keys
+        </button>
+        <button
           class="esplruv-el-mb3 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
         >
           Delete Pipeline
@@ -3249,6 +3254,11 @@ Object {
         disabled=""
       >
         Deploy
+      </button>
+      <button
+        class="esplruv-el-mb3 epibvz0-el-intent-secondary eqfkc7t-el-button"
+      >
+        API Keys
       </button>
       <button
         class="esplruv-el-mb3 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
