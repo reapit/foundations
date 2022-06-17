@@ -20,6 +20,7 @@ import { handleSetIncompletedFields } from '../utils/validate-schema'
 import { checkShouldSendConsents } from '../utils/consents'
 import { BodyText, Button, ButtonGroup, useModal } from '@reapit/elements'
 import { useGlobalState } from '../../../core/use-global-state'
+import { ExternalPages, openNewPage } from '../../../utils/navigation'
 
 export const handleResetForm = (appEditForm: AppEditFormSchema, reset: UseFormReset<AppEditFormSchema>) => () => {
   reset(appEditForm)
@@ -194,19 +195,22 @@ export const AppEditForm: FC = () => {
       <AppEditTabs register={register} errors={errors} control={control} getValues={getValues} />
       <Modal title="Additional Permissions Requested">
         <BodyText hasGreyText>
-          Because you have asked for addtional permissions for your application, before our team can approve your
-          revision, we will need the consent of all clients that have installed your app.
+          As you have asked for additional permissions for your application and it is currently live and in use, we will
+          need the consent of all clients that have installed your app before we can approve.
         </BodyText>
         <BodyText hasGreyText>
-          By sending the request below, we will email the installer of your app requesting that they agree to the new
-          permissions set. When all of your installed customers have agreed to the new permissions, we will review your
-          app revision as normal. If you choose not to send the request emails, we will do it for you as part of the
-          review process.
+          By sending the request below, we will email the person that installed your app, requesting that they agree to
+          the new permission(s). When all your installed customers have agreed to the new permissions, we will review
+          your app revision as normal. If you choose not to send the request emails, we will do it for you as part of
+          the review process.
         </BodyText>
         <BodyText hasGreyText>
-          Because you have asked for addtional permissions for your application, before our team can approve your
-          revision, we will need the consent of all clients that have installed your app. You can either track progress
-          in the App Consents page, or reach out to your customer to expedite their response to our message.
+          If you do, you will be able to track the requests by selecting ‘App Consents’ on your app listing. For more
+          information, please visit{' '}
+          <a onClick={openNewPage(ExternalPages.appPermissionsDocs)} target="_blank" rel="noreferrer">
+            the docs here
+          </a>
+          .
         </BodyText>
         <ButtonGroup alignment="center">
           <Button fixedWidth onClick={closeModal} intent="low">
