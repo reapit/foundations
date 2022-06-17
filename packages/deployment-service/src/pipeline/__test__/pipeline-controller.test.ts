@@ -7,6 +7,8 @@ import { EventDispatcher, PusherProvider } from '../../events'
 import { v4 as uuid } from 'uuid'
 import { PipelineModelInterface } from '@reapit/foundations-ts-definitions/deployment-schema'
 import { PackageManagerEnum } from '../pipeline-dto'
+import { plainToInstance } from 'class-transformer'
+import { PipelineEntity } from '../../entities/pipeline.entity'
 
 process.env.NODE_ENV = 'local'
 
@@ -26,6 +28,7 @@ const mockPusherProvider = {
 
 const mockEventDispatcher = {
   triggerPipelineSetup: jest.fn(),
+  triggerPipelineTearDownStart: jest.fn(),
 }
 
 const mockPipeline: Partial<PipelineModelInterface> = {
@@ -141,7 +144,6 @@ describe('PipelineController', () => {
       }))
       mockPipelineProvider.update.mockImplementationOnce((params) => {
         return {
-          id: uuid(),
           ...mockPipeline,
           ...params,
         }
@@ -168,7 +170,7 @@ describe('PipelineController', () => {
     it('Standard update with no infra condition', async () => {
       const pipelineController = app.get<PipelineController>(PipelineController)
       const pipelineId = uuid()
-  
+
       mockPipelineProvider.findById.mockImplementationOnce(() => ({
         ...mockPipeline,
         id: pipelineId,
@@ -176,13 +178,12 @@ describe('PipelineController', () => {
       }))
       mockPipelineProvider.update.mockImplementationOnce((params) => {
         return {
-          id: uuid(),
           ...mockPipeline,
           ...params,
         }
       })
       mockOwnershipProvider.check.mockImplementationOnce(() => true)
-  
+
       await pipelineController.edit(
         pipelineId,
         {
@@ -194,8 +195,38 @@ describe('PipelineController', () => {
           outDir: 'build',
         },
       )
-  
+
       expect(mockEventDispatcher.triggerPipelineSetup).not.toHaveBeenCalled()
+      expect(mockPusherProvider.trigger).toHaveBeenCalled()
+    })
+  })
+
+  describe('Pipeline Delete', () => {
+    it('Delete will trigger teardown', async () => {
+      const pipelineController = app.get<PipelineController>(PipelineController)
+      const pipelineId = uuid()
+
+      mockPipelineProvider.findById.mockImplementationOnce(() =>
+        plainToInstance(PipelineEntity, {
+          ...mockPipeline,
+          id: pipelineId,
+          buildStatus: 'SUCCEEDED',
+        }),
+      )
+      mockPipelineProvider.update.mockImplementationOnce((params) => {
+        return {
+          ...mockPipeline,
+          ...params,
+        }
+      })
+      mockOwnershipProvider.check.mockImplementationOnce(() => true)
+
+      await pipelineController.deletePipeline(pipelineId, {
+        developerId: 'developerId',
+        type: 'jwt',
+      })
+
+      expect(mockEventDispatcher.triggerPipelineTearDownStart).toHaveBeenCalled()
       expect(mockPusherProvider.trigger).toHaveBeenCalled()
     })
   })
