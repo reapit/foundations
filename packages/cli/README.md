@@ -1,7 +1,7 @@
 # Reapit-cli
 Command line interface tool for reapit 
 
-![Deployment gif](reapit-deploy.gif)
+![Deployment gif](https://raw.githubusercontent.com/reapit/foundations/master/packages/cli/reapit-deploy.gif)
 
 ## Available commands
 
@@ -20,6 +20,8 @@ Command | description
 `reapit release zip` | Starts a deployment using a locally built directory as source
 `reapit release list` | List all pipeline releases/deployments
 `reapit release version` | Deploys a specific previously deployed version (rollback)
+`reapit pipeline params` | List all environment param keys configured for pipeline
+`reapit pipeline param-configure` | Create or update a new or existing environment parameter
 
 > The above is subject to updates
 
@@ -72,8 +74,7 @@ To add your api-key to the cli, simply run the below command. This will start a 
 $ reapit config
 ```
 
-![Config Snapsot](snapshots/config.png)
-
+![Config Snapshot](https://raw.githubusercontent.com/reapit/foundations/master/packages/cli/snapshots/config.png)
 
 ## Terminology
 
@@ -100,7 +101,7 @@ $ reapit pipeline deploy-zip
 
 answer the following questions and the deployment will start.
 
-![Deploy zip Snapsot](snapshots/deploy-zip.png)
+![Deploy zip Snapsot](https://raw.githubusercontent.com/reapit/foundations/master/packages/cli/snapshots/deploy-zip.png)
 
 ## Deployment via github actions
 
