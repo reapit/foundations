@@ -4,7 +4,6 @@ import { elHFull, elPy1 } from '@reapit/elements'
 import React from 'react'
 
 export * from './toolbar-item'
-export * from './toolbar-section'
 export * from './toolbar-text-input'
 export * from './toolbar-dropdown'
 export * from './types'

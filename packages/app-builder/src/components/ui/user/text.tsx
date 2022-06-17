@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import ContentEditable from 'react-contenteditable'
 import { useNode } from '@craftjs/core'
-import { ToolbarItem, ToolbarSection, ToolbarItemType } from '../toolbar'
+import { ToolbarItem, ToolbarItemType } from '../toolbar'
 import { elFlexAuto } from '@reapit/elements'
 
 const defaultProps = {
@@ -55,24 +55,8 @@ const Text = ({ text, ...props }: { fontSize?: number; width?: number; text: str
 
 const TextSettings = () => (
   <>
-    <ToolbarSection
-      title="Typography"
-      props={['fontSize']}
-      summary={({ fontSize }: any) => {
-        return `${fontSize || ''}px`
-      }}
-    >
-      <ToolbarItem propKey="fontSize" type={ToolbarItemType.Number} label="Font Size" />
-    </ToolbarSection>
-    <ToolbarSection
-      title="Size"
-      props={['width']}
-      summary={({ width }: any) => {
-        return `${width || ''} columns`
-      }}
-    >
-      <ToolbarItem propKey="width" type={ToolbarItemType.Number} label="Columns" />
-    </ToolbarSection>
+    <ToolbarItem propKey="fontSize" type={ToolbarItemType.Number} label="Font Size" />
+    <ToolbarItem propKey="width" type={ToolbarItemType.Number} label="Columns" />
   </>
 )
 

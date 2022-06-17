@@ -3,7 +3,6 @@ import { usePageId } from '@/components/hooks/use-page-id'
 import { useNode } from '@craftjs/core'
 import { InputGroup, Loader } from '@reapit/elements'
 import React from 'react'
-import { ToolbarSection } from '../toolbar'
 import Container from './container'
 import { NavbarProps, Navbar as ENavbar } from './ejectable/navbar'
 
@@ -36,13 +35,7 @@ const PagesChooser = ({
   }
 
   return (
-    <ToolbarSection
-      title="Pages"
-      props={['includedPageIds']}
-      summary={() => {
-        return `Navbar with ${(includedPageIds || []).length} pages`
-      }}
-    >
+    <>
       {app?.pages.map(({ id, name }) => (
         <div key={id}>
           <InputGroup
@@ -58,7 +51,7 @@ const PagesChooser = ({
           />
         </div>
       ))}
-    </ToolbarSection>
+    </>
   )
 }
 

@@ -128,7 +128,7 @@ export const Table: FC<TableProps> = ({
           <TableRowContainer key={index} isOpen={expandableRowIsOpen}>
             <TableRow>
               {row.cells.map((cell, cellIndex) => {
-                if (!cell) return <TableCell />
+                if (!cell) return <TableCell key={`${cellIndex}-${index}`} />
 
                 return (
                   <TableCell

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useEditor, useNode } from '@craftjs/core'
-import { ToolbarItem, ToolbarItemType, ToolbarSection } from '../toolbar'
+import { ToolbarItem, ToolbarItemType } from '../toolbar'
 import * as EContainer from './ejectable/container'
 
 const Container = (props: ContainerProps) => {
@@ -20,17 +20,7 @@ const defaultProps = {
   width: 12,
 }
 
-const ContainerSettings = () => (
-  <ToolbarSection
-    title="Size"
-    props={['width']}
-    summary={({ width }: any) => {
-      return `${width || ''} wide`
-    }}
-  >
-    <ToolbarItem propKey="width" type={ToolbarItemType.Number} label="Columns Wide" />
-  </ToolbarSection>
-)
+const ContainerSettings = () => <ToolbarItem propKey="width" type={ToolbarItemType.Number} title="Columns Wide" />
 
 Container.craft = {
   props: defaultProps,

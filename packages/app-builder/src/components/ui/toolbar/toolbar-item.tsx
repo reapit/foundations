@@ -1,6 +1,7 @@
 import { useNode } from '@craftjs/core'
-import { elMb3, Label } from '@reapit/elements'
-import React, { FC, ReactNodeArray } from 'react'
+import { styled } from '@linaria/react'
+import { Label } from '@reapit/elements'
+import React, { FC, ReactNode } from 'react'
 
 import { ToolbarDropdown } from './toolbar-dropdown'
 import { ToolbarTextInput } from './toolbar-text-input'
@@ -12,13 +13,24 @@ export type ToolbarItemProps = {
   full?: boolean
   propKey: string
   index?: number
-  children?: ReactNodeArray
+  children?: ReactNode[]
   type: ToolbarItemType
   title?: string
   onChange?: (value: string) => void
 }
 
-const ToolbarItemInput: FC<ToolbarItemProps> = ({ propKey, type, onChange, index = 0, ...props }: ToolbarItemProps) => {
+const ToolbarItemContainer = styled.div`
+  display: flex;
+  align-items: center;
+`
+
+export const ToolbarItem: FC<ToolbarItemProps> = ({
+  propKey,
+  type,
+  onChange,
+  index = 0,
+  ...props
+}: ToolbarItemProps) => {
   const {
     actions: { setProp },
     propValue,
@@ -28,10 +40,12 @@ const ToolbarItemInput: FC<ToolbarItemProps> = ({ propKey, type, onChange, index
   const isArray = Array.isArray(propValue)
   const value = isArray ? propValue[index] : propValue
 
+  let component: React.ReactNode
+
   switch (type) {
     case ToolbarItemType.Text:
     case ToolbarItemType.Number:
-      return (
+      component = (
         <ToolbarTextInput
           {...props}
           type={type}
@@ -51,45 +65,43 @@ const ToolbarItemInput: FC<ToolbarItemProps> = ({ propKey, type, onChange, index
           }}
         />
       )
+      break
     case ToolbarItemType.Radio:
-      return (
-        <>
-          {props.label ? <Label>{props.label}</Label> : null}
-          {React.Children.map(props.children, (child: React.ReactNode) => {
-            React.isValidElement(child) &&
-              React.cloneElement(child, {
-                onChange: (e: React.ChangeEvent<HTMLInputElement>) => {
-                  const { value, checked } = e.currentTarget
-                  if (checked) {
-                    setProp((props) => {
-                      props[propKey] = value
-                    })
-                    onChange && onChange(value)
-                  }
-                },
-              })
-          })}
-        </>
-      )
+      component = React.Children.map(props.children, (child: React.ReactNode) => {
+        React.isValidElement(child) &&
+          React.cloneElement(child, {
+            onChange: (e: React.ChangeEvent<HTMLInputElement>) => {
+              const { value, checked } = e.currentTarget
+              if (checked) {
+                setProp((props) => {
+                  props[propKey] = value
+                })
+                onChange && onChange(value)
+              }
+            },
+          })
+      })
+      break
     case ToolbarItemType.Select:
-      return props.title ? (
+      component = (
         <ToolbarDropdown
           value={value || ''}
           onChange={(value) => {
             setProp((props) => (props[propKey] = value))
             onChange && onChange(value)
           }}
-          title={props.title}
           {...props}
         />
-      ) : null
+      )
+      break
     default:
       return null
   }
-}
 
-export const ToolbarItem = (props: ToolbarItemProps) => (
-  <div className={elMb3}>
-    <ToolbarItemInput {...props} />
-  </div>
-)
+  return (
+    <ToolbarItemContainer>
+      <Label>{props.title}</Label>
+      {component}
+    </ToolbarItemContainer>
+  )
+}
