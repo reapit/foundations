@@ -2619,7 +2619,7 @@ Object {
         <p
           class="e11jaxfn-el-has-grey-text e1wasvgh-el-small-text"
         >
-          This page is visible because you have requested new permissions as part of your current outstanding app revision. We have emailed each of the customers who installed your app, requesting they agree to the new permissions you have requested.
+          This page is visible because you have requested new permissions as part of your current outstanding app revision. An email will be sent to each of the customers who installed your app, requesting they agree to the new permissions you have requested.
         </p>
         <p
           class="e11jaxfn-el-has-grey-text e1wasvgh-el-small-text"
@@ -2756,7 +2756,7 @@ Object {
       <p
         class="e11jaxfn-el-has-grey-text e1wasvgh-el-small-text"
       >
-        This page is visible because you have requested new permissions as part of your current outstanding app revision. We have emailed each of the customers who installed your app, requesting they agree to the new permissions you have requested.
+        This page is visible because you have requested new permissions as part of your current outstanding app revision. An email will be sent to each of the customers who installed your app, requesting they agree to the new permissions you have requested.
       </p>
       <p
         class="e11jaxfn-el-has-grey-text e1wasvgh-el-small-text"
@@ -3031,6 +3031,7 @@ Object {
         </p>
         <button
           class="esplruv-el-mb3 ebee6r1-el-intent-primary eqfkc7t-el-button"
+          disabled=""
         >
           Deploy
         </button>
@@ -3245,6 +3246,7 @@ Object {
       </p>
       <button
         class="esplruv-el-mb3 ebee6r1-el-intent-primary eqfkc7t-el-button"
+        disabled=""
       >
         Deploy
       </button>
