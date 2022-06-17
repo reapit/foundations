@@ -37,7 +37,7 @@ jest.mock('@reapit/connect-session', () => ({
 
 describe('ApiKeys', () => {
   it('should match snapshot', () => {
-    expect(render(<ApiKeys />)).toMatchSnapshot()
+    expect(render(<ApiKeys closeModal={jest.fn()} />)).toMatchSnapshot()
   })
 })
 

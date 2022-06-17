@@ -18,7 +18,6 @@ import { useGlobalState } from '../../../core/use-global-state'
 import { isoDateToHuman } from '../../../utils/date-time'
 import CopyToClipboard from 'react-copy-to-clipboard'
 import { elMr3 } from '@reapit/elements'
-import { PipelineTabs } from './pipeline-tabs'
 import { ExternalPages, openNewPage } from '../../../utils/navigation'
 
 export interface ApiKeyMeta {
@@ -32,6 +31,10 @@ export interface ApiKeyMeta {
 interface ApiKeysResponse {
   items: ApiKeyInterface[]
   meta: ApiKeyMeta
+}
+
+interface ApiKeysProps {
+  closeModal: () => void
 }
 
 export const handleSetApikey = (setApiKeyId: Dispatch<SetStateAction<string | null>>, apiKeyid?: string) => () => {
@@ -98,7 +101,7 @@ export const handleCopyCode = (setCopyState: Dispatch<SetStateAction<string>>, c
   }, 5000)
 }
 
-export const ApiKeys: FC = () => {
+export const ApiKeys: FC<ApiKeysProps> = ({ closeModal }) => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { globalDataState } = useGlobalState()
   const [copyState, setCopyState] = useState<string>('')
@@ -146,7 +149,6 @@ export const ApiKeys: FC = () => {
 
   return (
     <>
-      <PipelineTabs />
       <BodyText hasGreyText>
         Manage your API keys here for use with the Reapit CLI tool. The CLI allows you to deploy your application as a
         zip folder from a local build on the command line, rather than having to grant access to your private repos.
@@ -208,7 +210,10 @@ export const ApiKeys: FC = () => {
               No API keys currently configured for your organisation. You can create an API key below.
             </PersistentNotification>
           )}
-          <ButtonGroup alignment="left">
+          <ButtonGroup alignment="center">
+            <Button intent="low" fixedWidth onClick={closeModal} disabled={isLoading}>
+              Close
+            </Button>
             <Button
               intent="primary"
               fixedWidth
