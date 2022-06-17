@@ -41,7 +41,9 @@ export class CheckVersionCommand extends AbstractCommand {
       this.writeLine(chalk.yellow(`Newer version of ${packageInfo.name} is available!`))
       this.writeLine(chalk.greenBright(`${packageInfo.version} => ${latest}`))
       this.writeLine(
-        `${chalk.yellow('You can update using')} ${chalk.bgGreenBright.black('npm update -g @reapit/cli')}`,
+        `${chalk.yellow('You can update with the following command')} ${chalk.bgGreenBright.black(
+          'npm update -g @reapit/cli',
+        )}`,
       )
       this.writeLine('')
     }
