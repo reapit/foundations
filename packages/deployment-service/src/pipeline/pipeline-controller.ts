@@ -52,8 +52,8 @@ export class PipelineController {
     const previousPipeline = await this.pipelineProvider.findById(dto.appId as string)
 
     const pipeline = await this.pipelineProvider.create({
-      ...dto,
       ...previousPipeline,
+      ...dto,
       developerId: creds.developerId as string,
       clientId: creds.clientId,
       buildStatus: previousPipeline ? 'READY_FOR_DEPLOYMENT' : undefined,
