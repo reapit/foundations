@@ -25,6 +25,83 @@ export interface AdditionalContactDetailModel {
   value?: string
 }
 /**
+ * Model for exposing error details to API consumers
+ */
+export interface ApiErrorModel {
+  statusCode?:
+    | 100
+    | 101
+    | 102
+    | 103
+    | 200
+    | 201
+    | 202
+    | 203
+    | 204
+    | 205
+    | 206
+    | 207
+    | 208
+    | 226
+    | 300
+    | 301
+    | 302
+    | 303
+    | 304
+    | 305
+    | 306
+    | 307
+    | 308
+    | 400
+    | 401
+    | 402
+    | 403
+    | 404
+    | 405
+    | 406
+    | 407
+    | 408
+    | 409
+    | 410
+    | 411
+    | 412
+    | 413
+    | 414
+    | 415
+    | 416
+    | 417
+    | 421
+    | 422
+    | 423
+    | 424
+    | 426
+    | 428
+    | 429
+    | 431
+    | 451
+    | 500
+    | 501
+    | 502
+    | 503
+    | 504
+    | 505
+    | 506
+    | 507
+    | 508
+    | 510
+    | 511 // int32
+  /**
+   * The date and time that this error event occurred
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  dateTime?: string // date-time
+  /**
+   * The detailed information regarding this error event
+   */
+  description?: string
+}
+/**
  * The details specific to applicants with a marketingMode of buying
  */
 export interface ApplicantBuyingModel {
@@ -389,6 +466,10 @@ export interface ApplicantModel {
    * The applicant's selling position (nothingToSell/renting/sellingWithUs/sellingWithOtherAgent/sellingPrivately/notYetOnMarket)
    */
   sellingPosition?: string
+  /**
+   * The status id of the applicant
+   */
+  statusId?: string
   /**
    * The date when the applicant was last contacted
    * example:
@@ -778,6 +859,10 @@ export interface ApplicantModelPagedResult {
      * The applicant's selling position (nothingToSell/renting/sellingWithUs/sellingWithOtherAgent/sellingPrivately/notYetOnMarket)
      */
     sellingPosition?: string
+    /**
+     * The status id of the applicant
+     */
+    statusId?: string
     /**
      * The date when the applicant was last contacted
      * example:
@@ -7863,6 +7948,68 @@ export interface GuernseyModel {
    */
   market?: string[]
 }
+export type HttpStatusCode =
+  | 100
+  | 101
+  | 102
+  | 103
+  | 200
+  | 201
+  | 202
+  | 203
+  | 204
+  | 205
+  | 206
+  | 207
+  | 208
+  | 226
+  | 300
+  | 301
+  | 302
+  | 303
+  | 304
+  | 305
+  | 306
+  | 307
+  | 308
+  | 400
+  | 401
+  | 402
+  | 403
+  | 404
+  | 405
+  | 406
+  | 407
+  | 408
+  | 409
+  | 410
+  | 411
+  | 412
+  | 413
+  | 414
+  | 415
+  | 416
+  | 417
+  | 421
+  | 422
+  | 423
+  | 424
+  | 426
+  | 428
+  | 429
+  | 431
+  | 451
+  | 500
+  | 501
+  | 502
+  | 503
+  | 504
+  | 505
+  | 506
+  | 507
+  | 508
+  | 510
+  | 511 // int32
 /**
  * Representation of a contact identity check
  */
@@ -17803,6 +17950,109 @@ export interface UtilityModel {
    * The unique identifier of the company supplying the cable tv to the property
    */
   cableTvCompanyId?: string
+}
+/**
+ * Represents a one or more messages for fields that have failed a given validation action
+ */
+export interface ValidationErrorModel {
+  statusCode?:
+    | 100
+    | 101
+    | 102
+    | 103
+    | 200
+    | 201
+    | 202
+    | 203
+    | 204
+    | 205
+    | 206
+    | 207
+    | 208
+    | 226
+    | 300
+    | 301
+    | 302
+    | 303
+    | 304
+    | 305
+    | 306
+    | 307
+    | 308
+    | 400
+    | 401
+    | 402
+    | 403
+    | 404
+    | 405
+    | 406
+    | 407
+    | 408
+    | 409
+    | 410
+    | 411
+    | 412
+    | 413
+    | 414
+    | 415
+    | 416
+    | 417
+    | 421
+    | 422
+    | 423
+    | 424
+    | 426
+    | 428
+    | 429
+    | 431
+    | 451
+    | 500
+    | 501
+    | 502
+    | 503
+    | 504
+    | 505
+    | 506
+    | 507
+    | 508
+    | 510
+    | 511 // int32
+  /**
+   * The date and time that this error event occurred
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  dateTime?: string // date-time
+  /**
+   * The detailed information regarding this error event
+   */
+  description?: string
+  /**
+   * Gets or sets the list of validation errors.
+   */
+  errors?: {
+    /**
+     * Gets the field that the message applies to
+     */
+    readonly field?: string
+    /**
+     * Gets the validation failure message to issue to the client
+     */
+    readonly message?: string
+  }[]
+}
+/**
+ * Model for validation failure
+ */
+export interface ValidationMessageModel {
+  /**
+   * Gets the field that the message applies to
+   */
+  readonly field?: string
+  /**
+   * Gets the validation failure message to issue to the client
+   */
+  readonly message?: string
 }
 /**
  * Representation of the physical address of a building or premise
