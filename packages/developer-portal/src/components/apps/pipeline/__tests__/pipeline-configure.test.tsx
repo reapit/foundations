@@ -111,6 +111,7 @@ describe('getDefaultValues', () => {
       name: mockAppDetailModel?.name,
       buildCommand: 'build',
       branch: 'main',
+      outDir: 'build',
       packageManager: true,
     })
   })
