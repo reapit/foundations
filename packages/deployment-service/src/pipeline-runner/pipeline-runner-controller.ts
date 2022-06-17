@@ -168,10 +168,12 @@ export class PipelineRunnerController {
 
       pipelineRunner.currentlyDeployed = true
       pipelineRunner.buildStatus = 'COMPLETED'
+      if (pipelineRunner.pipeline) pipelineRunner.pipeline.buildStatus = 'SUCCEEDED'
 
       return this.pipelineRunnerProvider.save(pipelineRunner)
     } catch (e) {
       pipelineRunner.buildStatus = 'FAILED'
+      if (pipelineRunner.pipeline) pipelineRunner.pipeline.buildStatus = 'FAILED'
 
       return this.pipelineRunnerProvider.save(pipelineRunner)
     }
