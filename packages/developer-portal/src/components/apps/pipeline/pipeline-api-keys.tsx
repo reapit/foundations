@@ -107,8 +107,8 @@ export const ApiKeys: FC<ApiKeysProps> = ({ closeModal }) => {
   const [copyState, setCopyState] = useState<string>('')
   const [apiKeyId, setApiKeyId] = useState<string | null>(null)
   const { currentDeveloper } = globalDataState
-  const developerId = connectSession?.loginIdentity?.developerId ?? undefined
-  const email = connectSession?.loginIdentity?.email
+  const developerId = currentDeveloper?.id
+  const email = currentDeveloper?.email
 
   const [apiKeys, apiKeysLoading, , refreshApiKeys] = useReapitGet<ApiKeysResponse>({
     reapitConnectBrowserSession,
