@@ -13,9 +13,12 @@ process.env.NODE_ENV = 'local'
 const mockPipelineProvider = {
   findById: jest.fn(),
   create: jest.fn(),
+  update: jest.fn(),
 }
 
-class MockOwnershipProvider {}
+const mockOwnershipProvider = {
+  check: jest.fn(),
+}
 
 const mockPusherProvider = {
   trigger: jest.fn(),
@@ -46,7 +49,7 @@ describe('PipelineController', () => {
         },
         {
           provide: OwnershipProvider,
-          useClass: MockOwnershipProvider,
+          useValue: mockOwnershipProvider,
         },
         {
           provide: PusherProvider,
@@ -117,6 +120,81 @@ describe('PipelineController', () => {
         },
       )
 
+      expect(mockEventDispatcher.triggerPipelineSetup).not.toHaveBeenCalled()
+      expect(mockPusherProvider.trigger).toHaveBeenCalled()
+    })
+  })
+
+  describe('Update Pipeline', () => {
+    afterEach(() => {
+      jest.clearAllMocks()
+    })
+
+    it('Can trigger pipleine setup on update with infra condition to meet', async () => {
+      const pipelineController = app.get<PipelineController>(PipelineController)
+      const pipelineId = uuid()
+
+      mockPipelineProvider.findById.mockImplementationOnce(() => ({
+        ...mockPipeline,
+        id: pipelineId,
+        buildStatus: 'PRE_PROVISIONED',
+      }))
+      mockPipelineProvider.update.mockImplementationOnce((params) => {
+        return {
+          id: uuid(),
+          ...mockPipeline,
+          ...params,
+        }
+      })
+      mockOwnershipProvider.check.mockImplementationOnce(() => true)
+
+      await pipelineController.edit(
+        pipelineId,
+        {
+          developerId: 'developer-id',
+          type: 'jwt',
+        },
+        {
+          packageManager: PackageManagerEnum.YARN,
+          outDir: 'build',
+          buildStatus: 'PROVISION_REQUEST',
+        },
+      )
+
+      expect(mockEventDispatcher.triggerPipelineSetup).toHaveBeenCalled()
+      expect(mockPusherProvider.trigger).toHaveBeenCalled()
+    })
+
+    it('Standard update with no infra condition', async () => {
+      const pipelineController = app.get<PipelineController>(PipelineController)
+      const pipelineId = uuid()
+  
+      mockPipelineProvider.findById.mockImplementationOnce(() => ({
+        ...mockPipeline,
+        id: pipelineId,
+        buildStatus: 'SUCCEEDED',
+      }))
+      mockPipelineProvider.update.mockImplementationOnce((params) => {
+        return {
+          id: uuid(),
+          ...mockPipeline,
+          ...params,
+        }
+      })
+      mockOwnershipProvider.check.mockImplementationOnce(() => true)
+  
+      await pipelineController.edit(
+        pipelineId,
+        {
+          developerId: 'developer-id',
+          type: 'jwt',
+        },
+        {
+          packageManager: PackageManagerEnum.YARN,
+          outDir: 'build',
+        },
+      )
+  
       expect(mockEventDispatcher.triggerPipelineSetup).not.toHaveBeenCalled()
       expect(mockPusherProvider.trigger).toHaveBeenCalled()
     })
