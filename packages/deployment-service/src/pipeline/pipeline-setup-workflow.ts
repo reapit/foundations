@@ -55,7 +55,6 @@ export class PipelineSetupWorkflow extends AbstractWorkflow<PipelineEntity> {
     } catch (error) {
       await this.failedToDeploy(pipeline)
       console.error(error)
-      throw error
     } finally {
       await this.deleteMessage()
     }
@@ -170,7 +169,7 @@ export class PipelineSetupWorkflow extends AbstractWorkflow<PipelineEntity> {
     await Promise.all([
       this.pusherProvider.trigger(`private-${pipeline.developerId}`, 'pipeline-update', {
         ...pipeline,
-        message: 'Failed to architech',
+        message: 'Failed to architect',
       }),
       this.pipelineProvider.update(pipeline, {
         buildStatus: 'FAILED_TO_PROVISION',

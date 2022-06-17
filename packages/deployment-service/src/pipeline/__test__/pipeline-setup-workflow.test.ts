@@ -75,6 +75,10 @@ describe('PipelineSetupWorkflow', () => {
     }).compile()
   })
 
+  afterEach(() => {
+    jest.resetAllMocks()
+  })
+
   it('Successfully provision', async () => {
     const pipelineSetupWorkflow = module.get<PipelineSetupWorkflow>(PipelineSetupWorkflow)
     const pipelineId = uuid()
@@ -103,7 +107,7 @@ describe('PipelineSetupWorkflow', () => {
       body: JSON.stringify({
         id: pipelineId,
         developerId,
-        buildStatus: 'READY_FOR_DEPLOYMENT',
+        buildStatus: 'PROVISION_REQUEST',
       }),
     } as SQSRecord)
 
@@ -119,5 +123,41 @@ describe('PipelineSetupWorkflow', () => {
     })
     expect(mockCloudFrontClient.send).toHaveBeenCalled()
     expect(mockRoute53Client.send).toHaveBeenCalled()
+    expect(mockSqsProvider.deleteMessage).toHaveBeenCalled()
+  })
+
+  it('Failed to provision result', async () => {
+    const pipelineSetupWorkflow = module.get<PipelineSetupWorkflow>(PipelineSetupWorkflow)
+    const pipelineId = uuid()
+    const developerId = uuid()
+
+    mockCloudFrontClient.send.mockImplementationOnce(() => undefined)
+
+    mockPipelineProvider.update.mockImplementation((prev, dto) => ({
+      ...prev,
+      ...dto,
+    }))
+
+    await pipelineSetupWorkflow.run({
+      receiptHandle: 'receipt',
+      body: JSON.stringify({
+        id: pipelineId,
+        developerId,
+        buildStatus: 'PROVISION_REQUEST',
+      }),
+    } as SQSRecord)
+
+    console.log('test')
+
+    expect(mockPusherProvider.trigger).toHaveBeenLastCalledWith(`private-${developerId}`, 'pipeline-update', {
+      buildCommand: 'build',
+      buildStatus: 'FAILED_TO_PROVISION',
+      id: pipelineId,
+      message: 'Failed to architect',
+      outDir: 'build',
+      developerId,
+    })
+    expect(mockRoute53Client.send).not.toHaveBeenCalled()
+    expect(mockSqsProvider.deleteMessage).toHaveBeenCalled()
   })
 })
