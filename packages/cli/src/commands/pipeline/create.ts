@@ -307,7 +307,7 @@ export class PipelineCreate extends AbstractCommand {
         spinner.fail('Architecturing failed. Please report to Reapit.')
         process.exit(1)
       } else if (event.buildStatus === 'READY_FOR_DEPLOYMENT') {
-        await this.serialisePipelineJson(event)
+        fs.writeFileSync(resolve(process.cwd(), REAPIT_PIPELINE_CONFIG_FILE), this.serialisePipelineJson(event))
         this.end(spinner, event)
       }
     })

@@ -201,7 +201,7 @@ export class PipelineEditCommand extends AbstractCommand {
       spinner,
     )
 
-    this.serialisePipelineJson(updatedPipeline)
+    fs.writeFileSync(resolve(process.cwd(), REAPIT_PIPELINE_CONFIG_FILE), this.serialisePipelineJson(updatedPipeline))
     this.end(spinner, updatedPipeline)
     process.exit(0)
   }
