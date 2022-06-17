@@ -39,7 +39,7 @@ const diffStringList: { [k in keyof AppRevisionModel]: string } = {
 }
 
 export const isAppearInScope = (nameNeedToFind: string | undefined, scopes: ScopeModel[] = []): boolean => {
-  if (!nameNeedToFind || scopes.length === 0) {
+  if (!nameNeedToFind || !scopes?.length) {
     return false
   }
   const result = scopes.find((item: ScopeModel) => {
