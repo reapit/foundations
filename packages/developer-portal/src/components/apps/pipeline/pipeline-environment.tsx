@@ -168,7 +168,7 @@ export const PipelineEnvironment = () => {
           )}
           <ButtonGroup alignment="left">
             <Button intent="primary" onClick={openModal}>
-              Create Environment Variable:
+              Create Environment Variable
             </Button>
           </ButtonGroup>
         </>

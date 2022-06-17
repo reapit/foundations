@@ -40,7 +40,6 @@ export const validateConfig = (appPipeline: PipelineModelInterface | null) => {
 
     return true
   } catch (err) {
-    console.log(err)
     return false
   }
 }
@@ -75,7 +74,7 @@ export const handleSavePipeline =
       const signoutUri = `https://${savedPipeline.subDomain}.iaas.paas.reapit.cloud/login`
 
       if (!sanitisedAppDetail?.redirectUris?.includes(redirectUri)) {
-        sanitisedAppDetail?.redirectUris?.push()
+        sanitisedAppDetail?.redirectUris?.push(redirectUri)
       }
 
       if (!sanitisedAppDetail?.signoutUris?.includes(signoutUri)) {
@@ -115,6 +114,9 @@ export const PipelineControls: FC = () => {
   const { appDetail, appsDetailRefresh, appRefreshRevisions } = appsDataState
   const developerId = connectSession?.loginIdentity.developerId ?? null
   const isValidPipeline = validateConfig(appPipeline)
+  const hasGithubApp = Boolean(appPipeline?.installationId)
+  const hasBitbucketApp = Boolean(appPipeline?.bitbucketClientId)
+  const hasAppInstalled = hasGithubApp || hasBitbucketApp
 
   const [deleteLoading, , deleteFunc] = useReapitUpdate<void, boolean>({
     reapitConnectBrowserSession,
@@ -228,13 +230,14 @@ export const PipelineControls: FC = () => {
             disabled={
               pipelineDeploymentDisabled.includes(appPipeline.buildStatus as string) ||
               pipelineNotDeletable.includes(appPipeline.buildStatus as string) ||
-              appPipeline.buildStatus === 'QUEUED'
+              appPipeline.buildStatus === 'QUEUED' ||
+              !hasAppInstalled
             }
           >
             Deploy
           </Button>
         </>
-      ) : appPipeline && !isValidPipeline ? (
+      ) : appPipeline && !isValidPipeline && !pathname.includes('configure') ? (
         <Button
           className={elMb3}
           intent="secondary"
