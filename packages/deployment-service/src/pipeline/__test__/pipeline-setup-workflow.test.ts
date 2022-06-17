@@ -147,8 +147,6 @@ describe('PipelineSetupWorkflow', () => {
       }),
     } as SQSRecord)
 
-    console.log('test')
-
     expect(mockPusherProvider.trigger).toHaveBeenLastCalledWith(`private-${developerId}`, 'pipeline-update', {
       buildCommand: 'build',
       buildStatus: 'FAILED_TO_PROVISION',
