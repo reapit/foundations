@@ -42,6 +42,13 @@ export class AppEventWorkflow extends AbstractWorkflow<AppEventType> {
         if (!pipelines || pipelines.length === 0) return
 
         await Promise.all(pipelines.map((pipeline) => this.eventDispatcher.triggerPipelineTearDownStart(pipeline)))
+        await this.pipelineProvider.saveAll(
+          pipelines.map((pipeline) => {
+            pipeline.buildStatus = 'DELETION_REQUEST'
+
+            return pipeline
+          }),
+        )
         break
       }
       default:
