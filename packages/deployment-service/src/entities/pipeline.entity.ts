@@ -64,7 +64,9 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
   subDomain?: string
 
   @Column({ nullable: true })
-  @Exclude()
+  @Exclude({
+    toPlainOnly: true,
+  })
   cloudFrontId?: string
 
   @Column({ nullable: true })
@@ -84,6 +86,7 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
   branch?: string
 
   get hasDistro(): boolean {
+    console.log('tests', this.cloudFrontId)
     return this.cloudFrontId !== null && this.cloudFrontId !== undefined && this.cloudFrontId !== ''
   }
 
