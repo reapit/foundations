@@ -1,10 +1,10 @@
 import React from 'react'
-import { Button } from '@reapit/elements'
 
 import { useTypeList } from '@/components/hooks/objects/use-type-list'
 import { useCreateCustomEntity } from '@/components/hooks/custom-entities/use-create-custom-entity'
 import { ToolbarItem, ToolbarItemType } from '../toolbar'
 import { styled } from '@linaria/react'
+import { PlusButton } from '../components'
 
 export type TypeListProps = {
   onChange?: (value: string) => void
@@ -31,7 +31,7 @@ export const TypeList = ({ onChange }: TypeListProps) => {
           {loading ? 'Loading...' : 'Select a Type'}
         </option>
       </ToolbarItem>
-      <Button
+      <PlusButton
         loading={createLoading}
         onClick={() => {
           const typeName = prompt('Enter the name of the new type')
@@ -43,9 +43,7 @@ export const TypeList = ({ onChange }: TypeListProps) => {
             })
           }
         }}
-      >
-        Add New
-      </Button>
+      />
     </TypeListContainer>
   )
 }

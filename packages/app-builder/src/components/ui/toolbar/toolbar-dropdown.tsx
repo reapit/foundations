@@ -1,5 +1,5 @@
 import React from 'react'
-import { Select } from '@reapit/elements'
+import { AppBuilderSelect } from '../components'
 
 interface ToolBarDropdownProps {
   value: any
@@ -8,8 +8,8 @@ interface ToolBarDropdownProps {
 
 export const ToolbarDropdown: React.FC<ToolBarDropdownProps> = ({ value, onChange, children }) => {
   return (
-    <Select value={value} onChange={(e) => onChange(e.target.value)}>
+    <AppBuilderSelect value={value} onChange={(e) => onChange(e.target.value)}>
       {children}
-    </Select>
+    </AppBuilderSelect>
   )
 }

@@ -12,10 +12,11 @@ import { useObjectList } from '@/components/hooks/objects/use-object-list'
 import { useIntrospection } from '@/components/hooks/use-introspection'
 import { CreatePage } from './create-page'
 import { TypeList } from './type-list'
-import { Input, Label } from '@reapit/elements'
+import { Label } from '@reapit/elements'
 import { useObject } from '@/components/hooks/objects/use-object'
 import { uppercaseSentence } from './ejectable/utils'
 import { styled } from '@linaria/react'
+import { ToolbarCheckbox } from '../toolbar/toolbar-checkbox'
 
 const defaultProps = {}
 
@@ -40,6 +41,11 @@ const CheckboxContainer = styled.div`
   }
 `
 
+const ColumnControlLabel = styled(Label)`
+  display: flex;
+  margin-bottom: 8px;
+`
+
 const ColumnControls = ({
   availableFields,
   includedFields = [],
@@ -49,18 +55,16 @@ const ColumnControls = ({
   includedFields?: string[]
   setIncludedFields: (fields: string[]) => void
 }) => (
-  <>
+  <div>
+    <ColumnControlLabel>Fields</ColumnControlLabel>
     {availableFields
       .filter((field) => field !== 'id')
       .map((field) => (
         <CheckboxContainer key={field}>
-          <Input
+          <ToolbarCheckbox
             key={field}
-            type="checkbox"
-            name={field}
-            checked={includedFields.includes(field)}
-            onChange={(e) => {
-              const { checked } = e.target
+            value={includedFields.includes(field)}
+            onChange={(checked) => {
               const newFields = checked ? [...includedFields, field] : includedFields.filter((f) => f !== field)
               setIncludedFields(newFields)
             }}
@@ -68,7 +72,7 @@ const ColumnControls = ({
           <Label>{uppercaseSentence(field)}</Label>
         </CheckboxContainer>
       ))}
-  </>
+  </div>
 )
 const ContainerSettings = Container.craft.related.toolbar
 
@@ -132,8 +136,8 @@ const TableSettings = () => {
 
   return (
     <>
-      <ContainerSettings />
       <TypeList onChange={updateIn100ms} />
+      <ContainerSettings />
       <DestinationPage
         propKey="editPageId"
         title="Edit Page"
@@ -170,16 +174,8 @@ const TableSettings = () => {
           }
         />
       ))}
-      <ToolbarItem type={ToolbarItemType.Select} propKey="showControls" title="Show action buttons">
-        <option value="true">Yes</option>
-        <option value="">No</option>
-      </ToolbarItem>
-      {searchAvailable && (
-        <ToolbarItem type={ToolbarItemType.Select} propKey="showSearch" title="Show search bar">
-          <option value="true">Yes</option>
-          <option value="">No</option>
-        </ToolbarItem>
-      )}
+      <ToolbarItem type={ToolbarItemType.Checkbox} propKey="showControls" title="Show action buttons" />
+      {searchAvailable && <ToolbarItem type={ToolbarItemType.Checkbox} propKey="showSearch" title="Show search bar" />}
       <ColumnControls
         availableFields={availableFields}
         includedFields={includedFields}

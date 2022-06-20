@@ -5,6 +5,7 @@ import React, { FC, ReactNode } from 'react'
 
 import { ToolbarDropdown } from './toolbar-dropdown'
 import { ToolbarTextInput } from './toolbar-text-input'
+import { ToolbarCheckbox } from './toolbar-checkbox'
 import { ToolbarItemType } from './types'
 
 export type ToolbarItemProps = {
@@ -22,6 +23,7 @@ export type ToolbarItemProps = {
 const ToolbarItemContainer = styled.div`
   display: flex;
   align-items: center;
+  flex: 1;
 `
 
 export const ToolbarItem: FC<ToolbarItemProps> = ({
@@ -94,6 +96,23 @@ export const ToolbarItem: FC<ToolbarItemProps> = ({
         />
       )
       break
+    case ToolbarItemType.Checkbox:
+      component = (
+        <ToolbarCheckbox
+          value={!!value}
+          onChange={(value) => {
+            setProp((props) => (props[propKey] = value))
+            onChange && onChange('' + value)
+          }}
+          {...props}
+        />
+      )
+      return (
+        <ToolbarItemContainer>
+          <Label style={{ flex: 1 }}>{props.title}</Label>
+          {component}
+        </ToolbarItemContainer>
+      )
     default:
       return null
   }
