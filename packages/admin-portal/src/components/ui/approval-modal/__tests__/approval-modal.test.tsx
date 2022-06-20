@@ -10,6 +10,7 @@ import {
   handleOnDeclineSuccess,
   handleSetIsDeclineModal,
   handleSetIsApproveModal,
+  handleSendConstents,
 } from '../approval-modal'
 
 const props: ApprovalModalInnerProps = {
@@ -86,5 +87,20 @@ describe('handleSetIsApproveModal', () => {
     const fn = handleSetIsApproveModal({ setIsApproveModalOpen, isApproveModalOpen: true })
     fn()
     expect(setIsApproveModalOpen).toBeCalled()
+  })
+})
+
+describe('handleSendConstents', () => {
+  it('should send consent emails', () => {
+    const createConsentEmails = jest.fn()
+    const closeModal = jest.fn()
+    const email = 'mail@example.com'
+
+    const curried = handleSendConstents(createConsentEmails, closeModal, email)
+
+    curried()
+
+    expect(createConsentEmails).toHaveBeenCalledWith({ actionedBy: email })
+    expect(closeModal).toHaveBeenCalledTimes(1)
   })
 })

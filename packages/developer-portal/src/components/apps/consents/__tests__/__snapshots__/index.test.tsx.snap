@@ -99,8 +99,14 @@ Object {
       <div
         class="ecbqyq6-el-snack-holder"
       />
+      <h1
+        class="evblxhy-el-title"
+      >
+        will-test-dev-co-voracious-person
+         Consents
+      </h1>
       <div
-        class="epibvz0-el-intent-secondary evmehgn-el-is-active e1qwk99x-el-pn-is-full-width e15e3rd4-el-pn-is-inline erhlo5n-el-persistent-notification"
+        class="ec47sgk-el-mb11 epibvz0-el-intent-secondary evmehgn-el-is-active e1qwk99x-el-pn-is-full-width e15e3rd4-el-pn-is-inline erhlo5n-el-persistent-notification"
       >
         <div
           class="eta6kcl-el-pn-icon"
@@ -126,7 +132,20 @@ Object {
         <div
           class="e1geon40-el-pn-content"
         >
-          No record of any consents for this app
+          No record of any consents for this app - it looks like you need to send an email requesting that your customers agree to your new permission settings. You can do this below or our team will do it as part of the review process.
+        </div>
+      </div>
+      <div
+        class="eay05y4-el-button-group"
+      >
+        <div
+          class="e1cpt8yd-el-button-group-align-left ebqwrow-el-button-group-inner"
+        >
+          <button
+            class="ebee6r1-el-intent-primary e1f2ikqj-el-button-fixed-width eqfkc7t-el-button"
+          >
+            Send Requests
+          </button>
         </div>
       </div>
     </div>
@@ -135,8 +154,14 @@ Object {
     <div
       class="ecbqyq6-el-snack-holder"
     />
+    <h1
+      class="evblxhy-el-title"
+    >
+      will-test-dev-co-voracious-person
+       Consents
+    </h1>
     <div
-      class="epibvz0-el-intent-secondary evmehgn-el-is-active e1qwk99x-el-pn-is-full-width e15e3rd4-el-pn-is-inline erhlo5n-el-persistent-notification"
+      class="ec47sgk-el-mb11 epibvz0-el-intent-secondary evmehgn-el-is-active e1qwk99x-el-pn-is-full-width e15e3rd4-el-pn-is-inline erhlo5n-el-persistent-notification"
     >
       <div
         class="eta6kcl-el-pn-icon"
@@ -162,7 +187,20 @@ Object {
       <div
         class="e1geon40-el-pn-content"
       >
-        No record of any consents for this app
+        No record of any consents for this app - it looks like you need to send an email requesting that your customers agree to your new permission settings. You can do this below or our team will do it as part of the review process.
+      </div>
+    </div>
+    <div
+      class="eay05y4-el-button-group"
+    >
+      <div
+        class="e1cpt8yd-el-button-group-align-left ebqwrow-el-button-group-inner"
+      >
+        <button
+          class="ebee6r1-el-intent-primary e1f2ikqj-el-button-fixed-width eqfkc7t-el-button"
+        >
+          Send Requests
+        </button>
       </div>
     </div>
   </div>,

@@ -26,6 +26,7 @@ export class PipelineRunnerEntity extends AbstractEntity implements PipelineRunn
   @ManyToOne(() => PipelineEntity, (pipeline) => pipeline.runners, {
     cascade: true,
   })
+  @Type(() => PipelineEntity)
   pipeline?: PipelineEntity
 
   @Column({ nullable: true, type: 'varchar' })

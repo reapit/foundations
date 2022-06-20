@@ -63,7 +63,7 @@ Object {
             <span
               class="eulcr0n-el-tabs-item"
             >
-              Environment
+              Environment Variables
             </span>
           </label>
         </div>
@@ -132,7 +132,7 @@ Object {
           <span
             class="eulcr0n-el-tabs-item"
           >
-            Environment
+            Environment Variables
           </span>
         </label>
       </div>

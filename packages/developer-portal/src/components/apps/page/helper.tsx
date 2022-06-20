@@ -272,15 +272,15 @@ export const Helper: FC = () => {
         <Subtitle>App Consents</Subtitle>
         <SmallText hasGreyText>
           This page is visible because you have requested new permissions as part of your current outstanding app
-          revision. We have emailed each of the customers who installed your app, requesting they agree to the new
-          permissions you have requested.
+          revision. An email will be sent to each of the customers who installed your app, requesting they agree to the
+          new permissions you have requested.
         </SmallText>
         <SmallText hasGreyText>
           Each customer will have to agree to the new permission before our team can approve your revision. You can
           either track this process here or reach out to your customer to expedite their response to our message.
         </SmallText>
         <SmallText hasGreyText>You can also request that the email is re-sent to each customer individually.</SmallText>
-        <Button className={elMb3} intent="neutral" onClick={openNewPage(ExternalPages.developerPortalDocs)}>
+        <Button className={elMb3} intent="neutral" onClick={openNewPage(ExternalPages.appPermissionsDocs)}>
           View Docs
         </Button>
       </div>

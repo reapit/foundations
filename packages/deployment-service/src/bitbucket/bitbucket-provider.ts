@@ -5,16 +5,35 @@ import { Repository } from 'typeorm'
 import * as jwt from 'atlassian-jwt'
 import { HttpService } from '@nestjs/axios'
 import { firstValueFrom } from 'rxjs'
+import { PipelineProvider } from '../pipeline'
+import { PipelineEntity } from '@/entities/pipeline.entity'
+
+type PaginatedRepositories = {
+  pagelen: number
+  values: {
+    full_name: string
+    links: {
+      html: {
+        href: string
+      }
+    }
+  }[]
+}
 
 @Injectable()
 export class BitbucketProvider {
   constructor(
     @InjectRepository(BitbucketClientEntity) private readonly repository: Repository<BitbucketClientEntity>,
     private readonly httpService: HttpService,
+    private readonly pipelineProvider: PipelineProvider,
   ) {}
 
   async create(clientKey: string, data: any) {
     delete data.sharedSecret
+
+    const existing = await this.findByClientKey(clientKey)
+
+    if (existing) await this.delete(existing)
 
     return this.repository.save(
       this.repository.create({
@@ -24,8 +43,40 @@ export class BitbucketProvider {
     )
   }
 
+  async delete(bitbucketClient: BitbucketClientEntity): Promise<void> {
+    await this.pipelineProvider.removeBitbucketClient(bitbucketClient)
+    await this.repository.delete({ clientKey: bitbucketClient.clientKey })
+  }
+
   async findByClientKey(clientKey: string): Promise<BitbucketClientEntity | undefined> {
     return this.repository.findOne({ clientKey })
+  }
+
+  async listRepositories(client: BitbucketClientEntity): Promise<PaginatedRepositories> {
+    const token = await this.getBitBucketToken({ key: client.data.key, clientKey: client.clientKey })
+    const response = await firstValueFrom(
+      this.httpService.get(`${client.data.baseApiUrl}/2.0/repositories/${client.data.principal.uuid}`, {
+        headers: {
+          Authorization: `Bearer ${token.access_token}`,
+        },
+      }),
+    )
+
+    return response.data
+  }
+
+  async installClient(clientKey: string, data: any): Promise<PipelineEntity[]> {
+    const client = await this.create(clientKey, data)
+    // TODO loop until all pages complete?
+    const repositories = await this.listRepositories(client)
+
+    const pipelines = await this.pipelineProvider.findByRepos(repositories.values.map((repo) => repo.links.html.href))
+
+    pipelines.forEach((pipeline) => {
+      pipeline.bitbucketClient = client
+    })
+
+    return this.pipelineProvider.saveAll(pipelines)
   }
 
   async getBitBucketToken({ key, clientKey }: { key: string; clientKey: string }): Promise<{ access_token: string }> {

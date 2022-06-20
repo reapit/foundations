@@ -36,7 +36,7 @@ export class VersionCommand extends AbstractCommand {
       await this.axios(spinner)
     ).post(`pipeline/${pipelineId}/pipeline-runner/${pipelineRunnerId}/deploy`)
 
-    if (response.status !== 200) {
+    if (response.status !== 201) {
       let message: string
       switch (response.status) {
         case 404:
@@ -122,7 +122,7 @@ export class VersionCommand extends AbstractCommand {
     spinner.info(`Deploying version [${answers.version}]`)
     spinner.start('Deploying...')
 
-    const version = runners.items.find((runner) => runner.buildVersion === answers.version.split(' ').shift())
+    const version = runners.items.find((runner) => answers.version.includes(runner.id as string))
 
     if (version?.currentlyDeployed) {
       spinner.fail('Cannot deploy, currently deployed release')

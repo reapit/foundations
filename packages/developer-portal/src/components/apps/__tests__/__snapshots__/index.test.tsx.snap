@@ -8,68 +8,12 @@ Object {
       <div
         class="ecbqyq6-el-snack-holder"
       />
-      <div
-        class="eoxpwv-el-flex-auto e2kmzjs-el-flex-container"
-      >
-        <aside
-          class="e93m1fg-el-secondary-nav-container"
-        >
-          <h1
-            class="evblxhy-el-title"
-          >
-            Apps
-          </h1>
-        </aside>
-        <section
-          class="e12d7zo5-el-hfull eukst9x-el-page-container"
-        >
-          <div
-            class="ebhrnzh-el-loader-container"
-          >
-            <div
-              class="eq1m1jz-el-loader"
-            >
-              <div
-                class="exikdu1-el-loader-moving-bar"
-              />
-            </div>
-          </div>
-        </section>
-      </div>
     </div>
   </body>,
   "container": <div>
     <div
       class="ecbqyq6-el-snack-holder"
     />
-    <div
-      class="eoxpwv-el-flex-auto e2kmzjs-el-flex-container"
-    >
-      <aside
-        class="e93m1fg-el-secondary-nav-container"
-      >
-        <h1
-          class="evblxhy-el-title"
-        >
-          Apps
-        </h1>
-      </aside>
-      <section
-        class="e12d7zo5-el-hfull eukst9x-el-page-container"
-      >
-        <div
-          class="ebhrnzh-el-loader-container"
-        >
-          <div
-            class="eq1m1jz-el-loader"
-          >
-            <div
-              class="exikdu1-el-loader-moving-bar"
-            />
-          </div>
-        </div>
-      </section>
-    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

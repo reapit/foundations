@@ -55,7 +55,7 @@ export const PipelineTabs: FC = () => {
         {
           id: 'environment',
           value: 'environment',
-          text: 'Environment',
+          text: 'Environment Variables',
           isChecked: pathname.includes('environment'),
         },
       ]}

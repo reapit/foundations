@@ -12,13 +12,11 @@ import { PipelineCommand } from './commands/pipeline'
 import { resolveArgs } from './utils/resolveArgs'
 import { BootstrapCommand } from './commands/bootstrap'
 import { ReleaseCommand } from './commands/release'
-// TODO upcomment with @reapit/cli has been published
-// import { CheckVersionCommand } from './commands/check-version'
+import { CheckVersionCommand } from './commands/check-version'
 
 const checkVersion = async () => {
-  // TODO upcomment with @reapit/cli has been published
-  // const checkVersion = new CheckVersionCommand()
-  // await checkVersion.run()
+  const checkVersion = new CheckVersionCommand()
+  await checkVersion.run()
 }
 
 const boot = async (defaultCommand: AbstractCommand, commands: (AbstractCommand | ParentCommand)[]) => {

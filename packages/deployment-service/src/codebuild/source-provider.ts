@@ -1,7 +1,7 @@
 import { BitbucketClientData } from '../entities/bitbucket-client.entity'
 import { PipelineRunnerEntity } from '../entities/pipeline-runner.entity'
 import { PipelineEntity } from '../entities/pipeline.entity'
-import { BitBucketEvent, BitbucketProvider } from '../bitbucket'
+import { BitbucketProvider } from '../bitbucket'
 import { S3Provider } from '../s3'
 import { Injectable } from '@nestjs/common'
 import { App } from '@octokit/app'
@@ -23,18 +23,16 @@ export class SoruceProvider {
     pipeline,
     pipelineRunner,
     client,
-    event,
   }: {
     pipeline: PipelineEntity
     pipelineRunner: PipelineRunnerEntity
     client?: BitbucketClientData
-    event?: BitBucketEvent
   }): Promise<string> {
     if (!pipeline.repository) {
       throw new Error('Pipeline repository is not configured')
     }
 
-    if (!client || !event) {
+    if (!client) {
       throw new Error('Cannot process bitbucket source request without client or event')
     }
 
@@ -42,10 +40,6 @@ export class SoruceProvider {
     const url = `${this.baseBitbucketUrl}/${parts[parts.length - 2]}/${parts[parts.length - 1]}/get/${
       pipeline.branch
     }.zip`
-
-    if (!client) {
-      throw new Error('Cannot pull from bitbucket without client data')
-    }
 
     const tokenData = await this.bitbucketProvider.getBitBucketToken({
       key: client.key,
@@ -55,8 +49,10 @@ export class SoruceProvider {
     const result = await firstValueFrom(
       this.httpService.get(url, {
         headers: {
-          Authorization: event?.data.repository.is_private ? `Bearer ${tokenData.access_token}` : '',
+          Authorization: `Bearer ${tokenData.access_token}`,
+          'Content-type': 'application/zip',
         },
+        responseType: 'arraybuffer',
       }),
     )
 
@@ -64,15 +60,15 @@ export class SoruceProvider {
       throw new Error('failed to fetch zip from bitbucket')
     }
 
-    const buffer = Buffer.from(result.data)
+    const Key = `${pipelineRunner.id as string}.zip`
 
-    const uploadResult = await this.s3Provider.upload({
+    await this.s3Provider.upload({
       Bucket: process.env.DEPLOYMENT_REPO_CACHE_BUCKET_NAME as string,
-      Key: `${pipelineRunner.id as string}.zip`,
-      Body: buffer,
+      Key,
+      Body: result.data,
     })
 
-    return [process.env.DEPLOYMENT_REPO_CACHE_BUCKET_NAME as string, uploadResult.Key].join('/')
+    return [process.env.DEPLOYMENT_REPO_CACHE_BUCKET_NAME as string, Key].join('/')
   }
 
   async downloadGithubSourceToS3(pipeline: PipelineEntity, pipelineRunner: PipelineRunnerEntity): Promise<string> {

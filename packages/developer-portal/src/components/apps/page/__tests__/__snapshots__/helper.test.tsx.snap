@@ -2619,7 +2619,7 @@ Object {
         <p
           class="e11jaxfn-el-has-grey-text e1wasvgh-el-small-text"
         >
-          This page is visible because you have requested new permissions as part of your current outstanding app revision. We have emailed each of the customers who installed your app, requesting they agree to the new permissions you have requested.
+          This page is visible because you have requested new permissions as part of your current outstanding app revision. An email will be sent to each of the customers who installed your app, requesting they agree to the new permissions you have requested.
         </p>
         <p
           class="e11jaxfn-el-has-grey-text e1wasvgh-el-small-text"
@@ -2756,7 +2756,7 @@ Object {
       <p
         class="e11jaxfn-el-has-grey-text e1wasvgh-el-small-text"
       >
-        This page is visible because you have requested new permissions as part of your current outstanding app revision. We have emailed each of the customers who installed your app, requesting they agree to the new permissions you have requested.
+        This page is visible because you have requested new permissions as part of your current outstanding app revision. An email will be sent to each of the customers who installed your app, requesting they agree to the new permissions you have requested.
       </p>
       <p
         class="e11jaxfn-el-has-grey-text e1wasvgh-el-small-text"
@@ -3031,23 +3031,24 @@ Object {
         </p>
         <button
           class="esplruv-el-mb3 ebee6r1-el-intent-primary eqfkc7t-el-button"
+          disabled=""
         >
           Deploy
         </button>
         <button
           class="esplruv-el-mb3 epibvz0-el-intent-secondary eqfkc7t-el-button"
         >
-          Deploy CLI
-        </button>
-        <button
-          class="esplruv-el-mb3 epibvz0-el-intent-secondary eqfkc7t-el-button"
-        >
-          Api Keys
+          API Keys
         </button>
         <button
           class="esplruv-el-mb3 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
         >
           Delete Pipeline
+        </button>
+        <button
+          class="esplruv-el-mb3 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
+        >
+          View Docs
         </button>
       </div>
     </div>
@@ -3250,23 +3251,24 @@ Object {
       </p>
       <button
         class="esplruv-el-mb3 ebee6r1-el-intent-primary eqfkc7t-el-button"
+        disabled=""
       >
         Deploy
       </button>
       <button
         class="esplruv-el-mb3 epibvz0-el-intent-secondary eqfkc7t-el-button"
       >
-        Deploy CLI
-      </button>
-      <button
-        class="esplruv-el-mb3 epibvz0-el-intent-secondary eqfkc7t-el-button"
-      >
-        Api Keys
+        API Keys
       </button>
       <button
         class="esplruv-el-mb3 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
       >
         Delete Pipeline
+      </button>
+      <button
+        class="esplruv-el-mb3 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
+      >
+        View Docs
       </button>
     </div>
   </div>,

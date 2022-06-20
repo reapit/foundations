@@ -52,8 +52,8 @@ export class PipelineController {
     const previousPipeline = await this.pipelineProvider.findById(dto.appId as string)
 
     const pipeline = await this.pipelineProvider.create({
-      ...dto,
       ...previousPipeline,
+      ...dto,
       developerId: creds.developerId as string,
       clientId: creds.clientId,
       buildStatus: previousPipeline ? 'READY_FOR_DEPLOYMENT' : undefined,
@@ -104,8 +104,7 @@ export class PipelineController {
 
     await this.pusherProvider.trigger(`private-${pipeline.developerId}`, 'pipeline-update', {
       message: 'updating pipeline',
-      updatedPipeline,
-      pipeline,
+      ...updatedPipeline,
     })
 
     if (setupInfra) {
@@ -130,11 +129,11 @@ export class PipelineController {
     }
 
     const updatedPipeline = await this.pipelineProvider.update(pipeline, {
-      buildStatus: 'DELETING',
+      buildStatus: 'DELETION_REQUEST',
     })
 
     await Promise.all([
-      this.pusherProvider.trigger(`private-${pipeline?.developerId}`, 'pipeline-delete', updatedPipeline),
+      this.pusherProvider.trigger(`private-${pipeline?.developerId}`, 'pipeline-update', updatedPipeline),
       this.eventDispatcher.triggerPipelineTearDownStart(pipeline),
     ])
 

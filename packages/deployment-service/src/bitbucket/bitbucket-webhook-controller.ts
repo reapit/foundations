@@ -1,5 +1,5 @@
 import { BitbucketClientData, BitbucketClientEntity } from '../entities/bitbucket-client.entity'
-import { EventDispatcher } from '../events'
+import { EventDispatcher, PusherProvider } from '../events'
 import { PipelineProvider } from '../pipeline'
 import { PipelineRunnerProvider } from '../pipeline-runner'
 import {
@@ -25,6 +25,7 @@ export class BitBucketWebhookController {
     private readonly eventDispatcher: EventDispatcher,
     private readonly pipelineProvider: PipelineProvider,
     private readonly pipelineRunnerProvider: PipelineRunnerProvider,
+    private readonly pusherProvider: PusherProvider,
   ) {}
 
   @Get()
@@ -72,6 +73,18 @@ export class BitBucketWebhookController {
     }
   }
 
+  protected async installClient(clientKey: string, data: any): Promise<void> {
+    const pipelines = await this.bitbucketProvider.installClient(clientKey, data)
+
+    await this.pusherProvider.triggerArray(
+      pipelines.map((pipeline) => ({
+        channel: `private-${pipeline.developerId}`,
+        name: 'pipeline-update',
+        data: pipeline,
+      })),
+    )
+  }
+
   protected async handlePushEvent(event: BitBucketEvent, client: BitbucketClientData) {
     const pipeline = await this.pipelineProvider.findByRepo(`https://bitbucket.org/${event.data.repository.full_name}`)
 
@@ -96,6 +109,9 @@ export class BitBucketWebhookController {
       type: PipelineRunnerType.REPO,
       pipeline,
     })
+    await Promise.all([
+      this.pusherProvider.trigger(`private-${pipeline.developerId}`, 'pipeline-runner-update', pipelineRunner),
+    ])
 
     await this.eventDispatcher.triggerCodebuildExecutor({
       pipeline: pipelineRunner.pipeline,
@@ -108,7 +124,7 @@ export class BitBucketWebhookController {
   protected async handleEventTypes(event: { eventType: string; clientKey: string }) {
     switch (event.eventType) {
       case 'installed':
-        await this.bitbucketProvider.create(event.clientKey, event)
+        await this.installClient(event.clientKey, event)
         break
       case 'uninstalled':
         // TODO disable pipeline

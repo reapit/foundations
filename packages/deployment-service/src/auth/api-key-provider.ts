@@ -1,5 +1,5 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common'
-import { resolveApiKey } from '@reapit/api-key-verify'
+import { ApiKeyModel, resolveApiKey } from '@reapit/api-key-verify'
 
 export type Credentials = {
   developerId: string
@@ -13,7 +13,14 @@ export class ApiKeyProvider {
       throw new UnauthorizedException()
     }
 
-    const creds = await resolveApiKey(apiKey, process.env.API_KEY_INVOKE_ARN?.includes('prod'))
+    let creds: ApiKeyModel
+
+    try {
+      creds = await resolveApiKey(apiKey, process.env.API_KEY_INVOKE_ARN?.includes('prod'))
+    } catch (e) {
+      console.error(e)
+      throw new UnauthorizedException()
+    }
 
     return {
       developerId: creds?.developerId as string,

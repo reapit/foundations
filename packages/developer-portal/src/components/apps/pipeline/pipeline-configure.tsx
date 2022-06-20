@@ -20,7 +20,6 @@ import {
 import { httpsUrlRegex, UpdateActionNames, updateActions } from '@reapit/utils-common'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
-import errorMessages from '@/constants/error-messages'
 import { useReapitUpdate } from '@reapit/utils-react'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
@@ -46,6 +45,7 @@ type PipelineModelSchema = Omit<
   | 'testCommand'
   | 'installationId'
   | 'repositoryId'
+  | 'bitbucketClientId'
 > & {
   packageManager: boolean
 }
@@ -55,8 +55,15 @@ const schema: SchemaOf<PipelineModelSchema> = object().shape({
   branch: string().required('Required - eg "main", "master"').test(specialCharsTest),
   repository: string()
     .trim()
-    .required(errorMessages.FIELD_REQUIRED)
-    .matches(httpsUrlRegex, 'Should be a secure https url'),
+    .test({
+      name: 'isValidDescription',
+      message: 'Should be a secure https url if supplied',
+      test: (value) => {
+        if (!value) return true
+        return httpsUrlRegex.test(value)
+      },
+    })
+    .test(specialCharsTest),
   buildCommand: string().trim().required('A build command is required eg "build" or "bundle"').test(specialCharsTest),
   packageManager: boolean().required('Required - either yarn or NPM'),
   outDir: string().required('Required eg "dist" or "public').test(specialCharsTest),
@@ -70,12 +77,18 @@ export const handlePipelineUpdate =
     appId: string | null,
   ) =>
   async (values: PipelineModelSchema) => {
-    const result = await updatePipeline({
+    const updateModel = {
       ...values,
       packageManager: values.packageManager ? PackageManagerEnum.YARN : PackageManagerEnum.NPM,
       appId: appId ?? '',
       appType: AppTypeEnum.REACT, // TODO make this an option
-    })
+    }
+
+    if (!updateModel.repository) {
+      delete updateModel.repository
+    }
+
+    const result = await updatePipeline(updateModel)
 
     if (result) {
       setAppPipelineSaving(false)
@@ -114,6 +127,7 @@ export const getDefaultValues = (appPipeline: PipelineModelInterface | null, app
   return {
     name: appDetail?.name,
     buildCommand: 'build',
+    outDir: 'build',
     branch: 'main',
     packageManager: true,
   }
@@ -164,7 +178,7 @@ export const PipelineConfigure: FC = () => {
   return (
     <>
       {!location.pathname.includes('new') && <PipelineTabs />}
-      <BodyText hasGreyText hasSectionMargin>
+      <BodyText hasGreyText>
         Tell us about how we should build your application here. We assume that your application is a front end app and
         that, it uses either yarn or npm to run scripts decalared in a package.json file. We assume also that your
         application is bundled and that bundle is output to a local directory that we can deploy for you.

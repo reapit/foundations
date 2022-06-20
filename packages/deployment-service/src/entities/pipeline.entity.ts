@@ -1,26 +1,17 @@
-import { AppTypeEnum, PackageManagerEnum, PipelineModelInterface } from '@reapit/foundations-ts-definitions'
-import { Column, Entity, OneToMany } from 'typeorm'
+import {
+  AppTypeEnum,
+  PackageManagerEnum,
+  pipelineDeploymentDisabled,
+  PipelineModelInterface,
+  pipelineNotDeletable,
+  PipelineBuildStatus,
+} from '@reapit/foundations-ts-definitions'
+import { Column, Entity, ManyToOne, OneToMany } from 'typeorm'
 import { AbstractEntity } from './abstract-entity'
 import { PipelineRunnerEntity } from './pipeline-runner.entity'
-import { PipelineBuildStatus } from '../pipeline/pipeline-dto'
+import { BitbucketClientEntity } from './bitbucket-client.entity'
+import { Exclude, Type } from 'class-transformer'
 
-export const pipelineDeploymentDisabled = [
-  'PROVISIONING',
-  'PROVISION_REQUEST',
-  'FAILED_TO_PROVISION',
-  'PRE_PROVISIONED',
-  'DELETING',
-  'DELETED',
-  'SCHEDULED_FOR_DELETION',
-]
-export const pipelineNotDeletable = [
-  'IN_PROGRESS',
-  'DELETING',
-  'PROVISION_REQUEST',
-  'PROVISIONING',
-  'QUEUED',
-  'SCHEDULED_FOR_DELETION',
-]
 @Entity('pipelines')
 export class PipelineEntity extends AbstractEntity implements PipelineModelInterface {
   @Column()
@@ -41,11 +32,21 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
   })
   packageManager?: PackageManagerEnum
 
-  @Column()
+  @Column({ nullable: true, default: null })
   repository?: string
 
   @OneToMany(() => PipelineRunnerEntity, (pipelineRunner) => pipelineRunner.pipeline)
   runners?: PipelineRunnerEntity[]
+
+  @ManyToOne(() => BitbucketClientEntity, (bitbucketClient) => bitbucketClient.pipelines, { eager: true })
+  @Exclude({
+    toPlainOnly: true,
+  })
+  @Type(() => BitbucketClientEntity)
+  bitbucketClient?: BitbucketClientEntity
+
+  @Column()
+  bitbucketClientId?: string
 
   @Column()
   developerId?: string
@@ -63,9 +64,11 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
   subDomain?: string
 
   @Column({ nullable: true })
+  @Exclude()
   cloudFrontId?: string
 
   @Column({ nullable: true })
+  @Exclude()
   aRecordId?: string
 
   @Column()

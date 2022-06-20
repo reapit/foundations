@@ -25,6 +25,83 @@ export interface AdditionalContactDetailModel {
   value?: string
 }
 /**
+ * Model for exposing error details to API consumers
+ */
+export interface ApiErrorModel {
+  statusCode?:
+    | 100
+    | 101
+    | 102
+    | 103
+    | 200
+    | 201
+    | 202
+    | 203
+    | 204
+    | 205
+    | 206
+    | 207
+    | 208
+    | 226
+    | 300
+    | 301
+    | 302
+    | 303
+    | 304
+    | 305
+    | 306
+    | 307
+    | 308
+    | 400
+    | 401
+    | 402
+    | 403
+    | 404
+    | 405
+    | 406
+    | 407
+    | 408
+    | 409
+    | 410
+    | 411
+    | 412
+    | 413
+    | 414
+    | 415
+    | 416
+    | 417
+    | 421
+    | 422
+    | 423
+    | 424
+    | 426
+    | 428
+    | 429
+    | 431
+    | 451
+    | 500
+    | 501
+    | 502
+    | 503
+    | 504
+    | 505
+    | 506
+    | 507
+    | 508
+    | 510
+    | 511 // int32
+  /**
+   * The date and time that this error event occurred
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  dateTime?: string // date-time
+  /**
+   * The detailed information regarding this error event
+   */
+  description?: string
+}
+/**
  * The details specific to applicants with a marketingMode of buying
  */
 export interface ApplicantBuyingModel {
@@ -389,6 +466,10 @@ export interface ApplicantModel {
    * The applicant's selling position (nothingToSell/renting/sellingWithUs/sellingWithOtherAgent/sellingPrivately/notYetOnMarket)
    */
   sellingPosition?: string
+  /**
+   * The status id of the applicant
+   */
+  statusId?: string
   /**
    * The date when the applicant was last contacted
    * example:
@@ -778,6 +859,10 @@ export interface ApplicantModelPagedResult {
      * The applicant's selling position (nothingToSell/renting/sellingWithUs/sellingWithOtherAgent/sellingPrivately/notYetOnMarket)
      */
     sellingPosition?: string
+    /**
+     * The status id of the applicant
+     */
+    statusId?: string
     /**
      * The date when the applicant was last contacted
      * example:
@@ -2531,7 +2616,13 @@ export interface CompanyRoleModelPagedResult {
     }
   }
 }
+export interface ConfigurationApplicantStatuses {
+  id?: string[]
+}
 export interface ConfigurationCompanyTypes {
+  id?: string[]
+}
+export interface ConfigurationContactCategories {
   id?: string[]
 }
 export interface ConfigurationTypes {
@@ -2828,6 +2919,10 @@ export interface ContactModel {
    * A collection of unique identifiers of negotiators attached to the contact. The first item in the collection is considered the primary negotiator
    */
   negotiatorIds?: string[]
+  /**
+   * A collection of categories associated to the contact.
+   */
+  categoryIds?: string[]
   /**
    * A flag determining whether or not the contact is happy to receive communications by letter
    */
@@ -3139,6 +3234,10 @@ export interface ContactModelPagedResult {
      * A collection of unique identifiers of negotiators attached to the contact. The first item in the collection is considered the primary negotiator
      */
     negotiatorIds?: string[]
+    /**
+     * A collection of categories associated to the contact.
+     */
+    categoryIds?: string[]
     /**
      * A flag determining whether or not the contact is happy to receive communications by letter
      */
@@ -4756,6 +4855,10 @@ export interface CreateContactModel {
    */
   negotiatorIds: string[]
   /**
+   * A collection of categories associated to the contact.
+   */
+  categoryIds?: string[]
+  /**
    * Request body used to set an address against a new contact
    */
   primaryAddress?: {
@@ -5898,6 +6001,10 @@ export interface CreatePropertyLettingModel {
    */
   worksOrderNote?: string
   /**
+   * Sets the minimum number of months the property can be let out for
+   */
+  minimumTerm?: number // int32
+  /**
    * Request body used to set the commission fee for a property
    */
   managementFee?: {
@@ -6368,6 +6475,10 @@ export interface CreatePropertyModel {
      * A note to accompany any works orders created for the property
      */
     worksOrderNote?: string
+    /**
+     * Sets the minimum number of months the property can be let out for
+     */
+    minimumTerm?: number // int32
     /**
      * Request body used to set the commission fee for a property
      */
@@ -7845,6 +7956,68 @@ export interface GuernseyModel {
    */
   market?: string[]
 }
+export type HttpStatusCode =
+  | 100
+  | 101
+  | 102
+  | 103
+  | 200
+  | 201
+  | 202
+  | 203
+  | 204
+  | 205
+  | 206
+  | 207
+  | 208
+  | 226
+  | 300
+  | 301
+  | 302
+  | 303
+  | 304
+  | 305
+  | 306
+  | 307
+  | 308
+  | 400
+  | 401
+  | 402
+  | 403
+  | 404
+  | 405
+  | 406
+  | 407
+  | 408
+  | 409
+  | 410
+  | 411
+  | 412
+  | 413
+  | 414
+  | 415
+  | 416
+  | 417
+  | 421
+  | 422
+  | 423
+  | 424
+  | 426
+  | 428
+  | 429
+  | 431
+  | 451
+  | 500
+  | 501
+  | 502
+  | 503
+  | 504
+  | 505
+  | 506
+  | 507
+  | 508
+  | 510
+  | 511 // int32
 /**
  * Representation of a contact identity check
  */
@@ -10827,6 +11000,10 @@ export interface PropertyLettingModel {
    */
   worksOrderNote?: string
   /**
+   * The minimum number of months the property can be let out for
+   */
+  minimumTerm?: number // int32
+  /**
    * The unique identifier of the negotiator that manages the property
    */
   propertyManagerId?: string
@@ -11429,6 +11606,10 @@ export interface PropertyModel {
      * A note to accompany any works orders created for the property
      */
     worksOrderNote?: string
+    /**
+     * The minimum number of months the property can be let out for
+     */
+    minimumTerm?: number // int32
     /**
      * The unique identifier of the negotiator that manages the property
      */
@@ -12135,6 +12316,10 @@ export interface PropertyModelPagedResult {
        * A note to accompany any works orders created for the property
        */
       worksOrderNote?: string
+      /**
+       * The minimum number of months the property can be let out for
+       */
+      minimumTerm?: number // int32
       /**
        * The unique identifier of the negotiator that manages the property
        */
@@ -15548,6 +15733,10 @@ export interface UpdateContactModel {
    */
   negotiatorIds?: string[]
   /**
+   * A collection of categories associated to the contact.
+   */
+  categoryIds?: string[]
+  /**
    * Request body used to update an address on an existing contact
    */
   primaryAddress?: {
@@ -16509,6 +16698,10 @@ export interface UpdatePropertyLettingModel {
    */
   worksOrderNote?: string
   /**
+   * Sets the minimum number of months the property can be let out for
+   */
+  minimumTerm?: number // int32
+  /**
    * Request body used to update the commission fee for a property
    */
   managementFee?: {
@@ -16983,6 +17176,10 @@ export interface UpdatePropertyModel {
      * A note to accompany any works orders created for the property
      */
     worksOrderNote?: string
+    /**
+     * Sets the minimum number of months the property can be let out for
+     */
+    minimumTerm?: number // int32
     /**
      * Request body used to update the commission fee for a property
      */
@@ -17781,6 +17978,109 @@ export interface UtilityModel {
    * The unique identifier of the company supplying the cable tv to the property
    */
   cableTvCompanyId?: string
+}
+/**
+ * Represents a one or more messages for fields that have failed a given validation action
+ */
+export interface ValidationErrorModel {
+  statusCode?:
+    | 100
+    | 101
+    | 102
+    | 103
+    | 200
+    | 201
+    | 202
+    | 203
+    | 204
+    | 205
+    | 206
+    | 207
+    | 208
+    | 226
+    | 300
+    | 301
+    | 302
+    | 303
+    | 304
+    | 305
+    | 306
+    | 307
+    | 308
+    | 400
+    | 401
+    | 402
+    | 403
+    | 404
+    | 405
+    | 406
+    | 407
+    | 408
+    | 409
+    | 410
+    | 411
+    | 412
+    | 413
+    | 414
+    | 415
+    | 416
+    | 417
+    | 421
+    | 422
+    | 423
+    | 424
+    | 426
+    | 428
+    | 429
+    | 431
+    | 451
+    | 500
+    | 501
+    | 502
+    | 503
+    | 504
+    | 505
+    | 506
+    | 507
+    | 508
+    | 510
+    | 511 // int32
+  /**
+   * The date and time that this error event occurred
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  dateTime?: string // date-time
+  /**
+   * The detailed information regarding this error event
+   */
+  description?: string
+  /**
+   * Gets or sets the list of validation errors.
+   */
+  errors?: {
+    /**
+     * Gets the field that the message applies to
+     */
+    readonly field?: string
+    /**
+     * Gets the validation failure message to issue to the client
+     */
+    readonly message?: string
+  }[]
+}
+/**
+ * Model for validation failure
+ */
+export interface ValidationMessageModel {
+  /**
+   * Gets the field that the message applies to
+   */
+  readonly field?: string
+  /**
+   * Gets the validation failure message to issue to the client
+   */
+  readonly message?: string
 }
 /**
  * Representation of the physical address of a building or premise

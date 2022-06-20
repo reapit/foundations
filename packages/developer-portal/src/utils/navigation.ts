@@ -25,10 +25,14 @@ export enum ExternalPages {
   appApprovalDocs = 'https://foundations-documentation.reapit.cloud/faqs#app-approvals',
   acLaunchableDocs = 'https://foundations-documentation.reapit.cloud/listing-your-app#apps-launchable-inside-of-agencycloud',
   customerIdFindDocs = 'https://foundations-documentation.reapit.cloud/faqs#how-do-i-find-a-customer-id',
-  pipelineDocs = 'https://foundations-documentation.reapit.cloud/iaas',
+  pipelineDocs = 'https://foundations-documentation.reapit.cloud/app-development/iaas-coming-soon/developer-portal-beta',
+  cliDocs = 'https://foundations-documentation.reapit.cloud/app-development/iaas-coming-soon/cli-beta',
+  iaasDocs = 'https://foundations-documentation.reapit.cloud/app-development/iaas-coming-soon',
   codeExampleNodeWebsite = 'https://github.com/reapit/foundations-code-examples/tree/main/node-website-feed',
   codeExamplePHPWebsite = 'https://github.com/reapit/foundations-code-examples/tree/main/php-website-feed',
   codeExampleNetWebsite = 'https://github.com/reapit/foundations-code-examples/tree/main/dotnet-website-feed',
+  iaasBugs = 'https://github.com/reapit/foundations/issues/new?assignees=&labels=bug%2C+needs-triage%2C+iaas%2C+front-end&template=bug_report.md&title=',
+  appPermissionsDocs = 'https://foundations-documentation.reapit.cloud/listing-your-app/app-permissions',
 }
 
 export const openNewPage = (uri: ExternalPages | string) => (event?: MouseEvent) => {

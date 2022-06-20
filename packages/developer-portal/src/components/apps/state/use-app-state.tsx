@@ -3,6 +3,7 @@ import {
   AppRevisionModel,
   AppRevisionModelPagedResult,
   AppSummaryModelPagedResult,
+  InstallationModelPagedResult,
   PipelineModelInterface,
 } from '@reapit/foundations-ts-definitions'
 import { useReapitGet } from '@reapit/utils-react'
@@ -16,6 +17,7 @@ import { defaultAppSavingParams, defaultAppWizardState } from './defaults'
 import { handleSetDefaultFormValues } from '../utils/handle-default-form-values'
 import { FieldNamesMarkedBoolean } from 'react-hook-form'
 import { handleSetInitialPipeline } from '../utils/handle-pipeline-event'
+import { useChannel } from '@harelpls/use-pusher'
 
 export interface AppUriParams {
   appId: string
@@ -62,6 +64,7 @@ export interface AppEditState {
   appIncompleteFields: (keyof AppEditFormSchema)[]
   setIncompleteFields: Dispatch<SetStateAction<(keyof AppEditFormSchema)[]>>
   appLatestRevision: AppRevisionModel | null
+  appHasInstallations: boolean
 }
 
 export interface AppPipelineState {
@@ -69,6 +72,7 @@ export interface AppPipelineState {
   appPipelineLoading: boolean
   appPipelineDeploying: boolean
   appPipelineSaving: boolean
+  appPipelinePusherChannel: any
   appPipelineRefresh: () => void
   setAppPipeline: Dispatch<SetStateAction<PipelineModelInterface | null>>
   setAppPipelineDeploying: Dispatch<SetStateAction<boolean>>
@@ -127,6 +131,18 @@ export const AppProvider: FC = ({ children }) => {
       fetchWhenTrue: [appId],
     })
 
+  const [installations] = useReapitGet<InstallationModelPagedResult>({
+    reapitConnectBrowserSession,
+    action: getActions(window.reapit.config.appEnv)[GetActionNames.getInstallations],
+    queryParams: {
+      appId,
+      pageSize: 1,
+      isInstalled: true,
+      developerId,
+    },
+    fetchWhenTrue: [developerId, appId],
+  })
+
   const [pipeline, appPipelineLoading, , appPipelineRefresh] = useReapitGet<PipelineModelInterface>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getPipeline],
@@ -140,7 +156,10 @@ export const AppProvider: FC = ({ children }) => {
     },
   })
 
+  const pusherChannel = useChannel(`private-${developerId}`)
+  const appPipelinePusherChannel = developerId ? pusherChannel : undefined
   const appLatestRevision = appRevisions?.data ? appRevisions.data[0] : null
+  const appHasInstallations = Boolean(installations?.totalCount)
 
   useEffect(handleSetDefaultFormValues(setAppEditForm, appDetail, developerId), [appDetail, developerId])
 
@@ -172,6 +191,7 @@ export const AppProvider: FC = ({ children }) => {
     appIncompleteFields,
     setIncompleteFields,
     appLatestRevision,
+    appHasInstallations,
   }
 
   const appPipelineState: AppPipelineState = {
@@ -179,6 +199,7 @@ export const AppProvider: FC = ({ children }) => {
     appPipelineLoading,
     appPipelineDeploying,
     appPipelineSaving,
+    appPipelinePusherChannel,
     appPipelineRefresh,
     setAppPipeline,
     setAppPipelineDeploying,

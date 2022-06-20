@@ -6,6 +6,7 @@ import {
   handleSavePipeline,
   handleUpdatePipelineRunner,
   PipelineControls,
+  validateConfig,
 } from '../pipeline-controls'
 import { render } from '../../../../tests/react-testing'
 import Routes from '../../../../constants/routes'
@@ -39,7 +40,12 @@ describe('PipelineControls', () => {
     document.body.appendChild(testElem)
   })
 
-  const routes = [Routes.APP_PIPELINE, Routes.APP_PIPELINE_CONFIGURE, Routes.APP_PIPELINE_NEW]
+  const routes = [
+    Routes.APP_PIPELINE,
+    Routes.APP_PIPELINE_CONFIGURE,
+    Routes.APP_PIPELINE_NEW,
+    Routes.APP_PIPELINE_ENVIRONMENT,
+  ]
 
   routes.forEach((route) => {
     it(`should match snapshot for route ${route}`, () => {
@@ -146,5 +152,25 @@ describe('handleDeletePipeline', () => {
 
     expect(deletePipeline).toHaveBeenCalledTimes(1)
     expect(closeModal).toHaveBeenCalledTimes(1)
+  })
+})
+
+describe('validateConfig', () => {
+  it('should return false if no pipeline', () => {
+    const result = validateConfig(null)
+
+    expect(result).toBe(false)
+  })
+
+  it('should return true if pipeline is valid', () => {
+    const result = validateConfig(mockPipelineModelInterface)
+
+    expect(result).toBe(true)
+  })
+
+  it('should return false if pipeline is invalid', () => {
+    const result = validateConfig({ ...mockPipelineModelInterface, repository: undefined })
+
+    expect(result).toBe(false)
   })
 })

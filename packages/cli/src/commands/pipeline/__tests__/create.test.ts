@@ -15,6 +15,7 @@ jest.mock('../../../utils/config', () => ({
 
 jest.mock('fs', () => ({
   existsSync: () => true,
+  writeFileSync: jest.fn(),
   promises: {
     readFile: jest.fn(() =>
       Promise.resolve(
