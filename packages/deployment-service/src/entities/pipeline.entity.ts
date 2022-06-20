@@ -64,11 +64,15 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
   subDomain?: string
 
   @Column({ nullable: true })
-  @Exclude()
+  @Exclude({
+    toPlainOnly: true,
+  })
   cloudFrontId?: string
 
   @Column({ nullable: true })
-  @Exclude()
+  @Exclude({
+    toPlainOnly: true,
+  })
   aRecordId?: string
 
   @Column()
