@@ -46,6 +46,9 @@ export class PipelineEntity extends AbstractEntity implements PipelineModelInter
   bitbucketClient?: BitbucketClientEntity
 
   @Column()
+  bitbucketClientId?: string
+
+  @Column()
   developerId?: string
 
   @Column()
