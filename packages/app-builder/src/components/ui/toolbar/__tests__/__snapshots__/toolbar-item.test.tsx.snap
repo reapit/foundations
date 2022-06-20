@@ -3,20 +3,16 @@
 exports[`ToolbarItem should match a snapshot - Number 1`] = `
 <DocumentFragment>
   <div
-    class="el-mb3"
+    class="toolbar-item-container"
   >
-    <div
-      class="el-input-group"
-    >
-      <label
-        class="el-label"
-      />
-      <input
-        class="el-input"
-        type="number"
-        value=""
-      />
-    </div>
+    <label
+      class="el-label"
+    />
+    <input
+      class="el-input"
+      type="number"
+      value=""
+    />
   </div>
 </DocumentFragment>
 `;
@@ -24,44 +20,45 @@ exports[`ToolbarItem should match a snapshot - Number 1`] = `
 exports[`ToolbarItem should match a snapshot - Radio 1`] = `
 <DocumentFragment>
   <div
-    class="el-mb3"
-  />
+    class="toolbar-item-container"
+  >
+    <label
+      class="el-label"
+    />
+  </div>
 </DocumentFragment>
 `;
 
 exports[`ToolbarItem should match a snapshot - Select 1`] = `
 <DocumentFragment>
   <div
-    class="el-mb3"
-  />
+    class="toolbar-item-container"
+  >
+    <label
+      class="el-label"
+    />
+    <select
+      class="app-builder-select el-select"
+    />
+  </div>
 </DocumentFragment>
 `;
 
-exports[`ToolbarItem should match a snapshot - Slider 1`] = `
-<DocumentFragment>
-  <div
-    class="el-mb3"
-  />
-</DocumentFragment>
-`;
+exports[`ToolbarItem should match a snapshot - Slider 1`] = `<DocumentFragment />`;
 
 exports[`ToolbarItem should match a snapshot - Text 1`] = `
 <DocumentFragment>
   <div
-    class="el-mb3"
+    class="toolbar-item-container"
   >
-    <div
-      class="el-input-group"
-    >
-      <label
-        class="el-label"
-      />
-      <input
-        class="el-input"
-        type="text"
-        value=""
-      />
-    </div>
+    <label
+      class="el-label"
+    />
+    <input
+      class="el-input"
+      type="text"
+      value=""
+    />
   </div>
 </DocumentFragment>
 `;

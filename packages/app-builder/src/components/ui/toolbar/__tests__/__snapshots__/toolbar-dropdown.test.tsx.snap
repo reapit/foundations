@@ -2,13 +2,8 @@
 
 exports[`ToolbarDropdown should match a snapshot 1`] = `
 <DocumentFragment>
-  <div>
-    <label
-      class="el-label"
-    />
-    <select
-      class="el-select"
-    />
-  </div>
+  <select
+    class="app-builder-select el-select"
+  />
 </DocumentFragment>
 `;
