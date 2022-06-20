@@ -6001,6 +6001,10 @@ export interface CreatePropertyLettingModel {
    */
   worksOrderNote?: string
   /**
+   * Sets the minimum number of months the property can be let out for
+   */
+  minimumTerm?: number // int32
+  /**
    * Request body used to set the commission fee for a property
    */
   managementFee?: {
@@ -6471,6 +6475,10 @@ export interface CreatePropertyModel {
      * A note to accompany any works orders created for the property
      */
     worksOrderNote?: string
+    /**
+     * Sets the minimum number of months the property can be let out for
+     */
+    minimumTerm?: number // int32
     /**
      * Request body used to set the commission fee for a property
      */
@@ -10992,6 +11000,10 @@ export interface PropertyLettingModel {
    */
   worksOrderNote?: string
   /**
+   * The minimum number of months the property can be let out for
+   */
+  minimumTerm?: number // int32
+  /**
    * The unique identifier of the negotiator that manages the property
    */
   propertyManagerId?: string
@@ -11594,6 +11606,10 @@ export interface PropertyModel {
      * A note to accompany any works orders created for the property
      */
     worksOrderNote?: string
+    /**
+     * The minimum number of months the property can be let out for
+     */
+    minimumTerm?: number // int32
     /**
      * The unique identifier of the negotiator that manages the property
      */
@@ -12300,6 +12316,10 @@ export interface PropertyModelPagedResult {
        * A note to accompany any works orders created for the property
        */
       worksOrderNote?: string
+      /**
+       * The minimum number of months the property can be let out for
+       */
+      minimumTerm?: number // int32
       /**
        * The unique identifier of the negotiator that manages the property
        */
@@ -16678,6 +16698,10 @@ export interface UpdatePropertyLettingModel {
    */
   worksOrderNote?: string
   /**
+   * Sets the minimum number of months the property can be let out for
+   */
+  minimumTerm?: number // int32
+  /**
    * Request body used to update the commission fee for a property
    */
   managementFee?: {
@@ -17152,6 +17176,10 @@ export interface UpdatePropertyModel {
      * A note to accompany any works orders created for the property
      */
     worksOrderNote?: string
+    /**
+     * Sets the minimum number of months the property can be let out for
+     */
+    minimumTerm?: number // int32
     /**
      * Request body used to update the commission fee for a property
      */
