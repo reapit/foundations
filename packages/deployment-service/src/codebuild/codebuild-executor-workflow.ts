@@ -112,8 +112,6 @@ export class CodebuildExecutorWorkflow extends AbstractWorkflow<{
         pipelineRunner,
       ),
     ])
-
-    return Promise.reject(error)
   }
 
   private async executeCodebuild({
