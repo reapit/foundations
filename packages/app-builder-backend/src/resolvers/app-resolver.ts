@@ -1,7 +1,7 @@
 import { Resolver, Query, Arg, Mutation, ID, Authorized, Ctx } from 'type-graphql'
 import Pluralize from 'pluralize'
 
-import { App } from '../entities/app'
+import { App, NavConfig } from '../entities/app'
 import { getApp, createApp, updateApp, getDomainApps, getUnqDomain, DDBApp } from '../ddb'
 import { Page, Node } from '../entities/page'
 import { ejectApp } from '../eject'
@@ -302,6 +302,7 @@ export class AppResolver {
     @Arg('pages', () => [Page], { nullable: true }) pages?: Array<Page>,
     @Arg('header', () => [Node], { nullable: true }) header?: Array<Node>,
     @Arg('footer', () => [Node], { nullable: true }) footer?: Array<Node>,
+    @Arg('navConfig', () => [NavConfig], { nullable: true }) navConfig?: Array<NavConfig>,
   ): Promise<App> {
     const app = await getApp(id)
     if (!app) {
@@ -315,6 +316,9 @@ export class AppResolver {
     }
     if (footer) {
       app.footer = footer
+    }
+    if (navConfig) {
+      app.navConfig = navConfig
     }
     await ensureScopes(app, context.accessToken)
     const newApp = await updateApp(app)

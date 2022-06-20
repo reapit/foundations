@@ -8,7 +8,7 @@ import {
 } from '@aws-sdk/client-dynamodb'
 import generateDomain from 'project-name-generator'
 
-import { App } from './entities/app'
+import { App, NavConfig } from './entities/app'
 import { CustomEntity } from './entities/custom-entity'
 import { Page, Node } from './entities/page'
 
@@ -66,7 +66,7 @@ export const ensureTables = async () => {
 export type DDBApp = Omit<Omit<Omit<App, 'clientId'>, 'name'>, 'developerName'>
 
 const ddbItemToApp = (item: { [key: string]: AttributeValue }): DDBApp => {
-  const { id, createdAt, updatedAt, pages, subdomain, header, footer, customEntities } = item
+  const { id, createdAt, updatedAt, pages, subdomain, header, footer, navConfig, customEntities } = item
 
   return {
     id: id?.S as string,
@@ -77,6 +77,7 @@ const ddbItemToApp = (item: { [key: string]: AttributeValue }): DDBApp => {
     customEntities: (customEntities?.S && (JSON.parse(customEntities.S as string) as Array<CustomEntity>)) || [],
     header: (header?.S && (JSON.parse(header.S as string) as Array<Node>)) || [],
     footer: (footer?.S && (JSON.parse(footer.S as string) as Array<Node>)) || [],
+    navConfig: (navConfig?.S && (JSON.parse(navConfig.S as string) as Array<NavConfig>)) || [],
   }
 }
 
@@ -137,6 +138,7 @@ export const createApp = async (id: string, name: string, subdomain: string, pag
       customEntities: { S: JSON.stringify([]) },
       header: { S: JSON.stringify([]) },
       footer: { S: JSON.stringify([]) },
+      navConfig: { S: JSON.stringify([]) },
     },
   })
   await ddb.send(d)
@@ -150,6 +152,7 @@ export const createApp = async (id: string, name: string, subdomain: string, pag
     customEntities: [],
     header: [],
     footer: [],
+    navConfig: [],
   }
 }
 

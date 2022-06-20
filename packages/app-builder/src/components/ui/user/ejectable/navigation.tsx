@@ -1,0 +1,48 @@
+import { usePageId } from '@/components/hooks/use-page-id'
+import React, { forwardRef } from 'react'
+import { useHistory } from 'react-router-dom'
+import path from 'path'
+import { Loader, NavResponsive, ElNavContainer } from '@reapit/elements'
+import { useApp } from '@/components/hooks/apps/use-app'
+
+export type NavigationProps = {}
+
+export const Navigation = forwardRef<HTMLDivElement, NavigationProps>((props, ref) => {
+  const { appId } = usePageId()
+  const { app, loading } = useApp(appId)
+  const history = useHistory()
+
+  if (loading) {
+    return <Loader />
+  }
+
+  const options =
+    app?.navConfig.map((navConfig, idx) => ({
+      itemIndex: idx + 1,
+      text: navConfig.name,
+      icon: navConfig.icon,
+      callback: () => {
+        const dest = navConfig.destination
+        const pathname = path.join('/', appId || '', dest === '~' ? '' : dest)
+
+        history.push(pathname)
+      },
+    })) || []
+
+  return (
+    <ElNavContainer ref={ref}>
+      <NavResponsive
+        options={[
+          {
+            itemIndex: 0,
+            callback: () => {
+              const pathname = path.join('/', appId || '')
+              history.push(pathname)
+            },
+          },
+          ...options,
+        ]}
+      />
+    </ElNavContainer>
+  )
+})

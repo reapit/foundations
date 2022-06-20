@@ -41,6 +41,11 @@ export const AppFragment = gql`
     footer {
       ...NodeFragment
     }
+    navConfig {
+      name
+      icon
+      destination
+    }
   }
 `
 
@@ -66,6 +71,12 @@ export type Page = {
   nodes: Array<Node>
 }
 
+export type NavConfig = {
+  name: string
+  icon: string
+  destination: string
+}
+
 export type App = {
   id: string
   name: string
@@ -77,4 +88,5 @@ export type App = {
   pages: Array<Page>
   header: Array<Node>
   footer: Array<Node>
+  navConfig: Array<NavConfig>
 }

@@ -11,7 +11,7 @@ import Link from '../ui/user/link'
 import Info from '../ui/user/info'
 import Table from '../ui/user/table'
 import Form from '../ui/user/form'
-import Navbar from '../ui/user/navbar'
+import Navigation from '../ui/user/navigation'
 import { getPageId, usePageId } from '../hooks/use-page-id'
 import { useUpdatePage } from '../hooks/apps/use-update-app'
 import { isInitialLoad, nodesObjtoToArr, splitPageNodesIntoSections } from '../hooks/apps/node-helpers'
@@ -28,7 +28,7 @@ export const resolver = {
   Table,
   Form,
   FormInput,
-  Navbar,
+  Navigation,
 }
 
 export const Home: FC<HomeProps> = () => {

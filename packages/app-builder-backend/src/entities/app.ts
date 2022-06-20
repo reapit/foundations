@@ -1,6 +1,17 @@
-import { ObjectType, Field, ID } from 'type-graphql'
+import { ObjectType, Field, ID, InputType } from 'type-graphql'
 import { CustomEntity } from './custom-entity'
 import { Page, Node } from './page'
+
+@InputType('_NavConfigInput')
+@ObjectType('_NavConfig')
+export class NavConfig {
+  @Field()
+  name: string
+  @Field()
+  icon: string
+  @Field()
+  destination: string
+}
 
 @ObjectType('_App')
 export class App {
@@ -36,4 +47,7 @@ export class App {
 
   @Field(() => [CustomEntity])
   customEntities: Array<CustomEntity>
+
+  @Field(() => [NavConfig])
+  navConfig: NavConfig[]
 }
