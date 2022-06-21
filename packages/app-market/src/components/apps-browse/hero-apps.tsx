@@ -6,11 +6,11 @@ import { Loader } from '@reapit/elements'
 import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { AppsBrowseConfigItem, AppsBrowseConfigItemFilters } from './use-apps-browse-state'
 
-interface FeaturedHeroAppsCollectionProps {
+interface HeroAppsCollectionProps {
   configItem: AppsBrowseConfigItem
 }
 
-export const FeaturedHeroAppsCollection: FC<FeaturedHeroAppsCollectionProps> = ({ configItem }) => {
+export const HeroAppsCollection: FC<HeroAppsCollectionProps> = ({ configItem }) => {
   const { filters, content } = configItem
   const queryParams = filters ? objectToQuery<AppsBrowseConfigItemFilters>(filters) : {}
 
@@ -21,7 +21,7 @@ export const FeaturedHeroAppsCollection: FC<FeaturedHeroAppsCollectionProps> = (
     fetchWhenTrue: [filters],
   })
 
-  console.log('Featured hero Apps: ', apps, content)
+  console.log('Hero Apps: ', apps, content)
 
   if (appsLoading) return <Loader />
 

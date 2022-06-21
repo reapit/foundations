@@ -1,13 +1,15 @@
 import React, { FC } from 'react'
 import Router from './router'
-import { MediaStateProvider, NavStateProvider } from '@reapit/elements'
+import { MediaStateProvider, NavStateProvider, SnackProvider } from '@reapit/elements'
 import ErrorBoundary from './error-boundary'
 
 const App: FC = () => (
   <ErrorBoundary>
     <NavStateProvider>
       <MediaStateProvider>
-        <Router />
+        <SnackProvider>
+          <Router />
+        </SnackProvider>
       </MediaStateProvider>
     </NavStateProvider>
   </ErrorBoundary>

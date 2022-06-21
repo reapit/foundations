@@ -4,7 +4,7 @@ import { appsBrowseConfigCollection } from './config'
 export interface AppsBrowseConfigItemContent {
   brandColour?: string
   strapline?: string
-  heroImageUrl?: string
+  imageUrl?: string
   title?: string
 }
 
@@ -18,16 +18,16 @@ export interface AppsBrowseConfigItemFilters {
   isFree?: boolean
 }
 
+export type AppsBrowseConfigType = 'featuredHeroApps' | 'heroApps' | 'appsFilters' | 'featuredApps' | 'simpleApps'
+
 export interface AppsBrowseConfigItem {
   filters: AppsBrowseConfigItemFilters | null
   content: AppsBrowseConfigItemContent | null
+  configType: AppsBrowseConfigType
 }
 
 export interface AppsBrowseConfigCollection {
-  featuredHeroApps: AppsBrowseConfigItem[]
-  appsFilters: AppsBrowseConfigItem[]
-  featuredApps: AppsBrowseConfigItem[]
-  simpleApps: AppsBrowseConfigItem[]
+  data: AppsBrowseConfigItem[]
 }
 
 export interface AppsBrowseDataState {}
