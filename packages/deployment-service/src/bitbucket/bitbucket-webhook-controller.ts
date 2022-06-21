@@ -87,7 +87,6 @@ export class BitBucketWebhookController {
 
   protected async handlePushEvent(event: BitBucketEvent, client: BitbucketClientData) {
     const pipeline = await this.pipelineProvider.findByRepo(`https://bitbucket.org/${event.data.repository.full_name}`)
-
     if (!pipeline) {
       throw new NotFoundException('no pipeline for installed repo')
     }
