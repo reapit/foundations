@@ -5,10 +5,15 @@ import { Page, Node } from './page'
 @InputType('_NavConfigInput')
 @ObjectType('_NavConfig')
 export class NavConfig {
+  @Field(() => ID)
+  id: string
+
   @Field()
   name: string
+
   @Field()
   icon: string
+
   @Field()
   destination: string
 }

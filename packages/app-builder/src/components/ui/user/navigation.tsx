@@ -6,6 +6,7 @@ import Plus from '@/components/icons/plus'
 import { useNode } from '@craftjs/core'
 import { Label } from '@reapit/elements'
 import React, { useState } from 'react'
+import * as uuid from 'uuid'
 import { AppBuilderIconButton } from '../components'
 import { ToolbarDropdown, ToolbarItemType, ToolbarTextInput } from '../toolbar'
 import { Navigation as ENavigation, NavigationProps } from './ejectable/navigation'
@@ -33,6 +34,7 @@ const NavItemConfigurator = ({
           const newNavConfig = pageNavConfigs?.find((page) => page.destination === dest)
           newNavConfig &&
             onChange({
+              ...navConfig,
               ...newNavConfig,
               icon: '',
             })
@@ -64,9 +66,7 @@ const NavItemConfigurator = ({
 
 const NavigationSettings = () => {
   const { appId } = usePageId()
-  const { app } = useApp(appId)
-  const { updateAppNavConfig } = useUpdateAppNavConfig(appId)
-  const navConfigs = app?.navConfig || []
+  const { navConfigs, updateAppNavConfig } = useUpdateAppNavConfig(appId)
   const [currentNavConfig, setCurrentNavConfig] = useState<NavConfig | undefined>(undefined)
 
   return (
@@ -74,20 +74,26 @@ const NavigationSettings = () => {
       <ToolbarDropdown
         value={currentNavConfig}
         title="Section"
-        onChange={(dest: string) => {
-          const navConfig = navConfigs.find(({ destination }) => destination === dest)
-          console.log(navConfigs, dest, navConfig)
+        onChange={(id: string) => {
+          const navConfig = navConfigs.find((nav) => nav.id === id)
           navConfig && setCurrentNavConfig(navConfig)
         }}
       >
         <option value="" disabled>
           Select
         </option>
-        {navConfigs.map(({ name, destination }) => (
-          <option key={destination} value={destination}>
-            {name}
-          </option>
-        ))}
+        {navConfigs
+          .map((n) => {
+            if (currentNavConfig && n.id === currentNavConfig.id) {
+              return currentNavConfig
+            }
+            return n
+          })
+          .map(({ id, name }) => (
+            <option key={id} value={id}>
+              {name}
+            </option>
+          ))}
       </ToolbarDropdown>
       <AppBuilderIconButton
         onClick={() => {
@@ -95,6 +101,7 @@ const NavigationSettings = () => {
             name: 'Home',
             destination: '~',
             icon: '',
+            id: uuid.v4(),
           }
           updateAppNavConfig([...navConfigs, newNavConfig])
           setCurrentNavConfig(newNavConfig)
@@ -109,7 +116,7 @@ const NavigationSettings = () => {
             setCurrentNavConfig(navConfig)
             updateAppNavConfig(
               navConfigs.map((n) => {
-                if (n.destination === navConfig.destination) {
+                if (n.id === navConfig.id) {
                   return navConfig
                 }
                 return n

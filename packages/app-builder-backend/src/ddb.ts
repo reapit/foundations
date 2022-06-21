@@ -169,6 +169,7 @@ export const updateApp = async (app: DDBApp): Promise<DDBApp> => {
       customEntities: { S: JSON.stringify(app.customEntities) },
       header: { S: JSON.stringify(app.header) },
       footer: { S: JSON.stringify(app.footer) },
+      navConfig: { S: JSON.stringify(app.navConfig) },
     },
   })
   await ddb.send(d)

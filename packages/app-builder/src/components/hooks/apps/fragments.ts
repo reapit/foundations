@@ -42,6 +42,7 @@ export const AppFragment = gql`
       ...NodeFragment
     }
     navConfig {
+      id
       name
       icon
       destination
@@ -72,6 +73,7 @@ export type Page = {
 }
 
 export type NavConfig = {
+  id: string
   name: string
   icon: string
   destination: string

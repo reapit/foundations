@@ -32,6 +32,7 @@ export const Navigation = forwardRef<HTMLDivElement, NavigationProps>((props, re
   return (
     <ElNavContainer ref={ref}>
       <NavResponsive
+        style={{ flex: 1 }}
         options={[
           {
             itemIndex: 0,

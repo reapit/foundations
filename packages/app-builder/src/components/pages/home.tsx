@@ -33,14 +33,14 @@ export const resolver = {
 
 export const Home: FC<HomeProps> = () => {
   const iframeRef = useRef()
-  const { updatePage } = useUpdatePage()
-  const { pageId } = usePageId()
+  const { pageId, appId } = usePageId()
+  const { updatePage } = useUpdatePage(appId)
   const { error } = useSnack()
   const debouncedUpdatePage = debounce(
     1000,
-    async (appId: string, page: Partial<Page>, headerFooter: { header: Node[]; footer: Node[] }) => {
+    async (page: Partial<Page>, headerFooter: { header: Node[]; footer: Node[] }) => {
       try {
-        await Promise.all([updatePage(appId, page, headerFooter), new Promise((resolve) => setTimeout(resolve, 750))])
+        await Promise.all([updatePage(page, headerFooter), new Promise((resolve) => setTimeout(resolve, 750))])
       } catch (e: any) {
         error(e.message)
       }
@@ -58,7 +58,6 @@ export const Home: FC<HomeProps> = () => {
           const pageNodes = nodesObjtoToArr(appId, pageId, nodesObj)
           const { nodes, header, footer } = splitPageNodesIntoSections(pageNodes)
           debouncedUpdatePage(
-            appId,
             {
               id: pageId,
               nodes,

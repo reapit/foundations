@@ -1,10 +1,12 @@
 import { gql, useApolloClient, useMutation } from '@apollo/client'
 import cloneDeep from 'clone-deep'
 import omitDeep from 'omit-deep'
+import { useEffect } from 'react'
 import { debounce } from 'throttle-debounce'
+import { notEmpty } from '../use-introspection/helpers'
 
 import { App, AppFragment, NavConfig, Node, Page } from './fragments'
-import { GetAppQuery } from './use-app'
+import { GetAppQuery, useApp } from './use-app'
 
 const UpdateAppMutation = gql`
   ${AppFragment}
@@ -22,51 +24,95 @@ const UpdateAppMutation = gql`
   }
 `
 
+const validateNodes = (nodes: any[]) => {
+  nodes.forEach((node) => {
+    if (!node.nodeId) {
+      throw new Error('invalid node detected')
+    }
+  })
+}
+
 export const useUpdateApp = () => {
   const [updateApp, { loading, error }] = useMutation(UpdateAppMutation)
 
   return {
-    updateApp: (app: App, header: Node[], footer: Node[], navConfig: NavConfig[], pages?: Array<Partial<Page>>) =>
-      updateApp({
-        variables: { id: app.id, name: app.name, pages, header, footer, navConfig },
-      }),
+    updateApp: (app: App, header: Node[], footer: Node[], navConfig: NavConfig[], pages?: Array<Partial<Page>>) => {
+      const variables = { id: app.id, name: app.name, pages, header, footer, navConfig }
+      validateNodes([...header, ...footer, ...(pages || []).map((page) => page.nodes)].flat().filter(notEmpty))
+      return updateApp({
+        variables,
+        optimisticResponse: {
+          _updateApp: {
+            ...app,
+            ...variables,
+          },
+        },
+      })
+    },
     loading,
     error,
   }
 }
 
 export const useUpdateAppNavConfig = (appId: string) => {
-  const client = useApolloClient()
   const { updateApp, loading, error } = useUpdateApp()
+  const { app } = useApp(appId)
+  const client = useApolloClient()
 
-  const debouncedUpdateApp = debounce(3000, async (navConfig: NavConfig[]) => {
-    const { data } = await client.query<{ _getApp: App }>({ query: GetAppQuery, variables: { idOrSubdomain: appId } })
-    const app: App = data?._getApp
-    if (!app) return
-    return updateApp(
-      app,
-      omitDeep(cloneDeep(app.header), ['__typename']),
-      omitDeep(cloneDeep(app.footer), ['__typename']),
-      omitDeep(cloneDeep(navConfig), ['__typename']),
-      omitDeep(cloneDeep(app.pages), ['__typename']),
-    )
-  })
+  let newNavConfig
+
+  const doUpdate = () => {
+    if (newNavConfig) {
+      if (!app) {
+        return
+      }
+      updateApp(
+        app,
+        omitDeep(cloneDeep(app.header), ['__typename']),
+        omitDeep(cloneDeep(app.footer), ['__typename']),
+        omitDeep(cloneDeep(newNavConfig), ['__typename']),
+        omitDeep(cloneDeep(app.pages), ['__typename']),
+      )
+      newNavConfig = undefined
+    }
+  }
+
+  useEffect(() => {
+    const interval = setInterval(doUpdate, 2000)
+
+    return () => {
+      clearInterval(interval)
+      doUpdate()
+    }
+  }, [])
 
   return {
-    updateAppNavConfig: debouncedUpdateApp,
+    updateAppNavConfig: async (navConfig: NavConfig[]) => {
+      if (!app) return
+      client.writeQuery({
+        query: GetAppQuery,
+        variables: { idOrSubdomain: app.id },
+        data: {
+          _getApp: {
+            ...app,
+            navConfig,
+          },
+        },
+      })
+      newNavConfig = navConfig
+    },
+    navConfigs: app?.navConfig || [],
     loading,
     error,
   }
 }
 
 export const useUpdateAppName = (appId: string) => {
-  const client = useApolloClient()
   const { updateApp, loading, error } = useUpdateApp()
+  const { app } = useApp(appId)
 
   return {
     updateAppName: async (name: string) => {
-      const { data } = await client.query<{ _getApp: App }>({ query: GetAppQuery, variables: { idOrSubdomain: appId } })
-      const app: App = data?._getApp
       if (!app) return
       return updateApp(
         {
@@ -84,18 +130,11 @@ export const useUpdateAppName = (appId: string) => {
   }
 }
 
-export const useUpdatePage = () => {
-  const client = useApolloClient()
+export const useUpdatePage = (appId: string) => {
   const { updateApp, loading } = useUpdateApp()
+  const { app } = useApp(appId)
 
-  const updatePage = async (
-    appId: string,
-    page: Partial<Page>,
-    { header, footer }: { header: Node[]; footer: Node[] },
-  ) => {
-    const { data } = await client.query<{ _getApp: App }>({ query: GetAppQuery, variables: { idOrSubdomain: appId } })
-    const app: App = data?._getApp
-
+  const updatePage = async (page: Partial<Page>, { header, footer }: { header: Node[]; footer: Node[] }) => {
     if (app) {
       const pages = app.pages.map((p: Page) => {
         return p.id === page.id ? { ...p, ...page } : p
