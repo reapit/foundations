@@ -3,7 +3,7 @@
 exports[`Toolbar should match a snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="el-py1 el-hfull"
+    class="el-py1 el-hfull toolbar-container"
   />
 </DocumentFragment>
 `;

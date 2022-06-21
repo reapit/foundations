@@ -81,8 +81,45 @@ export const AppBuilderSelect = styled(Select)`
   border-radius: 4px;
   max-width: 297px;
   margin-right: 4px;
+  font-size: 14px;
 
   &:focus {
     border-bottom-color: #e3e3e3;
   }
 `
+
+const CircleButtonContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 24px;
+  height: 24px;
+  background: #f2f2f2;
+  border-radius: 100px;
+
+  cursor: pointer;
+`
+
+export const PlusButton = ({ loading, onClick }: { loading: boolean; onClick: () => void }) => (
+  <CircleButtonContainer
+    onClick={(e) => {
+      e.stopPropagation()
+      if (!loading) {
+        onClick()
+      }
+    }}
+    style={{
+      opacity: loading ? 0.5 : 1,
+    }}
+  >
+    <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M9.57129 5.57129C9.84743 5.57129 10.0713 5.34743 10.0713 5.07129C10.0713 4.79515 9.84743 4.57129 9.57129 4.57129L5.57129 4.57129L5.57129 0.571289C5.57129 0.295147 5.34743 0.0712889 5.07129 0.0712888C4.79515 0.0712888 4.57129 0.295147 4.57129 0.571289L4.57129 4.57129L0.571289 4.57129C0.295147 4.57129 0.0712889 4.79515 0.0712888 5.07129C0.0712888 5.34743 0.295147 5.57129 0.571289 5.57129L4.57129 5.57129L4.57129 9.57129C4.57129 9.84743 4.79515 10.0713 5.07129 10.0713C5.34743 10.0713 5.57129 9.84743 5.57129 9.57129L5.57129 5.57129L9.57129 5.57129Z"
+        fill="#646464"
+      />
+    </svg>
+  </CircleButtonContainer>
+)

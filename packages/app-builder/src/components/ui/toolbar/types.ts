@@ -4,4 +4,5 @@ export enum ToolbarItemType {
   Slider,
   Radio,
   Select,
+  Checkbox,
 }
