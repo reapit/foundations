@@ -1,5 +1,4 @@
 import { NodeTree, SerializedNode, useEditor, Element, serializeNode } from '@craftjs/core'
-import { Button } from '@reapit/elements'
 import { newPage } from '../header/PageSelector'
 import { useUpdatePage } from '@/components/hooks/apps/use-update-app'
 import { nodesObjtoToArr } from '@/components/hooks/apps/node-helpers'
@@ -14,6 +13,7 @@ import { resolver } from '@/components/pages/home'
 import React from 'react'
 import Container from './container'
 import Text from './text'
+import { PlusButton } from '../components'
 
 const constructPageNodes = (
   typeName: string,
@@ -152,9 +152,5 @@ export const CreatePage = ({
     }
   }
 
-  return (
-    <Button onClick={onClick} loading={loading}>
-      Create
-    </Button>
-  )
+  return <PlusButton onClick={onClick} loading={loading} />
 }

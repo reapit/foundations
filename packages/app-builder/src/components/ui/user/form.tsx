@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useEditor, useNode, Node, NodeHelpersType } from '@craftjs/core'
 
 import Container from './container'
-import { ToolbarItem, ToolbarItemType, ToolbarSection } from '../toolbar'
+import { ToolbarItem, ToolbarItemType } from '../toolbar'
 import { DestinationPage } from './link'
 import { FormProps, Form as EForm } from './ejectable/form'
 import { useObjectSpecials } from '../../hooks/objects/use-object-specials'
@@ -98,58 +98,50 @@ const FormSettings = () => {
   return (
     <>
       <ContainerSettings />
-      <ToolbarSection
-        title="Type Name"
-        props={['typeName']}
-        summary={({ typeName }: any) => {
-          return `Form of ${typeName || ''}${typeName ? 's' : ''}`
-        }}
-      >
-        <TypeList onChange={updateIn100ms} />
-        <IntegrationLanding typeName={typeName} />
-        <ToolbarItem type={ToolbarItemType.Select} onChange={updateIn100ms} propKey="formType" title="Form Type">
-          {['create', 'update', ...specials.map(({ name }) => name)].map((formType) => (
-            <option key={formType} value={formType}>
-              {formType}
-            </option>
-          ))}
-          <option value="" disabled>
-            Select a Type
+      <TypeList onChange={updateIn100ms} />
+      <IntegrationLanding typeName={typeName} />
+      <ToolbarItem type={ToolbarItemType.Select} onChange={updateIn100ms} propKey="formType" title="Form Type">
+        {['create', 'update', ...specials.map(({ name }) => name)].map((formType) => (
+          <option key={formType} value={formType}>
+            {formType}
           </option>
-        </ToolbarItem>
-        {object?.supportsCustomFields && (
-          <Button
-            onClick={async () => {
-              const name = strToCamel(prompt('Enter a name for the input') || '')
-              if (name) {
-                const existingFields = customEntity?.fields || []
-                updateCustomEntity(typeName, {
-                  name: typeName,
-                  id: typeName,
-                  fields: [
-                    ...existingFields,
-                    {
-                      name,
-                      id: name,
-                      type: 'string',
-                    },
-                  ],
-                })
-                addInput(
+        ))}
+        <option value="" disabled>
+          Select a Type
+        </option>
+      </ToolbarItem>
+      {object?.supportsCustomFields && (
+        <Button
+          onClick={async () => {
+            const name = strToCamel(prompt('Enter a name for the input') || '')
+            if (name) {
+              const existingFields = customEntity?.fields || []
+              updateCustomEntity(typeName, {
+                name: typeName,
+                id: typeName,
+                fields: [
+                  ...existingFields,
                   {
                     name,
-                    typeName,
-                    formType,
+                    id: name,
+                    type: 'string',
                   },
-                  nodeId,
-                )
-              }
-            }}
-          >
-            Add New Input
-          </Button>
-        )}
-      </ToolbarSection>
+                ],
+              })
+              addInput(
+                {
+                  name,
+                  typeName,
+                  formType,
+                },
+                nodeId,
+              )
+            }
+          }}
+        >
+          Add New Input
+        </Button>
+      )}
       <DestinationPage propKey="destination" title="Redirect To" />
     </>
   )

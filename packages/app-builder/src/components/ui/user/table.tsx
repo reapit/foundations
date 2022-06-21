@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useEditor, useNode } from '@craftjs/core'
-import { ToolbarItem, ToolbarItemType, ToolbarSection } from '../toolbar'
+import { ToolbarItem, ToolbarItemType } from '../toolbar'
 import Container from './container'
 import { DestinationPage } from './link'
 import { TableProps, Table as ETable } from './ejectable/table'
@@ -12,8 +12,11 @@ import { useObjectList } from '@/components/hooks/objects/use-object-list'
 import { useIntrospection } from '@/components/hooks/use-introspection'
 import { CreatePage } from './create-page'
 import { TypeList } from './type-list'
-import { InputGroup } from '@reapit/elements'
+import { Label } from '@reapit/elements'
 import { useObject } from '@/components/hooks/objects/use-object'
+import { uppercaseSentence } from './ejectable/utils'
+import { styled } from '@linaria/react'
+import { ToolbarCheckbox } from '../toolbar/toolbar-checkbox'
 
 const defaultProps = {}
 
@@ -28,6 +31,21 @@ const Table = (props: TableProps) => {
   return <ETable {...props} ref={(ref) => ref && connect(drag(ref))} disabled={isEditing} />
 }
 
+const CheckboxContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+
+  label {
+    margin-left: 8px;
+  }
+`
+
+const ColumnControlLabel = styled(Label)`
+  display: flex;
+  margin-bottom: 8px;
+`
+
 const ColumnControls = ({
   availableFields,
   includedFields = [],
@@ -37,30 +55,24 @@ const ColumnControls = ({
   includedFields?: string[]
   setIncludedFields: (fields: string[]) => void
 }) => (
-  <ToolbarSection
-    title="Fields"
-    props={['includedFields']}
-    summary={() => {
-      return `Table with ${(includedFields || []).length} columns`
-    }}
-  >
+  <div>
+    <ColumnControlLabel>Fields</ColumnControlLabel>
     {availableFields
       .filter((field) => field !== 'id')
       .map((field) => (
-        <InputGroup
-          key={field}
-          type="checkbox"
-          name={field}
-          label={field}
-          checked={includedFields.includes(field)}
-          onChange={(e) => {
-            const { checked } = e.target
-            const newFields = checked ? [...includedFields, field] : includedFields.filter((f) => f !== field)
-            setIncludedFields(newFields)
-          }}
-        />
+        <CheckboxContainer key={field}>
+          <ToolbarCheckbox
+            key={field}
+            value={includedFields.includes(field)}
+            onChange={(checked) => {
+              const newFields = checked ? [...includedFields, field] : includedFields.filter((f) => f !== field)
+              setIncludedFields(newFields)
+            }}
+          />
+          <Label>{uppercaseSentence(field)}</Label>
+        </CheckboxContainer>
       ))}
-  </ToolbarSection>
+  </div>
 )
 const ContainerSettings = Container.craft.related.toolbar
 
@@ -75,13 +87,7 @@ export const IntegrationLanding = ({ typeName }: { typeName: string | undefined 
   }
 
   return (
-    <ToolbarSection
-      title={'Agency Cloud'}
-      props={[propKey]}
-      summary={(obj: any) => {
-        return `Openable from Agency Cloud: ${obj[propKey] || ''}`
-      }}
-    >
+    <>
       <ToolbarItem type={ToolbarItemType.Select} propKey={propKey} title="Openable from Agency Cloud">
         {integrations.map((integrationType) => (
           <option key={integrationType} value={integrationType}>
@@ -90,7 +96,7 @@ export const IntegrationLanding = ({ typeName }: { typeName: string | undefined 
         ))}
         <option value="">Select a page</option>
       </ToolbarItem>
-    </ToolbarSection>
+    </>
   )
 }
 
@@ -130,33 +136,18 @@ const TableSettings = () => {
 
   return (
     <>
+      <TypeList onChange={updateIn100ms} />
       <ContainerSettings />
-      <ToolbarSection
-        title="Type Name"
-        props={['typeName']}
-        summary={({ typeName }: any) => {
-          return `Table of ${typeName || ''}${typeName ? 's' : ''}`
-        }}
-      >
-        <TypeList onChange={updateIn100ms} />
-      </ToolbarSection>
       <DestinationPage
-        sectionTitle="Edit Page"
         propKey="editPageId"
         title="Edit Page"
         createControl={
           <CreatePage typeName={typeName} operationType="update" onCreate={(pageId) => sp('editPageId', pageId)} />
         }
       />
-      <ColumnControls
-        availableFields={availableFields}
-        includedFields={includedFields}
-        setIncludedFields={(fields: string[]) => sp('includedFields', fields)}
-      />
       <IntegrationLanding typeName={typeName} />
       {subobjects.data.map((subobject) => (
         <DestinationPage
-          sectionTitle={`${subobject.object.name} page`}
           propKey={`${subobject.object.name}Page`}
           key={subobject.object.name}
           title={`${subobject.object.name} page`}
@@ -171,7 +162,6 @@ const TableSettings = () => {
       ))}
       {specials.map((special) => (
         <DestinationPage
-          sectionTitle={`${special.name} page`}
           propKey={`${special.name}Page`}
           key={special.name}
           title={`${special.name} page`}
@@ -184,32 +174,13 @@ const TableSettings = () => {
           }
         />
       ))}
-      <ToolbarSection
-        title="Controls"
-        props={['showControls']}
-        summary={({ showControls }: any) => {
-          return `${showControls ? 'Show' : 'Hide'} Controls`
-        }}
-      >
-        <ToolbarItem type={ToolbarItemType.Select} propKey="showControls" title="Show Controls?">
-          <option value="true">Yes</option>
-          <option value="">No</option>
-        </ToolbarItem>
-      </ToolbarSection>
-      {searchAvailable && (
-        <ToolbarSection
-          title="Search"
-          props={['showSearch']}
-          summary={({ showSearch }: any) => {
-            return `${showSearch ? 'Show' : 'Hide'} Search`
-          }}
-        >
-          <ToolbarItem type={ToolbarItemType.Select} propKey="showSearch" title="Show Search?">
-            <option value="true">Yes</option>
-            <option value="">No</option>
-          </ToolbarItem>
-        </ToolbarSection>
-      )}
+      <ToolbarItem type={ToolbarItemType.Checkbox} propKey="showControls" title="Show action buttons" />
+      {searchAvailable && <ToolbarItem type={ToolbarItemType.Checkbox} propKey="showSearch" title="Show search bar" />}
+      <ColumnControls
+        availableFields={availableFields}
+        includedFields={includedFields}
+        setIncludedFields={(fields: string[]) => sp('includedFields', fields)}
+      />
     </>
   )
 }

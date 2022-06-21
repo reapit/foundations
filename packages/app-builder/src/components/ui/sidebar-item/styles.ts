@@ -1,9 +1,6 @@
 import { styled } from '@linaria/react'
 
 export const SidebarItemDiv = styled.div<{ expanded?: boolean; height?: string }>`
-  height: ${(props) => {
-    return props.expanded && props.height && props.height !== 'full' ? `${props.height}` : 'auto'
-  }};
   flex: ${(props) => {
     return props.expanded && props.height && props.height === 'full' ? '1' : 'unset'
   }};

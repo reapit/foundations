@@ -1,10 +1,10 @@
 import { useEditor } from '@craftjs/core'
 import { cx } from '@linaria/core'
+import { styled } from '@linaria/react'
 import { elHFull, elPy1 } from '@reapit/elements'
 import React from 'react'
 
 export * from './toolbar-item'
-export * from './toolbar-section'
 export * from './toolbar-text-input'
 export * from './toolbar-dropdown'
 export * from './types'
@@ -20,8 +20,21 @@ const ConnectedToolbar = () => {
   return <Toolbar>{related?.toolbar && React.createElement(related.toolbar)}</Toolbar>
 }
 
+const ToolbarContainer = styled.div`
+  padding: 16px;
+
+  > div {
+    margin-bottom: 12px;
+
+    label {
+      margin-right: 31px;
+      min-width: 85px;
+    }
+  }
+`
+
 export const Toolbar = ({ children }: { children: React.ReactNode }) => (
-  <div className={cx(elPy1, elHFull)}>{children}</div>
+  <ToolbarContainer className={cx(elPy1, elHFull)}>{children}</ToolbarContainer>
 )
 
 export default ConnectedToolbar

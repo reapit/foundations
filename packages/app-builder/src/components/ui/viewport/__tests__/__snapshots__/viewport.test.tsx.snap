@@ -420,7 +420,7 @@ exports[`Viewport should match a snapshot 1`] = `
           <div
             class="el-flex el-flex-column sidebar-item-div"
             height="100%"
-            style="--s1re9lvo-0: 100%; --s1re9lvo-1: unset;"
+            style="--s1re9lvo-0: unset;"
           >
             <div
               class="cursor-pointer bg-white el-border-grey-b el-flex el-flex-align-center el-px3 header-div"

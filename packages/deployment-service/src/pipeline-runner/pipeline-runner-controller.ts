@@ -135,15 +135,15 @@ export class PipelineRunnerController {
 
     this.ownershipProvider.check(pipeline, creds.developerId as string)
 
-    if (pipeline.buildStatus === 'PRE_PROVISIONED') {
-      throw new UnprocessableEntityException('Cannot deploy pipeline in PRE_PROVISONED state')
+    if (pipeline.isPipelineDeploymentDisabled) {
+      throw new UnprocessableEntityException(`Cannot deploy pipeline in current [${pipeline.buildStatus}] state`)
+    }
+
+    if (!body.file) {
+      throw new BadRequestException('File not provided')
     }
 
     const file = Buffer.from(body.file, 'base64')
-
-    if (!file) {
-      throw new BadRequestException('File not provided')
-    }
 
     const pipelineRunner = await this.pipelineRunnerProvider.create({
       pipeline,

@@ -25,6 +25,19 @@ export interface AdditionalContactDetailModel {
   value?: string
 }
 /**
+ * Representation of additional contact details
+ */
+export interface AdditionalOfficeContactDetailsModel {
+  /**
+   * The type of contact detail
+   */
+  type?: string
+  /**
+   * The contact detail
+   */
+  value?: string
+}
+/**
  * Model for exposing error details to API consumers
  */
 export interface ApiErrorModel {
@@ -10177,6 +10190,19 @@ export interface OfficeModel {
     countryId?: string
   }
   /**
+   * A collection of additional contact details
+   */
+  additionalContactDetails?: {
+    /**
+     * The type of contact detail
+     */
+    type?: string
+    /**
+     * The contact detail
+     */
+    value?: string
+  }[]
+  /**
    * The work phone number of the office
    */
   workPhone?: string
@@ -10276,6 +10302,19 @@ export interface OfficeModelPagedResult {
        */
       countryId?: string
     }
+    /**
+     * A collection of additional contact details
+     */
+    additionalContactDetails?: {
+      /**
+       * The type of contact detail
+       */
+      type?: string
+      /**
+       * The contact detail
+       */
+      value?: string
+    }[]
     /**
      * The work phone number of the office
      */
