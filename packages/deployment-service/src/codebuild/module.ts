@@ -9,7 +9,7 @@ import { CodebuildExecutorWorkflow } from './codebuild-executor-workflow'
 import { SoruceProvider } from './source-provider'
 import { BitbucketModule } from '../bitbucket'
 import { CodebuildPipelineUpdaterEventHandler } from './codebuild-pipeline-updater-event-handler'
-import { CodebuildDeployWorkflow } from './coebuild-deploy-workflow'
+import { CodebuildDeployWorkflow } from './codebuild-deploy-workflow'
 import { AwsModule } from '../aws'
 import { HttpModule } from '@nestjs/axios'
 
