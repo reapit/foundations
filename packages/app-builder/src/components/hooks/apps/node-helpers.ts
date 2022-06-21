@@ -35,6 +35,7 @@ export const splitPageNodesIntoSections = (nodes: Node[]): { header: Node[]; foo
       {
         ...rootNode,
         nodes: rootNode.nodes.filter((node) => node !== 'header' && node !== 'footer' && node !== NAV_NODE),
+        parent: null,
       },
     ],
   }

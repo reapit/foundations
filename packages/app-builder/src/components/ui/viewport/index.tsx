@@ -34,13 +34,23 @@ export const Viewport = ({ children, iframeRef, deserialize, rendererDivRefHandl
   const { app } = useApp(appId)
   const page = app?.pages.find((p) => p.id === pageId)
   const [loaded, setLoaded] = useState(false)
+
   useEffect(() => {
+    let timeout
     if (page && !loaded) {
-      setTimeout(() => {
-        const nodes = mergeHeaderFooterIntoPage(page.nodes, app?.header, app?.footer)
-        deserialize(nodesArrToObj(nodes))
+      timeout = setTimeout(() => {
+        try {
+          const nodes = mergeHeaderFooterIntoPage(page.nodes, app?.header, app?.footer)
+          deserialize(nodesArrToObj(nodes))
+        } catch (e) {
+          console.error(e)
+        }
         setLoaded(true)
       }, 300)
+    }
+
+    return () => {
+      clearTimeout(timeout)
     }
   }, [page, loaded])
 

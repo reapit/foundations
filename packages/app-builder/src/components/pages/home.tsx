@@ -1,6 +1,5 @@
-import React, { FC, useRef } from 'react'
+import React, { FC, useEffect, useRef } from 'react'
 import { Editor, Frame } from '@craftjs/core'
-import { debounce } from 'throttle-debounce'
 import { useSnack } from '@reapit/elements'
 
 import { RenderNode } from '../ui/render-node'
@@ -36,16 +35,29 @@ export const Home: FC<HomeProps> = () => {
   const { pageId, appId } = usePageId()
   const { updatePage } = useUpdatePage(appId)
   const { error } = useSnack()
-  const debouncedUpdatePage = debounce(
-    1000,
-    async (page: Partial<Page>, headerFooter: { header: Node[]; footer: Node[] }) => {
-      try {
-        await Promise.all([updatePage(page, headerFooter), new Promise((resolve) => setTimeout(resolve, 750))])
-      } catch (e: any) {
-        error(e.message)
+
+  let data:
+    | undefined
+    | {
+        page: Omit<Page, 'name'>
+        headerFooter: {
+          header: Node[]
+          footer: Node[]
+        }
       }
-    },
-  )
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (data) {
+        updatePage(data.page, data.headerFooter).catch((e) => {
+          error(e.message)
+        })
+        data = undefined
+      }
+    }, 1000)
+
+    return () => clearInterval(interval)
+  }, [])
 
   return (
     <Editor
@@ -57,16 +69,16 @@ export const Home: FC<HomeProps> = () => {
         if (query.serialize() !== '{}' && !isInitialLoad(nodesObj)) {
           const pageNodes = nodesObjtoToArr(appId, pageId, nodesObj)
           const { nodes, header, footer } = splitPageNodesIntoSections(pageNodes)
-          debouncedUpdatePage(
-            {
+          data = {
+            page: {
               id: pageId,
               nodes,
             },
-            {
+            headerFooter: {
               header,
               footer,
             },
-          )
+          }
         }
       }}
     >

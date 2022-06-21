@@ -2,7 +2,6 @@ import { gql, useApolloClient, useMutation } from '@apollo/client'
 import cloneDeep from 'clone-deep'
 import omitDeep from 'omit-deep'
 import { useEffect } from 'react'
-import { debounce } from 'throttle-debounce'
 import { notEmpty } from '../use-introspection/helpers'
 
 import { App, AppFragment, NavConfig, Node, Page } from './fragments'
@@ -38,7 +37,12 @@ export const useUpdateApp = () => {
   return {
     updateApp: (app: App, header: Node[], footer: Node[], navConfig: NavConfig[], pages?: Array<Partial<Page>>) => {
       const variables = { id: app.id, name: app.name, pages, header, footer, navConfig }
-      validateNodes([...header, ...footer, ...(pages || []).map((page) => page.nodes)].flat().filter(notEmpty))
+      try {
+        validateNodes([...header, ...footer, ...(pages || []).map((page) => page.nodes)].flat().filter(notEmpty))
+      } catch (e) {
+        console.error(e)
+        return
+      }
       return updateApp({
         variables,
         optimisticResponse: {
