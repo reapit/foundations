@@ -70,7 +70,7 @@ export const AcceptPermissionChangePage: FC = () => {
   return (
     <Modal title="Requested Permissions">
       <BodyText hasGreyText>
-        To accept the permissions as requested by {appDetail?.name} please click confirm below.
+        To accept the permissions as requested by {appDetail?.name} please click &lsquo;Accept&rsquo; below.
       </BodyText>
       <ButtonGroup alignment="center">
         <Button fixedWidth intent="low" onClick={handleCancel(closeModal, history)}>

@@ -4,6 +4,52 @@ exports[`AcceptPermissionChangePage should match snapshot  1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
+    <div
+      id="root"
+    >
+      <div>
+        <div
+          class="evmehgn-el-is-active e8lauwf-el-modal-bg"
+        />
+        <div
+          class="evmehgn-el-is-active e1ucftfo-el-modal"
+        >
+          <div
+            class="e1jrhqcv-el-modal-header"
+          >
+            Requested Permissions
+          </div>
+          <div
+            class="egkth73-el-modal-body"
+          >
+            <p
+              class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+            >
+              To accept the permissions as requested by 
+               please click ‘Accept’ below.
+            </p>
+            <div
+              class="eay05y4-el-button-group"
+            >
+              <div
+                class="ej73pla-el-button-group-align-center ebqwrow-el-button-group-inner"
+              >
+                <button
+                  class="e1ymtwpu-el-intent-low e1f2ikqj-el-button-fixed-width eqfkc7t-el-button"
+                >
+                  Ignore
+                </button>
+                <button
+                  class="ebee6r1-el-intent-primary e1f2ikqj-el-button-fixed-width eqfkc7t-el-button"
+                >
+                  Accept
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div>
       <div
         class="ecbqyq6-el-snack-holder"

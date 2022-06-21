@@ -12,6 +12,9 @@ jest.mock('@reapit/utils-react', () => ({
 
 describe('AcceptPermissionChangePage', () => {
   it('should match snapshot ', () => {
+    const testElem = document.createElement('div')
+    testElem.id = 'root'
+    document.body.appendChild(testElem)
     expect(render(<AcceptPermissionChangePage />)).toMatchSnapshot()
   })
 })
