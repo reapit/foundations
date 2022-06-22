@@ -40,7 +40,6 @@ export class AppEventWorkflow extends AbstractWorkflow<AppEventType> {
         const pipelines = await this.pipelineProvider.findByAppId(payload.AppId)
 
         if (!pipelines || pipelines.length === 0) return
-
         await Promise.all(pipelines.map((pipeline) => this.eventDispatcher.triggerPipelineTearDownStart(pipeline)))
         await this.pipelineProvider.saveAll(
           pipelines.map((pipeline) => {
