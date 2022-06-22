@@ -12,7 +12,7 @@
   "main": "./src/index.ts",
   "scripts": {
     "start": "echo '...skipping...'",
-    "test": "cross-env TZ=UTC jest --watch --colors --silent",
+    "test": "echo '...skipping...'",
     "build": "echo '...skipping...'",
     "lint": "eslint --cache --ext=ts,tsx,js src",
     "check": "tsc --noEmit --skipLibCheck",
