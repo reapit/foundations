@@ -9,7 +9,7 @@ import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 export type NavigationProps = {}
 
-export const Navigation = forwardRef<HTMLDivElement, NavigationProps>((props, ref) => {
+export const Navigation = forwardRef<HTMLDivElement, NavigationProps>((_, ref) => {
   const { appId } = usePageId()
   const { app, loading } = useApp(appId)
   const { connectLogoutRedirect } = useReapitConnect(reapitConnectBrowserSession)
