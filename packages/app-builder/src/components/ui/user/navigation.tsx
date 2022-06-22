@@ -27,9 +27,9 @@ const NavItemConfigurator = ({
 
   return (
     <>
+      <Label>Link To</Label>
       <ToolbarDropdown
         value={navConfig.destination}
-        title="Link To"
         onChange={(dest: string) => {
           const newNavConfig = pageNavConfigs?.find((page) => page.destination === dest)
           newNavConfig &&
@@ -46,8 +46,8 @@ const NavItemConfigurator = ({
           </option>
         ))}
       </ToolbarDropdown>
+      <Label>Name</Label>
       <ToolbarTextInput
-        label={'Name'}
         type={ToolbarItemType.Text}
         onChange={(newName) => {
           onChange({
@@ -71,9 +71,9 @@ const NavigationSettings = () => {
 
   return (
     <div>
+      <Label>Name</Label>
       <ToolbarDropdown
         value={currentNavConfig}
-        title="Section"
         onChange={(id: string) => {
           const navConfig = navConfigs.find((nav) => nav.id === id)
           navConfig && setCurrentNavConfig(navConfig)
