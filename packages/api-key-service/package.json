@@ -29,10 +29,7 @@
     "cross-env": "^7.0.3",
     "eslint": "^8.16.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "jest": "28.1.0",
-    "serverless": "^2.72.3",
-    "serverless-offline": "^8.8.0",
-    "serverless-plugin-log-retention": "^2.0.0"
+    "jest": "28.1.0"
   },
   "scripts": {
     "start": "NODE_ENV=local nodemon src/local-http.ts",
