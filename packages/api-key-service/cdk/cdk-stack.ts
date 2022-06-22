@@ -41,8 +41,8 @@ export const createStack = async () => {
 
   }
 
-  const httpLambda = createFunction(stack, 'api-key-http', path.resolve('bundle.zip'), 'src/http.handler', env, vpc)
-  const invokeLambda = createFunction(stack, 'api-key-invoke', path.resolve('bundle.zip'), 'src/invoke.invokeAPiKeyVerify', env, vpc)
+  const httpLambda = createFunction(stack, 'api-key-http', path.resolve('bundle.zip'), 'packages/api-key-service/src/http.handler', env, vpc)
+  const invokeLambda = createFunction(stack, 'api-key-invoke', path.resolve('bundle.zip'), 'packages/api-key-service/src/invoke.invokeAPiKeyVerify', env, vpc)
 
   const dynamodbPolicy = new PolicyStatement({
     resources: [dynamodb.tableArn],

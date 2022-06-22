@@ -12,7 +12,8 @@
     "aws-serverless-express": "^3.4.0",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "rxjs": "^7.5.5"
   },
   "devDependencies": {
     "@reapit/config-manager": "workspace:packages/config-manager",
@@ -38,7 +39,7 @@
     "check": "tsc --noEmit --skipLibCheck",
     "test": "echo '...skipping...'",
     "conf": "yarn config-manager --namespace cloud --entity api-key-service --name local --mode fetch",
-    "release": "serverless deploy",
+    "release": "echo '...skipping...'",
     "publish": "echo '...skipping...'",
     "deploy": "rpt-cdk deploy cdk/cdk.ts",
     "synth": "rpt-cdk synth cdk/cdk.ts",
