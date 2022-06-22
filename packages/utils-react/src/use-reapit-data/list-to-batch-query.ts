@@ -19,6 +19,8 @@
  * 
  */
 
+import { StringMap } from '@reapit/utils-common'
+
 export const listToBatchQuery = <ListType>(list: ListType[], listKey: keyof ListType, queryKey: string): string =>
   list.reduce((query: string, nextItem: ListType, index: number) => {
     const listValue = String(nextItem[listKey])
@@ -27,3 +29,27 @@ export const listToBatchQuery = <ListType>(list: ListType[], listKey: keyof List
     }
     return `${query}&${queryKey}=${listValue}`
   }, '')
+
+// Same principle for this function but where your list is an array of strings or numbers
+export const stringListToBatchQuery = (list: (string | number)[], queryKey: string): string =>
+  list.reduce((query: string, nextItem: string | number, index: number) => {
+    if (!index) {
+      return String(nextItem)
+    }
+    return `${query}&${queryKey}=${nextItem}`
+  }, '')
+
+// And again where you have an object of filters with a mixture of arrays and strings / boolean / numeric values and
+// you need a string map returned for useReapitGet
+export const objectToQuery = <QueryObjectType>(queryObject: QueryObjectType): StringMap =>
+  Object.keys(queryObject).reduce((currentQuery: StringMap, nextItem: string) => {
+    const objectItem = queryObject[nextItem]
+
+    if (Array.isArray(objectItem)) {
+      currentQuery[nextItem] = stringListToBatchQuery(objectItem, nextItem)
+    } else {
+      currentQuery[nextItem] = String(objectItem)
+    }
+
+    return currentQuery
+  }, {} as StringMap)

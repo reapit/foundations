@@ -14,7 +14,7 @@ Object {
         <h1
           class="el-title"
         >
-          Browse Apps Page
+          AppMarket
         </h1>
       </section>
     </div>
@@ -29,7 +29,7 @@ Object {
       <h1
         class="el-title"
       >
-        Browse Apps Page
+        AppMarket
       </h1>
     </section>
   </div>,
