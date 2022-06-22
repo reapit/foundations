@@ -18,7 +18,13 @@ export const handleSortConfigs = (appsBrowseConfigState: AppsBrowseConfigCollect
   const featuredApps = appsBrowseConfigState?.data.filter((config) => config.configType === 'featuredApps') ?? []
   const simpleApps = appsBrowseConfigState?.data.filter((config) => config.configType === 'simpleApps') ?? []
 
-  return { featuredHeroApps, heroApps, appsFilters, featuredApps, simpleApps }
+  return {
+    featuredHeroApps,
+    heroApps,
+    appsFilters,
+    featuredApps,
+    simpleApps,
+  }
 }
 
 export const AppsBrowse: FC = () => {
