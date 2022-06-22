@@ -13872,6 +13872,7 @@ __metadata:
     "@nestjs/platform-express": ^8.4.6
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
+    "@reapit/ts-bundler": "workspace:packages/ts-bundler"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils-common": "workspace:packages/utils-common"
