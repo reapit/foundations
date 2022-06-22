@@ -14,7 +14,7 @@ import { BitbucketModule } from './bitbucket'
 import { AwsModule } from './aws'
 import { CodeBuildModule } from './codebuild'
 import { APP_INTERCEPTOR } from '@nestjs/core'
-import { CorsHeaderInterceptor, AuthModule } from '@reapit/utils-node'
+import { CorsHeaderInterceptor, AuthModule } from '@reapit/utils-nest'
 
 process.env = {
   ...process.env,

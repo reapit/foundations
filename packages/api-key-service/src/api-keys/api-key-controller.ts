@@ -2,7 +2,7 @@ import { Body, Controller, Delete, Get, Param, Post, Query, UseGuards } from '@n
 import { ApiKeyDto } from './api-key-dto'
 import { ApiKeyMemberDto } from './api-key-member-dto'
 import { ApiKeyProvider } from './api-key-provider'
-import { CredGuard, Creds, CredsType } from '@reapit/utils-node'
+import { CredGuard, Creds, CredsType } from '@reapit/utils-nest'
 import { ApiKeyModel } from '@reapit/api-key-verify'
 import { QueryIterator } from '@aws/dynamodb-data-mapper'
 import { UnauthorizedException } from '@homeservenow/serverless-aws-handler'

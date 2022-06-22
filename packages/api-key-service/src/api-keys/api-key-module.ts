@@ -5,7 +5,7 @@ import { ApiKeyProvider } from './api-key-provider'
 import { DataMapper } from '@aws/dynamodb-data-mapper'
 import { ConfigModule, ConfigService } from '@nestjs/config'
 import databaseConfig from '../config/database'
-import { AuthModule } from '@reapit/utils-node'
+import { AuthModule } from '@reapit/utils-nest'
 
 @Module({
   imports: [
