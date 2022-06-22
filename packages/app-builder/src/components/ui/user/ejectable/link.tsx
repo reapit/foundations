@@ -1,8 +1,8 @@
-import React, { forwardRef } from 'react'
+import React, { forwardRef, Ref } from 'react'
 import path from 'path'
 import qs from 'query-string'
 import { Link as RRLink, useParams } from 'react-router-dom'
-import { ComponentWrapper, ContainerProps } from './container'
+import { ContainerProps } from './container'
 import { usePageId } from '../../../hooks/use-page-id'
 
 export interface LinkProps extends ContainerProps {
@@ -10,9 +10,10 @@ export interface LinkProps extends ContainerProps {
   context?: { [key: string]: any }
   disabled?: boolean
   className?: string
+  children?: React.ReactNode
 }
 
-export const Link = forwardRef<HTMLDivElement, LinkProps>(({ disabled, ...props }, ref) => {
+export const Link = forwardRef<HTMLDivElement, LinkProps>(({ disabled, children, ...props }, ref) => {
   const { appId } = useParams<{ appId?: string }>()
   const dest = props.destination || ''
   const pathname = path.join('/', appId || '', dest === '~' ? '' : dest)
@@ -28,16 +29,19 @@ export const Link = forwardRef<HTMLDivElement, LinkProps>(({ disabled, ...props 
         pathname,
         search: qs.stringify(search),
       }}
-      onClick={
-        !disabled
-          ? (e) => {
-              e.preventDefault()
-              return false
-            }
-          : undefined
-      }
+      onClick={(e) => {
+        if (disabled) {
+          e.preventDefault()
+          return false
+        }
+      }}
+      style={{
+        display: 'block',
+        padding: 12,
+      }}
+      ref={ref as Ref<HTMLAnchorElement>}
     >
-      <ComponentWrapper {...props} ref={ref} />
+      {children}
     </RRLink>
   )
 })

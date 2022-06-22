@@ -14,6 +14,8 @@ const getAllChildNodes = (nodeId: string, nodes: Node[]) => {
   return [node, ...[].concat(...childNodes)]
 }
 
+export const NAV_NODE = 'NavNode'
+
 export const splitPageNodesIntoSections = (nodes: Node[]): { header: Node[]; footer: Node[]; nodes: Node[] } => {
   const header = getAllChildNodes('header', nodes)
   const footer = getAllChildNodes('footer', nodes)
@@ -26,10 +28,14 @@ export const splitPageNodesIntoSections = (nodes: Node[]): { header: Node[]; foo
     header,
     footer,
     nodes: [
-      ...nodes.filter((node) => !header.includes(node) && !footer.includes(node) && node.nodeId !== ROOT_NODE),
+      ...nodes.filter(
+        (node) =>
+          !header.includes(node) && !footer.includes(node) && node.nodeId !== ROOT_NODE && node.nodeId !== NAV_NODE,
+      ),
       {
         ...rootNode,
-        nodes: rootNode.nodes.filter((node) => node !== 'header' && node !== 'footer'),
+        nodes: rootNode.nodes.filter((node) => node !== 'header' && node !== 'footer' && node !== NAV_NODE),
+        parent: null,
       },
     ],
   }
@@ -53,9 +59,26 @@ export const mergeHeaderFooterIntoPage = (nodes: Node[], header: Node[] = [], fo
     nodeId: 'body',
   }
 
+  const navNode: Node = {
+    id: `${rootNode.id}-${NAV_NODE}`,
+    nodeId: NAV_NODE,
+    type: {
+      resolvedName: 'Navigation',
+    },
+    nodes: [],
+    parent: ROOT_NODE,
+    props: {},
+    custom: {},
+    displayName: 'Navigation',
+    hidden: false,
+    isCanvas: false,
+    linkedNodes: {},
+  }
+
   return [
     ...header,
     nodeDoesntContainerSelf(bodyNode),
+    navNode,
     ...nodes
       .filter((node) => node.nodeId !== ROOT_NODE)
       .map((node) => ({
@@ -65,7 +88,9 @@ export const mergeHeaderFooterIntoPage = (nodes: Node[], header: Node[] = [], fo
     ...footer,
     {
       ...rootNode,
-      nodes: [header.length ? 'header' : undefined, 'body', footer.length ? 'footer' : undefined].filter(notEmpty),
+      nodes: [header.length ? 'header' : undefined, 'body', footer.length ? 'footer' : undefined, NAV_NODE].filter(
+        notEmpty,
+      ),
     },
   ]
 }

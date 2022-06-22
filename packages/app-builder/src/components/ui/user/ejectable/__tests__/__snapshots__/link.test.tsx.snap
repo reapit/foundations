@@ -4,12 +4,7 @@ exports[`Link should match a snapshot 1`] = `
 <DocumentFragment>
   <a
     href="/123"
-  >
-    <div
-      class="component-wrapper"
-      style="--c1uzxtdh-0: 0;"
-      width="0"
-    />
-  </a>
+    style="display: block; padding: 12px;"
+  />
 </DocumentFragment>
 `;

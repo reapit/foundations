@@ -24,7 +24,7 @@ export const PageSelector = ({ pageId, onChange }: { pageId?: string; onChange: 
   const { appId, setPageId } = usePageId()
   const { app } = useApp(appId)
   const pages = app?.pages || []
-  const { updatePage } = useUpdatePage()
+  const { updatePage } = useUpdatePage(appId)
   const { deletePage, loading } = useDeletePage()
   const currentPage = pages.find((page) => page.id === pageId)
 
@@ -41,7 +41,7 @@ export const PageSelector = ({ pageId, onChange }: { pageId?: string; onChange: 
           if (!app) {
             return
           }
-          updatePage(appId, newPage, { header: app.header, footer: app.footer })
+          updatePage(newPage, { header: app.header, footer: app.footer })
         }}
       >
         <AppBuilderSelect
@@ -71,7 +71,6 @@ export const PageSelector = ({ pageId, onChange }: { pageId?: string; onChange: 
           }
           const page = newPage(pageName)
           updatePage(
-            appId,
             {
               ...page,
               nodes: nodesObjtoToArr(appId, page.id, page.nodes),

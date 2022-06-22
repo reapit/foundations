@@ -1,25 +1,79 @@
 import { useEditor, useNode } from '@craftjs/core'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { ToolbarItem, ToolbarItemType } from '../toolbar'
 import Container from './container'
 import { usePageId } from '@/components/hooks/use-page-id'
 import { useApp } from '@/components/hooks/apps/use-app'
-import { LinkProps, Link as ELink } from './ejectable/link'
+import { Link as ELink } from './ejectable/link'
 import { styled } from '@linaria/react'
+import ContentEditable from 'react-contenteditable'
+import { elFlexAuto } from '@reapit/elements'
 
 const defaultProps = {
   destination: '',
 }
 
-const Link = (props: LinkProps) => {
+const Link = ({
+  text,
+  destination,
+  ...props
+}: {
+  fontSize?: number
+  width?: number
+  text: string
+  destination?: string
+}) => {
+  const {
+    connectors: { connect, drag },
+    selected,
+    actions: { setProp },
+  } = useNode((state) => ({
+    selected: state.events.selected,
+    dragged: state.events.dragged,
+  }))
   const { enabled } = useEditor((state) => ({
     enabled: state.options.enabled,
   }))
-  const {
-    connectors: { connect, drag },
-  } = useNode()
+  const { fontSize, width } = {
+    ...defaultProps,
+    ...props,
+  }
+  const [editable, setEditable] = useState(false)
 
-  return <ELink {...props} ref={(ref) => ref && connect(drag(ref))} disabled={!enabled} />
+  useEffect(() => {
+    if (selected) {
+      return
+    }
+
+    setEditable(false)
+  }, [selected])
+
+  return (
+    <div
+      {...props}
+      className={elFlexAuto}
+      ref={(ref) => ref && connect(drag(ref))}
+      onClick={() => selected && setEditable(true)}
+      style={{
+        fontSize,
+        flex: `${width}`,
+      }}
+    >
+      <ELink
+        width={props.width || 12}
+        destination={destination}
+        ref={(ref) => ref && connect(drag(ref))}
+        disabled={enabled}
+      >
+        <ContentEditable
+          html={text}
+          disabled={!editable}
+          onChange={(e) => setProp((props) => (props.text = e.target.value.replace(/<\/?[^>]+(>|$)/g, '')), 500)}
+          tagName="p"
+        />
+      </ELink>
+    </div>
+  )
 }
 
 const ContainerSettings = Container.craft.related.toolbar

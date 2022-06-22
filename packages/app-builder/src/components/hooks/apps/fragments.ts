@@ -1,4 +1,5 @@
 import { gql } from '@apollo/client'
+import { IconNames } from '@reapit/elements'
 
 export const NodeFragment = gql`
   fragment NodeFragment on _Node {
@@ -41,6 +42,12 @@ export const AppFragment = gql`
     footer {
       ...NodeFragment
     }
+    navConfig {
+      id
+      name
+      icon
+      destination
+    }
   }
 `
 
@@ -66,6 +73,13 @@ export type Page = {
   nodes: Array<Node>
 }
 
+export type NavConfig = {
+  id: string
+  name: string
+  icon: IconNames
+  destination: string
+}
+
 export type App = {
   id: string
   name: string
@@ -77,4 +91,5 @@ export type App = {
   pages: Array<Page>
   header: Array<Node>
   footer: Array<Node>
+  navConfig: Array<NavConfig>
 }

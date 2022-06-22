@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { render } from '@testing-library/react'
 import routeData from 'react-router'
-import { Navbar } from '../navbar'
+import { Navigation } from '../navigation'
 import { MemoryRouter } from 'react-router-dom'
 import { MockedProvider } from '@apollo/client/testing'
 
@@ -24,7 +24,7 @@ describe('Navbar', () => {
     const { asFragment } = render(
       <MockedProvider>
         <MemoryRouter>
-          <Navbar />
+          <Navigation />
         </MemoryRouter>
       </MockedProvider>,
     )

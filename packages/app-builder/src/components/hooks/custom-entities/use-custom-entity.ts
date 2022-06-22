@@ -15,6 +15,7 @@ export const useCustomEntity = (id: string) => {
     variables: {
       id,
     },
+    skip: !id,
   })
 
   return {

@@ -10,17 +10,22 @@ import Delete from '../../icons/delete'
 import Move from '../../icons/move'
 import { cursorMove, cursorPointer, textWhite } from '../styles'
 import { componentSelected, indicator, littleButton } from './styles'
+import { NAV_NODE } from '@/components/hooks/apps/node-helpers'
 
 const HeaderContainer = styled.header`
   grid-column: span 12;
   overflow: hidden;
   border-radius: 4px;
+
+  grid-area: header;
 `
 
 const FooterContainer = styled.footer`
   grid-column: span 12;
   overflow: hidden;
   border-radius: 4px;
+
+  grid-area: footer;
 `
 
 const BodyContainer = styled.section`
@@ -29,9 +34,24 @@ const BodyContainer = styled.section`
   grid-column: span 12;
   overflow: hidden;
   border-radius: 4px;
+
+  grid-area: body;
 `
 
-const RootContainer = styled.section``
+const NavigationContainer = styled.div`
+  grid-area: nav;
+`
+
+const RootContainer = styled.section`
+  > div {
+    display: grid;
+    grid-template-areas:
+      'nav header header'
+      'nav body body'
+      'nav footer footer';
+    grid-template-columns: 1fr 9fr;
+  }
+`
 
 export const RenderNode = ({ render, iframeRef }) => {
   const { id } = useNode()
@@ -57,6 +77,7 @@ export const RenderNode = ({ render, iframeRef }) => {
       node.id !== 'header' &&
       node.id !== 'body' &&
       node.id !== 'footer' &&
+      node.id !== NAV_NODE &&
       !nodeIsRoot
     if (isDeletable && node.data.custom.isDeletable) {
       isDeletable = node.data.custom.isDeletable(node)
@@ -71,6 +92,7 @@ export const RenderNode = ({ render, iframeRef }) => {
         node.id !== 'header' &&
         node.id !== 'body' &&
         node.id !== 'footer' &&
+        node.id !== NAV_NODE &&
         !nodeIsRoot,
       deletable: isDeletable,
       parent: node.data.parent,
@@ -125,6 +147,7 @@ export const RenderNode = ({ render, iframeRef }) => {
   const isHeader = id === 'header'
   const isFooter = id === 'footer'
   const isBody = id === 'body'
+  const isNavigation = id === NAV_NODE
 
   return (
     <>
@@ -149,7 +172,8 @@ export const RenderNode = ({ render, iframeRef }) => {
               {isHeader && 'Header'}
               {isFooter && 'Footer'}
               {isBody && 'Body'}
-              {!isHeader && !isFooter && !isBody && name}
+              {isNavigation && 'Navigation'}
+              {!isHeader && !isFooter && !isBody && !isNavigation && name}
             </h2>
             {moveable && (
               <>
@@ -195,7 +219,7 @@ export const RenderNode = ({ render, iframeRef }) => {
                 <Move />
               </div>
             )}
-            {id !== 'ROOT' && id !== 'header' && id !== 'footer' && id !== 'body' && (
+            {id !== 'ROOT' && id !== 'header' && id !== NAV_NODE && id !== 'body' && (
               <a
                 className={cx(littleButton, elMr3, cursorPointer)}
                 onClick={() => {
@@ -223,7 +247,8 @@ export const RenderNode = ({ render, iframeRef }) => {
       {isFooter && <FooterContainer>{render}</FooterContainer>}
       {isBody && <BodyContainer>{render}</BodyContainer>}
       {isRoot && <RootContainer>{render}</RootContainer>}
-      {!isHeader && !isFooter && !isBody && !isRoot && render}
+      {isNavigation && <NavigationContainer>{render}</NavigationContainer>}
+      {!isHeader && !isFooter && !isBody && !isRoot && !isNavigation && render}
     </>
   )
 }
