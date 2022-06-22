@@ -1,6 +1,6 @@
 {
   "name": "@reapit/app-builder-backend",
-  "version": "0.0.1",
+  "version": ".0.0.1",
   "description": "Common Package for Reapit Foundation",
   "repository": {
     "type": "git",
