@@ -8352,6 +8352,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@reapit/utils-nest@workspace:packages/utils-nest":
+  version: 0.0.0-use.local
+  resolution: "@reapit/utils-nest@workspace:packages/utils-nest"
+  languageName: unknown
+  linkType: soft
+
 "@reapit/utils-node@workspace:packages/utils-node":
   version: 0.0.0-use.local
   resolution: "@reapit/utils-node@workspace:packages/utils-node"
@@ -19148,6 +19154,7 @@ __metadata:
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/ts-bundler": "workspace:packages/ts-bundler"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
+    "@reapit/utils-nest": "workspace:packages/utils-nest"
     "@reapit/utils-node": "workspace:packages/utils-node"
     "@types/adm-zip": ^0.4.34
     "@types/aws-serverless-express": ^3.3.5

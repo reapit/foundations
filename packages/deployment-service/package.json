@@ -62,6 +62,7 @@
     "@reapit/config-manager": "workspace:packages/config-manager",
     "@reapit/ts-bundler": "workspace:packages/ts-bundler",
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",
+    "@reapit/utils-nest": "workspace:packages/utils-nest",
     "@types/adm-zip": "^0.4.34",
     "@types/aws-serverless-express": "^3.3.5",
     "@types/mime-types": "^2.1.1",
