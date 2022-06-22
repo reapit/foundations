@@ -8,7 +8,7 @@ import { eventContext } from 'aws-serverless-express/middleware'
 import { Server } from 'http'
 import express, { Express } from 'express'
 import * as bodyParser from 'body-parser'
-import { CorsHeaderInterceptor } from '@reapit/utils-node'
+import { CorsHeaderInterceptor } from '@reapit/utils-nest'
 
 export const bootstrapApplication = async (): Promise<[INestApplication, Express]> => {
   const expressApp = express()
