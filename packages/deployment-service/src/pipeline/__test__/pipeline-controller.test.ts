@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing'
 import { PipelineController } from '../pipeline-controller'
 import { PipelineProvider } from '../pipeline-provider'
-import { OwnershipProvider, CredGuard } from '../../auth'
+import { OwnershipProvider, CredGuard } from '@reapit/utils-node'
 import { EventDispatcher, PusherProvider } from '../../events'
 import { v4 as uuid } from 'uuid'
 import { PipelineModelInterface } from '@reapit/foundations-ts-definitions/deployment-schema'
