@@ -95,7 +95,7 @@ const SelectIDofType = ({
   return null
 }
 
-const camelCaseToSentence = (camelCase: string) => {
+export const camelCaseToSentence = (camelCase: string) => {
   return uppercaseSentence(camelCase.replace(/([A-Z])/g, ' $1'))
 }
 

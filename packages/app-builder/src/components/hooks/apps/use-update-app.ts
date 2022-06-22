@@ -1,7 +1,7 @@
 import { gql, useApolloClient, useMutation } from '@apollo/client'
 import cloneDeep from 'clone-deep'
 import omitDeep from 'omit-deep'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { notEmpty } from '../use-introspection/helpers'
 
 import { App, AppFragment, NavConfig, Node, Page } from './fragments'
@@ -37,12 +37,7 @@ export const useUpdateApp = () => {
   return {
     updateApp: (app: App, header: Node[], footer: Node[], navConfig: NavConfig[], pages?: Array<Partial<Page>>) => {
       const variables = { id: app.id, name: app.name, pages, header, footer, navConfig }
-      try {
-        validateNodes([...header, ...footer, ...(pages || []).map((page) => page.nodes)].flat().filter(notEmpty))
-      } catch (e) {
-        console.error(e)
-        return
-      }
+      validateNodes([...header, ...footer, ...(pages || []).map((page) => page.nodes)].flat().filter(notEmpty))
       return updateApp({
         variables,
         optimisticResponse: {
@@ -63,7 +58,7 @@ export const useUpdateAppNavConfig = (appId: string) => {
   const { app } = useApp(appId)
   const client = useApolloClient()
 
-  let newNavConfig
+  const [newNavConfig, setNewNavConfig] = useState<NavConfig[]>()
 
   const doUpdate = () => {
     if (newNavConfig) {
@@ -77,18 +72,22 @@ export const useUpdateAppNavConfig = (appId: string) => {
         omitDeep(cloneDeep(newNavConfig), ['__typename']),
         omitDeep(cloneDeep(app.pages), ['__typename']),
       )
-      newNavConfig = undefined
+      setNewNavConfig(undefined)
     }
   }
 
+  let timeout: any
+
   useEffect(() => {
-    const interval = setInterval(doUpdate, 2000)
+    if (timeout) {
+      clearTimeout(timeout)
+    }
+    timeout = setTimeout(doUpdate, 2000)
 
     return () => {
-      clearInterval(interval)
-      doUpdate()
+      clearTimeout(timeout)
     }
-  }, [])
+  }, [newNavConfig])
 
   return {
     updateAppNavConfig: async (navConfig: NavConfig[]) => {
@@ -103,7 +102,7 @@ export const useUpdateAppNavConfig = (appId: string) => {
           },
         },
       })
-      newNavConfig = navConfig
+      setNewNavConfig(navConfig)
     },
     navConfigs: app?.navConfig || [],
     loading,

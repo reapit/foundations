@@ -101,7 +101,7 @@ const CircleButtonContainer = styled.div`
   cursor: pointer;
 `
 
-export const PlusButton = ({ loading, onClick }: { loading: boolean; onClick: () => void }) => (
+export const PlusButton = ({ loading, onClick }: { loading?: boolean; onClick: () => void }) => (
   <CircleButtonContainer
     onClick={(e) => {
       e.stopPropagation()
@@ -118,6 +118,27 @@ export const PlusButton = ({ loading, onClick }: { loading: boolean; onClick: ()
         fillRule="evenodd"
         clipRule="evenodd"
         d="M9.57129 5.57129C9.84743 5.57129 10.0713 5.34743 10.0713 5.07129C10.0713 4.79515 9.84743 4.57129 9.57129 4.57129L5.57129 4.57129L5.57129 0.571289C5.57129 0.295147 5.34743 0.0712889 5.07129 0.0712888C4.79515 0.0712888 4.57129 0.295147 4.57129 0.571289L4.57129 4.57129L0.571289 4.57129C0.295147 4.57129 0.0712889 4.79515 0.0712888 5.07129C0.0712888 5.34743 0.295147 5.57129 0.571289 5.57129L4.57129 5.57129L4.57129 9.57129C4.57129 9.84743 4.79515 10.0713 5.07129 10.0713C5.34743 10.0713 5.57129 9.84743 5.57129 9.57129L5.57129 5.57129L9.57129 5.57129Z"
+        fill="#646464"
+      />
+    </svg>
+  </CircleButtonContainer>
+)
+
+export const MinusButton = ({ loading, onClick }: { loading?: boolean; onClick: () => void }) => (
+  <CircleButtonContainer
+    onClick={(e) => {
+      e.stopPropagation()
+      if (!loading) {
+        onClick()
+      }
+    }}
+    style={{
+      opacity: loading ? 0.5 : 1,
+    }}
+  >
+    <svg width="10" height="2" viewBox="0 0 10 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M10 1.07129C10 1.34743 9.77614 1.57129 9.5 1.57129L0.5 1.57129C0.223858 1.57129 -3.39263e-08 1.34743 -2.18557e-08 1.07129C-9.78513e-09 0.795146 0.223858 0.571289 0.5 0.571289L9.5 0.571289C9.77614 0.571289 10 0.795147 10 1.07129Z"
         fill="#646464"
       />
     </svg>

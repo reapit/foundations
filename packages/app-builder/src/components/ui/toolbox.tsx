@@ -94,9 +94,7 @@ export const Toolbox = ({ create }: { create: (ref: HTMLElement, ele: any) => vo
         </ToolboxItem>
         <ToolboxItem
           name="Link"
-          ref={(ref: HTMLElement) =>
-            ref && create(ref, <Element canvas is={Link} background="white" padding={12} width={12} />)
-          }
+          ref={(ref: HTMLElement) => ref && create(ref, <Element canvas is={Link} width={12} text="Link Text" />)}
         >
           <Item>
             <LinkSVG />

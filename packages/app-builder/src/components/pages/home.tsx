@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useRef } from 'react'
+import React, { FC, useRef } from 'react'
 import { Editor, Frame } from '@craftjs/core'
 import { useSnack } from '@reapit/elements'
 
@@ -30,34 +30,40 @@ export const resolver = {
   Navigation,
 }
 
+type PageData = {
+  page: Omit<Page, 'name'>
+  headerFooter: {
+    header: Node[]
+    footer: Node[]
+  }
+}
+
+const useDebouncedUpdatePage = (appId: string) => {
+  const { updatePage } = useUpdatePage(appId)
+  const { error } = useSnack()
+  let timeout: NodeJS.Timeout | undefined
+
+  return (data: PageData) => {
+    if (timeout) {
+      clearTimeout(timeout)
+    }
+    timeout = setTimeout(() => {
+      if (!data) {
+        return
+      }
+      updatePage(data.page, data.headerFooter).catch((e) => {
+        if (!e.message.includes('invalid node')) {
+          error(e.message)
+        }
+      })
+    }, 1000)
+  }
+}
+
 export const Home: FC<HomeProps> = () => {
   const iframeRef = useRef()
   const { pageId, appId } = usePageId()
-  const { updatePage } = useUpdatePage(appId)
-  const { error } = useSnack()
-
-  let data:
-    | undefined
-    | {
-        page: Omit<Page, 'name'>
-        headerFooter: {
-          header: Node[]
-          footer: Node[]
-        }
-      }
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (data) {
-        updatePage(data.page, data.headerFooter).catch((e) => {
-          error(e.message)
-        })
-        data = undefined
-      }
-    }, 1000)
-
-    return () => clearInterval(interval)
-  }, [])
+  const updatePage = useDebouncedUpdatePage(appId)
 
   return (
     <Editor
@@ -69,7 +75,7 @@ export const Home: FC<HomeProps> = () => {
         if (query.serialize() !== '{}' && !isInitialLoad(nodesObj)) {
           const pageNodes = nodesObjtoToArr(appId, pageId, nodesObj)
           const { nodes, header, footer } = splitPageNodesIntoSections(pageNodes)
-          data = {
+          updatePage({
             page: {
               id: pageId,
               nodes,
@@ -78,7 +84,7 @@ export const Home: FC<HomeProps> = () => {
               header,
               footer,
             },
-          }
+          })
         }
       }}
     >
