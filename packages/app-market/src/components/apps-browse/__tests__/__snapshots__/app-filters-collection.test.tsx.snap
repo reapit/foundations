@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AppsBrowsePage should match a snapshot 1`] = `
+exports[`AppFiltersCollection should match a snapshot 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -8,30 +8,12 @@ Object {
       <div
         class="el-snack-holder"
       />
-      <section
-        class="el-page-container"
-      >
-        <h1
-          class="el-title"
-        >
-          AppMarket
-        </h1>
-      </section>
     </div>
   </body>,
   "container": <div>
     <div
       class="el-snack-holder"
     />
-    <section
-      class="el-page-container"
-    >
-      <h1
-        class="el-title"
-      >
-        AppMarket
-      </h1>
-    </section>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
