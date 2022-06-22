@@ -5,12 +5,18 @@ Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+      <div
+        class="el-snack-holder"
+      />
       <div>
         I am a router
       </div>
     </div>
   </body>,
   "container": <div>
+    <div
+      class="el-snack-holder"
+    />
     <div>
       I am a router
     </div>
