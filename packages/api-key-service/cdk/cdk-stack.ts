@@ -20,7 +20,7 @@ export const createStack = async () => {
   })
 
   const api = createApi(stack, 'apigateway', undefined)
-  const vpc = createVpc(stack, 'vpc')
+  // const vpc = createVpc(stack, 'vpc')
 
   const dynamodb = createTable(stack, config.DYNAMO_DB_API_KEY_TABLE_NAME, 'id', [
     {
@@ -36,13 +36,15 @@ export const createStack = async () => {
       partitionKeyName: 'email',
     },
   ])
-
   const env = {
-
+    ...config,
+    DYNAMO_DB_ENDPOINT: dynamodb.tableArn,
   }
 
-  const httpLambda = createFunction(stack, 'api-key-http', path.resolve('bundle.zip'), 'packages/api-key-service/src/http.handler', env, vpc)
-  const invokeLambda = createFunction(stack, 'api-key-invoke', path.resolve('bundle.zip'), 'packages/api-key-service/src/invoke.invokeAPiKeyVerify', env, vpc)
+  const httpLambda = createFunction(stack, 'api-key-http', path.resolve('bundle.zip'), 'packages/api-key-service/src/http.handler', env)
+  const invokeLambda = createFunction(stack, 'api-key-invoke', path.resolve('bundle.zip'), 'packages/api-key-service/src/invoke.invokeAPiKeyVerify', env)
+  dynamodb.grantReadWriteData(httpLambda)
+  dynamodb.grantReadWriteData(invokeLambda)
 
   const dynamodbPolicy = new PolicyStatement({
     resources: [dynamodb.tableArn],
