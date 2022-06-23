@@ -94,8 +94,11 @@ export class ApiKeyController {
   }
 
   @Delete('/:id')
-  async delete(@Param('id') id: string): Promise<void> {
-    const apiKey = await this.apiKeyProvider.findOne({ id })
+  async delete(@Param('id') id: string, @Creds() creds: CredsType): Promise<void> {
+    const apiKey = await this.apiKeyProvider.findOne({
+      id,
+      developerId: creds.developerId as string,
+     })
 
     if (!apiKey) {
       throw new NotFoundException()

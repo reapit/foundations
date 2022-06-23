@@ -67,6 +67,6 @@ export class ApiKeyProvider {
   }
 
   async delete(apiKey: ApiKeyModel): Promise<void> {
-    await this.datamapper.delete({ apiKey })
+    await this.datamapper.delete(apiKey)
   }
 }
