@@ -7431,7 +7431,6 @@ __metadata:
     "@aws-sdk/client-dynamodb": ^3.100.0
     "@graphql-tools/delegate": ^8.7.10
     "@graphql-tools/stitch": ^8.6.12
-    "@reapit/app-builder": "workspace:packages/app-builder"
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/cra-template-foundations": "workspace:packages/cra-template-foundations"
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
@@ -7449,6 +7448,7 @@ __metadata:
     apollo-server-core: ^3.8.1
     apollo-server-express: ^3.8.1
     apollo-server-lambda: ^3.8.1
+    app-builder: "workspace:packages/app-builder"
     class-validator: ^0.13.2
     concurrently: ^6.5.1
     cors: ^2.8.5
@@ -7475,66 +7475,6 @@ __metadata:
     type-graphql: ^1.1.1
     typescript: ^4.7.2
     uuid: ^8.3.2
-  languageName: unknown
-  linkType: soft
-
-"@reapit/app-builder@workspace:packages/app-builder":
-  version: 0.0.0-use.local
-  resolution: "@reapit/app-builder@workspace:packages/app-builder"
-  dependencies:
-    "@apollo/client": ^3.6.6
-    "@craftjs/core": 0.2.0-beta.4
-    "@linaria/core": ^3.0.0-beta.15
-    "@linaria/react": ^3.0.0-beta.15
-    "@linaria/shaker": ^3.0.0-beta.15
-    "@reapit/config-manager": "workspace:packages/config-manager"
-    "@reapit/connect-session": "workspace:packages/connect-session"
-    "@reapit/elements": "workspace:packages/elements"
-    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
-    "@reapit/ts-types": "workspace:packages/ts-types"
-    "@reapit/utils-common": "workspace:packages/utils-common"
-    "@reapit/utils-react": "workspace:packages/utils-react"
-    "@sentry/browser": ^6.19.7
-    "@testing-library/jest-dom": ^5.16.4
-    "@testing-library/react": ^13.3.0
-    "@typescript-eslint/eslint-plugin": ^5.27.0
-    "@typescript-eslint/parser": ^5.27.0
-    babel-loader: ^8.2.5
-    clone-deep: ^4.0.1
-    concurrently: ^6.5.1
-    cross-env: ^6.0.3
-    css-loader: ^6.7.1
-    date-fns: ^2.28.0
-    dayjs: ^1.11.2
-    eslint: 8.16.0
-    eslint-plugin-prettier: ^4.0.0
-    graphql: ^15.8.0
-    jest: ^28.1.0
-    jest-coverage-badges: ^1.1.2
-    omit-deep: ^0.3.0
-    query-string: ^7.1.1
-    react: ^18.1.0
-    react-contenteditable: ^3.3.6
-    react-dom: ^18.1.0
-    react-frame-component: ^5.2.3
-    react-ga: ^2.7.0
-    react-router: ^5.3.3
-    react-router-dom: ^5.3.3
-    react-tooltip: ^4.2.21
-    rimraf: ^3.0.2
-    serverless: ^2.72.3
-    serverless-s3-deploy: ^0.10.1
-    serverless-s3-remover: ^0.6.0
-    serverless-single-page-app-plugin: ^1.0.4
-    slugify: ^1.6.5
-    snyk: ^1.944.0
-    styled-components: ^5.3.5
-    throttle-debounce: ^3.0.1
-    typescript: ^4.7.2
-    uuid: ^8.3.2
-    webpack: ^5.72.1
-    webpack-dev-server: ^4.9.0
-    yup: ^0.32.11
   languageName: unknown
   linkType: soft
 
@@ -13789,6 +13729,66 @@ __metadata:
   checksum: 6e0192a3420782909c930f5230808d7fbbdbcdfccddd960120e19bab251b77a16e590b05dbb4a7da2c27c59077fbfd53e56819a9fae694debe7f898e8b0ec1e9
   languageName: node
   linkType: hard
+
+"app-builder@workspace:packages/app-builder":
+  version: 0.0.0-use.local
+  resolution: "app-builder@workspace:packages/app-builder"
+  dependencies:
+    "@apollo/client": ^3.6.6
+    "@craftjs/core": 0.2.0-beta.4
+    "@linaria/core": ^3.0.0-beta.15
+    "@linaria/react": ^3.0.0-beta.15
+    "@linaria/shaker": ^3.0.0-beta.15
+    "@reapit/config-manager": "workspace:packages/config-manager"
+    "@reapit/connect-session": "workspace:packages/connect-session"
+    "@reapit/elements": "workspace:packages/elements"
+    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
+    "@reapit/ts-types": "workspace:packages/ts-types"
+    "@reapit/utils-common": "workspace:packages/utils-common"
+    "@reapit/utils-react": "workspace:packages/utils-react"
+    "@sentry/browser": ^6.19.7
+    "@testing-library/jest-dom": ^5.16.4
+    "@testing-library/react": ^13.3.0
+    "@typescript-eslint/eslint-plugin": ^5.27.0
+    "@typescript-eslint/parser": ^5.27.0
+    babel-loader: ^8.2.5
+    clone-deep: ^4.0.1
+    concurrently: ^6.5.1
+    cross-env: ^6.0.3
+    css-loader: ^6.7.1
+    date-fns: ^2.28.0
+    dayjs: ^1.11.2
+    eslint: 8.16.0
+    eslint-plugin-prettier: ^4.0.0
+    graphql: ^15.8.0
+    jest: ^28.1.0
+    jest-coverage-badges: ^1.1.2
+    omit-deep: ^0.3.0
+    query-string: ^7.1.1
+    react: ^18.1.0
+    react-contenteditable: ^3.3.6
+    react-dom: ^18.1.0
+    react-frame-component: ^5.2.3
+    react-ga: ^2.7.0
+    react-router: ^5.3.3
+    react-router-dom: ^5.3.3
+    react-tooltip: ^4.2.21
+    rimraf: ^3.0.2
+    serverless: ^2.72.3
+    serverless-s3-deploy: ^0.10.1
+    serverless-s3-remover: ^0.6.0
+    serverless-single-page-app-plugin: ^1.0.4
+    slugify: ^1.6.5
+    snyk: ^1.944.0
+    styled-components: ^5.3.5
+    throttle-debounce: ^3.0.1
+    typescript: ^4.7.2
+    uuid: ^8.3.2
+    webpack: ^5.72.1
+    webpack-dev-server: ^4.9.0
+    yup: ^0.32.11
+  languageName: unknown
+  linkType: soft
 
 "app-market@workspace:packages/app-market":
   version: 0.0.0-use.local

@@ -1,6 +1,6 @@
 {
   "name": "@reapit/app-builder-backend",
-  "version": ".0.0.1",
+  "version": ".0.0.3",
   "description": "Common Package for Reapit Foundation",
   "repository": {
     "type": "git",
@@ -29,7 +29,6 @@
     "@aws-sdk/client-dynamodb": "^3.100.0",
     "@graphql-tools/delegate": "^8.7.10",
     "@graphql-tools/stitch": "^8.6.12",
-    "@reapit/app-builder": "workspace:packages/app-builder",
     "@reapit/cra-template-foundations": "workspace:packages/cra-template-foundations",
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions",
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",
@@ -40,6 +39,7 @@
     "apollo-server-core": "^3.8.1",
     "apollo-server-express": "^3.8.1",
     "apollo-server-lambda": "^3.8.1",
+    "app-builder": "workspace:packages/app-builder",
     "class-validator": "^0.13.2",
     "cors": "^2.8.5",
     "eslint": "^8.16.0",
