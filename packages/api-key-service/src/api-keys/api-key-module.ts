@@ -12,7 +12,9 @@ import { AuthModule } from '@reapit/utils-nest'
     ConfigModule.forRoot({
       load: [databaseConfig],
     }),
-    AuthModule,
+    AuthModule.forRoot({
+      invokeArn: '',
+    }),
   ],
   providers: [
     {

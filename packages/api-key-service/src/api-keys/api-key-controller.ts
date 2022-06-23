@@ -98,7 +98,7 @@ export class ApiKeyController {
     const apiKey = await this.apiKeyProvider.findOne({
       id,
       developerId: creds.developerId as string,
-     })
+    })
 
     if (!apiKey) {
       throw new NotFoundException()

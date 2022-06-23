@@ -5,6 +5,11 @@ import { plainToClass } from 'class-transformer'
 
 const lambda = new AWS.Lambda()
 
+interface ResolveApiKeyFunctionPropsInterface {
+  apiKey: string,
+  functionName: string,
+}
+
 /**
  * use lambda invoke to resolve apiKey and throw exceptions if key does not exist or is expired
  *
@@ -12,13 +17,15 @@ const lambda = new AWS.Lambda()
  * @returns GetApiKeyFunction
  */
 export const resolveApiKey = async (
-  apiKeyHeader: string,
-  production: boolean = false,
+  {
+    apiKey: apiKeyHeader,
+    functionName: FunctionName,
+  }: ResolveApiKeyFunctionPropsInterface,
 ): Promise<ApiKeyModel | never> => {
   const apiKey = await new Promise<ApiKeyModel | undefined>((resolve, reject) =>
     lambda.invoke(
       {
-        FunctionName: `cloud-api-key-service-${production ? 'prod' : 'dev'}-getApiKeyViaInvoke`,
+        FunctionName,
         InvocationType: 'RequestResponse',
         LogType: 'Tail',
         Payload: JSON.stringify({ apiKey: apiKeyHeader }),
