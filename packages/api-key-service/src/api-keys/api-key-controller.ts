@@ -20,13 +20,14 @@ type Pagination<T> = {
 export class ApiKeyController {
   constructor(private readonly apiKeyProvider: ApiKeyProvider) {}
 
-  protected async resolvePaginationObject(apiKeys: QueryIterator<ApiKeyModel>): Promise<Pagination<ApiKeyModel>> {
+  protected async resolvePaginationObject(apiKeys: [QueryIterator<ApiKeyModel>, { nextCursor: string }]): Promise<Pagination<ApiKeyModel>> {
     const pagination: Pagination<ApiKeyModel> = {
       items: [],
       meta: apiKeys[1],
     }
 
     for await (const apiKey of apiKeys[0]) {
+      console.log('api-key', apiKey)
       pagination.items.push(apiKey)
     }
 
@@ -46,10 +47,10 @@ export class ApiKeyController {
       startKey: nextCursor ? { id: nextCursor } : undefined,
     })
 
-    return this.resolvePaginationObject(response[0])
+    return this.resolvePaginationObject(response)
   }
 
-  @Get('/member/:email')
+  @Get('/user/:email')
   async paginateByMember(
     @Param('email') email: string,
     @Query('nextCursor') nextCursor?: string,
@@ -60,7 +61,12 @@ export class ApiKeyController {
       startKey: nextCursor ? { id: nextCursor } : undefined,
     })
 
-    return this.resolvePaginationObject(response[0])
+    console.log('response', response)
+
+    const result = await this.resolvePaginationObject(response)
+
+    console.log('result', result)
+    return result
   }
 
   @Post()
@@ -68,7 +74,7 @@ export class ApiKeyController {
     return this.apiKeyProvider.create(apiKey)
   }
 
-  @Post('/member')
+  @Post('/user')
   async creatApiKeyByMember(@Body() apiKey: ApiKeyMemberDto): Promise<ApiKeyModel> {
     return this.apiKeyProvider.create(apiKey)
   }

@@ -17,7 +17,14 @@ import { AuthModule } from '@reapit/utils-nest'
   providers: [
     {
       provide: DynamoDB,
-      useFactory: (config: ConfigService) => new DynamoDB(config.get('database')),
+      useFactory: (config: ConfigService) => {
+        const db = config.get('database')
+        console.log('inside config', db)
+        return new DynamoDB({
+          endpoint: db.endpoint,
+          region: db.region,
+        })
+      },
       inject: [ConfigService],
     },
     {
