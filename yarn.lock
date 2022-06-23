@@ -13554,7 +13554,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "api-key-service@workspace:packages/api-key-service"
   dependencies:
-    "@homeservenow/serverless-aws-handler": ^0.2.4
     "@nestjs/common": ^8.4.6
     "@nestjs/config": ^2.1.0
     "@nestjs/core": ^8.4.6

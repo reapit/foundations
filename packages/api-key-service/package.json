@@ -2,7 +2,6 @@
   "name": "api-key-service",
   "main": "src/index.ts",
   "dependencies": {
-    "@homeservenow/serverless-aws-handler": "^0.2.4",
     "@nestjs/common": "^8.4.6",
     "@nestjs/config": "^2.1.0",
     "@nestjs/core": "^8.4.6",
