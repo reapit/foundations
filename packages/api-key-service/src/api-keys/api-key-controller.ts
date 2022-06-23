@@ -1,11 +1,21 @@
-import { Body, Controller, Delete, Get, Param, Post, Query, UseGuards } from '@nestjs/common'
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Query,
+  UseGuards,
+  UnauthorizedException,
+  NotFoundException,
+} from '@nestjs/common'
 import { ApiKeyDto } from './api-key-dto'
 import { ApiKeyMemberDto } from './api-key-member-dto'
 import { ApiKeyProvider } from './api-key-provider'
 import { CredGuard, Creds, CredsType } from '@reapit/utils-nest'
 import { ApiKeyModel } from '@reapit/api-key-verify'
 import { QueryIterator } from '@aws/dynamodb-data-mapper'
-import { UnauthorizedException } from '@homeservenow/serverless-aws-handler'
 
 type Pagination<T> = {
   items: T[]
@@ -29,7 +39,6 @@ export class ApiKeyController {
     }
 
     for await (const apiKey of apiKeys[0]) {
-      console.log('api-key', apiKey)
       pagination.items.push(apiKey)
     }
 
@@ -63,12 +72,7 @@ export class ApiKeyController {
       startKey: nextCursor ? { id: nextCursor } : undefined,
     })
 
-    console.log('response', response)
-
-    const result = await this.resolvePaginationObject(response)
-
-    console.log('result', result)
-    return result
+    return this.resolvePaginationObject(response)
   }
 
   @Post()
@@ -91,6 +95,12 @@ export class ApiKeyController {
 
   @Delete('/:id')
   async delete(@Param('id') id: string): Promise<void> {
-    return this.apiKeyProvider.delete(id)
+    const apiKey = await this.apiKeyProvider.findOne({ id })
+
+    if (!apiKey) {
+      throw new NotFoundException()
+    }
+
+    return this.apiKeyProvider.delete(apiKey)
   }
 }

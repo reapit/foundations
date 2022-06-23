@@ -66,7 +66,7 @@ export class ApiKeyProvider {
     return apiKeys.filter((key) => typeof key !== 'undefined')[0]
   }
 
-  async delete(apiKey: string): Promise<void> {
+  async delete(apiKey: ApiKeyModel): Promise<void> {
     await this.datamapper.delete({ apiKey })
   }
 }
