@@ -20,7 +20,9 @@ type Pagination<T> = {
 export class ApiKeyController {
   constructor(private readonly apiKeyProvider: ApiKeyProvider) {}
 
-  protected async resolvePaginationObject(apiKeys: [QueryIterator<ApiKeyModel>, { nextCursor: string }]): Promise<Pagination<ApiKeyModel>> {
+  protected async resolvePaginationObject(
+    apiKeys: [QueryIterator<ApiKeyModel>, { nextCursor: string }],
+  ): Promise<Pagination<ApiKeyModel>> {
     const pagination: Pagination<ApiKeyModel> = {
       items: [],
       meta: apiKeys[1],

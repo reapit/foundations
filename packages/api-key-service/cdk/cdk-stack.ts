@@ -1,15 +1,6 @@
 import * as path from 'path'
-import {
-  addLambdaToApi,
-  createApi,
-  createBaseStack,
-  createVpc,
-  PolicyStatement,
-  createTable,
-  createFunction,
-} from '@reapit/ts-scripts/src/cdk'
+import { addLambdaToApi, createApi, createBaseStack, createTable, createFunction } from '@reapit/ts-scripts/src/cdk'
 import config from '../config.json'
-
 
 export const createStack = async () => {
   const stack = createBaseStack({
@@ -20,7 +11,6 @@ export const createStack = async () => {
   })
 
   const api = createApi(stack, 'apigateway', undefined)
-  // const vpc = createVpc(stack, 'vpc')
 
   const dynamodb = createTable(stack, config.DYNAMO_DB_API_KEY_TABLE_NAME, 'id', [
     {
@@ -38,38 +28,24 @@ export const createStack = async () => {
   ])
   const env = {
     ...config,
-    DYNAMO_DB_ENDPOINT: dynamodb.tableArn,
   }
 
-  const httpLambda = createFunction(stack, 'api-key-http', path.resolve('bundle.zip'), 'packages/api-key-service/src/http.handler', env)
-  const invokeLambda = createFunction(stack, 'api-key-invoke', path.resolve('bundle.zip'), 'packages/api-key-service/src/invoke.invokeAPiKeyVerify', env)
+  const httpLambda = createFunction(
+    stack,
+    'api-key-http',
+    path.resolve('bundle.zip'),
+    'packages/api-key-service/src/http.handler',
+    env,
+  )
+  const invokeLambda = createFunction(
+    stack,
+    'api-key-invoke',
+    path.resolve('bundle.zip'),
+    'packages/api-key-service/src/invoke.invokeAPiKeyVerify',
+    env,
+  )
   dynamodb.grantReadWriteData(httpLambda)
   dynamodb.grantReadWriteData(invokeLambda)
-
-  const dynamodbPolicy = new PolicyStatement({
-    resources: [dynamodb.tableArn],
-    actions: [
-      "dynamodb:Query",
-      "dynamodb:Scan",
-      "dynamodb:GetItem",
-      "dynamodb:PutItem",
-      "dynamodb:UpdateItem",
-      "dynamodb:DeleteItem",
-    ],
-  })
-
-  const tablePolicy = new PolicyStatement({
-    resources: [`${dynamodb.tableArn}/index/*`],
-    actions: [
-      "dynamodb:Query",
-      "dynamodb:Scan",
-    ],
-  });
-
-  [tablePolicy, dynamodbPolicy].forEach(policy => {
-    httpLambda.addToRolePolicy(policy)
-    invokeLambda.addToRolePolicy(policy)
-  })
 
   addLambdaToApi(
     stack,
