@@ -28,6 +28,7 @@ export const createStack = async () => {
   ])
   const env = {
     ...config,
+    DYNAMO_DB_API_KEY_TABLE_NAME: dynamodb.tableName,
   }
 
   const httpLambda = createFunction(
