@@ -10,7 +10,7 @@ if (command) {
   try {
     execSync(
       `yarn cdk ${command} --require-approval never --output=${templatesDir} --all -a "cd ${cwd} && yarn dlx ts-node ${
-        scriptName.split(' ')[0]
+        scriptName.split('--')[0]
       }"`,
       {
         stdio: 'inherit',
