@@ -1,4 +1,4 @@
-import { INestApplication, ValidationPipe } from '@nestjs/common'
+import { INestApplication, Logger, ValidationPipe } from '@nestjs/common'
 import { NestFactory } from '@nestjs/core'
 import { ApiKeyModule } from './api-keys'
 import { createServer, proxy } from 'aws-serverless-express'
@@ -39,6 +39,8 @@ async function bootstrapServer(): Promise<Server> {
 
 export const handler: Handler = async (event: APIGatewayEvent, context: Context) => {
   cachedServer = await bootstrapServer()
+
+  Logger.log(event.path, 'PATH')
 
   return proxy(cachedServer, event, context, 'PROMISE').promise
 }
