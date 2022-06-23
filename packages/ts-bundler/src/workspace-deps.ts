@@ -3,7 +3,7 @@ import fs from 'fs'
 
 import { Context } from './ts-bundler'
 
-export const processWorkspaceDeps = ({ subdirs, tmpDir, packagesRoot, monorepoNamespace }: Context) => {
+export const processWorkspaceDeps = ({ subdirs, tmpDir, packagesRoot }: Context) => {
   const toCopy: string[] = []
 
   subdirs.forEach((moduleName) => {
@@ -17,8 +17,8 @@ export const processWorkspaceDeps = ({ subdirs, tmpDir, packagesRoot, monorepoNa
     const modulePkg = JSON.parse(pkg)
     modulePkg.dependencies &&
       Object.keys(modulePkg.dependencies).forEach((depName) => {
-        if (depName.startsWith(monorepoNamespace)) {
-          const depModuleDir = depName.split('/')[1]
+        if (modulePkg.dependencies[depName].startsWith('workspace:')) {
+          const depModuleDir = depName.split('/')[1] || depName.split('/')[0]
           if (!subdirs.includes(depModuleDir)) {
             toCopy.push(depModuleDir)
           }
