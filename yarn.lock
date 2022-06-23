@@ -6372,6 +6372,31 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@nestjs/common@npm:^8.4.7":
+  version: 8.4.7
+  resolution: "@nestjs/common@npm:8.4.7"
+  dependencies:
+    axios: 0.27.2
+    iterare: 1.2.1
+    tslib: 2.4.0
+    uuid: 8.3.2
+  peerDependencies:
+    cache-manager: "*"
+    class-transformer: "*"
+    class-validator: "*"
+    reflect-metadata: ^0.1.12
+    rxjs: ^7.1.0
+  peerDependenciesMeta:
+    cache-manager:
+      optional: true
+    class-transformer:
+      optional: true
+    class-validator:
+      optional: true
+  checksum: b3fa20618d4e60f9f5089215c800f2deb5d08b9f88443102b066036d7bacf17ff5926ad5ff0ef7ace42feb8e0ca561dc7e75fd05dbd028f5e675d5e7062eb685
+  languageName: node
+  linkType: hard
+
 "@nestjs/config@npm:^2.0.0":
   version: 2.0.0
   resolution: "@nestjs/config@npm:2.0.0"
@@ -6459,6 +6484,35 @@ __metadata:
     "@nestjs/websockets":
       optional: true
   checksum: 9e8a387f5da724880a2c739ba73d516de8459063753465154872a314d87f83facc1ed434e782232f92deb3da51d9aac7ec2ab96b207c4966507cc4753563eb5f
+  languageName: node
+  linkType: hard
+
+"@nestjs/core@npm:^8.4.7":
+  version: 8.4.7
+  resolution: "@nestjs/core@npm:8.4.7"
+  dependencies:
+    "@nuxtjs/opencollective": 0.3.2
+    fast-safe-stringify: 2.1.1
+    iterare: 1.2.1
+    object-hash: 3.0.0
+    path-to-regexp: 3.2.0
+    tslib: 2.4.0
+    uuid: 8.3.2
+  peerDependencies:
+    "@nestjs/common": ^8.0.0
+    "@nestjs/microservices": ^8.0.0
+    "@nestjs/platform-express": ^8.0.0
+    "@nestjs/websockets": ^8.0.0
+    reflect-metadata: ^0.1.12
+    rxjs: ^7.1.0
+  peerDependenciesMeta:
+    "@nestjs/microservices":
+      optional: true
+    "@nestjs/platform-express":
+      optional: true
+    "@nestjs/websockets":
+      optional: true
+  checksum: 58d18b04e03cdae4b06e06f1a60705cdbe2e81824e0a85d0be422cf8dbd39c263287196b85939718659d7eeedc2856f29744487931dbe5c2695fcd374a5fbe40
   languageName: node
   linkType: hard
 
@@ -7976,6 +8030,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@reapit/utils-nest@workspace:packages/utils-nest"
   dependencies:
+    "@nestjs/common": ^8.4.7
+    "@nestjs/core": ^8.4.7
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     eslint: ^8.18.0
   languageName: unknown
