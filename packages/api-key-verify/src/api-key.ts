@@ -6,8 +6,8 @@ import { plainToClass } from 'class-transformer'
 const lambda = new AWS.Lambda()
 
 interface ResolveApiKeyFunctionPropsInterface {
-  apiKey: string,
-  functionName: string,
+  apiKey: string
+  functionName: string
 }
 
 /**
@@ -16,12 +16,10 @@ interface ResolveApiKeyFunctionPropsInterface {
  * @param apiKeyHeader String
  * @returns GetApiKeyFunction
  */
-export const resolveApiKey = async (
-  {
-    apiKey: apiKeyHeader,
-    functionName: FunctionName,
-  }: ResolveApiKeyFunctionPropsInterface,
-): Promise<ApiKeyModel | never> => {
+export const resolveApiKey = async ({
+  apiKey: apiKeyHeader,
+  functionName: FunctionName,
+}: ResolveApiKeyFunctionPropsInterface): Promise<ApiKeyModel | never> => {
   const apiKey = await new Promise<ApiKeyModel | undefined>((resolve, reject) =>
     lambda.invoke(
       {

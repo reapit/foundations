@@ -42,7 +42,7 @@ process.env = {
     }),
     AuthModule.forRootAsync({
       useFactory: (config: ConfigService) => {
-        const invokeConfig = config.get<{invokeArn: string}>('apiKeyInvokeArn')
+        const invokeConfig = config.get<{ invokeArn: string }>('apiKeyInvokeArn')
 
         if (!invokeConfig) throw new Error('invalid invokeArn for authModule')
 
