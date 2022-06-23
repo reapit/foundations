@@ -15,12 +15,7 @@ export const FormInput = (props: FormInputProps) => {
   return <EFormInput {...props} ref={(ref) => ref && connect(drag(ref))} disabled={isEditing} />
 }
 
-const FormInputSettings = () => (
-  <ToolbarItem type={ToolbarItemType.Select} propKey="isReadOnly" title="Read Only?">
-    <option value="true">Yes</option>
-    <option value="">No</option>
-  </ToolbarItem>
-)
+const FormInputSettings = () => <ToolbarItem type={ToolbarItemType.Checkbox} propKey="isReadOnly" title="Read Only" />
 
 FormInput.craft = {
   displayName: 'FormInput',

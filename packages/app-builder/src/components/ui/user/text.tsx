@@ -3,6 +3,7 @@ import ContentEditable from 'react-contenteditable'
 import { useNode } from '@craftjs/core'
 import { ToolbarItem, ToolbarItemType } from '../toolbar'
 import { elFlexAuto } from '@reapit/elements'
+import { ContainerSettings } from './container'
 
 const defaultProps = {
   fontSize: 12,
@@ -55,8 +56,8 @@ const Text = ({ text, ...props }: { fontSize?: number; width?: number; text: str
 
 const TextSettings = () => (
   <>
-    <ToolbarItem propKey="fontSize" type={ToolbarItemType.Number} label="Font Size" />
-    <ToolbarItem propKey="width" type={ToolbarItemType.Number} label="Columns" />
+    <ToolbarItem propKey="fontSize" type={ToolbarItemType.Number} title="Font Size" />
+    <ContainerSettings />
   </>
 )
 

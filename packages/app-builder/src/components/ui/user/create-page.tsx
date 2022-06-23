@@ -114,8 +114,8 @@ export const CreatePage = ({
   operationType?: 'list' | string
   onCreate: (pageId: string) => void
 }) => {
-  const { updatePage, loading } = useUpdatePage()
   const { appId, pageId: sourcePageId } = usePageId()
+  const { updatePage, loading } = useUpdatePage(appId)
   const { app } = useApp(appId)
   const { args } = useObjectMutate(operationType || '', operationType ? typeName : undefined)
   const { parseReactElement } = useEditor((state, query) => ({
@@ -140,7 +140,6 @@ export const CreatePage = ({
         [operationType, typeName].join(' '),
       )
       updatePage(
-        appId,
         {
           ...page,
           nodes: nodesObjtoToArr(appId, page.id, page.nodes),

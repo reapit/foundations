@@ -1,6 +1,5 @@
 import React, { FC, useRef } from 'react'
 import { Editor, Frame } from '@craftjs/core'
-import { debounce } from 'throttle-debounce'
 import { useSnack } from '@reapit/elements'
 
 import { RenderNode } from '../ui/render-node'
@@ -11,7 +10,7 @@ import Link from '../ui/user/link'
 import Info from '../ui/user/info'
 import Table from '../ui/user/table'
 import Form from '../ui/user/form'
-import Navbar from '../ui/user/navbar'
+import Navigation from '../ui/user/navigation'
 import { getPageId, usePageId } from '../hooks/use-page-id'
 import { useUpdatePage } from '../hooks/apps/use-update-app'
 import { isInitialLoad, nodesObjtoToArr, splitPageNodesIntoSections } from '../hooks/apps/node-helpers'
@@ -28,24 +27,43 @@ export const resolver = {
   Table,
   Form,
   FormInput,
-  Navbar,
+  Navigation,
+}
+
+type PageData = {
+  page: Omit<Page, 'name'>
+  headerFooter: {
+    header: Node[]
+    footer: Node[]
+  }
+}
+
+const useDebouncedUpdatePage = (appId: string) => {
+  const { updatePage } = useUpdatePage(appId)
+  const { error } = useSnack()
+  let timeout: NodeJS.Timeout | undefined
+
+  return (data: PageData) => {
+    if (timeout) {
+      clearTimeout(timeout)
+    }
+    timeout = setTimeout(() => {
+      if (!data) {
+        return
+      }
+      updatePage(data.page, data.headerFooter).catch((e) => {
+        if (!e.message.includes('invalid node')) {
+          error(e.message)
+        }
+      })
+    }, 1000)
+  }
 }
 
 export const Home: FC<HomeProps> = () => {
   const iframeRef = useRef()
-  const { updatePage } = useUpdatePage()
-  const { pageId } = usePageId()
-  const { error } = useSnack()
-  const debouncedUpdatePage = debounce(
-    1000,
-    async (appId: string, page: Partial<Page>, headerFooter: { header: Node[]; footer: Node[] }) => {
-      try {
-        await Promise.all([updatePage(appId, page, headerFooter), new Promise((resolve) => setTimeout(resolve, 750))])
-      } catch (e: any) {
-        error(e.message)
-      }
-    },
-  )
+  const currentPage = usePageId()
+  const updatePage = useDebouncedUpdatePage(currentPage.appId)
 
   return (
     <Editor
@@ -57,21 +75,20 @@ export const Home: FC<HomeProps> = () => {
         if (query.serialize() !== '{}' && !isInitialLoad(nodesObj)) {
           const pageNodes = nodesObjtoToArr(appId, pageId, nodesObj)
           const { nodes, header, footer } = splitPageNodesIntoSections(pageNodes)
-          debouncedUpdatePage(
-            appId,
-            {
+          updatePage({
+            page: {
               id: pageId,
               nodes,
             },
-            {
+            headerFooter: {
               header,
               footer,
             },
-          )
+          })
         }
       }}
     >
-      <Viewport iframeRef={iframeRef} key={pageId}>
+      <Viewport iframeRef={iframeRef} key={currentPage.pageId}>
         <Frame>
           <div />
         </Frame>

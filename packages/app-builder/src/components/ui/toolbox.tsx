@@ -3,8 +3,6 @@ import React, { forwardRef, LegacyRef } from 'react'
 
 import SquareSvg from '../icons/square'
 import LinkSVG from '../icons/link'
-import NavigationSvg from '../icons/navigation'
-
 import Container from './user/container'
 import Text from './user/text'
 import { cx } from '@linaria/core'
@@ -19,7 +17,6 @@ import { ContainerIcon } from '../icons/container'
 import { TextIcon } from '../icons/text'
 import { TableIcon } from '../icons/table'
 import { FormIcon } from '../icons/form'
-import Navbar from './user/navbar'
 
 const Item = styled.a`
   width: 64px;
@@ -97,9 +94,7 @@ export const Toolbox = ({ create }: { create: (ref: HTMLElement, ele: any) => vo
         </ToolboxItem>
         <ToolboxItem
           name="Link"
-          ref={(ref: HTMLElement) =>
-            ref && create(ref, <Element canvas is={Link} background="white" padding={12} width={12} />)
-          }
+          ref={(ref: HTMLElement) => ref && create(ref, <Element canvas is={Link} width={12} text="Link Text" />)}
         >
           <Item>
             <LinkSVG />
@@ -127,11 +122,6 @@ export const Toolbox = ({ create }: { create: (ref: HTMLElement, ele: any) => vo
         >
           <Item>
             <FormIcon />
-          </Item>
-        </ToolboxItem>
-        <ToolboxItem name="Navigation" ref={(ref: HTMLElement) => ref && create(ref, <Element canvas is={Navbar} />)}>
-          <Item>
-            <NavigationSvg />
           </Item>
         </ToolboxItem>
       </div>

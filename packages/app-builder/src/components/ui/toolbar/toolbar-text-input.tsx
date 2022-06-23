@@ -8,6 +8,7 @@ export type ToolbarTextInputProps = {
   type: ToolbarItemType
   onChange: (value: any) => void
   value?: any
+  defaultValue?: any
 }
 
 export const ToolbarTextInput: FC<ToolbarTextInputProps> = ({ onChange, value, type }: ToolbarTextInputProps) => (

@@ -110,6 +110,7 @@ const FormSettings = () => {
           Select a Type
         </option>
       </ToolbarItem>
+      <DestinationPage propKey="destination" title="Redirect To" />
       {object?.supportsCustomFields && (
         <Button
           onClick={async () => {
@@ -142,7 +143,6 @@ const FormSettings = () => {
           Add New Input
         </Button>
       )}
-      <DestinationPage propKey="destination" title="Redirect To" />
     </>
   )
 }

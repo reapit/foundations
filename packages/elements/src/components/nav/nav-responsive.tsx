@@ -126,7 +126,7 @@ export const NavResponsive: FC<NavResponsiveProps> = ({
                   />
                 )}
               </NavItem>
-              {subItems && subItems.length && (
+              {subItems && subItems.length > 0 && (
                 <NavSubNav key={Math.floor(Math.random() * 1)}>
                   {subItems.map(
                     ({

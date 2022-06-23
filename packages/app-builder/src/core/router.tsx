@@ -111,6 +111,8 @@ const EditorOrViewer = () => {
 const Router = () => (
   <BrowserRouter history={history}>
     <React.Suspense fallback={null}>
+      <Route path="/login" component={() => <Redirect to="/" />} />
+      <Route path="/logout" component={() => <Redirect to="/" />} />
       <EditorOrViewer />
     </React.Suspense>
   </BrowserRouter>
