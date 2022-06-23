@@ -6,6 +6,7 @@ import { S3Module } from './s3'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { ConfigModule, ConfigService } from '@nestjs/config'
 import databaseConfig, { liveDatabaseConfig } from './config/db'
+import apiKeyInvokeArnConfig from './config/apiKeyInvokeArn'
 import { MysqlConnectionOptions } from 'typeorm/driver/mysql/MysqlConnectionOptions'
 import { GithubModule } from './github'
 import config from '../config.json'
@@ -26,7 +27,7 @@ process.env = {
     ConfigModule.forRoot({
       envFilePath: 'config.json',
       encoding: 'json',
-      load: [databaseConfig],
+      load: [databaseConfig, apiKeyInvokeArnConfig],
     }),
     TypeOrmModule.forRootAsync({
       useFactory: async (config: ConfigService) => {
@@ -39,7 +40,17 @@ process.env = {
       inject: [ConfigService],
       imports: [ConfigModule],
     }),
-    AuthModule,
+    AuthModule.forRootAsync({
+      useFactory: (config: ConfigService) => {
+        const invokeConfig = config.get<{invokeArn: string}>('apiKeyInvokeArn')
+
+        if (!invokeConfig) throw new Error('invalid invokeArn for authModule')
+
+        return invokeConfig.invokeArn
+      },
+      inject: [ConfigService],
+      imports: [ConfigModule],
+    }),
     EventModule,
     PipelineModule,
     PipelineRunnerModule,
