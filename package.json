@@ -36,7 +36,8 @@
       "packages/ts-types",
       "packages/utils-common",
       "packages/utils-node",
-      "packages/utils-react"
+      "packages/utils-react",
+      "packages/utils-nest"
     ]
   },
   "scripts": {
