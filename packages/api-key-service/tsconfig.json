@@ -1,18 +1,22 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
+    "module": "commonjs",
+    "target": "ES2018",
+    "typeRoots": ["./src/core/definitions.d.ts", "node_modules/@types", "../../node_modules/@types"],
     "baseUrl": "./",
     "sourceRoot": "/",
     "paths": {
       "@/*": ["src/*"],
-      "@reapit/elements": ["../elements/src"],
-      "@reapit/connect-session": ["../connect-session/src"],
-      "@reapit/foundations-ts-definitions": ["../foundations-ts-definitions/types"],
-      "@reapit/utils-node": ["../utils-node"]
+      "@reapit/*": ["../*"]
     },
+    "declaration": true,
+    "declarationDir": "dist",
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    "emitDecoratorMetadata": true,
+    "strictPropertyInitialization": false,
+    "outDir": "./dist"
   },
   "include": ["src"],
-  "exclude": ["public", "dist", "node_modules", "src/tests/coverage"]
+  "exclude": ["public", "dist", "src/scripts", "node_modules", "src/tests/coverage", "../connect-session/**/*"]
 }

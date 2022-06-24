@@ -41,21 +41,21 @@ describe('ApiKey', () => {
 
   describe('resolveApiKey', () => {
     it('Can get apiKey', async () => {
-      const result = await resolveApiKey(SUCCESS_API_KEY)
+      const result = await resolveApiKey({ apiKey: SUCCESS_API_KEY, functionName: '' })
 
       expect(result?.apiKey).toBe(SUCCESS_API_KEY)
       expect(new Date(result?.keyExpiresAt as string) > new Date()).toBeTruthy()
     })
 
     it('Can get expired apiKey', async () => {
-      const result = await resolveApiKey(EXPIRED_API_KEY)
+      const result = await resolveApiKey({ apiKey: EXPIRED_API_KEY, functionName: '' })
 
       expect(result?.apiKey).toBe(EXPIRED_API_KEY)
       expect(new Date(result?.keyExpiresAt as string) < new Date()).toBeTruthy()
     })
 
     it('Returns undefined on no apiKey', async () => {
-      const result = await resolveApiKey(NOT_FOUND_API_KEY)
+      const result = await resolveApiKey({ apiKey: NOT_FOUND_API_KEY, functionName: '' })
 
       expect(typeof result).toBe('undefined')
     })

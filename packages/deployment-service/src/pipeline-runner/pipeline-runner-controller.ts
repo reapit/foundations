@@ -1,4 +1,4 @@
-import { CredGuard, Creds, CredsType, OwnershipProvider } from '../auth'
+import { CredGuard, Creds, CredsType, OwnershipProvider } from '@reapit/utils-nest'
 import { PipelineRunnerEntity } from '../entities/pipeline-runner.entity'
 import { PipelineEntity } from '../entities/pipeline.entity'
 import {
