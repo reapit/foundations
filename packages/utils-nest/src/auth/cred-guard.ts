@@ -2,12 +2,18 @@ import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common'
 import { ApiKeyProvider } from './api-key-provider'
 import { TokenProvider } from './token-provider'
 import { Request } from 'express'
+import { LoginIdentity } from '@reapit/connect-session'
+import { ApiKeyModel } from '@reapit/api-key-verify'
 
-export type CredsType = {
-  type: 'api-key' | 'jwt'
-  developerId?: string | null
-  [s: string]: any
-}
+type LoginCredsType = {
+  type: 'jwt'
+} & LoginIdentity
+
+type ApiKeyCredsType = {
+  type: 'api-key'
+} & Omit<ApiKeyModel, 'expired'>
+
+export type CredsType = LoginCredsType | ApiKeyCredsType
 
 @Injectable()
 export class CredGuard implements CanActivate {
