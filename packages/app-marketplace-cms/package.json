@@ -19,9 +19,7 @@
   "main": "./src/index.ts",
   "scripts": {
     "start": "NODE_ENV=local nodemon src/local-http.ts",
-    "start:sqs": "NODE_ENV=local nodemon src/sqs.ts",
-    "start:sns": "NODE_ENV=local nodemon src/sns.ts",
-    "test": "cross-env jest --watch --colors",
+    "test": "echo '...skipping...'",
     "build": "tsc -p .",
     "lint": "eslint --cache --ext=ts,tsx,js src cdk",
     "check": "tsc --noEmit --skipLibCheck",
@@ -32,11 +30,7 @@
     "release:watch": "rpt-cdk watch cdk/cdk.ts",
     "release:destroy": "rpt-cdk destroy cdk/cdk.ts",
     "publish": "echo '...skipping...'",
-    "conf": "yarn config-manager --namespace cloud --entity deployment-service --name local --mode fetch",
-    "migration:generate": "ts-node -P ./tsconfig.json ../../node_modules/.bin/typeorm migration:generate",
-    "migration:run": "ts-node -P ./tsconfig.json ../../node_modules/.bin/typeorm migration:run",
-    "migration:create": "ts-node -P ./tsconfig.json ../../node_modules/.bin/typeorm migration:create",
-    "migration:revert": "ts-node -P ./tsconfig.json ../../node_modules/.bin/typeorm migration:revert"
+    "conf": "yarn config-manager --namespace cloud --entity app-marketplace-cms-service --name local --mode fetch"
   },
   "version": "0.0.1",
   "devDependencies": {
