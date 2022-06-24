@@ -234,13 +234,21 @@ export class AppResolver {
   async getApp(@Arg('idOrSubdomain') idOrSubdomain: string, @Ctx() context: Context): Promise<App> {
     const app = (await getApp(idOrSubdomain)) || (await getDomainApps(idOrSubdomain))[0]
     if (app) {
-      const { externalId, name, developer } = await getMarketplaceApp(app.id, context.accessToken)
+      if (!context.accessToken) {
+        return {
+          ...app,
+          name: '',
+          developerName: '',
+          header: app.header.length ? app.header : defaultHeaderNodes.map(addId(app.id)),
+          footer: app.footer.length ? app.footer : defaultFooterNodes.map(addId(app.id)),
+        }
+      }
+      const { name, developer } = await getMarketplaceApp(app.id, context.accessToken)
       return {
         ...app,
         header: app.header.length ? app.header : defaultHeaderNodes.map(addId(app.id)),
         footer: app.footer.length ? app.footer : defaultFooterNodes.map(addId(app.id)),
         name: name as string,
-        clientId: externalId as string,
         developerName: developer as string,
       }
     }
@@ -255,7 +263,7 @@ export class AppResolver {
     @Ctx() context: Context,
   ): Promise<App> {
     const subdomain = await getUnqDomain()
-    const appUrl = getAppUrl(context.apiUrl, subdomain)
+    const appUrl = getAppUrl(context.webUrl, subdomain)
     const id = await createMarketplaceApp(
       {
         name,
@@ -282,6 +290,11 @@ export class AppResolver {
     if (!externalId) {
       throw new Error('Failed to create app - no clientId created')
     }
+
+    await updateApp({
+      ...app,
+      clientId: externalId as string,
+    })
 
     return {
       ...app,

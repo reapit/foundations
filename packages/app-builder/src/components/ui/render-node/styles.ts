@@ -1,4 +1,5 @@
 import { css } from '@linaria/core'
+import { styled } from '@linaria/react'
 
 export const indicator = css`
   height: 30px;
@@ -44,5 +45,46 @@ export const littleButton = css`
     position: relative;
     top: -50%;
     left: -50%;
+  }
+`
+
+export const HeaderContainer = styled.header`
+  grid-column: span 12;
+  overflow: hidden;
+  border-radius: 4px;
+
+  grid-area: header;
+`
+
+export const FooterContainer = styled.footer`
+  grid-column: span 12;
+  overflow: hidden;
+  border-radius: 4px;
+
+  grid-area: footer;
+`
+
+export const BodyContainer = styled.section`
+  margin-top: 20px;
+  margin-bottom: 20px;
+  grid-column: span 12;
+  overflow: hidden;
+  border-radius: 4px;
+
+  grid-area: body;
+`
+
+export const NavigationContainer = styled.div`
+  grid-area: nav;
+`
+
+export const RootContainer = styled.section`
+  > div {
+    display: grid;
+    grid-template-areas:
+      'nav header header'
+      'nav body body'
+      'nav footer footer';
+    grid-template-columns: 1fr 9fr;
   }
 `

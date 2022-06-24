@@ -2,6 +2,7 @@ import * as React from 'react'
 import { ReapitConnectBrowserSession, useReapitConnect } from '@reapit/connect-session'
 import { useLocation, Redirect } from 'react-router'
 import { Loader, PageContainer } from '@reapit/elements'
+import { ConnectSessionProvider } from '@/components/hooks/connect-session'
 
 const { Suspense } = React
 
@@ -28,7 +29,11 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   if (connectInternalRedirect && currentUri !== connectInternalRedirect) {
     return <Redirect to={connectInternalRedirect} />
   }
-  return <Suspense fallback={<Loader label="Loading" fullPage />}>{children}</Suspense>
+  return (
+    <ConnectSessionProvider value={reapitConnectBrowserSession}>
+      <Suspense fallback={<Loader label="Loading" fullPage />}>{children}</Suspense>
+    </ConnectSessionProvider>
+  )
 }
 
 export default PrivateRouteWrapper
