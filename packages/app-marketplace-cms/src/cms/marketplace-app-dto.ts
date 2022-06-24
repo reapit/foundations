@@ -1,4 +1,10 @@
-import { AppsBrowseConfigItemInterface, AppsBrowseConfigItemContentInterface, AppsBrowseConfigItemFiltersInterface, AppsBrowseConfigType, AppBrowseLiveDataInterface } from "./marketplace-app-model"
+import {
+  AppsBrowseConfigItemInterface,
+  AppsBrowseConfigItemContentInterface,
+  AppsBrowseConfigItemFiltersInterface,
+  AppsBrowseConfigType,
+  AppBrowseLiveDataInterface,
+} from './marketplace-app-model'
 import { IsString, IsArray, IsBoolean, IsEnum, IsDateString, IsNotEmpty } from 'class-validator'
 import { Type } from 'class-transformer'
 
@@ -14,12 +20,15 @@ class AppBrowseConfigContentDto implements AppsBrowseConfigItemContentInterface 
 
   @IsString()
   title?: string
+
+  @IsString()
+  iconName?: string
 }
 
 class AppsBrowseConfigItemFiltersDto implements AppsBrowseConfigItemFiltersInterface {
   @IsString()
   developerId?: string
-  
+
   @IsArray()
   category?: string[]
 
@@ -50,7 +59,6 @@ class AppBrowseLiveDataDto implements AppBrowseLiveDataInterface {
   isLive?: boolean
 }
 export class MarketplaceAppModelDto implements AppsBrowseConfigItemInterface {
-
   @Type(() => AppsBrowseConfigItemFiltersDto)
   filters?: AppsBrowseConfigItemFiltersDto
 

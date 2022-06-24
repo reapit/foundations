@@ -1,13 +1,11 @@
-import { DataMapper, QueryIterator } from "@aws/dynamodb-data-mapper"
-import { Injectable } from "@nestjs/common"
-import { MarketplaceAppModelDto } from "./marketplace-app-dto"
-import { MarketplaceAppModel } from "./marketplace-app-model"
+import { DataMapper, QueryIterator } from '@aws/dynamodb-data-mapper'
+import { Injectable } from '@nestjs/common'
+import { MarketplaceAppModelDto } from './marketplace-app-dto'
+import { MarketplaceAppModel } from './marketplace-app-model'
 
 @Injectable()
 export class CmsProvider {
-  constructor(
-    private readonly dataMapper: DataMapper,
-  ) {}
+  constructor(private readonly dataMapper: DataMapper) {}
 
   async findAll(props: {
     indexName?: string
@@ -38,10 +36,12 @@ export class CmsProvider {
   }
 
   async update(marketplaceApp: MarketplaceAppModel, dto: MarketplaceAppModelDto): Promise<MarketplaceAppModel> {
-    return this.dataMapper.put(Object.assign(new MarketplaceAppModel, {
-      ...marketplaceApp,
-      ...dto,
-    }))
+    return this.dataMapper.put(
+      Object.assign(new MarketplaceAppModel(), {
+        ...marketplaceApp,
+        ...dto,
+      }),
+    )
   }
 
   async delete(marketplaceApp: MarketplaceAppModel): Promise<MarketplaceAppModel | undefined> {

@@ -5,6 +5,7 @@ export interface AppsBrowseConfigItemContentInterface {
   strapline?: string
   imageUrl?: string
   title?: string
+  iconName?: string
 }
 
 export interface AppsBrowseConfigItemFiltersInterface {
@@ -61,6 +62,9 @@ class AppBrowseConfigContentModel implements AppsBrowseConfigItemContentInterfac
 
   @attribute()
   title?: string
+
+  @attribute()
+  iconName?: string
 }
 
 class AppsBrowseConfigItemFiltersModel implements AppsBrowseConfigItemFiltersInterface {
@@ -84,7 +88,6 @@ class AppsBrowseConfigItemFiltersModel implements AppsBrowseConfigItemFiltersInt
 
   @attribute()
   isFree?: boolean
-
 }
 
 @table(process.env.DYNAMO_MARKETPLACE_CMS_TABLE_NAME || 'Marketplace_Cms_Table')

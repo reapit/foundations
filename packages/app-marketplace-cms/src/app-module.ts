@@ -5,11 +5,6 @@ import { AwsModule } from './aws/aws-module'
 import { CmsModule } from './cms/cms-module'
 
 @Module({
-  imports: [
-    ConfigModule.forRoot(),
-    AuthModule.forRoot(),
-    AwsModule,
-    CmsModule,
-  ],
+  imports: [ConfigModule.forRoot(), AuthModule.forRoot(), AwsModule, CmsModule],
 })
 export class AppModule {}

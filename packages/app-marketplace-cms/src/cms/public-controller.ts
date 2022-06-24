@@ -1,7 +1,7 @@
-import { QueryIterator } from "@aws/dynamodb-data-mapper"
-import { Controller, Get} from "@nestjs/common"
-import { CmsProvider } from "./cms-provider"
-import { MarketplaceAppModel } from "./marketplace-app-model"
+import { QueryIterator } from '@aws/dynamodb-data-mapper'
+import { Controller, Get } from '@nestjs/common'
+import { CmsProvider } from './cms-provider'
+import { MarketplaceAppModel } from './marketplace-app-model'
 
 type Pagination<T> = {
   items: T[]
@@ -13,9 +13,7 @@ type Pagination<T> = {
 
 @Controller()
 export class PublicController {
-  constructor(
-    private readonly cmsProvider: CmsProvider,
-  ) {}
+  constructor(private readonly cmsProvider: CmsProvider) {}
 
   protected async resolvePaginationObject(
     apiKeys: [QueryIterator<MarketplaceAppModel>, { nextCursor: string }],
@@ -32,12 +30,9 @@ export class PublicController {
     return pagination
   }
 
-
-  // TODO add filters for public 
+  // TODO add filters for public
   @Get()
   async fetch(): Promise<Pagination<MarketplaceAppModel>> {
-    return this.resolvePaginationObject(await this.cmsProvider.findAll({
-
-    }))
+    return this.resolvePaginationObject(await this.cmsProvider.findAll({}))
   }
 }
