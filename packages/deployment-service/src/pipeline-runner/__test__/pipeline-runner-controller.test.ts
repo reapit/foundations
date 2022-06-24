@@ -7,7 +7,7 @@ import { PipelineRunnerController } from '../pipeline-runner-controller'
 import { PipelineRunnerProvider } from '../pipeline-runner-provider'
 import { PipelineProvider } from '../../pipeline/pipeline-provider'
 import { DeployProvider } from '../../deployment'
-import { OwnershipProvider, CredGuard } from '@reapit/utils-nest'
+import { OwnershipProvider, CredGuard, CredsType } from '@reapit/utils-nest'
 import { plainToInstance } from 'class-transformer'
 import { PipelineEntity } from '../../entities/pipeline.entity'
 import { UnprocessableEntityException } from '@nestjs/common'
@@ -128,7 +128,7 @@ describe('PipelineRunnerController', () => {
       await pipelineRunnerController.create(pipelineId, {
         developerId,
         type: 'jwt',
-      })
+      } as CredsType)
 
       expect(mockPipelineRunnerProvider.create).toHaveBeenCalled()
     })
@@ -157,7 +157,7 @@ describe('PipelineRunnerController', () => {
         await pipelineRunnerController.create(pipelineId, {
           developerId,
           type: 'jwt',
-        })
+        } as CredsType)
         expect(false).toBeTruthy()
       } catch (e) {
         expect(e).toBeInstanceOf(UnprocessableEntityException)
@@ -186,7 +186,7 @@ describe('PipelineRunnerController', () => {
         {
           developerId,
           type: 'jwt',
-        },
+        } as CredsType,
       )
 
       expect(mockPipelineRunnerProvider.update).not.toHaveBeenCalled()
@@ -210,7 +210,7 @@ describe('PipelineRunnerController', () => {
         {
           developerId,
           type: 'jwt',
-        },
+        } as CredsType,
       )
 
       expect(mockPipelineRunnerProvider.update).toHaveBeenCalled()
@@ -248,7 +248,7 @@ describe('PipelineRunnerController', () => {
         {
           developerId,
           type: 'jwt',
-        },
+        } as CredsType,
         {
           file: 'sdg',
         },
@@ -300,7 +300,7 @@ describe('PipelineRunnerController', () => {
         {
           developerId,
           type: 'jwt',
-        },
+        } as CredsType,
         {
           file: 'sdg',
         },
@@ -351,7 +351,7 @@ describe('PipelineRunnerController', () => {
         {
           developerId,
           type: 'jwt',
-        },
+        } as CredsType,
         {
           file: 'sdg',
         },
