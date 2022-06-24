@@ -1,9 +1,10 @@
 import { DynamicModule, Global, Module } from '@nestjs/common'
+import { AdminGuard } from './admin-guard'
 import {
   API_KEY_INVOKE_CONFIG_PROVIDE,
+  AuthModuleOptionsInterface,
   createApiKeyInvokeConfigProvide,
   FactoryArnProvide,
-  StringArnProvide,
 } from './api-key-invoke-config'
 import { ApiKeyProvider } from './api-key-provider'
 import { CredGuard } from './cred-guard'
@@ -13,7 +14,7 @@ import { TokenProvider } from './token-provider'
 @Module({})
 @Global()
 export class AuthModule {
-  static forRoot(options: StringArnProvide): DynamicModule {
+  static forRoot(options?: AuthModuleOptionsInterface): DynamicModule {
     return {
       module: AuthModule,
       providers: [
@@ -21,9 +22,10 @@ export class AuthModule {
         ApiKeyProvider,
         TokenProvider,
         CredGuard,
-        createApiKeyInvokeConfigProvide(options),
+        AdminGuard,
+        createApiKeyInvokeConfigProvide(options || { apiKeyInvoke: { enabled: false } }),
       ],
-      exports: [OwnershipProvider, CredGuard, TokenProvider, ApiKeyProvider, API_KEY_INVOKE_CONFIG_PROVIDE],
+      exports: [OwnershipProvider, CredGuard, TokenProvider, ApiKeyProvider, AdminGuard, API_KEY_INVOKE_CONFIG_PROVIDE],
     }
   }
 
@@ -36,9 +38,10 @@ export class AuthModule {
         ApiKeyProvider,
         TokenProvider,
         CredGuard,
+        AdminGuard,
         createApiKeyInvokeConfigProvide(options),
       ],
-      exports: [OwnershipProvider, CredGuard, TokenProvider, ApiKeyProvider, API_KEY_INVOKE_CONFIG_PROVIDE],
+      exports: [OwnershipProvider, CredGuard, TokenProvider, ApiKeyProvider, AdminGuard, API_KEY_INVOKE_CONFIG_PROVIDE],
     }
   }
 }

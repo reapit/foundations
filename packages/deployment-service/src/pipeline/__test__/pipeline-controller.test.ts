@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing'
 import { PipelineController } from '../pipeline-controller'
 import { PipelineProvider } from '../pipeline-provider'
-import { OwnershipProvider, CredGuard } from '@reapit/utils-nest'
+import { OwnershipProvider, CredGuard, CredsType } from '@reapit/utils-nest'
 import { EventDispatcher, PusherProvider } from '../../events'
 import { v4 as uuid } from 'uuid'
 import { PipelineModelInterface } from '@reapit/foundations-ts-definitions/deployment-schema'
@@ -92,7 +92,7 @@ describe('PipelineController', () => {
         {
           developerId: 'developer-id',
           type: 'jwt',
-        },
+        } as CredsType,
       )
 
       expect(mockEventDispatcher.triggerPipelineSetup).toHaveBeenCalled()
@@ -118,7 +118,7 @@ describe('PipelineController', () => {
         {
           developerId: 'developer-id',
           type: 'jwt',
-        },
+        } as CredsType,
       )
 
       expect(mockEventDispatcher.triggerPipelineSetup).not.toHaveBeenCalled()
@@ -153,7 +153,7 @@ describe('PipelineController', () => {
         {
           developerId: 'developer-id',
           type: 'jwt',
-        },
+        } as CredsType,
         {
           packageManager: PackageManagerEnum.YARN,
           outDir: 'build',
@@ -187,7 +187,7 @@ describe('PipelineController', () => {
         {
           developerId: 'developer-id',
           type: 'jwt',
-        },
+        } as CredsType,
         {
           packageManager: PackageManagerEnum.YARN,
           outDir: 'build',
@@ -222,7 +222,7 @@ describe('PipelineController', () => {
       await pipelineController.deletePipeline(pipelineId, {
         developerId: 'developerId',
         type: 'jwt',
-      })
+      } as CredsType)
 
       expect(mockEventDispatcher.triggerPipelineTearDownStart).toHaveBeenCalled()
       expect(mockPusherProvider.trigger).toHaveBeenCalled()

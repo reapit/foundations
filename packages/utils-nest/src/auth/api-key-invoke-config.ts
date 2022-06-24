@@ -2,25 +2,30 @@ import { InjectionToken, ModuleMetadata, OptionalFactoryDependency, Provider } f
 
 export const API_KEY_INVOKE_CONFIG_PROVIDE = 'API_KEY_INVOKE_CONFIG_PROVIDE'
 
-export type StringArnProvide = { invokeArn: string }
+export interface AuthModuleOptionsInterface {
+  apiKeyInvoke: {
+    enabled: boolean
+    invokeArn?: string
+  }
+}
 
 export interface FactoryArnProvide extends Pick<ModuleMetadata, 'imports'> {
-  useFactory: (...args: any[]) => string | Promise<string>
+  useFactory: (...args: any[]) => AuthModuleOptionsInterface | Promise<AuthModuleOptionsInterface>
   inject?: Array<InjectionToken | OptionalFactoryDependency>
 }
 
-const optionsAreString = (options: StringArnProvide | FactoryArnProvide): options is StringArnProvide =>
-  'invokeArn' in options
+const optionsAreProvide = (options: AuthModuleOptionsInterface | FactoryArnProvide): options is FactoryArnProvide =>
+  'useFactory' in options
 
-export const createApiKeyInvokeConfigProvide = (options: StringArnProvide | FactoryArnProvide): Provider => {
-  return optionsAreString(options)
+export const createApiKeyInvokeConfigProvide = (options: AuthModuleOptionsInterface | FactoryArnProvide): Provider => {
+  return optionsAreProvide(options)
     ? {
-        provide: API_KEY_INVOKE_CONFIG_PROVIDE,
-        useValue: options.invokeArn,
-      }
-    : {
         provide: API_KEY_INVOKE_CONFIG_PROVIDE,
         useFactory: options.useFactory,
         inject: options.inject || [],
+      }
+    : {
+        provide: API_KEY_INVOKE_CONFIG_PROVIDE,
+        useValue: options,
       }
 }
