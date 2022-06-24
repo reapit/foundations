@@ -10,13 +10,12 @@ export class CmsProvider {
   ) {}
 
   async findAll(props: {
-    keys?: Partial<MarketplaceAppModel>
     indexName?: string
     startKey?: Partial<MarketplaceAppModel>
   }): Promise<[QueryIterator<MarketplaceAppModel>, { nextCursor: string }]> {
-    const { keys, startKey, indexName } = props
+    const { startKey, indexName } = props
 
-    const dynamoResponse = await this.dataMapper.query(MarketplaceAppModel, keys || {}, {
+    const dynamoResponse = await this.dataMapper.scan(MarketplaceAppModel, {
       indexName,
       limit: 100,
       startKey,
