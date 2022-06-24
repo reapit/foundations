@@ -15,7 +15,7 @@ import { BitbucketModule } from './bitbucket'
 import { AwsModule } from './aws'
 import { CodeBuildModule } from './codebuild'
 import { APP_INTERCEPTOR } from '@nestjs/core'
-import { CorsHeaderInterceptor, AuthModule } from '@reapit/utils-nest'
+import { CorsHeaderInterceptor, AuthModule, AuthModuleOptionsInterface } from '@reapit/utils-nest'
 
 process.env = {
   ...process.env,
@@ -42,11 +42,11 @@ process.env = {
     }),
     AuthModule.forRootAsync({
       useFactory: (config: ConfigService) => {
-        const invokeConfig = config.get<{ invokeArn: string }>('apiKeyInvokeArn')
+        const invokeConfig = config.get<AuthModuleOptionsInterface>('apiKeyInvokeArn')
 
         if (!invokeConfig) throw new Error('invalid invokeArn for authModule')
 
-        return invokeConfig.invokeArn
+        return invokeConfig
       },
       inject: [ConfigService],
       imports: [ConfigModule],
