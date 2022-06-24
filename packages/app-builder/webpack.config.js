@@ -7,6 +7,11 @@ const config = isProd
   : {
       ...webpackConfigDev({ appName }),
       target: 'web',
+      devServer: {
+        ...webpackConfigDev({ appName }).devServer,
+        allowedHosts: 'all',
+        https: true,
+      },
     }
 const sassRules = isProd ? sassProd : sassDev
 

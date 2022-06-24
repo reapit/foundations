@@ -8,7 +8,7 @@ import Routes from '../constants/routes'
 import PrivateRouteWrapper from './private-route-wrapper'
 import { usePageId } from '@/components/hooks/use-page-id'
 import { useApp } from '@/components/hooks/apps/use-app'
-import { getReapitConnectBrowserSession, reapitConnectBrowserSession } from './connect-session'
+import { getReapitConnectBrowserSession } from './connect-session'
 import { createClient } from './graphql-client'
 import { ApolloProvider } from '@apollo/client'
 import { useIntrospection } from '@/components/hooks/use-introspection'
@@ -43,19 +43,22 @@ const HomePage = React.lazy(() => catchChunkError(() => import('../components/pa
 const AppSelect = React.lazy(() => catchChunkError(() => import('../components/pages/app-select')))
 const AppView = React.lazy(() => catchChunkError(() => import('../components/pages/app-view')))
 
-const AppEditor = () => (
-  <ApolloProvider client={createClient(reapitConnectBrowserSession)}>
-    <PrivateRouteWrapper reapitConnectBrowserSession={reapitConnectBrowserSession}>
-      <MainContainer>
-        <Switch>
-          <Route path={Routes.APP_VIEW} component={AppView} />
-          <Route path={Routes.APP_EDIT} component={HomePage} />
-          <Route path={Routes.APP_SELECT} component={AppSelect} />
-        </Switch>
-      </MainContainer>
-    </PrivateRouteWrapper>
-  </ApolloProvider>
-)
+const AppEditor = () => {
+  const reapitConnectBrowserSession = getReapitConnectBrowserSession(window.reapit.config)
+  return (
+    <ApolloProvider client={createClient(reapitConnectBrowserSession)}>
+      <PrivateRouteWrapper reapitConnectBrowserSession={reapitConnectBrowserSession}>
+        <MainContainer>
+          <Switch>
+            <Route path={Routes.APP_VIEW} component={AppView} />
+            <Route path={Routes.APP_EDIT} component={HomePage} />
+            <Route path={Routes.APP_SELECT} component={AppSelect} />
+          </Switch>
+        </MainContainer>
+      </PrivateRouteWrapper>
+    </ApolloProvider>
+  )
+}
 
 const AppViewer = () => {
   const { appId } = usePageId()
@@ -77,14 +80,13 @@ const AppViewer = () => {
   if (loading || !app || !data) {
     return null
   }
-
   if (redirect) {
     return <Redirect to={redirect} />
   }
 
   const session = getReapitConnectBrowserSession({
     connectClientId: app.clientId,
-    connectOAuthUrl: window.location.hostname,
+    connectOAuthUrl: window.location.origin,
     connectUserPoolId: window.reapit.config.connectUserPoolId,
   })
 

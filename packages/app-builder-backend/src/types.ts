@@ -7,6 +7,7 @@ export type Context = {
   apiUrl: string
   customEntities: CustomEntity[]
   appId?: string
+  webUrl: string
   operationMetadata: Record<MetadataSchemaType, any>
   storeCachedMetadata: (typeName: MetadataSchemaType, id: string, metadata: any) => void
   getCachedMetadata: (typeName: MetadataSchemaType, id: string, key: string) => any
