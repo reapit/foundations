@@ -5,6 +5,7 @@ export interface AppsBrowseConfigItemContent {
   brandColour?: string
   strapline?: string
   imageUrl?: string
+  iconName?: string
   title?: string
 }
 
@@ -20,10 +21,17 @@ export interface AppsBrowseConfigItemFilters {
 
 export type AppsBrowseConfigType = 'featuredHeroApps' | 'heroApps' | 'appsFilters' | 'featuredApps' | 'simpleApps'
 
+export interface AppBrowseLiveData {
+  timeFrom?: string
+  timeTo?: string
+  isLive?: boolean
+}
+
 export interface AppsBrowseConfigItem {
   filters: AppsBrowseConfigItemFilters | null
   content: AppsBrowseConfigItemContent | null
   configType: AppsBrowseConfigType
+  live: AppBrowseLiveData
 }
 
 export interface AppsBrowseConfigCollection {

@@ -14,6 +14,9 @@ const appsBrowseConfigCollectionDev: AppsBrowseConfigCollection = {
         imageUrl: 'http://placekitten.com/1000/360',
       },
       configType: 'featuredHeroApps',
+      live: {
+        isLive: true,
+      },
     },
     {
       filters: {
@@ -26,6 +29,9 @@ const appsBrowseConfigCollectionDev: AppsBrowseConfigCollection = {
         imageUrl: 'http://placekitten.com/1000/360',
       },
       configType: 'heroApps',
+      live: {
+        isLive: true,
+      },
     },
     {
       filters: {
@@ -37,6 +43,9 @@ const appsBrowseConfigCollectionDev: AppsBrowseConfigCollection = {
         imageUrl: 'http://placekitten.com/1000/360',
       },
       configType: 'heroApps',
+      live: {
+        isLive: true,
+      },
     },
     {
       filters: {
@@ -50,9 +59,12 @@ const appsBrowseConfigCollectionDev: AppsBrowseConfigCollection = {
         title: 'Reapit Developed Apps',
         brandColour: '#0061a8',
         strapline: 'Lorem ipsum dolor sit amet, consectetur adip',
-        imageUrl: 'http://placekitten.com/100/100',
+        iconName: 'webDeveloperInfographic',
       },
       configType: 'appsFilters',
+      live: {
+        isLive: true,
+      },
     },
     {
       filters: {
@@ -62,6 +74,9 @@ const appsBrowseConfigCollectionDev: AppsBrowseConfigCollection = {
         title: 'Indentity Apps',
       },
       configType: 'featuredApps',
+      live: {
+        isLive: true,
+      },
     },
     {
       filters: {
@@ -71,6 +86,9 @@ const appsBrowseConfigCollectionDev: AppsBrowseConfigCollection = {
         title: 'Free Apps',
       },
       configType: 'simpleApps',
+      live: {
+        isLive: true,
+      },
     },
   ],
 }

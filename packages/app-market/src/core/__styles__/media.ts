@@ -1,0 +1,5 @@
+export const forSmallMobileOnly = '@media (max-width: 414px)'
+export const forMobileOnly = '@media (max-width: 768px)'
+export const forMobileAndAbove = '@media (min-width: 768px)'
+export const forTabletAndAbove = '@media (min-width: 1024px)'
+export const forDesktopAndAbove = '@media (min-width: 1440px)'

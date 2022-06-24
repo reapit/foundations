@@ -1,5 +1,5 @@
 import React, { FC, useMemo } from 'react'
-import { Title, PageContainer } from '@reapit/elements'
+import { Title, PageContainer, FlexContainer } from '@reapit/elements'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { DeveloperAppsCollection } from './developer-apps-collection'
@@ -42,12 +42,14 @@ export const AppsBrowse: FC = () => {
       <Title>AppMarket</Title>
       {hasFilters ? null : (
         <>
-          {featuredHeroApps.map((configItem, index) => (
-            <FeaturedHeroAppsCollection key={index} configItem={configItem} />
-          ))}
-          {heroApps.map((configItem, index) => (
-            <HeroAppsCollection key={index} configItem={configItem} />
-          ))}
+          <FlexContainer isFlexWrap>
+            {featuredHeroApps.map((configItem, index) => (
+              <FeaturedHeroAppsCollection key={index} configItem={configItem} />
+            ))}
+            {heroApps.map((configItem, index) => (
+              <HeroAppsCollection key={index} configItem={configItem} />
+            ))}
+          </FlexContainer>
           {appsFilters.map((configItem, index) => (
             <AppFiltersCollection key={index} configItem={configItem} />
           ))}
