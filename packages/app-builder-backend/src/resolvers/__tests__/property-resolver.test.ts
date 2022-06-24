@@ -141,6 +141,7 @@ const getGraphqlClient = async () => {
     accessToken: 'accessToken',
     idToken: 'idToken',
     apiUrl: '',
+    webUrl: '',
     customEntities: [],
     operationMetadata: {} as Record<MetadataSchemaType, any>,
     storeCachedMetadata: function (): void {},

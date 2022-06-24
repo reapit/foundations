@@ -20,12 +20,14 @@ const lowerCaseKeys = (obj: Record<string, string | undefined>): Record<string, 
 const createHandler = async (event: APIGatewayEvent) => {
   const lowercaseHeaders = lowerCaseKeys(event.headers)
   const { authorization } = lowercaseHeaders
-  const apiUrl = `https://${event.headers.Host}/${event.requestContext.stage}/`
+  const webUrl = lowercaseHeaders.origin
+  const apiUrl = `https://${lowercaseHeaders.host}/${event.requestContext.stage}/`
   const accessToken = lowercaseHeaders['reapit-connect-token'] as string
   const appId = lowercaseHeaders['app-id']
   const metadataCache = {} as Record<string, any>
   const context: Context = {
     apiUrl,
+    webUrl,
     idToken: authorization?.split(' ')[1],
     accessToken,
     customEntities: appId ? await getCustomEntities(appId).catch(() => []) : [],

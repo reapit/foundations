@@ -1,4 +1,4 @@
-import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { getReapitConnectBrowserSession } from '@/core/connect-session'
 import { cx } from '@linaria/core'
 import {
   Loader,
@@ -40,7 +40,7 @@ import { useEjectApp } from '../hooks/apps/use-eject-app'
 import { GraphQLError } from 'graphql'
 
 const getDeveloperId = async () => {
-  const session = await reapitConnectBrowserSession.connectSession()
+  const session = await getReapitConnectBrowserSession(window.reapit.config).connectSession()
   const developerId = session?.loginIdentity.developerId
   return developerId || undefined
 }

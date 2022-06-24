@@ -1,6 +1,5 @@
 import { useNode, useEditor } from '@craftjs/core'
 import { cx } from '@linaria/core'
-import { styled } from '@linaria/react'
 import React, { useEffect, useRef, useCallback } from 'react'
 import ReactDOM from 'react-dom'
 import { elFlex, elFlex1, elFlexAlignCenter, elMr3, elMr6, elP3 } from '@reapit/elements'
@@ -11,47 +10,7 @@ import Move from '../../icons/move'
 import { cursorMove, cursorPointer, textWhite } from '../styles'
 import { componentSelected, indicator, littleButton } from './styles'
 import { NAV_NODE } from '@/components/hooks/apps/node-helpers'
-
-const HeaderContainer = styled.header`
-  grid-column: span 12;
-  overflow: hidden;
-  border-radius: 4px;
-
-  grid-area: header;
-`
-
-const FooterContainer = styled.footer`
-  grid-column: span 12;
-  overflow: hidden;
-  border-radius: 4px;
-
-  grid-area: footer;
-`
-
-const BodyContainer = styled.section`
-  margin-top: 20px;
-  margin-bottom: 20px;
-  grid-column: span 12;
-  overflow: hidden;
-  border-radius: 4px;
-
-  grid-area: body;
-`
-
-const NavigationContainer = styled.div`
-  grid-area: nav;
-`
-
-const RootContainer = styled.section`
-  > div {
-    display: grid;
-    grid-template-areas:
-      'nav header header'
-      'nav body body'
-      'nav footer footer';
-    grid-template-columns: 1fr 9fr;
-  }
-`
+import { AddContainer } from './add-container'
 
 export const RenderNode = ({ render, iframeRef }) => {
   const { id } = useNode()
@@ -243,12 +202,7 @@ export const RenderNode = ({ render, iframeRef }) => {
           </div>,
           container,
         )}
-      {isHeader && <HeaderContainer>{render}</HeaderContainer>}
-      {isFooter && <FooterContainer>{render}</FooterContainer>}
-      {isBody && <BodyContainer>{render}</BodyContainer>}
-      {isRoot && <RootContainer>{render}</RootContainer>}
-      {isNavigation && <NavigationContainer>{render}</NavigationContainer>}
-      {!isHeader && !isFooter && !isBody && !isRoot && !isNavigation && render}
+      <AddContainer nodeId={id}>{render}</AddContainer>
     </>
   )
 }

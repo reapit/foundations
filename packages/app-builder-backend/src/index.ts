@@ -17,6 +17,7 @@ const parseContext = async ({ req }): Promise<Context> => {
     idToken: req.headers.authorization?.split(' ')[1] || '',
     accessToken: req.headers['reapit-connect-token'] as string,
     apiUrl: 'http://localhost:4000/',
+    webUrl: req.headers.origin,
     appId: req.headers['app-id'],
   }
 
