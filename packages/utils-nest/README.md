@@ -42,7 +42,7 @@ export class ExampleController {
 
 There are 2 types of creds that can be returned. One is `jwt` which is a LoginIdentity type from `@reapit/connect` and `api-key` from `@reapit/api-key-verify`.
 
-[ApiKey](https://github.com/reapit/foundations/blob/master/packages/foundations-ts-definitions/api-key-schema/index.ts#L6)
+[ApiKey](https://github.com/reapit/foundations/blob/master/packages/foundations-ts-definitions/api-key-schema/index.ts#L6)  
 [LoginIdentity](https://github.com/reapit/foundations/blob/ead3b87bf9ad2600dc95492e1835afecab846ad9/packages/connect-session/src/types.ts#L23)
 
 ### ApiKey Invoke Arn method
