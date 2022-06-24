@@ -13,7 +13,7 @@ type Pagination<T> = {
   }
 }
 
-@Controller('')
+@Controller('config')
 @UseGuards(AdminGuard)
 export class CmsController {
   constructor(
