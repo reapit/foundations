@@ -5,7 +5,7 @@ import { useReapitConnect } from '@reapit/connect-session'
 import path from 'path'
 import { Loader, NavResponsive, ElNavContainer } from '@reapit/elements'
 import { useApp } from '@/components/hooks/apps/use-app'
-import { getReapitConnectBrowserSession } from '@/core/connect-session'
+import { useConnectSession } from '@/components/hooks/connect-session'
 
 export type NavigationProps = {}
 
@@ -13,19 +13,13 @@ export const Navigation = forwardRef<HTMLDivElement, NavigationProps>((_, ref) =
   const { appId } = usePageId()
   const { app, loading } = useApp(appId)
   const history = useHistory()
+  const connectSession = useConnectSession()
 
-  if (loading || !app) {
+  if (loading || !app || !connectSession) {
     return <Loader />
   }
 
-  const { connectLogoutRedirect } = useReapitConnect(
-    getReapitConnectBrowserSession({
-      connectClientId: app.clientId,
-      connectOAuthUrl: window.reapit.config.connectOAuthUrl,
-      connectUserPoolId: window.reapit.config.connectUserPoolId,
-    }),
-  )
-
+  const { connectLogoutRedirect } = useReapitConnect(connectSession)
   const options =
     app.navConfig.map((navConfig, idx) => ({
       itemIndex: idx + 1,

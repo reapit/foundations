@@ -4,34 +4,40 @@ import { useApp } from '../hooks/apps/use-app'
 import { usePageId } from '../hooks/use-page-id'
 import { Node } from '../hooks/apps/fragments'
 import * as Components from '../ui/user/ejectable/index'
+import { mergeHeaderFooterIntoPage } from '../hooks/apps/node-helpers'
+import { ROOT_NODE } from '@craftjs/core'
+import { AddContainer } from '../ui/render-node/add-container'
 
 const RenderComponent = ({ node, allNodes }: { node: Node; allNodes: Node[] }) => {
-  const { type, props, nodes } = node
+  const { type, props, nodes, nodeId } = node
   const Component = Components[type.resolvedName]
   if (!Component) {
     throw new Error(`No component found for ${type.resolvedName}`)
   }
 
   return (
-    <Component {...props} isRoot={isRoot(node) || undefined}>
-      {nodes.map((nodeId) => {
-        const node = allNodes.find((n) => n.nodeId === nodeId)
-        if (!node) {
-          throw new Error(`No node found for id ${nodeId}`)
-        }
-        return RenderComponent({ node, allNodes })
-      })}
-    </Component>
+    <AddContainer nodeId={nodeId}>
+      <Component {...props} isRoot={isRoot(node) || undefined}>
+        {nodes.map((nodeId) => {
+          const node = allNodes.find((n) => n.nodeId === nodeId)
+          if (!node) {
+            throw new Error(`No node found for id ${nodeId}`)
+          }
+          return RenderComponent({ node, allNodes })
+        })}
+      </Component>
+    </AddContainer>
   )
 }
 
-const isRoot = (node: Node) => node.nodeId === 'ROOT'
+const isRoot = (node: Node) => node.nodeId === ROOT_NODE
 
 const AppView = () => {
   const { appId, pageId } = usePageId()
   const { app, loading } = useApp(appId)
   const page = app?.pages.find((p) => p.id === pageId)
 
+  const nodes = page?.nodes ? mergeHeaderFooterIntoPage(page.nodes || [], app?.header, app?.footer) : []
   if (loading) {
     return <Loader fullPage />
   }
@@ -40,7 +46,7 @@ const AppView = () => {
     return <div>Not Found</div>
   }
 
-  const rootNode = page.nodes.find(isRoot)
+  const rootNode = nodes.find(isRoot)
 
   if (!rootNode) {
     return <div>Not Found</div>
@@ -49,7 +55,7 @@ const AppView = () => {
   return (
     <>
       <title>{page.name}</title>
-      <RenderComponent node={rootNode} allNodes={page.nodes} />
+      <RenderComponent node={rootNode} allNodes={nodes} />
     </>
   )
 }

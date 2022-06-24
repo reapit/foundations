@@ -11,6 +11,7 @@ export interface LinkProps extends ContainerProps {
   disabled?: boolean
   className?: string
   children?: React.ReactNode
+  text?: string
 }
 
 export const Link = forwardRef<HTMLDivElement, LinkProps>(({ disabled, children, ...props }, ref) => {
@@ -41,7 +42,7 @@ export const Link = forwardRef<HTMLDivElement, LinkProps>(({ disabled, children,
       }}
       ref={ref as Ref<HTMLAnchorElement>}
     >
-      {children}
+      {props.text || children}
     </RRLink>
   )
 })
