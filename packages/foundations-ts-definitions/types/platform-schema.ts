@@ -6325,6 +6325,19 @@ export interface CreatePropertyModel {
     max?: number // double
   }
   /**
+   * Request body used to set details specific to rural properties
+   */
+  rural?: {
+    /**
+     * Details of the buildings associated with the property.
+     */
+    buildingsDescription?: string
+    /**
+     * Details of the land associated with the property.
+     */
+    landDescription?: string
+  }
+  /**
    * Request body used to set details specific to sales marketing on a new property. When creating a new sales property, a vendor record is automatically created. Please refer to the [Platform Glossary](http://foundations.link/glossary#vendor) for full details
    */
   selling?: {
@@ -6687,6 +6700,19 @@ export interface CreatePropertyRoomModel {
    * Short description of the room
    */
   description?: string
+}
+/**
+ * Request body used to set details specific to rural properties
+ */
+export interface CreatePropertyRuralModel {
+  /**
+   * Details of the buildings associated with the property.
+   */
+  buildingsDescription?: string
+  /**
+   * Details of the land associated with the property.
+   */
+  landDescription?: string
 }
 /**
  * Request body used to set details specific to sales marketing on a new property. When creating a new sales property, a vendor record is automatically created. Please refer to the [Platform Glossary](http://foundations.link/glossary#vendor) for full details
@@ -11394,6 +11420,23 @@ export interface PropertyModel {
    */
   fromArchive?: boolean
   /**
+   * Details specific to rural properties
+   */
+  rural?: {
+    /**
+     * Details of the rural tenure associated with the property.
+     */
+    tenureId?: string
+    /**
+     * Details of the buildings associated with the property.
+     */
+    buildingsDescription?: string
+    /**
+     * Details of the land associated with the property.
+     */
+    landDescription?: string
+  }
+  /**
    * Representation of the external land area of a property
    */
   externalArea?: {
@@ -12104,6 +12147,23 @@ export interface PropertyModelPagedResult {
      */
     fromArchive?: boolean
     /**
+     * Details specific to rural properties
+     */
+    rural?: {
+      /**
+       * Details of the rural tenure associated with the property.
+       */
+      tenureId?: string
+      /**
+       * Details of the buildings associated with the property.
+       */
+      buildingsDescription?: string
+      /**
+       * Details of the land associated with the property.
+       */
+      landDescription?: string
+    }
+    /**
      * Representation of the external land area of a property
      */
     externalArea?: {
@@ -12621,6 +12681,23 @@ export interface PropertyRoomModel {
    * Short description of the room
    */
   description?: string
+}
+/**
+ * Details specific to rural properties
+ */
+export interface PropertyRuralModel {
+  /**
+   * Details of the rural tenure associated with the property.
+   */
+  tenureId?: string
+  /**
+   * Details of the buildings associated with the property.
+   */
+  buildingsDescription?: string
+  /**
+   * Details of the land associated with the property.
+   */
+  landDescription?: string
 }
 /**
  * Representation of property details specific to sales marketing
@@ -17305,6 +17382,19 @@ export interface UpdatePropertyModel {
     }
   }
   /**
+   * Request body used to set details specific to rural properties.
+   */
+  rural?: {
+    /**
+     * Details of the building associated with the property.
+     */
+    buildingsDescription?: string
+    /**
+     * Details of the land associated with the property.
+     */
+    landDescription?: string
+  }
+  /**
    * The attributes describing the overall type of the property (eg house, bungalow, land), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
   type?: string[]
@@ -17376,6 +17466,19 @@ export interface UpdatePropertyModel {
   metadata?: {
     [name: string]: any
   }
+}
+/**
+ * Request body used to set details specific to rural properties.
+ */
+export interface UpdatePropertyRuralModel {
+  /**
+   * Details of the building associated with the property.
+   */
+  buildingsDescription?: string
+  /**
+   * Details of the land associated with the property.
+   */
+  landDescription?: string
 }
 /**
  * Request body used to update details specific to sales marketing on an existing property
