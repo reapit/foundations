@@ -86,7 +86,7 @@ const AppViewer = () => {
 
   const session = getReapitConnectBrowserSession({
     connectClientId: app.clientId,
-    connectOAuthUrl: window.location.origin,
+    connectOAuthUrl: window.reapit.config.connectOAuthUrl,
     connectUserPoolId: window.reapit.config.connectUserPoolId,
   })
 
