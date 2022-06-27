@@ -11,7 +11,7 @@
   "author": "Author",
   "main": "./src/index.ts",
   "scripts": {
-    "start": "webpack serve --hot --color --mode development",
+    "start": "webpack serve --color --mode development",
     "test": "cross-env TZ=UTC jest --watch --colors --silent",
     "build": "rimraf public/dist && NODE_ENV=production webpack",
     "lint": "eslint --cache --ext=ts,tsx,js src",

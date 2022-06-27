@@ -77,34 +77,12 @@ Object {
       <div
         class="el-snack-holder"
       />
-      <div
-        class="el-loader-container"
-      >
-        <div
-          class="el-loader"
-        >
-          <div
-            class="el-loader-moving-bar"
-          />
-        </div>
-      </div>
     </div>
   </body>,
   "container": <div>
     <div
       class="el-snack-holder"
     />
-    <div
-      class="el-loader-container"
-    >
-      <div
-        class="el-loader"
-      >
-        <div
-          class="el-loader-moving-bar"
-        />
-      </div>
-    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

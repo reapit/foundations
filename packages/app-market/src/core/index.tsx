@@ -72,4 +72,8 @@ const run = async () => {
   }
 }
 
+if (module['hot']) {
+  module['hot'].accept()
+}
+
 run()

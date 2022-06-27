@@ -16,6 +16,12 @@ Object {
         >
           AppMarket
         </h1>
+        <div
+          class="hero-apps-grid"
+        />
+        <div
+          class="app-filter-grid"
+        />
       </section>
     </div>
   </body>,
@@ -31,6 +37,12 @@ Object {
       >
         AppMarket
       </h1>
+      <div
+        class="hero-apps-grid"
+      />
+      <div
+        class="app-filter-grid"
+      />
     </section>
   </div>,
   "debug": [Function],

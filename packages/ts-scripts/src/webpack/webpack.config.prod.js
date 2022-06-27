@@ -7,7 +7,6 @@ const SentryWebpackPlugin = require('@sentry/webpack-plugin')
 const { EnvironmentPlugin, SourceMapDevToolPlugin } = require('webpack')
 const { PATHS } = require('./constants')
 const { getVersionTag, getRef } = require('./utils')
-const { ESBuildMinifyPlugin } = require('esbuild-loader')
 const WorkboxWebpackPlugin = require('workbox-webpack-plugin')
 const NodePolyfillPlugin = require('node-polyfill-webpack-plugin')
 
@@ -38,13 +37,6 @@ const webpackConfigProd = ({ appName }) => {
       splitChunks: {
         chunks: 'all',
       },
-      minimize: true,
-      minimizer: [
-        new ESBuildMinifyPlugin({
-          target: 'es2019',
-          sourcemap: true,
-        }),
-      ],
     },
     module: {
       rules: [
@@ -61,10 +53,16 @@ const webpackConfigProd = ({ appName }) => {
           exclude: generateRegexExcludePackages(),
           use: [
             {
-              loader: 'esbuild-loader',
+              loader: require.resolve('swc-loader'),
               options: {
-                loader: 'tsx',
-                target: 'es2015',
+                jsc: {
+                  parser: {
+                    syntax: 'typescript',
+                    tsx: true,
+                  },
+                  target: 'es2019',
+                },
+                minify: true,
               },
             },
             {
@@ -134,6 +132,9 @@ const webpackConfigProd = ({ appName }) => {
       chunkModules: false,
       chunkOrigins: false,
       modules: false,
+    },
+    experiments: {
+      backCompat: false,
     },
     plugins: [
       new NodePolyfillPlugin(),

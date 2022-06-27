@@ -8,6 +8,7 @@ const { getVersionTag } = require('./utils')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const NodePolyfillPlugin = require('node-polyfill-webpack-plugin')
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
 const EXCLUDE_PACKAGES = ['linaria']
 
 const generateRegexExcludePackages = () => {
@@ -72,6 +73,9 @@ const webpackConfigDev = ({ appName }) => ({
       },
     }),
     new FriendlyErrorsWebpackPlugin(),
+    new ReactRefreshWebpackPlugin({
+      overlay: false,
+    }),
   ],
   module: {
     rules: [
@@ -88,10 +92,21 @@ const webpackConfigDev = ({ appName }) => ({
         exclude: generateRegexExcludePackages(),
         use: [
           {
-            loader: 'esbuild-loader',
+            loader: require.resolve('swc-loader'),
             options: {
-              loader: 'tsx',
-              target: 'es2019',
+              jsc: {
+                parser: {
+                  syntax: 'typescript',
+                  tsx: true,
+                },
+                target: 'es2022',
+                transform: {
+                  react: {
+                    development: true,
+                    refresh: true,
+                  },
+                },
+              },
             },
           },
           {
@@ -104,7 +119,7 @@ const webpackConfigDev = ({ appName }) => ({
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader', 'postcss-loader'],
+        use: ['style-loader', 'css-loader'],
       },
       // Load SVG Graphics used by Elements v3 and convert to React Components to be imported into the code
       // This allows them to be styled eg add fill and so on
@@ -163,6 +178,7 @@ const webpackConfigDev = ({ appName }) => ({
     },
     historyApiFallback: true,
     hot: true,
+    liveReload: false,
     devMiddleware: {
       stats: {
         cached: false,
@@ -179,6 +195,9 @@ const webpackConfigDev = ({ appName }) => ({
     splitChunks: {
       chunks: 'all',
     },
+  },
+  experiments: {
+    backCompat: false,
   },
 })
 
