@@ -140,8 +140,8 @@ export class Property {
   @Field({ nullable: true })
   salePrice?: number
 
-  @Field(() => [PropertyImage])
-  images: PropertyImage[]
+  @Field(() => [PropertyImage], { nullable: true })
+  images?: PropertyImage[]
 
   @Field({ nullable: true })
   marketingMode?: string
