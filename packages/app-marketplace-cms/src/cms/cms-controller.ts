@@ -13,7 +13,7 @@ type Pagination<T> = {
   }
 }
 
-@Controller('config')
+@Controller('cms/config')
 @UseGuards(AdminGuard)
 export class CmsController {
   constructor(private readonly cmsProvider: CmsProvider) {}
@@ -36,9 +36,7 @@ export class CmsController {
   @Get()
   async fetch(): Promise<Pagination<MarketplaceAppModel>> {
     return this.resolvePaginationObject(
-      await this.cmsProvider.findAll({
-        indexName: 'id',
-      }),
+      await this.cmsProvider.findAll({}),
     )
   }
 
