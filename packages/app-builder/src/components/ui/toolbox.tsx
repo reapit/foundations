@@ -132,11 +132,22 @@ export const Toolbox = ({ create }: { create: (ref: HTMLElement, ele: any) => vo
 const ConnectedToolbox = () => {
   const {
     connectors: { create },
+    actions: { selectNode },
   } = useEditor((state) => ({
     enabled: state.options.enabled,
   }))
 
-  return <Toolbox create={create} />
+  return (
+    <Toolbox
+      create={(ref, ele) => {
+        create(ref, ele, {
+          onCreate: (nodeTree) => {
+            selectNode(nodeTree.rootNodeId)
+          },
+        })
+      }}
+    />
+  )
 }
 
 export default ConnectedToolbox
