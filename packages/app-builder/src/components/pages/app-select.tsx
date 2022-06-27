@@ -92,10 +92,10 @@ const CreateNew = ({ className }: { className?: string }) => {
   )
 }
 
-const generateAppUrl = (subdomain: string) => {
-  const { port, hostname } = window.location
+export const generateAppUrl = (subdomain: string) => {
+  const { port, hostname, protocol } = window.location
   if (parseInt(port, 10) !== 443) {
-    return `http://${subdomain}.${hostname}:${port}`
+    return `${protocol}//${subdomain}.${hostname}:${port}`
   }
   return `https://${subdomain}.${hostname}`
 }

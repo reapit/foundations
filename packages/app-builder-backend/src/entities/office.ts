@@ -16,7 +16,7 @@ export const OfficeFragment = gql`
       line3
       line4
       postcode
-      country
+      countryId
     }
     workPhone
     email
@@ -48,7 +48,7 @@ export class OfficeAddress {
   postcode: string
 
   @Field({ nullable: true })
-  country: string
+  countryId: string
 }
 
 @ObjectType({ description: '@labelKeys(name) @supportsCustomFields()' })
@@ -104,7 +104,7 @@ class OfficeAddressInput {
   postcode: string
 
   @Field({ nullable: true })
-  country: string
+  countryId: string
 }
 
 @InputType()
