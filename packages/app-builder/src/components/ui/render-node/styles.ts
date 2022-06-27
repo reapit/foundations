@@ -1,5 +1,6 @@
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
+import { MOBILE_BREAKPOINT } from '../viewport/__styles__/media'
 
 export const indicator = css`
   height: 30px;
@@ -86,5 +87,14 @@ export const RootContainer = styled.section`
       'nav body body'
       'nav footer footer';
     grid-template-columns: 1fr 9fr;
+
+    @media (max-width: ${MOBILE_BREAKPOINT}px) {
+      grid-template-columns: 12fr;
+      grid-template-areas:
+        'nav'
+        'header'
+        'body'
+        'footer';
+    }
   }
 `
