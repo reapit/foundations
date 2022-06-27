@@ -16,6 +16,7 @@ import Play from '@/components/icons/play'
 import { AppBuilderIconButton } from '../components'
 import { Zoomer } from './zoomer'
 import { useUpdateAppName } from '@/components/hooks/apps/use-update-app'
+import { generateAppUrl } from '@/components/pages/app-select'
 
 const Breakpoints = styled.div`
   height: 35px;
@@ -178,7 +179,8 @@ const ToggleRadioContainer = styled.div`
 `
 
 const Header = ({ setBreakpoint, breakpoint }) => {
-  const { pageId, setPageId } = usePageId()
+  const { pageId, setPageId, appId } = usePageId()
+  const { app } = useApp(appId)
 
   return (
     <FlexContainer className={header} isFlexJustifyCenter>
@@ -233,7 +235,17 @@ const Header = ({ setBreakpoint, breakpoint }) => {
           />
         </Breakpoints>
         <Zoomer />
-        <AppBuilderIconButton intent="primary" style={{ marginLeft: 21, marginRight: 0 }}>
+        <AppBuilderIconButton
+          intent="primary"
+          style={{ marginLeft: 21, marginRight: 0 }}
+          onClick={(e) => {
+            e.preventDefault()
+            if (!app) {
+              return
+            }
+            window.open(generateAppUrl(app.subdomain), '_blank', 'noopener,noreferrer')
+          }}
+        >
           <Play />
         </AppBuilderIconButton>
       </FlexContainer>

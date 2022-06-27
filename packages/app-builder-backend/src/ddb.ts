@@ -150,7 +150,7 @@ export const createApp = async (id: string, name: string, subdomain: string, pag
     clientId: '',
     createdAt: date,
     updatedAt: date,
-    pages: [],
+    pages,
     customEntities: [],
     header: [],
     footer: [],

@@ -19,11 +19,12 @@ export const SidebarDiv = styled.div`
 `
 
 const Sidebar = () => {
-  const { active } = useEditor((state, query) => {
+  const { active, currentlySelectedNodeId } = useEditor((state, query) => {
     const currentlySelectedNodeId = query.getEvent('selected').first()
     const isRoot = currentlySelectedNodeId && query.node(currentlySelectedNodeId).isRoot()
     return {
       active: !!currentlySelectedNodeId && !isRoot,
+      currentlySelectedNodeId,
     }
   })
   const [customizeVisible, setCustomizeVisible] = useState(false)
@@ -35,6 +36,12 @@ const Sidebar = () => {
       setCustomizeVisible(false)
     }
   }, [active])
+
+  useEffect(() => {
+    if (currentlySelectedNodeId) {
+      setCustomizeVisible(true)
+    }
+  }, [currentlySelectedNodeId])
 
   return (
     <SidebarDiv className={cx(transition, bgWhite, elW2)}>

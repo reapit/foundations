@@ -21,8 +21,8 @@ export class Offer {
   @Field()
   propertyId: string
 
-  @Field()
-  offerId: string
+  @Field({ nullable: true })
+  offerId?: string
 
   @Field()
   date: string
