@@ -1,4 +1,6 @@
 export * from './module'
 export * from './ownership'
 export * from './cred-guard'
+export * from './admin-guard'
 export * from './cred-decorator'
+export * from './api-key-invoke-config'

@@ -63,16 +63,17 @@ export const ensureTables = async () => {
   return Promise.all(tables.map(ensureTable))
 }
 
-export type DDBApp = Omit<Omit<Omit<App, 'clientId'>, 'name'>, 'developerName'>
+export type DDBApp = Omit<Omit<App, 'name'>, 'developerName'>
 
 const ddbItemToApp = (item: { [key: string]: AttributeValue }): DDBApp => {
-  const { id, createdAt, updatedAt, pages, subdomain, header, footer, navConfig, customEntities } = item
+  const { id, createdAt, updatedAt, pages, subdomain, header, footer, navConfig, customEntities, clientId } = item
 
   return {
     id: id?.S as string,
     createdAt: new Date(parseInt(createdAt?.N as string)),
     updatedAt: new Date(parseInt(updatedAt?.N as string)),
     subdomain: subdomain?.S as string,
+    clientId: clientId?.S as string,
     pages: (pages?.S && (JSON.parse(pages.S as string) as Array<Page>)) || [],
     customEntities: (customEntities?.S && (JSON.parse(customEntities.S as string) as Array<CustomEntity>)) || [],
     header: (header?.S && (JSON.parse(header.S as string) as Array<Node>)) || [],
@@ -146,6 +147,7 @@ export const createApp = async (id: string, name: string, subdomain: string, pag
   return {
     id,
     subdomain,
+    clientId: '',
     createdAt: date,
     updatedAt: date,
     pages,
@@ -169,6 +171,7 @@ export const updateApp = async (app: DDBApp): Promise<DDBApp> => {
       customEntities: { S: JSON.stringify(app.customEntities) },
       header: { S: JSON.stringify(app.header) },
       footer: { S: JSON.stringify(app.footer) },
+      clientId: { S: app.clientId },
       navConfig: { S: JSON.stringify(app.navConfig) },
     },
   })

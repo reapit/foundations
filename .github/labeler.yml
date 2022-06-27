@@ -26,6 +26,9 @@ app-builder-backend:
 app-market:
   - packages/app-builder/**
 
+app-marketplace-cms:
+  - packages/app-marketplace-cms/**
+
 auto-bump:
   - packages/auto-bump/**
 
@@ -133,3 +136,6 @@ utils-node:
 
 utils-react:
   - packages/utils-react/**
+
+utils-nest:
+  -packages/utils-nest/**

@@ -39,7 +39,7 @@ export const Container = forwardRef<HTMLDivElement, ContainerProps>(
       ref={ref}
       style={{
         background: isRoot ? undefined : background,
-        height,
+        height: isRoot ? '100%' : height,
         padding: isRoot ? undefined : `${padding}px`,
         width: isRoot ? '100%' : undefined,
       }}

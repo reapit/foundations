@@ -5,13 +5,13 @@ import { ReapitConnectBrowserSession } from '@reapit/connect-session'
 
 import { graphqlUri } from './config'
 
-export const createClient = (session: ReapitConnectBrowserSession) => {
+export const createClient = (session?: ReapitConnectBrowserSession) => {
   const httpLink = createHttpLink({
     uri: graphqlUri,
   })
 
   const authLink = setContext(async (_, { headers }) => {
-    const token = await session.connectSession()
+    const token = await session?.connectSession()
     // return the headers to the context so httpLink can read them
     return {
       headers: {
