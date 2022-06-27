@@ -10,7 +10,14 @@ export const createStack = async () => {
     accountId: config.AWS_ACCOUNT_ID,
   })
 
-  const api = createApi(stack, 'apigateway', undefined)
+  const api = createApi(
+    stack,
+    'apigateway',
+    undefined,
+    true,
+    ['*'],
+    ['Content-Type', 'Authorization', 'api-version', 'reapit-connect-token', 'reapit-customer', 'app-id'],
+  )
 
   const dynamodb = createTable(stack, config.DYNAMO_MARKETPLACE_CMS_TABLE_NAME, 'id')
   const env = {
@@ -32,7 +39,7 @@ export const createStack = async () => {
     api,
     httpLambda,
     {
-      path: '{proxy+}',
+      path: '/{proxy+}',
       method: 'ANY',
     },
     // @ts-ignore
