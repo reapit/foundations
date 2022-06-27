@@ -8,12 +8,118 @@ Object {
       <div
         class="el-snack-holder"
       />
+      <div
+        class="featured-hero-apps-col"
+      >
+        <div
+          class="el-flex-column el-flex-container"
+        >
+          <h2
+            class="hero-sub-min-height el-has-bold-text el-has-no-margin el-subtitle"
+          >
+            New in AppMarket
+          </h2>
+          <div
+            class="featured-hero-apps-container"
+            style="background-color: rgba(0, 97, 168, 0.102);"
+          >
+            <div
+              class="el-hfull hero-apps-flex-toggle el-flex-container"
+            >
+              <div
+                class="featured-hero-apps-content-container"
+              >
+                <img
+                  class="featured-hero-apps-icon"
+                  src="https://fakeimg.pl/96x96/fff?text=-"
+                />
+                <h2
+                  class="hero-apps-title el-has-bold-text el-has-no-margin el-subtitle"
+                />
+                <div
+                  class="hero-apps-chip"
+                />
+                <p
+                  class="hero-apps-strapline el-has-grey-text el-body-text"
+                />
+                <button
+                  class="featured-hero-apps-button el-button"
+                  style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
+                >
+                  Find Out More
+                </button>
+              </div>
+              <div
+                class="featured-hero-apps-image-container"
+              >
+                <img
+                  class="hero-apps-image"
+                  src="http://placekitten.com/1000/360"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
     <div
       class="el-snack-holder"
     />
+    <div
+      class="featured-hero-apps-col"
+    >
+      <div
+        class="el-flex-column el-flex-container"
+      >
+        <h2
+          class="hero-sub-min-height el-has-bold-text el-has-no-margin el-subtitle"
+        >
+          New in AppMarket
+        </h2>
+        <div
+          class="featured-hero-apps-container"
+          style="background-color: rgba(0, 97, 168, 0.102);"
+        >
+          <div
+            class="el-hfull hero-apps-flex-toggle el-flex-container"
+          >
+            <div
+              class="featured-hero-apps-content-container"
+            >
+              <img
+                class="featured-hero-apps-icon"
+                src="https://fakeimg.pl/96x96/fff?text=-"
+              />
+              <h2
+                class="hero-apps-title el-has-bold-text el-has-no-margin el-subtitle"
+              />
+              <div
+                class="hero-apps-chip"
+              />
+              <p
+                class="hero-apps-strapline el-has-grey-text el-body-text"
+              />
+              <button
+                class="featured-hero-apps-button el-button"
+                style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
+              >
+                Find Out More
+              </button>
+            </div>
+            <div
+              class="featured-hero-apps-image-container"
+            >
+              <img
+                class="hero-apps-image"
+                src="http://placekitten.com/1000/360"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -78,14 +184,56 @@ Object {
         class="el-snack-holder"
       />
       <div
-        class="el-loader-container"
+        class="featured-hero-apps-col"
       >
         <div
-          class="el-loader"
+          class="el-flex-column el-flex-container"
         >
+          <h2
+            class="hero-sub-min-height el-has-bold-text el-has-no-margin el-subtitle"
+          >
+            New in AppMarket
+          </h2>
           <div
-            class="el-loader-moving-bar"
-          />
+            class="featured-hero-apps-container"
+            style="background-color: rgba(0, 97, 168, 0.102);"
+          >
+            <div
+              class="el-hfull hero-apps-flex-toggle el-flex-container"
+            >
+              <div
+                class="featured-hero-apps-content-container"
+              >
+                <img
+                  class="featured-hero-apps-icon"
+                  src="https://fakeimg.pl/96x96/fff?text=-"
+                />
+                <h2
+                  class="hero-apps-title el-has-bold-text el-has-no-margin el-subtitle"
+                />
+                <div
+                  class="hero-apps-chip"
+                />
+                <p
+                  class="hero-apps-strapline el-has-grey-text el-body-text"
+                />
+                <button
+                  class="featured-hero-apps-button el-button"
+                  style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
+                >
+                  Find Out More
+                </button>
+              </div>
+              <div
+                class="featured-hero-apps-image-container"
+              >
+                <img
+                  class="hero-apps-image"
+                  src="http://placekitten.com/1000/360"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -95,14 +243,56 @@ Object {
       class="el-snack-holder"
     />
     <div
-      class="el-loader-container"
+      class="featured-hero-apps-col"
     >
       <div
-        class="el-loader"
+        class="el-flex-column el-flex-container"
       >
+        <h2
+          class="hero-sub-min-height el-has-bold-text el-has-no-margin el-subtitle"
+        >
+          New in AppMarket
+        </h2>
         <div
-          class="el-loader-moving-bar"
-        />
+          class="featured-hero-apps-container"
+          style="background-color: rgba(0, 97, 168, 0.102);"
+        >
+          <div
+            class="el-hfull hero-apps-flex-toggle el-flex-container"
+          >
+            <div
+              class="featured-hero-apps-content-container"
+            >
+              <img
+                class="featured-hero-apps-icon"
+                src="https://fakeimg.pl/96x96/fff?text=-"
+              />
+              <h2
+                class="hero-apps-title el-has-bold-text el-has-no-margin el-subtitle"
+              />
+              <div
+                class="hero-apps-chip"
+              />
+              <p
+                class="hero-apps-strapline el-has-grey-text el-body-text"
+              />
+              <button
+                class="featured-hero-apps-button el-button"
+                style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
+              >
+                Find Out More
+              </button>
+            </div>
+            <div
+              class="featured-hero-apps-image-container"
+            >
+              <img
+                class="hero-apps-image"
+                src="http://placekitten.com/1000/360"
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>,

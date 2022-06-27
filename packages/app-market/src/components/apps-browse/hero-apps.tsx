@@ -15,7 +15,7 @@ import {
   HeroAppsImageContainer,
   heroAppsStrapline,
   heroAppsTitle,
-  HeroAppsWrapper,
+  HeroAppsCol,
   heroSubMinHeight,
 } from './__styles__'
 import { cx } from '@linaria/core'
@@ -40,11 +40,13 @@ export const HeroAppsCollection: FC<HeroAppsCollectionProps> = ({ configItem }) 
   const iconUri = media?.find((item) => item.type === 'icon')?.uri ?? 'https://fakeimg.pl/72x72/fff?text=-'
 
   return (
-    <HeroAppsWrapper>
+    <HeroAppsCol>
       <FlexContainer isFlexColumn>
-        <Subtitle className={heroSubMinHeight} hasBoldText hasNoMargin>
-          {content?.title}
-        </Subtitle>
+        {content?.title && (
+          <Subtitle className={heroSubMinHeight} hasBoldText hasNoMargin>
+            {content.title}
+          </Subtitle>
+        )}
         <HeroAppsContainer style={{ backgroundColor: content?.brandColour ? `${content?.brandColour}1a` : '#fff' }}>
           <FlexContainer className={cx(elHFull, heroAppsFlexToggle)}>
             <HeroAppsContentContainer>
@@ -63,6 +65,6 @@ export const HeroAppsCollection: FC<HeroAppsCollectionProps> = ({ configItem }) 
           </FlexContainer>
         </HeroAppsContainer>
       </FlexContainer>
-    </HeroAppsWrapper>
+    </HeroAppsCol>
   )
 }

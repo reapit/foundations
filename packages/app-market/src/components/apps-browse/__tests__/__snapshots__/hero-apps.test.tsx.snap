@@ -8,12 +8,106 @@ Object {
       <div
         class="el-snack-holder"
       />
+      <div
+        class="hero-apps-col"
+      >
+        <div
+          class="el-flex-column el-flex-container"
+        >
+          <h2
+            class="hero-sub-min-height el-has-bold-text el-has-no-margin el-subtitle"
+          >
+            Discover Amazing Apps
+          </h2>
+          <div
+            class="hero-apps-container"
+            style="background-color: rgba(0, 97, 168, 0.102);"
+          >
+            <div
+              class="el-hfull hero-apps-flex-toggle el-flex-container"
+            >
+              <div
+                class="hero-apps-content-container"
+              >
+                <img
+                  class="hero-apps-icon"
+                  src="https://fakeimg.pl/72x72/fff?text=-"
+                />
+                <p
+                  class="hero-apps-title el-has-bold-text el-has-no-margin el-body-text"
+                />
+                <div
+                  class="hero-apps-chip"
+                />
+                <p
+                  class="hero-apps-strapline el-has-grey-text el-body-text"
+                />
+              </div>
+              <div
+                class="hero-apps-image-container"
+              >
+                <img
+                  class="hero-apps-image"
+                  src="http://placekitten.com/1000/360"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
     <div
       class="el-snack-holder"
     />
+    <div
+      class="hero-apps-col"
+    >
+      <div
+        class="el-flex-column el-flex-container"
+      >
+        <h2
+          class="hero-sub-min-height el-has-bold-text el-has-no-margin el-subtitle"
+        >
+          Discover Amazing Apps
+        </h2>
+        <div
+          class="hero-apps-container"
+          style="background-color: rgba(0, 97, 168, 0.102);"
+        >
+          <div
+            class="el-hfull hero-apps-flex-toggle el-flex-container"
+          >
+            <div
+              class="hero-apps-content-container"
+            >
+              <img
+                class="hero-apps-icon"
+                src="https://fakeimg.pl/72x72/fff?text=-"
+              />
+              <p
+                class="hero-apps-title el-has-bold-text el-has-no-margin el-body-text"
+              />
+              <div
+                class="hero-apps-chip"
+              />
+              <p
+                class="hero-apps-strapline el-has-grey-text el-body-text"
+              />
+            </div>
+            <div
+              class="hero-apps-image-container"
+            >
+              <img
+                class="hero-apps-image"
+                src="http://placekitten.com/1000/360"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -78,14 +172,50 @@ Object {
         class="el-snack-holder"
       />
       <div
-        class="el-loader-container"
+        class="hero-apps-col"
       >
         <div
-          class="el-loader"
+          class="el-flex-column el-flex-container"
         >
+          <h2
+            class="hero-sub-min-height el-has-bold-text el-has-no-margin el-subtitle"
+          >
+            Discover Amazing Apps
+          </h2>
           <div
-            class="el-loader-moving-bar"
-          />
+            class="hero-apps-container"
+            style="background-color: rgba(0, 97, 168, 0.102);"
+          >
+            <div
+              class="el-hfull hero-apps-flex-toggle el-flex-container"
+            >
+              <div
+                class="hero-apps-content-container"
+              >
+                <img
+                  class="hero-apps-icon"
+                  src="https://fakeimg.pl/72x72/fff?text=-"
+                />
+                <p
+                  class="hero-apps-title el-has-bold-text el-has-no-margin el-body-text"
+                />
+                <div
+                  class="hero-apps-chip"
+                />
+                <p
+                  class="hero-apps-strapline el-has-grey-text el-body-text"
+                />
+              </div>
+              <div
+                class="hero-apps-image-container"
+              >
+                <img
+                  class="hero-apps-image"
+                  src="http://placekitten.com/1000/360"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -95,14 +225,50 @@ Object {
       class="el-snack-holder"
     />
     <div
-      class="el-loader-container"
+      class="hero-apps-col"
     >
       <div
-        class="el-loader"
+        class="el-flex-column el-flex-container"
       >
+        <h2
+          class="hero-sub-min-height el-has-bold-text el-has-no-margin el-subtitle"
+        >
+          Discover Amazing Apps
+        </h2>
         <div
-          class="el-loader-moving-bar"
-        />
+          class="hero-apps-container"
+          style="background-color: rgba(0, 97, 168, 0.102);"
+        >
+          <div
+            class="el-hfull hero-apps-flex-toggle el-flex-container"
+          >
+            <div
+              class="hero-apps-content-container"
+            >
+              <img
+                class="hero-apps-icon"
+                src="https://fakeimg.pl/72x72/fff?text=-"
+              />
+              <p
+                class="hero-apps-title el-has-bold-text el-has-no-margin el-body-text"
+              />
+              <div
+                class="hero-apps-chip"
+              />
+              <p
+                class="hero-apps-strapline el-has-grey-text el-body-text"
+              />
+            </div>
+            <div
+              class="hero-apps-image-container"
+            >
+              <img
+                class="hero-apps-image"
+                src="http://placekitten.com/1000/360"
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>,

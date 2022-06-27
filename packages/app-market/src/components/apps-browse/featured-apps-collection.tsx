@@ -2,28 +2,48 @@ import React, { FC } from 'react'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { objectToQuery, useReapitGet } from '@reapit/utils-react'
-import { Loader } from '@reapit/elements'
+import { BodyText, FlexContainer } from '@reapit/elements'
 import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { AppsBrowseConfigItem, AppsBrowseConfigItemFilters } from './use-apps-browse-state'
+import { AppIcon, appTitleOneLine, FeaturedAppsCol } from './__styles__'
+import { useReapitConnect } from '@reapit/connect-session'
 
 interface FeaturedAppsCollectionProps {
   configItem: AppsBrowseConfigItem
 }
 
 export const FeaturedAppsCollection: FC<FeaturedAppsCollectionProps> = ({ configItem }) => {
-  const { filters, content } = configItem
-  const queryParams = filters ? objectToQuery<AppsBrowseConfigItemFilters>(filters) : {}
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const clientId = connectSession?.loginIdentity.clientId
+  const { filters } = configItem
+  const queryParams = filters ? { ...objectToQuery<AppsBrowseConfigItemFilters>(filters), clientId } : { clientId }
 
-  const [apps, appsLoading] = useReapitGet<AppSummaryModelPagedResult>({
+  const [apps] = useReapitGet<AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getApps],
     queryParams,
     fetchWhenTrue: [filters],
   })
 
-  console.log('Featured Apps: ', apps, content)
-
-  if (appsLoading) return <Loader />
-
-  return null
+  return (
+    <>
+      {apps?.data?.map(({ id, name, summary, iconUri }) => (
+        <FeaturedAppsCol key={id}>
+          <FlexContainer isFlexJustifyBetween>
+            <FlexContainer isFlexColumn isFlexJustifyCenter>
+              <FlexContainer>
+                <AppIcon src={iconUri ?? 'https://fakeimg.pl/24x24/fff?text=?'} alt={name} />
+                <BodyText className={appTitleOneLine} hasBoldText hasNoMargin>
+                  {name}
+                </BodyText>
+              </FlexContainer>
+              <BodyText className={appTitleOneLine} hasGreyText hasNoMargin>
+                {summary}
+              </BodyText>
+            </FlexContainer>
+          </FlexContainer>
+        </FeaturedAppsCol>
+      ))}
+    </>
+  )
 }

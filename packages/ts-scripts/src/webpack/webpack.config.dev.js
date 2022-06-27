@@ -198,7 +198,6 @@ const webpackConfigDev = ({ appName }) => ({
   },
   experiments: {
     backCompat: false,
-    lazyCompilation: true,
   },
 })
 

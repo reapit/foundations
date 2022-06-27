@@ -1,5 +1,5 @@
-import React, { FC, useMemo } from 'react'
-import { Title, PageContainer, FlexContainer } from '@reapit/elements'
+import React, { FC, Fragment, useMemo } from 'react'
+import { Title, PageContainer, Subtitle, FlexContainer } from '@reapit/elements'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { DeveloperAppsCollection } from './developer-apps-collection'
@@ -9,6 +9,14 @@ import { FeaturedAppsCollection } from './featured-apps-collection'
 import { SimpleAppsCollection } from './simple-apps-collection'
 import { AppFiltersCollection } from './app-filters-collection'
 import { HeroAppsCollection } from './hero-apps'
+import {
+  AppFilterGrid,
+  AppFilterLink,
+  FeaturedAppsGrid,
+  HeroAppsGrid,
+  heroSubMinHeight,
+  SimpleAppsGrid,
+} from './__styles__'
 
 export const handleSortConfigs = (appsBrowseConfigState: AppsBrowseConfigCollection | null) => () => {
   const featuredHeroApps =
@@ -42,22 +50,49 @@ export const AppsBrowse: FC = () => {
       <Title>AppMarket</Title>
       {hasFilters ? null : (
         <>
-          <FlexContainer isFlexWrap>
+          <HeroAppsGrid>
             {featuredHeroApps.map((configItem, index) => (
               <FeaturedHeroAppsCollection key={index} configItem={configItem} />
             ))}
             {heroApps.map((configItem, index) => (
               <HeroAppsCollection key={index} configItem={configItem} />
             ))}
-          </FlexContainer>
-          {appsFilters.map((configItem, index) => (
-            <AppFiltersCollection key={index} configItem={configItem} />
-          ))}
+          </HeroAppsGrid>
+          {Boolean(appsFilters.length) && (
+            <Subtitle className={heroSubMinHeight} hasBoldText hasNoMargin>
+              App Collections
+            </Subtitle>
+          )}
+          <AppFilterGrid>
+            {appsFilters.map((configItem, index) => (
+              <AppFiltersCollection key={index} configItem={configItem} />
+            ))}
+          </AppFilterGrid>
           {featuredApps.map((configItem, index) => (
-            <FeaturedAppsCollection key={index} configItem={configItem} />
+            <Fragment key={index}>
+              <FlexContainer>
+                <Subtitle className={heroSubMinHeight} hasBoldText hasNoMargin>
+                  {configItem?.content?.title}
+                </Subtitle>
+                <AppFilterLink>See All</AppFilterLink>
+              </FlexContainer>
+              <FeaturedAppsGrid>
+                <FeaturedAppsCollection configItem={configItem} />
+              </FeaturedAppsGrid>
+            </Fragment>
           ))}
           {simpleApps.map((configItem, index) => (
-            <SimpleAppsCollection key={index} configItem={configItem} />
+            <Fragment key={index}>
+              <FlexContainer>
+                <Subtitle className={heroSubMinHeight} hasBoldText hasNoMargin>
+                  {configItem?.content?.title}
+                </Subtitle>
+                <AppFilterLink>See All</AppFilterLink>
+              </FlexContainer>
+              <SimpleAppsGrid>
+                <SimpleAppsCollection key={index} configItem={configItem} />
+              </SimpleAppsGrid>
+            </Fragment>
           ))}
           {isDeveloper && <DeveloperAppsCollection />}
         </>

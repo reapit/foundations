@@ -13,7 +13,7 @@ import {
   FeaturedHeroAppsImageContainer,
   HeroAppsChip,
   heroAppsStrapline,
-  FeaturedHeroAppsWrapper,
+  FeaturedHeroAppsCol,
   heroSubMinHeight,
   heroAppsTitle,
   heroAppsFlexToggle,
@@ -42,7 +42,7 @@ export const FeaturedHeroAppsCollection: FC<FeaturedHeroAppsCollectionProps> = (
   const iconUri = media?.find((item) => item.type === 'icon')?.uri ?? 'https://fakeimg.pl/96x96/fff?text=-'
 
   return (
-    <FeaturedHeroAppsWrapper>
+    <FeaturedHeroAppsCol>
       <FlexContainer isFlexColumn>
         <Subtitle className={heroSubMinHeight} hasBoldText hasNoMargin>
           {content?.title}
@@ -70,6 +70,6 @@ export const FeaturedHeroAppsCollection: FC<FeaturedHeroAppsCollectionProps> = (
           </FlexContainer>
         </FeaturedHeroAppsContainer>
       </FlexContainer>
-    </FeaturedHeroAppsWrapper>
+    </FeaturedHeroAppsCol>
   )
 }
