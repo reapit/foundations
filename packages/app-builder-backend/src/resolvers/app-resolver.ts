@@ -101,11 +101,12 @@ const addId = (id: string) => (obj: Omit<Node, 'id'>) => ({
   id: [obj.nodeId, id].join('-'),
 })
 
-const getAppUrl = (apiUrl: string, subdomain: string) => {
-  const url = new URL(apiUrl)
+const getAppUrl = (webUrl: string, subdomain: string) => {
+  const url = new URL(webUrl)
   url.hostname = `${subdomain}.${url.hostname}`
   url.protocol = 'https:'
-  return url.toString()
+  // remove trailing slash
+  return url.toString().replace(/\/$/, '')
 }
 
 enum Access {
