@@ -1,13 +1,13 @@
-const { hostname = '', protocol = '' } = window.location // for tests
+const { hostname = '' } = window.location // for tests
 
 const isDev = hostname.endsWith('dev.paas.reapit.cloud')
-const isProd = hostname.endsWith('prod.paas.reapit.cloud') || !hostname.includes('.paas.reapit.cloud')
+const isProd = hostname.endsWith('prod.paas.reapit.cloud') || (hostname.includes('reapit.cloud') && !isDev)
 const isLocal = hostname.includes('localhost') || hostname.includes('.local')
 
-export let graphqlUri = isDev ? 'http://localhost:4000/graphql' : 'https://api.reapit.cloud/graphql'
+export let graphqlUri
 
 if (isLocal) {
-  graphqlUri = `${protocol}://localhost:4000/graphql`
+  graphqlUri = 'http://localhost:4000/graphql'
 }
 
 if (isDev) {
