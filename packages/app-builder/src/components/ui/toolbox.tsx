@@ -18,7 +18,7 @@ import { TextIcon } from '../icons/text'
 import { TableIcon } from '../icons/table'
 import { FormIcon } from '../icons/form'
 
-const Item = styled.a`
+const Item = styled.div`
   width: 64px;
   height: 64px;
   display: flex;
