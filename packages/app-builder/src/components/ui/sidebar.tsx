@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { cx } from '@linaria/core'
 import { styled } from '@linaria/react'
 import { elFlex, elFlexColumn, elW2 } from '@reapit/elements'
-import { bgWhite, transition } from './styles'
+import { bgWhite, overflowAuto, transition } from './styles'
 
 import SidebarItem from './sidebar-item'
 import Toolbar from './toolbar'
@@ -45,7 +45,7 @@ const Sidebar = () => {
 
   return (
     <SidebarDiv className={cx(transition, bgWhite, elW2)}>
-      <div className={cx(elFlex, elFlexColumn)} style={{ height: 'calc(100vh - 45px)', flex: 1 }}>
+      <div className={cx(elFlex, elFlexColumn, overflowAuto)} style={{ height: 'calc(100vh - 45px)', flex: 1 }}>
         <SidebarItem
           title="Components"
           height={!customizeVisible ? '100%' : '0%'}
