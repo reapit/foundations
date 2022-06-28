@@ -1,14 +1,20 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
+  Button,
+  ButtonGroup,
   CardWrap,
   ElBodyText,
+  elFlex1,
   elHasGreyText,
   elMy2,
+  FileInput,
+  FlexContainer,
   FloatingButton,
   InputGroup,
   InputWrap,
   Label,
   Loader,
+  Modal,
   SearchableDropdown,
   Select,
 } from '@reapit/elements'
@@ -63,15 +69,17 @@ const SelectIDofType = ({
 
   if (searchAvailable) {
     return (
-      <SearchableDropdown<GenericObject>
-        onChange={onChange}
-        getResults={search}
-        getResultLabel={(result) => getLabel(result, object?.labelKeys)}
-        getResultValue={(result) => result.id}
-        name={name}
-        disabled={disabled}
-        defaultVal={defaultValue}
-      />
+      <>
+        <SearchableDropdown<GenericObject>
+          onChange={onChange}
+          getResults={search}
+          getResultLabel={(result) => getLabel(result, object?.labelKeys)}
+          getResultValue={(result) => result.id}
+          name={name}
+          disabled={disabled}
+          defaultVal={defaultValue}
+        />
+      </>
     )
   }
 
@@ -112,6 +120,44 @@ export type FormInputProps = {
   isReadOnly?: boolean
 }
 
+const FileUploadInput = ({
+  label,
+  value,
+  defaultValue,
+  onChange,
+  disabled,
+}: {
+  disabled?: boolean
+  label: string
+  value?: string
+  defaultValue?: string
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+}) => {
+  const [modalIsOpen, setModalIsOpen] = useState(false)
+
+  return (
+    <div className={cx(elFlex1)} style={disabled ? { pointerEvents: 'none', opacity: 0.5 } : undefined}>
+      <FileInput
+        disabled={disabled}
+        label={label}
+        defaultValue={defaultValue}
+        onChange={onChange}
+        onFileView={() => setModalIsOpen(true)}
+      />
+      <Modal title="Image Preview" isOpen={modalIsOpen} onModalClose={() => setModalIsOpen(false)}>
+        <FlexContainer isFlexAlignCenter isFlexJustifyCenter>
+          {value && <img src={value} />}
+        </FlexContainer>
+        <ButtonGroup alignment="right">
+          <Button intent="low" onClick={() => setModalIsOpen(false)}>
+            Close
+          </Button>
+        </ButtonGroup>
+      </Modal>
+    </div>
+  )
+}
+
 const Input = ({
   name,
   input,
@@ -129,7 +175,7 @@ const Input = ({
   fwdRef?: React.ForwardedRef<HTMLDivElement>
   onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void
 }) => {
-  const { typeName: inputTypeName, isRequired, idOfType, enumValues } = input
+  const { typeName: inputTypeName, isRequired, idOfType, enumValues, customInputType } = input
   const label = friendlyIdName(name)
 
   return (
@@ -151,7 +197,7 @@ const Input = ({
         </>
       )}
       {idOfType && (
-        <>
+        <div className={elFlex1} style={disabled ? { pointerEvents: 'none', opacity: 0.5 } : undefined}>
           <Label>{label}</Label>
           <SelectIDofType
             disabled={disabled}
@@ -161,9 +207,9 @@ const Input = ({
             value={value}
             defaultValue={defaultValue}
           />
-        </>
+        </div>
       )}
-      {!enumValues && !idOfType && (
+      {!enumValues && !idOfType && !customInputType && (
         <InputGroup
           disabled={disabled}
           key={label}
@@ -174,6 +220,15 @@ const Input = ({
           onChange={onChange}
           name={name}
           defaultValue={defaultValue}
+        />
+      )}
+      {customInputType && customInputType === 'image-upload' && (
+        <FileUploadInput
+          disabled={disabled}
+          label={label}
+          defaultValue={defaultValue}
+          value={value}
+          onChange={onChange}
         />
       )}
     </InputWrap>

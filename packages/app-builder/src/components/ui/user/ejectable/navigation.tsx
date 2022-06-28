@@ -1,6 +1,5 @@
 import { usePageId } from '@/components/hooks/use-page-id'
 import React, { forwardRef } from 'react'
-import { useReapitConnect } from '@reapit/connect-session'
 import { Loader, NavResponsive, ElNavContainer } from '@reapit/elements'
 import { useApp } from '@/components/hooks/apps/use-app'
 import { useConnectSession } from '@/components/hooks/connect-session'
