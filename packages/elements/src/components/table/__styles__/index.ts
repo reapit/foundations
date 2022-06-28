@@ -134,50 +134,6 @@ const cellOrders = `
   }
 `
 
-export const ElTable = styled.div`
-  &[data-num-columns-excl-action-col='2'] {
-    --component-table-num-columns: 2;
-  }
-  &[data-num-columns-excl-action-col='3'] {
-    --component-table-num-columns: 3;
-  }
-  &[data-num-columns-excl-action-col='4'] {
-    --component-table-num-columns: 4;
-  }
-  &[data-num-columns-excl-action-col='5'] {
-    --component-table-num-columns: 5;
-  }
-  &[data-num-columns-excl-action-col='6'] {
-    --component-table-num-columns: 6;
-  }
-  &[data-num-columns-excl-action-col='7'] {
-    --component-table-num-columns: 7;
-  }
-  &[data-num-columns-excl-action-col='8'] {
-    --component-table-num-columns: 8;
-  }
-  &[data-num-columns-excl-action-col='9'] {
-    --component-table-num-columns: 9;
-  }
-  &[data-num-columns-excl-action-col='10'] {
-    --component-table-num-columns: 10;
-  }
-  &[data-num-columns-excl-action-col='11'] {
-    --component-table-num-columns: 11;
-  }
-  &[data-num-columns-excl-action-col='12'] {
-    --component-table-num-columns: 12;
-  }
-
-  &[data-has-expandable-action='true'] {
-    --component-table-expandable-trigger-width: ${EXPANDABLE_TRIGGER_CELL_WIDTH};
-  }
-
-  &[data-has-call-to-action='true'] {
-    --component-table-expandable-trigger-width: ${CALL_TO_ACTION_CELL_WIDTH};
-  }
-`
-
 // modifiers
 export const elTableNarrowCellIsFullWidth = css`
   ${isNarrow} {
@@ -225,7 +181,7 @@ export const ElTableHeadersRow = styled.div`
     repeat(var(--component-table-num-columns, auto-fit), minmax(var(--component-table-min-column-width), 1fr))
     var(--component-table-expandable-trigger-width, 0);
 
-  @media only screen and (max-width: 1024px) {
+  ${isNarrow} {
     display: none;
   }
 `
@@ -410,4 +366,143 @@ export const ElTableExpandableRow = styled.div`
 
 export const ElTableExpandableContainer = styled.div`
   padding: 1.25rem;
+`
+
+export const ElTable = styled.div`
+  &[data-force-narrow-table='true'] {
+    ${ElTableExpandableRowTriggerCell} {
+      grid-column-end: span 2;
+      text-align: center;
+      justify-self: end;
+      grid-column-end: 3;
+      border-radius: var(--default-border-radius) 0 var(--default-border-radius) 0;
+    }
+
+    ${ElTableCtaCell} {
+      grid-column-end: span 2;
+      text-align: center;
+      justify-content: right;
+      justify-self: end;
+      padding: 0;
+      grid-column-end: 3;
+      border-radius: var(--default-border-radius) 0 var(--default-border-radius) 0;
+    }
+
+    ${ElTableCtaIconContainer} {
+      padding: 0.75rem;
+      border-radius: var(--default-border-radius) 0 var(--default-border-radius) 0;
+    }
+
+    ${ElTableCellContent} {
+      &::before {
+        display: block;
+        content: attr(data-narrow-label);
+        width: 100%;
+        color: var(--color-black);
+      }
+    }
+
+    ${ElTableRow} {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    ${ElTableHeadersRow} {
+      display: none;
+    }
+
+    .${elTableNarrowCellIsFullWidth} {
+      grid-column-end: span 2;
+      text-align: center;
+    }
+
+    ${ElTableCellNarrowOrder1} {
+      order: 0;
+    }
+
+    ${ElTableCellNarrowOrder2} {
+      order: 1;
+    }
+
+    ${ElTableCellNarrowOrder3} {
+      order: 2;
+    }
+
+    ${ElTableCellNarrowOrder4} {
+      order: 3;
+    }
+
+    ${ElTableCellNarrowOrder5} {
+      order: 4;
+    }
+
+    ${ElTableCellNarrowOrder6} {
+      order: 5;
+    }
+
+    ${ElTableCellNarrowOrder7} {
+      order: 6;
+    }
+
+    ${ElTableCellNarrowOrder8} {
+      order: 7;
+    }
+
+    ${ElTableCellNarrowOrder9} {
+      order: 8;
+    }
+
+    ${ElTableCellNarrowOrder10} {
+      order: 9;
+    }
+
+    ${ElTableCellNarrowOrder11} {
+      order: 10;
+    }
+
+    ${ElTableCellNarrowOrder12} {
+      order: 11;
+    }
+  }
+
+  &[data-num-columns-excl-action-col='2'] {
+    --component-table-num-columns: 2;
+  }
+  &[data-num-columns-excl-action-col='3'] {
+    --component-table-num-columns: 3;
+  }
+  &[data-num-columns-excl-action-col='4'] {
+    --component-table-num-columns: 4;
+  }
+  &[data-num-columns-excl-action-col='5'] {
+    --component-table-num-columns: 5;
+  }
+  &[data-num-columns-excl-action-col='6'] {
+    --component-table-num-columns: 6;
+  }
+  &[data-num-columns-excl-action-col='7'] {
+    --component-table-num-columns: 7;
+  }
+  &[data-num-columns-excl-action-col='8'] {
+    --component-table-num-columns: 8;
+  }
+  &[data-num-columns-excl-action-col='9'] {
+    --component-table-num-columns: 9;
+  }
+  &[data-num-columns-excl-action-col='10'] {
+    --component-table-num-columns: 10;
+  }
+  &[data-num-columns-excl-action-col='11'] {
+    --component-table-num-columns: 11;
+  }
+  &[data-num-columns-excl-action-col='12'] {
+    --component-table-num-columns: 12;
+  }
+
+  &[data-has-expandable-action='true'] {
+    --component-table-expandable-trigger-width: ${EXPANDABLE_TRIGGER_CELL_WIDTH};
+  }
+
+  &[data-has-call-to-action='true'] {
+    --component-table-expandable-trigger-width: ${CALL_TO_ACTION_CELL_WIDTH};
+  }
 `

@@ -131,6 +131,49 @@ In the example below, you can see examples of all the different flavours of `Tab
 
 <RenderHtmlMarkup component="Table" story="Basic Customisation - Table Cells" />
 
+## Expanding Table Cell Space
+
+It is quite common that you will find table data taking up much more than the available space than your table has available. In this instance, you can force the table into "mobile mode" to allow multi-line rows for the table.
+
+This is done by adding the `data-force-narrow-table='true'` attribute to the main wrapping `Table` (`.el-table`) element.
+
+<Canvas>
+  <Story name="Expanding Table Cell Space">
+    <Table data-force-narrow-table="true">
+      <TableHeadersRow>
+        <TableHeader>Property</TableHeader>
+        <TableHeader>Customer</TableHeader>
+        <TableHeader>Client A/C</TableHeader>
+        <TableHeader>Description</TableHeader>
+        <TableHeader>Request Date</TableHeader>
+        <TableHeader>Amount</TableHeader>
+        <TableHeader>Payment Status</TableHeader>
+      </TableHeadersRow>
+      <TableRowContainer>
+        <TableRow>
+          <TableCell darkText icon="homeSystem" narrowIsFullWidth>
+            Mt Ash Jacket Brassey Road
+          </TableCell>
+          <TableCell narrowLabel="Name Customer" icon="usernameSystem">
+            Mr Johnny Corrigan
+          </TableCell>
+          <TableCell narrowLabel="Account">Alternate Lettings Client Acc</TableCell>
+          <TableCell narrowLabel="Type">Tenant Payment Request</TableCell>
+          <TableCell narrowLabel="Request Date">19 Apr 2021</TableCell>
+          <TableCell darkText narrowLabel="Amount">
+            £50.00
+          </TableCell>
+          <TableCell narrowLabel="Status">
+            <StatusIndicator intent="critical" /> Pending
+          </TableCell>
+        </TableRow>
+      </TableRowContainer>
+    </Table>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Table" story="Expanding Table Cell Space" />
+
 ## Trigger Cells
 
 Typically with a table, you will want to perform an action on the data as displayed in a given table row. We offer two distinct UI patterns to achieve this;

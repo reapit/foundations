@@ -9,60 +9,60 @@ Object {
         class="ecbqyq6-el-snack-holder"
       />
       <div
-        class="ec47sgk-el-mb11 elkdvoz-el-table"
+        class="ec47sgk-el-mb11 ejadz4k-el-table"
         data-has-call-to-action="false"
         data-has-expandable-action="false"
       >
         <div
-          class="e1co3p83-el-table-headers-row"
+          class="e1ijk5il-el-table-headers-row"
         >
           <div
-            class="e1qy4g2u-el-table-header"
+            class="e1co3p83-el-table-header"
           >
             Type
           </div>
           <div
-            class="e1qy4g2u-el-table-header"
+            class="e1co3p83-el-table-header"
           >
             Amount
           </div>
           <div
-            class="e1qy4g2u-el-table-header"
+            class="e1co3p83-el-table-header"
           >
             Payable
           </div>
         </div>
         <div
-          class="e1gfmg2g-el-table-row-container"
+          class="es3tf1j-el-table-row-container"
         >
           <div
-            class="es3tf1j-el-table-row"
+            class="e1qy4g2u-el-table-row"
           >
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="Type"
               >
                 Annual Registration Fee
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="Amount"
               >
                 £995
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="Payable"
               >
                 Per Contract year, payable in advance
@@ -71,36 +71,36 @@ Object {
           </div>
         </div>
         <div
-          class="e1gfmg2g-el-table-row-container"
+          class="es3tf1j-el-table-row-container"
         >
           <div
-            class="es3tf1j-el-table-row"
+            class="e1qy4g2u-el-table-row"
           >
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="Type"
               >
                 Annual App Marketplace Fee
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="Amount"
               >
                 £595
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="Payable"
               >
                 Payable for each Application approved in accordance with clauses 2.5 and 2.5.3, and payable per contract year, in advance
@@ -109,36 +109,36 @@ Object {
           </div>
         </div>
         <div
-          class="e1gfmg2g-el-table-row-container"
+          class="es3tf1j-el-table-row-container"
         >
           <div
-            class="es3tf1j-el-table-row"
+            class="e1qy4g2u-el-table-row"
           >
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="Type"
               >
                 Monthly Developer Edition Fee
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="Amount"
               >
                 £300 
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="Payable"
               >
                 Payable monthly on an ongoing basis until cancelled.
@@ -147,36 +147,36 @@ Object {
           </div>
         </div>
         <div
-          class="e1gfmg2g-el-table-row-container"
+          class="es3tf1j-el-table-row-container"
         >
           <div
-            class="es3tf1j-el-table-row"
+            class="e1qy4g2u-el-table-row"
           >
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="Type"
               >
                 Total Consumption Cost 
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="Amount"
               >
                 Calculated in accordance with the table below.
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="Payable"
               >
                 Payable monthly in arrears
@@ -185,68 +185,68 @@ Object {
           </div>
         </div>
         <div
-          class="e1gfmg2g-el-table-row-container"
+          class="es3tf1j-el-table-row-container"
         >
           <div
-            class="es3tf1j-el-table-row"
+            class="e1qy4g2u-el-table-row"
           >
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="Type"
               >
                 Warehouse
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="Amount"
               />
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="Payable"
               />
             </div>
           </div>
         </div>
         <div
-          class="e1gfmg2g-el-table-row-container"
+          class="es3tf1j-el-table-row-container"
         >
           <div
-            class="es3tf1j-el-table-row"
+            class="e1qy4g2u-el-table-row"
           >
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="Type"
               >
                 Reapit Connect
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="Amount"
               />
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="Payable"
               />
             </div>
@@ -260,60 +260,60 @@ Object {
       class="ecbqyq6-el-snack-holder"
     />
     <div
-      class="ec47sgk-el-mb11 elkdvoz-el-table"
+      class="ec47sgk-el-mb11 ejadz4k-el-table"
       data-has-call-to-action="false"
       data-has-expandable-action="false"
     >
       <div
-        class="e1co3p83-el-table-headers-row"
+        class="e1ijk5il-el-table-headers-row"
       >
         <div
-          class="e1qy4g2u-el-table-header"
+          class="e1co3p83-el-table-header"
         >
           Type
         </div>
         <div
-          class="e1qy4g2u-el-table-header"
+          class="e1co3p83-el-table-header"
         >
           Amount
         </div>
         <div
-          class="e1qy4g2u-el-table-header"
+          class="e1co3p83-el-table-header"
         >
           Payable
         </div>
       </div>
       <div
-        class="e1gfmg2g-el-table-row-container"
+        class="es3tf1j-el-table-row-container"
       >
         <div
-          class="es3tf1j-el-table-row"
+          class="e1qy4g2u-el-table-row"
         >
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="Type"
             >
               Annual Registration Fee
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="Amount"
             >
               £995
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="Payable"
             >
               Per Contract year, payable in advance
@@ -322,36 +322,36 @@ Object {
         </div>
       </div>
       <div
-        class="e1gfmg2g-el-table-row-container"
+        class="es3tf1j-el-table-row-container"
       >
         <div
-          class="es3tf1j-el-table-row"
+          class="e1qy4g2u-el-table-row"
         >
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="Type"
             >
               Annual App Marketplace Fee
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="Amount"
             >
               £595
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="Payable"
             >
               Payable for each Application approved in accordance with clauses 2.5 and 2.5.3, and payable per contract year, in advance
@@ -360,36 +360,36 @@ Object {
         </div>
       </div>
       <div
-        class="e1gfmg2g-el-table-row-container"
+        class="es3tf1j-el-table-row-container"
       >
         <div
-          class="es3tf1j-el-table-row"
+          class="e1qy4g2u-el-table-row"
         >
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="Type"
             >
               Monthly Developer Edition Fee
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="Amount"
             >
               £300 
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="Payable"
             >
               Payable monthly on an ongoing basis until cancelled.
@@ -398,36 +398,36 @@ Object {
         </div>
       </div>
       <div
-        class="e1gfmg2g-el-table-row-container"
+        class="es3tf1j-el-table-row-container"
       >
         <div
-          class="es3tf1j-el-table-row"
+          class="e1qy4g2u-el-table-row"
         >
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="Type"
             >
               Total Consumption Cost 
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="Amount"
             >
               Calculated in accordance with the table below.
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="Payable"
             >
               Payable monthly in arrears
@@ -436,68 +436,68 @@ Object {
         </div>
       </div>
       <div
-        class="e1gfmg2g-el-table-row-container"
+        class="es3tf1j-el-table-row-container"
       >
         <div
-          class="es3tf1j-el-table-row"
+          class="e1qy4g2u-el-table-row"
         >
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="Type"
             >
               Warehouse
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="Amount"
             />
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="Payable"
             />
           </div>
         </div>
       </div>
       <div
-        class="e1gfmg2g-el-table-row-container"
+        class="es3tf1j-el-table-row-container"
       >
         <div
-          class="es3tf1j-el-table-row"
+          class="e1qy4g2u-el-table-row"
         >
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="Type"
             >
               Reapit Connect
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="Amount"
             />
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="Payable"
             />
           </div>

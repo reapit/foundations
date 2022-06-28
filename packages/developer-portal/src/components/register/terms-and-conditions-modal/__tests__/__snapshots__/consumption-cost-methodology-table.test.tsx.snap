@@ -14,135 +14,135 @@ Object {
         Calculation of Total Consumption Cost - Methodology (On last day of monthly billing period):
       </p>
       <div
-        class="ec47sgk-el-mb11 elkdvoz-el-table"
+        class="ec47sgk-el-mb11 ejadz4k-el-table"
         data-has-call-to-action="false"
         data-has-expandable-action="false"
       >
         <div
-          class="e1co3p83-el-table-headers-row"
+          class="e1ijk5il-el-table-headers-row"
         >
           <div
-            class="e1qy4g2u-el-table-header"
+            class="e1co3p83-el-table-header"
           >
             Month API Call
           </div>
           <div
-            class="e1qy4g2u-el-table-header"
+            class="e1co3p83-el-table-header"
           >
             First 1,000
           </div>
           <div
-            class="e1qy4g2u-el-table-header"
+            class="e1co3p83-el-table-header"
           >
             1,001 - 2,500
           </div>
           <div
-            class="e1qy4g2u-el-table-header"
+            class="e1co3p83-el-table-header"
           >
             2,501 - 5,000
           </div>
           <div
-            class="e1qy4g2u-el-table-header"
+            class="e1co3p83-el-table-header"
           >
             5,001 - 10,000
           </div>
           <div
-            class="e1qy4g2u-el-table-header"
+            class="e1co3p83-el-table-header"
           >
             10,001 - 25,000
           </div>
           <div
-            class="e1qy4g2u-el-table-header"
+            class="e1co3p83-el-table-header"
           >
             25,001 - 50,000
           </div>
           <div
-            class="e1qy4g2u-el-table-header"
+            class="e1co3p83-el-table-header"
           >
             above 50,000
           </div>
         </div>
         <div
-          class="e1gfmg2g-el-table-row-container"
+          class="es3tf1j-el-table-row-container"
         >
           <div
-            class="es3tf1j-el-table-row"
+            class="e1qy4g2u-el-table-row"
           >
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="Month API Call"
               >
                 1-5
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="First 1,000"
               >
                 £0.010000
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="1,001 - 2,500"
               >
                 £0.008000
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="2,501 - 5,000"
               >
                 £0.006000
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="5,001 - 10,000"
               >
                 £0.005000
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="10,001 - 25,000"
               >
                 £0.004000
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="25,001 - 50,000"
               >
                 £0.002500
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="above 50,000"
               >
                 £0.001000
@@ -151,86 +151,86 @@ Object {
           </div>
         </div>
         <div
-          class="e1gfmg2g-el-table-row-container"
+          class="es3tf1j-el-table-row-container"
         >
           <div
-            class="es3tf1j-el-table-row"
+            class="e1qy4g2u-el-table-row"
           >
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="Month API Call"
               >
                 6-10
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="First 1,000"
               >
                 £0.011000
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="1,001 - 2,500"
               >
                 £0.008800
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="2,501 - 5,000"
               >
                 £0.006600
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="5,001 - 10,000"
               >
                 £0.005500
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="10,001 - 25,000"
               >
                 £0.004400
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="25,001 - 50,000"
               >
                 £0.00270
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="above 50,000"
               >
                 £0.001100
@@ -239,86 +239,86 @@ Object {
           </div>
         </div>
         <div
-          class="e1gfmg2g-el-table-row-container"
+          class="es3tf1j-el-table-row-container"
         >
           <div
-            class="es3tf1j-el-table-row"
+            class="e1qy4g2u-el-table-row"
           >
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="Month API Call"
               >
                 11-20
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="First 1,000"
               >
                 £0.012500
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="1,001 - 2,500"
               >
                 £0.010000
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="2,501 - 5,000"
               >
                 £0.007500
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="5,001 - 10,000"
               >
                 £0.006250
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="10,001 - 25,000"
               >
                 £0.005000
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="25,001 - 50,000"
               >
                 £0.003125
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="above 50,000"
               >
                 £0.001250
@@ -327,86 +327,86 @@ Object {
           </div>
         </div>
         <div
-          class="e1gfmg2g-el-table-row-container"
+          class="es3tf1j-el-table-row-container"
         >
           <div
-            class="es3tf1j-el-table-row"
+            class="e1qy4g2u-el-table-row"
           >
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="Month API Call"
               >
                 21-30
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="First 1,000"
               >
                 £0.014500
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="1,001 - 2,500"
               >
                 £0.011600
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="2,501 - 5,000"
               >
                 £0.008700
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="5,001 - 10,000"
               >
                 £0.007250
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="10,001 - 25,000"
               >
                 £0.005800
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="25,001 - 50,000"
               >
                 £0.003625
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="above 50,000"
               >
                 £0.001450
@@ -415,86 +415,86 @@ Object {
           </div>
         </div>
         <div
-          class="e1gfmg2g-el-table-row-container"
+          class="es3tf1j-el-table-row-container"
         >
           <div
-            class="es3tf1j-el-table-row"
+            class="e1qy4g2u-el-table-row"
           >
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="Month API Call"
               >
                 31-40
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="First 1,000"
               >
                 £0.017000
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="1,001 - 2,500"
               >
                 £0.013600
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="2,501 - 5,000"
               >
                 £0.010200
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="5,001 - 10,000"
               >
                 £0.008500
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="10,001 - 25,000"
               >
                 £0.006800
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="25,001 - 50,000"
               >
                 £0.004250
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="above 50,000"
               >
                 £0.001700
@@ -503,86 +503,86 @@ Object {
           </div>
         </div>
         <div
-          class="e1gfmg2g-el-table-row-container"
+          class="es3tf1j-el-table-row-container"
         >
           <div
-            class="es3tf1j-el-table-row"
+            class="e1qy4g2u-el-table-row"
           >
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="Month API Call"
               >
                 41-50
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="First 1,000"
               >
                 £0.020000
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="1,001 - 2,500"
               >
                 £0.016000
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="2,501 - 5,000"
               >
                 £0.012000
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="5,001 - 10,000"
               >
                 £0.010000
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="10,001 - 25,000"
               >
                 £0.008000
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="25,001 - 50,000"
               >
                 £0.005000
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="above 50,000"
               >
                 £0.002000
@@ -591,86 +591,86 @@ Object {
           </div>
         </div>
         <div
-          class="e1gfmg2g-el-table-row-container"
+          class="es3tf1j-el-table-row-container"
         >
           <div
-            class="es3tf1j-el-table-row"
+            class="e1qy4g2u-el-table-row"
           >
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="Month API Call"
               >
                 51+
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="First 1,000"
               >
                 £0.023500
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="1,001 - 2,500"
               >
                 £0.018800
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="2,501 - 5,000"
               >
                 £0.014000
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="5,001 - 10,000"
               >
                 £0.011750
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="10,001 - 25,000"
               >
                 £0.009400
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="25,001 - 50,000"
               >
                 £0.005875
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="above 50,000"
               >
                 £0.002350
@@ -691,135 +691,135 @@ Object {
       Calculation of Total Consumption Cost - Methodology (On last day of monthly billing period):
     </p>
     <div
-      class="ec47sgk-el-mb11 elkdvoz-el-table"
+      class="ec47sgk-el-mb11 ejadz4k-el-table"
       data-has-call-to-action="false"
       data-has-expandable-action="false"
     >
       <div
-        class="e1co3p83-el-table-headers-row"
+        class="e1ijk5il-el-table-headers-row"
       >
         <div
-          class="e1qy4g2u-el-table-header"
+          class="e1co3p83-el-table-header"
         >
           Month API Call
         </div>
         <div
-          class="e1qy4g2u-el-table-header"
+          class="e1co3p83-el-table-header"
         >
           First 1,000
         </div>
         <div
-          class="e1qy4g2u-el-table-header"
+          class="e1co3p83-el-table-header"
         >
           1,001 - 2,500
         </div>
         <div
-          class="e1qy4g2u-el-table-header"
+          class="e1co3p83-el-table-header"
         >
           2,501 - 5,000
         </div>
         <div
-          class="e1qy4g2u-el-table-header"
+          class="e1co3p83-el-table-header"
         >
           5,001 - 10,000
         </div>
         <div
-          class="e1qy4g2u-el-table-header"
+          class="e1co3p83-el-table-header"
         >
           10,001 - 25,000
         </div>
         <div
-          class="e1qy4g2u-el-table-header"
+          class="e1co3p83-el-table-header"
         >
           25,001 - 50,000
         </div>
         <div
-          class="e1qy4g2u-el-table-header"
+          class="e1co3p83-el-table-header"
         >
           above 50,000
         </div>
       </div>
       <div
-        class="e1gfmg2g-el-table-row-container"
+        class="es3tf1j-el-table-row-container"
       >
         <div
-          class="es3tf1j-el-table-row"
+          class="e1qy4g2u-el-table-row"
         >
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="Month API Call"
             >
               1-5
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="First 1,000"
             >
               £0.010000
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="1,001 - 2,500"
             >
               £0.008000
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="2,501 - 5,000"
             >
               £0.006000
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="5,001 - 10,000"
             >
               £0.005000
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="10,001 - 25,000"
             >
               £0.004000
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="25,001 - 50,000"
             >
               £0.002500
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="above 50,000"
             >
               £0.001000
@@ -828,86 +828,86 @@ Object {
         </div>
       </div>
       <div
-        class="e1gfmg2g-el-table-row-container"
+        class="es3tf1j-el-table-row-container"
       >
         <div
-          class="es3tf1j-el-table-row"
+          class="e1qy4g2u-el-table-row"
         >
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="Month API Call"
             >
               6-10
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="First 1,000"
             >
               £0.011000
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="1,001 - 2,500"
             >
               £0.008800
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="2,501 - 5,000"
             >
               £0.006600
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="5,001 - 10,000"
             >
               £0.005500
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="10,001 - 25,000"
             >
               £0.004400
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="25,001 - 50,000"
             >
               £0.00270
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="above 50,000"
             >
               £0.001100
@@ -916,86 +916,86 @@ Object {
         </div>
       </div>
       <div
-        class="e1gfmg2g-el-table-row-container"
+        class="es3tf1j-el-table-row-container"
       >
         <div
-          class="es3tf1j-el-table-row"
+          class="e1qy4g2u-el-table-row"
         >
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="Month API Call"
             >
               11-20
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="First 1,000"
             >
               £0.012500
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="1,001 - 2,500"
             >
               £0.010000
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="2,501 - 5,000"
             >
               £0.007500
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="5,001 - 10,000"
             >
               £0.006250
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="10,001 - 25,000"
             >
               £0.005000
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="25,001 - 50,000"
             >
               £0.003125
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="above 50,000"
             >
               £0.001250
@@ -1004,86 +1004,86 @@ Object {
         </div>
       </div>
       <div
-        class="e1gfmg2g-el-table-row-container"
+        class="es3tf1j-el-table-row-container"
       >
         <div
-          class="es3tf1j-el-table-row"
+          class="e1qy4g2u-el-table-row"
         >
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="Month API Call"
             >
               21-30
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="First 1,000"
             >
               £0.014500
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="1,001 - 2,500"
             >
               £0.011600
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="2,501 - 5,000"
             >
               £0.008700
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="5,001 - 10,000"
             >
               £0.007250
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="10,001 - 25,000"
             >
               £0.005800
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="25,001 - 50,000"
             >
               £0.003625
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="above 50,000"
             >
               £0.001450
@@ -1092,86 +1092,86 @@ Object {
         </div>
       </div>
       <div
-        class="e1gfmg2g-el-table-row-container"
+        class="es3tf1j-el-table-row-container"
       >
         <div
-          class="es3tf1j-el-table-row"
+          class="e1qy4g2u-el-table-row"
         >
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="Month API Call"
             >
               31-40
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="First 1,000"
             >
               £0.017000
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="1,001 - 2,500"
             >
               £0.013600
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="2,501 - 5,000"
             >
               £0.010200
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="5,001 - 10,000"
             >
               £0.008500
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="10,001 - 25,000"
             >
               £0.006800
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="25,001 - 50,000"
             >
               £0.004250
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="above 50,000"
             >
               £0.001700
@@ -1180,86 +1180,86 @@ Object {
         </div>
       </div>
       <div
-        class="e1gfmg2g-el-table-row-container"
+        class="es3tf1j-el-table-row-container"
       >
         <div
-          class="es3tf1j-el-table-row"
+          class="e1qy4g2u-el-table-row"
         >
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="Month API Call"
             >
               41-50
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="First 1,000"
             >
               £0.020000
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="1,001 - 2,500"
             >
               £0.016000
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="2,501 - 5,000"
             >
               £0.012000
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="5,001 - 10,000"
             >
               £0.010000
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="10,001 - 25,000"
             >
               £0.008000
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="25,001 - 50,000"
             >
               £0.005000
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="above 50,000"
             >
               £0.002000
@@ -1268,86 +1268,86 @@ Object {
         </div>
       </div>
       <div
-        class="e1gfmg2g-el-table-row-container"
+        class="es3tf1j-el-table-row-container"
       >
         <div
-          class="es3tf1j-el-table-row"
+          class="e1qy4g2u-el-table-row"
         >
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="Month API Call"
             >
               51+
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="First 1,000"
             >
               £0.023500
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="1,001 - 2,500"
             >
               £0.018800
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="2,501 - 5,000"
             >
               £0.014000
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="5,001 - 10,000"
             >
               £0.011750
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="10,001 - 25,000"
             >
               £0.009400
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="25,001 - 50,000"
             >
               £0.005875
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="above 50,000"
             >
               £0.002350
