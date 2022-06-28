@@ -11,9 +11,6 @@ import {
   Table as ELTable,
   useSnack,
 } from '@reapit/elements'
-import { useHistory } from 'react-router'
-import qs from 'query-string'
-import path from 'path'
 import { cx } from '@linaria/core'
 
 import { ComponentWrapper, ContainerProps } from './container'
@@ -118,42 +115,40 @@ const AdditionalCells = ({
   rowId,
   typeName,
   context,
-  historyPush,
-  appId,
 }: {
   specialsAndSubobjects: { name: string; label: string }[]
   props: Record<string, any>
   rowId: string
   typeName: string
   context: any
-  historyPush: (dest: string) => void
-  appId?: string
-}) => (
-  <>
-    {specialsAndSubobjects.map(({ name, label }) => {
-      const pageId = props[`${name}Page`]
-      if (!pageId) return null
+}) => {
+  const { setPageId } = usePageId()
+  return (
+    <>
+      {specialsAndSubobjects.map(({ name, label }) => {
+        const pageId = props[`${name}Page`]
+        if (!pageId) return null
 
-      return (
-        <React.Fragment key={label}>
-          <Button
-            key={name}
-            onClick={() => {
-              const pathname = path.join('/', appId || '', pageId === '~' ? '' : pageId)
-              const ctx = {
-                ...context,
-                [lowercaseFirstLetter(`${typeName}Id`)]: rowId,
-              }
-              historyPush(`${pathname}?${qs.stringify(ctx)}`)
-            }}
-          >
-            {label}
-          </Button>
-        </React.Fragment>
-      )
-    })}
-  </>
-)
+        return (
+          <React.Fragment key={label}>
+            <Button
+              key={name}
+              onClick={() => {
+                const ctx = {
+                  ...context,
+                  [lowercaseFirstLetter(`${typeName}Id`)]: rowId,
+                }
+                setPageId(pageId, ctx)
+              }}
+            >
+              {label}
+            </Button>
+          </React.Fragment>
+        )
+      })}
+    </>
+  )
+}
 
 const Controls = ({
   typeName,
@@ -168,8 +163,7 @@ const Controls = ({
 }) => {
   const { available: deletionAvailable } = useObjectDelete(typeName)
   const { available: updateAvailable } = useObjectUpdate(typeName)
-  const history = useHistory()
-  const { appId } = usePageId()
+  const { setPageId } = usePageId()
 
   if (!typeName) {
     return null
@@ -183,8 +177,9 @@ const Controls = ({
           intent="secondary"
           onClick={() => {
             if (editPageId) {
-              const dest = path.join('/', appId || '', `${editPageId}?editObjectId=${rowId}`)
-              history.push(dest)
+              setPageId(editPageId, {
+                editObjectId: rowId,
+              })
             }
           }}
         >
@@ -207,8 +202,7 @@ export const Table = forwardRef<HTMLDivElement, TableProps & { disabled?: boolea
       loading: searchLoading,
     } = useObjectSearch(typeName, queryStr)
     const { specials } = useObjectSpecials(typeName)
-    const history = useHistory()
-    const { context, appId } = usePageId()
+    const { context } = usePageId()
     const loading = listLoading || searchLoading
 
     const subobjectNames = subobjects.data.map(({ object: { name } }) => name)
@@ -221,6 +215,7 @@ export const Table = forwardRef<HTMLDivElement, TableProps & { disabled?: boolea
     ]
 
     const data = searchResults || listResults
+    const hasExpandableContent = !!specialsAndSubobjects.length || showControls
 
     let rows: RowProps[] | undefined
     if (data && typeName) {
@@ -235,10 +230,8 @@ export const Table = forwardRef<HTMLDivElement, TableProps & { disabled?: boolea
           <>
             <AdditionalCells
               context={context}
-              historyPush={history.push}
               rowId={row.id}
               typeName={typeName}
-              appId={appId}
               props={props}
               specialsAndSubobjects={specialsAndSubobjects}
             />
@@ -248,20 +241,11 @@ export const Table = forwardRef<HTMLDivElement, TableProps & { disabled?: boolea
           </>
         )
 
-        const showExtraThing = !!specialsAndSubobjects.length
-        const showExpandableContent = showExtraThing && showControls
-        const showCtaContent = (showExtraThing || showControls) && !showExpandableContent
-
         return {
           cells,
-          expandableContent: showExpandableContent
+          expandableContent: hasExpandableContent
             ? {
                 content,
-              }
-            : undefined,
-          ctaContent: showCtaContent
-            ? {
-                cellContent: content,
               }
             : undefined,
         }

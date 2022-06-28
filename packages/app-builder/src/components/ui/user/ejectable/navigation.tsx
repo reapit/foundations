@@ -1,8 +1,6 @@
 import { usePageId } from '@/components/hooks/use-page-id'
 import React, { forwardRef } from 'react'
-import { useHistory } from 'react-router-dom'
 import { useReapitConnect } from '@reapit/connect-session'
-import path from 'path'
 import { Loader, NavResponsive, ElNavContainer } from '@reapit/elements'
 import { useApp } from '@/components/hooks/apps/use-app'
 import { useConnectSession } from '@/components/hooks/connect-session'
@@ -10,9 +8,8 @@ import { useConnectSession } from '@/components/hooks/connect-session'
 export type NavigationProps = {}
 
 export const Navigation = forwardRef<HTMLDivElement, NavigationProps>((_, ref) => {
-  const { appId } = usePageId()
+  const { appId, setPageId } = usePageId()
   const { app, loading } = useApp(appId)
-  const history = useHistory()
   const connectSession = useConnectSession()
 
   if (loading || !app || !connectSession) {
@@ -27,9 +24,7 @@ export const Navigation = forwardRef<HTMLDivElement, NavigationProps>((_, ref) =
       iconId: navConfig.icon,
       callback: () => {
         const dest = navConfig.destination
-        const pathname = path.join('/', appId || '', dest === '~' ? '' : dest)
-
-        history.push(pathname)
+        setPageId(dest)
       },
     })) || []
 
@@ -41,8 +36,7 @@ export const Navigation = forwardRef<HTMLDivElement, NavigationProps>((_, ref) =
           {
             itemIndex: 0,
             callback: () => {
-              const pathname = path.join('/', appId || '')
-              history.push(pathname)
+              setPageId('~')
             },
           },
           ...options,

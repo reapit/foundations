@@ -1,7 +1,4 @@
 import React, { forwardRef, useEffect, useState } from 'react'
-import { useHistory } from 'react-router'
-import qs from 'query-string'
-import path from 'path'
 import { v4 } from 'uuid'
 import { Button, FormLayout, Loader, useSnack } from '@reapit/elements'
 
@@ -22,13 +19,11 @@ export interface FormProps extends ContainerProps {
 
 export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean }>(
   ({ typeName, destination, disabled, formType = 'create', children, ...props }, ref) => {
-    const { context } = usePageId()
+    const { context, setPageId } = usePageId()
     const { data, loading: getLoading } = useObjectGet(typeName, context.editObjectId as string | undefined)
     const { args, mutateFunction, mutationLoading } = useObjectMutate(formType, typeName)
     const [formState, setFormState] = useState({})
     const { success, error } = useSnack()
-    const history = useHistory()
-    const { appId } = usePageId()
 
     useEffect(() => {
       if (data && args) {
@@ -97,11 +92,7 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
               .then(() => {
                 success(`Successfully ${formType}d ${typeName}`)
                 if (destination) {
-                  const pathname = path.join('/', appId || '', destination === '~' ? '' : destination)
-                  history.push({
-                    pathname,
-                    search: qs.stringify(context),
-                  })
+                  setPageId(destination, context)
                 }
               })
               .catch((e) => {
