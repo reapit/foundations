@@ -6,7 +6,6 @@ const config = isProd
   ? webpackConfigProd({ appName })
   : {
       ...webpackConfigDev({ appName }),
-      target: 'web',
       devServer: {
         ...webpackConfigDev({ appName }).devServer,
         allowedHosts: 'all',
