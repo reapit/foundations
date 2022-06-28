@@ -42,6 +42,7 @@ export const catchChunkError = (
 const HomePage = React.lazy(() => catchChunkError(() => import('../components/pages/home')))
 const AppSelect = React.lazy(() => catchChunkError(() => import('../components/pages/app-select')))
 const AppView = React.lazy(() => catchChunkError(() => import('../components/pages/app-view')))
+const LoginPage = React.lazy(() => catchChunkError(() => import('../components/pages/login')))
 
 const AppEditor = () => {
   const reapitConnectBrowserSession = getReapitConnectBrowserSession(window.reapit.config)
@@ -113,9 +114,11 @@ const EditorOrViewer = () => {
 const Router = () => (
   <BrowserRouter history={history}>
     <React.Suspense fallback={null}>
-      <Route path="/login" component={() => <Redirect to="/" />} />
-      <Route path="/logout" component={() => <Redirect to="/" />} />
-      <EditorOrViewer />
+      <Switch>
+        <Route path="/login" component={LoginPage} />
+        <Route path="/logout" component={() => <Redirect to="/" />} />
+        <EditorOrViewer />
+      </Switch>
     </React.Suspense>
   </BrowserRouter>
 )
