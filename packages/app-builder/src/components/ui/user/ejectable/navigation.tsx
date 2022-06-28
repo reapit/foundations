@@ -16,7 +16,6 @@ export const Navigation = forwardRef<HTMLDivElement, NavigationProps>((_, ref) =
     return <Loader />
   }
 
-  const { connectLogoutRedirect } = useReapitConnect(connectSession)
   const options =
     app.navConfig.map((navConfig, idx) => ({
       itemIndex: idx + 1,
@@ -36,7 +35,7 @@ export const Navigation = forwardRef<HTMLDivElement, NavigationProps>((_, ref) =
           {
             itemIndex: 0,
             callback: () => {
-              setPageId('~')
+              setPageId('')
             },
           },
           ...options,
@@ -46,7 +45,7 @@ export const Navigation = forwardRef<HTMLDivElement, NavigationProps>((_, ref) =
             iconId: 'logoutMenu',
             isSecondary: true,
             callback: () => {
-              connectLogoutRedirect()
+              connectSession.connectLogoutRedirect()
             },
           },
         ]}
