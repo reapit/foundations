@@ -57,7 +57,7 @@ Array [
     "parent": "ROOT",
     "props": Object {
       "fontSize": 12,
-      "text": "I'm here by default!",
+      "text": "Type text here",
       "width": 12,
     },
     "type": Object {
