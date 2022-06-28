@@ -4,13 +4,24 @@ import { useNode } from '@craftjs/core'
 import { ToolbarItem, ToolbarItemType } from '../toolbar'
 import { elFlexAuto } from '@reapit/elements'
 import { ContainerSettings } from './container'
+import { cx } from '@linaria/core'
+import { ComponentWrapper, TypographyType, typographyTypeToClassName } from './ejectable'
 
 const defaultProps = {
   fontSize: 12,
   width: 12,
+  typographyType: '' as TypographyType,
 }
 
-const Text = ({ text, ...props }: { fontSize?: number; width?: number; text: string }) => {
+const Text = ({
+  text,
+  ...props
+}: {
+  fontSize?: number
+  width?: number
+  text: string
+  typographyType?: TypographyType
+}) => {
   const {
     connectors: { connect, drag },
     selected,
@@ -19,7 +30,7 @@ const Text = ({ text, ...props }: { fontSize?: number; width?: number; text: str
     selected: state.events.selected,
     dragged: state.events.dragged,
   }))
-  const { fontSize, width } = {
+  const { width, typographyType } = {
     ...defaultProps,
     ...props,
   }
@@ -34,15 +45,11 @@ const Text = ({ text, ...props }: { fontSize?: number; width?: number; text: str
   }, [selected])
 
   return (
-    <div
-      {...props}
-      className={elFlexAuto}
+    <ComponentWrapper
+      width={width}
+      className={cx(elFlexAuto, typographyTypeToClassName(typographyType))}
       ref={(ref) => ref && connect(drag(ref))}
       onClick={() => selected && setEditable(true)}
-      style={{
-        fontSize,
-        flex: `${width}`,
-      }}
     >
       <ContentEditable
         html={text}
@@ -50,13 +57,18 @@ const Text = ({ text, ...props }: { fontSize?: number; width?: number; text: str
         onChange={(e) => setProp((props) => (props.text = e.target.value.replace(/<\/?[^>]+(>|$)/g, '')), 500)}
         tagName="p"
       />
-    </div>
+    </ComponentWrapper>
   )
 }
 
 const TextSettings = () => (
   <>
-    <ToolbarItem propKey="fontSize" type={ToolbarItemType.Number} title="Font Size" />
+    <ToolbarItem propKey="typographyType" type={ToolbarItemType.Select} title="Font Size">
+      <option value="title">Title</option>
+      <option value="subtitle">Subtitle</option>
+      <option value="">Body Text</option>
+      <option value="small">Small Text</option>
+    </ToolbarItem>
     <ContainerSettings />
   </>
 )

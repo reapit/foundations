@@ -1,4 +1,4 @@
-import { ObjectType, Field, ID, registerEnumType } from 'type-graphql'
+import { ObjectType, Field, ID, registerEnumType, GraphQLISODateTime } from 'type-graphql'
 import { gql } from 'apollo-server-core'
 import { Contact, ContactFragment } from './contact'
 import { Negotiator, NegotiatorFragment } from './negotiator'
@@ -77,11 +77,11 @@ export class KeyMovement {
   @Field(() => ID)
   id: string
 
-  @Field()
-  created: string
+  @Field(() => GraphQLISODateTime)
+  created: Date
 
-  @Field()
-  modified: string
+  @Field(() => GraphQLISODateTime)
+  modified: Date
 
   @Field({ nullable: true })
   checkInAt?: string

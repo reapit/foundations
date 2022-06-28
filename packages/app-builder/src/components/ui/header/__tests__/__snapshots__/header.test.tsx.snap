@@ -192,7 +192,7 @@ exports[`Header should match a snapshot 1`] = `
             id="768"
             name="responsive preview"
             type="radio"
-            value="768"
+            value="767"
           />
           <label
             class="el-toggle-full-width el-toggle-radio-label"

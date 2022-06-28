@@ -223,13 +223,13 @@ const Header = ({ setBreakpoint, breakpoint }) => {
               },
               {
                 id: MOBILE_BREAKPOINT.toString(),
-                value: MOBILE_BREAKPOINT.toString(),
+                value: (MOBILE_BREAKPOINT - 1).toString(),
                 text: (
                   <ToggleRadioContainer>
                     <MobileIcon /> Mobile
                   </ToggleRadioContainer>
                 ) as unknown as string,
-                isChecked: breakpoint === MOBILE_BREAKPOINT,
+                isChecked: breakpoint === MOBILE_BREAKPOINT - 1,
               },
             ]}
           />

@@ -10,10 +10,10 @@ export class Negotiator {
   name: string
 
   @Field(() => GraphQLISODateTime)
-  created: string
+  created: Date
 
   @Field(() => GraphQLISODateTime)
-  modified: string
+  modified: Date
 
   @Field({ nullable: true })
   jobTitle: String
