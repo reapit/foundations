@@ -42,6 +42,69 @@ class ApplicantSource {
   type: string
 }
 
+@ObjectType()
+class ApplicantRenting {
+  @Field()
+  rentingTo: number
+
+  @Field()
+  rentingFrom: number
+
+  @Field()
+  rentingFrequency: string
+}
+
+@ObjectType()
+class Department {
+  @Field()
+  id: string
+
+  @Field()
+  description: string
+
+  @Field()
+  name: string
+
+  @Field()
+  typeOptions: string
+
+  @Field()
+  styleOptions: string
+
+  @Field()
+  situationOptions: string
+
+  @Field()
+  parkingOptions: string
+
+  @Field()
+  ageOptions: string
+
+  @Field()
+  localityOptions: string
+
+  @Field()
+  specialFeaturesOptions: string
+
+  @Field()
+  commericalUseClassOptions: string
+
+  @Field()
+  commercialFloorLevelOptions: string
+
+  @Field()
+  hasBedrooms: boolean
+
+  @Field()
+  hasBathrooms: boolean
+
+  @Field()
+  hasReceptionRooms: boolean
+
+  @Field()
+  hasParkingSpaces: boolean
+}
+
 @ObjectType({ description: '@labelKeys(title, forename, surname) @supportsCustomFields()' })
 export class Applicant {
   @Field(() => ID)
@@ -71,8 +134,8 @@ export class Applicant {
   @Field({ nullable: true })
   nextCall: string
 
-  @Field()
-  departmentId: string
+  @Field(() => Department)
+  department: Department
 
   @Field()
   solicitorId: string
@@ -114,6 +177,12 @@ export class Applicant {
   bathroomsMax: number
 
   @Field()
+  parkingSpacesMin: number
+
+  @Field()
+  parkingSpacesMax: number
+
+  @Field()
   locationType: string
 
   @Field(() => [String])
@@ -121,6 +190,9 @@ export class Applicant {
 
   @Field(() => ApplicantBuying)
   buying: ApplicantBuying
+
+  @Field(() => ApplicantRenting)
+  renting: ApplicantRenting
 
   @Field(() => ApplicantExternalArea)
   externalArea: ApplicantExternalArea
@@ -133,6 +205,9 @@ export class Applicant {
 
   @Field(() => [Office])
   offices?: Office[]
+
+  @Field()
+  description: string
 
   @Field(() => [Negotiator])
   negotiators?: Negotiator[]
@@ -180,7 +255,22 @@ export class ApplicantSourceInput {
 }
 
 @InputType()
+export class ApplicantRentingInput {
+  @Field()
+  rentFrequency: string
+
+  @Field()
+  rentFrom: number
+
+  @Field()
+  rentTo: number
+}
+
+@InputType()
 export class ApplicantInput {
+  @Field()
+  description: string
+
   @Field()
   marketingMode: string
 
@@ -244,6 +334,15 @@ export class ApplicantInput {
   @Field(() => ApplicantBuyingInput)
   buying: ApplicantBuyingInput
 
+  @Field(() => ApplicantRentingInput)
+  renting: ApplicantRentingInput
+
+  @Field()
+  parkingSpacesMin: number
+
+  @Field()
+  parkingSpacesMax: number
+
   @Field(() => ApplicantExternalAreaInput)
   externalArea: ApplicantExternalAreaInput
 
@@ -259,12 +358,34 @@ export class ApplicantInput {
   @Field(() => [String], { description: '@idOf(Office)' })
   officeIds: string[]
 
+  @Field(() => String, { description: '@idOf(Department)' })
+  departmentId: string
+
   metadata?: any
 }
 
 export const ApplicantFragment = gql`
   ${NegotiatorFragment}
   ${OfficeFragment}
+  fragment DepartmentFragment on DepartmentModel {
+    id
+    description
+    name
+    typeOptions
+    styleOptions
+    situationOptions
+    parkingOptions
+    ageOptions
+    localityOptions
+    specialFeaturesOptions
+    commericalUseClassOptions
+    commercialFloorLevelOptions
+    hasBedrooms
+    hasBathrooms
+    hasReceptionRooms
+    hasParkingSpaces
+  }
+
   fragment ApplicantFragment on ApplicantModel {
     id
     created
@@ -287,11 +408,19 @@ export const ApplicantFragment = gql`
     receptionsMax
     bathroomsMin
     bathroomsMax
+    parkingSpacesMin
+    parkingSpacesMax
+    description
     locationType
     locationOptions
     buying {
       priceFrom
       priceTo
+    }
+    renting {
+      rentFrom
+      rentTo
+      rentFrequency
     }
     externalArea {
       type

@@ -48,6 +48,10 @@ const createApplicantMutation = gql`
     $receptionsMax: Number!
     $bathroomsMin: Number!
     $bathroomsMax: Number!
+    $parkingSpacesMin: Number!
+    $parkingSpacesMax: Number!
+    $renting: ApplicantRentingInput
+    $description: String!
     $locationType: String!
     $locationOptions: [String!]!
     $buying: ApplicantBuyingInput
@@ -78,6 +82,10 @@ const createApplicantMutation = gql`
       receptionsMax: $receptionsMax
       bathroomsMin: $bathroomsMin
       bathroomsMax: $bathroomsMax
+      parkingSpacesMin: $parkingSpacesMin
+      parkingSpacesMax: $parkingSpacesMax
+      description: $description
+      renting: $renting
       locationType: $locationType
       locationOptions: $locationOptions
 
