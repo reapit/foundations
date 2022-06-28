@@ -164,6 +164,7 @@ const Input = ({
   fwdRef,
   disabled,
   defaultValue,
+  label = friendlyIdName(name),
   onChange,
   value,
 }: {
@@ -171,12 +172,42 @@ const Input = ({
   disabled?: boolean
   input: ParsedArg
   defaultValue?: any
+  label?: string
   value?: any
   fwdRef?: React.ForwardedRef<HTMLDivElement>
   onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void
 }) => {
-  const { typeName: inputTypeName, isRequired, idOfType, enumValues, customInputType } = input
-  const label = friendlyIdName(name)
+  const { typeName: inputTypeName, isRequired, idOfType, enumValues, customInputType, fields } = input
+
+  if (fields) {
+    return (
+      <>
+        {fields.map((field) => (
+          <Input
+            key={field.name}
+            name={field.name}
+            label={[label, friendlyIdName(field.name)].join(' ')}
+            input={field}
+            disabled={disabled}
+            defaultValue={defaultValue?.[field.name]}
+            onChange={(e) => {
+              const v = value || {}
+              v[field.name] = e.target.value
+              onChange({
+                ...e,
+                target: {
+                  ...e.target,
+                  value: v,
+                  name: name,
+                } as any,
+              })
+            }}
+            value={value?.[field.name]}
+          />
+        ))}
+      </>
+    )
+  }
 
   return (
     <InputWrap ref={fwdRef}>
@@ -278,25 +309,6 @@ const ListInput = React.forwardRef(
                     }}
                   />
                 )}
-                {formInput.fields?.map((input) => (
-                  <div key={input.name}>
-                    <Input
-                      name={input.name}
-                      input={input}
-                      value={value[input.name]}
-                      disabled={disabled}
-                      onChange={(e) => {
-                        const newListValue = listValue.slice()
-                        if (!newListValue[idx]) {
-                          newListValue[idx] = {}
-                        }
-                        newListValue[idx][input.name] = e.target.value
-                        setListValue(newListValue)
-                        onChange(newListValue)
-                      }}
-                    />
-                  </div>
-                ))}
                 {formInput.typeName && !formInput.idOfType && (
                   <Input
                     name={formInput.name}
