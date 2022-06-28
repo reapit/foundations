@@ -210,8 +210,8 @@ const ListInput = React.forwardRef(
                   <SelectIDofType
                     disabled={disabled}
                     name={label}
-                    typeName={formInput.idOfType}
-                    defaultValue={defaultValue[idx]}
+                    typeName={formInput?.idOfType}
+                    defaultValue={defaultValue && defaultValue[idx]}
                     onChange={(e) => {
                       const newListValue = [...listValue]
                       newListValue[idx] = e.target.value
@@ -239,6 +239,19 @@ const ListInput = React.forwardRef(
                     />
                   </div>
                 ))}
+                {formInput.typeName && !formInput.idOfType && (
+                  <Input
+                    name={formInput.name}
+                    input={formInput}
+                    value={listValue[idx]}
+                    disabled={disabled}
+                    onChange={(e) => {
+                      listValue[idx] = e.target.value
+                      setListValue(listValue)
+                      onChange(listValue)
+                    }}
+                  />
+                )}
               </InputWrap>
               <FloatingButton
                 type="button"
@@ -258,7 +271,11 @@ const ListInput = React.forwardRef(
           intent="secondary"
           onClick={() => {
             const newListValue = listValue.slice()
-            newListValue.push({})
+            if (!formInput.fields) {
+              newListValue.push(undefined)
+            } else {
+              newListValue.push({})
+            }
             setListValue(newListValue)
             onChange(newListValue)
           }}
