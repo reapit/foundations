@@ -639,7 +639,7 @@ export interface BatchUpdateInstallationsModel {
 /**
  * Model to expose category info
  */
-export interface  CategoryModel {
+export interface CategoryModel {
   /**
    * Gets the links associated to this model
    */
