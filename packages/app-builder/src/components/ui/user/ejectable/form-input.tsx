@@ -198,6 +198,9 @@ const ListInput = React.forwardRef(
     ref: React.ForwardedRef<HTMLDivElement>,
   ) => {
     const [listValue, setListValue] = React.useState<any[]>(defaultValue || [])
+    if (!formInput) {
+      return null
+    }
 
     return (
       <InputWrap ref={ref}>
@@ -206,11 +209,11 @@ const ListInput = React.forwardRef(
           {listValue.map((value, idx) => (
             <CardWrap key={idx} className={elMy2}>
               <InputWrap>
-                {formInput?.idOfType && (
+                {formInput.idOfType && (
                   <SelectIDofType
                     disabled={disabled}
                     name={label}
-                    typeName={formInput?.idOfType}
+                    typeName={formInput.idOfType}
                     defaultValue={defaultValue && defaultValue[idx]}
                     onChange={(e) => {
                       const newListValue = [...listValue]
@@ -220,7 +223,7 @@ const ListInput = React.forwardRef(
                     }}
                   />
                 )}
-                {formInput?.fields?.map((input) => (
+                {formInput.fields?.map((input) => (
                   <div key={input.name}>
                     <Input
                       name={input.name}

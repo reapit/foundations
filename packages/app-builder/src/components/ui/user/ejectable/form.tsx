@@ -103,7 +103,7 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
           <FormContextProvider value={{ onChange: handleInputChange, defaultValues: data || {} }}>
             <FormLayout>
               {getLoading ? <Loader label="Loading" /> : children}
-              <Button disabled={disabled} loading={mutationLoading}>
+              <Button intent="primary" disabled={disabled} loading={mutationLoading}>
                 {formType === 'create' ? 'Create' : 'Save'}
               </Button>
             </FormLayout>
