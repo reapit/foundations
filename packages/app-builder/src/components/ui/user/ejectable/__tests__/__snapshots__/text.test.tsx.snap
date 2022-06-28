@@ -7,7 +7,9 @@ exports[`Text should match a snapshot 1`] = `
     style="--c1uzxtdh-0: 12;"
     width="12"
   >
-    <p />
+    <p
+      class="el-body-text"
+    />
   </div>
 </DocumentFragment>
 `;
