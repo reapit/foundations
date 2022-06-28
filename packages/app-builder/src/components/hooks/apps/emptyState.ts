@@ -16,7 +16,7 @@ export const emptyState: Record<string, SerializedNode> = {
   tPwDk5SDAg: {
     type: { resolvedName: 'Text' },
     isCanvas: false,
-    props: { fontSize: 12, width: 12, text: "I'm here by default!" },
+    props: { fontSize: 12, width: 12, text: 'Type text here' },
     displayName: 'Text',
     custom: null,
     parent: 'ROOT',

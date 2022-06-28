@@ -257,7 +257,7 @@ export const Table = forwardRef<HTMLDivElement, TableProps & { disabled?: boolea
     const displaySearch = searchAvailable && showSearch
     const displayTable = typeName && firstRow
     const displayNothingFound = !loading && !firstRow
-    const displayNoType = !loading && !typeName
+    const displayNoType = !typeName
     const displayNoResultsFound = searchAvailable && queryStr
 
     return (
@@ -266,7 +266,7 @@ export const Table = forwardRef<HTMLDivElement, TableProps & { disabled?: boolea
           {displaySearch && (
             <Input type="text" placeholder="Search" value={queryStr} onChange={(e) => setQueryStr(e.target.value)} />
           )}
-          {loading && <Loader label="Loading" />}
+          {loading && !displayNoType && <Loader label="Loading" />}
           {displayTable && (
             <ELTable
               numberColumns={firstRow.cells.length + (showControls ? 1 : 0)}
@@ -276,7 +276,7 @@ export const Table = forwardRef<HTMLDivElement, TableProps & { disabled?: boolea
           )}
           {displayNothingFound && displayNoResultsFound && <span>No results found</span>}
           {displayNothingFound && !displayNoResultsFound && <span>Nothing found</span>}
-          {displayNoType && <div>No type selected</div>}
+          {displayNoType && <div>Select a type from the sidebar.</div>}
         </div>
       </ComponentWrapper>
     )
