@@ -5409,6 +5409,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@icons/material@npm:^0.2.4":
+  version: 0.2.4
+  resolution: "@icons/material@npm:0.2.4"
+  peerDependencies:
+    react: "*"
+  checksum: 24baa360cb83f7e1a9e6784ac11185d57eb895b0efd3070ec915693378330f35ff9feb248f650b9649fa3e1045601286585dc05795a4c734d4849b33900351ee
+  languageName: node
+  linkType: hard
+
 "@isaacs/string-locale-compare@npm:^1.1.0":
   version: 1.1.0
   resolution: "@isaacs/string-locale-compare@npm:1.1.0"
@@ -14489,6 +14498,58 @@ __metadata:
     typescript: ^4.7.4
     webpack: ^5.73.0
     webpack-dev-server: ^4.9.3
+    yup: ^0.32.11
+  languageName: unknown
+  linkType: soft
+
+"app-marketplace-admin@workspace:packages/app-marketplace-admin":
+  version: 0.0.0-use.local
+  resolution: "app-marketplace-admin@workspace:packages/app-marketplace-admin"
+  dependencies:
+    "@hookform/resolvers": ^2.8.10
+    "@linaria/core": ^3.0.0-beta.15
+    "@linaria/react": ^3.0.0-beta.15
+    "@linaria/shaker": ^3.0.0-beta.15
+    "@reapit/config-manager": "workspace:packages/config-manager"
+    "@reapit/connect-session": "workspace:packages/connect-session"
+    "@reapit/elements": "workspace:packages/elements"
+    "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
+    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
+    "@reapit/ts-types": "workspace:packages/ts-types"
+    "@reapit/utils-common": "workspace:packages/utils-common"
+    "@reapit/utils-react": "workspace:packages/utils-react"
+    "@sentry/browser": ^6.19.7
+    "@testing-library/react": ^13.3.0
+    "@typescript-eslint/eslint-plugin": ^5.27.0
+    "@typescript-eslint/parser": ^5.27.0
+    babel-jest: ^28.1.0
+    babel-loader: ^8.2.5
+    cross-env: ^6.0.3
+    css-loader: ^6.7.1
+    dayjs: ^1.11.2
+    eslint: 8.16.0
+    eslint-config-prettier: ^8.5.0
+    eslint-plugin-prettier: ^4.0.0
+    jest: ^28.1.0
+    jest-coverage-badges: ^1.1.2
+    node-polyfill-webpack-plugin: ^1.1.4
+    prettier: ^2.7.1
+    react: ^18.1.0
+    react-color: ^2.19.3
+    react-dom: ^18.1.0
+    react-ga: ^2.7.0
+    react-hook-form: ^7.31.3
+    react-router: ^5.3.3
+    react-router-dom: ^5.3.3
+    rimraf: ^3.0.2
+    serverless: ^2.72.3
+    serverless-s3-deploy: ^0.10.1
+    serverless-s3-remover: ^0.6.0
+    serverless-single-page-app-plugin: ^1.0.4
+    snyk: ^1.944.0
+    typescript: ^4.7.2
+    webpack: ^5.72.1
+    webpack-dev-server: ^4.9.0
     yup: ^0.32.11
   languageName: unknown
   linkType: soft
@@ -28957,7 +29018,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"lodash-es@npm:^4.17.21":
+"lodash-es@npm:^4.17.15, lodash-es@npm:^4.17.21":
   version: 4.17.21
   resolution: "lodash-es@npm:4.17.21"
   checksum: 05cbffad6e2adbb331a4e16fbd826e7faee403a1a04873b82b42c0f22090f280839f85b95393f487c1303c8a3d2a010048bf06151a6cbe03eee4d388fb0a12d2
@@ -29146,7 +29207,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"lodash@npm:4.17.21, lodash@npm:4.17.x, lodash@npm:^4.17.10, lodash@npm:^4.17.11, lodash@npm:^4.17.12, lodash@npm:^4.17.13, lodash@npm:^4.17.14, lodash@npm:^4.17.15, lodash@npm:^4.17.19, lodash@npm:^4.17.20, lodash@npm:^4.17.21, lodash@npm:^4.17.4, lodash@npm:^4.3.0, lodash@npm:~4.17.10":
+"lodash@npm:4.17.21, lodash@npm:4.17.x, lodash@npm:^4.0.1, lodash@npm:^4.17.10, lodash@npm:^4.17.11, lodash@npm:^4.17.12, lodash@npm:^4.17.13, lodash@npm:^4.17.14, lodash@npm:^4.17.15, lodash@npm:^4.17.19, lodash@npm:^4.17.20, lodash@npm:^4.17.21, lodash@npm:^4.17.4, lodash@npm:^4.3.0, lodash@npm:~4.17.10":
   version: 4.17.21
   resolution: "lodash@npm:4.17.21"
   checksum: eb835a2e51d381e561e508ce932ea50a8e5a68f4ebdd771ea240d3048244a8d13658acbd502cd4829768c56f2e16bdd4340b9ea141297d472517b83868e677f7
@@ -29715,6 +29776,13 @@ fsevents@^1.2.7:
   dependencies:
     css-mediaquery: ^0.1.2
   checksum: 154e1650f79d78858424d7086093756ad2fdb1cd9ad19230b99a47c363a1da9c6692d6ca56ea49447fb516f580c59fd60d8b9a06247e088d8e1a658e6e5604d7
+  languageName: node
+  linkType: hard
+
+"material-colors@npm:^1.2.1":
+  version: 1.2.6
+  resolution: "material-colors@npm:1.2.6"
+  checksum: 72d005ccccb82bab68eef3cd757e802668634fc86976dedb9fc564ce994f2d3258273766b7efecb7404a0031969e2d72201a1b74169763f0a53c0dd8d649209f
   languageName: node
   linkType: hard
 
@@ -33378,6 +33446,15 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"prettier@npm:^2.7.1":
+  version: 2.7.1
+  resolution: "prettier@npm:2.7.1"
+  bin:
+    prettier: bin-prettier.js
+  checksum: 55a4409182260866ab31284d929b3cb961e5fdb91fe0d2e099dac92eaecec890f36e524b4c19e6ceae839c99c6d7195817579cdffc8e2c80da0cb794463a748b
+  languageName: node
+  linkType: hard
+
 "pretty-bytes@npm:^5.3.0, pretty-bytes@npm:^5.4.1":
   version: 5.6.0
   resolution: "pretty-bytes@npm:5.6.0"
@@ -33724,7 +33801,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.8.1":
+"prop-types@npm:^15.5.10, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -34446,6 +34523,23 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"react-color@npm:^2.19.3":
+  version: 2.19.3
+  resolution: "react-color@npm:2.19.3"
+  dependencies:
+    "@icons/material": ^0.2.4
+    lodash: ^4.17.15
+    lodash-es: ^4.17.15
+    material-colors: ^1.2.1
+    prop-types: ^15.5.10
+    reactcss: ^1.2.0
+    tinycolor2: ^1.4.1
+  peerDependencies:
+    react: "*"
+  checksum: 40b49e1aa2ab27a099cc37a3fa2d5bb906b8def4dbe2d922c0e42365e386d82b03f9b06a2b29a44a51f1e114cef72e61c0ba0740581a128d951936ea4617429b
+  languageName: node
+  linkType: hard
+
 "react-colorful@npm:^5.1.2":
   version: 5.2.2
   resolution: "react-colorful@npm:5.2.2"
@@ -35126,6 +35220,15 @@ fsevents@^1.2.7:
   dependencies:
     loose-envify: ^1.1.0
   checksum: 88e38092da8839b830cda6feef2e8505dec8ace60579e46aa5490fc3dc9bba0bd50336507dc166f43e3afc1c42939c09fe33b25fae889d6f402721dcd78fca1b
+  languageName: node
+  linkType: hard
+
+"reactcss@npm:^1.2.0":
+  version: 1.2.3
+  resolution: "reactcss@npm:1.2.3"
+  dependencies:
+    lodash: ^4.0.1
+  checksum: c53e386a0881f1477e1cff661f6a6ad4c662230941f3827862193ac30f9b75cdf7bc7b4c7e5ca543d3e4e80fee1a3e9fa0056c206b1c0423726c41773ab3fe45
   languageName: node
   linkType: hard
 
