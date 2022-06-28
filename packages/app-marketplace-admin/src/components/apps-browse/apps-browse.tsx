@@ -72,7 +72,7 @@ export const AppsBrowse: FC = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [configType, setConfigType] = useState<AppsBrowseConfigType | undefined>()
 
-  const [apps, appsLoading] = useReapitGet<{
+  const [appMarketPlaceCmsConfig, appMarketPlaceCmsLoading] = useReapitGet<{
     items: AppsBrowseConfigItemInterface[]
   }>({
     reapitConnectBrowserSession,
@@ -96,7 +96,7 @@ export const AppsBrowse: FC = () => {
     return ob
   }, {} as { [key in AppsBrowseConfigType] })
 
-  const sectionedItems = apps?.items.reduce<{ [key in AppsBrowseConfigType]: AppsBrowseConfigItemInterface[] }>(
+  const sectionedItems = appMarketPlaceCmsConfig?.items.reduce<{ [key in AppsBrowseConfigType]: AppsBrowseConfigItemInterface[] }>(
     (filtered, item) => {
       filtered[item.configType].push(item)
 
@@ -113,7 +113,7 @@ export const AppsBrowse: FC = () => {
   return (
     <PageContainer>
       <Title>AppMarket Admin</Title>
-      {appsLoading && <Loader />}
+      {appMarketPlaceCmsLoading && <Loader />}
       {sectionedItems &&
         (Object.keys(AppsBrowseConfigType) as AppsBrowseConfigType[]).map((type: AppsBrowseConfigType) => (
           <AppBrowseTable
@@ -168,16 +168,16 @@ export const AppsBrowse: FC = () => {
             </InputWrapFull>
             <InputWrapFull>
               <InputGroup>
-                <Label>Strapline</Label>
-                <Input {...register('strapline')} />
-                {errors.strapline?.message && <InputError message={errors.strapline.message} />}
+                <Label>Title</Label>
+                <Input {...register('title')} />
+                {errors.title?.message && <InputError message={errors.title.message} />}
               </InputGroup>
             </InputWrapFull>
             <InputWrapFull>
               <InputGroup>
-                <Label>Title</Label>
-                <Input {...register('title')} />
-                {errors.title?.message && <InputError message={errors.title.message} />}
+                <Label>Strapline</Label>
+                <Input {...register('strapline')} />
+                {errors.strapline?.message && <InputError message={errors.strapline.message} />}
               </InputGroup>
             </InputWrapFull>
             <InputWrapFull>
