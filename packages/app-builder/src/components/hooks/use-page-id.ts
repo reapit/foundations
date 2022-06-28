@@ -18,13 +18,16 @@ export const usePageId = () => {
   const location = useLocation()
   const context = qs.parse(location.search)
   const history = useHistory()
-  const generateLinkAttrs = (pageId: string, context: any) => ({
+
+  const generateLinkAttrs = (pageId: string, context?: any) => ({
     pathname: `/${appId}${pageId === '~' ? '' : `/${pageId}`}`,
     search: qs.stringify(context),
   })
+
   const setPageId = (pageId: string, context?: Record<string, any>) => {
     const { pathname, search } = generateLinkAttrs(pageId, context)
-    history.push(`${pathname}${search ? `?${search}` : ''}`)
+    const dest = `${pathname}${search ? `?${search}` : ''}`
+    history.push(dest)
   }
 
   return { pageId: pageId || '~', setPageId, appId, context, generateLinkAttrs }
