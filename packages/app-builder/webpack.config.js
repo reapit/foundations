@@ -9,7 +9,10 @@ const config = isProd
       devServer: {
         ...webpackConfigDev({ appName }).devServer,
         allowedHosts: 'all',
-        https: true,
+        server: {
+          ...(webpackConfigDev({ appName }).devServer.server || {}),
+          type: 'https',
+        },
       },
     }
 const sassRules = isProd ? sassProd : sassDev
