@@ -32,39 +32,23 @@ const createAppointmentMutation = gql`
   mutation CreateAppointment(
     $start: String!
     $end: String!
-    followUpOn: String!
-    $recurring: Boolean
-    $cancelled: Boolean
-    $followUp: AppointmentFollowUpInput
+    $description: String!
     $attendee: AppointmentAttendeeInput
     $organiserId: String!
-    $accompanied: Boolean!
-    $negotiatorConfirmed: Boolean!
-    $attendeeConfirmed: Boolean!
-    $propertyConfirmed: Boolean!
     $propertyId: String
     $officeIds: [String!]!
     $negotiatorIds: [String!]!
-    virtual: Boolean!
     $metadata: JSON
   ) {
     CreateAppointment(
       start: $start
       end: $end
-      followUpOn: $followUpOn
-      recurring: $recurring
-      cancelled: $cancelled
-      followUp: $followUp
+      description: $description
       attendee: $attendee
       organiserId: $organiserId
-      accompanied: $accompanied
-      negotiatorConfirmed: $negotiatorConfirmed
-      attendeeConfirmed: $attendeeConfirmed
-      propertyConfirmed: $propertyConfirmed
       propertyId: $propertyId
       negotiatorIds: $negotiatorIds
       officeIds: $officeIds
-      virtual: $virtual
       metadata: $metadata
     ) {
       ...AppointmentFragment
@@ -78,40 +62,24 @@ const updateAppointmentMutation = gql`
     $id: String!
     $start: String!
     $end: String!
-    $followUpOn: String!
-    $recurring: Boolean
-    $cancelled: Boolean
-    $followUp: AppointmentFollowUpInput
+    $description: String!
     $attendee: AppointmentAttendeeInput
     $organiserId: String!
-    $accompanied: Boolean!
-    $negotiatorConfirmed: Boolean!
-    $attendeeConfirmed: Boolean!
-    $propertyConfirmed: Boolean!
     $propertyId: String
     $officeIds: [String!]!
     $negotiatorIds: [String!]!
-    $virtual: Boolean!
     $metadata: JSON
   ) {
     UpdateAppointment(
       id: $id
       start: $start
       end: $end
-      followUpOn: $followUpOn
-      recurring: $recurring
-      cancelled: $cancelled
-      followUp: $followUp
+      description: $description
       attendee: $attendee
       organiserId: $organiserId
-      accompanied: $accompanied
-      negotiatorConfirmed: $negotiatorConfirmed
-      attendeeConfirmed: $attendeeConfirmed
-      propertyConfirmed: $propertyConfirmed
       propertyId: $propertyId
       negotiatorIds: $negotiatorIds
       officeIds: $officeIds
-      virtual: $virtual
       metadata: $metadata
     ) {
       ...AppointmentFragment
