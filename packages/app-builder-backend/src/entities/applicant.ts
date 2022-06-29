@@ -33,14 +33,6 @@ class ApplicantInternalArea {
   amount: number
 }
 
-@ObjectType()
-class ApplicantSource {
-  @Field()
-  id: string
-
-  @Field()
-  type: string
-}
 
 @ObjectType()
 class ApplicantRenting {
@@ -128,12 +120,6 @@ export class Applicant {
   @Field()
   notes: string
 
-  @Field({ nullable: true })
-  lastCall: string
-
-  @Field({ nullable: true })
-  nextCall: string
-
   @Field(() => Department)
   department: Department
 
@@ -151,12 +137,6 @@ export class Applicant {
 
   @Field(() => [String])
   parking: string[]
-
-  @Field(() => [String])
-  age: string[]
-
-  @Field(() => [String])
-  locality: string[]
 
   @Field()
   bedroomsMin: number
@@ -182,12 +162,6 @@ export class Applicant {
   @Field()
   parkingSpacesMax: number
 
-  @Field()
-  locationType: string
-
-  @Field(() => [String])
-  locationOptions: string[]
-
   @Field(() => ApplicantBuying)
   buying: ApplicantBuying
 
@@ -199,9 +173,6 @@ export class Applicant {
 
   @Field(() => ApplicantInternalArea)
   internalArea: ApplicantInternalArea
-
-  @Field(() => ApplicantSource)
-  source: ApplicantSource
 
   @Field(() => [Office])
   offices?: Office[]
@@ -246,15 +217,6 @@ export class ApplicantInternalAreaInput {
 }
 
 @InputType()
-export class ApplicantSourceInput {
-  @Field()
-  id: string
-
-  @Field()
-  type: string
-}
-
-@InputType()
 export class ApplicantRentingInput {
   @Field()
   rentFrequency: string
@@ -283,12 +245,6 @@ export class ApplicantInput {
   @Field({ nullable: true })
   notes: string
 
-  @Field({ nullable: true })
-  lastCall: string
-
-  @Field({ nullable: true })
-  nextCall: string
-
   @Field(() => [String])
   type: string[]
 
@@ -300,12 +256,6 @@ export class ApplicantInput {
 
   @Field(() => [String])
   parking: string[]
-
-  @Field(() => [String])
-  age: string[]
-
-  @Field(() => [String])
-  locality: string[]
 
   @Field()
   bedroomsMin: number
@@ -325,12 +275,6 @@ export class ApplicantInput {
   @Field()
   bathroomsMax: number
 
-  @Field()
-  locationType: string
-
-  @Field(() => [String])
-  locationOptions: string[]
-
   @Field(() => ApplicantBuyingInput)
   buying: ApplicantBuyingInput
 
@@ -348,9 +292,6 @@ export class ApplicantInput {
 
   @Field(() => ApplicantInternalAreaInput)
   internalArea: ApplicantInternalAreaInput
-
-  @Field(() => ApplicantSourceInput)
-  source: ApplicantSourceInput
 
   @Field(() => [String], { description: '@idOf(Negotiator)' })
   negotiatorIds: string[]
@@ -394,14 +335,10 @@ export const ApplicantFragment = gql`
     currency
     active
     notes
-    lastCall
-    nextCall
     type
     style
     situation
     parking
-    age
-    locality
     bedroomsMin
     bedroomsMax
     receptionsMin
@@ -411,8 +348,6 @@ export const ApplicantFragment = gql`
     parkingSpacesMin
     parkingSpacesMax
     description
-    locationType
-    locationOptions
     buying {
       priceFrom
       priceTo
@@ -430,10 +365,6 @@ export const ApplicantFragment = gql`
     internalArea {
       type
       amount
-    }
-    source {
-      id
-      type
     }
 
     _embedded {
