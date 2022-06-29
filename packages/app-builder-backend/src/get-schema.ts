@@ -8,10 +8,8 @@ import Pluralize from 'pluralize'
 
 import { AppResolver } from './resolvers/app-resolver'
 import { ContactResolver } from './resolvers/contact-resolver'
-import { KeyResolver } from './resolvers/key-resolver'
 import { NegotiatorResolver } from './resolvers/negotiator-resolver'
 import { PropertyResolver } from './resolvers/property-resolver'
-import { KeyTypeResolver } from './resolvers/key-type-resolver'
 import { customAuthChecker } from './utils/auth-checker'
 import { OfficeResolver } from './resolvers/offices-resolver'
 import { ApplicantResolver } from './resolvers/applicant-resolver'
@@ -311,10 +309,8 @@ export const getSchema = async (context?: Context): Promise<GraphQLSchema> => {
     resolvers: [
       AppResolver,
       PropertyResolver,
-      KeyResolver,
       ContactResolver,
       NegotiatorResolver,
-      KeyTypeResolver,
       OfficeResolver,
       CustomEntityResolver,
       ApplicantResolver,
