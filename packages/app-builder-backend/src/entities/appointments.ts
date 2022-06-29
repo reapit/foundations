@@ -78,6 +78,9 @@ export class Appointment {
   @Field(() => String, { nullable: false })
   end?: Date
 
+  @Field(() => String, { nullable: true })
+  followUpOn?: Date
+
   @Field({ nullable: true })
   typeId?: string
 
@@ -122,6 +125,9 @@ export class Appointment {
 
   @Field()
   propertyConfirmed: boolean
+
+  @Field()
+  virtual?: boolean
 
   metadata?: any
 }
@@ -230,6 +236,9 @@ export class AppointmentInput {
   @Field()
   propertyConfirmed: boolean
 
+  @Field()
+  virtual?: boolean
+
   metadata?: any
 }
 
@@ -243,6 +252,7 @@ export const AppointmentFragment = gql`
     modified
     start
     end
+    followUpOn
     recurring
     cancelled
     followUp {
@@ -262,6 +272,7 @@ export const AppointmentFragment = gql`
         email
       }
     }
+    virtual
     organiserId
     accompanied
     negotiatorConfirmed

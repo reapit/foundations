@@ -32,6 +32,7 @@ const createAppointmentMutation = gql`
   mutation CreateAppointment(
     $start: String!
     $end: String!
+    followUpOn: String!
     $recurring: Boolean
     $cancelled: Boolean
     $followUp: AppointmentFollowUpInput
@@ -44,11 +45,13 @@ const createAppointmentMutation = gql`
     $propertyId: String
     $officeIds: [String!]!
     $negotiatorIds: [String!]!
+    virtual: Boolean!
     $metadata: JSON
   ) {
     CreateAppointment(
       start: $start
       end: $end
+      followUpOn: $followUpOn
       recurring: $recurring
       cancelled: $cancelled
       followUp: $followUp
@@ -61,6 +64,7 @@ const createAppointmentMutation = gql`
       propertyId: $propertyId
       negotiatorIds: $negotiatorIds
       officeIds: $officeIds
+      virtual: $virtual
       metadata: $metadata
     ) {
       ...AppointmentFragment
@@ -74,6 +78,7 @@ const updateAppointmentMutation = gql`
     $id: String!
     $start: String!
     $end: String!
+    $followUpOn: String!
     $recurring: Boolean
     $cancelled: Boolean
     $followUp: AppointmentFollowUpInput
@@ -86,12 +91,14 @@ const updateAppointmentMutation = gql`
     $propertyId: String
     $officeIds: [String!]!
     $negotiatorIds: [String!]!
+    $virtual: Boolean!
     $metadata: JSON
   ) {
     UpdateAppointment(
       id: $id
       start: $start
       end: $end
+      followUpOn: $followUpOn
       recurring: $recurring
       cancelled: $cancelled
       followUp: $followUp
@@ -104,6 +111,7 @@ const updateAppointmentMutation = gql`
       propertyId: $propertyId
       negotiatorIds: $negotiatorIds
       officeIds: $officeIds
+      virtual: $virtual
       metadata: $metadata
     ) {
       ...AppointmentFragment

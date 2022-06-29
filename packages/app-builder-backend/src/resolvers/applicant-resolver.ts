@@ -34,14 +34,10 @@ const createApplicantMutation = gql`
     $currency: String!
     $active: Boolean!
     $notes: String!
-    $lastCall: Date!
-    $nextCall: Date!
     $type: [String!]!
     $style: [String!]!
     $situation: [String!]!
     $parking: [String!]!
-    $age: [String!]!
-    $locality: [String!]!
     $bedroomsMin: Number!
     $bedroomsMax: Nubmer!
     $receptionsMin: Number!
@@ -52,15 +48,13 @@ const createApplicantMutation = gql`
     $parkingSpacesMax: Number!
     $renting: ApplicantRentingInput
     $description: String!
-    $locationType: String!
-    $locationOptions: [String!]!
     $buying: ApplicantBuyingInput
     $renting: ApplicantRentingInput
     $externalArea: ApplicantExternalAreaInput
     $internalArea: ApplicantInternalAreaInput
-    $source: ApplicantSourceInput
     $officeIds: [String!]!
     $negotiatorIds: [String!]!
+    $departmentId: String!
     $metadata: JSON
   ) {
     CreateApplicant(
@@ -68,14 +62,10 @@ const createApplicantMutation = gql`
       currency: $currency
       active: $active
       notes: $notes
-      lastCall: $lastCall
-      nextCall: $nextCall
       type: $type
       style: $style
       situation: $situation
       parking: $parking
-      age: $age
-      locality: $locality
       bedroomsMin: $bedroomsMin
       bedroomsMax: $bedroomsMax
       receptionsMin: $receptionsMin
@@ -86,11 +76,10 @@ const createApplicantMutation = gql`
       parkingSpacesMax: $parkingSpacesMax
       description: $description
       renting: $renting
-      locationType: $locationType
-      locationOptions: $locationOptions
 
       negotiatorIds: $negotiatorIds
       officeIds: $officeIds
+      departmentId: $departmentId
       metadata: $metadata
     ) {
       ...ApplicantFragment
