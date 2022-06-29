@@ -14,6 +14,7 @@ import { PropertyFragment } from '../../entities/property'
 
 jest.mock('node-fetch', () => require('fetch-mock-jest').sandbox())
 const fetchMock = require('node-fetch')
+jest.spyOn(console, 'error').mockImplementation(() => {})
 
 const mockQuery = (name: string, variables: Record<string, any> | undefined, data: Record<string, any>) => {
   fetchMock.post(
@@ -213,8 +214,16 @@ const listPropertiesQuery = gql`
       parkingSpaces
       internetAdvertising
       notes
-      externalArea
-      internalArea
+      externalArea {
+        type
+        min
+        max
+      }
+      internalArea {
+        type
+        min
+        max
+      }
       letting {
         rent
         status
@@ -224,6 +233,11 @@ const listPropertiesQuery = gql`
         price
         description
         status
+      }
+      rooms {
+        name
+        dimensions
+        description
       }
       _embedded {
         images {
@@ -265,8 +279,16 @@ const getPropertyQuery = gql`
       parkingSpaces
       internetAdvertising
       notes
-      externalArea
-      internalArea
+      externalArea {
+        type
+        min
+        max
+      }
+      internalArea {
+        type
+        min
+        max
+      }
       letting {
         rent
         status
@@ -276,6 +298,11 @@ const getPropertyQuery = gql`
         price
         description
         status
+      }
+      rooms {
+        name
+        dimensions
+        description
       }
       _embedded {
         images {
@@ -313,6 +340,7 @@ describe('property-resolver', () => {
         description: '',
         receptions: 0,
         bathrooms: 0,
+        bedrooms: 0,
         address: {
           __typename: 'PropertyAddress',
           line1: 'New Street',
@@ -331,12 +359,21 @@ describe('property-resolver', () => {
         parkingSpaces: 3,
         internetAdvertising: false,
         notes: '',
+        rooms: [
+          {
+            __typename: 'Room',
+            name: '12312',
+            description: 'rwerew',
+          },
+        ],
         externalArea: {
+          __typename: 'ExternalArea',
           type: 'type',
           min: 2,
           max: 3,
         },
         internalArea: {
+          __typename: 'InternalArea',
           type: 'type',
           min: 2,
           max: 3,
@@ -345,7 +382,6 @@ describe('property-resolver', () => {
         selling: {
           __typename: 'PropertySelling',
           price: 0,
-          description: 'ste',
           status: 'srats',
         },
       })
@@ -368,6 +404,8 @@ describe('property-resolver', () => {
         modified: '2022-05-05T08:55:03.000Z',
         strapline: 'test',
         type: ['house'],
+        bathrooms: 2,
+        bedrooms: 4,
         description:
           'We are delighted to offer for sale this EXTENDED THREE BEDROOMED SEMI DETACHED PROPERTY situated in a much sought after residential location of Greasby, having the benefits of two separate entertaining rooms, morning room, extended kitchen. To the first floor there are three bedrooms, spacious family bathroom, gas central heating gardens front and rear and off road parking.',
         receptions: 1,
@@ -387,15 +425,17 @@ describe('property-resolver', () => {
             longitude: 1.777338,
           },
         },
-        parkingSpaces: 3,
+        parkingSpaces: 2,
         internetAdvertising: false,
-        notes: '',
+        notes: 'fsdklj',
         externalArea: {
+          __typename: 'ExternalArea',
           type: 'type',
           min: 2,
           max: 3,
         },
         internalArea: {
+          __typename: 'InternalArea',
           type: 'type',
           min: 2,
           max: 3,
@@ -404,13 +444,12 @@ describe('property-resolver', () => {
           __typename: 'PropertyLetting',
           rent: 750,
           rentFrequency: 'monthly',
-          status: 'stat',
+          status: 'available',
         },
         selling: {
           __typename: 'PropertySelling',
           price: 250000,
-          description: 'ste',
-          status: 'srats',
+          status: 'available',
         },
       })
     })
@@ -448,8 +487,16 @@ describe('property-resolver', () => {
               parkingSpaces
               internetAdvertising
               notes
-              externalArea
-              internalArea
+              externalArea {
+                type
+                min
+                max
+              }
+              internalArea {
+                type
+                min
+                max
+              }
               letting {
                 rent
                 rentFrequency
@@ -553,8 +600,16 @@ describe('property-resolver', () => {
               parkingSpaces
               internetAdvertising
               notes
-              externalArea
-              internalArea
+              externalArea {
+                type
+                min
+                max
+              }
+              internalArea {
+                type
+                min
+                max
+              }
               letting {
                 rent
                 status

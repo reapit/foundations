@@ -198,6 +198,12 @@ export class Property {
   @Field()
   receptions?: number
 
+  @Field()
+  bathrooms?: number
+
+  @Field()
+  bedrooms?: number
+
   @Field(() => PropertyAddress)
   address?: PropertyAddress
 

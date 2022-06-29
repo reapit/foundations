@@ -208,10 +208,22 @@ const getApplicant = async (id: string, accessToken: string, idToken: string): P
 }
 
 const createApplicant = async (applicant: ApplicantInput, accessToken: string, idToken: string): Promise<Applicant> => {
-  const res = await query<ApplicantAPIResponse<null>>(createApplicantMutation, applicant, 'CreateApplicant', {
-    accessToken,
-    idToken,
-  })
+  const { contactId, ...app } = applicant
+  const res = await query<ApplicantAPIResponse<null>>(
+    createApplicantMutation,
+    {
+      ...app,
+      related: {
+        associatedId: contactId,
+        associatedType: 'contact',
+      },
+    },
+    'CreateApplicant',
+    {
+      accessToken,
+      idToken,
+    },
+  )
   const { id } = res
   const newApplicant = await getApplicant(id, accessToken, idToken)
   if (!newApplicant) {
@@ -232,10 +244,16 @@ const updateApplicant = async (
   }
 
   const { _eTag } = existingApplicant
-  await query<ApplicantAPIResponse<null>>(updateApplicantMutation, { ...applicant, id, _eTag }, 'UpdateApplicant', {
-    accessToken,
-    idToken,
-  })
+  const { contactId, ...app } = applicant
+  await query<ApplicantAPIResponse<null>>(
+    updateApplicantMutation,
+    { ...app, related: { associatedId: contactId, associatedType: 'contact' }, id, _eTag },
+    'UpdateApplicant',
+    {
+      accessToken,
+      idToken,
+    },
+  )
 
   const newApplicant = await getApiApplicant(id, accessToken, idToken)
   if (!newApplicant) {

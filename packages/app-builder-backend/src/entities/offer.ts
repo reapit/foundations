@@ -51,7 +51,7 @@ export class OfferInput {
   negotiatorId: String
 
   @Field({ nullable: true })
-  OfferId: string
+  offerId: string
 
   @Field()
   date: string
