@@ -1,6 +1,8 @@
 import { ObjectType, Field, ID, InputType, GraphQLISODateTime } from 'type-graphql'
 import { gql } from 'apollo-server-core'
 import { PropertyImage } from './property-image'
+import { Negotiator } from './negotiator'
+import { Office } from './office'
 
 export const PropertyFragment = gql`
   fragment PropertyFragment on PropertyModel {
@@ -9,9 +11,21 @@ export const PropertyFragment = gql`
     modified
     type
     description
-    bedrooms
+    strapline
+    parkingSpaces
+    internetAdvertising
+    notes
+    externalArea {
+      type
+      min
+      max
+    }
+    internalArea {
+      type
+      min
+      max
+    }
     receptions
-    bathrooms
     address {
       line1
       line2
@@ -24,10 +38,6 @@ export const PropertyFragment = gql`
         latitude
         longitude
       }
-    }
-    letting {
-      rent
-      rentFrequency
     }
     selling {
       price
@@ -90,12 +100,57 @@ class PropertyLetting {
 
   @Field()
   rentFrequency: string
+
+  @Field()
+  status: string
 }
 
 @ObjectType()
 class PropertySelling {
   @Field()
   price: number
+
+  @Field()
+  desription: string
+
+  @Field()
+  status: string
+}
+
+@ObjectType()
+class ExternalArea {
+  @Field()
+  type?: string
+
+  @Field()
+  min?: number
+
+  @Field()
+  max?: number
+}
+
+@ObjectType()
+class InternalArea {
+  @Field()
+  type?: string
+
+  @Field()
+  min?: number
+
+  @Field()
+  max?: number
+}
+
+@ObjectType()
+class Room {
+  @Field()
+  name?: string
+
+  @Field()
+  dimension?: string
+
+  @Field()
+  description?: string
 }
 
 @ObjectType({
@@ -113,6 +168,9 @@ export class Property {
   @Field(() => GraphQLISODateTime)
   modified: Date
 
+  @Field()
+  strapline?: string
+
   @Field(() => [String])
   type?: string[]
 
@@ -120,25 +178,28 @@ export class Property {
   description?: string
 
   @Field()
-  bedrooms?: number
+  parkingSpaces?: number
+
+  @Field()
+  internetAdvertising?: boolean
+
+  @Field()
+  notes?: string
+
+  @Field(() => ExternalArea)
+  externalArea?: ExternalArea
+
+  @Field(() => InternalArea)
+  internalArea?: InternalArea
+
+  @Field(() => [Room])
+  rooms?: Room[]
 
   @Field()
   receptions?: number
 
-  @Field()
-  bathrooms?: number
-
   @Field(() => PropertyAddress)
   address?: PropertyAddress
-
-  @Field({ nullable: true })
-  lettingRentPrice?: number
-
-  @Field({ nullable: true })
-  lettingRentFrequency?: string
-
-  @Field({ nullable: true })
-  salePrice?: number
 
   @Field(() => [PropertyImage], { nullable: true })
   images?: PropertyImage[]
@@ -146,17 +207,17 @@ export class Property {
   @Field({ nullable: true })
   marketingMode?: string
 
-  @Field({ nullable: true })
-  saleOrLetting?: string
+  @Field(() => Negotiator)
+  negotiator: Negotiator
 
-  @Field({ nullable: true })
-  status?: string
-
-  @Field(() => PropertyLetting, { nullable: true })
-  letting: PropertyLetting
+  @Field(() => Office)
+  office: Office
 
   @Field(() => PropertySelling, { nullable: true })
   selling: PropertySelling
+
+  @Field(() => PropertyLetting, { nullable: true })
+  letting: PropertyLetting
 
   metadata?: any
 }
@@ -168,6 +229,18 @@ class PropertyGeoLocationInput {
 
   @Field()
   longitude?: number
+}
+
+@InputType()
+class PropertyLettingInput {
+  @Field()
+  rent: number
+
+  @Field()
+  rentFrequency: string
+
+  @Field()
+  status: string
 }
 
 @InputType()
@@ -198,18 +271,51 @@ export class PropertyAddressInput {
 }
 
 @InputType()
-class PropertyLettingInput {
-  @Field()
-  rent: number
-
-  @Field()
-  rentFrequency: string
-}
-
-@InputType()
 class PropertySellingInput {
   @Field()
   price: number
+
+  @Field()
+  description: string
+
+  @Field()
+  status: string
+}
+
+@InputType()
+class ExternalAreaInput {
+  @Field()
+  type?: string
+
+  @Field()
+  min?: number
+
+  @Field()
+  max?: number
+}
+
+@InputType()
+class InternalAreaInput {
+  @Field()
+  type?: string
+
+  @Field()
+  min?: number
+
+  @Field()
+  max?: number
+}
+
+@InputType()
+class RoomInput {
+  @Field()
+  name?: string
+
+  @Field()
+  dimension?: string
+
+  @Field()
+  description?: string
 }
 
 @InputType()
@@ -221,40 +327,40 @@ export class PropertyInput {
   description?: string
 
   @Field()
-  bedrooms?: number
-
-  @Field()
   receptions?: number
-
-  @Field()
-  bathrooms?: number
 
   @Field(() => PropertyAddressInput)
   address?: PropertyAddressInput
 
   @Field({ nullable: true })
-  lettingRentPrice?: number
-
-  @Field({ nullable: true })
-  lettingRentFrequency?: string
-
-  @Field({ nullable: true })
-  salePrice?: number
-
-  @Field({ nullable: true })
   marketingMode?: string
 
-  @Field({ nullable: true })
-  saleOrLetting?: string
-
-  @Field({ nullable: true })
-  status?: string
+  @Field(() => PropertySellingInput, { nullable: true })
+  selling: PropertySellingInput
 
   @Field(() => PropertyLettingInput, { nullable: true })
   letting: PropertyLettingInput
 
-  @Field(() => PropertySellingInput, { nullable: true })
-  selling: PropertySellingInput
+  @Field()
+  strapline?: string
+
+  @Field()
+  parkingSpaces?: number
+
+  @Field()
+  internetAdvertising?: boolean
+
+  @Field()
+  notes?: string
+
+  @Field(() => ExternalAreaInput)
+  externalArea?: ExternalAreaInput
+
+  @Field(() => InternalAreaInput)
+  internalArea?: InternalAreaInput
+
+  @Field(() => [RoomInput])
+  rooms?: RoomInput[]
 
   metadata?: any
 }

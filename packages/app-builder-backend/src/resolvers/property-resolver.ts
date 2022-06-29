@@ -48,25 +48,39 @@ const updatePropertyMutation = gql`
     $id: String!
     $type: [String]!
     $description: String
-    $bedrooms: Number
     $receptions: Number
-    $bathrooms: Number
     $metadata: JSON
     $address: PropertyAddressInput!
     $letting: PropertyLetting
     $selling: PropertySelling
+    $externalArea: ExternalArea
+    $internalArea: InternalArea
+    $internetAdvertising: Boolean!
+    $parkingSpaces: Number
+    $rooms: [Room]
+    $negotiatorId: String!
+    $officeId: String!
+    $marketingMode: String
+    $notes: String
   ) {
     UpdateProperty(
       id: $id
       type: $type
       description: $description
-      bedrooms: $bedrooms
       receptions: $receptions
-      bathrooms: $bathrooms
       letting: $letting
       selling: $selling
       metadata: $metadata
       address: $address
+      externalArea: $externalArea
+      internalArea: $internalArea
+      internetAdvertising: $internetAdvertising
+      parkingSpaces: $parkingSpaces
+      rooms: $rooms
+      negotiatorId: $negotiatorId
+      officeId: $officeId
+      marketingMode: $marketingMode
+      notes: $notes
     ) {
       ...PropertyFragment
     }
@@ -78,24 +92,38 @@ const createPropertyMutation = gql`
   mutation CreateProperty(
     $type: [String]!
     $description: String
-    $bedrooms: Number
     $receptions: Number
-    $bathrooms: Number
     $metadata: JSON
     $address: PropertyAddressInput!
     $letting: PropertyLetting
     $selling: PropertySelling
+    $externalArea: ExternalArea
+    $internalArea: InternalArea
+    $internetAdvertising: Boolean!
+    $parkingSpaces: Number
+    $rooms: [Room]
+    $negotiatorId: String!
+    $officeId: String!
+    $marketingMode: String
+    $notes: String
   ) {
     CreateProperty(
       type: $type
       description: $description
-      bedrooms: $bedrooms
       receptions: $receptions
-      bathrooms: $bathrooms
       letting: $letting
       selling: $selling
       metadata: $metadata
       address: $address
+      externalArea: $externalArea
+      internalArea: $internalArea
+      internetAdvertising: $internetAdvertising
+      parkingSpaces: $parkingSpaces
+      rooms: $rooms
+      negotiatorId: $negotiatorId
+      officeId: $officeId
+      marketingMode: $marketingMode
+      notes: $notes
     ) {
       ...PropertyFragment
     }
