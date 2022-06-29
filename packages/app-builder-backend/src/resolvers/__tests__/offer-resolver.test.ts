@@ -56,15 +56,13 @@ const setupOffersMocks = () => {
       id: 'RPT210015',
       created: '2021-06-14T13:11:38.000Z',
       modified: '2021-06-14T13:11:38.000Z',
-      currency: 'GBP',
       applicantId: 'RPT210010',
       propertyId: 'RPT210048',
+      negotiatorId: 'RPT210048',
+      currency: "GBP",
       date: '2018-11-05',
       amount: '245000',
       status: 'pending',
-      inclusions: 'White goods must be left',
-      exclusions: 'Curtains must be removed',
-      conditions: 'Must move in within 3 months.',
     },
     {
       CreateOffer: mockOffer,
@@ -76,16 +74,13 @@ const setupOffersMocks = () => {
       id: 'RPT210015',
       created: '2021-06-14T13:11:38.000Z',
       modified: '2021-06-14T13:11:38.000Z',
-      currency: 'GBP',
       applicantId: 'RPT210010',
       propertyId: 'RPT210048',
-      OfferId: null,
+      negotiatorId: 'RPT210048',
+      currency: "GBP",
       date: '2018-11-05',
       amount: '245000',
       status: 'pending',
-      inclusions: 'White goods must be left',
-      exclusions: 'Curtains must be removed',
-      conditions: 'Must move in within 3 months.',
     },
     {
       UpdateOffer: mockOffer,
@@ -118,16 +113,13 @@ const listOffersQuery = gql`
       id
       created
       modified
-      currency
       applicantId
-      propertyId
-      OfferId
+      negotiatorId
+      applicantId
+      currency
       date
       amount
       status
-      inclusions
-      exclusions
-      conditions
     }
   }
 `
@@ -138,16 +130,13 @@ const getOfferQuery = gql`
       id
       created
       modified
-      currency
       applicantId
-      propertyId
-      OfferId
+      negotiatorId
+      applicantId
+      currency
       date
       amount
       status
-      inclusions
-      exclusions
-      conditions
     }
   }
 `
@@ -171,15 +160,9 @@ describe('offer-resolver', () => {
         id: 'RPT220003',
         created: '2022-03-04T13:23:53.000Z',
         modified: '2022-03-04T13:23:53.000Z',
-        currency: 'GBP',
-        applicantId: 'BDF151539',
-        propertyId: 'RPT160003',
         date: '2022-03-04',
         amount: '369995',
         status: 'pending',
-        inclusions: '',
-        exclusions: '',
-        conditions: '',
       })
     })
   })
@@ -198,15 +181,9 @@ describe('offer-resolver', () => {
         id: 'RPT210015',
         created: '2021-06-14T13:11:38.000Z',
         modified: '2021-06-14T13:11:38.000Z',
-        currency: 'GBP',
-        applicantId: 'RPT210010',
-        propertyId: 'RPT210048',
         date: '2018-11-05',
         amount: '245000',
         status: 'pending',
-        inclusions: 'White goods must be left',
-        exclusions: 'Curtains must be removed',
-        conditions: 'Must move in within 3 months.',
       })
     })
   })
@@ -220,31 +197,22 @@ describe('offer-resolver', () => {
               id
               created
               modified
-              currency
-              applicantId
-              propertyId
               OfferId
               date
               amount
               status
-              inclusions
-              exclusions
-              conditions
             }
           }
         `,
         variables: {
           input: {
-            currency: 'GBP',
             applicantId: 'RPT210010',
             propertyId: 'RPT210048',
-            OfferId: null,
+            negotiatorId: 'RPT210048',
+            currency: "GBP",
             date: '2018-11-05',
             amount: '245000',
             status: 'pending',
-            inclusions: 'White goods must be left',
-            exclusions: 'Curtains must be removed',
-            conditions: 'Must move in within 3 months.',
           },
         },
       })
@@ -261,32 +229,26 @@ describe('offer-resolver', () => {
               id
               created
               modified
-              currency
               applicantId
-              propertyId
-              OfferId
+              negotiatorId
+              applicantId
+              currency
               date
               amount
               status
-              inclusions
-              exclusions
-              conditions
             }
           }
         `,
         variables: {
           id: 'RPT210015',
           input: {
-            currency: 'GBP',
             applicantId: 'RPT210010',
             propertyId: 'RPT210048',
-            OfferId: null,
+            negotiatorId: 'RPT210048',
+            currency: "GBP",
             date: '2018-11-05',
             amount: '245000',
             status: 'pending',
-            inclusions: 'White goods must be left',
-            exclusions: 'Curtains must be removed',
-            conditions: 'Must move in within 3 months.',
           },
         },
       })
