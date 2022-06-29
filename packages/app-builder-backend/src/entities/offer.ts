@@ -1,5 +1,8 @@
 import { gql } from 'apollo-server-core'
 import { Field, GraphQLISODateTime, InputType, ObjectType } from 'type-graphql'
+import { Applicant, ApplicantFragment } from './applicant'
+import { Negotiator, NegotiatorFragment } from './negotiator'
+import { Property, PropertyFragment } from './property'
 
 @ObjectType()
 export class Offer {
@@ -12,17 +15,14 @@ export class Offer {
   @Field(() => GraphQLISODateTime)
   modified: Date
 
-  @Field()
-  currency: string
+  @Field(() => Applicant)
+  applicant: Applicant
 
-  @Field()
-  applicantId: string
+  @Field(() => Property)
+  property: Property
 
-  @Field()
-  propertyId: string
-
-  @Field({ nullable: true })
-  offerId?: string
+  @Field(() => Negotiator)
+  negotiator: String
 
   @Field()
   date: string
@@ -33,15 +33,6 @@ export class Offer {
   @Field()
   status: string
 
-  @Field()
-  inclusions: string
-
-  @Field()
-  exclusions: string
-
-  @Field()
-  conditions: string
-
   metadata: any
 }
 
@@ -50,11 +41,14 @@ export class OfferInput {
   @Field()
   currency: string
 
-  @Field()
+  @Field({ description: '@idOf(Applicant)' })
   applicantId: string
 
-  @Field()
+  @Field({ description: '@idOf(Property)' })
   propertyId: string
+
+  @Field({ description: '@idOf(Negotiator)' })
+  negotiatorId: String
 
   @Field({ nullable: true })
   OfferId: string
@@ -67,32 +61,29 @@ export class OfferInput {
 
   @Field()
   status: string
-
-  @Field()
-  inclusions: string
-
-  @Field()
-  exclusions: string
-
-  @Field()
-  conditions: string
 }
 
 export const OfferFragment = gql`
+  ${NegotiatorFragment}
+  ${PropertyFragment}
+  ${ApplicantFragment}
   fragment OfferFragment on OfferModel {
     id
     created
     modified
     currency
-    applicantId
-    propertyId
-    OfferId
+    applicant {
+      ...ApplicantFragment
+    }
+    property {
+      ...PropertyFragment
+    }
+    negotiator {
+      ...NegotiatorFragment
+    }
     date
     amount
     status
-    inclusions
-    exclusions
-    conditions
     metadata
   }
 `

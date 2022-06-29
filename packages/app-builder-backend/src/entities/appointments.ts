@@ -78,7 +78,6 @@ export class Appointment {
   metadata?: any
 }
 
-
 @InputType()
 class AppointmentContactInput {
   @Field()

@@ -42,20 +42,18 @@ const getContactQuery = gql`
 const createContactMutation = gql`
   ${ContactFragment}
   mutation CreateContact(
-    $title: String
     $forename: String
     $surname: String
     $email: String
-    $marketingConsent: String!
+    $primaryAddress: ContactAddressInput!
     $officeIds: [String!]!
     $negotiatorIds: [String!]!
     $metadata: JSON
   ) {
     CreateContact(
-      title: $title
       forename: $forename
       surname: $surname
-      marketingConsent: $marketingConsent
+      primaryAddress: $primaryAddress
       negotiatorIds: $negotiatorIds
       officeIds: $officeIds
       email: $email
@@ -70,11 +68,10 @@ const updateContactMutation = gql`
   ${ContactFragment}
   mutation UpdateContact(
     $id: String!
-    $title: String
     $forename: String
     $surname: String
     $email: String
-    $marketingConsent: String!
+    $primaryAddress: ContactAddressInput!
     $officeIds: [String!]!
     $negotiatorIds: [String!]!
     $metadata: JSON
@@ -82,10 +79,9 @@ const updateContactMutation = gql`
   ) {
     UpdateContact(
       id: $id
-      title: $title
       forename: $forename
       surname: $surname
-      marketingConsent: $marketingConsent
+      primaryAddress: $primaryAddress
       email: $email
       negotiatorIds: $negotiatorIds
       officeIds: $officeIds

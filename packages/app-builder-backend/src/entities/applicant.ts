@@ -33,7 +33,6 @@ class ApplicantInternalArea {
   amount: number
 }
 
-
 @ObjectType()
 class ApplicantRenting {
   @Field()

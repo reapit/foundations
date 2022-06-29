@@ -4,7 +4,7 @@ import { Field, GraphQLISODateTime, InputType, ObjectType } from 'type-graphql'
 @ObjectType()
 class CompanyAddress {
   @Field({ nullable: true })
-  type?: string 
+  type?: string
 
   @Field({ nullable: true })
   buildingName?: string

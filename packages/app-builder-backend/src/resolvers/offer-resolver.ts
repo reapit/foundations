@@ -32,30 +32,22 @@ const createOfferMutation = gql`
   ${OfferFragment}
   mutation CreateOffer(
     $id: String!
-    $currency: String
     $applicantId: String
     $propertyId: String
-    $OfferId: String
+    $negotiatorId: String
     $date: String
     $amount: String
     $status: String
-    $inclusions: String
-    $exclusions: String
-    $conditions: String
     $metadata: JSON
   ) {
     CreateOffer(
       id: $id
-      currency: $currency
       applicantId: $applicantId
       propertyId: $propertyId
-      OfferId: $OfferId
+      negotiatorId: $negotiatorId
       date: $date
       amount: $amount
       status: $status
-      inclusions: $inclusions
-      exclusions: $exclusions
-      conditions: $conditions
       metadata: $metadata
     ) {
       OfferFragment
@@ -66,30 +58,22 @@ const createOfferMutation = gql`
 const updateOfferMutation = gql`
   mutation UpdateOffer(
     $id: String!
-    $currency: String
     $applicantId: String
     $propertyId: String
-    $OfferId: String
+    $negotiatorId: String
     $date: String
     $amount: String
     $status: String
-    $inclusions: String
-    $exclusions: String
-    $conditions: String
     $metadata: JSON
   ) {
     UpdateOffer(
       id: $id
-      currency: $currency
       applicantId: $applicantId
       propertyId: $propertyId
-      OfferId: $OfferId
+      negotiatorId: $negotiatorId
       date: $date
       amount: $amount
       status: $status
-      inclusions: $inclusions
-      exclusions: $exclusions
-      conditions: $conditions
       metadata: $metadata
     ) {
       OfferFragment
