@@ -6,36 +6,36 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="e1g28qe3-el-mb7 elkdvoz-el-table"
+        class="e1g28qe3-el-mb7 ejadz4k-el-table"
         data-has-call-to-action="false"
         data-has-expandable-action="true"
         data-num-columns-excl-action-col="4"
       >
         <div
-          class="e1co3p83-el-table-headers-row"
+          class="e1ijk5il-el-table-headers-row"
         >
           <div
-            class="e1qy4g2u-el-table-header"
+            class="e1co3p83-el-table-header"
           >
             Service Name
           </div>
           <div
-            class="e1qy4g2u-el-table-header"
+            class="e1co3p83-el-table-header"
           >
             Total Number Service Items
           </div>
           <div
-            class="e1qy4g2u-el-table-header"
+            class="e1co3p83-el-table-header"
           >
             Total Number Services
           </div>
           <div
-            class="e1qy4g2u-el-table-header"
+            class="e1co3p83-el-table-header"
           >
             Total Service Cost
           </div>
           <div
-            class="e1qy4g2u-el-table-header"
+            class="e1co3p83-el-table-header"
           >
             <span
               class="ej9yrfo-el-icon"
@@ -59,13 +59,13 @@ Object {
           </div>
         </div>
         <div
-          class="e1gfmg2g-el-table-row-container"
+          class="es3tf1j-el-table-row-container"
         >
           <div
-            class="es3tf1j-el-table-row"
+            class="e1qy4g2u-el-table-row"
           >
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <span
                 class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
@@ -97,34 +97,34 @@ Object {
                 </svg>
               </span>
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="Service Name"
               >
                 Data Warehouse
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="Total Number Service Items"
               >
                 638
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="Total Number Services"
               >
                 7
               </div>
             </div>
             <div
-              class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
             >
               <span
                 class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
@@ -158,14 +158,14 @@ Object {
                 </svg>
               </span>
               <div
-                class="e1t8i3z1-el-table-cell-content"
+                class="e4zpaja-el-table-cell-content"
                 data-narrow-label="Total Service Cost"
               >
                 £7.97
               </div>
             </div>
             <div
-              class="e3q521i-el-table-expandable-row-trigger-cell"
+              class="e1fmntjl-el-table-expandable-row-trigger-cell"
             >
               <span
                 class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
@@ -188,59 +188,59 @@ Object {
             </div>
           </div>
           <div
-            class="eygkx5t-el-table-expandable-row"
+            class="e3q521i-el-table-expandable-row"
           >
             <div
-              class="ejadz4k-el-table-expandable-container"
+              class="eygkx5t-el-table-expandable-container"
             >
               <div
-                class="elkdvoz-el-table"
+                class="ejadz4k-el-table"
               >
                 <div
-                  class="t3vux4e-three-col-table e1co3p83-el-table-headers-row"
+                  class="t3vux4e-three-col-table e1ijk5il-el-table-headers-row"
                 >
                   <div
-                    class="e1qy4g2u-el-table-header"
+                    class="e1co3p83-el-table-header"
                   >
                     Service Name
                   </div>
                   <div
-                    class="e1qy4g2u-el-table-header"
+                    class="e1co3p83-el-table-header"
                   >
                     Service Quantity
                   </div>
                   <div
-                    class="e1qy4g2u-el-table-header"
+                    class="e1co3p83-el-table-header"
                   >
                     Service Cost
                   </div>
                 </div>
                 <div
-                  class="t3vux4e-three-col-table es3tf1j-el-table-row"
+                  class="t3vux4e-three-col-table e1qy4g2u-el-table-row"
                 >
                   <div
-                    class="e4zpaja-el-table-cell"
+                    class="e1gfmg2g-el-table-cell"
                   >
                     <div
-                      class="e1t8i3z1-el-table-cell-content"
+                      class="e4zpaja-el-table-cell-content"
                     >
                       DW Usage
                     </div>
                   </div>
                   <div
-                    class="e4zpaja-el-table-cell"
+                    class="e1gfmg2g-el-table-cell"
                   >
                     <div
-                      class="e1t8i3z1-el-table-cell-content"
+                      class="e4zpaja-el-table-cell-content"
                     >
                       157
                     </div>
                   </div>
                   <div
-                    class="e4zpaja-el-table-cell"
+                    class="e1gfmg2g-el-table-cell"
                   >
                     <div
-                      class="e1t8i3z1-el-table-cell-content"
+                      class="e4zpaja-el-table-cell-content"
                     >
                       £1.96
                     </div>
@@ -255,36 +255,36 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="e1g28qe3-el-mb7 elkdvoz-el-table"
+      class="e1g28qe3-el-mb7 ejadz4k-el-table"
       data-has-call-to-action="false"
       data-has-expandable-action="true"
       data-num-columns-excl-action-col="4"
     >
       <div
-        class="e1co3p83-el-table-headers-row"
+        class="e1ijk5il-el-table-headers-row"
       >
         <div
-          class="e1qy4g2u-el-table-header"
+          class="e1co3p83-el-table-header"
         >
           Service Name
         </div>
         <div
-          class="e1qy4g2u-el-table-header"
+          class="e1co3p83-el-table-header"
         >
           Total Number Service Items
         </div>
         <div
-          class="e1qy4g2u-el-table-header"
+          class="e1co3p83-el-table-header"
         >
           Total Number Services
         </div>
         <div
-          class="e1qy4g2u-el-table-header"
+          class="e1co3p83-el-table-header"
         >
           Total Service Cost
         </div>
         <div
-          class="e1qy4g2u-el-table-header"
+          class="e1co3p83-el-table-header"
         >
           <span
             class="ej9yrfo-el-icon"
@@ -308,13 +308,13 @@ Object {
         </div>
       </div>
       <div
-        class="e1gfmg2g-el-table-row-container"
+        class="es3tf1j-el-table-row-container"
       >
         <div
-          class="es3tf1j-el-table-row"
+          class="e1qy4g2u-el-table-row"
         >
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <span
               class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
@@ -346,34 +346,34 @@ Object {
               </svg>
             </span>
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="Service Name"
             >
               Data Warehouse
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="Total Number Service Items"
             >
               638
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="Total Number Services"
             >
               7
             </div>
           </div>
           <div
-            class="eqy88gj-el-table-cell-has-dark-text e4zpaja-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
           >
             <span
               class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
@@ -407,14 +407,14 @@ Object {
               </svg>
             </span>
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
               data-narrow-label="Total Service Cost"
             >
               £7.97
             </div>
           </div>
           <div
-            class="e3q521i-el-table-expandable-row-trigger-cell"
+            class="e1fmntjl-el-table-expandable-row-trigger-cell"
           >
             <span
               class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
@@ -437,59 +437,59 @@ Object {
           </div>
         </div>
         <div
-          class="eygkx5t-el-table-expandable-row"
+          class="e3q521i-el-table-expandable-row"
         >
           <div
-            class="ejadz4k-el-table-expandable-container"
+            class="eygkx5t-el-table-expandable-container"
           >
             <div
-              class="elkdvoz-el-table"
+              class="ejadz4k-el-table"
             >
               <div
-                class="t3vux4e-three-col-table e1co3p83-el-table-headers-row"
+                class="t3vux4e-three-col-table e1ijk5il-el-table-headers-row"
               >
                 <div
-                  class="e1qy4g2u-el-table-header"
+                  class="e1co3p83-el-table-header"
                 >
                   Service Name
                 </div>
                 <div
-                  class="e1qy4g2u-el-table-header"
+                  class="e1co3p83-el-table-header"
                 >
                   Service Quantity
                 </div>
                 <div
-                  class="e1qy4g2u-el-table-header"
+                  class="e1co3p83-el-table-header"
                 >
                   Service Cost
                 </div>
               </div>
               <div
-                class="t3vux4e-three-col-table es3tf1j-el-table-row"
+                class="t3vux4e-three-col-table e1qy4g2u-el-table-row"
               >
                 <div
-                  class="e4zpaja-el-table-cell"
+                  class="e1gfmg2g-el-table-cell"
                 >
                   <div
-                    class="e1t8i3z1-el-table-cell-content"
+                    class="e4zpaja-el-table-cell-content"
                   >
                     DW Usage
                   </div>
                 </div>
                 <div
-                  class="e4zpaja-el-table-cell"
+                  class="e1gfmg2g-el-table-cell"
                 >
                   <div
-                    class="e1t8i3z1-el-table-cell-content"
+                    class="e4zpaja-el-table-cell-content"
                   >
                     157
                   </div>
                 </div>
                 <div
-                  class="e4zpaja-el-table-cell"
+                  class="e1gfmg2g-el-table-cell"
                 >
                   <div
-                    class="e1t8i3z1-el-table-cell-content"
+                    class="e4zpaja-el-table-cell-content"
                   >
                     £1.96
                   </div>

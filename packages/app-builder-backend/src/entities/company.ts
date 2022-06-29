@@ -95,12 +95,6 @@ export class CompanyAddressInput {
 
 @InputType()
 export class CompanyInput {
-  @Field(() => GraphQLISODateTime)
-  created: Date
-
-  @Field(() => GraphQLISODateTime)
-  modified: Date
-
   @Field(() => CompanyAddressInput)
   address: CompanyAddressInput
 

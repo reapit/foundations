@@ -138,49 +138,49 @@ Object {
         class="ecbqyq6-el-snack-holder"
       />
       <div
-        class="elkdvoz-el-table"
+        class="ejadz4k-el-table"
       >
         <div
-          class="f141c8gf-four-col-table e1co3p83-el-table-headers-row"
+          class="f141c8gf-four-col-table e1ijk5il-el-table-headers-row"
         >
           <div
-            class="e1qy4g2u-el-table-header"
+            class="e1co3p83-el-table-header"
           >
             Task
           </div>
           <div
-            class="e1qy4g2u-el-table-header"
+            class="e1co3p83-el-table-header"
           >
             Status
           </div>
           <div
-            class="e1qy4g2u-el-table-header"
+            class="e1co3p83-el-table-header"
           >
             Started
           </div>
           <div
-            class="e1qy4g2u-el-table-header"
+            class="e1co3p83-el-table-header"
           >
             Finished
           </div>
         </div>
         <div
-          class="f141c8gf-four-col-table es3tf1j-el-table-row"
+          class="f141c8gf-four-col-table e1qy4g2u-el-table-row"
         >
           <div
-            class="e4zpaja-el-table-cell"
+            class="e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
             >
               Download Source
             </div>
           </div>
           <div
-            class="e4zpaja-el-table-cell"
+            class="e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
             >
               <span
                 class="e11oi1zt-el-intent-success e1cp9zgf-el-status-indicator"
@@ -189,41 +189,41 @@ Object {
             </div>
           </div>
           <div
-            class="e4zpaja-el-table-cell"
+            class="e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
             >
               -
             </div>
           </div>
           <div
-            class="e4zpaja-el-table-cell"
+            class="e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
             >
               -
             </div>
           </div>
         </div>
         <div
-          class="f141c8gf-four-col-table es3tf1j-el-table-row"
+          class="f141c8gf-four-col-table e1qy4g2u-el-table-row"
         >
           <div
-            class="e4zpaja-el-table-cell"
+            class="e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
             >
               Install
             </div>
           </div>
           <div
-            class="e4zpaja-el-table-cell"
+            class="e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
             >
               <span
                 class="e11oi1zt-el-intent-success e1cp9zgf-el-status-indicator"
@@ -232,41 +232,41 @@ Object {
             </div>
           </div>
           <div
-            class="e4zpaja-el-table-cell"
+            class="e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
             >
               -
             </div>
           </div>
           <div
-            class="e4zpaja-el-table-cell"
+            class="e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
             >
               -
             </div>
           </div>
         </div>
         <div
-          class="f141c8gf-four-col-table es3tf1j-el-table-row"
+          class="f141c8gf-four-col-table e1qy4g2u-el-table-row"
         >
           <div
-            class="e4zpaja-el-table-cell"
+            class="e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
             >
               Build
             </div>
           </div>
           <div
-            class="e4zpaja-el-table-cell"
+            class="e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
             >
               <span
                 class="e11oi1zt-el-intent-success e1cp9zgf-el-status-indicator"
@@ -275,41 +275,41 @@ Object {
             </div>
           </div>
           <div
-            class="e4zpaja-el-table-cell"
+            class="e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
             >
               -
             </div>
           </div>
           <div
-            class="e4zpaja-el-table-cell"
+            class="e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
             >
               -
             </div>
           </div>
         </div>
         <div
-          class="f141c8gf-four-col-table es3tf1j-el-table-row"
+          class="f141c8gf-four-col-table e1qy4g2u-el-table-row"
         >
           <div
-            class="e4zpaja-el-table-cell"
+            class="e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
             >
               Deploy
             </div>
           </div>
           <div
-            class="e4zpaja-el-table-cell"
+            class="e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
             >
               <span
                 class="e11oi1zt-el-intent-success e1cp9zgf-el-status-indicator"
@@ -318,19 +318,19 @@ Object {
             </div>
           </div>
           <div
-            class="e4zpaja-el-table-cell"
+            class="e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
             >
               -
             </div>
           </div>
           <div
-            class="e4zpaja-el-table-cell"
+            class="e1gfmg2g-el-table-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cell-content"
+              class="e4zpaja-el-table-cell-content"
             >
               -
             </div>
@@ -354,49 +354,49 @@ Object {
       class="ecbqyq6-el-snack-holder"
     />
     <div
-      class="elkdvoz-el-table"
+      class="ejadz4k-el-table"
     >
       <div
-        class="f141c8gf-four-col-table e1co3p83-el-table-headers-row"
+        class="f141c8gf-four-col-table e1ijk5il-el-table-headers-row"
       >
         <div
-          class="e1qy4g2u-el-table-header"
+          class="e1co3p83-el-table-header"
         >
           Task
         </div>
         <div
-          class="e1qy4g2u-el-table-header"
+          class="e1co3p83-el-table-header"
         >
           Status
         </div>
         <div
-          class="e1qy4g2u-el-table-header"
+          class="e1co3p83-el-table-header"
         >
           Started
         </div>
         <div
-          class="e1qy4g2u-el-table-header"
+          class="e1co3p83-el-table-header"
         >
           Finished
         </div>
       </div>
       <div
-        class="f141c8gf-four-col-table es3tf1j-el-table-row"
+        class="f141c8gf-four-col-table e1qy4g2u-el-table-row"
       >
         <div
-          class="e4zpaja-el-table-cell"
+          class="e1gfmg2g-el-table-cell"
         >
           <div
-            class="e1t8i3z1-el-table-cell-content"
+            class="e4zpaja-el-table-cell-content"
           >
             Download Source
           </div>
         </div>
         <div
-          class="e4zpaja-el-table-cell"
+          class="e1gfmg2g-el-table-cell"
         >
           <div
-            class="e1t8i3z1-el-table-cell-content"
+            class="e4zpaja-el-table-cell-content"
           >
             <span
               class="e11oi1zt-el-intent-success e1cp9zgf-el-status-indicator"
@@ -405,41 +405,41 @@ Object {
           </div>
         </div>
         <div
-          class="e4zpaja-el-table-cell"
+          class="e1gfmg2g-el-table-cell"
         >
           <div
-            class="e1t8i3z1-el-table-cell-content"
+            class="e4zpaja-el-table-cell-content"
           >
             -
           </div>
         </div>
         <div
-          class="e4zpaja-el-table-cell"
+          class="e1gfmg2g-el-table-cell"
         >
           <div
-            class="e1t8i3z1-el-table-cell-content"
+            class="e4zpaja-el-table-cell-content"
           >
             -
           </div>
         </div>
       </div>
       <div
-        class="f141c8gf-four-col-table es3tf1j-el-table-row"
+        class="f141c8gf-four-col-table e1qy4g2u-el-table-row"
       >
         <div
-          class="e4zpaja-el-table-cell"
+          class="e1gfmg2g-el-table-cell"
         >
           <div
-            class="e1t8i3z1-el-table-cell-content"
+            class="e4zpaja-el-table-cell-content"
           >
             Install
           </div>
         </div>
         <div
-          class="e4zpaja-el-table-cell"
+          class="e1gfmg2g-el-table-cell"
         >
           <div
-            class="e1t8i3z1-el-table-cell-content"
+            class="e4zpaja-el-table-cell-content"
           >
             <span
               class="e11oi1zt-el-intent-success e1cp9zgf-el-status-indicator"
@@ -448,41 +448,41 @@ Object {
           </div>
         </div>
         <div
-          class="e4zpaja-el-table-cell"
+          class="e1gfmg2g-el-table-cell"
         >
           <div
-            class="e1t8i3z1-el-table-cell-content"
+            class="e4zpaja-el-table-cell-content"
           >
             -
           </div>
         </div>
         <div
-          class="e4zpaja-el-table-cell"
+          class="e1gfmg2g-el-table-cell"
         >
           <div
-            class="e1t8i3z1-el-table-cell-content"
+            class="e4zpaja-el-table-cell-content"
           >
             -
           </div>
         </div>
       </div>
       <div
-        class="f141c8gf-four-col-table es3tf1j-el-table-row"
+        class="f141c8gf-four-col-table e1qy4g2u-el-table-row"
       >
         <div
-          class="e4zpaja-el-table-cell"
+          class="e1gfmg2g-el-table-cell"
         >
           <div
-            class="e1t8i3z1-el-table-cell-content"
+            class="e4zpaja-el-table-cell-content"
           >
             Build
           </div>
         </div>
         <div
-          class="e4zpaja-el-table-cell"
+          class="e1gfmg2g-el-table-cell"
         >
           <div
-            class="e1t8i3z1-el-table-cell-content"
+            class="e4zpaja-el-table-cell-content"
           >
             <span
               class="e11oi1zt-el-intent-success e1cp9zgf-el-status-indicator"
@@ -491,41 +491,41 @@ Object {
           </div>
         </div>
         <div
-          class="e4zpaja-el-table-cell"
+          class="e1gfmg2g-el-table-cell"
         >
           <div
-            class="e1t8i3z1-el-table-cell-content"
+            class="e4zpaja-el-table-cell-content"
           >
             -
           </div>
         </div>
         <div
-          class="e4zpaja-el-table-cell"
+          class="e1gfmg2g-el-table-cell"
         >
           <div
-            class="e1t8i3z1-el-table-cell-content"
+            class="e4zpaja-el-table-cell-content"
           >
             -
           </div>
         </div>
       </div>
       <div
-        class="f141c8gf-four-col-table es3tf1j-el-table-row"
+        class="f141c8gf-four-col-table e1qy4g2u-el-table-row"
       >
         <div
-          class="e4zpaja-el-table-cell"
+          class="e1gfmg2g-el-table-cell"
         >
           <div
-            class="e1t8i3z1-el-table-cell-content"
+            class="e4zpaja-el-table-cell-content"
           >
             Deploy
           </div>
         </div>
         <div
-          class="e4zpaja-el-table-cell"
+          class="e1gfmg2g-el-table-cell"
         >
           <div
-            class="e1t8i3z1-el-table-cell-content"
+            class="e4zpaja-el-table-cell-content"
           >
             <span
               class="e11oi1zt-el-intent-success e1cp9zgf-el-status-indicator"
@@ -534,19 +534,19 @@ Object {
           </div>
         </div>
         <div
-          class="e4zpaja-el-table-cell"
+          class="e1gfmg2g-el-table-cell"
         >
           <div
-            class="e1t8i3z1-el-table-cell-content"
+            class="e4zpaja-el-table-cell-content"
           >
             -
           </div>
         </div>
         <div
-          class="e4zpaja-el-table-cell"
+          class="e1gfmg2g-el-table-cell"
         >
           <div
-            class="e1t8i3z1-el-table-cell-content"
+            class="e4zpaja-el-table-cell-content"
           >
             -
           </div>

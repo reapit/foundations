@@ -39,13 +39,13 @@ export class PropertyImage {
 
 @InputType()
 export class PropertyImageInput {
-  @Field()
+  @Field({ description: '@customInput(image-upload)' })
   data: string
 
   @Field({ nullable: true })
   caption: string
 
-  @Field()
+  @Field({ description: '@idOf(Property)' })
   propertyId: string
 
   @Field({ nullable: true })

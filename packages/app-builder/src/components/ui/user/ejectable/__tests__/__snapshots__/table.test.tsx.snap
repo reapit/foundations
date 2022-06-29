@@ -9,21 +9,8 @@ exports[`Table should match a snapshot 1`] = `
     <div
       class="el-flex el-flex1 el-flex-column"
     >
-      <div
-        class="el-loader-container"
-      >
-        <p
-          class="el-loader-label"
-        >
-          Loading
-        </p>
-        <div
-          class="el-loader"
-        >
-          <div
-            class="el-loader-moving-bar"
-          />
-        </div>
+      <div>
+        Select a type from the sidebar.
       </div>
     </div>
   </div>

@@ -90,6 +90,8 @@ export const getGetQuery = (
   }
 }
 
+export type CustomInputType = 'image-upload'
+
 export type ParsedArg = {
   name: string
   isRequired: boolean
@@ -99,6 +101,7 @@ export type ParsedArg = {
   enumValues?: Array<string>
   fields?: Array<ParsedArg>
   acKey?: DesktopContext
+  customInputType?: CustomInputType
 }
 
 const parseArgs = (
@@ -114,6 +117,7 @@ const parseArgs = (
     let idOfType
     let isRequired = false
     let isList = false
+    let customInputType: CustomInputType | undefined
 
     if (isNonNullInputType(type)) {
       actualType = type.ofType
@@ -146,6 +150,11 @@ const parseArgs = (
       idOfType = queryableObjectTypes.find((a) => a.name.toLowerCase() === idName.toLowerCase())?.name
     }
 
+    if (description && description.includes('@customInput')) {
+      const customInput = description.split('@customInput(')[1].split(')')[0]
+      customInputType = customInput as CustomInputType
+    }
+
     const acKey = description?.split('@acKey(')[1]?.split(')')[0] as DesktopContext
 
     const enumValues = enums.find(({ name }) => name === typeName)?.enumValues.map((e) => e.name)
@@ -157,6 +166,7 @@ const parseArgs = (
       idOfType,
       isList,
       enumValues,
+      customInputType,
       fields:
         (actualTypeObject &&
           isIntrospectionInputObjectType(actualTypeObject) &&

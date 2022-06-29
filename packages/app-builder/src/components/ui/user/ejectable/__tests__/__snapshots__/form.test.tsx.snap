@@ -31,7 +31,7 @@ exports[`Form should match a snapshot 1`] = `
           </div>
         </div>
         <button
-          class="el-button"
+          class="el-intent-primary el-button"
         >
           Save
         </button>

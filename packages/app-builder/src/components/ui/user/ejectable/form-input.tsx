@@ -1,14 +1,20 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
+  Button,
+  ButtonGroup,
   CardWrap,
   ElBodyText,
+  elFlex1,
   elHasGreyText,
   elMy2,
+  FileInput,
+  FlexContainer,
   FloatingButton,
   InputGroup,
   InputWrap,
   Label,
   Loader,
+  Modal,
   SearchableDropdown,
   Select,
 } from '@reapit/elements'
@@ -63,15 +69,17 @@ const SelectIDofType = ({
 
   if (searchAvailable) {
     return (
-      <SearchableDropdown<GenericObject>
-        onChange={onChange}
-        getResults={search}
-        getResultLabel={(result) => getLabel(result, object?.labelKeys)}
-        getResultValue={(result) => result.id}
-        name={name}
-        disabled={disabled}
-        defaultVal={defaultValue}
-      />
+      <>
+        <SearchableDropdown<GenericObject>
+          onChange={onChange}
+          getResults={search}
+          getResultLabel={(result) => getLabel(result, object?.labelKeys)}
+          getResultValue={(result) => result.id}
+          name={name}
+          disabled={disabled}
+          defaultVal={defaultValue}
+        />
+      </>
     )
   }
 
@@ -112,12 +120,51 @@ export type FormInputProps = {
   isReadOnly?: boolean
 }
 
+const FileUploadInput = ({
+  label,
+  value,
+  defaultValue,
+  onChange,
+  disabled,
+}: {
+  disabled?: boolean
+  label: string
+  value?: string
+  defaultValue?: string
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+}) => {
+  const [modalIsOpen, setModalIsOpen] = useState(false)
+
+  return (
+    <div className={cx(elFlex1)} style={disabled ? { pointerEvents: 'none', opacity: 0.5 } : undefined}>
+      <FileInput
+        disabled={disabled}
+        label={label}
+        defaultValue={defaultValue}
+        onChange={onChange}
+        onFileView={() => setModalIsOpen(true)}
+      />
+      <Modal title="Image Preview" isOpen={modalIsOpen} onModalClose={() => setModalIsOpen(false)}>
+        <FlexContainer isFlexAlignCenter isFlexJustifyCenter>
+          {value && <img src={value} />}
+        </FlexContainer>
+        <ButtonGroup alignment="right">
+          <Button intent="low" onClick={() => setModalIsOpen(false)}>
+            Close
+          </Button>
+        </ButtonGroup>
+      </Modal>
+    </div>
+  )
+}
+
 const Input = ({
   name,
   input,
   fwdRef,
   disabled,
   defaultValue,
+  label = friendlyIdName(name),
   onChange,
   value,
 }: {
@@ -125,12 +172,42 @@ const Input = ({
   disabled?: boolean
   input: ParsedArg
   defaultValue?: any
+  label?: string
   value?: any
   fwdRef?: React.ForwardedRef<HTMLDivElement>
   onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void
 }) => {
-  const { typeName: inputTypeName, isRequired, idOfType, enumValues } = input
-  const label = friendlyIdName(name)
+  const { typeName: inputTypeName, isRequired, idOfType, enumValues, customInputType, fields } = input
+
+  if (fields) {
+    return (
+      <>
+        {fields.map((field) => (
+          <Input
+            key={field.name}
+            name={field.name}
+            label={[label, friendlyIdName(field.name)].join(' ')}
+            input={field}
+            disabled={disabled}
+            defaultValue={defaultValue?.[field.name]}
+            onChange={(e) => {
+              const v = value || {}
+              v[field.name] = e.target.value
+              onChange({
+                ...e,
+                target: {
+                  ...e.target,
+                  value: v,
+                  name: name,
+                } as any,
+              })
+            }}
+            value={value?.[field.name]}
+          />
+        ))}
+      </>
+    )
+  }
 
   return (
     <InputWrap ref={fwdRef}>
@@ -151,7 +228,7 @@ const Input = ({
         </>
       )}
       {idOfType && (
-        <>
+        <div className={elFlex1} style={disabled ? { pointerEvents: 'none', opacity: 0.5 } : undefined}>
           <Label>{label}</Label>
           <SelectIDofType
             disabled={disabled}
@@ -161,9 +238,9 @@ const Input = ({
             value={value}
             defaultValue={defaultValue}
           />
-        </>
+        </div>
       )}
-      {!enumValues && !idOfType && (
+      {!enumValues && !idOfType && !customInputType && (
         <InputGroup
           disabled={disabled}
           key={label}
@@ -174,6 +251,15 @@ const Input = ({
           onChange={onChange}
           name={name}
           defaultValue={defaultValue}
+        />
+      )}
+      {customInputType && customInputType === 'image-upload' && (
+        <FileUploadInput
+          disabled={disabled}
+          label={label}
+          defaultValue={defaultValue}
+          value={value}
+          onChange={onChange}
         />
       )}
     </InputWrap>
@@ -198,6 +284,9 @@ const ListInput = React.forwardRef(
     ref: React.ForwardedRef<HTMLDivElement>,
   ) => {
     const [listValue, setListValue] = React.useState<any[]>(defaultValue || [])
+    if (!formInput) {
+      return null
+    }
 
     return (
       <InputWrap ref={ref}>
@@ -206,12 +295,12 @@ const ListInput = React.forwardRef(
           {listValue.map((value, idx) => (
             <CardWrap key={idx} className={elMy2}>
               <InputWrap>
-                {formInput?.idOfType && (
+                {formInput.idOfType && (
                   <SelectIDofType
                     disabled={disabled}
                     name={label}
                     typeName={formInput.idOfType}
-                    defaultValue={defaultValue[idx]}
+                    defaultValue={defaultValue && defaultValue[idx]}
                     onChange={(e) => {
                       const newListValue = [...listValue]
                       newListValue[idx] = e.target.value
@@ -220,25 +309,19 @@ const ListInput = React.forwardRef(
                     }}
                   />
                 )}
-                {formInput?.fields?.map((input) => (
-                  <div key={input.name}>
-                    <Input
-                      name={input.name}
-                      input={input}
-                      value={value[input.name]}
-                      disabled={disabled}
-                      onChange={(e) => {
-                        const newListValue = listValue.slice()
-                        if (!newListValue[idx]) {
-                          newListValue[idx] = {}
-                        }
-                        newListValue[idx][input.name] = e.target.value
-                        setListValue(newListValue)
-                        onChange(newListValue)
-                      }}
-                    />
-                  </div>
-                ))}
+                {formInput.typeName && !formInput.idOfType && (
+                  <Input
+                    name={formInput.name}
+                    input={formInput}
+                    value={listValue[idx]}
+                    disabled={disabled}
+                    onChange={(e) => {
+                      listValue[idx] = e.target.value
+                      setListValue(listValue)
+                      onChange(listValue)
+                    }}
+                  />
+                )}
               </InputWrap>
               <FloatingButton
                 type="button"
@@ -258,7 +341,11 @@ const ListInput = React.forwardRef(
           intent="secondary"
           onClick={() => {
             const newListValue = listValue.slice()
-            newListValue.push({})
+            if (!formInput.fields) {
+              newListValue.push(undefined)
+            } else {
+              newListValue.push({})
+            }
             setListValue(newListValue)
             onChange(newListValue)
           }}

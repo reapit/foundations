@@ -3,6 +3,7 @@ import { gql } from 'apollo-server-core'
 import { Arg, Authorized, Ctx, Mutation, Query, Resolver } from 'type-graphql'
 import { AbstractCrudService } from './abstract-crud-resolver'
 import { Context } from '../types'
+import { extractMetadata } from '../utils/extract-metadata'
 
 type PropertyImageEmbeds<PropertyImage> = PropertyImage & {
   _embedded: {}
@@ -69,10 +70,7 @@ export class PropertyImageResolver {
 
   @Query(() => PropertyImage)
   @Authorized()
-  async getPropertyImage(
-    @Ctx() { accessToken, idToken, storeCachedMetadata }: Context,
-    @Arg('id') id: string,
-  ): Promise<PropertyImage> {
+  async getPropertyImage(@Ctx() { accessToken, idToken }: Context, @Arg('id') id: string): Promise<PropertyImage> {
     const propertyImage = await this.service.getEntity({
       id,
       idToken,
@@ -82,8 +80,6 @@ export class PropertyImageResolver {
     if (!propertyImage) {
       throw new Error(`No propertyImage found for id [${id}]`)
     }
-
-    storeCachedMetadata(entityName, id, propertyImage)
 
     return propertyImage
   }
@@ -108,10 +104,10 @@ export class PropertyImageResolver {
   @Mutation(() => PropertyImage)
   @Authorized()
   async createPropertyImage(
-    @Ctx() { accessToken, idToken, storeCachedMetadata }: Context,
+    @Ctx() ctx: Context,
     @Arg(entityName) entityInput: PropertyImageInput,
   ): Promise<PropertyImage> {
-    console.log('incoming', entityInput)
+    const { accessToken, idToken, storeCachedMetadata } = ctx
     const propertyImage = await this.service.createEntity({
       accessToken,
       idToken,
@@ -121,7 +117,8 @@ export class PropertyImageResolver {
       },
     })
 
-    storeCachedMetadata(entityName, propertyImage.id, propertyImage)
+    const { metadata } = extractMetadata(ctx, entityName, propertyImage)
+    storeCachedMetadata(entityName, propertyImage.id, metadata)
 
     return propertyImage
   }
@@ -129,11 +126,11 @@ export class PropertyImageResolver {
   @Mutation(() => PropertyImage)
   @Authorized()
   async updatePropertyImage(
-    @Ctx() { accessToken, idToken, storeCachedMetadata }: Context,
+    @Ctx() ctx: Context,
     @Arg('id') id: string,
     @Arg(entityName) entityInput: PropertyImageInput,
   ): Promise<PropertyImage> {
-    console.log('incoming', entityInput)
+    const { accessToken, idToken, storeCachedMetadata } = ctx
     const propertyImage = await this.service.updateEntity({
       id,
       accessToken,
@@ -141,7 +138,8 @@ export class PropertyImageResolver {
       entityInput,
     })
 
-    storeCachedMetadata(entityName, propertyImage.id, propertyImage)
+    const { metadata } = extractMetadata(ctx, entityName, propertyImage)
+    storeCachedMetadata(entityName, propertyImage.id, metadata)
 
     return propertyImage
   }

@@ -1,7 +1,5 @@
 import React, { forwardRef, Ref } from 'react'
-import path from 'path'
-import qs from 'query-string'
-import { Link as RRLink, useParams } from 'react-router-dom'
+import { Link as RRLink } from 'react-router-dom'
 import { ContainerProps } from './container'
 import { usePageId } from '../../../hooks/use-page-id'
 
@@ -15,10 +13,8 @@ export interface LinkProps extends ContainerProps {
 }
 
 export const Link = forwardRef<HTMLDivElement, LinkProps>(({ disabled, children, ...props }, ref) => {
-  const { appId } = useParams<{ appId?: string }>()
   const dest = props.destination || ''
-  const pathname = path.join('/', appId || '', dest === '~' ? '' : dest)
-  const { context } = usePageId()
+  const { context, generateLinkAttrs } = usePageId()
   const search = {
     ...context,
     ...props.context,
@@ -26,10 +22,7 @@ export const Link = forwardRef<HTMLDivElement, LinkProps>(({ disabled, children,
 
   return (
     <RRLink
-      to={{
-        pathname,
-        search: qs.stringify(search),
-      }}
+      to={generateLinkAttrs(dest, search)}
       onClick={(e) => {
         if (disabled) {
           e.preventDefault()

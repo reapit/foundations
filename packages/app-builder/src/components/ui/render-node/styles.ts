@@ -80,6 +80,7 @@ export const NavigationContainer = styled.div`
 `
 
 export const RootContainer = styled.section`
+  width: 100%;
   > div {
     display: grid;
     grid-template-areas:

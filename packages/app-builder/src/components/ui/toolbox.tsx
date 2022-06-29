@@ -18,7 +18,7 @@ import { TextIcon } from '../icons/text'
 import { TableIcon } from '../icons/table'
 import { FormIcon } from '../icons/form'
 
-const Item = styled.a`
+const Item = styled.div`
   width: 64px;
   height: 64px;
   display: flex;
@@ -89,12 +89,12 @@ export const Toolbox = ({ create }: { create: (ref: HTMLElement, ele: any) => vo
         >
           <ContainerIcon />
         </ToolboxItem>
-        <ToolboxItem name="Text" ref={(ref: HTMLElement) => ref && create(ref, <Text fontSize={12} text="Hi there" />)}>
+        <ToolboxItem name="Text" ref={(ref: HTMLElement) => ref && create(ref, <Text fontSize={12} text="Type text in here" />)}>
           <TextIcon />
         </ToolboxItem>
         <ToolboxItem
           name="Link"
-          ref={(ref: HTMLElement) => ref && create(ref, <Element canvas is={Link} width={12} text="Link Text" />)}
+          ref={(ref: HTMLElement) => ref && create(ref, <Element canvas is={Link} width={12} text="Type your link text in here" />)}
         >
           <Item>
             <LinkSVG />
