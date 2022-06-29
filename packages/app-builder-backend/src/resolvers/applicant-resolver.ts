@@ -106,28 +106,22 @@ const updateApplicantMutation = gql`
     $currency: String!
     $active: Boolean!
     $notes: String!
-    $lastCall: Date!
-    $nextCall: Date!
     $type: [String!]!
     $style: [String!]!
     $situation: [String!]!
     $parking: [String!]!
-    $age: [String!]!
-    $locality: [String!]!
     $bedroomsMin: Number!
     $bedroomsMax: Nubmer!
     $receptionsMin: Number!
     $receptionsMax: Number!
     $bathroomsMin: Number!
     $bathroomsMax: Number!
-    $locationType: String!
-    $locationOptions: [String!]!
     $buying: ApplicantBuyingInput
     $renting: ApplicantRentingInput
     $externalArea: ApplicantExternalAreaInput
     $internalArea: ApplicantInternalAreaInput
-    $source: ApplicantSourceInput
     $officeIds: [String!]!
+    $departmentId: String!
     $negotiatorIds: [String!]!
     $metadata: JSON
   ) {
@@ -137,22 +131,17 @@ const updateApplicantMutation = gql`
       currency: $currency
       active: $active
       notes: $notes
-      lastCall: $lastCall
-      nextCall: $nextCall
       type: $type
       style: $style
       situation: $situation
       parking: $parking
-      age: $age
-      locality: $locality
       bedroomsMin: $bedroomsMin
       bedroomsMax: $bedroomsMax
       receptionsMin: $receptionsMin
       receptionsMax: $receptionsMax
       bathroomsMin: $bathroomsMin
       bathroomsMax: $bathroomsMax
-      locationType: $locationType
-      locationOptions: $locationOptions
+      departmentId: $departmentId
 
       negotiatorIds: $negotiatorIds
       officeIds: $officeIds
