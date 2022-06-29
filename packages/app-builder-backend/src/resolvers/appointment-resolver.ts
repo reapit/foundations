@@ -32,15 +32,9 @@ const createAppointmentMutation = gql`
   mutation CreateAppointment(
     $start: String!
     $end: String!
-    $recurring: Boolean
-    $cancelled: Boolean
-    $followUp: AppointmentFollowUpInput
+    $description: String!
     $attendee: AppointmentAttendeeInput
     $organiserId: String!
-    $accompanied: Boolean!
-    $negotiatorConfirmed: Boolean!
-    $attendeeConfirmed: Boolean!
-    $propertyConfirmed: Boolean!
     $propertyId: String
     $officeIds: [String!]!
     $negotiatorIds: [String!]!
@@ -49,15 +43,9 @@ const createAppointmentMutation = gql`
     CreateAppointment(
       start: $start
       end: $end
-      recurring: $recurring
-      cancelled: $cancelled
-      followUp: $followUp
+      description: $description
       attendee: $attendee
       organiserId: $organiserId
-      accompanied: $accompanied
-      negotiatorConfirmed: $negotiatorConfirmed
-      attendeeConfirmed: $attendeeConfirmed
-      propertyConfirmed: $propertyConfirmed
       propertyId: $propertyId
       negotiatorIds: $negotiatorIds
       officeIds: $officeIds
@@ -74,15 +62,9 @@ const updateAppointmentMutation = gql`
     $id: String!
     $start: String!
     $end: String!
-    $recurring: Boolean
-    $cancelled: Boolean
-    $followUp: AppointmentFollowUpInput
+    $description: String!
     $attendee: AppointmentAttendeeInput
     $organiserId: String!
-    $accompanied: Boolean!
-    $negotiatorConfirmed: Boolean!
-    $attendeeConfirmed: Boolean!
-    $propertyConfirmed: Boolean!
     $propertyId: String
     $officeIds: [String!]!
     $negotiatorIds: [String!]!
@@ -92,15 +74,9 @@ const updateAppointmentMutation = gql`
       id: $id
       start: $start
       end: $end
-      recurring: $recurring
-      cancelled: $cancelled
-      followUp: $followUp
+      description: $description
       attendee: $attendee
       organiserId: $organiserId
-      accompanied: $accompanied
-      negotiatorConfirmed: $negotiatorConfirmed
-      attendeeConfirmed: $attendeeConfirmed
-      propertyConfirmed: $propertyConfirmed
       propertyId: $propertyId
       negotiatorIds: $negotiatorIds
       officeIds: $officeIds

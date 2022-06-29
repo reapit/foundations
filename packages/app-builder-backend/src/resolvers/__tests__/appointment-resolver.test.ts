@@ -13,6 +13,7 @@ import { MetadataSchemaType } from '../../utils/extract-metadata'
 
 jest.mock('node-fetch', () => require('fetch-mock-jest').sandbox())
 const fetchMock = require('node-fetch')
+jest.spyOn(console, 'error').mockImplementation(() => {})
 
 const mockQuery = (name: string, variables: Record<string, any> | undefined, data: Record<string, any>) => {
   fetchMock.post(
@@ -63,7 +64,6 @@ const setupAppointmentsMocks = () => {
       start: '2022-01-13T14:00:00Z',
       end: '2022-01-13T14:30:00Z',
       description: '',
-      cancelled: false,
       recurring: false,
       property: {
         id: 'MKT210001',
@@ -105,8 +105,6 @@ const setupAppointmentsMocks = () => {
       start: '2022-01-13T14:00:00Z',
       end: '2022-01-13T14:30:00Z',
       description: '',
-      cancelled: false,
-      recurring: false,
       property: {
         id: 'MKT210001',
         type: [],
@@ -146,16 +144,11 @@ const listAppointmentsQuery = gql`
       start
       end
       description
-      cancelled
       typeId
       property {
         type
         id
       }
-      recurring
-      propertyConfirmed
-      negotiatorConfirmed
-      propertyConfirmed
       negotiators {
         id
         name
@@ -163,12 +156,6 @@ const listAppointmentsQuery = gql`
       offices {
         id
         name
-      }
-      attendeeConfirmed
-      followUp {
-        due
-        notes
-        responseId
       }
       attendee {
         id
@@ -231,22 +218,11 @@ describe('appointment-resolver', () => {
         start: '2022-01-13T14:00:00Z',
         end: '2022-01-13T14:30:00Z',
         description: '',
-        cancelled: false,
-        recurring: false,
         property: {
           __typename: 'Property',
           id: 'MKT210001',
           type: [],
         },
-        followUp: {
-          __typename: 'AppointmentFollowUp',
-          due: '2022-01-14',
-          notes: '',
-          responseId: '',
-        },
-        propertyConfirmed: false,
-        negotiatorConfirmed: false,
-        attendeeConfirmed: false,
         negotiators: [
           {
             __typename: 'Negotiator',
@@ -307,16 +283,11 @@ describe('appointment-resolver', () => {
               start
               end
               description
-              cancelled
               typeId
               property {
                 type
                 id
               }
-              recurring
-              propertyConfirmed
-              negotiatorConfirmed
-              propertyConfirmed
               negotiators {
                 id
                 name
@@ -324,12 +295,6 @@ describe('appointment-resolver', () => {
               offices {
                 id
                 name
-              }
-              attendeeConfirmed
-              followUp {
-                due
-                notes
-                responseId
               }
               attendee {
                 id
@@ -359,22 +324,11 @@ describe('appointment-resolver', () => {
         start: '2022-01-13T14:00:00Z',
         end: '2022-01-13T14:30:00Z',
         description: '',
-        cancelled: false,
-        recurring: false,
         property: {
           __typename: 'Property',
           id: 'MKT210001',
           type: [],
         },
-        followUp: {
-          __typename: 'AppointmentFollowUp',
-          due: '2022-01-14',
-          notes: '',
-          responseId: '',
-        },
-        propertyConfirmed: false,
-        negotiatorConfirmed: false,
-        attendeeConfirmed: false,
         negotiators: [
           {
             __typename: 'Negotiator',
@@ -404,13 +358,6 @@ describe('appointment-resolver', () => {
               modified
               start
               end
-              recurring
-              cancelled
-              followUp {
-                due
-                responseId
-                notes
-              }
               attendee {
                 type
                 id
@@ -424,10 +371,6 @@ describe('appointment-resolver', () => {
                 }
               }
               organiserId
-              accompanied
-              negotiatorConfirmed
-              attendeeConfirmed
-              propertyConfirmed
 
               negotiatorIds
               officeIds
@@ -441,30 +384,14 @@ describe('appointment-resolver', () => {
             start: '2022-01-13T14:00:00Z',
             end: '2022-01-13T14:30:00Z',
             description: '',
-            cancelled: false,
-            recurring: false,
             propertyId: '',
-            followUp: {
-              due: '2022-01-14',
-              notes: '',
-              responseId: '',
-            },
-            propertyConfirmed: false,
-            negotiatorConfirmed: false,
-            attendeeConfirmed: false,
             attendees: {
               type: '',
               contact: {
                 name: 'test',
               },
             },
-            recurrence: {
-              interval: 12345,
-              type: '',
-              until: '2022-01-18',
-            },
             organiserId: 'sdfgh',
-            accompanied: false,
             negotiatorIds: ['negotiatorIds'],
             officeIds: ['officeIds'],
           },
@@ -485,13 +412,6 @@ describe('appointment-resolver', () => {
               modified
               start
               end
-              recurring
-              cancelled
-              followUp {
-                due
-                responseId
-                notes
-              }
               attendee {
                 type
                 id
@@ -505,10 +425,6 @@ describe('appointment-resolver', () => {
                 }
               }
               organiserId
-              accompanied
-              negotiatorConfirmed
-              attendeeConfirmed
-              propertyConfirmed
 
               negotiatorIds
               officeIds
@@ -523,30 +439,14 @@ describe('appointment-resolver', () => {
             start: '2022-01-13T14:00:00Z',
             end: '2022-01-13T14:30:00Z',
             description: '',
-            cancelled: false,
-            recurring: false,
             propertyId: '',
-            followUp: {
-              due: '2022-01-14',
-              notes: '',
-              responseId: '',
-            },
-            propertyConfirmed: false,
-            negotiatorConfirmed: false,
-            attendeeConfirmed: false,
             attendees: {
               type: '',
               contact: {
                 name: 'test',
               },
             },
-            recurrence: {
-              interval: 12345,
-              type: '',
-              until: '2022-01-18',
-            },
             organiserId: 'sdfgh',
-            accompanied: false,
             negotiatorIds: ['negotiatorIds'],
             officeIds: ['officeIds'],
           },

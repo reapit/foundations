@@ -13,6 +13,7 @@ import { MetadataSchemaType } from '../../utils/extract-metadata'
 
 jest.mock('node-fetch', () => require('fetch-mock-jest').sandbox())
 const fetchMock = require('node-fetch')
+jest.spyOn(console, 'error').mockImplementation(() => {})
 
 const mockQuery = (name: string, variables: Record<string, any> | undefined, data: Record<string, any>) => {
   fetchMock.post(
@@ -58,12 +59,7 @@ const setupCompaniesMocks = () => {
     {
       id: 'MKT22000047',
       name: 'Reapit Company',
-      branch: 'Oxford',
-      notes: null,
       active: false,
-      vatRegistered: false,
-      typeIds: ['SP'],
-      supplierTypeId: null,
       workPhone: '4455667788',
       mobilePhone: null,
       email: 'example@email.com',
@@ -87,12 +83,7 @@ const setupCompaniesMocks = () => {
     {
       id: 'MKT22000047',
       name: 'Reapit Company',
-      branch: 'Oxford',
-      notes: null,
       active: false,
-      vatRegistered: false,
-      typeIds: ['SP'],
-      supplierTypeId: null,
       workPhone: '4455667788',
       mobilePhone: null,
       email: 'example@email.com',
@@ -120,12 +111,7 @@ const listCompaniesQuery = gql`
       created
       modified
       name
-      branch
-      notes
       active
-      vatRegistered
-      typeIds
-      supplierTypeId
       workPhone
       mobilePhone
       email
@@ -183,12 +169,7 @@ describe('company-resolver', () => {
         name: 'Reapit Company',
         created: '2022-04-01T09:12:38.000Z',
         modified: '2022-04-19T06:11:11.000Z',
-        branch: 'Oxford',
-        notes: null,
         active: false,
-        vatRegistered: false,
-        typeIds: ['SP'],
-        supplierTypeId: null,
         workPhone: '4455667788',
         mobilePhone: null,
         email: 'example@email.com',
@@ -217,12 +198,7 @@ describe('company-resolver', () => {
               created
               modified
               name
-              branch
-              notes
               active
-              vatRegistered
-              typeIds
-              supplierTypeId
               workPhone
               mobilePhone
               email
@@ -250,12 +226,7 @@ describe('company-resolver', () => {
         name: 'Reapit Company',
         created: '2022-04-01T09:12:38.000Z',
         modified: '2022-04-19T06:11:11.000Z',
-        branch: 'Oxford',
-        notes: null,
         active: false,
-        vatRegistered: false,
-        typeIds: ['SP'],
-        supplierTypeId: null,
         workPhone: '4455667788',
         mobilePhone: null,
         email: 'example@email.com',
@@ -284,12 +255,7 @@ describe('company-resolver', () => {
               created
               modified
               name
-              branch
-              notes
               active
-              vatRegistered
-              typeIds
-              supplierTypeId
               workPhone
               mobilePhone
               email
@@ -310,12 +276,7 @@ describe('company-resolver', () => {
         variables: {
           input: {
             name: 'Reapit Company',
-            branch: 'Oxford',
-            notes: null,
             active: false,
-            vatRegistered: false,
-            typeIds: ['SP'],
-            supplierTypeId: null,
             workPhone: '4455667788',
             mobilePhone: null,
             email: 'example@email.com',
@@ -346,12 +307,7 @@ describe('company-resolver', () => {
               created
               modified
               name
-              branch
-              notes
               active
-              vatRegistered
-              typeIds
-              supplierTypeId
               workPhone
               mobilePhone
               email
@@ -373,12 +329,7 @@ describe('company-resolver', () => {
           id: 'MKT22000047',
           input: {
             name: 'Reapit Company',
-            branch: 'Oxford',
-            notes: null,
             active: false,
-            vatRegistered: false,
-            typeIds: ['SP'],
-            supplierTypeId: null,
             workPhone: '4455667788',
             mobilePhone: null,
             email: 'example@email.com',

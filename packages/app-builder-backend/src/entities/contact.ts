@@ -12,6 +12,36 @@ registerEnumType(MarketingConsent, {
   name: 'MarketingConsent',
 })
 
+@ObjectType()
+class ContactAddress {
+  @Field({ nullable: true })
+  type?: string
+
+  @Field({ nullable: true })
+  buildingName?: string
+
+  @Field({ nullable: true })
+  buildingNumber?: string
+
+  @Field({ nullable: true })
+  line1?: string
+
+  @Field({ nullable: true })
+  line2?: string
+
+  @Field({ nullable: true })
+  line3?: string
+
+  @Field({ nullable: true })
+  line4?: string
+
+  @Field({ nullable: true })
+  postcode?: string
+
+  @Field({ nullable: true })
+  country?: string
+}
+
 @ObjectType({ description: '@labelKeys(title, forename, surname) @supportsCustomFields()' })
 export class Contact {
   @Field(() => ID)
@@ -30,13 +60,7 @@ export class Contact {
   surname: string
 
   @Field()
-  title: string
-
-  @Field()
   email: string
-
-  @Field(() => MarketingConsent)
-  marketingConsent: MarketingConsent
 
   @Field(() => [Office])
   offices?: Office[]
@@ -65,7 +89,40 @@ export class Contact {
   @Field({ nullable: true })
   communicationPreferencePhone: boolean
 
+  @Field(() => ContactAddress, { nullable: true })
+  primaryAddress?: ContactAddress
+
   metadata?: any
+}
+
+@InputType()
+class ContactAddressInput {
+  @Field({ nullable: true })
+  type?: string
+
+  @Field({ nullable: true })
+  buildingName?: string
+
+  @Field({ nullable: true })
+  buildingNumber?: string
+
+  @Field({ nullable: true })
+  line1?: string
+
+  @Field({ nullable: true })
+  line2?: string
+
+  @Field({ nullable: true })
+  line3?: string
+
+  @Field({ nullable: true })
+  line4?: string
+
+  @Field({ nullable: true })
+  postcode?: string
+
+  @Field({ nullable: true })
+  country?: string
 }
 
 @InputType()
@@ -77,13 +134,7 @@ export class ContactInput {
   surname: string
 
   @Field()
-  title: string
-
-  @Field()
   email: string
-
-  @Field(() => MarketingConsent)
-  marketingConsent: MarketingConsent
 
   @Field(() => [String], { description: '@idOf(Negotiator)' })
   negotiatorIds: string[]
@@ -112,6 +163,9 @@ export class ContactInput {
   @Field({ nullable: true })
   communicationPreferencePhone: boolean
 
+  @Field(() => ContactAddressInput, { nullable: true })
+  primaryAddress?: ContactAddressInput
+
   metadata?: any
 }
 
@@ -120,11 +174,9 @@ export const ContactFragment = gql`
   ${OfficeFragment}
   fragment ContactFragment on ContactModel {
     id
-    title
     forename
     surname
     email
-    marketingConsent
     metadata
     communicationPreferenceLetter
     communicationPreferenceEmail
@@ -135,6 +187,17 @@ export const ContactFragment = gql`
     homePhone
     workPhone
     mobilePhone
+    primaryAddress {
+      type
+      buildingName
+      buildingNumber
+      line1
+      line2
+      line3
+      line4
+      postcode
+      country
+    }
     _embedded {
       offices {
         ...OfficeFragment

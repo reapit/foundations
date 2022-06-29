@@ -5,30 +5,6 @@ import { Office, OfficeFragment } from './office'
 import { Property, PropertyFragment } from './property'
 
 @ObjectType()
-class AppointmentRecurrence {
-  @Field(() => Number)
-  interval?: number
-
-  @Field()
-  type: string
-
-  @Field(() => GraphQLISODateTime)
-  until: Date
-}
-
-@ObjectType()
-class AppointmentFollowUp {
-  @Field()
-  due: string
-
-  @Field()
-  responseId: string
-
-  @Field({ nullable: true })
-  notes: string
-}
-
-@ObjectType()
 class AppointmentContact {
   @Field()
   id: string
@@ -84,18 +60,6 @@ export class Appointment {
   @Field({ nullable: true })
   description?: string
 
-  @Field()
-  recurring: boolean
-
-  @Field(() => AppointmentRecurrence)
-  recurrence: AppointmentRecurrence
-
-  @Field()
-  cancelled: boolean
-
-  @Field(() => AppointmentFollowUp)
-  followUp: AppointmentFollowUp
-
   @Field(() => Property, { nullable: true })
   property?: Property
 
@@ -111,43 +75,7 @@ export class Appointment {
   @Field(() => [AppointmentAttendee])
   attendees: AppointmentAttendee[]
 
-  @Field({ nullable: true })
-  accompanied: boolean
-
-  @Field()
-  negotiatorConfirmed: boolean
-
-  @Field()
-  attendeeConfirmed: boolean
-
-  @Field()
-  propertyConfirmed: boolean
-
   metadata?: any
-}
-
-@InputType()
-class AppointmentRecurrenceInput {
-  @Field(() => Number)
-  interval?: number
-
-  @Field()
-  type: string
-
-  @Field(() => GraphQLISODateTime)
-  until: Date
-}
-
-@InputType()
-class AppointmentFollowUpInput {
-  @Field()
-  due: string
-
-  @Field()
-  responseId: string
-
-  @Field({ nullable: true })
-  notes: string
 }
 
 @InputType()
@@ -191,18 +119,6 @@ export class AppointmentInput {
   @Field({ nullable: true })
   description?: string
 
-  @Field()
-  recurring: boolean
-
-  @Field(() => AppointmentRecurrenceInput)
-  recurrence: AppointmentRecurrenceInput
-
-  @Field()
-  cancelled: boolean
-
-  @Field(() => AppointmentFollowUpInput)
-  followUp: AppointmentFollowUpInput
-
   @Field(() => String, { nullable: true, description: '@idOf(Property)' })
   propertyId?: string
 
@@ -217,18 +133,6 @@ export class AppointmentInput {
 
   @Field(() => [AppointmentAttendeeInput])
   attendees: AppointmentAttendeeInput[]
-
-  @Field()
-  accompanied: boolean
-
-  @Field()
-  negotiatorConfirmed: boolean
-
-  @Field()
-  attendeeConfirmed: boolean
-
-  @Field()
-  propertyConfirmed: boolean
 
   metadata?: any
 }
@@ -262,6 +166,7 @@ export const AppointmentFragment = gql`
         email
       }
     }
+    virtual
     organiserId
     accompanied
     negotiatorConfirmed

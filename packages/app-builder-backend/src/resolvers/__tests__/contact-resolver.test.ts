@@ -13,6 +13,7 @@ import { MetadataSchemaType } from '@/utils/extract-metadata'
 
 jest.mock('node-fetch', () => require('fetch-mock-jest').sandbox())
 const fetchMock = require('node-fetch')
+jest.spyOn(console, 'error').mockImplementation(() => {})
 
 const mockQuery = (name: string, variables: Record<string, any> | undefined, data: Record<string, any>) => {
   fetchMock.post(
@@ -56,11 +57,9 @@ const setupContactsMocks = () => {
   mockQuery(
     'CreateContact',
     {
-      title: 'Mr',
       forename: 'John',
       surname: 'Smith',
       email: 'someone@email.com',
-      marketingConsent: 'grant',
       negotiatorIds: ['HPT'],
       officeIds: ['LDN'],
     },
@@ -72,11 +71,9 @@ const setupContactsMocks = () => {
     'UpdateContact',
     {
       id: 'RPT20000017',
-      title: 'Mr',
       forename: 'John',
       surname: 'Smith',
       email: 'someone@email.com',
-      marketingConsent: 'grant',
       negotiatorIds: ['HPT'],
       officeIds: ['LDN'],
     },
@@ -92,9 +89,7 @@ const listContactsQuery = gql`
       id
       forename
       surname
-      title
       email
-      marketingConsent
     }
   }
 `
@@ -135,11 +130,9 @@ describe('contact-resolver', () => {
       expect(result.data.listContacts[0]).toEqual({
         __typename: 'Contact',
         id: 'RPT20000017',
-        title: 'Mr',
         forename: 'John',
         surname: 'Smith',
         email: 'example@email.com',
-        marketingConsent: 'grant',
       })
     })
   })
@@ -153,9 +146,7 @@ describe('contact-resolver', () => {
               id
               forename
               surname
-              title
               email
-              marketingConsent
             }
           }
         `,
@@ -167,11 +158,9 @@ describe('contact-resolver', () => {
       expect(result.data.searchContacts[0]).toEqual({
         __typename: 'Contact',
         id: 'RPT20000017',
-        title: 'Mr',
         forename: 'John',
         surname: 'Smith',
         email: 'example@email.com',
-        marketingConsent: 'grant',
       })
     })
   })
@@ -185,9 +174,7 @@ describe('contact-resolver', () => {
               id
               forename
               surname
-              title
               email
-              marketingConsent
             }
           }
         `,
@@ -199,11 +186,9 @@ describe('contact-resolver', () => {
       expect(result.data.getContact).toEqual({
         __typename: 'Contact',
         id: 'RPT20000017',
-        title: 'Mr',
         forename: 'John',
         surname: 'Smith',
         email: 'example@email.com',
-        marketingConsent: 'grant',
       })
     })
   })
@@ -217,19 +202,15 @@ describe('contact-resolver', () => {
               id
               forename
               surname
-              title
               email
-              marketingConsent
             }
           }
         `,
         variables: {
           input: {
-            title: 'Mr',
             forename: 'John',
             surname: 'Smith',
             email: 'someone@email.com',
-            marketingConsent: 'grant',
             negotiatorIds: ['HPT'],
             officeIds: ['LDN'],
           },
@@ -248,20 +229,16 @@ describe('contact-resolver', () => {
               id
               forename
               surname
-              title
               email
-              marketingConsent
             }
           }
         `,
         variables: {
           id: 'RPT20000017',
           input: {
-            title: 'Mr',
             forename: 'John',
             surname: 'Smith',
             email: 'someone@email.com',
-            marketingConsent: 'grant',
             negotiatorIds: ['HPT'],
             officeIds: ['LDN'],
           },

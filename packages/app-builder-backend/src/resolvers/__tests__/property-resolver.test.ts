@@ -14,6 +14,7 @@ import { PropertyFragment } from '../../entities/property'
 
 jest.mock('node-fetch', () => require('fetch-mock-jest').sandbox())
 const fetchMock = require('node-fetch')
+jest.spyOn(console, 'error').mockImplementation(() => {})
 
 const mockQuery = (name: string, variables: Record<string, any> | undefined, data: Record<string, any>) => {
   fetchMock.post(
@@ -60,9 +61,9 @@ const setupPropertiesMocks = () => {
       type: ['house'],
       description:
         'We are delighted to offer for sale this EXTENDED THREE BEDROOMED SEMI DETACHED PROPERTY situated in a much sought after residential location of Greasby, having the benefits of two separate entertaining rooms, morning room, extended kitchen. To the first floor there are three bedrooms, spacious family bathroom, gas central heating gardens front and rear and off road parking.',
-      bedrooms: 4,
+      strapline: 'test',
       receptions: 1,
-      bathrooms: 2,
+      rooms: [],
       address: {
         line1: 'Example street',
         line2: 'Solihull',
@@ -76,12 +77,27 @@ const setupPropertiesMocks = () => {
           longitude: 1.777338,
         },
       },
+      parkingSpaces: 3,
+      internetAdvertising: false,
+      notes: '',
+      externalArea: {
+        type: 'type',
+        min: 2,
+        max: 3,
+      },
+      internalArea: {
+        type: 'type',
+        min: 2,
+        max: 3,
+      },
       letting: {
         rent: 750,
         rentFrequency: 'monthly',
       },
       selling: {
         price: 250000,
+        description: 'ste',
+        status: 'srats',
       },
       metadata: {
         CustomField1: 'CustomValue1',
@@ -99,11 +115,11 @@ const setupPropertiesMocks = () => {
       created: '2022-05-05T08:55:03Z',
       modified: '2022-05-05T08:55:03Z',
       type: ['house'],
+      strapline: 'test',
       description:
         'We are delighted to offer for sale this EXTENDED THREE BEDROOMED SEMI DETACHED PROPERTY situated in a much sought after residential location of Greasby, having the benefits of two separate entertaining rooms, morning room, extended kitchen. To the first floor there are three bedrooms, spacious family bathroom, gas central heating gardens front and rear and off road parking.',
-      bedrooms: 4,
       receptions: 1,
-      bathrooms: 2,
+      rooms: [],
       address: {
         line1: 'Example street',
         line2: 'Solihull',
@@ -117,12 +133,28 @@ const setupPropertiesMocks = () => {
           longitude: 1.777338,
         },
       },
+      parkingSpaces: 3,
+      internetAdvertising: false,
+      notes: '',
+      externalArea: {
+        type: 'type',
+        min: 2,
+        max: 3,
+      },
+      internalArea: {
+        type: 'type',
+        min: 2,
+        max: 3,
+      },
       letting: {
         rent: 750,
+        status: 'stat',
         rentFrequency: 'monthly',
       },
       selling: {
         price: 250000,
+        description: 'ste',
+        status: 'srats',
       },
       metadata: {
         CustomField1: 'CustomValue1',
@@ -161,6 +193,7 @@ const listPropertiesQuery = gql`
       created
       modified
       type
+      strapline
       description
       bedrooms
       receptions
@@ -178,12 +211,33 @@ const listPropertiesQuery = gql`
           longitude
         }
       }
+      parkingSpaces
+      internetAdvertising
+      notes
+      externalArea {
+        type
+        min
+        max
+      }
+      internalArea {
+        type
+        min
+        max
+      }
       letting {
         rent
+        status
         rentFrequency
       }
       selling {
         price
+        description
+        status
+      }
+      rooms {
+        name
+        dimensions
+        description
       }
       _embedded {
         images {
@@ -204,6 +258,7 @@ const getPropertyQuery = gql`
       created
       modified
       type
+      strapline
       description
       bedrooms
       receptions
@@ -221,12 +276,33 @@ const getPropertyQuery = gql`
           longitude
         }
       }
+      parkingSpaces
+      internetAdvertising
+      notes
+      externalArea {
+        type
+        min
+        max
+      }
+      internalArea {
+        type
+        min
+        max
+      }
       letting {
         rent
+        status
         rentFrequency
       }
       selling {
         price
+        description
+        status
+      }
+      rooms {
+        name
+        dimensions
+        description
       }
       _embedded {
         images {
@@ -259,11 +335,12 @@ describe('property-resolver', () => {
         id: 'RPT220016',
         created: '2022-05-16T11:31:18.000Z',
         modified: '2022-05-16T11:31:18.000Z',
+        strapline: 'test',
         type: [],
         description: '',
-        bedrooms: 0,
         receptions: 0,
         bathrooms: 0,
+        bedrooms: 0,
         address: {
           __typename: 'PropertyAddress',
           line1: 'New Street',
@@ -279,10 +356,33 @@ describe('property-resolver', () => {
             longitude: -1.894379,
           },
         },
+        parkingSpaces: 3,
+        internetAdvertising: false,
+        notes: '',
+        rooms: [
+          {
+            __typename: 'Room',
+            name: '12312',
+            description: 'rwerew',
+          },
+        ],
+        externalArea: {
+          __typename: 'ExternalArea',
+          type: 'type',
+          min: 2,
+          max: 3,
+        },
+        internalArea: {
+          __typename: 'InternalArea',
+          type: 'type',
+          min: 2,
+          max: 3,
+        },
         letting: null,
         selling: {
           __typename: 'PropertySelling',
           price: 0,
+          status: 'srats',
         },
       })
     })
@@ -302,12 +402,14 @@ describe('property-resolver', () => {
         id: 'MKT220020',
         created: '2022-05-05T08:55:03.000Z',
         modified: '2022-05-05T08:55:03.000Z',
+        strapline: 'test',
         type: ['house'],
+        bathrooms: 2,
+        bedrooms: 4,
         description:
           'We are delighted to offer for sale this EXTENDED THREE BEDROOMED SEMI DETACHED PROPERTY situated in a much sought after residential location of Greasby, having the benefits of two separate entertaining rooms, morning room, extended kitchen. To the first floor there are three bedrooms, spacious family bathroom, gas central heating gardens front and rear and off road parking.',
-        bedrooms: 4,
         receptions: 1,
-        bathrooms: 2,
+        rooms: [],
         address: {
           __typename: 'PropertyAddress',
           line1: 'Example street',
@@ -323,14 +425,31 @@ describe('property-resolver', () => {
             longitude: 1.777338,
           },
         },
+        parkingSpaces: 2,
+        internetAdvertising: false,
+        notes: 'fsdklj',
+        externalArea: {
+          __typename: 'ExternalArea',
+          type: 'type',
+          min: 2,
+          max: 3,
+        },
+        internalArea: {
+          __typename: 'InternalArea',
+          type: 'type',
+          min: 2,
+          max: 3,
+        },
         letting: {
           __typename: 'PropertyLetting',
           rent: 750,
           rentFrequency: 'monthly',
+          status: 'available',
         },
         selling: {
           __typename: 'PropertySelling',
           price: 250000,
+          status: 'available',
         },
       })
     })
@@ -347,6 +466,7 @@ describe('property-resolver', () => {
               created
               modified
               type
+              strapline
               description
               bedrooms
               receptions
@@ -364,12 +484,28 @@ describe('property-resolver', () => {
                   longitude
                 }
               }
+              parkingSpaces
+              internetAdvertising
+              notes
+              externalArea {
+                type
+                min
+                max
+              }
+              internalArea {
+                type
+                min
+                max
+              }
               letting {
                 rent
                 rentFrequency
+                status
               }
               selling {
                 price
+                description
+                status
               }
               _embedded {
                 images {
@@ -385,11 +521,11 @@ describe('property-resolver', () => {
         variables: {
           input: {
             type: ['house'],
+            strapline: 'test',
             description:
               'We are delighted to offer for sale this EXTENDED THREE BEDROOMED SEMI DETACHED PROPERTY situated in a much sought after residential location of Greasby, having the benefits of two separate entertaining rooms, morning room, extended kitchen. To the first floor there are three bedrooms, spacious family bathroom, gas central heating gardens front and rear and off road parking.',
-            bedrooms: 4,
             receptions: 1,
-            bathrooms: 2,
+            rooms: [],
             address: {
               line1: 'Example street',
               line2: 'Solihull',
@@ -403,12 +539,28 @@ describe('property-resolver', () => {
                 longitude: 1.777338,
               },
             },
+            parkingSpaces: 3,
+            internetAdvertising: false,
+            notes: '',
+            externalArea: {
+              type: 'type',
+              min: 2,
+              max: 3,
+            },
+            internalArea: {
+              type: 'type',
+              min: 2,
+              max: 3,
+            },
             letting: {
               rent: 750,
+              status: 'stat',
               rentFrequency: 'monthly',
             },
             selling: {
               price: 250000,
+              description: 'ste',
+              status: 'srats',
             },
           },
         },
@@ -426,6 +578,7 @@ describe('property-resolver', () => {
               id
               created
               modified
+              strapline
               type
               description
               bedrooms
@@ -444,12 +597,28 @@ describe('property-resolver', () => {
                   longitude
                 }
               }
+              parkingSpaces
+              internetAdvertising
+              notes
+              externalArea {
+                type
+                min
+                max
+              }
+              internalArea {
+                type
+                min
+                max
+              }
               letting {
                 rent
+                status
                 rentFrequency
               }
               selling {
                 price
+                description
+                status
               }
               _embedded {
                 images {
@@ -466,11 +635,11 @@ describe('property-resolver', () => {
           id: 'MKT220020',
           input: {
             type: ['house'],
+            strapline: 'test',
             description:
-              'We are delighted to offer for sale this EXTENDED THREE BEDROOMED SEMI DETACHED PROPERTY situated in a much sought after residential location of Greasby, having the benefits of two separate entertaining rooms, morning room, extended kitchen. To the first floor there are three bedrooms, spacious family bathroom, gas central heating gardens front and rear and off road parking.',
-            bedrooms: 4,
+              'We are delighted to offer for sale this EXTENDED   THREE BEDROOMED SEMI DETACHED PROPERTY situated in a much sought after residential location of Greasby, having the benefits of two separate entertaining rooms, morning room, extended kitchen. To the first floor there are three bedrooms, spacious family bathroom, gas central heating gardens front and rear and off road parking.',
             receptions: 1,
-            bathrooms: 2,
+            rooms: [],
             address: {
               line1: 'Example street',
               line2: 'Solihull',
@@ -484,12 +653,28 @@ describe('property-resolver', () => {
                 longitude: 1.777338,
               },
             },
+            parkingSpaces: 3,
+            internetAdvertising: false,
+            notes: '',
+            externalArea: {
+              type: 'type',
+              min: 2,
+              max: 3,
+            },
+            internalArea: {
+              type: 'type',
+              min: 2,
+              max: 3,
+            },
             letting: {
               rent: 750,
+              status: 'stat',
               rentFrequency: 'monthly',
             },
             selling: {
               price: 250000,
+              description: 'ste',
+              status: 'srats',
             },
           },
         },

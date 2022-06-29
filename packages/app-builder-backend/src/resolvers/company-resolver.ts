@@ -28,12 +28,7 @@ const createCompanyMutation = gql`
   ${CompanyFragment}
   mutation CreateCompany(
     $name: String!
-    $branch: String
-    $notes: String
     $active: Boolean
-    $vatRegistered: Boolean
-    $typeIds: [String]
-    $supplierTypeId: String
     $workPhone: String
     $mobilePhone: String
     $email: String!
@@ -42,12 +37,7 @@ const createCompanyMutation = gql`
   ) {
     CreateCompany(
       name: $name
-      branch: $branch
-      notes: $notes
       active: $active
-      vatRegistered: $vatRegistered
-      typeIds: $typeIds
-      supplierTypeId: $supplierTypeId
       workPhone: $workPhone
       mobilePhone: $mobilePhone
       email: $email
@@ -64,12 +54,7 @@ const updateCompanyMutation = gql`
   mutation UpdateCompany(
     $id: String!
     $name: String!
-    $branch: String
-    $notes: String
     $active: Boolean
-    $vatRegistered: Boolean
-    $typeIds: [String]
-    $supplierTypeId: String
     $workPhone: String
     $mobilePhone: String
     $email: String!
@@ -79,12 +64,7 @@ const updateCompanyMutation = gql`
     UpdateCompany(
       id: $id
       name: $name
-      branch: $branch
-      notes: $notes
       active: $active
-      vatRegistered: $vatRegistered
-      typeIds: $typeIds
-      supplierTypeId: $supplierTypeId
       workPhone: $workPhone
       mobilePhone: $mobilePhone
       email: $email

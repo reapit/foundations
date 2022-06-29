@@ -8,6 +8,10 @@ export const mockProperty = {
   bedrooms: 4,
   receptions: 1,
   bathrooms: 2,
+  strapline: 'test',
+  parkingSpaces: 2,
+  internetAdvertising: false,
+  notes: 'fsdklj',
   address: {
     line1: 'Example street',
     line2: 'Solihull',
@@ -24,12 +28,26 @@ export const mockProperty = {
   letting: {
     rent: 750,
     rentFrequency: 'monthly',
+    status: 'available',
   },
+  rooms: [],
   selling: {
     price: 250000,
+    status: 'available',
+    description: 'ste',
   },
   metadata: {
     CustomField1: 'CustomValue1',
     CustomField2: true,
+  },
+  externalArea: {
+    type: 'type',
+    min: 2,
+    max: 3,
+  },
+  internalArea: {
+    type: 'type',
+    min: 2,
+    max: 3,
   },
 }

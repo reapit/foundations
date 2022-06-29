@@ -4,28 +4,31 @@ import { Field, GraphQLISODateTime, InputType, ObjectType } from 'type-graphql'
 @ObjectType()
 class CompanyAddress {
   @Field({ nullable: true })
-  buildingName: string
+  type?: string
 
   @Field({ nullable: true })
-  buildingNumber: string
+  buildingName?: string
 
   @Field({ nullable: true })
-  line1: string
+  buildingNumber?: string
 
   @Field({ nullable: true })
-  line2: string
+  line1?: string
 
   @Field({ nullable: true })
-  line3: string
+  line2?: string
 
   @Field({ nullable: true })
-  line4: string
+  line3?: string
 
   @Field({ nullable: true })
-  postcode: string
+  line4?: string
 
   @Field({ nullable: true })
-  country: string
+  postcode?: string
+
+  @Field({ nullable: true })
+  country?: string
 }
 
 @ObjectType()
@@ -46,22 +49,7 @@ export class Company {
   name: string
 
   @Field()
-  branch: string
-
-  @Field({ nullable: true })
-  notes: string
-
-  @Field()
   active: boolean
-
-  @Field()
-  vatRegistered: boolean
-
-  @Field(() => [String])
-  typeIds: string[]
-
-  @Field({ nullable: true })
-  supplierTypeId: string
 
   @Field({ nullable: true })
   workPhone: string
@@ -78,28 +66,31 @@ export class Company {
 @InputType()
 export class CompanyAddressInput {
   @Field({ nullable: true })
-  buildingName: string
+  type?: string
 
   @Field({ nullable: true })
-  buildingNumber: string
+  buildingName?: string
 
   @Field({ nullable: true })
-  line1: string
+  buildingNumber?: string
 
   @Field({ nullable: true })
-  line2: string
+  line1?: string
 
   @Field({ nullable: true })
-  line3: string
+  line2?: string
 
   @Field({ nullable: true })
-  line4: string
+  line3?: string
 
   @Field({ nullable: true })
-  postcode: string
+  line4?: string
 
   @Field({ nullable: true })
-  country: string
+  postcode?: string
+
+  @Field({ nullable: true })
+  country?: string
 }
 
 @InputType()
@@ -111,22 +102,7 @@ export class CompanyInput {
   name: string
 
   @Field()
-  branch: string
-
-  @Field({ nullable: true })
-  notes: string
-
-  @Field()
   active: boolean
-
-  @Field()
-  vatRegistered: boolean
-
-  @Field(() => [String])
-  typeIds: string[]
-
-  @Field({ nullable: true })
-  supplierTypeId: string
 
   @Field({ nullable: true })
   workPhone: string
@@ -146,17 +122,13 @@ export const CompanyFragment = gql`
     created
     modified
     name
-    branch
-    notes
     active
-    vatRegistered
-    typeIds
-    supplierTypeId
     workPhone
     mobilePhone
     email
     metadata
     address {
+      type
       buildingName
       buildingNumber
       line1

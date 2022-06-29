@@ -5,6 +5,7 @@ export const mockProperties = {
       created: '2022-05-16T11:31:18Z',
       modified: '2022-05-16T11:31:18Z',
       type: [],
+      strapline: 'test',
       description: '',
       bedrooms: 0,
       receptions: 0,
@@ -23,9 +24,31 @@ export const mockProperties = {
         },
       },
       letting: null,
+      parkingSpaces: 3,
+      internetAdvertising: false,
+      notes: '',
+      externalArea: {
+        type: 'type',
+        min: 2,
+        max: 3,
+      },
+      internalArea: {
+        type: 'type',
+        min: 2,
+        max: 3,
+      },
       selling: {
         price: 0,
+        description: 'ste',
+        status: 'srats',
       },
+      rooms: [
+        {
+          name: '12312',
+          description: 'rwerew',
+          dimensions: 'sdfsd',
+        },
+      ],
       _embedded: null,
       metadata: {},
     },
@@ -34,6 +57,7 @@ export const mockProperties = {
       created: '2022-05-05T08:55:03Z',
       modified: '2022-05-05T08:55:03Z',
       type: ['house'],
+      strapline: 'test',
       description:
         'We are delighted to offer for sale this EXTENDED THREE BEDROOMED SEMI DETACHED PROPERTY situated in a much sought after residential location of Greasby, having the benefits of two separate entertaining rooms, morning room, extended kitchen. To the first floor there are three bedrooms, spacious family bathroom, gas central heating gardens front and rear and off road parking.',
       bedrooms: 4,
@@ -52,12 +76,35 @@ export const mockProperties = {
           longitude: 1.777338,
         },
       },
+      parkingSpaces: 3,
+      internetAdvertising: false,
+      notes: '',
+      externalArea: {
+        type: 'type',
+        min: 2,
+        max: 3,
+      },
+      internalArea: {
+        type: 'type',
+        min: 2,
+        max: 3,
+      },
       letting: {
+        status: 'srats',
         rent: 750,
         rentFrequency: 'monthly',
       },
+      rooms: [
+        {
+          name: '12312',
+          description: 'rwerew',
+          dimensions: 'sdfsd',
+        },
+      ],
       selling: {
         price: 250000,
+        description: 'ste',
+        status: 'srats',
       },
       _embedded: null,
       metadata: {
@@ -70,6 +117,14 @@ export const mockProperties = {
       created: '2022-05-05T08:54:49Z',
       modified: '2022-05-05T08:54:49Z',
       type: ['house'],
+      rooms: [
+        {
+          name: '12312',
+          description: 'rwerew',
+          dimensions: 'sdfsd',
+        },
+      ],
+      strapline: 'test',
       description:
         'We are delighted to offer for sale this EXTENDED THREE BEDROOMED SEMI DETACHED PROPERTY situated in a much sought after residential location of Greasby, having the benefits of two separate entertaining rooms, morning room, extended kitchen. To the first floor there are three bedrooms, spacious family bathroom, gas central heating gardens front and rear and off road parking.',
       bedrooms: 4,
@@ -88,12 +143,28 @@ export const mockProperties = {
           longitude: 1.777338,
         },
       },
+      parkingSpaces: 3,
+      internetAdvertising: false,
+      notes: '',
+      externalArea: {
+        type: 'type',
+        min: 2,
+        max: 3,
+      },
+      internalArea: {
+        type: 'type',
+        min: 2,
+        max: 3,
+      },
       letting: {
+        status: 'srats',
         rent: 750,
         rentFrequency: 'monthly',
       },
       selling: {
         price: 250000,
+        description: 'ste',
+        status: 'srats',
       },
       _embedded: null,
       metadata: {
@@ -106,6 +177,14 @@ export const mockProperties = {
       created: '2022-04-19T11:49:30Z',
       modified: '2022-04-29T01:45:34Z',
       type: ['house'],
+      rooms: [
+        {
+          name: '12312',
+          description: 'rwerew',
+          dimensions: 'sdfsd',
+        },
+      ],
+      strapline: 'test',
       description:
         'We are delighted to offer for sale this EXTENDED THREE BEDROOMED SEMI DETACHED PROPERTY situated in a much sought after residential location of Greasby, having the benefits of two separate entertaining rooms, morning room, extended kitchen. To the first floor there are three bedrooms, spacious family bathroom, gas central heating gardens front and rear and off road parking.',
       bedrooms: 4,
@@ -124,12 +203,28 @@ export const mockProperties = {
           longitude: 1.777338,
         },
       },
+      parkingSpaces: 3,
+      internetAdvertising: false,
+      notes: '',
+      externalArea: {
+        type: 'type',
+        min: 2,
+        max: 3,
+      },
+      internalArea: {
+        type: 'type',
+        min: 2,
+        max: 3,
+      },
       letting: {
+        status: 'srats',
         rent: 750,
         rentFrequency: 'monthly',
       },
       selling: {
         price: 250000,
+        description: 'ste',
+        status: 'srats',
       },
       _embedded: null,
       metadata: {
@@ -142,6 +237,14 @@ export const mockProperties = {
       created: '2022-04-08T12:18:55Z',
       modified: '2022-04-08T12:20:26Z',
       type: ['house'],
+      rooms: [
+        {
+          name: '12312',
+          description: 'rwerew',
+          dimensions: 'sdfsd',
+        },
+      ],
+      strapline: 'test',
       description: 'Here is my new description. Bonza!.',
       bedrooms: 4,
       receptions: 1,
@@ -159,12 +262,28 @@ export const mockProperties = {
           longitude: 1.777338,
         },
       },
+      parkingSpaces: 3,
+      internetAdvertising: false,
+      notes: '',
+      externalArea: {
+        type: 'type',
+        min: 2,
+        max: 3,
+      },
+      internalArea: {
+        type: 'type',
+        min: 2,
+        max: 3,
+      },
       letting: {
+        status: 'srats',
         rent: 750,
         rentFrequency: 'monthly',
       },
       selling: {
         price: 250000,
+        description: 'ste',
+        status: 'srats',
       },
       _embedded: null,
       metadata: {
@@ -177,6 +296,14 @@ export const mockProperties = {
       created: '2022-04-01T09:39:58Z',
       modified: '2022-04-19T08:54:53Z',
       type: ['house'],
+      rooms: [
+        {
+          name: '12312',
+          description: 'rwerew',
+          dimensions: 'sdfsd',
+        },
+      ],
+      strapline: 'test',
       description:
         'We are delighted to offer for sale this EXTENDED THREE BEDROOMED SEMI DETACHED PROPERTY situated in a much sought after residential location of Greasby, having the benefits of two separate entertaining rooms, morning room, extended kitchen. To the first floor there are three bedrooms, spacious family bathroom, gas central heating gardens front and rear and off road parking.',
       bedrooms: 4,
@@ -195,12 +322,28 @@ export const mockProperties = {
           longitude: 1.777338,
         },
       },
+      parkingSpaces: 3,
+      internetAdvertising: false,
+      notes: '',
+      externalArea: {
+        type: 'type',
+        min: 2,
+        max: 3,
+      },
+      internalArea: {
+        type: 'type',
+        min: 2,
+        max: 3,
+      },
       letting: {
+        status: 'srats',
         rent: 750,
         rentFrequency: 'monthly',
       },
       selling: {
         price: 250000,
+        description: 'ste',
+        status: 'srats',
       },
       _embedded: null,
       metadata: {
@@ -213,6 +356,14 @@ export const mockProperties = {
       created: '2022-04-01T09:39:35Z',
       modified: '2022-04-01T09:39:35Z',
       type: ['house'],
+      rooms: [
+        {
+          name: '12312',
+          description: 'rwerew',
+          dimensions: 'sdfsd',
+        },
+      ],
+      strapline: 'test',
       description:
         'We are delighted to offer for sale this EXTENDED THREE BEDROOMED SEMI DETACHED PROPERTY situated in a much sought after residential location of Greasby, having the benefits of two separate entertaining rooms, morning room, extended kitchen. To the first floor there are three bedrooms, spacious family bathroom, gas central heating gardens front and rear and off road parking.',
       bedrooms: 4,
@@ -231,12 +382,28 @@ export const mockProperties = {
           longitude: 1.777338,
         },
       },
+      parkingSpaces: 3,
+      internetAdvertising: false,
+      notes: '',
+      externalArea: {
+        type: 'type',
+        min: 2,
+        max: 3,
+      },
+      internalArea: {
+        type: 'type',
+        min: 2,
+        max: 3,
+      },
       letting: {
+        status: 'srats',
         rent: 750,
         rentFrequency: 'monthly',
       },
       selling: {
         price: 250000,
+        description: 'ste',
+        status: 'srats',
       },
       _embedded: null,
       metadata: {
@@ -249,6 +416,14 @@ export const mockProperties = {
       created: '2022-04-01T09:38:47Z',
       modified: '2022-04-01T09:38:47Z',
       type: ['house'],
+      rooms: [
+        {
+          name: '12312',
+          description: 'rwerew',
+          dimensions: 'sdfsd',
+        },
+      ],
+      strapline: 'test',
       description:
         'We are delighted to offer for sale this EXTENDED THREE BEDROOMED SEMI DETACHED PROPERTY situated in a much sought after residential location of Greasby, having the benefits of two separate entertaining rooms, morning room, extended kitchen. To the first floor there are three bedrooms, spacious family bathroom, gas central heating gardens front and rear and off road parking.',
       bedrooms: 4,
@@ -267,12 +442,28 @@ export const mockProperties = {
           longitude: 1.777338,
         },
       },
+      parkingSpaces: 3,
+      internetAdvertising: false,
+      notes: '',
+      externalArea: {
+        type: 'type',
+        min: 2,
+        max: 3,
+      },
+      internalArea: {
+        type: 'type',
+        min: 2,
+        max: 3,
+      },
       letting: {
+        status: 'srats',
         rent: 750,
         rentFrequency: 'monthly',
       },
       selling: {
         price: 250000,
+        description: 'ste',
+        status: 'srats',
       },
       _embedded: null,
       metadata: {
@@ -285,6 +476,14 @@ export const mockProperties = {
       created: '2022-04-01T09:29:56Z',
       modified: '2022-04-01T09:29:56Z',
       type: ['house'],
+      rooms: [
+        {
+          name: '12312',
+          description: 'rwerew',
+          dimensions: 'sdfsd',
+        },
+      ],
+      strapline: 'test',
       description:
         'We are delighted to offer for sale this EXTENDED THREE BEDROOMED SEMI DETACHED PROPERTY situated in a much sought after residential location of Greasby, having the benefits of two separate entertaining rooms, morning room, extended kitchen. To the first floor there are three bedrooms, spacious family bathroom, gas central heating gardens front and rear and off road parking.',
       bedrooms: 4,
@@ -303,12 +502,28 @@ export const mockProperties = {
           longitude: 1.777338,
         },
       },
+      parkingSpaces: 3,
+      internetAdvertising: false,
+      notes: '',
+      externalArea: {
+        type: 'type',
+        min: 2,
+        max: 3,
+      },
+      internalArea: {
+        type: 'type',
+        min: 2,
+        max: 3,
+      },
       letting: {
+        status: 'srats',
         rent: 750,
         rentFrequency: 'monthly',
       },
       selling: {
         price: 250000,
+        description: 'ste',
+        status: 'srats',
       },
       _embedded: null,
       metadata: {

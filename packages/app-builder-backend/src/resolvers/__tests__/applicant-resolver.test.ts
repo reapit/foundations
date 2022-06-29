@@ -14,6 +14,8 @@ import { MetadataSchemaType } from '@/utils/extract-metadata'
 jest.mock('node-fetch', () => require('fetch-mock-jest').sandbox())
 const fetchMock = require('node-fetch')
 
+jest.spyOn(console, 'error').mockImplementation(() => {})
+
 const mockQuery = (name: string, variables: Record<string, any> | undefined, data: Record<string, any>) => {
   fetchMock.post(
     (url, options) => {
@@ -61,24 +63,15 @@ const setupApplicantsMocks = () => {
       currency: 'GBP',
       active: true,
       notes: 'Looking to move his mother back into the area',
-      lastCall: '2019-11-12',
-      nextCall: '2022-12-29',
       type: ['house', 'maisonette', 'cottage'],
       style: ['detached', 'semiDetached'],
       situation: ['garden', 'patio'],
       parking: ['garage'],
-      age: ['period'],
-      locality: ['rural'],
-      bedroomsMin: 23,
-      bedroomsMax: 25,
+      description: '',
       receptionsMin: 1,
       receptionsMax: 2,
-      bathroomsMin: 1,
-      bathroomsMax: 0,
-      locationType: 'areas',
       negotiatorIds: [],
       officeIds: [],
-      locationOptions: ['SOL', 'BHM', 'WLV'],
       buying: {
         priceFrom: 250000,
         priceTo: 275000,
@@ -92,10 +85,7 @@ const setupApplicantsMocks = () => {
         type: 'squareFeet',
         amount: 1500,
       },
-      source: {
-        id: 'RMV',
-        type: 'source',
-      },
+      contactId: '',
     },
     {
       CreateApplicant: mockApplicant,
@@ -107,6 +97,7 @@ const setupApplicantsMocks = () => {
       id: 'MKT220017',
       marketingMode: 'buying',
       currency: 'GBP',
+      description: '',
       active: true,
       notes: 'Looking to move his mother back into the area',
       lastCall: '2019-11-12',
@@ -115,16 +106,12 @@ const setupApplicantsMocks = () => {
       style: ['detached', 'semiDetached'],
       situation: ['garden', 'patio'],
       parking: ['garage'],
-      age: ['period'],
-      locality: ['rural'],
       bedroomsMin: 23,
       bedroomsMax: 25,
       receptionsMin: 1,
       receptionsMax: 2,
       bathroomsMin: 1,
       bathroomsMax: 0,
-      locationType: 'areas',
-      locationOptions: ['SOL', 'BHM', 'WLV'],
       buying: {
         priceFrom: 250000,
         priceTo: 275000,
@@ -140,10 +127,7 @@ const setupApplicantsMocks = () => {
         type: 'squareFeet',
         amount: 1500,
       },
-      source: {
-        id: 'RMV',
-        type: 'source',
-      },
+      contactId: '',
     },
     {
       UpdateApplicant: mockApplicant,
@@ -215,38 +199,6 @@ describe('applicant-resolver', () => {
     })
   })
 
-  // describe('searchContacts', () => {
-  //   it('should return contacts', async () => {
-  //     const result = await client.query({
-  //       query: gql`
-  //         query SearchContacts($query: String!) {
-  //           searchContacts(query: $query) {
-  //             id
-  //             forename
-  //             surname
-  //             title
-  //             email
-  //             marketingConsent
-  //           }
-  //         }
-  //       `,
-  //       variables: {
-  //         query: 'Smith',
-  //       },
-  //     })
-  //     expect(result.data.searchContacts).toBeDefined()
-  //     expect(result.data.searchContacts[0]).toEqual({
-  //       __typename: 'Contact',
-  //       id: 'RPT20000017',
-  //       title: 'Mr',
-  //       forename: 'John',
-  //       surname: 'Smith',
-  //       email: 'example@email.com',
-  //       marketingConsent: 'grant',
-  //     })
-  //   })
-  // })
-
   describe('getApplicant', () => {
     it('should return applicant', async () => {
       const result = await client.query({
@@ -301,16 +253,12 @@ describe('applicant-resolver', () => {
               style
               situation
               parking
-              age
-              locality
               bedroomsMin
               bedroomsMax
               receptionsMin
               receptionsMax
               bathroomsMin
               bathroomsMax
-              locationType
-              locationOptions
               buying {
                 priceFrom
                 priceTo
@@ -324,10 +272,6 @@ describe('applicant-resolver', () => {
                 type
                 amount
               }
-              source {
-                id
-                type
-              }
               negotiatorIds
               officeIds
             }
@@ -335,6 +279,7 @@ describe('applicant-resolver', () => {
         `,
         variables: {
           input: {
+            departmentId: 'MKT220017',
             marketingMode: 'buying',
             currency: 'GBP',
             active: true,
@@ -345,16 +290,13 @@ describe('applicant-resolver', () => {
             style: ['detached', 'semiDetached'],
             situation: ['garden', 'patio'],
             parking: ['garage'],
-            age: ['period'],
-            locality: ['rural'],
+            description: '',
             bedroomsMin: 23,
             bedroomsMax: 25,
             receptionsMin: 1,
             receptionsMax: 2,
             bathroomsMin: 1,
             bathroomsMax: 0,
-            locationType: 'areas',
-            locationOptions: ['SOL', 'BHM', 'WLV'],
             buying: {
               priceFrom: 250000,
               priceTo: 275000,
@@ -368,12 +310,9 @@ describe('applicant-resolver', () => {
               type: 'squareFeet',
               amount: 1500,
             },
-            source: {
-              id: 'RMV',
-              type: 'source',
-            },
             negotiatorIds: ['negotiatorIds'],
             officeIds: ['officeIds'],
+            contactId: '',
           },
         },
       })
@@ -397,16 +336,12 @@ describe('applicant-resolver', () => {
               style
               situation
               parking
-              age
-              locality
               bedroomsMin
               bedroomsMax
               receptionsMin
               receptionsMax
               bathroomsMin
               bathroomsMax
-              locationType
-              locationOptions
               buying {
                 priceFrom
                 priceTo
@@ -420,10 +355,6 @@ describe('applicant-resolver', () => {
                 type
                 amount
               }
-              source {
-                id
-                type
-              }
               negotiatorIds
               officeIds
             }
@@ -433,6 +364,7 @@ describe('applicant-resolver', () => {
           id: 'MKT220017',
           input: {
             marketingMode: 'buying',
+            departmentId: 'MKT220017',
             currency: 'GBP',
             active: true,
             notes: 'Looking to move his mother back into the area',
@@ -442,16 +374,14 @@ describe('applicant-resolver', () => {
             style: ['detached', 'semiDetached'],
             situation: ['garden', 'patio'],
             parking: ['garage'],
-            age: ['period'],
-            locality: ['rural'],
+            description: '',
             bedroomsMin: 23,
             bedroomsMax: 25,
+            contactId: '',
             receptionsMin: 1,
             receptionsMax: 2,
             bathroomsMin: 1,
             bathroomsMax: 0,
-            locationType: 'areas',
-            locationOptions: ['SOL', 'BHM', 'WLV'],
             buying: {
               priceFrom: 250000,
               priceTo: 275000,
@@ -464,10 +394,6 @@ describe('applicant-resolver', () => {
             internalArea: {
               type: 'squareFeet',
               amount: 1500,
-            },
-            source: {
-              id: 'RMV',
-              type: 'source',
             },
             negotiatorIds: ['negotiatorIds'],
             officeIds: ['officeIds'],
