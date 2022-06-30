@@ -1,5 +1,5 @@
 import { cx } from '@linaria/core'
-import React, { Dispatch, FC, HTMLAttributes, SetStateAction, useState, MouseEvent } from 'react'
+import React, { Dispatch, FC, HTMLAttributes, SetStateAction, useState, MouseEvent, ReactNode } from 'react'
 import {
   CardWrap,
   CardHeading,
@@ -39,8 +39,8 @@ import { useMediaQuery } from '../../hooks/use-media-query'
 
 export interface CardListItemProps {
   // Card list items have a heading, a sub heading an icon name from our icon list and an onClick action
-  listCardItemHeading?: string
-  listCardItemSubHeading?: string
+  listCardItemHeading?: ReactNode
+  listCardItemSubHeading?: ReactNode
   listCardItemIcon?: IconNames
   onClick?: () => void
 }
@@ -60,18 +60,18 @@ export interface CardContextMenuProps extends HTMLAttributes<HTMLDivElement> {
 export interface CardProps extends HTMLAttributes<HTMLDivElement> {
   hasMainCard?: boolean // Should we render an Image card as the main card?
   // Supplied text options for the various fields
-  mainCardHeading?: string
-  mainCardSubHeading?: string
-  mainCardSubHeadingAdditional?: string
-  mainCardBody?: string
-  mainCardImgUrl?: string
+  mainCardHeading?: ReactNode
+  mainCardSubHeading?: ReactNode
+  mainCardSubHeadingAdditional?: ReactNode
+  mainCardBody?: ReactNode
+  mainCardImgUrl?: ReactNode
   // A list of context menu options
   mainContextMenuItems?: ContextMenuItem[]
   // Should we render a bottom list section. If supplied without hasMainCard, will just render a list
   hasListCard?: boolean
   // Heading strings for the list
-  listCardHeading?: string
-  listCardSubHeading?: string
+  listCardHeading?: ReactNode
+  listCardSubHeading?: ReactNode
   listCardItems?: CardListItemProps[] // A list of options for the list - see CardList item above
   listContextMenuItems?: ContextMenuItem[]
   isSelected?: boolean // Does the card have the blue selected border
@@ -177,7 +177,7 @@ export const Card: FC<CardProps> = ({
           <CardMainWrap>
             {mainCardImgUrl && (
               <CardImageWrap>
-                <img src={mainCardImgUrl} />
+                {typeof mainCardImgUrl === 'string' ? <img src={mainCardImgUrl} /> : mainCardImgUrl}
               </CardImageWrap>
             )}
             <CardHeadingWrap>

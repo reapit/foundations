@@ -1,0 +1,34 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import { PlaceholderImage } from './index'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+
+<Meta title="PlaceholderImage" component={PlaceholderImage} />
+
+# PlaceholderImage
+
+The placeholder image component works very similarly to the Icon component. You can specify from a choice of placeholders by name and specify a size as a numeric value (of pixels), for the image to be scaled to within the placholder container.
+
+For non-React users, we export all the icons from `@reapit/elements/assets` where they are grouped in the `placholder-images` folder eg `import placeholderSmall from "@reapit/elements/assets/placholder-images/placeholderSmall.svg"`. You can then wrap your SVG in the appropriate classes you see in the rendered markup with each story in these docs.
+
+<ArgsTable story="Basic Usage" />
+
+## Basic Usage
+
+For a basic icon, just select a placholder name from one of the tables below and set a size in pixels.
+
+<Canvas>
+  <Story name="Basic Usage">
+    <PlaceholderImage placeholder="placeholderSmall" size={100} />
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="PlaceholderImage" story={['Basic Usage']} />
+
+## Placeholder Images
+
+See below for the images we currently export from the project.
+
+| Icon Name        | Largest Icon                                                   |
+| ---------------- | -------------------------------------------------------------- |
+| placeholderSmall | <PlaceholderImage placeholder="placeholderSmall" size={100} /> |
+| placeholderLarge | <PlaceholderImage placeholder="placeholderLarge" size={400} /> |

@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { useReapitGet } from '@reapit/utils-react'
-import { BodyText, Button, elHFull, FlexContainer, Subtitle } from '@reapit/elements'
+import { BodyText, Button, elHFull, FlexContainer, PlaceholderImage, Subtitle } from '@reapit/elements'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import { AppsBrowseConfigItem } from './use-apps-browse-state'
 import {
@@ -39,7 +39,7 @@ export const FeaturedHeroAppsCollection: FC<FeaturedHeroAppsCollectionProps> = (
 
   const app = appDetail ?? {}
   const { name, media, summary, category } = app
-  const iconUri = media?.find((item) => item.type === 'icon')?.uri ?? 'https://fakeimg.pl/96x96/fff?text=-'
+  const iconUri = media?.find((item) => item.type === 'icon')?.uri
 
   return (
     <FeaturedHeroAppsCol>
@@ -52,7 +52,11 @@ export const FeaturedHeroAppsCollection: FC<FeaturedHeroAppsCollectionProps> = (
         >
           <FlexContainer className={cx(elHFull, heroAppsFlexToggle)}>
             <FeaturedHeroAppsContentContainer>
-              <FeaturedHeroAppsIcon src={iconUri} alt={name} />
+              {iconUri ? (
+                <FeaturedHeroAppsIcon src={iconUri} alt={name} />
+              ) : (
+                <PlaceholderImage placeholder="placeholderSmall" size={96} />
+              )}
               <Subtitle className={heroAppsTitle} hasBoldText hasNoMargin>
                 {name}
               </Subtitle>

@@ -35,6 +35,7 @@ export const ElCardHeadingWrap = styled.div`
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  width: 100%;
 `
 
 export const ElCardMainWrap = styled.div`

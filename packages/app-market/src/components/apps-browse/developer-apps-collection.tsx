@@ -3,11 +3,12 @@ import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { useReapitGet } from '@reapit/utils-react'
-import { BodyText, elMr3, FlexContainer, Icon, Subtitle } from '@reapit/elements'
+import { BodyText, elMr3, FlexContainer, Icon, Subtitle, PlaceholderImage } from '@reapit/elements'
 import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
 import {
   AppIcon,
   appTitleOneLine,
+  appTitleThreeLine,
   DeveloperAppsCol,
   DeveloperAppsColHelper,
   DeveloperAppsGrid,
@@ -35,8 +36,8 @@ export const DeveloperAppsCollection: FC = () => {
           <DeveloperAppsGrid>
             <DeveloperAppsColHelper>
               <FlexContainer isFlexAlignCenter>
-                <Icon className={elMr3} icon="webDeveloperInfographic" fontSize="5rem" />
-                <BodyText hasGreyText hasNoMargin>
+                <Icon className={elMr3} icon="developerAppsInfographic" fontSize="5rem" />
+                <BodyText className={appTitleThreeLine} hasGreyText hasNoMargin>
                   Apps you are currently developing show here. These will not be visible to users until approved for
                   public listing.
                 </BodyText>
@@ -45,7 +46,11 @@ export const DeveloperAppsCollection: FC = () => {
             {apps.data.map(({ id, name, iconUri }) => (
               <DeveloperAppsCol key={id}>
                 <FlexContainer isFlexAlignCenter>
-                  <AppIcon src={iconUri ?? 'https://fakeimg.pl/24x24/fff?text=?'} alt={name} />
+                  {iconUri ? (
+                    <AppIcon src={iconUri} alt={name} />
+                  ) : (
+                    <PlaceholderImage placeholder="placeholderSmall" size={24} />
+                  )}
                   <BodyText className={appTitleOneLine} hasBoldText hasNoMargin>
                     {name}
                   </BodyText>
