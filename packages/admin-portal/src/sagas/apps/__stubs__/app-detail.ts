@@ -10,7 +10,7 @@ export const appDetailDataStub: { data: AppDetailItem } = {
     developer: "Pete's Proptech World Ltd",
     supportEmail: 'support@reapit.com',
     telephone: '0113 288 2900',
-    homePage: 'http://myawesomeproptechproduct.io',
+    homePage: 'https://myawesomeproptechproduct.io',
     media: [
       {
         uri: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/7d88729f-2366-4561-9d5c-282615f3946b.jpeg',

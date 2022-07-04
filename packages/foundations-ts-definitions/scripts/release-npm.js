@@ -1,4 +1,4 @@
-const { execSync } = require('child_process')
+const { spawnSync } = require('child_process')
 const { getVersionTag } = require('@reapit/ts-scripts')
 const publishTimeStampTag = require('./publish-time-stamp-tag')
 const { FOUNDATIONS_ROOT_FOLDER } = require('./constants')
@@ -15,7 +15,7 @@ const releaseProd = async () => {
 
   if (packageName === packageNameOnTag) {
     // release npm
-    execSync(`cd ${FOUNDATIONS_ROOT_FOLDER} && yarn publish`)
+    spawnSync(`cd ${FOUNDATIONS_ROOT_FOLDER} && yarn publish`, { shell: false })
     publishTimeStampTag()
   }
 }

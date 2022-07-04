@@ -117,7 +117,7 @@ export const FlexContainer: FC<ContainerFlexProps> = ({
     isFlexAlignCenter && elFlexAlignCenter,
     isFlexAlignStart && elFlexAlignStart,
     isFlexAlignEnd && elFlexAlignEnd,
-    className && className,
+    className,
   )
 
   return (

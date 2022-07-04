@@ -55,7 +55,7 @@ describe('fetcherWithReturnHeader', () => {
     })
 
     const fetcherWithReturnHeaderParams = {
-      api: 'http://some-api/',
+      api: 'https://some-api/',
       url: 'some-url',
       method: 'GET' as any,
       headers: {},
@@ -72,7 +72,7 @@ describe('fetcherWithReturnHeader', () => {
     })
 
     const url = '/some-url'
-    const api = 'http://some-api/'
+    const api = 'https://some-api/'
     try {
       const response = await fetcherWithReturnHeader({
         api,
@@ -96,7 +96,7 @@ describe('fetcherWithBob', () => {
     })
 
     const response = await fetcherWithBlob({
-      api: 'http://some-api/',
+      api: 'https://some-api/',
       url: 'some-url',
       method: 'GET',
       headers: {},
@@ -112,7 +112,7 @@ describe('fetcherWithBob', () => {
     })
 
     const url = '/some-url'
-    const api = 'http://some-api/'
+    const api = 'https://some-api/'
     try {
       const response = await fetcherWithBlob({
         api,
@@ -136,7 +136,7 @@ describe('fetcher', () => {
     })
 
     const response = await fetcher({
-      api: 'http://some-api/',
+      api: 'https://some-api/',
       url: 'some-url',
       method: 'GET',
       headers: {},
@@ -152,7 +152,7 @@ describe('fetcher', () => {
     })
 
     const url = '/some-url'
-    const api = 'http://some-api/'
+    const api = 'https://some-api/'
     try {
       const response = await fetcher({
         api,

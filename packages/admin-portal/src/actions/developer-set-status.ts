@@ -18,7 +18,7 @@ export const setRequestDeveloperStatusFormStateFailed = actionCreator<void>(
 export const setRequestDeveloperStatusFormStateSuccess = actionCreator<void>(
   ActionTypes.SET_DEVELOPER_STATUS_FORM_STATE_SUCCESS,
 )
-1
+
 export const initRequestDeveloperStatusFormState = actionCreator<void>(
   ActionTypes.INIT_REQUEST_DEVELOPER_STATUS_FORM_STATE,
 )

@@ -147,7 +147,7 @@ export const GridResponsive: FC<GridResponsiveProps> = (props: GridResponsivePro
   const mediaType = useMediaQuery()
   const gridClasses = getGridClasses(props, mediaType)
   return (
-    <ElGrid className={cx(gridClasses && gridClasses, className && className)} {...rest}>
+    <ElGrid className={cx(gridClasses, className)} {...rest}>
       {children}
     </ElGrid>
   )
@@ -158,7 +158,7 @@ export const ColResponsive: FC<ColResponsiveProps> = (props: ColResponsiveProps)
   const mediaType = useMediaQuery()
   const colClasses = getColClasses(props, mediaType)
   return (
-    <ElCol className={cx(colClasses && colClasses, className && className)} {...rest}>
+    <ElCol className={cx(colClasses, className)} {...rest}>
       {children}
     </ElCol>
   )

@@ -20,7 +20,7 @@ export const H1: React.FC<HeadingProps> = ({
     className={cx(
       'title',
       'is-1',
-      className && className,
+      className,
       isCentered && 'has-text-centered',
       isHeadingSection && 'is-heading-section',
     )}
@@ -41,7 +41,7 @@ export const H2: React.FC<HeadingProps> = ({
     className={cx(
       'title',
       'is-2',
-      className && className,
+      className,
       isCentered && 'has-text-centered',
       isHeadingSection && 'is-heading-section',
     )}
@@ -62,7 +62,7 @@ export const H3: React.FC<HeadingProps> = ({
     className={cx(
       'title',
       'is-3',
-      className && className,
+      className,
       isCentered && 'has-text-centered',
       isHeadingSection && 'is-heading-section',
     )}
@@ -83,7 +83,7 @@ export const H4: React.FC<HeadingProps> = ({
     className={cx(
       'title',
       'is-4',
-      className && className,
+      className,
       isCentered && 'has-text-centered',
       isHeadingSection && 'is-heading-section',
     )}
@@ -104,7 +104,7 @@ export const H5: React.FC<HeadingProps> = ({
     className={cx(
       'title',
       'is-5',
-      className && className,
+      className,
       isCentered && 'has-text-centered',
       isHeadingSection && 'is-heading-section',
     )}
@@ -125,7 +125,7 @@ export const H6: React.FC<HeadingProps> = ({
     className={cx(
       'title',
       'is-6',
-      className && className,
+      className,
       isCentered && 'has-text-centered',
       isHeadingSection && 'is-heading-section',
     )}
@@ -146,7 +146,7 @@ export const SubTitleH1: React.FC<HeadingProps> = ({
     className={cx(
       'subtitle',
       'is-1',
-      className && className,
+      className,
       isCentered && 'has-text-centered',
       isHeadingSection && 'is-heading-section',
     )}
@@ -167,7 +167,7 @@ export const SubTitleH2: React.FC<HeadingProps> = ({
     className={cx(
       'subtitle',
       'is-2',
-      className && className,
+      className,
       isCentered && 'has-text-centered',
       isHeadingSection && 'is-heading-section',
     )}
@@ -188,7 +188,7 @@ export const SubTitleH3: React.FC<HeadingProps> = ({
     className={cx(
       'subtitle',
       'is-3',
-      className && className,
+      className,
       isCentered && 'has-text-centered',
       isHeadingSection && 'is-heading-section',
     )}
@@ -209,7 +209,7 @@ export const SubTitleH4: React.FC<HeadingProps> = ({
     className={cx(
       'subtitle',
       'is-4',
-      className && className,
+      className,
       isCentered && 'has-text-centered',
       isHeadingSection && 'is-heading-section',
     )}
@@ -230,7 +230,7 @@ export const SubTitleH5: React.FC<HeadingProps> = ({
     className={cx(
       'subtitle',
       'is-5',
-      className && className,
+      className,
       isCentered && 'has-text-centered',
       isHeadingSection && 'is-heading-section',
     )}
@@ -251,7 +251,7 @@ export const SubTitleH6: React.FC<HeadingProps> = ({
     className={cx(
       'subtitle',
       'is-6',
-      className && className,
+      className,
       isCentered && 'has-text-centered',
       isHeadingSection && 'is-heading-section',
     )}

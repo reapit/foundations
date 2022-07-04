@@ -16,7 +16,7 @@ export interface PrivateRouteProps extends PrivateRouteConnectProps {
 
 export const PrivateRoute = ({ component, allow, loginType = 'CLIENT', ...rest }: PrivateRouteProps & RouteProps) => {
   const allowTypes = Array.isArray(allow) ? allow : [allow]
-  allowTypes.includes(loginType)
+
   return (
     <Route
       {...rest}

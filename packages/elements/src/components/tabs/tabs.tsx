@@ -25,7 +25,7 @@ export interface TabsProps extends HTMLAttributes<HTMLInputElement> {
 
 export const Tabs: FC<TabsProps> = ({ className, isFullWidth, name, options, ...rest }) => {
   return (
-    <ElTabsWrap className={cx(className && className, isFullWidth && elTabsFullWidth)}>
+    <ElTabsWrap className={cx(className, isFullWidth && elTabsFullWidth)}>
       <ElTabsOptionsWrap>
         {options.map(({ id, value, text, isChecked }) => (
           <Fragment key={id}>

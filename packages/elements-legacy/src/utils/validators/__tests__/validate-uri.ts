@@ -12,7 +12,7 @@ describe('validate-require', () => {
   describe('Validate uri function', () => {
     it('work correctly', () => {
       const values = {
-        validURI: 'http://website.com',
+        validURI: 'https://website.com',
         invalidURI: 'invalid.net',
       }
 

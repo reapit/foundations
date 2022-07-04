@@ -10,11 +10,17 @@ export const getPayment = async (req: AppRequest, res: Response) => {
   const apiKey: string | undefined = req.headers['x-api-key'] as string
   const clientCode: string | undefined = req.headers['reapit-customer'] as string
   const apiVersion: string | undefined = req.headers['api-version'] as string
+  const originWhitelist = ['localhost:8080', '.reapit.cloud']
+
+  const url = new URL(req.url)
+  const remoteHostname = url.hostname
   const { paymentId } = req.params
 
   try {
+    if (!originWhitelist.includes(remoteHostname)) throw new Error('Request not from accepted origin')
     if (!clientCode || !apiKey || !apiVersion)
       throw new Error('reapit-customer, api-version and x-api-key are required headers')
+
     if (!paymentId) throw new Error('paymentId is a required parameter')
 
     const itemToGet = generateApiKey({ apiKey })

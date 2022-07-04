@@ -170,7 +170,7 @@ export const Card: FC<CardProps> = ({
   const { isMobile } = useMediaQuery()
 
   return (
-    <CardWrap className={cx(className && className, isSelected && elCardFocussed)} {...rest}>
+    <CardWrap className={cx(className, isSelected && elCardFocussed)} {...rest}>
       {hasMainCard && (
         <>
           {mainContextMenuItems && <CardContextMenu contextMenuItems={mainContextMenuItems} />}

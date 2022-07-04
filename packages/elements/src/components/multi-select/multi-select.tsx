@@ -108,7 +108,7 @@ export const MultiSelectChip: FC<MultiSelectChipProps> = ({ className, children,
   return (
     <>
       <ElMultiSelectCheckbox id={id ?? chipId} type="checkbox" {...rest} />
-      <ElMultiSelectLabel htmlFor={id ?? chipId} className={cx(className && className)}>
+      <ElMultiSelectLabel htmlFor={id ?? chipId} className={cx(className)}>
         {children}
       </ElMultiSelectLabel>
     </>
@@ -116,19 +116,19 @@ export const MultiSelectChip: FC<MultiSelectChipProps> = ({ className, children,
 }
 
 export const MultiSelect: FC<MultiSelectProps> = ({ className, children, ...rest }) => (
-  <ElMultiSelect className={cx(className && className)} {...rest}>
+  <ElMultiSelect className={cx(className)} {...rest}>
     {children}
   </ElMultiSelect>
 )
 
 export const MultiSelectSelected: FC<MultiSelectProps> = ({ className, children, ...rest }) => (
-  <ElMultiSelectSelected className={cx(className && className)} {...rest}>
+  <ElMultiSelectSelected className={cx(className)} {...rest}>
     {children}
   </ElMultiSelectSelected>
 )
 
 export const MultiSelectUnSelected: FC<MultiSelectProps> = ({ className, children, ...rest }) => (
-  <ElMultiSelectUnSelected className={cx(className && className)} {...rest}>
+  <ElMultiSelectUnSelected className={cx(className)} {...rest}>
     {children}
   </ElMultiSelectUnSelected>
 )

@@ -13,25 +13,25 @@ export interface ModalProps extends HTMLAttributes<HTMLDivElement> {
 export interface ModalBaseProps extends HTMLAttributes<HTMLElement> {}
 
 export const ModalBg: FC<ModalBaseProps> = ({ className, children, ...rest }: ModalBaseProps) => (
-  <ElModalBg className={cx(className && className)} {...rest}>
+  <ElModalBg className={cx(className)} {...rest}>
     {children}
   </ElModalBg>
 )
 
 export const ModalContainer: FC<ModalBaseProps> = ({ className, children, ...rest }: ModalBaseProps) => (
-  <ElModal className={cx(className && className)} {...rest}>
+  <ElModal className={cx(className)} {...rest}>
     {children}
   </ElModal>
 )
 
 export const ModalHeader: FC<ModalBaseProps> = ({ className, children, ...rest }: ModalBaseProps) => (
-  <ElModalHeader className={cx(className && className)} {...rest}>
+  <ElModalHeader className={cx(className)} {...rest}>
     {children}
   </ElModalHeader>
 )
 
 export const ModalBody: FC<ModalBaseProps> = ({ className, children, ...rest }: ModalBaseProps) => (
-  <ElModalBg className={cx(className && className)} {...rest}>
+  <ElModalBg className={cx(className)} {...rest}>
     {children}
   </ElModalBg>
 )
