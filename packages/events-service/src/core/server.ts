@@ -6,6 +6,7 @@ import router from './router'
 import decodeToken from '../middlewares/decode-token'
 
 const app = express()
+app.disable('x-powered-by')
 
 app.use(cors())
 app.get('/ok', (_req, res) => {
