@@ -22,7 +22,7 @@
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",
     "@reapit/ts-types": "workspace:packages/ts-types",
     "concurrently": "^6.5.1",
-    "eslint": "8.16.0",
+    "eslint": "8.19.0",
     "sw2dts": "^2.6.3"
   }
 }

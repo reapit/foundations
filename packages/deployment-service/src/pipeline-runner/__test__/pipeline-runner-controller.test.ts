@@ -180,14 +180,10 @@ describe('PipelineRunnerController', () => {
         pipeline: {},
       }))
 
-      await pipelineRunnerController.update(
-        pipelineRunnerId,
-        {},
-        {
-          developerId,
-          type: 'jwt',
-        } as CredsType,
-      )
+      await pipelineRunnerController.update(pipelineRunnerId, {}, {
+        developerId,
+        type: 'jwt',
+      } as CredsType)
 
       expect(mockPipelineRunnerProvider.update).not.toHaveBeenCalled()
     })
@@ -204,14 +200,10 @@ describe('PipelineRunnerController', () => {
         pipeline: {},
       }))
 
-      await pipelineRunnerController.update(
-        pipelineRunnerId,
-        {},
-        {
-          developerId,
-          type: 'jwt',
-        } as CredsType,
-      )
+      await pipelineRunnerController.update(pipelineRunnerId, {}, {
+        developerId,
+        type: 'jwt',
+      } as CredsType)
 
       expect(mockPipelineRunnerProvider.update).toHaveBeenCalled()
     })

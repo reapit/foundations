@@ -58,7 +58,7 @@ export const PipelineEnvUpdateTableRow = ({
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm<{ key: string; value: any }>({
+  } = useForm<{ key: string; value: string }>({
     resolver: yupResolver(updateSchema),
   })
 

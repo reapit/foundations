@@ -1,8 +1,8 @@
 {
   "name": "deployment-service",
   "dependencies": {
-    "@aws-sdk/client-cloudfront": "^3.100.0",
-    "@aws-sdk/client-route-53": "^3.100.0",
+    "@aws-sdk/client-cloudfront": "^3.121.0",
+    "@aws-sdk/client-route-53": "^3.121.0",
     "@nestjs/axios": "^0.0.8",
     "@nestjs/common": "^8.4.4",
     "@nestjs/config": "^2.0.0",
@@ -11,7 +11,7 @@
     "@nestjs/passport": "^8.2.1",
     "@nestjs/platform-express": "^8.4.4",
     "@nestjs/typeorm": "^8.0.3",
-    "@octokit/app": "^12.0.5",
+    "@octokit/app": "^12.0.7",
     "@reapit/api-key-verify": "workspace:packages/api-key-verify",
     "@reapit/connect-session": "workspace:packages/connect-session",
     "@reapit/utils-nest": "workspace:packages/utils-nest",
@@ -28,13 +28,13 @@
     "original-fs": "^1.1.0",
     "passport-jwt": "^4.0.0",
     "project-name-generator": "^2.1.9",
-    "pusher": "^5.0.0",
+    "pusher": "^5.0.1",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.5.5",
     "typeorm": "^0.2.41",
-    "typeorm-aurora-data-api-driver": "^2.3.4",
-    "yaml": "next"
+    "typeorm-aurora-data-api-driver": "^2.4.2",
+    "yaml": "^2.0.0"
   },
   "main": "./src/index.ts",
   "scripts": {
@@ -70,18 +70,18 @@
     "@types/project-name-generator": "^2.1.1",
     "@types/rimraf": "^3.0.2",
     "@types/yaml": "^1.9.7",
-    "@typescript-eslint/eslint-plugin": "^5.27.0",
-    "@typescript-eslint/parser": "^5.27.0",
+    "@typescript-eslint/eslint-plugin": "^5.30.4",
+    "@typescript-eslint/parser": "^5.30.4",
     "concurrently": "^6.5.1",
     "cross-env": "^7.0.3",
-    "eslint": "^8.16.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "jest": "^28.1.0",
+    "eslint": "^8.19.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "jest": "^28.1.2",
     "mime": "2.6.0",
-    "nodemon": "^2.0.15",
-    "ts-jest": "^28.0.3",
-    "ts-node": "^10.8.0",
-    "typescript": "^4.7.2"
+    "nodemon": "^2.0.18",
+    "ts-jest": "^28.0.5",
+    "ts-node": "^10.8.2",
+    "typescript": "^4.7.4"
   },
   "version": "2.1.3"
 }

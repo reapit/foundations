@@ -84,7 +84,7 @@ export const PipelineEnvironment = () => {
     formState: { errors },
     setValue,
     resetField,
-  } = useForm<{ key: string; value: any; existingKeys: string[] }>({
+  } = useForm<{ key: string; value: string; existingKeys: string[] }>({
     resolver: yupResolver(schema),
     defaultValues: {
       existingKeys: [],

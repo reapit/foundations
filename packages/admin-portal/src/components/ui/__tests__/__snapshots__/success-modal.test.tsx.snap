@@ -20,11 +20,11 @@ Object {
           class="rc-dialog-mask"
         />
         <div
-          aria-labelledby="test-id"
           class="rc-dialog-wrap modal-centered"
           tabindex="-1"
         >
           <div
+            aria-labelledby="test-id"
             aria-modal="true"
             class="rc-dialog modal-container"
             role="dialog"
