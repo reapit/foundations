@@ -20,7 +20,7 @@
     "reflect-metadata": "^0.1.13",
     "semver": "^7.3.7",
     "shleemy": "^1.2.2",
-    "simple-git": "^3.7.1"
+    "simple-git": "^3.10.0"
   },
   "bin": {
     "reapit": "./dist/cli/src/index.js"
@@ -36,17 +36,17 @@
     "@types/adm-zip": "^0.5.0",
     "@types/figlet": "^1.5.4",
     "@types/inquirer": "^7.3.3",
-    "@types/semver": "^7.3.9",
+    "@types/semver": "^7.3.10",
     "@types/yargs": "^16.0.4",
-    "@typescript-eslint/eslint-plugin": "^5.27.0",
-    "@typescript-eslint/parser": "^5.27.0",
-    "babel-jest": "^28.1.0",
+    "@typescript-eslint/eslint-plugin": "^5.30.4",
+    "@typescript-eslint/parser": "^5.30.4",
+    "babel-jest": "^28.1.2",
     "concurrently": "^6.5.1",
-    "eslint": "^8.16.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "jest": "^28.1.0",
-    "ts-jest": "^28.0.3",
-    "ts-node": "^10.8.0"
+    "eslint": "^8.19.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "jest": "^28.1.2",
+    "ts-jest": "^28.0.5",
+    "ts-node": "^10.8.2"
   },
   "scripts": {
     "run": "ts-node src/index.ts",

@@ -45,13 +45,8 @@ export const createStack = async () => {
     // @ts-ignore
     config.AUTHORIZER_ID as string,
   )
-  addLambdaToApi(
-    stack,
-    api,
-    httpLambda,
-    {
-      path: '/',
-      method: 'ANY',
-    },
-  )
+  addLambdaToApi(stack, api, httpLambda, {
+    path: '/',
+    method: 'ANY',
+  })
 }

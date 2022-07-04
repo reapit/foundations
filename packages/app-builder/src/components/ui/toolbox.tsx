@@ -89,12 +89,17 @@ export const Toolbox = ({ create }: { create: (ref: HTMLElement, ele: any) => vo
         >
           <ContainerIcon />
         </ToolboxItem>
-        <ToolboxItem name="Text" ref={(ref: HTMLElement) => ref && create(ref, <Text fontSize={12} text="Type text in here" />)}>
+        <ToolboxItem
+          name="Text"
+          ref={(ref: HTMLElement) => ref && create(ref, <Text fontSize={12} text="Type text in here" />)}
+        >
           <TextIcon />
         </ToolboxItem>
         <ToolboxItem
           name="Link"
-          ref={(ref: HTMLElement) => ref && create(ref, <Element canvas is={Link} width={12} text="Type your link text in here" />)}
+          ref={(ref: HTMLElement) =>
+            ref && create(ref, <Element canvas is={Link} width={12} text="Type your link text in here" />)
+          }
         >
           <Item>
             <LinkSVG />

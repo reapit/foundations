@@ -35,9 +35,7 @@ export class CmsController {
 
   @Get()
   async fetch(): Promise<Pagination<MarketplaceAppModel>> {
-    return this.resolvePaginationObject(
-      await this.cmsProvider.findAll({}),
-    )
+    return this.resolvePaginationObject(await this.cmsProvider.findAll({}))
   }
 
   @Post()
