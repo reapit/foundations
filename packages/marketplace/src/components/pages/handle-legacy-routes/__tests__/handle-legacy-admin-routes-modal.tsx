@@ -22,7 +22,7 @@ describe('HandleLegacyAdminRoutesModal', () => {
   test('handleBtnGoTherNow should work correctly', () => {
     window.open = jest.fn()
     handleBtnGoThereNow()
-    expect(window.open).toHaveBeenCalledWith('https://developer-admin.reapit.cloud', '_self')
+    expect(window.open).toHaveBeenCalledWith('https://developer-admin.reapit.cloud', '_self', 'noopener')
   })
 
   test('HandleLegacyAdminRoutesModal - should match snapshoot', () => {

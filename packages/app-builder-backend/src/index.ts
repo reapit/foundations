@@ -44,6 +44,8 @@ const start = async () => {
   await ensureTables()
 
   const app = express()
+
+  app.disable('x-powered-by')
   app.use(cors())
 
   const httpServer = http.createServer(app)

@@ -22,7 +22,7 @@ describe('HandleLegacyDeveloperRoutesModal', () => {
   test('handleBtnGoTherNow should work correctly', () => {
     window.open = jest.fn()
     handleBtnGoThereNow()
-    expect(window.open).toHaveBeenCalledWith(window.reapit.config.developerPortalUrl, '_self')
+    expect(window.open).toHaveBeenCalledWith(window.reapit.config.developerPortalUrl, '_self', 'noopener')
   })
 
   test('HandleLegacyDeveloperRoutesModal - should match snapshoot', () => {
