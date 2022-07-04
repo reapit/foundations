@@ -49,7 +49,7 @@ describe('isValidHttpsUrl', () => {
   })
 
   it('invalid https url test', () => {
-    ;['http://google.com', 'htt://www.google.com'].forEach((url) => expect(isValidHttpsUrl(url)).toBeFalsy())
+    ;['https://google.com', 'htt://www.google.com'].forEach((url) => expect(isValidHttpsUrl(url)).toBeFalsy())
   })
 })
 
@@ -107,7 +107,7 @@ describe('checkValidCustomScheme', () => {
   it('should return false with invalid url', () => {
     const url1 = 'app:invalid'
     const url2 = ''
-    const url3 = 'http://google.com'
+    const url3 = 'https://google.com'
     const url4 = 'myapp:/link.com'
     expect(checkValidCustomScheme(url1)).toBe(false)
     expect(checkValidCustomScheme(url2)).toBe(false)
