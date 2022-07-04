@@ -75,19 +75,9 @@ Object {
             class="diff-viewer-container"
           >
             <span
-              class="red-background"
-            >
-              http
-            </span>
-            <span
-              class="green-background"
-            >
-              https
-            </span>
-            <span
               class=""
             >
-              ://
+              https://
             </span>
             <span
               class="red-background"
@@ -681,19 +671,9 @@ Get
           class="diff-viewer-container"
         >
           <span
-            class="red-background"
-          >
-            http
-          </span>
-          <span
-            class="green-background"
-          >
-            https
-          </span>
-          <span
             class=""
           >
-            ://
+            https://
           </span>
           <span
             class="red-background"
