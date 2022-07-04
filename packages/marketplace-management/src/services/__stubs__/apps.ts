@@ -152,7 +152,7 @@ export const mockAppsList: AppSummaryModelPagedResult = {
       name: 'Reapit Payments Portal',
       summary: 'It takes your money and sends it to Sage Pay. Then it updates RPS.',
       developer: 'Reapit Ltd',
-      homePage: 'http://reapit.com',
+      homePage: 'https://reapit.com',
       isListed: true,
       isSandbox: false,
       isFeatured: true,

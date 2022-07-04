@@ -25,7 +25,7 @@ export const deleteConfig = async (req: AppRequest, res: Response) => {
 
     await deleteConfigValue(`${clientCode}/${configKey}`)
     res.status(200)
-    return res.send({ response: `Deleted value for ${configKey}` })
+    return res.send({ response: 'Deleted value successfully' })
   } catch (err) {
     logger.error('Error deleting config', { traceId: req.traceId, error: err })
     res.status(400)

@@ -13,7 +13,7 @@ const html = `
     <div><u>underline</u></div>
     <pre>pre tag</pre>
     <strike>strike</strike>
-    <p><a href="http://google.com">Link</a></p>
+    <p><a href="https://google.com">Link</a></p>
     <div>
         <ul>
             <li>bullet points</li>

@@ -19,7 +19,7 @@ export const stubShares: PagedApiResponse<SharesModel> = {
       accountId: 'XY81204',
       warehouse: 'STANDARD_WH',
       url: 'https://XY81204.eu-west-1.snowflakecomputing.com/',
-      dsn: 'Driver={SnowflakeDSIIDriver};Server=XY81204.eu-west-1.snowflakecomputing.com;Database=reapit;schema=customers_rps_DEV;uid=<user name>;pwd=<password>;',
+      dsn: 'MOCK_DSN',
       status: 'active',
     },
   ],

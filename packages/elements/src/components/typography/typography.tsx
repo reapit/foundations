@@ -41,7 +41,7 @@ export const Title: FC<TypographyProps> = ({
   return (
     <ElTitle
       className={cx(
-        className && className,
+        className,
         hasGreyText && elHasGreyText,
         hasRegularText && elHasRegularText,
         hasItalicText && elHasItalicText,
@@ -72,7 +72,7 @@ export const Subtitle: FC<TypographyProps> = ({
   return (
     <ElSubtitle
       className={cx(
-        className && className,
+        className,
         hasGreyText && elHasGreyText,
         hasBoldText && elHasBoldText,
         hasItalicText && elHasItalicText,
@@ -103,7 +103,7 @@ export const BodyText: FC<TypographyProps> = ({
   return (
     <ElBodyText
       className={cx(
-        className && className,
+        className,
         hasGreyText && elHasGreyText,
         hasBoldText && elHasBoldText,
         hasItalicText && elHasItalicText,
@@ -134,7 +134,7 @@ export const SmallText: FC<TypographyProps> = ({
   return (
     <ElSmallText
       className={cx(
-        className && className,
+        className,
         hasGreyText && elHasGreyText,
         hasBoldText && elHasBoldText,
         hasItalicText && elHasItalicText,

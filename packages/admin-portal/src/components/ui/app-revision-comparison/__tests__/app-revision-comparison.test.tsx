@@ -164,17 +164,17 @@ describe('getChangedMediaList', () => {
     links: [
       {
         rel: 'self',
-        href: 'http://dev.platformmarketplace.reapit.net/apps/3d2c9bb6-fc76-4ba8-a4c0-71bde64824fc/revisions/3a4fbd46-fb26-495a-b7df-932a310f5842',
+        href: 'https://dev.platformmarketplace.reapit.net/apps/3d2c9bb6-fc76-4ba8-a4c0-71bde64824fc/revisions/3a4fbd46-fb26-495a-b7df-932a310f5842',
         action: 'GET',
       },
       {
         rel: 'app',
-        href: 'http://dev.platformmarketplace.reapit.net/apps/3d2c9bb6-fc76-4ba8-a4c0-71bde64824fc',
+        href: 'https://dev.platformmarketplace.reapit.net/apps/3d2c9bb6-fc76-4ba8-a4c0-71bde64824fc',
         action: 'GET',
       },
       {
         rel: 'developer',
-        href: 'http://dev.platformmarketplace.reapit.net/developers/7a96e6b2-3778-4118-9c9b-6450851e5608',
+        href: 'https://dev.platformmarketplace.reapit.net/developers/7a96e6b2-3778-4118-9c9b-6450851e5608',
         action: 'GET',
       },
     ],
@@ -265,22 +265,22 @@ describe('getChangedMediaList', () => {
     links: [
       {
         rel: 'self',
-        href: 'http://dev.platformmarketplace.reapit.net/apps/3d2c9bb6-fc76-4ba8-a4c0-71bde64824fc',
+        href: 'https://dev.platformmarketplace.reapit.net/apps/3d2c9bb6-fc76-4ba8-a4c0-71bde64824fc',
         action: 'GET',
       },
       {
         rel: 'developer',
-        href: 'http://dev.platformmarketplace.reapit.net/developers/7a96e6b2-3778-4118-9c9b-6450851e5608',
+        href: 'https://dev.platformmarketplace.reapit.net/developers/7a96e6b2-3778-4118-9c9b-6450851e5608',
         action: 'GET',
       },
       {
         rel: 'revisions',
-        href: 'http://dev.platformmarketplace.reapit.net/apps/3d2c9bb6-fc76-4ba8-a4c0-71bde64824fc/revisions',
+        href: 'https://dev.platformmarketplace.reapit.net/apps/3d2c9bb6-fc76-4ba8-a4c0-71bde64824fc/revisions',
         action: 'GET',
       },
       {
         rel: 'installations',
-        href: 'http://dev.platformmarketplace.reapit.net/installations?AppIds=3d2c9bb6-fc76-4ba8-a4c0-71bde64824fc',
+        href: 'https://dev.platformmarketplace.reapit.net/installations?AppIds=3d2c9bb6-fc76-4ba8-a4c0-71bde64824fc',
         action: 'GET',
       },
     ],

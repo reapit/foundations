@@ -1,7 +1,7 @@
 const Octokit = require('@octokit/rest')
 const getCurrentTimeStamp = require('./get-current-time-stamp-string')
 const { runCommand } = require('@reapit/ts-scripts')
-const { execSync } = require('child_process')
+const { spawnSync } = require('child_process')
 
 const { GITHUB_TOKEN } = process.env
 
@@ -22,10 +22,10 @@ module.exports = async () => {
      * even the command runs cool
      */
 
-    execSync(`git checkout -b ${branchName}`)
+    spawnSync(`git checkout -b ${branchName}`, { shell: false })
     runCommand('git', ['add', '.'])
-    execSync('git commit -m "chore: update ts definitions" --no-verify')
-    execSync(`git push origin ${branchName} -f`)
+    spawnSync('git commit -m "chore: update ts definitions" --no-verify', { shell: false })
+    spawnSync(`git push origin ${branchName} -f`, { shell: false })
 
     const octokit = new Octokit({
       auth: GITHUB_TOKEN,

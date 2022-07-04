@@ -71,7 +71,7 @@ describe('isValidRedirectUrls', () => {
   })
 
   it('invalid https url test', () => {
-    ;['http://google.com,htt:google.ck', 'htt://www.google.com,ftp://www.google.com'].forEach((url) =>
+    ;['https://google.com,htt:google.ck', 'htt://www.google.com,ftp://www.google.com'].forEach((url) =>
       expect(isValidRedirectUrls(url)).toBeFalsy(),
     )
   })

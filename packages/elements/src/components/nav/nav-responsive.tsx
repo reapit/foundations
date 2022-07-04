@@ -56,7 +56,7 @@ export const NavResponsive: FC<NavResponsiveProps> = ({
   const isDesktop = Boolean(window['__REAPIT_MARKETPLACE_GLOBALS__'])
 
   return (
-    <Nav className={cx(isDesktop && elNavIsDesktop, className && className)} {...rest}>
+    <Nav className={cx(isDesktop && elNavIsDesktop, className)} {...rest}>
       {options.map(
         (
           { icon, iconId, href, callback, isSecondary, text, subItems, itemIndex }: NavResponsiveOption,

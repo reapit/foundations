@@ -63,14 +63,7 @@ export const ButtonGroup: React.FC<ButtonGroupProps> = ({
   children,
 }) => {
   return (
-    <div
-      className={cx(
-        'is-centered buttons',
-        !hasSpacing && 'has-addons',
-        isCentered && 'mx-auto',
-        className && className,
-      )}
-    >
+    <div className={cx('is-centered buttons', !hasSpacing && 'has-addons', isCentered && 'mx-auto', className)}>
       {children}
     </div>
   )

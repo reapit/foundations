@@ -4,7 +4,6 @@
 
 .rc-select {
   display: inline-block;
-  position: relative;
   background-color: #fff;
   font-size: 1rem;
   line-height: 1.5;
@@ -125,7 +124,6 @@
     position: absolute;
     z-index: 999;
     white-space: nowrap;
-    position: none;
     left: 0;
     top: 0;
     visibility: hidden;

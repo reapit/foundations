@@ -12,18 +12,18 @@ export const appsDataStub: { data: AppSummaryModelPagedResult } = {
           'nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsic' +
           'r8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz',
         developer: "Pete's Proptech World Ltd",
-        homePage: 'http://google.com/abc',
+        homePage: 'https://google.com/abc',
         iconUri:
           'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/d10e790c-2bf2-40ae-9c43-82c1534bde31.png',
         links: [
           {
             rel: 'self',
-            href: 'http://platformdemo.reapit.net/marketplace/apps/09043eb8-9e5e-4650-b7f1-f0cb62699027',
+            href: 'https://platformdemo.reapit.net/marketplace/apps/09043eb8-9e5e-4650-b7f1-f0cb62699027',
             action: 'GET',
           },
           {
             rel: 'developer',
-            href: 'http://platformdemo.reapit.net/marketplace/developers/28c9ea52-7f73-4814-9e00-4e3714b8adeb',
+            href: 'https://platformdemo.reapit.net/marketplace/developers/28c9ea52-7f73-4814-9e00-4e3714b8adeb',
             action: 'GET',
           },
         ],
@@ -37,18 +37,18 @@ export const appsDataStub: { data: AppSummaryModelPagedResult } = {
           'asdQiiAJTmXGxPin7pwUiCsepZWXz1EJS71eGlvgPKH4hpE6J8DRDpzP2kDdOwpQPr4aHCCw' +
           'WwxBJwzARLa7wMpJh5J61GhmQjLfKZkcDd47L9WEfQYVYAj0DTPJP0BuUMAAg2',
         developer: "Pete's Proptech World Ltd",
-        homePage: 'http://www.contoso.com/path',
+        homePage: 'https://www.contoso.com/path',
         iconUri:
           'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/1d38c5ec-e3c0-4138-9fe0-e77bce4034d1.octet-stream',
         links: [
           {
             rel: 'self',
-            href: 'http://platformdemo.reapit.net/marketplace/apps/261da083-cee2-4f5c-a18f-8f9375f1f5af',
+            href: 'https://platformdemo.reapit.net/marketplace/apps/261da083-cee2-4f5c-a18f-8f9375f1f5af',
             action: 'GET',
           },
           {
             rel: 'developer',
-            href: 'http://platformdemo.reapit.net/marketplace/developers/28c9ea52-7f73-4814-9e00-4e3714b8adeb',
+            href: 'https://platformdemo.reapit.net/marketplace/developers/28c9ea52-7f73-4814-9e00-4e3714b8adeb',
             action: 'GET',
           },
         ],
@@ -81,12 +81,12 @@ export const featuredAppsDataStub: { data: AppSummaryModelPagedResult } = {
         links: [
           {
             rel: 'self',
-            href: 'http://dev.platformmarketplace.reapit.net/apps/da20d0ac-47ab-44c9-af3e-b44e25f2ec2b',
+            href: 'https://dev.platformmarketplace.reapit.net/apps/da20d0ac-47ab-44c9-af3e-b44e25f2ec2b',
             action: 'GET',
           },
           {
             rel: 'developer',
-            href: 'http://dev.platformmarketplace.reapit.net/developers/7a96e6b2-3778-4118-9c9b-6450851e5608',
+            href: 'https://dev.platformmarketplace.reapit.net/developers/7a96e6b2-3778-4118-9c9b-6450851e5608',
             action: 'GET',
           },
         ],
@@ -112,12 +112,12 @@ export const installationsStub: InstallationModelPagedResult = {
       links: [
         {
           rel: 'self',
-          href: 'http://dev.platformmarketplace.reapit.net/installations/b3c2f644-3241-4298-b320-b0398ff492f9',
+          href: 'https://dev.platformmarketplace.reapit.net/installations/b3c2f644-3241-4298-b320-b0398ff492f9',
           action: 'GET',
         },
         {
           rel: 'app',
-          href: 'http://dev.platformmarketplace.reapit.net/apps/062a376c-f5a3-46a0-a64b-e4bc6e5af2c1',
+          href: 'https://dev.platformmarketplace.reapit.net/apps/062a376c-f5a3-46a0-a64b-e4bc6e5af2c1',
           action: 'GET',
         },
       ],

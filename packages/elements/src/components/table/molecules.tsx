@@ -111,7 +111,7 @@ export const TableCell: FC<TableCellProps> = ({
   ...rest
 }) => {
   const combinedClassname = cx(
-    className && className,
+    className,
     darkText && elTableCellHasDarkText,
     narrowIsFullWidth && elTableNarrowCellIsFullWidth,
     narrowOrder && resolveNarrowOrderClass(narrowOrder),

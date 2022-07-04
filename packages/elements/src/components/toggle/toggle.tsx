@@ -56,7 +56,7 @@ export const Toggle: ToggleWrapped = forwardRef(
         <ElToggleCheckbox id={id} type="checkbox" {...rest} ref={ref as LegacyRef<HTMLInputElement>} />
         <ElToggleLabel
           htmlFor={id}
-          className={cx(className && className, isFullWidth && elToggleFullWidth, hasGreyBg && elHasGreyBg)}
+          className={cx(className, isFullWidth && elToggleFullWidth, hasGreyBg && elHasGreyBg)}
         >
           {children}
         </ElToggleLabel>
@@ -71,9 +71,7 @@ export const ToggleRadio: ToggleRadioWrapped = forwardRef(
     ref: ForwardedRef<InputHTMLAttributes<HTMLInputElement>>,
   ) => {
     return (
-      <ElToggleRadioWrap
-        className={cx(className && className, isFullWidth && elToggleFullWidth, hasGreyBg && elHasGreyBg)}
-      >
+      <ElToggleRadioWrap className={cx(className, isFullWidth && elToggleFullWidth, hasGreyBg && elHasGreyBg)}>
         {options.map(({ id, value, text, isChecked }) => (
           <Fragment key={id}>
             <ElToggleRadio
