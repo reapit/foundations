@@ -1,6 +1,6 @@
 import { useNode, useEditor } from '@craftjs/core'
 import { cx } from '@linaria/core'
-import React, { useEffect, useRef, useCallback } from 'react'
+import React, { useEffect, useRef } from 'react'
 import ReactDOM from 'react-dom'
 import { elFlex, elFlex1, elFlexAlignCenter, elMr3, elMr6, elP3 } from '@reapit/elements'
 
@@ -74,33 +74,6 @@ export const RenderNode = ({ render, iframeRef }) => {
     }
   }, [dom, isActive, isHover, isRoot])
 
-  const getPos = useCallback((dom: HTMLElement) => {
-    const { top, left, bottom, right } = dom ? dom.getBoundingClientRect() : { top: 0, left: 0, bottom: 0, right: 0 }
-    return {
-      top: top > 0 ? top : bottom,
-      left,
-      right,
-      height: bottom - top,
-    }
-  }, [])
-
-  const scroll = useCallback(() => {
-    const { current: currentDOM } = currentRef
-
-    if (!currentDOM || !dom) return
-    const { top, left } = getPos(dom)
-    currentDOM.style.top = `${top}px`
-    currentDOM.style.left = `${left}px`
-  }, [dom, getPos])
-
-  useEffect(() => {
-    document.querySelector('#craftjs-renderer')?.addEventListener('scroll', scroll)
-
-    return () => {
-      document.querySelector('#craftjs-renderer')?.removeEventListener('scroll', scroll)
-    }
-  }, [scroll])
-
   const container = iframeRef?.contentDocument?.body.querySelector('#page-container')
 
   const isHeader = id === 'header'
@@ -122,8 +95,7 @@ export const RenderNode = ({ render, iframeRef }) => {
             ref={currentRef}
             className={cx(indicator, elP3, elFlex, elFlexAlignCenter)}
             style={{
-              left: getPos(dom).left,
-              top: getPos(dom).top,
+              top: 0,
               zIndex: 9999,
             }}
           >
@@ -200,7 +172,7 @@ export const RenderNode = ({ render, iframeRef }) => {
               </a>
             )}
           </div>,
-          container,
+          dom,
         )}
       <AddContainer nodeId={id}>{render}</AddContainer>
     </>
