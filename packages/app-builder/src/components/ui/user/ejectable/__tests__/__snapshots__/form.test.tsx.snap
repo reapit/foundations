@@ -8,7 +8,7 @@ exports[`Form should match a snapshot 1`] = `
     width="0"
   >
     <div>
-      No type selected
+      No type selected, choose one from the sidebar.
     </div>
     <form>
       <div

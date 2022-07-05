@@ -256,7 +256,7 @@ export const Table = forwardRef<HTMLDivElement, TableProps & { disabled?: boolea
 
     const displaySearch = searchAvailable && showSearch
     const displayTable = typeName && firstRow
-    const displayNothingFound = !loading && !firstRow
+    const displayNothingFound = !loading && !firstRow && typeName
     const displayNoType = !typeName
     const displayNoResultsFound = searchAvailable && queryStr
 

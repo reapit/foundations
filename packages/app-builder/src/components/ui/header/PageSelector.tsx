@@ -81,7 +81,9 @@ export const PageSelector = () => {
             },
             { header: app.header, footer: app.footer },
           ).then(() => {
-            setPageId(page.id)
+            setTimeout(() => {
+              setPageId(page.id)
+            }, 300)
           })
         }}
       >

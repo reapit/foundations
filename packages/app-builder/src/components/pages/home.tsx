@@ -16,7 +16,6 @@ import { useUpdatePage } from '../hooks/apps/use-update-app'
 import { isInitialLoad, nodesObjtoToArr, splitPageNodesIntoSections } from '../hooks/apps/node-helpers'
 import { Node, Page } from '../hooks/apps/fragments'
 import { FormInput } from '../ui/user/form-input'
-import { useParams } from 'react-router'
 
 export type HomeProps = {}
 
@@ -63,8 +62,7 @@ const useDebouncedUpdatePage = (appId: string) => {
 
 export const Home: FC<HomeProps> = () => {
   const iframeRef = useRef()
-  const { appId } = usePageId()
-  const { pageId } = useParams<{ pageId?: string }>()
+  const { appId, pageId } = usePageId()
   const updatePage = useDebouncedUpdatePage(appId)
 
   return (

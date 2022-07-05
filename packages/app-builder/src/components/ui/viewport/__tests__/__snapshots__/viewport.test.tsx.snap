@@ -396,7 +396,7 @@ exports[`Viewport should match a snapshot 1`] = `
         class="container"
       >
         <div
-          class="el-flex el-flex1 el-hfull el-flex-column el-pt6"
+          class="el-flex el-flex1 el-hfull el-flex-column"
           id="page-container"
           style="transition: transform 350ms; transform: scale(1); transform-origin: top left;"
         >
@@ -405,7 +405,7 @@ exports[`Viewport should match a snapshot 1`] = `
             id="craftjs-renderer"
           >
             <div
-              class="el-flex el-flex-row flex-align-stretch relative el-pt6 el-mauto"
+              class="el-flex el-flex-row flex-align-stretch relative el-pt9 el-mauto"
             />
           </div>
         </div>
