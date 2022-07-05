@@ -1,17 +1,27 @@
 import { BodyText, FlexContainer, Icon, IconNames } from '@reapit/elements'
-import React, { FC } from 'react'
-import { AppsBrowseConfigItem } from './use-apps-browse-state'
+import React, { Dispatch, FC, SetStateAction } from 'react'
+import { AppsBrowseConfigItem, AppsBrowseConfigItemFilters, useAppsBrowseState } from './use-apps-browse-state'
 import { AppFilterCol, appTitleThreeLine, appTitleOneLine } from './__styles__'
 
 interface AppFiltersCollectionProps {
   configItem: AppsBrowseConfigItem
 }
 
+export const handleSetFilters =
+  (
+    setAppsBrowseFilterState: Dispatch<SetStateAction<AppsBrowseConfigItemFilters | null>>,
+    filters: AppsBrowseConfigItemFilters | null,
+  ) =>
+  () => {
+    setAppsBrowseFilterState(filters)
+  }
+
 export const AppFiltersCollection: FC<AppFiltersCollectionProps> = ({ configItem }) => {
-  const { content } = configItem
+  const { setAppsBrowseFilterState } = useAppsBrowseState()
+  const { content, filters } = configItem
 
   return (
-    <AppFilterCol>
+    <AppFilterCol onClick={handleSetFilters(setAppsBrowseFilterState, filters)}>
       <FlexContainer isFlexJustifyBetween>
         <FlexContainer isFlexColumn isFlexJustifyCenter>
           <BodyText className={appTitleOneLine} hasBoldText>

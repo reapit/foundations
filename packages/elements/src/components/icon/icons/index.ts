@@ -32,6 +32,9 @@ import apiDocsInfographic from './infographic-icons/apiDocsInfographic'
 import myAppsInfographic from './infographic-icons/myAppsInfographic'
 import webhooksInfographic from './infographic-icons/webhooksInfographic'
 import selectInfographic from './infographic-icons/selectInfographic'
+import appCategoryInfographic from './infographic-icons/appCategoryInfographic'
+import appTypeInfographic from './infographic-icons/appTypeInfographic'
+import developerAppsInfographic from './infographic-icons/developerAppsInfographic'
 import accountMenu from './menu-icons/accountMenu'
 import analyticsMenu from './menu-icons/analyticsMenu'
 import apiMenu from './menu-icons/apiMenu'
@@ -286,4 +289,7 @@ export const iconSet = {
   bulletListSystem,
   dollarSystem,
   euroSystem,
+  appCategoryInfographic,
+  appTypeInfographic,
+  developerAppsInfographic,
 }

@@ -1,25 +1,71 @@
-import React, { FC } from 'react'
+import React, { FC, useMemo } from 'react'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { useReapitGet } from '@reapit/utils-react'
-import { Loader } from '@reapit/elements'
+import {
+  Card,
+  Col,
+  elFadeIn,
+  FlexContainer,
+  Grid,
+  Loader,
+  PersistentNotification,
+  PlaceholderImage,
+} from '@reapit/elements'
 import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { useAppsBrowseState } from './use-apps-browse-state'
+import { useReapitConnect } from '@reapit/connect-session'
+import { cx } from '@linaria/core'
+import { navigate } from '../../utils/navigation'
+import { Routes } from '../../constants/routes'
+import { useHistory } from 'react-router-dom'
+import { cardCursor, IsFreeNotice } from './__styles__'
+import { checkHasFilters } from './apps-browse'
 
 export const FilteredAppsCollection: FC = () => {
   const { appsBrowseFilterState } = useAppsBrowseState()
-  const queryParams = appsBrowseFilterState ? appsBrowseFilterState : {}
+  const history = useHistory()
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const clientId = connectSession?.loginIdentity.clientId
+  const hasFilters = useMemo(checkHasFilters(appsBrowseFilterState), [appsBrowseFilterState])
+  const queryParams = hasFilters ? { ...appsBrowseFilterState, clientId, pageSize: 100 } : {}
 
   const [apps, appsLoading] = useReapitGet<AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getApps],
     queryParams,
-    fetchWhenTrue: [appsBrowseFilterState],
+    fetchWhenTrue: [hasFilters],
   })
-
-  console.log('Filtered Apps: ', apps)
 
   if (appsLoading) return <Loader />
 
-  return null
+  return (
+    <>
+      <Grid>
+        {apps?.data?.map(({ id, name, summary, developer, isDirectApi, iconUri, isFree }) => (
+          <Col key={id}>
+            <Card
+              className={cx(elFadeIn, cardCursor)}
+              onClick={navigate(history, `${Routes.APPS_BROWSE}/${id}`)}
+              hasMainCard
+              mainCardHeading={name}
+              mainCardSubHeading={
+                <FlexContainer isFlexJustifyBetween isFlexAlignCenter>
+                  {developer} {isFree && <IsFreeNotice>FREE</IsFreeNotice>}
+                </FlexContainer>
+              }
+              mainCardSubHeadingAdditional={isDirectApi ? 'Integration' : ''}
+              mainCardBody={summary}
+              mainCardImgUrl={iconUri ?? <PlaceholderImage placeholder="placeholderSmall" size={56} />}
+            />
+          </Col>
+        ))}
+      </Grid>
+      {!appsLoading && apps?.data && Boolean(!apps.data.length) && (
+        <PersistentNotification isInline isExpanded isFullWidth intent="secondary">
+          No apps match your criteria. Please adjust your search query and filters.
+        </PersistentNotification>
+      )}
+    </>
+  )
 }

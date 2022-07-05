@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { objectToQuery, useReapitGet } from '@reapit/utils-react'
-import { BodyText, FlexContainer } from '@reapit/elements'
+import { BodyText, elFadeIn, FlexContainer, PlaceholderImage } from '@reapit/elements'
 import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { AppsBrowseConfigItem, AppsBrowseConfigItemFilters } from './use-apps-browse-state'
 import { AppIcon, appTitleOneLine, FeaturedAppsCol } from './__styles__'
@@ -28,11 +28,15 @@ export const FeaturedAppsCollection: FC<FeaturedAppsCollectionProps> = ({ config
   return (
     <>
       {apps?.data?.map(({ id, name, summary, iconUri }) => (
-        <FeaturedAppsCol key={id}>
+        <FeaturedAppsCol className={elFadeIn} key={id}>
           <FlexContainer isFlexJustifyBetween>
             <FlexContainer isFlexColumn isFlexJustifyCenter>
               <FlexContainer>
-                <AppIcon src={iconUri ?? 'https://fakeimg.pl/24x24/fff?text=?'} alt={name} />
+                {iconUri ? (
+                  <AppIcon src={iconUri} alt={name} />
+                ) : (
+                  <PlaceholderImage placeholder="placeholderSmall" size={32} />
+                )}
                 <BodyText className={appTitleOneLine} hasBoldText hasNoMargin>
                   {name}
                 </BodyText>

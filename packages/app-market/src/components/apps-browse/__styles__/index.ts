@@ -10,6 +10,7 @@ import {
 
 export const FeaturedHeroAppsCol = styled.div`
   grid-column-end: span 4;
+  min-width: 0;
 
   ${forDesktopAndAbove} {
     grid-column-end: span 2;
@@ -79,6 +80,7 @@ export const HeroAppsGrid = styled.div`
 export const HeroAppsCol = styled.div`
   grid-column-end: span 4;
   align-self: end;
+  min-width: 0;
 
   ${forTabletAndAbove} {
     grid-column-end: span 2;
@@ -266,6 +268,7 @@ export const FeaturedAppsCol = styled.div`
   box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.05);
   border-radius: 0.25rem;
   height: 84px;
+  min-width: 0;
 
   ${forMobileAndAbove} {
     grid-column-end: span 2;
@@ -311,6 +314,7 @@ export const SimpleAppsCol = styled.div`
   box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.05);
   border-radius: 0.25rem;
   height: 105px;
+  min-width: 0;
 
   ${forMobileAndAbove} {
     grid-column-end: span 2;
@@ -343,6 +347,7 @@ export const DeveloperAppsGrid = styled.div`
 export const DeveloperAppsColHelper = styled.div`
   grid-column-end: span 6;
   align-self: center;
+  min-width: 0;
 
   ${forMobileAndAbove} {
     grid-column-end: span 4;
@@ -361,6 +366,7 @@ export const DeveloperAppsCol = styled.div`
   border-radius: 0.25rem;
   background: var(--color-white);
   height: 70px;
+  min-width: 0;
 
   ${forMobileAndAbove} {
     grid-column-end: span 2;
@@ -368,5 +374,182 @@ export const DeveloperAppsCol = styled.div`
 
   ${forTabletAndAbove} {
     grid-column-end: span 1;
+  }
+`
+
+export const AppSearchFiltersWrap = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  ${forMobileAndAbove} {
+    flex-direction: column;
+  }
+`
+
+export const appFiltersButtonActive = css``
+
+export const appFiltersButton = css`
+  text-transform: unset;
+  font-weight: normal;
+  font-size: 14px;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.${appFiltersButtonActive} {
+    background: var(--intent-primary);
+    color: var(--color-white);
+  }
+`
+
+export const AppsSearchInput = styled.input`
+  font-family: var(--font-sans-serif);
+  font-size: 14px;
+  display: flex;
+  flex-grow: 1;
+  border-radius: 0 0.25rem 0.25rem 0;
+  background-color: var(--color-grey-light);
+  height: 2.5rem;
+  border: none;
+  margin: 0;
+  color: black;
+  background: var(--color-white);
+
+  ${forMobileAndAbove} {
+    background: var(--component-input-focus-bg);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &::placeholder {
+    color: black;
+    font-size: 14px;
+  }
+
+  ${forTabletAndAbove} {
+    width: 25%;
+  }
+`
+
+export const appsSearchContainer = css`
+  width: 100%;
+
+  ${forMobileAndAbove} {
+    width: 50%;
+  }
+
+  ${forTabletAndAbove} {
+    width: 33.33%;
+  }
+
+  ${forDesktopAndAbove} {
+    width: 25%;
+  }
+`
+
+export const appsSearchInputIcon = css`
+  border-radius: 0.25rem 0 0 0.25rem;
+  padding: 0 0.5rem 0 1.25rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--color-white);
+
+  ${forMobileAndAbove} {
+    background-color: var(--color-grey-light);
+  }
+`
+
+export const appsSearchMobileControls = css`
+  display: flex;
+
+  ${forMobileAndAbove} {
+    display: none;
+  }
+`
+
+export const appsSearchDesktopControls = css`
+  display: none;
+
+  ${forMobileAndAbove} {
+    display: flex;
+  }
+`
+
+export const appsSearchMobileIconActive = css``
+
+export const appsSearchMobileIcon = css`
+  margin-right: 0.5rem;
+  height: 2rem;
+  width: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: var(--color-grey-light);
+  border-radius: 0.25rem;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &.${appsSearchMobileIconActive} {
+    color: var(--intent-primary);
+  }
+`
+
+export const appsSearchMobileFilterControlsActive = css``
+
+export const AppsSearchMobileFilterControls = styled.div`
+  display: flex;
+  width: calc(100% + 2.5rem);
+  margin-left: -1.25rem;
+  background: var(--color-grey-light);
+
+  ${forMobileAndAbove} {
+    display: none;
+  }
+
+  &.${appsSearchMobileFilterControlsActive} {
+    padding: 0.5rem 1.25rem;
+  }
+`
+
+export const appsFiltersMobileBrowseBy = css`
+  min-height: 1.5rem;
+`
+
+export const appsFiltersCategories = css`
+  width: calc(100% + 2.5rem);
+  margin-left: -1.25rem;
+  margin-bottom: 1.25rem;
+
+  ${forMobileAndAbove} {
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 2.5rem;
+  }
+`
+
+export const cardCursor = css`
+  cursor: pointer;
+`
+
+export const IsFreeNotice = styled.span`
+  z-index: 50;
+  color: var(--color-white);
+  font-size: 0.875rem;
+  font-weight: bold;
+  padding: 0.1rem 0.4rem;
+  border-radius: 0.25rem;
+  background: var(--intent-secondary);
+  margin-left: 1rem;
+  margin-right: auto;
+
+  ${forMobileAndAbove} {
+    margin-right: 0;
   }
 `

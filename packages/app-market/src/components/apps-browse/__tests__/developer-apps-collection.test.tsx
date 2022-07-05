@@ -1,10 +1,11 @@
 import { useReapitGet } from '@reapit/utils-react'
 import React from 'react'
 import { render } from '../../../tests/react-testing'
+import { mockAppSummaryModelPagedResult } from '../../../tests/__stubs__/apps'
 import { DeveloperAppsCollection } from '../developer-apps-collection'
 
 jest.mock('@reapit/utils-react', () => ({
-  useReapitGet: jest.fn(() => [{}, false]),
+  useReapitGet: jest.fn(() => [mockAppSummaryModelPagedResult, false]),
   objectToQuery: jest.fn(() => '?query=string'),
 }))
 

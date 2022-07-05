@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { useReapitGet } from '@reapit/utils-react'
-import { BodyText, Button, elHFull, FlexContainer, Subtitle } from '@reapit/elements'
+import { BodyText, Button, elFadeIn, elHFull, elMb7, FlexContainer, PlaceholderImage, Subtitle } from '@reapit/elements'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import { AppsBrowseConfigItem } from './use-apps-browse-state'
 import {
@@ -39,7 +39,7 @@ export const FeaturedHeroAppsCollection: FC<FeaturedHeroAppsCollectionProps> = (
 
   const app = appDetail ?? {}
   const { name, media, summary, category } = app
-  const iconUri = media?.find((item) => item.type === 'icon')?.uri ?? 'https://fakeimg.pl/96x96/fff?text=-'
+  const iconUri = media?.find((item) => item.type === 'icon')?.uri
 
   return (
     <FeaturedHeroAppsCol>
@@ -52,11 +52,15 @@ export const FeaturedHeroAppsCollection: FC<FeaturedHeroAppsCollectionProps> = (
         >
           <FlexContainer className={cx(elHFull, heroAppsFlexToggle)}>
             <FeaturedHeroAppsContentContainer>
-              <FeaturedHeroAppsIcon src={iconUri} alt={name} />
+              {iconUri ? (
+                <FeaturedHeroAppsIcon className={elFadeIn} src={iconUri} alt={name} />
+              ) : (
+                <PlaceholderImage className={elMb7} placeholder="placeholderSmall" size={96} />
+              )}
               <Subtitle className={heroAppsTitle} hasBoldText hasNoMargin>
                 {name}
               </Subtitle>
-              <HeroAppsChip>{category?.name}</HeroAppsChip>
+              {category?.name && <HeroAppsChip className={elFadeIn}>{category.name}</HeroAppsChip>}
               <BodyText className={heroAppsStrapline} hasGreyText>
                 {summary}
               </BodyText>
@@ -65,7 +69,11 @@ export const FeaturedHeroAppsCollection: FC<FeaturedHeroAppsCollectionProps> = (
               </Button>
             </FeaturedHeroAppsContentContainer>
             <FeaturedHeroAppsImageContainer>
-              <HeroAppsImage src={content?.imageUrl} alt={name} />
+              {content?.imageUrl ? (
+                <HeroAppsImage src={content.imageUrl} alt={name} />
+              ) : (
+                <PlaceholderImage className={elMb7} placeholder="placeholderLarge" size={320} fillAvailable />
+              )}
             </FeaturedHeroAppsImageContainer>
           </FlexContainer>
         </FeaturedHeroAppsContainer>
