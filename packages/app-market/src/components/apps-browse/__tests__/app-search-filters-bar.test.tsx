@@ -1,4 +1,3 @@
-// import { useReapitGet } from '@reapit/utils-react'
 import React, { ChangeEvent } from 'react'
 import { render } from '../../../tests/react-testing'
 import { mockAppSummaryModelPagedResult } from '../../../tests/__stubs__/apps'
@@ -8,8 +7,6 @@ import { MobileControlsToggleState } from '../apps-browse'
 jest.mock('@reapit/utils-react', () => ({
   useReapitGet: jest.fn(() => [mockAppSummaryModelPagedResult, false]),
 }))
-
-// const mockUseReapitGet = useReapitGet as jest.Mock
 
 describe('AppSearchFilters', () => {
   it('should match a snapshot', () => {
