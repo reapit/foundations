@@ -32,7 +32,12 @@ const validateNodes = (nodes: any[]) => {
   })
 }
 
-const cleanNode = (node: any) => !!node.nodeId
+const cleanNode = (node: any) => {
+  if (!node.nodeId) {
+    console.log('node is invalid', node)
+  }
+  return !!node.nodeId
+}
 
 export const useUpdateApp = () => {
   const [updateApp, { loading, error }] = useMutation(UpdateAppMutation)

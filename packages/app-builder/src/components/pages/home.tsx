@@ -1,6 +1,6 @@
-import React, { FC, useRef } from 'react'
+import React, { FC, useMemo, useRef } from 'react'
 import { Editor, Frame } from '@craftjs/core'
-import { useSnack } from '@reapit/elements'
+import { debounce } from 'debounce'
 
 import { RenderNode } from '../ui/render-node'
 import Viewport from '../ui/viewport'
@@ -14,7 +14,6 @@ import Navigation from '../ui/user/navigation'
 import { getPageId, usePageId } from '../hooks/use-page-id'
 import { useUpdatePage } from '../hooks/apps/use-update-app'
 import { isInitialLoad, nodesObjtoToArr, splitPageNodesIntoSections } from '../hooks/apps/node-helpers'
-import { Node, Page } from '../hooks/apps/fragments'
 import { FormInput } from '../ui/user/form-input'
 
 export type HomeProps = {}
@@ -30,40 +29,11 @@ export const resolver = {
   Navigation,
 }
 
-type PageData = {
-  page: Omit<Page, 'name'>
-  headerFooter: {
-    header: Node[]
-    footer: Node[]
-  }
-}
-
-const useDebouncedUpdatePage = (appId: string) => {
-  const { updatePage } = useUpdatePage(appId)
-  const { error } = useSnack()
-  let timeout: NodeJS.Timeout | undefined
-
-  return (data: PageData) => {
-    if (timeout) {
-      clearTimeout(timeout)
-    }
-    timeout = setTimeout(() => {
-      if (!data) {
-        return
-      }
-      updatePage(data.page, data.headerFooter).catch((e) => {
-        if (!e.message.includes('invalid node')) {
-          error(e.message)
-        }
-      })
-    }, 1000)
-  }
-}
-
 export const Home: FC<HomeProps> = () => {
   const iframeRef = useRef()
   const { appId, pageId } = usePageId()
-  const updatePage = useDebouncedUpdatePage(appId)
+  const { updatePage } = useUpdatePage(appId)
+  const debouncedUpdatePage = useMemo(() => debounce(updatePage, 1000), [updatePage])
 
   return (
     <Editor
@@ -75,20 +45,19 @@ export const Home: FC<HomeProps> = () => {
         if (query.serialize() !== '{}' && !isInitialLoad(nodesObj)) {
           const pageNodes = nodesObjtoToArr(appId, pageId, nodesObj)
           const { nodes, header, footer } = splitPageNodesIntoSections(pageNodes)
-          updatePage({
-            page: {
-              id: pageId,
-              nodes,
-            },
-            headerFooter: {
-              header,
-              footer,
-            },
-          })
+          const page = {
+            id: pageId,
+            nodes,
+          }
+          const headerFooter = {
+            header,
+            footer,
+          }
+          debouncedUpdatePage(page, headerFooter)
         }
       }}
     >
-      <Viewport iframeRef={iframeRef} pageId={pageId}>
+      <Viewport iframeRef={iframeRef} key={pageId}>
         <Frame>
           <div />
         </Frame>
