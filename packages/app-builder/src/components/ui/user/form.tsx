@@ -38,6 +38,7 @@ const FormSettings = () => {
   const {
     props: { typeName, formType },
     nodeId,
+    actions: { setProp },
   } = useNode((node) => {
     return {
       nodeId: node.id,
@@ -94,6 +95,16 @@ const FormSettings = () => {
       setShouldUpdate(true)
     }, 100)
   }
+
+  useEffect(() => {
+    if (!formType) {
+      setProp((props) => {
+        props.formType = 'create'
+        return props
+      })
+      updateIn100ms()
+    }
+  }, [formType])
 
   return (
     <>

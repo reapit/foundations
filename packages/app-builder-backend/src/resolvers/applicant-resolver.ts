@@ -6,6 +6,7 @@ import { Context } from '@apollo/client'
 import { gql } from 'apollo-server-core'
 import { Arg, Authorized, Ctx, Mutation, Query, Resolver } from 'type-graphql'
 import { query } from '../utils/graphql-fetch'
+import { Department } from '@/entities/department'
 
 const getApplicationQuery = gql`
   ${ApplicantFragment}
@@ -149,6 +150,7 @@ type ApplicantAPIResponse<T> = Omit<Omit<Applicant, 'offices'>, 'negotiators'> &
 type ApplicantsEmbeds = {
   offices: Office[]
   negotiators: Negotiator[]
+  department: Department
 }
 
 const addDefaultEmbeds = (applicant: Applicant): Applicant => ({

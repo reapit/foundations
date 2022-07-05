@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useEditor } from '@craftjs/core'
-import { elFlex, elFlex1, elFlexColumn, elFlexRow, elHFull, elMAuto, elPb6, elPt6, elWFull } from '@reapit/elements'
+import { elFlex, elFlex1, elFlexColumn, elFlexRow, elHFull, elMAuto, elPb6, elPt9, elWFull } from '@reapit/elements'
 import { cx } from '@linaria/core'
 import { styled } from '@linaria/react'
 import IFrame from 'react-frame-component'
@@ -26,11 +26,11 @@ const Container = styled.div`
   overflow: auto;
 `
 
-export const Viewport = ({ children, iframeRef, deserialize, rendererDivRefHandler }) => {
+export const Viewport = ({ children, pageId, iframeRef, deserialize, rendererDivRefHandler }) => {
   const [breakpoint, setBreakpoint] = useState(TABLET_BREAKPOINT)
   const { zoom } = useZoom()
 
-  const { pageId, appId } = usePageId()
+  const { appId } = usePageId()
   const { app } = useApp(appId)
   const page = app?.pages.find((p) => p.id === pageId)
   const [loaded, setLoaded] = useState(false)
@@ -41,6 +41,17 @@ export const Viewport = ({ children, iframeRef, deserialize, rendererDivRefHandl
       timeout = setTimeout(() => {
         try {
           const nodes = mergeHeaderFooterIntoPage(page.nodes, app?.header, app?.footer)
+          nodes.forEach((node) => {
+            if (node.parent && !nodes.some((n) => n.nodeId === node.parent)) {
+              throw new Error(`Parent node ${node.parent} not found for node ${node.id}`)
+            }
+            if (node.nodes && !node.nodes.every((n) => nodes.some((nn) => nn.nodeId === n))) {
+              throw new Error(`Child node ${node.id} has invalid children`)
+            }
+            if (typeof node.id !== 'string') {
+              throw new Error(`Node ${node.id} has invalid id`)
+            }
+          })
           deserialize(nodesArrToObj(nodes))
         } catch (e) {
           console.error(e)
@@ -75,7 +86,7 @@ export const Viewport = ({ children, iframeRef, deserialize, rendererDivRefHandl
           >
             <div
               id="page-container"
-              className={cx(elFlex, elFlex1, elHFull, elFlexColumn, elPt6)}
+              className={cx(elFlex, elFlex1, elHFull, elFlexColumn)}
               style={{
                 transition: 'transform 350ms',
                 transform: `scale(${zoom})`,
@@ -87,7 +98,7 @@ export const Viewport = ({ children, iframeRef, deserialize, rendererDivRefHandl
                 className={cx(elFlex1, elHFull, elWFull, transition, elPb6, overflowAuto)}
                 ref={rendererDivRefHandler}
               >
-                <div className={cx(elFlex, elFlexRow, flexAlignStretch, relative, elPt6, elMAuto)}>
+                <div className={cx(elFlex, elFlexRow, flexAlignStretch, relative, elPt9, elMAuto)}>
                   <InjectFrameStyles>{children}</InjectFrameStyles>
                 </div>
               </div>
@@ -100,12 +111,13 @@ export const Viewport = ({ children, iframeRef, deserialize, rendererDivRefHandl
   )
 }
 
-const ConnectedViewport = ({ children, iframeRef }) => {
+const ConnectedViewport = ({ children, pageId, iframeRef }) => {
   const { connectors, actions } = useEditor()
 
   return (
     <Viewport
       iframeRef={iframeRef}
+      pageId={pageId}
       deserialize={actions.deserialize}
       rendererDivRefHandler={(ref) => ref && connectors.select(connectors.hover(ref, ''), '')}
     >

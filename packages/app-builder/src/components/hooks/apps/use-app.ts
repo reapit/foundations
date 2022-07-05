@@ -11,7 +11,7 @@ export const GetAppQuery = gql`
 `
 
 export const useApp = (idOrSubdomain: string) => {
-  const { loading, error, data } = useQuery(GetAppQuery, {
+  const { loading, error, data, refetch } = useQuery(GetAppQuery, {
     variables: {
       idOrSubdomain,
     },
@@ -22,5 +22,6 @@ export const useApp = (idOrSubdomain: string) => {
     loading,
     error,
     app: data?._getApp as App | undefined,
+    refetch,
   }
 }

@@ -26,6 +26,7 @@ const UpdateAppMutation = gql`
 const validateNodes = (nodes: any[]) => {
   nodes.forEach((node) => {
     if (!node.nodeId) {
+      console.error(node, nodes)
       throw new Error('invalid node detected')
     }
   })

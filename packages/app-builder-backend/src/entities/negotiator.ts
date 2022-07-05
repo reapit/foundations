@@ -9,11 +9,11 @@ export class Negotiator {
   @Field()
   name: string
 
-  @Field(() => GraphQLISODateTime)
-  created: Date
+  @Field(() => GraphQLISODateTime, { nullable: true })
+  created?: Date
 
-  @Field(() => GraphQLISODateTime)
-  modified: Date
+  @Field(() => GraphQLISODateTime, { nullable: true })
+  modified?: Date
 
   @Field({ nullable: true })
   jobTitle: String
@@ -30,8 +30,8 @@ export class Negotiator {
   @Field({ nullable: true })
   mobilePhone: string
 
-  @Field()
-  email: string
+  @Field({ nullable: true })
+  email?: string
 
   metadata?: any
 }
@@ -56,8 +56,8 @@ export class NegotiatorInput {
   @Field({ nullable: true })
   mobilePhone: string
 
-  @Field()
-  email: string
+  @Field({ nullable: true })
+  email?: string
 
   metadata: any
 }
@@ -66,8 +66,8 @@ export const NegotiatorFragment = gql`
   fragment NegotiatorFragment on NegotiatorModel {
     id
     name
-    created
-    modified
+    # created
+    # modified
     jobTitle
     active
     officeId

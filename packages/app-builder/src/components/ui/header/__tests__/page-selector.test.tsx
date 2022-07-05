@@ -22,7 +22,7 @@ describe('PageSelector', () => {
   it('should match a snapshot', () => {
     const { asFragment } = render(
       <MockedProvider>
-        <PageSelector pageId="" onChange={() => {}} />
+        <PageSelector />
       </MockedProvider>,
     )
     expect(asFragment()).toMatchSnapshot()

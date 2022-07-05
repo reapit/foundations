@@ -160,32 +160,74 @@ const updateMarketplaceAppName = async (appId: string, name: string, accessToken
   }
 }
 
+const isArray = (obj: any): obj is string[] => Array.isArray(obj)
+const isString = (obj: any): obj is string => typeof obj === 'string'
+
 const ensureScopes = async (app: DDBApp, accessToken: string) => {
   const nodes = app.pages.map((page) => page.nodes).flat()
+  const validScopes = (await getValidMarketplaceScopes(accessToken)).map(({ name }) => name)
+  const acEntities = [...new Set(validScopes.map((scope) => scope?.split('/')[1].split('.')[0]))].filter(notEmpty)
   const requiredAccess: { objectName: string; access: Access[] }[] = nodes
     .map((node) => {
       const name = node.type.resolvedName
-      const objectName = node.props.typeName as string | undefined
-      if (!objectName) {
+      const props = node.props
+      const objectName = node.props?.typeName as string | undefined
+      if (!objectName || !props) {
         return null
       }
       if (name === 'Form') {
-        return {
-          objectName,
-          access: [Access.read, Access.write],
-        }
+        const childNodes = node.nodes.map((nodeId) => nodes.find(({ nodeId: id }) => id === nodeId)).filter(notEmpty)
+
+        const fieldNames = childNodes
+          .map((node) => node.props.name)
+          .filter(notEmpty)
+          .filter(isString)
+
+        const subtypes = fieldNames
+          .filter((name) => name.endsWith('Id') || name.endsWith('Ids'))
+          .map((name) => name.replace('Ids', '').replace('Id', ''))
+          .filter((fieldName) => acEntities.find((entityName) => entityName.includes(fieldName)))
+
+        return [
+          {
+            objectName,
+            access: [Access.read, Access.write],
+          },
+          ...subtypes.map((subtype) => ({
+            objectName: subtype,
+            access: [Access.read],
+          })),
+        ]
       }
       if (name === 'Table') {
-        return {
-          objectName,
-          access: node.props.showControls ? [Access.read, Access.write] : [Access.write],
+        if (isArray(props.includedFields)) {
+          const subtypes = props.includedFields.filter((fieldName) =>
+            acEntities.find((entityName) => entityName.includes(fieldName)),
+          )
+
+          return [
+            {
+              objectName,
+              access: props.showControls ? [Access.read, Access.write] : [Access.write],
+            },
+            ...subtypes.map((subtype) => ({
+              objectName: subtype,
+              access: [Access.read],
+            })),
+          ]
         }
+        return [
+          {
+            objectName,
+            access: props.showControls ? [Access.read, Access.write] : [Access.write],
+          },
+        ]
       }
       return null
     })
+    .flat()
     .filter(notEmpty)
 
-  const validScopes = (await getValidMarketplaceScopes(accessToken)).map(({ name }) => name)
   const scopes = requiredAccess
     .map(({ objectName, access }) => {
       return access.map((access) => getObjectScopes(objectName, access))
@@ -193,8 +235,9 @@ const ensureScopes = async (app: DDBApp, accessToken: string) => {
     .flat()
     .filter(notEmpty)
     .filter((scope) => validScopes.includes(scope))
-
-  return updateMarketplaceAppScopes(app.id, scopes, accessToken)
+  // unique scopes
+  const uniqueScopes = [...new Set(scopes)]
+  return updateMarketplaceAppScopes(app.id, uniqueScopes, accessToken)
 }
 
 @Resolver(() => App)

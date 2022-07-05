@@ -1,3 +1,4 @@
+import { CountryCode } from '../utils/country-code-enum'
 import { gql } from 'apollo-server-core'
 import { ObjectType, Field, ID, InputType, registerEnumType, GraphQLISODateTime } from 'type-graphql'
 import { Negotiator, NegotiatorFragment } from './negotiator'
@@ -11,11 +12,14 @@ export enum MarketingConsent {
 registerEnumType(MarketingConsent, {
   name: 'MarketingConsent',
 })
+registerEnumType(CountryCode, {
+  name: 'CountryCode',
+})
 
 @ObjectType()
 class ContactAddress {
-  @Field({ nullable: true })
-  type?: string
+  @Field(() => ContactAddressType, { nullable: true })
+  type?: ContactAddressType
 
   @Field({ nullable: true })
   buildingName?: string
@@ -38,8 +42,8 @@ class ContactAddress {
   @Field({ nullable: true })
   postcode?: string
 
-  @Field({ nullable: true })
-  country?: string
+  @Field(() => CountryCode, { nullable: true })
+  countryId?: CountryCode
 }
 
 @ObjectType({ description: '@labelKeys(title, forename, surname) @supportsCustomFields()' })
@@ -58,6 +62,9 @@ export class Contact {
 
   @Field()
   surname: string
+
+  @Field(() => MarketingConsent)
+  marketingConsent: MarketingConsent
 
   @Field()
   email: string
@@ -95,10 +102,24 @@ export class Contact {
   metadata?: any
 }
 
+export enum ContactAddressType {
+  primary = 'primary',
+  secondary = 'secondary',
+  home = 'home',
+  work = 'work',
+  forwarding = 'forwarding',
+  company = 'company',
+  previous = 'previous',
+}
+
+registerEnumType(ContactAddressType, {
+  name: 'ContactAddressType',
+})
+
 @InputType()
 class ContactAddressInput {
-  @Field({ nullable: true })
-  type?: string
+  @Field(() => ContactAddressType, { nullable: true })
+  type?: ContactAddressType
 
   @Field({ nullable: true })
   buildingName?: string
@@ -121,8 +142,8 @@ class ContactAddressInput {
   @Field({ nullable: true })
   postcode?: string
 
-  @Field({ nullable: true })
-  country?: string
+  @Field(() => CountryCode, { nullable: true })
+  countryId?: CountryCode
 }
 
 @InputType()
@@ -132,6 +153,9 @@ export class ContactInput {
 
   @Field()
   surname: string
+
+  @Field(() => MarketingConsent)
+  marketingConsent: MarketingConsent
 
   @Field()
   email: string
@@ -184,6 +208,7 @@ export const ContactFragment = gql`
     communicationPreferencePhone
     created
     modified
+    marketingConsent
     homePhone
     workPhone
     mobilePhone
@@ -196,7 +221,7 @@ export const ContactFragment = gql`
       line3
       line4
       postcode
-      country
+      countryId
     }
     _embedded {
       offices {

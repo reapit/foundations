@@ -4,8 +4,6 @@ import { ObjectType, Field, ID, GraphQLISODateTime, InputType } from 'type-graph
 export const OfficeFragment = gql`
   fragment OfficeFragment on OfficeModel {
     id
-    modified
-    created
     name
     manager
     address {
@@ -59,10 +57,10 @@ export class Office {
   @Field()
   name: string
 
-  @Field(() => GraphQLISODateTime)
+  @Field(() => GraphQLISODateTime, { nullable: true })
   modified: Date
 
-  @Field(() => GraphQLISODateTime)
+  @Field(() => GraphQLISODateTime, { nullable: true })
   created: Date
 
   @Field({ nullable: true })
@@ -74,8 +72,8 @@ export class Office {
   @Field({ nullable: true })
   workPhone: string
 
-  @Field()
-  email: string
+  @Field({ nullable: true })
+  email?: string
 
   metadata?: any
 }

@@ -1,6 +1,6 @@
 import { styled } from '@linaria/react'
 import { Button, Select } from '@reapit/elements'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 export const AppBuilderIconButton = styled(Button)`
   width: 32px;
@@ -60,21 +60,33 @@ export const SelectOrInput = ({
   style?: React.CSSProperties
   className?: string
   onInputSubmit: React.DOMAttributes<HTMLInputElement>['onSubmit']
-}) => (
-  <SelectOrInputContainer style={style} className={className}>
-    {children}
-    <OverlayInput
-      defaultValue={defaultValue}
-      onSubmit={onInputSubmit}
-      data-form-type="other" // stops extentions autofilling this field
-      onKeyDown={(e) => {
-        if (e.key === 'Enter') {
-          onInputSubmit && onInputSubmit(e)
-        }
-      }}
-    />
-  </SelectOrInputContainer>
-)
+}) => {
+  const [value, setValue] = useState('')
+
+  useEffect(() => {
+    setValue(defaultValue)
+  }, [defaultValue])
+
+  return (
+    <SelectOrInputContainer style={style} className={className}>
+      {children}
+      <OverlayInput
+        value={value}
+        defaultValue={defaultValue}
+        onSubmit={onInputSubmit}
+        data-form-type="other" // stops extentions autofilling this field
+        onKeyDown={(e) => {
+          if (e.key === 'Enter') {
+            onInputSubmit && onInputSubmit(e)
+          }
+        }}
+        onChange={(e) => {
+          setValue(e.target.value)
+        }}
+      />
+    </SelectOrInputContainer>
+  )
+}
 
 export const AppBuilderSelect = styled(Select)`
   border: 1px solid #e3e3e3;

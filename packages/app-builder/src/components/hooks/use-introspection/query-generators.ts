@@ -16,6 +16,7 @@ import {
   MutationType,
   stringIsMutationType,
   isListInputType,
+  isIntrospectionEnumType,
 } from './types'
 import { DesktopContext } from '@/core/desktop-integration'
 
@@ -135,6 +136,13 @@ const parseArgs = (
         typeName = actualType.name
         isRequired = true
       }
+    }
+    if (isIntrospectionInputObjectType(actualType)) {
+      typeName = actualType.name
+      isRequired = true
+    }
+    if (isIntrospectionEnumType(type)) {
+      typeName = type.name
     }
 
     const actualTypeObject =

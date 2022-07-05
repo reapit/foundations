@@ -144,7 +144,7 @@ export const CreatePage = ({
           ...page,
           nodes: nodesObjtoToArr(appId, page.id, page.nodes),
         },
-        { header: [], footer: [] },
+        { header: app?.header || [], footer: app?.footer || [] },
       ).then(() => {
         onCreate(pageId)
       })

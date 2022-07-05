@@ -4,7 +4,9 @@ import {
   ButtonGroup,
   CardWrap,
   ElBodyText,
+  elFlex,
   elFlex1,
+  elFlexAlignCenter,
   elHasGreyText,
   elMy2,
   FileInput,
@@ -27,6 +29,8 @@ import { uppercaseSentence } from './utils'
 import { useFormContext } from '../../../hooks/form-context'
 import { ParsedArg } from '../../..//hooks/use-introspection/query-generators'
 import { cx } from '@linaria/core'
+import { block } from '../../styles'
+import { styled } from '@linaria/react'
 
 const getLabel = (obj: any, labelKeys?: string[]) => {
   if (labelKeys) {
@@ -39,6 +43,30 @@ type GenericObject = {
   id: string
   [key: string]: any
 }
+
+const SelectIDofTypeContainer = styled.div`
+  select {
+    width: 100%;
+  }
+  .el-searchable-dropdown-search-input {
+    padding-left: 30px;
+  }
+  .el-searchable-dropdown-close-button {
+    bottom: 0px;
+  }
+  .el-searchable-dropdown-search-input-add-on {
+    bottom: 3px;
+    padding-bottom: 5px;
+    border-bottom: 0px;
+    background: transparent;
+
+    .el-icon {
+      padding-left: 2px;
+      border-bottom: 0px;
+      background: transparent;
+    }
+  }
+`
 
 const SelectIDofType = ({
   typeName,
@@ -69,7 +97,7 @@ const SelectIDofType = ({
 
   if (searchAvailable) {
     return (
-      <>
+      <SelectIDofTypeContainer>
         <SearchableDropdown<GenericObject>
           onChange={onChange}
           getResults={search}
@@ -79,27 +107,41 @@ const SelectIDofType = ({
           disabled={disabled}
           defaultVal={defaultValue}
         />
-      </>
+      </SelectIDofTypeContainer>
     )
   }
 
   if (data) {
     return (
-      <Select name={name} value={value} onChange={onChange} disabled={disabled} defaultValue={defaultValue?.id}>
-        {data.map((obj) => (
-          <option key={obj.id} value={obj.id}>
-            {getLabel(obj, object?.labelKeys)}
+      <SelectIDofTypeContainer>
+        <Select
+          className={elFlex1}
+          name={name}
+          value={value}
+          onChange={onChange}
+          disabled={disabled}
+          defaultValue={defaultValue?.id}
+        >
+          {data.map((obj) => (
+            <option key={obj.id} value={obj.id}>
+              {getLabel(obj, object?.labelKeys)}
+            </option>
+          ))}
+          {/* deepscan-disable-next-line */}
+          <option disabled selected>
+            Select a {typeName}
           </option>
-        ))}
-        {/* deepscan-disable-next-line */}
-        <option disabled selected>
-          Select a {typeName}
-        </option>
-      </Select>
+        </Select>
+      </SelectIDofTypeContainer>
     )
   }
 
-  if (loading) return <Loader />
+  if (loading)
+    return (
+      <SelectIDofTypeContainer>
+        <Loader />
+      </SelectIDofTypeContainer>
+    )
   return null
 }
 
@@ -266,6 +308,12 @@ const Input = ({
   )
 }
 
+const TrashFloatingButton = styled(FloatingButton)`
+  .el-icon {
+    border: none;
+  }
+`
+
 const ListInput = React.forwardRef(
   (
     {
@@ -291,10 +339,10 @@ const ListInput = React.forwardRef(
     return (
       <InputWrap ref={ref}>
         <Label>{label}</Label>
-        <InputGroup>
+        <InputGroup className={cx(block)}>
           {listValue.map((value, idx) => (
-            <CardWrap key={idx} className={elMy2}>
-              <InputWrap>
+            <CardWrap key={idx} className={cx(elMy2, elFlex, elFlexAlignCenter)}>
+              <InputWrap className={elFlex1}>
                 {formInput.idOfType && (
                   <SelectIDofType
                     disabled={disabled}
@@ -323,7 +371,7 @@ const ListInput = React.forwardRef(
                   />
                 )}
               </InputWrap>
-              <FloatingButton
+              <TrashFloatingButton
                 type="button"
                 onClick={() => {
                   const newListValue = listValue.filter((_, i) => i !== idx)
