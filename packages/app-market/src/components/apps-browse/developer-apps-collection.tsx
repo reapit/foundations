@@ -3,7 +3,7 @@ import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { useReapitGet } from '@reapit/utils-react'
-import { BodyText, elMr3, FlexContainer, Icon, Subtitle, PlaceholderImage } from '@reapit/elements'
+import { BodyText, elMr3, FlexContainer, Icon, Subtitle, PlaceholderImage, elFadeIn } from '@reapit/elements'
 import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
 import {
   AppIcon,
@@ -44,12 +44,12 @@ export const DeveloperAppsCollection: FC = () => {
               </FlexContainer>
             </DeveloperAppsColHelper>
             {apps.data.map(({ id, name, iconUri }) => (
-              <DeveloperAppsCol key={id}>
+              <DeveloperAppsCol className={elFadeIn} key={id}>
                 <FlexContainer isFlexAlignCenter>
                   {iconUri ? (
                     <AppIcon src={iconUri} alt={name} />
                   ) : (
-                    <PlaceholderImage placeholder="placeholderSmall" size={24} />
+                    <PlaceholderImage placeholder="placeholderSmall" size={32} />
                   )}
                   <BodyText className={appTitleOneLine} hasBoldText hasNoMargin>
                     {name}

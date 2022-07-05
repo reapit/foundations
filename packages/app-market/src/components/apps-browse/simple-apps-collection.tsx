@@ -4,7 +4,7 @@ import { GetActionNames, getActions } from '@reapit/utils-common'
 import { useReapitGet } from '@reapit/utils-react'
 import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { AppsBrowseConfigItem } from './use-apps-browse-state'
-import { BodyText, FlexContainer, PlaceholderImage } from '@reapit/elements'
+import { BodyText, elFadeIn, FlexContainer, PlaceholderImage } from '@reapit/elements'
 import { AppIcon, appTitleOneLine, appTitleTwoLine, SimpleAppsCol } from './__styles__'
 import { useReapitConnect } from '@reapit/connect-session'
 
@@ -33,9 +33,9 @@ export const SimpleAppsCollection: FC<SimpleAppsCollectionProps> = ({ configItem
             <FlexContainer isFlexColumn isFlexJustifyCenter>
               <FlexContainer>
                 {iconUri ? (
-                  <AppIcon src={iconUri} alt={name} />
+                  <AppIcon className={elFadeIn} src={iconUri} alt={name} />
                 ) : (
-                  <PlaceholderImage placeholder="placeholderSmall" size={24} />
+                  <PlaceholderImage placeholder="placeholderSmall" size={32} />
                 )}
                 <BodyText className={appTitleOneLine} hasBoldText hasNoMargin>
                   {name}

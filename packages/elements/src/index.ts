@@ -40,7 +40,7 @@ export * from './components/form-layout'
 export * from './components/tool-tip'
 export * from './components/input-error'
 export * from './components/file-input'
-export * from './components/placholder-image'
+export * from './components/placeholder-image'
 
 export * from './hooks/use-portal'
 export * from './hooks/use-snack'
