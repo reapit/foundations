@@ -11,6 +11,7 @@ const Routes = {
   APP_INSTALLATIONS: '/apps/:appId/installations',
   SWAGGER: '/swagger',
   DESKTOP: '/desktop',
+  DEVELOPER_EDITION_DOWNLOAD: '/edition-download',
   APPS_EDIT: '/apps/:appId/edit',
   APPS_EDIT_GENERAL: '/apps/:appId/edit/general',
   APPS_EDIT_AUTHENTICATION: '/apps/:appId/edit/authentication',
