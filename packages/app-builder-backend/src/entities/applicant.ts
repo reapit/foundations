@@ -3,6 +3,7 @@ import { ObjectType, Field, ID, InputType, GraphQLISODateTime } from 'type-graph
 import { GraphQLDate } from 'graphql-iso-date'
 import { Negotiator, NegotiatorFragment } from './negotiator'
 import { Office, OfficeFragment } from './office'
+import { Department, DepartmentFragment } from './department'
 
 @ObjectType()
 class ApplicantBuying {
@@ -44,57 +45,6 @@ class ApplicantRenting {
 
   @Field()
   rentingFrequency: string
-}
-
-@ObjectType()
-class Department {
-  @Field()
-  id: string
-
-  @Field()
-  description: string
-
-  @Field()
-  name: string
-
-  @Field()
-  typeOptions: string
-
-  @Field()
-  styleOptions: string
-
-  @Field()
-  situationOptions: string
-
-  @Field()
-  parkingOptions: string
-
-  @Field()
-  ageOptions: string
-
-  @Field()
-  localityOptions: string
-
-  @Field()
-  specialFeaturesOptions: string
-
-  @Field()
-  commericalUseClassOptions: string
-
-  @Field()
-  commercialFloorLevelOptions: string
-
-  @Field()
-  hasBedrooms: boolean
-
-  @Field()
-  hasBathrooms: boolean
-
-  @Field()
-  hasReceptionRooms: boolean
-
-  @Field()
-  hasParkingSpaces: boolean
 }
 
 @ObjectType({ description: '@labelKeys(title, forename, surname) @supportsCustomFields()' })
@@ -182,9 +132,6 @@ export class Applicant {
 
   @Field(() => [Office])
   offices?: Office[]
-
-  @Field({ nullable: true })
-  description: string
 
   @Field(() => [Negotiator])
   negotiators?: Negotiator[]
@@ -323,24 +270,7 @@ export class ApplicantInput {
 export const ApplicantFragment = gql`
   ${NegotiatorFragment}
   ${OfficeFragment}
-  fragment DepartmentFragment on DepartmentModel {
-    id
-    description
-    name
-    typeOptions
-    styleOptions
-    situationOptions
-    parkingOptions
-    ageOptions
-    localityOptions
-    specialFeaturesOptions
-    commericalUseClassOptions
-    commercialFloorLevelOptions
-    hasBedrooms
-    hasBathrooms
-    hasReceptionRooms
-    hasParkingSpaces
-  }
+  ${DepartmentFragment}
 
   fragment ApplicantFragment on ApplicantModel {
     id
@@ -364,7 +294,6 @@ export const ApplicantFragment = gql`
     bathroomsMax
     parkingSpacesMin
     parkingSpacesMax
-    description
     buying {
       priceFrom
       priceTo
@@ -390,6 +319,9 @@ export const ApplicantFragment = gql`
       }
       negotiators {
         ...NegotiatorFragment
+      }
+      department {
+        ...DepartmentFragment
       }
     }
     _eTag

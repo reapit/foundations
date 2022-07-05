@@ -134,8 +134,8 @@ export class NegotiatorResolver {
     return _embedded.map((negotiator) => ({
       ...(negotiator.metadata || {}),
       ...negotiator,
-      created: new Date(negotiator.created),
-      modified: new Date(negotiator.modified),
+      // created: new Date(negotiator.created),
+      // modified: new Date(negotiator.modified),
     }))
   }
 

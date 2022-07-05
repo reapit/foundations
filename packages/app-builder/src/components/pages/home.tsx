@@ -62,8 +62,8 @@ const useDebouncedUpdatePage = (appId: string) => {
 
 export const Home: FC<HomeProps> = () => {
   const iframeRef = useRef()
-  const currentPage = usePageId()
-  const updatePage = useDebouncedUpdatePage(currentPage.appId)
+  const { appId, pageId } = usePageId()
+  const updatePage = useDebouncedUpdatePage(appId)
 
   return (
     <Editor
@@ -88,7 +88,7 @@ export const Home: FC<HomeProps> = () => {
         }
       }}
     >
-      <Viewport iframeRef={iframeRef} key={currentPage.pageId}>
+      <Viewport iframeRef={iframeRef} pageId={pageId}>
         <Frame>
           <div />
         </Frame>

@@ -29,6 +29,7 @@ import { AppointmentResolver } from './resolvers/appointment-resolver'
 import { CompanyResolver } from './resolvers/company-resolver'
 import { OfferResolver } from './resolvers/offer-resolver'
 import { PropertyImageResolver } from './resolvers/property-image-resolver'
+import { DepartmentResolver } from './resolvers/department-resolver'
 
 const customEntityFieldTypeToGraphQLType = (fieldType: CustomEntityField['type']) => {
   switch (fieldType) {
@@ -318,6 +319,7 @@ export const getSchema = async (context?: Context): Promise<GraphQLSchema> => {
       CompanyResolver,
       OfferResolver,
       PropertyImageResolver,
+      DepartmentResolver,
     ],
     authChecker: customAuthChecker,
   })

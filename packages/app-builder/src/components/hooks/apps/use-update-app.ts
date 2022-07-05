@@ -26,10 +26,13 @@ const UpdateAppMutation = gql`
 const validateNodes = (nodes: any[]) => {
   nodes.forEach((node) => {
     if (!node.nodeId) {
+      console.error(node, nodes)
       throw new Error('invalid node detected')
     }
   })
 }
+
+const cleanNode = (node: any) => !!node.nodeId
 
 export const useUpdateApp = () => {
   const [updateApp, { loading, error }] = useMutation(UpdateAppMutation)
@@ -37,7 +40,17 @@ export const useUpdateApp = () => {
   return {
     updateApp: (app: App, header: Node[], footer: Node[], navConfig: NavConfig[], pages?: Array<Partial<Page>>) => {
       const variables = { id: app.id, name: app.name, pages, header, footer, navConfig }
-      validateNodes([...header, ...footer, ...(pages || []).map((page) => page.nodes)].flat().filter(notEmpty))
+      variables.pages = pages?.map((page) => ({
+        ...page,
+        nodes: page?.nodes?.filter(cleanNode),
+      }))
+      variables.header = header.filter(cleanNode)
+      variables.footer = footer.filter(cleanNode)
+      validateNodes(
+        [...variables.header, ...variables.footer, ...(variables.pages || []).map((page) => page.nodes)]
+          .flat()
+          .filter(notEmpty),
+      )
       return updateApp({
         variables,
         optimisticResponse: {

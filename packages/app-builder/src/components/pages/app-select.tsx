@@ -180,6 +180,7 @@ const AppSelector = () => {
               <Col key={id}>
                 <Card
                   className={elFadeIn}
+                  style={{ cursor: 'pointer' }}
                   onClick={() => history.push(id + '/')}
                   hasMainCard
                   mainContextMenuItems={[

@@ -1,4 +1,4 @@
-import { useHistory, useParams, useLocation } from 'react-router'
+import { useParams, useLocation } from 'react-router'
 import qs from 'query-string'
 
 export const getAppId = (): string => {
@@ -17,7 +17,7 @@ export const usePageId = () => {
   }
   const location = useLocation()
   const context = qs.parse(location.search)
-  const history = useHistory()
+  // const history = useHistory()
 
   const generateLinkAttrs = (pageId: string, context?: any) => ({
     pathname: `/${appId}${pageId === '~' ? '' : `/${pageId}`}`,
@@ -27,7 +27,7 @@ export const usePageId = () => {
   const setPageId = (pageId: string, context?: Record<string, any>) => {
     const { pathname, search } = generateLinkAttrs(pageId, context)
     const dest = `${pathname}${search ? `?${search}` : ''}`
-    history.push(dest)
+    window.location.pathname = dest
   }
 
   return { pageId: pageId || '~', setPageId, appId, context, generateLinkAttrs }

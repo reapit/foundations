@@ -20,8 +20,12 @@ export const newPage = (name: string) => {
   return page
 }
 
-export const PageSelector = ({ pageId, onChange }: { pageId?: string; onChange: (id: string) => void }) => {
-  const { appId, setPageId } = usePageId()
+const isValidNode = (node: any) => {
+  return !!node.id
+}
+
+export const PageSelector = () => {
+  const { appId, pageId, setPageId } = usePageId()
   const { app } = useApp(appId)
   const pages = app?.pages || []
   const { updatePage } = useUpdatePage(appId)
@@ -49,7 +53,7 @@ export const PageSelector = ({ pageId, onChange }: { pageId?: string; onChange: 
           name="page_selector"
           value={pageId}
           onChange={(e) => {
-            onChange(e.target.value)
+            setPageId(e.target.value)
           }}
         >
           {pages.map(({ id: value, name: label }) => (
@@ -73,11 +77,14 @@ export const PageSelector = ({ pageId, onChange }: { pageId?: string; onChange: 
           updatePage(
             {
               ...page,
-              nodes: nodesObjtoToArr(appId, page.id, page.nodes),
+              nodes: nodesObjtoToArr(appId, page.id, page.nodes).filter(isValidNode),
             },
             { header: app.header, footer: app.footer },
-          )
-          onChange(page.id)
+          ).then(() => {
+            setTimeout(() => {
+              setPageId(page.id)
+            }, 300)
+          })
         }}
       >
         <Plus />

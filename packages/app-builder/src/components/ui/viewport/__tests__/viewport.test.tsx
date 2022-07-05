@@ -60,7 +60,7 @@ describe('Viewport', () => {
       <MockedProvider>
         <MemoryRouter>
           <Editor>
-            <Viewport iframeRef={undefined} deserialize={() => {}} rendererDivRefHandler={() => {}}>
+            <Viewport iframeRef={undefined} deserialize={() => {}} rendererDivRefHandler={() => {}} pageId={undefined}>
               <></>
             </Viewport>
           </Editor>

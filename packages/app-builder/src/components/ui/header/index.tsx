@@ -179,7 +179,7 @@ const ToggleRadioContainer = styled.div`
 `
 
 const Header = ({ setBreakpoint, breakpoint }) => {
-  const { pageId, setPageId, appId } = usePageId()
+  const { appId } = usePageId()
   const { app } = useApp(appId)
 
   return (
@@ -194,7 +194,7 @@ const Header = ({ setBreakpoint, breakpoint }) => {
           <HomeIcon />
         </Home>
         <AppName />
-        <PageSelector pageId={pageId} onChange={setPageId} />
+        <PageSelector />
         <Breakpoints>
           <AppBuilderToggleRadio
             name="responsive preview"

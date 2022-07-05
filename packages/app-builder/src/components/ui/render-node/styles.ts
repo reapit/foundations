@@ -8,7 +8,7 @@ export const indicator = css`
   font-size: 12px;
   line-height: 12px;
   color: white;
-  position: fixed;
+  position: absolute;
   background: var(--intent-primary);
 
   svg {
@@ -51,7 +51,6 @@ export const littleButton = css`
 
 export const HeaderContainer = styled.header`
   grid-column: span 12;
-  overflow: hidden;
   border-radius: 4px;
 
   grid-area: header;
@@ -59,7 +58,6 @@ export const HeaderContainer = styled.header`
 
 export const FooterContainer = styled.footer`
   grid-column: span 12;
-  overflow: hidden;
   border-radius: 4px;
 
   grid-area: footer;
@@ -69,7 +67,6 @@ export const BodyContainer = styled.section`
   margin-top: 20px;
   margin-bottom: 20px;
   grid-column: span 12;
-  overflow: hidden;
   border-radius: 4px;
 
   grid-area: body;

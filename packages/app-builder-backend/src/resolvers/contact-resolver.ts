@@ -45,9 +45,10 @@ const createContactMutation = gql`
     $forename: String
     $surname: String
     $email: String
-    $primaryAddress: ContactAddressInput!
+    $primaryAddress: ContactModelAddressInput!
     $officeIds: [String!]!
     $negotiatorIds: [String!]!
+    $marketingConsent: String!
     $metadata: JSON
   ) {
     CreateContact(
@@ -58,6 +59,7 @@ const createContactMutation = gql`
       officeIds: $officeIds
       email: $email
       metadata: $metadata
+      marketingConsent: $marketingConsent
     ) {
       ...ContactFragment
     }
@@ -71,10 +73,11 @@ const updateContactMutation = gql`
     $forename: String
     $surname: String
     $email: String
-    $primaryAddress: ContactAddressInput!
+    $primaryAddress: ContactModelAddressInput!
     $officeIds: [String!]!
     $negotiatorIds: [String!]!
     $metadata: JSON
+    $marketingConsent: String!
     $_eTag: String!
   ) {
     UpdateContact(
@@ -86,6 +89,7 @@ const updateContactMutation = gql`
       negotiatorIds: $negotiatorIds
       officeIds: $officeIds
       metadata: $metadata
+      marketingConsent: $marketingConsent
       _eTag: $_eTag
     ) {
       ...ContactFragment

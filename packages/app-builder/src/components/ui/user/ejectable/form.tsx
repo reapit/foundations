@@ -60,7 +60,7 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
 
     return (
       <ComponentWrapper {...props} ref={ref}>
-        {!typeName && <div>No type selected</div>}
+        {!typeName && <div>No type selected, choose one from the sidebar.</div>}
         <form
           onSubmit={(e) => {
             if (!args) return
