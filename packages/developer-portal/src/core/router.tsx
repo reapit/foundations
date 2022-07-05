@@ -23,6 +23,9 @@ const Invite = React.lazy(() => catchChunkError(() => import('../components/regi
 const ElementsPage = React.lazy(() => catchChunkError(() => import('../components/elements')))
 const SelectRolePage = React.lazy(() => catchChunkError(() => import('../components/login/select-role')))
 const IaaS = React.lazy(() => catchChunkError(() => import('../components/iaas')))
+const DeveloperEditionDownload = React.lazy(() =>
+  catchChunkError(() => import('../components/desktop/developer-edition-download')),
+)
 
 export const FourOFour: FC = () => (
   <PersistentNotification isFullWidth isInline isExpanded intent="danger">
@@ -61,6 +64,7 @@ const Router = () => {
               <PrivateRoute path={Routes.SETTINGS} component={SettingsPage} />
               <PrivateRoute path={Routes.ELEMENTS} exact component={ElementsPage} />
               <PrivateRoute path={Routes.IAAS} exact component={IaaS} />
+              <PrivateRoute path={Routes.DEVELOPER_EDITION_DOWNLOAD} exact component={DeveloperEditionDownload} />
               <Route render={() => <FourOFour />} />
             </Switch>
           </PrivateRouteWrapper>
