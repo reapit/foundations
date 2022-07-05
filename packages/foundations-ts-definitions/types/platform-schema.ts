@@ -12938,11 +12938,11 @@ export interface ReferralModel {
    */
   contactId?: string
   /**
-   * The unique identifier of the status the referral is associated with, where applicable
+   * The status of the referral (sent/succeeded/cancelled/failed/paid/declined/inProgress)
    */
   status?: string
   /**
-   * The referral amount
+   * The amount paid to the agent for the referral
    */
   amount?: number // double
   /**
@@ -12957,6 +12957,12 @@ export interface ReferralModel {
    * 2019-08-14T12:30:02.0000000Z
    */
   accepted?: string // date-time
+  /**
+   * App specific metadata that has been set against the referral
+   */
+  metadata?: {
+    [name: string]: any
+  }
   /**
    * The ETag for the current version of the referral. Used for managing update concurrency
    */
@@ -13009,11 +13015,11 @@ export interface ReferralModelPagedResult {
      */
     contactId?: string
     /**
-     * The unique identifier of the status the referral is associated with, where applicable
+     * The status of the referral (sent/succeeded/cancelled/failed/paid/declined/inProgress)
      */
     status?: string
     /**
-     * The referral amount
+     * The amount paid to the agent for the referral
      */
     amount?: number // double
     /**
@@ -13028,6 +13034,12 @@ export interface ReferralModelPagedResult {
      * 2019-08-14T12:30:02.0000000Z
      */
     accepted?: string // date-time
+    /**
+     * App specific metadata that has been set against the referral
+     */
+    metadata?: {
+      [name: string]: any
+    }
     /**
      * The ETag for the current version of the referral. Used for managing update concurrency
      */
@@ -13096,7 +13108,7 @@ export interface Referrals {
   contactId?: string[]
   negotiatorId?: string[]
   referralTypeId?: string[]
-  status?: ('sent' | 'succeeded' | 'cancelled' | 'failed' | 'paid' | 'declined')[]
+  status?: ('sent' | 'inProgress' | 'succeeded' | 'cancelled' | 'failed' | 'paid' | 'declined')[]
   embed?: ('applicant' | 'contact' | 'negotiator' | 'property' | 'type')[]
   pageSize?: number
   pageNumber?: number
@@ -17625,6 +17637,27 @@ export interface UpdatePropertyTenureModel {
    * 2019-08-14
    */
   expiry?: string // date
+}
+/**
+ * Update Referral Model
+ * example:
+ * [object Object]
+ */
+export interface UpdateReferralModel {
+  /**
+   * The status of the referral (sent/succeeded/cancelled/failed/paid/declined/inProgress)
+   */
+  status?: string
+  /**
+   * The amount paid to the agent for the referral
+   */
+  amount?: number // double
+  /**
+   * App specific metadata to set against the referral
+   */
+  metadata?: {
+    [name: string]: any
+  }
 }
 /**
  * Payload to update a JSON schema
