@@ -11,7 +11,7 @@ const appsBrowseConfigCollectionDev: AppsBrowseConfigCollection = {
         title: 'New in AppMarket',
         brandColour: '#0061a8',
         strapline: 'Lorem ipsum dolor sit amet, consectetur adip',
-        imageUrl: 'http://placekitten.com/1000/360',
+        imageUrl: '',
       },
       configType: 'featuredHeroApps',
       live: {
@@ -26,7 +26,7 @@ const appsBrowseConfigCollectionDev: AppsBrowseConfigCollection = {
         title: 'Discover Amazing Apps',
         brandColour: '#0061a8',
         strapline: 'Lorem ipsum dolor sit amet, consectetur adip',
-        imageUrl: 'http://placekitten.com/1000/360',
+        imageUrl: '',
       },
       configType: 'heroApps',
       live: {
@@ -40,7 +40,7 @@ const appsBrowseConfigCollectionDev: AppsBrowseConfigCollection = {
       content: {
         brandColour: '#0061a8',
         strapline: 'Lorem ipsum dolor sit amet, consectetur adip',
-        imageUrl: 'http://placekitten.com/1000/360',
+        imageUrl: '',
       },
       configType: 'heroApps',
       live: {

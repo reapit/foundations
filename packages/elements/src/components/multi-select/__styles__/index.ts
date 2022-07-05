@@ -23,6 +23,7 @@ export const ElMultiSelectCheckbox = styled.input`
   :checked + label {
     background: var(--color-white);
     padding: 0.2rem 2rem 0.2rem 1rem;
+    color: var(--color-black);
 
     &::before {
       content: '';
@@ -40,6 +41,10 @@ export const ElMultiSelectCheckbox = styled.input`
       &:before {
         background-image: url('${dismiss(intentPrimary)}');
       }
+    }
+
+    &.${elHasGreyChips} {
+      background: var(--color-grey-light);
     }
   }
 
@@ -77,9 +82,14 @@ export const ElMultiSelectLabel = styled.label`
   display: flex;
   align-items: center;
   justify-content: center;
+  color: var(--color-grey-dark);
 
   &.${elHasGreyChips} {
     background: var(--color-grey-light);
+  }
+
+  &:hover {
+    color: var(--color-black);
   }
 `
 

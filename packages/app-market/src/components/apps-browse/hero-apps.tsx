@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { useReapitGet } from '@reapit/utils-react'
-import { BodyText, elHFull, FlexContainer, Subtitle } from '@reapit/elements'
+import { BodyText, elFadeIn, elHFull, elMb7, FlexContainer, PlaceholderImage, Subtitle } from '@reapit/elements'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import { AppsBrowseConfigItem } from './use-apps-browse-state'
 import {
@@ -37,7 +37,7 @@ export const HeroAppsCollection: FC<HeroAppsCollectionProps> = ({ configItem }) 
 
   const app = appDetail ?? {}
   const { name, media, summary, category } = app
-  const iconUri = media?.find((item) => item.type === 'icon')?.uri ?? 'https://fakeimg.pl/72x72/fff?text=-'
+  const iconUri = media?.find((item) => item.type === 'icon')?.uri
 
   return (
     <HeroAppsCol>
@@ -50,17 +50,25 @@ export const HeroAppsCollection: FC<HeroAppsCollectionProps> = ({ configItem }) 
         <HeroAppsContainer style={{ backgroundColor: content?.brandColour ? `${content?.brandColour}1a` : '#fff' }}>
           <FlexContainer className={cx(elHFull, heroAppsFlexToggle)}>
             <HeroAppsContentContainer>
-              <HeroAppsIcon src={iconUri} alt={name} />
+              {iconUri ? (
+                <HeroAppsIcon className={elFadeIn} src={iconUri} alt={name} />
+              ) : (
+                <PlaceholderImage placeholder="placeholderSmall" size={72} />
+              )}
               <BodyText className={heroAppsTitle} hasBoldText hasNoMargin>
                 {name}
               </BodyText>
-              <HeroAppsChip>{category?.name}</HeroAppsChip>
+              <HeroAppsChip className={elFadeIn}>{category?.name}</HeroAppsChip>
               <BodyText className={heroAppsStrapline} hasGreyText>
                 {summary}
               </BodyText>
             </HeroAppsContentContainer>
             <HeroAppsImageContainer>
-              <HeroAppsImage src={content?.imageUrl} alt={name} />
+              {content?.imageUrl ? (
+                <HeroAppsImage src={content.imageUrl} alt={name} />
+              ) : (
+                <PlaceholderImage className={elMb7} placeholder="placeholderLarge" size={192} fillAvailable />
+              )}
             </HeroAppsImageContainer>
           </FlexContainer>
         </HeroAppsContainer>

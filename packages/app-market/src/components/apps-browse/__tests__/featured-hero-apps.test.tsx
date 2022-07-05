@@ -1,6 +1,7 @@
 import { useReapitGet } from '@reapit/utils-react'
 import React from 'react'
 import { render } from '../../../tests/react-testing'
+import { mockAppDetailModel } from '../../../tests/__stubs__/apps'
 import { handleSortConfigs } from '../apps-browse'
 import { appsBrowseConfigCollection } from '../config'
 import { FeaturedHeroAppsCollection } from '../featured-hero-apps'
@@ -8,7 +9,7 @@ import { FeaturedHeroAppsCollection } from '../featured-hero-apps'
 const configItem = handleSortConfigs(appsBrowseConfigCollection)().featuredHeroApps[0]
 
 jest.mock('@reapit/utils-react', () => ({
-  useReapitGet: jest.fn(() => [{}, false]),
+  useReapitGet: jest.fn(() => [mockAppDetailModel, false]),
   objectToQuery: jest.fn(() => '?query=string'),
 }))
 
