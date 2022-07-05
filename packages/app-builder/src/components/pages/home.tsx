@@ -1,4 +1,4 @@
-import React, { FC, useMemo, useRef } from 'react'
+import React, { FC, useEffect, useMemo, useRef } from 'react'
 import { Editor, Frame } from '@craftjs/core'
 import { debounce } from 'debounce'
 
@@ -34,6 +34,12 @@ export const Home: FC<HomeProps> = () => {
   const { appId, pageId } = usePageId()
   const { updatePage } = useUpdatePage(appId)
   const debouncedUpdatePage = useMemo(() => debounce(updatePage, 1000), [updatePage])
+
+  useEffect(() => {
+    return () => {
+      debouncedUpdatePage.clear()
+    }
+  }, [debouncedUpdatePage])
 
   return (
     <Editor
