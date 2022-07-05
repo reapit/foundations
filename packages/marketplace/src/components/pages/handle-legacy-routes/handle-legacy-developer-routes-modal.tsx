@@ -8,7 +8,7 @@ export const handleBtnBackToMarketplace = () => {
 }
 
 export const handleBtnGoThereNow = () => {
-  window.open(window.reapit.config.developerPortalUrl, '_self')
+  window.open(window.reapit.config.developerPortalUrl, '_self', 'noopener')
 }
 
 const HandleLegacyDeveloperRoutesModal: React.FC<{}> = () => {

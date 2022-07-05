@@ -125,7 +125,7 @@ export const getAppHttpTrafficPerDayChartData = (stats: ServiceItemBillingV2Mode
   const labels: string[] = []
   const data: number[] = []
 
-  stats.map((item) => {
+  stats.forEach((item) => {
     labels.push(item.name as string)
     data.push(item.cost as number)
     chartDataStats.push({

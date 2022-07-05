@@ -8,7 +8,7 @@ export const handleBtnBackToMarketplace = () => {
 }
 
 export const handleBtnGoThereNow = () => {
-  window.open('https://developer-admin.reapit.cloud', '_self')
+  window.open('https://developer-admin.reapit.cloud', '_self', 'noopener')
 }
 
 const HandleLegacyAdminRoutesModal: React.FC<{}> = () => {
