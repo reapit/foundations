@@ -1,6 +1,5 @@
 import { QueryIterator } from '@aws/dynamodb-data-mapper'
 import { Body, Controller, Delete, Get, NotFoundException, Param, Post, Put, UseGuards } from '@nestjs/common'
-import { AppsBrowseConfigType } from '@reapit/foundations-ts-definitions/marketplace-cms'
 import { AdminGuard } from '@reapit/utils-nest'
 import { CmsProvider } from './cms-provider'
 import { MarketplaceAppModelDto } from './marketplace-app-dto'

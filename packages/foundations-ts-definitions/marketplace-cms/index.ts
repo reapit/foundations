@@ -16,12 +16,12 @@ export interface AppsBrowseConfigItemFiltersInterface {
   isFree?: boolean
 }
 
-export enum AppsBrowseConfigType {
-  featuredHeroApps = 'featuredHeroApps',
-  heroApps = 'heroApps',
-  appsFilters = 'appsFilters',
-  featuredApps = 'featuredApps',
-  simpleApps = 'simpleApps',
+export enum AppsBrowseConfigEnum {
+  FEATURED_HERO = 'featuredHeroApps',
+  HERO = 'heroApps',
+  FILTERS = 'appsFilters',
+  FEATURED = 'featuredApps',
+  SIMPLE = 'simpleApps',
 }
 
 export interface AppBrowseLiveDataInterface {
@@ -34,6 +34,6 @@ export interface AppsBrowseConfigItemInterface {
   id?: string
   filters?: AppsBrowseConfigItemFiltersInterface
   content?: AppsBrowseConfigItemContentInterface
-  configType: AppsBrowseConfigType
+  configType: AppsBrowseConfigEnum
   live: AppBrowseLiveDataInterface
 }

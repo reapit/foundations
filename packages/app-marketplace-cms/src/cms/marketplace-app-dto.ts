@@ -2,7 +2,7 @@ import {
   AppsBrowseConfigItemInterface,
   AppsBrowseConfigItemContentInterface,
   AppsBrowseConfigItemFiltersInterface,
-  AppsBrowseConfigType,
+  AppsBrowseConfigEnum,
   AppBrowseLiveDataInterface,
 } from '@reapit/foundations-ts-definitions'
 import { IsString, IsArray, IsBoolean, IsEnum, IsDateString, IsNotEmpty } from 'class-validator'
@@ -65,9 +65,9 @@ export class MarketplaceAppModelDto implements AppsBrowseConfigItemInterface {
   @Type(() => AppBrowseConfigContentDto)
   content?: AppBrowseConfigContentDto
 
-  @IsEnum(AppsBrowseConfigType)
+  @IsEnum(AppsBrowseConfigEnum)
   @IsNotEmpty()
-  configType: AppsBrowseConfigType
+  configType: AppsBrowseConfigEnum
 
   @Type(() => AppBrowseLiveDataDto)
   @IsNotEmpty()

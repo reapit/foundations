@@ -3,7 +3,7 @@ import {
   AppBrowseLiveDataInterface,
   AppsBrowseConfigItemContentInterface,
   AppsBrowseConfigItemFiltersInterface,
-  AppsBrowseConfigType,
+  AppsBrowseConfigEnum,
   AppsBrowseConfigItemInterface,
 } from '@reapit/foundations-ts-definitions'
 
@@ -70,7 +70,7 @@ export class MarketplaceAppModel implements AppsBrowseConfigItemInterface {
   live: AppBrowseLiveDataModel
 
   @attribute()
-  configType: AppsBrowseConfigType
+  configType: AppsBrowseConfigEnum
 
   @attribute()
   content?: AppBrowseConfigContentModel
