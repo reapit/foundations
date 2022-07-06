@@ -1,4 +1,4 @@
-import { css } from "@linaria/core"
+import { css } from '@linaria/core'
 
 export const appModal = css`
   top: 0;
