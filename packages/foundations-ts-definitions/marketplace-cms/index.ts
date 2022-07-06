@@ -31,6 +31,7 @@ export interface AppBrowseLiveDataInterface {
 }
 
 export interface AppsBrowseConfigItemInterface {
+  id?: string
   filters?: AppsBrowseConfigItemFiltersInterface
   content?: AppsBrowseConfigItemContentInterface
   configType: AppsBrowseConfigType
