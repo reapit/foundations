@@ -114,6 +114,11 @@ const CreateNew = ({ className }: { className?: string }) => {
                 errorMessage={errors?.name?.message}
                 icon={errors?.name?.message ? 'asteriskSystem' : null}
                 intent="danger"
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    e.currentTarget.form?.requestSubmit()
+                  }
+                }}
               />
             </InputWrapFull>
           </FormLayout>

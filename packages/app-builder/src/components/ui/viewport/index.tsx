@@ -26,11 +26,11 @@ const Container = styled.div`
   overflow: auto;
 `
 
-export const Viewport = ({ children, pageId, iframeRef, deserialize, rendererDivRefHandler }) => {
+export const Viewport = ({ children, iframeRef, deserialize, rendererDivRefHandler }) => {
   const [breakpoint, setBreakpoint] = useState(TABLET_BREAKPOINT)
   const { zoom } = useZoom()
 
-  const { appId } = usePageId()
+  const { appId, pageId } = usePageId()
   const { app } = useApp(appId)
   const page = app?.pages.find((p) => p.id === pageId)
   const [loaded, setLoaded] = useState(false)
@@ -111,13 +111,12 @@ export const Viewport = ({ children, pageId, iframeRef, deserialize, rendererDiv
   )
 }
 
-const ConnectedViewport = ({ children, pageId, iframeRef }) => {
+const ConnectedViewport = ({ children, iframeRef }) => {
   const { connectors, actions } = useEditor()
 
   return (
     <Viewport
       iframeRef={iframeRef}
-      pageId={pageId}
       deserialize={actions.deserialize}
       rendererDivRefHandler={(ref) => ref && connectors.select(connectors.hover(ref, ''), '')}
     >

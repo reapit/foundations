@@ -21,6 +21,9 @@ export const newPage = (name: string) => {
 }
 
 const isValidNode = (node: any) => {
+  if (!node.id) {
+    console.log('node is invalid', node)
+  }
   return !!node.id
 }
 

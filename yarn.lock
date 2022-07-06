@@ -11523,6 +11523,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/debounce@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "@types/debounce@npm:1.2.1"
+  checksum: bea6d414acefbee50adfe87cee10f8a855d033e4778567ab03bdc3cb2648b6bf9237ca53f4ee76fe4be75f77f86d4688411499626fe409bc870f53631d24231f
+  languageName: node
+  linkType: hard
+
 "@types/diff@npm:^4.0.2":
   version: 4.0.2
   resolution: "@types/diff@npm:4.0.2"
@@ -14394,6 +14401,7 @@ __metadata:
     "@sentry/browser": ^6.19.7
     "@testing-library/jest-dom": ^5.16.4
     "@testing-library/react": ^13.3.0
+    "@types/debounce": ^1.2.1
     "@typescript-eslint/eslint-plugin": ^5.30.4
     "@typescript-eslint/parser": ^5.30.4
     babel-loader: ^8.2.5
@@ -14403,6 +14411,7 @@ __metadata:
     css-loader: ^6.7.1
     date-fns: ^2.28.0
     dayjs: ^1.11.3
+    debounce: ^1.2.1
     eslint: 8.19.0
     eslint-plugin-prettier: ^4.2.1
     graphql: ^15.8.0
@@ -19050,7 +19059,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"debounce@npm:^1.2.0":
+"debounce@npm:^1.2.0, debounce@npm:^1.2.1":
   version: 1.2.1
   resolution: "debounce@npm:1.2.1"
   checksum: 682a89506d9e54fb109526f4da255c5546102fbb8e3ae75eef3b04effaf5d4853756aee97475cd4650641869794e44f410eeb20ace2b18ea592287ab2038519e
