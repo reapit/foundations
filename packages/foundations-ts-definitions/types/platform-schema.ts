@@ -2638,6 +2638,9 @@ export interface ConfigurationCompanyTypes {
 export interface ConfigurationContactCategories {
   id?: string[]
 }
+export interface ConfigurationPortalTypes {
+  id?: string[]
+}
 export interface ConfigurationTypes {
   type?: (
     | 'agencyTypes'
@@ -11330,6 +11333,10 @@ export interface PropertyModel {
    */
   councilTax?: string
   /**
+   * A collection of identifiers of portals that the property should not be displayed on
+   */
+  disabledPortalIds?: string[]
+  /**
    * A flag denoting whether or not this property can be advertised on the internet
    */
   internetAdvertising?: boolean
@@ -12056,6 +12063,10 @@ export interface PropertyModelPagedResult {
      * The council tax banding of the property (A/B/C/D/E/F/G/H/I/notYetAvailable)
      */
     councilTax?: string
+    /**
+     * A collection of identifiers of portals that the property should not be displayed on
+     */
+    disabledPortalIds?: string[]
     /**
      * A flag denoting whether or not this property can be advertised on the internet
      */
