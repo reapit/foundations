@@ -95,7 +95,7 @@ export const useUpdateAppNavConfig = (appId: string) => {
     }
   }
 
-  const debouncedUpdate = useMemo(() => debounce(doUpdate, 2000), [newNavConfig])
+  const debouncedUpdate = useMemo(() => debounce(doUpdate, 2000), [doUpdate])
 
   useEffect(() => {
     debouncedUpdate()
