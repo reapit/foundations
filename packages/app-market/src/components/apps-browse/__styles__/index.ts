@@ -9,6 +9,7 @@ import {
 } from '../../../core/__styles__/media'
 
 export const FeaturedHeroAppsCol = styled.div`
+  cursor: pointer;
   grid-column-end: span 4;
   min-width: 0;
 
@@ -78,6 +79,7 @@ export const HeroAppsGrid = styled.div`
 `
 
 export const HeroAppsCol = styled.div`
+  cursor: pointer;
   grid-column-end: span 4;
   align-self: end;
   min-width: 0;
@@ -211,6 +213,7 @@ export const AppFilterGrid = styled.div`
 `
 
 export const AppFilterCol = styled.div`
+  cursor: pointer;
   grid-column-end: span 3;
   align-self: end;
   height: 180px;
@@ -262,6 +265,7 @@ export const FeaturedAppsGrid = styled.div`
 `
 
 export const FeaturedAppsCol = styled.div`
+  cursor: pointer;
   grid-column-end: span 4;
   align-self: end;
   padding: 1.25rem 2rem;
@@ -308,6 +312,7 @@ export const SimpleAppsGrid = styled.div`
 `
 
 export const SimpleAppsCol = styled.div`
+  cursor: pointer;
   grid-column-end: span 6;
   align-self: end;
   padding: 1.25rem 2rem;
@@ -345,6 +350,7 @@ export const DeveloperAppsGrid = styled.div`
 `
 
 export const DeveloperAppsColHelper = styled.div`
+  cursor: pointer;
   grid-column-end: span 6;
   align-self: center;
   min-width: 0;

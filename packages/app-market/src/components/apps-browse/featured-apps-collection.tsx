@@ -7,12 +7,16 @@ import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { AppsBrowseConfigItem, AppsBrowseConfigItemFilters } from './use-apps-browse-state'
 import { AppIcon, appTitleOneLine, FeaturedAppsCol } from './__styles__'
 import { useReapitConnect } from '@reapit/connect-session'
+import { navigate } from '../../utils/navigation'
+import { Routes } from '../../constants/routes'
+import { useHistory } from 'react-router-dom'
 
 interface FeaturedAppsCollectionProps {
   configItem: AppsBrowseConfigItem
 }
 
 export const FeaturedAppsCollection: FC<FeaturedAppsCollectionProps> = ({ configItem }) => {
+  const history = useHistory()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const clientId = connectSession?.loginIdentity.clientId
   const { filters } = configItem
@@ -28,7 +32,7 @@ export const FeaturedAppsCollection: FC<FeaturedAppsCollectionProps> = ({ config
   return (
     <>
       {apps?.data?.map(({ id, name, summary, iconUri }) => (
-        <FeaturedAppsCol className={elFadeIn} key={id}>
+        <FeaturedAppsCol className={elFadeIn} key={id} onClick={navigate(history, `${Routes.APPS_BROWSE}/${id}`)}>
           <FlexContainer isFlexJustifyBetween>
             <FlexContainer isFlexColumn isFlexJustifyCenter>
               <FlexContainer>

@@ -7,12 +7,16 @@ import { AppsBrowseConfigItem } from './use-apps-browse-state'
 import { BodyText, elFadeIn, FlexContainer, PlaceholderImage } from '@reapit/elements'
 import { AppIcon, appTitleOneLine, appTitleTwoLine, SimpleAppsCol } from './__styles__'
 import { useReapitConnect } from '@reapit/connect-session'
+import { Routes } from '../../constants/routes'
+import { navigate } from '../../utils/navigation'
+import { useHistory } from 'react-router-dom'
 
 interface SimpleAppsCollectionProps {
   configItem: AppsBrowseConfigItem
 }
 
 export const SimpleAppsCollection: FC<SimpleAppsCollectionProps> = ({ configItem }) => {
+  const history = useHistory()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const clientId = connectSession?.loginIdentity.clientId
   const { filters } = configItem
@@ -28,7 +32,7 @@ export const SimpleAppsCollection: FC<SimpleAppsCollectionProps> = ({ configItem
   return (
     <>
       {apps?.data?.map(({ id, name, summary, iconUri }) => (
-        <SimpleAppsCol key={id}>
+        <SimpleAppsCol key={id} onClick={navigate(history, `${Routes.APPS_BROWSE}/${id}`)}>
           <FlexContainer isFlexJustifyBetween>
             <FlexContainer isFlexColumn isFlexJustifyCenter>
               <FlexContainer>
