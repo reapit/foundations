@@ -18,11 +18,10 @@ import {
 import {
   AppsBrowseConfigEnum,
   AppsBrowseConfigItemInterface,
-  AppSummaryModelPagedResult,
   CategoryModelPagedResult,
 } from '@reapit/foundations-ts-definitions'
 import { GetActionNames, getActions } from '@reapit/utils-common'
-import { UpdateReturnTypeEnum, useReapitGet, useReapitUpdate } from '@reapit/utils-react'
+import { SearchableMultiSelect, UpdateReturnTypeEnum, useReapitGet, useReapitUpdate } from '@reapit/utils-react'
 import React, { FC, useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { reactPickerStyles } from './app-browse.styles'
@@ -77,16 +76,13 @@ export const AppBrowseUpsertModal: FC<{
     formState: { errors },
     setValue,
     reset,
+    getValues,
   } = useForm({
     defaultValues: appMarketConfig,
   })
   const [loading, setLoading] = useState<boolean>(false)
   const [color, setColor] = useState<string>(appMarketConfig?.content?.brandColour || '#FF0000')
-  const [apps] = useReapitGet<AppSummaryModelPagedResult>({
-    reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getApps],
-    queryParams: { showHiddenApps: 'true', pageSize: 100 },
-  })
+
   const [categories] = useReapitGet<CategoryModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppCategories],
@@ -128,18 +124,18 @@ export const AppBrowseUpsertModal: FC<{
           <InputWrapFull>
             <InputGroup>
               <Label>App</Label>
-              <MultiSelectInput
-                {...register('filters.id')}
-                id="filters.id"
-                options={
-                  apps?.data?.map((app) => ({
-                    value: app.id as string,
-                    name: app.name as string,
-                  })) || []
-                }
-                defaultValues={appMarketConfig?.filters?.id}
+              <SearchableMultiSelect
+                id="select-multi-apps"
+                reapitConnectBrowserSession={reapitConnectBrowserSession}
+                action={getActions(window.reapit.config.appEnv)[GetActionNames.getApps]}
+                valueKey="id"
+                nameKey="name"
+                searchKey="name"
+                dataListKey="data"
+                currentValues={getValues('filters.id') || []}
+                defaultList={appMarketConfig?.filters?.id || []}
+                errorString={errors.id?.message || ''}
               />
-              {errors.id?.message && <InputError message={errors.id.message.toString()} />}
             </InputGroup>
           </InputWrapFull>
           <InputWrapFull>
