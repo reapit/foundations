@@ -1,7 +1,8 @@
 import { gql, useApolloClient, useMutation } from '@apollo/client'
 import cloneDeep from 'clone-deep'
+import { debounce } from 'debounce'
 import omitDeep from 'omit-deep'
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { notEmpty } from '../use-introspection/helpers'
 
 import { App, AppFragment, NavConfig, Node, Page } from './fragments'
@@ -94,18 +95,15 @@ export const useUpdateAppNavConfig = (appId: string) => {
     }
   }
 
-  let timeout: any
+  const debouncedUpdate = useMemo(() => debounce(doUpdate, 2000), [newNavConfig])
 
   useEffect(() => {
-    if (timeout) {
-      clearTimeout(timeout)
-    }
-    timeout = setTimeout(doUpdate, 2000)
-
-    return () => {
-      clearTimeout(timeout)
-    }
+    debouncedUpdate()
   }, [newNavConfig])
+
+  useEffect(() => {
+    debouncedUpdate.clear()
+  }, [debouncedUpdate])
 
   return {
     updateAppNavConfig: async (navConfig: NavConfig[]) => {
