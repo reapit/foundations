@@ -40,16 +40,19 @@ const upsertAppMarketing =
   async (app: any) => {
     setLoading(true)
 
+    console.log('configType', configType, app)
+
     const returned = await send({
       ...app,
       live: {
         ...app.live,
-        fitlers: {
-          ...app.filters,
-          id: app.filters.id.split(',') || [],
-        },
         timeFrom: app.live.timeFrom !== '' ? app.live.timeFrom : undefined,
         timeTo: app.live.timeTo !== '' ? app.live.timeTo : undefined,
+      },
+      filters: {
+        ...app.filters,
+        id: app.filters.id.split(',') || [],
+        category: app.filters.category.split(',') || [],
       },
       configType,
     })
@@ -72,20 +75,19 @@ export const AppBrowseUpsertModal: FC<{
     register,
     handleSubmit,
     formState: { errors },
-    getValues,
     setValue,
     reset,
   } = useForm({
     defaultValues: appMarketConfig,
   })
   const [loading, setLoading] = useState<boolean>(false)
-  const [color, setColor] = useState<string>(getValues('content.brandColour') || '#FF0000')
+  const [color, setColor] = useState<string>(appMarketConfig?.content?.brandColour || '#FF0000')
   const [apps] = useReapitGet<AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getApps],
     queryParams: { showHiddenApps: 'true', pageSize: 100 },
   })
-  const [categories, categoriesLoading] = useReapitGet<CategoryModelPagedResult>({
+  const [categories] = useReapitGet<CategoryModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppCategories],
     queryParams: { pageSize: 25 },

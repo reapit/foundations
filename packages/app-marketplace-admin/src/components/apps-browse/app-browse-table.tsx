@@ -21,8 +21,9 @@ export const AppBrowseTable: FC<{
   items: AppsBrowseConfigItemInterface[]
   setEditType: () => void
   setSelectedItem: (item?: AppsBrowseConfigItemInterface) => void
+  deleteItem: (type: AppsBrowseConfigEnum, id: string) => void
   connectSession: ReapitConnectSession
-}> = ({ type, items, setEditType, setSelectedItem, connectSession, ...rest }) => {
+}> = ({ type, items, setEditType, setSelectedItem, connectSession, deleteItem, ...rest }) => {
   return (
     <div {...rest}>
       <Title>{type}</Title>
@@ -71,6 +72,7 @@ export const AppBrowseTable: FC<{
                     intent="danger"
                     onClick={async () => {
                       await send(item)
+                      deleteItem(item.configType, item.id as string)
                     }}
                     disabled={deleteLoading}
                     loading={deleteLoading}

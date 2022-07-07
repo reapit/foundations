@@ -68,9 +68,16 @@ export const AppBrowseUpsert: FC<{}> = () => {
     }
   }, [configType, selectedItem])
   useEffect(() => {
-    if (configType) setConfigType(undefined)
-    if (selectedItem) setSelectedItem(undefined)
+    if (configType && !modalIsOpen) setConfigType(undefined)
+    if (selectedItem && !modalIsOpen) setSelectedItem(undefined)
   }, [modalIsOpen])
+
+  const deleteItem = (type: AppsBrowseConfigEnum, id: string) => {
+    setItems({
+      ...items,
+      [type]: items[type].filter((item) => item.id !== id),
+    })
+  }
 
   // useEffect(() => console.log('items', items), [items])
 
@@ -91,11 +98,12 @@ export const AppBrowseUpsert: FC<{}> = () => {
             setEditType={() => setConfigType(type)}
             setSelectedItem={setSelectedItem}
             connectSession={connectSession as ReapitConnectSession}
+            deleteItem={deleteItem}
           />
         ))
       )}
       <AppBrowseUpsertModal
-        configType={configType as AppsBrowseConfigEnum}
+        configType={configType || (selectedItem?.configType as AppsBrowseConfigEnum)}
         modalIsOpen={modalIsOpen}
         closeModal={closeModal}
         connectSession={connectSession as ReapitConnectSession}
