@@ -1,11 +1,6 @@
 import React, { FC } from 'react'
-import { AppsBrowse } from './apps-browse'
-import { AppsBrowseProvider } from './use-apps-browse-state'
+import { AppBrowseUpsert } from './app-browse-upsert'
 
-export const AppsBrowsePage: FC = () => (
-  <AppsBrowseProvider>
-    <AppsBrowse />
-  </AppsBrowseProvider>
-)
+export const AppsBrowsePage: FC = () => <AppBrowseUpsert />
 
 export default AppsBrowsePage

@@ -1,68 +1,73 @@
-import React, { FC, useEffect, useState } from 'react'
+import { ReapitConnectSession } from '@reapit/connect-session'
 import {
-  Title,
-  PageContainer,
-  Table,
-  TableHeader,
-  TableHeadersRow,
-  TableRow,
-  TableCell,
-  TableRowContainer,
-  useModal,
-  Modal,
   Button,
-  Loader,
+  ButtonGroup,
   FormLayout,
-  InputGroup,
-  Label,
+  iconSet,
   Input,
   InputError,
-  Subtitle,
-  Select,
-  ButtonGroup,
-  MultiSelectInput,
+  InputGroup,
   InputWrapFull,
-  iconSet,
+  Label,
+  Modal,
+  MultiSelectInput,
+  Select,
+  Subtitle,
+  Title,
 } from '@reapit/elements'
-import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
-import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { useReapitGet, useReapitUpdate } from '@reapit/utils-react'
-import { AppsBrowseConfigItemInterface, AppsBrowseConfigEnum } from '@reapit/foundations-ts-definitions'
+import {
+  AppsBrowseConfigEnum,
+  AppsBrowseConfigItemInterface,
+  AppSummaryModelPagedResult,
+  CategoryModelPagedResult,
+} from '@reapit/foundations-ts-definitions'
 import { GetActionNames, getActions } from '@reapit/utils-common'
+import { UpdateReturnTypeEnum, useReapitGet, useReapitUpdate } from '@reapit/utils-react'
+import React, { FC, useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { cx } from '@linaria/core'
+import { reactPickerStyles } from './app-browse.styles'
 import { appModal } from './modal.styles'
 import { SketchPicker } from 'react-color'
-import { reactPickerStyles } from './app-browse.styles'
+import { reapitConnectBrowserSession } from '../../core/connect-session'
 
 const upsertAppMarketing =
   (
     configType: AppsBrowseConfigEnum,
     setLoading: (loading: boolean) => void,
-    send: (app: AppsBrowseConfigItemInterface) => void,
+    send: (app: AppsBrowseConfigItemInterface) => Promise<boolean | AppsBrowseConfigItemInterface>,
+    closeModal: () => void,
   ) =>
   async (app: any) => {
-    console.log('app', app)
-
     setLoading(true)
 
     const returned = await send({
       ...app,
+      live: {
+        ...app.live,
+        fitlers: {
+          ...app.filters,
+          id: app.filters.id.split(',') || [],
+        },
+        timeFrom: app.live.timeFrom !== '' ? app.live.timeFrom : undefined,
+        timeTo: app.live.timeTo !== '' ? app.live.timeTo : undefined,
+      },
       configType,
     })
 
-    console.log('result', returned, returned)
-
     setLoading(false)
+    if (returned) {
+      // TODO add/update list
+      closeModal()
+    }
   }
 
-const AppMarketingModel: FC<{
-  app?: AppsBrowseConfigItemInterface
+export const AppBrowseUpsertModal: FC<{
+  appMarketConfig?: AppsBrowseConfigItemInterface
   modalIsOpen: boolean
   closeModal: () => void
   configType: AppsBrowseConfigEnum
   connectSession: ReapitConnectSession
-}> = ({ app, modalIsOpen, connectSession, closeModal, configType }) => {
+}> = ({ appMarketConfig, modalIsOpen, connectSession, closeModal, configType }) => {
   const {
     register,
     handleSubmit,
@@ -71,10 +76,20 @@ const AppMarketingModel: FC<{
     setValue,
     reset,
   } = useForm({
-    defaultValues: app,
+    defaultValues: appMarketConfig,
   })
   const [loading, setLoading] = useState<boolean>(false)
   const [color, setColor] = useState<string>(getValues('content.brandColour') || '#FF0000')
+  const [apps] = useReapitGet<AppSummaryModelPagedResult>({
+    reapitConnectBrowserSession,
+    action: getActions(window.reapit.config.appEnv)[GetActionNames.getApps],
+    queryParams: { showHiddenApps: 'true', pageSize: 100 },
+  })
+  const [categories, categoriesLoading] = useReapitGet<CategoryModelPagedResult>({
+    reapitConnectBrowserSession,
+    action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppCategories],
+    queryParams: { pageSize: 25 },
+  })
 
   useEffect(() => {
     setValue('content.brandColour', color)
@@ -82,21 +97,22 @@ const AppMarketingModel: FC<{
 
   const [, , send] = useReapitUpdate<AppsBrowseConfigItemInterface, AppsBrowseConfigItemInterface>({
     action: getActions(window.reapit.config.appEnv)[
-      app?.id ? GetActionNames.postAppMarketAdmin : GetActionNames.getAppMarketAdmin
+      appMarketConfig?.id ? GetActionNames.postAppMarketAdmin : GetActionNames.getAppMarketAdmin
     ],
-    method: app?.id ? 'PUT' : 'POST',
+    method: appMarketConfig?.id ? 'PUT' : 'POST',
     headers: {
       Authorization: connectSession?.idToken as string,
     },
+    returnType: UpdateReturnTypeEnum.RESPONSE,
     reapitConnectBrowserSession,
     uriParams: {
-      id: app?.id,
+      id: appMarketConfig?.id,
     },
   })
 
   return (
     <Modal
-      className={cx(appModal)}
+      className={appModal}
       isOpen={modalIsOpen}
       onModalClose={() => {
         reset()
@@ -104,20 +120,40 @@ const AppMarketingModel: FC<{
       }}
     >
       <Title>New Item</Title>
-      <form onSubmit={handleSubmit(upsertAppMarketing(configType, setLoading, send))}>
+      <form onSubmit={handleSubmit(upsertAppMarketing(configType, setLoading, send, closeModal))}>
         <Subtitle>Filters</Subtitle>
         <FormLayout>
           <InputWrapFull>
             <InputGroup>
               <Label>App</Label>
-              <MultiSelectInput {...register('filters.id')} id="filters.id" options={[]} />
+              <MultiSelectInput
+                {...register('filters.id')}
+                id="filters.id"
+                options={
+                  apps?.data?.map((app) => ({
+                    value: app.id as string,
+                    name: app.name as string,
+                  })) || []
+                }
+                defaultValues={appMarketConfig?.filters?.id}
+              />
               {errors.id?.message && <InputError message={errors.id.message.toString()} />}
             </InputGroup>
           </InputWrapFull>
           <InputWrapFull>
             <InputGroup>
               <Label>Categories</Label>
-              <MultiSelectInput {...register('filters.category')} id="filters.category" options={[]} />
+              <MultiSelectInput
+                id="filters.category"
+                {...register('filters.category')}
+                options={
+                  categories?.data?.map(({ name, description }) => ({
+                    name: description as string,
+                    value: name as string,
+                  })) || []
+                }
+                defaultValues={appMarketConfig?.filters?.category}
+              />
               {errors.filters?.category?.message && <InputError message={errors.filters.category.message.toString()} />}
             </InputGroup>
           </InputWrapFull>
@@ -144,7 +180,7 @@ const AppMarketingModel: FC<{
             <InputGroup>
               <Label>Brand Colour</Label>
               <SketchPicker
-                className={cx(reactPickerStyles)}
+                className={reactPickerStyles}
                 triangle={'hide'}
                 {...register('content.brandColour')}
                 color={color}
@@ -230,110 +266,5 @@ const AppMarketingModel: FC<{
         </ButtonGroup>
       </form>
     </Modal>
-  )
-}
-
-const AppBrowseTable: FC<{
-  type: AppsBrowseConfigEnum
-  items: AppsBrowseConfigItemInterface[]
-  setEditType: () => void
-  setSelectedItem: (item?: AppsBrowseConfigItemInterface) => void
-}> = ({ type, items, setEditType, setSelectedItem }) => {
-  return (
-    <>
-      <Title>{type}</Title>
-      <Table>
-        <TableHeadersRow>
-          <TableHeader>BrandColor</TableHeader>
-          <TableHeader>Live</TableHeader>
-          <TableHeader></TableHeader>
-        </TableHeadersRow>
-        {items.map((item) => (
-          <TableRowContainer key={JSON.stringify(item)}>
-            <TableRow>
-              <TableCell>none</TableCell>
-              <TableCell>{item.live.isLive ? 'Live' : 'not live'}</TableCell>
-              <TableCell>
-                <Button
-                  onClick={() => {
-                    setSelectedItem(item)
-                  }}
-                >
-                  Edit
-                </Button>
-              </TableCell>
-            </TableRow>
-          </TableRowContainer>
-        ))}
-      </Table>
-      <br />
-      <Button intent="primary" onClick={setEditType}>
-        Add
-      </Button>
-    </>
-  )
-}
-
-export const AppsBrowse: FC = () => {
-  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const [configType, setConfigType] = useState<AppsBrowseConfigEnum | undefined>()
-
-  const [appMarketPlaceCmsConfig, appMarketPlaceCmsLoading] = useReapitGet<{
-    items: AppsBrowseConfigItemInterface[]
-  }>({
-    reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppMarketAdmin],
-    fetchWhenTrue: [connectSession],
-    headers: {
-      Authorization: connectSession?.idToken as string,
-    },
-  })
-  const { modalIsOpen, closeModal, openModal } = useModal()
-  const [selectedItem, setSelectedItem] = useState<AppsBrowseConfigItemInterface | undefined>()
-
-  useEffect(() => {
-    typeof configType === 'undefined' && typeof selectedItem !== 'undefined' ? closeModal() : openModal()
-  }, [configType, selectedItem])
-
-  const starter: { [key in AppsBrowseConfigEnum]: [] } = Object.values(AppsBrowseConfigEnum).reduce<{
-    [key in AppsBrowseConfigEnum]: []
-  }>((ob, key) => {
-    ob[key] = []
-
-    return ob
-  }, {} as { [key in AppsBrowseConfigEnum] })
-
-  const sectionedItems = appMarketPlaceCmsConfig?.items?.reduce<{
-    [key in AppsBrowseConfigEnum]: AppsBrowseConfigItemInterface[]
-  }>((filtered, item) => {
-    if (!filtered[item.configType]) return filtered
-
-    filtered[item.configType].push(item)
-
-    return filtered
-  }, starter)
-
-  return (
-    <PageContainer>
-      <Title>AppMarket Admin</Title>
-      {appMarketPlaceCmsLoading && <Loader />}
-      {sectionedItems &&
-        (Object.values(AppsBrowseConfigEnum) as AppsBrowseConfigEnum[]).map((type: AppsBrowseConfigEnum) => (
-          <AppBrowseTable
-            key={`${type}-${JSON.stringify(sectionedItems[type])}`}
-            type={type}
-            items={sectionedItems[type]}
-            setEditType={() => setConfigType(type)}
-            setSelectedItem={setSelectedItem}
-          />
-        ))}
-      <AppMarketingModel
-        configType={configType as AppsBrowseConfigEnum}
-        modalIsOpen={modalIsOpen}
-        closeModal={closeModal}
-        connectSession={connectSession as ReapitConnectSession}
-        app={selectedItem}
-      />
-    </PageContainer>
   )
 }
