@@ -44,7 +44,7 @@ export const HeroAppsCollection: FC<HeroAppsCollectionProps> = ({ configItem }) 
   const iconUri = media?.find((item) => item.type === 'icon')?.uri
 
   return (
-    <HeroAppsCol onClick={navigate(history, `${Routes.APPS_BROWSE}/${id}`)}>
+    <HeroAppsCol onClick={id ? navigate(history, `${Routes.APPS_BROWSE}/${id}`) : undefined}>
       <FlexContainer isFlexColumn>
         {content?.title && (
           <Subtitle className={heroSubMinHeight} hasBoldText hasNoMargin>
