@@ -25,24 +25,8 @@ describe('getDefaultNavIndex', () => {
       index: 1,
     },
     {
-      route: Routes.APPS_BROWSE,
+      route: Routes.APPS_BROWSE_MANAGER,
       index: 1,
-    },
-    {
-      route: Routes.APPS_DETAIL,
-      index: 1,
-    },
-    {
-      route: Routes.APPS_INSTALLED,
-      index: 2,
-    },
-    {
-      route: Routes.SETTINGS_INSTALLED,
-      index: 4,
-    },
-    {
-      route: Routes.SETTINGS_PROFILE,
-      index: 4,
     },
     {
       route: '/random-route',

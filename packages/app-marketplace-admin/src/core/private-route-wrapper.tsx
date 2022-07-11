@@ -25,7 +25,7 @@ export const PrivateRouteWrapper: FC<PrivateRouteWrapperProps> = ({ children }) 
   }
 
   if (isRoot) {
-    return <Redirect to={Routes.APPS_BROWSE} />
+    return <Redirect to={Routes.APPS_BROWSE_MANAGER} />
   }
 
   if (connectInternalRedirect && currentUri !== connectInternalRedirect) {

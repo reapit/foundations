@@ -29,10 +29,7 @@ export const catchChunkError = (
 }
 
 const LoginPage = React.lazy(() => catchChunkError(() => import('../components/login')))
-const AppsBrowsePage = React.lazy(() => catchChunkError(() => import('../components/apps-browse')))
-const AppsDetailPage = React.lazy(() => catchChunkError(() => import('../components/apps-detail')))
-const AppsInstalledPage = React.lazy(() => catchChunkError(() => import('../components/apps-installed')))
-const SettingsPage = React.lazy(() => catchChunkError(() => import('../components/settings')))
+const AppsBrowseManagerPage = React.lazy(() => catchChunkError(() => import('../components/apps-market-manager')))
 
 const Router: FC = () => (
   <BrowserRouter history={history}>
@@ -41,12 +38,8 @@ const Router: FC = () => (
         <Route path={Routes.LOGIN} component={LoginPage} />
         <PrivateRouteWrapper>
           <Switch>
-            <Route path={Routes.HOME} exact component={AppsBrowsePage} />
-            <Route path={Routes.APPS_BROWSE} exact component={AppsBrowsePage} />
-            <Route path={Routes.APPS_DETAIL} exact component={AppsDetailPage} />
-            <Route path={Routes.APPS_INSTALLED} exact component={AppsInstalledPage} />
-            <Route path={Routes.SETTINGS_PROFILE} exact component={SettingsPage} />
-            <Route path={Routes.SETTINGS_INSTALLED} exact component={SettingsPage} />
+            <Route path={Routes.HOME} exact component={AppsBrowseManagerPage} />
+            <Route path={Routes.APPS_BROWSE_MANAGER} exact component={AppsBrowseManagerPage} />
           </Switch>
         </PrivateRouteWrapper>
         <Redirect to={Routes.LOGIN} />
