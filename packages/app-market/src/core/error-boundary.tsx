@@ -1,6 +1,6 @@
 import React from 'react'
 import * as Sentry from '@sentry/browser'
-import { PersistantNotification } from '@reapit/elements'
+import { PersistentNotification } from '@reapit/elements'
 
 export interface ErrorState {
   hasFailed: boolean
@@ -37,9 +37,9 @@ export class ErrorBoundary extends React.Component<ErrorProps, ErrorState> {
   render() {
     if (this.state.hasFailed) {
       return (
-        <PersistantNotification isFullWidth isExpanded isInline intent="danger">
+        <PersistentNotification isFullWidth isExpanded isInline intent="danger">
           Something went wrong here, try refreshing your page.
-        </PersistantNotification>
+        </PersistentNotification>
       )
     }
 

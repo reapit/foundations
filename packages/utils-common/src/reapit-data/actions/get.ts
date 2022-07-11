@@ -37,6 +37,8 @@ export enum GetActionNames {
   getPipelineEnvironment = 'getPipelineEnvironment',
   getPublicWebhookKey = 'getPublicWebhookKey',
   getRevisionConsents = 'getRevisionConsents',
+  getAppMarketAdmin = 'getAppMarketAdmin',
+  postAppMarketAdmin = 'postAppMarketAdmin',
 }
 
 export type GetActions = { [key in GetActionNames]: GetAction }
@@ -45,6 +47,16 @@ export const getActions = (appEnv: AppEnv): GetActions => ({
   [GetActionNames.getApps]: {
     api: ApiNames(appEnv).platform,
     path: PathNames.apps,
+    errorMessage: 'Something went wrong fetching apps - this error has been logged',
+  },
+  [GetActionNames.getAppMarketAdmin]: {
+    api: ApiNames(appEnv).appMarketCms,
+    path: PathNames.cmsConfig,
+    errorMessage: 'Something went wrong fetching apps - this error has been logged',
+  },
+  [GetActionNames.postAppMarketAdmin]: {
+    api: ApiNames(appEnv).appMarketCms,
+    path: PathNames.cmsConfigPost,
     errorMessage: 'Something went wrong fetching apps - this error has been logged',
   },
   [GetActionNames.getAppById]: {
