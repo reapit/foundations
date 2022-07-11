@@ -15,6 +15,7 @@ import { useReapitUpdate } from '@reapit/utils-react'
 import React, { FC } from 'react'
 import { colorSquare } from './app-browse.styles'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
+import { shleemy } from 'shleemy'
 
 export const AppBrowseTable: FC<{
   type: AppsBrowseConfigEnum
@@ -58,7 +59,15 @@ export const AppBrowseTable: FC<{
                 {item.content?.brandColour}
               </TableCell>
               <TableCell>{item.filters?.id?.length}</TableCell>
-              <TableCell>{item.live.isLive ? 'Live' : 'not live'}</TableCell>
+              <TableCell>
+                {item.live.isLive
+                  ? 'Live'
+                  : item.live.timeFrom && new Date(item.live.timeFrom) < new Date()
+                  ? `going live in ${shleemy(item.live.timeFrom).forHumans}`
+                  : item.live.timeTo && new Date(item.live.timeTo) > new Date()
+                  ? `Live for ${shleemy(item.live.timeTo).forHumans}`
+                  : 'Not Live'}
+              </TableCell>
               <TableCell>
                 <Button
                   onClick={() => {

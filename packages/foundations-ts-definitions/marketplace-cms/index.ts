@@ -25,7 +25,7 @@ export enum AppsBrowseConfigEnum {
 }
 
 export interface AppBrowseLiveDataInterface {
-  timeFrom?: Date
+  timeFrom?: Date | string
   timeTo?: Date
   isLive?: boolean
 }
