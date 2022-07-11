@@ -251,14 +251,22 @@ export const AppBrowseUpsertModal: FC<{
           <InputWrapFull>
             <InputGroup>
               <Label>Live From</Label>
-              <Input {...register('live.timeFrom')} type="datetime-local"  defaultValue={appMarketConfig?.live?.timeFrom?.toString()} />
+              <Input
+                {...register('live.timeFrom')}
+                type="datetime-local"
+                defaultValue={appMarketConfig?.live?.timeFrom?.toString()}
+              />
               {errors.live?.timeFrom?.message && <InputError message={errors.live?.timeFrom.message.toString()} />}
             </InputGroup>
           </InputWrapFull>
           <InputWrapFull>
             <InputGroup>
               <Label>Live To</Label>
-              <Input {...register('live.timeTo')} type="datetime-local" defaultValue={appMarketConfig?.live?.timeTo?.toString()} />
+              <Input
+                {...register('live.timeTo')}
+                type="datetime-local"
+                defaultValue={appMarketConfig?.live?.timeTo?.toString()}
+              />
               {errors.live?.timeTo?.message && <InputError message={errors.live?.timeTo.message.toString()} />}
             </InputGroup>
           </InputWrapFull>

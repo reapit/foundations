@@ -51,10 +51,7 @@ export const AppBrowseUpsert: FC<{}> = () => {
     })
   }
   const upsertItem = (item: AppsBrowseConfigItemInterface) => {
-    setItems({
-      ...items,
-      [item.configType]: [...items[item.configType].filter((item) => item.id !== item.id), item],
-    })
+    setItems([...items.filter((i) => i.id !== item.id), item])
   }
 
   return (
