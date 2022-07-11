@@ -62,10 +62,10 @@ export const AppBrowseTable: FC<{
               <TableCell>
                 {item.live.isLive
                   ? 'Live'
-                  : item.live.timeFrom && new Date(item.live.timeFrom) < new Date()
-                  ? `going live in ${shleemy(item.live.timeFrom).forHumans}`
-                  : item.live.timeTo && new Date(item.live.timeTo) > new Date()
-                  ? `Live for ${shleemy(item.live.timeTo).forHumans}`
+                  : item.live.timeFrom && new Date(item.live.timeFrom).getTime() > new Date().getTime()
+                  ? `going live ${shleemy(item.live.timeFrom).forHumans}`
+                  : item.live.timeTo && new Date(item.live.timeTo).getTime() > new Date().getTime()
+                  ? `Completing ${shleemy(item.live.timeTo).forHumans}`
                   : 'Not Live'}
               </TableCell>
               <TableCell>

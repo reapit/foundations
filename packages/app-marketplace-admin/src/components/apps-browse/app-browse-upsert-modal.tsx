@@ -298,7 +298,7 @@ export const AppBrowseUpsertModal: FC<{
               <Input
                 {...register('live.timeFrom')}
                 type="datetime-local"
-                defaultValue={appMarketConfig?.live?.timeFrom?.toString()}
+                defaultValue={appMarketConfig?.live?.timeFrom?.toString().split(':00').shift()}
               />
               {errors.live?.timeFrom?.message && <InputError message={errors.live?.timeFrom.message.toString()} />}
             </InputGroup>
@@ -309,7 +309,7 @@ export const AppBrowseUpsertModal: FC<{
               <Input
                 {...register('live.timeTo')}
                 type="datetime-local"
-                defaultValue={appMarketConfig?.live?.timeTo?.toString()}
+                defaultValue={appMarketConfig?.live?.timeTo?.toString().split(':00').shift()}
               />
               {errors.live?.timeTo?.message && <InputError message={errors.live?.timeTo.message.toString()} />}
             </InputGroup>
