@@ -19,7 +19,6 @@ export const htmlRender = css`
 `
 
 export const AppDetailWrapper = styled.div`
-  margin-bottom: 0.75rem;
   margin-right: 0.75rem;
   border-radius: 0.25rem;
   background-color: var(--color-grey-light);
@@ -106,4 +105,24 @@ export const AppDetailBackButton = styled.div`
   background-color: var(--color-grey-light);
   margin-bottom: 0.75rem;
   cursor: pointer;
+`
+
+export const AppDetailPermissionChip = styled.div`
+  background: var(--color-grey-light);
+  color: var(--color-grey-dark);
+  font-size: var(--font-size-small);
+  border-radius: 1rem;
+  padding: 0.25rem 0.625rem;
+  margin: 0.25rem 0.5rem 0.25rem 0;
+  display: inline-block;
+`
+
+export const AppDetaulCategoryChip = styled.div`
+  background: var(--color-grey-light);
+  color: var(--color-black);
+  font-size: var(--font-size-small);
+  border-radius: 0.25rem;
+  padding: 1px 0.5rem;
+  margin-right: 0.75rem;
+  display: inline-block;
 `

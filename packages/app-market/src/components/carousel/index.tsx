@@ -19,6 +19,7 @@ import React from 'react'
 export interface CarouselProps {
   items: JSX.Element[]
   numberCols: number
+  className?: string
 }
 
 export const handleScroll =
@@ -55,7 +56,7 @@ export const getCarouselDimensions = (numberCols: number, currentImage: number, 
   }
 }
 
-export const Carousel: FC<CarouselProps> = ({ items, numberCols }) => {
+export const Carousel: FC<CarouselProps> = ({ items, numberCols, className }) => {
   const [currentImage, setCurrentImage] = useState<number>(0)
   const imageRefs = useRef<LegacyRef<HTMLDivElement>[]>([])
 
@@ -67,7 +68,7 @@ export const Carousel: FC<CarouselProps> = ({ items, numberCols }) => {
   )
 
   return (
-    <CarouselWrapper>
+    <CarouselWrapper className={className}>
       {shouldShowPrev && (
         <CarouselControlsLeft className={elFadeIn} onClick={handleScroll(imageRefs, prevImage, setCurrentImage)}>
           <Icon icon="backSystem" intent="neutral" />

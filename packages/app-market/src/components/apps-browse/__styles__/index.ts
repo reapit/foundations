@@ -552,7 +552,6 @@ export const IsFreeNotice = styled.span`
   padding: 0.1rem 0.4rem;
   border-radius: 0.25rem;
   background: var(--intent-secondary);
-  margin-left: 1rem;
   margin-right: auto;
 
   ${forMobileAndAbove} {
