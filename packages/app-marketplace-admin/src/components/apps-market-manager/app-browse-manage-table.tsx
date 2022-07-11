@@ -17,7 +17,7 @@ import { colorSquare } from './app-browse.styles'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { shleemy } from 'shleemy'
 
-export const AppBrowseTable: FC<{
+export const AppBrowseManageTable: FC<{
   type: AppsBrowseConfigEnum
   items: AppsBrowseConfigItemInterface[]
   setEditType: () => void

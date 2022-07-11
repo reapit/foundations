@@ -5,7 +5,7 @@ import { GetActionNames, getActions } from '@reapit/utils-common'
 import { useReapitGet } from '@reapit/utils-react'
 import React, { FC, useEffect, useState } from 'react'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { AppBrowseTable } from './app-browse-table'
+import { AppBrowseManageTable } from './app-browse-manage-table'
 import { AppBrowseUpsertModal } from './app-browse-upsert-modal'
 
 export const AppBrowseUpsert: FC<{}> = () => {
@@ -61,7 +61,7 @@ export const AppBrowseUpsert: FC<{}> = () => {
         <Loader />
       ) : (
         Object.values(AppsBrowseConfigEnum).map((type) => (
-          <AppBrowseTable
+          <AppBrowseManageTable
             key={`${type}`}
             type={type}
             items={items.filter((item) => item.configType === type)}
