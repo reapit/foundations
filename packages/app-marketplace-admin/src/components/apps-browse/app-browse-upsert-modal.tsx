@@ -18,6 +18,7 @@ import {
 import {
   AppsBrowseConfigEnum,
   AppsBrowseConfigItemInterface,
+  AppSummaryModelPagedResult,
   CategoryModelPagedResult,
 } from '@reapit/foundations-ts-definitions'
 import { GetActionNames, getActions } from '@reapit/utils-common'
@@ -35,30 +36,28 @@ const upsertAppMarketing =
     setLoading: (loading: boolean) => void,
     send: (app: AppsBrowseConfigItemInterface) => Promise<boolean | AppsBrowseConfigItemInterface>,
     closeModal: () => void,
+    upsertItem: (item: AppsBrowseConfigItemInterface) => void,
   ) =>
   async (app: any) => {
     setLoading(true)
-
-    console.log('configType', configType, app)
 
     const returned = await send({
       ...app,
       live: {
         ...app.live,
-        timeFrom: app.live.timeFrom !== '' ? app.live.timeFrom : undefined,
-        timeTo: app.live.timeTo !== '' ? app.live.timeTo : undefined,
+        timeFrom: app?.live?.timeFrom !== '' ? app?.live.timeFrom : undefined,
+        timeTo: app?.live?.timeTo !== '' ? app?.live.timeTo : undefined,
       },
       filters: {
         ...app.filters,
-        id: app.filters.id.split(',') || [],
-        category: app.filters.category.split(',') || [],
+        category: app?.filters?.category?.split(',') || [],
       },
       configType,
     })
 
     setLoading(false)
     if (returned) {
-      // TODO add/update list
+      upsertItem(returned as AppsBrowseConfigItemInterface)
       closeModal()
     }
   }
@@ -69,7 +68,8 @@ export const AppBrowseUpsertModal: FC<{
   closeModal: () => void
   configType: AppsBrowseConfigEnum
   connectSession: ReapitConnectSession
-}> = ({ appMarketConfig, modalIsOpen, connectSession, closeModal, configType }) => {
+  upsertItem: (item: AppsBrowseConfigItemInterface) => void
+}> = ({ appMarketConfig, modalIsOpen, connectSession, closeModal, configType, upsertItem }) => {
   const {
     register,
     handleSubmit,
@@ -80,6 +80,7 @@ export const AppBrowseUpsertModal: FC<{
   } = useForm({
     defaultValues: appMarketConfig,
   })
+
   const [loading, setLoading] = useState<boolean>(false)
   const [color, setColor] = useState<string>(appMarketConfig?.content?.brandColour || '#FF0000')
 
@@ -92,6 +93,13 @@ export const AppBrowseUpsertModal: FC<{
   useEffect(() => {
     setValue('content.brandColour', color)
   }, [color])
+
+  const [initialApps] = useReapitGet<AppSummaryModelPagedResult>({
+    reapitConnectBrowserSession,
+    action: getActions(window.reapit.config.appEnv)[GetActionNames.getApps],
+    queryParams: { showHiddenApps: 'true', pageSize: 100, id: appMarketConfig?.filters?.id },
+    fetchWhenTrue: [Array.isArray(appMarketConfig?.filters?.id)],
+  })
 
   const [, , send] = useReapitUpdate<AppsBrowseConfigItemInterface, AppsBrowseConfigItemInterface>({
     action: getActions(window.reapit.config.appEnv)[
@@ -113,12 +121,12 @@ export const AppBrowseUpsertModal: FC<{
       className={appModal}
       isOpen={modalIsOpen}
       onModalClose={() => {
-        reset()
+        reset(undefined)
         closeModal()
       }}
     >
       <Title>New Item</Title>
-      <form onSubmit={handleSubmit(upsertAppMarketing(configType, setLoading, send, closeModal))}>
+      <form onSubmit={handleSubmit(upsertAppMarketing(configType, setLoading, send, closeModal, upsertItem))}>
         <Subtitle>Filters</Subtitle>
         <FormLayout>
           <InputWrapFull>
@@ -133,8 +141,13 @@ export const AppBrowseUpsertModal: FC<{
                 searchKey="name"
                 dataListKey="data"
                 currentValues={getValues('filters.id') || []}
-                defaultList={appMarketConfig?.filters?.id || []}
+                defaultList={initialApps?.data || []}
                 errorString={errors.id?.message || ''}
+                noneSelectedLabel="No apps selected"
+                queryParams={{ pageSize: 100 }}
+                onChange={(event) =>
+                  setValue('filters.id', event.target.value !== '' ? event.target.value.split(',') : [])
+                }
               />
             </InputGroup>
           </InputWrapFull>

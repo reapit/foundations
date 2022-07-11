@@ -25,7 +25,7 @@ export const AppBrowseUpsert: FC<{}> = () => {
   const [selectedItem, setSelectedItem] = useState<AppsBrowseConfigItemInterface | undefined>(undefined)
   const { modalIsOpen, closeModal, openModal } = useModal('upsert-app-marketing')
 
-  const [appMarketPlaceCmsConfig, appMarketPlaceCmsLoading, , refresh] = useReapitGet<{
+  const [appMarketPlaceCmsConfig, appMarketPlaceCmsLoading] = useReapitGet<{
     items: AppsBrowseConfigItemInterface[]
   }>({
     reapitConnectBrowserSession,
@@ -38,16 +38,6 @@ export const AppBrowseUpsert: FC<{}> = () => {
 
   useEffect(() => {
     if (appMarketPlaceCmsConfig && appMarketPlaceCmsConfig.items) {
-      console.log(
-        'setting items,',
-        appMarketPlaceCmsConfig.items.reduce((configItems, config) => {
-          if (!configItems[config.configType].map((i) => i.id).includes(config.id)) {
-            configItems[config.configType].push(config)
-          }
-
-          return configItems
-        }, items),
-      )
       setItems(
         appMarketPlaceCmsConfig.items.reduce((configItems, config) => {
           if (!configItems[config.configType].map((i) => i.id).includes(config.id)) {
@@ -78,10 +68,12 @@ export const AppBrowseUpsert: FC<{}> = () => {
       [type]: items[type].filter((item) => item.id !== id),
     })
   }
-
-  // useEffect(() => console.log('items', items), [items])
-
-  console.log('items in flow', items)
+  const upsertItem = (item: AppsBrowseConfigItemInterface) => {
+    setItems({
+      ...items,
+      [item.configType]: [...items[item.configType].filter((item) => item.id !== item.id), item],
+    })
+  }
 
   return (
     <PageContainer>
@@ -108,6 +100,7 @@ export const AppBrowseUpsert: FC<{}> = () => {
         closeModal={closeModal}
         connectSession={connectSession as ReapitConnectSession}
         appMarketConfig={selectedItem}
+        upsertItem={upsertItem}
       />
     </PageContainer>
   )
