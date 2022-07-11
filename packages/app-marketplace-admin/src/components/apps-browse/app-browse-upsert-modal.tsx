@@ -207,14 +207,14 @@ export const AppBrowseUpsertModal: FC<{
           <InputWrapFull>
             <InputGroup>
               <Label>Title</Label>
-              <Input {...register('content.title')} />
+              <Input {...register('content.title')} defaultValue={appMarketConfig?.content?.title} />
               {errors.content?.title?.message && <InputError message={errors.content?.title.message.toString()} />}
             </InputGroup>
           </InputWrapFull>
           <InputWrapFull>
             <InputGroup>
               <Label>Strapline</Label>
-              <Input {...register('content.strapline')} />
+              <Input {...register('content.strapline')} defaultValue={appMarketConfig?.content?.strapline} />
               {errors.content?.strapline?.message && (
                 <InputError message={errors.content?.strapline.message.toString()} />
               )}
@@ -223,7 +223,7 @@ export const AppBrowseUpsertModal: FC<{
           <InputWrapFull>
             <InputGroup>
               <Label>Icon</Label>
-              <Select {...register('content.iconName')}>
+              <Select {...register('content.iconName')} defaultValue={appMarketConfig?.content?.iconName}>
                 <option></option>
                 {Object.keys(iconSet).map((iconName) => (
                   <option key={iconName} value={iconName}>
@@ -251,14 +251,14 @@ export const AppBrowseUpsertModal: FC<{
           <InputWrapFull>
             <InputGroup>
               <Label>Live From</Label>
-              <Input {...register('live.timeFrom')} type="datetime-local" />
+              <Input {...register('live.timeFrom')} type="datetime-local"  defaultValue={appMarketConfig?.live?.timeFrom?.toString()} />
               {errors.live?.timeFrom?.message && <InputError message={errors.live?.timeFrom.message.toString()} />}
             </InputGroup>
           </InputWrapFull>
           <InputWrapFull>
             <InputGroup>
               <Label>Live To</Label>
-              <Input {...register('live.timeTo')} type="datetime-local" />
+              <Input {...register('live.timeTo')} type="datetime-local" defaultValue={appMarketConfig?.live?.timeTo?.toString()} />
               {errors.live?.timeTo?.message && <InputError message={errors.live?.timeTo.message.toString()} />}
             </InputGroup>
           </InputWrapFull>
