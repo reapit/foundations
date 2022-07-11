@@ -31,8 +31,6 @@ export const resolver = {
 
 const pageIdTracker: Record<string, number> = {}
 
-window.pageIdTracker = pageIdTracker
-
 export const Home: FC<HomeProps> = () => {
   const iframeRef = useRef()
   const { appId, pageId } = usePageId()
