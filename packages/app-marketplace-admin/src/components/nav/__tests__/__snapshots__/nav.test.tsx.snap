@@ -1,0 +1,312 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Nav should match a snapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <nav
+        class="el-nav-container"
+      >
+        <a
+          class="el-nav-item"
+        >
+          <span
+            class="el-nav-item-icon el-icon"
+            style="font-size: 2.5rem;"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 40 40"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M3 16.8L20 0L37 16.8V40H3V16.8Z"
+                fill="#31448F"
+              />
+              <path
+                d="M3 16.8L20 0L37 16.8V30L3 16.8Z"
+                fill="#7BC9EB"
+              />
+              <path
+                d="M37 40H27.0488L12.9512 6.96585L20 0L37 16.8V40Z"
+                fill="#0061A8"
+              />
+              <path
+                d="M37 16.8V30L20 23.4829L12.9512 6.96585L20 0L37 16.8Z"
+                fill="#23A4DE"
+              />
+            </svg>
+          </span>
+          <span
+            class="el-intent-neutral el-ml-auto el-mr2 el-nav-item-hide-desktop el-icon"
+            style="font-size: 2rem;"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 32 32"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                fill="#23A4DE"
+                height="32"
+                rx="4"
+                width="32"
+              />
+              <line
+                stroke="white"
+                stroke-width="1.5"
+                x1="10"
+                x2="22"
+                y1="12.25"
+                y2="12.25"
+              />
+              <line
+                stroke="white"
+                stroke-width="1.5"
+                x1="10"
+                x2="22"
+                y1="20.25"
+                y2="20.25"
+              />
+              <line
+                stroke="white"
+                stroke-width="1.5"
+                x1="10"
+                x2="22"
+                y1="16.25"
+                y2="16.25"
+              />
+            </svg>
+          </span>
+        </a>
+        <a
+          class="el-nav-item-active el-nav-item"
+        >
+          <span
+            class="el-nav-item-icon el-icon-size-medium el-icon"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 40 40"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                fill="white"
+                height="27"
+                width="15"
+                x="13.2"
+                y="7"
+              />
+              <path
+                d="M23.3583 8.41675H20.4583C20.0577 8.41675 19.7333 8.74107 19.7333 9.14175C19.7333 9.54242 20.0577 9.86675 20.4583 9.86675H23.3583C23.759 9.86675 24.0833 9.54242 24.0833 9.14175C24.0833 8.74107 23.759 8.41675 23.3583 8.41675Z"
+                fill="#23A4DE"
+              />
+              <path
+                d="M26.5 6H14.9C13.3011 6 12 7.30115 12 8.9V32.1C12 33.6989 13.3011 35 14.9 35H26.5C28.0989 35 29.4 33.6989 29.4 32.1V8.9C29.4 7.30115 28.0989 6 26.5 6ZM27.95 32.1C27.95 32.9009 27.3009 33.55 26.5 33.55H14.9C14.0991 33.55 13.45 32.9009 13.45 32.1V8.9C13.45 8.0991 14.0991 7.45 14.9 7.45H26.5C27.3009 7.45 27.95 8.0991 27.95 8.9V32.1Z"
+                fill="white"
+              />
+              <path
+                d="M20.7 32.5834C21.5008 32.5834 22.15 31.9342 22.15 31.1334C22.15 30.3325 21.5008 29.6833 20.7 29.6833C19.8992 29.6833 19.25 30.3325 19.25 31.1334C19.25 31.9342 19.8992 32.5834 20.7 32.5834Z"
+                fill="#23A4DE"
+              />
+              <path
+                d="M18.0417 9.86675C18.4421 9.86675 18.7667 9.54215 18.7667 9.14175C18.7667 8.74134 18.4421 8.41675 18.0417 8.41675C17.6413 8.41675 17.3167 8.74134 17.3167 9.14175C17.3167 9.54215 17.6413 9.86675 18.0417 9.86675Z"
+                fill="#23A4DE"
+              />
+              <path
+                d="M34.6411 17.5394C34.4178 16.1104 33.179 15.0137 31.6883 15.0137C31.1275 15.0137 30.5886 15.1688 30.1212 15.4582C29.4101 14.2632 28.13 13.5195 26.7078 13.5195C24.5109 13.5195 22.7234 15.307 22.7234 17.5039C22.7234 17.5175 22.7234 17.5316 22.7239 17.5452C21.312 17.7831 20.2 19.0141 20.2 20.4922C20.2 22.14 21.5737 23.4805 23.2215 23.4805H34.1785C35.8264 23.4805 37.2 22.14 37.2 20.4922C37.2 19.0015 36.07 17.7627 34.6411 17.5394Z"
+                fill="#23A4DE"
+              />
+            </svg>
+          </span>
+          Home
+        </a>
+      </nav>
+    </div>
+  </body>,
+  "container": <div>
+    <nav
+      class="el-nav-container"
+    >
+      <a
+        class="el-nav-item"
+      >
+        <span
+          class="el-nav-item-icon el-icon"
+          style="font-size: 2.5rem;"
+        >
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 40 40"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3 16.8L20 0L37 16.8V40H3V16.8Z"
+              fill="#31448F"
+            />
+            <path
+              d="M3 16.8L20 0L37 16.8V30L3 16.8Z"
+              fill="#7BC9EB"
+            />
+            <path
+              d="M37 40H27.0488L12.9512 6.96585L20 0L37 16.8V40Z"
+              fill="#0061A8"
+            />
+            <path
+              d="M37 16.8V30L20 23.4829L12.9512 6.96585L20 0L37 16.8Z"
+              fill="#23A4DE"
+            />
+          </svg>
+        </span>
+        <span
+          class="el-intent-neutral el-ml-auto el-mr2 el-nav-item-hide-desktop el-icon"
+          style="font-size: 2rem;"
+        >
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 32 32"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              fill="#23A4DE"
+              height="32"
+              rx="4"
+              width="32"
+            />
+            <line
+              stroke="white"
+              stroke-width="1.5"
+              x1="10"
+              x2="22"
+              y1="12.25"
+              y2="12.25"
+            />
+            <line
+              stroke="white"
+              stroke-width="1.5"
+              x1="10"
+              x2="22"
+              y1="20.25"
+              y2="20.25"
+            />
+            <line
+              stroke="white"
+              stroke-width="1.5"
+              x1="10"
+              x2="22"
+              y1="16.25"
+              y2="16.25"
+            />
+          </svg>
+        </span>
+      </a>
+      <a
+        class="el-nav-item-active el-nav-item"
+      >
+        <span
+          class="el-nav-item-icon el-icon-size-medium el-icon"
+        >
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 40 40"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              fill="white"
+              height="27"
+              width="15"
+              x="13.2"
+              y="7"
+            />
+            <path
+              d="M23.3583 8.41675H20.4583C20.0577 8.41675 19.7333 8.74107 19.7333 9.14175C19.7333 9.54242 20.0577 9.86675 20.4583 9.86675H23.3583C23.759 9.86675 24.0833 9.54242 24.0833 9.14175C24.0833 8.74107 23.759 8.41675 23.3583 8.41675Z"
+              fill="#23A4DE"
+            />
+            <path
+              d="M26.5 6H14.9C13.3011 6 12 7.30115 12 8.9V32.1C12 33.6989 13.3011 35 14.9 35H26.5C28.0989 35 29.4 33.6989 29.4 32.1V8.9C29.4 7.30115 28.0989 6 26.5 6ZM27.95 32.1C27.95 32.9009 27.3009 33.55 26.5 33.55H14.9C14.0991 33.55 13.45 32.9009 13.45 32.1V8.9C13.45 8.0991 14.0991 7.45 14.9 7.45H26.5C27.3009 7.45 27.95 8.0991 27.95 8.9V32.1Z"
+              fill="white"
+            />
+            <path
+              d="M20.7 32.5834C21.5008 32.5834 22.15 31.9342 22.15 31.1334C22.15 30.3325 21.5008 29.6833 20.7 29.6833C19.8992 29.6833 19.25 30.3325 19.25 31.1334C19.25 31.9342 19.8992 32.5834 20.7 32.5834Z"
+              fill="#23A4DE"
+            />
+            <path
+              d="M18.0417 9.86675C18.4421 9.86675 18.7667 9.54215 18.7667 9.14175C18.7667 8.74134 18.4421 8.41675 18.0417 8.41675C17.6413 8.41675 17.3167 8.74134 17.3167 9.14175C17.3167 9.54215 17.6413 9.86675 18.0417 9.86675Z"
+              fill="#23A4DE"
+            />
+            <path
+              d="M34.6411 17.5394C34.4178 16.1104 33.179 15.0137 31.6883 15.0137C31.1275 15.0137 30.5886 15.1688 30.1212 15.4582C29.4101 14.2632 28.13 13.5195 26.7078 13.5195C24.5109 13.5195 22.7234 15.307 22.7234 17.5039C22.7234 17.5175 22.7234 17.5316 22.7239 17.5452C21.312 17.7831 20.2 19.0141 20.2 20.4922C20.2 22.14 21.5737 23.4805 23.2215 23.4805H34.1785C35.8264 23.4805 37.2 22.14 37.2 20.4922C37.2 19.0015 36.07 17.7627 34.6411 17.5394Z"
+              fill="#23A4DE"
+            />
+          </svg>
+        </span>
+        Home
+      </a>
+    </nav>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

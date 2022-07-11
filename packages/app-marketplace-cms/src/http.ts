@@ -7,7 +7,6 @@ import { Handler, Context, APIGatewayEvent } from 'aws-lambda'
 import { eventContext } from 'aws-serverless-express/middleware'
 import { Server } from 'http'
 import express, { Express } from 'express'
-import * as bodyParser from 'body-parser'
 import { CorsHeaderInterceptor } from '@reapit/utils-nest'
 
 export const bootstrapApplication = async (): Promise<[INestApplication, Express]> => {
@@ -16,8 +15,6 @@ export const bootstrapApplication = async (): Promise<[INestApplication, Express
 
   app.useGlobalPipes(new ValidationPipe())
   app.useGlobalInterceptors(new CorsHeaderInterceptor())
-  app.use(bodyParser.json({ limit: '50mb' }))
-  app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }))
 
   return [app, expressApp]
 }
