@@ -3,6 +3,10 @@ import React from 'react'
 import { render } from '../../../tests/react-testing'
 import { AppBrowseManageTable } from '../app-browse-manage-table'
 
+jest.mock('react-color', () => ({
+  SketchPicker: jest.fn(),
+}))
+
 describe('AppBrowseManageTable', () => {
   it('should match a snapshot', () => {
     window.reapit.config.appEnv = 'development'
