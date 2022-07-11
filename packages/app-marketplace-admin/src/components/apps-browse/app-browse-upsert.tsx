@@ -9,18 +9,8 @@ import { AppBrowseTable } from './app-browse-table'
 import { AppBrowseUpsertModal } from './app-browse-upsert-modal'
 
 export const AppBrowseUpsert: FC<{}> = () => {
-  const appsBrowseConfigKeys: { [key in AppsBrowseConfigEnum]: AppsBrowseConfigItemInterface[] } = Object.values(
-    AppsBrowseConfigEnum,
-  ).reduce<{
-    [key in AppsBrowseConfigEnum]: []
-  }>((ob, key) => {
-    ob[key] = []
-
-    return ob
-  }, {} as { [key in AppsBrowseConfigEnum] })
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const [items, setItems] =
-    useState<{ [k in AppsBrowseConfigEnum]: AppsBrowseConfigItemInterface[] }>(appsBrowseConfigKeys)
+  const [items, setItems] = useState<AppsBrowseConfigItemInterface[]>([])
   const [configType, setConfigType] = useState<AppsBrowseConfigEnum | undefined>(undefined)
   const [selectedItem, setSelectedItem] = useState<AppsBrowseConfigItemInterface | undefined>(undefined)
   const { modalIsOpen, closeModal, openModal } = useModal('upsert-app-marketing')
@@ -38,15 +28,7 @@ export const AppBrowseUpsert: FC<{}> = () => {
 
   useEffect(() => {
     if (appMarketPlaceCmsConfig && appMarketPlaceCmsConfig.items) {
-      setItems(
-        appMarketPlaceCmsConfig.items.reduce((configItems, config) => {
-          if (!configItems[config.configType].map((i) => i.id).includes(config.id)) {
-            configItems[config.configType].push(config)
-          }
-
-          return configItems
-        }, items),
-      )
+      setItems(appMarketPlaceCmsConfig.items)
     }
   }, [appMarketPlaceCmsConfig])
 
@@ -81,12 +63,11 @@ export const AppBrowseUpsert: FC<{}> = () => {
       {appMarketPlaceCmsLoading ? (
         <Loader />
       ) : (
-        items &&
-        (Object.values(AppsBrowseConfigEnum) as AppsBrowseConfigEnum[]).map((type) => (
+        Object.values(AppsBrowseConfigEnum).map((type) => (
           <AppBrowseTable
-            key={`${type}-${items[type].map((item) => item.id).join('-')}`}
+            key={`${type}`}
             type={type}
-            items={items[type]}
+            items={items.filter((item) => item.configType === type)}
             setEditType={() => setConfigType(type)}
             setSelectedItem={setSelectedItem}
             connectSession={connectSession as ReapitConnectSession}
