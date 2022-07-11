@@ -50,7 +50,7 @@ export interface AppIdParams {
   appId: string
 }
 
-const handleCarouselCols = (mediaQuery: MediaType) => () => {
+export const handleCarouselCols = (mediaQuery: MediaType) => () => {
   const { isMobile, isTablet, isDesktop } = mediaQuery
 
   if (isMobile) {
@@ -63,6 +63,7 @@ const handleCarouselCols = (mediaQuery: MediaType) => () => {
 
   return 3
 }
+
 export const AppsDetail: FC = () => {
   const history = useHistory()
   const { appId } = useParams<AppIdParams>()

@@ -1,0 +1,170 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Carousel should match a snapshot with options 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <div
+        class="carousel-wrapper"
+      >
+        <a
+          class="el-fade-in carousel-controls-right"
+        >
+          <span
+            class="el-intent-neutral el-icon"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 12 12"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 5.5L3 9.39711L3 1.60289L9 5.5Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+        </a>
+        <div
+          class="carousel-grid"
+          style="--ckvo4up-0: 100.000%;"
+        >
+          <div
+            class="carousel-col"
+          >
+            <div>
+              Carousel Item 1
+            </div>
+          </div>
+          <div
+            class="carousel-col"
+          >
+            <div>
+              Carousel Item 2
+            </div>
+          </div>
+          <div
+            class="carousel-col"
+          >
+            <div>
+              Carousel Item 3
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <div
+      class="carousel-wrapper"
+    >
+      <a
+        class="el-fade-in carousel-controls-right"
+      >
+        <span
+          class="el-intent-neutral el-icon"
+        >
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 12 12"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9 5.5L3 9.39711L3 1.60289L9 5.5Z"
+              fill="currentColor"
+            />
+          </svg>
+        </span>
+      </a>
+      <div
+        class="carousel-grid"
+        style="--ckvo4up-0: 100.000%;"
+      >
+        <div
+          class="carousel-col"
+        >
+          <div>
+            Carousel Item 1
+          </div>
+        </div>
+        <div
+          class="carousel-col"
+        >
+          <div>
+            Carousel Item 2
+          </div>
+        </div>
+        <div
+          class="carousel-col"
+        >
+          <div>
+            Carousel Item 3
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
