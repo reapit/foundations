@@ -20,12 +20,16 @@ import {
   featuredHeroAppsButton,
 } from './__styles__'
 import { cx } from '@linaria/core'
+import { navigate } from '../../utils/navigation'
+import { Routes } from '../../constants/routes'
+import { useHistory } from 'react-router-dom'
 
 interface FeaturedHeroAppsCollectionProps {
   configItem: AppsBrowseConfigItem
 }
 
 export const FeaturedHeroAppsCollection: FC<FeaturedHeroAppsCollectionProps> = ({ configItem }) => {
+  const history = useHistory()
   const { filters, content } = configItem
 
   const [appDetail] = useReapitGet<AppDetailModel>({
@@ -38,11 +42,11 @@ export const FeaturedHeroAppsCollection: FC<FeaturedHeroAppsCollectionProps> = (
   })
 
   const app = appDetail ?? {}
-  const { name, media, summary, category } = app
+  const { name, media, summary, category, id } = app
   const iconUri = media?.find((item) => item.type === 'icon')?.uri
 
   return (
-    <FeaturedHeroAppsCol>
+    <FeaturedHeroAppsCol onClick={id ? navigate(history, `${Routes.APPS_BROWSE}/${id}`) : undefined}>
       <FlexContainer isFlexColumn>
         <Subtitle className={heroSubMinHeight} hasBoldText hasNoMargin>
           {content?.title}

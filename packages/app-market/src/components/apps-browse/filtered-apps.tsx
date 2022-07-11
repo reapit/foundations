@@ -21,6 +21,7 @@ import { Routes } from '../../constants/routes'
 import { useHistory } from 'react-router-dom'
 import { cardCursor, IsFreeNotice } from './__styles__'
 import { checkHasFilters } from './apps-browse'
+import { elMl5 } from '@reapit/elements'
 
 export const FilteredAppsCollection: FC = () => {
   const { appsBrowseFilterState } = useAppsBrowseState()
@@ -51,7 +52,7 @@ export const FilteredAppsCollection: FC = () => {
               mainCardHeading={name}
               mainCardSubHeading={
                 <FlexContainer isFlexJustifyBetween isFlexAlignCenter>
-                  {developer} {isFree && <IsFreeNotice>FREE</IsFreeNotice>}
+                  {developer} {isFree && <IsFreeNotice className={elMl5}>FREE</IsFreeNotice>}
                 </FlexContainer>
               }
               mainCardSubHeadingAdditional={isDirectApi ? 'Integration' : ''}
