@@ -2,8 +2,10 @@ import { ReapitConnectSession } from '@reapit/connect-session'
 import {
   Button,
   ButtonGroup,
+  CreateImageUploadModel,
   FormLayout,
   iconSet,
+  ImageUploadModel,
   Input,
   InputError,
   InputGroup,
@@ -21,14 +23,37 @@ import {
   AppSummaryModelPagedResult,
   CategoryModelPagedResult,
 } from '@reapit/foundations-ts-definitions'
-import { GetActionNames, getActions } from '@reapit/utils-common'
-import { SearchableMultiSelect, UpdateReturnTypeEnum, useReapitGet, useReapitUpdate } from '@reapit/utils-react'
+import { GetActionNames, getActions, UpdateActionNames, updateActions } from '@reapit/utils-common'
+import {
+  ImageCropperFileInput,
+  ResizeDimensions,
+  SearchableMultiSelect,
+  UpdateReturnTypeEnum,
+  useReapitGet,
+  useReapitUpdate,
+} from '@reapit/utils-react'
 import React, { FC, useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { reactPickerStyles } from './app-browse.styles'
 import { appModal } from './modal.styles'
 import { SketchPicker } from 'react-color'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
+import { v4 as uuid } from 'uuid'
+
+const UPLOAD_IMAGE_DIMENSIONS: Record<string, ResizeDimensions> = {
+  icon: {
+    width: 96,
+    height: 96,
+  },
+  feature: {
+    width: 495,
+    height: 222,
+  },
+  screenshot: {
+    width: 598,
+    height: 457,
+  },
+}
 
 const upsertAppMarketing =
   (
@@ -94,6 +119,13 @@ export const AppBrowseUpsertModal: FC<{
     setValue('content.brandColour', color)
   }, [color])
 
+  const [, , createImageUpload] = useReapitUpdate<CreateImageUploadModel, ImageUploadModel>({
+    reapitConnectBrowserSession,
+    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.fileUpload],
+    method: 'POST',
+    returnType: UpdateReturnTypeEnum.RESPONSE,
+  })
+
   const [initialApps] = useReapitGet<AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getApps],
@@ -115,6 +147,14 @@ export const AppBrowseUpsertModal: FC<{
       id: appMarketConfig?.id,
     },
   })
+
+  const onFileUpload = async (params: CreateImageUploadModel) => {
+    const res = await createImageUpload(params)
+
+    console.log('res', res)
+
+    return res
+  }
 
   return (
     <Modal
@@ -239,7 +279,17 @@ export const AppBrowseUpsertModal: FC<{
           <InputWrapFull>
             <InputGroup>
               <Label>Image</Label>
-              <Input {...register('content.imageUrl')} type="file" />
+              <ImageCropperFileInput
+                label={'Image'}
+                {...register('content.imageUrl')}
+                onFileView={(image) => console.log('image', image)}
+                defaultValue={appMarketConfig?.content?.imageUrl}
+                onFileUpload={onFileUpload}
+                placeholderText="Dimensions: 96px x 96px"
+                fileName={uuid()}
+                aspect={UPLOAD_IMAGE_DIMENSIONS.icon.width / UPLOAD_IMAGE_DIMENSIONS.icon.height}
+                resizeDimensions={UPLOAD_IMAGE_DIMENSIONS.icon}
+              />
               {errors.content?.imageUrl?.message && (
                 <InputError message={errors.content?.imageUrl.message.toString()} />
               )}
