@@ -14,8 +14,12 @@ import {
   DeveloperAppsGrid,
   heroSubMinHeight,
 } from './__styles__'
+import { useHistory } from 'react-router-dom'
+import { navigate } from '../../utils/navigation'
+import { Routes } from '../../constants/routes'
 
 export const DeveloperAppsCollection: FC = () => {
+  const history = useHistory()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const developerId = connectSession?.loginIdentity.developerId
 
@@ -44,7 +48,11 @@ export const DeveloperAppsCollection: FC = () => {
               </FlexContainer>
             </DeveloperAppsColHelper>
             {apps.data.map(({ id, name, iconUri }) => (
-              <DeveloperAppsCol className={elFadeIn} key={id}>
+              <DeveloperAppsCol
+                className={elFadeIn}
+                key={id}
+                onClick={navigate(history, `${Routes.APPS_BROWSE}/${id}`)}
+              >
                 <FlexContainer isFlexAlignCenter>
                   {iconUri ? (
                     <AppIcon src={iconUri} alt={name} />
