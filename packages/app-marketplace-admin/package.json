@@ -38,6 +38,7 @@
     "react-hook-form": "^7.31.3",
     "react-router": "^5.3.3",
     "react-router-dom": "^5.3.3",
+    "shleemy": "^1.2.2",
     "snyk": "^1.944.0",
     "uuid": "^8.3.2",
     "yup": "^0.32.11"
