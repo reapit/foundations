@@ -282,7 +282,6 @@ export const AppBrowseUpsertModal: FC<{
               <ImageCropperFileInput
                 label={'Image'}
                 {...register('content.imageUrl')}
-                onFileView={(image) => console.log('image', image)}
                 defaultValue={appMarketConfig?.content?.imageUrl}
                 onFileUpload={onFileUpload}
                 placeholderText="Dimensions: 96px x 96px"
