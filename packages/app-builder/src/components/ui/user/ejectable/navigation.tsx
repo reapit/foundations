@@ -1,22 +1,22 @@
 import { usePageId } from '@/components/hooks/use-page-id'
 import React, { forwardRef } from 'react'
 import { Loader, NavResponsive, ElNavContainer } from '@reapit/elements'
-import { useApp } from '@/components/hooks/apps/use-app'
+import { useAppNavConfig } from '@/components/hooks/apps/use-app'
 import { useConnectSession } from '@/components/hooks/connect-session'
 
 export type NavigationProps = {}
 
 export const Navigation = forwardRef<HTMLDivElement, NavigationProps>((_, ref) => {
   const { appId, setPageId } = usePageId()
-  const { app, loading } = useApp(appId)
+  const { navConfig, loading } = useAppNavConfig(appId)
   const connectSession = useConnectSession()
 
-  if (loading || !app || !connectSession) {
+  if (loading || !navConfig || !connectSession) {
     return <Loader />
   }
 
   const options =
-    app.navConfig.map((navConfig, idx) => ({
+    navConfig.map((navConfig, idx) => ({
       itemIndex: idx + 1,
       text: navConfig.name,
       iconId: navConfig.icon,
@@ -27,7 +27,7 @@ export const Navigation = forwardRef<HTMLDivElement, NavigationProps>((_, ref) =
     })) || []
 
   return (
-    <ElNavContainer ref={ref}>
+    <ElNavContainer ref={ref} style={{ overflow: 'visible' }}>
       <NavResponsive
         style={{ flex: 1 }}
         options={[

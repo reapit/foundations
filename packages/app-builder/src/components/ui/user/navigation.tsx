@@ -1,5 +1,5 @@
 import { NavConfig } from '@/components/hooks/apps/fragments'
-import { useApp } from '@/components/hooks/apps/use-app'
+import { useAppPages } from '@/components/hooks/apps/use-app'
 import { useUpdateAppNavConfig } from '@/components/hooks/apps/use-update-app'
 import { usePageId } from '@/components/hooks/use-page-id'
 import Plus from '@/components/icons/plus'
@@ -80,8 +80,8 @@ const NavItemConfigurator = ({
   onChange: (navConfig: NavConfig) => void
 }) => {
   const { appId } = usePageId()
-  const { app } = useApp(appId)
-  const pageNavConfigs = app?.pages.map(({ id, name }) => ({
+  const { pages } = useAppPages(appId)
+  const pageNavConfigs = pages?.map(({ id, name }) => ({
     name,
     destination: id,
   }))

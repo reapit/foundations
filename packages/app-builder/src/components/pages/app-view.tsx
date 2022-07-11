@@ -1,10 +1,10 @@
 import React from 'react'
 import { Loader } from '@reapit/elements'
-import { useApp } from '../hooks/apps/use-app'
+import { useAppWithPages } from '../hooks/apps/use-app'
 import { usePageId } from '../hooks/use-page-id'
 import { Node } from '../hooks/apps/fragments'
 import * as Components from '../ui/user/ejectable/index'
-import { mergeHeaderFooterIntoPage } from '../hooks/apps/node-helpers'
+import { mergeNavIntoPage } from '../hooks/apps/node-helpers'
 import { ROOT_NODE } from '@craftjs/core'
 import { AddContainer } from '../ui/render-node/add-container'
 
@@ -34,10 +34,10 @@ const isRoot = (node: Node) => node.nodeId === ROOT_NODE
 
 const AppView = () => {
   const { appId, pageId } = usePageId()
-  const { app, loading } = useApp(appId)
+  const { app, loading } = useAppWithPages(appId)
   const page = app?.pages.find((p) => p.id === pageId)
 
-  const nodes = page?.nodes ? mergeHeaderFooterIntoPage(page.nodes || [], app?.header, app?.footer) : []
+  const nodes = page?.nodes ? mergeNavIntoPage(page.nodes || []) : []
   if (loading) {
     return <Loader fullPage />
   }

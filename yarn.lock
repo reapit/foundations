@@ -4713,23 +4713,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@craftjs/core@npm:0.2.0-beta.4":
-  version: 0.2.0-beta.4
-  resolution: "@craftjs/core@npm:0.2.0-beta.4"
+"@craftjs/core@npm:0.2.0-beta.6":
+  version: 0.2.0-beta.6
+  resolution: "@craftjs/core@npm:0.2.0-beta.6"
   dependencies:
-    "@craftjs/utils": ^0.2.0-beta.4
+    "@craftjs/utils": ^0.2.0-beta.6
     debounce: ^1.2.0
     lodash: ^4.17.20
     tiny-invariant: ^1.0.6
   peerDependencies:
     react: ^16.8.0 || ^17
-  checksum: 0b3521794784210c1b290992376456d443c670daadb5d0d811a4a9743ce5c776f8be369942665a1851c2fb72c60bc23821b3d986cb9a1542436b78207568e4a1
+  checksum: 1ef6ca41ac62b23ae0ddea98e21ea9ab8d941984deffebae12684aa3b04ad0122c04258396f7d1b2ea5f624776a9262b30162f89a34a0a1f80c1b56d5c54615b
   languageName: node
   linkType: hard
 
-"@craftjs/utils@npm:^0.2.0-beta.4":
-  version: 0.2.0-beta.4
-  resolution: "@craftjs/utils@npm:0.2.0-beta.4"
+"@craftjs/utils@npm:^0.2.0-beta.6":
+  version: 0.2.0-beta.6
+  resolution: "@craftjs/utils@npm:0.2.0-beta.6"
   dependencies:
     immer: ^9.0.6
     lodash: ^4.17.20
@@ -4738,7 +4738,7 @@ __metadata:
     tiny-invariant: ^1.0.6
   peerDependencies:
     react: ^16.8.0 || ^17
-  checksum: 14aadacce65d04447622528a249c354995f7858030f201545ddd9d8c95a7333820e6ca5942b7604ce8b499cb67216f235de55f5f0a09854232c51038a0cbc1d6
+  checksum: b1ce54501166516bbaffd7e7ffe8f31ff2c8d54b0effa6f0bec1e9bd3a5cc8013a4bb7ba969e20163dd998c648e8a5c5cafc5907bb556da8ab30a2cfe94bbdc0
   languageName: node
   linkType: hard
 
@@ -14387,7 +14387,7 @@ __metadata:
   resolution: "app-builder@workspace:packages/app-builder"
   dependencies:
     "@apollo/client": ^3.6.9
-    "@craftjs/core": 0.2.0-beta.4
+    "@craftjs/core": 0.2.0-beta.6
     "@linaria/core": ^3.0.0-beta.15
     "@linaria/react": ^3.0.0-beta.15
     "@linaria/shaker": ^3.0.0-beta.15
@@ -14405,7 +14405,6 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.30.4
     "@typescript-eslint/parser": ^5.30.4
     babel-loader: ^8.2.5
-    clone-deep: ^4.0.1
     concurrently: ^6.5.1
     cross-env: ^6.0.3
     css-loader: ^6.7.1
@@ -14417,7 +14416,6 @@ __metadata:
     graphql: ^15.8.0
     jest: ^28.1.2
     jest-coverage-badges: ^1.1.2
-    omit-deep: ^0.3.0
     query-string: ^7.1.1
     react: ^18.2.0
     react-contenteditable: ^3.3.6
@@ -26312,7 +26310,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"is-plain-object@npm:^2.0.1, is-plain-object@npm:^2.0.3, is-plain-object@npm:^2.0.4":
+"is-plain-object@npm:^2.0.3, is-plain-object@npm:^2.0.4":
   version: 2.0.4
   resolution: "is-plain-object@npm:2.0.4"
   dependencies:
@@ -31630,16 +31628,6 @@ fsevents@^1.2.7:
   version: 1.0.10
   resolution: "omggif@npm:1.0.10"
   checksum: 15102e46b6fa0fba32d7e948f702623cdc3cdcdfd64b2d33c6e29a61f366ffd0f250da55d66f5217dce5b93ba9c67763fa998652791a5c7f2201a3bde2c4db45
-  languageName: node
-  linkType: hard
-
-"omit-deep@npm:^0.3.0":
-  version: 0.3.0
-  resolution: "omit-deep@npm:0.3.0"
-  dependencies:
-    is-plain-object: ^2.0.1
-    unset-value: ^0.1.1
-  checksum: ca603591af98f717ee4e4ae199778d386304f80072164fc1fb9c27abb011845faa27ffb32e7fa4a240698a4d54822526059af74f12f4f73315ecd7f03825d590
   languageName: node
   linkType: hard
 
@@ -41113,16 +41101,6 @@ typescript@^3.7.3:
   version: 1.0.0
   resolution: "unpipe@npm:1.0.0"
   checksum: 4fa18d8d8d977c55cb09715385c203197105e10a6d220087ec819f50cb68870f02942244f1017565484237f1f8c5d3cd413631b1ae104d3096f24fdfde1b4aa2
-  languageName: node
-  linkType: hard
-
-"unset-value@npm:^0.1.1":
-  version: 0.1.2
-  resolution: "unset-value@npm:0.1.2"
-  dependencies:
-    has-value: ^0.3.1
-    isobject: ^3.0.0
-  checksum: 56c7de1ee6b726002cc67b82954ec31b795836c2312d4d3d114a500eab5f632e1d3d6f5a164aff1ed90d7ffa94a009c452f6357f1f7d23bc444d489f622aeb9d
   languageName: node
   linkType: hard
 

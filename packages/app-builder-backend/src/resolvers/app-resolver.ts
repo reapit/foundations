@@ -1,4 +1,4 @@
-import { Resolver, Query, Arg, Mutation, ID, Authorized, Ctx } from 'type-graphql'
+import { Resolver, Query, Arg, Mutation, ID, Authorized, Ctx, FieldResolver, Root } from 'type-graphql'
 import Pluralize from 'pluralize'
 
 import { App, NavConfig } from '../entities/app'
@@ -14,60 +14,7 @@ import {
   getValidMarketplaceScopes,
 } from '../platform/apps'
 import { notEmpty } from '../utils/helpers'
-
-const defaultHeaderNodes = [
-  {
-    nodeId: 'header',
-    type: { resolvedName: 'Container' },
-    isCanvas: true,
-    props: { width: 12, background: 'white', padding: 40 },
-    displayName: 'Container',
-    custom: { displayName: 'Header' },
-    parent: 'ROOT',
-    hidden: false,
-    nodes: ['asdfgh'],
-    linkedNodes: {},
-  },
-  {
-    nodeId: 'asdfgh',
-    type: { resolvedName: 'Text' },
-    isCanvas: false,
-    props: { fontSize: 12, width: 12, text: 'Type your header text in here.' },
-    displayName: 'Text',
-    custom: {},
-    parent: 'header',
-    hidden: false,
-    nodes: [],
-    linkedNodes: {},
-  },
-]
-
-const defaultFooterNodes = [
-  {
-    nodeId: 'footer',
-    type: { resolvedName: 'Container' },
-    isCanvas: true,
-    props: { width: 12, background: 'white', padding: 40 },
-    displayName: 'Container',
-    custom: { displayName: 'Footer' },
-    parent: 'ROOT',
-    hidden: false,
-    nodes: ['asdfg'],
-    linkedNodes: {},
-  },
-  {
-    nodeId: 'asdfg',
-    type: { resolvedName: 'Text' },
-    isCanvas: false,
-    props: { fontSize: 12, width: 12, text: '© 2022 your company name' },
-    displayName: 'Text',
-    custom: {},
-    parent: 'footer',
-    hidden: false,
-    nodes: [],
-    linkedNodes: {},
-  },
-]
+import slugify from 'slugify'
 
 export const defaultNodes = [
   {
@@ -95,11 +42,6 @@ export const defaultNodes = [
     linkedNodes: {},
   },
 ]
-
-const addId = (id: string) => (obj: Omit<Node, 'id'>) => ({
-  ...obj,
-  id: [obj.nodeId, id].join('-'),
-})
 
 const getAppUrl = (webUrl: string, subdomain: string) => {
   const url = new URL(webUrl)
@@ -262,8 +204,6 @@ export class AppResolver {
         }
         return {
           ...appBuilderApp,
-          header: appBuilderApp.header.length ? appBuilderApp.header : defaultHeaderNodes.map(addId(id)),
-          footer: appBuilderApp.footer.length ? appBuilderApp.footer : defaultFooterNodes.map(addId(id)),
           name: name as string,
           clientId: externalId as string,
           developerName: developer as string,
@@ -275,26 +215,10 @@ export class AppResolver {
   }
 
   @Query(() => App, { nullable: true, name: '_getApp' })
-  async getApp(@Arg('idOrSubdomain') idOrSubdomain: string, @Ctx() context: Context): Promise<App> {
+  async getApp(@Arg('idOrSubdomain') idOrSubdomain: string): Promise<App> {
     const app = (await getApp(idOrSubdomain)) || (await getDomainApps(idOrSubdomain))[0]
     if (app) {
-      if (!context.accessToken) {
-        return {
-          ...app,
-          name: '',
-          developerName: '',
-          header: app.header.length ? app.header : defaultHeaderNodes.map(addId(app.id)),
-          footer: app.footer.length ? app.footer : defaultFooterNodes.map(addId(app.id)),
-        }
-      }
-      const { name, developer } = await getMarketplaceApp(app.id, context.accessToken)
-      return {
-        ...app,
-        header: app.header.length ? app.header : defaultHeaderNodes.map(addId(app.id)),
-        footer: app.footer.length ? app.footer : defaultFooterNodes.map(addId(app.id)),
-        name: name as string,
-        developerName: developer as string,
-      }
+      return app
     }
     throw new Error(`App ${idOrSubdomain} not found`)
   }
@@ -342,8 +266,6 @@ export class AppResolver {
 
     return {
       ...app,
-      header: app.header.length ? app.header : defaultHeaderNodes.map(addId(id)),
-      footer: app.footer.length ? app.footer : defaultFooterNodes.map(addId(id)),
       name: name as string,
       clientId: externalId as string,
       developerName: developer as string,
@@ -351,46 +273,149 @@ export class AppResolver {
   }
 
   @Authorized()
-  @Mutation(() => App, { name: '_updateApp' })
-  async updateApp(
+  @Mutation(() => App, { name: '_updateAppName' })
+  async updateAppName(
     @Ctx() context: Context,
     @Arg('id', () => ID) id: string,
     @Arg('name') name: string,
-    @Arg('pages', () => [Page], { nullable: true }) pages?: Array<Page>,
-    @Arg('header', () => [Node], { nullable: true }) header?: Array<Node>,
-    @Arg('footer', () => [Node], { nullable: true }) footer?: Array<Node>,
-    @Arg('navConfig', () => [NavConfig], { nullable: true }) navConfig?: Array<NavConfig>,
   ): Promise<App> {
     const app = await getApp(id)
     if (!app) {
       throw new Error('App not found')
     }
-    if (pages) {
-      app.pages = pages
-    }
-    if (header) {
-      app.header = header
-    }
-    if (footer) {
-      app.footer = footer
-    }
-    if (navConfig) {
-      app.navConfig = navConfig
-    }
-    await ensureScopes(app, context.accessToken)
-    const newApp = await updateApp(app)
     await updateMarketplaceAppName(id, name, context.accessToken)
+    // new name will get resolved by field resolver
+    return app
+  }
 
-    const { externalId, developer } = await getMarketplaceApp(id, context.accessToken)
-
-    return {
-      ...newApp,
-      header: newApp.header.length ? newApp.header : defaultHeaderNodes.map(addId(id)),
-      footer: newApp.footer.length ? newApp.footer : defaultFooterNodes.map(addId(id)),
-      name: name as string,
-      clientId: externalId as string,
-      developerName: developer as string,
+  @Authorized()
+  @Mutation(() => App, { name: '_updateAppNavConfig' })
+  async updateNavConfig(
+    @Arg('appId', () => ID) appId: string,
+    @Arg('navConfig', () => [NavConfig], { nullable: true }) navConfig: Array<NavConfig>,
+  ): Promise<App> {
+    const app = await getApp(appId)
+    if (!app) {
+      throw new Error('App not found')
     }
+    app.navConfig = navConfig
+    await updateApp(app)
+
+    return app
+  }
+
+  @Authorized()
+  @Query(() => [Node], { name: '_getAppPageNodes' })
+  async getPageNodes(@Arg('appId', () => ID) appId: string, @Arg('pageId', () => ID) pageId: string): Promise<Node[]> {
+    const app = await getApp(appId)
+    if (!app) {
+      throw new Error('App not found')
+    }
+    const page = app.pages.find((page) => page.id === pageId)
+    if (!page) {
+      throw new Error('Page not found')
+    }
+    return page.nodes
+  }
+
+  @Authorized()
+  @Mutation(() => Page, { name: '_updateAppPageName' })
+  async updatePageName(
+    @Arg('appId', () => ID) appId: string,
+    @Arg('pageId', () => ID) pageId: string,
+    @Arg('pageName', () => String) pageName: string,
+  ): Promise<Page> {
+    const app = await getApp(appId)
+    if (!app) {
+      throw new Error('App not found')
+    }
+    const existingPage = app.pages.find((page) => page.id === pageId)
+    if (!existingPage) {
+      throw new Error('Page not found')
+    }
+    const newPage = { ...existingPage, name: pageName }
+    app.pages = app.pages.map((p) => {
+      return p.id === pageId ? newPage : p
+    })
+    await updateApp(app)
+    return newPage
+  }
+
+  @Authorized()
+  @Mutation(() => [Node], { name: '_updateAppPageNodes' })
+  async updatePageNodes(
+    @Ctx() context: Context,
+    @Arg('appId', () => ID) appId: string,
+    @Arg('pageId', () => ID) pageId: string,
+    @Arg('nodes', () => [Node]) nodes: Node[],
+  ): Promise<Node[]> {
+    const app = await getApp(appId)
+    if (!app) {
+      throw new Error('App not found')
+    }
+    const existingPage = app.pages.find((page) => page.id === pageId)
+    if (!existingPage) {
+      throw new Error('Page not found')
+    }
+    const newPage = { ...existingPage, nodes }
+    app.pages = app.pages.map((p) => {
+      return p.id === pageId ? newPage : p
+    })
+    await updateApp(app)
+    await ensureScopes(app, context.accessToken)
+    return nodes
+  }
+
+  @Authorized()
+  @Mutation(() => App, { name: '_createAppPage' })
+  async createPage(@Arg('appId', () => ID) appId: string, @Arg('name', () => String) name: string): Promise<App> {
+    const app = await getApp(appId)
+    if (!app) {
+      throw new Error('App not found')
+    }
+    const pageId = slugify(name)
+    if (app.pages.find((page) => page.id === pageId)) {
+      throw new Error('Page already exists')
+    }
+    const page = {
+      id: pageId,
+      name,
+      nodes: defaultNodes.map((node) => ({
+        ...node,
+        id: `${pageId}~${node.nodeId}`,
+      })),
+    }
+    app.pages.push(page)
+    const newApp = await updateApp(app)
+    return newApp
+  }
+
+  @Authorized()
+  @Mutation(() => App, { name: '_deleteAppPage' })
+  async deletePage(@Arg('appId', () => ID) appId: string, @Arg('pageId', () => ID) pageId: string): Promise<App> {
+    const app = await getApp(appId)
+    if (!app) {
+      throw new Error('App not found')
+    }
+    app.pages = app.pages.filter((p) => p.id !== pageId)
+    const newApp = await updateApp(app)
+    return newApp
+  }
+
+  @FieldResolver()
+  async name(@Root() app: App, @Ctx() ctx: Context) {
+    const { name } = await getMarketplaceApp(app.id, ctx.accessToken)
+    return name
+  }
+  @FieldResolver()
+  async clientId(@Root() app: App, @Ctx() ctx: Context) {
+    const { externalId } = await getMarketplaceApp(app.id, ctx.accessToken)
+    return externalId
+  }
+  @FieldResolver()
+  async developerName(@Root() app: App, @Ctx() ctx: Context) {
+    const { developer } = await getMarketplaceApp(app.id, ctx.accessToken)
+    return developer
   }
 
   @Authorized()
