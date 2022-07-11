@@ -32,7 +32,7 @@ import {
   useReapitGet,
   useReapitUpdate,
 } from '@reapit/utils-react'
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { reactPickerStyles } from './app-browse.styles'
 import { appModal } from './modal.styles'
@@ -107,17 +107,12 @@ export const AppBrowseUpsertModal: FC<{
   })
 
   const [loading, setLoading] = useState<boolean>(false)
-  const [color, setColor] = useState<string>(appMarketConfig?.content?.brandColour || '#FF0000')
 
   const [categories] = useReapitGet<CategoryModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppCategories],
     queryParams: { pageSize: 25 },
   })
-
-  useEffect(() => {
-    setValue('content.brandColour', color)
-  }, [color])
 
   const [, , createImageUpload] = useReapitUpdate<CreateImageUploadModel, ImageUploadModel>({
     reapitConnectBrowserSession,
@@ -234,9 +229,9 @@ export const AppBrowseUpsertModal: FC<{
                 className={reactPickerStyles}
                 triangle={'hide'}
                 {...register('content.brandColour')}
-                color={color}
+                color={getValues('content.brandColour') || appMarketConfig?.content?.brandColour || '#FF0000'}
                 onChange={(colour) => {
-                  setColor(colour.hex)
+                  setValue('content.brandColour', colour.hex)
                 }}
               />
               {errors.content?.brandColour?.message && (
