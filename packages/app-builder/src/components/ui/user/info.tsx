@@ -1,6 +1,6 @@
 import { useNode } from '@craftjs/core'
 import React from 'react'
-import Container, { ContainerSettings } from './container'
+import Container from './container'
 import { InfoProps, Info as EInfo } from './ejectable/info'
 
 const defaultProps = {
@@ -15,16 +15,11 @@ const Info = (props: InfoProps) => {
   return <EInfo {...props} ref={(ref) => ref && connect(drag(ref))} />
 }
 
-const InfoSettings = () => <ContainerSettings />
-
 Info.craft = {
   displayName: 'Info',
   props: {
     ...defaultProps,
     ...Container.craft.props,
-  },
-  related: {
-    toolbar: InfoSettings,
   },
 }
 

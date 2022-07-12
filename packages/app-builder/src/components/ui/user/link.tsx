@@ -76,8 +76,6 @@ const Link = ({
   )
 }
 
-const ContainerSettings = Container.craft.related.toolbar
-
 const DestinationPageContainer = styled.div`
   display: flex;
   align-items: center;
@@ -116,7 +114,6 @@ export const DestinationPage = ({
 export const LinkSettings = () => (
   <>
     <DestinationPage title="Link to" propKey="destination" />
-    <ContainerSettings />
   </>
 )
 
