@@ -17,6 +17,8 @@ module.exports = () => {
         '// @ts-ignore\n' +
         'export * from "../api-key-schema"' +
         '// @ts-ignore\n' +
+        'export * from "../marketplace-cms"' +
+        '// @ts-ignore\n' +
         'export * from "../webhook-schema"' +
         '// @ts-ignore\n' +
         files

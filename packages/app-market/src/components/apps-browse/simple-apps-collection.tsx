@@ -3,13 +3,13 @@ import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { useReapitGet } from '@reapit/utils-react'
 import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
-import { AppsBrowseConfigItem } from './use-apps-browse-state'
 import { BodyText, elFadeIn, FlexContainer, PlaceholderImage } from '@reapit/elements'
 import { AppIcon, appTitleOneLine, appTitleTwoLine, SimpleAppsCol } from './__styles__'
 import { useReapitConnect } from '@reapit/connect-session'
 import { Routes } from '../../constants/routes'
 import { navigate } from '../../utils/navigation'
 import { useHistory } from 'react-router-dom'
+import { AppsBrowseConfigItem } from '../../core/use-apps-browse-state'
 
 interface SimpleAppsCollectionProps {
   configItem: AppsBrowseConfigItem
