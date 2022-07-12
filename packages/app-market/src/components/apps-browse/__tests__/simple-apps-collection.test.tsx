@@ -3,7 +3,7 @@ import React from 'react'
 import { render } from '../../../tests/react-testing'
 import { mockAppSummaryModelPagedResult } from '../../../tests/__stubs__/apps'
 import { handleSortConfigs } from '../apps-browse'
-import { appsBrowseConfigCollection } from '../config'
+import { appsBrowseConfigCollection } from '../../../core/config'
 import { SimpleAppsCollection } from '../simple-apps-collection'
 
 const configItem = handleSortConfigs(appsBrowseConfigCollection)().simpleApps[0]
