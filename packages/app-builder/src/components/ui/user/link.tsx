@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { ToolbarItem, ToolbarItemType } from '../toolbar'
 import Container from './container'
 import { usePageId } from '@/components/hooks/use-page-id'
-import { useApp } from '@/components/hooks/apps/use-app'
+import { useAppPages } from '@/components/hooks/apps/use-app'
 import { Link as ELink } from './ejectable/link'
 import { styled } from '@linaria/react'
 import ContentEditable from 'react-contenteditable'
@@ -76,8 +76,6 @@ const Link = ({
   )
 }
 
-const ContainerSettings = Container.craft.related.toolbar
-
 const DestinationPageContainer = styled.div`
   display: flex;
   align-items: center;
@@ -93,14 +91,14 @@ export const DestinationPage = ({
   createControl?: React.ReactNode
 }) => {
   const { appId } = usePageId()
-  const { app } = useApp(appId)
+  const { pages } = useAppPages(appId)
   const propValue = useNode((node) => node.data.props[propKey])
 
   return (
     <DestinationPageContainer>
       {((propValue && createControl) || !createControl) && (
         <ToolbarItem type={ToolbarItemType.Select} propKey={propKey} title={title}>
-          {app?.pages.map(({ id: value, name: label }) => (
+          {pages?.map(({ id: value, name: label }) => (
             <option key={value} value={value}>
               {label || 'Home'}
             </option>
@@ -116,7 +114,6 @@ export const DestinationPage = ({
 export const LinkSettings = () => (
   <>
     <DestinationPage title="Link to" propKey="destination" />
-    <ContainerSettings />
   </>
 )
 

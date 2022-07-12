@@ -1,6 +1,18 @@
 import React, { useEffect, useState } from 'react'
-import { useEditor } from '@craftjs/core'
-import { elFlex, elFlex1, elFlexColumn, elFlexRow, elHFull, elMAuto, elPb6, elPt9, elWFull } from '@reapit/elements'
+import { ROOT_NODE, useEditor } from '@craftjs/core'
+import {
+  elFlex,
+  elFlex1,
+  elFlexColumn,
+  elFlexRow,
+  elHFull,
+  elMAuto,
+  elPb6,
+  elPt9,
+  elPx6,
+  elWFull,
+  Loader,
+} from '@reapit/elements'
 import { cx } from '@linaria/core'
 import { styled } from '@linaria/react'
 import IFrame from 'react-frame-component'
@@ -11,8 +23,8 @@ import Sidebar from '../sidebar'
 import { flexAlignStretch, hScreen, justifyStretch, overflowAuto, relative, transition } from '../styles'
 import { InjectFrameStyles } from './inject-frame-styles'
 import { usePageId } from '@/components/hooks/use-page-id'
-import { useApp } from '@/components/hooks/apps/use-app'
-import { mergeHeaderFooterIntoPage, nodesArrToObj } from '@/components/hooks/apps/node-helpers'
+import { usePageNodes } from '@/components/hooks/apps/use-app'
+import { mergeNavIntoPage, nodesArrToObj, Node } from '@/components/hooks/apps/node-helpers'
 import { TABLET_BREAKPOINT } from './__styles__/media'
 import { useZoom } from '@/components/hooks/use-zoom'
 
@@ -26,44 +38,51 @@ const Container = styled.div`
   overflow: auto;
 `
 
+const validateNodes = (nodes: Node[]) => {
+  nodes.forEach((node) => {
+    if (node.parent && !nodes.some((n) => n.nodeId === node.parent)) {
+      throw new Error(`Parent node ${node.parent} not found for node ${node.id}`)
+    }
+    if (!node.parent && node.nodeId !== ROOT_NODE) {
+      throw new Error(`non-root node ${node.id} has no parent`)
+    }
+    if (node.nodes && !node.nodes.every((n) => nodes.some((nn) => nn.nodeId === n))) {
+      throw new Error(`Child node ${node.id} has invalid children`)
+    }
+    if (typeof node.id !== 'string') {
+      throw new Error(`Node ${node.id} has invalid id`)
+    }
+  })
+}
+
 export const Viewport = ({ children, iframeRef, deserialize, rendererDivRefHandler }) => {
   const [breakpoint, setBreakpoint] = useState(TABLET_BREAKPOINT)
   const { zoom } = useZoom()
+  const [loadedPageId, setLoadedPageId] = useState<string | undefined>()
 
   const { appId, pageId } = usePageId()
-  const { app } = useApp(appId)
-  const page = app?.pages.find((p) => p.id === pageId)
-  const [loaded, setLoaded] = useState(false)
+  const { nodes, loading } = usePageNodes(appId, pageId)
 
   useEffect(() => {
-    let timeout
-    if (page && !loaded) {
-      timeout = setTimeout(() => {
-        try {
-          const nodes = mergeHeaderFooterIntoPage(page.nodes, app?.header, app?.footer)
-          nodes.forEach((node) => {
-            if (node.parent && !nodes.some((n) => n.nodeId === node.parent)) {
-              throw new Error(`Parent node ${node.parent} not found for node ${node.id}`)
-            }
-            if (node.nodes && !node.nodes.every((n) => nodes.some((nn) => nn.nodeId === n))) {
-              throw new Error(`Child node ${node.id} has invalid children`)
-            }
-            if (typeof node.id !== 'string') {
-              throw new Error(`Node ${node.id} has invalid id`)
-            }
-          })
-          deserialize(nodesArrToObj(nodes))
-        } catch (e) {
-          console.error(e)
-        }
-        setLoaded(true)
-      }, 300)
-    }
+    setLoadedPageId(undefined)
+  }, [pageId])
 
-    return () => {
-      clearTimeout(timeout)
+  useEffect(() => {
+    if (loading) {
+      return
     }
-  }, [page, loaded])
+    if (nodes && pageId !== loadedPageId) {
+      try {
+        const pageNodes = mergeNavIntoPage(nodes)
+        validateNodes(pageNodes)
+        const nodesObj = nodesArrToObj(pageNodes)
+        deserialize(nodesObj)
+        setLoadedPageId(pageId)
+      } catch (e) {
+        console.error(e)
+      }
+    }
+  }, [pageId, nodes, loading, loadedPageId])
 
   return (
     <div className={cx(elFlex1, elFlexColumn, justifyStretch, hScreen)}>
@@ -86,7 +105,7 @@ export const Viewport = ({ children, iframeRef, deserialize, rendererDivRefHandl
           >
             <div
               id="page-container"
-              className={cx(elFlex, elFlex1, elHFull, elFlexColumn)}
+              className={cx(elFlex, elFlex1, elHFull, elFlexColumn, elPx6)}
               style={{
                 transition: 'transform 350ms',
                 transform: `scale(${zoom})`,
@@ -99,7 +118,7 @@ export const Viewport = ({ children, iframeRef, deserialize, rendererDivRefHandl
                 ref={rendererDivRefHandler}
               >
                 <div className={cx(elFlex, elFlexRow, flexAlignStretch, relative, elPt9, elMAuto)}>
-                  <InjectFrameStyles>{children}</InjectFrameStyles>
+                  <InjectFrameStyles>{loading ? <Loader fullPage /> : children}</InjectFrameStyles>
                 </div>
               </div>
             </div>

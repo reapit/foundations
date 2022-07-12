@@ -29,6 +29,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   if (connectInternalRedirect && currentUri !== connectInternalRedirect) {
     return <Redirect to={connectInternalRedirect} />
   }
+
   return (
     <ConnectSessionProvider value={reapitConnectBrowserSession}>
       <Suspense fallback={<Loader label="Loading" fullPage />}>{children}</Suspense>

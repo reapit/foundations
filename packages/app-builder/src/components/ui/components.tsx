@@ -72,7 +72,6 @@ export const SelectOrInput = ({
       {children}
       <OverlayInput
         value={value}
-        defaultValue={defaultValue}
         onSubmit={onInputSubmit}
         data-form-type="other" // stops extentions autofilling this field
         onKeyDown={(e) => {

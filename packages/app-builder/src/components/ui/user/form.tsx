@@ -32,8 +32,6 @@ const Form = (props: FormProps) => {
   return <EForm {...defaultProps} {...props} ref={(ref) => ref && connect(drag(ref))} disabled={isEditing} />
 }
 
-const ContainerSettings = Container.craft.related.toolbar
-
 const FormSettings = () => {
   const {
     props: { typeName, formType },
@@ -108,7 +106,6 @@ const FormSettings = () => {
 
   return (
     <>
-      <ContainerSettings />
       <TypeList onChange={updateIn100ms} />
       <IntegrationLanding typeName={typeName} />
       <ToolbarItem type={ToolbarItemType.Select} onChange={updateIn100ms} propKey="formType" title="Form Type">

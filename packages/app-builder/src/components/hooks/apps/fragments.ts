@@ -19,8 +19,18 @@ export const NodeFragment = gql`
   }
 `
 
-export const AppFragment = gql`
+export const PageFragment = gql`
   ${NodeFragment}
+  fragment PageFragment on _Page {
+    id
+    name
+    nodes {
+      ...NodeFragment
+    }
+  }
+`
+
+export const AppFragment = gql`
   fragment AppFragment on _App {
     id
     name
@@ -29,24 +39,27 @@ export const AppFragment = gql`
     createdAt
     updatedAt
     developerName
-    pages {
-      id
-      name
-      nodes {
-        ...NodeFragment
-      }
-    }
-    header {
-      ...NodeFragment
-    }
-    footer {
-      ...NodeFragment
-    }
+  }
+`
+
+export const AppWithPagesFragment = gql`
+  ${PageFragment}
+  fragment AppWithPagesFragment on _App {
+    id
+    name
+    clientId
+    subdomain
+    createdAt
+    updatedAt
+    developerName
     navConfig {
       id
       name
       icon
       destination
+    }
+    pages {
+      ...PageFragment
     }
   }
 `
@@ -88,8 +101,11 @@ export type App = {
   updatedAt: string
   subdomain: string
   developerName: string
+  pages?: Array<Page>
+  navConfig?: Array<NavConfig>
+}
+
+export type AppWithPages = App & {
   pages: Array<Page>
-  header: Array<Node>
-  footer: Array<Node>
   navConfig: Array<NavConfig>
 }

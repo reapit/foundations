@@ -10,7 +10,7 @@ import generateDomain from 'project-name-generator'
 
 import { App, NavConfig } from './entities/app'
 import { CustomEntity } from './entities/custom-entity'
-import { Page, Node } from './entities/page'
+import { Page } from './entities/page'
 
 const {
   APPS_TABLE_NAME = 'apps',
@@ -66,7 +66,7 @@ export const ensureTables = async () => {
 export type DDBApp = Omit<Omit<App, 'name'>, 'developerName'>
 
 const ddbItemToApp = (item: { [key: string]: AttributeValue }): DDBApp => {
-  const { id, createdAt, updatedAt, pages, subdomain, header, footer, navConfig, customEntities, clientId } = item
+  const { id, createdAt, updatedAt, pages, subdomain, navConfig, customEntities, clientId } = item
 
   return {
     id: id?.S as string,
@@ -76,8 +76,6 @@ const ddbItemToApp = (item: { [key: string]: AttributeValue }): DDBApp => {
     clientId: clientId?.S as string,
     pages: (pages?.S && (JSON.parse(pages.S as string) as Array<Page>)) || [],
     customEntities: (customEntities?.S && (JSON.parse(customEntities.S as string) as Array<CustomEntity>)) || [],
-    header: (header?.S && (JSON.parse(header.S as string) as Array<Node>)) || [],
-    footer: (footer?.S && (JSON.parse(footer.S as string) as Array<Node>)) || [],
     navConfig: (navConfig?.S && (JSON.parse(navConfig.S as string) as Array<NavConfig>)) || [],
   }
 }
@@ -152,28 +150,27 @@ export const createApp = async (id: string, name: string, subdomain: string, pag
     updatedAt: date,
     pages,
     customEntities: [],
-    header: [],
-    footer: [],
     navConfig: [],
   }
 }
 
 export const updateApp = async (app: DDBApp): Promise<DDBApp> => {
   const date = new Date()
+  const Item: Record<string, AttributeValue> = {
+    id: { S: app.id },
+    createdAt: { N: app.createdAt.getTime().toString() },
+    updatedAt: { N: date.getTime().toString() },
+    pages: { S: JSON.stringify(app.pages) },
+    subdomain: { S: app.subdomain },
+    customEntities: { S: JSON.stringify(app.customEntities) },
+    navConfig: { S: JSON.stringify(app.navConfig) },
+  }
+  if (app.clientId) {
+    Item.clientId = { S: app.clientId }
+  }
   const d = new PutItemCommand({
     TableName: APPS_TABLE_NAME,
-    Item: {
-      id: { S: app.id },
-      createdAt: { N: app.createdAt.getTime().toString() },
-      updatedAt: { N: date.getTime().toString() },
-      pages: { S: JSON.stringify(app.pages) },
-      subdomain: { S: app.subdomain },
-      customEntities: { S: JSON.stringify(app.customEntities) },
-      header: { S: JSON.stringify(app.header) },
-      footer: { S: JSON.stringify(app.footer) },
-      clientId: { S: app.clientId },
-      navConfig: { S: JSON.stringify(app.navConfig) },
-    },
+    Item,
   })
   await ddb.send(d)
 

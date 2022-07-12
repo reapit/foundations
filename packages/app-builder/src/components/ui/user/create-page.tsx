@@ -1,16 +1,13 @@
 import { NodeTree, SerializedNode, useEditor, Element, serializeNode } from '@craftjs/core'
-import { newPage } from '../header/PageSelector'
-import { useUpdatePage } from '@/components/hooks/apps/use-update-app'
+import { useCreatePage, useUpdatePageNodes } from '@/components/hooks/apps/use-update-app'
 import { nodesObjtoToArr } from '@/components/hooks/apps/node-helpers'
 import { usePageId } from '@/components/hooks/use-page-id'
-import { useApp } from '@/components/hooks/apps/use-app'
-import { emptyState } from '@/components/hooks/apps/emptyState'
 import { useObjectMutate } from '@/components/hooks/objects/use-object-mutate'
 import { ParsedArg } from '@/components/hooks/use-introspection/query-generators'
 import { FormInput } from './form-input'
 import Form from './form'
 import { resolver } from '@/components/pages/home'
-import React from 'react'
+import React, { useState } from 'react'
 import Container from './container'
 import Text from './text'
 import { PlusButton } from '../components'
@@ -23,9 +20,20 @@ const constructPageNodes = (
   sourcePageId?: string,
   pageTitle?: string,
 ): Record<string, SerializedNode> => {
-  const { ROOT } = emptyState
-
   const nodes = {}
+  const nodesArr: string[] = []
+  const rootNode = {
+    type: { resolvedName: 'Container' },
+    isCanvas: true,
+    props: { width: 12, background: 'white', padding: 40 },
+    displayName: 'Container',
+    custom: { displayName: 'App' },
+    // @ts-ignore until they update their types
+    parent: null,
+    hidden: false,
+    linkedNodes: {},
+    nodes: nodesArr,
+  } as unknown as SerializedNode
 
   if (operationType === 'list') {
     nodes['table'] = {
@@ -40,12 +48,8 @@ const constructPageNodes = (
       linkedNodes: {},
     }
   } else {
-    const nodesArr: string[] = []
     const formNodes = {
-      ROOT: {
-        ...ROOT,
-        nodes: nodesArr,
-      },
+      ROOT: rootNode,
     }
     if (!args) {
       return formNodes
@@ -98,7 +102,7 @@ const constructPageNodes = (
 
   return {
     ROOT: {
-      ...ROOT,
+      ...rootNode,
       nodes: Object.keys(nodes),
     },
     ...nodes,
@@ -115,40 +119,39 @@ export const CreatePage = ({
   onCreate: (pageId: string) => void
 }) => {
   const { appId, pageId: sourcePageId } = usePageId()
-  const { updatePage, loading } = useUpdatePage(appId)
-  const { app } = useApp(appId)
+  const [loading, setLoading] = useState(false)
+  const { updatePageNodes } = useUpdatePageNodes(appId)
+  const { createPage } = useCreatePage(appId)
   const { args } = useObjectMutate(operationType || '', operationType ? typeName : undefined)
   const { parseReactElement } = useEditor((state, query) => ({
     parseReactElement: query.parseReactElement,
   }))
 
-  const onClick = () => {
+  const onClick = async () => {
     if (!typeName || !operationType) {
       return
     }
+    setLoading(true)
     const pageId = [typeName, operationType].join('-')
-    if (!app?.pages.some((page) => page.id === pageId)) {
-      const page = newPage(pageId)
-      page.nodes = constructPageNodes(
-        typeName,
-        operationType,
-        (element: any) => {
-          return parseReactElement(element).toNodeTree()
-        },
-        args,
-        sourcePageId,
-        [operationType, typeName].join(' '),
-      )
-      updatePage(
-        {
-          ...page,
-          nodes: nodesObjtoToArr(appId, page.id, page.nodes),
-        },
-        { header: app?.header || [], footer: app?.footer || [] },
-      ).then(() => {
-        onCreate(pageId)
-      })
+    const app = await createPage(pageId)
+    const page = app.pages.find((page) => page.id === pageId)
+    if (!page) {
+      return
     }
+    const nodes = constructPageNodes(
+      typeName,
+      operationType,
+      (element: any) => {
+        return parseReactElement(element).toNodeTree()
+      },
+      args,
+      sourcePageId,
+      [operationType, typeName].join(' '),
+    )
+    updatePageNodes(nodesObjtoToArr(appId, page.id, nodes), page.id).then(() => {
+      setLoading(false)
+      onCreate(pageId)
+    })
   }
 
   return <PlusButton onClick={onClick} loading={loading} />

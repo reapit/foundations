@@ -7,7 +7,7 @@ import { MainContainer } from '@reapit/elements'
 import Routes from '../constants/routes'
 import PrivateRouteWrapper from './private-route-wrapper'
 import { usePageId } from '@/components/hooks/use-page-id'
-import { useApp } from '@/components/hooks/apps/use-app'
+import { useAppWithPages } from '@/components/hooks/apps/use-app'
 import { getReapitConnectBrowserSession } from './connect-session'
 import { createClient } from './graphql-client'
 import { ApolloProvider } from '@apollo/client'
@@ -44,14 +44,15 @@ const AppSelect = React.lazy(() => catchChunkError(() => import('../components/p
 const AppView = React.lazy(() => catchChunkError(() => import('../components/pages/app-view')))
 const LoginPage = React.lazy(() => catchChunkError(() => import('../components/pages/login')))
 
+const reapitConnectBrowserSession = getReapitConnectBrowserSession(window.reapit.config)
+const client = createClient(reapitConnectBrowserSession)
+
 const AppEditor = () => {
-  const reapitConnectBrowserSession = getReapitConnectBrowserSession(window.reapit.config)
   return (
-    <ApolloProvider client={createClient(reapitConnectBrowserSession)}>
+    <ApolloProvider client={client}>
       <PrivateRouteWrapper reapitConnectBrowserSession={reapitConnectBrowserSession}>
         <MainContainer>
           <Switch>
-            <Route path={Routes.APP_VIEW} component={AppView} />
             <Route path={Routes.APP_EDIT} component={HomePage} />
             <Route path={Routes.APP_SELECT} component={AppSelect} />
           </Switch>
@@ -63,7 +64,7 @@ const AppEditor = () => {
 
 const AppViewer = () => {
   const { appId } = usePageId()
-  const { app, loading } = useApp(appId)
+  const { app, loading } = useAppWithPages(appId)
   const { data } = useIntrospection()
   const [redirect, setRedirect] = React.useState('')
 
@@ -91,8 +92,12 @@ const AppViewer = () => {
     connectUserPoolId: window.reapit.config.connectUserPoolId,
   })
 
+  const memoisedClient = React.useMemo(() => {
+    return createClient(session)
+  }, [session])
+
   return (
-    <ApolloProvider client={createClient(session)}>
+    <ApolloProvider client={memoisedClient}>
       <PrivateRouteWrapper reapitConnectBrowserSession={session}>
         <MainContainer>
           <Route path={Routes.APP_VIEW_ROOT} component={AppView} />

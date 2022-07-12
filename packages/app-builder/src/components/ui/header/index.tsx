@@ -61,26 +61,22 @@ const AppName = () => {
   const { app } = useApp(appId)
   const { updateAppName } = useUpdateAppName(appId)
 
-  if (!app) {
-    return null
-  }
-
   return (
     <AppNameContainer>
-      <DeveloperName>{app.developerName} /</DeveloperName>{' '}
+      <DeveloperName>{app?.developerName} /</DeveloperName>{' '}
       <AppNameInput
-        defaultValue={app.name}
+        defaultValue={app?.name}
         onKeyDown={(e) => {
           if (e.key === 'Enter') {
             e.preventDefault()
             e.stopPropagation()
-            if (e.currentTarget.value !== app.name) {
+            if (e.currentTarget.value !== app?.name) {
               updateAppName(e.currentTarget.value)
             }
           }
         }}
         onBlur={(e) => {
-          if (e.currentTarget.value !== app.name) {
+          if (e.currentTarget.value !== app?.name) {
             updateAppName(e.currentTarget.value)
           }
         }}

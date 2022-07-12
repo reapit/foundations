@@ -74,7 +74,6 @@ const ColumnControls = ({
       ))}
   </div>
 )
-const ContainerSettings = Container.craft.related.toolbar
 
 export const IntegrationLanding = ({ typeName }: { typeName: string | undefined }) => {
   const { args } = useObjectList(typeName)
@@ -137,7 +136,6 @@ const TableSettings = () => {
   return (
     <>
       <TypeList onChange={updateIn100ms} />
-      <ContainerSettings />
       <DestinationPage
         propKey="editPageId"
         title="Edit Page"

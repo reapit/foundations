@@ -31,13 +31,7 @@ export const RenderNode = ({ render, iframeRef }) => {
     isRoot,
   } = useNode((node) => {
     const nodeIsRoot = query.node(node.id).isRoot()
-    let isDeletable =
-      query.node(node.id).isDeletable() &&
-      node.id !== 'header' &&
-      node.id !== 'body' &&
-      node.id !== 'footer' &&
-      node.id !== NAV_NODE &&
-      !nodeIsRoot
+    let isDeletable = query.node(node.id).isDeletable() && node.id !== 'body' && node.id !== NAV_NODE && !nodeIsRoot
     if (isDeletable && node.data.custom.isDeletable) {
       isDeletable = node.data.custom.isDeletable(node)
     }
@@ -46,13 +40,7 @@ export const RenderNode = ({ render, iframeRef }) => {
       isHover: node.events.hovered,
       dom: node.dom,
       name: node.data.custom.displayName || node.data.displayName,
-      moveable:
-        query.node(node.id).isDraggable() &&
-        node.id !== 'header' &&
-        node.id !== 'body' &&
-        node.id !== 'footer' &&
-        node.id !== NAV_NODE &&
-        !nodeIsRoot,
+      moveable: query.node(node.id).isDraggable() && node.id !== 'body' && node.id !== NAV_NODE && !nodeIsRoot,
       deletable: isDeletable,
       parent: node.data.parent,
       props: node.data.props,
@@ -76,8 +64,6 @@ export const RenderNode = ({ render, iframeRef }) => {
 
   const container = iframeRef?.contentDocument?.body.querySelector('#page-container')
 
-  const isHeader = id === 'header'
-  const isFooter = id === 'footer'
   const isBody = id === 'body'
   const isNavigation = id === NAV_NODE
 
@@ -100,11 +86,9 @@ export const RenderNode = ({ render, iframeRef }) => {
             }}
           >
             <h2 className={cx(elFlex1, elMr6)}>
-              {isHeader && 'Header'}
-              {isFooter && 'Footer'}
               {isBody && 'Body'}
               {isNavigation && 'Navigation'}
-              {!isHeader && !isFooter && !isBody && !isNavigation && name}
+              {!isBody && !isNavigation && name}
             </h2>
             {moveable && (
               <>
@@ -150,7 +134,7 @@ export const RenderNode = ({ render, iframeRef }) => {
                 <Move />
               </div>
             )}
-            {id !== 'ROOT' && id !== 'header' && id !== NAV_NODE && id !== 'body' && (
+            {id !== 'ROOT' && id !== NAV_NODE && id !== 'body' && (
               <a
                 className={cx(littleButton, elMr3, cursorPointer)}
                 onClick={() => {
