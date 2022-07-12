@@ -13,7 +13,6 @@ import {
   PlaceholderImage,
 } from '@reapit/elements'
 import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
-import { useAppsBrowseState } from './use-apps-browse-state'
 import { useReapitConnect } from '@reapit/connect-session'
 import { cx } from '@linaria/core'
 import { navigate } from '../../utils/navigation'
@@ -22,6 +21,7 @@ import { useHistory } from 'react-router-dom'
 import { cardCursor, IsFreeNotice } from './__styles__'
 import { checkHasFilters } from './apps-browse'
 import { elMl5 } from '@reapit/elements'
+import { useAppsBrowseState } from '../../core/use-apps-browse-state'
 
 export const FilteredAppsCollection: FC = () => {
   const { appsBrowseFilterState } = useAppsBrowseState()

@@ -41,8 +41,6 @@ import {
   AppDetaulCategoryChip,
   htmlRender,
 } from './__styles__'
-import { Routes } from '../../constants/routes'
-import { navigate } from '../../utils/navigation'
 import { Carousel } from '../carousel'
 import { IsFreeNotice } from '../apps-browse/__styles__'
 
@@ -124,7 +122,7 @@ export const AppsDetail: FC = () => {
         <Loader />
       ) : (
         <>
-          <AppDetailBackButton onClick={navigate(history, Routes.APPS_BROWSE)}>
+          <AppDetailBackButton onClick={history.goBack}>
             <Icon icon="backSystem" intent="primary" />
           </AppDetailBackButton>
           <FlexContainer className={elMb5}>

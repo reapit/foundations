@@ -3,7 +3,11 @@ import { Title, PageContainer, Subtitle, FlexContainer, Icon, elMb5, useMediaQue
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { DeveloperAppsCollection } from './developer-apps-collection'
-import { AppsBrowseConfigCollection, AppsBrowseConfigItemFilters, useAppsBrowseState } from './use-apps-browse-state'
+import {
+  AppsBrowseConfigCollection,
+  AppsBrowseConfigItemFilters,
+  useAppsBrowseState,
+} from '../../core/use-apps-browse-state'
 import { FeaturedHeroAppsCollection } from './featured-hero-apps'
 import { FeaturedAppsCollection } from './featured-apps-collection'
 import { SimpleAppsCollection } from './simple-apps-collection'

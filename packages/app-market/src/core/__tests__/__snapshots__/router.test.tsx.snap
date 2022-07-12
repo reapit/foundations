@@ -132,7 +132,7 @@ Object {
                 />
               </svg>
             </span>
-            Home
+            Browse Apps
           </a>
           <a
             class="el-nav-item"
@@ -157,7 +157,7 @@ Object {
                 />
               </svg>
             </span>
-            Installed
+            My Apps
           </a>
           <a
             class="el-nav-item"
@@ -370,7 +370,7 @@ Object {
               />
             </svg>
           </span>
-          Home
+          Browse Apps
         </a>
         <a
           class="el-nav-item"
@@ -395,7 +395,7 @@ Object {
               />
             </svg>
           </span>
-          Installed
+          My Apps
         </a>
         <a
           class="el-nav-item"
