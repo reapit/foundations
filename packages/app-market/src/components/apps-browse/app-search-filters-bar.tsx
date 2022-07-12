@@ -13,7 +13,6 @@ import {
   elFadeIn,
   SmallText,
 } from '@reapit/elements'
-import { AppsBrowseConfigItemFilters, useAppsBrowseState } from './use-apps-browse-state'
 import {
   appFiltersButton,
   appFiltersButtonActive,
@@ -33,6 +32,7 @@ import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { cx } from '@linaria/core'
 import debounce from 'just-debounce-it'
 import { handleMobileControls, MobileControlsToggleState } from './apps-browse'
+import { AppsBrowseConfigItemFilters, useAppsBrowseState } from '../../core/use-apps-browse-state'
 
 export interface AppSearchFiltersProps {
   mobileControlsState: MobileControlsToggleState

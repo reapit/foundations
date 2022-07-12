@@ -5,6 +5,7 @@ import { reapitConnectBrowserSession } from './connect-session'
 import { useLocation, Redirect } from 'react-router'
 import { Loader, MainContainer, PageContainer } from '@reapit/elements'
 import { Routes } from '../constants/routes'
+import { AppsBrowseProvider } from './use-apps-browse-state'
 
 export type PrivateRouteWrapperProps = {}
 
@@ -33,10 +34,12 @@ export const PrivateRouteWrapper: FC<PrivateRouteWrapperProps> = ({ children }) 
   }
 
   return (
-    <MainContainer>
-      <Nav />
-      <Suspense fallback={<Loader fullPage />}>{children}</Suspense>
-    </MainContainer>
+    <AppsBrowseProvider>
+      <MainContainer>
+        <Nav />
+        <Suspense fallback={<Loader fullPage />}>{children}</Suspense>
+      </MainContainer>
+    </AppsBrowseProvider>
   )
 }
 

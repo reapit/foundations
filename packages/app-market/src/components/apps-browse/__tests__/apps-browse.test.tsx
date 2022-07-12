@@ -7,7 +7,7 @@ import {
   handleSortConfigs,
   MobileControlsToggleState,
 } from '../apps-browse'
-import { appsBrowseConfigCollection } from '../config'
+import { appsBrowseConfigCollection } from '../../../core/config'
 
 describe('AppsBrowse', () => {
   it('should match a snapshot', () => {

@@ -1,6 +1,6 @@
 import { BodyText, FlexContainer, Icon, IconNames } from '@reapit/elements'
 import React, { Dispatch, FC, SetStateAction } from 'react'
-import { AppsBrowseConfigItem, AppsBrowseConfigItemFilters, useAppsBrowseState } from './use-apps-browse-state'
+import { AppsBrowseConfigItem, AppsBrowseConfigItemFilters, useAppsBrowseState } from '../../core/use-apps-browse-state'
 import { AppFilterCol, appTitleThreeLine, appTitleOneLine } from './__styles__'
 
 interface AppFiltersCollectionProps {

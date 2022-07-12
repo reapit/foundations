@@ -31,13 +31,13 @@ export const Nav: FC = () => {
     },
     {
       itemIndex: 1,
-      text: 'Home',
+      text: 'Browse Apps',
       iconId: 'appsMenu',
       callback: navigate(history, Routes.APPS_BROWSE),
     },
     {
       itemIndex: 2,
-      text: 'Installed',
+      text: 'My Apps',
       iconId: 'installedMenu',
       callback: navigate(history, Routes.APPS_INSTALLED),
     },

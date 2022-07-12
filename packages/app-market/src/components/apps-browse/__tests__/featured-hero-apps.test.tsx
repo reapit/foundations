@@ -3,7 +3,7 @@ import React from 'react'
 import { render } from '../../../tests/react-testing'
 import { mockAppDetailModel } from '../../../tests/__stubs__/apps'
 import { handleSortConfigs } from '../apps-browse'
-import { appsBrowseConfigCollection } from '../config'
+import { appsBrowseConfigCollection } from '../../../core/config'
 import { FeaturedHeroAppsCollection } from '../featured-hero-apps'
 
 const configItem = handleSortConfigs(appsBrowseConfigCollection)().featuredHeroApps[0]
