@@ -140,34 +140,22 @@ const NavItemConfigurator = ({
 const NavigationSettings = () => {
   const { appId } = usePageId()
   const { navConfigs, updateAppNavConfig } = useUpdateAppNavConfig(appId)
-  const [currentNavConfig, setCurrentNavConfig] = useState<NavConfig | undefined>(undefined)
+  const [currentNavConfigId, setCurrentNavConfigId] = useState<string | undefined>(undefined)
+  const currentNavConfig = navConfigs?.find((navConfig) => navConfig.id === currentNavConfigId)
 
   return (
     <div>
       <ToolbarDropdownContainer>
         <Label>Section</Label>
-        <ToolbarDropdown
-          value={currentNavConfig || ''}
-          onChange={(id: string) => {
-            const navConfig = navConfigs.find((nav) => nav.id === id)
-            navConfig && setCurrentNavConfig(navConfig)
-          }}
-        >
+        <ToolbarDropdown value={currentNavConfigId || ''} onChange={setCurrentNavConfigId}>
           <option value="" disabled>
             Select
           </option>
-          {navConfigs
-            .map((n) => {
-              if (currentNavConfig && n.id === currentNavConfig.id) {
-                return currentNavConfig
-              }
-              return n
-            })
-            .map(({ id, name }) => (
-              <option key={id} value={id}>
-                {name}
-              </option>
-            ))}
+          {navConfigs?.map(({ id, name }) => (
+            <option key={id} value={id}>
+              {name}
+            </option>
+          ))}
         </ToolbarDropdown>
         <AppBuilderIconButton
           onClick={() => {
@@ -178,7 +166,7 @@ const NavigationSettings = () => {
               id: uuid.v4(),
             }
             updateAppNavConfig([...navConfigs, newNavConfig])
-            setCurrentNavConfig(newNavConfig)
+            setCurrentNavConfigId(newNavConfig.id)
           }}
         >
           <Plus />
@@ -188,7 +176,6 @@ const NavigationSettings = () => {
         <NavItemConfigurator
           navConfig={currentNavConfig}
           onChange={(navConfig) => {
-            setCurrentNavConfig(navConfig)
             updateAppNavConfig(
               navConfigs.map((n) => {
                 if (n.id === navConfig.id) {

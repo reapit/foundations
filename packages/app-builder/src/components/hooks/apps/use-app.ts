@@ -31,15 +31,22 @@ export const GetAppPages = gql`
   }
 `
 
+export const NavConfigFragment = gql`
+  fragment NavConfigFragment on _NavConfig {
+    id
+    name
+    icon
+    destination
+  }
+`
+
 export const GetAppNavConfig = gql`
+  ${NavConfigFragment}
   query GetAppNavConfig($idOrSubdomain: String!) {
     _getApp(idOrSubdomain: $idOrSubdomain) {
       id
       navConfig {
-        id
-        name
-        icon
-        destination
+        ...NavConfigFragment
       }
     }
   }

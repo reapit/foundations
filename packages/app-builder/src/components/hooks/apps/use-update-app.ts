@@ -1,5 +1,6 @@
 import { gql, useMutation } from '@apollo/client'
-import { useCallback } from 'react'
+import { useCallback, useEffect, useState } from 'react'
+import debounce from 'debounce'
 
 import {
   AppFragment,
@@ -10,7 +11,7 @@ import {
   NodeFragment,
   PageFragment,
 } from './fragments'
-import { useApp } from './use-app'
+import { NavConfigFragment, useAppNavConfig } from './use-app'
 
 const UpdateAppNameMutation = gql`
   ${AppFragment}
@@ -57,37 +58,48 @@ const CreateAppPageMutation = gql`
 `
 
 const UpdateAppNavConfig = gql`
-  ${AppWithPagesFragment}
+  ${NavConfigFragment}
   mutation UpdateAppNavConfig($appId: ID!, $navConfig: [_NavConfigInput!]!) {
     _updateAppNavConfig(appId: $appId, navConfig: $navConfig) {
-      ...AppWithPagesFragment
+      id
+      navConfig {
+        ...NavConfigFragment
+      }
     }
   }
 `
 
+const removeTypeName = (obj: any) => {
+  const clone = { ...obj }
+  if (clone.__typename) {
+    delete clone.__typename
+  }
+  return clone
+}
+
 export const useUpdateAppNavConfig = (appId: string) => {
-  const { app } = useApp(appId)
+  const { navConfig } = useAppNavConfig(appId)
+  const [navConfigCopy, setNavConfigCopy] = useState(navConfig)
   const [updateAppNavConfig, { loading, error }] = useMutation(UpdateAppNavConfig)
+  const updateAppNavConfigDebounced = useCallback(debounce(updateAppNavConfig, 1000), [updateAppNavConfig])
+
+  const updateNavConfig = useCallback((navConfig: NavConfig[]) => {
+    setNavConfigCopy(navConfig)
+    updateAppNavConfigDebounced({
+      variables: {
+        appId,
+        navConfig: navConfig.map(removeTypeName),
+      },
+    })
+  }, [])
 
   useEffect(() => {
-    debouncedUpdate.clear()
-  }, [debouncedUpdate])
+    return () => updateAppNavConfigDebounced.flush()
+  }, [updateAppNavConfigDebounced])
 
   return {
-    updateAppNavConfig: useCallback(
-      async (navConfig: NavConfig[]) => {
-        const data = await updateAppNavConfig({
-          variables: {
-            appId,
-            navConfig,
-          },
-        })
-
-        return data.data._updateAppNavConfig as NavConfig[]
-      },
-      [updateAppNavConfig],
-    ),
-    navConfigs: app?.navConfig || [],
+    updateAppNavConfig: updateNavConfig,
+    navConfigs: navConfigCopy || [],
     loading,
     error,
   }
