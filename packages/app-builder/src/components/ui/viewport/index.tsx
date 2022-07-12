@@ -9,6 +9,7 @@ import {
   elMAuto,
   elPb6,
   elPt9,
+  elPx6,
   elWFull,
   Loader,
 } from '@reapit/elements'
@@ -104,7 +105,7 @@ export const Viewport = ({ children, iframeRef, deserialize, rendererDivRefHandl
           >
             <div
               id="page-container"
-              className={cx(elFlex, elFlex1, elHFull, elFlexColumn)}
+              className={cx(elFlex, elFlex1, elHFull, elFlexColumn, elPx6)}
               style={{
                 transition: 'transform 350ms',
                 transform: `scale(${zoom})`,
