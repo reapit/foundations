@@ -12,5 +12,8 @@ export * from './components/stack-event-handler'
 export * from './components/stack'
 export * from './components/vpc-network'
 export * from './components/secret'
+export * from './components/cloudfront'
+export * from './components/r53'
+export * from './components/site'
 
 export * from './utils/output'
