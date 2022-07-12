@@ -42,6 +42,7 @@
     "app-builder": "workspace:packages/app-builder",
     "class-validator": "^0.13.2",
     "cors": "^2.8.5",
+    "dataloader": "^2.1.0",
     "eslint": "^8.19.0",
     "eslint-plugin-prettier": "^4.2.1",
     "express": "^4.18.1",

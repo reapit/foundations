@@ -254,7 +254,7 @@ export class AppResolver {
         })),
       },
     ])
-    const { externalId, developer } = await getMarketplaceApp(id, context.accessToken)
+    const { externalId, developer } = await context.getMarketplaceApp(app.id)
     if (!externalId) {
       throw new Error('Failed to create app - no clientId created')
     }
@@ -404,17 +404,17 @@ export class AppResolver {
 
   @FieldResolver()
   async name(@Root() app: App, @Ctx() ctx: Context) {
-    const { name } = await getMarketplaceApp(app.id, ctx.accessToken)
+    const { name } = await ctx.getMarketplaceApp(app.id)
     return name
   }
   @FieldResolver()
   async clientId(@Root() app: App, @Ctx() ctx: Context) {
-    const { externalId } = await getMarketplaceApp(app.id, ctx.accessToken)
+    const { externalId } = await ctx.getMarketplaceApp(app.id)
     return externalId
   }
   @FieldResolver()
   async developerName(@Root() app: App, @Ctx() ctx: Context) {
-    const { developer } = await getMarketplaceApp(app.id, ctx.accessToken)
+    const { developer } = await ctx.getMarketplaceApp(app.id)
     return developer
   }
 
@@ -425,7 +425,7 @@ export class AppResolver {
     if (!app) {
       throw new Error('App not found')
     }
-    const { externalId, name, developer } = await getMarketplaceApp(id, ctx.accessToken)
+    const { externalId, name, developer } = await ctx.getMarketplaceApp(app.id)
     return ejectApp(
       {
         ...app,
