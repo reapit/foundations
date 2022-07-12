@@ -43,6 +43,20 @@ exports[`Header should match a snapshot 1`] = `
         </svg>
       </a>
       <div
+        class="app-name-container"
+      >
+        <span
+          class="developer-name"
+        >
+           /
+        </span>
+         
+        <input
+          class="app-name-input"
+          value=""
+        />
+      </div>
+      <div
         class="el-flex1 el-flex el-flex-align-center el-flex-justify-start"
       >
         <div
