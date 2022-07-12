@@ -11,6 +11,7 @@
       "packages/app-builder-backend",
       "packages/app-market",
       "packages/app-marketplace-cms",
+      "packages/app-marketplace-admin",
       "packages/auto-bump",
       "packages/auto-reply-bot",
       "packages/cli",

@@ -65,25 +65,13 @@ const UpdateAppNavConfig = gql`
   }
 `
 
-// const validateNodes = (nodes: any[]) => {
-//   nodes.forEach((node) => {
-//     if (!node.nodeId) {
-//       console.error(node, nodes)
-//       throw new Error('invalid node detected')
-//     }
-//   })
-// }
-
-// const cleanNode = (node: any) => {
-//   if (!node.nodeId) {
-//     console.log('node is invalid', node)
-//   }
-//   return !!node.nodeId
-// }
-
 export const useUpdateAppNavConfig = (appId: string) => {
   const { app } = useApp(appId)
   const [updateAppNavConfig, { loading, error }] = useMutation(UpdateAppNavConfig)
+
+  useEffect(() => {
+    debouncedUpdate.clear()
+  }, [debouncedUpdate])
 
   return {
     updateAppNavConfig: useCallback(

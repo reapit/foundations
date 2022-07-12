@@ -1,4 +1,4 @@
-import { DataMapper, QueryIterator } from '@aws/dynamodb-data-mapper'
+import { DataMapper, ItemNotFoundException, QueryIterator } from '@aws/dynamodb-data-mapper'
 import { Injectable } from '@nestjs/common'
 import { MarketplaceAppModelDto } from './marketplace-app-dto'
 import { MarketplaceAppModel } from './marketplace-app-model'
@@ -28,7 +28,15 @@ export class CmsProvider {
   }
 
   async findOne(model: Partial<MarketplaceAppModel>): Promise<MarketplaceAppModel | undefined> {
-    return this.dataMapper.get(Object.assign(new MarketplaceAppModel(), model))
+    try {
+      return this.dataMapper.get(Object.assign(new MarketplaceAppModel(), model))
+    } catch (e: any) {
+      console.log(e, typeof e, e instanceof ItemNotFoundException, e.constructor, e.constructor.prototype)
+      if (e instanceof ItemNotFoundException) {
+        return undefined
+      }
+      throw e
+    }
   }
 
   async create(dto: MarketplaceAppModelDto): Promise<MarketplaceAppModel> {
