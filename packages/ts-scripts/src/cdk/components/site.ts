@@ -12,8 +12,7 @@ import { Certificate, ICertificate } from 'aws-cdk-lib/aws-certificatemanager'
 import { ACM } from 'aws-sdk'
 
 interface CreateSiteInterface {
-  domain: string
-  hostedDomainName?: string
+  env?: 'dev' | 'prod'
   defaultRootObject?: string
   location: string
 }
@@ -45,15 +44,17 @@ const findCert = async (stack: Stack, domain: string): Promise<ICertificate> => 
 
 export const createSite = async (
   stack: Stack,
-  {
-    domain,
-    defaultRootObject = 'index.html',
-    hostedDomainName = 'dev.paas.reapit.cloud',
-    location,
-  }: CreateSiteInterface,
+  { defaultRootObject = 'index.html', env = 'dev', location }: CreateSiteInterface,
 ) => {
-  const hostedZone = route53.HostedZone.fromLookup(stack, 'hosted-zone', { domainName: hostedDomainName })
-  const certificate = await findCert(stack, hostedDomainName)
+  const stackNamePieces = stack.stackName.split('-')
+  stackNamePieces.pop()
+  stackNamePieces.shift()
+  const domain = `${env}.paas.reapit.cloud`
+  const subDomain = `${stackNamePieces.join('-')}.${domain}`
+
+  const certificate = await findCert(stack, domain)
+
+  const hostedZone = route53.HostedZone.fromLookup(stack, 'hosted-zone', { domainName: domain })
 
   const bucket = new s3.Bucket(stack, 'bucket', {
     websiteIndexDocument: defaultRootObject,
@@ -80,14 +81,14 @@ export const createSite = async (
     ],
     defaultRootObject,
     viewerCertificate: cloudfront.ViewerCertificate.fromAcmCertificate(certificate, {
-      aliases: [domain],
+      aliases: [subDomain],
     }),
   })
 
   const r53 = createRoute(stack, 'route', {
     target: route53.RecordTarget.fromAlias(new targets.CloudFrontTarget(distro)),
     zone: hostedZone,
-    recordName: domain,
+    recordName: subDomain,
   })
 
   return r53.domainName
