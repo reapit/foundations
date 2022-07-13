@@ -5,5 +5,5 @@ export const reapitConnectBrowserSession = new ReapitConnectBrowserSession({
   connectClientId: window.reapit.config.connectClientId,
   connectOAuthUrl: window.reapit.config.connectOAuthUrl,
   connectUserPoolId: window.reapit.config.connectUserPoolId,
-  connectLoginRedirectPath: '/installed',
+  connectLoginRedirectPath: '/manage',
 })
