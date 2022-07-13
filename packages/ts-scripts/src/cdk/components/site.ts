@@ -61,10 +61,12 @@ export const createSite = async (
     publicReadAccess: true,
   })
 
-  new deploy.BucketDeployment(stack, 'deployment', {
+  const deploymentBucket = new deploy.BucketDeployment(stack, 'deployment', {
     sources: [deploy.Source.asset(location)],
     destinationBucket: bucket,
   })
+
+  console.log('deployment', deploymentBucket.deployedBucket.bucketDomainName)
 
   const distro = createCloudfront(stack, 'front-distro', {
     originConfigs: [
