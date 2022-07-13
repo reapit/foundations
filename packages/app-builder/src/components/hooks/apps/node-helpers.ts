@@ -1,44 +1,37 @@
-import cloneDeep from 'clone-deep'
-import omitDeep from 'omit-deep'
 import { ReduceCompType, SerializedNode, ROOT_NODE } from '@craftjs/core'
 import { Page, Node } from './fragments'
 import { notEmpty } from '../use-introspection/helpers'
-
-const getAllChildNodes = (nodeId: string, nodes: Node[]) => {
-  const node = nodes.find((n) => n.nodeId === nodeId)
-  if (!node) {
-    return []
-  }
-  const children = node.nodes || []
-  const childNodes = children.map((child) => getAllChildNodes(child, nodes))
-  return [node, ...[].concat(...childNodes)]
-}
-
+export type { Page, Node } from './fragments'
 export const NAV_NODE = 'NavNode'
 
-export const splitPageNodesIntoSections = (nodes: Node[]): { header: Node[]; footer: Node[]; nodes: Node[] } => {
-  const header = getAllChildNodes('header', nodes)
-  const footer = getAllChildNodes('footer', nodes)
+export const extractBodyNodes = (nodes: Node[]): Node[] => {
   const rootNode = nodes.find((n) => n.nodeId === ROOT_NODE)
   if (!rootNode) {
     throw new Error('unable to find root node')
   }
-
-  return {
-    header,
-    footer,
-    nodes: [
-      ...nodes.filter(
-        (node) =>
-          !header.includes(node) && !footer.includes(node) && node.nodeId !== ROOT_NODE && node.nodeId !== NAV_NODE,
-      ),
-      {
-        ...rootNode,
-        nodes: rootNode.nodes.filter((node) => node !== 'header' && node !== 'footer' && node !== NAV_NODE),
-        parent: null,
-      },
-    ],
+  const bodyNode = nodes.find((n) => n.nodeId === 'body')
+  if (!bodyNode) {
+    throw new Error('unable to find body node')
   }
+
+  const bodyNodes = bodyNode.nodes.map((nodeId) => {
+    const node = nodes.find((n) => n.nodeId === nodeId)
+    if (!node) {
+      throw new Error(`unable to find node with id ${nodeId}`)
+    }
+    return node
+  })
+
+  const newNodes = bodyNodes.map((node) => ({
+    ...node,
+    parent: rootNode.nodeId,
+  }))
+  const newRootNode = {
+    ...rootNode,
+    nodes: newNodes.map((n) => n.nodeId),
+  }
+
+  return [newRootNode, ...newNodes]
 }
 
 const nodeDoesntContainerSelf = (node: Node): Node => ({
@@ -46,7 +39,7 @@ const nodeDoesntContainerSelf = (node: Node): Node => ({
   nodes: node.nodes.filter((n) => n !== node.nodeId),
 })
 
-export const mergeHeaderFooterIntoPage = (nodes: Node[], header: Node[] = [], footer: Node[] = []): Node[] => {
+export const mergeNavIntoPage = (nodes: Node[]): Node[] => {
   const rootNode = nodes.find((n) => n.nodeId === ROOT_NODE)
   if (!rootNode) {
     throw new Error('unable to find root node')
@@ -54,9 +47,20 @@ export const mergeHeaderFooterIntoPage = (nodes: Node[], header: Node[] = [], fo
 
   const bodyNode = nodes.find((n) => n.nodeId === 'body') || {
     ...rootNode,
-    nodes: rootNode.nodes.filter((node) => node !== 'header' && node !== 'footer' && node !== 'body'),
+    nodes: rootNode.nodes.filter((node) => node !== 'body'),
     id: `${rootNode.id}-body`,
     nodeId: 'body',
+    parent: rootNode.nodeId,
+    displayName: 'Container',
+    type: {
+      resolvedName: 'Container',
+    },
+    isCanvas: true,
+    props: {
+      width: 12,
+      background: 'white',
+      padding: 40,
+    },
   }
 
   const navNode: Node = {
@@ -76,7 +80,6 @@ export const mergeHeaderFooterIntoPage = (nodes: Node[], header: Node[] = [], fo
   }
 
   return [
-    ...header,
     nodeDoesntContainerSelf(bodyNode),
     navNode,
     ...nodes
@@ -85,12 +88,13 @@ export const mergeHeaderFooterIntoPage = (nodes: Node[], header: Node[] = [], fo
         ...node,
         parent: node.parent === ROOT_NODE ? 'body' : node.parent,
       })),
-    ...footer,
     {
       ...rootNode,
-      nodes: [header.length ? 'header' : undefined, 'body', footer.length ? 'footer' : undefined, NAV_NODE].filter(
-        notEmpty,
-      ),
+      nodes: ['body', NAV_NODE].filter(notEmpty),
+      displayName: 'Container',
+      type: {
+        resolvedName: 'Container',
+      },
     },
   ]
 }
@@ -107,12 +111,23 @@ export const nodesArrToObj = (nodes: Page['nodes']): Record<string, SerializedNo
   nodes.forEach((node) => {
     obj[node.nodeId] = {
       ...node,
-      id: undefined,
-      nodeId: undefined,
-      custom: node.custom || undefined,
+    }
+    delete obj[node.nodeId].id
+    delete obj[node.nodeId].nodeId
+    delete obj[node.nodeId].__typename
+    if (obj[node.nodeId].type) {
+      obj[node.nodeId].type = {
+        ...obj[node.nodeId].type,
+      }
+      delete obj[node.nodeId].type.__typename
+    }
+    if (node.custom) {
+      obj[node.nodeId].custom = node.custom
+    } else {
+      delete obj[node.nodeId].custom
     }
   })
-  return omitDeep(cloneDeep(obj), ['__typename'])
+  return obj
 }
 
 const normalizeAmbiguousNodeType = (type: ReduceCompType): { resolvedName: string } => {

@@ -3,7 +3,6 @@ import ContentEditable from 'react-contenteditable'
 import { useNode } from '@craftjs/core'
 import { ToolbarItem, ToolbarItemType } from '../toolbar'
 import { elFlexAuto } from '@reapit/elements'
-import { ContainerSettings } from './container'
 import { cx } from '@linaria/core'
 import { ComponentWrapper, TypographyType, typographyTypeToClassName } from './ejectable'
 
@@ -69,7 +68,6 @@ const TextSettings = () => (
       <option value="">Body Text</option>
       <option value="small">Small Text</option>
     </ToolbarItem>
-    <ContainerSettings />
   </>
 )
 

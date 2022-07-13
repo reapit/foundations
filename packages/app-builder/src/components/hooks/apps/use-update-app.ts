@@ -1,202 +1,192 @@
-import { gql, useApolloClient, useMutation } from '@apollo/client'
-import cloneDeep from 'clone-deep'
-import { debounce } from 'debounce'
-import omitDeep from 'omit-deep'
-import { useEffect, useMemo, useState } from 'react'
-import { notEmpty } from '../use-introspection/helpers'
+import { gql, useMutation } from '@apollo/client'
+import { useCallback, useEffect, useState } from 'react'
+import debounce from 'debounce'
 
-import { App, AppFragment, NavConfig, Node, Page } from './fragments'
-import { GetAppQuery, useApp } from './use-app'
+import {
+  AppFragment,
+  AppWithPages,
+  AppWithPagesFragment,
+  NavConfig,
+  Node,
+  NodeFragment,
+  PageFragment,
+} from './fragments'
+import { NavConfigFragment, useAppNavConfig } from './use-app'
 
-const UpdateAppMutation = gql`
+const UpdateAppNameMutation = gql`
   ${AppFragment}
-  mutation UpdateApp(
-    $id: ID!
-    $name: String!
-    $pages: [_PageInput!]
-    $header: [_NodeInput!]
-    $footer: [_NodeInput!]
-    $navConfig: [_NavConfigInput!]
-  ) {
-    _updateApp(id: $id, name: $name, pages: $pages, header: $header, footer: $footer, navConfig: $navConfig) {
+  mutation UpdateAppName($appId: ID!, $name: String!) {
+    _updateAppName(appId: $appId, name: $name) {
       ...AppFragment
     }
   }
 `
-
-const validateNodes = (nodes: any[]) => {
-  nodes.forEach((node) => {
-    if (!node.nodeId) {
-      console.error(node, nodes)
-      throw new Error('invalid node detected')
+const UpdateAppPageNameMutation = gql`
+  ${PageFragment}
+  mutation UpdateAppPageName($appId: ID!, $pageId: ID!, $name: String!) {
+    _updateAppPageName(appId: $appId, pageId: $pageId, name: $name) {
+      ...PageFragment
     }
-  })
-}
-
-const cleanNode = (node: any) => {
-  if (!node.nodeId) {
-    console.log('node is invalid', node)
   }
-  return !!node.nodeId
-}
+`
 
-export const useUpdateApp = () => {
-  const [updateApp, { loading, error }] = useMutation(UpdateAppMutation)
-
-  return {
-    updateApp: (app: App, header: Node[], footer: Node[], navConfig: NavConfig[], pages?: Array<Partial<Page>>) => {
-      const variables = { id: app.id, name: app.name, pages, header, footer, navConfig }
-      variables.pages = pages?.map((page) => ({
-        ...page,
-        nodes: page?.nodes?.filter(cleanNode),
-      }))
-      variables.header = header.filter(cleanNode)
-      variables.footer = footer.filter(cleanNode)
-      validateNodes(
-        [...variables.header, ...variables.footer, ...(variables.pages || []).map((page) => page.nodes)]
-          .flat()
-          .filter(notEmpty),
-      )
-      return updateApp({
-        variables,
-        optimisticResponse: {
-          _updateApp: {
-            ...app,
-            ...variables,
-          },
-        },
-      })
-    },
-    loading,
-    error,
+const UpdateAppPageNodesMutation = gql`
+  ${NodeFragment}
+  mutation UpdateAppPageNodes($appId: ID!, $pageId: ID!, $nodes: [_NodeInput!]!) {
+    _updateAppPageNodes(appId: $appId, pageId: $pageId, nodes: $nodes) {
+      ...NodeFragment
+    }
   }
+`
+
+const DeleteAppPageMutation = gql`
+  ${AppWithPagesFragment}
+  mutation DeleteAppPage($appId: ID!, $pageId: ID!) {
+    _deleteAppPage(appId: $appId, pageId: $pageId) {
+      ...AppWithPagesFragment
+    }
+  }
+`
+
+const CreateAppPageMutation = gql`
+  ${AppWithPagesFragment}
+  mutation CreateAppPage($appId: ID!, $name: String!) {
+    _createAppPage(appId: $appId, name: $name) {
+      ...AppWithPagesFragment
+    }
+  }
+`
+
+const UpdateAppNavConfig = gql`
+  ${NavConfigFragment}
+  mutation UpdateAppNavConfig($appId: ID!, $navConfig: [_NavConfigInput!]!) {
+    _updateAppNavConfig(appId: $appId, navConfig: $navConfig) {
+      id
+      navConfig {
+        ...NavConfigFragment
+      }
+    }
+  }
+`
+
+const removeTypeName = (obj: any) => {
+  const clone = { ...obj }
+  if (clone.__typename) {
+    delete clone.__typename
+  }
+  return clone
 }
 
 export const useUpdateAppNavConfig = (appId: string) => {
-  const { updateApp, loading, error } = useUpdateApp()
-  const { app } = useApp(appId)
-  const client = useApolloClient()
+  const { navConfig } = useAppNavConfig(appId)
+  const [navConfigCopy, setNavConfigCopy] = useState(navConfig)
+  const [updateAppNavConfig, { loading, error }] = useMutation(UpdateAppNavConfig)
+  const updateAppNavConfigDebounced = useCallback(debounce(updateAppNavConfig, 1000), [updateAppNavConfig])
 
-  const [newNavConfig, setNewNavConfig] = useState<NavConfig[]>()
-
-  const doUpdate = () => {
-    if (newNavConfig) {
-      if (!app) {
-        return
-      }
-      updateApp(
-        app,
-        omitDeep(cloneDeep(app.header), ['__typename']),
-        omitDeep(cloneDeep(app.footer), ['__typename']),
-        omitDeep(cloneDeep(newNavConfig), ['__typename']),
-        omitDeep(cloneDeep(app.pages), ['__typename']),
-      )
-      setNewNavConfig(undefined)
-    }
-  }
-
-  const debouncedUpdate = useMemo(() => debounce(doUpdate, 2000), [doUpdate])
+  const updateNavConfig = useCallback((navConfig: NavConfig[]) => {
+    setNavConfigCopy(navConfig)
+    updateAppNavConfigDebounced({
+      variables: {
+        appId,
+        navConfig: navConfig.map(removeTypeName),
+      },
+    })
+  }, [])
 
   useEffect(() => {
-    debouncedUpdate()
-  }, [newNavConfig])
-
-  useEffect(() => {
-    debouncedUpdate.clear()
-  }, [debouncedUpdate])
+    return () => updateAppNavConfigDebounced.flush()
+  }, [updateAppNavConfigDebounced])
 
   return {
-    updateAppNavConfig: async (navConfig: NavConfig[]) => {
-      if (!app) return
-      client.writeQuery({
-        query: GetAppQuery,
-        variables: { idOrSubdomain: app.id },
-        data: {
-          _getApp: {
-            ...app,
-            navConfig,
-          },
-        },
-      })
-      setNewNavConfig(navConfig)
-    },
-    navConfigs: app?.navConfig || [],
+    updateAppNavConfig: updateNavConfig,
+    navConfigs: navConfigCopy || [],
     loading,
     error,
   }
 }
 
 export const useUpdateAppName = (appId: string) => {
-  const { updateApp, loading, error } = useUpdateApp()
-  const { app } = useApp(appId)
+  const [updateAppNavConfig, { loading, error }] = useMutation(UpdateAppNameMutation)
 
   return {
-    updateAppName: async (name: string) => {
-      if (!app) return
-      return updateApp(
-        {
-          ...app,
-          name,
-        },
-        omitDeep(cloneDeep(app.header), ['__typename']),
-        omitDeep(cloneDeep(app.footer), ['__typename']),
-        omitDeep(cloneDeep(app.navConfig), ['__typename']),
-        omitDeep(cloneDeep(app.pages), ['__typename']),
-      )
-    },
+    updateAppName: useCallback(
+      async (name: string) => {
+        return updateAppNavConfig({
+          variables: {
+            appId,
+            name,
+          },
+        })
+      },
+      [updateAppNavConfig],
+    ),
     loading,
     error,
   }
 }
 
-export const useUpdatePage = (appId: string) => {
-  const { updateApp, loading } = useUpdateApp()
-  const { app } = useApp(appId)
+export const useUpdatePageNodes = (appId: string, pageId?: string) => {
+  const [updateAppPageNodes] = useMutation(UpdateAppPageNodesMutation, {
+    ignoreResults: true,
+  })
+  const updatePageNodes = useCallback(
+    (nodes: Node[], overridePageId?: string) =>
+      updateAppPageNodes({
+        variables: {
+          appId,
+          pageId: overridePageId || pageId,
+          nodes,
+        },
+      }),
+    [updateAppPageNodes],
+  )
 
-  const updatePage = async (page: Partial<Page>, { header, footer }: { header: Node[]; footer: Node[] }) => {
-    if (app) {
-      const pages = app.pages.map((p: Page) => {
-        return p.id === page.id ? { ...p, ...page } : p
-      })
-      const existing = pages.find((p) => p.id === page.id)
-      if (!existing) {
-        pages.push(page as Page)
-      }
-
-      return updateApp(
-        app,
-        omitDeep(cloneDeep(header), ['__typename']),
-        omitDeep(cloneDeep(footer), ['__typename']),
-        omitDeep(cloneDeep(app.navConfig), ['__typename']),
-        omitDeep(cloneDeep(pages), ['__typename']),
-      )
-    }
-  }
-
-  return { updatePage, loading }
+  return { updatePageNodes }
 }
 
-export const useDeletePage = () => {
-  const client = useApolloClient()
-  const { updateApp, loading } = useUpdateApp()
+export const useUpdatePageName = (appId: string, pageId: string) => {
+  const [updateAppPageName, { loading, error }] = useMutation(UpdateAppPageNameMutation)
+  const updatePageName = useCallback(
+    (name: string) =>
+      updateAppPageName({
+        variables: {
+          appId,
+          pageId,
+          name,
+        },
+      }),
+    [updateAppPageName],
+  )
+  return { updatePageName, loading, error }
+}
 
-  const deletePage = async (appId: string, pageId: string) => {
-    const { data } = await client.query({ query: GetAppQuery, variables: { idOrSubdomain: appId } })
-    const app = data?._getApp
+export const useCreatePage = (appId: string) => {
+  const [createAppPage, { loading, error }] = useMutation(CreateAppPageMutation)
+  const createPage = useCallback(
+    (name: string) =>
+      createAppPage({
+        variables: {
+          appId,
+          name,
+        },
+      }).then((data) => data.data._createAppPage as AppWithPages),
+    [createAppPage],
+  )
+  return { createPage, loading, error }
+}
 
-    if (app) {
-      const pages = app.pages.filter((p: Page) => p.id !== pageId)
-      const { header, footer } = app
+export const useDeletePage = (appId: string) => {
+  const [deleteAppPage, { loading, error }] = useMutation(DeleteAppPageMutation)
+  const deletePage = useCallback(
+    async (pageId: string) =>
+      deleteAppPage({
+        variables: {
+          appId,
+          pageId,
+        },
+      }),
+    [deleteAppPage],
+  )
 
-      return updateApp(
-        app,
-        omitDeep(cloneDeep(header), ['__typename']),
-        omitDeep(cloneDeep(footer), ['__typename']),
-        omitDeep(cloneDeep(app.navConfig), ['__typename']),
-        omitDeep(cloneDeep(pages), ['__typename']),
-      )
-    }
-  }
-
-  return { deletePage, loading }
+  return { deletePage, loading, error }
 }

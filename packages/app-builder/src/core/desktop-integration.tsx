@@ -1,5 +1,5 @@
 import { ParsedArg } from '@/components/hooks/use-introspection/query-generators'
-import { App } from '../components/hooks/apps/fragments'
+import { AppWithPages } from '../components/hooks/apps/fragments'
 import { notEmpty } from '../components/hooks/use-introspection/helpers'
 import { IntrospectionResult } from '../components/hooks/use-introspection/parse-introspection'
 
@@ -54,7 +54,7 @@ type MarketplaceGlobals = Record<DesktopContext, string | undefined>
 
 const DESKTOP_CONTEXT_KEY = '__REAPIT_MARKETPLACE_GLOBALS__'
 
-export const getDesktopContext = (app: App, availableObjects: IntrospectionResult[]) => {
+export const getDesktopContext = (app: AppWithPages, availableObjects: IntrospectionResult[]) => {
   const rptGlobals = window[DESKTOP_CONTEXT_KEY]
 
   const globals = (rptGlobals ? { ...rptGlobals } : undefined) as MarketplaceGlobals | undefined
@@ -102,7 +102,7 @@ export const getAvailableIntegrationsForArgs = (
 
 // get landing page given provided context
 const getLandingPage = (
-  app: App,
+  app: AppWithPages,
   availableIntegrations: IntegrationType[],
   availableObjects: IntrospectionResult[],
   globals: MarketplaceGlobals,

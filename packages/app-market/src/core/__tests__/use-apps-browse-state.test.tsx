@@ -1,5 +1,5 @@
 import React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render } from '../../tests/react-testing'
 import { AppsBrowseProvider } from '../use-apps-browse-state'
 
 describe('AppsBrowseProvider', () => {

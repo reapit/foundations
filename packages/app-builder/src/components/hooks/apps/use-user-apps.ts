@@ -21,15 +21,6 @@ export const useGetUserApps = (developerId?: string) => {
   return {
     loading,
     error,
-    data: data?._getUserApps.map((app) => ({
-      ...app,
-      pages: app.pages.map((page) => ({
-        ...page,
-        nodes: page.nodes.map((node) => ({
-          ...node,
-          custom: node.custom || undefined,
-        })),
-      })),
-    })) as Array<App> | undefined,
+    data: data?._getUserApps as App[] | undefined,
   }
 }

@@ -46,6 +46,20 @@ exports[`Viewport should match a snapshot 1`] = `
           </svg>
         </a>
         <div
+          class="app-name-container"
+        >
+          <span
+            class="developer-name"
+          >
+             /
+          </span>
+           
+          <input
+            class="app-name-input"
+            value=""
+          />
+        </div>
+        <div
           class="el-flex1 el-flex el-flex-align-center el-flex-justify-start"
         >
           <div
@@ -396,7 +410,7 @@ exports[`Viewport should match a snapshot 1`] = `
         class="container"
       >
         <div
-          class="el-flex el-flex1 el-hfull el-flex-column"
+          class="el-flex el-flex1 el-hfull el-flex-column el-px6"
           id="page-container"
           style="transition: transform 350ms; transform: scale(1); transform-origin: top left;"
         >
@@ -406,7 +420,19 @@ exports[`Viewport should match a snapshot 1`] = `
           >
             <div
               class="el-flex el-flex-row flex-align-stretch relative el-pt9 el-mauto"
-            />
+            >
+              <div
+                class="el-is-full-page el-loader-container"
+              >
+                <div
+                  class="el-loader"
+                >
+                  <div
+                    class="el-loader-moving-bar"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

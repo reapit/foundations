@@ -141,6 +141,9 @@ const getGraphqlClient = async () => {
     operationMetadata: {} as Record<MetadataSchemaType, any>,
     storeCachedMetadata: function (): void {},
     getCachedMetadata: function () {},
+    getMarketplaceApp: async () => {
+      return {}
+    },
   }
   return new ApolloClient({
     cache: new InMemoryCache(),

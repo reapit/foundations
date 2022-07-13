@@ -4,7 +4,6 @@ import { GetActionNames, getActions } from '@reapit/utils-common'
 import { useReapitGet } from '@reapit/utils-react'
 import { BodyText, Button, elFadeIn, elHFull, elMb7, FlexContainer, PlaceholderImage, Subtitle } from '@reapit/elements'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
-import { AppsBrowseConfigItem } from './use-apps-browse-state'
 import {
   FeaturedHeroAppsContainer,
   FeaturedHeroAppsContentContainer,
@@ -23,6 +22,7 @@ import { cx } from '@linaria/core'
 import { navigate } from '../../utils/navigation'
 import { Routes } from '../../constants/routes'
 import { useHistory } from 'react-router-dom'
+import { AppsBrowseConfigItem } from '../../core/use-apps-browse-state'
 
 interface FeaturedHeroAppsCollectionProps {
   configItem: AppsBrowseConfigItem

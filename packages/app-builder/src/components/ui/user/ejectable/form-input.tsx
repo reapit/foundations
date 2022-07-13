@@ -291,6 +291,7 @@ const Input = ({
           required={isRequired && inputTypeName !== 'Boolean'}
           type={inputTypeName === 'Boolean' ? 'checkbox' : 'text'}
           onChange={onChange}
+          style={disabled ? { pointerEvents: 'none', opacity: 0.5 } : undefined}
           name={name}
           defaultValue={defaultValue}
         />

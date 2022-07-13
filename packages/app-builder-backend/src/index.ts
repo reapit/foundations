@@ -11,15 +11,19 @@ import { getSchema } from './get-schema'
 import { CustomEntity } from './entities/custom-entity'
 import { getCustomEntities } from './custom-entites'
 import { MetadataSchemaType } from './utils/extract-metadata'
+import { createMarketplaceAppLoader } from './platform/apps'
 
 const parseContext = async ({ req }): Promise<Context> => {
+  const accessToken = req.headers['reapit-connect-token']
   const context = {
     idToken: req.headers.authorization?.split(' ')[1] || '',
-    accessToken: req.headers['reapit-connect-token'] as string,
+    accessToken,
     apiUrl: 'http://localhost:4000/',
     webUrl: req.headers.origin,
     appId: req.headers['app-id'],
   }
+
+  const marketplaceAppLoader = createMarketplaceAppLoader(accessToken)
 
   let customEntities: CustomEntity[] = []
 
@@ -32,6 +36,9 @@ const parseContext = async ({ req }): Promise<Context> => {
     ...context,
     customEntities,
     operationMetadata: {} as Record<MetadataSchemaType, any>,
+    getMarketplaceApp: async (appId: string) => {
+      return marketplaceAppLoader.load(appId)
+    },
     storeCachedMetadata: (typeName: MetadataSchemaType, id: string, metadata: any) => {
       metadataCache[`${typeName}-${id}`] = metadata
     },

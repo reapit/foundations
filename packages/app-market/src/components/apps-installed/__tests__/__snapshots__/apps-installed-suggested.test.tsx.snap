@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AppsInstalledPage should match a snapshot 1`] = `
+exports[`AppsInstalledSuggested should match a snapshot  1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -8,34 +8,12 @@ Object {
       <div
         class="el-snack-holder"
       />
-      <div
-        class="installed-apps-container"
-      >
-        <div
-          class="installed-apps-inner-container"
-        >
-          <div
-            class="installed-apps-grid"
-          />
-        </div>
-      </div>
     </div>
   </body>,
   "container": <div>
     <div
       class="el-snack-holder"
     />
-    <div
-      class="installed-apps-container"
-    >
-      <div
-        class="installed-apps-inner-container"
-      >
-        <div
-          class="installed-apps-grid"
-        />
-      </div>
-    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

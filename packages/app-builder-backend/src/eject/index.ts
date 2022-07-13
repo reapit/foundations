@@ -80,8 +80,8 @@ export const mergeHeaderFooterIntoPage = (nodes: Node[], header: Node[] = [], fo
   ]
 }
 
-const pageToString = (page: Page, header: Node[], footer: Node[]) => {
-  const nodes = mergeHeaderFooterIntoPage(page.nodes, header, footer)
+const pageToString = (page: Page) => {
+  const nodes = mergeHeaderFooterIntoPage(page.nodes)
   const rootNode = nodes.find((node) => node.nodeId === 'ROOT')
   if (!rootNode) {
     throw new Error(`No root node found for page ${page.id}`)
@@ -107,7 +107,7 @@ const pageToString = (page: Page, header: Node[], footer: Node[]) => {
 const generatePages = (app: App): Promise<Pages> =>
   Promise.all(
     app.pages.map(async (page) => {
-      const { jsx, components } = pageToString(page, app.header, app.footer)
+      const { jsx, components } = pageToString(page)
       return {
         id: page.id,
         name: page.name,
@@ -194,7 +194,7 @@ export const ejectApp = async (app: App, context: Context) => {
     fileLoc: 'public/index.html',
   }
   const packageJson = {
-    text: generatePackageJson(app.name),
+    text: generatePackageJson(app.name ?? ''),
     fileLoc: 'package.json',
   }
   const tsConfigJson = {
