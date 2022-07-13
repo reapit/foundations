@@ -8263,7 +8263,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@reapit/ts-scripts@workspace:packages/ts-scripts":
+"@reapit/ts-scripts@workspace:^, @reapit/ts-scripts@workspace:packages/ts-scripts":
   version: 0.0.0-use.local
   resolution: "@reapit/ts-scripts@workspace:packages/ts-scripts"
   dependencies:
@@ -14639,7 +14639,7 @@ __metadata:
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "workspace:packages/elements"
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
-    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
+    "@reapit/ts-scripts": "workspace:^"
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils-common": "workspace:packages/utils-common"
     "@reapit/utils-react": "workspace:packages/utils-react"
