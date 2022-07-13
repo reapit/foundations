@@ -8,7 +8,7 @@ const createStack = async () => {
     namespace: 'cloud',
     appName: 'app-marketplace-admin',
     component: 'site',
-    accountId: '028446965111',
+    accountId: config.awsAccountId,
     region: 'eu-west-2',
   })
 
