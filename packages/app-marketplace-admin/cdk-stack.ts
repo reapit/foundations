@@ -12,10 +12,8 @@ const createStack = async () => {
     region: 'eu-west-2',
   })
 
-  const domain = config.domain
-
   await createSite(stack, {
-    domain,
+    env: 'dev',
     location: join(__dirname, 'public', 'dist'),
   })
 }
