@@ -8,29 +8,52 @@ import {
   aws_s3 as s3,
   aws_s3_deployment as deploy,
 } from 'aws-cdk-lib'
-import { Certificate } from 'aws-cdk-lib/aws-certificatemanager'
+import { Certificate, ICertificate } from 'aws-cdk-lib/aws-certificatemanager'
+import { ACM } from 'aws-sdk'
 
 interface CreateSiteInterface {
   domain: string
-  hostedZoneId: string
-  zoneName?: string
+  hostedDomainName?: string
   defaultRootObject?: string
   location: string
-  sslCertArn: string
+}
+
+const findCert = async (stack: Stack, domain: string): Promise<ICertificate> => {
+  const acm = new ACM({
+    region: 'us-east-1',
+  })
+  const certDomain = `*.${domain}`
+  const result = await new Promise<ACM.ListCertificatesResponse>((resolve, reject) =>
+    acm.listCertificates({}, (error, data) => {
+      if (error) {
+        console.error(error)
+        reject(error)
+      }
+
+      return resolve(data)
+    }),
+  )
+
+  const domainCertificate = result.CertificateSummaryList?.find((cert) => cert.DomainName === certDomain)
+
+  if (!domainCertificate || !domainCertificate.CertificateArn) {
+    throw new Error('Certificate not found')
+  }
+
+  return Certificate.fromCertificateArn(stack, 'cert', domainCertificate?.CertificateArn)
 }
 
 export const createSite = async (
   stack: Stack,
   {
     domain,
-    hostedZoneId,
     defaultRootObject = 'index.html',
-    zoneName = 'dev.paas.reapit.cloud',
-    sslCertArn,
+    hostedDomainName = 'dev.paas.reapit.cloud',
     location,
   }: CreateSiteInterface,
 ) => {
-  const hostedZone = route53.HostedZone.fromHostedZoneAttributes(stack, 'hosted-zone', { hostedZoneId, zoneName })
+  const hostedZone = route53.HostedZone.fromLookup(stack, 'hosted-zone', { domainName: hostedDomainName })
+  const certificate = await findCert(stack, hostedDomainName)
 
   const bucket = new s3.Bucket(stack, 'bucket', {
     websiteIndexDocument: defaultRootObject,
@@ -54,12 +77,9 @@ export const createSite = async (
       },
     ],
     defaultRootObject,
-    viewerCertificate: cloudfront.ViewerCertificate.fromAcmCertificate(
-      Certificate.fromCertificateArn(stack, 'cert', sslCertArn),
-      {
-        aliases: [domain],
-      },
-    ),
+    viewerCertificate: cloudfront.ViewerCertificate.fromAcmCertificate(certificate, {
+      aliases: [domain],
+    }),
   })
 
   const r53 = createRoute(stack, 'route', {

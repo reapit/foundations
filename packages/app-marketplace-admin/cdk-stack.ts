@@ -8,17 +8,15 @@ const createStack = async () => {
     namespace: 'cloud',
     appName: 'app-marketplace-admin',
     component: 'site',
+    accountId: '028446965111',
+    region: 'eu-west-2',
   })
 
   const domain = config.domain
-  const hostedZoneId = config.hostedZoneId
-  const sslCertArn = config.sslCertArn
 
-  createSite(stack, {
+  await createSite(stack, {
     domain,
-    hostedZoneId,
     location: join(__dirname, 'public', 'dist'),
-    sslCertArn,
   })
 }
 
