@@ -3,45 +3,67 @@ import { createRoute } from './r53'
 import {
   Stack,
   aws_route53 as route53,
-  aws_s3_assets as assets,
-  aws_cloudfront_origins as origins,
+  aws_cloudfront as cloudfront,
   aws_route53_targets as targets,
+  aws_s3 as s3,
+  aws_s3_deployment as deploy,
 } from 'aws-cdk-lib'
 import { Certificate } from 'aws-cdk-lib/aws-certificatemanager'
 
 interface CreateSiteInterface {
-  domain: string,
-  hostedZoneId: string,
-  zoneName?: string,
-  defaultRootObject?: string,
-  location: string,
-  sslCertArn: string,
+  domain: string
+  hostedZoneId: string
+  zoneName?: string
+  defaultRootObject?: string
+  location: string
+  sslCertArn: string
 }
 
-export const createSite = async (stack: Stack, {
-  domain,
-  hostedZoneId,
-  defaultRootObject = 'index.html',
-  zoneName = 'dev.paas.reapit.cloud',
-  sslCertArn,
-  location,
-}: CreateSiteInterface) => {
+export const createSite = async (
+  stack: Stack,
+  {
+    domain,
+    hostedZoneId,
+    defaultRootObject = 'index.html',
+    zoneName = 'dev.paas.reapit.cloud',
+    sslCertArn,
+    location,
+  }: CreateSiteInterface,
+) => {
+  const hostedZone = route53.HostedZone.fromHostedZoneAttributes(stack, 'hosted-zone', { hostedZoneId, zoneName })
 
-  const hostedZone = route53.HostedZone.fromHostedZoneAttributes(stack, 'hosted-zone', { hostedZoneId, zoneName, })
-
-  const asset = new assets.Asset(stack as any, 'assets', {
-    path: location,
+  const bucket = new s3.Bucket(stack, 'bucket', {
+    websiteIndexDocument: defaultRootObject,
+    websiteErrorDocument: defaultRootObject,
+    publicReadAccess: true,
   })
 
-  const cloudFront = createCloudfront(stack, 'front-distro', {
-    defaultBehavior: { origin: new origins.S3Origin(asset.bucket) },
+  new deploy.BucketDeployment(stack, 'deployment', {
+    sources: [deploy.Source.asset(location)],
+    destinationBucket: bucket,
+  })
+
+  const distro = createCloudfront(stack, 'front-distro', {
+    originConfigs: [
+      {
+        customOriginSource: {
+          domainName: bucket.bucketWebsiteDomainName,
+          originProtocolPolicy: cloudfront.OriginProtocolPolicy.HTTP_ONLY,
+        },
+        behaviors: [{ isDefaultBehavior: true }],
+      },
+    ],
     defaultRootObject,
-    domainNames: [ domain ],
-    certificate: Certificate.fromCertificateArn(stack, 'cert', sslCertArn),
+    viewerCertificate: cloudfront.ViewerCertificate.fromAcmCertificate(
+      Certificate.fromCertificateArn(stack, 'cert', sslCertArn),
+      {
+        aliases: [domain],
+      },
+    ),
   })
 
   const r53 = createRoute(stack, 'route', {
-    target: route53.RecordTarget.fromAlias(new targets.CloudFrontTarget(cloudFront)),
+    target: route53.RecordTarget.fromAlias(new targets.CloudFrontTarget(distro)),
     zone: hostedZone,
     recordName: domain,
   })
