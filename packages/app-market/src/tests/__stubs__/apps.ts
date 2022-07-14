@@ -56,7 +56,7 @@ export const mockAppDetailModel: AppDetailModel = {
   redirectUris: ['https://foo.bar'],
   signoutUris: ['https://foo.bar'],
   limitToClientIds: [],
-  desktopIntegrationTypeIds: [],
+  desktopIntegrationTypeIds: ['Applicant', 'AppExport'],
   products: ['agencyCloud'],
   isListed: true,
   isDirectApi: true,
@@ -83,7 +83,29 @@ export const mockAppDetailModel: AppDetailModel = {
       description: 'Read properties',
     },
   ],
-  media: [],
+  media: [
+    {
+      id: 'f817d532-1d2f-4fd5-824d-a65e91747bb2',
+      uri: 'https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-icon.png',
+      description: 'Application Icon',
+      type: 'icon',
+      order: 0,
+    },
+    {
+      id: '734b482e-a1aa-459e-b968-0484b4fb62a5',
+      uri: 'https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-screen1ImageUrl.png',
+      description: 'Application Image',
+      type: 'image',
+      order: 0,
+    },
+    {
+      id: 'f9de4b1e-0c46-498e-8ffe-1605755faee5',
+      uri: 'https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-screen2ImageUrl.png',
+      description: 'Application Image',
+      type: 'image',
+      order: 0,
+    },
+  ],
 }
 
 export const mockCreateAppModel: CreateAppModel = {

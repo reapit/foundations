@@ -6,6 +6,7 @@ import { mockAppDetailModel } from '../../../tests/__stubs__/apps'
 import { mockDesktopIntegrationTypeModelPagedResult } from '../../../tests/__stubs__/desktop-integration-types'
 import { mockDeveloperModel } from '../../../tests/__stubs__/developers'
 import { AppsDetail, handleCarouselCols } from '../apps-detail'
+import { mockInstallationModelPagedResult } from '../../../tests/__stubs__/installations'
 
 jest.mock('@reapit/utils-react', () => ({
   useReapitGet: jest.fn(() => [null, false]),
@@ -17,14 +18,16 @@ const mockUseReapitGet = useReapitGet as jest.Mock
 describe('AppsDetail', () => {
   it('should match a snapshot with data', () => {
     mockUseReapitGet
-      .mockReturnValue([mockAppDetailModel, false])
-      .mockReturnValue([mockDeveloperModel, false])
-      .mockReturnValue([mockDesktopIntegrationTypeModelPagedResult, false])
+      .mockReturnValueOnce([mockInstallationModelPagedResult, false])
+      .mockReturnValueOnce([mockAppDetailModel, false])
+      .mockReturnValueOnce([mockDeveloperModel, false])
+      .mockReturnValueOnce([mockDesktopIntegrationTypeModelPagedResult, false])
     expect(render(<AppsDetail />)).toMatchSnapshot()
   })
 
   it('should match a snapshot when loading', () => {
-    mockUseReapitGet.mockReturnValue([null, true]).mockReturnValue([null, true]).mockReturnValue([null, true])
+    mockUseReapitGet.mockReturnValue([null, true])
+
     expect(render(<AppsDetail />)).toMatchSnapshot()
   })
 })

@@ -18,6 +18,8 @@ import {
   elMr5,
   elMb5,
   SmallText,
+  ButtonGroup,
+  Button,
 } from '@reapit/elements'
 import { useHistory, useParams } from 'react-router-dom'
 import { HTMLRender, useReapitGet } from '@reapit/utils-react'
@@ -25,6 +27,7 @@ import {
   AppDetailModel,
   DesktopIntegrationTypeModelPagedResult,
   DeveloperModel,
+  InstallationModelPagedResult,
 } from '@reapit/foundations-ts-definitions'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { GetActionNames, getActions } from '../../../../utils-common/src'
@@ -38,11 +41,16 @@ import {
   AppDetailImageWrapper,
   AppDetailPermissionChip,
   AppDetailWrapper,
-  AppDetaulCategoryChip,
+  AppDetailCategoryChip,
   htmlRender,
 } from './__styles__'
 import { Carousel } from '../carousel'
 import { IsFreeNotice } from '../apps-browse/__styles__'
+import { useModal } from '@reapit/elements'
+import { AppInstallModalContent } from './app-install-modal'
+import { AppInstallSuccesModalContent } from './app-install-success-modal'
+import { useReapitConnect } from '@reapit/connect-session'
+import { selectIsAdmin } from '../../utils/auth'
 
 export interface AppIdParams {
   appId: string
@@ -68,8 +76,28 @@ export const AppsDetail: FC = () => {
   const imageRefs = useRef<LegacyRef<HTMLDivElement>[]>([])
   const mediaQuery = useMediaQuery()
   const carouselCols = useMemo<number>(handleCarouselCols(mediaQuery), [mediaQuery])
+  const { Modal: AppInstallModal, openModal: appInstallOpenModal, closeModal: appInstallCloseModal } = useModal()
+  const { Modal: InstallSuccessModal, openModal: successOpenModal, closeModal: successCloseModal } = useModal()
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const clientId = connectSession?.loginIdentity.clientId
+  const developerId = connectSession?.loginIdentity.developerId
 
-  const [appDetail, appDetailLoading] = useReapitGet<AppDetailModel>({
+  const baseParams = {
+    clientId,
+    appId,
+    onlyInstalled: true,
+  }
+
+  const queryParams = developerId ? { ...baseParams, developerId } : baseParams
+
+  const [installations] = useReapitGet<InstallationModelPagedResult>({
+    reapitConnectBrowserSession,
+    action: getActions(window.reapit.config.appEnv)[GetActionNames.getInstallations],
+    queryParams,
+    fetchWhenTrue: [clientId, appId],
+  })
+
+  const [appDetail, appDetailLoading, , refetchApp] = useReapitGet<AppDetailModel>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppById],
     uriParams: {
@@ -115,6 +143,8 @@ export const AppsDetail: FC = () => {
   const heroImage = images ? images[0] : null
   const screenshots = images ? images.slice(1, images.length) : []
   imageRefs.current = screenshots.map((_, i) => imageRefs.current[i] ?? createRef())
+  const isInstalled = Boolean(installations?.totalCount)
+  const isAdmin = selectIsAdmin(connectSession)
 
   return (
     <PageContainer>
@@ -139,11 +169,19 @@ export const AppsDetail: FC = () => {
                 <BodyText hasGreyText>{summary}</BodyText>
               </FlexContainer>
               <FlexContainer>
+                {isInstalled && (
+                  <>
+                    <Icon icon="tickSolidSystem" className={elMr5} intent="success" />
+                    <SmallText className={elMr5} hasNoMargin>
+                      {isDirectApi ? 'Integration Enabled' : 'App Installed'}
+                    </SmallText>
+                  </>
+                )}
                 <Icon icon="tickSolidSystem" className={elMr5} intent="success" />
                 <SmallText className={elMr5} hasNoMargin>
                   Verified by Reapit
                 </SmallText>
-                {category?.name && <AppDetaulCategoryChip className={elFadeIn}>{category.name}</AppDetaulCategoryChip>}
+                {category?.name && <AppDetailCategoryChip className={elFadeIn}>{category.name}</AppDetailCategoryChip>}
                 {isDirectApi && (
                   <SmallText className={elMr5} hasBoldText hasNoMargin>
                     Integration
@@ -153,6 +191,18 @@ export const AppsDetail: FC = () => {
               </FlexContainer>
             </FlexContainer>
           </FlexContainer>
+          <ButtonGroup className={elMb11} alignment="left">
+            {!isInstalled && isAdmin && (
+              <Button intent="critical" onClick={appInstallOpenModal}>
+                {isDirectApi ? 'Enable Integration' : 'Install App'}
+              </Button>
+            )}
+            {supportEmail && (
+              <a href={`mailto:${supportEmail}`} rel="noopener noreferrer" target="_blank">
+                <Button intent="low">{isDirectApi ? 'Enquire About Integration' : 'Enquire About App'}</Button>
+              </a>
+            )}
+          </ButtonGroup>
           <AppDetailDescriptionGrid>
             <AppDetailDescriptionColMain>
               <Subtitle hasBoldText>About App</Subtitle>
@@ -266,6 +316,18 @@ export const AppsDetail: FC = () => {
           )}
         </>
       )}
+      <AppInstallModal title={`Install ${name}`}>
+        <AppInstallModalContent
+          app={app}
+          closeModal={appInstallCloseModal}
+          successOpenModal={successOpenModal}
+          desktopIntegrationTypes={desktopIntegrationTypes}
+          refetchApp={refetchApp}
+        />
+      </AppInstallModal>
+      <InstallSuccessModal title="Success">
+        <AppInstallSuccesModalContent app={app} closeModal={successCloseModal} developer={developer} />
+      </InstallSuccessModal>
     </PageContainer>
   )
 }
