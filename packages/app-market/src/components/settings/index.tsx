@@ -5,6 +5,7 @@ import { Routes } from '../../constants/routes'
 import SettingsInstalled from './settings-installed'
 import SettingsProfile from './settings-profile'
 import {
+  Button,
   elHFull,
   elMb5,
   elMb9,
@@ -18,11 +19,20 @@ import {
   Title,
 } from '@reapit/elements'
 import { navigate } from '../../utils/navigation'
+import { selectIsAdmin } from '../../utils/auth'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '../../core/connect-session'
+
+export const handleLogout = (connectLogoutRedirect: () => void) => () => {
+  connectLogoutRedirect()
+}
 
 export const SettingsPage: FC = () => {
   const history = useHistory()
   const location = useLocation()
+  const { connectSession, connectLogoutRedirect } = useReapitConnect(reapitConnectBrowserSession)
   const { pathname } = location
+  const isAdmin = selectIsAdmin(connectSession)
 
   return (
     <FlexContainer isFlexAuto>
@@ -43,7 +53,19 @@ export const SettingsPage: FC = () => {
           </SecondaryNavItem>
         </SecondaryNav>
         <Icon className={elMb5} icon="reapitConnectInfographic" iconSize="large" />
-        <SmallText hasGreyText>Settings controls and filters</SmallText>
+        <SmallText hasGreyText>
+          Here you can change your password and find out your current logged in profile. This can be useful if you are
+          experiencing any permission related issues with your account.
+        </SmallText>
+        {isAdmin && (
+          <SmallText hasGreyText>
+            In addition as an admin, you can view details of your app installations and uninstall any live apps for all
+            users in your organisation.
+          </SmallText>
+        )}
+        <Button onClick={handleLogout(connectLogoutRedirect)} intent="critical" chevronRight>
+          Logout
+        </Button>
       </SecondaryNavContainer>
       <PageContainer className={elHFull}>
         <Route path={Routes.SETTINGS_PROFILE} component={SettingsProfile} exact />
