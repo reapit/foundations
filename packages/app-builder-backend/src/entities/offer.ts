@@ -1,6 +1,6 @@
 import { gql } from 'apollo-server-core'
 import { Field, GraphQLISODateTime, InputType, ObjectType } from 'type-graphql'
-import { Applicant, ApplicantFragment } from './applicant'
+import { Applicant, ApplicantFields } from './applicant'
 import { Negotiator, NegotiatorFragment } from './negotiator'
 import { Property, PropertyFragment } from './property'
 
@@ -15,14 +15,14 @@ export class Offer {
   @Field(() => GraphQLISODateTime)
   modified: Date
 
-  @Field(() => Applicant)
-  applicant: Applicant
+  @Field(() => Applicant, { nullable: true })
+  applicant?: Applicant
 
-  @Field(() => Property)
-  property: Property
+  @Field(() => Property, { nullable: true })
+  property?: Property
 
-  @Field(() => Negotiator)
-  negotiator: String
+  @Field(() => Negotiator, { nullable: true })
+  negotiator?: Negotiator
 
   @Field()
   date: string
@@ -66,24 +66,25 @@ export class OfferInput {
 export const OfferFragment = gql`
   ${NegotiatorFragment}
   ${PropertyFragment}
-  ${ApplicantFragment}
   fragment OfferFragment on OfferModel {
     id
     created
     modified
     currency
-    applicant {
-      ...ApplicantFragment
-    }
-    property {
-      ...PropertyFragment
-    }
-    negotiator {
-      ...NegotiatorFragment
-    }
     date
     amount
     status
     metadata
+    _embedded {
+      applicant {
+        ${ApplicantFields}
+      }
+      property {
+        ...PropertyFragment
+      }
+      negotiator {
+        ...NegotiatorFragment
+      }
+    }
   }
 `

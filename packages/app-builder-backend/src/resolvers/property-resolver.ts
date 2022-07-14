@@ -4,6 +4,7 @@ import { Property, PropertyFragment, PropertyInput } from '../entities/property'
 import { Context } from '@/types'
 import { query } from '../utils/graphql-fetch'
 import { AbstractCrudService } from './abstract-crud-resolver'
+import { PropertyImage } from '@/entities/property-image'
 
 const getPropertiesQuery = gql`
   ${PropertyFragment}
@@ -46,7 +47,6 @@ const updatePropertyMutation = gql`
   ${PropertyFragment}
   mutation UpdateProperty(
     $id: String!
-    $type: [String]!
     $description: String
     $receptions: Number
     $metadata: JSON
@@ -65,7 +65,6 @@ const updatePropertyMutation = gql`
   ) {
     UpdateProperty(
       id: $id
-      type: $type
       description: $description
       receptions: $receptions
       letting: $letting
@@ -90,7 +89,6 @@ const updatePropertyMutation = gql`
 const createPropertyMutation = gql`
   ${PropertyFragment}
   mutation CreateProperty(
-    $type: [String]!
     $description: String
     $receptions: Number
     $metadata: JSON
@@ -108,7 +106,6 @@ const createPropertyMutation = gql`
     $notes: String
   ) {
     CreateProperty(
-      type: $type
       description: $description
       receptions: $receptions
       letting: $letting
@@ -130,22 +127,20 @@ const createPropertyMutation = gql`
   }
 `
 
-type PropertyEmbeds<Property> = Property & {
-  _embedded: {
-    images: {}
-  }
+type PropertyEmbeds = {
+  images: PropertyImage[]
 }
 
 const searchProperties = async (queryStr: string, accessToken: string, idToken: string) => {
   return query<{
-    _embedded: PropertyEmbeds<Property>[]
+    _embedded: (Property & { _embedded: PropertyEmbeds })[]
   }>(searchPropertiesQuery, { query: queryStr }, 'GetProperties', {
     accessToken,
     idToken,
   })
 }
 
-class PropertyService extends AbstractCrudService<Property, PropertyEmbeds<Property>, PropertyInput> {
+class PropertyService extends AbstractCrudService<Property, PropertyEmbeds, PropertyInput> {
   getManyQueryName = () => 'GetProperties'
 }
 
@@ -187,8 +182,8 @@ export class PropertyResolver {
     }
 
     return properties._embedded
-      .map((property) => this.service.hoistEmbeds(property))
       .map((property) => this.service.convertDates(property))
+      .map((property) => this.service.hoistEmbeds(property))
       .map((property) => this.service.addDefaultEmbeds(property))
   }
 

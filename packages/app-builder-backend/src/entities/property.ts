@@ -1,4 +1,4 @@
-import { ObjectType, Field, ID, InputType, GraphQLISODateTime } from 'type-graphql'
+import { ObjectType, Field, ID, InputType, GraphQLISODateTime, registerEnumType } from 'type-graphql'
 import { gql } from 'apollo-server-core'
 import { PropertyImage } from './property-image'
 import { Negotiator } from './negotiator'
@@ -12,7 +12,7 @@ export const PropertyFragment = gql`
     type
     description
     strapline
-    parkingSpaces
+    parking
     internetAdvertising
     notes
     externalArea {
@@ -59,34 +59,34 @@ export const PropertyFragment = gql`
 
 @ObjectType()
 class GeoLocation {
-  @Field()
+  @Field({ nullable: true })
   latitude?: number
 
-  @Field()
+  @Field({ nullable: true })
   longitude?: number
 }
 
 @ObjectType()
 class PropertyAddress {
-  @Field()
+  @Field({ nullable: true })
   line1?: string
 
-  @Field()
+  @Field({ nullable: true })
   line2?: string
 
-  @Field()
+  @Field({ nullable: true })
   line3?: string
 
-  @Field()
+  @Field({ nullable: true })
   line4?: string
 
-  @Field()
+  @Field({ nullable: true })
   buildingName?: string
 
-  @Field()
+  @Field({ nullable: true })
   buildingNumber?: string
 
-  @Field()
+  @Field({ nullable: true })
   postcode?: string
 
   @Field(() => GeoLocation)
@@ -110,46 +110,46 @@ class PropertySelling {
   @Field()
   price: number
 
-  @Field()
-  desription: string
+  @Field({ nullable: true })
+  description?: string
 
-  @Field()
-  status: string
+  @Field({ nullable: true })
+  status?: string
 }
 
 @ObjectType()
 class ExternalArea {
-  @Field()
+  @Field({ nullable: true })
   type?: string
 
-  @Field()
+  @Field({ nullable: true })
   min?: number
 
-  @Field()
+  @Field({ nullable: true })
   max?: number
 }
 
 @ObjectType()
 class InternalArea {
-  @Field()
+  @Field({ nullable: true })
   type?: string
 
-  @Field()
+  @Field({ nullable: true })
   min?: number
 
-  @Field()
+  @Field({ nullable: true })
   max?: number
 }
 
 @ObjectType()
 class Room {
-  @Field()
+  @Field({ nullable: true })
   name?: string
 
-  @Field()
+  @Field({ nullable: true })
   dimension?: string
 
-  @Field()
+  @Field({ nullable: true })
   description?: string
 }
 
@@ -168,56 +168,53 @@ export class Property {
   @Field(() => GraphQLISODateTime)
   modified: Date
 
-  @Field()
+  @Field({ nullable: true })
   strapline?: string
-
-  @Field(() => [String])
-  type?: string[]
 
   @Field({ nullable: true })
   description?: string
 
-  @Field()
-  parkingSpaces?: number
+  @Field(() => [String], { nullable: true })
+  parking?: string[]
 
-  @Field()
+  @Field({ nullable: true })
   internetAdvertising?: boolean
 
-  @Field()
+  @Field({ nullable: true })
   notes?: string
 
-  @Field(() => ExternalArea)
+  @Field(() => ExternalArea, { nullable: true })
   externalArea?: ExternalArea
 
-  @Field(() => InternalArea)
+  @Field(() => InternalArea, { nullable: true })
   internalArea?: InternalArea
 
-  @Field(() => [Room])
+  @Field(() => [Room], { nullable: true })
   rooms?: Room[]
 
-  @Field()
+  @Field({ nullable: true })
   receptions?: number
 
-  @Field()
+  @Field({ nullable: true })
   bathrooms?: number
 
-  @Field()
+  @Field({ nullable: true })
   bedrooms?: number
 
-  @Field(() => PropertyAddress)
+  @Field(() => PropertyAddress, { nullable: true })
   address?: PropertyAddress
 
   @Field(() => [PropertyImage], { nullable: true })
   images?: PropertyImage[]
 
-  @Field({ nullable: true })
-  marketingMode?: string
+  @Field(() => PropertyMarketingMode)
+  marketingMode: PropertyMarketingMode
 
-  @Field(() => Negotiator)
-  negotiator: Negotiator
+  @Field(() => Negotiator, { nullable: true })
+  negotiator?: Negotiator
 
-  @Field(() => Office)
-  office: Office
+  @Field(() => Office, { nullable: true })
+  office?: Office
 
   @Field(() => PropertySelling, { nullable: true })
   selling: PropertySelling
@@ -324,11 +321,18 @@ class RoomInput {
   description?: string
 }
 
+enum PropertyMarketingMode {
+  selling = 'selling',
+  letting = 'letting',
+  sellingAndLetting = 'sellingAndLetting',
+}
+registerEnumType(PropertyMarketingMode, {
+  name: 'PropertyMarketingMode',
+  description: 'Property marketing mode',
+})
+
 @InputType()
 export class PropertyInput {
-  @Field(() => [String])
-  type?: string[]
-
   @Field({ nullable: true })
   description?: string
 
@@ -338,20 +342,26 @@ export class PropertyInput {
   @Field(() => PropertyAddressInput)
   address?: PropertyAddressInput
 
-  @Field({ nullable: true })
-  marketingMode?: string
+  @Field(() => PropertyMarketingMode)
+  marketingMode: PropertyMarketingMode
 
-  @Field(() => PropertySellingInput, { nullable: true })
+  @Field(() => PropertySellingInput, {
+    nullable: true,
+    description: '@onlyIf({ "marketingMode": ["selling", "sellingAndLetting"] })',
+  })
   selling: PropertySellingInput
 
-  @Field(() => PropertyLettingInput, { nullable: true })
+  @Field(() => PropertyLettingInput, {
+    nullable: true,
+    description: '@onlyIf({ "marketingMode": ["letting", "sellingAndLetting"] })',
+  })
   letting: PropertyLettingInput
 
   @Field()
   strapline?: string
 
   @Field()
-  parkingSpaces?: number
+  parking?: number
 
   @Field()
   internetAdvertising?: boolean

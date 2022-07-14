@@ -37,14 +37,14 @@ class ApplicantInternalArea {
 
 @ObjectType()
 class ApplicantRenting {
-  @Field()
-  rentingTo: number
+  @Field({ nullable: true })
+  rentingTo?: number
 
-  @Field()
-  rentingFrom: number
+  @Field({ nullable: true })
+  rentingFrom?: number
 
-  @Field()
-  rentingFrequency: string
+  @Field({ nullable: true })
+  rentingFrequency?: string
 }
 
 @ObjectType({ description: '@labelKeys(title, forename, surname) @supportsCustomFields()' })
@@ -70,8 +70,8 @@ export class Applicant {
   @Field({ nullable: true })
   notes: string
 
-  @Field(() => Department)
-  department: Department
+  @Field(() => Department, { nullable: true })
+  department?: Department
 
   @Field({ nullable: true })
   solicitorId: string
@@ -130,10 +130,10 @@ export class Applicant {
   @Field(() => ApplicantInternalArea, { nullable: true })
   internalArea: ApplicantInternalArea
 
-  @Field(() => [Office])
+  @Field(() => [Office], { nullable: true })
   offices?: Office[]
 
-  @Field(() => [Negotiator])
+  @Field(() => [Negotiator], { nullable: true })
   negotiators?: Negotiator[]
 
   metadata?: any
@@ -171,14 +171,14 @@ export class ApplicantInternalAreaInput {
 
 @InputType()
 export class ApplicantRentingInput {
-  @Field()
-  rentFrequency: string
+  @Field({ nullable: true })
+  rentFrequency?: string
 
-  @Field()
-  rentFrom: number
+  @Field({ nullable: true })
+  rentFrom?: number
 
-  @Field()
-  rentTo: number
+  @Field({ nullable: true })
+  rentTo?: number
 }
 
 @InputType()
@@ -267,51 +267,55 @@ export class ApplicantInput {
   metadata?: any
 }
 
+export const ApplicantFields = `
+  id
+  created
+  modified
+  marketingMode
+  currency
+  active
+  nextCall
+  lastCall
+  notes
+  type
+  style
+  situation
+  parking
+  bedroomsMin
+  bedroomsMax
+  receptionsMin
+  receptionsMax
+  bathroomsMin
+  bathroomsMax
+  parkingSpacesMin
+  parkingSpacesMax
+  buying {
+    priceFrom
+    priceTo
+  }
+  renting {
+    rentFrom
+    rentTo
+    rentFrequency
+  }
+  externalArea {
+    type
+    amountFrom
+    amountTo
+  }
+  internalArea {
+    type
+    amount
+  }
+`
+
 export const ApplicantFragment = gql`
   ${NegotiatorFragment}
   ${OfficeFragment}
   ${DepartmentFragment}
 
   fragment ApplicantFragment on ApplicantModel {
-    id
-    created
-    modified
-    marketingMode
-    currency
-    active
-    firstCall
-    lastCall
-    notes
-    type
-    style
-    situation
-    parking
-    bedroomsMin
-    bedroomsMax
-    receptionsMin
-    receptionsMax
-    bathroomsMin
-    bathroomsMax
-    parkingSpacesMin
-    parkingSpacesMax
-    buying {
-      priceFrom
-      priceTo
-    }
-    renting {
-      rentFrom
-      rentTo
-      rentFrequency
-    }
-    externalArea {
-      type
-      amountFrom
-      amountTo
-    }
-    internalArea {
-      type
-      amount
-    }
+    ${ApplicantFields}
 
     _embedded {
       offices {

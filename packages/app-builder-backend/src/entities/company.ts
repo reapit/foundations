@@ -128,7 +128,6 @@ export const CompanyFragment = gql`
     email
     metadata
     address {
-      type
       buildingName
       buildingNumber
       line1

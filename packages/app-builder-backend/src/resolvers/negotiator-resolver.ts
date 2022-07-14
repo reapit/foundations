@@ -81,11 +81,11 @@ const createNegotiatorMutation = gql`
       active: $active
       officeId: $officeId
       mobilePhone: $mobilePhone
-      workPhone: $mobilePhone
+      workPhone: $workPhone
       email: $email
       metadata: $metadata
     ) {
-      ...NegotaitorFragment
+      ...NegotiatorFragment
     }
   }
 `

@@ -33,7 +33,7 @@ const updateOfficeMutation = gql`
     $workPhone: String
     $email: String!
     $metadata: JSON
-    $address: OfficeAddressInput!
+    $address: OfficeModelAddressInput!
   ) {
     UpdateOffice(
       id: $id
@@ -57,7 +57,7 @@ const createOfficeMutation = gql`
     $workPhone: String
     $email: String!
     $metadata: JSON
-    $address: OfficeAddressInput!
+    $address: OfficeModelAddressInput!
   ) {
     CreateOffice(
       name: $name
