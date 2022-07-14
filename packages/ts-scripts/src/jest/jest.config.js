@@ -17,6 +17,7 @@ const jestGlobalConfig = {
     '@/(.*)': '<rootDir>/src/$1',
     '^.+.(?=.*scss|sass|css|png|jpg|pdf|jpeg).*': path.join(__dirname, './css-stub.js'),
     'swagger-ui-react': path.join(__dirname, './swagger-stub.js'),
+    '^uuid': path.join(__dirname, '../..', 'node_modules/uuid/dist/index.js'),
   },
   moduleFileExtensions: [...defaults.moduleFileExtensions, 'ts', 'tsx', 'graphql', 'gql'],
   verbose: false,

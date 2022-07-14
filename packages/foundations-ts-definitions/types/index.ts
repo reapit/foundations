@@ -9,3 +9,5 @@ export * from './marketplace-schema'
 export * from './payments-schema'
 // @ts-ignore
 export * from './platform-schema'
+// @ts-ignore
+export * from '../marketplace-cms'

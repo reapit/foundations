@@ -8264,7 +8264,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@reapit/ts-scripts@workspace:packages/ts-scripts":
+"@reapit/ts-scripts@workspace:^, @reapit/ts-scripts@workspace:packages/ts-scripts":
   version: 0.0.0-use.local
   resolution: "@reapit/ts-scripts@workspace:packages/ts-scripts"
   dependencies:
@@ -8292,6 +8292,7 @@ __metadata:
     autoprefixer: ^10.4.7
     aws-cdk: ^2.30.0
     aws-cdk-lib: ^2.30.0
+    aws-sdk: ^2.1173.0
     babel-jest: ^28.1.2
     babel-loader: ^8.2.5
     babel-plugin-module-resolver: ^4.1.0
@@ -14638,7 +14639,7 @@ __metadata:
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "workspace:packages/elements"
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
-    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
+    "@reapit/ts-scripts": "workspace:^"
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils-common": "workspace:packages/utils-common"
     "@reapit/utils-react": "workspace:packages/utils-react"
@@ -15456,6 +15457,23 @@ __metadata:
     uuid: 8.0.0
     xml2js: 0.4.19
   checksum: 1135f7e36700a91faeb3e6daee609bf29a52bf7618a033f405a0dcc668b46f556c18905fa27a9b5fbbd1811ebfaa28d023b0842d683b338e46cc58c59ef78dff
+  languageName: node
+  linkType: hard
+
+"aws-sdk@npm:^2.1173.0":
+  version: 2.1173.0
+  resolution: "aws-sdk@npm:2.1173.0"
+  dependencies:
+    buffer: 4.9.2
+    events: 1.1.1
+    ieee754: 1.1.13
+    jmespath: 0.16.0
+    querystring: 0.2.0
+    sax: 1.2.1
+    url: 0.10.3
+    uuid: 8.0.0
+    xml2js: 0.4.19
+  checksum: 2c5f5baa1fb478a8cee1d2d3e42d7088908778c8a0744bfcf49984fbef540092d80c2f45c60f942ff4129f6882780a3073880dff020f06bf7f621a9366c1f07d
   languageName: node
   linkType: hard
 
