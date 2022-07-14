@@ -22,6 +22,8 @@ export const extractBodyNodes = (nodes: Node[]): Node[] => {
     return node
   })
 
+  const otherNodes = nodes.filter((n) => n.parent && n.parent !== 'body')
+
   const newNodes = bodyNodes.map((node) => ({
     ...node,
     parent: rootNode.nodeId,
@@ -31,7 +33,7 @@ export const extractBodyNodes = (nodes: Node[]): Node[] => {
     nodes: newNodes.map((n) => n.nodeId),
   }
 
-  return [newRootNode, ...newNodes]
+  return [newRootNode, ...newNodes, ...otherNodes]
 }
 
 const nodeDoesntContainerSelf = (node: Node): Node => ({
