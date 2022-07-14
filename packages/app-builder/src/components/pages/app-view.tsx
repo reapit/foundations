@@ -23,7 +23,7 @@ const RenderComponent = ({ node, allNodes }: { node: Node; allNodes: Node[] }) =
           if (!node) {
             throw new Error(`No node found for id ${nodeId}`)
           }
-          return RenderComponent({ node, allNodes })
+          return <RenderComponent key={nodeId} node={node} allNodes={allNodes} />
         })}
       </Component>
     </AddContainer>
