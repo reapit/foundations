@@ -63,7 +63,7 @@ export const ensureTables = async () => {
   return Promise.all(tables.map(ensureTable))
 }
 
-export type DDBApp = Omit<Omit<App, 'name'>, 'developerName'>
+export type DDBApp = Omit<App, 'name'>
 
 const ddbItemToApp = (item: { [key: string]: AttributeValue }): DDBApp => {
   const { id, createdAt, updatedAt, pages, subdomain, navConfig, customEntities, clientId } = item
@@ -167,6 +167,9 @@ export const updateApp = async (app: DDBApp): Promise<DDBApp> => {
   }
   if (app.clientId) {
     Item.clientId = { S: app.clientId }
+  }
+  if (app.developerName) {
+    Item.developerName = { S: app.developerName }
   }
   const d = new PutItemCommand({
     TableName: APPS_TABLE_NAME,

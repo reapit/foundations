@@ -262,6 +262,7 @@ export class AppResolver {
     await updateApp({
       ...app,
       clientId: externalId as string,
+      developerName: developer as string,
     })
 
     return {
@@ -404,18 +405,11 @@ export class AppResolver {
 
   @FieldResolver()
   async name(@Root() app: App, @Ctx() ctx: Context) {
+    if (!ctx.accessToken) {
+      return null
+    }
     const { name } = await ctx.getMarketplaceApp(app.id)
     return name
-  }
-  @FieldResolver()
-  async clientId(@Root() app: App, @Ctx() ctx: Context) {
-    const { externalId } = await ctx.getMarketplaceApp(app.id)
-    return externalId
-  }
-  @FieldResolver()
-  async developerName(@Root() app: App, @Ctx() ctx: Context) {
-    const { developer } = await ctx.getMarketplaceApp(app.id)
-    return developer
   }
 
   @Authorized()

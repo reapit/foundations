@@ -23,7 +23,7 @@ export class App {
   @Field(() => ID)
   id: string
 
-  @Field()
+  @Field({ nullable: true })
   name?: string
 
   @Field()
@@ -32,7 +32,7 @@ export class App {
   @Field()
   subdomain: string
 
-  @Field()
+  @Field({ nullable: true })
   developerName?: string
 
   @Field(() => [Page])

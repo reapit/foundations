@@ -1,4 +1,4 @@
-import { useQuery, gql, ApolloError } from '@apollo/client'
+import { useQuery, gql, ApolloError, ApolloClient } from '@apollo/client'
 import { getIntrospectionQuery } from 'graphql'
 import { useMemo } from 'react'
 import { IntrospectionResult, parseIntrospectionResult } from './parse-introspection'
@@ -7,8 +7,12 @@ export const introspectionQuery = gql`
   ${getIntrospectionQuery()}
 `
 
-export const useIntrospection = (): { loading: boolean; error?: ApolloError; data?: IntrospectionResult[] } => {
-  const { loading, data, error } = useQuery(introspectionQuery)
+export const useIntrospection = (
+  client?: ApolloClient<any>,
+): { loading: boolean; error?: ApolloError; data?: IntrospectionResult[] } => {
+  const { loading, data, error } = useQuery(introspectionQuery, {
+    client,
+  })
   const parsedIntrospection = useMemo(() => {
     try {
       return parseIntrospectionResult(data)

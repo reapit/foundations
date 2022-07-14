@@ -43,3 +43,5 @@ export const createClient = (session?: ReapitConnectBrowserSession) => {
 
   return client
 }
+
+export const unauthenticatedClient = createClient()
