@@ -93,6 +93,8 @@ export const getGetQuery = (
 
 export type CustomInputType = 'image-upload'
 
+export type OnlyIf = Record<string, string[]>
+
 export type ParsedArg = {
   name: string
   isRequired: boolean
@@ -103,6 +105,7 @@ export type ParsedArg = {
   fields?: Array<ParsedArg>
   acKey?: DesktopContext
   customInputType?: CustomInputType
+  onlyIf?: OnlyIf
 }
 
 const parseArgs = (
@@ -110,6 +113,7 @@ const parseArgs = (
   inputObjectTypes: Array<IntrospectionInputTypeRef>,
   queryableObjectTypes: Array<IntrospectionObjectType>,
   enums: Array<IntrospectionEnumType>,
+  parentOnlyIf?: OnlyIf,
 ): Array<ParsedArg> => {
   return args.map((arg) => {
     const { name, description, type } = arg
@@ -165,6 +169,9 @@ const parseArgs = (
 
     const acKey = description?.split('@acKey(')[1]?.split(')')[0] as DesktopContext
 
+    const onlyIfStr = description?.split('@onlyIf(')[1]?.split(')')[0] as string | undefined
+    const onlyIf = parentOnlyIf || (onlyIfStr ? (JSON.parse(onlyIfStr) as OnlyIf) : undefined)
+
     const enumValues = enums.find(({ name }) => name === typeName)?.enumValues.map((e) => e.name)
     return {
       name,
@@ -175,10 +182,11 @@ const parseArgs = (
       isList,
       enumValues,
       customInputType,
+      onlyIf,
       fields:
         (actualTypeObject &&
           isIntrospectionInputObjectType(actualTypeObject) &&
-          parseArgs(actualTypeObject.inputFields, inputObjectTypes, queryableObjectTypes, enums)) ||
+          parseArgs(actualTypeObject.inputFields, inputObjectTypes, queryableObjectTypes, enums, onlyIf)) ||
         undefined,
     }
   })

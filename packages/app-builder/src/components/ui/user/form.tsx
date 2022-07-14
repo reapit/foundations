@@ -16,6 +16,7 @@ import { useUpdateCustomEntity } from '@/components/hooks/custom-entities/use-up
 import { useCustomEntity } from '@/components/hooks/custom-entities/use-custom-entity'
 import { useObject } from '@/components/hooks/objects/use-object'
 import { strToCamel } from '@reapit/utils-common'
+import { ParsedArg } from '@/components/hooks/use-introspection/query-generators'
 
 const defaultProps = {
   destination: '/',
@@ -30,6 +31,23 @@ const Form = (props: FormProps) => {
   } = useNode()
 
   return <EForm {...defaultProps} {...props} ref={(ref) => ref && connect(drag(ref))} disabled={isEditing} />
+}
+
+type FormInfo = {
+  typeName: string
+  formType: string
+}
+
+const argToFormInput = ({ name, fields, isList }: ParsedArg, formInfo: FormInfo): FormInputProps[] => {
+  if (fields && !isList) {
+    return fields.map((field) => argToFormInput({ ...field, name: `${name}.${field.name}` }, formInfo)).flat()
+  }
+  return [
+    {
+      name,
+      ...formInfo,
+    },
+  ]
 }
 
 const FormSettings = () => {
@@ -77,12 +95,8 @@ const FormSettings = () => {
     if (args && args[0] && shouldUpdate) {
       const inputs = args[0].fields
         ?.filter(({ name }) => name !== 'id')
-        .map(({ name, isRequired }) => ({
-          name,
-          typeName,
-          formType,
-          isRequired,
-        }))
+        .map((field) => argToFormInput(field, { typeName, formType }))
+        .flat()
       setInputs(inputs || [], nodeId)
       setShouldUpdate(false)
     }

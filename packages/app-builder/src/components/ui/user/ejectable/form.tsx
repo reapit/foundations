@@ -17,6 +17,21 @@ export interface FormProps extends ContainerProps {
   children?: React.ReactNode
 }
 
+const addValueToObject = (object: any, key: string, value: any) => {
+  const newObject = { ...object }
+  const parts = key.split('.')
+
+  parts.forEach((part, index) => {
+    if (index === parts.length - 1) {
+      newObject[part] = value
+    } else {
+      newObject[part] = newObject[part] || {}
+    }
+  })
+
+  return newObject
+}
+
 export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean }>(
   ({ typeName, destination, disabled, formType = 'create', children, ...props }, ref) => {
     const { context, setPageId } = usePageId()
@@ -49,11 +64,9 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
       const { name, type, value, checked } = e.target as HTMLInputElement
-      if (type === 'checkbox') {
-        return setFormState((prevState) => ({ ...prevState, [name]: checked }))
-      }
+      const actualValue = type === 'checkbox' ? checked : value
       setFormState((prevState) => {
-        return { ...prevState, [name]: value }
+        return addValueToObject(prevState, name, actualValue)
       })
     }
 
@@ -99,7 +112,7 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
               })
           }}
         >
-          <FormContextProvider value={{ onChange: handleInputChange, defaultValues: data || {} }}>
+          <FormContextProvider value={{ onChange: handleInputChange, defaultValues: data || {}, values: formState }}>
             <FormLayout>
               {getLoading ? <Loader label="Loading" /> : children}
               <Button intent="primary" disabled={disabled} loading={mutationLoading}>

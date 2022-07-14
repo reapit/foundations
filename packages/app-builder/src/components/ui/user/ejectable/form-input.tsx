@@ -155,7 +155,11 @@ export const camelCaseToSentence = (camelCase: string) => {
 
 const friendlyIdName = (idName: string) => {
   const words = idName.replaceAll('Id', '').split('_')
-  return words.map(camelCaseToSentence).join(' ')
+  return words
+    .map((w) => w.split('.'))
+    .flat()
+    .map(camelCaseToSentence)
+    .join(' ')
 }
 
 export type FormInputProps = {
@@ -223,7 +227,20 @@ const Input = ({
   fwdRef?: React.ForwardedRef<HTMLDivElement>
   onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void
 }) => {
-  const { typeName: inputTypeName, isRequired, idOfType, enumValues, customInputType, fields } = input
+  const { typeName: inputTypeName, isRequired, idOfType, enumValues, customInputType, fields, onlyIf } = input
+  const { values } = useFormContext()
+
+  if (onlyIf) {
+    const shouldHide = Object.entries(onlyIf)
+      .map(([key, value]) => {
+        return value.includes(values[key])
+      })
+      .includes(false)
+
+    if (shouldHide) {
+      return null
+    }
+  }
 
   if (fields) {
     return (
@@ -408,6 +425,32 @@ const ListInput = React.forwardRef(
   },
 )
 
+const findFormInput = (arg: ParsedArg, name: string) => {
+  const parts = name.split('.')
+  if (parts.length === 1) {
+    return arg.fields?.find((field) => field.name === name)
+  }
+  const [first, ...rest] = parts
+  const nextArg = arg.fields?.find((f) => f.name === first)
+  if (!nextArg) {
+    return null
+  }
+  return findFormInput(nextArg, rest.join('.'))
+}
+
+const getDefaultValue = (defaultValues: any, name: string) => {
+  const parts = name.split('.')
+  if (parts.length === 1) {
+    return defaultValues[name]
+  }
+  const [first, ...rest] = parts
+  const nextArg = defaultValues[first]
+  if (!nextArg) {
+    return null
+  }
+  return getDefaultValue(nextArg, rest.join('.'))
+}
+
 const InnerFormInput = (
   { typeName, name, formType, ...rest }: FormInputProps,
   ref: React.ForwardedRef<HTMLDivElement>,
@@ -415,8 +458,8 @@ const InnerFormInput = (
   const { args } = useObjectMutate(formType, typeName)
   const disabled = rest.disabled || rest.isReadOnly
   const { onChange, defaultValues } = useFormContext()
-  const defaultValue = defaultValues[name]
-  const formInput = args && args[0] && args[0].fields?.find((arg) => arg.name === name)
+  const defaultValue = getDefaultValue(defaultValues, name)
+  const formInput = args && args[0] && findFormInput(args[0], name)
 
   if (!formInput) return null
 
