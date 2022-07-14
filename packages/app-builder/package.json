@@ -1,7 +1,7 @@
 {
   "name": "app-builder",
   "description": "Description",
-  "version": "0.0.8",
+  "version": "0.0.10",
   "private": true,
   "repository": {
     "type": "git",
@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.6.9",
-    "@craftjs/core": "0.2.0-beta.4",
+    "@craftjs/core": "0.2.0-beta.6",
     "@linaria/core": "^3.0.0-beta.15",
     "@linaria/react": "^3.0.0-beta.15",
     "@reapit/connect-session": "workspace:packages/connect-session",
@@ -31,12 +31,10 @@
     "@reapit/utils-common": "workspace:packages/utils-common",
     "@reapit/utils-react": "workspace:packages/utils-react",
     "@sentry/browser": "^6.19.7",
-    "clone-deep": "^4.0.1",
     "date-fns": "^2.28.0",
     "dayjs": "^1.11.3",
     "debounce": "^1.2.1",
     "graphql": "^15.8.0",
-    "omit-deep": "^0.3.0",
     "query-string": "^7.1.1",
     "react": "^18.2.0",
     "react-contenteditable": "^3.3.6",

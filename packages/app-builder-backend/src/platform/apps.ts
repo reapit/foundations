@@ -8,6 +8,7 @@ import {
   ApproveModel,
   ScopeModel,
 } from '@reapit/foundations-ts-definitions'
+import Dataloader from 'dataloader'
 import { getIdFromCreateHeaders } from '../utils/get-id-from-create-headers'
 
 const { platformApiUrl } = config
@@ -85,6 +86,11 @@ export const getValidMarketplaceScopes = async (accessToken: string) => {
 
   return res
 }
+
+export const createMarketplaceAppLoader = (accessToken: string) =>
+  new Dataloader((appIds: readonly string[]) => {
+    return Promise.all(appIds.map((appId) => getMarketplaceApp(appId, accessToken)))
+  })
 
 export const getMarketplaceApp = async (appId: string, accessToken: string) => {
   const res: AppDetailModel = await fetcher({

@@ -1,6 +1,6 @@
 import { ObjectType, Field, ID, InputType } from 'type-graphql'
 import { CustomEntity } from './custom-entity'
-import { Page, Node } from './page'
+import { Page } from './page'
 
 @InputType('_NavConfigInput')
 @ObjectType('_NavConfig')
@@ -24,25 +24,19 @@ export class App {
   id: string
 
   @Field()
-  name: string
+  name?: string
 
   @Field()
-  clientId: string
+  clientId?: string
 
   @Field()
   subdomain: string
 
   @Field()
-  developerName: string
+  developerName?: string
 
   @Field(() => [Page])
   pages: Array<Page>
-
-  @Field(() => [Node])
-  header: Array<Node>
-
-  @Field(() => [Node])
-  footer: Array<Node>
 
   @Field()
   createdAt: Date

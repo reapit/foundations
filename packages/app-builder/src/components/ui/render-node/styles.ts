@@ -80,19 +80,14 @@ export const RootContainer = styled.section`
   width: 100%;
   > div {
     display: grid;
-    grid-template-areas:
-      'nav header header'
-      'nav body body'
-      'nav footer footer';
+    grid-template-areas: 'nav body body';
     grid-template-columns: 1fr 9fr;
 
     @media (max-width: ${MOBILE_BREAKPOINT}px) {
       grid-template-columns: 12fr;
       grid-template-areas:
         'nav'
-        'header'
-        'body'
-        'footer';
+        'body';
     }
   }
 `

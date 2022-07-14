@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useMemo, useRef } from 'react'
+import React, { FC, useCallback, useEffect, useMemo, useRef } from 'react'
 import { Editor, Frame } from '@craftjs/core'
 import { debounce } from 'debounce'
 
@@ -12,8 +12,8 @@ import Table from '../ui/user/table'
 import Form from '../ui/user/form'
 import Navigation from '../ui/user/navigation'
 import { getPageId, usePageId } from '../hooks/use-page-id'
-import { useUpdatePage } from '../hooks/apps/use-update-app'
-import { isInitialLoad, nodesObjtoToArr, splitPageNodesIntoSections } from '../hooks/apps/node-helpers'
+import { useUpdatePageNodes } from '../hooks/apps/use-update-app'
+import { extractBodyNodes, isInitialLoad, nodesObjtoToArr } from '../hooks/apps/node-helpers'
 import { FormInput } from '../ui/user/form-input'
 
 export type HomeProps = {}
@@ -29,11 +29,13 @@ export const resolver = {
   Navigation,
 }
 
+const pageIdTracker: Record<string, number> = {}
+
 export const Home: FC<HomeProps> = () => {
   const iframeRef = useRef()
   const { appId, pageId } = usePageId()
-  const { updatePage } = useUpdatePage(appId)
-  const debouncedUpdatePage = useMemo(() => debounce(updatePage, 1000), [updatePage])
+  const { updatePageNodes } = useUpdatePageNodes(appId, pageId)
+  const debouncedUpdatePage = useMemo(() => debounce(updatePageNodes, 1000), [updatePageNodes])
 
   useEffect(() => {
     return () => {
@@ -41,27 +43,32 @@ export const Home: FC<HomeProps> = () => {
     }
   }, [debouncedUpdatePage])
 
+  useEffect(() => {
+    return () => {
+      if (pageIdTracker[pageId]) {
+        pageIdTracker[pageId] = 0
+      }
+    }
+  }, [pageId])
+
+  const onNodesChange = useCallback((query) => {
+    const { pageId, appId } = getPageId()
+    pageIdTracker[pageId] = pageIdTracker[pageId] || 0
+    if (pageIdTracker[pageId] > 0) {
+      const nodesObj = query.getSerializedNodes()
+      if (query.serialize() !== '{}' && !isInitialLoad(nodesObj)) {
+        const nodes = nodesObjtoToArr(appId, pageId, nodesObj)
+        debouncedUpdatePage(extractBodyNodes(nodes), pageId)
+      }
+    }
+    pageIdTracker[pageId]++
+  }, [])
+
   return (
     <Editor
       resolver={resolver}
       onRender={(props) => <RenderNode {...props} iframeRef={iframeRef.current} />}
-      onNodesChange={(query) => {
-        const { pageId, appId } = getPageId()
-        const nodesObj = query.getSerializedNodes()
-        if (query.serialize() !== '{}' && !isInitialLoad(nodesObj)) {
-          const pageNodes = nodesObjtoToArr(appId, pageId, nodesObj)
-          const { nodes, header, footer } = splitPageNodesIntoSections(pageNodes)
-          const page = {
-            id: pageId,
-            nodes,
-          }
-          const headerFooter = {
-            header,
-            footer,
-          }
-          debouncedUpdatePage(page, headerFooter)
-        }
-      }}
+      onNodesChange={onNodesChange}
     >
       <Viewport iframeRef={iframeRef} key={pageId}>
         <Frame>

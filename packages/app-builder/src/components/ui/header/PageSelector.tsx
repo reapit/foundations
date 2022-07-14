@@ -1,39 +1,20 @@
-import { nodesObjtoToArr } from '@/components/hooks/apps/node-helpers'
-import { useApp } from '@/components/hooks/apps/use-app'
-import { useDeletePage, useUpdatePage } from '@/components/hooks/apps/use-update-app'
+import { useAppPages } from '@/components/hooks/apps/use-app'
+import { useCreatePage, useDeletePage, useUpdatePageName } from '@/components/hooks/apps/use-update-app'
 import { usePageId } from '@/components/hooks/use-page-id'
 import Delete from '@/components/icons/delete'
 import Plus from '@/components/icons/plus'
 import { cx } from '@linaria/core'
 import { elFlex, elFlex1, elFlexAlignCenter, elFlexJustifyStart, elM2 } from '@reapit/elements'
 import React from 'react'
-import slugify from 'slugify'
-import { emptyState } from '../../hooks/apps/emptyState'
 import { AppBuilderIconButton, AppBuilderSelect, SelectOrInput } from '../components'
-
-export const newPage = (name: string) => {
-  const page = {
-    id: slugify(name),
-    name,
-    nodes: emptyState,
-  }
-  return page
-}
-
-const isValidNode = (node: any) => {
-  if (!node.id) {
-    console.log('node is invalid', node)
-  }
-  return !!node.id
-}
 
 export const PageSelector = () => {
   const { appId, pageId, setPageId } = usePageId()
-  const { app } = useApp(appId)
-  const pages = app?.pages || []
-  const { updatePage } = useUpdatePage(appId)
-  const { deletePage, loading } = useDeletePage()
-  const currentPage = pages.find((page) => page.id === pageId)
+  const { pages } = useAppPages(appId)
+  const { updatePageName } = useUpdatePageName(appId, pageId)
+  const { deletePage, loading } = useDeletePage(appId)
+  const { createPage, loading: createPageLoading } = useCreatePage(appId)
+  const currentPage = pages?.find((page) => page.id === pageId)
 
   return (
     <div className={cx(elFlex1, elFlex, elFlexAlignCenter, elFlexJustifyStart)}>
@@ -41,14 +22,11 @@ export const PageSelector = () => {
         defaultValue={currentPage?.name || ''}
         onInputSubmit={(e) => {
           e.preventDefault()
-          const newPage = {
-            ...currentPage,
-            name: e.currentTarget.value,
-          }
-          if (!app) {
+          if (!currentPage) {
             return
           }
-          updatePage(newPage, { header: app.header, footer: app.footer })
+          const name = e.currentTarget.value
+          updatePageName(name)
         }}
       >
         <AppBuilderSelect
@@ -59,7 +37,7 @@ export const PageSelector = () => {
             setPageId(e.target.value)
           }}
         >
-          {pages.map(({ id: value, name: label }) => (
+          {pages?.map(({ id: value, name: label }) => (
             <option key={value} value={value}>
               {label || 'Home'}
             </option>
@@ -67,27 +45,19 @@ export const PageSelector = () => {
         </AppBuilderSelect>
       </SelectOrInput>
       <AppBuilderIconButton
+        loading={createPageLoading}
         className={elM2}
-        onClick={() => {
-          if (!app) {
-            return
-          }
+        onClick={async () => {
           const pageName = prompt('Page name?')
           if (!pageName) {
             return
           }
-          const page = newPage(pageName)
-          updatePage(
-            {
-              ...page,
-              nodes: nodesObjtoToArr(appId, page.id, page.nodes).filter(isValidNode),
-            },
-            { header: app.header, footer: app.footer },
-          ).then(() => {
-            setTimeout(() => {
-              setPageId(page.id)
-            }, 300)
-          })
+          const newApp = await createPage(pageName)
+          const page = newApp.pages.find((page) => page.name === pageName)
+          if (!page) {
+            return
+          }
+          setPageId(page.id)
         }}
       >
         <Plus />
@@ -96,7 +66,7 @@ export const PageSelector = () => {
         loading={loading}
         onClick={() => {
           if (pageId) {
-            deletePage(appId, pageId).then(() => {
+            deletePage(pageId).then(() => {
               setPageId('')
             })
           }

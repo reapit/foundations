@@ -1,3 +1,4 @@
+import { AppDetailModel } from '@reapit/foundations-ts-definitions/types'
 import { CustomEntity } from './entities/custom-entity'
 import { MetadataSchemaType } from './utils/extract-metadata'
 
@@ -11,4 +12,5 @@ export type Context = {
   operationMetadata: Record<MetadataSchemaType, any>
   storeCachedMetadata: (typeName: MetadataSchemaType, id: string, metadata: any) => void
   getCachedMetadata: (typeName: MetadataSchemaType, id: string, key: string) => any
+  getMarketplaceApp: (appId: string) => Promise<AppDetailModel>
 }

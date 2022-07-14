@@ -46,6 +46,20 @@ exports[`Viewport should match a snapshot 1`] = `
           </svg>
         </a>
         <div
+          class="app-name-container"
+        >
+          <span
+            class="developer-name"
+          >
+             /
+          </span>
+           
+          <input
+            class="app-name-input"
+            value=""
+          />
+        </div>
+        <div
           class="el-flex1 el-flex el-flex-align-center el-flex-justify-start"
         >
           <div
@@ -303,27 +317,27 @@ exports[`Viewport should match a snapshot 1`] = `
         </button>
       </div>
       <div
-        class="__react_component_tooltip t00000000-0000-0000-0000-000000000000 place-bottom type-dark"
+        class="__react_component_tooltip tMOCK_UUID place-bottom type-dark"
         data-id="tooltip"
-        id="t00000000-0000-0000-0000-000000000000"
+        id="tMOCK_UUID"
       >
         <style
           aria-hidden="true"
         >
           
-  	.t00000000-0000-0000-0000-000000000000 {
+  	.tMOCK_UUID {
 	    color: #fff;
 	    background: #222;
 	    border: 1px solid transparent;
   	}
 
-  	.t00000000-0000-0000-0000-000000000000.place-top {
+  	.tMOCK_UUID.place-top {
         margin-top: -10px;
     }
-    .t00000000-0000-0000-0000-000000000000.place-top::before {
+    .tMOCK_UUID.place-top::before {
         border-top: 8px solid transparent;
     }
-    .t00000000-0000-0000-0000-000000000000.place-top::after {
+    .tMOCK_UUID.place-top::after {
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         bottom: -6px;
@@ -334,13 +348,13 @@ exports[`Viewport should match a snapshot 1`] = `
         border-top-width: 6px;
     }
 
-    .t00000000-0000-0000-0000-000000000000.place-bottom {
+    .tMOCK_UUID.place-bottom {
         margin-top: 10px;
     }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::before {
+    .tMOCK_UUID.place-bottom::before {
         border-bottom: 8px solid transparent;
     }
-    .t00000000-0000-0000-0000-000000000000.place-bottom::after {
+    .tMOCK_UUID.place-bottom::after {
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         top: -6px;
@@ -351,13 +365,13 @@ exports[`Viewport should match a snapshot 1`] = `
         border-bottom-width: 6px;
     }
 
-    .t00000000-0000-0000-0000-000000000000.place-left {
+    .tMOCK_UUID.place-left {
         margin-left: -10px;
     }
-    .t00000000-0000-0000-0000-000000000000.place-left::before {
+    .tMOCK_UUID.place-left::before {
         border-left: 8px solid transparent;
     }
-    .t00000000-0000-0000-0000-000000000000.place-left::after {
+    .tMOCK_UUID.place-left::after {
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         right: -6px;
@@ -368,13 +382,13 @@ exports[`Viewport should match a snapshot 1`] = `
         border-left-width: 6px;
     }
 
-    .t00000000-0000-0000-0000-000000000000.place-right {
+    .tMOCK_UUID.place-right {
         margin-left: 10px;
     }
-    .t00000000-0000-0000-0000-000000000000.place-right::before {
+    .tMOCK_UUID.place-right::before {
         border-right: 8px solid transparent;
     }
-    .t00000000-0000-0000-0000-000000000000.place-right::after {
+    .tMOCK_UUID.place-right::after {
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         left: -6px;
@@ -396,7 +410,7 @@ exports[`Viewport should match a snapshot 1`] = `
         class="container"
       >
         <div
-          class="el-flex el-flex1 el-hfull el-flex-column"
+          class="el-flex el-flex1 el-hfull el-flex-column el-px6"
           id="page-container"
           style="transition: transform 350ms; transform: scale(1); transform-origin: top left;"
         >
@@ -406,7 +420,19 @@ exports[`Viewport should match a snapshot 1`] = `
           >
             <div
               class="el-flex el-flex-row flex-align-stretch relative el-pt9 el-mauto"
-            />
+            >
+              <div
+                class="el-is-full-page el-loader-container"
+              >
+                <div
+                  class="el-loader"
+                >
+                  <div
+                    class="el-loader-moving-bar"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
