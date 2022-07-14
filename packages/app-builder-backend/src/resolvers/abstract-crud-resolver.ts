@@ -186,7 +186,11 @@ export abstract class AbstractCrudService<Entity, Embeds extends Record<string, 
     if (hasEmbedded(entity)) {
       Object.keys(entity._embedded).forEach((embeddedField: keyof Embeds) => {
         if (entity._embedded[embeddedField]) {
-          convertedEmbeds[embeddedField] = this.convertDates(entity._embedded[embeddedField])
+          if (Array.isArray(entity._embedded[embeddedField])) {
+            convertedEmbeds[embeddedField] = entity._embedded[embeddedField].map(this.convertDates)
+          } else {
+            convertedEmbeds[embeddedField] = this.convertDates(entity._embedded[embeddedField])
+          }
         }
       })
 
