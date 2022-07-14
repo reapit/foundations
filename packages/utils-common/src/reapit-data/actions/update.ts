@@ -37,6 +37,7 @@ export enum UpdateActionNames {
   createConsentEmails = 'createConsentEmails',
   resendConsentEmail = 'resendConsentEmail',
   approveConsent = 'approveConsent',
+  installApp = 'installApp',
 }
 
 export type UpdateActions = { [key in UpdateActionNames]: UpdateAction }
@@ -120,7 +121,7 @@ export const updateActions = (appEnv: AppEnv): UpdateActions => ({
     api: ApiNames(appEnv).platform,
     path: PathNames.terminateInstallation,
     errorMessage: 'Failed to uninstall your app',
-    successMessage: 'App successfully uninstalled for customer',
+    successMessage: 'App successfully uninstalled',
   },
   [UpdateActionNames.cancelRevision]: {
     api: ApiNames(appEnv).platform,
@@ -211,5 +212,11 @@ export const updateActions = (appEnv: AppEnv): UpdateActions => ({
     path: PathNames.appConsentApprove,
     successMessage: 'App permission change request accepted',
     errorMessage: 'Failed to accept app permission change, this has been logged. Please try again.',
+  },
+  [UpdateActionNames.installApp]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.installations,
+    successMessage: 'Successfully installed app',
+    errorMessage: 'Failed to install app, this has been logged. Please try again.',
   },
 })

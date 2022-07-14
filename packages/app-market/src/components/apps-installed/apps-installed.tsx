@@ -20,7 +20,18 @@ import { handleLaunchApp } from '../../utils/navigation'
 export const AppsInstalled: FC = () => {
   const { connectSession, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
   const clientId = connectSession?.loginIdentity.clientId
-  const queryParams = { clientId, isInstalled: true, showHiddenApps: false, isDirectApi: false, pageSize: 100 }
+  const developerId = connectSession?.loginIdentity.developerId
+  const product = connectSession?.loginIdentity.orgProduct
+  const baseParams = {
+    clientId,
+    onlyInstalled: true,
+    showHiddenApps: true,
+    isDirectApi: false,
+    pageSize: 100,
+    product,
+  }
+
+  const queryParams = developerId ? { ...baseParams, developerId } : baseParams
 
   const [apps, appsLoading] = useReapitGet<AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,

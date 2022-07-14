@@ -96,6 +96,13 @@ Object {
           </div>
         </div>
         <div
+          class="el-mb11 el-button-group"
+        >
+          <div
+            class="el-button-group-align-left el-button-group-inner"
+          />
+        </div>
+        <div
           class="app-detail-description-grid"
         >
           <div
@@ -315,6 +322,13 @@ Object {
             </p>
           </div>
         </div>
+      </div>
+      <div
+        class="el-mb11 el-button-group"
+      >
+        <div
+          class="el-button-group-align-left el-button-group-inner"
+        />
       </div>
       <div
         class="app-detail-description-grid"
