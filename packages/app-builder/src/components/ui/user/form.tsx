@@ -169,7 +169,8 @@ Form.craft = {
     canMoveOut: (outgoingNode: Node) => {
       return outgoingNode.data.displayName !== FormInput.name
     },
-    canMoveIn: (incomingNode: Node, currentNode: Node, helper: NodeHelpersType) => {
+    canMoveIn: (incomingNodes: Node[], currentNode: Node, helper: NodeHelpersType) => {
+      const [incomingNode] = incomingNodes
       if (incomingNode.data.displayName === FormInput.name) {
         // still allow moving in if the input is already a part of the form
         return helper(currentNode.id).descendants(true).includes(incomingNode.id)
