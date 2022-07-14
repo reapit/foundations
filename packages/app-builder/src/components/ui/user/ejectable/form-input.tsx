@@ -48,6 +48,10 @@ const SelectIDofTypeContainer = styled.div`
   select {
     width: 100%;
   }
+  .el-searchable-dropdown-search-loader {
+    margin-right: 0;
+    right: 8px;
+  }
   .el-searchable-dropdown-search-input {
     padding-left: 30px;
   }
@@ -291,7 +295,6 @@ const Input = ({
           required={isRequired && inputTypeName !== 'Boolean'}
           type={inputTypeName === 'Boolean' ? 'checkbox' : 'text'}
           onChange={onChange}
-          style={disabled ? { pointerEvents: 'none', opacity: 0.5 } : undefined}
           name={name}
           defaultValue={defaultValue}
         />
