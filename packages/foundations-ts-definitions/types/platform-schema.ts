@@ -5140,6 +5140,19 @@ export interface CreateEnquiryAddressModel {
   countryId?: string
 }
 /**
+ * The details specific to a buying enquiry
+ */
+export interface CreateEnquiryBuyingModel {
+  /**
+   * The lower bound of the prospective buyer's budget
+   */
+  priceFrom?: number // int32
+  /**
+   * The upper bound of the prospective buyer's budget
+   */
+  priceTo?: number // int32
+}
+/**
  * Request body used to create an enquiry
  * example:
  * [object Object]
@@ -5235,9 +5248,60 @@ export interface CreateEnquiryModel {
     countryId?: string
   }
   /**
+   * The details specific to a buying enquiry
+   */
+  buying?: {
+    /**
+     * The lower bound of the prospective buyer's budget
+     */
+    priceFrom?: number // int32
+    /**
+     * The upper bound of the prospective buyer's budget
+     */
+    priceTo?: number // int32
+  }
+  /**
+   * The details specific to renting enquiry. When type is renting.
+   */
+  renting?: {
+    /**
+     * The lower bound of the prospective tenant's budget
+     */
+    rentFrom?: number // int32
+    /**
+     * The upper bound of the prospective tenant's budget
+     */
+    rentTo?: number // int32
+    /**
+     * The desired rent collection frequency specified by the prospective tenant (weekly/monthly/annually).
+     */
+    rentFrequency?: string
+  }
+  /**
+   * The number of bedrooms the prospective buyer or tenant requires
+   */
+  bedrooms?: number // int32
+  /**
    * A list of unique property identifiers that the enquiry relates to. Used to indicate the properties that a sales or lettings applicant has expressed an interest in
    */
   propertyIds?: string[]
+}
+/**
+ * The details specific to renting enquiry. When type is renting.
+ */
+export interface CreateEnquiryRentingModel {
+  /**
+   * The lower bound of the prospective tenant's budget
+   */
+  rentFrom?: number // int32
+  /**
+   * The upper bound of the prospective tenant's budget
+   */
+  rentTo?: number // int32
+  /**
+   * The desired rent collection frequency specified by the prospective tenant (weekly/monthly/annually).
+   */
+  rentFrequency?: string
 }
 /**
  * Request body used to create a new contact identity check
@@ -7729,6 +7793,19 @@ export interface EnquiryAddressModel {
   countryId?: string
 }
 /**
+ * Request body used to create a buying enquiry
+ */
+export interface EnquiryBuyingModel {
+  /**
+   * The lower bound of the prospective buyer's budget
+   */
+  priceFrom?: number // int32
+  /**
+   * The upper bound of the prospective buyer's budget
+   */
+  priceTo?: number // int32
+}
+/**
  * Representation of an enquiry
  */
 export interface EnquiryModel {
@@ -7849,6 +7926,40 @@ export interface EnquiryModel {
      */
     countryId?: string
   }
+  /**
+   * Request body used to create a buying enquiry
+   */
+  buying?: {
+    /**
+     * The lower bound of the prospective buyer's budget
+     */
+    priceFrom?: number // int32
+    /**
+     * The upper bound of the prospective buyer's budget
+     */
+    priceTo?: number // int32
+  }
+  /**
+   * The details specific to enquiries with a type of lettingsApplicant
+   */
+  renting?: {
+    /**
+     * The lower bound of the prospective tenant's budget
+     */
+    rentFrom?: number // double
+    /**
+     * The upper bound of the prospective tenant's budget
+     */
+    rentTo?: number // double
+    /**
+     * How often the tenant would like to pay the rent (weekly/monthly/annually)
+     */
+    rentFrequency?: string
+  }
+  /**
+   * The number of bedrooms the prospective buyer or tenant requires
+   */
+  bedrooms?: number // int32
   /**
    * A list of unique property identifiers that this enquiry relates to. Used to indicate the properties that a sales or lettings applicant has expressed an interest in
    */
@@ -7974,6 +8085,40 @@ export interface EnquiryModelPagedResult {
       countryId?: string
     }
     /**
+     * Request body used to create a buying enquiry
+     */
+    buying?: {
+      /**
+       * The lower bound of the prospective buyer's budget
+       */
+      priceFrom?: number // int32
+      /**
+       * The upper bound of the prospective buyer's budget
+       */
+      priceTo?: number // int32
+    }
+    /**
+     * The details specific to enquiries with a type of lettingsApplicant
+     */
+    renting?: {
+      /**
+       * The lower bound of the prospective tenant's budget
+       */
+      rentFrom?: number // double
+      /**
+       * The upper bound of the prospective tenant's budget
+       */
+      rentTo?: number // double
+      /**
+       * How often the tenant would like to pay the rent (weekly/monthly/annually)
+       */
+      rentFrequency?: string
+    }
+    /**
+     * The number of bedrooms the prospective buyer or tenant requires
+     */
+    bedrooms?: number // int32
+    /**
      * A list of unique property identifiers that this enquiry relates to. Used to indicate the properties that a sales or lettings applicant has expressed an interest in
      */
     propertyIds?: string[]
@@ -7988,6 +8133,23 @@ export interface EnquiryModelPagedResult {
       href?: string
     }
   }
+}
+/**
+ * The details specific to enquiries with a type of lettingsApplicant
+ */
+export interface EnquiryRentingModel {
+  /**
+   * The lower bound of the prospective tenant's budget
+   */
+  rentFrom?: number // double
+  /**
+   * The upper bound of the prospective tenant's budget
+   */
+  rentTo?: number // double
+  /**
+   * How often the tenant would like to pay the rent (weekly/monthly/annually)
+   */
+  rentFrequency?: string
 }
 /**
  * Any specific details relating to the marketing of a property in Guernsey
