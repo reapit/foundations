@@ -53,7 +53,6 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
         return setFormState((prevState) => ({ ...prevState, [name]: checked }))
       }
       setFormState((prevState) => {
-        console.log({ ...prevState, [name]: value })
         return { ...prevState, [name]: value }
       })
     }
