@@ -4,6 +4,7 @@ import {
   Button,
   ButtonGroup,
   CreateImageUploadModel,
+  ElToggleItem,
   FormLayout,
   iconSet,
   ImageUploadModel,
@@ -17,6 +18,7 @@ import {
   Select,
   Subtitle,
   Title,
+  Toggle,
 } from '@reapit/elements'
 import {
   AppsBrowseConfigEnum,
@@ -210,14 +212,20 @@ export const AppBrowseUpsertModal: FC<{
           <InputWrapFull>
             <InputGroup>
               <Label>Is Free</Label>
-              <Input {...register('filters.isFree')} type="checkbox" />
+              <Toggle id="toggle-free" {...register('filters.isFree')} hasGreyBg>
+                <ElToggleItem>Free</ElToggleItem>
+                <ElToggleItem>Paid</ElToggleItem>
+              </Toggle>
               {errors.filters?.isFree?.message && <InputError message={errors.filters?.isFree.message.toString()} />}
             </InputGroup>
           </InputWrapFull>
           <InputWrapFull>
             <InputGroup>
               <Label>Is Featured</Label>
-              <Input {...register('filters.isFeatured')} type="checkbox" />
+              <Toggle id="toggle-featured" {...register('filters.isFeatured')} hasGreyBg>
+                <ElToggleItem>Yes</ElToggleItem>
+                <ElToggleItem>No</ElToggleItem>
+              </Toggle>
               {errors.filters?.isFeatured?.message && (
                 <InputError message={errors.filters?.isFeatured.message.toString()} />
               )}
@@ -331,7 +339,10 @@ export const AppBrowseUpsertModal: FC<{
           <InputWrapFull>
             <InputGroup>
               <Label>Is Live</Label>
-              <Input {...register('live.isLive')} type="checkbox" />
+              <Toggle id="toggle-live" {...register('live.isLive')} hasGreyBg>
+                <ElToggleItem>Yes</ElToggleItem>
+                <ElToggleItem>No</ElToggleItem>
+              </Toggle>
               {errors.live?.isLive?.message && <InputError message={errors.live?.isLive.message.toString()} />}
             </InputGroup>
           </InputWrapFull>
