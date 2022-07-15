@@ -8,43 +8,17 @@ Object {
       <div
         class="el-snack-holder"
       />
-      <div>
-        <h1
-          class="el-title"
+      <div
+        class="el-mb11"
+      >
+        <h2
+          class="el-subtitle"
         >
           featuredApps
-        </h1>
+        </h2>
         <div
           class="el-table"
-        >
-          <div
-            class="el-table-headers-row"
-          >
-            <div
-              class="el-table-header"
-            >
-              Title
-            </div>
-            <div
-              class="el-table-header"
-            >
-              BrandColor
-            </div>
-            <div
-              class="el-table-header"
-            >
-              Apps
-            </div>
-            <div
-              class="el-table-header"
-            >
-              Live
-            </div>
-            <div
-              class="el-table-header"
-            />
-          </div>
-        </div>
+        />
         <br />
         <button
           class="el-intent-primary el-button"
@@ -58,43 +32,17 @@ Object {
     <div
       class="el-snack-holder"
     />
-    <div>
-      <h1
-        class="el-title"
+    <div
+      class="el-mb11"
+    >
+      <h2
+        class="el-subtitle"
       >
         featuredApps
-      </h1>
+      </h2>
       <div
         class="el-table"
-      >
-        <div
-          class="el-table-headers-row"
-        >
-          <div
-            class="el-table-header"
-          >
-            Title
-          </div>
-          <div
-            class="el-table-header"
-          >
-            BrandColor
-          </div>
-          <div
-            class="el-table-header"
-          >
-            Apps
-          </div>
-          <div
-            class="el-table-header"
-          >
-            Live
-          </div>
-          <div
-            class="el-table-header"
-          />
-        </div>
-      </div>
+      />
       <br />
       <button
         class="el-intent-primary el-button"
