@@ -5,5 +5,6 @@ export const Routes = {
   APPS_INSTALLED: '/installed',
   SETTINGS_PROFILE: '/settings/profile',
   SETTINGS_INSTALLED: '/settings/installed',
+  SUPPORT: '/support',
   LOGIN: '/login',
 }

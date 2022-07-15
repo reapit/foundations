@@ -37,12 +37,16 @@ describe('getDefaultNavIndex', () => {
       index: 2,
     },
     {
-      route: Routes.SETTINGS_INSTALLED,
+      route: Routes.SUPPORT,
       index: 4,
     },
     {
+      route: Routes.SETTINGS_INSTALLED,
+      index: 5,
+    },
+    {
       route: Routes.SETTINGS_PROFILE,
-      index: 4,
+      index: 5,
     },
     {
       route: '/random-route',
