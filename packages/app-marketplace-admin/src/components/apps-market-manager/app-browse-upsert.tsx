@@ -1,9 +1,26 @@
 import { ReapitConnectSession, useReapitConnect } from '@reapit/connect-session'
-import { Loader, PageContainer, Title, useModal } from '@reapit/elements'
+import {
+  Button,
+  elMb3,
+  FlexContainer,
+  Icon,
+  Loader,
+  PageContainer,
+  SecondaryNav,
+  SecondaryNavContainer,
+  SecondaryNavItem,
+  SmallText,
+  Subtitle,
+  Title,
+  useModal,
+} from '@reapit/elements'
 import { AppsBrowseConfigEnum, AppsBrowseConfigItemInterface } from '@reapit/foundations-ts-definitions'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { useReapitGet } from '@reapit/utils-react'
 import React, { FC, useEffect, useState } from 'react'
+import { useHistory } from 'react-router'
+import { Routes } from '../../constants/routes'
+import { navigate, openNewPage, ExternalPages } from '../../utils/navigation'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { AppBrowseManageTable } from './app-browse-manage-table'
 import { AppBrowseUpsertModal } from './app-browse-upsert-modal'
@@ -51,40 +68,59 @@ export const AppBrowseUpsert: FC<{}> = () => {
     setItems([...items.filter((i) => i.id !== item.id), item])
   }
 
+  const history = useHistory()
+
   return (
-    <PageContainer>
-      <Title>AppMarket Admin</Title>
-      {appMarketPlaceCmsLoading ? (
-        <Loader />
-      ) : (
-        Object.values(AppsBrowseConfigEnum).map((type) => (
-          <AppBrowseManageTable
-            key={`${type}`}
-            type={type}
-            items={items.filter((item) => item.configType === type)}
-            setEditType={() => setConfigType(type)}
-            setSelectedItem={setSelectedItem}
-            connectSession={connectSession as ReapitConnectSession}
-            deleteItem={deleteItem}
-          />
-        ))
-      )}
-      <AppBrowseUpsertModal
-        modalIsOpen={typeof configType !== 'undefined'}
-        defaultValues={{ configType: configType as AppsBrowseConfigEnum } as AppsBrowseConfigItemInterface}
-        closeModal={closeModal}
-        connectSession={connectSession as ReapitConnectSession}
-        upsertItem={upsertItem}
-      />
-      {selectedItem && (
+    <FlexContainer isFlexAuto>
+      <SecondaryNavContainer>
+        <Title>AppMarket Admin</Title>
+        <SecondaryNav className={elMb3}>
+          <SecondaryNavItem onClick={navigate(history, Routes.APPS_BROWSE_MANAGER)} active={true}>
+            Manage
+          </SecondaryNavItem>
+        </SecondaryNav>
+        <Icon className={elMb3} icon="myAppsInfographic" iconSize="large" />
+        <Subtitle>Marketplace Admin Docs</Subtitle>
+        <SmallText hasGreyText>
+          Praesent nec viverra nulla. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent sem nunc,
+          tincidunt vestibulum metus quis, rutrum fringilla urna. Curabitur ipsum tortor, efficitur eget egestas non,
+          condimentum semper nisl.
+        </SmallText>
+        <Button onClick={openNewPage(ExternalPages.appMarketplaceAdminDocs)}>View Docs</Button>
+      </SecondaryNavContainer>
+      <PageContainer>
+        {appMarketPlaceCmsLoading ? (
+          <Loader />
+        ) : (
+          Object.values(AppsBrowseConfigEnum).map((type) => (
+            <AppBrowseManageTable
+              key={`${type}`}
+              type={type}
+              items={items.filter((item) => item.configType === type)}
+              setEditType={() => setConfigType(type)}
+              setSelectedItem={setSelectedItem}
+              connectSession={connectSession as ReapitConnectSession}
+              deleteItem={deleteItem}
+            />
+          ))
+        )}
         <AppBrowseUpsertModal
-          modalIsOpen={typeof selectedItem !== 'undefined'}
+          modalIsOpen={typeof configType !== 'undefined'}
+          defaultValues={{ configType: configType as AppsBrowseConfigEnum } as AppsBrowseConfigItemInterface}
           closeModal={closeModal}
           connectSession={connectSession as ReapitConnectSession}
-          defaultValues={selectedItem as AppsBrowseConfigItemInterface}
           upsertItem={upsertItem}
         />
-      )}
-    </PageContainer>
+        {selectedItem && (
+          <AppBrowseUpsertModal
+            modalIsOpen={typeof selectedItem !== 'undefined'}
+            closeModal={closeModal}
+            connectSession={connectSession as ReapitConnectSession}
+            defaultValues={selectedItem as AppsBrowseConfigItemInterface}
+            upsertItem={upsertItem}
+          />
+        )}
+      </PageContainer>
+    </FlexContainer>
   )
 }

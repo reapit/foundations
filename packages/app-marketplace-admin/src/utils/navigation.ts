@@ -1,5 +1,9 @@
 import { History } from 'history'
 
+export enum ExternalPages {
+  appMarketplaceAdminDocs = 'https://foundations-documentation.reapit.cloud/', // TODO complete docs
+}
+
 export const openNewPage = (uri: string) => () => {
   window.open(uri, '_blank')
 }

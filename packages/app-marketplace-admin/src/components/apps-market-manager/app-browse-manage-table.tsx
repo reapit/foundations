@@ -140,7 +140,9 @@ export const AppBrowseManageTable: FC<{
                   <InputWrapFull>
                     <Label>Image</Label>
                     {item.content?.imageUrl ? (
-                      <img src={item.content.imageUrl} />
+                      <div>
+                        <img src={item.content.imageUrl} />
+                      </div>
                     ) : (
                       <BodyText hasGreyText>None</BodyText>
                     )}
