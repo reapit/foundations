@@ -1,5 +1,5 @@
 import { ReapitConnectSession } from '@reapit/connect-session'
-import { Button, ButtonGroup, Table, Title } from '@reapit/elements'
+import { Button, ButtonGroup, elMb11, Table, Title } from '@reapit/elements'
 import { AppsBrowseConfigEnum, AppsBrowseConfigItemInterface } from '@reapit/foundations-ts-definitions'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { useReapitUpdate } from '@reapit/utils-react'
@@ -7,6 +7,7 @@ import React, { FC, useState } from 'react'
 import { colorSquare } from './app-browse.styles'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { shleemy } from 'shleemy'
+import { cx } from '@linaria/core'
 
 export const AppBrowseManageTable: FC<{
   type: AppsBrowseConfigEnum
@@ -28,7 +29,7 @@ export const AppBrowseManageTable: FC<{
   })
 
   return (
-    <div {...rest}>
+    <div {...rest} className={cx(elMb11)}>
       <Title>{type}</Title>
       <Table
         indexExpandedRow={expandedIndex}
