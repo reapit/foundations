@@ -36,7 +36,7 @@ export const updatePaymentStatus = async (
 
     throw new Error('Failed to update user')
   } catch (err) {
-    logger(err)
+    logger(err as Error)
     notification.error({
       message: 'Failed to update the status of the session with the payment provider',
     })
@@ -64,7 +64,7 @@ export const updatePaymentSessionStatus = async (
 
     throw new Error('Failed to update user')
   } catch (err) {
-    logger(err)
+    logger(err as Error)
     notification.error({
       message: 'Failed to update the status of the session with the payment provider',
     })
@@ -94,7 +94,7 @@ export const generatePaymentApiKey = async (body: ApiKeyRequest): Promise<ApiKey
 
     throw new Error('Failed to generate api key')
   } catch (err) {
-    logger(err)
+    logger(err as Error)
     notification.error({
       message: 'Failed to connect with the payment provider please try refreshing the page',
     })
@@ -133,7 +133,7 @@ export const generateEmailPaymentRequest = async (
 
     throw new Error('Failed to generate email payment request')
   } catch (err) {
-    logger(err)
+    logger(err as Error)
     notification.error({
       message: 'Failed to semd an email invoice, please try again',
     })
@@ -171,7 +171,7 @@ export const generateEmailPaymentReceiptInternal = async (
 
     throw new Error('Failed to generate email payment receipt')
   } catch (err) {
-    logger(err)
+    logger(err as Error)
     notification.error({
       message: 'Failed to send a receipt for this transaction, please try again',
     })
@@ -206,7 +206,7 @@ export const generateEmailPaymentReceiptExternal = async (
 
     throw new Error('Failed to generate email payment receipt')
   } catch (err) {
-    logger(err)
+    logger(err as Error)
     notification.error({
       message: 'Failed to send a receipt for this transaction, please try again',
     })

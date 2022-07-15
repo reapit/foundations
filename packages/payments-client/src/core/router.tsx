@@ -1,13 +1,13 @@
 import * as React from 'react'
 import { Route, Router as BrowserRouter, Switch, Redirect } from 'react-router-dom'
-import { createBrowserHistory } from 'history'
+import { createBrowserHistory, History } from 'history'
 import { SWRConfig } from 'swr'
 import { Routes } from '../constants/routes'
 import PrivateRouteWrapper from './private-route-wrapper'
 import { platformFetcher } from '../utils/fetcher'
 import { OkayPage } from '@reapit/utils-react'
 
-export const history = createBrowserHistory()
+export const history: History<any> = createBrowserHistory()
 
 export const catchChunkError = (
   fn: Function,

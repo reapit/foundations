@@ -24,7 +24,7 @@ export const opayoCreateTransactionService = async (
 
     throw new Error('No transaction processed')
   } catch (err) {
-    logger(err)
+    logger(err as Error)
     notification.error({
       message: 'Failed to connect to the payment provider, please try again',
     })
@@ -48,7 +48,7 @@ export const opayoMerchantKeyService = async (clientCode: string): Promise<Merch
 
     throw new Error('No merchant key returned')
   } catch (err) {
-    logger(err)
+    logger(err as Error)
     notification.error({
       message: 'Failed to connect to the payment provider, please try again',
     })

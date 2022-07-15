@@ -1,251 +1,521 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PaymentExternalPage should match a snapshot when has an error 1`] = `
-<Helper
-  variant="warning"
->
-  No valid session was found for this transaction. It is likely that the payment request has expired (refer to your email), or the payment has been made successfully. If you think you are seeing this message in error, please contact your agent so they can re-issue the payment request.
-</Helper>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="reapit-notification reapit-notification-topRight"
+        style="right: 0px; top: 24px;"
+      >
+        <div>
+          <div
+            class="reapit-notification-notice reapit-notification-notice-closable"
+          >
+            <div
+              class="reapit-notification-notice-content"
+            >
+              <div
+                class="notification reapit-notification-content is-warning-message"
+              >
+                <svg
+                  class=""
+                  fill="none"
+                  height="36"
+                  viewBox="0 0 36 36"
+                  width="36"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10 0C4.4775 0 0 4.4775 0 10C0 15.5225 4.4775 20 10 20C15.5225 20 20 15.5225 20 10C20 4.4775 15.5225 0 10 0ZM10 16.3833C9.21833 16.3833 8.68333 15.7808 8.68333 15C8.68333 14.1967 9.24083 13.6167 10 13.6167C10.8025 13.6167 11.3167 14.1967 11.3167 15C11.3167 15.7817 10.8025 16.3833 10 16.3833ZM10.5183 11.1008C10.3192 11.78 9.69167 11.7917 9.4825 11.1008C9.24167 10.3042 8.38583 7.28 8.38583 5.31583C8.38583 2.72417 11.6283 2.71167 11.6283 5.31583C11.6275 7.29167 10.7258 10.3942 10.5183 11.1008Z"
+                    fill="#D3033D"
+                  />
+                </svg>
+                Failed to connect to the payment provider, please try again
+              </div>
+            </div>
+            <a
+              class="reapit-notification-notice-close"
+              tabindex="0"
+            >
+              <span
+                class="reapit-notification-notice-close-x"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <div
+        class="loader-spinner body"
+        data-test=""
+      >
+        <div />
+        <div />
+        <div />
+        <div />
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <div
+      class="loader-spinner body"
+      data-test=""
+    >
+      <div />
+      <div />
+      <div />
+      <div />
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`PaymentExternalPage should match a snapshot when has data and a merchantKey 1`] = `
-<PaymentPageContent
-  payment={
-    Object {
-      "_eTag": "",
-      "_links": Object {
-        "customer": Object {
-          "href": "/contacts/OXF12300101",
-        },
-        "property": Object {
-          "href": "/properties/PRP200001",
-        },
-        "self": Object {
-          "href": "/payments/PAY20000001",
-        },
-      },
-      "amount": 100,
-      "clientAccountName": "Primary",
-      "clientCode": "SBOX",
-      "companyId": "",
-      "created": "2018-12-12T12:30:23.0000000Z",
-      "customer": Object {
-        "email": "example@email.com",
-        "forename": "John",
-        "homePhone": "01234 567890",
-        "id": "OXF12300101",
-        "mobilePhone": "07890 123456",
-        "name": "Mr John Smith",
-        "primaryAddress": Object {
-          "buildingName": "",
-          "buildingNumber": "1",
-          "countryId": "GB",
-          "line1": "Test House",
-          "line2": "Test Lane",
-          "line3": "County of Test",
-          "line4": "Test City",
-          "postcode": "A11 2BB",
-        },
-        "surname": "Smith",
-        "title": "Mr",
-        "type": "contact",
-        "workPhone": "",
-      },
-      "description": "Tenancy Check Fee",
-      "externalReference": "",
-      "id": "PAY20000001",
-      "landlordId": "",
-      "ledger": "tenant",
-      "modified": "2019-01-08T12:30:34.0000000Z",
-      "property": Object {
-        "_eTag": "",
-        "_links": Object {
-          "appointments": Object {
-            "href": "/appointments/?propertyId=OXF200008",
-          },
-          "area": Object {
-            "href": "/areas/BRM",
-          },
-          "department": Object {
-            "href": "/departments/G",
-          },
-          "documents": Object {
-            "href": "/documents/?associatedType=property&associatedId=OXF200008",
-          },
-          "images": Object {
-            "href": "/propertyImages/?propertyId=OXF200008",
-          },
-          "landlord": Object {
-            "href": "/landlords/OXF123001",
-          },
-          "negotiator": Object {
-            "href": "/negotiators/JAS",
-          },
-          "offers": Object {
-            "href": "/offers/?propertyId=OXF200008",
-          },
-          "offices": Object {
-            "href": "/offices/?id=OXF&id=SOL",
-          },
-          "self": Object {
-            "href": "/properties/OXF200008",
-          },
-          "vendor": Object {
-            "href": "/vendors/OXF123001",
-          },
-        },
-        "address": Object {
-          "buildingName": "",
-          "buildingNumber": "15",
-          "countryId": "GB",
-          "geolocation": Object {
-            "latitude": 52.4158586,
-            "longitude": 1.7773383,
-          },
-          "line1": "Example street",
-          "line2": "Solihull",
-          "line3": "West Midlands",
-          "line4": "",
-          "postcode": "B91 2XX",
-        },
-        "age": Array [
-          "period",
-        ],
-        "areaId": "BRM",
-        "bathrooms": 2,
-        "bedrooms": 4,
-        "councilTax": "A",
-        "created": "2018-12-12T12:30:23.0000000Z",
-        "currency": "GBP",
-        "departmentId": "G",
-        "description": "We are delighted to offer for sale this EXTENDED THREE BEDROOMED SEMI DETACHED PROPERTY situated in a much sought after residential location of Greasby, having the benefits of two separate entertaining rooms, morning room, extended kitchen. To the first floor there are three bedrooms, spacious family bathroom, gas central heating gardens front and rear and off road parking.",
-        "epc": Object {
-          "eer": 45,
-          "eerPotential": 71,
-          "eir": 53,
-          "eirPotential": 81,
-          "exempt": false,
-        },
-        "externalArea": Object {
-          "max": 2,
-          "min": 1,
-          "type": "acres",
-        },
-        "id": "OXF200008",
-        "internalArea": Object {
-          "max": 2000,
-          "min": 1500,
-          "type": "squareFeet",
-        },
-        "internetAdvertising": true,
-        "letting": Object {
-          "agentRole": "managed",
-          "availableFrom": "2018-12-26",
-          "availableTo": "2019-03-23",
-          "furnishing": Array [
-            "furnished",
-            "partFurnished",
-          ],
-          "instructed": "2018-11-18",
-          "landlordId": "OXF123001",
-          "rent": 750,
-          "rentFrequency": "monthly",
-          "status": "toLet",
-          "term": "long",
-        },
-        "locality": Array [
-          "rural",
-          "village",
-        ],
-        "marketingMode": "sellingAndLetting",
-        "metadata": Object {
-          "CustomField1": "CustomValue1",
-          "CustomField2": true,
-        },
-        "modified": "2019-01-08T12:30:34.0000000Z",
-        "negotiatorId": "JAS",
-        "officeIds": Array [
-          "OXF",
-          "SOL",
-        ],
-        "parking": Array [
-          "secure",
-          "doubleGarage",
-        ],
-        "receptions": 1,
-        "rooms": Array [
-          Object {
-            "description": "The breakfast kitchen, with utility, comprises a matching range of wall and base units with ceramic hob and eye level double oven. A side door leads to the front courtyard area.",
-            "dimensions": "4.5m x 5.2m",
-            "name": "Kitchen",
-          },
-          Object {
-            "description": "The lounge, with a brick feature fireplace housing a Clearview stove, provides an ideal space to relax and unwind, whilst enjoying views over the Golf Course.",
-            "dimensions": "6.5m x 7.8m",
-            "name": "Lounge",
-          },
-          Object {
-            "description": "The formal dining room is the perfect space to entertain and provides access to the useful study.",
-            "dimensions": "5.1m x 6.2m",
-            "name": "Dining Room",
-          },
-        ],
-        "selling": Object {
-          "completed": "2019-08-27",
-          "disposal": "privateTreaty",
-          "exchanged": "2019-08-15",
-          "instructed": "2018-11-18",
-          "price": 250000,
-          "qualifier": "askingPrice",
-          "status": "underOffer",
-          "tenure": Object {
-            "expiry": "2019-05-01",
-            "type": "leasehold",
-          },
-          "vendorId": "OXF123001",
-        },
-        "situation": Array [
-          "garden",
-          "land",
-          "patio",
-        ],
-        "strapline": "",
-        "style": Array [
-          "detached",
-        ],
-        "summary": "",
-        "type": Array [
-          "house",
-        ],
-        "videoCaption": "Virtual property tour",
-        "videoUrl": "https://www.example.com/property/123/videoTour",
-        "viewingArrangements": "Accompanied viewings after 3PM only",
-      },
-      "propertyId": "PRP200001",
-      "status": "awaitingPosting",
-      "tenancyId": "",
-      "type": "paymentRequest",
-    }
-  }
-  paymentProvider={
-    OpayoProvider {
-      "merchantKey": Object {
-        "expiry": "SomeDateTime",
-        "merchantSessionKey": "SomeKey",
-      },
-      "providerName": "opayo",
-    }
-  }
-  session="session-token"
-/>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="reapit-notification reapit-notification-topRight"
+        style="right: 0px; top: 24px;"
+      >
+        <div>
+          <div
+            class="reapit-notification-notice reapit-notification-notice-closable"
+          >
+            <div
+              class="reapit-notification-notice-content"
+            >
+              <div
+                class="notification reapit-notification-content is-warning-message"
+              >
+                <svg
+                  class=""
+                  fill="none"
+                  height="36"
+                  viewBox="0 0 36 36"
+                  width="36"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10 0C4.4775 0 0 4.4775 0 10C0 15.5225 4.4775 20 10 20C15.5225 20 20 15.5225 20 10C20 4.4775 15.5225 0 10 0ZM10 16.3833C9.21833 16.3833 8.68333 15.7808 8.68333 15C8.68333 14.1967 9.24083 13.6167 10 13.6167C10.8025 13.6167 11.3167 14.1967 11.3167 15C11.3167 15.7817 10.8025 16.3833 10 16.3833ZM10.5183 11.1008C10.3192 11.78 9.69167 11.7917 9.4825 11.1008C9.24167 10.3042 8.38583 7.28 8.38583 5.31583C8.38583 2.72417 11.6283 2.71167 11.6283 5.31583C11.6275 7.29167 10.7258 10.3942 10.5183 11.1008Z"
+                    fill="#D3033D"
+                  />
+                </svg>
+                Failed to connect to the payment provider, please try again
+              </div>
+            </div>
+            <a
+              class="reapit-notification-notice-close"
+              tabindex="0"
+            >
+              <span
+                class="reapit-notification-notice-close-x"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <div
+        class="loader-spinner body"
+        data-test=""
+      >
+        <div />
+        <div />
+        <div />
+        <div />
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <div
+      class="loader-spinner body"
+      data-test=""
+    >
+      <div />
+      <div />
+      <div />
+      <div />
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`PaymentExternalPage should match a snapshot when has no merchantKey and no error 1`] = `
-<Helper
-  variant="info"
->
-  There seems to be a problem with account with the payment provider. Please inform your agent of this issue and they will provide you with payment alternatives.
-</Helper>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="reapit-notification reapit-notification-topRight"
+        style="right: 0px; top: 24px;"
+      >
+        <div>
+          <div
+            class="reapit-notification-notice reapit-notification-notice-closable"
+          >
+            <div
+              class="reapit-notification-notice-content"
+            >
+              <div
+                class="notification reapit-notification-content is-warning-message"
+              >
+                <svg
+                  class=""
+                  fill="none"
+                  height="36"
+                  viewBox="0 0 36 36"
+                  width="36"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10 0C4.4775 0 0 4.4775 0 10C0 15.5225 4.4775 20 10 20C15.5225 20 20 15.5225 20 10C20 4.4775 15.5225 0 10 0ZM10 16.3833C9.21833 16.3833 8.68333 15.7808 8.68333 15C8.68333 14.1967 9.24083 13.6167 10 13.6167C10.8025 13.6167 11.3167 14.1967 11.3167 15C11.3167 15.7817 10.8025 16.3833 10 16.3833ZM10.5183 11.1008C10.3192 11.78 9.69167 11.7917 9.4825 11.1008C9.24167 10.3042 8.38583 7.28 8.38583 5.31583C8.38583 2.72417 11.6283 2.71167 11.6283 5.31583C11.6275 7.29167 10.7258 10.3942 10.5183 11.1008Z"
+                    fill="#D3033D"
+                  />
+                </svg>
+                Failed to connect to the payment provider, please try again
+              </div>
+            </div>
+            <a
+              class="reapit-notification-notice-close"
+              tabindex="0"
+            >
+              <span
+                class="reapit-notification-notice-close-x"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <div
+        class="loader-spinner body"
+        data-test=""
+      >
+        <div />
+        <div />
+        <div />
+        <div />
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <div
+      class="loader-spinner body"
+      data-test=""
+    >
+      <div />
+      <div />
+      <div />
+      <div />
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
-exports[`PaymentExternalPage should match a snapshot when loading 1`] = `<Loader />`;
+exports[`PaymentExternalPage should match a snapshot when loading 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <div
+        class="loader-spinner body"
+        data-test=""
+      >
+        <div />
+        <div />
+        <div />
+        <div />
+      </div>
+    </div>
+    <div>
+      <div
+        class="reapit-notification reapit-notification-topRight"
+        style="right: 0px; top: 24px;"
+      >
+        <div>
+          <div
+            class="reapit-notification-notice reapit-notification-notice-closable"
+          >
+            <div
+              class="reapit-notification-notice-content"
+            >
+              <div
+                class="notification reapit-notification-content is-warning-message"
+              >
+                <svg
+                  class=""
+                  fill="none"
+                  height="36"
+                  viewBox="0 0 36 36"
+                  width="36"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10 0C4.4775 0 0 4.4775 0 10C0 15.5225 4.4775 20 10 20C15.5225 20 20 15.5225 20 10C20 4.4775 15.5225 0 10 0ZM10 16.3833C9.21833 16.3833 8.68333 15.7808 8.68333 15C8.68333 14.1967 9.24083 13.6167 10 13.6167C10.8025 13.6167 11.3167 14.1967 11.3167 15C11.3167 15.7817 10.8025 16.3833 10 16.3833ZM10.5183 11.1008C10.3192 11.78 9.69167 11.7917 9.4825 11.1008C9.24167 10.3042 8.38583 7.28 8.38583 5.31583C8.38583 2.72417 11.6283 2.71167 11.6283 5.31583C11.6275 7.29167 10.7258 10.3942 10.5183 11.1008Z"
+                    fill="#D3033D"
+                  />
+                </svg>
+                Failed to connect to the payment provider, please try again
+              </div>
+            </div>
+            <a
+              class="reapit-notification-notice-close"
+              tabindex="0"
+            >
+              <span
+                class="reapit-notification-notice-close-x"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <div
+      class="loader-spinner body"
+      data-test=""
+    >
+      <div />
+      <div />
+      <div />
+      <div />
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

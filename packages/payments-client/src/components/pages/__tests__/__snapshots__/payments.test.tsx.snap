@@ -1,262 +1,2393 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AmountCell should match a snapshot 1`] = `
-<p>
-  £10000.00
-</p>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <p>
+        £10000.00
+      </p>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <p>
+      £10000.00
+    </p>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`AmountCell should match a snapshot where no value 1`] = `
-<p>
-  £0
-</p>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <p>
+        £0
+      </p>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <p>
+      £0
+    </p>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`Payments  should match a snapshot where has payments list 1`] = `
-<ErrorBoundary>
-  <Section
-    hasPadding={false}
-  >
-    <div
-      className="justify-between flex items-center"
-    >
-      <H3
-        className="mb-0"
-      >
-        Payments Dashboard
-      </H3>
-      <PaymentLogo />
-    </div>
-  </Section>
-  <PaymentsFilterForm
-    filterValues={
-      Object {
-        "createdFrom": "2019-09-11",
-        "createdTo": "2019-10-11",
-        "description": "",
-        "pageSize": "12",
-        "properties": "",
-        "status": Array [],
-        "type": Array [],
-      }
-    }
-    onSearch={[Function]}
-  />
-  <Section
-    hasPadding={false}
-  >
-    <FadeIn>
-      <Table
-        columns={
-          Array [
-            Object {
-              "Cell": [Function],
-              "Header": "Property",
-              "accessor": "propertyId",
-            },
-            Object {
-              "Cell": [Function],
-              "Header": "Amount",
-              "accessor": "amount",
-            },
-            Object {
-              "Header": "Customer",
-              "accessor": "customer.name",
-            },
-            Object {
-              "Header": "Description",
-              "accessor": "description",
-            },
-            Object {
-              "Header": "Client A/C",
-              "accessor": "clientAccountName",
-            },
-            Object {
-              "Cell": [Function],
-              "Header": "Status",
-              "accessor": "status",
-            },
-            Object {
-              "Cell": [Function],
-              "Header": "Request Date",
-              "accessor": "created",
-            },
-            Object {
-              "Cell": [Function],
-              "Header": "Email Invoice",
-              "accessor": "id",
-              "id": "customer.id",
-            },
-            Object {
-              "Cell": [Function],
-              "Header": "Card Payment",
-              "accessor": "id",
-              "id": "id",
-            },
-          ]
-        }
-        data={
-          Array [
-            Object {
-              "_eTag": "",
-              "_links": Object {
-                "customer": Object {
-                  "href": "/contacts/OXF12300101",
-                },
-                "property": Object {
-                  "href": "/properties/PRP200001",
-                },
-                "self": Object {
-                  "href": "/payments/PAY20000001",
-                },
-              },
-              "amount": 100,
-              "clientAccountName": "Primary",
-              "companyId": "",
-              "created": "2018-12-12T12:30:23.0000000Z",
-              "customer": Object {
-                "email": "example@email.com",
-                "forename": "John",
-                "homePhone": "01234 567890",
-                "id": "OXF12300101",
-                "mobilePhone": "07890 123456",
-                "name": "Mr John Smith",
-                "primaryAddress": Object {
-                  "buildingName": "",
-                  "buildingNumber": "1",
-                  "countryId": "GB",
-                  "line1": "Test House",
-                  "line2": "Test Lane",
-                  "line3": "County of Test",
-                  "line4": "Test City",
-                  "postcode": "A11 2BB",
-                },
-                "surname": "Smith",
-                "title": "Mr",
-                "type": "contact",
-                "workPhone": "",
-              },
-              "description": "Tenancy Check Fee",
-              "externalReference": "",
-              "id": "PAY20000001",
-              "landlordId": "",
-              "ledger": "tenant",
-              "modified": "2019-01-08T12:30:34.0000000Z",
-              "propertyId": "PRP200001",
-              "status": "awaitingPosting",
-              "tenancyId": "",
-              "type": "paymentRequest",
-            },
-          ]
-        }
-        expandable={true}
-        scrollable={true}
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
       />
-    </FadeIn>
-  </Section>
-  <Pagination
-    onChange={[Function]}
-    pageNumber={1}
-    pageSize={1}
-    totalCount={1}
-  />
-  <PaymentRequestModal
-    payment={null}
-    refetchPayments={[MockFunction]}
-    setSelectedPayment={[Function]}
-  />
-</ErrorBoundary>
+      <section
+        class="section has-margin has-background"
+        data-test=""
+      >
+        <div
+          class="justify-between flex items-center"
+        >
+          <h3
+            class="title is-3 mb-0"
+            id=""
+          >
+            Payments Dashboard
+          </h3>
+          <div
+            class="logo"
+          >
+            <img
+              src="https://web-components.prod.paas.reapit.cloud/reapit-payments.png"
+            />
+          </div>
+        </div>
+      </section>
+      <section
+        class="section has-margin has-background"
+        data-test=""
+      >
+        <h5
+          class="title is-5"
+          id=""
+        >
+          Filter Dashboard
+        </h5>
+        <form
+          action="#"
+          novalidate=""
+        >
+          <div
+            class="columns"
+            data-test=""
+          >
+            <div
+              class="column"
+              data-test=""
+            >
+              <div
+                class="field"
+              >
+                <div
+                  class="control"
+                >
+                  <div
+                    class="field field-dropdown-select"
+                  >
+                    <label
+                      class="label "
+                    >
+                      Status
+                    </label>
+                    <div
+                      class="rc-select is-primary input rc-select-multiple rc-select-show-search"
+                    >
+                      <div
+                        class="rc-select-selector"
+                      >
+                        <span
+                          class="rc-select-selection-search"
+                          style="width: 0px;"
+                        >
+                          <input
+                            aria-activedescendant="status_list_0"
+                            aria-autocomplete="list"
+                            aria-controls="status_list"
+                            aria-haspopup="listbox"
+                            aria-owns="status_list"
+                            autocomplete="off"
+                            class="rc-select-selection-search-input"
+                            id="status"
+                            readonly=""
+                            role="combobox"
+                            style="opacity: 0;"
+                            unselectable="on"
+                            value=""
+                          />
+                          <span
+                            aria-hidden="true"
+                            class="rc-select-selection-search-mirror"
+                          >
+                             
+                          </span>
+                        </span>
+                        <span
+                          class="rc-select-selection-placeholder"
+                        >
+                          Please select
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div />
+              <div
+                class="field"
+              >
+                <div
+                  class="control"
+                >
+                  <label
+                    class="label "
+                    for="createdFrom"
+                  >
+                    Created From
+                  </label>
+                  <div
+                    class="react-datepicker-wrapper"
+                  >
+                    <div
+                      class="react-datepicker__input-container"
+                    >
+                      <input
+                        class="input is-primary input is-primary"
+                        id="createdFrom"
+                        name="createdFrom"
+                        type="input"
+                        value="11/09/2019"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="column"
+              data-test=""
+            >
+              <div
+                class="field"
+              >
+                <div
+                  class="control"
+                >
+                  <div
+                    class="field field-dropdown-select"
+                  >
+                    <label
+                      class="label "
+                    >
+                      Payment Type
+                    </label>
+                    <div
+                      class="rc-select is-primary input rc-select-multiple rc-select-show-search"
+                    >
+                      <div
+                        class="rc-select-selector"
+                      >
+                        <span
+                          class="rc-select-selection-search"
+                          style="width: 0px;"
+                        >
+                          <input
+                            aria-activedescendant="type_list_0"
+                            aria-autocomplete="list"
+                            aria-controls="type_list"
+                            aria-haspopup="listbox"
+                            aria-owns="type_list"
+                            autocomplete="off"
+                            class="rc-select-selection-search-input"
+                            id="type"
+                            readonly=""
+                            role="combobox"
+                            style="opacity: 0;"
+                            unselectable="on"
+                            value=""
+                          />
+                          <span
+                            aria-hidden="true"
+                            class="rc-select-selection-search-mirror"
+                          >
+                             
+                          </span>
+                        </span>
+                        <span
+                          class="rc-select-selection-placeholder"
+                        >
+                          Please select
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div />
+              <div
+                class="field"
+              >
+                <div
+                  class="control"
+                >
+                  <label
+                    class="label "
+                    for="createdTo"
+                  >
+                    Created To
+                  </label>
+                  <div
+                    class="react-datepicker-wrapper"
+                  >
+                    <div
+                      class="react-datepicker__input-container"
+                    >
+                      <input
+                        class="input is-primary input is-primary"
+                        id="createdTo"
+                        name="createdTo"
+                        type="input"
+                        value="11/10/2019"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="column column-relative"
+              data-test=""
+            >
+              <div
+                class="field"
+              >
+                <div
+                  class="control "
+                >
+                  <label
+                    class="label inline-block "
+                    for="description"
+                  >
+                    Description
+                  </label>
+                  <input
+                    class="input is-primary"
+                    data-test=""
+                    id="description"
+                    name="description"
+                    placeholder=""
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+              <button
+                class="button   is-primary search-btn"
+                data-test=""
+                type="submit"
+              >
+                Search
+              </button>
+            </div>
+          </div>
+        </form>
+      </section>
+      <section
+        class="section has-margin has-background"
+        data-test=""
+      >
+        <div
+          class="fade-in"
+        >
+          <div
+            style="overflow: scroll;"
+          >
+            <table
+              class="table is-striped is-fullwidth "
+              role="table"
+            >
+              <thead>
+                <tr
+                  role="row"
+                >
+                  <th
+                    colspan="1"
+                    role="columnheader"
+                  >
+                     
+                  </th>
+                  <th
+                    colspan="1"
+                    role="columnheader"
+                  >
+                    Property
+                  </th>
+                  <th
+                    colspan="1"
+                    role="columnheader"
+                  >
+                    Amount
+                  </th>
+                  <th
+                    colspan="1"
+                    role="columnheader"
+                  >
+                    Customer
+                  </th>
+                  <th
+                    colspan="1"
+                    role="columnheader"
+                  >
+                    Description
+                  </th>
+                  <th
+                    colspan="1"
+                    role="columnheader"
+                  >
+                    Client A/C
+                  </th>
+                  <th
+                    colspan="1"
+                    role="columnheader"
+                  >
+                    Status
+                  </th>
+                  <th
+                    colspan="1"
+                    role="columnheader"
+                  >
+                    Request Date
+                  </th>
+                  <th
+                    colspan="1"
+                    role="columnheader"
+                  >
+                    Email Invoice
+                  </th>
+                  <th
+                    colspan="1"
+                    role="columnheader"
+                  >
+                    Card Payment
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  class=""
+                  role="row"
+                >
+                  <td
+                    role="cell"
+                    width="20"
+                  />
+                  <td
+                    role="cell"
+                  />
+                  <td
+                    role="cell"
+                  >
+                    <p>
+                      £100.00
+                    </p>
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    Mr John Smith
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    Tenancy Check Fee
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    Primary
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    <p>
+                      Awaiting Payment
+                    </p>
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    <p>
+                      12 Dec 2018
+                    </p>
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    <a>
+                      Email
+                    </a>
+                  </td>
+                  <td
+                    role="cell"
+                  >
+                    <a>
+                      Card
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <section
+      class="section has-margin has-background"
+      data-test=""
+    >
+      <div
+        class="justify-between flex items-center"
+      >
+        <h3
+          class="title is-3 mb-0"
+          id=""
+        >
+          Payments Dashboard
+        </h3>
+        <div
+          class="logo"
+        >
+          <img
+            src="https://web-components.prod.paas.reapit.cloud/reapit-payments.png"
+          />
+        </div>
+      </div>
+    </section>
+    <section
+      class="section has-margin has-background"
+      data-test=""
+    >
+      <h5
+        class="title is-5"
+        id=""
+      >
+        Filter Dashboard
+      </h5>
+      <form
+        action="#"
+        novalidate=""
+      >
+        <div
+          class="columns"
+          data-test=""
+        >
+          <div
+            class="column"
+            data-test=""
+          >
+            <div
+              class="field"
+            >
+              <div
+                class="control"
+              >
+                <div
+                  class="field field-dropdown-select"
+                >
+                  <label
+                    class="label "
+                  >
+                    Status
+                  </label>
+                  <div
+                    class="rc-select is-primary input rc-select-multiple rc-select-show-search"
+                  >
+                    <div
+                      class="rc-select-selector"
+                    >
+                      <span
+                        class="rc-select-selection-search"
+                        style="width: 0px;"
+                      >
+                        <input
+                          aria-activedescendant="status_list_0"
+                          aria-autocomplete="list"
+                          aria-controls="status_list"
+                          aria-haspopup="listbox"
+                          aria-owns="status_list"
+                          autocomplete="off"
+                          class="rc-select-selection-search-input"
+                          id="status"
+                          readonly=""
+                          role="combobox"
+                          style="opacity: 0;"
+                          unselectable="on"
+                          value=""
+                        />
+                        <span
+                          aria-hidden="true"
+                          class="rc-select-selection-search-mirror"
+                        >
+                           
+                        </span>
+                      </span>
+                      <span
+                        class="rc-select-selection-placeholder"
+                      >
+                        Please select
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div />
+            <div
+              class="field"
+            >
+              <div
+                class="control"
+              >
+                <label
+                  class="label "
+                  for="createdFrom"
+                >
+                  Created From
+                </label>
+                <div
+                  class="react-datepicker-wrapper"
+                >
+                  <div
+                    class="react-datepicker__input-container"
+                  >
+                    <input
+                      class="input is-primary input is-primary"
+                      id="createdFrom"
+                      name="createdFrom"
+                      type="input"
+                      value="11/09/2019"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="column"
+            data-test=""
+          >
+            <div
+              class="field"
+            >
+              <div
+                class="control"
+              >
+                <div
+                  class="field field-dropdown-select"
+                >
+                  <label
+                    class="label "
+                  >
+                    Payment Type
+                  </label>
+                  <div
+                    class="rc-select is-primary input rc-select-multiple rc-select-show-search"
+                  >
+                    <div
+                      class="rc-select-selector"
+                    >
+                      <span
+                        class="rc-select-selection-search"
+                        style="width: 0px;"
+                      >
+                        <input
+                          aria-activedescendant="type_list_0"
+                          aria-autocomplete="list"
+                          aria-controls="type_list"
+                          aria-haspopup="listbox"
+                          aria-owns="type_list"
+                          autocomplete="off"
+                          class="rc-select-selection-search-input"
+                          id="type"
+                          readonly=""
+                          role="combobox"
+                          style="opacity: 0;"
+                          unselectable="on"
+                          value=""
+                        />
+                        <span
+                          aria-hidden="true"
+                          class="rc-select-selection-search-mirror"
+                        >
+                           
+                        </span>
+                      </span>
+                      <span
+                        class="rc-select-selection-placeholder"
+                      >
+                        Please select
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div />
+            <div
+              class="field"
+            >
+              <div
+                class="control"
+              >
+                <label
+                  class="label "
+                  for="createdTo"
+                >
+                  Created To
+                </label>
+                <div
+                  class="react-datepicker-wrapper"
+                >
+                  <div
+                    class="react-datepicker__input-container"
+                  >
+                    <input
+                      class="input is-primary input is-primary"
+                      id="createdTo"
+                      name="createdTo"
+                      type="input"
+                      value="11/10/2019"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="column column-relative"
+            data-test=""
+          >
+            <div
+              class="field"
+            >
+              <div
+                class="control "
+              >
+                <label
+                  class="label inline-block "
+                  for="description"
+                >
+                  Description
+                </label>
+                <input
+                  class="input is-primary"
+                  data-test=""
+                  id="description"
+                  name="description"
+                  placeholder=""
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+            <button
+              class="button   is-primary search-btn"
+              data-test=""
+              type="submit"
+            >
+              Search
+            </button>
+          </div>
+        </div>
+      </form>
+    </section>
+    <section
+      class="section has-margin has-background"
+      data-test=""
+    >
+      <div
+        class="fade-in"
+      >
+        <div
+          style="overflow: scroll;"
+        >
+          <table
+            class="table is-striped is-fullwidth "
+            role="table"
+          >
+            <thead>
+              <tr
+                role="row"
+              >
+                <th
+                  colspan="1"
+                  role="columnheader"
+                >
+                   
+                </th>
+                <th
+                  colspan="1"
+                  role="columnheader"
+                >
+                  Property
+                </th>
+                <th
+                  colspan="1"
+                  role="columnheader"
+                >
+                  Amount
+                </th>
+                <th
+                  colspan="1"
+                  role="columnheader"
+                >
+                  Customer
+                </th>
+                <th
+                  colspan="1"
+                  role="columnheader"
+                >
+                  Description
+                </th>
+                <th
+                  colspan="1"
+                  role="columnheader"
+                >
+                  Client A/C
+                </th>
+                <th
+                  colspan="1"
+                  role="columnheader"
+                >
+                  Status
+                </th>
+                <th
+                  colspan="1"
+                  role="columnheader"
+                >
+                  Request Date
+                </th>
+                <th
+                  colspan="1"
+                  role="columnheader"
+                >
+                  Email Invoice
+                </th>
+                <th
+                  colspan="1"
+                  role="columnheader"
+                >
+                  Card Payment
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                class=""
+                role="row"
+              >
+                <td
+                  role="cell"
+                  width="20"
+                />
+                <td
+                  role="cell"
+                />
+                <td
+                  role="cell"
+                >
+                  <p>
+                    £100.00
+                  </p>
+                </td>
+                <td
+                  role="cell"
+                >
+                  Mr John Smith
+                </td>
+                <td
+                  role="cell"
+                >
+                  Tenancy Check Fee
+                </td>
+                <td
+                  role="cell"
+                >
+                  Primary
+                </td>
+                <td
+                  role="cell"
+                >
+                  <p>
+                    Awaiting Payment
+                  </p>
+                </td>
+                <td
+                  role="cell"
+                >
+                  <p>
+                    12 Dec 2018
+                  </p>
+                </td>
+                <td
+                  role="cell"
+                >
+                  <a>
+                    Email
+                  </a>
+                </td>
+                <td
+                  role="cell"
+                >
+                  <a>
+                    Card
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`Payments  should match a snapshot where loading 1`] = `
-<ErrorBoundary>
-  <Section
-    hasPadding={false}
-  >
-    <div
-      className="justify-between flex items-center"
-    >
-      <H3
-        className="mb-0"
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <section
+        class="section has-margin has-background"
+        data-test=""
       >
-        Payments Dashboard
-      </H3>
-      <PaymentLogo />
+        <div
+          class="justify-between flex items-center"
+        >
+          <h3
+            class="title is-3 mb-0"
+            id=""
+          >
+            Payments Dashboard
+          </h3>
+          <div
+            class="logo"
+          >
+            <img
+              src="https://web-components.prod.paas.reapit.cloud/reapit-payments.png"
+            />
+          </div>
+        </div>
+      </section>
+      <section
+        class="section has-margin has-background"
+        data-test=""
+      >
+        <h5
+          class="title is-5"
+          id=""
+        >
+          Filter Dashboard
+        </h5>
+        <form
+          action="#"
+          novalidate=""
+        >
+          <div
+            class="columns"
+            data-test=""
+          >
+            <div
+              class="column"
+              data-test=""
+            >
+              <div
+                class="field"
+              >
+                <div
+                  class="control"
+                >
+                  <div
+                    class="field field-dropdown-select"
+                  >
+                    <label
+                      class="label "
+                    >
+                      Status
+                    </label>
+                    <div
+                      class="rc-select is-primary input rc-select-multiple rc-select-show-search"
+                    >
+                      <div
+                        class="rc-select-selector"
+                      >
+                        <span
+                          class="rc-select-selection-search"
+                          style="width: 0px;"
+                        >
+                          <input
+                            aria-activedescendant="status_list_0"
+                            aria-autocomplete="list"
+                            aria-controls="status_list"
+                            aria-haspopup="listbox"
+                            aria-owns="status_list"
+                            autocomplete="off"
+                            class="rc-select-selection-search-input"
+                            id="status"
+                            readonly=""
+                            role="combobox"
+                            style="opacity: 0;"
+                            unselectable="on"
+                            value=""
+                          />
+                          <span
+                            aria-hidden="true"
+                            class="rc-select-selection-search-mirror"
+                          >
+                             
+                          </span>
+                        </span>
+                        <span
+                          class="rc-select-selection-placeholder"
+                        >
+                          Please select
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div />
+              <div
+                class="field"
+              >
+                <div
+                  class="control"
+                >
+                  <label
+                    class="label "
+                    for="createdFrom"
+                  >
+                    Created From
+                  </label>
+                  <div
+                    class="react-datepicker-wrapper"
+                  >
+                    <div
+                      class="react-datepicker__input-container"
+                    >
+                      <input
+                        class="input is-primary input is-primary"
+                        id="createdFrom"
+                        name="createdFrom"
+                        type="input"
+                        value="11/09/2019"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="column"
+              data-test=""
+            >
+              <div
+                class="field"
+              >
+                <div
+                  class="control"
+                >
+                  <div
+                    class="field field-dropdown-select"
+                  >
+                    <label
+                      class="label "
+                    >
+                      Payment Type
+                    </label>
+                    <div
+                      class="rc-select is-primary input rc-select-multiple rc-select-show-search"
+                    >
+                      <div
+                        class="rc-select-selector"
+                      >
+                        <span
+                          class="rc-select-selection-search"
+                          style="width: 0px;"
+                        >
+                          <input
+                            aria-activedescendant="type_list_0"
+                            aria-autocomplete="list"
+                            aria-controls="type_list"
+                            aria-haspopup="listbox"
+                            aria-owns="type_list"
+                            autocomplete="off"
+                            class="rc-select-selection-search-input"
+                            id="type"
+                            readonly=""
+                            role="combobox"
+                            style="opacity: 0;"
+                            unselectable="on"
+                            value=""
+                          />
+                          <span
+                            aria-hidden="true"
+                            class="rc-select-selection-search-mirror"
+                          >
+                             
+                          </span>
+                        </span>
+                        <span
+                          class="rc-select-selection-placeholder"
+                        >
+                          Please select
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div />
+              <div
+                class="field"
+              >
+                <div
+                  class="control"
+                >
+                  <label
+                    class="label "
+                    for="createdTo"
+                  >
+                    Created To
+                  </label>
+                  <div
+                    class="react-datepicker-wrapper"
+                  >
+                    <div
+                      class="react-datepicker__input-container"
+                    >
+                      <input
+                        class="input is-primary input is-primary"
+                        id="createdTo"
+                        name="createdTo"
+                        type="input"
+                        value="11/10/2019"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="column column-relative"
+              data-test=""
+            >
+              <div
+                class="field"
+              >
+                <div
+                  class="control "
+                >
+                  <label
+                    class="label inline-block "
+                    for="description"
+                  >
+                    Description
+                  </label>
+                  <input
+                    class="input is-primary"
+                    data-test=""
+                    id="description"
+                    name="description"
+                    placeholder=""
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+              <button
+                class="button   is-primary search-btn"
+                data-test=""
+                type="submit"
+              >
+                Search
+              </button>
+            </div>
+          </div>
+        </form>
+      </section>
+      <div
+        class="loader-spinner body"
+        data-test=""
+      >
+        <div />
+        <div />
+        <div />
+        <div />
+      </div>
     </div>
-  </Section>
-  <PaymentsFilterForm
-    filterValues={
-      Object {
-        "createdFrom": "2019-09-11",
-        "createdTo": "2019-10-11",
-        "description": "",
-        "pageSize": "12",
-        "properties": "",
-        "status": Array [],
-        "type": Array [],
-      }
-    }
-    onSearch={[Function]}
-  />
-  <Loader />
-  <PaymentRequestModal
-    payment={null}
-    refetchPayments={[MockFunction]}
-    setSelectedPayment={[Function]}
-  />
-</ErrorBoundary>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <section
+      class="section has-margin has-background"
+      data-test=""
+    >
+      <div
+        class="justify-between flex items-center"
+      >
+        <h3
+          class="title is-3 mb-0"
+          id=""
+        >
+          Payments Dashboard
+        </h3>
+        <div
+          class="logo"
+        >
+          <img
+            src="https://web-components.prod.paas.reapit.cloud/reapit-payments.png"
+          />
+        </div>
+      </div>
+    </section>
+    <section
+      class="section has-margin has-background"
+      data-test=""
+    >
+      <h5
+        class="title is-5"
+        id=""
+      >
+        Filter Dashboard
+      </h5>
+      <form
+        action="#"
+        novalidate=""
+      >
+        <div
+          class="columns"
+          data-test=""
+        >
+          <div
+            class="column"
+            data-test=""
+          >
+            <div
+              class="field"
+            >
+              <div
+                class="control"
+              >
+                <div
+                  class="field field-dropdown-select"
+                >
+                  <label
+                    class="label "
+                  >
+                    Status
+                  </label>
+                  <div
+                    class="rc-select is-primary input rc-select-multiple rc-select-show-search"
+                  >
+                    <div
+                      class="rc-select-selector"
+                    >
+                      <span
+                        class="rc-select-selection-search"
+                        style="width: 0px;"
+                      >
+                        <input
+                          aria-activedescendant="status_list_0"
+                          aria-autocomplete="list"
+                          aria-controls="status_list"
+                          aria-haspopup="listbox"
+                          aria-owns="status_list"
+                          autocomplete="off"
+                          class="rc-select-selection-search-input"
+                          id="status"
+                          readonly=""
+                          role="combobox"
+                          style="opacity: 0;"
+                          unselectable="on"
+                          value=""
+                        />
+                        <span
+                          aria-hidden="true"
+                          class="rc-select-selection-search-mirror"
+                        >
+                           
+                        </span>
+                      </span>
+                      <span
+                        class="rc-select-selection-placeholder"
+                      >
+                        Please select
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div />
+            <div
+              class="field"
+            >
+              <div
+                class="control"
+              >
+                <label
+                  class="label "
+                  for="createdFrom"
+                >
+                  Created From
+                </label>
+                <div
+                  class="react-datepicker-wrapper"
+                >
+                  <div
+                    class="react-datepicker__input-container"
+                  >
+                    <input
+                      class="input is-primary input is-primary"
+                      id="createdFrom"
+                      name="createdFrom"
+                      type="input"
+                      value="11/09/2019"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="column"
+            data-test=""
+          >
+            <div
+              class="field"
+            >
+              <div
+                class="control"
+              >
+                <div
+                  class="field field-dropdown-select"
+                >
+                  <label
+                    class="label "
+                  >
+                    Payment Type
+                  </label>
+                  <div
+                    class="rc-select is-primary input rc-select-multiple rc-select-show-search"
+                  >
+                    <div
+                      class="rc-select-selector"
+                    >
+                      <span
+                        class="rc-select-selection-search"
+                        style="width: 0px;"
+                      >
+                        <input
+                          aria-activedescendant="type_list_0"
+                          aria-autocomplete="list"
+                          aria-controls="type_list"
+                          aria-haspopup="listbox"
+                          aria-owns="type_list"
+                          autocomplete="off"
+                          class="rc-select-selection-search-input"
+                          id="type"
+                          readonly=""
+                          role="combobox"
+                          style="opacity: 0;"
+                          unselectable="on"
+                          value=""
+                        />
+                        <span
+                          aria-hidden="true"
+                          class="rc-select-selection-search-mirror"
+                        >
+                           
+                        </span>
+                      </span>
+                      <span
+                        class="rc-select-selection-placeholder"
+                      >
+                        Please select
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div />
+            <div
+              class="field"
+            >
+              <div
+                class="control"
+              >
+                <label
+                  class="label "
+                  for="createdTo"
+                >
+                  Created To
+                </label>
+                <div
+                  class="react-datepicker-wrapper"
+                >
+                  <div
+                    class="react-datepicker__input-container"
+                  >
+                    <input
+                      class="input is-primary input is-primary"
+                      id="createdTo"
+                      name="createdTo"
+                      type="input"
+                      value="11/10/2019"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="column column-relative"
+            data-test=""
+          >
+            <div
+              class="field"
+            >
+              <div
+                class="control "
+              >
+                <label
+                  class="label inline-block "
+                  for="description"
+                >
+                  Description
+                </label>
+                <input
+                  class="input is-primary"
+                  data-test=""
+                  id="description"
+                  name="description"
+                  placeholder=""
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+            <button
+              class="button   is-primary search-btn"
+              data-test=""
+              type="submit"
+            >
+              Search
+            </button>
+          </div>
+        </div>
+      </form>
+    </section>
+    <div
+      class="loader-spinner body"
+      data-test=""
+    >
+      <div />
+      <div />
+      <div />
+      <div />
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`Payments  should match a snapshot where payments list is empty 1`] = `
-<ErrorBoundary>
-  <Section
-    hasPadding={false}
-  >
-    <div
-      className="justify-between flex items-center"
-    >
-      <H3
-        className="mb-0"
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <section
+        class="section has-margin has-background"
+        data-test=""
       >
-        Payments Dashboard
-      </H3>
-      <PaymentLogo />
+        <div
+          class="justify-between flex items-center"
+        >
+          <h3
+            class="title is-3 mb-0"
+            id=""
+          >
+            Payments Dashboard
+          </h3>
+          <div
+            class="logo"
+          >
+            <img
+              src="https://web-components.prod.paas.reapit.cloud/reapit-payments.png"
+            />
+          </div>
+        </div>
+      </section>
+      <section
+        class="section has-margin has-background"
+        data-test=""
+      >
+        <h5
+          class="title is-5"
+          id=""
+        >
+          Filter Dashboard
+        </h5>
+        <form
+          action="#"
+          novalidate=""
+        >
+          <div
+            class="columns"
+            data-test=""
+          >
+            <div
+              class="column"
+              data-test=""
+            >
+              <div
+                class="field"
+              >
+                <div
+                  class="control"
+                >
+                  <div
+                    class="field field-dropdown-select"
+                  >
+                    <label
+                      class="label "
+                    >
+                      Status
+                    </label>
+                    <div
+                      class="rc-select is-primary input rc-select-multiple rc-select-show-search"
+                    >
+                      <div
+                        class="rc-select-selector"
+                      >
+                        <span
+                          class="rc-select-selection-search"
+                          style="width: 0px;"
+                        >
+                          <input
+                            aria-activedescendant="status_list_0"
+                            aria-autocomplete="list"
+                            aria-controls="status_list"
+                            aria-haspopup="listbox"
+                            aria-owns="status_list"
+                            autocomplete="off"
+                            class="rc-select-selection-search-input"
+                            id="status"
+                            readonly=""
+                            role="combobox"
+                            style="opacity: 0;"
+                            unselectable="on"
+                            value=""
+                          />
+                          <span
+                            aria-hidden="true"
+                            class="rc-select-selection-search-mirror"
+                          >
+                             
+                          </span>
+                        </span>
+                        <span
+                          class="rc-select-selection-placeholder"
+                        >
+                          Please select
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div />
+              <div
+                class="field"
+              >
+                <div
+                  class="control"
+                >
+                  <label
+                    class="label "
+                    for="createdFrom"
+                  >
+                    Created From
+                  </label>
+                  <div
+                    class="react-datepicker-wrapper"
+                  >
+                    <div
+                      class="react-datepicker__input-container"
+                    >
+                      <input
+                        class="input is-primary input is-primary"
+                        id="createdFrom"
+                        name="createdFrom"
+                        type="input"
+                        value="11/09/2019"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="column"
+              data-test=""
+            >
+              <div
+                class="field"
+              >
+                <div
+                  class="control"
+                >
+                  <div
+                    class="field field-dropdown-select"
+                  >
+                    <label
+                      class="label "
+                    >
+                      Payment Type
+                    </label>
+                    <div
+                      class="rc-select is-primary input rc-select-multiple rc-select-show-search"
+                    >
+                      <div
+                        class="rc-select-selector"
+                      >
+                        <span
+                          class="rc-select-selection-search"
+                          style="width: 0px;"
+                        >
+                          <input
+                            aria-activedescendant="type_list_0"
+                            aria-autocomplete="list"
+                            aria-controls="type_list"
+                            aria-haspopup="listbox"
+                            aria-owns="type_list"
+                            autocomplete="off"
+                            class="rc-select-selection-search-input"
+                            id="type"
+                            readonly=""
+                            role="combobox"
+                            style="opacity: 0;"
+                            unselectable="on"
+                            value=""
+                          />
+                          <span
+                            aria-hidden="true"
+                            class="rc-select-selection-search-mirror"
+                          >
+                             
+                          </span>
+                        </span>
+                        <span
+                          class="rc-select-selection-placeholder"
+                        >
+                          Please select
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div />
+              <div
+                class="field"
+              >
+                <div
+                  class="control"
+                >
+                  <label
+                    class="label "
+                    for="createdTo"
+                  >
+                    Created To
+                  </label>
+                  <div
+                    class="react-datepicker-wrapper"
+                  >
+                    <div
+                      class="react-datepicker__input-container"
+                    >
+                      <input
+                        class="input is-primary input is-primary"
+                        id="createdTo"
+                        name="createdTo"
+                        type="input"
+                        value="11/10/2019"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="column column-relative"
+              data-test=""
+            >
+              <div
+                class="field"
+              >
+                <div
+                  class="control "
+                >
+                  <label
+                    class="label inline-block "
+                    for="description"
+                  >
+                    Description
+                  </label>
+                  <input
+                    class="input is-primary"
+                    data-test=""
+                    id="description"
+                    name="description"
+                    placeholder=""
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+              <button
+                class="button   is-primary search-btn"
+                data-test=""
+                type="submit"
+              >
+                Search
+              </button>
+            </div>
+          </div>
+        </form>
+      </section>
+      <div
+        class="notification helper-wrap helper-info"
+      >
+        No payments match your search criteria
+      </div>
     </div>
-  </Section>
-  <PaymentsFilterForm
-    filterValues={
-      Object {
-        "createdFrom": "2019-09-11",
-        "createdTo": "2019-10-11",
-        "description": "",
-        "pageSize": "12",
-        "properties": "",
-        "status": Array [],
-        "type": Array [],
-      }
-    }
-    onSearch={[Function]}
-  />
-  <Helper
-    variant="info"
-  >
-    No payments match your search criteria
-  </Helper>
-  <PaymentRequestModal
-    payment={null}
-    refetchPayments={[MockFunction]}
-    setSelectedPayment={[Function]}
-  />
-</ErrorBoundary>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <section
+      class="section has-margin has-background"
+      data-test=""
+    >
+      <div
+        class="justify-between flex items-center"
+      >
+        <h3
+          class="title is-3 mb-0"
+          id=""
+        >
+          Payments Dashboard
+        </h3>
+        <div
+          class="logo"
+        >
+          <img
+            src="https://web-components.prod.paas.reapit.cloud/reapit-payments.png"
+          />
+        </div>
+      </div>
+    </section>
+    <section
+      class="section has-margin has-background"
+      data-test=""
+    >
+      <h5
+        class="title is-5"
+        id=""
+      >
+        Filter Dashboard
+      </h5>
+      <form
+        action="#"
+        novalidate=""
+      >
+        <div
+          class="columns"
+          data-test=""
+        >
+          <div
+            class="column"
+            data-test=""
+          >
+            <div
+              class="field"
+            >
+              <div
+                class="control"
+              >
+                <div
+                  class="field field-dropdown-select"
+                >
+                  <label
+                    class="label "
+                  >
+                    Status
+                  </label>
+                  <div
+                    class="rc-select is-primary input rc-select-multiple rc-select-show-search"
+                  >
+                    <div
+                      class="rc-select-selector"
+                    >
+                      <span
+                        class="rc-select-selection-search"
+                        style="width: 0px;"
+                      >
+                        <input
+                          aria-activedescendant="status_list_0"
+                          aria-autocomplete="list"
+                          aria-controls="status_list"
+                          aria-haspopup="listbox"
+                          aria-owns="status_list"
+                          autocomplete="off"
+                          class="rc-select-selection-search-input"
+                          id="status"
+                          readonly=""
+                          role="combobox"
+                          style="opacity: 0;"
+                          unselectable="on"
+                          value=""
+                        />
+                        <span
+                          aria-hidden="true"
+                          class="rc-select-selection-search-mirror"
+                        >
+                           
+                        </span>
+                      </span>
+                      <span
+                        class="rc-select-selection-placeholder"
+                      >
+                        Please select
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div />
+            <div
+              class="field"
+            >
+              <div
+                class="control"
+              >
+                <label
+                  class="label "
+                  for="createdFrom"
+                >
+                  Created From
+                </label>
+                <div
+                  class="react-datepicker-wrapper"
+                >
+                  <div
+                    class="react-datepicker__input-container"
+                  >
+                    <input
+                      class="input is-primary input is-primary"
+                      id="createdFrom"
+                      name="createdFrom"
+                      type="input"
+                      value="11/09/2019"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="column"
+            data-test=""
+          >
+            <div
+              class="field"
+            >
+              <div
+                class="control"
+              >
+                <div
+                  class="field field-dropdown-select"
+                >
+                  <label
+                    class="label "
+                  >
+                    Payment Type
+                  </label>
+                  <div
+                    class="rc-select is-primary input rc-select-multiple rc-select-show-search"
+                  >
+                    <div
+                      class="rc-select-selector"
+                    >
+                      <span
+                        class="rc-select-selection-search"
+                        style="width: 0px;"
+                      >
+                        <input
+                          aria-activedescendant="type_list_0"
+                          aria-autocomplete="list"
+                          aria-controls="type_list"
+                          aria-haspopup="listbox"
+                          aria-owns="type_list"
+                          autocomplete="off"
+                          class="rc-select-selection-search-input"
+                          id="type"
+                          readonly=""
+                          role="combobox"
+                          style="opacity: 0;"
+                          unselectable="on"
+                          value=""
+                        />
+                        <span
+                          aria-hidden="true"
+                          class="rc-select-selection-search-mirror"
+                        >
+                           
+                        </span>
+                      </span>
+                      <span
+                        class="rc-select-selection-placeholder"
+                      >
+                        Please select
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div />
+            <div
+              class="field"
+            >
+              <div
+                class="control"
+              >
+                <label
+                  class="label "
+                  for="createdTo"
+                >
+                  Created To
+                </label>
+                <div
+                  class="react-datepicker-wrapper"
+                >
+                  <div
+                    class="react-datepicker__input-container"
+                  >
+                    <input
+                      class="input is-primary input is-primary"
+                      id="createdTo"
+                      name="createdTo"
+                      type="input"
+                      value="11/10/2019"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="column column-relative"
+            data-test=""
+          >
+            <div
+              class="field"
+            >
+              <div
+                class="control "
+              >
+                <label
+                  class="label inline-block "
+                  for="description"
+                >
+                  Description
+                </label>
+                <input
+                  class="input is-primary"
+                  data-test=""
+                  id="description"
+                  name="description"
+                  placeholder=""
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+            <button
+              class="button   is-primary search-btn"
+              data-test=""
+              type="submit"
+            >
+              Search
+            </button>
+          </div>
+        </div>
+      </form>
+    </section>
+    <div
+      class="notification helper-wrap helper-info"
+    >
+      No payments match your search criteria
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`PropertyCell should match a snapshot for default status 1`] = `
-<FadeIn>
-  15 Example street Solihull West Midlands B91 2XX
-</FadeIn>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <div
+        class="fade-in"
+      >
+        15 Example street Solihull West Midlands B91 2XX
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <div
+      class="fade-in"
+    >
+      15 Example street Solihull West Midlands B91 2XX
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
-exports[`PropertyCell should match a snapshot where loading 1`] = `""`;
+exports[`PropertyCell should match a snapshot where loading 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
 
 exports[`RequestPaymentCell should match a snapshot 1`] = `
 <a
@@ -267,21 +2398,228 @@ exports[`RequestPaymentCell should match a snapshot 1`] = `
 `;
 
 exports[`RequestedCell should match a snapshot 1`] = `
-<p>
-  01 Jan 2020
-</p>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <p>
+        01 Jan 2020
+      </p>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <p>
+      01 Jan 2020
+    </p>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`StatusCell should match a snapshot 1`] = `
-<p>
-  Paid
-</p>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <p>
+        Paid
+      </p>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <p>
+      Paid
+    </p>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`StatusCell should match a snapshot for default status 1`] = `
-<p>
-  Other
-</p>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <p>
+        Other
+      </p>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <p>
+      Other
+    </p>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`TakePaymentCell should match a snapshot 1`] = `

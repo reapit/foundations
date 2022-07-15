@@ -20,6 +20,6 @@ export const fetchConfigWithKey = async (configKey: string): Promise<any | undef
     }
     throw new Error('Failed to get from parameter store')
   } catch (err) {
-    logger(err)
+    logger(err as Error)
   }
 }
