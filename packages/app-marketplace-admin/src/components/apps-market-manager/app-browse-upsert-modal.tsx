@@ -170,28 +170,22 @@ export const AppBrowseUpsertModal: FC<{
           suscipit magna. Donec auctor pulvinar varius. Nulla dignissim in mauris vel vulputate.
         </BodyText>
         <FormLayout hasMargin>
-          <InputWrapFull>
-            <InputGroup>
-              <Label>App</Label>
-              <SearchableMultiSelect
-                id="select-multi-apps"
-                reapitConnectBrowserSession={reapitConnectBrowserSession}
-                action={getActions(window.reapit.config.appEnv)[GetActionNames.getApps]}
-                valueKey="id"
-                nameKey="name"
-                searchKey="name"
-                dataListKey="data"
-                currentValues={getValues('filters.id') || []}
-                defaultList={initialApps?.data || []}
-                errorString={errors.id?.message || ''}
-                noneSelectedLabel="No apps selected"
-                queryParams={{ pageSize: 100 }}
-                onChange={(event) =>
-                  setValue('filters.id', event.target.value !== '' ? event.target.value.split(',') : [])
-                }
-              />
-            </InputGroup>
-          </InputWrapFull>
+          <SearchableMultiSelect
+            id="select-multi-apps"
+            reapitConnectBrowserSession={reapitConnectBrowserSession}
+            action={getActions(window.reapit.config.appEnv)[GetActionNames.getApps]}
+            valueKey="id"
+            nameKey="name"
+            searchKey="name"
+            dataListKey="data"
+            currentValues={getValues('filters.id') || []}
+            defaultList={initialApps?.data || []}
+            errorString={errors.id?.message || ''}
+            noneSelectedLabel="No apps selected"
+            queryParams={{ pageSize: 100 }}
+            onChange={(event) => setValue('filters.id', event.target.value !== '' ? event.target.value.split(',') : [])}
+            label="Search Apps"
+          />
           <InputWrapFull>
             <InputGroup>
               <Label>Categories</Label>
