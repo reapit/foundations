@@ -173,6 +173,7 @@ export const AppBrowseUpsertModal: FC<AppBrowseUpsertModalDefaultProps> = ({
 
     return res
   }
+  const [imageView, setImageView] = useState<string | false>(false)
 
   const { field } = useController({
     name: 'content.brandColour',
@@ -322,11 +323,10 @@ export const AppBrowseUpsertModal: FC<AppBrowseUpsertModalDefaultProps> = ({
             </InputWrapFull>
             <InputWrapFull>
               <InputGroup>
-                <Label>Image</Label>
                 <ImageCropperFileInput
                   label={'Image'}
                   {...register('content.imageUrl')}
-                  // defaultValue={appMarketConfig?.content?.imageUrl}
+                  onFileView={(image) => setImageView(image)}
                   onFileUpload={onFileUpload}
                   placeholderText="Dimensions: 96px x 96px"
                   fileName={uuid()}
@@ -386,6 +386,14 @@ export const AppBrowseUpsertModal: FC<AppBrowseUpsertModalDefaultProps> = ({
           </ButtonGroup>
         </form>
       )}
+      <Modal isOpen={!!imageView} onModalClose={() => setImageView(false)}>
+        <div>
+          <img src={imageView as string} />
+        </div>
+        <Button intent="secondary" onClick={() => setImageView(false)}>
+          Close
+        </Button>
+      </Modal>
     </Modal>
   )
 }
