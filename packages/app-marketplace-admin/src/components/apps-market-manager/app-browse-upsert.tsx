@@ -70,13 +70,21 @@ export const AppBrowseUpsert: FC<{}> = () => {
         ))
       )}
       <AppBrowseUpsertModal
-        configType={configType || (selectedItem?.configType as AppsBrowseConfigEnum)}
-        modalIsOpen={modalIsOpen}
+        modalIsOpen={typeof configType !== 'undefined'}
+        defaultValues={{ configType: configType as AppsBrowseConfigEnum } as AppsBrowseConfigItemInterface}
         closeModal={closeModal}
         connectSession={connectSession as ReapitConnectSession}
-        appMarketConfig={selectedItem}
         upsertItem={upsertItem}
       />
+      {selectedItem && (
+        <AppBrowseUpsertModal
+          modalIsOpen={typeof selectedItem !== 'undefined'}
+          closeModal={closeModal}
+          connectSession={connectSession as ReapitConnectSession}
+          defaultValues={selectedItem as AppsBrowseConfigItemInterface}
+          upsertItem={upsertItem}
+        />
+      )}
     </PageContainer>
   )
 }
