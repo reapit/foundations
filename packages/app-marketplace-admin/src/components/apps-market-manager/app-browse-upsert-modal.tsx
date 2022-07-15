@@ -1,5 +1,6 @@
 import { ReapitConnectSession } from '@reapit/connect-session'
 import {
+  BodyText,
   Button,
   ButtonGroup,
   CreateImageUploadModel,
@@ -146,8 +147,6 @@ export const AppBrowseUpsertModal: FC<{
   const onFileUpload = async (params: CreateImageUploadModel) => {
     const res = await createImageUpload(params)
 
-    console.log('res', res)
-
     return res
   }
 
@@ -163,7 +162,12 @@ export const AppBrowseUpsertModal: FC<{
       <Title>New Item</Title>
       <form onSubmit={handleSubmit(upsertAppMarketing(configType, setLoading, send, closeModal, upsertItem))}>
         <Subtitle>Filters</Subtitle>
-        <FormLayout>
+        <BodyText hasGreyText>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget pellentesque tortor. Sed non enim id
+          arcu efficitur aliquet vel ac augue. Aenean non quam nec sapien faucibus volutpat vel ut dolor. Donec sit amet
+          suscipit magna. Donec auctor pulvinar varius. Nulla dignissim in mauris vel vulputate.
+        </BodyText>
+        <FormLayout hasMargin>
           <InputWrapFull>
             <InputGroup>
               <Label>App</Label>
@@ -221,7 +225,12 @@ export const AppBrowseUpsertModal: FC<{
           </InputWrapFull>
         </FormLayout>
         <Subtitle>Advertising Content</Subtitle>
-        <FormLayout>
+        <BodyText hasGreyText>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget pellentesque tortor. Sed non enim id
+          arcu efficitur aliquet vel ac augue. Aenean non quam nec sapien faucibus volutpat vel ut dolor. Donec sit amet
+          suscipit magna. Donec auctor pulvinar varius. Nulla dignissim in mauris vel vulputate.
+        </BodyText>
+        <FormLayout hasMargin>
           <InputWrapFull>
             <InputGroup>
               <Label>Brand Colour</Label>
@@ -291,7 +300,12 @@ export const AppBrowseUpsertModal: FC<{
           </InputWrapFull>
         </FormLayout>
         <Subtitle>Live</Subtitle>
-        <FormLayout>
+        <BodyText hasGreyText>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget pellentesque tortor. Sed non enim id
+          arcu efficitur aliquet vel ac augue. Aenean non quam nec sapien faucibus volutpat vel ut dolor. Donec sit amet
+          suscipit magna. Donec auctor pulvinar varius. Nulla dignissim in mauris vel vulputate.
+        </BodyText>
+        <FormLayout hasMargin>
           <InputWrapFull>
             <InputGroup>
               <Label>Live From</Label>
