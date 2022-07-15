@@ -45,10 +45,7 @@ export const AppBrowseUpsert: FC<{}> = () => {
   }, [modalIsOpen])
 
   const deleteItem = (type: AppsBrowseConfigEnum, id: string) => {
-    setItems({
-      ...items,
-      [type]: items[type].filter((item) => item.id !== id),
-    })
+    setItems([...items.filter((item) => item.id !== id)])
   }
   const upsertItem = (item: AppsBrowseConfigItemInterface) => {
     setItems([...items.filter((i) => i.id !== item.id), item])
