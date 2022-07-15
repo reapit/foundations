@@ -43,7 +43,7 @@ export const AppBrowseManageTable: FC<{
 
   return (
     <div {...rest} className={cx(elMb11)}>
-      <Subtitle>{type}</Subtitle>
+      <Subtitle>{type.replace(/([^A-Z])([A-Z])/g, '$1 $2').toLowerCase()}</Subtitle>
       <Table
         indexExpandedRow={expandedIndex}
         setIndexExpandedRow={setExpandedIndex}
