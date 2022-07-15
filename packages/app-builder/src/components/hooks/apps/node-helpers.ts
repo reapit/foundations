@@ -47,7 +47,7 @@ export const mergeNavIntoPage = (nodes: Node[]): Node[] => {
     throw new Error('unable to find root node')
   }
 
-  const bodyNode = nodes.find((n) => n.nodeId === 'body') || {
+  const bodyNode = {
     ...rootNode,
     nodes: rootNode.nodes.filter((node) => node !== 'body'),
     id: `${rootNode.id}-body`,
@@ -94,6 +94,7 @@ export const mergeNavIntoPage = (nodes: Node[]): Node[] => {
       ...rootNode,
       nodes: ['body', NAV_NODE].filter(notEmpty),
       displayName: 'Container',
+      isCanvas: false,
       type: {
         resolvedName: 'Container',
       },

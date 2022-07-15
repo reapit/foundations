@@ -23,7 +23,7 @@ const getPropertiesQuery = gql`
 const getPropertyQuery = gql`
   ${PropertyFragment}
   query getProperty($id: String!) {
-    GetProperty(id: $id, embed: [images]) {
+    GetPropertyById(id: $id, embed: [images]) {
       ...PropertyFragment
     }
   }
@@ -48,7 +48,7 @@ const updatePropertyMutation = gql`
   mutation UpdateProperty(
     $id: String!
     $description: String
-    $receptions: Number
+    $receptions: Int
     $metadata: JSON
     $address: PropertyAddressInput!
     $letting: PropertyLetting
@@ -56,11 +56,12 @@ const updatePropertyMutation = gql`
     $externalArea: ExternalArea
     $internalArea: InternalArea
     $internetAdvertising: Boolean!
-    $parkingSpaces: Number
+    $parkingSpaces: Int
     $rooms: [Room]
     $negotiatorId: String!
-    $officeId: String!
+    $officeIds: [String!]!
     $marketingMode: String
+    $departmentId: String!
     $notes: String
   ) {
     UpdateProperty(
@@ -77,8 +78,9 @@ const updatePropertyMutation = gql`
       parkingSpaces: $parkingSpaces
       rooms: $rooms
       negotiatorId: $negotiatorId
-      officeId: $officeId
+      officeIds: $officeIds
       marketingMode: $marketingMode
+      departmentId: $departmentId
       notes: $notes
     ) {
       ...PropertyFragment
@@ -90,19 +92,20 @@ const createPropertyMutation = gql`
   ${PropertyFragment}
   mutation CreateProperty(
     $description: String
-    $receptions: Number
+    $receptions: Int
     $metadata: JSON
-    $address: PropertyAddressInput!
-    $letting: PropertyLetting
-    $selling: PropertySelling
-    $externalArea: ExternalArea
-    $internalArea: InternalArea
+    $address: AddressInput!
+    $letting: lettingInput
+    $selling: SellingInput
+    $externalArea: ExternalAreaInput
+    $internalArea: InternalAreaInput
     $internetAdvertising: Boolean!
-    $parkingSpaces: Number
-    $rooms: [Room]
+    $parkingSpaces: Int
+    $rooms: [CreatePropertyRoomModelInput!]
     $negotiatorId: String!
-    $officeId: String!
+    $officeIds: [String!]!
     $marketingMode: String
+    $departmentId: String!
     $notes: String
   ) {
     CreateProperty(
@@ -118,8 +121,9 @@ const createPropertyMutation = gql`
       parkingSpaces: $parkingSpaces
       rooms: $rooms
       negotiatorId: $negotiatorId
-      officeId: $officeId
+      officeIds: $officeIds
       marketingMode: $marketingMode
+      departmentId: $departmentId
       notes: $notes
     ) {
       ...PropertyFragment
@@ -212,7 +216,7 @@ export class PropertyResolver {
     })
 
     storeCachedMetadata(entityName, property.id, property)
-
+    console.log(property)
     return property
   }
 

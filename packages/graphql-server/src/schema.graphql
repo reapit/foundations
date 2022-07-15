@@ -954,12 +954,14 @@ type Mutation {
     bedrooms: Int
     receptions: Int
     bathrooms: Int
+    parkingSpaces: Int
     councilTax: String
     internetAdvertising: Boolean
     viewingArrangements: String
     videoUrl: String
     videoCaption: String
     epc: EpcInput
+    notes: String
     externalArea: ExternalAreaInput
     internalArea: InternalAreaInput
     selling: SellingInput
@@ -986,6 +988,8 @@ type Mutation {
     bedrooms: Int
     receptions: Int
     bathrooms: Int
+    parkingSpaces: Int
+    notes: String
     councilTax: String
     internetAdvertising: Boolean
     viewingArrangements: String
@@ -2154,6 +2158,7 @@ type PropertyModel {
   negotiatorId: String
   bedrooms: Int
   receptions: Int
+  parkingSpaces: Int
   bathrooms: Int
   councilTax: String
   internetAdvertising: Boolean
@@ -2178,6 +2183,7 @@ type PropertyModel {
   locality: [String!]
   rooms: [PropertyRoomModel!]
   officeIds: [String!]
+  notes: String
   lostInstructionDate: String
   lostInstructionNote: String
   metadata: JSON

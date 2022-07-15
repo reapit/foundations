@@ -85,6 +85,7 @@ const AppViewer = () => {
       connectClientId: app.clientId,
       connectOAuthUrl: window.reapit.config.connectOAuthUrl,
       connectUserPoolId: window.reapit.config.connectUserPoolId,
+      connectLogoutRedirectPath: `${window.location.protocol}//${window.location.host}/`,
     })
 
   const memoisedClient = React.useMemo(() => {

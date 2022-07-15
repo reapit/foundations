@@ -80,7 +80,9 @@ type Mutation {
     address: AddressInput
     bedrooms: Int
     receptions: Int
+    notes: String
     bathrooms: Int
+    parkingSpaces: Int
     councilTax: String
     internetAdvertising: Boolean
     viewingArrangements: String
@@ -115,10 +117,12 @@ type Mutation {
     receptions: Int
     bathrooms: Int
     councilTax: String
+    notes: String
     internetAdvertising: Boolean
     viewingArrangements: String
     videoUrl: String
     videoCaption: String
+    parkingSpaces: Int
     epc: EpcInput
     externalArea: ExternalAreaInput
     internalArea: InternalAreaInput
@@ -170,6 +174,7 @@ type PropertyModel {
   videoUrl: String
   videoCaption: String
   video2Url: String
+  parkingSpaces: Int
   video2Caption: String
   notes: String
   archivedOn: String

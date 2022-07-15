@@ -3,7 +3,6 @@ import React, { forwardRef, LegacyRef } from 'react'
 
 import SquareSvg from '../icons/square'
 import LinkSVG from '../icons/link'
-import Container from './user/container'
 import Text from './user/text'
 import { cx } from '@linaria/core'
 import { styled } from '@linaria/react'
@@ -13,7 +12,6 @@ import Link from './user/link'
 import Table from './user/table'
 import Form from './user/form'
 import Info from './user/info'
-import { ContainerIcon } from '../icons/container'
 import { TextIcon } from '../icons/text'
 import { TableIcon } from '../icons/table'
 import { FormIcon } from '../icons/form'
@@ -81,14 +79,6 @@ export const Toolbox = ({ create }: { create: (ref: HTMLElement, ele: any) => vo
     <ToolboxDiv>
       <CategoryTitle>Commonly used</CategoryTitle>
       <div className={cx(transition, elW12, elFlex, elFlexRow, elFlexWrap, elFlexAlignStart, elFlexJustifyStart)}>
-        <ToolboxItem
-          name="Container"
-          ref={(ref: HTMLElement) =>
-            ref && create(ref, <Element canvas is={Container} background="white" padding={12} width={12} />)
-          }
-        >
-          <ContainerIcon />
-        </ToolboxItem>
         <ToolboxItem
           name="Text"
           ref={(ref: HTMLElement) => ref && create(ref, <Text fontSize={12} text="Type text in here" />)}

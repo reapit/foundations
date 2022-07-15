@@ -19,6 +19,7 @@ import {
   Modal,
   SearchableDropdown,
   Select,
+  useSnack,
 } from '@reapit/elements'
 
 import { useObjectList } from '../../../hooks/objects/use-object-list'
@@ -89,7 +90,14 @@ const SelectIDofType = ({
 }) => {
   const { data, loading } = useObjectList(typeName)
   const { object } = useObject(typeName)
-  const { available: searchAvailable, search } = useLazyObjectSearch(typeName)
+  const { error } = useSnack()
+  const { available: searchAvailable, search, error: searchError } = useLazyObjectSearch(typeName)
+
+  useEffect(() => {
+    if (searchError) {
+      error(searchError.message)
+    }
+  }, [searchError])
 
   useEffect(() => {
     if (defaultValue?.id) {
@@ -208,6 +216,30 @@ const FileUploadInput = ({
   )
 }
 
+const fieldTypeToInputType = (fieldType: string) => {
+  switch (fieldType) {
+    case 'string':
+      return 'text'
+    case 'int':
+      return 'number'
+    case 'float':
+      return 'number'
+    case 'bool':
+    case 'boolean':
+      return 'checkbox'
+    case 'date':
+      return 'date'
+    case 'datetime':
+      return 'datetime-local'
+    case 'time':
+      return 'time'
+    case 'file':
+      return 'file'
+    default:
+      return 'text'
+  }
+}
+
 const Input = ({
   name,
   input,
@@ -255,7 +287,11 @@ const Input = ({
             defaultValue={defaultValue?.[field.name]}
             onChange={(e) => {
               const v = value || {}
-              v[field.name] = e.target.value
+              if (field.typeName === 'Float' || field.typeName === 'Int') {
+                v[field.name] = parseFloat(e.target.value)
+              } else {
+                v[field.name] = e.target.value
+              }
               onChange({
                 ...e,
                 target: {
@@ -310,8 +346,19 @@ const Input = ({
           label={label}
           value={value}
           required={isRequired && inputTypeName !== 'Boolean'}
-          type={inputTypeName === 'Boolean' ? 'checkbox' : 'text'}
-          onChange={onChange}
+          type={fieldTypeToInputType(inputTypeName.toLowerCase())}
+          onChange={(e) => {
+            const value =
+              inputTypeName === 'Float' || inputTypeName === 'Int' ? parseFloat(e.target.value) : e.target.value
+            onChange({
+              ...e,
+              target: {
+                ...e.target,
+                value,
+                name,
+              } as any,
+            })
+          }}
           name={name}
           defaultValue={defaultValue}
         />

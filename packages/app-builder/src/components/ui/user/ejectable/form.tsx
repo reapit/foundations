@@ -21,13 +21,21 @@ const addValueToObject = (object: any, key: string, value: any) => {
   const newObject = { ...object }
   const parts = key.split('.')
 
-  parts.forEach((part, index) => {
-    if (index === parts.length - 1) {
-      newObject[part] = value
-    } else {
-      newObject[part] = newObject[part] || {}
+  let modifyingObject = newObject
+  parts.forEach((part, idx) => {
+    if (idx === parts.length - 1) {
+      return
     }
+    if (!modifyingObject[part]) {
+      modifyingObject[part] = {}
+    }
+    modifyingObject = modifyingObject[part]
   })
+
+  const lastKey = parts.pop()
+  if (lastKey) {
+    modifyingObject[lastKey] = value
+  }
 
   return newObject
 }
@@ -63,8 +71,11 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
     }, [data, args])
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-      const { name, type, value, checked } = e.target as HTMLInputElement
-      const actualValue = type === 'checkbox' ? checked : value
+      const { name, type, value, checked } = e.currentTarget as HTMLInputElement
+      let actualValue: string | number | boolean = type === 'checkbox' ? checked : value
+      if (type === 'number') {
+        actualValue = parseFloat(value)
+      }
       setFormState((prevState) => {
         return addValueToObject(prevState, name, actualValue)
       })

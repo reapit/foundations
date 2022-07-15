@@ -35,18 +35,24 @@ export const useLazyObjectSearch = (typeName?: string) => {
   const search = async (query: string) => {
     setSearchError(undefined)
     setSearchLoading(true)
-    const { data, error } = await client.query({
-      query: searchQuery?.query || dummyQuery,
-      variables: {
-        ...context,
-        query,
-      },
-    })
-    if (error) {
-      setSearchError(error)
+    try {
+      const { data, error } = await client.query({
+        query: searchQuery?.query || dummyQuery,
+        variables: {
+          ...context,
+          query,
+        },
+      })
+      if (error) {
+        setSearchError(error)
+      }
+      setSearchLoading(false)
+      return (data && Object.values(data)[0]) || []
+    } catch (e) {
+      setSearchError(e as any)
+      setSearchLoading(false)
+      return []
     }
-    setSearchLoading(false)
-    return (data && Object.values(data)[0]) || []
   }
 
   return {
