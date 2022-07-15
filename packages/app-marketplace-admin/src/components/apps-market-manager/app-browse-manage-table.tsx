@@ -1,5 +1,17 @@
 import { ReapitConnectSession } from '@reapit/connect-session'
-import { Button, ButtonGroup, elMb11, Table, Title } from '@reapit/elements'
+import {
+  BodyText,
+  Button,
+  ButtonGroup,
+  elMb11,
+  FormLayout,
+  Icon,
+  IconNames,
+  InputWrapFull,
+  Label,
+  Subtitle,
+  Table,
+} from '@reapit/elements'
 import { AppsBrowseConfigEnum, AppsBrowseConfigItemInterface } from '@reapit/foundations-ts-definitions'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { useReapitUpdate } from '@reapit/utils-react'
@@ -8,6 +20,7 @@ import { colorSquare } from './app-browse.styles'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { shleemy } from 'shleemy'
 import { cx } from '@linaria/core'
+import { ElTagContainer, ElTag } from './app-browse.styles'
 
 export const AppBrowseManageTable: FC<{
   type: AppsBrowseConfigEnum
@@ -30,7 +43,7 @@ export const AppBrowseManageTable: FC<{
 
   return (
     <div {...rest} className={cx(elMb11)}>
-      <Title>{type}</Title>
+      <Subtitle>{type}</Subtitle>
       <Table
         indexExpandedRow={expandedIndex}
         setIndexExpandedRow={setExpandedIndex}
@@ -78,31 +91,106 @@ export const AppBrowseManageTable: FC<{
           ],
           expandableContent: {
             content: (
-              <ButtonGroup>
-                <Button
-                  onClick={() => {
-                    setSelectedItem(item)
-                  }}
-                  intent="secondary"
-                >
-                  Edit
-                </Button>
-                <Button
-                  intent="danger"
-                  onClick={async () => {
-                    await send(item, {
-                      uriParams: {
-                        id: item.id,
-                      },
-                    })
-                    deleteItem(item.configType, item.id as string)
-                  }}
-                  disabled={deleteLoading}
-                  loading={deleteLoading}
-                >
-                  Delete
-                </Button>
-              </ButtonGroup>
+              <>
+                <Subtitle>Filters</Subtitle>
+                <FormLayout hasMargin>
+                  <InputWrapFull>
+                    <Label>Categories</Label>
+                    <ElTagContainer>
+                      {item.filters?.category ? (
+                        item.filters?.category?.map((cat) => <ElTag key={cat}>{cat}</ElTag>)
+                      ) : (
+                        <ElTag>None</ElTag>
+                      )}
+                    </ElTagContainer>
+                  </InputWrapFull>
+                  <InputWrapFull>
+                    <Label>Is Free</Label>
+                    <BodyText hasGreyText>{item.filters?.isFree ? 'Yes' : 'No'}</BodyText>
+                  </InputWrapFull>
+                  <InputWrapFull>
+                    <Label>Is Featured</Label>
+                    <BodyText hasGreyText>{item.filters?.isFeatured ? 'Yes' : 'No'}</BodyText>
+                  </InputWrapFull>
+                </FormLayout>
+                <Subtitle>Advertising Content</Subtitle>
+                <FormLayout hasMargin>
+                  <InputWrapFull>
+                    <Label>Title</Label>
+                    <BodyText hasGreyText>{item.content?.title}</BodyText>
+                  </InputWrapFull>
+                  <InputWrapFull>
+                    <Label>Strapline</Label>
+                    <BodyText hasGreyText>{item.content?.strapline}</BodyText>
+                  </InputWrapFull>
+                  <InputWrapFull>
+                    <Label>Brand Colour</Label>
+                    <BodyText hasGreyText>
+                      {item.content?.brandColour && (
+                        <span className={colorSquare} style={{ background: item.content?.brandColour }}></span>
+                      )}
+                      {item.content?.brandColour}
+                    </BodyText>
+                  </InputWrapFull>
+                  <InputWrapFull>
+                    <Label>Icon</Label>
+                    {item.content?.iconName && <Icon icon={item.content.iconName as IconNames} />}
+                    {item.content?.iconName && <BodyText hasGreyText>({item.content.iconName})</BodyText>}
+                  </InputWrapFull>
+                  <InputWrapFull>
+                    <Label>Image</Label>
+                    {item.content?.imageUrl ? (
+                      <img src={item.content.imageUrl} />
+                    ) : (
+                      <BodyText hasGreyText>None</BodyText>
+                    )}
+                  </InputWrapFull>
+                </FormLayout>
+                <Subtitle>Live</Subtitle>
+                <FormLayout>
+                  <InputWrapFull>
+                    <Label>Is Live</Label>
+                    <BodyText hasGreyText>{item.live?.isLive ? 'Yes' : 'No'}</BodyText>
+                  </InputWrapFull>
+                  <InputWrapFull>
+                    <Label>Time From</Label>
+                    <BodyText hasGreyText>
+                      {item.live?.timeFrom ? shleemy(item.live.timeFrom).forHumans : 'Not set'}
+                    </BodyText>
+                  </InputWrapFull>
+                  <InputWrapFull>
+                    <Label>Time To</Label>
+                    <BodyText hasGreyText>
+                      {item.live?.timeTo ? shleemy(item.live.timeTo).forHumans : 'Not set'}
+                    </BodyText>
+                  </InputWrapFull>
+                </FormLayout>
+                <ButtonGroup>
+                  <Button
+                    onClick={() => {
+                      setSelectedItem(item)
+                    }}
+                    intent="secondary"
+                  >
+                    Edit
+                  </Button>
+                  <Button
+                    intent="danger"
+                    onClick={async () => {
+                      await send(item, {
+                        uriParams: {
+                          id: item.id,
+                        },
+                      })
+                      deleteItem(item.configType, item.id as string)
+                    }}
+                    disabled={deleteLoading}
+                    loading={deleteLoading}
+                  >
+                    Delete
+                  </Button>
+                </ButtonGroup>
+              </>
             ),
           },
         }))}
