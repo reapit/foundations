@@ -12,7 +12,7 @@ Object {
         class="el-mb11"
       >
         <h2
-          class="el-subtitle"
+          class="el-has-capitalised-text el-subtitle"
         >
           featured apps
         </h2>
@@ -36,7 +36,7 @@ Object {
       class="el-mb11"
     >
       <h2
-        class="el-subtitle"
+        class="el-has-capitalised-text el-subtitle"
       >
         featured apps
       </h2>
