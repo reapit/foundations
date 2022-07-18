@@ -9,6 +9,7 @@ jest.mock('express', () => () => ({
   post: jest.fn(),
   get: jest.fn(),
   Router: jest.fn(),
+  disable: jest.fn(),
 }))
 
 describe('app', () => {
