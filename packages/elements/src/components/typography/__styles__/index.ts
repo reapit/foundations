@@ -9,6 +9,7 @@ export const elHasItalicText = css``
 export const elHasCenteredText = css``
 export const elHasSectionMargin = css``
 export const elHasDisabledText = css``
+export const elHasCapitalisedText = css``
 
 export const ElTitle = styled.h1`
   font-family: var(--font-sans-serif);
@@ -91,6 +92,10 @@ export const ElSubtitle = styled.h2`
 
   &.${elHasCenteredText} {
     text-align: center;
+  }
+
+  &.${elHasCapitalisedText} {
+    text-transform: capitalize;
   }
 `
 
