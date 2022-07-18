@@ -86,7 +86,7 @@ export const ProfileForm: FC = () => {
   })
 
   return (
-    <form onSubmit={handleSubmit(updateMember)}>
+    <form onSubmit={handleSubmit((values) => updateMember(values))}>
       <div className={elMb11}>
         <FormLayout>
           <InputWrap>
