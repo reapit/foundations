@@ -3,6 +3,8 @@ import { NavResponsive, NavResponsiveOption } from '@reapit/elements'
 import { Routes } from '../../constants/routes'
 import { history } from '../../core/router'
 import { navigate } from '../../utils/navigation'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '../../core/connect-session'
 
 export const getDefaultNavIndex = (pathname: string) => {
   switch (pathname) {
@@ -15,7 +17,7 @@ export const getDefaultNavIndex = (pathname: string) => {
 }
 
 export const Nav: FC = () => {
-  // const { connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
+  const { connectIsDesktop, connectLogoutRedirect } = useReapitConnect(reapitConnectBrowserSession)
   const navOptions: NavResponsiveOption[] = [
     {
       itemIndex: 0,
@@ -29,14 +31,15 @@ export const Nav: FC = () => {
     },
   ]
 
-  // if (!connectIsDesktop) {
-  //   navOptions.splice(3, 0, {
-  //     itemIndex: 3,
-  //     callback: () => (window.location.href = window.reapit.config.developerPortalUrl),
-  //     iconId: 'developersMenu',
-  //     text: 'Developers',
-  //   })
-  // }
+  if (!connectIsDesktop) {
+    navOptions.push({
+      itemIndex: 5,
+      callback: connectLogoutRedirect,
+      isSecondary: true,
+      iconId: 'logoutMenu',
+      text: 'Logout',
+    })
+  }
 
   return <NavResponsive options={navOptions} defaultNavIndex={getDefaultNavIndex(window.location.pathname)} />
 }
