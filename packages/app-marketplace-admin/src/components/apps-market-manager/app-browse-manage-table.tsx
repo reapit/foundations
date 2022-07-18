@@ -3,11 +3,11 @@ import {
   BodyText,
   Button,
   ButtonGroup,
+  Col,
   elMb11,
-  FormLayout,
+  Grid,
   Icon,
   IconNames,
-  InputWrapFull,
   Label,
   Subtitle,
   Table,
@@ -93,8 +93,8 @@ export const AppBrowseManageTable: FC<{
             content: (
               <>
                 <Subtitle>Filters</Subtitle>
-                <FormLayout hasMargin>
-                  <InputWrapFull>
+                <Grid>
+                  <Col>
                     <Label>Categories</Label>
                     <ElTagContainer>
                       {item.filters?.category ? (
@@ -103,27 +103,27 @@ export const AppBrowseManageTable: FC<{
                         <ElTag>None</ElTag>
                       )}
                     </ElTagContainer>
-                  </InputWrapFull>
-                  <InputWrapFull>
+                  </Col>
+                  <Col>
                     <Label>Is Free</Label>
                     <BodyText hasGreyText>{item.filters?.isFree ? 'Yes' : 'No'}</BodyText>
-                  </InputWrapFull>
-                  <InputWrapFull>
+                  </Col>
+                  <Col>
                     <Label>Is Featured</Label>
                     <BodyText hasGreyText>{item.filters?.isFeatured ? 'Yes' : 'No'}</BodyText>
-                  </InputWrapFull>
-                </FormLayout>
+                  </Col>
+                </Grid>
                 <Subtitle>Advertising Content</Subtitle>
-                <FormLayout hasMargin>
-                  <InputWrapFull>
+                <Grid>
+                  <Col>
                     <Label>Title</Label>
                     <BodyText hasGreyText>{item.content?.title}</BodyText>
-                  </InputWrapFull>
-                  <InputWrapFull>
+                  </Col>
+                  <Col>
                     <Label>Strapline</Label>
                     <BodyText hasGreyText>{item.content?.strapline}</BodyText>
-                  </InputWrapFull>
-                  <InputWrapFull>
+                  </Col>
+                  <Col>
                     <Label>Brand Colour</Label>
                     <BodyText hasGreyText>
                       {item.content?.brandColour && (
@@ -131,13 +131,13 @@ export const AppBrowseManageTable: FC<{
                       )}
                       {item.content?.brandColour}
                     </BodyText>
-                  </InputWrapFull>
-                  <InputWrapFull>
+                  </Col>
+                  <Col>
                     <Label>Icon</Label>
                     {item.content?.iconName && <Icon icon={item.content.iconName as IconNames} />}
                     {item.content?.iconName && <BodyText hasGreyText>({item.content.iconName})</BodyText>}
-                  </InputWrapFull>
-                  <InputWrapFull>
+                  </Col>
+                  <Col>
                     <Label>Image</Label>
                     {item.content?.imageUrl ? (
                       <div>
@@ -146,27 +146,27 @@ export const AppBrowseManageTable: FC<{
                     ) : (
                       <BodyText hasGreyText>None</BodyText>
                     )}
-                  </InputWrapFull>
-                </FormLayout>
+                  </Col>
+                </Grid>
                 <Subtitle>Live</Subtitle>
-                <FormLayout>
-                  <InputWrapFull>
+                <Grid>
+                  <Col>
                     <Label>Is Live</Label>
                     <BodyText hasGreyText>{item.live?.isLive ? 'Yes' : 'No'}</BodyText>
-                  </InputWrapFull>
-                  <InputWrapFull>
+                  </Col>
+                  <Col>
                     <Label>Time From</Label>
                     <BodyText hasGreyText>
                       {item.live?.timeFrom ? shleemy(item.live.timeFrom).forHumans : 'Not set'}
                     </BodyText>
-                  </InputWrapFull>
-                  <InputWrapFull>
+                  </Col>
+                  <Col>
                     <Label>Time To</Label>
                     <BodyText hasGreyText>
                       {item.live?.timeTo ? shleemy(item.live.timeTo).forHumans : 'Not set'}
                     </BodyText>
-                  </InputWrapFull>
-                </FormLayout>
+                  </Col>
+                </Grid>
                 <ButtonGroup>
                   <Button
                     onClick={() => {
