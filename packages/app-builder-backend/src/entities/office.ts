@@ -1,3 +1,4 @@
+import { CountryCode } from '../utils/country-code-enum'
 import { gql } from 'apollo-server-core'
 import { ObjectType, Field, ID, GraphQLISODateTime, InputType } from 'type-graphql'
 
@@ -45,8 +46,8 @@ export class OfficeAddress {
   @Field({ nullable: true })
   postcode: string
 
-  @Field({ nullable: true })
-  countryId: string
+  @Field(() => CountryCode, { nullable: true })
+  countryId: CountryCode
 }
 
 @ObjectType({ description: '@labelKeys(name) @supportsCustomFields()' })
@@ -101,8 +102,8 @@ class OfficeAddressInput {
   @Field({ nullable: true })
   postcode: string
 
-  @Field({ nullable: true })
-  countryId: string
+  @Field(() => CountryCode, { nullable: true })
+  countryId: CountryCode
 }
 
 @InputType()
