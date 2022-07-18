@@ -9,7 +9,7 @@ Object {
         class="ecbqyq6-el-snack-holder"
       />
       <h2
-        class="e1byern-el-subtitle"
+        class="e15ggth7-el-subtitle"
       >
         Schedule 2 - Fees
       </h2>
@@ -259,7 +259,7 @@ Object {
         </div>
       </div>
       <p
-        class="e15ggth7-el-body-text"
+        class="e1wasvgh-el-body-text"
       >
         Calculation of Total Consumption Cost - Methodology (On last day of monthly billing period):
       </p>
@@ -930,7 +930,7 @@ Object {
         </div>
       </div>
       <p
-        class="e15ggth7-el-body-text"
+        class="e1wasvgh-el-body-text"
       >
         Calculation of Total Consumption Cost - Example for representative purposes only: 
       </p>
@@ -941,7 +941,7 @@ Object {
           class="eb3z2eu-el-col-split"
         >
           <p
-            class="e15ggth7-el-body-text"
+            class="e1wasvgh-el-body-text"
           >
             Endpoints Used
           </p>
@@ -959,7 +959,7 @@ Object {
           class="eb3z2eu-el-col-split"
         >
           <p
-            class="e15ggth7-el-body-text"
+            class="e1wasvgh-el-body-text"
           >
             Monthly API Calls
           </p>
@@ -1479,7 +1479,7 @@ Object {
         </div>
       </div>
       <p
-        class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+        class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
       >
         Estimated total monthly cost: 
         £340.03
@@ -1491,7 +1491,7 @@ Object {
       class="ecbqyq6-el-snack-holder"
     />
     <h2
-      class="e1byern-el-subtitle"
+      class="e15ggth7-el-subtitle"
     >
       Schedule 2 - Fees
     </h2>
@@ -1741,7 +1741,7 @@ Object {
       </div>
     </div>
     <p
-      class="e15ggth7-el-body-text"
+      class="e1wasvgh-el-body-text"
     >
       Calculation of Total Consumption Cost - Methodology (On last day of monthly billing period):
     </p>
@@ -2412,7 +2412,7 @@ Object {
       </div>
     </div>
     <p
-      class="e15ggth7-el-body-text"
+      class="e1wasvgh-el-body-text"
     >
       Calculation of Total Consumption Cost - Example for representative purposes only: 
     </p>
@@ -2423,7 +2423,7 @@ Object {
         class="eb3z2eu-el-col-split"
       >
         <p
-          class="e15ggth7-el-body-text"
+          class="e1wasvgh-el-body-text"
         >
           Endpoints Used
         </p>
@@ -2441,7 +2441,7 @@ Object {
         class="eb3z2eu-el-col-split"
       >
         <p
-          class="e15ggth7-el-body-text"
+          class="e1wasvgh-el-body-text"
         >
           Monthly API Calls
         </p>
@@ -2961,7 +2961,7 @@ Object {
       </div>
     </div>
     <p
-      class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+      class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
     >
       Estimated total monthly cost: 
       £340.03

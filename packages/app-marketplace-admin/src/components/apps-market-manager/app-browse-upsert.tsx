@@ -6,9 +6,7 @@ import {
   Icon,
   Loader,
   PageContainer,
-  SecondaryNav,
   SecondaryNavContainer,
-  SecondaryNavItem,
   SmallText,
   Subtitle,
   Title,
@@ -18,9 +16,7 @@ import { AppsBrowseConfigEnum, AppsBrowseConfigItemInterface } from '@reapit/fou
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { useReapitGet } from '@reapit/utils-react'
 import React, { FC, useEffect, useState } from 'react'
-import { useHistory } from 'react-router'
-import { Routes } from '../../constants/routes'
-import { navigate, openNewPage, ExternalPages } from '../../utils/navigation'
+import { openNewPage, ExternalPages } from '../../utils/navigation'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { AppBrowseManageTable } from './app-browse-manage-table'
 import { AppBrowseUpsertModal } from './app-browse-upsert-modal'
@@ -68,17 +64,10 @@ export const AppBrowseUpsert: FC<{}> = () => {
     setItems([...items.filter((i) => i.id !== item.id), item])
   }
 
-  const history = useHistory()
-
   return (
     <FlexContainer isFlexAuto>
       <SecondaryNavContainer>
         <Title>AppMarket Admin</Title>
-        <SecondaryNav className={elMb3}>
-          <SecondaryNavItem onClick={navigate(history, Routes.APPS_BROWSE_MANAGER)} active={true}>
-            Manage
-          </SecondaryNavItem>
-        </SecondaryNav>
         <Icon className={elMb3} icon="myAppsInfographic" iconSize="large" />
         <Subtitle>Marketplace Admin Docs</Subtitle>
         <SmallText hasGreyText>

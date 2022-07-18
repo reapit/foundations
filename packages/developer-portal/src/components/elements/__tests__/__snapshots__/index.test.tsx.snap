@@ -15,7 +15,7 @@ Object {
           class="e93m1fg-el-secondary-nav-container"
         >
           <h1
-            class="evblxhy-el-title"
+            class="e1byern-el-title"
           >
             UI
           </h1>
@@ -118,12 +118,12 @@ Object {
             </svg>
           </span>
           <h2
-            class="e1byern-el-subtitle"
+            class="e15ggth7-el-subtitle"
           >
             Reapit Elements
           </h2>
           <p
-            class="e11jaxfn-el-has-grey-text e1wasvgh-el-small-text"
+            class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
           >
             Elements is a UI toolkit built in React JS, exporting a library of CSS classes to help you build clean, interactive user interfaces for the Reapit Foundations ecosystem. It is based on the Reapit Foundations Design System, our in house styleguide.
           </p>
@@ -142,7 +142,7 @@ Object {
           class="e12d7zo5-el-hfull eukst9x-el-page-container"
         >
           <h1
-            class="evblxhy-el-title"
+            class="e1byern-el-title"
           >
             Elements
           </h1>
@@ -166,7 +166,7 @@ Object {
         class="e93m1fg-el-secondary-nav-container"
       >
         <h1
-          class="evblxhy-el-title"
+          class="e1byern-el-title"
         >
           UI
         </h1>
@@ -269,12 +269,12 @@ Object {
           </svg>
         </span>
         <h2
-          class="e1byern-el-subtitle"
+          class="e15ggth7-el-subtitle"
         >
           Reapit Elements
         </h2>
         <p
-          class="e11jaxfn-el-has-grey-text e1wasvgh-el-small-text"
+          class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
         >
           Elements is a UI toolkit built in React JS, exporting a library of CSS classes to help you build clean, interactive user interfaces for the Reapit Foundations ecosystem. It is based on the Reapit Foundations Design System, our in house styleguide.
         </p>
@@ -293,7 +293,7 @@ Object {
         class="e12d7zo5-el-hfull eukst9x-el-page-container"
       >
         <h1
-          class="evblxhy-el-title"
+          class="e1byern-el-title"
         >
           Elements
         </h1>

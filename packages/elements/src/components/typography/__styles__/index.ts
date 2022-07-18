@@ -9,6 +9,7 @@ export const elHasItalicText = css``
 export const elHasCenteredText = css``
 export const elHasSectionMargin = css``
 export const elHasDisabledText = css``
+export const elHasCapitalisedText = css``
 
 export const ElTitle = styled.h1`
   font-family: var(--font-sans-serif);
@@ -49,6 +50,10 @@ export const ElTitle = styled.h1`
 
   &.${elHasCenteredText} {
     text-align: center;
+  }
+
+  &.${elHasCapitalisedText} {
+    text-transform: capitalize;
   }
 `
 
@@ -92,6 +97,10 @@ export const ElSubtitle = styled.h2`
   &.${elHasCenteredText} {
     text-align: center;
   }
+
+  &.${elHasCapitalisedText} {
+    text-transform: capitalize;
+  }
 `
 
 export const ElBodyText = styled.p`
@@ -134,6 +143,10 @@ export const ElBodyText = styled.p`
   &.${elHasCenteredText} {
     text-align: center;
   }
+
+  &.${elHasCapitalisedText} {
+    text-transform: capitalize;
+  }
 `
 
 export const ElSmallText = styled.p`
@@ -175,5 +188,9 @@ export const ElSmallText = styled.p`
 
   &.${elHasCenteredText} {
     text-align: center;
+  }
+
+  &.${elHasCapitalisedText} {
+    text-transform: capitalize;
   }
 `

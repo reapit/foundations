@@ -72,4 +72,13 @@ describe('Typography components', () => {
     )
     expect(wrapper).toMatchSnapshot()
   })
+
+  it('SmallText should match a snapshot with all modifiers', () => {
+    const wrapper = render(
+      <SmallText hasGreyText hasBoldText hasItalicText hasNoMargin hasCenteredText hasSectionMargin hasCapitalisedText>
+        i am some text
+      </SmallText>,
+    )
+    expect(wrapper).toMatchSnapshot()
+  })
 })

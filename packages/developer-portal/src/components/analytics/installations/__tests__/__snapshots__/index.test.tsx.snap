@@ -12,7 +12,7 @@ Object {
         class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
       >
         <h1
-          class="evblxhy-el-title"
+          class="e1byern-el-title"
         >
           Installations
         </h1>
@@ -24,7 +24,7 @@ Object {
           class="c1r46xm1-chart-wrapper"
         >
           <h2
-            class="e1byern-el-subtitle"
+            class="e15ggth7-el-subtitle"
           >
             Installations Per Day
           </h2>
@@ -33,7 +33,7 @@ Object {
           class="c1r46xm1-chart-wrapper"
         >
           <h2
-            class="e1byern-el-subtitle"
+            class="e15ggth7-el-subtitle"
           >
             Installations Per App
           </h2>
@@ -49,7 +49,7 @@ Object {
       class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
     >
       <h1
-        class="evblxhy-el-title"
+        class="e1byern-el-title"
       >
         Installations
       </h1>
@@ -61,7 +61,7 @@ Object {
         class="c1r46xm1-chart-wrapper"
       >
         <h2
-          class="e1byern-el-subtitle"
+          class="e15ggth7-el-subtitle"
         >
           Installations Per Day
         </h2>
@@ -70,7 +70,7 @@ Object {
         class="c1r46xm1-chart-wrapper"
       >
         <h2
-          class="e1byern-el-subtitle"
+          class="e15ggth7-el-subtitle"
         >
           Installations Per App
         </h2>
@@ -148,7 +148,7 @@ Object {
         class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
       >
         <h1
-          class="evblxhy-el-title"
+          class="e1byern-el-title"
         >
           Installations
         </h1>
@@ -173,7 +173,7 @@ Object {
           class="c1r46xm1-chart-wrapper"
         >
           <h2
-            class="e1byern-el-subtitle"
+            class="e15ggth7-el-subtitle"
           >
             Installations Per Day
           </h2>
@@ -182,7 +182,7 @@ Object {
           class="c1r46xm1-chart-wrapper"
         >
           <h2
-            class="e1byern-el-subtitle"
+            class="e15ggth7-el-subtitle"
           >
             Installations Per App
           </h2>
@@ -198,7 +198,7 @@ Object {
       class="e1q0zwo9-el-flex-justify-between e2kmzjs-el-flex-container"
     >
       <h1
-        class="evblxhy-el-title"
+        class="e1byern-el-title"
       >
         Installations
       </h1>
@@ -223,7 +223,7 @@ Object {
         class="c1r46xm1-chart-wrapper"
       >
         <h2
-          class="e1byern-el-subtitle"
+          class="e15ggth7-el-subtitle"
         >
           Installations Per Day
         </h2>
@@ -232,7 +232,7 @@ Object {
         class="c1r46xm1-chart-wrapper"
       >
         <h2
-          class="e1byern-el-subtitle"
+          class="e15ggth7-el-subtitle"
         >
           Installations Per App
         </h2>

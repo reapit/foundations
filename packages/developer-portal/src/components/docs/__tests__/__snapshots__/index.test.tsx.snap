@@ -15,7 +15,7 @@ Object {
           class="e93m1fg-el-secondary-nav-container"
         >
           <h1
-            class="evblxhy-el-title"
+            class="e1byern-el-title"
           >
             Docs
           </h1>
@@ -86,17 +86,17 @@ Object {
             </svg>
           </span>
           <h2
-            class="e1byern-el-subtitle"
+            class="e15ggth7-el-subtitle"
           >
             Welcome
           </h2>
           <p
-            class="e11jaxfn-el-has-grey-text e1wasvgh-el-small-text"
+            class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
           >
             We have provided comprehensive documentation for all of our APIs, services, tooling and open source packages accross these pages.
           </p>
           <p
-            class="e11jaxfn-el-has-grey-text e1wasvgh-el-small-text"
+            class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
           >
             You can also visit us on Github where you can raise and track issues, look at code examples and view our milestones.
           </p>
@@ -110,7 +110,7 @@ Object {
           class="e12d7zo5-el-hfull eukst9x-el-page-container"
         >
           <h1
-            class="evblxhy-el-title"
+            class="e1byern-el-title"
           >
             Analytics Schema Docs
           </h1>
@@ -133,7 +133,7 @@ Object {
         class="e93m1fg-el-secondary-nav-container"
       >
         <h1
-          class="evblxhy-el-title"
+          class="e1byern-el-title"
         >
           Docs
         </h1>
@@ -204,17 +204,17 @@ Object {
           </svg>
         </span>
         <h2
-          class="e1byern-el-subtitle"
+          class="e15ggth7-el-subtitle"
         >
           Welcome
         </h2>
         <p
-          class="e11jaxfn-el-has-grey-text e1wasvgh-el-small-text"
+          class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
         >
           We have provided comprehensive documentation for all of our APIs, services, tooling and open source packages accross these pages.
         </p>
         <p
-          class="e11jaxfn-el-has-grey-text e1wasvgh-el-small-text"
+          class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
         >
           You can also visit us on Github where you can raise and track issues, look at code examples and view our milestones.
         </p>
@@ -228,7 +228,7 @@ Object {
         class="e12d7zo5-el-hfull eukst9x-el-page-container"
       >
         <h1
-          class="evblxhy-el-title"
+          class="e1byern-el-title"
         >
           Analytics Schema Docs
         </h1>

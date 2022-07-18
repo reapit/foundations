@@ -15,7 +15,7 @@ Object {
           class="eqir0a0-el-span4 e14pp0yd-el-col"
         >
           <h1
-            class="evblxhy-el-title"
+            class="e1byern-el-title"
           >
             Apps
           </h1>
@@ -32,7 +32,7 @@ Object {
                   class="ec47sgk-el-mb11"
                 >
                   <h2
-                    class="eh96l6x-el-has-bold-text ewfctk4-el-has-no-margin e1byern-el-subtitle"
+                    class="eh96l6x-el-has-bold-text ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
                   >
                     View Docs
                   </h2>
@@ -137,13 +137,13 @@ Object {
                       </svg>
                     </span>
                     <p
-                      class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+                      class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
                     >
                       We have invested a considerable amount of time to ensure our documentation is as comprehensive as possible, from detailed references, to our APIs to a glossary of terms and frequently asked questions.
                     </p>
                   </div>
                   <p
-                    class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+                    class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
                   >
                     Having first watched the video, you may want to have a deep dive into the documentation before creating your first app.
                   </p>
@@ -151,7 +151,7 @@ Object {
                     class="e1g28qe3-el-mb7"
                   >
                     <p
-                      class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
+                      class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
                     >
                       If you get stuck at any point when working with Foundations, make the docs your first port of call.
                     </p>
@@ -176,7 +176,7 @@ Object {
                   class="ec47sgk-el-mb11"
                 >
                   <h2
-                    class="eh96l6x-el-has-bold-text ewfctk4-el-has-no-margin e1byern-el-subtitle"
+                    class="eh96l6x-el-has-bold-text ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
                   >
                     Create APP
                   </h2>
@@ -291,7 +291,7 @@ Object {
                       </svg>
                     </span>
                     <p
-                      class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+                      class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
                     >
                       Creating an app is the starting point for authenticating against the Foundations APIs. Your app might be a web application, possibly rendered inside of the AgencyCloud CRM, or a simple data feed to serve a website.
                     </p>
@@ -300,7 +300,7 @@ Object {
                     class="e1g28qe3-el-mb7"
                   >
                     <p
-                      class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
+                      class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
                     >
                       In all cases, you will need to use the app creation wizard that will walk you through creating your app, explain key concepts along the way and link out to our documentation where relevant.
                     </p>
@@ -327,7 +327,7 @@ Object {
           class="eqir0a0-el-span4 e14pp0yd-el-col"
         >
           <h1
-            class="evblxhy-el-title"
+            class="e1byern-el-title"
           >
             About Foundations
           </h1>
@@ -338,7 +338,7 @@ Object {
               class="e1g28qe3-el-mb7"
             >
               <p
-                class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+                class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
               >
                 Reapit Foundations is a Platform as a Service that enables developers to access, update and enhance data within the Reapit AgencyCloud desktop CRM.
               </p>
@@ -610,17 +610,17 @@ Object {
               class=""
             >
               <p
-                class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+                class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
               >
                 There are a number of aspects to The Platform documented within this Developer Portal, specifically, APIs, Webhooks, a UI Library and Data Analytics solutions. We also have an AppMarket to facilitate the publishing and installation of the software you build on top of the Platform.
               </p>
               <p
-                class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+                class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
               >
                 Every developer will have different use cases for using our Platform and it is unlikely you will need to use all of the APIs and tooling we provide. However, the starting point for all integrations is to create an ‘App’, which on a basic level is the means to authenticate against our services.
               </p>
               <p
-                class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+                class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
               >
                 To get started, create your first app using the wizard on the left of this page. This will allow you to authenticate against our APIs.
               </p>
@@ -641,7 +641,7 @@ Object {
         class="eqir0a0-el-span4 e14pp0yd-el-col"
       >
         <h1
-          class="evblxhy-el-title"
+          class="e1byern-el-title"
         >
           Apps
         </h1>
@@ -658,7 +658,7 @@ Object {
                 class="ec47sgk-el-mb11"
               >
                 <h2
-                  class="eh96l6x-el-has-bold-text ewfctk4-el-has-no-margin e1byern-el-subtitle"
+                  class="eh96l6x-el-has-bold-text ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
                 >
                   View Docs
                 </h2>
@@ -763,13 +763,13 @@ Object {
                     </svg>
                   </span>
                   <p
-                    class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+                    class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
                   >
                     We have invested a considerable amount of time to ensure our documentation is as comprehensive as possible, from detailed references, to our APIs to a glossary of terms and frequently asked questions.
                   </p>
                 </div>
                 <p
-                  class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+                  class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
                 >
                   Having first watched the video, you may want to have a deep dive into the documentation before creating your first app.
                 </p>
@@ -777,7 +777,7 @@ Object {
                   class="e1g28qe3-el-mb7"
                 >
                   <p
-                    class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
+                    class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
                   >
                     If you get stuck at any point when working with Foundations, make the docs your first port of call.
                   </p>
@@ -802,7 +802,7 @@ Object {
                 class="ec47sgk-el-mb11"
               >
                 <h2
-                  class="eh96l6x-el-has-bold-text ewfctk4-el-has-no-margin e1byern-el-subtitle"
+                  class="eh96l6x-el-has-bold-text ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
                 >
                   Create APP
                 </h2>
@@ -917,7 +917,7 @@ Object {
                     </svg>
                   </span>
                   <p
-                    class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+                    class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
                   >
                     Creating an app is the starting point for authenticating against the Foundations APIs. Your app might be a web application, possibly rendered inside of the AgencyCloud CRM, or a simple data feed to serve a website.
                   </p>
@@ -926,7 +926,7 @@ Object {
                   class="e1g28qe3-el-mb7"
                 >
                   <p
-                    class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
+                    class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
                   >
                     In all cases, you will need to use the app creation wizard that will walk you through creating your app, explain key concepts along the way and link out to our documentation where relevant.
                   </p>
@@ -953,7 +953,7 @@ Object {
         class="eqir0a0-el-span4 e14pp0yd-el-col"
       >
         <h1
-          class="evblxhy-el-title"
+          class="e1byern-el-title"
         >
           About Foundations
         </h1>
@@ -964,7 +964,7 @@ Object {
             class="e1g28qe3-el-mb7"
           >
             <p
-              class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+              class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
             >
               Reapit Foundations is a Platform as a Service that enables developers to access, update and enhance data within the Reapit AgencyCloud desktop CRM.
             </p>
@@ -1236,17 +1236,17 @@ Object {
             class=""
           >
             <p
-              class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+              class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
             >
               There are a number of aspects to The Platform documented within this Developer Portal, specifically, APIs, Webhooks, a UI Library and Data Analytics solutions. We also have an AppMarket to facilitate the publishing and installation of the software you build on top of the Platform.
             </p>
             <p
-              class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+              class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
             >
               Every developer will have different use cases for using our Platform and it is unlikely you will need to use all of the APIs and tooling we provide. However, the starting point for all integrations is to create an ‘App’, which on a basic level is the means to authenticate against our services.
             </p>
             <p
-              class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+              class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
             >
               To get started, create your first app using the wizard on the left of this page. This will allow you to authenticate against our APIs.
             </p>
