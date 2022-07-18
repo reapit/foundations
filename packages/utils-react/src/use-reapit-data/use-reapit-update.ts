@@ -48,9 +48,12 @@ interface SendFunctionPropsInterface<DataType> {
   canCall: boolean
 }
 
-export type SendFunction<ParamsType, DataType> = (params: ParamsType, options?: {
-  uriParams?: Object,
-}) => Promise<DataType>
+export type SendFunction<ParamsType, DataType> = (
+  params: ParamsType,
+  options?: {
+    uriParams?: Object
+  },
+) => Promise<DataType>
 
 export const send =
   <ParamsType, DataType>({
@@ -68,16 +71,19 @@ export const send =
     error,
     canCall,
   }: SendFunctionPropsInterface<DataType>): SendFunction<ParamsType, DataType | boolean> =>
-  async (params: ParamsType, options?: {
-    uriParams?: Object,
-  }): Promise<DataType | boolean> => {
+  async (
+    params: ParamsType,
+    options?: {
+      uriParams?: Object
+    },
+  ): Promise<DataType | boolean> => {
     if (!canCall) {
       console.error('connect session not ready')
       return false
     }
     const { api, path, errorMessage } = action
     const spreadedUriParams = { ...uriParams, ...options?.uriParams }
-    const deSerialisedPath = {spreadedUriParams}
+    const deSerialisedPath = spreadedUriParams
       ? Object.keys(spreadedUriParams).reduce<string>((path, uriReplaceKey) => {
           return path.replace(`{${uriReplaceKey}}`, spreadedUriParams[uriReplaceKey])
         }, path)
