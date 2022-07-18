@@ -144,6 +144,13 @@ import platformApiInfographic from './infographic-icons/platformApiInfographic'
 import appMarketInfographic from './infographic-icons/appMarketInfographic'
 import editAppInfographic from './infographic-icons/editAppInfographic'
 import lockedInfographic from './infographic-icons/lockedInfographic'
+import codeInfographic from './infographic-icons/codeInfographic'
+import listInfographic from './infographic-icons/listInfographic'
+import mailInfographic from './infographic-icons/mailInfographic'
+import phoneInfographic from './infographic-icons/phoneInfographic'
+import shieldInfographic from './infographic-icons/shieldInfographic'
+import webInfographic from './infographic-icons/webInfographic'
+import supportMenu from './menu-icons/supportMenu'
 
 export const iconSet = {
   addSystem,
@@ -292,4 +299,11 @@ export const iconSet = {
   appCategoryInfographic,
   appTypeInfographic,
   developerAppsInfographic,
+  codeInfographic,
+  listInfographic,
+  mailInfographic,
+  phoneInfographic,
+  shieldInfographic,
+  webInfographic,
+  supportMenu,
 }

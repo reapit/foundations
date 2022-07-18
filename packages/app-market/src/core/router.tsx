@@ -33,6 +33,7 @@ const AppsBrowsePage = React.lazy(() => catchChunkError(() => import('../compone
 const AppsDetailPage = React.lazy(() => catchChunkError(() => import('../components/apps-detail')))
 const AppsInstalledPage = React.lazy(() => catchChunkError(() => import('../components/apps-installed')))
 const SettingsPage = React.lazy(() => catchChunkError(() => import('../components/settings')))
+const SupportPage = React.lazy(() => catchChunkError(() => import('../components/apps-support')))
 
 const Router: FC = () => (
   <BrowserRouter history={history}>
@@ -47,6 +48,7 @@ const Router: FC = () => (
             <Route path={Routes.APPS_INSTALLED} exact component={AppsInstalledPage} />
             <Route path={Routes.SETTINGS_PROFILE} exact component={SettingsPage} />
             <Route path={Routes.SETTINGS_INSTALLED} exact component={SettingsPage} />
+            <Route path={Routes.SUPPORT} exact component={SupportPage} />
           </Switch>
         </PrivateRouteWrapper>
         <Redirect to={Routes.LOGIN} />

@@ -1,4 +1,4 @@
-import { AppsBrowseConfigEnum } from '@reapit/foundations-ts-definitions'
+import { AppsBrowseConfigEnum, AppsBrowseConfigItemInterface } from '@reapit/foundations-ts-definitions'
 import React from 'react'
 import { ReapitConnectSession } from '../../../../../connect-session/src/types'
 import { render } from '../../../tests/react-testing'
@@ -16,9 +16,9 @@ describe('AppBrowseUpsertModal', () => {
         <AppBrowseUpsertModal
           modalIsOpen={true}
           closeModal={() => {}}
-          configType={AppsBrowseConfigEnum.FEATURED}
           upsertItem={() => {}}
           connectSession={{} as ReapitConnectSession}
+          defaultValues={{ configType: AppsBrowseConfigEnum.FEATURED } as AppsBrowseConfigItemInterface}
         />,
       ),
     ).toMatchSnapshot()
