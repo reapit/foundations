@@ -83,6 +83,23 @@ export const createSite = async (
     viewerCertificate: cloudfront.ViewerCertificate.fromAcmCertificate(certificate, {
       aliases: [subDomain],
     }),
+    errorConfigurations: [
+      {
+        errorCode: 404,
+        responseCode: 200,
+        responsePagePath: '/index.html',
+      },
+      {
+        errorCode: 403,
+        responseCode: 200,
+        responsePagePath: '/index.html',
+      },
+      {
+        errorCode: 400,
+        responseCode: 200,
+        responsePagePath: '/index.html',
+      },
+    ],
   })
 
   const r53 = createRoute(stack, 'route', {
