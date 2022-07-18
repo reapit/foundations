@@ -51,6 +51,10 @@ export const ElTitle = styled.h1`
   &.${elHasCenteredText} {
     text-align: center;
   }
+
+  &.${elHasCapitalisedText} {
+    text-transform: capitalize;
+  }
 `
 
 export const ElSubtitle = styled.h2`
@@ -139,6 +143,10 @@ export const ElBodyText = styled.p`
   &.${elHasCenteredText} {
     text-align: center;
   }
+
+  &.${elHasCapitalisedText} {
+    text-transform: capitalize;
+  }
 `
 
 export const ElSmallText = styled.p`
@@ -180,5 +188,9 @@ export const ElSmallText = styled.p`
 
   &.${elHasCenteredText} {
     text-align: center;
+  }
+
+  &.${elHasCapitalisedText} {
+    text-transform: capitalize;
   }
 `
