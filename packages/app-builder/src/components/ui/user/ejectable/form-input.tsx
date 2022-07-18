@@ -9,6 +9,7 @@ import {
   elFlexAlignCenter,
   elHasGreyText,
   elMy2,
+  elP3,
   FileInput,
   FlexContainer,
   FloatingButton,
@@ -266,7 +267,7 @@ const DepartmentLookupInput = ({
   if (!loading && !values.departmentId) {
     return (
       <SelectIDofTypeContainer>
-        <p>Select a Department first</p>
+        <p className={elP3}>Select a Department first</p>
       </SelectIDofTypeContainer>
     )
   }
@@ -384,7 +385,7 @@ const Input = ({
           <Select value={value} onChange={onChange} name={name} disabled={disabled} defaultValue={defaultValue}>
             {enumValues.map((value) => (
               <option key={value} value={value}>
-                {value}
+                {camelCaseToSentence(value)}
               </option>
             ))}
             {/* deepscan-disable-next-line */}

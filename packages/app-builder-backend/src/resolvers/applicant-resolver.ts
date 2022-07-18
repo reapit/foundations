@@ -32,23 +32,20 @@ const createApplicantMutation = gql`
   ${ApplicantFragment}
   mutation CreateApplicant(
     $marketingMode: String!
-    $currency: String!
     $active: Boolean!
     $notes: String!
     $type: [String!]!
     $style: [String!]!
     $situation: [String!]!
     $parking: [String!]!
-    $bedroomsMin: Number!
-    $bedroomsMax: Nubmer!
-    $receptionsMin: Number!
-    $receptionsMax: Number!
-    $bathroomsMin: Number!
-    $bathroomsMax: Number!
-    $parkingSpacesMin: Number!
-    $parkingSpacesMax: Number!
-    $renting: ApplicantRentingInput
-    $description: String!
+    $bedroomsMin: Int
+    $bedroomsMax: Int
+    $receptionsMin: Int
+    $receptionsMax: Int
+    $bathroomsMin: Int
+    $bathroomsMax: Int
+    $parkingSpacesMin: Int
+    $parkingSpacesMax: Int
     $buying: ApplicantBuyingInput
     $renting: ApplicantRentingInput
     $externalArea: ApplicantExternalAreaInput
@@ -56,11 +53,11 @@ const createApplicantMutation = gql`
     $officeIds: [String!]!
     $negotiatorIds: [String!]!
     $departmentId: String!
+    $related: [ApplicantRelateInput]
     $metadata: JSON
   ) {
     CreateApplicant(
       marketingMode: $marketingMode
-      currency: $currency
       active: $active
       notes: $notes
       type: $type
@@ -75,13 +72,16 @@ const createApplicantMutation = gql`
       bathroomsMax: $bathroomsMax
       parkingSpacesMin: $parkingSpacesMin
       parkingSpacesMax: $parkingSpacesMax
-      description: $description
+      externalArea: $externalArea
+      internalArea: $internalArea
       renting: $renting
+      buying: $buying
 
       negotiatorIds: $negotiatorIds
       officeIds: $officeIds
       departmentId: $departmentId
       metadata: $metadata
+      related: $related
     ) {
       ...ApplicantFragment
     }
@@ -93,19 +93,20 @@ const updateApplicantMutation = gql`
   mutation UpdateApplicant(
     $id: String!
     $marketingMode: String!
-    $currency: String!
     $active: Boolean!
     $notes: String!
     $type: [String!]!
     $style: [String!]!
     $situation: [String!]!
     $parking: [String!]!
-    $bedroomsMin: Number!
-    $bedroomsMax: Nubmer!
-    $receptionsMin: Number!
-    $receptionsMax: Number!
-    $bathroomsMin: Number!
-    $bathroomsMax: Number!
+    $bedroomsMin: Int
+    $bedroomsMax: Int
+    $parkingSpacesMin: Int
+    $parkingSpacesMax: Int
+    $receptionsMin: Int
+    $receptionsMax: Int
+    $bathroomsMin: Int
+    $bathroomsMax: Int
     $buying: ApplicantBuyingInput
     $renting: ApplicantRentingInput
     $externalArea: ApplicantExternalAreaInput
@@ -113,12 +114,12 @@ const updateApplicantMutation = gql`
     $officeIds: [String!]!
     $departmentId: String!
     $negotiatorIds: [String!]!
+    $related: [ApplicantRelateInput]
     $metadata: JSON
   ) {
     UpdateApplicant(
       id: $id
       marketingMode: $marketingMode
-      currency: $currency
       active: $active
       notes: $notes
       type: $type
@@ -131,11 +132,18 @@ const updateApplicantMutation = gql`
       receptionsMax: $receptionsMax
       bathroomsMin: $bathroomsMin
       bathroomsMax: $bathroomsMax
+      parkingSpacesMin: $parkingSpacesMin
+      parkingSpacesMax: $parkingSpacesMax
       departmentId: $departmentId
+      externalArea: $externalArea
+      internalArea: $internalArea
+      buying: $buying
+      renting: $renting
 
       negotiatorIds: $negotiatorIds
       officeIds: $officeIds
       metadata: $metadata
+      related: $related
     ) {
       ...ApplicantFragment
     }
@@ -215,10 +223,12 @@ const createApplicant = async (applicant: ApplicantInput, accessToken: string, i
     createApplicantMutation,
     {
       ...app,
-      related: {
-        associatedId: contactId,
-        associatedType: 'contact',
-      },
+      related: [
+        {
+          associatedId: contactId,
+          associatedType: 'contact',
+        },
+      ],
     },
     'CreateApplicant',
     {
@@ -249,7 +259,7 @@ const updateApplicant = async (
   const { contactId, ...app } = applicant
   await query<ApplicantAPIResponse<null>>(
     updateApplicantMutation,
-    { ...app, related: { associatedId: contactId, associatedType: 'contact' }, id, _eTag },
+    { ...app, related: [{ associatedId: contactId, associatedType: 'contact' }], id, _eTag },
     'UpdateApplicant',
     {
       accessToken,

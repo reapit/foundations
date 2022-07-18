@@ -66,8 +66,8 @@ export class Contact {
   @Field(() => MarketingConsent)
   marketingConsent: MarketingConsent
 
-  @Field()
-  email: string
+  @Field({ nullable: true })
+  email?: string
 
   @Field(() => [Office])
   offices?: Office[]

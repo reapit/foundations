@@ -1,9 +1,10 @@
 import { gql } from 'apollo-server-core'
-import { ObjectType, Field, ID, InputType, GraphQLISODateTime } from 'type-graphql'
+import { ObjectType, Field, ID, InputType, GraphQLISODateTime, registerEnumType, Int } from 'type-graphql'
 import { GraphQLDate } from 'graphql-iso-date'
 import { Negotiator, NegotiatorFragment } from './negotiator'
 import { Office, OfficeFragment } from './office'
 import { Department, DepartmentFragment } from './department'
+import { ExternalAreaType, InternalAreaType, PropertyLettingFrequency } from './property'
 
 @ObjectType()
 class ApplicantBuying {
@@ -62,9 +63,6 @@ export class Applicant {
   marketingMode: string
 
   @Field({ nullable: true })
-  currency: string
-
-  @Field({ nullable: true })
   active: boolean
 
   @Field({ nullable: true })
@@ -72,9 +70,6 @@ export class Applicant {
 
   @Field(() => Department, { nullable: true })
   department?: Department
-
-  @Field({ nullable: true })
-  solicitorId: string
 
   @Field(() => [String])
   type: string[]
@@ -118,10 +113,10 @@ export class Applicant {
   @Field({ nullable: true })
   parkingSpacesMax: number
 
-  @Field(() => ApplicantBuying, { nullable: true })
+  @Field(() => ApplicantBuying, { nullable: true, description: '@onlyIf({ "marketingMode": "buying" })' })
   buying: ApplicantBuying
 
-  @Field(() => ApplicantRenting, { nullable: true })
+  @Field(() => ApplicantRenting, { nullable: true, description: '@onlyIf({ "marketingMode": "renting" })' })
   renting: ApplicantRenting
 
   @Field(() => ApplicantExternalArea, { nullable: true })
@@ -150,47 +145,56 @@ export class ApplicantBuyingInput {
 
 @InputType()
 export class ApplicantExternalAreaInput {
-  @Field()
-  type: string
+  @Field(() => ExternalAreaType)
+  type: ExternalAreaType
 
-  @Field()
+  @Field(() => Int)
   amountFrom: number
 
-  @Field()
+  @Field(() => Int)
   amountTo: number
 }
 
 @InputType()
 export class ApplicantInternalAreaInput {
-  @Field()
-  type: string
+  @Field(() => InternalAreaType)
+  type: InternalAreaType
 
-  @Field()
+  @Field(() => Int)
   amount: number
 }
 
 @InputType()
 export class ApplicantRentingInput {
-  @Field({ nullable: true })
-  rentFrequency?: string
+  @Field(() => PropertyLettingFrequency)
+  rentFrequency: PropertyLettingFrequency
 
-  @Field({ nullable: true })
-  rentFrom?: number
+  @Field(() => Int)
+  rentFrom: number
 
-  @Field({ nullable: true })
-  rentTo?: number
+  @Field(() => Int)
+  rentTo: number
 }
+
+export enum MarketingMode {
+  buying = 'buying',
+  renting = 'renting',
+}
+registerEnumType(MarketingMode, {
+  name: 'MarketingMode',
+  description: 'Buying or renting',
+})
 
 @InputType()
 export class ApplicantInput {
   @Field()
   description: string
 
-  @Field()
-  marketingMode: string
+  @Field(() => MarketingMode)
+  marketingMode: MarketingMode
 
-  @Field({ nullable: true })
-  currency?: string
+  @Field(() => String, { description: '@idOf(Department)' })
+  departmentId: string
 
   @Field({ nullable: true })
   active?: boolean
@@ -204,46 +208,49 @@ export class ApplicantInput {
   @Field(() => GraphQLDate, { nullable: true })
   nextCall?: Date
 
-  @Field(() => [String], { nullable: true })
+  @Field(() => [String], { nullable: true, description: '@customInput(department-lookup)' })
   type?: string[]
 
-  @Field(() => [String], { nullable: true })
+  @Field(() => [String], { nullable: true, description: '@customInput(department-lookup)' })
   style?: string[]
 
-  @Field(() => [String], { nullable: true })
+  @Field(() => [String], { nullable: true, description: '@customInput(department-lookup)' })
   situation?: string[]
 
-  @Field(() => [String], { nullable: true })
+  @Field(() => [String], { nullable: true, description: '@customInput(department-lookup)' })
   parking?: string[]
 
-  @Field({ nullable: true })
+  @Field(() => [String], { nullable: true, description: '@customInput(department-lookup)' })
+  locality?: string[]
+
+  @Field(() => Int, { nullable: true })
   bedroomsMin?: number
 
-  @Field({ nullable: true })
+  @Field(() => Int, { nullable: true })
   bedroomsMax?: number
 
-  @Field({ nullable: true })
+  @Field(() => Int, { nullable: true })
   receptionsMin?: number
 
-  @Field({ nullable: true })
+  @Field(() => Int, { nullable: true })
   receptionsMax?: number
 
-  @Field({ nullable: true })
+  @Field(() => Int, { nullable: true })
   bathroomsMin?: number
 
-  @Field({ nullable: true })
+  @Field(() => Int, { nullable: true })
   bathroomsMax?: number
 
-  @Field(() => ApplicantBuyingInput, { nullable: true })
+  @Field(() => ApplicantBuyingInput, { nullable: true, description: '@onlyIf({ "marketingMode": "buying" })' })
   buying?: ApplicantBuyingInput
 
-  @Field(() => ApplicantRentingInput, { nullable: true })
+  @Field(() => ApplicantRentingInput, { nullable: true, description: '@onlyIf({ "marketingMode": "renting" })' })
   renting?: ApplicantRentingInput
 
-  @Field({ nullable: true })
+  @Field(() => Int, { nullable: true })
   parkingSpacesMin?: number
 
-  @Field({ nullable: true })
+  @Field(() => Int, { nullable: true })
   parkingSpacesMax?: number
 
   @Field(() => ApplicantExternalAreaInput, { nullable: true })
@@ -261,9 +268,6 @@ export class ApplicantInput {
   @Field({ description: '@idOf(Contact)' })
   contactId: string
 
-  @Field(() => String, { description: '@idOf(Department)' })
-  departmentId: string
-
   metadata?: any
 }
 
@@ -272,7 +276,6 @@ export const ApplicantFields = `
   created
   modified
   marketingMode
-  currency
   active
   nextCall
   lastCall
@@ -289,6 +292,7 @@ export const ApplicantFields = `
   bathroomsMax
   parkingSpacesMin
   parkingSpacesMax
+  departmentId
   buying {
     priceFrom
     priceTo

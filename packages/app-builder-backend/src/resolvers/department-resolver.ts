@@ -1,10 +1,10 @@
 import { gql } from 'apollo-server-core'
-import { Authorized, Ctx, Query, Resolver } from 'type-graphql'
+import { Arg, Authorized, Ctx, Query, Resolver } from 'type-graphql'
 
 import { query } from '../utils/graphql-fetch'
 import { Context } from '../types'
 import { Department, DepartmentFragment } from '../entities/department'
-import { DepartmentModelPagedResult } from '@reapit/foundations-ts-definitions/types'
+import { DepartmentModel, DepartmentModelPagedResult } from '@reapit/foundations-ts-definitions/types'
 
 const getDepartmentsQuery = gql`
   ${DepartmentFragment}
@@ -17,6 +17,16 @@ const getDepartmentsQuery = gql`
     }
   }
 `
+const getDepartmentQuery = gql`
+  ${DepartmentFragment}
+
+  query GetDepartmentById($id: String!) {
+    GetDepartmentById(id: $id) {
+      ...DepartmentFragment
+    }
+  }
+`
+
 const getDepartments = async (accessToken: string, idToken: string): Promise<Department[]> => {
   const departments = await query<DepartmentModelPagedResult>(getDepartmentsQuery, {}, 'GetDepartments', {
     accessToken,
@@ -26,6 +36,15 @@ const getDepartments = async (accessToken: string, idToken: string): Promise<Dep
   return (departments._embedded as Department[]) || []
 }
 
+const getDepartment = async (accessToken: string, idToken: string, id: string): Promise<Department | undefined> => {
+  const department = await query<DepartmentModel>(getDepartmentQuery, { id }, 'GetDepartmentById', {
+    accessToken,
+    idToken,
+  })
+
+  return department as Department
+}
+
 @Resolver(() => Department)
 export class DepartmentResolver {
   @Authorized()
@@ -33,5 +52,15 @@ export class DepartmentResolver {
   async listDepartments(@Ctx() { accessToken, idToken }: Context): Promise<Department[]> {
     const departments = await getDepartments(accessToken, idToken)
     return departments
+  }
+
+  @Authorized()
+  @Query(() => Department)
+  async getDepartment(
+    @Ctx() { accessToken, idToken }: Context,
+    @Arg('id') id: string,
+  ): Promise<Department | undefined> {
+    const department = await getDepartment(accessToken, idToken, id)
+    return department
   }
 }

@@ -256,6 +256,8 @@ type Mutation {
     receptionsMax: Int
     bathroomsMin: Int
     bathroomsMax: Int
+    parkingSpacesMin: Int
+    parkingSpacesMax: Int
     locationType: String
     locationOptions: [String]
     buying: ApplicantBuyingInput
@@ -289,6 +291,8 @@ type Mutation {
     receptionsMax: Int
     bathroomsMin: Int
     bathroomsMax: Int
+    parkingSpacesMin: Int
+    parkingSpacesMax: Int
     locationType: String
     locationOptions: [String]
     buying: ApplicantBuyingInput
