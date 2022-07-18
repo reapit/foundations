@@ -14,7 +14,7 @@ Object {
         <h2
           class="el-subtitle"
         >
-          featuredApps
+          featured apps
         </h2>
         <div
           class="el-table"
@@ -38,7 +38,7 @@ Object {
       <h2
         class="el-subtitle"
       >
-        featuredApps
+        featured apps
       </h2>
       <div
         class="el-table"

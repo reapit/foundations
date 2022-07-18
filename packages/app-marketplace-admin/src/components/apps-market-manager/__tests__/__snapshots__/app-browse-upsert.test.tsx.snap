@@ -146,7 +146,7 @@ Object {
             <h2
               class="el-subtitle"
             >
-              featuredHeroApps
+              featured hero apps
             </h2>
             <div
               class="el-table"
@@ -164,7 +164,7 @@ Object {
             <h2
               class="el-subtitle"
             >
-              heroApps
+              hero apps
             </h2>
             <div
               class="el-table"
@@ -182,7 +182,7 @@ Object {
             <h2
               class="el-subtitle"
             >
-              appsFilters
+              apps filters
             </h2>
             <div
               class="el-table"
@@ -200,7 +200,7 @@ Object {
             <h2
               class="el-subtitle"
             >
-              featuredApps
+              featured apps
             </h2>
             <div
               class="el-table"
@@ -218,7 +218,7 @@ Object {
             <h2
               class="el-subtitle"
             >
-              simpleApps
+              simple apps
             </h2>
             <div
               class="el-table"
@@ -376,7 +376,7 @@ Object {
           <h2
             class="el-subtitle"
           >
-            featuredHeroApps
+            featured hero apps
           </h2>
           <div
             class="el-table"
@@ -394,7 +394,7 @@ Object {
           <h2
             class="el-subtitle"
           >
-            heroApps
+            hero apps
           </h2>
           <div
             class="el-table"
@@ -412,7 +412,7 @@ Object {
           <h2
             class="el-subtitle"
           >
-            appsFilters
+            apps filters
           </h2>
           <div
             class="el-table"
@@ -430,7 +430,7 @@ Object {
           <h2
             class="el-subtitle"
           >
-            featuredApps
+            featured apps
           </h2>
           <div
             class="el-table"
@@ -448,7 +448,7 @@ Object {
           <h2
             class="el-subtitle"
           >
-            simpleApps
+            simple apps
           </h2>
           <div
             class="el-table"
