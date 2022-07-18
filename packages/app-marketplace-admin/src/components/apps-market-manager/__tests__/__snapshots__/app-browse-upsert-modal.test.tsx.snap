@@ -1094,6 +1094,41 @@ Object {
                     >
                       developerAppsInfographic
                     </option>
+                    <option
+                      value="codeInfographic"
+                    >
+                      codeInfographic
+                    </option>
+                    <option
+                      value="listInfographic"
+                    >
+                      listInfographic
+                    </option>
+                    <option
+                      value="mailInfographic"
+                    >
+                      mailInfographic
+                    </option>
+                    <option
+                      value="phoneInfographic"
+                    >
+                      phoneInfographic
+                    </option>
+                    <option
+                      value="shieldInfographic"
+                    >
+                      shieldInfographic
+                    </option>
+                    <option
+                      value="webInfographic"
+                    >
+                      webInfographic
+                    </option>
+                    <option
+                      value="supportMenu"
+                    >
+                      supportMenu
+                    </option>
                   </select>
                 </div>
               </div>
@@ -2317,6 +2352,41 @@ Object {
                     value="developerAppsInfographic"
                   >
                     developerAppsInfographic
+                  </option>
+                  <option
+                    value="codeInfographic"
+                  >
+                    codeInfographic
+                  </option>
+                  <option
+                    value="listInfographic"
+                  >
+                    listInfographic
+                  </option>
+                  <option
+                    value="mailInfographic"
+                  >
+                    mailInfographic
+                  </option>
+                  <option
+                    value="phoneInfographic"
+                  >
+                    phoneInfographic
+                  </option>
+                  <option
+                    value="shieldInfographic"
+                  >
+                    shieldInfographic
+                  </option>
+                  <option
+                    value="webInfographic"
+                  >
+                    webInfographic
+                  </option>
+                  <option
+                    value="supportMenu"
+                  >
+                    supportMenu
                   </option>
                 </select>
               </div>
