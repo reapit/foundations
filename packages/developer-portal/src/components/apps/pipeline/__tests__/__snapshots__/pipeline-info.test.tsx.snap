@@ -114,12 +114,12 @@ Object {
             </span>
             <div>
               <h2
-                class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+                class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
               >
                 Status
               </h2>
               <p
-                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
+                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
               >
                 <span
                   class="e1vxext9-el-intent-danger e1cp9zgf-el-status-indicator"
@@ -190,12 +190,12 @@ Object {
             </span>
             <div>
               <h2
-                class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+                class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
               >
                 Repository
               </h2>
               <p
-                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
+                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
               >
                 <span
                   class="e11oi1zt-el-intent-success e1cp9zgf-el-status-indicator"
@@ -300,12 +300,12 @@ Object {
             </span>
             <div>
               <h2
-                class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+                class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
               >
                 Location
               </h2>
               <p
-                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
+                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
               >
                 <a
                   href="https://beautiful-land.iaas.paas.reapit.cloud"
@@ -374,7 +374,7 @@ Object {
             </span>
             <div>
               <h2
-                class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+                class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
               >
                 Github / Bitbucket App
               </h2>
@@ -389,7 +389,7 @@ Object {
                   />
                 </div>
                 <p
-                  class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
+                  class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
                 >
                   To deploy from repos, configure either the Reapit
                    
@@ -533,12 +533,12 @@ Object {
           </span>
           <div>
             <h2
-              class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+              class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
             >
               Status
             </h2>
             <p
-              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
+              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
             >
               <span
                 class="e1vxext9-el-intent-danger e1cp9zgf-el-status-indicator"
@@ -609,12 +609,12 @@ Object {
           </span>
           <div>
             <h2
-              class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+              class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
             >
               Repository
             </h2>
             <p
-              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
+              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
             >
               <span
                 class="e11oi1zt-el-intent-success e1cp9zgf-el-status-indicator"
@@ -719,12 +719,12 @@ Object {
           </span>
           <div>
             <h2
-              class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+              class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
             >
               Location
             </h2>
             <p
-              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
+              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
             >
               <a
                 href="https://beautiful-land.iaas.paas.reapit.cloud"
@@ -793,7 +793,7 @@ Object {
           </span>
           <div>
             <h2
-              class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+              class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
             >
               Github / Bitbucket App
             </h2>
@@ -808,7 +808,7 @@ Object {
                 />
               </div>
               <p
-                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
+                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
               >
                 To deploy from repos, configure either the Reapit
                  

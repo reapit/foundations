@@ -91,19 +91,19 @@ Object {
             class="e1jxji48-el-flex-column e2kmzjs-el-flex-container"
           >
             <h1
-              class="ewfctk4-el-has-no-margin e1bb7egt-el-has-centered-text evblxhy-el-title"
+              class="ewfctk4-el-has-no-margin e1bb7egt-el-has-centered-text e1byern-el-title"
             >
               Register
             </h1>
             <h2
-              class="e1bb7egt-el-has-centered-text e1byern-el-subtitle"
+              class="e1bb7egt-el-has-centered-text e15ggth7-el-subtitle"
             >
               for Reapit Foundations Developer Portal
             </h2>
           </div>
           <form>
             <p
-              class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1bb7egt-el-has-centered-text e15ggth7-el-body-text"
+              class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1bb7egt-el-has-centered-text e1wasvgh-el-body-text"
             >
               By registering for the Foundations platform, you will get access to the Reapit developer portal and sandbox data. You will also get the opportunity to list apps in the Reapit Marketplace. We look forward to seeing what you build!
             </p>
@@ -231,7 +231,7 @@ Object {
               </div>
             </div>
             <p
-              class="e11jaxfn-el-has-grey-text e1bb7egt-el-has-centered-text e15ggth7-el-body-text"
+              class="e11jaxfn-el-has-grey-text e1bb7egt-el-has-centered-text e1wasvgh-el-body-text"
             />
           </form>
         </div>
@@ -325,19 +325,19 @@ Object {
           class="e1jxji48-el-flex-column e2kmzjs-el-flex-container"
         >
           <h1
-            class="ewfctk4-el-has-no-margin e1bb7egt-el-has-centered-text evblxhy-el-title"
+            class="ewfctk4-el-has-no-margin e1bb7egt-el-has-centered-text e1byern-el-title"
           >
             Register
           </h1>
           <h2
-            class="e1bb7egt-el-has-centered-text e1byern-el-subtitle"
+            class="e1bb7egt-el-has-centered-text e15ggth7-el-subtitle"
           >
             for Reapit Foundations Developer Portal
           </h2>
         </div>
         <form>
           <p
-            class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1bb7egt-el-has-centered-text e15ggth7-el-body-text"
+            class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1bb7egt-el-has-centered-text e1wasvgh-el-body-text"
           >
             By registering for the Foundations platform, you will get access to the Reapit developer portal and sandbox data. You will also get the opportunity to list apps in the Reapit Marketplace. We look forward to seeing what you build!
           </p>
@@ -465,7 +465,7 @@ Object {
             </div>
           </div>
           <p
-            class="e11jaxfn-el-has-grey-text e1bb7egt-el-has-centered-text e15ggth7-el-body-text"
+            class="e11jaxfn-el-has-grey-text e1bb7egt-el-has-centered-text e1wasvgh-el-body-text"
           />
         </form>
       </div>

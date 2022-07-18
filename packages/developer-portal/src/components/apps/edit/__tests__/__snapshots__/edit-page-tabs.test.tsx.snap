@@ -9,7 +9,7 @@ Object {
         class="ecbqyq6-el-snack-holder"
       />
       <p
-        class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+        class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
       >
         When your application is integrated with AgencyCloud you can either launch it from the dedicated Apps menu in the AgencyCloud software, or from a series of menus embedded within other pages. Your app can receive contextual entity ids as global variables so it can launch with relevant data for your users. For more on our desktop API
          
@@ -18,12 +18,12 @@ Object {
         </a>
       </p>
       <p
-        class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+        class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
       >
         You should toggle ‘AgencyCloud Integration’ only if you are intending your app to be launched from within AgencyCloud
       </p>
       <p
-        class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+        class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
       >
         The below list maps to the various menus from which you can launch your app or replace an AgencyCloud Screen. You should select the ones that are relevant to your app only.
       </p>
@@ -71,7 +71,7 @@ Object {
       class="ecbqyq6-el-snack-holder"
     />
     <p
-      class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+      class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
     >
       When your application is integrated with AgencyCloud you can either launch it from the dedicated Apps menu in the AgencyCloud software, or from a series of menus embedded within other pages. Your app can receive contextual entity ids as global variables so it can launch with relevant data for your users. For more on our desktop API
        
@@ -80,12 +80,12 @@ Object {
       </a>
     </p>
     <p
-      class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+      class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
     >
       You should toggle ‘AgencyCloud Integration’ only if you are intending your app to be launched from within AgencyCloud
     </p>
     <p
-      class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+      class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
     >
       The below list maps to the various menus from which you can launch your app or replace an AgencyCloud Screen. You should select the ones that are relevant to your app only.
     </p>
@@ -190,12 +190,12 @@ Object {
         class="ecbqyq6-el-snack-holder"
       />
       <p
-        class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+        class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
       >
         The detail included on this page populates your app listing in the AppMarket. While you are in development, you can complete this in your own time however, when you are ready to submit your app for approval, it all needs to be completed.
       </p>
       <p
-        class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e15ggth7-el-body-text"
+        class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1wasvgh-el-body-text"
       >
         For information on listing your app 
         <a>
@@ -461,7 +461,7 @@ Object {
                 value=""
               />
               <p
-                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-small-text"
+                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin elle7d2-el-small-text"
               >
                 Dimensions: 96px x 96px
               </p>
@@ -498,7 +498,7 @@ Object {
                 value=""
               />
               <p
-                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-small-text"
+                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin elle7d2-el-small-text"
               >
                 Dimensions: 495px x 222px
               </p>
@@ -535,7 +535,7 @@ Object {
                 value=""
               />
               <p
-                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-small-text"
+                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin elle7d2-el-small-text"
               >
                 Dimensions: 598px x 457px
               </p>
@@ -572,7 +572,7 @@ Object {
                 value=""
               />
               <p
-                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-small-text"
+                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin elle7d2-el-small-text"
               >
                 Dimensions: 598px x 457px
               </p>
@@ -609,7 +609,7 @@ Object {
                 value=""
               />
               <p
-                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-small-text"
+                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin elle7d2-el-small-text"
               >
                 Dimensions: 598px x 457px
               </p>
@@ -646,7 +646,7 @@ Object {
                 value=""
               />
               <p
-                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-small-text"
+                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin elle7d2-el-small-text"
               >
                 Dimensions: 598px x 457px
               </p>
@@ -661,12 +661,12 @@ Object {
       class="ecbqyq6-el-snack-holder"
     />
     <p
-      class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+      class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
     >
       The detail included on this page populates your app listing in the AppMarket. While you are in development, you can complete this in your own time however, when you are ready to submit your app for approval, it all needs to be completed.
     </p>
     <p
-      class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e15ggth7-el-body-text"
+      class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1wasvgh-el-body-text"
     >
       For information on listing your app 
       <a>
@@ -932,7 +932,7 @@ Object {
               value=""
             />
             <p
-              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-small-text"
+              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin elle7d2-el-small-text"
             >
               Dimensions: 96px x 96px
             </p>
@@ -969,7 +969,7 @@ Object {
               value=""
             />
             <p
-              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-small-text"
+              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin elle7d2-el-small-text"
             >
               Dimensions: 495px x 222px
             </p>
@@ -1006,7 +1006,7 @@ Object {
               value=""
             />
             <p
-              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-small-text"
+              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin elle7d2-el-small-text"
             >
               Dimensions: 598px x 457px
             </p>
@@ -1043,7 +1043,7 @@ Object {
               value=""
             />
             <p
-              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-small-text"
+              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin elle7d2-el-small-text"
             >
               Dimensions: 598px x 457px
             </p>
@@ -1080,7 +1080,7 @@ Object {
               value=""
             />
             <p
-              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-small-text"
+              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin elle7d2-el-small-text"
             >
               Dimensions: 598px x 457px
             </p>
@@ -1117,7 +1117,7 @@ Object {
               value=""
             />
             <p
-              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-small-text"
+              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin elle7d2-el-small-text"
             >
               Dimensions: 598px x 457px
             </p>
@@ -1189,7 +1189,7 @@ Object {
         class="ecbqyq6-el-snack-holder"
       />
       <p
-        class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+        class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
       >
         When using the Reapit Connect
          
@@ -1251,7 +1251,7 @@ Object {
       class="ecbqyq6-el-snack-holder"
     />
     <p
-      class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+      class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
     >
       When using the Reapit Connect
        
@@ -1474,22 +1474,22 @@ Object {
             </g>
           </svg>
           <h2
-            class="e1byern-el-subtitle"
+            class="e15ggth7-el-subtitle"
           >
             Manage App Listing
           </h2>
           <p
-            class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
           >
             This page is the starting point for completing your app listing, and initiating the approvals process for your app to go live with customer data.
           </p>
           <p
-            class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
           >
             As an app developer, you need to provide us with a number of pieces of information about your integration and have it approved by our team, prior to going live with customer data. For apps that wish to integrate with the AgencyCloud CRM, and be publicly listed in the AppMarket, the approvals process is more involved than for simple server-side or single customer private apps. Regardless of your target audience, you should start to complete your app listing as soon as possible.
           </p>
           <p
-            class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
           >
             You can check the status of your app listing at any time by using the button below, prior to submitting for approval.
           </p>
@@ -1704,17 +1704,17 @@ Object {
             </g>
           </svg>
           <h2
-            class="e1byern-el-subtitle"
+            class="e15ggth7-el-subtitle"
           >
             App Listing Documentation
           </h2>
           <p
-            class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
           >
             As you make changes, you should save your changes in the left hand side menu. You can do this as many times as you like until your app is listed, or live in the AppMarket.
           </p>
           <p
-            class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
           >
             When you are ready for your app to be reviewed by a member of our team, click the ‘Submit Review’ button. If you are looking for guidance on what we look for when reviewing app, there is a dedicated page 
             <a>
@@ -1722,12 +1722,12 @@ Object {
             </a>
           </p>
           <p
-            class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
           >
             When your app is live, you will need to create revisions to your app for our team to review. You can only have one live revision outstanding at any given time.
           </p>
           <p
-            class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
           >
             For guidelines on completing your app listing, visit the documentation link below before getting started.
           </p>
@@ -1849,22 +1849,22 @@ Object {
           </g>
         </svg>
         <h2
-          class="e1byern-el-subtitle"
+          class="e15ggth7-el-subtitle"
         >
           Manage App Listing
         </h2>
         <p
-          class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
         >
           This page is the starting point for completing your app listing, and initiating the approvals process for your app to go live with customer data.
         </p>
         <p
-          class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
         >
           As an app developer, you need to provide us with a number of pieces of information about your integration and have it approved by our team, prior to going live with customer data. For apps that wish to integrate with the AgencyCloud CRM, and be publicly listed in the AppMarket, the approvals process is more involved than for simple server-side or single customer private apps. Regardless of your target audience, you should start to complete your app listing as soon as possible.
         </p>
         <p
-          class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
         >
           You can check the status of your app listing at any time by using the button below, prior to submitting for approval.
         </p>
@@ -2079,17 +2079,17 @@ Object {
           </g>
         </svg>
         <h2
-          class="e1byern-el-subtitle"
+          class="e15ggth7-el-subtitle"
         >
           App Listing Documentation
         </h2>
         <p
-          class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
         >
           As you make changes, you should save your changes in the left hand side menu. You can do this as many times as you like until your app is listed, or live in the AppMarket.
         </p>
         <p
-          class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
         >
           When you are ready for your app to be reviewed by a member of our team, click the ‘Submit Review’ button. If you are looking for guidance on what we look for when reviewing app, there is a dedicated page 
           <a>
@@ -2097,12 +2097,12 @@ Object {
           </a>
         </p>
         <p
-          class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
         >
           When your app is live, you will need to create revisions to your app for our team to review. You can only have one live revision outstanding at any given time.
         </p>
         <p
-          class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
         >
           For guidelines on completing your app listing, visit the documentation link below before getting started.
         </p>
@@ -2177,7 +2177,7 @@ Object {
         class="ecbqyq6-el-snack-holder"
       />
       <p
-        class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+        class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
       >
         Permissions are registered as scopes against the access token you receive back from one of our Authentication Flows. They map 1:1 and on a read/write basis to endpoints in our Platform REST API. As such, it is worth looking at the
          
@@ -2195,7 +2195,7 @@ Object {
         class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
       />
       <p
-        class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+        class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
       >
         This section refers to products that are available within the Reapit Group of Companies. For UK based developers, this will typically default to Agency Cloud however, as we launch the Reapit AppMarket in other countries and with different products, you may wish for your application to list in these alternative AppMarkets. You can select more than one option but at least one option must be selected.
       </p>
@@ -2203,7 +2203,7 @@ Object {
         class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
       />
       <p
-        class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+        class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
       >
         You should toggle ‘Private App’ if you only want your app to be private to a select group of customers (max of 3). Simply enter their ‘Customer ID’ as a comma separated list. For more information on how to find the Customer ID,
          
@@ -2277,7 +2277,7 @@ Object {
       class="ecbqyq6-el-snack-holder"
     />
     <p
-      class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+      class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
     >
       Permissions are registered as scopes against the access token you receive back from one of our Authentication Flows. They map 1:1 and on a read/write basis to endpoints in our Platform REST API. As such, it is worth looking at the
        
@@ -2295,7 +2295,7 @@ Object {
       class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
     />
     <p
-      class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+      class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
     >
       This section refers to products that are available within the Reapit Group of Companies. For UK based developers, this will typically default to Agency Cloud however, as we launch the Reapit AppMarket in other countries and with different products, you may wish for your application to list in these alternative AppMarkets. You can select more than one option but at least one option must be selected.
     </p>
@@ -2303,7 +2303,7 @@ Object {
       class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
     />
     <p
-      class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+      class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
     >
       You should toggle ‘Private App’ if you only want your app to be private to a select group of customers (max of 3). Simply enter their ‘Customer ID’ as a comma separated list. For more information on how to find the Customer ID,
        

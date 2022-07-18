@@ -91,25 +91,25 @@ Object {
             class="e1jxji48-el-flex-column e2kmzjs-el-flex-container"
           >
             <h1
-              class="ewfctk4-el-has-no-margin e1bb7egt-el-has-centered-text evblxhy-el-title"
+              class="ewfctk4-el-has-no-margin e1bb7egt-el-has-centered-text e1byern-el-title"
             >
               Welcome
             </h1>
             <h2
-              class="etrchfm-el-has-section-margin e1bb7egt-el-has-centered-text e1byern-el-subtitle"
+              class="etrchfm-el-has-section-margin e1bb7egt-el-has-centered-text e15ggth7-el-subtitle"
             >
               to the Reapit Foundations Developer Portal
             </h2>
           </div>
           <p
-            class="e11jaxfn-el-has-grey-text e1bb7egt-el-has-centered-text e15ggth7-el-body-text"
+            class="e11jaxfn-el-has-grey-text e1bb7egt-el-has-centered-text e1wasvgh-el-body-text"
           >
             The organisation ‘
             Some Org
             ’ has already been setup within the Developer Portal. To access this organisation, you will need to be invited by the Admin who set the account up.
           </p>
           <p
-            class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1bb7egt-el-has-centered-text e15ggth7-el-body-text"
+            class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1bb7egt-el-has-centered-text e1wasvgh-el-body-text"
           >
             For more information on how an Admin can Invite Members to an organisation, please
              
@@ -135,7 +135,7 @@ Object {
             </div>
           </div>
           <p
-            class="e11jaxfn-el-has-grey-text e1bb7egt-el-has-centered-text e15ggth7-el-body-text"
+            class="e11jaxfn-el-has-grey-text e1bb7egt-el-has-centered-text e1wasvgh-el-body-text"
           />
         </div>
       </div>
@@ -228,25 +228,25 @@ Object {
           class="e1jxji48-el-flex-column e2kmzjs-el-flex-container"
         >
           <h1
-            class="ewfctk4-el-has-no-margin e1bb7egt-el-has-centered-text evblxhy-el-title"
+            class="ewfctk4-el-has-no-margin e1bb7egt-el-has-centered-text e1byern-el-title"
           >
             Welcome
           </h1>
           <h2
-            class="etrchfm-el-has-section-margin e1bb7egt-el-has-centered-text e1byern-el-subtitle"
+            class="etrchfm-el-has-section-margin e1bb7egt-el-has-centered-text e15ggth7-el-subtitle"
           >
             to the Reapit Foundations Developer Portal
           </h2>
         </div>
         <p
-          class="e11jaxfn-el-has-grey-text e1bb7egt-el-has-centered-text e15ggth7-el-body-text"
+          class="e11jaxfn-el-has-grey-text e1bb7egt-el-has-centered-text e1wasvgh-el-body-text"
         >
           The organisation ‘
           Some Org
           ’ has already been setup within the Developer Portal. To access this organisation, you will need to be invited by the Admin who set the account up.
         </p>
         <p
-          class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1bb7egt-el-has-centered-text e15ggth7-el-body-text"
+          class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1bb7egt-el-has-centered-text e1wasvgh-el-body-text"
         >
           For more information on how an Admin can Invite Members to an organisation, please
            
@@ -272,7 +272,7 @@ Object {
           </div>
         </div>
         <p
-          class="e11jaxfn-el-has-grey-text e1bb7egt-el-has-centered-text e15ggth7-el-body-text"
+          class="e11jaxfn-el-has-grey-text e1bb7egt-el-has-centered-text e1wasvgh-el-body-text"
         />
       </div>
     </div>
@@ -422,28 +422,28 @@ Object {
             class="e1jxji48-el-flex-column e2kmzjs-el-flex-container"
           >
             <h1
-              class="ewfctk4-el-has-no-margin e1bb7egt-el-has-centered-text evblxhy-el-title"
+              class="ewfctk4-el-has-no-margin e1bb7egt-el-has-centered-text e1byern-el-title"
             >
               Welcome
             </h1>
             <h2
-              class="etrchfm-el-has-section-margin e1bb7egt-el-has-centered-text e1byern-el-subtitle"
+              class="etrchfm-el-has-section-margin e1bb7egt-el-has-centered-text e15ggth7-el-subtitle"
             >
               to the Reapit Foundations Developer Portal
             </h2>
           </div>
           <p
-            class="e11jaxfn-el-has-grey-text e1bb7egt-el-has-centered-text e15ggth7-el-body-text"
+            class="e11jaxfn-el-has-grey-text e1bb7egt-el-has-centered-text e1wasvgh-el-body-text"
           >
             This portal is used for building apps and integrations on top of our Platform APIs.
           </p>
           <p
-            class="e11jaxfn-el-has-grey-text e1bb7egt-el-has-centered-text e15ggth7-el-body-text"
+            class="e11jaxfn-el-has-grey-text e1bb7egt-el-has-centered-text e1wasvgh-el-body-text"
           >
             Whilst using the Developer Portal to build against our Sandbox environment is free, API consumption charges apply when your app or integration is published (either privately or publicly) in the AppMarket.
           </p>
           <p
-            class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1bb7egt-el-has-centered-text e15ggth7-el-body-text"
+            class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1bb7egt-el-has-centered-text e1wasvgh-el-body-text"
           >
             To view our Terms and Conditions, please click ‘Proceed’ below.
           </p>
@@ -466,7 +466,7 @@ Object {
             </div>
           </div>
           <p
-            class="e11jaxfn-el-has-grey-text e1bb7egt-el-has-centered-text e15ggth7-el-body-text"
+            class="e11jaxfn-el-has-grey-text e1bb7egt-el-has-centered-text e1wasvgh-el-body-text"
           />
         </div>
       </div>
@@ -559,28 +559,28 @@ Object {
           class="e1jxji48-el-flex-column e2kmzjs-el-flex-container"
         >
           <h1
-            class="ewfctk4-el-has-no-margin e1bb7egt-el-has-centered-text evblxhy-el-title"
+            class="ewfctk4-el-has-no-margin e1bb7egt-el-has-centered-text e1byern-el-title"
           >
             Welcome
           </h1>
           <h2
-            class="etrchfm-el-has-section-margin e1bb7egt-el-has-centered-text e1byern-el-subtitle"
+            class="etrchfm-el-has-section-margin e1bb7egt-el-has-centered-text e15ggth7-el-subtitle"
           >
             to the Reapit Foundations Developer Portal
           </h2>
         </div>
         <p
-          class="e11jaxfn-el-has-grey-text e1bb7egt-el-has-centered-text e15ggth7-el-body-text"
+          class="e11jaxfn-el-has-grey-text e1bb7egt-el-has-centered-text e1wasvgh-el-body-text"
         >
           This portal is used for building apps and integrations on top of our Platform APIs.
         </p>
         <p
-          class="e11jaxfn-el-has-grey-text e1bb7egt-el-has-centered-text e15ggth7-el-body-text"
+          class="e11jaxfn-el-has-grey-text e1bb7egt-el-has-centered-text e1wasvgh-el-body-text"
         >
           Whilst using the Developer Portal to build against our Sandbox environment is free, API consumption charges apply when your app or integration is published (either privately or publicly) in the AppMarket.
         </p>
         <p
-          class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1bb7egt-el-has-centered-text e15ggth7-el-body-text"
+          class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1bb7egt-el-has-centered-text e1wasvgh-el-body-text"
         >
           To view our Terms and Conditions, please click ‘Proceed’ below.
         </p>
@@ -603,7 +603,7 @@ Object {
           </div>
         </div>
         <p
-          class="e11jaxfn-el-has-grey-text e1bb7egt-el-has-centered-text e15ggth7-el-body-text"
+          class="e11jaxfn-el-has-grey-text e1bb7egt-el-has-centered-text e1wasvgh-el-body-text"
         />
       </div>
     </div>
@@ -753,25 +753,25 @@ Object {
             class="e1jxji48-el-flex-column e2kmzjs-el-flex-container"
           >
             <h1
-              class="ewfctk4-el-has-no-margin e1bb7egt-el-has-centered-text evblxhy-el-title"
+              class="ewfctk4-el-has-no-margin e1bb7egt-el-has-centered-text e1byern-el-title"
             >
               Welcome
             </h1>
             <h2
-              class="etrchfm-el-has-section-margin e1bb7egt-el-has-centered-text e1byern-el-subtitle"
+              class="etrchfm-el-has-section-margin e1bb7egt-el-has-centered-text e15ggth7-el-subtitle"
             >
               to the Reapit Foundations Developer Portal
             </h2>
           </div>
           <p
-            class="e11jaxfn-el-has-grey-text e1bb7egt-el-has-centered-text e15ggth7-el-body-text"
+            class="e11jaxfn-el-has-grey-text e1bb7egt-el-has-centered-text e1wasvgh-el-body-text"
           >
             Unfortunately, only an Admin can setup your developer organisation ‘
             Some Org
             ’. Please contact an Admin to set up the account.
           </p>
           <p
-            class="e11jaxfn-el-has-grey-text e1bb7egt-el-has-centered-text e15ggth7-el-body-text"
+            class="e11jaxfn-el-has-grey-text e1bb7egt-el-has-centered-text e1wasvgh-el-body-text"
           >
             They can do this up from
              
@@ -785,7 +785,7 @@ Object {
             .
           </p>
           <p
-            class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1bb7egt-el-has-centered-text e15ggth7-el-body-text"
+            class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1bb7egt-el-has-centered-text e1wasvgh-el-body-text"
           >
             You will need to contact them directly to perform this task.
           </p>
@@ -803,7 +803,7 @@ Object {
             </div>
           </div>
           <p
-            class="e11jaxfn-el-has-grey-text e1bb7egt-el-has-centered-text e15ggth7-el-body-text"
+            class="e11jaxfn-el-has-grey-text e1bb7egt-el-has-centered-text e1wasvgh-el-body-text"
           />
         </div>
       </div>
@@ -896,25 +896,25 @@ Object {
           class="e1jxji48-el-flex-column e2kmzjs-el-flex-container"
         >
           <h1
-            class="ewfctk4-el-has-no-margin e1bb7egt-el-has-centered-text evblxhy-el-title"
+            class="ewfctk4-el-has-no-margin e1bb7egt-el-has-centered-text e1byern-el-title"
           >
             Welcome
           </h1>
           <h2
-            class="etrchfm-el-has-section-margin e1bb7egt-el-has-centered-text e1byern-el-subtitle"
+            class="etrchfm-el-has-section-margin e1bb7egt-el-has-centered-text e15ggth7-el-subtitle"
           >
             to the Reapit Foundations Developer Portal
           </h2>
         </div>
         <p
-          class="e11jaxfn-el-has-grey-text e1bb7egt-el-has-centered-text e15ggth7-el-body-text"
+          class="e11jaxfn-el-has-grey-text e1bb7egt-el-has-centered-text e1wasvgh-el-body-text"
         >
           Unfortunately, only an Admin can setup your developer organisation ‘
           Some Org
           ’. Please contact an Admin to set up the account.
         </p>
         <p
-          class="e11jaxfn-el-has-grey-text e1bb7egt-el-has-centered-text e15ggth7-el-body-text"
+          class="e11jaxfn-el-has-grey-text e1bb7egt-el-has-centered-text e1wasvgh-el-body-text"
         >
           They can do this up from
            
@@ -928,7 +928,7 @@ Object {
           .
         </p>
         <p
-          class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1bb7egt-el-has-centered-text e15ggth7-el-body-text"
+          class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1bb7egt-el-has-centered-text e1wasvgh-el-body-text"
         >
           You will need to contact them directly to perform this task.
         </p>
@@ -946,7 +946,7 @@ Object {
           </div>
         </div>
         <p
-          class="e11jaxfn-el-has-grey-text e1bb7egt-el-has-centered-text e15ggth7-el-body-text"
+          class="e11jaxfn-el-has-grey-text e1bb7egt-el-has-centered-text e1wasvgh-el-body-text"
         />
       </div>
     </div>

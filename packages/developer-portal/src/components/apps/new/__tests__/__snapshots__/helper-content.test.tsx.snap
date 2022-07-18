@@ -23,7 +23,7 @@ Object {
           class="e6p05ya-el-fade-in"
         >
           <h2
-            class="eh96l6x-el-has-bold-text e1byern-el-subtitle"
+            class="eh96l6x-el-has-bold-text e15ggth7-el-subtitle"
           >
             About Apps
           </h2>
@@ -34,7 +34,7 @@ Object {
               class="e1g28qe3-el-mb7"
             >
               <p
-                class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+                class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
               >
                 Every developer will have different use cases for our Platform and it is unlikely you will need to use all of the APIs and tooling we provide. However, the starting point for all integrations is to create an ‘App’,
               </p>
@@ -48,17 +48,17 @@ Object {
               class=""
             >
               <p
-                class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+                class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
               >
                 On a basic level an app is the means to authenticate against our services. To create an app, you should follow the steps in the wizard on the left of this page.
               </p>
               <p
-                class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+                class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
               >
                 When you have completed this wizard, you will land on a dedicated page for your App, that will give you the Client Id, and in the case of server-side apps, a Client Secret, that will enable you to authenticate against out APIs. From here you can get started with development against our developer sandbox data.
               </p>
               <p
-                class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+                class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
               >
                 When you are ready to go live with a customer, you will need to complete some additional information and submit your app for review by one of our team. On approval of your app, it will be listed in the AppMarket for your customers to install, this will then grant access to their production data.
               </p>
@@ -69,7 +69,7 @@ Object {
           class="s1u7t7z0-step-is-hidden"
         >
           <h2
-            class="eh96l6x-el-has-bold-text e1byern-el-subtitle"
+            class="eh96l6x-el-has-bold-text e15ggth7-el-subtitle"
           >
             AgencyCloud Functionality
           </h2>
@@ -80,7 +80,7 @@ Object {
               class="e1g28qe3-el-mb7"
             >
               <p
-                class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+                class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
               >
                 For the greatest integration with our AgencyCloud Desktop CRM, we support the ability to load client-side apps using an internal web browser, inside of the CRM.
               </p>
@@ -94,7 +94,7 @@ Object {
               class=""
             >
               <p
-                class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+                class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
               >
                 You can either launch your app from a dedicated menu, for example from a property or a contact, or even replace certain screens. Using our Desktop API your app can receive contextual information based on the screen or location the app is launched from. Providing relevant data for your users. For more information on our Desktop API please 
                 <a>
@@ -102,7 +102,7 @@ Object {
                 </a>
               </p>
               <p
-                class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+                class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
               >
                 To ensure a consistent UI and UX, it is a requirement that apps that integrate with AgencyCloud use our Elements UI library and our Design System. If you want to familiarise yourself with this before moving on, you can 
                 <a>
@@ -110,7 +110,7 @@ Object {
                 </a>
               </p>
               <p
-                class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+                class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
               >
                 Please be aware that we do not support rendering of web applications that use a third-party UI. You cannot simply link out from your integrated app or render a pre-existing app in an iframe. For more information on the requirements, 
                 <a>
@@ -124,17 +124,17 @@ Object {
           class="s1u7t7z0-step-is-hidden"
         >
           <h2
-            class="eh96l6x-el-has-bold-text e1byern-el-subtitle"
+            class="eh96l6x-el-has-bold-text e15ggth7-el-subtitle"
           >
             External Web Applications
           </h2>
           <p
-            class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
           >
             You should select this if you wish to integrate our Platform APIs with a pre-existing or future web application that you do not wish to launch from within the AgencyCloud desktop CRM.
           </p>
           <p
-            class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
           >
             Your application can be authenticated against our Platform either on the client-side or server-side. If you choose client-side authentication at the next step but later wish to upgrade to a full AgencyCloud integration in the future, you can do this. However, it is important to note, server-side integrations cannot be launched from within AgencyCloud.
           </p>
@@ -143,12 +143,12 @@ Object {
           class="s1u7t7z0-step-is-hidden"
         >
           <h2
-            class="eh96l6x-el-has-bold-text e1byern-el-subtitle"
+            class="eh96l6x-el-has-bold-text e15ggth7-el-subtitle"
           >
             Data Portal and Reporting Feeds
           </h2>
           <p
-            class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
           >
             This is a server-side only data feed, using our
              
@@ -158,12 +158,12 @@ Object {
              You should select this if you have no requirement to render your application inside of the AgencyCloud desktop CRM and, you have no requirement for user-centric client-side authentication.
           </p>
           <p
-            class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
           >
             Typically, you will be pulling data to serve another application, to perform data processing or some other analytics function.
           </p>
           <p
-            class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
           >
             You should also select this option if you require a permanent connection to our APIs; to pull data on demand as opposed to on the fly, when a user logs in to your application.
           </p>
@@ -172,7 +172,7 @@ Object {
           class="s1u7t7z0-step-is-hidden"
         >
           <h2
-            class="eh96l6x-el-has-bold-text e1byern-el-subtitle"
+            class="eh96l6x-el-has-bold-text e15ggth7-el-subtitle"
           >
             Website Feeds
           </h2>
@@ -183,7 +183,7 @@ Object {
               class="e1g28qe3-el-mb7"
             >
               <p
-                class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+                class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
               >
                 It is possible to get up and running with a website feed from the Platform API. You will want to optimise this flow, implementing webhooks and caching however, the below video is our quick start guide.
               </p>
@@ -197,7 +197,7 @@ Object {
               class=""
             >
               <p
-                class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+                class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
               >
                 When building a public website for a Reapit Customer, you will have no user authentication so your integration must be server-side, using our
                  
@@ -206,7 +206,7 @@ Object {
                 </a>
               </p>
               <p
-                class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+                class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
               >
                 Your application will be read-only and by selecting this option, we will pre-populate the typical API permissions your integration will need for most website development.
               </p>
@@ -217,17 +217,17 @@ Object {
           class="s1u7t7z0-step-is-hidden"
         >
           <h2
-            class="eh96l6x-el-has-bold-text e1byern-el-subtitle"
+            class="eh96l6x-el-has-bold-text e15ggth7-el-subtitle"
           >
             Web Services to Platform
           </h2>
           <p
-            class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
           >
             Select this option if you are migrating from the legacy Reapit SOAP API, or web services. These services will soon be deprecated so it is important to start your migration to the Foundations Platform as soon as possible.
           </p>
           <p
-            class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
           >
             You will get options at the next steps to decide whether client or server-side authentication best serves your application needs however, in most cases web services applications are server-side using our
              
@@ -236,7 +236,7 @@ Object {
             </a>
           </p>
           <p
-            class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
           >
             Please be aware there is not a 1:1 mapping between the SOAP and our Platform REST API. As such, we suggest reading the 
             <a>
@@ -259,17 +259,17 @@ Object {
           class="s1u7t7z0-step-is-hidden"
         >
           <h2
-            class="eh96l6x-el-has-bold-text e1byern-el-subtitle"
+            class="eh96l6x-el-has-bold-text e15ggth7-el-subtitle"
           >
             Using Reapit Connect as an Identity Provider
           </h2>
           <p
-            class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
           >
             We support using Reapit Connect, our client-side authentication solution, simply as an identity provider for your application.
           </p>
           <p
-            class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
           >
             In this case, your client-side authenticated users will not have any data permissions however, you can access and validate their identity against your own application. For more on
              
@@ -287,12 +287,12 @@ Object {
           class="s1u7t7z0-step-is-hidden"
         >
           <h2
-            class="eh96l6x-el-has-bold-text e1byern-el-subtitle"
+            class="eh96l6x-el-has-bold-text e15ggth7-el-subtitle"
           >
             Client Side Apps
           </h2>
           <p
-            class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
           >
             Client-side Apps use our identity provider
              
@@ -307,7 +307,7 @@ Object {
              You will need to provide us with URIs to your application at the next step so we know where to return you to on login and on completion of this wizard, you will receive a Client ID you will need to get started.
           </p>
           <p
-            class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
           >
             To make this process easier, we provide you with an authentication module for client-side apps,
              
@@ -326,7 +326,7 @@ Object {
           class="s1u7t7z0-step-is-hidden"
         >
           <h2
-            class="eh96l6x-el-has-bold-text e1byern-el-subtitle"
+            class="eh96l6x-el-has-bold-text e15ggth7-el-subtitle"
           >
             Server Side Apps
           </h2>
@@ -346,7 +346,7 @@ Object {
               class=""
             >
               <p
-                class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+                class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
               >
                 Server-side applications authenticate against our API using the
                  
@@ -356,7 +356,7 @@ Object {
                  This process involves the exchange of a Client Id and Secret for a JWT access token to authenticate against all requests.
               </p>
               <p
-                class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+                class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
               >
                 Unlike client-side applications, you do not have to re-direct to Reapit Connect, nor do your users have to log into your application. Because of this, the flow must only be used on the Server Side to ensure the Client Secret you will be issued at the end of this wizard is held in a secure location.
               </p>
@@ -367,12 +367,12 @@ Object {
           class="s1u7t7z0-step-is-hidden"
         >
           <h2
-            class="eh96l6x-el-has-bold-text e1byern-el-subtitle"
+            class="eh96l6x-el-has-bold-text e15ggth7-el-subtitle"
           >
             Reapit Connect Redirects
           </h2>
           <p
-            class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
           >
             When using the Reapit Connect
              
@@ -382,7 +382,7 @@ Object {
              you need to register both a re-direct URI and a logout URI. The former is the location in your app, you want Reapit Connect to re-direct to after a successful user login, the latter, after a succesful logout. Only URIs that are registered here will be accepted as a location by Reapit Connect although, you can register multiple locations with a comma separated list.
           </p>
           <p
-            class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
           >
             We have pre-populated the URIs that you need when using our
              
@@ -396,12 +396,12 @@ Object {
           class="s1u7t7z0-step-is-hidden"
         >
           <h2
-            class="eh96l6x-el-has-bold-text e1byern-el-subtitle"
+            class="eh96l6x-el-has-bold-text e15ggth7-el-subtitle"
           >
             Permissions
           </h2>
           <p
-            class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
           >
             Permissions are registered as scopes against the access token you receive back from one of our Authentication Flows. They map 1:1 and on a read/write basis to endpoints in our our Platform REST API. As such, it is worth looking at the
              
@@ -416,7 +416,7 @@ Object {
             before procceeding, to investigate which permissions you think you will need.
           </p>
           <p
-            class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
           >
             For some flows we have pre-populated suggested permissions based on what you have said you wish to acheive with our Platform. These can be removed or added as you see fit and all permissions can be edited later if you wish to add or remove them before your app goes live.
           </p>
@@ -435,7 +435,7 @@ Object {
         class="e6p05ya-el-fade-in"
       >
         <h2
-          class="eh96l6x-el-has-bold-text e1byern-el-subtitle"
+          class="eh96l6x-el-has-bold-text e15ggth7-el-subtitle"
         >
           About Apps
         </h2>
@@ -446,7 +446,7 @@ Object {
             class="e1g28qe3-el-mb7"
           >
             <p
-              class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+              class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
             >
               Every developer will have different use cases for our Platform and it is unlikely you will need to use all of the APIs and tooling we provide. However, the starting point for all integrations is to create an ‘App’,
             </p>
@@ -460,17 +460,17 @@ Object {
             class=""
           >
             <p
-              class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+              class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
             >
               On a basic level an app is the means to authenticate against our services. To create an app, you should follow the steps in the wizard on the left of this page.
             </p>
             <p
-              class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+              class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
             >
               When you have completed this wizard, you will land on a dedicated page for your App, that will give you the Client Id, and in the case of server-side apps, a Client Secret, that will enable you to authenticate against out APIs. From here you can get started with development against our developer sandbox data.
             </p>
             <p
-              class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+              class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
             >
               When you are ready to go live with a customer, you will need to complete some additional information and submit your app for review by one of our team. On approval of your app, it will be listed in the AppMarket for your customers to install, this will then grant access to their production data.
             </p>
@@ -481,7 +481,7 @@ Object {
         class="s1u7t7z0-step-is-hidden"
       >
         <h2
-          class="eh96l6x-el-has-bold-text e1byern-el-subtitle"
+          class="eh96l6x-el-has-bold-text e15ggth7-el-subtitle"
         >
           AgencyCloud Functionality
         </h2>
@@ -492,7 +492,7 @@ Object {
             class="e1g28qe3-el-mb7"
           >
             <p
-              class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+              class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
             >
               For the greatest integration with our AgencyCloud Desktop CRM, we support the ability to load client-side apps using an internal web browser, inside of the CRM.
             </p>
@@ -506,7 +506,7 @@ Object {
             class=""
           >
             <p
-              class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+              class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
             >
               You can either launch your app from a dedicated menu, for example from a property or a contact, or even replace certain screens. Using our Desktop API your app can receive contextual information based on the screen or location the app is launched from. Providing relevant data for your users. For more information on our Desktop API please 
               <a>
@@ -514,7 +514,7 @@ Object {
               </a>
             </p>
             <p
-              class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+              class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
             >
               To ensure a consistent UI and UX, it is a requirement that apps that integrate with AgencyCloud use our Elements UI library and our Design System. If you want to familiarise yourself with this before moving on, you can 
               <a>
@@ -522,7 +522,7 @@ Object {
               </a>
             </p>
             <p
-              class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+              class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
             >
               Please be aware that we do not support rendering of web applications that use a third-party UI. You cannot simply link out from your integrated app or render a pre-existing app in an iframe. For more information on the requirements, 
               <a>
@@ -536,17 +536,17 @@ Object {
         class="s1u7t7z0-step-is-hidden"
       >
         <h2
-          class="eh96l6x-el-has-bold-text e1byern-el-subtitle"
+          class="eh96l6x-el-has-bold-text e15ggth7-el-subtitle"
         >
           External Web Applications
         </h2>
         <p
-          class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
         >
           You should select this if you wish to integrate our Platform APIs with a pre-existing or future web application that you do not wish to launch from within the AgencyCloud desktop CRM.
         </p>
         <p
-          class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
         >
           Your application can be authenticated against our Platform either on the client-side or server-side. If you choose client-side authentication at the next step but later wish to upgrade to a full AgencyCloud integration in the future, you can do this. However, it is important to note, server-side integrations cannot be launched from within AgencyCloud.
         </p>
@@ -555,12 +555,12 @@ Object {
         class="s1u7t7z0-step-is-hidden"
       >
         <h2
-          class="eh96l6x-el-has-bold-text e1byern-el-subtitle"
+          class="eh96l6x-el-has-bold-text e15ggth7-el-subtitle"
         >
           Data Portal and Reporting Feeds
         </h2>
         <p
-          class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
         >
           This is a server-side only data feed, using our
            
@@ -570,12 +570,12 @@ Object {
            You should select this if you have no requirement to render your application inside of the AgencyCloud desktop CRM and, you have no requirement for user-centric client-side authentication.
         </p>
         <p
-          class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
         >
           Typically, you will be pulling data to serve another application, to perform data processing or some other analytics function.
         </p>
         <p
-          class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
         >
           You should also select this option if you require a permanent connection to our APIs; to pull data on demand as opposed to on the fly, when a user logs in to your application.
         </p>
@@ -584,7 +584,7 @@ Object {
         class="s1u7t7z0-step-is-hidden"
       >
         <h2
-          class="eh96l6x-el-has-bold-text e1byern-el-subtitle"
+          class="eh96l6x-el-has-bold-text e15ggth7-el-subtitle"
         >
           Website Feeds
         </h2>
@@ -595,7 +595,7 @@ Object {
             class="e1g28qe3-el-mb7"
           >
             <p
-              class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+              class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
             >
               It is possible to get up and running with a website feed from the Platform API. You will want to optimise this flow, implementing webhooks and caching however, the below video is our quick start guide.
             </p>
@@ -609,7 +609,7 @@ Object {
             class=""
           >
             <p
-              class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+              class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
             >
               When building a public website for a Reapit Customer, you will have no user authentication so your integration must be server-side, using our
                
@@ -618,7 +618,7 @@ Object {
               </a>
             </p>
             <p
-              class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+              class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
             >
               Your application will be read-only and by selecting this option, we will pre-populate the typical API permissions your integration will need for most website development.
             </p>
@@ -629,17 +629,17 @@ Object {
         class="s1u7t7z0-step-is-hidden"
       >
         <h2
-          class="eh96l6x-el-has-bold-text e1byern-el-subtitle"
+          class="eh96l6x-el-has-bold-text e15ggth7-el-subtitle"
         >
           Web Services to Platform
         </h2>
         <p
-          class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
         >
           Select this option if you are migrating from the legacy Reapit SOAP API, or web services. These services will soon be deprecated so it is important to start your migration to the Foundations Platform as soon as possible.
         </p>
         <p
-          class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
         >
           You will get options at the next steps to decide whether client or server-side authentication best serves your application needs however, in most cases web services applications are server-side using our
            
@@ -648,7 +648,7 @@ Object {
           </a>
         </p>
         <p
-          class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
         >
           Please be aware there is not a 1:1 mapping between the SOAP and our Platform REST API. As such, we suggest reading the 
           <a>
@@ -671,17 +671,17 @@ Object {
         class="s1u7t7z0-step-is-hidden"
       >
         <h2
-          class="eh96l6x-el-has-bold-text e1byern-el-subtitle"
+          class="eh96l6x-el-has-bold-text e15ggth7-el-subtitle"
         >
           Using Reapit Connect as an Identity Provider
         </h2>
         <p
-          class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
         >
           We support using Reapit Connect, our client-side authentication solution, simply as an identity provider for your application.
         </p>
         <p
-          class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
         >
           In this case, your client-side authenticated users will not have any data permissions however, you can access and validate their identity against your own application. For more on
            
@@ -699,12 +699,12 @@ Object {
         class="s1u7t7z0-step-is-hidden"
       >
         <h2
-          class="eh96l6x-el-has-bold-text e1byern-el-subtitle"
+          class="eh96l6x-el-has-bold-text e15ggth7-el-subtitle"
         >
           Client Side Apps
         </h2>
         <p
-          class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
         >
           Client-side Apps use our identity provider
            
@@ -719,7 +719,7 @@ Object {
            You will need to provide us with URIs to your application at the next step so we know where to return you to on login and on completion of this wizard, you will receive a Client ID you will need to get started.
         </p>
         <p
-          class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
         >
           To make this process easier, we provide you with an authentication module for client-side apps,
            
@@ -738,7 +738,7 @@ Object {
         class="s1u7t7z0-step-is-hidden"
       >
         <h2
-          class="eh96l6x-el-has-bold-text e1byern-el-subtitle"
+          class="eh96l6x-el-has-bold-text e15ggth7-el-subtitle"
         >
           Server Side Apps
         </h2>
@@ -758,7 +758,7 @@ Object {
             class=""
           >
             <p
-              class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+              class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
             >
               Server-side applications authenticate against our API using the
                
@@ -768,7 +768,7 @@ Object {
                This process involves the exchange of a Client Id and Secret for a JWT access token to authenticate against all requests.
             </p>
             <p
-              class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+              class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
             >
               Unlike client-side applications, you do not have to re-direct to Reapit Connect, nor do your users have to log into your application. Because of this, the flow must only be used on the Server Side to ensure the Client Secret you will be issued at the end of this wizard is held in a secure location.
             </p>
@@ -779,12 +779,12 @@ Object {
         class="s1u7t7z0-step-is-hidden"
       >
         <h2
-          class="eh96l6x-el-has-bold-text e1byern-el-subtitle"
+          class="eh96l6x-el-has-bold-text e15ggth7-el-subtitle"
         >
           Reapit Connect Redirects
         </h2>
         <p
-          class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
         >
           When using the Reapit Connect
            
@@ -794,7 +794,7 @@ Object {
            you need to register both a re-direct URI and a logout URI. The former is the location in your app, you want Reapit Connect to re-direct to after a successful user login, the latter, after a succesful logout. Only URIs that are registered here will be accepted as a location by Reapit Connect although, you can register multiple locations with a comma separated list.
         </p>
         <p
-          class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
         >
           We have pre-populated the URIs that you need when using our
            
@@ -808,12 +808,12 @@ Object {
         class="s1u7t7z0-step-is-hidden"
       >
         <h2
-          class="eh96l6x-el-has-bold-text e1byern-el-subtitle"
+          class="eh96l6x-el-has-bold-text e15ggth7-el-subtitle"
         >
           Permissions
         </h2>
         <p
-          class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
         >
           Permissions are registered as scopes against the access token you receive back from one of our Authentication Flows. They map 1:1 and on a read/write basis to endpoints in our our Platform REST API. As such, it is worth looking at the
            
@@ -828,7 +828,7 @@ Object {
           before procceeding, to investigate which permissions you think you will need.
         </p>
         <p
-          class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
         >
           For some flows we have pre-populated suggested permissions based on what you have said you wish to acheive with our Platform. These can be removed or added as you see fit and all permissions can be edited later if you wish to add or remove them before your app goes live.
         </p>

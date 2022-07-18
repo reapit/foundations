@@ -9,7 +9,7 @@ Object {
         class="ecbqyq6-el-snack-holder"
       />
       <p
-        class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+        class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
       >
         Permissions are registered as scopes against the access token you receive back from one of our Authentication Flows. They map 1:1 and on a read/write basis to endpoints in our Platform REST API. As such, it is worth looking at the
          
@@ -128,7 +128,7 @@ Object {
         </div>
       </div>
       <p
-        class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+        class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
       >
         This section refers to products that are available within the Reapit Group of Companies. For UK based developers, this will typically default to Agency Cloud however, as we launch the Reapit AppMarket in other countries and with different products, you may wish for your application to list in these alternative AppMarkets. You can select more than one option but at least one option must be selected.
       </p>
@@ -237,7 +237,7 @@ Object {
         </div>
       </div>
       <p
-        class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+        class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
       >
         You should toggle ‘Private App’ if you only want your app to be private to a select group of customers (max of 3). Simply enter their ‘Customer ID’ as a comma separated list. For more information on how to find the Customer ID,
          
@@ -311,7 +311,7 @@ Object {
       class="ecbqyq6-el-snack-holder"
     />
     <p
-      class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+      class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
     >
       Permissions are registered as scopes against the access token you receive back from one of our Authentication Flows. They map 1:1 and on a read/write basis to endpoints in our Platform REST API. As such, it is worth looking at the
        
@@ -430,7 +430,7 @@ Object {
       </div>
     </div>
     <p
-      class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+      class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
     >
       This section refers to products that are available within the Reapit Group of Companies. For UK based developers, this will typically default to Agency Cloud however, as we launch the Reapit AppMarket in other countries and with different products, you may wish for your application to list in these alternative AppMarkets. You can select more than one option but at least one option must be selected.
     </p>
@@ -539,7 +539,7 @@ Object {
       </div>
     </div>
     <p
-      class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+      class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
     >
       You should toggle ‘Private App’ if you only want your app to be private to a select group of customers (max of 3). Simply enter their ‘Customer ID’ as a comma separated list. For more information on how to find the Customer ID,
        
@@ -670,7 +670,7 @@ Object {
         class="ecbqyq6-el-snack-holder"
       />
       <p
-        class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+        class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
       >
         Permissions are registered as scopes against the access token you receive back from one of our Authentication Flows. They map 1:1 and on a read/write basis to endpoints in our Platform REST API. As such, it is worth looking at the
          
@@ -699,7 +699,7 @@ Object {
         class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
       />
       <p
-        class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+        class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
       >
         This section refers to products that are available within the Reapit Group of Companies. For UK based developers, this will typically default to Agency Cloud however, as we launch the Reapit AppMarket in other countries and with different products, you may wish for your application to list in these alternative AppMarkets. You can select more than one option but at least one option must be selected.
       </p>
@@ -718,7 +718,7 @@ Object {
         class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
       />
       <p
-        class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+        class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
       >
         You should toggle ‘Private App’ if you only want your app to be private to a select group of customers (max of 3). Simply enter their ‘Customer ID’ as a comma separated list. For more information on how to find the Customer ID,
          
@@ -803,7 +803,7 @@ Object {
       class="ecbqyq6-el-snack-holder"
     />
     <p
-      class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+      class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
     >
       Permissions are registered as scopes against the access token you receive back from one of our Authentication Flows. They map 1:1 and on a read/write basis to endpoints in our Platform REST API. As such, it is worth looking at the
        
@@ -832,7 +832,7 @@ Object {
       class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
     />
     <p
-      class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+      class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
     >
       This section refers to products that are available within the Reapit Group of Companies. For UK based developers, this will typically default to Agency Cloud however, as we launch the Reapit AppMarket in other countries and with different products, you may wish for your application to list in these alternative AppMarkets. You can select more than one option but at least one option must be selected.
     </p>
@@ -851,7 +851,7 @@ Object {
       class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
     />
     <p
-      class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+      class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
     >
       You should toggle ‘Private App’ if you only want your app to be private to a select group of customers (max of 3). Simply enter their ‘Customer ID’ as a comma separated list. For more information on how to find the Customer ID,
        
