@@ -91,7 +91,7 @@ export const getGetQuery = (
   }
 }
 
-export type CustomInputType = 'image-upload'
+export type CustomInputType = 'image-upload' | 'department-lookup'
 
 export type OnlyIf = Record<string, string[]>
 
@@ -106,6 +106,7 @@ export type ParsedArg = {
   acKey?: DesktopContext
   customInputType?: CustomInputType
   onlyIf?: OnlyIf
+  isDepartmentLookup?: boolean
 }
 
 const parseArgs = (

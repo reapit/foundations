@@ -71,7 +71,7 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
     }, [data, args])
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-      const { name, type, value, checked } = e.currentTarget as HTMLInputElement
+      const { name, type, value, checked } = (e.currentTarget || e.target) as HTMLInputElement
       let actualValue: string | number | boolean = type === 'checkbox' ? checked : value
       if (type === 'number') {
         actualValue = parseFloat(value)

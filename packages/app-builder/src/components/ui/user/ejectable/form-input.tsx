@@ -28,10 +28,11 @@ import { useLazyObjectSearch } from '../../../hooks/objects/use-object-search'
 import { useObjectMutate } from '../../../hooks/objects/use-object-mutate'
 import { uppercaseSentence } from './utils'
 import { useFormContext } from '../../../hooks/form-context'
-import { ParsedArg } from '../../..//hooks/use-introspection/query-generators'
+import { ParsedArg } from '../../../hooks/use-introspection/query-generators'
 import { cx } from '@linaria/core'
 import { block } from '../../styles'
 import { styled } from '@linaria/react'
+import { useObjectGet } from '../../../../components/hooks/objects/use-object-get'
 
 const getLabel = (obj: any, labelKeys?: string[]) => {
   if (labelKeys) {
@@ -240,6 +241,73 @@ const fieldTypeToInputType = (fieldType: string) => {
   }
 }
 
+const DepartmentLookupInput = ({
+  name,
+  input,
+  disabled,
+  defaultValue,
+  label,
+  onChange,
+  value,
+}: {
+  name: string
+  disabled?: boolean
+  input: ParsedArg
+  defaultValue?: any
+  label?: string
+  value?: any
+  onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void
+}) => {
+  const { values } = useFormContext()
+  const { data, loading } = useObjectGet('Department', values.departmentId)
+
+  const inputOptions = data && (data[`${input.name}Options`] as string[] | undefined)
+
+  if (!loading && !values.departmentId) {
+    return (
+      <SelectIDofTypeContainer>
+        <p>Select a Department first</p>
+      </SelectIDofTypeContainer>
+    )
+  }
+  if (!loading && !inputOptions) {
+    return null
+  }
+
+  if (inputOptions) {
+    return (
+      <SelectIDofTypeContainer>
+        <Select
+          className={elFlex1}
+          name={name}
+          value={value}
+          onChange={onChange}
+          disabled={disabled}
+          defaultValue={defaultValue?.id}
+        >
+          {inputOptions.map((inputOption) => (
+            <option key={inputOption} value={inputOption}>
+              {camelCaseToSentence(inputOption)}
+            </option>
+          ))}
+          {/* deepscan-disable-next-line */}
+          <option disabled selected>
+            Select a {label}
+          </option>
+        </Select>
+      </SelectIDofTypeContainer>
+    )
+  }
+
+  if (loading)
+    return (
+      <SelectIDofTypeContainer>
+        <Loader />
+      </SelectIDofTypeContainer>
+    )
+  return null
+}
+
 const Input = ({
   name,
   input,
@@ -371,6 +439,20 @@ const Input = ({
           value={value}
           onChange={onChange}
         />
+      )}
+      {customInputType && customInputType === 'department-lookup' && (
+        <>
+          <Label>{label}</Label>
+          <DepartmentLookupInput
+            disabled={disabled}
+            name={name}
+            label={label}
+            defaultValue={defaultValue}
+            value={value}
+            input={input}
+            onChange={onChange}
+          />
+        </>
       )}
     </InputWrap>
   )
