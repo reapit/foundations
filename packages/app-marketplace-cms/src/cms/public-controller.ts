@@ -15,22 +15,39 @@ type Pagination<T> = {
 export class PublicController {
   constructor(private readonly cmsProvider: CmsProvider) {}
 
+  protected isLive(configItem: MarketplaceAppModel): boolean {
+    const now = new Date().getTime()
+    if (!configItem.live) {
+      return false
+    }
+
+    if (configItem.live.timeFrom || configItem.live.timeTo) {
+      if (configItem.live.timeFrom && new Date(configItem.live.timeFrom).getTime() >= now) {
+        return true
+      }
+      if (configItem.live.timeTo && new Date(configItem.live.timeTo).getTime() <= now) {
+        return true
+      }
+    }
+
+    return configItem.live.isLive
+  }
+
   protected async resolvePaginationObject(
-    apiKeys: [QueryIterator<MarketplaceAppModel>, { nextCursor: string }],
+    configItems: [QueryIterator<MarketplaceAppModel>, { nextCursor: string }],
   ): Promise<Pagination<MarketplaceAppModel>> {
     const pagination: Pagination<MarketplaceAppModel> = {
       items: [],
-      meta: apiKeys[1],
+      meta: configItems[1],
     }
 
-    for await (const apiKey of apiKeys[0]) {
-      pagination.items.push(apiKey)
+    for await (const configItem of configItems[0]) {
+      if (this.isLive(configItem)) pagination.items.push(configItem)
     }
 
     return pagination
   }
 
-  // TODO add filters for public
   @Get()
   async fetch(): Promise<Pagination<MarketplaceAppModel>> {
     return this.resolvePaginationObject(await this.cmsProvider.findAll({}))
