@@ -15,6 +15,7 @@ import {
   Label,
   Modal,
   MultiSelectInput,
+  PersistentNotification,
   Select,
   Subtitle,
   Title,
@@ -369,6 +370,9 @@ export const AppBrowseUpsertModal: FC<AppBrowseUpsertModalDefaultProps> = ({
               </InputGroup>
             </InputWrapFull>
             <InputWrapFull>
+              <PersistentNotification isExpanded={true} intent="primary" isInline isFullWidth>
+                If a Live To or Live From value is set, Is Live will be ignored.
+              </PersistentNotification>
               <InputGroup>
                 <Label>Is Live</Label>
                 <Toggle id="toggle-live" {...register('live.isLive')} hasGreyBg>
