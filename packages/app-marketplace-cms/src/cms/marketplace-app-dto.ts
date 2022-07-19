@@ -50,10 +50,10 @@ class AppsBrowseConfigItemFiltersDto implements AppsBrowseConfigItemFiltersInter
 
 class AppBrowseLiveDataDto implements AppBrowseLiveDataInterface {
   @IsDateString()
-  timeFrom?: Date
+  timeFrom?: string
 
   @IsDateString()
-  timeTo?: Date
+  timeTo?: string
 
   @IsBoolean()
   isLive?: boolean

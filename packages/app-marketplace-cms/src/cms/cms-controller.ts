@@ -19,15 +19,15 @@ export class CmsController {
   constructor(private readonly cmsProvider: CmsProvider) {}
 
   protected async resolvePaginationObject(
-    apiKeys: [QueryIterator<MarketplaceAppModel>, { nextCursor: string }],
+    configItems: [QueryIterator<MarketplaceAppModel>, { nextCursor: string }],
   ): Promise<Pagination<MarketplaceAppModel>> {
     const pagination: Pagination<MarketplaceAppModel> = {
       items: [],
-      meta: apiKeys[1],
+      meta: configItems[1],
     }
 
-    for await (const apiKey of apiKeys[0]) {
-      pagination.items.push(apiKey)
+    for await (const configItem of configItems[0]) {
+      pagination.items.push(configItem)
     }
 
     return pagination
