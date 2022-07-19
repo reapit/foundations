@@ -17,17 +17,25 @@ export class PublicController {
 
   protected isLive(configItem: MarketplaceAppModel): boolean {
     const now = new Date().getTime()
-    if (!configItem.live) {
-      return false
-    }
 
-    if (configItem.live.timeFrom || configItem.live.timeTo) {
-      if (configItem.live.timeFrom && new Date(configItem.live.timeFrom).getTime() >= now) {
+    if (typeof configItem.live.timeFrom !== 'undefined' || typeof configItem.live.timeTo !== 'undefined') {
+      if (
+        typeof configItem.live.timeTo !== 'undefined' &&
+        new Date(configItem.live.timeTo).getTime() >= now &&
+        typeof configItem.live.timeFrom !== 'undefined' &&
+        new Date(configItem.live.timeFrom).getTime() <= now
+      ) {
+        return true
+      } else if (
+        typeof configItem.live.timeFrom !== 'undefined' &&
+        new Date(configItem.live.timeFrom).getTime() <= now
+      ) {
+        return true
+      } else if (typeof configItem.live.timeTo !== 'undefined' && new Date(configItem.live.timeTo).getTime() >= now) {
         return true
       }
-      if (configItem.live.timeTo && new Date(configItem.live.timeTo).getTime() <= now) {
-        return true
-      }
+
+      return false
     }
 
     return configItem.live.isLive
