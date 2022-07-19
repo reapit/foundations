@@ -5,7 +5,6 @@ import { Routes } from '../../constants/routes'
 import PrivateRouteWrapper from '../../core/private-route-wrapper'
 import PaymentExternalPage from './payment-external'
 import PaymentInternalPage from './payment-internal'
-import { flexHeightFix } from '../../core/__styles__/styles'
 
 const PaymentPage: React.FC = () => {
   const location = useLocation()
@@ -21,7 +20,7 @@ const PaymentPage: React.FC = () => {
     )
     return (
       <FlexContainerBasic flexColumn isScrollable isFullHeight>
-        <FlexContainerResponsive className={flexHeightFix} hasPadding flexColumn hasBackground isFullHeight>
+        <FlexContainerResponsive hasPadding flexColumn hasBackground isFullHeight>
           <Route path={Routes.PAYMENT} component={PaymentExternalPageWithProps} exact />
         </FlexContainerResponsive>
       </FlexContainerBasic>

@@ -1,16 +1,11 @@
 import { Dispatch, SetStateAction } from 'react'
-import { DATE_TIME_FORMAT, notification, unformatCard, unformatCardExpires } from '@reapit/elements-legacy'
-import { PaymentEmailRequestModel } from './payment-request-modal'
-import { reapitConnectBrowserSession } from '../../core/connect-session'
+import { unformatCard, unformatCardExpires } from '@reapit/elements-legacy'
 import {
-  generateEmailPaymentRequest,
-  generatePaymentApiKey,
   updatePaymentStatus,
   updatePaymentSessionStatus,
   generateEmailPaymentReceiptExternal,
   generateEmailPaymentReceiptInternal,
 } from '../../services/payment'
-import dayjs from 'dayjs'
 import { MerchantKey } from '../../types/opayo'
 import { opayoMerchantKeyService, opayoCreateTransactionService } from '../../services/opayo'
 import { CardDetails, PaymentStatusType } from './payment-form'
@@ -22,12 +17,13 @@ export const handlePaymentProviderEffect =
   (
     setLoading: Dispatch<SetStateAction<boolean>>,
     setPaymentProvider: Dispatch<SetStateAction<PaymentProvider | null>>,
+    errorSnack: (message: string) => void,
     clientCode?: string | null,
   ) =>
   () => {
     if (clientCode) {
       const fetchmerchantKey = async () => {
-        const fetchedKey = await opayoMerchantKeyService(clientCode)
+        const fetchedKey = await opayoMerchantKeyService(clientCode, errorSnack)
         if (fetchedKey) {
           const provider = new OpayoProvider(fetchedKey)
           setPaymentProvider(provider)
@@ -39,79 +35,13 @@ export const handlePaymentProviderEffect =
     }
   }
 
-export const handlePaymentRequestSubmit =
-  (setIsLoading: Dispatch<SetStateAction<boolean>>, handleOnClose: () => void) =>
-  async ({
-    receipientEmail,
-    recipientName,
-    paymentReason,
-    paymentAmount,
-    paymentCurrency,
-    keyExpiresAt,
-    paymentId,
-    _eTag,
-  }: PaymentEmailRequestModel) => {
-    try {
-      setIsLoading(true)
-      const session = await reapitConnectBrowserSession.connectSession()
-
-      if (!session || !session.loginIdentity.clientId) throw new Error('No Reapit Connect Session is present')
-
-      const formattedKeyExpires = dayjs(keyExpiresAt).format(DATE_TIME_FORMAT.RFC3339)
-
-      const apiKey = await generatePaymentApiKey({
-        clientCode: session.loginIdentity.clientId,
-        keyExpiresAt: formattedKeyExpires,
-        paymentId,
-      })
-
-      if (!apiKey) throw new Error('API key request failed')
-
-      const updateParams = { paymentId, clientCode: session.loginIdentity.clientId, _eTag, session: apiKey.apiKey }
-
-      const emailRequest = await generateEmailPaymentRequest(
-        {
-          receipientEmail,
-          recipientName,
-          paymentReason,
-          paymentAmount,
-          paymentCurrency,
-          paymentExpiry: formattedKeyExpires,
-        },
-        updateParams,
-      )
-
-      if (!emailRequest) throw new Error('Email request failed')
-
-      const paymentStatusUpdate = await updatePaymentStatus(
-        {
-          status: 'awaitingPosting',
-        },
-        updateParams,
-      )
-
-      if (!paymentStatusUpdate) throw new Error('Payment status update request failed')
-
-      notification.success({
-        message: 'Payment request was successfully sent by email',
-      })
-      setIsLoading(false)
-      handleOnClose()
-    } catch (err) {
-      notification.error({
-        message: 'Payment email request was unsuccessful',
-      })
-
-      setIsLoading(false)
-    }
-  }
-
 export const onUpdateStatus = async (
   updateStatusBody: UpdateStatusBody,
   updateStatusParams: UpdateStatusParams,
   cardDetails: CardDetails,
   payment: PaymentWithPropertyModel,
   setPaymentStatus: Dispatch<SetStateAction<PaymentStatusType>>,
+  errorSnack: (message: string) => void,
 ) => {
   const { session } = updateStatusParams
   const { externalReference } = updateStatusBody
@@ -125,17 +55,15 @@ export const onUpdateStatus = async (
   }
 
   if (externalReference === 'rejected') {
-    notification.error({
-      message: 'The transaction has been rejected by our payment provider, please check your details and try again.',
-    })
+    errorSnack('The transaction has been rejected by our payment provider, please check your details and try again.')
   }
 
   if (session) {
-    await updatePaymentSessionStatus(updateStatusBody, updateStatusParams)
-    await generateEmailPaymentReceiptExternal(emailReceiptBody, updateStatusParams)
+    await updatePaymentSessionStatus(updateStatusBody, updateStatusParams, errorSnack)
+    await generateEmailPaymentReceiptExternal(emailReceiptBody, updateStatusParams, errorSnack)
   } else {
-    await updatePaymentStatus(updateStatusBody, updateStatusParams)
-    await generateEmailPaymentReceiptInternal(emailReceiptBody, updateStatusParams)
+    await updatePaymentStatus(updateStatusBody, updateStatusParams, errorSnack)
+    await generateEmailPaymentReceiptInternal(emailReceiptBody, updateStatusParams, errorSnack)
   }
 
   setPaymentStatus('posted')
@@ -148,6 +76,7 @@ export const handleCreateTransaction =
     cardDetails: CardDetails,
     paymentId: string,
     setPaymentStatus: Dispatch<SetStateAction<PaymentStatusType>>,
+    errorSnack: (message: string) => void,
     session?: string,
   ) =>
   async (result: any) => {
@@ -156,41 +85,45 @@ export const handleCreateTransaction =
     const updateStatusParams = { paymentId, clientCode, _eTag, session }
 
     if (result.success && id) {
-      const transaction = await opayoCreateTransactionService(clientCode, {
-        transactionType: 'Payment',
-        paymentMethod: {
-          card: {
-            merchantSessionKey: merchantKey.merchantSessionKey,
-            cardIdentifier: result.cardIdentifier,
-            save: false,
+      const transaction = await opayoCreateTransactionService(
+        clientCode,
+        {
+          transactionType: 'Payment',
+          paymentMethod: {
+            card: {
+              merchantSessionKey: merchantKey.merchantSessionKey,
+              cardIdentifier: result.cardIdentifier,
+              save: false,
+            },
           },
+          vendorTxCode: window.reapit.config.appEnv === 'production' ? id : `${uuid()}`,
+          amount: amount ? amount * 100 : 0,
+          currency: 'GBP',
+          description: description || '',
+          apply3DSecure: 'Disable',
+          customerFirstName,
+          customerLastName,
+          billingAddress: {
+            address1,
+            city,
+            postalCode,
+            country,
+          },
+          entryMethod: 'Ecommerce',
         },
-        vendorTxCode: window.reapit.config.appEnv === 'production' ? id : `${uuid()}`,
-        amount: amount ? amount * 100 : 0,
-        currency: 'GBP',
-        description: description || '',
-        apply3DSecure: 'Disable',
-        customerFirstName,
-        customerLastName,
-        billingAddress: {
-          address1,
-          city,
-          postalCode,
-          country,
-        },
-        entryMethod: 'Ecommerce',
-      })
+        errorSnack,
+      )
 
       const status = transaction && transaction?.status?.toLowerCase() === 'ok' ? 'posted' : 'rejected'
       const externalReference = transaction && transaction.transactionId ? transaction.transactionId : 'rejected'
       const updateStatusBody = { status, externalReference: externalReference }
 
-      return onUpdateStatus(updateStatusBody, updateStatusParams, cardDetails, payment, setPaymentStatus)
+      return onUpdateStatus(updateStatusBody, updateStatusParams, cardDetails, payment, setPaymentStatus, errorSnack)
     }
 
     const updateStatusBody = { status, externalReference: 'rejected' }
 
-    return onUpdateStatus(updateStatusBody, updateStatusParams, cardDetails, payment, setPaymentStatus)
+    return onUpdateStatus(updateStatusBody, updateStatusParams, cardDetails, payment, setPaymentStatus, errorSnack)
   }
 
 export const onHandleSubmit =
@@ -199,6 +132,7 @@ export const onHandleSubmit =
     payment: PaymentWithPropertyModel,
     paymentId: string,
     setPaymentStatus: Dispatch<SetStateAction<PaymentStatusType>>,
+    errorSnack: (message: string) => void,
     session?: string,
   ) =>
   (cardDetails: CardDetails) => {
@@ -215,6 +149,14 @@ export const onHandleSubmit =
           expiryDate: unformatCardExpires(expiryDate),
           securityCode,
         },
-        onTokenised: handleCreateTransaction(merchantKey, payment, cardDetails, paymentId, setPaymentStatus, session),
+        onTokenised: handleCreateTransaction(
+          merchantKey,
+          payment,
+          cardDetails,
+          paymentId,
+          setPaymentStatus,
+          errorSnack,
+          session,
+        ),
       })
   }

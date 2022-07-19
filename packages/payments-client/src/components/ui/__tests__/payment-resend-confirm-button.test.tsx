@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { render } from '../../../tests/react-testing'
 import { ResendConfirmButton } from '../payment-resend-confirm-button'
-import { stubPaymentWithPropertyModel } from '../__stubs__/payment'
+import { mockPaymentWithPropertyModel } from '../../../tests/__mocks__/payment'
 
 jest.mock('@reapit/elements-legacy', () => ({
   useFormikContext: jest.fn(() => ({
@@ -13,7 +13,7 @@ jest.mock('@reapit/elements-legacy', () => ({
 describe('ResendConfirmButton', () => {
   it('should match a snapshot', () => {
     expect(
-      render(<ResendConfirmButton payment={stubPaymentWithPropertyModel} session="some-session" />),
+      render(<ResendConfirmButton payment={mockPaymentWithPropertyModel} session="some-session" />),
     ).toMatchSnapshot()
   })
 })

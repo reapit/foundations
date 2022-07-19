@@ -1,9 +1,9 @@
 import { PaymentModel } from '@reapit/foundations-ts-definitions'
-import { PaymentWithPropertyModel } from '../../../types/payment'
-import { CardDetails } from '../payment-form'
-import { stubPropertyModel } from './property'
+import { PaymentWithPropertyModel } from '../../types/payment'
+import { CardDetails } from '../../components/ui/payment-form'
+import { mockPropertyModel } from './property'
 
-export const stubPaymentModel: PaymentModel = {
+export const mockPaymentModel: PaymentModel = {
   id: 'PAY20000001',
   created: '2018-12-12T12:30:23.0000000Z',
   modified: '2019-01-08T12:30:34.0000000Z',
@@ -54,15 +54,15 @@ export const stubPaymentModel: PaymentModel = {
   },
 }
 
-export const stubPaymentWithPropertyModel: PaymentWithPropertyModel = {
-  ...stubPaymentModel,
+export const mockPaymentWithPropertyModel: PaymentWithPropertyModel = {
+  ...mockPaymentModel,
   clientCode: 'SBOX',
   property: {
-    ...stubPropertyModel,
+    ...mockPropertyModel,
   },
 }
 
-export const stubCardDetails: CardDetails = {
+export const mockCardDetails: CardDetails = {
   customerFirstName: 'first name',
   customerLastName: 'last name',
   address1: '',

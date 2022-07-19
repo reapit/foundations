@@ -1,6 +1,6 @@
 import { PropertyModel } from '@reapit/foundations-ts-definitions'
 
-export const stubPropertyModel: PropertyModel = {
+export const mockPropertyModel: PropertyModel = {
   id: 'OXF200008',
   created: '2018-12-12T12:30:23.0000000Z',
   modified: '2019-01-08T12:30:34.0000000Z',
@@ -109,39 +109,4 @@ export const stubPropertyModel: PropertyModel = {
     CustomField2: true,
   },
   _eTag: '',
-  _links: {
-    self: {
-      href: '/properties/OXF200008',
-    },
-    images: {
-      href: '/propertyImages/?propertyId=OXF200008',
-    },
-    documents: {
-      href: '/documents/?associatedType=property&associatedId=OXF200008',
-    },
-    offers: {
-      href: '/offers/?propertyId=OXF200008',
-    },
-    appointments: {
-      href: '/appointments/?propertyId=OXF200008',
-    },
-    negotiator: {
-      href: '/negotiators/JAS',
-    },
-    offices: {
-      href: '/offices/?id=OXF&id=SOL',
-    },
-    department: {
-      href: '/departments/G',
-    },
-    vendor: {
-      href: '/vendors/OXF123001',
-    },
-    landlord: {
-      href: '/landlords/OXF123001',
-    },
-    area: {
-      href: '/areas/BRM',
-    },
-  },
 }

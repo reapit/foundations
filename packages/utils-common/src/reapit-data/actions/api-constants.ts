@@ -66,4 +66,7 @@ export enum PathNames {
   appConsentApprove = '/marketplace/apps/{appId}/revisions/{revisionId}/consents/{consentId}/approve',
   cmsConfig = '/cms/config',
   cmsConfigPost = '/cms/config/{id}',
+  propertyById = '/properties/{propertyId}',
+  properties = '/properties',
+  payments = '/payments',
 }

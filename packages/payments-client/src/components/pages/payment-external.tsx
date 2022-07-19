@@ -7,6 +7,7 @@ import { URLS } from '../../constants/api'
 import { PaymentWithPropertyModel } from '../../types/payment'
 import { PaymentProvider } from '@/services/providers'
 import { handlePaymentProviderEffect } from '../ui/payment-handlers'
+import { useSnack } from '@reapit/elements'
 
 export interface PaymentExternalPageProps {
   session: string
@@ -30,8 +31,12 @@ const PaymentExternalPage: React.FC<PaymentExternalPageProps> = ({
   const hasError = data?.error
   const [loading, setLoading] = useState(false)
   const [paymentProvider, setPaymentProvider] = useState<PaymentProvider | null>(defaultPaymentProvider)
+  const { error: errorSnack } = useSnack()
 
-  useEffect(handlePaymentProviderEffect(setLoading, setPaymentProvider, clientId), [setPaymentProvider, clientId])
+  useEffect(handlePaymentProviderEffect(setLoading, setPaymentProvider, errorSnack, clientId), [
+    setPaymentProvider,
+    clientId,
+  ])
 
   if (loading || !data) {
     return <Loader />

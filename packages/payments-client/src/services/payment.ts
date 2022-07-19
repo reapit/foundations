@@ -1,5 +1,4 @@
 import { PAYMENTS_HEADERS, URLS } from '../constants/api'
-import { notification } from '@reapit/elements-legacy'
 import { fetcher } from '@reapit/utils-common'
 import { genPlatformHeaders, genPaymentsUpdateStatusHeaders } from '../utils/headers'
 import { reapitConnectBrowserSession } from '../core/connect-session'
@@ -16,6 +15,7 @@ import {
 export const updatePaymentStatus = async (
   body: UpdateStatusBody,
   params: UpdateStatusParams,
+  errorSnack: (message: string) => void,
 ): Promise<any | undefined> => {
   const { paymentId, _eTag } = params
   try {
@@ -36,16 +36,16 @@ export const updatePaymentStatus = async (
 
     throw new Error('Failed to update user')
   } catch (err) {
-    logger(err as Error)
-    notification.error({
-      message: 'Failed to update the status of the session with the payment provider',
-    })
+    const error = err as Error
+    logger(error)
+    errorSnack(error.message)
   }
 }
 
 export const updatePaymentSessionStatus = async (
   body: UpdateStatusBody,
   params: UpdateStatusParams,
+  errorSnack: (message: string) => void,
 ): Promise<any | undefined> => {
   const { paymentId, clientCode, _eTag, session } = params
   if (!clientCode || !session) throw new Error('No Reapit Connect Session is present')
@@ -64,14 +64,16 @@ export const updatePaymentSessionStatus = async (
 
     throw new Error('Failed to update user')
   } catch (err) {
-    logger(err as Error)
-    notification.error({
-      message: 'Failed to update the status of the session with the payment provider',
-    })
+    const error = err as Error
+    logger(error)
+    errorSnack(error.message)
   }
 }
 
-export const generatePaymentApiKey = async (body: ApiKeyRequest): Promise<ApiKeyResponse | undefined> => {
+export const generatePaymentApiKey = async (
+  body: ApiKeyRequest,
+  errorSnack: (message: string) => void,
+): Promise<ApiKeyResponse | undefined> => {
   const session = await reapitConnectBrowserSession.connectSession()
 
   if (!session || !session.idToken) throw new Error('No Reapit Connect Session is present')
@@ -94,16 +96,16 @@ export const generatePaymentApiKey = async (body: ApiKeyRequest): Promise<ApiKey
 
     throw new Error('Failed to generate api key')
   } catch (err) {
-    logger(err as Error)
-    notification.error({
-      message: 'Failed to connect with the payment provider please try refreshing the page',
-    })
+    const error = err as Error
+    logger(error)
+    errorSnack(error.message)
   }
 }
 
 export const generateEmailPaymentRequest = async (
   body: PaymentEmailRequest,
   params: UpdateStatusParams,
+  errorSnack: (message: string) => void,
 ): Promise<ApiKeyResponse | undefined> => {
   const connectSession = await reapitConnectBrowserSession.connectSession()
 
@@ -133,16 +135,16 @@ export const generateEmailPaymentRequest = async (
 
     throw new Error('Failed to generate email payment request')
   } catch (err) {
-    logger(err as Error)
-    notification.error({
-      message: 'Failed to semd an email invoice, please try again',
-    })
+    const error = err as Error
+    logger(error)
+    errorSnack(error.message)
   }
 }
 
 export const generateEmailPaymentReceiptInternal = async (
   body: PaymentEmailReceipt,
   params: UpdateStatusParams,
+  errorSnack: (message: string) => void,
 ): Promise<ApiKeyResponse | undefined> => {
   const connectSession = await reapitConnectBrowserSession.connectSession()
 
@@ -171,16 +173,16 @@ export const generateEmailPaymentReceiptInternal = async (
 
     throw new Error('Failed to generate email payment receipt')
   } catch (err) {
-    logger(err as Error)
-    notification.error({
-      message: 'Failed to send a receipt for this transaction, please try again',
-    })
+    const error = err as Error
+    logger(error)
+    errorSnack(error.message)
   }
 }
 
 export const generateEmailPaymentReceiptExternal = async (
   body: PaymentEmailReceipt,
   params: UpdateStatusParams,
+  errorSnack: (message: string) => void,
 ): Promise<ApiKeyResponse | undefined> => {
   const { paymentId, clientCode, session } = params
 
@@ -206,9 +208,8 @@ export const generateEmailPaymentReceiptExternal = async (
 
     throw new Error('Failed to generate email payment receipt')
   } catch (err) {
-    logger(err as Error)
-    notification.error({
-      message: 'Failed to send a receipt for this transaction, please try again',
-    })
+    const error = err as Error
+    logger(error)
+    errorSnack(error.message)
   }
 }

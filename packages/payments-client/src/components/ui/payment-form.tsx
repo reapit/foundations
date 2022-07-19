@@ -17,8 +17,9 @@ import { PaymentWithPropertyModel } from '../../types/payment'
 import { ResendConfirmButton } from './payment-resend-confirm-button'
 import { onHandleSubmit } from './payment-handlers'
 import { PaymentProvider } from '@/services/providers'
-import PaymentRequestModal from './payment-request-modal'
+import PaymentRequestModal from '../pages/payments/payment-request-modal'
 import { PaymentModel } from '@reapit/foundations-ts-definitions'
+import { useSnack } from '@reapit/elements'
 
 export interface CardDetails {
   customerFirstName: string
@@ -44,8 +45,9 @@ const PaymentForm: React.FC<{
   session?: string
 }> = ({ payment, paymentProvider, paymentId, session }) => {
   const [paymentStatus, setPaymentStatus] = useState<PaymentStatusType>(payment.status as PaymentStatusType)
-  const [selectedPayment, setSelectedPayment] = useState<PaymentModel | null>(null)
-  const onSubmit = onHandleSubmit(paymentProvider.merchantKey, payment, paymentId, setPaymentStatus, session)
+  const [, setSelectedPayment] = useState<PaymentModel | null>(null)
+  const { error } = useSnack()
+  const onSubmit = onHandleSubmit(paymentProvider.merchantKey, payment, paymentId, setPaymentStatus, error, session)
   const { customer } = payment
   const { forename = '', surname = '', email = '', primaryAddress } = customer ?? {}
   const redirectToDashboard = () => history.push(Routes.PAYMENTS)
@@ -66,7 +68,7 @@ const PaymentForm: React.FC<{
           <H5 className="flex justify-between">
             Request Payment By Email<Button onClick={() => setSelectedPayment(payment)}>Send Email</Button>
           </H5>
-          <PaymentRequestModal payment={selectedPayment} setSelectedPayment={setSelectedPayment} />
+          <PaymentRequestModal closeModal={() => {}} refreshPayments={() => {}} />
         </FadeIn>
       )}
       <Formik

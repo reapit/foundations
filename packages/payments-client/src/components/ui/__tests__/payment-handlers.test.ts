@@ -6,15 +6,9 @@ import {
   updatePaymentSessionStatus,
   updatePaymentStatus,
 } from '../../../services/payment'
-import {
-  handleCreateTransaction,
-  onUpdateStatus,
-  onHandleSubmit,
-  handlePaymentRequestSubmit,
-} from '../payment-handlers'
-import { stubCardDetails, stubPaymentWithPropertyModel } from '../__stubs__/payment'
+import { handleCreateTransaction, onUpdateStatus, onHandleSubmit } from '../payment-handlers'
+import { mockCardDetails, mockPaymentWithPropertyModel } from '../../../tests/__mocks__/payment'
 import * as Handlers from '../payment-handlers'
-import { PaymentEmailRequestModel } from '../payment-request-modal'
 
 jest.mock('@reapit/utils-common')
 
@@ -58,21 +52,23 @@ describe('onUpdateStatus', () => {
     session: 'session',
   }
   const stubEmailBody = {
-    receipientEmail: stubCardDetails.email,
-    recipientName: `${stubCardDetails.customerFirstName} ${stubCardDetails.customerLastName}`,
-    paymentReason: stubPaymentWithPropertyModel?.description,
-    paymentAmount: stubPaymentWithPropertyModel?.amount,
+    receipientEmail: mockCardDetails.email,
+    recipientName: `${mockCardDetails.customerFirstName} ${mockCardDetails.customerLastName}`,
+    paymentReason: mockPaymentWithPropertyModel?.description,
+    paymentAmount: mockPaymentWithPropertyModel?.amount,
     paymentCurrency: 'GBP',
   }
   const stubBody = { status: 'posted', externalReference: '' }
   it('it should call update session status and generate email correctly then refetch payment', async () => {
     const mockSetLoading = jest.fn()
+    const errorSnack = jest.fn()
     await onUpdateStatus(
       stubBody,
       stubUpdateStatusParams,
-      stubCardDetails,
-      stubPaymentWithPropertyModel,
+      mockCardDetails,
+      mockPaymentWithPropertyModel,
       mockSetLoading,
+      errorSnack,
     )
     expect(updatePaymentStatus).toHaveBeenCalledWith(stubBody, stubUpdateStatusParams)
     expect(generateEmailPaymentReceiptInternal).toHaveBeenCalledWith(stubEmailBody, stubUpdateStatusParams)
@@ -81,12 +77,14 @@ describe('onUpdateStatus', () => {
 
   it('it should call update session status and generate email correctly then refetch payment with a session', async () => {
     const mockSetLoading = jest.fn()
+    const errorSnack = jest.fn()
     await onUpdateStatus(
       stubBody,
       stubUpdateStatusParamsWithSession,
-      stubCardDetails,
-      stubPaymentWithPropertyModel,
+      mockCardDetails,
+      mockPaymentWithPropertyModel,
       mockSetLoading,
+      errorSnack,
     )
     expect(updatePaymentSessionStatus).toHaveBeenCalledWith(stubBody, stubUpdateStatusParamsWithSession)
     expect(generateEmailPaymentReceiptExternal).toHaveBeenCalledWith(stubEmailBody, stubUpdateStatusParamsWithSession)
@@ -96,10 +94,10 @@ describe('onUpdateStatus', () => {
 
 describe('onHandleSubmit', () => {
   window.sagepayOwnForm = jest.fn().mockReturnValue({ tokeniseCardDetails: jest.fn() })
-  const onSubmit = onHandleSubmit(merchantKey, stubPaymentWithPropertyModel, paymentId, jest.fn(), session)
+  const onSubmit = onHandleSubmit(merchantKey, mockPaymentWithPropertyModel, paymentId, jest.fn(), jest.fn(), session)
 
   it('should correctly call the opayo method', () => {
-    onSubmit(stubCardDetails)
+    onSubmit(mockCardDetails)
     expect(window.sagepayOwnForm).toHaveBeenCalled()
   })
 })
@@ -113,9 +111,10 @@ xdescribe('handleCreateTransaction', () => {
     mockedFetch.mockReturnValueOnce(mockResponse)
     const onTokenised = handleCreateTransaction(
       merchantKey,
-      stubPaymentWithPropertyModel,
-      stubCardDetails,
+      mockPaymentWithPropertyModel,
+      mockCardDetails,
       paymentId,
+      jest.fn(),
       jest.fn(),
       session,
     )
@@ -128,24 +127,14 @@ xdescribe('handleCreateTransaction', () => {
     mockedFetch.mockReturnValueOnce(false)
     const onTokenised = handleCreateTransaction(
       merchantKey,
-      stubPaymentWithPropertyModel,
-      stubCardDetails,
+      mockPaymentWithPropertyModel,
+      mockCardDetails,
       paymentId,
+      jest.fn(),
       jest.fn(),
       session,
     )
     await onTokenised({ success: false })
     expect(updateSatusSpy).toHaveBeenCalledTimes(1)
-  })
-})
-
-describe('handlePaymentRequestSubmit', () => {
-  it('should correctly call email service', async () => {
-    mockedFetch.mockReturnValueOnce(mockResponse)
-    const mockSetLoading = jest.fn()
-    const mockHandleOnClose = jest.fn()
-    const curried = handlePaymentRequestSubmit(mockSetLoading, mockHandleOnClose)
-    await curried({ keyExpiresAt: new Date('2030-01-01') } as PaymentEmailRequestModel)
-    // expect(generatePaymentApiKey).toHaveBeenCalledTimes(1)
   })
 })

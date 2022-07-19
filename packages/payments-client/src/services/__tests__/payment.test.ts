@@ -13,17 +13,18 @@ jest.mock('@reapit/utils-common')
 jest.mock('../../core/connect-session')
 const mockResponse = 'success'
 const mockedFetch = fetcher as jest.Mock
+const errorSnack = jest.fn()
 
 describe('updatePaymentStatus', () => {
   it('should return a response from the service', async () => {
     mockedFetch.mockReturnValueOnce(mockResponse)
-    expect(await updatePaymentStatus(body, params)).toEqual(mockResponse)
+    expect(await updatePaymentStatus(body, params, errorSnack)).toEqual(mockResponse)
   })
 
   it('should catch an error if no response from service', async () => {
     const errorSpy = jest.spyOn(console, 'error')
     mockedFetch.mockReturnValueOnce(undefined as any)
-    await updatePaymentStatus(body, params)
+    await updatePaymentStatus(body, params, errorSnack)
     expect(errorSpy).toHaveBeenLastCalledWith('Failed to update user')
   })
 })
@@ -31,13 +32,13 @@ describe('updatePaymentStatus', () => {
 describe('updatePaymentSessionStatus  ', () => {
   it('should return a response from the service', async () => {
     mockedFetch.mockReturnValueOnce(mockResponse)
-    expect(await updatePaymentSessionStatus(body, params)).toEqual(mockResponse)
+    expect(await updatePaymentSessionStatus(body, params, errorSnack)).toEqual(mockResponse)
   })
 
   it('should catch an error if no response from service', async () => {
     const errorSpy = jest.spyOn(console, 'error')
     mockedFetch.mockReturnValueOnce(undefined as any)
-    await updatePaymentSessionStatus(body, params)
+    await updatePaymentSessionStatus(body, params, errorSnack)
     expect(errorSpy).toHaveBeenLastCalledWith('Failed to update user')
   })
 })
@@ -50,13 +51,13 @@ describe('generatePaymentApiKey  ', () => {
   }
   it('should return a response from the service', async () => {
     mockedFetch.mockReturnValueOnce(mockResponse)
-    expect(await generatePaymentApiKey(bodyApiKey)).toEqual(mockResponse)
+    expect(await generatePaymentApiKey(bodyApiKey, errorSnack)).toEqual(mockResponse)
   })
 
   it('should catch an error if no response from service', async () => {
     const errorSpy = jest.spyOn(console, 'error')
     mockedFetch.mockReturnValueOnce(undefined as any)
-    await generatePaymentApiKey(bodyApiKey)
+    await generatePaymentApiKey(bodyApiKey, errorSnack)
     expect(errorSpy).toHaveBeenLastCalledWith('Failed to generate api key')
   })
 })
@@ -72,13 +73,13 @@ describe('generateEmailPaymentRequest  ', () => {
   }
   it('should return a response from the service', async () => {
     mockedFetch.mockReturnValueOnce(mockResponse)
-    expect(await generateEmailPaymentRequest(bodyEmailRequest, params)).toEqual(mockResponse)
+    expect(await generateEmailPaymentRequest(bodyEmailRequest, params, errorSnack)).toEqual(mockResponse)
   })
 
   it('should catch an error if no response from service', async () => {
     const errorSpy = jest.spyOn(console, 'error')
     mockedFetch.mockReturnValueOnce(undefined as any)
-    await generateEmailPaymentRequest(bodyEmailRequest, params)
+    await generateEmailPaymentRequest(bodyEmailRequest, params, errorSnack)
     expect(errorSpy).toHaveBeenLastCalledWith('Failed to generate email payment request')
   })
 })
@@ -93,13 +94,13 @@ describe('generateEmailPaymentReceiptInternal  ', () => {
   }
   it('should return a response from the service', async () => {
     mockedFetch.mockReturnValueOnce(mockResponse)
-    expect(await generateEmailPaymentReceiptInternal(bodyEmailReceipt, params)).toEqual(mockResponse)
+    expect(await generateEmailPaymentReceiptInternal(bodyEmailReceipt, params, errorSnack)).toEqual(mockResponse)
   })
 
   it('should catch an error if no response from service', async () => {
     const errorSpy = jest.spyOn(console, 'error')
     mockedFetch.mockReturnValueOnce(undefined as any)
-    await generateEmailPaymentReceiptInternal(bodyEmailReceipt, params)
+    await generateEmailPaymentReceiptInternal(bodyEmailReceipt, params, errorSnack)
     expect(errorSpy).toHaveBeenLastCalledWith('Failed to generate email payment receipt')
   })
 })
@@ -114,13 +115,13 @@ describe('generateEmailPaymentReceiptExternal  ', () => {
   }
   it('should return a response from the service', async () => {
     mockedFetch.mockReturnValueOnce(mockResponse)
-    expect(await generateEmailPaymentReceiptExternal(bodyEmailReceipt, params)).toEqual(mockResponse)
+    expect(await generateEmailPaymentReceiptExternal(bodyEmailReceipt, params, errorSnack)).toEqual(mockResponse)
   })
 
   it('should catch an error if no response from service', async () => {
     const errorSpy = jest.spyOn(console, 'error')
     mockedFetch.mockReturnValueOnce(undefined as any)
-    await generateEmailPaymentReceiptExternal(bodyEmailReceipt, params)
+    await generateEmailPaymentReceiptExternal(bodyEmailReceipt, params, errorSnack)
     expect(errorSpy).toHaveBeenLastCalledWith('Failed to generate email payment receipt')
   })
 })

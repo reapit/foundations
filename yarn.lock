@@ -33799,6 +33799,8 @@ fsevents@^1.2.7:
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils-common": "workspace:packages/utils-common"
     "@sentry/browser": ^6.19.7
+    "@sentry/react": ^6.19.7
+    "@sentry/tracing": ^6.19.7
     "@testing-library/react": ^13.3.0
     "@typescript-eslint/eslint-plugin": ^5.30.4
     "@typescript-eslint/parser": ^5.30.4

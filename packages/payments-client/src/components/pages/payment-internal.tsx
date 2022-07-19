@@ -9,6 +9,7 @@ import { PaymentModel, PropertyModel } from '@reapit/foundations-ts-definitions'
 import { PaymentWithPropertyModel } from '../../types/payment'
 import { PaymentProvider } from '@/services/providers'
 import { handlePaymentProviderEffect } from '../ui/payment-handlers'
+import { useSnack } from '@reapit/elements'
 
 export interface PaymentInternalPageProps {
   paymentId: string
@@ -23,12 +24,13 @@ const PaymentInternalPage: React.FC<PaymentInternalPageProps> = ({ paymentId, de
     paymentModel?.propertyId ? `${URLS.PROPERTIES}/${paymentModel?.propertyId}` : null,
   )
   const [loading, setLoading] = useState(false)
+  const { error } = useSnack()
   const [paymentProvider, setPaymentProvider] = useState<PaymentProvider | null>(defaultPaymentProvider)
 
-  useEffect(handlePaymentProviderEffect(setLoading, setPaymentProvider, connectSession?.loginIdentity?.clientId), [
-    setPaymentProvider,
-    connectSession,
-  ])
+  useEffect(
+    handlePaymentProviderEffect(setLoading, setPaymentProvider, error, connectSession?.loginIdentity?.clientId),
+    [setPaymentProvider, connectSession],
+  )
 
   if (loading || !propertyModel || !paymentModel) {
     return <Loader />

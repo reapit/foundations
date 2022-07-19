@@ -3,6 +3,7 @@ import { PaymentWithPropertyModel, UpdateStatusParams } from '../../types/paymen
 import { generateEmailPaymentReceiptExternal, generateEmailPaymentReceiptInternal } from '../../services/payment'
 import { Button, useFormikContext } from '@reapit/elements-legacy'
 import { CardDetails } from './payment-form'
+import { useSnack } from '@reapit/elements'
 
 export interface ResendConfirmButtonProps {
   payment: PaymentWithPropertyModel
@@ -17,6 +18,7 @@ export const ResendConfirmButton: React.FC<ResendConfirmButtonProps> = ({
     values: { email, customerFirstName, customerLastName },
   } = useFormikContext<CardDetails>()
   const [loading, setLoading] = useState<boolean>(false)
+  const { error } = useSnack()
 
   if (!email) return null
 
@@ -38,8 +40,8 @@ export const ResendConfirmButton: React.FC<ResendConfirmButtonProps> = ({
   const onClick = (setLoading: Dispatch<SetStateAction<boolean>>) => async () => {
     setLoading(true)
     session
-      ? await generateEmailPaymentReceiptExternal(emailReceiptBody, params)
-      : await generateEmailPaymentReceiptInternal(emailReceiptBody, params)
+      ? await generateEmailPaymentReceiptExternal(emailReceiptBody, params, error)
+      : await generateEmailPaymentReceiptInternal(emailReceiptBody, params, error)
     setLoading(false)
   }
 

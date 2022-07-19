@@ -39,6 +39,9 @@ export enum GetActionNames {
   getRevisionConsents = 'getRevisionConsents',
   getAppMarketAdmin = 'getAppMarketAdmin',
   postAppMarketAdmin = 'postAppMarketAdmin',
+  getPropertyById = 'getPropertyById',
+  getProperties = 'getProperties',
+  getPayments = 'getPayments',
 }
 
 export type GetActions = { [key in GetActionNames]: GetAction }
@@ -191,5 +194,17 @@ export const getActions = (appEnv: AppEnv): GetActions => ({
     api: ApiNames(appEnv).platform,
     path: PathNames.appConsents,
     errorMessage: 'Failed to fetch app revision consents',
+  },
+  [GetActionNames.getPropertyById]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.propertyById,
+  },
+  [GetActionNames.getProperties]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.properties,
+  },
+  [GetActionNames.getPayments]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.payments,
   },
 })

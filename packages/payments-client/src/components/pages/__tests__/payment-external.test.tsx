@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { render } from '../../../tests/react-testing'
 import PaymentExternalPage from '../payment-external'
-import { stubPaymentWithPropertyModel } from '../../ui/__stubs__/payment'
+import { mockPaymentWithPropertyModel } from '../../../tests/__mocks__/payment'
 import useSWR from 'swr'
 import { OpayoProvider } from '@/services/providers'
 
@@ -32,7 +32,7 @@ describe('PaymentExternalPage', () => {
   it('should match a snapshot when has no merchantKey and no error', () => {
     mockSWR.mockReturnValue({
       data: {
-        payment: stubPaymentWithPropertyModel,
+        payment: mockPaymentWithPropertyModel,
       },
       error: null,
       mutate: jest.fn(),
@@ -43,7 +43,7 @@ describe('PaymentExternalPage', () => {
   it('should match a snapshot when has data and a merchantKey', () => {
     mockSWR.mockReturnValue({
       data: {
-        payment: stubPaymentWithPropertyModel,
+        payment: mockPaymentWithPropertyModel,
       },
       error: null,
       mutate: jest.fn(),
