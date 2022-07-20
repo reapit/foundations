@@ -37,7 +37,20 @@ import { useObjectGet } from '../../../../components/hooks/objects/use-object-ge
 
 const getLabel = (obj: any, labelKeys?: string[]) => {
   if (labelKeys) {
-    return labelKeys.map((key) => obj[key]).join(' ')
+    return labelKeys
+      .map((key) => {
+        if (typeof obj[key] === 'string') {
+          return obj[key]
+        }
+        if (typeof obj[key] === 'object') {
+          return Object.entries(obj[key])
+            .filter(([key, value]) => typeof value === 'string' && key !== '__typename')
+            .map(([, value]) => value)
+        }
+        return ''
+      })
+      .flat()
+      .join(' ')
   }
   return obj.id
 }
@@ -309,6 +322,15 @@ const DepartmentLookupInput = ({
   return null
 }
 
+const resolveIdOfType = (idOfType: string, parentObj: any): string => {
+  if (idOfType.includes('"')) {
+    const key = idOfType.replace(/"/g, '')
+    const value = parentObj[key]
+    return value?.replace(/^\w/, (c) => c.toUpperCase())
+  }
+  return idOfType
+}
+
 const Input = ({
   name,
   input,
@@ -316,6 +338,7 @@ const Input = ({
   disabled,
   defaultValue,
   label = friendlyIdName(name),
+  parentValues,
   onChange,
   value,
 }: {
@@ -326,6 +349,7 @@ const Input = ({
   label?: string
   value?: any
   fwdRef?: React.ForwardedRef<HTMLDivElement>
+  parentValues?: any
   onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void
 }) => {
   const { typeName: inputTypeName, isRequired, idOfType, enumValues, customInputType, fields, onlyIf } = input
@@ -350,6 +374,7 @@ const Input = ({
           <Input
             key={field.name}
             name={field.name}
+            parentValues={value}
             label={[label, friendlyIdName(field.name)].join(' ')}
             input={field}
             disabled={disabled}
@@ -401,7 +426,7 @@ const Input = ({
           <SelectIDofType
             disabled={disabled}
             name={name}
-            typeName={idOfType}
+            typeName={resolveIdOfType(idOfType, parentValues || values)}
             onChange={onChange}
             value={value}
             defaultValue={defaultValue}
@@ -498,7 +523,7 @@ const ListInput = React.forwardRef(
                   <SelectIDofType
                     disabled={disabled}
                     name={label}
-                    typeName={formInput.idOfType}
+                    typeName={resolveIdOfType(formInput.idOfType, value)}
                     defaultValue={defaultValue && defaultValue[idx]}
                     onChange={(e) => {
                       const newListValue = [...listValue]
@@ -512,7 +537,7 @@ const ListInput = React.forwardRef(
                   <Input
                     name={formInput.name}
                     input={formInput}
-                    value={listValue[idx]}
+                    value={value}
                     disabled={disabled}
                     onChange={(e) => {
                       listValue[idx] = e.target.value

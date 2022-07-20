@@ -171,7 +171,7 @@ const getApiContact = async (
   })
 }
 
-const getContact = async (id: string, accessToken: string, idToken: string): Promise<Contact | null> => {
+export const getContact = async (id: string, accessToken: string, idToken: string): Promise<Contact | null> => {
   const contact = await getApiContact(id, accessToken, idToken)
 
   if (!contact) {

@@ -128,6 +128,18 @@ const ensureScopes = async (app: DDBApp, accessToken: string) => {
         const subtypes = fieldNames
           .filter((name) => name.endsWith('Id') || name.endsWith('Ids'))
           .map((name) => name.replace('Ids', '').replace('Id', ''))
+          .map((name) => {
+            if (name.endsWith('y')) {
+              return name.replace(/y$/, 'ies')
+            }
+            return name
+          })
+          .map((name) => {
+            if (name.toLowerCase().includes('attendee')) {
+              return 'contact'
+            }
+            return name
+          })
           .filter((fieldName) => acEntities.find((entityName) => entityName.includes(fieldName)))
 
         return [

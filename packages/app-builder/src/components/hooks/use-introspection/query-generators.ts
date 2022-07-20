@@ -161,6 +161,9 @@ const parseArgs = (
     if (description && description.includes('@idOf')) {
       const idName = description.split('@idOf(')[1].split(')')[0]
       idOfType = queryableObjectTypes.find((a) => a.name.toLowerCase() === idName.toLowerCase())?.name
+      if (idName.startsWith('"')) {
+        idOfType = idName
+      }
     }
 
     if (description && description.includes('@customInput')) {

@@ -650,7 +650,7 @@ type Mutation {
     recurrence: AppointmentModelRecurrenceInput
     metadata: JSON
     attendee: CreateAppointmentModelAttendeeInput
-  ): JSON!
+  ): AppointmentModel!
   UpdateAppointment(
     id: String!
     start: String
@@ -1181,6 +1181,7 @@ type AppointmentModel {
   negotiatorConfirmed: Boolean
   attendeeConfirmed: Boolean
   propertyConfirmed: Boolean
+  virtual: Boolean
   metadata: JSON
   _eTag: String
   _links: JSON

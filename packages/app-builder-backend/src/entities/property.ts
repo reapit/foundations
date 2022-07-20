@@ -43,7 +43,6 @@ export const PropertyFragment = gql`
     }
     selling {
       price
-      description
       status
     }
     letting {
@@ -119,6 +118,7 @@ export enum PropertyLettingStatus {
   letPrivately = 'letPrivately',
   provisional = 'provisional',
   withdrawn = 'withdrawn',
+  none = '',
 }
 registerEnumType(PropertyLettingStatus, {
   name: 'PropertyLettingStatus',
@@ -204,7 +204,7 @@ class Room {
 }
 
 @ObjectType({
-  description: '@supportsCustomFields()',
+  description: '@supportsCustomFields() @labelKeys(address)',
 })
 export class Property {
   @Field(() => ID, {
@@ -403,6 +403,7 @@ export enum PropertySellingStatus {
   completed = 'completed',
   soldExternally = 'soldExternally',
   withdrawn = 'withdrawn',
+  none = '',
 }
 registerEnumType(PropertySellingStatus, {
   name: 'PropertySellingStatus',

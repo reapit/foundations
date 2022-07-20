@@ -1,40 +1,17 @@
 import { gql } from 'apollo-server-core'
-import { Field, GraphQLISODateTime, InputType, ObjectType } from 'type-graphql'
+import { Field, GraphQLISODateTime, ID, InputType, ObjectType } from 'type-graphql'
+import { Contact } from './contact'
 import { Negotiator, NegotiatorFragment } from './negotiator'
 import { Office, OfficeFragment } from './office'
 import { Property, PropertyFragment } from './property'
 
-@ObjectType()
-class AppointmentContact {
-  @Field()
+@ObjectType({ description: '@labelKeys(value)' })
+export class AppointmentType {
+  @Field(() => ID)
   id: string
 
   @Field()
-  name: string
-
-  @Field({ nullable: true })
-  homePhone?: string
-
-  @Field({ nullable: true })
-  workPhone?: string
-
-  @Field({ nullable: true })
-  mobilePhone?: string
-
-  @Field({ nullable: true })
-  email?: string
-}
-
-@ObjectType()
-class AppointmentAttendee {
-  @Field()
-  id: string
-
-  @Field()
-  type: string
-
-  @Field(() => AppointmentContact)
-  contact: AppointmentContact
+  value: string
 }
 
 @ObjectType()
@@ -54,7 +31,9 @@ export class Appointment {
   @Field(() => String, { nullable: false })
   end?: Date
 
-  @Field({ nullable: true })
+  @Field(() => AppointmentType, { nullable: true })
+  type?: AppointmentType
+
   typeId?: string
 
   @Field({ nullable: true })
@@ -69,51 +48,29 @@ export class Appointment {
   @Field(() => [Negotiator])
   negotiators?: Negotiator[]
 
+  attendeeInfo: {
+    id: string
+    type: string
+  }
+
   @Field(() => [Office])
   offices?: Office[]
 
-  @Field(() => [AppointmentAttendee])
-  attendees: AppointmentAttendee[]
+  @Field(() => Contact, { nullable: true })
+  attendee?: Contact
 
   metadata?: any
 }
 
 @InputType()
-class AppointmentContactInput {
-  @Field()
-  name: string
-
-  @Field({ nullable: true })
-  homePhone?: string
-
-  @Field({ nullable: true })
-  workPhone?: string
-
-  @Field({ nullable: true })
-  mobilePhone?: string
-
-  @Field({ nullable: true })
-  email?: string
-}
-
-@InputType()
-class AppointmentAttendeeInput {
-  @Field()
-  type: string
-
-  @Field(() => AppointmentContactInput)
-  contact: AppointmentContactInput
-}
-
-@InputType()
 export class AppointmentInput {
-  @Field(() => String)
+  @Field(() => GraphQLISODateTime)
   start?: Date
 
-  @Field(() => String)
+  @Field(() => GraphQLISODateTime)
   end?: Date
 
-  @Field({ nullable: true })
+  @Field({ nullable: true, description: '@idOf(AppointmentType)' })
   typeId?: string
 
   @Field({ nullable: true })
@@ -122,7 +79,7 @@ export class AppointmentInput {
   @Field(() => String, { nullable: true, description: '@idOf(Property)' })
   propertyId?: string
 
-  @Field()
+  @Field({ description: '@idOf(Negotiator)' })
   organiserId?: string
 
   @Field(() => [String], { description: '@idOf(Negotiator)' })
@@ -131,8 +88,8 @@ export class AppointmentInput {
   @Field(() => [String], { description: '@idOf(Office)' })
   officeIds: string[]
 
-  @Field(() => [AppointmentAttendeeInput])
-  attendees: AppointmentAttendeeInput[]
+  @Field({ description: '@idOf(Contact)' })
+  attendeeId: string
 
   metadata?: any
 }
@@ -149,6 +106,8 @@ export const AppointmentFragment = gql`
     end
     recurring
     cancelled
+    description
+    typeId
     followUp {
       due
       responseId
