@@ -17,7 +17,7 @@ registerEnumType(CountryCode, {
 })
 
 @ObjectType()
-class ContactAddress {
+export class ContactAddress {
   @Field(() => ContactAddressType, { nullable: true })
   type?: ContactAddressType
 
@@ -117,7 +117,7 @@ registerEnumType(ContactAddressType, {
 })
 
 @InputType()
-class ContactAddressInput {
+export class ContactAddressInput {
   @Field(() => ContactAddressType, { nullable: true })
   type?: ContactAddressType
 

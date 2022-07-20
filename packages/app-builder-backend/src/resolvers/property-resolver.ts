@@ -216,7 +216,7 @@ export class PropertyResolver {
     })
 
     storeCachedMetadata(entityName, property.id, property)
-    console.log(property)
+
     return property
   }
 

@@ -1,39 +1,19 @@
 import { gql } from 'apollo-server-core'
-import { Field, GraphQLISODateTime, InputType, ObjectType } from 'type-graphql'
+import { Field, GraphQLISODateTime, ID, InputType, ObjectType } from 'type-graphql'
+import { ContactAddressInput, ContactAddress } from './contact'
 
-@ObjectType()
-class CompanyAddress {
-  @Field({ nullable: true })
-  type?: string
+@ObjectType({ description: '@labelKeys(value)' })
+export class CompanyType {
+  @Field(() => ID)
+  id: string
 
-  @Field({ nullable: true })
-  buildingName?: string
-
-  @Field({ nullable: true })
-  buildingNumber?: string
-
-  @Field({ nullable: true })
-  line1?: string
-
-  @Field({ nullable: true })
-  line2?: string
-
-  @Field({ nullable: true })
-  line3?: string
-
-  @Field({ nullable: true })
-  line4?: string
-
-  @Field({ nullable: true })
-  postcode?: string
-
-  @Field({ nullable: true })
-  country?: string
+  @Field()
+  value: string
 }
 
 @ObjectType()
 export class Company {
-  @Field()
+  @Field(() => ID)
   id: string
 
   @Field(() => GraphQLISODateTime)
@@ -42,8 +22,8 @@ export class Company {
   @Field(() => GraphQLISODateTime)
   modified: Date
 
-  @Field(() => CompanyAddress)
-  address: CompanyAddress
+  @Field(() => ContactAddress)
+  address: ContactAddress
 
   @Field()
   name: string
@@ -59,44 +39,19 @@ export class Company {
 
   @Field({ nullable: true })
   email: string
+
+  @Field(() => [CompanyType])
+  types: CompanyType[]
+
+  typeIds: string[]
 
   metadata: any
 }
 
 @InputType()
-export class CompanyAddressInput {
-  @Field({ nullable: true })
-  type?: string
-
-  @Field({ nullable: true })
-  buildingName?: string
-
-  @Field({ nullable: true })
-  buildingNumber?: string
-
-  @Field({ nullable: true })
-  line1?: string
-
-  @Field({ nullable: true })
-  line2?: string
-
-  @Field({ nullable: true })
-  line3?: string
-
-  @Field({ nullable: true })
-  line4?: string
-
-  @Field({ nullable: true })
-  postcode?: string
-
-  @Field({ nullable: true })
-  country?: string
-}
-
-@InputType()
 export class CompanyInput {
-  @Field(() => CompanyAddressInput)
-  address: CompanyAddressInput
+  @Field(() => ContactAddressInput)
+  address: ContactAddressInput
 
   @Field()
   name: string
@@ -112,6 +67,9 @@ export class CompanyInput {
 
   @Field({ nullable: true })
   email: string
+
+  @Field(() => [String], { description: '@idOf(CompanyType)' })
+  typeIds: string[]
 
   metadata: any
 }
@@ -126,6 +84,7 @@ export const CompanyFragment = gql`
     workPhone
     mobilePhone
     email
+    typeIds
     metadata
     address {
       buildingName
