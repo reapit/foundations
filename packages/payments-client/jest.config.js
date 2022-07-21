@@ -8,7 +8,6 @@ module.exports = {
   coveragePathIgnorePatterns: [
     '<rootDir>[/\\\\](node_modules|src/types|src/tests|src/scripts|src/__stubs__|dist)[/\\\\]',
     '.d.ts',
-    'index.ts',
   ],
   coverageThreshold: {
     global: {

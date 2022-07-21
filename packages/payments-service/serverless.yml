@@ -52,7 +52,7 @@ provider:
     DYNAMO_DB_REGION: ${self:custom.env.DYNAMO_DB_REGION}
     DYNAMO_DB_ENDPOINT: ${self:custom.env.DYNAMO_DB_ENDPOINT}
     DYNAMO_DB_TABLE_NAME: ${self:custom.env.DYNAMO_DB_TABLE_NAME}
-    PLATFORM_API_BASE_URL: ${self:custom.env.PLATFORM_API_BASE_URL}    
+    PLATFORM_API_BASE_URL: ${self:custom.env.PLATFORM_API_BASE_URL}
     CONNECT_CLIENT_ID: ${self:custom.env.CONNECT_CLIENT_ID}
     CONNECT_CLIENT_SECRET: ${self:custom.env.CONNECT_CLIENT_SECRET}
     CONNECT_OAUTH_URL: ${self:custom.env.CONNECT_OAUTH_URL}
@@ -126,7 +126,7 @@ functions:
           method: get
           path: /ok
           cors:
-            origin: "*"
+            origin: '*'
             headers:
               - Content-Type
               - X-Amz-Date
@@ -141,7 +141,7 @@ functions:
           method: post
           path: /api-key
           cors:
-            origin: "*"
+            origin: '*'
             headers:
               - Content-Type
               - X-Amz-Date
@@ -157,7 +157,7 @@ functions:
           method: get
           path: /payments/{paymentId}
           cors:
-            origin: "*"
+            origin: '*'
             headers:
               - Content-Type
               - X-Amz-Date
@@ -171,7 +171,7 @@ functions:
           method: patch
           path: /payments/{paymentId}
           cors:
-            origin: "*"
+            origin: '*'
             headers:
               - Content-Type
               - X-Amz-Date

@@ -15,7 +15,7 @@ export interface UpdateStatusBody {
 export interface UpdateStatusParams {
   _eTag: string
   paymentId: string
-  session?: string
+  session?: string | null
   clientCode?: string
 }
 

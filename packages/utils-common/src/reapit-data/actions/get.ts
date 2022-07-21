@@ -39,6 +39,11 @@ export enum GetActionNames {
   getRevisionConsents = 'getRevisionConsents',
   getAppMarketAdmin = 'getAppMarketAdmin',
   postAppMarketAdmin = 'postAppMarketAdmin',
+  getPropertyById = 'getPropertyById',
+  getProperties = 'getProperties',
+  getPayments = 'getPayments',
+  getPaymentById = 'getPaymentById',
+  getPaymentWithPropertyById = 'getPaymentWithPropertyById',
 }
 
 export type GetActions = { [key in GetActionNames]: GetAction }
@@ -191,5 +196,30 @@ export const getActions = (appEnv: AppEnv): GetActions => ({
     api: ApiNames(appEnv).platform,
     path: PathNames.appConsents,
     errorMessage: 'Failed to fetch app revision consents',
+  },
+  [GetActionNames.getPropertyById]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.propertyById,
+    errorMessage: 'Failed to fetch property, this has been logged. Please try refreshing the page.',
+  },
+  [GetActionNames.getProperties]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.properties,
+    errorMessage: 'Failed to fetch properties, this has been logged. Please try refreshing the page.',
+  },
+  [GetActionNames.getPayments]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.payments,
+    errorMessage: 'Failed to fetch payments, this has been logged. Please try refreshing the page.',
+  },
+  [GetActionNames.getPaymentById]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.paymentById,
+    errorMessage: 'Failed to fetch payment, this has been logged. Please try refreshing the page.',
+  },
+  [GetActionNames.getPaymentWithPropertyById]: {
+    api: ApiNames(appEnv).payments,
+    path: PathNames.paymentById,
+    errorMessage: 'Failed to fetch payment, this has been logged. Please try refreshing the page.',
   },
 })

@@ -23,16 +23,3 @@ export class OpayoProvider implements PaymentProvider {
     this.merchantKey = key
   }
 }
-
-/*
-  TODO: Next stage - encapsulate more as below 
-*/
-/* 
-export class InternalOpayoProvider extends OpayoProvider implements InternalTransaction {
-  code: string
-  constructor(key: MerchantKey, code: string) {
-    super(key)
-    this.code = code
-  }
-}
-*/
