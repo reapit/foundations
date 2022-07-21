@@ -116,66 +116,66 @@ describe('unformatCardExpires', () => {
 
 describe('validateCard', () => {
   it('should validate as required', () => {
-    expect(validateCard('')).toEqual('Required')
+    expect(validateCard('')).toBe(false)
   })
 
   it('should validate as not a number', () => {
-    expect(validateCard('0000 abcd 0000 0000')).toEqual('Card number should be numeric characters only')
+    expect(validateCard('0000 abcd 0000 0000')).toBe(false)
   })
 
   it('should validate as wrong length for amex', () => {
-    expect(validateCard('3400 0000 0000')).toEqual('Card number needs to be 15 numbers to be valid')
+    expect(validateCard('3400 0000 0000')).toBe(false)
   })
 
   it('should validate as wrong length for non amex', () => {
-    expect(validateCard('4000 0000 0000')).toEqual('Card number needs to be 16 numbers to be valid')
+    expect(validateCard('4000 0000 0000')).toBe(false)
   })
 
   it('should allow a whiteListTestCard if matches', () => {
-    expect(validateCard(mockWhitelistCard)).toBeNull()
+    expect(validateCard(mockWhitelistCard)).toBe(true)
   })
 
   it('should allow a valid card', () => {
-    expect(validateCard(mockVisa)).toBeNull()
+    expect(validateCard(mockVisa)).toBe(true)
   })
 })
 
 describe('validateSecureCode', () => {
   it('should validate as required', () => {
-    expect(validateSecureCode('', 'visa')).toEqual('Required')
+    expect(validateSecureCode('', 'visa')).toBe(false)
   })
 
   it('should validate as not a number', () => {
-    expect(validateSecureCode('abc', 'visa')).toEqual('CSV should be numeric characters only')
+    expect(validateSecureCode('abc', 'visa')).toBe(false)
   })
 
   it('should validate as wrong length for amex', () => {
-    expect(validateSecureCode('123', 'amex')).toEqual('CSV needs to be 4 numbers to be valid')
+    expect(validateSecureCode('123', 'amex')).toBe(false)
   })
 
   it('should validate as wrong length for non amex', () => {
-    expect(validateSecureCode('1234', 'visa')).toEqual('CSV needs to be 3 numbers to be valid')
+    expect(validateSecureCode('1234', 'visa')).toBe(false)
   })
 
   it('should allow a valid CSV', () => {
-    expect(validateSecureCode('123', 'visa')).toBeNull()
+    expect(validateSecureCode('123', 'visa')).toBe(true)
   })
 })
 
 describe('validateCardExpires', () => {
   it('should validate as required', () => {
-    expect(validateCardExpires('')).toEqual('Required')
+    expect(validateCardExpires('')).toBe(false)
   })
 
   it('should validate as not a number', () => {
-    expect(validateCardExpires('abc')).toEqual('Dates should be numeric characters only')
+    expect(validateCardExpires('abc')).toBe(false)
   })
 
   it('should validate as card expired', () => {
-    expect(validateCardExpires('10 / 20')).toEqual('Card has expired')
+    expect(validateCardExpires('10 / 18')).toBe(false)
   })
 
   it('should allow a valid expiry', () => {
-    expect(validateCardExpires('01 / 50')).toBeNull()
+    expect(validateCardExpires('01 / 50')).toBe(true)
   })
 })

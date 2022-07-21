@@ -8,26 +8,12 @@ Object {
       <div
         class="el-snack-holder"
       />
-      <div
-        class="container-flex is-full-height is-column is-scrollable"
-      >
-        <div
-          class="container is-column has-background has-padding flex-height-fix"
-        />
-      </div>
     </div>
   </body>,
   "container": <div>
     <div
       class="el-snack-holder"
     />
-    <div
-      class="container-flex is-full-height is-column is-scrollable"
-    >
-      <div
-        class="container is-column has-background has-padding flex-height-fix"
-      />
-    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -91,56 +77,12 @@ Object {
       <div
         class="el-snack-holder"
       />
-      <div
-        class="app-nav-container"
-        data-test=""
-      >
-        <div
-          class="container-flex is-column is-scrollable"
-        >
-          <div
-            class="container is-column has-padding"
-          >
-            <div
-              class="loader-spinner body"
-              data-test=""
-            >
-              <div />
-              <div />
-              <div />
-              <div />
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </body>,
   "container": <div>
     <div
       class="el-snack-holder"
     />
-    <div
-      class="app-nav-container"
-      data-test=""
-    >
-      <div
-        class="container-flex is-column is-scrollable"
-      >
-        <div
-          class="container is-column has-padding"
-        >
-          <div
-            class="loader-spinner body"
-            data-test=""
-          >
-            <div />
-            <div />
-            <div />
-            <div />
-          </div>
-        </div>
-      </div>
-    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

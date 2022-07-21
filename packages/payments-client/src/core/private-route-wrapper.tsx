@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { FC } from 'react'
 import { Redirect, useLocation } from 'react-router'
 import { useReapitConnect } from '@reapit/connect-session'
 import Nav from './nav'
@@ -11,7 +11,7 @@ const { Suspense } = React
 
 export type PrivateRouteWrapperProps = {}
 
-export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperProps> = ({ children }) => {
+export const PrivateRouteWrapper: FC<PrivateRouteWrapperProps> = ({ children }) => {
   const location = useLocation()
   const { pathname, search } = location
   const currentUri = `${pathname}${search}`

@@ -1,26 +1,31 @@
 import React from 'react'
 import { render } from '../../../../tests/react-testing'
-import { PaymentsPage, PropertyCell, StatusCell } from '..'
-import { mockPropertyModel } from '../../../../tests/__mocks__/property'
+import { handleOpenModal, PaymentsPage, PropertyCell, StatusCell } from '..'
+import { mockPropertyModel, mockPropertyModelPagedResult } from '../../../../tests/__mocks__/property'
+import { mockPaymentModel, mockPaymentModelPagedResult } from '../../../../tests/__mocks__/payment'
+import { useReapitGet } from '@reapit/utils-react'
 
-const locationMock = { search: '', pathname: '/test' }
-
-jest.mock('react-router', () => ({
-  ...(jest.requireActual('react-router') as Object),
-  useHistory: () => ({ push: jest.fn() }),
-  useLocation: jest.fn(() => locationMock),
+jest.mock('../../../../core/use-payments-state')
+jest.mock('@reapit/utils-react', () => ({
+  useReapitGet: jest.fn(() => [null, false]),
 }))
 
+const mockUseReapitGet = useReapitGet as jest.Mock
+
 describe('PaymentsPage ', () => {
-  it('should match a snapshot where loading', () => {
+  it('should match a snapshot where fetched but no payments', () => {
     expect(render(<PaymentsPage />)).toMatchSnapshot()
   })
 
   it('should match a snapshot where has payments list', () => {
+    mockUseReapitGet
+      .mockReturnValueOnce([mockPaymentModelPagedResult, false])
+      .mockReturnValueOnce([mockPropertyModelPagedResult, false])
     expect(render(<PaymentsPage />)).toMatchSnapshot()
   })
 
-  it('should match a snapshot where payments list is empty', () => {
+  it('should match a snapshot where loading', () => {
+    mockUseReapitGet.mockReturnValueOnce([null, true]).mockReturnValueOnce([null, true])
     expect(render(<PaymentsPage />)).toMatchSnapshot()
   })
 })
@@ -40,5 +45,19 @@ describe('PropertyCell', () => {
     expect(
       render(<PropertyCell properties={{ _embedded: [mockPropertyModel] }} propertyId={mockPropertyModel.id} />),
     ).toMatchSnapshot()
+  })
+})
+
+describe('handleOpenModal', () => {
+  it('should correctly open the modal and set a payment', () => {
+    const setSelectedPayment = jest.fn()
+    const openModal = jest.fn()
+
+    const curried = handleOpenModal(openModal, setSelectedPayment, mockPaymentModel)
+
+    curried()
+
+    expect(setSelectedPayment).toHaveBeenCalledWith(mockPaymentModel)
+    expect(openModal).toHaveBeenCalledTimes(1)
   })
 })

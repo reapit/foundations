@@ -110,3 +110,12 @@ export const mockPropertyModel: PropertyModel = {
   },
   _eTag: 'MOCK_ETAG',
 }
+
+export const mockPropertyModelPagedResult = {
+  _embedded: [mockPropertyModel],
+  pageCount: 1,
+  pageNumber: 1,
+  pageSize: 12,
+  totalCount: 1,
+  totalPageCount: 1,
+}

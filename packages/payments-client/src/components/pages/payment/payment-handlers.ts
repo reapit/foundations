@@ -1,5 +1,4 @@
 import { Dispatch, SetStateAction } from 'react'
-import { unformatCard, unformatCardExpires } from '@reapit/elements-legacy'
 import {
   updatePaymentStatus,
   updatePaymentSessionStatus,
@@ -12,6 +11,7 @@ import { CardDetails, PaymentStatusType } from './payment-form'
 import { PaymentWithPropertyModel, UpdateStatusBody, UpdateStatusParams } from '../../../types/payment'
 import { v4 as uuid } from 'uuid'
 import { PaymentProvider, OpayoProvider } from '../../../services/providers'
+import { unformatCard, unformatCardExpires } from './payment-card-helpers'
 
 export const handlePaymentProvider =
   (

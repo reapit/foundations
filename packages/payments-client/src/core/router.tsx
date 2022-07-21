@@ -1,10 +1,8 @@
-import * as React from 'react'
+import React from 'react'
 import { Route, Router as BrowserRouter, Switch, Redirect } from 'react-router-dom'
 import { createBrowserHistory, History } from 'history'
-import { SWRConfig } from 'swr'
 import { Routes } from '../constants/routes'
 import PrivateRouteWrapper from './private-route-wrapper'
-import { platformFetcher } from '../utils/fetcher'
 import { OkayPage } from '@reapit/utils-react'
 
 export const history: History<any> = createBrowserHistory()
@@ -41,19 +39,12 @@ const Router = () => (
       <Switch>
         <Route path={Routes.OK} exact render={() => <OkayPage />} />
         <Route path={Routes.LOGIN} component={LoginPage} />
-        <SWRConfig
-          value={{
-            revalidateOnFocus: false,
-            fetcher: platformFetcher,
-          }}
-        >
-          <Switch>
-            <Route path={Routes.PAYMENT} component={PaymentPage} exact />
-            <PrivateRouteWrapper>
-              <Route path={Routes.PAYMENTS} component={PaymentsPage} exact />
-            </PrivateRouteWrapper>
-          </Switch>
-        </SWRConfig>
+        <Switch>
+          <Route path={Routes.PAYMENT} component={PaymentPage} exact />
+          <PrivateRouteWrapper>
+            <Route path={Routes.PAYMENTS} component={PaymentsPage} exact />
+          </PrivateRouteWrapper>
+        </Switch>
         <Redirect to={Routes.LOGIN} />
       </Switch>
     </React.Suspense>

@@ -2,7 +2,6 @@ import { fetcher } from '@reapit/utils-common'
 import {
   generateEmailPaymentReceiptExternal,
   generateEmailPaymentReceiptInternal,
-  // generatePaymentApiKey,
   updatePaymentSessionStatus,
   updatePaymentStatus,
 } from '../../../../services/payment'
@@ -21,7 +20,7 @@ const merchantKey = {
   expiry: '2021-08-26T19:00:12.357Z',
 }
 
-jest.mock('../../../services/payment', () => ({
+jest.mock('../../../../services/payment', () => ({
   generateEmailPaymentRequest: jest.fn(() => true),
   generatePaymentApiKey: jest.fn(() => true),
   updatePaymentStatus: jest.fn(() => true),
@@ -30,12 +29,12 @@ jest.mock('../../../services/payment', () => ({
   generateEmailPaymentReceiptInternal: jest.fn(() => true),
 }))
 
-jest.mock('../../../services/opayo', () => ({
+jest.mock('../../../../services/opayo', () => ({
   opayoMerchantKeyService: jest.fn(() => true),
   opayoCreateTransactionService: jest.fn(() => true),
 }))
 
-jest.mock('../../../core/connect-session', () => ({
+jest.mock('../../../../core/connect-session', () => ({
   reapitConnectBrowserSession: {
     connectSession: jest.fn(() => ({
       loginIdentity: {
@@ -44,6 +43,23 @@ jest.mock('../../../core/connect-session', () => ({
     })),
   },
 }))
+
+describe('handlePaymentProvider', () => {
+  it('should correctly call the opayo method', async () => {
+    const setProviderLoading = jest.fn()
+    const setPaymentProvider = jest.fn()
+    const errorSnack = jest.fn()
+    const clientCode = 'MOCK_CODE'
+    const curried = Handlers.handlePaymentProvider(setProviderLoading, setPaymentProvider, errorSnack, clientCode)
+    curried()
+
+    await Promise.resolve()
+
+    expect(setProviderLoading).toHaveBeenCalledWith(true)
+    expect(setPaymentProvider).toHaveBeenCalledWith({ merchantKey: true, providerName: 'opayo' })
+    expect(setProviderLoading).toHaveBeenCalledWith(false)
+  })
+})
 
 describe('onUpdateStatus', () => {
   const stubUpdateStatusParams = { paymentId: 'paymentId', clientCode: 'clientCode', _eTag: '_eTag' }
@@ -70,8 +86,8 @@ describe('onUpdateStatus', () => {
       mockSetLoading,
       errorSnack,
     )
-    expect(updatePaymentStatus).toHaveBeenCalledWith(stubBody, stubUpdateStatusParams)
-    expect(generateEmailPaymentReceiptInternal).toHaveBeenCalledWith(stubEmailBody, stubUpdateStatusParams)
+    expect(updatePaymentStatus).toHaveBeenCalledWith(stubBody, stubUpdateStatusParams, errorSnack)
+    expect(generateEmailPaymentReceiptInternal).toHaveBeenCalledWith(stubEmailBody, stubUpdateStatusParams, errorSnack)
     expect(mockSetLoading).toHaveBeenCalledWith('posted')
   })
 
@@ -86,8 +102,12 @@ describe('onUpdateStatus', () => {
       mockSetLoading,
       errorSnack,
     )
-    expect(updatePaymentSessionStatus).toHaveBeenCalledWith(stubBody, stubUpdateStatusParamsWithSession)
-    expect(generateEmailPaymentReceiptExternal).toHaveBeenCalledWith(stubEmailBody, stubUpdateStatusParamsWithSession)
+    expect(updatePaymentSessionStatus).toHaveBeenCalledWith(stubBody, stubUpdateStatusParamsWithSession, errorSnack)
+    expect(generateEmailPaymentReceiptExternal).toHaveBeenCalledWith(
+      stubEmailBody,
+      stubUpdateStatusParamsWithSession,
+      errorSnack,
+    )
     expect(mockSetLoading).toHaveBeenCalledWith('posted')
   })
 })

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Router should match a snapshot 1`] = `
+exports[`ResendConfirmButton should match a snapshot 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -8,42 +8,24 @@ Object {
       <div
         class="el-snack-holder"
       />
-      <main
-        class="el-main-container"
+      <button
+        class="el-intent-primary el-button"
+        type="button"
       >
-        <div
-          class="el-is-full-page el-loader-container"
-        >
-          <div
-            class="el-loader"
-          >
-            <div
-              class="el-loader-moving-bar"
-            />
-          </div>
-        </div>
-      </main>
+        Re-send Confirmation
+      </button>
     </div>
   </body>,
   "container": <div>
     <div
       class="el-snack-holder"
     />
-    <main
-      class="el-main-container"
+    <button
+      class="el-intent-primary el-button"
+      type="button"
     >
-      <div
-        class="el-is-full-page el-loader-container"
-      >
-        <div
-          class="el-loader"
-        >
-          <div
-            class="el-loader-moving-bar"
-          />
-        </div>
-      </div>
-    </main>
+      Re-send Confirmation
+    </button>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

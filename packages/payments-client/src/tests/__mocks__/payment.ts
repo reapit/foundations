@@ -44,7 +44,7 @@ export const mockPaymentModel: PaymentModel = {
 }
 
 export const mockPaymentModelPagedResult = {
-  _embedded: [mockPropertyModel],
+  _embedded: [mockPaymentModel],
   pageCount: 1,
   pageNumber: 1,
   pageSize: 12,

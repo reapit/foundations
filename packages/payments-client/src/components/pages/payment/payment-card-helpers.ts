@@ -87,6 +87,7 @@ export const validateSecureCode = (value: string, cardType: CardType) => {
 }
 
 export const validateCardExpires = (value: string) => {
+  if (!value) return false
   const now = dayjs()
   const formattedValue = value.replace(/\s+/g, '').split('/').reverse()
   formattedValue[0] = `20${formattedValue[0]}`

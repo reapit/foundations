@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Router should match a snapshot 1`] = `
+exports[`PaymentsProvider should match a snapshot 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -8,42 +8,14 @@ Object {
       <div
         class="el-snack-holder"
       />
-      <main
-        class="el-main-container"
-      >
-        <div
-          class="el-is-full-page el-loader-container"
-        >
-          <div
-            class="el-loader"
-          >
-            <div
-              class="el-loader-moving-bar"
-            />
-          </div>
-        </div>
-      </main>
+      <div />
     </div>
   </body>,
   "container": <div>
     <div
       class="el-snack-holder"
     />
-    <main
-      class="el-main-container"
-    >
-      <div
-        class="el-is-full-page el-loader-container"
-      >
-        <div
-          class="el-loader"
-        >
-          <div
-            class="el-loader-moving-bar"
-          />
-        </div>
-      </div>
-    </main>
+    <div />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
