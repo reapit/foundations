@@ -2,8 +2,8 @@ import React, { Dispatch, FC, SetStateAction, useMemo, useState } from 'react'
 import { useHistory } from 'react-router'
 import { PaymentModel, PaymentModelPagedResult, PropertyModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { statusOptions } from '../../../constants/filter-options'
-import { PaymentLogo } from '../../ui/payment-logo'
-import { PaymentsFilterControls } from './payments-filter-form'
+import { PaymentLogo } from '../payment/payment-logo'
+import { PaymentsFilterControls } from './payments-filter-controls'
 import {
   combineAddress,
   DATE_TIME_FORMAT,
@@ -108,7 +108,16 @@ export const PaymentsPage: FC = () => {
       <SecondaryNavContainer>
         <Title>Payments</Title>
         <Icon className={elMb5} iconSize="large" icon="newCustomerInfographic" />
-        <SmallText hasGreyText>Payments dashboard</SmallText>
+        <SmallText hasGreyText>
+          From this dashboard you can use the below filters to locate payments held by Reapit.
+        </SmallText>
+        <SmallText hasGreyText>
+          When you have located your desired payment, you can either send an email request for payment to the customer,
+          or take a payment in person using our payment form.
+        </SmallText>
+        <SmallText hasGreyText>
+          Both options are available from the slide down on each payment item in the table.
+        </SmallText>
         <PaymentsFilterControls />
         <Button intent="neutral" onClick={openNewPage('')}>
           View Docs

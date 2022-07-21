@@ -1,10 +1,10 @@
 import * as React from 'react'
-import { render } from '../../../tests/react-testing'
-import PaymentInternalPage from '../payment-internal'
-import { mockPaymentModel } from '../../../tests/__mocks__/payment'
-import { mockPropertyModel } from '../../../tests/__mocks__/property'
+import { render } from '../../../../tests/react-testing'
+import { PaymentInternalPage } from '../payment-internal'
+import { mockPaymentModel } from '../../../../tests/__mocks__/payment'
+import { mockPropertyModel } from '../../../../tests/__mocks__/property'
 import useSWR from 'swr'
-import { OpayoProvider } from '@/services/providers'
+// import { OpayoProvider } from '../../../../services/providers'
 
 jest.mock('swr')
 jest.mock('../../../core/connect-session')
@@ -18,7 +18,7 @@ describe('PaymentInternalPage', () => {
       error: null,
       mutate: jest.fn(),
     })
-    expect(render(<PaymentInternalPage paymentId="MKT20000010" />)).toMatchSnapshot()
+    expect(render(<PaymentInternalPage />)).toMatchSnapshot()
   })
 
   it('should match a snapshot when has a merchantKey and data', () => {
@@ -30,8 +30,7 @@ describe('PaymentInternalPage', () => {
     expect(
       render(
         <PaymentInternalPage
-          paymentId="MKT20000010"
-          defaultPaymentProvider={new OpayoProvider({ merchantSessionKey: 'SomeKey', expiry: 'SomeDateTime' })}
+        // defaultPaymentProvider={new OpayoProvider({ merchantSessionKey: 'SomeKey', expiry: 'SomeDateTime' })}
         />,
       ),
     ).toMatchSnapshot()
@@ -43,7 +42,7 @@ describe('PaymentInternalPage', () => {
       error: null,
       mutate: jest.fn(),
     })
-    expect(render(<PaymentInternalPage paymentId="MKT20000010" />)).toMatchSnapshot()
+    expect(render(<PaymentInternalPage />)).toMatchSnapshot()
   })
 
   it('should match a snapshot when has a merchantKey and data', () => {
@@ -52,13 +51,6 @@ describe('PaymentInternalPage', () => {
       error: null,
       mutate: jest.fn(),
     })
-    expect(
-      render(
-        <PaymentInternalPage
-          paymentId="MKT20000010"
-          defaultPaymentProvider={new OpayoProvider({ merchantSessionKey: 'SomeKey', expiry: 'SomeDateTime' })}
-        />,
-      ),
-    ).toMatchSnapshot()
+    expect(render(<PaymentInternalPage />)).toMatchSnapshot()
   })
 })

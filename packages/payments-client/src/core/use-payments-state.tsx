@@ -1,15 +1,23 @@
 import { PaymentModel } from '@reapit/foundations-ts-definitions'
 import React, { FC, createContext, useContext, useState, Dispatch, SetStateAction } from 'react'
-// import { useReapitConnect } from '@reapit/connect-session'
-// import { GetActionNames, getActions } from '@reapit/utils-common'
-// import { useReapitGet } from '@reapit/utils-react'
-// import { reapitConnectBrowserSession } from './connect-session'
-// import { useSnack } from '@reapit/elements'
-// import { useHistory } from 'react-router'
+import { PaymentProvider } from '../services/providers'
+import { PaymentWithPropertyModel } from '../types/payment'
+
+export interface PaymentParams {
+  session?: string | null
+  clientId?: string | null
+  paymentId?: string | null
+}
 
 export interface PaymentsDataState {
   selectedPayment: PaymentModel | null
   setSelectedPayment: Dispatch<SetStateAction<PaymentModel | null>>
+  paymentParams: PaymentParams
+  setPaymentParams: Dispatch<SetStateAction<PaymentParams>>
+  paymentWithProperty: PaymentWithPropertyModel | null
+  setPaymentWithProperty: Dispatch<SetStateAction<PaymentWithPropertyModel | null>>
+  paymentProvider: PaymentProvider | null
+  setPaymentProvider: Dispatch<SetStateAction<PaymentProvider | null>>
 }
 
 export interface PaymentsFilters {
@@ -35,33 +43,20 @@ const { Provider } = PaymentsStateContext
 
 export const PaymentsProvider: FC = ({ children }) => {
   const [selectedPayment, setSelectedPayment] = useState<PaymentModel | null>(null)
+  const [paymentParams, setPaymentParams] = useState<PaymentParams>({})
+  const [paymentWithProperty, setPaymentWithProperty] = useState<PaymentWithPropertyModel | null>(null)
+  const [paymentProvider, setPaymentProvider] = useState<PaymentProvider | null>(null)
   const [paymentsFilters, setPaymentsFilters] = useState<PaymentsFilters>({})
-  // const history = useHistory()
-  // const { error } = useSnack()
-  // const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  // const developerId = connectSession?.loginIdentity.developerId
-  // const email = connectSession?.loginIdentity.email
-
-  // const [members, , , refreshMembers] = useReapitGet<MemberModelPagedResult>({
-  //   reapitConnectBrowserSession,
-  //   action: getActions(window.reapit.config.appEnv)[GetActionNames.getDeveloperMembers],
-  //   queryParams: { email: encodeURIComponent(email ?? ''), pageSize: 1 },
-  //   uriParams: { developerId },
-  //   fetchWhenTrue: [email, developerId],
-  //   onError: handlePermissionError(error, history),
-  // })
-
-  // const [currentDeveloper, , , refreshCurrentDeveloper] = useReapitGet<DeveloperModel>({
-  //   reapitConnectBrowserSession,
-  //   action: getActions(window.reapit.config.appEnv)[GetActionNames.getDeveloper],
-  //   uriParams: { developerId },
-  //   fetchWhenTrue: [developerId],
-  //   onError: handlePermissionError(error, history),
-  // })
 
   const paymentsDataState: PaymentsDataState = {
     selectedPayment,
     setSelectedPayment,
+    paymentParams,
+    setPaymentParams,
+    paymentWithProperty,
+    setPaymentWithProperty,
+    paymentProvider,
+    setPaymentProvider,
   }
 
   const paymentsFilterState: PaymentsFilterState = {

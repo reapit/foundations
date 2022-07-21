@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { styled } from '@linaria/react'
 
 const Logo = styled.div`
@@ -10,7 +10,7 @@ const Logo = styled.div`
   }
 `
 
-export const PaymentLogo: React.FC = () => {
+export const PaymentLogo: FC = () => {
   return (
     <Logo>
       <img src="https://web-components.prod.paas.reapit.cloud/reapit-payments.png" />

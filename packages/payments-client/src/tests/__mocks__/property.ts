@@ -108,5 +108,5 @@ export const mockPropertyModel: PropertyModel = {
     CustomField1: 'CustomValue1',
     CustomField2: true,
   },
-  _eTag: '',
+  _eTag: 'MOCK_ETAG',
 }

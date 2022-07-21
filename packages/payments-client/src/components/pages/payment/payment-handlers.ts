@@ -5,17 +5,17 @@ import {
   updatePaymentSessionStatus,
   generateEmailPaymentReceiptExternal,
   generateEmailPaymentReceiptInternal,
-} from '../../services/payment'
-import { MerchantKey } from '../../types/opayo'
-import { opayoMerchantKeyService, opayoCreateTransactionService } from '../../services/opayo'
+} from '../../../services/payment'
+import { MerchantKey } from '../../../types/opayo'
+import { opayoMerchantKeyService, opayoCreateTransactionService } from '../../../services/opayo'
 import { CardDetails, PaymentStatusType } from './payment-form'
-import { PaymentWithPropertyModel, UpdateStatusBody, UpdateStatusParams } from '../../types/payment'
+import { PaymentWithPropertyModel, UpdateStatusBody, UpdateStatusParams } from '../../../types/payment'
 import { v4 as uuid } from 'uuid'
-import { PaymentProvider, OpayoProvider } from '@/services/providers'
+import { PaymentProvider, OpayoProvider } from '../../../services/providers'
 
-export const handlePaymentProviderEffect =
+export const handlePaymentProvider =
   (
-    setLoading: Dispatch<SetStateAction<boolean>>,
+    setProviderLoading: Dispatch<SetStateAction<boolean>>,
     setPaymentProvider: Dispatch<SetStateAction<PaymentProvider | null>>,
     errorSnack: (message: string) => void,
     clientCode?: string | null,
@@ -28,10 +28,10 @@ export const handlePaymentProviderEffect =
           const provider = new OpayoProvider(fetchedKey)
           setPaymentProvider(provider)
         }
-        setLoading(false)
+        setProviderLoading(false)
       }
       fetchmerchantKey()
-      setLoading(true)
+      setProviderLoading(true)
     }
   }
 
@@ -77,7 +77,7 @@ export const handleCreateTransaction =
     paymentId: string,
     setPaymentStatus: Dispatch<SetStateAction<PaymentStatusType>>,
     errorSnack: (message: string) => void,
-    session?: string,
+    session?: string | null,
   ) =>
   async (result: any) => {
     const { customerFirstName, customerLastName, address1, city, postalCode, country } = cardDetails
@@ -133,7 +133,7 @@ export const onHandleSubmit =
     paymentId: string,
     setPaymentStatus: Dispatch<SetStateAction<PaymentStatusType>>,
     errorSnack: (message: string) => void,
-    session?: string,
+    session?: string | null,
   ) =>
   (cardDetails: CardDetails) => {
     const { cardholderName, cardNumber, expiryDate, securityCode } = cardDetails

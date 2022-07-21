@@ -21,7 +21,7 @@ import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { generateEmailPaymentRequest, generatePaymentApiKey, updatePaymentStatus } from '../../../services/payment'
 
 export type PaymentRequestModalProps = {
-  refreshPayments: () => void
+  refreshPayments?: () => void
   closeModal: () => void
 }
 
@@ -50,10 +50,10 @@ export const handlePaymentRequestSubmit =
   (
     selectedPayment: PaymentModel | null,
     setSelectedPayment: Dispatch<SetStateAction<PaymentModel | null>>,
-    refreshPayments: () => void,
     closeModal: () => void,
     setLoading: Dispatch<SetStateAction<boolean>>,
     errorSnack: (message: string) => void,
+    refreshPayments?: () => void,
     clientCode?: string | null,
   ) =>
   async (formValues: PaymentsEmailRequestForm) => {
@@ -111,7 +111,7 @@ export const handlePaymentRequestSubmit =
     )
 
     if (paymentStatusUpdate) {
-      refreshPayments()
+      refreshPayments && refreshPayments()
       setSelectedPayment(null)
       closeModal()
       setLoading(false)
@@ -144,10 +144,10 @@ export const PaymentRequestModal: FC<PaymentRequestModalProps> = ({ refreshPayme
         handlePaymentRequestSubmit(
           selectedPayment,
           setSelectedPayment,
-          refreshPayments,
           closeModal,
           setLoading,
           error,
+          refreshPayments,
           clientId,
         ),
       )}

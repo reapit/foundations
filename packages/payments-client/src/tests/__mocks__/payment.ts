@@ -1,6 +1,6 @@
 import { PaymentModel } from '@reapit/foundations-ts-definitions'
 import { PaymentWithPropertyModel } from '../../types/payment'
-import { CardDetails } from '../../components/ui/payment-form'
+import { CardDetails } from '../../components/pages/payment/payment-form'
 import { mockPropertyModel } from './property'
 
 export const mockPaymentModel: PaymentModel = {
@@ -38,20 +38,18 @@ export const mockPaymentModel: PaymentModel = {
     },
   },
   landlordId: '',
-  propertyId: 'PRP200001',
+  propertyId: 'OXF200008',
   tenancyId: '',
-  _eTag: '',
-  _links: {
-    self: {
-      href: '/payments/PAY20000001',
-    },
-    customer: {
-      href: '/contacts/OXF12300101',
-    },
-    property: {
-      href: '/properties/PRP200001',
-    },
-  },
+  _eTag: 'MOCK_ETAG',
+}
+
+export const mockPaymentModelPagedResult = {
+  _embedded: [mockPropertyModel],
+  pageCount: 1,
+  pageNumber: 1,
+  pageSize: 12,
+  totalCount: 1,
+  totalPageCount: 1,
 }
 
 export const mockPaymentWithPropertyModel: PaymentWithPropertyModel = {
@@ -65,14 +63,14 @@ export const mockPaymentWithPropertyModel: PaymentWithPropertyModel = {
 export const mockCardDetails: CardDetails = {
   customerFirstName: 'first name',
   customerLastName: 'last name',
-  address1: '',
-  city: '',
-  postalCode: '',
-  country: '',
-  cardholderName: '',
-  cardNumber: '',
-  expiryDate: '',
-  securityCode: '',
-  cardIdentifier: '',
-  email: '',
+  address1: 'MOCK_ADDESS',
+  city: 'MOCK_CITY',
+  postalCode: 'MOCK_PC',
+  country: 'GB',
+  cardholderName: 'MOCK_NAME',
+  cardNumber: '0000000000000000',
+  expiryDate: '1225',
+  securityCode: '123',
+  cardIdentifier: 'FOO',
+  email: 'mock@example.com',
 }

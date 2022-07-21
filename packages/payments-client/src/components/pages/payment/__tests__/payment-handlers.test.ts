@@ -5,9 +5,9 @@ import {
   // generatePaymentApiKey,
   updatePaymentSessionStatus,
   updatePaymentStatus,
-} from '../../../services/payment'
+} from '../../../../services/payment'
 import { handleCreateTransaction, onUpdateStatus, onHandleSubmit } from '../payment-handlers'
-import { mockCardDetails, mockPaymentWithPropertyModel } from '../../../tests/__mocks__/payment'
+import { mockCardDetails, mockPaymentWithPropertyModel } from '../../../../tests/__mocks__/payment'
 import * as Handlers from '../payment-handlers'
 
 jest.mock('@reapit/utils-common')
