@@ -30,8 +30,8 @@ type ApplicantBuying {
 type ApplicantRenting {
   moveDate: String
   term: String
-  rentFrom: Int
-  rentTo: Int
+  rentFrom: Float
+  rentTo: Float
   rentFrequency: String
   furnishing: [String]
 }

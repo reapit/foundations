@@ -38,7 +38,7 @@ type FormInfo = {
   formType: string
 }
 
-const argToFormInput = ({ name, fields, isList }: ParsedArg, formInfo: FormInfo): FormInputProps[] => {
+export const argToFormInput = ({ name, fields, isList }: ParsedArg, formInfo: FormInfo): FormInputProps[] => {
   if (fields && !isList) {
     return fields.map((field) => argToFormInput({ ...field, name: `${name}.${field.name}` }, formInfo)).flat()
   }

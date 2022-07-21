@@ -47,6 +47,11 @@ const getLabel = (obj: any, labelKeys?: string[]) => {
             .filter(([key, value]) => typeof value === 'string' && key !== '__typename')
             .map(([, value]) => value)
         }
+        if (key.includes('.')) {
+          // get nested value
+          const [firstKey, ...restKeys] = key.split('.')
+          return getLabel(obj[firstKey], [restKeys.join('.')])
+        }
         return ''
       })
       .flat()

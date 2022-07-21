@@ -38,17 +38,15 @@ const getOffersQuery = gql`
 const createOfferMutation = gql`
   ${OfferFragment}
   mutation CreateOffer(
-    $id: String!
     $applicantId: String
     $propertyId: String
     $negotiatorId: String
     $date: String
-    $amount: String
+    $amount: Float
     $status: String
     $metadata: JSON
   ) {
     CreateOffer(
-      id: $id
       applicantId: $applicantId
       propertyId: $propertyId
       negotiatorId: $negotiatorId
@@ -57,7 +55,7 @@ const createOfferMutation = gql`
       status: $status
       metadata: $metadata
     ) {
-      OfferFragment
+      ...OfferFragment
     }
   }
 `
@@ -69,7 +67,7 @@ const updateOfferMutation = gql`
     $propertyId: String
     $negotiatorId: String
     $date: String
-    $amount: String
+    $amount: Float
     $status: String
     $metadata: JSON
   ) {
@@ -83,7 +81,7 @@ const updateOfferMutation = gql`
       status: $status
       metadata: $metadata
     ) {
-      OfferFragment
+      ...OfferFragment
     }
   }
 `
@@ -121,8 +119,6 @@ export class OfferResolver {
       idToken,
       accessToken,
     })
-
-    console.log(offers)
 
     return offers
   }

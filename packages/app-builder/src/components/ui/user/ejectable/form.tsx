@@ -9,6 +9,7 @@ import { useObjectGet } from '../../../hooks/objects/use-object-get'
 
 import { usePageId } from '../../../hooks/use-page-id'
 import { FormContextProvider } from '../../../hooks/form-context'
+import { cloneDeep } from '@apollo/client/utilities'
 
 export interface FormProps extends ContainerProps {
   typeName?: string
@@ -18,7 +19,7 @@ export interface FormProps extends ContainerProps {
 }
 
 const addValueToObject = (object: any, key: string, value: any) => {
-  const newObject = { ...object }
+  const newObject = cloneDeep(object)
   const parts = key.split('.')
 
   let modifyingObject = newObject
@@ -38,6 +39,18 @@ const addValueToObject = (object: any, key: string, value: any) => {
   }
 
   return newObject
+}
+
+const removeTypename = (object: any) => {
+  if (object && typeof object === 'object') {
+    const newObj = cloneDeep(object)
+    delete newObj.__typename
+    Object.keys(newObj).forEach((key) => {
+      newObj[key] = removeTypename(newObj[key])
+    })
+    return newObj
+  }
+  return object
 }
 
 export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean }>(
@@ -89,8 +102,8 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
             if (!args) return
             e.preventDefault()
             let variables
+            let fs = removeTypename(formState)
             if (formType === 'create') {
-              let fs = { ...formState }
               if (args[0].fields?.find((field) => field.name === 'id')) {
                 fs = {
                   ...fs,
@@ -102,7 +115,7 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
               }
             } else {
               variables = {
-                [args[0].name]: formState,
+                [args[0].name]: fs,
                 [args[1].name]: context.editObjectId,
               }
             }

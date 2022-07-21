@@ -30,8 +30,8 @@ type ApplicantBuying {
 type ApplicantRenting {
   moveDate: String
   term: String
-  rentFrom: Int
-  rentTo: Int
+  rentFrom: Float
+  rentTo: Float
   rentFrequency: String
   furnishing: [String]
 }
@@ -911,7 +911,7 @@ type Mutation {
     propertyId: String
     negotiatorId: String
     date: String
-    amount: String
+    amount: Float
     status: String
     inclusions: String
     exclusions: String
@@ -923,7 +923,7 @@ type Mutation {
     _eTag: String!
     negotiatorId: String
     date: String
-    amount: String
+    amount: Float
     status: String
     inclusions: String
     exclusions: String

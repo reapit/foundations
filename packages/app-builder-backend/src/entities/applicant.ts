@@ -1,17 +1,18 @@
 import { gql } from 'apollo-server-core'
-import { ObjectType, Field, ID, InputType, GraphQLISODateTime, registerEnumType, Int } from 'type-graphql'
+import { ObjectType, Field, ID, InputType, GraphQLISODateTime, registerEnumType, Int, Float } from 'type-graphql'
 import { GraphQLDate } from 'graphql-iso-date'
 import { Negotiator, NegotiatorFragment } from './negotiator'
 import { Office, OfficeFragment } from './office'
 import { Department, DepartmentFragment } from './department'
 import { ExternalAreaType, InternalAreaType, PropertyLettingFrequency } from './property'
+import { Contact } from './contact'
 
 @ObjectType()
 class ApplicantBuying {
-  @Field()
+  @Field(() => Float)
   priceFrom: number
 
-  @Field()
+  @Field(() => Float)
   priceTo: number
 }
 
@@ -20,10 +21,10 @@ class ApplicantExternalArea {
   @Field()
   type: string
 
-  @Field()
+  @Field(() => Float)
   amountFrom: number
 
-  @Field()
+  @Field(() => Float)
   amountTo: number
 }
 
@@ -32,23 +33,23 @@ class ApplicantInternalArea {
   @Field()
   type: string
 
-  @Field()
+  @Field(() => Float)
   amount: number
 }
 
 @ObjectType()
 class ApplicantRenting {
-  @Field({ nullable: true })
+  @Field(() => Float, { nullable: true })
   rentingTo?: number
 
-  @Field({ nullable: true })
+  @Field(() => Float, { nullable: true })
   rentingFrom?: number
 
   @Field({ nullable: true })
   rentingFrequency?: string
 }
 
-@ObjectType({ description: '@labelKeys(title, forename, surname) @supportsCustomFields()' })
+@ObjectType({ description: '@labelKeys(contact.title, contact.forename, contact.surname) @supportsCustomFields()' })
 export class Applicant {
   @Field(() => ID)
   id: string
@@ -112,6 +113,13 @@ export class Applicant {
 
   @Field({ nullable: true })
   parkingSpacesMax: number
+
+  @Field(() => Contact, { nullable: true })
+  contact?: Contact
+  related: {
+    id: string
+    type: 'contact' | 'company'
+  }[]
 
   @Field(() => ApplicantBuying, { nullable: true, description: '@onlyIf({ "marketingMode": "buying" })' })
   buying: ApplicantBuying
@@ -310,6 +318,10 @@ export const ApplicantFields = `
   internalArea {
     type
     amount
+  }
+  related {
+    id
+    type
   }
 `
 

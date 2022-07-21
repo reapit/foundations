@@ -75,5 +75,6 @@ export const NegotiatorFragment = gql`
     mobilePhone
     email
     metadata
+    _eTag
   }
 `

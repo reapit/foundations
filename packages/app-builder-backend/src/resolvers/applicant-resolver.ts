@@ -4,14 +4,16 @@ import { Office } from '../entities/office'
 import { MetadataSchemaType } from '@/utils/extract-metadata'
 import { Context } from '@apollo/client'
 import { gql } from 'apollo-server-core'
-import { Arg, Authorized, Ctx, Mutation, Query, Resolver } from 'type-graphql'
+import { Arg, Authorized, Ctx, FieldResolver, Mutation, Query, Resolver, Root } from 'type-graphql'
 import { query } from '../utils/graphql-fetch'
-import { Department } from '@/entities/department'
+import { Department } from '../entities/department'
+import { Contact } from '../entities/contact'
+import { getContact } from './contact-resolver'
 
 const getApplicationQuery = gql`
   ${ApplicantFragment}
-  {
-    GetApplicants(embed: [offices, negotiators]) {
+  query GetApplicants($name: String) {
+    GetApplicants(name: $name, embed: [offices, negotiators]) {
       _embedded {
         ...ApplicantFragment
       }
@@ -178,10 +180,10 @@ const convertDates = (applicant: Applicant): Applicant => ({
   modified: new Date(applicant.modified),
 })
 
-const getApplicants = async (accessToken: string, idToken: string): Promise<Applicant[]> => {
+const getApplicants = async (accessToken: string, idToken: string, name?: string ): Promise<Applicant[]> => {
   const applicants = await query<{ _embedded: ApplicantAPIResponse<ApplicantsEmbeds>[] }>(
     getApplicationQuery,
-    {},
+    { name },
     'GetApplicants',
     {
       accessToken,
@@ -289,6 +291,19 @@ export class ApplicantResolver {
   }
 
   @Authorized()
+  @Query(() => [Applicant])
+  async searchApplicants(
+    @Arg('query') query: string,
+    @Ctx() { accessToken, idToken, storeCachedMetadata }: Context,
+  ): Promise<Applicant[]> {
+    const applicants = await getApplicants(accessToken, idToken, query)
+    applicants?.forEach((applicant) => {
+      storeCachedMetadata(entityName, applicant.id, applicant.metadata)
+    })
+    return applicants
+  }
+
+  @Authorized()
   @Mutation(() => Applicant)
   async createApplicant(
     @Ctx() { accessToken, idToken, storeCachedMetadata, operationMetadata }: Context,
@@ -326,5 +341,24 @@ export class ApplicantResolver {
     const applicant = await updateApplicant(id, { ...applicantDto, metadata }, accessToken, idToken)
     storeCachedMetadata(entityName, applicant.id, applicantDto.metadata)
     return applicant
+  }
+
+  @Authorized()
+  @FieldResolver(() => Contact)
+  async contact(
+    @Ctx() { accessToken, idToken, storeCachedMetadata }: Context,
+    @Root() applicant: Applicant,
+  ): Promise<Contact | undefined> {
+    const { related } = applicant
+    const contactId = related.find((r) => r.type === 'contact')?.id
+    if (!contactId) {
+      throw new Error('Contact not found for applicant')
+    }
+    const contact = await getContact(contactId, accessToken, idToken)
+    if (!contact) {
+      throw new Error(`Contact with id ${contactId} not found`)
+    }
+    storeCachedMetadata('contact', contact.id, contact.metadata)
+    return contact
   }
 }
