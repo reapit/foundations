@@ -6,15 +6,18 @@ import { generateApiKey } from '../core/schema'
 import { validateApiKey } from '../core/validators'
 import { getPlatformPayment } from '../services/get-payment'
 
+const originWhitelist = [
+  'http://localhost:8080',
+  'https://payments.prod.paas.reapit.cloud',
+  'https://payments.dev.paas.reapit.cloud',
+  'https://mailer-service.prod.paas.reapit.cloud',
+  'https://mailer-service.dev.paas.reapit.cloud',
+]
+
 export const getPayment = async (req: AppRequest, res: Response) => {
   const apiKey: string | undefined = req.headers['x-api-key'] as string
   const clientCode: string | undefined = req.headers['reapit-customer'] as string
   const apiVersion: string | undefined = req.headers['api-version'] as string
-  const originWhitelist = [
-    'http://localhost:8080',
-    'https://payments.prod.paas.reapit.cloud',
-    'https://payments.dev.paas.reapit.cloud',
-  ]
 
   const remoteHostname = req.get('origin')
   const { paymentId } = req.params
