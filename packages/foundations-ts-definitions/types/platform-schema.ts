@@ -10790,6 +10790,8 @@ export interface Properties {
     | 'lettingOnly'
     | 'introducingTenant'
   )[]
+  areaId?: string[]
+  excludeAreaId?: string[]
   landlordId?: string[]
   lettingStatus?: (
     | 'valuation'
