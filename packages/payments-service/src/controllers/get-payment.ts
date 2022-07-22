@@ -10,9 +10,13 @@ export const getPayment = async (req: AppRequest, res: Response) => {
   const apiKey: string | undefined = req.headers['x-api-key'] as string
   const clientCode: string | undefined = req.headers['reapit-customer'] as string
   const apiVersion: string | undefined = req.headers['api-version'] as string
-  const originWhitelist = ['localhost', 'payments.prod.paas.reapit.cloud', 'payments.dev.paas.reapit.cloud']
+  const originWhitelist = [
+    'http://localhost:8080',
+    'https://payments.prod.paas.reapit.cloud',
+    'https://payments.dev.paas.reapit.cloud',
+  ]
 
-  const remoteHostname = req.hostname
+  const remoteHostname = req.get('origin')
   const { paymentId } = req.params
 
   try {
