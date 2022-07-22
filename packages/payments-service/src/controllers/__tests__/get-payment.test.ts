@@ -23,7 +23,7 @@ const baseMockReq = {
   params: {
     paymentId: 'SOME_PAYMENT_ID',
   },
-  url: 'http://localhost:8080',
+  hostname: 'payments.dev.paas.reapit.cloud',
 }
 
 const baseMockRes = {
