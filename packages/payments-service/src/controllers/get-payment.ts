@@ -35,9 +35,7 @@ export const getPayment = async (req: AppRequest, res: Response) => {
 
       if (payment) {
         res.status(200)
-        return res.json({
-          payment,
-        })
+        return res.json(payment)
       }
     }
   } catch (error) {
