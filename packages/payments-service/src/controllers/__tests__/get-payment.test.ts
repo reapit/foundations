@@ -140,9 +140,7 @@ describe('getPayment', () => {
     })
     expect(logger.error).toHaveBeenCalledTimes(0)
     expect(mockRes.status).toHaveBeenCalledWith(200)
-    expect(mockRes.json).toHaveBeenLastCalledWith({
-      payment: {},
-    })
+    expect(mockRes.json).toHaveBeenLastCalledWith({})
   })
 
   it('should not find an API key and return a 404 to the user on failure', async () => {
