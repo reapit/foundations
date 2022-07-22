@@ -23,8 +23,8 @@ const baseMockReq = {
   params: {
     paymentId: 'SOME_PAYMENT_ID',
   },
-  hostname: 'payments.dev.paas.reapit.cloud',
-}
+  get: () => 'https://payments.dev.paas.reapit.cloud',
+} as unknown as AppRequest
 
 const baseMockRes = {
   status: jest.fn(),
