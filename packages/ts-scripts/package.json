@@ -46,7 +46,7 @@
     "@sentry/webpack-plugin": "^1.18.9",
     "@svgr/webpack": "^6.2.1",
     "@swc/core": "^1.2.208",
-    "@testing-library/user-event": "^14.2.1",
+    "@testing-library/user-event": "^14.3.0",
     "@typescript-eslint/eslint-plugin": "^5.30.4",
     "@typescript-eslint/parser": "^5.30.4",
     "autoprefixer": "^10.4.7",

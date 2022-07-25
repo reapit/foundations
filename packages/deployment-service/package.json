@@ -9,8 +9,8 @@
     "@nestjs/core": "^8.4.4",
     "@nestjs/microservices": "^8.4.5",
     "@nestjs/passport": "^8.2.1",
-    "@nestjs/platform-express": "^8.4.4",
-    "@nestjs/typeorm": "^8.0.3",
+    "@nestjs/platform-express": "^8.4.7",
+    "@nestjs/typeorm": "^8.1.4",
     "@octokit/app": "^12.0.7",
     "@reapit/api-key-verify": "workspace:packages/api-key-verify",
     "@reapit/connect-session": "workspace:packages/connect-session",
@@ -58,7 +58,7 @@
     "migration:revert": "ts-node -P ./tsconfig.json ../../node_modules/.bin/typeorm migration:revert"
   },
   "devDependencies": {
-    "@nestjs/testing": "^8.4.5",
+    "@nestjs/testing": "^8.4.7",
     "@reapit/config-manager": "workspace:packages/config-manager",
     "@reapit/ts-bundler": "workspace:packages/ts-bundler",
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",

@@ -26,9 +26,9 @@
   "dependencies": {
     "@reapit/utils-node": "workspace:packages/utils-node",
     "@snyk/protect": "^1.962.0",
-    "apollo-server": "^3.9.0",
-    "apollo-server-core": "^3.9.0",
-    "apollo-server-lambda": "^3.9.0",
+    "apollo-server": "^3.10.0",
+    "apollo-server-core": "^3.10.0",
+    "apollo-server-lambda": "^3.10.0",
     "axios": "^0.27.2",
     "axios-mock-adapter": "^1.21.1",
     "axios-retry": "^3.3.1",
