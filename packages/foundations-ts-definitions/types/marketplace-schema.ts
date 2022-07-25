@@ -203,6 +203,10 @@ export interface AppDetailModel {
   isHidden?: boolean
   category?: CategoryModel
   /**
+   * Gets the collection of categories assigned to the app
+   */
+  categories?: CategoryModel[]
+  /**
    * Gets the collection of scopes against the app
    */
   scopes?: ScopeModel[]
@@ -403,6 +407,10 @@ export interface AppRevisionModel {
    */
   isFree?: boolean
   category?: CategoryModel
+  /**
+   * Gets the categories for the app this revision belongs to
+   */
+  categories?: CategoryModel[]
   /**
    * Gets the scopes that have been associated to this revision
    */
@@ -793,6 +801,10 @@ export interface CreateAppModel {
    */
   categoryId?: string
   /**
+   * Sets the unique identifer of the apps category. Multiple ids can be passed in the array
+   */
+  categoryIds?: string[]
+  /**
    * Sets a flag determining whether or not the app is featured
    */
   isFeatured?: boolean
@@ -911,6 +923,10 @@ export interface CreateAppRevisionModel {
    * Sets the unique identifer of the app revisions category
    */
   categoryId?: string
+  /**
+   * Sets the unique identifer of the apps revisions category. Multiple ids can be passed in the array
+   */
+  categoryIds?: string[]
   /**
    * Sets location url of the app icon image
    */
