@@ -5,7 +5,7 @@ export interface DesktopIntegrationTypeModel {
   url?: string
 }
 
-export interface PagedResultDesktopIntegrationTypeModel_ {
+export interface PagedResultDesktopIntegrationTypeModel {
   data?: DesktopIntegrationTypeModel[]
   pageNumber?: number
   pageSize?: number
