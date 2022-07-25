@@ -76,7 +76,7 @@ export const ApiKeyTable = ({
                   }}
                   onDelete={(apiKeyId) => {
                     // TODO remove apikey from pagination results
-                    setItems(items.filter((item) => item.id !== apiKeyId))
+                    setItems(items.filter((currentItem) => currentItem.id !== apiKeyId))
                     setDeleteModal(undefined)
                   }}
                 />
