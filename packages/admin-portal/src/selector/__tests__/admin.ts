@@ -3,7 +3,7 @@ import { selectApprovals, selectStatistics, selectDeveloperListState } from '../
 import appState from '@/reducers/__stubs__/app-state'
 
 describe('admin', () => {
-  const mockState = appState as ReduxState
+  const mockState = appState
 
   describe('selectApprovals', () => {
     it('should run correctly', () => {
