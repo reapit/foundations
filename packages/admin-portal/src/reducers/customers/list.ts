@@ -1,9 +1,9 @@
 import { Action } from '@/types/core'
 import { isType } from '@/utils/actions'
 import { fetchCustomersList, fetchCustomersListSuccess, fetchCustomersListFailed } from '@/actions/customers'
-import { PagedResultCustomerModel_ } from '@/services/customers'
+import { PagedResultCustomerModel } from '@/services/customers'
 
-export type CustomersListState = PagedResultCustomerModel_ & {
+export type CustomersListState = PagedResultCustomerModel & {
   isLoading: boolean
   errorMessage: string
 }

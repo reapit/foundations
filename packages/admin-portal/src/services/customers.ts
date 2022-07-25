@@ -5,7 +5,7 @@ import { FetchListCommonParams } from './types'
 import { AddressModel, LinkModel } from '@reapit/foundations-ts-definitions'
 import { reapitConnectBrowserSession } from '../core/connect-session'
 
-export interface PagedResultCustomerModel_ {
+export interface PagedResultCustomerModel {
   pageNumber?: number
   pageSize?: number
   pageCount?: number
@@ -29,7 +29,7 @@ export type FetchCustomersListParams = FetchListCommonParams & {
 
 export const fetchCustomersList = async (
   params: FetchCustomersListParams,
-): Promise<PagedResultCustomerModel_ | void> => {
+): Promise<PagedResultCustomerModel | void> => {
   try {
     const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
     if (headers) {
