@@ -15,6 +15,7 @@ import {
   elNavSubItemExpanded,
 } from './__styles__'
 import { elMlAuto, elMr2 } from '../../styles/spacing'
+import { v4 as uuid } from 'uuid'
 
 export type NavResponsiveItemType = 'ICON' | 'ITEM' | 'SECONDARY'
 
@@ -127,7 +128,7 @@ export const NavResponsive: FC<NavResponsiveProps> = ({
                 )}
               </NavItem>
               {subItems && subItems.length > 0 && (
-                <NavSubNav key={Math.floor(Math.random() * 1)}>
+                <NavSubNav key={uuid()}>
                   {subItems.map(
                     ({
                       callback: innerCallback,

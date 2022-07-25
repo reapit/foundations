@@ -1,4 +1,5 @@
 const { jestGlobalConfig } = require('@reapit/ts-scripts')
+const { join } = require('path')
 
 module.exports = {
   ...jestGlobalConfig,
@@ -14,6 +15,7 @@ module.exports = {
   modulePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|public|dist)[/\\\\]'],
   moduleNameMapper: {
     '\\.(css|less|scss|sass)$': '<rootDir>/src/scripts/style-mock.js',
+    '^uuid': join(__dirname, '../..', 'node_modules/uuid/dist/index.js'),
   },
   coverageThreshold: {
     global: {
