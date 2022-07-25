@@ -30,7 +30,7 @@
     "@reapit/utils-common": "workspace:packages/utils-common",
     "@reapit/utils-react": "workspace:packages/utils-react",
     "@sentry/browser": "^6.19.7",
-    "dayjs": "^1.11.3",
+    "dayjs": "^1.11.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-ga": "^2.7.0",
@@ -38,7 +38,7 @@
     "react-router": "^5.3.3",
     "react-router-dom": "^5.3.3",
     "scroll-into-view-if-needed": "^2.2.29",
-    "snyk": "^1.962.0",
+    "snyk": "^1.980.0",
     "yup": "^0.32.11"
   },
   "devDependencies": {
@@ -48,15 +48,15 @@
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",
     "@reapit/ts-types": "workspace:packages/ts-types",
     "@testing-library/react": "^13.3.0",
-    "@typescript-eslint/eslint-plugin": "^5.30.4",
-    "@typescript-eslint/parser": "^5.30.4",
-    "babel-jest": "^28.1.2",
+    "@typescript-eslint/eslint-plugin": "^5.30.7",
+    "@typescript-eslint/parser": "^5.30.7",
+    "babel-jest": "^28.1.3",
     "babel-loader": "^8.2.5",
     "cross-env": "^6.0.3",
     "css-loader": "^6.7.1",
-    "eslint": "8.19.0",
+    "eslint": "8.20.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "jest": "^28.1.2",
+    "jest": "^28.1.3",
     "jest-coverage-badges": "^1.1.2",
     "node-polyfill-webpack-plugin": "^1.1.4",
     "rimraf": "^3.0.2",
@@ -65,7 +65,7 @@
     "serverless-s3-remover": "^0.6.0",
     "serverless-single-page-app-plugin": "^1.0.4",
     "typescript": "^4.7.4",
-    "webpack": "^5.73.0",
+    "webpack": "^5.74.0",
     "webpack-dev-server": "^4.9.3"
   }
 }
