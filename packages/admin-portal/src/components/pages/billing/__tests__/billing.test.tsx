@@ -19,17 +19,11 @@ jest.mock('uuid', () => ({
 }))
 
 const mockBillingServices = jest.spyOn(developerServices, 'fetchDeveloperBillingPeriod').mockImplementation(
-  () =>
-    new Promise((resolve) => {
-      resolve(new Blob())
-    }),
+  () => Promise.resolve(new Blob())
 )
 
 const mockBillingDwServices = jest.spyOn(customerServices, 'fetchCustomerWarehouseCosts').mockImplementation(
-  () =>
-    new Promise((resolve) => {
-      resolve(new Blob())
-    }),
+  () => Promise.resolve(new Blob())
 )
 
 describe('AdminBilling', () => {
