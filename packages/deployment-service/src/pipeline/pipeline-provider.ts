@@ -12,8 +12,8 @@ export class PipelineProvider {
     private readonly repository: Repository<PipelineEntity>,
   ) {}
 
-  async findById(id: string): Promise<PipelineEntity | undefined> {
-    return this.repository.findOne(id)
+  async findById(id: string): Promise<PipelineEntity | null> {
+    return this.repository.findOne({ where: { id } })
   }
 
   async paginate(page: number, developerId: string, appId?: string): Promise<Pagination<PipelineEntity>> {
@@ -47,17 +47,19 @@ export class PipelineProvider {
 
   async findByAppId(appId: string): Promise<PipelineEntity[]> {
     return this.repository.find({
-      appId,
+      where: { appId },
     })
   }
 
-  async findByRepo(repository: string): Promise<PipelineEntity | undefined> {
-    return this.repository.findOne({ repository })
+  async findByRepo(repository: string): Promise<PipelineEntity | null> {
+    return this.repository.findOne({ where: { repository } })
   }
 
   async findByRepos(repositories: string[]): Promise<PipelineEntity[]> {
     return this.repository.find({
-      repository: In(repositories),
+      where: {
+        repository: In(repositories),
+      },
     })
   }
 
@@ -76,15 +78,19 @@ export class PipelineProvider {
       .execute()
   }
 
-  async findByRepositoryId(repositoryId: number): Promise<PipelineEntity | undefined> {
+  async findByRepositoryId(repositoryId: number): Promise<PipelineEntity | null> {
     return this.repository.findOne({
-      repositoryId,
+      where: {
+        repositoryId,
+      },
     })
   }
 
   async findPipelinesByRepositoryId(repositoryId: number): Promise<PipelineEntity[]> {
     return this.repository.find({
-      repositoryId,
+      where: {
+        repositoryId,
+      },
     })
   }
 

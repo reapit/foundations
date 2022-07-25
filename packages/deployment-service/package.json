@@ -24,7 +24,7 @@
     "jwt-decode": "^3.1.2",
     "mime-types": "^2.1.35",
     "mysql": "^2.18.1",
-    "nestjs-typeorm-paginate": "^2.6.3",
+    "nestjs-typeorm-paginate": "^4.0.0",
     "original-fs": "^1.1.0",
     "passport-jwt": "^4.0.0",
     "project-name-generator": "^2.1.9",

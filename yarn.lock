@@ -20216,7 +20216,7 @@ __metadata:
     mime: 2.6.0
     mime-types: ^2.1.35
     mysql: ^2.18.1
-    nestjs-typeorm-paginate: ^2.6.3
+    nestjs-typeorm-paginate: ^4.0.0
     nodemon: ^2.0.18
     original-fs: ^1.1.0
     passport-jwt: ^4.0.0
@@ -31831,6 +31831,16 @@ fsevents@^1.2.7:
     "@nestjs/common": ^6.1.1 || ^5.6.2 || ^7.0.0 || ^8.0.0
     typeorm: ^0.2.12
   checksum: 253038d646be3040d16c9f55334f6e7f6d2b5ab970ed13b830f64bb3a6eb8544d9fc95214ea6afd973ede26634f1ed83deada1a3590160eebb264720fb74e36d
+  languageName: node
+  linkType: hard
+
+"nestjs-typeorm-paginate@npm:^4.0.0":
+  version: 4.0.1
+  resolution: "nestjs-typeorm-paginate@npm:4.0.1"
+  peerDependencies:
+    "@nestjs/common": ^6.1.1 || ^5.6.2 || ^7.0.0 || ^8.0.0
+    typeorm: ^0.3.0
+  checksum: 59907234a9da2ee18bd72c018da4b7145931dd374ed48fde61b8f6b7d3cb2edab9a947a45171afc92d34ef1cef961ecfd70ad352966abecaa2fad477a3c642a7
   languageName: node
   linkType: hard
 
