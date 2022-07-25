@@ -33,13 +33,12 @@ export const fetchCustomersList = async (
   try {
     const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
     if (headers) {
-      const response = await fetcher({
+      return fetcher({
         url: `${URLS.customers}/?${setQueryParams(params)}`,
         api: window.reapit.config.platformApiUrl,
         method: 'GET',
         headers,
       })
-      return response
     }
   } catch (error) {
     logger(error as FetchError)
@@ -51,13 +50,12 @@ export const fetchCustomerWarehouseCosts = async (period: string) => {
   try {
     const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
     if (headers) {
-      const response = await fetcherWithBlob({
+      return fetcherWithBlob({
         url: `${URLS.customers}/warehouseCosts/${period}`,
         api: window.reapit.config.platformApiUrl,
         method: 'GET',
         headers,
       })
-      return response
     }
   } catch (error) {
     logger(error as FetchError)
