@@ -1,5 +1,4 @@
 import React from 'react'
-import { useReapitGet } from '@reapit/utils-react'
 import { usePaymentsState } from '../../../../core/use-payments-state'
 import { mockPaymentsState } from '../../../../core/__mocks__/use-payments-state'
 import { render } from '../../../../tests/react-testing'
@@ -7,21 +6,25 @@ import { mockPaymentWithPropertyModel } from '../../../../tests/__mocks__/paymen
 import { handleSetPaymentWithProperty, PaymentExternalPage } from '../payment-external'
 
 jest.mock('../../../../core/use-payments-state')
-jest.mock('@reapit/utils-react', () => ({
-  useReapitGet: jest.fn(() => [mockPaymentWithPropertyModel, false]),
+jest.mock('../../../../services/payment', () => ({
+  getPaymentWithProperty: jest.fn(() => mockPaymentWithPropertyModel),
 }))
 
-const mockUseReapitGet = useReapitGet as jest.Mock
 const mockUsePaymentsState = usePaymentsState as jest.Mock
 
 describe('PaymentExternalPage', () => {
-  it('should match a snapshot when loading', () => {
-    mockUseReapitGet.mockReturnValueOnce([null, true])
+  it('should match a snapshot when has a property', () => {
     expect(render(<PaymentExternalPage />)).toMatchSnapshot()
   })
 
   it('should match a snapshot when has no property', () => {
-    mockUseReapitGet.mockReturnValueOnce([null, false])
+    mockUsePaymentsState.mockReturnValueOnce({
+      ...mockPaymentsState,
+      paymentsDataState: {
+        ...mockPaymentsState.paymentsDataState,
+        paymentWithProperty: null,
+      },
+    })
     expect(render(<PaymentExternalPage />)).toMatchSnapshot()
   })
 
@@ -42,16 +45,27 @@ describe('PaymentExternalPage', () => {
 })
 
 describe('handleSetPaymentWithProperty', () => {
-  it('should correctly set payment with property', () => {
+  it('should correctly set payment with property', async () => {
     const setPaymentWithProperty = jest.fn()
-    const clientId = 'MOCK_ID'
-    const curried = handleSetPaymentWithProperty(setPaymentWithProperty, mockPaymentWithPropertyModel, clientId)
+    const setPaymentWithPropertyLoading = jest.fn()
+    const paymentParams = { paymentId: 'MOCK_ID', clientId: 'MOCK_ID', session: 'MOCK_ID' }
+    const errorSnack = jest.fn()
+    const curried = handleSetPaymentWithProperty(
+      setPaymentWithProperty,
+      setPaymentWithPropertyLoading,
+      paymentParams,
+      errorSnack,
+    )
 
     curried()
 
+    await Promise.resolve()
+
+    expect(setPaymentWithPropertyLoading).toHaveBeenCalledWith(true)
     expect(setPaymentWithProperty).toHaveBeenCalledWith({
       ...mockPaymentWithPropertyModel,
-      clientCode: clientId,
+      clientCode: paymentParams.clientId,
     })
+    expect(setPaymentWithPropertyLoading).toHaveBeenCalledWith(false)
   })
 })
