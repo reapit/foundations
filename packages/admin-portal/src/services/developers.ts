@@ -48,13 +48,12 @@ export const fetchDevelopersList = async (
   try {
     const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
     if (headers) {
-      const response = await fetcher({
+      return fetcher({
         url: `${URLS.developers}/?${setQueryParams(params)}`,
         api: window.reapit.config.platformApiUrl,
         method: 'GET',
         headers,
       })
-      return response
     }
   } catch (error) {
     logger(error as FetchError)
@@ -67,14 +66,13 @@ export const updateDeveloperById = async (params: UpdateDeveloperParams) => {
     const { id, ...rest } = params
     const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
     if (headers) {
-      const response = await fetcher({
+      return fetcher({
         url: `${URLS.developers}/${id}`,
         api: window.reapit.config.platformApiUrl,
         method: 'PUT',
         body: rest,
         headers,
       })
-      return response
     }
   } catch (error) {
     logger(error as FetchError)
@@ -87,13 +85,12 @@ export const fetchDeveloperBillingPeriod = async (params: FetchDeveloperBillingP
     const { period } = params
     const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
     if (headers) {
-      const response = await fetcherWithBlob({
+      return fetcherWithBlob({
         url: `${URLS.developers}/costs/${period}`,
         api: window.reapit.config.platformApiUrl,
         method: 'GET',
         headers,
       })
-      return response
     }
   } catch (error) {
     logger(error as FetchError)
@@ -107,13 +104,12 @@ export const fetchOrganisationMembers = async (
     const { id, ...restParams } = params
     const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
     if (headers) {
-      const response = await fetcher({
+      return fetcher({
         url: `${URLS.developers}/${id}/members?${stringify(restParams)}`,
         api: window.reapit.config.platformApiUrl,
         method: 'GET',
         headers,
       })
-      return response
     }
   } catch (error) {
     logger(error as FetchError)
@@ -126,14 +122,13 @@ export const updateOrganisationMemberById = async (params: UpdateDeveloperMember
     const { id: developerId, memberId, ...rest } = params
     const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
     if (headers) {
-      const response = await fetcher({
+      return fetcher({
         url: `${URLS.developers}/${developerId}/members/${memberId}`,
         api: window.reapit.config.platformApiUrl,
         method: 'PUT',
         body: rest,
         headers,
       })
-      return response
     }
   } catch (error) {
     logger(error as FetchError)
@@ -146,13 +141,12 @@ export const disableMemberApi = async (params: DisableDeveloperMemberParams) => 
     const { developerId, memberId } = params
     const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
     if (headers) {
-      const response = await fetcher({
+      return fetcher({
         url: `${URLS.developers}/${developerId}/members/${memberId}`,
         api: window.reapit.config.platformApiUrl,
         method: 'DELETE',
         headers,
       })
-      return response
     }
   } catch (error) {
     logger(error as FetchError)
