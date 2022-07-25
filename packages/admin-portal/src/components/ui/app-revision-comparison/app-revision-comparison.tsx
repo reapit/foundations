@@ -112,8 +112,7 @@ export const mapIntegrationIdArrayToNameArray = (
     )
     return matchedIntegration?.name ?? ''
   })
-  const filteredResult = result.filter((r) => r)
-  return filteredResult
+  return result.filter((r) => r)
 }
 
 export type RenderDiffContentParams = {
