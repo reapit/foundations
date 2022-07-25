@@ -63,7 +63,7 @@ export const CheckAWSButton: FC<CheckAWSButtonProps> = ({ appId, status }) => {
   useEffect(handleSetAwsStatus(setAwsStatus, awsStatus, appId), [awsStatus, appId])
 
   if (awsStatus === AWSStatus.AWSOnly) {
-    return <>AWS Custoners Only</>
+    return <>AWS Customers Only</>
   }
 
   return awsStatus === AWSStatus.AllUsers ? <>All Customers</> : (
