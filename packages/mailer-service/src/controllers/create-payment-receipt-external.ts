@@ -54,6 +54,7 @@ export const createPaymentReceiptExternal = async (
         ['x-api-key']: apiKey,
         ['reapit-customer']: clientCode,
         ['api-version']: apiVersion,
+        origin: process.env.HOST_ORIGIN,
       },
     })
 
