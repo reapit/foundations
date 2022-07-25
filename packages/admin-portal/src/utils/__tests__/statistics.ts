@@ -53,7 +53,7 @@ describe('admin stats utils', () => {
   describe('getRangeName', () => {
     it('should run correctly', () => {
       const ranges: Array<Range> = ['WEEK', 'MONTH', 'ALL']
-      const names: Array<String> = ['Last Week', 'Last Month', 'All Time']
+      const names: Array<string> = ['Last Week', 'Last Month', 'All Time']
       ranges.forEach((range, index) => {
         expect(getRangeName(range)).toEqual(names[index])
       })
