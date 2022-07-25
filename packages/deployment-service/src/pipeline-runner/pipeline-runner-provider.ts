@@ -20,7 +20,7 @@ export class PipelineRunnerProvider {
       {
         relations: ['pipeline'],
         where: {
-          pipeline,
+          pipeline: { id: pipeline.id },
         },
         order: {
           created: 'DESC',
@@ -41,7 +41,7 @@ export class PipelineRunnerProvider {
     extra?: {
       relations: string[]
     },
-  ): Promise<PipelineRunnerEntity | undefined> {
+  ): Promise<PipelineRunnerEntity | null> {
     return this.repository.findOne({
       where: { id },
       ...extra,
@@ -54,7 +54,9 @@ export class PipelineRunnerProvider {
 
   async deleteForPipeline(pipeline: PipelineEntity): Promise<void> {
     await this.repository.delete({
-      pipeline,
+      pipeline: {
+        id: pipeline.id,
+      },
     })
   }
 
@@ -72,13 +74,15 @@ export class PipelineRunnerProvider {
   async pipelineRunnerCountRunning(pipeline: PipelineEntity): Promise<number> {
     return this.repository.count({
       where: {
-        pipeline,
+        pipeline: {
+          id: pipeline.id,
+        },
         buildStatus: In(['IN_PROGRESS', 'QUEUED']),
       },
     })
   }
 
-  async findByCodebuildId(codebuildId: string): Promise<PipelineRunnerEntity | undefined> {
+  async findByCodebuildId(codebuildId: string): Promise<PipelineRunnerEntity | null> {
     return this.repository.findOne({
       where: {
         codebuildId,
