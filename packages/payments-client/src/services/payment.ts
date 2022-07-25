@@ -11,6 +11,40 @@ import {
   UpdateStatusBody,
   UpdateStatusParams,
 } from '../types/payment'
+import { PaymentParams } from '../core/use-payments-state'
+
+export const getPaymentWithProperty = async (
+  paymentParams: PaymentParams,
+  errorSnack: (message: string) => void,
+): Promise<any | undefined> => {
+  const { paymentId, clientId, session } = paymentParams
+
+  if (!paymentId || !clientId || !session) throw new Error('Invalid client or session provided')
+
+  try {
+    const response = await fetcher({
+      api: window.reapit.config.paymentApiUrl,
+      url: `${URLS.PAYMENTS}/${paymentId}`,
+      method: 'GET',
+      headers: {
+        ...PAYMENTS_HEADERS,
+        'reapit-customer': clientId,
+        'x-api-key': session,
+        'api-version': '2020-01-31',
+      },
+    })
+
+    if (response) {
+      return response
+    }
+
+    throw new Error('Failed to fetch payment')
+  } catch (err) {
+    const error = err as Error
+    logger(error)
+    errorSnack(error.message)
+  }
+}
 
 export const updatePaymentStatus = async (
   body: UpdateStatusBody,

@@ -3,58 +3,54 @@ import { PaymentPageContent } from './payment-page-content'
 import { PaymentWithPropertyModel } from '../../../types/payment'
 import { handlePaymentProvider } from './payment-handlers'
 import { Loader, PageContainer, PersistentNotification, useSnack } from '@reapit/elements'
-import { useReapitGet } from '@reapit/utils-react'
-import { GetActionNames, getActions } from '@reapit/utils-common'
-import { reapitConnectBrowserSession } from '../../../core/connect-session'
-import { usePaymentsState } from '../../../core/use-payments-state'
+import { PaymentParams, usePaymentsState } from '../../../core/use-payments-state'
+import { getPaymentWithProperty } from '../../../services/payment'
 
 export const handleSetPaymentWithProperty =
   (
     setPaymentWithProperty: Dispatch<SetStateAction<PaymentWithPropertyModel | null>>,
-    paymentWithPropertyModel: PaymentWithPropertyModel | null,
-    clientId?: string | null,
+    setPaymentWithPropertyLoading: Dispatch<SetStateAction<boolean>>,
+    paymentParams: PaymentParams,
+    errorSnack: (message: string) => void,
   ) =>
   () => {
-    if (paymentWithPropertyModel && clientId) {
-      setPaymentWithProperty({ ...paymentWithPropertyModel, clientCode: clientId })
+    const fetchPaymentWithProperty = async () => {
+      const { paymentId, clientId, session } = paymentParams
+      if (paymentId && clientId && session) {
+        setPaymentWithPropertyLoading(true)
+
+        const paymentWithPropertyModel = await getPaymentWithProperty(paymentParams, errorSnack)
+
+        if (paymentWithPropertyModel && clientId) {
+          setPaymentWithProperty({ ...paymentWithPropertyModel, clientCode: clientId })
+        }
+
+        setPaymentWithPropertyLoading(false)
+      }
     }
+
+    fetchPaymentWithProperty()
   }
 
 export const PaymentExternalPage: FC = () => {
   const { paymentsDataState } = usePaymentsState()
   const [providerLoading, setProviderLoading] = useState(false)
+  const [paymentWithPropertyLoading, setPaymentWithPropertyLoading] = useState(false)
   const { error: errorSnack } = useSnack()
 
-  const { paymentProvider, paymentParams, setPaymentProvider, setPaymentWithProperty } = paymentsDataState
-  const { paymentId, clientId, session } = paymentParams
-
-  const [paymentWithProperty, paymentWithPropertyLoading] = useReapitGet<PaymentWithPropertyModel>({
-    reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getPaymentWithPropertyById],
-    headers: {
-      'reapit-customer': clientId as string,
-      'x-api-key': session as string,
-      'api-version': '2020-01-31',
-    },
-    uriParams: {
-      paymentId,
-    },
-    queryParams: {
-      clientId,
-      session,
-    },
-    fetchWhenTrue: [paymentId, clientId, session],
-  })
+  const { paymentProvider, paymentParams, paymentWithProperty, setPaymentProvider, setPaymentWithProperty } =
+    paymentsDataState
+  const { clientId } = paymentParams
 
   useEffect(handlePaymentProvider(setProviderLoading, setPaymentProvider, errorSnack, clientId), [
     setPaymentProvider,
     clientId,
   ])
 
-  useEffect(handleSetPaymentWithProperty(setPaymentWithProperty, paymentWithProperty, clientId), [
-    paymentWithProperty,
-    clientId,
-  ])
+  useEffect(
+    handleSetPaymentWithProperty(setPaymentWithProperty, setPaymentWithPropertyLoading, paymentParams, errorSnack),
+    [paymentParams],
+  )
 
   if (providerLoading || paymentWithPropertyLoading) {
     return <Loader />

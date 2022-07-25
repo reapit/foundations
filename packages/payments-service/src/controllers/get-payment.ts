@@ -42,7 +42,7 @@ export const getPayment = async (req: AppRequest, res: Response) => {
       }
     }
   } catch (error) {
-    logger.error('Error retrieving account', error)
+    logger.error(`Error retrieving account ${error.message}`, error)
 
     if (error.name === 'ItemNotFoundException') {
       res.status(404)
