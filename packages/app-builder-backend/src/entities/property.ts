@@ -1,12 +1,18 @@
 import { ObjectType, Field, ID, InputType, GraphQLISODateTime, registerEnumType } from 'type-graphql'
 import { gql } from 'apollo-server-core'
-import { PropertyImage } from './property-image'
-import { Negotiator } from './negotiator'
-import { Office } from './office'
+import { PropertyImage, PropertyImageFragment } from './property-image'
+import { Negotiator, NegotiatorFragment } from './negotiator'
+import { Office, OfficeFragment } from './office'
+import { Department, DepartmentFragment } from './department'
 
 export const PropertyFragment = gql`
+  ${NegotiatorFragment}
+  ${OfficeFragment}
+  ${DepartmentFragment}
+  ${PropertyImageFragment}
   fragment PropertyFragment on PropertyModel {
     id
+    _eTag
     created
     modified
     type
@@ -52,13 +58,16 @@ export const PropertyFragment = gql`
     }
     _embedded {
       images {
-        id
-        url
-        type
-        created
-        modified
-        caption
-        order
+        ...PropertyImageFragment
+      }
+      negotiator {
+        ...NegotiatorFragment
+      }
+      offices {
+        ...OfficeFragment
+      }
+      department {
+        ...DepartmentFragment
       }
     }
     metadata
@@ -141,9 +150,6 @@ class PropertyLetting {
 class PropertySelling {
   @Field()
   price: number
-
-  @Field({ nullable: true })
-  description: string
 
   @Field(() => PropertySellingStatus, { nullable: true })
   status: PropertySellingStatus
@@ -263,8 +269,11 @@ export class Property {
   @Field(() => Negotiator, { nullable: true })
   negotiator?: Negotiator
 
-  @Field(() => Office, { nullable: true })
-  office?: Office
+  @Field(() => [Office], { nullable: true })
+  offices?: Office[]
+
+  @Field(() => Department)
+  department: Department
 
   @Field(() => PropertySelling, { nullable: true })
   selling: PropertySelling
@@ -277,10 +286,10 @@ export class Property {
 
 @InputType()
 class PropertyGeoLocationInput {
-  @Field()
+  @Field({ nullable: true })
   latitude?: number
 
-  @Field()
+  @Field({ nullable: true })
   longitude?: number
 }
 
@@ -307,28 +316,28 @@ class PropertyLettingInput {
 
 @InputType()
 export class PropertyAddressInput {
-  @Field()
+  @Field({ nullable: true })
   line1?: string
 
-  @Field()
+  @Field({ nullable: true })
   line2?: string
 
-  @Field()
+  @Field({ nullable: true })
   line3?: string
 
-  @Field()
+  @Field({ nullable: true })
   line4?: string
 
-  @Field()
+  @Field({ nullable: true })
   buildingName?: string
 
-  @Field()
+  @Field({ nullable: true })
   buildingNumber?: string
 
-  @Field()
+  @Field({ nullable: true })
   postcode?: string
 
-  @Field(() => PropertyGeoLocationInput)
+  @Field(() => PropertyGeoLocationInput, { nullable: true })
   geolocation?: PropertyGeoLocationInput
 }
 
@@ -336,9 +345,6 @@ export class PropertyAddressInput {
 class PropertySellingInput {
   @Field()
   price: number
-
-  @Field()
-  description: string
 
   @Field(() => PropertySellingStatus)
   status: PropertySellingStatus
@@ -445,25 +451,28 @@ export class PropertyInput {
   @Field({ description: '@idOf(Department)' })
   departmentId: string
 
-  @Field()
+  @Field({ nullable: true })
   strapline?: string
 
-  @Field()
-  parking?: number
+  @Field({ nullable: true })
+  parkingSpaces?: number
+
+  @Field(() => [String], { nullable: true })
+  parking?: string[]
 
   @Field()
   internetAdvertising?: boolean
 
-  @Field()
+  @Field({ nullable: true })
   notes?: string
 
-  @Field(() => ExternalAreaInput)
+  @Field(() => ExternalAreaInput, { nullable: true })
   externalArea?: ExternalAreaInput
 
-  @Field(() => InternalAreaInput)
+  @Field(() => InternalAreaInput, { nullable: true })
   internalArea?: InternalAreaInput
 
-  @Field(() => [RoomInput])
+  @Field(() => [RoomInput], { nullable: true })
   rooms?: RoomInput[]
 
   metadata?: any

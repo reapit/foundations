@@ -985,6 +985,8 @@ type Mutation {
   UpdateProperty(
     id: String!
     _eTag: String!
+    marketingMode: String
+    departmentId: String
     strapline: String
     description: String
     summary: String
@@ -1002,6 +1004,7 @@ type Mutation {
     epc: EpcInput
     externalArea: ExternalAreaInput
     internalArea: InternalAreaInput
+    rooms: [CreatePropertyRoomModelInput!]
     selling: SellingInput
     letting: lettingInput
     type: [String!]
@@ -2209,6 +2212,7 @@ type EmbeddedPropertyModel {
   offers: [OfferModel]
   tenancies: [TenancyModel]
   vendor: VendorModel
+  offices: [OfficeModel]
 }
 
 type PropertyModelAddress {
@@ -2317,6 +2321,7 @@ enum PropertyQueryEmbed {
   offers
   tenancies
   vendor
+  offices
 }
 
 type PagedResultPropertyImageModel {

@@ -10,6 +10,7 @@ import { useObjectGet } from '../../../hooks/objects/use-object-get'
 import { usePageId } from '../../../hooks/use-page-id'
 import { FormContextProvider } from '../../../hooks/form-context'
 import { cloneDeep } from '@apollo/client/utilities'
+import { ParsedArg } from '@/components/hooks/use-introspection/query-generators'
 
 export interface FormProps extends ContainerProps {
   typeName?: string
@@ -53,6 +54,32 @@ const removeTypename = (object: any) => {
   return object
 }
 
+const mapDataToArgs = (data: any, args?: ParsedArg[], withIdMapping?: boolean) => {
+  if (!args) return {}
+  if (!data) return {}
+  const dataCopy = {}
+  args[0].fields?.forEach((arg) => {
+    const { name, idOfType, isList } = arg
+    if (data[name]) {
+      dataCopy[name] = data[name]
+    }
+    if (withIdMapping && idOfType) {
+      if (isList) {
+        const obj = data[`${idOfType.toLowerCase()}s`]
+        if (obj) {
+          dataCopy[name] = obj.map((item) => item)
+        }
+      } else {
+        const obj = data[idOfType.toLowerCase()]
+        if (obj) {
+          dataCopy[name] = obj
+        }
+      }
+    }
+  })
+  return dataCopy
+}
+
 export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean }>(
   ({ typeName, destination, disabled, formType = 'create', children, ...props }, ref) => {
     const { context, setPageId } = usePageId()
@@ -63,22 +90,9 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
 
     useEffect(() => {
       if (data && args) {
-        const dataCopy = {}
-        args[0].fields?.forEach((arg) => {
-          const { name, idOfType } = arg
-          if (data[name]) {
-            dataCopy[name] = data[name]
-          }
-          if (idOfType) {
-            const obj = data[idOfType.toLowerCase()]
-            if (obj) {
-              dataCopy[name] = obj.id
-            }
-          }
-        })
         setFormState((prevState) => ({
           ...prevState,
-          ...dataCopy,
+          ...mapDataToArgs(data, args),
         }))
       }
     }, [data, args])
@@ -136,7 +150,9 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
               })
           }}
         >
-          <FormContextProvider value={{ onChange: handleInputChange, defaultValues: data || {}, values: formState }}>
+          <FormContextProvider
+            value={{ onChange: handleInputChange, defaultValues: mapDataToArgs(data, args, true), values: formState }}
+          >
             <FormLayout>
               {getLoading ? <Loader label="Loading" /> : children}
               <Button intent="primary" disabled={disabled} loading={mutationLoading}>

@@ -143,10 +143,10 @@ export const CreatePage = ({
       sourcePageId,
       [operationType, typeName].join(' '),
     )
-    updatePageNodes(nodesObjtoToArr(appId, page.id, nodes), page.id).then(() => {
-      setLoading(false)
-      onCreate(pageId)
-    })
+    console.log(nodes)
+    await updatePageNodes(nodesObjtoToArr(appId, page.id, nodes), page.id)
+    setLoading(false)
+    onCreate(pageId)
   }
 
   return <PlusButton onClick={onClick} loading={loading} />

@@ -9,7 +9,7 @@ import { PropertyImage } from '@/entities/property-image'
 const getPropertiesQuery = gql`
   ${PropertyFragment}
   query getProperties {
-    GetProperties(pageSize: 10, pageNumber: 0, embed: [images]) {
+    GetProperties(pageSize: 10, pageNumber: 0, embed: [images, negotiator, department, offices]) {
       pageSize
       pageCount
       pageNumber
@@ -23,7 +23,7 @@ const getPropertiesQuery = gql`
 const getPropertyQuery = gql`
   ${PropertyFragment}
   query getProperty($id: String!) {
-    GetPropertyById(id: $id, embed: [images]) {
+    GetPropertyById(id: $id, embed: [images, negotiator, department, offices]) {
       ...PropertyFragment
     }
   }
@@ -32,7 +32,7 @@ const getPropertyQuery = gql`
 const searchPropertiesQuery = gql`
   ${PropertyFragment}
   query searchProperties($query: String!) {
-    GetProperties(pageSize: 10, pageNumber: 0, embed: [images], address: $query) {
+    GetProperties(pageSize: 10, pageNumber: 0, embed: [images, negotiator, department, offices], address: $query) {
       pageSize
       pageCount
       pageNumber
@@ -50,19 +50,20 @@ const updatePropertyMutation = gql`
     $description: String
     $receptions: Int
     $metadata: JSON
-    $address: PropertyAddressInput!
-    $letting: PropertyLetting
-    $selling: PropertySelling
-    $externalArea: ExternalArea
-    $internalArea: InternalArea
+    $address: AddressInput!
+    $letting: lettingInput
+    $selling: SellingInput
+    $externalArea: ExternalAreaInput
+    $internalArea: InternalAreaInput
     $internetAdvertising: Boolean!
     $parkingSpaces: Int
-    $rooms: [Room]
+    $rooms: [CreatePropertyRoomModelInput!]
     $negotiatorId: String!
     $officeIds: [String!]!
     $marketingMode: String
     $departmentId: String!
     $notes: String
+    $_eTag: String!
   ) {
     UpdateProperty(
       id: $id
@@ -82,6 +83,7 @@ const updatePropertyMutation = gql`
       marketingMode: $marketingMode
       departmentId: $departmentId
       notes: $notes
+      _eTag: $_eTag
     ) {
       ...PropertyFragment
     }

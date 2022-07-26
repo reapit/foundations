@@ -110,6 +110,8 @@ type Mutation {
     id: String!
     _eTag: String!
     strapline: String
+    marketingMode: String
+    departmentId: String
     description: String
     summary: String
     address: AddressInput
@@ -136,6 +138,7 @@ type Mutation {
     locality: [String!]
     negotiatorId: String
     officeIds: [String!]
+    rooms: [CreatePropertyRoomModelInput!]
     areaId: String
     metadata: JSON
   ): PropertyModel!
@@ -210,6 +213,7 @@ type EmbeddedPropertyModel {
   landlord: LandlordModel
   negotiator: NegotiatorModel
   offers: [OfferModel]
+  offices: [OfficeModel]
   tenancies: [TenancyModel]
   vendor: VendorModel
 }
@@ -321,6 +325,7 @@ enum PropertyQueryEmbed {
   offers
   tenancies
   vendor
+  offices
 }
 
 type Query {
