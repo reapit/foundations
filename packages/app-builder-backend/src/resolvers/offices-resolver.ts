@@ -34,6 +34,7 @@ const updateOfficeMutation = gql`
     $email: String!
     $metadata: JSON
     $address: OfficeModelAddressInput!
+    $_eTag: String!
   ) {
     UpdateOffice(
       id: $id
@@ -43,6 +44,7 @@ const updateOfficeMutation = gql`
       email: $email
       metadata: $metadata
       address: $address
+      _eTag: $_eTag
     ) {
       ...OfficeFragment
     }

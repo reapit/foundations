@@ -55,8 +55,11 @@ const constructPageNodes = (
       return formNodes
     }
 
-    const inputs = args[0].fields?.map((arg) => argToFormInput(arg, { formType: 'update', typeName })).flat()
-
+    const [objInput] = args.filter((a) => a.name !== 'id')
+    if (!objInput) {
+      return formNodes
+    }
+    const inputs = objInput.fields?.map((arg) => argToFormInput(arg, { formType: 'update', typeName })).flat()
     if (inputs) {
       const containerNodeTree = reactElementToNodeTree(<Element canvas is={Container} width={12} />)
       const formNodeTree = reactElementToNodeTree(

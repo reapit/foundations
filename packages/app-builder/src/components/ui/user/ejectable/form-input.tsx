@@ -619,7 +619,8 @@ const InnerFormInput = (
   const disabled = rest.disabled || rest.isReadOnly
   const { onChange, defaultValues } = useFormContext()
   const defaultValue = getDefaultValue(defaultValues, name)
-  const formInput = args && args[0] && findFormInput(args[0], name)
+  const objArg = args?.find((arg) => arg.name !== 'id')
+  const formInput = objArg && findFormInput(objArg, name)
 
   if (!formInput) return null
 

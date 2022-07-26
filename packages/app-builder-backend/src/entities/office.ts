@@ -20,6 +20,7 @@ export const OfficeFragment = gql`
     workPhone
     email
     metadata
+    _eTag
   }
 `
 

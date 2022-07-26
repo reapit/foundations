@@ -58,7 +58,8 @@ const mapDataToArgs = (data: any, args?: ParsedArg[], withIdMapping?: boolean) =
   if (!args) return {}
   if (!data) return {}
   const dataCopy = {}
-  args[0].fields?.forEach((arg) => {
+  const [objInput] = args.filter((a) => a.name !== 'id')
+  objInput.fields?.forEach((arg) => {
     const { name, idOfType, isList } = arg
     if (data[name]) {
       dataCopy[name] = data[name]
@@ -128,9 +129,10 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
                 [args[0].name]: fs,
               }
             } else {
+              const [objInput] = args.filter((a) => a.name !== 'id')
               variables = {
-                [args[0].name]: fs,
-                [args[1].name]: context.editObjectId,
+                id: context.editObjectId,
+                [objInput.name]: fs,
               }
             }
             mutateFunction({
