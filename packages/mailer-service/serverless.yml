@@ -34,7 +34,6 @@ provider:
     PAYMENTS_APP_URI: ${self:custom.env.PAYMENTS_APP_URI}
     PAYMENTS_SERVICE_URI: ${self:custom.env.PAYMENTS_SERVICE_URI}
     HOST_ORIGIN: ${self:custom.env.HOST_ORIGIN}
-    clients: ${self:custom.env.clients}
   iamRoleStatements:
     - Effect: Allow
       Action:
