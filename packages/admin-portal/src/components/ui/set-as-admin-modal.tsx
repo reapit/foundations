@@ -30,10 +30,10 @@ export interface SetAsAdminModalProps {
 }
 
 export const SetAsAdminModal: React.FunctionComponent<SetAsAdminModalProps> = ({ visible, user, onClose }) => {
-  if (!visible || !user) return null
-
   const [isSuccess, setIsSuccess] = useState<boolean>(false)
   const dispatch = useDispatch()
+
+  if (!visible || !user) return null
 
   const { name } = user
 
