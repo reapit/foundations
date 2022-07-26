@@ -76,9 +76,11 @@ export const Table: FC<TableProps> = ({
   ...rest
 }) => {
   const firstRow = rows?.[0]
+  const [expandedRow, setExpandedRow] = useState<null | number>(null)
+  
   if (!rows || !firstRow) return <ElTable {...rest}>{children}</ElTable>
 
-  const [expandedRow, setExpandedRow] = useState<null | number>(null)
+
   const hasExpandableRows = rows.some((row) => Boolean(row.expandableContent))
   const hasCallToAction = rows.some((row) => Boolean(row.ctaContent))
 
