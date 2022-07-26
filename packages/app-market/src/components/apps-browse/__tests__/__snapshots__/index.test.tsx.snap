@@ -15,12 +15,12 @@ Object {
           class="app-search-filters-wrap"
         >
           <h1
-            class="el-title"
+            class="browse-apps-title el-title"
           >
             AppMarket
           </h1>
           <div
-            class="el-mb5 apps-search-mobile-controls el-flex-container"
+            class="el-mb5 el-mt3 apps-search-mobile-controls el-flex-container"
           >
             <span
               class="apps-search-mobile-icon el-icon"
@@ -76,88 +76,11 @@ Object {
         <div
           class="el-flex-justify-between el-mb5 apps-search-desktop-controls el-flex-container"
         >
-          <div
-            class="el-flex-align-center el-flex-container"
+          <p
+            class="el-has-bold-text el-has-no-margin el-body-text"
           >
-            <p
-              class="el-mr5 el-has-bold-text el-has-no-margin el-body-text"
-            >
-              Browse By
-            </p>
-            <button
-              class="app-filters-button el-intent-low el-button"
-            >
-              <span
-                class="el-mr3 el-icon"
-                style="font-size: 1.25rem;"
-              >
-                <svg
-                  fill="none"
-                  height="1em"
-                  viewBox="0 0 20 20"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <rect
-                    fill="#23A4DE"
-                    height="18.6207"
-                    width="10.5425"
-                    x="5.12109"
-                    y="0.689453"
-                  />
-                  <path
-                    d="M14.4685 0H6.31557C5.19184 0 4.27734 0.897344 4.27734 2V18C4.27734 19.1027 5.19184 20 6.31557 20H14.4685C15.5922 20 16.5067 19.1027 16.5067 18V2C16.5067 0.897344 15.5922 0 14.4685 0ZM15.4876 18C15.4876 18.5523 15.0314 19 14.4685 19H6.31557C5.75267 19 5.29646 18.5523 5.29646 18V2C5.29646 1.44766 5.75267 1 6.31557 1H14.4685C15.0314 1 15.4876 1.44766 15.4876 2V18Z"
-                    fill="#23A4DE"
-                  />
-                  <path
-                    d="M12.2626 1.6665H10.2244C9.94279 1.6665 9.71484 1.89018 9.71484 2.1665C9.71484 2.44283 9.94279 2.6665 10.2244 2.6665H12.2626C12.5442 2.6665 12.7722 2.44283 12.7722 2.1665C12.7722 1.89018 12.5442 1.6665 12.2626 1.6665Z"
-                    fill="white"
-                  />
-                  <path
-                    d="M10.3902 18.3333C10.953 18.3333 11.4093 17.8855 11.4093 17.3333C11.4093 16.781 10.953 16.3333 10.3902 16.3333C9.82737 16.3333 9.37109 16.781 9.37109 17.3333C9.37109 17.8855 9.82737 18.3333 10.3902 18.3333Z"
-                    fill="white"
-                  />
-                  <path
-                    d="M8.52518 2.6665C8.8066 2.6665 9.03474 2.44265 9.03474 2.1665C9.03474 1.89036 8.8066 1.6665 8.52518 1.6665C8.24376 1.6665 8.01562 1.89036 8.01562 2.1665C8.01562 2.44265 8.24376 2.6665 8.52518 2.6665Z"
-                    fill="white"
-                  />
-                  <rect
-                    fill="#7BC9EB"
-                    height="5"
-                    rx="1"
-                    width="5"
-                    x="7"
-                    y="4"
-                  />
-                  <rect
-                    fill="white"
-                    height="5"
-                    rx="1"
-                    width="5"
-                    x="7"
-                    y="10"
-                  />
-                  <rect
-                    fill="#FFB71B"
-                    height="5"
-                    rx="1"
-                    width="5"
-                    x="13"
-                    y="10"
-                  />
-                  <rect
-                    fill="#E3E3E3"
-                    height="5"
-                    rx="1"
-                    width="5"
-                    x="13"
-                    y="4"
-                  />
-                </svg>
-              </span>
-              App Categories
-            </button>
-          </div>
+            Browse By
+          </p>
           <div
             class="el-flex-align-center apps-search-container el-flex-container"
           >
@@ -200,17 +123,15 @@ Object {
         </div>
         <div
           class="el-flex-column el-flex-container"
+        />
+        <div
+          class="carousel-wrapper"
         >
           <div
-            class="apps-search-mobile-filter-controls"
+            class="carousel-grid"
+            style="--ckvo4up-0: 50.000%; --ckvo4up-1: 0.375rem; --ckvo4up-2: 50.000%; --ckvo4up-3: 0.375rem; --ckvo4up-6: 0.625rem; --ckvo4up-8: 0.625rem;"
           />
         </div>
-        <div
-          class="hero-apps-grid"
-        />
-        <div
-          class="app-filter-grid"
-        />
       </section>
     </div>
   </body>,
@@ -225,12 +146,12 @@ Object {
         class="app-search-filters-wrap"
       >
         <h1
-          class="el-title"
+          class="browse-apps-title el-title"
         >
           AppMarket
         </h1>
         <div
-          class="el-mb5 apps-search-mobile-controls el-flex-container"
+          class="el-mb5 el-mt3 apps-search-mobile-controls el-flex-container"
         >
           <span
             class="apps-search-mobile-icon el-icon"
@@ -286,88 +207,11 @@ Object {
       <div
         class="el-flex-justify-between el-mb5 apps-search-desktop-controls el-flex-container"
       >
-        <div
-          class="el-flex-align-center el-flex-container"
+        <p
+          class="el-has-bold-text el-has-no-margin el-body-text"
         >
-          <p
-            class="el-mr5 el-has-bold-text el-has-no-margin el-body-text"
-          >
-            Browse By
-          </p>
-          <button
-            class="app-filters-button el-intent-low el-button"
-          >
-            <span
-              class="el-mr3 el-icon"
-              style="font-size: 1.25rem;"
-            >
-              <svg
-                fill="none"
-                height="1em"
-                viewBox="0 0 20 20"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <rect
-                  fill="#23A4DE"
-                  height="18.6207"
-                  width="10.5425"
-                  x="5.12109"
-                  y="0.689453"
-                />
-                <path
-                  d="M14.4685 0H6.31557C5.19184 0 4.27734 0.897344 4.27734 2V18C4.27734 19.1027 5.19184 20 6.31557 20H14.4685C15.5922 20 16.5067 19.1027 16.5067 18V2C16.5067 0.897344 15.5922 0 14.4685 0ZM15.4876 18C15.4876 18.5523 15.0314 19 14.4685 19H6.31557C5.75267 19 5.29646 18.5523 5.29646 18V2C5.29646 1.44766 5.75267 1 6.31557 1H14.4685C15.0314 1 15.4876 1.44766 15.4876 2V18Z"
-                  fill="#23A4DE"
-                />
-                <path
-                  d="M12.2626 1.6665H10.2244C9.94279 1.6665 9.71484 1.89018 9.71484 2.1665C9.71484 2.44283 9.94279 2.6665 10.2244 2.6665H12.2626C12.5442 2.6665 12.7722 2.44283 12.7722 2.1665C12.7722 1.89018 12.5442 1.6665 12.2626 1.6665Z"
-                  fill="white"
-                />
-                <path
-                  d="M10.3902 18.3333C10.953 18.3333 11.4093 17.8855 11.4093 17.3333C11.4093 16.781 10.953 16.3333 10.3902 16.3333C9.82737 16.3333 9.37109 16.781 9.37109 17.3333C9.37109 17.8855 9.82737 18.3333 10.3902 18.3333Z"
-                  fill="white"
-                />
-                <path
-                  d="M8.52518 2.6665C8.8066 2.6665 9.03474 2.44265 9.03474 2.1665C9.03474 1.89036 8.8066 1.6665 8.52518 1.6665C8.24376 1.6665 8.01562 1.89036 8.01562 2.1665C8.01562 2.44265 8.24376 2.6665 8.52518 2.6665Z"
-                  fill="white"
-                />
-                <rect
-                  fill="#7BC9EB"
-                  height="5"
-                  rx="1"
-                  width="5"
-                  x="7"
-                  y="4"
-                />
-                <rect
-                  fill="white"
-                  height="5"
-                  rx="1"
-                  width="5"
-                  x="7"
-                  y="10"
-                />
-                <rect
-                  fill="#FFB71B"
-                  height="5"
-                  rx="1"
-                  width="5"
-                  x="13"
-                  y="10"
-                />
-                <rect
-                  fill="#E3E3E3"
-                  height="5"
-                  rx="1"
-                  width="5"
-                  x="13"
-                  y="4"
-                />
-              </svg>
-            </span>
-            App Categories
-          </button>
-        </div>
+          Browse By
+        </p>
         <div
           class="el-flex-align-center apps-search-container el-flex-container"
         >
@@ -410,17 +254,15 @@ Object {
       </div>
       <div
         class="el-flex-column el-flex-container"
+      />
+      <div
+        class="carousel-wrapper"
       >
         <div
-          class="apps-search-mobile-filter-controls"
+          class="carousel-grid"
+          style="--ckvo4up-0: 50.000%; --ckvo4up-1: 0.375rem; --ckvo4up-2: 50.000%; --ckvo4up-3: 0.375rem; --ckvo4up-6: 0.625rem; --ckvo4up-8: 0.625rem;"
         />
       </div>
-      <div
-        class="hero-apps-grid"
-      />
-      <div
-        class="app-filter-grid"
-      />
     </section>
   </div>,
   "debug": [Function],

@@ -1,3 +1,4 @@
+import { ElBodyText } from './../../../../../elements/src/components/typography/__styles__/index'
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
 import { ElSubtitle, ElTitle } from '@reapit/elements'
@@ -8,9 +9,9 @@ import {
   forTabletAndAbove,
 } from '../../../core/__styles__/media'
 
-export const browseAppsTitleHasFilters = css`
-  margin-bottom: 0;
-`
+export const browseAppsTitleHasFilters = css``
+
+export const browseAppsSubtitlePlaceholder = css``
 
 export const BrowseAppsTitle = styled(ElTitle)`
   margin-top: 0.5rem;
@@ -25,6 +26,40 @@ export const BrowseAppsSubtitle = styled(ElSubtitle)`
   font-size: 16px;
   font-weight: bold;
   margin-bottom: 0.5rem;
+
+  &.${browseAppsSubtitlePlaceholder} {
+    height: 24px;
+  }
+`
+
+export const FeaturedHeroAppsSubtitle = styled(ElSubtitle)`
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+`
+
+export const FeaturedHeroAppsStrapline = styled(ElBodyText)`
+  font-size: 14px;
+  color: var(--color-grey-dark);
+  margin-bottom: 0.5rem;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+
+  ${forMobileAndAbove} {
+    font-size: 16px;
+    margin-bottom: 2.5rem;
+    -webkit-line-clamp: 3;
+  }
+
+  ${forTabletAndAbove} {
+    margin-bottom: 3.75rem;
+  }
 `
 
 export const FeaturedHeroAppsItem = styled.div`
@@ -40,10 +75,11 @@ export const FeaturedHeroAppsItem = styled.div`
 
 export const FeaturedHeroAppsContainer = styled.div`
   width: 100%;
-  padding: 1.25rem;
+  padding: 0.75rem;
   border-radius: 0.25rem;
 
   ${forTabletAndAbove} {
+    padding: 1.25rem;
     height: 400px;
   }
 `
@@ -123,19 +159,55 @@ export const HeroAppsImage = styled.img`
 export const HeroAppsChip = styled.div`
   background: var(--color-white);
   color: var(--color-grey-dark);
-  font-size: var(--font-size-small);
+  font-size: 12px;
   border-radius: 0.25rem;
   padding: 1px 0.5rem;
-  margin: 0.25rem 0.5rem 0.75rem 0;
+  margin: 0rem 0.25rem 0.25rem 0;
   display: inline-block;
+
+  ${forMobileAndAbove} {
+    margin: 0.25rem 0.5rem 0.75rem 0;
+  }
+`
+
+export const HeroAppsSubtitle = styled(ElSubtitle)`
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 20px;
+  margin-bottom: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+`
+
+export const HeroAppsStrapline = styled(ElBodyText)`
+  font-size: 12px;
+  color: var(--color-grey-dark);
+  margin-bottom: 0.5rem;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+
+  ${forMobileAndAbove} {
+    font-size: 16px;
+    margin-bottom: 2.5rem;
+    -webkit-line-clamp: 2;
+  }
+
+  ${forTabletAndAbove} {
+    margin-bottom: 3.75rem;
+  }
 `
 
 export const HeroAppsInnerContainer = styled.div`
   width: 100%;
-  padding: 1.25rem;
   border-radius: 0.25rem;
+  padding: 0.75rem;
 
   ${forTabletAndAbove} {
+    padding: 1.25rem;
     height: 400px;
   }
 `
@@ -158,8 +230,8 @@ export const HeroAppsNameContainer = styled.div`
 
 export const HeroAppsIcon = styled.img`
   border-radius: 0.25rem;
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
 
   ${forMobileAndAbove} {
     margin-bottom: 1.25rem;
@@ -178,30 +250,6 @@ export const HeroAppsImageContainer = styled.div`
   }
 `
 
-export const heroAppsStrapline = css`
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
-  overflow: hidden;
-  margin-bottom: 1.25rem;
-
-  ${forMobileAndAbove} {
-    min-height: 3.75rem;
-    -webkit-line-clamp: 3;
-  }
-
-  ${forTabletAndAbove} {
-    margin-bottom: 3.75rem;
-  }
-`
-
-export const heroAppsTitle = css`
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
-  overflow: hidden;
-`
-
 export const heroAppsFlexToggle = css`
   flex-direction: column;
 
@@ -215,44 +263,36 @@ export const AppFilterCol = styled.div`
   padding: 0.75rem;
   background-color: #eaf5fc;
   border-radius: 0.25rem;
-  height: 192px;
-  margin-bottom: 1.25rem;
-
-  ${forTabletAndAbove} {
-    margin-bottom: 2.5rem;
-  }
+  height: 160px;
 `
 
-export const appFilterTitle = css`
-  height: 1.25rem;
-`
-
-export const appTitleOneLine = css`
+export const AppFilterSubtitle = styled(ElSubtitle)`
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: bold;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   overflow: hidden;
+  margin-bottom: 0.5rem;
 `
 
-export const appTitleTwoLine = css`
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-`
-
-export const appTitleThreeLine = css`
+export const AppFilterStrapline = styled(ElBodyText)`
+  font-size: 12px;
+  line-height: 14px;
+  color: var(--color-grey-dark);
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   overflow: hidden;
+  margin-bottom: 0;
 `
 
-export const FeaturedAppsGrid = styled.div`
+export const AppsGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-column-gap: 1.25rem;
-  grid-row-gap: 1.25rem;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 0.75rem;
+  grid-row-gap: 0.75rem;
   margin-bottom: 1.25rem;
 
   ${forTabletAndAbove} {
@@ -265,23 +305,45 @@ export const FeaturedAppsGrid = styled.div`
   }
 `
 
-export const FeaturedAppsCol = styled.div`
+export const AppsCol = styled.div`
   cursor: pointer;
-  grid-column-end: span 4;
+  grid-column-end: span 1;
   align-self: end;
-  padding: 1.25rem 2rem;
   box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.05);
   border-radius: 0.25rem;
-  height: 84px;
+  height: 108px;
   min-width: 0;
+  padding: 0.75rem;
 
   ${forMobileAndAbove} {
+    padding: 1.25rem 2rem;
     grid-column-end: span 2;
   }
 
   ${forTabletAndAbove} {
     grid-column-end: span 1;
   }
+`
+
+export const FeaturedAppStrapline = styled(ElBodyText)`
+  font-size: 12px;
+  line-height: 14px;
+  color: var(--color-grey-dark);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+  margin-bottom: 0;
+`
+
+export const AppTitle = styled(ElBodyText)`
+  font-size: 12px;
+  font-weight: bold;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  margin-bottom: 0;
 `
 
 export const AppIcon = styled.img`
@@ -291,56 +353,37 @@ export const AppIcon = styled.img`
 `
 
 export const AppFilterLink = styled.a`
-  margin-left: 0.5rem;
+  font-size: 12px;
+  margin-left: 1.25rem;
   margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
 `
 
-export const SimpleAppsGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-column-gap: 1.25rem;
-  grid-row-gap: 1.25rem;
-  margin-bottom: 1.25rem;
-
-  ${forTabletAndAbove} {
-    grid-row-gap: 2.5rem;
-    margin-bottom: 2.5rem;
-  }
-
-  ${forSuperWidescreenAndAbove} {
-    grid-template-columns: repeat(10, 1fr);
-  }
+export const SimpleAppStrapline = styled(ElBodyText)`
+  font-size: 12px;
+  line-height: 14px;
+  color: var(--color-grey-dark);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  margin-bottom: 0;
 `
 
-export const SimpleAppsCol = styled.div`
-  cursor: pointer;
-  grid-column-end: span 6;
-  align-self: end;
-  padding: 1.25rem 2rem;
-  box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.05);
-  border-radius: 0.25rem;
-  height: 105px;
-  min-width: 0;
-
-  ${forMobileAndAbove} {
-    grid-column-end: span 2;
-  }
-
-  ${forTabletAndAbove} {
-    grid-column-end: span 1;
-  }
+export const SimpleAppsCol = styled(AppsCol)`
+  height: 76px;
 `
 
 export const DeveloperAppsGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-column-gap: 1.25rem;
-  grid-row-gap: 1.25rem;
+  grid-row-gap: 0.75rem;
   margin-bottom: 1.25rem;
   background: var(--color-grey-light);
-  padding: 1.25rem;
+  padding: 0.75rem;
 
   ${forTabletAndAbove} {
+    padding: 1.25rem;
     grid-row-gap: 2.5rem;
     margin-bottom: 2.5rem;
   }
@@ -368,20 +411,42 @@ export const DeveloperAppsColHelper = styled.div`
 export const DeveloperAppsCol = styled.div`
   grid-column-end: span 6;
   align-self: end;
-  padding: 1.25rem;
+  padding: 0.75rem;
   box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.05);
   border-radius: 0.25rem;
   background: var(--color-white);
-  height: 70px;
   min-width: 0;
 
   ${forMobileAndAbove} {
+    padding: 1.25rem;
     grid-column-end: span 2;
   }
 
   ${forTabletAndAbove} {
     grid-column-end: span 1;
   }
+`
+
+export const DeveloperMainStrapline = styled(ElBodyText)`
+  font-size: 12px;
+  line-height: 14px;
+  color: var(--color-grey-dark);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  margin-bottom: 0;
+`
+
+export const DeveloperSubtitle = styled(ElBodyText)`
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 20px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  margin-bottom: 0;
 `
 
 export const AppSearchFiltersWrap = styled.div`
@@ -498,6 +563,7 @@ export const AppsSearchMobileFilterControls = styled.div`
 `
 
 export const appsFiltersMobileBrowseBy = css`
+  margin-top: 1.25rem;
   min-height: 1.5rem;
 `
 

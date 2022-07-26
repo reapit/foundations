@@ -3,16 +3,16 @@ import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { useReapitGet } from '@reapit/utils-react'
-import { BodyText, elMr3, FlexContainer, Icon, Subtitle, PlaceholderImage, elFadeIn } from '@reapit/elements'
+import { elMr3, FlexContainer, Icon, PlaceholderImage, elFadeIn, elMr5 } from '@reapit/elements'
 import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
 import {
   AppIcon,
-  appTitleOneLine,
-  appTitleThreeLine,
+  BrowseAppsSubtitle,
   DeveloperAppsCol,
   DeveloperAppsColHelper,
   DeveloperAppsGrid,
-  heroSubMinHeight,
+  DeveloperMainStrapline,
+  DeveloperSubtitle,
 } from './__styles__'
 import { useHistory } from 'react-router-dom'
 import { navigate } from '../../utils/navigation'
@@ -34,17 +34,15 @@ export const DeveloperAppsCollection: FC = () => {
     <>
       {apps?.data?.length ? (
         <>
-          <Subtitle className={heroSubMinHeight} hasBoldText hasNoMargin>
-            My Apps
-          </Subtitle>
+          <BrowseAppsSubtitle>My Apps</BrowseAppsSubtitle>
           <DeveloperAppsGrid>
             <DeveloperAppsColHelper>
               <FlexContainer isFlexAlignCenter>
                 <Icon className={elMr3} icon="developerAppsInfographic" fontSize="5rem" />
-                <BodyText className={appTitleThreeLine} hasGreyText hasNoMargin>
+                <DeveloperMainStrapline>
                   Apps you are currently developing show here. These will not be visible to users until approved for
                   public listing.
-                </BodyText>
+                </DeveloperMainStrapline>
               </FlexContainer>
             </DeveloperAppsColHelper>
             {apps.data.map(({ id, name, iconUri }) => (
@@ -55,13 +53,11 @@ export const DeveloperAppsCollection: FC = () => {
               >
                 <FlexContainer isFlexAlignCenter>
                   {iconUri ? (
-                    <AppIcon src={iconUri} alt={name} />
+                    <AppIcon className={elMr5} src={iconUri} alt={name} />
                   ) : (
-                    <PlaceholderImage placeholder="placeholderSmall" size={32} />
+                    <PlaceholderImage className={elMr5} placeholder="placeholderSmall" size={32} />
                   )}
-                  <BodyText className={appTitleOneLine} hasBoldText hasNoMargin>
-                    {name}
-                  </BodyText>
+                  <DeveloperSubtitle>{name}</DeveloperSubtitle>
                 </FlexContainer>
               </DeveloperAppsCol>
             ))}

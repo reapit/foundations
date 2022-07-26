@@ -72,6 +72,7 @@ describe('handleScroll', () => {
     expect(event.preventDefault).toHaveBeenCalledTimes(1)
     expect(scrollIntoView).toHaveBeenCalledWith((imageRefs.current[nextImage] as RefObject<HTMLDivElement>).current, {
       scrollMode: 'if-needed',
+      behavior: 'smooth',
     })
     expect(setCurrentImage).toHaveBeenCalledWith(nextImage)
   })

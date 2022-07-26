@@ -1,4 +1,5 @@
 import { styled } from '@linaria/react'
+import { forMobileAndAbove } from '../../../core/__styles__/media'
 
 export interface CarouselGridProps {
   percentageWidth: string
@@ -12,6 +13,7 @@ export const CarouselWrapper = styled.div`
 
 export const CarouselCol = styled.div`
   scroll-snap-align: start;
+  align-self: end;
 `
 
 export const CarouselGrid = styled.div<CarouselGridProps>`
@@ -26,8 +28,8 @@ export const CarouselGrid = styled.div<CarouselGridProps>`
       calc(
         ${({ percentageWidth }) => percentageWidth}% -
           ${({ numberCols, numberItems }) => {
-            if (numberCols === numberItems) return `${0.625 / numberItems + 0.625}rem`
-            if (numberCols > 1) return '0.625rem'
+            if (numberCols === numberItems) return `${0.375 / numberItems + 0.375}rem`
+            if (numberCols > 1) return '0.375rem'
             return '0rem'
           }}
       ),
@@ -39,17 +41,47 @@ export const CarouselGrid = styled.div<CarouselGridProps>`
     calc(
       ${(props) => props.percentageWidth}% -
         ${({ numberCols, numberItems }) => {
-          if (numberCols === numberItems) return `${0.625 / numberItems + 0.625}rem`
-          if (numberCols > 1) return '0.625rem'
+          if (numberCols === numberItems) return `${0.375 / numberItems + 0.375}rem`
+          if (numberCols > 1) return '0.375rem'
           return '0rem'
         }}
     ),
     1fr
   );
-  grid-column-gap: 1.25rem;
+  grid-column-gap: 0.75rem;
 
   &::-webkit-scrollbar {
     display: none;
+  }
+
+  ${forMobileAndAbove} {
+    grid-column-gap: 1.25rem;
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(
+        calc(
+          ${({ percentageWidth }) => percentageWidth}% -
+            ${({ numberCols, numberItems }) => {
+              if (numberCols === numberItems) return `${0.625 / numberItems + 0.625}rem`
+              if (numberCols > 1) return '0.625rem'
+              return '0rem'
+            }}
+        ),
+        1fr
+      )
+    );
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(
+      calc(
+        ${(props) => props.percentageWidth}% -
+          ${({ numberCols, numberItems }) => {
+            if (numberCols === numberItems) return `${0.625 / numberItems + 0.625}rem`
+            if (numberCols > 1) return '0.625rem'
+            return '0rem'
+          }}
+      ),
+      1fr
+    );
   }
 `
 
@@ -59,7 +91,7 @@ export const CarouselControlsLeft = styled.a`
   align-items: center;
   position: absolute;
   left: 0;
-  top: 50%;
+  top: calc(50% - 1rem);
   width: 2rem;
   height: 2rem;
   border-radius: 50%;
@@ -74,7 +106,7 @@ export const CarouselControlsRight = styled.a`
   align-items: center;
   position: absolute;
   right: 0;
-  top: 50%;
+  top: calc(50% - 1rem);
   width: 2rem;
   height: 2rem;
   border-radius: 50%;

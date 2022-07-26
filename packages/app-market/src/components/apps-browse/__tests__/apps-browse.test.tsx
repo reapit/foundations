@@ -23,9 +23,9 @@ describe('handleSortConfigs', () => {
     expect(curried()).toEqual({
       featuredHeroApps: [config[0]],
       heroApps: [config[1], config[2]],
-      appsFilters: [config[3]],
-      featuredApps: [config[4]],
-      simpleApps: [config[5]],
+      appsFilters: [config[3], config[4], config[5], config[6], config[7], config[8]],
+      featuredApps: [config[9]],
+      simpleApps: [config[10]],
     })
   })
 })
@@ -71,10 +71,6 @@ describe('handleMobileControls', () => {
 
     curried()
 
-    const setStateAction = setMobileControlsState.mock.calls[0][0]
-
-    const actualState = setStateAction({ controls: 'none', filters: 'none' })
-
-    expect(actualState).toEqual(newState)
+    expect(setMobileControlsState).toHaveBeenCalledWith(newState)
   })
 })

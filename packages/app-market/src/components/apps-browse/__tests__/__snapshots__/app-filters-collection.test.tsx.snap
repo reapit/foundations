@@ -12,25 +12,11 @@ Object {
         class="app-filter-col"
       >
         <div
-          class="el-flex-justify-between el-flex-container"
+          class="el-flex-column el-flex-container"
         >
-          <div
-            class="el-flex-column el-flex-justify-center el-flex-container"
-          >
-            <p
-              class="app-title-one-line el-has-bold-text el-body-text"
-            >
-              Reapit Developed Apps
-            </p>
-            <p
-              class="app-title-three-line el-has-grey-text el-has-no-margin el-body-text"
-            >
-              Lorem ipsum dolor sit amet, consectetur adip
-            </p>
-          </div>
           <span
-            class="el-icon"
-            style="font-size: 8.125em;"
+            class="el-mb5 el-icon"
+            style="font-size: 3.75em;"
           >
             <svg
               fill="none"
@@ -208,6 +194,20 @@ Object {
               />
             </svg>
           </span>
+          <div
+            class="el-flex-column el-flex-justify-center el-flex-container"
+          >
+            <h2
+              class="app-filter-subtitle el-subtitle"
+            >
+              Reapit Developed Apps
+            </h2>
+            <p
+              class="app-filter-strapline el-body-text"
+            >
+              Lorem ipsum dolor sit amet, consectetur adip
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -220,25 +220,11 @@ Object {
       class="app-filter-col"
     >
       <div
-        class="el-flex-justify-between el-flex-container"
+        class="el-flex-column el-flex-container"
       >
-        <div
-          class="el-flex-column el-flex-justify-center el-flex-container"
-        >
-          <p
-            class="app-title-one-line el-has-bold-text el-body-text"
-          >
-            Reapit Developed Apps
-          </p>
-          <p
-            class="app-title-three-line el-has-grey-text el-has-no-margin el-body-text"
-          >
-            Lorem ipsum dolor sit amet, consectetur adip
-          </p>
-        </div>
         <span
-          class="el-icon"
-          style="font-size: 8.125em;"
+          class="el-mb5 el-icon"
+          style="font-size: 3.75em;"
         >
           <svg
             fill="none"
@@ -416,6 +402,20 @@ Object {
             />
           </svg>
         </span>
+        <div
+          class="el-flex-column el-flex-justify-center el-flex-container"
+        >
+          <h2
+            class="app-filter-subtitle el-subtitle"
+          >
+            Reapit Developed Apps
+          </h2>
+          <p
+            class="app-filter-strapline el-body-text"
+          >
+            Lorem ipsum dolor sit amet, consectetur adip
+          </p>
+        </div>
       </div>
     </div>
   </div>,

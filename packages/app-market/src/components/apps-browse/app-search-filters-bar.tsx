@@ -1,4 +1,4 @@
-import React, { ChangeEvent, Dispatch, FC, SetStateAction, useCallback } from 'react'
+import React, { ChangeEvent, Dispatch, FC, memo, SetStateAction, useCallback } from 'react'
 import {
   FlexContainer,
   BodyText,
@@ -73,7 +73,7 @@ export const handleSearch =
     })
   }
 
-export const AppSearchFilters: FC<AppSearchFiltersProps> = ({ mobileControlsState }) => {
+export const AppSearchFilters: FC<AppSearchFiltersProps> = memo(({ mobileControlsState }) => {
   const { appsBrowseFilterState, setAppsBrowseFilterState } = useAppsBrowseState()
   const [categories] = useReapitGet<CategoryModelPagedResult>({
     reapitConnectBrowserSession,
@@ -95,19 +95,19 @@ export const AppSearchFilters: FC<AppSearchFiltersProps> = ({ mobileControlsStat
         </FlexContainer>
       </FlexContainer>
       <FlexContainer isFlexColumn>
-        <AppsSearchMobileFilterControls className={cx(mobileControlsState && appsSearchMobileFilterControlsActive)}>
-          {mobileControlsState === 'filters' && (
-            <SmallText hasBoldText className={appsFiltersMobileBrowseBy} hasNoMargin>
-              Browse By
-            </SmallText>
-          )}
-          {mobileControlsState === 'search' && (
+        {mobileControlsState === 'search' && (
+          <AppsSearchMobileFilterControls className={cx(mobileControlsState && appsSearchMobileFilterControlsActive)}>
             <FlexContainer className={appsSearchContainer} isFlexAlignCenter>
               <Icon className={appsSearchInputIcon} icon="searchSystem" fontSize="1.25rem" />
               <AppsSearchInput type="text" placeholder="Search" onChange={debouncedSearch} />
             </FlexContainer>
-          )}
-        </AppsSearchMobileFilterControls>
+          </AppsSearchMobileFilterControls>
+        )}
+        {mobileControlsState === 'filters' && (
+          <SmallText className={appsFiltersMobileBrowseBy} hasNoMargin>
+            Browse By
+          </SmallText>
+        )}
       </FlexContainer>
       {Boolean(categories?.data?.length) && (
         <ElMultiSelectUnSelected
@@ -133,4 +133,4 @@ export const AppSearchFilters: FC<AppSearchFiltersProps> = ({ mobileControlsStat
       )}
     </>
   )
-}
+})

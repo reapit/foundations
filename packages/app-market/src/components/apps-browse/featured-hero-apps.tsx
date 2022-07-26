@@ -1,9 +1,8 @@
-import React, { FC, useMemo } from 'react'
+import React, { FC, memo, useMemo } from 'react'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { useReapitGet } from '@reapit/utils-react'
 import {
-  BodyText,
   Button,
   elFadeIn,
   elHFull,
@@ -11,7 +10,6 @@ import {
   FlexContainer,
   MediaType,
   PlaceholderImage,
-  Subtitle,
   useMediaQuery,
 } from '@reapit/elements'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
@@ -22,14 +20,14 @@ import {
   HeroAppsImage,
   FeaturedHeroAppsImageContainer,
   HeroAppsChip,
-  heroAppsStrapline,
   FeaturedHeroAppsItem,
-  heroAppsTitle,
   heroAppsFlexToggle,
   featuredHeroAppsButton,
   FeaturedHeroAppsNameContainer,
   FeaturedHeroAppsInnerContainer,
   BrowseAppsSubtitle,
+  FeaturedHeroAppsSubtitle,
+  FeaturedHeroAppsStrapline,
 } from './__styles__'
 import { cx } from '@linaria/core'
 import { navigate } from '../../utils/navigation'
@@ -51,7 +49,7 @@ export const handlePlaceholderSize = (mediaQuery: MediaType) => () => {
   return 320
 }
 
-export const FeaturedHeroAppsCollection: FC<FeaturedHeroAppsCollectionProps> = ({ configItem }) => {
+export const FeaturedHeroAppsCollection: FC<FeaturedHeroAppsCollectionProps> = memo(({ configItem }) => {
   const history = useHistory()
   const mediaQuery = useMediaQuery()
   const { filters, content } = configItem
@@ -83,18 +81,14 @@ export const FeaturedHeroAppsCollection: FC<FeaturedHeroAppsCollectionProps> = (
                 {iconUri ? (
                   <FeaturedHeroAppsIcon className={elFadeIn} src={iconUri} alt={name} />
                 ) : (
-                  <PlaceholderImage className={elMb7} placeholder="placeholderSmall" size={96} />
+                  <PlaceholderImage className={elMb7} placeholder="placeholderSmall" size={48} />
                 )}
                 <FeaturedHeroAppsNameContainer>
-                  <Subtitle className={heroAppsTitle} hasBoldText hasNoMargin>
-                    {name}
-                  </Subtitle>
+                  <FeaturedHeroAppsSubtitle>{name}</FeaturedHeroAppsSubtitle>
                   {category?.name && <HeroAppsChip className={elFadeIn}>{category.name}</HeroAppsChip>}
                 </FeaturedHeroAppsNameContainer>
               </FeaturedHeroAppsInnerContainer>
-              <BodyText className={heroAppsStrapline} hasGreyText>
-                {summary}
-              </BodyText>
+              <FeaturedHeroAppsStrapline>{summary}</FeaturedHeroAppsStrapline>
               <Button className={featuredHeroAppsButton} style={{ background: content?.brandColour, color: '#fff' }}>
                 Find Out More
               </Button>
@@ -111,4 +105,4 @@ export const FeaturedHeroAppsCollection: FC<FeaturedHeroAppsCollectionProps> = (
       </FlexContainer>
     </FeaturedHeroAppsItem>
   )
-}
+})

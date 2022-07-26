@@ -9,7 +9,7 @@ Object {
         class="el-snack-holder"
       />
       <h2
-        class="hero-sub-min-height el-has-bold-text el-has-no-margin el-subtitle"
+        class="browse-apps-subtitle el-subtitle"
       >
         My Apps
       </h2>
@@ -213,7 +213,7 @@ Object {
               </svg>
             </span>
             <p
-              class="app-title-three-line el-has-grey-text el-has-no-margin el-body-text"
+              class="developer-main-strapline el-body-text"
             >
               Apps you are currently developing show here. These will not be visible to users until approved for public listing.
             </p>
@@ -226,7 +226,7 @@ Object {
             class="el-flex-align-center el-flex-container"
           >
             <div
-              class="el-placeholder-image"
+              class="el-mr5 el-placeholder-image"
               style="font-size: 1.25em; width: 32px; height: 32px;"
             >
               <svg
@@ -243,7 +243,7 @@ Object {
               </svg>
             </div>
             <p
-              class="app-title-one-line el-has-bold-text el-has-no-margin el-body-text"
+              class="developer-subtitle el-body-text"
             >
               MOCK_APP_NAME
             </p>
@@ -256,7 +256,7 @@ Object {
             class="el-flex-align-center el-flex-container"
           >
             <div
-              class="el-placeholder-image"
+              class="el-mr5 el-placeholder-image"
               style="font-size: 1.25em; width: 32px; height: 32px;"
             >
               <svg
@@ -273,7 +273,7 @@ Object {
               </svg>
             </div>
             <p
-              class="app-title-one-line el-has-bold-text el-has-no-margin el-body-text"
+              class="developer-subtitle el-body-text"
             >
               MOCK_APP_NAME_ANOTHER
             </p>
@@ -287,7 +287,7 @@ Object {
       class="el-snack-holder"
     />
     <h2
-      class="hero-sub-min-height el-has-bold-text el-has-no-margin el-subtitle"
+      class="browse-apps-subtitle el-subtitle"
     >
       My Apps
     </h2>
@@ -491,7 +491,7 @@ Object {
             </svg>
           </span>
           <p
-            class="app-title-three-line el-has-grey-text el-has-no-margin el-body-text"
+            class="developer-main-strapline el-body-text"
           >
             Apps you are currently developing show here. These will not be visible to users until approved for public listing.
           </p>
@@ -504,7 +504,7 @@ Object {
           class="el-flex-align-center el-flex-container"
         >
           <div
-            class="el-placeholder-image"
+            class="el-mr5 el-placeholder-image"
             style="font-size: 1.25em; width: 32px; height: 32px;"
           >
             <svg
@@ -521,7 +521,7 @@ Object {
             </svg>
           </div>
           <p
-            class="app-title-one-line el-has-bold-text el-has-no-margin el-body-text"
+            class="developer-subtitle el-body-text"
           >
             MOCK_APP_NAME
           </p>
@@ -534,7 +534,7 @@ Object {
           class="el-flex-align-center el-flex-container"
         >
           <div
-            class="el-placeholder-image"
+            class="el-mr5 el-placeholder-image"
             style="font-size: 1.25em; width: 32px; height: 32px;"
           >
             <svg
@@ -551,7 +551,7 @@ Object {
             </svg>
           </div>
           <p
-            class="app-title-one-line el-has-bold-text el-has-no-margin el-body-text"
+            class="developer-subtitle el-body-text"
           >
             MOCK_APP_NAME_ANOTHER
           </p>

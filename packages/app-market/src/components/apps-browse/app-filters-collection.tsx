@@ -1,8 +1,7 @@
-import { cx } from '@linaria/core'
-import { BodyText, elMb5, FlexContainer, Icon, IconNames } from '@reapit/elements'
-import React, { Dispatch, FC, SetStateAction } from 'react'
+import { elMb5, FlexContainer, Icon, IconNames } from '@reapit/elements'
+import React, { Dispatch, FC, memo, SetStateAction, useCallback } from 'react'
 import { AppsBrowseConfigItem, AppsBrowseConfigItemFilters, useAppsBrowseState } from '../../core/use-apps-browse-state'
-import { AppFilterCol, appTitleThreeLine, appTitleOneLine, appFilterTitle } from './__styles__'
+import { AppFilterCol, AppFilterSubtitle, AppFilterStrapline } from './__styles__'
 
 interface AppFiltersCollectionProps {
   configItem: AppsBrowseConfigItem
@@ -17,23 +16,21 @@ export const handleSetFilters =
     setAppsBrowseFilterState(filters)
   }
 
-export const AppFiltersCollection: FC<AppFiltersCollectionProps> = ({ configItem }) => {
+export const AppFiltersCollection: FC<AppFiltersCollectionProps> = memo(({ configItem }) => {
   const { setAppsBrowseFilterState } = useAppsBrowseState()
   const { content, filters } = configItem
 
+  const setFilters = useCallback(handleSetFilters(setAppsBrowseFilterState, filters), [filters])
+
   return (
-    <AppFilterCol onClick={handleSetFilters(setAppsBrowseFilterState, filters)}>
+    <AppFilterCol onClick={setFilters}>
       <FlexContainer isFlexColumn>
         <Icon className={elMb5} icon={content?.iconName as IconNames} fontSize="3.75em" />
         <FlexContainer isFlexColumn isFlexJustifyCenter>
-          <BodyText className={cx(appTitleOneLine, appFilterTitle)} hasBoldText hasNoMargin>
-            {content?.title}
-          </BodyText>
-          <BodyText className={appTitleThreeLine} hasGreyText hasNoMargin>
-            {content?.strapline}
-          </BodyText>
+          <AppFilterSubtitle>{content?.title}</AppFilterSubtitle>
+          <AppFilterStrapline>{content?.strapline}</AppFilterStrapline>
         </FlexContainer>
       </FlexContainer>
     </AppFilterCol>
   )
-}
+})

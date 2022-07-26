@@ -3,6 +3,7 @@ import {
   Dispatch,
   FC,
   LegacyRef,
+  memo,
   MouseEvent,
   MutableRefObject,
   RefObject,
@@ -35,7 +36,7 @@ export const handleScroll =
 
     if (!nextImageElement?.current) return
 
-    scrollIntoView(nextImageElement.current, { scrollMode: 'if-needed' })
+    scrollIntoView(nextImageElement.current, { scrollMode: 'if-needed', behavior: 'smooth' })
     setCurrentImage(nextImage)
   }
 
@@ -56,7 +57,7 @@ export const getCarouselDimensions = (numberCols: number, currentImage: number, 
   }
 }
 
-export const Carousel: FC<CarouselProps> = ({ items, numberCols, className }) => {
+export const Carousel: FC<CarouselProps> = memo(({ items, numberCols, className }) => {
   const [currentImage, setCurrentImage] = useState<number>(0)
   const itemRefs = useRef<LegacyRef<HTMLDivElement>[]>([])
 
@@ -88,4 +89,4 @@ export const Carousel: FC<CarouselProps> = ({ items, numberCols, className }) =>
       </CarouselGrid>
     </CarouselWrapper>
   )
-}
+})

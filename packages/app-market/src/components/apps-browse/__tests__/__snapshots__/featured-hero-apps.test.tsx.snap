@@ -9,13 +9,13 @@ Object {
         class="el-snack-holder"
       />
       <div
-        class="featured-hero-apps-col"
+        class="featured-hero-apps-item"
       >
         <div
           class="el-flex-column el-flex-container"
         >
           <h2
-            class="hero-sub-min-height el-has-bold-text el-has-no-margin el-subtitle"
+            class="browse-apps-subtitle el-subtitle"
           >
             New in AppMarket
           </h2>
@@ -29,18 +29,26 @@ Object {
               <div
                 class="featured-hero-apps-content-container"
               >
-                <img
-                  alt="will-test-dev-co-voracious-person"
-                  class="el-fade-in featured-hero-apps-icon"
-                  src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-icon.png"
-                />
-                <h2
-                  class="hero-apps-title el-has-bold-text el-has-no-margin el-subtitle"
+                <div
+                  class="featured-hero-apps-inner-container"
                 >
-                  will-test-dev-co-voracious-person
-                </h2>
+                  <img
+                    alt="will-test-dev-co-voracious-person"
+                    class="el-fade-in featured-hero-apps-icon"
+                    src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-icon.png"
+                  />
+                  <div
+                    class="featured-hero-apps-name-container"
+                  >
+                    <h2
+                      class="featured-hero-apps-subtitle el-subtitle"
+                    >
+                      will-test-dev-co-voracious-person
+                    </h2>
+                  </div>
+                </div>
                 <p
-                  class="hero-apps-strapline el-has-grey-text el-body-text"
+                  class="featured-hero-apps-strapline el-body-text"
                 >
                   Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
                 </p>
@@ -58,7 +66,7 @@ Object {
                   class="el-placeholder-image-wrapper"
                 >
                   <div
-                    class="el-mb7 el-placeholder-image"
+                    class="el-placeholder-image"
                     style="font-size: 12.5em;"
                   >
                     <svg
@@ -122,13 +130,13 @@ Object {
       class="el-snack-holder"
     />
     <div
-      class="featured-hero-apps-col"
+      class="featured-hero-apps-item"
     >
       <div
         class="el-flex-column el-flex-container"
       >
         <h2
-          class="hero-sub-min-height el-has-bold-text el-has-no-margin el-subtitle"
+          class="browse-apps-subtitle el-subtitle"
         >
           New in AppMarket
         </h2>
@@ -142,18 +150,26 @@ Object {
             <div
               class="featured-hero-apps-content-container"
             >
-              <img
-                alt="will-test-dev-co-voracious-person"
-                class="el-fade-in featured-hero-apps-icon"
-                src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-icon.png"
-              />
-              <h2
-                class="hero-apps-title el-has-bold-text el-has-no-margin el-subtitle"
+              <div
+                class="featured-hero-apps-inner-container"
               >
-                will-test-dev-co-voracious-person
-              </h2>
+                <img
+                  alt="will-test-dev-co-voracious-person"
+                  class="el-fade-in featured-hero-apps-icon"
+                  src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-icon.png"
+                />
+                <div
+                  class="featured-hero-apps-name-container"
+                >
+                  <h2
+                    class="featured-hero-apps-subtitle el-subtitle"
+                  >
+                    will-test-dev-co-voracious-person
+                  </h2>
+                </div>
+              </div>
               <p
-                class="hero-apps-strapline el-has-grey-text el-body-text"
+                class="featured-hero-apps-strapline el-body-text"
               >
                 Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
               </p>
@@ -171,7 +187,7 @@ Object {
                 class="el-placeholder-image-wrapper"
               >
                 <div
-                  class="el-mb7 el-placeholder-image"
+                  class="el-placeholder-image"
                   style="font-size: 12.5em;"
                 >
                   <svg
@@ -292,13 +308,13 @@ Object {
         class="el-snack-holder"
       />
       <div
-        class="featured-hero-apps-col"
+        class="featured-hero-apps-item"
       >
         <div
           class="el-flex-column el-flex-container"
         >
           <h2
-            class="hero-sub-min-height el-has-bold-text el-has-no-margin el-subtitle"
+            class="browse-apps-subtitle el-subtitle"
           >
             New in AppMarket
           </h2>
@@ -313,27 +329,35 @@ Object {
                 class="featured-hero-apps-content-container"
               >
                 <div
-                  class="el-mb7 el-placeholder-image"
-                  style="font-size: 3.75em; width: 96px; height: 96px;"
+                  class="featured-hero-apps-inner-container"
                 >
-                  <svg
-                    fill="none"
-                    height="1em"
-                    viewBox="0 0 60 35"
-                    width="1em"
-                    xmlns="http://www.w3.org/2000/svg"
+                  <div
+                    class="el-mb7 el-placeholder-image"
+                    style="font-size: 1.875em; width: 48px; height: 48px;"
                   >
-                    <path
-                      d="M50.9685 13.7768C50.1805 8.8795 45.8082 5.12069 40.5469 5.12069C38.5676 5.12069 36.6656 5.65245 35.016 6.64427C32.5063 2.54863 27.9881 0 22.9688 0C15.2148 0 8.90625 6.12582 8.90625 13.6552C8.90625 13.7018 8.90625 13.7502 8.90801 13.7968C3.92461 14.6119 0 18.8308 0 23.8966C0 29.544 4.84816 34.1379 10.6641 34.1379H49.3359C55.1518 34.1379 60 29.544 60 23.8966C60 18.7876 56.0119 14.542 50.9685 13.7768Z"
-                      fill="#E3E3E3"
+                    <svg
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 60 35"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M50.9685 13.7768C50.1805 8.8795 45.8082 5.12069 40.5469 5.12069C38.5676 5.12069 36.6656 5.65245 35.016 6.64427C32.5063 2.54863 27.9881 0 22.9688 0C15.2148 0 8.90625 6.12582 8.90625 13.6552C8.90625 13.7018 8.90625 13.7502 8.90801 13.7968C3.92461 14.6119 0 18.8308 0 23.8966C0 29.544 4.84816 34.1379 10.6641 34.1379H49.3359C55.1518 34.1379 60 29.544 60 23.8966C60 18.7876 56.0119 14.542 50.9685 13.7768Z"
+                        fill="#E3E3E3"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    class="featured-hero-apps-name-container"
+                  >
+                    <h2
+                      class="featured-hero-apps-subtitle el-subtitle"
                     />
-                  </svg>
+                  </div>
                 </div>
-                <h2
-                  class="hero-apps-title el-has-bold-text el-has-no-margin el-subtitle"
-                />
                 <p
-                  class="hero-apps-strapline el-has-grey-text el-body-text"
+                  class="featured-hero-apps-strapline el-body-text"
                 />
                 <button
                   class="featured-hero-apps-button el-button"
@@ -349,7 +373,7 @@ Object {
                   class="el-placeholder-image-wrapper"
                 >
                   <div
-                    class="el-mb7 el-placeholder-image"
+                    class="el-placeholder-image"
                     style="font-size: 12.5em;"
                   >
                     <svg
@@ -413,13 +437,13 @@ Object {
       class="el-snack-holder"
     />
     <div
-      class="featured-hero-apps-col"
+      class="featured-hero-apps-item"
     >
       <div
         class="el-flex-column el-flex-container"
       >
         <h2
-          class="hero-sub-min-height el-has-bold-text el-has-no-margin el-subtitle"
+          class="browse-apps-subtitle el-subtitle"
         >
           New in AppMarket
         </h2>
@@ -434,27 +458,35 @@ Object {
               class="featured-hero-apps-content-container"
             >
               <div
-                class="el-mb7 el-placeholder-image"
-                style="font-size: 3.75em; width: 96px; height: 96px;"
+                class="featured-hero-apps-inner-container"
               >
-                <svg
-                  fill="none"
-                  height="1em"
-                  viewBox="0 0 60 35"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
+                <div
+                  class="el-mb7 el-placeholder-image"
+                  style="font-size: 1.875em; width: 48px; height: 48px;"
                 >
-                  <path
-                    d="M50.9685 13.7768C50.1805 8.8795 45.8082 5.12069 40.5469 5.12069C38.5676 5.12069 36.6656 5.65245 35.016 6.64427C32.5063 2.54863 27.9881 0 22.9688 0C15.2148 0 8.90625 6.12582 8.90625 13.6552C8.90625 13.7018 8.90625 13.7502 8.90801 13.7968C3.92461 14.6119 0 18.8308 0 23.8966C0 29.544 4.84816 34.1379 10.6641 34.1379H49.3359C55.1518 34.1379 60 29.544 60 23.8966C60 18.7876 56.0119 14.542 50.9685 13.7768Z"
-                    fill="#E3E3E3"
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 60 35"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M50.9685 13.7768C50.1805 8.8795 45.8082 5.12069 40.5469 5.12069C38.5676 5.12069 36.6656 5.65245 35.016 6.64427C32.5063 2.54863 27.9881 0 22.9688 0C15.2148 0 8.90625 6.12582 8.90625 13.6552C8.90625 13.7018 8.90625 13.7502 8.90801 13.7968C3.92461 14.6119 0 18.8308 0 23.8966C0 29.544 4.84816 34.1379 10.6641 34.1379H49.3359C55.1518 34.1379 60 29.544 60 23.8966C60 18.7876 56.0119 14.542 50.9685 13.7768Z"
+                      fill="#E3E3E3"
+                    />
+                  </svg>
+                </div>
+                <div
+                  class="featured-hero-apps-name-container"
+                >
+                  <h2
+                    class="featured-hero-apps-subtitle el-subtitle"
                   />
-                </svg>
+                </div>
               </div>
-              <h2
-                class="hero-apps-title el-has-bold-text el-has-no-margin el-subtitle"
-              />
               <p
-                class="hero-apps-strapline el-has-grey-text el-body-text"
+                class="featured-hero-apps-strapline el-body-text"
               />
               <button
                 class="featured-hero-apps-button el-button"
@@ -470,7 +502,7 @@ Object {
                 class="el-placeholder-image-wrapper"
               >
                 <div
-                  class="el-mb7 el-placeholder-image"
+                  class="el-placeholder-image"
                   style="font-size: 12.5em;"
                 >
                   <svg

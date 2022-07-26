@@ -1,17 +1,8 @@
-import React, { FC, useMemo } from 'react'
+import React, { FC, memo, useMemo } from 'react'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { useReapitGet } from '@reapit/utils-react'
-import {
-  BodyText,
-  elFadeIn,
-  elHFull,
-  FlexContainer,
-  MediaType,
-  PlaceholderImage,
-  Subtitle,
-  useMediaQuery,
-} from '@reapit/elements'
+import { elFadeIn, elHFull, FlexContainer, MediaType, PlaceholderImage, useMediaQuery } from '@reapit/elements'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import {
   HeroAppsChip,
@@ -21,11 +12,12 @@ import {
   HeroAppsIcon,
   HeroAppsImage,
   HeroAppsImageContainer,
-  heroAppsStrapline,
-  heroAppsTitle,
   HeroAppsInnerContainer,
-  heroSubMinHeight,
   HeroAppsNameContainer,
+  BrowseAppsSubtitle,
+  HeroAppsSubtitle,
+  HeroAppsStrapline,
+  browseAppsSubtitlePlaceholder,
 } from './__styles__'
 import { cx } from '@linaria/core'
 import { navigate } from '../../utils/navigation'
@@ -47,7 +39,7 @@ export const handlePlaceholderSize = (mediaQuery: MediaType) => () => {
   return 220
 }
 
-export const HeroAppsCollection: FC<HeroAppsCollectionProps> = ({ configItem }) => {
+export const HeroAppsCollection: FC<HeroAppsCollectionProps> = memo(({ configItem }) => {
   const history = useHistory()
   const mediaQuery = useMediaQuery()
   const { filters, content } = configItem
@@ -67,27 +59,23 @@ export const HeroAppsCollection: FC<HeroAppsCollectionProps> = ({ configItem }) 
 
   return (
     <HeroAppsContainer onClick={id ? navigate(history, `${Routes.APPS_BROWSE}/${id}`) : undefined}>
-      <Subtitle className={heroSubMinHeight} hasBoldText hasNoMargin>
+      <BrowseAppsSubtitle className={cx(!content?.title && browseAppsSubtitlePlaceholder)}>
         {content?.title}
-      </Subtitle>
+      </BrowseAppsSubtitle>
       <HeroAppsInnerContainer style={{ backgroundColor: content?.brandColour ? `${content?.brandColour}1a` : '#fff' }}>
         <FlexContainer className={cx(elHFull, heroAppsFlexToggle)}>
           <HeroAppsContentContainer>
             {iconUri ? (
               <HeroAppsIcon className={elFadeIn} src={iconUri} alt={name} />
             ) : (
-              <PlaceholderImage placeholder="placeholderSmall" size={72} />
+              <PlaceholderImage placeholder="placeholderSmall" size={40} />
             )}
             <HeroAppsNameContainer>
-              <BodyText className={heroAppsTitle} hasBoldText hasNoMargin>
-                {name}
-              </BodyText>
+              <HeroAppsSubtitle>{name}</HeroAppsSubtitle>
               <HeroAppsChip className={elFadeIn}>{category?.name}</HeroAppsChip>
             </HeroAppsNameContainer>
           </HeroAppsContentContainer>
-          <BodyText className={heroAppsStrapline} hasGreyText>
-            {summary}
-          </BodyText>
+          <HeroAppsStrapline>{summary}</HeroAppsStrapline>
           <HeroAppsImageContainer>
             {content?.imageUrl ? (
               <HeroAppsImage src={content.imageUrl} alt={name} />
@@ -99,4 +87,4 @@ export const HeroAppsCollection: FC<HeroAppsCollectionProps> = ({ configItem }) 
       </HeroAppsInnerContainer>
     </HeroAppsContainer>
   )
-}
+})

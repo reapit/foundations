@@ -1,15 +1,5 @@
 import React, { Dispatch, FC, Fragment, SetStateAction, useMemo, useState } from 'react'
-import {
-  Title,
-  PageContainer,
-  Subtitle,
-  FlexContainer,
-  Icon,
-  elMb5,
-  useMediaQuery,
-  MediaType,
-  elMt3,
-} from '@reapit/elements'
+import { PageContainer, FlexContainer, Icon, elMb5, useMediaQuery, MediaType, elMt3, elMb7 } from '@reapit/elements'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { DeveloperAppsCollection } from './developer-apps-collection'
@@ -31,9 +21,8 @@ import {
   appsSearchMobileIconActive,
   BrowseAppsTitle,
   browseAppsTitleHasFilters,
-  FeaturedAppsGrid,
-  heroSubMinHeight,
-  SimpleAppsGrid,
+  BrowseAppsSubtitle,
+  AppsGrid,
 } from './__styles__'
 import { AppSearchFilters } from './app-search-filters-bar'
 import { FilteredAppsCollection } from './filtered-apps'
@@ -59,6 +48,15 @@ export const checkHasFilters = (appsBrowseFilterState: AppsBrowseConfigItemFilte
     }).length,
   )
 }
+
+export const handleSetFilters =
+  (
+    setAppsBrowseFilterState: Dispatch<SetStateAction<AppsBrowseConfigItemFilters | null>>,
+    filters: AppsBrowseConfigItemFilters | null,
+  ) =>
+  () => {
+    setAppsBrowseFilterState(filters)
+  }
 
 export const handleFiltersCols = (mediaQuery: MediaType) => () => {
   const { isMobile, isTablet, isDesktop, isWideScreen } = mediaQuery
@@ -94,7 +92,7 @@ export const handleSortConfigs = (appsBrowseConfigState: AppsBrowseConfigCollect
 }
 
 export const AppsBrowse: FC = () => {
-  const { appsBrowseFilterState, appsBrowseConfigState } = useAppsBrowseState()
+  const { appsBrowseFilterState, setAppsBrowseFilterState, appsBrowseConfigState } = useAppsBrowseState()
   const mediaQuery = useMediaQuery()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [mobileControlsState, setMobileControlsState] = useState<MobileControlsState>(null)
@@ -141,40 +139,41 @@ export const AppsBrowse: FC = () => {
             ))}
           />
           {Boolean(appsFilters.length) && (
-            <Subtitle className={heroSubMinHeight} hasBoldText hasNoMargin>
-              App Collections
-            </Subtitle>
+            <>
+              <BrowseAppsSubtitle>App Collections</BrowseAppsSubtitle>
+              <Carousel
+                className={elMb7}
+                numberCols={filtersCols}
+                items={appsFilters.map((configItem, index) => (
+                  <AppFiltersCollection key={index} configItem={configItem} />
+                ))}
+              />
+            </>
           )}
-          <Carousel
-            numberCols={filtersCols}
-            items={appsFilters.map((configItem, index) => (
-              <AppFiltersCollection key={index} configItem={configItem} />
-            ))}
-          />
           {featuredApps.map((configItem, index) => (
             <Fragment key={index}>
-              <FlexContainer>
-                <Subtitle className={heroSubMinHeight} hasBoldText hasNoMargin>
-                  {configItem?.content?.title}
-                </Subtitle>
-                <AppFilterLink>See All</AppFilterLink>
+              <FlexContainer isFlexAlignCenter>
+                <BrowseAppsSubtitle>{configItem?.content?.title}</BrowseAppsSubtitle>
+                <AppFilterLink onClick={handleSetFilters(setAppsBrowseFilterState, configItem.filters)}>
+                  See All
+                </AppFilterLink>
               </FlexContainer>
-              <FeaturedAppsGrid>
+              <AppsGrid>
                 <FeaturedAppsCollection configItem={configItem} />
-              </FeaturedAppsGrid>
+              </AppsGrid>
             </Fragment>
           ))}
           {simpleApps.map((configItem, index) => (
             <Fragment key={index}>
-              <FlexContainer>
-                <Subtitle className={heroSubMinHeight} hasBoldText hasNoMargin>
-                  {configItem?.content?.title}
-                </Subtitle>
-                <AppFilterLink>See All</AppFilterLink>
+              <FlexContainer isFlexAlignCenter>
+                <BrowseAppsSubtitle>{configItem?.content?.title}</BrowseAppsSubtitle>
+                <AppFilterLink onClick={handleSetFilters(setAppsBrowseFilterState, configItem.filters)}>
+                  See All
+                </AppFilterLink>
               </FlexContainer>
-              <SimpleAppsGrid>
+              <AppsGrid>
                 <SimpleAppsCollection key={index} configItem={configItem} />
-              </SimpleAppsGrid>
+              </AppsGrid>
             </Fragment>
           ))}
           {isDeveloper && <DeveloperAppsCollection />}

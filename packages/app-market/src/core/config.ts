@@ -163,7 +163,7 @@ const appsBrowseConfigCollectionDev: AppsBrowseConfigCollection = {
     },
     {
       filters: {
-        desktopIntegrationTypeId: ['Contact', 'IdCheck', 'Applicant', 'Tenancy'],
+        isFree: true,
       },
       content: {
         title: 'Indentity Apps',
