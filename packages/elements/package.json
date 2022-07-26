@@ -40,7 +40,8 @@
   ],
   "dependencies": {
     "@linaria/core": "^3.0.0-beta.15",
-    "@linaria/react": "^3.0.0-beta.15"
+    "@linaria/react": "^3.0.0-beta.15",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@linaria/babel-preset": "^3.0.0-beta.15",
@@ -71,6 +72,7 @@
     "@storybook/react-docgen-typescript-plugin": "1.0.1",
     "@storybook/theming": "^6.5.9",
     "@svgr/rollup": "^6.2.1",
+    "@types/uuid": "^8.3.4",
     "@typescript-eslint/eslint-plugin": "^5.30.7",
     "@typescript-eslint/parser": "^5.30.7",
     "babel-jest": "^28.1.3",

@@ -24,7 +24,7 @@ export function isValidRedirectUrls(urls: string) {
 }
 
 export function checkValidCustomScheme(url: string): boolean {
-  const result = url.match(/([a-zA-Z]+):\/\/(.+)/)
+  const result = url.match(/([a-zA-Z-]{1,30}):\/\/([a-zA-Z\d-.:]{1,255})/)
   if (!result) {
     return false
   }
@@ -65,6 +65,6 @@ export function isValidTelephone(phone: string) {
 }
 
 export function isValidPersonName(name: string) {
-  const pattern = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/g
+  const pattern = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]){1,255}$/g
   return pattern.test(name)
 }

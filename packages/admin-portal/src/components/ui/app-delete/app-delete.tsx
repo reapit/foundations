@@ -1,7 +1,6 @@
 import * as React from 'react'
-import { setDeleteAppInitFormState } from '@/actions/app-delete'
+import { setDeleteAppInitFormState, requestDeleteApp } from '@/actions/app-delete'
 import { useDispatch, useSelector } from 'react-redux'
-import { requestDeleteApp } from '@/actions/app-delete'
 import { Button, ModalProps, Modal, ModalBody, ModalHeader, ModalFooter } from '@reapit/elements-legacy'
 import CallToAction from '../call-to-action'
 import { selectAppDeleteFormState } from '@/selector/app-delete'

@@ -5,7 +5,7 @@ import DiffMedia from '@/components/ui/diff-media'
 import DiffCheckbox from '../diff-checkbox'
 import DiffViewer from '../diff-viewer'
 import DiffRenderHTML from '../diff-render-html'
-import { DesktopIntegrationTypeModel, PagedResultDesktopIntegrationTypeModel_ } from '@/types/desktop-integration-types'
+import { DesktopIntegrationTypeModel, PagedResultDesktopIntegrationTypeModel } from '@/types/desktop-integration-types'
 import { AppDetailState } from '@/reducers/apps/detail'
 
 export type AppRevisionComparisonProps = {
@@ -112,15 +112,14 @@ export const mapIntegrationIdArrayToNameArray = (
     )
     return matchedIntegration?.name ?? ''
   })
-  const filteredResult = result.filter((r) => r)
-  return filteredResult
+  return result.filter((r) => r)
 }
 
 export type RenderDiffContentParams = {
   key: string
   revision: AppRevisionModel
   app: AppDetailModel & { desktopIntegrationTypeIds?: string[] }
-  desktopIntegrationTypes: PagedResultDesktopIntegrationTypeModel_
+  desktopIntegrationTypes: PagedResultDesktopIntegrationTypeModel
 }
 
 export const renderDiffContent = ({ key, revision, app, desktopIntegrationTypes }: RenderDiffContentParams) => {

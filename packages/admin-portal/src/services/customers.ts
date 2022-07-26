@@ -5,7 +5,7 @@ import { FetchListCommonParams } from './types'
 import { AddressModel, LinkModel } from '@reapit/foundations-ts-definitions'
 import { reapitConnectBrowserSession } from '../core/connect-session'
 
-export interface PagedResultCustomerModel_ {
+export interface PagedResultCustomerModel {
   pageNumber?: number
   pageSize?: number
   pageCount?: number
@@ -29,17 +29,16 @@ export type FetchCustomersListParams = FetchListCommonParams & {
 
 export const fetchCustomersList = async (
   params: FetchCustomersListParams,
-): Promise<PagedResultCustomerModel_ | void> => {
+): Promise<PagedResultCustomerModel | void> => {
   try {
     const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
     if (headers) {
-      const response = await fetcher({
+      return fetcher({
         url: `${URLS.customers}/?${setQueryParams(params)}`,
         api: window.reapit.config.platformApiUrl,
         method: 'GET',
         headers,
       })
-      return response
     }
   } catch (error) {
     logger(error as FetchError)
@@ -51,13 +50,12 @@ export const fetchCustomerWarehouseCosts = async (period: string) => {
   try {
     const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
     if (headers) {
-      const response = await fetcherWithBlob({
+      return fetcherWithBlob({
         url: `${URLS.customers}/warehouseCosts/${period}`,
         api: window.reapit.config.platformApiUrl,
         method: 'GET',
         headers,
       })
-      return response
     }
   } catch (error) {
     logger(error as FetchError)

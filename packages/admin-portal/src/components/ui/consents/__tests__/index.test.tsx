@@ -29,7 +29,7 @@ describe('AppConsents', () => {
 
 describe('handleResendEmail', () => {
   it('should resend an email', async () => {
-    const resendEmail = jest.fn(() => new Promise<boolean>((resolve) => resolve(true)))
+    const resendEmail = jest.fn(() => Promise.resolve<boolean>(true))
     const setConsentId = jest.fn()
     const appConsentsRefresh = jest.fn()
     const consentId = 'MOCK_CONSENT_ID'
@@ -39,7 +39,7 @@ describe('handleResendEmail', () => {
 
     curried()
 
-    await new Promise((resolve) => resolve(true))
+    await Promise.resolve<boolean>(true)
 
     expect(resendEmail).toHaveBeenCalledWith({ actionedBy: developerEmail })
     expect(appConsentsRefresh).toHaveBeenCalledTimes(1)
@@ -62,7 +62,7 @@ describe('handleSetConsentId', () => {
 
 describe('handleSendConstents', () => {
   it('should send the consents emails', async () => {
-    const createConsentEmails = jest.fn(() => new Promise<boolean>((resolve) => resolve(true)))
+    const createConsentEmails = jest.fn(() => Promise.resolve<boolean>(true))
     const appConsentsRefresh = jest.fn()
     const developerEmail = 'mail@example.com'
 

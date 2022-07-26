@@ -7,7 +7,7 @@ import {
   FetchDeveloperMembersParams,
 } from '../services/developers'
 
-export interface fetchDeveloperListValues {
+export interface FetchDeveloperListValues {
   page: number
   queryString: string
 }
@@ -22,7 +22,7 @@ export type SetAsAdminParams = UpdateDeveloperMemberParams & {
 
 export type DisableMemberActionParams = DisableDeveloperMemberParams & { callback: (isSuccess: boolean) => void }
 
-export const fetchDeveloperList = actionCreator<fetchDeveloperListValues>(ActionTypes.FETCH_DEVELOPER_LIST)
+export const fetchDeveloperList = actionCreator<FetchDeveloperListValues>(ActionTypes.FETCH_DEVELOPER_LIST)
 export const fetchDeveloperListFailed = actionCreator<string>(ActionTypes.FETCH_DEVELOPER_LIST_FAILED)
 export const fetchDeveloperListSuccess = actionCreator<DeveloperModelPagedResult | undefined>(
   ActionTypes.FETCH_DEVELOPER_LIST_SUCCESS,

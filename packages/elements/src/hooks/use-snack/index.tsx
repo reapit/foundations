@@ -1,5 +1,6 @@
 import React, { createContext, useState, useRef, useContext } from 'react'
 import { SnackProps, SnackHolder } from '../../components/snack'
+import { v4 as uuid } from 'uuid'
 
 export interface SnackContextProps {
   addSnackWithTimeout: (snack: SnackProps, timeout: number) => void
@@ -20,7 +21,7 @@ export const SnackProvider: React.FC = ({ children }) => {
   }
 
   const addSnackWithTimeout = (snack: SnackProps, timeout: number) => {
-    const _id = String(Math.round(Math.random() * 100000000))
+    const _id = uuid()
     setSnacks([...snacks, { ...snack, _id }])
     if (timeout > 0) {
       window.setTimeout(() => removeSnackById(_id), timeout)

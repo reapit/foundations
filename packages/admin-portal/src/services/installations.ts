@@ -27,13 +27,12 @@ export const fetchInstallationsList = async (
   try {
     const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
     if (headers) {
-      const response = await fetcher({
+      return fetcher({
         url: `${URLS.installations}?${setQueryParams(params)}`,
         api: window.reapit.config.platformApiUrl,
         method: 'GET',
         headers,
       })
-      return response
     }
   } catch (error) {
     logger(error as FetchError)
@@ -46,13 +45,12 @@ export const fetchApiKeyInstallationById = async (params: FetchApiKeyInstallatio
     const { installationId } = params
     const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
     if (headers) {
-      const response = await fetcher({
+      return fetcher({
         url: `${URLS.installations}/${installationId}/apiKey`,
         api: window.reapit.config.platformApiUrl,
         method: 'GET',
         headers,
       })
-      return response
     }
   } catch (error) {
     logger(error as FetchError)

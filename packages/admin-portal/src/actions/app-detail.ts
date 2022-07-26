@@ -1,7 +1,6 @@
 import { actionCreator } from '../utils/actions'
 import ActionTypes from '../constants/action-types'
 import { AppDetailItem } from '@/reducers/apps/detail'
-// import { AppClientSecretModel } from '@/types/marketplace-api-schema'
 
 export interface AppDetailParams {
   id: string

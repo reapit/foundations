@@ -128,12 +128,13 @@ export const ChecklistDetail: React.FC<CheckListDetailProps> = ({
     params: { id },
   },
 }) => {
+  // TODO: Will replace callback by dispatch to show modald`
+  const sections = React.useMemo(() => generateSection(status, showModal), [status])
+
   if (loading) {
     return <Loader label="Loading" fullPage />
   }
-
-  // TODO: Will replace callback by dispatch to show modald`
-  const sections = React.useMemo(() => generateSection(status, showModal), [status])
+  
   return (
     <Section hasMargin={false} hasPadding={false}>
       <ErrorBoundary>

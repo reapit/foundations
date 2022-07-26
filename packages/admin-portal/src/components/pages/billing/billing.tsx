@@ -66,7 +66,7 @@ export const handleDownloadBillingPeriod =
         if (!billingFile || billingFile instanceof FetchError) {
           throw billingFile
         }
-        setBillingFile(billingFile as Blob)
+        setBillingFile(billingFile)
 
         if (!billingDwFile || billingDwFile instanceof FetchError) {
           throw billingDwFile

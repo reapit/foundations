@@ -4,8 +4,7 @@ import { render } from '../../../../tests/react-testing'
 import configureStore from 'redux-mock-store'
 import appState from '@/reducers/__stubs__/app-state'
 import { DeleteAppModal, AppDeleteProps, handleAfterClose, onDeleteButtonClick, handleUseEffect } from '../app-delete'
-import { requestDeleteApp } from '@/actions/app-delete'
-import { setDeleteAppInitFormState } from '@/actions/app-delete'
+import { requestDeleteApp, setDeleteAppInitFormState } from '@/actions/app-delete'
 
 const mockProps: AppDeleteProps = {
   appId: 'test',

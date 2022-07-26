@@ -4,9 +4,9 @@ describe('getMockRouterProps', () => {
   it('works as expected', () => {
     const inputs = [null]
 
-    for (let i = 0; i < inputs.length; i++) {
-      const result = getMockRouterProps(inputs[i])
+    inputs.forEach((input) => {
+      const result = getMockRouterProps(input)
       expect(result).toBeDefined()
-    }
+    })
   })
 })

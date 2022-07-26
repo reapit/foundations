@@ -1,4 +1,4 @@
-import { fetchDeveloperListValues } from './../actions/devs-management'
+import { FetchDeveloperListValues } from './../actions/devs-management'
 import { RouteValue, StringMap } from '../types/core'
 import Routes from '../constants/routes'
 import store from '../core/store'
@@ -17,7 +17,7 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       store.dispatch(fetchApprovalList(Number(page)))
       break
     case Routes.DEV_MANAGEMENT:
-      store.dispatch(fetchDeveloperList({ page, queryString: search } as fetchDeveloperListValues))
+      store.dispatch(fetchDeveloperList({ page, queryString: search } as FetchDeveloperListValues))
       break
     case Routes.APPS:
       store.dispatch(fetchAppList(getParamsFromPath(search || '')))

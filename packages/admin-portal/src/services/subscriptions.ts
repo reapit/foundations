@@ -26,13 +26,12 @@ export const fetchSubscriptionListApi = async (
   try {
     const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
     if (headers) {
-      const response = await fetcher({
+      return fetcher({
         url: `${URLS.subscriptions}?${setQueryParams(params)}`,
         api: window.reapit.config.platformApiUrl,
         method: 'GET',
         headers,
       })
-      return response
     }
   } catch (error) {
     logger(error as Error)
@@ -45,13 +44,12 @@ export const cancelSubscriptionApi = async (params: CancelSubscriptionParams) =>
     const { id } = params
     const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
     if (headers) {
-      const response = await fetcher({
+      return fetcher({
         url: `${URLS.subscriptions}/${id}`,
         api: window.reapit.config.platformApiUrl,
         method: 'DELETE',
         headers,
       })
-      return response
     }
   } catch (error) {
     logger(error as Error)
@@ -63,14 +61,13 @@ export const createSubscriptionApi = async (params: CreateSubscriptionModel) => 
   try {
     const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
     if (headers) {
-      const response = await fetcher({
+      return fetcher({
         url: `${URLS.subscriptions}`,
         api: window.reapit.config.platformApiUrl,
         method: 'POST',
         headers,
         body: params,
       })
-      return response
     }
   } catch (error) {
     logger(error as Error)
