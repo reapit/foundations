@@ -24,7 +24,7 @@ export function isValidRedirectUrls(urls: string) {
 }
 
 export function checkValidCustomScheme(url: string): boolean {
-  const result = url.match(/([a-zA-Z]+):\/\/(.+)/)
+  const result = url.match(/^\s*([a-zA-Z]+{2,100}:\/\/)([a-z\d-]{1,63}\.)*[a-z\d-]{1,255}(.[a-z]{2,6}|:[0-9]{2,6})\s*/)
   if (!result) {
     return false
   }
