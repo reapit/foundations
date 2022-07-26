@@ -24,7 +24,7 @@ Object {
           >
             <span
               class="el-mr3 el-icon"
-              style="font-size: 5rem;"
+              style="font-size: 3.75rem;"
             >
               <svg
                 fill="none"
@@ -302,7 +302,7 @@ Object {
         >
           <span
             class="el-mr3 el-icon"
-            style="font-size: 5rem;"
+            style="font-size: 3.75rem;"
           >
             <svg
               fill="none"

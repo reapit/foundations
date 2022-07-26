@@ -85,12 +85,11 @@ export const CarouselGrid = styled.div<CarouselGridProps>`
   }
 `
 
-export const CarouselControlsLeft = styled.a`
+export const CarouselControls = styled.a`
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
-  left: 0;
   top: calc(50% - 1rem);
   width: 2rem;
   height: 2rem;
@@ -100,17 +99,10 @@ export const CarouselControlsLeft = styled.a`
   box-shadow: 0px 2px 9px rgba(20, 164, 224, 0.15);
 `
 
-export const CarouselControlsRight = styled.a`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
+export const CarouselControlsRight = styled(CarouselControls)`
   right: 0;
-  top: calc(50% - 1rem);
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  background-color: var(--color-white);
-  border: 1px solid var(--intent-secondary);
-  box-shadow: 0px 2px 9px rgba(20, 164, 224, 0.15);
+`
+
+export const CarouselControlsLeft = styled(CarouselControls)`
+  left: 0;
 `

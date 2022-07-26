@@ -12,7 +12,7 @@ Object {
         class="carousel-wrapper"
       >
         <a
-          class="el-fade-in carousel-controls-right"
+          class="el-fade-in carousel-controls-right carousel-controls"
         >
           <span
             class="el-intent-primary el-icon"
@@ -68,7 +68,7 @@ Object {
       class="carousel-wrapper"
     >
       <a
-        class="el-fade-in carousel-controls-right"
+        class="el-fade-in carousel-controls-right carousel-controls"
       >
         <span
           class="el-intent-primary el-icon"

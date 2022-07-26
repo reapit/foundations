@@ -18,6 +18,7 @@ import {
   HeroAppsSubtitle,
   HeroAppsStrapline,
   browseAppsSubtitlePlaceholder,
+  HeroAppsContentWrapper,
 } from './__styles__'
 import { cx } from '@linaria/core'
 import { navigate } from '../../utils/navigation'
@@ -30,10 +31,14 @@ interface HeroAppsCollectionProps {
 }
 
 export const handlePlaceholderSize = (mediaQuery: MediaType) => () => {
-  const { isMobile } = mediaQuery
+  const { isMobile, isTablet, isDesktop } = mediaQuery
 
   if (isMobile) {
     return 80
+  }
+
+  if (isTablet || isDesktop) {
+    return 120
   }
 
   return 220
@@ -64,18 +69,20 @@ export const HeroAppsCollection: FC<HeroAppsCollectionProps> = memo(({ configIte
       </BrowseAppsSubtitle>
       <HeroAppsInnerContainer style={{ backgroundColor: content?.brandColour ? `${content?.brandColour}1a` : '#fff' }}>
         <FlexContainer className={cx(elHFull, heroAppsFlexToggle)}>
-          <HeroAppsContentContainer>
-            {iconUri ? (
-              <HeroAppsIcon className={elFadeIn} src={iconUri} alt={name} />
-            ) : (
-              <PlaceholderImage placeholder="placeholderSmall" size={40} />
-            )}
-            <HeroAppsNameContainer>
-              <HeroAppsSubtitle>{name}</HeroAppsSubtitle>
-              <HeroAppsChip className={elFadeIn}>{category?.name}</HeroAppsChip>
-            </HeroAppsNameContainer>
-          </HeroAppsContentContainer>
-          <HeroAppsStrapline>{summary}</HeroAppsStrapline>
+          <HeroAppsContentWrapper>
+            <HeroAppsContentContainer>
+              {iconUri ? (
+                <HeroAppsIcon className={elFadeIn} src={iconUri} alt={name} />
+              ) : (
+                <PlaceholderImage placeholder="placeholderSmall" size={40} />
+              )}
+              <HeroAppsNameContainer>
+                <HeroAppsSubtitle>{name}</HeroAppsSubtitle>
+                <HeroAppsChip>{category?.name}</HeroAppsChip>
+              </HeroAppsNameContainer>
+            </HeroAppsContentContainer>
+            <HeroAppsStrapline>{summary}</HeroAppsStrapline>
+          </HeroAppsContentWrapper>
           <HeroAppsImageContainer>
             {content?.imageUrl ? (
               <HeroAppsImage src={content.imageUrl} alt={name} />

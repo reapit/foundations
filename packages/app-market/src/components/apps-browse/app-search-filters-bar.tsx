@@ -3,7 +3,6 @@ import {
   FlexContainer,
   BodyText,
   Icon,
-  elMb5,
   MultiSelectChip,
   elHasGreyChips,
   ElMultiSelectUnSelected,
@@ -85,15 +84,6 @@ export const AppSearchFilters: FC<AppSearchFiltersProps> = memo(({ mobileControl
 
   return (
     <>
-      <FlexContainer className={cx(elMb5, appsSearchDesktopControls)} isFlexJustifyBetween>
-        <BodyText hasBoldText hasNoMargin>
-          Browse By
-        </BodyText>
-        <FlexContainer className={appsSearchContainer} isFlexAlignCenter>
-          <Icon className={appsSearchInputIcon} icon="searchSystem" fontSize="1.25rem" />
-          <AppsSearchInput type="text" placeholder="Search" onChange={debouncedSearch} />
-        </FlexContainer>
-      </FlexContainer>
       <FlexContainer isFlexColumn>
         {mobileControlsState === 'search' && (
           <AppsSearchMobileFilterControls className={cx(mobileControlsState && appsSearchMobileFilterControlsActive)}>
@@ -108,6 +98,11 @@ export const AppSearchFilters: FC<AppSearchFiltersProps> = memo(({ mobileControl
             Browse By
           </SmallText>
         )}
+      </FlexContainer>
+      <FlexContainer isFlexJustifyBetween>
+        <BodyText className={appsSearchDesktopControls} hasBoldText>
+          Browse By
+        </BodyText>
       </FlexContainer>
       {Boolean(categories?.data?.length) && (
         <ElMultiSelectUnSelected
@@ -131,6 +126,10 @@ export const AppSearchFilters: FC<AppSearchFiltersProps> = memo(({ mobileControl
           ))}
         </ElMultiSelectUnSelected>
       )}
+      <FlexContainer className={cx(appsSearchContainer, appsSearchDesktopControls)} isFlexAlignCenter>
+        <Icon className={appsSearchInputIcon} icon="searchSystem" fontSize="1.25rem" />
+        <AppsSearchInput type="text" placeholder="Search" onChange={debouncedSearch} />
+      </FlexContainer>
     </>
   )
 })

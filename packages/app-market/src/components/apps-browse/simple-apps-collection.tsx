@@ -18,9 +18,8 @@ interface SimpleAppsCollectionProps {
 export const handleMaxLength = (mediaQuery: MediaType) => () => {
   const { isMobile, isTablet, isDesktop, isWideScreen } = mediaQuery
 
-  if (isMobile) return 6
-  if (isTablet) return 8
-  if (isDesktop) return 12
+  if (isMobile || isTablet) return 6
+  if (isDesktop) return 8
   if (isWideScreen) return 12
 
   return 20

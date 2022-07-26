@@ -16,7 +16,7 @@ Object {
         >
           <span
             class="el-mb5 el-icon"
-            style="font-size: 3.75em;"
+            style="font-size: 5em;"
           >
             <svg
               fill="none"
@@ -224,7 +224,7 @@ Object {
       >
         <span
           class="el-mb5 el-icon"
-          style="font-size: 3.75em;"
+          style="font-size: 5em;"
         >
           <svg
             fill="none"

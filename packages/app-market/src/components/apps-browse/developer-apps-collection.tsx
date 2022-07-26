@@ -3,7 +3,7 @@ import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { useReapitGet } from '@reapit/utils-react'
-import { elMr3, FlexContainer, Icon, PlaceholderImage, elFadeIn, elMr5 } from '@reapit/elements'
+import { elMr3, FlexContainer, Icon, PlaceholderImage, elFadeIn, elMr5, useMediaQuery } from '@reapit/elements'
 import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
 import {
   AppIcon,
@@ -20,8 +20,10 @@ import { Routes } from '../../constants/routes'
 
 export const DeveloperAppsCollection: FC = () => {
   const history = useHistory()
+  const { isMobile } = useMediaQuery()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const developerId = connectSession?.loginIdentity.developerId
+  const iconSize = isMobile ? '2.5em' : '3.75rem'
 
   const [apps] = useReapitGet<AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,
@@ -38,7 +40,7 @@ export const DeveloperAppsCollection: FC = () => {
           <DeveloperAppsGrid>
             <DeveloperAppsColHelper>
               <FlexContainer isFlexAlignCenter>
-                <Icon className={elMr3} icon="developerAppsInfographic" fontSize="5rem" />
+                <Icon className={elMr3} icon="developerAppsInfographic" fontSize={iconSize} />
                 <DeveloperMainStrapline>
                   Apps you are currently developing show here. These will not be visible to users until approved for
                   public listing.

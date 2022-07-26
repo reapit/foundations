@@ -2,16 +2,7 @@ import React, { FC, memo, useMemo } from 'react'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { useReapitGet } from '@reapit/utils-react'
-import {
-  Button,
-  elFadeIn,
-  elHFull,
-  elMb7,
-  FlexContainer,
-  MediaType,
-  PlaceholderImage,
-  useMediaQuery,
-} from '@reapit/elements'
+import { Button, elFadeIn, elMb7, FlexContainer, MediaType, PlaceholderImage, useMediaQuery } from '@reapit/elements'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import {
   FeaturedHeroAppsContainer,
@@ -21,15 +12,14 @@ import {
   FeaturedHeroAppsImageContainer,
   HeroAppsChip,
   FeaturedHeroAppsItem,
-  heroAppsFlexToggle,
   featuredHeroAppsButton,
   FeaturedHeroAppsNameContainer,
   FeaturedHeroAppsInnerContainer,
   BrowseAppsSubtitle,
   FeaturedHeroAppsSubtitle,
   FeaturedHeroAppsStrapline,
+  FeaturedHeroAppsFlexContainer,
 } from './__styles__'
-import { cx } from '@linaria/core'
 import { navigate } from '../../utils/navigation'
 import { Routes } from '../../constants/routes'
 import { useHistory } from 'react-router-dom'
@@ -40,10 +30,14 @@ interface FeaturedHeroAppsCollectionProps {
 }
 
 export const handlePlaceholderSize = (mediaQuery: MediaType) => () => {
-  const { isMobile } = mediaQuery
+  const { isMobile, isTablet, isDesktop } = mediaQuery
 
   if (isMobile) {
     return 100
+  }
+
+  if (isTablet || isDesktop) {
+    return 200
   }
 
   return 320
@@ -75,7 +69,7 @@ export const FeaturedHeroAppsCollection: FC<FeaturedHeroAppsCollectionProps> = m
         <FeaturedHeroAppsContainer
           style={{ backgroundColor: content?.brandColour ? `${content?.brandColour}1a` : '#fff' }}
         >
-          <FlexContainer className={cx(elHFull, heroAppsFlexToggle)}>
+          <FeaturedHeroAppsFlexContainer>
             <FeaturedHeroAppsContentContainer>
               <FeaturedHeroAppsInnerContainer>
                 {iconUri ? (
@@ -87,11 +81,11 @@ export const FeaturedHeroAppsCollection: FC<FeaturedHeroAppsCollectionProps> = m
                   <FeaturedHeroAppsSubtitle>{name}</FeaturedHeroAppsSubtitle>
                   {category?.name && <HeroAppsChip className={elFadeIn}>{category.name}</HeroAppsChip>}
                 </FeaturedHeroAppsNameContainer>
+                <Button className={featuredHeroAppsButton} style={{ background: content?.brandColour, color: '#fff' }}>
+                  Find Out More
+                </Button>
               </FeaturedHeroAppsInnerContainer>
               <FeaturedHeroAppsStrapline>{summary}</FeaturedHeroAppsStrapline>
-              <Button className={featuredHeroAppsButton} style={{ background: content?.brandColour, color: '#fff' }}>
-                Find Out More
-              </Button>
             </FeaturedHeroAppsContentContainer>
             <FeaturedHeroAppsImageContainer>
               {content?.imageUrl ? (
@@ -100,7 +94,7 @@ export const FeaturedHeroAppsCollection: FC<FeaturedHeroAppsCollectionProps> = m
                 <PlaceholderImage placeholder="placeholderLarge" size={placeholderSize} fillAvailable />
               )}
             </FeaturedHeroAppsImageContainer>
-          </FlexContainer>
+          </FeaturedHeroAppsFlexContainer>
         </FeaturedHeroAppsContainer>
       </FlexContainer>
     </FeaturedHeroAppsItem>

@@ -20,12 +20,23 @@ export const BrowseAppsTitle = styled(ElTitle)`
   &.${browseAppsTitleHasFilters} {
     margin-bottom: 0;
   }
+
+  ${forMobileAndAbove} {
+    margin-top: 0;
+    font-size: 32px;
+    line-height: 36px;
+  }
 `
 
 export const BrowseAppsSubtitle = styled(ElSubtitle)`
   font-size: 16px;
   font-weight: bold;
   margin-bottom: 0.5rem;
+
+  ${forMobileAndAbove} {
+    font-size: 20px;
+    line-height: 24px;
+  }
 
   &.${browseAppsSubtitlePlaceholder} {
     height: 24px;
@@ -40,6 +51,10 @@ export const FeaturedHeroAppsSubtitle = styled(ElSubtitle)`
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   overflow: hidden;
+
+  ${forTabletAndAbove} {
+    margin-bottom: 0.75rem;
+  }
 `
 
 export const FeaturedHeroAppsStrapline = styled(ElBodyText)`
@@ -53,12 +68,11 @@ export const FeaturedHeroAppsStrapline = styled(ElBodyText)`
 
   ${forMobileAndAbove} {
     font-size: 16px;
-    margin-bottom: 2.5rem;
-    -webkit-line-clamp: 3;
   }
 
-  ${forTabletAndAbove} {
+  ${forDesktopAndAbove} {
     margin-bottom: 3.75rem;
+    -webkit-line-clamp: 2;
   }
 `
 
@@ -78,16 +92,28 @@ export const FeaturedHeroAppsContainer = styled.div`
   padding: 0.75rem;
   border-radius: 0.25rem;
 
-  ${forTabletAndAbove} {
+  ${forMobileAndAbove} {
     padding: 1.25rem;
+  }
+
+  ${forTabletAndAbove} {
     height: 400px;
+  }
+`
+
+export const FeaturedHeroAppsFlexContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  ${forDesktopAndAbove} {
+    flex-direction: row;
   }
 `
 
 export const FeaturedHeroAppsContentContainer = styled.div`
   width: 100%;
 
-  ${forMobileAndAbove} {
+  ${forDesktopAndAbove} {
     width: 276px;
     margin-right: 3rem;
   }
@@ -97,6 +123,13 @@ export const FeaturedHeroAppsNameContainer = styled.div`
   margin-left: 0.75rem;
 
   ${forMobileAndAbove} {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: auto;
+  }
+
+  ${forDesktopAndAbove} {
     margin-left: 0;
   }
 `
@@ -105,6 +138,12 @@ export const FeaturedHeroAppsInnerContainer = styled.div`
   display: flex;
 
   ${forMobileAndAbove} {
+    margin-bottom: 0.75rem;
+    justify-content: space-between;
+  }
+
+  ${forDesktopAndAbove} {
+    margin-bottom: 1.25rem;
     flex-direction: column;
   }
 `
@@ -115,8 +154,13 @@ export const FeaturedHeroAppsIcon = styled.img`
   height: 48px;
 
   ${forMobileAndAbove} {
+    border-radius: 0.5rem;
+    width: 72px;
+    height: 72px;
+  }
+
+  ${forDesktopAndAbove} {
     border-radius: 1rem;
-    margin-bottom: 1.25rem;
     width: 96px;
     height: 96px;
   }
@@ -126,7 +170,11 @@ export const FeaturedHeroAppsImageContainer = styled.div`
   width: 100%;
   height: 140px;
 
-  ${forTabletAndAbove} {
+  ${forMobileAndAbove} {
+    height: 250px;
+  }
+
+  ${forDesktopAndAbove} {
     width: calc(100% - 276px);
     height: auto;
   }
@@ -135,12 +183,13 @@ export const FeaturedHeroAppsImageContainer = styled.div`
 export const featuredHeroAppsButton = css`
   display: none;
 
-  ${forTabletAndAbove} {
+  ${forMobileAndAbove} {
     display: block;
   }
 `
 
 export const HeroAppsContainer = styled.div`
+  cursor: pointer;
   width: 100%;
   align-self: end;
   margin-bottom: 1.25rem;
@@ -164,9 +213,11 @@ export const HeroAppsChip = styled.div`
   padding: 1px 0.5rem;
   margin: 0rem 0.25rem 0.25rem 0;
   display: inline-block;
+  align-self: flex-start;
 
   ${forMobileAndAbove} {
-    margin: 0.25rem 0.5rem 0.75rem 0;
+    font-size: 14px;
+    line-height: 18px;
   }
 `
 
@@ -179,6 +230,12 @@ export const HeroAppsSubtitle = styled(ElSubtitle)`
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   overflow: hidden;
+
+  ${forMobileAndAbove} {
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 0.5rem;
+  }
 `
 
 export const HeroAppsStrapline = styled(ElBodyText)`
@@ -191,13 +248,14 @@ export const HeroAppsStrapline = styled(ElBodyText)`
   overflow: hidden;
 
   ${forMobileAndAbove} {
-    font-size: 16px;
-    margin-bottom: 2.5rem;
-    -webkit-line-clamp: 2;
+    font-size: 14px;
+    line-height: 18px;
+    -webkit-line-clamp: 4;
   }
 
   ${forTabletAndAbove} {
-    margin-bottom: 3.75rem;
+    -webkit-line-clamp: 2;
+    margin-bottom: 1.25rem;
   }
 `
 
@@ -206,8 +264,11 @@ export const HeroAppsInnerContainer = styled.div`
   border-radius: 0.25rem;
   padding: 0.75rem;
 
-  ${forTabletAndAbove} {
+  ${forMobileAndAbove} {
     padding: 1.25rem;
+  }
+
+  ${forTabletAndAbove} {
     height: 400px;
   }
 `
@@ -217,6 +278,29 @@ export const HeroAppsContentContainer = styled.div`
 
   ${forMobileAndAbove} {
     flex-direction: column;
+    margin-bottom: 0.5rem;
+  }
+
+  ${forMobileAndAbove} {
+    flex-direction: row;
+    margin-bottom: 0;
+  }
+`
+
+export const HeroAppsContentWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  ${forMobileAndAbove} {
+    width: 40%;
+    margin-right: 1.25rem;
+    height: 230px;
+  }
+
+  ${forTabletAndAbove} {
+    width: 100%;
+    margin-right: 0;
+    height: 148px;
   }
 `
 
@@ -225,6 +309,10 @@ export const HeroAppsNameContainer = styled.div`
 
   ${forMobileAndAbove} {
     margin-left: 0;
+  }
+
+  ${forTabletAndAbove} {
+    margin-left: 0.75rem;
   }
 `
 
@@ -235,7 +323,7 @@ export const HeroAppsIcon = styled.img`
 
   ${forMobileAndAbove} {
     margin-bottom: 1.25rem;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     width: 72px;
     height: 72px;
   }
@@ -245,16 +333,26 @@ export const HeroAppsImageContainer = styled.div`
   width: 100%;
   height: 100px;
 
+  ${forMobileAndAbove} {
+    width: 60%;
+    height: auto;
+  }
+
   ${forTabletAndAbove} {
-    width: calc(100% - 177px);
+    width: 100%;
+    flex-grow: 1;
   }
 `
 
 export const heroAppsFlexToggle = css`
   flex-direction: column;
 
-  ${forTabletAndAbove} {
+  ${forMobileAndAbove} {
     flex-direction: row;
+  }
+
+  ${forTabletAndAbove} {
+    flex-direction: column;
   }
 `
 
@@ -264,6 +362,11 @@ export const AppFilterCol = styled.div`
   background-color: #eaf5fc;
   border-radius: 0.25rem;
   height: 160px;
+
+  ${forMobileAndAbove} {
+    padding: 1.25rem;
+    height: 230px;
+  }
 `
 
 export const AppFilterSubtitle = styled(ElSubtitle)`
@@ -275,6 +378,11 @@ export const AppFilterSubtitle = styled(ElSubtitle)`
   -webkit-line-clamp: 1;
   overflow: hidden;
   margin-bottom: 0.5rem;
+
+  ${forMobileAndAbove} {
+    font-size: 16px;
+    line-height: 20px;
+  }
 `
 
 export const AppFilterStrapline = styled(ElBodyText)`
@@ -286,6 +394,12 @@ export const AppFilterStrapline = styled(ElBodyText)`
   -webkit-line-clamp: 3;
   overflow: hidden;
   margin-bottom: 0;
+
+  ${forMobileAndAbove} {
+    font-size: 14px;
+    line-height: 18px;
+    -webkit-line-clamp: 4;
+  }
 `
 
 export const AppsGrid = styled.div`
@@ -295,8 +409,13 @@ export const AppsGrid = styled.div`
   grid-row-gap: 0.75rem;
   margin-bottom: 1.25rem;
 
+  ${forMobileAndAbove} {
+    grid-column-gap: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
   ${forTabletAndAbove} {
-    grid-row-gap: 2.5rem;
+    grid-template-columns: repeat(12, 1fr);
     margin-bottom: 2.5rem;
   }
 
@@ -316,12 +435,13 @@ export const AppsCol = styled.div`
   padding: 0.75rem;
 
   ${forMobileAndAbove} {
-    padding: 1.25rem 2rem;
-    grid-column-end: span 2;
+    padding: 1.25rem;
+    height: 122px;
   }
 
   ${forTabletAndAbove} {
-    grid-column-end: span 1;
+    grid-column-end: span 4;
+    height: 108px;
   }
 `
 
@@ -334,6 +454,16 @@ export const FeaturedAppStrapline = styled(ElBodyText)`
   -webkit-line-clamp: 4;
   overflow: hidden;
   margin-bottom: 0;
+
+  ${forMobileAndAbove} {
+    -webkit-line-clamp: 3;
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  ${forTabletAndAbove} {
+    -webkit-line-clamp: 2;
+  }
 `
 
 export const AppTitle = styled(ElBodyText)`
@@ -344,6 +474,11 @@ export const AppTitle = styled(ElBodyText)`
   -webkit-line-clamp: 1;
   overflow: hidden;
   margin-bottom: 0;
+
+  ${forMobileAndAbove} {
+    font-size: 16px;
+    line-height: 20px;
+  }
 `
 
 export const AppIcon = styled.img`
@@ -368,10 +503,23 @@ export const SimpleAppStrapline = styled(ElBodyText)`
   -webkit-line-clamp: 2;
   overflow: hidden;
   margin-bottom: 0;
+
+  ${forMobileAndAbove} {
+    font-size: 14px;
+    line-height: 18px;
+  }
 `
 
 export const SimpleAppsCol = styled(AppsCol)`
   height: 76px;
+
+  ${forMobileAndAbove} {
+    height: 108px;
+  }
+
+  ${forTabletAndAbove} {
+    grid-column-end: span 3;
+  }
 `
 
 export const DeveloperAppsGrid = styled.div`
@@ -382,10 +530,8 @@ export const DeveloperAppsGrid = styled.div`
   background: var(--color-grey-light);
   padding: 0.75rem;
 
-  ${forTabletAndAbove} {
-    padding: 1.25rem;
-    grid-row-gap: 2.5rem;
-    margin-bottom: 2.5rem;
+  ${forMobileAndAbove} {
+    grid-column-gap: 0.75rem;
   }
 
   ${forSuperWidescreenAndAbove} {
@@ -400,11 +546,7 @@ export const DeveloperAppsColHelper = styled.div`
   min-width: 0;
 
   ${forMobileAndAbove} {
-    grid-column-end: span 4;
-  }
-
-  ${forTabletAndAbove} {
-    grid-column-end: span 2;
+    grid-column-end: span 6;
   }
 `
 
@@ -418,12 +560,12 @@ export const DeveloperAppsCol = styled.div`
   min-width: 0;
 
   ${forMobileAndAbove} {
-    padding: 1.25rem;
+    padding: 0.75rem 1.25rem;
     grid-column-end: span 2;
   }
 
   ${forTabletAndAbove} {
-    grid-column-end: span 1;
+    grid-column-end: span 2;
   }
 `
 
@@ -436,6 +578,11 @@ export const DeveloperMainStrapline = styled(ElBodyText)`
   -webkit-line-clamp: 3;
   overflow: hidden;
   margin-bottom: 0;
+
+  ${forMobileAndAbove} {
+    font-size: 14px;
+    line-height: 18px;
+  }
 `
 
 export const DeveloperSubtitle = styled(ElBodyText)`
@@ -488,10 +635,12 @@ export const appsSearchContainer = css`
   width: 100%;
 
   ${forMobileAndAbove} {
+    margin-bottom: 1.25rem;
     width: 50%;
   }
 
   ${forTabletAndAbove} {
+    margin-bottom: 2.5rem;
     width: 33.33%;
   }
 
@@ -569,10 +718,9 @@ export const appsFiltersMobileBrowseBy = css`
 
 export const appsFiltersCategories = css`
   width: 100%;
-  margin-bottom: 1.25rem;
 
   ${forMobileAndAbove} {
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.25rem;
   }
 `
 

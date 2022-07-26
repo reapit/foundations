@@ -18,10 +18,8 @@ interface FeaturedAppsCollectionProps {
 export const handleMaxLength = (mediaQuery: MediaType) => () => {
   const { isMobile, isTablet, isDesktop, isWideScreen } = mediaQuery
 
-  if (isMobile) return 3
-  if (isTablet) return 4
-  if (isDesktop) return 6
-  if (isWideScreen) return 8
+  if (isMobile || isTablet || isDesktop) return 3
+  if (isWideScreen || isDesktop) return 8
 
   return 12
 }

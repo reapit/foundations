@@ -24,7 +24,7 @@ Object {
             style="background-color: rgba(0, 97, 168, 0.102);"
           >
             <div
-              class="el-hfull hero-apps-flex-toggle el-flex-container"
+              class="featured-hero-apps-flex-container"
             >
               <div
                 class="featured-hero-apps-content-container"
@@ -46,18 +46,18 @@ Object {
                       will-test-dev-co-voracious-person
                     </h2>
                   </div>
+                  <button
+                    class="featured-hero-apps-button el-button"
+                    style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
+                  >
+                    Find Out More
+                  </button>
                 </div>
                 <p
                   class="featured-hero-apps-strapline el-body-text"
                 >
                   Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
                 </p>
-                <button
-                  class="featured-hero-apps-button el-button"
-                  style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
-                >
-                  Find Out More
-                </button>
               </div>
               <div
                 class="featured-hero-apps-image-container"
@@ -67,7 +67,7 @@ Object {
                 >
                   <div
                     class="el-placeholder-image"
-                    style="font-size: 12.5em;"
+                    style="font-size: 7.8125em;"
                   >
                     <svg
                       fill="none"
@@ -145,7 +145,7 @@ Object {
           style="background-color: rgba(0, 97, 168, 0.102);"
         >
           <div
-            class="el-hfull hero-apps-flex-toggle el-flex-container"
+            class="featured-hero-apps-flex-container"
           >
             <div
               class="featured-hero-apps-content-container"
@@ -167,18 +167,18 @@ Object {
                     will-test-dev-co-voracious-person
                   </h2>
                 </div>
+                <button
+                  class="featured-hero-apps-button el-button"
+                  style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
+                >
+                  Find Out More
+                </button>
               </div>
               <p
                 class="featured-hero-apps-strapline el-body-text"
               >
                 Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
               </p>
-              <button
-                class="featured-hero-apps-button el-button"
-                style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
-              >
-                Find Out More
-              </button>
             </div>
             <div
               class="featured-hero-apps-image-container"
@@ -188,7 +188,7 @@ Object {
               >
                 <div
                   class="el-placeholder-image"
-                  style="font-size: 12.5em;"
+                  style="font-size: 7.8125em;"
                 >
                   <svg
                     fill="none"
@@ -323,7 +323,7 @@ Object {
             style="background-color: rgba(0, 97, 168, 0.102);"
           >
             <div
-              class="el-hfull hero-apps-flex-toggle el-flex-container"
+              class="featured-hero-apps-flex-container"
             >
               <div
                 class="featured-hero-apps-content-container"
@@ -355,16 +355,16 @@ Object {
                       class="featured-hero-apps-subtitle el-subtitle"
                     />
                   </div>
+                  <button
+                    class="featured-hero-apps-button el-button"
+                    style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
+                  >
+                    Find Out More
+                  </button>
                 </div>
                 <p
                   class="featured-hero-apps-strapline el-body-text"
                 />
-                <button
-                  class="featured-hero-apps-button el-button"
-                  style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
-                >
-                  Find Out More
-                </button>
               </div>
               <div
                 class="featured-hero-apps-image-container"
@@ -374,7 +374,7 @@ Object {
                 >
                   <div
                     class="el-placeholder-image"
-                    style="font-size: 12.5em;"
+                    style="font-size: 7.8125em;"
                   >
                     <svg
                       fill="none"
@@ -452,7 +452,7 @@ Object {
           style="background-color: rgba(0, 97, 168, 0.102);"
         >
           <div
-            class="el-hfull hero-apps-flex-toggle el-flex-container"
+            class="featured-hero-apps-flex-container"
           >
             <div
               class="featured-hero-apps-content-container"
@@ -484,16 +484,16 @@ Object {
                     class="featured-hero-apps-subtitle el-subtitle"
                   />
                 </div>
+                <button
+                  class="featured-hero-apps-button el-button"
+                  style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
+                >
+                  Find Out More
+                </button>
               </div>
               <p
                 class="featured-hero-apps-strapline el-body-text"
               />
-              <button
-                class="featured-hero-apps-button el-button"
-                style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
-              >
-                Find Out More
-              </button>
             </div>
             <div
               class="featured-hero-apps-image-container"
@@ -503,7 +503,7 @@ Object {
               >
                 <div
                   class="el-placeholder-image"
-                  style="font-size: 12.5em;"
+                  style="font-size: 7.8125em;"
                 >
                   <svg
                     fill="none"

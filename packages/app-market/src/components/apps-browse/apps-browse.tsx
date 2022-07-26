@@ -103,7 +103,7 @@ export const AppsBrowse: FC = () => {
     handleSortConfigs(appsBrowseConfigState),
     [appsBrowseConfigState],
   )
-  const { isMobile } = mediaQuery
+  const { isMobile, isTablet } = mediaQuery
 
   return (
     <PageContainer>
@@ -133,7 +133,7 @@ export const AppsBrowse: FC = () => {
             <FeaturedHeroAppsCollection key={index} configItem={configItem} />
           ))}
           <Carousel
-            numberCols={isMobile ? 1 : 2}
+            numberCols={isMobile || isTablet ? 1 : 2}
             items={heroApps.map((configItem, index) => (
               <HeroAppsCollection key={index} configItem={configItem} />
             ))}
