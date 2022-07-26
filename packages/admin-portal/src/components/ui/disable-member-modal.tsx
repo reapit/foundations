@@ -29,9 +29,11 @@ export const handleDisableMemberSuccess = (onSuccess, setSuccess) => () => {
 }
 
 const DisableMemberModal: React.FC<DisableMemberModalProps> = ({ visible, member, onCancel, onSuccess }) => {
-  if (!member) return null
   const [isSuccess, setSuccess] = React.useState(false)
   const dispatch = useDispatch()
+
+  if (!member) return null
+
   const isLoading = false
   const developerId = member?.developerId || ''
   const { name } = member
