@@ -18,13 +18,13 @@ jest.mock('uuid', () => ({
   v4: jest.fn(),
 }))
 
-const mockBillingServices = jest.spyOn(developerServices, 'fetchDeveloperBillingPeriod').mockImplementation(
-  () => Promise.resolve(new Blob())
-)
+const mockBillingServices = jest
+  .spyOn(developerServices, 'fetchDeveloperBillingPeriod')
+  .mockImplementation(() => Promise.resolve(new Blob()))
 
-const mockBillingDwServices = jest.spyOn(customerServices, 'fetchCustomerWarehouseCosts').mockImplementation(
-  () => Promise.resolve(new Blob())
-)
+const mockBillingDwServices = jest
+  .spyOn(customerServices, 'fetchCustomerWarehouseCosts')
+  .mockImplementation(() => Promise.resolve(new Blob()))
 
 describe('AdminBilling', () => {
   it('should match a snapshot', () => {

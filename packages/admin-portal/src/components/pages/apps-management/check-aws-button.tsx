@@ -66,7 +66,9 @@ export const CheckAWSButton: FC<CheckAWSButtonProps> = ({ appId, status }) => {
     return <>AWS Customers Only</>
   }
 
-  return awsStatus === AWSStatus.AllUsers ? <>All Customers</> : (
+  return awsStatus === AWSStatus.AllUsers ? (
+    <>All Customers</>
+  ) : (
     <Button
       intent="primary"
       loading={awsStatus === AWSStatus.Fetching}
