@@ -1,8 +1,19 @@
-import React, { FC } from 'react'
+import React, { FC, useMemo } from 'react'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { useReapitGet } from '@reapit/utils-react'
-import { BodyText, Button, elFadeIn, elHFull, elMb7, FlexContainer, PlaceholderImage, Subtitle } from '@reapit/elements'
+import {
+  BodyText,
+  Button,
+  elFadeIn,
+  elHFull,
+  elMb7,
+  FlexContainer,
+  MediaType,
+  PlaceholderImage,
+  Subtitle,
+  useMediaQuery,
+} from '@reapit/elements'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import {
   FeaturedHeroAppsContainer,
@@ -12,11 +23,13 @@ import {
   FeaturedHeroAppsImageContainer,
   HeroAppsChip,
   heroAppsStrapline,
-  FeaturedHeroAppsCol,
-  heroSubMinHeight,
+  FeaturedHeroAppsItem,
   heroAppsTitle,
   heroAppsFlexToggle,
   featuredHeroAppsButton,
+  FeaturedHeroAppsNameContainer,
+  FeaturedHeroAppsInnerContainer,
+  BrowseAppsSubtitle,
 } from './__styles__'
 import { cx } from '@linaria/core'
 import { navigate } from '../../utils/navigation'
@@ -28,8 +41,19 @@ interface FeaturedHeroAppsCollectionProps {
   configItem: AppsBrowseConfigItem
 }
 
+export const handlePlaceholderSize = (mediaQuery: MediaType) => () => {
+  const { isMobile } = mediaQuery
+
+  if (isMobile) {
+    return 100
+  }
+
+  return 320
+}
+
 export const FeaturedHeroAppsCollection: FC<FeaturedHeroAppsCollectionProps> = ({ configItem }) => {
   const history = useHistory()
+  const mediaQuery = useMediaQuery()
   const { filters, content } = configItem
 
   const [appDetail] = useReapitGet<AppDetailModel>({
@@ -41,30 +65,33 @@ export const FeaturedHeroAppsCollection: FC<FeaturedHeroAppsCollectionProps> = (
     fetchWhenTrue: [filters?.id?.length],
   })
 
+  const placeholderSize = useMemo(handlePlaceholderSize(mediaQuery), [mediaQuery])
   const app = appDetail ?? {}
   const { name, media, summary, category, id } = app
   const iconUri = media?.find((item) => item.type === 'icon')?.uri
 
   return (
-    <FeaturedHeroAppsCol onClick={id ? navigate(history, `${Routes.APPS_BROWSE}/${id}`) : undefined}>
+    <FeaturedHeroAppsItem onClick={id ? navigate(history, `${Routes.APPS_BROWSE}/${id}`) : undefined}>
       <FlexContainer isFlexColumn>
-        <Subtitle className={heroSubMinHeight} hasBoldText hasNoMargin>
-          {content?.title}
-        </Subtitle>
+        <BrowseAppsSubtitle>{content?.title}</BrowseAppsSubtitle>
         <FeaturedHeroAppsContainer
           style={{ backgroundColor: content?.brandColour ? `${content?.brandColour}1a` : '#fff' }}
         >
           <FlexContainer className={cx(elHFull, heroAppsFlexToggle)}>
             <FeaturedHeroAppsContentContainer>
-              {iconUri ? (
-                <FeaturedHeroAppsIcon className={elFadeIn} src={iconUri} alt={name} />
-              ) : (
-                <PlaceholderImage className={elMb7} placeholder="placeholderSmall" size={96} />
-              )}
-              <Subtitle className={heroAppsTitle} hasBoldText hasNoMargin>
-                {name}
-              </Subtitle>
-              {category?.name && <HeroAppsChip className={elFadeIn}>{category.name}</HeroAppsChip>}
+              <FeaturedHeroAppsInnerContainer>
+                {iconUri ? (
+                  <FeaturedHeroAppsIcon className={elFadeIn} src={iconUri} alt={name} />
+                ) : (
+                  <PlaceholderImage className={elMb7} placeholder="placeholderSmall" size={96} />
+                )}
+                <FeaturedHeroAppsNameContainer>
+                  <Subtitle className={heroAppsTitle} hasBoldText hasNoMargin>
+                    {name}
+                  </Subtitle>
+                  {category?.name && <HeroAppsChip className={elFadeIn}>{category.name}</HeroAppsChip>}
+                </FeaturedHeroAppsNameContainer>
+              </FeaturedHeroAppsInnerContainer>
               <BodyText className={heroAppsStrapline} hasGreyText>
                 {summary}
               </BodyText>
@@ -76,12 +103,12 @@ export const FeaturedHeroAppsCollection: FC<FeaturedHeroAppsCollectionProps> = (
               {content?.imageUrl ? (
                 <HeroAppsImage src={content.imageUrl} alt={name} />
               ) : (
-                <PlaceholderImage className={elMb7} placeholder="placeholderLarge" size={320} fillAvailable />
+                <PlaceholderImage placeholder="placeholderLarge" size={placeholderSize} fillAvailable />
               )}
             </FeaturedHeroAppsImageContainer>
           </FlexContainer>
         </FeaturedHeroAppsContainer>
       </FlexContainer>
-    </FeaturedHeroAppsCol>
+    </FeaturedHeroAppsItem>
   )
 }

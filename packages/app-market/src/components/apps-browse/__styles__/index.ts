@@ -1,20 +1,40 @@
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
+import { ElSubtitle, ElTitle } from '@reapit/elements'
 import {
   forDesktopAndAbove,
   forMobileAndAbove,
   forSuperWidescreenAndAbove,
   forTabletAndAbove,
-  forWidescreenAndAbove,
 } from '../../../core/__styles__/media'
 
-export const FeaturedHeroAppsCol = styled.div`
-  cursor: pointer;
-  grid-column-end: span 4;
-  min-width: 0;
+export const browseAppsTitleHasFilters = css`
+  margin-bottom: 0;
+`
 
-  ${forDesktopAndAbove} {
-    grid-column-end: span 2;
+export const BrowseAppsTitle = styled(ElTitle)`
+  margin-top: 0.5rem;
+  font-size: 28px;
+
+  &.${browseAppsTitleHasFilters} {
+    margin-bottom: 0;
+  }
+`
+
+export const BrowseAppsSubtitle = styled(ElSubtitle)`
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+`
+
+export const FeaturedHeroAppsItem = styled.div`
+  cursor: pointer;
+  width: 100%;
+  align-self: end;
+  margin-bottom: 1.25rem;
+
+  ${forTabletAndAbove} {
+    margin-bottom: 2.5rem;
   }
 `
 
@@ -37,13 +57,30 @@ export const FeaturedHeroAppsContentContainer = styled.div`
   }
 `
 
+export const FeaturedHeroAppsNameContainer = styled.div`
+  margin-left: 0.75rem;
+
+  ${forMobileAndAbove} {
+    margin-left: 0;
+  }
+`
+
+export const FeaturedHeroAppsInnerContainer = styled.div`
+  display: flex;
+
+  ${forMobileAndAbove} {
+    flex-direction: column;
+  }
+`
+
 export const FeaturedHeroAppsIcon = styled.img`
-  margin-bottom: 1.25rem;
-  border-radius: 1rem;
+  border-radius: 0.25rem;
   width: 48px;
   height: 48px;
 
   ${forMobileAndAbove} {
+    border-radius: 1rem;
+    margin-bottom: 1.25rem;
     width: 96px;
     height: 96px;
   }
@@ -51,9 +88,11 @@ export const FeaturedHeroAppsIcon = styled.img`
 
 export const FeaturedHeroAppsImageContainer = styled.div`
   width: 100%;
+  height: 140px;
 
   ${forTabletAndAbove} {
     width: calc(100% - 276px);
+    height: auto;
   }
 `
 
@@ -65,31 +104,13 @@ export const featuredHeroAppsButton = css`
   }
 `
 
-export const HeroAppsGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-column-gap: 1.25rem;
-  grid-row-gap: 1.25rem;
+export const HeroAppsContainer = styled.div`
+  width: 100%;
+  align-self: end;
   margin-bottom: 1.25rem;
 
   ${forTabletAndAbove} {
-    grid-row-gap: 2.5rem;
     margin-bottom: 2.5rem;
-  }
-`
-
-export const HeroAppsCol = styled.div`
-  cursor: pointer;
-  grid-column-end: span 4;
-  align-self: end;
-  min-width: 0;
-
-  ${forTabletAndAbove} {
-    grid-column-end: span 2;
-  }
-
-  ${forDesktopAndAbove} {
-    grid-column-end: span 1;
   }
 `
 
@@ -109,39 +130,40 @@ export const HeroAppsChip = styled.div`
   display: inline-block;
 `
 
-export const HeroAppsContainer = styled.div`
+export const HeroAppsInnerContainer = styled.div`
   width: 100%;
   padding: 1.25rem;
   border-radius: 0.25rem;
 
   ${forTabletAndAbove} {
-    height: 295px;
-  }
-
-  ${forDesktopAndAbove} {
     height: 400px;
   }
 `
 
 export const HeroAppsContentContainer = styled.div`
-  width: 100%;
+  display: flex;
 
   ${forMobileAndAbove} {
-    margin-right: 3rem;
+    flex-direction: column;
   }
+`
 
-  ${forTabletAndAbove} {
-    width: 177px;
+export const HeroAppsNameContainer = styled.div`
+  margin-left: 0.75rem;
+
+  ${forMobileAndAbove} {
+    margin-left: 0;
   }
 `
 
 export const HeroAppsIcon = styled.img`
-  margin-bottom: 1.25rem;
-  border-radius: 1rem;
+  border-radius: 0.25rem;
   width: 48px;
   height: 48px;
 
   ${forMobileAndAbove} {
+    margin-bottom: 1.25rem;
+    border-radius: 1rem;
     width: 72px;
     height: 72px;
   }
@@ -149,6 +171,7 @@ export const HeroAppsIcon = styled.img`
 
 export const HeroAppsImageContainer = styled.div`
   width: 100%;
+  height: 100px;
 
   ${forTabletAndAbove} {
     width: calc(100% - 177px);
@@ -187,43 +210,21 @@ export const heroAppsFlexToggle = css`
   }
 `
 
-export const heroSubMinHeight = css`
-  min-height: 2rem;
-`
-
-export const AppFilterGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-column-gap: 1.25rem;
-  grid-row-gap: 1.25rem;
+export const AppFilterCol = styled.div`
+  cursor: pointer;
+  padding: 0.75rem;
+  background-color: #eaf5fc;
+  border-radius: 0.25rem;
+  height: 192px;
   margin-bottom: 1.25rem;
 
   ${forTabletAndAbove} {
-    grid-row-gap: 2.5rem;
     margin-bottom: 2.5rem;
-  }
-
-  ${forWidescreenAndAbove} {
-    grid-template-columns: repeat(5, 1fr);
-  }
-
-  ${forSuperWidescreenAndAbove} {
-    grid-template-columns: repeat(10, 1fr);
   }
 `
 
-export const AppFilterCol = styled.div`
-  cursor: pointer;
-  grid-column-end: span 3;
-  align-self: end;
-  height: 180px;
-  padding: 1.25rem 2rem;
-  background-color: #eaf5fc;
-  border-radius: 0.25rem;
-
-  ${forTabletAndAbove} {
-    grid-column-end: span 1;
-  }
+export const appFilterTitle = css`
+  height: 1.25rem;
 `
 
 export const appTitleOneLine = css`
@@ -392,38 +393,17 @@ export const AppSearchFiltersWrap = styled.div`
   }
 `
 
-export const appFiltersButtonActive = css``
-
-export const appFiltersButton = css`
-  text-transform: unset;
-  font-weight: normal;
-  font-size: 14px;
-
-  &:hover,
-  &:focus,
-  &:active,
-  &.${appFiltersButtonActive} {
-    background: var(--intent-primary);
-    color: var(--color-white);
-  }
-`
-
 export const AppsSearchInput = styled.input`
   font-family: var(--font-sans-serif);
   font-size: 14px;
   display: flex;
   flex-grow: 1;
   border-radius: 0 0.25rem 0.25rem 0;
-  background-color: var(--color-grey-light);
+  background: var(--component-input-focus-bg);
   height: 2.5rem;
   border: none;
   margin: 0;
   color: black;
-  background: var(--color-white);
-
-  ${forMobileAndAbove} {
-    background: var(--component-input-focus-bg);
-  }
 
   &:focus {
     outline: none;
@@ -462,11 +442,7 @@ export const appsSearchInputIcon = css`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--color-white);
-
-  ${forMobileAndAbove} {
-    background-color: var(--color-grey-light);
-  }
+  background-color: var(--color-grey-light);
 `
 
 export const appsSearchMobileControls = css`
@@ -511,16 +487,13 @@ export const appsSearchMobileFilterControlsActive = css``
 
 export const AppsSearchMobileFilterControls = styled.div`
   display: flex;
-  width: calc(100% + 2.5rem);
-  margin-left: -1.25rem;
-  background: var(--color-grey-light);
 
   ${forMobileAndAbove} {
     display: none;
   }
 
   &.${appsSearchMobileFilterControlsActive} {
-    padding: 0.5rem 1.25rem;
+    padding: 1.25rem 0;
   }
 `
 
@@ -529,13 +502,10 @@ export const appsFiltersMobileBrowseBy = css`
 `
 
 export const appsFiltersCategories = css`
-  width: calc(100% + 2.5rem);
-  margin-left: -1.25rem;
+  width: 100%;
   margin-bottom: 1.25rem;
 
   ${forMobileAndAbove} {
-    width: 100%;
-    margin-left: 0;
     margin-bottom: 2.5rem;
   }
 `

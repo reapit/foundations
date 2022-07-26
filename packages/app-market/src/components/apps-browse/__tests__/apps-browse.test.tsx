@@ -5,7 +5,7 @@ import {
   checkHasFilters,
   handleMobileControls,
   handleSortConfigs,
-  MobileControlsToggleState,
+  MobileControlsState,
 } from '../apps-browse'
 import { appsBrowseConfigCollection } from '../../../core/config'
 
@@ -65,10 +65,7 @@ describe('checkHasFilters', () => {
 describe('handleMobileControls', () => {
   it('should set controls if there are none in state', () => {
     const setMobileControlsState = jest.fn()
-    const newState = {
-      controls: 'filters',
-      filters: 'categories',
-    } as MobileControlsToggleState
+    const newState = 'filters' as MobileControlsState
 
     const curried = handleMobileControls(setMobileControlsState, newState)
 
@@ -77,24 +74,6 @@ describe('handleMobileControls', () => {
     const setStateAction = setMobileControlsState.mock.calls[0][0]
 
     const actualState = setStateAction({ controls: 'none', filters: 'none' })
-
-    expect(actualState).toEqual(newState)
-  })
-
-  it('should not update controls if the current state is equal to new state', () => {
-    const setMobileControlsState = jest.fn()
-    const newState = {
-      controls: 'filters',
-      filters: 'categories',
-    } as MobileControlsToggleState
-
-    const curried = handleMobileControls(setMobileControlsState, newState)
-
-    curried()
-
-    const setStateAction = setMobileControlsState.mock.calls[0][0]
-
-    const actualState = setStateAction(newState)
 
     expect(actualState).toEqual(newState)
   })

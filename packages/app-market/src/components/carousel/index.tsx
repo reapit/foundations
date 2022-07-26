@@ -24,14 +24,14 @@ export interface CarouselProps {
 
 export const handleScroll =
   (
-    imageRefs: MutableRefObject<LegacyRef<HTMLDivElement>[]>,
+    itemRefs: MutableRefObject<LegacyRef<HTMLDivElement>[]>,
     nextImage: number,
     setCurrentImage: Dispatch<SetStateAction<number>>,
   ) =>
   (event: MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault()
 
-    const nextImageElement = imageRefs.current[nextImage] as RefObject<HTMLDivElement>
+    const nextImageElement = itemRefs.current[nextImage] as RefObject<HTMLDivElement>
 
     if (!nextImageElement?.current) return
 
@@ -58,9 +58,9 @@ export const getCarouselDimensions = (numberCols: number, currentImage: number, 
 
 export const Carousel: FC<CarouselProps> = ({ items, numberCols, className }) => {
   const [currentImage, setCurrentImage] = useState<number>(0)
-  const imageRefs = useRef<LegacyRef<HTMLDivElement>[]>([])
+  const itemRefs = useRef<LegacyRef<HTMLDivElement>[]>([])
 
-  imageRefs.current = items.map((_, i) => imageRefs.current[i] ?? createRef())
+  itemRefs.current = items.map((_, i) => itemRefs.current[i] ?? createRef())
 
   const { percentageWidth, prevImage, nextImage, shouldShowNext, shouldShowPrev } = useMemo(
     getCarouselDimensions(numberCols, currentImage, items),
@@ -70,18 +70,18 @@ export const Carousel: FC<CarouselProps> = ({ items, numberCols, className }) =>
   return (
     <CarouselWrapper className={className}>
       {shouldShowPrev && (
-        <CarouselControlsLeft className={elFadeIn} onClick={handleScroll(imageRefs, prevImage, setCurrentImage)}>
-          <Icon icon="backSystem" intent="neutral" />
+        <CarouselControlsLeft className={elFadeIn} onClick={handleScroll(itemRefs, prevImage, setCurrentImage)}>
+          <Icon icon="backSystem" intent="primary" />
         </CarouselControlsLeft>
       )}
       {shouldShowNext && (
-        <CarouselControlsRight className={elFadeIn} onClick={handleScroll(imageRefs, nextImage, setCurrentImage)}>
-          <Icon icon="nextSystem" intent="neutral" />
+        <CarouselControlsRight className={elFadeIn} onClick={handleScroll(itemRefs, nextImage, setCurrentImage)}>
+          <Icon icon="nextSystem" intent="primary" />
         </CarouselControlsRight>
       )}
-      <CarouselGrid percentageWidth={percentageWidth}>
+      <CarouselGrid percentageWidth={percentageWidth} numberCols={numberCols} numberItems={items.length}>
         {items.map((item, index) => (
-          <CarouselCol key={index} ref={imageRefs.current[index]}>
+          <CarouselCol key={index} ref={itemRefs.current[index]}>
             {item}
           </CarouselCol>
         ))}
