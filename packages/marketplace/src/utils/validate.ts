@@ -65,6 +65,6 @@ export function isValidTelephone(phone: string) {
 }
 
 export function isValidPersonName(name: string) {
-  const pattern = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/g
+  const pattern = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]){1,255}$/g
   return pattern.test(name)
 }
