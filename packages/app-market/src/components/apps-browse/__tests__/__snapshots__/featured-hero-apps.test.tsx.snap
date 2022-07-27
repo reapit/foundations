@@ -47,7 +47,7 @@ Object {
                     </h2>
                   </div>
                   <button
-                    class="featured-hero-apps-button el-button"
+                    class="featured-hero-apps-button-mob-tablet el-button"
                     style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                   >
                     Find Out More
@@ -58,6 +58,12 @@ Object {
                 >
                   Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
                 </p>
+                <button
+                  class="featured-hero-apps-button-desktop el-button"
+                  style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
+                >
+                  Find Out More
+                </button>
               </div>
               <div
                 class="featured-hero-apps-image-container"
@@ -168,7 +174,7 @@ Object {
                   </h2>
                 </div>
                 <button
-                  class="featured-hero-apps-button el-button"
+                  class="featured-hero-apps-button-mob-tablet el-button"
                   style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                 >
                   Find Out More
@@ -179,6 +185,12 @@ Object {
               >
                 Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
               </p>
+              <button
+                class="featured-hero-apps-button-desktop el-button"
+                style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
+              >
+                Find Out More
+              </button>
             </div>
             <div
               class="featured-hero-apps-image-container"
@@ -356,7 +368,7 @@ Object {
                     />
                   </div>
                   <button
-                    class="featured-hero-apps-button el-button"
+                    class="featured-hero-apps-button-mob-tablet el-button"
                     style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                   >
                     Find Out More
@@ -365,6 +377,12 @@ Object {
                 <p
                   class="featured-hero-apps-strapline el-body-text"
                 />
+                <button
+                  class="featured-hero-apps-button-desktop el-button"
+                  style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
+                >
+                  Find Out More
+                </button>
               </div>
               <div
                 class="featured-hero-apps-image-container"
@@ -485,7 +503,7 @@ Object {
                   />
                 </div>
                 <button
-                  class="featured-hero-apps-button el-button"
+                  class="featured-hero-apps-button-mob-tablet el-button"
                   style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
                 >
                   Find Out More
@@ -494,6 +512,12 @@ Object {
               <p
                 class="featured-hero-apps-strapline el-body-text"
               />
+              <button
+                class="featured-hero-apps-button-desktop el-button"
+                style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
+              >
+                Find Out More
+              </button>
             </div>
             <div
               class="featured-hero-apps-image-container"

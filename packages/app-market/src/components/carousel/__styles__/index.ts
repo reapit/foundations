@@ -22,33 +22,17 @@ export const CarouselGrid = styled.div<CarouselGridProps>`
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   display: grid;
+  grid-auto-flow: column;
+  grid-column-gap: 0.75rem;
   grid-template-columns: repeat(
-    auto-fill,
-    minmax(
-      calc(
-        ${({ percentageWidth }) => percentageWidth}% -
-          ${({ numberCols, numberItems }) => {
-            if (numberCols === numberItems) return `${0.375 / numberItems + 0.375}rem`
-            if (numberCols > 1) return '0.375rem'
-            return '0rem'
-          }}
-      ),
-      1fr
+    ${({ numberItems }) => numberItems},
+    calc(
+      ${({ percentageWidth }) => percentageWidth}% -
+        ${({ numberCols }) => {
+          return `${0.75 - 0.75 / numberCols}rem`
+        }}
     )
   );
-  grid-auto-flow: column;
-  grid-auto-columns: minmax(
-    calc(
-      ${(props) => props.percentageWidth}% -
-        ${({ numberCols, numberItems }) => {
-          if (numberCols === numberItems) return `${0.375 / numberItems + 0.375}rem`
-          if (numberCols > 1) return '0.375rem'
-          return '0rem'
-        }}
-    ),
-    1fr
-  );
-  grid-column-gap: 0.75rem;
 
   &::-webkit-scrollbar {
     display: none;
@@ -57,30 +41,13 @@ export const CarouselGrid = styled.div<CarouselGridProps>`
   ${forMobileAndAbove} {
     grid-column-gap: 1.25rem;
     grid-template-columns: repeat(
-      auto-fill,
-      minmax(
-        calc(
-          ${({ percentageWidth }) => percentageWidth}% -
-            ${({ numberCols, numberItems }) => {
-              if (numberCols === numberItems) return `${0.625 / numberItems + 0.625}rem`
-              if (numberCols > 1) return '0.625rem'
-              return '0rem'
-            }}
-        ),
-        1fr
-      )
-    );
-    grid-auto-flow: column;
-    grid-auto-columns: minmax(
+      ${({ numberItems }) => numberItems},
       calc(
-        ${(props) => props.percentageWidth}% -
-          ${({ numberCols, numberItems }) => {
-            if (numberCols === numberItems) return `${0.625 / numberItems + 0.625}rem`
-            if (numberCols > 1) return '0.625rem'
-            return '0rem'
+        ${({ percentageWidth }) => percentageWidth}% -
+          ${({ numberCols }) => {
+            return `${1.25 - 1.25 / numberCols}rem`
           }}
-      ),
-      1fr
+      )
     );
   }
 `

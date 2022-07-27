@@ -23,6 +23,10 @@ import {
   browseAppsTitleHasFilters,
   BrowseAppsSubtitle,
   AppsGrid,
+  heroAppsCarouselWidescreen,
+  AppFilterGrid,
+  AppFilterGridWrap,
+  AppsWrapper,
 } from './__styles__'
 import { AppSearchFilters } from './app-search-filters-bar'
 import { FilteredAppsCollection } from './filtered-apps'
@@ -59,12 +63,12 @@ export const handleSetFilters =
   }
 
 export const handleFiltersCols = (mediaQuery: MediaType) => () => {
-  const { isMobile, isTablet, isDesktop, isWideScreen } = mediaQuery
+  const { isMobile, isTablet, isDesktop, isWideScreen, isSuperWideScreen } = mediaQuery
 
   if (isMobile) return 2
   if (isTablet) return 3
   if (isDesktop) return 4
-  if (isWideScreen) return 5
+  if (isWideScreen || isSuperWideScreen) return 6
 
   return 6
 }
@@ -103,7 +107,8 @@ export const AppsBrowse: FC = () => {
     handleSortConfigs(appsBrowseConfigState),
     [appsBrowseConfigState],
   )
-  const { isMobile, isTablet } = mediaQuery
+  const { isMobile, isTablet, isSuperWideScreen, is4KScreen } = mediaQuery
+  const isFullSizeScreen = isSuperWideScreen || is4KScreen
 
   return (
     <PageContainer>
@@ -133,49 +138,65 @@ export const AppsBrowse: FC = () => {
             <FeaturedHeroAppsCollection key={index} configItem={configItem} />
           ))}
           <Carousel
+            className={heroAppsCarouselWidescreen}
             numberCols={isMobile || isTablet ? 1 : 2}
             items={heroApps.map((configItem, index) => (
               <HeroAppsCollection key={index} configItem={configItem} />
             ))}
           />
-          {Boolean(appsFilters.length) && (
-            <>
-              <BrowseAppsSubtitle>App Collections</BrowseAppsSubtitle>
-              <Carousel
-                className={elMb7}
-                numberCols={filtersCols}
-                items={appsFilters.map((configItem, index) => (
-                  <AppFiltersCollection key={index} configItem={configItem} />
-                ))}
-              />
-            </>
-          )}
-          {featuredApps.map((configItem, index) => (
-            <Fragment key={index}>
-              <FlexContainer isFlexAlignCenter>
-                <BrowseAppsSubtitle>{configItem?.content?.title}</BrowseAppsSubtitle>
-                <AppFilterLink onClick={handleSetFilters(setAppsBrowseFilterState, configItem.filters)}>
-                  See All
-                </AppFilterLink>
-              </FlexContainer>
-              <AppsGrid>
-                <FeaturedAppsCollection configItem={configItem} />
-              </AppsGrid>
-            </Fragment>
-          ))}
-          {simpleApps.map((configItem, index) => (
-            <Fragment key={index}>
-              <FlexContainer isFlexAlignCenter>
-                <BrowseAppsSubtitle>{configItem?.content?.title}</BrowseAppsSubtitle>
-                <AppFilterLink onClick={handleSetFilters(setAppsBrowseFilterState, configItem.filters)}>
-                  See All
-                </AppFilterLink>
-              </FlexContainer>
-              <AppsGrid>
-                <SimpleAppsCollection key={index} configItem={configItem} />
-              </AppsGrid>
-            </Fragment>
-          ))}
+          <FlexContainer isFlexColumn={!isFullSizeScreen}>
+            {Boolean(appsFilters.length) && !isSuperWideScreen && !is4KScreen ? (
+              <>
+                <BrowseAppsSubtitle>App Collections</BrowseAppsSubtitle>
+                <Carousel
+                  className={elMb7}
+                  numberCols={filtersCols}
+                  items={appsFilters.map((configItem, index) => (
+                    <AppFiltersCollection key={index} configItem={configItem} />
+                  ))}
+                />
+              </>
+            ) : (
+              <>
+                <AppFilterGridWrap>
+                  <BrowseAppsSubtitle>App Collections</BrowseAppsSubtitle>
+                  <AppFilterGrid>
+                    {appsFilters.map((configItem, index) => (
+                      <AppFiltersCollection key={index} configItem={configItem} />
+                    ))}
+                  </AppFilterGrid>
+                </AppFilterGridWrap>
+              </>
+            )}
+            <AppsWrapper>
+              {featuredApps.map((configItem, index) => (
+                <Fragment key={index}>
+                  <FlexContainer isFlexAlignCenter>
+                    <BrowseAppsSubtitle>{configItem?.content?.title}</BrowseAppsSubtitle>
+                    <AppFilterLink onClick={handleSetFilters(setAppsBrowseFilterState, configItem.filters)}>
+                      See All
+                    </AppFilterLink>
+                  </FlexContainer>
+                  <AppsGrid>
+                    <FeaturedAppsCollection configItem={configItem} />
+                  </AppsGrid>
+                </Fragment>
+              ))}
+              {simpleApps.map((configItem, index) => (
+                <Fragment key={index}>
+                  <FlexContainer isFlexAlignCenter>
+                    <BrowseAppsSubtitle>{configItem?.content?.title}</BrowseAppsSubtitle>
+                    <AppFilterLink onClick={handleSetFilters(setAppsBrowseFilterState, configItem.filters)}>
+                      See All
+                    </AppFilterLink>
+                  </FlexContainer>
+                  <AppsGrid>
+                    <SimpleAppsCollection key={index} configItem={configItem} />
+                  </AppsGrid>
+                </Fragment>
+              ))}
+            </AppsWrapper>
+          </FlexContainer>
           {isDeveloper && <DeveloperAppsCollection />}
         </>
       )}

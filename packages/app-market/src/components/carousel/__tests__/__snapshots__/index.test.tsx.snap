@@ -33,7 +33,7 @@ Object {
         </a>
         <div
           class="carousel-grid"
-          style="--ckvo4up-0: 100.000%; --ckvo4up-1: 0rem; --ckvo4up-2: 100.000%; --ckvo4up-3: 0rem; --ckvo4up-6: 0rem; --ckvo4up-8: 0rem;"
+          style="--ckvo4up-0: 3; --ckvo4up-1: 100.000%; --ckvo4up-2: 0rem; --ckvo4up-6: 0rem;"
         >
           <div
             class="carousel-col"
@@ -89,7 +89,7 @@ Object {
       </a>
       <div
         class="carousel-grid"
-        style="--ckvo4up-0: 100.000%; --ckvo4up-1: 0rem; --ckvo4up-2: 100.000%; --ckvo4up-3: 0rem; --ckvo4up-6: 0rem; --ckvo4up-8: 0rem;"
+        style="--ckvo4up-0: 3; --ckvo4up-1: 100.000%; --ckvo4up-2: 0rem; --ckvo4up-6: 0rem;"
       >
         <div
           class="carousel-col"

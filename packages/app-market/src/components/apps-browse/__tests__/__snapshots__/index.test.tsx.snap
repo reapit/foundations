@@ -125,11 +125,30 @@ Object {
           />
         </div>
         <div
-          class="carousel-wrapper"
+          class="hero-apps-carousel-widescreen carousel-wrapper"
         >
           <div
             class="carousel-grid"
-            style="--ckvo4up-0: 50.000%; --ckvo4up-1: 0.375rem; --ckvo4up-2: 50.000%; --ckvo4up-3: 0.375rem; --ckvo4up-6: 0.625rem; --ckvo4up-8: 0.625rem;"
+            style="--ckvo4up-0: 0; --ckvo4up-1: 50.000%; --ckvo4up-2: 0.375rem; --ckvo4up-6: 0.625rem;"
+          />
+        </div>
+        <div
+          class="el-flex-column el-flex-container"
+        >
+          <div
+            class="app-filter-grid-wrap"
+          >
+            <h2
+              class="browse-apps-subtitle el-subtitle"
+            >
+              App Collections
+            </h2>
+            <div
+              class="app-filter-grid"
+            />
+          </div>
+          <div
+            class="apps-wrapper"
           />
         </div>
       </section>
@@ -256,11 +275,30 @@ Object {
         />
       </div>
       <div
-        class="carousel-wrapper"
+        class="hero-apps-carousel-widescreen carousel-wrapper"
       >
         <div
           class="carousel-grid"
-          style="--ckvo4up-0: 50.000%; --ckvo4up-1: 0.375rem; --ckvo4up-2: 50.000%; --ckvo4up-3: 0.375rem; --ckvo4up-6: 0.625rem; --ckvo4up-8: 0.625rem;"
+          style="--ckvo4up-0: 0; --ckvo4up-1: 50.000%; --ckvo4up-2: 0.375rem; --ckvo4up-6: 0.625rem;"
+        />
+      </div>
+      <div
+        class="el-flex-column el-flex-container"
+      >
+        <div
+          class="app-filter-grid-wrap"
+        >
+          <h2
+            class="browse-apps-subtitle el-subtitle"
+          >
+            App Collections
+          </h2>
+          <div
+            class="app-filter-grid"
+          />
+        </div>
+        <div
+          class="apps-wrapper"
         />
       </div>
     </section>

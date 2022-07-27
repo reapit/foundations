@@ -12,7 +12,8 @@ import {
   FeaturedHeroAppsImageContainer,
   HeroAppsChip,
   FeaturedHeroAppsItem,
-  featuredHeroAppsButton,
+  featuredHeroAppsButtonMobTablet,
+  featuredHeroAppsButtonDesktop,
   FeaturedHeroAppsNameContainer,
   FeaturedHeroAppsInnerContainer,
   BrowseAppsSubtitle,
@@ -81,11 +82,20 @@ export const FeaturedHeroAppsCollection: FC<FeaturedHeroAppsCollectionProps> = m
                   <FeaturedHeroAppsSubtitle>{name}</FeaturedHeroAppsSubtitle>
                   {category?.name && <HeroAppsChip className={elFadeIn}>{category.name}</HeroAppsChip>}
                 </FeaturedHeroAppsNameContainer>
-                <Button className={featuredHeroAppsButton} style={{ background: content?.brandColour, color: '#fff' }}>
+                <Button
+                  className={featuredHeroAppsButtonMobTablet}
+                  style={{ background: content?.brandColour, color: '#fff' }}
+                >
                   Find Out More
                 </Button>
               </FeaturedHeroAppsInnerContainer>
               <FeaturedHeroAppsStrapline>{summary}</FeaturedHeroAppsStrapline>
+              <Button
+                className={featuredHeroAppsButtonDesktop}
+                style={{ background: content?.brandColour, color: '#fff' }}
+              >
+                Find Out More
+              </Button>
             </FeaturedHeroAppsContentContainer>
             <FeaturedHeroAppsImageContainer>
               {content?.imageUrl ? (

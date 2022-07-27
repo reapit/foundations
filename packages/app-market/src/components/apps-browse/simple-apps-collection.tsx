@@ -16,13 +16,12 @@ interface SimpleAppsCollectionProps {
 }
 
 export const handleMaxLength = (mediaQuery: MediaType) => () => {
-  const { isMobile, isTablet, isDesktop, isWideScreen } = mediaQuery
+  const { isMobile, isTablet, isDesktop } = mediaQuery
 
   if (isMobile || isTablet) return 6
   if (isDesktop) return 8
-  if (isWideScreen) return 12
 
-  return 20
+  return 12
 }
 
 export const SimpleAppsCollection: FC<SimpleAppsCollectionProps> = memo(({ configItem }) => {

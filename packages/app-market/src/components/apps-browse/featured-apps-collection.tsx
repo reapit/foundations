@@ -19,9 +19,9 @@ export const handleMaxLength = (mediaQuery: MediaType) => () => {
   const { isMobile, isTablet, isDesktop, isWideScreen } = mediaQuery
 
   if (isMobile || isTablet || isDesktop) return 3
-  if (isWideScreen || isDesktop) return 8
+  if (isWideScreen) return 4
 
-  return 12
+  return 8
 }
 
 export const FeaturedAppsCollection: FC<FeaturedAppsCollectionProps> = memo(({ configItem }) => {

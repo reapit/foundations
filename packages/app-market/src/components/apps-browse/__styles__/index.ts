@@ -1,3 +1,4 @@
+import { forWidescreenAndAbove } from './../../../core/__styles__/media'
 import { ElBodyText } from './../../../../../elements/src/components/typography/__styles__/index'
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
@@ -72,7 +73,12 @@ export const FeaturedHeroAppsStrapline = styled(ElBodyText)`
 
   ${forDesktopAndAbove} {
     margin-bottom: 3.75rem;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 3;
+  }
+
+  ${forSuperWidescreenAndAbove} {
+    margin-bottom: 0.5rem;
+    -webkit-line-clamp: 1;
   }
 `
 
@@ -84,6 +90,12 @@ export const FeaturedHeroAppsItem = styled.div`
 
   ${forTabletAndAbove} {
     margin-bottom: 2.5rem;
+  }
+
+  ${forSuperWidescreenAndAbove} {
+    width: calc(50% - 1rem);
+    display: inline-block;
+    margin-right: 2rem;
   }
 `
 
@@ -99,14 +111,23 @@ export const FeaturedHeroAppsContainer = styled.div`
   ${forTabletAndAbove} {
     height: 400px;
   }
+
+  ${forSuperWidescreenAndAbove} {
+    height: 550px;
+  }
 `
 
 export const FeaturedHeroAppsFlexContainer = styled.div`
   display: flex;
   flex-direction: column;
+  height: 100%;
 
   ${forDesktopAndAbove} {
     flex-direction: row;
+  }
+
+  ${forSuperWidescreenAndAbove} {
+    flex-direction: column;
   }
 `
 
@@ -114,8 +135,13 @@ export const FeaturedHeroAppsContentContainer = styled.div`
   width: 100%;
 
   ${forDesktopAndAbove} {
-    width: 276px;
+    width: calc(25% - 1.5rem);
     margin-right: 3rem;
+  }
+
+  ${forSuperWidescreenAndAbove} {
+    width: 100%;
+    margin-right: 0;
   }
 `
 
@@ -132,6 +158,11 @@ export const FeaturedHeroAppsNameContainer = styled.div`
   ${forDesktopAndAbove} {
     margin-left: 0;
   }
+
+  ${forSuperWidescreenAndAbove} {
+    display: block;
+    margin-left: 0.75rem;
+  }
 `
 
 export const FeaturedHeroAppsInnerContainer = styled.div`
@@ -143,8 +174,13 @@ export const FeaturedHeroAppsInnerContainer = styled.div`
   }
 
   ${forDesktopAndAbove} {
-    margin-bottom: 1.25rem;
+    margin-bottom: 0.75rem;
     flex-direction: column;
+  }
+
+  ${forSuperWidescreenAndAbove} {
+    margin-bottom: 0;
+    flex-direction: row;
   }
 `
 
@@ -161,6 +197,7 @@ export const FeaturedHeroAppsIcon = styled.img`
 
   ${forDesktopAndAbove} {
     border-radius: 1rem;
+    margin-bottom: 1.25rem;
     width: 96px;
     height: 96px;
   }
@@ -175,16 +212,41 @@ export const FeaturedHeroAppsImageContainer = styled.div`
   }
 
   ${forDesktopAndAbove} {
-    width: calc(100% - 276px);
+    width: calc(75% - 1.5rem);
     height: auto;
+  }
+
+  ${forSuperWidescreenAndAbove} {
+    width: 100%;
+    height: 100%;
   }
 `
 
-export const featuredHeroAppsButton = css`
+export const featuredHeroAppsButtonMobTablet = css`
   display: none;
 
   ${forMobileAndAbove} {
     display: block;
+  }
+
+  ${forDesktopAndAbove} {
+    display: none;
+  }
+
+  ${forSuperWidescreenAndAbove} {
+    display: block;
+  }
+`
+
+export const featuredHeroAppsButtonDesktop = css`
+  display: none;
+
+  ${forDesktopAndAbove} {
+    display: block;
+  }
+
+  ${forSuperWidescreenAndAbove} {
+    display: none;
   }
 `
 
@@ -196,6 +258,13 @@ export const HeroAppsContainer = styled.div`
 
   ${forTabletAndAbove} {
     margin-bottom: 2.5rem;
+  }
+`
+
+export const heroAppsCarouselWidescreen = css`
+  ${forSuperWidescreenAndAbove} {
+    width: calc(50% - 1rem);
+    display: inline-block;
   }
 `
 
@@ -257,6 +326,18 @@ export const HeroAppsStrapline = styled(ElBodyText)`
     -webkit-line-clamp: 2;
     margin-bottom: 1.25rem;
   }
+
+  ${forDesktopAndAbove} {
+    font-size: 16px;
+    line-height: 20px;
+    -webkit-line-clamp: 5;
+    margin-bottom: 0;
+  }
+
+  ${forSuperWidescreenAndAbove} {
+    -webkit-line-clamp: 2;
+    margin-bottom: 1.25rem;
+  }
 `
 
 export const HeroAppsInnerContainer = styled.div`
@@ -271,6 +352,14 @@ export const HeroAppsInnerContainer = styled.div`
   ${forTabletAndAbove} {
     height: 400px;
   }
+
+  ${forDesktopAndAbove} {
+    height: 300px;
+  }
+
+  ${forSuperWidescreenAndAbove} {
+    height: 550px;
+  }
 `
 
 export const HeroAppsContentContainer = styled.div`
@@ -281,7 +370,17 @@ export const HeroAppsContentContainer = styled.div`
     margin-bottom: 0.5rem;
   }
 
-  ${forMobileAndAbove} {
+  ${forTabletAndAbove} {
+    flex-direction: row;
+    margin-bottom: 0;
+  }
+
+  ${forDesktopAndAbove} {
+    flex-direction: column;
+    margin-bottom: 0.5rem;
+  }
+
+  ${forSuperWidescreenAndAbove} {
     flex-direction: row;
     margin-bottom: 0;
   }
@@ -302,6 +401,18 @@ export const HeroAppsContentWrapper = styled.div`
     margin-right: 0;
     height: 148px;
   }
+
+  ${forDesktopAndAbove} {
+    width: calc(33.33% - 1.25rem);
+    margin-right: 1.25rem;
+    height: 100%;
+  }
+
+  ${forSuperWidescreenAndAbove} {
+    width: 100%;
+    margin-right: 0;
+    height: 155px;
+  }
 `
 
 export const HeroAppsNameContainer = styled.div`
@@ -312,6 +423,14 @@ export const HeroAppsNameContainer = styled.div`
   }
 
   ${forTabletAndAbove} {
+    margin-left: 0.75rem;
+  }
+
+  ${forDesktopAndAbove} {
+    margin-left: 0;
+  }
+
+  ${forSuperWidescreenAndAbove} {
     margin-left: 0.75rem;
   }
 `
@@ -342,6 +461,15 @@ export const HeroAppsImageContainer = styled.div`
     width: 100%;
     flex-grow: 1;
   }
+
+  ${forDesktopAndAbove} {
+    width: auto;
+  }
+
+  ${forSuperWidescreenAndAbove} {
+    width: 100%;
+    flex-grow: 1;
+  }
 `
 
 export const heroAppsFlexToggle = css`
@@ -353,6 +481,36 @@ export const heroAppsFlexToggle = css`
 
   ${forTabletAndAbove} {
     flex-direction: column;
+  }
+
+  ${forDesktopAndAbove} {
+    flex-direction: row;
+  }
+
+  ${forSuperWidescreenAndAbove} {
+    flex-direction: column;
+  }
+`
+
+export const AppFilterGridWrap = styled.div`
+  display: none;
+
+  ${forSuperWidescreenAndAbove} {
+    width: calc(50% - 1rem);
+    margin-right: 2rem;
+    display: block;
+  }
+`
+
+export const AppFilterGrid = styled.div`
+  display: none;
+
+  ${forSuperWidescreenAndAbove} {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 2rem;
+    grid-row-gap: 1.25rem;
+    margin-bottom: 2.5rem;
   }
 `
 
@@ -366,6 +524,20 @@ export const AppFilterCol = styled.div`
   ${forMobileAndAbove} {
     padding: 1.25rem;
     height: 230px;
+  }
+
+  ${forDesktopAndAbove} {
+    height: 280px;
+  }
+
+  ${forWidescreenAndAbove} {
+    padding: 1.25rem 2.5rem;
+    height: 260px;
+  }
+
+  ${forSuperWidescreenAndAbove} {
+    grid-column-end: span 1;
+    height: auto;
   }
 `
 
@@ -400,6 +572,16 @@ export const AppFilterStrapline = styled(ElBodyText)`
     line-height: 18px;
     -webkit-line-clamp: 4;
   }
+
+  ${forDesktopAndAbove} {
+    font-size: 16px;
+    line-height: 20px;
+    -webkit-line-clamp: 5;
+  }
+
+  ${forWidescreenAndAbove} {
+    -webkit-line-clamp: 3;
+  }
 `
 
 export const AppsGrid = styled.div`
@@ -420,7 +602,6 @@ export const AppsGrid = styled.div`
   }
 
   ${forSuperWidescreenAndAbove} {
-    grid-template-columns: repeat(7, 1fr);
   }
 `
 
@@ -443,6 +624,23 @@ export const AppsCol = styled.div`
     grid-column-end: span 4;
     height: 108px;
   }
+
+  ${forDesktopAndAbove} {
+    grid-column-end: span 3;
+    height: 86px;
+  }
+
+  ${forSuperWidescreenAndAbove} {
+    grid-column-end: span 3;
+  }
+`
+
+export const AppsWrapper = styled.div`
+  width: 100%;
+
+  ${forSuperWidescreenAndAbove} {
+    width: calc(50% - 1rem);
+  }
 `
 
 export const FeaturedAppStrapline = styled(ElBodyText)`
@@ -463,6 +661,10 @@ export const FeaturedAppStrapline = styled(ElBodyText)`
 
   ${forTabletAndAbove} {
     -webkit-line-clamp: 2;
+  }
+
+  ${forDesktopAndAbove} {
+    -webkit-line-clamp: 1;
   }
 `
 
@@ -492,6 +694,12 @@ export const AppFilterLink = styled.a`
   margin-left: 1.25rem;
   margin-top: 0.25rem;
   margin-bottom: 0.5rem;
+
+  ${forMobileAndAbove} {
+    margin-top: 0.125rem;
+    font-size: 16px;
+    line-height: 20px;
+  }
 `
 
 export const SimpleAppStrapline = styled(ElBodyText)`
@@ -520,6 +728,10 @@ export const SimpleAppsCol = styled(AppsCol)`
   ${forTabletAndAbove} {
     grid-column-end: span 3;
   }
+
+  ${forDesktopAndAbove} {
+    grid-column-end: span 2;
+  }
 `
 
 export const DeveloperAppsGrid = styled.div`
@@ -534,8 +746,8 @@ export const DeveloperAppsGrid = styled.div`
     grid-column-gap: 0.75rem;
   }
 
-  ${forSuperWidescreenAndAbove} {
-    grid-template-columns: repeat(10, 1fr);
+  ${forDesktopAndAbove} {
+    grid-template-columns: repeat(12, 1fr);
   }
 `
 
@@ -547,6 +759,10 @@ export const DeveloperAppsColHelper = styled.div`
 
   ${forMobileAndAbove} {
     grid-column-end: span 6;
+  }
+
+  ${forDesktopAndAbove} {
+    grid-column-end: span 2;
   }
 `
 
