@@ -54,6 +54,8 @@ const removeTypename = (object: any) => {
   return object
 }
 
+const lowercaseFirstLetter = (str: string) => str.charAt(0).toLowerCase() + str.slice(1)
+
 const mapDataToArgs = (data: any, args?: ParsedArg[], withIdMapping?: boolean) => {
   if (!args) return {}
   if (!data) return {}
@@ -65,16 +67,9 @@ const mapDataToArgs = (data: any, args?: ParsedArg[], withIdMapping?: boolean) =
       dataCopy[name] = data[name]
     }
     if (withIdMapping && idOfType) {
-      if (isList) {
-        const obj = data[`${idOfType.toLowerCase()}s`]
-        if (obj) {
-          dataCopy[name] = obj.map((item) => item)
-        }
-      } else {
-        const obj = data[idOfType.toLowerCase()]
-        if (obj) {
-          dataCopy[name] = obj
-        }
+      const obj = data[lowercaseFirstLetter(idOfType) + (isList ? 's' : '')]
+      if (obj) {
+        dataCopy[name] = Array.isArray(obj) ? obj.map((o) => o.id) : obj.id
       }
     }
   })

@@ -26,7 +26,7 @@ import { CustomEntityResolver } from './resolvers/custom-entity-resolver'
 import { CustomEntity, CustomEntityField } from './entities/custom-entity'
 import { extractMetadata, isIdEntityType } from './utils/extract-metadata'
 import { AppointmentResolver } from './resolvers/appointment-resolver'
-import { CompanyResolver } from './resolvers/company-resolver'
+import { CompanyAddressResolver, CompanyResolver } from './resolvers/company-resolver'
 import { OfferResolver } from './resolvers/offer-resolver'
 import { PropertyImageResolver } from './resolvers/property-image-resolver'
 import { DepartmentResolver } from './resolvers/department-resolver'
@@ -320,6 +320,7 @@ export const getSchema = async (context?: Context): Promise<GraphQLSchema> => {
       OfferResolver,
       PropertyImageResolver,
       DepartmentResolver,
+      CompanyAddressResolver,
     ],
     authChecker: customAuthChecker,
   })

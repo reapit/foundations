@@ -1,6 +1,7 @@
+import { CountryCode } from '../utils/country-code-enum'
 import { gql } from 'apollo-server-core'
 import { Field, GraphQLISODateTime, ID, InputType, ObjectType } from 'type-graphql'
-import { ContactAddressInput, ContactAddress } from './contact'
+import { ContactAddressType } from './contact'
 
 @ObjectType({ description: '@labelKeys(value)' })
 export class CompanyType {
@@ -9,6 +10,38 @@ export class CompanyType {
 
   @Field()
   value: string
+}
+
+@InputType('CompanyTypeInput')
+@ObjectType()
+export class CompanyAddress {
+  @Field({ nullable: true })
+  buildingName?: string
+
+  @Field({ nullable: true })
+  buildingNumber?: string
+
+  @Field({ nullable: true })
+  line1?: string
+
+  @Field({ nullable: true })
+  line2?: string
+
+  @Field({ nullable: true })
+  line3?: string
+
+  @Field({ nullable: true })
+  line4?: string
+
+  @Field({ nullable: true })
+  postcode?: string
+
+  country?: CountryCode
+
+  type?: ContactAddressType
+
+  @Field(() => CountryCode, { nullable: true })
+  countryId?: CountryCode
 }
 
 @ObjectType()
@@ -22,8 +55,8 @@ export class Company {
   @Field(() => GraphQLISODateTime)
   modified: Date
 
-  @Field(() => ContactAddress)
-  address: ContactAddress
+  @Field(() => CompanyAddress)
+  address: CompanyAddress
 
   @Field()
   name: string
@@ -41,7 +74,7 @@ export class Company {
   email: string
 
   @Field(() => [CompanyType])
-  types: CompanyType[]
+  companyTypes: CompanyType[]
 
   typeIds: string[]
 
@@ -50,8 +83,8 @@ export class Company {
 
 @InputType()
 export class CompanyInput {
-  @Field(() => ContactAddressInput)
-  address: ContactAddressInput
+  @Field(() => CompanyAddress)
+  address: CompanyAddress
 
   @Field()
   name: string
@@ -68,8 +101,9 @@ export class CompanyInput {
   @Field({ nullable: true })
   email: string
 
-  @Field(() => [String], { description: '@idOf(CompanyType)' })
   typeIds: string[]
+  @Field(() => [String], { description: '@idOf(CompanyType)' })
+  companyTypeIds: string[]
 
   metadata: any
 }
@@ -96,5 +130,6 @@ export const CompanyFragment = gql`
       postcode
       country
     }
+    _eTag
   }
 `

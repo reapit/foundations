@@ -13,7 +13,7 @@ import { getContact } from './contact-resolver'
 const getApplicationQuery = gql`
   ${ApplicantFragment}
   query GetApplicants($name: String) {
-    GetApplicants(name: $name, embed: [offices, negotiators]) {
+    GetApplicants(name: $name, embed: [offices, department, negotiators]) {
       _embedded {
         ...ApplicantFragment
       }
@@ -24,7 +24,7 @@ const getApplicationQuery = gql`
 const getApplicantQuery = gql`
   ${ApplicantFragment}
   query GetApplicant($id: String!) {
-    GetApplicantById(id: $id, embed: [offices, negotiators]) {
+    GetApplicantById(id: $id, embed: [offices, department, negotiators]) {
       ...ApplicantFragment
     }
   }
@@ -52,8 +52,8 @@ const createApplicantMutation = gql`
     $renting: ApplicantRentingInput
     $externalArea: ApplicantExternalAreaInput
     $internalArea: ApplicantInternalAreaInput
-    $officeIds: [String!]!
-    $negotiatorIds: [String!]!
+    $officeIds: [String!]
+    $negotiatorIds: [String!]
     $departmentId: String!
     $related: [ApplicantRelateInput]
     $metadata: JSON
@@ -113,11 +113,11 @@ const updateApplicantMutation = gql`
     $renting: ApplicantRentingInput
     $externalArea: ApplicantExternalAreaInput
     $internalArea: ApplicantInternalAreaInput
-    $officeIds: [String!]!
+    $officeIds: [String!]
     $departmentId: String!
-    $negotiatorIds: [String!]!
-    $related: [ApplicantRelateInput]
+    $negotiatorIds: [String!]
     $metadata: JSON
+    $_eTag: String!
   ) {
     UpdateApplicant(
       id: $id
@@ -141,11 +141,10 @@ const updateApplicantMutation = gql`
       internalArea: $internalArea
       buying: $buying
       renting: $renting
-
+      _eTag: $_eTag
       negotiatorIds: $negotiatorIds
       officeIds: $officeIds
       metadata: $metadata
-      related: $related
     ) {
       ...ApplicantFragment
     }

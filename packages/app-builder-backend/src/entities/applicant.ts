@@ -195,9 +195,6 @@ registerEnumType(MarketingMode, {
 
 @InputType()
 export class ApplicantInput {
-  @Field()
-  description: string
-
   @Field(() => MarketingMode)
   marketingMode: MarketingMode
 

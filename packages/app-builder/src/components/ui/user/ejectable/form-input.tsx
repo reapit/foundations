@@ -120,12 +120,13 @@ const SelectIDofType = ({
   }, [searchError])
 
   useEffect(() => {
-    if (defaultValue?.id) {
+    if (defaultValue) {
+      const value = typeof defaultValue === 'object' ? defaultValue.id : defaultValue
       onChange({
-        target: { value: defaultValue.id, name },
+        target: { value, name },
       } as React.ChangeEvent<HTMLInputElement | HTMLSelectElement>)
     }
-  }, [defaultValue?.id])
+  }, [defaultValue])
 
   if (searchAvailable) {
     return (
@@ -152,7 +153,7 @@ const SelectIDofType = ({
           value={value}
           onChange={onChange}
           disabled={disabled}
-          defaultValue={defaultValue?.id}
+          defaultValue={typeof defaultValue === 'object' ? defaultValue.id : defaultValue}
         >
           {data.map((obj) => (
             <option key={obj.id} value={obj.id}>
@@ -178,6 +179,9 @@ const SelectIDofType = ({
 }
 
 export const camelCaseToSentence = (camelCase: string) => {
+  if (camelCase.length === 2) {
+    return camelCase
+  }
   return uppercaseSentence(camelCase.replace(/([A-Z])/g, ' $1'))
 }
 
@@ -627,7 +631,7 @@ const InnerFormInput = (
   const { isList } = formInput
   const label = friendlyIdName(name)
   if (isList) {
-    const newDefaultValue = defaultValues[label.toLowerCase()]
+    const newDefaultValue = defaultValues[label.toLowerCase()] || defaultValues[name]
     return (
       <ListInput
         defaultValue={newDefaultValue}

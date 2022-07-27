@@ -146,7 +146,6 @@ export const CreatePage = ({
       sourcePageId,
       [operationType, typeName].join(' '),
     )
-    console.log(nodes)
     await updatePageNodes(nodesObjtoToArr(appId, page.id, nodes), page.id)
     setLoading(false)
     onCreate(pageId)
