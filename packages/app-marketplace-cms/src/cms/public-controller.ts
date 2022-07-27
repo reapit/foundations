@@ -15,22 +15,47 @@ type Pagination<T> = {
 export class PublicController {
   constructor(private readonly cmsProvider: CmsProvider) {}
 
+  protected isLive(configItem: MarketplaceAppModel): boolean {
+    const now = new Date().getTime()
+
+    if (typeof configItem.live.timeFrom !== 'undefined' || typeof configItem.live.timeTo !== 'undefined') {
+      if (
+        typeof configItem.live.timeTo !== 'undefined' &&
+        new Date(configItem.live.timeTo).getTime() >= now &&
+        typeof configItem.live.timeFrom !== 'undefined' &&
+        new Date(configItem.live.timeFrom).getTime() <= now
+      ) {
+        return true
+      } else if (
+        typeof configItem.live.timeFrom !== 'undefined' &&
+        new Date(configItem.live.timeFrom).getTime() <= now
+      ) {
+        return true
+      } else if (typeof configItem.live.timeTo !== 'undefined' && new Date(configItem.live.timeTo).getTime() >= now) {
+        return true
+      }
+
+      return false
+    }
+
+    return configItem.live.isLive
+  }
+
   protected async resolvePaginationObject(
-    apiKeys: [QueryIterator<MarketplaceAppModel>, { nextCursor: string }],
+    configItems: [QueryIterator<MarketplaceAppModel>, { nextCursor: string }],
   ): Promise<Pagination<MarketplaceAppModel>> {
     const pagination: Pagination<MarketplaceAppModel> = {
       items: [],
-      meta: apiKeys[1],
+      meta: configItems[1],
     }
 
-    for await (const apiKey of apiKeys[0]) {
-      pagination.items.push(apiKey)
+    for await (const configItem of configItems[0]) {
+      if (this.isLive(configItem)) pagination.items.push(configItem)
     }
 
     return pagination
   }
 
-  // TODO add filters for public
   @Get()
   async fetch(): Promise<Pagination<MarketplaceAppModel>> {
     return this.resolvePaginationObject(await this.cmsProvider.findAll({}))

@@ -48,8 +48,8 @@ export class BitbucketProvider {
     await this.repository.delete({ clientKey: bitbucketClient.clientKey })
   }
 
-  async findByClientKey(clientKey: string): Promise<BitbucketClientEntity | undefined> {
-    return this.repository.findOne({ clientKey })
+  async findByClientKey(clientKey: string): Promise<BitbucketClientEntity | null> {
+    return this.repository.findOne({ where: { clientKey } })
   }
 
   async listRepositories(client: BitbucketClientEntity): Promise<PaginatedRepositories> {

@@ -1,18 +1,21 @@
-import * as React from 'react'
+import React, { FC } from 'react'
 import Router from './router'
-import ErrorBoundary from '@/components/hocs/error-boundary'
-import { injectSwitchModeToWindow } from '@reapit/elements-legacy'
+import { injectSwitchModeToWindow } from '@reapit/utils-react'
+import { ErrorBoundary } from './error-boundary'
+import { MediaStateProvider, NavStateProvider, SnackProvider } from '@reapit/elements'
 
 injectSwitchModeToWindow()
 
-import '@/styles/index.css'
-
-const App = () => {
-  return (
-    <ErrorBoundary>
-      <Router />
-    </ErrorBoundary>
-  )
-}
+const App: FC = () => (
+  <ErrorBoundary>
+    <SnackProvider>
+      <NavStateProvider>
+        <MediaStateProvider>
+          <Router />
+        </MediaStateProvider>
+      </NavStateProvider>
+    </SnackProvider>
+  </ErrorBoundary>
+)
 
 export default App

@@ -18,7 +18,7 @@ import {
 import Routes from '@/constants/routes'
 import DevsManagementFilterForm, { DevsManagementFilterFormValues } from '@/components/ui/devs-management-filter-form'
 import { DeveloperModel, MemberModel } from '@reapit/foundations-ts-definitions'
-import { fetchDeveloperList, fetchDeveloperListValues, fetchDeveloperMemberList } from '@/actions/devs-management'
+import { fetchDeveloperList, FetchDeveloperListValues, fetchDeveloperMemberList } from '@/actions/devs-management'
 import qs from 'querystring'
 import { selectDeveloperListState } from '@/selector/admin'
 import { Dispatch } from 'redux'
@@ -42,7 +42,7 @@ export const buildFilterValues = (queryParams: URLSearchParams): DevsManagementF
   return { name, company, registeredFrom, registeredTo, status } as DevsManagementFilterFormValues
 }
 
-export const handleFetchData = (dispatch: Dispatch) => (requestData: fetchDeveloperListValues) => {
+export const handleFetchData = (dispatch: Dispatch) => (requestData: FetchDeveloperListValues) => {
   dispatch(fetchDeveloperList(requestData))
 }
 

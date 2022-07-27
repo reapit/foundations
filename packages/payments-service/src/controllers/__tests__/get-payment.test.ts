@@ -23,7 +23,8 @@ const baseMockReq = {
   params: {
     paymentId: 'SOME_PAYMENT_ID',
   },
-}
+  get: () => 'https://payments.dev.paas.reapit.cloud',
+} as unknown as AppRequest
 
 const baseMockRes = {
   status: jest.fn(),
@@ -139,9 +140,7 @@ describe('getPayment', () => {
     })
     expect(logger.error).toHaveBeenCalledTimes(0)
     expect(mockRes.status).toHaveBeenCalledWith(200)
-    expect(mockRes.json).toHaveBeenLastCalledWith({
-      payment: {},
-    })
+    expect(mockRes.json).toHaveBeenLastCalledWith({})
   })
 
   it('should not find an API key and return a 404 to the user on failure', async () => {

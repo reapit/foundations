@@ -1,13 +1,6 @@
-import * as React from 'react'
-import { render } from '../../../tests/react-testing'
+import React from 'react'
+import { render } from '../../tests/react-testing'
 import { PrivateRouteWrapper } from '../private-route-wrapper'
-
-const locationMock = { pathname: '/test' }
-
-jest.mock('react-router', () => ({
-  ...(jest.requireActual('react-router') as Object),
-  useLocation: jest.fn(() => locationMock),
-}))
 
 jest.mock('@reapit/connect-session', () => ({
   ReapitConnectBrowserSession: jest.fn(),
@@ -18,7 +11,14 @@ jest.mock('@reapit/connect-session', () => ({
 }))
 
 describe('PrivateRouter', () => {
+  window.location.pathname = '/foo'
   it('should match a snapshot', () => {
-    expect(render(<PrivateRouteWrapper />)).toMatchSnapshot()
+    expect(
+      render(
+        <PrivateRouteWrapper>
+          <div />
+        </PrivateRouteWrapper>,
+      ),
+    ).toMatchSnapshot()
   })
 })

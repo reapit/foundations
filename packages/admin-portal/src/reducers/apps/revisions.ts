@@ -8,13 +8,13 @@ import {
   setRequestDeclineRevisionFormState,
   fetchRevision,
 } from '@/actions/revision-detail'
-import { PagedResultDesktopIntegrationTypeModel_ } from '@/types/desktop-integration-types'
+import { PagedResultDesktopIntegrationTypeModel } from '@/types/desktop-integration-types'
 import { FetchDetailResult, getDefaultFetchDetailValue } from '@reapit/utils-common'
 
 export interface RevisionDetailItem {
   data: AppRevisionModel
   scopes: ScopeModel[]
-  desktopIntegrationTypes: PagedResultDesktopIntegrationTypeModel_
+  desktopIntegrationTypes: PagedResultDesktopIntegrationTypeModel
 }
 
 export type RevisionDetailState = FetchDetailResult<RevisionDetailItem> & {

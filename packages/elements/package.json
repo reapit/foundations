@@ -1,6 +1,6 @@
 {
   "name": "@reapit/elements",
-  "version": "3.8.6",
+  "version": "3.8.8",
   "description": "A collection of React components and utilities for building apps for Reapit Marketplace",
   "homepage": "https://github.com/reapit/foundations#readme",
   "bugs": {
@@ -40,7 +40,8 @@
   ],
   "dependencies": {
     "@linaria/core": "^3.0.0-beta.15",
-    "@linaria/react": "^3.0.0-beta.15"
+    "@linaria/react": "^3.0.0-beta.15",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@linaria/babel-preset": "^3.0.0-beta.15",
@@ -71,17 +72,18 @@
     "@storybook/react-docgen-typescript-plugin": "1.0.1",
     "@storybook/theming": "^6.5.9",
     "@svgr/rollup": "^6.2.1",
-    "@typescript-eslint/eslint-plugin": "^5.30.4",
-    "@typescript-eslint/parser": "^5.30.4",
-    "babel-jest": "^28.1.2",
+    "@types/uuid": "^8.3.4",
+    "@typescript-eslint/eslint-plugin": "^5.30.7",
+    "@typescript-eslint/parser": "^5.30.7",
+    "babel-jest": "^28.1.3",
     "babel-loader": "^8.2.5",
     "colord": "^2.9.2",
     "concurrently": "^6.5.1",
     "cross-env": "^7.0.3",
     "dashify": "2.0.0",
-    "eslint": "8.19.0",
+    "eslint": "8.20.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "jest": "^28.1.2",
+    "jest": "^28.1.3",
     "jest-coverage-badges": "^1.1.2",
     "move-file-cli": "^2.0.0",
     "node-polyfill-webpack-plugin": "^1.1.4",
@@ -90,17 +92,17 @@
     "react-docgen-typescript-loader": "^3.7.2",
     "react-is": "^16.13.1",
     "rimraf": "^3.0.2",
-    "rollup": "^2.75.7",
+    "rollup": "^2.77.0",
     "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-terser": "^7.0.2",
     "serverless": "^2.72.3",
     "serverless-s3-deploy": "^0.10.1",
     "serverless-s3-remover": "^0.6.0",
     "serverless-single-page-app-plugin": "^1.0.4",
-    "snyk": "^1.962.0",
+    "snyk": "^1.980.0",
     "tslib": "^2.4.0",
     "typescript": "4.6.3",
-    "webpack": "^5.73.0"
+    "webpack": "^5.74.0"
   },
   "peerDependencies": {
     "react": ">=17.0.2",

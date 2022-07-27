@@ -196,7 +196,7 @@ export const SubmitReviewModal: FC<SubmitReviewModalProps> = ({ closeModal, refe
   }
 
   return (
-    <form onSubmit={handleSubmit(updateDeveloper)}>
+    <form onSubmit={handleSubmit((values) => updateDeveloper(values))}>
       <BodyText>Any changes have been saved successfully.</BodyText>
       <BodyText>
         However, before an app can be submitted (either privately or publicly), we will first need to verify your

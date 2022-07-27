@@ -17,7 +17,7 @@ export const isValidUrlWithCustomScheme = (urls: string): boolean => {
 }
 
 export const checkValidCustomScheme = (url: string): boolean => {
-  const result = url.match(/([a-zA-Z]+):\/\/(.+)/)
+  const result = url.match(/([a-zA-Z-]{1,30}):\/\/([a-zA-Z\d-.:]{1,255})/)
   if (!result) {
     return false
   }

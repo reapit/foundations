@@ -13,6 +13,7 @@ export const ApiNames = (appEnv: AppEnv) => {
         : 'https://api-key.prod.paas.reapit.cloud/api-key',
     iaas: `${appEnv !== 'production' ? '.dev' : 'prod'}.paas.reapit.cloud`,
     appMarketCms: `https://marketplace-cms.${appEnv !== 'production' ? 'dev' : 'prod'}.paas.reapit.cloud`,
+    payments: `https://payments-service.${appEnv !== 'production' ? 'dev' : 'prod'}.paas.reapit.cloud`,
   }
 }
 
@@ -66,4 +67,8 @@ export enum PathNames {
   appConsentApprove = '/marketplace/apps/{appId}/revisions/{revisionId}/consents/{consentId}/approve',
   cmsConfig = '/cms/config',
   cmsConfigPost = '/cms/config/{id}',
+  propertyById = '/properties/{propertyId}',
+  properties = '/properties',
+  payments = '/payments',
+  paymentById = '/payments/{paymentId}',
 }

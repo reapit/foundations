@@ -1,6 +1,6 @@
-import { PagedResultCustomerModel_ } from '@/services/customers'
+import { PagedResultCustomerModel } from '@/services/customers'
 
-export const customersList: PagedResultCustomerModel_ = {
+export const customersList: PagedResultCustomerModel = {
   data: [
     {
       id: 'ee25966c-294a-4ffc-b640-bccd7eae889c',

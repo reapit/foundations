@@ -1,17 +1,17 @@
-import * as React from 'react'
+import React, { FC } from 'react'
 import { Redirect, useLocation } from 'react-router'
 import { useReapitConnect } from '@reapit/connect-session'
-import { Loader, Section, FlexContainerResponsive, AppNavContainer, FlexContainerBasic } from '@reapit/elements-legacy'
-import Menu from '../components/ui/menu'
+import Nav from './nav'
 import { reapitConnectBrowserSession } from './connect-session'
 import { Routes } from '../constants/routes'
-import { flexHeightFix } from './__styles__/styles'
+import { Loader, MainContainer } from '@reapit/elements'
+import { PaymentsProvider } from './use-payments-state'
 
 const { Suspense } = React
 
 export type PrivateRouteWrapperProps = {}
 
-export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperProps> = ({ children }) => {
+export const PrivateRouteWrapper: FC<PrivateRouteWrapperProps> = ({ children }) => {
   const location = useLocation()
   const { pathname, search } = location
   const currentUri = `${pathname}${search}`
@@ -20,13 +20,9 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
 
   if (!connectSession) {
     return (
-      <AppNavContainer>
-        <FlexContainerBasic flexColumn isScrollable>
-          <FlexContainerResponsive hasPadding flexColumn>
-            <Loader />
-          </FlexContainerResponsive>
-        </FlexContainerBasic>
-      </AppNavContainer>
+      <MainContainer>
+        <Loader fullPage />
+      </MainContainer>
     )
   }
 
@@ -47,22 +43,12 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   }
 
   return (
-    <AppNavContainer>
-      <Menu />
-      <FlexContainerBasic flexColumn isScrollable>
-        <FlexContainerResponsive className={flexHeightFix} hasPadding flexColumn>
-          <Suspense
-            fallback={
-              <Section>
-                <Loader />
-              </Section>
-            }
-          >
-            {children}
-          </Suspense>
-        </FlexContainerResponsive>
-      </FlexContainerBasic>
-    </AppNavContainer>
+    <PaymentsProvider>
+      <MainContainer>
+        <Nav />
+        <Suspense fallback={<Loader fullPage />}>{children}</Suspense>
+      </MainContainer>
+    </PaymentsProvider>
   )
 }
 

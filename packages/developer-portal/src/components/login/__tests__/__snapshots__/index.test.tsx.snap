@@ -91,12 +91,12 @@ Object {
             class="e1jxji48-el-flex-column e2kmzjs-el-flex-container"
           >
             <h1
-              class="ewfctk4-el-has-no-margin e1bb7egt-el-has-centered-text evblxhy-el-title"
+              class="ewfctk4-el-has-no-margin e1bb7egt-el-has-centered-text e1byern-el-title"
             >
               Welcome
             </h1>
             <h2
-              class="e1bb7egt-el-has-centered-text e1byern-el-subtitle"
+              class="e1bb7egt-el-has-centered-text e15ggth7-el-subtitle"
             >
               to Reapit Foundations
             </h2>
@@ -120,7 +120,7 @@ Object {
             </div>
           </div>
           <p
-            class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
           />
         </div>
       </div>
@@ -213,12 +213,12 @@ Object {
           class="e1jxji48-el-flex-column e2kmzjs-el-flex-container"
         >
           <h1
-            class="ewfctk4-el-has-no-margin e1bb7egt-el-has-centered-text evblxhy-el-title"
+            class="ewfctk4-el-has-no-margin e1bb7egt-el-has-centered-text e1byern-el-title"
           >
             Welcome
           </h1>
           <h2
-            class="e1bb7egt-el-has-centered-text e1byern-el-subtitle"
+            class="e1bb7egt-el-has-centered-text e15ggth7-el-subtitle"
           >
             to Reapit Foundations
           </h2>
@@ -242,7 +242,7 @@ Object {
           </div>
         </div>
         <p
-          class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
         />
       </div>
     </div>

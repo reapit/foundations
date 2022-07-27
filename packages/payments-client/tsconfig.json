@@ -6,8 +6,7 @@
       "@/*": ["src/*"],
       "@reapit/connect-session": ["../connect-session/src"],
       "@reapit/elements": ["../elements/src"],
-      "@reapit/utils-common": ["../utils-common/src"],
-      "@reapit/elements-legacy": ["../elements-legacy/src"]
+      "@reapit/utils-common": ["../utils-common/src"]
     }
   },
   "include": ["src"],

@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`ErrorBoundary should match a snapshot when has an error 1`] = `
-<p>
-  Something went wrong here, try refreshing your page.
-</p>
-`;
-
-exports[`ErrorBoundary should match a snapshot when no error 1`] = `<Component />`;

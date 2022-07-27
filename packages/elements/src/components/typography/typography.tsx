@@ -13,6 +13,7 @@ import {
   elHasCenteredText,
   elHasSectionMargin,
   elHasDisabledText,
+  elHasCapitalisedText,
 } from './__styles__'
 
 export interface TypographyProps extends HTMLAttributes<HTMLElement> {
@@ -24,6 +25,7 @@ export interface TypographyProps extends HTMLAttributes<HTMLElement> {
   hasCenteredText?: boolean
   hasRegularText?: boolean
   hasDisabledText?: boolean
+  hasCapitalisedText?: boolean
 }
 
 export const Title: FC<TypographyProps> = ({
@@ -36,6 +38,7 @@ export const Title: FC<TypographyProps> = ({
   hasSectionMargin,
   hasCenteredText,
   hasDisabledText,
+  hasCapitalisedText,
   ...rest
 }) => {
   return (
@@ -49,6 +52,7 @@ export const Title: FC<TypographyProps> = ({
         hasSectionMargin && elHasSectionMargin,
         hasCenteredText && elHasCenteredText,
         hasDisabledText && elHasDisabledText,
+        hasCapitalisedText && elHasCapitalisedText,
       )}
       {...rest}
     >
@@ -67,6 +71,7 @@ export const Subtitle: FC<TypographyProps> = ({
   hasSectionMargin,
   hasCenteredText,
   hasDisabledText,
+  hasCapitalisedText,
   ...rest
 }) => {
   return (
@@ -80,6 +85,7 @@ export const Subtitle: FC<TypographyProps> = ({
         hasSectionMargin && elHasSectionMargin,
         hasCenteredText && elHasCenteredText,
         hasDisabledText && elHasDisabledText,
+        hasCapitalisedText && elHasCapitalisedText,
       )}
       {...rest}
     >
@@ -98,6 +104,7 @@ export const BodyText: FC<TypographyProps> = ({
   hasSectionMargin,
   hasCenteredText,
   hasDisabledText,
+  hasCapitalisedText,
   ...rest
 }) => {
   return (
@@ -111,6 +118,7 @@ export const BodyText: FC<TypographyProps> = ({
         hasSectionMargin && elHasSectionMargin,
         hasCenteredText && elHasCenteredText,
         hasDisabledText && elHasDisabledText,
+        hasCapitalisedText && elHasCapitalisedText,
       )}
       {...rest}
     >
@@ -129,6 +137,7 @@ export const SmallText: FC<TypographyProps> = ({
   hasSectionMargin,
   hasCenteredText,
   hasDisabledText,
+  hasCapitalisedText,
   ...rest
 }) => {
   return (
@@ -142,6 +151,7 @@ export const SmallText: FC<TypographyProps> = ({
         hasSectionMargin && elHasSectionMargin,
         hasCenteredText && elHasCenteredText,
         hasDisabledText && elHasDisabledText,
+        hasCapitalisedText && elHasCapitalisedText,
       )}
       {...rest}
     >

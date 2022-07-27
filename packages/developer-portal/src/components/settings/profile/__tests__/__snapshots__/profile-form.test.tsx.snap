@@ -87,12 +87,12 @@ Object {
               class="e1ksxx4v-el-input-wrap"
             >
               <h2
-                class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+                class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
               >
                 Company Name
               </h2>
               <p
-                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
+                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
               >
                 MOCK_COMPANY
               </p>
@@ -101,12 +101,12 @@ Object {
               class="e1ksxx4v-el-input-wrap"
             >
               <h2
-                class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+                class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
               >
                 Email Address
               </h2>
               <p
-                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
+                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
               >
                 example@email.com
               </p>
@@ -115,12 +115,12 @@ Object {
               class="e1ksxx4v-el-input-wrap"
             >
               <h2
-                class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+                class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
               >
                 Profile Settings
               </h2>
               <p
-                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
+                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
               >
                 MOCK_CLIENT_ID
               </p>
@@ -128,17 +128,17 @@ Object {
           </div>
         </div>
         <h2
-          class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+          class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
         >
           Customer Data
         </h2>
         <p
-          class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
         >
           As your account is associated with both the Sandbox Data (SBOX) and Customer Data, you can choose to toggle between which data you want to see available in the Developer Portal.
         </p>
         <p
-          class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
         >
           You can choose which sandbox you wish to view based on your Reapit Product. This is specific and only associated to your developer profile.
         </p>
@@ -364,12 +364,12 @@ Object {
             class="e1ksxx4v-el-input-wrap"
           >
             <h2
-              class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+              class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
             >
               Company Name
             </h2>
             <p
-              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
+              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
             >
               MOCK_COMPANY
             </p>
@@ -378,12 +378,12 @@ Object {
             class="e1ksxx4v-el-input-wrap"
           >
             <h2
-              class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+              class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
             >
               Email Address
             </h2>
             <p
-              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
+              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
             >
               example@email.com
             </p>
@@ -392,12 +392,12 @@ Object {
             class="e1ksxx4v-el-input-wrap"
           >
             <h2
-              class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+              class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
             >
               Profile Settings
             </h2>
             <p
-              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
+              class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
             >
               MOCK_CLIENT_ID
             </p>
@@ -405,17 +405,17 @@ Object {
         </div>
       </div>
       <h2
-        class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+        class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
       >
         Customer Data
       </h2>
       <p
-        class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+        class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
       >
         As your account is associated with both the Sandbox Data (SBOX) and Customer Data, you can choose to toggle between which data you want to see available in the Developer Portal.
       </p>
       <p
-        class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+        class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
       >
         You can choose which sandbox you wish to view based on your Reapit Product. This is specific and only associated to your developer profile.
       </p>

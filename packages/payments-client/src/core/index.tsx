@@ -1,10 +1,11 @@
-import * as Sentry from '@sentry/browser'
+/* istanbul ignore file */
+import * as Sentry from '@sentry/react'
+import { BrowserTracing } from '@sentry/tracing'
 import React from 'react'
 import { createRoot } from 'react-dom/client'
 import ReactGA from 'react-ga'
-import { Config } from '@/types/global'
-import { getMarketplaceGlobalsByKey } from '@reapit/elements-legacy'
-import { logger } from '@reapit/utils-react'
+import { Config } from '../types/global'
+import { getMarketplaceGlobalsByKey, logger } from '@reapit/utils-react'
 
 // Init global config
 window.reapit = {
@@ -53,9 +54,11 @@ const run = async () => {
 
     if (!isLocal && config.sentryDns) {
       Sentry.init({
+        integrations: [new BrowserTracing()],
         release: process.env.APP_VERSION,
         dsn: config.sentryDns,
         environment: config.appEnv,
+        tracesSampleRate: 1.0,
       })
     }
 
@@ -72,7 +75,7 @@ const run = async () => {
 
     renderApp(App)
   } catch (error) {
-    logger(error)
+    logger(error as Error)
   }
 }
 

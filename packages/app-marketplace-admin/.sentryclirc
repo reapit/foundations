@@ -1,0 +1,6 @@
+[defaults]
+project=app-marketplace-admin
+org=reapit-ltd
+
+[http]
+keepalive=false

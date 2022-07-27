@@ -4,7 +4,6 @@ import { setAsAdmin, SetAsAdminParams } from '@/actions/devs-management'
 import { useDispatch } from 'react-redux'
 import { Dispatch } from 'redux'
 import { MemberModel } from '@reapit/foundations-ts-definitions'
-// import { selectSetAsAdminLoading } from '@/selector/developers'
 import SuccessModal from './success-modal'
 
 export const handleSetAsAdmin = (dispatch: Dispatch, data: any, closeModal) => () => {
@@ -31,10 +30,10 @@ export interface SetAsAdminModalProps {
 }
 
 export const SetAsAdminModal: React.FunctionComponent<SetAsAdminModalProps> = ({ visible, user, onClose }) => {
-  if (!visible || !user) return null
-
   const [isSuccess, setIsSuccess] = useState<boolean>(false)
   const dispatch = useDispatch()
+
+  if (!visible || !user) return null
 
   const { name } = user
 

@@ -31,9 +31,9 @@ provider:
     NODE_ENV: ${self:custom.env.NODE_ENV}
     APP_ENV: ${self:custom.env.APP_ENV}
     SENTRY_DSN: ${self:custom.env.SENTRY_DSN}
-    CLIENTS: ${self:custom.env.CLIENTS}
     PAYMENTS_APP_URI: ${self:custom.env.PAYMENTS_APP_URI}
     PAYMENTS_SERVICE_URI: ${self:custom.env.PAYMENTS_SERVICE_URI}
+    HOST_ORIGIN: ${self:custom.env.HOST_ORIGIN}
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -80,11 +80,11 @@ functions:
   app:
     handler: src/index.app
     events:
-      - http: 
+      - http:
           path: /payments/request/{paymentId}
           method: post
           cors:
-            origin: "*"
+            origin: '*'
             headers:
               - Content-Type
               - X-Amz-Date
@@ -96,11 +96,11 @@ functions:
               - api-version
           authorizer:
             arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
-      - http: 
+      - http:
           path: /payments/receipt/internal/{paymentId}
           method: post
           cors:
-            origin: "*"
+            origin: '*'
             headers:
               - Content-Type
               - X-Amz-Date
@@ -112,11 +112,11 @@ functions:
               - api-version
           authorizer:
             arn: arn:aws:cognito-idp:${self:provider.region}:${self:custom.env.AWS_ACCOUNT_ID}:userpool/${self:custom.env.CONNECT_USER_POOL}
-      - http: 
+      - http:
           path: /payments/receipt/external/{paymentId}
           method: post
           cors:
-            origin: "*"
+            origin: '*'
             headers:
               - Content-Type
               - X-Amz-Date
@@ -130,7 +130,7 @@ functions:
           method: get
           path: /ok
           cors:
-            origin: "*"
+            origin: '*'
             headers:
               - Content-Type
               - X-Amz-Date

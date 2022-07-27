@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SettingsProfile should match a snapshot 1`] = `
+exports[`SettingsProfile should match snapshot 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -13,6 +13,99 @@ Object {
       >
         Profile
       </h1>
+      <h2
+        class="el-has-bold-text el-subtitle"
+      >
+        Your Details
+      </h2>
+      <div
+        class="el-mb11 el-grid"
+      />
+      <h2
+        class="el-has-bold-text el-subtitle"
+      >
+        Update Your Password
+      </h2>
+      <form>
+        <div
+          class="el-form-layout-has-margin el-form-layout"
+        >
+          <div
+            class="el-input-wrap"
+          >
+            <div
+              class="el-input-group"
+            >
+              <input
+                class="el-input"
+                id="test-static-id"
+                name="password"
+                type="password"
+              />
+              <label
+                class="el-label"
+                for="test-static-id"
+              >
+                Current Password
+              </label>
+            </div>
+          </div>
+          <div
+            class="el-input-wrap"
+          >
+            <div
+              class="el-input-group"
+            >
+              <input
+                class="el-input"
+                id="test-static-id"
+                name="newPassword"
+                type="password"
+              />
+              <label
+                class="el-label"
+                for="test-static-id"
+              >
+                New Password
+              </label>
+            </div>
+          </div>
+          <div
+            class="el-input-wrap"
+          >
+            <div
+              class="el-input-group"
+            >
+              <input
+                class="el-input"
+                id="test-static-id"
+                name="confirmPassword"
+                type="password"
+              />
+              <label
+                class="el-label"
+                for="test-static-id"
+              >
+                Confirm New Password
+              </label>
+            </div>
+          </div>
+        </div>
+        <div
+          class="el-button-group"
+        >
+          <div
+            class="el-button-group-inner"
+          >
+            <button
+              class="el-intent-primary el-button"
+              type="submit"
+            >
+              Save Changes
+            </button>
+          </div>
+        </div>
+      </form>
     </div>
   </body>,
   "container": <div>
@@ -24,6 +117,99 @@ Object {
     >
       Profile
     </h1>
+    <h2
+      class="el-has-bold-text el-subtitle"
+    >
+      Your Details
+    </h2>
+    <div
+      class="el-mb11 el-grid"
+    />
+    <h2
+      class="el-has-bold-text el-subtitle"
+    >
+      Update Your Password
+    </h2>
+    <form>
+      <div
+        class="el-form-layout-has-margin el-form-layout"
+      >
+        <div
+          class="el-input-wrap"
+        >
+          <div
+            class="el-input-group"
+          >
+            <input
+              class="el-input"
+              id="test-static-id"
+              name="password"
+              type="password"
+            />
+            <label
+              class="el-label"
+              for="test-static-id"
+            >
+              Current Password
+            </label>
+          </div>
+        </div>
+        <div
+          class="el-input-wrap"
+        >
+          <div
+            class="el-input-group"
+          >
+            <input
+              class="el-input"
+              id="test-static-id"
+              name="newPassword"
+              type="password"
+            />
+            <label
+              class="el-label"
+              for="test-static-id"
+            >
+              New Password
+            </label>
+          </div>
+        </div>
+        <div
+          class="el-input-wrap"
+        >
+          <div
+            class="el-input-group"
+          >
+            <input
+              class="el-input"
+              id="test-static-id"
+              name="confirmPassword"
+              type="password"
+            />
+            <label
+              class="el-label"
+              for="test-static-id"
+            >
+              Confirm New Password
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="el-button-group"
+      >
+        <div
+          class="el-button-group-inner"
+        >
+          <button
+            class="el-intent-primary el-button"
+            type="submit"
+          >
+            Save Changes
+          </button>
+        </div>
+      </div>
+    </form>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

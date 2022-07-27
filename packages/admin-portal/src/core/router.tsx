@@ -1,12 +1,10 @@
 import * as React from 'react'
 import { Route, Router as BrowserRouter, Switch } from 'react-router-dom'
-import { catchChunkError } from '@reapit/utils-react'
+import { catchChunkError, OkayPage } from '@reapit/utils-react'
 import Routes from '../constants/routes'
 import PrivateRoute from './private-route'
 import { createBrowserHistory, History } from 'history'
-import { Info } from '@reapit/elements-legacy'
-import { PortalProvider } from '@reapit/elements-legacy'
-import { OkayPage } from '@reapit/utils-react'
+import { Info, PortalProvider } from '@reapit/elements-legacy'
 
 export const history: History<any> = createBrowserHistory()
 

@@ -1,6 +1,6 @@
-import { PagedResultDesktopIntegrationTypeModel_ } from '@/types/desktop-integration-types'
+import { PagedResultDesktopIntegrationTypeModel } from '@/types/desktop-integration-types'
 
-export const integrationTypesStub: PagedResultDesktopIntegrationTypeModel_ = {
+export const integrationTypesStub: PagedResultDesktopIntegrationTypeModel = {
   data: [
     {
       id: 'IdCheck',

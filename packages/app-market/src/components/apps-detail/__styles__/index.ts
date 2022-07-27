@@ -76,7 +76,6 @@ export const AppDetailDescriptionGrid = styled.div`
 
 export const AppDetailDescriptionColMain = styled.div`
   grid-column-end: span 4;
-  align-self: end;
   min-width: 0;
 
   ${forTabletAndAbove} {
@@ -117,7 +116,7 @@ export const AppDetailPermissionChip = styled.div`
   display: inline-block;
 `
 
-export const AppDetaulCategoryChip = styled.div`
+export const AppDetailCategoryChip = styled.div`
   background: var(--color-grey-light);
   color: var(--color-black);
   font-size: var(--font-size-small);

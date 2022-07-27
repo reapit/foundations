@@ -14,6 +14,8 @@ const mockedFetch = fetcher as jest.Mock
   },
 }
 
+const errorSnack = jest.fn()
+
 describe('opayoCreateTransactionService  ', () => {
   const transaction = {
     transactionType: 'Payment',
@@ -24,13 +26,13 @@ describe('opayoCreateTransactionService  ', () => {
 
   it('should return a response from the service', async () => {
     mockedFetch.mockReturnValueOnce(mockResponse)
-    expect(await opayoCreateTransactionService('SBOX', transaction)).toEqual(mockResponse)
+    expect(await opayoCreateTransactionService('SBOX', transaction, errorSnack)).toEqual(mockResponse)
   })
 
   it('should catch an error if no response from service', async () => {
     const errorSpy = jest.spyOn(console, 'error')
     mockedFetch.mockReturnValueOnce(undefined as any)
-    await opayoCreateTransactionService('SBOX', transaction)
+    await opayoCreateTransactionService('SBOX', transaction, errorSnack)
     expect(errorSpy).toHaveBeenLastCalledWith('No transaction processed')
   })
 })
@@ -38,13 +40,13 @@ describe('opayoCreateTransactionService  ', () => {
 describe('opayoMerchantKeyService  ', () => {
   it('should return a response from the service', async () => {
     mockedFetch.mockReturnValueOnce(mockResponse)
-    expect(await opayoMerchantKeyService('SBOX')).toEqual(mockResponse)
+    expect(await opayoMerchantKeyService('SBOX', errorSnack)).toEqual(mockResponse)
   })
 
   it('should catch an error if no response from service', async () => {
     const errorSpy = jest.spyOn(console, 'error')
     mockedFetch.mockReturnValueOnce(undefined as any)
-    await opayoMerchantKeyService('SBOX')
+    await opayoMerchantKeyService('SBOX', errorSnack)
     expect(errorSpy).toHaveBeenLastCalledWith('No merchant key returned')
   })
 })

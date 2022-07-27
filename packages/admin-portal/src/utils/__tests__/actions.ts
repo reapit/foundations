@@ -13,9 +13,6 @@ describe('actions utils', () => {
 
   describe('isType', () => {
     it('should return true if actions are equal', () => {
-      //   const actionData: ClientAppSummaryParams = {
-      //     page: 1,
-      //   }
       const action: Action<any> = { data: 1, type: 'FETCH_APPROVAL_LIST' }
       expect(isType(action, fetchApprovalList)).toBe(true)
     })

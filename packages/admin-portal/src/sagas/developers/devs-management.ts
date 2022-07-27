@@ -2,7 +2,7 @@ import { put, fork, takeLatest, all, call } from '@redux-saga/core/effects'
 import {
   fetchDeveloperListSuccess,
   fetchDeveloperListFailed,
-  fetchDeveloperListValues,
+  FetchDeveloperListValues,
   fetchDeveloperMembersListSuccess,
   DisableMemberActionParams,
   fetchDeveloperMemberList,
@@ -96,7 +96,7 @@ export const setDeveloperMemberAdmin = function* ({ data }: Action<SetAsAdminPar
 }
 
 export const fetchDeveloperListListen = function* () {
-  yield takeLatest<Action<fetchDeveloperListValues>>(ActionTypes.FETCH_DEVELOPER_LIST, fetchDeveloperListHandler)
+  yield takeLatest<Action<FetchDeveloperListValues>>(ActionTypes.FETCH_DEVELOPER_LIST, fetchDeveloperListHandler)
 }
 
 export const fetchDeveloperMemberListListen = function* () {

@@ -32,7 +32,7 @@ export const Content = ({
   waitingApprovalList,
   tableColumns,
 }: {
-  loading: Boolean
+  loading: boolean
   waitingApprovalList: ApprovalModel[]
   tableColumns: any
 }) => {

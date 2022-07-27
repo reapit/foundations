@@ -9,10 +9,10 @@ import {
 
 class AppBrowseLiveDataModel implements AppBrowseLiveDataInterface {
   @attribute()
-  timeFrom?: Date
+  timeFrom?: string
 
   @attribute()
-  timeTo?: Date
+  timeTo?: string
 
   @attribute({ defaultProvider: () => false })
   isLive: boolean

@@ -81,9 +81,10 @@ const options: RadioSelectOption[] = [
 ]
 
 export const StatusModal: React.FC<StatusModalProps> = ({ visible, developer, resetModal }) => {
-  if (!visible) return null
   const dispatch = useDispatch()
   const [submitting, setSubmitting] = useState(false)
+
+  if (!visible) return null
 
   const { company, status, reapitReference } = developer
   const initialValues = {

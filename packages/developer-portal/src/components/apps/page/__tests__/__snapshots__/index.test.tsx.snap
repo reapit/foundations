@@ -15,7 +15,7 @@ Object {
           class="e93m1fg-el-secondary-nav-container"
         >
           <h1
-            class="evblxhy-el-title"
+            class="e1byern-el-title"
           >
             Apps
           </h1>
@@ -140,12 +140,12 @@ Object {
               </svg>
             </span>
             <h2
-              class="e1byern-el-subtitle"
+              class="e15ggth7-el-subtitle"
             >
               Preview in AppMarket
             </h2>
             <p
-              class="e11jaxfn-el-has-grey-text e1wasvgh-el-small-text"
+              class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
             >
               Clicking below will take you to your current AppMarket listing, to view your app as users will see it.
             </p>
@@ -160,17 +160,17 @@ Object {
           class="e12d7zo5-el-hfull eukst9x-el-page-container"
         >
           <h1
-            class="evblxhy-el-title"
+            class="e1byern-el-title"
           >
             will-test-dev-co-voracious-person
           </h1>
           <h2
-            class="e1byern-el-subtitle"
+            class="e15ggth7-el-subtitle"
           >
             Authenticating Your App
           </h2>
           <p
-            class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+            class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
           >
             Client-side Apps use our identity provider
              
@@ -185,7 +185,7 @@ Object {
              You will need the Client Id and Redirect Uris below to configure Reapit Connect.
           </p>
           <p
-            class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e15ggth7-el-body-text"
+            class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1wasvgh-el-body-text"
           >
             To make this process easier, we provide you with an authentication module for client-side apps,
              
@@ -234,12 +234,12 @@ Object {
                 </span>
                 <div>
                   <h2
-                    class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+                    class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
                   >
                     Authentication Client Id
                   </h2>
                   <p
-                    class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+                    class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
                   >
                     MOCK_EXTERNAL_ID
                   </p>
@@ -352,12 +352,12 @@ Object {
                 </span>
                 <div>
                   <h2
-                    class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+                    class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
                   >
                     App Id
                   </h2>
                   <p
-                    class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+                    class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
                   >
                     MOCK_APP_ID
                   </p>
@@ -373,12 +373,12 @@ Object {
               class="e14pp0yd-el-col"
             >
               <h2
-                class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+                class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
               >
                 Redirect Uri(s)
               </h2>
               <p
-                class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
+                class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
               >
                 https://foo.bar
               </p>
@@ -387,12 +387,12 @@ Object {
               class="e14pp0yd-el-col"
             >
               <h2
-                class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+                class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
               >
                 Sign Out Uri(s)
               </h2>
               <p
-                class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
+                class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
               >
                 https://foo.bar
               </p>
@@ -404,12 +404,12 @@ Object {
                 class="e14pp0yd-el-col"
               >
                 <h2
-                  class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+                  class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
                 >
                   Integration Type
                 </h2>
                 <p
-                  class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
+                  class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
                 >
                   You have a client side authenticated integration that will not render within the AgencyCloud desktop CRM
                 </p>
@@ -422,12 +422,12 @@ Object {
                 class="e14pp0yd-el-col"
               >
                 <h2
-                  class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+                  class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
                 >
                   App Status
                 </h2>
                 <p
-                  class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
+                  class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
                 >
                   Your app is live and public in the AppMarket with a pending revision under review
                 </p>
@@ -437,7 +437,7 @@ Object {
               class="e14pp0yd-el-col"
             >
               <h2
-                class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+                class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
               >
                 Permissions
               </h2>
@@ -473,7 +473,7 @@ Object {
         class="e93m1fg-el-secondary-nav-container"
       >
         <h1
-          class="evblxhy-el-title"
+          class="e1byern-el-title"
         >
           Apps
         </h1>
@@ -598,12 +598,12 @@ Object {
             </svg>
           </span>
           <h2
-            class="e1byern-el-subtitle"
+            class="e15ggth7-el-subtitle"
           >
             Preview in AppMarket
           </h2>
           <p
-            class="e11jaxfn-el-has-grey-text e1wasvgh-el-small-text"
+            class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
           >
             Clicking below will take you to your current AppMarket listing, to view your app as users will see it.
           </p>
@@ -618,17 +618,17 @@ Object {
         class="e12d7zo5-el-hfull eukst9x-el-page-container"
       >
         <h1
-          class="evblxhy-el-title"
+          class="e1byern-el-title"
         >
           will-test-dev-co-voracious-person
         </h1>
         <h2
-          class="e1byern-el-subtitle"
+          class="e15ggth7-el-subtitle"
         >
           Authenticating Your App
         </h2>
         <p
-          class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+          class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
         >
           Client-side Apps use our identity provider
            
@@ -643,7 +643,7 @@ Object {
            You will need the Client Id and Redirect Uris below to configure Reapit Connect.
         </p>
         <p
-          class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e15ggth7-el-body-text"
+          class="e11jaxfn-el-has-grey-text etrchfm-el-has-section-margin e1wasvgh-el-body-text"
         >
           To make this process easier, we provide you with an authentication module for client-side apps,
            
@@ -692,12 +692,12 @@ Object {
               </span>
               <div>
                 <h2
-                  class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+                  class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
                 >
                   Authentication Client Id
                 </h2>
                 <p
-                  class="e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+                  class="e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
                 >
                   MOCK_EXTERNAL_ID
                 </p>
@@ -810,12 +810,12 @@ Object {
               </span>
               <div>
                 <h2
-                  class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+                  class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
                 >
                   App Id
                 </h2>
                 <p
-                  class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text e15ggth7-el-body-text"
+                  class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text e1wasvgh-el-body-text"
                 >
                   MOCK_APP_ID
                 </p>
@@ -831,12 +831,12 @@ Object {
             class="e14pp0yd-el-col"
           >
             <h2
-              class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+              class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
             >
               Redirect Uri(s)
             </h2>
             <p
-              class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
+              class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
             >
               https://foo.bar
             </p>
@@ -845,12 +845,12 @@ Object {
             class="e14pp0yd-el-col"
           >
             <h2
-              class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+              class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
             >
               Sign Out Uri(s)
             </h2>
             <p
-              class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
+              class="t11sr6l7-text-overflow e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
             >
               https://foo.bar
             </p>
@@ -862,12 +862,12 @@ Object {
               class="e14pp0yd-el-col"
             >
               <h2
-                class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+                class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
               >
                 Integration Type
               </h2>
               <p
-                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
+                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
               >
                 You have a client side authenticated integration that will not render within the AgencyCloud desktop CRM
               </p>
@@ -880,12 +880,12 @@ Object {
               class="e14pp0yd-el-col"
             >
               <h2
-                class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+                class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
               >
                 App Status
               </h2>
               <p
-                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e15ggth7-el-body-text"
+                class="e11jaxfn-el-has-grey-text ewfctk4-el-has-no-margin e1wasvgh-el-body-text"
               >
                 Your app is live and public in the AppMarket with a pending revision under review
               </p>
@@ -895,7 +895,7 @@ Object {
             class="e14pp0yd-el-col"
           >
             <h2
-              class="ewfctk4-el-has-no-margin e1byern-el-subtitle"
+              class="ewfctk4-el-has-no-margin e15ggth7-el-subtitle"
             >
               Permissions
             </h2>
@@ -988,7 +988,7 @@ Object {
           class="e93m1fg-el-secondary-nav-container"
         >
           <h1
-            class="evblxhy-el-title"
+            class="e1byern-el-title"
           >
             Apps
           </h1>
@@ -1022,7 +1022,7 @@ Object {
         class="e93m1fg-el-secondary-nav-container"
       >
         <h1
-          class="evblxhy-el-title"
+          class="e1byern-el-title"
         >
           Apps
         </h1>
@@ -1113,7 +1113,7 @@ Object {
           class="e93m1fg-el-secondary-nav-container"
         >
           <h1
-            class="evblxhy-el-title"
+            class="e1byern-el-title"
           >
             Apps
           </h1>
@@ -1228,12 +1228,12 @@ Object {
               </svg>
             </span>
             <h2
-              class="e1byern-el-subtitle"
+              class="e15ggth7-el-subtitle"
             >
               Apps Documentation
             </h2>
             <p
-              class="e11jaxfn-el-has-grey-text e1wasvgh-el-small-text"
+              class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
             >
               This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
             </p>
@@ -1261,7 +1261,7 @@ Object {
         class="e93m1fg-el-secondary-nav-container"
       >
         <h1
-          class="evblxhy-el-title"
+          class="e1byern-el-title"
         >
           Apps
         </h1>
@@ -1376,12 +1376,12 @@ Object {
             </svg>
           </span>
           <h2
-            class="e1byern-el-subtitle"
+            class="e15ggth7-el-subtitle"
           >
             Apps Documentation
           </h2>
           <p
-            class="e11jaxfn-el-has-grey-text e1wasvgh-el-small-text"
+            class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
           >
             This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
           </p>
