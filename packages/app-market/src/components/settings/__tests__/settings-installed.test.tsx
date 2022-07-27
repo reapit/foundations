@@ -47,7 +47,7 @@ describe('SettingsInstalled', () => {
     testElem.id = 'root'
     document.body.appendChild(testElem)
 
-    setViewport('Mobile')
+    setViewport('mobile')
     expect(render(<SettingsInstalled />)).toMatchSnapshot()
   })
 })

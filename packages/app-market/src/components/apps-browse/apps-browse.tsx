@@ -1,5 +1,5 @@
 import React, { Dispatch, FC, Fragment, SetStateAction, useMemo, useState } from 'react'
-import { Title, PageContainer, Subtitle, FlexContainer, Icon, elMb5, useMediaQuery } from '@reapit/elements'
+import { PageContainer, FlexContainer, Icon, elMb5, useMediaQuery, MediaType, elMt3, elMb7 } from '@reapit/elements'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { DeveloperAppsCollection } from './developer-apps-collection'
@@ -14,27 +14,26 @@ import { SimpleAppsCollection } from './simple-apps-collection'
 import { AppFiltersCollection } from './app-filters-collection'
 import { HeroAppsCollection } from './hero-apps'
 import {
-  AppFilterGrid,
   AppFilterLink,
   AppSearchFiltersWrap,
   appsSearchMobileControls,
   appsSearchMobileIcon,
   appsSearchMobileIconActive,
-  FeaturedAppsGrid,
-  HeroAppsGrid,
-  heroSubMinHeight,
-  SimpleAppsGrid,
+  BrowseAppsTitle,
+  browseAppsTitleHasFilters,
+  BrowseAppsSubtitle,
+  AppsGrid,
+  heroAppsCarouselWidescreen,
+  AppFilterGrid,
+  AppFilterGridWrap,
+  AppsWrapper,
 } from './__styles__'
 import { AppSearchFilters } from './app-search-filters-bar'
 import { FilteredAppsCollection } from './filtered-apps'
 import { cx } from '@linaria/core'
+import { Carousel } from '../carousel'
 
-export type MobileControlsState = 'search' | 'filters' | 'none'
-export type MobileFilterControlsState = 'categories' | 'types' | 'none'
-export interface MobileControlsToggleState {
-  controls: MobileControlsState
-  filters: MobileFilterControlsState
-}
+export type MobileControlsState = 'search' | 'filters' | null
 
 export const checkHasFilters = (appsBrowseFilterState: AppsBrowseConfigItemFilters | null) => (): boolean => {
   if (!appsBrowseFilterState) return false
@@ -54,22 +53,29 @@ export const checkHasFilters = (appsBrowseFilterState: AppsBrowseConfigItemFilte
   )
 }
 
-export const handleMobileControls =
+export const handleSetFilters =
   (
-    setMobileControlsState: Dispatch<SetStateAction<MobileControlsToggleState>>,
-    newState: Partial<MobileControlsToggleState>,
+    setAppsBrowseFilterState: Dispatch<SetStateAction<AppsBrowseConfigItemFilters | null>>,
+    filters: AppsBrowseConfigItemFilters | null,
   ) =>
   () => {
-    setMobileControlsState((currentState) => {
-      const { controls, filters } = currentState
-      const newControls = newState.controls && newState.controls !== controls ? newState.controls : controls
-      const newFilters = newState.filters && filters !== newState.filters ? newState.filters : filters
+    setAppsBrowseFilterState(filters)
+  }
 
-      return {
-        controls: newControls,
-        filters: newFilters,
-      }
-    })
+export const handleFiltersCols = (mediaQuery: MediaType) => () => {
+  const { isMobile, isTablet, isDesktop, isWideScreen, isSuperWideScreen } = mediaQuery
+
+  if (isMobile) return 2
+  if (isTablet) return 3
+  if (isDesktop) return 4
+  if (isWideScreen || isSuperWideScreen) return 6
+
+  return 6
+}
+
+export const handleMobileControls =
+  (setMobileControlsState: Dispatch<SetStateAction<MobileControlsState>>, newState: MobileControlsState) => () => {
+    setMobileControlsState(newState)
   }
 
 export const handleSortConfigs = (appsBrowseConfigState: AppsBrowseConfigCollection | null) => () => {
@@ -90,44 +96,34 @@ export const handleSortConfigs = (appsBrowseConfigState: AppsBrowseConfigCollect
 }
 
 export const AppsBrowse: FC = () => {
-  const { appsBrowseFilterState, appsBrowseConfigState } = useAppsBrowseState()
-  const { isMobile } = useMediaQuery()
+  const { appsBrowseFilterState, setAppsBrowseFilterState, appsBrowseConfigState } = useAppsBrowseState()
+  const mediaQuery = useMediaQuery()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const [mobileControlsState, setMobileControlsState] = useState<MobileControlsToggleState>({
-    controls: 'none',
-    filters: 'none',
-  })
+  const [mobileControlsState, setMobileControlsState] = useState<MobileControlsState>(null)
   const isDeveloper = Boolean(connectSession?.loginIdentity.developerId)
   const hasFilters = useMemo(checkHasFilters(appsBrowseFilterState), [appsBrowseFilterState])
+  const filtersCols = useMemo(handleFiltersCols(mediaQuery), [mediaQuery])
   const { featuredHeroApps, heroApps, appsFilters, featuredApps, simpleApps } = useMemo(
     handleSortConfigs(appsBrowseConfigState),
     [appsBrowseConfigState],
   )
+  const { isMobile, isTablet, isSuperWideScreen, is4KScreen } = mediaQuery
+  const isFullSizeScreen = isSuperWideScreen || is4KScreen
 
   return (
     <PageContainer>
       <AppSearchFiltersWrap>
-        <Title hasNoMargin={mobileControlsState.controls !== 'none' && isMobile}>AppMarket</Title>
-        <FlexContainer className={cx(elMb5, appsSearchMobileControls)}>
+        <BrowseAppsTitle className={cx(mobileControlsState && browseAppsTitleHasFilters)}>AppMarket</BrowseAppsTitle>
+        <FlexContainer className={cx(elMb5, elMt3, appsSearchMobileControls)}>
           <Icon
-            className={cx(
-              appsSearchMobileIcon,
-              mobileControlsState.controls === 'filters' && appsSearchMobileIconActive,
-            )}
-            onClick={handleMobileControls(setMobileControlsState, {
-              controls: mobileControlsState.controls === 'filters' ? 'none' : 'filters',
-            })}
+            className={cx(appsSearchMobileIcon, mobileControlsState === 'filters' && appsSearchMobileIconActive)}
+            onClick={handleMobileControls(setMobileControlsState, mobileControlsState === 'filters' ? null : 'filters')}
             icon="filterSystem"
             fontSize="1.25rem"
           />
           <Icon
-            className={cx(
-              appsSearchMobileIcon,
-              mobileControlsState.controls === 'search' && appsSearchMobileIconActive,
-            )}
-            onClick={handleMobileControls(setMobileControlsState, {
-              controls: mobileControlsState.controls === 'search' ? 'none' : 'search',
-            })}
+            className={cx(appsSearchMobileIcon, mobileControlsState === 'search' && appsSearchMobileIconActive)}
+            onClick={handleMobileControls(setMobileControlsState, mobileControlsState === 'search' ? null : 'search')}
             icon="searchSystem"
             fontSize="1.25rem"
           />
@@ -138,50 +134,69 @@ export const AppsBrowse: FC = () => {
         <FilteredAppsCollection />
       ) : (
         <>
-          <HeroAppsGrid>
-            {featuredHeroApps.map((configItem, index) => (
-              <FeaturedHeroAppsCollection key={index} configItem={configItem} />
-            ))}
-            {heroApps.map((configItem, index) => (
+          {featuredHeroApps.map((configItem, index) => (
+            <FeaturedHeroAppsCollection key={index} configItem={configItem} />
+          ))}
+          <Carousel
+            className={heroAppsCarouselWidescreen}
+            numberCols={isMobile || isTablet ? 1 : 2}
+            items={heroApps.map((configItem, index) => (
               <HeroAppsCollection key={index} configItem={configItem} />
             ))}
-          </HeroAppsGrid>
-          {Boolean(appsFilters.length) && (
-            <Subtitle className={heroSubMinHeight} hasBoldText hasNoMargin>
-              App Collections
-            </Subtitle>
-          )}
-          <AppFilterGrid>
-            {appsFilters.map((configItem, index) => (
-              <AppFiltersCollection key={index} configItem={configItem} />
-            ))}
-          </AppFilterGrid>
-          {featuredApps.map((configItem, index) => (
-            <Fragment key={index}>
-              <FlexContainer>
-                <Subtitle className={heroSubMinHeight} hasBoldText hasNoMargin>
-                  {configItem?.content?.title}
-                </Subtitle>
-                <AppFilterLink>See All</AppFilterLink>
-              </FlexContainer>
-              <FeaturedAppsGrid>
-                <FeaturedAppsCollection configItem={configItem} />
-              </FeaturedAppsGrid>
-            </Fragment>
-          ))}
-          {simpleApps.map((configItem, index) => (
-            <Fragment key={index}>
-              <FlexContainer>
-                <Subtitle className={heroSubMinHeight} hasBoldText hasNoMargin>
-                  {configItem?.content?.title}
-                </Subtitle>
-                <AppFilterLink>See All</AppFilterLink>
-              </FlexContainer>
-              <SimpleAppsGrid>
-                <SimpleAppsCollection key={index} configItem={configItem} />
-              </SimpleAppsGrid>
-            </Fragment>
-          ))}
+          />
+          <FlexContainer isFlexColumn={!isFullSizeScreen}>
+            {Boolean(appsFilters.length) && !isSuperWideScreen && !is4KScreen ? (
+              <>
+                <BrowseAppsSubtitle>App Collections</BrowseAppsSubtitle>
+                <Carousel
+                  className={elMb7}
+                  numberCols={filtersCols}
+                  items={appsFilters.map((configItem, index) => (
+                    <AppFiltersCollection key={index} configItem={configItem} />
+                  ))}
+                />
+              </>
+            ) : (
+              <>
+                <AppFilterGridWrap>
+                  <BrowseAppsSubtitle>App Collections</BrowseAppsSubtitle>
+                  <AppFilterGrid>
+                    {appsFilters.map((configItem, index) => (
+                      <AppFiltersCollection key={index} configItem={configItem} />
+                    ))}
+                  </AppFilterGrid>
+                </AppFilterGridWrap>
+              </>
+            )}
+            <AppsWrapper>
+              {featuredApps.map((configItem, index) => (
+                <Fragment key={index}>
+                  <FlexContainer isFlexAlignCenter>
+                    <BrowseAppsSubtitle>{configItem?.content?.title}</BrowseAppsSubtitle>
+                    <AppFilterLink onClick={handleSetFilters(setAppsBrowseFilterState, configItem.filters)}>
+                      See All
+                    </AppFilterLink>
+                  </FlexContainer>
+                  <AppsGrid>
+                    <FeaturedAppsCollection configItem={configItem} />
+                  </AppsGrid>
+                </Fragment>
+              ))}
+              {simpleApps.map((configItem, index) => (
+                <Fragment key={index}>
+                  <FlexContainer isFlexAlignCenter>
+                    <BrowseAppsSubtitle>{configItem?.content?.title}</BrowseAppsSubtitle>
+                    <AppFilterLink onClick={handleSetFilters(setAppsBrowseFilterState, configItem.filters)}>
+                      See All
+                    </AppFilterLink>
+                  </FlexContainer>
+                  <AppsGrid>
+                    <SimpleAppsCollection key={index} configItem={configItem} />
+                  </AppsGrid>
+                </Fragment>
+              ))}
+            </AppsWrapper>
+          </FlexContainer>
           {isDeveloper && <DeveloperAppsCollection />}
         </>
       )}

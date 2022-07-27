@@ -12,10 +12,10 @@ Object {
         class="carousel-wrapper"
       >
         <a
-          class="el-fade-in carousel-controls-right"
+          class="el-fade-in carousel-controls-right carousel-controls"
         >
           <span
-            class="el-intent-neutral el-icon"
+            class="el-intent-primary el-icon"
           >
             <svg
               fill="none"
@@ -33,7 +33,7 @@ Object {
         </a>
         <div
           class="carousel-grid"
-          style="--ckvo4up-0: 100.000%;"
+          style="--ckvo4up-0: 3; --ckvo4up-1: 100.000%; --ckvo4up-2: 0rem; --ckvo4up-6: 0rem;"
         >
           <div
             class="carousel-col"
@@ -68,10 +68,10 @@ Object {
       class="carousel-wrapper"
     >
       <a
-        class="el-fade-in carousel-controls-right"
+        class="el-fade-in carousel-controls-right carousel-controls"
       >
         <span
-          class="el-intent-neutral el-icon"
+          class="el-intent-primary el-icon"
         >
           <svg
             fill="none"
@@ -89,7 +89,7 @@ Object {
       </a>
       <div
         class="carousel-grid"
-        style="--ckvo4up-0: 100.000%;"
+        style="--ckvo4up-0: 3; --ckvo4up-1: 100.000%; --ckvo4up-2: 0rem; --ckvo4up-6: 0rem;"
       >
         <div
           class="carousel-col"
