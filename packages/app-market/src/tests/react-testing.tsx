@@ -38,8 +38,7 @@ const getWidth = (size: ViewPortSize) => {
       return 1500
     case 'superWidescreen':
     default:
-      return
-      2000
+      return 2000
   }
 }
 
