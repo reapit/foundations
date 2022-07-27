@@ -1,16 +1,43 @@
 import React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render, setViewport, viewPortOptions } from '../../../tests/react-testing'
 import {
   AppsBrowse,
   checkHasFilters,
   handleMobileControls,
+  handleSetFilters,
   handleSortConfigs,
   MobileControlsState,
 } from '../apps-browse'
 import { appsBrowseConfigCollection } from '../../../core/config'
+import { useAppsBrowseState } from '../../../core/use-apps-browse-state'
+import { mockAppsBrowseState } from '../../../core/__mocks__/use-apps-browse-state'
+
+const configItem = handleSortConfigs(appsBrowseConfigCollection)().featuredApps[0]
+
+jest.mock('../../../core/use-apps-browse-state')
+
+const mockUseAppsBrowseState = useAppsBrowseState as jest.Mock
 
 describe('AppsBrowse', () => {
-  it('should match a snapshot', () => {
+  viewPortOptions.forEach((option) => {
+    it(`should match a snapshot for mobile ${option}`, () => {
+      setViewport(option)
+      expect(render(<AppsBrowse />)).toMatchSnapshot()
+    })
+  })
+
+  it('should match a snapshot for ', () => {
+    setViewport('tablet')
+    expect(render(<AppsBrowse />)).toMatchSnapshot()
+  })
+
+  it('should match a snapshot with filters', () => {
+    mockUseAppsBrowseState.mockReturnValueOnce({
+      ...mockAppsBrowseState,
+      appsBrowseFilterState: {
+        developerId: 'MOCK_DEVELOPER_ID',
+      },
+    })
     expect(render(<AppsBrowse />)).toMatchSnapshot()
   })
 })
@@ -72,5 +99,16 @@ describe('handleMobileControls', () => {
     curried()
 
     expect(setMobileControlsState).toHaveBeenCalledWith(newState)
+  })
+})
+
+describe('handleSetFilters', () => {
+  it('should set filters', () => {
+    const setAppsBrowseFilterState = jest.fn()
+    const curried = handleSetFilters(setAppsBrowseFilterState, configItem.filters)
+
+    curried()
+
+    expect(setAppsBrowseFilterState).toHaveBeenCalledWith(configItem.filters)
   })
 })

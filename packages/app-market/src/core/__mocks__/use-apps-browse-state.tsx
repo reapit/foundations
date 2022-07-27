@@ -7,4 +7,4 @@ export const mockAppsBrowseState = {
   setAppsBrowseFilterState: jest.fn(),
 }
 
-export const useWebhooksState = jest.fn(() => mockAppsBrowseState)
+export const useAppsBrowseState = jest.fn(() => mockAppsBrowseState)
