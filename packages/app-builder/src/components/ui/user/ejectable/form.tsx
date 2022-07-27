@@ -56,7 +56,7 @@ const removeTypename = (object: any) => {
 
 const lowercaseFirstLetter = (str: string) => str.charAt(0).toLowerCase() + str.slice(1)
 
-const mapDataToArgs = (data: any, args?: ParsedArg[], withIdMapping?: boolean) => {
+const mapDataToArgs = (data: any, args?: ParsedArg[], mapIds?: boolean) => {
   if (!args) return {}
   if (!data) return {}
   const dataCopy = {}
@@ -66,10 +66,14 @@ const mapDataToArgs = (data: any, args?: ParsedArg[], withIdMapping?: boolean) =
     if (data[name]) {
       dataCopy[name] = data[name]
     }
-    if (withIdMapping && idOfType) {
+    if (idOfType) {
       const obj = data[lowercaseFirstLetter(idOfType) + (isList ? 's' : '')]
       if (obj) {
-        dataCopy[name] = Array.isArray(obj) ? obj.map((o) => o.id) : obj.id
+        if (mapIds) {
+          dataCopy[name] = Array.isArray(obj) ? obj.map((o) => o.id) : obj.id
+        } else {
+          dataCopy[name] = obj
+        }
       }
     }
   })
@@ -88,7 +92,7 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
       if (data && args) {
         setFormState((prevState) => ({
           ...prevState,
-          ...mapDataToArgs(data, args),
+          ...mapDataToArgs(data, args, true),
         }))
       }
     }, [data, args])
@@ -148,7 +152,7 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
           }}
         >
           <FormContextProvider
-            value={{ onChange: handleInputChange, defaultValues: mapDataToArgs(data, args, true), values: formState }}
+            value={{ onChange: handleInputChange, defaultValues: mapDataToArgs(data, args), values: formState }}
           >
             <FormLayout>
               {getLoading ? <Loader label="Loading" /> : children}

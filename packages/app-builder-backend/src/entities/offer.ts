@@ -1,7 +1,7 @@
 import { gql } from 'apollo-server-core'
 import { Field, Float, GraphQLISODateTime, InputType, ObjectType, registerEnumType } from 'type-graphql'
 import { Applicant, ApplicantFields } from './applicant'
-import { Negotiator, NegotiatorFragment } from './negotiator'
+import { Negotiator } from './negotiator'
 import { Property, PropertyFragment } from './property'
 import { GraphQLDate } from 'graphql-iso-date'
 
@@ -68,7 +68,6 @@ export class OfferInput {
 }
 
 export const OfferFragment = gql`
-  ${NegotiatorFragment}
   ${PropertyFragment}
   fragment OfferFragment on OfferModel {
     id
@@ -89,5 +88,6 @@ export const OfferFragment = gql`
         ...NegotiatorFragment
       }
     }
+    _eTag
   }
 `

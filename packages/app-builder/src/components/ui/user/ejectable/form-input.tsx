@@ -36,6 +36,9 @@ import { styled } from '@linaria/react'
 import { useObjectGet } from '../../../../components/hooks/objects/use-object-get'
 
 const getLabel = (obj: any, labelKeys?: string[]) => {
+  if (!obj) {
+    return ''
+  }
   if (labelKeys) {
     return labelKeys
       .map((key) => {

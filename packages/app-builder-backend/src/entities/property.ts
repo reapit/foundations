@@ -272,8 +272,8 @@ export class Property {
   @Field(() => [Office], { nullable: true })
   offices?: Office[]
 
-  @Field(() => Department)
-  department: Department
+  @Field(() => Department, { nullable: true })
+  department?: Department
 
   @Field(() => PropertySelling, { nullable: true })
   selling: PropertySelling
