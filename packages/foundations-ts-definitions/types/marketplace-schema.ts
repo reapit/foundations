@@ -860,6 +860,14 @@ export interface CreateAppModel {
    * Sets the location url of the fifth (optional) app screenshot image
    */
   screen5ImageUrl?: string
+  /**
+   * Sets the location url of the first (optional) app video url
+   */
+  videoUrl1?: string
+  /**
+   * Sets the location url of the second (optional) app video url
+   */
+  videoUrl2?: string
 }
 /**
  * The model responsible for creation of an app restriction
@@ -951,6 +959,14 @@ export interface CreateAppRevisionModel {
    * Sets the location url of the fifth (optional) app screenshot image
    */
   screen5ImageUrl?: string
+  /**
+   * Sets the location url of the first (optional) app video url
+   */
+  videoUrl1?: string
+  /**
+   * Sets the location url of the second (optional) app video url
+   */
+  videoUrl2?: string
   /**
    * Sets the apps launch uri
    */
