@@ -1,5 +1,5 @@
 import React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render, setViewport, viewPortOptions } from '../../../tests/react-testing'
 import { AppFiltersCollection, handleSetFilters } from '../app-filters-collection'
 import { handleSortConfigs } from '../apps-browse'
 import { appsBrowseConfigCollection } from '../../../core/config'
@@ -7,8 +7,11 @@ import { appsBrowseConfigCollection } from '../../../core/config'
 const configItem = handleSortConfigs(appsBrowseConfigCollection)().appsFilters[0]
 
 describe('AppFiltersCollection', () => {
-  it('should match a snapshot', () => {
-    expect(render(<AppFiltersCollection configItem={configItem} />)).toMatchSnapshot()
+  viewPortOptions.forEach((option) => {
+    it(`should match a snapshot for mobile ${option}`, () => {
+      setViewport(option)
+      expect(render(<AppFiltersCollection configItem={configItem} />)).toMatchSnapshot()
+    })
   })
 })
 

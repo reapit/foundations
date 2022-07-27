@@ -1,49 +1,205 @@
+import { forWidescreenAndAbove } from './../../../core/__styles__/media'
+import { ElBodyText } from './../../../../../elements/src/components/typography/__styles__/index'
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
+import { ElSubtitle, ElTitle } from '@reapit/elements'
 import {
   forDesktopAndAbove,
   forMobileAndAbove,
   forSuperWidescreenAndAbove,
   forTabletAndAbove,
-  forWidescreenAndAbove,
 } from '../../../core/__styles__/media'
 
-export const FeaturedHeroAppsCol = styled.div`
-  cursor: pointer;
-  grid-column-end: span 4;
-  min-width: 0;
+// TODO: break this up to make it more component specific, currently a bit of a monster
+
+export const browseAppsTitleHasFilters = css``
+
+export const browseAppsSubtitlePlaceholder = css``
+
+export const BrowseAppsTitle = styled(ElTitle)`
+  margin-top: 0.5rem;
+  font-size: 28px;
+
+  &.${browseAppsTitleHasFilters} {
+    margin-bottom: 0;
+  }
+
+  ${forMobileAndAbove} {
+    margin-top: 0;
+    font-size: 32px;
+    line-height: 36px;
+  }
+`
+
+export const BrowseAppsSubtitle = styled(ElSubtitle)`
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+
+  ${forMobileAndAbove} {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  &.${browseAppsSubtitlePlaceholder} {
+    height: 24px;
+  }
+`
+
+export const FeaturedHeroAppsSubtitle = styled(ElSubtitle)`
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+
+  ${forTabletAndAbove} {
+    margin-bottom: 0.75rem;
+  }
+`
+
+export const FeaturedHeroAppsStrapline = styled(ElBodyText)`
+  font-size: 14px;
+  color: var(--color-grey-dark);
+  margin-bottom: 0.5rem;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+
+  ${forMobileAndAbove} {
+    font-size: 16px;
+  }
 
   ${forDesktopAndAbove} {
-    grid-column-end: span 2;
+    margin-bottom: 3.75rem;
+    -webkit-line-clamp: 3;
+  }
+
+  ${forSuperWidescreenAndAbove} {
+    margin-bottom: 0.5rem;
+    -webkit-line-clamp: 1;
+  }
+`
+
+export const FeaturedHeroAppsItem = styled.div`
+  cursor: pointer;
+  width: 100%;
+  align-self: end;
+  margin-bottom: 1.25rem;
+
+  ${forTabletAndAbove} {
+    margin-bottom: 2.5rem;
+  }
+
+  ${forSuperWidescreenAndAbove} {
+    width: calc(50% - 1rem);
+    display: inline-block;
+    margin-right: 2rem;
   }
 `
 
 export const FeaturedHeroAppsContainer = styled.div`
   width: 100%;
-  padding: 1.25rem;
+  padding: 0.75rem;
   border-radius: 0.25rem;
+
+  ${forMobileAndAbove} {
+    padding: 1.25rem;
+  }
 
   ${forTabletAndAbove} {
     height: 400px;
+  }
+
+  ${forSuperWidescreenAndAbove} {
+    height: 550px;
+  }
+`
+
+export const FeaturedHeroAppsFlexContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  ${forDesktopAndAbove} {
+    flex-direction: row;
+  }
+
+  ${forSuperWidescreenAndAbove} {
+    flex-direction: column;
   }
 `
 
 export const FeaturedHeroAppsContentContainer = styled.div`
   width: 100%;
 
-  ${forMobileAndAbove} {
-    width: 276px;
+  ${forDesktopAndAbove} {
+    width: calc(25% - 1.5rem);
     margin-right: 3rem;
+  }
+
+  ${forSuperWidescreenAndAbove} {
+    width: 100%;
+    margin-right: 0;
+  }
+`
+
+export const FeaturedHeroAppsNameContainer = styled.div`
+  margin-left: 0.75rem;
+
+  ${forMobileAndAbove} {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: auto;
+  }
+
+  ${forDesktopAndAbove} {
+    margin-left: 0;
+  }
+
+  ${forSuperWidescreenAndAbove} {
+    display: block;
+    margin-left: 0.75rem;
+  }
+`
+
+export const FeaturedHeroAppsInnerContainer = styled.div`
+  display: flex;
+
+  ${forMobileAndAbove} {
+    margin-bottom: 0.75rem;
+    justify-content: space-between;
+  }
+
+  ${forDesktopAndAbove} {
+    margin-bottom: 0.75rem;
+    flex-direction: column;
+  }
+
+  ${forSuperWidescreenAndAbove} {
+    margin-bottom: 0;
+    flex-direction: row;
   }
 `
 
 export const FeaturedHeroAppsIcon = styled.img`
-  margin-bottom: 1.25rem;
-  border-radius: 1rem;
+  border-radius: 0.25rem;
   width: 48px;
   height: 48px;
 
   ${forMobileAndAbove} {
+    border-radius: 0.5rem;
+    width: 72px;
+    height: 72px;
+  }
+
+  ${forDesktopAndAbove} {
+    border-radius: 1rem;
+    margin-bottom: 1.25rem;
     width: 96px;
     height: 96px;
   }
@@ -51,45 +207,66 @@ export const FeaturedHeroAppsIcon = styled.img`
 
 export const FeaturedHeroAppsImageContainer = styled.div`
   width: 100%;
+  height: 140px;
 
-  ${forTabletAndAbove} {
-    width: calc(100% - 276px);
+  ${forMobileAndAbove} {
+    height: 250px;
+  }
+
+  ${forDesktopAndAbove} {
+    width: calc(75% - 1.5rem);
+    height: auto;
+  }
+
+  ${forSuperWidescreenAndAbove} {
+    width: 100%;
+    height: 100%;
   }
 `
 
-export const featuredHeroAppsButton = css`
+export const featuredHeroAppsButtonMobTablet = css`
   display: none;
 
-  ${forTabletAndAbove} {
+  ${forMobileAndAbove} {
+    display: block;
+  }
+
+  ${forDesktopAndAbove} {
+    display: none;
+  }
+
+  ${forSuperWidescreenAndAbove} {
     display: block;
   }
 `
 
-export const HeroAppsGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-column-gap: 1.25rem;
-  grid-row-gap: 1.25rem;
+export const featuredHeroAppsButtonDesktop = css`
+  display: none;
+
+  ${forDesktopAndAbove} {
+    display: block;
+  }
+
+  ${forSuperWidescreenAndAbove} {
+    display: none;
+  }
+`
+
+export const HeroAppsContainer = styled.div`
+  cursor: pointer;
+  width: 100%;
+  align-self: end;
   margin-bottom: 1.25rem;
 
   ${forTabletAndAbove} {
-    grid-row-gap: 2.5rem;
     margin-bottom: 2.5rem;
   }
 `
 
-export const HeroAppsCol = styled.div`
-  cursor: pointer;
-  grid-column-end: span 4;
-  align-self: end;
-  min-width: 0;
-
-  ${forTabletAndAbove} {
-    grid-column-end: span 2;
-  }
-
-  ${forDesktopAndAbove} {
-    grid-column-end: span 1;
+export const heroAppsCarouselWidescreen = css`
+  ${forSuperWidescreenAndAbove} {
+    width: calc(50% - 1rem);
+    display: inline-block;
   }
 `
 
@@ -102,46 +279,172 @@ export const HeroAppsImage = styled.img`
 export const HeroAppsChip = styled.div`
   background: var(--color-white);
   color: var(--color-grey-dark);
-  font-size: var(--font-size-small);
+  font-size: 12px;
   border-radius: 0.25rem;
   padding: 1px 0.5rem;
-  margin: 0.25rem 0.5rem 0.75rem 0;
+  margin: 0rem 0.25rem 0.25rem 0;
   display: inline-block;
+  align-self: flex-start;
+
+  ${forMobileAndAbove} {
+    font-size: 14px;
+    line-height: 18px;
+  }
 `
 
-export const HeroAppsContainer = styled.div`
-  width: 100%;
-  padding: 1.25rem;
-  border-radius: 0.25rem;
+export const HeroAppsSubtitle = styled(ElSubtitle)`
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 20px;
+  margin-bottom: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+
+  ${forMobileAndAbove} {
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 0.5rem;
+  }
+`
+
+export const HeroAppsStrapline = styled(ElBodyText)`
+  font-size: 12px;
+  color: var(--color-grey-dark);
+  margin-bottom: 0.5rem;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+
+  ${forMobileAndAbove} {
+    font-size: 14px;
+    line-height: 18px;
+    -webkit-line-clamp: 4;
+  }
 
   ${forTabletAndAbove} {
-    height: 295px;
+    -webkit-line-clamp: 2;
+    margin-bottom: 1.25rem;
   }
 
   ${forDesktopAndAbove} {
+    font-size: 16px;
+    line-height: 20px;
+    -webkit-line-clamp: 5;
+    margin-bottom: 0;
+  }
+
+  ${forSuperWidescreenAndAbove} {
+    -webkit-line-clamp: 2;
+    margin-bottom: 1.25rem;
+  }
+`
+
+export const HeroAppsInnerContainer = styled.div`
+  width: 100%;
+  border-radius: 0.25rem;
+  padding: 0.75rem;
+
+  ${forMobileAndAbove} {
+    padding: 1.25rem;
+  }
+
+  ${forTabletAndAbove} {
     height: 400px;
+  }
+
+  ${forDesktopAndAbove} {
+    height: 300px;
+  }
+
+  ${forSuperWidescreenAndAbove} {
+    height: 550px;
   }
 `
 
 export const HeroAppsContentContainer = styled.div`
-  width: 100%;
+  display: flex;
 
   ${forMobileAndAbove} {
-    margin-right: 3rem;
+    flex-direction: column;
+    margin-bottom: 0.5rem;
   }
 
   ${forTabletAndAbove} {
-    width: 177px;
+    flex-direction: row;
+    margin-bottom: 0;
+  }
+
+  ${forDesktopAndAbove} {
+    flex-direction: column;
+    margin-bottom: 0.5rem;
+  }
+
+  ${forSuperWidescreenAndAbove} {
+    flex-direction: row;
+    margin-bottom: 0;
+  }
+`
+
+export const HeroAppsContentWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  ${forMobileAndAbove} {
+    width: 40%;
+    margin-right: 1.25rem;
+    height: 230px;
+  }
+
+  ${forTabletAndAbove} {
+    width: 100%;
+    margin-right: 0;
+    height: 148px;
+  }
+
+  ${forDesktopAndAbove} {
+    width: calc(33.33% - 1.25rem);
+    margin-right: 1.25rem;
+    height: 100%;
+  }
+
+  ${forSuperWidescreenAndAbove} {
+    width: 100%;
+    margin-right: 0;
+    height: 155px;
+  }
+`
+
+export const HeroAppsNameContainer = styled.div`
+  margin-left: 0.75rem;
+
+  ${forMobileAndAbove} {
+    margin-left: 0;
+  }
+
+  ${forTabletAndAbove} {
+    margin-left: 0.75rem;
+  }
+
+  ${forDesktopAndAbove} {
+    margin-left: 0;
+  }
+
+  ${forSuperWidescreenAndAbove} {
+    margin-left: 0.75rem;
   }
 `
 
 export const HeroAppsIcon = styled.img`
-  margin-bottom: 1.25rem;
-  border-radius: 1rem;
-  width: 48px;
-  height: 48px;
+  border-radius: 0.25rem;
+  width: 40px;
+  height: 40px;
 
   ${forMobileAndAbove} {
+    margin-bottom: 1.25rem;
+    border-radius: 0.5rem;
     width: 72px;
     height: 72px;
   }
@@ -149,137 +452,236 @@ export const HeroAppsIcon = styled.img`
 
 export const HeroAppsImageContainer = styled.div`
   width: 100%;
-
-  ${forTabletAndAbove} {
-    width: calc(100% - 177px);
-  }
-`
-
-export const heroAppsStrapline = css`
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
-  overflow: hidden;
-  margin-bottom: 1.25rem;
+  height: 100px;
 
   ${forMobileAndAbove} {
-    min-height: 3.75rem;
-    -webkit-line-clamp: 3;
+    width: 60%;
+    height: auto;
   }
 
   ${forTabletAndAbove} {
-    margin-bottom: 3.75rem;
+    width: 100%;
+    flex-grow: 1;
   }
-`
 
-export const heroAppsTitle = css`
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
-  overflow: hidden;
+  ${forDesktopAndAbove} {
+    width: auto;
+  }
+
+  ${forSuperWidescreenAndAbove} {
+    width: 100%;
+    flex-grow: 1;
+  }
 `
 
 export const heroAppsFlexToggle = css`
   flex-direction: column;
 
-  ${forTabletAndAbove} {
+  ${forMobileAndAbove} {
     flex-direction: row;
   }
-`
-
-export const heroSubMinHeight = css`
-  min-height: 2rem;
-`
-
-export const AppFilterGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-column-gap: 1.25rem;
-  grid-row-gap: 1.25rem;
-  margin-bottom: 1.25rem;
 
   ${forTabletAndAbove} {
-    grid-row-gap: 2.5rem;
-    margin-bottom: 2.5rem;
+    flex-direction: column;
   }
 
-  ${forWidescreenAndAbove} {
-    grid-template-columns: repeat(5, 1fr);
+  ${forDesktopAndAbove} {
+    flex-direction: row;
   }
 
   ${forSuperWidescreenAndAbove} {
-    grid-template-columns: repeat(10, 1fr);
+    flex-direction: column;
+  }
+`
+
+export const AppFilterGridWrap = styled.div`
+  display: none;
+
+  ${forSuperWidescreenAndAbove} {
+    width: calc(50% - 1rem);
+    margin-right: 2rem;
+    display: block;
+  }
+`
+
+export const AppFilterGrid = styled.div`
+  display: none;
+
+  ${forSuperWidescreenAndAbove} {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 2rem;
+    grid-row-gap: 1.25rem;
+    margin-bottom: 2.5rem;
   }
 `
 
 export const AppFilterCol = styled.div`
   cursor: pointer;
-  grid-column-end: span 3;
-  align-self: end;
-  height: 180px;
-  padding: 1.25rem 2rem;
+  padding: 0.75rem;
   background-color: #eaf5fc;
   border-radius: 0.25rem;
+  height: 160px;
 
-  ${forTabletAndAbove} {
+  ${forMobileAndAbove} {
+    padding: 1.25rem;
+    height: 230px;
+  }
+
+  ${forDesktopAndAbove} {
+    height: 280px;
+  }
+
+  ${forWidescreenAndAbove} {
+    padding: 1.25rem 2.5rem;
+    height: 260px;
+  }
+
+  ${forSuperWidescreenAndAbove} {
     grid-column-end: span 1;
+    height: auto;
   }
 `
 
-export const appTitleOneLine = css`
+export const AppFilterSubtitle = styled(ElSubtitle)`
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: bold;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   overflow: hidden;
+  margin-bottom: 0.5rem;
+
+  ${forMobileAndAbove} {
+    font-size: 16px;
+    line-height: 20px;
+  }
 `
 
-export const appTitleTwoLine = css`
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-`
-
-export const appTitleThreeLine = css`
+export const AppFilterStrapline = styled(ElBodyText)`
+  font-size: 12px;
+  line-height: 14px;
+  color: var(--color-grey-dark);
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   overflow: hidden;
+  margin-bottom: 0;
+
+  ${forMobileAndAbove} {
+    font-size: 14px;
+    line-height: 18px;
+    -webkit-line-clamp: 4;
+  }
+
+  ${forDesktopAndAbove} {
+    font-size: 16px;
+    line-height: 20px;
+    -webkit-line-clamp: 5;
+  }
+
+  ${forWidescreenAndAbove} {
+    -webkit-line-clamp: 3;
+  }
 `
 
-export const FeaturedAppsGrid = styled.div`
+export const AppsGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-column-gap: 1.25rem;
-  grid-row-gap: 1.25rem;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 0.75rem;
+  grid-row-gap: 0.75rem;
   margin-bottom: 1.25rem;
 
+  ${forMobileAndAbove} {
+    grid-column-gap: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
   ${forTabletAndAbove} {
-    grid-row-gap: 2.5rem;
+    grid-template-columns: repeat(12, 1fr);
     margin-bottom: 2.5rem;
   }
 
   ${forSuperWidescreenAndAbove} {
-    grid-template-columns: repeat(7, 1fr);
   }
 `
 
-export const FeaturedAppsCol = styled.div`
+export const AppsCol = styled.div`
   cursor: pointer;
-  grid-column-end: span 4;
+  grid-column-end: span 1;
   align-self: end;
-  padding: 1.25rem 2rem;
   box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.05);
   border-radius: 0.25rem;
-  height: 84px;
+  height: 108px;
   min-width: 0;
+  padding: 0.75rem;
 
   ${forMobileAndAbove} {
-    grid-column-end: span 2;
+    padding: 1.25rem;
+    height: 122px;
   }
 
   ${forTabletAndAbove} {
-    grid-column-end: span 1;
+    grid-column-end: span 4;
+    height: 108px;
+  }
+
+  ${forDesktopAndAbove} {
+    grid-column-end: span 3;
+    height: 86px;
+  }
+
+  ${forSuperWidescreenAndAbove} {
+    grid-column-end: span 3;
+  }
+`
+
+export const AppsWrapper = styled.div`
+  width: 100%;
+
+  ${forSuperWidescreenAndAbove} {
+    width: calc(50% - 1rem);
+  }
+`
+
+export const FeaturedAppStrapline = styled(ElBodyText)`
+  font-size: 12px;
+  line-height: 14px;
+  color: var(--color-grey-dark);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+  margin-bottom: 0;
+
+  ${forMobileAndAbove} {
+    -webkit-line-clamp: 3;
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  ${forTabletAndAbove} {
+    -webkit-line-clamp: 2;
+  }
+
+  ${forDesktopAndAbove} {
+    -webkit-line-clamp: 1;
+  }
+`
+
+export const AppTitle = styled(ElBodyText)`
+  font-size: 12px;
+  font-weight: bold;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  margin-bottom: 0;
+
+  ${forMobileAndAbove} {
+    font-size: 16px;
+    line-height: 20px;
   }
 `
 
@@ -290,62 +692,64 @@ export const AppIcon = styled.img`
 `
 
 export const AppFilterLink = styled.a`
-  margin-left: 0.5rem;
+  font-size: 12px;
+  margin-left: 1.25rem;
   margin-top: 0.25rem;
-`
-
-export const SimpleAppsGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-column-gap: 1.25rem;
-  grid-row-gap: 1.25rem;
-  margin-bottom: 1.25rem;
-
-  ${forTabletAndAbove} {
-    grid-row-gap: 2.5rem;
-    margin-bottom: 2.5rem;
-  }
-
-  ${forSuperWidescreenAndAbove} {
-    grid-template-columns: repeat(10, 1fr);
-  }
-`
-
-export const SimpleAppsCol = styled.div`
-  cursor: pointer;
-  grid-column-end: span 6;
-  align-self: end;
-  padding: 1.25rem 2rem;
-  box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.05);
-  border-radius: 0.25rem;
-  height: 105px;
-  min-width: 0;
+  margin-bottom: 0.5rem;
 
   ${forMobileAndAbove} {
-    grid-column-end: span 2;
+    margin-top: 0.125rem;
+    font-size: 16px;
+    line-height: 20px;
+  }
+`
+
+export const SimpleAppStrapline = styled(ElBodyText)`
+  font-size: 12px;
+  line-height: 14px;
+  color: var(--color-grey-dark);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  margin-bottom: 0;
+
+  ${forMobileAndAbove} {
+    font-size: 14px;
+    line-height: 18px;
+  }
+`
+
+export const SimpleAppsCol = styled(AppsCol)`
+  height: 76px;
+
+  ${forMobileAndAbove} {
+    height: 108px;
   }
 
   ${forTabletAndAbove} {
-    grid-column-end: span 1;
+    grid-column-end: span 3;
+  }
+
+  ${forDesktopAndAbove} {
+    grid-column-end: span 2;
   }
 `
 
 export const DeveloperAppsGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-column-gap: 1.25rem;
-  grid-row-gap: 1.25rem;
+  grid-row-gap: 0.75rem;
   margin-bottom: 1.25rem;
   background: var(--color-grey-light);
-  padding: 1.25rem;
+  padding: 0.75rem;
 
-  ${forTabletAndAbove} {
-    grid-row-gap: 2.5rem;
-    margin-bottom: 2.5rem;
+  ${forMobileAndAbove} {
+    grid-column-gap: 0.75rem;
   }
 
-  ${forSuperWidescreenAndAbove} {
-    grid-template-columns: repeat(10, 1fr);
+  ${forDesktopAndAbove} {
+    grid-template-columns: repeat(12, 1fr);
   }
 `
 
@@ -356,10 +760,10 @@ export const DeveloperAppsColHelper = styled.div`
   min-width: 0;
 
   ${forMobileAndAbove} {
-    grid-column-end: span 4;
+    grid-column-end: span 6;
   }
 
-  ${forTabletAndAbove} {
+  ${forDesktopAndAbove} {
     grid-column-end: span 2;
   }
 `
@@ -367,20 +771,47 @@ export const DeveloperAppsColHelper = styled.div`
 export const DeveloperAppsCol = styled.div`
   grid-column-end: span 6;
   align-self: end;
-  padding: 1.25rem;
+  padding: 0.75rem;
   box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.05);
   border-radius: 0.25rem;
   background: var(--color-white);
-  height: 70px;
   min-width: 0;
 
   ${forMobileAndAbove} {
+    padding: 0.75rem 1.25rem;
     grid-column-end: span 2;
   }
 
   ${forTabletAndAbove} {
-    grid-column-end: span 1;
+    grid-column-end: span 2;
   }
+`
+
+export const DeveloperMainStrapline = styled(ElBodyText)`
+  font-size: 12px;
+  line-height: 14px;
+  color: var(--color-grey-dark);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  margin-bottom: 0;
+
+  ${forMobileAndAbove} {
+    font-size: 14px;
+    line-height: 18px;
+  }
+`
+
+export const DeveloperSubtitle = styled(ElBodyText)`
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 20px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  margin-bottom: 0;
 `
 
 export const AppSearchFiltersWrap = styled.div`
@@ -392,38 +823,17 @@ export const AppSearchFiltersWrap = styled.div`
   }
 `
 
-export const appFiltersButtonActive = css``
-
-export const appFiltersButton = css`
-  text-transform: unset;
-  font-weight: normal;
-  font-size: 14px;
-
-  &:hover,
-  &:focus,
-  &:active,
-  &.${appFiltersButtonActive} {
-    background: var(--intent-primary);
-    color: var(--color-white);
-  }
-`
-
 export const AppsSearchInput = styled.input`
   font-family: var(--font-sans-serif);
   font-size: 14px;
   display: flex;
   flex-grow: 1;
   border-radius: 0 0.25rem 0.25rem 0;
-  background-color: var(--color-grey-light);
+  background: var(--component-input-focus-bg);
   height: 2.5rem;
   border: none;
   margin: 0;
   color: black;
-  background: var(--color-white);
-
-  ${forMobileAndAbove} {
-    background: var(--component-input-focus-bg);
-  }
 
   &:focus {
     outline: none;
@@ -443,10 +853,12 @@ export const appsSearchContainer = css`
   width: 100%;
 
   ${forMobileAndAbove} {
+    margin-bottom: 1.25rem;
     width: 50%;
   }
 
   ${forTabletAndAbove} {
+    margin-bottom: 2.5rem;
     width: 33.33%;
   }
 
@@ -462,11 +874,7 @@ export const appsSearchInputIcon = css`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--color-white);
-
-  ${forMobileAndAbove} {
-    background-color: var(--color-grey-light);
-  }
+  background-color: var(--color-grey-light);
 `
 
 export const appsSearchMobileControls = css`
@@ -511,32 +919,26 @@ export const appsSearchMobileFilterControlsActive = css``
 
 export const AppsSearchMobileFilterControls = styled.div`
   display: flex;
-  width: calc(100% + 2.5rem);
-  margin-left: -1.25rem;
-  background: var(--color-grey-light);
 
   ${forMobileAndAbove} {
     display: none;
   }
 
   &.${appsSearchMobileFilterControlsActive} {
-    padding: 0.5rem 1.25rem;
+    padding: 1.25rem 0;
   }
 `
 
 export const appsFiltersMobileBrowseBy = css`
+  margin-top: 1.25rem;
   min-height: 1.5rem;
 `
 
 export const appsFiltersCategories = css`
-  width: calc(100% + 2.5rem);
-  margin-left: -1.25rem;
-  margin-bottom: 1.25rem;
+  width: 100%;
 
   ${forMobileAndAbove} {
-    width: 100%;
-    margin-left: 0;
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.25rem;
   }
 `
 

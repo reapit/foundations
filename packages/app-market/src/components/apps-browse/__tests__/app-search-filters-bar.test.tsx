@@ -2,7 +2,7 @@ import React, { ChangeEvent } from 'react'
 import { render } from '../../../tests/react-testing'
 import { mockAppSummaryModelPagedResult } from '../../../tests/__stubs__/apps'
 import { AppSearchFilters, handleSearch, handleSelectFilter } from '../app-search-filters-bar'
-import { MobileControlsToggleState } from '../apps-browse'
+import { MobileControlsState } from '../apps-browse'
 
 jest.mock('@reapit/utils-react', () => ({
   useReapitGet: jest.fn(() => [mockAppSummaryModelPagedResult, false]),
@@ -12,10 +12,7 @@ describe('AppSearchFilters', () => {
   it('should match a snapshot', () => {
     const props = {
       setMobileControlsState: jest.fn(),
-      mobileControlsState: {
-        controls: 'filters',
-        filters: 'categories',
-      } as MobileControlsToggleState,
+      mobileControlsState: 'filters' as MobileControlsState,
     }
     expect(render(<AppSearchFilters {...props} />)).toMatchSnapshot()
   })

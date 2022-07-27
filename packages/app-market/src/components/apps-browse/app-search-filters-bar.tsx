@@ -1,12 +1,8 @@
-import React, { ChangeEvent, Dispatch, FC, SetStateAction, useCallback } from 'react'
+import React, { ChangeEvent, Dispatch, FC, memo, SetStateAction, useCallback } from 'react'
 import {
   FlexContainer,
   BodyText,
-  Button,
   Icon,
-  elMr3,
-  elMr5,
-  elMb5,
   MultiSelectChip,
   elHasGreyChips,
   ElMultiSelectUnSelected,
@@ -14,8 +10,6 @@ import {
   SmallText,
 } from '@reapit/elements'
 import {
-  appFiltersButton,
-  appFiltersButtonActive,
   appsFiltersMobileBrowseBy,
   appsFiltersCategories,
   appsSearchContainer,
@@ -31,12 +25,12 @@ import { GetActionNames, getActions } from '@reapit/utils-common'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { cx } from '@linaria/core'
 import debounce from 'just-debounce-it'
-import { handleMobileControls, MobileControlsToggleState } from './apps-browse'
+import { MobileControlsState } from './apps-browse'
 import { AppsBrowseConfigItemFilters, useAppsBrowseState } from '../../core/use-apps-browse-state'
 
 export interface AppSearchFiltersProps {
-  mobileControlsState: MobileControlsToggleState
-  setMobileControlsState: Dispatch<SetStateAction<MobileControlsToggleState>>
+  mobileControlsState: MobileControlsState
+  setMobileControlsState: Dispatch<SetStateAction<MobileControlsState>>
 }
 
 export const handleSelectFilter =
@@ -78,10 +72,8 @@ export const handleSearch =
     })
   }
 
-export const AppSearchFilters: FC<AppSearchFiltersProps> = ({ mobileControlsState, setMobileControlsState }) => {
+export const AppSearchFilters: FC<AppSearchFiltersProps> = memo(({ mobileControlsState }) => {
   const { appsBrowseFilterState, setAppsBrowseFilterState } = useAppsBrowseState()
-  const hasCategories = Boolean(appsBrowseFilterState?.category?.length)
-
   const [categories] = useReapitGet<CategoryModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppCategories],
@@ -92,65 +84,32 @@ export const AppSearchFilters: FC<AppSearchFiltersProps> = ({ mobileControlsStat
 
   return (
     <>
-      <FlexContainer className={cx(elMb5, appsSearchDesktopControls)} isFlexJustifyBetween>
-        <FlexContainer isFlexAlignCenter>
-          <BodyText className={elMr5} hasBoldText hasNoMargin>
-            Browse By
-          </BodyText>
-          <Button
-            onClick={handleMobileControls(setMobileControlsState, { filters: 'categories' })}
-            className={cx(
-              appFiltersButton,
-              (hasCategories || mobileControlsState.filters === 'categories') && appFiltersButtonActive,
-            )}
-            intent="low"
-          >
-            <Icon className={elMr3} icon="appCategoryInfographic" fontSize="1.25rem" />
-            App Categories
-          </Button>
-        </FlexContainer>
-        <FlexContainer className={appsSearchContainer} isFlexAlignCenter>
-          <Icon className={appsSearchInputIcon} icon="searchSystem" fontSize="1.25rem" />
-          <AppsSearchInput type="text" placeholder="Search" onChange={debouncedSearch} />
-        </FlexContainer>
-      </FlexContainer>
       <FlexContainer isFlexColumn>
-        <AppsSearchMobileFilterControls
-          className={cx(mobileControlsState.controls !== 'none' && appsSearchMobileFilterControlsActive)}
-        >
-          {mobileControlsState.controls === 'filters' && (
-            <FlexContainer isFlexColumn>
-              <SmallText className={appsFiltersMobileBrowseBy} hasNoMargin>
-                Browse By
-              </SmallText>
-              <Button
-                onClick={handleMobileControls(setMobileControlsState, { filters: 'categories' })}
-                className={cx(
-                  appFiltersButton,
-                  (hasCategories || mobileControlsState.filters === 'categories') && appFiltersButtonActive,
-                )}
-                intent="low"
-              >
-                <Icon className={elMr3} icon="appCategoryInfographic" fontSize="1.25rem" />
-                App Categories
-              </Button>
-            </FlexContainer>
-          )}
-          {mobileControlsState.controls === 'search' && (
+        {mobileControlsState === 'search' && (
+          <AppsSearchMobileFilterControls className={cx(mobileControlsState && appsSearchMobileFilterControlsActive)}>
             <FlexContainer className={appsSearchContainer} isFlexAlignCenter>
               <Icon className={appsSearchInputIcon} icon="searchSystem" fontSize="1.25rem" />
               <AppsSearchInput type="text" placeholder="Search" onChange={debouncedSearch} />
             </FlexContainer>
-          )}
-        </AppsSearchMobileFilterControls>
+          </AppsSearchMobileFilterControls>
+        )}
+        {mobileControlsState === 'filters' && (
+          <SmallText className={appsFiltersMobileBrowseBy} hasNoMargin>
+            Browse By
+          </SmallText>
+        )}
+      </FlexContainer>
+      <FlexContainer isFlexJustifyBetween>
+        <BodyText className={appsSearchDesktopControls} hasBoldText>
+          Browse By
+        </BodyText>
       </FlexContainer>
       {Boolean(categories?.data?.length) && (
         <ElMultiSelectUnSelected
           className={cx(
             elFadeIn,
             appsFiltersCategories,
-            (mobileControlsState.controls !== 'filters' || mobileControlsState.filters === 'none') &&
-              appsSearchDesktopControls,
+            mobileControlsState !== 'filters' && appsSearchDesktopControls,
           )}
         >
           {categories?.data?.map(({ id, name }) => (
@@ -167,6 +126,10 @@ export const AppSearchFilters: FC<AppSearchFiltersProps> = ({ mobileControlsStat
           ))}
         </ElMultiSelectUnSelected>
       )}
+      <FlexContainer className={cx(appsSearchContainer, appsSearchDesktopControls)} isFlexAlignCenter>
+        <Icon className={appsSearchInputIcon} icon="searchSystem" fontSize="1.25rem" />
+        <AppsSearchInput type="text" placeholder="Search" onChange={debouncedSearch} />
+      </FlexContainer>
     </>
   )
-}
+})

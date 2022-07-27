@@ -1,16 +1,43 @@
 import React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render, setViewport, viewPortOptions } from '../../../tests/react-testing'
 import {
   AppsBrowse,
   checkHasFilters,
   handleMobileControls,
+  handleSetFilters,
   handleSortConfigs,
-  MobileControlsToggleState,
+  MobileControlsState,
 } from '../apps-browse'
 import { appsBrowseConfigCollection } from '../../../core/config'
+import { useAppsBrowseState } from '../../../core/use-apps-browse-state'
+import { mockAppsBrowseState } from '../../../core/__mocks__/use-apps-browse-state'
+
+const configItem = handleSortConfigs(appsBrowseConfigCollection)().featuredApps[0]
+
+jest.mock('../../../core/use-apps-browse-state')
+
+const mockUseAppsBrowseState = useAppsBrowseState as jest.Mock
 
 describe('AppsBrowse', () => {
-  it('should match a snapshot', () => {
+  viewPortOptions.forEach((option) => {
+    it(`should match a snapshot for mobile ${option}`, () => {
+      setViewport(option)
+      expect(render(<AppsBrowse />)).toMatchSnapshot()
+    })
+  })
+
+  it('should match a snapshot for ', () => {
+    setViewport('tablet')
+    expect(render(<AppsBrowse />)).toMatchSnapshot()
+  })
+
+  it('should match a snapshot with filters', () => {
+    mockUseAppsBrowseState.mockReturnValueOnce({
+      ...mockAppsBrowseState,
+      appsBrowseFilterState: {
+        developerId: 'MOCK_DEVELOPER_ID',
+      },
+    })
     expect(render(<AppsBrowse />)).toMatchSnapshot()
   })
 })
@@ -23,9 +50,9 @@ describe('handleSortConfigs', () => {
     expect(curried()).toEqual({
       featuredHeroApps: [config[0]],
       heroApps: [config[1], config[2]],
-      appsFilters: [config[3]],
-      featuredApps: [config[4]],
-      simpleApps: [config[5]],
+      appsFilters: [config[3], config[4], config[5], config[6], config[7], config[8]],
+      featuredApps: [config[9]],
+      simpleApps: [config[10]],
     })
   })
 })
@@ -65,37 +92,23 @@ describe('checkHasFilters', () => {
 describe('handleMobileControls', () => {
   it('should set controls if there are none in state', () => {
     const setMobileControlsState = jest.fn()
-    const newState = {
-      controls: 'filters',
-      filters: 'categories',
-    } as MobileControlsToggleState
+    const newState = 'filters' as MobileControlsState
 
     const curried = handleMobileControls(setMobileControlsState, newState)
 
     curried()
 
-    const setStateAction = setMobileControlsState.mock.calls[0][0]
-
-    const actualState = setStateAction({ controls: 'none', filters: 'none' })
-
-    expect(actualState).toEqual(newState)
+    expect(setMobileControlsState).toHaveBeenCalledWith(newState)
   })
+})
 
-  it('should not update controls if the current state is equal to new state', () => {
-    const setMobileControlsState = jest.fn()
-    const newState = {
-      controls: 'filters',
-      filters: 'categories',
-    } as MobileControlsToggleState
-
-    const curried = handleMobileControls(setMobileControlsState, newState)
+describe('handleSetFilters', () => {
+  it('should set filters', () => {
+    const setAppsBrowseFilterState = jest.fn()
+    const curried = handleSetFilters(setAppsBrowseFilterState, configItem.filters)
 
     curried()
 
-    const setStateAction = setMobileControlsState.mock.calls[0][0]
-
-    const actualState = setStateAction(newState)
-
-    expect(actualState).toEqual(newState)
+    expect(setAppsBrowseFilterState).toHaveBeenCalledWith(configItem.filters)
   })
 })
