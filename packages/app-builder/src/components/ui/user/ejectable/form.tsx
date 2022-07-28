@@ -9,12 +9,75 @@ import { useObjectGet } from '../../../hooks/objects/use-object-get'
 
 import { usePageId } from '../../../hooks/use-page-id'
 import { FormContextProvider } from '../../../hooks/form-context'
+import { cloneDeep } from '@apollo/client/utilities'
+import { ParsedArg } from '@/components/hooks/use-introspection/query-generators'
 
 export interface FormProps extends ContainerProps {
   typeName?: string
   destination?: string
   formType?: string
   children?: React.ReactNode
+}
+
+const addValueToObject = (object: any, key: string, value: any) => {
+  const newObject = cloneDeep(object)
+  const parts = key.split('.')
+
+  let modifyingObject = newObject
+  parts.forEach((part, idx) => {
+    if (idx === parts.length - 1) {
+      return
+    }
+    if (!modifyingObject[part]) {
+      modifyingObject[part] = {}
+    }
+    modifyingObject = modifyingObject[part]
+  })
+
+  const lastKey = parts.pop()
+  if (lastKey) {
+    modifyingObject[lastKey] = value
+  }
+
+  return newObject
+}
+
+const removeTypename = (object: any) => {
+  if (object && typeof object === 'object') {
+    const newObj = cloneDeep(object)
+    delete newObj.__typename
+    Object.keys(newObj).forEach((key) => {
+      newObj[key] = removeTypename(newObj[key])
+    })
+    return newObj
+  }
+  return object
+}
+
+const lowercaseFirstLetter = (str: string) => str.charAt(0).toLowerCase() + str.slice(1)
+
+const mapDataToArgs = (data: any, args?: ParsedArg[], mapIds?: boolean) => {
+  if (!args) return {}
+  if (!data) return {}
+  const dataCopy = {}
+  const [objInput] = args.filter((a) => a.name !== 'id')
+  objInput.fields?.forEach((arg) => {
+    const { name, idOfType, isList } = arg
+    if (data[name]) {
+      dataCopy[name] = data[name]
+    }
+    if (idOfType) {
+      const obj = data[lowercaseFirstLetter(idOfType) + (isList ? 's' : '')]
+      if (obj) {
+        if (mapIds) {
+          dataCopy[name] = Array.isArray(obj) ? obj.map((o) => o.id) : obj.id
+        } else {
+          dataCopy[name] = obj
+        }
+      }
+    }
+  })
+  return dataCopy
 }
 
 export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean }>(
@@ -27,34 +90,21 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
 
     useEffect(() => {
       if (data && args) {
-        const dataCopy = {}
-        args[0].fields?.forEach((arg) => {
-          const { name, idOfType } = arg
-          if (data[name]) {
-            dataCopy[name] = data[name]
-          }
-          if (idOfType) {
-            const obj = data[idOfType.toLowerCase()]
-            if (obj) {
-              dataCopy[name] = obj.id
-            }
-          }
-        })
         setFormState((prevState) => ({
           ...prevState,
-          ...dataCopy,
+          ...mapDataToArgs(data, args, true),
         }))
       }
     }, [data, args])
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-      const { name, type, value, checked } = e.target as HTMLInputElement
-      if (type === 'checkbox') {
-        return setFormState((prevState) => ({ ...prevState, [name]: checked }))
+      const { name, type, value, checked } = (e.currentTarget || e.target) as HTMLInputElement
+      let actualValue: string | number | boolean = type === 'checkbox' ? checked : value
+      if (type === 'number') {
+        actualValue = parseFloat(value)
       }
       setFormState((prevState) => {
-        console.log({ ...prevState, [name]: value })
-        return { ...prevState, [name]: value }
+        return addValueToObject(prevState, name, actualValue)
       })
     }
 
@@ -66,8 +116,8 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
             if (!args) return
             e.preventDefault()
             let variables
+            let fs = removeTypename(formState)
             if (formType === 'create') {
-              let fs = { ...formState }
               if (args[0].fields?.find((field) => field.name === 'id')) {
                 fs = {
                   ...fs,
@@ -78,9 +128,10 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
                 [args[0].name]: fs,
               }
             } else {
+              const [objInput] = args.filter((a) => a.name !== 'id')
               variables = {
-                [args[0].name]: formState,
-                [args[1].name]: context.editObjectId,
+                id: context.editObjectId,
+                [objInput.name]: fs,
               }
             }
             mutateFunction({
@@ -100,7 +151,9 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
               })
           }}
         >
-          <FormContextProvider value={{ onChange: handleInputChange, defaultValues: data || {} }}>
+          <FormContextProvider
+            value={{ onChange: handleInputChange, defaultValues: mapDataToArgs(data, args), values: formState }}
+          >
             <FormLayout>
               {getLoading ? <Loader label="Loading" /> : children}
               <Button intent="primary" disabled={disabled} loading={mutationLoading}>

@@ -1,11 +1,22 @@
-import { Appointment, AppointmentFragment, AppointmentInput } from '../entities/appointments'
+import { Appointment, AppointmentFragment, AppointmentInput, AppointmentType } from '../entities/appointments'
 import { gql } from 'apollo-server-core'
-import { Arg, Authorized, Ctx, Mutation, Query, Resolver } from 'type-graphql'
-import { Context } from '@apollo/client'
+import { Arg, Authorized, Ctx, FieldResolver, Mutation, Query, Resolver, Root } from 'type-graphql'
+import { Context } from '../types'
 import { query } from '../utils/graphql-fetch'
 import { Office } from '../entities/office'
 import { Negotiator } from '../entities/negotiator'
 import { Property } from '../entities/property'
+import { getContact } from './contact-resolver'
+import { Contact } from '../entities/contact'
+
+const getAppointmentTypesQuery = gql`
+  query GetConfigurationsByType {
+    GetConfigurationsByType(type: appointmentTypes) {
+      id
+      value
+    }
+  }
+`
 
 const getAppointmentQuery = gql`
   ${AppointmentFragment}
@@ -33,12 +44,13 @@ const createAppointmentMutation = gql`
     $start: String!
     $end: String!
     $description: String!
-    $attendee: AppointmentAttendeeInput
+    $attendee: CreateAppointmentModelAttendeeInput
     $organiserId: String!
     $propertyId: String
     $officeIds: [String!]!
     $negotiatorIds: [String!]!
     $metadata: JSON
+    $typeId: String!
   ) {
     CreateAppointment(
       start: $start
@@ -49,6 +61,7 @@ const createAppointmentMutation = gql`
       propertyId: $propertyId
       negotiatorIds: $negotiatorIds
       officeIds: $officeIds
+      typeId: $typeId
       metadata: $metadata
     ) {
       ...AppointmentFragment
@@ -63,12 +76,13 @@ const updateAppointmentMutation = gql`
     $start: String!
     $end: String!
     $description: String!
-    $attendee: AppointmentAttendeeInput
+    $attendee: UpdateAppointmentModelAttendeeInput
     $organiserId: String!
     $propertyId: String
     $officeIds: [String!]!
     $negotiatorIds: [String!]!
     $metadata: JSON
+    $typeId: String!
   ) {
     UpdateAppointment(
       id: $id
@@ -80,6 +94,7 @@ const updateAppointmentMutation = gql`
       propertyId: $propertyId
       negotiatorIds: $negotiatorIds
       officeIds: $officeIds
+      typeId: $typeId
       metadata: $metadata
     ) {
       ...AppointmentFragment
@@ -87,9 +102,16 @@ const updateAppointmentMutation = gql`
   }
 `
 
-type AppointmentAPIResponse<T> = Omit<Omit<Omit<Appointment, 'offices'>, 'negotiators'>, 'property'> & {
+type AppointmentAPIResponse<T> = Omit<
+  Omit<Omit<Omit<Appointment, 'offices'>, 'negotiators'>, 'property'>,
+  'attendee'
+> & {
   _embedded: T
   _eTag: string
+  attendee: {
+    id: string
+    type: string
+  }
 }
 
 type AppointmentsEmbeds = {
@@ -110,11 +132,25 @@ const addDefaultEmbeds = (appointment: Appointment): Appointment => ({
   property: appointment.property,
 })
 
-const convertDates = (appointment: Appointment): Appointment => ({
-  ...appointment,
-  created: new Date(appointment.created),
-  modified: new Date(appointment.modified),
-})
+const convertDates = (obj?: any): any => {
+  if (!obj) {
+    return obj
+  }
+  if (Array.isArray(obj)) {
+    return obj
+  }
+  const newObj = {}
+  Object.entries(obj).forEach(([key, value]) => {
+    if ((key === 'created' || key === 'modified') && typeof value === 'string') {
+      newObj[key] = value && new Date(value)
+    } else if (typeof value === 'object') {
+      newObj[key] = convertDates(value)
+    } else {
+      newObj[key] = value
+    }
+  })
+  return newObj
+}
 
 const getApiAppointment = async (
   id: string,
@@ -127,6 +163,12 @@ const getApiAppointment = async (
   })
 }
 
+const moveAttendeeToAttendeeInfo = (appointment: AppointmentAPIResponse<AppointmentsEmbeds>): Appointment => ({
+  ...appointment,
+  attendee: undefined,
+  attendeeInfo: appointment.attendee,
+})
+
 const getAppointment = async (id: string, accessToken: string, idToken: string): Promise<Appointment | null> => {
   const appointment = await getApiAppointment(id, accessToken, idToken)
 
@@ -134,8 +176,11 @@ const getAppointment = async (id: string, accessToken: string, idToken: string):
     return null
   }
 
-  const hoistedAppointment = hoistEmbeds<AppointmentAPIResponse<AppointmentsEmbeds>, AppointmentsEmbeds>(appointment)
-  return convertDates(addDefaultEmbeds(hoistedAppointment))
+  const moved = moveAttendeeToAttendeeInfo(appointment)
+  const hoisted = hoistEmbeds(moved as any)
+
+  const hoistedAppointment = convertDates(hoisted)
+  return addDefaultEmbeds(hoistedAppointment)
 }
 
 const getAppointments = async (
@@ -154,9 +199,10 @@ const getAppointments = async (
   )
 
   return appointments._embedded
-    .map((c) => hoistEmbeds<AppointmentAPIResponse<AppointmentsEmbeds>, AppointmentsEmbeds>(c))
-    .map(addDefaultEmbeds)
+    .map(moveAttendeeToAttendeeInfo)
+    .map((c) => hoistEmbeds<AppointmentAPIResponse<AppointmentsEmbeds>, AppointmentsEmbeds>(c as any))
     .map(convertDates)
+    .map((c) => addDefaultEmbeds(c as any))
 }
 
 const createAppointment = async (
@@ -164,10 +210,19 @@ const createAppointment = async (
   idToken: string,
   appointment: AppointmentInput,
 ): Promise<Appointment> => {
-  const res = await query<AppointmentAPIResponse<null>>(createAppointmentMutation, appointment, 'CreateAppointment', {
-    accessToken,
-    idToken,
-  })
+  const res = await query<AppointmentAPIResponse<null>>(
+    createAppointmentMutation,
+    {
+      ...appointment,
+      type: appointment.typeId,
+      attendee: { type: 'contact', id: appointment.attendeeId },
+    },
+    'CreateAppointment',
+    {
+      accessToken,
+      idToken,
+    },
+  )
   const { id } = res
   const newAppointment = await getAppointment(id, accessToken, idToken)
   if (!newAppointment) {
@@ -189,7 +244,12 @@ const updateAppointment = async (
   const { _eTag } = existingAppointment
   await query<AppointmentAPIResponse<null>>(
     updateAppointmentMutation,
-    { ...appointment, id, _eTag },
+    {
+      ...appointment,
+      attendee: { type: 'contact', id: appointment.attendeeId },
+      id,
+      _eTag,
+    },
     'UpdateAppointment',
     {
       accessToken,
@@ -223,6 +283,15 @@ export class AppointmentResolver {
   }
 
   @Authorized()
+  @Query(() => [AppointmentType])
+  async listAppointmentTypes(@Ctx() { accessToken, idToken }: Context): Promise<AppointmentType[]> {
+    return query<AppointmentType[]>(getAppointmentTypesQuery, {}, 'GetConfigurationsByType', {
+      accessToken,
+      idToken,
+    })
+  }
+
+  @Authorized()
   @Query(() => Appointment)
   async getAppointment(
     @Ctx() { accessToken, idToken, storeCachedMetadata }: Context,
@@ -247,7 +316,11 @@ export class AppointmentResolver {
     const newAppointment = await createAppointment(accessToken, idToken, { ...appointment, metadata })
     storeCachedMetadata(entityName, newAppointment.id, appointment.metadata)
 
-    return newAppointment
+    const fullNewAppointment = await getAppointment(newAppointment.id, accessToken, idToken)
+    if (!fullNewAppointment) {
+      throw new Error('Failed to create appointment')
+    }
+    return fullNewAppointment
   }
 
   @Authorized()
@@ -258,9 +331,41 @@ export class AppointmentResolver {
     @Arg(entityName) appointment: AppointmentInput,
   ): Promise<Appointment> {
     const { [entityName]: metadata } = operationMetadata
-    const newAppointment = await updateAppointment(accessToken, idToken, id, { ...appointment, metadata })
+    const newAppointment = await updateAppointment(accessToken, idToken, id, {
+      ...appointment,
+      metadata,
+    })
     storeCachedMetadata(entityName, newAppointment.id, appointment.metadata)
 
-    return newAppointment
+    const fullNewAppointment = await getAppointment(newAppointment.id, accessToken, idToken)
+    if (!fullNewAppointment) {
+      throw new Error('Failed to create appointment')
+    }
+    return fullNewAppointment
+  }
+
+  @FieldResolver(() => Contact)
+  async attendee(@Root() appointment: Appointment, @Ctx() context: Context): Promise<Contact | undefined> {
+    if (appointment.attendee) {
+      return appointment.attendee
+    }
+    const contact = await getContact(appointment.attendeeInfo.id, context.accessToken, context.idToken)
+    if (!contact) {
+      return undefined
+    }
+    return contact
+  }
+
+  @FieldResolver(() => AppointmentType)
+  async type(@Root() appointment: Appointment, @Ctx() context: Context): Promise<AppointmentType> {
+    if (appointment.type) {
+      return appointment.type
+    }
+    const types = await this.listAppointmentTypes(context)
+    const type = types.find((t) => t.id === appointment.typeId)
+    if (!type) {
+      throw new Error(`Appointment type with id ${appointment.typeId} not found`)
+    }
+    return type
   }
 }

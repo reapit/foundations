@@ -80,7 +80,9 @@ type Mutation {
     address: AddressInput
     bedrooms: Int
     receptions: Int
+    notes: String
     bathrooms: Int
+    parkingSpaces: Int
     councilTax: String
     internetAdvertising: Boolean
     viewingArrangements: String
@@ -108,6 +110,8 @@ type Mutation {
     id: String!
     _eTag: String!
     strapline: String
+    marketingMode: String
+    departmentId: String
     description: String
     summary: String
     address: AddressInput
@@ -115,10 +119,12 @@ type Mutation {
     receptions: Int
     bathrooms: Int
     councilTax: String
+    notes: String
     internetAdvertising: Boolean
     viewingArrangements: String
     videoUrl: String
     videoCaption: String
+    parkingSpaces: Int
     epc: EpcInput
     externalArea: ExternalAreaInput
     internalArea: InternalAreaInput
@@ -132,6 +138,7 @@ type Mutation {
     locality: [String!]
     negotiatorId: String
     officeIds: [String!]
+    rooms: [CreatePropertyRoomModelInput!]
     areaId: String
     metadata: JSON
   ): PropertyModel!
@@ -170,6 +177,7 @@ type PropertyModel {
   videoUrl: String
   videoCaption: String
   video2Url: String
+  parkingSpaces: Int
   video2Caption: String
   notes: String
   archivedOn: String
@@ -205,6 +213,7 @@ type EmbeddedPropertyModel {
   landlord: LandlordModel
   negotiator: NegotiatorModel
   offers: [OfferModel]
+  offices: [OfficeModel]
   tenancies: [TenancyModel]
   vendor: VendorModel
 }
@@ -316,6 +325,7 @@ enum PropertyQueryEmbed {
   offers
   tenancies
   vendor
+  offices
 }
 
 type Query {

@@ -9,7 +9,7 @@ import PrivateRouteWrapper from './private-route-wrapper'
 import { usePageId } from '@/components/hooks/use-page-id'
 import { useAppWithPages } from '@/components/hooks/apps/use-app'
 import { getReapitConnectBrowserSession } from './connect-session'
-import { createClient } from './graphql-client'
+import { createClient, unauthenticatedClient } from './graphql-client'
 import { ApolloProvider } from '@apollo/client'
 import { useIntrospection } from '@/components/hooks/use-introspection'
 import { getDesktopContext, unsetDesktopContext } from './desktop-integration'
@@ -64,8 +64,8 @@ const AppEditor = () => {
 
 const AppViewer = () => {
   const { appId } = usePageId()
-  const { app, loading } = useAppWithPages(appId)
-  const { data } = useIntrospection()
+  const { app, loading } = useAppWithPages(appId, unauthenticatedClient)
+  const { data } = useIntrospection(unauthenticatedClient)
   const [redirect, setRedirect] = React.useState('')
 
   useEffect(() => {
@@ -79,22 +79,25 @@ const AppViewer = () => {
     }
   }, [app, data])
 
-  if (loading || !app || !data) {
+  const session =
+    app &&
+    getReapitConnectBrowserSession({
+      connectClientId: app.clientId,
+      connectOAuthUrl: window.reapit.config.connectOAuthUrl,
+      connectUserPoolId: window.reapit.config.connectUserPoolId,
+      connectLogoutRedirectPath: `${window.location.protocol}//${window.location.host}/`,
+    })
+
+  const memoisedClient = React.useMemo(() => {
+    return createClient(session)
+  }, [session])
+
+  if (loading || !app || !data || !session) {
     return null
   }
   if (redirect) {
     return <Redirect to={redirect} />
   }
-
-  const session = getReapitConnectBrowserSession({
-    connectClientId: app.clientId,
-    connectOAuthUrl: window.reapit.config.connectOAuthUrl,
-    connectUserPoolId: window.reapit.config.connectUserPoolId,
-  })
-
-  const memoisedClient = React.useMemo(() => {
-    return createClient(session)
-  }, [session])
 
   return (
     <ApolloProvider client={memoisedClient}>

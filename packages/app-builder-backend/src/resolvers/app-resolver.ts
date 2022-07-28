@@ -128,6 +128,18 @@ const ensureScopes = async (app: DDBApp, accessToken: string) => {
         const subtypes = fieldNames
           .filter((name) => name.endsWith('Id') || name.endsWith('Ids'))
           .map((name) => name.replace('Ids', '').replace('Id', ''))
+          .map((name) => {
+            if (name.endsWith('y')) {
+              return name.replace(/y$/, 'ies')
+            }
+            return name
+          })
+          .map((name) => {
+            if (name.toLowerCase().includes('attendee')) {
+              return 'contact'
+            }
+            return name
+          })
           .filter((fieldName) => acEntities.find((entityName) => entityName.includes(fieldName)))
 
         return [
@@ -262,6 +274,7 @@ export class AppResolver {
     await updateApp({
       ...app,
       clientId: externalId as string,
+      developerName: developer as string,
     })
 
     return {
@@ -404,18 +417,11 @@ export class AppResolver {
 
   @FieldResolver()
   async name(@Root() app: App, @Ctx() ctx: Context) {
+    if (!ctx.accessToken) {
+      return null
+    }
     const { name } = await ctx.getMarketplaceApp(app.id)
     return name
-  }
-  @FieldResolver()
-  async clientId(@Root() app: App, @Ctx() ctx: Context) {
-    const { externalId } = await ctx.getMarketplaceApp(app.id)
-    return externalId
-  }
-  @FieldResolver()
-  async developerName(@Root() app: App, @Ctx() ctx: Context) {
-    const { developer } = await ctx.getMarketplaceApp(app.id)
-    return developer
   }
 
   @Authorized()

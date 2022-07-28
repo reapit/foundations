@@ -47,7 +47,7 @@ export class NegotiatorInput {
   @Field()
   active: boolean
 
-  @Field()
+  @Field({ description: '@idOf(Office)' })
   officeId: string
 
   @Field({ nullable: true })
@@ -75,5 +75,6 @@ export const NegotiatorFragment = gql`
     mobilePhone
     email
     metadata
+    _eTag
   }
 `

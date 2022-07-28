@@ -1,8 +1,10 @@
-import { Company, CompanyFragment, CompanyInput } from '../entities/company'
-import { Context } from '@apollo/client'
+import { Company, CompanyAddress, CompanyFragment, CompanyInput, CompanyType } from '../entities/company'
+import { Context } from '../types'
 import { gql } from 'apollo-server-core'
-import { Arg, Authorized, Ctx, Mutation, Query, Resolver } from 'type-graphql'
+import { Arg, Authorized, Ctx, FieldResolver, Mutation, Query, Resolver, Root } from 'type-graphql'
 import { AbstractCrudService } from './abstract-crud-resolver'
+import { query } from '../utils/graphql-fetch'
+import { ContactAddressType } from '../entities/contact'
 
 const getCompaniesQuery = gql`
   ${CompanyFragment}
@@ -33,7 +35,8 @@ const createCompanyMutation = gql`
     $mobilePhone: String
     $email: String!
     $metadata: JSON
-    $address: CompanyAddressInput!
+    $typeIds: [String!]!
+    $address: CompanyModelAddressInput!
   ) {
     CreateCompany(
       name: $name
@@ -43,6 +46,7 @@ const createCompanyMutation = gql`
       email: $email
       metadata: $metadata
       address: $address
+      typeIds: $typeIds
     ) {
       ...CompanyFragment
     }
@@ -58,8 +62,10 @@ const updateCompanyMutation = gql`
     $workPhone: String
     $mobilePhone: String
     $email: String!
+    $typeIds: [String!]!
     $metadata: JSON
-    $address: CompanyAddressInput!
+    $address: CompanyModelAddressInput!
+    $_eTag: String!
   ) {
     UpdateCompany(
       id: $id
@@ -70,8 +76,19 @@ const updateCompanyMutation = gql`
       email: $email
       metadata: $metadata
       address: $address
+      typeIds: $typeIds
+      _eTag: $_eTag
     ) {
       ...CompanyFragment
+    }
+  }
+`
+
+const getCompanyTypesQuery = gql`
+  query GetConfigurationsByType {
+    GetConfigurationsByType(type: companyTypes) {
+      id
+      value
     }
   }
 `
@@ -82,6 +99,14 @@ const entityName = 'company'
 
 class CompanyService extends AbstractCrudService<Company, CompaniesEmbeds, CompanyInput> {
   getManyQueryName = () => 'GetCompanies'
+}
+
+@Resolver(() => CompanyAddress)
+export class CompanyAddressResolver {
+  @FieldResolver()
+  async countryId(@Root() companyAddress: CompanyAddress) {
+    return companyAddress.country
+  }
 }
 
 @Resolver(() => Company)
@@ -96,6 +121,15 @@ export class CompanyResolver {
       createCompanyMutation,
       'Company',
     )
+  }
+
+  @Authorized()
+  @Query(() => [CompanyType])
+  async listCompanyTypes(@Ctx() { accessToken, idToken }: Context): Promise<CompanyType[]> {
+    return query<CompanyType[]>(getCompanyTypesQuery, {}, 'GetConfigurationsByType', {
+      accessToken,
+      idToken,
+    })
   }
 
   @Authorized()
@@ -132,7 +166,12 @@ export class CompanyResolver {
     const newCompany = await this.companyService.createEntity({
       accessToken,
       idToken,
-      entityInput: { ...company, metadata },
+      entityInput: {
+        ...company,
+        typeIds: company.companyTypeIds,
+        address: { ...company.address, type: ContactAddressType.company },
+        metadata,
+      },
     })
 
     storeCachedMetadata(entityName, newCompany.id, newCompany.metadata)
@@ -151,9 +190,20 @@ export class CompanyResolver {
       accessToken,
       idToken,
       id,
-      entityInput: { ...company, metadata },
+      entityInput: {
+        ...company,
+        typeIds: company.companyTypeIds,
+        address: { ...company.address, type: ContactAddressType.company },
+        metadata,
+      },
     })
     storeCachedMetadata(entityName, newCompany.id, newCompany.metadata)
     return newCompany
+  }
+
+  @FieldResolver(() => [CompanyType])
+  async companyTypes(@Root() company: Company, @Ctx() context: Context): Promise<CompanyType[]> {
+    const types = await this.listCompanyTypes(context)
+    return types.filter((type) => company.typeIds.includes(type.id))
   }
 }

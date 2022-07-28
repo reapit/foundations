@@ -21,37 +21,6 @@ exports[`Toolbox should match a snapshot 1`] = `
         >
           <svg
             fill="none"
-            height="38"
-            viewBox="0 0 45 38"
-            width="45"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M0.5 13.5H44.5V35C44.5 36.3807 43.3807 37.5 42 37.5H3C1.61929 37.5 0.5 36.3807 0.5 35V13.5Z"
-              fill="#F2F2F2"
-              stroke="#23A4DE"
-            />
-            <path
-              d="M0.5 3C0.5 1.61929 1.61929 0.5 3 0.5H42C43.3807 0.5 44.5 1.61929 44.5 3V9.5H0.5V3Z"
-              fill="white"
-              stroke="#23A4DE"
-            />
-          </svg>
-        </div>
-        <div
-          class="item-name"
-        >
-          Container
-        </div>
-      </div>
-      <div
-        class="item-container"
-      >
-        <div
-          class="el-m3 block cursor-move item"
-        >
-          <svg
-            fill="none"
             height="48"
             viewBox="0 0 51 48"
             width="51"

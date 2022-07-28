@@ -4,14 +4,16 @@ import { Office } from '../entities/office'
 import { MetadataSchemaType } from '@/utils/extract-metadata'
 import { Context } from '@apollo/client'
 import { gql } from 'apollo-server-core'
-import { Arg, Authorized, Ctx, Mutation, Query, Resolver } from 'type-graphql'
+import { Arg, Authorized, Ctx, FieldResolver, Mutation, Query, Resolver, Root } from 'type-graphql'
 import { query } from '../utils/graphql-fetch'
-import { Department } from '@/entities/department'
+import { Department } from '../entities/department'
+import { Contact } from '../entities/contact'
+import { getContact } from './contact-resolver'
 
 const getApplicationQuery = gql`
   ${ApplicantFragment}
-  {
-    GetApplicants(embed: [offices, negotiators]) {
+  query GetApplicants($name: String) {
+    GetApplicants(name: $name, embed: [offices, department, negotiators]) {
       _embedded {
         ...ApplicantFragment
       }
@@ -22,7 +24,7 @@ const getApplicationQuery = gql`
 const getApplicantQuery = gql`
   ${ApplicantFragment}
   query GetApplicant($id: String!) {
-    GetApplicantById(id: $id, embed: [offices, negotiators]) {
+    GetApplicantById(id: $id, embed: [offices, department, negotiators]) {
       ...ApplicantFragment
     }
   }
@@ -32,35 +34,32 @@ const createApplicantMutation = gql`
   ${ApplicantFragment}
   mutation CreateApplicant(
     $marketingMode: String!
-    $currency: String!
     $active: Boolean!
     $notes: String!
     $type: [String!]!
     $style: [String!]!
     $situation: [String!]!
     $parking: [String!]!
-    $bedroomsMin: Number!
-    $bedroomsMax: Nubmer!
-    $receptionsMin: Number!
-    $receptionsMax: Number!
-    $bathroomsMin: Number!
-    $bathroomsMax: Number!
-    $parkingSpacesMin: Number!
-    $parkingSpacesMax: Number!
-    $renting: ApplicantRentingInput
-    $description: String!
+    $bedroomsMin: Int
+    $bedroomsMax: Int
+    $receptionsMin: Int
+    $receptionsMax: Int
+    $bathroomsMin: Int
+    $bathroomsMax: Int
+    $parkingSpacesMin: Int
+    $parkingSpacesMax: Int
     $buying: ApplicantBuyingInput
     $renting: ApplicantRentingInput
     $externalArea: ApplicantExternalAreaInput
     $internalArea: ApplicantInternalAreaInput
-    $officeIds: [String!]!
-    $negotiatorIds: [String!]!
+    $officeIds: [String!]
+    $negotiatorIds: [String!]
     $departmentId: String!
+    $related: [ApplicantRelateInput]
     $metadata: JSON
   ) {
     CreateApplicant(
       marketingMode: $marketingMode
-      currency: $currency
       active: $active
       notes: $notes
       type: $type
@@ -75,13 +74,16 @@ const createApplicantMutation = gql`
       bathroomsMax: $bathroomsMax
       parkingSpacesMin: $parkingSpacesMin
       parkingSpacesMax: $parkingSpacesMax
-      description: $description
+      externalArea: $externalArea
+      internalArea: $internalArea
       renting: $renting
+      buying: $buying
 
       negotiatorIds: $negotiatorIds
       officeIds: $officeIds
       departmentId: $departmentId
       metadata: $metadata
+      related: $related
     ) {
       ...ApplicantFragment
     }
@@ -93,32 +95,33 @@ const updateApplicantMutation = gql`
   mutation UpdateApplicant(
     $id: String!
     $marketingMode: String!
-    $currency: String!
     $active: Boolean!
     $notes: String!
     $type: [String!]!
     $style: [String!]!
     $situation: [String!]!
     $parking: [String!]!
-    $bedroomsMin: Number!
-    $bedroomsMax: Nubmer!
-    $receptionsMin: Number!
-    $receptionsMax: Number!
-    $bathroomsMin: Number!
-    $bathroomsMax: Number!
+    $bedroomsMin: Int
+    $bedroomsMax: Int
+    $parkingSpacesMin: Int
+    $parkingSpacesMax: Int
+    $receptionsMin: Int
+    $receptionsMax: Int
+    $bathroomsMin: Int
+    $bathroomsMax: Int
     $buying: ApplicantBuyingInput
     $renting: ApplicantRentingInput
     $externalArea: ApplicantExternalAreaInput
     $internalArea: ApplicantInternalAreaInput
-    $officeIds: [String!]!
+    $officeIds: [String!]
     $departmentId: String!
-    $negotiatorIds: [String!]!
+    $negotiatorIds: [String!]
     $metadata: JSON
+    $_eTag: String!
   ) {
     UpdateApplicant(
       id: $id
       marketingMode: $marketingMode
-      currency: $currency
       active: $active
       notes: $notes
       type: $type
@@ -131,8 +134,14 @@ const updateApplicantMutation = gql`
       receptionsMax: $receptionsMax
       bathroomsMin: $bathroomsMin
       bathroomsMax: $bathroomsMax
+      parkingSpacesMin: $parkingSpacesMin
+      parkingSpacesMax: $parkingSpacesMax
       departmentId: $departmentId
-
+      externalArea: $externalArea
+      internalArea: $internalArea
+      buying: $buying
+      renting: $renting
+      _eTag: $_eTag
       negotiatorIds: $negotiatorIds
       officeIds: $officeIds
       metadata: $metadata
@@ -170,10 +179,10 @@ const convertDates = (applicant: Applicant): Applicant => ({
   modified: new Date(applicant.modified),
 })
 
-const getApplicants = async (accessToken: string, idToken: string): Promise<Applicant[]> => {
+const getApplicants = async (accessToken: string, idToken: string, name?: string ): Promise<Applicant[]> => {
   const applicants = await query<{ _embedded: ApplicantAPIResponse<ApplicantsEmbeds>[] }>(
     getApplicationQuery,
-    {},
+    { name },
     'GetApplicants',
     {
       accessToken,
@@ -215,10 +224,12 @@ const createApplicant = async (applicant: ApplicantInput, accessToken: string, i
     createApplicantMutation,
     {
       ...app,
-      related: {
-        associatedId: contactId,
-        associatedType: 'contact',
-      },
+      related: [
+        {
+          associatedId: contactId,
+          associatedType: 'contact',
+        },
+      ],
     },
     'CreateApplicant',
     {
@@ -249,7 +260,7 @@ const updateApplicant = async (
   const { contactId, ...app } = applicant
   await query<ApplicantAPIResponse<null>>(
     updateApplicantMutation,
-    { ...app, related: { associatedId: contactId, associatedType: 'contact' }, id, _eTag },
+    { ...app, related: [{ associatedId: contactId, associatedType: 'contact' }], id, _eTag },
     'UpdateApplicant',
     {
       accessToken,
@@ -272,6 +283,19 @@ export class ApplicantResolver {
   @Query(() => [Applicant])
   async listApplicants(@Ctx() { accessToken, idToken, storeCachedMetadata }: Context): Promise<Applicant[]> {
     const applicants = await getApplicants(accessToken, idToken)
+    applicants?.forEach((applicant) => {
+      storeCachedMetadata(entityName, applicant.id, applicant.metadata)
+    })
+    return applicants
+  }
+
+  @Authorized()
+  @Query(() => [Applicant])
+  async searchApplicants(
+    @Arg('query') query: string,
+    @Ctx() { accessToken, idToken, storeCachedMetadata }: Context,
+  ): Promise<Applicant[]> {
+    const applicants = await getApplicants(accessToken, idToken, query)
     applicants?.forEach((applicant) => {
       storeCachedMetadata(entityName, applicant.id, applicant.metadata)
     })
@@ -316,5 +340,24 @@ export class ApplicantResolver {
     const applicant = await updateApplicant(id, { ...applicantDto, metadata }, accessToken, idToken)
     storeCachedMetadata(entityName, applicant.id, applicantDto.metadata)
     return applicant
+  }
+
+  @Authorized()
+  @FieldResolver(() => Contact)
+  async contact(
+    @Ctx() { accessToken, idToken, storeCachedMetadata }: Context,
+    @Root() applicant: Applicant,
+  ): Promise<Contact | undefined> {
+    const { related } = applicant
+    const contactId = related.find((r) => r.type === 'contact')?.id
+    if (!contactId) {
+      throw new Error('Contact not found for applicant')
+    }
+    const contact = await getContact(contactId, accessToken, idToken)
+    if (!contact) {
+      throw new Error(`Contact with id ${contactId} not found`)
+    }
+    storeCachedMetadata('contact', contact.id, contact.metadata)
+    return contact
   }
 }

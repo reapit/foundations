@@ -41,24 +41,26 @@ const updateNegotiatorMutation = gql`
   mutation UpdateNegotiator(
     $name: String!
     $jobTitle: String
-    $officeId: String!
     $active: Boolean
     $workPhone: String
     $mobilePhone: String
     $email: String!
     $metadata: JSON
+    $id: String!
+    $_eTag: String!
   ) {
     UpdateNegotiator(
+      id: $id
       name: $name
       jobTitle: $jobTitle
       active: $active
-      officeId: $officeId
       mobilePhone: $mobilePhone
-      workPhone: $mobilePhone
+      workPhone: $workPhone
       email: $email
       metadata: $metadata
+      _eTag: $_eTag
     ) {
-      ...NegotaitorFragment
+      ...NegotiatorFragment
     }
   }
 `
@@ -81,11 +83,11 @@ const createNegotiatorMutation = gql`
       active: $active
       officeId: $officeId
       mobilePhone: $mobilePhone
-      workPhone: $mobilePhone
+      workPhone: $workPhone
       email: $email
       metadata: $metadata
     ) {
-      ...NegotaitorFragment
+      ...NegotiatorFragment
     }
   }
 `

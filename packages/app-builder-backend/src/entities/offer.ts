@@ -1,8 +1,18 @@
 import { gql } from 'apollo-server-core'
-import { Field, GraphQLISODateTime, InputType, ObjectType } from 'type-graphql'
-import { Applicant, ApplicantFragment } from './applicant'
-import { Negotiator, NegotiatorFragment } from './negotiator'
+import { Field, Float, GraphQLISODateTime, InputType, ObjectType, registerEnumType } from 'type-graphql'
+import { Applicant, ApplicantFields } from './applicant'
+import { Negotiator } from './negotiator'
 import { Property, PropertyFragment } from './property'
+import { GraphQLDate } from 'graphql-iso-date'
+
+export enum OfferStatus {
+  pending = 'pending',
+  withdrawn = 'withdrawn',
+  rejected = 'rejected',
+  accepted = 'accepted',
+  noteOfInterest = 'noteOfInterest',
+}
+registerEnumType(OfferStatus, { name: 'OfferStatus' })
 
 @ObjectType()
 export class Offer {
@@ -15,32 +25,29 @@ export class Offer {
   @Field(() => GraphQLISODateTime)
   modified: Date
 
-  @Field(() => Applicant)
-  applicant: Applicant
+  @Field(() => Applicant, { nullable: true })
+  applicant?: Applicant
 
-  @Field(() => Property)
-  property: Property
+  @Field(() => Property, { nullable: true })
+  property?: Property
 
-  @Field(() => Negotiator)
-  negotiator: String
+  @Field(() => Negotiator, { nullable: true })
+  negotiator?: Negotiator
 
-  @Field()
-  date: string
+  @Field(() => GraphQLDate)
+  date: Date
 
-  @Field()
-  amount: string
+  @Field(() => Float)
+  amount: number
 
-  @Field()
-  status: string
+  @Field(() => OfferStatus)
+  status: OfferStatus
 
   metadata: any
 }
 
 @InputType()
 export class OfferInput {
-  @Field()
-  currency: string
-
   @Field({ description: '@idOf(Applicant)' })
   applicantId: string
 
@@ -50,40 +57,37 @@ export class OfferInput {
   @Field({ description: '@idOf(Negotiator)' })
   negotiatorId: String
 
-  @Field({ nullable: true })
-  offerId: string
+  @Field(() => GraphQLDate)
+  date: Date
 
-  @Field()
-  date: string
+  @Field(() => Float)
+  amount: number
 
-  @Field()
-  amount: string
-
-  @Field()
-  status: string
+  @Field(() => OfferStatus)
+  status: OfferStatus
 }
 
 export const OfferFragment = gql`
-  ${NegotiatorFragment}
   ${PropertyFragment}
-  ${ApplicantFragment}
   fragment OfferFragment on OfferModel {
     id
     created
     modified
-    currency
-    applicant {
-      ...ApplicantFragment
-    }
-    property {
-      ...PropertyFragment
-    }
-    negotiator {
-      ...NegotiatorFragment
-    }
     date
     amount
     status
     metadata
+    _embedded {
+      applicant {
+        ${ApplicantFields}
+      }
+      property {
+        ...PropertyFragment
+      }
+      negotiator {
+        ...NegotiatorFragment
+      }
+    }
+    _eTag
   }
 `

@@ -1,20 +1,28 @@
-import { ObjectType, Field, ID, InputType, GraphQLISODateTime } from 'type-graphql'
+import { ObjectType, Field, ID, InputType, GraphQLISODateTime, registerEnumType } from 'type-graphql'
 import { gql } from 'apollo-server-core'
-import { PropertyImage } from './property-image'
-import { Negotiator } from './negotiator'
-import { Office } from './office'
+import { PropertyImage, PropertyImageFragment } from './property-image'
+import { Negotiator, NegotiatorFragment } from './negotiator'
+import { Office, OfficeFragment } from './office'
+import { Department, DepartmentFragment } from './department'
 
 export const PropertyFragment = gql`
+  ${NegotiatorFragment}
+  ${OfficeFragment}
+  ${DepartmentFragment}
+  ${PropertyImageFragment}
   fragment PropertyFragment on PropertyModel {
     id
+    _eTag
     created
     modified
     type
     description
     strapline
-    parkingSpaces
+    parking
     internetAdvertising
+    parkingSpaces
     notes
+    marketingMode
     externalArea {
       type
       min
@@ -41,16 +49,25 @@ export const PropertyFragment = gql`
     }
     selling {
       price
+      status
+    }
+    letting {
+      rent
+      rentFrequency
+      status
     }
     _embedded {
       images {
-        id
-        url
-        type
-        created
-        modified
-        caption
-        order
+        ...PropertyImageFragment
+      }
+      negotiator {
+        ...NegotiatorFragment
+      }
+      offices {
+        ...OfficeFragment
+      }
+      department {
+        ...DepartmentFragment
       }
     }
     metadata
@@ -59,39 +76,63 @@ export const PropertyFragment = gql`
 
 @ObjectType()
 class GeoLocation {
-  @Field()
+  @Field({ nullable: true })
   latitude?: number
 
-  @Field()
+  @Field({ nullable: true })
   longitude?: number
 }
 
 @ObjectType()
 class PropertyAddress {
-  @Field()
+  @Field({ nullable: true })
   line1?: string
 
-  @Field()
+  @Field({ nullable: true })
   line2?: string
 
-  @Field()
+  @Field({ nullable: true })
   line3?: string
 
-  @Field()
+  @Field({ nullable: true })
   line4?: string
 
-  @Field()
+  @Field({ nullable: true })
   buildingName?: string
 
-  @Field()
+  @Field({ nullable: true })
   buildingNumber?: string
 
-  @Field()
+  @Field({ nullable: true })
   postcode?: string
 
   @Field(() => GeoLocation)
   geolocation?: GeoLocation
 }
+
+export enum PropertyLettingStatus {
+  valuation = 'valuation',
+  toLet = 'toLet',
+  toLetUnavailable = 'toLetUnavailable',
+  underOffer = 'underOffer',
+  underOfferUnavailable = 'underOfferUnavailable',
+  arrangingTenancyUnavailable = 'arrangingTenancyUnavailable',
+  arrangingTenancy = 'arrangingTenancy',
+  tenancyCurrentUnavailable = 'tenancyCurrentUnavailable',
+  tenancyCurrent = 'tenancyCurrent',
+  tenancyFinished = 'tenancyFinished',
+  tenancyCancelled = 'tenancyCancelled',
+  sold = 'sold',
+  letByOtherAgent = 'letByOtherAgent',
+  letPrivately = 'letPrivately',
+  provisional = 'provisional',
+  withdrawn = 'withdrawn',
+  none = '',
+}
+registerEnumType(PropertyLettingStatus, {
+  name: 'PropertyLettingStatus',
+  description: 'PropertyLettingStatus',
+})
 
 @ObjectType()
 class PropertyLetting {
@@ -101,8 +142,8 @@ class PropertyLetting {
   @Field()
   rentFrequency: string
 
-  @Field()
-  status: string
+  @Field(() => PropertyLettingStatus)
+  status: PropertyLettingStatus
 }
 
 @ObjectType()
@@ -110,51 +151,66 @@ class PropertySelling {
   @Field()
   price: number
 
-  @Field()
-  desription: string
-
-  @Field()
-  status: string
+  @Field(() => PropertySellingStatus, { nullable: true })
+  status: PropertySellingStatus
 }
+
+export enum ExternalAreaType {
+  acres = 'acres',
+  hectares = 'hectares',
+}
+registerEnumType(ExternalAreaType, {
+  name: 'ExternalAreaType',
+  description: 'ExternalAreaType',
+})
 
 @ObjectType()
 class ExternalArea {
-  @Field()
-  type?: string
+  @Field({ nullable: true })
+  type: ExternalAreaType
 
-  @Field()
-  min?: number
+  @Field({ nullable: true })
+  min: number
 
-  @Field()
-  max?: number
+  @Field({ nullable: true })
+  max: number
 }
+
+export enum InternalAreaType {
+  squareFeet = 'squareFeet',
+  squareMetres = 'squareMetres',
+}
+registerEnumType(InternalAreaType, {
+  name: 'InternalAreaType',
+  description: 'InternalAreaType',
+})
 
 @ObjectType()
 class InternalArea {
-  @Field()
-  type?: string
+  @Field({ nullable: true })
+  type: InternalAreaType
 
-  @Field()
-  min?: number
+  @Field({ nullable: true })
+  min: number
 
-  @Field()
-  max?: number
+  @Field({ nullable: true })
+  max: number
 }
 
 @ObjectType()
 class Room {
-  @Field()
+  @Field({ nullable: true })
   name?: string
 
-  @Field()
-  dimension?: string
+  @Field({ nullable: true })
+  dimensions?: string
 
-  @Field()
+  @Field({ nullable: true })
   description?: string
 }
 
 @ObjectType({
-  description: '@supportsCustomFields()',
+  description: '@supportsCustomFields() @labelKeys(address)',
 })
 export class Property {
   @Field(() => ID, {
@@ -168,56 +224,56 @@ export class Property {
   @Field(() => GraphQLISODateTime)
   modified: Date
 
-  @Field()
+  @Field({ nullable: true })
   strapline?: string
-
-  @Field(() => [String])
-  type?: string[]
 
   @Field({ nullable: true })
   description?: string
 
-  @Field()
-  parkingSpaces?: number
+  @Field(() => [String], { nullable: true })
+  parking?: string[]
 
-  @Field()
+  @Field({ nullable: true })
   internetAdvertising?: boolean
 
-  @Field()
+  @Field({ nullable: true })
   notes?: string
 
-  @Field(() => ExternalArea)
+  @Field(() => ExternalArea, { nullable: true })
   externalArea?: ExternalArea
 
-  @Field(() => InternalArea)
+  @Field(() => InternalArea, { nullable: true })
   internalArea?: InternalArea
 
-  @Field(() => [Room])
+  @Field(() => [Room], { nullable: true })
   rooms?: Room[]
 
-  @Field()
+  @Field({ nullable: true })
   receptions?: number
 
-  @Field()
+  @Field({ nullable: true })
   bathrooms?: number
 
-  @Field()
+  @Field({ nullable: true })
   bedrooms?: number
 
-  @Field(() => PropertyAddress)
+  @Field(() => PropertyAddress, { nullable: true })
   address?: PropertyAddress
 
   @Field(() => [PropertyImage], { nullable: true })
   images?: PropertyImage[]
 
-  @Field({ nullable: true })
-  marketingMode?: string
+  @Field(() => PropertyMarketingMode)
+  marketingMode?: PropertyMarketingMode
 
-  @Field(() => Negotiator)
-  negotiator: Negotiator
+  @Field(() => Negotiator, { nullable: true })
+  negotiator?: Negotiator
 
-  @Field(() => Office)
-  office: Office
+  @Field(() => [Office], { nullable: true })
+  offices?: Office[]
+
+  @Field(() => Department, { nullable: true })
+  department?: Department
 
   @Field(() => PropertySelling, { nullable: true })
   selling: PropertySelling
@@ -230,49 +286,58 @@ export class Property {
 
 @InputType()
 class PropertyGeoLocationInput {
-  @Field()
+  @Field({ nullable: true })
   latitude?: number
 
-  @Field()
+  @Field({ nullable: true })
   longitude?: number
 }
+
+export enum PropertyLettingFrequency {
+  weekly = 'weekly',
+  monthly = 'monthly',
+  yearly = 'yearly',
+}
+registerEnumType(PropertyLettingFrequency, {
+  name: 'PropertyLettingFrequency',
+})
 
 @InputType()
 class PropertyLettingInput {
   @Field()
   rent: number
 
-  @Field()
-  rentFrequency: string
+  @Field(() => PropertyLettingFrequency)
+  rentFrequency: PropertyLettingFrequency
 
-  @Field()
-  status: string
+  @Field(() => PropertyLettingStatus)
+  status: PropertyLettingStatus
 }
 
 @InputType()
 export class PropertyAddressInput {
-  @Field()
+  @Field({ nullable: true })
   line1?: string
 
-  @Field()
+  @Field({ nullable: true })
   line2?: string
 
-  @Field()
+  @Field({ nullable: true })
   line3?: string
 
-  @Field()
+  @Field({ nullable: true })
   line4?: string
 
-  @Field()
+  @Field({ nullable: true })
   buildingName?: string
 
-  @Field()
+  @Field({ nullable: true })
   buildingNumber?: string
 
-  @Field()
+  @Field({ nullable: true })
   postcode?: string
 
-  @Field(() => PropertyGeoLocationInput)
+  @Field(() => PropertyGeoLocationInput, { nullable: true })
   geolocation?: PropertyGeoLocationInput
 }
 
@@ -281,35 +346,32 @@ class PropertySellingInput {
   @Field()
   price: number
 
-  @Field()
-  description: string
-
-  @Field()
-  status: string
+  @Field(() => PropertySellingStatus)
+  status: PropertySellingStatus
 }
 
 @InputType()
 class ExternalAreaInput {
-  @Field()
-  type?: string
+  @Field(() => ExternalAreaType)
+  type: ExternalAreaType
 
   @Field()
-  min?: number
+  min: number
 
   @Field()
-  max?: number
+  max: number
 }
 
 @InputType()
 class InternalAreaInput {
-  @Field()
-  type?: string
+  @Field(() => InternalAreaType)
+  type: InternalAreaType
 
   @Field()
-  min?: number
+  min: number
 
   @Field()
-  max?: number
+  max: number
 }
 
 @InputType()
@@ -318,17 +380,44 @@ class RoomInput {
   name?: string
 
   @Field()
-  dimension?: string
+  dimensions?: string
 
   @Field()
   description?: string
 }
 
+enum PropertyMarketingMode {
+  selling = 'selling',
+  letting = 'letting',
+  sellingAndLetting = 'sellingAndLetting',
+}
+registerEnumType(PropertyMarketingMode, {
+  name: 'PropertyMarketingMode',
+  description: 'Property marketing mode',
+})
+
+export enum PropertySellingStatus {
+  preAppraisal = 'preAppraisal',
+  valuation = 'valuation',
+  paidValuation = 'paidValuation',
+  forSale = 'forSale',
+  forSaleUnavailable = 'forSaleUnavailable',
+  underOffer = 'underOffer',
+  underOfferUnavailable = 'underOfferUnavailable',
+  reserved = 'reserved',
+  exchanged = 'exchanged',
+  completed = 'completed',
+  soldExternally = 'soldExternally',
+  withdrawn = 'withdrawn',
+  none = '',
+}
+registerEnumType(PropertySellingStatus, {
+  name: 'PropertySellingStatus',
+  description: 'Property selling status',
+})
+
 @InputType()
 export class PropertyInput {
-  @Field(() => [String])
-  type?: string[]
-
   @Field({ nullable: true })
   description?: string
 
@@ -338,34 +427,52 @@ export class PropertyInput {
   @Field(() => PropertyAddressInput)
   address?: PropertyAddressInput
 
+  @Field(() => PropertyMarketingMode)
+  marketingMode: PropertyMarketingMode
+
+  @Field(() => PropertySellingInput, {
+    nullable: true,
+    description: '@onlyIf({ "marketingMode": ["selling", "sellingAndLetting"] })',
+  })
+  selling?: PropertySellingInput
+
+  @Field(() => PropertyLettingInput, {
+    nullable: true,
+    description: '@onlyIf({ "marketingMode": ["letting", "sellingAndLetting"] })',
+  })
+  letting?: PropertyLettingInput
+
+  @Field({ description: '@idOf(Negotiator)' })
+  negotiatorId: string
+
+  @Field(() => [String], { description: '@idOf(Office)' })
+  officeIds: string[]
+
+  @Field({ description: '@idOf(Department)' })
+  departmentId: string
+
   @Field({ nullable: true })
-  marketingMode?: string
-
-  @Field(() => PropertySellingInput, { nullable: true })
-  selling: PropertySellingInput
-
-  @Field(() => PropertyLettingInput, { nullable: true })
-  letting: PropertyLettingInput
-
-  @Field()
   strapline?: string
 
-  @Field()
+  @Field({ nullable: true })
   parkingSpaces?: number
+
+  @Field(() => [String], { nullable: true })
+  parking?: string[]
 
   @Field()
   internetAdvertising?: boolean
 
-  @Field()
+  @Field({ nullable: true })
   notes?: string
 
-  @Field(() => ExternalAreaInput)
+  @Field(() => ExternalAreaInput, { nullable: true })
   externalArea?: ExternalAreaInput
 
-  @Field(() => InternalAreaInput)
+  @Field(() => InternalAreaInput, { nullable: true })
   internalArea?: InternalAreaInput
 
-  @Field(() => [RoomInput])
+  @Field(() => [RoomInput], { nullable: true })
   rooms?: RoomInput[]
 
   metadata?: any

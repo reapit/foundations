@@ -28,6 +28,7 @@ type AppointmentModel {
   cancelled: Boolean
   followUp: AppointmentModelFollowUp
   propertyId: String
+  virtual: Boolean
   property: PropertyModel
   organiserId: String
   negotiatorIds: [String!]
@@ -136,7 +137,7 @@ type Mutation {
     recurrence: AppointmentModelRecurrenceInput
     metadata: JSON
     attendee: CreateAppointmentModelAttendeeInput
-  ): JSON!
+  ): AppointmentModel!
 
   UpdateAppointment(
     id: String!

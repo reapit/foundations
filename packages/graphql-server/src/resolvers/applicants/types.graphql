@@ -30,8 +30,8 @@ type ApplicantBuying {
 type ApplicantRenting {
   moveDate: String
   term: String
-  rentFrom: Int
-  rentTo: Int
+  rentFrom: Float
+  rentTo: Float
   rentFrequency: String
   furnishing: [String]
 }
@@ -76,6 +76,8 @@ type ApplicantModel {
   receptionsMax: Int
   bathroomsMin: Int
   bathroomsMax: Int
+  parkingSpacesMin: Int
+  parkingSpacesMax: Int
   locationType: String
   locationOptions: [String]
   buying: ApplicantBuying
@@ -254,6 +256,8 @@ type Mutation {
     receptionsMax: Int
     bathroomsMin: Int
     bathroomsMax: Int
+    parkingSpacesMin: Int
+    parkingSpacesMax: Int
     locationType: String
     locationOptions: [String]
     buying: ApplicantBuyingInput
@@ -287,6 +291,8 @@ type Mutation {
     receptionsMax: Int
     bathroomsMin: Int
     bathroomsMax: Int
+    parkingSpacesMin: Int
+    parkingSpacesMax: Int
     locationType: String
     locationOptions: [String]
     buying: ApplicantBuyingInput

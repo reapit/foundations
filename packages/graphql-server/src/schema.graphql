@@ -30,8 +30,8 @@ type ApplicantBuying {
 type ApplicantRenting {
   moveDate: String
   term: String
-  rentFrom: Int
-  rentTo: Int
+  rentFrom: Float
+  rentTo: Float
   rentFrequency: String
   furnishing: [String]
 }
@@ -76,6 +76,8 @@ type ApplicantModel {
   receptionsMax: Int
   bathroomsMin: Int
   bathroomsMax: Int
+  parkingSpacesMin: Int
+  parkingSpacesMax: Int
   locationType: String
   locationOptions: [String]
   buying: ApplicantBuying
@@ -575,6 +577,8 @@ type Mutation {
     receptionsMax: Int
     bathroomsMin: Int
     bathroomsMax: Int
+    parkingSpacesMin: Int
+    parkingSpacesMax: Int
     locationType: String
     locationOptions: [String]
     buying: ApplicantBuyingInput
@@ -607,6 +611,8 @@ type Mutation {
     receptionsMax: Int
     bathroomsMin: Int
     bathroomsMax: Int
+    parkingSpacesMin: Int
+    parkingSpacesMax: Int
     locationType: String
     locationOptions: [String]
     buying: ApplicantBuyingInput
@@ -644,7 +650,7 @@ type Mutation {
     recurrence: AppointmentModelRecurrenceInput
     metadata: JSON
     attendee: CreateAppointmentModelAttendeeInput
-  ): JSON!
+  ): AppointmentModel!
   UpdateAppointment(
     id: String!
     start: String
@@ -905,7 +911,7 @@ type Mutation {
     propertyId: String
     negotiatorId: String
     date: String
-    amount: String
+    amount: Float
     status: String
     inclusions: String
     exclusions: String
@@ -917,7 +923,7 @@ type Mutation {
     _eTag: String!
     negotiatorId: String
     date: String
-    amount: String
+    amount: Float
     status: String
     inclusions: String
     exclusions: String
@@ -952,12 +958,14 @@ type Mutation {
     bedrooms: Int
     receptions: Int
     bathrooms: Int
+    parkingSpaces: Int
     councilTax: String
     internetAdvertising: Boolean
     viewingArrangements: String
     videoUrl: String
     videoCaption: String
     epc: EpcInput
+    notes: String
     externalArea: ExternalAreaInput
     internalArea: InternalAreaInput
     selling: SellingInput
@@ -977,6 +985,8 @@ type Mutation {
   UpdateProperty(
     id: String!
     _eTag: String!
+    marketingMode: String
+    departmentId: String
     strapline: String
     description: String
     summary: String
@@ -984,6 +994,8 @@ type Mutation {
     bedrooms: Int
     receptions: Int
     bathrooms: Int
+    parkingSpaces: Int
+    notes: String
     councilTax: String
     internetAdvertising: Boolean
     viewingArrangements: String
@@ -992,6 +1004,7 @@ type Mutation {
     epc: EpcInput
     externalArea: ExternalAreaInput
     internalArea: InternalAreaInput
+    rooms: [CreatePropertyRoomModelInput!]
     selling: SellingInput
     letting: lettingInput
     type: [String!]
@@ -1171,6 +1184,7 @@ type AppointmentModel {
   negotiatorConfirmed: Boolean
   attendeeConfirmed: Boolean
   propertyConfirmed: Boolean
+  virtual: Boolean
   metadata: JSON
   _eTag: String
   _links: JSON
@@ -2152,6 +2166,7 @@ type PropertyModel {
   negotiatorId: String
   bedrooms: Int
   receptions: Int
+  parkingSpaces: Int
   bathrooms: Int
   councilTax: String
   internetAdvertising: Boolean
@@ -2176,6 +2191,7 @@ type PropertyModel {
   locality: [String!]
   rooms: [PropertyRoomModel!]
   officeIds: [String!]
+  notes: String
   lostInstructionDate: String
   lostInstructionNote: String
   metadata: JSON
@@ -2196,6 +2212,7 @@ type EmbeddedPropertyModel {
   offers: [OfferModel]
   tenancies: [TenancyModel]
   vendor: VendorModel
+  offices: [OfficeModel]
 }
 
 type PropertyModelAddress {
@@ -2304,6 +2321,7 @@ enum PropertyQueryEmbed {
   offers
   tenancies
   vendor
+  offices
 }
 
 type PagedResultPropertyImageModel {

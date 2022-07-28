@@ -3,15 +3,22 @@ import { Context } from '@apollo/client'
 import { gql } from 'apollo-server-core'
 import { Arg, Authorized, Ctx, Mutation, Query, Resolver } from 'type-graphql'
 import { AbstractCrudService } from './abstract-crud-resolver'
+import { Applicant } from '@/entities/applicant'
+import { Property } from '@/entities/property'
+import { Negotiator } from '@/entities/negotiator'
 
-type OfferEmbed = {}
+type OfferEmbed = {
+  applicant: Applicant
+  property: Property
+  negotiator: Negotiator
+}
 
 class OfferService extends AbstractCrudService<Offer, OfferEmbed, OfferInput> {}
 
 const getOfferQuery = gql`
   ${OfferFragment}
   query GetOffer($id: String!) {
-    GetOfferById(id: $id) {
+    GetOfferById(id: $id, embed: [applicant, property, negotiator]) {
       ...OfferFragment
     }
   }
@@ -20,7 +27,7 @@ const getOfferQuery = gql`
 const getOffersQuery = gql`
   ${OfferFragment}
   {
-    GetOffers {
+    GetOffers(embed: [applicant, property, negotiator]) {
       _embedded {
         ...OfferFragment
       }
@@ -31,17 +38,15 @@ const getOffersQuery = gql`
 const createOfferMutation = gql`
   ${OfferFragment}
   mutation CreateOffer(
-    $id: String!
     $applicantId: String
     $propertyId: String
     $negotiatorId: String
     $date: String
-    $amount: String
+    $amount: Float
     $status: String
     $metadata: JSON
   ) {
     CreateOffer(
-      id: $id
       applicantId: $applicantId
       propertyId: $propertyId
       negotiatorId: $negotiatorId
@@ -50,33 +55,32 @@ const createOfferMutation = gql`
       status: $status
       metadata: $metadata
     ) {
-      OfferFragment
+      ...OfferFragment
     }
   }
 `
 
 const updateOfferMutation = gql`
+  ${OfferFragment}
   mutation UpdateOffer(
     $id: String!
-    $applicantId: String
-    $propertyId: String
     $negotiatorId: String
     $date: String
-    $amount: String
+    $amount: Float
     $status: String
     $metadata: JSON
+    $_eTag: String!
   ) {
     UpdateOffer(
       id: $id
-      applicantId: $applicantId
-      propertyId: $propertyId
       negotiatorId: $negotiatorId
       date: $date
       amount: $amount
       status: $status
       metadata: $metadata
+      _eTag: $_eTag
     ) {
-      OfferFragment
+      ...OfferFragment
     }
   }
 `
@@ -110,10 +114,12 @@ export class OfferResolver {
   @Query(() => [Offer])
   @Authorized()
   async listOffers(@Ctx() { idToken, accessToken }: Context): Promise<Offer[]> {
-    return this.service.getEntities({
+    const offers = await this.service.getEntities({
       idToken,
       accessToken,
     })
+
+    return offers
   }
 
   @Mutation(() => Offer)

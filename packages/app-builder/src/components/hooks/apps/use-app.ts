@@ -1,4 +1,4 @@
-import { useQuery, gql } from '@apollo/client'
+import { useQuery, gql, ApolloClient } from '@apollo/client'
 import { App, AppFragment, AppWithPages, AppWithPagesFragment, NavConfig, Node, NodeFragment } from './fragments'
 
 export const GetAppQuery = gql`
@@ -129,11 +129,12 @@ export const useApp = (idOrSubdomain: string) => {
   }
 }
 
-export const useAppWithPages = (idOrSubdomain: string) => {
+export const useAppWithPages = (idOrSubdomain: string, client?: ApolloClient<any>) => {
   const { loading, error, data, refetch } = useQuery(GetAppWithPagesQuery, {
     variables: {
       idOrSubdomain,
     },
+    client,
     skip: !idOrSubdomain,
   })
 

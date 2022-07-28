@@ -5,7 +5,7 @@ import { usePageId } from '@/components/hooks/use-page-id'
 import { useObjectMutate } from '@/components/hooks/objects/use-object-mutate'
 import { ParsedArg } from '@/components/hooks/use-introspection/query-generators'
 import { FormInput } from './form-input'
-import Form from './form'
+import Form, { argToFormInput } from './form'
 import { resolver } from '@/components/pages/home'
 import React, { useState } from 'react'
 import Container from './container'
@@ -55,13 +55,11 @@ const constructPageNodes = (
       return formNodes
     }
 
-    const inputs = args[0].fields?.map(({ name, isRequired }) => ({
-      name,
-      typeName,
-      formType: operationType,
-      isRequired,
-    }))
-
+    const [objInput] = args.filter((a) => a.name !== 'id')
+    if (!objInput) {
+      return formNodes
+    }
+    const inputs = objInput.fields?.map((arg) => argToFormInput(arg, { formType: 'update', typeName })).flat()
     if (inputs) {
       const containerNodeTree = reactElementToNodeTree(<Element canvas is={Container} width={12} />)
       const formNodeTree = reactElementToNodeTree(
@@ -148,10 +146,9 @@ export const CreatePage = ({
       sourcePageId,
       [operationType, typeName].join(' '),
     )
-    updatePageNodes(nodesObjtoToArr(appId, page.id, nodes), page.id).then(() => {
-      setLoading(false)
-      onCreate(pageId)
-    })
+    await updatePageNodes(nodesObjtoToArr(appId, page.id, nodes), page.id)
+    setLoading(false)
+    onCreate(pageId)
   }
 
   return <PlusButton onClick={onClick} loading={loading} />

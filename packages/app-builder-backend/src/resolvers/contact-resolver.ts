@@ -153,9 +153,11 @@ const getContacts = async (accessToken: string, idToken: string): Promise<Contac
   )
 
   return contacts._embedded
-    .map((c) => hoistEmbeds<ContactAPIResponse<ContactsEmbeds>, ContactsEmbeds>(c))
-    .map(addDefaultEmbeds)
     .map(convertDates)
+    .map((c) =>
+      hoistEmbeds<ContactAPIResponse<ContactsEmbeds>, ContactsEmbeds>(c as ContactAPIResponse<ContactsEmbeds>),
+    )
+    .map(addDefaultEmbeds)
 }
 
 const getApiContact = async (
@@ -169,15 +171,15 @@ const getApiContact = async (
   })
 }
 
-const getContact = async (id: string, accessToken: string, idToken: string): Promise<Contact | null> => {
+export const getContact = async (id: string, accessToken: string, idToken: string): Promise<Contact | null> => {
   const contact = await getApiContact(id, accessToken, idToken)
 
   if (!contact) {
     return null
   }
 
-  const hoistedContact = hoistEmbeds<ContactAPIResponse<ContactsEmbeds>, ContactsEmbeds>(contact)
-  return convertDates(addDefaultEmbeds(hoistedContact))
+  const hoistedContact = convertDates(hoistEmbeds<ContactAPIResponse<ContactsEmbeds>, ContactsEmbeds>(contact))
+  return addDefaultEmbeds(hoistedContact)
 }
 
 const createContact = async (contact: ContactInput, accessToken: string, idToken: string): Promise<Contact> => {
@@ -211,7 +213,10 @@ const searchContacts = async (queryStr: string, accessToken: string, idToken: st
   )
 
   return contacts._embedded
-    .map((c) => hoistEmbeds<ContactAPIResponse<ContactsEmbeds>, ContactsEmbeds>(c))
+    .map(convertDates)
+    .map((c) =>
+      hoistEmbeds<ContactAPIResponse<ContactsEmbeds>, ContactsEmbeds>(c as ContactAPIResponse<ContactsEmbeds>),
+    )
     .map(addDefaultEmbeds)
 }
 

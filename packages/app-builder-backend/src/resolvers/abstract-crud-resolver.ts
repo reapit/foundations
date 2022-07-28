@@ -6,7 +6,13 @@ type ApiResponse<Entity, Embeds> = Entity & {
   _eTag: string
 }
 
-export abstract class AbstractCrudService<Entity, Embeds extends any, EntityInput> {
+type ValueOf<T> = T[keyof T]
+
+const hasEmbedded = (obj: any): obj is { _embedded: any } => {
+  return !!obj._embedded
+}
+
+export abstract class AbstractCrudService<Entity, Embeds extends Record<string, any>, EntityInput> {
   constructor(
     private readonly getQuery: DocumentNode,
     private readonly getManyQuery: DocumentNode,
@@ -57,8 +63,8 @@ export abstract class AbstractCrudService<Entity, Embeds extends any, EntityInpu
       return null
     }
 
-    const hoistedEntity = this.hoistEmbeds(entity)
-    return this.convertDates(this.addDefaultEmbeds(hoistedEntity))
+    const hoistedEntity = this.hoistEmbeds(this.convertDates(entity))
+    return this.addDefaultEmbeds(hoistedEntity)
   }
 
   async getEntities({
@@ -81,10 +87,7 @@ export abstract class AbstractCrudService<Entity, Embeds extends any, EntityInpu
       },
     )
 
-    return entities._embedded
-      .map((entity) => this.hoistEmbeds(entity))
-      .map(this.addDefaultEmbeds)
-      .map(this.convertDates)
+    return entities._embedded.map(this.convertDates).map(this.hoistEmbeds).map(this.addDefaultEmbeds)
   }
 
   async createEntity({
@@ -174,10 +177,25 @@ export abstract class AbstractCrudService<Entity, Embeds extends any, EntityInpu
     return newEntity
   }
 
-  convertDates = (entity: Entity): Entity => {
+  convertDates = (entity: (Entity & { _embedded: Embeds }) | ValueOf<Embeds>): Entity & { _embedded: Embeds } => {
     this.dateFields.forEach((dateField) => {
       if (entity[dateField]) entity[dateField] = new Date(entity[dateField])
     })
+
+    const convertedEmbeds: Record<keyof Embeds, any> = {} as any
+    if (hasEmbedded(entity)) {
+      Object.keys(entity._embedded).forEach((embeddedField: keyof Embeds) => {
+        if (entity._embedded[embeddedField]) {
+          if (Array.isArray(entity._embedded[embeddedField])) {
+            convertedEmbeds[embeddedField] = entity._embedded[embeddedField].map(this.convertDates)
+          } else {
+            convertedEmbeds[embeddedField] = this.convertDates(entity._embedded[embeddedField])
+          }
+        }
+      })
+
+      return { ...entity, _embedded: convertedEmbeds }
+    }
 
     return entity
   }

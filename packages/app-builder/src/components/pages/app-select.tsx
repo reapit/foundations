@@ -66,7 +66,7 @@ const CreateNew = ({ className }: { className?: string }) => {
     handleSubmit,
     formState: { errors },
   } = useForm<{ name: string }>({
-    resolver: yupResolver(validationSchema),
+    resolver: yupResolver(validationSchema) as any,
     defaultValues: {
       name: '',
     },

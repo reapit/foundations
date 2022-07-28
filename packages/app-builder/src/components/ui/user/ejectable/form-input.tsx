@@ -9,6 +9,7 @@ import {
   elFlexAlignCenter,
   elHasGreyText,
   elMy2,
+  elP3,
   FileInput,
   FlexContainer,
   FloatingButton,
@@ -19,6 +20,7 @@ import {
   Modal,
   SearchableDropdown,
   Select,
+  useSnack,
 } from '@reapit/elements'
 
 import { useObjectList } from '../../../hooks/objects/use-object-list'
@@ -27,14 +29,36 @@ import { useLazyObjectSearch } from '../../../hooks/objects/use-object-search'
 import { useObjectMutate } from '../../../hooks/objects/use-object-mutate'
 import { uppercaseSentence } from './utils'
 import { useFormContext } from '../../../hooks/form-context'
-import { ParsedArg } from '../../..//hooks/use-introspection/query-generators'
+import { ParsedArg } from '../../../hooks/use-introspection/query-generators'
 import { cx } from '@linaria/core'
 import { block } from '../../styles'
 import { styled } from '@linaria/react'
+import { useObjectGet } from '../../../../components/hooks/objects/use-object-get'
 
 const getLabel = (obj: any, labelKeys?: string[]) => {
+  if (!obj) {
+    return ''
+  }
   if (labelKeys) {
-    return labelKeys.map((key) => obj[key]).join(' ')
+    return labelKeys
+      .map((key) => {
+        if (typeof obj[key] === 'string') {
+          return obj[key]
+        }
+        if (typeof obj[key] === 'object') {
+          return Object.entries(obj[key])
+            .filter(([key, value]) => typeof value === 'string' && key !== '__typename')
+            .map(([, value]) => value)
+        }
+        if (key.includes('.')) {
+          // get nested value
+          const [firstKey, ...restKeys] = key.split('.')
+          return getLabel(obj[firstKey], [restKeys.join('.')])
+        }
+        return ''
+      })
+      .flat()
+      .join(' ')
   }
   return obj.id
 }
@@ -47,6 +71,10 @@ type GenericObject = {
 const SelectIDofTypeContainer = styled.div`
   select {
     width: 100%;
+  }
+  .el-searchable-dropdown-search-loader {
+    margin-right: 0;
+    right: 8px;
   }
   .el-searchable-dropdown-search-input {
     padding-left: 30px;
@@ -85,15 +113,23 @@ const SelectIDofType = ({
 }) => {
   const { data, loading } = useObjectList(typeName)
   const { object } = useObject(typeName)
-  const { available: searchAvailable, search } = useLazyObjectSearch(typeName)
+  const { error } = useSnack()
+  const { available: searchAvailable, search, error: searchError } = useLazyObjectSearch(typeName)
 
   useEffect(() => {
-    if (defaultValue?.id) {
+    if (searchError) {
+      error(searchError.message)
+    }
+  }, [searchError])
+
+  useEffect(() => {
+    if (defaultValue) {
+      const value = typeof defaultValue === 'object' ? defaultValue.id : defaultValue
       onChange({
-        target: { value: defaultValue.id, name },
+        target: { value, name },
       } as React.ChangeEvent<HTMLInputElement | HTMLSelectElement>)
     }
-  }, [defaultValue?.id])
+  }, [defaultValue])
 
   if (searchAvailable) {
     return (
@@ -120,7 +156,7 @@ const SelectIDofType = ({
           value={value}
           onChange={onChange}
           disabled={disabled}
-          defaultValue={defaultValue?.id}
+          defaultValue={typeof defaultValue === 'object' ? defaultValue.id : defaultValue}
         >
           {data.map((obj) => (
             <option key={obj.id} value={obj.id}>
@@ -146,12 +182,19 @@ const SelectIDofType = ({
 }
 
 export const camelCaseToSentence = (camelCase: string) => {
+  if (camelCase.length === 2) {
+    return camelCase
+  }
   return uppercaseSentence(camelCase.replace(/([A-Z])/g, ' $1'))
 }
 
 const friendlyIdName = (idName: string) => {
   const words = idName.replaceAll('Id', '').split('_')
-  return words.map(camelCaseToSentence).join(' ')
+  return words
+    .map((w) => w.split('.'))
+    .flat()
+    .map(camelCaseToSentence)
+    .join(' ')
 }
 
 export type FormInputProps = {
@@ -200,6 +243,106 @@ const FileUploadInput = ({
   )
 }
 
+const fieldTypeToInputType = (fieldType: string) => {
+  switch (fieldType) {
+    case 'string':
+      return 'text'
+    case 'int':
+      return 'number'
+    case 'float':
+      return 'number'
+    case 'bool':
+    case 'boolean':
+      return 'checkbox'
+    case 'date':
+      return 'date'
+    case 'datetime':
+      return 'datetime-local'
+    case 'time':
+      return 'time'
+    case 'file':
+      return 'file'
+    default:
+      return 'text'
+  }
+}
+
+const DepartmentLookupInput = ({
+  name,
+  input,
+  disabled,
+  defaultValue,
+  label,
+  onChange,
+  value,
+}: {
+  name: string
+  disabled?: boolean
+  input: ParsedArg
+  defaultValue?: any
+  label?: string
+  value?: any
+  onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void
+}) => {
+  const { values } = useFormContext()
+  const { data, loading } = useObjectGet('Department', values.departmentId)
+
+  const inputOptions = data && (data[`${input.name}Options`] as string[] | undefined)
+
+  if (!loading && !values.departmentId) {
+    return (
+      <SelectIDofTypeContainer>
+        <p className={elP3}>Select a Department first</p>
+      </SelectIDofTypeContainer>
+    )
+  }
+  if (!loading && !inputOptions) {
+    return null
+  }
+
+  if (inputOptions) {
+    return (
+      <SelectIDofTypeContainer>
+        <Select
+          className={elFlex1}
+          name={name}
+          value={value}
+          onChange={onChange}
+          disabled={disabled}
+          defaultValue={defaultValue?.id}
+        >
+          {inputOptions.map((inputOption) => (
+            <option key={inputOption} value={inputOption}>
+              {camelCaseToSentence(inputOption)}
+            </option>
+          ))}
+          {/* deepscan-disable-next-line */}
+          <option disabled selected>
+            Select a {label}
+          </option>
+        </Select>
+      </SelectIDofTypeContainer>
+    )
+  }
+
+  if (loading)
+    return (
+      <SelectIDofTypeContainer>
+        <Loader />
+      </SelectIDofTypeContainer>
+    )
+  return null
+}
+
+const resolveIdOfType = (idOfType: string, parentObj: any): string => {
+  if (idOfType.includes('"')) {
+    const key = idOfType.replace(/"/g, '')
+    const value = parentObj[key]
+    return value?.replace(/^\w/, (c) => c.toUpperCase())
+  }
+  return idOfType
+}
+
 const Input = ({
   name,
   input,
@@ -207,6 +350,7 @@ const Input = ({
   disabled,
   defaultValue,
   label = friendlyIdName(name),
+  parentValues,
   onChange,
   value,
 }: {
@@ -217,9 +361,23 @@ const Input = ({
   label?: string
   value?: any
   fwdRef?: React.ForwardedRef<HTMLDivElement>
+  parentValues?: any
   onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void
 }) => {
-  const { typeName: inputTypeName, isRequired, idOfType, enumValues, customInputType, fields } = input
+  const { typeName: inputTypeName, isRequired, idOfType, enumValues, customInputType, fields, onlyIf } = input
+  const { values } = useFormContext()
+
+  if (onlyIf) {
+    const shouldHide = Object.entries(onlyIf)
+      .map(([key, value]) => {
+        return value.includes(values[key])
+      })
+      .includes(false)
+
+    if (shouldHide) {
+      return null
+    }
+  }
 
   if (fields) {
     return (
@@ -228,13 +386,18 @@ const Input = ({
           <Input
             key={field.name}
             name={field.name}
+            parentValues={value}
             label={[label, friendlyIdName(field.name)].join(' ')}
             input={field}
             disabled={disabled}
             defaultValue={defaultValue?.[field.name]}
             onChange={(e) => {
               const v = value || {}
-              v[field.name] = e.target.value
+              if (field.typeName === 'Float' || field.typeName === 'Int') {
+                v[field.name] = parseFloat(e.target.value)
+              } else {
+                v[field.name] = e.target.value
+              }
               onChange({
                 ...e,
                 target: {
@@ -259,7 +422,7 @@ const Input = ({
           <Select value={value} onChange={onChange} name={name} disabled={disabled} defaultValue={defaultValue}>
             {enumValues.map((value) => (
               <option key={value} value={value}>
-                {value}
+                {camelCaseToSentence(value)}
               </option>
             ))}
             {/* deepscan-disable-next-line */}
@@ -275,7 +438,7 @@ const Input = ({
           <SelectIDofType
             disabled={disabled}
             name={name}
-            typeName={idOfType}
+            typeName={resolveIdOfType(idOfType, parentValues || values)}
             onChange={onChange}
             value={value}
             defaultValue={defaultValue}
@@ -289,9 +452,19 @@ const Input = ({
           label={label}
           value={value}
           required={isRequired && inputTypeName !== 'Boolean'}
-          type={inputTypeName === 'Boolean' ? 'checkbox' : 'text'}
-          onChange={onChange}
-          style={disabled ? { pointerEvents: 'none', opacity: 0.5 } : undefined}
+          type={fieldTypeToInputType(inputTypeName.toLowerCase())}
+          onChange={(e) => {
+            const value =
+              inputTypeName === 'Float' || inputTypeName === 'Int' ? parseFloat(e.target.value) : e.target.value
+            onChange({
+              ...e,
+              target: {
+                ...e.target,
+                value,
+                name,
+              } as any,
+            })
+          }}
           name={name}
           defaultValue={defaultValue}
         />
@@ -304,6 +477,20 @@ const Input = ({
           value={value}
           onChange={onChange}
         />
+      )}
+      {customInputType && customInputType === 'department-lookup' && (
+        <>
+          <Label>{label}</Label>
+          <DepartmentLookupInput
+            disabled={disabled}
+            name={name}
+            label={label}
+            defaultValue={defaultValue}
+            value={value}
+            input={input}
+            onChange={onChange}
+          />
+        </>
       )}
     </InputWrap>
   )
@@ -348,7 +535,7 @@ const ListInput = React.forwardRef(
                   <SelectIDofType
                     disabled={disabled}
                     name={label}
-                    typeName={formInput.idOfType}
+                    typeName={resolveIdOfType(formInput.idOfType, value)}
                     defaultValue={defaultValue && defaultValue[idx]}
                     onChange={(e) => {
                       const newListValue = [...listValue]
@@ -362,7 +549,7 @@ const ListInput = React.forwardRef(
                   <Input
                     name={formInput.name}
                     input={formInput}
-                    value={listValue[idx]}
+                    value={value}
                     disabled={disabled}
                     onChange={(e) => {
                       listValue[idx] = e.target.value
@@ -405,6 +592,32 @@ const ListInput = React.forwardRef(
   },
 )
 
+const findFormInput = (arg: ParsedArg, name: string) => {
+  const parts = name.split('.')
+  if (parts.length === 1) {
+    return arg.fields?.find((field) => field.name === name)
+  }
+  const [first, ...rest] = parts
+  const nextArg = arg.fields?.find((f) => f.name === first)
+  if (!nextArg) {
+    return null
+  }
+  return findFormInput(nextArg, rest.join('.'))
+}
+
+const getDefaultValue = (defaultValues: any, name: string) => {
+  const parts = name.split('.')
+  if (parts.length === 1) {
+    return defaultValues[name]
+  }
+  const [first, ...rest] = parts
+  const nextArg = defaultValues[first]
+  if (!nextArg) {
+    return null
+  }
+  return getDefaultValue(nextArg, rest.join('.'))
+}
+
 const InnerFormInput = (
   { typeName, name, formType, ...rest }: FormInputProps,
   ref: React.ForwardedRef<HTMLDivElement>,
@@ -412,15 +625,16 @@ const InnerFormInput = (
   const { args } = useObjectMutate(formType, typeName)
   const disabled = rest.disabled || rest.isReadOnly
   const { onChange, defaultValues } = useFormContext()
-  const defaultValue = defaultValues[name]
-  const formInput = args && args[0] && args[0].fields?.find((arg) => arg.name === name)
+  const defaultValue = getDefaultValue(defaultValues, name)
+  const objArg = args?.find((arg) => arg.name !== 'id')
+  const formInput = objArg && findFormInput(objArg, name)
 
   if (!formInput) return null
 
   const { isList } = formInput
   const label = friendlyIdName(name)
   if (isList) {
-    const newDefaultValue = defaultValues[label.toLowerCase()]
+    const newDefaultValue = defaultValues[label.toLowerCase()] || defaultValues[name]
     return (
       <ListInput
         defaultValue={newDefaultValue}

@@ -4,11 +4,12 @@ import { Property, PropertyFragment, PropertyInput } from '../entities/property'
 import { Context } from '@/types'
 import { query } from '../utils/graphql-fetch'
 import { AbstractCrudService } from './abstract-crud-resolver'
+import { PropertyImage } from '@/entities/property-image'
 
 const getPropertiesQuery = gql`
   ${PropertyFragment}
   query getProperties {
-    GetProperties(pageSize: 10, pageNumber: 0, embed: [images]) {
+    GetProperties(pageSize: 10, pageNumber: 0, embed: [images, negotiator, department, offices]) {
       pageSize
       pageCount
       pageNumber
@@ -22,7 +23,7 @@ const getPropertiesQuery = gql`
 const getPropertyQuery = gql`
   ${PropertyFragment}
   query getProperty($id: String!) {
-    GetProperty(id: $id, embed: [images]) {
+    GetPropertyById(id: $id, embed: [images, negotiator, department, offices]) {
       ...PropertyFragment
     }
   }
@@ -31,7 +32,7 @@ const getPropertyQuery = gql`
 const searchPropertiesQuery = gql`
   ${PropertyFragment}
   query searchProperties($query: String!) {
-    GetProperties(pageSize: 10, pageNumber: 0, embed: [images], address: $query) {
+    GetProperties(pageSize: 10, pageNumber: 0, embed: [images, negotiator, department, offices], address: $query) {
       pageSize
       pageCount
       pageNumber
@@ -46,26 +47,26 @@ const updatePropertyMutation = gql`
   ${PropertyFragment}
   mutation UpdateProperty(
     $id: String!
-    $type: [String]!
     $description: String
-    $receptions: Number
+    $receptions: Int
     $metadata: JSON
-    $address: PropertyAddressInput!
-    $letting: PropertyLetting
-    $selling: PropertySelling
-    $externalArea: ExternalArea
-    $internalArea: InternalArea
+    $address: AddressInput!
+    $letting: lettingInput
+    $selling: SellingInput
+    $externalArea: ExternalAreaInput
+    $internalArea: InternalAreaInput
     $internetAdvertising: Boolean!
-    $parkingSpaces: Number
-    $rooms: [Room]
+    $parkingSpaces: Int
+    $rooms: [CreatePropertyRoomModelInput!]
     $negotiatorId: String!
-    $officeId: String!
+    $officeIds: [String!]!
     $marketingMode: String
+    $departmentId: String!
     $notes: String
+    $_eTag: String!
   ) {
     UpdateProperty(
       id: $id
-      type: $type
       description: $description
       receptions: $receptions
       letting: $letting
@@ -78,9 +79,11 @@ const updatePropertyMutation = gql`
       parkingSpaces: $parkingSpaces
       rooms: $rooms
       negotiatorId: $negotiatorId
-      officeId: $officeId
+      officeIds: $officeIds
       marketingMode: $marketingMode
+      departmentId: $departmentId
       notes: $notes
+      _eTag: $_eTag
     ) {
       ...PropertyFragment
     }
@@ -90,25 +93,24 @@ const updatePropertyMutation = gql`
 const createPropertyMutation = gql`
   ${PropertyFragment}
   mutation CreateProperty(
-    $type: [String]!
     $description: String
-    $receptions: Number
+    $receptions: Int
     $metadata: JSON
-    $address: PropertyAddressInput!
-    $letting: PropertyLetting
-    $selling: PropertySelling
-    $externalArea: ExternalArea
-    $internalArea: InternalArea
+    $address: AddressInput!
+    $letting: lettingInput
+    $selling: SellingInput
+    $externalArea: ExternalAreaInput
+    $internalArea: InternalAreaInput
     $internetAdvertising: Boolean!
-    $parkingSpaces: Number
-    $rooms: [Room]
+    $parkingSpaces: Int
+    $rooms: [CreatePropertyRoomModelInput!]
     $negotiatorId: String!
-    $officeId: String!
+    $officeIds: [String!]!
     $marketingMode: String
+    $departmentId: String!
     $notes: String
   ) {
     CreateProperty(
-      type: $type
       description: $description
       receptions: $receptions
       letting: $letting
@@ -121,8 +123,9 @@ const createPropertyMutation = gql`
       parkingSpaces: $parkingSpaces
       rooms: $rooms
       negotiatorId: $negotiatorId
-      officeId: $officeId
+      officeIds: $officeIds
       marketingMode: $marketingMode
+      departmentId: $departmentId
       notes: $notes
     ) {
       ...PropertyFragment
@@ -130,22 +133,20 @@ const createPropertyMutation = gql`
   }
 `
 
-type PropertyEmbeds<Property> = Property & {
-  _embedded: {
-    images: {}
-  }
+type PropertyEmbeds = {
+  images: PropertyImage[]
 }
 
 const searchProperties = async (queryStr: string, accessToken: string, idToken: string) => {
   return query<{
-    _embedded: PropertyEmbeds<Property>[]
+    _embedded: (Property & { _embedded: PropertyEmbeds })[]
   }>(searchPropertiesQuery, { query: queryStr }, 'GetProperties', {
     accessToken,
     idToken,
   })
 }
 
-class PropertyService extends AbstractCrudService<Property, PropertyEmbeds<Property>, PropertyInput> {
+class PropertyService extends AbstractCrudService<Property, PropertyEmbeds, PropertyInput> {
   getManyQueryName = () => 'GetProperties'
 }
 
@@ -187,8 +188,8 @@ export class PropertyResolver {
     }
 
     return properties._embedded
-      .map((property) => this.service.hoistEmbeds(property))
       .map((property) => this.service.convertDates(property))
+      .map((property) => this.service.hoistEmbeds(property))
       .map((property) => this.service.addDefaultEmbeds(property))
   }
 

@@ -91,7 +91,9 @@ export const getGetQuery = (
   }
 }
 
-export type CustomInputType = 'image-upload'
+export type CustomInputType = 'image-upload' | 'department-lookup'
+
+export type OnlyIf = Record<string, string[]>
 
 export type ParsedArg = {
   name: string
@@ -103,6 +105,8 @@ export type ParsedArg = {
   fields?: Array<ParsedArg>
   acKey?: DesktopContext
   customInputType?: CustomInputType
+  onlyIf?: OnlyIf
+  isDepartmentLookup?: boolean
 }
 
 const parseArgs = (
@@ -110,6 +114,7 @@ const parseArgs = (
   inputObjectTypes: Array<IntrospectionInputTypeRef>,
   queryableObjectTypes: Array<IntrospectionObjectType>,
   enums: Array<IntrospectionEnumType>,
+  parentOnlyIf?: OnlyIf,
 ): Array<ParsedArg> => {
   return args.map((arg) => {
     const { name, description, type } = arg
@@ -156,6 +161,9 @@ const parseArgs = (
     if (description && description.includes('@idOf')) {
       const idName = description.split('@idOf(')[1].split(')')[0]
       idOfType = queryableObjectTypes.find((a) => a.name.toLowerCase() === idName.toLowerCase())?.name
+      if (idName.startsWith('"')) {
+        idOfType = idName
+      }
     }
 
     if (description && description.includes('@customInput')) {
@@ -164,6 +172,9 @@ const parseArgs = (
     }
 
     const acKey = description?.split('@acKey(')[1]?.split(')')[0] as DesktopContext
+
+    const onlyIfStr = description?.split('@onlyIf(')[1]?.split(')')[0] as string | undefined
+    const onlyIf = parentOnlyIf || (onlyIfStr ? (JSON.parse(onlyIfStr) as OnlyIf) : undefined)
 
     const enumValues = enums.find(({ name }) => name === typeName)?.enumValues.map((e) => e.name)
     return {
@@ -175,10 +186,11 @@ const parseArgs = (
       isList,
       enumValues,
       customInputType,
+      onlyIf,
       fields:
         (actualTypeObject &&
           isIntrospectionInputObjectType(actualTypeObject) &&
-          parseArgs(actualTypeObject.inputFields, inputObjectTypes, queryableObjectTypes, enums)) ||
+          parseArgs(actualTypeObject.inputFields, inputObjectTypes, queryableObjectTypes, enums, onlyIf)) ||
         undefined,
     }
   })
