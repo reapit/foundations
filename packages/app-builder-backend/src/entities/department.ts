@@ -16,7 +16,7 @@ export const DepartmentFragment = gql`
   }
 `
 
-@ObjectType({ description: '@labelKeys(name)' })
+@ObjectType({ description: '@labelKeys(name) @notTopLevel()' })
 export class Department {
   @Field(() => ID)
   id: string

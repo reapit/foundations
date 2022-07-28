@@ -25,6 +25,7 @@ export type IntrospectionResult = {
   update?: GeneratedMutation
   delete?: GeneratedMutation
   specials: GeneratedSpecial[]
+  notTopLevel?: boolean
 }
 
 export const parseIntrospectionResult = (introspection: IntrospectionQuery): IntrospectionResult[] | undefined => {
@@ -77,6 +78,7 @@ export const parseIntrospectionResult = (introspection: IntrospectionQuery): Int
         ...object,
         fields: object.fields.filter(({ name }) => !name.startsWith('_placeholder')),
       },
+      notTopLevel: object.description?.includes('@notTopLevel') ?? false,
       labelKeys,
       acKeyField,
       supportsCustomFields: !!object.description?.includes('@supportsCustomFields()'),

@@ -5,7 +5,7 @@ import { Negotiator, NegotiatorFragment } from './negotiator'
 import { Office, OfficeFragment } from './office'
 import { Property, PropertyFragment } from './property'
 
-@ObjectType({ description: '@labelKeys(value)' })
+@ObjectType({ description: '@labelKeys(value) @notTopLevel()' })
 export class AppointmentType {
   @Field(() => ID)
   id: string

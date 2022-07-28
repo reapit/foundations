@@ -13,7 +13,7 @@ export const PropertyImageFragment = gql`
   }
 `
 
-@ObjectType()
+@ObjectType({ description: '@notTopLevel()' })
 export class PropertyImage {
   @Field()
   id: string
