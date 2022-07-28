@@ -8,6 +8,8 @@ import { MediaStateProvider, NavStateProvider, SnackProvider } from '@reapit/ele
 import { Router } from 'react-router-dom'
 import { createBrowserHistory, History } from 'history'
 
+export type ViewPortSize = 'mobile' | 'tablet' | 'desktop' | 'widescreen' | 'superWidescreen'
+
 const CombinedProvider: FC = ({ children }) => {
   const history: History<any> = createBrowserHistory()
   return (
@@ -24,12 +26,29 @@ const CombinedProvider: FC = ({ children }) => {
 const customRender = (ui: ReactElement, options?: RenderOptions<typeof queries, HTMLElement>) =>
   render(<CombinedProvider>{ui}</CombinedProvider>, { ...options })
 
-const setViewport = (size: 'Mobile' | 'Desktop') => {
-  const width = size === 'Mobile' ? 450 : 1440
+const getWidth = (size: ViewPortSize) => {
+  switch (size) {
+    case 'mobile':
+      return 450
+    case 'tablet':
+      return 850
+    case 'desktop':
+      return 1100
+    case 'widescreen':
+      return 1500
+    case 'superWidescreen':
+    default:
+      return 2000
+  }
+}
+
+export const viewPortOptions: ViewPortSize[] = ['mobile', 'tablet', 'desktop', 'widescreen', 'superWidescreen']
+
+const setViewport = (size: ViewPortSize) => {
   Object.defineProperty(window, 'innerWidth', {
     writable: true,
     configurable: true,
-    value: width,
+    value: getWidth(size),
   })
 
   window.dispatchEvent(new Event('resize'))

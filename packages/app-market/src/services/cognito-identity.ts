@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { CognitoUserPool, CognitoUser, AuthenticationDetails } from 'amazon-cognito-identity-js'
 import { logger } from '@reapit/utils-react'
 
