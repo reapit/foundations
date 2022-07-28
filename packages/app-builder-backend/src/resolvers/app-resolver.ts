@@ -274,14 +274,14 @@ export class AppResolver {
     await updateApp({
       ...app,
       clientId: externalId as string,
-      developerName: developer as string,
+      developerName: developer,
     })
 
     return {
       ...app,
       name: name as string,
       clientId: externalId as string,
-      developerName: developer as string,
+      developerName: developer,
     }
   }
 
