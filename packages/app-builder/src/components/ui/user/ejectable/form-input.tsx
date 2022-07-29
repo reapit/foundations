@@ -35,7 +35,7 @@ import { block } from '../../styles'
 import { styled } from '@linaria/react'
 import { useObjectGet } from '../../../../components/hooks/objects/use-object-get'
 
-const getLabel = (obj: any, labelKeys?: string[]) => {
+export const getLabel = (obj: any, labelKeys?: string[]) => {
   if (!obj) {
     return ''
   }
@@ -343,7 +343,13 @@ const resolveIdOfType = (idOfType: string, parentObj: any): string => {
   return idOfType
 }
 
-const Input = ({
+const convertDate = (date?: string) => {
+  if (!date) return undefined
+  const d = new Date(date)
+  return d.toISOString().split('.')[0]
+}
+
+export const Input = ({
   name,
   input,
   fwdRef,
@@ -414,6 +420,8 @@ const Input = ({
     )
   }
 
+  const inputType = fieldTypeToInputType(inputTypeName.toLowerCase())
+
   return (
     <InputWrap ref={fwdRef}>
       {enumValues && (
@@ -446,28 +454,54 @@ const Input = ({
         </div>
       )}
       {!enumValues && !idOfType && !customInputType && (
-        <InputGroup
-          disabled={disabled}
-          key={label}
-          label={label}
-          value={value}
-          required={isRequired && inputTypeName !== 'Boolean'}
-          type={fieldTypeToInputType(inputTypeName.toLowerCase())}
-          onChange={(e) => {
-            const value =
-              inputTypeName === 'Float' || inputTypeName === 'Int' ? parseFloat(e.target.value) : e.target.value
-            onChange({
-              ...e,
-              target: {
-                ...e.target,
-                value,
-                name,
-              } as any,
-            })
-          }}
-          name={name}
-          defaultValue={defaultValue}
-        />
+        <>
+          {!inputType.startsWith('date') && (
+            <InputGroup
+              disabled={disabled}
+              key={label}
+              label={label}
+              value={value}
+              required={isRequired && inputType !== 'checkbox'}
+              type={inputType}
+              onChange={(e) => {
+                const value = inputType === 'number' ? parseFloat(e.target.value) : e.target.value
+                onChange({
+                  ...e,
+                  target: {
+                    ...e.target,
+                    value,
+                    name,
+                  } as any,
+                })
+              }}
+              name={name}
+              defaultValue={defaultValue}
+            />
+          )}
+          {inputType.startsWith('date') && (
+            <InputGroup
+              disabled={disabled}
+              key={label}
+              label={label}
+              value={convertDate(value)}
+              required={isRequired}
+              type={inputType}
+              onChange={(e) => {
+                const value = e.target.value
+                onChange({
+                  ...e,
+                  target: {
+                    ...e.target,
+                    value,
+                    name,
+                  } as any,
+                })
+              }}
+              name={name}
+              defaultValue={convertDate(defaultValue)}
+            />
+          )}
+        </>
       )}
       {customInputType && customInputType === 'image-upload' && (
         <FileUploadInput
@@ -608,6 +642,9 @@ const findFormInput = (arg: ParsedArg, name: string) => {
 const getDefaultValue = (defaultValues: any, name: string) => {
   const parts = name.split('.')
   if (parts.length === 1) {
+    if (name.toLowerCase().includes('id')) {
+      return defaultValues[name]
+    }
     return defaultValues[name]
   }
   const [first, ...rest] = parts
@@ -635,6 +672,7 @@ const InnerFormInput = (
   const label = friendlyIdName(name)
   if (isList) {
     const newDefaultValue = defaultValues[label.toLowerCase()] || defaultValues[name]
+
     return (
       <ListInput
         defaultValue={newDefaultValue}

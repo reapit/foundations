@@ -1,8 +1,8 @@
 import { gql } from 'apollo-server-core'
 import { Field, GraphQLISODateTime, ID, InputType, ObjectType } from 'type-graphql'
 import { Contact } from './contact'
-import { Negotiator, NegotiatorFragment } from './negotiator'
-import { Office, OfficeFragment } from './office'
+import { Negotiator } from './negotiator'
+import { Office } from './office'
 import { Property, PropertyFragment } from './property'
 
 @ObjectType({ description: '@labelKeys(value) @notTopLevel()' })
@@ -42,8 +42,8 @@ export class Appointment {
   @Field(() => Property, { nullable: true })
   property?: Property
 
-  @Field({ nullable: true })
-  organiserId?: string
+  @Field(() => Negotiator, { nullable: true })
+  organiser?: Negotiator
 
   @Field(() => [Negotiator])
   negotiators?: Negotiator[]
@@ -88,16 +88,14 @@ export class AppointmentInput {
   @Field(() => [String], { description: '@idOf(Office)' })
   officeIds: string[]
 
-  @Field({ description: '@idOf(Contact)' })
-  attendeeId: string
+  @Field({ description: '@idOf(Contact)', nullable: true })
+  attendeeId?: string
 
   metadata?: any
 }
 
 export const AppointmentFragment = gql`
   ${PropertyFragment}
-  ${NegotiatorFragment}
-  ${OfficeFragment}
   fragment AppointmentFragment on AppointmentModel {
     id
     created
@@ -131,7 +129,7 @@ export const AppointmentFragment = gql`
     negotiatorConfirmed
     attendeeConfirmed
     propertyConfirmed
-
+    _eTag
     _embedded {
       offices {
         ...OfficeFragment
@@ -141,6 +139,9 @@ export const AppointmentFragment = gql`
       }
       property {
         ...PropertyFragment
+      }
+      organiser {
+        ...NegotiatorFragment
       }
     }
   }

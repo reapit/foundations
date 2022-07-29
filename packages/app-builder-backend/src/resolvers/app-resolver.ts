@@ -117,71 +117,48 @@ const ensureScopes = async (app: DDBApp, accessToken: string) => {
       if (!objectName || !props) {
         return null
       }
-      if (name === 'Form') {
-        const childNodes = node.nodes.map((nodeId) => nodes.find(({ nodeId: id }) => id === nodeId)).filter(notEmpty)
 
-        const fieldNames = childNodes
-          .map((node) => node.props.name)
-          .filter(notEmpty)
-          .filter(isString)
+      const fieldNames =
+        name === 'Form'
+          ? node.nodes
+              .map((nodeId) => nodes.find(({ nodeId: id }) => id === nodeId))
+              .filter(notEmpty)
+              .map((node) => node.props.name)
+              .filter(notEmpty)
+              .filter(isString)
+          : isArray(props.includedFields)
+          ? props.includedFields
+          : []
 
-        const subtypes = fieldNames
-          .filter((name) => name.endsWith('Id') || name.endsWith('Ids'))
-          .map((name) => name.replace('Ids', '').replace('Id', ''))
-          .map((name) => {
-            if (name.endsWith('y')) {
-              return name.replace(/y$/, 'ies')
-            }
-            return name
-          })
-          .map((name) => {
-            if (name.toLowerCase().includes('attendee')) {
-              return 'contact'
-            }
-            return name
-          })
-          .filter((fieldName) => acEntities.find((entityName) => entityName.includes(fieldName)))
+      const subtypes = fieldNames
+        .map((name) => name.replace('Ids', '').replace('Id', ''))
+        .map((name) => {
+          if (name.endsWith('y')) {
+            return name.replace(/y$/, 'ies')
+          }
+          return name
+        })
+        .map((name) => {
+          if (name.toLowerCase().includes('attendee')) {
+            return 'contact'
+          }
+          return name
+        })
+        .filter((fieldName) => acEntities.find((entityName) => entityName.includes(fieldName)))
 
-        return [
-          {
-            objectName,
-            access: [Access.read, Access.write],
-          },
-          ...subtypes.map((subtype) => ({
-            objectName: subtype,
-            access: [Access.read],
-          })),
-        ]
-      }
-      if (name === 'Table') {
-        if (isArray(props.includedFields)) {
-          const subtypes = props.includedFields.filter((fieldName) =>
-            acEntities.find((entityName) => entityName.includes(fieldName)),
-          )
-
-          return [
-            {
-              objectName,
-              access: props.showControls ? [Access.read, Access.write] : [Access.write],
-            },
-            ...subtypes.map((subtype) => ({
-              objectName: subtype,
-              access: [Access.read],
-            })),
-          ]
-        }
-        return [
-          {
-            objectName,
-            access: props.showControls ? [Access.read, Access.write] : [Access.write],
-          },
-        ]
-      }
-      return null
+      return [
+        {
+          objectName,
+          access: props.showControls ? [Access.read, Access.write] : [Access.read],
+        },
+        ...subtypes.map((subtype) => ({
+          objectName: subtype,
+          access: [Access.read],
+        })),
+      ]
     })
     .flat()
     .filter(notEmpty)
-
   const scopes = requiredAccess
     .map(({ objectName, access }) => {
       return access.map((access) => getObjectScopes(objectName, access))
