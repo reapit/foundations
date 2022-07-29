@@ -13,6 +13,7 @@ jest.mock('@reapit/connect-session', () => ({
 }))
 
 describe('Router', () => {
+  window.location.pathname = '/apps'
   it('should match a snapshot', () => {
     expect(render(<Router />)).toMatchSnapshot()
   })

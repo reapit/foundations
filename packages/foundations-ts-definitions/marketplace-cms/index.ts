@@ -14,6 +14,7 @@ export interface AppsBrowseConfigItemFiltersInterface {
   appName?: string
   isFeatured?: boolean
   isFree?: boolean
+  searchTerm?: string
 }
 
 export enum AppsBrowseConfigEnum {

@@ -1,4 +1,4 @@
-import React, { ChangeEvent, Dispatch, FC, memo, SetStateAction, useCallback } from 'react'
+import React, { ChangeEvent, Dispatch, FC, memo, SetStateAction, useCallback, useRef } from 'react'
 import {
   FlexContainer,
   BodyText,
@@ -8,6 +8,8 @@ import {
   ElMultiSelectUnSelected,
   elFadeIn,
   SmallText,
+  Button,
+  elMr5,
 } from '@reapit/elements'
 import {
   appsFiltersMobileBrowseBy,
@@ -20,13 +22,13 @@ import {
   appsSearchMobileFilterControlsActive,
 } from './__styles__'
 import { useReapitGet } from '@reapit/utils-react'
-import { CategoryModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { AppsBrowseConfigItemFiltersInterface, CategoryModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { cx } from '@linaria/core'
 import debounce from 'just-debounce-it'
 import { MobileControlsState } from './apps-browse'
-import { AppsBrowseConfigItemFilters, useAppsBrowseState } from '../../core/use-apps-browse-state'
+import { useAppsBrowseState } from '../../core/use-apps-browse-state'
 
 export interface AppSearchFiltersProps {
   mobileControlsState: MobileControlsState
@@ -35,8 +37,8 @@ export interface AppSearchFiltersProps {
 
 export const handleSelectFilter =
   (
-    appsBrowseFilterState: AppsBrowseConfigItemFilters | null,
-    setAppsBrowseFilterState: Dispatch<SetStateAction<AppsBrowseConfigItemFilters | null>>,
+    appsBrowseFilterState: AppsBrowseConfigItemFiltersInterface | null,
+    setAppsBrowseFilterState: Dispatch<SetStateAction<AppsBrowseConfigItemFiltersInterface | null>>,
   ) =>
   (event: ChangeEvent<HTMLInputElement>) => {
     const category = event.target.value
@@ -59,21 +61,42 @@ export const handleSelectFilter =
   }
 
 export const handleSearch =
-  (setAppsBrowseFilterState: Dispatch<SetStateAction<AppsBrowseConfigItemFilters | null>>) =>
+  (setAppsBrowseFilterState: Dispatch<SetStateAction<AppsBrowseConfigItemFiltersInterface | null>>) =>
   (event: ChangeEvent<HTMLInputElement>) => {
-    const appName = event.target.value.toLowerCase()
+    const searchTerm = event.target.value.toLowerCase()
 
     setAppsBrowseFilterState((currentState) => {
       const currentFilters = currentState ?? {}
+
+      if (!searchTerm) {
+        delete currentFilters.searchTerm
+
+        return {
+          ...currentFilters,
+        }
+      }
+
       return {
         ...currentFilters,
-        appName,
+        searchTerm,
       }
     })
   }
 
+export const handleClearSearch =
+  (
+    setAppsBrowseFilterState: Dispatch<SetStateAction<AppsBrowseConfigItemFiltersInterface | null>>,
+    searchRef: React.MutableRefObject<HTMLInputElement | null>,
+  ) =>
+  () => {
+    setAppsBrowseFilterState(null)
+    if (searchRef.current) searchRef.current.value = ''
+  }
+
 export const AppSearchFilters: FC<AppSearchFiltersProps> = memo(({ mobileControlsState }) => {
   const { appsBrowseFilterState, setAppsBrowseFilterState } = useAppsBrowseState()
+  const searchRef = useRef<HTMLInputElement | null>(null)
+
   const [categories] = useReapitGet<CategoryModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppCategories],
@@ -81,6 +104,7 @@ export const AppSearchFilters: FC<AppSearchFiltersProps> = memo(({ mobileControl
   })
 
   const debouncedSearch = useCallback(debounce(handleSearch(setAppsBrowseFilterState), 500), [])
+  const hasFilters = appsBrowseFilterState && Boolean(Object.keys(appsBrowseFilterState).length)
 
   return (
     <>
@@ -89,8 +113,18 @@ export const AppSearchFilters: FC<AppSearchFiltersProps> = memo(({ mobileControl
           <AppsSearchMobileFilterControls className={cx(mobileControlsState && appsSearchMobileFilterControlsActive)}>
             <FlexContainer className={appsSearchContainer} isFlexAlignCenter>
               <Icon className={appsSearchInputIcon} icon="searchSystem" fontSize="1.25rem" />
-              <AppsSearchInput type="text" placeholder="Search" onChange={debouncedSearch} />
+              <AppsSearchInput
+                type="text"
+                placeholder="Search by App or Developer"
+                onChange={debouncedSearch}
+                ref={searchRef}
+              />
             </FlexContainer>
+            {hasFilters && (
+              <Button onClick={handleClearSearch(setAppsBrowseFilterState, searchRef)} intent="low">
+                Clear Search Filters
+              </Button>
+            )}
           </AppsSearchMobileFilterControls>
         )}
         {mobileControlsState === 'filters' && (
@@ -119,6 +153,7 @@ export const AppSearchFilters: FC<AppSearchFiltersProps> = memo(({ mobileControl
               key={id}
               name={name}
               value={id}
+              checked={Boolean(id && appsBrowseFilterState?.category?.includes(id))}
               onChange={handleSelectFilter(appsBrowseFilterState, setAppsBrowseFilterState)}
             >
               {name}
@@ -126,9 +161,21 @@ export const AppSearchFilters: FC<AppSearchFiltersProps> = memo(({ mobileControl
           ))}
         </ElMultiSelectUnSelected>
       )}
-      <FlexContainer className={cx(appsSearchContainer, appsSearchDesktopControls)} isFlexAlignCenter>
-        <Icon className={appsSearchInputIcon} icon="searchSystem" fontSize="1.25rem" />
-        <AppsSearchInput type="text" placeholder="Search" onChange={debouncedSearch} />
+      <FlexContainer className={appsSearchDesktopControls}>
+        <FlexContainer className={cx(appsSearchContainer, elMr5)} isFlexAlignCenter>
+          <Icon className={appsSearchInputIcon} icon="searchSystem" fontSize="1.25rem" />
+          <AppsSearchInput
+            type="text"
+            placeholder="Search by App or Developer"
+            onChange={debouncedSearch}
+            ref={searchRef}
+          />
+        </FlexContainer>
+        {hasFilters && (
+          <Button onClick={handleClearSearch(setAppsBrowseFilterState, searchRef)} intent="low">
+            Clear Search Filters
+          </Button>
+        )}
       </FlexContainer>
     </>
   )

@@ -9,6 +9,7 @@ import { AppsDetail, handleCarouselCols } from '../apps-detail'
 import { mockInstallationModelPagedResult } from '../../../tests/__stubs__/installations'
 
 jest.mock('@reapit/utils-react', () => ({
+  ...jest.requireActual('@reapit/utils-react'),
   useReapitGet: jest.fn(() => [null, false]),
   HTMLRender: () => <div>Mock Component</div>,
 }))

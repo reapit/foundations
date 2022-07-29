@@ -1,5 +1,9 @@
+import { AppsBrowseConfigItemFiltersInterface, AppsBrowseConfigItemInterface } from '@reapit/foundations-ts-definitions'
+import { GetActionNames, getActions } from '@reapit/utils-common'
+import { useReapitGet } from '@reapit/utils-react'
 import React, { FC, createContext, useContext, useState, SetStateAction, Dispatch } from 'react'
-import { appsBrowseConfigCollection } from './config'
+import { useReapitConnect } from '../../../connect-session/src'
+import { reapitConnectBrowserSession } from './connect-session'
 
 export interface AppsBrowseConfigItemContent {
   brandColour?: string
@@ -7,16 +11,6 @@ export interface AppsBrowseConfigItemContent {
   imageUrl?: string
   iconName?: string
   title?: string
-}
-
-export interface AppsBrowseConfigItemFilters {
-  developerId?: string
-  category?: string[]
-  desktopIntegrationTypeId?: string[]
-  id?: string[]
-  appName?: string
-  isFeatured?: boolean
-  isFree?: boolean
 }
 
 export type AppsBrowseConfigType = 'featuredHeroApps' | 'heroApps' | 'appsFilters' | 'featuredApps' | 'simpleApps'
@@ -27,24 +21,14 @@ export interface AppBrowseLiveData {
   isLive?: boolean
 }
 
-export interface AppsBrowseConfigItem {
-  filters: AppsBrowseConfigItemFilters | null
-  content: AppsBrowseConfigItemContent | null
-  configType: AppsBrowseConfigType
-  live: AppBrowseLiveData
-}
-
 export interface AppsBrowseConfigCollection {
-  data: AppsBrowseConfigItem[]
+  items: AppsBrowseConfigItemInterface[]
 }
-
-export interface AppsBrowseDataState {}
 
 export interface AppsBrowseStateHook {
-  appsBrowseDataState: AppsBrowseDataState
-  appsBrowseFilterState: AppsBrowseConfigItemFilters | null
+  appsBrowseFilterState: AppsBrowseConfigItemFiltersInterface | null
   appsBrowseConfigState: AppsBrowseConfigCollection | null
-  setAppsBrowseFilterState: Dispatch<SetStateAction<AppsBrowseConfigItemFilters | null>>
+  setAppsBrowseFilterState: Dispatch<SetStateAction<AppsBrowseConfigItemFiltersInterface | null>>
 }
 
 export const AppsBrowseStateContext = createContext<AppsBrowseStateHook>({} as AppsBrowseStateHook)
@@ -52,12 +36,21 @@ export const AppsBrowseStateContext = createContext<AppsBrowseStateHook>({} as A
 const { Provider } = AppsBrowseStateContext
 
 export const AppsBrowseProvider: FC = ({ children }) => {
-  const [appsBrowseFilterState, setAppsBrowseFilterState] = useState<AppsBrowseConfigItemFilters | null>(null)
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const [appsBrowseFilterState, setAppsBrowseFilterState] = useState<AppsBrowseConfigItemFiltersInterface | null>(null)
+
+  const [appsBrowseConfigCollection] = useReapitGet<AppsBrowseConfigCollection>({
+    reapitConnectBrowserSession,
+    action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppMarketAdminLive],
+    fetchWhenTrue: [connectSession],
+    headers: {
+      Authorization: connectSession?.idToken as string,
+    },
+  })
 
   return (
     <Provider
       value={{
-        appsBrowseDataState: {},
         appsBrowseFilterState,
         appsBrowseConfigState: appsBrowseConfigCollection,
         setAppsBrowseFilterState: setAppsBrowseFilterState,

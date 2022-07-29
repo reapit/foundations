@@ -1,8 +1,7 @@
 import React, { FC } from 'react'
 import { AppDetailModel, DeveloperModel } from '@reapit/foundations-ts-definitions'
-import { useReapitConnect } from '@reapit/connect-session'
-import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { Button, ButtonGroup, SmallText } from '@reapit/elements'
+import { AcProcessType, DesktopLink } from '@reapit/utils-react'
 
 export const DESKTOP_REFRESH_URL = 'agencycloud://apps/refresh'
 
@@ -13,7 +12,6 @@ export type AppInstallModalContentProps = {
 }
 
 export const AppInstallSuccesModalContent: FC<AppInstallModalContentProps> = ({ app, closeModal, developer }) => {
-  const { connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
   const { name, id, isDirectApi, launchUri, telephone, supportEmail } = app ?? {}
   const { name: developerName } = developer
 
@@ -28,10 +26,7 @@ export const AppInstallSuccesModalContent: FC<AppInstallModalContentProps> = ({ 
           </SmallText>
           <SmallText hasGreyText>
             If you wish to contact them directly, you can do this via telephone at {telephone} or email at{' '}
-            <a href={`mailto:${supportEmail}`} rel="noopener noreferrer" target="_blank">
-              {supportEmail}
-            </a>
-            .
+            <DesktopLink uri={supportEmail} acProcess={AcProcessType.mail} target="_blank" content={supportEmail} />.
           </SmallText>
         </>
       ) : (
@@ -43,10 +38,7 @@ export const AppInstallSuccesModalContent: FC<AppInstallModalContentProps> = ({ 
           <SmallText>
             If you wish to contact the developer about using the app, you can do this via telephone at {telephone} or
             email at{' '}
-            <a href={`mailto:${supportEmail}`} rel="noopener noreferrer" target="_blank">
-              {supportEmail}
-            </a>
-            .
+            <DesktopLink uri={supportEmail} acProcess={AcProcessType.mail} target="_blank" content={supportEmail} />.
           </SmallText>
         </>
       )}
@@ -54,21 +46,19 @@ export const AppInstallSuccesModalContent: FC<AppInstallModalContentProps> = ({ 
         <Button intent="low" onClick={closeModal} fixedWidth>
           Back To App
         </Button>
-        {!isDirectApi && (
+        {!isDirectApi && launchUri && (
           <>
-            {connectIsDesktop ? (
-              <a href={`agencycloud://app?id=${id}&launchUri=${launchUri}`}>
+            <DesktopLink
+              uri={launchUri}
+              acProcess={AcProcessType.app}
+              acId={id}
+              target="_blank"
+              content={
                 <Button intent="primary" type="button">
                   Launch App
                 </Button>
-              </a>
-            ) : (
-              <a href={launchUri} target="_blank" rel="noopener noreferrer">
-                <Button intent="primary" type="button">
-                  Launch App
-                </Button>
-              </a>
-            )}
+              }
+            />
           </>
         )}
       </ButtonGroup>

@@ -5,32 +5,48 @@ import {
   ButtonGroup,
   Col,
   elMb11,
+  elMb5,
   Grid,
   Icon,
   IconNames,
-  Label,
   Subtitle,
   Table,
 } from '@reapit/elements'
-import { AppsBrowseConfigEnum, AppsBrowseConfigItemInterface } from '@reapit/foundations-ts-definitions'
+import {
+  AppsBrowseConfigEnum,
+  AppsBrowseConfigItemInterface,
+  AppSummaryModelPagedResult,
+} from '@reapit/foundations-ts-definitions'
 import { GetActionNames, getActions } from '@reapit/utils-common'
-import { useReapitUpdate } from '@reapit/utils-react'
+import { useReapitGet, useReapitUpdate } from '@reapit/utils-react'
 import React, { FC, useState } from 'react'
-import { colorSquare } from './app-browse.styles'
+import { colorSquare, ImageContainer } from './app-browse.styles'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { shleemy } from 'shleemy'
 import { cx } from '@linaria/core'
 import { ElTagContainer, ElTag } from './app-browse.styles'
 
-export const AppBrowseManageTable: FC<{
+interface AppBrowseManageTableProps {
   type: AppsBrowseConfigEnum
   items: AppsBrowseConfigItemInterface[]
   setEditType: () => void
   setSelectedItem: (item?: AppsBrowseConfigItemInterface) => void
   deleteItem: (type: AppsBrowseConfigEnum, id: string) => void
   connectSession: ReapitConnectSession
-}> = ({ type, items, setEditType, setSelectedItem, connectSession, deleteItem, ...rest }) => {
-  const [expandedIndex, setExpandedIndex] = useState<number | null>(null)
+}
+
+interface ManageTableExpandableContentProps extends AppBrowseManageTableProps {
+  configItem: AppsBrowseConfigItemInterface
+}
+
+export const ManageTableExpandableContent: FC<ManageTableExpandableContentProps> = (props) => {
+  const { configItem, setSelectedItem, connectSession, deleteItem } = props
+  const [selectedApps] = useReapitGet<AppSummaryModelPagedResult>({
+    reapitConnectBrowserSession,
+    action: getActions(window.reapit.config.appEnv)[GetActionNames.getApps],
+    queryParams: { showHiddenApps: 'true', pageSize: 100, id: configItem?.filters?.id },
+    fetchWhenTrue: [Array.isArray(configItem?.filters?.id), configItem?.filters?.id?.length],
+  })
 
   const [deleteLoading, , send] = useReapitUpdate<AppsBrowseConfigItemInterface, AppsBrowseConfigItemInterface>({
     action: getActions(window.reapit.config.appEnv)[GetActionNames.postAppMarketAdmin],
@@ -40,6 +56,140 @@ export const AppBrowseManageTable: FC<{
       Authorization: connectSession?.idToken as string,
     },
   })
+
+  return (
+    <>
+      <Subtitle hasBoldText>Filters</Subtitle>
+      <Grid className={elMb5}>
+        <Col>
+          <Subtitle hasNoMargin>Apps</Subtitle>
+          <ElTagContainer>
+            {configItem.filters?.id ? (
+              configItem.filters?.id?.map((app) => {
+                const appName = selectedApps?.data?.find(({ id }) => app === id)?.name
+                return <ElTag key={app}>{appName}</ElTag>
+              })
+            ) : (
+              <ElTag>None</ElTag>
+            )}
+          </ElTagContainer>
+        </Col>
+        <Col>
+          <Subtitle hasNoMargin>Categories</Subtitle>
+          <ElTagContainer>
+            {configItem.filters?.category ? (
+              configItem.filters?.category?.map((cat) => <ElTag key={cat}>{cat}</ElTag>)
+            ) : (
+              <ElTag>None</ElTag>
+            )}
+          </ElTagContainer>
+        </Col>
+        <Col>
+          <Subtitle hasNoMargin>Is Free</Subtitle>
+          <BodyText hasGreyText>
+            {configItem.filters?.isFree === undefined ? 'Not Applied' : configItem.filters?.isFree ? 'Yes' : 'No'}
+          </BodyText>
+        </Col>
+        <Col>
+          <Subtitle hasNoMargin>Is Featured</Subtitle>
+          <BodyText hasGreyText>
+            {configItem.filters?.isFeatured === undefined
+              ? 'Not Applied'
+              : configItem.filters?.isFeatured
+              ? 'Yes'
+              : 'No'}
+          </BodyText>
+        </Col>
+      </Grid>
+      <Subtitle hasBoldText>Advertising Content</Subtitle>
+      <Grid className={elMb5}>
+        <Col>
+          <Subtitle hasNoMargin>Title</Subtitle>
+          <BodyText hasGreyText>{configItem.content?.title}</BodyText>
+        </Col>
+        <Col>
+          <Subtitle hasNoMargin>Strapline</Subtitle>
+          <BodyText hasGreyText>{configItem.content?.strapline}</BodyText>
+        </Col>
+        <Col>
+          <Subtitle hasNoMargin>Brand Colour</Subtitle>
+          <BodyText hasGreyText>
+            {configItem.content?.brandColour ? (
+              <span className={colorSquare} style={{ background: configItem.content?.brandColour }}></span>
+            ) : (
+              <BodyText hasGreyText>None Set</BodyText>
+            )}
+            {configItem.content?.brandColour}
+          </BodyText>
+        </Col>
+        <Col>
+          <Subtitle hasNoMargin>Icon</Subtitle>
+          {configItem.content?.iconName && <Icon icon={configItem.content.iconName as IconNames} fontSize="5em" />}
+          {configItem.content?.iconName && <BodyText hasGreyText>({configItem.content.iconName})</BodyText>}
+          {!configItem.content?.iconName && <BodyText hasGreyText>None Set</BodyText>}
+        </Col>
+        <Col>
+          <Subtitle hasNoMargin>Image</Subtitle>
+          {configItem.content?.imageUrl ? (
+            <ImageContainer>
+              <img src={configItem.content.imageUrl} />
+            </ImageContainer>
+          ) : (
+            <BodyText hasGreyText>None</BodyText>
+          )}
+        </Col>
+      </Grid>
+      <Subtitle hasBoldText>Live in AppMarket</Subtitle>
+      <Grid className={elMb5}>
+        <Col>
+          <Subtitle hasNoMargin>Is Live</Subtitle>
+          <BodyText hasGreyText>{configItem.live?.isLive ? 'Yes' : 'No'}</BodyText>
+        </Col>
+        <Col>
+          <Subtitle hasNoMargin>Time From</Subtitle>
+          <BodyText hasGreyText>
+            {configItem.live?.timeFrom ? shleemy(configItem.live.timeFrom).forHumans : 'Not set'}
+          </BodyText>
+        </Col>
+        <Col>
+          <Subtitle hasNoMargin>Time To</Subtitle>
+          <BodyText hasGreyText>
+            {configItem.live?.timeTo ? shleemy(configItem.live.timeTo).forHumans : 'Not set'}
+          </BodyText>
+        </Col>
+      </Grid>
+      <ButtonGroup>
+        <Button
+          onClick={() => {
+            setSelectedItem(configItem)
+          }}
+          intent="secondary"
+        >
+          Edit
+        </Button>
+        <Button
+          intent="danger"
+          onClick={async () => {
+            await send(configItem, {
+              uriParams: {
+                id: configItem.id,
+              },
+            })
+            deleteItem(configItem.configType, configItem.id as string)
+          }}
+          disabled={deleteLoading}
+          loading={deleteLoading}
+        >
+          Delete
+        </Button>
+      </ButtonGroup>
+    </>
+  )
+}
+
+export const AppBrowseManageTable: FC<AppBrowseManageTableProps> = (props) => {
+  const { type, items, setEditType, ...rest } = props
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null)
 
   return (
     <div {...rest} className={cx(elMb11)}>
@@ -66,7 +216,7 @@ export const AppBrowseManageTable: FC<{
               ),
             },
             {
-              label: 'Apps',
+              label: 'Number Apps Selected',
               value: item.filters?.id?.length || 0,
             },
             {
@@ -90,110 +240,7 @@ export const AppBrowseManageTable: FC<{
             },
           ],
           expandableContent: {
-            content: (
-              <>
-                <Subtitle>Filters</Subtitle>
-                <Grid>
-                  <Col>
-                    <Label>Categories</Label>
-                    <ElTagContainer>
-                      {item.filters?.category ? (
-                        item.filters?.category?.map((cat) => <ElTag key={cat}>{cat}</ElTag>)
-                      ) : (
-                        <ElTag>None</ElTag>
-                      )}
-                    </ElTagContainer>
-                  </Col>
-                  <Col>
-                    <Label>Is Free</Label>
-                    <BodyText hasGreyText>{item.filters?.isFree ? 'Yes' : 'No'}</BodyText>
-                  </Col>
-                  <Col>
-                    <Label>Is Featured</Label>
-                    <BodyText hasGreyText>{item.filters?.isFeatured ? 'Yes' : 'No'}</BodyText>
-                  </Col>
-                </Grid>
-                <Subtitle>Advertising Content</Subtitle>
-                <Grid>
-                  <Col>
-                    <Label>Title</Label>
-                    <BodyText hasGreyText>{item.content?.title}</BodyText>
-                  </Col>
-                  <Col>
-                    <Label>Strapline</Label>
-                    <BodyText hasGreyText>{item.content?.strapline}</BodyText>
-                  </Col>
-                  <Col>
-                    <Label>Brand Colour</Label>
-                    <BodyText hasGreyText>
-                      {item.content?.brandColour && (
-                        <span className={colorSquare} style={{ background: item.content?.brandColour }}></span>
-                      )}
-                      {item.content?.brandColour}
-                    </BodyText>
-                  </Col>
-                  <Col>
-                    <Label>Icon</Label>
-                    {item.content?.iconName && <Icon icon={item.content.iconName as IconNames} />}
-                    {item.content?.iconName && <BodyText hasGreyText>({item.content.iconName})</BodyText>}
-                  </Col>
-                  <Col>
-                    <Label>Image</Label>
-                    {item.content?.imageUrl ? (
-                      <div>
-                        <img src={item.content.imageUrl} />
-                      </div>
-                    ) : (
-                      <BodyText hasGreyText>None</BodyText>
-                    )}
-                  </Col>
-                </Grid>
-                <Subtitle>Live</Subtitle>
-                <Grid>
-                  <Col>
-                    <Label>Is Live</Label>
-                    <BodyText hasGreyText>{item.live?.isLive ? 'Yes' : 'No'}</BodyText>
-                  </Col>
-                  <Col>
-                    <Label>Time From</Label>
-                    <BodyText hasGreyText>
-                      {item.live?.timeFrom ? shleemy(item.live.timeFrom).forHumans : 'Not set'}
-                    </BodyText>
-                  </Col>
-                  <Col>
-                    <Label>Time To</Label>
-                    <BodyText hasGreyText>
-                      {item.live?.timeTo ? shleemy(item.live.timeTo).forHumans : 'Not set'}
-                    </BodyText>
-                  </Col>
-                </Grid>
-                <ButtonGroup>
-                  <Button
-                    onClick={() => {
-                      setSelectedItem(item)
-                    }}
-                    intent="secondary"
-                  >
-                    Edit
-                  </Button>
-                  <Button
-                    intent="danger"
-                    onClick={async () => {
-                      await send(item, {
-                        uriParams: {
-                          id: item.id,
-                        },
-                      })
-                      deleteItem(item.configType, item.id as string)
-                    }}
-                    disabled={deleteLoading}
-                    loading={deleteLoading}
-                  >
-                    Delete
-                  </Button>
-                </ButtonGroup>
-              </>
-            ),
+            content: <ManageTableExpandableContent {...props} configItem={item} />,
           },
         }))}
         numberColumns={6}

@@ -8,11 +8,15 @@ Object {
       <div
         class="el-snack-holder"
       />
-      <h1
-        class="el-title"
+      <div
+        class="el-flex-justify-between el-flex-container"
       >
-        Profile
-      </h1>
+        <h1
+          class="el-title"
+        >
+          Profile
+        </h1>
+      </div>
       <h2
         class="el-has-bold-text el-subtitle"
       >
@@ -112,11 +116,15 @@ Object {
     <div
       class="el-snack-holder"
     />
-    <h1
-      class="el-title"
+    <div
+      class="el-flex-justify-between el-flex-container"
     >
-      Profile
-    </h1>
+      <h1
+        class="el-title"
+      >
+        Profile
+      </h1>
+    </div>
     <h2
       class="el-has-bold-text el-subtitle"
     >

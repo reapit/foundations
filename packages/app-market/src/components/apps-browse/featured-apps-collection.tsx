@@ -3,8 +3,11 @@ import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { objectToQuery, useReapitGet } from '@reapit/utils-react'
 import { elFadeIn, elMb1, FlexContainer, MediaType, PlaceholderImage, useMediaQuery } from '@reapit/elements'
-import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
-import { AppsBrowseConfigItem, AppsBrowseConfigItemFilters } from '../../core/use-apps-browse-state'
+import {
+  AppsBrowseConfigItemFiltersInterface,
+  AppsBrowseConfigItemInterface,
+  AppSummaryModelPagedResult,
+} from '@reapit/foundations-ts-definitions'
 import { AppIcon, AppTitle, AppsCol, FeaturedAppStrapline } from './__styles__'
 import { useReapitConnect } from '@reapit/connect-session'
 import { navigate } from '../../utils/navigation'
@@ -12,7 +15,7 @@ import { Routes } from '../../constants/routes'
 import { useHistory } from 'react-router-dom'
 
 interface FeaturedAppsCollectionProps {
-  configItem: AppsBrowseConfigItem
+  configItem?: AppsBrowseConfigItemInterface
 }
 
 export const handleMaxLength = (mediaQuery: MediaType) => () => {
@@ -31,8 +34,10 @@ export const FeaturedAppsCollection: FC<FeaturedAppsCollectionProps> = memo(({ c
   const maxLength = useMemo(handleMaxLength(mediaQuery), [mediaQuery])
 
   const clientId = connectSession?.loginIdentity.clientId
-  const { filters } = configItem
-  const queryParams = filters ? { ...objectToQuery<AppsBrowseConfigItemFilters>(filters), clientId } : { clientId }
+  const { filters } = configItem ?? {}
+  const queryParams = filters
+    ? { ...objectToQuery<AppsBrowseConfigItemFiltersInterface>(filters), clientId }
+    : { clientId }
 
   const [apps] = useReapitGet<AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,

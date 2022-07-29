@@ -5,12 +5,14 @@ import {
   ButtonGroup,
   Col,
   elMb11,
+  FlexContainer,
   FormLayout,
   Grid,
   InputGroup,
   InputWrap,
   Subtitle,
   Title,
+  useMediaQuery,
   UseSnack,
   useSnack,
 } from '@reapit/elements'
@@ -21,6 +23,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { validationSchemaChangePassword } from './validation-schema'
 import { changePasswordService } from '../../services/cognito-identity'
 import { RolesChip } from './__styles__'
+import { handleLogout } from '.'
 
 export type ChangePasswordFormValues = {
   password: string
@@ -45,8 +48,9 @@ export const handleChangePassword =
   }
 
 export const SettingsProfile: FC = () => {
-  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const { connectSession, connectLogoutRedirect } = useReapitConnect(reapitConnectBrowserSession)
   const snacks = useSnack()
+  const { isMobile } = useMediaQuery()
   const loginIdentity = connectSession?.loginIdentity ?? ({} as LoginIdentity)
   const {
     register,
@@ -65,7 +69,16 @@ export const SettingsProfile: FC = () => {
 
   return (
     <>
-      <Title>Profile</Title>
+      <FlexContainer isFlexJustifyBetween>
+        <Title>Profile</Title>
+        {isMobile && (
+          <ButtonGroup alignment="right">
+            <Button onClick={handleLogout(connectLogoutRedirect)} intent="critical" chevronRight>
+              Logout
+            </Button>
+          </ButtonGroup>
+        )}
+      </FlexContainer>
       <Subtitle hasBoldText>Your Details</Subtitle>
       <Grid className={elMb11}>
         {name && (

@@ -4,7 +4,9 @@ import {
   Button,
   ButtonGroup,
   CreateImageUploadModel,
+  elMb5,
   ElToggleItem,
+  FileInput,
   FormLayout,
   iconSet,
   ImageUploadModel,
@@ -18,24 +20,18 @@ import {
   PersistentNotification,
   Select,
   Subtitle,
-  Title,
   Toggle,
+  ToggleRadio,
 } from '@reapit/elements'
 import {
   AppsBrowseConfigEnum,
+  AppsBrowseConfigItemFiltersInterface,
   AppsBrowseConfigItemInterface,
   AppSummaryModelPagedResult,
   CategoryModelPagedResult,
 } from '@reapit/foundations-ts-definitions'
 import { GetActionNames, getActions, UpdateActionNames, updateActions } from '@reapit/utils-common'
-import {
-  ImageCropperFileInput,
-  ResizeDimensions,
-  SearchableMultiSelect,
-  UpdateReturnTypeEnum,
-  useReapitGet,
-  useReapitUpdate,
-} from '@reapit/utils-react'
+import { SearchableMultiSelect, UpdateReturnTypeEnum, useReapitGet, useReapitUpdate } from '@reapit/utils-react'
 import React, { FC, useState } from 'react'
 import { useController, useForm } from 'react-hook-form'
 import { reactPickerStyles } from './app-browse.styles'
@@ -44,20 +40,22 @@ import { SketchPicker } from 'react-color'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { v4 as uuid } from 'uuid'
 
-const UPLOAD_IMAGE_DIMENSIONS: Record<string, ResizeDimensions> = {
-  icon: {
-    width: 96,
-    height: 96,
-  },
-  feature: {
-    width: 495,
-    height: 222,
-  },
-  screenshot: {
-    width: 598,
-    height: 457,
-  },
-}
+// Commenting out for now, we may want to use the image cropper again however, for now, assume images are
+// variable size and allow marketing to decide the dimensions.
+// const UPLOAD_IMAGE_DIMENSIONS: Record<string, ResizeDimensions> = {
+//   icon: {
+//     width: 96,
+//     height: 96,
+//   },
+//   feature: {
+//     width: 495,
+//     height: 222,
+//   },
+//   screenshot: {
+//     width: 598,
+//     height: 457,
+//   },
+// }
 
 const upsertAppMarketing =
   (
@@ -69,6 +67,20 @@ const upsertAppMarketing =
   ) =>
   async (app: any) => {
     setLoading(true)
+
+    const filters: AppsBrowseConfigItemFiltersInterface = {}
+    const category = app?.filters?.category
+    const id = app?.filters?.id
+    const isFeatured = app?.filters?.isFeatured
+    const isFree = app?.filters?.isFree
+
+    if (category?.length) filters.category = category?.split(',').filter(Boolean)
+    if (id?.length) filters.id = id
+    if (isFeatured === 'isFeatured') filters.isFeatured = true
+    if (isFeatured === 'notFeatured') filters.isFeatured = false
+    if (isFree === 'free') filters.isFree = true
+    if (isFree === 'paid') filters.isFree = false
+
     const returned = await send({
       ...app,
       content: {
@@ -80,10 +92,7 @@ const upsertAppMarketing =
         timeFrom: app?.live?.timeFrom !== '' ? app?.live.timeFrom : undefined,
         timeTo: app?.live?.timeTo !== '' ? app?.live.timeTo : undefined,
       },
-      filters: {
-        ...app.filters,
-        category: app?.filters?.category?.split(',') || [],
-      },
+      filters,
       configType,
     })
 
@@ -122,6 +131,12 @@ export const AppBrowseUpsertModal: FC<AppBrowseUpsertModalDefaultProps> = ({
       ...defaultValues,
       filters: {
         ...defaultValues.filters,
+        isFeatured:
+          defaultValues.filters?.isFeatured === false
+            ? 'notFeatured'
+            : defaultValues.filters?.isFeatured === true
+            ? 'isFeatured'
+            : 'notApplied',
         category: defaultValues.filters?.category?.join(',') || '',
       },
       live: {
@@ -151,7 +166,7 @@ export const AppBrowseUpsertModal: FC<AppBrowseUpsertModalDefaultProps> = ({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getApps],
     queryParams: { showHiddenApps: 'true', pageSize: 100, id: defaultValues?.filters?.id },
-    fetchWhenTrue: [Array.isArray(defaultValues?.filters?.id)],
+    fetchWhenTrue: [Array.isArray(defaultValues?.filters?.id), defaultValues?.filters?.id?.length],
   })
 
   const [, , send] = useReapitUpdate<AppsBrowseConfigItemInterface, AppsBrowseConfigItemInterface>({
@@ -186,12 +201,12 @@ export const AppBrowseUpsertModal: FC<AppBrowseUpsertModalDefaultProps> = ({
     <Modal
       className={appModal}
       isOpen={modalIsOpen}
+      title="AppMarket Item"
       onModalClose={() => {
         reset(undefined)
         closeModal()
       }}
     >
-      <Title>New Item</Title>
       {modalIsOpen && (
         <form
           onSubmit={handleSubmit(
@@ -211,13 +226,13 @@ export const AppBrowseUpsertModal: FC<AppBrowseUpsertModalDefaultProps> = ({
               action={getActions(window.reapit.config.appEnv)[GetActionNames.getApps]}
               valueKey="id"
               nameKey="name"
-              searchKey="name"
+              searchKey="appName"
               dataListKey="data"
               currentValues={getValues('filters.id') || []}
               defaultList={initialApps?.data || []}
               errorString={errors.id?.message || ''}
               noneSelectedLabel="No apps selected"
-              queryParams={{ pageSize: 100 }}
+              queryParams={{ pageSize: 100, isListed: true }}
               onChange={(event) =>
                 setValue('filters.id', event.target.value !== '' ? event.target.value.split(',') : [])
               }
@@ -245,20 +260,60 @@ export const AppBrowseUpsertModal: FC<AppBrowseUpsertModalDefaultProps> = ({
             <InputWrapFull>
               <InputGroup>
                 <Label>Is Free</Label>
-                <Toggle id="toggle-free" {...register('filters.isFree')} hasGreyBg>
-                  <ElToggleItem>Free</ElToggleItem>
-                  <ElToggleItem>Paid</ElToggleItem>
-                </Toggle>
+                <ToggleRadio
+                  hasGreyBg
+                  {...register('filters.isFree')}
+                  options={[
+                    {
+                      id: 'not-applied-free',
+                      value: 'notApplied',
+                      text: 'Not Applied',
+                      isChecked: defaultValues.filters?.isFree === undefined,
+                    },
+                    {
+                      id: 'free',
+                      value: 'free',
+                      text: 'Free',
+                      isChecked: Boolean(defaultValues.filters?.isFree),
+                    },
+                    {
+                      id: 'paid',
+                      value: 'paid',
+                      text: 'Paid',
+                      isChecked: defaultValues.filters?.isFree === false,
+                    },
+                  ]}
+                />
                 {errors.filters?.isFree?.message && <InputError message={errors.filters?.isFree.message.toString()} />}
               </InputGroup>
             </InputWrapFull>
             <InputWrapFull>
               <InputGroup>
                 <Label>Is Featured</Label>
-                <Toggle id="toggle-featured" {...register('filters.isFeatured')} hasGreyBg>
-                  <ElToggleItem>Yes</ElToggleItem>
-                  <ElToggleItem>No</ElToggleItem>
-                </Toggle>
+                <ToggleRadio
+                  hasGreyBg
+                  {...register('filters.isFeatured')}
+                  options={[
+                    {
+                      id: 'not-applied-featured',
+                      value: 'notApplied',
+                      text: 'Not Applied',
+                      isChecked: defaultValues.filters?.isFeatured === undefined,
+                    },
+                    {
+                      id: 'is-featured',
+                      value: 'isFeatured',
+                      text: 'Is Featured',
+                      isChecked: Boolean(defaultValues.filters?.isFeatured),
+                    },
+                    {
+                      id: 'not-featured',
+                      value: 'notFeatured',
+                      text: 'Not Featured',
+                      isChecked: defaultValues.filters?.isFeatured === false,
+                    },
+                  ]}
+                />
                 {errors.filters?.isFeatured?.message && (
                   <InputError message={errors.filters?.isFeatured.message.toString()} />
                 )}
@@ -324,15 +379,13 @@ export const AppBrowseUpsertModal: FC<AppBrowseUpsertModalDefaultProps> = ({
             </InputWrapFull>
             <InputWrapFull>
               <InputGroup>
-                <ImageCropperFileInput
+                <FileInput
                   label={'Image'}
                   {...register('content.imageUrl')}
                   onFileView={(image) => setImageView(image)}
                   onFileUpload={onFileUpload}
-                  placeholderText="Dimensions: 96px x 96px"
+                  placeholderText="Upload Image"
                   fileName={uuid()}
-                  aspect={UPLOAD_IMAGE_DIMENSIONS.icon.width / UPLOAD_IMAGE_DIMENSIONS.icon.height}
-                  resizeDimensions={UPLOAD_IMAGE_DIMENSIONS.icon}
                 />
                 {errors.content?.imageUrl?.message && (
                   <InputError message={errors.content?.imageUrl.message.toString()} />
@@ -370,8 +423,9 @@ export const AppBrowseUpsertModal: FC<AppBrowseUpsertModalDefaultProps> = ({
               </InputGroup>
             </InputWrapFull>
             <InputWrapFull>
-              <PersistentNotification isExpanded={true} intent="primary" isInline isFullWidth>
-                If a Live To or Live From value is set, Is Live will be ignored.
+              <PersistentNotification className={elMb5} intent="secondary" isExpanded={true} isInline isFullWidth>
+                If a &lsquo;Live To&rsquo; or &lsquo;Live From&rsquo; value is set, &lsquo;Is Live&rsquo; will be
+                ignored.
               </PersistentNotification>
               <InputGroup>
                 <Label>Is Live</Label>
