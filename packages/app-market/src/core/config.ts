@@ -1,8 +1,9 @@
+import { AppsBrowseConfigEnum } from '@reapit/foundations-ts-definitions'
 import { AppsBrowseConfigCollection } from './use-apps-browse-state'
 
 // Stubbing out the config API
 const appsBrowseConfigCollectionDev: AppsBrowseConfigCollection = {
-  data: [
+  items: [
     {
       filters: {
         id: ['cfbe6f29-4003-4648-aa5a-8eb777bd606e'],
@@ -13,7 +14,7 @@ const appsBrowseConfigCollectionDev: AppsBrowseConfigCollection = {
         strapline: 'Lorem ipsum dolor sit amet, consectetur adip',
         imageUrl: '',
       },
-      configType: 'featuredHeroApps',
+      configType: 'featuredHeroApps' as AppsBrowseConfigEnum,
       live: {
         isLive: true,
       },
@@ -28,7 +29,7 @@ const appsBrowseConfigCollectionDev: AppsBrowseConfigCollection = {
         strapline: 'Lorem ipsum dolor sit amet, consectetur adip',
         imageUrl: '',
       },
-      configType: 'heroApps',
+      configType: 'heroApps' as AppsBrowseConfigEnum,
       live: {
         isLive: true,
       },
@@ -40,9 +41,9 @@ const appsBrowseConfigCollectionDev: AppsBrowseConfigCollection = {
       content: {
         brandColour: '#0061a8',
         strapline: 'Lorem ipsum dolor sit amet, consectetur adip',
-        imageUrl: '',
+        imageUrl: 'https://image.com',
       },
-      configType: 'heroApps',
+      configType: 'heroApps' as AppsBrowseConfigEnum,
       live: {
         isLive: true,
       },
@@ -61,7 +62,7 @@ const appsBrowseConfigCollectionDev: AppsBrowseConfigCollection = {
         strapline: 'Lorem ipsum dolor sit amet, consectetur adip',
         iconName: 'webDeveloperInfographic',
       },
-      configType: 'appsFilters',
+      configType: 'appsFilters' as AppsBrowseConfigEnum,
       live: {
         isLive: true,
       },
@@ -80,7 +81,7 @@ const appsBrowseConfigCollectionDev: AppsBrowseConfigCollection = {
         strapline: 'Lorem ipsum dolor sit amet, consectetur adip',
         iconName: 'webDeveloperInfographic',
       },
-      configType: 'appsFilters',
+      configType: 'appsFilters' as AppsBrowseConfigEnum,
       live: {
         isLive: true,
       },
@@ -99,7 +100,7 @@ const appsBrowseConfigCollectionDev: AppsBrowseConfigCollection = {
         strapline: 'Lorem ipsum dolor sit amet, consectetur adip',
         iconName: 'webDeveloperInfographic',
       },
-      configType: 'appsFilters',
+      configType: 'appsFilters' as AppsBrowseConfigEnum,
       live: {
         isLive: true,
       },
@@ -118,7 +119,7 @@ const appsBrowseConfigCollectionDev: AppsBrowseConfigCollection = {
         strapline: 'Lorem ipsum dolor sit amet, consectetur adip',
         iconName: 'webDeveloperInfographic',
       },
-      configType: 'appsFilters',
+      configType: 'appsFilters' as AppsBrowseConfigEnum,
       live: {
         isLive: true,
       },
@@ -137,7 +138,7 @@ const appsBrowseConfigCollectionDev: AppsBrowseConfigCollection = {
         strapline: 'Lorem ipsum dolor sit amet, consectetur adip',
         iconName: 'webDeveloperInfographic',
       },
-      configType: 'appsFilters',
+      configType: 'appsFilters' as AppsBrowseConfigEnum,
       live: {
         isLive: true,
       },
@@ -156,7 +157,7 @@ const appsBrowseConfigCollectionDev: AppsBrowseConfigCollection = {
         strapline: 'Lorem ipsum dolor sit amet, consectetur adip',
         iconName: 'webDeveloperInfographic',
       },
-      configType: 'appsFilters',
+      configType: 'appsFilters' as AppsBrowseConfigEnum,
       live: {
         isLive: true,
       },
@@ -168,7 +169,7 @@ const appsBrowseConfigCollectionDev: AppsBrowseConfigCollection = {
       content: {
         title: 'Indentity Apps',
       },
-      configType: 'featuredApps',
+      configType: 'featuredApps' as AppsBrowseConfigEnum,
       live: {
         isLive: true,
       },
@@ -180,7 +181,7 @@ const appsBrowseConfigCollectionDev: AppsBrowseConfigCollection = {
       content: {
         title: 'Free Apps',
       },
-      configType: 'simpleApps',
+      configType: 'simpleApps' as AppsBrowseConfigEnum,
       live: {
         isLive: true,
       },
@@ -189,7 +190,7 @@ const appsBrowseConfigCollectionDev: AppsBrowseConfigCollection = {
 }
 
 const appsBrowseConfigCollectionProd: AppsBrowseConfigCollection = {
-  data: [],
+  items: [],
 }
 
 export const appsBrowseConfigCollection =

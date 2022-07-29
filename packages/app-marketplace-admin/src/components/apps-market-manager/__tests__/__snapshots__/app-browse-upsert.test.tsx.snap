@@ -131,6 +131,11 @@ Object {
         <section
           class="el-page-container"
         >
+          <h1
+            class="el-title"
+          >
+            AppMarket Configuration Table
+          </h1>
           <div
             class="el-mb11"
           >
@@ -352,6 +357,11 @@ Object {
       <section
         class="el-page-container"
       >
+        <h1
+          class="el-title"
+        >
+          AppMarket Configuration Table
+        </h1>
         <div
           class="el-mb11"
         >

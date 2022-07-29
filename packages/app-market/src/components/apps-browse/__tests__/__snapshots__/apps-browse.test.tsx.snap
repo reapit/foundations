@@ -86,43 +86,47 @@ Object {
           </p>
         </div>
         <div
-          class="el-flex-align-center apps-search-container apps-search-desktop-controls el-flex-container"
+          class="apps-search-desktop-controls el-flex-container"
         >
-          <span
-            class="apps-search-input-icon el-icon"
-            style="font-size: 1.25rem;"
+          <div
+            class="el-flex-align-center apps-search-container el-mr5 el-flex-container"
           >
-            <svg
-              fill="none"
-              height="1em"
-              viewBox="0 0 20 20"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
+            <span
+              class="apps-search-input-icon el-icon"
+              style="font-size: 1.25rem;"
             >
-              <g>
-                <path
-                  d="M19.7556 18.5783L14.0682 12.8909C15.1699 11.5301 15.8332 9.80089 15.8332 7.91758C15.8332 3.55262 12.2815 0.000976562 7.91656 0.000976562C3.55161 0.000976562 0 3.55258 0 7.91754C0 12.2825 3.55165 15.8342 7.9166 15.8342C9.7999 15.8342 11.5291 15.1708 12.8899 14.0692L18.5773 19.7566C18.7398 19.9191 18.9531 20.0008 19.1665 20.0008C19.3798 20.0008 19.5932 19.9191 19.7557 19.7566C20.0815 19.4308 20.0815 18.9041 19.7556 18.5783ZM7.9166 14.1675C4.46996 14.1675 1.66666 11.3642 1.66666 7.91754C1.66666 4.4709 4.46996 1.6676 7.9166 1.6676C11.3632 1.6676 14.1665 4.4709 14.1665 7.91754C14.1665 11.3642 11.3632 14.1675 7.9166 14.1675Z"
-                  fill="currentColor"
-                />
-              </g>
-              <defs>
-                <clippath
-                  id="clip0"
-                >
-                  <rect
-                    fill="white"
-                    height="20.0003"
-                    width="20"
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 20 20"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g>
+                  <path
+                    d="M19.7556 18.5783L14.0682 12.8909C15.1699 11.5301 15.8332 9.80089 15.8332 7.91758C15.8332 3.55262 12.2815 0.000976562 7.91656 0.000976562C3.55161 0.000976562 0 3.55258 0 7.91754C0 12.2825 3.55165 15.8342 7.9166 15.8342C9.7999 15.8342 11.5291 15.1708 12.8899 14.0692L18.5773 19.7566C18.7398 19.9191 18.9531 20.0008 19.1665 20.0008C19.3798 20.0008 19.5932 19.9191 19.7557 19.7566C20.0815 19.4308 20.0815 18.9041 19.7556 18.5783ZM7.9166 14.1675C4.46996 14.1675 1.66666 11.3642 1.66666 7.91754C1.66666 4.4709 4.46996 1.6676 7.9166 1.6676C11.3632 1.6676 14.1665 4.4709 14.1665 7.91754C14.1665 11.3642 11.3632 14.1675 7.9166 14.1675Z"
+                    fill="currentColor"
                   />
-                </clippath>
-              </defs>
-            </svg>
-          </span>
-          <input
-            class="apps-search-input"
-            placeholder="Search"
-            type="text"
-          />
+                </g>
+                <defs>
+                  <clippath
+                    id="clip0"
+                  >
+                    <rect
+                      fill="white"
+                      height="20.0003"
+                      width="20"
+                    />
+                  </clippath>
+                </defs>
+              </svg>
+            </span>
+            <input
+              class="apps-search-input"
+              placeholder="Search by App or Developer"
+              type="text"
+            />
+          </div>
         </div>
         <div
           class="featured-hero-apps-item"
@@ -150,7 +154,7 @@ Object {
                   >
                     <div
                       class="el-mb7 el-placeholder-image"
-                      style="font-size: 1.875em; width: 48px; height: 48px;"
+                      style="font-size: 2.8125em; width: 72px; height: 72px;"
                     >
                       <svg
                         fill="none"
@@ -181,7 +185,9 @@ Object {
                   </div>
                   <p
                     class="featured-hero-apps-strapline el-body-text"
-                  />
+                  >
+                    Lorem ipsum dolor sit amet, consectetur adip
+                  </p>
                   <button
                     class="featured-hero-apps-button-desktop el-button"
                     style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
@@ -306,7 +312,7 @@ Object {
                       >
                         <div
                           class="el-placeholder-image"
-                          style="font-size: 1.5625em; width: 40px; height: 40px;"
+                          style="font-size: 2.8125em; width: 72px; height: 72px;"
                         >
                           <svg
                             fill="none"
@@ -334,7 +340,9 @@ Object {
                       </div>
                       <p
                         class="hero-apps-strapline el-body-text"
-                      />
+                      >
+                        Lorem ipsum dolor sit amet, consectetur adip
+                      </p>
                     </div>
                     <div
                       class="hero-apps-image-container"
@@ -424,7 +432,7 @@ Object {
                       >
                         <div
                           class="el-placeholder-image"
-                          style="font-size: 1.5625em; width: 40px; height: 40px;"
+                          style="font-size: 2.8125em; width: 72px; height: 72px;"
                         >
                           <svg
                             fill="none"
@@ -452,67 +460,17 @@ Object {
                       </div>
                       <p
                         class="hero-apps-strapline el-body-text"
-                      />
+                      >
+                        Lorem ipsum dolor sit amet, consectetur adip
+                      </p>
                     </div>
                     <div
                       class="hero-apps-image-container"
                     >
-                      <div
-                        class="el-placeholder-image-wrapper"
-                      >
-                        <div
-                          class="el-placeholder-image"
-                          style="font-size: 4.6875em;"
-                        >
-                          <svg
-                            fill="none"
-                            height="1em"
-                            viewBox="0 0 183 200"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <ellipse
-                              cx="90.7692"
-                              cy="108.718"
-                              fill="#F2F2F2"
-                              rx="90.7692"
-                              ry="91.2821"
-                            />
-                            <path
-                              d="M149.769 59.9736L162.678 51.715C158.49 46.4795 153.74 41.7118 148.515 37.5054L136.008 47.114C141.106 50.822 145.733 55.1401 149.769 59.9736Z"
-                              fill="#C4C4C4"
-                            />
-                            <path
-                              d="M161.555 79.4094L176.145 74.8695C173.889 69.2241 171.087 63.8571 167.804 58.8311L154.969 67.0407C157.522 70.9321 159.74 75.0652 161.554 79.4094H161.555Z"
-                              fill="#C4C4C4"
-                            />
-                            <path
-                              d="M91.3348 184.757C49.3765 184.757 15.2469 150.625 15.2469 108.665C15.2469 66.7067 49.3784 32.5772 91.3348 32.5772C104.677 32.5772 117.219 36.039 128.135 42.0927L141.098 32.1368C126.771 22.7881 109.682 17.3311 91.3344 17.3311C40.9719 17.3311 0 58.3029 0 108.665C0 159.028 40.9719 200 91.3344 200C126.598 200 157.237 179.899 172.448 150.569H154.803C141.17 171.148 117.818 184.757 91.3352 184.757L91.3348 184.757Z"
-                              fill="#C4C4C4"
-                            />
-                            <path
-                              d="M167.415 108.665H182.658C182.658 107.277 182.615 105.897 182.552 104.526H167.297C167.373 105.897 167.415 107.275 167.415 108.665H167.415Z"
-                              fill="#C4C4C4"
-                            />
-                            <path
-                              d="M166.321 95.7561H181.752C181.14 91.4518 180.225 87.2501 179.032 83.1611L164.477 87.6916C165.23 90.3247 165.851 93.0144 166.321 95.7561H166.321Z"
-                              fill="#C4C4C4"
-                            />
-                            <path
-                              d="M125.332 161.312H60.6905C53.8033 161.296 48.2199 155.712 48.2031 148.825V12.4873C48.2199 5.60022 53.8033 0.0167671 60.6905 0H125.332C132.219 0.0167671 137.803 5.60022 137.819 12.4873V148.829C137.798 155.716 132.219 161.296 125.332 161.312Z"
-                              fill="#DFDFDF"
-                            />
-                            <path
-                              d="M125.332 161.312H60.6904C53.8033 161.295 48.2199 155.712 48.2031 148.825V133.008C89.3787 133.008 101.178 133.008 137.819 133.008V148.829C137.798 155.716 132.219 161.295 125.332 161.312Z"
-                              fill="#C4C4C4"
-                            />
-                            <path
-                              d="M99.4303 70.1607C98.0834 61.6268 90.6094 55.0769 81.6156 55.0769C78.2322 55.0769 74.981 56.0035 72.1611 57.7318C67.871 50.5949 60.1476 46.1538 51.5675 46.1538C38.3129 46.1538 27.529 56.8284 27.529 69.9487C27.529 70.03 27.529 70.1143 27.5321 70.1956C19.0134 71.6159 12.3047 78.9675 12.3047 87.7948C12.3047 97.6358 20.5921 105.641 30.5339 105.641H96.6396C106.581 105.641 114.869 97.6358 114.869 87.7948C114.869 78.8922 108.052 71.494 99.4303 70.1607Z"
-                              fill="white"
-                            />
-                          </svg>
-                        </div>
-                      </div>
+                      <img
+                        class="hero-apps-image"
+                        src="https://image.com"
+                      />
                     </div>
                   </div>
                 </div>
@@ -1917,43 +1875,47 @@ Object {
         </p>
       </div>
       <div
-        class="el-flex-align-center apps-search-container apps-search-desktop-controls el-flex-container"
+        class="apps-search-desktop-controls el-flex-container"
       >
-        <span
-          class="apps-search-input-icon el-icon"
-          style="font-size: 1.25rem;"
+        <div
+          class="el-flex-align-center apps-search-container el-mr5 el-flex-container"
         >
-          <svg
-            fill="none"
-            height="1em"
-            viewBox="0 0 20 20"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
+          <span
+            class="apps-search-input-icon el-icon"
+            style="font-size: 1.25rem;"
           >
-            <g>
-              <path
-                d="M19.7556 18.5783L14.0682 12.8909C15.1699 11.5301 15.8332 9.80089 15.8332 7.91758C15.8332 3.55262 12.2815 0.000976562 7.91656 0.000976562C3.55161 0.000976562 0 3.55258 0 7.91754C0 12.2825 3.55165 15.8342 7.9166 15.8342C9.7999 15.8342 11.5291 15.1708 12.8899 14.0692L18.5773 19.7566C18.7398 19.9191 18.9531 20.0008 19.1665 20.0008C19.3798 20.0008 19.5932 19.9191 19.7557 19.7566C20.0815 19.4308 20.0815 18.9041 19.7556 18.5783ZM7.9166 14.1675C4.46996 14.1675 1.66666 11.3642 1.66666 7.91754C1.66666 4.4709 4.46996 1.6676 7.9166 1.6676C11.3632 1.6676 14.1665 4.4709 14.1665 7.91754C14.1665 11.3642 11.3632 14.1675 7.9166 14.1675Z"
-                fill="currentColor"
-              />
-            </g>
-            <defs>
-              <clippath
-                id="clip0"
-              >
-                <rect
-                  fill="white"
-                  height="20.0003"
-                  width="20"
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 20 20"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g>
+                <path
+                  d="M19.7556 18.5783L14.0682 12.8909C15.1699 11.5301 15.8332 9.80089 15.8332 7.91758C15.8332 3.55262 12.2815 0.000976562 7.91656 0.000976562C3.55161 0.000976562 0 3.55258 0 7.91754C0 12.2825 3.55165 15.8342 7.9166 15.8342C9.7999 15.8342 11.5291 15.1708 12.8899 14.0692L18.5773 19.7566C18.7398 19.9191 18.9531 20.0008 19.1665 20.0008C19.3798 20.0008 19.5932 19.9191 19.7557 19.7566C20.0815 19.4308 20.0815 18.9041 19.7556 18.5783ZM7.9166 14.1675C4.46996 14.1675 1.66666 11.3642 1.66666 7.91754C1.66666 4.4709 4.46996 1.6676 7.9166 1.6676C11.3632 1.6676 14.1665 4.4709 14.1665 7.91754C14.1665 11.3642 11.3632 14.1675 7.9166 14.1675Z"
+                  fill="currentColor"
                 />
-              </clippath>
-            </defs>
-          </svg>
-        </span>
-        <input
-          class="apps-search-input"
-          placeholder="Search"
-          type="text"
-        />
+              </g>
+              <defs>
+                <clippath
+                  id="clip0"
+                >
+                  <rect
+                    fill="white"
+                    height="20.0003"
+                    width="20"
+                  />
+                </clippath>
+              </defs>
+            </svg>
+          </span>
+          <input
+            class="apps-search-input"
+            placeholder="Search by App or Developer"
+            type="text"
+          />
+        </div>
       </div>
       <div
         class="featured-hero-apps-item"
@@ -1981,7 +1943,7 @@ Object {
                 >
                   <div
                     class="el-mb7 el-placeholder-image"
-                    style="font-size: 1.875em; width: 48px; height: 48px;"
+                    style="font-size: 2.8125em; width: 72px; height: 72px;"
                   >
                     <svg
                       fill="none"
@@ -2012,7 +1974,9 @@ Object {
                 </div>
                 <p
                   class="featured-hero-apps-strapline el-body-text"
-                />
+                >
+                  Lorem ipsum dolor sit amet, consectetur adip
+                </p>
                 <button
                   class="featured-hero-apps-button-desktop el-button"
                   style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
@@ -2137,7 +2101,7 @@ Object {
                     >
                       <div
                         class="el-placeholder-image"
-                        style="font-size: 1.5625em; width: 40px; height: 40px;"
+                        style="font-size: 2.8125em; width: 72px; height: 72px;"
                       >
                         <svg
                           fill="none"
@@ -2165,7 +2129,9 @@ Object {
                     </div>
                     <p
                       class="hero-apps-strapline el-body-text"
-                    />
+                    >
+                      Lorem ipsum dolor sit amet, consectetur adip
+                    </p>
                   </div>
                   <div
                     class="hero-apps-image-container"
@@ -2255,7 +2221,7 @@ Object {
                     >
                       <div
                         class="el-placeholder-image"
-                        style="font-size: 1.5625em; width: 40px; height: 40px;"
+                        style="font-size: 2.8125em; width: 72px; height: 72px;"
                       >
                         <svg
                           fill="none"
@@ -2283,67 +2249,17 @@ Object {
                     </div>
                     <p
                       class="hero-apps-strapline el-body-text"
-                    />
+                    >
+                      Lorem ipsum dolor sit amet, consectetur adip
+                    </p>
                   </div>
                   <div
                     class="hero-apps-image-container"
                   >
-                    <div
-                      class="el-placeholder-image-wrapper"
-                    >
-                      <div
-                        class="el-placeholder-image"
-                        style="font-size: 4.6875em;"
-                      >
-                        <svg
-                          fill="none"
-                          height="1em"
-                          viewBox="0 0 183 200"
-                          width="1em"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <ellipse
-                            cx="90.7692"
-                            cy="108.718"
-                            fill="#F2F2F2"
-                            rx="90.7692"
-                            ry="91.2821"
-                          />
-                          <path
-                            d="M149.769 59.9736L162.678 51.715C158.49 46.4795 153.74 41.7118 148.515 37.5054L136.008 47.114C141.106 50.822 145.733 55.1401 149.769 59.9736Z"
-                            fill="#C4C4C4"
-                          />
-                          <path
-                            d="M161.555 79.4094L176.145 74.8695C173.889 69.2241 171.087 63.8571 167.804 58.8311L154.969 67.0407C157.522 70.9321 159.74 75.0652 161.554 79.4094H161.555Z"
-                            fill="#C4C4C4"
-                          />
-                          <path
-                            d="M91.3348 184.757C49.3765 184.757 15.2469 150.625 15.2469 108.665C15.2469 66.7067 49.3784 32.5772 91.3348 32.5772C104.677 32.5772 117.219 36.039 128.135 42.0927L141.098 32.1368C126.771 22.7881 109.682 17.3311 91.3344 17.3311C40.9719 17.3311 0 58.3029 0 108.665C0 159.028 40.9719 200 91.3344 200C126.598 200 157.237 179.899 172.448 150.569H154.803C141.17 171.148 117.818 184.757 91.3352 184.757L91.3348 184.757Z"
-                            fill="#C4C4C4"
-                          />
-                          <path
-                            d="M167.415 108.665H182.658C182.658 107.277 182.615 105.897 182.552 104.526H167.297C167.373 105.897 167.415 107.275 167.415 108.665H167.415Z"
-                            fill="#C4C4C4"
-                          />
-                          <path
-                            d="M166.321 95.7561H181.752C181.14 91.4518 180.225 87.2501 179.032 83.1611L164.477 87.6916C165.23 90.3247 165.851 93.0144 166.321 95.7561H166.321Z"
-                            fill="#C4C4C4"
-                          />
-                          <path
-                            d="M125.332 161.312H60.6905C53.8033 161.296 48.2199 155.712 48.2031 148.825V12.4873C48.2199 5.60022 53.8033 0.0167671 60.6905 0H125.332C132.219 0.0167671 137.803 5.60022 137.819 12.4873V148.829C137.798 155.716 132.219 161.296 125.332 161.312Z"
-                            fill="#DFDFDF"
-                          />
-                          <path
-                            d="M125.332 161.312H60.6904C53.8033 161.295 48.2199 155.712 48.2031 148.825V133.008C89.3787 133.008 101.178 133.008 137.819 133.008V148.829C137.798 155.716 132.219 161.295 125.332 161.312Z"
-                            fill="#C4C4C4"
-                          />
-                          <path
-                            d="M99.4303 70.1607C98.0834 61.6268 90.6094 55.0769 81.6156 55.0769C78.2322 55.0769 74.981 56.0035 72.1611 57.7318C67.871 50.5949 60.1476 46.1538 51.5675 46.1538C38.3129 46.1538 27.529 56.8284 27.529 69.9487C27.529 70.03 27.529 70.1143 27.5321 70.1956C19.0134 71.6159 12.3047 78.9675 12.3047 87.7948C12.3047 97.6358 20.5921 105.641 30.5339 105.641H96.6396C106.581 105.641 114.869 97.6358 114.869 87.7948C114.869 78.8922 108.052 71.494 99.4303 70.1607Z"
-                            fill="white"
-                          />
-                        </svg>
-                      </div>
-                    </div>
+                    <img
+                      class="hero-apps-image"
+                      src="https://image.com"
+                    />
                   </div>
                 </div>
               </div>
@@ -3805,43 +3721,47 @@ Object {
           </p>
         </div>
         <div
-          class="el-flex-align-center apps-search-container apps-search-desktop-controls el-flex-container"
+          class="apps-search-desktop-controls el-flex-container"
         >
-          <span
-            class="apps-search-input-icon el-icon"
-            style="font-size: 1.25rem;"
+          <div
+            class="el-flex-align-center apps-search-container el-mr5 el-flex-container"
           >
-            <svg
-              fill="none"
-              height="1em"
-              viewBox="0 0 20 20"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
+            <span
+              class="apps-search-input-icon el-icon"
+              style="font-size: 1.25rem;"
             >
-              <g>
-                <path
-                  d="M19.7556 18.5783L14.0682 12.8909C15.1699 11.5301 15.8332 9.80089 15.8332 7.91758C15.8332 3.55262 12.2815 0.000976562 7.91656 0.000976562C3.55161 0.000976562 0 3.55258 0 7.91754C0 12.2825 3.55165 15.8342 7.9166 15.8342C9.7999 15.8342 11.5291 15.1708 12.8899 14.0692L18.5773 19.7566C18.7398 19.9191 18.9531 20.0008 19.1665 20.0008C19.3798 20.0008 19.5932 19.9191 19.7557 19.7566C20.0815 19.4308 20.0815 18.9041 19.7556 18.5783ZM7.9166 14.1675C4.46996 14.1675 1.66666 11.3642 1.66666 7.91754C1.66666 4.4709 4.46996 1.6676 7.9166 1.6676C11.3632 1.6676 14.1665 4.4709 14.1665 7.91754C14.1665 11.3642 11.3632 14.1675 7.9166 14.1675Z"
-                  fill="currentColor"
-                />
-              </g>
-              <defs>
-                <clippath
-                  id="clip0"
-                >
-                  <rect
-                    fill="white"
-                    height="20.0003"
-                    width="20"
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 20 20"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g>
+                  <path
+                    d="M19.7556 18.5783L14.0682 12.8909C15.1699 11.5301 15.8332 9.80089 15.8332 7.91758C15.8332 3.55262 12.2815 0.000976562 7.91656 0.000976562C3.55161 0.000976562 0 3.55258 0 7.91754C0 12.2825 3.55165 15.8342 7.9166 15.8342C9.7999 15.8342 11.5291 15.1708 12.8899 14.0692L18.5773 19.7566C18.7398 19.9191 18.9531 20.0008 19.1665 20.0008C19.3798 20.0008 19.5932 19.9191 19.7557 19.7566C20.0815 19.4308 20.0815 18.9041 19.7556 18.5783ZM7.9166 14.1675C4.46996 14.1675 1.66666 11.3642 1.66666 7.91754C1.66666 4.4709 4.46996 1.6676 7.9166 1.6676C11.3632 1.6676 14.1665 4.4709 14.1665 7.91754C14.1665 11.3642 11.3632 14.1675 7.9166 14.1675Z"
+                    fill="currentColor"
                   />
-                </clippath>
-              </defs>
-            </svg>
-          </span>
-          <input
-            class="apps-search-input"
-            placeholder="Search"
-            type="text"
-          />
+                </g>
+                <defs>
+                  <clippath
+                    id="clip0"
+                  >
+                    <rect
+                      fill="white"
+                      height="20.0003"
+                      width="20"
+                    />
+                  </clippath>
+                </defs>
+              </svg>
+            </span>
+            <input
+              class="apps-search-input"
+              placeholder="Search by App or Developer"
+              type="text"
+            />
+          </div>
         </div>
         <div
           class="featured-hero-apps-item"
@@ -3869,7 +3789,7 @@ Object {
                   >
                     <div
                       class="el-mb7 el-placeholder-image"
-                      style="font-size: 1.875em; width: 48px; height: 48px;"
+                      style="font-size: 2.8125em; width: 72px; height: 72px;"
                     >
                       <svg
                         fill="none"
@@ -3900,7 +3820,9 @@ Object {
                   </div>
                   <p
                     class="featured-hero-apps-strapline el-body-text"
-                  />
+                  >
+                    Lorem ipsum dolor sit amet, consectetur adip
+                  </p>
                   <button
                     class="featured-hero-apps-button-desktop el-button"
                     style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
@@ -4005,7 +3927,7 @@ Object {
                       >
                         <div
                           class="el-placeholder-image"
-                          style="font-size: 1.5625em; width: 40px; height: 40px;"
+                          style="font-size: 2.8125em; width: 72px; height: 72px;"
                         >
                           <svg
                             fill="none"
@@ -4033,7 +3955,9 @@ Object {
                       </div>
                       <p
                         class="hero-apps-strapline el-body-text"
-                      />
+                      >
+                        Lorem ipsum dolor sit amet, consectetur adip
+                      </p>
                     </div>
                     <div
                       class="hero-apps-image-container"
@@ -4123,7 +4047,7 @@ Object {
                       >
                         <div
                           class="el-placeholder-image"
-                          style="font-size: 1.5625em; width: 40px; height: 40px;"
+                          style="font-size: 2.8125em; width: 72px; height: 72px;"
                         >
                           <svg
                             fill="none"
@@ -4151,67 +4075,17 @@ Object {
                       </div>
                       <p
                         class="hero-apps-strapline el-body-text"
-                      />
+                      >
+                        Lorem ipsum dolor sit amet, consectetur adip
+                      </p>
                     </div>
                     <div
                       class="hero-apps-image-container"
                     >
-                      <div
-                        class="el-placeholder-image-wrapper"
-                      >
-                        <div
-                          class="el-placeholder-image"
-                          style="font-size: 4.6875em;"
-                        >
-                          <svg
-                            fill="none"
-                            height="1em"
-                            viewBox="0 0 183 200"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <ellipse
-                              cx="90.7692"
-                              cy="108.718"
-                              fill="#F2F2F2"
-                              rx="90.7692"
-                              ry="91.2821"
-                            />
-                            <path
-                              d="M149.769 59.9736L162.678 51.715C158.49 46.4795 153.74 41.7118 148.515 37.5054L136.008 47.114C141.106 50.822 145.733 55.1401 149.769 59.9736Z"
-                              fill="#C4C4C4"
-                            />
-                            <path
-                              d="M161.555 79.4094L176.145 74.8695C173.889 69.2241 171.087 63.8571 167.804 58.8311L154.969 67.0407C157.522 70.9321 159.74 75.0652 161.554 79.4094H161.555Z"
-                              fill="#C4C4C4"
-                            />
-                            <path
-                              d="M91.3348 184.757C49.3765 184.757 15.2469 150.625 15.2469 108.665C15.2469 66.7067 49.3784 32.5772 91.3348 32.5772C104.677 32.5772 117.219 36.039 128.135 42.0927L141.098 32.1368C126.771 22.7881 109.682 17.3311 91.3344 17.3311C40.9719 17.3311 0 58.3029 0 108.665C0 159.028 40.9719 200 91.3344 200C126.598 200 157.237 179.899 172.448 150.569H154.803C141.17 171.148 117.818 184.757 91.3352 184.757L91.3348 184.757Z"
-                              fill="#C4C4C4"
-                            />
-                            <path
-                              d="M167.415 108.665H182.658C182.658 107.277 182.615 105.897 182.552 104.526H167.297C167.373 105.897 167.415 107.275 167.415 108.665H167.415Z"
-                              fill="#C4C4C4"
-                            />
-                            <path
-                              d="M166.321 95.7561H181.752C181.14 91.4518 180.225 87.2501 179.032 83.1611L164.477 87.6916C165.23 90.3247 165.851 93.0144 166.321 95.7561H166.321Z"
-                              fill="#C4C4C4"
-                            />
-                            <path
-                              d="M125.332 161.312H60.6905C53.8033 161.296 48.2199 155.712 48.2031 148.825V12.4873C48.2199 5.60022 53.8033 0.0167671 60.6905 0H125.332C132.219 0.0167671 137.803 5.60022 137.819 12.4873V148.829C137.798 155.716 132.219 161.296 125.332 161.312Z"
-                              fill="#DFDFDF"
-                            />
-                            <path
-                              d="M125.332 161.312H60.6904C53.8033 161.295 48.2199 155.712 48.2031 148.825V133.008C89.3787 133.008 101.178 133.008 137.819 133.008V148.829C137.798 155.716 132.219 161.295 125.332 161.312Z"
-                              fill="#C4C4C4"
-                            />
-                            <path
-                              d="M99.4303 70.1607C98.0834 61.6268 90.6094 55.0769 81.6156 55.0769C78.2322 55.0769 74.981 56.0035 72.1611 57.7318C67.871 50.5949 60.1476 46.1538 51.5675 46.1538C38.3129 46.1538 27.529 56.8284 27.529 69.9487C27.529 70.03 27.529 70.1143 27.5321 70.1956C19.0134 71.6159 12.3047 78.9675 12.3047 87.7948C12.3047 97.6358 20.5921 105.641 30.5339 105.641H96.6396C106.581 105.641 114.869 97.6358 114.869 87.7948C114.869 78.8922 108.052 71.494 99.4303 70.1607Z"
-                              fill="white"
-                            />
-                          </svg>
-                        </div>
-                      </div>
+                      <img
+                        class="hero-apps-image"
+                        src="https://image.com"
+                      />
                     </div>
                   </div>
                 </div>
@@ -5616,43 +5490,47 @@ Object {
         </p>
       </div>
       <div
-        class="el-flex-align-center apps-search-container apps-search-desktop-controls el-flex-container"
+        class="apps-search-desktop-controls el-flex-container"
       >
-        <span
-          class="apps-search-input-icon el-icon"
-          style="font-size: 1.25rem;"
+        <div
+          class="el-flex-align-center apps-search-container el-mr5 el-flex-container"
         >
-          <svg
-            fill="none"
-            height="1em"
-            viewBox="0 0 20 20"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
+          <span
+            class="apps-search-input-icon el-icon"
+            style="font-size: 1.25rem;"
           >
-            <g>
-              <path
-                d="M19.7556 18.5783L14.0682 12.8909C15.1699 11.5301 15.8332 9.80089 15.8332 7.91758C15.8332 3.55262 12.2815 0.000976562 7.91656 0.000976562C3.55161 0.000976562 0 3.55258 0 7.91754C0 12.2825 3.55165 15.8342 7.9166 15.8342C9.7999 15.8342 11.5291 15.1708 12.8899 14.0692L18.5773 19.7566C18.7398 19.9191 18.9531 20.0008 19.1665 20.0008C19.3798 20.0008 19.5932 19.9191 19.7557 19.7566C20.0815 19.4308 20.0815 18.9041 19.7556 18.5783ZM7.9166 14.1675C4.46996 14.1675 1.66666 11.3642 1.66666 7.91754C1.66666 4.4709 4.46996 1.6676 7.9166 1.6676C11.3632 1.6676 14.1665 4.4709 14.1665 7.91754C14.1665 11.3642 11.3632 14.1675 7.9166 14.1675Z"
-                fill="currentColor"
-              />
-            </g>
-            <defs>
-              <clippath
-                id="clip0"
-              >
-                <rect
-                  fill="white"
-                  height="20.0003"
-                  width="20"
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 20 20"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g>
+                <path
+                  d="M19.7556 18.5783L14.0682 12.8909C15.1699 11.5301 15.8332 9.80089 15.8332 7.91758C15.8332 3.55262 12.2815 0.000976562 7.91656 0.000976562C3.55161 0.000976562 0 3.55258 0 7.91754C0 12.2825 3.55165 15.8342 7.9166 15.8342C9.7999 15.8342 11.5291 15.1708 12.8899 14.0692L18.5773 19.7566C18.7398 19.9191 18.9531 20.0008 19.1665 20.0008C19.3798 20.0008 19.5932 19.9191 19.7557 19.7566C20.0815 19.4308 20.0815 18.9041 19.7556 18.5783ZM7.9166 14.1675C4.46996 14.1675 1.66666 11.3642 1.66666 7.91754C1.66666 4.4709 4.46996 1.6676 7.9166 1.6676C11.3632 1.6676 14.1665 4.4709 14.1665 7.91754C14.1665 11.3642 11.3632 14.1675 7.9166 14.1675Z"
+                  fill="currentColor"
                 />
-              </clippath>
-            </defs>
-          </svg>
-        </span>
-        <input
-          class="apps-search-input"
-          placeholder="Search"
-          type="text"
-        />
+              </g>
+              <defs>
+                <clippath
+                  id="clip0"
+                >
+                  <rect
+                    fill="white"
+                    height="20.0003"
+                    width="20"
+                  />
+                </clippath>
+              </defs>
+            </svg>
+          </span>
+          <input
+            class="apps-search-input"
+            placeholder="Search by App or Developer"
+            type="text"
+          />
+        </div>
       </div>
       <div
         class="featured-hero-apps-item"
@@ -5680,7 +5558,7 @@ Object {
                 >
                   <div
                     class="el-mb7 el-placeholder-image"
-                    style="font-size: 1.875em; width: 48px; height: 48px;"
+                    style="font-size: 2.8125em; width: 72px; height: 72px;"
                   >
                     <svg
                       fill="none"
@@ -5711,7 +5589,9 @@ Object {
                 </div>
                 <p
                   class="featured-hero-apps-strapline el-body-text"
-                />
+                >
+                  Lorem ipsum dolor sit amet, consectetur adip
+                </p>
                 <button
                   class="featured-hero-apps-button-desktop el-button"
                   style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
@@ -5816,7 +5696,7 @@ Object {
                     >
                       <div
                         class="el-placeholder-image"
-                        style="font-size: 1.5625em; width: 40px; height: 40px;"
+                        style="font-size: 2.8125em; width: 72px; height: 72px;"
                       >
                         <svg
                           fill="none"
@@ -5844,7 +5724,9 @@ Object {
                     </div>
                     <p
                       class="hero-apps-strapline el-body-text"
-                    />
+                    >
+                      Lorem ipsum dolor sit amet, consectetur adip
+                    </p>
                   </div>
                   <div
                     class="hero-apps-image-container"
@@ -5934,7 +5816,7 @@ Object {
                     >
                       <div
                         class="el-placeholder-image"
-                        style="font-size: 1.5625em; width: 40px; height: 40px;"
+                        style="font-size: 2.8125em; width: 72px; height: 72px;"
                       >
                         <svg
                           fill="none"
@@ -5962,67 +5844,17 @@ Object {
                     </div>
                     <p
                       class="hero-apps-strapline el-body-text"
-                    />
+                    >
+                      Lorem ipsum dolor sit amet, consectetur adip
+                    </p>
                   </div>
                   <div
                     class="hero-apps-image-container"
                   >
-                    <div
-                      class="el-placeholder-image-wrapper"
-                    >
-                      <div
-                        class="el-placeholder-image"
-                        style="font-size: 4.6875em;"
-                      >
-                        <svg
-                          fill="none"
-                          height="1em"
-                          viewBox="0 0 183 200"
-                          width="1em"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <ellipse
-                            cx="90.7692"
-                            cy="108.718"
-                            fill="#F2F2F2"
-                            rx="90.7692"
-                            ry="91.2821"
-                          />
-                          <path
-                            d="M149.769 59.9736L162.678 51.715C158.49 46.4795 153.74 41.7118 148.515 37.5054L136.008 47.114C141.106 50.822 145.733 55.1401 149.769 59.9736Z"
-                            fill="#C4C4C4"
-                          />
-                          <path
-                            d="M161.555 79.4094L176.145 74.8695C173.889 69.2241 171.087 63.8571 167.804 58.8311L154.969 67.0407C157.522 70.9321 159.74 75.0652 161.554 79.4094H161.555Z"
-                            fill="#C4C4C4"
-                          />
-                          <path
-                            d="M91.3348 184.757C49.3765 184.757 15.2469 150.625 15.2469 108.665C15.2469 66.7067 49.3784 32.5772 91.3348 32.5772C104.677 32.5772 117.219 36.039 128.135 42.0927L141.098 32.1368C126.771 22.7881 109.682 17.3311 91.3344 17.3311C40.9719 17.3311 0 58.3029 0 108.665C0 159.028 40.9719 200 91.3344 200C126.598 200 157.237 179.899 172.448 150.569H154.803C141.17 171.148 117.818 184.757 91.3352 184.757L91.3348 184.757Z"
-                            fill="#C4C4C4"
-                          />
-                          <path
-                            d="M167.415 108.665H182.658C182.658 107.277 182.615 105.897 182.552 104.526H167.297C167.373 105.897 167.415 107.275 167.415 108.665H167.415Z"
-                            fill="#C4C4C4"
-                          />
-                          <path
-                            d="M166.321 95.7561H181.752C181.14 91.4518 180.225 87.2501 179.032 83.1611L164.477 87.6916C165.23 90.3247 165.851 93.0144 166.321 95.7561H166.321Z"
-                            fill="#C4C4C4"
-                          />
-                          <path
-                            d="M125.332 161.312H60.6905C53.8033 161.296 48.2199 155.712 48.2031 148.825V12.4873C48.2199 5.60022 53.8033 0.0167671 60.6905 0H125.332C132.219 0.0167671 137.803 5.60022 137.819 12.4873V148.829C137.798 155.716 132.219 161.296 125.332 161.312Z"
-                            fill="#DFDFDF"
-                          />
-                          <path
-                            d="M125.332 161.312H60.6904C53.8033 161.295 48.2199 155.712 48.2031 148.825V133.008C89.3787 133.008 101.178 133.008 137.819 133.008V148.829C137.798 155.716 132.219 161.295 125.332 161.312Z"
-                            fill="#C4C4C4"
-                          />
-                          <path
-                            d="M99.4303 70.1607C98.0834 61.6268 90.6094 55.0769 81.6156 55.0769C78.2322 55.0769 74.981 56.0035 72.1611 57.7318C67.871 50.5949 60.1476 46.1538 51.5675 46.1538C38.3129 46.1538 27.529 56.8284 27.529 69.9487C27.529 70.03 27.529 70.1143 27.5321 70.1956C19.0134 71.6159 12.3047 78.9675 12.3047 87.7948C12.3047 97.6358 20.5921 105.641 30.5339 105.641H96.6396C106.581 105.641 114.869 97.6358 114.869 87.7948C114.869 78.8922 108.052 71.494 99.4303 70.1607Z"
-                            fill="white"
-                          />
-                        </svg>
-                      </div>
-                    </div>
+                    <img
+                      class="hero-apps-image"
+                      src="https://image.com"
+                    />
                   </div>
                 </div>
               </div>
@@ -7484,43 +7316,47 @@ Object {
           </p>
         </div>
         <div
-          class="el-flex-align-center apps-search-container apps-search-desktop-controls el-flex-container"
+          class="apps-search-desktop-controls el-flex-container"
         >
-          <span
-            class="apps-search-input-icon el-icon"
-            style="font-size: 1.25rem;"
+          <div
+            class="el-flex-align-center apps-search-container el-mr5 el-flex-container"
           >
-            <svg
-              fill="none"
-              height="1em"
-              viewBox="0 0 20 20"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
+            <span
+              class="apps-search-input-icon el-icon"
+              style="font-size: 1.25rem;"
             >
-              <g>
-                <path
-                  d="M19.7556 18.5783L14.0682 12.8909C15.1699 11.5301 15.8332 9.80089 15.8332 7.91758C15.8332 3.55262 12.2815 0.000976562 7.91656 0.000976562C3.55161 0.000976562 0 3.55258 0 7.91754C0 12.2825 3.55165 15.8342 7.9166 15.8342C9.7999 15.8342 11.5291 15.1708 12.8899 14.0692L18.5773 19.7566C18.7398 19.9191 18.9531 20.0008 19.1665 20.0008C19.3798 20.0008 19.5932 19.9191 19.7557 19.7566C20.0815 19.4308 20.0815 18.9041 19.7556 18.5783ZM7.9166 14.1675C4.46996 14.1675 1.66666 11.3642 1.66666 7.91754C1.66666 4.4709 4.46996 1.6676 7.9166 1.6676C11.3632 1.6676 14.1665 4.4709 14.1665 7.91754C14.1665 11.3642 11.3632 14.1675 7.9166 14.1675Z"
-                  fill="currentColor"
-                />
-              </g>
-              <defs>
-                <clippath
-                  id="clip0"
-                >
-                  <rect
-                    fill="white"
-                    height="20.0003"
-                    width="20"
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 20 20"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g>
+                  <path
+                    d="M19.7556 18.5783L14.0682 12.8909C15.1699 11.5301 15.8332 9.80089 15.8332 7.91758C15.8332 3.55262 12.2815 0.000976562 7.91656 0.000976562C3.55161 0.000976562 0 3.55258 0 7.91754C0 12.2825 3.55165 15.8342 7.9166 15.8342C9.7999 15.8342 11.5291 15.1708 12.8899 14.0692L18.5773 19.7566C18.7398 19.9191 18.9531 20.0008 19.1665 20.0008C19.3798 20.0008 19.5932 19.9191 19.7557 19.7566C20.0815 19.4308 20.0815 18.9041 19.7556 18.5783ZM7.9166 14.1675C4.46996 14.1675 1.66666 11.3642 1.66666 7.91754C1.66666 4.4709 4.46996 1.6676 7.9166 1.6676C11.3632 1.6676 14.1665 4.4709 14.1665 7.91754C14.1665 11.3642 11.3632 14.1675 7.9166 14.1675Z"
+                    fill="currentColor"
                   />
-                </clippath>
-              </defs>
-            </svg>
-          </span>
-          <input
-            class="apps-search-input"
-            placeholder="Search"
-            type="text"
-          />
+                </g>
+                <defs>
+                  <clippath
+                    id="clip0"
+                  >
+                    <rect
+                      fill="white"
+                      height="20.0003"
+                      width="20"
+                    />
+                  </clippath>
+                </defs>
+              </svg>
+            </span>
+            <input
+              class="apps-search-input"
+              placeholder="Search by App or Developer"
+              type="text"
+            />
+          </div>
         </div>
         <div
           class="featured-hero-apps-item"
@@ -7579,7 +7415,9 @@ Object {
                   </div>
                   <p
                     class="featured-hero-apps-strapline el-body-text"
-                  />
+                  >
+                    Lorem ipsum dolor sit amet, consectetur adip
+                  </p>
                   <button
                     class="featured-hero-apps-button-desktop el-button"
                     style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
@@ -7732,7 +7570,9 @@ Object {
                       </div>
                       <p
                         class="hero-apps-strapline el-body-text"
-                      />
+                      >
+                        Lorem ipsum dolor sit amet, consectetur adip
+                      </p>
                     </div>
                     <div
                       class="hero-apps-image-container"
@@ -7850,67 +7690,17 @@ Object {
                       </div>
                       <p
                         class="hero-apps-strapline el-body-text"
-                      />
+                      >
+                        Lorem ipsum dolor sit amet, consectetur adip
+                      </p>
                     </div>
                     <div
                       class="hero-apps-image-container"
                     >
-                      <div
-                        class="el-placeholder-image-wrapper"
-                      >
-                        <div
-                          class="el-placeholder-image"
-                          style="font-size: 3.125em;"
-                        >
-                          <svg
-                            fill="none"
-                            height="1em"
-                            viewBox="0 0 183 200"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <ellipse
-                              cx="90.7692"
-                              cy="108.718"
-                              fill="#F2F2F2"
-                              rx="90.7692"
-                              ry="91.2821"
-                            />
-                            <path
-                              d="M149.769 59.9736L162.678 51.715C158.49 46.4795 153.74 41.7118 148.515 37.5054L136.008 47.114C141.106 50.822 145.733 55.1401 149.769 59.9736Z"
-                              fill="#C4C4C4"
-                            />
-                            <path
-                              d="M161.555 79.4094L176.145 74.8695C173.889 69.2241 171.087 63.8571 167.804 58.8311L154.969 67.0407C157.522 70.9321 159.74 75.0652 161.554 79.4094H161.555Z"
-                              fill="#C4C4C4"
-                            />
-                            <path
-                              d="M91.3348 184.757C49.3765 184.757 15.2469 150.625 15.2469 108.665C15.2469 66.7067 49.3784 32.5772 91.3348 32.5772C104.677 32.5772 117.219 36.039 128.135 42.0927L141.098 32.1368C126.771 22.7881 109.682 17.3311 91.3344 17.3311C40.9719 17.3311 0 58.3029 0 108.665C0 159.028 40.9719 200 91.3344 200C126.598 200 157.237 179.899 172.448 150.569H154.803C141.17 171.148 117.818 184.757 91.3352 184.757L91.3348 184.757Z"
-                              fill="#C4C4C4"
-                            />
-                            <path
-                              d="M167.415 108.665H182.658C182.658 107.277 182.615 105.897 182.552 104.526H167.297C167.373 105.897 167.415 107.275 167.415 108.665H167.415Z"
-                              fill="#C4C4C4"
-                            />
-                            <path
-                              d="M166.321 95.7561H181.752C181.14 91.4518 180.225 87.2501 179.032 83.1611L164.477 87.6916C165.23 90.3247 165.851 93.0144 166.321 95.7561H166.321Z"
-                              fill="#C4C4C4"
-                            />
-                            <path
-                              d="M125.332 161.312H60.6905C53.8033 161.296 48.2199 155.712 48.2031 148.825V12.4873C48.2199 5.60022 53.8033 0.0167671 60.6905 0H125.332C132.219 0.0167671 137.803 5.60022 137.819 12.4873V148.829C137.798 155.716 132.219 161.296 125.332 161.312Z"
-                              fill="#DFDFDF"
-                            />
-                            <path
-                              d="M125.332 161.312H60.6904C53.8033 161.295 48.2199 155.712 48.2031 148.825V133.008C89.3787 133.008 101.178 133.008 137.819 133.008V148.829C137.798 155.716 132.219 161.295 125.332 161.312Z"
-                              fill="#C4C4C4"
-                            />
-                            <path
-                              d="M99.4303 70.1607C98.0834 61.6268 90.6094 55.0769 81.6156 55.0769C78.2322 55.0769 74.981 56.0035 72.1611 57.7318C67.871 50.5949 60.1476 46.1538 51.5675 46.1538C38.3129 46.1538 27.529 56.8284 27.529 69.9487C27.529 70.03 27.529 70.1143 27.5321 70.1956C19.0134 71.6159 12.3047 78.9675 12.3047 87.7948C12.3047 97.6358 20.5921 105.641 30.5339 105.641H96.6396C106.581 105.641 114.869 97.6358 114.869 87.7948C114.869 78.8922 108.052 71.494 99.4303 70.1607Z"
-                              fill="white"
-                            />
-                          </svg>
-                        </div>
-                      </div>
+                      <img
+                        class="hero-apps-image"
+                        src="https://image.com"
+                      />
                     </div>
                   </div>
                 </div>
@@ -9315,43 +9105,47 @@ Object {
         </p>
       </div>
       <div
-        class="el-flex-align-center apps-search-container apps-search-desktop-controls el-flex-container"
+        class="apps-search-desktop-controls el-flex-container"
       >
-        <span
-          class="apps-search-input-icon el-icon"
-          style="font-size: 1.25rem;"
+        <div
+          class="el-flex-align-center apps-search-container el-mr5 el-flex-container"
         >
-          <svg
-            fill="none"
-            height="1em"
-            viewBox="0 0 20 20"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
+          <span
+            class="apps-search-input-icon el-icon"
+            style="font-size: 1.25rem;"
           >
-            <g>
-              <path
-                d="M19.7556 18.5783L14.0682 12.8909C15.1699 11.5301 15.8332 9.80089 15.8332 7.91758C15.8332 3.55262 12.2815 0.000976562 7.91656 0.000976562C3.55161 0.000976562 0 3.55258 0 7.91754C0 12.2825 3.55165 15.8342 7.9166 15.8342C9.7999 15.8342 11.5291 15.1708 12.8899 14.0692L18.5773 19.7566C18.7398 19.9191 18.9531 20.0008 19.1665 20.0008C19.3798 20.0008 19.5932 19.9191 19.7557 19.7566C20.0815 19.4308 20.0815 18.9041 19.7556 18.5783ZM7.9166 14.1675C4.46996 14.1675 1.66666 11.3642 1.66666 7.91754C1.66666 4.4709 4.46996 1.6676 7.9166 1.6676C11.3632 1.6676 14.1665 4.4709 14.1665 7.91754C14.1665 11.3642 11.3632 14.1675 7.9166 14.1675Z"
-                fill="currentColor"
-              />
-            </g>
-            <defs>
-              <clippath
-                id="clip0"
-              >
-                <rect
-                  fill="white"
-                  height="20.0003"
-                  width="20"
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 20 20"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g>
+                <path
+                  d="M19.7556 18.5783L14.0682 12.8909C15.1699 11.5301 15.8332 9.80089 15.8332 7.91758C15.8332 3.55262 12.2815 0.000976562 7.91656 0.000976562C3.55161 0.000976562 0 3.55258 0 7.91754C0 12.2825 3.55165 15.8342 7.9166 15.8342C9.7999 15.8342 11.5291 15.1708 12.8899 14.0692L18.5773 19.7566C18.7398 19.9191 18.9531 20.0008 19.1665 20.0008C19.3798 20.0008 19.5932 19.9191 19.7557 19.7566C20.0815 19.4308 20.0815 18.9041 19.7556 18.5783ZM7.9166 14.1675C4.46996 14.1675 1.66666 11.3642 1.66666 7.91754C1.66666 4.4709 4.46996 1.6676 7.9166 1.6676C11.3632 1.6676 14.1665 4.4709 14.1665 7.91754C14.1665 11.3642 11.3632 14.1675 7.9166 14.1675Z"
+                  fill="currentColor"
                 />
-              </clippath>
-            </defs>
-          </svg>
-        </span>
-        <input
-          class="apps-search-input"
-          placeholder="Search"
-          type="text"
-        />
+              </g>
+              <defs>
+                <clippath
+                  id="clip0"
+                >
+                  <rect
+                    fill="white"
+                    height="20.0003"
+                    width="20"
+                  />
+                </clippath>
+              </defs>
+            </svg>
+          </span>
+          <input
+            class="apps-search-input"
+            placeholder="Search by App or Developer"
+            type="text"
+          />
+        </div>
       </div>
       <div
         class="featured-hero-apps-item"
@@ -9410,7 +9204,9 @@ Object {
                 </div>
                 <p
                   class="featured-hero-apps-strapline el-body-text"
-                />
+                >
+                  Lorem ipsum dolor sit amet, consectetur adip
+                </p>
                 <button
                   class="featured-hero-apps-button-desktop el-button"
                   style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
@@ -9563,7 +9359,9 @@ Object {
                     </div>
                     <p
                       class="hero-apps-strapline el-body-text"
-                    />
+                    >
+                      Lorem ipsum dolor sit amet, consectetur adip
+                    </p>
                   </div>
                   <div
                     class="hero-apps-image-container"
@@ -9681,67 +9479,17 @@ Object {
                     </div>
                     <p
                       class="hero-apps-strapline el-body-text"
-                    />
+                    >
+                      Lorem ipsum dolor sit amet, consectetur adip
+                    </p>
                   </div>
                   <div
                     class="hero-apps-image-container"
                   >
-                    <div
-                      class="el-placeholder-image-wrapper"
-                    >
-                      <div
-                        class="el-placeholder-image"
-                        style="font-size: 3.125em;"
-                      >
-                        <svg
-                          fill="none"
-                          height="1em"
-                          viewBox="0 0 183 200"
-                          width="1em"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <ellipse
-                            cx="90.7692"
-                            cy="108.718"
-                            fill="#F2F2F2"
-                            rx="90.7692"
-                            ry="91.2821"
-                          />
-                          <path
-                            d="M149.769 59.9736L162.678 51.715C158.49 46.4795 153.74 41.7118 148.515 37.5054L136.008 47.114C141.106 50.822 145.733 55.1401 149.769 59.9736Z"
-                            fill="#C4C4C4"
-                          />
-                          <path
-                            d="M161.555 79.4094L176.145 74.8695C173.889 69.2241 171.087 63.8571 167.804 58.8311L154.969 67.0407C157.522 70.9321 159.74 75.0652 161.554 79.4094H161.555Z"
-                            fill="#C4C4C4"
-                          />
-                          <path
-                            d="M91.3348 184.757C49.3765 184.757 15.2469 150.625 15.2469 108.665C15.2469 66.7067 49.3784 32.5772 91.3348 32.5772C104.677 32.5772 117.219 36.039 128.135 42.0927L141.098 32.1368C126.771 22.7881 109.682 17.3311 91.3344 17.3311C40.9719 17.3311 0 58.3029 0 108.665C0 159.028 40.9719 200 91.3344 200C126.598 200 157.237 179.899 172.448 150.569H154.803C141.17 171.148 117.818 184.757 91.3352 184.757L91.3348 184.757Z"
-                            fill="#C4C4C4"
-                          />
-                          <path
-                            d="M167.415 108.665H182.658C182.658 107.277 182.615 105.897 182.552 104.526H167.297C167.373 105.897 167.415 107.275 167.415 108.665H167.415Z"
-                            fill="#C4C4C4"
-                          />
-                          <path
-                            d="M166.321 95.7561H181.752C181.14 91.4518 180.225 87.2501 179.032 83.1611L164.477 87.6916C165.23 90.3247 165.851 93.0144 166.321 95.7561H166.321Z"
-                            fill="#C4C4C4"
-                          />
-                          <path
-                            d="M125.332 161.312H60.6905C53.8033 161.296 48.2199 155.712 48.2031 148.825V12.4873C48.2199 5.60022 53.8033 0.0167671 60.6905 0H125.332C132.219 0.0167671 137.803 5.60022 137.819 12.4873V148.829C137.798 155.716 132.219 161.296 125.332 161.312Z"
-                            fill="#DFDFDF"
-                          />
-                          <path
-                            d="M125.332 161.312H60.6904C53.8033 161.295 48.2199 155.712 48.2031 148.825V133.008C89.3787 133.008 101.178 133.008 137.819 133.008V148.829C137.798 155.716 132.219 161.295 125.332 161.312Z"
-                            fill="#C4C4C4"
-                          />
-                          <path
-                            d="M99.4303 70.1607C98.0834 61.6268 90.6094 55.0769 81.6156 55.0769C78.2322 55.0769 74.981 56.0035 72.1611 57.7318C67.871 50.5949 60.1476 46.1538 51.5675 46.1538C38.3129 46.1538 27.529 56.8284 27.529 69.9487C27.529 70.03 27.529 70.1143 27.5321 70.1956C19.0134 71.6159 12.3047 78.9675 12.3047 87.7948C12.3047 97.6358 20.5921 105.641 30.5339 105.641H96.6396C106.581 105.641 114.869 97.6358 114.869 87.7948C114.869 78.8922 108.052 71.494 99.4303 70.1607Z"
-                            fill="white"
-                          />
-                        </svg>
-                      </div>
-                    </div>
+                    <img
+                      class="hero-apps-image"
+                      src="https://image.com"
+                    />
                   </div>
                 </div>
               </div>
@@ -11203,43 +10951,47 @@ Object {
           </p>
         </div>
         <div
-          class="el-flex-align-center apps-search-container apps-search-desktop-controls el-flex-container"
+          class="apps-search-desktop-controls el-flex-container"
         >
-          <span
-            class="apps-search-input-icon el-icon"
-            style="font-size: 1.25rem;"
+          <div
+            class="el-flex-align-center apps-search-container el-mr5 el-flex-container"
           >
-            <svg
-              fill="none"
-              height="1em"
-              viewBox="0 0 20 20"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
+            <span
+              class="apps-search-input-icon el-icon"
+              style="font-size: 1.25rem;"
             >
-              <g>
-                <path
-                  d="M19.7556 18.5783L14.0682 12.8909C15.1699 11.5301 15.8332 9.80089 15.8332 7.91758C15.8332 3.55262 12.2815 0.000976562 7.91656 0.000976562C3.55161 0.000976562 0 3.55258 0 7.91754C0 12.2825 3.55165 15.8342 7.9166 15.8342C9.7999 15.8342 11.5291 15.1708 12.8899 14.0692L18.5773 19.7566C18.7398 19.9191 18.9531 20.0008 19.1665 20.0008C19.3798 20.0008 19.5932 19.9191 19.7557 19.7566C20.0815 19.4308 20.0815 18.9041 19.7556 18.5783ZM7.9166 14.1675C4.46996 14.1675 1.66666 11.3642 1.66666 7.91754C1.66666 4.4709 4.46996 1.6676 7.9166 1.6676C11.3632 1.6676 14.1665 4.4709 14.1665 7.91754C14.1665 11.3642 11.3632 14.1675 7.9166 14.1675Z"
-                  fill="currentColor"
-                />
-              </g>
-              <defs>
-                <clippath
-                  id="clip0"
-                >
-                  <rect
-                    fill="white"
-                    height="20.0003"
-                    width="20"
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 20 20"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g>
+                  <path
+                    d="M19.7556 18.5783L14.0682 12.8909C15.1699 11.5301 15.8332 9.80089 15.8332 7.91758C15.8332 3.55262 12.2815 0.000976562 7.91656 0.000976562C3.55161 0.000976562 0 3.55258 0 7.91754C0 12.2825 3.55165 15.8342 7.9166 15.8342C9.7999 15.8342 11.5291 15.1708 12.8899 14.0692L18.5773 19.7566C18.7398 19.9191 18.9531 20.0008 19.1665 20.0008C19.3798 20.0008 19.5932 19.9191 19.7557 19.7566C20.0815 19.4308 20.0815 18.9041 19.7556 18.5783ZM7.9166 14.1675C4.46996 14.1675 1.66666 11.3642 1.66666 7.91754C1.66666 4.4709 4.46996 1.6676 7.9166 1.6676C11.3632 1.6676 14.1665 4.4709 14.1665 7.91754C14.1665 11.3642 11.3632 14.1675 7.9166 14.1675Z"
+                    fill="currentColor"
                   />
-                </clippath>
-              </defs>
-            </svg>
-          </span>
-          <input
-            class="apps-search-input"
-            placeholder="Search"
-            type="text"
-          />
+                </g>
+                <defs>
+                  <clippath
+                    id="clip0"
+                  >
+                    <rect
+                      fill="white"
+                      height="20.0003"
+                      width="20"
+                    />
+                  </clippath>
+                </defs>
+              </svg>
+            </span>
+            <input
+              class="apps-search-input"
+              placeholder="Search by App or Developer"
+              type="text"
+            />
+          </div>
         </div>
         <div
           class="featured-hero-apps-item"
@@ -11267,7 +11019,7 @@ Object {
                   >
                     <div
                       class="el-mb7 el-placeholder-image"
-                      style="font-size: 1.875em; width: 48px; height: 48px;"
+                      style="font-size: 3.75em; width: 96px; height: 96px;"
                     >
                       <svg
                         fill="none"
@@ -11298,7 +11050,9 @@ Object {
                   </div>
                   <p
                     class="featured-hero-apps-strapline el-body-text"
-                  />
+                  >
+                    Lorem ipsum dolor sit amet, consectetur adip
+                  </p>
                   <button
                     class="featured-hero-apps-button-desktop el-button"
                     style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
@@ -11403,7 +11157,7 @@ Object {
                       >
                         <div
                           class="el-placeholder-image"
-                          style="font-size: 1.5625em; width: 40px; height: 40px;"
+                          style="font-size: 2.8125em; width: 72px; height: 72px;"
                         >
                           <svg
                             fill="none"
@@ -11431,7 +11185,9 @@ Object {
                       </div>
                       <p
                         class="hero-apps-strapline el-body-text"
-                      />
+                      >
+                        Lorem ipsum dolor sit amet, consectetur adip
+                      </p>
                     </div>
                     <div
                       class="hero-apps-image-container"
@@ -11521,7 +11277,7 @@ Object {
                       >
                         <div
                           class="el-placeholder-image"
-                          style="font-size: 1.5625em; width: 40px; height: 40px;"
+                          style="font-size: 2.8125em; width: 72px; height: 72px;"
                         >
                           <svg
                             fill="none"
@@ -11549,67 +11305,17 @@ Object {
                       </div>
                       <p
                         class="hero-apps-strapline el-body-text"
-                      />
+                      >
+                        Lorem ipsum dolor sit amet, consectetur adip
+                      </p>
                     </div>
                     <div
                       class="hero-apps-image-container"
                     >
-                      <div
-                        class="el-placeholder-image-wrapper"
-                      >
-                        <div
-                          class="el-placeholder-image"
-                          style="font-size: 8.59375em;"
-                        >
-                          <svg
-                            fill="none"
-                            height="1em"
-                            viewBox="0 0 183 200"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <ellipse
-                              cx="90.7692"
-                              cy="108.718"
-                              fill="#F2F2F2"
-                              rx="90.7692"
-                              ry="91.2821"
-                            />
-                            <path
-                              d="M149.769 59.9736L162.678 51.715C158.49 46.4795 153.74 41.7118 148.515 37.5054L136.008 47.114C141.106 50.822 145.733 55.1401 149.769 59.9736Z"
-                              fill="#C4C4C4"
-                            />
-                            <path
-                              d="M161.555 79.4094L176.145 74.8695C173.889 69.2241 171.087 63.8571 167.804 58.8311L154.969 67.0407C157.522 70.9321 159.74 75.0652 161.554 79.4094H161.555Z"
-                              fill="#C4C4C4"
-                            />
-                            <path
-                              d="M91.3348 184.757C49.3765 184.757 15.2469 150.625 15.2469 108.665C15.2469 66.7067 49.3784 32.5772 91.3348 32.5772C104.677 32.5772 117.219 36.039 128.135 42.0927L141.098 32.1368C126.771 22.7881 109.682 17.3311 91.3344 17.3311C40.9719 17.3311 0 58.3029 0 108.665C0 159.028 40.9719 200 91.3344 200C126.598 200 157.237 179.899 172.448 150.569H154.803C141.17 171.148 117.818 184.757 91.3352 184.757L91.3348 184.757Z"
-                              fill="#C4C4C4"
-                            />
-                            <path
-                              d="M167.415 108.665H182.658C182.658 107.277 182.615 105.897 182.552 104.526H167.297C167.373 105.897 167.415 107.275 167.415 108.665H167.415Z"
-                              fill="#C4C4C4"
-                            />
-                            <path
-                              d="M166.321 95.7561H181.752C181.14 91.4518 180.225 87.2501 179.032 83.1611L164.477 87.6916C165.23 90.3247 165.851 93.0144 166.321 95.7561H166.321Z"
-                              fill="#C4C4C4"
-                            />
-                            <path
-                              d="M125.332 161.312H60.6905C53.8033 161.296 48.2199 155.712 48.2031 148.825V12.4873C48.2199 5.60022 53.8033 0.0167671 60.6905 0H125.332C132.219 0.0167671 137.803 5.60022 137.819 12.4873V148.829C137.798 155.716 132.219 161.296 125.332 161.312Z"
-                              fill="#DFDFDF"
-                            />
-                            <path
-                              d="M125.332 161.312H60.6904C53.8033 161.295 48.2199 155.712 48.2031 148.825V133.008C89.3787 133.008 101.178 133.008 137.819 133.008V148.829C137.798 155.716 132.219 161.295 125.332 161.312Z"
-                              fill="#C4C4C4"
-                            />
-                            <path
-                              d="M99.4303 70.1607C98.0834 61.6268 90.6094 55.0769 81.6156 55.0769C78.2322 55.0769 74.981 56.0035 72.1611 57.7318C67.871 50.5949 60.1476 46.1538 51.5675 46.1538C38.3129 46.1538 27.529 56.8284 27.529 69.9487C27.529 70.03 27.529 70.1143 27.5321 70.1956C19.0134 71.6159 12.3047 78.9675 12.3047 87.7948C12.3047 97.6358 20.5921 105.641 30.5339 105.641H96.6396C106.581 105.641 114.869 97.6358 114.869 87.7948C114.869 78.8922 108.052 71.494 99.4303 70.1607Z"
-                              fill="white"
-                            />
-                          </svg>
-                        </div>
-                      </div>
+                      <img
+                        class="hero-apps-image"
+                        src="https://image.com"
+                      />
                     </div>
                   </div>
                 </div>
@@ -12969,43 +12675,47 @@ Object {
         </p>
       </div>
       <div
-        class="el-flex-align-center apps-search-container apps-search-desktop-controls el-flex-container"
+        class="apps-search-desktop-controls el-flex-container"
       >
-        <span
-          class="apps-search-input-icon el-icon"
-          style="font-size: 1.25rem;"
+        <div
+          class="el-flex-align-center apps-search-container el-mr5 el-flex-container"
         >
-          <svg
-            fill="none"
-            height="1em"
-            viewBox="0 0 20 20"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
+          <span
+            class="apps-search-input-icon el-icon"
+            style="font-size: 1.25rem;"
           >
-            <g>
-              <path
-                d="M19.7556 18.5783L14.0682 12.8909C15.1699 11.5301 15.8332 9.80089 15.8332 7.91758C15.8332 3.55262 12.2815 0.000976562 7.91656 0.000976562C3.55161 0.000976562 0 3.55258 0 7.91754C0 12.2825 3.55165 15.8342 7.9166 15.8342C9.7999 15.8342 11.5291 15.1708 12.8899 14.0692L18.5773 19.7566C18.7398 19.9191 18.9531 20.0008 19.1665 20.0008C19.3798 20.0008 19.5932 19.9191 19.7557 19.7566C20.0815 19.4308 20.0815 18.9041 19.7556 18.5783ZM7.9166 14.1675C4.46996 14.1675 1.66666 11.3642 1.66666 7.91754C1.66666 4.4709 4.46996 1.6676 7.9166 1.6676C11.3632 1.6676 14.1665 4.4709 14.1665 7.91754C14.1665 11.3642 11.3632 14.1675 7.9166 14.1675Z"
-                fill="currentColor"
-              />
-            </g>
-            <defs>
-              <clippath
-                id="clip0"
-              >
-                <rect
-                  fill="white"
-                  height="20.0003"
-                  width="20"
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 20 20"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g>
+                <path
+                  d="M19.7556 18.5783L14.0682 12.8909C15.1699 11.5301 15.8332 9.80089 15.8332 7.91758C15.8332 3.55262 12.2815 0.000976562 7.91656 0.000976562C3.55161 0.000976562 0 3.55258 0 7.91754C0 12.2825 3.55165 15.8342 7.9166 15.8342C9.7999 15.8342 11.5291 15.1708 12.8899 14.0692L18.5773 19.7566C18.7398 19.9191 18.9531 20.0008 19.1665 20.0008C19.3798 20.0008 19.5932 19.9191 19.7557 19.7566C20.0815 19.4308 20.0815 18.9041 19.7556 18.5783ZM7.9166 14.1675C4.46996 14.1675 1.66666 11.3642 1.66666 7.91754C1.66666 4.4709 4.46996 1.6676 7.9166 1.6676C11.3632 1.6676 14.1665 4.4709 14.1665 7.91754C14.1665 11.3642 11.3632 14.1675 7.9166 14.1675Z"
+                  fill="currentColor"
                 />
-              </clippath>
-            </defs>
-          </svg>
-        </span>
-        <input
-          class="apps-search-input"
-          placeholder="Search"
-          type="text"
-        />
+              </g>
+              <defs>
+                <clippath
+                  id="clip0"
+                >
+                  <rect
+                    fill="white"
+                    height="20.0003"
+                    width="20"
+                  />
+                </clippath>
+              </defs>
+            </svg>
+          </span>
+          <input
+            class="apps-search-input"
+            placeholder="Search by App or Developer"
+            type="text"
+          />
+        </div>
       </div>
       <div
         class="featured-hero-apps-item"
@@ -13033,7 +12743,7 @@ Object {
                 >
                   <div
                     class="el-mb7 el-placeholder-image"
-                    style="font-size: 1.875em; width: 48px; height: 48px;"
+                    style="font-size: 3.75em; width: 96px; height: 96px;"
                   >
                     <svg
                       fill="none"
@@ -13064,7 +12774,9 @@ Object {
                 </div>
                 <p
                   class="featured-hero-apps-strapline el-body-text"
-                />
+                >
+                  Lorem ipsum dolor sit amet, consectetur adip
+                </p>
                 <button
                   class="featured-hero-apps-button-desktop el-button"
                   style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
@@ -13169,7 +12881,7 @@ Object {
                     >
                       <div
                         class="el-placeholder-image"
-                        style="font-size: 1.5625em; width: 40px; height: 40px;"
+                        style="font-size: 2.8125em; width: 72px; height: 72px;"
                       >
                         <svg
                           fill="none"
@@ -13197,7 +12909,9 @@ Object {
                     </div>
                     <p
                       class="hero-apps-strapline el-body-text"
-                    />
+                    >
+                      Lorem ipsum dolor sit amet, consectetur adip
+                    </p>
                   </div>
                   <div
                     class="hero-apps-image-container"
@@ -13287,7 +13001,7 @@ Object {
                     >
                       <div
                         class="el-placeholder-image"
-                        style="font-size: 1.5625em; width: 40px; height: 40px;"
+                        style="font-size: 2.8125em; width: 72px; height: 72px;"
                       >
                         <svg
                           fill="none"
@@ -13315,67 +13029,17 @@ Object {
                     </div>
                     <p
                       class="hero-apps-strapline el-body-text"
-                    />
+                    >
+                      Lorem ipsum dolor sit amet, consectetur adip
+                    </p>
                   </div>
                   <div
                     class="hero-apps-image-container"
                   >
-                    <div
-                      class="el-placeholder-image-wrapper"
-                    >
-                      <div
-                        class="el-placeholder-image"
-                        style="font-size: 8.59375em;"
-                      >
-                        <svg
-                          fill="none"
-                          height="1em"
-                          viewBox="0 0 183 200"
-                          width="1em"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <ellipse
-                            cx="90.7692"
-                            cy="108.718"
-                            fill="#F2F2F2"
-                            rx="90.7692"
-                            ry="91.2821"
-                          />
-                          <path
-                            d="M149.769 59.9736L162.678 51.715C158.49 46.4795 153.74 41.7118 148.515 37.5054L136.008 47.114C141.106 50.822 145.733 55.1401 149.769 59.9736Z"
-                            fill="#C4C4C4"
-                          />
-                          <path
-                            d="M161.555 79.4094L176.145 74.8695C173.889 69.2241 171.087 63.8571 167.804 58.8311L154.969 67.0407C157.522 70.9321 159.74 75.0652 161.554 79.4094H161.555Z"
-                            fill="#C4C4C4"
-                          />
-                          <path
-                            d="M91.3348 184.757C49.3765 184.757 15.2469 150.625 15.2469 108.665C15.2469 66.7067 49.3784 32.5772 91.3348 32.5772C104.677 32.5772 117.219 36.039 128.135 42.0927L141.098 32.1368C126.771 22.7881 109.682 17.3311 91.3344 17.3311C40.9719 17.3311 0 58.3029 0 108.665C0 159.028 40.9719 200 91.3344 200C126.598 200 157.237 179.899 172.448 150.569H154.803C141.17 171.148 117.818 184.757 91.3352 184.757L91.3348 184.757Z"
-                            fill="#C4C4C4"
-                          />
-                          <path
-                            d="M167.415 108.665H182.658C182.658 107.277 182.615 105.897 182.552 104.526H167.297C167.373 105.897 167.415 107.275 167.415 108.665H167.415Z"
-                            fill="#C4C4C4"
-                          />
-                          <path
-                            d="M166.321 95.7561H181.752C181.14 91.4518 180.225 87.2501 179.032 83.1611L164.477 87.6916C165.23 90.3247 165.851 93.0144 166.321 95.7561H166.321Z"
-                            fill="#C4C4C4"
-                          />
-                          <path
-                            d="M125.332 161.312H60.6905C53.8033 161.296 48.2199 155.712 48.2031 148.825V12.4873C48.2199 5.60022 53.8033 0.0167671 60.6905 0H125.332C132.219 0.0167671 137.803 5.60022 137.819 12.4873V148.829C137.798 155.716 132.219 161.296 125.332 161.312Z"
-                            fill="#DFDFDF"
-                          />
-                          <path
-                            d="M125.332 161.312H60.6904C53.8033 161.295 48.2199 155.712 48.2031 148.825V133.008C89.3787 133.008 101.178 133.008 137.819 133.008V148.829C137.798 155.716 132.219 161.295 125.332 161.312Z"
-                            fill="#C4C4C4"
-                          />
-                          <path
-                            d="M99.4303 70.1607C98.0834 61.6268 90.6094 55.0769 81.6156 55.0769C78.2322 55.0769 74.981 56.0035 72.1611 57.7318C67.871 50.5949 60.1476 46.1538 51.5675 46.1538C38.3129 46.1538 27.529 56.8284 27.529 69.9487C27.529 70.03 27.529 70.1143 27.5321 70.1956C19.0134 71.6159 12.3047 78.9675 12.3047 87.7948C12.3047 97.6358 20.5921 105.641 30.5339 105.641H96.6396C106.581 105.641 114.869 97.6358 114.869 87.7948C114.869 78.8922 108.052 71.494 99.4303 70.1607Z"
-                            fill="white"
-                          />
-                        </svg>
-                      </div>
-                    </div>
+                    <img
+                      class="hero-apps-image"
+                      src="https://image.com"
+                    />
                   </div>
                 </div>
               </div>
@@ -14792,43 +14456,47 @@ Object {
           </p>
         </div>
         <div
-          class="el-flex-align-center apps-search-container apps-search-desktop-controls el-flex-container"
+          class="apps-search-desktop-controls el-flex-container"
         >
-          <span
-            class="apps-search-input-icon el-icon"
-            style="font-size: 1.25rem;"
+          <div
+            class="el-flex-align-center apps-search-container el-mr5 el-flex-container"
           >
-            <svg
-              fill="none"
-              height="1em"
-              viewBox="0 0 20 20"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
+            <span
+              class="apps-search-input-icon el-icon"
+              style="font-size: 1.25rem;"
             >
-              <g>
-                <path
-                  d="M19.7556 18.5783L14.0682 12.8909C15.1699 11.5301 15.8332 9.80089 15.8332 7.91758C15.8332 3.55262 12.2815 0.000976562 7.91656 0.000976562C3.55161 0.000976562 0 3.55258 0 7.91754C0 12.2825 3.55165 15.8342 7.9166 15.8342C9.7999 15.8342 11.5291 15.1708 12.8899 14.0692L18.5773 19.7566C18.7398 19.9191 18.9531 20.0008 19.1665 20.0008C19.3798 20.0008 19.5932 19.9191 19.7557 19.7566C20.0815 19.4308 20.0815 18.9041 19.7556 18.5783ZM7.9166 14.1675C4.46996 14.1675 1.66666 11.3642 1.66666 7.91754C1.66666 4.4709 4.46996 1.6676 7.9166 1.6676C11.3632 1.6676 14.1665 4.4709 14.1665 7.91754C14.1665 11.3642 11.3632 14.1675 7.9166 14.1675Z"
-                  fill="currentColor"
-                />
-              </g>
-              <defs>
-                <clippath
-                  id="clip0"
-                >
-                  <rect
-                    fill="white"
-                    height="20.0003"
-                    width="20"
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 20 20"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g>
+                  <path
+                    d="M19.7556 18.5783L14.0682 12.8909C15.1699 11.5301 15.8332 9.80089 15.8332 7.91758C15.8332 3.55262 12.2815 0.000976562 7.91656 0.000976562C3.55161 0.000976562 0 3.55258 0 7.91754C0 12.2825 3.55165 15.8342 7.9166 15.8342C9.7999 15.8342 11.5291 15.1708 12.8899 14.0692L18.5773 19.7566C18.7398 19.9191 18.9531 20.0008 19.1665 20.0008C19.3798 20.0008 19.5932 19.9191 19.7557 19.7566C20.0815 19.4308 20.0815 18.9041 19.7556 18.5783ZM7.9166 14.1675C4.46996 14.1675 1.66666 11.3642 1.66666 7.91754C1.66666 4.4709 4.46996 1.6676 7.9166 1.6676C11.3632 1.6676 14.1665 4.4709 14.1665 7.91754C14.1665 11.3642 11.3632 14.1675 7.9166 14.1675Z"
+                    fill="currentColor"
                   />
-                </clippath>
-              </defs>
-            </svg>
-          </span>
-          <input
-            class="apps-search-input"
-            placeholder="Search"
-            type="text"
-          />
+                </g>
+                <defs>
+                  <clippath
+                    id="clip0"
+                  >
+                    <rect
+                      fill="white"
+                      height="20.0003"
+                      width="20"
+                    />
+                  </clippath>
+                </defs>
+              </svg>
+            </span>
+            <input
+              class="apps-search-input"
+              placeholder="Search by App or Developer"
+              type="text"
+            />
+          </div>
         </div>
         <div
           class="featured-hero-apps-item"
@@ -14856,7 +14524,7 @@ Object {
                   >
                     <div
                       class="el-mb7 el-placeholder-image"
-                      style="font-size: 1.875em; width: 48px; height: 48px;"
+                      style="font-size: 2.8125em; width: 72px; height: 72px;"
                     >
                       <svg
                         fill="none"
@@ -14887,7 +14555,9 @@ Object {
                   </div>
                   <p
                     class="featured-hero-apps-strapline el-body-text"
-                  />
+                  >
+                    Lorem ipsum dolor sit amet, consectetur adip
+                  </p>
                   <button
                     class="featured-hero-apps-button-desktop el-button"
                     style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
@@ -15012,7 +14682,7 @@ Object {
                       >
                         <div
                           class="el-placeholder-image"
-                          style="font-size: 1.5625em; width: 40px; height: 40px;"
+                          style="font-size: 2.8125em; width: 72px; height: 72px;"
                         >
                           <svg
                             fill="none"
@@ -15040,7 +14710,9 @@ Object {
                       </div>
                       <p
                         class="hero-apps-strapline el-body-text"
-                      />
+                      >
+                        Lorem ipsum dolor sit amet, consectetur adip
+                      </p>
                     </div>
                     <div
                       class="hero-apps-image-container"
@@ -15130,7 +14802,7 @@ Object {
                       >
                         <div
                           class="el-placeholder-image"
-                          style="font-size: 1.5625em; width: 40px; height: 40px;"
+                          style="font-size: 2.8125em; width: 72px; height: 72px;"
                         >
                           <svg
                             fill="none"
@@ -15158,67 +14830,17 @@ Object {
                       </div>
                       <p
                         class="hero-apps-strapline el-body-text"
-                      />
+                      >
+                        Lorem ipsum dolor sit amet, consectetur adip
+                      </p>
                     </div>
                     <div
                       class="hero-apps-image-container"
                     >
-                      <div
-                        class="el-placeholder-image-wrapper"
-                      >
-                        <div
-                          class="el-placeholder-image"
-                          style="font-size: 4.6875em;"
-                        >
-                          <svg
-                            fill="none"
-                            height="1em"
-                            viewBox="0 0 183 200"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <ellipse
-                              cx="90.7692"
-                              cy="108.718"
-                              fill="#F2F2F2"
-                              rx="90.7692"
-                              ry="91.2821"
-                            />
-                            <path
-                              d="M149.769 59.9736L162.678 51.715C158.49 46.4795 153.74 41.7118 148.515 37.5054L136.008 47.114C141.106 50.822 145.733 55.1401 149.769 59.9736Z"
-                              fill="#C4C4C4"
-                            />
-                            <path
-                              d="M161.555 79.4094L176.145 74.8695C173.889 69.2241 171.087 63.8571 167.804 58.8311L154.969 67.0407C157.522 70.9321 159.74 75.0652 161.554 79.4094H161.555Z"
-                              fill="#C4C4C4"
-                            />
-                            <path
-                              d="M91.3348 184.757C49.3765 184.757 15.2469 150.625 15.2469 108.665C15.2469 66.7067 49.3784 32.5772 91.3348 32.5772C104.677 32.5772 117.219 36.039 128.135 42.0927L141.098 32.1368C126.771 22.7881 109.682 17.3311 91.3344 17.3311C40.9719 17.3311 0 58.3029 0 108.665C0 159.028 40.9719 200 91.3344 200C126.598 200 157.237 179.899 172.448 150.569H154.803C141.17 171.148 117.818 184.757 91.3352 184.757L91.3348 184.757Z"
-                              fill="#C4C4C4"
-                            />
-                            <path
-                              d="M167.415 108.665H182.658C182.658 107.277 182.615 105.897 182.552 104.526H167.297C167.373 105.897 167.415 107.275 167.415 108.665H167.415Z"
-                              fill="#C4C4C4"
-                            />
-                            <path
-                              d="M166.321 95.7561H181.752C181.14 91.4518 180.225 87.2501 179.032 83.1611L164.477 87.6916C165.23 90.3247 165.851 93.0144 166.321 95.7561H166.321Z"
-                              fill="#C4C4C4"
-                            />
-                            <path
-                              d="M125.332 161.312H60.6905C53.8033 161.296 48.2199 155.712 48.2031 148.825V12.4873C48.2199 5.60022 53.8033 0.0167671 60.6905 0H125.332C132.219 0.0167671 137.803 5.60022 137.819 12.4873V148.829C137.798 155.716 132.219 161.296 125.332 161.312Z"
-                              fill="#DFDFDF"
-                            />
-                            <path
-                              d="M125.332 161.312H60.6904C53.8033 161.295 48.2199 155.712 48.2031 148.825V133.008C89.3787 133.008 101.178 133.008 137.819 133.008V148.829C137.798 155.716 132.219 161.295 125.332 161.312Z"
-                              fill="#C4C4C4"
-                            />
-                            <path
-                              d="M99.4303 70.1607C98.0834 61.6268 90.6094 55.0769 81.6156 55.0769C78.2322 55.0769 74.981 56.0035 72.1611 57.7318C67.871 50.5949 60.1476 46.1538 51.5675 46.1538C38.3129 46.1538 27.529 56.8284 27.529 69.9487C27.529 70.03 27.529 70.1143 27.5321 70.1956C19.0134 71.6159 12.3047 78.9675 12.3047 87.7948C12.3047 97.6358 20.5921 105.641 30.5339 105.641H96.6396C106.581 105.641 114.869 97.6358 114.869 87.7948C114.869 78.8922 108.052 71.494 99.4303 70.1607Z"
-                              fill="white"
-                            />
-                          </svg>
-                        </div>
-                      </div>
+                      <img
+                        class="hero-apps-image"
+                        src="https://image.com"
+                      />
                     </div>
                   </div>
                 </div>
@@ -16623,43 +16245,47 @@ Object {
         </p>
       </div>
       <div
-        class="el-flex-align-center apps-search-container apps-search-desktop-controls el-flex-container"
+        class="apps-search-desktop-controls el-flex-container"
       >
-        <span
-          class="apps-search-input-icon el-icon"
-          style="font-size: 1.25rem;"
+        <div
+          class="el-flex-align-center apps-search-container el-mr5 el-flex-container"
         >
-          <svg
-            fill="none"
-            height="1em"
-            viewBox="0 0 20 20"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
+          <span
+            class="apps-search-input-icon el-icon"
+            style="font-size: 1.25rem;"
           >
-            <g>
-              <path
-                d="M19.7556 18.5783L14.0682 12.8909C15.1699 11.5301 15.8332 9.80089 15.8332 7.91758C15.8332 3.55262 12.2815 0.000976562 7.91656 0.000976562C3.55161 0.000976562 0 3.55258 0 7.91754C0 12.2825 3.55165 15.8342 7.9166 15.8342C9.7999 15.8342 11.5291 15.1708 12.8899 14.0692L18.5773 19.7566C18.7398 19.9191 18.9531 20.0008 19.1665 20.0008C19.3798 20.0008 19.5932 19.9191 19.7557 19.7566C20.0815 19.4308 20.0815 18.9041 19.7556 18.5783ZM7.9166 14.1675C4.46996 14.1675 1.66666 11.3642 1.66666 7.91754C1.66666 4.4709 4.46996 1.6676 7.9166 1.6676C11.3632 1.6676 14.1665 4.4709 14.1665 7.91754C14.1665 11.3642 11.3632 14.1675 7.9166 14.1675Z"
-                fill="currentColor"
-              />
-            </g>
-            <defs>
-              <clippath
-                id="clip0"
-              >
-                <rect
-                  fill="white"
-                  height="20.0003"
-                  width="20"
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 20 20"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g>
+                <path
+                  d="M19.7556 18.5783L14.0682 12.8909C15.1699 11.5301 15.8332 9.80089 15.8332 7.91758C15.8332 3.55262 12.2815 0.000976562 7.91656 0.000976562C3.55161 0.000976562 0 3.55258 0 7.91754C0 12.2825 3.55165 15.8342 7.9166 15.8342C9.7999 15.8342 11.5291 15.1708 12.8899 14.0692L18.5773 19.7566C18.7398 19.9191 18.9531 20.0008 19.1665 20.0008C19.3798 20.0008 19.5932 19.9191 19.7557 19.7566C20.0815 19.4308 20.0815 18.9041 19.7556 18.5783ZM7.9166 14.1675C4.46996 14.1675 1.66666 11.3642 1.66666 7.91754C1.66666 4.4709 4.46996 1.6676 7.9166 1.6676C11.3632 1.6676 14.1665 4.4709 14.1665 7.91754C14.1665 11.3642 11.3632 14.1675 7.9166 14.1675Z"
+                  fill="currentColor"
                 />
-              </clippath>
-            </defs>
-          </svg>
-        </span>
-        <input
-          class="apps-search-input"
-          placeholder="Search"
-          type="text"
-        />
+              </g>
+              <defs>
+                <clippath
+                  id="clip0"
+                >
+                  <rect
+                    fill="white"
+                    height="20.0003"
+                    width="20"
+                  />
+                </clippath>
+              </defs>
+            </svg>
+          </span>
+          <input
+            class="apps-search-input"
+            placeholder="Search by App or Developer"
+            type="text"
+          />
+        </div>
       </div>
       <div
         class="featured-hero-apps-item"
@@ -16687,7 +16313,7 @@ Object {
                 >
                   <div
                     class="el-mb7 el-placeholder-image"
-                    style="font-size: 1.875em; width: 48px; height: 48px;"
+                    style="font-size: 2.8125em; width: 72px; height: 72px;"
                   >
                     <svg
                       fill="none"
@@ -16718,7 +16344,9 @@ Object {
                 </div>
                 <p
                   class="featured-hero-apps-strapline el-body-text"
-                />
+                >
+                  Lorem ipsum dolor sit amet, consectetur adip
+                </p>
                 <button
                   class="featured-hero-apps-button-desktop el-button"
                   style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
@@ -16843,7 +16471,7 @@ Object {
                     >
                       <div
                         class="el-placeholder-image"
-                        style="font-size: 1.5625em; width: 40px; height: 40px;"
+                        style="font-size: 2.8125em; width: 72px; height: 72px;"
                       >
                         <svg
                           fill="none"
@@ -16871,7 +16499,9 @@ Object {
                     </div>
                     <p
                       class="hero-apps-strapline el-body-text"
-                    />
+                    >
+                      Lorem ipsum dolor sit amet, consectetur adip
+                    </p>
                   </div>
                   <div
                     class="hero-apps-image-container"
@@ -16961,7 +16591,7 @@ Object {
                     >
                       <div
                         class="el-placeholder-image"
-                        style="font-size: 1.5625em; width: 40px; height: 40px;"
+                        style="font-size: 2.8125em; width: 72px; height: 72px;"
                       >
                         <svg
                           fill="none"
@@ -16989,67 +16619,17 @@ Object {
                     </div>
                     <p
                       class="hero-apps-strapline el-body-text"
-                    />
+                    >
+                      Lorem ipsum dolor sit amet, consectetur adip
+                    </p>
                   </div>
                   <div
                     class="hero-apps-image-container"
                   >
-                    <div
-                      class="el-placeholder-image-wrapper"
-                    >
-                      <div
-                        class="el-placeholder-image"
-                        style="font-size: 4.6875em;"
-                      >
-                        <svg
-                          fill="none"
-                          height="1em"
-                          viewBox="0 0 183 200"
-                          width="1em"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <ellipse
-                            cx="90.7692"
-                            cy="108.718"
-                            fill="#F2F2F2"
-                            rx="90.7692"
-                            ry="91.2821"
-                          />
-                          <path
-                            d="M149.769 59.9736L162.678 51.715C158.49 46.4795 153.74 41.7118 148.515 37.5054L136.008 47.114C141.106 50.822 145.733 55.1401 149.769 59.9736Z"
-                            fill="#C4C4C4"
-                          />
-                          <path
-                            d="M161.555 79.4094L176.145 74.8695C173.889 69.2241 171.087 63.8571 167.804 58.8311L154.969 67.0407C157.522 70.9321 159.74 75.0652 161.554 79.4094H161.555Z"
-                            fill="#C4C4C4"
-                          />
-                          <path
-                            d="M91.3348 184.757C49.3765 184.757 15.2469 150.625 15.2469 108.665C15.2469 66.7067 49.3784 32.5772 91.3348 32.5772C104.677 32.5772 117.219 36.039 128.135 42.0927L141.098 32.1368C126.771 22.7881 109.682 17.3311 91.3344 17.3311C40.9719 17.3311 0 58.3029 0 108.665C0 159.028 40.9719 200 91.3344 200C126.598 200 157.237 179.899 172.448 150.569H154.803C141.17 171.148 117.818 184.757 91.3352 184.757L91.3348 184.757Z"
-                            fill="#C4C4C4"
-                          />
-                          <path
-                            d="M167.415 108.665H182.658C182.658 107.277 182.615 105.897 182.552 104.526H167.297C167.373 105.897 167.415 107.275 167.415 108.665H167.415Z"
-                            fill="#C4C4C4"
-                          />
-                          <path
-                            d="M166.321 95.7561H181.752C181.14 91.4518 180.225 87.2501 179.032 83.1611L164.477 87.6916C165.23 90.3247 165.851 93.0144 166.321 95.7561H166.321Z"
-                            fill="#C4C4C4"
-                          />
-                          <path
-                            d="M125.332 161.312H60.6905C53.8033 161.296 48.2199 155.712 48.2031 148.825V12.4873C48.2199 5.60022 53.8033 0.0167671 60.6905 0H125.332C132.219 0.0167671 137.803 5.60022 137.819 12.4873V148.829C137.798 155.716 132.219 161.296 125.332 161.312Z"
-                            fill="#DFDFDF"
-                          />
-                          <path
-                            d="M125.332 161.312H60.6904C53.8033 161.295 48.2199 155.712 48.2031 148.825V133.008C89.3787 133.008 101.178 133.008 137.819 133.008V148.829C137.798 155.716 132.219 161.295 125.332 161.312Z"
-                            fill="#C4C4C4"
-                          />
-                          <path
-                            d="M99.4303 70.1607C98.0834 61.6268 90.6094 55.0769 81.6156 55.0769C78.2322 55.0769 74.981 56.0035 72.1611 57.7318C67.871 50.5949 60.1476 46.1538 51.5675 46.1538C38.3129 46.1538 27.529 56.8284 27.529 69.9487C27.529 70.03 27.529 70.1143 27.5321 70.1956C19.0134 71.6159 12.3047 78.9675 12.3047 87.7948C12.3047 97.6358 20.5921 105.641 30.5339 105.641H96.6396C106.581 105.641 114.869 97.6358 114.869 87.7948C114.869 78.8922 108.052 71.494 99.4303 70.1607Z"
-                            fill="white"
-                          />
-                        </svg>
-                      </div>
-                    </div>
+                    <img
+                      class="hero-apps-image"
+                      src="https://image.com"
+                    />
                   </div>
                 </div>
               </div>
@@ -18511,43 +18091,47 @@ Object {
           </p>
         </div>
         <div
-          class="el-flex-align-center apps-search-container apps-search-desktop-controls el-flex-container"
+          class="apps-search-desktop-controls el-flex-container"
         >
-          <span
-            class="apps-search-input-icon el-icon"
-            style="font-size: 1.25rem;"
+          <div
+            class="el-flex-align-center apps-search-container el-mr5 el-flex-container"
           >
-            <svg
-              fill="none"
-              height="1em"
-              viewBox="0 0 20 20"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
+            <span
+              class="apps-search-input-icon el-icon"
+              style="font-size: 1.25rem;"
             >
-              <g>
-                <path
-                  d="M19.7556 18.5783L14.0682 12.8909C15.1699 11.5301 15.8332 9.80089 15.8332 7.91758C15.8332 3.55262 12.2815 0.000976562 7.91656 0.000976562C3.55161 0.000976562 0 3.55258 0 7.91754C0 12.2825 3.55165 15.8342 7.9166 15.8342C9.7999 15.8342 11.5291 15.1708 12.8899 14.0692L18.5773 19.7566C18.7398 19.9191 18.9531 20.0008 19.1665 20.0008C19.3798 20.0008 19.5932 19.9191 19.7557 19.7566C20.0815 19.4308 20.0815 18.9041 19.7556 18.5783ZM7.9166 14.1675C4.46996 14.1675 1.66666 11.3642 1.66666 7.91754C1.66666 4.4709 4.46996 1.6676 7.9166 1.6676C11.3632 1.6676 14.1665 4.4709 14.1665 7.91754C14.1665 11.3642 11.3632 14.1675 7.9166 14.1675Z"
-                  fill="currentColor"
-                />
-              </g>
-              <defs>
-                <clippath
-                  id="clip0"
-                >
-                  <rect
-                    fill="white"
-                    height="20.0003"
-                    width="20"
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 20 20"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g>
+                  <path
+                    d="M19.7556 18.5783L14.0682 12.8909C15.1699 11.5301 15.8332 9.80089 15.8332 7.91758C15.8332 3.55262 12.2815 0.000976562 7.91656 0.000976562C3.55161 0.000976562 0 3.55258 0 7.91754C0 12.2825 3.55165 15.8342 7.9166 15.8342C9.7999 15.8342 11.5291 15.1708 12.8899 14.0692L18.5773 19.7566C18.7398 19.9191 18.9531 20.0008 19.1665 20.0008C19.3798 20.0008 19.5932 19.9191 19.7557 19.7566C20.0815 19.4308 20.0815 18.9041 19.7556 18.5783ZM7.9166 14.1675C4.46996 14.1675 1.66666 11.3642 1.66666 7.91754C1.66666 4.4709 4.46996 1.6676 7.9166 1.6676C11.3632 1.6676 14.1665 4.4709 14.1665 7.91754C14.1665 11.3642 11.3632 14.1675 7.9166 14.1675Z"
+                    fill="currentColor"
                   />
-                </clippath>
-              </defs>
-            </svg>
-          </span>
-          <input
-            class="apps-search-input"
-            placeholder="Search"
-            type="text"
-          />
+                </g>
+                <defs>
+                  <clippath
+                    id="clip0"
+                  >
+                    <rect
+                      fill="white"
+                      height="20.0003"
+                      width="20"
+                    />
+                  </clippath>
+                </defs>
+              </svg>
+            </span>
+            <input
+              class="apps-search-input"
+              placeholder="Search by App or Developer"
+              type="text"
+            />
+          </div>
         </div>
         <div
           class="featured-hero-apps-item"
@@ -18575,7 +18159,7 @@ Object {
                   >
                     <div
                       class="el-mb7 el-placeholder-image"
-                      style="font-size: 1.875em; width: 48px; height: 48px;"
+                      style="font-size: 3.75em; width: 96px; height: 96px;"
                     >
                       <svg
                         fill="none"
@@ -18606,7 +18190,9 @@ Object {
                   </div>
                   <p
                     class="featured-hero-apps-strapline el-body-text"
-                  />
+                  >
+                    Lorem ipsum dolor sit amet, consectetur adip
+                  </p>
                   <button
                     class="featured-hero-apps-button-desktop el-button"
                     style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
@@ -18711,7 +18297,7 @@ Object {
                       >
                         <div
                           class="el-placeholder-image"
-                          style="font-size: 1.5625em; width: 40px; height: 40px;"
+                          style="font-size: 2.8125em; width: 72px; height: 72px;"
                         >
                           <svg
                             fill="none"
@@ -18739,7 +18325,9 @@ Object {
                       </div>
                       <p
                         class="hero-apps-strapline el-body-text"
-                      />
+                      >
+                        Lorem ipsum dolor sit amet, consectetur adip
+                      </p>
                     </div>
                     <div
                       class="hero-apps-image-container"
@@ -18829,7 +18417,7 @@ Object {
                       >
                         <div
                           class="el-placeholder-image"
-                          style="font-size: 1.5625em; width: 40px; height: 40px;"
+                          style="font-size: 2.8125em; width: 72px; height: 72px;"
                         >
                           <svg
                             fill="none"
@@ -18857,67 +18445,17 @@ Object {
                       </div>
                       <p
                         class="hero-apps-strapline el-body-text"
-                      />
+                      >
+                        Lorem ipsum dolor sit amet, consectetur adip
+                      </p>
                     </div>
                     <div
                       class="hero-apps-image-container"
                     >
-                      <div
-                        class="el-placeholder-image-wrapper"
-                      >
-                        <div
-                          class="el-placeholder-image"
-                          style="font-size: 8.59375em;"
-                        >
-                          <svg
-                            fill="none"
-                            height="1em"
-                            viewBox="0 0 183 200"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <ellipse
-                              cx="90.7692"
-                              cy="108.718"
-                              fill="#F2F2F2"
-                              rx="90.7692"
-                              ry="91.2821"
-                            />
-                            <path
-                              d="M149.769 59.9736L162.678 51.715C158.49 46.4795 153.74 41.7118 148.515 37.5054L136.008 47.114C141.106 50.822 145.733 55.1401 149.769 59.9736Z"
-                              fill="#C4C4C4"
-                            />
-                            <path
-                              d="M161.555 79.4094L176.145 74.8695C173.889 69.2241 171.087 63.8571 167.804 58.8311L154.969 67.0407C157.522 70.9321 159.74 75.0652 161.554 79.4094H161.555Z"
-                              fill="#C4C4C4"
-                            />
-                            <path
-                              d="M91.3348 184.757C49.3765 184.757 15.2469 150.625 15.2469 108.665C15.2469 66.7067 49.3784 32.5772 91.3348 32.5772C104.677 32.5772 117.219 36.039 128.135 42.0927L141.098 32.1368C126.771 22.7881 109.682 17.3311 91.3344 17.3311C40.9719 17.3311 0 58.3029 0 108.665C0 159.028 40.9719 200 91.3344 200C126.598 200 157.237 179.899 172.448 150.569H154.803C141.17 171.148 117.818 184.757 91.3352 184.757L91.3348 184.757Z"
-                              fill="#C4C4C4"
-                            />
-                            <path
-                              d="M167.415 108.665H182.658C182.658 107.277 182.615 105.897 182.552 104.526H167.297C167.373 105.897 167.415 107.275 167.415 108.665H167.415Z"
-                              fill="#C4C4C4"
-                            />
-                            <path
-                              d="M166.321 95.7561H181.752C181.14 91.4518 180.225 87.2501 179.032 83.1611L164.477 87.6916C165.23 90.3247 165.851 93.0144 166.321 95.7561H166.321Z"
-                              fill="#C4C4C4"
-                            />
-                            <path
-                              d="M125.332 161.312H60.6905C53.8033 161.296 48.2199 155.712 48.2031 148.825V12.4873C48.2199 5.60022 53.8033 0.0167671 60.6905 0H125.332C132.219 0.0167671 137.803 5.60022 137.819 12.4873V148.829C137.798 155.716 132.219 161.296 125.332 161.312Z"
-                              fill="#DFDFDF"
-                            />
-                            <path
-                              d="M125.332 161.312H60.6904C53.8033 161.295 48.2199 155.712 48.2031 148.825V133.008C89.3787 133.008 101.178 133.008 137.819 133.008V148.829C137.798 155.716 132.219 161.295 125.332 161.312Z"
-                              fill="#C4C4C4"
-                            />
-                            <path
-                              d="M99.4303 70.1607C98.0834 61.6268 90.6094 55.0769 81.6156 55.0769C78.2322 55.0769 74.981 56.0035 72.1611 57.7318C67.871 50.5949 60.1476 46.1538 51.5675 46.1538C38.3129 46.1538 27.529 56.8284 27.529 69.9487C27.529 70.03 27.529 70.1143 27.5321 70.1956C19.0134 71.6159 12.3047 78.9675 12.3047 87.7948C12.3047 97.6358 20.5921 105.641 30.5339 105.641H96.6396C106.581 105.641 114.869 97.6358 114.869 87.7948C114.869 78.8922 108.052 71.494 99.4303 70.1607Z"
-                              fill="white"
-                            />
-                          </svg>
-                        </div>
-                      </div>
+                      <img
+                        class="hero-apps-image"
+                        src="https://image.com"
+                      />
                     </div>
                   </div>
                 </div>
@@ -20302,43 +19840,47 @@ Object {
         </p>
       </div>
       <div
-        class="el-flex-align-center apps-search-container apps-search-desktop-controls el-flex-container"
+        class="apps-search-desktop-controls el-flex-container"
       >
-        <span
-          class="apps-search-input-icon el-icon"
-          style="font-size: 1.25rem;"
+        <div
+          class="el-flex-align-center apps-search-container el-mr5 el-flex-container"
         >
-          <svg
-            fill="none"
-            height="1em"
-            viewBox="0 0 20 20"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
+          <span
+            class="apps-search-input-icon el-icon"
+            style="font-size: 1.25rem;"
           >
-            <g>
-              <path
-                d="M19.7556 18.5783L14.0682 12.8909C15.1699 11.5301 15.8332 9.80089 15.8332 7.91758C15.8332 3.55262 12.2815 0.000976562 7.91656 0.000976562C3.55161 0.000976562 0 3.55258 0 7.91754C0 12.2825 3.55165 15.8342 7.9166 15.8342C9.7999 15.8342 11.5291 15.1708 12.8899 14.0692L18.5773 19.7566C18.7398 19.9191 18.9531 20.0008 19.1665 20.0008C19.3798 20.0008 19.5932 19.9191 19.7557 19.7566C20.0815 19.4308 20.0815 18.9041 19.7556 18.5783ZM7.9166 14.1675C4.46996 14.1675 1.66666 11.3642 1.66666 7.91754C1.66666 4.4709 4.46996 1.6676 7.9166 1.6676C11.3632 1.6676 14.1665 4.4709 14.1665 7.91754C14.1665 11.3642 11.3632 14.1675 7.9166 14.1675Z"
-                fill="currentColor"
-              />
-            </g>
-            <defs>
-              <clippath
-                id="clip0"
-              >
-                <rect
-                  fill="white"
-                  height="20.0003"
-                  width="20"
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 20 20"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g>
+                <path
+                  d="M19.7556 18.5783L14.0682 12.8909C15.1699 11.5301 15.8332 9.80089 15.8332 7.91758C15.8332 3.55262 12.2815 0.000976562 7.91656 0.000976562C3.55161 0.000976562 0 3.55258 0 7.91754C0 12.2825 3.55165 15.8342 7.9166 15.8342C9.7999 15.8342 11.5291 15.1708 12.8899 14.0692L18.5773 19.7566C18.7398 19.9191 18.9531 20.0008 19.1665 20.0008C19.3798 20.0008 19.5932 19.9191 19.7557 19.7566C20.0815 19.4308 20.0815 18.9041 19.7556 18.5783ZM7.9166 14.1675C4.46996 14.1675 1.66666 11.3642 1.66666 7.91754C1.66666 4.4709 4.46996 1.6676 7.9166 1.6676C11.3632 1.6676 14.1665 4.4709 14.1665 7.91754C14.1665 11.3642 11.3632 14.1675 7.9166 14.1675Z"
+                  fill="currentColor"
                 />
-              </clippath>
-            </defs>
-          </svg>
-        </span>
-        <input
-          class="apps-search-input"
-          placeholder="Search"
-          type="text"
-        />
+              </g>
+              <defs>
+                <clippath
+                  id="clip0"
+                >
+                  <rect
+                    fill="white"
+                    height="20.0003"
+                    width="20"
+                  />
+                </clippath>
+              </defs>
+            </svg>
+          </span>
+          <input
+            class="apps-search-input"
+            placeholder="Search by App or Developer"
+            type="text"
+          />
+        </div>
       </div>
       <div
         class="featured-hero-apps-item"
@@ -20366,7 +19908,7 @@ Object {
                 >
                   <div
                     class="el-mb7 el-placeholder-image"
-                    style="font-size: 1.875em; width: 48px; height: 48px;"
+                    style="font-size: 3.75em; width: 96px; height: 96px;"
                   >
                     <svg
                       fill="none"
@@ -20397,7 +19939,9 @@ Object {
                 </div>
                 <p
                   class="featured-hero-apps-strapline el-body-text"
-                />
+                >
+                  Lorem ipsum dolor sit amet, consectetur adip
+                </p>
                 <button
                   class="featured-hero-apps-button-desktop el-button"
                   style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
@@ -20502,7 +20046,7 @@ Object {
                     >
                       <div
                         class="el-placeholder-image"
-                        style="font-size: 1.5625em; width: 40px; height: 40px;"
+                        style="font-size: 2.8125em; width: 72px; height: 72px;"
                       >
                         <svg
                           fill="none"
@@ -20530,7 +20074,9 @@ Object {
                     </div>
                     <p
                       class="hero-apps-strapline el-body-text"
-                    />
+                    >
+                      Lorem ipsum dolor sit amet, consectetur adip
+                    </p>
                   </div>
                   <div
                     class="hero-apps-image-container"
@@ -20620,7 +20166,7 @@ Object {
                     >
                       <div
                         class="el-placeholder-image"
-                        style="font-size: 1.5625em; width: 40px; height: 40px;"
+                        style="font-size: 2.8125em; width: 72px; height: 72px;"
                       >
                         <svg
                           fill="none"
@@ -20648,67 +20194,17 @@ Object {
                     </div>
                     <p
                       class="hero-apps-strapline el-body-text"
-                    />
+                    >
+                      Lorem ipsum dolor sit amet, consectetur adip
+                    </p>
                   </div>
                   <div
                     class="hero-apps-image-container"
                   >
-                    <div
-                      class="el-placeholder-image-wrapper"
-                    >
-                      <div
-                        class="el-placeholder-image"
-                        style="font-size: 8.59375em;"
-                      >
-                        <svg
-                          fill="none"
-                          height="1em"
-                          viewBox="0 0 183 200"
-                          width="1em"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <ellipse
-                            cx="90.7692"
-                            cy="108.718"
-                            fill="#F2F2F2"
-                            rx="90.7692"
-                            ry="91.2821"
-                          />
-                          <path
-                            d="M149.769 59.9736L162.678 51.715C158.49 46.4795 153.74 41.7118 148.515 37.5054L136.008 47.114C141.106 50.822 145.733 55.1401 149.769 59.9736Z"
-                            fill="#C4C4C4"
-                          />
-                          <path
-                            d="M161.555 79.4094L176.145 74.8695C173.889 69.2241 171.087 63.8571 167.804 58.8311L154.969 67.0407C157.522 70.9321 159.74 75.0652 161.554 79.4094H161.555Z"
-                            fill="#C4C4C4"
-                          />
-                          <path
-                            d="M91.3348 184.757C49.3765 184.757 15.2469 150.625 15.2469 108.665C15.2469 66.7067 49.3784 32.5772 91.3348 32.5772C104.677 32.5772 117.219 36.039 128.135 42.0927L141.098 32.1368C126.771 22.7881 109.682 17.3311 91.3344 17.3311C40.9719 17.3311 0 58.3029 0 108.665C0 159.028 40.9719 200 91.3344 200C126.598 200 157.237 179.899 172.448 150.569H154.803C141.17 171.148 117.818 184.757 91.3352 184.757L91.3348 184.757Z"
-                            fill="#C4C4C4"
-                          />
-                          <path
-                            d="M167.415 108.665H182.658C182.658 107.277 182.615 105.897 182.552 104.526H167.297C167.373 105.897 167.415 107.275 167.415 108.665H167.415Z"
-                            fill="#C4C4C4"
-                          />
-                          <path
-                            d="M166.321 95.7561H181.752C181.14 91.4518 180.225 87.2501 179.032 83.1611L164.477 87.6916C165.23 90.3247 165.851 93.0144 166.321 95.7561H166.321Z"
-                            fill="#C4C4C4"
-                          />
-                          <path
-                            d="M125.332 161.312H60.6905C53.8033 161.296 48.2199 155.712 48.2031 148.825V12.4873C48.2199 5.60022 53.8033 0.0167671 60.6905 0H125.332C132.219 0.0167671 137.803 5.60022 137.819 12.4873V148.829C137.798 155.716 132.219 161.296 125.332 161.312Z"
-                            fill="#DFDFDF"
-                          />
-                          <path
-                            d="M125.332 161.312H60.6904C53.8033 161.295 48.2199 155.712 48.2031 148.825V133.008C89.3787 133.008 101.178 133.008 137.819 133.008V148.829C137.798 155.716 132.219 161.295 125.332 161.312Z"
-                            fill="#C4C4C4"
-                          />
-                          <path
-                            d="M99.4303 70.1607C98.0834 61.6268 90.6094 55.0769 81.6156 55.0769C78.2322 55.0769 74.981 56.0035 72.1611 57.7318C67.871 50.5949 60.1476 46.1538 51.5675 46.1538C38.3129 46.1538 27.529 56.8284 27.529 69.9487C27.529 70.03 27.529 70.1143 27.5321 70.1956C19.0134 71.6159 12.3047 78.9675 12.3047 87.7948C12.3047 97.6358 20.5921 105.641 30.5339 105.641H96.6396C106.581 105.641 114.869 97.6358 114.869 87.7948C114.869 78.8922 108.052 71.494 99.4303 70.1607Z"
-                            fill="white"
-                          />
-                        </svg>
-                      </div>
-                    </div>
+                    <img
+                      class="hero-apps-image"
+                      src="https://image.com"
+                    />
                   </div>
                 </div>
               </div>
@@ -22150,43 +21646,47 @@ Object {
           </p>
         </div>
         <div
-          class="el-flex-align-center apps-search-container apps-search-desktop-controls el-flex-container"
+          class="apps-search-desktop-controls el-flex-container"
         >
-          <span
-            class="apps-search-input-icon el-icon"
-            style="font-size: 1.25rem;"
+          <div
+            class="el-flex-align-center apps-search-container el-mr5 el-flex-container"
           >
-            <svg
-              fill="none"
-              height="1em"
-              viewBox="0 0 20 20"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
+            <span
+              class="apps-search-input-icon el-icon"
+              style="font-size: 1.25rem;"
             >
-              <g>
-                <path
-                  d="M19.7556 18.5783L14.0682 12.8909C15.1699 11.5301 15.8332 9.80089 15.8332 7.91758C15.8332 3.55262 12.2815 0.000976562 7.91656 0.000976562C3.55161 0.000976562 0 3.55258 0 7.91754C0 12.2825 3.55165 15.8342 7.9166 15.8342C9.7999 15.8342 11.5291 15.1708 12.8899 14.0692L18.5773 19.7566C18.7398 19.9191 18.9531 20.0008 19.1665 20.0008C19.3798 20.0008 19.5932 19.9191 19.7557 19.7566C20.0815 19.4308 20.0815 18.9041 19.7556 18.5783ZM7.9166 14.1675C4.46996 14.1675 1.66666 11.3642 1.66666 7.91754C1.66666 4.4709 4.46996 1.6676 7.9166 1.6676C11.3632 1.6676 14.1665 4.4709 14.1665 7.91754C14.1665 11.3642 11.3632 14.1675 7.9166 14.1675Z"
-                  fill="currentColor"
-                />
-              </g>
-              <defs>
-                <clippath
-                  id="clip0"
-                >
-                  <rect
-                    fill="white"
-                    height="20.0003"
-                    width="20"
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 20 20"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g>
+                  <path
+                    d="M19.7556 18.5783L14.0682 12.8909C15.1699 11.5301 15.8332 9.80089 15.8332 7.91758C15.8332 3.55262 12.2815 0.000976562 7.91656 0.000976562C3.55161 0.000976562 0 3.55258 0 7.91754C0 12.2825 3.55165 15.8342 7.9166 15.8342C9.7999 15.8342 11.5291 15.1708 12.8899 14.0692L18.5773 19.7566C18.7398 19.9191 18.9531 20.0008 19.1665 20.0008C19.3798 20.0008 19.5932 19.9191 19.7557 19.7566C20.0815 19.4308 20.0815 18.9041 19.7556 18.5783ZM7.9166 14.1675C4.46996 14.1675 1.66666 11.3642 1.66666 7.91754C1.66666 4.4709 4.46996 1.6676 7.9166 1.6676C11.3632 1.6676 14.1665 4.4709 14.1665 7.91754C14.1665 11.3642 11.3632 14.1675 7.9166 14.1675Z"
+                    fill="currentColor"
                   />
-                </clippath>
-              </defs>
-            </svg>
-          </span>
-          <input
-            class="apps-search-input"
-            placeholder="Search"
-            type="text"
-          />
+                </g>
+                <defs>
+                  <clippath
+                    id="clip0"
+                  >
+                    <rect
+                      fill="white"
+                      height="20.0003"
+                      width="20"
+                    />
+                  </clippath>
+                </defs>
+              </svg>
+            </span>
+            <input
+              class="apps-search-input"
+              placeholder="Search by App or Developer"
+              type="text"
+            />
+          </div>
         </div>
         <div
           class="el-grid"
@@ -22276,43 +21776,47 @@ Object {
         </p>
       </div>
       <div
-        class="el-flex-align-center apps-search-container apps-search-desktop-controls el-flex-container"
+        class="apps-search-desktop-controls el-flex-container"
       >
-        <span
-          class="apps-search-input-icon el-icon"
-          style="font-size: 1.25rem;"
+        <div
+          class="el-flex-align-center apps-search-container el-mr5 el-flex-container"
         >
-          <svg
-            fill="none"
-            height="1em"
-            viewBox="0 0 20 20"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
+          <span
+            class="apps-search-input-icon el-icon"
+            style="font-size: 1.25rem;"
           >
-            <g>
-              <path
-                d="M19.7556 18.5783L14.0682 12.8909C15.1699 11.5301 15.8332 9.80089 15.8332 7.91758C15.8332 3.55262 12.2815 0.000976562 7.91656 0.000976562C3.55161 0.000976562 0 3.55258 0 7.91754C0 12.2825 3.55165 15.8342 7.9166 15.8342C9.7999 15.8342 11.5291 15.1708 12.8899 14.0692L18.5773 19.7566C18.7398 19.9191 18.9531 20.0008 19.1665 20.0008C19.3798 20.0008 19.5932 19.9191 19.7557 19.7566C20.0815 19.4308 20.0815 18.9041 19.7556 18.5783ZM7.9166 14.1675C4.46996 14.1675 1.66666 11.3642 1.66666 7.91754C1.66666 4.4709 4.46996 1.6676 7.9166 1.6676C11.3632 1.6676 14.1665 4.4709 14.1665 7.91754C14.1665 11.3642 11.3632 14.1675 7.9166 14.1675Z"
-                fill="currentColor"
-              />
-            </g>
-            <defs>
-              <clippath
-                id="clip0"
-              >
-                <rect
-                  fill="white"
-                  height="20.0003"
-                  width="20"
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 20 20"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g>
+                <path
+                  d="M19.7556 18.5783L14.0682 12.8909C15.1699 11.5301 15.8332 9.80089 15.8332 7.91758C15.8332 3.55262 12.2815 0.000976562 7.91656 0.000976562C3.55161 0.000976562 0 3.55258 0 7.91754C0 12.2825 3.55165 15.8342 7.9166 15.8342C9.7999 15.8342 11.5291 15.1708 12.8899 14.0692L18.5773 19.7566C18.7398 19.9191 18.9531 20.0008 19.1665 20.0008C19.3798 20.0008 19.5932 19.9191 19.7557 19.7566C20.0815 19.4308 20.0815 18.9041 19.7556 18.5783ZM7.9166 14.1675C4.46996 14.1675 1.66666 11.3642 1.66666 7.91754C1.66666 4.4709 4.46996 1.6676 7.9166 1.6676C11.3632 1.6676 14.1665 4.4709 14.1665 7.91754C14.1665 11.3642 11.3632 14.1675 7.9166 14.1675Z"
+                  fill="currentColor"
                 />
-              </clippath>
-            </defs>
-          </svg>
-        </span>
-        <input
-          class="apps-search-input"
-          placeholder="Search"
-          type="text"
-        />
+              </g>
+              <defs>
+                <clippath
+                  id="clip0"
+                >
+                  <rect
+                    fill="white"
+                    height="20.0003"
+                    width="20"
+                  />
+                </clippath>
+              </defs>
+            </svg>
+          </span>
+          <input
+            class="apps-search-input"
+            placeholder="Search by App or Developer"
+            type="text"
+          />
+        </div>
       </div>
       <div
         class="el-grid"

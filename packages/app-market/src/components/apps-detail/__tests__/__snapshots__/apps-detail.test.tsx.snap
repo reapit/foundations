@@ -345,7 +345,7 @@ Object {
             <h2
               class="el-has-no-margin el-subtitle"
             >
-              Support Email
+              Terms and Conditions
             </h2>
             <p
               class="el-has-grey-text el-has-no-margin el-body-text"
@@ -365,7 +365,7 @@ Object {
             <h2
               class="el-has-no-margin el-subtitle"
             >
-              Support Email
+              Privacy Policy
             </h2>
             <p
               class="el-has-grey-text el-has-no-margin el-body-text"
@@ -702,7 +702,7 @@ Object {
           <h2
             class="el-has-no-margin el-subtitle"
           >
-            Support Email
+            Terms and Conditions
           </h2>
           <p
             class="el-has-grey-text el-has-no-margin el-body-text"
@@ -722,7 +722,7 @@ Object {
           <h2
             class="el-has-no-margin el-subtitle"
           >
-            Support Email
+            Privacy Policy
           </h2>
           <p
             class="el-has-grey-text el-has-no-margin el-body-text"

@@ -56,7 +56,7 @@ Object {
                 <p
                   class="featured-hero-apps-strapline el-body-text"
                 >
-                  Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
+                  Lorem ipsum dolor sit amet, consectetur adip
                 </p>
                 <button
                   class="featured-hero-apps-button-desktop el-button"
@@ -183,7 +183,7 @@ Object {
               <p
                 class="featured-hero-apps-strapline el-body-text"
               >
-                Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
+                Lorem ipsum dolor sit amet, consectetur adip
               </p>
               <button
                 class="featured-hero-apps-button-desktop el-button"
@@ -345,7 +345,7 @@ Object {
                 >
                   <div
                     class="el-mb7 el-placeholder-image"
-                    style="font-size: 1.875em; width: 48px; height: 48px;"
+                    style="font-size: 2.8125em; width: 72px; height: 72px;"
                   >
                     <svg
                       fill="none"
@@ -376,7 +376,9 @@ Object {
                 </div>
                 <p
                   class="featured-hero-apps-strapline el-body-text"
-                />
+                >
+                  Lorem ipsum dolor sit amet, consectetur adip
+                </p>
                 <button
                   class="featured-hero-apps-button-desktop el-button"
                   style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"
@@ -480,7 +482,7 @@ Object {
               >
                 <div
                   class="el-mb7 el-placeholder-image"
-                  style="font-size: 1.875em; width: 48px; height: 48px;"
+                  style="font-size: 2.8125em; width: 72px; height: 72px;"
                 >
                   <svg
                     fill="none"
@@ -511,7 +513,9 @@ Object {
               </div>
               <p
                 class="featured-hero-apps-strapline el-body-text"
-              />
+              >
+                Lorem ipsum dolor sit amet, consectetur adip
+              </p>
               <button
                 class="featured-hero-apps-button-desktop el-button"
                 style="background: rgb(0, 97, 168); color: rgb(255, 255, 255);"

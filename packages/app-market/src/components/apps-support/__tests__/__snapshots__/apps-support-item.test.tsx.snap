@@ -89,7 +89,13 @@ Object {
             <div
               class="el-card-list-item-text-secondary"
             >
-              https://foo.bar
+              <a
+                href="https://foo.bar"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                https://foo.bar
+              </a>
             </div>
           </div>
         </div>
@@ -131,7 +137,13 @@ Object {
             <div
               class="el-card-list-item-text-secondary"
             >
-              foo@bar.com
+              <a
+                href="mailto:foo@bar.com"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                foo@bar.com
+              </a>
             </div>
           </div>
         </div>
@@ -223,7 +235,13 @@ Object {
             <div
               class="el-card-list-item-text-secondary"
             >
-              https://foo.bar
+              <a
+                href="https://foo.bar"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                https://foo.bar
+              </a>
             </div>
           </div>
         </div>
@@ -275,7 +293,13 @@ Object {
             <div
               class="el-card-list-item-text-secondary"
             >
-              https://foo.bar
+              <a
+                href="https://foo.bar"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                https://foo.bar
+              </a>
             </div>
           </div>
         </div>
@@ -330,7 +354,13 @@ Object {
             <div
               class="el-card-list-item-text-secondary"
             >
-              https://foo.bar
+              <a
+                href="https://foo.bar"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                https://foo.bar
+              </a>
             </div>
           </div>
         </div>
@@ -422,7 +452,13 @@ Object {
           <div
             class="el-card-list-item-text-secondary"
           >
-            https://foo.bar
+            <a
+              href="https://foo.bar"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              https://foo.bar
+            </a>
           </div>
         </div>
       </div>
@@ -464,7 +500,13 @@ Object {
           <div
             class="el-card-list-item-text-secondary"
           >
-            foo@bar.com
+            <a
+              href="mailto:foo@bar.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              foo@bar.com
+            </a>
           </div>
         </div>
       </div>
@@ -556,7 +598,13 @@ Object {
           <div
             class="el-card-list-item-text-secondary"
           >
-            https://foo.bar
+            <a
+              href="https://foo.bar"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              https://foo.bar
+            </a>
           </div>
         </div>
       </div>
@@ -608,7 +656,13 @@ Object {
           <div
             class="el-card-list-item-text-secondary"
           >
-            https://foo.bar
+            <a
+              href="https://foo.bar"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              https://foo.bar
+            </a>
           </div>
         </div>
       </div>
@@ -663,7 +717,13 @@ Object {
           <div
             class="el-card-list-item-text-secondary"
           >
-            https://foo.bar
+            <a
+              href="https://foo.bar"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              https://foo.bar
+            </a>
           </div>
         </div>
       </div>

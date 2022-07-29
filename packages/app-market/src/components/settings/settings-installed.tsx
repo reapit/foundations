@@ -199,14 +199,14 @@ export const SettingsInstalled: FC = () => {
                     },
                     {
                       label: 'Date Uninstalled',
-                      value: dayjs(terminatesOn).format('DD-MM-YYYY'),
+                      value: terminatesOn ? dayjs(terminatesOn).format('DD-MM-YYYY') : '-',
                       narrowTable: {
                         showLabel: true,
                       },
                     },
                     {
                       label: 'Uninstalled By',
-                      value: (
+                      value: uninstalledBy ? (
                         <a
                           href={`mailto:${uninstalledBy}?subject=Uninstallation%20of%20${appName}%20in%20the%20Reapit%20AppMarket`}
                           target="_blank"
@@ -214,6 +214,8 @@ export const SettingsInstalled: FC = () => {
                         >
                           {uninstalledBy}
                         </a>
+                      ) : (
+                        '-'
                       ),
                       narrowTable: {
                         showLabel: true,

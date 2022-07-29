@@ -89,13 +89,15 @@ export const InstalledAppsText = styled.div`
 
 export const InstalledSuggestedImage = styled.img`
   width: 100%;
+  height: 100%;
   object-fit: cover;
+  border-radius: 0.25rem;
   border: 1px solid var(--color-grey-medium);
 `
 
 export const InstalledSuggestedImageWrapper = styled.div`
   width: 100%;
-  max-height: 245px;
+  height: 245px;
   background-color: var(--color-grey-light);
   border-radius: 0.25rem;
   cursor: pointer;

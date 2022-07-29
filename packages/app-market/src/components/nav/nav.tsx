@@ -7,10 +7,10 @@ import { history } from '../../core/router'
 import { navigate } from '../../utils/navigation'
 
 export const getDefaultNavIndex = (pathname: string) => {
+  if (pathname.includes('apps')) return 1
+
   switch (pathname) {
     case Routes.HOME:
-    case Routes.APPS_BROWSE:
-    case Routes.APPS_DETAIL:
       return 1
     case Routes.APPS_INSTALLED:
       return 2

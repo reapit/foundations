@@ -29,3 +29,11 @@ export const ElTag = styled.span`
   padding: 0.5rem 1rem;
   font-size: 0.8rem;
 `
+
+export const ImageContainer = styled.div`
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+`

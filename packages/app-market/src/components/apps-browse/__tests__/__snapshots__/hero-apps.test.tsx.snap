@@ -50,7 +50,7 @@ Object {
               <p
                 class="hero-apps-strapline el-body-text"
               >
-                Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
+                Lorem ipsum dolor sit amet, consectetur adip
               </p>
             </div>
             <div
@@ -164,7 +164,7 @@ Object {
             <p
               class="hero-apps-strapline el-body-text"
             >
-              Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
+              Lorem ipsum dolor sit amet, consectetur adip
             </p>
           </div>
           <div
@@ -316,7 +316,7 @@ Object {
               >
                 <div
                   class="el-placeholder-image"
-                  style="font-size: 1.5625em; width: 40px; height: 40px;"
+                  style="font-size: 2.8125em; width: 72px; height: 72px;"
                 >
                   <svg
                     fill="none"
@@ -344,7 +344,9 @@ Object {
               </div>
               <p
                 class="hero-apps-strapline el-body-text"
-              />
+              >
+                Lorem ipsum dolor sit amet, consectetur adip
+              </p>
             </div>
             <div
               class="hero-apps-image-container"
@@ -438,7 +440,7 @@ Object {
             >
               <div
                 class="el-placeholder-image"
-                style="font-size: 1.5625em; width: 40px; height: 40px;"
+                style="font-size: 2.8125em; width: 72px; height: 72px;"
               >
                 <svg
                   fill="none"
@@ -466,7 +468,9 @@ Object {
             </div>
             <p
               class="hero-apps-strapline el-body-text"
-            />
+            >
+              Lorem ipsum dolor sit amet, consectetur adip
+            </p>
           </div>
           <div
             class="hero-apps-image-container"

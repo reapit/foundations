@@ -8,7 +8,7 @@ import { selectIsMarketplaceAdmin, selectIsOffGrouping, selectIsOrgAdmin } from 
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { BodyText, Button, ButtonGroup, Col, elMb11, Grid, SmallText } from '@reapit/elements'
-import { SendFunction, useReapitUpdate } from '@reapit/utils-react'
+import { AcProcessType, DesktopLink, SendFunction, useReapitUpdate } from '@reapit/utils-react'
 import { UpdateActionNames, updateActions } from '@reapit/utils-common'
 import { AppDetailPermissionChip } from './__styles__'
 
@@ -55,7 +55,7 @@ export const AppInstallModalContent: FC<AppInstallModalContentProps> = ({
   refetchApp,
   desktopIntegrationTypes,
 }) => {
-  const { connectSession, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const clientId = connectSession?.loginIdentity.clientId
   const email = connectSession?.loginIdentity.email
   const offGroupName = connectSession?.loginIdentity.offGroupName ?? ''
@@ -83,15 +83,12 @@ export const AppInstallModalContent: FC<AppInstallModalContentProps> = ({
             As an organisation admin, you have control over {isDirectApi ? 'enabling' : 'installation'} of &lsquo;{name}
             &rsquo; for either your Office Group or for <b>all</b> Users and Offices within your Organisation. To do
             this, you need to visit the{' '}
-            <a
-              href={
-                connectIsDesktop
-                  ? `agencycloud://process/webpage?url=${window.reapit.config.reapitConnectManagementUri}`
-                  : window.reapit.config.reapitConnectManagementUri
-              }
-            >
-              Reapit Connect Management App.
-            </a>
+            <DesktopLink
+              uri={window.reapit.config.reapitConnectManagementUri}
+              acProcess={AcProcessType.web}
+              target="_blank"
+              content="Reapit Connect Management App."
+            />
           </SmallText>
         ) : isOffGrouping && isMarketplaceAdmin ? (
           <SmallText hasGreyText>
@@ -111,30 +108,19 @@ export const AppInstallModalContent: FC<AppInstallModalContentProps> = ({
               This app requires the following Desktop Integration. Some integration types may replace or change certain
               behaviours within Agency Cloud.
             </SmallText>
-            <ul className="ml-4">
+            <ul>
               {userDesktopIntegrationTypes.map((integration) => (
                 <li key={integration.name}>{integration?.description ?? ''}</li>
               ))}
             </ul>
             <SmallText hasGreyText>
               For more information regarding Desktop Integration types, please{' '}
-              {connectIsDesktop ? (
-                <a
-                  href={
-                    'agencycloud://process/webpage?url=https://marketplace-documentation.reapit.cloud/integration-types'
-                  }
-                >
-                  click here
-                </a>
-              ) : (
-                <a
-                  href="https://marketplace-documentation.reapit.cloud/integration-types"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  click here
-                </a>
-              )}
+              <DesktopLink
+                uri="https://marketplace-documentation.reapit.cloud/integration-types"
+                acProcess={AcProcessType.web}
+                target="_blank"
+                content="click here"
+              />
               .
             </SmallText>
           </>
@@ -148,14 +134,7 @@ export const AppInstallModalContent: FC<AppInstallModalContentProps> = ({
           <>
             <SmallText hasGreyText>
               {developer} have specified that there is a cost for using this {isDirectApi ? 'integration' : 'app'},
-              please{' '}
-              {connectIsDesktop ? (
-                <a href={`agencycloud://process/webpage?url=${pricingUrl}`}>click here</a>
-              ) : (
-                <a href={pricingUrl} target="_blank" rel="noopener noreferrer">
-                  click here
-                </a>
-              )}{' '}
+              please <DesktopLink uri={pricingUrl} acProcess={AcProcessType.web} target="_blank" content="click here" />{' '}
               to view their pricing information. You will be billed directly by {developer}.
             </SmallText>
             {developer !== 'Reapit Ltd' && (

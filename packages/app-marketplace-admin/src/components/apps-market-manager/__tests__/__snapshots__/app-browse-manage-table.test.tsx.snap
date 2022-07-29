@@ -10,6 +10,7 @@ Object {
       />
       <div
         class="el-mb11"
+        connectsession="[object Object]"
       >
         <h2
           class="el-has-capitalised-text el-subtitle"
@@ -34,6 +35,7 @@ Object {
     />
     <div
       class="el-mb11"
+      connectsession="[object Object]"
     >
       <h2
         class="el-has-capitalised-text el-subtitle"

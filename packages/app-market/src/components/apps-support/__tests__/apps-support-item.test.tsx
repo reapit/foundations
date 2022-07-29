@@ -6,6 +6,7 @@ import { mockAppDetailModel, mockAppSummaryModelPagedResult } from '../../../tes
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 
 jest.mock('@reapit/utils-react', () => ({
+  ...jest.requireActual('@reapit/utils-react'),
   useReapitGet: jest.fn(),
 }))
 

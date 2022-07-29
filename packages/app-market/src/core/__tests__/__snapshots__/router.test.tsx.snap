@@ -15,7 +15,7 @@ Object {
           class="el-nav-container"
         >
           <a
-            class="el-nav-item-active el-nav-item"
+            class="el-nav-item"
           >
             <span
               class="el-nav-item-icon el-icon"
@@ -91,7 +91,7 @@ Object {
             </span>
           </a>
           <a
-            class="el-nav-item"
+            class="el-nav-item-active el-nav-item"
           >
             <span
               class="el-nav-item-icon el-icon-size-medium el-icon"
@@ -282,7 +282,7 @@ Object {
         class="el-nav-container"
       >
         <a
-          class="el-nav-item-active el-nav-item"
+          class="el-nav-item"
         >
           <span
             class="el-nav-item-icon el-icon"
@@ -358,7 +358,7 @@ Object {
           </span>
         </a>
         <a
-          class="el-nav-item"
+          class="el-nav-item-active el-nav-item"
         >
           <span
             class="el-nav-item-icon el-icon-size-medium el-icon"

@@ -78,6 +78,7 @@ export const AppBrowseUpsert: FC<{}> = () => {
         <Button onClick={openNewPage(ExternalPages.appMarketplaceAdminDocs)}>View Docs</Button>
       </SecondaryNavContainer>
       <PageContainer>
+        <Title>AppMarket Configuration Table</Title>
         {appMarketPlaceCmsLoading ? (
           <Loader />
         ) : (

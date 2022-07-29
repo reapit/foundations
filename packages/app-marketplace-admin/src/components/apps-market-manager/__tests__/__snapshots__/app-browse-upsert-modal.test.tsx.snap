@@ -15,13 +15,13 @@ Object {
         class="app-modal el-is-active el-modal"
       >
         <div
+          class="el-modal-header"
+        >
+          AppMarket Item
+        </div>
+        <div
           class="el-modal-body"
         >
-          <h1
-            class="el-title"
-          >
-            New Item
-          </h1>
           <form>
             <h2
               class="el-subtitle"
@@ -257,27 +257,62 @@ Object {
                   >
                     Is Free
                   </label>
-                  <input
-                    class="el-toggle-checkbox"
-                    id="toggle-free"
-                    name="filters.isFree"
-                    type="checkbox"
-                  />
-                  <label
-                    class="el-has-grey-bg el-toggle-label"
-                    for="toggle-free"
+                  <div
+                    class="el-has-grey-bg el-toggle-radio-wrap"
                   >
-                    <span
-                      class="el-toggle-item"
+                    <input
+                      checked=""
+                      class="el-toggle-radio"
+                      id="not-applied-free"
+                      name="filters.isFree"
+                      type="radio"
+                      value="notApplied"
+                    />
+                    <label
+                      class="el-has-grey-bg el-toggle-radio-label"
+                      for="not-applied-free"
                     >
-                      Free
-                    </span>
-                    <span
-                      class="el-toggle-item"
+                      <span
+                        class="el-toggle-radio-item"
+                      >
+                        Not Applied
+                      </span>
+                    </label>
+                    <input
+                      class="el-toggle-radio"
+                      id="free"
+                      name="filters.isFree"
+                      type="radio"
+                      value="free"
+                    />
+                    <label
+                      class="el-has-grey-bg el-toggle-radio-label"
+                      for="free"
                     >
-                      Paid
-                    </span>
-                  </label>
+                      <span
+                        class="el-toggle-radio-item"
+                      >
+                        Free
+                      </span>
+                    </label>
+                    <input
+                      class="el-toggle-radio"
+                      id="paid"
+                      name="filters.isFree"
+                      type="radio"
+                      value="paid"
+                    />
+                    <label
+                      class="el-has-grey-bg el-toggle-radio-label"
+                      for="paid"
+                    >
+                      <span
+                        class="el-toggle-radio-item"
+                      >
+                        Paid
+                      </span>
+                    </label>
+                  </div>
                 </div>
               </div>
               <div
@@ -291,27 +326,62 @@ Object {
                   >
                     Is Featured
                   </label>
-                  <input
-                    class="el-toggle-checkbox"
-                    id="toggle-featured"
-                    name="filters.isFeatured"
-                    type="checkbox"
-                  />
-                  <label
-                    class="el-has-grey-bg el-toggle-label"
-                    for="toggle-featured"
+                  <div
+                    class="el-has-grey-bg el-toggle-radio-wrap"
                   >
-                    <span
-                      class="el-toggle-item"
+                    <input
+                      checked=""
+                      class="el-toggle-radio"
+                      id="not-applied-featured"
+                      name="filters.isFeatured"
+                      type="radio"
+                      value="notApplied"
+                    />
+                    <label
+                      class="el-has-grey-bg el-toggle-radio-label"
+                      for="not-applied-featured"
                     >
-                      Yes
-                    </span>
-                    <span
-                      class="el-toggle-item"
+                      <span
+                        class="el-toggle-radio-item"
+                      >
+                        Not Applied
+                      </span>
+                    </label>
+                    <input
+                      class="el-toggle-radio"
+                      id="is-featured"
+                      name="filters.isFeatured"
+                      type="radio"
+                      value="isFeatured"
+                    />
+                    <label
+                      class="el-has-grey-bg el-toggle-radio-label"
+                      for="is-featured"
                     >
-                      No
-                    </span>
-                  </label>
+                      <span
+                        class="el-toggle-radio-item"
+                      >
+                        Is Featured
+                      </span>
+                    </label>
+                    <input
+                      class="el-toggle-radio"
+                      id="not-featured"
+                      name="filters.isFeatured"
+                      type="radio"
+                      value="notFeatured"
+                    />
+                    <label
+                      class="el-has-grey-bg el-toggle-radio-label"
+                      for="not-featured"
+                    >
+                      <span
+                        class="el-toggle-radio-item"
+                      >
+                        Not Featured
+                      </span>
+                    </label>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1184,6 +1254,7 @@ Object {
                       </button>
                       <input
                         class="el-file-input"
+                        data-testid="el-file-input"
                         type="file"
                       />
                       <input
@@ -1195,7 +1266,7 @@ Object {
                       <p
                         class="el-has-grey-text el-has-no-margin el-small-text"
                       >
-                        Dimensions: 96px x 96px
+                        Upload Image
                       </p>
                     </div>
                   </div>
@@ -1255,7 +1326,7 @@ Object {
                 class="el-input-wrap-full"
               >
                 <div
-                  class="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+                  class="el-mb5 el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
                 >
                   <div
                     class="el-pn-icon"
@@ -1281,7 +1352,7 @@ Object {
                   <div
                     class="el-pn-content"
                   >
-                    If a Live To or Live From value is set, Is Live will be ignored.
+                    If a ‘Live To’ or ‘Live From’ value is set, ‘Is Live’ will be ignored.
                   </div>
                 </div>
                 <div
@@ -1345,13 +1416,13 @@ Object {
       class="app-modal el-is-active el-modal"
     >
       <div
+        class="el-modal-header"
+      >
+        AppMarket Item
+      </div>
+      <div
         class="el-modal-body"
       >
-        <h1
-          class="el-title"
-        >
-          New Item
-        </h1>
         <form>
           <h2
             class="el-subtitle"
@@ -1587,27 +1658,62 @@ Object {
                 >
                   Is Free
                 </label>
-                <input
-                  class="el-toggle-checkbox"
-                  id="toggle-free"
-                  name="filters.isFree"
-                  type="checkbox"
-                />
-                <label
-                  class="el-has-grey-bg el-toggle-label"
-                  for="toggle-free"
+                <div
+                  class="el-has-grey-bg el-toggle-radio-wrap"
                 >
-                  <span
-                    class="el-toggle-item"
+                  <input
+                    checked=""
+                    class="el-toggle-radio"
+                    id="not-applied-free"
+                    name="filters.isFree"
+                    type="radio"
+                    value="notApplied"
+                  />
+                  <label
+                    class="el-has-grey-bg el-toggle-radio-label"
+                    for="not-applied-free"
                   >
-                    Free
-                  </span>
-                  <span
-                    class="el-toggle-item"
+                    <span
+                      class="el-toggle-radio-item"
+                    >
+                      Not Applied
+                    </span>
+                  </label>
+                  <input
+                    class="el-toggle-radio"
+                    id="free"
+                    name="filters.isFree"
+                    type="radio"
+                    value="free"
+                  />
+                  <label
+                    class="el-has-grey-bg el-toggle-radio-label"
+                    for="free"
                   >
-                    Paid
-                  </span>
-                </label>
+                    <span
+                      class="el-toggle-radio-item"
+                    >
+                      Free
+                    </span>
+                  </label>
+                  <input
+                    class="el-toggle-radio"
+                    id="paid"
+                    name="filters.isFree"
+                    type="radio"
+                    value="paid"
+                  />
+                  <label
+                    class="el-has-grey-bg el-toggle-radio-label"
+                    for="paid"
+                  >
+                    <span
+                      class="el-toggle-radio-item"
+                    >
+                      Paid
+                    </span>
+                  </label>
+                </div>
               </div>
             </div>
             <div
@@ -1621,27 +1727,62 @@ Object {
                 >
                   Is Featured
                 </label>
-                <input
-                  class="el-toggle-checkbox"
-                  id="toggle-featured"
-                  name="filters.isFeatured"
-                  type="checkbox"
-                />
-                <label
-                  class="el-has-grey-bg el-toggle-label"
-                  for="toggle-featured"
+                <div
+                  class="el-has-grey-bg el-toggle-radio-wrap"
                 >
-                  <span
-                    class="el-toggle-item"
+                  <input
+                    checked=""
+                    class="el-toggle-radio"
+                    id="not-applied-featured"
+                    name="filters.isFeatured"
+                    type="radio"
+                    value="notApplied"
+                  />
+                  <label
+                    class="el-has-grey-bg el-toggle-radio-label"
+                    for="not-applied-featured"
                   >
-                    Yes
-                  </span>
-                  <span
-                    class="el-toggle-item"
+                    <span
+                      class="el-toggle-radio-item"
+                    >
+                      Not Applied
+                    </span>
+                  </label>
+                  <input
+                    class="el-toggle-radio"
+                    id="is-featured"
+                    name="filters.isFeatured"
+                    type="radio"
+                    value="isFeatured"
+                  />
+                  <label
+                    class="el-has-grey-bg el-toggle-radio-label"
+                    for="is-featured"
                   >
-                    No
-                  </span>
-                </label>
+                    <span
+                      class="el-toggle-radio-item"
+                    >
+                      Is Featured
+                    </span>
+                  </label>
+                  <input
+                    class="el-toggle-radio"
+                    id="not-featured"
+                    name="filters.isFeatured"
+                    type="radio"
+                    value="notFeatured"
+                  />
+                  <label
+                    class="el-has-grey-bg el-toggle-radio-label"
+                    for="not-featured"
+                  >
+                    <span
+                      class="el-toggle-radio-item"
+                    >
+                      Not Featured
+                    </span>
+                  </label>
+                </div>
               </div>
             </div>
           </div>
@@ -2514,6 +2655,7 @@ Object {
                     </button>
                     <input
                       class="el-file-input"
+                      data-testid="el-file-input"
                       type="file"
                     />
                     <input
@@ -2525,7 +2667,7 @@ Object {
                     <p
                       class="el-has-grey-text el-has-no-margin el-small-text"
                     >
-                      Dimensions: 96px x 96px
+                      Upload Image
                     </p>
                   </div>
                 </div>
@@ -2585,7 +2727,7 @@ Object {
               class="el-input-wrap-full"
             >
               <div
-                class="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+                class="el-mb5 el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
               >
                 <div
                   class="el-pn-icon"
@@ -2611,7 +2753,7 @@ Object {
                 <div
                   class="el-pn-content"
                 >
-                  If a Live To or Live From value is set, Is Live will be ignored.
+                  If a ‘Live To’ or ‘Live From’ value is set, ‘Is Live’ will be ignored.
                 </div>
               </div>
               <div

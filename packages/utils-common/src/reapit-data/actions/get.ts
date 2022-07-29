@@ -38,6 +38,7 @@ export enum GetActionNames {
   getPublicWebhookKey = 'getPublicWebhookKey',
   getRevisionConsents = 'getRevisionConsents',
   getAppMarketAdmin = 'getAppMarketAdmin',
+  getAppMarketAdminLive = 'getAppMarketAdminLive',
   postAppMarketAdmin = 'postAppMarketAdmin',
   getPropertyById = 'getPropertyById',
   getProperties = 'getProperties',
@@ -57,12 +58,17 @@ export const getActions = (appEnv: AppEnv): GetActions => ({
   [GetActionNames.getAppMarketAdmin]: {
     api: ApiNames(appEnv).appMarketCms,
     path: PathNames.cmsConfig,
-    errorMessage: 'Something went wrong fetching apps - this error has been logged',
+    errorMessage: 'Something went wrong fetching config - this error has been logged',
+  },
+  [GetActionNames.getAppMarketAdminLive]: {
+    api: ApiNames(appEnv).appMarketCms,
+    path: PathNames.cmsConfigLive,
+    errorMessage: 'Something went wrong fetching config - this error has been logged',
   },
   [GetActionNames.postAppMarketAdmin]: {
     api: ApiNames(appEnv).appMarketCms,
     path: PathNames.cmsConfigPost,
-    errorMessage: 'Something went wrong fetching apps - this error has been logged',
+    errorMessage: 'Something went wrong updating config - this error has been logged',
   },
   [GetActionNames.getAppById]: {
     api: ApiNames(appEnv).platform,
