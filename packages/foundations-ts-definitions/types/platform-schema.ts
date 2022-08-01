@@ -5443,6 +5443,53 @@ export interface CreateIndividualKeyModel {
   name?: string
 }
 /**
+ * Request body used to set the energy performance rating information for properties in Ireland
+ */
+export interface CreateIrelandPropertyBERModel {
+  /**
+   * A flag denoting whether or not this property is exempt from requiring a Building Energy Rating (BER) certificate
+   */
+  exempt?: boolean
+  /**
+   * The BER rating of the property
+   */
+  rating?: string
+  /**
+   * The BER certificate reference number
+   */
+  refNumber?: string
+  /**
+   * The energy performance indicator for the property
+   */
+  epi?: string
+}
+/**
+ * Request body used to set the data specific to properties in Ireland
+ */
+export interface CreateIrelandPropertyModel {
+  /**
+   * Request body used to set the energy performance rating information for properties in Ireland
+   */
+  buildingEnergyRating?: {
+    /**
+     * A flag denoting whether or not this property is exempt from requiring a Building Energy Rating (BER) certificate
+     */
+    exempt?: boolean
+    /**
+     * The BER rating of the property
+     */
+    rating?: string
+    /**
+     * The BER certificate reference number
+     */
+    refNumber?: string
+    /**
+     * The energy performance indicator for the property
+     */
+    epi?: string
+  }
+}
+/**
  * Request body to create a journal entry
  * example:
  * [object Object]
@@ -6658,6 +6705,37 @@ export interface CreatePropertyModel {
     }
   }
   /**
+   * Request body used to set region specific property details. Child models are named based on the ISO3166 country code that the data inside the model relates to
+   */
+  regional?: {
+    /**
+     * Request body used to set the data specific to properties in Ireland
+     */
+    irl?: {
+      /**
+       * Request body used to set the energy performance rating information for properties in Ireland
+       */
+      buildingEnergyRating?: {
+        /**
+         * A flag denoting whether or not this property is exempt from requiring a Building Energy Rating (BER) certificate
+         */
+        exempt?: boolean
+        /**
+         * The BER rating of the property
+         */
+        rating?: string
+        /**
+         * The BER certificate reference number
+         */
+        refNumber?: string
+        /**
+         * The energy performance indicator for the property
+         */
+        epi?: string
+      }
+    }
+  }
+  /**
    * The attributes describing the overall type of the property (eg house, bungalow, land), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
   type?: string[]
@@ -6749,6 +6827,37 @@ export interface CreatePropertyModel {
    */
   metadata?: {
     [name: string]: any
+  }
+}
+/**
+ * Request body used to set region specific property details. Child models are named based on the ISO3166 country code that the data inside the model relates to
+ */
+export interface CreatePropertyRegionalModel {
+  /**
+   * Request body used to set the data specific to properties in Ireland
+   */
+  irl?: {
+    /**
+     * Request body used to set the energy performance rating information for properties in Ireland
+     */
+    buildingEnergyRating?: {
+      /**
+       * A flag denoting whether or not this property is exempt from requiring a Building Energy Rating (BER) certificate
+       */
+      exempt?: boolean
+      /**
+       * The BER rating of the property
+       */
+      rating?: string
+      /**
+       * The BER certificate reference number
+       */
+      refNumber?: string
+      /**
+       * The energy performance indicator for the property
+       */
+      epi?: string
+    }
   }
 }
 /**
@@ -8542,6 +8651,53 @@ export interface InsertVendorContactRelationshipModel {
    * Flag denoting whether or not this relationship should be considered to be the main/primary relationship. Setting to true will automatically demote the existing primary relationship
    */
   isMain: boolean
+}
+/**
+ * Any specific details relating to energy performance ratings for properties marketed in Ireland
+ */
+export interface IrelandPropertyBERModel {
+  /**
+   * A flag denoting whether or not this property is exempt from requiring a Building Energy Rating (BER) certificate
+   */
+  exempt?: boolean
+  /**
+   * The BER rating of the property
+   */
+  rating?: string
+  /**
+   * The BER certificate reference number
+   */
+  refNumber?: string
+  /**
+   * The energy performance indicator for the property
+   */
+  epi?: string
+}
+/**
+ * Any specific details relating to the marketing of a property in Ireland
+ */
+export interface IrelandPropertyModel {
+  /**
+   * Any specific details relating to energy performance ratings for properties marketed in Ireland
+   */
+  buildingEnergyRating?: {
+    /**
+     * A flag denoting whether or not this property is exempt from requiring a Building Energy Rating (BER) certificate
+     */
+    exempt?: boolean
+    /**
+     * The BER rating of the property
+     */
+    rating?: string
+    /**
+     * The BER certificate reference number
+     */
+    refNumber?: string
+    /**
+     * The energy performance indicator for the property
+     */
+    epi?: string
+  }
 }
 export interface JournalEntries {
   pageSize?: number
@@ -11991,6 +12147,32 @@ export interface PropertyModel {
        */
       market?: string[]
     }
+    /**
+     * Any specific details relating to the marketing of a property in Ireland
+     */
+    irl?: {
+      /**
+       * Any specific details relating to energy performance ratings for properties marketed in Ireland
+       */
+      buildingEnergyRating?: {
+        /**
+         * A flag denoting whether or not this property is exempt from requiring a Building Energy Rating (BER) certificate
+         */
+        exempt?: boolean
+        /**
+         * The BER rating of the property
+         */
+        rating?: string
+        /**
+         * The BER certificate reference number
+         */
+        refNumber?: string
+        /**
+         * The energy performance indicator for the property
+         */
+        epi?: string
+      }
+    }
   }
   /**
    * The attributes describing the overall type of the property (eg house, bungalow, land), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
@@ -12722,6 +12904,32 @@ export interface PropertyModelPagedResult {
          */
         market?: string[]
       }
+      /**
+       * Any specific details relating to the marketing of a property in Ireland
+       */
+      irl?: {
+        /**
+         * Any specific details relating to energy performance ratings for properties marketed in Ireland
+         */
+        buildingEnergyRating?: {
+          /**
+           * A flag denoting whether or not this property is exempt from requiring a Building Energy Rating (BER) certificate
+           */
+          exempt?: boolean
+          /**
+           * The BER rating of the property
+           */
+          rating?: string
+          /**
+           * The BER certificate reference number
+           */
+          refNumber?: string
+          /**
+           * The energy performance indicator for the property
+           */
+          epi?: string
+        }
+      }
     }
     /**
      * The attributes describing the overall type of the property (eg house, bungalow, land), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
@@ -12838,6 +13046,32 @@ export interface PropertyRegionalModel {
      * Attributes describing which markets the property is available in (local/openA/openB/openC/openD)
      */
     market?: string[]
+  }
+  /**
+   * Any specific details relating to the marketing of a property in Ireland
+   */
+  irl?: {
+    /**
+     * Any specific details relating to energy performance ratings for properties marketed in Ireland
+     */
+    buildingEnergyRating?: {
+      /**
+       * A flag denoting whether or not this property is exempt from requiring a Building Energy Rating (BER) certificate
+       */
+      exempt?: boolean
+      /**
+       * The BER rating of the property
+       */
+      rating?: string
+      /**
+       * The BER certificate reference number
+       */
+      refNumber?: string
+      /**
+       * The energy performance indicator for the property
+       */
+      epi?: string
+    }
   }
 }
 /**
@@ -16527,6 +16761,53 @@ export interface UpdateIdentityDocumentModel {
   name?: string
 }
 /**
+ * Request body used to set the energy performance rating information for properties in Ireland
+ */
+export interface UpdateIrelandPropertyBERModel {
+  /**
+   * A flag denoting whether or not this property is exempt from requiring a Building Energy Rating (BER) certificate
+   */
+  exempt?: boolean
+  /**
+   * The BER rating of the property
+   */
+  rating?: string
+  /**
+   * The BER certificate reference number
+   */
+  refNumber?: string
+  /**
+   * The energy performance indicator for the property
+   */
+  epi?: string
+}
+/**
+ * Request body used to set the data specific to properties in Ireland
+ */
+export interface UpdateIrelandPropertyModel {
+  /**
+   * Request body used to set the energy performance rating information for properties in Ireland
+   */
+  buildingEnergyRating?: {
+    /**
+     * A flag denoting whether or not this property is exempt from requiring a Building Energy Rating (BER) certificate
+     */
+    exempt?: boolean
+    /**
+     * The BER rating of the property
+     */
+    rating?: string
+    /**
+     * The BER certificate reference number
+     */
+    refNumber?: string
+    /**
+     * The energy performance indicator for the property
+     */
+    epi?: string
+  }
+}
+/**
  * Request body used to update an existing landlord
  * example:
  * [object Object]
@@ -17569,6 +17850,37 @@ export interface UpdatePropertyModel {
     }
   }
   /**
+   * Request body used to set region specific property details. Child models are named based on the ISO3166 country code that the data inside the model relates to
+   */
+  regional?: {
+    /**
+     * Request body used to set the data specific to properties in Ireland
+     */
+    irl?: {
+      /**
+       * Request body used to set the energy performance rating information for properties in Ireland
+       */
+      buildingEnergyRating?: {
+        /**
+         * A flag denoting whether or not this property is exempt from requiring a Building Energy Rating (BER) certificate
+         */
+        exempt?: boolean
+        /**
+         * The BER rating of the property
+         */
+        rating?: string
+        /**
+         * The BER certificate reference number
+         */
+        refNumber?: string
+        /**
+         * The energy performance indicator for the property
+         */
+        epi?: string
+      }
+    }
+  }
+  /**
    * Request body used to set details specific to rural properties.
    */
   rural?: {
@@ -17652,6 +17964,37 @@ export interface UpdatePropertyModel {
    */
   metadata?: {
     [name: string]: any
+  }
+}
+/**
+ * Request body used to set region specific property details. Child models are named based on the ISO3166 country code that the data inside the model relates to
+ */
+export interface UpdatePropertyRegionalModel {
+  /**
+   * Request body used to set the data specific to properties in Ireland
+   */
+  irl?: {
+    /**
+     * Request body used to set the energy performance rating information for properties in Ireland
+     */
+    buildingEnergyRating?: {
+      /**
+       * A flag denoting whether or not this property is exempt from requiring a Building Energy Rating (BER) certificate
+       */
+      exempt?: boolean
+      /**
+       * The BER rating of the property
+       */
+      rating?: string
+      /**
+       * The BER certificate reference number
+       */
+      refNumber?: string
+      /**
+       * The energy performance indicator for the property
+       */
+      epi?: string
+    }
   }
 }
 /**
