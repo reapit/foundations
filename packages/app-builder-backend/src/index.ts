@@ -54,6 +54,7 @@ const start = async () => {
 
   app.disable('x-powered-by')
   app.use(cors())
+  app.use(express.json({ limit: '50mb' }))
 
   const httpServer = http.createServer(app)
   const server = new ExtendedApolloServerExpress({

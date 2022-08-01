@@ -27,6 +27,8 @@ import { ParsedArg } from '@/components/hooks/use-introspection/query-generators
 import { styled } from '@linaria/react'
 import { getLabel, Input as FormInput } from './form-input'
 import { useObject } from '@/components/hooks/objects/use-object'
+import { IntrospectionResult } from '@/components/hooks/use-introspection/parse-introspection'
+import { QueryableField } from '@/components/hooks/use-introspection/types'
 
 export interface TableProps extends ContainerProps {
   typeName?: string
@@ -122,13 +124,32 @@ const dateToHuman = (date: any) => {
   return d.toLocaleString()
 }
 
-const getDataCells = (row: any, subobjectNames: string[]) =>
+const formatValue = (value: any, field?: QueryableField) => {
+  if (!field) {
+    return value
+  }
+  const { nestedType, description } = field
+  if (nestedType === 'DateTime') {
+    return dateToHuman(value)
+  }
+  if (description?.includes('@urlType')) {
+    return <img src={value} alt={value} style={{ maxWidth: '100px' }} />
+  }
+  return value
+}
+
+const getDataCells = (row: any, subobjectNames: string[], object?: IntrospectionResult) =>
   Object.entries(row)
     .filter((entry) => shouldDisplay(entry, subobjectNames))
     .map(([label, value]) => {
       return {
         label: uppercaseSentence(label),
-        value: (typeof value === 'object' ? undefined : dateToHuman(value)) as string,
+        value: (typeof value === 'object'
+          ? undefined
+          : formatValue(
+              value,
+              object?.object.fields?.find((f) => f.name === label),
+            )) as string,
         children: typeof value === 'object' ? <ObjectTableCell obj={value} /> : undefined,
         narrowTable: {
           showLabel: true,
@@ -284,13 +305,12 @@ const Filters = ({
         })
         .map((arg) => {
           const { name } = arg
-          const value = filters[name]
           const setValue = (value: any) => {
             setFilters({ ...filters, [name]: value })
           }
           return (
             <FilterContainer key={arg.name}>
-              <FormInput input={arg} value={value} onChange={(e) => setValue(e.target.value)} name={name} />
+              <FormInput input={arg} onChange={(e) => setValue(e.target.value)} name={name} />
             </FilterContainer>
           )
         })}
@@ -310,6 +330,7 @@ export const Table = forwardRef<HTMLDivElement, TableProps & { disabled?: boolea
       loading: searchLoading,
     } = useObjectSearch(typeName, queryStr)
     const { specials } = useObjectSpecials(typeName)
+    const { object } = useObject(typeName)
     const { context } = usePageId()
     const loading = listLoading || searchLoading
 
@@ -332,7 +353,7 @@ export const Table = forwardRef<HTMLDivElement, TableProps & { disabled?: boolea
     let rows: RowProps[] | undefined
     if (data && typeName) {
       rows = data.map((row): RowProps => {
-        const cells = getDataCells(row, subobjectNames)
+        const cells = getDataCells(row, subobjectNames, object)
           .filter(({ label }) =>
             includedFields.map((s) => s.toLowerCase()).includes(label.toLowerCase().split(' ').join('')),
           )

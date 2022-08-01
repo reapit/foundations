@@ -88,13 +88,13 @@ export class PropertyImageResolver {
   @Authorized()
   async listPropertyImages(
     @Ctx() { accessToken, idToken }: Context,
-    @Arg('propertyId') propertyId: string,
+    @Arg('propertyId', { description: '@idOf(Property)' }) propertyId: string,
   ): Promise<PropertyImage[]> {
     const propertyImages = await this.service.getEntities({
       idToken,
       accessToken,
       variables: {
-        propertyId,
+        propertyId: [propertyId],
       },
     })
 

@@ -211,27 +211,33 @@ const FileUploadInput = ({
   defaultValue,
   onChange,
   disabled,
+  name,
 }: {
   disabled?: boolean
   label: string
   value?: string
   defaultValue?: string
+  name: string
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
 }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false)
-
+  const [file, setFile] = useState<string | undefined>(value)
   return (
     <div className={cx(elFlex1)} style={disabled ? { pointerEvents: 'none', opacity: 0.5 } : undefined}>
       <FileInput
         disabled={disabled}
         label={label}
+        name={name}
         defaultValue={defaultValue}
-        onChange={onChange}
+        onChange={(e) => {
+          onChange(e)
+          setFile(e.target.value)
+        }}
         onFileView={() => setModalIsOpen(true)}
       />
       <Modal title="Image Preview" isOpen={modalIsOpen} onModalClose={() => setModalIsOpen(false)}>
         <FlexContainer isFlexAlignCenter isFlexJustifyCenter>
-          {value && <img src={value} />}
+          {file && <img src={file} style={{ maxWidth: 420 }} />}
         </FlexContainer>
         <ButtonGroup alignment="right">
           <Button intent="low" onClick={() => setModalIsOpen(false)}>
@@ -507,6 +513,7 @@ export const Input = ({
         <FileUploadInput
           disabled={disabled}
           label={label}
+          name={name}
           defaultValue={defaultValue}
           value={value}
           onChange={onChange}

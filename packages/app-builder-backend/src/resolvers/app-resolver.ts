@@ -57,7 +57,11 @@ enum Access {
 }
 
 const getObjectScopes = (objectName: string, access: Access) => {
-  return `agencyCloud/${Pluralize.plural(objectName.toLowerCase())}.${access}`
+  let on = objectName
+  if (on.toLowerCase() === 'propertyimage') {
+    on = 'image'
+  }
+  return `agencyCloud/${Pluralize.plural(on)}.${access}`
 }
 
 // compare array of strings
@@ -114,6 +118,7 @@ const ensureScopes = async (app: DDBApp, accessToken: string) => {
       const name = node.type.resolvedName
       const props = node.props
       const objectName = node.props?.typeName as string | undefined
+
       if (!objectName || !props) {
         return null
       }
@@ -149,7 +154,7 @@ const ensureScopes = async (app: DDBApp, accessToken: string) => {
       return [
         {
           objectName,
-          access: props.showControls ? [Access.read, Access.write] : [Access.read],
+          access: props.showControls || name === 'Form' ? [Access.read, Access.write] : [Access.read],
         },
         ...subtypes.map((subtype) => ({
           objectName: subtype,
