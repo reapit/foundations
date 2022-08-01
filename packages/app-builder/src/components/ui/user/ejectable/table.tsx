@@ -249,7 +249,17 @@ const argsToDefaultFilters = (args?: ParsedArg[]) => {
   return obj
 }
 
-const FilterContainer = styled.div``
+const FilterContainer = styled.div`
+  display: flex;
+  flex: 1;
+
+  :not(:last-child) {
+    margin-right: 1rem;
+  }
+`
+const FiltersContainer = styled.div`
+  display: flex;
+`
 
 const Filters = ({
   filters,
@@ -261,18 +271,30 @@ const Filters = ({
   args?: ParsedArg[]
 }) => {
   return (
-    <FilterContainer>
-      {args?.map((arg) => {
-        const { name } = arg
-        const value = filters[name]
-        const setValue = (value: any) => {
-          setFilters({ ...filters, [name]: value })
-        }
-        return (
-          <FormInput input={arg} key={arg.name} value={value} onChange={(e) => setValue(e.target.value)} name={name} />
-        )
-      })}
-    </FilterContainer>
+    <FiltersContainer>
+      {args
+        ?.sort((a, b) => {
+          if (a.name === 'start') {
+            return -1
+          }
+          if (b.name === 'start') {
+            return 1
+          }
+          return 0
+        })
+        .map((arg) => {
+          const { name } = arg
+          const value = filters[name]
+          const setValue = (value: any) => {
+            setFilters({ ...filters, [name]: value })
+          }
+          return (
+            <FilterContainer key={arg.name}>
+              <FormInput input={arg} value={value} onChange={(e) => setValue(e.target.value)} name={name} />
+            </FilterContainer>
+          )
+        })}
+    </FiltersContainer>
   )
 }
 
