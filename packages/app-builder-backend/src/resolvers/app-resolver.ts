@@ -151,7 +151,7 @@ const ensureScopes = async (app: DDBApp, accessToken: string) => {
         })
         .filter((fieldName) => acEntities.find((entityName) => entityName.includes(fieldName)))
 
-      return [
+      const scopes = [
         {
           objectName,
           access: props.showControls || name === 'Form' ? [Access.read, Access.write] : [Access.read],
@@ -161,6 +161,15 @@ const ensureScopes = async (app: DDBApp, accessToken: string) => {
           access: [Access.read],
         })),
       ]
+
+      if (objectName.toLowerCase() === 'propertyimage') {
+        scopes.push({
+          objectName: 'properties',
+          access: [Access.read, Access.write],
+        })
+      }
+
+      return scopes
     })
     .flat()
     .filter(notEmpty)
@@ -173,6 +182,7 @@ const ensureScopes = async (app: DDBApp, accessToken: string) => {
     .filter((scope) => validScopes.includes(scope))
   // unique scopes
   const uniqueScopes = [...new Set(scopes)]
+
   return updateMarketplaceAppScopes(app.id, uniqueScopes, accessToken)
 }
 

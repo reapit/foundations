@@ -69,6 +69,7 @@ export const callCreatePropertyImageAPI = async (
 ): CreatePropertyImageReturn => {
   const traceId = context.traceId
   try {
+    console.log(context.authorization)
     const response = await createPlatformAxiosInstance().post<CreatePropertyImageReturn>(URLS.propertyImages, args, {
       headers: {
         Authorization: context.authorization,
