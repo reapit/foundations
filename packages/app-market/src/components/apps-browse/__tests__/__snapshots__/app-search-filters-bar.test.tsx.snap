@@ -12,7 +12,7 @@ Object {
         class="el-flex-column el-flex-container"
       >
         <p
-          class="apps-filters-mobile-browse-by el-has-no-margin el-small-text"
+          class="apps-filters-mobile-browse-by apps-search-mobile-controls el-has-no-margin el-small-text"
         >
           Browse By
         </p>
@@ -109,7 +109,7 @@ Object {
       class="el-flex-column el-flex-container"
     >
       <p
-        class="apps-filters-mobile-browse-by el-has-no-margin el-small-text"
+        class="apps-filters-mobile-browse-by apps-search-mobile-controls el-has-no-margin el-small-text"
       >
         Browse By
       </p>
@@ -304,11 +304,6 @@ Object {
               type="text"
             />
           </div>
-          <button
-            class="el-intent-low el-button"
-          >
-            Clear Search Filters
-          </button>
         </div>
       </div>
       <div
@@ -349,6 +344,19 @@ Object {
         >
           MOCK_APP_NAME_ANOTHER
         </label>
+      </div>
+      <div
+        class="apps-search-mobile-controls el-mb5 el-button-group"
+      >
+        <div
+          class="el-button-group-inner"
+        >
+          <button
+            class="el-intent-low el-button"
+          >
+            Clear Search Filters
+          </button>
+        </div>
       </div>
       <div
         class="apps-search-desktop-controls el-flex-container"
@@ -449,11 +457,6 @@ Object {
             type="text"
           />
         </div>
-        <button
-          class="el-intent-low el-button"
-        >
-          Clear Search Filters
-        </button>
       </div>
     </div>
     <div
@@ -494,6 +497,19 @@ Object {
       >
         MOCK_APP_NAME_ANOTHER
       </label>
+    </div>
+    <div
+      class="apps-search-mobile-controls el-mb5 el-button-group"
+    >
+      <div
+        class="el-button-group-inner"
+      >
+        <button
+          class="el-intent-low el-button"
+        >
+          Clear Search Filters
+        </button>
+      </div>
     </div>
     <div
       class="apps-search-desktop-controls el-flex-container"

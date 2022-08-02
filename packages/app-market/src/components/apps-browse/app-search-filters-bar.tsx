@@ -10,6 +10,8 @@ import {
   SmallText,
   Button,
   elMr5,
+  ButtonGroup,
+  elMb5,
 } from '@reapit/elements'
 import {
   appsFiltersMobileBrowseBy,
@@ -20,6 +22,7 @@ import {
   appsSearchInputIcon,
   AppsSearchMobileFilterControls,
   appsSearchMobileFilterControlsActive,
+  appsSearchMobileControls,
 } from './__styles__'
 import { useReapitGet } from '@reapit/utils-react'
 import { AppsBrowseConfigItemFiltersInterface, CategoryModelPagedResult } from '@reapit/foundations-ts-definitions'
@@ -120,15 +123,10 @@ export const AppSearchFilters: FC<AppSearchFiltersProps> = memo(({ mobileControl
                 ref={searchRef}
               />
             </FlexContainer>
-            {hasFilters && (
-              <Button onClick={handleClearSearch(setAppsBrowseFilterState, searchRef)} intent="low">
-                Clear Search Filters
-              </Button>
-            )}
           </AppsSearchMobileFilterControls>
         )}
         {mobileControlsState === 'filters' && (
-          <SmallText className={appsFiltersMobileBrowseBy} hasNoMargin>
+          <SmallText className={cx(appsFiltersMobileBrowseBy, appsSearchMobileControls)} hasNoMargin>
             Browse By
           </SmallText>
         )}
@@ -160,6 +158,13 @@ export const AppSearchFilters: FC<AppSearchFiltersProps> = memo(({ mobileControl
             </MultiSelectChip>
           ))}
         </ElMultiSelectUnSelected>
+      )}
+      {hasFilters && (
+        <ButtonGroup className={cx(appsSearchMobileControls, elMb5)}>
+          <Button onClick={handleClearSearch(setAppsBrowseFilterState, searchRef)} intent="low">
+            Clear Search Filters
+          </Button>
+        </ButtonGroup>
       )}
       <FlexContainer className={appsSearchDesktopControls}>
         <FlexContainer className={cx(appsSearchContainer, elMr5)} isFlexAlignCenter>
