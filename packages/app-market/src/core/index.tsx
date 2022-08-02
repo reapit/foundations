@@ -15,13 +15,9 @@ window.reapit = {
     connectClientId: '',
     connectOAuthUrl: '',
     connectUserPoolId: '',
-    platformApiUrl: '',
-    webComponentConfigApiUrl: '',
     developerPortalUrl: '',
     orgAdminRestrictedAppIds: [],
-    adminRestrictedAppIds: [],
     reapitConnectManagementUri: '',
-    comingSoonApps: [],
     clientHiddenAppIds: {},
   },
 }
