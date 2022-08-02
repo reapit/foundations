@@ -45,7 +45,7 @@ describe('AppsBrowse', () => {
 describe('handleSortConfigs', () => {
   it('should correctly sort configs', () => {
     const curried = handleSortConfigs(appsBrowseConfigCollection)
-    const config = appsBrowseConfigCollection.data
+    const config = appsBrowseConfigCollection.items
 
     expect(curried()).toEqual({
       featuredHeroApps: [config[0]],
@@ -105,7 +105,7 @@ describe('handleMobileControls', () => {
 describe('handleSetFilters', () => {
   it('should set filters', () => {
     const setAppsBrowseFilterState = jest.fn()
-    const curried = handleSetFilters(setAppsBrowseFilterState, configItem.filters)
+    const curried = handleSetFilters(setAppsBrowseFilterState, configItem?.filters ?? null)
 
     curried()
 

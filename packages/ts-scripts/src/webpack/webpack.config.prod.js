@@ -1,5 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+const WebpackFavicons = require('webpack-favicons')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
 const CopyPlugin = require('copy-webpack-plugin')
@@ -165,12 +165,10 @@ const webpackConfigProd = ({ appName }) => {
       new MiniCssExtractPlugin({
         filename: '[name].[contenthash].css',
       }),
-      new FaviconsWebpackPlugin({
-        logo: PATHS.logo,
-        cache: true,
-        inject: true,
-        mode: 'webapp',
-        devMode: 'webapp',
+      new WebpackFavicons({
+        src: PATHS.logo,
+        background: '#000',
+        theme_color: '#262F69',
         favicons: {
           appName,
           developerName: 'Reapit Ltd',

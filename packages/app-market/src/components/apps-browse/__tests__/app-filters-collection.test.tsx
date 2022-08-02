@@ -6,6 +6,8 @@ import { appsBrowseConfigCollection } from '../../../core/config'
 
 const configItem = handleSortConfigs(appsBrowseConfigCollection)().appsFilters[0]
 
+jest.mock('../../../core/use-apps-browse-state')
+
 describe('AppFiltersCollection', () => {
   viewPortOptions.forEach((option) => {
     it(`should match a snapshot for mobile ${option}`, () => {

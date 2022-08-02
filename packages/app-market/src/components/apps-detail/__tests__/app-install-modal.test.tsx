@@ -6,6 +6,7 @@ import { AppInstallModalContent, handleInstall } from '../app-install-modal'
 import { useReapitConnect } from '@reapit/connect-session'
 
 jest.mock('@reapit/utils-react', () => ({
+  ...jest.requireActual('@reapit/utils-react'),
   useReapitUpdate: jest.fn(() => [false, null, jest.fn()]),
 }))
 

@@ -1,8 +1,10 @@
 import { MediaType } from '@reapit/elements'
+import { AppsBrowseConfigEnum } from '@reapit/foundations-ts-definitions'
 import React from 'react'
-import { mockAppsBrowseState } from '../../../core/__mocks__/use-apps-browse-state'
 import { render } from '../../../tests/react-testing'
 import { AppsInstalledSuggested, handleCarouselCols, handleSortConfigs } from '../apps-installed-suggested'
+
+jest.mock('../../../core/use-apps-browse-state')
 
 describe('AppsInstalledSuggested', () => {
   it('should match a snapshot ', () => {
@@ -12,7 +14,30 @@ describe('AppsInstalledSuggested', () => {
 
 describe('handleSortConfigs', () => {
   it('should correctly return sorted configs if ids or uris are not provided', () => {
-    const curried = handleSortConfigs(mockAppsBrowseState.appsBrowseConfigState)
+    const curried = handleSortConfigs({
+      items: [
+        {
+          filters: {
+            id: ['MOCK_ID1'],
+          },
+          content: {
+            imageUrl: '',
+          },
+          configType: 'featuredHeroApps' as AppsBrowseConfigEnum,
+          live: {},
+        },
+        {
+          filters: {
+            id: ['MOCK_ID2'],
+          },
+          content: {
+            imageUrl: '',
+          },
+          configType: 'heroApps' as AppsBrowseConfigEnum,
+          live: {},
+        },
+      ],
+    })
 
     const result = curried()
 
@@ -21,7 +46,7 @@ describe('handleSortConfigs', () => {
 
   it('should correctly return sorted configs if both ids and uris are provided', () => {
     const curried = handleSortConfigs({
-      data: [
+      items: [
         {
           filters: {
             id: ['MOCK_ID1'],
@@ -29,7 +54,7 @@ describe('handleSortConfigs', () => {
           content: {
             imageUrl: 'https://foo.com',
           },
-          configType: 'featuredHeroApps',
+          configType: 'featuredHeroApps' as AppsBrowseConfigEnum,
           live: {},
         },
         {
@@ -39,7 +64,7 @@ describe('handleSortConfigs', () => {
           content: {
             imageUrl: 'https://bar.com',
           },
-          configType: 'heroApps',
+          configType: 'heroApps' as AppsBrowseConfigEnum,
           live: {},
         },
       ],

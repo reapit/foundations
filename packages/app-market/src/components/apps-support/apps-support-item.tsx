@@ -2,9 +2,8 @@ import React, { FC } from 'react'
 import { Card } from '@reapit/elements'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { AppDetailModel, AppSummaryModel } from '@reapit/foundations-ts-definitions'
-import { useReapitGet } from '@reapit/utils-react'
+import { AcProcessType, DesktopLink, useReapitGet } from '@reapit/utils-react'
 import { GetActionNames, getActions } from '@reapit/utils-common'
-import { openNewPage } from '../../utils/navigation'
 
 export interface AppsSupportItemProps {
   app: AppSummaryModel
@@ -33,15 +32,21 @@ export const AppsSupportItem: FC<AppsSupportItemProps> = ({ app }) => {
       listCardItems={[
         {
           listCardItemHeading: 'Website',
-          listCardItemSubHeading: homePage || 'Not Supplied',
+          listCardItemSubHeading: homePage ? (
+            <DesktopLink uri={homePage} acProcess={AcProcessType.web} target="_blank" content={homePage} />
+          ) : (
+            'Not Supplied'
+          ),
           listCardItemIcon: 'webInfographic',
-          onClick: homePage ? openNewPage(homePage) : undefined,
         },
         {
           listCardItemHeading: 'Support Email',
-          listCardItemSubHeading: supportEmail || 'Not Supplied',
+          listCardItemSubHeading: supportEmail ? (
+            <DesktopLink uri={supportEmail} acProcess={AcProcessType.mail} target="_blank" content={supportEmail} />
+          ) : (
+            'Not Supplied'
+          ),
           listCardItemIcon: 'mailInfographic',
-          onClick: supportEmail ? openNewPage(`mailto:${supportEmail}`) : undefined,
         },
         {
           listCardItemHeading: 'Telephone',
@@ -50,21 +55,40 @@ export const AppsSupportItem: FC<AppsSupportItemProps> = ({ app }) => {
         },
         {
           listCardItemHeading: 'Terms and Conditions',
-          listCardItemSubHeading: termsAndConditionsUrl || 'Not Supplied',
+          listCardItemSubHeading: termsAndConditionsUrl ? (
+            <DesktopLink
+              uri={termsAndConditionsUrl}
+              acProcess={AcProcessType.web}
+              target="_blank"
+              content={termsAndConditionsUrl}
+            />
+          ) : (
+            'Not Supplied'
+          ),
           listCardItemIcon: 'listInfographic',
-          onClick: termsAndConditionsUrl ? openNewPage(termsAndConditionsUrl) : undefined,
         },
         {
           listCardItemHeading: 'Privacy Policy',
-          listCardItemSubHeading: privacyPolicyUrl || 'Not Supplied',
+          listCardItemSubHeading: privacyPolicyUrl ? (
+            <DesktopLink
+              uri={privacyPolicyUrl}
+              acProcess={AcProcessType.web}
+              target="_blank"
+              content={privacyPolicyUrl}
+            />
+          ) : (
+            'Not Supplied'
+          ),
           listCardItemIcon: 'shieldInfographic',
-          onClick: privacyPolicyUrl ? openNewPage(privacyPolicyUrl) : undefined,
         },
         {
           listCardItemHeading: 'Pricing Policy',
-          listCardItemSubHeading: pricingUrl || 'Free',
+          listCardItemSubHeading: pricingUrl ? (
+            <DesktopLink uri={pricingUrl} acProcess={AcProcessType.web} target="_blank" content={pricingUrl} />
+          ) : (
+            'Free'
+          ),
           listCardItemIcon: 'doorLockInfographic',
-          onClick: pricingUrl ? openNewPage(pricingUrl) : undefined,
         },
       ]}
     />

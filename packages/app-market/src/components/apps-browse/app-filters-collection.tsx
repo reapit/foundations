@@ -1,20 +1,23 @@
 import { cx } from '@linaria/core'
 import { elMb5, elMr7, FlexContainer, Icon, IconNames, MediaType, useMediaQuery } from '@reapit/elements'
+import { AppsBrowseConfigItemFiltersInterface, AppsBrowseConfigItemInterface } from '@reapit/foundations-ts-definitions'
 import React, { Dispatch, FC, memo, SetStateAction, useCallback, useMemo } from 'react'
-import { AppsBrowseConfigItem, AppsBrowseConfigItemFilters, useAppsBrowseState } from '../../core/use-apps-browse-state'
+import { useAppsBrowseState } from '../../core/use-apps-browse-state'
 import { AppFilterCol, AppFilterSubtitle, AppFilterStrapline } from './__styles__'
 
 interface AppFiltersCollectionProps {
-  configItem: AppsBrowseConfigItem
+  configItem: AppsBrowseConfigItemInterface
 }
 
 export const handleSetFilters =
   (
-    setAppsBrowseFilterState: Dispatch<SetStateAction<AppsBrowseConfigItemFilters | null>>,
-    filters: AppsBrowseConfigItemFilters | null,
+    setAppsBrowseFilterState: Dispatch<SetStateAction<AppsBrowseConfigItemFiltersInterface | null>>,
+    filters?: AppsBrowseConfigItemFiltersInterface | null,
   ) =>
   () => {
-    setAppsBrowseFilterState(filters)
+    if (filters) {
+      setAppsBrowseFilterState(filters)
+    }
   }
 
 export const handleIconSize = (mediaQuery: MediaType) => () => {

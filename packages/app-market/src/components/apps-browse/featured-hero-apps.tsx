@@ -3,7 +3,7 @@ import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { useReapitGet } from '@reapit/utils-react'
 import { Button, elFadeIn, elMb7, FlexContainer, MediaType, PlaceholderImage, useMediaQuery } from '@reapit/elements'
-import { AppDetailModel } from '@reapit/foundations-ts-definitions'
+import { AppDetailModel, AppsBrowseConfigItemInterface } from '@reapit/foundations-ts-definitions'
 import {
   FeaturedHeroAppsContainer,
   FeaturedHeroAppsContentContainer,
@@ -24,10 +24,9 @@ import {
 import { navigate } from '../../utils/navigation'
 import { Routes } from '../../constants/routes'
 import { useHistory } from 'react-router-dom'
-import { AppsBrowseConfigItem } from '../../core/use-apps-browse-state'
 
 interface FeaturedHeroAppsCollectionProps {
-  configItem: AppsBrowseConfigItem
+  configItem?: AppsBrowseConfigItemInterface
 }
 
 export const handlePlaceholderSize = (mediaQuery: MediaType) => () => {
@@ -44,10 +43,24 @@ export const handlePlaceholderSize = (mediaQuery: MediaType) => () => {
   return 320
 }
 
+export const handleIconPlaceholderSize = (mediaQuery: MediaType) => () => {
+  const { isMobile, isTablet, isDesktop } = mediaQuery
+
+  if (isMobile) {
+    return 48
+  }
+
+  if (isTablet || isDesktop) {
+    return 72
+  }
+
+  return 96
+}
+
 export const FeaturedHeroAppsCollection: FC<FeaturedHeroAppsCollectionProps> = memo(({ configItem }) => {
   const history = useHistory()
   const mediaQuery = useMediaQuery()
-  const { filters, content } = configItem
+  const { filters, content } = configItem ?? {}
 
   const [appDetail] = useReapitGet<AppDetailModel>({
     reapitConnectBrowserSession,
@@ -59,6 +72,7 @@ export const FeaturedHeroAppsCollection: FC<FeaturedHeroAppsCollectionProps> = m
   })
 
   const placeholderSize = useMemo(handlePlaceholderSize(mediaQuery), [mediaQuery])
+  const iconPlaceholderSize = useMemo(handleIconPlaceholderSize(mediaQuery), [mediaQuery])
   const app = appDetail ?? {}
   const { name, media, summary, category, id } = app
   const iconUri = media?.find((item) => item.type === 'icon')?.uri
@@ -76,7 +90,7 @@ export const FeaturedHeroAppsCollection: FC<FeaturedHeroAppsCollectionProps> = m
                 {iconUri ? (
                   <FeaturedHeroAppsIcon className={elFadeIn} src={iconUri} alt={name} />
                 ) : (
-                  <PlaceholderImage className={elMb7} placeholder="placeholderSmall" size={48} />
+                  <PlaceholderImage className={elMb7} placeholder="placeholderSmall" size={iconPlaceholderSize} />
                 )}
                 <FeaturedHeroAppsNameContainer>
                   <FeaturedHeroAppsSubtitle>{name}</FeaturedHeroAppsSubtitle>
@@ -89,7 +103,7 @@ export const FeaturedHeroAppsCollection: FC<FeaturedHeroAppsCollectionProps> = m
                   Find Out More
                 </Button>
               </FeaturedHeroAppsInnerContainer>
-              <FeaturedHeroAppsStrapline>{summary}</FeaturedHeroAppsStrapline>
+              <FeaturedHeroAppsStrapline>{content?.strapline ?? summary}</FeaturedHeroAppsStrapline>
               <Button
                 className={featuredHeroAppsButtonDesktop}
                 style={{ background: content?.brandColour, color: '#fff' }}

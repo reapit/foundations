@@ -3,7 +3,7 @@ import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { useReapitGet } from '@reapit/utils-react'
 import { elFadeIn, elHFull, FlexContainer, MediaType, PlaceholderImage, useMediaQuery } from '@reapit/elements'
-import { AppDetailModel } from '@reapit/foundations-ts-definitions'
+import { AppDetailModel, AppsBrowseConfigItemInterface } from '@reapit/foundations-ts-definitions'
 import {
   HeroAppsChip,
   HeroAppsContainer,
@@ -24,10 +24,9 @@ import { cx } from '@linaria/core'
 import { navigate } from '../../utils/navigation'
 import { Routes } from '../../constants/routes'
 import { useHistory } from 'react-router-dom'
-import { AppsBrowseConfigItem } from '../../core/use-apps-browse-state'
 
 interface HeroAppsCollectionProps {
-  configItem: AppsBrowseConfigItem
+  configItem?: AppsBrowseConfigItemInterface
 }
 
 export const handlePlaceholderSize = (mediaQuery: MediaType) => () => {
@@ -47,7 +46,8 @@ export const handlePlaceholderSize = (mediaQuery: MediaType) => () => {
 export const HeroAppsCollection: FC<HeroAppsCollectionProps> = memo(({ configItem }) => {
   const history = useHistory()
   const mediaQuery = useMediaQuery()
-  const { filters, content } = configItem
+  const { filters, content } = configItem ?? {}
+  const { isMobile } = mediaQuery
   const [appDetail] = useReapitGet<AppDetailModel>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppById],
@@ -74,14 +74,14 @@ export const HeroAppsCollection: FC<HeroAppsCollectionProps> = memo(({ configIte
               {iconUri ? (
                 <HeroAppsIcon className={elFadeIn} src={iconUri} alt={name} />
               ) : (
-                <PlaceholderImage placeholder="placeholderSmall" size={40} />
+                <PlaceholderImage placeholder="placeholderSmall" size={isMobile ? 40 : 72} />
               )}
               <HeroAppsNameContainer>
                 <HeroAppsSubtitle>{name}</HeroAppsSubtitle>
                 <HeroAppsChip>{category?.name}</HeroAppsChip>
               </HeroAppsNameContainer>
             </HeroAppsContentContainer>
-            <HeroAppsStrapline>{summary}</HeroAppsStrapline>
+            <HeroAppsStrapline>{content?.strapline ?? summary}</HeroAppsStrapline>
           </HeroAppsContentWrapper>
           <HeroAppsImageContainer>
             {content?.imageUrl ? (

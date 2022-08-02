@@ -363,7 +363,9 @@ Object {
             Back To App
           </button>
           <a
-            href="agencycloud://app?id=MOCK_APP_ID&launchUri=https://foo.bar"
+            href="https://foo.bar"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             <button
               class="el-intent-primary el-button"
@@ -415,7 +417,9 @@ Object {
           Back To App
         </button>
         <a
-          href="agencycloud://app?id=MOCK_APP_ID&launchUri=https://foo.bar"
+          href="https://foo.bar"
+          rel="noopener noreferrer"
+          target="_blank"
         >
           <button
             class="el-intent-primary el-button"

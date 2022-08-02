@@ -4,6 +4,8 @@ import { render } from '../../../tests/react-testing'
 import { mockAppSummaryModelPagedResult } from '../../../tests/__stubs__/apps'
 import { FilteredAppsCollection } from '../filtered-apps'
 
+jest.mock('../../../core/use-apps-browse-state')
+
 jest.mock('@reapit/utils-react', () => ({
   useReapitGet: jest.fn(() => [mockAppSummaryModelPagedResult, false]),
   objectToQuery: jest.fn(() => '?query=string'),

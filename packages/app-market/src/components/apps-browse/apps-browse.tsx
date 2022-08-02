@@ -3,11 +3,7 @@ import { PageContainer, FlexContainer, Icon, elMb5, useMediaQuery, MediaType, el
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { DeveloperAppsCollection } from './developer-apps-collection'
-import {
-  AppsBrowseConfigCollection,
-  AppsBrowseConfigItemFilters,
-  useAppsBrowseState,
-} from '../../core/use-apps-browse-state'
+import { AppsBrowseConfigCollection, useAppsBrowseState } from '../../core/use-apps-browse-state'
 import { FeaturedHeroAppsCollection } from './featured-hero-apps'
 import { FeaturedAppsCollection } from './featured-apps-collection'
 import { SimpleAppsCollection } from './simple-apps-collection'
@@ -32,10 +28,11 @@ import { AppSearchFilters } from './app-search-filters-bar'
 import { FilteredAppsCollection } from './filtered-apps'
 import { cx } from '@linaria/core'
 import { Carousel } from '../carousel'
+import { AppsBrowseConfigItemFiltersInterface } from '@reapit/foundations-ts-definitions'
 
 export type MobileControlsState = 'search' | 'filters' | null
 
-export const checkHasFilters = (appsBrowseFilterState: AppsBrowseConfigItemFilters | null) => (): boolean => {
+export const checkHasFilters = (appsBrowseFilterState: AppsBrowseConfigItemFiltersInterface | null) => (): boolean => {
   if (!appsBrowseFilterState) return false
 
   return Boolean(
@@ -55,11 +52,13 @@ export const checkHasFilters = (appsBrowseFilterState: AppsBrowseConfigItemFilte
 
 export const handleSetFilters =
   (
-    setAppsBrowseFilterState: Dispatch<SetStateAction<AppsBrowseConfigItemFilters | null>>,
-    filters: AppsBrowseConfigItemFilters | null,
+    setAppsBrowseFilterState: Dispatch<SetStateAction<AppsBrowseConfigItemFiltersInterface | null>>,
+    filters?: AppsBrowseConfigItemFiltersInterface | null,
   ) =>
   () => {
-    setAppsBrowseFilterState(filters)
+    if (filters) {
+      setAppsBrowseFilterState(filters)
+    }
   }
 
 export const handleFiltersCols = (mediaQuery: MediaType) => () => {
@@ -80,11 +79,11 @@ export const handleMobileControls =
 
 export const handleSortConfigs = (appsBrowseConfigState: AppsBrowseConfigCollection | null) => () => {
   const featuredHeroApps =
-    appsBrowseConfigState?.data.filter((config) => config.configType === 'featuredHeroApps') ?? []
-  const heroApps = appsBrowseConfigState?.data.filter((config) => config.configType === 'heroApps') ?? []
-  const appsFilters = appsBrowseConfigState?.data.filter((config) => config.configType === 'appsFilters') ?? []
-  const featuredApps = appsBrowseConfigState?.data.filter((config) => config.configType === 'featuredApps') ?? []
-  const simpleApps = appsBrowseConfigState?.data.filter((config) => config.configType === 'simpleApps') ?? []
+    appsBrowseConfigState?.items.filter((config) => config.configType === 'featuredHeroApps') ?? []
+  const heroApps = appsBrowseConfigState?.items.filter((config) => config.configType === 'heroApps') ?? []
+  const appsFilters = appsBrowseConfigState?.items.filter((config) => config.configType === 'appsFilters') ?? []
+  const featuredApps = appsBrowseConfigState?.items.filter((config) => config.configType === 'featuredApps') ?? []
+  const simpleApps = appsBrowseConfigState?.items.filter((config) => config.configType === 'simpleApps') ?? []
 
   return {
     featuredHeroApps,
@@ -113,7 +112,9 @@ export const AppsBrowse: FC = () => {
   return (
     <PageContainer>
       <AppSearchFiltersWrap>
-        <BrowseAppsTitle className={cx(mobileControlsState && browseAppsTitleHasFilters)}>AppMarket</BrowseAppsTitle>
+        <BrowseAppsTitle className={cx(mobileControlsState && isMobile && browseAppsTitleHasFilters)}>
+          AppMarket
+        </BrowseAppsTitle>
         <FlexContainer className={cx(elMb5, elMt3, appsSearchMobileControls)}>
           <Icon
             className={cx(appsSearchMobileIcon, mobileControlsState === 'filters' && appsSearchMobileIconActive)}

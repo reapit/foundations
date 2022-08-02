@@ -24,8 +24,8 @@ export const handleCarouselCols = (mediaQuery: MediaType) => () => {
 
 export const handleSortConfigs = (appsBrowseConfigState: AppsBrowseConfigCollection | null) => () => {
   const featuredHeroApps =
-    appsBrowseConfigState?.data.filter((config) => config.configType === 'featuredHeroApps') ?? []
-  const heroApps = appsBrowseConfigState?.data.filter((config) => config.configType === 'heroApps') ?? []
+    appsBrowseConfigState?.items.filter((config) => config.configType === 'featuredHeroApps') ?? []
+  const heroApps = appsBrowseConfigState?.items.filter((config) => config.configType === 'heroApps') ?? []
 
   const featuredHeroAppDetails = featuredHeroApps
     .map(({ content, filters }) => {

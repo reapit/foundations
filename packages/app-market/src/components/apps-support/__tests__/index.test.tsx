@@ -5,6 +5,7 @@ import { useReapitGet } from '@reapit/utils-react'
 import { mockAppSummaryModelPagedResult } from '../../../tests/__stubs__/apps'
 
 jest.mock('@reapit/utils-react', () => ({
+  ...jest.requireActual('@reapit/utils-react'),
   useReapitGet: jest.fn(),
 }))
 

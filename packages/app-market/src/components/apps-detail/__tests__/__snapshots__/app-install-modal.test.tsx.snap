@@ -24,11 +24,7 @@ Object {
           </b>
            Users and Offices within your Organisation. To do this, you need to visit the
            
-          <a
-            href="agencycloud://process/webpage?url=undefined"
-          >
-            Reapit Connect Management App.
-          </a>
+          Reapit Connect Management App.
         </p>
         <p
           class="el-body-text"
@@ -40,9 +36,7 @@ Object {
         >
           This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
         </p>
-        <ul
-          class="ml-4"
-        >
+        <ul>
           <li>
             Launchable from the applicant screen
           </li>
@@ -56,7 +50,9 @@ Object {
           For more information regarding Desktop Integration types, please
            
           <a
-            href="agencycloud://process/webpage?url=https://marketplace-documentation.reapit.cloud/integration-types"
+            href="https://marketplace-documentation.reapit.cloud/integration-types"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             click here
           </a>
@@ -73,10 +69,11 @@ Object {
           Will Test DevCo
            have specified that there is a cost for using this 
           integration
-          , please
-           
+          , please 
           <a
-            href="agencycloud://process/webpage?url=https://foo.bar"
+            href="https://foo.bar"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             click here
           </a>
@@ -183,11 +180,7 @@ Object {
         </b>
          Users and Offices within your Organisation. To do this, you need to visit the
          
-        <a
-          href="agencycloud://process/webpage?url=undefined"
-        >
-          Reapit Connect Management App.
-        </a>
+        Reapit Connect Management App.
       </p>
       <p
         class="el-body-text"
@@ -199,9 +192,7 @@ Object {
       >
         This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
       </p>
-      <ul
-        class="ml-4"
-      >
+      <ul>
         <li>
           Launchable from the applicant screen
         </li>
@@ -215,7 +206,9 @@ Object {
         For more information regarding Desktop Integration types, please
          
         <a
-          href="agencycloud://process/webpage?url=https://marketplace-documentation.reapit.cloud/integration-types"
+          href="https://marketplace-documentation.reapit.cloud/integration-types"
+          rel="noopener noreferrer"
+          target="_blank"
         >
           click here
         </a>
@@ -232,10 +225,11 @@ Object {
         Will Test DevCo
          have specified that there is a cost for using this 
         integration
-        , please
-         
+        , please 
         <a
-          href="agencycloud://process/webpage?url=https://foo.bar"
+          href="https://foo.bar"
+          rel="noopener noreferrer"
+          target="_blank"
         >
           click here
         </a>
@@ -399,9 +393,7 @@ Object {
           </b>
            Users and Offices within your Organisation. To do this, you need to visit the
            
-          <a>
-            Reapit Connect Management App.
-          </a>
+          Reapit Connect Management App.
         </p>
         <p
           class="el-body-text"
@@ -413,9 +405,7 @@ Object {
         >
           This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
         </p>
-        <ul
-          class="ml-4"
-        >
+        <ul>
           <li>
             Launchable from the applicant screen
           </li>
@@ -448,8 +438,7 @@ Object {
           Will Test DevCo
            have specified that there is a cost for using this 
           integration
-          , please
-           
+          , please 
           <a
             href="https://foo.bar"
             rel="noopener noreferrer"
@@ -560,9 +549,7 @@ Object {
         </b>
          Users and Offices within your Organisation. To do this, you need to visit the
          
-        <a>
-          Reapit Connect Management App.
-        </a>
+        Reapit Connect Management App.
       </p>
       <p
         class="el-body-text"
@@ -574,9 +561,7 @@ Object {
       >
         This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
       </p>
-      <ul
-        class="ml-4"
-      >
+      <ul>
         <li>
           Launchable from the applicant screen
         </li>
@@ -609,8 +594,7 @@ Object {
         Will Test DevCo
          have specified that there is a cost for using this 
         integration
-        , please
-         
+        , please 
         <a
           href="https://foo.bar"
           rel="noopener noreferrer"
@@ -788,9 +772,7 @@ Object {
         >
           This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
         </p>
-        <ul
-          class="ml-4"
-        >
+        <ul>
           <li>
             Launchable from the applicant screen
           </li>
@@ -925,9 +907,7 @@ Object {
       >
         This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
       </p>
-      <ul
-        class="ml-4"
-      >
+      <ul>
         <li>
           Launchable from the applicant screen
         </li>
@@ -1117,9 +1097,7 @@ Object {
         >
           This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
         </p>
-        <ul
-          class="ml-4"
-        >
+        <ul>
           <li>
             Launchable from the applicant screen
           </li>
@@ -1152,8 +1130,7 @@ Object {
           Will Test DevCo
            have specified that there is a cost for using this 
           integration
-          , please
-           
+          , please 
           <a
             href="https://foo.bar"
             rel="noopener noreferrer"
@@ -1272,9 +1249,7 @@ Object {
       >
         This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
       </p>
-      <ul
-        class="ml-4"
-      >
+      <ul>
         <li>
           Launchable from the applicant screen
         </li>
@@ -1307,8 +1282,7 @@ Object {
         Will Test DevCo
          have specified that there is a cost for using this 
         integration
-        , please
-         
+        , please 
         <a
           href="https://foo.bar"
           rel="noopener noreferrer"
@@ -1486,9 +1460,7 @@ Object {
         >
           This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
         </p>
-        <ul
-          class="ml-4"
-        >
+        <ul>
           <li>
             Launchable from the applicant screen
           </li>
@@ -1626,9 +1598,7 @@ Object {
       >
         This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
       </p>
-      <ul
-        class="ml-4"
-      >
+      <ul>
         <li>
           Launchable from the applicant screen
         </li>
@@ -1823,9 +1793,7 @@ Object {
         >
           This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
         </p>
-        <ul
-          class="ml-4"
-        >
+        <ul>
           <li>
             Launchable from the applicant screen
           </li>
@@ -1858,8 +1826,7 @@ Object {
           Will Test DevCo
            have specified that there is a cost for using this 
           integration
-          , please
-           
+          , please 
           <a
             href="https://foo.bar"
             rel="noopener noreferrer"
@@ -1980,9 +1947,7 @@ Object {
       >
         This app requires the following Desktop Integration. Some integration types may replace or change certain behaviours within Agency Cloud.
       </p>
-      <ul
-        class="ml-4"
-      >
+      <ul>
         <li>
           Launchable from the applicant screen
         </li>
@@ -2015,8 +1980,7 @@ Object {
         Will Test DevCo
          have specified that there is a cost for using this 
         integration
-        , please
-         
+        , please 
         <a
           href="https://foo.bar"
           rel="noopener noreferrer"

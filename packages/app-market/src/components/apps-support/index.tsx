@@ -40,7 +40,7 @@ export const AppsSupportPage: FC = () => {
   const [apps, appsLoading] = useReapitGet<AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getApps],
-    queryParams: { clientId, appName: search, pageSize: 25, includeHiddenApps: true, onlyInstalled: true },
+    queryParams: { clientId, searchTerm: search, pageSize: 25, includeHiddenApps: true, onlyInstalled: true },
     fetchWhenTrue: [search, clientId],
   })
 
@@ -51,7 +51,7 @@ export const AppsSupportPage: FC = () => {
         <Icon className={elMb5} icon="userInfographic" iconSize="large" />
         <SmallText hasGreyText>
           For AppMarket support, you will need to contact the app developer directly. You can find the relevant contact
-          details by searching by app name.
+          details by searching by app or developer name.
         </SmallText>
         <SmallText hasGreyText>
           In addition we have provided comprehensive documentation on using the AppMarket at the below link.
@@ -63,16 +63,16 @@ export const AppsSupportPage: FC = () => {
       <PageContainer className={elHFull}>
         <FlexContainer className={cx(appsSearchContainer, elMb11)} isFlexAlignCenter>
           <Icon className={appsSearchInputIcon} icon="searchSystem" fontSize="1.25rem" />
-          <AppsSearchInput type="text" placeholder="Search" onChange={debouncedSearch} />
+          <AppsSearchInput type="text" placeholder="Search by App or Developer" onChange={debouncedSearch} />
         </FlexContainer>
-        {!search && !apps && !appsLoading && (
+        {!search && !appsLoading && (
           <PersistentNotification isInline isExpanded isFullWidth intent="secondary">
-            Search for an app name to get started
+            Search for an app or developer name to get support contact details
           </PersistentNotification>
         )}
         {appsLoading ? (
           <Loader />
-        ) : (
+        ) : search ? (
           <Grid>
             {apps?.data?.map((app) => (
               <Col key={app.id}>
@@ -80,7 +80,7 @@ export const AppsSupportPage: FC = () => {
               </Col>
             ))}
           </Grid>
-        )}
+        ) : null}
       </PageContainer>
     </FlexContainer>
   )

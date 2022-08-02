@@ -22,7 +22,7 @@ import {
   Button,
 } from '@reapit/elements'
 import { useHistory, useParams } from 'react-router-dom'
-import { HTMLRender, useReapitGet } from '@reapit/utils-react'
+import { AcProcessType, DesktopLink, HTMLRender, useReapitGet } from '@reapit/utils-react'
 import {
   AppDetailModel,
   DesktopIntegrationTypeModelPagedResult,
@@ -198,9 +198,14 @@ export const AppsDetail: FC = () => {
               </Button>
             )}
             {supportEmail && (
-              <a href={`mailto:${supportEmail}`} rel="noopener noreferrer" target="_blank">
-                <Button intent="low">{isDirectApi ? 'Enquire About Integration' : 'Enquire About App'}</Button>
-              </a>
+              <DesktopLink
+                uri={supportEmail}
+                acProcess={AcProcessType.mail}
+                target="_blank"
+                content={
+                  <Button intent="low">{isDirectApi ? 'Enquire About Integration' : 'Enquire About App'}</Button>
+                }
+              />
             )}
           </ButtonGroup>
           <AppDetailDescriptionGrid>
@@ -236,9 +241,7 @@ export const AppsDetail: FC = () => {
               <Col>
                 <Subtitle hasNoMargin>Website</Subtitle>
                 <BodyText hasGreyText hasNoMargin>
-                  <a href={homePage} rel="noopener noreferrer" target="_blank">
-                    {homePage}
-                  </a>
+                  <DesktopLink uri={homePage} acProcess={AcProcessType.web} target="_blank" content={homePage} />
                 </BodyText>
               </Col>
             )}
@@ -246,9 +249,12 @@ export const AppsDetail: FC = () => {
               <Col>
                 <Subtitle hasNoMargin>Support Email</Subtitle>
                 <BodyText hasGreyText hasNoMargin>
-                  <a href={`mailto:${supportEmail}`} rel="noopener noreferrer" target="_blank">
-                    {supportEmail}
-                  </a>
+                  <DesktopLink
+                    uri={supportEmail}
+                    acProcess={AcProcessType.mail}
+                    target="_blank"
+                    content={supportEmail}
+                  />
                 </BodyText>
               </Col>
             )}
@@ -262,21 +268,27 @@ export const AppsDetail: FC = () => {
             )}
             {termsAndConditionsUrl && (
               <Col>
-                <Subtitle hasNoMargin>Support Email</Subtitle>
+                <Subtitle hasNoMargin>Terms and Conditions</Subtitle>
                 <BodyText hasGreyText hasNoMargin>
-                  <a href={termsAndConditionsUrl} rel="noopener noreferrer" target="_blank">
-                    {termsAndConditionsUrl}
-                  </a>
+                  <DesktopLink
+                    uri={termsAndConditionsUrl}
+                    acProcess={AcProcessType.web}
+                    target="_blank"
+                    content={termsAndConditionsUrl}
+                  />
                 </BodyText>
               </Col>
             )}
             {privacyPolicyUrl && (
               <Col>
-                <Subtitle hasNoMargin>Support Email</Subtitle>
+                <Subtitle hasNoMargin>Privacy Policy</Subtitle>
                 <BodyText hasGreyText hasNoMargin>
-                  <a href={privacyPolicyUrl} rel="noopener noreferrer" target="_blank">
-                    {privacyPolicyUrl}
-                  </a>
+                  <DesktopLink
+                    uri={privacyPolicyUrl}
+                    acProcess={AcProcessType.web}
+                    target="_blank"
+                    content={privacyPolicyUrl}
+                  />
                 </BodyText>
               </Col>
             )}
@@ -284,9 +296,7 @@ export const AppsDetail: FC = () => {
               <Subtitle hasNoMargin>Pricing Policy</Subtitle>
               <BodyText hasGreyText hasNoMargin>
                 {!isFree && pricingUrl ? (
-                  <a href={pricingUrl} rel="noopener noreferrer" target="_blank">
-                    {pricingUrl}
-                  </a>
+                  <DesktopLink uri={pricingUrl} acProcess={AcProcessType.web} target="_blank" content={pricingUrl} />
                 ) : (
                   'Free'
                 )}
