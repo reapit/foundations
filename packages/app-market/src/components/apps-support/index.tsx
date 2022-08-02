@@ -56,7 +56,7 @@ export const AppsSupportPage: FC = () => {
         <SmallText hasGreyText>
           In addition we have provided comprehensive documentation on using the AppMarket at the below link.
         </SmallText>
-        <Button onClick={openNewPage('')} intent="neutral">
+        <Button onClick={openNewPage('https://marketplace-documentation.reapit.cloud/')} intent="neutral">
           View Docs
         </Button>
       </SecondaryNavContainer>
