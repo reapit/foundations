@@ -112,7 +112,9 @@ export const AppsBrowse: FC = () => {
   return (
     <PageContainer>
       <AppSearchFiltersWrap>
-        <BrowseAppsTitle className={cx(mobileControlsState && browseAppsTitleHasFilters)}>AppMarket</BrowseAppsTitle>
+        <BrowseAppsTitle className={cx(mobileControlsState && isMobile && browseAppsTitleHasFilters)}>
+          AppMarket
+        </BrowseAppsTitle>
         <FlexContainer className={cx(elMb5, elMt3, appsSearchMobileControls)}>
           <Icon
             className={cx(appsSearchMobileIcon, mobileControlsState === 'filters' && appsSearchMobileIconActive)}
