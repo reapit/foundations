@@ -1,0 +1,6 @@
+[defaults]
+project=app-market
+org=reapit-ltd
+
+[http]
+keepalive=false
