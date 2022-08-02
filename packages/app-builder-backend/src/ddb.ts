@@ -66,7 +66,7 @@ export const ensureTables = async () => {
 export type DDBApp = Omit<App, 'name'>
 
 const ddbItemToApp = (item: { [key: string]: AttributeValue }): DDBApp => {
-  const { id, createdAt, updatedAt, pages, subdomain, navConfig, customEntities, clientId } = item
+  const { id, createdAt, updatedAt, pages, subdomain, navConfig, customEntities, clientId, developerName } = item
 
   return {
     id: id?.S as string,
@@ -77,6 +77,7 @@ const ddbItemToApp = (item: { [key: string]: AttributeValue }): DDBApp => {
     pages: (pages?.S && (JSON.parse(pages.S as string) as Array<Page>)) || [],
     customEntities: (customEntities?.S && (JSON.parse(customEntities.S as string) as Array<CustomEntity>)) || [],
     navConfig: (navConfig?.S && (JSON.parse(navConfig.S as string) as Array<NavConfig>)) || [],
+    developerName: developerName?.S as string | undefined,
   }
 }
 

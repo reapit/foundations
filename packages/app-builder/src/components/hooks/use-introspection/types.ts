@@ -56,6 +56,10 @@ export const isListType = (type: IntrospectionOutputTypeRef): type is Introspect
   return type.kind === TypeKind.LIST
 }
 
+export const isListField = (type: IntrospectionOutputTypeRef): type is IntrospectionListTypeRef<any> => {
+  return type.kind === TypeKind.LIST
+}
+
 export const isListInputType = (type: IntrospectionInputTypeRef): type is IntrospectionListTypeRef<any> => {
   return type.kind === TypeKind.LIST
 }

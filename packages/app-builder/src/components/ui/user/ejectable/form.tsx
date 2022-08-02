@@ -54,20 +54,18 @@ const removeTypename = (object: any) => {
   return object
 }
 
-const lowercaseFirstLetter = (str: string) => str.charAt(0).toLowerCase() + str.slice(1)
-
 const mapDataToArgs = (data: any, args?: ParsedArg[], mapIds?: boolean) => {
   if (!args) return {}
   if (!data) return {}
   const dataCopy = {}
   const [objInput] = args.filter((a) => a.name !== 'id')
   objInput.fields?.forEach((arg) => {
-    const { name, idOfType, isList } = arg
+    const { name, idOfType } = arg
     if (data[name]) {
       dataCopy[name] = data[name]
     }
     if (idOfType) {
-      const obj = data[lowercaseFirstLetter(idOfType) + (isList ? 's' : '')]
+      const obj = data[name.replace('Id', '')]
       if (obj) {
         if (mapIds) {
           dataCopy[name] = Array.isArray(obj) ? obj.map((o) => o.id) : obj.id
@@ -107,6 +105,8 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
         return addValueToObject(prevState, name, actualValue)
       })
     }
+
+    console.log('formState', formState)
 
     return (
       <ComponentWrapper {...props} ref={ref}>

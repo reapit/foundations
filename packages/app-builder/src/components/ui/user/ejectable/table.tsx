@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react'
+import React, { forwardRef, useEffect, useState } from 'react'
 import {
   Button,
   elFlex,
@@ -23,6 +23,12 @@ import { lowercaseFirstLetter, useSubObjects } from '../../../../components/hook
 import { notEmpty } from '../../../../components/hooks/use-introspection/helpers'
 import { usePageId } from '../../../../components/hooks/use-page-id'
 import { useObjectSpecials } from '../../../../components/hooks/objects/use-object-specials'
+import { ParsedArg } from '@/components/hooks/use-introspection/query-generators'
+import { styled } from '@linaria/react'
+import { getLabel, Input as FormInput } from './form-input'
+import { useObject } from '@/components/hooks/objects/use-object'
+import { IntrospectionResult } from '@/components/hooks/use-introspection/parse-introspection'
+import { QueryableField } from '@/components/hooks/use-introspection/types'
 
 export interface TableProps extends ContainerProps {
   typeName?: string
@@ -33,7 +39,8 @@ export interface TableProps extends ContainerProps {
   [key: string]: any
 }
 
-const ObjectTableCell = ({ obj }) => {
+const ObjectTableCell = ({ obj }: { obj: any }) => {
+  const { object, loading } = useObject(obj?.__typename)
   if (!obj) {
     return null
   }
@@ -52,10 +59,18 @@ const ObjectTableCell = ({ obj }) => {
   if (typeof obj !== 'object') {
     return obj
   }
+  if (loading) {
+    return <Loader />
+  }
+  if (object) {
+    return <span>{getLabel(obj, object.labelKeys)}</span>
+  }
   return (
     <span>
       {Object.entries(obj)
-        .filter(([key, value]) => !key.startsWith('_') && typeof value !== 'object' && key !== 'id')
+        .filter(([key, value]) => {
+          return !key.startsWith('_') && typeof value !== 'object' && key !== 'id'
+        })
         .map((kv) => kv[1])
         .join(' ')}
     </span>
@@ -97,17 +112,50 @@ const shouldDisplay = ([key, value]: [string, any | undefined | null], subobject
   return !isHidden && !isId && !isSubObject
 }
 
-const getDataCells = (row: any, subobjectNames: string[]) =>
+const isDateString = (value: any) => {
+  return value && typeof value === 'string' && value.match(/^\d{4}-\d{2}-\d{2}/)
+}
+
+const dateToHuman = (date: any) => {
+  if (!isDateString(date)) {
+    return date
+  }
+  const d = new Date(date)
+  return d.toLocaleString()
+}
+
+const formatValue = (value: any, field?: QueryableField) => {
+  if (!field) {
+    return value
+  }
+  const { nestedType, description } = field
+  if (nestedType === 'DateTime') {
+    return dateToHuman(value)
+  }
+  if (description?.includes('@urlType')) {
+    return <img src={value} alt={value} style={{ maxWidth: '100px' }} />
+  }
+  return value
+}
+
+const getDataCells = (row: any, subobjectNames: string[], object?: IntrospectionResult) =>
   Object.entries(row)
     .filter((entry) => shouldDisplay(entry, subobjectNames))
-    .map(([label, value]) => ({
-      label: uppercaseSentence(label),
-      value: (typeof value === 'object' ? undefined : value) as string,
-      children: typeof value === 'object' ? <ObjectTableCell obj={value} /> : undefined,
-      narrowTable: {
-        showLabel: true,
-      },
-    }))
+    .map(([label, value]) => {
+      return {
+        label: uppercaseSentence(label),
+        value: (typeof value === 'object'
+          ? undefined
+          : formatValue(
+              value,
+              object?.object.fields?.find((f) => f.name === label),
+            )) as string,
+        children: typeof value === 'object' ? <ObjectTableCell obj={value} /> : undefined,
+        narrowTable: {
+          showLabel: true,
+        },
+      }
+    })
 
 const AdditionalCells = ({
   specialsAndSubobjects,
@@ -191,19 +239,104 @@ const Controls = ({
   )
 }
 
+const argsToDefaultFilters = (args?: ParsedArg[]) => {
+  if (!args) {
+    return {}
+  }
+  const obj = {}
+  args.forEach((arg) => {
+    switch (arg.typeName) {
+      case 'Int':
+      case 'Float':
+        obj[arg.name] = 0
+        break
+      case 'Boolean':
+        obj[arg.name] = false
+        break
+      case 'String':
+        obj[arg.name] = ''
+        break
+      case 'DateTime':
+        obj[arg.name] = new Date()
+        if (arg.name.toLowerCase() === 'end') {
+          obj[arg.name].setHours(23, 59, 59, 999)
+        }
+        obj[arg.name] = obj[arg.name].toISOString().split('.')[0]
+        break
+      default:
+        obj[arg.name] = null
+    }
+  })
+  return obj
+}
+
+const FilterContainer = styled.div`
+  display: flex;
+  flex: 1;
+
+  :not(:last-child) {
+    margin-right: 1rem;
+  }
+`
+const FiltersContainer = styled.div`
+  display: flex;
+`
+
+const Filters = ({
+  filters,
+  setFilters,
+  args,
+}: {
+  filters: any
+  setFilters: (filters: any) => void
+  args?: ParsedArg[]
+}) => {
+  return (
+    <FiltersContainer>
+      {args
+        ?.sort((a, b) => {
+          if (a.name === 'start') {
+            return -1
+          }
+          if (b.name === 'start') {
+            return 1
+          }
+          return 0
+        })
+        .map((arg) => {
+          const { name } = arg
+          const setValue = (value: any) => {
+            setFilters({ ...filters, [name]: value })
+          }
+          return (
+            <FilterContainer key={arg.name}>
+              <FormInput input={arg} onChange={(e) => setValue(e.target.value)} name={name} />
+            </FilterContainer>
+          )
+        })}
+    </FiltersContainer>
+  )
+}
+
 export const Table = forwardRef<HTMLDivElement, TableProps & { disabled?: boolean }>(
   ({ typeName, editPageId, showControls, disabled, showSearch, includedFields = [], ...props }, ref) => {
-    const { data: listResults, loading: listLoading } = useObjectList(typeName)
+    const [filters, setFilters] = useState<Record<string, any>>({})
+    const { data: listResults, loading: listLoading, args } = useObjectList(typeName, filters)
     const subobjects = useSubObjects(typeName)
-    const [queryStr, setQueryStr] = React.useState('')
+    const [queryStr, setQueryStr] = useState('')
     const {
       available: searchAvailable,
       data: searchResults,
       loading: searchLoading,
     } = useObjectSearch(typeName, queryStr)
     const { specials } = useObjectSpecials(typeName)
+    const { object } = useObject(typeName)
     const { context } = usePageId()
     const loading = listLoading || searchLoading
+
+    useEffect(() => {
+      setFilters(argsToDefaultFilters(args))
+    }, [args])
 
     const subobjectNames = subobjects.data.map(({ object: { name } }) => name)
     const specialsAndSubobjects = [
@@ -220,7 +353,7 @@ export const Table = forwardRef<HTMLDivElement, TableProps & { disabled?: boolea
     let rows: RowProps[] | undefined
     if (data && typeName) {
       rows = data.map((row): RowProps => {
-        const cells = getDataCells(row, subobjectNames)
+        const cells = getDataCells(row, subobjectNames, object)
           .filter(({ label }) =>
             includedFields.map((s) => s.toLowerCase()).includes(label.toLowerCase().split(' ').join('')),
           )
@@ -266,6 +399,7 @@ export const Table = forwardRef<HTMLDivElement, TableProps & { disabled?: boolea
           {displaySearch && (
             <Input type="text" placeholder="Search" value={queryStr} onChange={(e) => setQueryStr(e.target.value)} />
           )}
+          {!!args?.length && <Filters args={args} filters={filters} setFilters={setFilters} />}
           {loading && !displayNoType && <Loader label="Loading" />}
           {displayTable && (
             <ELTable

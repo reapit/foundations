@@ -1,6 +1,6 @@
 import { Appointment, AppointmentFragment, AppointmentInput, AppointmentType } from '../entities/appointments'
 import { gql } from 'apollo-server-core'
-import { Arg, Authorized, Ctx, FieldResolver, Mutation, Query, Resolver, Root } from 'type-graphql'
+import { Arg, Authorized, Ctx, FieldResolver, GraphQLISODateTime, Mutation, Query, Resolver, Root } from 'type-graphql'
 import { Context } from '../types'
 import { query } from '../utils/graphql-fetch'
 import { Office } from '../entities/office'
@@ -21,7 +21,7 @@ const getAppointmentTypesQuery = gql`
 const getAppointmentQuery = gql`
   ${AppointmentFragment}
   query GetAppointment($id: String!) {
-    GetAppointmentById(id: $id, embed: [offices, negotiators, property]) {
+    GetAppointmentById(id: $id, embed: [offices, negotiators, organiser, property]) {
       ...AppointmentFragment
     }
   }
@@ -30,7 +30,7 @@ const getAppointmentQuery = gql`
 const getAppointmentsQuery = gql`
   ${AppointmentFragment}
   query GetAppointments($start: String!, $end: String!) {
-    GetAppointments(start: $start, end: $end, embed: [offices, negotiators, property]) {
+    GetAppointments(start: $start, end: $end, embed: [offices, negotiators, organiser, property]) {
       _embedded {
         ...AppointmentFragment
       }
@@ -43,7 +43,7 @@ const createAppointmentMutation = gql`
   mutation CreateAppointment(
     $start: String!
     $end: String!
-    $description: String!
+    $description: String
     $attendee: CreateAppointmentModelAttendeeInput
     $organiserId: String!
     $propertyId: String
@@ -75,7 +75,7 @@ const updateAppointmentMutation = gql`
     $id: String!
     $start: String!
     $end: String!
-    $description: String!
+    $description: String
     $attendee: UpdateAppointmentModelAttendeeInput
     $organiserId: String!
     $propertyId: String
@@ -83,6 +83,7 @@ const updateAppointmentMutation = gql`
     $negotiatorIds: [String!]!
     $metadata: JSON
     $typeId: String!
+    $_eTag: String!
   ) {
     UpdateAppointment(
       id: $id
@@ -96,6 +97,7 @@ const updateAppointmentMutation = gql`
       officeIds: $officeIds
       typeId: $typeId
       metadata: $metadata
+      _eTag: $_eTag
     ) {
       ...AppointmentFragment
     }
@@ -215,7 +217,7 @@ const createAppointment = async (
     {
       ...appointment,
       type: appointment.typeId,
-      attendee: { type: 'contact', id: appointment.attendeeId },
+      attendee: appointment.attendeeId && { type: 'contact', id: appointment.attendeeId },
     },
     'CreateAppointment',
     {
@@ -239,14 +241,14 @@ const updateAppointment = async (
 ): Promise<Appointment> => {
   const existingAppointment = await getApiAppointment(id, accessToken, idToken)
   if (!existingAppointment) {
-    throw new Error(`Contact with id ${id} not found`)
+    throw new Error(`Appointment with id ${id} not found`)
   }
   const { _eTag } = existingAppointment
   await query<AppointmentAPIResponse<null>>(
     updateAppointmentMutation,
     {
       ...appointment,
-      attendee: { type: 'contact', id: appointment.attendeeId },
+      attendee: appointment.attendeeId && { type: 'contact', id: appointment.attendeeId },
       id,
       _eTag,
     },
@@ -272,10 +274,13 @@ export class AppointmentResolver {
   @Query(() => [Appointment])
   async listAppointments(
     @Ctx() { accessToken, idToken, storeCachedMetadata }: Context,
-    @Arg('start') start: string,
-    @Arg('end') end: string,
+    @Arg('start', () => GraphQLISODateTime) start: Date,
+    @Arg('end', () => GraphQLISODateTime) end: Date,
   ): Promise<Appointment[]> {
-    const appointments = await getAppointments(accessToken, idToken, { start, end })
+    const appointments = await getAppointments(accessToken, idToken, {
+      start: start.toISOString(),
+      end: end.toISOString(),
+    })
     appointments?.forEach((appointment) => {
       storeCachedMetadata(entityName, appointment.id, appointment.metadata)
     })
@@ -331,7 +336,7 @@ export class AppointmentResolver {
     @Arg(entityName) appointment: AppointmentInput,
   ): Promise<Appointment> {
     const { [entityName]: metadata } = operationMetadata
-    const newAppointment = await updateAppointment(accessToken, idToken, id, {
+    const newAppointment = await updateAppointment(id, accessToken, idToken, {
       ...appointment,
       metadata,
     })
@@ -349,6 +354,9 @@ export class AppointmentResolver {
     if (appointment.attendee) {
       return appointment.attendee
     }
+    if (appointment.attendeeInfo?.type !== 'contact') {
+      return undefined
+    }
     const contact = await getContact(appointment.attendeeInfo.id, context.accessToken, context.idToken)
     if (!contact) {
       return undefined
@@ -357,15 +365,12 @@ export class AppointmentResolver {
   }
 
   @FieldResolver(() => AppointmentType)
-  async type(@Root() appointment: Appointment, @Ctx() context: Context): Promise<AppointmentType> {
+  async type(@Root() appointment: Appointment, @Ctx() context: Context): Promise<AppointmentType | undefined> {
     if (appointment.type) {
       return appointment.type
     }
     const types = await this.listAppointmentTypes(context)
     const type = types.find((t) => t.id === appointment.typeId)
-    if (!type) {
-      throw new Error(`Appointment type with id ${appointment.typeId} not found`)
-    }
     return type
   }
 }

@@ -3,7 +3,7 @@ import { gql } from 'apollo-server-core'
 import { Field, GraphQLISODateTime, ID, InputType, ObjectType } from 'type-graphql'
 import { ContactAddressType } from './contact'
 
-@ObjectType({ description: '@labelKeys(value)' })
+@ObjectType({ description: '@labelKeys(value) @notTopLevel()' })
 export class CompanyType {
   @Field(() => ID)
   id: string
