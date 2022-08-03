@@ -3,7 +3,7 @@ import { ElSnack } from '.'
 
 export const ElSnackHolder = styled.div`
   position: fixed;
-  z-index: 101;
+  z-index: 100;
   top: 1rem;
   right: 1rem;
   display: flex;
