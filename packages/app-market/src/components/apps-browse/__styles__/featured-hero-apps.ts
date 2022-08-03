@@ -4,7 +4,7 @@ import { ElBodyText, ElSubtitle } from '@reapit/elements'
 import {
   forDesktopAndAbove,
   forMobileAndAbove,
-  forSuperWidescreenAndAbove,
+  forWidescreenAndAbove,
   forTabletAndAbove,
 } from '../../../core/__styles__/media'
 
@@ -40,7 +40,7 @@ export const FeaturedHeroAppsStrapline = styled(ElBodyText)`
     -webkit-line-clamp: 3;
   }
 
-  ${forSuperWidescreenAndAbove} {
+  ${forWidescreenAndAbove} {
     margin-bottom: 0.5rem;
     -webkit-line-clamp: 1;
   }
@@ -56,7 +56,7 @@ export const FeaturedHeroAppsItem = styled.div`
     margin-bottom: 2.5rem;
   }
 
-  ${forSuperWidescreenAndAbove} {
+  ${forWidescreenAndAbove} {
     width: calc(50% - 1rem);
     display: inline-block;
     margin-right: 2rem;
@@ -76,7 +76,7 @@ export const FeaturedHeroAppsContainer = styled.div`
     height: 400px;
   }
 
-  ${forSuperWidescreenAndAbove} {
+  ${forWidescreenAndAbove} {
     height: 550px;
   }
 `
@@ -90,7 +90,7 @@ export const FeaturedHeroAppsFlexContainer = styled.div`
     flex-direction: row;
   }
 
-  ${forSuperWidescreenAndAbove} {
+  ${forWidescreenAndAbove} {
     flex-direction: column;
   }
 `
@@ -103,7 +103,7 @@ export const FeaturedHeroAppsContentContainer = styled.div`
     margin-right: 3rem;
   }
 
-  ${forSuperWidescreenAndAbove} {
+  ${forWidescreenAndAbove} {
     width: 100%;
     margin-right: 0;
   }
@@ -123,7 +123,7 @@ export const FeaturedHeroAppsNameContainer = styled.div`
     margin-left: 0;
   }
 
-  ${forSuperWidescreenAndAbove} {
+  ${forWidescreenAndAbove} {
     display: block;
     margin-left: 0.75rem;
   }
@@ -142,7 +142,7 @@ export const FeaturedHeroAppsInnerContainer = styled.div`
     flex-direction: column;
   }
 
-  ${forSuperWidescreenAndAbove} {
+  ${forWidescreenAndAbove} {
     margin-bottom: 0;
     flex-direction: row;
   }
@@ -184,7 +184,7 @@ export const FeaturedHeroAppsImageContainer = styled.div`
     height: auto;
   }
 
-  ${forSuperWidescreenAndAbove} {
+  ${forWidescreenAndAbove} {
     width: 100%;
     height: 100%;
   }
@@ -201,7 +201,7 @@ export const featuredHeroAppsButtonMobTablet = css`
     display: none;
   }
 
-  ${forSuperWidescreenAndAbove} {
+  ${forWidescreenAndAbove} {
     display: block;
   }
 `
@@ -213,7 +213,7 @@ export const featuredHeroAppsButtonDesktop = css`
     display: block;
   }
 
-  ${forSuperWidescreenAndAbove} {
+  ${forWidescreenAndAbove} {
     display: none;
   }
 `

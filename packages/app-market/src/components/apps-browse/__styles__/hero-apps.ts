@@ -4,7 +4,7 @@ import { ElBodyText, ElSubtitle } from '@reapit/elements'
 import {
   forDesktopAndAbove,
   forMobileAndAbove,
-  forSuperWidescreenAndAbove,
+  forWidescreenAndAbove,
   forTabletAndAbove,
 } from '../../../core/__styles__/media'
 
@@ -20,7 +20,7 @@ export const HeroAppsContainer = styled.div`
 `
 
 export const heroAppsCarouselWidescreen = css`
-  ${forSuperWidescreenAndAbove} {
+  ${forWidescreenAndAbove} {
     width: calc(50% - 1rem);
     display: inline-block;
   }
@@ -93,7 +93,7 @@ export const HeroAppsStrapline = styled(ElBodyText)`
     margin-bottom: 0;
   }
 
-  ${forSuperWidescreenAndAbove} {
+  ${forWidescreenAndAbove} {
     -webkit-line-clamp: 2;
     margin-bottom: 1.25rem;
   }
@@ -116,7 +116,7 @@ export const HeroAppsInnerContainer = styled.div`
     height: 300px;
   }
 
-  ${forSuperWidescreenAndAbove} {
+  ${forWidescreenAndAbove} {
     height: 550px;
   }
 `
@@ -139,7 +139,7 @@ export const HeroAppsContentContainer = styled.div`
     margin-bottom: 0.5rem;
   }
 
-  ${forSuperWidescreenAndAbove} {
+  ${forWidescreenAndAbove} {
     flex-direction: row;
     margin-bottom: 0;
   }
@@ -167,7 +167,7 @@ export const HeroAppsContentWrapper = styled.div`
     height: 100%;
   }
 
-  ${forSuperWidescreenAndAbove} {
+  ${forWidescreenAndAbove} {
     width: 100%;
     margin-right: 0;
     height: 155px;
@@ -189,7 +189,7 @@ export const HeroAppsNameContainer = styled.div`
     margin-left: 0;
   }
 
-  ${forSuperWidescreenAndAbove} {
+  ${forWidescreenAndAbove} {
     margin-left: 0.75rem;
   }
 `
@@ -229,7 +229,7 @@ export const HeroAppsImageContainer = styled.div`
     width: auto;
   }
 
-  ${forSuperWidescreenAndAbove} {
+  ${forWidescreenAndAbove} {
     width: 100%;
     flex-grow: 1;
   }
@@ -250,7 +250,7 @@ export const heroAppsFlexToggle = css`
     flex-direction: row;
   }
 
-  ${forSuperWidescreenAndAbove} {
+  ${forWidescreenAndAbove} {
     flex-direction: column;
   }
 `

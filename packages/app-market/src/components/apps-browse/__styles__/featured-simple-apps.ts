@@ -3,8 +3,8 @@ import { ElBodyText } from '@reapit/elements'
 import {
   forDesktopAndAbove,
   forMobileAndAbove,
-  forSuperWidescreenAndAbove,
   forTabletAndAbove,
+  forWidescreenAndAbove,
 } from '../../../core/__styles__/media'
 
 export const AppsGrid = styled.div`
@@ -50,7 +50,7 @@ export const AppsCol = styled.div`
     height: 86px;
   }
 
-  ${forSuperWidescreenAndAbove} {
+  ${forWidescreenAndAbove} {
     grid-column-end: span 3;
   }
 `
@@ -58,7 +58,7 @@ export const AppsCol = styled.div`
 export const AppsWrapper = styled.div`
   width: 100%;
 
-  ${forSuperWidescreenAndAbove} {
+  ${forWidescreenAndAbove} {
     width: calc(50% - 1rem);
   }
 `
