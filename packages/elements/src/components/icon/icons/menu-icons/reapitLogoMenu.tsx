@@ -5,6 +5,6 @@ export default memo(() => (
     <path d="M3 16.8L20 0L37 16.8V40H3V16.8Z" fill="#31448F" />
     <path d="M3 16.8L20 0L37 16.8V30L3 16.8Z" fill="#7BC9EB" />
     <path d="M37 40H27.0488L12.9512 6.96585L20 0L37 16.8V40Z" fill="#0061A8" />
-    <path d="M37 16.8V30L20 23.4829L12.9512 6.96585L20 0L37 16.8Z" fill="#23A4DE" />
+    <path d="M37 16.8V30L20 23.4829L12.9512 6.96585L20 0L37 16.8Z" fill="var(--nav-menu-icon-secondary-accent)" />
   </svg>
 ))
