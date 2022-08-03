@@ -5,7 +5,7 @@ import { elNavItemActive, elNavItemHideDesktop, elNavItemExpanded, elNavItemIcon
 import { NavStateProvider, useNavState } from '../../hooks/use-nav-state'
 import { MediaStateProvider } from '../../hooks/use-media-query'
 import { Icon } from '../icon'
-import { UseNavStory, UseNavMobileSubMenuStory } from './use-nav.stories'
+import { UseNavStory, UseNavMobileSubMenuStory, customTheme } from './use-nav.stories'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import { elIntentNeutral } from '../../styles/intent'
 import { elMl4, elMlAuto, elMr2 } from '../../styles/spacing'
@@ -91,7 +91,6 @@ In this example, changing the browser width to mobile will show the expanded mob
 </Canvas>
 
 <RenderHtmlMarkup component="Nav" story={['Basic Example With Mobile Menu']} />
-/>
 
 ## Desktop Mode
 
@@ -131,6 +130,72 @@ You can check if the app is in desktop mode by checking if the `window.__REAPIT_
 </Canvas>
 
 <RenderHtmlMarkup component="Nav" story={['Desktop Mode']} />
+
+## Theming Nav
+
+Desktop mode is achieved by adjusting a series of variables that alter the color, background, svg fill properties and hover states.
+
+**If you are building for the Reapit AppMarket, you should not use a custom theme and instead stick to the default styles.**
+
+In the below example, I add a `.custom-theme` class to the `Nav` element, having re-defined the variables in a style tag prior to the `Nav`. The class is defined as follows;
+
+```css
+--nav-menu-background-dark: var(--intent-primary);
+--nav-menu-background-accent: var(--intent-secondary);
+--nav-menu-text: var(--color-white);
+--nav-menu-text-hover: var(--color-white);
+--nav-menu-icon-primary-accent: var(--color-white);
+--nav-menu-icon-secondary-accent: var(--intent-secondary);
+
+
+.el-nav-item:hover {
+  --nav-menu-icon-primary-accent: var(--color-white);
+  --nav-menu-icon-secondary-accent: var(--intent-primary);
+}
+
+@media screen and (min-width: 768px) {
+  .el-nav-item-active {
+    --nav-menu-icon-primary-accent: var(--color-white);
+    --nav-menu-icon-secondary-accent: var(--intent-primary);
+  }
+}
+`
+```
+
+In this example, we have continued to use the Reapit colors however, in practice you can set the variables to be colors of your choosing.
+
+<Canvas>
+  <Story name="Theming Nav">
+    <Nav className={customTheme}>
+      <NavItem>
+        <Icon iconSize="medium" className={elNavItemIcon} icon="reapitLogoMenu" />
+        <Icon
+          className={cx(elIntentNeutral, elMlAuto, elMr2, elNavItemHideDesktop)}
+          icon="hamburgerMenu"
+          fontSize="2rem"
+        />
+      </NavItem>
+      <NavItem className={cx(elNavItemActive, elNavItemExpanded)} href="https://marketplace.reapit.cloud/apps">
+        <Icon iconSize="medium" icon="appsMenu" />
+        Apps
+      </NavItem>
+      <NavItem className={elNavItemExpanded} href="https://developers.reapit.cloud/analytics">
+        <Icon iconSize="medium" icon="analyticsMenu" />
+        Analytics
+      </NavItem>
+      <NavItem className={elNavItemExpanded} href="https://marketplace.reapit.cloud">
+        <Icon iconSize="medium" icon="marketplaceMenu" />
+        Marketplace
+      </NavItem>
+      <NavItem className={elNavItemExpanded} isSecondary href="https://developers.reapit.cloud/login">
+        <Icon iconSize="medium" icon="logoutMenu" />
+        Logout
+      </NavItem>
+    </Nav>
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Nav" story={['Theming Nav']} />
 
 ## React usage Complete example with `useNavState` hook
 

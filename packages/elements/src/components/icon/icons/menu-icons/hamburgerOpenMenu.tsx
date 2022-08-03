@@ -2,12 +2,12 @@ import React, { memo } from 'react'
 
 export default memo(() => (
   <svg width="1em" height="1em" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect width="32" height="32" rx="4" fill="#23A4DE" />
+    <rect width="32" height="32" rx="4" fill="var(--nav-menu-icon-secondary-accent)" />
     <path
       fillRule="evenodd"
       clipRule="evenodd"
       d="M20.6669 21.7983C20.9012 22.0326 21.2811 22.0326 21.5154 21.7983C21.7497 21.564 21.7497 21.1841 21.5154 20.9497L16.5657 16L21.5154 11.0503C21.7497 10.8159 21.7497 10.436 21.5154 10.2017C21.2811 9.96741 20.9012 9.96741 20.6669 10.2017L15.7171 15.1515L11.0502 10.4846C10.8159 10.2503 10.436 10.2503 10.2017 10.4846C9.9674 10.7189 9.9674 11.0988 10.2017 11.3331L14.8686 16L10.2017 20.6669C9.9674 20.9012 9.9674 21.2811 10.2017 21.5154C10.436 21.7497 10.8159 21.7497 11.0502 21.5154L15.7171 16.8485L20.6669 21.7983Z"
-      fill="white"
+      fill="var(--nav-menu-icon-primary-accent)"
     />
   </svg>
 ))

@@ -7,12 +7,6 @@ const chevronRight = (fill: string) =>
     fill,
   )}"/></svg>`
 
-export const elNavIsDesktop = css`
-  --nav-menu-background-dark: var(--color-grey-dark);
-  --nav-menu-background-accent: var(--color-grey-medium);
-  --nav-menu-text-hover: var(--color-black);
-`
-
 export const ElNavContainer = styled.nav`
   display: flex;
   flex-direction: column;
@@ -39,7 +33,7 @@ export const ElNavSubContainer = styled.div`
 
 export const ElNavItem = styled.a`
   font-family: var(--font-sans-serif);
-  color: var(--color-white);
+  color: var(--nav-menu-text);
   display: flex;
   text-align: center;
   justify-content: flex-start;
@@ -93,6 +87,7 @@ export const ElNavItem = styled.a`
 
 export const elNavItemActive = css`
   @media screen and (min-width: 768px) {
+    --nav-menu-icon-primary-accent: var(--color-white);
     color: var(--nav-menu-text-hover);
     background-color: var(--nav-menu-background-accent);
   }
@@ -194,5 +189,26 @@ export const elNavSubItemActive = css`
 export const elNavItemSecondary = css`
   @media screen and (min-width: 768px) {
     margin-top: auto;
+  }
+`
+
+export const elNavIsDesktop = css`
+  --nav-menu-background-dark: var(--color-grey-light);
+  --nav-menu-background-accent: var(--intent-primary);
+  --nav-menu-text: var(--intent-primary);
+  --nav-menu-text-hover: var(--color-white);
+  --nav-menu-icon-primary-accent: var(--intent-primary);
+  --nav-menu-icon-secondary-accent: var(--intent-secondary);
+
+  ${ElNavItem} {
+    &:hover {
+      --nav-menu-icon-primary-accent: var(--color-white);
+    }
+  }
+
+  .${elNavItemActive} {
+    @media screen and (min-width: 768px) {
+      --nav-menu-icon-primary-accent: var(--color-white);
+    }
   }
 `
