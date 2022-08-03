@@ -8,12 +8,36 @@ import {
   elNavItemExpanded,
   elNavItemHideDesktop,
   elNavItemIcon,
+  ElNavItem,
 } from './__styles__/index'
 import { Nav, NavItem, NavSubNavItem, NavSubNav } from './nav'
 import { Icon } from '../icon'
-import { cx } from '@linaria/core'
+import { css, cx } from '@linaria/core'
 import { elIntentNeutral } from '../../styles/intent'
 import { elMlAuto, elMr2 } from '../../styles/spacing'
+
+export const customTheme = css`
+  --nav-menu-background-dark: var(--intent-primary);
+  --nav-menu-background-accent: var(--intent-secondary);
+  --nav-menu-text: var(--color-white);
+  --nav-menu-text-hover: var(--color-white);
+  --nav-menu-icon-primary-accent: var(--color-white);
+  --nav-menu-icon-secondary-accent: var(--intent-secondary);
+
+  ${ElNavItem} {
+    &:hover {
+      --nav-menu-icon-primary-accent: var(--color-white);
+      --nav-menu-icon-secondary-accent: var(--intent-primary);
+    }
+  }
+
+  .${elNavItemActive} {
+    @media screen and (min-width: 768px) {
+      --nav-menu-icon-primary-accent: var(--color-white);
+      --nav-menu-icon-secondary-accent: var(--intent-primary);
+    }
+  }
+`
 
 export const UseNavStory = () => {
   const { navState, setNavState } = useNavState(1)
