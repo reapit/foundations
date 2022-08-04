@@ -12,6 +12,21 @@ import { appsBrowseConfigCollection } from '../../../core/config'
 import { useAppsBrowseState } from '../../../core/use-apps-browse-state'
 import { mockAppsBrowseState } from '../../../core/__mocks__/use-apps-browse-state'
 
+window.reapit.config.clientHiddenAppIds = {}
+window.reapit.config.orgAdminRestrictedAppIds = []
+
+jest.mock('@reapit/connect-session', () => ({
+  ReapitConnectBrowserSession: jest.fn(),
+  useReapitConnect: jest.fn(() => ({
+    connectSession: {
+      loginIdentity: {
+        clientId: 'MOCK_CLIENT_ID',
+        groups: ['OrganisationAdmin'],
+      },
+    },
+  })),
+}))
+
 const configItem = handleSortConfigs(appsBrowseConfigCollection)().featuredApps[0]
 
 jest.mock('../../../core/use-apps-browse-state')

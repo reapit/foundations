@@ -4,6 +4,22 @@ import { AppsInstalled } from '../apps-installed'
 import { useReapitGet } from '@reapit/utils-react'
 import { mockAppSummaryModelPagedResult } from '../../../tests/__stubs__/apps'
 
+window.reapit.config.clientHiddenAppIds = {}
+window.reapit.config.orgAdminRestrictedAppIds = []
+
+jest.mock('@reapit/connect-session', () => ({
+  ReapitConnectBrowserSession: jest.fn(),
+  useReapitConnect: jest.fn(() => ({
+    connectSession: {
+      loginIdentity: {
+        clientId: 'MOCK_CLIENT_ID',
+        groups: ['OrganisationAdmin'],
+      },
+    },
+    connectIsDesktop: false,
+  })),
+}))
+
 jest.mock('@reapit/utils-react', () => ({
   useReapitGet: jest.fn(() => [null, false]),
 }))
@@ -18,7 +34,7 @@ describe('AppsInstalled', () => {
   })
 
   it('should match a snapshot when loading', () => {
-    mockUseReapitGet.mockReturnValue([null, false])
+    mockUseReapitGet.mockReturnValue([null, true])
 
     expect(render(<AppsInstalled />)).toMatchSnapshot()
   })
