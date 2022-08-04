@@ -49,6 +49,11 @@ export const HeroAppsChip = styled.div`
   }
 `
 
+export const HeroAppsChipPlaceholder = styled.div`
+  height: 1.25rem;
+  opacity: 0;
+`
+
 export const HeroAppsSubtitle = styled(ElSubtitle)`
   font-size: 14px;
   font-weight: bold;

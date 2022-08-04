@@ -13,6 +13,7 @@ import { useReapitConnect } from '@reapit/connect-session'
 import { navigate } from '../../utils/navigation'
 import { Routes } from '../../constants/routes'
 import { useHistory } from 'react-router-dom'
+import { filterRestrictedAppsList } from '../../utils/browse-app'
 
 interface FeaturedAppsCollectionProps {
   configItem?: AppsBrowseConfigItemInterface
@@ -39,13 +40,15 @@ export const FeaturedAppsCollection: FC<FeaturedAppsCollectionProps> = memo(({ c
     ? { ...objectToQuery<AppsBrowseConfigItemFiltersInterface>(filters), clientId }
     : { clientId }
 
-  const [apps] = useReapitGet<AppSummaryModelPagedResult>({
+  const [unfilteredApps] = useReapitGet<AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getApps],
     queryParams,
     fetchWhenTrue: [filters],
   })
 
+  const apps = useMemo(filterRestrictedAppsList(unfilteredApps, connectSession), [unfilteredApps])
+  apps
   return (
     <>
       {apps?.data?.map(({ id, name, summary, iconUri }, index) => {

@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useMemo } from 'react'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { useReapitGet } from '@reapit/utils-react'
@@ -16,6 +16,7 @@ import {
 import { elFadeIn, Loader, PlaceholderImage } from '@reapit/elements'
 import { AppsInstalledSuggested } from './apps-installed-suggested'
 import { handleLaunchApp } from '../../utils/navigation'
+import { filterRestrictedAppsList } from '../../utils/browse-app'
 
 export const AppsInstalled: FC = () => {
   const { connectSession, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
@@ -33,12 +34,14 @@ export const AppsInstalled: FC = () => {
 
   const queryParams = developerId ? { ...baseParams, developerId } : baseParams
 
-  const [apps, appsLoading] = useReapitGet<AppSummaryModelPagedResult>({
+  const [unfilteredApps, appsLoading] = useReapitGet<AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getApps],
     queryParams,
     fetchWhenTrue: [clientId],
   })
+
+  const apps = useMemo(filterRestrictedAppsList(unfilteredApps, connectSession), [unfilteredApps])
 
   return (
     <InstalledAppsContainer>
