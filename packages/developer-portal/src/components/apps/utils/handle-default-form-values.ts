@@ -6,8 +6,9 @@ export const formatAppFields = (appDetail: AppDetailModel | null, developerId?: 
   if (appDetail && developerId) {
     const { media, scopes } = appDetail
     const icon = (media ?? []).filter(({ order }) => order === 0)[0]
+
     const images = (media ?? [])
-      .filter(({ type }) => type !== 'icon')
+      .filter((item) => item.type === 'image')
       .reduce(
         (formValuePartial: Partial<AppEditFormSchema>, image: MediaModel, index: number) => ({
           ...formValuePartial,
@@ -15,6 +16,18 @@ export const formatAppFields = (appDetail: AppDetailModel | null, developerId?: 
         }),
         {
           screen1ImageUrl: '',
+        },
+      )
+
+    const videos = (media ?? [])
+      .filter((item) => item.type === 'video')
+      .reduce(
+        (formValuePartial: Partial<AppEditFormSchema>, image: MediaModel, index: number) => ({
+          ...formValuePartial,
+          [`videoUrl${index + 1}`]: image?.uri ?? '',
+        }),
+        {
+          videoUrl1: '',
         },
       )
 
@@ -45,6 +58,7 @@ export const formatAppFields = (appDetail: AppDetailModel | null, developerId?: 
       products: appDetail.products?.join(',') ?? '',
       iconImageUrl: icon?.uri ?? '',
       ...images,
+      ...videos,
     }
 
     return formValues

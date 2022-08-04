@@ -95,6 +95,8 @@ export const AppListingTab: FC<AppEditTabsProps> = ({ register, errors, control,
     screen3ImageUrl,
     screen4ImageUrl,
     screen5ImageUrl,
+    videoUrl1,
+    videoUrl2,
   } = formFields
 
   const {
@@ -217,6 +219,24 @@ export const AppListingTab: FC<AppEditTabsProps> = ({ register, errors, control,
               {errors?.categoryId?.message && <InputError message={errors?.categoryId?.message} />}
             </InputGroup>
           )}
+        </InputWrap>
+        <InputWrap>
+          <InputGroup
+            {...videoUrl1}
+            {...register('videoUrl1')}
+            errorMessage={errors?.videoUrl1?.message}
+            icon={errors?.videoUrl1?.message ? 'asteriskSystem' : null}
+            intent="danger"
+          />
+        </InputWrap>
+        <InputWrap>
+          <InputGroup
+            {...videoUrl2}
+            {...register('videoUrl2')}
+            errorMessage={errors?.videoUrl2?.message}
+            icon={errors?.videoUrl2?.message ? 'asteriskSystem' : null}
+            intent="danger"
+          />
         </InputWrap>
         <InputWrapFull>
           <InputGroup

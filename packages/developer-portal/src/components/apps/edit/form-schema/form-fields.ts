@@ -30,6 +30,8 @@ export interface AppEditFormSchema {
   isListed: boolean
   isAgencyCloudIntegrated: boolean
   isPrivateApp: boolean
+  videoUrl1: string
+  videoUrl2: string
 }
 
 export const defaultValues: AppEditFormSchema = {
@@ -62,6 +64,8 @@ export const defaultValues: AppEditFormSchema = {
   isListed: false,
   isAgencyCloudIntegrated: false,
   isPrivateApp: false,
+  videoUrl1: '',
+  videoUrl2: '',
 }
 
 export const formFields: Record<keyof AppEditFormSchema, InputGroupProps & { name: string }> = {
@@ -224,5 +228,17 @@ export const formFields: Record<keyof AppEditFormSchema, InputGroupProps & { nam
   products: {
     name: 'products',
     label: 'Reapit Products',
+  },
+  videoUrl1: {
+    name: 'videoUrl1',
+    label: 'How To Use Video Url',
+    placeholder: 'Video embed url instructing users',
+    type: 'text',
+  },
+  videoUrl2: {
+    name: 'videoUrl2',
+    label: 'Marketing Video Url',
+    placeholder: 'Video embed url marketing your app',
+    type: 'text',
   },
 }

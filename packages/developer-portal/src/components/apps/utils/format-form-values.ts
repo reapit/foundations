@@ -22,6 +22,14 @@ export const sanitizeAppData = (appData: CreateAppRevisionModel): CreateAppRevis
     delete sanitizedAppData.launchUri
   }
 
+  if (!sanitizedAppData.videoUrl1) {
+    delete sanitizedAppData.videoUrl1
+  }
+
+  if (!sanitizedAppData.videoUrl2) {
+    delete sanitizedAppData.videoUrl2
+  }
+
   if (!sanitizedAppData.categoryId) {
     delete sanitizedAppData.categoryId
   }
@@ -48,6 +56,8 @@ export const formatFormValues = ({
   screen3ImageUrl,
   screen2ImageUrl,
   screen1ImageUrl,
+  videoUrl1,
+  videoUrl2,
   homePage,
   isAgencyCloudIntegrated,
   summary,
@@ -78,6 +88,8 @@ export const formatFormValues = ({
     screen3ImageUrl,
     screen2ImageUrl,
     screen1ImageUrl,
+    videoUrl1,
+    videoUrl2,
     homePage,
     summary,
     description,

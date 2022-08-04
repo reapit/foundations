@@ -151,6 +151,7 @@ import phoneInfographic from './infographic-icons/phoneInfographic'
 import shieldInfographic from './infographic-icons/shieldInfographic'
 import webInfographic from './infographic-icons/webInfographic'
 import supportMenu from './menu-icons/supportMenu'
+import videoSystem from './system-icons/videoSystem'
 
 export const iconSet = {
   addSystem,
@@ -306,4 +307,5 @@ export const iconSet = {
   shieldInfographic,
   webInfographic,
   supportMenu,
+  videoSystem,
 }

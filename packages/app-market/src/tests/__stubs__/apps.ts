@@ -105,6 +105,20 @@ export const mockAppDetailModel: AppDetailModel = {
       type: 'image',
       order: 0,
     },
+    {
+      description: 'Application Video',
+      id: 'MOCK_ID',
+      order: 0,
+      type: 'video',
+      uri: 'https://www.youtube.com/embed/iKdil7liAts',
+    },
+    {
+      description: 'Application Video',
+      id: 'MOCK_ID',
+      order: 0,
+      type: 'video',
+      uri: 'https://www.youtube.com/embed/iKdil7liAts',
+    },
   ],
 }
 
