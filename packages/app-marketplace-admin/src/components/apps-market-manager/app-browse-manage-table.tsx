@@ -21,7 +21,7 @@ import {
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { SendFunction, UpdateReturnTypeEnum, useReapitGet, useReapitUpdate } from '@reapit/utils-react'
 import React, { FC, useState } from 'react'
-import { colorSquare, ImageContainer } from './app-browse.styles'
+import { colorSquare, iconButton, ImageContainer } from './app-browse.styles'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { shleemy } from 'shleemy'
 import { cx } from '@linaria/core'
@@ -293,8 +293,9 @@ export const AppBrowseManageTable: FC<AppBrowseManageTableProps> = (props) => {
               label: '',
               value: item.index,
               children: (
-                <FlexContainer>
+                <FlexContainer isFlexJustifyCenter>
                   <Button
+                    className={iconButton}
                     disabled={indexLoading}
                     onClick={async () => {
                       updatedItemIndex<AppsBrowseConfigItemInterface>({
@@ -310,6 +311,7 @@ export const AppBrowseManageTable: FC<AppBrowseManageTableProps> = (props) => {
                     <Icon icon="arrowUpSystem" />
                   </Button>
                   <Button
+                    className={iconButton}
                     disabled={indexLoading}
                     onClick={async () => {
                       updatedItemIndex<AppsBrowseConfigItemInterface>({

@@ -37,3 +37,6 @@ export const ImageContainer = styled.div`
     object-fit: contain;
   }
 `
+export const iconButton = css`
+  padding: 0.25rem;
+`
