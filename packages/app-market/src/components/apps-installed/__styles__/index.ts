@@ -49,6 +49,13 @@ export const InstalledAppsCol = styled.div`
   align-items: center;
 `
 
+export const InstallMoreApps = styled(InstalledAppsCol)`
+  width: 96px;
+  height: 124px;
+  background: #ffffff;
+  border-radius: 12px;
+`
+
 export const InstalledAppsIcon = styled.img`
   width: 40px;
   height: 40px;
