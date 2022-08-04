@@ -89,6 +89,15 @@ export const AppBrowseUpsert: FC<{}> = () => {
               items={items.filter((item) => item.configType === type)}
               setEditType={() => setConfigType(type)}
               setSelectedItem={setSelectedItem}
+              setItems={(updatedItems) => {
+                setItems(
+                  items.map((item) => {
+                    const updatedItem = updatedItems.find((i) => i.id === item.id)
+
+                    return updatedItem || item
+                  }),
+                )
+              }}
               connectSession={connectSession as ReapitConnectSession}
               deleteItem={deleteItem}
             />
