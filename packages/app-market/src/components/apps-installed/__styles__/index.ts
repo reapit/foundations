@@ -50,10 +50,24 @@ export const InstalledAppsCol = styled.div`
 `
 
 export const InstallMoreApps = styled(InstalledAppsCol)`
-  width: 96px;
-  height: 124px;
-  background: #ffffff;
-  border-radius: 12px;
+  justify-content: flex-start;
+  text-align: center;
+  width: 68px;
+  height: 100px;
+  background: var(--color-white);
+  background: linear-gradient(180deg, var(--color-white) 0%, #f4f4f4 100%);
+  filter: drop-shadow(2px 6px 20px rgba(0, 0, 0, 0.07));
+  border-radius: 0.25rem;
+  font-size: 12px;
+  padding: 0.375rem;
+
+  ${forMobileAndAbove} {
+    padding: 0.825rem;
+    font-size: 14px;
+    width: 96px;
+    height: 124px;
+    border-radius: 0.75rem;
+  }
 `
 
 export const InstalledAppsIcon = styled.img`
@@ -86,12 +100,16 @@ export const InstalledAppsIconWrapper = styled.div`
 `
 
 export const InstalledAppsText = styled.div`
-  font-size: 14px;
+  font-size: 12px;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
   text-align: center;
+
+  ${forMobileAndAbove} {
+    font-size: 14px;
+  }
 `
 
 export const InstalledSuggestedImage = styled.img`
