@@ -276,9 +276,9 @@ export const AppBrowseManageTable: FC<AppBrowseManageTableProps> = (props) => {
   })
 
   const sortedItems = [
-    ...items.sort((a, b) =>
-      typeof a.index !== 'undefined' && typeof b.index !== 'undefined' && a.index < b.index ? -1 : 1,
-    ),
+    ...items.sort((a, b) => {
+      return typeof a.index !== 'undefined' && typeof b.index !== 'undefined' && a.index < b.index ? -1 : 1
+    }),
   ]
 
   return (
