@@ -12,13 +12,17 @@ import {
   InstalledAppsIconWrapper,
   InstalledAppsInnerContainer,
   InstalledAppsText,
+  InstallMoreApps,
 } from './__styles__'
 import { elFadeIn, Loader, PlaceholderImage } from '@reapit/elements'
 import { AppsInstalledSuggested } from './apps-installed-suggested'
-import { handleLaunchApp } from '../../utils/navigation'
+import { handleLaunchApp, navigate } from '../../utils/navigation'
+import { Routes } from '../../constants/routes'
+import { useHistory } from 'react-router'
 import { filterRestrictedAppsList } from '../../utils/browse-app'
 
 export const AppsInstalled: FC = () => {
+  const history = useHistory()
   const { connectSession, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
   const clientId = connectSession?.loginIdentity.clientId
   const developerId = connectSession?.loginIdentity.developerId
@@ -66,6 +70,14 @@ export const AppsInstalled: FC = () => {
                 <InstalledAppsText>{name}</InstalledAppsText>
               </InstalledAppsCol>
             ))}
+            <InstallMoreApps onClick={navigate(history, Routes.APPS_BROWSE)}>
+              <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="19.5" cy="26.5" r="1.5" fill="black" />
+                <circle cx="25.5" cy="26.5" r="1.5" fill="black" />
+                <circle cx="31.5" cy="26.5" r="1.5" fill="black" />
+              </svg>
+              Install More Apps
+            </InstallMoreApps>
           </InstalledAppsGrid>
         )}
       </InstalledAppsInnerContainer>

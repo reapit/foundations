@@ -34,7 +34,7 @@ describe('AppsInstalled', () => {
   })
 
   it('should match a snapshot when loading', () => {
-    mockUseReapitGet.mockReturnValue([null, false])
+    mockUseReapitGet.mockReturnValue([null, true])
 
     expect(render(<AppsInstalled />)).toMatchSnapshot()
   })
