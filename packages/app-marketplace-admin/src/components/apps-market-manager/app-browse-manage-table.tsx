@@ -290,7 +290,7 @@ export const AppBrowseManageTable: FC<AppBrowseManageTableProps> = (props) => {
         rows={sortedItems.map((item, index, all) => ({
           cells: [
             {
-              label: 'I',
+              label: '',
               value: item.index,
               children: (
                 <FlexContainer>
@@ -309,7 +309,6 @@ export const AppBrowseManageTable: FC<AppBrowseManageTableProps> = (props) => {
                   >
                     <Icon icon="arrowUpSystem" />
                   </Button>
-                  <span>{item.index}</span>
                   <Button
                     disabled={indexLoading}
                     onClick={async () => {
