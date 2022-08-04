@@ -220,7 +220,7 @@ export const AppBrowseUpsertModal: FC<AppBrowseUpsertModalDefaultProps> = ({
       isOpen={modalIsOpen}
       title="AppMarket Item"
       onModalClose={() => {
-        reset(undefined)
+        reset()
         closeModal()
       }}
     >
@@ -402,6 +402,7 @@ export const AppBrowseUpsertModal: FC<AppBrowseUpsertModalDefaultProps> = ({
                   onFileUpload={onFileUpload}
                   placeholderText="Upload Image"
                   fileName={uuid()}
+                  defaultValue={defaultValues.content?.imageUrl}
                 />
                 {errors.content?.imageUrl?.message && (
                   <InputError message={errors.content?.imageUrl.message.toString()} />
