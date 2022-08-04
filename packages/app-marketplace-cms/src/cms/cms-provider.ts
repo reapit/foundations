@@ -52,6 +52,17 @@ export class CmsProvider {
     )
   }
 
+  async updateBatch(dtos: MarketplaceAppModelDto[]): Promise<MarketplaceAppModel[]> {
+    const result: MarketplaceAppModel[] = []
+    for await (const persisted of this.dataMapper.batchPut(
+      dtos.map((dto) => Object.assign(new MarketplaceAppModel(), dto)),
+    )) {
+      result.push(persisted)
+    }
+
+    return result
+  }
+
   async delete(marketplaceApp: MarketplaceAppModel): Promise<MarketplaceAppModel | undefined> {
     return this.dataMapper.delete(marketplaceApp)
   }

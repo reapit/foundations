@@ -60,6 +60,7 @@ import { v4 as uuid } from 'uuid'
 const upsertAppMarketing =
   (
     configType: AppsBrowseConfigEnum,
+    index: number,
     setLoading: (loading: boolean) => void,
     send: (app: AppsBrowseConfigItemInterface) => Promise<boolean | AppsBrowseConfigItemInterface>,
     closeModal: () => void,
@@ -73,6 +74,8 @@ const upsertAppMarketing =
     const id = app?.filters?.id
     const isFeatured = app?.filters?.isFeatured
     const isFree = app?.filters?.isFree
+
+    console.log('sending', app)
 
     if (category?.length) filters.category = category?.split(',').filter(Boolean)
     if (id?.length) filters.id = id
@@ -93,6 +96,7 @@ const upsertAppMarketing =
         timeTo: app?.live?.timeTo !== '' ? app?.live.timeTo : undefined,
       },
       filters,
+      index,
       configType,
     })
 
@@ -118,6 +122,7 @@ export const AppBrowseUpsertModal: FC<AppBrowseUpsertModalDefaultProps> = ({
   closeModal,
   upsertItem,
 }) => {
+  console.log('init va', defaultValues.index)
   const {
     register,
     handleSubmit,
@@ -210,7 +215,14 @@ export const AppBrowseUpsertModal: FC<AppBrowseUpsertModalDefaultProps> = ({
       {modalIsOpen && (
         <form
           onSubmit={handleSubmit(
-            upsertAppMarketing(defaultValues.configType, setLoading, send, closeModal, upsertItem),
+            upsertAppMarketing(
+              defaultValues.configType,
+              defaultValues.index || 0,
+              setLoading,
+              send,
+              closeModal,
+              upsertItem,
+            ),
           )}
         >
           <Subtitle>Filters</Subtitle>
