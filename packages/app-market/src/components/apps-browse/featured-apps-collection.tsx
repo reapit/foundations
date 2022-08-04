@@ -48,7 +48,7 @@ export const FeaturedAppsCollection: FC<FeaturedAppsCollectionProps> = memo(({ c
   })
 
   const apps = useMemo(filterRestrictedAppsList(unfilteredApps, connectSession), [unfilteredApps])
-  apps
+
   return (
     <>
       {apps?.data?.map(({ id, name, summary, iconUri }, index) => {
