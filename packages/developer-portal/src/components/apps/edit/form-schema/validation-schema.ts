@@ -38,6 +38,8 @@ const {
   pricingUrl,
   isFree,
   products,
+  videoUrl1,
+  videoUrl2,
 } = formFields
 
 export const appEditValidationSchema = object().shape({
@@ -250,6 +252,28 @@ export const appEditValidationSchema = object().shape({
       test: (value) => {
         if (!value) return true
         return isValidHttpsUrl(value)
+      },
+    }),
+
+  [videoUrl1.name]: string()
+    .trim()
+    .test({
+      name: 'isValidVideo1Url',
+      message: 'If supplied needs to be in https://www.youtube.com/embed/<<videoId>> format',
+      test: (value) => {
+        if (!value) return true
+        return value.includes('https://www.youtube.com/embed/') && isValidHttpsUrl(value)
+      },
+    }),
+
+  [videoUrl2.name]: string()
+    .trim()
+    .test({
+      name: 'isValidVideo1Url',
+      message: 'If supplied needs to be in https://www.youtube.com/embed/<<videoId>> format',
+      test: (value) => {
+        if (!value) return true
+        return value.includes('https://www.youtube.com/embed/') && isValidHttpsUrl(value)
       },
     }),
 
