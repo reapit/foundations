@@ -1,6 +1,6 @@
 {
   "name": "mailer-service",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Mailer Service",
   "main": "index.js",
   "repository": "git@github.com:reapit/mailer-service.git",
