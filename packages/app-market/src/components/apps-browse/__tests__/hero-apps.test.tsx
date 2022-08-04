@@ -8,6 +8,22 @@ import { HeroAppsCollection } from '../hero-apps'
 
 const configItem = handleSortConfigs(appsBrowseConfigCollection)().heroApps[0]
 
+window.reapit.config.clientHiddenAppIds = {}
+window.reapit.config.orgAdminRestrictedAppIds = []
+
+jest.mock('@reapit/connect-session', () => ({
+  ReapitConnectBrowserSession: jest.fn(),
+  useReapitConnect: jest.fn(() => ({
+    connectSession: {
+      loginIdentity: {
+        clientId: 'MOCK_CLIENT_ID',
+        groups: ['OrganisationAdmin'],
+      },
+    },
+    connectIsDesktop: false,
+  })),
+}))
+
 jest.mock('@reapit/utils-react', () => ({
   useReapitGet: jest.fn(() => [mockAppDetailModel, false]),
   objectToQuery: jest.fn(() => '?query=string'),

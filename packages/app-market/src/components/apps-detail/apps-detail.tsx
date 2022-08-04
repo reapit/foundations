@@ -51,6 +51,7 @@ import { AppInstallModalContent } from './app-install-modal'
 import { AppInstallSuccesModalContent } from './app-install-success-modal'
 import { useReapitConnect } from '@reapit/connect-session'
 import { selectIsAdmin } from '../../utils/auth'
+import { filterRestrictedAppDetail } from '../../utils/browse-app'
 
 export interface AppIdParams {
   appId: string
@@ -97,7 +98,7 @@ export const AppsDetail: FC = () => {
     fetchWhenTrue: [clientId, appId],
   })
 
-  const [appDetail, appDetailLoading, , refetchApp] = useReapitGet<AppDetailModel>({
+  const [unfilteredAppDetail, appDetailLoading, , refetchApp] = useReapitGet<AppDetailModel>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppById],
     uriParams: {
@@ -105,6 +106,8 @@ export const AppsDetail: FC = () => {
     },
     fetchWhenTrue: [appId],
   })
+
+  const appDetail = useMemo(filterRestrictedAppDetail(unfilteredAppDetail, connectSession), [unfilteredAppDetail])
 
   const [developerDetail] = useReapitGet<DeveloperModel>({
     reapitConnectBrowserSession,

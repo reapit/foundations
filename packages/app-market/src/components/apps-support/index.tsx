@@ -1,4 +1,4 @@
-import React, { ChangeEvent, Dispatch, FC, SetStateAction, useCallback, useState } from 'react'
+import React, { ChangeEvent, Dispatch, FC, SetStateAction, useCallback, useMemo, useState } from 'react'
 import {
   Button,
   Col,
@@ -25,6 +25,7 @@ import { GetActionNames, getActions } from '@reapit/utils-common'
 import { AppsSupportItem } from './apps-support-item'
 import { PersistentNotification } from '@reapit/elements'
 import { cx } from '@linaria/core'
+import { filterRestrictedAppsList } from '../../utils/browse-app'
 
 export const handleSearch = (setSearch: Dispatch<SetStateAction<string>>) => (event: ChangeEvent<HTMLInputElement>) => {
   const search = event.target.value.toLowerCase()
@@ -37,12 +38,14 @@ export const AppsSupportPage: FC = () => {
   const clientId = connectSession?.loginIdentity.clientId
   const debouncedSearch = useCallback(debounce(handleSearch(setSearch), 500), [])
 
-  const [apps, appsLoading] = useReapitGet<AppSummaryModelPagedResult>({
+  const [unfilteredApps, appsLoading] = useReapitGet<AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getApps],
     queryParams: { clientId, searchTerm: search, pageSize: 25, includeHiddenApps: true, onlyInstalled: true },
     fetchWhenTrue: [search, clientId],
   })
+
+  const apps = useMemo(filterRestrictedAppsList(unfilteredApps, connectSession), [unfilteredApps])
 
   return (
     <FlexContainer isFlexAuto>

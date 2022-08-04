@@ -175,6 +175,9 @@ Object {
                       <h2
                         class="featured-hero-apps-subtitle el-subtitle"
                       />
+                      <div
+                        class="hero-apps-chip-placeholder"
+                      />
                     </div>
                     <button
                       class="featured-hero-apps-button-mob-tablet el-button"
@@ -334,7 +337,7 @@ Object {
                             class="hero-apps-subtitle el-subtitle"
                           />
                           <div
-                            class="hero-apps-chip"
+                            class="hero-apps-chip-placeholder"
                           />
                         </div>
                       </div>
@@ -454,7 +457,7 @@ Object {
                             class="hero-apps-subtitle el-subtitle"
                           />
                           <div
-                            class="hero-apps-chip"
+                            class="hero-apps-chip-placeholder"
                           />
                         </div>
                       </div>
@@ -1964,6 +1967,9 @@ Object {
                     <h2
                       class="featured-hero-apps-subtitle el-subtitle"
                     />
+                    <div
+                      class="hero-apps-chip-placeholder"
+                    />
                   </div>
                   <button
                     class="featured-hero-apps-button-mob-tablet el-button"
@@ -2123,7 +2129,7 @@ Object {
                           class="hero-apps-subtitle el-subtitle"
                         />
                         <div
-                          class="hero-apps-chip"
+                          class="hero-apps-chip-placeholder"
                         />
                       </div>
                     </div>
@@ -2243,7 +2249,7 @@ Object {
                           class="hero-apps-subtitle el-subtitle"
                         />
                         <div
-                          class="hero-apps-chip"
+                          class="hero-apps-chip-placeholder"
                         />
                       </div>
                     </div>
@@ -3810,6 +3816,9 @@ Object {
                       <h2
                         class="featured-hero-apps-subtitle el-subtitle"
                       />
+                      <div
+                        class="hero-apps-chip-placeholder"
+                      />
                     </div>
                     <button
                       class="featured-hero-apps-button-mob-tablet el-button"
@@ -3949,7 +3958,7 @@ Object {
                             class="hero-apps-subtitle el-subtitle"
                           />
                           <div
-                            class="hero-apps-chip"
+                            class="hero-apps-chip-placeholder"
                           />
                         </div>
                       </div>
@@ -4069,7 +4078,7 @@ Object {
                             class="hero-apps-subtitle el-subtitle"
                           />
                           <div
-                            class="hero-apps-chip"
+                            class="hero-apps-chip-placeholder"
                           />
                         </div>
                       </div>
@@ -5579,6 +5588,9 @@ Object {
                     <h2
                       class="featured-hero-apps-subtitle el-subtitle"
                     />
+                    <div
+                      class="hero-apps-chip-placeholder"
+                    />
                   </div>
                   <button
                     class="featured-hero-apps-button-mob-tablet el-button"
@@ -5718,7 +5730,7 @@ Object {
                           class="hero-apps-subtitle el-subtitle"
                         />
                         <div
-                          class="hero-apps-chip"
+                          class="hero-apps-chip-placeholder"
                         />
                       </div>
                     </div>
@@ -5838,7 +5850,7 @@ Object {
                           class="hero-apps-subtitle el-subtitle"
                         />
                         <div
-                          class="hero-apps-chip"
+                          class="hero-apps-chip-placeholder"
                         />
                       </div>
                     </div>
@@ -7405,6 +7417,9 @@ Object {
                       <h2
                         class="featured-hero-apps-subtitle el-subtitle"
                       />
+                      <div
+                        class="hero-apps-chip-placeholder"
+                      />
                     </div>
                     <button
                       class="featured-hero-apps-button-mob-tablet el-button"
@@ -7564,7 +7579,7 @@ Object {
                             class="hero-apps-subtitle el-subtitle"
                           />
                           <div
-                            class="hero-apps-chip"
+                            class="hero-apps-chip-placeholder"
                           />
                         </div>
                       </div>
@@ -7684,7 +7699,7 @@ Object {
                             class="hero-apps-subtitle el-subtitle"
                           />
                           <div
-                            class="hero-apps-chip"
+                            class="hero-apps-chip-placeholder"
                           />
                         </div>
                       </div>
@@ -9194,6 +9209,9 @@ Object {
                     <h2
                       class="featured-hero-apps-subtitle el-subtitle"
                     />
+                    <div
+                      class="hero-apps-chip-placeholder"
+                    />
                   </div>
                   <button
                     class="featured-hero-apps-button-mob-tablet el-button"
@@ -9353,7 +9371,7 @@ Object {
                           class="hero-apps-subtitle el-subtitle"
                         />
                         <div
-                          class="hero-apps-chip"
+                          class="hero-apps-chip-placeholder"
                         />
                       </div>
                     </div>
@@ -9473,7 +9491,7 @@ Object {
                           class="hero-apps-subtitle el-subtitle"
                         />
                         <div
-                          class="hero-apps-chip"
+                          class="hero-apps-chip-placeholder"
                         />
                       </div>
                     </div>
@@ -11040,6 +11058,9 @@ Object {
                       <h2
                         class="featured-hero-apps-subtitle el-subtitle"
                       />
+                      <div
+                        class="hero-apps-chip-placeholder"
+                      />
                     </div>
                     <button
                       class="featured-hero-apps-button-mob-tablet el-button"
@@ -11179,7 +11200,7 @@ Object {
                             class="hero-apps-subtitle el-subtitle"
                           />
                           <div
-                            class="hero-apps-chip"
+                            class="hero-apps-chip-placeholder"
                           />
                         </div>
                       </div>
@@ -11299,7 +11320,7 @@ Object {
                             class="hero-apps-subtitle el-subtitle"
                           />
                           <div
-                            class="hero-apps-chip"
+                            class="hero-apps-chip-placeholder"
                           />
                         </div>
                       </div>
@@ -12764,6 +12785,9 @@ Object {
                     <h2
                       class="featured-hero-apps-subtitle el-subtitle"
                     />
+                    <div
+                      class="hero-apps-chip-placeholder"
+                    />
                   </div>
                   <button
                     class="featured-hero-apps-button-mob-tablet el-button"
@@ -12903,7 +12927,7 @@ Object {
                           class="hero-apps-subtitle el-subtitle"
                         />
                         <div
-                          class="hero-apps-chip"
+                          class="hero-apps-chip-placeholder"
                         />
                       </div>
                     </div>
@@ -13023,7 +13047,7 @@ Object {
                           class="hero-apps-subtitle el-subtitle"
                         />
                         <div
-                          class="hero-apps-chip"
+                          class="hero-apps-chip-placeholder"
                         />
                       </div>
                     </div>
@@ -14545,6 +14569,9 @@ Object {
                       <h2
                         class="featured-hero-apps-subtitle el-subtitle"
                       />
+                      <div
+                        class="hero-apps-chip-placeholder"
+                      />
                     </div>
                     <button
                       class="featured-hero-apps-button-mob-tablet el-button"
@@ -14704,7 +14731,7 @@ Object {
                             class="hero-apps-subtitle el-subtitle"
                           />
                           <div
-                            class="hero-apps-chip"
+                            class="hero-apps-chip-placeholder"
                           />
                         </div>
                       </div>
@@ -14824,7 +14851,7 @@ Object {
                             class="hero-apps-subtitle el-subtitle"
                           />
                           <div
-                            class="hero-apps-chip"
+                            class="hero-apps-chip-placeholder"
                           />
                         </div>
                       </div>
@@ -16334,6 +16361,9 @@ Object {
                     <h2
                       class="featured-hero-apps-subtitle el-subtitle"
                     />
+                    <div
+                      class="hero-apps-chip-placeholder"
+                    />
                   </div>
                   <button
                     class="featured-hero-apps-button-mob-tablet el-button"
@@ -16493,7 +16523,7 @@ Object {
                           class="hero-apps-subtitle el-subtitle"
                         />
                         <div
-                          class="hero-apps-chip"
+                          class="hero-apps-chip-placeholder"
                         />
                       </div>
                     </div>
@@ -16613,7 +16643,7 @@ Object {
                           class="hero-apps-subtitle el-subtitle"
                         />
                         <div
-                          class="hero-apps-chip"
+                          class="hero-apps-chip-placeholder"
                         />
                       </div>
                     </div>
@@ -18180,6 +18210,9 @@ Object {
                       <h2
                         class="featured-hero-apps-subtitle el-subtitle"
                       />
+                      <div
+                        class="hero-apps-chip-placeholder"
+                      />
                     </div>
                     <button
                       class="featured-hero-apps-button-mob-tablet el-button"
@@ -18319,7 +18352,7 @@ Object {
                             class="hero-apps-subtitle el-subtitle"
                           />
                           <div
-                            class="hero-apps-chip"
+                            class="hero-apps-chip-placeholder"
                           />
                         </div>
                       </div>
@@ -18439,7 +18472,7 @@ Object {
                             class="hero-apps-subtitle el-subtitle"
                           />
                           <div
-                            class="hero-apps-chip"
+                            class="hero-apps-chip-placeholder"
                           />
                         </div>
                       </div>
@@ -19929,6 +19962,9 @@ Object {
                     <h2
                       class="featured-hero-apps-subtitle el-subtitle"
                     />
+                    <div
+                      class="hero-apps-chip-placeholder"
+                    />
                   </div>
                   <button
                     class="featured-hero-apps-button-mob-tablet el-button"
@@ -20068,7 +20104,7 @@ Object {
                           class="hero-apps-subtitle el-subtitle"
                         />
                         <div
-                          class="hero-apps-chip"
+                          class="hero-apps-chip-placeholder"
                         />
                       </div>
                     </div>
@@ -20188,7 +20224,7 @@ Object {
                           class="hero-apps-subtitle el-subtitle"
                         />
                         <div
-                          class="hero-apps-chip"
+                          class="hero-apps-chip-placeholder"
                         />
                       </div>
                     </div>

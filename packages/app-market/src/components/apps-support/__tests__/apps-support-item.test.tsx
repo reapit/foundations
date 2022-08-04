@@ -20,4 +20,12 @@ describe('AppsSupportItem', () => {
       render(<AppsSupportItem app={(mockAppSummaryModelPagedResult.data as AppSummaryModel[])[0]} />),
     ).toMatchSnapshot()
   })
+
+  it('should match a snapshot where details not supplied', () => {
+    mockUseReapitGet.mockReturnValue([{}])
+
+    expect(
+      render(<AppsSupportItem app={(mockAppSummaryModelPagedResult.data as AppSummaryModel[])[0]} />),
+    ).toMatchSnapshot()
+  })
 })

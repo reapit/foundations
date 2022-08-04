@@ -8,6 +8,22 @@ import { mockDeveloperModel } from '../../../tests/__stubs__/developers'
 import { AppsDetail, handleCarouselCols } from '../apps-detail'
 import { mockInstallationModelPagedResult } from '../../../tests/__stubs__/installations'
 
+window.reapit.config.clientHiddenAppIds = {}
+window.reapit.config.orgAdminRestrictedAppIds = []
+
+jest.mock('@reapit/connect-session', () => ({
+  ReapitConnectBrowserSession: jest.fn(),
+  useReapitConnect: jest.fn(() => ({
+    connectSession: {
+      loginIdentity: {
+        clientId: 'MOCK_CLIENT_ID',
+        groups: ['OrganisationAdmin'],
+      },
+    },
+    connectIsDesktop: false,
+  })),
+}))
+
 jest.mock('@reapit/utils-react', () => ({
   ...jest.requireActual('@reapit/utils-react'),
   useReapitGet: jest.fn(() => [null, false]),

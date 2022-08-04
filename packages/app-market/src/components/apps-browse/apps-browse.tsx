@@ -62,12 +62,11 @@ export const handleSetFilters =
   }
 
 export const handleFiltersCols = (mediaQuery: MediaType) => () => {
-  const { isMobile, isTablet, isDesktop, isWideScreen, isSuperWideScreen } = mediaQuery
+  const { isMobile, isTablet, isDesktop } = mediaQuery
 
   if (isMobile) return 2
   if (isTablet) return 3
   if (isDesktop) return 4
-  if (isWideScreen || isSuperWideScreen) return 6
 
   return 6
 }

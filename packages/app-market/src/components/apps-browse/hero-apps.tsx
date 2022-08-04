@@ -19,11 +19,14 @@ import {
   HeroAppsStrapline,
   browseAppsSubtitlePlaceholder,
   HeroAppsContentWrapper,
+  HeroAppsChipPlaceholder,
 } from './__styles__'
 import { cx } from '@linaria/core'
 import { navigate } from '../../utils/navigation'
 import { Routes } from '../../constants/routes'
 import { useHistory } from 'react-router-dom'
+import { useReapitConnect } from '@reapit/connect-session'
+import { filterRestrictedAppDetail } from '../../utils/browse-app'
 
 interface HeroAppsCollectionProps {
   configItem?: AppsBrowseConfigItemInterface
@@ -46,9 +49,11 @@ export const handlePlaceholderSize = (mediaQuery: MediaType) => () => {
 export const HeroAppsCollection: FC<HeroAppsCollectionProps> = memo(({ configItem }) => {
   const history = useHistory()
   const mediaQuery = useMediaQuery()
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { filters, content } = configItem ?? {}
   const { isMobile } = mediaQuery
-  const [appDetail] = useReapitGet<AppDetailModel>({
+
+  const [unfilteredAppDetail] = useReapitGet<AppDetailModel>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppById],
     uriParams: {
@@ -56,6 +61,8 @@ export const HeroAppsCollection: FC<HeroAppsCollectionProps> = memo(({ configIte
     },
     fetchWhenTrue: [filters?.id?.length],
   })
+
+  const appDetail = useMemo(filterRestrictedAppDetail(unfilteredAppDetail, connectSession), [unfilteredAppDetail])
 
   const placeholderSize = useMemo(handlePlaceholderSize(mediaQuery), [mediaQuery])
   const app = appDetail ?? {}
@@ -78,7 +85,7 @@ export const HeroAppsCollection: FC<HeroAppsCollectionProps> = memo(({ configIte
               )}
               <HeroAppsNameContainer>
                 <HeroAppsSubtitle>{name}</HeroAppsSubtitle>
-                <HeroAppsChip>{category?.name}</HeroAppsChip>
+                {category?.name ? <HeroAppsChip>{category.name}</HeroAppsChip> : <HeroAppsChipPlaceholder />}
               </HeroAppsNameContainer>
             </HeroAppsContentContainer>
             <HeroAppsStrapline>{content?.strapline ?? summary}</HeroAppsStrapline>

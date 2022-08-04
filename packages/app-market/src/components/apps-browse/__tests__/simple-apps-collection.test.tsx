@@ -8,6 +8,22 @@ import { SimpleAppsCollection } from '../simple-apps-collection'
 
 const configItem = handleSortConfigs(appsBrowseConfigCollection)().simpleApps[0]
 
+window.reapit.config.clientHiddenAppIds = {}
+window.reapit.config.orgAdminRestrictedAppIds = []
+
+jest.mock('@reapit/connect-session', () => ({
+  ReapitConnectBrowserSession: jest.fn(),
+  useReapitConnect: jest.fn(() => ({
+    connectSession: {
+      loginIdentity: {
+        clientId: 'MOCK_CLIENT_ID',
+        groups: ['OrganisationAdmin'],
+      },
+    },
+    connectIsDesktop: false,
+  })),
+}))
+
 jest.mock('@reapit/utils-react', () => ({
   useReapitGet: jest.fn(() => [mockAppSummaryModelPagedResult, false]),
   objectToQuery: jest.fn(() => '?query=string'),
