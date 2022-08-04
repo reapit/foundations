@@ -258,22 +258,38 @@ export const appEditValidationSchema = object().shape({
   [videoUrl1.name]: string()
     .trim()
     .test({
+      name: 'isValidYoutube1',
+      message: 'If YouTube, video needs to be in https://www.youtube.com/embed/<<videoId>> format',
+      test: (value) => {
+        if (!value || !value.includes('youtube')) return true
+        return value.includes('https://www.youtube.com/embed/')
+      },
+    })
+    .test({
       name: 'isValidVideo1Url',
-      message: 'If supplied needs to be in https://www.youtube.com/embed/<<videoId>> format',
+      message: 'Must be a secure https host if supplied',
       test: (value) => {
         if (!value) return true
-        return value.includes('https://www.youtube.com/embed/') && isValidHttpsUrl(value)
+        return isValidHttpsUrl(value)
       },
     }),
 
   [videoUrl2.name]: string()
     .trim()
     .test({
-      name: 'isValidVideo1Url',
-      message: 'If supplied needs to be in https://www.youtube.com/embed/<<videoId>> format',
+      name: 'isValidYoutube2',
+      message: 'If YouTube, video needs to be in https://www.youtube.com/embed/<<videoId>> format',
+      test: (value) => {
+        if (!value || !value.includes('youtube')) return true
+        return value.includes('https://www.youtube.com/embed/')
+      },
+    })
+    .test({
+      name: 'isValidVideo2Url',
+      message: 'Must be a secure https host if supplied',
       test: (value) => {
         if (!value) return true
-        return value.includes('https://www.youtube.com/embed/') && isValidHttpsUrl(value)
+        return isValidHttpsUrl(value)
       },
     }),
 
