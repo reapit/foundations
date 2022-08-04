@@ -34,6 +34,10 @@ const mockUseReapitGet = useReapitGet as jest.Mock
 
 describe('AppsDetail', () => {
   it('should match a snapshot with data', () => {
+    const testElem = document.createElement('div')
+    testElem.id = 'root'
+    document.body.appendChild(testElem)
+
     mockUseReapitGet
       .mockReturnValueOnce([mockInstallationModelPagedResult, false])
       .mockReturnValueOnce([mockAppDetailModel, false])
