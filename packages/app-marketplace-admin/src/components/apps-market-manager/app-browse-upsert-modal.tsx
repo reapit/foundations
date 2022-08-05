@@ -65,6 +65,7 @@ const upsertAppMarketing =
     send: (app: AppsBrowseConfigItemInterface) => Promise<boolean | AppsBrowseConfigItemInterface>,
     closeModal: () => void,
     upsertItem: (item: AppsBrowseConfigItemInterface) => void,
+    reset: () => void,
   ) =>
   async (app: any) => {
     setLoading(true)
@@ -74,8 +75,6 @@ const upsertAppMarketing =
     const id = app?.filters?.id
     const isFeatured = app?.filters?.isFeatured
     const isFree = app?.filters?.isFree
-
-    console.log('sending', app)
 
     if (category?.length) filters.category = category?.split(',').filter(Boolean)
     if (id?.length) filters.id = id
@@ -102,6 +101,7 @@ const upsertAppMarketing =
 
     setLoading(false)
     if (returned) {
+      reset()
       upsertItem(returned as AppsBrowseConfigItemInterface)
       closeModal()
     }
@@ -122,13 +122,11 @@ export const AppBrowseUpsertModal: FC<AppBrowseUpsertModalDefaultProps> = ({
   closeModal,
   upsertItem,
 }) => {
-  console.log('init va', defaultValues.index)
   const {
     register,
     handleSubmit,
     formState: { errors },
     setValue,
-    reset,
     getValues,
     control,
   } = useForm({
@@ -151,6 +149,20 @@ export const AppBrowseUpsertModal: FC<AppBrowseUpsertModalDefaultProps> = ({
       },
     },
   })
+
+  const reset = () => () => {
+    setValue('id', undefined)
+    setValue('content', undefined)
+    setValue('live', {
+      isLive: false,
+      timeFrom: undefined,
+      timeTo: undefined,
+    })
+    setValue('filters', {
+      category: '',
+      isFeatured: 'notApplied',
+    })
+  }
 
   const [loading, setLoading] = useState<boolean>(false)
 
@@ -208,7 +220,7 @@ export const AppBrowseUpsertModal: FC<AppBrowseUpsertModalDefaultProps> = ({
       isOpen={modalIsOpen}
       title="AppMarket Item"
       onModalClose={() => {
-        reset(undefined)
+        reset()
         closeModal()
       }}
     >
@@ -222,6 +234,7 @@ export const AppBrowseUpsertModal: FC<AppBrowseUpsertModalDefaultProps> = ({
               send,
               closeModal,
               upsertItem,
+              reset,
             ),
           )}
         >
@@ -351,20 +364,14 @@ export const AppBrowseUpsertModal: FC<AppBrowseUpsertModalDefaultProps> = ({
             <InputWrapFull>
               <InputGroup>
                 <Label>Title</Label>
-                <Input
-                  {...register('content.title')}
-                  // defaultValue={appMarketConfig?.content?.title}
-                />
+                <Input {...register('content.title')} />
                 {errors.content?.title?.message && <InputError message={errors.content?.title.message.toString()} />}
               </InputGroup>
             </InputWrapFull>
             <InputWrapFull>
               <InputGroup>
                 <Label>Strapline</Label>
-                <Input
-                  {...register('content.strapline')}
-                  // defaultValue={appMarketConfig?.content?.strapline}
-                />
+                <Input {...register('content.strapline')} />
                 {errors.content?.strapline?.message && (
                   <InputError message={errors.content?.strapline.message.toString()} />
                 )}
@@ -373,10 +380,7 @@ export const AppBrowseUpsertModal: FC<AppBrowseUpsertModalDefaultProps> = ({
             <InputWrapFull>
               <InputGroup>
                 <Label>Icon</Label>
-                <Select
-                  {...register('content.iconName')}
-                  // defaultValue={appMarketConfig?.content?.iconName}
-                >
+                <Select {...register('content.iconName')}>
                   <option></option>
                   {Object.keys(iconSet).map((iconName) => (
                     <option key={iconName} value={iconName}>
@@ -398,6 +402,7 @@ export const AppBrowseUpsertModal: FC<AppBrowseUpsertModalDefaultProps> = ({
                   onFileUpload={onFileUpload}
                   placeholderText="Upload Image"
                   fileName={uuid()}
+                  defaultValue={defaultValues.content?.imageUrl}
                 />
                 {errors.content?.imageUrl?.message && (
                   <InputError message={errors.content?.imageUrl.message.toString()} />
@@ -415,22 +420,14 @@ export const AppBrowseUpsertModal: FC<AppBrowseUpsertModalDefaultProps> = ({
             <InputWrapFull>
               <InputGroup>
                 <Label>Live From</Label>
-                <Input
-                  {...register('live.timeFrom')}
-                  type="datetime-local"
-                  // defaultValue={appMarketConfig?.live?.timeFrom?.toString().split(':00').shift()}
-                />
+                <Input {...register('live.timeFrom')} type="datetime-local" />
                 {errors.live?.timeFrom?.message && <InputError message={errors.live?.timeFrom.message.toString()} />}
               </InputGroup>
             </InputWrapFull>
             <InputWrapFull>
               <InputGroup>
                 <Label>Live To</Label>
-                <Input
-                  {...register('live.timeTo')}
-                  type="datetime-local"
-                  // defaultValue={appMarketConfig?.live?.timeTo?.toString().split(':00').shift()}
-                />
+                <Input {...register('live.timeTo')} type="datetime-local" />
                 {errors.live?.timeTo?.message && <InputError message={errors.live?.timeTo.message.toString()} />}
               </InputGroup>
             </InputWrapFull>
