@@ -5,7 +5,7 @@ import { render } from '../../../tests/react-testing'
 import { mockAppDetailModel } from '../../../tests/__stubs__/apps'
 import { mockDesktopIntegrationTypeModelPagedResult } from '../../../tests/__stubs__/desktop-integration-types'
 import { mockDeveloperModel } from '../../../tests/__stubs__/developers'
-import { AppsDetail, handleCarouselCols } from '../apps-detail'
+import { AppsDetail, handleCarouselCols, handleOpenModal } from '../apps-detail'
 import { mockInstallationModelPagedResult } from '../../../tests/__stubs__/installations'
 
 window.reapit.config.clientHiddenAppIds = {}
@@ -34,6 +34,10 @@ const mockUseReapitGet = useReapitGet as jest.Mock
 
 describe('AppsDetail', () => {
   it('should match a snapshot with data', () => {
+    const testElem = document.createElement('div')
+    testElem.id = 'root'
+    document.body.appendChild(testElem)
+
     mockUseReapitGet
       .mockReturnValueOnce([mockInstallationModelPagedResult, false])
       .mockReturnValueOnce([mockAppDetailModel, false])
@@ -92,5 +96,20 @@ describe('handleCarouselCols', () => {
     const result = curried()
 
     expect(result).toEqual(3)
+  })
+})
+
+describe('handleOpenModal', () => {
+  it('should handle opening modal', () => {
+    const setVideoUrl = jest.fn()
+    const videoOpenModal = jest.fn()
+    const videoUrl = 'https://example.com'
+
+    const curried = handleOpenModal(setVideoUrl, videoOpenModal, videoUrl)
+
+    curried()
+
+    expect(setVideoUrl).toHaveBeenCalledWith(videoUrl)
+    expect(videoOpenModal).toHaveBeenCalledTimes(1)
   })
 })

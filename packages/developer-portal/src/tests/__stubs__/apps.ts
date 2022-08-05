@@ -83,7 +83,29 @@ export const mockAppDetailModel: AppDetailModel = {
       description: 'Read properties',
     },
   ],
-  media: [],
+  media: [
+    {
+      description: 'Application Icon',
+      id: 'MOCK_ID',
+      order: 0,
+      type: 'icon',
+      uri: 'https://foo.bar',
+    },
+    {
+      description: 'Application Image',
+      id: 'MOCK_ID',
+      order: 0,
+      type: 'image',
+      uri: 'https://foo.bar',
+    },
+    {
+      description: 'Application Video',
+      id: 'MOCK_ID',
+      order: 0,
+      type: 'video',
+      uri: 'https://www.youtube.com/embed/iKdil7liAts',
+    },
+  ],
 }
 
 export const mockCreateAppModel: CreateAppModel = {
