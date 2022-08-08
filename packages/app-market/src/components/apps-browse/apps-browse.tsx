@@ -28,7 +28,11 @@ import { AppSearchFilters } from './app-search-filters-bar'
 import { FilteredAppsCollection } from './filtered-apps'
 import { cx } from '@linaria/core'
 import { Carousel } from '../carousel'
-import { AppsBrowseConfigItemFiltersInterface } from '@reapit/foundations-ts-definitions'
+import {
+  AppsBrowseConfigEnum,
+  AppsBrowseConfigItemFiltersInterface,
+  AppsBrowseConfigItemInterface,
+} from '@reapit/foundations-ts-definitions'
 
 export type MobileControlsState = 'search' | 'filters' | null
 
@@ -76,21 +80,30 @@ export const handleMobileControls =
     setMobileControlsState(newState)
   }
 
-export const handleSortConfigs = (appsBrowseConfigState: AppsBrowseConfigCollection | null) => () => {
-  const featuredHeroApps =
-    appsBrowseConfigState?.items.filter((config) => config.configType === 'featuredHeroApps') ?? []
-  const heroApps = appsBrowseConfigState?.items.filter((config) => config.configType === 'heroApps') ?? []
-  const appsFilters = appsBrowseConfigState?.items.filter((config) => config.configType === 'appsFilters') ?? []
-  const featuredApps = appsBrowseConfigState?.items.filter((config) => config.configType === 'featuredApps') ?? []
-  const simpleApps = appsBrowseConfigState?.items.filter((config) => config.configType === 'simpleApps') ?? []
+export type ConfigType = { [key in AppsBrowseConfigEnum]: AppsBrowseConfigItemInterface[] }
 
-  return {
-    featuredHeroApps,
-    heroApps,
-    appsFilters,
-    featuredApps,
-    simpleApps,
+export const handleSortConfigs = (appsBrowseConfigState: AppsBrowseConfigCollection | null) => () => {
+  const baseConfig: ConfigType = {
+    [AppsBrowseConfigEnum.HERO]: [],
+    [AppsBrowseConfigEnum.FEATURED_HERO]: [],
+    [AppsBrowseConfigEnum.FILTERS]: [],
+    [AppsBrowseConfigEnum.SIMPLE]: [],
+    [AppsBrowseConfigEnum.FEATURED]: [],
   }
+
+  if (!appsBrowseConfigState?.items.length) return baseConfig
+
+  const configs = appsBrowseConfigState.items.reduce<ConfigType>((acc, config) => {
+    const existingConfig = acc[config.configType]
+
+    acc[config.configType] = [...existingConfig, config].sort((a, b) => {
+      return (a.index || 0) - (b.index || 0)
+    })
+
+    return acc
+  }, baseConfig)
+
+  return configs
 }
 
 export const AppsBrowse: FC = () => {
