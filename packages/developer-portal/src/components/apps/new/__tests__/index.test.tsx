@@ -1,6 +1,6 @@
 import { ReapitConnectSession } from '@reapit/connect-session'
-import React from 'react'
-import { AppsNewPage, handleNavigateOnSuccess, handleSubmitApp, stepIsValid } from '..'
+import React, { KeyboardEvent } from 'react'
+import { AppsNewPage, handleNavigateOnSuccess, handleSubmitApp, preventReturnSubmit, stepIsValid } from '..'
 import { AppProvider } from '../../state/use-app-state'
 import { History } from 'history'
 import Routes from '../../../../constants/routes'
@@ -168,17 +168,41 @@ describe('AppsNew', () => {
 
   it('should check if a step is valid for authorisationCode flow and no step history', async () => {
     const authFlow = 'authorisationCode'
-    const stepHistory = []
+    const nextStep = null
     const trigger = jest.fn(() => new Promise<boolean>((resolve) => resolve(true)))
 
-    expect(await stepIsValid(authFlow, stepHistory, trigger)).toBe(true)
+    expect(await stepIsValid(authFlow, nextStep, trigger)).toBe(true)
   })
 
   it('should check if a step is valid for authorisationCode flow and has step history', async () => {
     const authFlow = 'authorisationCode'
-    const stepHistory = [AppNewStepId.agencyCloudStep, AppNewStepId.clientSideStep, AppNewStepId.rcRedirectsStep]
+    const nextStep = AppNewStepId.permissionsStep
     const trigger = jest.fn(() => new Promise<boolean>((resolve) => resolve(true)))
 
-    expect(await stepIsValid(authFlow, stepHistory, trigger)).toBe(true)
+    expect(await stepIsValid(authFlow, nextStep, trigger)).toBe(true)
+  })
+})
+
+describe('preventReturnSubmit', () => {
+  it('should prevent the form submitting on return', () => {
+    const event = {
+      key: 'Enter',
+      preventDefault: jest.fn(),
+    } as unknown as KeyboardEvent
+
+    preventReturnSubmit(event)
+
+    expect(event.preventDefault).toHaveBeenCalledTimes(1)
+  })
+
+  it('should not prevent the form submitting on any other key', () => {
+    const event = {
+      key: 'Shift',
+      preventDefault: jest.fn(),
+    } as unknown as KeyboardEvent
+
+    preventReturnSubmit(event)
+
+    expect(event.preventDefault).not.toHaveBeenCalled()
   })
 })

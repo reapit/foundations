@@ -80,7 +80,7 @@ export const FeaturedHeroAppsCollection: FC<FeaturedHeroAppsCollectionProps> = m
   const placeholderSize = useMemo(handlePlaceholderSize(mediaQuery), [mediaQuery])
   const iconPlaceholderSize = useMemo(handleIconPlaceholderSize(mediaQuery), [mediaQuery])
   const app = appDetail ?? {}
-  const { name, media, summary, category, id } = app
+  const { name, media, summary, categories, id } = app
   const iconUri = media?.find((item) => item.type === 'icon')?.uri
 
   return (
@@ -100,7 +100,11 @@ export const FeaturedHeroAppsCollection: FC<FeaturedHeroAppsCollectionProps> = m
                 )}
                 <FeaturedHeroAppsNameContainer>
                   <FeaturedHeroAppsSubtitle>{name}</FeaturedHeroAppsSubtitle>
-                  {category?.name ? <HeroAppsChip>{category.name}</HeroAppsChip> : <HeroAppsChipPlaceholder />}
+                  {categories?.length ? (
+                    categories.map((category) => <HeroAppsChip key={category?.id}>{category.name}</HeroAppsChip>)
+                  ) : (
+                    <HeroAppsChipPlaceholder />
+                  )}
                 </FeaturedHeroAppsNameContainer>
                 <Button
                   className={featuredHeroAppsButtonMobTablet}
