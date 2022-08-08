@@ -66,7 +66,7 @@ export const HeroAppsCollection: FC<HeroAppsCollectionProps> = memo(({ configIte
 
   const placeholderSize = useMemo(handlePlaceholderSize(mediaQuery), [mediaQuery])
   const app = appDetail ?? {}
-  const { name, media, summary, category, id } = app
+  const { name, media, summary, categories, id } = app
   const iconUri = media?.find((item) => item.type === 'icon')?.uri
 
   return (
@@ -85,7 +85,11 @@ export const HeroAppsCollection: FC<HeroAppsCollectionProps> = memo(({ configIte
               )}
               <HeroAppsNameContainer>
                 <HeroAppsSubtitle>{name}</HeroAppsSubtitle>
-                {category?.name ? <HeroAppsChip>{category.name}</HeroAppsChip> : <HeroAppsChipPlaceholder />}
+                {categories?.length ? (
+                  categories.map((category) => <HeroAppsChip key={category?.id}>{category.name}</HeroAppsChip>)
+                ) : (
+                  <HeroAppsChipPlaceholder />
+                )}
               </HeroAppsNameContainer>
             </HeroAppsContentContainer>
             <HeroAppsStrapline>{content?.strapline ?? summary}</HeroAppsStrapline>

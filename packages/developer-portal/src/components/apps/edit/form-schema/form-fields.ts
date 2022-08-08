@@ -2,7 +2,7 @@ import { InputGroupProps } from '@reapit/elements'
 
 export interface AppEditFormSchema {
   name: string
-  categoryId: string
+  categoryIds: string
   telephone: string
   supportEmail: string
   launchUri: string
@@ -35,7 +35,7 @@ export interface AppEditFormSchema {
 }
 
 export const defaultValues: AppEditFormSchema = {
-  categoryId: '',
+  categoryIds: '',
   authFlow: '',
   screen5ImageUrl: '',
   screen4ImageUrl: '',
@@ -76,9 +76,9 @@ export const formFields: Record<keyof AppEditFormSchema, InputGroupProps & { nam
     placeholder: 'The name of your app as it will appear to users',
     type: 'text',
   },
-  categoryId: {
-    name: 'categoryId',
-    label: 'Category',
+  categoryIds: {
+    name: 'categoryIds',
+    label: 'App Categories',
   },
   supportEmail: {
     name: 'supportEmail',
