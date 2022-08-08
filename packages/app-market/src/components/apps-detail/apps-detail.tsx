@@ -149,7 +149,7 @@ export const AppsDetail: FC = () => {
     privacyPolicyUrl,
     pricingUrl,
     isFree,
-    category,
+    categories,
     isDirectApi,
     desktopIntegrationTypeIds,
   } = app
@@ -198,7 +198,12 @@ export const AppsDetail: FC = () => {
                 <SmallText className={elMr5} hasNoMargin>
                   Verified by Reapit
                 </SmallText>
-                {category?.name && <AppDetailCategoryChip className={elFadeIn}>{category.name}</AppDetailCategoryChip>}
+                {Boolean(categories?.length) &&
+                  categories?.map((category) => (
+                    <AppDetailCategoryChip className={elFadeIn} key={category?.id}>
+                      {category.name}
+                    </AppDetailCategoryChip>
+                  ))}
                 {isDirectApi && (
                   <SmallText className={elMr5} hasBoldText hasNoMargin>
                     Integration

@@ -218,6 +218,11 @@ Object {
               >
                 Verified by Reapit
               </p>
+              <div
+                class="el-fade-in app-detail-category-chip"
+              >
+                Category
+              </div>
               <p
                 class="el-mr5 el-has-bold-text el-has-no-margin el-small-text"
               >
@@ -635,6 +640,11 @@ Object {
             >
               Verified by Reapit
             </p>
+            <div
+              class="el-fade-in app-detail-category-chip"
+            >
+              Category
+            </div>
             <p
               class="el-mr5 el-has-bold-text el-has-no-margin el-small-text"
             >

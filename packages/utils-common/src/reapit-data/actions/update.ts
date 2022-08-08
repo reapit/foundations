@@ -139,7 +139,7 @@ export const updateActions = (appEnv: AppEnv): UpdateActions => ({
     api: ApiNames(appEnv).platform,
     path: PathNames.getMember,
     errorMessage: 'Failed to invite member, this has been logged. Please try again.',
-    successMessage: 'Successfully invited developer orgainisation member',
+    successMessage: 'Successfully invited developer organisation member',
   },
   [UpdateActionNames.deleteSubscription]: {
     api: ApiNames(appEnv).platform,

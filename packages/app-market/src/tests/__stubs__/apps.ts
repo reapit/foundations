@@ -69,6 +69,12 @@ export const mockAppDetailModel: AppDetailModel = {
   pricingUrl: 'https://foo.bar',
   isFree: false,
   isHidden: false,
+  categories: [
+    {
+      id: 'MOCK_ID',
+      name: 'Category',
+    },
+  ],
   scopes: [
     {
       name: 'agencyCloud/applicants.read',
