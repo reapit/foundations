@@ -59,7 +59,7 @@ export const Controls: FC = () => {
       <Icon className={cx(isCalcPage && visiblyHidden, elMb3)} icon="crmInfographic" iconSize="large" />
       <Subtitle className={cx(isCalcPage && visiblyHidden)}>Filter By</Subtitle>
       <SmallText hasGreyText>
-        Please use the filters below to search. You can select a date range of 6 months or less.
+        Please use the filters below to search. Please note, we only hold transactional records for the last 12 months.
       </SmallText>
       <div className={cx(elBorderRadius, overflowHidden)}>
         <form onChange={handleSubmit(handleFormChange(setAnalyticsFilterState))}>
@@ -69,8 +69,8 @@ export const Controls: FC = () => {
               {...register('dateFrom')}
               type="date"
               label="Date From"
-              min={dayjs(dateTo).subtract(6, 'months').format('YYYY-MM')}
-              max={dayjs(dateTo).format('YYYY-MM')}
+              min={dayjs(dateTo).subtract(12, 'months').format('YYYY-MM-DD')}
+              max={dayjs(dateTo).format('YYYY-MM-DD')}
             />
           </ControlsContainer>
           <ControlsContainer className={cx((isCostsPage || isCalcPage) && visiblyHidden)}>
@@ -89,7 +89,7 @@ export const Controls: FC = () => {
               {...register('monthFrom')}
               type="month"
               label="Month From"
-              min={dayjs(monthTo).subtract(6, 'months').format('YYYY-MM')}
+              min={dayjs(monthTo).subtract(12, 'months').format('YYYY-MM')}
               max={dayjs(monthTo).format('YYYY-MM')}
             />
           </ControlsContainer>

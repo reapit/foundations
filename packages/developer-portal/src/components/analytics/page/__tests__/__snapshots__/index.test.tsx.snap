@@ -141,7 +141,7 @@ Object {
             <p
               class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
             >
-              Please use the filters below to search. You can select a date range of 6 months or less.
+              Please use the filters below to search. Please note, we only hold transactional records for the last 12 months.
             </p>
             <div
               class="e1v6agxr-el-border-radius o1ft4rva-overflow-hidden"
@@ -156,8 +156,8 @@ Object {
                     <input
                       class="e1urjlvd-el-input"
                       id="test-static-id"
-                      max="2019-10"
-                      min="2019-04"
+                      max="2019-10-10"
+                      min="2018-10-10"
                       name="dateFrom"
                       type="date"
                     />
@@ -201,7 +201,7 @@ Object {
                       class="e1urjlvd-el-input"
                       id="test-static-id"
                       max="2019-10"
-                      min="2019-04"
+                      min="2018-10"
                       name="monthFrom"
                       type="month"
                     />
@@ -438,7 +438,7 @@ Object {
           <p
             class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
           >
-            Please use the filters below to search. You can select a date range of 6 months or less.
+            Please use the filters below to search. Please note, we only hold transactional records for the last 12 months.
           </p>
           <div
             class="e1v6agxr-el-border-radius o1ft4rva-overflow-hidden"
@@ -453,8 +453,8 @@ Object {
                   <input
                     class="e1urjlvd-el-input"
                     id="test-static-id"
-                    max="2019-10"
-                    min="2019-04"
+                    max="2019-10-10"
+                    min="2018-10-10"
                     name="dateFrom"
                     type="date"
                   />
@@ -498,7 +498,7 @@ Object {
                     class="e1urjlvd-el-input"
                     id="test-static-id"
                     max="2019-10"
-                    min="2019-04"
+                    min="2018-10"
                     name="monthFrom"
                     type="month"
                   />
