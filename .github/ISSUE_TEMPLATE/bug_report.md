@@ -21,7 +21,7 @@ Steps to reproduce the behaviour eg:
 A clear and concise description of what you expected to happen.
 
 **Screenshots**
-If applicable, add screenshots to help explain your problem. Please ensure that screenshots do not include sensitive data such as personally identifiable information.
+If applicable, add screenshots to help explain your problem. Please ensure that screenshots do not include sensitive data such as personally identifiable information. If you do have private or sensitive information you need to share that will help with aiding resolution of this issue, please email sinfo@reapitfoundations.zendesk.com adding the issue number as the subject line. Please only use this mailbox to share information you cannot add to this issue.
 
 **Device (please complete the following information for web issues):**
  - Device: [e.g. iPhone6, PC, Mac]
