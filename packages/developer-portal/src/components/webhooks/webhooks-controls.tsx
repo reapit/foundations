@@ -21,6 +21,7 @@ import { useWebhooksState, WebhooksFilterState } from './state/use-webhooks-stat
 import { History } from 'history'
 import { useHistory } from 'react-router'
 import { ExternalPages, openNewPage } from '../../utils/navigation'
+import { TopicModel } from '../../types/webhooks'
 
 export type HandleSelectFilters = (
   setWebhookQueryParams: Dispatch<SetStateAction<WebhooksFilterState>>,
@@ -38,6 +39,9 @@ export const handleHistoryToQueryParams = (history: History): WebhooksFilterStat
     applicationId: queryParams.get('applicationId') ?? '',
     from: queryParams.get('from') ?? dayjs().format('YYYY-MM-DD'),
     to: queryParams.get('to') ?? dayjs().format('YYYY-MM-DD'),
+    entityId: queryParams.get('entityId') ?? '',
+    topicId: queryParams.get('topicId') ?? '',
+    eventId: queryParams.get('eventId') ?? '',
   }
 }
 
@@ -47,7 +51,7 @@ export const handleSelectFilters: HandleSelectFilters =
     const value = applicationId ? applicationId : event?.target.value
     const name = applicationId ? 'applicationId' : event?.target.name
 
-    if (!value || !name) return
+    if ((applicationId && !value) || !name) return
 
     const queryParams = handleHistoryToQueryParams(history)
     const newParams = {
@@ -69,8 +73,8 @@ export const WebhooksControls: FC = () => {
   const { webhooksFilterState, webhooksDataState, setWebhooksFilterState } = useWebhooksState()
   const history = useHistory()
   const { Modal, openModal, closeModal } = useModal()
-  const { to, from, applicationId } = webhooksFilterState
-  const { apps } = webhooksDataState
+  const { to, from, applicationId, topicId, entityId, eventId } = webhooksFilterState
+  const { apps, topics } = webhooksDataState
   const { pathname } = window.location
   const isManagePage = pathname === Routes.WEBHOOKS_MANAGE
   const isLogsPage = pathname === Routes.WEBHOOKS_LOGS
@@ -80,6 +84,26 @@ export const WebhooksControls: FC = () => {
       {(isManagePage || isLogsPage) && (
         <>
           <div className={cx(elBorderRadius, overflowHidden, elMb5)}>
+            <ControlsContainer>
+              <InputGroup>
+                <Select
+                  className={elWFull}
+                  value={applicationId ?? ''}
+                  name="applicationId"
+                  onChange={handleSelectFilters(setWebhooksFilterState, history)}
+                >
+                  <option key="default-option" value="">
+                    None selected
+                  </option>
+                  {apps?.data?.map((app: AppSummaryModel) => (
+                    <option key={app.id} value={app.id}>
+                      {app.name}
+                    </option>
+                  ))}
+                </Select>
+                <Label>App Name</Label>
+              </InputGroup>
+            </ControlsContainer>
             {isLogsPage && (
               <>
                 <ControlsContainer>
@@ -106,28 +130,48 @@ export const WebhooksControls: FC = () => {
                     onChange={handleSelectFilters(setWebhooksFilterState, history)}
                   />
                 </ControlsContainer>
+                <ControlsContainer>
+                  <InputGroup>
+                    <Select
+                      className={elWFull}
+                      value={topicId ?? ''}
+                      name="topicId"
+                      onChange={handleSelectFilters(setWebhooksFilterState, history)}
+                    >
+                      <option key="default-option" value="">
+                        None selected
+                      </option>
+                      {topics?.map((topic: TopicModel) => (
+                        <option key={topic.id} value={topic.id}>
+                          {topic.name}
+                        </option>
+                      ))}
+                    </Select>
+                    <Label>Topic Name</Label>
+                  </InputGroup>
+                </ControlsContainer>
+                <ControlsContainer>
+                  <InputGroup
+                    className={inputFullWidth}
+                    value={entityId}
+                    type="text"
+                    name="entityId"
+                    label="Entity Id"
+                    onChange={handleSelectFilters(setWebhooksFilterState, history)}
+                  />
+                </ControlsContainer>
+                <ControlsContainer>
+                  <InputGroup
+                    className={inputFullWidth}
+                    value={eventId}
+                    type="text"
+                    name="eventId"
+                    label="Event Id"
+                    onChange={handleSelectFilters(setWebhooksFilterState, history)}
+                  />
+                </ControlsContainer>
               </>
             )}
-            <ControlsContainer>
-              <InputGroup>
-                <Select
-                  className={elWFull}
-                  value={applicationId ?? ''}
-                  name="applicationId"
-                  onChange={handleSelectFilters(setWebhooksFilterState, history)}
-                >
-                  <option key="default-option" value="">
-                    None selected
-                  </option>
-                  {apps?.data?.map((app: AppSummaryModel) => (
-                    <option key={app.id} value={app.id}>
-                      {app.name}
-                    </option>
-                  ))}
-                </Select>
-                <Label>App Name</Label>
-              </InputGroup>
-            </ControlsContainer>
           </div>
           <Button className={elMb5} intent="neutral" onClick={openNewPage(ExternalPages.webhooksDocs)}>
             View Docs

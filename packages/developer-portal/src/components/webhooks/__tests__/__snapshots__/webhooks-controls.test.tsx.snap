@@ -94,6 +94,39 @@ Object {
           class="c1dc4ecv-controls-container"
         >
           <div
+            class="e1979rmu-el-input-group"
+          >
+            <select
+              class="e1yw9yco-el-wfull e60u3kb-el-select"
+              name="applicationId"
+            >
+              <option
+                value=""
+              >
+                None selected
+              </option>
+              <option
+                value="MOCK_APP_ID"
+              >
+                MOCK_APP_NAME
+              </option>
+              <option
+                value="MOCK_OTHER_APP_ID"
+              >
+                MOCK_APP_NAME_ANOTHER
+              </option>
+            </select>
+            <label
+              class="e1nbkkrq-el-label"
+            >
+              App Name
+            </label>
+          </div>
+        </div>
+        <div
+          class="c1dc4ecv-controls-container"
+        >
+          <div
             class="iru95t9-input-full-width e1979rmu-el-input-group"
           >
             <input
@@ -144,7 +177,7 @@ Object {
           >
             <select
               class="e1yw9yco-el-wfull e60u3kb-el-select"
-              name="applicationId"
+              name="topicId"
             >
               <option
                 value=""
@@ -152,20 +185,62 @@ Object {
                 None selected
               </option>
               <option
-                value="MOCK_APP_ID"
+                value="properties.created"
               >
-                MOCK_APP_NAME
+                Property created
               </option>
               <option
-                value="MOCK_OTHER_APP_ID"
+                value="properties.modified"
               >
-                MOCK_APP_NAME_ANOTHER
+                Property modified
               </option>
             </select>
             <label
               class="e1nbkkrq-el-label"
             >
-              App Name
+              Topic Name
+            </label>
+          </div>
+        </div>
+        <div
+          class="c1dc4ecv-controls-container"
+        >
+          <div
+            class="iru95t9-input-full-width e1979rmu-el-input-group"
+          >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              name="entityId"
+              type="text"
+              value=""
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              Entity Id
+            </label>
+          </div>
+        </div>
+        <div
+          class="c1dc4ecv-controls-container"
+        >
+          <div
+            class="iru95t9-input-full-width e1979rmu-el-input-group"
+          >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              name="eventId"
+              type="text"
+              value=""
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              Event Id
             </label>
           </div>
         </div>
@@ -189,6 +264,39 @@ Object {
     <div
       class="e1v6agxr-el-border-radius o27jdjf-overflow-hidden ehvkknk-el-mb5"
     >
+      <div
+        class="c1dc4ecv-controls-container"
+      >
+        <div
+          class="e1979rmu-el-input-group"
+        >
+          <select
+            class="e1yw9yco-el-wfull e60u3kb-el-select"
+            name="applicationId"
+          >
+            <option
+              value=""
+            >
+              None selected
+            </option>
+            <option
+              value="MOCK_APP_ID"
+            >
+              MOCK_APP_NAME
+            </option>
+            <option
+              value="MOCK_OTHER_APP_ID"
+            >
+              MOCK_APP_NAME_ANOTHER
+            </option>
+          </select>
+          <label
+            class="e1nbkkrq-el-label"
+          >
+            App Name
+          </label>
+        </div>
+      </div>
       <div
         class="c1dc4ecv-controls-container"
       >
@@ -243,7 +351,7 @@ Object {
         >
           <select
             class="e1yw9yco-el-wfull e60u3kb-el-select"
-            name="applicationId"
+            name="topicId"
           >
             <option
               value=""
@@ -251,20 +359,62 @@ Object {
               None selected
             </option>
             <option
-              value="MOCK_APP_ID"
+              value="properties.created"
             >
-              MOCK_APP_NAME
+              Property created
             </option>
             <option
-              value="MOCK_OTHER_APP_ID"
+              value="properties.modified"
             >
-              MOCK_APP_NAME_ANOTHER
+              Property modified
             </option>
           </select>
           <label
             class="e1nbkkrq-el-label"
           >
-            App Name
+            Topic Name
+          </label>
+        </div>
+      </div>
+      <div
+        class="c1dc4ecv-controls-container"
+      >
+        <div
+          class="iru95t9-input-full-width e1979rmu-el-input-group"
+        >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            name="entityId"
+            type="text"
+            value=""
+          />
+          <label
+            class="e1nbkkrq-el-label"
+            for="test-static-id"
+          >
+            Entity Id
+          </label>
+        </div>
+      </div>
+      <div
+        class="c1dc4ecv-controls-container"
+      >
+        <div
+          class="iru95t9-input-full-width e1979rmu-el-input-group"
+        >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            name="eventId"
+            type="text"
+            value=""
+          />
+          <label
+            class="e1nbkkrq-el-label"
+            for="test-static-id"
+          >
+            Event Id
           </label>
         </div>
       </div>

@@ -5,4 +5,7 @@ export const defaultWebhooksFilterState: WebhooksFilterState = {
   applicationId: '',
   from: dayjs().format('YYYY-MM-DD'),
   to: dayjs().format('YYYY-MM-DD'),
+  entityId: '',
+  eventId: '',
+  topicId: '',
 }
