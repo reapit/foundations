@@ -6,7 +6,7 @@ import PrivateRoute from './private-route'
 import PrivateRouteWrapper from './private-route-wrapper'
 import { createBrowserHistory, History } from 'history'
 import { OkayPage } from '@reapit/utils-react'
-import { PersistentNotification } from '@reapit/elements'
+import { PageContainer, PersistentNotification } from '@reapit/elements'
 import { FC } from 'react'
 
 export const history: History<any> = createBrowserHistory()
@@ -28,9 +28,11 @@ const DeveloperEditionDownload = React.lazy(() =>
 )
 
 export const FourOFour: FC = () => (
-  <PersistentNotification isFullWidth isInline isExpanded intent="danger">
-    Page not found
-  </PersistentNotification>
+  <PageContainer>
+    <PersistentNotification isFullWidth isInline isExpanded intent="danger">
+      Page not found
+    </PersistentNotification>
+  </PageContainer>
 )
 
 const Router = () => {

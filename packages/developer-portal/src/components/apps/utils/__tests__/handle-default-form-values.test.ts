@@ -12,7 +12,7 @@ describe('handleSetDefaultFormValues', () => {
     curried()
 
     const formValues = {
-      categoryId: '',
+      categoryIds: '',
       authFlow: 'authorisationCode',
       screen5ImageUrl: '',
       screen4ImageUrl: '',
@@ -58,7 +58,7 @@ describe('handleSetDefaultFormValues', () => {
     curried()
 
     const formValues = {
-      categoryId: '',
+      categoryIds: '',
       authFlow: '',
       screen5ImageUrl: '',
       screen4ImageUrl: '',

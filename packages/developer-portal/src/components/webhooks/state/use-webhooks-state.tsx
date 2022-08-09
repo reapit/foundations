@@ -23,6 +23,9 @@ export interface WebhooksFilterState {
   applicationId: string
   from: string
   to: string
+  entityId: string
+  topicId: string
+  eventId: string
 }
 
 export interface WebhooksStateHook {

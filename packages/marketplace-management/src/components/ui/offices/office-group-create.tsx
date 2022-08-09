@@ -148,7 +148,7 @@ export const OfficeGroupCreate: FC<OfficeGroupCreateProps> = () => {
     [500],
   )
   const { data } = useSWR<OfficeModelPagedResult | undefined>(
-    !orgClientId || !searchString ? null : `${URLS.OFFICES}?pageSize=100&name=${searchString}`,
+    !orgClientId || !searchString ? null : `${URLS.OFFICES}?pageSize=500&name=${searchString}`,
     fetcherWithClientCode(orgClientId as string),
   )
 

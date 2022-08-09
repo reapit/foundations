@@ -92,9 +92,6 @@ export const WebhooksPingForm: FC<WebhooksPingFormProps> = ({
     formState: { errors },
   } = useForm<PingWebhookFormSchema>({
     resolver: yupResolver(schema),
-    defaultValues: {
-      topicId: '',
-    },
   })
 
   const [, pingingWebhook, pingWebhook, pingSuccess, pingError] = useReapitUpdate<PingEndpointModel, boolean>({

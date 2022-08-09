@@ -30,8 +30,8 @@ export const sanitizeAppData = (appData: CreateAppRevisionModel): CreateAppRevis
     delete sanitizedAppData.videoUrl2
   }
 
-  if (!sanitizedAppData.categoryId) {
-    delete sanitizedAppData.categoryId
+  if (!sanitizedAppData.categoryIds) {
+    delete sanitizedAppData.categoryIds
   }
 
   if (sanitizedAppData.redirectUris && !sanitizedAppData.redirectUris.length) {
@@ -46,7 +46,7 @@ export const sanitizeAppData = (appData: CreateAppRevisionModel): CreateAppRevis
 
 export const formatFormValues = ({
   name,
-  categoryId,
+  categoryIds,
   telephone,
   supportEmail,
   launchUri,
@@ -78,7 +78,6 @@ export const formatFormValues = ({
 }: AppEditFormSchema): CreateAppRevisionModel => {
   const appData = {
     name,
-    categoryId,
     telephone,
     supportEmail,
     launchUri,
@@ -100,6 +99,7 @@ export const formatFormValues = ({
     privacyPolicyUrl,
     pricingUrl,
     isDirectApi: !isAgencyCloudIntegrated,
+    categoryIds: categoryIds.split(',').filter(Boolean),
     scopes: scopes.split(',').filter(Boolean),
     redirectUris: redirectUris.split(',').filter(Boolean),
     signoutUris: signoutUris.split(',').filter(Boolean),
