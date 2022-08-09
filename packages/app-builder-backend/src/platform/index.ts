@@ -6,8 +6,8 @@ import {
   SchemaModelPagedResult,
   UpdateSchemaRequest,
 } from '@reapit/foundations-ts-definitions/types'
-import fetch from 'node-fetch'
 import config from '../config.json'
+import { fetch } from '../utils/fetch'
 
 const { platformApiUrl } = config
 
