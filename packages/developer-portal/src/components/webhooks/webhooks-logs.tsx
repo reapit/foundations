@@ -1,5 +1,5 @@
 import React, { FC, useMemo } from 'react'
-import { elSpan2, PersistentNotification, RowProps, Table } from '@reapit/elements'
+import { elSpan2, PersistentNotification, RowProps, Table, useSnack } from '@reapit/elements'
 import dayjs from 'dayjs'
 import { saveAs } from 'file-saver'
 import { logger, useReapitGet } from '@reapit/utils-react'
@@ -87,18 +87,31 @@ export const handleSortTableData = (logs: WebhookLogModel[], topics: TopicModel[
 
 export const WebhooksLogs: FC = () => {
   const { webhooksFilterState, webhooksDataState } = useWebhooksState()
-  const { applicationId, from, to } = webhooksFilterState
+  const { error } = useSnack()
+  const { applicationId, entityId, eventId, topicId, from, to } = webhooksFilterState
   const { topics } = webhooksDataState
+
+  const baseQuery = {
+    applicationId,
+    from: dayjs(from).format('YYYY-MM-DDTHH:mm:ss'),
+    to: dayjs(to).add(1, 'day').subtract(1, 'second').format('YYYY-MM-DDTHH:mm:ss'),
+  }
+
+  const entityIdQuery = entityId ? { entityId } : {}
+  const eventIdQuery = eventId ? { eventId } : {}
+  const topicIdQuery = topicId ? { topicId } : {}
+
+  const queryParams = { ...baseQuery, ...entityIdQuery, ...eventIdQuery, ...topicIdQuery }
 
   const [logs, logsLoading] = useReapitGet<WebhookLogModel[]>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getWebhookLogs],
-    queryParams: {
-      applicationId,
-      from: dayjs(from).format('YYYY-MM-DDTHH:mm:ss'),
-      to: dayjs(to).add(1, 'day').subtract(1, 'second').format('YYYY-MM-DDTHH:mm:ss'),
-    },
+    queryParams,
     fetchWhenTrue: [applicationId, from, to],
+    onError: (err: string) => {
+      console.error(err)
+      error('Something went wrong fetching webhook logs. Please adjust your query and try again')
+    },
   })
 
   const rows = useMemo(handleSortTableData(logs ?? [], topics), [logs, topics])
