@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { ChangeEvent } from 'react'
 import { render } from '@testing-library/react'
-import { MarketplacePage, onPageChangeHandler } from '../marketplace'
+import { handleSearch, MarketplacePage, onPageChangeHandler } from '../marketplace'
 import { History } from 'history'
 import Routes from '../../../constants/routes'
 import { useOrgId } from '../../../utils/use-org-id'
@@ -54,7 +54,10 @@ describe('MarketplacePage', () => {
 
 describe('onPageChangeHandler', () => {
   it('should update the history object', async () => {
-    const mockHistory = { push: jest.fn() } as unknown as History
+    const mockHistory = {
+      push: jest.fn(),
+      location: { search: 'pageNumber=1&pageSize=12' },
+    } as unknown as History
     const mockPage = 2
 
     const curried = onPageChangeHandler(mockHistory)
@@ -62,5 +65,22 @@ describe('onPageChangeHandler', () => {
     curried(mockPage)
 
     expect(mockHistory.push).toHaveBeenCalledWith(`${Routes.MARKETPLACE}?pageNumber=${mockPage}&pageSize=12`)
+  })
+})
+
+describe('handleSearch', () => {
+  it('should update the history object', async () => {
+    const mockHistory = { push: jest.fn() } as unknown as History
+    const event = {
+      target: { value: 'test' },
+    } as unknown as ChangeEvent<HTMLInputElement>
+
+    const curried = handleSearch(mockHistory)
+
+    curried(event)
+
+    expect(mockHistory.push).toHaveBeenCalledWith(
+      `${Routes.MARKETPLACE}?pageSize=12&pageNumber=1&searchTerm=${event.target.value}`,
+    )
   })
 })
