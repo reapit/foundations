@@ -1,4 +1,4 @@
-import React, { FC, HTMLAttributes } from 'react'
+import React, { FC, HTMLAttributes, ReactNode } from 'react'
 import { cx } from '@linaria/core'
 import {
   ElTableHeadersRow,
@@ -26,16 +26,18 @@ import {
   ElTableCellNarrowOrder12,
   ElTableCtaIconContainer,
   ElTableCtaCell,
+  ElTableSortHeader,
 } from './__styles__'
 import { Icon, IconNames } from '../icon'
 import { elIsActive } from '../../styles/states'
+import { FlexContainer } from '../layout'
 
 export type NarrowOrderType = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
 
 export interface TableCellProps extends HTMLAttributes<HTMLDivElement> {
   icon?: IconNames
   darkText?: boolean
-  narrowLabel?: string
+  narrowLabel?: ReactNode
   narrowIsFullWidth?: boolean
   className?: string
   narrowOrder?: NarrowOrderType
@@ -57,6 +59,10 @@ export interface TableRowContainerProps extends HTMLAttributes<HTMLDivElement> {
 
 export interface TableCtaTriggerCellProps extends HTMLAttributes<HTMLDivElement> {
   icon?: IconNames
+}
+
+export interface TableSortHeaderProps extends HTMLAttributes<HTMLDivElement> {
+  direction: 'up' | 'down'
 }
 
 export const resolveNarrowOrderClass = (order: number): string | undefined => {
@@ -175,5 +181,16 @@ export const TableRowContainer: FC<TableRowContainerProps> = ({ isOpen, classNam
     <ElTableRowContainer className={cx(className, isOpen && elIsActive)} {...rest}>
       {children}
     </ElTableRowContainer>
+  )
+}
+
+export const TableSortHeader: FC<TableSortHeaderProps> = ({ children, direction, ...rest }) => {
+  return (
+    <ElTableSortHeader {...rest}>
+      <FlexContainer isFlexAlignCenter isFlexJustifyBetween>
+        {children}
+        <Icon icon={direction === 'up' ? 'arrowUpSystem' : 'arrowDownSystem'} />
+      </FlexContainer>
+    </ElTableSortHeader>
   )
 }

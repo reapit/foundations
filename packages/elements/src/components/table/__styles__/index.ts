@@ -506,3 +506,8 @@ export const ElTable = styled.div`
     --component-table-expandable-trigger-width: ${CALL_TO_ACTION_CELL_WIDTH};
   }
 `
+
+export const ElTableSortHeader = styled.div`
+  width: 100%;
+  cursor: pointer;
+`
