@@ -402,7 +402,8 @@ export const NewPage = ({
   return (
     <SidebarDiv
       className={cx(transition, bgWhite, elW2, elFlexColumn)}
-      style={{ width: showNewPage ? 320 : 0, overflowY: 'initial' }}
+      showNewPage={showNewPage}
+      style={{ overflowY: 'initial' }}
     >
       <HeaderDiv className={cx(bgWhite, elBorderGreyB, elFlex, elFlexAlignCenter, elPx3)}>
         <SubtitleBold style={{ marginBottom: 0 }}>Create Page Wizard</SubtitleBold>
