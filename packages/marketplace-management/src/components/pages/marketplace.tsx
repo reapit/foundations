@@ -1,4 +1,4 @@
-import React, { FC, useCallback } from 'react'
+import React, { ChangeEvent, FC, useCallback } from 'react'
 import { useHistory, useLocation } from 'react-router'
 import { History } from 'history'
 import Routes from '../../constants/routes'
@@ -14,6 +14,7 @@ import {
   FlexContainer,
   Grid,
   Icon,
+  InputGroup,
   Loader,
   PageContainer,
   Pagination,
@@ -31,10 +32,32 @@ import { useReapitGet } from '@reapit/utils-react'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import qs from 'qs'
 import { useReapitConnect } from '@reapit/connect-session'
+import debounce from 'just-debounce-it'
+import { ControlsContainer, inputFullWidth } from '../hocs/__styles__'
 
-export const onPageChangeHandler = (history: History<any>) => (page: number) => {
-  const queryString = `?pageNumber=${page}&pageSize=12`
-  return history.push(`${Routes.MARKETPLACE}${queryString}`)
+export const onPageChangeHandler = (history: History<any>) => (pageNumber: number) => {
+  const queryParams = qs.parse(history.location.search, { ignoreQueryPrefix: true })
+  const queryString = qs.stringify({
+    ...queryParams,
+    pageSize: 12,
+    pageNumber,
+  })
+
+  return history.push(`${Routes.MARKETPLACE}?${queryString}`)
+}
+
+export const handleSearch = (history: History<any>) => (event: ChangeEvent<HTMLInputElement>) => {
+  const search = event.target.value.toLowerCase()
+
+  const searchTerm = search ? { searchTerm: search } : {}
+
+  const queryString = qs.stringify({
+    pageSize: 12,
+    pageNumber: 1,
+    ...searchTerm,
+  })
+
+  return history.push(`${Routes.MARKETPLACE}?${queryString}`)
 }
 
 export const MarketplacePage: FC = () => {
@@ -45,6 +68,7 @@ export const MarketplacePage: FC = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const onPageChange = useCallback(onPageChangeHandler(history), [history])
   const searchParams = qs.parse(location.search, { ignoreQueryPrefix: true })
+  const debouncedSearch = useCallback(debounce(handleSearch(history), 500), [])
 
   const {
     orgIdState: { orgName, orgClientId },
@@ -68,6 +92,17 @@ export const MarketplacePage: FC = () => {
           office groups, please select an app.
         </BodyText>
         <OrgIdSelect />
+        <ControlsContainer>
+          <InputGroup
+            defaultValue={searchParams?.searchTerm as string}
+            className={inputFullWidth}
+            type="text"
+            name="searchTerm"
+            label="Search"
+            placeholder="Developer or App"
+            onChange={debouncedSearch}
+          />
+        </ControlsContainer>
       </SecondaryNavContainer>
       <PageContainer className={elHFull}>
         <FlexContainer isFlexJustifyBetween>
@@ -77,8 +112,18 @@ export const MarketplacePage: FC = () => {
               <Button intent="low" onClick={openModal}>
                 Select Org
               </Button>
-              <Modal title="Select Organisation">
+              <Modal title="Page Controls">
                 <OrgIdSelect />
+                <ControlsContainer>
+                  <InputGroup
+                    value={searchParams?.searchTerm as string}
+                    type="text"
+                    name="searchTerm"
+                    label="Search"
+                    placeholder="Developer or App Name"
+                    onChange={debouncedSearch}
+                  />
+                </ControlsContainer>
                 <ButtonGroup alignment="center">
                   <Button intent="secondary" onClick={closeModal}>
                     Close
