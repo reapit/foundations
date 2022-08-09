@@ -133,6 +133,28 @@ Object {
               </div>
             </div>
           </div>
+          <div
+            class="controls-container"
+          >
+            <div
+              class="input-full-width el-input-group"
+            >
+              <input
+                class="el-input"
+                id="test-static-id"
+                name="searchTerm"
+                placeholder="Developer or App"
+                type="text"
+                value=""
+              />
+              <label
+                class="el-label"
+                for="test-static-id"
+              >
+                Search
+              </label>
+            </div>
+          </div>
         </aside>
         <section
           class="el-hfull el-page-container"
@@ -3043,6 +3065,28 @@ Object {
                 Select Organisation
               </label>
             </div>
+          </div>
+        </div>
+        <div
+          class="controls-container"
+        >
+          <div
+            class="input-full-width el-input-group"
+          >
+            <input
+              class="el-input"
+              id="test-static-id"
+              name="searchTerm"
+              placeholder="Developer or App"
+              type="text"
+              value=""
+            />
+            <label
+              class="el-label"
+              for="test-static-id"
+            >
+              Search
+            </label>
           </div>
         </div>
       </aside>
@@ -6014,6 +6058,28 @@ Object {
               </div>
             </div>
           </div>
+          <div
+            class="controls-container"
+          >
+            <div
+              class="input-full-width el-input-group"
+            >
+              <input
+                class="el-input"
+                id="test-static-id"
+                name="searchTerm"
+                placeholder="Developer or App"
+                type="text"
+                value=""
+              />
+              <label
+                class="el-label"
+                for="test-static-id"
+              >
+                Search
+              </label>
+            </div>
+          </div>
         </aside>
         <section
           class="el-hfull el-page-container"
@@ -6188,6 +6254,28 @@ Object {
                 Select Organisation
               </label>
             </div>
+          </div>
+        </div>
+        <div
+          class="controls-container"
+        >
+          <div
+            class="input-full-width el-input-group"
+          >
+            <input
+              class="el-input"
+              id="test-static-id"
+              name="searchTerm"
+              placeholder="Developer or App"
+              type="text"
+              value=""
+            />
+            <label
+              class="el-label"
+              for="test-static-id"
+            >
+              Search
+            </label>
           </div>
         </div>
       </aside>
