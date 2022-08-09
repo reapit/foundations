@@ -609,7 +609,8 @@ We've also added a `TableSortHeader` element which has a arrow indicator for you
           .map((info) => ({
             cells: [
               {
-                label: <TableSortHeader direction={propertySort}>Property</TableSortHeader>,
+                label: 'Property',
+                labelChild: <TableSortHeader direction={propertySort}>Property</TableSortHeader>,
                 onLabelClick: () => {
                   setPropertySort(propertySort === 'up' ? 'down' : 'up')
                 },

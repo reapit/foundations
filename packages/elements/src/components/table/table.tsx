@@ -21,7 +21,8 @@ export type NarrowOptionsType = {
 }
 
 export interface CellProps {
-  label: ReactNode
+  label: string
+  labelChild?: ReactNode
   onLabelClick?: (event: React.MouseEvent) => void
   value: ReactNode
   children?: ReactNode
@@ -110,7 +111,7 @@ export const Table: FC<TableProps> = ({
               }
             }}
           >
-            {cell.label}
+            {cell.labelChild || cell.label}
           </TableHeader>
         ))}
         {hasExpandableRows && (

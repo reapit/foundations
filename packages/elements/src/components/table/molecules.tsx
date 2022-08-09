@@ -1,4 +1,4 @@
-import React, { FC, HTMLAttributes, ReactNode } from 'react'
+import React, { FC, HTMLAttributes } from 'react'
 import { cx } from '@linaria/core'
 import {
   ElTableHeadersRow,
@@ -37,7 +37,7 @@ export type NarrowOrderType = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
 export interface TableCellProps extends HTMLAttributes<HTMLDivElement> {
   icon?: IconNames
   darkText?: boolean
-  narrowLabel?: ReactNode
+  narrowLabel?: string
   narrowIsFullWidth?: boolean
   className?: string
   narrowOrder?: NarrowOrderType
