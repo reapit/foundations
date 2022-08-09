@@ -408,7 +408,7 @@ exports[`Viewport should match a snapshot 1`] = `
     >
       <div
         class="transition bg-white el-w2 el-flex-column sidebar-div"
-        style="width: 0px; overflow-y: initial;"
+        style="--s1xt9yg4-0: 337px; overflow-y: initial;"
       >
         <div
           class="bg-white el-border-grey-b el-flex el-flex-align-center el-px3 header-div"
@@ -720,8 +720,8 @@ exports[`Viewport should match a snapshot 1`] = `
         </div>
       </div>
       <div
-        class="transition bg-white el-w2 sidebar-div"
-        style="width: 337px;"
+        class="transition bg-white sidebar-div"
+        style="--s1xt9yg4-0: 337px;"
       >
         <div
           class="el-flex el-flex-column overflow-auto"
