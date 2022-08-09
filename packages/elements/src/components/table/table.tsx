@@ -22,6 +22,8 @@ export type NarrowOptionsType = {
 
 export interface CellProps {
   label: string
+  labelChild?: ReactNode
+  onLabelClick?: (event: React.MouseEvent) => void
   value: ReactNode
   children?: ReactNode
   icon?: IconNames
@@ -77,9 +79,8 @@ export const Table: FC<TableProps> = ({
 }) => {
   const firstRow = rows?.[0]
   const [expandedRow, setExpandedRow] = useState<null | number>(null)
-  
-  if (!rows || !firstRow) return <ElTable {...rest}>{children}</ElTable>
 
+  if (!rows || !firstRow) return <ElTable {...rest}>{children}</ElTable>
 
   const hasExpandableRows = rows.some((row) => Boolean(row.expandableContent))
   const hasCallToAction = rows.some((row) => Boolean(row.ctaContent))
@@ -101,8 +102,16 @@ export const Table: FC<TableProps> = ({
     >
       <TableHeadersRow>
         {firstRow.cells.map((cell) => (
-          <TableHeader className={cell.className} key={cell.label}>
-            {cell.label}
+          <TableHeader
+            className={cell.className}
+            key={cell.label?.toString()}
+            onClick={(event) => {
+              if (cell.onLabelClick) {
+                cell.onLabelClick(event)
+              }
+            }}
+          >
+            {cell.labelChild || cell.label}
           </TableHeader>
         ))}
         {hasExpandableRows && (

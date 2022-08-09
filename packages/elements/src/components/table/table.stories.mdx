@@ -11,6 +11,7 @@ import {
   TableExpandableRow,
   TableRowContainer,
   TableCtaTriggerCell,
+  TableSortHeader,
 } from './molecules'
 import { Icon } from '../icon'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
@@ -559,3 +560,107 @@ We also specify that the first row is expanded by passing an `indexExpandedRow` 
     }}
   </Story>
 </Canvas>
+
+## Table Sorting
+
+To set up sorting on tables, you can add a `onLabelClick` function to the cells to trigger a sort of your data. 
+We've also added a `TableSortHeader` element which has a arrow indicator for your direction of sorting.
+
+<Canvas>
+  <Story name="Table Sorting - React">
+    {() => {
+      const [indexExpandedRow, setIndexExpandedRow] = useState(0)
+      const [propertySort, setPropertySort] = useState("up")
+      const [data, setData] = useState([
+        {
+          property: 'Mt Ash Jacket, Brassey Road',
+          customer: {
+            name: 'Mr Johnny Corrigan',
+          },
+          client: {
+            name: 'Alternate Lettings Client Acc',
+          },
+          description: 'Tenant Payment Request',
+          requestDate: '19 Apr 2021',
+          amount: '50.00',
+          paymentStatus: 'Not Requested',
+        },
+        {
+          property: 'Property Name, Road Name',
+          customer: {
+            name: 'Mrs Davina Corrigan',
+          },
+          client: {
+            name: 'Alternate Lettings Client Acc',
+          },
+          description: 'Another Descriptions',
+          requestDate: '23 Apr 2021',
+          amount: '665.21',
+          paymentStatus: 'Pending',
+        },
+      ])
+      
+      return (
+        <Table
+          numberColumns={9}
+          indexExpandedRow={indexExpandedRow}
+          setIndexExpandedRow={setIndexExpandedRow}
+          rows={data
+          .map((info) => ({
+            cells: [
+              {
+                label: 'Property',
+                labelChild: <TableSortHeader direction={propertySort}>Property</TableSortHeader>,
+                onLabelClick: () => {
+                  setPropertySort(propertySort === 'up' ? 'down' : 'up')
+                },
+                value: info.property,
+                className: elSpan2,
+                icon: 'homeSystem',
+                cellHasDarkText: true,
+                narrowTable: { showLabel: true },
+              },
+              {
+                label: 'Customer',
+                value: info.customer.name,
+                icon: 'usernameSystem',
+                narrowTable: { showLabel: true },
+              },
+              {
+                label: 'Client A/C',
+                value: info.client.name,
+              },
+              {
+                label: 'Description',
+                value: info.description,
+              },
+              {
+                label: 'Request Date',
+                value: info.requestDate,
+                narrowTable: { showLabel: true },
+              },
+              {
+                label: 'Amount',
+                value: `£${info.amount}`,
+                cellHasDarkText: true,
+              },
+              {
+                label: 'Payment Status',
+                value: info.paymentStatus,
+                children: (
+                  <>
+                    <StatusIndicator intent="critical" /> Pending
+                  </>
+                ),
+              },
+            ],
+            expandableContent: {
+              content: <p>I am more content that is only visible when the 2nd row is expanded</p>,
+            },
+          }))}
+        />
+      )
+    }}
+  </Story>
+</Canvas>
+
