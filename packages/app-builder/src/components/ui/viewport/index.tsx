@@ -126,7 +126,6 @@ export const Viewport = ({ children, iframeRef, deserialize, rendererDivRefHandl
                 'create',
                 fields,
               )
-              console.log(nodes)
               const pageName = `${entity} ${pageType === 'table' ? 'Table' : 'Create'}`
               const newApp = await createPage(pageName)
               const newPage = newApp.pages.find((page) => page.name === pageName)

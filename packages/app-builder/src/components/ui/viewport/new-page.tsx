@@ -1,3 +1,4 @@
+import { useObjectMutate } from '@/components/hooks/objects/use-object-mutate'
 import { cx } from '@linaria/core'
 import { styled } from '@linaria/react'
 import {
@@ -21,7 +22,7 @@ import { SubtitleBold } from '../sidebar-item'
 import { HeaderDiv } from '../sidebar-item/styles'
 import { bgWhite, transition } from '../styles'
 import { Item, ToolboxItem } from '../toolbox'
-import { ColumnControls } from '../user/table'
+import { ColumnControls } from '../user/column-controls'
 
 const InfoBubbleSvg = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -289,19 +290,26 @@ const Step3 = ({
   entity,
   setFields,
   fields,
+  pageType,
 }: {
   stepNo: number
   setStepNo: (no: number) => void
   entity?: string
   setFields: (fields: string[]) => void
   fields?: string[]
+  pageType?: PageType
 }) => {
   const { loading, object } = useObject(entity)
-  const availableFields = object?.object.fields.map((f) => f.name) || []
+  const { args } = useObjectMutate(pageType === 'form' ? 'create' : 'list', entity)
+  const availableFields =
+    (pageType === 'form' && args
+      ? args[0].fields?.map(({ name, isRequired }) => ({ name, isRequired }))
+      : object?.object.fields) || []
 
   useEffect(() => {
     if (entity) {
-      setFields([])
+      const fieldNames = availableFields.filter((field) => field.isRequired).map((field) => field.name)
+      setFields(fieldNames)
     }
   }, [entity])
 
@@ -425,6 +433,7 @@ export const NewPage = ({
             setStepNo={setStepNo}
             entity={entity}
             fields={fields}
+            pageType={pageType}
             setFields={(fields) => {
               handlePageChange({ ...newPage, fields })
             }}

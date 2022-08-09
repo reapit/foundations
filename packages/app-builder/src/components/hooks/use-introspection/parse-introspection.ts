@@ -15,6 +15,7 @@ import {
   isIntrospectionEnumType,
   isIntrospectionInputObjectType,
   isIntrospectionObjectType,
+  isNonNullType,
   QueryableField,
 } from './types'
 
@@ -38,6 +39,7 @@ const fieldToQueryableField = (field: IntrospectionField): QueryableField => {
     ...field,
     nestedKinds: flatKind(field.type),
     nestedType: getObjectType(field.type),
+    isRequired: isNonNullType(field.type),
   }
 }
 

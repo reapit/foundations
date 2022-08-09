@@ -12,11 +12,8 @@ import { useObjectList } from '@/components/hooks/objects/use-object-list'
 import { useIntrospection } from '@/components/hooks/use-introspection'
 import { CreatePage } from './create-page'
 import { TypeList } from './type-list'
-import { Label } from '@reapit/elements'
 import { useObject } from '@/components/hooks/objects/use-object'
-import { uppercaseSentence } from './ejectable/utils'
-import { styled } from '@linaria/react'
-import { ToolbarCheckbox } from '../toolbar/toolbar-checkbox'
+import { ColumnControls } from './column-controls'
 
 const defaultProps = {}
 
@@ -30,83 +27,6 @@ const Table = (props: TableProps) => {
 
   return <ETable {...props} ref={(ref) => ref && connect(drag(ref))} disabled={isEditing} />
 }
-
-const CheckboxContainer = styled.div<{ checked?: boolean }>`
-  display: flex;
-  align-items: center;
-  margin-bottom: 8px;
-  cursor: pointer;
-  box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.08);
-  background: ${({ checked }) => {
-    return checked ? '#EAF5FC' : 'white'
-  }};
-  color: ${({ checked }) => {
-    return checked ? 'black' : 'inherit'
-  }};
-  border: ${({ checked }) => {
-    return checked ? '1px solid #23A4DE' : '1px solid transparent'
-  }};
-  padding: 8px 12px;
-  border-radius: 4px;
-
-  label {
-    margin-left: 8px;
-    cursor: pointer;
-  }
-  height: 36px;
-`
-
-const ColumnControlLabel = styled(Label)`
-  display: flex;
-  margin-bottom: 8px;
-`
-
-const FieldContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-`
-
-export const ColumnControls = ({
-  availableFields,
-  includedFields = [],
-  setIncludedFields,
-}: {
-  availableFields: string[]
-  includedFields?: string[]
-  setIncludedFields: (fields: string[]) => void
-}) => (
-  <div>
-    <ColumnControlLabel>Fields</ColumnControlLabel>
-    <FieldContainer>
-      {availableFields
-        .filter((field) => field !== 'id')
-        .map((field) => {
-          const checked = includedFields.includes(field)
-          return (
-            <CheckboxContainer
-              key={field}
-              checked={includedFields.includes(field)}
-              onClick={() => {
-                const newFields = !checked ? [...includedFields, field] : includedFields.filter((f) => f !== field)
-                setIncludedFields(newFields)
-              }}
-            >
-              <ToolbarCheckbox
-                key={field}
-                value={checked}
-                onChange={(newChecked) => {
-                  const newFields = newChecked ? [...includedFields, field] : includedFields.filter((f) => f !== field)
-                  setIncludedFields(newFields)
-                }}
-              />
-              <Label>{uppercaseSentence(field)}</Label>
-            </CheckboxContainer>
-          )
-        })}
-    </FieldContainer>
-  </div>
-)
 
 export const IntegrationLanding = ({ typeName }: { typeName: string | undefined }) => {
   const { args } = useObjectList(typeName)
@@ -151,12 +71,15 @@ const TableSettings = () => {
     })
   }
 
-  const availableFields = object?.object.fields.map((f) => f.name) || []
+  const availableFields = object?.object.fields || []
 
   useEffect(() => {
     if (shouldUpdate) {
       setShouldUpdate(false)
-      sp('includedFields', availableFields)
+      sp(
+        'includedFields',
+        availableFields.map((f) => f.name),
+      )
     }
   }, [shouldUpdate])
 

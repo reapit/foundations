@@ -6,3 +6,19 @@ export const uppercaseSentence = (str: string) => {
     .split('  ')
     .join(' ')
 }
+
+export const camelCaseToSentence = (camelCase: string) => {
+  if (camelCase.length === 2) {
+    return camelCase
+  }
+  return uppercaseSentence(camelCase.replace(/([A-Z])/g, ' $1'))
+}
+
+export const friendlyIdName = (idName: string) => {
+  const words = idName.replaceAll('Id', '').split('_')
+  return words
+    .map((w) => w.split('.'))
+    .flat()
+    .map(camelCaseToSentence)
+    .join(' ')
+}
