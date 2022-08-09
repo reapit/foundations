@@ -208,6 +208,11 @@ Object {
           >
             Here you can change your password and find out your current logged in profile. This can be useful if you are experiencing any permission related issues with your account.
           </p>
+          <p
+            class="el-has-grey-text el-small-text"
+          >
+            In addition as an admin, you can view details of your app installations and uninstall any live apps for all users in your organisation.
+          </p>
           <button
             class="el-intent-critical el-button-has-right-chevron el-button"
           >
@@ -423,6 +428,11 @@ Object {
           class="el-has-grey-text el-small-text"
         >
           Here you can change your password and find out your current logged in profile. This can be useful if you are experiencing any permission related issues with your account.
+        </p>
+        <p
+          class="el-has-grey-text el-small-text"
+        >
+          In addition as an admin, you can view details of your app installations and uninstall any live apps for all users in your organisation.
         </p>
         <button
           class="el-intent-critical el-button-has-right-chevron el-button"

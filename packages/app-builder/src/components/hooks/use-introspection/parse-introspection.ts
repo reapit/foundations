@@ -1,6 +1,6 @@
 import { IntrospectionField, IntrospectionObjectType, IntrospectionQuery } from 'graphql'
 
-import { notEmpty } from './helpers'
+import { flatKind, getObjectType, notEmpty } from './helpers'
 import { getTopLevelFields } from './nested-fields'
 import {
   getMutation,
@@ -11,10 +11,15 @@ import {
   GeneratedMutation,
   GeneratedQuery,
 } from './query-generators'
-import { isIntrospectionEnumType, isIntrospectionInputObjectType, isIntrospectionObjectType } from './types'
+import {
+  isIntrospectionEnumType,
+  isIntrospectionInputObjectType,
+  isIntrospectionObjectType,
+  QueryableField,
+} from './types'
 
 export type IntrospectionResult = {
-  object: IntrospectionObjectType
+  object: Omit<IntrospectionObjectType, 'fields'> & { fields: QueryableField[] }
   supportsCustomFields: boolean
   acKeyField?: IntrospectionField & { acKey: string }
   labelKeys?: string[]
@@ -25,6 +30,15 @@ export type IntrospectionResult = {
   update?: GeneratedMutation
   delete?: GeneratedMutation
   specials: GeneratedSpecial[]
+  notTopLevel?: boolean
+}
+
+const fieldToQueryableField = (field: IntrospectionField): QueryableField => {
+  return {
+    ...field,
+    nestedKinds: flatKind(field.type),
+    nestedType: getObjectType(field.type),
+  }
 }
 
 export const parseIntrospectionResult = (introspection: IntrospectionQuery): IntrospectionResult[] | undefined => {
@@ -75,8 +89,9 @@ export const parseIntrospectionResult = (introspection: IntrospectionQuery): Int
     return {
       object: {
         ...object,
-        fields: object.fields.filter(({ name }) => !name.startsWith('_placeholder')),
+        fields: object.fields.filter(({ name }) => !name.startsWith('_placeholder')).map(fieldToQueryableField),
       },
+      notTopLevel: object.description?.includes('@notTopLevel') ?? false,
       labelKeys,
       acKeyField,
       supportsCustomFields: !!object.description?.includes('@supportsCustomFields()'),

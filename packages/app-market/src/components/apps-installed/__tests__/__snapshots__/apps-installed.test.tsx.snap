@@ -15,8 +15,16 @@ Object {
           class="installed-apps-inner-container"
         >
           <div
-            class="installed-apps-grid"
-          />
+            class="el-loader-container"
+          >
+            <div
+              class="el-loader"
+            >
+              <div
+                class="el-loader-moving-bar"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -32,8 +40,16 @@ Object {
         class="installed-apps-inner-container"
       >
         <div
-          class="installed-apps-grid"
-        />
+          class="el-loader-container"
+        >
+          <div
+            class="el-loader"
+          >
+            <div
+              class="el-loader-moving-bar"
+            />
+          </div>
+        </div>
       </div>
     </div>
   </div>,
@@ -168,6 +184,37 @@ Object {
                 MOCK_APP_NAME_ANOTHER
               </div>
             </div>
+            <div
+              class="install-more-apps installed-apps-col"
+            >
+              <svg
+                fill="none"
+                height="52"
+                viewBox="0 0 52 52"
+                width="52"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle
+                  cx="19.5"
+                  cy="26.5"
+                  fill="black"
+                  r="1.5"
+                />
+                <circle
+                  cx="25.5"
+                  cy="26.5"
+                  fill="black"
+                  r="1.5"
+                />
+                <circle
+                  cx="31.5"
+                  cy="26.5"
+                  fill="black"
+                  r="1.5"
+                />
+              </svg>
+              Install More Apps
+            </div>
           </div>
         </div>
       </div>
@@ -245,6 +292,37 @@ Object {
             >
               MOCK_APP_NAME_ANOTHER
             </div>
+          </div>
+          <div
+            class="install-more-apps installed-apps-col"
+          >
+            <svg
+              fill="none"
+              height="52"
+              viewBox="0 0 52 52"
+              width="52"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle
+                cx="19.5"
+                cy="26.5"
+                fill="black"
+                r="1.5"
+              />
+              <circle
+                cx="25.5"
+                cy="26.5"
+                fill="black"
+                r="1.5"
+              />
+              <circle
+                cx="31.5"
+                cy="26.5"
+                fill="black"
+                r="1.5"
+              />
+            </svg>
+            Install More Apps
           </div>
         </div>
       </div>

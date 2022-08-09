@@ -83,6 +83,7 @@ Array [
         },
       },
     },
+    "notTopLevel": false,
     "object": Object {
       "description": "@labelKeys(firstName, lastName)",
       "enumValues": null,
@@ -93,6 +94,11 @@ Array [
           "description": null,
           "isDeprecated": false,
           "name": "id",
+          "nestedKinds": Array [
+            "NON_NULL",
+            "SCALAR",
+          ],
+          "nestedType": "ID",
           "type": Object {
             "kind": "NON_NULL",
             "name": null,
@@ -109,6 +115,11 @@ Array [
           "description": null,
           "isDeprecated": false,
           "name": "firstName",
+          "nestedKinds": Array [
+            "NON_NULL",
+            "SCALAR",
+          ],
+          "nestedType": "String",
           "type": Object {
             "kind": "NON_NULL",
             "name": null,
@@ -125,6 +136,11 @@ Array [
           "description": null,
           "isDeprecated": false,
           "name": "lastName",
+          "nestedKinds": Array [
+            "NON_NULL",
+            "SCALAR",
+          ],
+          "nestedType": "String",
           "type": Object {
             "kind": "NON_NULL",
             "name": null,
@@ -166,6 +182,7 @@ Array [
               "isRequired": true,
               "name": "title",
               "onlyIf": undefined,
+              "replaces": undefined,
               "typeName": "String",
             },
             Object {
@@ -185,6 +202,7 @@ Array [
               "isRequired": true,
               "name": "genre",
               "onlyIf": undefined,
+              "replaces": undefined,
               "typeName": "Genre",
             },
             Object {
@@ -197,6 +215,7 @@ Array [
               "isRequired": false,
               "name": "description",
               "onlyIf": undefined,
+              "replaces": undefined,
               "typeName": "String",
             },
             Object {
@@ -209,6 +228,7 @@ Array [
               "isRequired": true,
               "name": "authorId",
               "onlyIf": undefined,
+              "replaces": undefined,
               "typeName": "ID",
             },
           ],
@@ -217,6 +237,7 @@ Array [
           "isRequired": true,
           "name": "book",
           "onlyIf": undefined,
+          "replaces": undefined,
           "typeName": "BookInput",
         },
       ],
@@ -402,6 +423,7 @@ Array [
           "isRequired": true,
           "name": "id",
           "onlyIf": undefined,
+          "replaces": undefined,
           "typeName": "ID",
         },
       ],
@@ -587,6 +609,7 @@ Array [
           "isRequired": true,
           "name": "id",
           "onlyIf": undefined,
+          "replaces": undefined,
           "typeName": "ID",
         },
       ],
@@ -892,6 +915,7 @@ Array [
         },
       },
     },
+    "notTopLevel": false,
     "object": Object {
       "description": null,
       "enumValues": null,
@@ -902,6 +926,11 @@ Array [
           "description": null,
           "isDeprecated": false,
           "name": "id",
+          "nestedKinds": Array [
+            "NON_NULL",
+            "SCALAR",
+          ],
+          "nestedType": "ID",
           "type": Object {
             "kind": "NON_NULL",
             "name": null,
@@ -918,6 +947,11 @@ Array [
           "description": null,
           "isDeprecated": false,
           "name": "title",
+          "nestedKinds": Array [
+            "NON_NULL",
+            "SCALAR",
+          ],
+          "nestedType": "String",
           "type": Object {
             "kind": "NON_NULL",
             "name": null,
@@ -934,6 +968,11 @@ Array [
           "description": null,
           "isDeprecated": false,
           "name": "genre",
+          "nestedKinds": Array [
+            "NON_NULL",
+            "ENUM",
+          ],
+          "nestedType": "Genre",
           "type": Object {
             "kind": "NON_NULL",
             "name": null,
@@ -950,6 +989,10 @@ Array [
           "description": null,
           "isDeprecated": false,
           "name": "description",
+          "nestedKinds": Array [
+            "SCALAR",
+          ],
+          "nestedType": "String",
           "type": Object {
             "kind": "SCALAR",
             "name": "String",
@@ -962,6 +1005,11 @@ Array [
           "description": null,
           "isDeprecated": false,
           "name": "author",
+          "nestedKinds": Array [
+            "NON_NULL",
+            "OBJECT",
+          ],
+          "nestedType": "Author",
           "type": Object {
             "kind": "NON_NULL",
             "name": null,
@@ -999,6 +1047,7 @@ Array [
               "isRequired": true,
               "name": "title",
               "onlyIf": undefined,
+              "replaces": undefined,
               "typeName": "String",
             },
             Object {
@@ -1018,6 +1067,7 @@ Array [
               "isRequired": true,
               "name": "genre",
               "onlyIf": undefined,
+              "replaces": undefined,
               "typeName": "Genre",
             },
             Object {
@@ -1030,6 +1080,7 @@ Array [
               "isRequired": false,
               "name": "description",
               "onlyIf": undefined,
+              "replaces": undefined,
               "typeName": "String",
             },
             Object {
@@ -1042,6 +1093,7 @@ Array [
               "isRequired": true,
               "name": "authorId",
               "onlyIf": undefined,
+              "replaces": undefined,
               "typeName": "ID",
             },
           ],
@@ -1050,6 +1102,7 @@ Array [
           "isRequired": true,
           "name": "book",
           "onlyIf": undefined,
+          "replaces": undefined,
           "typeName": "BookInput",
         },
         Object {
@@ -1062,6 +1115,7 @@ Array [
           "isRequired": true,
           "name": "id",
           "onlyIf": undefined,
+          "replaces": undefined,
           "typeName": "ID",
         },
       ],
@@ -1291,6 +1345,7 @@ Array [
               "isRequired": true,
               "name": "forename",
               "onlyIf": undefined,
+              "replaces": undefined,
               "typeName": "String",
             },
             Object {
@@ -1303,6 +1358,7 @@ Array [
               "isRequired": true,
               "name": "surname",
               "onlyIf": undefined,
+              "replaces": undefined,
               "typeName": "String",
             },
             Object {
@@ -1315,6 +1371,7 @@ Array [
               "isRequired": true,
               "name": "title",
               "onlyIf": undefined,
+              "replaces": undefined,
               "typeName": "String",
             },
             Object {
@@ -1327,6 +1384,7 @@ Array [
               "isRequired": true,
               "name": "email",
               "onlyIf": undefined,
+              "replaces": undefined,
               "typeName": "String",
             },
             Object {
@@ -1343,6 +1401,7 @@ Array [
               "isRequired": true,
               "name": "marketingConsent",
               "onlyIf": undefined,
+              "replaces": undefined,
               "typeName": "MarketingConsent",
             },
           ],
@@ -1351,6 +1410,7 @@ Array [
           "isRequired": true,
           "name": "contact",
           "onlyIf": undefined,
+          "replaces": undefined,
           "typeName": "ContactInput",
         },
       ],
@@ -1511,6 +1571,7 @@ Array [
           "isRequired": true,
           "name": "id",
           "onlyIf": undefined,
+          "replaces": undefined,
           "typeName": "String",
         },
       ],
@@ -1768,6 +1829,7 @@ Array [
         },
       },
     },
+    "notTopLevel": false,
     "object": Object {
       "description": "@labelKeys(title, forename, surname) @supportsCustomFields()",
       "enumValues": null,
@@ -1778,6 +1840,11 @@ Array [
           "description": null,
           "isDeprecated": false,
           "name": "id",
+          "nestedKinds": Array [
+            "NON_NULL",
+            "SCALAR",
+          ],
+          "nestedType": "ID",
           "type": Object {
             "kind": "NON_NULL",
             "name": null,
@@ -1794,6 +1861,11 @@ Array [
           "description": null,
           "isDeprecated": false,
           "name": "forename",
+          "nestedKinds": Array [
+            "NON_NULL",
+            "SCALAR",
+          ],
+          "nestedType": "String",
           "type": Object {
             "kind": "NON_NULL",
             "name": null,
@@ -1810,6 +1882,11 @@ Array [
           "description": null,
           "isDeprecated": false,
           "name": "surname",
+          "nestedKinds": Array [
+            "NON_NULL",
+            "SCALAR",
+          ],
+          "nestedType": "String",
           "type": Object {
             "kind": "NON_NULL",
             "name": null,
@@ -1826,6 +1903,11 @@ Array [
           "description": null,
           "isDeprecated": false,
           "name": "title",
+          "nestedKinds": Array [
+            "NON_NULL",
+            "SCALAR",
+          ],
+          "nestedType": "String",
           "type": Object {
             "kind": "NON_NULL",
             "name": null,
@@ -1842,6 +1924,11 @@ Array [
           "description": null,
           "isDeprecated": false,
           "name": "email",
+          "nestedKinds": Array [
+            "NON_NULL",
+            "SCALAR",
+          ],
+          "nestedType": "String",
           "type": Object {
             "kind": "NON_NULL",
             "name": null,
@@ -1858,6 +1945,11 @@ Array [
           "description": null,
           "isDeprecated": false,
           "name": "marketingConsent",
+          "nestedKinds": Array [
+            "NON_NULL",
+            "ENUM",
+          ],
+          "nestedType": "MarketingConsent",
           "type": Object {
             "kind": "NON_NULL",
             "name": null,
@@ -1887,6 +1979,7 @@ Array [
           "isRequired": true,
           "name": "query",
           "onlyIf": undefined,
+          "replaces": undefined,
           "typeName": "String",
         },
       ],
@@ -2053,6 +2146,7 @@ Array [
               "isRequired": true,
               "name": "forename",
               "onlyIf": undefined,
+              "replaces": undefined,
               "typeName": "String",
             },
             Object {
@@ -2065,6 +2159,7 @@ Array [
               "isRequired": true,
               "name": "surname",
               "onlyIf": undefined,
+              "replaces": undefined,
               "typeName": "String",
             },
             Object {
@@ -2077,6 +2172,7 @@ Array [
               "isRequired": true,
               "name": "title",
               "onlyIf": undefined,
+              "replaces": undefined,
               "typeName": "String",
             },
             Object {
@@ -2089,6 +2185,7 @@ Array [
               "isRequired": true,
               "name": "email",
               "onlyIf": undefined,
+              "replaces": undefined,
               "typeName": "String",
             },
             Object {
@@ -2105,6 +2202,7 @@ Array [
               "isRequired": true,
               "name": "marketingConsent",
               "onlyIf": undefined,
+              "replaces": undefined,
               "typeName": "MarketingConsent",
             },
           ],
@@ -2113,6 +2211,7 @@ Array [
           "isRequired": true,
           "name": "contact",
           "onlyIf": undefined,
+          "replaces": undefined,
           "typeName": "ContactInput",
         },
         Object {
@@ -2125,6 +2224,7 @@ Array [
           "isRequired": true,
           "name": "id",
           "onlyIf": undefined,
+          "replaces": undefined,
           "typeName": "String",
         },
       ],
@@ -2328,6 +2428,7 @@ Array [
               "isRequired": true,
               "name": "number",
               "onlyIf": undefined,
+              "replaces": undefined,
               "typeName": "String",
             },
             Object {
@@ -2340,6 +2441,7 @@ Array [
               "isRequired": true,
               "name": "typeId",
               "onlyIf": undefined,
+              "replaces": undefined,
               "typeName": "String",
             },
             Object {
@@ -2352,6 +2454,7 @@ Array [
               "isRequired": true,
               "name": "officeId",
               "onlyIf": undefined,
+              "replaces": undefined,
               "typeName": "String",
             },
             Object {
@@ -2369,6 +2472,7 @@ Array [
                   "isRequired": true,
                   "name": "description",
                   "onlyIf": undefined,
+                  "replaces": undefined,
                   "typeName": "String",
                 },
                 Object {
@@ -2381,6 +2485,7 @@ Array [
                   "isRequired": true,
                   "name": "name",
                   "onlyIf": undefined,
+                  "replaces": undefined,
                   "typeName": "String",
                 },
               ],
@@ -2389,6 +2494,7 @@ Array [
               "isRequired": true,
               "name": "keysInSet",
               "onlyIf": undefined,
+              "replaces": undefined,
               "typeName": "IndividualKeyModelInput",
             },
           ],
@@ -2397,6 +2503,7 @@ Array [
           "isRequired": true,
           "name": "key",
           "onlyIf": undefined,
+          "replaces": undefined,
           "typeName": "KeyInput",
         },
         Object {
@@ -2409,6 +2516,7 @@ Array [
           "isRequired": true,
           "name": "propertyId",
           "onlyIf": undefined,
+          "replaces": undefined,
           "typeName": "ID",
         },
       ],
@@ -2882,6 +2990,7 @@ Array [
           "isRequired": true,
           "name": "keyId",
           "onlyIf": undefined,
+          "replaces": undefined,
           "typeName": "ID",
         },
         Object {
@@ -2894,6 +3003,7 @@ Array [
           "isRequired": true,
           "name": "propertyId",
           "onlyIf": undefined,
+          "replaces": undefined,
           "typeName": "ID",
         },
       ],
@@ -3367,6 +3477,7 @@ Array [
           "isRequired": true,
           "name": "propertyId",
           "onlyIf": undefined,
+          "replaces": undefined,
           "typeName": "ID",
         },
       ],
@@ -3791,6 +3902,7 @@ Array [
         },
       },
     },
+    "notTopLevel": false,
     "object": Object {
       "description": null,
       "enumValues": null,
@@ -3801,6 +3913,11 @@ Array [
           "description": null,
           "isDeprecated": false,
           "name": "id",
+          "nestedKinds": Array [
+            "NON_NULL",
+            "SCALAR",
+          ],
+          "nestedType": "ID",
           "type": Object {
             "kind": "NON_NULL",
             "name": null,
@@ -3817,6 +3934,11 @@ Array [
           "description": null,
           "isDeprecated": false,
           "name": "number",
+          "nestedKinds": Array [
+            "NON_NULL",
+            "SCALAR",
+          ],
+          "nestedType": "String",
           "type": Object {
             "kind": "NON_NULL",
             "name": null,
@@ -3833,6 +3955,11 @@ Array [
           "description": null,
           "isDeprecated": false,
           "name": "status",
+          "nestedKinds": Array [
+            "NON_NULL",
+            "ENUM",
+          ],
+          "nestedType": "KeyStatus",
           "type": Object {
             "kind": "NON_NULL",
             "name": null,
@@ -3849,6 +3976,11 @@ Array [
           "description": null,
           "isDeprecated": false,
           "name": "type",
+          "nestedKinds": Array [
+            "NON_NULL",
+            "SCALAR",
+          ],
+          "nestedType": "String",
           "type": Object {
             "kind": "NON_NULL",
             "name": null,
@@ -3865,6 +3997,13 @@ Array [
           "description": null,
           "isDeprecated": false,
           "name": "keysInSet",
+          "nestedKinds": Array [
+            "NON_NULL",
+            "LIST",
+            "NON_NULL",
+            "OBJECT",
+          ],
+          "nestedType": "IndividualKey",
           "type": Object {
             "kind": "NON_NULL",
             "name": null,
@@ -3889,6 +4028,13 @@ Array [
           "description": null,
           "isDeprecated": false,
           "name": "movements",
+          "nestedKinds": Array [
+            "NON_NULL",
+            "LIST",
+            "NON_NULL",
+            "OBJECT",
+          ],
+          "nestedType": "KeyMovement",
           "type": Object {
             "kind": "NON_NULL",
             "name": null,
@@ -3933,6 +4079,7 @@ Array [
                 "isRequired": true,
                 "name": "checkInRequired",
                 "onlyIf": undefined,
+                "replaces": undefined,
                 "typeName": "Boolean",
               },
               Object {
@@ -3945,6 +4092,7 @@ Array [
                 "isRequired": false,
                 "name": "checkOutToContactId",
                 "onlyIf": undefined,
+                "replaces": undefined,
                 "typeName": "String",
               },
               Object {
@@ -3957,6 +4105,7 @@ Array [
                 "isRequired": false,
                 "name": "checkOutToNegotiatorId",
                 "onlyIf": undefined,
+                "replaces": undefined,
                 "typeName": "String",
               },
               Object {
@@ -3969,6 +4118,7 @@ Array [
                 "isRequired": true,
                 "name": "checkOutNegotiatorId",
                 "onlyIf": undefined,
+                "replaces": undefined,
                 "typeName": "String",
               },
             ],
@@ -3977,6 +4127,7 @@ Array [
             "isRequired": true,
             "name": "movement",
             "onlyIf": undefined,
+            "replaces": undefined,
             "typeName": "KeyMovementInput",
           },
           Object {
@@ -3989,6 +4140,7 @@ Array [
             "isRequired": true,
             "name": "keyId",
             "onlyIf": undefined,
+            "replaces": undefined,
             "typeName": "ID",
           },
           Object {
@@ -4001,6 +4153,7 @@ Array [
             "isRequired": true,
             "name": "propertyId",
             "onlyIf": undefined,
+            "replaces": undefined,
             "typeName": "ID",
           },
         ],
@@ -4515,6 +4668,7 @@ Array [
                 "isRequired": true,
                 "name": "negotiatorId",
                 "onlyIf": undefined,
+                "replaces": undefined,
                 "typeName": "String",
               },
             ],
@@ -4523,6 +4677,7 @@ Array [
             "isRequired": true,
             "name": "checkIn",
             "onlyIf": undefined,
+            "replaces": undefined,
             "typeName": "CheckIn",
           },
           Object {
@@ -4535,6 +4690,7 @@ Array [
             "isRequired": true,
             "name": "keyId",
             "onlyIf": undefined,
+            "replaces": undefined,
             "typeName": "ID",
           },
           Object {
@@ -4547,6 +4703,7 @@ Array [
             "isRequired": true,
             "name": "propertyId",
             "onlyIf": undefined,
+            "replaces": undefined,
             "typeName": "ID",
           },
         ],
@@ -5064,6 +5221,7 @@ Array [
           "isRequired": true,
           "name": "movementId",
           "onlyIf": undefined,
+          "replaces": undefined,
           "typeName": "ID",
         },
         Object {
@@ -5076,6 +5234,7 @@ Array [
           "isRequired": true,
           "name": "keyId",
           "onlyIf": undefined,
+          "replaces": undefined,
           "typeName": "ID",
         },
         Object {
@@ -5088,6 +5247,7 @@ Array [
           "isRequired": true,
           "name": "propertyId",
           "onlyIf": undefined,
+          "replaces": undefined,
           "typeName": "ID",
         },
       ],
@@ -5501,6 +5661,7 @@ Array [
           "isRequired": true,
           "name": "keyId",
           "onlyIf": undefined,
+          "replaces": undefined,
           "typeName": "ID",
         },
         Object {
@@ -5513,6 +5674,7 @@ Array [
           "isRequired": true,
           "name": "propertyId",
           "onlyIf": undefined,
+          "replaces": undefined,
           "typeName": "ID",
         },
       ],
@@ -5877,6 +6039,7 @@ Array [
         },
       },
     },
+    "notTopLevel": false,
     "object": Object {
       "description": null,
       "enumValues": null,
@@ -5887,6 +6050,11 @@ Array [
           "description": null,
           "isDeprecated": false,
           "name": "id",
+          "nestedKinds": Array [
+            "NON_NULL",
+            "SCALAR",
+          ],
+          "nestedType": "ID",
           "type": Object {
             "kind": "NON_NULL",
             "name": null,
@@ -5903,6 +6071,11 @@ Array [
           "description": null,
           "isDeprecated": false,
           "name": "created",
+          "nestedKinds": Array [
+            "NON_NULL",
+            "SCALAR",
+          ],
+          "nestedType": "String",
           "type": Object {
             "kind": "NON_NULL",
             "name": null,
@@ -5919,6 +6092,11 @@ Array [
           "description": null,
           "isDeprecated": false,
           "name": "modified",
+          "nestedKinds": Array [
+            "NON_NULL",
+            "SCALAR",
+          ],
+          "nestedType": "String",
           "type": Object {
             "kind": "NON_NULL",
             "name": null,
@@ -5935,6 +6113,10 @@ Array [
           "description": null,
           "isDeprecated": false,
           "name": "checkInAt",
+          "nestedKinds": Array [
+            "SCALAR",
+          ],
+          "nestedType": "String",
           "type": Object {
             "kind": "SCALAR",
             "name": "String",
@@ -5947,6 +6129,10 @@ Array [
           "description": null,
           "isDeprecated": false,
           "name": "checkOutAt",
+          "nestedKinds": Array [
+            "SCALAR",
+          ],
+          "nestedType": "String",
           "type": Object {
             "kind": "SCALAR",
             "name": "String",
@@ -5959,6 +6145,10 @@ Array [
           "description": null,
           "isDeprecated": false,
           "name": "checkOutToContact",
+          "nestedKinds": Array [
+            "OBJECT",
+          ],
+          "nestedType": "Contact",
           "type": Object {
             "kind": "OBJECT",
             "name": "Contact",
@@ -5971,6 +6161,10 @@ Array [
           "description": null,
           "isDeprecated": false,
           "name": "checkOutToNegotiator",
+          "nestedKinds": Array [
+            "OBJECT",
+          ],
+          "nestedType": "Negotiator",
           "type": Object {
             "kind": "OBJECT",
             "name": "Negotiator",
@@ -5983,6 +6177,10 @@ Array [
           "description": null,
           "isDeprecated": false,
           "name": "checkInNegotiator",
+          "nestedKinds": Array [
+            "OBJECT",
+          ],
+          "nestedType": "Negotiator",
           "type": Object {
             "kind": "OBJECT",
             "name": "Negotiator",
@@ -5995,6 +6193,10 @@ Array [
           "description": null,
           "isDeprecated": false,
           "name": "checkOutNegotiator",
+          "nestedKinds": Array [
+            "OBJECT",
+          ],
+          "nestedType": "Negotiator",
           "type": Object {
             "kind": "OBJECT",
             "name": "Negotiator",
@@ -6082,6 +6284,7 @@ Array [
         },
       },
     },
+    "notTopLevel": false,
     "object": Object {
       "description": "@labelKeys(name) @supportsCustomFields()",
       "enumValues": null,
@@ -6092,6 +6295,11 @@ Array [
           "description": null,
           "isDeprecated": false,
           "name": "id",
+          "nestedKinds": Array [
+            "NON_NULL",
+            "SCALAR",
+          ],
+          "nestedType": "ID",
           "type": Object {
             "kind": "NON_NULL",
             "name": null,
@@ -6108,6 +6316,11 @@ Array [
           "description": null,
           "isDeprecated": false,
           "name": "name",
+          "nestedKinds": Array [
+            "NON_NULL",
+            "SCALAR",
+          ],
+          "nestedType": "String",
           "type": Object {
             "kind": "NON_NULL",
             "name": null,
@@ -6137,6 +6350,7 @@ Array [
           "isRequired": true,
           "name": "query",
           "onlyIf": undefined,
+          "replaces": undefined,
           "typeName": "String",
         },
       ],
@@ -6614,6 +6828,7 @@ Array [
         },
       },
     },
+    "notTopLevel": false,
     "object": Object {
       "description": "@supportsCustomFields()",
       "enumValues": null,
@@ -6624,6 +6839,11 @@ Array [
           "description": "@acKey(prpCode)",
           "isDeprecated": false,
           "name": "id",
+          "nestedKinds": Array [
+            "NON_NULL",
+            "SCALAR",
+          ],
+          "nestedType": "ID",
           "type": Object {
             "kind": "NON_NULL",
             "name": null,
@@ -6640,6 +6860,13 @@ Array [
           "description": null,
           "isDeprecated": false,
           "name": "type",
+          "nestedKinds": Array [
+            "NON_NULL",
+            "LIST",
+            "NON_NULL",
+            "SCALAR",
+          ],
+          "nestedType": "String",
           "type": Object {
             "kind": "NON_NULL",
             "name": null,
@@ -6664,6 +6891,10 @@ Array [
           "description": null,
           "isDeprecated": false,
           "name": "description",
+          "nestedKinds": Array [
+            "SCALAR",
+          ],
+          "nestedType": "String",
           "type": Object {
             "kind": "SCALAR",
             "name": "String",
@@ -6676,6 +6907,11 @@ Array [
           "description": null,
           "isDeprecated": false,
           "name": "bedrooms",
+          "nestedKinds": Array [
+            "NON_NULL",
+            "SCALAR",
+          ],
+          "nestedType": "Float",
           "type": Object {
             "kind": "NON_NULL",
             "name": null,
@@ -6692,6 +6928,11 @@ Array [
           "description": null,
           "isDeprecated": false,
           "name": "receptions",
+          "nestedKinds": Array [
+            "NON_NULL",
+            "SCALAR",
+          ],
+          "nestedType": "Float",
           "type": Object {
             "kind": "NON_NULL",
             "name": null,
@@ -6708,6 +6949,11 @@ Array [
           "description": null,
           "isDeprecated": false,
           "name": "bathrooms",
+          "nestedKinds": Array [
+            "NON_NULL",
+            "SCALAR",
+          ],
+          "nestedType": "Float",
           "type": Object {
             "kind": "NON_NULL",
             "name": null,
@@ -6724,6 +6970,11 @@ Array [
           "description": null,
           "isDeprecated": false,
           "name": "address",
+          "nestedKinds": Array [
+            "NON_NULL",
+            "OBJECT",
+          ],
+          "nestedType": "Address",
           "type": Object {
             "kind": "NON_NULL",
             "name": null,
@@ -6740,6 +6991,10 @@ Array [
           "description": null,
           "isDeprecated": false,
           "name": "lettingRentPrice",
+          "nestedKinds": Array [
+            "SCALAR",
+          ],
+          "nestedType": "Float",
           "type": Object {
             "kind": "SCALAR",
             "name": "Float",
@@ -6752,6 +7007,10 @@ Array [
           "description": null,
           "isDeprecated": false,
           "name": "lettingRentFrequency",
+          "nestedKinds": Array [
+            "SCALAR",
+          ],
+          "nestedType": "String",
           "type": Object {
             "kind": "SCALAR",
             "name": "String",
@@ -6764,6 +7023,10 @@ Array [
           "description": null,
           "isDeprecated": false,
           "name": "salePrice",
+          "nestedKinds": Array [
+            "SCALAR",
+          ],
+          "nestedType": "Float",
           "type": Object {
             "kind": "SCALAR",
             "name": "Float",
@@ -6776,6 +7039,13 @@ Array [
           "description": null,
           "isDeprecated": false,
           "name": "images",
+          "nestedKinds": Array [
+            "NON_NULL",
+            "LIST",
+            "NON_NULL",
+            "OBJECT",
+          ],
+          "nestedType": "Image",
           "type": Object {
             "kind": "NON_NULL",
             "name": null,
@@ -6800,6 +7070,10 @@ Array [
           "description": null,
           "isDeprecated": false,
           "name": "marketingMode",
+          "nestedKinds": Array [
+            "SCALAR",
+          ],
+          "nestedType": "String",
           "type": Object {
             "kind": "SCALAR",
             "name": "String",
@@ -6812,6 +7086,10 @@ Array [
           "description": null,
           "isDeprecated": false,
           "name": "saleOrLetting",
+          "nestedKinds": Array [
+            "SCALAR",
+          ],
+          "nestedType": "String",
           "type": Object {
             "kind": "SCALAR",
             "name": "String",
@@ -6824,6 +7102,10 @@ Array [
           "description": null,
           "isDeprecated": false,
           "name": "status",
+          "nestedKinds": Array [
+            "SCALAR",
+          ],
+          "nestedType": "String",
           "type": Object {
             "kind": "SCALAR",
             "name": "String",
@@ -6849,6 +7131,7 @@ Array [
           "isRequired": true,
           "name": "query",
           "onlyIf": undefined,
+          "replaces": undefined,
           "typeName": "String",
         },
       ],
@@ -7312,6 +7595,7 @@ Array [
         },
       },
     },
+    "notTopLevel": false,
     "object": Object {
       "description": "@labelKeys(value)",
       "enumValues": null,
@@ -7322,6 +7606,11 @@ Array [
           "description": null,
           "isDeprecated": false,
           "name": "id",
+          "nestedKinds": Array [
+            "NON_NULL",
+            "SCALAR",
+          ],
+          "nestedType": "ID",
           "type": Object {
             "kind": "NON_NULL",
             "name": null,
@@ -7338,6 +7627,11 @@ Array [
           "description": null,
           "isDeprecated": false,
           "name": "value",
+          "nestedKinds": Array [
+            "NON_NULL",
+            "SCALAR",
+          ],
+          "nestedType": "String",
           "type": Object {
             "kind": "NON_NULL",
             "name": null,
@@ -7429,6 +7723,7 @@ Array [
         },
       },
     },
+    "notTopLevel": false,
     "object": Object {
       "description": "@labelKeys(name) @supportsCustomFields()",
       "enumValues": null,
@@ -7439,6 +7734,11 @@ Array [
           "description": null,
           "isDeprecated": false,
           "name": "id",
+          "nestedKinds": Array [
+            "NON_NULL",
+            "SCALAR",
+          ],
+          "nestedType": "ID",
           "type": Object {
             "kind": "NON_NULL",
             "name": null,
@@ -7455,6 +7755,11 @@ Array [
           "description": null,
           "isDeprecated": false,
           "name": "name",
+          "nestedKinds": Array [
+            "NON_NULL",
+            "SCALAR",
+          ],
+          "nestedType": "String",
           "type": Object {
             "kind": "NON_NULL",
             "name": null,

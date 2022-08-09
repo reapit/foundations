@@ -267,6 +267,8 @@ export const elGlobals = css`
       --nav-menu-background-accent: var(--color-blue-dark2);
       --nav-menu-text: var(--color-white);
       --nav-menu-text-hover: var(--color-white);
+      --nav-menu-icon-primary-accent: var(--color-white);
+      --nav-menu-icon-secondary-accent: var(--intent-secondary);
     }
   }
 `

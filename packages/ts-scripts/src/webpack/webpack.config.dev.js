@@ -1,6 +1,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+const WebpackFavicons = require('webpack-favicons')
 const { EnvironmentPlugin } = require('webpack')
 const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
 const { PATHS } = require('./constants')
@@ -48,21 +48,19 @@ const webpackConfigDev = ({ appName }) => ({
       inject: true,
       template: PATHS.template,
     }),
-    new FaviconsWebpackPlugin({
-      logo: PATHS.logo,
-      cache: true,
-      inject: true,
-      mode: 'light',
-      devMode: 'light',
+    new WebpackFavicons({
+      src: PATHS.logo,
+      background: '#000',
+      theme_color: '#262F69',
       favicons: {
         appName,
         developerName: 'Reapit Ltd',
         theme_color: '#262F69',
         icons: {
           favicons: true,
-          android: false,
-          appleIcon: false,
-          appleStartup: false,
+          android: true,
+          appleIcon: true,
+          appleStartup: true,
           coast: false,
           firefox: false,
           opengraph: false,
@@ -94,6 +92,7 @@ const webpackConfigDev = ({ appName }) => ({
           {
             loader: require.resolve('swc-loader'),
             options: {
+              sourceMap: true,
               jsc: {
                 parser: {
                   syntax: 'typescript',

@@ -8704,7 +8704,7 @@ export interface JournalEntries {
   pageNumber?: number
   sortBy?: string
   embed?: ('property' | 'negotiator' | 'type')[]
-  associatedType?: ('applicant' | 'contact' | 'company' | 'landlord' | 'tenancy')[]
+  associatedType?: string
   associatedId?: string[]
   negotiatorId?: string[]
   propertyId?: string[]

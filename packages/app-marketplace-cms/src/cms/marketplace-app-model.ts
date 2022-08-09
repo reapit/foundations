@@ -77,4 +77,7 @@ export class MarketplaceAppModel implements AppsBrowseConfigItemInterface {
 
   @attribute()
   filters: AppsBrowseConfigItemFiltersModel
+
+  @attribute()
+  index: number
 }

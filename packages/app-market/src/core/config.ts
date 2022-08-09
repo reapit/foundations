@@ -5,6 +5,7 @@ import { AppsBrowseConfigCollection } from './use-apps-browse-state'
 const appsBrowseConfigCollectionDev: AppsBrowseConfigCollection = {
   items: [
     {
+      index: 0,
       filters: {
         id: ['cfbe6f29-4003-4648-aa5a-8eb777bd606e'],
       },
@@ -20,6 +21,7 @@ const appsBrowseConfigCollectionDev: AppsBrowseConfigCollection = {
       },
     },
     {
+      index: 0,
       filters: {
         id: ['dab46391-b07d-4869-8614-139aa798cc1f'],
       },
@@ -35,6 +37,7 @@ const appsBrowseConfigCollectionDev: AppsBrowseConfigCollection = {
       },
     },
     {
+      index: 0,
       filters: {
         id: ['795fc578-8232-4dbd-a5ff-1240135c0a52'],
       },
@@ -49,6 +52,7 @@ const appsBrowseConfigCollectionDev: AppsBrowseConfigCollection = {
       },
     },
     {
+      index: 0,
       filters: {
         id: [
           '795fc578-8232-4dbd-a5ff-1240135c0a52',
@@ -68,6 +72,7 @@ const appsBrowseConfigCollectionDev: AppsBrowseConfigCollection = {
       },
     },
     {
+      index: 1,
       filters: {
         id: [
           '795fc578-8232-4dbd-a5ff-1240135c0a52',
@@ -87,6 +92,7 @@ const appsBrowseConfigCollectionDev: AppsBrowseConfigCollection = {
       },
     },
     {
+      index: 2,
       filters: {
         id: [
           '795fc578-8232-4dbd-a5ff-1240135c0a52',
@@ -106,6 +112,7 @@ const appsBrowseConfigCollectionDev: AppsBrowseConfigCollection = {
       },
     },
     {
+      index: 3,
       filters: {
         id: [
           '795fc578-8232-4dbd-a5ff-1240135c0a52',
@@ -125,6 +132,7 @@ const appsBrowseConfigCollectionDev: AppsBrowseConfigCollection = {
       },
     },
     {
+      index: 4,
       filters: {
         id: [
           '795fc578-8232-4dbd-a5ff-1240135c0a52',
@@ -144,6 +152,7 @@ const appsBrowseConfigCollectionDev: AppsBrowseConfigCollection = {
       },
     },
     {
+      index: 5,
       filters: {
         id: [
           '795fc578-8232-4dbd-a5ff-1240135c0a52',
@@ -163,6 +172,7 @@ const appsBrowseConfigCollectionDev: AppsBrowseConfigCollection = {
       },
     },
     {
+      index: 0,
       filters: {
         isFree: true,
       },
@@ -175,6 +185,7 @@ const appsBrowseConfigCollectionDev: AppsBrowseConfigCollection = {
       },
     },
     {
+      index: 0,
       filters: {
         isFree: true,
       },

@@ -22,8 +22,16 @@ export const sanitizeAppData = (appData: CreateAppRevisionModel): CreateAppRevis
     delete sanitizedAppData.launchUri
   }
 
-  if (!sanitizedAppData.categoryId) {
-    delete sanitizedAppData.categoryId
+  if (!sanitizedAppData.videoUrl1) {
+    delete sanitizedAppData.videoUrl1
+  }
+
+  if (!sanitizedAppData.videoUrl2) {
+    delete sanitizedAppData.videoUrl2
+  }
+
+  if (!sanitizedAppData.categoryIds) {
+    delete sanitizedAppData.categoryIds
   }
 
   if (sanitizedAppData.redirectUris && !sanitizedAppData.redirectUris.length) {
@@ -38,7 +46,7 @@ export const sanitizeAppData = (appData: CreateAppRevisionModel): CreateAppRevis
 
 export const formatFormValues = ({
   name,
-  categoryId,
+  categoryIds,
   telephone,
   supportEmail,
   launchUri,
@@ -48,6 +56,8 @@ export const formatFormValues = ({
   screen3ImageUrl,
   screen2ImageUrl,
   screen1ImageUrl,
+  videoUrl1,
+  videoUrl2,
   homePage,
   isAgencyCloudIntegrated,
   summary,
@@ -68,7 +78,6 @@ export const formatFormValues = ({
 }: AppEditFormSchema): CreateAppRevisionModel => {
   const appData = {
     name,
-    categoryId,
     telephone,
     supportEmail,
     launchUri,
@@ -78,6 +87,8 @@ export const formatFormValues = ({
     screen3ImageUrl,
     screen2ImageUrl,
     screen1ImageUrl,
+    videoUrl1,
+    videoUrl2,
     homePage,
     summary,
     description,
@@ -88,6 +99,7 @@ export const formatFormValues = ({
     privacyPolicyUrl,
     pricingUrl,
     isDirectApi: !isAgencyCloudIntegrated,
+    categoryIds: categoryIds.split(',').filter(Boolean),
     scopes: scopes.split(',').filter(Boolean),
     redirectUris: redirectUris.split(',').filter(Boolean),
     signoutUris: signoutUris.split(',').filter(Boolean),

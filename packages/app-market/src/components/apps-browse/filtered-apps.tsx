@@ -22,6 +22,7 @@ import { cardCursor, IsFreeNotice } from './__styles__'
 import { checkHasFilters } from './apps-browse'
 import { elMl5 } from '@reapit/elements'
 import { useAppsBrowseState } from '../../core/use-apps-browse-state'
+import { filterRestrictedAppsList } from '../../utils/browse-app'
 
 export const FilteredAppsCollection: FC = () => {
   const { appsBrowseFilterState } = useAppsBrowseState()
@@ -31,12 +32,14 @@ export const FilteredAppsCollection: FC = () => {
   const hasFilters = useMemo(checkHasFilters(appsBrowseFilterState), [appsBrowseFilterState])
   const queryParams = hasFilters ? { ...appsBrowseFilterState, clientId, pageSize: 100 } : {}
 
-  const [apps, appsLoading] = useReapitGet<AppSummaryModelPagedResult>({
+  const [unfilteredApps, appsLoading] = useReapitGet<AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getApps],
     queryParams,
     fetchWhenTrue: [hasFilters],
   })
+
+  const apps = useMemo(filterRestrictedAppsList(unfilteredApps, connectSession), [unfilteredApps])
 
   if (appsLoading) return <Loader />
 

@@ -94,7 +94,7 @@ export const callUpdateApplicantAPI = async (
   try {
     const { _eTag, ...payload } = args
     const updateResponse = await createPlatformAxiosInstance().patch<UpdateApplicantReturn>(
-      `${URLS.appointments}/${args.id}`,
+      `${URLS.applicants}/${args.id}`,
       payload,
       {
         headers: {

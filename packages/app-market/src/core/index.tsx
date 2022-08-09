@@ -1,7 +1,8 @@
 import React, { ComponentType } from 'react'
 import { createRoot } from 'react-dom/client'
 import { Config } from '../types/global'
-import * as Sentry from '@sentry/browser'
+import * as Sentry from '@sentry/react'
+import { BrowserTracing } from '@sentry/tracing'
 import ReactGA from 'react-ga'
 import { getMarketplaceGlobalsByKey } from '@reapit/utils-react'
 import { logger } from '@reapit/utils-react'
@@ -15,13 +16,9 @@ window.reapit = {
     connectClientId: '',
     connectOAuthUrl: '',
     connectUserPoolId: '',
-    platformApiUrl: '',
-    webComponentConfigApiUrl: '',
     developerPortalUrl: '',
     orgAdminRestrictedAppIds: [],
-    adminRestrictedAppIds: [],
     reapitConnectManagementUri: '',
-    comingSoonApps: [],
     clientHiddenAppIds: {},
   },
 }
@@ -48,9 +45,11 @@ const run = async () => {
 
     if (!isLocal && config.sentryDns && !window.location.hostname.includes('prod.paas')) {
       Sentry.init({
+        integrations: [new BrowserTracing()],
         release: process.env.APP_VERSION,
         dsn: config.sentryDns,
         environment: config.appEnv,
+        tracesSampleRate: 1.0,
       })
     }
 

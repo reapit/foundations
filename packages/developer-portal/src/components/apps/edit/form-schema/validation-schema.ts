@@ -38,6 +38,8 @@ const {
   pricingUrl,
   isFree,
   products,
+  videoUrl1,
+  videoUrl2,
 } = formFields
 
 export const appEditValidationSchema = object().shape({
@@ -247,6 +249,44 @@ export const appEditValidationSchema = object().shape({
     .test({
       name: 'isValidPricingUrl',
       message: pricingUrl.errorMessage,
+      test: (value) => {
+        if (!value) return true
+        return isValidHttpsUrl(value)
+      },
+    }),
+
+  [videoUrl1.name]: string()
+    .trim()
+    .test({
+      name: 'isValidYoutube1',
+      message: 'If YouTube, video needs to be in https://www.youtube.com/embed/<<videoId>> format',
+      test: (value) => {
+        if (!value || !value.includes('youtube')) return true
+        return value.includes('https://www.youtube.com/embed/')
+      },
+    })
+    .test({
+      name: 'isValidVideo1Url',
+      message: 'Must be a secure https host if supplied',
+      test: (value) => {
+        if (!value) return true
+        return isValidHttpsUrl(value)
+      },
+    }),
+
+  [videoUrl2.name]: string()
+    .trim()
+    .test({
+      name: 'isValidYoutube2',
+      message: 'If YouTube, video needs to be in https://www.youtube.com/embed/<<videoId>> format',
+      test: (value) => {
+        if (!value || !value.includes('youtube')) return true
+        return value.includes('https://www.youtube.com/embed/')
+      },
+    })
+    .test({
+      name: 'isValidVideo2Url',
+      message: 'Must be a secure https host if supplied',
       test: (value) => {
         if (!value) return true
         return isValidHttpsUrl(value)

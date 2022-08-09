@@ -12,18 +12,18 @@ describe('handleSetDefaultFormValues', () => {
     curried()
 
     const formValues = {
-      categoryId: '',
+      categoryIds: '',
       authFlow: 'authorisationCode',
       screen5ImageUrl: '',
       screen4ImageUrl: '',
       screen3ImageUrl: '',
       screen2ImageUrl: '',
-      screen1ImageUrl: '',
+      screen1ImageUrl: 'https://foo.bar',
       name: 'will-test-dev-co-voracious-person',
       telephone: '07777777777',
       supportEmail: 'foo@bar.com',
       launchUri: 'https://foo.bar',
-      iconImageUrl: '',
+      iconImageUrl: 'https://foo.bar',
       homePage: 'https://foo.bar',
       description: 'Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar',
       summary: 'Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar',
@@ -41,6 +41,8 @@ describe('handleSetDefaultFormValues', () => {
       isListed: true,
       isAgencyCloudIntegrated: false,
       isPrivateApp: false,
+      videoUrl1: 'https://www.youtube.com/embed/iKdil7liAts',
+      videoUrl2: '',
     }
 
     expect(setAppEditForm).toHaveBeenCalledWith(formValues)
@@ -56,7 +58,7 @@ describe('handleSetDefaultFormValues', () => {
     curried()
 
     const formValues = {
-      categoryId: '',
+      categoryIds: '',
       authFlow: '',
       screen5ImageUrl: '',
       screen4ImageUrl: '',
@@ -85,6 +87,8 @@ describe('handleSetDefaultFormValues', () => {
       isListed: false,
       isAgencyCloudIntegrated: true,
       isPrivateApp: false,
+      videoUrl1: '',
+      videoUrl2: '',
     }
 
     expect(setAppEditForm).toHaveBeenCalledWith(formValues)

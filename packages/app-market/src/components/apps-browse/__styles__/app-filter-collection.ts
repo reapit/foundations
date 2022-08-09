@@ -1,16 +1,11 @@
 import { styled } from '@linaria/react'
 import { ElBodyText, ElSubtitle } from '@reapit/elements'
-import {
-  forDesktopAndAbove,
-  forMobileAndAbove,
-  forSuperWidescreenAndAbove,
-  forWidescreenAndAbove,
-} from '../../../core/__styles__/media'
+import { forDesktopAndAbove, forMobileAndAbove, forWidescreenAndAbove } from '../../../core/__styles__/media'
 
 export const AppFilterGridWrap = styled.div`
   display: none;
 
-  ${forSuperWidescreenAndAbove} {
+  ${forWidescreenAndAbove} {
     width: calc(50% - 1rem);
     margin-right: 2rem;
     display: block;
@@ -20,7 +15,7 @@ export const AppFilterGridWrap = styled.div`
 export const AppFilterGrid = styled.div`
   display: none;
 
-  ${forSuperWidescreenAndAbove} {
+  ${forWidescreenAndAbove} {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 2rem;
@@ -42,15 +37,11 @@ export const AppFilterCol = styled.div`
   }
 
   ${forDesktopAndAbove} {
+    padding: 1.25rem 2.5rem;
     height: 280px;
   }
 
   ${forWidescreenAndAbove} {
-    padding: 1.25rem 2.5rem;
-    height: 260px;
-  }
-
-  ${forSuperWidescreenAndAbove} {
     grid-column-end: span 1;
     height: auto;
   }

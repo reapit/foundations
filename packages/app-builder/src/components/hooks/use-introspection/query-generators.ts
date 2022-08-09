@@ -95,6 +95,8 @@ export type CustomInputType = 'image-upload' | 'department-lookup'
 
 export type OnlyIf = Record<string, string[]>
 
+export type URLType = 'image'
+
 export type ParsedArg = {
   name: string
   isRequired: boolean
@@ -107,6 +109,7 @@ export type ParsedArg = {
   customInputType?: CustomInputType
   onlyIf?: OnlyIf
   isDepartmentLookup?: boolean
+  replaces?: string
 }
 
 const parseArgs = (
@@ -123,6 +126,7 @@ const parseArgs = (
     let idOfType
     let isRequired = false
     let isList = false
+    let replaces: string | undefined
     let customInputType: CustomInputType | undefined
 
     if (isNonNullInputType(type)) {
@@ -171,6 +175,10 @@ const parseArgs = (
       customInputType = customInput as CustomInputType
     }
 
+    if (description && description.includes('@replaces')) {
+      replaces = description.split('@replaces(')[1].split(')')[0]
+    }
+
     const acKey = description?.split('@acKey(')[1]?.split(')')[0] as DesktopContext
 
     const onlyIfStr = description?.split('@onlyIf(')[1]?.split(')')[0] as string | undefined
@@ -186,6 +194,7 @@ const parseArgs = (
       isList,
       enumValues,
       customInputType,
+      replaces,
       onlyIf,
       fields:
         (actualTypeObject &&

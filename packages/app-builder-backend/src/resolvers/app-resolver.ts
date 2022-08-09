@@ -57,7 +57,11 @@ enum Access {
 }
 
 const getObjectScopes = (objectName: string, access: Access) => {
-  return `agencyCloud/${Pluralize.plural(objectName.toLowerCase())}.${access}`
+  let on = objectName
+  if (on.toLowerCase() === 'propertyimage') {
+    on = 'image'
+  }
+  return `agencyCloud/${Pluralize.plural(on)}.${access}`
 }
 
 // compare array of strings
@@ -114,74 +118,61 @@ const ensureScopes = async (app: DDBApp, accessToken: string) => {
       const name = node.type.resolvedName
       const props = node.props
       const objectName = node.props?.typeName as string | undefined
+
       if (!objectName || !props) {
         return null
       }
-      if (name === 'Form') {
-        const childNodes = node.nodes.map((nodeId) => nodes.find(({ nodeId: id }) => id === nodeId)).filter(notEmpty)
 
-        const fieldNames = childNodes
-          .map((node) => node.props.name)
-          .filter(notEmpty)
-          .filter(isString)
+      const fieldNames =
+        name === 'Form'
+          ? node.nodes
+              .map((nodeId) => nodes.find(({ nodeId: id }) => id === nodeId))
+              .filter(notEmpty)
+              .map((node) => node.props.name)
+              .filter(notEmpty)
+              .filter(isString)
+          : isArray(props.includedFields)
+          ? props.includedFields
+          : []
 
-        const subtypes = fieldNames
-          .filter((name) => name.endsWith('Id') || name.endsWith('Ids'))
-          .map((name) => name.replace('Ids', '').replace('Id', ''))
-          .map((name) => {
-            if (name.endsWith('y')) {
-              return name.replace(/y$/, 'ies')
-            }
-            return name
-          })
-          .map((name) => {
-            if (name.toLowerCase().includes('attendee')) {
-              return 'contact'
-            }
-            return name
-          })
-          .filter((fieldName) => acEntities.find((entityName) => entityName.includes(fieldName)))
+      const subtypes = fieldNames
+        .map((name) => name.replace('Ids', '').replace('Id', ''))
+        .map((name) => {
+          if (name.endsWith('y')) {
+            return name.replace(/y$/, 'ies')
+          }
+          return name
+        })
+        .map((name) => {
+          if (name.toLowerCase().includes('attendee')) {
+            return 'contact'
+          }
+          return name
+        })
+        .filter((fieldName) => acEntities.find((entityName) => entityName.includes(fieldName)))
 
-        return [
-          {
-            objectName,
-            access: [Access.read, Access.write],
-          },
-          ...subtypes.map((subtype) => ({
-            objectName: subtype,
-            access: [Access.read],
-          })),
-        ]
+      const scopes = [
+        {
+          objectName,
+          access: props.showControls || name === 'Form' ? [Access.read, Access.write] : [Access.read],
+        },
+        ...subtypes.map((subtype) => ({
+          objectName: subtype,
+          access: [Access.read],
+        })),
+      ]
+
+      if (objectName.toLowerCase() === 'propertyimage') {
+        scopes.push({
+          objectName: 'properties',
+          access: [Access.read, Access.write],
+        })
       }
-      if (name === 'Table') {
-        if (isArray(props.includedFields)) {
-          const subtypes = props.includedFields.filter((fieldName) =>
-            acEntities.find((entityName) => entityName.includes(fieldName)),
-          )
 
-          return [
-            {
-              objectName,
-              access: props.showControls ? [Access.read, Access.write] : [Access.write],
-            },
-            ...subtypes.map((subtype) => ({
-              objectName: subtype,
-              access: [Access.read],
-            })),
-          ]
-        }
-        return [
-          {
-            objectName,
-            access: props.showControls ? [Access.read, Access.write] : [Access.write],
-          },
-        ]
-      }
-      return null
+      return scopes
     })
     .flat()
     .filter(notEmpty)
-
   const scopes = requiredAccess
     .map(({ objectName, access }) => {
       return access.map((access) => getObjectScopes(objectName, access))
@@ -191,6 +182,7 @@ const ensureScopes = async (app: DDBApp, accessToken: string) => {
     .filter((scope) => validScopes.includes(scope))
   // unique scopes
   const uniqueScopes = [...new Set(scopes)]
+
   return updateMarketplaceAppScopes(app.id, uniqueScopes, accessToken)
 }
 
@@ -274,14 +266,14 @@ export class AppResolver {
     await updateApp({
       ...app,
       clientId: externalId as string,
-      developerName: developer as string,
+      developerName: developer,
     })
 
     return {
       ...app,
       name: name as string,
       clientId: externalId as string,
-      developerName: developer as string,
+      developerName: developer,
     }
   }
 

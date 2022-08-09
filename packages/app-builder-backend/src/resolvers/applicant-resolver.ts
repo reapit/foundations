@@ -179,7 +179,7 @@ const convertDates = (applicant: Applicant): Applicant => ({
   modified: new Date(applicant.modified),
 })
 
-const getApplicants = async (accessToken: string, idToken: string, name?: string ): Promise<Applicant[]> => {
+const getApplicants = async (accessToken: string, idToken: string, name?: string): Promise<Applicant[]> => {
   const applicants = await query<{ _embedded: ApplicantAPIResponse<ApplicantsEmbeds>[] }>(
     getApplicationQuery,
     { name },
@@ -218,7 +218,11 @@ const getApplicant = async (id: string, accessToken: string, idToken: string): P
   return convertDates(addDefaultEmbeds(hoistedApplicant))
 }
 
-const createApplicant = async (applicant: ApplicantInput, accessToken: string, idToken: string): Promise<Applicant> => {
+const createApplicant = async (
+  applicant: ApplicantInput,
+  accessToken: string,
+  idToken: string,
+): Promise<{ id: string }> => {
   const { contactId, ...app } = applicant
   const res = await query<ApplicantAPIResponse<null>>(
     createApplicantMutation,
@@ -238,11 +242,7 @@ const createApplicant = async (applicant: ApplicantInput, accessToken: string, i
     },
   )
   const { id } = res
-  const newApplicant = await getApplicant(id, accessToken, idToken)
-  if (!newApplicant) {
-    throw new Error('Failed to create applicant')
-  }
-  return newApplicant
+  return { id }
 }
 
 const updateApplicant = async (
@@ -250,7 +250,7 @@ const updateApplicant = async (
   applicant: ApplicantInput,
   accessToken: string,
   idToken: string,
-): Promise<Applicant> => {
+): Promise<void> => {
   const existingApplicant = await getApiApplicant(id, accessToken, idToken)
   if (!existingApplicant) {
     throw new Error(`Applicant with id ${id} not found`)
@@ -267,12 +267,6 @@ const updateApplicant = async (
       idToken,
     },
   )
-
-  const newApplicant = await getApiApplicant(id, accessToken, idToken)
-  if (!newApplicant) {
-    throw new Error('Applicant not found')
-  }
-  return newApplicant
 }
 
 const entityName: MetadataSchemaType = 'applicant'
@@ -304,14 +298,12 @@ export class ApplicantResolver {
 
   @Authorized()
   @Mutation(() => Applicant)
-  async createApplicant(
-    @Ctx() { accessToken, idToken, storeCachedMetadata, operationMetadata }: Context,
-    @Arg(entityName) applicantInput: ApplicantInput,
-  ): Promise<Applicant> {
+  async createApplicant(@Ctx() ctx: Context, @Arg(entityName) applicantInput: ApplicantInput): Promise<Applicant> {
+    const { accessToken, idToken, storeCachedMetadata, operationMetadata } = ctx
     const { [entityName]: metadata } = operationMetadata
     const applicant = await createApplicant({ ...applicantInput, metadata }, accessToken, idToken)
-    storeCachedMetadata(entityName, applicant.id, applicant.metadata)
-    return applicant
+    storeCachedMetadata(entityName, applicant.id, metadata)
+    return this.getApplicant(ctx, applicant.id)
   }
 
   @Authorized()
@@ -337,9 +329,9 @@ export class ApplicantResolver {
   ): Promise<Applicant> {
     const { accessToken, idToken, operationMetadata, storeCachedMetadata } = context
     const { [entityName]: metadata } = operationMetadata
-    const applicant = await updateApplicant(id, { ...applicantDto, metadata }, accessToken, idToken)
-    storeCachedMetadata(entityName, applicant.id, applicantDto.metadata)
-    return applicant
+    await updateApplicant(id, { ...applicantDto, metadata }, accessToken, idToken)
+    storeCachedMetadata(entityName, id, applicantDto.metadata)
+    return this.getApplicant(context, id)
   }
 
   @Authorized()

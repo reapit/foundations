@@ -4,6 +4,21 @@ import { render } from '../../../tests/react-testing'
 import { mockAppSummaryModelPagedResult } from '../../../tests/__stubs__/apps'
 import { FilteredAppsCollection } from '../filtered-apps'
 
+window.reapit.config.clientHiddenAppIds = {}
+window.reapit.config.orgAdminRestrictedAppIds = []
+
+jest.mock('@reapit/connect-session', () => ({
+  ReapitConnectBrowserSession: jest.fn(),
+  useReapitConnect: jest.fn(() => ({
+    connectSession: {
+      loginIdentity: {
+        clientId: 'MOCK_CLIENT_ID',
+        groups: ['OrganisationAdmin'],
+      },
+    },
+  })),
+}))
+
 jest.mock('../../../core/use-apps-browse-state')
 
 jest.mock('@reapit/utils-react', () => ({

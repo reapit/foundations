@@ -1,5 +1,5 @@
 import { gql } from 'apollo-server-core'
-import { Field, GraphQLISODateTime, InputType, ObjectType } from 'type-graphql'
+import { Field, GraphQLISODateTime, InputType, ObjectType, registerEnumType } from 'type-graphql'
 
 export const PropertyImageFragment = gql`
   fragment PropertyImageFragment on PropertyImageModel {
@@ -13,6 +13,17 @@ export const PropertyImageFragment = gql`
   }
 `
 
+export enum PropertyImageType {
+  photograph = 'photograph',
+  floorPlan = 'floorPlan',
+  epc = 'epc',
+  map = 'map',
+}
+registerEnumType(PropertyImageType, {
+  name: 'PropertyImageType',
+  description: 'The type of image',
+})
+
 @ObjectType()
 export class PropertyImage {
   @Field()
@@ -24,14 +35,11 @@ export class PropertyImage {
   @Field(() => GraphQLISODateTime)
   modified: Date
 
-  @Field()
+  @Field({ description: '@urlType("image")' })
   url: string
 
-  @Field()
-  type: string
-
-  @Field({ nullable: true })
-  order: number
+  @Field(() => PropertyImageType)
+  type: PropertyImageType
 
   @Field()
   caption: string
@@ -42,15 +50,12 @@ export class PropertyImageInput {
   @Field({ description: '@customInput(image-upload)' })
   data: string
 
-  @Field({ nullable: true })
+  @Field()
   caption: string
 
   @Field({ description: '@idOf(Property)' })
   propertyId: string
 
-  @Field({ nullable: true })
-  type: string
-
-  @Field({ nullable: true })
-  order: number
+  @Field(() => PropertyImageType, { nullable: true })
+  type: PropertyImageType
 }

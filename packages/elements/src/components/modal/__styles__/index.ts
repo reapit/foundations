@@ -4,7 +4,7 @@ import { ElIcon } from '../../icon/__styles__'
 
 export const ElModalBg = styled.div`
   display: none;
-  z-index: 998;
+  z-index: 98;
   width: 100%;
   height: 100%;
   top: 0;
@@ -26,7 +26,7 @@ export const ElModal = styled.div`
   box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.12);
   border-radius: var(--default-border-radius);
   background: white;
-  z-index: 999;
+  z-index: 99;
   width: 65%;
   min-width: 300px;
   max-width: 800px;

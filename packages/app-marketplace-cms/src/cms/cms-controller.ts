@@ -58,6 +58,11 @@ export class CmsController {
     return this.cmsProvider.update(marketplaceApp, dto)
   }
 
+  @Put('')
+  async updateBatch(@Body() dtos: MarketplaceAppModelDto[]): Promise<MarketplaceAppModel[]> {
+    return this.cmsProvider.updateBatch(dtos)
+  }
+
   @Delete(':id')
   async delete(@Param('id') id: string): Promise<any> {
     const marketplaceApp = await this.cmsProvider.findOne({ id })

@@ -4,6 +4,13 @@ exports[`AppsDetail should match a snapshot when loading 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
+    <div
+      id="root"
+    >
+      <div />
+      <div />
+      <div />
+    </div>
     <div>
       <div
         class="el-snack-holder"
@@ -103,6 +110,13 @@ exports[`AppsDetail should match a snapshot with data 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
+    <div
+      id="root"
+    >
+      <div />
+      <div />
+      <div />
+    </div>
     <div>
       <div
         class="el-snack-holder"
@@ -204,6 +218,11 @@ Object {
               >
                 Verified by Reapit
               </p>
+              <div
+                class="el-fade-in app-detail-category-chip"
+              >
+                Category
+              </div>
               <p
                 class="el-mr5 el-has-bold-text el-has-no-margin el-small-text"
               >
@@ -244,6 +263,66 @@ Object {
             </h2>
             <div>
               Mock Component
+            </div>
+            <div
+              class="el-button-group"
+            >
+              <div
+                class="el-button-group-inner"
+              >
+                <button
+                  class="el-intent-low el-button"
+                >
+                  <div
+                    class="el-flex-align-center el-flex-container"
+                  >
+                    <span
+                      class="el-mr4 el-intent-primary el-icon"
+                      style="font-size: 1.25em;"
+                    >
+                      <svg
+                        fill="none"
+                        height="1em"
+                        viewBox="0 0 20 16"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M2.82051 0C1.25797 0 0 1.31414 0 2.94643V12.0536C0 13.6859 1.25797 15 2.82051 15H17.1795C18.742 15 20 13.6859 20 12.0536V2.94643C20 1.31414 18.742 0 17.1795 0H2.82051ZM8.20513 5.21825C8.20513 4.68208 8.78322 4.34497 9.24986 4.60902L13.2823 6.89077C13.756 7.15881 13.756 7.84119 13.2823 8.10923L9.24986 10.391C8.78322 10.655 8.20513 10.3179 8.20513 9.78175V5.21825Z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </span>
+                    How To Use App
+                  </div>
+                </button>
+                <button
+                  class="el-intent-low el-button"
+                >
+                  <div
+                    class="el-flex-align-center el-flex-container"
+                  >
+                    <span
+                      class="el-mr4 el-intent-primary el-icon"
+                      style="font-size: 1.25em;"
+                    >
+                      <svg
+                        fill="none"
+                        height="1em"
+                        viewBox="0 0 20 16"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M2.82051 0C1.25797 0 0 1.31414 0 2.94643V12.0536C0 13.6859 1.25797 15 2.82051 15H17.1795C18.742 15 20 13.6859 20 12.0536V2.94643C20 1.31414 18.742 0 17.1795 0H2.82051ZM8.20513 5.21825C8.20513 4.68208 8.78322 4.34497 9.24986 4.60902L13.2823 6.89077C13.756 7.15881 13.756 7.84119 13.2823 8.10923L9.24986 10.391C8.78322 10.655 8.20513 10.3179 8.20513 9.78175V5.21825Z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </span>
+                    Marketing Presentation
+                  </div>
+                </button>
+              </div>
             </div>
           </div>
           <div
@@ -561,6 +640,11 @@ Object {
             >
               Verified by Reapit
             </p>
+            <div
+              class="el-fade-in app-detail-category-chip"
+            >
+              Category
+            </div>
             <p
               class="el-mr5 el-has-bold-text el-has-no-margin el-small-text"
             >
@@ -601,6 +685,66 @@ Object {
           </h2>
           <div>
             Mock Component
+          </div>
+          <div
+            class="el-button-group"
+          >
+            <div
+              class="el-button-group-inner"
+            >
+              <button
+                class="el-intent-low el-button"
+              >
+                <div
+                  class="el-flex-align-center el-flex-container"
+                >
+                  <span
+                    class="el-mr4 el-intent-primary el-icon"
+                    style="font-size: 1.25em;"
+                  >
+                    <svg
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 20 16"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M2.82051 0C1.25797 0 0 1.31414 0 2.94643V12.0536C0 13.6859 1.25797 15 2.82051 15H17.1795C18.742 15 20 13.6859 20 12.0536V2.94643C20 1.31414 18.742 0 17.1795 0H2.82051ZM8.20513 5.21825C8.20513 4.68208 8.78322 4.34497 9.24986 4.60902L13.2823 6.89077C13.756 7.15881 13.756 7.84119 13.2823 8.10923L9.24986 10.391C8.78322 10.655 8.20513 10.3179 8.20513 9.78175V5.21825Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </span>
+                  How To Use App
+                </div>
+              </button>
+              <button
+                class="el-intent-low el-button"
+              >
+                <div
+                  class="el-flex-align-center el-flex-container"
+                >
+                  <span
+                    class="el-mr4 el-intent-primary el-icon"
+                    style="font-size: 1.25em;"
+                  >
+                    <svg
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 20 16"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M2.82051 0C1.25797 0 0 1.31414 0 2.94643V12.0536C0 13.6859 1.25797 15 2.82051 15H17.1795C18.742 15 20 13.6859 20 12.0536V2.94643C20 1.31414 18.742 0 17.1795 0H2.82051ZM8.20513 5.21825C8.20513 4.68208 8.78322 4.34497 9.24986 4.60902L13.2823 6.89077C13.756 7.15881 13.756 7.84119 13.2823 8.10923L9.24986 10.391C8.78322 10.655 8.20513 10.3179 8.20513 9.78175V5.21825Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </span>
+                  Marketing Presentation
+                </div>
+              </button>
+            </div>
           </div>
         </div>
         <div
