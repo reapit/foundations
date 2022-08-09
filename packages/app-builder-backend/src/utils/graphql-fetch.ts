@@ -1,6 +1,6 @@
 import { DocumentNode } from 'graphql'
-import fetch from 'node-fetch'
 import { graphqlUri } from '../config.json'
+import { fetch } from './fetch'
 
 type AuthTokens = {
   accessToken: string

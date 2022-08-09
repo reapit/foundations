@@ -44,7 +44,9 @@ Object {
                   </h2>
                   <div
                     class="hero-apps-chip"
-                  />
+                  >
+                    Category
+                  </div>
                 </div>
               </div>
               <p
@@ -158,7 +160,9 @@ Object {
                 </h2>
                 <div
                   class="hero-apps-chip"
-                />
+                >
+                  Category
+                </div>
               </div>
             </div>
             <p
@@ -338,7 +342,7 @@ Object {
                     class="hero-apps-subtitle el-subtitle"
                   />
                   <div
-                    class="hero-apps-chip"
+                    class="hero-apps-chip-placeholder"
                   />
                 </div>
               </div>
@@ -462,7 +466,7 @@ Object {
                   class="hero-apps-subtitle el-subtitle"
                 />
                 <div
-                  class="hero-apps-chip"
+                  class="hero-apps-chip-placeholder"
                 />
               </div>
             </div>

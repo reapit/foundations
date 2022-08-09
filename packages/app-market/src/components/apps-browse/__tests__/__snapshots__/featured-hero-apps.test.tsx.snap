@@ -45,6 +45,11 @@ Object {
                     >
                       will-test-dev-co-voracious-person
                     </h2>
+                    <div
+                      class="hero-apps-chip"
+                    >
+                      Category
+                    </div>
                   </div>
                   <button
                     class="featured-hero-apps-button-mob-tablet el-button"
@@ -172,6 +177,11 @@ Object {
                   >
                     will-test-dev-co-voracious-person
                   </h2>
+                  <div
+                    class="hero-apps-chip"
+                  >
+                    Category
+                  </div>
                 </div>
                 <button
                   class="featured-hero-apps-button-mob-tablet el-button"
@@ -366,6 +376,9 @@ Object {
                     <h2
                       class="featured-hero-apps-subtitle el-subtitle"
                     />
+                    <div
+                      class="hero-apps-chip-placeholder"
+                    />
                   </div>
                   <button
                     class="featured-hero-apps-button-mob-tablet el-button"
@@ -502,6 +515,9 @@ Object {
                 >
                   <h2
                     class="featured-hero-apps-subtitle el-subtitle"
+                  />
+                  <div
+                    class="hero-apps-chip-placeholder"
                   />
                 </div>
                 <button

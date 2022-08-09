@@ -29,6 +29,7 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { object, SchemaOf, string } from 'yup'
 import { specialCharsTest } from '../../utils/yup'
+import { selectIsAdmin } from '../../utils/auth'
 
 export interface InstallationDetails {
   installationId: string
@@ -92,6 +93,7 @@ export const SettingsInstalled: FC = () => {
   const { Modal, openModal, closeModal } = useModal()
   const clientId = connectSession?.loginIdentity.clientId
   const email = connectSession?.loginIdentity.email ?? ''
+  const isAdmin = selectIsAdmin(connectSession)
 
   const [installations, installationsLoading, , refetchInstallations] = useReapitGet<InstallationModelPagedResult>({
     reapitConnectBrowserSession,
@@ -137,6 +139,14 @@ export const SettingsInstalled: FC = () => {
   })
 
   useEffect(handleUninstallSuccess(refetchInstallations, closeModal, uninstallSuccess), [uninstallSuccess])
+
+  if (!isAdmin) {
+    return (
+      <PersistentNotification intent="danger" isExpanded isFullWidth isInline>
+        You do not have permission to view this page.
+      </PersistentNotification>
+    )
+  }
 
   return (
     <>

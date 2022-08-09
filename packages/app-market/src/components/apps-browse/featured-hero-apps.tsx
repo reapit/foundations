@@ -20,10 +20,13 @@ import {
   FeaturedHeroAppsSubtitle,
   FeaturedHeroAppsStrapline,
   FeaturedHeroAppsFlexContainer,
+  HeroAppsChipPlaceholder,
 } from './__styles__'
 import { navigate } from '../../utils/navigation'
 import { Routes } from '../../constants/routes'
 import { useHistory } from 'react-router-dom'
+import { filterRestrictedAppDetail } from '../../utils/browse-app'
+import { useReapitConnect } from '@reapit/connect-session'
 
 interface FeaturedHeroAppsCollectionProps {
   configItem?: AppsBrowseConfigItemInterface
@@ -60,9 +63,10 @@ export const handleIconPlaceholderSize = (mediaQuery: MediaType) => () => {
 export const FeaturedHeroAppsCollection: FC<FeaturedHeroAppsCollectionProps> = memo(({ configItem }) => {
   const history = useHistory()
   const mediaQuery = useMediaQuery()
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { filters, content } = configItem ?? {}
 
-  const [appDetail] = useReapitGet<AppDetailModel>({
+  const [unfilteredAppDetail] = useReapitGet<AppDetailModel>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppById],
     uriParams: {
@@ -71,10 +75,12 @@ export const FeaturedHeroAppsCollection: FC<FeaturedHeroAppsCollectionProps> = m
     fetchWhenTrue: [filters?.id?.length],
   })
 
+  const appDetail = useMemo(filterRestrictedAppDetail(unfilteredAppDetail, connectSession), [unfilteredAppDetail])
+
   const placeholderSize = useMemo(handlePlaceholderSize(mediaQuery), [mediaQuery])
   const iconPlaceholderSize = useMemo(handleIconPlaceholderSize(mediaQuery), [mediaQuery])
   const app = appDetail ?? {}
-  const { name, media, summary, category, id } = app
+  const { name, media, summary, categories, id } = app
   const iconUri = media?.find((item) => item.type === 'icon')?.uri
 
   return (
@@ -94,7 +100,11 @@ export const FeaturedHeroAppsCollection: FC<FeaturedHeroAppsCollectionProps> = m
                 )}
                 <FeaturedHeroAppsNameContainer>
                   <FeaturedHeroAppsSubtitle>{name}</FeaturedHeroAppsSubtitle>
-                  {category?.name && <HeroAppsChip className={elFadeIn}>{category.name}</HeroAppsChip>}
+                  {categories?.length ? (
+                    categories.map((category) => <HeroAppsChip key={category?.id}>{category.name}</HeroAppsChip>)
+                  ) : (
+                    <HeroAppsChipPlaceholder />
+                  )}
                 </FeaturedHeroAppsNameContainer>
                 <Button
                   className={featuredHeroAppsButtonMobTablet}

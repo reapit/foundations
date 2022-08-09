@@ -69,6 +69,12 @@ export const mockAppDetailModel: AppDetailModel = {
   pricingUrl: 'https://foo.bar',
   isFree: false,
   isHidden: false,
+  categories: [
+    {
+      id: 'MOCK_ID',
+      name: 'Category',
+    },
+  ],
   scopes: [
     {
       name: 'agencyCloud/applicants.read',
@@ -104,6 +110,20 @@ export const mockAppDetailModel: AppDetailModel = {
       description: 'Application Image',
       type: 'image',
       order: 0,
+    },
+    {
+      description: 'Application Video',
+      id: 'MOCK_ID',
+      order: 0,
+      type: 'video',
+      uri: 'https://www.youtube.com/embed/iKdil7liAts',
+    },
+    {
+      description: 'Application Video',
+      id: 'MOCK_ID',
+      order: 0,
+      type: 'video',
+      uri: 'https://www.youtube.com/embed/iKdil7liAts',
     },
   ],
 }

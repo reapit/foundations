@@ -1305,6 +1305,7 @@ export interface Applicants {
   )[]
   id?: string[]
   age?: ('period' | 'new' | 'modern' | 'old')[]
+  contactDetail?: string[]
   emailAddresses?: string[]
   furnishing?: ('furnished' | 'unfurnished' | 'partFurnished')[]
   locality?: ('rural' | 'village' | 'townCity')[]
@@ -8704,7 +8705,7 @@ export interface JournalEntries {
   pageNumber?: number
   sortBy?: string
   embed?: ('property' | 'negotiator' | 'type')[]
-  associatedType?: ('applicant' | 'contact' | 'company' | 'landlord' | 'tenancy')[]
+  associatedType?: string
   associatedId?: string[]
   negotiatorId?: string[]
   propertyId?: string[]

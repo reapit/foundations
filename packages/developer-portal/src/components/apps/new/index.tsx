@@ -13,7 +13,7 @@ import {
   useMediaQuery,
   useModal,
 } from '@reapit/elements'
-import React, { Dispatch, FC, SetStateAction, MouseEvent, useEffect } from 'react'
+import React, { Dispatch, FC, SetStateAction, MouseEvent, useEffect, KeyboardEvent } from 'react'
 import { AppAuthFlow, AppNewStepId, getAppWizardStep } from './config'
 import { AppWizardState, useAppState } from '../state/use-app-state'
 import { ControlsContainer, StepContainer } from './__styles__'
@@ -21,7 +21,7 @@ import { StepOptionsContent } from './step-options-content'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm, UseFormTrigger } from 'react-hook-form'
 import { object, SchemaOf, string, TestFunction } from 'yup'
-import { isValidUrlWithCustomScheme, UpdateActionNames, updateActions } from '@reapit/utils-common'
+import { UpdateActionNames, updateActions, whiteListLocalhostAndIsValidUrl } from '@reapit/utils-common'
 import errorMessages from '../../../constants/error-messages'
 import { AnyObject } from 'yup/lib/types'
 import { AppDetailModel, CreateAppModel } from '@reapit/foundations-ts-definitions'
@@ -48,14 +48,14 @@ const authCodeSchema: SchemaOf<CreateAppFormSchema> = object().shape({
     .trim()
     .required(errorMessages.FIELD_REQUIRED)
     .test({
-      test: isValidUrlWithCustomScheme as TestFunction<string | undefined, AnyObject>,
+      test: whiteListLocalhostAndIsValidUrl as TestFunction<string | undefined, AnyObject>,
       message: 'Should be a secure https url or http if localhost',
     }),
   signoutUris: string()
     .trim()
     .required(errorMessages.FIELD_REQUIRED)
     .test({
-      test: isValidUrlWithCustomScheme as TestFunction<string | undefined, AnyObject>,
+      test: whiteListLocalhostAndIsValidUrl as TestFunction<string | undefined, AnyObject>,
       message: 'Should be a secure https url or http if localhost',
     }),
   scopes: string().trim(),
@@ -69,10 +69,10 @@ const clientCredsSchema: SchemaOf<CreateAppFormSchema> = object().shape({
 
 export const stepIsValid = async (
   authFlow: AppAuthFlow,
-  stepHistory: (AppNewStepId | null)[],
+  nextStep: AppNewStepId | null,
   trigger: UseFormTrigger<CreateAppFormSchema>,
 ) => {
-  if (authFlow === 'authorisationCode' && stepHistory.length === 3) {
+  if (authFlow === 'authorisationCode' && nextStep && nextStep === AppNewStepId.permissionsStep) {
     const validRedirectUris = await trigger('redirectUris')
     const validSignoutUris = await trigger('signoutUris')
 
@@ -87,13 +87,14 @@ export const handleSetSteps =
     setAppWizardState: Dispatch<SetStateAction<AppWizardState>>,
     isForward: boolean,
     authFlow: AppAuthFlow,
-    stepHistory: (AppNewStepId | null)[],
+    nextStep: AppNewStepId | null,
     trigger: UseFormTrigger<CreateAppFormSchema>,
   ) =>
   (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault()
+    console.log(event)
     const handleStep = async () => {
-      const isValidStep = isForward ? await stepIsValid(authFlow, stepHistory, trigger) : true
+      const isValidStep = isForward ? await stepIsValid(authFlow, nextStep, trigger) : true
 
       if (isValidStep) {
         setAppWizardState(({ currentStep, nextStep, prevStep, stepHistory, ...rest }) => {
@@ -176,6 +177,12 @@ export const handleNavigateOnSuccess =
     }
   }
 
+export const preventReturnSubmit = (event: KeyboardEvent) => {
+  if (event.key === 'Enter') {
+    event.preventDefault()
+  }
+}
+
 export const AppsNewPage: FC = () => {
   const { appWizardState, setAppWizardState, appsDataState, appPipelineState } = useAppState()
   const history = useHistory()
@@ -236,7 +243,10 @@ export const AppsNewPage: FC = () => {
             </ButtonGroup>
           </Modal>
         )}
-        <form onSubmit={handleSubmit(handleSubmitApp(authFlow, connectSession, stepHistory, createApp))}>
+        <form
+          onSubmit={handleSubmit(handleSubmitApp(authFlow, connectSession, stepHistory, createApp))}
+          onKeyDown={preventReturnSubmit}
+        >
           <StepContainer>
             <Subtitle hasBoldText>{headingText}</Subtitle>
             <FlexContainer className={elMb7}>
@@ -252,7 +262,7 @@ export const AppsNewPage: FC = () => {
                   intent="secondary"
                   size={2}
                   disabled={!prevStep || appCreating}
-                  onClick={handleSetSteps(setAppWizardState, false, authFlow, stepHistory, trigger)}
+                  onClick={handleSetSteps(setAppWizardState, false, authFlow, nextStep, trigger)}
                   chevronLeft
                 >
                   Prev
@@ -262,7 +272,7 @@ export const AppsNewPage: FC = () => {
                     intent="primary"
                     size={2}
                     disabled={!nextStep || appCreating}
-                    onClick={handleSetSteps(setAppWizardState, true, authFlow, stepHistory, trigger)}
+                    onClick={handleSetSteps(setAppWizardState, true, authFlow, nextStep, trigger)}
                     chevronRight
                   >
                     Next

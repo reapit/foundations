@@ -1,3 +1,4 @@
+import { ElModalBody } from './../../../../../elements/src/components/modal/__styles__/index'
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
 import { forMobileAndAbove, forTabletAndAbove } from '../../../core/__styles__/media'
@@ -124,4 +125,21 @@ export const AppDetailCategoryChip = styled.div`
   padding: 1px 0.5rem;
   margin-right: 0.75rem;
   display: inline-block;
+`
+
+export const appDetailVideoModal = css`
+  width: 75vw;
+  height: 75vh;
+  max-width: 2000px;
+  top: 50%;
+
+  iframe {
+    width: 100%;
+    height: calc(100% - 5rem);
+  }
+
+  ${ElModalBody} {
+    width: 100%;
+    height: calc(100% - 2.5rem);
+  }
 `

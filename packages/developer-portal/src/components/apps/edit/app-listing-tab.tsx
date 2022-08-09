@@ -8,7 +8,6 @@ import {
   InputWrapFull,
   Label,
   Loader,
-  Select,
   useModal,
   ButtonGroup,
   Button,
@@ -16,6 +15,7 @@ import {
   ImageUploadModel,
   CreateImageUploadModel,
   elMb11,
+  MultiSelectInput,
 } from '@reapit/elements'
 import { AppEditTabsProps } from './edit-page-tabs'
 import { formFields } from './form-schema/form-fields'
@@ -36,6 +36,7 @@ import {
 } from './constants'
 import { ExternalPages, openNewPage } from '../../../utils/navigation'
 import { appDescriptionHeight } from './__styles__'
+import { useAppState } from '../state/use-app-state'
 
 export const handlePreviewImage =
   (setPreviewImage: Dispatch<SetStateAction<string | null>>, openModal: () => void) => (previewImage: string) => {
@@ -50,6 +51,9 @@ export const handleClosePreviewImage =
   }
 
 export const AppListingTab: FC<AppEditTabsProps> = ({ register, errors, control, getValues }) => {
+  const { appEditState } = useAppState()
+  const { appEditForm } = appEditState
+
   const [categories, categoriesLoading] = useReapitGet<CategoryModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppCategories],
@@ -85,7 +89,7 @@ export const AppListingTab: FC<AppEditTabsProps> = ({ register, errors, control,
     termsAndConditionsUrl,
     privacyPolicyUrl,
     pricingUrl,
-    categoryId,
+    categoryIds,
     description,
     summary,
     isFree,
@@ -95,6 +99,8 @@ export const AppListingTab: FC<AppEditTabsProps> = ({ register, errors, control,
     screen3ImageUrl,
     screen4ImageUrl,
     screen5ImageUrl,
+    videoUrl1,
+    videoUrl2,
   } = formFields
 
   const {
@@ -184,6 +190,24 @@ export const AppListingTab: FC<AppEditTabsProps> = ({ register, errors, control,
         </InputWrap>
         <InputWrap>
           <InputGroup
+            {...videoUrl1}
+            {...register('videoUrl1')}
+            errorMessage={errors?.videoUrl1?.message}
+            icon={errors?.videoUrl1?.message ? 'asteriskSystem' : null}
+            intent="danger"
+          />
+        </InputWrap>
+        <InputWrap>
+          <InputGroup
+            {...videoUrl2}
+            {...register('videoUrl2')}
+            errorMessage={errors?.videoUrl2?.message}
+            icon={errors?.videoUrl2?.message ? 'asteriskSystem' : null}
+            intent="danger"
+          />
+        </InputWrap>
+        <InputWrap>
+          <InputGroup
             {...pricingUrl}
             {...register('pricingUrl')}
             disabled={isFreeValue}
@@ -201,23 +225,25 @@ export const AppListingTab: FC<AppEditTabsProps> = ({ register, errors, control,
             intent="danger"
           />
         </InputWrap>
-        <InputWrap>
+        <InputWrapFull>
           {categoriesLoading && <Loader />}
-          {categories && (
+          {categories?.data && (
             <InputGroup>
-              <Label>{categoryId.label}</Label>
-              <Select {...register('categoryId')}>
-                <option value="">Select Option</option>
-                {categories.data?.map(({ id, description }) => (
-                  <option key={id} value={id}>
-                    {description}
-                  </option>
-                ))}
-              </Select>
-              {errors?.categoryId?.message && <InputError message={errors?.categoryId?.message} />}
+              <Label>{categoryIds.label}</Label>
+              <MultiSelectInput
+                id="app-edit-categories-select"
+                {...register('categoryIds')}
+                noneSelectedLabel="Please select one or more categories that best describes your app. These will be used by customers to find your app in the AppMarket"
+                options={categories.data?.map((category) => ({
+                  value: category.id ?? '',
+                  name: category.description ?? '',
+                }))}
+                defaultValues={appEditForm.categoryIds.split(',').filter(Boolean)}
+              />
+              {errors?.categoryIds?.message && <InputError message={errors?.categoryIds?.message} />}
             </InputGroup>
           )}
-        </InputWrap>
+        </InputWrapFull>
         <InputWrapFull>
           <InputGroup
             {...summary}

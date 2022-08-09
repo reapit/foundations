@@ -121,7 +121,7 @@ const OfficesGroupsTab: FC = () => {
     !orgClientId || !officeIdsQuery
       ? null
       : `${URLS.OFFICES}/?${
-          officeIdsQuery ? getOfficeQueryFromGroups(officeGroups) + '&pageSize=100' : 'pageSize=100'
+          officeIdsQuery ? getOfficeQueryFromGroups(officeGroups) + '&pageSize=500' : 'pageSize=500'
         }`,
     fetcherWithClientCode(orgClientId as string),
   )

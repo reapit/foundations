@@ -6,6 +6,7 @@ import {
   Col,
   elMb11,
   elMb5,
+  FlexContainer,
   Grid,
   Icon,
   IconNames,
@@ -18,9 +19,9 @@ import {
   AppSummaryModelPagedResult,
 } from '@reapit/foundations-ts-definitions'
 import { GetActionNames, getActions } from '@reapit/utils-common'
-import { useReapitGet, useReapitUpdate } from '@reapit/utils-react'
+import { SendFunction, UpdateReturnTypeEnum, useReapitGet, useReapitUpdate } from '@reapit/utils-react'
 import React, { FC, useState } from 'react'
-import { colorSquare, ImageContainer } from './app-browse.styles'
+import { colorSquare, iconButton, ImageContainer } from './app-browse.styles'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { shleemy } from 'shleemy'
 import { cx } from '@linaria/core'
@@ -33,10 +34,80 @@ interface AppBrowseManageTableProps {
   setSelectedItem: (item?: AppsBrowseConfigItemInterface) => void
   deleteItem: (type: AppsBrowseConfigEnum, id: string) => void
   connectSession: ReapitConnectSession
+  setItems: (items: AppsBrowseConfigItemInterface[]) => void
 }
 
 interface ManageTableExpandableContentProps extends AppBrowseManageTableProps {
   configItem: AppsBrowseConfigItemInterface
+}
+
+const findAndReplace = <T extends any>(
+  array: Array<T>,
+  condition: (item) => boolean,
+  replace: (item) => T,
+): Array<T> => {
+  return array.map((value) => {
+    if (condition(value)) {
+      return replace(value)
+    }
+    return value
+  })
+}
+
+const updatedItemIndex = async <T extends { index?: number; id?: string }>({
+  currentItem,
+  allItems,
+  setItems,
+  updateIndexing,
+  direction = 'up',
+  defaultIndex,
+}: {
+  currentItem: T
+  allItems: T[]
+  setItems: (val: T[]) => void
+  updateIndexing: SendFunction<T[], T[] | boolean>
+  direction: 'up' | 'down'
+  defaultIndex: number
+}): Promise<void> => {
+  const nextArrayIndex = allItems.indexOf(currentItem) + (direction === 'up' ? -1 : +1)
+
+  if (nextArrayIndex < 0 || nextArrayIndex > allItems.length) {
+    return
+  }
+
+  const nextItem = allItems[nextArrayIndex]
+
+  if (!nextItem) {
+    return
+  }
+
+  const currentIndex = currentItem.index || defaultIndex
+  const nextIndex = nextItem.index || defaultIndex + (direction === 'up' ? -1 : +1)
+
+  const results = await updateIndexing(
+    findAndReplace(
+      allItems,
+      (i) => [currentItem.id, nextItem.id].includes(i.id),
+      (i) => {
+        return i.id === currentItem.id
+          ? {
+              ...i,
+              index: nextIndex,
+            }
+          : {
+              ...i,
+              index: currentIndex,
+            }
+      },
+    ),
+    {
+      uriParams: { id: '' },
+    },
+  )
+
+  if (results && typeof results !== 'boolean') {
+    setItems(results)
+  }
 }
 
 export const ManageTableExpandableContent: FC<ManageTableExpandableContentProps> = (props) => {
@@ -53,7 +124,7 @@ export const ManageTableExpandableContent: FC<ManageTableExpandableContentProps>
     reapitConnectBrowserSession,
     method: 'DELETE',
     headers: {
-      Authorization: connectSession?.idToken as string,
+      Authorization: connectSession?.idToken,
     },
   })
 
@@ -191,14 +262,73 @@ export const AppBrowseManageTable: FC<AppBrowseManageTableProps> = (props) => {
   const { type, items, setEditType, ...rest } = props
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null)
 
+  const [indexLoading, , updateIndexing] = useReapitUpdate<
+    AppsBrowseConfigItemInterface[],
+    AppsBrowseConfigItemInterface[]
+  >({
+    action: getActions(window.reapit.config.appEnv)[GetActionNames.postAppMarketAdmin],
+    reapitConnectBrowserSession,
+    method: 'PUT',
+    headers: {
+      Authorization: props.connectSession?.idToken,
+    },
+    returnType: UpdateReturnTypeEnum.RESPONSE,
+  })
+
+  const sortedItems = [
+    ...items.sort((a, b) => {
+      return typeof a.index !== 'undefined' && typeof b.index !== 'undefined' && a.index < b.index ? -1 : 1
+    }),
+  ]
+
   return (
     <div {...rest} className={cx(elMb11)}>
       <Subtitle hasCapitalisedText>{type.replace(/([^A-Z])([A-Z])/g, '$1 $2').toLowerCase()}</Subtitle>
       <Table
         indexExpandedRow={expandedIndex}
         setIndexExpandedRow={setExpandedIndex}
-        rows={items.map((item) => ({
+        rows={sortedItems.map((item, index, all) => ({
           cells: [
+            {
+              label: '',
+              value: item.index,
+              children: (
+                <FlexContainer isFlexJustifyCenter>
+                  <Button
+                    className={iconButton}
+                    disabled={indexLoading}
+                    onClick={async () => {
+                      updatedItemIndex<AppsBrowseConfigItemInterface>({
+                        currentItem: item,
+                        allItems: all,
+                        direction: 'up',
+                        defaultIndex: index,
+                        updateIndexing,
+                        setItems: props.setItems,
+                      })
+                    }}
+                  >
+                    <Icon icon="arrowUpSystem" />
+                  </Button>
+                  <Button
+                    className={iconButton}
+                    disabled={indexLoading}
+                    onClick={async () => {
+                      updatedItemIndex<AppsBrowseConfigItemInterface>({
+                        currentItem: item,
+                        allItems: all,
+                        direction: 'down',
+                        defaultIndex: index,
+                        updateIndexing,
+                        setItems: props.setItems,
+                      })
+                    }}
+                  >
+                    <Icon icon="arrowDownSystem" />
+                  </Button>
+                </FlexContainer>
+              ),
+            },
             {
               label: 'Title',
               value: item.content?.title,
@@ -243,7 +373,7 @@ export const AppBrowseManageTable: FC<AppBrowseManageTableProps> = (props) => {
             content: <ManageTableExpandableContent {...props} configItem={item} />,
           },
         }))}
-        numberColumns={6}
+        numberColumns={7}
       />
       <br />
       <Button intent="primary" onClick={setEditType}>

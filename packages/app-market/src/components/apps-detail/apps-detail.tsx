@@ -1,4 +1,4 @@
-import React, { createRef, FC, LegacyRef, useMemo, useRef } from 'react'
+import React, { createRef, Dispatch, FC, LegacyRef, SetStateAction, useMemo, useRef, useState } from 'react'
 import {
   Title,
   PageContainer,
@@ -20,6 +20,7 @@ import {
   SmallText,
   ButtonGroup,
   Button,
+  elMr4,
 } from '@reapit/elements'
 import { useHistory, useParams } from 'react-router-dom'
 import { AcProcessType, DesktopLink, HTMLRender, useReapitGet } from '@reapit/utils-react'
@@ -43,6 +44,7 @@ import {
   AppDetailWrapper,
   AppDetailCategoryChip,
   htmlRender,
+  appDetailVideoModal,
 } from './__styles__'
 import { Carousel } from '../carousel'
 import { IsFreeNotice } from '../apps-browse/__styles__'
@@ -51,6 +53,8 @@ import { AppInstallModalContent } from './app-install-modal'
 import { AppInstallSuccesModalContent } from './app-install-success-modal'
 import { useReapitConnect } from '@reapit/connect-session'
 import { selectIsAdmin } from '../../utils/auth'
+import { filterRestrictedAppDetail } from '../../utils/browse-app'
+import { cx } from '@linaria/core'
 
 export interface AppIdParams {
   appId: string
@@ -70,14 +74,24 @@ export const handleCarouselCols = (mediaQuery: MediaType) => () => {
   return 3
 }
 
+export const handleOpenModal =
+  (setVideoUrl: Dispatch<SetStateAction<string | null>>, videoOpenModal: () => void, videoUrl?: string) => () => {
+    if (videoUrl) {
+      setVideoUrl(videoUrl)
+      videoOpenModal()
+    }
+  }
+
 export const AppsDetail: FC = () => {
   const history = useHistory()
   const { appId } = useParams<AppIdParams>()
   const imageRefs = useRef<LegacyRef<HTMLDivElement>[]>([])
   const mediaQuery = useMediaQuery()
   const carouselCols = useMemo<number>(handleCarouselCols(mediaQuery), [mediaQuery])
+  const [videoUrl, setVideoUrl] = useState<string | null>(null)
   const { Modal: AppInstallModal, openModal: appInstallOpenModal, closeModal: appInstallCloseModal } = useModal()
   const { Modal: InstallSuccessModal, openModal: successOpenModal, closeModal: successCloseModal } = useModal()
+  const { Modal: VideoModal, openModal: videoOpenModal, closeModal: videoCloseModal } = useModal()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const clientId = connectSession?.loginIdentity.clientId
   const developerId = connectSession?.loginIdentity.developerId
@@ -97,7 +111,7 @@ export const AppsDetail: FC = () => {
     fetchWhenTrue: [clientId, appId],
   })
 
-  const [appDetail, appDetailLoading, , refetchApp] = useReapitGet<AppDetailModel>({
+  const [unfilteredAppDetail, appDetailLoading, , refetchApp] = useReapitGet<AppDetailModel>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppById],
     uriParams: {
@@ -105,6 +119,8 @@ export const AppsDetail: FC = () => {
     },
     fetchWhenTrue: [appId],
   })
+
+  const appDetail = useMemo(filterRestrictedAppDetail(unfilteredAppDetail, connectSession), [unfilteredAppDetail])
 
   const [developerDetail] = useReapitGet<DeveloperModel>({
     reapitConnectBrowserSession,
@@ -133,13 +149,14 @@ export const AppsDetail: FC = () => {
     privacyPolicyUrl,
     pricingUrl,
     isFree,
-    category,
+    categories,
     isDirectApi,
     desktopIntegrationTypeIds,
   } = app
   const { about } = developer
   const iconUri = media?.find((item) => item.type === 'icon')?.uri
   const images = media?.filter((item) => item.type === 'image')
+  const videos = media?.filter((item) => item.type === 'video')
   const heroImage = images ? images[0] : null
   const screenshots = images ? images.slice(1, images.length) : []
   imageRefs.current = screenshots.map((_, i) => imageRefs.current[i] ?? createRef())
@@ -181,7 +198,12 @@ export const AppsDetail: FC = () => {
                 <SmallText className={elMr5} hasNoMargin>
                   Verified by Reapit
                 </SmallText>
-                {category?.name && <AppDetailCategoryChip className={elFadeIn}>{category.name}</AppDetailCategoryChip>}
+                {Boolean(categories?.length) &&
+                  categories?.map((category) => (
+                    <AppDetailCategoryChip className={elFadeIn} key={category?.id}>
+                      {category.name}
+                    </AppDetailCategoryChip>
+                  ))}
                 {isDirectApi && (
                   <SmallText className={elMr5} hasBoldText hasNoMargin>
                     Integration
@@ -212,6 +234,24 @@ export const AppsDetail: FC = () => {
             <AppDetailDescriptionColMain>
               <Subtitle hasBoldText>About App</Subtitle>
               <HTMLRender className={htmlRender} html={description ?? ''} />
+              {videos && Boolean(videos?.length) && (
+                <ButtonGroup>
+                  <Button intent="low" onClick={handleOpenModal(setVideoUrl, videoOpenModal, videos[0]?.uri)}>
+                    <FlexContainer isFlexAlignCenter>
+                      <Icon className={cx(elMr4)} icon="videoSystem" intent="primary" fontSize="1.25em" />
+                      How To Use App
+                    </FlexContainer>
+                  </Button>
+                  {videos && videos?.length > 1 && (
+                    <Button intent="low" onClick={handleOpenModal(setVideoUrl, videoOpenModal, videos[1]?.uri)}>
+                      <FlexContainer isFlexAlignCenter>
+                        <Icon className={cx(elMr4)} icon="videoSystem" intent="primary" fontSize="1.25em" />
+                        Marketing Presentation
+                      </FlexContainer>
+                    </Button>
+                  )}
+                </ButtonGroup>
+              )}
             </AppDetailDescriptionColMain>
             <AppDetailDescriptionColAside>
               <AppDetailImageWrapper>
@@ -338,6 +378,23 @@ export const AppsDetail: FC = () => {
       <InstallSuccessModal title="Success">
         <AppInstallSuccesModalContent app={app} closeModal={successCloseModal} developer={developer} />
       </InstallSuccessModal>
+      <VideoModal className={appDetailVideoModal} title="Watch Video">
+        <iframe
+          className={elMb11}
+          src={videoUrl ?? ''}
+          title="YouTube video player"
+          frameBorder="0"
+          width="100%"
+          height="100%"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+        <ButtonGroup alignment="center">
+          <Button fixedWidth onClick={videoCloseModal} intent="low">
+            Close
+          </Button>
+        </ButtonGroup>
+      </VideoModal>
     </PageContainer>
   )
 }

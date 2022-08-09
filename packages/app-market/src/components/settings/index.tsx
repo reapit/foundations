@@ -38,20 +38,22 @@ export const SettingsPage: FC = () => {
     <FlexContainer isFlexAuto>
       <SecondaryNavContainer>
         <Title>Settings</Title>
-        <SecondaryNav className={elMb9}>
-          <SecondaryNavItem
-            onClick={navigate(history, Routes.SETTINGS_PROFILE)}
-            active={pathname === Routes.SETTINGS_PROFILE}
-          >
-            Profile
-          </SecondaryNavItem>
-          <SecondaryNavItem
-            onClick={navigate(history, Routes.SETTINGS_INSTALLED)}
-            active={pathname.includes(Routes.SETTINGS_INSTALLED)}
-          >
-            Installations
-          </SecondaryNavItem>
-        </SecondaryNav>
+        {isAdmin && (
+          <SecondaryNav className={elMb9}>
+            <SecondaryNavItem
+              onClick={navigate(history, Routes.SETTINGS_PROFILE)}
+              active={pathname === Routes.SETTINGS_PROFILE}
+            >
+              Profile
+            </SecondaryNavItem>
+            <SecondaryNavItem
+              onClick={navigate(history, Routes.SETTINGS_INSTALLED)}
+              active={pathname.includes(Routes.SETTINGS_INSTALLED)}
+            >
+              Installations
+            </SecondaryNavItem>
+          </SecondaryNav>
+        )}
         <Icon className={elMb5} icon="reapitConnectInfographic" iconSize="large" />
         <SmallText hasGreyText>
           Here you can change your password and find out your current logged in profile. This can be useful if you are

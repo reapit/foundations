@@ -19,6 +19,7 @@ describe('AppBrowseManageTable', () => {
           setSelectedItem={() => {}}
           deleteItem={() => {}}
           connectSession={{} as any}
+          setItems={() => {}}
         />,
       ),
     ).toMatchSnapshot()

@@ -8,6 +8,23 @@ import SettingsInstalled, {
 import { render, setViewport } from '../../../tests/react-testing'
 import { useReapitGet } from '@reapit/utils-react'
 import { mockInstallationModelPagedResult } from '../../../tests/__stubs__/installations'
+import { useReapitConnect } from '@reapit/connect-session'
+
+window.reapit.config.clientHiddenAppIds = {}
+window.reapit.config.orgAdminRestrictedAppIds = []
+
+jest.mock('@reapit/connect-session', () => ({
+  ReapitConnectBrowserSession: jest.fn(),
+  useReapitConnect: jest.fn(() => ({
+    connectSession: {
+      loginIdentity: {
+        offGrouping: true,
+        clientId: 'MOCK_CLIENT_ID',
+        groups: ['OrganisationAdmin'],
+      },
+    },
+  })),
+}))
 
 jest.mock('@reapit/utils-react', () => ({
   useReapitGet: jest.fn(),
@@ -15,6 +32,7 @@ jest.mock('@reapit/utils-react', () => ({
 }))
 
 const mockUseReapitGet = useReapitGet as jest.Mock
+const mockUseReapitConnect = useReapitConnect as jest.Mock
 
 describe('SettingsInstalled', () => {
   it('should match a snapshot', () => {
@@ -48,6 +66,20 @@ describe('SettingsInstalled', () => {
     document.body.appendChild(testElem)
 
     setViewport('mobile')
+    expect(render(<SettingsInstalled />)).toMatchSnapshot()
+  })
+
+  it('should match a snapshot when not an admin', () => {
+    mockUseReapitConnect.mockReturnValue({
+      connectSession: {
+        loginIdentity: {
+          offGrouping: true,
+          clientId: 'MOCK_CLIENT_ID',
+          groups: [],
+        },
+      },
+    })
+
     expect(render(<SettingsInstalled />)).toMatchSnapshot()
   })
 })
