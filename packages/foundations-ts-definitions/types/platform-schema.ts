@@ -1305,6 +1305,7 @@ export interface Applicants {
   )[]
   id?: string[]
   age?: ('period' | 'new' | 'modern' | 'old')[]
+  contactDetail?: string[]
   emailAddresses?: string[]
   furnishing?: ('furnished' | 'unfurnished' | 'partFurnished')[]
   locality?: ('rural' | 'village' | 'townCity')[]

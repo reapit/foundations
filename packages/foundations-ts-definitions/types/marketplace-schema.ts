@@ -1708,7 +1708,7 @@ export interface ResendAppRevisionConsentModel {
    * Sets the override email of the user to re-send the consent too
    * If this is not sent it goes to the user who installed the app
    */
-  readonly recipient?: string
+  recipient?: string
 }
 /**
  * Model to expose details of a sandbox environment
