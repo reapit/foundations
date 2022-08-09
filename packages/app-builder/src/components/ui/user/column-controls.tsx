@@ -59,7 +59,7 @@ export const ColumnControls = ({
           return (
             <CheckboxContainer
               key={name}
-              checked={includedFields.includes(name)}
+              checked={checked}
               onClick={() => {
                 if (isRequired) {
                   return
