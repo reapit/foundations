@@ -4,6 +4,7 @@ exports[`Sidebar should match a snapshot 1`] = `
 <DocumentFragment>
   <div
     class="transition bg-white el-w2 sidebar-div"
+    style="width: 337px;"
   >
     <div
       class="el-flex el-flex-column overflow-auto"
