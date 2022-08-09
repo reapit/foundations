@@ -248,16 +248,7 @@ export class AppResolver {
       },
       context.accessToken,
     )
-    const app = await createApp(id, name, subdomain, [
-      {
-        id: '~',
-        name: 'Home',
-        nodes: defaultNodes.map((node) => ({
-          ...node,
-          id: `${id}~${node.nodeId}`,
-        })),
-      },
-    ])
+    const app = await createApp(id, name, subdomain, [])
     const { externalId, developer } = await context.getMarketplaceApp(app.id)
     if (!externalId) {
       throw new Error('Failed to create app - no clientId created')

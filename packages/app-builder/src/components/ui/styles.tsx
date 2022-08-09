@@ -9,7 +9,7 @@ export const overflowAuto = css`
 `
 
 export const transition = css`
-  transition: all 0.2s;
+  transition: all 0.3s;
 `
 
 export const bgWhite = css`

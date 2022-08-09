@@ -93,6 +93,7 @@ Array [
           "deprecationReason": null,
           "description": null,
           "isDeprecated": false,
+          "isRequired": true,
           "name": "id",
           "nestedKinds": Array [
             "NON_NULL",
@@ -114,6 +115,7 @@ Array [
           "deprecationReason": null,
           "description": null,
           "isDeprecated": false,
+          "isRequired": true,
           "name": "firstName",
           "nestedKinds": Array [
             "NON_NULL",
@@ -135,6 +137,7 @@ Array [
           "deprecationReason": null,
           "description": null,
           "isDeprecated": false,
+          "isRequired": true,
           "name": "lastName",
           "nestedKinds": Array [
             "NON_NULL",
@@ -925,6 +928,7 @@ Array [
           "deprecationReason": null,
           "description": null,
           "isDeprecated": false,
+          "isRequired": true,
           "name": "id",
           "nestedKinds": Array [
             "NON_NULL",
@@ -946,6 +950,7 @@ Array [
           "deprecationReason": null,
           "description": null,
           "isDeprecated": false,
+          "isRequired": true,
           "name": "title",
           "nestedKinds": Array [
             "NON_NULL",
@@ -967,6 +972,7 @@ Array [
           "deprecationReason": null,
           "description": null,
           "isDeprecated": false,
+          "isRequired": true,
           "name": "genre",
           "nestedKinds": Array [
             "NON_NULL",
@@ -988,6 +994,7 @@ Array [
           "deprecationReason": null,
           "description": null,
           "isDeprecated": false,
+          "isRequired": false,
           "name": "description",
           "nestedKinds": Array [
             "SCALAR",
@@ -1004,6 +1011,7 @@ Array [
           "deprecationReason": null,
           "description": null,
           "isDeprecated": false,
+          "isRequired": true,
           "name": "author",
           "nestedKinds": Array [
             "NON_NULL",
@@ -1839,6 +1847,7 @@ Array [
           "deprecationReason": null,
           "description": null,
           "isDeprecated": false,
+          "isRequired": true,
           "name": "id",
           "nestedKinds": Array [
             "NON_NULL",
@@ -1860,6 +1869,7 @@ Array [
           "deprecationReason": null,
           "description": null,
           "isDeprecated": false,
+          "isRequired": true,
           "name": "forename",
           "nestedKinds": Array [
             "NON_NULL",
@@ -1881,6 +1891,7 @@ Array [
           "deprecationReason": null,
           "description": null,
           "isDeprecated": false,
+          "isRequired": true,
           "name": "surname",
           "nestedKinds": Array [
             "NON_NULL",
@@ -1902,6 +1913,7 @@ Array [
           "deprecationReason": null,
           "description": null,
           "isDeprecated": false,
+          "isRequired": true,
           "name": "title",
           "nestedKinds": Array [
             "NON_NULL",
@@ -1923,6 +1935,7 @@ Array [
           "deprecationReason": null,
           "description": null,
           "isDeprecated": false,
+          "isRequired": true,
           "name": "email",
           "nestedKinds": Array [
             "NON_NULL",
@@ -1944,6 +1957,7 @@ Array [
           "deprecationReason": null,
           "description": null,
           "isDeprecated": false,
+          "isRequired": true,
           "name": "marketingConsent",
           "nestedKinds": Array [
             "NON_NULL",
@@ -3912,6 +3926,7 @@ Array [
           "deprecationReason": null,
           "description": null,
           "isDeprecated": false,
+          "isRequired": true,
           "name": "id",
           "nestedKinds": Array [
             "NON_NULL",
@@ -3933,6 +3948,7 @@ Array [
           "deprecationReason": null,
           "description": null,
           "isDeprecated": false,
+          "isRequired": true,
           "name": "number",
           "nestedKinds": Array [
             "NON_NULL",
@@ -3954,6 +3970,7 @@ Array [
           "deprecationReason": null,
           "description": null,
           "isDeprecated": false,
+          "isRequired": true,
           "name": "status",
           "nestedKinds": Array [
             "NON_NULL",
@@ -3975,6 +3992,7 @@ Array [
           "deprecationReason": null,
           "description": null,
           "isDeprecated": false,
+          "isRequired": true,
           "name": "type",
           "nestedKinds": Array [
             "NON_NULL",
@@ -3996,6 +4014,7 @@ Array [
           "deprecationReason": null,
           "description": null,
           "isDeprecated": false,
+          "isRequired": true,
           "name": "keysInSet",
           "nestedKinds": Array [
             "NON_NULL",
@@ -4027,6 +4046,7 @@ Array [
           "deprecationReason": null,
           "description": null,
           "isDeprecated": false,
+          "isRequired": true,
           "name": "movements",
           "nestedKinds": Array [
             "NON_NULL",
@@ -6049,6 +6069,7 @@ Array [
           "deprecationReason": null,
           "description": null,
           "isDeprecated": false,
+          "isRequired": true,
           "name": "id",
           "nestedKinds": Array [
             "NON_NULL",
@@ -6070,6 +6091,7 @@ Array [
           "deprecationReason": null,
           "description": null,
           "isDeprecated": false,
+          "isRequired": true,
           "name": "created",
           "nestedKinds": Array [
             "NON_NULL",
@@ -6091,6 +6113,7 @@ Array [
           "deprecationReason": null,
           "description": null,
           "isDeprecated": false,
+          "isRequired": true,
           "name": "modified",
           "nestedKinds": Array [
             "NON_NULL",
@@ -6112,6 +6135,7 @@ Array [
           "deprecationReason": null,
           "description": null,
           "isDeprecated": false,
+          "isRequired": false,
           "name": "checkInAt",
           "nestedKinds": Array [
             "SCALAR",
@@ -6128,6 +6152,7 @@ Array [
           "deprecationReason": null,
           "description": null,
           "isDeprecated": false,
+          "isRequired": false,
           "name": "checkOutAt",
           "nestedKinds": Array [
             "SCALAR",
@@ -6144,6 +6169,7 @@ Array [
           "deprecationReason": null,
           "description": null,
           "isDeprecated": false,
+          "isRequired": false,
           "name": "checkOutToContact",
           "nestedKinds": Array [
             "OBJECT",
@@ -6160,6 +6186,7 @@ Array [
           "deprecationReason": null,
           "description": null,
           "isDeprecated": false,
+          "isRequired": false,
           "name": "checkOutToNegotiator",
           "nestedKinds": Array [
             "OBJECT",
@@ -6176,6 +6203,7 @@ Array [
           "deprecationReason": null,
           "description": null,
           "isDeprecated": false,
+          "isRequired": false,
           "name": "checkInNegotiator",
           "nestedKinds": Array [
             "OBJECT",
@@ -6192,6 +6220,7 @@ Array [
           "deprecationReason": null,
           "description": null,
           "isDeprecated": false,
+          "isRequired": false,
           "name": "checkOutNegotiator",
           "nestedKinds": Array [
             "OBJECT",
@@ -6294,6 +6323,7 @@ Array [
           "deprecationReason": null,
           "description": null,
           "isDeprecated": false,
+          "isRequired": true,
           "name": "id",
           "nestedKinds": Array [
             "NON_NULL",
@@ -6315,6 +6345,7 @@ Array [
           "deprecationReason": null,
           "description": null,
           "isDeprecated": false,
+          "isRequired": true,
           "name": "name",
           "nestedKinds": Array [
             "NON_NULL",
@@ -6838,6 +6869,7 @@ Array [
           "deprecationReason": null,
           "description": "@acKey(prpCode)",
           "isDeprecated": false,
+          "isRequired": true,
           "name": "id",
           "nestedKinds": Array [
             "NON_NULL",
@@ -6859,6 +6891,7 @@ Array [
           "deprecationReason": null,
           "description": null,
           "isDeprecated": false,
+          "isRequired": true,
           "name": "type",
           "nestedKinds": Array [
             "NON_NULL",
@@ -6890,6 +6923,7 @@ Array [
           "deprecationReason": null,
           "description": null,
           "isDeprecated": false,
+          "isRequired": false,
           "name": "description",
           "nestedKinds": Array [
             "SCALAR",
@@ -6906,6 +6940,7 @@ Array [
           "deprecationReason": null,
           "description": null,
           "isDeprecated": false,
+          "isRequired": true,
           "name": "bedrooms",
           "nestedKinds": Array [
             "NON_NULL",
@@ -6927,6 +6962,7 @@ Array [
           "deprecationReason": null,
           "description": null,
           "isDeprecated": false,
+          "isRequired": true,
           "name": "receptions",
           "nestedKinds": Array [
             "NON_NULL",
@@ -6948,6 +6984,7 @@ Array [
           "deprecationReason": null,
           "description": null,
           "isDeprecated": false,
+          "isRequired": true,
           "name": "bathrooms",
           "nestedKinds": Array [
             "NON_NULL",
@@ -6969,6 +7006,7 @@ Array [
           "deprecationReason": null,
           "description": null,
           "isDeprecated": false,
+          "isRequired": true,
           "name": "address",
           "nestedKinds": Array [
             "NON_NULL",
@@ -6990,6 +7028,7 @@ Array [
           "deprecationReason": null,
           "description": null,
           "isDeprecated": false,
+          "isRequired": false,
           "name": "lettingRentPrice",
           "nestedKinds": Array [
             "SCALAR",
@@ -7006,6 +7045,7 @@ Array [
           "deprecationReason": null,
           "description": null,
           "isDeprecated": false,
+          "isRequired": false,
           "name": "lettingRentFrequency",
           "nestedKinds": Array [
             "SCALAR",
@@ -7022,6 +7062,7 @@ Array [
           "deprecationReason": null,
           "description": null,
           "isDeprecated": false,
+          "isRequired": false,
           "name": "salePrice",
           "nestedKinds": Array [
             "SCALAR",
@@ -7038,6 +7079,7 @@ Array [
           "deprecationReason": null,
           "description": null,
           "isDeprecated": false,
+          "isRequired": true,
           "name": "images",
           "nestedKinds": Array [
             "NON_NULL",
@@ -7069,6 +7111,7 @@ Array [
           "deprecationReason": null,
           "description": null,
           "isDeprecated": false,
+          "isRequired": false,
           "name": "marketingMode",
           "nestedKinds": Array [
             "SCALAR",
@@ -7085,6 +7128,7 @@ Array [
           "deprecationReason": null,
           "description": null,
           "isDeprecated": false,
+          "isRequired": false,
           "name": "saleOrLetting",
           "nestedKinds": Array [
             "SCALAR",
@@ -7101,6 +7145,7 @@ Array [
           "deprecationReason": null,
           "description": null,
           "isDeprecated": false,
+          "isRequired": false,
           "name": "status",
           "nestedKinds": Array [
             "SCALAR",
@@ -7605,6 +7650,7 @@ Array [
           "deprecationReason": null,
           "description": null,
           "isDeprecated": false,
+          "isRequired": true,
           "name": "id",
           "nestedKinds": Array [
             "NON_NULL",
@@ -7626,6 +7672,7 @@ Array [
           "deprecationReason": null,
           "description": null,
           "isDeprecated": false,
+          "isRequired": true,
           "name": "value",
           "nestedKinds": Array [
             "NON_NULL",
@@ -7733,6 +7780,7 @@ Array [
           "deprecationReason": null,
           "description": null,
           "isDeprecated": false,
+          "isRequired": true,
           "name": "id",
           "nestedKinds": Array [
             "NON_NULL",
@@ -7754,6 +7802,7 @@ Array [
           "deprecationReason": null,
           "description": null,
           "isDeprecated": false,
+          "isRequired": true,
           "name": "name",
           "nestedKinds": Array [
             "NON_NULL",

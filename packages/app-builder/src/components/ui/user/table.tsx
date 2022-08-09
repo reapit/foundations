@@ -12,11 +12,8 @@ import { useObjectList } from '@/components/hooks/objects/use-object-list'
 import { useIntrospection } from '@/components/hooks/use-introspection'
 import { CreatePage } from './create-page'
 import { TypeList } from './type-list'
-import { Label } from '@reapit/elements'
 import { useObject } from '@/components/hooks/objects/use-object'
-import { uppercaseSentence } from './ejectable/utils'
-import { styled } from '@linaria/react'
-import { ToolbarCheckbox } from '../toolbar/toolbar-checkbox'
+import { ColumnControls } from './column-controls'
 
 const defaultProps = {}
 
@@ -30,50 +27,6 @@ const Table = (props: TableProps) => {
 
   return <ETable {...props} ref={(ref) => ref && connect(drag(ref))} disabled={isEditing} />
 }
-
-const CheckboxContainer = styled.div`
-  display: flex;
-  align-items: center;
-  margin-bottom: 8px;
-
-  label {
-    margin-left: 8px;
-  }
-`
-
-const ColumnControlLabel = styled(Label)`
-  display: flex;
-  margin-bottom: 8px;
-`
-
-const ColumnControls = ({
-  availableFields,
-  includedFields = [],
-  setIncludedFields,
-}: {
-  availableFields: string[]
-  includedFields?: string[]
-  setIncludedFields: (fields: string[]) => void
-}) => (
-  <div>
-    <ColumnControlLabel>Fields</ColumnControlLabel>
-    {availableFields
-      .filter((field) => field !== 'id')
-      .map((field) => (
-        <CheckboxContainer key={field}>
-          <ToolbarCheckbox
-            key={field}
-            value={includedFields.includes(field)}
-            onChange={(checked) => {
-              const newFields = checked ? [...includedFields, field] : includedFields.filter((f) => f !== field)
-              setIncludedFields(newFields)
-            }}
-          />
-          <Label>{uppercaseSentence(field)}</Label>
-        </CheckboxContainer>
-      ))}
-  </div>
-)
 
 export const IntegrationLanding = ({ typeName }: { typeName: string | undefined }) => {
   const { args } = useObjectList(typeName)
@@ -118,12 +71,15 @@ const TableSettings = () => {
     })
   }
 
-  const availableFields = object?.object.fields.map((f) => f.name) || []
+  const availableFields = object?.object.fields || []
 
   useEffect(() => {
     if (shouldUpdate) {
       setShouldUpdate(false)
-      sp('includedFields', availableFields)
+      sp(
+        'includedFields',
+        availableFields.map((f) => f.name),
+      )
     }
   }, [shouldUpdate])
 
