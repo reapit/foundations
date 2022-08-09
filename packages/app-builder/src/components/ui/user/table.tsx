@@ -31,14 +31,29 @@ const Table = (props: TableProps) => {
   return <ETable {...props} ref={(ref) => ref && connect(drag(ref))} disabled={isEditing} />
 }
 
-const CheckboxContainer = styled.div`
+const CheckboxContainer = styled.div<{ checked?: boolean }>`
   display: flex;
   align-items: center;
   margin-bottom: 8px;
+  cursor: pointer;
+  box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.08);
+  background: ${({ checked }) => {
+    return checked ? '#EAF5FC' : 'white'
+  }};
+  color: ${({ checked }) => {
+    return checked ? 'black' : 'inherit'
+  }};
+  border: ${({ checked }) => {
+    return checked ? '1px solid #23A4DE' : '1px solid transparent'
+  }};
+  padding: 8px 12px;
+  border-radius: 4px;
 
   label {
     margin-left: 8px;
+    cursor: pointer;
   }
+  height: 36px;
 `
 
 const ColumnControlLabel = styled(Label)`
@@ -46,7 +61,13 @@ const ColumnControlLabel = styled(Label)`
   margin-bottom: 8px;
 `
 
-const ColumnControls = ({
+const FieldContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+`
+
+export const ColumnControls = ({
   availableFields,
   includedFields = [],
   setIncludedFields,
@@ -57,21 +78,33 @@ const ColumnControls = ({
 }) => (
   <div>
     <ColumnControlLabel>Fields</ColumnControlLabel>
-    {availableFields
-      .filter((field) => field !== 'id')
-      .map((field) => (
-        <CheckboxContainer key={field}>
-          <ToolbarCheckbox
-            key={field}
-            value={includedFields.includes(field)}
-            onChange={(checked) => {
-              const newFields = checked ? [...includedFields, field] : includedFields.filter((f) => f !== field)
-              setIncludedFields(newFields)
-            }}
-          />
-          <Label>{uppercaseSentence(field)}</Label>
-        </CheckboxContainer>
-      ))}
+    <FieldContainer>
+      {availableFields
+        .filter((field) => field !== 'id')
+        .map((field) => {
+          const checked = includedFields.includes(field)
+          return (
+            <CheckboxContainer
+              key={field}
+              checked={includedFields.includes(field)}
+              onClick={() => {
+                const newFields = !checked ? [...includedFields, field] : includedFields.filter((f) => f !== field)
+                setIncludedFields(newFields)
+              }}
+            >
+              <ToolbarCheckbox
+                key={field}
+                value={checked}
+                onChange={(newChecked) => {
+                  const newFields = newChecked ? [...includedFields, field] : includedFields.filter((f) => f !== field)
+                  setIncludedFields(newFields)
+                }}
+              />
+              <Label>{uppercaseSentence(field)}</Label>
+            </CheckboxContainer>
+          )
+        })}
+    </FieldContainer>
   </div>
 )
 

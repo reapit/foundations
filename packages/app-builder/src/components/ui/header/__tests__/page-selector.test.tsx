@@ -22,7 +22,11 @@ describe('PageSelector', () => {
   it('should match a snapshot', () => {
     const { asFragment } = render(
       <MockedProvider>
-        <PageSelector />
+        <PageSelector
+          showNewPage={function (): void {
+            throw new Error('Function not implemented.')
+          }}
+        />
       </MockedProvider>,
     )
     expect(asFragment()).toMatchSnapshot()

@@ -15,10 +15,10 @@ export const SidebarDiv = styled.div`
   background: #f8f8f8;
   margin-top: 5px;
   border-top-left-radius: 4px;
-  overflow: hidden;
+  overflow-y: auto;
 `
 
-const Sidebar = () => {
+const Sidebar = ({ showNewPage }: { showNewPage: boolean }) => {
   const { active, currentlySelectedNodeId } = useEditor((state, query) => {
     const currentlySelectedNodeId = query.getEvent('selected').first()
     const isRoot = currentlySelectedNodeId && query.node(currentlySelectedNodeId).isRoot()
@@ -44,7 +44,7 @@ const Sidebar = () => {
   }, [currentlySelectedNodeId])
 
   return (
-    <SidebarDiv className={cx(transition, bgWhite, elW2)}>
+    <SidebarDiv className={cx(transition, bgWhite, elW2)} style={{ width: showNewPage ? 0 : 337 }}>
       <div className={cx(elFlex, elFlexColumn, overflowAuto)} style={{ height: 'calc(100vh - 45px)', flex: 1 }}>
         <SidebarItem
           title="Components"

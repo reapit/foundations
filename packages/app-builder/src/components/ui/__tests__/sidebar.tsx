@@ -9,7 +9,7 @@ describe('Sidebar', () => {
     const { asFragment } = render(
       <MockedProvider>
         <Editor>
-          <Sidebar />
+          <Sidebar showNewPage={false} />
         </Editor>
       </MockedProvider>,
     )

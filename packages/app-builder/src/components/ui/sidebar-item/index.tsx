@@ -14,7 +14,7 @@ type SidebarItemProps = {
   onChange?: (bool: boolean) => void
 }
 
-const SubtitleBold = styled.h2`
+export const SubtitleBold = styled.h2`
   font-weight: 700;
   font-size: 20px;
   line-height: 24px;
