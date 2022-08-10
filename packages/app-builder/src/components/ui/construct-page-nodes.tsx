@@ -31,7 +31,9 @@ export const constructPageNodes = (
   } as unknown as SerializedNode
 
   if (operationType === 'list') {
-    const titleNodeTree = reactElementToNodeTree(<Element is={Text} width={12} fontSize={21} text={pageTitle || ''} />)
+    const titleNodeTree = reactElementToNodeTree(
+      <Element is={Text} typographyType={'title'} width={12} fontSize={21} text={pageTitle || ''} />,
+    )
     nodes['atitle'] = serializeNode(titleNodeTree.nodes[titleNodeTree.rootNodeId].data, resolver)
     nodes['btable'] = {
       type: { resolvedName: 'Table' },
