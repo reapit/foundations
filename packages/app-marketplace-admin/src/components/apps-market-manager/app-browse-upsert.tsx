@@ -69,11 +69,14 @@ export const AppBrowseUpsert: FC<{}> = () => {
       <SecondaryNavContainer>
         <Title>AppMarket Admin</Title>
         <Icon className={elMb3} icon="myAppsInfographic" iconSize="large" />
-        <Subtitle>Marketplace Admin Docs</Subtitle>
+        <Subtitle>Getting Started</Subtitle>
         <SmallText hasGreyText>
-          Praesent nec viverra nulla. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent sem nunc,
-          tincidunt vestibulum metus quis, rutrum fringilla urna. Curabitur ipsum tortor, efficitur eget egestas non,
-          condimentum semper nisl.
+          The AppMarket does not render anything on the browse page without this dashboard. Each section on the page is
+          configured by type and differing information is required for each confg item type.
+        </SmallText>
+        <SmallText hasGreyText>
+          All config items can be configured to go live bettween given dates using the config options provided, or can
+          be toggled on or off in live time.
         </SmallText>
         <Button onClick={openNewPage(ExternalPages.appMarketplaceAdminDocs)}>View Docs</Button>
       </SecondaryNavContainer>

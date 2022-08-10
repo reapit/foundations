@@ -24,8 +24,8 @@ import React, { FC, useState } from 'react'
 import { colorSquare, iconButton, ImageContainer } from './app-browse.styles'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { shleemy } from 'shleemy'
-import { cx } from '@linaria/core'
 import { ElTagContainer, ElTag } from './app-browse.styles'
+import { SubsHelperText } from './subs-helper-text'
 
 interface AppBrowseManageTableProps {
   type: AppsBrowseConfigEnum
@@ -184,19 +184,18 @@ export const ManageTableExpandableContent: FC<ManageTableExpandableContentProps>
         </Col>
         <Col>
           <Subtitle hasNoMargin>Brand Colour</Subtitle>
-          <BodyText hasGreyText>
-            {configItem.content?.brandColour ? (
+          {configItem.content?.brandColour ? (
+            <BodyText hasGreyText>
               <span className={colorSquare} style={{ background: configItem.content?.brandColour }}></span>
-            ) : (
-              <BodyText hasGreyText>None Set</BodyText>
-            )}
-            {configItem.content?.brandColour}
-          </BodyText>
+            </BodyText>
+          ) : (
+            <BodyText hasGreyText>None Set</BodyText>
+          )}
+          {configItem.content?.brandColour}
         </Col>
         <Col>
           <Subtitle hasNoMargin>Icon</Subtitle>
           {configItem.content?.iconName && <Icon icon={configItem.content.iconName as IconNames} fontSize="5em" />}
-          {configItem.content?.iconName && <BodyText hasGreyText>({configItem.content.iconName})</BodyText>}
           {!configItem.content?.iconName && <BodyText hasGreyText>None Set</BodyText>}
         </Col>
         <Col>
@@ -259,7 +258,7 @@ export const ManageTableExpandableContent: FC<ManageTableExpandableContentProps>
 }
 
 export const AppBrowseManageTable: FC<AppBrowseManageTableProps> = (props) => {
-  const { type, items, setEditType, ...rest } = props
+  const { type, items, setEditType } = props
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null)
 
   const [indexLoading, , updateIndexing] = useReapitUpdate<
@@ -282,15 +281,20 @@ export const AppBrowseManageTable: FC<AppBrowseManageTableProps> = (props) => {
   ]
 
   return (
-    <div {...rest} className={cx(elMb11)}>
+    <div className={elMb11}>
       <Subtitle hasCapitalisedText>{type.replace(/([^A-Z])([A-Z])/g, '$1 $2').toLowerCase()}</Subtitle>
+      <SubsHelperText type={type} />
       <Table
         indexExpandedRow={expandedIndex}
         setIndexExpandedRow={setExpandedIndex}
         rows={sortedItems.map((item, index, all) => ({
           cells: [
             {
-              label: '',
+              label: 'Title',
+              value: item.content?.title,
+            },
+            {
+              label: 'Order',
               value: item.index,
               children: (
                 <FlexContainer isFlexJustifyCenter>
@@ -328,10 +332,6 @@ export const AppBrowseManageTable: FC<AppBrowseManageTableProps> = (props) => {
                   </Button>
                 </FlexContainer>
               ),
-            },
-            {
-              label: 'Title',
-              value: item.content?.title,
             },
             {
               label: 'Brand Colour',
