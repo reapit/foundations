@@ -19,6 +19,11 @@ Object {
       >
         There are no updates that require approval
       </div>
+      <h1
+        class="el-title"
+      >
+         Consents
+      </h1>
     </div>
   </body>,
   "container": <div>
@@ -36,6 +41,11 @@ Object {
     >
       There are no updates that require approval
     </div>
+    <h1
+      class="el-title"
+    >
+       Consents
+    </h1>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
