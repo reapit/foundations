@@ -4,9 +4,7 @@ import {
   ButtonGroup,
   elMb11,
   FormLayout,
-  Input,
   InputError,
-  InputGroup,
   InputWrap,
   InputWrapFull,
   Label,
@@ -30,7 +28,7 @@ import { useSelector } from 'react-redux'
 import { selectAppRevisionDetail } from '../../../selector/app-revisions'
 import { selectAppDetailState } from '../../../selector/app-detail'
 import { useReapitConnect } from '@reapit/connect-session'
-import { Form, Formik } from '@reapit/elements-legacy'
+import { Form, Formik, Input } from '@reapit/elements-legacy'
 
 export const handleResendEmail =
   (
@@ -125,11 +123,9 @@ const AddNewConsentModal: FC<{
             <Form>
               <FormLayout>
                 <InputWrapFull>
-                  <InputGroup>
-                    <Label>Email</Label>
-                    <Input />
-                    {errors && errors.email && <InputError message={errors.email} />}
-                  </InputGroup>
+                  <Label>Email</Label>
+                  <Input type="text" id="email" name="email" />
+                  {errors && errors.email && <InputError message={errors.email} />}
                 </InputWrapFull>
                 <InputWrap>
                   <Button intent="primary" loading={loading} disabled={loading}>
