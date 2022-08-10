@@ -10,13 +10,22 @@ Object {
       />
       <div
         class="el-mb11"
-        connectsession="[object Object]"
       >
         <h2
           class="el-has-capitalised-text el-subtitle"
         >
           featured apps
         </h2>
+        <p
+          class="el-has-grey-text el-body-text"
+        >
+          Featured apps are lists of apps, grouped as a collection that sit below the filter collections typically. They have slightly larger tiles and slightly greater prominence than Simple Apps.
+        </p>
+        <p
+          class="el-has-grey-text el-body-text"
+        >
+          You can add as many to a collection as you like however, the list will be paginatied by the UI at some resolutions in line with the design. All apps selected will be returned when hitting the See All link.
+        </p>
         <div
           class="el-table"
         />
@@ -35,13 +44,22 @@ Object {
     />
     <div
       class="el-mb11"
-      connectsession="[object Object]"
     >
       <h2
         class="el-has-capitalised-text el-subtitle"
       >
         featured apps
       </h2>
+      <p
+        class="el-has-grey-text el-body-text"
+      >
+        Featured apps are lists of apps, grouped as a collection that sit below the filter collections typically. They have slightly larger tiles and slightly greater prominence than Simple Apps.
+      </p>
+      <p
+        class="el-has-grey-text el-body-text"
+      >
+        You can add as many to a collection as you like however, the list will be paginatied by the UI at some resolutions in line with the design. All apps selected will be returned when hitting the See All link.
+      </p>
       <div
         class="el-table"
       />

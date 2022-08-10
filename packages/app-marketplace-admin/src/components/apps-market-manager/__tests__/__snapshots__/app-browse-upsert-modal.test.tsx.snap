@@ -31,7 +31,17 @@ Object {
             <p
               class="el-has-grey-text el-body-text"
             >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget pellentesque tortor. Sed non enim id arcu efficitur aliquet vel ac augue. Aenean non quam nec sapien faucibus volutpat vel ut dolor. Donec sit amet suscipit magna. Donec auctor pulvinar varius. Nulla dignissim in mauris vel vulputate.
+              Featured and simple apps should be configured to include;
+            </p>
+            <p
+              class="el-has-grey-text el-body-text"
+            >
+              - A set of filters eg categories, or named apps that you want to return when the See All link is clicked on. The simplest way to do this is to specify exactly the apps you want in the collection by name.
+            </p>
+            <p
+              class="el-has-grey-text el-body-text"
+            >
+              - A title that describes the collection
             </p>
             <div
               class="el-form-layout-has-margin el-form-layout"
@@ -390,11 +400,6 @@ Object {
             >
               Advertising Content
             </h2>
-            <p
-              class="el-has-grey-text el-body-text"
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget pellentesque tortor. Sed non enim id arcu efficitur aliquet vel ac augue. Aenean non quam nec sapien faucibus volutpat vel ut dolor. Donec sit amet suscipit magna. Donec auctor pulvinar varius. Nulla dignissim in mauris vel vulputate.
-            </p>
             <div
               class="el-form-layout-has-margin el-form-layout"
             >
@@ -457,782 +462,345 @@ Object {
                     Icon
                   </label>
                   <select
-                    class="el-select"
+                    class="capitalise-text el-select"
                     name="content.iconName"
                   >
-                    <option />
                     <option
-                      value="addSystem"
+                      value=""
                     >
-                      addSystem
-                    </option>
-                    <option
-                      value="arrowDownSystem"
-                    >
-                      arrowDownSystem
-                    </option>
-                    <option
-                      value="arrowLeftSystem"
-                    >
-                      arrowLeftSystem
-                    </option>
-                    <option
-                      value="arrowRightSystem"
-                    >
-                      arrowRightSystem
-                    </option>
-                    <option
-                      value="arrowUpSystem"
-                    >
-                      arrowUpSystem
-                    </option>
-                    <option
-                      value="asteriskSystem"
-                    >
-                      asteriskSystem
-                    </option>
-                    <option
-                      value="backSolidSystem"
-                    >
-                      backSolidSystem
-                    </option>
-                    <option
-                      value="backSystem"
-                    >
-                      backSystem
-                    </option>
-                    <option
-                      value="calendarSystem"
-                    >
-                      calendarSystem
-                    </option>
-                    <option
-                      value="cancelSolidSystem"
-                    >
-                      cancelSolidSystem
-                    </option>
-                    <option
-                      value="carSolidSystem"
-                    >
-                      carSolidSystem
-                    </option>
-                    <option
-                      value="checkSystem"
-                    >
-                      checkSystem
-                    </option>
-                    <option
-                      value="circleSolidSystem"
-                    >
-                      circleSolidSystem
-                    </option>
-                    <option
-                      value="closeSystem"
-                    >
-                      closeSystem
-                    </option>
-                    <option
-                      value="cloudSolidSystem"
-                    >
-                      cloudSolidSystem
-                    </option>
-                    <option
-                      value="companySystem"
-                    >
-                      companySystem
-                    </option>
-                    <option
-                      value="downloadSystem"
-                    >
-                      downloadSystem
-                    </option>
-                    <option
-                      value="downSolidSystem"
-                    >
-                      downSolidSystem
-                    </option>
-                    <option
-                      value="editSolidSystem"
-                    >
-                      editSolidSystem
-                    </option>
-                    <option
-                      value="editSystem"
-                    >
-                      editSystem
-                    </option>
-                    <option
-                      value="emailSystem"
-                    >
-                      emailSystem
-                    </option>
-                    <option
-                      value="errorSolidSystem"
-                    >
-                      errorSolidSystem
-                    </option>
-                    <option
-                      value="filterSystem"
-                    >
-                      filterSystem
-                    </option>
-                    <option
-                      value="geoLocationSolidSystem"
-                    >
-                      geoLocationSolidSystem
-                    </option>
-                    <option
-                      value="homeSystem"
-                    >
-                      homeSystem
-                    </option>
-                    <option
-                      value="infoSolidSystem"
-                    >
-                      infoSolidSystem
-                    </option>
-                    <option
-                      value="linkSolidSystem"
-                    >
-                      linkSolidSystem
-                    </option>
-                    <option
-                      value="linkSystem"
-                    >
-                      linkSystem
-                    </option>
-                    <option
-                      value="moreSystem"
-                    >
-                      moreSystem
-                    </option>
-                    <option
-                      value="nextSolidSystem"
-                    >
-                      nextSolidSystem
-                    </option>
-                    <option
-                      value="nextSystem"
-                    >
-                      nextSystem
-                    </option>
-                    <option
-                      value="paymentSystem"
-                    >
-                      paymentSystem
-                    </option>
-                    <option
-                      value="phoneSystem"
-                    >
-                      phoneSystem
-                    </option>
-                    <option
-                      value="pinSolidSystem"
-                    >
-                      pinSolidSystem
-                    </option>
-                    <option
-                      value="previewSystem"
-                    >
-                      previewSystem
-                    </option>
-                    <option
-                      value="saveSystem"
-                    >
-                      saveSystem
-                    </option>
-                    <option
-                      value="searchSystem"
-                    >
-                      searchSystem
-                    </option>
-                    <option
-                      value="settingsSystem"
-                    >
-                      settingsSystem
-                    </option>
-                    <option
-                      value="shareSystem"
-                    >
-                      shareSystem
-                    </option>
-                    <option
-                      value="sortSystem"
-                    >
-                      sortSystem
-                    </option>
-                    <option
-                      value="tickSolidSystem"
-                    >
-                      tickSolidSystem
-                    </option>
-                    <option
-                      value="tickSystem"
-                    >
-                      tickSystem
-                    </option>
-                    <option
-                      value="trashSystem"
-                    >
-                      trashSystem
-                    </option>
-                    <option
-                      value="upSolidSystem"
-                    >
-                      upSolidSystem
-                    </option>
-                    <option
-                      value="usernameSystem"
-                    >
-                      usernameSystem
-                    </option>
-                    <option
-                      value="viewSolidSystem"
-                    >
-                      viewSolidSystem
-                    </option>
-                    <option
-                      value="walkingSolidSystem"
-                    >
-                      walkingSolidSystem
-                    </option>
-                    <option
-                      value="warningSolidSystem"
-                    >
-                      warningSolidSystem
-                    </option>
-                    <option
-                      value="accountMenu"
-                    >
-                      accountMenu
-                    </option>
-                    <option
-                      value="analyticsMenu"
-                    >
-                      analyticsMenu
-                    </option>
-                    <option
-                      value="apiMenu"
-                    >
-                      apiMenu
-                    </option>
-                    <option
-                      value="appsMenu"
-                    >
-                      appsMenu
-                    </option>
-                    <option
-                      value="dataMenu"
-                    >
-                      dataMenu
-                    </option>
-                    <option
-                      value="defaultMenu"
-                    >
-                      defaultMenu
-                    </option>
-                    <option
-                      value="desktopMenu"
-                    >
-                      desktopMenu
-                    </option>
-                    <option
-                      value="developersMenu"
-                    >
-                      developersMenu
-                    </option>
-                    <option
-                      value="docsMenu"
-                    >
-                      docsMenu
-                    </option>
-                    <option
-                      value="helpMenu"
-                    >
-                      helpMenu
-                    </option>
-                    <option
-                      value="installedMenu"
-                    >
-                      installedMenu
-                    </option>
-                    <option
-                      value="logoutMenu"
-                    >
-                      logoutMenu
-                    </option>
-                    <option
-                      value="manageMenu"
-                    >
-                      manageMenu
-                    </option>
-                    <option
-                      value="mapMenu"
-                    >
-                      mapMenu
-                    </option>
-                    <option
-                      value="marketplaceMenu"
-                    >
-                      marketplaceMenu
-                    </option>
-                    <option
-                      value="myAccountMenu"
-                    >
-                      myAccountMenu
-                    </option>
-                    <option
-                      value="officesMenu"
-                    >
-                      officesMenu
-                    </option>
-                    <option
-                      value="paymentsMenu"
-                    >
-                      paymentsMenu
-                    </option>
-                    <option
-                      value="profileMenu"
-                    >
-                      profileMenu
-                    </option>
-                    <option
-                      value="reapitLogoMenu"
-                    >
-                      reapitLogoMenu
-                    </option>
-                    <option
-                      value="reapitLogoSelectedMenu"
-                    >
-                      reapitLogoSelectedMenu
-                    </option>
-                    <option
-                      value="resultsMenu"
-                    >
-                      resultsMenu
-                    </option>
-                    <option
-                      value="searchMenu"
-                    >
-                      searchMenu
-                    </option>
-                    <option
-                      value="usersMenu"
-                    >
-                      usersMenu
-                    </option>
-                    <option
-                      value="webhooksMenu"
-                    >
-                      webhooksMenu
-                    </option>
-                    <option
-                      value="uiMenu"
-                    >
-                      uiMenu
-                    </option>
-                    <option
-                      value="hamburgerMenu"
-                    >
-                      hamburgerMenu
-                    </option>
-                    <option
-                      value="hamburgerOpenMenu"
-                    >
-                      hamburgerOpenMenu
-                    </option>
-                    <option
-                      value="reapitLogoTextMenu"
-                    >
-                      reapitLogoTextMenu
-                    </option>
-                    <option
-                      value="docsAnimated1"
-                    >
-                      docsAnimated1
-                    </option>
-                    <option
-                      value="docsAnimated2"
-                    >
-                      docsAnimated2
-                    </option>
-                    <option
-                      value="webhooksAnimated1"
-                    >
-                      webhooksAnimated1
-                    </option>
-                    <option
-                      value="webhooksAnimated2"
-                    >
-                      webhooksAnimated2
-                    </option>
-                    <option
-                      value="webhooksDocsAnimated1"
-                    >
-                      webhooksDocsAnimated1
-                    </option>
-                    <option
-                      value="webhooksDocsAnimated2"
-                    >
-                      webhooksDocsAnimated2
-                    </option>
-                    <option
-                      value="welcomeAnimated1"
-                    >
-                      welcomeAnimated1
-                    </option>
-                    <option
-                      value="welcomeAnimated2"
-                    >
-                      welcomeAnimated2
+                      None Selected
                     </option>
                     <option
                       value="agencyCloudInfographic"
                     >
-                      agencyCloudInfographic
+                      agency cloud infographic
                     </option>
                     <option
                       value="apiInfographic"
                     >
-                      apiInfographic
+                      api infographic
                     </option>
                     <option
                       value="appInfographic"
                     >
-                      appInfographic
+                      app infographic
                     </option>
                     <option
                       value="appInfographicAlt"
                     >
-                      appInfographicAlt
+                      app infographic alt
                     </option>
                     <option
                       value="applicantInfographic"
                     >
-                      applicantInfographic
+                      applicant infographic
                     </option>
                     <option
                       value="barnInfographic"
                     >
-                      barnInfographic
+                      barn infographic
                     </option>
                     <option
                       value="bungalowInfographic"
                     >
-                      bungalowInfographic
+                      bungalow infographic
                     </option>
                     <option
                       value="cottageInfographic"
                     >
-                      cottageInfographic
+                      cottage infographic
                     </option>
                     <option
                       value="crmInfographic"
                     >
-                      crmInfographic
+                      crm infographic
                     </option>
                     <option
                       value="customerInfographic"
                     >
-                      customerInfographic
+                      customer infographic
                     </option>
                     <option
                       value="developmentInfographic"
                     >
-                      developmentInfographic
+                      development infographic
                     </option>
                     <option
                       value="docsInfographic"
                     >
-                      docsInfographic
+                      docs infographic
                     </option>
                     <option
                       value="elementsInfographic"
                     >
-                      elementsInfographic
+                      elements infographic
                     </option>
                     <option
                       value="farmInfographic"
                     >
-                      farmInfographic
+                      farm infographic
                     </option>
                     <option
                       value="flatInfographic"
                     >
-                      flatInfographic
+                      flat infographic
                     </option>
                     <option
                       value="graphQlInfographic"
                     >
-                      graphQlInfographic
+                      graph ql infographic
                     </option>
                     <option
                       value="houseInfographic"
                     >
-                      houseInfographic
+                      house infographic
                     </option>
                     <option
                       value="landInfographic"
                     >
-                      landInfographic
+                      land infographic
                     </option>
                     <option
                       value="landlordInfographic"
                     >
-                      landlordInfographic
+                      landlord infographic
                     </option>
                     <option
                       value="maisonetteInfographic"
                     >
-                      maisonetteInfographic
+                      maisonette infographic
                     </option>
                     <option
                       value="vendorInfographic"
                     >
-                      vendorInfographic
+                      vendor infographic
                     </option>
                     <option
                       value="designInfographic"
                     >
-                      designInfographic
+                      design infographic
                     </option>
                     <option
                       value="apiDocsInfographic"
                     >
-                      apiDocsInfographic
+                      api docs infographic
                     </option>
                     <option
                       value="myAppsInfographic"
                     >
-                      myAppsInfographic
+                      my apps infographic
                     </option>
                     <option
                       value="webhooksInfographic"
                     >
-                      webhooksInfographic
+                      webhooks infographic
                     </option>
                     <option
                       value="selectInfographic"
                     >
-                      selectInfographic
+                      select infographic
                     </option>
                     <option
                       value="devicesInfographic"
                     >
-                      devicesInfographic
+                      devices infographic
                     </option>
                     <option
                       value="doorLockInfographic"
                     >
-                      doorLockInfographic
+                      door lock infographic
                     </option>
                     <option
                       value="feedAltInfographic"
                     >
-                      feedAltInfographic
+                      feed alt infographic
                     </option>
                     <option
                       value="feedInfographic"
                     >
-                      feedInfographic
+                      feed infographic
                     </option>
                     <option
                       value="globeInfographic"
                     >
-                      globeInfographic
+                      globe infographic
                     </option>
                     <option
                       value="htmlInfographic"
                     >
-                      htmlInfographic
+                      html infographic
                     </option>
                     <option
                       value="logoKeyInfographic"
                     >
-                      logoKeyInfographic
+                      logo key infographic
                     </option>
                     <option
                       value="logoSettingsInfographic"
                     >
-                      logoSettingsInfographic
+                      logo settings infographic
                     </option>
                     <option
                       value="refreshInfographic"
                     >
-                      refreshInfographic
+                      refresh infographic
                     </option>
                     <option
                       value="reportingInfographic"
                     >
-                      reportingInfographic
+                      reporting infographic
                     </option>
                     <option
                       value="serverInfographic"
                     >
-                      serverInfographic
+                      server infographic
                     </option>
                     <option
                       value="userDeviceInfographic"
                     >
-                      userDeviceInfographic
+                      user device infographic
                     </option>
                     <option
                       value="userHouseInfographic"
                     >
-                      userHouseInfographic
+                      user house infographic
                     </option>
                     <option
                       value="userInfographic"
                     >
-                      userInfographic
+                      user infographic
                     </option>
                     <option
                       value="userAuthInfographic"
                     >
-                      userAuthInfographic
+                      user auth infographic
                     </option>
                     <option
                       value="foundationsCustomerInfographic"
                     >
-                      foundationsCustomerInfographic
+                      foundations customer infographic
                     </option>
                     <option
                       value="newCustomerInfographic"
                     >
-                      newCustomerInfographic
+                      new customer infographic
                     </option>
                     <option
                       value="propTechInfographic"
                     >
-                      propTechInfographic
+                      prop tech infographic
                     </option>
                     <option
                       value="webDeveloperInfographic"
                     >
-                      webDeveloperInfographic
+                      web developer infographic
                     </option>
                     <option
                       value="authenticatedInfographic"
                     >
-                      authenticatedInfographic
+                      authenticated infographic
                     </option>
                     <option
                       value="reapitConnectInfographic"
                     >
-                      reapitConnectInfographic
+                      reapit connect infographic
                     </option>
                     <option
                       value="reapitLogoInfographic"
                     >
-                      reapitLogoInfographic
+                      reapit logo infographic
                     </option>
                     <option
                       value="sharedEntitiesInfographic"
                     >
-                      sharedEntitiesInfographic
+                      shared entities infographic
                     </option>
                     <option
                       value="welcomeInfographic"
                     >
-                      welcomeInfographic
+                      welcome infographic
                     </option>
                     <option
                       value="platformApiInfographic"
                     >
-                      platformApiInfographic
+                      platform api infographic
                     </option>
                     <option
                       value="appMarketInfographic"
                     >
-                      appMarketInfographic
+                      app market infographic
                     </option>
                     <option
                       value="editAppInfographic"
                     >
-                      editAppInfographic
+                      edit app infographic
                     </option>
                     <option
                       value="lockedInfographic"
                     >
-                      lockedInfographic
-                    </option>
-                    <option
-                      value="poundSystem"
-                    >
-                      poundSystem
-                    </option>
-                    <option
-                      value="bulletListSystem"
-                    >
-                      bulletListSystem
-                    </option>
-                    <option
-                      value="dollarSystem"
-                    >
-                      dollarSystem
-                    </option>
-                    <option
-                      value="euroSystem"
-                    >
-                      euroSystem
+                      locked infographic
                     </option>
                     <option
                       value="appCategoryInfographic"
                     >
-                      appCategoryInfographic
+                      app category infographic
                     </option>
                     <option
                       value="appTypeInfographic"
                     >
-                      appTypeInfographic
+                      app type infographic
                     </option>
                     <option
                       value="developerAppsInfographic"
                     >
-                      developerAppsInfographic
+                      developer apps infographic
                     </option>
                     <option
                       value="codeInfographic"
                     >
-                      codeInfographic
+                      code infographic
                     </option>
                     <option
                       value="listInfographic"
                     >
-                      listInfographic
+                      list infographic
                     </option>
                     <option
                       value="mailInfographic"
                     >
-                      mailInfographic
+                      mail infographic
                     </option>
                     <option
                       value="phoneInfographic"
                     >
-                      phoneInfographic
+                      phone infographic
                     </option>
                     <option
                       value="shieldInfographic"
                     >
-                      shieldInfographic
+                      shield infographic
                     </option>
                     <option
                       value="webInfographic"
                     >
-                      webInfographic
-                    </option>
-                    <option
-                      value="supportMenu"
-                    >
-                      supportMenu
-                    </option>
-                    <option
-                      value="videoSystem"
-                    >
-                      videoSystem
+                      web infographic
                     </option>
                   </select>
                 </div>
+              </div>
+              <div
+                class="el-input-wrap-full"
+              >
+                <label
+                  class="el-label"
+                >
+                  Icon Preview
+                </label>
+                <p
+                  class="el-has-grey-text el-body-text"
+                >
+                  No Icon Selected
+                </p>
               </div>
               <div
                 class="el-input-wrap-full"
@@ -1283,11 +851,6 @@ Object {
             >
               Live
             </h2>
-            <p
-              class="el-has-grey-text el-body-text"
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget pellentesque tortor. Sed non enim id arcu efficitur aliquet vel ac augue. Aenean non quam nec sapien faucibus volutpat vel ut dolor. Donec sit amet suscipit magna. Donec auctor pulvinar varius. Nulla dignissim in mauris vel vulputate.
-            </p>
             <div
               class="el-form-layout-has-margin el-form-layout"
             >
@@ -1437,7 +1000,17 @@ Object {
           <p
             class="el-has-grey-text el-body-text"
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget pellentesque tortor. Sed non enim id arcu efficitur aliquet vel ac augue. Aenean non quam nec sapien faucibus volutpat vel ut dolor. Donec sit amet suscipit magna. Donec auctor pulvinar varius. Nulla dignissim in mauris vel vulputate.
+            Featured and simple apps should be configured to include;
+          </p>
+          <p
+            class="el-has-grey-text el-body-text"
+          >
+            - A set of filters eg categories, or named apps that you want to return when the See All link is clicked on. The simplest way to do this is to specify exactly the apps you want in the collection by name.
+          </p>
+          <p
+            class="el-has-grey-text el-body-text"
+          >
+            - A title that describes the collection
           </p>
           <div
             class="el-form-layout-has-margin el-form-layout"
@@ -1796,11 +1369,6 @@ Object {
           >
             Advertising Content
           </h2>
-          <p
-            class="el-has-grey-text el-body-text"
-          >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget pellentesque tortor. Sed non enim id arcu efficitur aliquet vel ac augue. Aenean non quam nec sapien faucibus volutpat vel ut dolor. Donec sit amet suscipit magna. Donec auctor pulvinar varius. Nulla dignissim in mauris vel vulputate.
-          </p>
           <div
             class="el-form-layout-has-margin el-form-layout"
           >
@@ -1863,782 +1431,345 @@ Object {
                   Icon
                 </label>
                 <select
-                  class="el-select"
+                  class="capitalise-text el-select"
                   name="content.iconName"
                 >
-                  <option />
                   <option
-                    value="addSystem"
+                    value=""
                   >
-                    addSystem
-                  </option>
-                  <option
-                    value="arrowDownSystem"
-                  >
-                    arrowDownSystem
-                  </option>
-                  <option
-                    value="arrowLeftSystem"
-                  >
-                    arrowLeftSystem
-                  </option>
-                  <option
-                    value="arrowRightSystem"
-                  >
-                    arrowRightSystem
-                  </option>
-                  <option
-                    value="arrowUpSystem"
-                  >
-                    arrowUpSystem
-                  </option>
-                  <option
-                    value="asteriskSystem"
-                  >
-                    asteriskSystem
-                  </option>
-                  <option
-                    value="backSolidSystem"
-                  >
-                    backSolidSystem
-                  </option>
-                  <option
-                    value="backSystem"
-                  >
-                    backSystem
-                  </option>
-                  <option
-                    value="calendarSystem"
-                  >
-                    calendarSystem
-                  </option>
-                  <option
-                    value="cancelSolidSystem"
-                  >
-                    cancelSolidSystem
-                  </option>
-                  <option
-                    value="carSolidSystem"
-                  >
-                    carSolidSystem
-                  </option>
-                  <option
-                    value="checkSystem"
-                  >
-                    checkSystem
-                  </option>
-                  <option
-                    value="circleSolidSystem"
-                  >
-                    circleSolidSystem
-                  </option>
-                  <option
-                    value="closeSystem"
-                  >
-                    closeSystem
-                  </option>
-                  <option
-                    value="cloudSolidSystem"
-                  >
-                    cloudSolidSystem
-                  </option>
-                  <option
-                    value="companySystem"
-                  >
-                    companySystem
-                  </option>
-                  <option
-                    value="downloadSystem"
-                  >
-                    downloadSystem
-                  </option>
-                  <option
-                    value="downSolidSystem"
-                  >
-                    downSolidSystem
-                  </option>
-                  <option
-                    value="editSolidSystem"
-                  >
-                    editSolidSystem
-                  </option>
-                  <option
-                    value="editSystem"
-                  >
-                    editSystem
-                  </option>
-                  <option
-                    value="emailSystem"
-                  >
-                    emailSystem
-                  </option>
-                  <option
-                    value="errorSolidSystem"
-                  >
-                    errorSolidSystem
-                  </option>
-                  <option
-                    value="filterSystem"
-                  >
-                    filterSystem
-                  </option>
-                  <option
-                    value="geoLocationSolidSystem"
-                  >
-                    geoLocationSolidSystem
-                  </option>
-                  <option
-                    value="homeSystem"
-                  >
-                    homeSystem
-                  </option>
-                  <option
-                    value="infoSolidSystem"
-                  >
-                    infoSolidSystem
-                  </option>
-                  <option
-                    value="linkSolidSystem"
-                  >
-                    linkSolidSystem
-                  </option>
-                  <option
-                    value="linkSystem"
-                  >
-                    linkSystem
-                  </option>
-                  <option
-                    value="moreSystem"
-                  >
-                    moreSystem
-                  </option>
-                  <option
-                    value="nextSolidSystem"
-                  >
-                    nextSolidSystem
-                  </option>
-                  <option
-                    value="nextSystem"
-                  >
-                    nextSystem
-                  </option>
-                  <option
-                    value="paymentSystem"
-                  >
-                    paymentSystem
-                  </option>
-                  <option
-                    value="phoneSystem"
-                  >
-                    phoneSystem
-                  </option>
-                  <option
-                    value="pinSolidSystem"
-                  >
-                    pinSolidSystem
-                  </option>
-                  <option
-                    value="previewSystem"
-                  >
-                    previewSystem
-                  </option>
-                  <option
-                    value="saveSystem"
-                  >
-                    saveSystem
-                  </option>
-                  <option
-                    value="searchSystem"
-                  >
-                    searchSystem
-                  </option>
-                  <option
-                    value="settingsSystem"
-                  >
-                    settingsSystem
-                  </option>
-                  <option
-                    value="shareSystem"
-                  >
-                    shareSystem
-                  </option>
-                  <option
-                    value="sortSystem"
-                  >
-                    sortSystem
-                  </option>
-                  <option
-                    value="tickSolidSystem"
-                  >
-                    tickSolidSystem
-                  </option>
-                  <option
-                    value="tickSystem"
-                  >
-                    tickSystem
-                  </option>
-                  <option
-                    value="trashSystem"
-                  >
-                    trashSystem
-                  </option>
-                  <option
-                    value="upSolidSystem"
-                  >
-                    upSolidSystem
-                  </option>
-                  <option
-                    value="usernameSystem"
-                  >
-                    usernameSystem
-                  </option>
-                  <option
-                    value="viewSolidSystem"
-                  >
-                    viewSolidSystem
-                  </option>
-                  <option
-                    value="walkingSolidSystem"
-                  >
-                    walkingSolidSystem
-                  </option>
-                  <option
-                    value="warningSolidSystem"
-                  >
-                    warningSolidSystem
-                  </option>
-                  <option
-                    value="accountMenu"
-                  >
-                    accountMenu
-                  </option>
-                  <option
-                    value="analyticsMenu"
-                  >
-                    analyticsMenu
-                  </option>
-                  <option
-                    value="apiMenu"
-                  >
-                    apiMenu
-                  </option>
-                  <option
-                    value="appsMenu"
-                  >
-                    appsMenu
-                  </option>
-                  <option
-                    value="dataMenu"
-                  >
-                    dataMenu
-                  </option>
-                  <option
-                    value="defaultMenu"
-                  >
-                    defaultMenu
-                  </option>
-                  <option
-                    value="desktopMenu"
-                  >
-                    desktopMenu
-                  </option>
-                  <option
-                    value="developersMenu"
-                  >
-                    developersMenu
-                  </option>
-                  <option
-                    value="docsMenu"
-                  >
-                    docsMenu
-                  </option>
-                  <option
-                    value="helpMenu"
-                  >
-                    helpMenu
-                  </option>
-                  <option
-                    value="installedMenu"
-                  >
-                    installedMenu
-                  </option>
-                  <option
-                    value="logoutMenu"
-                  >
-                    logoutMenu
-                  </option>
-                  <option
-                    value="manageMenu"
-                  >
-                    manageMenu
-                  </option>
-                  <option
-                    value="mapMenu"
-                  >
-                    mapMenu
-                  </option>
-                  <option
-                    value="marketplaceMenu"
-                  >
-                    marketplaceMenu
-                  </option>
-                  <option
-                    value="myAccountMenu"
-                  >
-                    myAccountMenu
-                  </option>
-                  <option
-                    value="officesMenu"
-                  >
-                    officesMenu
-                  </option>
-                  <option
-                    value="paymentsMenu"
-                  >
-                    paymentsMenu
-                  </option>
-                  <option
-                    value="profileMenu"
-                  >
-                    profileMenu
-                  </option>
-                  <option
-                    value="reapitLogoMenu"
-                  >
-                    reapitLogoMenu
-                  </option>
-                  <option
-                    value="reapitLogoSelectedMenu"
-                  >
-                    reapitLogoSelectedMenu
-                  </option>
-                  <option
-                    value="resultsMenu"
-                  >
-                    resultsMenu
-                  </option>
-                  <option
-                    value="searchMenu"
-                  >
-                    searchMenu
-                  </option>
-                  <option
-                    value="usersMenu"
-                  >
-                    usersMenu
-                  </option>
-                  <option
-                    value="webhooksMenu"
-                  >
-                    webhooksMenu
-                  </option>
-                  <option
-                    value="uiMenu"
-                  >
-                    uiMenu
-                  </option>
-                  <option
-                    value="hamburgerMenu"
-                  >
-                    hamburgerMenu
-                  </option>
-                  <option
-                    value="hamburgerOpenMenu"
-                  >
-                    hamburgerOpenMenu
-                  </option>
-                  <option
-                    value="reapitLogoTextMenu"
-                  >
-                    reapitLogoTextMenu
-                  </option>
-                  <option
-                    value="docsAnimated1"
-                  >
-                    docsAnimated1
-                  </option>
-                  <option
-                    value="docsAnimated2"
-                  >
-                    docsAnimated2
-                  </option>
-                  <option
-                    value="webhooksAnimated1"
-                  >
-                    webhooksAnimated1
-                  </option>
-                  <option
-                    value="webhooksAnimated2"
-                  >
-                    webhooksAnimated2
-                  </option>
-                  <option
-                    value="webhooksDocsAnimated1"
-                  >
-                    webhooksDocsAnimated1
-                  </option>
-                  <option
-                    value="webhooksDocsAnimated2"
-                  >
-                    webhooksDocsAnimated2
-                  </option>
-                  <option
-                    value="welcomeAnimated1"
-                  >
-                    welcomeAnimated1
-                  </option>
-                  <option
-                    value="welcomeAnimated2"
-                  >
-                    welcomeAnimated2
+                    None Selected
                   </option>
                   <option
                     value="agencyCloudInfographic"
                   >
-                    agencyCloudInfographic
+                    agency cloud infographic
                   </option>
                   <option
                     value="apiInfographic"
                   >
-                    apiInfographic
+                    api infographic
                   </option>
                   <option
                     value="appInfographic"
                   >
-                    appInfographic
+                    app infographic
                   </option>
                   <option
                     value="appInfographicAlt"
                   >
-                    appInfographicAlt
+                    app infographic alt
                   </option>
                   <option
                     value="applicantInfographic"
                   >
-                    applicantInfographic
+                    applicant infographic
                   </option>
                   <option
                     value="barnInfographic"
                   >
-                    barnInfographic
+                    barn infographic
                   </option>
                   <option
                     value="bungalowInfographic"
                   >
-                    bungalowInfographic
+                    bungalow infographic
                   </option>
                   <option
                     value="cottageInfographic"
                   >
-                    cottageInfographic
+                    cottage infographic
                   </option>
                   <option
                     value="crmInfographic"
                   >
-                    crmInfographic
+                    crm infographic
                   </option>
                   <option
                     value="customerInfographic"
                   >
-                    customerInfographic
+                    customer infographic
                   </option>
                   <option
                     value="developmentInfographic"
                   >
-                    developmentInfographic
+                    development infographic
                   </option>
                   <option
                     value="docsInfographic"
                   >
-                    docsInfographic
+                    docs infographic
                   </option>
                   <option
                     value="elementsInfographic"
                   >
-                    elementsInfographic
+                    elements infographic
                   </option>
                   <option
                     value="farmInfographic"
                   >
-                    farmInfographic
+                    farm infographic
                   </option>
                   <option
                     value="flatInfographic"
                   >
-                    flatInfographic
+                    flat infographic
                   </option>
                   <option
                     value="graphQlInfographic"
                   >
-                    graphQlInfographic
+                    graph ql infographic
                   </option>
                   <option
                     value="houseInfographic"
                   >
-                    houseInfographic
+                    house infographic
                   </option>
                   <option
                     value="landInfographic"
                   >
-                    landInfographic
+                    land infographic
                   </option>
                   <option
                     value="landlordInfographic"
                   >
-                    landlordInfographic
+                    landlord infographic
                   </option>
                   <option
                     value="maisonetteInfographic"
                   >
-                    maisonetteInfographic
+                    maisonette infographic
                   </option>
                   <option
                     value="vendorInfographic"
                   >
-                    vendorInfographic
+                    vendor infographic
                   </option>
                   <option
                     value="designInfographic"
                   >
-                    designInfographic
+                    design infographic
                   </option>
                   <option
                     value="apiDocsInfographic"
                   >
-                    apiDocsInfographic
+                    api docs infographic
                   </option>
                   <option
                     value="myAppsInfographic"
                   >
-                    myAppsInfographic
+                    my apps infographic
                   </option>
                   <option
                     value="webhooksInfographic"
                   >
-                    webhooksInfographic
+                    webhooks infographic
                   </option>
                   <option
                     value="selectInfographic"
                   >
-                    selectInfographic
+                    select infographic
                   </option>
                   <option
                     value="devicesInfographic"
                   >
-                    devicesInfographic
+                    devices infographic
                   </option>
                   <option
                     value="doorLockInfographic"
                   >
-                    doorLockInfographic
+                    door lock infographic
                   </option>
                   <option
                     value="feedAltInfographic"
                   >
-                    feedAltInfographic
+                    feed alt infographic
                   </option>
                   <option
                     value="feedInfographic"
                   >
-                    feedInfographic
+                    feed infographic
                   </option>
                   <option
                     value="globeInfographic"
                   >
-                    globeInfographic
+                    globe infographic
                   </option>
                   <option
                     value="htmlInfographic"
                   >
-                    htmlInfographic
+                    html infographic
                   </option>
                   <option
                     value="logoKeyInfographic"
                   >
-                    logoKeyInfographic
+                    logo key infographic
                   </option>
                   <option
                     value="logoSettingsInfographic"
                   >
-                    logoSettingsInfographic
+                    logo settings infographic
                   </option>
                   <option
                     value="refreshInfographic"
                   >
-                    refreshInfographic
+                    refresh infographic
                   </option>
                   <option
                     value="reportingInfographic"
                   >
-                    reportingInfographic
+                    reporting infographic
                   </option>
                   <option
                     value="serverInfographic"
                   >
-                    serverInfographic
+                    server infographic
                   </option>
                   <option
                     value="userDeviceInfographic"
                   >
-                    userDeviceInfographic
+                    user device infographic
                   </option>
                   <option
                     value="userHouseInfographic"
                   >
-                    userHouseInfographic
+                    user house infographic
                   </option>
                   <option
                     value="userInfographic"
                   >
-                    userInfographic
+                    user infographic
                   </option>
                   <option
                     value="userAuthInfographic"
                   >
-                    userAuthInfographic
+                    user auth infographic
                   </option>
                   <option
                     value="foundationsCustomerInfographic"
                   >
-                    foundationsCustomerInfographic
+                    foundations customer infographic
                   </option>
                   <option
                     value="newCustomerInfographic"
                   >
-                    newCustomerInfographic
+                    new customer infographic
                   </option>
                   <option
                     value="propTechInfographic"
                   >
-                    propTechInfographic
+                    prop tech infographic
                   </option>
                   <option
                     value="webDeveloperInfographic"
                   >
-                    webDeveloperInfographic
+                    web developer infographic
                   </option>
                   <option
                     value="authenticatedInfographic"
                   >
-                    authenticatedInfographic
+                    authenticated infographic
                   </option>
                   <option
                     value="reapitConnectInfographic"
                   >
-                    reapitConnectInfographic
+                    reapit connect infographic
                   </option>
                   <option
                     value="reapitLogoInfographic"
                   >
-                    reapitLogoInfographic
+                    reapit logo infographic
                   </option>
                   <option
                     value="sharedEntitiesInfographic"
                   >
-                    sharedEntitiesInfographic
+                    shared entities infographic
                   </option>
                   <option
                     value="welcomeInfographic"
                   >
-                    welcomeInfographic
+                    welcome infographic
                   </option>
                   <option
                     value="platformApiInfographic"
                   >
-                    platformApiInfographic
+                    platform api infographic
                   </option>
                   <option
                     value="appMarketInfographic"
                   >
-                    appMarketInfographic
+                    app market infographic
                   </option>
                   <option
                     value="editAppInfographic"
                   >
-                    editAppInfographic
+                    edit app infographic
                   </option>
                   <option
                     value="lockedInfographic"
                   >
-                    lockedInfographic
-                  </option>
-                  <option
-                    value="poundSystem"
-                  >
-                    poundSystem
-                  </option>
-                  <option
-                    value="bulletListSystem"
-                  >
-                    bulletListSystem
-                  </option>
-                  <option
-                    value="dollarSystem"
-                  >
-                    dollarSystem
-                  </option>
-                  <option
-                    value="euroSystem"
-                  >
-                    euroSystem
+                    locked infographic
                   </option>
                   <option
                     value="appCategoryInfographic"
                   >
-                    appCategoryInfographic
+                    app category infographic
                   </option>
                   <option
                     value="appTypeInfographic"
                   >
-                    appTypeInfographic
+                    app type infographic
                   </option>
                   <option
                     value="developerAppsInfographic"
                   >
-                    developerAppsInfographic
+                    developer apps infographic
                   </option>
                   <option
                     value="codeInfographic"
                   >
-                    codeInfographic
+                    code infographic
                   </option>
                   <option
                     value="listInfographic"
                   >
-                    listInfographic
+                    list infographic
                   </option>
                   <option
                     value="mailInfographic"
                   >
-                    mailInfographic
+                    mail infographic
                   </option>
                   <option
                     value="phoneInfographic"
                   >
-                    phoneInfographic
+                    phone infographic
                   </option>
                   <option
                     value="shieldInfographic"
                   >
-                    shieldInfographic
+                    shield infographic
                   </option>
                   <option
                     value="webInfographic"
                   >
-                    webInfographic
-                  </option>
-                  <option
-                    value="supportMenu"
-                  >
-                    supportMenu
-                  </option>
-                  <option
-                    value="videoSystem"
-                  >
-                    videoSystem
+                    web infographic
                   </option>
                 </select>
               </div>
+            </div>
+            <div
+              class="el-input-wrap-full"
+            >
+              <label
+                class="el-label"
+              >
+                Icon Preview
+              </label>
+              <p
+                class="el-has-grey-text el-body-text"
+              >
+                No Icon Selected
+              </p>
             </div>
             <div
               class="el-input-wrap-full"
@@ -2689,11 +1820,6 @@ Object {
           >
             Live
           </h2>
-          <p
-            class="el-has-grey-text el-body-text"
-          >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget pellentesque tortor. Sed non enim id arcu efficitur aliquet vel ac augue. Aenean non quam nec sapien faucibus volutpat vel ut dolor. Donec sit amet suscipit magna. Donec auctor pulvinar varius. Nulla dignissim in mauris vel vulputate.
-          </p>
           <div
             class="el-form-layout-has-margin el-form-layout"
           >
