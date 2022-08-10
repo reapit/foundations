@@ -115,12 +115,17 @@ Object {
           <h2
             class="el-subtitle"
           >
-            Marketplace Admin Docs
+            Getting Started
           </h2>
           <p
             class="el-has-grey-text el-small-text"
           >
-            Praesent nec viverra nulla. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent sem nunc, tincidunt vestibulum metus quis, rutrum fringilla urna. Curabitur ipsum tortor, efficitur eget egestas non, condimentum semper nisl.
+            The AppMarket does not render anything on the browse page without this dashboard. Each section on the page is configured by type and differing information is required for each confg item type.
+          </p>
+          <p
+            class="el-has-grey-text el-small-text"
+          >
+            All config items can be configured to go live bettween given dates using the config options provided, or can be toggled on or off in live time.
           </p>
           <button
             class="el-button"
@@ -144,6 +149,11 @@ Object {
             >
               featured hero apps
             </h2>
+            <p
+              class="el-has-grey-text el-body-text"
+            >
+              Featured Hero apps are the first thing you will see in on the browse apps page and therefore the most prominant and important. There should be only 1 Featured Hero set to live at any given time.
+            </p>
             <div
               class="el-table"
             />
@@ -162,6 +172,11 @@ Object {
             >
               hero apps
             </h2>
+            <p
+              class="el-has-grey-text el-body-text"
+            >
+              Hero apps are of secondary prominance to the Featured Hero. There should only be 2 Heros set to live at any given time
+            </p>
             <div
               class="el-table"
             />
@@ -180,6 +195,16 @@ Object {
             >
               apps filters
             </h2>
+            <p
+              class="el-has-grey-text el-body-text"
+            >
+              App Filters are tiles that on the user clicking, set a pre-defined set of filters is applied to the page which will then render the filtered results as a related collection.
+            </p>
+            <p
+              class="el-has-grey-text el-body-text"
+            >
+              You can have any number of Filter Collections live however, 6 is advised in line with the design.
+            </p>
             <div
               class="el-table"
             />
@@ -198,6 +223,16 @@ Object {
             >
               featured apps
             </h2>
+            <p
+              class="el-has-grey-text el-body-text"
+            >
+              Featured apps are lists of apps, grouped as a collection that sit below the filter collections typically. They have slightly larger tiles and slightly greater prominence than Simple Apps.
+            </p>
+            <p
+              class="el-has-grey-text el-body-text"
+            >
+              You can add as many to a collection as you like however, the list will be paginatied by the UI at some resolutions in line with the design. All apps selected will be returned when hitting the See All link.
+            </p>
             <div
               class="el-table"
             />
@@ -216,6 +251,14 @@ Object {
             >
               simple apps
             </h2>
+            <p
+              class="el-has-grey-text el-body-text"
+            >
+              Simple apps behave almost identically to featured apps however, they are of slightly less prominence on the page.
+            </p>
+            <p
+              class="el-has-grey-text el-body-text"
+            />
             <div
               class="el-table"
             />
@@ -341,12 +384,17 @@ Object {
         <h2
           class="el-subtitle"
         >
-          Marketplace Admin Docs
+          Getting Started
         </h2>
         <p
           class="el-has-grey-text el-small-text"
         >
-          Praesent nec viverra nulla. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent sem nunc, tincidunt vestibulum metus quis, rutrum fringilla urna. Curabitur ipsum tortor, efficitur eget egestas non, condimentum semper nisl.
+          The AppMarket does not render anything on the browse page without this dashboard. Each section on the page is configured by type and differing information is required for each confg item type.
+        </p>
+        <p
+          class="el-has-grey-text el-small-text"
+        >
+          All config items can be configured to go live bettween given dates using the config options provided, or can be toggled on or off in live time.
         </p>
         <button
           class="el-button"
@@ -370,6 +418,11 @@ Object {
           >
             featured hero apps
           </h2>
+          <p
+            class="el-has-grey-text el-body-text"
+          >
+            Featured Hero apps are the first thing you will see in on the browse apps page and therefore the most prominant and important. There should be only 1 Featured Hero set to live at any given time.
+          </p>
           <div
             class="el-table"
           />
@@ -388,6 +441,11 @@ Object {
           >
             hero apps
           </h2>
+          <p
+            class="el-has-grey-text el-body-text"
+          >
+            Hero apps are of secondary prominance to the Featured Hero. There should only be 2 Heros set to live at any given time
+          </p>
           <div
             class="el-table"
           />
@@ -406,6 +464,16 @@ Object {
           >
             apps filters
           </h2>
+          <p
+            class="el-has-grey-text el-body-text"
+          >
+            App Filters are tiles that on the user clicking, set a pre-defined set of filters is applied to the page which will then render the filtered results as a related collection.
+          </p>
+          <p
+            class="el-has-grey-text el-body-text"
+          >
+            You can have any number of Filter Collections live however, 6 is advised in line with the design.
+          </p>
           <div
             class="el-table"
           />
@@ -424,6 +492,16 @@ Object {
           >
             featured apps
           </h2>
+          <p
+            class="el-has-grey-text el-body-text"
+          >
+            Featured apps are lists of apps, grouped as a collection that sit below the filter collections typically. They have slightly larger tiles and slightly greater prominence than Simple Apps.
+          </p>
+          <p
+            class="el-has-grey-text el-body-text"
+          >
+            You can add as many to a collection as you like however, the list will be paginatied by the UI at some resolutions in line with the design. All apps selected will be returned when hitting the See All link.
+          </p>
           <div
             class="el-table"
           />
@@ -442,6 +520,14 @@ Object {
           >
             simple apps
           </h2>
+          <p
+            class="el-has-grey-text el-body-text"
+          >
+            Simple apps behave almost identically to featured apps however, they are of slightly less prominence on the page.
+          </p>
+          <p
+            class="el-has-grey-text el-body-text"
+          />
           <div
             class="el-table"
           />
