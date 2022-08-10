@@ -1,5 +1,6 @@
-import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
+import React, { Dispatch, FC, SetStateAction, useState } from 'react'
 import {
+  BodyText,
   Button,
   ButtonGroup,
   elMb11,
@@ -33,18 +34,25 @@ import { Form, Formik, Input } from '@reapit/elements-legacy'
 export const handleResendEmail =
   (
     resendEmail: SendFunction<ResendAppRevisionConsentModel, boolean>,
-    setConsentId: Dispatch<SetStateAction<string | null>>,
     appConsentsRefresh: () => void,
-    consentId: string | null,
+    closeAll: () => void,
+    consentId?: string | null,
     email?: string,
   ) =>
   () => {
     const sentEmail = async () => {
-      const response = await resendEmail({ actionedBy: email })
-      setConsentId(null)
+      const response = await resendEmail(
+        { actionedBy: email },
+        {
+          uriParams: {
+            consentId,
+          },
+        },
+      )
 
       if (response) {
         appConsentsRefresh()
+        closeAll()
       }
     }
 
@@ -53,11 +61,18 @@ export const handleResendEmail =
     }
   }
 
-export const handleSetConsentId = (setConsentId: Dispatch<SetStateAction<string | null>>, consentId?: string) => () => {
-  if (consentId) {
-    setConsentId(consentId)
+export const handleSetConsentId =
+  (
+    setConsentId: Dispatch<SetStateAction<string | null>>,
+    setSelectedConsent: (consent?: AppRevisionConsentModel) => void,
+    consentId?: string,
+  ) =>
+  () => {
+    if (consentId) {
+      setConsentId(consentId)
+    }
+    setSelectedConsent(undefined)
   }
-}
 
 export const handleSendConstents =
   (
@@ -76,11 +91,13 @@ export const handleSendConstents =
 const AddNewConsentModal: FC<{
   isOpen: boolean
   close: () => void
+  closeAll: () => void
   appId: string
   consentId: string
   revisionId: string
-}> = ({ isOpen, close, appId: id, revisionId, consentId }) => {
-  const [loading, , send] = useReapitUpdate<{ email: string }, { email: string }>({
+  actionedBy: string
+}> = ({ isOpen, close, appId: id, revisionId, consentId, actionedBy, closeAll }) => {
+  const [loading, , send] = useReapitUpdate<{ email: string; actionedBy }, void>({
     action: updateActions(window.reapit.config.appEnv).appConsentApproveEmail,
     reapitConnectBrowserSession,
     uriParams: {
@@ -91,16 +108,21 @@ const AddNewConsentModal: FC<{
     method: 'POST',
   })
 
-  const onSubmit = (values: { email: string }) => {
-    send(values, {
-      uriParams: {
-        recipient: values.email,
-      },
+  const onSubmit = async (values: { email: string }) => {
+    const result = await send({
+      actionedBy,
+      ...values,
     })
+
+    if (result) {
+      closeAll()
+    }
   }
 
   return (
     <Modal isOpen={isOpen} onModalClose={close}>
+      <Title>Additional Consent Email Address</Title>
+      <BodyText>Send the consent email to an additional email address</BodyText>
       <Formik
         initialValues={{ email: '' }}
         onSubmit={onSubmit}
@@ -141,12 +163,59 @@ const AddNewConsentModal: FC<{
   )
 }
 
+const ResendEmailModal: FC<{
+  close: () => void
+  appId: string
+  revisionId: string
+  email: string
+  appConsentsRefresh: () => void
+  consent?: AppRevisionConsentModel
+  handleResendEmail: () => void
+}> = ({ close, appId, revisionId, consent, email, handleResendEmail }) => {
+  const [additionalModalOpen, setAdditionalModalOpen] = useState<boolean>(false)
+
+  return (
+    <>
+      <Modal isOpen={consent !== undefined} onModalClose={close}>
+        {consent && (
+          <>
+            <Title>Resend Consent email</Title>
+            <Label>Installed By</Label>
+            <BodyText>{consent?.installedBy}</BodyText>
+            <ButtonGroup>
+              <Button intent="secondary" onClick={() => setAdditionalModalOpen(true)}>
+                Add new recipient
+              </Button>
+              <Button intent="primary" onClick={handleResendEmail}>
+                Send
+              </Button>
+            </ButtonGroup>
+          </>
+        )}
+      </Modal>
+      {consent && (
+        <AddNewConsentModal
+          isOpen={additionalModalOpen}
+          close={() => setAdditionalModalOpen(false)}
+          appId={appId as string}
+          consentId={consent.id as string}
+          revisionId={revisionId as string}
+          actionedBy={email}
+          closeAll={() => {
+            setAdditionalModalOpen(false)
+            close()
+          }}
+        />
+      )}
+    </>
+  )
+}
+
 export const AppConsents: FC = () => {
-  const [consentId, setConsentId] = useState<string | null>(null)
   const revisionDetailState = useSelector(selectAppRevisionDetail)
   const appDetailState = useSelector(selectAppDetailState)
-  const [isNewConsentOpen, setIsNewConsentOpen] = useState<boolean>(false)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const [selectedConsent, setSelectedConsent] = useState<AppRevisionConsentModel | undefined>()
 
   const appId = appDetailState.data?.id
   const revisionId = revisionDetailState.data?.data?.id
@@ -196,29 +265,12 @@ export const AppConsents: FC = () => {
     uriParams: {
       appId,
       revisionId,
-      consentId,
     },
   })
-
-  useEffect(handleResendEmail(resendEmail, setConsentId, appConsentsRefresh, consentId, email), [consentId])
 
   return (
     <>
       <Title>{name} Consents</Title>
-      {appConsents?.length && (
-        <ButtonGroup className={elMb11}>
-          <Button onClick={() => setIsNewConsentOpen(true)} intent="primary">
-            Send to a different email address
-          </Button>
-        </ButtonGroup>
-      )}
-      <AddNewConsentModal
-        isOpen={isNewConsentOpen}
-        close={() => setIsNewConsentOpen(false)}
-        appId={appId as string}
-        consentId={consentId as string}
-        revisionId={revisionId as string}
-      />
       {appConsentsLoading ? (
         <Loader />
       ) : appConsents?.length ? (
@@ -269,9 +321,27 @@ export const AppConsents: FC = () => {
               ctaContent: {
                 headerContent: 'Resend Email',
                 icon: 'emailSystem',
-                onClick: handleSetConsentId(setConsentId, consent.id),
+                onClick: () => setSelectedConsent(consent),
               },
             }))}
+          />
+
+          <ResendEmailModal
+            close={() => setSelectedConsent(undefined)}
+            consent={selectedConsent}
+            appId={appId as string}
+            revisionId={revisionId as string}
+            appConsentsRefresh={appConsentsRefresh}
+            email={email as string}
+            handleResendEmail={handleResendEmail(
+              resendEmail,
+              appConsentsRefresh,
+              () => {
+                setSelectedConsent(undefined)
+              },
+              selectedConsent?.id,
+              email,
+            )}
           />
         </>
       ) : appDetailState.data && revisionDetailState.data ? (
