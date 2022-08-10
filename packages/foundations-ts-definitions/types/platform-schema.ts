@@ -6541,6 +6541,10 @@ export interface CreatePropertyModel {
      */
     recommendedPrice?: number // int32
     /**
+     * The agent's valuation price
+     */
+    valuationPrice?: number // int32
+    /**
      * The property's decorative condition (unmodernised/fair/good/veryGood)
      */
     decoration?: string[]
@@ -6980,6 +6984,10 @@ export interface CreatePropertySellingModel {
    */
   recommendedPrice?: number // int32
   /**
+   * The agent's valuation price
+   */
+  valuationPrice?: number // int32
+  /**
    * The property's decorative condition (unmodernised/fair/good/veryGood)
    */
   decoration?: string[]
@@ -7156,6 +7164,19 @@ export interface CreateTenancyCheckModel {
   status: string
 }
 /**
+ * Request body used to set the deposit of a new tenancy
+ */
+export interface CreateTenancyDepositModel {
+  /**
+   * The deposit holder (depositProtectionScheme/stakeholder/landlordsAgent/landlord/notApplicable)
+   */
+  heldBy?: string
+  /**
+   * The amount of deposit held
+   */
+  sum?: number // double
+}
+/**
  * Request body used to create a new tenancy
  * example:
  * [object Object]
@@ -7251,6 +7272,19 @@ export interface CreateTenancyModel {
    * The unique identifier of the applicant who has applied to be a tenant
    */
   applicantId: string
+  /**
+   * Request body used to set the deposit of a new tenancy
+   */
+  deposit?: {
+    /**
+     * The deposit holder (depositProtectionScheme/stakeholder/landlordsAgent/landlord/notApplicable)
+     */
+    heldBy?: string
+    /**
+     * The amount of deposit held
+     */
+    sum?: number // double
+  }
   /**
    * Request body used to set the source of a new tenancy
    */
@@ -11924,6 +11958,10 @@ export interface PropertyModel {
      */
     recommendedPrice?: number // int32
     /**
+     * The agent's valuation price
+     */
+    valuationPrice?: number // int32
+    /**
      * The unique identifier of the document used for the sales brochure
      */
     brochureId?: string
@@ -12681,6 +12719,10 @@ export interface PropertyModelPagedResult {
        */
       recommendedPrice?: number // int32
       /**
+       * The agent's valuation price
+       */
+      valuationPrice?: number // int32
+      /**
        * The unique identifier of the document used for the sales brochure
        */
       brochureId?: string
@@ -13209,6 +13251,10 @@ export interface PropertySellingModel {
    * The agent's recommended asking price
    */
   recommendedPrice?: number // int32
+  /**
+   * The agent's valuation price
+   */
+  valuationPrice?: number // int32
   /**
    * The unique identifier of the document used for the sales brochure
    */
@@ -14355,6 +14401,19 @@ export interface TenancyContactRelationshipModelPagedResult {
   }
 }
 /**
+ * A tenancy deposit model
+ */
+export interface TenancyDepositModel {
+  /**
+   * The deposit holder (depositProtectionScheme/stakeholder/landlordsAgent/landlord/notApplicable)
+   */
+  heldBy?: string
+  /**
+   * The amount of deposit held
+   */
+  sum?: number // double
+}
+/**
  * Representation of the tenancy letting fee
  */
 export interface TenancyLettingFeeModel {
@@ -14556,6 +14615,19 @@ export interface TenancyModel {
      * The source type (office/source)
      */
     type?: string
+  }
+  /**
+   * A tenancy deposit model
+   */
+  deposit?: {
+    /**
+     * The deposit holder (depositProtectionScheme/stakeholder/landlordsAgent/landlord/notApplicable)
+     */
+    heldBy?: string
+    /**
+     * The amount of deposit held
+     */
+    sum?: number // double
   }
   /**
    * A collection of contact / company tenants associated to the tenancy. The first item in the collection is considered the primary relationship. This collection is only populated once a tenant moves into a property and the tenancy status becomes current
@@ -14824,6 +14896,19 @@ export interface TenancyModelPagedResult {
        * The source type (office/source)
        */
       type?: string
+    }
+    /**
+     * A tenancy deposit model
+     */
+    deposit?: {
+      /**
+       * The deposit holder (depositProtectionScheme/stakeholder/landlordsAgent/landlord/notApplicable)
+       */
+      heldBy?: string
+      /**
+       * The amount of deposit held
+       */
+      sum?: number // double
     }
     /**
      * A collection of contact / company tenants associated to the tenancy. The first item in the collection is considered the primary relationship. This collection is only populated once a tenant moves into a property and the tenancy status becomes current
@@ -17678,6 +17763,10 @@ export interface UpdatePropertyModel {
      */
     recommendedPrice?: number // int32
     /**
+     * The agent's valuation price
+     */
+    valuationPrice?: number // int32
+    /**
      * The unique identifier of the document used for the sales brochure
      */
     brochureId?: string
@@ -18100,6 +18189,10 @@ export interface UpdatePropertySellingModel {
    */
   recommendedPrice?: number // int32
   /**
+   * The agent's valuation price
+   */
+  valuationPrice?: number // int32
+  /**
    * The unique identifier of the document used for the sales brochure
    */
   brochureId?: string
@@ -18289,6 +18382,19 @@ export interface UpdateTenancyCheckModel {
   status?: string
 }
 /**
+ * Request body used to set the deposit of a tenancy
+ */
+export interface UpdateTenancyDepositModel {
+  /**
+   * The deposit holder (depositProtectionScheme/stakeholder/landlordsAgent/landlord/notApplicable)
+   */
+  heldBy?: string
+  /**
+   * The amount of deposit held
+   */
+  sum?: number // double
+}
+/**
  * Request body used to update an existing Tenancy
  * example:
  * [object Object]
@@ -18395,6 +18501,19 @@ export interface UpdateTenancyModel {
    * 2019-08-14
    */
   meterReadingWaterLastRead?: string // date
+  /**
+   * Request body used to set the deposit of a tenancy
+   */
+  deposit?: {
+    /**
+     * The deposit holder (depositProtectionScheme/stakeholder/landlordsAgent/landlord/notApplicable)
+     */
+    heldBy?: string
+    /**
+     * The amount of deposit held
+     */
+    sum?: number // double
+  }
   /**
    * App specific metadata to set against the tenancy
    */
