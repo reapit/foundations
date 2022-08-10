@@ -1,8 +1,24 @@
 import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
-import { Button, ButtonGroup, elMb11, Loader, PersistentNotification, Table, Title } from '@reapit/elements'
+import {
+  Button,
+  ButtonGroup,
+  elMb11,
+  FormLayout,
+  Input,
+  InputError,
+  InputGroup,
+  InputWrap,
+  InputWrapFull,
+  Label,
+  Loader,
+  Modal,
+  PersistentNotification,
+  Table,
+  Title,
+} from '@reapit/elements'
 import { SendFunction, useReapitGet, useReapitUpdate } from '@reapit/utils-react'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
-import { GetActionNames, getActions, UpdateActionNames, updateActions } from '@reapit/utils-common'
+import { emailRegex, GetActionNames, getActions, UpdateActionNames, updateActions } from '@reapit/utils-common'
 import {
   AppRevisionConsentModel,
   CreateAppRevisionConsentsModel,
@@ -14,6 +30,7 @@ import { useSelector } from 'react-redux'
 import { selectAppRevisionDetail } from '../../../selector/app-revisions'
 import { selectAppDetailState } from '../../../selector/app-detail'
 import { useReapitConnect } from '@reapit/connect-session'
+import { Form, Formik } from '@reapit/elements-legacy'
 
 export const handleResendEmail =
   (
@@ -58,10 +75,81 @@ export const handleSendConstents =
     }
   }
 
+const AddNewConsentModal: FC<{
+  isOpen: boolean
+  close: () => void
+  appId: string
+  consentId: string
+  revisionId: string
+}> = ({ isOpen, close, appId: id, revisionId, consentId }) => {
+  const [loading, , send] = useReapitUpdate<{ email: string }, { email: string }>({
+    action: updateActions(window.reapit.config.appEnv).appConsentApproveEmail,
+    reapitConnectBrowserSession,
+    uriParams: {
+      id,
+      revisionId,
+      consentId,
+    },
+    method: 'POST',
+  })
+
+  const onSubmit = (values: { email: string }) => {
+    send(values, {
+      uriParams: {
+        recipient: values.email,
+      },
+    })
+  }
+
+  return (
+    <Modal isOpen={isOpen} onModalClose={close}>
+      <Formik
+        initialValues={{ email: '' }}
+        onSubmit={onSubmit}
+        validate={(values) => {
+          if (!values.email) {
+            return {
+              email: 'Please add an email address',
+            }
+          }
+
+          if (!emailRegex.test(values.email)) {
+            return {
+              email: 'Please enter a valid email address',
+            }
+          }
+        }}
+      >
+        {({ errors }) => {
+          return (
+            <Form>
+              <FormLayout>
+                <InputWrapFull>
+                  <InputGroup>
+                    <Label>Email</Label>
+                    <Input />
+                    {errors && errors.email && <InputError message={errors.email} />}
+                  </InputGroup>
+                </InputWrapFull>
+                <InputWrap>
+                  <Button intent="primary" loading={loading} disabled={loading}>
+                    Send
+                  </Button>
+                </InputWrap>
+              </FormLayout>
+            </Form>
+          )
+        }}
+      </Formik>
+    </Modal>
+  )
+}
+
 export const AppConsents: FC = () => {
   const [consentId, setConsentId] = useState<string | null>(null)
   const revisionDetailState = useSelector(selectAppRevisionDetail)
   const appDetailState = useSelector(selectAppDetailState)
+  const [isNewConsentOpen, setIsNewConsentOpen] = useState<boolean>(false)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
 
   const appId = appDetailState.data?.id
@@ -120,11 +208,25 @@ export const AppConsents: FC = () => {
 
   return (
     <>
+      <Title>{name} Consents</Title>
+      {appConsents?.length && (
+        <ButtonGroup className={elMb11}>
+          <Button onClick={() => setIsNewConsentOpen(true)} intent="primary">
+            Send to a different email address
+          </Button>
+        </ButtonGroup>
+      )}
+      <AddNewConsentModal
+        isOpen={isNewConsentOpen}
+        close={() => setIsNewConsentOpen(false)}
+        appId={appId as string}
+        consentId={consentId as string}
+        revisionId={revisionId as string}
+      />
       {appConsentsLoading ? (
         <Loader />
       ) : appConsents?.length ? (
         <>
-          <Title>{name} Consents</Title>
           <Table
             numberColumns={6}
             rows={appConsents.map((consent) => ({
@@ -178,7 +280,6 @@ export const AppConsents: FC = () => {
         </>
       ) : appDetailState.data && revisionDetailState.data ? (
         <>
-          <Title>{name} Consents</Title>
           <div>
             <PersistentNotification className={elMb11} intent="secondary" isExpanded isFullWidth isInline>
               No record of any consents for this app - you can send these from the link below.
