@@ -131,7 +131,7 @@ const TableSettings = () => {
       <ToolbarItem type={ToolbarItemType.Checkbox} propKey="showControls" title="Show action buttons" />
       {searchAvailable && <ToolbarItem type={ToolbarItemType.Checkbox} propKey="showSearch" title="Show search bar" />}
       <ColumnControls
-        availableFields={availableFields}
+        availableFields={availableFields.map(({ name }) => ({ name, isRequired: false }))}
         includedFields={includedFields}
         setIncludedFields={(fields: string[]) => sp('includedFields', fields)}
       />

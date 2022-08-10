@@ -330,7 +330,14 @@ const Step3 = ({
         <EntitiesContainer>
           {loading && <Loader />}
           {!loading && (
-            <ColumnControls availableFields={availableFields} includedFields={fields} setIncludedFields={setFields} />
+            <ColumnControls
+              availableFields={availableFields.map(({ name, isRequired }) => ({
+                name,
+                isRequired: pageType === 'form' && isRequired,
+              }))}
+              includedFields={fields}
+              setIncludedFields={setFields}
+            />
           )}
         </EntitiesContainer>
       </StepContent>
