@@ -38,6 +38,7 @@ export enum UpdateActionNames {
   resendConsentEmail = 'resendConsentEmail',
   approveConsent = 'approveConsent',
   installApp = 'installApp',
+  appConsentApproveEmail = 'appConsentApproveEmail',
 }
 
 export type UpdateActions = { [key in UpdateActionNames]: UpdateAction }
@@ -218,5 +219,9 @@ export const updateActions = (appEnv: AppEnv): UpdateActions => ({
     path: PathNames.installations,
     successMessage: 'Successfully installed app',
     errorMessage: 'Failed to install app, this has been logged. Please try again.',
+  },
+  [UpdateActionNames.appConsentApproveEmail]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.appConsentApproveEmail,
   },
 })
