@@ -402,7 +402,7 @@ export const NewPage = ({
   return (
     <SidebarDiv
       className={cx(transition, bgWhite, elW2, elFlexColumn)}
-      showNewPage={showNewPage}
+      isCollapsed={!showNewPage}
       style={{ overflowY: 'initial' }}
     >
       <HeaderDiv className={cx(bgWhite, elBorderGreyB, elFlex, elFlexAlignCenter, elPx3)}>

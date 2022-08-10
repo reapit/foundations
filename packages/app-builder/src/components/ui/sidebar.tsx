@@ -9,19 +9,19 @@ import SidebarItem from './sidebar-item'
 import Toolbar from './toolbar'
 import Toolbox from './toolbox'
 
-export const SidebarDiv = styled.div<{ showNewPage: boolean }>`
+export const SidebarDiv = styled.div<{ isCollapsed: boolean }>`
   display: flex;
   width: 337px;
   background: #f8f8f8;
   margin-top: 5px;
   border-top-left-radius: 4px;
   overflow-y: auto;
-  width: ${({ showNewPage }) => {
-    return showNewPage ? 0 : '337px'
+  width: ${({ isCollapsed }) => {
+    return isCollapsed ? 0 : '337px'
   }};
 `
 
-const Sidebar = ({ showNewPage }: { showNewPage: boolean }) => {
+const Sidebar = ({ isCollapsed }: { isCollapsed: boolean }) => {
   const { active, currentlySelectedNodeId } = useEditor((state, query) => {
     const currentlySelectedNodeId = query.getEvent('selected').first()
     const isRoot = currentlySelectedNodeId && query.node(currentlySelectedNodeId).isRoot()
@@ -47,7 +47,7 @@ const Sidebar = ({ showNewPage }: { showNewPage: boolean }) => {
   }, [currentlySelectedNodeId])
 
   return (
-    <SidebarDiv showNewPage={showNewPage} className={cx(transition, bgWhite)}>
+    <SidebarDiv isCollapsed={isCollapsed} className={cx(transition, bgWhite)}>
       <div className={cx(elFlex, elFlexColumn, overflowAuto)} style={{ height: 'calc(100vh - 45px)', flex: 1 }}>
         <SidebarItem
           title="Components"
