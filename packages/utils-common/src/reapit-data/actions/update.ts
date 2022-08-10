@@ -223,5 +223,7 @@ export const updateActions = (appEnv: AppEnv): UpdateActions => ({
   [UpdateActionNames.appConsentApproveEmail]: {
     api: ApiNames(appEnv).platform,
     path: PathNames.appConsentApproveEmail,
+    successMessage: 'Successfully sent email',
+    errorMessage: 'Failed to send to new email address. Please try again',
   },
 })
