@@ -2,23 +2,26 @@ import { useEditor } from '@craftjs/core'
 import React, { useEffect, useState } from 'react'
 import { cx } from '@linaria/core'
 import { styled } from '@linaria/react'
-import { elFlex, elFlexColumn, elW2 } from '@reapit/elements'
+import { elFlex, elFlexColumn } from '@reapit/elements'
 import { bgWhite, overflowAuto, transition } from './styles'
 
 import SidebarItem from './sidebar-item'
 import Toolbar from './toolbar'
 import Toolbox from './toolbox'
 
-export const SidebarDiv = styled.div`
+export const SidebarDiv = styled.div<{ showNewPage: boolean }>`
   display: flex;
   width: 337px;
   background: #f8f8f8;
   margin-top: 5px;
   border-top-left-radius: 4px;
-  overflow: hidden;
+  overflow-y: auto;
+  width: ${({ showNewPage }) => {
+    return showNewPage ? 0 : '337px'
+  }};
 `
 
-const Sidebar = () => {
+const Sidebar = ({ showNewPage }: { showNewPage: boolean }) => {
   const { active, currentlySelectedNodeId } = useEditor((state, query) => {
     const currentlySelectedNodeId = query.getEvent('selected').first()
     const isRoot = currentlySelectedNodeId && query.node(currentlySelectedNodeId).isRoot()
@@ -44,7 +47,7 @@ const Sidebar = () => {
   }, [currentlySelectedNodeId])
 
   return (
-    <SidebarDiv className={cx(transition, bgWhite, elW2)}>
+    <SidebarDiv showNewPage={showNewPage} className={cx(transition, bgWhite)}>
       <div className={cx(elFlex, elFlexColumn, overflowAuto)} style={{ height: 'calc(100vh - 45px)', flex: 1 }}>
         <SidebarItem
           title="Components"

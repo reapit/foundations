@@ -8,6 +8,8 @@ import {
   ElToggleItem,
   FileInput,
   FormLayout,
+  Icon,
+  IconNames,
   iconSet,
   ImageUploadModel,
   Input,
@@ -33,12 +35,13 @@ import {
 import { GetActionNames, getActions, UpdateActionNames, updateActions } from '@reapit/utils-common'
 import { SearchableMultiSelect, UpdateReturnTypeEnum, useReapitGet, useReapitUpdate } from '@reapit/utils-react'
 import React, { FC, useState } from 'react'
-import { useController, useForm } from 'react-hook-form'
-import { reactPickerStyles } from './app-browse.styles'
+import { useController, useForm, useWatch } from 'react-hook-form'
+import { capitaliseText, reactPickerStyles } from './app-browse.styles'
 import { appModal } from './modal.styles'
 import { SketchPicker } from 'react-color'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { v4 as uuid } from 'uuid'
+import { ModalHelperText } from './subs-helper-text'
 
 // Commenting out for now, we may want to use the image cropper again however, for now, assume images are
 // variable size and allow marketing to decide the dimensions.
@@ -201,6 +204,9 @@ export const AppBrowseUpsertModal: FC<AppBrowseUpsertModalDefaultProps> = ({
     },
   })
 
+  const icons = Object.keys(iconSet).filter((icon) => icon.includes('Infographic'))
+  const iconName = useWatch({ name: 'content.iconName', control }) as IconNames
+
   const onFileUpload = async (params: CreateImageUploadModel) => {
     const res = await createImageUpload(params)
 
@@ -239,11 +245,7 @@ export const AppBrowseUpsertModal: FC<AppBrowseUpsertModalDefaultProps> = ({
           )}
         >
           <Subtitle>Filters</Subtitle>
-          <BodyText hasGreyText>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget pellentesque tortor. Sed non enim id
-            arcu efficitur aliquet vel ac augue. Aenean non quam nec sapien faucibus volutpat vel ut dolor. Donec sit
-            amet suscipit magna. Donec auctor pulvinar varius. Nulla dignissim in mauris vel vulputate.
-          </BodyText>
+          <ModalHelperText type={defaultValues.configType} />
           <FormLayout hasMargin>
             <SearchableMultiSelect
               id="select-multi-apps"
@@ -346,11 +348,6 @@ export const AppBrowseUpsertModal: FC<AppBrowseUpsertModalDefaultProps> = ({
             </InputWrapFull>
           </FormLayout>
           <Subtitle>Advertising Content</Subtitle>
-          <BodyText hasGreyText>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget pellentesque tortor. Sed non enim id
-            arcu efficitur aliquet vel ac augue. Aenean non quam nec sapien faucibus volutpat vel ut dolor. Donec sit
-            amet suscipit magna. Donec auctor pulvinar varius. Nulla dignissim in mauris vel vulputate.
-          </BodyText>
           <FormLayout hasMargin>
             <InputWrapFull>
               <InputGroup>
@@ -380,11 +377,11 @@ export const AppBrowseUpsertModal: FC<AppBrowseUpsertModalDefaultProps> = ({
             <InputWrapFull>
               <InputGroup>
                 <Label>Icon</Label>
-                <Select {...register('content.iconName')}>
-                  <option></option>
-                  {Object.keys(iconSet).map((iconName) => (
+                <Select className={capitaliseText} {...register('content.iconName')}>
+                  <option value="">None Selected</option>
+                  {icons.map((iconName) => (
                     <option key={iconName} value={iconName}>
-                      {iconName}
+                      {iconName.replace(/([^A-Z])([A-Z])/g, '$1 $2').toLowerCase()}
                     </option>
                   ))}
                 </Select>
@@ -392,6 +389,14 @@ export const AppBrowseUpsertModal: FC<AppBrowseUpsertModalDefaultProps> = ({
                   <InputError message={errors.content?.iconName.message.toString()} />
                 )}
               </InputGroup>
+            </InputWrapFull>
+            <InputWrapFull>
+              <Label>Icon Preview</Label>
+              {iconName?.length ? (
+                <Icon icon={iconName} fontSize="3em" />
+              ) : (
+                <BodyText hasGreyText>No Icon Selected</BodyText>
+              )}
             </InputWrapFull>
             <InputWrapFull>
               <InputGroup>
@@ -411,11 +416,6 @@ export const AppBrowseUpsertModal: FC<AppBrowseUpsertModalDefaultProps> = ({
             </InputWrapFull>
           </FormLayout>
           <Subtitle>Live</Subtitle>
-          <BodyText hasGreyText>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget pellentesque tortor. Sed non enim id
-            arcu efficitur aliquet vel ac augue. Aenean non quam nec sapien faucibus volutpat vel ut dolor. Donec sit
-            amet suscipit magna. Donec auctor pulvinar varius. Nulla dignissim in mauris vel vulputate.
-          </BodyText>
           <FormLayout hasMargin>
             <InputWrapFull>
               <InputGroup>

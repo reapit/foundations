@@ -27,7 +27,7 @@ import { useObjectList } from '../../../hooks/objects/use-object-list'
 import { useObject } from '../../../hooks/objects/use-object'
 import { useLazyObjectSearch } from '../../../hooks/objects/use-object-search'
 import { useObjectMutate } from '../../../hooks/objects/use-object-mutate'
-import { uppercaseSentence } from './utils'
+import { camelCaseToSentence, friendlyIdName } from './utils'
 import { useFormContext } from '../../../hooks/form-context'
 import { ParsedArg } from '../../../hooks/use-introspection/query-generators'
 import { cx } from '@linaria/core'
@@ -179,22 +179,6 @@ const SelectIDofType = ({
       </SelectIDofTypeContainer>
     )
   return null
-}
-
-export const camelCaseToSentence = (camelCase: string) => {
-  if (camelCase.length === 2) {
-    return camelCase
-  }
-  return uppercaseSentence(camelCase.replace(/([A-Z])/g, ' $1'))
-}
-
-const friendlyIdName = (idName: string) => {
-  const words = idName.replaceAll('Id', '').split('_')
-  return words
-    .map((w) => w.split('.'))
-    .flat()
-    .map(camelCaseToSentence)
-    .join(' ')
 }
 
 export type FormInputProps = {

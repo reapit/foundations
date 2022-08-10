@@ -1,6 +1,6 @@
 import { IntrospectionOutputTypeRef, IntrospectionObjectType, TypeKind } from 'graphql'
 import { flatKind, getObjectType } from './helpers'
-import { QueryableField } from './types'
+import { isNonNullType, QueryableField } from './types'
 
 type NestedDict = {
   [key: string]: NestedDict | undefined
@@ -57,4 +57,5 @@ export const getTopLevelFields = (
       ...field,
       nestedKinds: flatKind(field.type),
       nestedType: getObjectType(field.type),
+      isRequired: isNonNullType(field.type),
     })) || []

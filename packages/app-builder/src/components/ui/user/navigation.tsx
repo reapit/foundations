@@ -10,8 +10,8 @@ import React, { useState } from 'react'
 import * as uuid from 'uuid'
 import { AppBuilderIconButton } from '../components'
 import { ToolbarDropdown, ToolbarItemType, ToolbarTextInput } from '../toolbar'
-import { camelCaseToSentence } from './ejectable'
 import { Navigation as ENavigation, NavigationProps } from './ejectable/navigation'
+import { camelCaseToSentence } from './ejectable/utils'
 
 const ToolbarDropdownContainer = styled.div`
   display: flex;

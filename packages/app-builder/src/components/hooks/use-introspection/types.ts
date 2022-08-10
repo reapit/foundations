@@ -16,6 +16,7 @@ import {
 export type QueryableField = IntrospectionField & {
   nestedKinds: Array<string>
   nestedType: string
+  isRequired: boolean
 }
 
 const mutationTypes = ['create', 'update', 'delete']

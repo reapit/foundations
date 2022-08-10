@@ -16,12 +16,11 @@ import { TextIcon } from '../icons/text'
 import { TableIcon } from '../icons/table'
 import { FormIcon } from '../icons/form'
 
-const Item = styled.div`
+export const Item = styled.div`
   width: 64px;
   height: 64px;
   display: flex;
   box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.08);
-  background: #fff;
   border-radius: 4px;
   align-items: center;
   justify-content: center;
@@ -65,14 +64,33 @@ const CategoryTitle = styled.span`
   color: black;
 `
 
-const ToolboxItem = forwardRef(({ name, children }: { name: string; children: React.ReactChild }, ref) => {
-  return (
-    <ItemContainer ref={ref as LegacyRef<HTMLDivElement>}>
-      <Item className={cx(elM3, block, cursorMove)}>{children}</Item>
-      <ItemName>{name}</ItemName>
-    </ItemContainer>
-  )
-})
+export const ToolboxItem = forwardRef(
+  (
+    {
+      name,
+      children,
+      onClick,
+      className,
+      style,
+    }: {
+      name: string
+      children: React.ReactChild
+      onClick?: React.MouseEventHandler<HTMLDivElement>
+      className?: string
+      style?: any
+    },
+    ref,
+  ) => {
+    return (
+      <ItemContainer ref={ref as LegacyRef<HTMLDivElement>} onClick={onClick}>
+        <Item style={style} className={cx(elM3, block, cursorMove, className)}>
+          {children}
+        </Item>
+        <ItemName>{name}</ItemName>
+      </ItemContainer>
+    )
+  },
+)
 
 export const Toolbox = ({ create }: { create: (ref: HTMLElement, ele: any) => void }) => {
   return (

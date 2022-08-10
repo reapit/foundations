@@ -3,7 +3,8 @@
 exports[`Sidebar should match a snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="transition bg-white el-w2 sidebar-div"
+    class="transition bg-white sidebar-div"
+    style="--s1xt9yg4-0: 337px;"
   >
     <div
       class="el-flex el-flex-column overflow-auto"
