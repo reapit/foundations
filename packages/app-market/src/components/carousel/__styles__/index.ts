@@ -9,6 +9,7 @@ export interface CarouselGridProps {
 
 export const CarouselWrapper = styled.div`
   position: relative;
+  height: fit-content;
 `
 
 export const CarouselCol = styled.div`

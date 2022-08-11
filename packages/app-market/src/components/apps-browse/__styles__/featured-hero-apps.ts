@@ -152,6 +152,8 @@ export const FeaturedHeroAppsIcon = styled.img`
   border-radius: 0.25rem;
   width: 48px;
   height: 48px;
+  padding: 0.25rem;
+  background-color: var(--color-white);
 
   ${forMobileAndAbove} {
     border-radius: 0.5rem;

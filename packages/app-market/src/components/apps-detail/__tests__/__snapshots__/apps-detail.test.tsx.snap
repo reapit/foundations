@@ -1,5 +1,535 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`AppsDetail should match a snapshot for viewport desktop 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div
+      id="root"
+    >
+      <div />
+      <div />
+      <div />
+    </div>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <section
+        class="el-page-container"
+      >
+        <div
+          class="el-loader-container"
+        >
+          <div
+            class="el-loader"
+          >
+            <div
+              class="el-loader-moving-bar"
+            />
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <section
+      class="el-page-container"
+    >
+      <div
+        class="el-loader-container"
+      >
+        <div
+          class="el-loader"
+        >
+          <div
+            class="el-loader-moving-bar"
+          />
+        </div>
+      </div>
+    </section>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`AppsDetail should match a snapshot for viewport mobile 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div
+      id="root"
+    >
+      <div />
+      <div />
+      <div />
+    </div>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <section
+        class="el-page-container"
+      >
+        <div
+          class="el-loader-container"
+        >
+          <div
+            class="el-loader"
+          >
+            <div
+              class="el-loader-moving-bar"
+            />
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <section
+      class="el-page-container"
+    >
+      <div
+        class="el-loader-container"
+      >
+        <div
+          class="el-loader"
+        >
+          <div
+            class="el-loader-moving-bar"
+          />
+        </div>
+      </div>
+    </section>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`AppsDetail should match a snapshot for viewport superWidescreen 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div
+      id="root"
+    >
+      <div />
+      <div />
+      <div />
+    </div>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <section
+        class="el-page-container"
+      >
+        <div
+          class="el-loader-container"
+        >
+          <div
+            class="el-loader"
+          >
+            <div
+              class="el-loader-moving-bar"
+            />
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <section
+      class="el-page-container"
+    >
+      <div
+        class="el-loader-container"
+      >
+        <div
+          class="el-loader"
+        >
+          <div
+            class="el-loader-moving-bar"
+          />
+        </div>
+      </div>
+    </section>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`AppsDetail should match a snapshot for viewport tablet 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div
+      id="root"
+    >
+      <div />
+      <div />
+      <div />
+    </div>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <section
+        class="el-page-container"
+      >
+        <div
+          class="el-loader-container"
+        >
+          <div
+            class="el-loader"
+          >
+            <div
+              class="el-loader-moving-bar"
+            />
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <section
+      class="el-page-container"
+    >
+      <div
+        class="el-loader-container"
+      >
+        <div
+          class="el-loader"
+        >
+          <div
+            class="el-loader-moving-bar"
+          />
+        </div>
+      </div>
+    </section>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`AppsDetail should match a snapshot for viewport widescreen 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div
+      id="root"
+    >
+      <div />
+      <div />
+      <div />
+    </div>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <section
+        class="el-page-container"
+      >
+        <div
+          class="el-loader-container"
+        >
+          <div
+            class="el-loader"
+          >
+            <div
+              class="el-loader-moving-bar"
+            />
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <section
+      class="el-page-container"
+    >
+      <div
+        class="el-loader-container"
+      >
+        <div
+          class="el-loader"
+        >
+          <div
+            class="el-loader-moving-bar"
+          />
+        </div>
+      </div>
+    </section>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
 exports[`AppsDetail should match a snapshot when loading 1`] = `
 Object {
   "asFragment": [Function],
@@ -195,27 +725,6 @@ Object {
               <p
                 class="el-mr5 el-has-no-margin el-small-text"
               >
-                Integration Enabled
-              </p>
-              <span
-                class="el-mr5 el-intent-success el-icon"
-              >
-                <svg
-                  fill="none"
-                  height="1em"
-                  viewBox="0 0 20 20"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.99995 0C4.48601 0 0 4.48591 0 9.99995C0 15.514 4.48601 20 9.99995 20C15.5139 20 19.9999 15.514 19.9999 9.99995C19.9999 4.48591 15.514 0 9.99995 0ZM15.7421 8.31087L9.45963 14.5933C9.1925 14.8605 8.83741 15.0075 8.45967 15.0075C8.08193 15.0075 7.72684 14.8605 7.45971 14.5933L4.2578 11.3914C3.99067 11.1243 3.84354 10.7692 3.84354 10.3915C3.84354 10.0136 3.99067 9.65852 4.2578 9.39139C4.52483 9.12426 4.87992 8.97713 5.25776 8.97713C5.6355 8.97713 5.9907 9.12426 6.25773 9.3915L8.45957 11.5932L13.742 6.31084C14.0091 6.04371 14.3642 5.89669 14.7419 5.89669C15.1197 5.89669 15.4748 6.04371 15.7419 6.31084C16.2935 6.86242 16.2935 7.7595 15.7421 8.31087Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <p
-                class="el-mr5 el-has-no-margin el-small-text"
-              >
                 Verified by Reapit
               </p>
               <div
@@ -238,7 +747,7 @@ Object {
             class="el-button-group-align-left el-button-group-inner"
           >
             <a
-              href="mailto:foo@bar.com"
+              href="mailto:foo@bar.com?subject=will-test-dev-co-voracious-person%20Enquiry&body=Dear%20Will Test DevCo%2C%20%0A%0AI%20would%20like%20more%20information%20about%20will-test-dev-co-voracious-person%20featured%20in%20the%20Reapit%20AppMarket%20%0A%0ARegards"
               rel="noopener noreferrer"
               target="_blank"
             >
@@ -250,6 +759,439 @@ Object {
             </a>
           </div>
         </div>
+        <div
+          class="apps-detail-content-grid"
+        >
+          <div
+            class="app-detail-description-grid"
+          >
+            <div
+              class="app-detail-description-col-main"
+            >
+              <h2
+                class="el-has-bold-text el-subtitle"
+              >
+                About App
+              </h2>
+              <div>
+                Mock Component
+              </div>
+              <div
+                class="el-button-group"
+              >
+                <div
+                  class="el-button-group-inner"
+                >
+                  <button
+                    class="el-intent-low el-button"
+                  >
+                    <div
+                      class="el-flex-align-center el-flex-container"
+                    >
+                      <span
+                        class="el-mr4 el-intent-primary el-icon"
+                        style="font-size: 1.25em;"
+                      >
+                        <svg
+                          fill="none"
+                          height="1em"
+                          viewBox="0 0 20 16"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M2.82051 0C1.25797 0 0 1.31414 0 2.94643V12.0536C0 13.6859 1.25797 15 2.82051 15H17.1795C18.742 15 20 13.6859 20 12.0536V2.94643C20 1.31414 18.742 0 17.1795 0H2.82051ZM8.20513 5.21825C8.20513 4.68208 8.78322 4.34497 9.24986 4.60902L13.2823 6.89077C13.756 7.15881 13.756 7.84119 13.2823 8.10923L9.24986 10.391C8.78322 10.655 8.20513 10.3179 8.20513 9.78175V5.21825Z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                      </span>
+                      How To Use App
+                    </div>
+                  </button>
+                  <button
+                    class="el-intent-low el-button"
+                  >
+                    <div
+                      class="el-flex-align-center el-flex-container"
+                    >
+                      <span
+                        class="el-mr4 el-intent-primary el-icon"
+                        style="font-size: 1.25em;"
+                      >
+                        <svg
+                          fill="none"
+                          height="1em"
+                          viewBox="0 0 20 16"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M2.82051 0C1.25797 0 0 1.31414 0 2.94643V12.0536C0 13.6859 1.25797 15 2.82051 15H17.1795C18.742 15 20 13.6859 20 12.0536V2.94643C20 1.31414 18.742 0 17.1795 0H2.82051ZM8.20513 5.21825C8.20513 4.68208 8.78322 4.34497 9.24986 4.60902L13.2823 6.89077C13.756 7.15881 13.756 7.84119 13.2823 8.10923L9.24986 10.391C8.78322 10.655 8.20513 10.3179 8.20513 9.78175V5.21825Z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                      </span>
+                      Marketing Presentation
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              class="app-detail-description-col-aside"
+            >
+              <div
+                class="app-detail-image-wrapper"
+              >
+                <img
+                  alt="Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar"
+                  class="app-detail-image"
+                  src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-screen1ImageUrl.png"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="el-flex-column el-flex-container"
+          >
+            <div
+              class="el-flex-column el-flex-container"
+            >
+              <div
+                class="app-detail-description-aside-desktop"
+              >
+                <div
+                  class="app-detail-image-wrapper"
+                >
+                  <img
+                    alt="Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar"
+                    class="app-detail-image"
+                    src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-screen1ImageUrl.png"
+                  />
+                </div>
+              </div>
+              <div
+                class="el-mb11 carousel-wrapper"
+              >
+                <div
+                  class="carousel-grid"
+                  style="--ckvo4up-0: 1; --ckvo4up-1: 50.000%; --ckvo4up-2: 0.375rem; --ckvo4up-6: 0.625rem;"
+                >
+                  <div
+                    class="carousel-col"
+                  >
+                    <div
+                      class="app-detail-image-wrapper"
+                    >
+                      <img
+                        alt="Application Image"
+                        class="app-detail-image"
+                        src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-screen2ImageUrl.png"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="el-flex-column el-flex-container"
+            >
+              <div
+                class="el-mb11 app-detail-support-grid"
+              >
+                <div
+                  class="app-detail-support-grid-col"
+                >
+                  <h2
+                    class="el-has-no-margin el-subtitle"
+                  >
+                    Website
+                  </h2>
+                  <p
+                    class="el-has-grey-text el-has-no-margin el-body-text"
+                  >
+                    <a
+                      href="https://foo.bar"
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      https://foo.bar
+                    </a>
+                  </p>
+                </div>
+                <div
+                  class="app-detail-support-grid-col"
+                >
+                  <h2
+                    class="el-has-no-margin el-subtitle"
+                  >
+                    Support Email
+                  </h2>
+                  <p
+                    class="el-has-grey-text el-has-no-margin el-body-text"
+                  >
+                    <a
+                      href="mailto:foo@bar.com"
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      foo@bar.com
+                    </a>
+                  </p>
+                </div>
+                <div
+                  class="app-detail-support-grid-col"
+                >
+                  <h2
+                    class="el-has-no-margin el-subtitle"
+                  >
+                    Telephone
+                  </h2>
+                  <p
+                    class="el-has-grey-text el-has-no-margin el-body-text"
+                  >
+                    07777777777
+                  </p>
+                </div>
+                <div
+                  class="app-detail-support-grid-col"
+                >
+                  <h2
+                    class="el-has-no-margin el-subtitle"
+                  >
+                    Terms and Conditions
+                  </h2>
+                  <p
+                    class="el-has-grey-text el-has-no-margin el-body-text"
+                  >
+                    <a
+                      href="https://foo.bar"
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      https://foo.bar
+                    </a>
+                  </p>
+                </div>
+                <div
+                  class="app-detail-support-grid-col"
+                >
+                  <h2
+                    class="el-has-no-margin el-subtitle"
+                  >
+                    Privacy Policy
+                  </h2>
+                  <p
+                    class="el-has-grey-text el-has-no-margin el-body-text"
+                  >
+                    <a
+                      href="https://foo.bar"
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      https://foo.bar
+                    </a>
+                  </p>
+                </div>
+                <div
+                  class="app-detail-support-grid-col"
+                >
+                  <h2
+                    class="el-has-no-margin el-subtitle"
+                  >
+                    Pricing Policy
+                  </h2>
+                  <p
+                    class="el-has-grey-text el-has-no-margin el-body-text"
+                  >
+                    <a
+                      href="https://foo.bar"
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      https://foo.bar
+                    </a>
+                  </p>
+                </div>
+              </div>
+              <div
+                class="el-mb11"
+              >
+                <h2
+                  class="el-has-bold-text el-subtitle"
+                >
+                  About Developer
+                </h2>
+                <p
+                  class="el-has-grey-text el-has-no-margin el-body-text"
+                >
+                  All about us in a number of words
+                </p>
+              </div>
+              <div
+                class="el-mb11"
+              >
+                <h2
+                  class="el-has-bold-text el-subtitle"
+                >
+                  Permissions
+                </h2>
+                <div
+                  class="app-detail-permission-chip"
+                >
+                  Read applicants
+                </div>
+                <div
+                  class="app-detail-permission-chip"
+                >
+                  Read property images
+                </div>
+                <div
+                  class="app-detail-permission-chip"
+                >
+                  Read properties
+                </div>
+              </div>
+              <div
+                class="el-mb11"
+              >
+                <h2
+                  class="el-has-bold-text el-subtitle"
+                >
+                  AgencyCloud Integration
+                </h2>
+                <div
+                  class="app-detail-permission-chip"
+                >
+                  Applicant
+                </div>
+                <div
+                  class="app-detail-permission-chip"
+                >
+                  Applicant Export
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <section
+      class="el-page-container"
+    >
+      <div
+        class="app-detail-back-button"
+      >
+        <span
+          class="el-intent-primary el-icon"
+        >
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 12 12"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M2 5.5L8 9.39711L8 1.60289L2 5.5Z"
+              fill="currentColor"
+            />
+          </svg>
+        </span>
+      </div>
+      <div
+        class="el-mb5 el-flex-container"
+      >
+        <div
+          class="app-detail-wrapper"
+        >
+          <img
+            alt="will-test-dev-co-voracious-person"
+            class="el-fade-in app-detail-icon"
+            src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-icon.png"
+          />
+        </div>
+        <div
+          class="el-flex-column el-flex-justify-between el-flex-container"
+        >
+          <div
+            class="el-flex-column el-flex-container"
+          >
+            <h1
+              class="el-has-no-margin el-title"
+            >
+              will-test-dev-co-voracious-person
+            </h1>
+            <p
+              class="el-has-grey-text el-body-text"
+            >
+              Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
+            </p>
+          </div>
+          <div
+            class="el-flex-container"
+          >
+            <span
+              class="el-mr5 el-intent-success el-icon"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 20 20"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9.99995 0C4.48601 0 0 4.48591 0 9.99995C0 15.514 4.48601 20 9.99995 20C15.5139 20 19.9999 15.514 19.9999 9.99995C19.9999 4.48591 15.514 0 9.99995 0ZM15.7421 8.31087L9.45963 14.5933C9.1925 14.8605 8.83741 15.0075 8.45967 15.0075C8.08193 15.0075 7.72684 14.8605 7.45971 14.5933L4.2578 11.3914C3.99067 11.1243 3.84354 10.7692 3.84354 10.3915C3.84354 10.0136 3.99067 9.65852 4.2578 9.39139C4.52483 9.12426 4.87992 8.97713 5.25776 8.97713C5.6355 8.97713 5.9907 9.12426 6.25773 9.3915L8.45957 11.5932L13.742 6.31084C14.0091 6.04371 14.3642 5.89669 14.7419 5.89669C15.1197 5.89669 15.4748 6.04371 15.7419 6.31084C16.2935 6.86242 16.2935 7.7595 15.7421 8.31087Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+            <p
+              class="el-mr5 el-has-no-margin el-small-text"
+            >
+              Verified by Reapit
+            </p>
+            <div
+              class="el-fade-in app-detail-category-chip"
+            >
+              Category
+            </div>
+            <p
+              class="el-mr5 el-has-bold-text el-has-no-margin el-small-text"
+            >
+              Integration
+            </p>
+          </div>
+        </div>
+      </div>
+      <div
+        class="el-mb11 el-button-group"
+      >
+        <div
+          class="el-button-group-align-left el-button-group-inner"
+        >
+          <a
+            href="mailto:foo@bar.com?subject=will-test-dev-co-voracious-person%20Enquiry&body=Dear%20Will Test DevCo%2C%20%0A%0AI%20would%20like%20more%20information%20about%20will-test-dev-co-voracious-person%20featured%20in%20the%20Reapit%20AppMarket%20%0A%0ARegards"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <button
+              class="el-intent-low el-button"
+            >
+              Enquire About Integration
+            </button>
+          </a>
+        </div>
+      </div>
+      <div
+        class="apps-detail-content-grid"
+      >
         <div
           class="app-detail-description-grid"
         >
@@ -340,622 +1282,226 @@ Object {
           </div>
         </div>
         <div
-          class="el-mb11 carousel-wrapper"
+          class="el-flex-column el-flex-container"
         >
           <div
-            class="carousel-grid"
-            style="--ckvo4up-0: 1; --ckvo4up-1: 50.000%; --ckvo4up-2: 0.375rem; --ckvo4up-6: 0.625rem;"
+            class="el-flex-column el-flex-container"
           >
             <div
-              class="carousel-col"
+              class="app-detail-description-aside-desktop"
             >
               <div
                 class="app-detail-image-wrapper"
               >
                 <img
-                  alt="Application Image"
+                  alt="Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar"
                   class="app-detail-image"
-                  src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-screen2ImageUrl.png"
+                  src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-screen1ImageUrl.png"
                 />
               </div>
             </div>
-          </div>
-        </div>
-        <div
-          class="el-mb11 el-grid"
-        >
-          <div
-            class="el-col"
-          >
-            <h2
-              class="el-has-no-margin el-subtitle"
+            <div
+              class="el-mb11 carousel-wrapper"
             >
-              Website
-            </h2>
-            <p
-              class="el-has-grey-text el-has-no-margin el-body-text"
-            >
-              <a
-                href="https://foo.bar"
-                rel="noopener noreferrer"
-                target="_blank"
+              <div
+                class="carousel-grid"
+                style="--ckvo4up-0: 1; --ckvo4up-1: 50.000%; --ckvo4up-2: 0.375rem; --ckvo4up-6: 0.625rem;"
               >
-                https://foo.bar
-              </a>
-            </p>
+                <div
+                  class="carousel-col"
+                >
+                  <div
+                    class="app-detail-image-wrapper"
+                  >
+                    <img
+                      alt="Application Image"
+                      class="app-detail-image"
+                      src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-screen2ImageUrl.png"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div
-            class="el-col"
-          >
-            <h2
-              class="el-has-no-margin el-subtitle"
-            >
-              Support Email
-            </h2>
-            <p
-              class="el-has-grey-text el-has-no-margin el-body-text"
-            >
-              <a
-                href="mailto:foo@bar.com"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                foo@bar.com
-              </a>
-            </p>
-          </div>
-          <div
-            class="el-col"
-          >
-            <h2
-              class="el-has-no-margin el-subtitle"
-            >
-              Telephone
-            </h2>
-            <p
-              class="el-has-grey-text el-has-no-margin el-body-text"
-            >
-              07777777777
-            </p>
-          </div>
-          <div
-            class="el-col"
-          >
-            <h2
-              class="el-has-no-margin el-subtitle"
-            >
-              Terms and Conditions
-            </h2>
-            <p
-              class="el-has-grey-text el-has-no-margin el-body-text"
-            >
-              <a
-                href="https://foo.bar"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                https://foo.bar
-              </a>
-            </p>
-          </div>
-          <div
-            class="el-col"
-          >
-            <h2
-              class="el-has-no-margin el-subtitle"
-            >
-              Privacy Policy
-            </h2>
-            <p
-              class="el-has-grey-text el-has-no-margin el-body-text"
-            >
-              <a
-                href="https://foo.bar"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                https://foo.bar
-              </a>
-            </p>
-          </div>
-          <div
-            class="el-col"
-          >
-            <h2
-              class="el-has-no-margin el-subtitle"
-            >
-              Pricing Policy
-            </h2>
-            <p
-              class="el-has-grey-text el-has-no-margin el-body-text"
-            >
-              <a
-                href="https://foo.bar"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                https://foo.bar
-              </a>
-            </p>
-          </div>
-        </div>
-        <div
-          class="el-mb11"
-        >
-          <h2
-            class="el-has-bold-text el-subtitle"
-          >
-            About Developer
-          </h2>
-          <p
-            class="el-has-grey-text el-has-no-margin el-body-text"
-          >
-            All about us
-          </p>
-        </div>
-        <div
-          class="el-mb11"
-        >
-          <h2
-            class="el-has-bold-text el-subtitle"
-          >
-            Permissions
-          </h2>
-          <div
-            class="app-detail-permission-chip"
-          >
-            Read applicants
-          </div>
-          <div
-            class="app-detail-permission-chip"
-          >
-            Read property images
-          </div>
-          <div
-            class="app-detail-permission-chip"
-          >
-            Read properties
-          </div>
-        </div>
-        <div
-          class="el-mb11"
-        >
-          <h2
-            class="el-has-bold-text el-subtitle"
-          >
-            AgencyCloud Integration
-          </h2>
-          <div
-            class="app-detail-permission-chip"
-          >
-            Applicant
-          </div>
-          <div
-            class="app-detail-permission-chip"
-          >
-            Applicant Export
-          </div>
-        </div>
-      </section>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <section
-      class="el-page-container"
-    >
-      <div
-        class="app-detail-back-button"
-      >
-        <span
-          class="el-intent-primary el-icon"
-        >
-          <svg
-            fill="none"
-            height="1em"
-            viewBox="0 0 12 12"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M2 5.5L8 9.39711L8 1.60289L2 5.5Z"
-              fill="currentColor"
-            />
-          </svg>
-        </span>
-      </div>
-      <div
-        class="el-mb5 el-flex-container"
-      >
-        <div
-          class="app-detail-wrapper"
-        >
-          <img
-            alt="will-test-dev-co-voracious-person"
-            class="el-fade-in app-detail-icon"
-            src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-icon.png"
-          />
-        </div>
-        <div
-          class="el-flex-column el-flex-justify-between el-flex-container"
-        >
           <div
             class="el-flex-column el-flex-container"
           >
-            <h1
-              class="el-has-no-margin el-title"
-            >
-              will-test-dev-co-voracious-person
-            </h1>
-            <p
-              class="el-has-grey-text el-body-text"
-            >
-              Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
-            </p>
-          </div>
-          <div
-            class="el-flex-container"
-          >
-            <span
-              class="el-mr5 el-intent-success el-icon"
-            >
-              <svg
-                fill="none"
-                height="1em"
-                viewBox="0 0 20 20"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M9.99995 0C4.48601 0 0 4.48591 0 9.99995C0 15.514 4.48601 20 9.99995 20C15.5139 20 19.9999 15.514 19.9999 9.99995C19.9999 4.48591 15.514 0 9.99995 0ZM15.7421 8.31087L9.45963 14.5933C9.1925 14.8605 8.83741 15.0075 8.45967 15.0075C8.08193 15.0075 7.72684 14.8605 7.45971 14.5933L4.2578 11.3914C3.99067 11.1243 3.84354 10.7692 3.84354 10.3915C3.84354 10.0136 3.99067 9.65852 4.2578 9.39139C4.52483 9.12426 4.87992 8.97713 5.25776 8.97713C5.6355 8.97713 5.9907 9.12426 6.25773 9.3915L8.45957 11.5932L13.742 6.31084C14.0091 6.04371 14.3642 5.89669 14.7419 5.89669C15.1197 5.89669 15.4748 6.04371 15.7419 6.31084C16.2935 6.86242 16.2935 7.7595 15.7421 8.31087Z"
-                  fill="currentColor"
-                />
-              </svg>
-            </span>
-            <p
-              class="el-mr5 el-has-no-margin el-small-text"
-            >
-              Integration Enabled
-            </p>
-            <span
-              class="el-mr5 el-intent-success el-icon"
-            >
-              <svg
-                fill="none"
-                height="1em"
-                viewBox="0 0 20 20"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M9.99995 0C4.48601 0 0 4.48591 0 9.99995C0 15.514 4.48601 20 9.99995 20C15.5139 20 19.9999 15.514 19.9999 9.99995C19.9999 4.48591 15.514 0 9.99995 0ZM15.7421 8.31087L9.45963 14.5933C9.1925 14.8605 8.83741 15.0075 8.45967 15.0075C8.08193 15.0075 7.72684 14.8605 7.45971 14.5933L4.2578 11.3914C3.99067 11.1243 3.84354 10.7692 3.84354 10.3915C3.84354 10.0136 3.99067 9.65852 4.2578 9.39139C4.52483 9.12426 4.87992 8.97713 5.25776 8.97713C5.6355 8.97713 5.9907 9.12426 6.25773 9.3915L8.45957 11.5932L13.742 6.31084C14.0091 6.04371 14.3642 5.89669 14.7419 5.89669C15.1197 5.89669 15.4748 6.04371 15.7419 6.31084C16.2935 6.86242 16.2935 7.7595 15.7421 8.31087Z"
-                  fill="currentColor"
-                />
-              </svg>
-            </span>
-            <p
-              class="el-mr5 el-has-no-margin el-small-text"
-            >
-              Verified by Reapit
-            </p>
             <div
-              class="el-fade-in app-detail-category-chip"
+              class="el-mb11 app-detail-support-grid"
             >
-              Category
-            </div>
-            <p
-              class="el-mr5 el-has-bold-text el-has-no-margin el-small-text"
-            >
-              Integration
-            </p>
-          </div>
-        </div>
-      </div>
-      <div
-        class="el-mb11 el-button-group"
-      >
-        <div
-          class="el-button-group-align-left el-button-group-inner"
-        >
-          <a
-            href="mailto:foo@bar.com"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <button
-              class="el-intent-low el-button"
-            >
-              Enquire About Integration
-            </button>
-          </a>
-        </div>
-      </div>
-      <div
-        class="app-detail-description-grid"
-      >
-        <div
-          class="app-detail-description-col-main"
-        >
-          <h2
-            class="el-has-bold-text el-subtitle"
-          >
-            About App
-          </h2>
-          <div>
-            Mock Component
-          </div>
-          <div
-            class="el-button-group"
-          >
-            <div
-              class="el-button-group-inner"
-            >
-              <button
-                class="el-intent-low el-button"
+              <div
+                class="app-detail-support-grid-col"
               >
-                <div
-                  class="el-flex-align-center el-flex-container"
+                <h2
+                  class="el-has-no-margin el-subtitle"
                 >
-                  <span
-                    class="el-mr4 el-intent-primary el-icon"
-                    style="font-size: 1.25em;"
-                  >
-                    <svg
-                      fill="none"
-                      height="1em"
-                      viewBox="0 0 20 16"
-                      width="1em"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M2.82051 0C1.25797 0 0 1.31414 0 2.94643V12.0536C0 13.6859 1.25797 15 2.82051 15H17.1795C18.742 15 20 13.6859 20 12.0536V2.94643C20 1.31414 18.742 0 17.1795 0H2.82051ZM8.20513 5.21825C8.20513 4.68208 8.78322 4.34497 9.24986 4.60902L13.2823 6.89077C13.756 7.15881 13.756 7.84119 13.2823 8.10923L9.24986 10.391C8.78322 10.655 8.20513 10.3179 8.20513 9.78175V5.21825Z"
-                        fill="currentColor"
-                      />
-                    </svg>
-                  </span>
-                  How To Use App
-                </div>
-              </button>
-              <button
-                class="el-intent-low el-button"
-              >
-                <div
-                  class="el-flex-align-center el-flex-container"
+                  Website
+                </h2>
+                <p
+                  class="el-has-grey-text el-has-no-margin el-body-text"
                 >
-                  <span
-                    class="el-mr4 el-intent-primary el-icon"
-                    style="font-size: 1.25em;"
+                  <a
+                    href="https://foo.bar"
+                    rel="noopener noreferrer"
+                    target="_blank"
                   >
-                    <svg
-                      fill="none"
-                      height="1em"
-                      viewBox="0 0 20 16"
-                      width="1em"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M2.82051 0C1.25797 0 0 1.31414 0 2.94643V12.0536C0 13.6859 1.25797 15 2.82051 15H17.1795C18.742 15 20 13.6859 20 12.0536V2.94643C20 1.31414 18.742 0 17.1795 0H2.82051ZM8.20513 5.21825C8.20513 4.68208 8.78322 4.34497 9.24986 4.60902L13.2823 6.89077C13.756 7.15881 13.756 7.84119 13.2823 8.10923L9.24986 10.391C8.78322 10.655 8.20513 10.3179 8.20513 9.78175V5.21825Z"
-                        fill="currentColor"
-                      />
-                    </svg>
-                  </span>
-                  Marketing Presentation
-                </div>
-              </button>
+                    https://foo.bar
+                  </a>
+                </p>
+              </div>
+              <div
+                class="app-detail-support-grid-col"
+              >
+                <h2
+                  class="el-has-no-margin el-subtitle"
+                >
+                  Support Email
+                </h2>
+                <p
+                  class="el-has-grey-text el-has-no-margin el-body-text"
+                >
+                  <a
+                    href="mailto:foo@bar.com"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    foo@bar.com
+                  </a>
+                </p>
+              </div>
+              <div
+                class="app-detail-support-grid-col"
+              >
+                <h2
+                  class="el-has-no-margin el-subtitle"
+                >
+                  Telephone
+                </h2>
+                <p
+                  class="el-has-grey-text el-has-no-margin el-body-text"
+                >
+                  07777777777
+                </p>
+              </div>
+              <div
+                class="app-detail-support-grid-col"
+              >
+                <h2
+                  class="el-has-no-margin el-subtitle"
+                >
+                  Terms and Conditions
+                </h2>
+                <p
+                  class="el-has-grey-text el-has-no-margin el-body-text"
+                >
+                  <a
+                    href="https://foo.bar"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    https://foo.bar
+                  </a>
+                </p>
+              </div>
+              <div
+                class="app-detail-support-grid-col"
+              >
+                <h2
+                  class="el-has-no-margin el-subtitle"
+                >
+                  Privacy Policy
+                </h2>
+                <p
+                  class="el-has-grey-text el-has-no-margin el-body-text"
+                >
+                  <a
+                    href="https://foo.bar"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    https://foo.bar
+                  </a>
+                </p>
+              </div>
+              <div
+                class="app-detail-support-grid-col"
+              >
+                <h2
+                  class="el-has-no-margin el-subtitle"
+                >
+                  Pricing Policy
+                </h2>
+                <p
+                  class="el-has-grey-text el-has-no-margin el-body-text"
+                >
+                  <a
+                    href="https://foo.bar"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    https://foo.bar
+                  </a>
+                </p>
+              </div>
             </div>
-          </div>
-        </div>
-        <div
-          class="app-detail-description-col-aside"
-        >
-          <div
-            class="app-detail-image-wrapper"
-          >
-            <img
-              alt="Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar"
-              class="app-detail-image"
-              src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-screen1ImageUrl.png"
-            />
-          </div>
-        </div>
-      </div>
-      <div
-        class="el-mb11 carousel-wrapper"
-      >
-        <div
-          class="carousel-grid"
-          style="--ckvo4up-0: 1; --ckvo4up-1: 50.000%; --ckvo4up-2: 0.375rem; --ckvo4up-6: 0.625rem;"
-        >
-          <div
-            class="carousel-col"
-          >
             <div
-              class="app-detail-image-wrapper"
+              class="el-mb11"
             >
-              <img
-                alt="Application Image"
-                class="app-detail-image"
-                src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-screen2ImageUrl.png"
-              />
+              <h2
+                class="el-has-bold-text el-subtitle"
+              >
+                About Developer
+              </h2>
+              <p
+                class="el-has-grey-text el-has-no-margin el-body-text"
+              >
+                All about us in a number of words
+              </p>
+            </div>
+            <div
+              class="el-mb11"
+            >
+              <h2
+                class="el-has-bold-text el-subtitle"
+              >
+                Permissions
+              </h2>
+              <div
+                class="app-detail-permission-chip"
+              >
+                Read applicants
+              </div>
+              <div
+                class="app-detail-permission-chip"
+              >
+                Read property images
+              </div>
+              <div
+                class="app-detail-permission-chip"
+              >
+                Read properties
+              </div>
+            </div>
+            <div
+              class="el-mb11"
+            >
+              <h2
+                class="el-has-bold-text el-subtitle"
+              >
+                AgencyCloud Integration
+              </h2>
+              <div
+                class="app-detail-permission-chip"
+              >
+                Applicant
+              </div>
+              <div
+                class="app-detail-permission-chip"
+              >
+                Applicant Export
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div
-        class="el-mb11 el-grid"
-      >
-        <div
-          class="el-col"
-        >
-          <h2
-            class="el-has-no-margin el-subtitle"
-          >
-            Website
-          </h2>
-          <p
-            class="el-has-grey-text el-has-no-margin el-body-text"
-          >
-            <a
-              href="https://foo.bar"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              https://foo.bar
-            </a>
-          </p>
-        </div>
-        <div
-          class="el-col"
-        >
-          <h2
-            class="el-has-no-margin el-subtitle"
-          >
-            Support Email
-          </h2>
-          <p
-            class="el-has-grey-text el-has-no-margin el-body-text"
-          >
-            <a
-              href="mailto:foo@bar.com"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              foo@bar.com
-            </a>
-          </p>
-        </div>
-        <div
-          class="el-col"
-        >
-          <h2
-            class="el-has-no-margin el-subtitle"
-          >
-            Telephone
-          </h2>
-          <p
-            class="el-has-grey-text el-has-no-margin el-body-text"
-          >
-            07777777777
-          </p>
-        </div>
-        <div
-          class="el-col"
-        >
-          <h2
-            class="el-has-no-margin el-subtitle"
-          >
-            Terms and Conditions
-          </h2>
-          <p
-            class="el-has-grey-text el-has-no-margin el-body-text"
-          >
-            <a
-              href="https://foo.bar"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              https://foo.bar
-            </a>
-          </p>
-        </div>
-        <div
-          class="el-col"
-        >
-          <h2
-            class="el-has-no-margin el-subtitle"
-          >
-            Privacy Policy
-          </h2>
-          <p
-            class="el-has-grey-text el-has-no-margin el-body-text"
-          >
-            <a
-              href="https://foo.bar"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              https://foo.bar
-            </a>
-          </p>
-        </div>
-        <div
-          class="el-col"
-        >
-          <h2
-            class="el-has-no-margin el-subtitle"
-          >
-            Pricing Policy
-          </h2>
-          <p
-            class="el-has-grey-text el-has-no-margin el-body-text"
-          >
-            <a
-              href="https://foo.bar"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              https://foo.bar
-            </a>
-          </p>
-        </div>
-      </div>
-      <div
-        class="el-mb11"
-      >
-        <h2
-          class="el-has-bold-text el-subtitle"
-        >
-          About Developer
-        </h2>
-        <p
-          class="el-has-grey-text el-has-no-margin el-body-text"
-        >
-          All about us
-        </p>
-      </div>
-      <div
-        class="el-mb11"
-      >
-        <h2
-          class="el-has-bold-text el-subtitle"
-        >
-          Permissions
-        </h2>
-        <div
-          class="app-detail-permission-chip"
-        >
-          Read applicants
-        </div>
-        <div
-          class="app-detail-permission-chip"
-        >
-          Read property images
-        </div>
-        <div
-          class="app-detail-permission-chip"
-        >
-          Read properties
-        </div>
-      </div>
-      <div
-        class="el-mb11"
-      >
-        <h2
-          class="el-has-bold-text el-subtitle"
-        >
-          AgencyCloud Integration
-        </h2>
-        <div
-          class="app-detail-permission-chip"
-        >
-          Applicant
-        </div>
-        <div
-          class="app-detail-permission-chip"
-        >
-          Applicant Export
         </div>
       </div>
     </section>
