@@ -12,6 +12,19 @@ jest.mock('react-router', () => ({
   })),
 }))
 
+jest.mock('@reapit/connect-session', () => ({
+  ReapitConnectBrowserSession: jest.fn(),
+  useReapitConnect: jest.fn(() => ({
+    connectSession: {
+      loginIdentity: {
+        offGrouping: true,
+        clientId: 'MOCK_CLIENT_ID',
+        groups: ['OrganisationAdmin'],
+      },
+    },
+  })),
+}))
+
 describe('Menu', () => {
   let store
   beforeEach(() => {
