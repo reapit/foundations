@@ -8,7 +8,7 @@ export const htmlRender = css`
   font-family: var(--font-sans-serif);
   font-weight: normal;
   color: var(--color-black);
-  font-size: var(--font-size-default);
+  font-size: var(--font-size-small);
   line-height: 1.25rem;
   letter-spacing: -1%;
   color: var(--color-grey-dark);
@@ -17,6 +17,10 @@ export const htmlRender = css`
   p,
   div {
     margin-bottom: 1rem;
+  }
+
+  ${forMobileAndAbove} {
+    font-size: var(--font-size-default);
   }
 `
 
