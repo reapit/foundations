@@ -62,7 +62,7 @@ Object {
               class="el-card-wrap"
             >
               <div
-                class="el-card-list-main-wrap"
+                class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
               >
                 <h5
                   class="el-card-list-heading"
@@ -284,7 +284,7 @@ Object {
               class="el-card-wrap"
             >
               <div
-                class="el-card-list-main-wrap"
+                class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
               >
                 <h5
                   class="el-card-list-heading"
@@ -565,7 +565,7 @@ Object {
               class="el-card-wrap"
             >
               <div
-                class="el-card-list-main-wrap"
+                class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
               >
                 <h5
                   class="el-card-list-heading"
@@ -2298,7 +2298,7 @@ Object {
             class="el-card-wrap"
           >
             <div
-              class="el-card-list-main-wrap"
+              class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
             >
               <h5
                 class="el-card-list-heading"
@@ -2520,7 +2520,7 @@ Object {
             class="el-card-wrap"
           >
             <div
-              class="el-card-list-main-wrap"
+              class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
             >
               <h5
                 class="el-card-list-heading"
@@ -2801,7 +2801,7 @@ Object {
             class="el-card-wrap"
           >
             <div
-              class="el-card-list-main-wrap"
+              class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
             >
               <h5
                 class="el-card-list-heading"
@@ -4591,7 +4591,7 @@ Object {
               class="el-card-wrap"
             >
               <div
-                class="el-card-list-main-wrap"
+                class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
               >
                 <h5
                   class="el-card-list-heading"
@@ -4813,7 +4813,7 @@ Object {
               class="el-card-wrap"
             >
               <div
-                class="el-card-list-main-wrap"
+                class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
               >
                 <h5
                   class="el-card-list-heading"
@@ -5094,7 +5094,7 @@ Object {
               class="el-card-wrap"
             >
               <div
-                class="el-card-list-main-wrap"
+                class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
               >
                 <h5
                   class="el-card-list-heading"
@@ -6827,7 +6827,7 @@ Object {
             class="el-card-wrap"
           >
             <div
-              class="el-card-list-main-wrap"
+              class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
             >
               <h5
                 class="el-card-list-heading"
@@ -7049,7 +7049,7 @@ Object {
             class="el-card-wrap"
           >
             <div
-              class="el-card-list-main-wrap"
+              class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
             >
               <h5
                 class="el-card-list-heading"
@@ -7330,7 +7330,7 @@ Object {
             class="el-card-wrap"
           >
             <div
-              class="el-card-list-main-wrap"
+              class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
             >
               <h5
                 class="el-card-list-heading"
