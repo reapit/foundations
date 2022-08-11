@@ -28,7 +28,7 @@ const ToolbarContainer = styled.div`
 
     label {
       margin-right: 31px;
-      min-width: 85px;
+      /* min-width: 85px; */
     }
   }
 `

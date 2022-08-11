@@ -34,7 +34,6 @@ export interface TableProps extends ContainerProps {
   typeName?: string
   editPageId?: string
   showControls?: string
-  showSearch?: string
   excludedFields?: string[]
   [key: string]: any
 }
@@ -319,7 +318,7 @@ const Filters = ({
 }
 
 export const Table = forwardRef<HTMLDivElement, TableProps & { disabled?: boolean }>(
-  ({ typeName, editPageId, showControls, disabled, showSearch, includedFields = [], ...props }, ref) => {
+  ({ typeName, editPageId, showControls, disabled, includedFields = [], ...props }, ref) => {
     const [filters, setFilters] = useState<Record<string, any>>({})
     const { data: listResults, loading: listLoading, args } = useObjectList(typeName, filters)
     const subobjects = useSubObjects(typeName)
@@ -387,7 +386,6 @@ export const Table = forwardRef<HTMLDivElement, TableProps & { disabled?: boolea
 
     const [firstRow] = rows || []
 
-    const displaySearch = searchAvailable && showSearch
     const displayTable = typeName && firstRow
     const displayNothingFound = !loading && !firstRow && typeName
     const displayNoType = !typeName
@@ -396,7 +394,7 @@ export const Table = forwardRef<HTMLDivElement, TableProps & { disabled?: boolea
     return (
       <ComponentWrapper {...props} ref={ref}>
         <div className={cx(elFlex, elFlex1, elFlexColumn)}>
-          {displaySearch && (
+          {searchAvailable && (
             <Input type="text" placeholder="Search" value={queryStr} onChange={(e) => setQueryStr(e.target.value)} />
           )}
           {!!args?.length && <Filters args={args} filters={filters} setFilters={setFilters} />}

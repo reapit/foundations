@@ -2,7 +2,11 @@ import { NodeTree, SerializedNode, serializeNode, Element } from '@craftjs/core'
 import React from 'react'
 import { ParsedArg } from '../hooks/use-introspection/query-generators'
 import { resolver } from '../pages/home'
-import { Container, Form, FormInput, Text } from './user/ejectable'
+import Container from './user/container'
+import Form from './user/form'
+import { FormInput } from './user/form-input'
+import Text from './user/text'
+
 import { argToFormInput } from './user/form'
 
 export const constructPageNodes = (
