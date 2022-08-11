@@ -84,7 +84,7 @@ describe('checklist-detail', () => {
         modalContentType: 'PROFILE',
         mode: 'WEB',
         ...getMockRouterProps({ id: '123' }),
-      } as CheckListDetailProps
+      }
       const wrapper = render(<ChecklistDetail {...mockProps} />)
       expect(wrapper).toMatchSnapshot()
     })
@@ -100,7 +100,7 @@ describe('checklist-detail', () => {
         mode: 'WEB',
         modalContentType: 'PROFILE',
         ...getMockRouterProps({ id: '123' }),
-      } as CheckListDetailProps
+      }
       const wrapper = render(<ChecklistDetail {...mockProps} />)
       expect(wrapper).toMatchSnapshot()
     })
