@@ -209,7 +209,7 @@ export const Card: FC<CardProps> = ({
       )}
       {hasListCard && (
         <>
-          <CardListMainWrap className={cx(listMobileOpen && elCardListMainWrapExpanded)}>
+          <CardListMainWrap className={cx((listMobileOpen || !hasMainCard) && elCardListMainWrapExpanded)}>
             {listContextMenuItems && (listMobileOpen || !isMobile) && (
               <CardContextMenu contextMenuItems={listContextMenuItems} />
             )}
