@@ -7,6 +7,7 @@ import { Carousel } from '../carousel'
 import { navigate } from '../../utils/navigation'
 import { Routes } from '../../constants/routes'
 import { useHistory } from 'react-router-dom'
+import { AppsBrowseConfigItemInterface } from '@reapit/foundations-ts-definitions'
 
 export const handleCarouselCols = (mediaQuery: MediaType) => () => {
   const { isMobile, isTablet, isDesktop } = mediaQuery
@@ -27,29 +28,22 @@ export const handleSortConfigs = (appsBrowseConfigState: AppsBrowseConfigCollect
     appsBrowseConfigState?.items.filter((config) => config.configType === 'featuredHeroApps') ?? []
   const heroApps = appsBrowseConfigState?.items.filter((config) => config.configType === 'heroApps') ?? []
 
-  const featuredHeroAppDetails = featuredHeroApps
-    .map(({ content, filters }) => {
-      if (content?.imageUrl && filters?.id && filters?.id[0]) {
-        return {
-          imageUrl: content.imageUrl,
-          id: filters.id[0],
+  const mapApps = (appTypes: AppsBrowseConfigItemInterface[]) =>
+    appTypes
+      .map(({ content, filters }) => {
+        if (content?.imageUrl && filters?.id && filters?.id[0]) {
+          return {
+            imageUrl: content.imageUrl,
+            id: filters.id[0],
+          }
         }
-      }
-    })
-    .flat()
-    .filter(isTruthy)
+      })
+      .flat()
+      .filter(isTruthy)
 
-  const heroAppDetails = heroApps
-    .map(({ content, filters }) => {
-      if (content?.imageUrl && filters?.id && filters?.id[0]) {
-        return {
-          imageUrl: content.imageUrl,
-          id: filters.id[0],
-        }
-      }
-    })
-    .flat()
-    .filter(isTruthy)
+  const featuredHeroAppDetails = mapApps(featuredHeroApps)
+
+  const heroAppDetails = mapApps(heroApps)
 
   return [...featuredHeroAppDetails, ...heroAppDetails]
 }

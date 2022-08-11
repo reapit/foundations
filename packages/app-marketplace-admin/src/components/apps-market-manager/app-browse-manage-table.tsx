@@ -21,10 +21,9 @@ import {
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { SendFunction, UpdateReturnTypeEnum, useReapitGet, useReapitUpdate } from '@reapit/utils-react'
 import React, { FC, useState } from 'react'
-import { colorSquare, iconButton, ImageContainer } from './app-browse.styles'
+import { colorSquare, iconButton, ImageContainer, ElTagContainer, ElTag } from './app-browse.styles'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { shleemy } from 'shleemy'
-import { ElTagContainer, ElTag } from './app-browse.styles'
 import { SubsHelperText } from './subs-helper-text'
 
 interface AppBrowseManageTableProps {

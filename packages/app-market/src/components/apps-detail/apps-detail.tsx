@@ -14,8 +14,9 @@ import {
   ButtonGroup,
   Button,
   elMr4,
-  elMr6,
+  useModal,
   elMl6,
+  elMr6,
 } from '@reapit/elements'
 import { useHistory, useParams } from 'react-router-dom'
 import { AcProcessType, DesktopLink, HTMLRender, useReapitGet } from '@reapit/utils-react'
@@ -38,7 +39,6 @@ import {
   AppDetailDescriptionAsideDesktop,
 } from './__styles__'
 import { Carousel } from '../carousel'
-import { useModal } from '@reapit/elements'
 import { AppInstallModalContent } from './app-install-modal'
 import { AppInstallSuccesModalContent } from './app-install-success-modal'
 import { useReapitConnect } from '@reapit/connect-session'

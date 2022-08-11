@@ -47,7 +47,6 @@ export const ApiKeyTable = ({
     const result = await createApiKey(apiKey)
 
     if (result && typeof result === 'object') {
-      // TODO add to pagination OR add new table row but with pasaze
       setItems([...items, result])
     }
   }
@@ -75,7 +74,6 @@ export const ApiKeyTable = ({
                     setDeleteModal(undefined)
                   }}
                   onDelete={(apiKeyId) => {
-                    // TODO remove apikey from pagination results
                     setItems(items.filter((currentItem) => currentItem.id !== apiKeyId))
                     setDeleteModal(undefined)
                   }}

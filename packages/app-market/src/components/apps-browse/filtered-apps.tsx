@@ -11,6 +11,7 @@ import {
   Loader,
   PersistentNotification,
   PlaceholderImage,
+  elMl5,
 } from '@reapit/elements'
 import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { useReapitConnect } from '@reapit/connect-session'
@@ -20,7 +21,6 @@ import { Routes } from '../../constants/routes'
 import { useHistory } from 'react-router-dom'
 import { cardCursor, IsFreeNotice } from './__styles__'
 import { checkHasFilters } from './apps-browse'
-import { elMl5 } from '@reapit/elements'
 import { useAppsBrowseState } from '../../core/use-apps-browse-state'
 import { filterRestrictedAppsList } from '../../utils/browse-app'
 

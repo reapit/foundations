@@ -134,7 +134,7 @@ export const ChecklistDetail: React.FC<CheckListDetailProps> = ({
   if (loading) {
     return <Loader label="Loading" fullPage />
   }
-  
+
   return (
     <Section hasMargin={false} hasPadding={false}>
       <ErrorBoundary>

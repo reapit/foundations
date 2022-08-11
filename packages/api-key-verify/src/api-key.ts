@@ -41,7 +41,7 @@ export const resolveApiKey = async ({
 
   if (!apiKey) {
     throw new ApiKeyNotFoundException()
-  } else if (!apiKey.keyExpiresAt || (apiKey as ApiKeyModel).expired) {
+  } else if (!apiKey.keyExpiresAt || apiKey.expired) {
     throw new ApiKeyExpiredException()
   }
 
