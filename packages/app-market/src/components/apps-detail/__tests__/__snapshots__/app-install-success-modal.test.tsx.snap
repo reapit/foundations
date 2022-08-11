@@ -9,21 +9,21 @@ Object {
         class="el-snack-holder"
       />
       <p
-        class="el-has-grey-text el-small-text"
+        class="el-has-grey-text el-body-text"
       >
         will-test-dev-co-voracious-person
          integration has been successfully enabled.
       </p>
       <p
-        class="el-has-grey-text el-small-text"
+        class="el-has-grey-text el-body-text"
       >
         For details on how to use the integration and, if there are any additional setup requirements, a member of
          
-        MOCK_NAME
+        MOCK_DEVELOPER_NAME
          will be in touch to help you through the process.
       </p>
       <p
-        class="el-has-grey-text el-small-text"
+        class="el-has-grey-text el-body-text"
       >
         If you wish to contact them directly, you can do this via telephone at 
         07777777777
@@ -58,21 +58,21 @@ Object {
       class="el-snack-holder"
     />
     <p
-      class="el-has-grey-text el-small-text"
+      class="el-has-grey-text el-body-text"
     >
       will-test-dev-co-voracious-person
        integration has been successfully enabled.
     </p>
     <p
-      class="el-has-grey-text el-small-text"
+      class="el-has-grey-text el-body-text"
     >
       For details on how to use the integration and, if there are any additional setup requirements, a member of
        
-      MOCK_NAME
+      MOCK_DEVELOPER_NAME
        will be in touch to help you through the process.
     </p>
     <p
-      class="el-has-grey-text el-small-text"
+      class="el-has-grey-text el-body-text"
     >
       If you wish to contact them directly, you can do this via telephone at 
       07777777777
@@ -164,14 +164,14 @@ Object {
         class="el-snack-holder"
       />
       <p
-        class="el-small-text"
+        class="el-body-text"
       >
         The 
         will-test-dev-co-voracious-person
          app has been successfully installed. You can now launch the app from the ‘My Apps’ page or by clicking the button below.
       </p>
       <p
-        class="el-small-text"
+        class="el-body-text"
       >
         If you wish to contact the developer about using the app, you can do this via telephone at 
         07777777777
@@ -218,14 +218,14 @@ Object {
       class="el-snack-holder"
     />
     <p
-      class="el-small-text"
+      class="el-body-text"
     >
       The 
       will-test-dev-co-voracious-person
        app has been successfully installed. You can now launch the app from the ‘My Apps’ page or by clicking the button below.
     </p>
     <p
-      class="el-small-text"
+      class="el-body-text"
     >
       If you wish to contact the developer about using the app, you can do this via telephone at 
       07777777777
@@ -329,14 +329,14 @@ Object {
         class="el-snack-holder"
       />
       <p
-        class="el-small-text"
+        class="el-body-text"
       >
         The 
         will-test-dev-co-voracious-person
          app has been successfully installed. You can now launch the app from the ‘My Apps’ page or by clicking the button below.
       </p>
       <p
-        class="el-small-text"
+        class="el-body-text"
       >
         If you wish to contact the developer about using the app, you can do this via telephone at 
         07777777777
@@ -383,14 +383,14 @@ Object {
       class="el-snack-holder"
     />
     <p
-      class="el-small-text"
+      class="el-body-text"
     >
       The 
       will-test-dev-co-voracious-person
        app has been successfully installed. You can now launch the app from the ‘My Apps’ page or by clicking the button below.
     </p>
     <p
-      class="el-small-text"
+      class="el-body-text"
     >
       If you wish to contact the developer about using the app, you can do this via telephone at 
       07777777777

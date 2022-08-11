@@ -1,12 +1,10 @@
 import { useReapitGet } from '@reapit/utils-react'
 import React from 'react'
 import { MediaType } from '@reapit/elements'
-import { render } from '../../../tests/react-testing'
+import { render, setViewport, viewPortOptions } from '../../../tests/react-testing'
 import { mockAppDetailModel } from '../../../tests/__stubs__/apps'
 import { mockDesktopIntegrationTypeModelPagedResult } from '../../../tests/__stubs__/desktop-integration-types'
-import { mockDeveloperModel } from '../../../tests/__stubs__/developers'
 import { AppsDetail, handleCarouselCols, handleOpenModal } from '../apps-detail'
-import { mockInstallationModelPagedResult } from '../../../tests/__stubs__/installations'
 
 window.reapit.config.clientHiddenAppIds = {}
 window.reapit.config.orgAdminRestrictedAppIds = []
@@ -39,9 +37,7 @@ describe('AppsDetail', () => {
     document.body.appendChild(testElem)
 
     mockUseReapitGet
-      .mockReturnValueOnce([mockInstallationModelPagedResult, false])
       .mockReturnValueOnce([mockAppDetailModel, false])
-      .mockReturnValueOnce([mockDeveloperModel, false])
       .mockReturnValueOnce([mockDesktopIntegrationTypeModelPagedResult, false])
     expect(render(<AppsDetail />)).toMatchSnapshot()
   })
@@ -50,6 +46,13 @@ describe('AppsDetail', () => {
     mockUseReapitGet.mockReturnValue([null, true])
 
     expect(render(<AppsDetail />)).toMatchSnapshot()
+  })
+
+  viewPortOptions.forEach((option) => {
+    it(`should match a snapshot for viewport ${option}`, () => {
+      setViewport(option)
+      expect(render(<AppsDetail />)).toMatchSnapshot()
+    })
   })
 })
 
