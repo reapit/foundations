@@ -1,5 +1,4 @@
-import { onSubmitHandler, handleFilenameClick, IdentityDocumentForm } from '../identification'
-import { IDENTIFICATION_FORM_DEFAULT_VALUES } from '../identification'
+import { onSubmitHandler, handleFilenameClick, IdentityDocumentForm, IDENTIFICATION_FORM_DEFAULT_VALUES } from '../identification'
 import { downloadDocument } from '@/services/documents'
 
 jest.mock('@/services/documents')
