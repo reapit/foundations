@@ -88,7 +88,7 @@ export const mergeNavIntoPage = (nodes: Node[]): Node[] => {
       .filter((node) => node.nodeId !== ROOT_NODE)
       .map((node) => ({
         ...node,
-        parent: node.parent === ROOT_NODE ? 'body' : node.parent,
+        parent: node.parent === ROOT_NODE ? 'body' : node.parent || 'body',
       })),
     {
       ...rootNode,

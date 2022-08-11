@@ -1,7 +1,6 @@
 import { Element, useEditor } from '@craftjs/core'
 import React, { forwardRef, LegacyRef } from 'react'
 
-import SquareSvg from '../icons/square'
 import LinkSVG from '../icons/link'
 import Text from './user/text'
 import { cx } from '@linaria/core'
@@ -9,12 +8,7 @@ import { styled } from '@linaria/react'
 import { block, cursorMove, transition } from './styles'
 import { elFlex, elFlexAlignStart, elFlexJustifyStart, elFlexRow, elFlexWrap, elM3, elW12 } from '@reapit/elements'
 import Link from './user/link'
-import Table from './user/table'
-import Form from './user/form'
-import Info from './user/info'
 import { TextIcon } from '../icons/text'
-import { TableIcon } from '../icons/table'
-import { FormIcon } from '../icons/form'
 
 export const Item = styled.div`
   width: 64px;
@@ -111,30 +105,6 @@ export const Toolbox = ({ create }: { create: (ref: HTMLElement, ele: any) => vo
         >
           <Item>
             <LinkSVG />
-          </Item>
-        </ToolboxItem>
-        <ToolboxItem
-          name="Info"
-          ref={(ref: HTMLElement) => ref && create(ref, <Element is={Info} padding={12} width={12} />)}
-        >
-          <Item>
-            <SquareSvg />
-          </Item>
-        </ToolboxItem>
-        <ToolboxItem
-          name="Table"
-          ref={(ref: HTMLElement) => ref && create(ref, <Element is={Table} padding={12} width={12} />)}
-        >
-          <Item>
-            <TableIcon />
-          </Item>
-        </ToolboxItem>
-        <ToolboxItem
-          name="Form"
-          ref={(ref: HTMLElement) => ref && create(ref, <Element canvas is={Form} padding={12} width={12} />)}
-        >
-          <Item>
-            <FormIcon />
           </Item>
         </ToolboxItem>
       </div>

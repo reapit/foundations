@@ -291,6 +291,7 @@ const Step3 = ({
   setFields,
   fields,
   pageType,
+  onlyFields,
 }: {
   stepNo: number
   setStepNo: (no: number) => void
@@ -298,6 +299,7 @@ const Step3 = ({
   setFields: (fields: string[]) => void
   fields?: string[]
   pageType?: PageType
+  onlyFields?: boolean
 }) => {
   const { loading, object } = useObject(entity)
   const { args } = useObjectMutate(pageType === 'form' ? 'create' : 'list', entity)
@@ -315,9 +317,11 @@ const Step3 = ({
 
   return (
     <>
-      <StepTitle active={stepNo === 2} onClick={() => entity && setStepNo(2)}>
-        3. Fields
-      </StepTitle>
+      {!onlyFields && (
+        <StepTitle active={stepNo === 2} onClick={() => entity && setStepNo(2)}>
+          3. Fields
+        </StepTitle>
+      )}
       <StepContent active={stepNo === 2}>
         <InfoBox>
           <InfoBubble />
@@ -330,7 +334,14 @@ const Step3 = ({
         <EntitiesContainer>
           {loading && <Loader />}
           {!loading && (
-            <ColumnControls availableFields={availableFields} includedFields={fields} setIncludedFields={setFields} />
+            <ColumnControls
+              availableFields={availableFields.map(({ name, isRequired }) => ({
+                name,
+                isRequired: pageType === 'form' && isRequired,
+              }))}
+              includedFields={fields}
+              setIncludedFields={setFields}
+            />
           )}
         </EntitiesContainer>
       </StepContent>
@@ -383,58 +394,79 @@ export const NewPage = ({
   createNewPage,
   createNewPageLoading,
   onChange,
+  onlyFields,
+  typeName,
+  defaultPageType,
+  className,
 }: {
   showNewPage: boolean
   createNewPage: (newPage: NewPageType) => void
   createNewPageLoading: boolean
-  onChange: (newPage: Partial<NewPageType>) => void
+  onChange?: (newPage: Partial<NewPageType>) => void
+  onlyFields?: boolean
+  typeName?: string
+  defaultPageType?: PageType
+  className?: string
 }) => {
   const [stepNo, setStepNo] = React.useState(0)
   const [newPage, setNewPage] = React.useState<Partial<NewPageType>>({})
 
-  const { pageType, entity, fields } = newPage
+  const { pageType = defaultPageType, entity = typeName, fields } = newPage
 
   const handlePageChange = (newPage: Partial<NewPageType>) => {
     setNewPage(newPage)
-    onChange(newPage)
+    onChange && onChange(newPage)
   }
+
+  useEffect(() => {
+    if (onlyFields && stepNo !== 2) {
+      setStepNo(2)
+    }
+  }, [onlyFields, stepNo])
 
   return (
     <SidebarDiv
-      className={cx(transition, bgWhite, elW2, elFlexColumn)}
-      showNewPage={showNewPage}
+      className={cx(transition, bgWhite, elW2, elFlexColumn, className)}
+      isCollapsed={!showNewPage}
       style={{ overflowY: 'initial' }}
     >
-      <HeaderDiv className={cx(bgWhite, elBorderGreyB, elFlex, elFlexAlignCenter, elPx3)}>
-        <SubtitleBold style={{ marginBottom: 0 }}>Create Page Wizard</SubtitleBold>
-      </HeaderDiv>
+      {!onlyFields && (
+        <HeaderDiv className={cx(bgWhite, elBorderGreyB, elFlex, elFlexAlignCenter, elPx3)}>
+          <SubtitleBold style={{ marginBottom: 0 }}>Create Page Wizard</SubtitleBold>
+        </HeaderDiv>
+      )}
       <div style={{ width: '100%', flex: 1, overflowY: 'auto' }}>
         <div className={cx(elWFull, elFlex1)} style={{ padding: 20 }}>
-          <Step1
-            stepNo={stepNo}
-            setStepNo={setStepNo}
-            pageType={pageType}
-            setPageType={(pageType) => {
-              handlePageChange({ pageType })
-            }}
-          />
-          <HR />
-          <Step2
-            stepNo={stepNo}
-            setStepNo={setStepNo}
-            entity={entity}
-            pageType={pageType}
-            setEntity={(entity) => {
-              handlePageChange({ ...newPage, entity, fields: [] })
-            }}
-          />
-          <HR />
+          {!onlyFields && (
+            <>
+              <Step1
+                stepNo={stepNo}
+                setStepNo={setStepNo}
+                pageType={pageType}
+                setPageType={(pageType) => {
+                  handlePageChange({ pageType })
+                }}
+              />
+              <HR />
+              <Step2
+                stepNo={stepNo}
+                setStepNo={setStepNo}
+                entity={entity}
+                pageType={pageType}
+                setEntity={(entity) => {
+                  handlePageChange({ ...newPage, entity, fields: [] })
+                }}
+              />
+              <HR />
+            </>
+          )}
           <Step3
             stepNo={stepNo}
             setStepNo={setStepNo}
             entity={entity}
             fields={fields}
             pageType={pageType}
+            onlyFields={onlyFields}
             setFields={(fields) => {
               handlePageChange({ ...newPage, fields })
             }}
@@ -449,7 +481,7 @@ export const NewPage = ({
             }}
             disabled={createNewPageLoading}
           >
-            Create page
+            {onlyFields ? 'Make Editable' : 'Create page'}
             <svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M3.6486 6.52882C3.91286 6.79311 3.91284 7.21879 3.64861 7.48301L0.491085 10.6405C0.164621 10.967 0.00090078 11.394 3.70718e-06 11.8212C-1.24196e-06 11.8236 -1.23572e-06 11.826 3.72591e-06 11.8283C0.000902999 12.2555 0.164587 12.6825 0.491101 13.0089C1.1458 13.6636 2.20442 13.6637 2.85921 13.0092L7.68969 8.19055C8.34442 7.53576 8.34489 6.4765 7.69012 5.82173L2.85947 0.991077C2.2047 0.336371 1.14586 0.336239 0.491068 0.991093C-0.163542 1.64576 -0.163682 2.70432 0.490735 3.35911L3.6486 6.52882Z"

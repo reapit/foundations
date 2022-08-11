@@ -13,7 +13,7 @@ const ConnectedToolbar = () => {
   const { related } = useEditor((state, query) => {
     const currentlySelectedNodeId = query.getEvent('selected').first()
     return {
-      related: currentlySelectedNodeId && state.nodes[currentlySelectedNodeId].related,
+      related: currentlySelectedNodeId ? state.nodes[currentlySelectedNodeId].related : undefined,
     }
   })
 
@@ -28,7 +28,6 @@ const ToolbarContainer = styled.div`
 
     label {
       margin-right: 31px;
-      min-width: 85px;
     }
   }
 `
