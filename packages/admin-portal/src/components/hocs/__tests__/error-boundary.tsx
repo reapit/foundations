@@ -13,7 +13,7 @@ describe('ErrorBoundary', () => {
   })
 
   it('should call the errorThrownComponent and sets the state to hasFailed when it catches', () => {
-    ;(console.error as any) = jest.fn()
+    (console.error as any) = jest.fn()
 
     const DangerousChild = (props: { someProp?: false }) => {
       if (!props.someProp) {
