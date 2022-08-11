@@ -8,12 +8,6 @@ import { styled } from '@linaria/react'
 import { block, cursorMove, transition } from './styles'
 import { elFlex, elFlexAlignStart, elFlexJustifyStart, elFlexRow, elFlexWrap, elM3, elW12 } from '@reapit/elements'
 import Link from './user/link'
-// import Table from './user/table'
-// import Form from './user/form'
-// import { TableIcon } from '../icons/table'
-// import { FormIcon } from '../icons/form'
-// import Info from './user/info'
-// import SquareSvg from '../icons/square'
 import { TextIcon } from '../icons/text'
 
 export const Item = styled.div`
@@ -113,30 +107,6 @@ export const Toolbox = ({ create }: { create: (ref: HTMLElement, ele: any) => vo
             <LinkSVG />
           </Item>
         </ToolboxItem>
-        {/* <ToolboxItem
-          name="Info"
-          ref={(ref: HTMLElement) => ref && create(ref, <Element is={Info} padding={12} width={12} />)}
-        >
-          <Item>
-            <SquareSvg />
-          </Item>
-        </ToolboxItem> */}
-        {/* <ToolboxItem
-          name="Table"
-          ref={(ref: HTMLElement) => ref && create(ref, <Element is={Table} padding={12} width={12} />)}
-        >
-          <Item>
-            <TableIcon />
-          </Item>
-        </ToolboxItem>
-        <ToolboxItem
-          name="Form"
-          ref={(ref: HTMLElement) => ref && create(ref, <Element canvas is={Form} padding={12} width={12} />)}
-        >
-          <Item>
-            <FormIcon />
-          </Item>
-        </ToolboxItem> */}
       </div>
     </ToolboxDiv>
   )
