@@ -106,8 +106,6 @@ export const Form = forwardRef<HTMLDivElement, FormProps & { disabled?: boolean 
       })
     }
 
-    console.log('formState', formState)
-
     return (
       <ComponentWrapper {...props} ref={ref}>
         {!typeName && <div>No type selected, choose one from the sidebar.</div>}

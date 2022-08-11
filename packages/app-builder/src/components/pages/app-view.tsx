@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Loader } from '@reapit/elements'
 import { useAppWithPages } from '../hooks/apps/use-app'
 import { usePageId } from '../hooks/use-page-id'
@@ -33,9 +33,16 @@ const RenderComponent = ({ node, allNodes }: { node: Node; allNodes: Node[] }) =
 const isRoot = (node: Node) => node.nodeId === ROOT_NODE
 
 const AppView = () => {
-  const { appId, pageId } = usePageId()
+  const { appId, pageId, setPageId } = usePageId()
   const { app, loading } = useAppWithPages(appId)
   const page = app?.pages.find((p) => p.id === pageId)
+  const firstPageId = app?.pages[0].id
+
+  useEffect(() => {
+    if (!loading && firstPageId && pageId === '~' && !page) {
+      setPageId(firstPageId)
+    }
+  }, [pageId, loading, page, firstPageId])
 
   const nodes = page?.nodes ? mergeNavIntoPage(page.nodes || []) : []
   if (loading) {

@@ -25,6 +25,7 @@ export const RenderNode = ({ render, iframeRef }) => {
     name,
     moveable,
     deletable,
+    props,
     connectors: { drag },
     parent,
     actions: { setProp },
@@ -88,6 +89,7 @@ export const RenderNode = ({ render, iframeRef }) => {
             <h2 className={cx(elFlex1, elMr6)}>
               {isBody && 'Body'}
               {isNavigation && 'Navigation'}
+              {props.typeName && props.typeName + ' '}
               {!isBody && !isNavigation && name}
             </h2>
             {moveable && (
