@@ -7,7 +7,7 @@ import {
 import { selectIsMarketplaceAdmin, selectIsOffGrouping, selectIsOrgAdmin } from '../../utils/auth'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { BodyText, Button, ButtonGroup, Col, elMb11, Grid, SmallText } from '@reapit/elements'
+import { Button, ButtonGroup, elMb11, BodyText, elMb6 } from '@reapit/elements'
 import { AcProcessType, DesktopLink, SendFunction, useReapitUpdate } from '@reapit/utils-react'
 import { UpdateActionNames, updateActions } from '@reapit/utils-common'
 import { AppDetailPermissionChip } from './__styles__'
@@ -79,7 +79,7 @@ export const AppInstallModalContent: FC<AppInstallModalContentProps> = ({
     <>
       <div className={elMb11}>
         {isOffGrouping && isOrgAdmin ? (
-          <SmallText hasGreyText>
+          <BodyText hasGreyText>
             As an organisation admin, you have control over {isDirectApi ? 'enabling' : 'installation'} of &lsquo;{name}
             &rsquo; for either your Office Group or for <b>all</b> Users and Offices within your Organisation. To do
             this, you need to visit the{' '}
@@ -89,31 +89,33 @@ export const AppInstallModalContent: FC<AppInstallModalContentProps> = ({
               target="_blank"
               content="Reapit Connect Management App."
             />
-          </SmallText>
+          </BodyText>
         ) : isOffGrouping && isMarketplaceAdmin ? (
-          <SmallText hasGreyText>
+          <BodyText hasGreyText>
             You are about to {isDirectApi ? 'enable' : 'install'} &lsquo;{name}&rsquo; for your Office Group{' '}
             {offGroupName}
-          </SmallText>
+          </BodyText>
         ) : (
-          <SmallText hasGreyText>
+          <BodyText hasGreyText>
             You are about to {isDirectApi ? 'enable' : 'install'} &lsquo;{name}&rsquo; for <b>all</b> Users and Offices
             within your Organisation.
-          </SmallText>
+          </BodyText>
         )}
         {userDesktopIntegrationTypes?.length ? (
           <>
             <BodyText>Desktop Integration</BodyText>
-            <SmallText hasGreyText>
+            <BodyText hasGreyText>
               This app requires the following Desktop Integration. Some integration types may replace or change certain
               behaviours within Agency Cloud.
-            </SmallText>
-            <ul>
+            </BodyText>
+            <div className={elMb6}>
               {userDesktopIntegrationTypes.map((integration) => (
-                <li key={integration.name}>{integration?.description ?? ''}</li>
+                <AppDetailPermissionChip key={integration.name}>
+                  {integration?.description ?? ''}
+                </AppDetailPermissionChip>
               ))}
-            </ul>
-            <SmallText hasGreyText>
+            </div>
+            <BodyText hasGreyText>
               For more information regarding Desktop Integration types, please{' '}
               <DesktopLink
                 uri="https://marketplace-documentation.reapit.cloud/integration-types"
@@ -122,53 +124,47 @@ export const AppInstallModalContent: FC<AppInstallModalContentProps> = ({
                 content="click here"
               />
               .
-            </SmallText>
+            </BodyText>
           </>
         ) : null}
         <BodyText>Pricing Information</BodyText>
         {isFree ? (
-          <SmallText hasGreyText>
+          <BodyText hasGreyText>
             {developer} have specified there is no cost for using this {isDirectApi ? 'integration' : 'app'}.
-          </SmallText>
+          </BodyText>
         ) : pricingUrl ? (
           <>
-            <SmallText hasGreyText>
+            <BodyText hasGreyText>
               {developer} have specified that there is a cost for using this {isDirectApi ? 'integration' : 'app'},
               please <DesktopLink uri={pricingUrl} acProcess={AcProcessType.web} target="_blank" content="click here" />{' '}
               to view their pricing information. You will be billed directly by {developer}.
-            </SmallText>
+            </BodyText>
             {developer !== 'Reapit Ltd' && (
-              <SmallText hasGreyText>
+              <BodyText hasGreyText>
                 You will not be charged by Reapit Ltd for any costs associated with using this{' '}
                 {isDirectApi ? 'integration' : 'app'}.
-              </SmallText>
+              </BodyText>
             )}
           </>
         ) : (
-          <SmallText hasGreyText>
+          <BodyText hasGreyText>
             There may be a cost associated to using this {isDirectApi ? 'integration' : 'app'}. However, this
             information has not yet been provided by {developer}. Please contact {developer} directly for information
             about pricing.
-          </SmallText>
+          </BodyText>
         )}
         <>
           <BodyText>Data Permissions</BodyText>
-          <SmallText hasGreyText>
+          <BodyText hasGreyText>
             By {isDirectApi ? 'enabling' : 'installing'} this app, you are granting the following permissions to your
             data:
-          </SmallText>
-          <SmallText hasGreyText>
+          </BodyText>
+          <BodyText hasGreyText>
             Information about your organisation and the names/email addresses of your users
-          </SmallText>
-          {Boolean(scopes.length) && (
-            <Grid>
-              {scopes.map(({ name, description }) => (
-                <Col key={name}>
-                  <AppDetailPermissionChip>{description ?? ''}</AppDetailPermissionChip>
-                </Col>
-              ))}
-            </Grid>
-          )}
+          </BodyText>
+          {scopes?.map(({ name, description }) => (
+            <AppDetailPermissionChip key={name}>{description ?? ''}</AppDetailPermissionChip>
+          ))}
         </>
       </div>
       <ButtonGroup alignment="center">

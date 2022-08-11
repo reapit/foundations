@@ -106,7 +106,7 @@ export const HeroAppsStrapline = styled(ElBodyText)`
 
 export const HeroAppsInnerContainer = styled.div`
   width: 100%;
-  border-radius: 0.25rem;
+  border-radius: 0.5rem;
   padding: 0.75rem;
 
   ${forMobileAndAbove} {
@@ -203,6 +203,8 @@ export const HeroAppsIcon = styled.img`
   border-radius: 0.25rem;
   width: 40px;
   height: 40px;
+  padding: 0.25rem;
+  background-color: var(--color-white);
 
   ${forMobileAndAbove} {
     margin-bottom: 1.25rem;
