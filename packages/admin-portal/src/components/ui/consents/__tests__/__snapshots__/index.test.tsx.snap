@@ -8,6 +8,11 @@ Object {
       <div
         class="el-snack-holder"
       />
+      <h1
+        class="el-title"
+      >
+         Consents
+      </h1>
       <div
         class="el-loader-container"
       >
@@ -25,6 +30,11 @@ Object {
     <div
       class="el-snack-holder"
     />
+    <h1
+      class="el-title"
+    >
+       Consents
+    </h1>
     <div
       class="el-loader-container"
     >
@@ -99,12 +109,22 @@ Object {
       <div
         class="el-snack-holder"
       />
+      <h1
+        class="el-title"
+      >
+         Consents
+      </h1>
     </div>
   </body>,
   "container": <div>
     <div
       class="el-snack-holder"
     />
+    <h1
+      class="el-title"
+    >
+       Consents
+    </h1>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

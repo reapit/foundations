@@ -155,7 +155,7 @@ export const ElMobileToggle = styled.button`
   }
 
   &.${elMobileListToggle} {
-    top: 4.5rem;
+    top: 0;
   }
 `
 
