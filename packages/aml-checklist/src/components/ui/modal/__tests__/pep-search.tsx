@@ -3,13 +3,12 @@ import { render } from '../../../../tests/react-testing'
 import { PepSearch, mapStateToProps, mapDispatchToProps, renderNoResult, renderLoading } from '../pep-search'
 import { ReduxState } from '@/types/core'
 import { contact } from '@/sagas/__stubs__/contact'
-import { ContactModel } from '@reapit/foundations-ts-definitions'
 
 describe('pep-search', () => {
   describe('PepSearch', () => {
     it('should match snapshot', () => {
       const mockProps = {
-        contact: contact as ContactModel,
+        contact: contact,
         handleSubmit: jest.fn(),
         onPrevHandler: jest.fn(),
         onNextHandler: jest.fn(),

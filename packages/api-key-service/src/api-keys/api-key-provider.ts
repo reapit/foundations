@@ -59,11 +59,10 @@ export class ApiKeyProvider {
       apiKeys.push(key)
     }
 
-    apiKeys
+    return apiKeys
       .sort((a, b) => new Date(a.keyExpiresAt as string).getDate() - new Date(b.keyExpiresAt as string).getDate())
       .reverse()
-
-    return apiKeys.filter((key) => typeof key !== 'undefined')[0]
+      .filter((key) => typeof key !== 'undefined')[0]
   }
 
   async delete(apiKey: ApiKeyModel): Promise<void> {

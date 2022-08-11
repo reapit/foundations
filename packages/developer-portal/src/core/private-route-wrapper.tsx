@@ -30,16 +30,16 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   children,
   showMenu = true,
 }) => {
-  if (window.location.pathname === '/') {
-    return <Redirect to={Routes.LOGIN} />
-  }
-
   const { connectSession, connectInternalRedirect } = useReapitConnect(reapitConnectBrowserSession)
 
   const location = useLocation()
   const currentUri = `${location.pathname}${location.search}`
 
   useEffect(handleOpenChatbot(connectSession), [connectSession])
+
+  if (window.location.pathname === '/') {
+    return <Redirect to={Routes.LOGIN} />
+  }
 
   if (!connectSession) {
     return (

@@ -93,7 +93,7 @@ export const handleSortConfigs = (appsBrowseConfigState: AppsBrowseConfigCollect
 
   if (!appsBrowseConfigState?.items.length) return baseConfig
 
-  const configs = appsBrowseConfigState.items.reduce<ConfigType>((acc, config) => {
+  return appsBrowseConfigState.items.reduce<ConfigType>((acc, config) => {
     const existingConfig = acc[config.configType]
 
     acc[config.configType] = [...existingConfig, config].sort((a, b) => {
@@ -102,8 +102,6 @@ export const handleSortConfigs = (appsBrowseConfigState: AppsBrowseConfigCollect
 
     return acc
   }, baseConfig)
-
-  return configs
 }
 
 export const AppsBrowse: FC = () => {

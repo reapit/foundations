@@ -1,7 +1,7 @@
 import { History } from 'history'
 
 export enum ExternalPages {
-  appMarketplaceAdminDocs = 'https://foundations-documentation.reapit.cloud/', // TODO complete docs
+  appMarketplaceAdminDocs = 'https://foundations-documentation.reapit.cloud/',
 }
 
 export const openNewPage = (uri: string) => () => {

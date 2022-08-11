@@ -4,8 +4,7 @@ import { Config } from '../types/global'
 import * as Sentry from '@sentry/react'
 import { BrowserTracing } from '@sentry/tracing'
 import ReactGA from 'react-ga'
-import { getMarketplaceGlobalsByKey } from '@reapit/utils-react'
-import { logger } from '@reapit/utils-react'
+import { getMarketplaceGlobalsByKey, logger } from '@reapit/utils-react'
 
 // Init global config
 window.reapit = {

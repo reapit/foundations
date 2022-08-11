@@ -30,7 +30,6 @@ import { reapitConnectBrowserSession } from '@/core/connect-session'
 
 export type AMLProgressBarProps = AMLProgressBarMappedActions & AMLProgressBarMappedProps
 
-// TODO: will replace when get data from BE
 export const calculateProgress = (status: SectionsStatus) => {
   const count = Object.keys(status).length
   const completedCount = Object.keys(status).filter((key) => status[key]).length
