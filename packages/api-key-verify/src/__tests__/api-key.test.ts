@@ -14,7 +14,7 @@ describe('ApiKey', () => {
     jest
       .spyOn(lambda, 'invoke')
       // @ts-ignore
-      .mockImplementation((valueConstructor: any, keyCondition: any) => {
+      .mockImplementation((_valueConstructor: any, keyCondition: any) => {
         console.log('mock implementation')
         const apiKeyHeader = (keyCondition as { [s: string]: any }).apiKey as string
 
