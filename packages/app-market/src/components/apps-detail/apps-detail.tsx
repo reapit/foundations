@@ -16,6 +16,7 @@ import {
   elMr4,
   useModal,
   elMl6,
+  elMr6,
 } from '@reapit/elements'
 import { useHistory, useParams } from 'react-router-dom'
 import { AcProcessType, DesktopLink, HTMLRender, useReapitGet } from '@reapit/utils-react'
