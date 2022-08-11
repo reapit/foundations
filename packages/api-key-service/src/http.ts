@@ -25,13 +25,13 @@ let cachedServer: Server
 
 async function bootstrapServer(): Promise<Server> {
   if (!cachedServer) {
-    const [app, express] = await bootstrapApplication()
+    const [app, expressApp] = await bootstrapApplication()
 
     app.use(eventContext())
 
     await app.init()
 
-    cachedServer = createServer(express, undefined, binaryMimeTypes)
+    cachedServer = createServer(expressApp, undefined, binaryMimeTypes)
   }
 
   return cachedServer
