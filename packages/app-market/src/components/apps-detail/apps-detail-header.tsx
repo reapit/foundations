@@ -34,21 +34,23 @@ export const AppsDetailHeader: FC<AppsDetailHeaderProps> = ({ app }) => {
       <FlexContainer className={elMb5}>
         <FlexContainer isFlexColumn isFlexJustifyBetween>
           <FlexContainer className={elMb3} isFlexAlignEnd isFlexJustifyBetween>
-            <Subtitle hasNoMargin hasBoldText>
+            <Subtitle className={appDetailInfoLineAdjust} hasNoMargin hasBoldText>
               {name}
             </Subtitle>
-            {isInstalled && (
-              <>
-                <Icon icon="tickSolidSystem" className={elMr2} intent="success" />
-                <SmallText className={cx(elMr2, appDetailInfoLineAdjust)} hasNoMargin>
-                  {isDirectApi ? 'Integration Enabled' : 'App Installed'}
-                </SmallText>
-              </>
-            )}
-            <Icon icon="tickSolidSystem" className={elMr2} intent="success" />
-            <SmallText className={cx(elMr2, appDetailInfoLineAdjust)} hasNoMargin>
-              Verified by Reapit
-            </SmallText>
+            <FlexContainer>
+              {isInstalled && (
+                <>
+                  <Icon icon="tickSolidSystem" className={elMr2} intent="success" />
+                  <SmallText className={cx(elMr2, appDetailInfoLineAdjust)} hasNoMargin>
+                    {isDirectApi ? 'Integration Enabled' : 'App Installed'}
+                  </SmallText>
+                </>
+              )}
+              <Icon icon="tickSolidSystem" className={elMr2} intent="success" />
+              <SmallText className={cx(elMr2, appDetailInfoLineAdjust)} hasNoMargin>
+                Verified by Reapit
+              </SmallText>
+            </FlexContainer>
           </FlexContainer>
           <FlexContainer>
             <AppDetailWrapper>
