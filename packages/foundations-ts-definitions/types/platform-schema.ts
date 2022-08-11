@@ -1668,6 +1668,12 @@ export interface AppointmentModel {
     [name: string]: any
   }
   /**
+   * The requested extras fields
+   */
+  extrasField?: {
+    [name: string]: any
+  }
+  /**
    * The ETag for the current version of the appointment. Used for managing update concurrency
    */
   readonly _eTag?: string
@@ -1857,6 +1863,12 @@ export interface AppointmentModelPagedResult {
       [name: string]: any
     }
     /**
+     * The requested extras fields
+     */
+    extrasField?: {
+      [name: string]: any
+    }
+    /**
      * The ETag for the current version of the appointment. Used for managing update concurrency
      */
     readonly _eTag?: string
@@ -1893,6 +1905,7 @@ export interface Appointments {
   createdTo?: string
   modifiedFrom?: string
   modifiedTo?: string
+  extrasField?: string[]
   metadata?: string[]
 }
 /**
@@ -12242,6 +12255,19 @@ export interface PropertyModel {
    */
   specialFeatures?: string[]
   /**
+   * The attributes associated to the property which are not currently mapped. These are defined the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
+   */
+  unmappedAttributes?: {
+    /**
+     * The type of unmapped attribute (style/type/situation/parking/age/locality/special)
+     */
+    type?: string
+    /**
+     * The value associated to the unmapped type
+     */
+    value?: string
+  }[]
+  /**
    * Details of each room in the property
    */
   rooms?: {
@@ -13002,6 +13028,19 @@ export interface PropertyModelPagedResult {
      * The attributes describing the property's special features (eg swimmingPool, tennisCourt), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
      */
     specialFeatures?: string[]
+    /**
+     * The attributes associated to the property which are not currently mapped. These are defined the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
+     */
+    unmappedAttributes?: {
+      /**
+       * The type of unmapped attribute (style/type/situation/parking/age/locality/special)
+       */
+      type?: string
+      /**
+       * The value associated to the unmapped type
+       */
+      value?: string
+    }[]
     /**
      * Details of each room in the property
      */
@@ -15579,6 +15618,19 @@ export interface TypeModel {
      */
     value?: string
   }[]
+}
+/**
+ * Represents an unmapped attribute type
+ */
+export interface UnmappedAttributeModel {
+  /**
+   * The type of unmapped attribute (style/type/situation/parking/age/locality/special)
+   */
+  type?: string
+  /**
+   * The value associated to the unmapped type
+   */
+  value?: string
 }
 /**
  * The details specific to applicants with a marketingMode of buying
