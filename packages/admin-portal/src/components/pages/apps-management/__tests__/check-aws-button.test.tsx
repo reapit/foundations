@@ -101,22 +101,22 @@ describe('handleSetWebHooksLoading', () => {
 })
 
 describe('handleSetAwsStatus', () => {
-  it('should set an AWS status if the subscriptions endpoint returns', () => {
+  it('should set an AWS status if the subscriptions endpoint returns', async () => {
     const mockSetAwsStatus = jest.fn()
     const curried = handleSetAwsStatus(mockSetAwsStatus, AWSStatus.Fetching, 'SOME_ID')
 
-    curried()
+    await curried()
 
     expect(mockSetAwsStatus).toHaveBeenCalledWith(AWSStatus.AllUsers)
   })
 
-  it('should set AWS status to unfetched if the subscriptions endpoint does not return', () => {
+  it('should set AWS status to unfetched if the subscriptions endpoint does not return', async () => {
     mockedFetchSubs.mockReturnValue(undefined)
 
     const mockSetAwsStatus = jest.fn()
     const curried = handleSetAwsStatus(mockSetAwsStatus, AWSStatus.Fetching, 'SOME_ID')
 
-    curried()
+    await curried()
 
     expect(mockSetAwsStatus).toHaveBeenCalledWith(AWSStatus.Unfetched)
   })

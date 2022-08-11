@@ -127,13 +127,13 @@ describe('renderDownloadDwBillingCell', () => {
 })
 
 describe('handleDownloadBillingPeriod', () => {
-  it('should run correctly', () => {
+  it('should run correctly', async () => {
     const period = '2020-02'
     const setBillingFile = jest.fn()
     const setBillingDwFile = jest.fn()
 
     const fn = handleDownloadBillingPeriod(period, setBillingFile, setBillingDwFile)
-    fn()
+    await fn()
     expect(mockBillingServices).toBeCalledWith({ period })
     expect(mockBillingDwServices).toBeCalledWith(period)
   })
