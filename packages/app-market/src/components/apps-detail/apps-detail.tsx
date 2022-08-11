@@ -38,7 +38,6 @@ import {
   AppDetailDescriptionAsideDesktop,
 } from './__styles__'
 import { Carousel } from '../carousel'
-import { IsFreeNotice } from '../apps-browse/__styles__'
 import { AppInstallModalContent } from './app-install-modal'
 import { AppInstallSuccesModalContent } from './app-install-success-modal'
 import { useReapitConnect } from '@reapit/connect-session'

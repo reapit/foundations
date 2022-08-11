@@ -4,7 +4,6 @@ import {
   mapDispatchToProps,
   mapStateToProps,
   ChecklistDetail,
-  CheckListDetailProps,
   generateSection,
   renderSections,
 } from '../checklist-detail'

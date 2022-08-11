@@ -21,14 +21,11 @@ export class PublicController {
     if (typeof configItem.live.timeFrom !== 'undefined' || typeof configItem.live.timeTo !== 'undefined') {
       if (
         (typeof configItem.live.timeTo !== 'undefined' &&
-        new Date(configItem.live.timeTo).getTime() >= now &&
-        typeof configItem.live.timeFrom !== 'undefined' &&
-        new Date(configItem.live.timeFrom).getTime() <= now)
-        || (
+          new Date(configItem.live.timeTo).getTime() >= now &&
           typeof configItem.live.timeFrom !== 'undefined' &&
-          new Date(configItem.live.timeFrom).getTime() <= now
-        )
-        || (typeof configItem.live.timeTo !== 'undefined' && new Date(configItem.live.timeTo).getTime() >= now)
+          new Date(configItem.live.timeFrom).getTime() <= now) ||
+        (typeof configItem.live.timeFrom !== 'undefined' && new Date(configItem.live.timeFrom).getTime() <= now) ||
+        (typeof configItem.live.timeTo !== 'undefined' && new Date(configItem.live.timeTo).getTime() >= now)
       ) {
         return true
       }

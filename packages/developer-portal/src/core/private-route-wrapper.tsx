@@ -30,7 +30,6 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   children,
   showMenu = true,
 }) => {
-
   const { connectSession, connectInternalRedirect } = useReapitConnect(reapitConnectBrowserSession)
 
   const location = useLocation()

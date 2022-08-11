@@ -28,15 +28,18 @@ export const handleSortConfigs = (appsBrowseConfigState: AppsBrowseConfigCollect
     appsBrowseConfigState?.items.filter((config) => config.configType === 'featuredHeroApps') ?? []
   const heroApps = appsBrowseConfigState?.items.filter((config) => config.configType === 'heroApps') ?? []
 
-  const mapApps = (appTypes: AppsBrowseConfigItemInterface[]) => appTypes.map(({content, filters}) => {
-    if (content?.imageUrl && filters?.id && filters?.id[0]) {
-      return {
-        imageUrl: content.imageUrl,
-        id: filters.id[0],
-      }
-    }
-  }).flat()
-  .filter(isTruthy)
+  const mapApps = (appTypes: AppsBrowseConfigItemInterface[]) =>
+    appTypes
+      .map(({ content, filters }) => {
+        if (content?.imageUrl && filters?.id && filters?.id[0]) {
+          return {
+            imageUrl: content.imageUrl,
+            id: filters.id[0],
+          }
+        }
+      })
+      .flat()
+      .filter(isTruthy)
 
   const featuredHeroAppDetails = mapApps(featuredHeroApps)
 
