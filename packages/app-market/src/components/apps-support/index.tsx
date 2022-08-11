@@ -13,6 +13,7 @@ import {
   SecondaryNavContainer,
   SmallText,
   Title,
+  PersistentNotification,
 } from '@reapit/elements'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
@@ -23,7 +24,6 @@ import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { useReapitGet } from '@reapit/utils-react'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { AppsSupportItem } from './apps-support-item'
-import { PersistentNotification } from '@reapit/elements'
 import { cx } from '@linaria/core'
 import { filterRestrictedAppsList } from '../../utils/browse-app'
 

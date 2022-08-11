@@ -3,13 +3,13 @@ import { ErrorBoundary } from '../error-boundary'
 import { render } from '../../tests/react-testing'
 
 const Children = () => <div>I am a component!</div>
-const props = {
+const errorProps = {
   children: Children,
 }
 
 describe('ErrorBoundary', () => {
   it('should match a snapshot when no error', () => {
-    expect(render(<ErrorBoundary {...props} />)).toMatchSnapshot()
+    expect(render(<ErrorBoundary {...errorProps} />)).toMatchSnapshot()
   })
 
   it('should call the errorThrownComponent and sets the state to hasFailed when it catches', () => {
@@ -21,7 +21,7 @@ describe('ErrorBoundary', () => {
       }
       return <div />
     }
-    const newPops = { ...props, children: <DangerousChild /> }
+    const newPops = { ...errorProps, children: <DangerousChild /> }
 
     const component = render(<ErrorBoundary {...newPops} />)
 

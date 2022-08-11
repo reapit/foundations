@@ -27,7 +27,6 @@ export const checklistDetailShowModal = actionCreator<string>(ActionTypes.CHECKL
 export const checklistDetailHideModal = actionCreator<void>(ActionTypes.CHECKLIST_DETAIL_HIDE_MODAL)
 export const checklistDetailSubmitForm = actionCreator<boolean>(ActionTypes.CHECKLIST_DETAIL_SUBMIT_FORM)
 export const checklistDetailSearchPep = actionCreator<string>(ActionTypes.CHECKLIST_DETAIL_SEARCH_PEP)
-// TODO: will replace any
 export const pepSearchResult = actionCreator<any>(ActionTypes.CHECKLIST_DETAIL_SEARCH_PEP_RESULT)
 
 export type UpdateIdentityCheckParams = {

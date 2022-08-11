@@ -3,8 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { Config } from '../types/global'
 import * as Sentry from '@sentry/browser'
 import ReactGA from 'react-ga'
-import { getMarketplaceGlobalsByKey } from '@reapit/utils-react'
-import { logger } from '@reapit/utils-react'
+import { getMarketplaceGlobalsByKey, logger } from '@reapit/utils-react'
 
 // Init global config
 window.reapit = {

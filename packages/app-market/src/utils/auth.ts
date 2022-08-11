@@ -14,7 +14,7 @@ export const selectIsOffGroupingAdmin = (state: ReapitConnectSession | null): bo
   const hasUserGroups = selectIsOffGrouping(state)
   if (hasUserGroups) {
     const isAdmin = selectIsMarketplaceAdmin(state) || selectIsOrgAdmin(state)
-    return isAdmin && hasUserGroups
+    return isAdmin
   }
 
   return false

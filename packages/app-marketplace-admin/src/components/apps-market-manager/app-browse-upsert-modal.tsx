@@ -208,9 +208,7 @@ export const AppBrowseUpsertModal: FC<AppBrowseUpsertModalDefaultProps> = ({
   const iconName = useWatch({ name: 'content.iconName', control }) as IconNames
 
   const onFileUpload = async (params: CreateImageUploadModel) => {
-    const res = await createImageUpload(params)
-
-    return res
+    return createImageUpload(params)
   }
   const [imageView, setImageView] = useState<string | false>(false)
 
