@@ -7,7 +7,6 @@ import { ContactModel, IdentityCheckModel, ListItemModel } from '@reapit/foundat
 import { ReduxState } from '@/types/core'
 import { SectionsStatus } from '@/reducers/checklist-detail'
 import dayjs from 'dayjs'
-// import { getPepSearchStatus } from '@/utils/pep-search'
 import { FaCheck, FaTimes } from 'react-icons/fa'
 import {
   selectCheckListDetailContact,
@@ -141,20 +140,6 @@ export const ReportContainer: React.FC<ReportContainerProps> = ({ contact, idChe
         },
         status: status.declarationRisk,
       },
-      // {
-      //   section: 'PEP Search',
-      //   description: () => {
-      //     const pepSearchStatus = getPepSearchStatus()
-      //     const { param, time } = pepSearchStatus && id && pepSearchStatus[id]
-      //     return <div>{param && time && `Search conducted for "${param}" on ${time}`}</div>
-      //   },
-      //   status: status.pepSearch
-      // },
-      // {
-      //   section: 'Experian',
-      //   description: () => <div></div>,
-      //   status: status.experian
-      // }
     ]
   }, [contact, idCheck])
 

@@ -14,6 +14,7 @@ import {
   ButtonGroup,
   Button,
   elMr4,
+  useModal,
   elMr6,
   elMl6,
 } from '@reapit/elements'
@@ -38,7 +39,6 @@ import {
   AppDetailDescriptionAsideDesktop,
 } from './__styles__'
 import { Carousel } from '../carousel'
-import { useModal } from '@reapit/elements'
 import { AppInstallModalContent } from './app-install-modal'
 import { AppInstallSuccesModalContent } from './app-install-success-modal'
 import { useReapitConnect } from '@reapit/connect-session'

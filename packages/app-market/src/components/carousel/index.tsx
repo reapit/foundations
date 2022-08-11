@@ -1,4 +1,4 @@
-import {
+import React, {
   createRef,
   Dispatch,
   FC,
@@ -15,7 +15,6 @@ import {
 import { elFadeIn, Icon } from '@reapit/elements'
 import { CarouselWrapper, CarouselControlsLeft, CarouselControlsRight, CarouselCol, CarouselGrid } from './__styles__'
 import scrollIntoView from 'scroll-into-view-if-needed'
-import React from 'react'
 
 export interface CarouselProps {
   items: JSX.Element[]

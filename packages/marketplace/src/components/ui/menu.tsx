@@ -95,7 +95,7 @@ export const Menu: FC = () => {
             iconId: 'installedMenu',
             text: 'Installed',
           },
-          {
+          isAdmin && {
             itemIndex: 3,
             callback: navigate(history, Routes.MY_APPS),
             iconId: 'manageMenu',

@@ -2,16 +2,11 @@ import React, { useEffect, useState } from 'react'
 import { useEditor, useNode } from '@craftjs/core'
 import { ToolbarItem, ToolbarItemType } from '../toolbar'
 import Container from './container'
-import { DestinationPage } from './link'
 import { TableProps, Table as ETable } from './ejectable/table'
-import { useSubObjects } from '@/components/hooks/objects/use-sub-objects'
-import { useObjectSpecials } from '@/components/hooks/objects/use-object-specials'
-import { useObjectSearch } from '@/components/hooks/objects/use-object-search'
 import { getAvailableIntegrationsForArgs } from '@/core/desktop-integration'
 import { useObjectList } from '@/components/hooks/objects/use-object-list'
 import { useIntrospection } from '@/components/hooks/use-introspection'
 import { CreatePage } from './create-page'
-import { TypeList } from './type-list'
 import { useObject } from '@/components/hooks/objects/use-object'
 import { ColumnControls } from './column-controls'
 
@@ -54,15 +49,13 @@ export const IntegrationLanding = ({ typeName }: { typeName: string | undefined 
 
 const TableSettings = () => {
   const { typeName, includedFields } = useNode((node) => node.data.props)
-  const subobjects = useSubObjects(typeName)
-  const { specials } = useObjectSpecials(typeName)
-  const { available: searchAvailable } = useObjectSearch(typeName)
   const { object } = useObject(typeName)
   const {
     actions: { setProp },
   } = useNode()
 
   const [shouldUpdate, setShouldUpdate] = useState(false)
+  const [showNewPage, setShowNewPage] = useState(false)
 
   const sp = (prop: string, value: any) => {
     setProp((props) => {
@@ -83,58 +76,27 @@ const TableSettings = () => {
     }
   }, [shouldUpdate])
 
-  const updateIn100ms = () => {
-    setTimeout(() => {
-      setShouldUpdate(true)
-    }, 100)
-  }
-
   return (
     <>
-      <TypeList onChange={updateIn100ms} />
-      <DestinationPage
-        propKey="editPageId"
-        title="Edit Page"
-        createControl={
-          <CreatePage typeName={typeName} operationType="update" onCreate={(pageId) => sp('editPageId', pageId)} />
-        }
+      <CreatePage
+        typeName={typeName}
+        onShowNewPageChange={setShowNewPage}
+        onCreate={(pageId) => {
+          sp('editPageId', pageId)
+          sp('showControls', !!pageId)
+          setShowNewPage(false)
+        }}
       />
-      <IntegrationLanding typeName={typeName} />
-      {subobjects.data.map((subobject) => (
-        <DestinationPage
-          propKey={`${subobject.object.name}Page`}
-          key={subobject.object.name}
-          title={`${subobject.object.name} page`}
-          createControl={
-            <CreatePage
-              typeName={subobject.object.name}
-              operationType="list"
-              onCreate={(pageId) => sp(`${subobject.object.name}Page`, pageId)}
-            />
-          }
-        />
-      ))}
-      {specials.map((special) => (
-        <DestinationPage
-          propKey={`${special.name}Page`}
-          key={special.name}
-          title={`${special.name} page`}
-          createControl={
-            <CreatePage
-              typeName={typeName}
-              operationType={special.name}
-              onCreate={(pageId) => sp(`${special.name}Page`, pageId)}
-            />
-          }
-        />
-      ))}
-      <ToolbarItem type={ToolbarItemType.Checkbox} propKey="showControls" title="Show action buttons" />
-      {searchAvailable && <ToolbarItem type={ToolbarItemType.Checkbox} propKey="showSearch" title="Show search bar" />}
-      <ColumnControls
-        availableFields={availableFields}
-        includedFields={includedFields}
-        setIncludedFields={(fields: string[]) => sp('includedFields', fields)}
-      />
+      {!showNewPage && (
+        <>
+          <ColumnControls
+            availableFields={availableFields.map(({ name }) => ({ name, isRequired: false }))}
+            includedFields={includedFields}
+            setIncludedFields={(fields: string[]) => sp('includedFields', fields)}
+          />
+          <IntegrationLanding typeName={typeName} />
+        </>
+      )}
     </>
   )
 }

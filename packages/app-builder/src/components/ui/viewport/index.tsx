@@ -184,7 +184,7 @@ export const Viewport = ({ children, iframeRef, deserialize, rendererDivRefHandl
             </IFrame>
           )}
         </Container>
-        <Sidebar showNewPage={showNewPage} />
+        <Sidebar isCollapsed={showNewPage} />
       </div>
     </div>
   )

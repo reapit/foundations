@@ -41,7 +41,7 @@ export const FeaturedHeroAppsStrapline = styled(ElBodyText)`
   }
 
   ${forWidescreenAndAbove} {
-    margin-bottom: 0.5rem;
+    margin-bottom: 1.25rem;
     -webkit-line-clamp: 1;
   }
 `
