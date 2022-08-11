@@ -67,8 +67,8 @@ export class ConfigCommand extends AbstractCommand {
           await createConfig(process.cwd(), projectConfig)
           console.log(chalk.blue(`Created config ${process.cwd()}`))
           break
-        default:
         case 'show':
+        default:
           Object.keys(existingConfig.config).forEach((key) => {
             console.log(`${chalk.blue(key)} ${chalk.white(existingConfig.config[key])}`)
           })
