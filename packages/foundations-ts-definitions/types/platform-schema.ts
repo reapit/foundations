@@ -528,9 +528,22 @@ export interface ApplicantModel {
    */
   locality?: string[]
   /**
-   * The applicant's special feature property requirements (eg swimmingPool, tennisCourt), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
+   * The applicant's special feature property requirements (eg swimmingPool, tennisCourt), as defined by the applicant's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
   specialFeatures?: string[]
+  /**
+   * The requirements associated to the applicant which are not currently mapped. These are defined by the applicant's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
+   */
+  unmappedRequirements?: {
+    /**
+     * The type of unmapped requirement
+     */
+    type?: string
+    /**
+     * The value associated to the unmapped type
+     */
+    value?: string
+  }[]
   /**
    * The minimum number of bedrooms the applicant requires. This is only supported by some departments. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
    */
@@ -921,9 +934,22 @@ export interface ApplicantModelPagedResult {
      */
     locality?: string[]
     /**
-     * The applicant's special feature property requirements (eg swimmingPool, tennisCourt), as defined by the property's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
+     * The applicant's special feature property requirements (eg swimmingPool, tennisCourt), as defined by the applicant's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
      */
     specialFeatures?: string[]
+    /**
+     * The requirements associated to the applicant which are not currently mapped. These are defined by the applicant's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
+     */
+    unmappedRequirements?: {
+      /**
+       * The type of unmapped requirement
+       */
+      type?: string
+      /**
+       * The value associated to the unmapped type
+       */
+      value?: string
+    }[]
     /**
      * The minimum number of bedrooms the applicant requires. This is only supported by some departments. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
      */
@@ -15625,6 +15651,19 @@ export interface TypeModel {
 export interface UnmappedAttributeModel {
   /**
    * The type of unmapped attribute (style/type/situation/parking/age/locality/special)
+   */
+  type?: string
+  /**
+   * The value associated to the unmapped type
+   */
+  value?: string
+}
+/**
+ * Represents an unmapped requirement type
+ */
+export interface UnmappedRequirementModel {
+  /**
+   * The type of unmapped requirement
    */
   type?: string
   /**
