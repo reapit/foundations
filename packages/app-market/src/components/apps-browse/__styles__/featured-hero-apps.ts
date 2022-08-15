@@ -73,6 +73,10 @@ export const FeaturedHeroAppsContainer = styled.div`
   }
 
   ${forTabletAndAbove} {
+    height: 450px;
+  }
+
+  ${forDesktopAndAbove} {
     height: 400px;
   }
 
@@ -171,14 +175,14 @@ export const FeaturedHeroAppsIcon = styled.img`
 
 export const FeaturedHeroAppsImageContainer = styled.div`
   width: 100%;
-  height: 140px;
+  height: 160px;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
 
   ${forMobileAndAbove} {
-    height: 250px;
+    height: 280px;
   }
 
   ${forDesktopAndAbove} {
