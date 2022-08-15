@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useEffect } from 'react'
 import {
   BodyText,
   Button,
@@ -24,6 +24,7 @@ import { validationSchemaChangePassword } from './validation-schema'
 import { changePasswordService } from '../../services/cognito-identity'
 import { RolesChip } from './__styles__'
 import { handleLogout } from '.'
+import { onPageLoadHandler, TrackingEvent } from '../../core/analytics'
 
 export type ChangePasswordFormValues = {
   password: string
@@ -64,6 +65,8 @@ export const SettingsProfile: FC = () => {
       confirmPassword: '',
     },
   })
+
+  useEffect(onPageLoadHandler(TrackingEvent.LoadProfile, true), [])
 
   const { name, email, orgName, clientId, groups } = loginIdentity
 

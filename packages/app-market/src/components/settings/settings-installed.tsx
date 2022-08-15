@@ -30,6 +30,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { object, SchemaOf, string } from 'yup'
 import { specialCharsTest } from '../../utils/yup'
 import { selectIsAdmin } from '../../utils/auth'
+import { onPageLoadHandler, TrackingEvent } from '../../core/analytics'
 
 export interface InstallationDetails {
   installationId: string
@@ -139,6 +140,8 @@ export const SettingsInstalled: FC = () => {
   })
 
   useEffect(handleUninstallSuccess(refetchInstallations, closeModal, uninstallSuccess), [uninstallSuccess])
+
+  useEffect(onPageLoadHandler(TrackingEvent.LoadSettingsInstalled, true), [])
 
   if (!isAdmin) {
     return (

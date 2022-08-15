@@ -1,8 +1,9 @@
 import { AppsBrowseConfigItemFiltersInterface, AppsBrowseConfigItemInterface } from '@reapit/foundations-ts-definitions'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { useReapitGet } from '@reapit/utils-react'
-import React, { FC, createContext, useContext, useState, SetStateAction, Dispatch } from 'react'
+import React, { FC, createContext, useContext, useState, SetStateAction, Dispatch, useEffect } from 'react'
 import { useReapitConnect } from '../../../connect-session/src'
+import { registerUserHandler } from './analytics'
 import { reapitConnectBrowserSession } from './connect-session'
 
 export interface AppsBrowseConfigItemContent {
@@ -37,7 +38,10 @@ const { Provider } = AppsBrowseStateContext
 
 export const AppsBrowseProvider: FC = ({ children }) => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const [analyticsRegistered, setAnalyticsRegistered] = useState<boolean>(false)
   const [appsBrowseFilterState, setAppsBrowseFilterState] = useState<AppsBrowseConfigItemFiltersInterface | null>(null)
+
+  useEffect(registerUserHandler(connectSession, analyticsRegistered, setAnalyticsRegistered), [connectSession])
 
   const [appsBrowseConfigCollection] = useReapitGet<AppsBrowseConfigCollection>({
     reapitConnectBrowserSession,

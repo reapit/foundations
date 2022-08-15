@@ -1,4 +1,4 @@
-import React, { createRef, Dispatch, FC, LegacyRef, SetStateAction, useMemo, useRef, useState } from 'react'
+import React, { createRef, Dispatch, FC, LegacyRef, SetStateAction, useEffect, useMemo, useRef, useState } from 'react'
 import {
   PageContainer,
   Loader,
@@ -46,6 +46,8 @@ import { selectIsAdmin } from '../../utils/auth'
 import { filterRestrictedAppDetail } from '../../utils/browse-app'
 import { cx } from '@linaria/core'
 import { AppsDetailHeader } from './apps-detail-header'
+import { onPageLoadHandler, TrackingEvent } from '../../core/analytics'
+import { navigateBack } from '../../utils/navigation'
 
 export interface AppIdParams {
   appId: string
@@ -130,6 +132,12 @@ export const AppsDetail: FC = () => {
     developerId,
   } = app
 
+  const shouldTrack = Boolean(appId && name)
+
+  useEffect(onPageLoadHandler(TrackingEvent.LoadAppDetail, shouldTrack, { appId, appName: name }), [
+    unfilteredAppDetail,
+  ])
+
   const images = media?.filter((item) => item.type === 'image')
   const videos = media?.filter((item) => item.type === 'video')
   const heroImage = images ? images[0] : null
@@ -149,7 +157,7 @@ export const AppsDetail: FC = () => {
         <Loader />
       ) : (
         <>
-          <AppDetailBackButton onClick={history.goBack}>
+          <AppDetailBackButton onClick={navigateBack(history)}>
             <Icon icon="backSystem" intent="primary" />
           </AppDetailBackButton>
           <AppsDetailHeader app={app} />

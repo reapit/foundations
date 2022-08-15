@@ -4,7 +4,7 @@ import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { NavResponsive, NavResponsiveOption } from '@reapit/elements'
 import { Routes } from '../../constants/routes'
 import { history } from '../../core/router'
-import { navigate } from '../../utils/navigation'
+import { navigate, navigateExternal } from '../../utils/navigation'
 
 export const getDefaultNavIndex = (pathname: string) => {
   if (pathname.includes('apps')) return 1
@@ -73,7 +73,7 @@ export const Nav: FC = () => {
   if (!connectIsDesktop) {
     navOptions.splice(3, 0, {
       itemIndex: 3,
-      callback: () => (window.location.href = window.reapit.config.developerPortalUrl),
+      callback: navigateExternal(window.reapit.config.developerPortalUrl),
       iconId: 'developersMenu',
       text: 'Developers',
     })
