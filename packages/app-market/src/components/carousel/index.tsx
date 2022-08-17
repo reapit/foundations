@@ -16,7 +16,8 @@ import React, {
 import { elFadeIn, Icon } from '@reapit/elements'
 import { CarouselWrapper, CarouselControlsLeft, CarouselControlsRight, CarouselCol, CarouselGrid } from './__styles__'
 import scrollIntoView from 'scroll-into-view-if-needed'
-import { trackEvent, TrackingEvent } from '../../core/analytics'
+import { trackEvent } from '../../core/analytics'
+import { TrackingEvent } from '../../core/analytics-events'
 
 export interface CarouselProps {
   items: JSX.Element[]

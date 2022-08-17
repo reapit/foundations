@@ -26,10 +26,13 @@ import { GetActionNames, getActions } from '@reapit/utils-common'
 import { AppsSupportItem } from './apps-support-item'
 import { cx } from '@linaria/core'
 import { filterRestrictedAppsList } from '../../utils/browse-app'
-import { onPageLoadHandler, TrackingEvent } from '../../core/analytics'
+import { onPageLoadHandler, trackEvent } from '../../core/analytics'
+import { TrackingEvent } from '../../core/analytics-events'
 
 export const handleSearch = (setSearch: Dispatch<SetStateAction<string>>) => (event: ChangeEvent<HTMLInputElement>) => {
   const search = event.target.value.toLowerCase()
+
+  trackEvent(TrackingEvent.SearchSupport, true, { searchTerm: search })
   setSearch(search)
 }
 

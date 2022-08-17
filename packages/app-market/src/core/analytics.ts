@@ -2,39 +2,7 @@ import { isTruthy } from '@reapit/utils-common'
 import { ReapitConnectSession } from '@reapit/connect-session'
 import mixpanel from 'mixpanel-browser'
 import { Dispatch, SetStateAction } from 'react'
-
-export enum TrackingEvent {
-  LoadLogin = 'Load Web Login Page',
-  LoadBrowse = 'Load Browse Apps Page',
-  LoadAppDetail = 'Load App Details Page',
-  LoadInstalled = 'Load Installed Apps Page',
-  LoadProfile = 'Load Profile Page',
-  LoadSettingsInstalled = 'Load Settings Installed Apps Page',
-  LoadSupportPage = 'Load Support Page',
-  NavigateInternalPage = 'Navigate To Internal Page',
-  NavigateBack = 'Navigate To Previous Page',
-  NavigateExternalPage = 'Navigate To External Page',
-  OpenExternalPage = 'Open External Page',
-  LaunchAppAc = 'Launch App In AgencyCloud',
-  LaunchAppWeb = 'Launch App In External Browser',
-  ClickFiltersTile = 'Click Filters Tile, Apply Filters',
-  ClickClearFilters = 'Click Clear Filters Button',
-  SearchApps = 'Search Term Change',
-  FilterApps = 'Filter Category Changed',
-  ClickMobileControls = 'Click Mobile Controls',
-  ClickSeeAllFilter = 'Click See All Filter',
-  ClickCloseWithoutInstalling = 'Click Close Without Installing',
-  ClickConfirnInstallation = 'Click Confirn Installation',
-  InstallationSuccess = 'Installation Success',
-  InstallationFailed = 'Installation Failed',
-  ClickInstallAppButton = 'Click Install App Button',
-  ClickViewVideo = 'Click View Video',
-  ClickScrollImageCarousel = 'Click Scroll Image Carousel',
-  ClickLoginWebButton = 'Click Login Web Button',
-  ClickLogoutButton = 'Click Logout Button',
-  ClickCloseWithoutUninstalling = 'Click Close Without Uninstalling',
-  ClickUninstallApp = 'Click Uninstall App',
-}
+import { TrackingEvent } from './analytics-events'
 
 export interface TrackingEventData {
   [key: string]: any
@@ -50,7 +18,7 @@ export const trackEvent = (event: TrackingEvent, shouldTrack: boolean, data?: Tr
   }
 }
 
-const getRoleFromGroups = (groups: string[]) => {
+export const getRoleFromGroups = (groups: string[]) => {
   const isOrgAdmin = groups.includes('OrganisationAdmin') && 'Group Organisation Admin'
   const isDeveloper = groups.includes('FoundationsDeveloper') && 'Developer'
   const isDeveloperAdmin = groups.includes('FoundationsDeveloperAdmin') && 'Developer Admin'

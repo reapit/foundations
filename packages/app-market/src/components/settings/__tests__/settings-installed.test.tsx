@@ -1,18 +1,23 @@
 import React from 'react'
 import SettingsInstalled, {
   getAppIds,
+  handleCloseModal,
   handleSetInstallationDetails,
   handleUninstallApp,
   handleUninstallSuccess,
+  InstallationDetails,
 } from '../settings-installed'
 import { render, setViewport } from '../../../tests/react-testing'
 import { useReapitGet } from '@reapit/utils-react'
 import { mockInstallationModelPagedResult } from '../../../tests/__stubs__/installations'
 import { useReapitConnect } from '@reapit/connect-session'
+import { TrackingEvent } from '../../../core/analytics-events'
+import { trackEvent } from '../../../core/analytics'
 
 window.reapit.config.clientHiddenAppIds = {}
 window.reapit.config.orgAdminRestrictedAppIds = []
 
+jest.mock('../../../core/analytics')
 jest.mock('@reapit/connect-session', () => ({
   ReapitConnectBrowserSession: jest.fn(),
   useReapitConnect: jest.fn(() => ({
@@ -129,15 +134,42 @@ describe('handleSetInstallationDetails', () => {
   it('should handle uninstallation', () => {
     const setInstallationId = jest.fn()
     const openModal = jest.fn()
+    const appName = 'MOCK_APP_NAME'
     const installationId = 'MOCK_ID'
     const appId = 'MOCK_ID'
 
-    const curried = handleSetInstallationDetails(setInstallationId, openModal, installationId, appId)
+    const curried = handleSetInstallationDetails(setInstallationId, openModal, appName, installationId, appId)
 
     curried()
 
+    expect(trackEvent).toHaveBeenCalledWith(TrackingEvent.ClickUninstallApp, true, { appName })
     expect(setInstallationId).toHaveBeenCalledWith({ installationId, appId })
     expect(openModal).toHaveBeenCalledTimes(1)
+  })
+})
+
+describe('handleCloseModal', () => {
+  it('should handle closing modal', () => {
+    const closeModal = jest.fn()
+    const appName = 'MOCK_APP_NAME'
+    const clientId = 'MOCK_ID'
+    const appId = 'MOCK_ID'
+    const email = 'mock@example.com'
+    const installationDetails = { appId } as InstallationDetails
+    const apps = {
+      data: [{ id: appId, name: appName }],
+    }
+
+    const curried = handleCloseModal(closeModal, installationDetails, apps, clientId, email)
+
+    curried()
+
+    expect(trackEvent).toHaveBeenCalledWith(TrackingEvent.ClickCloseWithoutInstalling, true, {
+      appName,
+      clientId,
+      email,
+    })
+    expect(closeModal).toHaveBeenCalledTimes(1)
   })
 })
 

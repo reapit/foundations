@@ -57,8 +57,9 @@ import { selectIsAdmin } from '../../utils/auth'
 import { filterRestrictedAppDetail } from '../../utils/browse-app'
 import { cx } from '@linaria/core'
 import { AppsDetailHeader } from './apps-detail-header'
-import { onPageLoadHandler, trackEvent, TrackingEvent } from '../../core/analytics'
+import { onPageLoadHandler, trackEvent } from '../../core/analytics'
 import { navigateBack } from '../../utils/navigation'
+import { TrackingEvent } from '../../core/analytics-events'
 
 export interface AppIdParams {
   appId: string
@@ -111,7 +112,7 @@ export const handleOpenInstallModal =
   }
 
 export const handleCloseVideoModal = (closeModal: () => void) => () => {
-  trackEvent(TrackingEvent.ClickInstallAppButton, true)
+  trackEvent(TrackingEvent.ClickCloseVideo, true)
 
   closeModal()
 }

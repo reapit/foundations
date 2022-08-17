@@ -33,7 +33,8 @@ import {
   AppsBrowseConfigItemFiltersInterface,
   AppsBrowseConfigItemInterface,
 } from '@reapit/foundations-ts-definitions'
-import { trackEvent, TrackingEvent } from '../../core/analytics'
+import { trackEvent } from '../../core/analytics'
+import { TrackingEvent } from '../../core/analytics-events'
 
 export type MobileControlsState = 'search' | 'filters' | null
 

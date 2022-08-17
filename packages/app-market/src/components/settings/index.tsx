@@ -22,7 +22,8 @@ import { navigate } from '../../utils/navigation'
 import { selectIsAdmin } from '../../utils/auth'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { trackEvent, TrackingEvent } from '../../core/analytics'
+import { trackEvent } from '../../core/analytics'
+import { TrackingEvent } from '../../core/analytics-events'
 
 export const handleLogout = (connectLogoutRedirect: () => void) => () => {
   trackEvent(TrackingEvent.ClickLogoutButton, true)

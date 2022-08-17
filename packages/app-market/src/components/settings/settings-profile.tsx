@@ -24,7 +24,8 @@ import { validationSchemaChangePassword } from './validation-schema'
 import { changePasswordService } from '../../services/cognito-identity'
 import { RolesChip } from './__styles__'
 import { handleLogout } from '.'
-import { onPageLoadHandler, TrackingEvent } from '../../core/analytics'
+import { onPageLoadHandler, trackEvent } from '../../core/analytics'
+import { TrackingEvent } from '../../core/analytics-events'
 
 export type ChangePasswordFormValues = {
   password: string
@@ -42,6 +43,7 @@ export const handleChangePassword =
     })
 
     if (passwordChanged) {
+      trackEvent(TrackingEvent.ChangePassword, true)
       success('Successfully updated your password')
     } else {
       error('Failed to update your password. This error has been logged, please try again')

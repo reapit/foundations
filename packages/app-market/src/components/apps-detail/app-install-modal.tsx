@@ -11,7 +11,8 @@ import { Button, ButtonGroup, elMb11, BodyText, elMb6 } from '@reapit/elements'
 import { AcProcessType, DesktopLink, SendFunction, useReapitUpdate } from '@reapit/utils-react'
 import { UpdateActionNames, updateActions } from '@reapit/utils-common'
 import { AppDetailPermissionChip } from './__styles__'
-import { trackEvent, TrackingEvent } from '../../core/analytics'
+import { trackEvent } from '../../core/analytics'
+import { TrackingEvent } from '../../core/analytics-events'
 
 export const DESKTOP_REFRESH_URL = 'agencycloud://apps/refresh'
 

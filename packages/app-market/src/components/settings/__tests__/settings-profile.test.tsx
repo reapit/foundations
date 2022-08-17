@@ -1,17 +1,40 @@
 import React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render, setViewport } from '../../../tests/react-testing'
 import { SettingsProfile, handleChangePassword } from '../settings-profile'
 import { changePasswordService } from '../../../services/cognito-identity'
 import { UseSnack } from '@reapit/elements'
+import { TrackingEvent } from '../../../core/analytics-events'
+import { trackEvent } from '../../../core/analytics'
 
+jest.mock('../../../core/analytics')
 jest.mock('../../../services/cognito-identity', () => ({
   changePasswordService: jest.fn(),
+}))
+jest.mock('@reapit/connect-session', () => ({
+  ReapitConnectBrowserSession: jest.fn(),
+  useReapitConnect: jest.fn(() => ({
+    connectSession: {
+      loginIdentity: {
+        offGrouping: true,
+        clientId: 'MOCK_CLIENT_ID',
+        groups: ['OrganisationAdmin'],
+        name: 'MOCK_NAME',
+        email: 'foo@example.com',
+        orgName: 'MOCK_ORG_NAME',
+      },
+    },
+  })),
 }))
 
 const mockChangePasswordService = changePasswordService as jest.Mock
 
 describe('SettingsProfile', () => {
   it('should match snapshot', () => {
+    expect(render(<SettingsProfile />)).toMatchSnapshot()
+  })
+
+  it('should match snapshot in mobile', () => {
+    setViewport('mobile')
     expect(render(<SettingsProfile />)).toMatchSnapshot()
   })
 })
@@ -40,6 +63,7 @@ describe('handleChangePassword', () => {
       userName: email,
     })
 
+    expect(trackEvent).toHaveBeenCalledWith(TrackingEvent.ChangePassword, true)
     expect(snack.error).not.toHaveBeenCalled()
     expect(snack.success).toHaveBeenCalledTimes(1)
   })

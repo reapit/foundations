@@ -1,5 +1,6 @@
 import React, { FC, useEffect } from 'react'
-import { onPageLoadHandler, TrackingEvent } from '../../core/analytics'
+import { onPageLoadHandler } from '../../core/analytics'
+import { TrackingEvent } from '../../core/analytics-events'
 import { AppsInstalled } from './apps-installed'
 
 export const AppsInstalledPage: FC = () => {

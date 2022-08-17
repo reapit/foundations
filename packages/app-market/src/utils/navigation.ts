@@ -1,5 +1,6 @@
 import { History } from 'history'
-import { trackEvent, TrackingEvent } from '../core/analytics'
+import { trackEvent } from '../core/analytics'
+import { TrackingEvent } from '../core/analytics-events'
 
 export const openNewPage = (uri: string) => () => {
   trackEvent(TrackingEvent.OpenExternalPage, true, { url: uri })

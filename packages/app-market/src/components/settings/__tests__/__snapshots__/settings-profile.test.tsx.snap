@@ -24,7 +24,78 @@ Object {
       </h2>
       <div
         class="el-mb11 el-grid"
-      />
+      >
+        <div
+          class="el-col"
+        >
+          <h2
+            class="el-has-no-margin el-subtitle"
+          >
+            Name
+          </h2>
+          <p
+            class="el-has-grey-text el-has-no-margin el-body-text"
+          >
+            MOCK_NAME
+          </p>
+        </div>
+        <div
+          class="el-col"
+        >
+          <h2
+            class="el-has-no-margin el-subtitle"
+          >
+            Email
+          </h2>
+          <p
+            class="el-has-grey-text el-has-no-margin el-body-text"
+          >
+            foo@example.com
+          </p>
+        </div>
+        <div
+          class="el-col"
+        >
+          <h2
+            class="el-has-no-margin el-subtitle"
+          >
+            Company Name
+          </h2>
+          <p
+            class="el-has-grey-text el-has-no-margin el-body-text"
+          >
+            MOCK_ORG_NAME
+          </p>
+        </div>
+        <div
+          class="el-col"
+        >
+          <h2
+            class="el-has-no-margin el-subtitle"
+          >
+            Customer Code
+          </h2>
+          <p
+            class="el-has-grey-text el-has-no-margin el-body-text"
+          >
+            MOCK_CLIENT_ID
+          </p>
+        </div>
+        <div
+          class="el-col"
+        >
+          <h2
+            class="el-has-no-margin el-subtitle"
+          >
+            Roles
+          </h2>
+          <div
+            class="roles-chip"
+          >
+            OrganisationAdmin
+          </div>
+        </div>
+      </div>
       <h2
         class="el-has-bold-text el-subtitle"
       >
@@ -132,7 +203,519 @@ Object {
     </h2>
     <div
       class="el-mb11 el-grid"
+    >
+      <div
+        class="el-col"
+      >
+        <h2
+          class="el-has-no-margin el-subtitle"
+        >
+          Name
+        </h2>
+        <p
+          class="el-has-grey-text el-has-no-margin el-body-text"
+        >
+          MOCK_NAME
+        </p>
+      </div>
+      <div
+        class="el-col"
+      >
+        <h2
+          class="el-has-no-margin el-subtitle"
+        >
+          Email
+        </h2>
+        <p
+          class="el-has-grey-text el-has-no-margin el-body-text"
+        >
+          foo@example.com
+        </p>
+      </div>
+      <div
+        class="el-col"
+      >
+        <h2
+          class="el-has-no-margin el-subtitle"
+        >
+          Company Name
+        </h2>
+        <p
+          class="el-has-grey-text el-has-no-margin el-body-text"
+        >
+          MOCK_ORG_NAME
+        </p>
+      </div>
+      <div
+        class="el-col"
+      >
+        <h2
+          class="el-has-no-margin el-subtitle"
+        >
+          Customer Code
+        </h2>
+        <p
+          class="el-has-grey-text el-has-no-margin el-body-text"
+        >
+          MOCK_CLIENT_ID
+        </p>
+      </div>
+      <div
+        class="el-col"
+      >
+        <h2
+          class="el-has-no-margin el-subtitle"
+        >
+          Roles
+        </h2>
+        <div
+          class="roles-chip"
+        >
+          OrganisationAdmin
+        </div>
+      </div>
+    </div>
+    <h2
+      class="el-has-bold-text el-subtitle"
+    >
+      Update Your Password
+    </h2>
+    <form>
+      <div
+        class="el-form-layout-has-margin el-form-layout"
+      >
+        <div
+          class="el-input-wrap"
+        >
+          <div
+            class="el-input-group"
+          >
+            <input
+              class="el-input"
+              id="test-static-id"
+              name="password"
+              type="password"
+            />
+            <label
+              class="el-label"
+              for="test-static-id"
+            >
+              Current Password
+            </label>
+          </div>
+        </div>
+        <div
+          class="el-input-wrap"
+        >
+          <div
+            class="el-input-group"
+          >
+            <input
+              class="el-input"
+              id="test-static-id"
+              name="newPassword"
+              type="password"
+            />
+            <label
+              class="el-label"
+              for="test-static-id"
+            >
+              New Password
+            </label>
+          </div>
+        </div>
+        <div
+          class="el-input-wrap"
+        >
+          <div
+            class="el-input-group"
+          >
+            <input
+              class="el-input"
+              id="test-static-id"
+              name="confirmPassword"
+              type="password"
+            />
+            <label
+              class="el-label"
+              for="test-static-id"
+            >
+              Confirm New Password
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="el-button-group"
+      >
+        <div
+          class="el-button-group-inner"
+        >
+          <button
+            class="el-intent-primary el-button"
+            type="submit"
+          >
+            Save Changes
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`SettingsProfile should match snapshot in mobile 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <div
+        class="el-flex-justify-between el-flex-container"
+      >
+        <h1
+          class="el-title"
+        >
+          Profile
+        </h1>
+        <div
+          class="el-button-group"
+        >
+          <div
+            class="el-button-group-align-right el-button-group-inner"
+          >
+            <button
+              class="el-intent-critical el-button-has-right-chevron el-button"
+            >
+              Logout
+            </button>
+          </div>
+        </div>
+      </div>
+      <h2
+        class="el-has-bold-text el-subtitle"
+      >
+        Your Details
+      </h2>
+      <div
+        class="el-mb11 el-grid"
+      >
+        <div
+          class="el-col"
+        >
+          <h2
+            class="el-has-no-margin el-subtitle"
+          >
+            Name
+          </h2>
+          <p
+            class="el-has-grey-text el-has-no-margin el-body-text"
+          >
+            MOCK_NAME
+          </p>
+        </div>
+        <div
+          class="el-col"
+        >
+          <h2
+            class="el-has-no-margin el-subtitle"
+          >
+            Email
+          </h2>
+          <p
+            class="el-has-grey-text el-has-no-margin el-body-text"
+          >
+            foo@example.com
+          </p>
+        </div>
+        <div
+          class="el-col"
+        >
+          <h2
+            class="el-has-no-margin el-subtitle"
+          >
+            Company Name
+          </h2>
+          <p
+            class="el-has-grey-text el-has-no-margin el-body-text"
+          >
+            MOCK_ORG_NAME
+          </p>
+        </div>
+        <div
+          class="el-col"
+        >
+          <h2
+            class="el-has-no-margin el-subtitle"
+          >
+            Customer Code
+          </h2>
+          <p
+            class="el-has-grey-text el-has-no-margin el-body-text"
+          >
+            MOCK_CLIENT_ID
+          </p>
+        </div>
+        <div
+          class="el-col"
+        >
+          <h2
+            class="el-has-no-margin el-subtitle"
+          >
+            Roles
+          </h2>
+          <div
+            class="roles-chip"
+          >
+            OrganisationAdmin
+          </div>
+        </div>
+      </div>
+      <h2
+        class="el-has-bold-text el-subtitle"
+      >
+        Update Your Password
+      </h2>
+      <form>
+        <div
+          class="el-form-layout-has-margin el-form-layout"
+        >
+          <div
+            class="el-input-wrap"
+          >
+            <div
+              class="el-input-group"
+            >
+              <input
+                class="el-input"
+                id="test-static-id"
+                name="password"
+                type="password"
+              />
+              <label
+                class="el-label"
+                for="test-static-id"
+              >
+                Current Password
+              </label>
+            </div>
+          </div>
+          <div
+            class="el-input-wrap"
+          >
+            <div
+              class="el-input-group"
+            >
+              <input
+                class="el-input"
+                id="test-static-id"
+                name="newPassword"
+                type="password"
+              />
+              <label
+                class="el-label"
+                for="test-static-id"
+              >
+                New Password
+              </label>
+            </div>
+          </div>
+          <div
+            class="el-input-wrap"
+          >
+            <div
+              class="el-input-group"
+            >
+              <input
+                class="el-input"
+                id="test-static-id"
+                name="confirmPassword"
+                type="password"
+              />
+              <label
+                class="el-label"
+                for="test-static-id"
+              >
+                Confirm New Password
+              </label>
+            </div>
+          </div>
+        </div>
+        <div
+          class="el-button-group"
+        >
+          <div
+            class="el-button-group-inner"
+          >
+            <button
+              class="el-intent-primary el-button"
+              type="submit"
+            >
+              Save Changes
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
     />
+    <div
+      class="el-flex-justify-between el-flex-container"
+    >
+      <h1
+        class="el-title"
+      >
+        Profile
+      </h1>
+      <div
+        class="el-button-group"
+      >
+        <div
+          class="el-button-group-align-right el-button-group-inner"
+        >
+          <button
+            class="el-intent-critical el-button-has-right-chevron el-button"
+          >
+            Logout
+          </button>
+        </div>
+      </div>
+    </div>
+    <h2
+      class="el-has-bold-text el-subtitle"
+    >
+      Your Details
+    </h2>
+    <div
+      class="el-mb11 el-grid"
+    >
+      <div
+        class="el-col"
+      >
+        <h2
+          class="el-has-no-margin el-subtitle"
+        >
+          Name
+        </h2>
+        <p
+          class="el-has-grey-text el-has-no-margin el-body-text"
+        >
+          MOCK_NAME
+        </p>
+      </div>
+      <div
+        class="el-col"
+      >
+        <h2
+          class="el-has-no-margin el-subtitle"
+        >
+          Email
+        </h2>
+        <p
+          class="el-has-grey-text el-has-no-margin el-body-text"
+        >
+          foo@example.com
+        </p>
+      </div>
+      <div
+        class="el-col"
+      >
+        <h2
+          class="el-has-no-margin el-subtitle"
+        >
+          Company Name
+        </h2>
+        <p
+          class="el-has-grey-text el-has-no-margin el-body-text"
+        >
+          MOCK_ORG_NAME
+        </p>
+      </div>
+      <div
+        class="el-col"
+      >
+        <h2
+          class="el-has-no-margin el-subtitle"
+        >
+          Customer Code
+        </h2>
+        <p
+          class="el-has-grey-text el-has-no-margin el-body-text"
+        >
+          MOCK_CLIENT_ID
+        </p>
+      </div>
+      <div
+        class="el-col"
+      >
+        <h2
+          class="el-has-no-margin el-subtitle"
+        >
+          Roles
+        </h2>
+        <div
+          class="roles-chip"
+        >
+          OrganisationAdmin
+        </div>
+      </div>
+    </div>
     <h2
       class="el-has-bold-text el-subtitle"
     >

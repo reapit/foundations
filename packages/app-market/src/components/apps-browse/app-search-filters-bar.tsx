@@ -32,7 +32,8 @@ import { cx } from '@linaria/core'
 import debounce from 'just-debounce-it'
 import { MobileControlsState } from './apps-browse'
 import { useAppsBrowseState } from '../../core/use-apps-browse-state'
-import { trackEvent, TrackingEvent } from '../../core/analytics'
+import { trackEvent } from '../../core/analytics'
+import { TrackingEvent } from '../../core/analytics-events'
 
 export interface AppSearchFiltersProps {
   mobileControlsState: MobileControlsState

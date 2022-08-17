@@ -4,16 +4,27 @@ import { MediaType } from '@reapit/elements'
 import { render, setViewport, viewPortOptions } from '../../../tests/react-testing'
 import { mockAppDetailModel } from '../../../tests/__stubs__/apps'
 import { mockDesktopIntegrationTypeModelPagedResult } from '../../../tests/__stubs__/desktop-integration-types'
-import { AppsDetail, handleCarouselCols, handleOpenVideoModal, VideoType } from '../apps-detail'
+import {
+  AppsDetail,
+  handleCarouselCols,
+  handleCloseVideoModal,
+  handleOpenInstallModal,
+  handleOpenVideoModal,
+  VideoType,
+} from '../apps-detail'
+import { trackEvent } from '../../../core/analytics'
+import { TrackingEvent } from '../../../core/analytics-events'
 
 window.reapit.config.clientHiddenAppIds = {}
 window.reapit.config.orgAdminRestrictedAppIds = []
 
+jest.mock('../../../core/analytics')
 jest.mock('@reapit/connect-session', () => ({
   ReapitConnectBrowserSession: jest.fn(),
   useReapitConnect: jest.fn(() => ({
     connectSession: {
       loginIdentity: {
+        offGrouping: true,
         clientId: 'MOCK_CLIENT_ID',
         groups: ['OrganisationAdmin'],
       },
@@ -38,6 +49,17 @@ describe('AppsDetail', () => {
 
     mockUseReapitGet
       .mockReturnValueOnce([mockAppDetailModel, false])
+      .mockReturnValueOnce([mockDesktopIntegrationTypeModelPagedResult, false])
+    expect(render(<AppsDetail />)).toMatchSnapshot()
+  })
+
+  it('should match a snapshot when not installed', () => {
+    const testElem = document.createElement('div')
+    testElem.id = 'root'
+    document.body.appendChild(testElem)
+
+    mockUseReapitGet
+      .mockReturnValueOnce([{ ...mockAppDetailModel, installedOn: 'FOO' }, false])
       .mockReturnValueOnce([mockDesktopIntegrationTypeModelPagedResult, false])
     expect(render(<AppsDetail />)).toMatchSnapshot()
   })
@@ -102,8 +124,8 @@ describe('handleCarouselCols', () => {
   })
 })
 
-describe('handleOpenModal', () => {
-  it('should handle opening modal', () => {
+describe('handleOpenVideoModal', () => {
+  it('should handle opening video modal', () => {
     const setVideoUrl = jest.fn()
     const videoOpenModal = jest.fn()
     const videoUrl = 'https://example.com'
@@ -114,5 +136,34 @@ describe('handleOpenModal', () => {
 
     expect(setVideoUrl).toHaveBeenCalledWith(videoUrl)
     expect(videoOpenModal).toHaveBeenCalledTimes(1)
+  })
+})
+
+describe('handleOpenInstallModal', () => {
+  it('should handle opening install modal', () => {
+    const appInstallOpenModal = jest.fn()
+    const appName = 'MOCK_APP_NAME'
+    const clientId = 'MOCK_CLIENT_ID'
+    const email = 'mail@example.com'
+
+    const curried = handleOpenInstallModal(appInstallOpenModal, appName, clientId, email)
+
+    curried()
+
+    expect(appInstallOpenModal).toHaveBeenCalledTimes(1)
+    expect(trackEvent).toHaveBeenCalledWith(TrackingEvent.ClickInstallAppButton, true, { appName, clientId, email })
+  })
+})
+
+describe('handleCloseVideoModal', () => {
+  it('should handle opening video modal', () => {
+    const closeModal = jest.fn()
+
+    const curried = handleCloseVideoModal(closeModal)
+
+    curried()
+
+    expect(trackEvent).toHaveBeenCalledWith(TrackingEvent.ClickCloseVideo, true)
+    expect(closeModal).toHaveBeenCalledTimes(1)
   })
 })

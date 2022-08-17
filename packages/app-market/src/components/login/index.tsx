@@ -5,7 +5,8 @@ import reapitLogo from '../../assets/images/reapit-logo.svg'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { KeyAnimation } from '@reapit/utils-react'
 import { LoginContainer, LoginContentWrapper, LoginImageContainer } from './__styles__'
-import { onPageLoadHandler, trackEvent, TrackingEvent } from '../../core/analytics'
+import { onPageLoadHandler, trackEvent } from '../../core/analytics'
+import { TrackingEvent } from '../../core/analytics-events'
 
 export const handleLoginClick = () => {
   trackEvent(TrackingEvent.ClickLoginWebButton, true)

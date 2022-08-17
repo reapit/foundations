@@ -30,7 +30,8 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { object, SchemaOf, string } from 'yup'
 import { specialCharsTest } from '../../utils/yup'
 import { selectIsAdmin } from '../../utils/auth'
-import { onPageLoadHandler, trackEvent, TrackingEvent } from '../../core/analytics'
+import { onPageLoadHandler, trackEvent } from '../../core/analytics'
+import { TrackingEvent } from '../../core/analytics-events'
 
 export interface InstallationDetails {
   installationId: string
@@ -98,7 +99,7 @@ export const handleCloseModal =
     email?: string,
   ) =>
   () => {
-    const appName = apps?.data?.find((app) => app.name === installationDetails?.appId)?.name
+    const appName = apps?.data?.find((app) => app.id === installationDetails?.appId)?.name
     trackEvent(TrackingEvent.ClickCloseWithoutInstalling, true, { appName, clientId, email })
 
     closeModal()
