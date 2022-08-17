@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { Config } from '../types/global'
 import * as Sentry from '@sentry/react'
 import { BrowserTracing } from '@sentry/tracing'
-import ReactGA from 'react-ga'
+import mixpanel from 'mixpanel-browser'
 import { getMarketplaceGlobalsByKey, logger } from '@reapit/utils-react'
 
 // Init global config
@@ -11,7 +11,7 @@ window.reapit = {
   config: {
     appEnv: 'local',
     sentryDns: '',
-    googleAnalyticsKey: '',
+    mixPanelToken: '',
     connectClientId: '',
     connectOAuthUrl: '',
     connectUserPoolId: '',
@@ -52,9 +52,9 @@ const run = async () => {
       })
     }
 
-    if (!isLocal && config.googleAnalyticsKey) {
-      ReactGA.initialize(config.googleAnalyticsKey)
-      ReactGA.pageview(window.location.pathname + window.location.search)
+    // Switch to !isLocal when we go to prod
+    if (isLocal && config.mixPanelToken) {
+      mixpanel.init(config.mixPanelToken, { debug: isLocal })
     }
 
     // Set the global config

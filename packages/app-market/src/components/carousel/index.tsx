@@ -8,6 +8,7 @@ import React, {
   MutableRefObject,
   RefObject,
   SetStateAction,
+  useCallback,
   useMemo,
   useRef,
   useState,
@@ -15,6 +16,8 @@ import React, {
 import { elFadeIn, Icon } from '@reapit/elements'
 import { CarouselWrapper, CarouselControlsLeft, CarouselControlsRight, CarouselCol, CarouselGrid } from './__styles__'
 import scrollIntoView from 'scroll-into-view-if-needed'
+import { trackEvent } from '../../core/analytics'
+import { TrackingEvent } from '../../core/analytics-events'
 
 export interface CarouselProps {
   items: JSX.Element[]
@@ -34,6 +37,8 @@ export const handleScroll =
     const nextImageElement = itemRefs.current[nextImage] as RefObject<HTMLDivElement>
 
     if (!nextImageElement?.current) return
+
+    trackEvent(TrackingEvent.ClickScrollImageCarousel, true)
 
     scrollIntoView(nextImageElement.current, { scrollMode: 'if-needed', behavior: 'smooth' })
     setCurrentImage(nextImage)
@@ -67,15 +72,18 @@ export const Carousel: FC<CarouselProps> = memo(({ items, numberCols, className 
     [numberCols, currentImage, items],
   )
 
+  const handleScrollNext = useCallback(handleScroll(itemRefs, nextImage, setCurrentImage), [itemRefs, nextImage])
+  const handleScrollPrev = useCallback(handleScroll(itemRefs, prevImage, setCurrentImage), [itemRefs, prevImage])
+
   return (
     <CarouselWrapper className={className}>
       {shouldShowPrev && (
-        <CarouselControlsLeft className={elFadeIn} onClick={handleScroll(itemRefs, prevImage, setCurrentImage)}>
+        <CarouselControlsLeft className={elFadeIn} onClick={handleScrollPrev}>
           <Icon icon="backSystem" intent="primary" />
         </CarouselControlsLeft>
       )}
       {shouldShowNext && (
-        <CarouselControlsRight className={elFadeIn} onClick={handleScroll(itemRefs, nextImage, setCurrentImage)}>
+        <CarouselControlsRight className={elFadeIn} onClick={handleScrollNext}>
           <Icon icon="nextSystem" intent="primary" />
         </CarouselControlsRight>
       )}

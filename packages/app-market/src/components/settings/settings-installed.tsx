@@ -1,4 +1,4 @@
-import React, { Dispatch, FC, SetStateAction, useEffect, useMemo, useState } from 'react'
+import React, { Dispatch, FC, SetStateAction, useCallback, useEffect, useMemo, useState } from 'react'
 import {
   BodyText,
   Button,
@@ -30,6 +30,8 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { object, SchemaOf, string } from 'yup'
 import { specialCharsTest } from '../../utils/yup'
 import { selectIsAdmin } from '../../utils/auth'
+import { onPageLoadHandler, trackEvent } from '../../core/analytics'
+import { TrackingEvent } from '../../core/analytics-events'
 
 export interface InstallationDetails {
   installationId: string
@@ -73,11 +75,13 @@ export const handleSetInstallationDetails =
   (
     setInstallationDetails: Dispatch<SetStateAction<InstallationDetails | null>>,
     openModal: () => void,
+    appName?: string,
     installationId?: string,
     appId?: string,
   ) =>
   () => {
     if (installationId && appId) {
+      trackEvent(TrackingEvent.ClickUninstallApp, true, { appName })
       setInstallationDetails({ installationId, appId })
       openModal()
     }
@@ -85,6 +89,21 @@ export const handleSetInstallationDetails =
 
 export const getAppIds = (installations: InstallationModelPagedResult | null) => () =>
   installations?.data?.map((installation) => installation.appId).filter(isTruthy)
+
+export const handleCloseModal =
+  (
+    closeModal: () => void,
+    installationDetails: InstallationDetails | null,
+    apps: AppSummaryModelPagedResult | null,
+    clientId?: string | null,
+    email?: string,
+  ) =>
+  () => {
+    const appName = apps?.data?.find((app) => app.id === installationDetails?.appId)?.name
+    trackEvent(TrackingEvent.ClickCloseWithoutInstalling, true, { appName, clientId, email })
+
+    closeModal()
+  }
 
 export const SettingsInstalled: FC = () => {
   const [installationDetails, setInstallationDetails] = useState<null | InstallationDetails>(null)
@@ -140,6 +159,14 @@ export const SettingsInstalled: FC = () => {
 
   useEffect(handleUninstallSuccess(refetchInstallations, closeModal, uninstallSuccess), [uninstallSuccess])
 
+  useEffect(onPageLoadHandler(TrackingEvent.LoadSettingsInstalled, true), [])
+
+  const closeUninstallModal = useCallback(handleCloseModal(closeModal, installationDetails, apps, clientId, email), [
+    installationDetails,
+    apps,
+    connectSession,
+  ])
+
   if (!isAdmin) {
     return (
       <PersistentNotification intent="danger" isExpanded isFullWidth isInline>
@@ -159,7 +186,8 @@ export const SettingsInstalled: FC = () => {
             The table below gives you the information about Reapit AppMarket apps and integrations you have installed
             currently or previously. In addition, you can uninstall apps for all users of your organisation by using the
             call to action on each row. For more information on the installations table
-            <a onClick={openNewPage('')}> see here</a>.
+            <a onClick={openNewPage('https://marketplace-documentation.reapit.cloud/#uninstalling-an-app')}>see here</a>
+            .
           </BodyText>
           <Table
             numberColumns={7}
@@ -237,7 +265,7 @@ export const SettingsInstalled: FC = () => {
                     icon: terminatesOn ? undefined : 'trashSystem',
                     onClick: terminatesOn
                       ? undefined
-                      : handleSetInstallationDetails(setInstallationDetails, openModal, id, appId),
+                      : handleSetInstallationDetails(setInstallationDetails, openModal, appName, id, appId),
                     cellContent: terminatesOn ? '-' : undefined,
                   },
                 }
@@ -268,7 +296,7 @@ export const SettingsInstalled: FC = () => {
                 </InputWrapFull>
               </FormLayout>
               <ButtonGroup alignment="right">
-                <Button intent="low" type="button" onClick={closeModal}>
+                <Button intent="low" type="button" onClick={closeUninstallModal}>
                   Close
                 </Button>
                 <Button intent="danger" type="submit">

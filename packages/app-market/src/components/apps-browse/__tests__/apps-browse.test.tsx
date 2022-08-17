@@ -15,6 +15,7 @@ import { mockAppsBrowseState } from '../../../core/__mocks__/use-apps-browse-sta
 window.reapit.config.clientHiddenAppIds = {}
 window.reapit.config.orgAdminRestrictedAppIds = []
 
+jest.mock('../../../core/analytics')
 jest.mock('@reapit/connect-session', () => ({
   ReapitConnectBrowserSession: jest.fn(),
   useReapitConnect: jest.fn(() => ({
