@@ -4,7 +4,7 @@ import { MediaType } from '@reapit/elements'
 import { render, setViewport, viewPortOptions } from '../../../tests/react-testing'
 import { mockAppDetailModel } from '../../../tests/__stubs__/apps'
 import { mockDesktopIntegrationTypeModelPagedResult } from '../../../tests/__stubs__/desktop-integration-types'
-import { AppsDetail, handleCarouselCols, handleOpenModal } from '../apps-detail'
+import { AppsDetail, handleCarouselCols, handleOpenVideoModal, VideoType } from '../apps-detail'
 
 window.reapit.config.clientHiddenAppIds = {}
 window.reapit.config.orgAdminRestrictedAppIds = []
@@ -108,7 +108,7 @@ describe('handleOpenModal', () => {
     const videoOpenModal = jest.fn()
     const videoUrl = 'https://example.com'
 
-    const curried = handleOpenModal(setVideoUrl, videoOpenModal, videoUrl)
+    const curried = handleOpenVideoModal(setVideoUrl, videoOpenModal, 'Marketing Presentation' as VideoType, videoUrl)
 
     curried()
 

@@ -1,13 +1,15 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC, useCallback, useEffect, useState } from 'react'
 import { BodyText, Button, ButtonGroup, Subtitle, Title, FlexContainer, elMb12 } from '@reapit/elements'
 import { Routes } from '../../constants/routes'
 import reapitLogo from '../../assets/images/reapit-logo.svg'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { KeyAnimation } from '@reapit/utils-react'
 import { LoginContainer, LoginContentWrapper, LoginImageContainer } from './__styles__'
-import { onPageLoadHandler, TrackingEvent } from '../../core/analytics'
+import { onPageLoadHandler, trackEvent, TrackingEvent } from '../../core/analytics'
 
-export const onLoginButtonClick = () => () => {
+export const handleLoginClick = () => {
+  trackEvent(TrackingEvent.ClickLoginWebButton, true)
+
   reapitConnectBrowserSession.connectLoginRedirect(`${window.location.origin}${Routes.APPS_BROWSE}`)
 }
 
@@ -15,6 +17,8 @@ export const Login: FC = () => {
   const [keyStep, setKeyStep] = useState<1 | 2 | 3>(1)
 
   useEffect(onPageLoadHandler(TrackingEvent.LoadLogin, true), [])
+
+  const loginUser = useCallback(handleLoginClick, [])
 
   return (
     <LoginContainer>
@@ -39,7 +43,7 @@ export const Login: FC = () => {
             setKeyStep(1)
           }}
         >
-          <Button onClick={onLoginButtonClick()} intent="primary" size={3}>
+          <Button onClick={loginUser} intent="primary" size={3}>
             Login With Reapit
           </Button>
         </ButtonGroup>

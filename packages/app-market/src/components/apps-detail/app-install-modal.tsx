@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useCallback } from 'react'
 import {
   AppDetailModel,
   CreateInstallationModel,
@@ -11,6 +11,7 @@ import { Button, ButtonGroup, elMb11, BodyText, elMb6 } from '@reapit/elements'
 import { AcProcessType, DesktopLink, SendFunction, useReapitUpdate } from '@reapit/utils-react'
 import { UpdateActionNames, updateActions } from '@reapit/utils-common'
 import { AppDetailPermissionChip } from './__styles__'
+import { trackEvent, TrackingEvent } from '../../core/analytics'
 
 export const DESKTOP_REFRESH_URL = 'agencycloud://apps/refresh'
 
@@ -28,12 +29,15 @@ export const handleInstall =
     refetchApp: () => void,
     closeModal: () => void,
     successOpenModal: () => void,
+    appName?: string,
     appId?: string,
     clientId?: string | null,
     email?: string,
   ) =>
   async () => {
     if (appId && clientId && email) {
+      trackEvent(TrackingEvent.ClickConfirnInstallation, true, { appName, clientId, email })
+
       const installation = await installApp({
         appId,
         clientId,
@@ -41,11 +45,22 @@ export const handleInstall =
       })
 
       if (installation) {
+        trackEvent(TrackingEvent.InstallationSuccess, true, { appName, clientId, email })
+
         refetchApp()
         closeModal()
         successOpenModal()
+      } else {
+        trackEvent(TrackingEvent.InstallationFailed, true, { appName, clientId, email })
       }
     }
+  }
+
+export const handleCloseModal =
+  (closeModal: () => void, appName?: string, clientId?: string | null, email?: string) => () => {
+    trackEvent(TrackingEvent.ClickCloseWithoutInstalling, true, { appName, clientId, email })
+
+    closeModal()
   }
 
 export const AppInstallModalContent: FC<AppInstallModalContentProps> = ({
@@ -70,6 +85,12 @@ export const AppInstallModalContent: FC<AppInstallModalContentProps> = ({
     action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.installApp],
     method: 'POST',
   })
+
+  const closeWithoutInstalling = useCallback(handleCloseModal(closeModal, name, clientId, email), [connectSession, app])
+  const confirmInstall = useCallback(
+    handleInstall(installApp, refetchApp, closeModal, successOpenModal, name, id, clientId, email),
+    [connectSession, app],
+  )
 
   const userDesktopIntegrationTypes = desktopIntegrationTypes?.data?.filter(
     ({ id }) => id && desktopIntegrationTypeIds?.includes(id),
@@ -168,7 +189,7 @@ export const AppInstallModalContent: FC<AppInstallModalContentProps> = ({
         </>
       </div>
       <ButtonGroup alignment="center">
-        <Button intent="low" onClick={closeModal} fixedWidth>
+        <Button intent="low" onClick={closeWithoutInstalling} fixedWidth>
           Cancel
         </Button>
         <Button
@@ -176,7 +197,7 @@ export const AppInstallModalContent: FC<AppInstallModalContentProps> = ({
           disabled={appInstalling}
           type="button"
           intent="primary"
-          onClick={handleInstall(installApp, refetchApp, closeModal, successOpenModal, id, clientId, email)}
+          onClick={confirmInstall}
         >
           Confirm
         </Button>

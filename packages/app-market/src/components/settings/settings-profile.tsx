@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react'
+import React, { FC, useCallback, useEffect } from 'react'
 import {
   BodyText,
   Button,
@@ -68,6 +68,8 @@ export const SettingsProfile: FC = () => {
 
   useEffect(onPageLoadHandler(TrackingEvent.LoadProfile, true), [])
 
+  const logoutUser = useCallback(handleLogout(connectLogoutRedirect), [connectLogoutRedirect])
+
   const { name, email, orgName, clientId, groups } = loginIdentity
 
   return (
@@ -76,7 +78,7 @@ export const SettingsProfile: FC = () => {
         <Title>Profile</Title>
         {isMobile && (
           <ButtonGroup alignment="right">
-            <Button onClick={handleLogout(connectLogoutRedirect)} intent="critical" chevronRight>
+            <Button onClick={logoutUser} intent="critical" chevronRight>
               Logout
             </Button>
           </ButtonGroup>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Login, onLoginButtonClick } from '..'
+import { Login, handleLoginClick } from '..'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { render } from '../../../tests/react-testing'
 
@@ -10,11 +10,10 @@ describe('Login', () => {
   })
 })
 
-describe('onLoginButtonClick', () => {
+describe('handleLoginClick', () => {
   it('should correctly login user', () => {
     const loginSpy = jest.spyOn(reapitConnectBrowserSession, 'connectLoginRedirect')
-    const curried = onLoginButtonClick()
-    curried()
+    handleLoginClick()
     expect(loginSpy).toBeCalled()
   })
 })

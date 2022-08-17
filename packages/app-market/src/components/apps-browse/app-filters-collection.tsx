@@ -2,6 +2,7 @@ import { cx } from '@linaria/core'
 import { elMb5, elMr7, FlexContainer, Icon, IconNames, MediaType, useMediaQuery } from '@reapit/elements'
 import { AppsBrowseConfigItemFiltersInterface, AppsBrowseConfigItemInterface } from '@reapit/foundations-ts-definitions'
 import React, { Dispatch, FC, memo, SetStateAction, useCallback, useMemo } from 'react'
+import { trackEvent, TrackingEvent } from '../../core/analytics'
 import { useAppsBrowseState } from '../../core/use-apps-browse-state'
 import { AppFilterCol, AppFilterSubtitle, AppFilterStrapline } from './__styles__'
 
@@ -17,6 +18,7 @@ export const handleSetFilters =
   () => {
     if (filters) {
       setAppsBrowseFilterState(filters)
+      trackEvent(TrackingEvent.ClickFiltersTile, true, { filters })
     }
   }
 

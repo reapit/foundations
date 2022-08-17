@@ -17,6 +17,23 @@ export enum TrackingEvent {
   OpenExternalPage = 'Open External Page',
   LaunchAppAc = 'Launch App In AgencyCloud',
   LaunchAppWeb = 'Launch App In External Browser',
+  ClickFiltersTile = 'Click Filters Tile, Apply Filters',
+  ClickClearFilters = 'Click Clear Filters Button',
+  SearchApps = 'Search Term Change',
+  FilterApps = 'Filter Category Changed',
+  ClickMobileControls = 'Click Mobile Controls',
+  ClickSeeAllFilter = 'Click See All Filter',
+  ClickCloseWithoutInstalling = 'Click Close Without Installing',
+  ClickConfirnInstallation = 'Click Confirn Installation',
+  InstallationSuccess = 'Installation Success',
+  InstallationFailed = 'Installation Failed',
+  ClickInstallAppButton = 'Click Install App Button',
+  ClickViewVideo = 'Click View Video',
+  ClickScrollImageCarousel = 'Click Scroll Image Carousel',
+  ClickLoginWebButton = 'Click Login Web Button',
+  ClickLogoutButton = 'Click Logout Button',
+  ClickCloseWithoutUninstalling = 'Click Close Without Uninstalling',
+  ClickUninstallApp = 'Click Uninstall App',
 }
 
 export interface TrackingEventData {

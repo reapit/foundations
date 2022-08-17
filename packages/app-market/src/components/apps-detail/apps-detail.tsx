@@ -1,4 +1,15 @@
-import React, { createRef, Dispatch, FC, LegacyRef, SetStateAction, useEffect, useMemo, useRef, useState } from 'react'
+import React, {
+  createRef,
+  Dispatch,
+  FC,
+  LegacyRef,
+  SetStateAction,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react'
 import {
   PageContainer,
   Loader,
@@ -46,11 +57,16 @@ import { selectIsAdmin } from '../../utils/auth'
 import { filterRestrictedAppDetail } from '../../utils/browse-app'
 import { cx } from '@linaria/core'
 import { AppsDetailHeader } from './apps-detail-header'
-import { onPageLoadHandler, TrackingEvent } from '../../core/analytics'
+import { onPageLoadHandler, trackEvent, TrackingEvent } from '../../core/analytics'
 import { navigateBack } from '../../utils/navigation'
 
 export interface AppIdParams {
   appId: string
+}
+
+export enum VideoType {
+  HowTo = 'How To Use App',
+  Marketing = 'Marketing Presentation',
 }
 
 export const handleCarouselCols = (mediaQuery: MediaType) => () => {
@@ -71,13 +87,34 @@ export const handleCarouselCols = (mediaQuery: MediaType) => () => {
   return 3
 }
 
-export const handleOpenModal =
-  (setVideoUrl: Dispatch<SetStateAction<string | null>>, videoOpenModal: () => void, videoUrl?: string) => () => {
+export const handleOpenVideoModal =
+  (
+    setVideoUrl: Dispatch<SetStateAction<string | null>>,
+    videoOpenModal: () => void,
+    videoType: VideoType,
+    videoUrl?: string,
+  ) =>
+  () => {
     if (videoUrl) {
+      trackEvent(TrackingEvent.ClickInstallAppButton, true, { videoType, videoUrl })
+
       setVideoUrl(videoUrl)
       videoOpenModal()
     }
   }
+
+export const handleOpenInstallModal =
+  (appInstallOpenModal: () => void, appName?: string, clientId?: string | null, email?: string) => () => {
+    trackEvent(TrackingEvent.ClickInstallAppButton, true, { appName, clientId, email })
+
+    appInstallOpenModal()
+  }
+
+export const handleCloseVideoModal = (closeModal: () => void) => () => {
+  trackEvent(TrackingEvent.ClickInstallAppButton, true)
+
+  closeModal()
+}
 
 export const AppsDetail: FC = () => {
   const history = useHistory()
@@ -91,6 +128,7 @@ export const AppsDetail: FC = () => {
   const { Modal: VideoModal, openModal: videoOpenModal, closeModal: videoCloseModal } = useModal()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const clientId = connectSession?.loginIdentity.clientId
+  const email = connectSession?.loginIdentity.email
   const sessionDeveloperId = connectSession?.loginIdentity.developerId
 
   const [unfilteredAppDetail, appDetailLoading, , refetchApp] = useReapitGet<AppDetailModel>({
@@ -151,6 +189,23 @@ export const AppsDetail: FC = () => {
   const { isSuperWideScreen, is4KScreen } = mediaQuery
   const isFullScreen = isSuperWideScreen || is4KScreen
 
+  const installModalOpen = useCallback(handleOpenInstallModal(appInstallOpenModal, name, clientId, email), [
+    connectSession,
+    unfilteredAppDetail,
+  ])
+
+  const videoModalOpenHowTo = useCallback(
+    handleOpenVideoModal(setVideoUrl, videoOpenModal, VideoType.HowTo, (videos ?? [])[0]?.uri),
+    [connectSession, unfilteredAppDetail],
+  )
+
+  const videoModalOpenMarketing = useCallback(
+    handleOpenVideoModal(setVideoUrl, videoOpenModal, VideoType.Marketing, (videos ?? [])[1]?.uri),
+    [connectSession, unfilteredAppDetail],
+  )
+
+  const videoModalClose = useCallback(handleCloseVideoModal(videoCloseModal), [])
+
   return (
     <PageContainer>
       {appDetailLoading ? (
@@ -163,7 +218,7 @@ export const AppsDetail: FC = () => {
           <AppsDetailHeader app={app} />
           <ButtonGroup className={elMb11} alignment="left">
             {!isInstalled && isAdmin && !hideInstall && (
-              <Button intent="critical" onClick={appInstallOpenModal}>
+              <Button intent="critical" onClick={installModalOpen}>
                 {isDirectApi ? 'Enable Integration' : 'Install App'}
               </Button>
             )}
@@ -185,17 +240,17 @@ export const AppsDetail: FC = () => {
                 <HTMLRender className={htmlRender} html={description ?? ''} />
                 {videos && Boolean(videos?.length) && (
                   <ButtonGroup>
-                    <Button intent="low" onClick={handleOpenModal(setVideoUrl, videoOpenModal, videos[0]?.uri)}>
+                    <Button intent="low" onClick={videoModalOpenHowTo}>
                       <FlexContainer isFlexAlignCenter>
                         <Icon className={cx(elMr4)} icon="videoSystem" intent="primary" fontSize="1.25em" />
-                        How To Use App
+                        {VideoType.HowTo}
                       </FlexContainer>
                     </Button>
                     {videos && videos?.length > 1 && (
-                      <Button intent="low" onClick={handleOpenModal(setVideoUrl, videoOpenModal, videos[1]?.uri)}>
+                      <Button intent="low" onClick={videoModalOpenMarketing}>
                         <FlexContainer isFlexAlignCenter>
                           <Icon className={cx(elMr4)} icon="videoSystem" intent="primary" fontSize="1.25em" />
-                          Marketing Presentation
+                          {VideoType.Marketing}
                         </FlexContainer>
                       </Button>
                     )}
@@ -361,7 +416,7 @@ export const AppsDetail: FC = () => {
           allowFullScreen
         />
         <ButtonGroup alignment="center">
-          <Button fixedWidth onClick={videoCloseModal} intent="low">
+          <Button fixedWidth onClick={videoModalClose} intent="low">
             Close
           </Button>
         </ButtonGroup>
