@@ -32,6 +32,8 @@ import { cx } from '@linaria/core'
 import debounce from 'just-debounce-it'
 import { MobileControlsState } from './apps-browse'
 import { useAppsBrowseState } from '../../core/use-apps-browse-state'
+import { trackEvent } from '../../core/analytics'
+import { TrackingEvent } from '../../core/analytics-events'
 
 export interface AppSearchFiltersProps {
   mobileControlsState: MobileControlsState
@@ -44,22 +46,28 @@ export const handleSelectFilter =
     setAppsBrowseFilterState: Dispatch<SetStateAction<AppsBrowseConfigItemFiltersInterface | null>>,
   ) =>
   (event: ChangeEvent<HTMLInputElement>) => {
-    const category = event.target.value
+    const newCategory = event.target.value
     const currentFilters = appsBrowseFilterState ?? {}
     const currentCategory = currentFilters.category ?? []
 
-    if (currentCategory.includes(category)) {
-      const newCategory = currentCategory.filter((item) => item !== category)
+    if (currentCategory.includes(newCategory)) {
+      const category = currentCategory.filter((item) => item !== newCategory)
+
+      trackEvent(TrackingEvent.FilterApps, true, { category })
 
       return setAppsBrowseFilterState({
         ...currentFilters,
-        category: newCategory,
+        category,
       })
     }
 
+    const category = [...currentCategory, newCategory]
+
+    trackEvent(TrackingEvent.FilterApps, true, { category })
+
     return setAppsBrowseFilterState({
       ...currentFilters,
-      category: [...currentCategory, category],
+      category,
     })
   }
 
@@ -79,6 +87,8 @@ export const handleSearch =
         }
       }
 
+      trackEvent(TrackingEvent.SearchApps, true, { searchTerm })
+
       return {
         ...currentFilters,
         searchTerm,
@@ -93,6 +103,8 @@ export const handleClearSearch =
   ) =>
   () => {
     setAppsBrowseFilterState(null)
+    trackEvent(TrackingEvent.ClickClearFilters, true)
+
     if (searchRef.current) searchRef.current.value = ''
   }
 
@@ -107,6 +119,11 @@ export const AppSearchFilters: FC<AppSearchFiltersProps> = memo(({ mobileControl
   })
 
   const debouncedSearch = useCallback(debounce(handleSearch(setAppsBrowseFilterState), 500), [])
+  const clearSearch = useCallback(handleClearSearch(setAppsBrowseFilterState, searchRef), [searchRef])
+  const selectFilter = useCallback(handleSelectFilter(appsBrowseFilterState, setAppsBrowseFilterState), [
+    appsBrowseFilterState,
+  ])
+
   const hasFilters = appsBrowseFilterState && Boolean(Object.keys(appsBrowseFilterState).length)
 
   return (
@@ -152,7 +169,7 @@ export const AppSearchFilters: FC<AppSearchFiltersProps> = memo(({ mobileControl
               name={name}
               value={id}
               checked={Boolean(id && appsBrowseFilterState?.category?.includes(id))}
-              onChange={handleSelectFilter(appsBrowseFilterState, setAppsBrowseFilterState)}
+              onChange={selectFilter}
             >
               {name}
             </MultiSelectChip>
@@ -161,7 +178,7 @@ export const AppSearchFilters: FC<AppSearchFiltersProps> = memo(({ mobileControl
       )}
       {hasFilters && (
         <ButtonGroup className={cx(appsSearchMobileControls, elMb5)}>
-          <Button onClick={handleClearSearch(setAppsBrowseFilterState, searchRef)} intent="low">
+          <Button onClick={clearSearch} intent="low">
             Clear Search Filters
           </Button>
         </ButtonGroup>
@@ -177,7 +194,7 @@ export const AppSearchFilters: FC<AppSearchFiltersProps> = memo(({ mobileControl
           />
         </FlexContainer>
         {hasFilters && (
-          <Button onClick={handleClearSearch(setAppsBrowseFilterState, searchRef)} intent="low">
+          <Button onClick={clearSearch} intent="low">
             Clear Search Filters
           </Button>
         )}

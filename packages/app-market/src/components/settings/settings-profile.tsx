@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useCallback, useEffect } from 'react'
 import {
   BodyText,
   Button,
@@ -24,6 +24,8 @@ import { validationSchemaChangePassword } from './validation-schema'
 import { changePasswordService } from '../../services/cognito-identity'
 import { RolesChip } from './__styles__'
 import { handleLogout } from '.'
+import { onPageLoadHandler, trackEvent } from '../../core/analytics'
+import { TrackingEvent } from '../../core/analytics-events'
 
 export type ChangePasswordFormValues = {
   password: string
@@ -41,6 +43,7 @@ export const handleChangePassword =
     })
 
     if (passwordChanged) {
+      trackEvent(TrackingEvent.ChangePassword, true)
       success('Successfully updated your password')
     } else {
       error('Failed to update your password. This error has been logged, please try again')
@@ -65,6 +68,10 @@ export const SettingsProfile: FC = () => {
     },
   })
 
+  useEffect(onPageLoadHandler(TrackingEvent.LoadProfile, true), [])
+
+  const logoutUser = useCallback(handleLogout(connectLogoutRedirect), [connectLogoutRedirect])
+
   const { name, email, orgName, clientId, groups } = loginIdentity
 
   return (
@@ -73,7 +80,7 @@ export const SettingsProfile: FC = () => {
         <Title>Profile</Title>
         {isMobile && (
           <ButtonGroup alignment="right">
-            <Button onClick={handleLogout(connectLogoutRedirect)} intent="critical" chevronRight>
+            <Button onClick={logoutUser} intent="critical" chevronRight>
               Logout
             </Button>
           </ButtonGroup>

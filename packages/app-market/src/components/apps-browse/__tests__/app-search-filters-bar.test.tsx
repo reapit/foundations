@@ -7,7 +7,7 @@ import { AppSearchFilters, handleClearSearch, handleSearch, handleSelectFilter }
 import { MobileControlsState } from '../apps-browse'
 
 jest.mock('../../../core/use-apps-browse-state')
-
+jest.mock('../../../core/analytics')
 jest.mock('@reapit/utils-react', () => ({
   useReapitGet: jest.fn(() => [mockAppSummaryModelPagedResult, false]),
 }))

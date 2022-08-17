@@ -3,10 +3,13 @@ import { render, setViewport, viewPortOptions } from '../../../tests/react-testi
 import { AppFiltersCollection, handleSetFilters } from '../app-filters-collection'
 import { handleSortConfigs } from '../apps-browse'
 import { appsBrowseConfigCollection } from '../../../core/config'
+import { trackEvent } from '../../../core/analytics'
+import { TrackingEvent } from '../../../core/analytics-events'
 
 const configItem = handleSortConfigs(appsBrowseConfigCollection)().appsFilters[0]
 
 jest.mock('../../../core/use-apps-browse-state')
+jest.mock('../../../core/analytics')
 
 describe('AppFiltersCollection', () => {
   viewPortOptions.forEach((option) => {
@@ -24,6 +27,7 @@ describe('handleSetFilters', () => {
 
     curried()
 
+    expect(trackEvent).toHaveBeenCalledWith(TrackingEvent.ClickFiltersTile, true, { filters: configItem.filters })
     expect(setAppsBrowseFilterState).toHaveBeenCalledWith(configItem.filters)
   })
 })

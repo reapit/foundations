@@ -1,4 +1,4 @@
-import React, { Dispatch, FC, Fragment, SetStateAction, useMemo, useState } from 'react'
+import React, { Dispatch, FC, Fragment, SetStateAction, useCallback, useMemo, useState } from 'react'
 import { PageContainer, FlexContainer, Icon, elMb5, useMediaQuery, MediaType, elMt3, elMb7 } from '@reapit/elements'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
@@ -33,6 +33,8 @@ import {
   AppsBrowseConfigItemFiltersInterface,
   AppsBrowseConfigItemInterface,
 } from '@reapit/foundations-ts-definitions'
+import { trackEvent } from '../../core/analytics'
+import { TrackingEvent } from '../../core/analytics-events'
 
 export type MobileControlsState = 'search' | 'filters' | null
 
@@ -61,6 +63,7 @@ export const handleSetFilters =
   ) =>
   () => {
     if (filters) {
+      trackEvent(TrackingEvent.ClickSeeAllFilter, true, { filters })
       setAppsBrowseFilterState(filters)
     }
   }
@@ -77,6 +80,7 @@ export const handleFiltersCols = (mediaQuery: MediaType) => () => {
 
 export const handleMobileControls =
   (setMobileControlsState: Dispatch<SetStateAction<MobileControlsState>>, newState: MobileControlsState) => () => {
+    trackEvent(TrackingEvent.ClickMobileControls, true, { controlType: newState })
     setMobileControlsState(newState)
   }
 
@@ -116,6 +120,15 @@ export const AppsBrowse: FC = () => {
     handleSortConfigs(appsBrowseConfigState),
     [appsBrowseConfigState],
   )
+  const mobileControlsFilters = useCallback(
+    handleMobileControls(setMobileControlsState, mobileControlsState === 'filters' ? null : 'filters'),
+    [mobileControlsState],
+  )
+  const mobileControlsSearch = useCallback(
+    handleMobileControls(setMobileControlsState, mobileControlsState === 'search' ? null : 'search'),
+    [mobileControlsState],
+  )
+
   const { isMobile, isTablet, isSuperWideScreen, is4KScreen } = mediaQuery
   const isFullSizeScreen = isSuperWideScreen || is4KScreen
 
@@ -128,13 +141,13 @@ export const AppsBrowse: FC = () => {
         <FlexContainer className={cx(elMb5, elMt3, appsSearchMobileControls)}>
           <Icon
             className={cx(appsSearchMobileIcon, mobileControlsState === 'filters' && appsSearchMobileIconActive)}
-            onClick={handleMobileControls(setMobileControlsState, mobileControlsState === 'filters' ? null : 'filters')}
+            onClick={mobileControlsFilters}
             icon="filterSystem"
             fontSize="1.25rem"
           />
           <Icon
             className={cx(appsSearchMobileIcon, mobileControlsState === 'search' && appsSearchMobileIconActive)}
-            onClick={handleMobileControls(setMobileControlsState, mobileControlsState === 'search' ? null : 'search')}
+            onClick={mobileControlsSearch}
             icon="searchSystem"
             fontSize="1.25rem"
           />

@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useCallback } from 'react'
 import { useHistory, useLocation } from 'react-router'
 import { Route } from 'react-router-dom'
 import { Routes } from '../../constants/routes'
@@ -22,8 +22,11 @@ import { navigate } from '../../utils/navigation'
 import { selectIsAdmin } from '../../utils/auth'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
+import { trackEvent } from '../../core/analytics'
+import { TrackingEvent } from '../../core/analytics-events'
 
 export const handleLogout = (connectLogoutRedirect: () => void) => () => {
+  trackEvent(TrackingEvent.ClickLogoutButton, true)
   connectLogoutRedirect()
 }
 
@@ -33,6 +36,8 @@ export const SettingsPage: FC = () => {
   const { connectSession, connectLogoutRedirect } = useReapitConnect(reapitConnectBrowserSession)
   const { pathname } = location
   const isAdmin = selectIsAdmin(connectSession)
+
+  const logoutUser = useCallback(handleLogout(connectLogoutRedirect), [connectLogoutRedirect])
 
   return (
     <FlexContainer isFlexAuto>
@@ -65,7 +70,7 @@ export const SettingsPage: FC = () => {
             users in your organisation.
           </SmallText>
         )}
-        <Button onClick={handleLogout(connectLogoutRedirect)} intent="critical" chevronRight>
+        <Button onClick={logoutUser} intent="critical" chevronRight>
           Logout
         </Button>
       </SecondaryNavContainer>

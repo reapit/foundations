@@ -2,7 +2,10 @@ import React, { LegacyRef, MutableRefObject, MouseEvent, RefObject } from 'react
 import { render } from '../../../tests/react-testing'
 import { Carousel, getCarouselDimensions, handleScroll } from '..'
 import scrollIntoView from 'scroll-into-view-if-needed'
+import { trackEvent } from '../../../core/analytics'
+import { TrackingEvent } from '../../../core/analytics-events'
 
+jest.mock('../../../core/analytics')
 jest.mock('scroll-into-view-if-needed', () => ({
   __esModule: true,
   default: jest.fn(),
@@ -74,6 +77,7 @@ describe('handleScroll', () => {
       scrollMode: 'if-needed',
       behavior: 'smooth',
     })
+    expect(trackEvent).toHaveBeenCalledWith(TrackingEvent.ClickScrollImageCarousel, true)
     expect(setCurrentImage).toHaveBeenCalledWith(nextImage)
   })
 })

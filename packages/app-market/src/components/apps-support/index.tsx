@@ -1,4 +1,4 @@
-import React, { ChangeEvent, Dispatch, FC, SetStateAction, useCallback, useMemo, useState } from 'react'
+import React, { ChangeEvent, Dispatch, FC, SetStateAction, useCallback, useEffect, useMemo, useState } from 'react'
 import {
   Button,
   Col,
@@ -26,9 +26,13 @@ import { GetActionNames, getActions } from '@reapit/utils-common'
 import { AppsSupportItem } from './apps-support-item'
 import { cx } from '@linaria/core'
 import { filterRestrictedAppsList } from '../../utils/browse-app'
+import { onPageLoadHandler, trackEvent } from '../../core/analytics'
+import { TrackingEvent } from '../../core/analytics-events'
 
 export const handleSearch = (setSearch: Dispatch<SetStateAction<string>>) => (event: ChangeEvent<HTMLInputElement>) => {
   const search = event.target.value.toLowerCase()
+
+  trackEvent(TrackingEvent.SearchSupport, true, { searchTerm: search })
   setSearch(search)
 }
 
@@ -47,6 +51,8 @@ export const AppsSupportPage: FC = () => {
 
   const apps = useMemo(filterRestrictedAppsList(unfilteredApps, connectSession), [unfilteredApps])
 
+  useEffect(onPageLoadHandler(TrackingEvent.LoadSettingsInstalled, true), [])
+
   return (
     <FlexContainer isFlexAuto>
       <SecondaryNavContainer>
@@ -59,7 +65,10 @@ export const AppsSupportPage: FC = () => {
         <SmallText hasGreyText>
           In addition we have provided comprehensive documentation on using the AppMarket at the below link.
         </SmallText>
-        <Button onClick={openNewPage('https://marketplace-documentation.reapit.cloud/')} intent="neutral">
+        <Button
+          onClick={openNewPage('https://marketplace-documentation.reapit.cloud/#uninstalling-an-app')}
+          intent="neutral"
+        >
           View Docs
         </Button>
       </SecondaryNavContainer>

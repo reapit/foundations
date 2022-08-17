@@ -1,7 +1,9 @@
-import React, { FC } from 'react'
+import React, { FC, useCallback } from 'react'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import { Button, ButtonGroup, BodyText } from '@reapit/elements'
 import { AcProcessType, DesktopLink } from '@reapit/utils-react'
+import { TrackingEvent } from '../../core/analytics-events'
+import { trackEvent } from '../../core/analytics'
 
 export const DESKTOP_REFRESH_URL = 'agencycloud://apps/refresh'
 
@@ -11,8 +13,16 @@ export type AppInstallModalContentProps = {
   developer?: string
 }
 
+export const handleCloseModal = (closeModal: () => void, appName?: string) => () => {
+  trackEvent(TrackingEvent.ClickBackToAppAfterInstall, true, { appName })
+
+  closeModal()
+}
+
 export const AppInstallSuccesModalContent: FC<AppInstallModalContentProps> = ({ app, closeModal, developer }) => {
   const { name, id, isDirectApi, launchUri, telephone, supportEmail } = app ?? {}
+
+  const handleClose = useCallback(handleCloseModal(closeModal, name), [app])
 
   return (
     <>
@@ -42,7 +52,7 @@ export const AppInstallSuccesModalContent: FC<AppInstallModalContentProps> = ({ 
         </>
       )}
       <ButtonGroup alignment="center">
-        <Button intent="low" onClick={closeModal} fixedWidth>
+        <Button intent="low" onClick={handleClose} fixedWidth>
           Back To App
         </Button>
         {!isDirectApi && launchUri && (
