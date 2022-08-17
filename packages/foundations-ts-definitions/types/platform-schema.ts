@@ -2328,6 +2328,10 @@ export interface CompanyModel {
    */
   active?: boolean
   /**
+   * The marketing consent status of the company (deny/notAsked)
+   */
+  marketingConsent?: string
+  /**
    * A flag determining whether or not the company is VAT registered
    */
   vatRegistered?: boolean
@@ -2464,6 +2468,10 @@ export interface CompanyModelPagedResult {
      * A flag determining whether or not the company is currently active
      */
     active?: boolean
+    /**
+     * The marketing consent status of the company (deny/notAsked)
+     */
+    marketingConsent?: string
     /**
      * A flag determining whether or not the company is VAT registered
      */
@@ -4729,6 +4737,10 @@ export interface CreateCompanyModel {
    */
   active?: boolean
   /**
+   * The marketing consent status of the company (deny/notAsked)
+   */
+  marketingConsent?: string
+  /**
    * A flag determining whether or not the company is VAT registered
    */
   vatRegistered?: boolean
@@ -6206,6 +6218,10 @@ export interface CreatePropertyLettingModel {
    */
   utilities?: {
     /**
+     * A flag denoting whether or not the property has gas connected
+     */
+    hasGas?: boolean
+    /**
      * The unique identifier of the company supplying the gas to the property
      */
     gasCompanyId?: string
@@ -6697,6 +6713,10 @@ export interface CreatePropertyModel {
      * Representation of property details specific to utilities
      */
     utilities?: {
+      /**
+       * A flag denoting whether or not the property has gas connected
+       */
+      hasGas?: boolean
       /**
        * The unique identifier of the company supplying the gas to the property
        */
@@ -7382,6 +7402,10 @@ export interface CreateUpwardLinkModel {
  * Representation of property details specific to utilities
  */
 export interface CreateUtilityModel {
+  /**
+   * A flag denoting whether or not the property has gas connected
+   */
+  hasGas?: boolean
   /**
    * The unique identifier of the company supplying the gas to the property
    */
@@ -11517,6 +11541,10 @@ export interface PropertyLettingModel {
    */
   utilities?: {
     /**
+     * A flag denoting whether or not the property has gas connected
+     */
+    hasGas?: boolean
+    /**
      * The unique identifier of the company supplying the gas to the property
      */
     gasCompanyId?: string
@@ -12148,6 +12176,10 @@ export interface PropertyModel {
      * Representation of property details specific to utilities
      */
     utilities?: {
+      /**
+       * A flag denoting whether or not the property has gas connected
+       */
+      hasGas?: boolean
       /**
        * The unique identifier of the company supplying the gas to the property
        */
@@ -12922,6 +12954,10 @@ export interface PropertyModelPagedResult {
        * Representation of property details specific to utilities
        */
       utilities?: {
+        /**
+         * A flag denoting whether or not the property has gas connected
+         */
+        hasGas?: boolean
         /**
          * The unique identifier of the company supplying the gas to the property
          */
@@ -16265,6 +16301,10 @@ export interface UpdateCompanyModel {
    */
   active?: boolean
   /**
+   * The marketing consent status of the company (deny/notAsked)
+   */
+  marketingConsent?: string
+  /**
    * A flag determining whether or not the company is VAT registered
    */
   vatRegistered?: boolean
@@ -17497,6 +17537,10 @@ export interface UpdatePropertyLettingModel {
    */
   utilities?: {
     /**
+     * A flag denoting whether or not the property has gas connected
+     */
+    hasGas?: boolean
+    /**
      * The unique identifier of the company supplying the gas to the property
      */
     gasCompanyId?: string
@@ -17979,6 +18023,10 @@ export interface UpdatePropertyModel {
      * Representation of property details specific to utilities
      */
     utilities?: {
+      /**
+       * A flag denoting whether or not the property has gas connected
+       */
+      hasGas?: boolean
       /**
        * The unique identifier of the company supplying the gas to the property
        */
@@ -18630,6 +18678,10 @@ export interface UpdateTenancySourceModel {
  */
 export interface UpdateUtilityModel {
   /**
+   * A flag denoting whether or not the property has gas connected
+   */
+  hasGas?: boolean
+  /**
    * The unique identifier of the company supplying the gas to the property
    */
   gasCompanyId?: string
@@ -18846,6 +18898,10 @@ export interface UpdateWorksOrderModel {
  * Representation of property details specific to utilities
  */
 export interface UtilityModel {
+  /**
+   * A flag denoting whether or not the property has gas connected
+   */
+  hasGas?: boolean
   /**
    * The unique identifier of the company supplying the gas to the property
    */
