@@ -1,6 +1,6 @@
 import { ReapitConnectSession } from '@reapit/connect-session'
 import mixpanel from 'mixpanel-browser'
-import { trackEvent, getRoleFromGroups, onPageLoadHandler, registerUserHandler } from '../analytics'
+import { trackEvent, getRoleFromGroups, trackEventHandler, registerUserHandler } from '../analytics'
 import { TrackingEvent } from '../analytics-events'
 
 jest.mock('mixpanel-browser', () => ({
@@ -64,7 +64,7 @@ describe('onPageLoadHandler', () => {
     const data = {
       foo: 'bar',
     }
-    const curried = onPageLoadHandler(TrackingEvent.LoadAppDetail, true, data)
+    const curried = trackEventHandler(TrackingEvent.LoadAppDetail, true, data)
 
     curried()
 

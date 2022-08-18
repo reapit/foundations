@@ -90,7 +90,7 @@ describe('SettingsInstalled', () => {
 })
 
 describe('handleUninstallApp', () => {
-  it('should handle uninstallation', () => {
+  it('should handle uninstallation', async () => {
     const email = 'mock@mail.com'
     const appId = 'MOCK_APP_ID'
     const uninstallApp = jest.fn()
@@ -103,7 +103,7 @@ describe('handleUninstallApp', () => {
 
     const curried = handleUninstallApp(email, uninstallApp, setInstallationId, appId)
 
-    curried(formValues)
+    await curried(formValues)
 
     expect(uninstallApp).toHaveBeenCalledWith({
       ...formValues,

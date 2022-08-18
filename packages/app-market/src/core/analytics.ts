@@ -40,7 +40,7 @@ export const getRoleFromGroups = (groups: string[]) => {
     .join(', ')
 }
 
-export const onPageLoadHandler = (event: TrackingEvent, shouldTrack: boolean, data?: TrackingEventData) => () => {
+export const trackEventHandler = (event: TrackingEvent, shouldTrack: boolean, data?: TrackingEventData) => () => {
   trackEvent(event, shouldTrack, data)
 }
 

@@ -26,7 +26,7 @@ import { GetActionNames, getActions } from '@reapit/utils-common'
 import { AppsSupportItem } from './apps-support-item'
 import { cx } from '@linaria/core'
 import { filterRestrictedAppsList } from '../../utils/browse-app'
-import { onPageLoadHandler, trackEvent } from '../../core/analytics'
+import { trackEventHandler, trackEvent } from '../../core/analytics'
 import { TrackingEvent } from '../../core/analytics-events'
 
 export const handleSearch = (setSearch: Dispatch<SetStateAction<string>>) => (event: ChangeEvent<HTMLInputElement>) => {
@@ -51,7 +51,7 @@ export const AppsSupportPage: FC = () => {
 
   const apps = useMemo(filterRestrictedAppsList(unfilteredApps, connectSession), [unfilteredApps])
 
-  useEffect(onPageLoadHandler(TrackingEvent.LoadSettingsInstalled, true), [])
+  useEffect(trackEventHandler(TrackingEvent.LoadSettingsInstalled, true), [])
 
   return (
     <FlexContainer isFlexAuto>

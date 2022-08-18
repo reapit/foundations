@@ -24,7 +24,7 @@ import { validationSchemaChangePassword } from './validation-schema'
 import { changePasswordService } from '../../services/cognito-identity'
 import { RolesChip } from './__styles__'
 import { handleLogout } from '.'
-import { onPageLoadHandler, trackEvent } from '../../core/analytics'
+import { trackEventHandler, trackEvent } from '../../core/analytics'
 import { TrackingEvent } from '../../core/analytics-events'
 
 export type ChangePasswordFormValues = {
@@ -68,7 +68,7 @@ export const SettingsProfile: FC = () => {
     },
   })
 
-  useEffect(onPageLoadHandler(TrackingEvent.LoadProfile, true), [])
+  useEffect(trackEventHandler(TrackingEvent.LoadProfile, true), [])
 
   const logoutUser = useCallback(handleLogout(connectLogoutRedirect), [connectLogoutRedirect])
 

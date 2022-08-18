@@ -3,7 +3,7 @@ import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import { Button, ButtonGroup, BodyText } from '@reapit/elements'
 import { AcProcessType, DesktopLink } from '@reapit/utils-react'
 import { TrackingEvent } from '../../core/analytics-events'
-import { trackEvent } from '../../core/analytics'
+import { trackEvent, trackEventHandler } from '../../core/analytics'
 
 export const DESKTOP_REFRESH_URL = 'agencycloud://apps/refresh'
 
@@ -22,6 +22,8 @@ export const handleCloseModal = (closeModal: () => void, appName?: string) => ()
 export const AppInstallSuccesModalContent: FC<AppInstallModalContentProps> = ({ app, closeModal, developer }) => {
   const { name, id, isDirectApi, launchUri, telephone, supportEmail } = app ?? {}
 
+  const trackSendSupportEmail = useCallback(trackEventHandler(TrackingEvent.ClickSendSupportEmail, true), [])
+  const trackLaunchAppPostInstall = useCallback(trackEventHandler(TrackingEvent.ClickLaunchAppPostInstall, true), [])
   const handleClose = useCallback(handleCloseModal(closeModal, name), [app])
 
   return (
@@ -35,7 +37,14 @@ export const AppInstallSuccesModalContent: FC<AppInstallModalContentProps> = ({ 
           </BodyText>
           <BodyText hasGreyText>
             If you wish to contact them directly, you can do this via telephone at {telephone} or email at{' '}
-            <DesktopLink uri={supportEmail} acProcess={AcProcessType.mail} target="_blank" content={supportEmail} />.
+            <DesktopLink
+              onClick={trackSendSupportEmail}
+              uri={supportEmail}
+              acProcess={AcProcessType.mail}
+              target="_blank"
+              content={supportEmail}
+            />
+            .
           </BodyText>
         </>
       ) : (
@@ -47,7 +56,14 @@ export const AppInstallSuccesModalContent: FC<AppInstallModalContentProps> = ({ 
           <BodyText>
             If you wish to contact the developer about using the app, you can do this via telephone at {telephone} or
             email at{' '}
-            <DesktopLink uri={supportEmail} acProcess={AcProcessType.mail} target="_blank" content={supportEmail} />.
+            <DesktopLink
+              onClick={trackSendSupportEmail}
+              uri={supportEmail}
+              acProcess={AcProcessType.mail}
+              target="_blank"
+              content={supportEmail}
+            />
+            .
           </BodyText>
         </>
       )}
@@ -58,6 +74,7 @@ export const AppInstallSuccesModalContent: FC<AppInstallModalContentProps> = ({ 
         {!isDirectApi && launchUri && (
           <>
             <DesktopLink
+              onClick={trackLaunchAppPostInstall}
               uri={launchUri}
               acProcess={AcProcessType.app}
               acId={id}

@@ -10,14 +10,17 @@ import {
   handleCloseVideoModal,
   handleOpenInstallModal,
   handleOpenVideoModal,
+  handleSalesBannerClick,
   VideoType,
 } from '../apps-detail'
 import { trackEvent } from '../../../core/analytics'
 import { TrackingEvent } from '../../../core/analytics-events'
+import { LoginIdentity } from '@reapit/connect-session'
 
 window.reapit.config.clientHiddenAppIds = {}
 window.reapit.config.orgAdminRestrictedAppIds = []
 
+jest.useFakeTimers()
 jest.mock('../../../core/analytics')
 jest.mock('@reapit/connect-session', () => ({
   ReapitConnectBrowserSession: jest.fn(),
@@ -165,5 +168,23 @@ describe('handleCloseVideoModal', () => {
 
     expect(trackEvent).toHaveBeenCalledWith(TrackingEvent.ClickCloseVideo, true)
     expect(closeModal).toHaveBeenCalledTimes(1)
+  })
+})
+
+describe('handleSalesBannerClick', () => {
+  it('handles sales banner click', () => {
+    const setSalesBannerVisible = jest.fn()
+    const salesBannerVisibile = true
+    const loginIdentity = {
+      email: 'test@mail.com',
+      name: 'MOCK_NAME',
+      clientId: 'MOCK_CLIENT_ID',
+      userCode: 'MOCK_USER_CODE',
+      orgName: 'MOCK_ORG_NAME',
+    } as LoginIdentity
+    const curried = handleSalesBannerClick(setSalesBannerVisible, salesBannerVisibile, loginIdentity)
+    curried()
+    expect(setSalesBannerVisible).toBeCalledWith(false)
+    expect(trackEvent).toHaveBeenCalledWith(TrackingEvent.ClickSalesLeadBanner, true, loginIdentity)
   })
 })
