@@ -203,12 +203,13 @@ export const HeroAppsIcon = styled.img`
   border-radius: 0.25rem;
   width: 40px;
   height: 40px;
-  padding: 0.25rem;
+  padding: 0.375rem;
   background-color: var(--color-white);
 
   ${forMobileAndAbove} {
     margin-bottom: 1.25rem;
-    border-radius: 0.5rem;
+    border-radius: 0.375rem;
+    padding: 0.5rem;
     width: 72px;
     height: 72px;
   }
@@ -216,7 +217,7 @@ export const HeroAppsIcon = styled.img`
 
 export const HeroAppsImageContainer = styled.div`
   width: 100%;
-  height: 100px;
+  height: 140px;
   overflow: hidden;
   display: flex;
   align-items: center;

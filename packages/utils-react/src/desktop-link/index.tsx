@@ -15,6 +15,7 @@ export interface DesktopLinkProps {
   acProcess: AcProcessType
   uri?: string
   acId?: string
+  onClick?: () => void
 }
 
 export const getAcUri = (acProcess: AcProcessType, uri: string, acId?: string) => {
@@ -29,7 +30,7 @@ export const getAcUri = (acProcess: AcProcessType, uri: string, acId?: string) =
   return `${AcProcessType.web}/${uri}`
 }
 
-export const DesktopLink: FC<DesktopLinkProps> = ({ content, uri, target, acProcess, acId }) => {
+export const DesktopLink: FC<DesktopLinkProps> = ({ content, uri, target, acProcess, acId, onClick }) => {
   const isDesktop = Boolean(window[ReapitConnectBrowserSession.GLOBAL_KEY])
 
   if (!uri) return <>{content}</>
@@ -38,7 +39,7 @@ export const DesktopLink: FC<DesktopLinkProps> = ({ content, uri, target, acProc
     const webUri = acProcess === AcProcessType.mail ? `mailto:${uri}` : uri
 
     return (
-      <a href={webUri} target={target} rel="noopener noreferrer">
+      <a onClick={onClick} href={webUri} target={target} rel="noopener noreferrer">
         {content}
       </a>
     )
@@ -46,5 +47,9 @@ export const DesktopLink: FC<DesktopLinkProps> = ({ content, uri, target, acProc
 
   const acUri = getAcUri(acProcess, uri, acId)
 
-  return <a href={acUri}>{content}</a>
+  return (
+    <a onClick={onClick} href={acUri}>
+      {content}
+    </a>
+  )
 }

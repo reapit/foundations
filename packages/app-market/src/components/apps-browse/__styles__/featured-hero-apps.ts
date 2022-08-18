@@ -156,17 +156,19 @@ export const FeaturedHeroAppsIcon = styled.img`
   border-radius: 0.25rem;
   width: 48px;
   height: 48px;
-  padding: 0.25rem;
+  padding: 0.375rem;
   background-color: var(--color-white);
 
   ${forMobileAndAbove} {
-    border-radius: 0.5rem;
+    border-radius: 0.375rem;
+    padding: 0.5rem;
     width: 72px;
     height: 72px;
   }
 
   ${forDesktopAndAbove} {
-    border-radius: 1rem;
+    border-radius: 0.5rem;
+    padding: 0.625rem;
     margin-bottom: 1.25rem;
     width: 96px;
     height: 96px;
@@ -175,7 +177,7 @@ export const FeaturedHeroAppsIcon = styled.img`
 
 export const FeaturedHeroAppsImageContainer = styled.div`
   width: 100%;
-  height: 160px;
+  height: 180px;
   overflow: hidden;
   display: flex;
   align-items: center;

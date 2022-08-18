@@ -5,7 +5,7 @@ import reapitLogo from '../../assets/images/reapit-logo.svg'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { KeyAnimation } from '@reapit/utils-react'
 import { LoginContainer, LoginContentWrapper, LoginImageContainer } from './__styles__'
-import { onPageLoadHandler, trackEvent } from '../../core/analytics'
+import { trackEventHandler, trackEvent } from '../../core/analytics'
 import { TrackingEvent } from '../../core/analytics-events'
 
 export const handleLoginClick = () => {
@@ -17,7 +17,7 @@ export const handleLoginClick = () => {
 export const Login: FC = () => {
   const [keyStep, setKeyStep] = useState<1 | 2 | 3>(1)
 
-  useEffect(onPageLoadHandler(TrackingEvent.LoadLogin, true), [])
+  useEffect(trackEventHandler(TrackingEvent.LoadLogin, true), [])
 
   const loginUser = useCallback(handleLoginClick, [])
 
