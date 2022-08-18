@@ -30,7 +30,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { object, SchemaOf, string } from 'yup'
 import { specialCharsTest } from '../../utils/yup'
 import { selectIsAdmin } from '../../utils/auth'
-import { onPageLoadHandler, trackEvent } from '../../core/analytics'
+import { trackEventHandler, trackEvent } from '../../core/analytics'
 import { TrackingEvent } from '../../core/analytics-events'
 
 export interface InstallationDetails {
@@ -52,13 +52,19 @@ export const handleUninstallApp =
     setInstallationDetails: Dispatch<SetStateAction<InstallationDetails | null>>,
     appId?: string,
   ) =>
-  (values: TerminateInstallationModel) => {
+  async (values: TerminateInstallationModel) => {
     if (appId) {
-      uninstallApp({
+      const uninstallation = await uninstallApp({
         ...values,
         appId,
         terminatedBy: email,
       })
+
+      if (uninstallation) {
+        trackEvent(TrackingEvent.UninstallationSuccess, true, { appId, email })
+      } else {
+        trackEvent(TrackingEvent.UninstallationFailed, true, { appId, email })
+      }
       setInstallationDetails(null)
     }
   }
@@ -159,7 +165,7 @@ export const SettingsInstalled: FC = () => {
 
   useEffect(handleUninstallSuccess(refetchInstallations, closeModal, uninstallSuccess), [uninstallSuccess])
 
-  useEffect(onPageLoadHandler(TrackingEvent.LoadSettingsInstalled, true), [])
+  useEffect(trackEventHandler(TrackingEvent.LoadSettingsInstalled, true), [])
 
   const closeUninstallModal = useCallback(handleCloseModal(closeModal, installationDetails, apps, clientId, email), [
     installationDetails,

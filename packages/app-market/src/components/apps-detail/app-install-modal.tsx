@@ -11,7 +11,7 @@ import { Button, ButtonGroup, elMb11, BodyText, elMb6 } from '@reapit/elements'
 import { AcProcessType, DesktopLink, SendFunction, useReapitUpdate } from '@reapit/utils-react'
 import { UpdateActionNames, updateActions } from '@reapit/utils-common'
 import { AppDetailPermissionChip } from './__styles__'
-import { trackEvent } from '../../core/analytics'
+import { trackEvent, trackEventHandler } from '../../core/analytics'
 import { TrackingEvent } from '../../core/analytics-events'
 
 export const DESKTOP_REFRESH_URL = 'agencycloud://apps/refresh'
@@ -92,6 +92,9 @@ export const AppInstallModalContent: FC<AppInstallModalContentProps> = ({
     handleInstall(installApp, refetchApp, closeModal, successOpenModal, name, id, clientId, email),
     [connectSession, app],
   )
+  const trackReadDocs = useCallback(trackEventHandler(TrackingEvent.ClickReadDocs, true), [])
+  const trackNavigateMmApp = useCallback(trackEventHandler(TrackingEvent.ClickReadDocs, true), [])
+  const trackViewPricing = useCallback(trackEventHandler(TrackingEvent.ClickViewPricing, true), [])
 
   const userDesktopIntegrationTypes = desktopIntegrationTypes?.data?.filter(
     ({ id }) => id && desktopIntegrationTypeIds?.includes(id),
@@ -106,6 +109,7 @@ export const AppInstallModalContent: FC<AppInstallModalContentProps> = ({
             &rsquo; for either your Office Group or for <b>all</b> Users and Offices within your Organisation. To do
             this, you need to visit the{' '}
             <DesktopLink
+              onClick={trackNavigateMmApp}
               uri={window.reapit.config.reapitConnectManagementUri}
               acProcess={AcProcessType.web}
               target="_blank"
@@ -140,6 +144,7 @@ export const AppInstallModalContent: FC<AppInstallModalContentProps> = ({
             <BodyText hasGreyText>
               For more information regarding Desktop Integration types, please{' '}
               <DesktopLink
+                onClick={trackReadDocs}
                 uri="https://marketplace-documentation.reapit.cloud/integration-types"
                 acProcess={AcProcessType.web}
                 target="_blank"
@@ -158,7 +163,14 @@ export const AppInstallModalContent: FC<AppInstallModalContentProps> = ({
           <>
             <BodyText hasGreyText>
               {developer} have specified that there is a cost for using this {isDirectApi ? 'integration' : 'app'},
-              please <DesktopLink uri={pricingUrl} acProcess={AcProcessType.web} target="_blank" content="click here" />{' '}
+              please{' '}
+              <DesktopLink
+                onClick={trackViewPricing}
+                uri={pricingUrl}
+                acProcess={AcProcessType.web}
+                target="_blank"
+                content="click here"
+              />{' '}
               to view their pricing information. You will be billed directly by {developer}.
             </BodyText>
             {developer !== 'Reapit Ltd' && (

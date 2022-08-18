@@ -28,6 +28,7 @@ import {
   useModal,
   elMr6,
   elMl6,
+  PersistentNotification,
 } from '@reapit/elements'
 import { useHistory, useParams } from 'react-router-dom'
 import { AcProcessType, DesktopLink, HTMLRender, useReapitGet } from '@reapit/utils-react'
@@ -52,12 +53,12 @@ import {
 import { Carousel } from '../carousel'
 import { AppInstallModalContent } from './app-install-modal'
 import { AppInstallSuccesModalContent } from './app-install-success-modal'
-import { useReapitConnect } from '@reapit/connect-session'
+import { LoginIdentity, useReapitConnect } from '@reapit/connect-session'
 import { selectIsAdmin } from '../../utils/auth'
 import { filterRestrictedAppDetail } from '../../utils/browse-app'
 import { cx } from '@linaria/core'
 import { AppsDetailHeader } from './apps-detail-header'
-import { onPageLoadHandler, trackEvent } from '../../core/analytics'
+import { trackEventHandler, trackEvent } from '../../core/analytics'
 import { navigateBack } from '../../utils/navigation'
 import { TrackingEvent } from '../../core/analytics-events'
 
@@ -117,6 +118,31 @@ export const handleCloseVideoModal = (closeModal: () => void) => () => {
   closeModal()
 }
 
+export const handleSalesBannerTimeout =
+  (setSalesBannerVisible: Dispatch<SetStateAction<boolean>>, isMobile: boolean) => () => {
+    const timeout = setTimeout(() => {
+      if (!isMobile) {
+        setSalesBannerVisible(true)
+      }
+    }, 5000)
+
+    return () => clearTimeout(timeout)
+  }
+
+export const handleSalesBannerClick =
+  (
+    setSalesBannerVisible: Dispatch<SetStateAction<boolean>>,
+    salesBannerVisibile: boolean,
+    loginIdentity?: LoginIdentity,
+  ) =>
+  () => {
+    if (salesBannerVisibile) {
+      const { email, name, clientId, userCode, orgName } = loginIdentity ?? {}
+      trackEvent(TrackingEvent.ClickSalesLeadBanner, true, { email, name, clientId, userCode, orgName })
+    }
+    setSalesBannerVisible(!salesBannerVisibile)
+  }
+
 export const AppsDetail: FC = () => {
   const history = useHistory()
   const { appId } = useParams<AppIdParams>()
@@ -124,6 +150,7 @@ export const AppsDetail: FC = () => {
   const mediaQuery = useMediaQuery()
   const carouselCols = useMemo<number>(handleCarouselCols(mediaQuery), [mediaQuery])
   const [videoUrl, setVideoUrl] = useState<string | null>(null)
+  const [salesBannerVisible, setSalesBannerVisible] = useState(false)
   const { Modal: AppInstallModal, openModal: appInstallOpenModal, closeModal: appInstallCloseModal } = useModal()
   const { Modal: InstallSuccessModal, openModal: successOpenModal, closeModal: successCloseModal } = useModal()
   const { Modal: VideoModal, openModal: videoOpenModal, closeModal: videoCloseModal } = useModal()
@@ -173,9 +200,11 @@ export const AppsDetail: FC = () => {
 
   const shouldTrack = Boolean(appId && name)
 
-  useEffect(onPageLoadHandler(TrackingEvent.LoadAppDetail, shouldTrack, { appId, appName: name }), [
+  useEffect(trackEventHandler(TrackingEvent.LoadAppDetail, shouldTrack, { appId, appName: name }), [
     unfilteredAppDetail,
   ])
+
+  useEffect(handleSalesBannerTimeout(setSalesBannerVisible, mediaQuery.isMobile), [mediaQuery])
 
   const images = media?.filter((item) => item.type === 'image')
   const videos = media?.filter((item) => item.type === 'video')
@@ -205,6 +234,17 @@ export const AppsDetail: FC = () => {
     [connectSession, unfilteredAppDetail],
   )
 
+  const trackEnquiryEmail = useCallback(trackEventHandler(TrackingEvent.ClickSendEnquiryEmail, true), [])
+  const trackVisitHomepage = useCallback(trackEventHandler(TrackingEvent.ClickVisitAppPage, true), [])
+  const trackSupportEmail = useCallback(trackEventHandler(TrackingEvent.ClickSendSupportEmail, true), [])
+  const trackViewTerms = useCallback(trackEventHandler(TrackingEvent.ClickViewTermsAndConditions, true), [])
+  const trackViewPrivacyPolicy = useCallback(trackEventHandler(TrackingEvent.ClickViewPrivacyPolicy, true), [])
+  const trackViewPricing = useCallback(trackEventHandler(TrackingEvent.ClickViewPricing, true), [])
+  const salesBannerClick = useCallback(
+    handleSalesBannerClick(setSalesBannerVisible, salesBannerVisible, connectSession?.loginIdentity),
+    [salesBannerVisible, connectSession],
+  )
+
   const videoModalClose = useCallback(handleCloseVideoModal(videoCloseModal), [])
 
   return (
@@ -213,6 +253,9 @@ export const AppsDetail: FC = () => {
         <Loader />
       ) : (
         <>
+          <PersistentNotification onClick={salesBannerClick} isExpanded={salesBannerVisible} intent="critical">
+            Interested in hearing more about this app? Click here and one of the Reapit Team will be in touch!
+          </PersistentNotification>
           <AppDetailBackButton onClick={navigateBack(history)}>
             <Icon icon="backSystem" intent="primary" />
           </AppDetailBackButton>
@@ -225,6 +268,7 @@ export const AppsDetail: FC = () => {
             )}
             {supportEmail && (
               <DesktopLink
+                onClick={trackEnquiryEmail}
                 uri={`${supportEmail}?subject=${name}%20Enquiry&body=Dear%20${developer}%2C%20%0A%0AI%20would%20like%20more%20information%20about%20${name}%20featured%20in%20the%20Reapit%20AppMarket%20%0A%0ARegards`}
                 acProcess={AcProcessType.mail}
                 target="_blank"
@@ -299,7 +343,13 @@ export const AppsDetail: FC = () => {
                     <AppDetailSupportGridCol>
                       <Subtitle hasNoMargin>Website</Subtitle>
                       <BodyText hasGreyText hasNoMargin>
-                        <DesktopLink uri={homePage} acProcess={AcProcessType.web} target="_blank" content={homePage} />
+                        <DesktopLink
+                          onClick={trackVisitHomepage}
+                          uri={homePage}
+                          acProcess={AcProcessType.web}
+                          target="_blank"
+                          content={homePage}
+                        />
                       </BodyText>
                     </AppDetailSupportGridCol>
                   )}
@@ -308,6 +358,7 @@ export const AppsDetail: FC = () => {
                       <Subtitle hasNoMargin>Support Email</Subtitle>
                       <BodyText hasGreyText hasNoMargin>
                         <DesktopLink
+                          onClick={trackSupportEmail}
                           uri={supportEmail}
                           acProcess={AcProcessType.mail}
                           target="_blank"
@@ -329,6 +380,7 @@ export const AppsDetail: FC = () => {
                       <Subtitle hasNoMargin>Terms and Conditions</Subtitle>
                       <BodyText hasGreyText hasNoMargin>
                         <DesktopLink
+                          onClick={trackViewTerms}
                           uri={termsAndConditionsUrl}
                           acProcess={AcProcessType.web}
                           target="_blank"
@@ -342,6 +394,7 @@ export const AppsDetail: FC = () => {
                       <Subtitle hasNoMargin>Privacy Policy</Subtitle>
                       <BodyText hasGreyText hasNoMargin>
                         <DesktopLink
+                          onClick={trackViewPrivacyPolicy}
                           uri={privacyPolicyUrl}
                           acProcess={AcProcessType.web}
                           target="_blank"
@@ -355,6 +408,7 @@ export const AppsDetail: FC = () => {
                     <BodyText hasGreyText hasNoMargin>
                       {!isFree && pricingUrl ? (
                         <DesktopLink
+                          onClick={trackViewPricing}
                           uri={pricingUrl}
                           acProcess={AcProcessType.web}
                           target="_blank"
