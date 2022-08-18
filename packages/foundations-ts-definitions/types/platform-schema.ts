@@ -5557,7 +5557,7 @@ export interface CreateJournalEntryModel {
    */
   propertyId?: string
   /**
-   * The entity type the journal entry has been raised against (applicant/contact/company/landlord/tenancy) (Required when 'associatedId' is given)
+   * The entity type the journal entry has been raised against (applicant/contact/company/landlord/tenancy/worksOrder) (Required when 'associatedId' is given)
    */
   associatedType?: string
   /**
@@ -6012,6 +6012,25 @@ export interface CreatePropertyAddressModel {
      */
     longitude: number // double
   }
+}
+/**
+ * Request body used to create a new check
+ * example:
+ * [object Object]
+ */
+export interface CreatePropertyCheckModel {
+  /**
+   * Short, descriptive text describing the purpose of the check
+   */
+  description: string
+  /**
+   * The type of the check (preInstruction)
+   */
+  type: string
+  /**
+   * The status of the check (needed/notNeeded/arranging/completed)
+   */
+  status: string
 }
 /**
  * Request body used to set the commission fee for a property
@@ -8833,7 +8852,7 @@ export interface JournalEntryModel {
    */
   propertyId?: string
   /**
-   * The entity type the journal entry has been raised against (applicant/contact/company/landlord/tenancy)
+   * The entity type the journal entry has been raised against (applicant/contact/company/landlord/tenancy/worksOrder)
    */
   associatedType?: string
   /**
@@ -8874,7 +8893,7 @@ export interface JournalEntryModelPagedResult {
      */
     propertyId?: string
     /**
-     * The entity type the journal entry has been raised against (applicant/contact/company/landlord/tenancy)
+     * The entity type the journal entry has been raised against (applicant/contact/company/landlord/tenancy/worksOrder)
      */
     associatedType?: string
     /**
@@ -11202,6 +11221,113 @@ export interface PropertyAddressModel {
      * The longitude coordinate of the coordinate pair
      */
     longitude?: number // double
+  }
+}
+/**
+ * Representation of a check
+ */
+export interface PropertyCheckModel {
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+  /**
+   * The unique identifier of the check
+   */
+  id?: string
+  /**
+   * The date and time when the check was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the check was last modified
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  modified?: string // date-time
+  /**
+   * Textual description of what the check relates to
+   */
+  description?: string
+  /**
+   * The status of the check (needed/notNeeded/arranging/completed)
+   */
+  status?: string
+  /**
+   * The type of the check (preInstruction)
+   */
+  type?: string
+  /**
+   * The unique identifier of the property that this check relates to
+   */
+  propertyId?: string
+  /**
+   * The ETag for the current version of the check. Used for managing update concurrency
+   */
+  readonly _eTag?: string
+}
+export interface PropertyCheckModelPagedResult {
+  _embedded?: {
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+    /**
+     * The unique identifier of the check
+     */
+    id?: string
+    /**
+     * The date and time when the check was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the check was last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * Textual description of what the check relates to
+     */
+    description?: string
+    /**
+     * The status of the check (needed/notNeeded/arranging/completed)
+     */
+    status?: string
+    /**
+     * The type of the check (preInstruction)
+     */
+    type?: string
+    /**
+     * The unique identifier of the property that this check relates to
+     */
+    propertyId?: string
+    /**
+     * The ETag for the current version of the check. Used for managing update concurrency
+     */
+    readonly _eTag?: string
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalPageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
   }
 }
 /**
@@ -17339,6 +17465,17 @@ export interface UpdatePropertyAddressModel {
      */
     longitude?: number // double
   }
+}
+/**
+ * Model for the update of an existing check
+ * example:
+ * [object Object]
+ */
+export interface UpdatePropertyCheckModel {
+  /**
+   * The status of the check (needed/notNeeded/arranging/completed)
+   */
+  status?: string
 }
 /**
  * Request body used to update the commission fee for a property
