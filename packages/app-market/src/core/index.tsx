@@ -52,8 +52,7 @@ const run = async () => {
       })
     }
 
-    // Switch to !isLocal when we go to prod
-    if (isLocal && config.mixPanelToken) {
+    if (!isLocal && config.mixPanelToken) {
       mixpanel.init(config.mixPanelToken, { debug: isLocal })
     }
 
