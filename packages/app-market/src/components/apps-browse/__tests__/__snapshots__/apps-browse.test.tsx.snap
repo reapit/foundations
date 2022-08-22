@@ -86,6 +86,127 @@ Object {
           </p>
         </div>
         <div
+          class="el-fade-in apps-filters-categories apps-search-desktop-controls el-multi-select-un-selected"
+        >
+          <input
+            class="el-multi-select-checkbox"
+            id="9"
+            name="Tools"
+            type="checkbox"
+            value="9"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="9"
+          >
+            Tools
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="8"
+            name="Social"
+            type="checkbox"
+            value="8"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="8"
+          >
+            Social
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="7"
+            name="Marketing"
+            type="checkbox"
+            value="7"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="7"
+          >
+            Marketing
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="6"
+            name="Communication"
+            type="checkbox"
+            value="6"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="6"
+          >
+            Communication
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="5"
+            name="Media"
+            type="checkbox"
+            value="5"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="5"
+          >
+            Media
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="4"
+            name="Events"
+            type="checkbox"
+            value="4"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="4"
+          >
+            Events
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="3"
+            name="Finance"
+            type="checkbox"
+            value="3"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="3"
+          >
+            Finance
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="2"
+            name="Productivity"
+            type="checkbox"
+            value="2"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="2"
+          >
+            Productivity
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="1"
+            name="Other"
+            type="checkbox"
+            value="1"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="1"
+          >
+            Other
+          </label>
+        </div>
+        <div
           class="apps-search-desktop-controls el-flex-container"
         >
           <div
@@ -1876,6 +1997,127 @@ Object {
         >
           Browse By
         </p>
+      </div>
+      <div
+        class="el-fade-in apps-filters-categories apps-search-desktop-controls el-multi-select-un-selected"
+      >
+        <input
+          class="el-multi-select-checkbox"
+          id="9"
+          name="Tools"
+          type="checkbox"
+          value="9"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="9"
+        >
+          Tools
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="8"
+          name="Social"
+          type="checkbox"
+          value="8"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="8"
+        >
+          Social
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="7"
+          name="Marketing"
+          type="checkbox"
+          value="7"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="7"
+        >
+          Marketing
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="6"
+          name="Communication"
+          type="checkbox"
+          value="6"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="6"
+        >
+          Communication
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="5"
+          name="Media"
+          type="checkbox"
+          value="5"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="5"
+        >
+          Media
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="4"
+          name="Events"
+          type="checkbox"
+          value="4"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="4"
+        >
+          Events
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="3"
+          name="Finance"
+          type="checkbox"
+          value="3"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="3"
+        >
+          Finance
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="2"
+          name="Productivity"
+          type="checkbox"
+          value="2"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="2"
+        >
+          Productivity
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="1"
+          name="Other"
+          type="checkbox"
+          value="1"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="1"
+        >
+          Other
+        </label>
       </div>
       <div
         class="apps-search-desktop-controls el-flex-container"
@@ -3727,6 +3969,127 @@ Object {
           </p>
         </div>
         <div
+          class="el-fade-in apps-filters-categories apps-search-desktop-controls el-multi-select-un-selected"
+        >
+          <input
+            class="el-multi-select-checkbox"
+            id="9"
+            name="Tools"
+            type="checkbox"
+            value="9"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="9"
+          >
+            Tools
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="8"
+            name="Social"
+            type="checkbox"
+            value="8"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="8"
+          >
+            Social
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="7"
+            name="Marketing"
+            type="checkbox"
+            value="7"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="7"
+          >
+            Marketing
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="6"
+            name="Communication"
+            type="checkbox"
+            value="6"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="6"
+          >
+            Communication
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="5"
+            name="Media"
+            type="checkbox"
+            value="5"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="5"
+          >
+            Media
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="4"
+            name="Events"
+            type="checkbox"
+            value="4"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="4"
+          >
+            Events
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="3"
+            name="Finance"
+            type="checkbox"
+            value="3"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="3"
+          >
+            Finance
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="2"
+            name="Productivity"
+            type="checkbox"
+            value="2"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="2"
+          >
+            Productivity
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="1"
+            name="Other"
+            type="checkbox"
+            value="1"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="1"
+          >
+            Other
+          </label>
+        </div>
+        <div
           class="apps-search-desktop-controls el-flex-container"
         >
           <div
@@ -5497,6 +5860,127 @@ Object {
         >
           Browse By
         </p>
+      </div>
+      <div
+        class="el-fade-in apps-filters-categories apps-search-desktop-controls el-multi-select-un-selected"
+      >
+        <input
+          class="el-multi-select-checkbox"
+          id="9"
+          name="Tools"
+          type="checkbox"
+          value="9"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="9"
+        >
+          Tools
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="8"
+          name="Social"
+          type="checkbox"
+          value="8"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="8"
+        >
+          Social
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="7"
+          name="Marketing"
+          type="checkbox"
+          value="7"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="7"
+        >
+          Marketing
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="6"
+          name="Communication"
+          type="checkbox"
+          value="6"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="6"
+        >
+          Communication
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="5"
+          name="Media"
+          type="checkbox"
+          value="5"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="5"
+        >
+          Media
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="4"
+          name="Events"
+          type="checkbox"
+          value="4"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="4"
+        >
+          Events
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="3"
+          name="Finance"
+          type="checkbox"
+          value="3"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="3"
+        >
+          Finance
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="2"
+          name="Productivity"
+          type="checkbox"
+          value="2"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="2"
+        >
+          Productivity
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="1"
+          name="Other"
+          type="checkbox"
+          value="1"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="1"
+        >
+          Other
+        </label>
       </div>
       <div
         class="apps-search-desktop-controls el-flex-container"
@@ -7328,6 +7812,127 @@ Object {
           </p>
         </div>
         <div
+          class="el-fade-in apps-filters-categories apps-search-desktop-controls el-multi-select-un-selected"
+        >
+          <input
+            class="el-multi-select-checkbox"
+            id="9"
+            name="Tools"
+            type="checkbox"
+            value="9"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="9"
+          >
+            Tools
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="8"
+            name="Social"
+            type="checkbox"
+            value="8"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="8"
+          >
+            Social
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="7"
+            name="Marketing"
+            type="checkbox"
+            value="7"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="7"
+          >
+            Marketing
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="6"
+            name="Communication"
+            type="checkbox"
+            value="6"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="6"
+          >
+            Communication
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="5"
+            name="Media"
+            type="checkbox"
+            value="5"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="5"
+          >
+            Media
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="4"
+            name="Events"
+            type="checkbox"
+            value="4"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="4"
+          >
+            Events
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="3"
+            name="Finance"
+            type="checkbox"
+            value="3"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="3"
+          >
+            Finance
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="2"
+            name="Productivity"
+            type="checkbox"
+            value="2"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="2"
+          >
+            Productivity
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="1"
+            name="Other"
+            type="checkbox"
+            value="1"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="1"
+          >
+            Other
+          </label>
+        </div>
+        <div
           class="apps-search-desktop-controls el-flex-container"
         >
           <div
@@ -9118,6 +9723,127 @@ Object {
         >
           Browse By
         </p>
+      </div>
+      <div
+        class="el-fade-in apps-filters-categories apps-search-desktop-controls el-multi-select-un-selected"
+      >
+        <input
+          class="el-multi-select-checkbox"
+          id="9"
+          name="Tools"
+          type="checkbox"
+          value="9"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="9"
+        >
+          Tools
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="8"
+          name="Social"
+          type="checkbox"
+          value="8"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="8"
+        >
+          Social
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="7"
+          name="Marketing"
+          type="checkbox"
+          value="7"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="7"
+        >
+          Marketing
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="6"
+          name="Communication"
+          type="checkbox"
+          value="6"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="6"
+        >
+          Communication
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="5"
+          name="Media"
+          type="checkbox"
+          value="5"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="5"
+        >
+          Media
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="4"
+          name="Events"
+          type="checkbox"
+          value="4"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="4"
+        >
+          Events
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="3"
+          name="Finance"
+          type="checkbox"
+          value="3"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="3"
+        >
+          Finance
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="2"
+          name="Productivity"
+          type="checkbox"
+          value="2"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="2"
+        >
+          Productivity
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="1"
+          name="Other"
+          type="checkbox"
+          value="1"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="1"
+        >
+          Other
+        </label>
       </div>
       <div
         class="apps-search-desktop-controls el-flex-container"
@@ -10969,6 +11695,127 @@ Object {
           </p>
         </div>
         <div
+          class="el-fade-in apps-filters-categories apps-search-desktop-controls el-multi-select-un-selected"
+        >
+          <input
+            class="el-multi-select-checkbox"
+            id="9"
+            name="Tools"
+            type="checkbox"
+            value="9"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="9"
+          >
+            Tools
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="8"
+            name="Social"
+            type="checkbox"
+            value="8"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="8"
+          >
+            Social
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="7"
+            name="Marketing"
+            type="checkbox"
+            value="7"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="7"
+          >
+            Marketing
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="6"
+            name="Communication"
+            type="checkbox"
+            value="6"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="6"
+          >
+            Communication
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="5"
+            name="Media"
+            type="checkbox"
+            value="5"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="5"
+          >
+            Media
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="4"
+            name="Events"
+            type="checkbox"
+            value="4"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="4"
+          >
+            Events
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="3"
+            name="Finance"
+            type="checkbox"
+            value="3"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="3"
+          >
+            Finance
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="2"
+            name="Productivity"
+            type="checkbox"
+            value="2"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="2"
+          >
+            Productivity
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="1"
+            name="Other"
+            type="checkbox"
+            value="1"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="1"
+          >
+            Other
+          </label>
+        </div>
+        <div
           class="apps-search-desktop-controls el-flex-container"
         >
           <div
@@ -12694,6 +13541,127 @@ Object {
         >
           Browse By
         </p>
+      </div>
+      <div
+        class="el-fade-in apps-filters-categories apps-search-desktop-controls el-multi-select-un-selected"
+      >
+        <input
+          class="el-multi-select-checkbox"
+          id="9"
+          name="Tools"
+          type="checkbox"
+          value="9"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="9"
+        >
+          Tools
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="8"
+          name="Social"
+          type="checkbox"
+          value="8"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="8"
+        >
+          Social
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="7"
+          name="Marketing"
+          type="checkbox"
+          value="7"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="7"
+        >
+          Marketing
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="6"
+          name="Communication"
+          type="checkbox"
+          value="6"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="6"
+        >
+          Communication
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="5"
+          name="Media"
+          type="checkbox"
+          value="5"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="5"
+        >
+          Media
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="4"
+          name="Events"
+          type="checkbox"
+          value="4"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="4"
+        >
+          Events
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="3"
+          name="Finance"
+          type="checkbox"
+          value="3"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="3"
+        >
+          Finance
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="2"
+          name="Productivity"
+          type="checkbox"
+          value="2"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="2"
+        >
+          Productivity
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="1"
+          name="Other"
+          type="checkbox"
+          value="1"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="1"
+        >
+          Other
+        </label>
       </div>
       <div
         class="apps-search-desktop-controls el-flex-container"
@@ -14478,6 +15446,127 @@ Object {
           >
             Browse By
           </p>
+        </div>
+        <div
+          class="el-fade-in apps-filters-categories apps-search-desktop-controls el-multi-select-un-selected"
+        >
+          <input
+            class="el-multi-select-checkbox"
+            id="9"
+            name="Tools"
+            type="checkbox"
+            value="9"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="9"
+          >
+            Tools
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="8"
+            name="Social"
+            type="checkbox"
+            value="8"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="8"
+          >
+            Social
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="7"
+            name="Marketing"
+            type="checkbox"
+            value="7"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="7"
+          >
+            Marketing
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="6"
+            name="Communication"
+            type="checkbox"
+            value="6"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="6"
+          >
+            Communication
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="5"
+            name="Media"
+            type="checkbox"
+            value="5"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="5"
+          >
+            Media
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="4"
+            name="Events"
+            type="checkbox"
+            value="4"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="4"
+          >
+            Events
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="3"
+            name="Finance"
+            type="checkbox"
+            value="3"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="3"
+          >
+            Finance
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="2"
+            name="Productivity"
+            type="checkbox"
+            value="2"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="2"
+          >
+            Productivity
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="1"
+            name="Other"
+            type="checkbox"
+            value="1"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="1"
+          >
+            Other
+          </label>
         </div>
         <div
           class="apps-search-desktop-controls el-flex-container"
@@ -16270,6 +17359,127 @@ Object {
         >
           Browse By
         </p>
+      </div>
+      <div
+        class="el-fade-in apps-filters-categories apps-search-desktop-controls el-multi-select-un-selected"
+      >
+        <input
+          class="el-multi-select-checkbox"
+          id="9"
+          name="Tools"
+          type="checkbox"
+          value="9"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="9"
+        >
+          Tools
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="8"
+          name="Social"
+          type="checkbox"
+          value="8"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="8"
+        >
+          Social
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="7"
+          name="Marketing"
+          type="checkbox"
+          value="7"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="7"
+        >
+          Marketing
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="6"
+          name="Communication"
+          type="checkbox"
+          value="6"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="6"
+        >
+          Communication
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="5"
+          name="Media"
+          type="checkbox"
+          value="5"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="5"
+        >
+          Media
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="4"
+          name="Events"
+          type="checkbox"
+          value="4"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="4"
+        >
+          Events
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="3"
+          name="Finance"
+          type="checkbox"
+          value="3"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="3"
+        >
+          Finance
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="2"
+          name="Productivity"
+          type="checkbox"
+          value="2"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="2"
+        >
+          Productivity
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="1"
+          name="Other"
+          type="checkbox"
+          value="1"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="1"
+        >
+          Other
+        </label>
       </div>
       <div
         class="apps-search-desktop-controls el-flex-container"
@@ -18121,6 +19331,127 @@ Object {
           </p>
         </div>
         <div
+          class="el-fade-in apps-filters-categories apps-search-desktop-controls el-multi-select-un-selected"
+        >
+          <input
+            class="el-multi-select-checkbox"
+            id="9"
+            name="Tools"
+            type="checkbox"
+            value="9"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="9"
+          >
+            Tools
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="8"
+            name="Social"
+            type="checkbox"
+            value="8"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="8"
+          >
+            Social
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="7"
+            name="Marketing"
+            type="checkbox"
+            value="7"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="7"
+          >
+            Marketing
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="6"
+            name="Communication"
+            type="checkbox"
+            value="6"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="6"
+          >
+            Communication
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="5"
+            name="Media"
+            type="checkbox"
+            value="5"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="5"
+          >
+            Media
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="4"
+            name="Events"
+            type="checkbox"
+            value="4"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="4"
+          >
+            Events
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="3"
+            name="Finance"
+            type="checkbox"
+            value="3"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="3"
+          >
+            Finance
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="2"
+            name="Productivity"
+            type="checkbox"
+            value="2"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="2"
+          >
+            Productivity
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="1"
+            name="Other"
+            type="checkbox"
+            value="1"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="1"
+          >
+            Other
+          </label>
+        </div>
+        <div
           class="apps-search-desktop-controls el-flex-container"
         >
           <div
@@ -19871,6 +21202,127 @@ Object {
         >
           Browse By
         </p>
+      </div>
+      <div
+        class="el-fade-in apps-filters-categories apps-search-desktop-controls el-multi-select-un-selected"
+      >
+        <input
+          class="el-multi-select-checkbox"
+          id="9"
+          name="Tools"
+          type="checkbox"
+          value="9"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="9"
+        >
+          Tools
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="8"
+          name="Social"
+          type="checkbox"
+          value="8"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="8"
+        >
+          Social
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="7"
+          name="Marketing"
+          type="checkbox"
+          value="7"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="7"
+        >
+          Marketing
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="6"
+          name="Communication"
+          type="checkbox"
+          value="6"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="6"
+        >
+          Communication
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="5"
+          name="Media"
+          type="checkbox"
+          value="5"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="5"
+        >
+          Media
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="4"
+          name="Events"
+          type="checkbox"
+          value="4"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="4"
+        >
+          Events
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="3"
+          name="Finance"
+          type="checkbox"
+          value="3"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="3"
+        >
+          Finance
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="2"
+          name="Productivity"
+          type="checkbox"
+          value="2"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="2"
+        >
+          Productivity
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="1"
+          name="Other"
+          type="checkbox"
+          value="1"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="1"
+        >
+          Other
+        </label>
       </div>
       <div
         class="apps-search-desktop-controls el-flex-container"
@@ -21682,6 +23134,127 @@ Object {
           </p>
         </div>
         <div
+          class="el-fade-in apps-filters-categories apps-search-desktop-controls el-multi-select-un-selected"
+        >
+          <input
+            class="el-multi-select-checkbox"
+            id="9"
+            name="Tools"
+            type="checkbox"
+            value="9"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="9"
+          >
+            Tools
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="8"
+            name="Social"
+            type="checkbox"
+            value="8"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="8"
+          >
+            Social
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="7"
+            name="Marketing"
+            type="checkbox"
+            value="7"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="7"
+          >
+            Marketing
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="6"
+            name="Communication"
+            type="checkbox"
+            value="6"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="6"
+          >
+            Communication
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="5"
+            name="Media"
+            type="checkbox"
+            value="5"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="5"
+          >
+            Media
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="4"
+            name="Events"
+            type="checkbox"
+            value="4"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="4"
+          >
+            Events
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="3"
+            name="Finance"
+            type="checkbox"
+            value="3"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="3"
+          >
+            Finance
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="2"
+            name="Productivity"
+            type="checkbox"
+            value="2"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="2"
+          >
+            Productivity
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="1"
+            name="Other"
+            type="checkbox"
+            value="1"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="1"
+          >
+            Other
+          </label>
+        </div>
+        <div
           class="apps-search-desktop-controls el-flex-container"
         >
           <div
@@ -21810,6 +23383,127 @@ Object {
         >
           Browse By
         </p>
+      </div>
+      <div
+        class="el-fade-in apps-filters-categories apps-search-desktop-controls el-multi-select-un-selected"
+      >
+        <input
+          class="el-multi-select-checkbox"
+          id="9"
+          name="Tools"
+          type="checkbox"
+          value="9"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="9"
+        >
+          Tools
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="8"
+          name="Social"
+          type="checkbox"
+          value="8"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="8"
+        >
+          Social
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="7"
+          name="Marketing"
+          type="checkbox"
+          value="7"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="7"
+        >
+          Marketing
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="6"
+          name="Communication"
+          type="checkbox"
+          value="6"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="6"
+        >
+          Communication
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="5"
+          name="Media"
+          type="checkbox"
+          value="5"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="5"
+        >
+          Media
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="4"
+          name="Events"
+          type="checkbox"
+          value="4"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="4"
+        >
+          Events
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="3"
+          name="Finance"
+          type="checkbox"
+          value="3"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="3"
+        >
+          Finance
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="2"
+          name="Productivity"
+          type="checkbox"
+          value="2"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="2"
+        >
+          Productivity
+        </label>
+        <input
+          class="el-multi-select-checkbox"
+          id="1"
+          name="Other"
+          type="checkbox"
+          value="1"
+        />
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="1"
+        >
+          Other
+        </label>
       </div>
       <div
         class="apps-search-desktop-controls el-flex-container"

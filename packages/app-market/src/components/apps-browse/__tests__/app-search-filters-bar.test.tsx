@@ -2,15 +2,12 @@ import React, { ChangeEvent, MutableRefObject } from 'react'
 import { useAppsBrowseState } from '../../../core/use-apps-browse-state'
 import { mockAppsBrowseState } from '../../../core/__mocks__/use-apps-browse-state'
 import { render } from '../../../tests/react-testing'
-import { mockAppSummaryModelPagedResult } from '../../../tests/__stubs__/apps'
+import { mockCategoryModelPagedResult } from '../../../tests/__stubs__/categories'
 import { AppSearchFilters, handleClearSearch, handleSearch, handleSelectFilter } from '../app-search-filters-bar'
 import { MobileControlsState } from '../apps-browse'
 
 jest.mock('../../../core/use-apps-browse-state')
 jest.mock('../../../core/analytics')
-jest.mock('@reapit/utils-react', () => ({
-  useReapitGet: jest.fn(() => [mockAppSummaryModelPagedResult, false]),
-}))
 
 const mockUseAppsBrowseState = useAppsBrowseState as jest.Mock
 
@@ -50,7 +47,7 @@ describe('handleSelectFilter', () => {
       },
     } as unknown as ChangeEvent<HTMLInputElement>
     const setAppsBrowseFilterState = jest.fn()
-    const curried = handleSelectFilter(appsBrowseFilterState, setAppsBrowseFilterState)
+    const curried = handleSelectFilter(appsBrowseFilterState, setAppsBrowseFilterState, mockCategoryModelPagedResult)
 
     curried(event)
 
@@ -67,7 +64,7 @@ describe('handleSelectFilter', () => {
       },
     } as unknown as ChangeEvent<HTMLInputElement>
     const setAppsBrowseFilterState = jest.fn()
-    const curried = handleSelectFilter(appsBrowseFilterState, setAppsBrowseFilterState)
+    const curried = handleSelectFilter(appsBrowseFilterState, setAppsBrowseFilterState, mockCategoryModelPagedResult)
 
     curried(event)
 

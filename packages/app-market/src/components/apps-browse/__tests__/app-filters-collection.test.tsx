@@ -5,6 +5,7 @@ import { handleSortConfigs } from '../apps-browse'
 import { appsBrowseConfigCollection } from '../../../core/config'
 import { trackEvent } from '../../../core/analytics'
 import { TrackingEvent } from '../../../core/analytics-events'
+import { mockCategoryModelPagedResult } from '../../../tests/__stubs__/categories'
 
 const configItem = handleSortConfigs(appsBrowseConfigCollection)().appsFilters[0]
 
@@ -23,7 +24,7 @@ describe('AppFiltersCollection', () => {
 describe('handleSetFilters', () => {
   it('should set filters', () => {
     const setAppsBrowseFilterState = jest.fn()
-    const curried = handleSetFilters(setAppsBrowseFilterState, configItem.filters)
+    const curried = handleSetFilters(setAppsBrowseFilterState, mockCategoryModelPagedResult, configItem.filters)
 
     curried()
 

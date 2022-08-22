@@ -24,10 +24,7 @@ import {
   appsSearchMobileFilterControlsActive,
   appsSearchMobileControls,
 } from './__styles__'
-import { useReapitGet } from '@reapit/utils-react'
 import { AppsBrowseConfigItemFiltersInterface, CategoryModelPagedResult } from '@reapit/foundations-ts-definitions'
-import { GetActionNames, getActions } from '@reapit/utils-common'
-import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { cx } from '@linaria/core'
 import debounce from 'just-debounce-it'
 import { MobileControlsState } from './apps-browse'
@@ -44,6 +41,7 @@ export const handleSelectFilter =
   (
     appsBrowseFilterState: AppsBrowseConfigItemFiltersInterface | null,
     setAppsBrowseFilterState: Dispatch<SetStateAction<AppsBrowseConfigItemFiltersInterface | null>>,
+    appsBrowseCategoriesState: CategoryModelPagedResult | null,
   ) =>
   (event: ChangeEvent<HTMLInputElement>) => {
     const newCategory = event.target.value
@@ -62,8 +60,12 @@ export const handleSelectFilter =
     }
 
     const category = [...currentCategory, newCategory]
+    const categoryNames = category.map((categoryItem) => {
+      const foundCategory = appsBrowseCategoriesState?.data?.find((stateItem) => stateItem.id === categoryItem)
+      return foundCategory?.name ?? ''
+    })
 
-    trackEvent(TrackingEvent.FilterApps, true, { category })
+    trackEvent(TrackingEvent.FilterApps, true, { categoryNames })
 
     return setAppsBrowseFilterState({
       ...currentFilters,
@@ -109,20 +111,15 @@ export const handleClearSearch =
   }
 
 export const AppSearchFilters: FC<AppSearchFiltersProps> = memo(({ mobileControlsState }) => {
-  const { appsBrowseFilterState, setAppsBrowseFilterState } = useAppsBrowseState()
+  const { appsBrowseFilterState, appsBrowseCategoriesState, setAppsBrowseFilterState } = useAppsBrowseState()
   const searchRef = useRef<HTMLInputElement | null>(null)
-
-  const [categories] = useReapitGet<CategoryModelPagedResult>({
-    reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppCategories],
-    queryParams: { pageSize: 25 },
-  })
 
   const debouncedSearch = useCallback(debounce(handleSearch(setAppsBrowseFilterState), 500), [])
   const clearSearch = useCallback(handleClearSearch(setAppsBrowseFilterState, searchRef), [searchRef])
-  const selectFilter = useCallback(handleSelectFilter(appsBrowseFilterState, setAppsBrowseFilterState), [
-    appsBrowseFilterState,
-  ])
+  const selectFilter = useCallback(
+    handleSelectFilter(appsBrowseFilterState, setAppsBrowseFilterState, appsBrowseCategoriesState),
+    [appsBrowseFilterState],
+  )
 
   const hasFilters = appsBrowseFilterState && Boolean(Object.keys(appsBrowseFilterState).length)
 
@@ -153,7 +150,7 @@ export const AppSearchFilters: FC<AppSearchFiltersProps> = memo(({ mobileControl
           Browse By
         </BodyText>
       </FlexContainer>
-      {Boolean(categories?.data?.length) && (
+      {Boolean(appsBrowseCategoriesState?.data?.length) && (
         <ElMultiSelectUnSelected
           className={cx(
             elFadeIn,
@@ -161,7 +158,7 @@ export const AppSearchFilters: FC<AppSearchFiltersProps> = memo(({ mobileControl
             mobileControlsState !== 'filters' && appsSearchDesktopControls,
           )}
         >
-          {categories?.data?.map(({ id, name }) => (
+          {appsBrowseCategoriesState?.data?.map(({ id, name }) => (
             <MultiSelectChip
               className={elHasGreyChips}
               id={id}
