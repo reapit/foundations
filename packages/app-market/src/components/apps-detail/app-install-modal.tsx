@@ -90,7 +90,7 @@ export const AppInstallModalContent: FC<AppInstallModalContentProps> = ({
   const closeWithoutInstalling = useCallback(handleCloseModal(closeModal, name, clientId, email), [connectSession, app])
   const confirmInstall = useCallback(
     handleInstall(installApp, refetchApp, closeModal, successOpenModal, name, id, clientId, email),
-    [connectSession, app],
+    [connectSession, app, installApp],
   )
   const trackReadDocs = useCallback(trackEventHandler(TrackingEvent.ClickReadDocs, true), [])
   const trackNavigateMmApp = useCallback(trackEventHandler(TrackingEvent.ClickReadDocs, true), [])

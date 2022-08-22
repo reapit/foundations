@@ -1,6 +1,10 @@
 import { cx } from '@linaria/core'
 import { elMb5, elMr7, FlexContainer, Icon, IconNames, MediaType, useMediaQuery } from '@reapit/elements'
-import { AppsBrowseConfigItemFiltersInterface, AppsBrowseConfigItemInterface } from '@reapit/foundations-ts-definitions'
+import {
+  AppsBrowseConfigItemFiltersInterface,
+  AppsBrowseConfigItemInterface,
+  CategoryModelPagedResult,
+} from '@reapit/foundations-ts-definitions'
 import React, { Dispatch, FC, memo, SetStateAction, useCallback, useMemo } from 'react'
 import { trackEvent } from '../../core/analytics'
 import { TrackingEvent } from '../../core/analytics-events'
@@ -14,11 +18,21 @@ interface AppFiltersCollectionProps {
 export const handleSetFilters =
   (
     setAppsBrowseFilterState: Dispatch<SetStateAction<AppsBrowseConfigItemFiltersInterface | null>>,
+    appsBrowseCategoriesState: CategoryModelPagedResult | null,
     filters?: AppsBrowseConfigItemFiltersInterface | null,
   ) =>
   () => {
     if (filters) {
       setAppsBrowseFilterState(filters)
+
+      const category = filters.category
+      const categoryNames = category?.map((categoryItem) => {
+        const foundCategory = appsBrowseCategoriesState?.data?.find((stateItem) => stateItem.id === categoryItem)
+        return foundCategory?.name ?? ''
+      })
+
+      filters.category = categoryNames
+
       trackEvent(TrackingEvent.ClickFiltersTile, true, { filters })
     }
   }
@@ -34,14 +48,17 @@ export const handleIconSize = (mediaQuery: MediaType) => () => {
 }
 
 export const AppFiltersCollection: FC<AppFiltersCollectionProps> = memo(({ configItem }) => {
-  const { setAppsBrowseFilterState } = useAppsBrowseState()
+  const { setAppsBrowseFilterState, appsBrowseCategoriesState } = useAppsBrowseState()
   const mediaQuery = useMediaQuery()
   const iconSize = useMemo(handleIconSize(mediaQuery), [mediaQuery])
   const { content, filters } = configItem
   const { isSuperWideScreen, is4KScreen } = mediaQuery
   const isFullSizeScreen = isSuperWideScreen || is4KScreen
 
-  const setFilters = useCallback(handleSetFilters(setAppsBrowseFilterState, filters), [filters])
+  const setFilters = useCallback(handleSetFilters(setAppsBrowseFilterState, appsBrowseCategoriesState, filters), [
+    filters,
+    appsBrowseCategoriesState,
+  ])
 
   return (
     <AppFilterCol onClick={setFilters}>

@@ -1,4 +1,8 @@
-import { AppsBrowseConfigItemFiltersInterface, AppsBrowseConfigItemInterface } from '@reapit/foundations-ts-definitions'
+import {
+  AppsBrowseConfigItemFiltersInterface,
+  AppsBrowseConfigItemInterface,
+  CategoryModelPagedResult,
+} from '@reapit/foundations-ts-definitions'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { useReapitGet } from '@reapit/utils-react'
 import React, { FC, createContext, useContext, useState, SetStateAction, Dispatch, useEffect } from 'react'
@@ -29,6 +33,7 @@ export interface AppsBrowseConfigCollection {
 export interface AppsBrowseStateHook {
   appsBrowseFilterState: AppsBrowseConfigItemFiltersInterface | null
   appsBrowseConfigState: AppsBrowseConfigCollection | null
+  appsBrowseCategoriesState: CategoryModelPagedResult | null
   setAppsBrowseFilterState: Dispatch<SetStateAction<AppsBrowseConfigItemFiltersInterface | null>>
 }
 
@@ -52,11 +57,18 @@ export const AppsBrowseProvider: FC = ({ children }) => {
     },
   })
 
+  const [appsBrowseCategoriesCollection] = useReapitGet<CategoryModelPagedResult>({
+    reapitConnectBrowserSession,
+    action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppCategories],
+    queryParams: { pageSize: 25 },
+  })
+
   return (
     <Provider
       value={{
         appsBrowseFilterState,
         appsBrowseConfigState: appsBrowseConfigCollection,
+        appsBrowseCategoriesState: appsBrowseCategoriesCollection,
         setAppsBrowseFilterState: setAppsBrowseFilterState,
       }}
     >

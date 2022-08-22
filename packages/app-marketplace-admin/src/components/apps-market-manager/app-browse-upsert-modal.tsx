@@ -270,9 +270,9 @@ export const AppBrowseUpsertModal: FC<AppBrowseUpsertModalDefaultProps> = ({
                   id="filters.category"
                   {...register('filters.category')}
                   options={
-                    categories?.data?.map(({ name, description }) => ({
-                      name: description as string,
-                      value: name as string,
+                    categories?.data?.map(({ name, id }) => ({
+                      name: name as string,
+                      value: id as string,
                     })) || []
                   }
                   defaultValues={defaultValues?.filters?.category}
