@@ -106,7 +106,7 @@ export const HeroAppsStrapline = styled(ElBodyText)`
 
 export const HeroAppsInnerContainer = styled.div`
   width: 100%;
-  border-radius: 0.5rem;
+  border-radius: 0.25rem;
   padding: 0.75rem;
 
   ${forMobileAndAbove} {

@@ -11,9 +11,10 @@ Object {
         <div
           class="el-pagination-text"
         >
-          <strong>
-            2
-          </strong>
+          <input
+            class="el-pagination-input"
+            value="2"
+          />
            of 
           4
         </div>
@@ -71,9 +72,10 @@ Object {
       <div
         class="el-pagination-text"
       >
-        <strong>
-          2
-        </strong>
+        <input
+          class="el-pagination-input"
+          value="2"
+        />
          of 
         4
       </div>

@@ -374,14 +374,15 @@ Object {
         <div
           class="ex6bmfc-el-pagination-text"
         >
-          <strong>
-            1
-          </strong>
+          <input
+            class="e1yynswi-el-pagination-input"
+            value="1"
+          />
            of 
           10
         </div>
         <button
-          class="e1yynswi-el-pagination-button"
+          class="e1g9l338-el-pagination-button"
           data-testid="back-button"
           type="button"
         >
@@ -403,12 +404,12 @@ Object {
           </span>
         </button>
         <button
-          class="e1yynswi-el-pagination-button"
+          class="e1g9l338-el-pagination-button"
           data-testid="forward-button"
           type="button"
         >
           <span
-            class="e1g9l338-el-pagination-primary ej9yrfo-el-icon"
+            class="e11f9czk-el-pagination-primary ej9yrfo-el-icon"
           >
             <svg
               fill="none"
@@ -797,14 +798,15 @@ Object {
       <div
         class="ex6bmfc-el-pagination-text"
       >
-        <strong>
-          1
-        </strong>
+        <input
+          class="e1yynswi-el-pagination-input"
+          value="1"
+        />
          of 
         10
       </div>
       <button
-        class="e1yynswi-el-pagination-button"
+        class="e1g9l338-el-pagination-button"
         data-testid="back-button"
         type="button"
       >
@@ -826,12 +828,12 @@ Object {
         </span>
       </button>
       <button
-        class="e1yynswi-el-pagination-button"
+        class="e1g9l338-el-pagination-button"
         data-testid="forward-button"
         type="button"
       >
         <span
-          class="e1g9l338-el-pagination-primary ej9yrfo-el-icon"
+          class="e11f9czk-el-pagination-primary ej9yrfo-el-icon"
         >
           <svg
             fill="none"
@@ -1295,14 +1297,15 @@ Object {
         <div
           class="ex6bmfc-el-pagination-text"
         >
-          <strong>
-            1
-          </strong>
+          <input
+            class="e1yynswi-el-pagination-input"
+            value="1"
+          />
            of 
           10
         </div>
         <button
-          class="e1yynswi-el-pagination-button"
+          class="e1g9l338-el-pagination-button"
           data-testid="back-button"
           type="button"
         >
@@ -1324,12 +1327,12 @@ Object {
           </span>
         </button>
         <button
-          class="e1yynswi-el-pagination-button"
+          class="e1g9l338-el-pagination-button"
           data-testid="forward-button"
           type="button"
         >
           <span
-            class="e1g9l338-el-pagination-primary ej9yrfo-el-icon"
+            class="e11f9czk-el-pagination-primary ej9yrfo-el-icon"
           >
             <svg
               fill="none"
@@ -1731,14 +1734,15 @@ Object {
       <div
         class="ex6bmfc-el-pagination-text"
       >
-        <strong>
-          1
-        </strong>
+        <input
+          class="e1yynswi-el-pagination-input"
+          value="1"
+        />
          of 
         10
       </div>
       <button
-        class="e1yynswi-el-pagination-button"
+        class="e1g9l338-el-pagination-button"
         data-testid="back-button"
         type="button"
       >
@@ -1760,12 +1764,12 @@ Object {
         </span>
       </button>
       <button
-        class="e1yynswi-el-pagination-button"
+        class="e1g9l338-el-pagination-button"
         data-testid="forward-button"
         type="button"
       >
         <span
-          class="e1g9l338-el-pagination-primary ej9yrfo-el-icon"
+          class="e11f9czk-el-pagination-primary ej9yrfo-el-icon"
         >
           <svg
             fill="none"

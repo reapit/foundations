@@ -9,7 +9,8 @@ export interface TrackingEventData {
 }
 
 export const trackEvent = (event: TrackingEvent, shouldTrack: boolean, data?: TrackingEventData) => {
-  if (!shouldTrack) return
+  const isLocal = window.reapit.config.appEnv !== 'production'
+  if (!shouldTrack || isLocal) return
 
   if (data) {
     mixpanel.track(event, data)
@@ -51,7 +52,8 @@ export const registerUserHandler =
     setAnalyticsRegistered: Dispatch<SetStateAction<boolean>>,
   ) =>
   () => {
-    if (connectSession && !analyticsRegistered) {
+    const isLocal = window.reapit.config.appEnv !== 'production'
+    if (connectSession && !analyticsRegistered && !isLocal) {
       const { email, name, clientId, userCode, orgName, groups, developerId } = connectSession?.loginIdentity ?? {}
       const userRoles = getRoleFromGroups(groups)
 

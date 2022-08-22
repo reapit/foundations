@@ -47,7 +47,9 @@ export interface PaginationProps extends HTMLAttributes<HTMLDivElement> {
 }
 ```
 
-The callback can be any action and will return you the next current page on button click forward or back. The below example uses `useState`:
+The callback can be any action and will return you the next current page on button click forward or back. The below example uses `useState`.
+
+In addtion, the React component uses an input to allow quick switching between pages. You can use the markup as normal for non React usage however, you will need to write more JavaScript to make this behaviour work in your app.
 
 <Canvas>
   <Story name="React Example">
