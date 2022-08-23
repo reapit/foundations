@@ -518,14 +518,15 @@ Object {
         <div
           class="ex6bmfc-el-pagination-text"
         >
-          <strong>
-            1
-          </strong>
+          <input
+            class="e1yynswi-el-pagination-input"
+            value="1"
+          />
            of 
           1
         </div>
         <button
-          class="e1yynswi-el-pagination-button"
+          class="e1g9l338-el-pagination-button"
           data-testid="back-button"
           type="button"
         >
@@ -547,7 +548,7 @@ Object {
           </span>
         </button>
         <button
-          class="e1yynswi-el-pagination-button"
+          class="e1g9l338-el-pagination-button"
           data-testid="forward-button"
           type="button"
         >
@@ -736,14 +737,15 @@ Object {
       <div
         class="ex6bmfc-el-pagination-text"
       >
-        <strong>
-          1
-        </strong>
+        <input
+          class="e1yynswi-el-pagination-input"
+          value="1"
+        />
          of 
         1
       </div>
       <button
-        class="e1yynswi-el-pagination-button"
+        class="e1g9l338-el-pagination-button"
         data-testid="back-button"
         type="button"
       >
@@ -765,7 +767,7 @@ Object {
         </span>
       </button>
       <button
-        class="e1yynswi-el-pagination-button"
+        class="e1g9l338-el-pagination-button"
         data-testid="forward-button"
         type="button"
       >

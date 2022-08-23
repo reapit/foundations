@@ -2,7 +2,14 @@ import React from 'react'
 import { render } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { screen } from '@testing-library/dom'
-import { PaginationWrap, PaginationText, PaginationButton, Pagination } from '../index'
+import {
+  PaginationWrap,
+  PaginationText,
+  PaginationButton,
+  Pagination,
+  handlePageChange,
+  handlePageInputChange,
+} from '../index'
 
 describe('PaginationWrap', () => {
   it('should match a snapshot and render children', () => {
@@ -51,12 +58,40 @@ describe('Pagination', () => {
 
     await user.click(screen.getByTestId('back-button'))
 
-    expect(mockCallback).toHaveBeenCalledTimes(1)
+    expect(mockCallback).toHaveBeenCalledTimes(2)
     expect(mockCallback).toHaveBeenLastCalledWith(1)
 
     await user.click(screen.getByTestId('forward-button'))
 
-    expect(mockCallback).toHaveBeenCalledTimes(2)
+    expect(mockCallback).toHaveBeenCalledTimes(4)
     expect(mockCallback).toHaveBeenLastCalledWith(3)
+  })
+})
+
+describe('handlePageChange', () => {
+  it('should correctly call the callback on change', () => {
+    const nextPage = 2
+    const callback = jest.fn()
+    const setInputValue = jest.fn()
+    const curried = handlePageChange(nextPage, callback, setInputValue)
+
+    curried()
+
+    expect(callback).toHaveBeenCalledWith(nextPage)
+    expect(setInputValue).toHaveBeenCalledWith(String(nextPage))
+  })
+})
+
+describe('handlePageInputChange', () => {
+  it('should correctly call the callback on change', () => {
+    const numberPages = 3
+    const currentPage = 2
+    const inputValue = '3'
+    const callback = jest.fn()
+    const curried = handlePageInputChange(numberPages, currentPage, inputValue, callback)
+
+    curried()
+
+    expect(callback).toHaveBeenCalledWith(Number(inputValue))
   })
 })

@@ -484,9 +484,10 @@ Object {
         <div
           class="el-pagination-text"
         >
-          <strong>
-            1
-          </strong>
+          <input
+            class="el-pagination-input"
+            value="1"
+          />
            of 
           1
         </div>
@@ -1017,9 +1018,10 @@ Object {
       <div
         class="el-pagination-text"
       >
-        <strong>
-          1
-        </strong>
+        <input
+          class="el-pagination-input"
+          value="1"
+        />
          of 
         1
       </div>
@@ -2063,9 +2065,10 @@ Object {
         <div
           class="el-pagination-text"
         >
-          <strong>
-            1
-          </strong>
+          <input
+            class="el-pagination-input"
+            value="1"
+          />
            of 
           1
         </div>
@@ -2596,9 +2599,10 @@ Object {
       <div
         class="el-pagination-text"
       >
-        <strong>
-          1
-        </strong>
+        <input
+          class="el-pagination-input"
+          value="1"
+        />
          of 
         1
       </div>

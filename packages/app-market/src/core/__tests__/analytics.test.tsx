@@ -11,12 +11,24 @@ jest.mock('mixpanel-browser', () => ({
   },
 }))
 
+window.reapit.config.appEnv = 'production'
+
 describe('trackEvent', () => {
   it('should not track an event when shouldTrack is false', () => {
     trackEvent(TrackingEvent.ChangePassword, false)
 
     expect(mixpanel.track).not.toHaveBeenCalled()
   })
+
+  it('should not track an event when app env is local', () => {
+    window.reapit.config.appEnv = 'local'
+    trackEvent(TrackingEvent.ChangePassword, false)
+
+    expect(mixpanel.track).not.toHaveBeenCalled()
+
+    window.reapit.config.appEnv = 'production'
+  })
+
   it('should track an event with data', () => {
     const data = {
       foo: 'bar',
