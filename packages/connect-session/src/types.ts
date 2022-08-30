@@ -1,6 +1,10 @@
 export interface ReapitConnectBrowserSessionInitializers {
   connectOAuthUrl: string
   connectClientId: string
+  /**
+   * @deprecated connectUserPoolId is no longer used so can safely be removed.
+   */
+  connectUserPoolId?: string
   connectLoginRedirectPath?: string
   connectLogoutRedirectPath?: string
   connectApplicationTimeout?: number
