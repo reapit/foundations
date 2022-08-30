@@ -1,5 +1,15 @@
 import React, { Dispatch, FC, Fragment, SetStateAction, useCallback, useMemo, useState } from 'react'
-import { PageContainer, FlexContainer, Icon, elMb5, useMediaQuery, MediaType, elMt3, elMb7 } from '@reapit/elements'
+import {
+  PageContainer,
+  FlexContainer,
+  Icon,
+  elMb5,
+  useMediaQuery,
+  MediaType,
+  elMt3,
+  elMb7,
+  elMb11,
+} from '@reapit/elements'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { DeveloperAppsCollection } from './developer-apps-collection'
@@ -173,7 +183,7 @@ export const AppsBrowse: FC = () => {
               <>
                 <BrowseAppsSubtitle>App Collections</BrowseAppsSubtitle>
                 <Carousel
-                  className={elMb7}
+                  className={cx(isMobile ? elMb7 : elMb11)}
                   numberCols={filtersCols}
                   items={appsFilters.map((configItem, index) => (
                     <AppFiltersCollection key={index} configItem={configItem} />

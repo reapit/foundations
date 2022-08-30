@@ -14,7 +14,7 @@ export const HeroAppsContainer = styled.div`
   align-self: end;
   margin-bottom: 1.25rem;
 
-  ${forTabletAndAbove} {
+  ${forMobileAndAbove} {
     margin-bottom: 2.5rem;
   }
 `

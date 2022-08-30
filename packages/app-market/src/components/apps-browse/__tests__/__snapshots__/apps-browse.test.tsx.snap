@@ -611,7 +611,7 @@ Object {
             App Collections
           </h2>
           <div
-            class="el-mb7 carousel-wrapper"
+            class="el-mb11 carousel-wrapper"
           >
             <a
               class="el-fade-in carousel-controls-right carousel-controls"
@@ -2524,7 +2524,7 @@ Object {
           App Collections
         </h2>
         <div
-          class="el-mb7 carousel-wrapper"
+          class="el-mb11 carousel-wrapper"
         >
           <a
             class="el-fade-in carousel-controls-right carousel-controls"
@@ -4474,7 +4474,7 @@ Object {
             App Collections
           </h2>
           <div
-            class="el-mb7 carousel-wrapper"
+            class="el-mb11 carousel-wrapper"
           >
             <a
               class="el-fade-in carousel-controls-right carousel-controls"
@@ -6367,7 +6367,7 @@ Object {
           App Collections
         </h2>
         <div
-          class="el-mb7 carousel-wrapper"
+          class="el-mb11 carousel-wrapper"
         >
           <a
             class="el-fade-in carousel-controls-right carousel-controls"
@@ -15973,7 +15973,7 @@ Object {
             App Collections
           </h2>
           <div
-            class="el-mb7 carousel-wrapper"
+            class="el-mb11 carousel-wrapper"
           >
             <a
               class="el-fade-in carousel-controls-right carousel-controls"
@@ -17886,7 +17886,7 @@ Object {
           App Collections
         </h2>
         <div
-          class="el-mb7 carousel-wrapper"
+          class="el-mb11 carousel-wrapper"
         >
           <a
             class="el-fade-in carousel-controls-right carousel-controls"
@@ -19836,7 +19836,7 @@ Object {
             App Collections
           </h2>
           <div
-            class="el-mb7 carousel-wrapper"
+            class="el-mb11 carousel-wrapper"
           >
             <div
               class="carousel-grid"
@@ -21709,7 +21709,7 @@ Object {
           App Collections
         </h2>
         <div
-          class="el-mb7 carousel-wrapper"
+          class="el-mb11 carousel-wrapper"
         >
           <div
             class="carousel-grid"

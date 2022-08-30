@@ -52,7 +52,7 @@ export const FeaturedHeroAppsItem = styled.div`
   align-self: end;
   margin-bottom: 1.25rem;
 
-  ${forTabletAndAbove} {
+  ${forMobileAndAbove} {
     margin-bottom: 2.5rem;
   }
 
@@ -177,7 +177,7 @@ export const FeaturedHeroAppsIcon = styled.img`
 
 export const FeaturedHeroAppsImageContainer = styled.div`
   width: 100%;
-  height: 180px;
+  height: 140px;
   overflow: hidden;
   display: flex;
   align-items: center;

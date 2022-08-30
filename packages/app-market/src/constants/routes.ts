@@ -7,4 +7,5 @@ export const Routes = {
   SETTINGS_INSTALLED: '/settings/installed',
   SUPPORT: '/support',
   LOGIN: '/login',
+  ACCEPT_PERMISSION_CHANGE: '/apps/:appId/revisions/:revisionId/consents/:consentId/approve',
 }
