@@ -6,12 +6,11 @@ export const appsSearchContainer = css`
   width: 100%;
 
   ${forMobileAndAbove} {
-    margin-bottom: 1.25rem;
+    margin-bottom: 2.5rem;
     width: 50%;
   }
 
   ${forTabletAndAbove} {
-    margin-bottom: 2.5rem;
     width: 33.33%;
   }
 

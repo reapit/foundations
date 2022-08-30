@@ -16,12 +16,11 @@ export const AppsGrid = styled.div`
 
   ${forMobileAndAbove} {
     grid-column-gap: 1.25rem;
-    margin-bottom: 1.25rem;
+    margin-bottom: 2.5rem;
   }
 
   ${forTabletAndAbove} {
     grid-template-columns: repeat(12, 1fr);
-    margin-bottom: 2.5rem;
   }
 `
 
