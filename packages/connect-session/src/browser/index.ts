@@ -32,8 +32,6 @@ export class ReapitConnectBrowserSession {
   constructor({
     connectClientId,
     connectOAuthUrl,
-    // eslint-disable-next-line no-unused-vars
-    connectUserPoolId,
     connectLoginRedirectPath,
     connectLogoutRedirectPath,
     connectApplicationTimeout,

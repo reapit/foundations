@@ -1,7 +1,6 @@
 export interface ReapitConnectBrowserSessionInitializers {
   connectOAuthUrl: string
   connectClientId: string
-  connectUserPoolId: string
   connectLoginRedirectPath?: string
   connectLogoutRedirectPath?: string
   connectApplicationTimeout?: number
