@@ -81,7 +81,11 @@ export const handleSwitchStep =
   }
 
 export const handleSubmitWebhook =
-  (createWebhook: SendFunction<CreateWebhookModel, boolean>) => (values: CreateWebhookFormSchema) => {
+  (createWebhook: SendFunction<CreateWebhookModel, boolean>, isSending: boolean) =>
+  (values: CreateWebhookFormSchema) => {
+    if (isSending) {
+      return
+    }
     const { applicationId, url, topicIds, customerIds, ignoreEtagOnlyChanges, active } = values
     const splitCustomerIds = customerIds.split(',').filter(Boolean)
     const customers = customerIds.includes('ALL') ? [] : splitCustomerIds
@@ -156,7 +160,7 @@ export const WebhooksNew: FC = () => {
   const formValues = getValues()
   const { applicationId } = formValues
 
-  const [, webhookCreating, createWebhook, createWebhookSuccess] = useReapitUpdate<CreateWebhookModel, boolean>({
+  const [webhookCreating, , createWebhook, createWebhookSuccess] = useReapitUpdate<CreateWebhookModel, boolean>({
     reapitConnectBrowserSession,
     action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.createWebhook],
     method: 'POST',
@@ -175,13 +179,20 @@ export const WebhooksNew: FC = () => {
   return (
     <form
       className={elMt11}
-      onSubmit={handleSubmit(handleSubmitWebhook(createWebhook))}
+      onSubmit={handleSubmit(handleSubmitWebhook(createWebhook, webhookCreating || false))}
       onChange={handleSwitchStep(selectedStep, trigger, setSelectedStep)}
     >
       <StepsVertical steps={steps} selectedStep={selectedStep} onStepClick={setSelectedStep} />
       {!nextStep && (
         <ButtonGroup className={cx(elMb11, createCta)} alignment="left">
-          <Button intent="critical" size={2} chevronRight type="submit" disabled={webhookCreating}>
+          <Button
+            intent="critical"
+            size={2}
+            chevronRight
+            type="submit"
+            disabled={webhookCreating}
+            loading={webhookCreating}
+          >
             Create
           </Button>
         </ButtonGroup>
