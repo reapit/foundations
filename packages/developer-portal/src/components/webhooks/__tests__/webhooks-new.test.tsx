@@ -79,7 +79,7 @@ describe('handleSubmitWebhook', () => {
       topicIds: values.topicIds.split(',').filter(Boolean),
       customerIds: values.customerIds.split(',').filter(Boolean),
     }
-    const curried = handleSubmitWebhook(createWebhook)
+    const curried = handleSubmitWebhook(createWebhook, false)
     curried(values)
     expect(createWebhook).toHaveBeenCalledWith(createWebhookModel)
   })
