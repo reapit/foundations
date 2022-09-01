@@ -4210,6 +4210,11 @@ export interface CreateApplicantModel {
    */
   marketingMode: string
   /**
+   * The ISO-4217 currency code that relates to monetary amounts specified by the applicant
+   * Where not specified this will default to the customer's base currency
+   */
+  currency?: string
+  /**
    * A flag determining whether or not the applicant is actively looking for a property
    */
   active?: boolean
@@ -7240,6 +7245,12 @@ export interface CreateTenancyCheckModel {
    * The status of the tenancy check (needed/notNeeded/arranging/completed)
    */
   status: string
+  /**
+   * App specific metadata to set against the tenancy check
+   */
+  metadata?: {
+    [name: string]: any
+  }
 }
 /**
  * Request body used to set the deposit of a new tenancy
@@ -7375,6 +7386,12 @@ export interface CreateTenancyModel {
      * The source type (office/source)
      */
     type?: string
+  }
+  /**
+   * App specific metadata to set against the tenancy
+   */
+  metadata?: {
+    [name: string]: any
   }
 }
 /**
@@ -14329,6 +14346,12 @@ export interface TenancyCheckModel {
    */
   tenancyId?: string
   /**
+   * App specific metadata that has been set against the tenancy check
+   */
+  metadata?: {
+    [name: string]: any
+  }
+  /**
    * The ETag for the current version of the teanncy check. Used for managing update concurrency
    */
   readonly _eTag?: string
@@ -14375,6 +14398,12 @@ export interface TenancyCheckModelPagedResult {
      * The unique identifier of the tenancy that this check relates to
      */
     tenancyId?: string
+    /**
+     * App specific metadata that has been set against the tenancy check
+     */
+    metadata?: {
+      [name: string]: any
+    }
     /**
      * The ETag for the current version of the teanncy check. Used for managing update concurrency
      */
@@ -14953,6 +14982,12 @@ export interface TenancyModel {
    */
   fromArchive?: boolean
   /**
+   * App specific metadata that has been set against the tenancy
+   */
+  metadata?: {
+    [name: string]: any
+  }
+  /**
    * The ETag for the current version of the tenancy. Used for managing update concurrency
    */
   readonly _eTag?: string
@@ -15233,6 +15268,12 @@ export interface TenancyModelPagedResult {
      * A flag denoting whether or not this tenancy is archived
      */
     fromArchive?: boolean
+    /**
+     * App specific metadata that has been set against the tenancy
+     */
+    metadata?: {
+      [name: string]: any
+    }
     /**
      * The ETag for the current version of the tenancy. Used for managing update concurrency
      */
@@ -15890,6 +15931,11 @@ export interface UpdateApplicantModel {
    * Indicates whether the applicant is look to buy or rent a property (buying/renting)
    */
   marketingMode?: string
+  /**
+   * The ISO-4217 currency code that relates to monetary amounts specified by the applicant
+   * Where not specified this will default to the customer's base currency
+   */
+  currency?: string
   /**
    * A flag determining whether or not the applicant is actively looking for a property
    */
@@ -18656,6 +18702,12 @@ export interface UpdateTenancyCheckModel {
    * The status of the tenancy check (needed/notNeeded/arranging/completed)
    */
   status?: string
+  /**
+   * App specific metadata to set against the tenancy check
+   */
+  metadata?: {
+    [name: string]: any
+  }
 }
 /**
  * Request body used to set the deposit of a tenancy
