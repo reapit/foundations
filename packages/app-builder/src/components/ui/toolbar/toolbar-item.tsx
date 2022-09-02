@@ -81,7 +81,7 @@ export const ToolbarItem: FC<ToolbarItemProps> = ({
                 onChange && onChange(value)
               }
             },
-          })
+          } as unknown as React.ReactElement<HTMLInputElement>)
       })
       break
     case ToolbarItemType.Select:

@@ -8,7 +8,7 @@
   },
   "devDependencies": {
     "concurrently": "^7.2.2",
-    "eslint": "^8.20.0"
+    "eslint": "^8.23.0"
   },
   "description": "An opinionated gnerator for scaffolding TypeScript Node apps",
   "keywords": [
