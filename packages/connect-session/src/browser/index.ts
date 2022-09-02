@@ -21,7 +21,6 @@ export class ReapitConnectBrowserSession {
   // and cause bugs
   private connectOAuthUrl: string
   private connectClientId: string
-  private connectUserPoolId: string
   private session: ReapitConnectSession | null
   private connectLoginRedirectPath: string
   private connectLogoutRedirectPath: string
@@ -33,7 +32,6 @@ export class ReapitConnectBrowserSession {
   constructor({
     connectClientId,
     connectOAuthUrl,
-    connectUserPoolId,
     connectLoginRedirectPath,
     connectLogoutRedirectPath,
     connectApplicationTimeout,
@@ -41,7 +39,6 @@ export class ReapitConnectBrowserSession {
     // Instantiate my private variables from the constructor params
     this.connectOAuthUrl = connectOAuthUrl
     this.connectClientId = connectClientId
-    this.connectUserPoolId = connectUserPoolId
     this.connectLoginRedirectPath = `${window.location.origin}${connectLoginRedirectPath || ''}`
     this.connectLogoutRedirectPath = `${window.location.origin}${
       connectLogoutRedirectPath || connectLogoutRedirectPath === '' ? connectLogoutRedirectPath : '/login'
@@ -160,10 +157,7 @@ export class ReapitConnectBrowserSession {
       if (!session || (session && session.error)) return this.handleError('Error fetching session from Reapit Connect ')
 
       // I need to verify the identity claims I have just received from the server dwdqd
-      const loginIdentity: LoginIdentity | undefined = await connectSessionVerifyDecodeIdToken(
-        session.id_token,
-        this.connectUserPoolId,
-      )
+      const loginIdentity: LoginIdentity | undefined = await connectSessionVerifyDecodeIdToken(session.id_token)
 
       // If the idToken is invalid, don't return the session
       if (!loginIdentity) return this.handleError('Login identity was not verified')
