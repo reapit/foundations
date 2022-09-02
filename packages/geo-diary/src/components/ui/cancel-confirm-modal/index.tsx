@@ -14,8 +14,10 @@ export type UpdateAppointmentData = {
   UpdateAppointment: ExtendedAppointmentModel
 }
 
+export type UpdateAppointmentParams = { variables: UpdateAppointmentVariables }
+
 export type HandleUpdateAppointmentParams = {
-  updateAppointment: ({ variables: UpdateAppointmentVariables }) => void
+  updateAppointment: (params: UpdateAppointmentParams) => void
   getAppointmentEtag: (id: string) => Promise<string>
   appointment: ExtendedAppointmentModel
 }
