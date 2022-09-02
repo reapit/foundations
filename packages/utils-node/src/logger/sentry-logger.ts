@@ -1,3 +1,4 @@
+import { AxiosError } from 'axios'
 import * as Sentry from '@sentry/node'
 import { LeveledLogMethod } from 'winston'
 import { serializeError } from 'serialize-error'
@@ -13,7 +14,13 @@ export const stringifyError = (err: any) => JSON.stringify(serializeError(err))
  * patch logger.error to send error to sentry
  */
 
-export type WistonLoggerErrorFn = (caller: string, { error: AxiosError, traceId: string, headers: any }) => void
+export interface LoggerError {
+  error: AxiosError
+  traceId: string
+  headers: any
+}
+
+export type WistonLoggerErrorFn = (caller: string, error: LoggerError) => void
 export const createWistonLoggerErrorFn: (loggerError: LeveledLogMethod) => WistonLoggerErrorFn =
   (loggerError) =>
   (caller, { error, traceId, headers }) =>
