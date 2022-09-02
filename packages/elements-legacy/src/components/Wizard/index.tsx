@@ -8,7 +8,7 @@ import {
   WizardRenderCallbackParams,
 } from './context'
 import { Button } from '../Button'
-import { Formik, FormikProps, Form } from 'formik'
+import { Formik, Form, FormikValues, FormikHelpers } from 'formik'
 import { MdClose } from 'react-icons/md'
 
 export interface WizardProps {
@@ -107,14 +107,14 @@ export type WizardActionType = 'next' | 'prev'
 export interface WizardStepProps<T> {
   id: string
   Component: React.FC<any>
-  validate?: (value: T) => { [k in keyof T]: string }
-  initialValue?: T
+  validate?: (value: FormikValues) => { [k in keyof T]: string }
+  initialValue?: FormikValues
   onNavigate?: (params: {
-    form: FormikProps<T>
+    form: FormikHelpers<FormikValues>
     type: WizardActionType
     context: WizardContextValues
   }) => Promise<boolean>
-  onSubmit?: (params: { values: T; context: WizardContextValues; form: FormikProps<T> }) => void
+  onSubmit?: (params: { values: FormikValues; context: WizardContextValues; form: FormikHelpers<FormikValues> }) => void
 }
 
 function WizardStep<T>({ Component, initialValue, onNavigate, validate, onSubmit }: WizardStepProps<T>) {
@@ -124,10 +124,10 @@ function WizardStep<T>({ Component, initialValue, onNavigate, validate, onSubmit
 
   return (
     <Formik
-      initialValues={initialValue || ({} as T)}
+      initialValues={initialValue as FormikValues}
       validate={validate}
       onSubmit={(values, form) => {
-        onSubmit && onSubmit({ values, context, form: form as FormikProps<T> })
+        onSubmit && onSubmit({ values, context, form: form as FormikHelpers<FormikValues> })
       }}
     >
       {(form) => {

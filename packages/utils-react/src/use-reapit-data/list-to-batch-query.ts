@@ -41,7 +41,7 @@ export const stringListToBatchQuery = (list: (string | number)[], queryKey: stri
 
 // And again where you have an object of filters with a mixture of arrays and strings / boolean / numeric values and
 // you need a string map returned for useReapitGet
-export const objectToQuery = <QueryObjectType>(queryObject: QueryObjectType): StringMap =>
+export const objectToQuery = <QueryObjectType extends {}>(queryObject: QueryObjectType): StringMap =>
   Object.keys(queryObject).reduce((currentQuery: StringMap, nextItem: string) => {
     const objectItem = queryObject[nextItem]
 

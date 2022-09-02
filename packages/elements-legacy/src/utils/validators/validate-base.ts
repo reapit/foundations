@@ -14,7 +14,7 @@ export interface ValidateCustomParams<ValuesType, ErrorKeys extends string> {
   currentErrors: PartialRecord<ErrorKeys, string>
 }
 
-export const validateBase = <ValuesType extends Object, ErrorKeys extends string>({
+export const validateBase = <ValuesType, ErrorKeys extends string>({
   values,
   keys,
   validator,

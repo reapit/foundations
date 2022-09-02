@@ -11,7 +11,7 @@ export function getMockRouterProps<P>({ params, search = '' }: { params: P; sear
     state: {},
   }
 
-  const props: RouteComponentProps<P | {}> = {
+  const props: RouteComponentProps = {
     match: {
       isExact: true,
       params: params || {},
@@ -44,7 +44,7 @@ export function getMockRouterProps<P>({ params, search = '' }: { params: P; sear
       },
     },
     staticContext: {},
-  }
+  } as RouteComponentProps
 
   return props
 }

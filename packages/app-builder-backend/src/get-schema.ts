@@ -140,7 +140,7 @@ const createMetadataType = (typeName: string) => async (parent, args: any, conte
 
 const updateMetadataType = () => (parent, args: any, context: Context) => {
   const [id, newObject] = Object.values(args)
-  return updateMetadataObject(id, { appBuilderData: JSON.stringify(newObject) }, context.accessToken)
+  return updateMetadataObject(id as string, { appBuilderData: JSON.stringify(newObject) }, context.accessToken)
 }
 
 const deleteMetadataType =
