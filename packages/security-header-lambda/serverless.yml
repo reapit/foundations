@@ -20,7 +20,7 @@ custom:
 
 provider:
   name: aws
-  runtime: ${opt:runtime, 'nodejs12.x' }
+  runtime: ${opt:runtime, 'nodejs14.x' }
   stage: ${opt:stage, 'dev'}
   region: 'us-east-1'
   lambdaHashingVersion: '20201221'
@@ -31,7 +31,7 @@ provider:
 resources:
   Resources:
     IamRoleLambdaExecution:
-      Type: "AWS::IAM::Role"
+      Type: 'AWS::IAM::Role'
       Properties:
         AssumeRolePolicyDocument:
           Version: '2012-10-17'
