@@ -63,8 +63,13 @@ export const CarouselControls = styled.a`
   height: 2rem;
   border-radius: 50%;
   background-color: var(--color-white);
-  border: 1px solid var(--intent-secondary);
   box-shadow: 0px 2px 9px rgba(20, 164, 224, 0.15);
+
+  &:hover {
+    svg {
+      color: var(--intent-secondary);
+    }
+  }
 `
 
 export const CarouselControlsRight = styled(CarouselControls)`

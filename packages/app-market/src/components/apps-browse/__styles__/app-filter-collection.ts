@@ -28,7 +28,7 @@ export const AppFilterCol = styled.div`
   cursor: pointer;
   padding: 0.75rem;
   background-color: #eaf5fc;
-  border-radius: 0.25rem;
+  border-radius: 0.5rem;
   height: 160px;
 
   ${forMobileAndAbove} {

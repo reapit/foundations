@@ -66,7 +66,7 @@ export const FeaturedHeroAppsItem = styled.div`
 export const FeaturedHeroAppsContainer = styled.div`
   width: 100%;
   padding: 0.75rem;
-  border-radius: 0.25rem;
+  border-radius: 0.5rem;
 
   ${forMobileAndAbove} {
     padding: 1.25rem;
