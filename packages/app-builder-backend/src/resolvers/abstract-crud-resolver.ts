@@ -103,7 +103,7 @@ export abstract class AbstractCrudService<Entity, Embeds extends Record<string, 
   }): Promise<Entity> {
     const result = await query<ApiResponse<null, null>>(
       this.createEntityMutation,
-      entityInput,
+      entityInput as Record<string, any>,
       this.createQueryName(),
       { idToken, accessToken, ...variables },
     )

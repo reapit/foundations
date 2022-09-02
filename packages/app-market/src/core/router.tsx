@@ -34,6 +34,7 @@ const AppsDetailPage = React.lazy(() => catchChunkError(() => import('../compone
 const AppsInstalledPage = React.lazy(() => catchChunkError(() => import('../components/apps-installed')))
 const SettingsPage = React.lazy(() => catchChunkError(() => import('../components/settings')))
 const SupportPage = React.lazy(() => catchChunkError(() => import('../components/apps-support')))
+const PermissionChangePage = React.lazy(() => catchChunkError(() => import('../components/accept-permission-change')))
 
 const Router: FC = () => (
   <BrowserRouter history={history}>
@@ -49,6 +50,7 @@ const Router: FC = () => (
             <Route path={Routes.SETTINGS_PROFILE} exact component={SettingsPage} />
             <Route path={Routes.SETTINGS_INSTALLED} exact component={SettingsPage} />
             <Route path={Routes.SUPPORT} exact component={SupportPage} />
+            <Route path={Routes.ACCEPT_PERMISSION_CHANGE} exact component={PermissionChangePage} />
           </Switch>
         </PrivateRouteWrapper>
         <Redirect to={Routes.LOGIN} />

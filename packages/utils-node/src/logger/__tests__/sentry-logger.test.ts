@@ -1,5 +1,5 @@
 import * as Sentry from '@sentry/node'
-import { createWistonLoggerErrorFn, stringifyError } from '../sentry-logger'
+import { createWistonLoggerErrorFn, LoggerError, stringifyError } from '../sentry-logger'
 
 jest.mock('serialize-error', () => ({
   serializeError: jest.fn(() => ({
@@ -26,7 +26,7 @@ describe('createWistonLoggerErrorFn', () => {
     const error = new Error('mockError')
 
     const caller = 'test'
-    const meta = { error, headers: 'test', traceId: 'test' }
+    const meta = { error, headers: 'test', traceId: 'test' } as LoggerError
     loggerErrorFn(caller, meta)
 
     expect(spyWithScope).toHaveBeenCalled()

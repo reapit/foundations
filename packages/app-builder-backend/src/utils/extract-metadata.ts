@@ -49,7 +49,7 @@ export const extractMetadata = <T>(
   )
 
   if (!metadataFields) {
-    return object
+    return object as T & { metadata?: any }
   }
 
   const metadata = {}

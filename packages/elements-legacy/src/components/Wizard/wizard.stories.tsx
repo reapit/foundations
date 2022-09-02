@@ -96,7 +96,7 @@ export const HasForm: Story<WizardProps> = () => {
             context.close()
           }}
           onNavigate={async ({ form }) => {
-            const values = form.values
+            const values = (form as any).values
             setFormData((prev) => ({ ...prev, ...values }))
             return true
           }}

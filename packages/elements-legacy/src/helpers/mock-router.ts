@@ -11,7 +11,7 @@ export function getMockRouterProps<P>(data: P | {}) {
     state: {},
   }
 
-  const props: RouteComponentProps<P | {}> = {
+  const props: RouteComponentProps = {
     match: {
       isExact: true,
       params: data,
@@ -44,7 +44,7 @@ export function getMockRouterProps<P>(data: P | {}) {
       },
     },
     staticContext: {},
-  }
+  } as RouteComponentProps
 
   return props
 }

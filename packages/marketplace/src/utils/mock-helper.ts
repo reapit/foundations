@@ -9,7 +9,7 @@ export function getMockRouterProps<P>(data: P, historyLength: number = 2) {
     state: {},
   }
 
-  const props: RouteComponentProps<P> = {
+  const props = {
     match: {
       isExact: true,
       params: data,
@@ -31,7 +31,7 @@ export function getMockRouterProps<P>(data: P, historyLength: number = 2) {
       listen: jest.fn(),
     },
     staticContext: {},
-  }
+  } as RouteComponentProps
 
   return props
 }
