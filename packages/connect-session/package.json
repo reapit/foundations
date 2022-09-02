@@ -59,6 +59,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "jest": "^28.1.3",
     "jest-coverage-badges": "^1.1.2",
+    "ts-jest": "^28.0.8",
     "tsdx": "^0.14.1",
     "typescript": "^4.8.2"
   },

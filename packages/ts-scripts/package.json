@@ -99,7 +99,7 @@
     "stream-browserify": "^3.0.0",
     "style-loader": "^3.3.1",
     "swc-loader": "^0.2.3",
-    "ts-jest": "^28.0.7",
+    "ts-jest": "^28.0.8",
     "ts-loader": "^9.3.1",
     "ts-node": "^10.9.1",
     "ts-paths-to-webpack-alias": "^0.3.1",

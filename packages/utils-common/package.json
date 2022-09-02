@@ -42,6 +42,7 @@
     "jest": "^28.1.3",
     "jest-coverage-badges": "^1.1.2",
     "serialize-error": "^7.0.1",
+    "ts-jest": "^28.0.8",
     "typescript": "^4.8.2"
   }
 }
