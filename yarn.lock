@@ -4963,20 +4963,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/eslintrc@npm:^1.3.0":
-  version: 1.3.0
-  resolution: "@eslint/eslintrc@npm:1.3.0"
+"@eslint/eslintrc@npm:^1.3.1":
+  version: 1.3.1
+  resolution: "@eslint/eslintrc@npm:1.3.1"
   dependencies:
     ajv: ^6.12.4
     debug: ^4.3.2
-    espree: ^9.3.2
+    espree: ^9.4.0
     globals: ^13.15.0
     ignore: ^5.2.0
     import-fresh: ^3.2.1
     js-yaml: ^4.1.0
     minimatch: ^3.1.2
     strip-json-comments: ^3.1.1
-  checksum: a1e734ad31a8b5328dce9f479f185fd4fc83dd7f06c538e1fa457fd8226b89602a55cc6458cd52b29573b01cdfaf42331be8cfc1fec732570086b591f4ed6515
+  checksum: 9844dcc58a44399649926d5a17a2d53d529b80d3e8c3e9d0964ae198bac77ee6bb1cf44940f30cd9c2e300f7568ec82500be42ace6cacefb08aebf9905fe208e
   languageName: node
   linkType: hard
 
@@ -5735,14 +5735,28 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@humanwhocodes/config-array@npm:^0.9.2":
-  version: 0.9.2
-  resolution: "@humanwhocodes/config-array@npm:0.9.2"
+"@humanwhocodes/config-array@npm:^0.10.4":
+  version: 0.10.4
+  resolution: "@humanwhocodes/config-array@npm:0.10.4"
   dependencies:
     "@humanwhocodes/object-schema": ^1.2.1
     debug: ^4.1.1
     minimatch: ^3.0.4
-  checksum: 28a9e2974c50a86765cb6cc96e03d29187ea33fdaba62c4f35db89002e3cfbd340e64c9f6cf869e33e2e5cdcc06e78763458f4178d38a6f30aea1308787ca706
+  checksum: d480e5d57e6d787565b6cff78e27c3d1b380692d4ffb0ada7d7f5957a56c9032f034da05a3e443065dbd0671ebf4d859036ced34e96b325bbc1badbae3c05300
+  languageName: node
+  linkType: hard
+
+"@humanwhocodes/gitignore-to-minimatch@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "@humanwhocodes/gitignore-to-minimatch@npm:1.0.2"
+  checksum: aba5c40c9e3770ed73a558b0bfb53323842abfc2ce58c91d7e8b1073995598e6374456d38767be24ab6176915f0a8d8b23eaae5c85e2b488c0dccca6d795e2ad
+  languageName: node
+  linkType: hard
+
+"@humanwhocodes/module-importer@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "@humanwhocodes/module-importer@npm:1.0.1"
+  checksum: 0fd22007db8034a2cdf2c764b140d37d9020bbfce8a49d3ec5c05290e77d4b0263b1b972b752df8c89e5eaa94073408f2b7d977aed131faf6cf396ebb5d7fb61
   languageName: node
   linkType: hard
 
@@ -7628,13 +7642,13 @@ __metadata:
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
-    "@typescript-eslint/eslint-plugin": ^5.30.7
-    "@typescript-eslint/parser": ^5.30.7
+    "@typescript-eslint/eslint-plugin": ^5.36.1
+    "@typescript-eslint/parser": ^5.36.1
     aws: ^0.0.3-2
     babel-jest: ^28.1.3
     concurrently: ^6.5.1
     cross-env: ^7.0.3
-    eslint: 8.20.0
+    eslint: 8.23.0
     eslint-plugin-prettier: ^4.2.1
     jest: ^28.1.3
     jest-coverage-badges: ^1.1.2
@@ -7660,8 +7674,8 @@ __metadata:
     "@types/jest": ^27.5.2
     "@types/jszip": ^3.4.1
     "@types/luxon": ^2.3.2
-    "@typescript-eslint/eslint-plugin": ^5.30.7
-    "@typescript-eslint/parser": ^5.30.7
+    "@typescript-eslint/eslint-plugin": ^5.36.1
+    "@typescript-eslint/parser": ^5.36.1
     adm-zip: ^0.5.9
     apollo-server-core: ^3.10.0
     apollo-server-express: ^3.10.0
@@ -7672,7 +7686,7 @@ __metadata:
     cors: ^2.8.5
     cross-env: ^7.0.3
     dataloader: ^2.1.0
-    eslint: ^8.20.0
+    eslint: ^8.23.0
     eslint-plugin-prettier: ^4.2.1
     express: ^4.18.1
     fast-deep-equal: ^3.1.3
@@ -7693,7 +7707,7 @@ __metadata:
     ts-jest: ^28.0.7
     ts-node-dev: ^2.0.0
     type-graphql: ^1.1.1
-    typescript: ^4.7.4
+    typescript: ^4.8.2
     uuid: ^8.3.2
   languageName: unknown
   linkType: soft
@@ -7710,8 +7724,8 @@ __metadata:
     "@types/inquirer": ^7.3.3
     "@types/semver": ^7.3.10
     "@types/yargs": ^16.0.4
-    "@typescript-eslint/eslint-plugin": ^5.30.7
-    "@typescript-eslint/parser": ^5.30.7
+    "@typescript-eslint/eslint-plugin": ^5.36.1
+    "@typescript-eslint/parser": ^5.36.1
     adm-zip: ^0.5.9
     ansi-regex: ^6.0.1
     axios: ^0.27.2
@@ -7720,7 +7734,7 @@ __metadata:
     cli-spinners: ^2.7.0
     concurrently: ^6.5.1
     create-react-app: ^5.0.1
-    eslint: ^8.20.0
+    eslint: ^8.23.0
     eslint-plugin-prettier: ^4.2.1
     figlet: ^1.5.2
     inquirer: ^8.2.4
@@ -7747,14 +7761,14 @@ __metadata:
   resolution: "@reapit/config-manager@workspace:packages/config-manager"
   dependencies:
     "@reapit/config-manager": ^2.0.8
-    "@typescript-eslint/eslint-plugin": ^5.30.7
-    "@typescript-eslint/parser": ^5.30.7
+    "@typescript-eslint/eslint-plugin": ^5.36.1
+    "@typescript-eslint/parser": ^5.36.1
     ansi-styles: ^6.1.0
     aws-sdk: ^2.1167.0
     chalk: ^4.1.2
     change-case: ^4.1.2
     concurrently: ^6.5.1
-    eslint: 8.20.0
+    eslint: 8.23.0
     eslint-plugin-prettier: ^4.2.1
     prompts: ^2.4.2
     yargs: ^16.2.0
@@ -7788,15 +7802,15 @@ __metadata:
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@testing-library/react-hooks": ^8.0.1
     "@types/base-64": ^1.0.0
-    "@typescript-eslint/eslint-plugin": ^5.30.7
-    "@typescript-eslint/parser": ^5.30.7
+    "@typescript-eslint/eslint-plugin": ^5.36.1
+    "@typescript-eslint/parser": ^5.36.1
     axios: ^0.27.2
     babel-jest: ^28.1.3
     base-64: ^1.0.0
     bashleigh-idtoken-verifier: 2.2.3
     concurrently: ^6.5.1
     cross-env: ^7.0.3
-    eslint: ^8.20.0
+    eslint: ^8.23.0
     eslint-plugin-prettier: ^4.2.1
     isomorphic-fetch: ^3.0.0
     jest: ^28.1.3
@@ -7816,9 +7830,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@reapit/cra-template-foundations@workspace:packages/cra-template-foundations"
   dependencies:
-    "@typescript-eslint/eslint-plugin": ^5.30.7
-    "@typescript-eslint/parser": ^5.30.7
-    eslint: 8.20.0
+    "@typescript-eslint/eslint-plugin": ^5.36.1
+    "@typescript-eslint/parser": ^5.36.1
+    eslint: 8.23.0
     eslint-plugin-prettier: ^4.2.1
   languageName: unknown
   linkType: soft
@@ -7828,7 +7842,7 @@ __metadata:
   resolution: "@reapit/create-node-app-generator@workspace:packages/create-node-app-generator"
   dependencies:
     concurrently: ^7.2.2
-    eslint: ^8.20.0
+    eslint: ^8.23.0
     yeoman-generator: ^5.6.1
     yo: ^4.3.0
     yosay: ^2.0.2
@@ -7868,15 +7882,15 @@ __metadata:
     "@storybook/theming": 6.5.9
     "@svgr/rollup": ^6.2.1
     "@svgr/webpack": ^6.2.1
-    "@typescript-eslint/eslint-plugin": ^5.30.7
-    "@typescript-eslint/parser": ^5.30.7
+    "@typescript-eslint/eslint-plugin": ^5.36.1
+    "@typescript-eslint/parser": ^5.36.1
     babel-jest: ^28.1.3
     babel-loader: ^8.2.5
     bulma: ^0.9.4
     concurrently: ^6.5.1
     cross-env: ^7.0.3
     dashify: 2.0.0
-    eslint: 8.20.0
+    eslint: 8.23.0
     eslint-plugin-prettier: ^4.2.1
     file-saver: ^2.0.5
     formik: ^2.2.9
@@ -7962,15 +7976,15 @@ __metadata:
     "@storybook/theming": ^6.5.9
     "@svgr/rollup": ^6.2.1
     "@types/uuid": ^8.3.4
-    "@typescript-eslint/eslint-plugin": ^5.30.7
-    "@typescript-eslint/parser": ^5.30.7
+    "@typescript-eslint/eslint-plugin": ^5.36.1
+    "@typescript-eslint/parser": ^5.36.1
     babel-jest: ^28.1.3
     babel-loader: ^8.2.5
     colord: ^2.9.2
     concurrently: ^6.5.1
     cross-env: ^7.0.3
     dashify: 2.0.0
-    eslint: 8.20.0
+    eslint: 8.23.0
     eslint-plugin-prettier: ^4.2.1
     jest: ^28.1.3
     jest-coverage-badges: ^1.1.2
@@ -8007,7 +8021,7 @@ __metadata:
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
     concurrently: ^6.5.1
-    eslint: 8.20.0
+    eslint: 8.23.0
     sw2dts: ^2.6.3
   languageName: unknown
   linkType: soft
@@ -8018,7 +8032,7 @@ __metadata:
   dependencies:
     "@reapit/config-manager": "workspace:packages/config-manager"
     concurrently: ^6.5.1
-    eslint: 8.20.0
+    eslint: 8.23.0
     yeoman-generator: ^5.6.1
     yo: ^4.3.0
     yosay: ^2.0.2
@@ -8047,7 +8061,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@reapit/ts-bundler@workspace:packages/ts-bundler"
   dependencies:
-    eslint: 8.20.0
+    eslint: 8.23.0
     fast-glob: ^3.2.11
     ts-node: ^10.9.1
     typescript: 4.7.4
@@ -8080,8 +8094,8 @@ __metadata:
     "@svgr/webpack": ^6.2.1
     "@swc/core": ^1.2.208
     "@testing-library/user-event": ^14.3.0
-    "@typescript-eslint/eslint-plugin": ^5.30.7
-    "@typescript-eslint/parser": ^5.30.7
+    "@typescript-eslint/eslint-plugin": ^5.36.1
+    "@typescript-eslint/parser": ^5.36.1
     autoprefixer: ^10.4.7
     aws-cdk: ^2.30.0
     aws-cdk-lib: ^2.30.0
@@ -8096,10 +8110,10 @@ __metadata:
     cross-env: ^6.0.3
     css-loader: ^6.7.1
     esbuild-loader: ^2.19.0
-    eslint: ^8.20.0
+    eslint: ^8.23.0
     eslint-config-prettier: ^8.5.0
     eslint-plugin-prettier: ^4.2.1
-    eslint-plugin-react: ^7.30.1
+    eslint-plugin-react: ^7.31.1
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-svelte3: ^3.4.1
     eslint-webpack-plugin: ^3.2.0
@@ -8203,13 +8217,13 @@ __metadata:
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
-    "@typescript-eslint/eslint-plugin": ^5.30.7
-    "@typescript-eslint/parser": ^5.30.7
+    "@typescript-eslint/eslint-plugin": ^5.36.1
+    "@typescript-eslint/parser": ^5.36.1
     babel-jest: ^28.1.3
     concurrently: ^6.5.1
     cross-env: ^7.0.3
     dayjs: ^1.11.4
-    eslint: 8.20.0
+    eslint: 8.23.0
     eslint-plugin-prettier: ^4.2.1
     isomorphic-fetch: ^3.0.0
     jest: ^28.1.3
@@ -8227,7 +8241,7 @@ __metadata:
     "@nestjs/common": ^8.4.7
     "@nestjs/core": ^8.4.7
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
-    eslint: ^8.20.0
+    eslint: ^8.23.0
     express: ^4.18.1
     jwt-decode: ^3.1.2
     rxjs: ^7.5.6
@@ -8250,13 +8264,13 @@ __metadata:
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils-common": "workspace:packages/utils-common"
     "@sentry/node": ^6.19.7
-    "@typescript-eslint/eslint-plugin": ^5.30.7
-    "@typescript-eslint/parser": ^5.30.7
+    "@typescript-eslint/eslint-plugin": ^5.36.1
+    "@typescript-eslint/parser": ^5.36.1
     babel-jest: ^28.1.3
     concurrently: ^6.5.1
     cross-env: ^7.0.3
     error-polyfill: ^0.1.3
-    eslint: 8.20.0
+    eslint: 8.23.0
     eslint-plugin-prettier: ^4.2.1
     jest: ^28.1.3
     jest-coverage-badges: ^1.1.2
@@ -8283,13 +8297,13 @@ __metadata:
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils-common": "workspace:packages/utils-common"
     "@sentry/node": ^6.19.7
-    "@typescript-eslint/eslint-plugin": ^5.30.7
-    "@typescript-eslint/parser": ^5.30.7
+    "@typescript-eslint/eslint-plugin": ^5.36.1
+    "@typescript-eslint/parser": ^5.36.1
     babel-jest: ^28.1.3
     concurrently: ^6.5.1
     cross-env: ^7.0.3
     error-polyfill: ^0.1.3
-    eslint: 8.20.0
+    eslint: 8.23.0
     eslint-plugin-prettier: ^4.2.1
     jest: ^28.1.3
     jest-coverage-badges: ^1.1.2
@@ -12703,13 +12717,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/eslint-plugin@npm:^5.30.7":
-  version: 5.30.7
-  resolution: "@typescript-eslint/eslint-plugin@npm:5.30.7"
+"@typescript-eslint/eslint-plugin@npm:^5.36.1":
+  version: 5.36.1
+  resolution: "@typescript-eslint/eslint-plugin@npm:5.36.1"
   dependencies:
-    "@typescript-eslint/scope-manager": 5.30.7
-    "@typescript-eslint/type-utils": 5.30.7
-    "@typescript-eslint/utils": 5.30.7
+    "@typescript-eslint/scope-manager": 5.36.1
+    "@typescript-eslint/type-utils": 5.36.1
+    "@typescript-eslint/utils": 5.36.1
     debug: ^4.3.4
     functional-red-black-tree: ^1.0.1
     ignore: ^5.2.0
@@ -12722,7 +12736,7 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: d42af514f5817732646b5601030699687b4ef619ba7983754a4173bf908f6c6030324038e3733b88342ec6ace07af61aa946d677da6a6266931275bd2afc9fc2
+  checksum: a4c555688d840c3ff0d3d71ceca583291e206cc523eade45c56fb8e1c8af84ae50ef8d344cdf8e3f9c38f430bc03c95eb8d49870094e0e5b57e0fa3e61c0ec91
   languageName: node
   linkType: hard
 
@@ -12757,38 +12771,39 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:^5.30.7":
-  version: 5.30.7
-  resolution: "@typescript-eslint/parser@npm:5.30.7"
+"@typescript-eslint/parser@npm:^5.36.1":
+  version: 5.36.1
+  resolution: "@typescript-eslint/parser@npm:5.36.1"
   dependencies:
-    "@typescript-eslint/scope-manager": 5.30.7
-    "@typescript-eslint/types": 5.30.7
-    "@typescript-eslint/typescript-estree": 5.30.7
+    "@typescript-eslint/scope-manager": 5.36.1
+    "@typescript-eslint/types": 5.36.1
+    "@typescript-eslint/typescript-estree": 5.36.1
     debug: ^4.3.4
   peerDependencies:
     eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: f0b2da3cfd047d241f0bd3065a36afe008214aa9e8cd05e9f92d8b0e4b9ec19d3651d0e4a3995b8cb34b553cccb4b0d02d18c0cfbe11f53acd85923dd68366d5
+  checksum: 0f0f94e56ae1d55b6e7223ce5a2b0c93e5cc082ef2951a2b24ae4b22bb8ffbeb90d2d16682bfa8bc972ba2c7fb4703aedd79b7dbd09bcee397e1ab90d11506d9
   languageName: node
   linkType: hard
 
-"@typescript-eslint/scope-manager@npm:5.30.7":
-  version: 5.30.7
-  resolution: "@typescript-eslint/scope-manager@npm:5.30.7"
+"@typescript-eslint/scope-manager@npm:5.36.1":
+  version: 5.36.1
+  resolution: "@typescript-eslint/scope-manager@npm:5.36.1"
   dependencies:
-    "@typescript-eslint/types": 5.30.7
-    "@typescript-eslint/visitor-keys": 5.30.7
-  checksum: 434ce7a13a8f3bffae2af2b7fe19bab6e490c78114584212519f50cd1b91fbdcddc8ad93bdb3cacdc8cecca5a8c5d2eb606557e66bd3fcd9d3040846846c22ff
+    "@typescript-eslint/types": 5.36.1
+    "@typescript-eslint/visitor-keys": 5.36.1
+  checksum: c46497226af75baed7458838ec0bfbddf19f8084115d78b915b46a8ceb4c05619ac61da127dfd3c8ee11bc916896d57bf8b9f936b0306ce69658160f910e3ad0
   languageName: node
   linkType: hard
 
-"@typescript-eslint/type-utils@npm:5.30.7":
-  version: 5.30.7
-  resolution: "@typescript-eslint/type-utils@npm:5.30.7"
+"@typescript-eslint/type-utils@npm:5.36.1":
+  version: 5.36.1
+  resolution: "@typescript-eslint/type-utils@npm:5.36.1"
   dependencies:
-    "@typescript-eslint/utils": 5.30.7
+    "@typescript-eslint/typescript-estree": 5.36.1
+    "@typescript-eslint/utils": 5.36.1
     debug: ^4.3.4
     tsutils: ^3.21.0
   peerDependencies:
@@ -12796,14 +12811,14 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: e7a8d4ec973355c0fe5bad4c317a55940e41d24b1c33b0bf40e8bb268d784f6584a8048fc84ebdb7287849a2c70e2b36365067cba7815de849cd41a1d7653167
+  checksum: d2905289e253a83a9eacbad765cfba03440663086c8beb1b19345b46593c9053fb051ee13d3cc27ccd800fe95ffbf3be2b1273b0f0ac6a59452fc94e6460898b
   languageName: node
   linkType: hard
 
-"@typescript-eslint/types@npm:5.30.7":
-  version: 5.30.7
-  resolution: "@typescript-eslint/types@npm:5.30.7"
-  checksum: 2f6345bf0e2e9f392c1f62a5f96c630d4565574230a000508d923444229e51c1a05e07cef042935ca30f4f35755dbf3871b8b9da808911f578d63e6a4b897b79
+"@typescript-eslint/types@npm:5.36.1":
+  version: 5.36.1
+  resolution: "@typescript-eslint/types@npm:5.36.1"
+  checksum: 10c8965c64e16bc6920dc0c62aae2b139062aca945d03df2ad6fe7c299d2faa684621d571f8d9807a67643d4e9fa5217c69d5f538f9936fc757f9df5ded57623
   languageName: node
   linkType: hard
 
@@ -12825,12 +12840,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/typescript-estree@npm:5.30.7":
-  version: 5.30.7
-  resolution: "@typescript-eslint/typescript-estree@npm:5.30.7"
+"@typescript-eslint/typescript-estree@npm:5.36.1":
+  version: 5.36.1
+  resolution: "@typescript-eslint/typescript-estree@npm:5.36.1"
   dependencies:
-    "@typescript-eslint/types": 5.30.7
-    "@typescript-eslint/visitor-keys": 5.30.7
+    "@typescript-eslint/types": 5.36.1
+    "@typescript-eslint/visitor-keys": 5.36.1
     debug: ^4.3.4
     globby: ^11.1.0
     is-glob: ^4.0.3
@@ -12839,33 +12854,33 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 7cff83a9b9c91a89bcbb677d539b7122b2a423a66f575364858b4635d7e53a25b9329cd20a5adfb732758a41d1c6801d4bfa3eb798a192f351aafb11eedc58b6
+  checksum: acaf2938001673918dbbe690a353cf92e2cfabc79f74cd5946e303a8c24eb9c08ae2053dd261810ed0c9c471ebe879f386564c1b01dd2504dc84f4ce5f4dc696
   languageName: node
   linkType: hard
 
-"@typescript-eslint/utils@npm:5.30.7":
-  version: 5.30.7
-  resolution: "@typescript-eslint/utils@npm:5.30.7"
+"@typescript-eslint/utils@npm:5.36.1":
+  version: 5.36.1
+  resolution: "@typescript-eslint/utils@npm:5.36.1"
   dependencies:
     "@types/json-schema": ^7.0.9
-    "@typescript-eslint/scope-manager": 5.30.7
-    "@typescript-eslint/types": 5.30.7
-    "@typescript-eslint/typescript-estree": 5.30.7
+    "@typescript-eslint/scope-manager": 5.36.1
+    "@typescript-eslint/types": 5.36.1
+    "@typescript-eslint/typescript-estree": 5.36.1
     eslint-scope: ^5.1.1
     eslint-utils: ^3.0.0
   peerDependencies:
     eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
-  checksum: 77b0baf069f70290214294d74fdf7c46a7ddeab322ef53f65766b0c8e59f0e6f8074beb19233be34faca5beb390ac1b932dd1c983337355674c4437b4b1e2b44
+  checksum: 77853d526af86ac508d7938916046ed4ad6374c7414981064c5122a2baa96fa234751137f481ac264a07387fd4dcec1cd26b33e29732cc58e855aae77a001d7c
   languageName: node
   linkType: hard
 
-"@typescript-eslint/visitor-keys@npm:5.30.7":
-  version: 5.30.7
-  resolution: "@typescript-eslint/visitor-keys@npm:5.30.7"
+"@typescript-eslint/visitor-keys@npm:5.36.1":
+  version: 5.36.1
+  resolution: "@typescript-eslint/visitor-keys@npm:5.36.1"
   dependencies:
-    "@typescript-eslint/types": 5.30.7
+    "@typescript-eslint/types": 5.36.1
     eslint-visitor-keys: ^3.3.0
-  checksum: f322972aeda3143d4c24826436357937131f7fbad102d48cfa6dfca70ac245f93b20cf7beb5f1809bda4fe8f454676a6cabf8f73e39af6724076f2b2c213ee80
+  checksum: 45ab7c2fd455a8e4beff418bed6c9e7e1f9f66bcaad3bfaed868f97a3f8cfec1fa4faa45948af1a1c32ce573a7b1c6d10427119c257622445b06b488fefd8b49
   languageName: node
   linkType: hard
 
@@ -13493,6 +13508,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"acorn@npm:^8.8.0":
+  version: 8.8.0
+  resolution: "acorn@npm:8.8.0"
+  bin:
+    acorn: bin/acorn
+  checksum: 7270ca82b242eafe5687a11fea6e088c960af712683756abf0791b68855ea9cace3057bd5e998ffcef50c944810c1e0ca1da526d02b32110e13c722aa959afdc
+  languageName: node
+  linkType: hard
+
 "address@npm:^1.0.1":
   version: 1.1.2
   resolution: "address@npm:1.1.2"
@@ -13524,8 +13548,8 @@ __metadata:
     "@reapit/utils-common": "workspace:packages/utils-common"
     "@redux-saga/testing-utils": ^1.1.3
     "@sentry/browser": ^6.19.7
-    "@typescript-eslint/eslint-plugin": ^5.30.7
-    "@typescript-eslint/parser": ^5.30.7
+    "@typescript-eslint/eslint-plugin": ^5.36.1
+    "@typescript-eslint/parser": ^5.36.1
     babel-loader: ^8.2.5
     chart.js: ^2.9.4
     concurrently: ^6.5.1
@@ -13533,7 +13557,7 @@ __metadata:
     css-loader: ^6.7.1
     dayjs: ^1.11.4
     diff: ^4.0.2
-    eslint: 8.20.0
+    eslint: 8.23.0
     eslint-plugin-prettier: ^4.2.1
     jest: ^28.1.3
     jest-coverage-badges: ^1.1.2
@@ -13559,7 +13583,7 @@ __metadata:
     serverless-single-page-app-plugin: ^1.0.4
     snyk: ^1.980.0
     ts-jest: ^28.0.8
-    typescript: ^4.7.4
+    typescript: ^4.8.2
     webpack: ^5.74.0
     webpack-dev-server: ^4.9.3
     yup: ^0.32.11
@@ -13740,15 +13764,15 @@ __metadata:
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils-common": "workspace:packages/utils-common"
     "@sentry/browser": ^6.19.7
-    "@typescript-eslint/eslint-plugin": ^5.30.7
-    "@typescript-eslint/parser": ^5.30.7
+    "@typescript-eslint/eslint-plugin": ^5.36.1
+    "@typescript-eslint/parser": ^5.36.1
     babel-jest: ^28.1.3
     babel-loader: ^8.2.5
     concurrently: ^6.5.1
     cross-env: ^6.0.3
     css-loader: ^6.7.1
     dayjs: ^1.11.4
-    eslint: 8.20.0
+    eslint: 8.23.0
     eslint-plugin-prettier: ^4.2.1
     jest: ^28.1.3
     jest-coverage-badges: ^1.1.2
@@ -13771,7 +13795,7 @@ __metadata:
     serverless-single-page-app-plugin: ^1.0.4
     snyk: ^1.980.0
     ts-jest: ^28.0.8
-    typescript: ^4.7.4
+    typescript: ^4.8.2
     webpack: ^5.74.0
     webpack-dev-server: ^4.9.3
     yup: ^0.32.11
@@ -13984,8 +14008,8 @@ __metadata:
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils-common": "workspace:packages/utils-common"
     "@reapit/utils-node": "workspace:packages/utils-node"
-    "@typescript-eslint/eslint-plugin": ^5.30.7
-    "@typescript-eslint/parser": ^5.30.7
+    "@typescript-eslint/eslint-plugin": ^5.36.1
+    "@typescript-eslint/parser": ^5.36.1
     aws-lambda: ^1.0.7
     aws-sdk: ^2.1167.0
     aws-serverless-express: ^3.4.0
@@ -13994,7 +14018,7 @@ __metadata:
     class-validator: ^0.13.2
     concurrently: ^6.5.1
     cross-env: ^7.0.3
-    eslint: ^8.20.0
+    eslint: ^8.23.0
     eslint-plugin-prettier: ^4.2.1
     express: ^4.18.1
     jest: 28.1.3
@@ -14230,8 +14254,8 @@ __metadata:
     "@testing-library/jest-dom": ^5.16.4
     "@testing-library/react": ^13.3.0
     "@types/debounce": ^1.2.1
-    "@typescript-eslint/eslint-plugin": ^5.30.7
-    "@typescript-eslint/parser": ^5.30.7
+    "@typescript-eslint/eslint-plugin": ^5.36.1
+    "@typescript-eslint/parser": ^5.36.1
     babel-loader: ^8.2.5
     concurrently: ^6.5.1
     cross-env: ^6.0.3
@@ -14239,7 +14263,7 @@ __metadata:
     date-fns: ^2.29.1
     dayjs: ^1.11.4
     debounce: ^1.2.1
-    eslint: 8.20.0
+    eslint: 8.23.0
     eslint-plugin-prettier: ^4.2.1
     graphql: ^15.8.0
     jest: ^28.1.3
@@ -14263,7 +14287,7 @@ __metadata:
     styled-components: ^5.3.5
     throttle-debounce: ^3.0.1
     ts-jest: ^28.0.8
-    typescript: ^4.7.4
+    typescript: ^4.8.2
     uuid: ^8.3.2
     webpack: ^5.74.0
     webpack-dev-server: ^4.9.3
@@ -14289,14 +14313,14 @@ __metadata:
     "@reapit/utils-react": "workspace:packages/utils-react"
     "@sentry/browser": ^6.19.7
     "@testing-library/react": ^13.3.0
-    "@typescript-eslint/eslint-plugin": ^5.30.7
-    "@typescript-eslint/parser": ^5.30.7
+    "@typescript-eslint/eslint-plugin": ^5.36.1
+    "@typescript-eslint/parser": ^5.36.1
     babel-jest: ^28.1.3
     babel-loader: ^8.2.5
     cross-env: ^6.0.3
     css-loader: ^6.7.1
     dayjs: ^1.11.4
-    eslint: 8.20.0
+    eslint: 8.23.0
     eslint-plugin-prettier: ^4.2.1
     jest: ^28.1.3
     jest-coverage-badges: ^1.1.2
@@ -14316,7 +14340,7 @@ __metadata:
     serverless-single-page-app-plugin: ^1.0.4
     snyk: ^1.980.0
     ts-jest: ^28.0.8
-    typescript: ^4.7.4
+    typescript: ^4.8.2
     webpack: ^5.74.0
     webpack-dev-server: ^4.9.3
     yup: ^0.32.11
@@ -14342,14 +14366,14 @@ __metadata:
     "@sentry/browser": ^6.19.7
     "@testing-library/react": ^13.3.0
     "@types/uuid": ^8.3.4
-    "@typescript-eslint/eslint-plugin": ^5.30.7
-    "@typescript-eslint/parser": ^5.30.7
+    "@typescript-eslint/eslint-plugin": ^5.36.1
+    "@typescript-eslint/parser": ^5.36.1
     babel-jest: ^28.1.3
     babel-loader: ^8.2.5
     cross-env: ^6.0.3
     css-loader: ^6.7.1
     dayjs: ^1.11.4
-    eslint: 8.20.0
+    eslint: 8.23.0
     eslint-config-prettier: ^8.5.0
     eslint-plugin-prettier: ^4.2.1
     jest: ^28.1.3
@@ -14371,7 +14395,7 @@ __metadata:
     shleemy: ^1.2.2
     snyk: ^1.980.0
     ts-jest: ^28.0.8
-    typescript: ^4.7.4
+    typescript: ^4.8.2
     uuid: ^8.3.2
     webpack: ^5.74.0
     webpack-dev-server: ^4.9.3
@@ -14393,15 +14417,15 @@ __metadata:
     "@reapit/ts-bundler": "workspace:packages/ts-bundler"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/utils-nest": "workspace:packages/utils-nest"
-    "@typescript-eslint/eslint-plugin": ^5.30.7
-    "@typescript-eslint/parser": ^5.30.7
+    "@typescript-eslint/eslint-plugin": ^5.36.1
+    "@typescript-eslint/parser": ^5.36.1
     aws-lambda: ^1.0.7
     aws-sdk: ^2.1167.0
     aws-serverless-express: ^3.4.0
     class-transformer: ^0.5.1
     class-validator: ^0.13.2
     cross-env: ^7.0.3
-    eslint: ^8.20.0
+    eslint: ^8.23.0
     eslint-plugin-prettier: ^4.2.1
     express: ^4.18.1
     jest: ^28.1.3
@@ -14409,7 +14433,7 @@ __metadata:
     rxjs: ^7.5.6
     ts-jest: ^28.0.7
     ts-node: ^10.9.1
-    typescript: ^4.7.4
+    typescript: ^4.8.2
   languageName: unknown
   linkType: soft
 
@@ -15001,10 +15025,10 @@ __metadata:
   dependencies:
     "@probot/adapter-github-actions": ^3.1.1
     "@types/node": ^16.11.45
-    "@typescript-eslint/eslint-plugin": ^5.30.7
-    "@typescript-eslint/parser": ^5.30.7
+    "@typescript-eslint/eslint-plugin": ^5.36.1
+    "@typescript-eslint/parser": ^5.36.1
     "@zeit/ncc": ^0.22.3
-    eslint: 8.20.0
+    eslint: 8.23.0
     eslint-plugin-prettier: ^4.2.1
     serverless-deployment-bucket: ^1.6.0
   languageName: unknown
@@ -15016,10 +15040,10 @@ __metadata:
   dependencies:
     "@probot/adapter-github-actions": ^3.1.1
     "@types/node": ^16.11.45
-    "@typescript-eslint/eslint-plugin": ^5.30.7
-    "@typescript-eslint/parser": ^5.30.7
+    "@typescript-eslint/eslint-plugin": ^5.36.1
+    "@typescript-eslint/parser": ^5.36.1
     "@zeit/ncc": ^0.22.3
-    eslint: 8.20.0
+    eslint: 8.23.0
     eslint-plugin-prettier: ^4.2.1
     serverless-deployment-bucket: ^1.6.0
   languageName: unknown
@@ -18934,8 +18958,8 @@ __metadata:
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@sentry/browser": ^6.19.7
-    "@typescript-eslint/eslint-plugin": ^5.30.7
-    "@typescript-eslint/parser": ^5.30.7
+    "@typescript-eslint/eslint-plugin": ^5.36.1
+    "@typescript-eslint/parser": ^5.36.1
     babel-jest: ^28.1.3
     babel-loader: ^8.2.5
     concurrently: ^6.5.1
@@ -18943,7 +18967,7 @@ __metadata:
     css-loader: ^6.7.1
     dayjs: ^1.11.4
     diff: ^4.0.2
-    eslint: ^8.20.0
+    eslint: ^8.23.0
     eslint-plugin-prettier: ^4.2.1
     jest: ^28.1.3
     jest-coverage-badges: ^1.1.2
@@ -18961,7 +18985,7 @@ __metadata:
     serverless-single-page-app-plugin: ^1.0.4
     snyk: ^1.980.0
     ts-jest: ^28.0.8
-    typescript: ^4.7.4
+    typescript: ^4.8.2
     webpack: ^5.74.0
     webpack-dev-server: ^4.9.3
     yup: ^0.32.11
@@ -19482,8 +19506,8 @@ __metadata:
     "@types/project-name-generator": ^2.1.1
     "@types/rimraf": ^3.0.2
     "@types/yaml": ^1.9.7
-    "@typescript-eslint/eslint-plugin": ^5.30.7
-    "@typescript-eslint/parser": ^5.30.7
+    "@typescript-eslint/eslint-plugin": ^5.36.1
+    "@typescript-eslint/parser": ^5.36.1
     adm-zip: ^0.5.9
     atlassian-jwt: ^2.0.2
     aws-serverless-express: ^3.4.0
@@ -19491,7 +19515,7 @@ __metadata:
     class-validator: ^0.13.2
     concurrently: ^6.5.1
     cross-env: ^7.0.3
-    eslint: ^8.20.0
+    eslint: ^8.23.0
     eslint-plugin-prettier: ^4.2.1
     jest: ^28.1.3
     jwt-decode: ^3.1.2
@@ -19510,7 +19534,7 @@ __metadata:
     ts-jest: ^28.0.7
     ts-node: ^10.9.1
     typeorm: ^0.3.0
-    typescript: ^4.7.4
+    typescript: ^4.8.2
     yaml: ^2.1.1
   languageName: unknown
   linkType: soft
@@ -19649,8 +19673,8 @@ __metadata:
     "@sentry/react": ^6.19.7
     "@sentry/tracing": ^6.19.7
     "@testing-library/react": ^13.3.0
-    "@typescript-eslint/eslint-plugin": ^5.30.7
-    "@typescript-eslint/parser": ^5.30.7
+    "@typescript-eslint/eslint-plugin": ^5.36.1
+    "@typescript-eslint/parser": ^5.36.1
     amazon-cognito-identity-js: ^4.6.3
     babel-jest: ^28.1.3
     babel-loader: ^8.2.5
@@ -19660,7 +19684,7 @@ __metadata:
     css-loader: ^6.7.1
     dayjs: ^1.11.4
     diff: ^4.0.2
-    eslint: 8.20.0
+    eslint: 8.23.0
     eslint-plugin-prettier: ^4.2.1
     file-saver: ^2.0.5
     github-username-regex: ^1.0.0
@@ -19685,7 +19709,7 @@ __metadata:
     snyk: ^1.980.0
     swagger-ui-react: ^4.13.0
     ts-jest: ^28.0.8
-    typescript: ^4.7.4
+    typescript: ^4.8.2
     webpack: ^5.74.0
     webpack-dev-server: ^4.9.3
     yup: ^0.32.11
@@ -21227,9 +21251,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-react@npm:^7.30.1":
-  version: 7.30.1
-  resolution: "eslint-plugin-react@npm:7.30.1"
+"eslint-plugin-react@npm:^7.31.1":
+  version: 7.31.1
+  resolution: "eslint-plugin-react@npm:7.31.1"
   dependencies:
     array-includes: ^3.1.5
     array.prototype.flatmap: ^1.3.0
@@ -21247,7 +21271,7 @@ __metadata:
     string.prototype.matchall: ^4.0.7
   peerDependencies:
     eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
-  checksum: 553fb9ece6beb7c14cf6f84670c786c8ac978c2918421994dcc4edd2385302022e5d5ac4a39fafdb35954e29cecddefed61758040c3c530cafcf651f674a9d51
+  checksum: 6217d4c4e36c8fea24facd0cdcf22b2fd38a3603db94ec7c0a6f430046c8564b6c6884e0a9d4a4b8766201f66e8b18af594002210421bf9b6623b1fc32e15a3a
   languageName: node
   linkType: hard
 
@@ -21357,12 +21381,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:8.20.0, eslint@npm:^8.20.0":
-  version: 8.20.0
-  resolution: "eslint@npm:8.20.0"
+"eslint@npm:8.23.0, eslint@npm:^8.23.0":
+  version: 8.23.0
+  resolution: "eslint@npm:8.23.0"
   dependencies:
-    "@eslint/eslintrc": ^1.3.0
-    "@humanwhocodes/config-array": ^0.9.2
+    "@eslint/eslintrc": ^1.3.1
+    "@humanwhocodes/config-array": ^0.10.4
+    "@humanwhocodes/gitignore-to-minimatch": ^1.0.2
+    "@humanwhocodes/module-importer": ^1.0.1
     ajv: ^6.10.0
     chalk: ^4.0.0
     cross-spawn: ^7.0.2
@@ -21372,14 +21398,17 @@ __metadata:
     eslint-scope: ^7.1.1
     eslint-utils: ^3.0.0
     eslint-visitor-keys: ^3.3.0
-    espree: ^9.3.2
+    espree: ^9.4.0
     esquery: ^1.4.0
     esutils: ^2.0.2
     fast-deep-equal: ^3.1.3
     file-entry-cache: ^6.0.1
+    find-up: ^5.0.0
     functional-red-black-tree: ^1.0.1
     glob-parent: ^6.0.1
     globals: ^13.15.0
+    globby: ^11.1.0
+    grapheme-splitter: ^1.0.4
     ignore: ^5.2.0
     import-fresh: ^3.0.0
     imurmurhash: ^0.1.4
@@ -21395,10 +21424,9 @@ __metadata:
     strip-ansi: ^6.0.1
     strip-json-comments: ^3.1.0
     text-table: ^0.2.0
-    v8-compile-cache: ^2.0.3
   bin:
     eslint: bin/eslint.js
-  checksum: a31adf390d71d916925586bc8467b48f620e93dd0416bc1e897d99265af88b48d4eba3985b5ff4653ae5cc46311a360d373574002277e159bb38a4363abf9228
+  checksum: ff6075daa28d817a7ac4508f31bc108a04d9ab5056608c8651b5bf9cfea5d708ca16dea6cdab2c3c0ae99b0bf0e726af8504eaa8e17c8e12e242cb68237ead64
   languageName: node
   linkType: hard
 
@@ -21470,14 +21498,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"espree@npm:^9.3.2":
-  version: 9.3.2
-  resolution: "espree@npm:9.3.2"
+"espree@npm:^9.4.0":
+  version: 9.4.0
+  resolution: "espree@npm:9.4.0"
   dependencies:
-    acorn: ^8.7.1
+    acorn: ^8.8.0
     acorn-jsx: ^5.3.2
     eslint-visitor-keys: ^3.3.0
-  checksum: 9a790d6779847051e87f70d720a0f6981899a722419e80c92ab6dee01e1ab83b8ce52d11b4dc96c2c490182efb5a4c138b8b0d569205bfe1cd4629e658e58c30
+  checksum: 2e3020dde67892d2ba3632413b44d0dc31d92c29ce72267d7ec24216a562f0a6494d3696e2fa39a3ec8c0e0088d773947ab2925fbb716801a11eb8dd313ac89c
   languageName: node
   linkType: hard
 
@@ -23410,15 +23438,15 @@ fsevents@^1.2.7:
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils-common": "workspace:packages/utils-common"
     "@sentry/browser": ^6.19.7
-    "@typescript-eslint/eslint-plugin": ^5.30.7
-    "@typescript-eslint/parser": ^5.30.7
+    "@typescript-eslint/eslint-plugin": ^5.36.1
+    "@typescript-eslint/parser": ^5.36.1
     babel-jest: ^28.1.3
     babel-loader: ^8.2.5
     concurrently: ^6.5.1
     cross-env: ^6.0.3
     css-loader: ^6.7.1
     dayjs: ^1.11.4
-    eslint: 8.20.0
+    eslint: 8.23.0
     eslint-plugin-prettier: ^4.2.1
     graphql: 15.8.0
     jest: ^28.1.3
@@ -23440,7 +23468,7 @@ fsevents@^1.2.7:
     serverless-s3-remover: ^0.6.0
     serverless-single-page-app-plugin: ^1.0.4
     ts-jest: ^28.0.8
-    typescript: ^4.7.4
+    typescript: ^4.8.2
     webpack: ^5.74.0
     webpack-dev-server: ^4.9.3
     yup: ^0.32.11
@@ -24084,6 +24112,13 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"grapheme-splitter@npm:^1.0.4":
+  version: 1.0.4
+  resolution: "grapheme-splitter@npm:1.0.4"
+  checksum: 0c22ec54dee1b05cd480f78cf14f732cb5b108edc073572c4ec205df4cd63f30f8db8025afc5debc8835a8ddeacf648a1c7992fe3dcd6ad38f9a476d84906620
+  languageName: node
+  linkType: hard
+
 "graphlib@npm:^2.1.7, graphlib@npm:^2.1.8":
   version: 2.1.8
   resolution: "graphlib@npm:2.1.8"
@@ -24150,8 +24185,8 @@ fsevents@^1.2.7:
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils-node": "workspace:packages/utils-node"
     "@snyk/protect": ^1.980.0
-    "@typescript-eslint/eslint-plugin": ^5.30.7
-    "@typescript-eslint/parser": ^5.30.7
+    "@typescript-eslint/eslint-plugin": ^5.36.1
+    "@typescript-eslint/parser": ^5.36.1
     apollo-server: ^3.10.0
     apollo-server-core: ^3.10.0
     apollo-server-lambda: ^3.10.0
@@ -24164,7 +24199,7 @@ fsevents@^1.2.7:
     cross-env: ^7.0.3
     dataloader: ^2.1.0
     dayjs: ^1.11.4
-    eslint: 8.20.0
+    eslint: 8.23.0
     eslint-plugin-prettier: ^4.2.1
     graphql: 15.8.0
     graphql-depth-limit: ^1.1.0
@@ -24184,7 +24219,7 @@ fsevents@^1.2.7:
     ts-node-dev: ^2.0.0
     tsconfig-paths: ^3.14.1
     tslib: 2.4.0
-    typescript: ^4.7.4
+    typescript: ^4.8.2
     uuid: ^3.4.0
     vue: ^2.7.8
     winston: ^3.8.1
@@ -25570,13 +25605,13 @@ fsevents@^1.2.7:
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@sentry/browser": ^6.19.7
-    "@typescript-eslint/eslint-plugin": ^5.30.7
-    "@typescript-eslint/parser": ^5.30.7
+    "@typescript-eslint/eslint-plugin": ^5.36.1
+    "@typescript-eslint/parser": ^5.36.1
     babel-jest: ^28.1.3
     babel-loader: ^8.2.5
     concurrently: ^6.5.1
     cross-env: ^6.0.3
-    eslint: 8.20.0
+    eslint: 8.23.0
     eslint-plugin-prettier: ^4.2.1
     jest: ^28.1.3
     jest-coverage-badges: ^1.1.2
@@ -25595,7 +25630,7 @@ fsevents@^1.2.7:
     serverless-single-page-app-plugin: ^1.0.4
     snyk: ^1.980.0
     ts-jest: ^28.0.7
-    typescript: ^4.7.4
+    typescript: ^4.8.2
     webpack: ^5.74.0
     webpack-dev-server: ^4.9.3
   languageName: unknown
@@ -29363,8 +29398,8 @@ fsevents@^1.2.7:
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils-node": "workspace:packages/utils-node"
     "@sentry/node": ^6.19.7
-    "@typescript-eslint/eslint-plugin": ^5.30.7
-    "@typescript-eslint/parser": ^5.30.7
+    "@typescript-eslint/eslint-plugin": ^5.36.1
+    "@typescript-eslint/parser": ^5.36.1
     aws-sdk: ^2.1167.0
     axios: ^0.27.2
     babel-jest: ^28.1.3
@@ -29374,7 +29409,7 @@ fsevents@^1.2.7:
     cors: ^2.8.5
     cross-env: ^6.0.3
     ejs: ^3.1.8
-    eslint: 8.20.0
+    eslint: 8.23.0
     eslint-plugin-prettier: ^4.2.1
     express: ^4.18.1
     express-session: ^1.17.3
@@ -29565,15 +29600,15 @@ fsevents@^1.2.7:
     "@reapit/utils-common": "workspace:packages/utils-common"
     "@reapit/utils-react": "workspace:packages/utils-react"
     "@sentry/browser": ^6.19.7
-    "@typescript-eslint/eslint-plugin": ^5.30.7
-    "@typescript-eslint/parser": ^5.30.7
+    "@typescript-eslint/eslint-plugin": ^5.36.1
+    "@typescript-eslint/parser": ^5.36.1
     babel-jest: ^28.1.3
     babel-loader: ^8.2.5
     concurrently: ^6.5.1
     cross-env: ^6.0.3
     css-loader: ^6.7.1
     dayjs: ^1.11.4
-    eslint: 8.20.0
+    eslint: 8.23.0
     eslint-plugin-prettier: ^4.2.1
     jest: ^28.1.3
     jest-coverage-badges: ^1.1.2
@@ -29592,7 +29627,7 @@ fsevents@^1.2.7:
     serverless-single-page-app-plugin: ^1.0.4
     swr: ^1.3.0
     ts-jest: ^28.0.8
-    typescript: ^4.7.4
+    typescript: ^4.8.2
     webpack: ^5.74.0
     webpack-dev-server: ^4.9.3
     yup: ^0.32.11
@@ -29617,8 +29652,8 @@ fsevents@^1.2.7:
     "@reapit/utils-common": "workspace:packages/utils-common"
     "@redux-saga/testing-utils": ^1.1.3
     "@sentry/browser": ^6.19.7
-    "@typescript-eslint/eslint-plugin": ^5.30.7
-    "@typescript-eslint/parser": ^5.30.7
+    "@typescript-eslint/eslint-plugin": ^5.36.1
+    "@typescript-eslint/parser": ^5.36.1
     amazon-cognito-identity-js: ^4.6.3
     babel-jest: ^28.1.3
     babel-loader: ^8.2.5
@@ -29628,7 +29663,7 @@ fsevents@^1.2.7:
     css-loader: ^6.7.1
     dayjs: ^1.11.4
     diff: ^4.0.2
-    eslint: 8.20.0
+    eslint: 8.23.0
     eslint-plugin-prettier: ^4.2.1
     jest: ^28.1.3
     jest-coverage-badges: ^1.1.2
@@ -29657,7 +29692,7 @@ fsevents@^1.2.7:
     serverless-single-page-app-plugin: ^1.0.4
     snyk: ^1.980.0
     ts-jest: ^28.0.8
-    typescript: ^4.7.4
+    typescript: ^4.8.2
     webpack: ^5.74.0
     webpack-dev-server: ^4.9.3
     yup: ^0.32.11
@@ -32794,15 +32829,15 @@ fsevents@^1.2.7:
     "@sentry/react": ^6.19.7
     "@sentry/tracing": ^6.19.7
     "@testing-library/react": ^13.3.0
-    "@typescript-eslint/eslint-plugin": ^5.30.7
-    "@typescript-eslint/parser": ^5.30.7
+    "@typescript-eslint/eslint-plugin": ^5.36.1
+    "@typescript-eslint/parser": ^5.36.1
     babel-jest: ^28.1.3
     babel-loader: ^8.2.5
     concurrently: ^6.5.1
     cross-env: ^6.0.3
     css-loader: ^6.7.1
     dayjs: ^1.11.4
-    eslint: 8.20.0
+    eslint: 8.23.0
     eslint-plugin-prettier: ^4.2.1
     jest: ^28.1.3
     jest-coverage-badges: ^1.1.2
@@ -32820,7 +32855,7 @@ fsevents@^1.2.7:
     snyk: ^1.980.0
     swr: ^1.3.0
     ts-jest: ^28.0.8
-    typescript: ^4.7.4
+    typescript: ^4.8.2
     uuid: ^8.3.2
     webpack: ^5.74.0
     webpack-dev-server: ^4.9.3
@@ -32841,8 +32876,8 @@ fsevents@^1.2.7:
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils-node": "workspace:packages/utils-node"
     "@sentry/node": ^6.19.7
-    "@typescript-eslint/eslint-plugin": ^5.30.7
-    "@typescript-eslint/parser": ^5.30.7
+    "@typescript-eslint/eslint-plugin": ^5.36.1
+    "@typescript-eslint/parser": ^5.36.1
     aws-lambda: ^1.0.7
     aws-sdk: ^2.1167.0
     axios: ^0.27.2
@@ -32853,7 +32888,7 @@ fsevents@^1.2.7:
     cors: ^2.8.5
     cross-env: ^6.0.3
     dayjs: ^1.11.4
-    eslint: 8.20.0
+    eslint: 8.23.0
     eslint-plugin-prettier: ^4.2.1
     express: ^4.18.1
     express-session: ^1.17.3
@@ -36920,9 +36955,9 @@ resolve@^2.0.0-next.3:
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
-    "@typescript-eslint/eslint-plugin": ^5.30.7
-    "@typescript-eslint/parser": ^5.30.7
-    eslint: 8.20.0
+    "@typescript-eslint/eslint-plugin": ^5.36.1
+    "@typescript-eslint/parser": ^5.36.1
+    eslint: 8.23.0
     eslint-plugin-prettier: ^4.2.1
     serverless: ^2.72.3
     serverless-deployment-bucket: ^1.6.0
@@ -36931,7 +36966,7 @@ resolve@^2.0.0-next.3:
     serverless-plugin-log-retention: ^2.0.0
     serverless-webpack: ^5.7.1
     snyk: ^1.980.0
-    typescript: ^4.7.4
+    typescript: ^4.8.2
     webpack: ^5.74.0
   languageName: unknown
   linkType: soft
@@ -36944,15 +36979,15 @@ resolve@^2.0.0-next.3:
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
-    "@typescript-eslint/eslint-plugin": ^5.30.7
-    "@typescript-eslint/parser": ^5.30.7
+    "@typescript-eslint/eslint-plugin": ^5.36.1
+    "@typescript-eslint/parser": ^5.36.1
     axios: ^0.27.2
     dayjs: ^1.11.4
-    eslint: ^8.20.0
+    eslint: ^8.23.0
     eslint-plugin-prettier: ^4.2.1
     snyk: ^1.980.0
     ts-node: ^10.9.1
-    typescript: ^4.7.4
+    typescript: ^4.8.2
   languageName: unknown
   linkType: soft
 
@@ -40901,7 +40936,7 @@ typescript@^3.7.3:
   languageName: node
   linkType: hard
 
-"typescript@npm:4.7.4, typescript@npm:^4.7.4":
+"typescript@npm:4.7.4":
   version: 4.7.4
   resolution: "typescript@npm:4.7.4"
   bin:
@@ -40941,7 +40976,7 @@ typescript@^3.7.3:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@4.7.4#~builtin<compat/typescript>, typescript@patch:typescript@^4.7.4#~builtin<compat/typescript>":
+"typescript@patch:typescript@4.7.4#~builtin<compat/typescript>":
   version: 4.7.4
   resolution: "typescript@patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=493e53"
   bin:
