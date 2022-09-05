@@ -1,5 +1,4 @@
-import { cx } from '@linaria/core'
-import { elMb5, elMr7, FlexContainer, Icon, IconNames, MediaType, useMediaQuery } from '@reapit/elements'
+import { elMb5, FlexContainer, Icon, IconNames, MediaType, useMediaQuery } from '@reapit/elements'
 import {
   AppsBrowseConfigItemFiltersInterface,
   AppsBrowseConfigItemInterface,
@@ -38,13 +37,11 @@ export const handleSetFilters =
   }
 
 export const handleIconSize = (mediaQuery: MediaType) => () => {
-  const { isMobile, isTablet, isDesktop, isWideScreen } = mediaQuery
+  const { isMobile } = mediaQuery
 
   if (isMobile) return '3.75em'
-  if (isTablet || isDesktop) return '5em'
-  if (isWideScreen) return '6.25em'
 
-  return '7.5em'
+  return '5em'
 }
 
 export const AppFiltersCollection: FC<AppFiltersCollectionProps> = memo(({ configItem }) => {
@@ -52,8 +49,6 @@ export const AppFiltersCollection: FC<AppFiltersCollectionProps> = memo(({ confi
   const mediaQuery = useMediaQuery()
   const iconSize = useMemo(handleIconSize(mediaQuery), [mediaQuery])
   const { content, filters } = configItem
-  const { isSuperWideScreen, is4KScreen } = mediaQuery
-  const isFullSizeScreen = isSuperWideScreen || is4KScreen
 
   const setFilters = useCallback(handleSetFilters(setAppsBrowseFilterState, appsBrowseCategoriesState, filters), [
     filters,
@@ -62,12 +57,8 @@ export const AppFiltersCollection: FC<AppFiltersCollectionProps> = memo(({ confi
 
   return (
     <AppFilterCol onClick={setFilters}>
-      <FlexContainer isFlexColumn={!isFullSizeScreen}>
-        <Icon
-          className={cx(isFullSizeScreen ? elMr7 : elMb5)}
-          icon={content?.iconName as IconNames}
-          fontSize={iconSize}
-        />
+      <FlexContainer isFlexColumn>
+        <Icon className={elMb5} icon={content?.iconName as IconNames} fontSize={iconSize} />
         <FlexContainer isFlexColumn isFlexJustifyCenter>
           <AppFilterSubtitle>{content?.title}</AppFilterSubtitle>
           <AppFilterStrapline>{content?.strapline}</AppFilterStrapline>

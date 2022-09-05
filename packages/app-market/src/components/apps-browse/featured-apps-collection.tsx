@@ -22,10 +22,11 @@ interface FeaturedAppsCollectionProps {
 export const handleMaxLength = (mediaQuery: MediaType) => () => {
   const { isMobile, isTablet, isDesktop, isWideScreen } = mediaQuery
 
-  if (isMobile || isTablet || isDesktop) return 3
+  if (isTablet) return 2
+  if (isMobile || isDesktop) return 3
   if (isWideScreen) return 4
 
-  return 8
+  return 6
 }
 
 export const FeaturedAppsCollection: FC<FeaturedAppsCollectionProps> = memo(({ configItem }) => {

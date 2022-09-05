@@ -138,23 +138,7 @@ Object {
         </div>
         <div
           class="el-flex-column el-flex-container"
-        >
-          <div
-            class="app-filter-grid-wrap"
-          >
-            <h2
-              class="browse-apps-subtitle el-subtitle"
-            >
-              App Collections
-            </h2>
-            <div
-              class="app-filter-grid"
-            />
-          </div>
-          <div
-            class="apps-wrapper"
-          />
-        </div>
+        />
       </section>
     </div>
   </body>,
@@ -292,23 +276,7 @@ Object {
       </div>
       <div
         class="el-flex-column el-flex-container"
-      >
-        <div
-          class="app-filter-grid-wrap"
-        >
-          <h2
-            class="browse-apps-subtitle el-subtitle"
-          >
-            App Collections
-          </h2>
-          <div
-            class="app-filter-grid"
-          />
-        </div>
-        <div
-          class="apps-wrapper"
-        />
-      </div>
+      />
     </section>
   </div>,
   "debug": [Function],

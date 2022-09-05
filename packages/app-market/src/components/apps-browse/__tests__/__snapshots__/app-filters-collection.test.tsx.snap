@@ -958,11 +958,11 @@ Object {
         class="app-filter-col"
       >
         <div
-          class="el-flex-container"
+          class="el-flex-column el-flex-container"
         >
           <span
-            class="el-mr7 el-icon"
-            style="font-size: 7.5em;"
+            class="el-mb5 el-icon"
+            style="font-size: 5em;"
           >
             <svg
               fill="none"
@@ -1166,11 +1166,11 @@ Object {
       class="app-filter-col"
     >
       <div
-        class="el-flex-container"
+        class="el-flex-column el-flex-container"
       >
         <span
-          class="el-mr7 el-icon"
-          style="font-size: 7.5em;"
+          class="el-mb5 el-icon"
+          style="font-size: 5em;"
         >
           <svg
             fill="none"
@@ -1908,7 +1908,7 @@ Object {
         >
           <span
             class="el-mb5 el-icon"
-            style="font-size: 6.25em;"
+            style="font-size: 5em;"
           >
             <svg
               fill="none"
@@ -2116,7 +2116,7 @@ Object {
       >
         <span
           class="el-mb5 el-icon"
-          style="font-size: 6.25em;"
+          style="font-size: 5em;"
         >
           <svg
             fill="none"

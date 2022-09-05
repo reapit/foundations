@@ -36,7 +36,7 @@ export const FeaturedHeroAppsStrapline = styled(ElBodyText)`
   }
 
   ${forDesktopAndAbove} {
-    margin-bottom: 3.75rem;
+    margin-bottom: 2.5rem;
     -webkit-line-clamp: 3;
   }
 
@@ -57,9 +57,9 @@ export const FeaturedHeroAppsItem = styled.div`
   }
 
   ${forWidescreenAndAbove} {
-    width: calc(50% - 1rem);
+    width: calc(50% - 0.625rem);
     display: inline-block;
-    margin-right: 2rem;
+    margin-right: 1.25rem;
   }
 `
 
@@ -73,7 +73,7 @@ export const FeaturedHeroAppsContainer = styled.div`
   }
 
   ${forTabletAndAbove} {
-    height: 450px;
+    height: 430px;
   }
 
   ${forDesktopAndAbove} {
@@ -81,7 +81,7 @@ export const FeaturedHeroAppsContainer = styled.div`
   }
 
   ${forWidescreenAndAbove} {
-    height: 550px;
+    height: 556px;
   }
 `
 
@@ -103,8 +103,8 @@ export const FeaturedHeroAppsContentContainer = styled.div`
   width: 100%;
 
   ${forDesktopAndAbove} {
-    width: calc(25% - 1.5rem);
-    margin-right: 3rem;
+    width: 25%;
+    margin-right: 1.25rem;
   }
 
   ${forWidescreenAndAbove} {
@@ -184,15 +184,17 @@ export const FeaturedHeroAppsImageContainer = styled.div`
   justify-content: center;
 
   ${forMobileAndAbove} {
-    height: 280px;
+    height: 260px;
   }
 
   ${forDesktopAndAbove} {
-    width: calc(75% - 1.5rem);
+    width: 75%;
     height: auto;
+    margin-left: 1.25rem;
   }
 
   ${forWidescreenAndAbove} {
+    margin-left: 0;
     width: 100%;
     height: 100%;
   }

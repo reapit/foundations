@@ -10,13 +10,13 @@ import { useHistory } from 'react-router-dom'
 import { AppsBrowseConfigItemInterface } from '@reapit/foundations-ts-definitions'
 
 export const handleCarouselCols = (mediaQuery: MediaType) => () => {
-  const { isMobile, isTablet, isDesktop } = mediaQuery
+  const { isMobile, isTablet, isDesktop, isWideScreen } = mediaQuery
 
-  if (isMobile) {
+  if (isMobile || isTablet) {
     return 1
   }
 
-  if (isTablet || isDesktop) {
+  if (isDesktop || isWideScreen) {
     return 2
   }
 

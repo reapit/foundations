@@ -105,7 +105,7 @@ describe('handleCarouselCols', () => {
 
     const result = curried()
 
-    expect(result).toEqual(2)
+    expect(result).toEqual(1)
   })
 
   it('should  return the correct number of cols when desktop', () => {
@@ -119,9 +119,20 @@ describe('handleCarouselCols', () => {
     expect(result).toEqual(2)
   })
 
-  it('should  return the correct number of cols when other resolutions', () => {
+  it('should  return the correct number of cols when widescreen', () => {
     const mediaQuery = {
       isWideScreen: true,
+    } as MediaType
+    const curried = handleCarouselCols(mediaQuery)
+
+    const result = curried()
+
+    expect(result).toEqual(2)
+  })
+
+  it('should  return the correct number of cols when other resolutions', () => {
+    const mediaQuery = {
+      isSuperWideScreen: true,
     } as MediaType
     const curried = handleCarouselCols(mediaQuery)
 
