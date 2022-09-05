@@ -30,9 +30,7 @@ import {
   BrowseAppsSubtitle,
   AppsGrid,
   heroAppsCarouselWidescreen,
-  AppFilterGrid,
-  AppFilterGridWrap,
-  AppsWrapper,
+  SimpleAppsGrid,
 } from './__styles__'
 import { AppSearchFilters } from './app-search-filters-bar'
 import { FilteredAppsCollection } from './filtered-apps'
@@ -139,8 +137,7 @@ export const AppsBrowse: FC = () => {
     [mobileControlsState],
   )
 
-  const { isMobile, isTablet, isSuperWideScreen, is4KScreen } = mediaQuery
-  const isFullSizeScreen = isSuperWideScreen || is4KScreen
+  const { isMobile, isTablet } = mediaQuery
 
   return (
     <PageContainer>
@@ -178,8 +175,8 @@ export const AppsBrowse: FC = () => {
               <HeroAppsCollection key={index} configItem={configItem} />
             ))}
           />
-          <FlexContainer isFlexColumn={!isFullSizeScreen}>
-            {Boolean(appsFilters.length) && !isSuperWideScreen && !is4KScreen ? (
+          <FlexContainer isFlexColumn>
+            {Boolean(appsFilters.length) && (
               <>
                 <BrowseAppsSubtitle>App Collections</BrowseAppsSubtitle>
                 <Carousel
@@ -190,46 +187,33 @@ export const AppsBrowse: FC = () => {
                   ))}
                 />
               </>
-            ) : (
-              <>
-                <AppFilterGridWrap>
-                  <BrowseAppsSubtitle>App Collections</BrowseAppsSubtitle>
-                  <AppFilterGrid>
-                    {appsFilters.map((configItem, index) => (
-                      <AppFiltersCollection key={index} configItem={configItem} />
-                    ))}
-                  </AppFilterGrid>
-                </AppFilterGridWrap>
-              </>
             )}
-            <AppsWrapper>
-              {featuredApps.map((configItem, index) => (
-                <Fragment key={index}>
-                  <FlexContainer isFlexAlignCenter>
-                    <BrowseAppsSubtitle>{configItem?.content?.title}</BrowseAppsSubtitle>
-                    <AppFilterLink onClick={handleSetFilters(setAppsBrowseFilterState, configItem.filters)}>
-                      See All
-                    </AppFilterLink>
-                  </FlexContainer>
-                  <AppsGrid>
-                    <FeaturedAppsCollection configItem={configItem} />
-                  </AppsGrid>
-                </Fragment>
-              ))}
-              {simpleApps.map((configItem, index) => (
-                <Fragment key={index}>
-                  <FlexContainer isFlexAlignCenter>
-                    <BrowseAppsSubtitle>{configItem?.content?.title}</BrowseAppsSubtitle>
-                    <AppFilterLink onClick={handleSetFilters(setAppsBrowseFilterState, configItem.filters)}>
-                      See All
-                    </AppFilterLink>
-                  </FlexContainer>
-                  <AppsGrid>
-                    <SimpleAppsCollection key={index} configItem={configItem} />
-                  </AppsGrid>
-                </Fragment>
-              ))}
-            </AppsWrapper>
+            {featuredApps.map((configItem, index) => (
+              <Fragment key={index}>
+                <FlexContainer isFlexAlignCenter>
+                  <BrowseAppsSubtitle>{configItem?.content?.title}</BrowseAppsSubtitle>
+                  <AppFilterLink onClick={handleSetFilters(setAppsBrowseFilterState, configItem.filters)}>
+                    See All
+                  </AppFilterLink>
+                </FlexContainer>
+                <AppsGrid>
+                  <FeaturedAppsCollection configItem={configItem} />
+                </AppsGrid>
+              </Fragment>
+            ))}
+            {simpleApps.map((configItem, index) => (
+              <Fragment key={index}>
+                <FlexContainer isFlexAlignCenter>
+                  <BrowseAppsSubtitle>{configItem?.content?.title}</BrowseAppsSubtitle>
+                  <AppFilterLink onClick={handleSetFilters(setAppsBrowseFilterState, configItem.filters)}>
+                    See All
+                  </AppFilterLink>
+                </FlexContainer>
+                <SimpleAppsGrid>
+                  <SimpleAppsCollection key={index} configItem={configItem} />
+                </SimpleAppsGrid>
+              </Fragment>
+            ))}
           </FlexContainer>
           {isDeveloper && <DeveloperAppsCollection />}
         </>

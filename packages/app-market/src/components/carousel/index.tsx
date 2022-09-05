@@ -79,12 +79,12 @@ export const Carousel: FC<CarouselProps> = memo(({ items, numberCols, className 
     <CarouselWrapper className={className}>
       {shouldShowPrev && (
         <CarouselControlsLeft className={elFadeIn} onClick={handleScrollPrev}>
-          <Icon icon="backSystem" intent="primary" />
+          <Icon icon="backSystem" intent="primary" fontSize="0.75em" />
         </CarouselControlsLeft>
       )}
       {shouldShowNext && (
         <CarouselControlsRight className={elFadeIn} onClick={handleScrollNext}>
-          <Icon icon="nextSystem" intent="primary" />
+          <Icon icon="nextSystem" intent="primary" fontSize="0.75em" />
         </CarouselControlsRight>
       )}
       <CarouselGrid percentageWidth={percentageWidth} numberCols={numberCols} numberItems={items.length}>

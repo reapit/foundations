@@ -15,12 +15,9 @@ export const AppsGrid = styled.div`
   margin-bottom: 1.25rem;
 
   ${forMobileAndAbove} {
+    grid-template-columns: repeat(12, 1fr);
     grid-column-gap: 1.25rem;
     margin-bottom: 2.5rem;
-  }
-
-  ${forTabletAndAbove} {
-    grid-template-columns: repeat(12, 1fr);
   }
 `
 
@@ -35,30 +32,21 @@ export const AppsCol = styled.div`
   padding: 0.75rem;
 
   ${forMobileAndAbove} {
+    height: 105px;
+    grid-column-end: span 6;
     padding: 1.25rem;
-    height: 122px;
   }
 
   ${forTabletAndAbove} {
     grid-column-end: span 4;
-    height: 108px;
   }
 
   ${forDesktopAndAbove} {
     grid-column-end: span 3;
-    height: 86px;
   }
 
   ${forWidescreenAndAbove} {
-    grid-column-end: span 3;
-  }
-`
-
-export const AppsWrapper = styled.div`
-  width: 100%;
-
-  ${forWidescreenAndAbove} {
-    width: calc(50% - 1rem);
+    grid-column-end: span 2;
   }
 `
 
@@ -73,17 +61,9 @@ export const FeaturedAppStrapline = styled(ElBodyText)`
   margin-bottom: 0;
 
   ${forMobileAndAbove} {
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 2;
     font-size: 14px;
     line-height: 18px;
-  }
-
-  ${forTabletAndAbove} {
-    -webkit-line-clamp: 2;
-  }
-
-  ${forDesktopAndAbove} {
-    -webkit-line-clamp: 1;
   }
 `
 
@@ -121,6 +101,12 @@ export const AppFilterLink = styled.a`
   }
 `
 
+export const SimpleAppsGrid = styled(AppsGrid)`
+  ${forWidescreenAndAbove} {
+    grid-template-columns: repeat(8, 1fr);
+  }
+`
+
 export const SimpleAppStrapline = styled(ElBodyText)`
   font-size: 12px;
   line-height: 14px;
@@ -141,7 +127,8 @@ export const SimpleAppsCol = styled(AppsCol)`
   height: 76px;
 
   ${forMobileAndAbove} {
-    height: 108px;
+    grid-column-end: span 4;
+    height: 105px;
   }
 
   ${forTabletAndAbove} {
@@ -150,5 +137,9 @@ export const SimpleAppsCol = styled(AppsCol)`
 
   ${forDesktopAndAbove} {
     grid-column-end: span 2;
+  }
+
+  ${forWidescreenAndAbove} {
+    grid-column-end: span 1;
   }
 `

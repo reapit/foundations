@@ -21,7 +21,7 @@ export const HeroAppsContainer = styled.div`
 
 export const heroAppsCarouselWidescreen = css`
   ${forWidescreenAndAbove} {
-    width: calc(50% - 1rem);
+    width: calc(50% - 0.625rem);
     display: inline-block;
   }
 `
@@ -106,7 +106,7 @@ export const HeroAppsStrapline = styled(ElBodyText)`
 
 export const HeroAppsInnerContainer = styled.div`
   width: 100%;
-  border-radius: 0.25rem;
+  border-radius: 0.5rem;
   padding: 0.75rem;
 
   ${forMobileAndAbove} {
@@ -114,7 +114,7 @@ export const HeroAppsInnerContainer = styled.div`
   }
 
   ${forTabletAndAbove} {
-    height: 400px;
+    height: 388px;
   }
 
   ${forDesktopAndAbove} {
@@ -122,7 +122,7 @@ export const HeroAppsInnerContainer = styled.div`
   }
 
   ${forWidescreenAndAbove} {
-    height: 550px;
+    height: 555px;
   }
 `
 
@@ -156,7 +156,7 @@ export const HeroAppsContentWrapper = styled.div`
 
   ${forMobileAndAbove} {
     width: 40%;
-    margin-right: 1.25rem;
+    margin-right: 0.625rem;
     height: 230px;
   }
 
@@ -225,11 +225,13 @@ export const HeroAppsImageContainer = styled.div`
 
   ${forMobileAndAbove} {
     width: 60%;
+    margin-left: 0.625rem;
     height: auto;
   }
 
   ${forTabletAndAbove} {
     width: 100%;
+    margin-left: 0;
     flex-grow: 1;
   }
 

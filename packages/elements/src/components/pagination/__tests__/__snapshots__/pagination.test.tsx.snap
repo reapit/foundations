@@ -34,7 +34,7 @@ Object {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M2 5.5L8 9.39711L8 1.60289L2 5.5Z"
+                d="M0 6L9 0V12L0 6Z"
                 fill="currentColor"
               />
             </svg>
@@ -56,7 +56,7 @@ Object {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M9 5.5L3 9.39711L3 1.60289L9 5.5Z"
+                d="M12 6L3 12V0L12 6Z"
                 fill="currentColor"
               />
             </svg>
@@ -95,7 +95,7 @@ Object {
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M2 5.5L8 9.39711L8 1.60289L2 5.5Z"
+              d="M0 6L9 0V12L0 6Z"
               fill="currentColor"
             />
           </svg>
@@ -117,7 +117,7 @@ Object {
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M9 5.5L3 9.39711L3 1.60289L9 5.5Z"
+              d="M12 6L3 12V0L12 6Z"
               fill="currentColor"
             />
           </svg>
