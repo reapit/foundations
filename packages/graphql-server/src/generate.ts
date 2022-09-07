@@ -4,7 +4,10 @@ import { graphqlHTTP } from 'express-graphql'
 import { createSchema, CallBackendArguments } from 'swagger-to-graphql'
 import { createPlatformAxiosInstance } from './utils/axios-instances'
 
-const handlePlatformCall = async ({ context, requestOptions }: CallBackendArguments<Request>) => {
+const handlePlatformCall = async ({
+  context,
+  requestOptions,
+}: CallBackendArguments<Request>) => {
   if (!(context.headers as any).authorization) {
     return {
       statusCode: 401,
