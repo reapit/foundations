@@ -102,7 +102,7 @@ export const AnalyticsBanner: FC = () => {
   const [trackingBannerVisible, setTrackingBannerVisible] = useState(false)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const email = connectSession?.loginIdentity.email
-  const userId = email ? window.btoa(email).replace(/=+$/, '') : null
+  const userId = email ? window.btoa(email).replace(/=/g, '') : null
 
   const [, , updateUser] = useReapitUpdate<UpdateUserModel, boolean>({
     reapitConnectBrowserSession,

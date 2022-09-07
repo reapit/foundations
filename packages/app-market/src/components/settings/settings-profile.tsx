@@ -79,7 +79,7 @@ export const SettingsProfile: FC = () => {
   const { isMobile } = useMediaQuery()
   const loginIdentity = connectSession?.loginIdentity ?? ({} as LoginIdentity)
   const email = connectSession?.loginIdentity.email ?? ''
-  const userId = email ? window.btoa(email).replace(/=+$/, '') : null
+  const userId = email ? window.btoa(email).replace(/=/g, '') : null
 
   const {
     register,

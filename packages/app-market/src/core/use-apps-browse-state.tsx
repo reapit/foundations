@@ -47,7 +47,7 @@ export const AppsBrowseProvider: FC = ({ children }) => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [appsBrowseFilterState, setAppsBrowseFilterState] = useState<AppsBrowseConfigItemFiltersInterface | null>(null)
   const email = connectSession?.loginIdentity.email
-  const userId = email ? window.btoa(email).replace(/=+$/, '') : null
+  const userId = email ? window.btoa(email).replace(/=/g, '') : null
 
   const [appsBrowseConfigCollection] = useReapitGet<AppsBrowseConfigCollection>({
     reapitConnectBrowserSession,
