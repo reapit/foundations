@@ -73,4 +73,6 @@ export enum PathNames {
   payments = '/payments',
   paymentById = '/payments/{paymentId}',
   appConsentApproveEmail = '/marketplace/apps/{id}/revisions/{revisionId}/consents/{consentId}/resend',
+  userInfo = '/organisations/users/info',
+  userById = '/organisations/users/{userId}',
 }

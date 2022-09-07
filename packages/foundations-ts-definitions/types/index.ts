@@ -6,6 +6,8 @@ export * from '../marketplace-cms' // @ts-ignore
 export * from '../webhook-schema' // @ts-ignore
 export * from './marketplace-schema'
 // @ts-ignore
+export * from './organisations-schema'
+// @ts-ignore
 export * from './payments-schema'
 // @ts-ignore
 export * from './platform-schema'

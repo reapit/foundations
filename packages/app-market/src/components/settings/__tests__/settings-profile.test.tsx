@@ -1,11 +1,15 @@
 import React from 'react'
 import { render, setViewport } from '../../../tests/react-testing'
-import { SettingsProfile, handleChangePassword } from '../settings-profile'
+import { SettingsProfile, handleChangePassword, handleUserUpdate } from '../settings-profile'
 import { changePasswordService } from '../../../services/cognito-identity'
 import { UseSnack } from '@reapit/elements'
 import { TrackingEvent } from '../../../core/analytics-events'
 import { trackEvent } from '../../../core/analytics'
+import { mockUserModel } from '../../../tests/__stubs__/user'
+import { SendFunction } from '@reapit/utils-react'
+import { UpdateUserModel } from '@reapit/foundations-ts-definitions'
 
+jest.mock('../../../core/use-apps-browse-state')
 jest.mock('../../../core/analytics')
 jest.mock('../../../services/cognito-identity', () => ({
   changePasswordService: jest.fn(),
@@ -93,5 +97,19 @@ describe('handleChangePassword', () => {
 
     expect(snack.error).toHaveBeenCalledTimes(1)
     expect(snack.success).not.toHaveBeenCalled()
+  })
+})
+
+describe('handleUserUpdate', () => {
+  it('should handle updating a user', async () => {
+    const updateUser = jest.fn(() => true) as unknown as SendFunction<UpdateUserModel, boolean>
+    const currentUserState = mockUserModel
+    const refreshCurrentUser = jest.fn()
+    const curried = handleUserUpdate(updateUser, currentUserState, refreshCurrentUser)
+
+    await curried()
+
+    expect(updateUser).toHaveBeenCalledWith({ ...mockUserModel, consentToTrack: false })
+    expect(refreshCurrentUser).toHaveBeenCalledTimes(1)
   })
 })

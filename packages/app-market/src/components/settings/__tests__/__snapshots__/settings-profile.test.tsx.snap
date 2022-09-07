@@ -101,7 +101,9 @@ Object {
       >
         Update Your Password
       </h2>
-      <form>
+      <form
+        class="el-mb11"
+      >
         <div
           class="el-form-layout-has-margin el-form-layout"
         >
@@ -181,6 +183,45 @@ Object {
           </div>
         </div>
       </form>
+      <h2
+        class="el-has-bold-text el-subtitle"
+      >
+        Update Tracking Consent
+      </h2>
+      <p
+        class="el-has-grey-text el-body-text"
+      >
+        The App Market users mechanisms to track your use of the environment to provide an enhanced user experience and provide feedback to enable Reapit to improve the product. You can update your preferences below.
+      </p>
+      <div
+        class="el-form-layout"
+      >
+        <div
+          class="el-input-wrap"
+        >
+          <input
+            checked=""
+            class="el-toggle-checkbox"
+            id="tracking-consent"
+            type="checkbox"
+          />
+          <label
+            class="el-has-grey-bg el-toggle-label"
+            for="tracking-consent"
+          >
+            <span
+              class="el-toggle-item"
+            >
+              Consent
+            </span>
+            <span
+              class="el-toggle-item"
+            >
+              Deny
+            </span>
+          </label>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
@@ -280,7 +321,9 @@ Object {
     >
       Update Your Password
     </h2>
-    <form>
+    <form
+      class="el-mb11"
+    >
       <div
         class="el-form-layout-has-margin el-form-layout"
       >
@@ -360,6 +403,45 @@ Object {
         </div>
       </div>
     </form>
+    <h2
+      class="el-has-bold-text el-subtitle"
+    >
+      Update Tracking Consent
+    </h2>
+    <p
+      class="el-has-grey-text el-body-text"
+    >
+      The App Market users mechanisms to track your use of the environment to provide an enhanced user experience and provide feedback to enable Reapit to improve the product. You can update your preferences below.
+    </p>
+    <div
+      class="el-form-layout"
+    >
+      <div
+        class="el-input-wrap"
+      >
+        <input
+          checked=""
+          class="el-toggle-checkbox"
+          id="tracking-consent"
+          type="checkbox"
+        />
+        <label
+          class="el-has-grey-bg el-toggle-label"
+          for="tracking-consent"
+        >
+          <span
+            class="el-toggle-item"
+          >
+            Consent
+          </span>
+          <span
+            class="el-toggle-item"
+          >
+            Deny
+          </span>
+        </label>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -529,7 +611,9 @@ Object {
       >
         Update Your Password
       </h2>
-      <form>
+      <form
+        class="el-mb11"
+      >
         <div
           class="el-form-layout-has-margin el-form-layout"
         >
@@ -609,6 +693,45 @@ Object {
           </div>
         </div>
       </form>
+      <h2
+        class="el-has-bold-text el-subtitle"
+      >
+        Update Tracking Consent
+      </h2>
+      <p
+        class="el-has-grey-text el-body-text"
+      >
+        The App Market users mechanisms to track your use of the environment to provide an enhanced user experience and provide feedback to enable Reapit to improve the product. You can update your preferences below.
+      </p>
+      <div
+        class="el-form-layout"
+      >
+        <div
+          class="el-input-wrap"
+        >
+          <input
+            checked=""
+            class="el-toggle-checkbox"
+            id="tracking-consent"
+            type="checkbox"
+          />
+          <label
+            class="el-has-grey-bg el-toggle-label"
+            for="tracking-consent"
+          >
+            <span
+              class="el-toggle-item"
+            >
+              Consent
+            </span>
+            <span
+              class="el-toggle-item"
+            >
+              Deny
+            </span>
+          </label>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
@@ -721,7 +844,9 @@ Object {
     >
       Update Your Password
     </h2>
-    <form>
+    <form
+      class="el-mb11"
+    >
       <div
         class="el-form-layout-has-margin el-form-layout"
       >
@@ -801,6 +926,45 @@ Object {
         </div>
       </div>
     </form>
+    <h2
+      class="el-has-bold-text el-subtitle"
+    >
+      Update Tracking Consent
+    </h2>
+    <p
+      class="el-has-grey-text el-body-text"
+    >
+      The App Market users mechanisms to track your use of the environment to provide an enhanced user experience and provide feedback to enable Reapit to improve the product. You can update your preferences below.
+    </p>
+    <div
+      class="el-form-layout"
+    >
+      <div
+        class="el-input-wrap"
+      >
+        <input
+          checked=""
+          class="el-toggle-checkbox"
+          id="tracking-consent"
+          type="checkbox"
+        />
+        <label
+          class="el-has-grey-bg el-toggle-label"
+          for="tracking-consent"
+        >
+          <span
+            class="el-toggle-item"
+          >
+            Consent
+          </span>
+          <span
+            class="el-toggle-item"
+          >
+            Deny
+          </span>
+        </label>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

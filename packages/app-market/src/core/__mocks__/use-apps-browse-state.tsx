@@ -1,4 +1,5 @@
 import { mockCategoryModelPagedResult } from '../../tests/__stubs__/categories'
+import { mockUserModel } from '../../tests/__stubs__/user'
 import { appsBrowseConfigCollection } from '../config'
 
 export const mockAppsBrowseState = {
@@ -6,6 +7,8 @@ export const mockAppsBrowseState = {
   appsBrowseFilterState: null,
   appsBrowseConfigState: appsBrowseConfigCollection,
   appsBrowseCategoriesState: mockCategoryModelPagedResult,
+  currentUserState: mockUserModel,
+  refreshCurrentUser: jest.fn(),
   setAppsBrowseFilterState: jest.fn(),
 }
 

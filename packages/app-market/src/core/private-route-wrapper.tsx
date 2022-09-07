@@ -6,6 +6,7 @@ import { useLocation, Redirect } from 'react-router'
 import { Loader, MainContainer, PageContainer } from '@reapit/elements'
 import { Routes } from '../constants/routes'
 import { AppsBrowseProvider } from './use-apps-browse-state'
+import { AnalyticsBanner } from './analytics-banner'
 
 export type PrivateRouteWrapperProps = {}
 
@@ -36,6 +37,7 @@ export const PrivateRouteWrapper: FC<PrivateRouteWrapperProps> = ({ children }) 
   return (
     <AppsBrowseProvider>
       <MainContainer>
+        <AnalyticsBanner />
         <Nav />
         <Suspense fallback={<Loader fullPage />}>{children}</Suspense>
       </MainContainer>

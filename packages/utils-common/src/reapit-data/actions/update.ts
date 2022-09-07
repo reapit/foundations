@@ -39,6 +39,7 @@ export enum UpdateActionNames {
   approveConsent = 'approveConsent',
   installApp = 'installApp',
   appConsentApproveEmail = 'appConsentApproveEmail',
+  updateUser = 'updateUser',
 }
 
 export type UpdateActions = { [key in UpdateActionNames]: UpdateAction }
@@ -225,5 +226,11 @@ export const updateActions = (appEnv: AppEnv): UpdateActions => ({
     path: PathNames.appConsentApproveEmail,
     successMessage: 'Successfully sent email',
     errorMessage: 'Failed to send to new email address. Please try again',
+  },
+  [UpdateActionNames.updateUser]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.userById,
+    successMessage: 'Successfully updated user info.',
+    errorMessage: 'Failed to update user info.',
   },
 })
