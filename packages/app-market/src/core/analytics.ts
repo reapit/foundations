@@ -1,7 +1,5 @@
 import { isTruthy } from '@reapit/utils-common'
-import { ReapitConnectSession } from '@reapit/connect-session'
 import mixpanel from 'mixpanel-browser'
-import { Dispatch, SetStateAction } from 'react'
 import { TrackingEvent } from './analytics-events'
 
 export interface TrackingEventData {
@@ -10,7 +8,9 @@ export interface TrackingEventData {
 
 export const trackEvent = (event: TrackingEvent, shouldTrack: boolean, data?: TrackingEventData) => {
   const isLocal = window.reapit.config.appEnv !== 'production'
-  if (!shouldTrack || isLocal) return
+  const hasTrackingConsent = mixpanel.has_opted_in_tracking()
+
+  if (!shouldTrack || isLocal || !hasTrackingConsent) return
 
   if (data) {
     mixpanel.track(event, data)
@@ -44,31 +44,3 @@ export const getRoleFromGroups = (groups: string[]) => {
 export const trackEventHandler = (event: TrackingEvent, shouldTrack: boolean, data?: TrackingEventData) => () => {
   trackEvent(event, shouldTrack, data)
 }
-
-export const registerUserHandler =
-  (
-    connectSession: ReapitConnectSession | null,
-    analyticsRegistered: boolean,
-    setAnalyticsRegistered: Dispatch<SetStateAction<boolean>>,
-  ) =>
-  () => {
-    const isLocal = window.reapit.config.appEnv !== 'production'
-    if (connectSession && !analyticsRegistered && !isLocal) {
-      const { email, name, clientId, userCode, orgName, groups, developerId } = connectSession?.loginIdentity ?? {}
-      const userRoles = getRoleFromGroups(groups)
-
-      mixpanel.identify(email)
-
-      mixpanel.people.set({
-        Name: name,
-        Email: email,
-        'User Neg Code': userCode,
-        'Organisation Name': orgName,
-        'Organisation Client Code': clientId,
-        'Developer Id': developerId,
-        'User Roles': userRoles,
-      })
-
-      setAnalyticsRegistered(true)
-    }
-  }

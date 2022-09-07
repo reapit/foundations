@@ -5,6 +5,7 @@ import {
   ButtonGroup,
   Col,
   elMb11,
+  ElToggleItem,
   FlexContainer,
   FormLayout,
   Grid,
@@ -12,6 +13,7 @@ import {
   InputWrap,
   Subtitle,
   Title,
+  Toggle,
   useMediaQuery,
   UseSnack,
   useSnack,
@@ -26,6 +28,10 @@ import { RolesChip } from './__styles__'
 import { handleLogout } from '.'
 import { trackEventHandler, trackEvent } from '../../core/analytics'
 import { TrackingEvent } from '../../core/analytics-events'
+import { UpdateUserModel, UserModel } from '@reapit/foundations-ts-definitions'
+import { updateActions, UpdateActionNames } from '@reapit/utils-common'
+import { SendFunction, useReapitUpdate } from '@reapit/utils-react'
+import { useAppsBrowseState } from '../../core/use-apps-browse-state'
 
 export type ChangePasswordFormValues = {
   password: string
@@ -50,11 +56,31 @@ export const handleChangePassword =
     }
   }
 
+export const handleUserUpdate =
+  (
+    updateUser: SendFunction<UpdateUserModel, boolean>,
+    currentUserState: UserModel | null,
+    refreshCurrentUser: () => void,
+  ) =>
+  async () => {
+    const userUpdate = await updateUser({
+      ...currentUserState,
+      name: currentUserState?.name ?? '',
+      consentToTrack: !currentUserState?.consentToTrack,
+    })
+
+    if (userUpdate) refreshCurrentUser()
+  }
+
 export const SettingsProfile: FC = () => {
+  const { currentUserState, refreshCurrentUser } = useAppsBrowseState()
   const { connectSession, connectLogoutRedirect } = useReapitConnect(reapitConnectBrowserSession)
   const snacks = useSnack()
   const { isMobile } = useMediaQuery()
   const loginIdentity = connectSession?.loginIdentity ?? ({} as LoginIdentity)
+  const email = connectSession?.loginIdentity.email ?? ''
+  const userId = email ? window.btoa(email).replace(/=/g, '') : null
+
   const {
     register,
     handleSubmit,
@@ -68,11 +94,25 @@ export const SettingsProfile: FC = () => {
     },
   })
 
+  const [, , updateUser] = useReapitUpdate<UpdateUserModel, boolean>({
+    reapitConnectBrowserSession,
+    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.updateUser],
+    method: 'PUT',
+    uriParams: {
+      userId,
+    },
+  })
+
   useEffect(trackEventHandler(TrackingEvent.LoadProfile, true), [])
 
   const logoutUser = useCallback(handleLogout(connectLogoutRedirect), [connectLogoutRedirect])
+  const userUpdate = useCallback(handleUserUpdate(updateUser, currentUserState, refreshCurrentUser), [
+    currentUserState,
+    updateUser,
+    refreshCurrentUser,
+  ])
 
-  const { name, email, orgName, clientId, groups } = loginIdentity
+  const { name, orgName, clientId, groups } = loginIdentity
 
   return (
     <>
@@ -130,7 +170,7 @@ export const SettingsProfile: FC = () => {
         )}
       </Grid>
       <Subtitle hasBoldText>Update Your Password</Subtitle>
-      <form onSubmit={handleSubmit(handleChangePassword(email, snacks))}>
+      <form className={elMb11} onSubmit={handleSubmit(handleChangePassword(email, snacks))}>
         <FormLayout hasMargin>
           <InputWrap>
             <InputGroup
@@ -169,6 +209,26 @@ export const SettingsProfile: FC = () => {
           </Button>
         </ButtonGroup>
       </form>
+      <Subtitle hasBoldText>Update Tracking Consent</Subtitle>
+      <BodyText hasGreyText>
+        The App Market users mechanisms to track your use of the environment to provide an enhanced user experience and
+        provide feedback to enable Reapit to improve the product. You can update your preferences below.
+      </BodyText>
+      {currentUserState && (
+        <FormLayout>
+          <InputWrap>
+            <Toggle
+              onChange={userUpdate}
+              defaultChecked={currentUserState?.consentToTrack}
+              id="tracking-consent"
+              hasGreyBg
+            >
+              <ElToggleItem>Consent</ElToggleItem>
+              <ElToggleItem>Deny</ElToggleItem>
+            </Toggle>
+          </InputWrap>
+        </FormLayout>
+      )}
     </>
   )
 }

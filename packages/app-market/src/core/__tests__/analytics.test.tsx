@@ -1,11 +1,12 @@
-import { ReapitConnectSession } from '@reapit/connect-session'
 import mixpanel from 'mixpanel-browser'
-import { trackEvent, getRoleFromGroups, trackEventHandler, registerUserHandler } from '../analytics'
+import { trackEvent, getRoleFromGroups, trackEventHandler } from '../analytics'
 import { TrackingEvent } from '../analytics-events'
 
 jest.mock('mixpanel-browser', () => ({
   track: jest.fn(),
   identify: jest.fn(),
+  has_opted_in_tracking: jest.fn(() => true),
+  has_opted_out_tracking: jest.fn(() => false),
   people: {
     set: jest.fn(),
   },
@@ -16,6 +17,13 @@ window.reapit.config.appEnv = 'production'
 describe('trackEvent', () => {
   it('should not track an event when shouldTrack is false', () => {
     trackEvent(TrackingEvent.ChangePassword, false)
+
+    expect(mixpanel.track).not.toHaveBeenCalled()
+  })
+
+  it('should not track an event when has opted out with mixpanel', () => {
+    mixpanel.has_opted_in_tracking.mockReturnValueOnce(false)
+    trackEvent(TrackingEvent.ChangePassword, true)
 
     expect(mixpanel.track).not.toHaveBeenCalled()
   })
@@ -81,38 +89,5 @@ describe('onPageLoadHandler', () => {
     curried()
 
     expect(mixpanel.track).toHaveBeenLastCalledWith(TrackingEvent.LoadAppDetail, data)
-  })
-})
-
-describe('registerUserHandler', () => {
-  it('should register a user', () => {
-    const connectSession = {
-      loginIdentity: {
-        clientId: 'MOCK_CLIENT_ID',
-        developerId: 'MOCK_DEVELOPER_ID',
-        groups: ['OrganisationAdmin'],
-        name: 'MOCK_NAME',
-        email: 'foo@example.com',
-        orgName: 'MOCK_ORG_NAME',
-      },
-    } as unknown as ReapitConnectSession
-    const analyticsRegistered = false
-    const setAnalyticsRegistered = jest.fn()
-
-    const curried = registerUserHandler(connectSession, analyticsRegistered, setAnalyticsRegistered)
-
-    curried()
-
-    expect(mixpanel.identify).toHaveBeenCalledWith(connectSession.loginIdentity.email)
-    expect(mixpanel.people.set).toHaveBeenCalledWith({
-      Name: connectSession.loginIdentity.name,
-      Email: connectSession.loginIdentity.email,
-      'User Neg Code': connectSession.loginIdentity.userCode,
-      'Organisation Name': connectSession.loginIdentity.orgName,
-      'Organisation Client Code': connectSession.loginIdentity.clientId,
-      'Developer Id': connectSession.loginIdentity.developerId,
-      'User Roles': 'Group Organisation Admin',
-    })
-    expect(setAnalyticsRegistered).toHaveBeenCalledWith(true)
   })
 })

@@ -40,9 +40,9 @@ const run = async () => {
   try {
     const configRes = await fetch('config.json')
     const config = (await configRes.json()) as Config
-    const isLocal = config.appEnv !== 'production'
+    const isLocal = config.appEnv === 'production'
 
-    if (!isLocal && config.sentryDns && !window.location.hostname.includes('prod.paas')) {
+    if (!isLocal && config.sentryDns) {
       Sentry.init({
         integrations: [new BrowserTracing()],
         release: process.env.APP_VERSION,

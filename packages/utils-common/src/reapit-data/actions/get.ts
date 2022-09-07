@@ -45,6 +45,8 @@ export enum GetActionNames {
   getPayments = 'getPayments',
   getPaymentById = 'getPaymentById',
   getPaymentWithPropertyById = 'getPaymentWithPropertyById',
+  getUserInfo = 'getUserInfo',
+  getUserById = 'getUserById',
 }
 
 export type GetActions = { [key in GetActionNames]: GetAction }
@@ -227,5 +229,15 @@ export const getActions = (appEnv: AppEnv): GetActions => ({
     api: ApiNames(appEnv).payments,
     path: PathNames.paymentById,
     errorMessage: 'Failed to fetch payment, this has been logged. Please try refreshing the page.',
+  },
+  [GetActionNames.getUserInfo]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.userInfo,
+    errorMessage: 'Failed to fetch user info, this has been logged.',
+  },
+  [GetActionNames.getUserById]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.userById,
+    errorMessage: 'Failed to fetch user info, this has been logged.',
   },
 })
