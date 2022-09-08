@@ -92,7 +92,6 @@ export const handleSetSteps =
   ) =>
   (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault()
-    console.log(event)
     const handleStep = async () => {
       const isValidStep = isForward ? await stepIsValid(authFlow, nextStep, trigger) : true
 
