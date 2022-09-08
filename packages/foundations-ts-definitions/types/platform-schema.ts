@@ -3645,6 +3645,7 @@ export interface Conveyancing {
   sortBy?: string
   id?: string[]
   propertyId?: string[]
+  buyerId?: string[]
   embed?: ('buyerSolicitor' | 'offer' | 'property' | 'vendor' | 'vendorSolicitor')[]
   metadata?: string[]
   createdFrom?: string
@@ -4144,6 +4145,14 @@ export interface ConveyancingModelPagedResult {
  */
 export interface CreateApplicantBuyingModel {
   /**
+   * The identifier of the applicant's buying reason
+   */
+  reasonId?: string
+  /**
+   * The identifier of the applicant's selling position
+   */
+  positionId?: string
+  /**
    * The lower bound of the applicant's budget. (Required when 'marketingMode' is 'buying' and 'priceTo' is not provided)
    */
   priceFrom?: number // int32
@@ -4222,6 +4231,18 @@ export interface CreateApplicantModel {
    * A free text field describing any adhoc buying or renting requirements
    */
   notes?: string
+  /**
+   * The status id of the applicant
+   */
+  statusId?: string
+  /**
+   * The applicant's selling status (preAppraisal/valuation/paidValuation/forSale/forSaleUnavailable/underOffer/underOfferUnavailable/reserved/exchanged/completed/soldExternally/withdrawn)
+   */
+  sellingStatus?: string
+  /**
+   * The applicant's selling position (nothingToSell/renting/sellingWithUs/sellingWithOtherAgent/sellingPrivately/notYetOnMarket)
+   */
+  sellingPosition?: string
   /**
    * The date when the applicant was last contacted
    * example:
@@ -4310,6 +4331,14 @@ export interface CreateApplicantModel {
    * The details specific to applicants with a marketingMode of buying
    */
   buying?: {
+    /**
+     * The identifier of the applicant's buying reason
+     */
+    reasonId?: string
+    /**
+     * The identifier of the applicant's selling position
+     */
+    positionId?: string
     /**
      * The lower bound of the applicant's budget. (Required when 'marketingMode' is 'buying' and 'priceTo' is not provided)
      */
@@ -15879,6 +15908,14 @@ export interface UnmappedRequirementModel {
  */
 export interface UpdateApplicantBuyingModel {
   /**
+   * The identifier of the applicant's buying reason
+   */
+  reasonId?: string
+  /**
+   * The identifier of the applicant's selling position
+   */
+  positionId?: string
+  /**
    * The lower bound of the applicant's budget
    */
   priceFrom?: number // int32
@@ -15944,6 +15981,18 @@ export interface UpdateApplicantModel {
    * A free text field describing any adhoc buying or renting requirements
    */
   notes?: string
+  /**
+   * The status id of the applicant
+   */
+  statusId?: string
+  /**
+   * The applicant's selling status (preAppraisal/valuation/paidValuation/forSale/forSaleUnavailable/underOffer/underOfferUnavailable/reserved/exchanged/completed/soldExternally/withdrawn)
+   */
+  sellingStatus?: string
+  /**
+   * The applicant's selling position (nothingToSell/renting/sellingWithUs/sellingWithOtherAgent/sellingPrivately/notYetOnMarket)
+   */
+  sellingPosition?: string
   /**
    * The date when the applicant was last contacted
    * example:
@@ -16032,6 +16081,14 @@ export interface UpdateApplicantModel {
    * The details specific to applicants with a marketingMode of buying
    */
   buying?: {
+    /**
+     * The identifier of the applicant's buying reason
+     */
+    reasonId?: string
+    /**
+     * The identifier of the applicant's selling position
+     */
+    positionId?: string
     /**
      * The lower bound of the applicant's budget
      */
