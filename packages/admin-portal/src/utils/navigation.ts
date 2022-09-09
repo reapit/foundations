@@ -8,7 +8,7 @@ export enum ExternalPages {
 export const openNewPage = (uri: ExternalPages | string) => (event?: MouseEvent) => {
   event?.preventDefault()
   event?.stopPropagation()
-  window.open(uri, '_blank')
+  window.open(uri, '_blank', 'noopener, noreferrer')
 }
 
 export const navigate =

@@ -8,7 +8,7 @@ describe('openNewPage', () => {
     const curried = openNewPage(ExternalPages.platformAPIDocs)
     curried()
 
-    expect(openSpy).toHaveBeenCalledWith(ExternalPages.platformAPIDocs, '_blank')
+    expect(openSpy).toHaveBeenCalledWith(ExternalPages.platformAPIDocs, '_blank', 'noopener, noreferrer')
   })
 })
 
