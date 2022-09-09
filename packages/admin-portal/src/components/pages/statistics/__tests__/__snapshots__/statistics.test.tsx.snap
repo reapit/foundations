@@ -67,202 +67,208 @@ Object {
       <div
         class="el-snack-holder"
       />
-      <h3
-        class="title is-3"
-        id=""
-      >
-        Stats
-      </h3>
-      <h6
-        class="title is-6"
-        id=""
-      >
-        Please select an area:
-      </h6>
-      <div
-        class="is-centered buttons has-addons"
-      >
-        <button
-          class="button   is-primary ml-0"
-          data-test="area-apps-btn"
-          type="button"
-        >
-          Apps
-        </button>
-        <button
-          class="button   is-secondary "
-          data-test="area-developers-btn"
-          type="button"
-        >
-          Developers
-        </button>
-        <button
-          class="button   is-secondary "
-          data-test="area-installations-btn"
-          type="button"
-        >
-          Installations
-        </button>
-      </div>
-      <h6
-        class="title is-6"
-        id=""
-      >
-        Please select a time range:
-      </h6>
-      <div
-        class="is-centered buttons has-addons"
-      >
-        <button
-          class="button   is-primary ml-0"
-          data-test="range-week-btn"
-          type="button"
-        >
-          Last week
-        </button>
-        <button
-          class="button   is-secondary "
-          data-test="range-month-btn"
-          type="button"
-        >
-          Last Month
-        </button>
-        <button
-          class="button   is-secondary "
-          data-test="range-all-btn"
-          type="button"
-        >
-          All time
-        </button>
-      </div>
-      <h6
-        class="title is-6"
-        id=""
-      >
-        Showing results for ‘
-        APPS
-        ’ and ‘
-        Last Week
-        ’
-      </h6>
-      <h5
-        class="title is-5"
-        id=""
-      >
-        Download as CSV
-      </h5>
       <section
-        class="section has-background"
-        data-test=""
+        class="el-page-container"
       >
-        <button
-          class="button   is-primary "
-          data-test=""
-          type="button"
+        <h1
+          class="el-title"
         >
-          Download
-        </button>
+          Stats
+        </h1>
+        <h6
+          class="title is-6"
+          id=""
+        >
+          Please select an area:
+        </h6>
+        <div
+          class="is-centered buttons has-addons"
+        >
+          <button
+            class="button   is-primary ml-0"
+            data-test="area-apps-btn"
+            type="button"
+          >
+            Apps
+          </button>
+          <button
+            class="button   is-secondary "
+            data-test="area-developers-btn"
+            type="button"
+          >
+            Developers
+          </button>
+          <button
+            class="button   is-secondary "
+            data-test="area-installations-btn"
+            type="button"
+          >
+            Installations
+          </button>
+        </div>
+        <h6
+          class="title is-6"
+          id=""
+        >
+          Please select a time range:
+        </h6>
+        <div
+          class="is-centered buttons has-addons"
+        >
+          <button
+            class="button   is-primary ml-0"
+            data-test="range-week-btn"
+            type="button"
+          >
+            Last week
+          </button>
+          <button
+            class="button   is-secondary "
+            data-test="range-month-btn"
+            type="button"
+          >
+            Last Month
+          </button>
+          <button
+            class="button   is-secondary "
+            data-test="range-all-btn"
+            type="button"
+          >
+            All time
+          </button>
+        </div>
+        <h6
+          class="title is-6"
+          id=""
+        >
+          Showing results for ‘
+          APPS
+          ’ and ‘
+          Last Week
+          ’
+        </h6>
+        <h5
+          class="title is-5"
+          id=""
+        >
+          Download as CSV
+        </h5>
+        <section
+          class="section has-background"
+          data-test=""
+        >
+          <button
+            class="button   is-primary "
+            data-test=""
+            type="button"
+          >
+            Download
+          </button>
+        </section>
       </section>
     </div>
     <div>
       <div
         class="el-snack-holder"
       />
-      <h3
-        class="title is-3"
-        id=""
-      >
-        Stats
-      </h3>
-      <h6
-        class="title is-6"
-        id=""
-      >
-        Please select an area:
-      </h6>
-      <div
-        class="is-centered buttons has-addons"
-      >
-        <button
-          class="button   is-primary ml-0"
-          data-test="area-apps-btn"
-          type="button"
-        >
-          Apps
-        </button>
-        <button
-          class="button   is-secondary "
-          data-test="area-developers-btn"
-          type="button"
-        >
-          Developers
-        </button>
-        <button
-          class="button   is-secondary "
-          data-test="area-installations-btn"
-          type="button"
-        >
-          Installations
-        </button>
-      </div>
-      <h6
-        class="title is-6"
-        id=""
-      >
-        Please select a time range:
-      </h6>
-      <div
-        class="is-centered buttons has-addons"
-      >
-        <button
-          class="button   is-primary ml-0"
-          data-test="range-week-btn"
-          type="button"
-        >
-          Last week
-        </button>
-        <button
-          class="button   is-secondary "
-          data-test="range-month-btn"
-          type="button"
-        >
-          Last Month
-        </button>
-        <button
-          class="button   is-secondary "
-          data-test="range-all-btn"
-          type="button"
-        >
-          All time
-        </button>
-      </div>
-      <h6
-        class="title is-6"
-        id=""
-      >
-        Showing results for ‘
-        APPS
-        ’ and ‘
-        Last Week
-        ’
-      </h6>
-      <h5
-        class="title is-5"
-        id=""
-      >
-        Download as CSV
-      </h5>
       <section
-        class="section has-background"
-        data-test=""
+        class="el-page-container"
       >
-        <button
-          class="button   is-primary "
-          data-test=""
-          type="button"
+        <h1
+          class="el-title"
         >
-          Download
-        </button>
+          Stats
+        </h1>
+        <h6
+          class="title is-6"
+          id=""
+        >
+          Please select an area:
+        </h6>
+        <div
+          class="is-centered buttons has-addons"
+        >
+          <button
+            class="button   is-primary ml-0"
+            data-test="area-apps-btn"
+            type="button"
+          >
+            Apps
+          </button>
+          <button
+            class="button   is-secondary "
+            data-test="area-developers-btn"
+            type="button"
+          >
+            Developers
+          </button>
+          <button
+            class="button   is-secondary "
+            data-test="area-installations-btn"
+            type="button"
+          >
+            Installations
+          </button>
+        </div>
+        <h6
+          class="title is-6"
+          id=""
+        >
+          Please select a time range:
+        </h6>
+        <div
+          class="is-centered buttons has-addons"
+        >
+          <button
+            class="button   is-primary ml-0"
+            data-test="range-week-btn"
+            type="button"
+          >
+            Last week
+          </button>
+          <button
+            class="button   is-secondary "
+            data-test="range-month-btn"
+            type="button"
+          >
+            Last Month
+          </button>
+          <button
+            class="button   is-secondary "
+            data-test="range-all-btn"
+            type="button"
+          >
+            All time
+          </button>
+        </div>
+        <h6
+          class="title is-6"
+          id=""
+        >
+          Showing results for ‘
+          APPS
+          ’ and ‘
+          Last Week
+          ’
+        </h6>
+        <h5
+          class="title is-5"
+          id=""
+        >
+          Download as CSV
+        </h5>
+        <section
+          class="section has-background"
+          data-test=""
+        >
+          <button
+            class="button   is-primary "
+            data-test=""
+            type="button"
+          >
+            Download
+          </button>
+        </section>
       </section>
     </div>
   </body>,
@@ -270,101 +276,104 @@ Object {
     <div
       class="el-snack-holder"
     />
-    <h3
-      class="title is-3"
-      id=""
-    >
-      Stats
-    </h3>
-    <h6
-      class="title is-6"
-      id=""
-    >
-      Please select an area:
-    </h6>
-    <div
-      class="is-centered buttons has-addons"
-    >
-      <button
-        class="button   is-primary ml-0"
-        data-test="area-apps-btn"
-        type="button"
-      >
-        Apps
-      </button>
-      <button
-        class="button   is-secondary "
-        data-test="area-developers-btn"
-        type="button"
-      >
-        Developers
-      </button>
-      <button
-        class="button   is-secondary "
-        data-test="area-installations-btn"
-        type="button"
-      >
-        Installations
-      </button>
-    </div>
-    <h6
-      class="title is-6"
-      id=""
-    >
-      Please select a time range:
-    </h6>
-    <div
-      class="is-centered buttons has-addons"
-    >
-      <button
-        class="button   is-primary ml-0"
-        data-test="range-week-btn"
-        type="button"
-      >
-        Last week
-      </button>
-      <button
-        class="button   is-secondary "
-        data-test="range-month-btn"
-        type="button"
-      >
-        Last Month
-      </button>
-      <button
-        class="button   is-secondary "
-        data-test="range-all-btn"
-        type="button"
-      >
-        All time
-      </button>
-    </div>
-    <h6
-      class="title is-6"
-      id=""
-    >
-      Showing results for ‘
-      APPS
-      ’ and ‘
-      Last Week
-      ’
-    </h6>
-    <h5
-      class="title is-5"
-      id=""
-    >
-      Download as CSV
-    </h5>
     <section
-      class="section has-background"
-      data-test=""
+      class="el-page-container"
     >
-      <button
-        class="button   is-primary "
-        data-test=""
-        type="button"
+      <h1
+        class="el-title"
       >
-        Download
-      </button>
+        Stats
+      </h1>
+      <h6
+        class="title is-6"
+        id=""
+      >
+        Please select an area:
+      </h6>
+      <div
+        class="is-centered buttons has-addons"
+      >
+        <button
+          class="button   is-primary ml-0"
+          data-test="area-apps-btn"
+          type="button"
+        >
+          Apps
+        </button>
+        <button
+          class="button   is-secondary "
+          data-test="area-developers-btn"
+          type="button"
+        >
+          Developers
+        </button>
+        <button
+          class="button   is-secondary "
+          data-test="area-installations-btn"
+          type="button"
+        >
+          Installations
+        </button>
+      </div>
+      <h6
+        class="title is-6"
+        id=""
+      >
+        Please select a time range:
+      </h6>
+      <div
+        class="is-centered buttons has-addons"
+      >
+        <button
+          class="button   is-primary ml-0"
+          data-test="range-week-btn"
+          type="button"
+        >
+          Last week
+        </button>
+        <button
+          class="button   is-secondary "
+          data-test="range-month-btn"
+          type="button"
+        >
+          Last Month
+        </button>
+        <button
+          class="button   is-secondary "
+          data-test="range-all-btn"
+          type="button"
+        >
+          All time
+        </button>
+      </div>
+      <h6
+        class="title is-6"
+        id=""
+      >
+        Showing results for ‘
+        APPS
+        ’ and ‘
+        Last Week
+        ’
+      </h6>
+      <h5
+        class="title is-5"
+        id=""
+      >
+        Download as CSV
+      </h5>
+      <section
+        class="section has-background"
+        data-test=""
+      >
+        <button
+          class="button   is-primary "
+          data-test=""
+          type="button"
+        >
+          Download
+        </button>
+      </section>
     </section>
   </div>,
   "debug": [Function],
@@ -429,12 +438,119 @@ Object {
       <div
         class="el-snack-holder"
       />
-      <h3
-        class="title is-3"
-        id=""
+      <section
+        class="el-page-container"
+      >
+        <h1
+          class="el-title"
+        >
+          Stats
+        </h1>
+        <h6
+          class="title is-6"
+          id=""
+        >
+          Please select an area:
+        </h6>
+        <div
+          class="is-centered buttons has-addons"
+        >
+          <button
+            class="button   is-primary ml-0"
+            data-test="area-apps-btn"
+            type="button"
+          >
+            Apps
+          </button>
+          <button
+            class="button   is-secondary "
+            data-test="area-developers-btn"
+            type="button"
+          >
+            Developers
+          </button>
+          <button
+            class="button   is-secondary "
+            data-test="area-installations-btn"
+            type="button"
+          >
+            Installations
+          </button>
+        </div>
+        <h6
+          class="title is-6"
+          id=""
+        >
+          Please select a time range:
+        </h6>
+        <div
+          class="is-centered buttons has-addons"
+        >
+          <button
+            class="button   is-primary ml-0"
+            data-test="range-week-btn"
+            type="button"
+          >
+            Last week
+          </button>
+          <button
+            class="button   is-secondary "
+            data-test="range-month-btn"
+            type="button"
+          >
+            Last Month
+          </button>
+          <button
+            class="button   is-secondary "
+            data-test="range-all-btn"
+            type="button"
+          >
+            All time
+          </button>
+        </div>
+        <h6
+          class="title is-6"
+          id=""
+        >
+          Showing results for ‘
+          APPS
+          ’ and ‘
+          Last Week
+          ’
+        </h6>
+        <h5
+          class="title is-5"
+          id=""
+        >
+          Download as CSV
+        </h5>
+        <section
+          class="section has-background"
+          data-test=""
+        >
+          <button
+            class="button   is-primary "
+            data-test=""
+            type="button"
+          >
+            Download
+          </button>
+        </section>
+      </section>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <section
+      class="el-page-container"
+    >
+      <h1
+        class="el-title"
       >
         Stats
-      </h3>
+      </h1>
       <h6
         class="title is-6"
         id=""
@@ -525,107 +641,6 @@ Object {
           Download
         </button>
       </section>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <h3
-      class="title is-3"
-      id=""
-    >
-      Stats
-    </h3>
-    <h6
-      class="title is-6"
-      id=""
-    >
-      Please select an area:
-    </h6>
-    <div
-      class="is-centered buttons has-addons"
-    >
-      <button
-        class="button   is-primary ml-0"
-        data-test="area-apps-btn"
-        type="button"
-      >
-        Apps
-      </button>
-      <button
-        class="button   is-secondary "
-        data-test="area-developers-btn"
-        type="button"
-      >
-        Developers
-      </button>
-      <button
-        class="button   is-secondary "
-        data-test="area-installations-btn"
-        type="button"
-      >
-        Installations
-      </button>
-    </div>
-    <h6
-      class="title is-6"
-      id=""
-    >
-      Please select a time range:
-    </h6>
-    <div
-      class="is-centered buttons has-addons"
-    >
-      <button
-        class="button   is-primary ml-0"
-        data-test="range-week-btn"
-        type="button"
-      >
-        Last week
-      </button>
-      <button
-        class="button   is-secondary "
-        data-test="range-month-btn"
-        type="button"
-      >
-        Last Month
-      </button>
-      <button
-        class="button   is-secondary "
-        data-test="range-all-btn"
-        type="button"
-      >
-        All time
-      </button>
-    </div>
-    <h6
-      class="title is-6"
-      id=""
-    >
-      Showing results for ‘
-      APPS
-      ’ and ‘
-      Last Week
-      ’
-    </h6>
-    <h5
-      class="title is-5"
-      id=""
-    >
-      Download as CSV
-    </h5>
-    <section
-      class="section has-background"
-      data-test=""
-    >
-      <button
-        class="button   is-primary "
-        data-test=""
-        type="button"
-      >
-        Download
-      </button>
     </section>
   </div>,
   "debug": [Function],

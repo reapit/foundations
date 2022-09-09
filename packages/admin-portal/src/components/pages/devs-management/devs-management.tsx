@@ -7,9 +7,7 @@ import {
   Pagination,
   Table,
   Button,
-  Loader,
   setQueryParams,
-  H3,
   toLocalTime,
   isEmptyObject,
   Alert,
@@ -32,6 +30,7 @@ import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { ApiKeys } from '../api-keys'
 import dayjs from 'dayjs'
+import { Loader, PageContainer, Title } from '@reapit/elements'
 
 export const buildFilterValues = (queryParams: URLSearchParams): DevsManagementFilterFormValues => {
   const name = queryParams.get('name') || ''
@@ -250,18 +249,20 @@ export const DevsManagement: React.FC = () => {
 
   return (
     <ErrorBoundary>
-      <H3>Developer Management</H3>
-      <DevsManagementFilterForm filterValues={filterValues} onSearch={onSearch} />
-      {renderResult(data, columns, totalCount)}
-      <Pagination onChange={onPageChange} totalCount={totalCount} pageSize={pageSize} pageNumber={pageNumber} />
-      <StatusModal visible={isSetStatusModalOpen} developer={developer} resetModal={resetModal} />
-      <DisableMemberModal
-        visible={disableMemberModalVisible}
-        member={selectedUser}
-        onCancel={closeDisableMemberModal(setDisableMemberModalVisible)}
-        onSuccess={closeDisableMemberModal(setDisableMemberModalVisible)}
-      />
-      <SetAsAdminModal visible={isSetAdminModalOpen} onClose={handleCloseSetAdminModal} user={selectedUser} />
+      <PageContainer>
+        <Title>Developer Management</Title>
+        <DevsManagementFilterForm filterValues={filterValues} onSearch={onSearch} />
+        {renderResult(data, columns, totalCount)}
+        <Pagination onChange={onPageChange} totalCount={totalCount} pageSize={pageSize} pageNumber={pageNumber} />
+        <StatusModal visible={isSetStatusModalOpen} developer={developer} resetModal={resetModal} />
+        <DisableMemberModal
+          visible={disableMemberModalVisible}
+          member={selectedUser}
+          onCancel={closeDisableMemberModal(setDisableMemberModalVisible)}
+          onSuccess={closeDisableMemberModal(setDisableMemberModalVisible)}
+        />
+        <SetAsAdminModal visible={isSetAdminModalOpen} onClose={handleCloseSetAdminModal} user={selectedUser} />
+      </PageContainer>
     </ErrorBoundary>
   )
 }

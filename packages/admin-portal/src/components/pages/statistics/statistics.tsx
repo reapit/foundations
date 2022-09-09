@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Dispatch } from 'redux'
-import { H3, ButtonGroup, Button, H6, Loader, H5, Section } from '@reapit/elements-legacy'
+import { ButtonGroup, Button, H6, H5, Section } from '@reapit/elements-legacy'
 import { StatisticsRequestParams, fetchStatistics } from '@/actions/statistics'
 import { getRangeName } from '@/utils/statistics'
 import { selectStatistics } from '@/selector/admin'
@@ -13,6 +13,7 @@ import {
   ServiceItemBillingV2Model,
 } from '@reapit/foundations-ts-definitions'
 import FileSaver from 'file-saver'
+import { PageContainer, Loader, Title } from '@reapit/elements'
 
 export type Area = 'APPS' | 'DEVELOPERS' | 'INSTALLATIONS' | 'BILLING'
 export type Range = 'WEEK' | 'MONTH' | 'ALL'
@@ -116,8 +117,8 @@ export const Statistics: React.FC = () => {
   }, [area, range])
 
   return (
-    <>
-      <H3>Stats</H3>
+    <PageContainer>
+      <Title>Stats</Title>
 
       <H6>Please select an area:</H6>
       <ButtonGroup>
@@ -189,7 +190,7 @@ export const Statistics: React.FC = () => {
           </Button>
         </Section>
       )}
-    </>
+    </PageContainer>
   )
 }
 

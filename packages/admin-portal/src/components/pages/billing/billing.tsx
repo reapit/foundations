@@ -1,6 +1,5 @@
 import React, { useEffect, useState, Dispatch, SetStateAction } from 'react'
 import {
-  H3,
   Table,
   FetchError,
   SelectBox,
@@ -17,6 +16,7 @@ import { MONTHS } from '@/constants/datetime'
 import errorMessages from '@/constants/error-messages'
 import FileSaver from 'file-saver'
 import { fetchCustomerWarehouseCosts } from '../../../services/customers'
+import { PageContainer, Title } from '@reapit/elements'
 
 export const handleSaveFile = (billingFile: Blob, filename: string) => () => {
   FileSaver.saveAs(billingFile, filename)
@@ -133,8 +133,8 @@ export const AdminBilling: React.FC = () => {
   ]
 
   return (
-    <>
-      <H3>Billing</H3>
+    <PageContainer>
+      <Title>Billing</Title>
       <Formik
         initialValues={{
           year,
@@ -154,7 +154,7 @@ export const AdminBilling: React.FC = () => {
         </Form>
       </Formik>
       <Table scrollable={true} loading={!billingFile || !billingDwFile} data={tableData} columns={columns} />
-    </>
+    </PageContainer>
   )
 }
 

@@ -383,12 +383,298 @@ Object {
       <div
         class="el-snack-holder"
       />
-      <h3
-        class="title is-3"
-        id=""
+      <section
+        class="el-page-container"
+      >
+        <h1
+          class="el-title"
+        >
+          App Management
+        </h1>
+        <form
+          action="#"
+        >
+          <div
+            class="form-section"
+          >
+            <div
+              class="form-heading"
+            >
+              Admin Apps Filter Form
+            </div>
+            <div
+              class="form-subheading"
+            >
+              Filter the result by App, Developer and Company
+            </div>
+            <div
+              class="columns"
+              data-test=""
+            >
+              <div
+                class="column"
+                data-test=""
+              >
+                <div
+                  class="field"
+                >
+                  <div
+                    class="control "
+                  >
+                    <label
+                      class="label inline-block "
+                      for="appName"
+                    >
+                      App Name
+                    </label>
+                    <input
+                      class="input is-primary"
+                      data-test=""
+                      id="appName"
+                      maxlength="256"
+                      name="appName"
+                      placeholder=""
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="column"
+                data-test=""
+              >
+                <div
+                  class="field"
+                >
+                  <div
+                    class="control "
+                  >
+                    <label
+                      class="label inline-block "
+                      for="developerName"
+                    >
+                      Developer Name
+                    </label>
+                    <input
+                      class="input is-primary"
+                      data-test=""
+                      id="developerName"
+                      maxlength="256"
+                      name="developerName"
+                      placeholder=""
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="column"
+                data-test=""
+              >
+                <div
+                  class="field"
+                >
+                  <div
+                    class="control "
+                  >
+                    <label
+                      class="label inline-block "
+                      for="companyName"
+                    >
+                      Company Name
+                    </label>
+                    <input
+                      class="input is-primary"
+                      data-test=""
+                      id="companyName"
+                      maxlength="256"
+                      name="companyName"
+                      placeholder=""
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="columns"
+              data-test=""
+            >
+              <div
+                class="column"
+                data-test=""
+              >
+                <div
+                  class="field"
+                >
+                  <div
+                    class="control"
+                  >
+                    <label
+                      class="label "
+                      for="registeredFrom"
+                    >
+                      Registered From
+                    </label>
+                    <div
+                      class="react-datepicker-wrapper"
+                    >
+                      <div
+                        class="react-datepicker__input-container"
+                      >
+                        <input
+                          class="input is-primary input is-primary"
+                          id="registeredFrom"
+                          name="registeredFrom"
+                          type="input"
+                          value=""
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="column"
+                data-test=""
+              >
+                <div
+                  class="field"
+                >
+                  <div
+                    class="control"
+                  >
+                    <label
+                      class="label "
+                      for="registeredTo"
+                    >
+                      Registered To
+                    </label>
+                    <div
+                      class="react-datepicker-wrapper"
+                    >
+                      <div
+                        class="react-datepicker__input-container"
+                      >
+                        <input
+                          class="input is-primary input is-primary"
+                          id="registeredTo"
+                          name="registeredTo"
+                          type="input"
+                          value=""
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="column"
+                data-test=""
+              >
+                <div
+                  class="field "
+                >
+                  <div
+                    class="control"
+                  >
+                    <div
+                      class="field field-checkbox"
+                    >
+                      <input
+                        class="checkbox"
+                        data-test=""
+                        id="isListed"
+                        type="checkbox"
+                        value=""
+                      />
+                      <label
+                        class="label"
+                        for="isListed"
+                      >
+                        Is Listed
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="columns"
+              data-test=""
+            >
+              <div
+                class="column"
+                data-test=""
+              >
+                 
+              </div>
+              <div
+                class="column"
+                data-test=""
+              >
+                <div
+                  class="level-right mt-5 pt-2"
+                  data-test=""
+                >
+                  <button
+                    class="button   is-primary "
+                    data-test=""
+                    type="submit"
+                  >
+                    Search
+                  </button>
+                  <button
+                    class="button   is-primary "
+                    data-test=""
+                    type="reset"
+                  >
+                    Refresh
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+        <section
+          class="section has-padding has-margin has-background"
+          data-test=""
+        >
+          <span>
+            Total apps: 
+            0
+          </span>
+        </section>
+        <section
+          class="section has-padding has-margin has-background"
+          data-test=""
+        >
+          <div
+            class="notification is-info "
+            data-test=""
+            role="alert"
+          >
+            No Results 
+          </div>
+        </section>
+      </section>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <section
+      class="el-page-container"
+    >
+      <h1
+        class="el-title"
       >
         App Management
-      </h3>
+      </h1>
       <form
         action="#"
       >
@@ -658,286 +944,6 @@ Object {
           No Results 
         </div>
       </section>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <h3
-      class="title is-3"
-      id=""
-    >
-      App Management
-    </h3>
-    <form
-      action="#"
-    >
-      <div
-        class="form-section"
-      >
-        <div
-          class="form-heading"
-        >
-          Admin Apps Filter Form
-        </div>
-        <div
-          class="form-subheading"
-        >
-          Filter the result by App, Developer and Company
-        </div>
-        <div
-          class="columns"
-          data-test=""
-        >
-          <div
-            class="column"
-            data-test=""
-          >
-            <div
-              class="field"
-            >
-              <div
-                class="control "
-              >
-                <label
-                  class="label inline-block "
-                  for="appName"
-                >
-                  App Name
-                </label>
-                <input
-                  class="input is-primary"
-                  data-test=""
-                  id="appName"
-                  maxlength="256"
-                  name="appName"
-                  placeholder=""
-                  type="text"
-                  value=""
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            class="column"
-            data-test=""
-          >
-            <div
-              class="field"
-            >
-              <div
-                class="control "
-              >
-                <label
-                  class="label inline-block "
-                  for="developerName"
-                >
-                  Developer Name
-                </label>
-                <input
-                  class="input is-primary"
-                  data-test=""
-                  id="developerName"
-                  maxlength="256"
-                  name="developerName"
-                  placeholder=""
-                  type="text"
-                  value=""
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            class="column"
-            data-test=""
-          >
-            <div
-              class="field"
-            >
-              <div
-                class="control "
-              >
-                <label
-                  class="label inline-block "
-                  for="companyName"
-                >
-                  Company Name
-                </label>
-                <input
-                  class="input is-primary"
-                  data-test=""
-                  id="companyName"
-                  maxlength="256"
-                  name="companyName"
-                  placeholder=""
-                  type="text"
-                  value=""
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="columns"
-          data-test=""
-        >
-          <div
-            class="column"
-            data-test=""
-          >
-            <div
-              class="field"
-            >
-              <div
-                class="control"
-              >
-                <label
-                  class="label "
-                  for="registeredFrom"
-                >
-                  Registered From
-                </label>
-                <div
-                  class="react-datepicker-wrapper"
-                >
-                  <div
-                    class="react-datepicker__input-container"
-                  >
-                    <input
-                      class="input is-primary input is-primary"
-                      id="registeredFrom"
-                      name="registeredFrom"
-                      type="input"
-                      value=""
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="column"
-            data-test=""
-          >
-            <div
-              class="field"
-            >
-              <div
-                class="control"
-              >
-                <label
-                  class="label "
-                  for="registeredTo"
-                >
-                  Registered To
-                </label>
-                <div
-                  class="react-datepicker-wrapper"
-                >
-                  <div
-                    class="react-datepicker__input-container"
-                  >
-                    <input
-                      class="input is-primary input is-primary"
-                      id="registeredTo"
-                      name="registeredTo"
-                      type="input"
-                      value=""
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="column"
-            data-test=""
-          >
-            <div
-              class="field "
-            >
-              <div
-                class="control"
-              >
-                <div
-                  class="field field-checkbox"
-                >
-                  <input
-                    class="checkbox"
-                    data-test=""
-                    id="isListed"
-                    type="checkbox"
-                    value=""
-                  />
-                  <label
-                    class="label"
-                    for="isListed"
-                  >
-                    Is Listed
-                  </label>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="columns"
-          data-test=""
-        >
-          <div
-            class="column"
-            data-test=""
-          >
-             
-          </div>
-          <div
-            class="column"
-            data-test=""
-          >
-            <div
-              class="level-right mt-5 pt-2"
-              data-test=""
-            >
-              <button
-                class="button   is-primary "
-                data-test=""
-                type="submit"
-              >
-                Search
-              </button>
-              <button
-                class="button   is-primary "
-                data-test=""
-                type="reset"
-              >
-                Refresh
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </form>
-    <section
-      class="section has-padding has-margin has-background"
-      data-test=""
-    >
-      <span>
-        Total apps: 
-        0
-      </span>
-    </section>
-    <section
-      class="section has-padding has-margin has-background"
-      data-test=""
-    >
-      <div
-        class="notification is-info "
-        data-test=""
-        role="alert"
-      >
-        No Results 
-      </div>
     </section>
   </div>,
   "debug": [Function],

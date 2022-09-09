@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { FC, LazyExoticComponent } from 'react'
 import { Route, RouteProps, useLocation } from 'react-router'
 import RouteFetcher from '../components/hocs/route-fetcher'
 import { reapitConnectBrowserSession } from './connect-session'
@@ -7,7 +7,7 @@ import { getAccess } from '../utils/get-access'
 import { FlexContainer, PersistantNotification } from '@reapit/elements'
 
 export interface PrivateRouteProps {
-  component: React.FunctionComponent | React.LazyExoticComponent<any>
+  component: FC | LazyExoticComponent<any>
   exact?: boolean
   fetcher?: boolean
 }

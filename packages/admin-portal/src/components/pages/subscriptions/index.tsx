@@ -6,9 +6,7 @@ import ErrorBoundary from '@/components/hocs/error-boundary'
 import {
   Pagination,
   Table,
-  Loader,
   setQueryParams,
-  H3,
   toLocalTime,
   isEmptyObject,
   Section,
@@ -30,6 +28,7 @@ import {
 } from '@/actions/subscriptions'
 import { CancelSubscriptionParams } from '@/services/subscriptions'
 import store from '../../../core/store'
+import { PageContainer, Loader, Title } from '@reapit/elements'
 
 export const buildFilterValues = (queryParams: URLSearchParams): SubscriptionsFilterFormValues => {
   const type = queryParams.get('type') || ''
@@ -136,22 +135,24 @@ const Subscriptions: React.FC = () => {
 
   return (
     <ErrorBoundary>
-      <H3>Subscriptions</H3>
-      <SubscriptionsFilterForm filterValues={filterValues} onSearch={onSearch} />
-      {isLoading || !data ? (
-        <Loader />
-      ) : (
-        <>
-          {renderResult(data, columns, totalCount)}
-          <Pagination onChange={onPageChange} totalCount={totalCount} pageSize={pageSize} pageNumber={pageNumber} />
-        </>
-      )}
-      <CancelConfirmModal
-        onConfirm={onCancelSubscription}
-        isShowConfirmModal={cancelSubId !== ''}
-        setCancelSubId={setCancelSubId}
-        isCanceling={cancelSubscription.isLoading}
-      />
+      <PageContainer>
+        <Title>Subscriptions</Title>
+        <SubscriptionsFilterForm filterValues={filterValues} onSearch={onSearch} />
+        {isLoading || !data ? (
+          <Loader />
+        ) : (
+          <>
+            {renderResult(data, columns, totalCount)}
+            <Pagination onChange={onPageChange} totalCount={totalCount} pageSize={pageSize} pageNumber={pageNumber} />
+          </>
+        )}
+        <CancelConfirmModal
+          onConfirm={onCancelSubscription}
+          isShowConfirmModal={cancelSubId !== ''}
+          setCancelSubId={setCancelSubId}
+          isCanceling={cancelSubscription.isLoading}
+        />
+      </PageContainer>
     </ErrorBoundary>
   )
 }

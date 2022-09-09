@@ -8,12 +8,248 @@ Object {
       <div
         class="el-snack-holder"
       />
-      <h3
-        class="title is-3"
-        id=""
+      <section
+        class="el-page-container"
+      >
+        <h1
+          class="el-title"
+        >
+          Subscriptions
+        </h1>
+        <form
+          action="#"
+          novalidate=""
+        >
+          <div
+            class="form-section"
+          >
+            <div
+              class="form-heading"
+            >
+              Subscriptions Filter Form
+            </div>
+            <div
+              class="form-subheading"
+            >
+              Filter the result by type and developer
+            </div>
+            <div
+              class="columns items-center"
+              data-test=""
+            >
+              <div
+                class="column"
+                data-test=""
+              >
+                <div
+                  class="field"
+                >
+                  <div
+                    class="control"
+                  >
+                    <label
+                      class="label "
+                      for="type"
+                    >
+                      Type
+                    </label>
+                    <select
+                      class="input is-primary "
+                      data-test=""
+                      name="type"
+                    >
+                      <option
+                        value="applicationListing"
+                      >
+                        Application Listing
+                      </option>
+                      <option
+                        value="developerRegistration"
+                      >
+                        Developer Registration
+                      </option>
+                      <option
+                        value="developerEdition"
+                      >
+                        Developer Edition
+                      </option>
+                      <option
+                        disabled=""
+                        hidden=""
+                        value=""
+                      >
+                        Please select
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="column"
+                data-test=""
+              >
+                <div
+                  class="field"
+                >
+                  <div
+                    class="control "
+                  >
+                    <label
+                      class="label inline-block "
+                      for="developerName"
+                    >
+                      Developer Name
+                    </label>
+                    <input
+                      class="input is-primary"
+                      data-test=""
+                      id="developerName"
+                      maxlength="256"
+                      name="developerName"
+                      placeholder=""
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="column"
+                data-test=""
+              >
+                <div
+                  class="field"
+                >
+                  <div
+                    class="control "
+                  >
+                    <label
+                      class="label inline-block "
+                      for="userEmail"
+                    >
+                      User Email
+                    </label>
+                    <input
+                      class="input is-primary"
+                      data-test=""
+                      id="userEmail"
+                      maxlength="256"
+                      name="userEmail"
+                      placeholder=""
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="column"
+                data-test=""
+              >
+                <div
+                  class="field"
+                >
+                  <div
+                    class="control "
+                  >
+                    <label
+                      class="label inline-block "
+                      for="appName"
+                    >
+                      App Name
+                    </label>
+                    <input
+                      class="input is-primary"
+                      data-test=""
+                      id="appName"
+                      maxlength="256"
+                      name="appName"
+                      placeholder=""
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="column"
+                data-test=""
+              >
+                <div
+                  class="field"
+                >
+                  <div
+                    class="control"
+                  >
+                    <label
+                      class="label "
+                      for="status"
+                    >
+                      Status
+                    </label>
+                    <select
+                      class="input is-primary "
+                      data-test=""
+                      name="status"
+                    >
+                      <option
+                        value="active"
+                      >
+                        Active
+                      </option>
+                      <option
+                        value="cancelled"
+                      >
+                        Cancelled
+                      </option>
+                      <option
+                        disabled=""
+                        hidden=""
+                        value=""
+                      >
+                        Please select
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="column mt-4"
+                data-test=""
+              >
+                <button
+                  class="button   is-primary "
+                  data-test=""
+                  type="submit"
+                >
+                  Search
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div
+          class="notification is-primary "
+          data-test=""
+          role="alert"
+        >
+          No Results 
+        </div>
+      </section>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <section
+      class="el-page-container"
+    >
+      <h1
+        class="el-title"
       >
         Subscriptions
-      </h3>
+      </h1>
       <form
         action="#"
         novalidate=""
@@ -233,237 +469,7 @@ Object {
       >
         No Results 
       </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <h3
-      class="title is-3"
-      id=""
-    >
-      Subscriptions
-    </h3>
-    <form
-      action="#"
-      novalidate=""
-    >
-      <div
-        class="form-section"
-      >
-        <div
-          class="form-heading"
-        >
-          Subscriptions Filter Form
-        </div>
-        <div
-          class="form-subheading"
-        >
-          Filter the result by type and developer
-        </div>
-        <div
-          class="columns items-center"
-          data-test=""
-        >
-          <div
-            class="column"
-            data-test=""
-          >
-            <div
-              class="field"
-            >
-              <div
-                class="control"
-              >
-                <label
-                  class="label "
-                  for="type"
-                >
-                  Type
-                </label>
-                <select
-                  class="input is-primary "
-                  data-test=""
-                  name="type"
-                >
-                  <option
-                    value="applicationListing"
-                  >
-                    Application Listing
-                  </option>
-                  <option
-                    value="developerRegistration"
-                  >
-                    Developer Registration
-                  </option>
-                  <option
-                    value="developerEdition"
-                  >
-                    Developer Edition
-                  </option>
-                  <option
-                    disabled=""
-                    hidden=""
-                    value=""
-                  >
-                    Please select
-                  </option>
-                </select>
-              </div>
-            </div>
-          </div>
-          <div
-            class="column"
-            data-test=""
-          >
-            <div
-              class="field"
-            >
-              <div
-                class="control "
-              >
-                <label
-                  class="label inline-block "
-                  for="developerName"
-                >
-                  Developer Name
-                </label>
-                <input
-                  class="input is-primary"
-                  data-test=""
-                  id="developerName"
-                  maxlength="256"
-                  name="developerName"
-                  placeholder=""
-                  type="text"
-                  value=""
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            class="column"
-            data-test=""
-          >
-            <div
-              class="field"
-            >
-              <div
-                class="control "
-              >
-                <label
-                  class="label inline-block "
-                  for="userEmail"
-                >
-                  User Email
-                </label>
-                <input
-                  class="input is-primary"
-                  data-test=""
-                  id="userEmail"
-                  maxlength="256"
-                  name="userEmail"
-                  placeholder=""
-                  type="text"
-                  value=""
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            class="column"
-            data-test=""
-          >
-            <div
-              class="field"
-            >
-              <div
-                class="control "
-              >
-                <label
-                  class="label inline-block "
-                  for="appName"
-                >
-                  App Name
-                </label>
-                <input
-                  class="input is-primary"
-                  data-test=""
-                  id="appName"
-                  maxlength="256"
-                  name="appName"
-                  placeholder=""
-                  type="text"
-                  value=""
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            class="column"
-            data-test=""
-          >
-            <div
-              class="field"
-            >
-              <div
-                class="control"
-              >
-                <label
-                  class="label "
-                  for="status"
-                >
-                  Status
-                </label>
-                <select
-                  class="input is-primary "
-                  data-test=""
-                  name="status"
-                >
-                  <option
-                    value="active"
-                  >
-                    Active
-                  </option>
-                  <option
-                    value="cancelled"
-                  >
-                    Cancelled
-                  </option>
-                  <option
-                    disabled=""
-                    hidden=""
-                    value=""
-                  >
-                    Please select
-                  </option>
-                </select>
-              </div>
-            </div>
-          </div>
-          <div
-            class="column mt-4"
-            data-test=""
-          >
-            <button
-              class="button   is-primary "
-              data-test=""
-              type="submit"
-            >
-              Search
-            </button>
-          </div>
-        </div>
-      </div>
-    </form>
-    <div
-      class="notification is-primary "
-      data-test=""
-      role="alert"
-    >
-      No Results 
-    </div>
+    </section>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -527,12 +533,248 @@ Object {
       <div
         class="el-snack-holder"
       />
-      <h3
-        class="title is-3"
-        id=""
+      <section
+        class="el-page-container"
+      >
+        <h1
+          class="el-title"
+        >
+          Subscriptions
+        </h1>
+        <form
+          action="#"
+          novalidate=""
+        >
+          <div
+            class="form-section"
+          >
+            <div
+              class="form-heading"
+            >
+              Subscriptions Filter Form
+            </div>
+            <div
+              class="form-subheading"
+            >
+              Filter the result by type and developer
+            </div>
+            <div
+              class="columns items-center"
+              data-test=""
+            >
+              <div
+                class="column"
+                data-test=""
+              >
+                <div
+                  class="field"
+                >
+                  <div
+                    class="control"
+                  >
+                    <label
+                      class="label "
+                      for="type"
+                    >
+                      Type
+                    </label>
+                    <select
+                      class="input is-primary "
+                      data-test=""
+                      name="type"
+                    >
+                      <option
+                        value="applicationListing"
+                      >
+                        Application Listing
+                      </option>
+                      <option
+                        value="developerRegistration"
+                      >
+                        Developer Registration
+                      </option>
+                      <option
+                        value="developerEdition"
+                      >
+                        Developer Edition
+                      </option>
+                      <option
+                        disabled=""
+                        hidden=""
+                        value=""
+                      >
+                        Please select
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="column"
+                data-test=""
+              >
+                <div
+                  class="field"
+                >
+                  <div
+                    class="control "
+                  >
+                    <label
+                      class="label inline-block "
+                      for="developerName"
+                    >
+                      Developer Name
+                    </label>
+                    <input
+                      class="input is-primary"
+                      data-test=""
+                      id="developerName"
+                      maxlength="256"
+                      name="developerName"
+                      placeholder=""
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="column"
+                data-test=""
+              >
+                <div
+                  class="field"
+                >
+                  <div
+                    class="control "
+                  >
+                    <label
+                      class="label inline-block "
+                      for="userEmail"
+                    >
+                      User Email
+                    </label>
+                    <input
+                      class="input is-primary"
+                      data-test=""
+                      id="userEmail"
+                      maxlength="256"
+                      name="userEmail"
+                      placeholder=""
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="column"
+                data-test=""
+              >
+                <div
+                  class="field"
+                >
+                  <div
+                    class="control "
+                  >
+                    <label
+                      class="label inline-block "
+                      for="appName"
+                    >
+                      App Name
+                    </label>
+                    <input
+                      class="input is-primary"
+                      data-test=""
+                      id="appName"
+                      maxlength="256"
+                      name="appName"
+                      placeholder=""
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="column"
+                data-test=""
+              >
+                <div
+                  class="field"
+                >
+                  <div
+                    class="control"
+                  >
+                    <label
+                      class="label "
+                      for="status"
+                    >
+                      Status
+                    </label>
+                    <select
+                      class="input is-primary "
+                      data-test=""
+                      name="status"
+                    >
+                      <option
+                        value="active"
+                      >
+                        Active
+                      </option>
+                      <option
+                        value="cancelled"
+                      >
+                        Cancelled
+                      </option>
+                      <option
+                        disabled=""
+                        hidden=""
+                        value=""
+                      >
+                        Please select
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="column mt-4"
+                data-test=""
+              >
+                <button
+                  class="button   is-primary "
+                  data-test=""
+                  type="submit"
+                >
+                  Search
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div
+          class="notification is-primary "
+          data-test=""
+          role="alert"
+        >
+          No Results 
+        </div>
+      </section>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <section
+      class="el-page-container"
+    >
+      <h1
+        class="el-title"
       >
         Subscriptions
-      </h3>
+      </h1>
       <form
         action="#"
         novalidate=""
@@ -752,237 +994,7 @@ Object {
       >
         No Results 
       </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <h3
-      class="title is-3"
-      id=""
-    >
-      Subscriptions
-    </h3>
-    <form
-      action="#"
-      novalidate=""
-    >
-      <div
-        class="form-section"
-      >
-        <div
-          class="form-heading"
-        >
-          Subscriptions Filter Form
-        </div>
-        <div
-          class="form-subheading"
-        >
-          Filter the result by type and developer
-        </div>
-        <div
-          class="columns items-center"
-          data-test=""
-        >
-          <div
-            class="column"
-            data-test=""
-          >
-            <div
-              class="field"
-            >
-              <div
-                class="control"
-              >
-                <label
-                  class="label "
-                  for="type"
-                >
-                  Type
-                </label>
-                <select
-                  class="input is-primary "
-                  data-test=""
-                  name="type"
-                >
-                  <option
-                    value="applicationListing"
-                  >
-                    Application Listing
-                  </option>
-                  <option
-                    value="developerRegistration"
-                  >
-                    Developer Registration
-                  </option>
-                  <option
-                    value="developerEdition"
-                  >
-                    Developer Edition
-                  </option>
-                  <option
-                    disabled=""
-                    hidden=""
-                    value=""
-                  >
-                    Please select
-                  </option>
-                </select>
-              </div>
-            </div>
-          </div>
-          <div
-            class="column"
-            data-test=""
-          >
-            <div
-              class="field"
-            >
-              <div
-                class="control "
-              >
-                <label
-                  class="label inline-block "
-                  for="developerName"
-                >
-                  Developer Name
-                </label>
-                <input
-                  class="input is-primary"
-                  data-test=""
-                  id="developerName"
-                  maxlength="256"
-                  name="developerName"
-                  placeholder=""
-                  type="text"
-                  value=""
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            class="column"
-            data-test=""
-          >
-            <div
-              class="field"
-            >
-              <div
-                class="control "
-              >
-                <label
-                  class="label inline-block "
-                  for="userEmail"
-                >
-                  User Email
-                </label>
-                <input
-                  class="input is-primary"
-                  data-test=""
-                  id="userEmail"
-                  maxlength="256"
-                  name="userEmail"
-                  placeholder=""
-                  type="text"
-                  value=""
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            class="column"
-            data-test=""
-          >
-            <div
-              class="field"
-            >
-              <div
-                class="control "
-              >
-                <label
-                  class="label inline-block "
-                  for="appName"
-                >
-                  App Name
-                </label>
-                <input
-                  class="input is-primary"
-                  data-test=""
-                  id="appName"
-                  maxlength="256"
-                  name="appName"
-                  placeholder=""
-                  type="text"
-                  value=""
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            class="column"
-            data-test=""
-          >
-            <div
-              class="field"
-            >
-              <div
-                class="control"
-              >
-                <label
-                  class="label "
-                  for="status"
-                >
-                  Status
-                </label>
-                <select
-                  class="input is-primary "
-                  data-test=""
-                  name="status"
-                >
-                  <option
-                    value="active"
-                  >
-                    Active
-                  </option>
-                  <option
-                    value="cancelled"
-                  >
-                    Cancelled
-                  </option>
-                  <option
-                    disabled=""
-                    hidden=""
-                    value=""
-                  >
-                    Please select
-                  </option>
-                </select>
-              </div>
-            </div>
-          </div>
-          <div
-            class="column mt-4"
-            data-test=""
-          >
-            <button
-              class="button   is-primary "
-              data-test=""
-              type="submit"
-            >
-              Search
-            </button>
-          </div>
-        </div>
-      </div>
-    </form>
-    <div
-      class="notification is-primary "
-      data-test=""
-      role="alert"
-    >
-      No Results 
-    </div>
+    </section>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -1046,12 +1058,248 @@ Object {
       <div
         class="el-snack-holder"
       />
-      <h3
-        class="title is-3"
-        id=""
+      <section
+        class="el-page-container"
+      >
+        <h1
+          class="el-title"
+        >
+          Subscriptions
+        </h1>
+        <form
+          action="#"
+          novalidate=""
+        >
+          <div
+            class="form-section"
+          >
+            <div
+              class="form-heading"
+            >
+              Subscriptions Filter Form
+            </div>
+            <div
+              class="form-subheading"
+            >
+              Filter the result by type and developer
+            </div>
+            <div
+              class="columns items-center"
+              data-test=""
+            >
+              <div
+                class="column"
+                data-test=""
+              >
+                <div
+                  class="field"
+                >
+                  <div
+                    class="control"
+                  >
+                    <label
+                      class="label "
+                      for="type"
+                    >
+                      Type
+                    </label>
+                    <select
+                      class="input is-primary "
+                      data-test=""
+                      name="type"
+                    >
+                      <option
+                        value="applicationListing"
+                      >
+                        Application Listing
+                      </option>
+                      <option
+                        value="developerRegistration"
+                      >
+                        Developer Registration
+                      </option>
+                      <option
+                        value="developerEdition"
+                      >
+                        Developer Edition
+                      </option>
+                      <option
+                        disabled=""
+                        hidden=""
+                        value=""
+                      >
+                        Please select
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="column"
+                data-test=""
+              >
+                <div
+                  class="field"
+                >
+                  <div
+                    class="control "
+                  >
+                    <label
+                      class="label inline-block "
+                      for="developerName"
+                    >
+                      Developer Name
+                    </label>
+                    <input
+                      class="input is-primary"
+                      data-test=""
+                      id="developerName"
+                      maxlength="256"
+                      name="developerName"
+                      placeholder=""
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="column"
+                data-test=""
+              >
+                <div
+                  class="field"
+                >
+                  <div
+                    class="control "
+                  >
+                    <label
+                      class="label inline-block "
+                      for="userEmail"
+                    >
+                      User Email
+                    </label>
+                    <input
+                      class="input is-primary"
+                      data-test=""
+                      id="userEmail"
+                      maxlength="256"
+                      name="userEmail"
+                      placeholder=""
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="column"
+                data-test=""
+              >
+                <div
+                  class="field"
+                >
+                  <div
+                    class="control "
+                  >
+                    <label
+                      class="label inline-block "
+                      for="appName"
+                    >
+                      App Name
+                    </label>
+                    <input
+                      class="input is-primary"
+                      data-test=""
+                      id="appName"
+                      maxlength="256"
+                      name="appName"
+                      placeholder=""
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="column"
+                data-test=""
+              >
+                <div
+                  class="field"
+                >
+                  <div
+                    class="control"
+                  >
+                    <label
+                      class="label "
+                      for="status"
+                    >
+                      Status
+                    </label>
+                    <select
+                      class="input is-primary "
+                      data-test=""
+                      name="status"
+                    >
+                      <option
+                        value="active"
+                      >
+                        Active
+                      </option>
+                      <option
+                        value="cancelled"
+                      >
+                        Cancelled
+                      </option>
+                      <option
+                        disabled=""
+                        hidden=""
+                        value=""
+                      >
+                        Please select
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="column mt-4"
+                data-test=""
+              >
+                <button
+                  class="button   is-primary "
+                  data-test=""
+                  type="submit"
+                >
+                  Search
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div
+          class="notification is-primary "
+          data-test=""
+          role="alert"
+        >
+          No Results 
+        </div>
+      </section>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <section
+      class="el-page-container"
+    >
+      <h1
+        class="el-title"
       >
         Subscriptions
-      </h3>
+      </h1>
       <form
         action="#"
         novalidate=""
@@ -1271,237 +1519,7 @@ Object {
       >
         No Results 
       </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <h3
-      class="title is-3"
-      id=""
-    >
-      Subscriptions
-    </h3>
-    <form
-      action="#"
-      novalidate=""
-    >
-      <div
-        class="form-section"
-      >
-        <div
-          class="form-heading"
-        >
-          Subscriptions Filter Form
-        </div>
-        <div
-          class="form-subheading"
-        >
-          Filter the result by type and developer
-        </div>
-        <div
-          class="columns items-center"
-          data-test=""
-        >
-          <div
-            class="column"
-            data-test=""
-          >
-            <div
-              class="field"
-            >
-              <div
-                class="control"
-              >
-                <label
-                  class="label "
-                  for="type"
-                >
-                  Type
-                </label>
-                <select
-                  class="input is-primary "
-                  data-test=""
-                  name="type"
-                >
-                  <option
-                    value="applicationListing"
-                  >
-                    Application Listing
-                  </option>
-                  <option
-                    value="developerRegistration"
-                  >
-                    Developer Registration
-                  </option>
-                  <option
-                    value="developerEdition"
-                  >
-                    Developer Edition
-                  </option>
-                  <option
-                    disabled=""
-                    hidden=""
-                    value=""
-                  >
-                    Please select
-                  </option>
-                </select>
-              </div>
-            </div>
-          </div>
-          <div
-            class="column"
-            data-test=""
-          >
-            <div
-              class="field"
-            >
-              <div
-                class="control "
-              >
-                <label
-                  class="label inline-block "
-                  for="developerName"
-                >
-                  Developer Name
-                </label>
-                <input
-                  class="input is-primary"
-                  data-test=""
-                  id="developerName"
-                  maxlength="256"
-                  name="developerName"
-                  placeholder=""
-                  type="text"
-                  value=""
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            class="column"
-            data-test=""
-          >
-            <div
-              class="field"
-            >
-              <div
-                class="control "
-              >
-                <label
-                  class="label inline-block "
-                  for="userEmail"
-                >
-                  User Email
-                </label>
-                <input
-                  class="input is-primary"
-                  data-test=""
-                  id="userEmail"
-                  maxlength="256"
-                  name="userEmail"
-                  placeholder=""
-                  type="text"
-                  value=""
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            class="column"
-            data-test=""
-          >
-            <div
-              class="field"
-            >
-              <div
-                class="control "
-              >
-                <label
-                  class="label inline-block "
-                  for="appName"
-                >
-                  App Name
-                </label>
-                <input
-                  class="input is-primary"
-                  data-test=""
-                  id="appName"
-                  maxlength="256"
-                  name="appName"
-                  placeholder=""
-                  type="text"
-                  value=""
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            class="column"
-            data-test=""
-          >
-            <div
-              class="field"
-            >
-              <div
-                class="control"
-              >
-                <label
-                  class="label "
-                  for="status"
-                >
-                  Status
-                </label>
-                <select
-                  class="input is-primary "
-                  data-test=""
-                  name="status"
-                >
-                  <option
-                    value="active"
-                  >
-                    Active
-                  </option>
-                  <option
-                    value="cancelled"
-                  >
-                    Cancelled
-                  </option>
-                  <option
-                    disabled=""
-                    hidden=""
-                    value=""
-                  >
-                    Please select
-                  </option>
-                </select>
-              </div>
-            </div>
-          </div>
-          <div
-            class="column mt-4"
-            data-test=""
-          >
-            <button
-              class="button   is-primary "
-              data-test=""
-              type="submit"
-            >
-              Search
-            </button>
-          </div>
-        </div>
-      </div>
-    </form>
-    <div
-      class="notification is-primary "
-      data-test=""
-      role="alert"
-    >
-      No Results 
-    </div>
+    </section>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

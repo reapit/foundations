@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { useSelector } from 'react-redux'
-import { Modal, ModalProps, Loader, Button, ModalHeader, ModalFooter, ModalBody, Alert } from '@reapit/elements-legacy'
+import { Modal, ModalProps, Button, ModalHeader, ModalFooter, ModalBody, Alert } from '@reapit/elements-legacy'
 import ApproveRevisionModal from './approve-revision-modal'
 import DeclineRevisionModal from './decline-revision-modal'
 import AppRevisionComparison from '../app-revision-comparison/app-revision-comparison'
@@ -11,6 +11,7 @@ import { CreateAppRevisionConsentsModel } from '@reapit/foundations-ts-definitio
 import { SendFunction, useReapitUpdate } from '@reapit/utils-react'
 import { UpdateActionNames, updateActions } from '@reapit/utils-common'
 import { useReapitConnect } from '@reapit/connect-session'
+import { Loader } from '@reapit/elements'
 
 export type ApprovalModalInnerProps = {
   closeParentModal?: () => void

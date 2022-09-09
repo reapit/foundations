@@ -8,12 +8,214 @@ Object {
       <div
         class="el-snack-holder"
       />
-      <h3
-        class="title is-3"
-        id=""
+      <section
+        class="el-page-container"
+      >
+        <h1
+          class="el-title"
+        >
+          Billing
+        </h1>
+        <form
+          action="#"
+        >
+          <div
+            class="columns"
+            data-test=""
+          >
+            <div
+              class="column"
+              data-test=""
+            >
+              <div
+                class="field"
+              >
+                <div
+                  class="control"
+                >
+                  <label
+                    class="label "
+                    for="month"
+                  >
+                    Month
+                  </label>
+                  <select
+                    class="input is-primary "
+                    data-test=""
+                    name="month"
+                  >
+                    <option
+                      value="01"
+                    >
+                      January
+                    </option>
+                    <option
+                      value="02"
+                    >
+                      February
+                    </option>
+                    <option
+                      value="03"
+                    >
+                      March
+                    </option>
+                    <option
+                      value="04"
+                    >
+                      April
+                    </option>
+                    <option
+                      value="05"
+                    >
+                      May
+                    </option>
+                    <option
+                      value="06"
+                    >
+                      June
+                    </option>
+                    <option
+                      value="07"
+                    >
+                      July
+                    </option>
+                    <option
+                      value="08"
+                    >
+                      August
+                    </option>
+                    <option
+                      value="09"
+                    >
+                      September
+                    </option>
+                    <option
+                      value="10"
+                    >
+                      October
+                    </option>
+                    <option
+                      value="11"
+                    >
+                      November
+                    </option>
+                    <option
+                      value="12"
+                    >
+                      December
+                    </option>
+                    <option
+                      disabled=""
+                      hidden=""
+                      value=""
+                    >
+                      Please select
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div
+              class="column"
+              data-test=""
+            >
+              <div
+                class="field"
+              >
+                <div
+                  class="control"
+                >
+                  <label
+                    class="label "
+                    for="year"
+                  >
+                    Year
+                  </label>
+                  <select
+                    class="input is-primary "
+                    data-test=""
+                    name="year"
+                  >
+                    <option
+                      disabled=""
+                      hidden=""
+                      value=""
+                    >
+                      Please select
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div
+          style="overflow: scroll;"
+        >
+          <table
+            class="table is-striped is-fullwidth "
+            role="table"
+          >
+            <thead>
+              <tr
+                role="row"
+              >
+                <th
+                  colspan="1"
+                  role="columnheader"
+                >
+                  Billing Period
+                </th>
+                <th
+                  colspan="1"
+                  role="columnheader"
+                >
+                  Developer Billing
+                </th>
+                <th
+                  colspan="1"
+                  role="columnheader"
+                >
+                  Data Warehouse Billing
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div
+                    class="table-loading"
+                  >
+                    <div
+                      class="loader-spinner body"
+                      data-test=""
+                    >
+                      <div />
+                      <div />
+                      <div />
+                      <div />
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <section
+      class="el-page-container"
+    >
+      <h1
+        class="el-title"
       >
         Billing
-      </h3>
+      </h1>
       <form
         action="#"
       >
@@ -199,203 +401,7 @@ Object {
           </tbody>
         </table>
       </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <h3
-      class="title is-3"
-      id=""
-    >
-      Billing
-    </h3>
-    <form
-      action="#"
-    >
-      <div
-        class="columns"
-        data-test=""
-      >
-        <div
-          class="column"
-          data-test=""
-        >
-          <div
-            class="field"
-          >
-            <div
-              class="control"
-            >
-              <label
-                class="label "
-                for="month"
-              >
-                Month
-              </label>
-              <select
-                class="input is-primary "
-                data-test=""
-                name="month"
-              >
-                <option
-                  value="01"
-                >
-                  January
-                </option>
-                <option
-                  value="02"
-                >
-                  February
-                </option>
-                <option
-                  value="03"
-                >
-                  March
-                </option>
-                <option
-                  value="04"
-                >
-                  April
-                </option>
-                <option
-                  value="05"
-                >
-                  May
-                </option>
-                <option
-                  value="06"
-                >
-                  June
-                </option>
-                <option
-                  value="07"
-                >
-                  July
-                </option>
-                <option
-                  value="08"
-                >
-                  August
-                </option>
-                <option
-                  value="09"
-                >
-                  September
-                </option>
-                <option
-                  value="10"
-                >
-                  October
-                </option>
-                <option
-                  value="11"
-                >
-                  November
-                </option>
-                <option
-                  value="12"
-                >
-                  December
-                </option>
-                <option
-                  disabled=""
-                  hidden=""
-                  value=""
-                >
-                  Please select
-                </option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <div
-          class="column"
-          data-test=""
-        >
-          <div
-            class="field"
-          >
-            <div
-              class="control"
-            >
-              <label
-                class="label "
-                for="year"
-              >
-                Year
-              </label>
-              <select
-                class="input is-primary "
-                data-test=""
-                name="year"
-              >
-                <option
-                  disabled=""
-                  hidden=""
-                  value=""
-                >
-                  Please select
-                </option>
-              </select>
-            </div>
-          </div>
-        </div>
-      </div>
-    </form>
-    <div
-      style="overflow: scroll;"
-    >
-      <table
-        class="table is-striped is-fullwidth "
-        role="table"
-      >
-        <thead>
-          <tr
-            role="row"
-          >
-            <th
-              colspan="1"
-              role="columnheader"
-            >
-              Billing Period
-            </th>
-            <th
-              colspan="1"
-              role="columnheader"
-            >
-              Developer Billing
-            </th>
-            <th
-              colspan="1"
-              role="columnheader"
-            >
-              Data Warehouse Billing
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <div
-                class="table-loading"
-              >
-                <div
-                  class="loader-spinner body"
-                  data-test=""
-                >
-                  <div />
-                  <div />
-                  <div />
-                  <div />
-                </div>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    </section>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

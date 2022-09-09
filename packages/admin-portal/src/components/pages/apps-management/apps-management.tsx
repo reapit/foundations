@@ -3,13 +3,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useHistory, useLocation } from 'react-router'
 import { Dispatch } from 'redux'
 import {
-  Loader,
   Pagination,
   Table,
   Button,
   Alert,
   Input,
-  H3,
   Grid,
   GridItem,
   Formik,
@@ -37,6 +35,7 @@ import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { CheckAWSButton } from './check-aws-button'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
+import { Loader, PageContainer, Title } from '@reapit/elements'
 
 export type DeleteModalData = {
   visible: boolean
@@ -342,8 +341,8 @@ export const AppsManagement: React.FC = () => {
   }
 
   return (
-    <>
-      <H3>App Management</H3>
+    <PageContainer>
+      <Title>App Management</Title>
       <Formik initialValues={formInitValues} onSubmit={handleOnSubmit(history)} onReset={refreshForm(history)}>
         {renderForm}
       </Formik>
@@ -364,7 +363,7 @@ export const AppsManagement: React.FC = () => {
         visible={deleteModalData.visible}
         onDeleteSuccess={handleCloseAppDeleteModal({ setDataDeleteModal, dispatch })}
       />
-    </>
+    </PageContainer>
   )
 }
 

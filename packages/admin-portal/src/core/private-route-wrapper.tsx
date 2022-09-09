@@ -1,23 +1,18 @@
-import * as React from 'react'
-import Menu from '@/components/ui/menu'
+import React, { FC } from 'react'
+import Menu from '../components/menu/menu'
 import { useLocation, Redirect } from 'react-router'
-import { Loader, Section, FlexContainerResponsive, AppNavContainer, FlexContainerBasic } from '@reapit/elements-legacy'
-import Routes from '@/constants/routes'
-import { reapitConnectBrowserSession } from '@/core/connect-session'
+import Routes from '../constants/routes'
+import { reapitConnectBrowserSession } from '../core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
-
+import { Loader, MainContainer } from '@reapit/elements'
 const { Suspense } = React
 
 export type PrivateRouteWrapperProps = {
-  children?: React.ReactNode
   path: string
   showMenu?: boolean
 }
 
-export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperProps> = ({
-  children,
-  showMenu = true,
-}) => {
+export const PrivateRouteWrapper: FC<PrivateRouteWrapperProps> = ({ children, showMenu = true }) => {
   const { connectSession, connectInternalRedirect } = useReapitConnect(reapitConnectBrowserSession)
   const location = useLocation()
   const currentUri = `${location.pathname}${location.search}`
@@ -25,13 +20,9 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
 
   if (!connectSession) {
     return (
-      <AppNavContainer>
-        <FlexContainerBasic flexColumn isScrollable>
-          <FlexContainerResponsive hasPadding flexColumn isPageContainer>
-            <Loader />
-          </FlexContainerResponsive>
-        </FlexContainerBasic>
-      </AppNavContainer>
+      <MainContainer>
+        <Loader fullPage />
+      </MainContainer>
     )
   }
 
@@ -44,22 +35,10 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   }
 
   return (
-    <AppNavContainer>
+    <MainContainer>
       {showMenu && <Menu />}
-      <FlexContainerBasic flexColumn isScrollable>
-        <FlexContainerResponsive hasPadding flexColumn isPageContainer>
-          <Suspense
-            fallback={
-              <Section>
-                <Loader />
-              </Section>
-            }
-          >
-            {children}
-          </Suspense>
-        </FlexContainerResponsive>
-      </FlexContainerBasic>
-    </AppNavContainer>
+      <Suspense fallback={<Loader />}>{children}</Suspense>
+    </MainContainer>
   )
 }
 

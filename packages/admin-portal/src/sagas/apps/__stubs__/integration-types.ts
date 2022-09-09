@@ -1,6 +1,6 @@
-import { PagedResultDesktopIntegrationTypeModel } from '@/types/desktop-integration-types'
+import { DesktopIntegrationTypeModelPagedResult } from '@reapit/foundations-ts-definitions'
 
-export const integrationTypesStub: PagedResultDesktopIntegrationTypeModel = {
+export const integrationTypesStub: DesktopIntegrationTypeModelPagedResult = {
   data: [
     {
       id: 'IdCheck',

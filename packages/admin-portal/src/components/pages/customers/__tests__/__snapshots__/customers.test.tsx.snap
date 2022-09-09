@@ -576,12 +576,107 @@ Object {
       <div
         class="el-snack-holder"
       />
-      <h3
-        class="title is-3"
-        id=""
+      <section
+        class="el-page-container"
+      >
+        <h1
+          class="el-title"
+        >
+          Customers
+        </h1>
+        <form
+          action="#"
+          novalidate=""
+        >
+          <div
+            class="form-section"
+          >
+            <div
+              class="columns items-center"
+              data-test=""
+            >
+              <div
+                class="column"
+                data-test=""
+              >
+                <div
+                  class="field"
+                >
+                  <div
+                    class="control "
+                  >
+                    <label
+                      class="label inline-block "
+                      for="name"
+                    >
+                      Company Name
+                    </label>
+                    <input
+                      class="input is-primary"
+                      data-test=""
+                      id="name"
+                      maxlength="256"
+                      name="name"
+                      placeholder=""
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="column mt-4"
+                data-test=""
+              >
+                <button
+                  class="button   is-primary "
+                  data-test=""
+                  type="submit"
+                >
+                  Search
+                </button>
+                <button
+                  class="button   is-primary "
+                  data-test=""
+                  type="reset"
+                >
+                  Refresh
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+        <section
+          class="section has-margin has-background"
+          data-test=""
+        >
+          <div>
+            Total: 
+            0
+          </div>
+        </section>
+        <div
+          class="notification is-info "
+          data-test=""
+          role="alert"
+        >
+          No Results 
+        </div>
+      </section>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <section
+      class="el-page-container"
+    >
+      <h1
+        class="el-title"
       >
         Customers
-      </h3>
+      </h1>
       <form
         action="#"
         novalidate=""
@@ -660,96 +755,7 @@ Object {
       >
         No Results 
       </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <h3
-      class="title is-3"
-      id=""
-    >
-      Customers
-    </h3>
-    <form
-      action="#"
-      novalidate=""
-    >
-      <div
-        class="form-section"
-      >
-        <div
-          class="columns items-center"
-          data-test=""
-        >
-          <div
-            class="column"
-            data-test=""
-          >
-            <div
-              class="field"
-            >
-              <div
-                class="control "
-              >
-                <label
-                  class="label inline-block "
-                  for="name"
-                >
-                  Company Name
-                </label>
-                <input
-                  class="input is-primary"
-                  data-test=""
-                  id="name"
-                  maxlength="256"
-                  name="name"
-                  placeholder=""
-                  type="text"
-                  value=""
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            class="column mt-4"
-            data-test=""
-          >
-            <button
-              class="button   is-primary "
-              data-test=""
-              type="submit"
-            >
-              Search
-            </button>
-            <button
-              class="button   is-primary "
-              data-test=""
-              type="reset"
-            >
-              Refresh
-            </button>
-          </div>
-        </div>
-      </div>
-    </form>
-    <section
-      class="section has-margin has-background"
-      data-test=""
-    >
-      <div>
-        Total: 
-        0
-      </div>
     </section>
-    <div
-      class="notification is-info "
-      data-test=""
-      role="alert"
-    >
-      No Results 
-    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -814,13 +820,15 @@ Object {
         class="el-snack-holder"
       />
       <div
-        class="loader-spinner body"
-        data-test=""
+        class="el-loader-container"
       >
-        <div />
-        <div />
-        <div />
-        <div />
+        <div
+          class="el-loader"
+        >
+          <div
+            class="el-loader-moving-bar"
+          />
+        </div>
       </div>
     </div>
   </body>,
@@ -829,13 +837,15 @@ Object {
       class="el-snack-holder"
     />
     <div
-      class="loader-spinner body"
-      data-test=""
+      class="el-loader-container"
     >
-      <div />
-      <div />
-      <div />
-      <div />
+      <div
+        class="el-loader"
+      >
+        <div
+          class="el-loader-moving-bar"
+        />
+      </div>
     </div>
   </div>,
   "debug": [Function],
@@ -900,12 +910,107 @@ Object {
       <div
         class="el-snack-holder"
       />
-      <h3
-        class="title is-3"
-        id=""
+      <section
+        class="el-page-container"
+      >
+        <h1
+          class="el-title"
+        >
+          Customers
+        </h1>
+        <form
+          action="#"
+          novalidate=""
+        >
+          <div
+            class="form-section"
+          >
+            <div
+              class="columns items-center"
+              data-test=""
+            >
+              <div
+                class="column"
+                data-test=""
+              >
+                <div
+                  class="field"
+                >
+                  <div
+                    class="control "
+                  >
+                    <label
+                      class="label inline-block "
+                      for="name"
+                    >
+                      Company Name
+                    </label>
+                    <input
+                      class="input is-primary"
+                      data-test=""
+                      id="name"
+                      maxlength="256"
+                      name="name"
+                      placeholder=""
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="column mt-4"
+                data-test=""
+              >
+                <button
+                  class="button   is-primary "
+                  data-test=""
+                  type="submit"
+                >
+                  Search
+                </button>
+                <button
+                  class="button   is-primary "
+                  data-test=""
+                  type="reset"
+                >
+                  Refresh
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+        <section
+          class="section has-margin has-background"
+          data-test=""
+        >
+          <div>
+            Total: 
+            0
+          </div>
+        </section>
+        <div
+          class="notification is-info "
+          data-test=""
+          role="alert"
+        >
+          No Results 
+        </div>
+      </section>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <section
+      class="el-page-container"
+    >
+      <h1
+        class="el-title"
       >
         Customers
-      </h3>
+      </h1>
       <form
         action="#"
         novalidate=""
@@ -984,96 +1089,7 @@ Object {
       >
         No Results 
       </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <h3
-      class="title is-3"
-      id=""
-    >
-      Customers
-    </h3>
-    <form
-      action="#"
-      novalidate=""
-    >
-      <div
-        class="form-section"
-      >
-        <div
-          class="columns items-center"
-          data-test=""
-        >
-          <div
-            class="column"
-            data-test=""
-          >
-            <div
-              class="field"
-            >
-              <div
-                class="control "
-              >
-                <label
-                  class="label inline-block "
-                  for="name"
-                >
-                  Company Name
-                </label>
-                <input
-                  class="input is-primary"
-                  data-test=""
-                  id="name"
-                  maxlength="256"
-                  name="name"
-                  placeholder=""
-                  type="text"
-                  value=""
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            class="column mt-4"
-            data-test=""
-          >
-            <button
-              class="button   is-primary "
-              data-test=""
-              type="submit"
-            >
-              Search
-            </button>
-            <button
-              class="button   is-primary "
-              data-test=""
-              type="reset"
-            >
-              Refresh
-            </button>
-          </div>
-        </div>
-      </div>
-    </form>
-    <section
-      class="section has-margin has-background"
-      data-test=""
-    >
-      <div>
-        Total: 
-        0
-      </div>
     </section>
-    <div
-      class="notification is-info "
-      data-test=""
-      role="alert"
-    >
-      No Results 
-    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

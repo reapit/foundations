@@ -1,11 +1,17 @@
 import * as React from 'react'
 import { RevisionDetailState } from '@/reducers/apps/revisions'
-import { AppRevisionModel, MediaModel, ScopeModel, AppDetailModel } from '@reapit/foundations-ts-definitions'
+import {
+  AppRevisionModel,
+  MediaModel,
+  ScopeModel,
+  AppDetailModel,
+  DesktopIntegrationTypeModel,
+  DesktopIntegrationTypeModelPagedResult,
+} from '@reapit/foundations-ts-definitions'
 import DiffMedia from '@/components/ui/diff-media'
 import DiffCheckbox from '../diff-checkbox'
 import DiffViewer from '../diff-viewer'
 import DiffRenderHTML from '../diff-render-html'
-import { DesktopIntegrationTypeModel, PagedResultDesktopIntegrationTypeModel } from '@/types/desktop-integration-types'
 import { AppDetailState } from '@/reducers/apps/detail'
 
 export type AppRevisionComparisonProps = {
@@ -119,7 +125,7 @@ export type RenderDiffContentParams = {
   key: string
   revision: AppRevisionModel
   app: AppDetailModel & { desktopIntegrationTypeIds?: string[] }
-  desktopIntegrationTypes: PagedResultDesktopIntegrationTypeModel
+  desktopIntegrationTypes: DesktopIntegrationTypeModelPagedResult
 }
 
 export const renderDiffContent = ({ key, revision, app, desktopIntegrationTypes }: RenderDiffContentParams) => {
