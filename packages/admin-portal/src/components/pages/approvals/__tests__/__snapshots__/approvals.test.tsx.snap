@@ -8,12 +8,39 @@ Object {
       <div
         class="el-snack-holder"
       />
-      <h3
-        class="title is-3"
-        id=""
+      <section
+        class="el-page-container"
+      >
+        <h1
+          class="el-title"
+        >
+          App Revision Approvals
+        </h1>
+        <div
+          class="notification helper-wrap helper-info"
+        >
+          There are no updates that require approval
+        </div>
+        <h1
+          class="el-title"
+        >
+           Consents
+        </h1>
+      </section>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <section
+      class="el-page-container"
+    >
+      <h1
+        class="el-title"
       >
         App Revision Approvals
-      </h3>
+      </h1>
       <div
         class="notification helper-wrap helper-info"
       >
@@ -24,28 +51,7 @@ Object {
       >
          Consents
       </h1>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <h3
-      class="title is-3"
-      id=""
-    >
-      App Revision Approvals
-    </h3>
-    <div
-      class="notification helper-wrap helper-info"
-    >
-      There are no updates that require approval
-    </div>
-    <h1
-      class="el-title"
-    >
-       Consents
-    </h1>
+    </section>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -652,13 +658,15 @@ Object {
         class="pin absolute flex items-center justify-center"
       >
         <div
-          class="loader-spinner body"
-          data-test=""
+          class="el-loader-container"
         >
-          <div />
-          <div />
-          <div />
-          <div />
+          <div
+            class="el-loader"
+          >
+            <div
+              class="el-loader-moving-bar"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -671,13 +679,15 @@ Object {
       class="pin absolute flex items-center justify-center"
     >
       <div
-        class="loader-spinner body"
-        data-test=""
+        class="el-loader-container"
       >
-        <div />
-        <div />
-        <div />
-        <div />
+        <div
+          class="el-loader"
+        >
+          <div
+            class="el-loader-moving-bar"
+          />
+        </div>
       </div>
     </div>
   </div>,

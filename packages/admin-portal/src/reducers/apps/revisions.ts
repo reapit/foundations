@@ -1,6 +1,10 @@
 import { Action, FormState } from '@/types/core'
 import { isType } from '@/utils/actions'
-import { AppRevisionModel, ScopeModel } from '@reapit/foundations-ts-definitions'
+import {
+  AppRevisionModel,
+  ScopeModel,
+  DesktopIntegrationTypeModelPagedResult,
+} from '@reapit/foundations-ts-definitions'
 import {
   fetchRevisionSuccess,
   fetchRevisionFailed,
@@ -8,13 +12,12 @@ import {
   setRequestDeclineRevisionFormState,
   fetchRevision,
 } from '@/actions/revision-detail'
-import { PagedResultDesktopIntegrationTypeModel } from '@/types/desktop-integration-types'
 import { FetchDetailResult, getDefaultFetchDetailValue } from '@reapit/utils-common'
 
 export interface RevisionDetailItem {
   data: AppRevisionModel
   scopes: ScopeModel[]
-  desktopIntegrationTypes: PagedResultDesktopIntegrationTypeModel
+  desktopIntegrationTypes: DesktopIntegrationTypeModelPagedResult
 }
 
 export type RevisionDetailState = FetchDetailResult<RevisionDetailItem> & {

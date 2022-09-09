@@ -2,7 +2,7 @@ import * as React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Dispatch } from 'redux'
 import { useHistory, useLocation } from 'react-router'
-import { Loader, Pagination, Table, Button, Helper, infoText, H3 } from '@reapit/elements-legacy'
+import { Pagination, Table, Button, Helper, infoText } from '@reapit/elements-legacy'
 import { fetchRevision } from '@/actions/revision-detail'
 import Routes from '@/constants/routes'
 import { REVISIONS_PER_PAGE } from '@/constants/paginator'
@@ -14,6 +14,7 @@ import ApprovalModal from '@/components/ui/approval-modal'
 import { selectApprovals } from '@/selector/admin'
 import dayjs from 'dayjs'
 import { AppConsents } from '../../ui/consents'
+import { Loader, PageContainer, Title } from '@reapit/elements'
 
 export type HandleCloseModalParams = {
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>
@@ -232,8 +233,8 @@ export const AdminApprovals: React.FC = () => {
   const isLoading = approvalListState.isLoading
 
   return (
-    <>
-      <H3>App Revision Approvals</H3>
+    <PageContainer>
+      <Title>App Revision Approvals</Title>
       <Content
         loading={isLoading}
         waitingApprovalList={waitingApprovalListData.data || []}
@@ -255,7 +256,7 @@ export const AdminApprovals: React.FC = () => {
       )}
       <ApprovalModal visible={isModalOpen} afterClose={handleCloseModal({ setIsModalOpen })} />
       <AppConsents />
-    </>
+    </PageContainer>
   )
 }
 

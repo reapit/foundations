@@ -1,15 +1,15 @@
-import * as Sentry from '@sentry/browser'
+import * as Sentry from '@sentry/react'
+import { BrowserTracing } from '@sentry/tracing'
 import React from 'react'
 import { createRoot } from 'react-dom/client'
-import { Config } from '@/types/global'
-import { getMarketplaceGlobalsByKey } from '@reapit/elements-legacy'
-import { logger } from '@reapit/utils-react'
+import { Config } from '../types/global'
+import { getMarketplaceGlobalsByKey, logger } from '@reapit/utils-react'
 
 // Init global config
 window.reapit = {
   config: {
     appEnv: 'production',
-    sentryDns: '',
+    sentryDsn: '',
     connectClientId: '',
     connectOAuthUrl: '',
     platformApiUrl: '',
@@ -38,11 +38,13 @@ const run = async () => {
     const config = (await configRes.json()) as Config
     const isLocal = config.appEnv !== 'production'
 
-    if (!isLocal && config.sentryDns && !window.location.hostname.includes('prod.paas')) {
+    if (!isLocal && config.sentryDsn) {
       Sentry.init({
+        integrations: [new BrowserTracing()],
         release: process.env.APP_VERSION,
-        dsn: config.sentryDns,
+        dsn: config.sentryDsn,
         environment: config.appEnv,
+        tracesSampleRate: 1.0,
       })
     }
 

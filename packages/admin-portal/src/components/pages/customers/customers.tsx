@@ -7,9 +7,7 @@ import {
   Pagination,
   Table,
   Button,
-  Loader,
   Alert,
-  H3,
   Section,
   Form,
   FormSection,
@@ -24,6 +22,7 @@ import { selectCustomersList } from '@/selector/customers'
 import { FaCheck, FaTimes } from 'react-icons/fa'
 import { cleanObject } from '@reapit/utils-common'
 import { CustomerModel } from '@reapit/foundations-ts-definitions'
+import { Loader, PageContainer, Title } from '@reapit/elements'
 
 export type FilterValues = {
   name: string
@@ -167,23 +166,25 @@ export const Customers: React.FC = () => {
 
   return (
     <ErrorBoundary>
-      <H3>Customers</H3>
+      <PageContainer>
+        <Title>Customers</Title>
 
-      <CustomersFilterForm
-        onSearch={onSearchHandler(history)}
-        filterValues={generateFilterValues(queryParams)}
-        history={history}
-      />
-      <Section hasPadding={false}>
-        <div>Total: {totalCount}</div>
-      </Section>
-      {renderContent({ customerData: data, columns })}
-      <Pagination
-        onChange={onPageChangeHandler(history, queryParams)}
-        totalCount={totalCount}
-        pageSize={pageSize}
-        pageNumber={pageNumber}
-      />
+        <CustomersFilterForm
+          onSearch={onSearchHandler(history)}
+          filterValues={generateFilterValues(queryParams)}
+          history={history}
+        />
+        <Section hasPadding={false}>
+          <div>Total: {totalCount}</div>
+        </Section>
+        {renderContent({ customerData: data, columns })}
+        <Pagination
+          onChange={onPageChangeHandler(history, queryParams)}
+          totalCount={totalCount}
+          pageSize={pageSize}
+          pageNumber={pageNumber}
+        />
+      </PageContainer>
     </ErrorBoundary>
   )
 }

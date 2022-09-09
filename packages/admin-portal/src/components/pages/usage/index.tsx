@@ -1,4 +1,4 @@
-import { Button, ButtonGroup, Loader, Title } from '@reapit/elements'
+import { Button, ButtonGroup, Loader, PageContainer, Title } from '@reapit/elements'
 import React, { FC, useState } from 'react'
 import { FilterForm } from './filter-form'
 import { UsageTable } from './usage-table'
@@ -69,7 +69,7 @@ export const UsagePage: FC = () => {
   })
 
   return (
-    <>
+    <PageContainer>
       <Title>API Usage</Title>
       <FilterForm setUsageFilters={setUsageFilters} apps={apps} installations={installations} />
       {billing && (
@@ -80,7 +80,7 @@ export const UsagePage: FC = () => {
         </ButtonGroup>
       )}
       {billingLoading ? <Loader /> : <UsageTable billing={billing} />}
-    </>
+    </PageContainer>
   )
 }
 
