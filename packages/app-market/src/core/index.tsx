@@ -40,7 +40,7 @@ const run = async () => {
   try {
     const configRes = await fetch('config.json')
     const config = (await configRes.json()) as Config
-    const isLocal = config.appEnv === 'production'
+    const isLocal = config.appEnv !== 'production'
 
     if (!isLocal && config.sentryDns) {
       Sentry.init({
@@ -52,7 +52,7 @@ const run = async () => {
       })
     }
 
-    if (!isLocal && config.mixPanelToken) {
+    if (config.mixPanelToken) {
       mixpanel.init(config.mixPanelToken, { debug: isLocal })
     }
 
