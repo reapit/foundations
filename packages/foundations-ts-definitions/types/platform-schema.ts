@@ -6423,6 +6423,10 @@ export interface CreatePropertyModel {
    */
   bedrooms?: number // int32
   /**
+   * The maximum number of bedrooms in the property
+   */
+  bedroomsMax?: number // int32
+  /**
    * The number of units offered on the market. This is typically used when marketing development sites.
    */
   numberOfUnits?: number // int32
@@ -6431,9 +6435,17 @@ export interface CreatePropertyModel {
    */
   receptions?: number // int32
   /**
+   * The maximum number of reception rooms in the property
+   */
+  receptionsMax?: number // int32
+  /**
    * The total number of bathrooms in the property
    */
   bathrooms?: number // int32
+  /**
+   * The maximum number of bathrooms in the property
+   */
+  bathroomsMax?: number // int32
   /**
    * The total number of parking spaces the property has. This is only supported by some departments. Please refer to the glossary for support [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
@@ -11911,9 +11923,17 @@ export interface PropertyModel {
    */
   receptions?: number // int32
   /**
+   * The maximum number of reception rooms in the property. This is only supported by some departments. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
+   */
+  receptionsMax?: number // int32
+  /**
    * The total number of bathrooms in the property. This is only supported by some departments. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
    */
   bathrooms?: number // int32
+  /**
+   * The maximum number of bathrooms in the property. This is only supported by some departments. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
+   */
+  bathroomsMax?: number // int32
   /**
    * The number of units offered on the market. This is typically used when marketing development sites.
    */
@@ -12689,9 +12709,17 @@ export interface PropertyModelPagedResult {
      */
     receptions?: number // int32
     /**
+     * The maximum number of reception rooms in the property. This is only supported by some departments. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
+     */
+    receptionsMax?: number // int32
+    /**
      * The total number of bathrooms in the property. This is only supported by some departments. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
      */
     bathrooms?: number // int32
+    /**
+     * The maximum number of bathrooms in the property. This is only supported by some departments. Please [refer to the glossary](https://foundations-documentation.reapit.cloud/platform-glossary#department) for more information
+     */
+    bathroomsMax?: number // int32
     /**
      * The number of units offered on the market. This is typically used when marketing development sites.
      */
@@ -17925,6 +17953,10 @@ export interface UpdatePropertyModel {
    */
   bedrooms?: number // int32
   /**
+   * The maximum number of bedrooms in the property
+   */
+  bedroomsMax?: number // int32
+  /**
    * The number of units offered on the market. This is typically used when marketing development sites.
    */
   numberOfUnits?: number // int32
@@ -17933,9 +17965,17 @@ export interface UpdatePropertyModel {
    */
   receptions?: number // int32
   /**
+   * The maximum number of reception rooms in the property
+   */
+  receptionsMax?: number // int32
+  /**
    * The total number of bathrooms in the property
    */
   bathrooms?: number // int32
+  /**
+   * The maximum number of bathrooms in the property
+   */
+  bathroomsMax?: number // int32
   /**
    * The total number of parking spaces the property has. This is only supported by some departments. Please refer to the glossary for support [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
