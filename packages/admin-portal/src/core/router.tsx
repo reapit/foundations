@@ -43,7 +43,7 @@ const Router = () => {
               <PrivateRoute path={Routes.APPS} component={AppsManagementPage} exact />
               <PrivateRoute path={Routes.DEV_MANAGEMENT} component={DevsManagementPage} exact fetcher />
               <PrivateRoute path={Routes.INSTALLATIONS} component={InstallationsPage} exact />
-              <PrivateRoute path={Routes.CUSTOMERS} component={CustomersPage} exact fetcher />
+              <PrivateRoute path={Routes.CUSTOMERS} component={CustomersPage} exact />
               <PrivateRoute path={Routes.SUBSCRIPTIONS} component={SubscriptionsPage} exact />
               <Route render={() => <FourOFour />} />
             </Switch>
