@@ -40,6 +40,8 @@ export enum UpdateActionNames {
   installApp = 'installApp',
   appConsentApproveEmail = 'appConsentApproveEmail',
   updateUser = 'updateUser',
+  featureApp = 'featureApp',
+  unFeatureApp = 'unFeatureApp',
 }
 
 export type UpdateActions = { [key in UpdateActionNames]: UpdateAction }
@@ -232,5 +234,17 @@ export const updateActions = (appEnv: AppEnv): UpdateActions => ({
     path: PathNames.userById,
     successMessage: 'Successfully updated user info.',
     errorMessage: 'Failed to update user info.',
+  },
+  [UpdateActionNames.featureApp]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.appByIdFeature,
+    successMessage: 'Successfully updated app.',
+    errorMessage: 'Failed to update app.',
+  },
+  [UpdateActionNames.unFeatureApp]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.appByIdFeature,
+    successMessage: 'Successfully updated app.',
+    errorMessage: 'Failed to update app.',
   },
 })

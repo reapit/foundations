@@ -9,11 +9,9 @@ Object {
         class="el-snack-holder"
       />
       <button
-        class="button   is-primary "
-        data-test=""
-        type="button"
+        class="el-intent-secondary el-button"
       >
-        Subscribe
+        Check Subscriptions
       </button>
     </div>
   </body>,
@@ -22,11 +20,9 @@ Object {
       class="el-snack-holder"
     />
     <button
-      class="button   is-primary "
-      data-test=""
-      type="button"
+      class="el-intent-secondary el-button"
     >
-      Subscribe
+      Check Subscriptions
     </button>
   </div>,
   "debug": [Function],

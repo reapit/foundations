@@ -75,4 +75,5 @@ export enum PathNames {
   appConsentApproveEmail = '/marketplace/apps/{id}/revisions/{revisionId}/consents/{consentId}/resend',
   userInfo = '/organisations/users/info',
   userById = '/organisations/users/{userId}',
+  appByIdFeature = '/marketplace/apps/{appId}/feature',
 }
