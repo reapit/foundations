@@ -47,7 +47,7 @@ export const objectToQuery = <QueryObjectType extends {}>(queryObject: QueryObje
 
     if (Array.isArray(objectItem)) {
       currentQuery[nextItem] = stringListToBatchQuery(objectItem, nextItem)
-    } else {
+    } else if (objectItem) {
       currentQuery[nextItem] = String(objectItem)
     }
 

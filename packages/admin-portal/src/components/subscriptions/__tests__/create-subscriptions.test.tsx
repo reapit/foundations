@@ -1,7 +1,7 @@
 import * as React from 'react'
-import { render } from '../../../../tests/react-testing'
-import { CreateSubscriptionsButton, CreateSubscriptionsButtonProps } from '../create-subscriptions-button'
-import appState from '../../../../reducers/__stubs__/app-state'
+import { render } from '../../../tests/react-testing'
+import { CreateSubscriptionsButton, CreateSubscriptionsButtonProps } from '../create-subscriptions'
+import appState from '../../../reducers/__stubs__/app-state'
 import configureStore from 'redux-mock-store'
 import * as ReactRedux from 'react-redux'
 
