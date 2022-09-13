@@ -8,14 +8,22 @@ Object {
       <div
         class="el-snack-holder"
       />
-      AWS Customers Only
+      <button
+        class="el-intent-primary el-button"
+      >
+        Check AWS
+      </button>
     </div>
   </body>,
   "container": <div>
     <div
       class="el-snack-holder"
     />
-    AWS Customers Only
+    <button
+      class="el-intent-primary el-button"
+    >
+      Check AWS
+    </button>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -79,14 +87,22 @@ Object {
       <div
         class="el-snack-holder"
       />
-      All Customers
+      <button
+        class="el-intent-primary el-button"
+      >
+        Check AWS
+      </button>
     </div>
   </body>,
   "container": <div>
     <div
       class="el-snack-holder"
     />
-    All Customers
+    <button
+      class="el-intent-primary el-button"
+    >
+      Check AWS
+    </button>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

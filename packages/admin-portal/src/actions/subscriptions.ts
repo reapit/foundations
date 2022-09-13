@@ -2,7 +2,7 @@ import { actionCreator } from '../utils/actions'
 import ActionTypes from '../constants/action-types'
 import { SubscriptionModelPagedResult, CreateSubscriptionModel } from '@reapit/foundations-ts-definitions'
 import { CancelSubscriptionParams } from '../services/subscriptions'
-import { SubscriptionType } from '../components/ui/create-subscriptions/create-subscriptions-button'
+import { SubscriptionType } from '../components/subscriptions/create-subscriptions'
 
 export interface FetchSubscriptionListQuery {
   page: number

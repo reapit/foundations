@@ -9,7 +9,7 @@ Object {
         class="el-snack-holder"
       />
       <div
-        class="el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        class="el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistant-notification"
       >
         <div
           class="el-pn-icon"
@@ -45,7 +45,7 @@ Object {
       class="el-snack-holder"
     />
     <div
-      class="el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+      class="el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistant-notification"
     >
       <div
         class="el-pn-icon"

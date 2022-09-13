@@ -1,6 +1,9 @@
 import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
-import { Button } from '@reapit/elements'
-import { fetchWebookSubscriptions, WebhookModel } from '../../../services/webhooks'
+import { BodyText, Button, FlexContainer } from '@reapit/elements'
+import { useReapitGet } from '@reapit/utils-react'
+import { WebhookModel, WebhookModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { GetActionNames, getActions } from '../../../../utils-common/src'
+import { reapitConnectBrowserSession } from '../../core/connect-session'
 
 interface CheckAWSButtonProps {
   appId: string
@@ -21,7 +24,7 @@ export const handleSetWebHooksLoading = (setAwsStatus: Dispatch<SetStateAction<A
   setAwsStatus(AWSStatus.Fetching)
 }
 
-export const checkIsAws = (subscriptions: WebhookModel[]): boolean => {
+export const checkIsAws = (subscriptions: (WebhookModel & { customerIds?: string[] })[]): boolean => {
   const filtered = subscriptions.filter((subscription) => {
     const { topicIds, customerIds, active } = subscription
     const hasDataTopics = Boolean(topicIds?.filter((topic: string) => !INSTALL_TOPICS.includes(topic)).length)
@@ -36,38 +39,43 @@ export const checkIsAws = (subscriptions: WebhookModel[]): boolean => {
 }
 
 export const handleSetAwsStatus =
-  (setAwsStatus: Dispatch<SetStateAction<AWSStatus>>, awsStatus: AWSStatus, appId: string) => () => {
-    const getWebhookSubscriptions = async () => {
-      const subscriptions = await fetchWebookSubscriptions({
-        pageSize: 999,
-        applicationId: [appId],
-        active: true,
-      })
-
-      if (subscriptions) {
-        const isAws = checkIsAws(subscriptions?._embedded ?? [])
-        setAwsStatus(isAws ? AWSStatus.AWSOnly : AWSStatus.AllUsers)
-      } else {
-        setAwsStatus(AWSStatus.Unfetched)
-      }
-    }
-
-    if (awsStatus === AWSStatus.Fetching) {
-      getWebhookSubscriptions()
+  (subscriptions: WebhookModelPagedResult | null, setAwsStatus: Dispatch<SetStateAction<AWSStatus>>) => () => {
+    if (subscriptions) {
+      const isAws = checkIsAws(subscriptions?._embedded ?? [])
+      setAwsStatus(isAws ? AWSStatus.AWSOnly : AWSStatus.AllUsers)
+    } else {
+      setAwsStatus(AWSStatus.Unfetched)
     }
   }
 
 export const CheckAWSButton: FC<CheckAWSButtonProps> = ({ appId, status }) => {
   const [awsStatus, setAwsStatus] = useState<AWSStatus>(status ?? AWSStatus.Unfetched)
 
-  useEffect(handleSetAwsStatus(setAwsStatus, awsStatus, appId), [awsStatus, appId])
+  const [subscriptions] = useReapitGet<WebhookModelPagedResult>({
+    reapitConnectBrowserSession,
+    action: getActions(window.reapit.config.appEnv)[GetActionNames.getWebhookSubscriptions],
+    queryParams: { applicationId: appId, pageSize: 999, active: true },
+    fetchWhenTrue: [appId && awsStatus === AWSStatus.Fetching],
+  })
+
+  useEffect(handleSetAwsStatus(subscriptions, setAwsStatus), [subscriptions])
 
   if (awsStatus === AWSStatus.AWSOnly) {
-    return <>AWS Customers Only</>
+    return (
+      <FlexContainer isFlexAlignCenter>
+        <BodyText hasGreyText hasNoMargin>
+          AWS Customers Only
+        </BodyText>
+      </FlexContainer>
+    )
   }
 
   return awsStatus === AWSStatus.AllUsers ? (
-    <>All Customers</>
+    <FlexContainer isFlexAlignCenter>
+      <BodyText hasGreyText hasNoMargin>
+        All Customers
+      </BodyText>
+    </FlexContainer>
   ) : (
     <Button
       intent="primary"

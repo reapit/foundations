@@ -6,10 +6,10 @@ import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
 import { Action } from '@/types/core'
 import { getDateRange } from '@/utils/statistics'
 import { extractNetworkErrString } from '@reapit/utils-common'
-import { fetchAppsList } from '@/services/apps'
 import { fetchDevelopersList } from '@/services/developers'
 import { fetchInstallationsList } from '@/services/installations'
 import { notification } from '@reapit/elements-legacy'
+import { fetchAppsList } from '../../services/apps'
 
 export const MARKETPLACE_GOLIVE_DATE = '2020-02-14'
 

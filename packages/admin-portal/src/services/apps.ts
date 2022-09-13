@@ -1,8 +1,8 @@
 import {
-  AppSummaryModelPagedResult,
   AppDetailModel,
   AppRevisionModel,
   ApproveModel,
+  AppSummaryModelPagedResult,
   RejectRevisionModel,
 } from '@reapit/foundations-ts-definitions'
 import { fetcher, FetchError, setQueryParams } from '@reapit/utils-common'
@@ -45,23 +45,6 @@ export type ApproveAppRevisionByIdParams = FetchByIdCommonParams & { revisionId:
 
 export type RejectAppRevisionByIdParams = FetchByIdCommonParams & { revisionId: string } & RejectRevisionModel
 
-export const fetchAppsList = async (params: FetchAppsListParams): Promise<AppSummaryModelPagedResult | void> => {
-  try {
-    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
-    if (headers) {
-      return fetcher({
-        url: `${URLS.apps}?${setQueryParams(params)}`,
-        api: window.reapit.config.platformApiUrl,
-        method: 'GET',
-        headers,
-      })
-    }
-  } catch (error) {
-    logger(error as FetchError)
-    throw error
-  }
-}
-
 export const fetchAppById = async (params: FetchAppByIdParams): Promise<AppDetailModel | void> => {
   try {
     const { id, clientId } = params
@@ -80,51 +63,14 @@ export const fetchAppById = async (params: FetchAppByIdParams): Promise<AppDetai
   }
 }
 
-export const deleteAppById = async (params: DeleteAppByIdParams) => {
+export const fetchAppsList = async (params: FetchAppsListParams): Promise<AppSummaryModelPagedResult | void> => {
   try {
-    const { id } = params
     const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
     if (headers) {
       return fetcher({
-        url: `${URLS.apps}/${id}`,
+        url: `${URLS.apps}?${setQueryParams(params)}`,
         api: window.reapit.config.platformApiUrl,
-        method: 'DELETE',
-        headers,
-      })
-    }
-  } catch (error) {
-    logger(error as FetchError)
-    throw error
-  }
-}
-
-export const featureAppById = async (params: FeatureAppByIdParams) => {
-  try {
-    const { id } = params
-    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
-    if (headers) {
-      return fetcher({
-        url: `${URLS.apps}/${id}/feature`,
-        api: window.reapit.config.platformApiUrl,
-        method: 'PUT',
-        headers,
-      })
-    }
-  } catch (error) {
-    logger(error as FetchError)
-    throw error
-  }
-}
-
-export const unfeatureAppById = async (params: UnfeatureAppByIdParams) => {
-  try {
-    const { id } = params
-    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
-    if (headers) {
-      return fetcher({
-        url: `${URLS.apps}/${id}/feature`,
-        api: window.reapit.config.platformApiUrl,
-        method: 'DELETE',
+        method: 'GET',
         headers,
       })
     }
