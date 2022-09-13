@@ -10,8 +10,8 @@ This is the repository for the Reapit Foundations API, Marketplace, cloud applic
 
 - Detailed documentation on all aspects of the platform is available [at this external link](https://foundations-documentation.reapit.cloud).
 - If you are interested in what we are building, head to the [packages directory](https://github.com/reapit/foundations/tree/master/packages).
-- If you want to request a feature, please open an issue [here](https://github.com/reapit/foundations/issues/new?assignees=&labels=feature-request%2C+needs-triage&template=feature_request.md&title=). If it is accepted for development, you can track it's progress on our [front end board](https://github.com/reapit/foundations/projects/1) or [back end board](https://github.com/reapit/foundations/projects/6)
-- If you wish to report a bug, again please [raise an issue](https://github.com/reapit/foundations/issues/new?assignees=&labels=bug%2C+needs-triage&template=bug_report.md&title=). You can track it, as above, on the [front end board](https://github.com/reapit/foundations/projects/1) or [back end board](https://github.com/reapit/foundations/projects/6) as our engineers look into it.
+- If you want to request a feature, please open an issue [here](https://github.com/reapit/foundations/issues/new?assignees=&labels=feature-request%2C+needs-triage&template=feature_request.md&title=). If it is accepted for development, you can track it's progress on our [backlog board](https://github.com/reapit/foundations/projects/6)
+- If you wish to report a bug, again please [raise an issue](https://github.com/reapit/foundations/issues/new?assignees=&labels=bug%2C+needs-triage&template=bug_report.md&title=). You can track it, as above, on the [backlog board](https://github.com/reapit/foundations/projects/6) as our engineers look into it.
 - If you are interested in our future roadmap, you can see our [project milestones here](https://github.com/reapit/foundations/milestones?direction=asc&sort=due_date&state=open).
 
 Please read our [license](./LICENSE.md) and [disclaimer](./DISCLAIMER.md) before proceeding.
