@@ -1,7 +1,7 @@
 import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
 import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
 import {
-  PersistentNotification,
+  PersistantNotification,
   Table,
   Subtitle,
   BodyText,
@@ -249,9 +249,9 @@ export const AppsTable: FC<AppsTableProps> = ({ apps, appsRefresh }) => {
     </div>
   ) : (
     <div className={elMb11}>
-      <PersistentNotification isExpanded isFullWidth isInline intent="secondary">
+      <PersistantNotification isExpanded isFullWidth isInline intent="secondary">
         No results found for your selected filters
-      </PersistentNotification>
+      </PersistantNotification>
     </div>
   )
 }

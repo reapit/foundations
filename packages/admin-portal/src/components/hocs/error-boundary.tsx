@@ -1,15 +1,15 @@
 import React from 'react'
 import * as Sentry from '@sentry/react'
-import { PersistentNotification } from '@reapit/elements'
+import { PersistantNotification } from '@reapit/elements'
 
 export class ErrorBoundary extends React.Component {
   render() {
     return (
       <Sentry.ErrorBoundary
         fallback={() => (
-          <PersistentNotification isFullWidth isExpanded isInline intent="danger">
+          <PersistantNotification isFullWidth isExpanded isInline intent="danger">
             Something went wrong here, try refreshing your page.
-          </PersistentNotification>
+          </PersistantNotification>
         )}
       >
         {this.props.children}

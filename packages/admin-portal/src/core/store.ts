@@ -7,7 +7,7 @@ import developers from '@/reducers/developers'
 import subscriptions from '@/reducers/subscriptions'
 import customers from '@/reducers/customers'
 
-import { appDetailSagas, revisionDetailSagas, appDeleteSagas, appsManagementSagas } from '@/sagas/apps'
+import { appDetailSagas, revisionDetailSagas } from '@/sagas/apps'
 import { statisticsSagas } from '@/sagas/statistics'
 import { approvalsSagas } from '@/sagas/approvals'
 import { devsManagementSagas, developerSetStatusSagas } from '@/sagas/developers'
@@ -45,8 +45,6 @@ export class Store {
       fork(devsManagementSagas),
       fork(developerSetStatusSagas),
       fork(revisionDetailSagas),
-      fork(appDeleteSagas),
-      fork(appsManagementSagas),
       fork(statisticsSagas),
       fork(customersListSagas),
       fork(subscriptionsListSagas),

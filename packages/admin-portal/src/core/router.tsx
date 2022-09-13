@@ -4,7 +4,7 @@ import { catchChunkError, OkayPage } from '@reapit/utils-react'
 import Routes from '../constants/routes'
 import PrivateRoute from './private-route'
 import { createBrowserHistory, History } from 'history'
-import { PageContainer, PersistentNotification } from '@reapit/elements'
+import { PageContainer, PersistantNotification } from '@reapit/elements'
 
 export const history: History<any> = createBrowserHistory()
 
@@ -21,9 +21,9 @@ const UsagePage = React.lazy(() => catchChunkError(() => import('../components/p
 
 export const FourOFour: FC = () => (
   <PageContainer>
-    <PersistentNotification isFullWidth isInline isExpanded intent="danger">
+    <PersistantNotification isFullWidth isInline isExpanded intent="danger">
       Page not found
-    </PersistentNotification>
+    </PersistantNotification>
   </PageContainer>
 )
 
