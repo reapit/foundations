@@ -81,7 +81,7 @@ Object {
         class="el-flex-container"
       >
         <div
-          class="el-intent-danger el-is-active el-pn-is-full-width el-persistant-notification"
+          class="el-intent-danger el-is-active el-pn-is-full-width el-persistent-notification"
         >
           <div
             class="el-pn-icon"
@@ -121,7 +121,7 @@ Object {
       class="el-flex-container"
     >
       <div
-        class="el-intent-danger el-is-active el-pn-is-full-width el-persistant-notification"
+        class="el-intent-danger el-is-active el-pn-is-full-width el-persistent-notification"
       >
         <div
           class="el-pn-icon"

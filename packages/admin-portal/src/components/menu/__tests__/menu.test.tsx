@@ -32,7 +32,7 @@ describe('getDefaultNavIndex', () => {
       index: 3,
     },
     {
-      route: Routes.STATS,
+      route: Routes.INSTALLATIONS,
       index: 4,
     },
     {

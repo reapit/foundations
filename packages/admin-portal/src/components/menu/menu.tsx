@@ -17,7 +17,7 @@ export const getDefaultNavIndex = (pathname: string) => {
       return 2
     case Routes.DEV_MANAGEMENT:
       return 3
-    case Routes.STATS:
+    case Routes.INSTALLATIONS:
       return 4
     case Routes.BILLING:
       return 5
@@ -64,9 +64,9 @@ export const Menu: FC = () => {
     },
     {
       itemIndex: 4,
-      callback: navigate(history, Routes.STATS),
-      iconId: 'analyticsMenu',
-      text: 'Stats',
+      callback: navigate(history, Routes.INSTALLATIONS),
+      iconId: 'installedMenu',
+      text: 'Installations',
     },
     {
       itemIndex: 5,
@@ -89,7 +89,7 @@ export const Menu: FC = () => {
     {
       itemIndex: 8,
       callback: navigate(history, Routes.USAGE),
-      iconId: 'webhooksMenu',
+      iconId: 'analyticsMenu',
       text: 'Usage',
     },
     {

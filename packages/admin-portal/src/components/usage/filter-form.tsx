@@ -12,7 +12,7 @@ import {
   Label,
   Select,
 } from '@reapit/elements'
-import { fetchDevelopersList } from '../../../services/developers'
+import { fetchDevelopersList } from '../../services/developers'
 import { AppSummaryModelPagedResult, InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
 import dayjs from 'dayjs'
 

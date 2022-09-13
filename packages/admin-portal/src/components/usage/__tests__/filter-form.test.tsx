@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react'
 import React from 'react'
-import { appsDataStub, installationsStub } from '../../../../sagas/apps/__stubs__/apps'
+import { appsDataStub, installationsStub } from '../../../sagas/apps/__stubs__/apps'
 import { FilterForm } from '../filter-form'
 
 describe('FilterForm', () => {

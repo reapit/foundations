@@ -28,7 +28,6 @@ import { FetchDeveloperMembersParams } from '@/services/developers'
 import { CreateSubscriptionsButton } from '../../subscriptions/create-subscriptions'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
-import { ApiKeys } from '../api-keys'
 import dayjs from 'dayjs'
 import { Loader, PageContainer, Title } from '@reapit/elements'
 
@@ -229,15 +228,6 @@ export const DevsManagement: React.FC = () => {
       Cell: ({ row }: { row: { original: DeveloperModel & { isMember: boolean } } }) => {
         return !row.original.isMember ? (
           <CreateSubscriptionsButton subscriptionType="developerRegistration" developerId={row.original.id as string} />
-        ) : null
-      },
-    },
-    !hasLimitedAccess && {
-      Header: '',
-      id: 'apiKeyColumn',
-      Cell: ({ row }: { row: { original: DeveloperModel & { isMember: boolean } } }) => {
-        return !row.original.isMember ? (
-          <ApiKeys developerId={row.original.id as string} email={row.original.email as string} />
         ) : null
       },
     },

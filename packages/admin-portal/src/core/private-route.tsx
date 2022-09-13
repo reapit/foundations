@@ -4,7 +4,7 @@ import RouteFetcher from '../components/hocs/route-fetcher'
 import { reapitConnectBrowserSession } from './connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { getAccess } from '../utils/get-access'
-import { FlexContainer, PersistantNotification } from '@reapit/elements'
+import { FlexContainer, PersistentNotification } from '@reapit/elements'
 
 export interface PrivateRouteProps {
   component: FC | LazyExoticComponent<any>
@@ -24,9 +24,9 @@ export const PrivateRoute = ({ component, fetcher = false, ...rest }: PrivateRou
         if (!hasAccess) {
           return (
             <FlexContainer>
-              <PersistantNotification isFullWidth isExpanded intent="danger">
+              <PersistentNotification isFullWidth isExpanded intent="danger">
                 You do not have permission to view this page.
-              </PersistantNotification>
+              </PersistentNotification>
             </FlexContainer>
           )
         }

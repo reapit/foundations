@@ -161,9 +161,27 @@ Object {
             </div>
           </div>
         </form>
+        <div
+          class="el-mb11"
+        >
+          <div
+            class="el-button-group"
+          >
+            <div
+              class="el-button-group-inner"
+            >
+              <button
+                class="el-intent-primary el-button"
+                type="button"
+              >
+                Download CSV
+              </button>
+            </div>
+          </div>
+        </div>
         <div>
           <div
-            class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistant-notification"
+            class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
           >
             <div
               class="el-pn-icon"
@@ -353,9 +371,27 @@ Object {
           </div>
         </div>
       </form>
+      <div
+        class="el-mb11"
+      >
+        <div
+          class="el-button-group"
+        >
+          <div
+            class="el-button-group-inner"
+          >
+            <button
+              class="el-intent-primary el-button"
+              type="button"
+            >
+              Download CSV
+            </button>
+          </div>
+        </div>
+      </div>
       <div>
         <div
-          class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistant-notification"
+          class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
         >
           <div
             class="el-pn-icon"

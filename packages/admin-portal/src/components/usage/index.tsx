@@ -1,27 +1,22 @@
-import { Button, ButtonGroup, Loader, PageContainer, Title } from '@reapit/elements'
+import { Loader, PageContainer, Title } from '@reapit/elements'
 import React, { FC, useState } from 'react'
 import { FilterForm } from './filter-form'
 import { UsageTable } from './usage-table'
 import { useReapitGet } from '@reapit/utils-react'
 import { GetActionNames, getActions } from '@reapit/utils-common'
-import { reapitConnectBrowserSession } from '../../../core/connect-session'
+import { reapitConnectBrowserSession } from '../../core/connect-session'
 import {
   AppSummaryModelPagedResult,
   BillingBreakdownForMonthV2Model,
   InstallationModelPagedResult,
 } from '@reapit/foundations-ts-definitions'
-import { downloadCSV } from '../statistics/statistics'
+import { Statistics } from '../statistics'
 
 export interface UsageFilters {
   month?: string
   developerId?: string
   customerId?: string
   appId?: string
-}
-
-export const handleCsvDownload = (billing: BillingBreakdownForMonthV2Model | null) => () => {
-  const apiCalls = billing?.services?.find((item) => item.name === 'API Requests')?.items ?? []
-  downloadCSV('BILLING', apiCalls)
 }
 
 export const UsagePage: FC = () => {
@@ -68,17 +63,13 @@ export const UsagePage: FC = () => {
     fetchWhenTrue: [month && developerId && appId],
   })
 
+  const apiCalls = billing?.services?.find((item) => item.name === 'API Requests')?.items ?? []
+
   return (
     <PageContainer>
       <Title>API Usage</Title>
       <FilterForm setUsageFilters={setUsageFilters} apps={apps} installations={installations} />
-      {billing && (
-        <ButtonGroup alignment="right">
-          <Button intent="primary" onClick={handleCsvDownload(billing)}>
-            Download Results
-          </Button>
-        </ButtonGroup>
-      )}
+      <Statistics area="BILLING" data={apiCalls} />
       {billingLoading ? <Loader /> : <UsageTable billing={billing} />}
     </PageContainer>
   )
