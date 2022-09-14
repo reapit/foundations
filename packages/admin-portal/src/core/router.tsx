@@ -16,7 +16,7 @@ const AppsManagementPage = React.lazy(() => catchChunkError(() => import('../com
 const InstallationsPage = React.lazy(() => catchChunkError(() => import('../components/installations')))
 const BillingPage = React.lazy(() => catchChunkError(() => import('../components/pages/billing')))
 const CustomersPage = React.lazy(() => catchChunkError(() => import('../components/customers')))
-const SubscriptionsPage = React.lazy(() => catchChunkError(() => import('../components/pages/subscriptions')))
+const SubscriptionsPage = React.lazy(() => catchChunkError(() => import('../components/subscriptions')))
 const UsagePage = React.lazy(() => catchChunkError(() => import('../components/usage')))
 
 export const FourOFour: FC = () => (

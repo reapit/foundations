@@ -7,13 +7,20 @@ import {
   DeveloperModelPagedResult,
   InstallationModel,
   ServiceItemBillingV2Model,
+  SubscriptionModel,
 } from '@reapit/foundations-ts-definitions'
 import FileSaver from 'file-saver'
 import { ButtonGroup, Button, elMb11 } from '@reapit/elements'
 import { InstallationsWithAppName } from '../installations'
+import { SubsWithAppName } from '../subscriptions'
+import { toLocalTime } from '@reapit/utils-common'
 
-export type Area = 'APPS' | 'DEVELOPERS' | 'INSTALLATIONS' | 'BILLING'
-export type PagedData = AppSummaryModelPagedResult | DeveloperModelPagedResult | InstallationsWithAppName
+export type Area = 'APPS' | 'DEVELOPERS' | 'INSTALLATIONS' | 'BILLING' | 'SUBSCRIPTIONS'
+export type PagedData =
+  | AppSummaryModelPagedResult
+  | DeveloperModelPagedResult
+  | InstallationsWithAppName
+  | SubsWithAppName
 export type StatsDataType = PagedData | ServiceItemBillingV2Model[] | null
 
 export type CSVDataType =
@@ -103,6 +110,43 @@ export const handleDownloadCSV =
       })
 
       return handleSaveFile(csv, 'billing.csv')
+    }
+
+    if (data && area === 'SUBSCRIPTIONS') {
+      const apiCalls = data as (SubscriptionModel & { appName: string })[]
+
+      const csv = Papa.unparse({
+        fields: [
+          'Subcription Type',
+          'Summary',
+          'App Name',
+          'Company Name',
+          'User Email',
+          'Start Date',
+          'Renews',
+          'Frequency',
+          'Cost',
+          'Cancelled',
+        ],
+        data: apiCalls.map((item) => {
+          const { type, summary, appName, organisationName, user, created, renews, frequency, cost, cancelled } = item
+
+          return [
+            type,
+            summary,
+            appName,
+            organisationName,
+            user,
+            toLocalTime(created),
+            renews ? toLocalTime(renews) : '-',
+            frequency,
+            `£${cost}`,
+            cancelled ? toLocalTime(cancelled) : '-',
+          ]
+        }),
+      })
+
+      return handleSaveFile(csv, 'subscriptions.csv')
     }
   }
 
