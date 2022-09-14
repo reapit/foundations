@@ -1,8 +1,26 @@
 import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
 import ErrorBoundary from '../../components/hocs/error-boundary'
-import { GetActionNames, getActions, isTruthy, toLocalTime } from '@reapit/utils-common'
-import { PageContainer, Loader, Title, Pagination, Table, elMb11 } from '@reapit/elements'
-import { objectToQuery, useReapitGet } from '@reapit/utils-react'
+import {
+  GetActionNames,
+  getActions,
+  isTruthy,
+  toLocalTime,
+  UpdateActionNames,
+  updateActions,
+} from '@reapit/utils-common'
+import {
+  PageContainer,
+  Loader,
+  Title,
+  Pagination,
+  Table,
+  elMb11,
+  useModal,
+  BodyText,
+  ButtonGroup,
+  Button,
+} from '@reapit/elements'
+import { objectToQuery, SendFunction, useReapitGet, useReapitUpdate } from '@reapit/utils-react'
 import {
   AppSummaryModelPagedResult,
   SubscriptionModel,
@@ -47,20 +65,51 @@ export const handleSetAppNames =
     }
   }
 
+export const handleCancelSub =
+  (cancelSub: SendFunction<void, boolean | null>, setCancelSubId: Dispatch<SetStateAction<string | null>>) => () => {
+    cancelSub()
+    setCancelSubId(null)
+  }
+
+export const handleCancelSubSuccess = (refetchSubs: () => void, closeModal: () => void, success?: boolean) => () => {
+  if (success) {
+    refetchSubs()
+    closeModal()
+  }
+}
+
+export const handleSetSubId =
+  (setCancelSubId: Dispatch<SetStateAction<string | null>>, openModal: () => void, cancelSubId?: string) => () => {
+    if (cancelSubId) {
+      openModal()
+      setCancelSubId(cancelSubId)
+    }
+  }
+
 const Subscriptions: FC = () => {
   const [subscriptionsFilters, setSubscriptionsFilters] = useState<SubscriptionsFilters>({})
   const [subsWithAppName, setSubsWithAppName] = useState<SubsWithAppName | null>(null)
   const [pageNumber, setPageNumber] = useState<number>(1)
   const [pageSize, setPageSize] = useState<number>(12)
-  // const [cancelSubId, setCancelSubId] = useState<string | null>(null)
+  const [cancelSubId, setCancelSubId] = useState<string | null>(null)
+  const { Modal, openModal, closeModal } = useModal()
 
-  const [subscriptions, subscriptionsLoading] = useReapitGet<SubscriptionModelPagedResult>({
+  const [subscriptions, subscriptionsLoading, , refetchSubs] = useReapitGet<SubscriptionModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getSubscriptions],
     queryParams: {
       ...objectToQuery(subscriptionsFilters),
       pageSize,
       pageNumber,
+    },
+  })
+
+  const [, , cancelSub, cancelSubSuccess] = useReapitUpdate<void, null>({
+    reapitConnectBrowserSession,
+    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.deleteSubscription],
+    method: 'DELETE',
+    uriParams: {
+      subscriptionId: cancelSubId,
     },
   })
 
@@ -77,6 +126,7 @@ const Subscriptions: FC = () => {
   })
 
   useEffect(handleSetAppNames(setSubsWithAppName, subscriptions, apps), [apps, subscriptions])
+  useEffect(handleCancelSubSuccess(refetchSubs, closeModal, cancelSubSuccess), [cancelSubSuccess])
 
   return (
     <ErrorBoundary>
@@ -90,8 +140,21 @@ const Subscriptions: FC = () => {
           <>
             <Table
               className={elMb11}
+              numberColumns={11}
               rows={subsWithAppName?.data?.map(
-                ({ type, summary, organisationName, user, appName, created, renews, frequency, cost, cancelled }) => ({
+                ({
+                  id,
+                  type,
+                  summary,
+                  organisationName,
+                  user,
+                  appName,
+                  created,
+                  renews,
+                  frequency,
+                  cost,
+                  cancelled,
+                }) => ({
                   cells: [
                     {
                       label: 'Subcription Type',
@@ -165,6 +228,11 @@ const Subscriptions: FC = () => {
                       },
                     },
                   ],
+                  ctaContent: {
+                    headerContent: 'Cancel',
+                    icon: cancelled ? undefined : 'trashSystem',
+                    onClick: cancelled ? undefined : handleSetSubId(setCancelSubId, openModal, id),
+                  },
                 }),
               )}
             />
@@ -173,6 +241,17 @@ const Subscriptions: FC = () => {
               currentPage={pageNumber}
               numberPages={Math.ceil((subscriptions?.totalCount ?? 1) / 12)}
             />
+            <Modal title="Cancel Subscription">
+              <BodyText>Please confirm you wish to cancel this subscription</BodyText>
+              <ButtonGroup alignment="right">
+                <Button intent="low" type="button" onClick={closeModal}>
+                  Close
+                </Button>
+                <Button intent="danger" onClick={handleCancelSub(cancelSub, setCancelSubId)}>
+                  Cancel
+                </Button>
+              </ButtonGroup>
+            </Modal>
           </>
         )}
       </PageContainer>

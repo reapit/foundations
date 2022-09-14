@@ -34,6 +34,7 @@ export const FilterForm: FC<FilterFormProps> = ({ setSubscriptionsFilters }) => 
           <Label>Status</Label>
           <InputGroup>
             <Select {...register('status')}>
+              <option value="">Please Select</option>
               <option value="active">Active</option>
               <option value="cancelled">Cancelled</option>
             </Select>
