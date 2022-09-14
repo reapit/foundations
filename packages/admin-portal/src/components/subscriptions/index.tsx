@@ -1,5 +1,5 @@
 import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
-import ErrorBoundary from '../../components/hocs/error-boundary'
+import ErrorBoundary from '../error-boundary'
 import {
   GetActionNames,
   getActions,

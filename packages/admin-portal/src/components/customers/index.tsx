@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react'
-import ErrorBoundary from '../hocs/error-boundary'
+import ErrorBoundary from '../error-boundary'
 import { combineAddress, GetActionNames, getActions } from '@reapit/utils-common'
 import { CustomerModelPagedResult } from '@reapit/foundations-ts-definitions'
 import {
