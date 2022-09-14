@@ -10,7 +10,7 @@ const ADMIN_USER_GROUP = ['ReapitEmployeeFoundationsAdmin']
 const ADMIN_LIMITED_ROUTES = [
   Routes.ROOT,
   Routes.BILLING,
-  Routes.STATS,
+  Routes.INSTALLATIONS,
   Routes.CUSTOMERS,
   Routes.APPS,
   Routes.DEV_MANAGEMENT,

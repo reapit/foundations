@@ -1,4 +1,4 @@
-import { fetcher, FetchError, fetcherWithBlob, setQueryParams } from '@reapit/utils-common'
+import { FetchError, fetcherWithBlob } from '@reapit/utils-common'
 import { URLS } from './constants'
 import { getPlatformHeaders, logger } from '@reapit/utils-react'
 import { FetchListCommonParams } from './types'
@@ -25,25 +25,6 @@ export interface CustomerModel {
 export type FetchCustomersListParams = FetchListCommonParams & {
   name?: string[]
   agencyCloudId?: string[]
-}
-
-export const fetchCustomersList = async (
-  params: FetchCustomersListParams,
-): Promise<PagedResultCustomerModel | void> => {
-  try {
-    const headers = await getPlatformHeaders(reapitConnectBrowserSession, 'latest')
-    if (headers) {
-      return fetcher({
-        url: `${URLS.customers}/?${setQueryParams(params)}`,
-        api: window.reapit.config.platformApiUrl,
-        method: 'GET',
-        headers,
-      })
-    }
-  } catch (error) {
-    logger(error as FetchError)
-    throw error
-  }
 }
 
 export const fetchCustomerWarehouseCosts = async (period: string) => {

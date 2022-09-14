@@ -11,7 +11,7 @@ import {
   Label,
   Loader,
   Modal,
-  PersistantNotification,
+  PersistentNotification,
   Table,
   Title,
 } from '@reapit/elements'
@@ -347,9 +347,9 @@ export const AppConsents: FC = () => {
       ) : appDetailState.data && revisionDetailState.data ? (
         <>
           <div>
-            <PersistantNotification className={elMb11} intent="secondary" isExpanded isFullWidth isInline>
+            <PersistentNotification className={elMb11} intent="secondary" isExpanded isFullWidth isInline>
               No record of any consents for this app - you can send these from the link below.
-            </PersistantNotification>
+            </PersistentNotification>
           </div>
           <ButtonGroup alignment="left">
             <Button

@@ -6,7 +6,7 @@ const Routes = {
   BILLING: '/billing',
   APPS: '/apps',
   DEV_MANAGEMENT: '/dev-management',
-  STATS: '/stats',
+  INSTALLATIONS: '/installations',
   CUSTOMERS: '/customers',
   AUTHENTICATION: '/authentication',
   SUBSCRIPTIONS: '/subscriptions',

@@ -6,6 +6,7 @@ import { objectToQuery, useReapitGet } from '@reapit/utils-react'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { Statistics } from '../statistics'
 
 export interface AppsFilters {
   searchTerm?: string
@@ -18,6 +19,7 @@ export const AppsPage: FC = () => {
   const [appsFilters, setAppsFilters] = useState<AppsFilters>({})
   const queryParams = objectToQuery(appsFilters)
   const [pageNumber, setPageNumber] = useState<number>(1)
+  const [pageSize, setPageSize] = useState<number>(12)
 
   const [apps, appsLoading, , appsRefresh] = useReapitGet<AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,
@@ -25,7 +27,7 @@ export const AppsPage: FC = () => {
     queryParams: {
       ...queryParams,
       pageNumber,
-      pageSize: 12,
+      pageSize,
     },
   })
 
@@ -37,6 +39,7 @@ export const AppsPage: FC = () => {
         <Loader />
       ) : (
         <>
+          <Statistics area="INSTALLATIONS" data={apps} setPageSize={setPageSize} />
           <AppsTable apps={apps} appsRefresh={appsRefresh} />
           <Pagination
             callback={setPageNumber}

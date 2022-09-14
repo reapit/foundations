@@ -2,8 +2,6 @@ import Routes from '../constants/routes'
 import ActionTypes from '../constants/action-types'
 import { AppsState } from '@/reducers/apps'
 import { DevelopersState } from '@/reducers/developers'
-import { CustomersState } from '@/reducers/customers'
-import { SubscriptionsState } from '@/reducers/subscriptions'
 
 export type ModalProps = { visible: boolean; afterClose: () => void }
 
@@ -45,6 +43,4 @@ export interface FetcherParams<T> {
 export interface ReduxState {
   developers: DevelopersState
   apps: AppsState
-  customers: CustomersState
-  subscriptions: SubscriptionsState
 }
