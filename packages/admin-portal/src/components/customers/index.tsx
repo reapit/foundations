@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react'
-import ErrorBoundary from '../../../components/hocs/error-boundary'
+import ErrorBoundary from '../hocs/error-boundary'
 import { combineAddress, GetActionNames, getActions } from '@reapit/utils-common'
 import { CustomerModelPagedResult } from '@reapit/foundations-ts-definitions'
 import {
@@ -14,7 +14,7 @@ import {
   Title,
 } from '@reapit/elements'
 import { useReapitGet } from '@reapit/utils-react'
-import { reapitConnectBrowserSession } from '../../../core/connect-session'
+import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { useForm } from 'react-hook-form'
 
 export type CustomerFilterValues = {
