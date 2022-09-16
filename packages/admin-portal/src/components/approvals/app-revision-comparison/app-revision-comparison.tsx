@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useEffect } from 'react'
 import {
   AppRevisionModel,
   MediaModel,
@@ -7,18 +7,44 @@ import {
   DesktopIntegrationTypeModel,
   DesktopIntegrationTypeModelPagedResult,
   ApprovalModel,
+  ApproveModel,
+  RejectRevisionModel,
 } from '@reapit/foundations-ts-definitions'
 import DiffMedia from '../diff-media'
 import DiffCheckbox from '../diff-checkbox'
 import DiffViewer from '../diff-viewer'
 import DiffRenderHTML from '../diff-render-html'
-import { useReapitGet } from '@reapit/utils-react'
+import { SendFunction, useReapitGet, useReapitUpdate } from '@reapit/utils-react'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
-import { GetActionNames, getActions } from '@reapit/utils-common'
-import { BodyText, elMb11, elMb5, Loader, PersistentNotification } from '@reapit/elements'
+import { GetActionNames, getActions, UpdateActionNames, updateActions } from '@reapit/utils-common'
+import {
+  BodyText,
+  Button,
+  ButtonGroup,
+  elMb11,
+  elMb5,
+  elMt5,
+  FormLayout,
+  InputGroup,
+  InputWrapFull,
+  Loader,
+  PersistentNotification,
+  Subtitle,
+  useModal,
+} from '@reapit/elements'
+import { LoginIdentity, useReapitConnect } from '@reapit/connect-session'
+import dayjs from 'dayjs'
+import { object, string } from 'yup'
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
 
 export type AppRevisionComparisonProps = {
   approval: ApprovalModel | null
+  refreshApprovals: () => void
+}
+
+interface RejectRevisionForm {
+  rejectionReason: string
 }
 
 export type DiffMediaModel = {
@@ -166,10 +192,51 @@ export const renderDiffContent = ({ key, revision, app, desktopIntegrationTypes 
   return <DiffViewer currentString={app[key] || ''} changedString={revision[key] || ''} type="words" />
 }
 
-export const AppRevisionComparison: FC<AppRevisionComparisonProps> = ({ approval }) => {
+export const validationSchema = object().shape({
+  rejectionReason: string().trim().required('Required'),
+})
+
+export const handleApproveRevision =
+  (approveRevision: SendFunction<ApproveModel, boolean>, closeModal: () => void, loginIdentity?: LoginIdentity) =>
+  () => {
+    const email = loginIdentity?.email
+    const name = loginIdentity?.name
+
+    if (email && name) {
+      approveRevision({
+        email,
+        name,
+        publicListedDate: dayjs().format('YYYY-MM-DDTHH:mm:ss'),
+      })
+      closeModal()
+    }
+  }
+
+export const handleRejectRevision =
+  (rejectRevision: SendFunction<RejectRevisionModel, boolean>, closeModal: () => void, loginIdentity?: LoginIdentity) =>
+  (values: RejectRevisionForm) => {
+    const email = loginIdentity?.email
+    const name = loginIdentity?.name
+
+    if (email && name) {
+      rejectRevision({ email, name, rejectionReason: values.rejectionReason })
+      closeModal()
+    }
+  }
+
+export const handleRefreshApprovals = (refreshApprovals: () => void, shouldRefresh: boolean) => () => {
+  if (shouldRefresh) {
+    refreshApprovals()
+  }
+}
+
+export const AppRevisionComparison: FC<AppRevisionComparisonProps> = ({ approval, refreshApprovals }) => {
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const { Modal: ApproveModal, openModal: openApproveModal, closeModal: closeApproveModal } = useModal()
+  const { Modal: DeclineModal, openModal: openDeclineModal, closeModal: closeDeclineModal } = useModal()
   const appId = approval?.appId
   const revisionId = approval?.appRevisionId
-  console.log(appId, revisionId)
+
   const [app, appLoading] = useReapitGet<AppDetailModel>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppById],
@@ -199,6 +266,42 @@ export const AppRevisionComparison: FC<AppRevisionComparisonProps> = ({ approval
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppPermissions],
   })
 
+  const [, , approveRevision, revisionApproved] = useReapitUpdate<ApproveModel, boolean>({
+    reapitConnectBrowserSession,
+    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.approveRevision],
+    method: 'POST',
+    uriParams: {
+      appId,
+      revisionId,
+    },
+  })
+
+  const [, , rejectRevision, revisionRejected] = useReapitUpdate<RejectRevisionModel, boolean>({
+    reapitConnectBrowserSession,
+    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.rejectRevision],
+    method: 'POST',
+    uriParams: {
+      appId,
+      revisionId,
+    },
+  })
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<RejectRevisionForm>({
+    resolver: yupResolver(validationSchema),
+    defaultValues: {
+      rejectionReason: '',
+    },
+  })
+
+  useEffect(handleRefreshApprovals(refreshApprovals, Boolean(revisionApproved || revisionRejected)), [
+    revisionApproved,
+    revisionRejected,
+  ])
+
   if (appLoading || revisionLoading || desktopTypesLoading || scopesLoading) {
     return <Loader />
   }
@@ -212,7 +315,8 @@ export const AppRevisionComparison: FC<AppRevisionComparisonProps> = ({ approval
   }
 
   return (
-    <div>
+    <div className={elMt5}>
+      <Subtitle>{app.name} Revision Diff</Subtitle>
       {Object.keys(diffStringList).map((key) => {
         return (
           <div className={elMb5} key={key}>
@@ -254,6 +358,57 @@ export const AppRevisionComparison: FC<AppRevisionComparisonProps> = ({ approval
           <DiffMedia changedMedia={media.changedMedia} currentMedia={media.currentMedia} type={media.type} />
         </div>
       ))}
+      <ButtonGroup alignment="center">
+        <Button fixedWidth onClick={openDeclineModal} intent="danger">
+          Decline Revision
+        </Button>
+        <Button fixedWidth onClick={openApproveModal} intent="primary">
+          Approve Revision
+        </Button>
+      </ButtonGroup>
+      <ApproveModal title={`Approve ${app.name} Revision`}>
+        <BodyText>Are your sure you want to approve the revision for &lsquo;{app.name}&rsquo;?</BodyText>
+        <ButtonGroup alignment="center">
+          <Button fixedWidth intent="low" onClick={closeApproveModal}>
+            Cancel
+          </Button>
+          <Button
+            fixedWidth
+            intent="primary"
+            onClick={handleApproveRevision(approveRevision, closeApproveModal, connectSession?.loginIdentity)}
+          >
+            Approve
+          </Button>
+        </ButtonGroup>
+      </ApproveModal>
+      <DeclineModal title={`Decline ${app.name} Revision`}>
+        <BodyText>Are your sure you want to decline the revision for &lsquo;{app.name}&rsquo;?</BodyText>
+        <form
+          onSubmit={handleSubmit(
+            handleRejectRevision(rejectRevision, closeDeclineModal, connectSession?.loginIdentity),
+          )}
+        >
+          <FormLayout className={elMb11}>
+            <InputWrapFull>
+              <InputGroup
+                {...register('rejectionReason')}
+                label="Rejection Reason"
+                errorMessage={errors?.rejectionReason?.message}
+                icon={errors?.rejectionReason?.message ? 'asteriskSystem' : null}
+                intent="danger"
+              />
+            </InputWrapFull>
+          </FormLayout>
+          <ButtonGroup alignment="center">
+            <Button fixedWidth intent="low" onClick={closeDeclineModal}>
+              Cancel
+            </Button>
+            <Button fixedWidth intent="danger" type="submit">
+              Decline
+            </Button>
+          </ButtonGroup>
+        </form>
+      </DeclineModal>
     </div>
   )
 }

@@ -1,8 +1,7 @@
 import * as React from 'react'
 import { render } from '../../../tests/react-testing'
-import AdminBilling, { handleDownloadBillingPeriod, handleSaveFile } from '..'
+import AdminBilling, { handleDownloadBillingPeriod } from '..'
 import * as developerServices from '../../../services/developers'
-import FileSaver from 'file-saver'
 
 jest.mock('uuid', () => ({
   v4: jest.fn(),
@@ -27,15 +26,5 @@ describe('handleDownloadBillingPeriod', () => {
     const fn = handleDownloadBillingPeriod(period, setBillingFile)
     await fn()
     expect(mockBillingServices).toBeCalledWith({ period })
-  })
-})
-
-describe('handleSaveFile', () => {
-  const spySaveAsFunc = jest.spyOn(FileSaver, 'saveAs')
-  it('should run correctly', () => {
-    const blob = new Blob([JSON.stringify({}, null, 2)], { type: 'application/json' })
-    const fn = handleSaveFile(blob, 'test')
-    fn()
-    expect(spySaveAsFunc).toBeCalledWith(blob, 'test')
   })
 })

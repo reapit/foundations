@@ -42,6 +42,8 @@ export enum UpdateActionNames {
   updateUser = 'updateUser',
   featureApp = 'featureApp',
   unFeatureApp = 'unFeatureApp',
+  approveRevision = 'approveRevision',
+  rejectRevision = 'rejectRevision',
 }
 
 export type UpdateActions = { [key in UpdateActionNames]: UpdateAction }
@@ -246,5 +248,17 @@ export const updateActions = (appEnv: AppEnv): UpdateActions => ({
     path: PathNames.appByIdFeature,
     successMessage: 'Successfully updated app.',
     errorMessage: 'Failed to update app.',
+  },
+  [UpdateActionNames.approveRevision]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.revisionApprove,
+    successMessage: 'Successfully approved revision.',
+    errorMessage: 'Failed to approve revision.',
+  },
+  [UpdateActionNames.rejectRevision]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.revisionReject,
+    successMessage: 'Successfully rejected revision.',
+    errorMessage: 'Failed to reject revision.',
   },
 })

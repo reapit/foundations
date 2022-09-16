@@ -3,6 +3,7 @@ import {
   Button,
   ButtonGroup,
   elMb11,
+  elMt5,
   Loader,
   PersistentNotification,
   Subtitle,
@@ -165,7 +166,7 @@ export const AppConsents: FC<ConsentsProps> = ({ approval }) => {
 
   return (
     <>
-      <Subtitle>{name} Consents</Subtitle>
+      <Subtitle className={elMt5}>{name} Consents</Subtitle>
       {appConsentsLoading ? (
         <Loader />
       ) : appConsents?.length ? (
@@ -236,7 +237,7 @@ export const AppConsents: FC<ConsentsProps> = ({ approval }) => {
               No record of any consents for this app - you can send these from the link below.
             </PersistentNotification>
           </div>
-          <ButtonGroup alignment="left">
+          <ButtonGroup alignment="center">
             <Button
               fixedWidth
               onClick={handleSendConstents(createConsentEmails, appConsentsRefresh, email)}

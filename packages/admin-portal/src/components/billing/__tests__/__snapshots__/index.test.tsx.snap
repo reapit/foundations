@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DiffRenderHTML should match snapshot 1`] = `
+exports[`AdminBilling should match a snapshot 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -8,68 +8,104 @@ Object {
       <div
         class="el-snack-holder"
       />
-      <div
-        class="diff-html-container"
+      <section
+        class="el-page-container"
       >
-        <div
-          class="content diff-render-block red-background"
-          data-test=""
+        <h1
+          class="el-title"
         >
-          <h4
-            class="title is-4"
-            id=""
+          Billing
+        </h1>
+        <form>
+          <div
+            class="el-mb11 el-form-layout"
           >
-            hello world
-          </h4>
-        </div>
-        <span
-          class="arrow"
-        >
-          →
-        </span>
+            <div
+              class="el-input-wrap"
+            >
+              <div
+                class="el-input-group"
+              >
+                <input
+                  class="el-input"
+                  id="test-static-id"
+                  name="month"
+                  type="month"
+                />
+                <label
+                  class="el-label"
+                  for="test-static-id"
+                >
+                  Month
+                </label>
+              </div>
+            </div>
+          </div>
+        </form>
         <div
-          class="content diff-render-block green-background"
-          data-test=""
+          class="el-loader-container"
         >
-          <p>
-            hello galaxy
-          </p>
+          <div
+            class="el-loader"
+          >
+            <div
+              class="el-loader-moving-bar"
+            />
+          </div>
         </div>
-      </div>
+      </section>
     </div>
   </body>,
   "container": <div>
     <div
       class="el-snack-holder"
     />
-    <div
-      class="diff-html-container"
+    <section
+      class="el-page-container"
     >
-      <div
-        class="content diff-render-block red-background"
-        data-test=""
+      <h1
+        class="el-title"
       >
-        <h4
-          class="title is-4"
-          id=""
+        Billing
+      </h1>
+      <form>
+        <div
+          class="el-mb11 el-form-layout"
         >
-          hello world
-        </h4>
-      </div>
-      <span
-        class="arrow"
-      >
-        →
-      </span>
+          <div
+            class="el-input-wrap"
+          >
+            <div
+              class="el-input-group"
+            >
+              <input
+                class="el-input"
+                id="test-static-id"
+                name="month"
+                type="month"
+              />
+              <label
+                class="el-label"
+                for="test-static-id"
+              >
+                Month
+              </label>
+            </div>
+          </div>
+        </div>
+      </form>
       <div
-        class="content diff-render-block green-background"
-        data-test=""
+        class="el-loader-container"
       >
-        <p>
-          hello galaxy
-        </p>
+        <div
+          class="el-loader"
+        >
+          <div
+            class="el-loader-moving-bar"
+          />
+        </div>
       </div>
-    </div>
+    </section>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

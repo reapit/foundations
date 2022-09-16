@@ -9,15 +9,27 @@ import { openNewPage } from '../../utils/navigation'
 import AppRevisionComparison from './app-revision-comparison/app-revision-comparison'
 
 export const handleSetConsentApproval =
-  (setConsentApproval: Dispatch<SetStateAction<ApprovalModel | null>>, approval: ApprovalModel | null) => () => {
+  (
+    setConsentApproval: Dispatch<SetStateAction<ApprovalModel | null>>,
+    setDiffApproval: Dispatch<SetStateAction<ApprovalModel | null>>,
+    approval: ApprovalModel | null,
+  ) =>
+  () => {
     if (approval) {
+      setDiffApproval(null)
       setConsentApproval(approval)
     }
   }
 
 export const handleSetDiffApproval =
-  (setDiffApproval: Dispatch<SetStateAction<ApprovalModel | null>>, approval: ApprovalModel | null) => () => {
+  (
+    setDiffApproval: Dispatch<SetStateAction<ApprovalModel | null>>,
+    setConsentApproval: Dispatch<SetStateAction<ApprovalModel | null>>,
+    approval: ApprovalModel | null,
+  ) =>
+  () => {
     if (approval) {
+      setConsentApproval(null)
       setDiffApproval(approval)
     }
   }
@@ -27,7 +39,7 @@ export const AdminApprovals: FC = () => {
   const [consentApproval, setConsentApproval] = useState<ApprovalModel | null>(null)
   const [diffApproval, setDiffApproval] = useState<ApprovalModel | null>(null)
 
-  const [approvals, approvalsLoading] = useReapitGet<ApprovalModelPagedResult>({
+  const [approvals, approvalsLoading, , refreshApprovals] = useReapitGet<ApprovalModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getApprovals],
     queryParams: { pageNumber, pageSize: 12 },
@@ -75,11 +87,14 @@ export const AdminApprovals: FC = () => {
                         <Button
                           type="button"
                           intent="primary"
-                          onClick={handleSetDiffApproval(setDiffApproval, approval)}
+                          onClick={handleSetDiffApproval(setDiffApproval, setConsentApproval, approval)}
                         >
-                          View Approval
+                          View Revision
                         </Button>
-                        <Button intent="secondary" onClick={handleSetConsentApproval(setConsentApproval, approval)}>
+                        <Button
+                          intent="secondary"
+                          onClick={handleSetConsentApproval(setConsentApproval, setDiffApproval, approval)}
+                        >
                           View Consents
                         </Button>
                       </ButtonGroup>
@@ -87,7 +102,7 @@ export const AdminApprovals: FC = () => {
                         <AppConsents approval={consentApproval} />
                       )}
                       {diffApproval && diffApproval?.appRevisionId === appRevisionId && (
-                        <AppRevisionComparison approval={diffApproval} />
+                        <AppRevisionComparison approval={diffApproval} refreshApprovals={refreshApprovals} />
                       )}
                     </>
                   ),

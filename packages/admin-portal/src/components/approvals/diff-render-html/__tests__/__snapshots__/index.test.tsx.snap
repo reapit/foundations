@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RouteFetcher should match a snapshot 1`] = `
+exports[`DiffRenderHTML should match snapshot 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -8,8 +8,28 @@ Object {
       <div
         class="el-snack-holder"
       />
-      <div>
-        I am a component!
+      <div
+        class="diff-html-container"
+      >
+        <div
+          class="diff-render-block red-background"
+        >
+          <h1>
+            hello world
+          </h1>
+        </div>
+        <span
+          class="arrow"
+        >
+          →
+        </span>
+        <div
+          class="diff-render-block green-background"
+        >
+          <p>
+            hello galaxy
+          </p>
+        </div>
       </div>
     </div>
   </body>,
@@ -17,8 +37,28 @@ Object {
     <div
       class="el-snack-holder"
     />
-    <div>
-      I am a component!
+    <div
+      class="diff-html-container"
+    >
+      <div
+        class="diff-render-block red-background"
+      >
+        <h1>
+          hello world
+        </h1>
+      </div>
+      <span
+        class="arrow"
+      >
+        →
+      </span>
+      <div
+        class="diff-render-block green-background"
+      >
+        <p>
+          hello galaxy
+        </p>
+      </div>
     </div>
   </div>,
   "debug": [Function],

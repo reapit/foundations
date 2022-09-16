@@ -79,4 +79,6 @@ export enum PathNames {
   customers = '/marketplace/customers',
   approvals = '/marketplace/approvals',
   revisionById = '/marketplace/apps/{appId}/revisions/{revisionId}',
+  revisionApprove = '/marketplace/apps/{appId}/revisions/{revisionId}/approve',
+  revisionReject = '/marketplace/apps/{appId}/revisions/{revisionId}/reject',
 }
