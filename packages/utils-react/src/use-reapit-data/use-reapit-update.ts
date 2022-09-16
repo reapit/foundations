@@ -78,7 +78,6 @@ export const send =
     },
   ): Promise<DataType | boolean> => {
     if (!canCall) {
-      console.error('connect session not ready')
       return false
     }
     const { api, path, errorMessage } = action

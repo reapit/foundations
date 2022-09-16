@@ -1,261 +1,107 @@
-import * as React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { Dispatch } from 'redux'
-import { useHistory, useLocation } from 'react-router'
-import { Pagination, Table, Button, Helper, infoText } from '@reapit/elements'
-import { fetchRevision } from '@/actions/revision-detail'
-import Routes from '@/constants/routes'
-import { REVISIONS_PER_PAGE } from '@/constants/paginator'
-import { fetchAppDetail } from '@/actions/app-detail'
-import { ApprovalModel, AppRevisionModel, AppDetailModel } from '@reapit/foundations-ts-definitions'
-import { selectAppDetailData } from '@/selector/app-detail'
-import { selectAppRevisionDetailData } from '@/selector/app-revisions'
-import ApprovalModal from '@/components/approvals/approval-modal'
-import { selectApprovals } from '@/selector/admin'
-import dayjs from 'dayjs'
+import React, { Dispatch, FC, SetStateAction, useState } from 'react'
+import { Pagination, Table, Button, Loader, PageContainer, Title, ButtonGroup, elMb11 } from '@reapit/elements'
+import { ApprovalModel, ApprovalModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { AppConsents } from '../consents'
-import { Loader, PageContainer, Title } from '@reapit/elements'
+import { useReapitGet } from '@reapit/utils-react'
+import { GetActionNames, getActions, toLocalTime } from '@reapit/utils-common'
+import { reapitConnectBrowserSession } from '../../core/connect-session'
+import { openNewPage } from '../../utils/navigation'
+import AppRevisionComparison from './app-revision-comparison/app-revision-comparison'
 
-export type HandleCloseModalParams = {
-  setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>
-}
-
-export const handleCloseModal =
-  ({ setIsModalOpen }: HandleCloseModalParams) =>
-  () =>
-    setIsModalOpen(false)
-
-export const handleOnPageChange = (history: { push: (path: string) => void }) => (page: number) =>
-  history.push(`${Routes.APPROVALS}?page=${page}`)
-
-export const Content = ({
-  loading,
-  waitingApprovalList,
-  tableColumns,
-}: {
-  loading: boolean
-  waitingApprovalList: ApprovalModel[]
-  tableColumns: any
-}) => {
-  if (loading) {
-    return (
-      <div className="pin absolute flex items-center justify-center">
-        <Loader />
-      </div>
-    )
-  }
-
-  if (!loading && !waitingApprovalList.length) {
-    return <Helper variant="info">{infoText('ADMIN_APPROVALS_EMPTY')}</Helper>
-  }
-
-  return <Table scrollable={true} loading={false} data={waitingApprovalList} columns={tableColumns} />
-}
-
-export type RenderIdParams = {
-  page: number
-}
-
-export type RowIdParams = {
-  row: { original: { created: string }; index: number }
-}
-// eslint-disable-next-line react/display-name
-export const renderId =
-  ({ page }: RenderIdParams) =>
-  ({ row: { index } }: RowIdParams) => {
-    const pageNoTimesRevsions = (page - 1) * REVISIONS_PER_PAGE
-    return <div>{pageNoTimesRevsions + index + 1}</div>
-  }
-
-export type HandleViewDetailOnClickParams = {
-  dispatch: Dispatch<any>
-  appId: string
-  setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>
-  appRevisionId: string
-  currentRevisionId?: string
-  currentAppId?: string
-}
-
-export const handleViewDetailOnClick =
-  ({
-    dispatch,
-    appRevisionId,
-    currentRevisionId,
-    appId,
-    currentAppId,
-    setIsModalOpen,
-  }: HandleViewDetailOnClickParams) =>
-  () => {
-    const isNeedFetchRevision = currentRevisionId !== appRevisionId
-    const isNeedFetchAppDetail = currentAppId !== appId
-    if (appRevisionId && appId && isNeedFetchRevision) {
-      dispatch(fetchRevision({ appId, appRevisionId }))
-    }
-
-    if (appRevisionId && appId && isNeedFetchAppDetail) {
-      dispatch(fetchAppDetail({ id: appId }))
-    }
-    setIsModalOpen(true)
-  }
-
-export const handleLoadConsents =
-  ({ dispatch, appRevisionId, currentRevisionId, appId, currentAppId }: HandleViewDetailOnClickParams) =>
-  () => {
-    const shouldFetchRevision = currentRevisionId !== appRevisionId
-    const shouldFetchAppDetail = currentAppId !== appId
-    if (appRevisionId && appId && shouldFetchRevision) {
-      dispatch(fetchRevision({ appId, appRevisionId }))
-    }
-
-    if (appRevisionId && appId && shouldFetchAppDetail) {
-      dispatch(fetchAppDetail({ id: appId }))
+export const handleSetConsentApproval =
+  (setConsentApproval: Dispatch<SetStateAction<ApprovalModel | null>>, approval: ApprovalModel | null) => () => {
+    if (approval) {
+      setConsentApproval(approval)
     }
   }
 
-export type RenderViewDetailButtonParams = {
-  revisionDetail: AppRevisionModel
-  appDetail: AppDetailModel
-  setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>
-  dispatch: Dispatch<any>
-}
-
-export type RowDetailButtonParams = {
-  row: { original: { appId: string; appRevisionId: string } }
-}
-
-export const renderViewDetailButton =
-  ({
-    revisionDetail,
-    appDetail,
-    setIsModalOpen,
-    dispatch,
-  }: // eslint-disable-next-line react/display-name
-  RenderViewDetailButtonParams) =>
-  ({ row: { original } }: RowDetailButtonParams) => {
-    const { appId, appRevisionId } = original
-    const currentRevisionId = revisionDetail?.id
-    const currentAppId = appDetail?.id
-    return (
-      <Button
-        dataTest={`view-details-button_${appId}`}
-        type="button"
-        variant="primary"
-        onClick={handleViewDetailOnClick({
-          appRevisionId,
-          currentRevisionId,
-          currentAppId,
-          dispatch,
-          setIsModalOpen,
-          appId,
-        })}
-      >
-        View details
-      </Button>
-    )
+export const handleSetDiffApproval =
+  (setDiffApproval: Dispatch<SetStateAction<ApprovalModel | null>>, approval: ApprovalModel | null) => () => {
+    if (approval) {
+      setDiffApproval(approval)
+    }
   }
 
-export const generateTableColumn = ({
-  page,
-  revisionDetail,
-  appDetail,
-  setIsModalOpen,
-  dispatch,
-}: RenderIdParams & RenderViewDetailButtonParams) => [
-  {
-    Header: '#',
-    id: 'id',
-    Cell: renderId({ page }),
-  },
-  {
-    Header: 'AppId',
-    accessor: 'appId',
-  },
-  {
-    Header: 'Type',
-    accessor: 'type',
-  },
-  {
-    Header: 'Description',
-    accessor: 'description',
-  },
-  {
-    Header: 'Created On',
-    accessor: 'created',
-    Cell: ({ row }: RowIdParams) => {
-      return <div>{dayjs(row.original.created).format('DD/MM/YYYY HH:mm')}</div>
-    },
-  },
-  {
-    Header: '',
-    id: 'buttonColumn',
-    Cell: renderViewDetailButton({ revisionDetail, appDetail, dispatch, setIsModalOpen }),
-  },
-  {
-    Header: '',
-    id: 'consentButtonColumn',
-    Cell: ({ row: { original } }: RowDetailButtonParams) => {
-      const { appId, appRevisionId } = original
-      const currentRevisionId = revisionDetail?.id
-      const currentAppId = appDetail?.id
-      return (
-        <Button
-          dataTest={`view-details-button_${appId}`}
-          type="button"
-          variant="primary"
-          onClick={handleLoadConsents({
-            appRevisionId,
-            currentRevisionId,
-            currentAppId,
-            dispatch,
-            setIsModalOpen,
-            appId,
-          })}
-        >
-          Consents
-        </Button>
-      )
-    },
-  },
-]
+export const AdminApprovals: FC = () => {
+  const [pageNumber, setPageNumber] = useState<number>(1)
+  const [consentApproval, setConsentApproval] = useState<ApprovalModel | null>(null)
+  const [diffApproval, setDiffApproval] = useState<ApprovalModel | null>(null)
 
-export const AdminApprovals: React.FC = () => {
-  const [isModalOpen, setIsModalOpen] = React.useState(false)
-  const dispatch = useDispatch()
-  const appDetail = useSelector(selectAppDetailData)
-  const location = useLocation()
-  const history = useHistory()
-  const revisionDetail = useSelector(selectAppRevisionDetailData)
-  const approvalListState = useSelector(selectApprovals)
-
-  const waitingApprovalListData = useSelector(selectApprovals)
-  const urlParams = new URLSearchParams(location.search)
-  const page = urlParams.get('page') || 1
-  const isLoading = approvalListState.isLoading
+  const [approvals, approvalsLoading] = useReapitGet<ApprovalModelPagedResult>({
+    reapitConnectBrowserSession,
+    action: getActions(window.reapit.config.appEnv)[GetActionNames.getApprovals],
+    queryParams: { pageNumber, pageSize: 12 },
+  })
 
   return (
     <PageContainer>
       <Title>App Revision Approvals</Title>
-      <Content
-        loading={isLoading}
-        waitingApprovalList={waitingApprovalListData.data || []}
-        tableColumns={generateTableColumn({
-          page: Number(page),
-          revisionDetail,
-          appDetail,
-          dispatch,
-          setIsModalOpen,
-        })}
-      />
-      {!isLoading && (
-        <Pagination
-          onChange={handleOnPageChange(history)}
-          totalCount={waitingApprovalListData.totalCount}
-          pageSize={waitingApprovalListData.pageSize}
-          pageNumber={Number(page)}
-        />
+      {approvalsLoading ? (
+        <Loader />
+      ) : (
+        <>
+          <Table
+            className={elMb11}
+            rows={approvals?.data?.map((approval) => {
+              const { description, created, appId, appRevisionId } = approval
+              return {
+                cells: [
+                  {
+                    label: 'Description',
+                    value: description,
+                    cellHasDarkText: true,
+                    narrowTable: {
+                      showLabel: true,
+                    },
+                  },
+                  {
+                    label: 'Created Date',
+                    value: created ? toLocalTime(created) : '-',
+                    narrowTable: {
+                      showLabel: true,
+                    },
+                  },
+                ],
+                expandableContent: {
+                  content: (
+                    <>
+                      <ButtonGroup alignment="center">
+                        <Button
+                          intent="secondary"
+                          onClick={openNewPage(`${window.reapit.config.developerPortalUri}/apps/${appId}}`)}
+                        >
+                          View App
+                        </Button>
+                        <Button
+                          type="button"
+                          intent="primary"
+                          onClick={handleSetDiffApproval(setDiffApproval, approval)}
+                        >
+                          View Approval
+                        </Button>
+                        <Button intent="secondary" onClick={handleSetConsentApproval(setConsentApproval, approval)}>
+                          View Consents
+                        </Button>
+                      </ButtonGroup>
+                      {consentApproval && consentApproval?.appRevisionId === appRevisionId && (
+                        <AppConsents approval={consentApproval} />
+                      )}
+                      {diffApproval && diffApproval?.appRevisionId === appRevisionId && (
+                        <AppRevisionComparison approval={diffApproval} />
+                      )}
+                    </>
+                  ),
+                },
+              }
+            })}
+          />
+          <Pagination
+            callback={setPageNumber}
+            currentPage={pageNumber}
+            numberPages={Math.ceil((approvals?.totalCount ?? 1) / 12)}
+          />
+        </>
       )}
-      <ApprovalModal visible={isModalOpen} afterClose={handleCloseModal({ setIsModalOpen })} />
-      <AppConsents />
     </PageContainer>
   )
 }

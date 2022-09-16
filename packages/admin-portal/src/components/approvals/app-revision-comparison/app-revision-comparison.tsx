@@ -1,5 +1,4 @@
-import * as React from 'react'
-import { RevisionDetailState } from '@/reducers/apps/revisions'
+import React, { FC } from 'react'
 import {
   AppRevisionModel,
   MediaModel,
@@ -7,16 +6,19 @@ import {
   AppDetailModel,
   DesktopIntegrationTypeModel,
   DesktopIntegrationTypeModelPagedResult,
+  ApprovalModel,
 } from '@reapit/foundations-ts-definitions'
-import DiffMedia from '@/components/approvals/diff-media'
+import DiffMedia from '../diff-media'
 import DiffCheckbox from '../diff-checkbox'
-import DiffViewer from '../../ui/diff-viewer'
+import DiffViewer from '../diff-viewer'
 import DiffRenderHTML from '../diff-render-html'
-import { AppDetailState } from '@/reducers/apps/detail'
+import { useReapitGet } from '@reapit/utils-react'
+import { reapitConnectBrowserSession } from '../../../core/connect-session'
+import { GetActionNames, getActions } from '@reapit/utils-common'
+import { BodyText, elMb11, elMb5, Loader, PersistentNotification } from '@reapit/elements'
 
 export type AppRevisionComparisonProps = {
-  revisionDetailState: RevisionDetailState
-  appDetailState: AppDetailState
+  approval: ApprovalModel | null
 }
 
 export type DiffMediaModel = {
@@ -67,8 +69,8 @@ export const renderCheckboxesDiff = ({
     const isCheckedInAppDetail = isAppearInScope(scope.name, appScopes)
     const isCheckedInRevision = isAppearInScope(scope.name, revisionScopes)
     return (
-      <div className="mb-3" key={scope.name}>
-        <h4 className="mb-2">{scope.description}</h4>
+      <div className={elMb5} key={scope.name}>
+        <BodyText hasGreyText>{scope.description}</BodyText>
         <DiffCheckbox currentChecked={isCheckedInAppDetail} changedChecked={isCheckedInRevision} />
       </div>
     )
@@ -124,7 +126,7 @@ export const mapIntegrationIdArrayToNameArray = (
 export type RenderDiffContentParams = {
   key: string
   revision: AppRevisionModel
-  app: AppDetailModel & { desktopIntegrationTypeIds?: string[] }
+  app: AppDetailModel
   desktopIntegrationTypes: DesktopIntegrationTypeModelPagedResult
 }
 
@@ -164,51 +166,80 @@ export const renderDiffContent = ({ key, revision, app, desktopIntegrationTypes 
   return <DiffViewer currentString={app[key] || ''} changedString={revision[key] || ''} type="words" />
 }
 
-export const AppRevisionComparison: React.FC<AppRevisionComparisonProps> = ({
-  revisionDetailState,
-  appDetailState,
-}) => {
-  const app = appDetailState.data
-  if (!revisionDetailState.data || !app) {
-    return null
+export const AppRevisionComparison: FC<AppRevisionComparisonProps> = ({ approval }) => {
+  const appId = approval?.appId
+  const revisionId = approval?.appRevisionId
+  console.log(appId, revisionId)
+  const [app, appLoading] = useReapitGet<AppDetailModel>({
+    reapitConnectBrowserSession,
+    action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppById],
+    uriParams: {
+      appId,
+    },
+    fetchWhenTrue: [appId],
+  })
+
+  const [revision, revisionLoading] = useReapitGet<AppRevisionModel>({
+    reapitConnectBrowserSession,
+    action: getActions(window.reapit.config.appEnv)[GetActionNames.getRevisionById],
+    uriParams: {
+      revisionId,
+      appId,
+    },
+    fetchWhenTrue: [revisionId, appId],
+  })
+
+  const [desktopIntegrationTypes, desktopTypesLoading] = useReapitGet<DesktopIntegrationTypeModelPagedResult>({
+    reapitConnectBrowserSession,
+    action: getActions(window.reapit.config.appEnv)[GetActionNames.getDesktopIntegrationTypes],
+  })
+
+  const [scopes, scopesLoading] = useReapitGet<ScopeModel[]>({
+    reapitConnectBrowserSession,
+    action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppPermissions],
+  })
+
+  if (appLoading || revisionLoading || desktopTypesLoading || scopesLoading) {
+    return <Loader />
   }
-  const { data: revision, scopes, desktopIntegrationTypes } = revisionDetailState.data
+
+  if (!approval || !app || !revision || !desktopIntegrationTypes || !scopes) {
+    return (
+      <PersistentNotification className={elMb11} intent="secondary" isExpanded isFullWidth isInline>
+        Data not returned to complete this request
+      </PersistentNotification>
+    )
+  }
 
   return (
     <div>
       {Object.keys(diffStringList).map((key) => {
         return (
-          <div className="mb-3" key={key}>
-            <h4 className="mb-2">{diffStringList[key]}</h4>
+          <div className={elMb5} key={key}>
+            <BodyText hasGreyText>{diffStringList[key]}</BodyText>
             {renderDiffContent({ key, app, desktopIntegrationTypes, revision })}
           </div>
         )
       })}
       {renderCheckboxesDiff({ scopes, appScopes: app.scopes, revisionScopes: revision.scopes })}
-      <div className="mb-3">
-        <h4 data-test="chkIsListed" className="mb-2">
-          Is listed
-        </h4>
+      <div className={elMb5}>
+        <BodyText>Is listed</BodyText>
         <DiffCheckbox
           currentChecked={Boolean(app.isListed)}
           changedChecked={Boolean(revision.isListed)}
           dataTest="revision-diff-isListed"
         />
       </div>
-      <div className="mb-3">
-        <h4 data-test="chkIsFree" className="mb-2">
-          Is Free
-        </h4>
+      <div className={elMb5}>
+        <BodyText>Is Free</BodyText>
         <DiffCheckbox
           currentChecked={Boolean(app.isFree)}
           changedChecked={Boolean(revision.isFree)}
           dataTest="revision-diff-isFree"
         />
       </div>
-      <div className="mb-3">
-        <h4 data-test="chkIsDirectApi" className="mb-2">
-          Is Integration
-        </h4>
+      <div className={elMb5}>
+        <BodyText>Is Integration</BodyText>
         <DiffCheckbox
           currentChecked={Boolean(app.isDirectApi)}
           changedChecked={Boolean(revision.isDirectApi)}
@@ -216,10 +247,10 @@ export const AppRevisionComparison: React.FC<AppRevisionComparisonProps> = ({
         />
       </div>
       {getChangedMediaList({ app, revision }).map((media) => (
-        <div className="mb-3" key={media.order}>
-          <h4 className="mb-2 capitalize">
+        <div className={elMb5} key={media.order}>
+          <BodyText hasGreyText>
             {media.type} {media.order > 0 && <span>{media.order}</span>}
-          </h4>
+          </BodyText>
           <DiffMedia changedMedia={media.changedMedia} currentMedia={media.currentMedia} type={media.type} />
         </div>
       ))}

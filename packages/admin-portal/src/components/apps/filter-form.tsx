@@ -5,15 +5,15 @@ import { FormLayout, InputWrap, InputGroup, elMb11 } from '@reapit/elements'
 import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
 
 export interface FilterFormProps {
-  setUsageFilters: Dispatch<SetStateAction<AppsFilters>>
+  setAppsFilters: Dispatch<SetStateAction<AppsFilters>>
   apps: AppSummaryModelPagedResult | null
 }
 
-export const FilterForm: FC<FilterFormProps> = ({ setUsageFilters }) => {
+export const FilterForm: FC<FilterFormProps> = ({ setAppsFilters }) => {
   const { register, handleSubmit } = useForm<AppsFilters>({ mode: 'onChange' })
 
   return (
-    <form onChange={handleSubmit(setUsageFilters)}>
+    <form onChange={handleSubmit(setAppsFilters)}>
       <FormLayout className={elMb11}>
         <InputWrap>
           <InputGroup {...register('searchTerm')} label="App or Developer Name" type="search" />

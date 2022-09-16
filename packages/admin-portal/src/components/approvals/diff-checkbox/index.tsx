@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { cx } from '@linaria/core'
 import { checkboxContainer, checkboxWrap, greenBackground, redBackground, arow } from './__styles__'
 

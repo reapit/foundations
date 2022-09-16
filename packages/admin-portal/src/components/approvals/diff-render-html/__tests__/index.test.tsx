@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from '../../../../tests/react-testing'
-import { DiffRenderHTML, DiffRenderHTMLProps } from '../diff-render-html'
+import { DiffRenderHTML, DiffRenderHTMLProps } from '..'
 
 const mockProps: DiffRenderHTMLProps = {
   currentString: '<h1>hello world</h1>',

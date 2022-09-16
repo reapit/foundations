@@ -1,7 +1,7 @@
-import * as React from 'react'
-import { HTMLRender } from '@reapit/elements'
+import React from 'react'
 import { cx } from '@linaria/core'
 import { diffHtmlContainer, diffRenderBlock, redBackground, greenBackground, arrow } from './__styles__'
+import { HTMLRender } from '@reapit/utils-react'
 
 export interface DiffRenderHTMLProps {
   currentString?: string

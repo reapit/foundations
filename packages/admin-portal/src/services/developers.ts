@@ -5,7 +5,7 @@ import {
   MemberModelPagedResult,
   UpdateMemberModel,
 } from '@reapit/foundations-ts-definitions'
-import { fetcher, setQueryParams, fetcherWithBlob } from '@reapit/elements'
+import { fetcher, setQueryParams, fetcherWithBlob } from '@reapit/utils-common'
 import { URLS } from './constants'
 import { getPlatformHeaders, logger } from '@reapit/utils-react'
 import { FetchListCommonParams, FetchByIdCommonParams } from './types'

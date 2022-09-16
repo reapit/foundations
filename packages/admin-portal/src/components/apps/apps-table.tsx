@@ -96,6 +96,7 @@ export const AppsTable: FC<AppsTableProps> = ({ apps, appsRefresh }) => {
   const [appIdDelete, setAppIdDelete] = useState<string | null>(null)
   const [appIdFeatured, setAppIdFeatured] = useState<string | null>(null)
   const [indexExpandedRow, setIndexExpandedRow] = useState<number | null>(null)
+  const appName = apps?.data?.find((app) => app.id === appIdDelete)?.name
 
   const [, , deleteApp, appDeleted] = useReapitUpdate<void, boolean>({
     reapitConnectBrowserSession,
@@ -222,30 +223,26 @@ export const AppsTable: FC<AppsTableProps> = ({ apps, appsRefresh }) => {
                       Togggle Featured
                     </Button>
                   </ButtonGroup>
-                  <Modal title={`Confirm ${name} Deletion`}>
-                    <BodyText>
-                      Are your sure you want to remove the app &lsquo;{name}&rsquo;? By clicking &lsquo;delete&rsquo; it
-                      will remove all app data including all revisions and listings.
-                    </BodyText>
-                    <ButtonGroup alignment="center">
-                      <Button fixedWidth intent="secondary" onClick={closeModal}>
-                        Cancel
-                      </Button>
-                      <Button
-                        fixedWidth
-                        intent="danger"
-                        onClick={handleDeleteApp(deleteApp, setIndexExpandedRow, appIdDelete)}
-                      >
-                        Confirm
-                      </Button>
-                    </ButtonGroup>
-                  </Modal>
                 </>
               ),
             },
           }),
         )}
       />
+      <Modal title={`Confirm ${appName} Deletion`}>
+        <BodyText>
+          Are your sure you want to remove the app &lsquo;{appName}&rsquo;? By clicking &lsquo;delete&rsquo; it will
+          remove all app data including all revisions and listings.
+        </BodyText>
+        <ButtonGroup alignment="center">
+          <Button fixedWidth intent="secondary" onClick={closeModal}>
+            Cancel
+          </Button>
+          <Button fixedWidth intent="danger" onClick={handleDeleteApp(deleteApp, setIndexExpandedRow, appIdDelete)}>
+            Confirm
+          </Button>
+        </ButtonGroup>
+      </Modal>
     </div>
   ) : (
     <div className={elMb11}>

@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import * as jsdiff from 'diff'
 import { diffViewerContainer, greenBackground, redBackground } from './__styles__'
 import { cx } from '@linaria/core'

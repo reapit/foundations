@@ -77,4 +77,6 @@ export enum PathNames {
   userById = '/organisations/users/{userId}',
   appByIdFeature = '/marketplace/apps/{appId}/feature',
   customers = '/marketplace/customers',
+  approvals = '/marketplace/approvals',
+  revisionById = '/marketplace/apps/{appId}/revisions/{revisionId}',
 }

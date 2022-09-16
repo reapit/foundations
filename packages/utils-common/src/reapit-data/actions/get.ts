@@ -48,6 +48,9 @@ export enum GetActionNames {
   getUserInfo = 'getUserInfo',
   getUserById = 'getUserById',
   getCustomers = 'getCustomers',
+  getDevelopers = 'getDevelopers',
+  getApprovals = 'getApprovals',
+  getRevisionById = 'getRevisionById',
 }
 
 export type GetActions = { [key in GetActionNames]: GetAction }
@@ -245,5 +248,20 @@ export const getActions = (appEnv: AppEnv): GetActions => ({
     api: ApiNames(appEnv).platform,
     path: PathNames.customers,
     errorMessage: 'Failed to fetch customers, this has been logged.',
+  },
+  [GetActionNames.getDevelopers]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.developers,
+    errorMessage: 'Failed to fetch developers, this has been logged.',
+  },
+  [GetActionNames.getApprovals]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.approvals,
+    errorMessage: 'Failed to fetch approvals, this has been logged.',
+  },
+  [GetActionNames.getRevisionById]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.revisionById,
+    errorMessage: 'Failed to fetch revision, this has been logged.',
   },
 })
