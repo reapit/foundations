@@ -1,0 +1,71 @@
+import React, { FC } from 'react'
+import { Button, ButtonGroup, elMb11, FormLayout, InputGroup, InputWrapFull } from '@reapit/elements'
+import { ResendAppRevisionConsentModel } from '@reapit/foundations-ts-definitions'
+import { object, string } from 'yup'
+import { SendFunction } from '@reapit/utils-react'
+import { emailRegex } from '@reapit/utils-common'
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+
+interface ResendConsentModalProps {
+  email?: string
+  recipient?: string
+  resendEmail: SendFunction<ResendAppRevisionConsentModel, boolean>
+  closeModal: () => void
+}
+
+interface ResendConsentForm {
+  recipient: string
+}
+
+export const validationSchema = object().shape({
+  recipient: string().trim().required('Required').matches(emailRegex, 'Must be a valid email address'),
+})
+
+export const handleResendEmail =
+  (resendEmail: SendFunction<ResendAppRevisionConsentModel, boolean>, email: string) => (values: ResendConsentForm) => {
+    resendEmail({
+      ...values,
+      actionedBy: email,
+    })
+  }
+
+export const ResendConsentModal: FC<ResendConsentModalProps> = ({ email, closeModal, resendEmail, recipient }) => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<ResendConsentForm>({
+    resolver: yupResolver(validationSchema),
+    defaultValues: {
+      recipient,
+    },
+  })
+
+  return email ? (
+    <form onSubmit={handleSubmit(handleResendEmail(resendEmail, email))}>
+      <FormLayout className={elMb11}>
+        <InputWrapFull>
+          <InputGroup
+            {...register('recipient')}
+            label="Consent Recipient"
+            placeholder="Email of the recipient"
+            errorMessage={errors?.recipient?.message}
+            icon={errors?.recipient?.message ? 'asteriskSystem' : null}
+            intent="danger"
+          />
+        </InputWrapFull>
+      </FormLayout>
+      <ButtonGroup alignment="center">
+        <Button fixedWidth intent="low" onClick={closeModal}>
+          Cancel
+        </Button>
+        <Button fixedWidth intent="primary" type="submit">
+          Confirm
+        </Button>
+      </ButtonGroup>
+    </form>
+  ) : null
+}
+
+export default ResendConsentModal

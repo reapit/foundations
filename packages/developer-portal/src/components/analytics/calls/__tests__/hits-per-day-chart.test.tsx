@@ -3,6 +3,10 @@ import { render } from '../../../../tests/react-testing'
 import { mockTrafficEventsModel } from '../../../../tests/__stubs__/traffic-stats'
 import { handleSortChartData, HitsPerDayChart } from '../hits-per-day-chart'
 
+jest.mock('react-chartjs-2', () => ({
+  Chart: () => <div>Mock Chart</div>,
+}))
+
 describe('HitsPerDayChart', () => {
   it('should match snapshot', () => {
     expect(render(<HitsPerDayChart trafficEvents={mockTrafficEventsModel} />)).toMatchSnapshot()

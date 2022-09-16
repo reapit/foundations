@@ -1,6 +1,5 @@
 import React, { FC, LazyExoticComponent } from 'react'
 import { Route, RouteProps, useLocation } from 'react-router'
-import RouteFetcher from '../components/hocs/route-fetcher'
 import { reapitConnectBrowserSession } from './connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { getAccess } from '../utils/get-access'
@@ -12,7 +11,7 @@ export interface PrivateRouteProps {
   fetcher?: boolean
 }
 
-export const PrivateRoute = ({ component, fetcher = false, ...rest }: PrivateRouteProps & RouteProps) => {
+export const PrivateRoute = ({ component, ...rest }: PrivateRouteProps & RouteProps) => {
   const location = useLocation()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const hasAccess = getAccess(connectSession, location.pathname)
@@ -20,7 +19,7 @@ export const PrivateRoute = ({ component, fetcher = false, ...rest }: PrivateRou
   return (
     <Route
       {...rest}
-      render={(props) => {
+      render={() => {
         if (!hasAccess) {
           return (
             <FlexContainer>
@@ -29,10 +28,6 @@ export const PrivateRoute = ({ component, fetcher = false, ...rest }: PrivateRou
               </PersistentNotification>
             </FlexContainer>
           )
-        }
-
-        if (fetcher) {
-          return <RouteFetcher routerProps={props} Component={component} />
         }
         const Component = component
 

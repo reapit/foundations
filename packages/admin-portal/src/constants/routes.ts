@@ -1,4 +1,4 @@
-const Routes = {
+export const Routes = {
   ROOT: '/',
   LOGIN: '/login',
   APPROVALS: '/approvals',

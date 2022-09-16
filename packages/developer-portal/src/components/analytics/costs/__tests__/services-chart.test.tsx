@@ -6,6 +6,10 @@ import { handleSortChartData, ServicesChart } from '../services-chart'
 
 jest.mock('../../state/use-analytics-state')
 
+jest.mock('react-chartjs-2', () => ({
+  Chart: () => <div>Mock Chart</div>,
+}))
+
 jest.mock('@reapit/utils-react', () => ({
   useReapitGet: jest.fn(() => [mockBillingOverviewData, false]),
 }))

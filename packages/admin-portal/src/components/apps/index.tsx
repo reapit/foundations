@@ -34,12 +34,12 @@ export const AppsPage: FC = () => {
   return (
     <PageContainer>
       <Title>Apps Management</Title>
-      <FilterForm setUsageFilters={setAppsFilters} apps={apps} />
+      <FilterForm setAppsFilters={setAppsFilters} apps={apps} />
       {appsLoading ? (
         <Loader />
       ) : (
         <>
-          <Statistics area="INSTALLATIONS" data={apps} setPageSize={setPageSize} />
+          <Statistics area="APPS" data={apps} setPageSize={setPageSize} />
           <AppsTable apps={apps} appsRefresh={appsRefresh} />
           <Pagination
             callback={setPageNumber}

@@ -8,22 +8,18 @@ Object {
       <div
         class="ecbqyq6-el-snack-holder"
       />
-      <canvas
-        height="150"
-        role="img"
-        width="300"
-      />
+      <div>
+        Mock Chart
+      </div>
     </div>
   </body>,
   "container": <div>
     <div
       class="ecbqyq6-el-snack-holder"
     />
-    <canvas
-      height="150"
-      role="img"
-      width="300"
-    />
+    <div>
+      Mock Chart
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

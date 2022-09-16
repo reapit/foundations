@@ -1,9 +1,10 @@
 import React from 'react'
 import Router from './router'
-import { Provider } from 'react-redux'
-import store from './store'
 import { css } from '@linaria/core'
 import { MediaStateProvider, NavStateProvider, SnackProvider } from '@reapit/elements'
+import { injectSwitchModeToWindow } from '@reapit/utils-react'
+
+injectSwitchModeToWindow()
 
 export const globals = css`
   :global() {
@@ -19,15 +20,13 @@ export const globals = css`
 `
 
 const App = () => (
-  <Provider store={store.reduxStore}>
-    <SnackProvider>
-      <NavStateProvider>
-        <MediaStateProvider>
-          <Router />
-        </MediaStateProvider>
-      </NavStateProvider>
-    </SnackProvider>
-  </Provider>
+  <SnackProvider>
+    <NavStateProvider>
+      <MediaStateProvider>
+        <Router />
+      </MediaStateProvider>
+    </NavStateProvider>
+  </SnackProvider>
 )
 
 export default App
