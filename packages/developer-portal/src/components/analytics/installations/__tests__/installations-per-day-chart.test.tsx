@@ -3,6 +3,10 @@ import { render } from '../../../../tests/react-testing'
 import { mockInstallationModelPagedResult } from '../../../../tests/__stubs__/installations'
 import { handleSortChartData, InstallationsPerDayChart } from '../installations-per-day-chart'
 
+jest.mock('react-chartjs-2', () => ({
+  Chart: () => <div>Mock Chart</div>,
+}))
+
 describe('InstallationsPerDayChart', () => {
   it('should match snapshot', () => {
     expect(render(<InstallationsPerDayChart installations={mockInstallationModelPagedResult} />)).toMatchSnapshot()

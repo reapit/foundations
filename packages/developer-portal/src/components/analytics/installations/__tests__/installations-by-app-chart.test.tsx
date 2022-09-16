@@ -6,6 +6,10 @@ import { handleSortChartData, InstallationsByAppChart } from '../installations-b
 
 jest.mock('../../state/use-analytics-state')
 
+jest.mock('react-chartjs-2', () => ({
+  Chart: () => <div>Mock Chart</div>,
+}))
+
 describe('InstallationsByAppChart', () => {
   it('should match snapshot', () => {
     expect(render(<InstallationsByAppChart installations={mockInstallationModelPagedResult} />)).toMatchSnapshot()
