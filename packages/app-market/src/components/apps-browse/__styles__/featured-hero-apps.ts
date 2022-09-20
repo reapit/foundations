@@ -33,16 +33,19 @@ export const FeaturedHeroAppsStrapline = styled(ElBodyText)`
 
   ${forMobileAndAbove} {
     font-size: 16px;
+    min-height: 2.5rem;
   }
 
   ${forDesktopAndAbove} {
     margin-bottom: 2.5rem;
     -webkit-line-clamp: 3;
+    min-height: 3.75rem;
   }
 
   ${forWidescreenAndAbove} {
     margin-bottom: 1.25rem;
     -webkit-line-clamp: 1;
+    min-height: 1.25rem;
   }
 `
 

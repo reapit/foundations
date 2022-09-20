@@ -980,7 +980,7 @@ Object {
                     Website
                   </h2>
                   <p
-                    class="el-has-grey-text el-has-no-margin el-body-text"
+                    class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
                   >
                     <a
                       href="https://foo.bar"
@@ -1000,7 +1000,7 @@ Object {
                     Support Email
                   </h2>
                   <p
-                    class="el-has-grey-text el-has-no-margin el-body-text"
+                    class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
                   >
                     <a
                       href="mailto:foo@bar.com"
@@ -1020,7 +1020,7 @@ Object {
                     Telephone
                   </h2>
                   <p
-                    class="el-has-grey-text el-has-no-margin el-body-text"
+                    class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
                   >
                     07777777777
                   </p>
@@ -1034,7 +1034,7 @@ Object {
                     Terms and Conditions
                   </h2>
                   <p
-                    class="el-has-grey-text el-has-no-margin el-body-text"
+                    class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
                   >
                     <a
                       href="https://foo.bar"
@@ -1054,7 +1054,7 @@ Object {
                     Privacy Policy
                   </h2>
                   <p
-                    class="el-has-grey-text el-has-no-margin el-body-text"
+                    class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
                   >
                     <a
                       href="https://foo.bar"
@@ -1074,7 +1074,7 @@ Object {
                     Pricing Policy
                   </h2>
                   <p
-                    class="el-has-grey-text el-has-no-margin el-body-text"
+                    class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
                   >
                     <a
                       href="https://foo.bar"
@@ -1461,7 +1461,7 @@ Object {
                   Website
                 </h2>
                 <p
-                  class="el-has-grey-text el-has-no-margin el-body-text"
+                  class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
                 >
                   <a
                     href="https://foo.bar"
@@ -1481,7 +1481,7 @@ Object {
                   Support Email
                 </h2>
                 <p
-                  class="el-has-grey-text el-has-no-margin el-body-text"
+                  class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
                 >
                   <a
                     href="mailto:foo@bar.com"
@@ -1501,7 +1501,7 @@ Object {
                   Telephone
                 </h2>
                 <p
-                  class="el-has-grey-text el-has-no-margin el-body-text"
+                  class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
                 >
                   07777777777
                 </p>
@@ -1515,7 +1515,7 @@ Object {
                   Terms and Conditions
                 </h2>
                 <p
-                  class="el-has-grey-text el-has-no-margin el-body-text"
+                  class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
                 >
                   <a
                     href="https://foo.bar"
@@ -1535,7 +1535,7 @@ Object {
                   Privacy Policy
                 </h2>
                 <p
-                  class="el-has-grey-text el-has-no-margin el-body-text"
+                  class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
                 >
                   <a
                     href="https://foo.bar"
@@ -1555,7 +1555,7 @@ Object {
                   Pricing Policy
                 </h2>
                 <p
-                  class="el-has-grey-text el-has-no-margin el-body-text"
+                  class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
                 >
                   <a
                     href="https://foo.bar"
@@ -1990,7 +1990,7 @@ Object {
                     Website
                   </h2>
                   <p
-                    class="el-has-grey-text el-has-no-margin el-body-text"
+                    class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
                   >
                     <a
                       href="https://foo.bar"
@@ -2010,7 +2010,7 @@ Object {
                     Support Email
                   </h2>
                   <p
-                    class="el-has-grey-text el-has-no-margin el-body-text"
+                    class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
                   >
                     <a
                       href="mailto:foo@bar.com"
@@ -2030,7 +2030,7 @@ Object {
                     Telephone
                   </h2>
                   <p
-                    class="el-has-grey-text el-has-no-margin el-body-text"
+                    class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
                   >
                     07777777777
                   </p>
@@ -2044,7 +2044,7 @@ Object {
                     Terms and Conditions
                   </h2>
                   <p
-                    class="el-has-grey-text el-has-no-margin el-body-text"
+                    class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
                   >
                     <a
                       href="https://foo.bar"
@@ -2064,7 +2064,7 @@ Object {
                     Privacy Policy
                   </h2>
                   <p
-                    class="el-has-grey-text el-has-no-margin el-body-text"
+                    class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
                   >
                     <a
                       href="https://foo.bar"
@@ -2084,7 +2084,7 @@ Object {
                     Pricing Policy
                   </h2>
                   <p
-                    class="el-has-grey-text el-has-no-margin el-body-text"
+                    class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
                   >
                     <a
                       href="https://foo.bar"
@@ -2455,7 +2455,7 @@ Object {
                   Website
                 </h2>
                 <p
-                  class="el-has-grey-text el-has-no-margin el-body-text"
+                  class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
                 >
                   <a
                     href="https://foo.bar"
@@ -2475,7 +2475,7 @@ Object {
                   Support Email
                 </h2>
                 <p
-                  class="el-has-grey-text el-has-no-margin el-body-text"
+                  class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
                 >
                   <a
                     href="mailto:foo@bar.com"
@@ -2495,7 +2495,7 @@ Object {
                   Telephone
                 </h2>
                 <p
-                  class="el-has-grey-text el-has-no-margin el-body-text"
+                  class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
                 >
                   07777777777
                 </p>
@@ -2509,7 +2509,7 @@ Object {
                   Terms and Conditions
                 </h2>
                 <p
-                  class="el-has-grey-text el-has-no-margin el-body-text"
+                  class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
                 >
                   <a
                     href="https://foo.bar"
@@ -2529,7 +2529,7 @@ Object {
                   Privacy Policy
                 </h2>
                 <p
-                  class="el-has-grey-text el-has-no-margin el-body-text"
+                  class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
                 >
                   <a
                     href="https://foo.bar"
@@ -2549,7 +2549,7 @@ Object {
                   Pricing Policy
                 </h2>
                 <p
-                  class="el-has-grey-text el-has-no-margin el-body-text"
+                  class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
                 >
                   <a
                     href="https://foo.bar"
