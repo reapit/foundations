@@ -16,7 +16,7 @@ import {
   InputWrapFull,
   Loader,
   MultiSelectInput,
-  PersistantNotification,
+  PersistentNotification,
   Subtitle,
   useSnack,
 } from '@reapit/elements'
@@ -111,9 +111,9 @@ export const EditUserForm: FC<EditUserFormProps> = ({ onComplete, user, orgId })
             {...register('groupIds')}
           />
           {errors.groupIds && (
-            <PersistantNotification isFullWidth isExpanded intent="danger" isInline>
+            <PersistentNotification isFullWidth isExpanded intent="danger" isInline>
               {errors.groupIds.message}
-            </PersistantNotification>
+            </PersistentNotification>
           )}
         </InputWrapFull>
       </FormLayout>

@@ -10,7 +10,7 @@ import AppPricingPermissionsSection from '../ui/apps/app-pricing-permissions-sec
 import AppInstallationManager from '../ui/apps/app-installation-manager'
 import {
   Loader,
-  PersistantNotification,
+  PersistentNotification,
   FlexContainer,
   SecondaryNavContainer,
   Title,
@@ -59,9 +59,9 @@ const MarketplaceAppPage: FC = () => {
 
   if (appsError || typesError)
     return (
-      <PersistantNotification intent="danger">
+      <PersistentNotification intent="danger">
         Something went wrong fetching the app details. Please refresh this page.
-      </PersistantNotification>
+      </PersistentNotification>
     )
 
   return (
@@ -90,9 +90,9 @@ const MarketplaceAppPage: FC = () => {
       </SecondaryNavContainer>
       <PageContainer className={elHFull}>
         {!orgClientId ? (
-          <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
+          <PersistentNotification isFullWidth isExpanded intent="secondary" isInline>
             No organisation selected. You need to select an organisation to view the app details.
-          </PersistantNotification>
+          </PersistentNotification>
         ) : !app || !desktopIntegrationTypes ? (
           <Loader />
         ) : (

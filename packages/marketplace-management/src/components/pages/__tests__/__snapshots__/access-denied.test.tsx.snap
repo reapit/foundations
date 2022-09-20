@@ -14,7 +14,7 @@ Object {
           Reapit Connect Management
         </h1>
         <div
-          class="el-mb11 el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistant-notification"
+          class="el-mb11 el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
         >
           <div
             class="el-pn-icon"
@@ -74,7 +74,7 @@ Object {
         Reapit Connect Management
       </h1>
       <div
-        class="el-mb11 el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistant-notification"
+        class="el-mb11 el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
       >
         <div
           class="el-pn-icon"

@@ -6,7 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="el-intent-danger el-persistant-notification"
+        class="el-intent-danger el-persistent-notification"
       >
         <div
           class="el-pn-icon"
@@ -39,7 +39,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="el-intent-danger el-persistant-notification"
+      class="el-intent-danger el-persistent-notification"
     >
       <div
         class="el-pn-icon"
@@ -1259,7 +1259,7 @@ Object {
           class="el-hfull el-page-container"
         >
           <div
-            class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistant-notification"
+            class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
           >
             <div
               class="el-pn-icon"
@@ -1438,7 +1438,7 @@ Object {
         class="el-hfull el-page-container"
       >
         <div
-          class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistant-notification"
+          class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
         >
           <div
             class="el-pn-icon"
