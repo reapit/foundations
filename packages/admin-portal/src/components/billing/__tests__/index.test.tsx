@@ -23,7 +23,7 @@ describe('handleDownloadBillingPeriod', () => {
     const period = '2020-02'
     const setBillingFile = jest.fn()
 
-    const fn = handleDownloadBillingPeriod(period, setBillingFile)
+    const fn = handleDownloadBillingPeriod(setBillingFile, period)
     await fn()
     expect(mockBillingServices).toBeCalledWith({ period })
   })
