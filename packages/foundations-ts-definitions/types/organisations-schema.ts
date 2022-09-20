@@ -1156,6 +1156,22 @@ export interface UserInfoModel {
    */
   consentToTrack?: boolean
   /**
+   * The id of the negotiator the user relates to
+   */
+  negotiatorId?: string
+  /**
+   * The id of the office the user belongs to
+   */
+  officeId?: string
+  /**
+   * The name of the office group the user belongs to
+   */
+  officeGroupName?: string
+  /**
+   * The ids of the offices belonging to the group
+   */
+  officeGroupIds?: string
+  /**
    * The List of members that the parent organisation group governs
    */
   organisationGroupMembers?: OrganisationGroupMemberModel[]
