@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useMemo, FC } from 'react'
 import useSWR from 'swr'
-import { useHistory } from 'react-router'
+import { useHistory, useLocation } from 'react-router'
 import { History } from 'history'
 import { UserModelPagedResult, UserModel } from '../../../types/organisations-schema'
 import ErrorBoundary from '@/components/hocs/error-boundary'
@@ -17,7 +17,7 @@ import {
   InputWrap,
   Loader,
   Pagination,
-  PersistantNotification,
+  PersistentNotification,
   RowProps,
   Table,
   Title,
@@ -80,6 +80,7 @@ export const handleSortTableData = (users: UserModel[], orgId: string, onComplet
 
 const UsersTab: FC = () => {
   const history = useHistory()
+  const location = useLocation()
   const { Modal, openModal, closeModal } = useModal()
   const [userSearch, setUserSearch] = useState<UserFilters>({})
   const { isMobile } = useMediaQuery()
@@ -90,17 +91,21 @@ const UsersTab: FC = () => {
     orgIdState: { orgId, orgName },
   } = useOrgId()
   const search = qs.stringify(userSearch, { addQueryPrefix: true })
+  const urlParams = new URLSearchParams(location.search)
+  const pageNumber = Number(urlParams.get('pageNumber')) ?? 1
+
   const { data, mutate } = useSWR<UserModelPagedResult | undefined>(
     orgId
       ? `${URLS.USERS}/${
-          search ? `${search}&pageSize=12&organisationId=${orgId}` : `?pageSize=12&organisationId=${orgId}`
+          search
+            ? `${search}&pageSize=12&pageNumber=${pageNumber}&organisationId=${orgId}`
+            : `?pageSize=12&pageNumber=${pageNumber}&organisationId=${orgId}`
         }`
       : null,
   )
 
   const users = data?._embedded ?? []
   const totalPageCount = data?.totalPageCount ?? 0
-  const pageNumber = data?.pageNumber ?? 0
 
   const onComplete = () => {
     // Set timeout as a workaround for RDS replication error.
@@ -155,13 +160,13 @@ const UsersTab: FC = () => {
           <Pagination callback={onPageChange} numberPages={totalPageCount} currentPage={pageNumber} />
         </>
       ) : orgId ? (
-        <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
+        <PersistentNotification isFullWidth isExpanded intent="secondary" isInline>
           No users found
-        </PersistantNotification>
+        </PersistentNotification>
       ) : (
-        <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
+        <PersistentNotification isFullWidth isExpanded intent="secondary" isInline>
           No organisation selected. You need to select an organisation to view users.
-        </PersistantNotification>
+        </PersistentNotification>
       )}
     </ErrorBoundary>
   )
