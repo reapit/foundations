@@ -63,6 +63,8 @@ export class ReapitConnectBrowserSession {
   }
 
   private setIdleTimeoutListeners() {
+    if (this.connectIsDesktop) return
+
     const resetTimer = () => {
       clearTimeout(this.idleTimeoutCountdown)
       this.idleTimeoutCountdown = window.setTimeout(this.connectLogoutRedirect, this.connectApplicationTimeout)
