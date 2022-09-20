@@ -13,7 +13,7 @@ import {
   FlexContainer,
   Loader,
   Pagination,
-  PersistantNotification,
+  PersistentNotification,
   RowProps,
   Table,
   useMediaQuery,
@@ -133,13 +133,13 @@ const UserGroupsTab: FC = () => {
           <Pagination callback={onPageChange} numberPages={totalPageCount} currentPage={pageNumber} />
         </>
       ) : orgId ? (
-        <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
+        <PersistentNotification isFullWidth isExpanded intent="secondary" isInline>
           No users found
-        </PersistantNotification>
+        </PersistentNotification>
       ) : (
-        <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
+        <PersistentNotification isFullWidth isExpanded intent="secondary" isInline>
           No organisation selected. You need to select an organisation to view user groups.
-        </PersistantNotification>
+        </PersistentNotification>
       )}
     </ErrorBoundary>
   )

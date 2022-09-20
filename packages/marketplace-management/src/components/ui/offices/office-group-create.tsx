@@ -19,7 +19,7 @@ import {
   Label,
   MultiSelectInput,
   MultiSelectOption,
-  PersistantNotification,
+  PersistentNotification,
   StepsVertical,
   Title,
   Toggle,
@@ -175,9 +175,9 @@ export const OfficeGroupCreate: FC<OfficeGroupCreateProps> = () => {
 
   if (!orgId)
     return (
-      <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
+      <PersistentNotification isFullWidth isExpanded intent="secondary" isInline>
         No organisation selected. You need to select an organisation to create an Office Group for.
-      </PersistantNotification>
+      </PersistentNotification>
     )
 
   return (

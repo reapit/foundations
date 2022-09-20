@@ -9,7 +9,7 @@ import { toLocalTime, DATE_TIME_FORMAT } from '@reapit/utils-common'
 import Routes from '@/constants/routes'
 import { URLS } from '../../../constants/api'
 import EditOfficeGroupForm from './office-group-edit-form'
-import { elFadeIn, elMb11, Pagination, PersistantNotification, RowProps, Table, Title } from '@reapit/elements'
+import { elFadeIn, elMb11, Pagination, PersistentNotification, RowProps, Table, Title } from '@reapit/elements'
 import { OfficeModel, OfficeModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { cx } from '@linaria/core'
 import { useOrgId } from '../../../utils/use-org-id'
@@ -174,13 +174,13 @@ const OfficesGroupsTab: FC = () => {
           <Pagination callback={onPageChange} numberPages={totalPageCount} currentPage={pageNumber} />
         </>
       ) : orgId ? (
-        <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
+        <PersistentNotification isFullWidth isExpanded intent="secondary" isInline>
           No results found for your office groups search
-        </PersistantNotification>
+        </PersistentNotification>
       ) : (
-        <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
+        <PersistentNotification isFullWidth isExpanded intent="secondary" isInline>
           No organisation selected. You need to select an organisation to view ofice groups.
-        </PersistantNotification>
+        </PersistentNotification>
       )}
     </ErrorBoundary>
   )

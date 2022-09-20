@@ -21,7 +21,7 @@ import {
   Label,
   MultiSelectInput,
   MultiSelectOption,
-  PersistantNotification,
+  PersistentNotification,
   Subtitle,
   Toggle,
   useModal,
@@ -245,9 +245,9 @@ export const OfficeGroupEditForm: FC<OfficeGroupEditFormProps> = ({ officeGroup,
             {...register('officeIds')}
           />
           {errors.officeIds && (
-            <PersistantNotification isFullWidth isExpanded intent="danger" isInline>
+            <PersistentNotification isFullWidth isExpanded intent="danger" isInline>
               {errors.officeIds.message}
-            </PersistantNotification>
+            </PersistentNotification>
           )}
         </InputWrapFull>
       </FormLayout>
