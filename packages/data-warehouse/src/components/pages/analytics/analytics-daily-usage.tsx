@@ -2,6 +2,7 @@ import * as React from 'react'
 import { Section, H5, FadeIn, DATE_TIME_FORMAT, Loader, Formik, DatePicker, Form } from '@reapit/elements-legacy'
 import ErrorBoundary from '../../hocs/error-boundary'
 import { Line } from 'react-chartjs-2'
+import { ChartData, ChartOptions } from 'chart.js'
 import { useCallback, useContext, useEffect, useState } from 'react'
 import {
   getAppHttpTrafficPerDayChartData,
@@ -30,8 +31,8 @@ export const AnalyticsDailyUsage: React.FC = () => {
   const appHttpTrafficPerDayChartData = getAppHttpTrafficPerDayChartData((dwService && dwService?.items) ?? [])
 
   const { labels, data, chartDataStats } = appHttpTrafficPerDayChartData
-  const chartData = getDailyChartConfig(labels, data)
-  const chartOptions = getDailyChartOptions(chartDataStats)
+  const chartData = getDailyChartConfig(labels, data) as ChartData<'line', number[], string>
+  const chartOptions = getDailyChartOptions(chartDataStats) as ChartOptions<any>
 
   useEffect(handleGetBilling(setBilling, setBillingLoading, setMessageState, month), [developerId, month])
 

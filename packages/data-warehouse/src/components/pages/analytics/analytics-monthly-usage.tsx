@@ -7,6 +7,7 @@ import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { MessageContext } from '../../../context/message-context'
 import { ChartContainer } from './__styles__/analytics'
 import { handleGetBillingByPeriod, mapServiceChartDataSet } from './analytics-handlers'
+import { ChartOptions } from 'chart.js'
 
 export const AnalyticsMonthlyUsage: React.FC = () => {
   const [billing, setBilling] = useState<BillingOverviewForPeriodV2Model>()
@@ -32,19 +33,21 @@ export const AnalyticsMonthlyUsage: React.FC = () => {
               data={datasets}
               width={50}
               height={50}
-              options={{
-                maintainAspectRatio: false,
-                scales: {
-                  yAxes: [
-                    {
-                      scaleLabel: {
-                        display: true,
-                        labelString: 'Total Cost ( £ )',
+              options={
+                {
+                  maintainAspectRatio: false,
+                  scales: {
+                    yAxes: [
+                      {
+                        scaleLabel: {
+                          display: true,
+                          labelString: 'Total Cost ( £ )',
+                        },
                       },
-                    },
-                  ],
-                },
-              }}
+                    ],
+                  },
+                } as ChartOptions<any>
+              }
             />
           )}
         </ChartContainer>
