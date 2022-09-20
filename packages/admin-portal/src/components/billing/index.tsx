@@ -5,7 +5,7 @@ import {
   FormLayout,
   InputGroup,
   InputWrap,
-  Loader,
+  PersistentNotification,
   Table,
   TableCell,
   TableHeader,
@@ -26,11 +26,7 @@ export interface SelectOption {
 }
 
 export interface InstallationFilters {
-  month: string
-}
-
-const defaultValues: InstallationFilters = {
-  month: dayjs().format('YYYY-MM'),
+  month?: string
 }
 
 export const handleSaveFile = (billingFile: Blob, filename: string) => () => {
@@ -38,7 +34,7 @@ export const handleSaveFile = (billingFile: Blob, filename: string) => () => {
 }
 
 export const handleDownloadBillingPeriod =
-  (period: string, setBillingFile: Dispatch<SetStateAction<Blob | null>>) => () => {
+  (setBillingFile: Dispatch<SetStateAction<Blob | null>>, period?: string) => () => {
     const fetchBilling = async () => {
       if (!period) return
 
@@ -58,15 +54,14 @@ export const handleDownloadBillingPeriod =
   }
 
 export const AdminBilling: FC = () => {
-  const [installationsFilters, setInstallationsFilters] = useState<InstallationFilters>(defaultValues)
+  const [installationsFilters, setInstallationsFilters] = useState<InstallationFilters>()
   const [billingFile, setBillingFile] = useState<Blob | null>(null)
 
   const { register, handleSubmit } = useForm<InstallationFilters>({
     mode: 'onChange',
-    defaultValues,
   })
 
-  useEffect(handleDownloadBillingPeriod(installationsFilters.month, setBillingFile), [installationsFilters])
+  useEffect(handleDownloadBillingPeriod(setBillingFile, installationsFilters?.month), [installationsFilters])
 
   return (
     <PageContainer>
@@ -78,7 +73,7 @@ export const AdminBilling: FC = () => {
           </InputWrap>
         </FormLayout>
       </form>
-      {billingFile ? (
+      {billingFile && installationsFilters?.month ? (
         <Table className={elMb11}>
           <TableHeadersRow>
             <TableHeader>Period</TableHeader>
@@ -99,7 +94,9 @@ export const AdminBilling: FC = () => {
           </TableRowContainer>
         </Table>
       ) : (
-        <Loader />
+        <PersistentNotification intent="secondary" isExpanded={true} isInline isFullWidth>
+          No billing file available for download.
+        </PersistentNotification>
       )}
     </PageContainer>
   )
