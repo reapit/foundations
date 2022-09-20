@@ -89,6 +89,7 @@ export const HeroAppsStrapline = styled(ElBodyText)`
   ${forTabletAndAbove} {
     -webkit-line-clamp: 2;
     margin-bottom: 1.25rem;
+    min-height: 2.25rem;
   }
 
   ${forDesktopAndAbove} {
