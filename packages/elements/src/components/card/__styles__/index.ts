@@ -288,6 +288,10 @@ export const ElCardListItemTextPrimary = styled.div`
 export const ElCardListItemTextSecondary = styled.div`
   font-size: 0.85rem;
   color: var(--intent-primary);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
 `
 
 export const ElCardListIcon = styled.div`
@@ -299,6 +303,7 @@ export const ElCardListIcon = styled.div`
   background: var(--color-grey-light);
   margin-right: 0.5rem;
   border-radius: 0.25rem;
+  flex-shrink: 0;
 `
 
 export const ElCardContextMenuWrapper = styled.div`

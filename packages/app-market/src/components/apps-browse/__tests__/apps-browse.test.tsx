@@ -3,6 +3,7 @@ import { render, setViewport, viewPortOptions } from '../../../tests/react-testi
 import {
   AppsBrowse,
   checkHasFilters,
+  handleCollectionId,
   handleMobileControls,
   handleSetFilters,
   handleSortConfigs,
@@ -11,6 +12,8 @@ import {
 import { appsBrowseConfigCollection } from '../../../core/config'
 import { useAppsBrowseState } from '../../../core/use-apps-browse-state'
 import { mockAppsBrowseState } from '../../../core/__mocks__/use-apps-browse-state'
+import { History } from 'history'
+import { Routes } from '../../../constants/routes'
 
 window.reapit.config.clientHiddenAppIds = {}
 window.reapit.config.orgAdminRestrictedAppIds = []
@@ -121,10 +124,27 @@ describe('handleMobileControls', () => {
 describe('handleSetFilters', () => {
   it('should set filters', () => {
     const setAppsBrowseFilterState = jest.fn()
-    const curried = handleSetFilters(setAppsBrowseFilterState, configItem?.filters ?? null)
+    const history = {
+      push: jest.fn(),
+    } as unknown as History
+    const curried = handleSetFilters(setAppsBrowseFilterState, history, configItem)
 
     curried()
 
     expect(setAppsBrowseFilterState).toHaveBeenCalledWith(configItem.filters)
+    expect(history.push).toHaveBeenCalledWith(`${Routes.APPS_BROWSE}?collectionId=${configItem.id}`)
+  })
+})
+
+describe('handleCollectionId', () => {
+  it('should set filters from an id', () => {
+    const setAppsBrowseFilterState = jest.fn()
+    const appsBrowseConfigState = mockAppsBrowseState.appsBrowseConfigState
+    const collectionId = appsBrowseConfigState.items[0].id ?? null
+    const curried = handleCollectionId(setAppsBrowseFilterState, appsBrowseConfigState, collectionId)
+
+    curried()
+
+    expect(setAppsBrowseFilterState).toHaveBeenCalledWith(appsBrowseConfigState.items[0].filters)
   })
 })

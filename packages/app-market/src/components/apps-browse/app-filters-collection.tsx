@@ -9,6 +9,9 @@ import { trackEvent } from '../../core/analytics'
 import { TrackingEvent } from '../../core/analytics-events'
 import { useAppsBrowseState } from '../../core/use-apps-browse-state'
 import { AppFilterCol, AppFilterSubtitle, AppFilterStrapline } from './__styles__'
+import { History } from 'history'
+import { Routes } from '../../constants/routes'
+import { useHistory } from 'react-router'
 
 interface AppFiltersCollectionProps {
   configItem: AppsBrowseConfigItemInterface
@@ -18,9 +21,11 @@ export const handleSetFilters =
   (
     setAppsBrowseFilterState: Dispatch<SetStateAction<AppsBrowseConfigItemFiltersInterface | null>>,
     appsBrowseCategoriesState: CategoryModelPagedResult | null,
-    filters?: AppsBrowseConfigItemFiltersInterface | null,
+    history: History,
+    configItem: AppsBrowseConfigItemInterface,
   ) =>
   () => {
+    const { filters, id } = configItem
     if (filters) {
       setAppsBrowseFilterState(filters)
 
@@ -31,6 +36,7 @@ export const handleSetFilters =
       })
 
       filters.category = categoryNames
+      history.push(`${Routes.APPS_BROWSE}?collectionId=${id}`)
 
       trackEvent(TrackingEvent.ClickFiltersTile, true, { filters })
     }
@@ -46,14 +52,15 @@ export const handleIconSize = (mediaQuery: MediaType) => () => {
 
 export const AppFiltersCollection: FC<AppFiltersCollectionProps> = memo(({ configItem }) => {
   const { setAppsBrowseFilterState, appsBrowseCategoriesState } = useAppsBrowseState()
+  const history = useHistory()
   const mediaQuery = useMediaQuery()
   const iconSize = useMemo(handleIconSize(mediaQuery), [mediaQuery])
-  const { content, filters } = configItem
+  const { content } = configItem
 
-  const setFilters = useCallback(handleSetFilters(setAppsBrowseFilterState, appsBrowseCategoriesState, filters), [
-    filters,
-    appsBrowseCategoriesState,
-  ])
+  const setFilters = useCallback(
+    handleSetFilters(setAppsBrowseFilterState, appsBrowseCategoriesState, history, configItem),
+    [configItem, appsBrowseCategoriesState],
+  )
 
   return (
     <AppFilterCol onClick={setFilters}>

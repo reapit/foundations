@@ -1,4 +1,4 @@
-import React, { Dispatch, FC, Fragment, SetStateAction, useCallback, useMemo, useState } from 'react'
+import React, { Dispatch, FC, Fragment, SetStateAction, useCallback, useEffect, useMemo, useState } from 'react'
 import {
   PageContainer,
   FlexContainer,
@@ -43,6 +43,9 @@ import {
 } from '@reapit/foundations-ts-definitions'
 import { trackEvent } from '../../core/analytics'
 import { TrackingEvent } from '../../core/analytics-events'
+import { History } from 'history'
+import { Routes } from '../../constants/routes'
+import { useHistory, useLocation } from 'react-router'
 
 export type MobileControlsState = 'search' | 'filters' | null
 
@@ -67,12 +70,15 @@ export const checkHasFilters = (appsBrowseFilterState: AppsBrowseConfigItemFilte
 export const handleSetFilters =
   (
     setAppsBrowseFilterState: Dispatch<SetStateAction<AppsBrowseConfigItemFiltersInterface | null>>,
-    filters?: AppsBrowseConfigItemFiltersInterface | null,
+    history: History,
+    configItem: AppsBrowseConfigItemInterface,
   ) =>
   () => {
+    const { filters, id } = configItem
     if (filters) {
       trackEvent(TrackingEvent.ClickSeeAllFilter, true, { filters })
       setAppsBrowseFilterState(filters)
+      history.push(`${Routes.APPS_BROWSE}?collectionId=${id}`)
     }
   }
 
@@ -116,14 +122,32 @@ export const handleSortConfigs = (appsBrowseConfigState: AppsBrowseConfigCollect
   }, baseConfig)
 }
 
+export const handleCollectionId =
+  (
+    setAppsBrowseFilterState: Dispatch<SetStateAction<AppsBrowseConfigItemFiltersInterface | null>>,
+    appsBrowseConfigState: AppsBrowseConfigCollection | null,
+    collectionId: string | null,
+  ) =>
+  () => {
+    const filters = appsBrowseConfigState?.items.find((item) => item.id === collectionId)?.filters
+
+    if (filters) {
+      setAppsBrowseFilterState(filters)
+    }
+  }
+
 export const AppsBrowse: FC = () => {
   const { appsBrowseFilterState, setAppsBrowseFilterState, appsBrowseConfigState } = useAppsBrowseState()
   const mediaQuery = useMediaQuery()
+  const history = useHistory()
+  const location = useLocation()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [mobileControlsState, setMobileControlsState] = useState<MobileControlsState>(null)
   const isDeveloper = Boolean(connectSession?.loginIdentity.developerId)
   const hasFilters = useMemo(checkHasFilters(appsBrowseFilterState), [appsBrowseFilterState])
   const filtersCols = useMemo(handleFiltersCols(mediaQuery), [mediaQuery])
+  const urlParams = new URLSearchParams(location.search)
+  const collectionId = urlParams.get('collectionId')
   const { featuredHeroApps, heroApps, appsFilters, featuredApps, simpleApps } = useMemo(
     handleSortConfigs(appsBrowseConfigState),
     [appsBrowseConfigState],
@@ -136,6 +160,11 @@ export const AppsBrowse: FC = () => {
     handleMobileControls(setMobileControlsState, mobileControlsState === 'search' ? null : 'search'),
     [mobileControlsState],
   )
+
+  useEffect(handleCollectionId(setAppsBrowseFilterState, appsBrowseConfigState, collectionId), [
+    appsBrowseConfigState,
+    collectionId,
+  ])
 
   const { isMobile, isTablet } = mediaQuery
 
@@ -162,7 +191,7 @@ export const AppsBrowse: FC = () => {
       </AppSearchFiltersWrap>
       <AppSearchFilters mobileControlsState={mobileControlsState} setMobileControlsState={setMobileControlsState} />
       {hasFilters ? (
-        <FilteredAppsCollection />
+        <FilteredAppsCollection collectionId={collectionId} />
       ) : (
         <>
           {featuredHeroApps.map((configItem, index) => (
@@ -192,7 +221,7 @@ export const AppsBrowse: FC = () => {
               <Fragment key={index}>
                 <FlexContainer isFlexAlignCenter>
                   <BrowseAppsSubtitle>{configItem?.content?.title}</BrowseAppsSubtitle>
-                  <AppFilterLink onClick={handleSetFilters(setAppsBrowseFilterState, configItem.filters)}>
+                  <AppFilterLink onClick={handleSetFilters(setAppsBrowseFilterState, history, configItem)}>
                     See All
                   </AppFilterLink>
                 </FlexContainer>
@@ -205,7 +234,7 @@ export const AppsBrowse: FC = () => {
               <Fragment key={index}>
                 <FlexContainer isFlexAlignCenter>
                   <BrowseAppsSubtitle>{configItem?.content?.title}</BrowseAppsSubtitle>
-                  <AppFilterLink onClick={handleSetFilters(setAppsBrowseFilterState, configItem.filters)}>
+                  <AppFilterLink onClick={handleSetFilters(setAppsBrowseFilterState, history, configItem)}>
                     See All
                   </AppFilterLink>
                 </FlexContainer>
