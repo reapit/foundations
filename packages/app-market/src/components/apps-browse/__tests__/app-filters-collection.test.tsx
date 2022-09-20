@@ -6,6 +6,8 @@ import { appsBrowseConfigCollection } from '../../../core/config'
 import { trackEvent } from '../../../core/analytics'
 import { TrackingEvent } from '../../../core/analytics-events'
 import { mockCategoryModelPagedResult } from '../../../tests/__stubs__/categories'
+import { History } from 'history'
+import { Routes } from '../../../constants/routes'
 
 const configItem = handleSortConfigs(appsBrowseConfigCollection)().appsFilters[0]
 
@@ -24,11 +26,15 @@ describe('AppFiltersCollection', () => {
 describe('handleSetFilters', () => {
   it('should set filters', () => {
     const setAppsBrowseFilterState = jest.fn()
-    const curried = handleSetFilters(setAppsBrowseFilterState, mockCategoryModelPagedResult, configItem.filters)
+    const history = {
+      push: jest.fn(),
+    } as unknown as History
+    const curried = handleSetFilters(setAppsBrowseFilterState, mockCategoryModelPagedResult, history, configItem)
 
     curried()
 
     expect(trackEvent).toHaveBeenCalledWith(TrackingEvent.ClickFiltersTile, true, { filters: configItem.filters })
     expect(setAppsBrowseFilterState).toHaveBeenCalledWith(configItem.filters)
+    expect(history.push).toHaveBeenCalledWith(`${Routes.APPS_BROWSE}?collectionId=${configItem.id}`)
   })
 })
