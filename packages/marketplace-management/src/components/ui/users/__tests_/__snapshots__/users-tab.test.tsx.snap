@@ -3088,7 +3088,7 @@ Object {
         >
           <input
             class="el-pagination-input"
-            value="0"
+            value="1"
           />
            of 
           1
@@ -3121,7 +3121,7 @@ Object {
           type="button"
         >
           <span
-            class="el-pagination-primary el-icon"
+            class="el-icon"
           >
             <svg
               fill="none"
@@ -6224,7 +6224,7 @@ Object {
       >
         <input
           class="el-pagination-input"
-          value="0"
+          value="1"
         />
          of 
         1
@@ -6257,7 +6257,7 @@ Object {
         type="button"
       >
         <span
-          class="el-pagination-primary el-icon"
+          class="el-icon"
         >
           <svg
             fill="none"
