@@ -92,7 +92,8 @@ const UsersTab: FC = () => {
   } = useOrgId()
   const search = qs.stringify(userSearch, { addQueryPrefix: true })
   const urlParams = new URLSearchParams(location.search)
-  const pageNumber = Number(urlParams.get('pageNumber')) ?? 1
+  const pageQuery = urlParams.get('pageNumber')
+  const pageNumber = pageQuery ? Number(pageQuery) : 1
 
   const { data, mutate } = useSWR<UserModelPagedResult | undefined>(
     orgId
