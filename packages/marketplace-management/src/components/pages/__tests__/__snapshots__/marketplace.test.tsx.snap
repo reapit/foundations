@@ -232,7 +232,7 @@ Object {
                   <h5
                     class="el-card-list-heading"
                   >
-                    Installation and Visibiliy
+                    Installation and Visibility
                   </h5>
                   <h6
                     class="el-card-list-sub-heading"
@@ -533,7 +533,7 @@ Object {
                   <h5
                     class="el-card-list-heading"
                   >
-                    Installation and Visibiliy
+                    Installation and Visibility
                   </h5>
                   <h6
                     class="el-card-list-sub-heading"
@@ -834,7 +834,7 @@ Object {
                   <h5
                     class="el-card-list-heading"
                   >
-                    Installation and Visibiliy
+                    Installation and Visibility
                   </h5>
                   <h6
                     class="el-card-list-sub-heading"
@@ -1135,7 +1135,7 @@ Object {
                   <h5
                     class="el-card-list-heading"
                   >
-                    Installation and Visibiliy
+                    Installation and Visibility
                   </h5>
                   <h6
                     class="el-card-list-sub-heading"
@@ -1436,7 +1436,7 @@ Object {
                   <h5
                     class="el-card-list-heading"
                   >
-                    Installation and Visibiliy
+                    Installation and Visibility
                   </h5>
                   <h6
                     class="el-card-list-sub-heading"
@@ -1737,7 +1737,7 @@ Object {
                   <h5
                     class="el-card-list-heading"
                   >
-                    Installation and Visibiliy
+                    Installation and Visibility
                   </h5>
                   <h6
                     class="el-card-list-sub-heading"
@@ -2040,7 +2040,7 @@ Object {
                   <h5
                     class="el-card-list-heading"
                   >
-                    Installation and Visibiliy
+                    Installation and Visibility
                   </h5>
                   <h6
                     class="el-card-list-sub-heading"
@@ -2341,7 +2341,7 @@ Object {
                   <h5
                     class="el-card-list-heading"
                   >
-                    Installation and Visibiliy
+                    Installation and Visibility
                   </h5>
                   <h6
                     class="el-card-list-sub-heading"
@@ -2642,7 +2642,7 @@ Object {
                   <h5
                     class="el-card-list-heading"
                   >
-                    Installation and Visibiliy
+                    Installation and Visibility
                   </h5>
                   <h6
                     class="el-card-list-sub-heading"
@@ -3167,7 +3167,7 @@ Object {
                 <h5
                   class="el-card-list-heading"
                 >
-                  Installation and Visibiliy
+                  Installation and Visibility
                 </h5>
                 <h6
                   class="el-card-list-sub-heading"
@@ -3468,7 +3468,7 @@ Object {
                 <h5
                   class="el-card-list-heading"
                 >
-                  Installation and Visibiliy
+                  Installation and Visibility
                 </h5>
                 <h6
                   class="el-card-list-sub-heading"
@@ -3769,7 +3769,7 @@ Object {
                 <h5
                   class="el-card-list-heading"
                 >
-                  Installation and Visibiliy
+                  Installation and Visibility
                 </h5>
                 <h6
                   class="el-card-list-sub-heading"
@@ -4070,7 +4070,7 @@ Object {
                 <h5
                   class="el-card-list-heading"
                 >
-                  Installation and Visibiliy
+                  Installation and Visibility
                 </h5>
                 <h6
                   class="el-card-list-sub-heading"
@@ -4371,7 +4371,7 @@ Object {
                 <h5
                   class="el-card-list-heading"
                 >
-                  Installation and Visibiliy
+                  Installation and Visibility
                 </h5>
                 <h6
                   class="el-card-list-sub-heading"
@@ -4672,7 +4672,7 @@ Object {
                 <h5
                   class="el-card-list-heading"
                 >
-                  Installation and Visibiliy
+                  Installation and Visibility
                 </h5>
                 <h6
                   class="el-card-list-sub-heading"
@@ -4975,7 +4975,7 @@ Object {
                 <h5
                   class="el-card-list-heading"
                 >
-                  Installation and Visibiliy
+                  Installation and Visibility
                 </h5>
                 <h6
                   class="el-card-list-sub-heading"
@@ -5276,7 +5276,7 @@ Object {
                 <h5
                   class="el-card-list-heading"
                 >
-                  Installation and Visibiliy
+                  Installation and Visibility
                 </h5>
                 <h6
                   class="el-card-list-sub-heading"
@@ -5577,7 +5577,7 @@ Object {
                 <h5
                   class="el-card-list-heading"
                 >
-                  Installation and Visibiliy
+                  Installation and Visibility
                 </h5>
                 <h6
                   class="el-card-list-sub-heading"
@@ -6096,7 +6096,7 @@ Object {
             </h1>
           </div>
           <div
-            class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistant-notification"
+            class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
           >
             <div
               class="el-pn-icon"
@@ -6294,7 +6294,7 @@ Object {
           </h1>
         </div>
         <div
-          class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistant-notification"
+          class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
         >
           <div
             class="el-pn-icon"

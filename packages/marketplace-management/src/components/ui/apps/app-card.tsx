@@ -79,7 +79,7 @@ export const AppCard: FC<AppCardProps> = ({ app, connectSession }: AppCardProps)
       mainCardSubHeadingAdditional={app.isDirectApi ? 'Integration' : ''}
       mainCardBody={app.summary}
       mainCardImgUrl={app.iconUri || defaultAppIcon}
-      listCardHeading="Installation and Visibiliy"
+      listCardHeading="Installation and Visibility"
       listCardItems={[
         {
           listCardItemHeading: 'Installation Status',

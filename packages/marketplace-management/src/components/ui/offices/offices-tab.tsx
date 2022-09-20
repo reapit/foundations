@@ -15,7 +15,7 @@ import {
   Title,
   Table,
   elMb11,
-  PersistantNotification,
+  PersistentNotification,
   Button,
   ButtonGroup,
   FlexContainer,
@@ -164,13 +164,13 @@ const OfficesTab: FC = () => {
           <Pagination callback={onPageChange} numberPages={totalPageCount} currentPage={pageNumber} />
         </>
       ) : orgClientId ? (
-        <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
+        <PersistentNotification isFullWidth isExpanded intent="secondary" isInline>
           No results found for your office search
-        </PersistantNotification>
+        </PersistentNotification>
       ) : (
-        <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
+        <PersistentNotification isFullWidth isExpanded intent="secondary" isInline>
           No organisation selected. You need to select an organisation to view offices.
-        </PersistantNotification>
+        </PersistentNotification>
       )}
     </ErrorBoundary>
   )

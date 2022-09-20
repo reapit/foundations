@@ -3088,7 +3088,7 @@ Object {
         >
           <input
             class="el-pagination-input"
-            value="1"
+            value="0"
           />
            of 
           1
@@ -3121,7 +3121,7 @@ Object {
           type="button"
         >
           <span
-            class="el-icon"
+            class="el-pagination-primary el-icon"
           >
             <svg
               fill="none"
@@ -6224,7 +6224,7 @@ Object {
       >
         <input
           class="el-pagination-input"
-          value="1"
+          value="0"
         />
          of 
         1
@@ -6257,7 +6257,7 @@ Object {
         type="button"
       >
         <span
-          class="el-icon"
+          class="el-pagination-primary el-icon"
         >
           <svg
             fill="none"
@@ -6391,7 +6391,7 @@ Object {
         </div>
       </form>
       <div
-        class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistant-notification"
+        class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
       >
         <div
           class="el-pn-icon"
@@ -6480,7 +6480,7 @@ Object {
       </div>
     </form>
     <div
-      class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistant-notification"
+      class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
     >
       <div
         class="el-pn-icon"
@@ -6625,7 +6625,7 @@ Object {
         </div>
       </form>
       <div
-        class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistant-notification"
+        class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
       >
         <div
           class="el-pn-icon"
@@ -6713,7 +6713,7 @@ Object {
       </div>
     </form>
     <div
-      class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistant-notification"
+      class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
     >
       <div
         class="el-pn-icon"
