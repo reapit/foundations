@@ -18,7 +18,7 @@ import {
   Loader,
   PageContainer,
   Pagination,
-  PersistantNotification,
+  PersistentNotification,
   SecondaryNavContainer,
   Subtitle,
   Title,
@@ -134,9 +134,9 @@ export const MarketplacePage: FC = () => {
           )}
         </FlexContainer>
         {!orgClientId ? (
-          <PersistantNotification isFullWidth isExpanded intent="secondary" isInline>
+          <PersistentNotification isFullWidth isExpanded intent="secondary" isInline>
             No organisation selected. You need to select an organisation to view available apps.
-          </PersistantNotification>
+          </PersistentNotification>
         ) : appLoading ? (
           <Loader />
         ) : (
