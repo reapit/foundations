@@ -8,6 +8,11 @@ Object {
       <div
         class="el-snack-holder"
       />
+      <h2
+        class="browse-apps-subtitle el-subtitle"
+      >
+        New in AppMarket
+      </h2>
       <div
         class="el-grid"
       >
@@ -190,6 +195,11 @@ Object {
     <div
       class="el-snack-holder"
     />
+    <h2
+      class="browse-apps-subtitle el-subtitle"
+    >
+      New in AppMarket
+    </h2>
     <div
       class="el-grid"
     >

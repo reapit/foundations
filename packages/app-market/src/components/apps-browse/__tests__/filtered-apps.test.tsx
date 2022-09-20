@@ -1,5 +1,6 @@
 import { useReapitGet } from '@reapit/utils-react'
 import React from 'react'
+import { mockAppsBrowseState } from '../../../core/__mocks__/use-apps-browse-state'
 import { render } from '../../../tests/react-testing'
 import { mockAppSummaryModelPagedResult } from '../../../tests/__stubs__/apps'
 import { FilteredAppsCollection } from '../filtered-apps'
@@ -30,11 +31,15 @@ const mockUseReapitGet = useReapitGet as jest.Mock
 
 describe('FilteredAppsCollection', () => {
   it('should match a snapshot', () => {
-    expect(render(<FilteredAppsCollection />)).toMatchSnapshot()
+    expect(
+      render(<FilteredAppsCollection collectionId={mockAppsBrowseState.appsBrowseConfigState.items[0].id ?? null} />),
+    ).toMatchSnapshot()
   })
 
   it('should match a snapshot when loading', () => {
     mockUseReapitGet.mockReturnValue([null, true])
-    expect(render(<FilteredAppsCollection />)).toMatchSnapshot()
+    expect(
+      render(<FilteredAppsCollection collectionId={mockAppsBrowseState.appsBrowseConfigState.items[0].id ?? null} />),
+    ).toMatchSnapshot()
   })
 })
