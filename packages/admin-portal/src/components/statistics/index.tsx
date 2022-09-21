@@ -46,10 +46,30 @@ export const handleDownloadCSV =
     if (data && area === 'APPS') {
       const apps = data as AppSummaryModel[]
       const csv = Papa.unparse({
-        fields: ['App Name', 'Developer', 'Created', 'Summary', 'Is Listed', 'Is Integration', 'Free App', 'Auth Flow'],
+        fields: [
+          'App Name',
+          'Developer',
+          'Created',
+          'Summary',
+          'Is Listed',
+          'Is Integration',
+          'Free App',
+          'Auth Flow',
+          'Publicly Listed',
+        ],
         data: apps.map((item: AppSummaryModel) => {
-          const { name, developer, created, summary, isListed, isDirectApi, isFree, authFlow } = item
-          return [name, developer, created, summary, isListed, isDirectApi, isFree, authFlow]
+          const { name, developer, created, summary, isListed, isDirectApi, isFree, authFlow, publicListedDate } = item
+          return [
+            name,
+            developer,
+            toLocalTime(created),
+            summary,
+            isListed,
+            isDirectApi,
+            isFree,
+            authFlow,
+            publicListedDate ? toLocalTime(publicListedDate) : '-',
+          ]
         }),
       })
 

@@ -140,7 +140,18 @@ export const AppsTable: FC<AppsTableProps> = ({ apps, appsRefresh }) => {
         indexExpandedRow={indexExpandedRow}
         setIndexExpandedRow={setIndexExpandedRow}
         rows={apps.data.map(
-          ({ name, id, summary, developer, isListed, isDirectApi, isFeatured, created, developerId }) => ({
+          ({
+            name,
+            id,
+            summary,
+            developer,
+            isListed,
+            isDirectApi,
+            isFeatured,
+            created,
+            developerId,
+            publicListedDate,
+          }) => ({
             cells: [
               {
                 label: 'App Name',
@@ -195,6 +206,13 @@ export const AppsTable: FC<AppsTableProps> = ({ apps, appsRefresh }) => {
               {
                 label: 'Created',
                 value: toLocalTime(created) ?? '',
+                narrowTable: {
+                  showLabel: true,
+                },
+              },
+              {
+                label: 'Publicly Listed',
+                value: publicListedDate ? toLocalTime(publicListedDate) : '-',
                 narrowTable: {
                   showLabel: true,
                 },
