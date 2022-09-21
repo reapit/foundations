@@ -8,6 +8,7 @@ export interface DeveloperFilters {
   registeredFrom?: string
   registeredTo?: string
   status?: string
+  gitHubUsername?: string
 }
 
 export interface FilterFormProps {
@@ -23,7 +24,10 @@ export const FilterForm: FC<FilterFormProps> = ({ setDeveloperFilters }) => {
           <InputGroup {...register('name')} label="Developer Name" type="search" />
         </InputWrap>
         <InputWrap>
-          <InputGroup {...register('company')} label="Company Name" />
+          <InputGroup {...register('company')} label="Company Name" type="search" />
+        </InputWrap>
+        <InputWrap>
+          <InputGroup {...register('gitHubUsername')} label="Github Username" type="search" />
         </InputWrap>
         <InputWrap>
           <InputGroup {...register('registeredFrom')} label="Registered From" type="date" />

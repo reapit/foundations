@@ -14,6 +14,7 @@ import { toLocalTime } from '@reapit/utils-common'
 import { CreateSubscriptionsButton } from '../subscriptions/create-subscriptions'
 import { MembersTable } from './members-table'
 import DeveloperStatusModal from './developer-status-modal'
+import { AppsTable } from './apps-table'
 
 export interface DevelopersTableProps {
   developers: DeveloperModelPagedResult | null
@@ -34,9 +35,28 @@ export const handleOpenModal =
   }
 
 export const handleDevIdMembers =
-  (setDevIdMembers: Dispatch<SetStateAction<string | null>>, devIdMembers?: string) => () => {
+  (
+    setDevIdMembers: Dispatch<SetStateAction<string | null>>,
+    setDevIdApps: Dispatch<SetStateAction<string | null>>,
+    devIdMembers?: string,
+  ) =>
+  () => {
     if (devIdMembers) {
       setDevIdMembers(devIdMembers)
+      setDevIdApps(null)
+    }
+  }
+
+export const handleDevIdApps =
+  (
+    setDevIdApps: Dispatch<SetStateAction<string | null>>,
+    setDevIdMembers: Dispatch<SetStateAction<string | null>>,
+    devIdApps?: string,
+  ) =>
+  () => {
+    if (devIdApps) {
+      setDevIdApps(devIdApps)
+      setDevIdMembers(null)
     }
   }
 
@@ -44,10 +64,11 @@ export const DevelopersTable: FC<DevelopersTableProps> = ({ developers, refreshD
   const { Modal, openModal, closeModal } = useModal()
   const [developerUpdate, setDeveloperUpdate] = useState<DeveloperModel | null>(null)
   const [devIdMembers, setDevIdMembers] = useState<string | null>(null)
+  const [devIdApps, setDevIdApps] = useState<string | null>(null)
 
   return developers?.data?.length ? (
     <div className={elMb11}>
-      <Subtitle>Total Apps</Subtitle>
+      <Subtitle>Total Developers</Subtitle>
       <BodyText hasGreyText>{developers.totalCount}</BodyText>
       <Table
         rows={developers.data.map((developer) => {
@@ -105,11 +126,15 @@ export const DevelopersTable: FC<DevelopersTableProps> = ({ developers, refreshD
                       Update Status
                     </Button>
                     <CreateSubscriptionsButton developerId={id} subscriptionType="developerRegistration" />
-                    <Button intent="secondary" onClick={handleDevIdMembers(setDevIdMembers, id)}>
+                    <Button intent="secondary" onClick={handleDevIdMembers(setDevIdMembers, setDevIdApps, id)}>
                       Fetch Members
+                    </Button>
+                    <Button intent="secondary" onClick={handleDevIdApps(setDevIdApps, setDevIdMembers, id)}>
+                      Fetch Apps
                     </Button>
                   </ButtonGroup>
                   {devIdMembers && devIdMembers === id && <MembersTable devIdMembers={devIdMembers} />}
+                  {devIdApps && devIdApps === id && <AppsTable devIdApps={devIdApps} />}
                 </>
               ),
             },
