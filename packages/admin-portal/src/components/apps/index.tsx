@@ -13,6 +13,12 @@ export interface AppsFilters {
   companyName?: string
   registeredFrom?: string
   registeredTo?: string
+  publicListedDateFrom?: string
+  publicListedDateTo?: string
+  id?: string
+  isPublic?: string
+  isDirectApi?: string
+  isListed?: string
 }
 
 export const AppsPage: FC = () => {
