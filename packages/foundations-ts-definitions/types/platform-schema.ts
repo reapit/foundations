@@ -5592,6 +5592,7 @@ export interface CreateJournalEntryModel {
   propertyId?: string
   /**
    * The entity type the journal entry has been raised against (applicant/contact/company/landlord/tenancy/worksOrder) (Required when 'associatedId' is given)
+   * TypeId must be set to WO when passing worksOrder
    */
   associatedType?: string
   /**
@@ -14399,6 +14400,11 @@ export interface TenancyCheckModel {
    */
   type?: string
   /**
+   * The identifier of the pre-configured tenancy check. This will only be populated
+   * for pre-configured tenancy checks, and not for custom/ad-hoc checks added to individual tenancies
+   */
+  checkTypeId?: string
+  /**
    * The unique identifier of the tenancy that this check relates to
    */
   tenancyId?: string
@@ -14451,6 +14457,11 @@ export interface TenancyCheckModelPagedResult {
      * The type of the tenancy check (preTenancy/postTenancy)
      */
     type?: string
+    /**
+     * The identifier of the pre-configured tenancy check. This will only be populated
+     * for pre-configured tenancy checks, and not for custom/ad-hoc checks added to individual tenancies
+     */
+    checkTypeId?: string
     /**
      * The unique identifier of the tenancy that this check relates to
      */
