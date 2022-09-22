@@ -16,6 +16,7 @@ import {
 import { objectToQuery, useReapitGet } from '@reapit/utils-react'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { useForm } from 'react-hook-form'
+import debounce from 'just-debounce-it'
 
 export type CustomerFilterValues = {
   name?: string
@@ -47,7 +48,7 @@ export const Customers: FC = () => {
     <ErrorBoundary>
       <PageContainer>
         <Title>Customers</Title>
-        <form onChange={handleSubmit(setCustomerFilters)}>
+        <form onChange={handleSubmit(debounce(setCustomerFilters, 500))}>
           <FormLayout className={elMb11}>
             <InputWrap>
               <InputGroup {...register('name')} label="Customer Name" type="search" />

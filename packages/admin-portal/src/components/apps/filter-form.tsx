@@ -3,6 +3,7 @@ import { AppsFilters } from '.'
 import { useForm, UseFormWatch } from 'react-hook-form'
 import { FormLayout, InputWrap, InputGroup, elMb11, ToggleRadio, Label } from '@reapit/elements'
 import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
+import debounce from 'just-debounce-it'
 
 export interface FilterFormProps {
   setAppsFilters: Dispatch<SetStateAction<AppsFilters>>
@@ -11,7 +12,7 @@ export interface FilterFormProps {
 
 export const handleSetAppsFilters =
   (setAppsFilters: Dispatch<SetStateAction<AppsFilters>>, watch: UseFormWatch<AppsFilters>) => () => {
-    const subscription = watch((values: AppsFilters) => setAppsFilters(values))
+    const subscription = watch(debounce(setAppsFilters, 500))
     return () => subscription.unsubscribe()
   }
 
