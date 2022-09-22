@@ -13,6 +13,7 @@ export const Routes = {
   FOUR_O_FOUR: '/404',
   OK: '/ok',
   TRAFFIC: '/traffic',
+  IAAS: '/iaas',
 }
 
 export default Routes

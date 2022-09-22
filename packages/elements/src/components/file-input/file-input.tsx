@@ -126,7 +126,7 @@ export const FileInput: FileInputWrapped = forwardRef(
             id={inputId}
             {...rest}
             defaultValue={defaultValue}
-            ref={ref as LegacyRef<HTMLInputElement>}
+            ref={(ref as unknown) as LegacyRef<HTMLInputElement>}
           />
           {fileUrl ? (
             <ElFileInputIconContainer>

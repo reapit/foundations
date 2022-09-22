@@ -9,6 +9,6 @@ export type InputWrapped = React.ForwardRefExoticComponent<
 
 export const Input: InputWrapped = forwardRef(
   ({ ...rest }, ref: React.ForwardedRef<React.InputHTMLAttributes<HTMLInputElement>>) => {
-    return <ElInput {...rest} ref={ref as LegacyRef<HTMLInputElement>} />
+    return <ElInput {...rest} ref={(ref as unknown) as LegacyRef<HTMLInputElement>} />
   },
 )

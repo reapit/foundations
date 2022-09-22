@@ -8,5 +8,5 @@ export type TextAreaWrapped = React.ForwardRefExoticComponent<
 >
 
 export const TextArea: TextAreaWrapped = forwardRef(({ ...rest }, ref) => {
-  return <ElTextArea {...rest} ref={ref as LegacyRef<HTMLTextAreaElement>} />
+  return <ElTextArea {...rest} ref={(ref as unknown) as LegacyRef<HTMLTextAreaElement>} />
 })

@@ -11,7 +11,7 @@ import {
   elMt6,
 } from '@reapit/elements'
 import { PipelineRunnerModelInterface } from '@reapit/foundations-ts-definitions'
-import { buildStatusToIntent, buildStatusToReadable } from '../../../utils/pipeline-helpers'
+import { buildStatusToIntent, buildStatusToReadable } from '@reapit/utils-common'
 import { fourColTable } from './__styles__'
 import { dateToHuman } from '../../../utils/date-time'
 import { cx } from '@linaria/core'

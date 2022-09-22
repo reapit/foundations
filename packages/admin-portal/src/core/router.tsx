@@ -19,6 +19,7 @@ const CustomersPage = React.lazy(() => catchChunkError(() => import('../componen
 const SubscriptionsPage = React.lazy(() => catchChunkError(() => import('../components/subscriptions')))
 const UsagePage = React.lazy(() => catchChunkError(() => import('../components/usage')))
 const TrafficPage = React.lazy(() => catchChunkError(() => import('../components/traffic')))
+const IaaSPage = React.lazy(() => catchChunkError(() => import('../components/iaas')))
 
 export const FourOFour: FC = () => (
   <PageContainer>
@@ -47,6 +48,7 @@ const Router = () => {
               <PrivateRoute path={Routes.INSTALLATIONS} component={InstallationsPage} exact />
               <PrivateRoute path={Routes.CUSTOMERS} component={CustomersPage} exact />
               <PrivateRoute path={Routes.SUBSCRIPTIONS} component={SubscriptionsPage} exact />
+              <PrivateRoute path={Routes.IAAS} component={IaaSPage} exact />
               <Route render={() => <FourOFour />} />
             </Switch>
           </PrivateRouteWrapper>

@@ -335,8 +335,8 @@ type Query {
     propertyId: [String]
     status: [String]
     address: String
-    amountFrom: String
-    amountTo: String
+    amountFrom: Float
+    amountTo: Float
     dateFrom: String
     dateTo: String
     metadata: [String]
@@ -957,6 +957,7 @@ type Mutation {
     address: AddressInput
     bedrooms: Int
     receptions: Int
+    notes: String
     bathrooms: Int
     parkingSpaces: Int
     councilTax: String
@@ -965,7 +966,6 @@ type Mutation {
     videoUrl: String
     videoCaption: String
     epc: EpcInput
-    notes: String
     externalArea: ExternalAreaInput
     internalArea: InternalAreaInput
     selling: SellingInput
@@ -985,26 +985,25 @@ type Mutation {
   UpdateProperty(
     id: String!
     _eTag: String!
+    strapline: String
     marketingMode: String
     departmentId: String
-    strapline: String
     description: String
     summary: String
     address: AddressInput
     bedrooms: Int
     receptions: Int
     bathrooms: Int
-    parkingSpaces: Int
-    notes: String
     councilTax: String
+    notes: String
     internetAdvertising: Boolean
     viewingArrangements: String
     videoUrl: String
     videoCaption: String
+    parkingSpaces: Int
     epc: EpcInput
     externalArea: ExternalAreaInput
     internalArea: InternalAreaInput
-    rooms: [CreatePropertyRoomModelInput!]
     selling: SellingInput
     letting: lettingInput
     type: [String!]
@@ -1015,6 +1014,7 @@ type Mutation {
     locality: [String!]
     negotiatorId: String
     officeIds: [String!]
+    rooms: [CreatePropertyRoomModelInput!]
     areaId: String
     metadata: JSON
   ): PropertyModel!
@@ -1173,6 +1173,7 @@ type AppointmentModel {
   cancelled: Boolean
   followUp: AppointmentModelFollowUp
   propertyId: String
+  virtual: Boolean
   property: PropertyModel
   organiserId: String
   negotiatorIds: [String!]
@@ -1184,7 +1185,6 @@ type AppointmentModel {
   negotiatorConfirmed: Boolean
   attendeeConfirmed: Boolean
   propertyConfirmed: Boolean
-  virtual: Boolean
   metadata: JSON
   _eTag: String
   _links: JSON
@@ -1981,7 +1981,7 @@ type OfferModel {
   propertyId: String
   OfferId: String
   date: String
-  amount: String
+  amount: Float
   status: String
   inclusions: String
   exclusions: String
@@ -2166,7 +2166,6 @@ type PropertyModel {
   negotiatorId: String
   bedrooms: Int
   receptions: Int
-  parkingSpaces: Int
   bathrooms: Int
   councilTax: String
   internetAdvertising: Boolean
@@ -2174,6 +2173,7 @@ type PropertyModel {
   videoUrl: String
   videoCaption: String
   video2Url: String
+  parkingSpaces: Int
   video2Caption: String
   notes: String
   archivedOn: String
@@ -2191,7 +2191,6 @@ type PropertyModel {
   locality: [String!]
   rooms: [PropertyRoomModel!]
   officeIds: [String!]
-  notes: String
   lostInstructionDate: String
   lostInstructionNote: String
   metadata: JSON
@@ -2210,9 +2209,9 @@ type EmbeddedPropertyModel {
   landlord: LandlordModel
   negotiator: NegotiatorModel
   offers: [OfferModel]
+  offices: [OfficeModel]
   tenancies: [TenancyModel]
   vendor: VendorModel
-  offices: [OfficeModel]
 }
 
 type PropertyModelAddress {
