@@ -158,7 +158,7 @@ export const MultiSelectInput: MultiSelectInputWrapped = forwardRef(
 
     return (
       <ElMultiSelectInputWrapper>
-        <ElMultiSelectInput id={id} {...rest} ref={ref as LegacyRef<HTMLInputElement>} />
+        <ElMultiSelectInput id={id} {...rest} ref={(ref as unknown) as LegacyRef<HTMLInputElement>} />
         <MultiSelectSelected className={className}>
           {selectedOptionValues.length ? (
             options.map((option) => {
