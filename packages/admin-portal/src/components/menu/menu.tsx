@@ -29,6 +29,8 @@ export const getDefaultNavIndex = (pathname: string) => {
       return 8
     case Routes.USAGE:
       return 9
+    case Routes.IAAS:
+      return 10
     default:
       return 0
   }
@@ -102,6 +104,12 @@ export const Menu: FC = () => {
     },
     {
       itemIndex: 10,
+      callback: navigate(history, Routes.IAAS),
+      iconId: 'dataMenu',
+      text: 'IAAS',
+    },
+    {
+      itemIndex: 11,
       callback: connectLogoutRedirect,
       isSecondary: true,
       iconId: 'logoutMenu',

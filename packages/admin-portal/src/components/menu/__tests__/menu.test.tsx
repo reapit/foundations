@@ -55,6 +55,10 @@ describe('getDefaultNavIndex', () => {
       route: Routes.USAGE,
       index: 9,
     },
+    {
+      route: Routes.IAAS,
+      index: 10,
+    },
   ]
 
   routes.forEach((route) => {
