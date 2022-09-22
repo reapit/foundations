@@ -18,6 +18,7 @@ const BillingPage = React.lazy(() => catchChunkError(() => import('../components
 const CustomersPage = React.lazy(() => catchChunkError(() => import('../components/customers')))
 const SubscriptionsPage = React.lazy(() => catchChunkError(() => import('../components/subscriptions')))
 const UsagePage = React.lazy(() => catchChunkError(() => import('../components/usage')))
+const TrafficPage = React.lazy(() => catchChunkError(() => import('../components/traffic')))
 
 export const FourOFour: FC = () => (
   <PageContainer>
@@ -38,6 +39,7 @@ const Router = () => {
           <PrivateRouteWrapper>
             <Switch>
               <PrivateRoute path={Routes.BILLING} component={BillingPage} exact />
+              <PrivateRoute path={Routes.TRAFFIC} component={TrafficPage} exact />
               <PrivateRoute path={Routes.USAGE} component={UsagePage} exact />
               <PrivateRoute path={Routes.APPROVALS} component={ApprovalsPage} exact fetcher />
               <PrivateRoute path={Routes.APPS} component={AppsManagementPage} exact />
