@@ -17,10 +17,16 @@ import {
   useModal,
 } from '@reapit/elements'
 import { PipelineModelInterface, pipelineNotDeletable } from '@reapit/foundations-ts-definitions'
-import { GetActionNames, getActions, UpdateActionNames, updateActions } from '@reapit/utils-common'
+import {
+  GetActionNames,
+  getActions,
+  UpdateActionNames,
+  updateActions,
+  buildStatusToIntent,
+  buildStatusToReadable,
+} from '@reapit/utils-common'
 import { objectToQuery, SendFunction, useReapitGet, useReapitUpdate } from '@reapit/utils-react'
 import React, { Dispatch, FC, SetStateAction, useState } from 'react'
-import { buildStatusToIntent, buildStatusToReadable } from './utils'
 import { useForm } from 'react-hook-form'
 import { fetchDevelopersList } from '../../services/developers'
 
