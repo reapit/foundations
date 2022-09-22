@@ -1377,6 +1377,10 @@ export interface DeveloperModel {
    * The maximum number of unlisted apps
    */
   maxAppsUnlisted?: number // int32
+  /**
+   * The amount the developer pays for the developer edition subscription
+   */
+  developerEditionSubscriptionCost?: number // double
   companyAddress?: CompanyAddressModel
 }
 /**
@@ -2001,6 +2005,10 @@ export interface UpdateDeveloperModel {
    * The maximum number of apps the developer can have unlisted
    */
   maxAppsUnlisted?: number // int32
+  /**
+   * Sets the price this developer will pay for developer edition
+   */
+  developerEditionSubscriptionCost?: number // double
 }
 /**
  * The model responsible for updating a member
