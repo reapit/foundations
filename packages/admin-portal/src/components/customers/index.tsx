@@ -13,31 +13,34 @@ import {
   Table,
   Title,
 } from '@reapit/elements'
-import { useReapitGet } from '@reapit/utils-react'
+import { objectToQuery, useReapitGet } from '@reapit/utils-react'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { useForm } from 'react-hook-form'
 
 export type CustomerFilterValues = {
   name?: string
+  agencyCloudId?: string
 }
 
 export const Customers: FC = () => {
   const [pageNumber, setPageNumber] = useState<number>(1)
   const [customerFilters, setCustomerFilters] = useState<CustomerFilterValues>({})
-  const { name } = customerFilters
+  const { name, agencyCloudId } = customerFilters
   const { register, handleSubmit } = useForm<CustomerFilterValues>({
     mode: 'onChange',
   })
+
+  const queryParams = objectToQuery(customerFilters)
 
   const [customers, customersLoading] = useReapitGet<CustomerModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getCustomers],
     queryParams: {
-      name,
+      ...queryParams,
       pageSize: 12,
       pageNumber,
     },
-    fetchWhenTrue: [name],
+    fetchWhenTrue: [name || agencyCloudId],
   })
 
   return (
@@ -47,7 +50,10 @@ export const Customers: FC = () => {
         <form onChange={handleSubmit(setCustomerFilters)}>
           <FormLayout className={elMb11}>
             <InputWrap>
-              <InputGroup {...register('name')} label="Customer Name" />
+              <InputGroup {...register('name')} label="Customer Name" type="search" />
+            </InputWrap>
+            <InputWrap>
+              <InputGroup {...register('agencyCloudId')} label="Customer Code" type="search" />
             </InputWrap>
           </FormLayout>
         </form>
@@ -57,7 +63,7 @@ export const Customers: FC = () => {
           <>
             <Table
               className={elMb11}
-              rows={customers?.data?.map(({ name, address, agencyCloudId }) => ({
+              rows={customers?.data?.map(({ name, address, agencyCloudId, billingReference, id }) => ({
                 cells: [
                   {
                     label: 'Customer Name',
@@ -69,9 +75,23 @@ export const Customers: FC = () => {
                     },
                   },
                   {
-                    label: 'Customer Id',
+                    label: 'Agency Cloud Id',
                     value: agencyCloudId,
                     cellHasDarkText: true,
+                    narrowTable: {
+                      showLabel: true,
+                    },
+                  },
+                  {
+                    label: 'Customer Id',
+                    value: id,
+                    narrowTable: {
+                      showLabel: true,
+                    },
+                  },
+                  {
+                    label: 'Customer Billing Reference',
+                    value: billingReference ? billingReference : '-',
                     narrowTable: {
                       showLabel: true,
                     },

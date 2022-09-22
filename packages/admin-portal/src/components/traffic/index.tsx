@@ -13,38 +13,38 @@ import {
   TableRow,
   TableRowContainer,
 } from '@reapit/elements'
-import { fetchDeveloperBillingPeriod } from '../../services/developers'
 import dayjs from 'dayjs'
 import FileSaver from 'file-saver'
 import { PageContainer, Title } from '@reapit/elements'
 import { FetchError } from '@reapit/utils-common'
 import { useForm } from 'react-hook-form'
+import { fetchTrafficPeriod } from '../../services/traffic'
 
 export interface SelectOption {
   label?: string
   value?: string
 }
 
-export interface BillingFilters {
+export interface TrafficFilters {
   month?: string
 }
 
-export const handleSaveFile = (billingFile: Blob, filename: string) => () => {
-  FileSaver.saveAs(billingFile, filename)
+export const handleSaveFile = (trafficFile: Blob, filename: string) => () => {
+  FileSaver.saveAs(trafficFile, filename)
 }
 
-export const handleDownloadBillingPeriod =
-  (setBillingFile: Dispatch<SetStateAction<Blob | null>>, period?: string) => () => {
+export const handleDownloadTrafficPeriod =
+  (setTrafficFile: Dispatch<SetStateAction<Blob | null>>, period?: string) => () => {
     const fetchBilling = async () => {
       if (!period) return
 
       try {
-        const billingFile = await fetchDeveloperBillingPeriod({ period })
+        const trafficFile = await fetchTrafficPeriod(period)
 
-        if (!billingFile || billingFile instanceof FetchError) {
-          throw billingFile
+        if (!trafficFile || trafficFile instanceof FetchError) {
+          throw trafficFile
         }
-        setBillingFile(billingFile)
+        setTrafficFile(trafficFile)
       } catch (error) {
         console.error(error)
       }
@@ -53,39 +53,39 @@ export const handleDownloadBillingPeriod =
     fetchBilling()
   }
 
-export const AdminBilling: FC = () => {
-  const [billingFilters, setBillingFilters] = useState<BillingFilters>()
-  const [billingFile, setBillingFile] = useState<Blob | null>(null)
+export const Traffic: FC = () => {
+  const [trafficFilters, setTrafficFilters] = useState<TrafficFilters>()
+  const [trafficFile, setTrafficFile] = useState<Blob | null>(null)
 
-  const { register, handleSubmit } = useForm<BillingFilters>({
+  const { register, handleSubmit } = useForm<TrafficFilters>({
     mode: 'onChange',
   })
 
-  useEffect(handleDownloadBillingPeriod(setBillingFile, billingFilters?.month), [billingFilters])
+  useEffect(handleDownloadTrafficPeriod(setTrafficFile, trafficFilters?.month), [trafficFilters])
 
   return (
     <PageContainer>
-      <Title>Billing</Title>
-      <form onChange={handleSubmit(setBillingFilters)}>
+      <Title>Traffic</Title>
+      <form onChange={handleSubmit(setTrafficFilters)}>
         <FormLayout className={elMb11}>
           <InputWrap>
             <InputGroup {...register('month')} label="Month" type="month" />
           </InputWrap>
         </FormLayout>
       </form>
-      {billingFile && billingFilters?.month ? (
+      {trafficFile && trafficFilters?.month ? (
         <Table className={elMb11}>
           <TableHeadersRow>
             <TableHeader>Period</TableHeader>
-            <TableHeader>Download Billing</TableHeader>
+            <TableHeader>Download Traffic</TableHeader>
           </TableHeadersRow>
           <TableRowContainer>
             <TableRow>
-              <TableCell>{dayjs(billingFilters.month).format('MMMM YYYY')}</TableCell>
+              <TableCell>{dayjs(trafficFilters.month).format('MMMM YYYY')}</TableCell>
               <TableCell>
                 <Button
                   intent="low"
-                  onClick={handleSaveFile(billingFile, `billing-developer-period-${billingFilters.month}.csv`)}
+                  onClick={handleSaveFile(trafficFile, `traffic-events-period-${trafficFilters.month}.csv`)}
                 >
                   Download
                 </Button>
@@ -95,11 +95,11 @@ export const AdminBilling: FC = () => {
         </Table>
       ) : (
         <PersistentNotification intent="secondary" isExpanded={true} isInline isFullWidth>
-          No billing file available for download.
+          No traffic file available for download.
         </PersistentNotification>
       )}
     </PageContainer>
   )
 }
 
-export default AdminBilling
+export default Traffic

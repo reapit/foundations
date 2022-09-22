@@ -40,16 +40,20 @@ describe('getDefaultNavIndex', () => {
       index: 5,
     },
     {
-      route: Routes.CUSTOMERS,
+      route: Routes.TRAFFIC,
       index: 6,
     },
     {
-      route: Routes.SUBSCRIPTIONS,
+      route: Routes.CUSTOMERS,
       index: 7,
     },
     {
-      route: Routes.USAGE,
+      route: Routes.SUBSCRIPTIONS,
       index: 8,
+    },
+    {
+      route: Routes.USAGE,
+      index: 9,
     },
   ]
 
