@@ -1,11 +1,7 @@
-import * as React from 'react'
+import React from 'react'
 import { render } from '../../../tests/react-testing'
 import AdminBilling, { handleDownloadBillingPeriod } from '..'
 import * as developerServices from '../../../services/developers'
-
-jest.mock('uuid', () => ({
-  v4: jest.fn(),
-}))
 
 const mockBillingServices = jest
   .spyOn(developerServices, 'fetchDeveloperBillingPeriod')
@@ -19,12 +15,16 @@ describe('AdminBilling', () => {
 })
 
 describe('handleDownloadBillingPeriod', () => {
-  it('should run correctly', async () => {
+  it('should correctly download billing', async () => {
     const period = '2020-02'
     const setBillingFile = jest.fn()
 
-    const fn = handleDownloadBillingPeriod(setBillingFile, period)
-    await fn()
+    const curried = handleDownloadBillingPeriod(setBillingFile, period)
+
+    curried()
+
+    await Promise.resolve()
+
     expect(mockBillingServices).toBeCalledWith({ period })
   })
 })
