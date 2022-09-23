@@ -91,11 +91,38 @@ export abstract class AbstractAuthProvider implements AuthProviderInterface {
     this.refreshTokenStorage.removeItem(`${AbstractAuthProvider.USER_NAME_KEY}_${this.config.connectClientId}`)
   }
 
+  /**
+   * Returns a string of the refresh token endpoint
+   */
   abstract getRefreshEndpoint(): string
+
+  /**
+   * Returns the payload body for the refresh call
+   */
   abstract getRefreshBody(): FormData | URLSearchParams | undefined
+
+  /**
+   * Returns the endpoint for the get token enxpoint
+   */
   abstract getTokenEndpoint(): string
+
+  /**
+   * Returns the payload body for the get token call
+   */
   abstract getTokenBody(): FormData | URLSearchParams | undefined
+
+  /**
+   * Gets the logout redirect for the idp
+   * 
+   * @param logoutRedirectUri 
+   */
   abstract getLogoutEndpoint(logoutRedirectUri?: string): string
+
+  /**
+   * Gets the login redirect for the idp
+   * 
+   * @param loginRedirectUri 
+   */
   abstract getLoginEndpoint(loginRedirectUri?: string): string
 
   /**
