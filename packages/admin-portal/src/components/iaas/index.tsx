@@ -28,6 +28,7 @@ import {
 import { objectToQuery, SendFunction, useReapitGet, useReapitUpdate } from '@reapit/utils-react'
 import React, { Dispatch, FC, SetStateAction, useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { usePermissionsState } from '../../core/use-permissions-state'
 import { fetchDevelopersList } from '../../services/developers'
 
 type Pagination<T> = {
@@ -72,6 +73,7 @@ export const IaaS: FC = () => {
   const [iaasFilters, setIaasFilters] = useState<IaasFilterValues>({})
   const [appId, setAppId] = useState<string | null>(null)
   const { Modal, openModal, closeModal } = useModal()
+  const { hasReadAccess } = usePermissionsState()
 
   const queryParams = objectToQuery(iaasFilters)
 
@@ -163,10 +165,11 @@ export const IaaS: FC = () => {
               ],
               ctaContent: {
                 headerContent: 'Delete Pipeline',
-                icon: pipelineNotDeletable.includes(buildStatus as string) ? undefined : 'trashSystem',
-                onClick: pipelineNotDeletable.includes(buildStatus as string)
-                  ? undefined
-                  : handleOpenModal(setAppId, openModal, id),
+                icon: pipelineNotDeletable.includes(buildStatus as string) || hasReadAccess ? undefined : 'trashSystem',
+                onClick:
+                  pipelineNotDeletable.includes(buildStatus as string) || hasReadAccess
+                    ? undefined
+                    : handleOpenModal(setAppId, openModal, id),
               },
             }))}
           />

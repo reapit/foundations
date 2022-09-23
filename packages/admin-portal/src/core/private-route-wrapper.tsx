@@ -5,6 +5,7 @@ import Routes from '../constants/routes'
 import { reapitConnectBrowserSession } from '../core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { Loader, MainContainer } from '@reapit/elements'
+import { PermissionsProvider } from './use-permissions-state'
 const { Suspense } = React
 
 export type PrivateRouteWrapperProps = {
@@ -35,10 +36,12 @@ export const PrivateRouteWrapper: FC<PrivateRouteWrapperProps> = ({ children, sh
   }
 
   return (
-    <MainContainer>
-      {showMenu && <Menu />}
-      <Suspense fallback={<Loader />}>{children}</Suspense>
-    </MainContainer>
+    <PermissionsProvider>
+      <MainContainer>
+        {showMenu && <Menu />}
+        <Suspense fallback={<Loader />}>{children}</Suspense>
+      </MainContainer>
+    </PermissionsProvider>
   )
 }
 

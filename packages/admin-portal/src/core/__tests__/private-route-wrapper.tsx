@@ -21,7 +21,6 @@ jest.mock('@reapit/connect-session', () => ({
 
 describe('PrivateRouteWrapper', () => {
   it('should match snapshot', () => {
-    window.reapit.config.limitedUserAccessWhitelist = []
     const wrapper = render(<PrivateRouteWrapper path="/" />)
     expect(wrapper).toMatchSnapshot()
   })

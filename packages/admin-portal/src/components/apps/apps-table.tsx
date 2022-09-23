@@ -17,6 +17,7 @@ import { CheckAWSButton } from './check-aws-button'
 import { SendFunction, useReapitUpdate } from '@reapit/utils-react'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { CreateSubscriptionsButton } from '../subscriptions/create-subscriptions'
+import { usePermissionsState } from '../../core/use-permissions-state'
 
 export interface AppsTableProps {
   apps: AppSummaryModelPagedResult | null
@@ -93,6 +94,7 @@ export const handleAppIdFeatured =
 
 export const AppsTable: FC<AppsTableProps> = ({ apps, appsRefresh }) => {
   const { Modal, openModal, closeModal } = useModal()
+  const { hasReadAccess } = usePermissionsState()
   const [appIdDelete, setAppIdDelete] = useState<string | null>(null)
   const [appIdFeatured, setAppIdFeatured] = useState<string | null>(null)
   const [indexExpandedRow, setIndexExpandedRow] = useState<number | null>(null)
@@ -222,14 +224,23 @@ export const AppsTable: FC<AppsTableProps> = ({ apps, appsRefresh }) => {
               content: (
                 <>
                   <ButtonGroup alignment="center">
+                    <Button intent="secondary" onClick={openNewPage(`${window.reapit.config.appMarketUri}/apps/${id}`)}>
+                      View in AppMarket
+                    </Button>
                     <Button
                       intent="secondary"
+                      disabled={hasReadAccess}
                       onClick={openNewPage(`${window.reapit.config.developerPortalUri}/apps/${id}`)}
                     >
-                      Preview
+                      View in DevPortal
                     </Button>
                     <CheckAWSButton appId={id ?? ''} />
-                    <Button type="button" intent="danger" onClick={handleOpenModal(openModal, setAppIdDelete, id)}>
+                    <Button
+                      type="button"
+                      intent="danger"
+                      disabled={hasReadAccess}
+                      onClick={handleOpenModal(openModal, setAppIdDelete, id)}
+                    >
                       Delete
                     </Button>
                     <CreateSubscriptionsButton
@@ -237,7 +248,11 @@ export const AppsTable: FC<AppsTableProps> = ({ apps, appsRefresh }) => {
                       developerId={developerId}
                       subscriptionType="applicationListing"
                     />
-                    <Button intent="primary" onClick={handleAppIdFeatured(setAppIdFeatured, id)}>
+                    <Button
+                      intent="primary"
+                      disabled={hasReadAccess}
+                      onClick={handleAppIdFeatured(setAppIdFeatured, id)}
+                    >
                       Togggle Featured
                     </Button>
                   </ButtonGroup>

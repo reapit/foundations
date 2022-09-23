@@ -14,8 +14,8 @@ window.reapit = {
     connectOAuthUrl: '',
     platformApiUrl: '',
     connectUserPoolId: '',
-    limitedUserAccessWhitelist: [],
     developerPortalUri: '',
+    appMarketUri: '',
   },
 }
 
