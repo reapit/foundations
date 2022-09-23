@@ -2,7 +2,6 @@ import React, { FC } from 'react'
 import { Route, Router as BrowserRouter, Switch } from 'react-router-dom'
 import { catchChunkError, OkayPage } from '@reapit/utils-react'
 import Routes from '../constants/routes'
-import PrivateRoute from './private-route'
 import { createBrowserHistory, History } from 'history'
 import { PageContainer, PersistentNotification } from '@reapit/elements'
 
@@ -39,16 +38,16 @@ const Router = () => {
           <Route path={Routes.FOUR_O_FOUR} exact render={() => <FourOFour />} />
           <PrivateRouteWrapper>
             <Switch>
-              <PrivateRoute path={Routes.BILLING} component={BillingPage} exact />
-              <PrivateRoute path={Routes.TRAFFIC} component={TrafficPage} exact />
-              <PrivateRoute path={Routes.USAGE} component={UsagePage} exact />
-              <PrivateRoute path={Routes.APPROVALS} component={ApprovalsPage} exact fetcher />
-              <PrivateRoute path={Routes.APPS} component={AppsManagementPage} exact />
-              <PrivateRoute path={Routes.DEV_MANAGEMENT} component={DevsManagementPage} exact fetcher />
-              <PrivateRoute path={Routes.INSTALLATIONS} component={InstallationsPage} exact />
-              <PrivateRoute path={Routes.CUSTOMERS} component={CustomersPage} exact />
-              <PrivateRoute path={Routes.SUBSCRIPTIONS} component={SubscriptionsPage} exact />
-              <PrivateRoute path={Routes.IAAS} component={IaaSPage} exact />
+              <Route path={Routes.BILLING} component={BillingPage} exact />
+              <Route path={Routes.TRAFFIC} component={TrafficPage} exact />
+              <Route path={Routes.USAGE} component={UsagePage} exact />
+              <Route path={Routes.APPROVALS} component={ApprovalsPage} exact />
+              <Route path={Routes.APPS} component={AppsManagementPage} exact />
+              <Route path={Routes.DEV_MANAGEMENT} component={DevsManagementPage} exact />
+              <Route path={Routes.INSTALLATIONS} component={InstallationsPage} exact />
+              <Route path={Routes.CUSTOMERS} component={CustomersPage} exact />
+              <Route path={Routes.SUBSCRIPTIONS} component={SubscriptionsPage} exact />
+              <Route path={Routes.IAAS} component={IaaSPage} exact />
               <Route render={() => <FourOFour />} />
             </Switch>
           </PrivateRouteWrapper>

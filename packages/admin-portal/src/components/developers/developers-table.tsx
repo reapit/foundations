@@ -17,6 +17,7 @@ import DeveloperStatusModal from './developer-status-modal'
 import { AppsTable } from './apps-table'
 import { SendFunction, useReapitUpdate } from '@reapit/utils-react'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
+import { usePermissionsState } from '../../core/use-permissions-state'
 
 export interface DevelopersTableProps {
   developers: DeveloperModelPagedResult | null
@@ -87,6 +88,7 @@ export const DevelopersTable: FC<DevelopersTableProps> = ({ developers, refreshD
   const [developerUpdate, setDeveloperUpdate] = useState<DeveloperModel | null>(null)
   const [devIdMembers, setDevIdMembers] = useState<string | null>(null)
   const [devIdApps, setDevIdApps] = useState<string | null>(null)
+  const { hasReadAccess } = usePermissionsState()
 
   const [, , updateDeveloper] = useReapitUpdate<UpdateDeveloperModel, boolean>({
     reapitConnectBrowserSession,
@@ -154,6 +156,7 @@ export const DevelopersTable: FC<DevelopersTableProps> = ({ developers, refreshD
                     <Button
                       type="button"
                       intent="primary"
+                      disabled={hasReadAccess}
                       onClick={handleOpenModal(openModal, setDeveloperUpdate, developer)}
                     >
                       Update Status
@@ -161,6 +164,7 @@ export const DevelopersTable: FC<DevelopersTableProps> = ({ developers, refreshD
                     <Button
                       type="button"
                       intent="primary"
+                      disabled={hasReadAccess}
                       onClick={handleToggleDevEdition(
                         developer,
                         updateDeveloper,

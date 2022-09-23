@@ -5,8 +5,8 @@ export type Config = {
   connectOAuthUrl: string
   connectUserPoolId: string
   platformApiUrl: string
-  limitedUserAccessWhitelist: string[]
   developerPortalUri: string
+  appMarketUri: string
 }
 
 declare global {

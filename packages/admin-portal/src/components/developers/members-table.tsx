@@ -21,6 +21,7 @@ import {
 import { GetActionNames, getActions, toLocalTime, UpdateActionNames, updateActions } from '@reapit/utils-common'
 import { SendFunction, useReapitGet, useReapitUpdate } from '@reapit/utils-react'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
+import { usePermissionsState } from '../../core/use-permissions-state'
 
 export interface MembersTableProps {
   devIdMembers: string
@@ -53,6 +54,7 @@ export const MembersTable: FC<MembersTableProps> = ({ devIdMembers }) => {
   const [memberUpdate, setMemberUpdate] = useState<MemberModel | null>(null)
   const [pageNumber, setPageNumber] = useState<number>(1)
   const [memberEmail, setMemberEmail] = useState<string | null>(null)
+  const { hasReadAccess } = usePermissionsState()
 
   const [members, membersLoading, , refreshMembers] = useReapitGet<MemberModelPagedResult>({
     reapitConnectBrowserSession,
@@ -155,7 +157,7 @@ export const MembersTable: FC<MembersTableProps> = ({ devIdMembers }) => {
                   <ButtonGroup alignment="center">
                     <Button
                       intent="primary"
-                      disabled={memberUpdating}
+                      disabled={hasReadAccess || memberUpdating}
                       loading={memberUpdating}
                       onClick={handleSetUpdateMember(setMemberUpdate, {
                         ...member,
@@ -166,7 +168,7 @@ export const MembersTable: FC<MembersTableProps> = ({ devIdMembers }) => {
                     </Button>
                     <Button
                       intent="danger"
-                      disabled={memberUpdating}
+                      disabled={hasReadAccess || memberUpdating}
                       loading={memberUpdating}
                       onClick={handleSetUpdateMember(setMemberUpdate, {
                         ...member,
@@ -177,8 +179,8 @@ export const MembersTable: FC<MembersTableProps> = ({ devIdMembers }) => {
                     </Button>
                     <Button
                       intent="secondary"
-                      disabled={memberUpdating}
-                      loading={memberUpdating}
+                      disabled={userInfoLoading}
+                      loading={userInfoLoading}
                       onClick={handleSetMemberEmail(setMemberEmail, email)}
                     >
                       Get Login Info
