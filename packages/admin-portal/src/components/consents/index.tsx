@@ -25,6 +25,7 @@ import {
 import dayjs from 'dayjs'
 import { useReapitConnect } from '@reapit/connect-session'
 import ResendConsentModal from './resend-consent-modal'
+import { usePermissionsState } from '../../core/use-permissions-state'
 
 export interface ConsentsProps {
   approval: ApprovalModel | null
@@ -85,6 +86,7 @@ export const handleCloseModal =
 
 export const AppConsents: FC<ConsentsProps> = ({ approval }) => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const { hasReadAccess } = usePermissionsState()
   const [selectedConsent, setSelectedConsent] = useState<AppRevisionConsentModel | null>(null)
   const { Modal, openModal, closeModal } = useModal()
   const email = connectSession?.loginIdentity.email
@@ -216,8 +218,8 @@ export const AppConsents: FC<ConsentsProps> = ({ approval }) => {
               ],
               ctaContent: {
                 headerContent: 'Resend Email',
-                icon: 'emailSystem',
-                onClick: handleSetResendConsents(setSelectedConsent, consent, openModal),
+                icon: hasReadAccess ? undefined : 'emailSystem',
+                onClick: hasReadAccess ? undefined : handleSetResendConsents(setSelectedConsent, consent, openModal),
               },
             }))}
           />

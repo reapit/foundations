@@ -11,7 +11,7 @@ Object {
       <button
         class="el-intent-primary el-button"
       >
-        Check AWS
+        Check AWS Only
       </button>
     </div>
   </body>,
@@ -22,7 +22,7 @@ Object {
     <button
       class="el-intent-primary el-button"
     >
-      Check AWS
+      Check AWS Only
     </button>
   </div>,
   "debug": [Function],
@@ -90,7 +90,7 @@ Object {
       <button
         class="el-intent-primary el-button"
       >
-        Check AWS
+        Check AWS Only
       </button>
     </div>
   </body>,
@@ -101,7 +101,7 @@ Object {
     <button
       class="el-intent-primary el-button"
     >
-      Check AWS
+      Check AWS Only
     </button>
   </div>,
   "debug": [Function],
@@ -169,7 +169,7 @@ Object {
       <button
         class="el-intent-primary el-button"
       >
-        Check AWS
+        Check AWS Only
       </button>
     </div>
   </body>,
@@ -180,7 +180,7 @@ Object {
     <button
       class="el-intent-primary el-button"
     >
-      Check AWS
+      Check AWS Only
     </button>
   </div>,
   "debug": [Function],

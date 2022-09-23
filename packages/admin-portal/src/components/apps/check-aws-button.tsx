@@ -83,7 +83,7 @@ export const CheckAWSButton: FC<CheckAWSButtonProps> = ({ appId, status }) => {
       disabled={awsStatus === AWSStatus.Fetching}
       onClick={handleSetWebHooksLoading(setAwsStatus)}
     >
-      Check AWS
+      Check AWS Only
     </Button>
   )
 }

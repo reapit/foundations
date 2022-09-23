@@ -38,6 +38,7 @@ import dayjs from 'dayjs'
 import { object, string } from 'yup'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
+import { usePermissionsState } from '../../../core/use-permissions-state'
 
 export type AppRevisionComparisonProps = {
   approval: ApprovalModel | null
@@ -247,6 +248,7 @@ export const handleSendConstents =
 
 export const AppRevisionComparison: FC<AppRevisionComparisonProps> = ({ approval, refreshApprovals }) => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const { hasReadAccess } = usePermissionsState()
   const { Modal: ApproveModal, openModal: openApproveModal, closeModal: closeApproveModal } = useModal()
   const { Modal: DeclineModal, openModal: openDeclineModal, closeModal: closeDeclineModal } = useModal()
   const appId = approval?.appId
@@ -386,13 +388,13 @@ export const AppRevisionComparison: FC<AppRevisionComparisonProps> = ({ approval
         </div>
       ))}
       <ButtonGroup alignment="center">
-        <Button onClick={openDeclineModal} intent="danger">
+        <Button onClick={openDeclineModal} disabled={hasReadAccess} intent="danger">
           Decline Revision
         </Button>
-        <Button onClick={openApproveModal} intent="primary">
+        <Button onClick={openApproveModal} disabled={hasReadAccess} intent="primary">
           Approve Revision
         </Button>
-        <Button intent="secondary" onClick={handleSendConstents(createConsentEmails, email)}>
+        <Button intent="secondary" onClick={handleSendConstents(createConsentEmails, email)} disabled={hasReadAccess}>
           Send Consent Emails
         </Button>
       </ButtonGroup>
