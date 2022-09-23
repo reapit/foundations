@@ -1,19 +1,62 @@
 import 'isomorphic-fetch'
-import { ReapitConnectBrowserSessionInitializers, ReapitConnectSession } from '../types'
-import { AuthProviderInterface } from '../auth/provider.interface'
-import { CognitoProvider } from '../auth/cognito.provider'
+import {
+  ReapitConnectBrowserSessionInitializers,
+  ReapitConnectSession,
+  CoginitoAccess,
+  LoginIdentity,
+  CoginitoSession,
+} from '../types'
+import { connectSessionVerifyDecodeIdToken } from '../utils/verify-decode-id-token'
+import decode from 'jwt-decode'
+import { DecodedToken } from '../utils'
 
-export * from './../auth'
 export class ReapitConnectBrowserSession {
   // Static constants
   static GLOBAL_KEY = '__REAPIT_MARKETPLACE_GLOBALS__'
   static REFRESH_TOKEN_KEY = 'REAPIT_REFRESH_TOKEN'
   static USER_NAME_KEY = 'REAPIT_LAST_AUTH_USER'
   static APP_DEFAULT_TIMEOUT = 10800000 // 3hrs in ms
+
+  static AUTH_PROVIDER_PATHS: {
+    [s: string]: {
+      TOKEN_URI: string
+      AUTH_URI: string
+      LOGIN_URI: string
+      LOGOUT_URI: string
+    }
+  } = {
+    keycloak: {
+      TOKEN_URI: 'token',
+      AUTH_URI: 'auth',
+      LOGIN_URI: 'auth',
+      LOGOUT_URI: 'logout',
+    },
+    cognito: {
+      TOKEN_URI: 'authorize',
+      AUTH_URI: 'authorize',
+      LOGIN_URI: 'login',
+      LOGOUT_URI: 'logout',
+    },
+    ory: {
+      TOKEN_URI: 'authorize',
+      AUTH_URI: 'authorize',
+      LOGIN_URI: 'login',
+      LOGOUT_URI: 'logout',
+    },
+  }
+
+  // Private cached variables, I don't want users to reference these directly or it will get confusing.
+  // and cause bugs
+  private connectOAuthUrl: string
+  private connectClientId: string
+  private session: ReapitConnectSession | null
+  private connectLoginRedirectPath: string
+  private connectLogoutRedirectPath: string
   private connectApplicationTimeout: number
   private idleTimeoutCountdown: number
+  private refreshTokenStorage: Storage
   private fetching: boolean
-  private authProvider: AuthProviderInterface
+  private authProvider: string = 'cognito'
 
   constructor({
     connectClientId,
@@ -21,19 +64,18 @@ export class ReapitConnectBrowserSession {
     connectLoginRedirectPath,
     connectLogoutRedirectPath,
     connectApplicationTimeout,
-    authProvider,
   }: ReapitConnectBrowserSessionInitializers) {
     // Instantiate my private variables from the constructor params
-    this.authProvider =
-      authProvider ||
-      new CognitoProvider({
-        connectClientId,
-        connectLoginRedirectPath,
-        connectLogoutRedirectPath,
-        baseUrl: connectOAuthUrl,
-      })
+    this.connectOAuthUrl = connectOAuthUrl
+    this.connectClientId = connectClientId
+    this.connectLoginRedirectPath = `${window.location.origin}${connectLoginRedirectPath || ''}`
+    this.connectLogoutRedirectPath = `${window.location.origin}${
+      connectLogoutRedirectPath || connectLogoutRedirectPath === '' ? connectLogoutRedirectPath : '/login'
+    }`
     this.connectApplicationTimeout = connectApplicationTimeout ?? ReapitConnectBrowserSession.APP_DEFAULT_TIMEOUT
+    this.refreshTokenStorage = this.connectIsDesktop ? window.localStorage : window.sessionStorage
     this.fetching = false
+    this.session = null
     this.idleTimeoutCountdown = this.connectApplicationTimeout
     this.connectBindPublicMethods()
     this.setIdleTimeoutListeners()
@@ -62,11 +104,130 @@ export class ReapitConnectBrowserSession {
     document.ontouchstart = resetTimer
   }
 
-  private clearRefreshToken() {
-    this.authProvider.clearRefreshToken()
+  private get refreshToken(): string | null {
+    return (
+      this.session?.refreshToken ??
+      this.refreshTokenStorage.getItem(
+        `${ReapitConnectBrowserSession.REFRESH_TOKEN_KEY}_${this.userName}_${this.connectClientId}`,
+      )
+    )
   }
 
-  // TODO clear on catch of ReapitConnectError
+  private get userName(): string | null {
+    return (
+      this.session?.loginIdentity.email ??
+      this.refreshTokenStorage.getItem(`${ReapitConnectBrowserSession.USER_NAME_KEY}_${this.connectClientId}`)
+    )
+  }
+
+  private setRefreshToken(session: ReapitConnectSession) {
+    if (session.refreshToken && session.loginIdentity && session.loginIdentity.email) {
+      this.refreshTokenStorage.setItem(
+        `${ReapitConnectBrowserSession.REFRESH_TOKEN_KEY}_${session.loginIdentity.email}_${this.connectClientId}`,
+        session.refreshToken,
+      )
+    }
+    if (session.loginIdentity && session.loginIdentity.email) {
+      this.refreshTokenStorage.setItem(
+        `${ReapitConnectBrowserSession.USER_NAME_KEY}_${this.connectClientId}`,
+        session.loginIdentity.email,
+      )
+    }
+  }
+
+  private clearRefreshToken() {
+    this.refreshTokenStorage.removeItem(
+      `${ReapitConnectBrowserSession.REFRESH_TOKEN_KEY}_${this.userName}_${this.connectClientId}`,
+    )
+    this.refreshTokenStorage.removeItem(`${ReapitConnectBrowserSession.USER_NAME_KEY}_${this.connectClientId}`)
+  }
+
+  // See below, used to refresh session if I have a refresh token in local storage
+  private get tokenRefreshEndpoint() {
+    // ?grant_type=refresh_token&client_id=${this.connectClientId}&refresh_token=${this.refreshToken}&redirect_uri=${this.connectLoginRedirectPath}
+    return `${this.connectOAuthUrl}/${ReapitConnectBrowserSession.AUTH_PROVIDER_PATHS[this.authProvider].TOKEN_URI}`
+  }
+
+  // See below, used to refresh session if I have a code in the URL
+  private get tokenCodeEndpoint(): string {
+    // ?grant_type=authorization_code&client_id=${this.connectClientId}&code=${this.authCode}&redirect_uri=${this.connectLoginRedirectPath}
+    return `${this.connectOAuthUrl}/${ReapitConnectBrowserSession.AUTH_PROVIDER_PATHS[this.authProvider].TOKEN_URI}`
+  }
+
+  // Check on access token to see if has expired - they last 1hr only before I need to refresh
+  private get sessionExpired() {
+    if (this.session) {
+      const decoded = decode<DecodedToken<CoginitoAccess>>(this.session.accessToken)
+      const expiry = decoded['exp']
+      const fiveMinsFromNow = Math.round(new Date().getTime() / 1000) + 300
+      return expiry ? expiry < fiveMinsFromNow : true
+    }
+
+    return true
+  }
+
+  // Gets the auth code from the url of the given page
+  private get authCode(): string | null {
+    const params = new URLSearchParams(window.location.search)
+    const authorizationCode = params.get('code')
+
+    return authorizationCode || null
+  }
+
+  // Calls the token endpoint in Cognito with either a refresh token or a code, depending on what
+  // I have available in local storage or in the URL.
+  // See: https://docs.aws.amazon.com/cognito/latest/developerguide/token-endpoint.html
+  private async connectGetSession(url: string, refresh?: boolean): Promise<ReapitConnectSession | void> {
+    const body = !refresh
+      ? new URLSearchParams({
+          code: this.authCode as string,
+          grant_type: 'authorization_code',
+          redirect_uri: 'http://localhost:8080/',
+          client_id: this.connectClientId,
+          scope: 'openid',
+        })
+      : new URLSearchParams({
+          grant_type: 'refresh_token',
+          client_id: this.connectClientId,
+          refresh_token: this.refreshToken as string,
+          redirect_uri: this.connectLoginRedirectPath,
+        })
+
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: body,
+      } as RequestInit)
+      const session: CoginitoSession | undefined = await response.json()
+
+      if (!session || (session && session.error)) return this.handleError('Error fetching session from Reapit Connect ')
+
+      // I need to verify the identity claims I have just received from the server dwdqd
+      const loginIdentity: LoginIdentity | undefined = await connectSessionVerifyDecodeIdToken(session.id_token)
+
+      // If the idToken is invalid, don't return the session
+      if (!loginIdentity) return this.handleError('Login identity was not verified')
+
+      const { access_token, refresh_token, id_token } = session
+
+      return {
+        accessToken: access_token,
+        // I only get a new refresh token back when grant type is code. I only use grant type code
+        // when I don't have a session, so I can update the refresh token for code and when I have a
+        // session and am refereshing, I can recycle the old refresh token
+        refreshToken: refresh_token ? refresh_token : this.session ? this.session?.refreshToken : '',
+        idToken: id_token,
+        loginIdentity,
+      }
+    } catch (err) {
+      console.log('erro', err)
+      return this.handleError(`Reapit Connect Token Error ${(err as any).message}`)
+    }
+  }
+
   private handleError(error: string | Error) {
     this.clearRefreshToken()
     typeof error === 'string' ? console.error('Reapit Connect Error:', error) : console.error(error)
@@ -84,45 +245,58 @@ export class ReapitConnectBrowserSession {
 
   // A convenience getter to check if my app has been loaded inside RPS / Desktop / Agency Cloud
   public get connectIsDesktop() {
-    return this.authProvider.connectIsDesktop
+    return Boolean(window[ReapitConnectBrowserSession.GLOBAL_KEY])
   }
 
   // A convenience getter to check if my app has a valid session
   public get connectHasSession() {
-    return this.authProvider.connectHasSession
-  }
-
-  public get session(): ReapitConnectSession | undefined {
-    return this.authProvider.session
+    return Boolean(this.session && !this.sessionExpired)
   }
 
   // Handles redirect to authorization endpoint - in most cases, I don't need to call in my app
   // but made public if I want to override the redirect URI I specified in the constructor
   public connectAuthorizeRedirect(redirectUri?: string): void {
-    this.authProvider.loginRedirect(redirectUri)
+    const authRedirectUri = redirectUri || this.connectLoginRedirectPath
+    const params = new URLSearchParams(window.location.search)
+    params.delete('code')
+    const search = params ? `?${params.toString()}` : ''
+    const internalRedirectPath = encodeURIComponent(`${window.location.pathname}${search}`)
+    window.location.href = `${this.connectOAuthUrl}/${
+      ReapitConnectBrowserSession.AUTH_PROVIDER_PATHS[this.authProvider].AUTH_URI
+    }?response_type=code&client_id=${
+      this.connectClientId
+    }&redirect_uri=${authRedirectUri}&state=${internalRedirectPath}&scope=openid`
   }
 
   // Handles redirect to login - defaults to constructor redirect uri but I can override if I like.
   // Used as handler for login page button
   public connectLoginRedirect(redirectUri?: string): void {
-    this.authProvider.loginRedirect(redirectUri)
+    const loginRedirectUri = redirectUri || this.connectLoginRedirectPath
+    this.clearRefreshToken()
+    window.location.href = `${this.connectOAuthUrl}/${
+      ReapitConnectBrowserSession.AUTH_PROVIDER_PATHS[this.authProvider].LOGIN_URI
+    }?response_type=code&client_id=${this.connectClientId}&redirect_uri=${loginRedirectUri}&scope=openid`
   }
 
   // Handles redirect to logout - defaults to constructor login uri but I can override if I like.
   // Used as handler for logout menu button
   public connectLogoutRedirect(redirectUri?: string): void {
-    this.authProvider.logout(redirectUri)
+    const logoutRedirectUri = redirectUri || this.connectLogoutRedirectPath
+    this.clearRefreshToken()
+    window.location.href = `${this.connectOAuthUrl}/${
+      ReapitConnectBrowserSession.AUTH_PROVIDER_PATHS[this.authProvider].LOGOUT_URI
+    }?client_id=${this.connectClientId}&logout_uri=${logoutRedirectUri}`
   }
 
   public connectClearSession(): void {
-    this.authProvider.connectClearSession()
+    this.session = null
   }
 
   // The main method for fetching a session in an app.
   public async connectSession(): Promise<ReapitConnectSession | void> {
     // Ideally, if I have a valid session, just return it
-    if (!this.authProvider.sessionExpired) {
-      return this.authProvider.session as ReapitConnectSession
+    if (!this.sessionExpired) {
+      return this.session as ReapitConnectSession
     }
 
     // Stops me from making multiple calls to the token endpoint
@@ -134,19 +308,32 @@ export class ReapitConnectBrowserSession {
     this.fetching = true
 
     try {
-      const session = await this.authProvider.authenticate()
+      // See comment in connectGetSession method. If I have a refresh token, I want to use this in the
+      // first instance - get the refresh endpoint. Otherwise check to see if I have a code and get
+      // the code endpoint so I can exchange for a token
+      const endpoint = this.refreshToken ? this.tokenRefreshEndpoint : this.authCode ? this.tokenCodeEndpoint : null
+
+      // I don't have either a refresh token or a code so redirect to the authorization endpoint to get
+      // a code I can exchange for a token
+      if (!endpoint) {
+        return this.connectAuthorizeRedirect()
+      }
+
+      // Get a new session from the code or refresh token
+      const session = await this.connectGetSession(endpoint, this.refreshToken !== null)
 
       this.fetching = false
 
       if (session) {
         // Cache the session in memory for future use then return it to the user
-        return session
+        this.session = session
+        this.setRefreshToken(session)
+        return this.session
       }
 
       // The token endpoint failed to get a session so send me to login to get a new session
       this.connectAuthorizeRedirect()
     } catch (err) {
-      this.fetching = false
       return this.handleError(`Reapit Connect Session error ${(err as any).message}`)
     }
   }

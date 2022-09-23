@@ -1,3 +1,5 @@
+import { AuthProviderInterface } from './auth/provider.interface'
+
 export interface ReapitConnectBrowserSessionInitializers {
   connectOAuthUrl: string
   connectClientId: string
@@ -8,6 +10,7 @@ export interface ReapitConnectBrowserSessionInitializers {
   connectLoginRedirectPath?: string
   connectLogoutRedirectPath?: string
   connectApplicationTimeout?: number
+  authProvider?: AuthProviderInterface
 }
 
 export interface ReapitConnectServerSessionInitializers {
