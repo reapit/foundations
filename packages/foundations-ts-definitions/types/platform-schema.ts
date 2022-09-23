@@ -2239,6 +2239,8 @@ export interface Companies {
   branch?: string
   name?: string
   typeId?: string
+  negotiatorId?: string[]
+  officeId?: string[]
   fromArchive?: boolean
   createdFrom?: string
   createdTo?: string
@@ -2416,6 +2418,14 @@ export interface CompanyModel {
     value?: string
   }[]
   /**
+   * A collection of unique identifiers of offices attached to the company. The first item in the collection is considered the primary office
+   */
+  officeIds?: string[]
+  /**
+   * A collection of unique identifiers of negotiators attached to the company. The first item in the collection is considered the primary negotiator
+   */
+  negotiatorIds?: string[]
+  /**
    * App specific metadata that has been set against the company
    */
   metadata?: {
@@ -2556,6 +2566,14 @@ export interface CompanyModelPagedResult {
        */
       value?: string
     }[]
+    /**
+     * A collection of unique identifiers of offices attached to the company. The first item in the collection is considered the primary office
+     */
+    officeIds?: string[]
+    /**
+     * A collection of unique identifiers of negotiators attached to the company. The first item in the collection is considered the primary negotiator
+     */
+    negotiatorIds?: string[]
     /**
      * App specific metadata that has been set against the company
      */
