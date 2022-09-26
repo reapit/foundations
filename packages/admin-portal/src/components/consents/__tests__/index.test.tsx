@@ -1,8 +1,18 @@
+import { ApprovalModel } from '@reapit/foundations-ts-definitions'
 import { useReapitGet } from '@reapit/utils-react'
 import React from 'react'
 import { render } from '../../../tests/react-testing'
+import { mockApprovalModelPagedResult } from '../../../tests/__stubs__/approvals'
+import { mockAppDetailModel } from '../../../tests/__stubs__/apps'
 import { mockAppRevisionConsentModelResponse } from '../../../tests/__stubs__/consents'
-import { AppConsents, handleSendConstents, handleSetConsentId } from '../index'
+import { mockAppRevisionModel } from '../../../tests/__stubs__/revisions'
+import {
+  AppConsents,
+  handleCloseModal,
+  handleSendConstents,
+  handleSetConsentId,
+  handleSetResendConsents,
+} from '../index'
 
 jest.mock('@reapit/utils-react', () => ({
   useReapitGet: jest.fn(() => [mockAppRevisionConsentModelResponse]),
@@ -12,18 +22,30 @@ jest.mock('@reapit/utils-react', () => ({
 const mockUseReapitGet = useReapitGet as jest.Mock
 
 describe('AppConsents', () => {
-  it('should match snapshot with consents', () => {
-    expect(render(<AppConsents approval={null} />)).toMatchSnapshot()
+  it('should match snapshot with consents and an approval', () => {
+    mockUseReapitGet
+      .mockReturnValueOnce([mockAppDetailModel])
+      .mockReturnValueOnce([mockAppRevisionModel])
+      .mockReturnValueOnce([mockAppRevisionConsentModelResponse])
+    expect(render(<AppConsents approval={mockApprovalModelPagedResult.data as ApprovalModel[][0]} />)).toMatchSnapshot()
   })
 
   it('should match snapshot where there are no consents returned', () => {
-    mockUseReapitGet.mockReturnValueOnce([[]])
-    expect(render(<AppConsents approval={null} />)).toMatchSnapshot()
+    mockUseReapitGet
+      .mockReturnValueOnce([mockAppDetailModel])
+      .mockReturnValueOnce([mockAppRevisionModel])
+      .mockReturnValueOnce([null])
+    expect(render(<AppConsents approval={mockApprovalModelPagedResult.data as ApprovalModel[][0]} />)).toMatchSnapshot()
+  })
+
+  it('should match snapshot where nothing is returned', () => {
+    mockUseReapitGet.mockReturnValueOnce([null]).mockReturnValueOnce([null]).mockReturnValueOnce([null])
+    expect(render(<AppConsents approval={mockApprovalModelPagedResult.data as ApprovalModel[][0]} />)).toMatchSnapshot()
   })
 
   it('should match snapshot where the app is loading', () => {
-    mockUseReapitGet.mockReturnValueOnce([null, true])
-    expect(render(<AppConsents approval={null} />)).toMatchSnapshot()
+    mockUseReapitGet.mockReturnValue([null, true])
+    expect(render(<AppConsents approval={mockApprovalModelPagedResult.data as ApprovalModel[][0]} />)).toMatchSnapshot()
   })
 })
 
@@ -52,5 +74,35 @@ describe('handleSendConstents', () => {
 
     expect(createConsentEmails).toHaveBeenCalledWith({ actionedBy: developerEmail })
     expect(appConsentsRefresh).toHaveBeenCalledTimes(1)
+  })
+})
+
+describe('handleSetResendConsents', () => {
+  it('should resend the consents emails', () => {
+    const setSelectedConsent = jest.fn(() => Promise.resolve<boolean>(true))
+    const consent = mockAppRevisionConsentModelResponse[0]
+    const openModal = jest.fn()
+
+    const curried = handleSetResendConsents(setSelectedConsent, consent, openModal)
+
+    curried()
+
+    expect(setSelectedConsent).toHaveBeenCalledWith(consent)
+    expect(openModal).toHaveBeenCalledTimes(1)
+  })
+})
+
+describe('handleCloseModal', () => {
+  it('should close the modal', () => {
+    const setSelectedConsent = jest.fn()
+    const closeModal = jest.fn()
+    const emailResent = true
+
+    const curried = handleCloseModal(setSelectedConsent, closeModal, emailResent)
+
+    curried()
+
+    expect(setSelectedConsent).toHaveBeenCalledWith(null)
+    expect(closeModal).toHaveBeenCalledTimes(1)
   })
 })

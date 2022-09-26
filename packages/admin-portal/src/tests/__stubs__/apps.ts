@@ -1,4 +1,4 @@
-import { AppDetailModel } from '@reapit/foundations-ts-definitions'
+import { AppDetailModel, AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
 
 export const mockAppDetailModel: AppDetailModel = {
   id: 'f83e679e-a7cd-4889-a7f9-f4a8a8ed5a09',
@@ -69,4 +69,40 @@ export const mockAppDetailModel: AppDetailModel = {
       order: 0,
     },
   ],
+}
+
+export const mockAppSummaryModelPagedResult: AppSummaryModelPagedResult = {
+  data: [
+    {
+      id: 'f83e679e-a7cd-4889-a7f9-f4a8a8ed5a09',
+      publicListedDate: '',
+      externalId: '6smkano1divf74s7pu35tj630o',
+      created: '2021-03-04T09:37:00',
+      developerId: '421b65bc-dd09-4c34-90fa-dacc3cd2ff5a',
+      name: 'Reapit Insights',
+      summary: 'Blah blah blah. Blah blah blah. Blah blah blah. Blah blah blah. Blah blah blah.',
+      developer: 'Reapit Ltd Internal',
+      homePage: 'https://insights.dev.paas.reapit.cloud',
+      isListed: true,
+      isSandbox: false,
+      isFeatured: false,
+      isDirectApi: false,
+      isFree: false,
+      iconUri: 'https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Reapit-Insights-icon.png',
+      featuredImageUri:
+        'https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Reapit-Insights-screen1ImageUrl.png',
+      desktopIntegrationTypeIds: [],
+      products: ['agencyCloud'],
+      installedOn: '',
+      authFlow: 'code',
+      launchUri: 'https://insights.dev.paas.reapit.cloud',
+      pendingRevisions: false,
+      isHidden: false,
+      limitToClientIds: ['RES', 'SBOX', 'XTM', 'ACR'],
+    },
+  ],
+  pageNumber: 1,
+  pageSize: 12,
+  pageCount: 1,
+  totalCount: 1,
 }
