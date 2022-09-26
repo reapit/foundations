@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { cx } from '@linaria/core'
 import { checkboxContainer, checkboxWrap, greenBackground, redBackground, arow } from './__styles__'
 
@@ -8,7 +8,7 @@ export interface DiffCheckboxProps {
   dataTest?: string
 }
 
-export const DiffCheckbox = ({ currentChecked, changedChecked, dataTest }: DiffCheckboxProps) => {
+export const DiffCheckbox: FC<DiffCheckboxProps> = ({ currentChecked, changedChecked, dataTest }) => {
   const changed = currentChecked !== changedChecked
 
   return (
@@ -25,5 +25,3 @@ export const DiffCheckbox = ({ currentChecked, changedChecked, dataTest }: DiffC
     </div>
   )
 }
-
-export default DiffCheckbox

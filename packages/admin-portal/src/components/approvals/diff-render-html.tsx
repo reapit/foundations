@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { cx } from '@linaria/core'
 import { diffHtmlContainer, diffRenderBlock, redBackground, greenBackground, arrow } from './__styles__'
 import { HTMLRender } from '@reapit/utils-react'
@@ -8,7 +8,7 @@ export interface DiffRenderHTMLProps {
   changedString?: string
 }
 
-export const DiffRenderHTML = ({ currentString, changedString }: DiffRenderHTMLProps) => {
+export const DiffRenderHTML: FC<DiffRenderHTMLProps> = ({ currentString, changedString }) => {
   const isDiff = currentString !== changedString
   return (
     <div className={diffHtmlContainer}>
@@ -18,5 +18,3 @@ export const DiffRenderHTML = ({ currentString, changedString }: DiffRenderHTMLP
     </div>
   )
 }
-
-export default DiffRenderHTML

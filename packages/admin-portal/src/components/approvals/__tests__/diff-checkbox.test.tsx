@@ -1,6 +1,6 @@
 import React from 'react'
-import { render } from '../../../../tests/react-testing'
-import { DiffCheckbox, DiffCheckboxProps } from '..'
+import { render } from '../../../tests/react-testing'
+import { DiffCheckbox, DiffCheckboxProps } from '../diff-checkbox'
 
 const mockProps: DiffCheckboxProps = {
   currentChecked: true,

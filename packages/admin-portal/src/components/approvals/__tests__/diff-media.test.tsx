@@ -1,6 +1,6 @@
 import React from 'react'
-import { render } from '../../../../tests/react-testing'
-import { DiffMedia, DiffMediaProps } from '..'
+import { render } from '../../../tests/react-testing'
+import { DiffMedia, DiffMediaProps } from '../diff-media'
 
 const mockProps: DiffMediaProps = {
   currentMedia: 'https://media.jpg',

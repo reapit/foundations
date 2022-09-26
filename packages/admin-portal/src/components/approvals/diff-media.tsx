@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { cx } from '@linaria/core'
 import {
   diffMediaContainer,
@@ -19,7 +19,7 @@ export interface DiffMediaProps {
   type?: string
 }
 
-export const DiffMedia = ({ currentMedia, changedMedia, type }: DiffMediaProps) => {
+export const DiffMedia: FC<DiffMediaProps> = ({ currentMedia, changedMedia, type }) => {
   const blockStyle = type === 'icon' ? iconBlock : mediaBlock
   const imageStyle = type === 'icon' ? iconImage : mediaImage
   const isDiff = currentMedia !== changedMedia
@@ -35,5 +35,3 @@ export const DiffMedia = ({ currentMedia, changedMedia, type }: DiffMediaProps) 
     </div>
   )
 }
-
-export default DiffMedia

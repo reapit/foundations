@@ -11,12 +11,12 @@ import {
   RejectRevisionModel,
   CreateAppRevisionConsentsModel,
 } from '@reapit/foundations-ts-definitions'
-import DiffMedia from '../diff-media'
-import DiffCheckbox from '../diff-checkbox'
-import DiffViewer from '../diff-viewer'
-import DiffRenderHTML from '../diff-render-html'
+import { DiffMedia } from './diff-media'
+import { DiffCheckbox } from './diff-checkbox'
+import { DiffViewer } from './diff-viewer'
+import { DiffRenderHTML } from './diff-render-html'
 import { SendFunction, useReapitGet, useReapitUpdate } from '@reapit/utils-react'
-import { reapitConnectBrowserSession } from '../../../core/connect-session'
+import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { GetActionNames, getActions, UpdateActionNames, updateActions } from '@reapit/utils-common'
 import {
   BodyText,
@@ -38,7 +38,7 @@ import dayjs from 'dayjs'
 import { object, string } from 'yup'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { usePermissionsState } from '../../../core/use-permissions-state'
+import { usePermissionsState } from '../../core/use-permissions-state'
 
 export type AppRevisionComparisonProps = {
   approval: ApprovalModel | null
@@ -108,6 +108,7 @@ export const renderCheckboxesDiff = ({
 export const getChangedMediaList = ({ app, revision }): DiffMediaModel[] => {
   const { media: revisionMedia } = revision
   const { media: appMedia } = app
+
   if (!revisionMedia || !appMedia) {
     return [
       {
@@ -116,6 +117,7 @@ export const getChangedMediaList = ({ app, revision }): DiffMediaModel[] => {
       },
     ]
   }
+
   // Check the longest array to compare
   const isNewMediaMoreItemThanOldOne = revisionMedia.length >= appMedia.length
   if (isNewMediaMoreItemThanOldOne) {

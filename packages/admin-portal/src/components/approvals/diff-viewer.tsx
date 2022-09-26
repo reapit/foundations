@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 import * as jsdiff from 'diff'
 import { diffViewerContainer, greenBackground, redBackground } from './__styles__'
 import { cx } from '@linaria/core'
@@ -18,7 +18,7 @@ const diffTypes = {
   wordsWithSpace: jsdiff.diffWordsWithSpace,
 }
 
-export const DiffViewer = ({ currentString, changedString, type = 'words' }: DiffViewerProps) => {
+export const DiffViewer: FC<DiffViewerProps> = ({ currentString, changedString, type = 'words' }) => {
   const result = diffTypes[type](currentString, changedString).map((part, index) => {
     return (
       <span key={index} className={cx(part.added && greenBackground, part.removed && redBackground)}>
@@ -28,5 +28,3 @@ export const DiffViewer = ({ currentString, changedString, type = 'words' }: Dif
   })
   return <div className={diffViewerContainer}>{result}</div>
 }
-
-export default DiffViewer
