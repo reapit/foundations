@@ -22,6 +22,20 @@ export class CognitoProvider extends AbstractAuthProvider {
   }
 
   getLoginEndpoint(loginRedirectUri: string | undefined): string {
-    return `login?client_id=${this.config.connectClientId}&redirect_uri=${loginRedirectUri}&response_type=code&state=${loginRedirectUri}`
+    const authRedirectUri = loginRedirectUri || this.connectLoginRedirectPath
+    const params = new URLSearchParams(window.location.search)
+    params.delete('code')
+    const search = params ? `?${params.toString()}` : ''
+    const internalRedirectPath = encodeURIComponent(`${window.location.pathname}${search}`)
+    return `login?client_id=${this.config.connectClientId}&redirect_uri=${authRedirectUri}&response_type=code&state=${internalRedirectPath}`
+  }
+
+  getAuthorizeEndpoint(redirectUri?: string | undefined): string {
+    const authRedirectUri = redirectUri || this.connectLoginRedirectPath
+    const params = new URLSearchParams(window.location.search)
+    params.delete('code')
+    const search = params ? `?${params.toString()}` : ''
+    const internalRedirectPath = encodeURIComponent(`${window.location.pathname}${search}`)
+    return `authorize?response_type=code&client_id=${this.config.connectClientId}&redirect_uri=${authRedirectUri}&state=${internalRedirectPath}`
   }
 }

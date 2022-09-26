@@ -102,7 +102,7 @@ export abstract class AbstractAuthProvider implements AuthProviderInterface {
   abstract getRefreshBody(): FormData | URLSearchParams | undefined
 
   /**
-   * Returns the endpoint for the get token enxpoint
+   * Returns the endpoint for the get token endpoint
    */
   abstract getTokenEndpoint(): string
 
@@ -110,6 +110,11 @@ export abstract class AbstractAuthProvider implements AuthProviderInterface {
    * Returns the payload body for the get token call
    */
   abstract getTokenBody(): FormData | URLSearchParams | undefined
+
+  /**
+   * Returns the endpoint for the initial authorize method
+   */
+  abstract getAuthorizeEndpoint(redirectUri?: string): string
 
   /**
    * Gets the logout redirect for the idp
@@ -239,18 +244,21 @@ export abstract class AbstractAuthProvider implements AuthProviderInterface {
       return this.getToken()
     }
 
-    this.loginRedirect(redirectUri)
+    this.authorizeRedirect(redirectUri)
+  }
+
+  authorizeRedirect(redirectUri?: string): void {
+    window.location.href = `${this.config.baseUrl}/${this.getAuthorizeEndpoint(redirectUri)}`
   }
 
   loginRedirect(redirectUri?: string): void {
-    const loginRedirectUri = redirectUri || this.connectLoginRedirectPath
     this.clearRefreshToken()
-    window.location.href = `${this.config.baseUrl}/login?response_type=code&client_id=${this.config.connectClientId}&redirect_uri=${loginRedirectUri}`
+    window.location.href = `${this.config.baseUrl}/${this.getLoginEndpoint(redirectUri)}`
   }
 
   logout(redirectUri?: string) {
-    const logoutRedirectUri = redirectUri || this.connectLogoutRedirectPath
     this.clearRefreshToken()
-    window.location.href = `${this.getLogoutEndpoint(logoutRedirectUri)}`
+    const logoutRedirectUri = redirectUri || this.connectLogoutRedirectPath
+    window.location.href = `${this.config.baseUrl}/${this.getLogoutEndpoint(logoutRedirectUri)}`
   }
 }

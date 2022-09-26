@@ -37,6 +37,10 @@ export class KeycloakProvider extends AbstractAuthProvider {
     return `realms/master/protocol/openid-connect/logout?client_id=${this.config.connectClientId}&logout_uri=${logoutRedirectUri}`
   }
 
+  getAuthorizeEndpoint(redirectUri?: string | undefined): string {
+    return this.getLoginEndpoint(redirectUri)
+  }
+
   getLoginEndpoint(redirectUri?: string | undefined): string {
     const authRedirectUri = redirectUri || this.connectLoginRedirectPath
     const params = new URLSearchParams(window.location.search)
