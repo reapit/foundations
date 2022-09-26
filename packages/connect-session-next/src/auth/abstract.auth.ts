@@ -28,7 +28,7 @@ export abstract class AbstractAuthProvider implements AuthProviderInterface {
         ? config.connectLogoutRedirectPath
         : '/login'
     }`
-    this.connectLoginRedirectPath = `${window.location.origin}/${config.connectLoginRedirectPath || ''}`
+    this.connectLoginRedirectPath = `${window.location.origin}${config.connectLoginRedirectPath || ''}`
   }
 
   get refreshToken(): string | null {
@@ -243,12 +243,9 @@ export abstract class AbstractAuthProvider implements AuthProviderInterface {
   }
 
   loginRedirect(redirectUri?: string): void {
-    const authRedirectUri = redirectUri || this.connectLoginRedirectPath
-    const params = new URLSearchParams(window.location.search)
-    params.delete('code')
-    const search = params ? `?${params.toString()}` : ''
-    const internalRedirectPath = encodeURIComponent(`${window.location.pathname}${search}`)
-    window.location.href = `${this.config.baseUrl}/${this.getLoginEndpoint(authRedirectUri)}`
+    const loginRedirectUri = redirectUri || this.connectLoginRedirectPath
+    this.clearRefreshToken()
+    window.location.href = `${this.config.baseUrl}/login?response_type=code&client_id=${this.config.connectClientId}&redirect_uri=${loginRedirectUri}`
   }
 
   logout(redirectUri?: string) {
