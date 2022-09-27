@@ -17,6 +17,7 @@
       "packages/cli",
       "packages/config-manager",
       "packages/connect-session",
+      "packages/connect-session-next",
       "packages/cra-template-foundations",
       "packages/create-node-app-generator",
       "packages/data-warehouse",
@@ -42,7 +43,8 @@
       "packages/utils-common",
       "packages/utils-node",
       "packages/utils-react",
-      "packages/utils-nest"
+      "packages/utils-nest",
+      "packages/new-auth-ui"
     ]
   },
   "scripts": {

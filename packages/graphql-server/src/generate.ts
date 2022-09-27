@@ -4,10 +4,7 @@ import { graphqlHTTP } from 'express-graphql'
 import { createSchema, CallBackendArguments } from 'swagger-to-graphql'
 import { createPlatformAxiosInstance } from './utils/axios-instances'
 
-const handlePlatformCall = async ({
-  context,
-  requestOptions,
-}: CallBackendArguments<Request>) => {
+const handlePlatformCall = async ({ context, requestOptions }: CallBackendArguments<Request>) => {
   if (!(context.headers as any).authorization) {
     return {
       statusCode: 401,
@@ -27,7 +24,6 @@ const handlePlatformCall = async ({
 
     return result.data
   } catch (e) {
-
     console.error(e)
     return {
       error: e.message,
@@ -42,12 +38,15 @@ const bootstrap = async () => {
   })
   const app = express()
 
-  app.use('/graphql', graphqlHTTP({
-    schema,
-    graphiql: true,
-  }))
-  
-  app.listen(4000, () => console.log('running')) 
+  app.use(
+    '/graphql',
+    graphqlHTTP({
+      schema,
+      graphiql: true,
+    }),
+  )
+
+  app.listen(4000, () => console.log('running'))
 }
 
 bootstrap()

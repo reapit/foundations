@@ -1,0 +1,72 @@
+{
+  "name": "@reapit/connect-session-next",
+  "version": "1.0.0",
+  "description": "OAuth Flow for Reapit Connect next-version",
+  "keywords": [],
+  "homepage": "https://github.com/reapit/foundations#readme",
+  "bugs": {
+    "url": "https://github.com/reapit/foundations/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reapit/foundations.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "files": [
+    "dist",
+    "src/tests/badges"
+  ],
+  "main": "dist/index.js",
+  "umd:main": "dist/connect-session.umd.production.js",
+  "module": "dist/connect-session.esm.js",
+  "typings": "dist/index.d.ts",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "start": "echo '...skipping...'",
+    "test": "echo '...skipping...'",
+    "build": "cross-env NODE_ENV=production tsdx build --format=cjs,esm,umd",
+    "lint": "eslint --cache --ext=ts,tsx,js src",
+    "check": "tsc --noEmit --skipLibCheck",
+    "release": "echo '...skipping...'",
+    "publish": "yarn npm publish --access public",
+    "conf": "echo '...skipping...'",
+    "commit": "yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges && yarn lint --fix && yarn check"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "base-64": "^1.0.0",
+    "bashleigh-idtoken-verifier": "2.2.3",
+    "isomorphic-fetch": "^3.0.0",
+    "jwk-to-pem": "^2.0.5",
+    "jwt-decode": "^3.1.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "snyk": "^1.980.0"
+  },
+  "devDependencies": {
+    "@reapit/config-manager": "workspace:packages/config-manager",
+    "@reapit/ts-scripts": "workspace:packages/ts-scripts",
+    "@reapit/ts-types": "workspace:packages/ts-types",
+    "@testing-library/react-hooks": "^8.0.1",
+    "@types/base-64": "^1.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.36.1",
+    "@typescript-eslint/parser": "^5.36.1",
+    "babel-jest": "^28.1.3",
+    "concurrently": "^6.5.1",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.23.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "jest": "^28.1.3",
+    "jest-coverage-badges": "^1.1.2",
+    "ts-jest": "^28.0.8",
+    "tsdx": "^0.14.1",
+    "typescript": "^4.8.2"
+  },
+  "browserslist": [
+    "defaults",
+    "not IE 11",
+    "maintained node versions"
+  ],
+  "snyk": false
+}
