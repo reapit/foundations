@@ -26,9 +26,7 @@ export const Login: FC = () => {
   const prevIdp = useRef(currentIdp)
 
   useEffect(() => {
-    console.log('curentIdp changed', currentIdp)
     localStorage.setItem('__LOGIN_TYPE__', currentIdp)
-    // window.location.href = 'http://localhost:8080/login'
     if (currentIdp !== prevIdp.current) window.location.href = window.location.origin + '/login'
   }, [currentIdp])
 
@@ -58,9 +56,6 @@ export const Login: FC = () => {
           <Button onClick={onLoginButtonClick()} intent="primary" size={3}>
             Login With Reapit
           </Button>
-          {/* <Button onClick={navigate(history, Routes.)} intent="secondary" size={3}>
-            Register
-          </Button> */}
         </ButtonGroup>
         <BodyText hasGreyText>{process.env.APP_VERSION}</BodyText>
         <Button intent="secondary" onClick={openModal}>
