@@ -28,17 +28,15 @@ export type DecodedToken<T extends any> = {
 
 export const connectSessionVerifyDecodeIdTokenWithPublicKeys = async (
   token: string,
-  jwksURI?: string,
 ): Promise<LoginIdentity | undefined> => {
   try {
     const decodedToken = decode<DecodedToken<any>>(token)
-    const aud: undefined | string | string[] = decodedToken.aud
+    const aud: string | string[] = decodedToken.aud
 
     const verifier = new IdTokenVerifier({
       issuer: decodedToken.iss,
-      audience: aud ? (Array.isArray(aud) ? aud[0] : aud) : '',
+      audience: Array.isArray(aud) ? aud[0] : aud,
       leeway: 300,
-      jwksURI,
     })
 
     // TODO what is state?
@@ -58,10 +56,7 @@ export const connectSessionVerifyDecodeIdTokenWithPublicKeys = async (
     // Not ideal but prevents constant invalid id_token messages
     if (currentSeconds > claim.exp + 300 || currentSeconds + 300 < claim.auth_time)
       throw new Error('Id verification claim expired')
-
-    const tokenUse = claim.token_use || ((claim as any).typ as string).toLowerCase()
-
-    if (tokenUse !== 'id') throw new Error('Id verification claim is not an id token')
+    if (claim.token_use !== 'id') throw new Error('Id verification claim is not an id token')
 
     return {
       name: claim['name'],
@@ -85,9 +80,6 @@ export const connectSessionVerifyDecodeIdTokenWithPublicKeys = async (
   }
 }
 
-export const connectSessionVerifyDecodeIdToken = async (
-  token: string,
-  jwksURI?: string,
-): Promise<LoginIdentity | undefined> => {
-  return connectSessionVerifyDecodeIdTokenWithPublicKeys(token, jwksURI)
+export const connectSessionVerifyDecodeIdToken = async (token: string): Promise<LoginIdentity | undefined> => {
+  return connectSessionVerifyDecodeIdTokenWithPublicKeys(token)
 }
