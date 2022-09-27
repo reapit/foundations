@@ -19,8 +19,8 @@ describe('AdminApprovals', () => {
   })
 
   it('should render component when loading', () => {
-    mockUseReapitGet.mockReturnValueOnce([null, true, null, jest.fn()]),
-      expect(render(<AdminApprovals />)).toMatchSnapshot()
+    mockUseReapitGet.mockReturnValueOnce([null, true, null, jest.fn()])
+    expect(render(<AdminApprovals />)).toMatchSnapshot()
   })
 })
 
