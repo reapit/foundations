@@ -1,10 +1,11 @@
 import React from 'react'
 import { render } from '../../../tests/react-testing'
+import { mockWebhookModelPagedResult } from '../../../tests/__stubs__/webhooks'
 import {
   AWSStatus,
   CheckAWSButton,
   checkIsAws,
-  // handleSetAwsStatus,
+  handleSetAwsStatus,
   handleSetWebHooksLoading,
 } from '../check-aws-button'
 
@@ -94,16 +95,18 @@ describe('handleSetWebHooksLoading', () => {
 })
 
 describe('handleSetAwsStatus', () => {
-  // it('should set an AWS status if the subscriptions endpoint returns', async () => {
-  //   const mockSetAwsStatus = jest.fn()
-  //   const curried = handleSetAwsStatus(mockSetAwsStatus)
-  //   await curried()
-  //   expect(mockSetAwsStatus).toHaveBeenCalledWith(AWSStatus.AllUsers)
-  // })
-  // it('should set AWS status to unfetched if the subscriptions endpoint does not return', async () => {
-  //   const mockSetAwsStatus = jest.fn()
-  //   const curried = handleSetAwsStatus(mockSetAwsStatus)
-  //   await curried()
-  //   expect(mockSetAwsStatus).toHaveBeenCalledWith(AWSStatus.Unfetched)
-  // })
+  it('should set an AWS status if the subscriptions endpoint returns', async () => {
+    const mockSetAwsStatus = jest.fn()
+    const curried = handleSetAwsStatus(mockWebhookModelPagedResult, mockSetAwsStatus)
+    curried()
+    await Promise.resolve()
+    expect(mockSetAwsStatus).toHaveBeenCalledWith(AWSStatus.AWSOnly)
+  })
+  it('should set AWS status to unfetched if the subscriptions endpoint does not return', async () => {
+    const mockSetAwsStatus = jest.fn()
+    const curried = handleSetAwsStatus(null, mockSetAwsStatus)
+    curried()
+    await Promise.resolve()
+    expect(mockSetAwsStatus).toHaveBeenCalledWith(AWSStatus.Unfetched)
+  })
 })

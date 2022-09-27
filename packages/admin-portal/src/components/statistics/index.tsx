@@ -79,7 +79,7 @@ export const handleDownloadCSV =
 
     if (data && area === 'INSTALLATIONS') {
       const installs = data as (InstallationModel & { appName: string })[]
-      console.log(installs)
+
       const csv = Papa.unparse({
         fields: [
           'App Name',

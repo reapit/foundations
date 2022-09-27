@@ -1,5 +1,84 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`AppConsents should match snapshot where nothing is returned 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <h2
+        class="el-mt5 el-subtitle"
+      >
+         Consents
+      </h2>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <h2
+      class="el-mt5 el-subtitle"
+    >
+       Consents
+    </h2>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
 exports[`AppConsents should match snapshot where the app is loading 1`] = `
 Object {
   "asFragment": [Function],
@@ -8,12 +87,44 @@ Object {
       <div
         class="el-snack-holder"
       />
+      <h2
+        class="el-mt5 el-subtitle"
+      >
+         Consents
+      </h2>
+      <div
+        class="el-loader-container"
+      >
+        <div
+          class="el-loader"
+        >
+          <div
+            class="el-loader-moving-bar"
+          />
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
     <div
       class="el-snack-holder"
     />
+    <h2
+      class="el-mt5 el-subtitle"
+    >
+       Consents
+    </h2>
+    <div
+      class="el-loader-container"
+    >
+      <div
+        class="el-loader"
+      >
+        <div
+          class="el-loader-moving-bar"
+        />
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -77,12 +188,114 @@ Object {
       <div
         class="el-snack-holder"
       />
+      <h2
+        class="el-mt5 el-subtitle"
+      >
+        Reapit Insights
+         Consents
+      </h2>
+      <div>
+        <div
+          class="el-mb11 el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        >
+          <div
+            class="el-pn-icon"
+            data-testid="close-icon"
+          >
+            <span
+              class="el-icon"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 20 20"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9.99958 0C4.47746 0 0 4.47746 0 9.99958C0 15.5217 4.47746 20 9.99958 20C15.5217 20 20 15.5217 20 9.99958C20 4.47746 15.5217 0 9.99958 0ZM12.0813 15.498C11.5666 15.7012 11.1568 15.8552 10.8495 15.9619C10.5431 16.0686 10.1867 16.1219 9.78116 16.1219C9.1581 16.1219 8.67302 15.9695 8.32762 15.6656C7.98222 15.3617 7.81037 14.9765 7.81037 14.5084C7.81037 14.3263 7.82307 14.1401 7.84847 13.9505C7.87471 13.7608 7.91619 13.5475 7.97291 13.3079L8.61714 11.0324C8.67386 10.814 8.72296 10.6066 8.7619 10.4135C8.80085 10.2188 8.81947 10.0402 8.81947 9.87767C8.81947 9.58815 8.75937 9.38497 8.64 9.27069C8.51894 9.1564 8.29122 9.10053 7.95175 9.10053C7.78582 9.10053 7.61481 9.12508 7.43958 9.17672C7.26603 9.23005 7.11534 9.27831 6.99175 9.32571L7.1619 8.62476C7.58349 8.45291 7.9873 8.30561 8.37249 8.1837C8.75767 8.06011 9.12169 7.99915 9.46455 7.99915C10.0834 7.99915 10.5608 8.14984 10.8969 8.44783C11.2313 8.74667 11.3998 9.13524 11.3998 9.6127C11.3998 9.71175 11.3879 9.88614 11.3651 10.135C11.3422 10.3848 11.299 10.6125 11.2364 10.8216L10.5956 13.0904C10.5431 13.2724 10.4965 13.4806 10.4542 13.7134C10.4127 13.9462 10.3924 14.124 10.3924 14.2434C10.3924 14.5448 10.4593 14.7505 10.5947 14.8597C10.7285 14.9689 10.963 15.0239 11.2948 15.0239C11.4514 15.0239 11.6267 14.996 11.8248 14.9418C12.0212 14.8876 12.1634 14.8394 12.2531 14.7979L12.0813 15.498ZM11.9678 6.2891C11.669 6.56677 11.3092 6.70561 10.8885 6.70561C10.4686 6.70561 10.1062 6.56677 9.80487 6.2891C9.50519 6.01143 9.35365 5.67365 9.35365 5.27915C9.35365 4.8855 9.50603 4.54688 9.80487 4.26667C10.1062 3.98561 10.4686 3.84593 10.8885 3.84593C11.3092 3.84593 11.6698 3.98561 11.9678 4.26667C12.2667 4.54688 12.4165 4.8855 12.4165 5.27915C12.4165 5.6745 12.2667 6.01143 11.9678 6.2891Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+          </div>
+          <div
+            class="el-pn-content"
+          >
+            No record of any consents for this app - you can send these from the link below.
+          </div>
+        </div>
+      </div>
+      <div
+        class="el-button-group"
+      >
+        <div
+          class="el-button-group-align-center el-button-group-inner"
+        >
+          <button
+            class="el-intent-primary el-button-fixed-width el-button"
+          >
+            Send Requests
+          </button>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
     <div
       class="el-snack-holder"
     />
+    <h2
+      class="el-mt5 el-subtitle"
+    >
+      Reapit Insights
+       Consents
+    </h2>
+    <div>
+      <div
+        class="el-mb11 el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+      >
+        <div
+          class="el-pn-icon"
+          data-testid="close-icon"
+        >
+          <span
+            class="el-icon"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 20 20"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9.99958 0C4.47746 0 0 4.47746 0 9.99958C0 15.5217 4.47746 20 9.99958 20C15.5217 20 20 15.5217 20 9.99958C20 4.47746 15.5217 0 9.99958 0ZM12.0813 15.498C11.5666 15.7012 11.1568 15.8552 10.8495 15.9619C10.5431 16.0686 10.1867 16.1219 9.78116 16.1219C9.1581 16.1219 8.67302 15.9695 8.32762 15.6656C7.98222 15.3617 7.81037 14.9765 7.81037 14.5084C7.81037 14.3263 7.82307 14.1401 7.84847 13.9505C7.87471 13.7608 7.91619 13.5475 7.97291 13.3079L8.61714 11.0324C8.67386 10.814 8.72296 10.6066 8.7619 10.4135C8.80085 10.2188 8.81947 10.0402 8.81947 9.87767C8.81947 9.58815 8.75937 9.38497 8.64 9.27069C8.51894 9.1564 8.29122 9.10053 7.95175 9.10053C7.78582 9.10053 7.61481 9.12508 7.43958 9.17672C7.26603 9.23005 7.11534 9.27831 6.99175 9.32571L7.1619 8.62476C7.58349 8.45291 7.9873 8.30561 8.37249 8.1837C8.75767 8.06011 9.12169 7.99915 9.46455 7.99915C10.0834 7.99915 10.5608 8.14984 10.8969 8.44783C11.2313 8.74667 11.3998 9.13524 11.3998 9.6127C11.3998 9.71175 11.3879 9.88614 11.3651 10.135C11.3422 10.3848 11.299 10.6125 11.2364 10.8216L10.5956 13.0904C10.5431 13.2724 10.4965 13.4806 10.4542 13.7134C10.4127 13.9462 10.3924 14.124 10.3924 14.2434C10.3924 14.5448 10.4593 14.7505 10.5947 14.8597C10.7285 14.9689 10.963 15.0239 11.2948 15.0239C11.4514 15.0239 11.6267 14.996 11.8248 14.9418C12.0212 14.8876 12.1634 14.8394 12.2531 14.7979L12.0813 15.498ZM11.9678 6.2891C11.669 6.56677 11.3092 6.70561 10.8885 6.70561C10.4686 6.70561 10.1062 6.56677 9.80487 6.2891C9.50519 6.01143 9.35365 5.67365 9.35365 5.27915C9.35365 4.8855 9.50603 4.54688 9.80487 4.26667C10.1062 3.98561 10.4686 3.84593 10.8885 3.84593C11.3092 3.84593 11.6698 3.98561 11.9678 4.26667C12.2667 4.54688 12.4165 4.8855 12.4165 5.27915C12.4165 5.6745 12.2667 6.01143 11.9678 6.2891Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+        </div>
+        <div
+          class="el-pn-content"
+        >
+          No record of any consents for this app - you can send these from the link below.
+        </div>
+      </div>
+    </div>
+    <div
+      class="el-button-group"
+    >
+      <div
+        class="el-button-group-align-center el-button-group-inner"
+      >
+        <button
+          class="el-intent-primary el-button-fixed-width el-button"
+        >
+          Send Requests
+        </button>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -138,7 +351,7 @@ Object {
 }
 `;
 
-exports[`AppConsents should match snapshot with consents 1`] = `
+exports[`AppConsents should match snapshot with consents and an approval 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -146,12 +359,422 @@ Object {
       <div
         class="el-snack-holder"
       />
+      <h2
+        class="el-mt5 el-subtitle"
+      >
+        Reapit Insights
+         Consents
+      </h2>
+      <div
+        class="el-table"
+        data-has-call-to-action="true"
+        data-has-expandable-action="false"
+        data-num-columns-excl-action-col="5"
+      >
+        <div
+          class="el-table-headers-row"
+        >
+          <div
+            class="el-table-header"
+          >
+            Client
+          </div>
+          <div
+            class="el-table-header"
+          >
+            Email
+          </div>
+          <div
+            class="el-table-header"
+          >
+            Date Sent
+          </div>
+          <div
+            class="el-table-header"
+          >
+            Status
+          </div>
+          <div
+            class="el-table-header"
+          >
+            Date Accepted
+          </div>
+          <div
+            class="el-table-header"
+          >
+            Resend Email
+          </div>
+        </div>
+        <div
+          class="el-table-row-container"
+        >
+          <div
+            class="el-table-row"
+          >
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
+            >
+              <span
+                class="el-intent-secondary el-icon"
+              >
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 20 20"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20 20H11V4H20V16.264V20Z"
+                    fill="#7BC9EB"
+                  />
+                  <path
+                    d="M13 2H11.3572L10 9.05535L11.3574 20H13V2Z"
+                    fill="#0061A8"
+                  />
+                  <path
+                    d="M1.27977 0V1.78715H0V20H12V0H1.27977Z"
+                    fill="#23A4DE"
+                  />
+                  <path
+                    d="M3.61719 4.50488H5.14902V6.38001H3.61719V4.50488Z"
+                    fill="#F3FFFB"
+                  />
+                  <path
+                    d="M7.43005 4.50488H8.96188V6.38001H7.43005V4.50488Z"
+                    fill="#F3FFFB"
+                  />
+                  <path
+                    d="M3.61719 8.25513H5.14902V10.1303H3.61719V8.25513Z"
+                    fill="#F3FFFB"
+                  />
+                  <path
+                    d="M7.43005 8.25513H8.96188V10.1303H7.43005V8.25513Z"
+                    fill="#F3FFFB"
+                  />
+                  <path
+                    d="M3.61719 12.0056H5.14902V13.8807H3.61719V12.0056Z"
+                    fill="#F3FFFB"
+                  />
+                  <path
+                    d="M7.43005 12.0056H8.96188V13.8807H7.43005V12.0056Z"
+                    fill="#F3FFFB"
+                  />
+                  <path
+                    d="M3.61719 15.7559H5.14902V17.631H3.61719V15.7559Z"
+                    fill="#F3FFFB"
+                  />
+                  <path
+                    d="M7.43005 15.7559H8.96188V17.631H7.43005V15.7559Z"
+                    fill="#F3FFFB"
+                  />
+                  <path
+                    d="M14.7491 8.25513H16.281V10.1303H14.7491V8.25513Z"
+                    fill="#23A4DE"
+                  />
+                  <path
+                    d="M14.7491 12.0056H16.281V13.8807H14.7491V12.0056Z"
+                    fill="#23A4DE"
+                  />
+                </svg>
+              </span>
+              <div
+                class="el-table-cell-content"
+                data-narrow-label="Client"
+              />
+            </div>
+            <div
+              class="el-table-cell"
+            >
+              <div
+                class="el-table-cell-content"
+                data-narrow-label="Email"
+              >
+                test@example.com
+              </div>
+            </div>
+            <div
+              class="el-table-cell"
+            >
+              <div
+                class="el-table-cell-content"
+                data-narrow-label="Date Sent"
+              >
+                22/09/2022 13:38
+              </div>
+            </div>
+            <div
+              class="el-table-cell"
+            >
+              <div
+                class="el-table-cell-content"
+                data-narrow-label="Status"
+              >
+                Pending
+              </div>
+            </div>
+            <div
+              class="el-table-cell"
+            >
+              <div
+                class="el-table-cell-content"
+                data-narrow-label="Date Accepted"
+              >
+                -
+              </div>
+            </div>
+            <div
+              class="el-table-cta-cell"
+            >
+              <div
+                class="el-table-cta-icon-container"
+              >
+                <span
+                  class="el-intent-primary el-icon"
+                  style="font-size: 1.2rem;"
+                >
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 20 20"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g>
+                      <path
+                        d="M18.125 2.5H1.87501C0.841067 2.5 0 3.34107 0 4.37501V15.625C0 16.659 0.841067 17.5 1.87501 17.5H18.125C19.1589 17.5 20 16.659 20 15.625V4.37501C20 3.34107 19.1589 2.5 18.125 2.5ZM18.125 3.74999C18.2099 3.74999 18.2907 3.76761 18.3645 3.79838L10 11.048L1.63542 3.79838C1.70927 3.76765 1.79005 3.74999 1.87497 3.74999H18.125ZM18.125 16.25H1.87501C1.53017 16.25 1.24999 15.9698 1.24999 15.625V5.11901L9.59045 12.3474C9.70826 12.4493 9.85413 12.5 10 12.5C10.1459 12.5 10.2917 12.4494 10.4096 12.3474L18.75 5.11901V15.625C18.75 15.9698 18.4698 16.25 18.125 16.25Z"
+                        fill="currentColor"
+                      />
+                    </g>
+                    <defs>
+                      <clippath
+                        id="clip0"
+                      >
+                        <rect
+                          fill="white"
+                          height="1em"
+                          width="1em"
+                        />
+                      </clippath>
+                    </defs>
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
     <div
       class="el-snack-holder"
     />
+    <h2
+      class="el-mt5 el-subtitle"
+    >
+      Reapit Insights
+       Consents
+    </h2>
+    <div
+      class="el-table"
+      data-has-call-to-action="true"
+      data-has-expandable-action="false"
+      data-num-columns-excl-action-col="5"
+    >
+      <div
+        class="el-table-headers-row"
+      >
+        <div
+          class="el-table-header"
+        >
+          Client
+        </div>
+        <div
+          class="el-table-header"
+        >
+          Email
+        </div>
+        <div
+          class="el-table-header"
+        >
+          Date Sent
+        </div>
+        <div
+          class="el-table-header"
+        >
+          Status
+        </div>
+        <div
+          class="el-table-header"
+        >
+          Date Accepted
+        </div>
+        <div
+          class="el-table-header"
+        >
+          Resend Email
+        </div>
+      </div>
+      <div
+        class="el-table-row-container"
+      >
+        <div
+          class="el-table-row"
+        >
+          <div
+            class="el-table-cell-has-dark-text el-table-cell"
+          >
+            <span
+              class="el-intent-secondary el-icon"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 20 20"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20 20H11V4H20V16.264V20Z"
+                  fill="#7BC9EB"
+                />
+                <path
+                  d="M13 2H11.3572L10 9.05535L11.3574 20H13V2Z"
+                  fill="#0061A8"
+                />
+                <path
+                  d="M1.27977 0V1.78715H0V20H12V0H1.27977Z"
+                  fill="#23A4DE"
+                />
+                <path
+                  d="M3.61719 4.50488H5.14902V6.38001H3.61719V4.50488Z"
+                  fill="#F3FFFB"
+                />
+                <path
+                  d="M7.43005 4.50488H8.96188V6.38001H7.43005V4.50488Z"
+                  fill="#F3FFFB"
+                />
+                <path
+                  d="M3.61719 8.25513H5.14902V10.1303H3.61719V8.25513Z"
+                  fill="#F3FFFB"
+                />
+                <path
+                  d="M7.43005 8.25513H8.96188V10.1303H7.43005V8.25513Z"
+                  fill="#F3FFFB"
+                />
+                <path
+                  d="M3.61719 12.0056H5.14902V13.8807H3.61719V12.0056Z"
+                  fill="#F3FFFB"
+                />
+                <path
+                  d="M7.43005 12.0056H8.96188V13.8807H7.43005V12.0056Z"
+                  fill="#F3FFFB"
+                />
+                <path
+                  d="M3.61719 15.7559H5.14902V17.631H3.61719V15.7559Z"
+                  fill="#F3FFFB"
+                />
+                <path
+                  d="M7.43005 15.7559H8.96188V17.631H7.43005V15.7559Z"
+                  fill="#F3FFFB"
+                />
+                <path
+                  d="M14.7491 8.25513H16.281V10.1303H14.7491V8.25513Z"
+                  fill="#23A4DE"
+                />
+                <path
+                  d="M14.7491 12.0056H16.281V13.8807H14.7491V12.0056Z"
+                  fill="#23A4DE"
+                />
+              </svg>
+            </span>
+            <div
+              class="el-table-cell-content"
+              data-narrow-label="Client"
+            />
+          </div>
+          <div
+            class="el-table-cell"
+          >
+            <div
+              class="el-table-cell-content"
+              data-narrow-label="Email"
+            >
+              test@example.com
+            </div>
+          </div>
+          <div
+            class="el-table-cell"
+          >
+            <div
+              class="el-table-cell-content"
+              data-narrow-label="Date Sent"
+            >
+              22/09/2022 13:38
+            </div>
+          </div>
+          <div
+            class="el-table-cell"
+          >
+            <div
+              class="el-table-cell-content"
+              data-narrow-label="Status"
+            >
+              Pending
+            </div>
+          </div>
+          <div
+            class="el-table-cell"
+          >
+            <div
+              class="el-table-cell-content"
+              data-narrow-label="Date Accepted"
+            >
+              -
+            </div>
+          </div>
+          <div
+            class="el-table-cta-cell"
+          >
+            <div
+              class="el-table-cta-icon-container"
+            >
+              <span
+                class="el-intent-primary el-icon"
+                style="font-size: 1.2rem;"
+              >
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 20 20"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g>
+                    <path
+                      d="M18.125 2.5H1.87501C0.841067 2.5 0 3.34107 0 4.37501V15.625C0 16.659 0.841067 17.5 1.87501 17.5H18.125C19.1589 17.5 20 16.659 20 15.625V4.37501C20 3.34107 19.1589 2.5 18.125 2.5ZM18.125 3.74999C18.2099 3.74999 18.2907 3.76761 18.3645 3.79838L10 11.048L1.63542 3.79838C1.70927 3.76765 1.79005 3.74999 1.87497 3.74999H18.125ZM18.125 16.25H1.87501C1.53017 16.25 1.24999 15.9698 1.24999 15.625V5.11901L9.59045 12.3474C9.70826 12.4493 9.85413 12.5 10 12.5C10.1459 12.5 10.2917 12.4494 10.4096 12.3474L18.75 5.11901V15.625C18.75 15.9698 18.4698 16.25 18.125 16.25Z"
+                      fill="currentColor"
+                    />
+                  </g>
+                  <defs>
+                    <clippath
+                      id="clip0"
+                    >
+                      <rect
+                        fill="white"
+                        height="1em"
+                        width="1em"
+                      />
+                    </clippath>
+                  </defs>
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

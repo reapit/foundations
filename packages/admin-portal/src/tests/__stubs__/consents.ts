@@ -2,16 +2,14 @@ import { AppRevisionConsentModel } from '@reapit/foundations-ts-definitions'
 
 export const mockAppRevisionConsentModelResponse: AppRevisionConsentModel[] = [
   {
-    id: 'c708fb5a-3436-4737-b646-4cac29a74be1',
-    created: '2022-06-13T13:09:04',
-    actionedBy: 'example@mail.com',
-    installedBy: 'example@mail.com',
-    installationId: '486622cb-0015-4539-bf7f-77eaf3c74ab1',
-    applicationId: 'cfbe6f29-4003-4648-aa5a-8eb777bd606e',
-    revisionId: 'c4612ced-8b8c-4bf2-8d2a-3ccffaa5383f',
-    sentDate: '2022-06-13T15:39:52',
+    id: '13fa585c-c268-4c5e-ac79-a92fbbe1d35f',
+    created: '2022-09-22T13:38:46',
+    actionedBy: 'test@example.com',
+    installedBy: 'test@example.com',
+    installationId: '04b32b6b-f35c-4558-9789-fdce4225b73e',
+    applicationId: 'f83e679e-a7cd-4889-a7f9-f4a8a8ed5a09',
+    revisionId: '285304f2-f1ce-45cc-9d68-02c0b111cf99',
+    sentDate: '2022-09-22T13:38:46',
     status: 'pending',
-    approvalDate: '2022-06-13T15:39:52',
-    uninstallDate: '2022-06-13T15:39:52',
   },
 ]

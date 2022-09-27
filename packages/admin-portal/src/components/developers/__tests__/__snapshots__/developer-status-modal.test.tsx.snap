@@ -1,0 +1,427 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeveloperStatusModal should render component with a developer 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <form>
+        <div
+          class="el-mb11 el-form-layout"
+        >
+          <div
+            class="el-input-wrap-full"
+          >
+            <label
+              class="el-label"
+            >
+              Update Developer Status
+            </label>
+            <div
+              class="el-has-grey-bg el-toggle-radio-wrap"
+            >
+              <input
+                class="el-toggle-radio"
+                id="option-status-incomplete"
+                name="status"
+                type="radio"
+                value="incomplete"
+              />
+              <label
+                class="el-has-grey-bg el-toggle-radio-label"
+                for="option-status-incomplete"
+              >
+                <span
+                  class="el-toggle-radio-item"
+                >
+                  Incomplete
+                </span>
+              </label>
+              <input
+                class="el-toggle-radio"
+                id="option-status-pending"
+                name="status"
+                type="radio"
+                value="pending"
+              />
+              <label
+                class="el-has-grey-bg el-toggle-radio-label"
+                for="option-status-pending"
+              >
+                <span
+                  class="el-toggle-radio-item"
+                >
+                  Pending
+                </span>
+              </label>
+              <input
+                class="el-toggle-radio"
+                id="option-status-confirmed"
+                name="status"
+                type="radio"
+                value="confirmed"
+              />
+              <label
+                class="el-has-grey-bg el-toggle-radio-label"
+                for="option-status-confirmed"
+              >
+                <span
+                  class="el-toggle-radio-item"
+                >
+                  Confirmed
+                </span>
+              </label>
+              <input
+                class="el-toggle-radio"
+                id="option-status-underReview"
+                name="status"
+                type="radio"
+                value="underReview"
+              />
+              <label
+                class="el-has-grey-bg el-toggle-radio-label"
+                for="option-status-underReview"
+              >
+                <span
+                  class="el-toggle-radio-item"
+                >
+                  Under Review
+                </span>
+              </label>
+              <input
+                class="el-toggle-radio"
+                id="option-status-removed"
+                name="status"
+                type="radio"
+                value="removed"
+              />
+              <label
+                class="el-has-grey-bg el-toggle-radio-label"
+                for="option-status-removed"
+              >
+                <span
+                  class="el-toggle-radio-item"
+                >
+                  Removed
+                </span>
+              </label>
+            </div>
+          </div>
+          <div
+            class="el-input-wrap-full"
+          >
+            <div
+              class="el-input-group"
+            >
+              <input
+                class="el-input"
+                disabled=""
+                id="test-static-id"
+                name="reapitReference"
+                placeholder="Reapit Reference if account confirmed"
+              />
+              <label
+                class="el-label"
+                for="test-static-id"
+              >
+                Reapit Reference
+              </label>
+            </div>
+          </div>
+        </div>
+        <div
+          class="el-button-group"
+        >
+          <div
+            class="el-button-group-align-center el-button-group-inner"
+          >
+            <button
+              class="el-intent-low el-button-fixed-width el-button"
+            >
+              Cancel
+            </button>
+            <button
+              class="el-intent-primary el-button-fixed-width el-button"
+              type="submit"
+            >
+              Confirm
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <form>
+      <div
+        class="el-mb11 el-form-layout"
+      >
+        <div
+          class="el-input-wrap-full"
+        >
+          <label
+            class="el-label"
+          >
+            Update Developer Status
+          </label>
+          <div
+            class="el-has-grey-bg el-toggle-radio-wrap"
+          >
+            <input
+              class="el-toggle-radio"
+              id="option-status-incomplete"
+              name="status"
+              type="radio"
+              value="incomplete"
+            />
+            <label
+              class="el-has-grey-bg el-toggle-radio-label"
+              for="option-status-incomplete"
+            >
+              <span
+                class="el-toggle-radio-item"
+              >
+                Incomplete
+              </span>
+            </label>
+            <input
+              class="el-toggle-radio"
+              id="option-status-pending"
+              name="status"
+              type="radio"
+              value="pending"
+            />
+            <label
+              class="el-has-grey-bg el-toggle-radio-label"
+              for="option-status-pending"
+            >
+              <span
+                class="el-toggle-radio-item"
+              >
+                Pending
+              </span>
+            </label>
+            <input
+              class="el-toggle-radio"
+              id="option-status-confirmed"
+              name="status"
+              type="radio"
+              value="confirmed"
+            />
+            <label
+              class="el-has-grey-bg el-toggle-radio-label"
+              for="option-status-confirmed"
+            >
+              <span
+                class="el-toggle-radio-item"
+              >
+                Confirmed
+              </span>
+            </label>
+            <input
+              class="el-toggle-radio"
+              id="option-status-underReview"
+              name="status"
+              type="radio"
+              value="underReview"
+            />
+            <label
+              class="el-has-grey-bg el-toggle-radio-label"
+              for="option-status-underReview"
+            >
+              <span
+                class="el-toggle-radio-item"
+              >
+                Under Review
+              </span>
+            </label>
+            <input
+              class="el-toggle-radio"
+              id="option-status-removed"
+              name="status"
+              type="radio"
+              value="removed"
+            />
+            <label
+              class="el-has-grey-bg el-toggle-radio-label"
+              for="option-status-removed"
+            >
+              <span
+                class="el-toggle-radio-item"
+              >
+                Removed
+              </span>
+            </label>
+          </div>
+        </div>
+        <div
+          class="el-input-wrap-full"
+        >
+          <div
+            class="el-input-group"
+          >
+            <input
+              class="el-input"
+              disabled=""
+              id="test-static-id"
+              name="reapitReference"
+              placeholder="Reapit Reference if account confirmed"
+            />
+            <label
+              class="el-label"
+              for="test-static-id"
+            >
+              Reapit Reference
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="el-button-group"
+      >
+        <div
+          class="el-button-group-align-center el-button-group-inner"
+        >
+          <button
+            class="el-intent-low el-button-fixed-width el-button"
+          >
+            Cancel
+          </button>
+          <button
+            class="el-intent-primary el-button-fixed-width el-button"
+            type="submit"
+          >
+            Confirm
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`DeveloperStatusModal should render component with no developer 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

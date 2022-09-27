@@ -6,7 +6,7 @@ import { useReapitGet } from '@reapit/utils-react'
 import { GetActionNames, getActions, toLocalTime } from '@reapit/utils-common'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { openNewPage } from '../../utils/navigation'
-import AppRevisionComparison from './app-revision-comparison/app-revision-comparison'
+import AppRevisionComparison from './app-revision-comparison'
 import { usePermissionsState } from '../../core/use-permissions-state'
 
 export const handleSetConsentApproval =

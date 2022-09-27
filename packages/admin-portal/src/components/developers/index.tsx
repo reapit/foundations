@@ -1,7 +1,7 @@
 import React, { Dispatch, FC, SetStateAction, useState } from 'react'
 import ErrorBoundary from '../error-boundary'
 import { DeveloperFilters, FilterForm } from './filter-form'
-import { DeveloperModel, DeveloperModelPagedResult, MemberModel } from '@reapit/foundations-ts-definitions'
+import { DeveloperModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { Loader, PageContainer, Pagination, Title } from '@reapit/elements'
@@ -12,23 +12,6 @@ import { DevelopersTable } from './developers-table'
 export const closeDisableMemberModal = (setDisableMemberModalVisible: Dispatch<SetStateAction<boolean>>) => () => {
   setDisableMemberModalVisible(false)
 }
-
-export const openDisableMemberModal =
-  (
-    setSelectedUser: Dispatch<SetStateAction<MemberModel>>,
-    setDisableMemberModalVisible: Dispatch<SetStateAction<boolean>>,
-    user: MemberModel,
-  ) =>
-  () => {
-    setSelectedUser(user)
-    setDisableMemberModalVisible(true)
-  }
-
-export const onClickStatusButton =
-  (setDeveloper: Dispatch<DeveloperModel>, setIsSetStatusModalOpen: Dispatch<boolean>, developerData) => () => {
-    setDeveloper({ ...developerData })
-    setIsSetStatusModalOpen(true)
-  }
 
 export const DevsManagement: FC = () => {
   const [developerFilters, setDeveloperFilters] = useState<DeveloperFilters>({})
