@@ -7,7 +7,6 @@ import { createBrowserHistory, History } from 'history'
 import { OkayPage } from '@reapit/utils-react'
 import { PageContainer, PersistentNotification } from '@reapit/elements'
 import { FC } from 'react'
-import PrivateRoute from './private-route'
 
 export const history: History<any> = createBrowserHistory()
 const Login = React.lazy(() => catchChunkError(() => import('../components/login')))
@@ -31,7 +30,7 @@ const Router = () => {
 
           <PrivateRouteWrapper path="/">
             <Switch>
-              <PrivateRoute path={Routes.HOME} exact component={Landing} />
+              <Route path={Routes.HOME} exact component={Landing} />
               <Route render={() => <FourOFour />} />
             </Switch>
           </PrivateRouteWrapper>
