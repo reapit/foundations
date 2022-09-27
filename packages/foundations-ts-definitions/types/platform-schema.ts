@@ -2239,6 +2239,8 @@ export interface Companies {
   branch?: string
   name?: string
   typeId?: string
+  negotiatorId?: string[]
+  officeId?: string[]
   fromArchive?: boolean
   createdFrom?: string
   createdTo?: string
@@ -2416,6 +2418,14 @@ export interface CompanyModel {
     value?: string
   }[]
   /**
+   * A collection of unique identifiers of offices attached to the company. The first item in the collection is considered the primary office
+   */
+  officeIds?: string[]
+  /**
+   * A collection of unique identifiers of negotiators attached to the company. The first item in the collection is considered the primary negotiator
+   */
+  negotiatorIds?: string[]
+  /**
    * App specific metadata that has been set against the company
    */
   metadata?: {
@@ -2556,6 +2566,14 @@ export interface CompanyModelPagedResult {
        */
       value?: string
     }[]
+    /**
+     * A collection of unique identifiers of offices attached to the company. The first item in the collection is considered the primary office
+     */
+    officeIds?: string[]
+    /**
+     * A collection of unique identifiers of negotiators attached to the company. The first item in the collection is considered the primary negotiator
+     */
+    negotiatorIds?: string[]
     /**
      * App specific metadata that has been set against the company
      */
@@ -5592,6 +5610,7 @@ export interface CreateJournalEntryModel {
   propertyId?: string
   /**
    * The entity type the journal entry has been raised against (applicant/contact/company/landlord/tenancy/worksOrder) (Required when 'associatedId' is given)
+   * TypeId must be set to WO when passing worksOrder
    */
   associatedType?: string
   /**
@@ -14399,6 +14418,11 @@ export interface TenancyCheckModel {
    */
   type?: string
   /**
+   * The identifier of the pre-configured tenancy check. This will only be populated
+   * for pre-configured tenancy checks, and not for custom/ad-hoc checks added to individual tenancies
+   */
+  checkTypeId?: string
+  /**
    * The unique identifier of the tenancy that this check relates to
    */
   tenancyId?: string
@@ -14451,6 +14475,11 @@ export interface TenancyCheckModelPagedResult {
      * The type of the tenancy check (preTenancy/postTenancy)
      */
     type?: string
+    /**
+     * The identifier of the pre-configured tenancy check. This will only be populated
+     * for pre-configured tenancy checks, and not for custom/ad-hoc checks added to individual tenancies
+     */
+    checkTypeId?: string
     /**
      * The unique identifier of the tenancy that this check relates to
      */

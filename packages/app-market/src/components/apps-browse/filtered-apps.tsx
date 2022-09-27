@@ -19,18 +19,23 @@ import { cx } from '@linaria/core'
 import { navigate } from '../../utils/navigation'
 import { Routes } from '../../constants/routes'
 import { useHistory } from 'react-router-dom'
-import { cardCursor, IsFreeNotice } from './__styles__'
+import { BrowseAppsSubtitle, cardCursor, IsFreeNotice } from './__styles__'
 import { checkHasFilters } from './apps-browse'
 import { useAppsBrowseState } from '../../core/use-apps-browse-state'
 import { filterRestrictedAppsList } from '../../utils/browse-app'
 
-export const FilteredAppsCollection: FC = () => {
-  const { appsBrowseFilterState } = useAppsBrowseState()
+export interface FiltersAppsCollectionProps {
+  collectionId: string | null
+}
+
+export const FilteredAppsCollection: FC<FiltersAppsCollectionProps> = ({ collectionId }) => {
+  const { appsBrowseFilterState, appsBrowseConfigState } = useAppsBrowseState()
   const history = useHistory()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const clientId = connectSession?.loginIdentity.clientId
   const hasFilters = useMemo(checkHasFilters(appsBrowseFilterState), [appsBrowseFilterState])
   const queryParams = hasFilters ? { ...appsBrowseFilterState, clientId, pageSize: 100 } : {}
+  const title = appsBrowseConfigState?.items.find((item) => item.id === collectionId)?.content?.title
 
   const [unfilteredApps, appsLoading] = useReapitGet<AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,
@@ -45,6 +50,7 @@ export const FilteredAppsCollection: FC = () => {
 
   return (
     <>
+      {title && <BrowseAppsSubtitle>{title}</BrowseAppsSubtitle>}
       <Grid>
         {apps?.data?.map(({ id, name, summary, developer, isDirectApi, iconUri, isFree }) => (
           <Col key={id}>

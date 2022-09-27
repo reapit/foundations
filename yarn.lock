@@ -13600,6 +13600,7 @@ __metadata:
     eslint-plugin-prettier: ^4.2.1
     jest: ^28.1.3
     jest-coverage-badges: ^1.1.2
+    just-debounce-it: ^3.1.1
     node-polyfill-webpack-plugin: ^1.1.4
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -28521,6 +28522,13 @@ fsevents@^1.2.7:
   version: 1.5.0
   resolution: "just-debounce-it@npm:1.5.0"
   checksum: bab4cf713e4aaee298b6d14e1c3b1651bca04883b3a13488c6b223d5623d8aec426d8a04655bd8e65b6530ece7f6a603affcff7eadedbf35dc4444050b90b159
+  languageName: node
+  linkType: hard
+
+"just-debounce-it@npm:^3.1.1":
+  version: 3.1.1
+  resolution: "just-debounce-it@npm:3.1.1"
+  checksum: 0b40c0d9c0257dbf20066e5699225236a3e6465cc4ea922708bfaf1a0595c7efce92507ac0e0754c369c36d464b9311254cd9a54298142756cb9716d769ec967
   languageName: node
   linkType: hard
 

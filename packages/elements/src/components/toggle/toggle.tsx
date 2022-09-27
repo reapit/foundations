@@ -53,7 +53,7 @@ export const Toggle: ToggleWrapped = forwardRef(
   ) => {
     return (
       <>
-        <ElToggleCheckbox id={id} type="checkbox" {...rest} ref={ref as LegacyRef<HTMLInputElement>} />
+        <ElToggleCheckbox id={id} type="checkbox" {...rest} ref={(ref as unknown) as LegacyRef<HTMLInputElement>} />
         <ElToggleLabel
           htmlFor={id}
           className={cx(className, isFullWidth && elToggleFullWidth, hasGreyBg && elHasGreyBg)}
@@ -81,7 +81,7 @@ export const ToggleRadio: ToggleRadioWrapped = forwardRef(
               type="radio"
               {...rest}
               defaultChecked={isChecked}
-              ref={ref as LegacyRef<HTMLInputElement>}
+              ref={(ref as unknown) as LegacyRef<HTMLInputElement>}
             />
             <ElToggleRadioLabel htmlFor={id} className={cx(hasGreyBg && elHasGreyBg, isFullWidth && elToggleFullWidth)}>
               <ElToggleRadioItem>{text}</ElToggleRadioItem>

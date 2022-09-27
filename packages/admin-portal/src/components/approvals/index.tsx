@@ -7,6 +7,7 @@ import { GetActionNames, getActions, toLocalTime } from '@reapit/utils-common'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { openNewPage } from '../../utils/navigation'
 import AppRevisionComparison from './app-revision-comparison/app-revision-comparison'
+import { usePermissionsState } from '../../core/use-permissions-state'
 
 export const handleSetConsentApproval =
   (
@@ -38,6 +39,7 @@ export const AdminApprovals: FC = () => {
   const [pageNumber, setPageNumber] = useState<number>(1)
   const [consentApproval, setConsentApproval] = useState<ApprovalModel | null>(null)
   const [diffApproval, setDiffApproval] = useState<ApprovalModel | null>(null)
+  const { hasReadAccess } = usePermissionsState()
 
   const [approvals, approvalsLoading, , refreshApprovals] = useReapitGet<ApprovalModelPagedResult>({
     reapitConnectBrowserSession,
@@ -80,9 +82,16 @@ export const AdminApprovals: FC = () => {
                       <ButtonGroup alignment="center">
                         <Button
                           intent="secondary"
-                          onClick={openNewPage(`${window.reapit.config.developerPortalUri}/apps/${appId}}`)}
+                          onClick={openNewPage(`${window.reapit.config.appMarketUri}/apps/${appId}`)}
                         >
-                          View App
+                          View in AppMarket
+                        </Button>
+                        <Button
+                          intent="secondary"
+                          disabled={hasReadAccess}
+                          onClick={openNewPage(`${window.reapit.config.developerPortalUri}/apps/${appId}`)}
+                        >
+                          View in DevPortal
                         </Button>
                         <Button
                           type="button"

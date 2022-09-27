@@ -31,6 +31,9 @@ import { MobileControlsState } from './apps-browse'
 import { useAppsBrowseState } from '../../core/use-apps-browse-state'
 import { trackEvent } from '../../core/analytics'
 import { TrackingEvent } from '../../core/analytics-events'
+import { Routes } from '../../constants/routes'
+import { History } from 'history'
+import { useHistory } from 'react-router'
 
 export interface AppSearchFiltersProps {
   mobileControlsState: MobileControlsState
@@ -101,21 +104,23 @@ export const handleSearch =
 export const handleClearSearch =
   (
     setAppsBrowseFilterState: Dispatch<SetStateAction<AppsBrowseConfigItemFiltersInterface | null>>,
+    history: History,
     searchRef: React.MutableRefObject<HTMLInputElement | null>,
   ) =>
   () => {
     setAppsBrowseFilterState(null)
     trackEvent(TrackingEvent.ClickClearFilters, true)
-
+    history.push(Routes.APPS_BROWSE)
     if (searchRef.current) searchRef.current.value = ''
   }
 
 export const AppSearchFilters: FC<AppSearchFiltersProps> = memo(({ mobileControlsState }) => {
   const { appsBrowseFilterState, appsBrowseCategoriesState, setAppsBrowseFilterState } = useAppsBrowseState()
   const searchRef = useRef<HTMLInputElement | null>(null)
+  const history = useHistory()
 
   const debouncedSearch = useCallback(debounce(handleSearch(setAppsBrowseFilterState), 500), [])
-  const clearSearch = useCallback(handleClearSearch(setAppsBrowseFilterState, searchRef), [searchRef])
+  const clearSearch = useCallback(handleClearSearch(setAppsBrowseFilterState, history, searchRef), [searchRef])
   const selectFilter = useCallback(
     handleSelectFilter(appsBrowseFilterState, setAppsBrowseFilterState, appsBrowseCategoriesState),
     [appsBrowseFilterState],

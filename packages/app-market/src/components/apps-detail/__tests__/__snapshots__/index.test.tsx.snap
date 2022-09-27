@@ -309,7 +309,7 @@ Object {
                     Pricing Policy
                   </h2>
                   <p
-                    class="el-has-grey-text el-has-no-margin el-body-text"
+                    class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
                   >
                     Free
                   </p>
@@ -647,7 +647,7 @@ Object {
                   Pricing Policy
                 </h2>
                 <p
-                  class="el-has-grey-text el-has-no-margin el-body-text"
+                  class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
                 >
                   Free
                 </p>

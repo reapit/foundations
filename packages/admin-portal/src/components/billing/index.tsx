@@ -5,7 +5,7 @@ import {
   FormLayout,
   InputGroup,
   InputWrap,
-  Loader,
+  PersistentNotification,
   Table,
   TableCell,
   TableHeader,
@@ -25,12 +25,8 @@ export interface SelectOption {
   value?: string
 }
 
-export interface InstallationFilters {
-  month: string
-}
-
-const defaultValues: InstallationFilters = {
-  month: dayjs().format('YYYY-MM'),
+export interface BillingFilters {
+  month?: string
 }
 
 export const handleSaveFile = (billingFile: Blob, filename: string) => () => {
@@ -38,7 +34,7 @@ export const handleSaveFile = (billingFile: Blob, filename: string) => () => {
 }
 
 export const handleDownloadBillingPeriod =
-  (period: string, setBillingFile: Dispatch<SetStateAction<Blob | null>>) => () => {
+  (setBillingFile: Dispatch<SetStateAction<Blob | null>>, period?: string) => () => {
     const fetchBilling = async () => {
       if (!period) return
 
@@ -58,27 +54,26 @@ export const handleDownloadBillingPeriod =
   }
 
 export const AdminBilling: FC = () => {
-  const [installationsFilters, setInstallationsFilters] = useState<InstallationFilters>(defaultValues)
+  const [billingFilters, setBillingFilters] = useState<BillingFilters>()
   const [billingFile, setBillingFile] = useState<Blob | null>(null)
 
-  const { register, handleSubmit } = useForm<InstallationFilters>({
+  const { register, handleSubmit } = useForm<BillingFilters>({
     mode: 'onChange',
-    defaultValues,
   })
 
-  useEffect(handleDownloadBillingPeriod(installationsFilters.month, setBillingFile), [installationsFilters])
+  useEffect(handleDownloadBillingPeriod(setBillingFile, billingFilters?.month), [billingFilters])
 
   return (
     <PageContainer>
       <Title>Billing</Title>
-      <form onChange={handleSubmit(setInstallationsFilters)}>
+      <form onChange={handleSubmit(setBillingFilters)}>
         <FormLayout className={elMb11}>
           <InputWrap>
             <InputGroup {...register('month')} label="Month" type="month" />
           </InputWrap>
         </FormLayout>
       </form>
-      {billingFile ? (
+      {billingFile && billingFilters?.month ? (
         <Table className={elMb11}>
           <TableHeadersRow>
             <TableHeader>Period</TableHeader>
@@ -86,11 +81,11 @@ export const AdminBilling: FC = () => {
           </TableHeadersRow>
           <TableRowContainer>
             <TableRow>
-              <TableCell>{dayjs(installationsFilters.month).format('MMMM YYYY')}</TableCell>
+              <TableCell>{dayjs(billingFilters.month).format('MMMM YYYY')}</TableCell>
               <TableCell>
                 <Button
                   intent="low"
-                  onClick={handleSaveFile(billingFile, `billing-developer-period-${installationsFilters.month}.csv`)}
+                  onClick={handleSaveFile(billingFile, `billing-developer-period-${billingFilters.month}.csv`)}
                 >
                   Download
                 </Button>
@@ -99,7 +94,9 @@ export const AdminBilling: FC = () => {
           </TableRowContainer>
         </Table>
       ) : (
-        <Loader />
+        <PersistentNotification intent="secondary" isExpanded={true} isInline isFullWidth>
+          No billing file available for download.
+        </PersistentNotification>
       )}
     </PageContainer>
   )

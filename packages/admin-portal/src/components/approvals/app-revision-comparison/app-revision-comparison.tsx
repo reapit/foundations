@@ -9,6 +9,7 @@ import {
   ApprovalModel,
   ApproveModel,
   RejectRevisionModel,
+  CreateAppRevisionConsentsModel,
 } from '@reapit/foundations-ts-definitions'
 import DiffMedia from '../diff-media'
 import DiffCheckbox from '../diff-checkbox'
@@ -37,6 +38,7 @@ import dayjs from 'dayjs'
 import { object, string } from 'yup'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
+import { usePermissionsState } from '../../../core/use-permissions-state'
 
 export type AppRevisionComparisonProps = {
   approval: ApprovalModel | null
@@ -56,7 +58,6 @@ export type DiffMediaModel = {
 
 const diffStringList: { [k in keyof AppRevisionModel]: string } = {
   name: 'Name',
-  category: 'Category',
   homePage: 'Home page',
   launchUri: 'Launch URI',
   supportEmail: 'Support Email',
@@ -67,6 +68,7 @@ const diffStringList: { [k in keyof AppRevisionModel]: string } = {
   signoutUris: 'Signout URIs',
   limitToClientIds: 'Private Apps',
   desktopIntegrationTypeIds: 'Integration Type',
+  products: 'Products',
   privacyPolicyUrl: 'Privacy Policy',
   termsAndConditionsUrl: 'Terms & Conditions',
   pricingUrl: 'Pricing Info',
@@ -156,12 +158,19 @@ export type RenderDiffContentParams = {
   desktopIntegrationTypes: DesktopIntegrationTypeModelPagedResult
 }
 
+export const renderCategoriesDiff = (app: AppDetailModel, revision: AppRevisionModel) => {
+  const currentString = app.categories?.map((category) => category.name).join(', ') ?? ''
+  const changedString = revision.categories?.map((category) => category.name).join(', ') ?? ''
+
+  return (
+    <div className={elMb5}>
+      <BodyText hasGreyText>Categories</BodyText>
+      <DiffViewer currentString={currentString} changedString={changedString} type="words" />
+    </div>
+  )
+}
+
 export const renderDiffContent = ({ key, revision, app, desktopIntegrationTypes }: RenderDiffContentParams) => {
-  if (key === 'category') {
-    return (
-      <DiffViewer currentString={app.category?.name || ''} changedString={revision.category?.name || ''} type="words" />
-    )
-  }
   if (key === 'description') {
     return <DiffRenderHTML currentString={app.description || ''} changedString={revision.description || ''} />
   }
@@ -184,7 +193,7 @@ export const renderDiffContent = ({ key, revision, app, desktopIntegrationTypes 
       />
     )
   }
-  if (['redirectUris', 'signoutUris', 'limitToClientIds', 'desktopIntegrationTypeIds'].includes(key)) {
+  if (['redirectUris', 'signoutUris', 'limitToClientIds', 'desktopIntegrationTypeIds', 'products'].includes(key)) {
     const currentString = Array.isArray(app[key]) ? app[key].join(' ') : ''
     const changedString = Array.isArray(revision[key]) ? revision[key].join(' ') : ''
     return <DiffViewer currentString={currentString} changedString={changedString} type="words" />
@@ -230,12 +239,21 @@ export const handleRefreshApprovals = (refreshApprovals: () => void, shouldRefre
   }
 }
 
+export const handleSendConstents =
+  (createConsentEmails: SendFunction<CreateAppRevisionConsentsModel, boolean>, email?: string) => () => {
+    if (email) {
+      createConsentEmails({ actionedBy: email })
+    }
+  }
+
 export const AppRevisionComparison: FC<AppRevisionComparisonProps> = ({ approval, refreshApprovals }) => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const { hasReadAccess } = usePermissionsState()
   const { Modal: ApproveModal, openModal: openApproveModal, closeModal: closeApproveModal } = useModal()
   const { Modal: DeclineModal, openModal: openDeclineModal, closeModal: closeDeclineModal } = useModal()
   const appId = approval?.appId
   const revisionId = approval?.appRevisionId
+  const email = connectSession?.loginIdentity.email
 
   const [app, appLoading] = useReapitGet<AppDetailModel>({
     reapitConnectBrowserSession,
@@ -286,6 +304,16 @@ export const AppRevisionComparison: FC<AppRevisionComparisonProps> = ({ approval
     },
   })
 
+  const [, , createConsentEmails] = useReapitUpdate<CreateAppRevisionConsentsModel, boolean>({
+    reapitConnectBrowserSession,
+    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.createConsentEmails],
+    method: 'POST',
+    uriParams: {
+      appId,
+      revisionId,
+    },
+  })
+
   const {
     register,
     handleSubmit,
@@ -325,9 +353,10 @@ export const AppRevisionComparison: FC<AppRevisionComparisonProps> = ({ approval
           </div>
         )
       })}
+      {renderCategoriesDiff(app, revision)}
       {renderCheckboxesDiff({ scopes, appScopes: app.scopes, revisionScopes: revision.scopes })}
       <div className={elMb5}>
-        <BodyText>Is listed</BodyText>
+        <BodyText hasGreyText>Is listed</BodyText>
         <DiffCheckbox
           currentChecked={Boolean(app.isListed)}
           changedChecked={Boolean(revision.isListed)}
@@ -335,7 +364,7 @@ export const AppRevisionComparison: FC<AppRevisionComparisonProps> = ({ approval
         />
       </div>
       <div className={elMb5}>
-        <BodyText>Is Free</BodyText>
+        <BodyText hasGreyText>Is Free</BodyText>
         <DiffCheckbox
           currentChecked={Boolean(app.isFree)}
           changedChecked={Boolean(revision.isFree)}
@@ -343,7 +372,7 @@ export const AppRevisionComparison: FC<AppRevisionComparisonProps> = ({ approval
         />
       </div>
       <div className={elMb5}>
-        <BodyText>Is Integration</BodyText>
+        <BodyText hasGreyText>Is Integration</BodyText>
         <DiffCheckbox
           currentChecked={Boolean(app.isDirectApi)}
           changedChecked={Boolean(revision.isDirectApi)}
@@ -359,11 +388,14 @@ export const AppRevisionComparison: FC<AppRevisionComparisonProps> = ({ approval
         </div>
       ))}
       <ButtonGroup alignment="center">
-        <Button fixedWidth onClick={openDeclineModal} intent="danger">
+        <Button onClick={openDeclineModal} disabled={hasReadAccess} intent="danger">
           Decline Revision
         </Button>
-        <Button fixedWidth onClick={openApproveModal} intent="primary">
+        <Button onClick={openApproveModal} disabled={hasReadAccess} intent="primary">
           Approve Revision
+        </Button>
+        <Button intent="secondary" onClick={handleSendConstents(createConsentEmails, email)} disabled={hasReadAccess}>
+          Send Consent Emails
         </Button>
       </ButtonGroup>
       <ApproveModal title={`Approve ${app.name} Revision`}>
@@ -400,10 +432,10 @@ export const AppRevisionComparison: FC<AppRevisionComparisonProps> = ({ approval
             </InputWrapFull>
           </FormLayout>
           <ButtonGroup alignment="center">
-            <Button fixedWidth intent="low" onClick={closeDeclineModal}>
+            <Button intent="low" onClick={closeDeclineModal}>
               Cancel
             </Button>
-            <Button fixedWidth intent="danger" type="submit">
+            <Button intent="danger" type="submit">
               Decline
             </Button>
           </ButtonGroup>

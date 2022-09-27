@@ -5,6 +5,7 @@ import { AppsBrowseConfigCollection } from './use-apps-browse-state'
 const appsBrowseConfigCollectionDev: AppsBrowseConfigCollection = {
   items: [
     {
+      id: 'MOCK_ID',
       index: 0,
       filters: {
         id: ['cfbe6f29-4003-4648-aa5a-8eb777bd606e'],

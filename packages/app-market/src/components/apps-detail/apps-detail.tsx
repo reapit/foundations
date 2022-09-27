@@ -49,6 +49,7 @@ import {
   AppDetailSupportGrid,
   AppDetailSupportGridCol,
   AppDetailDescriptionAsideDesktop,
+  appDetailInfoLineAdjust,
 } from './__styles__'
 import { Carousel } from '../carousel'
 import { AppInstallModalContent } from './app-install-modal'
@@ -342,7 +343,7 @@ export const AppsDetail: FC = () => {
                   {homePage && (
                     <AppDetailSupportGridCol>
                       <Subtitle hasNoMargin>Website</Subtitle>
-                      <BodyText hasGreyText hasNoMargin>
+                      <BodyText className={appDetailInfoLineAdjust} hasGreyText hasNoMargin>
                         <DesktopLink
                           onClick={trackVisitHomepage}
                           uri={homePage}
@@ -356,7 +357,7 @@ export const AppsDetail: FC = () => {
                   {supportEmail && (
                     <AppDetailSupportGridCol>
                       <Subtitle hasNoMargin>Support Email</Subtitle>
-                      <BodyText hasGreyText hasNoMargin>
+                      <BodyText className={appDetailInfoLineAdjust} hasGreyText hasNoMargin>
                         <DesktopLink
                           onClick={trackSupportEmail}
                           uri={supportEmail}
@@ -370,7 +371,7 @@ export const AppsDetail: FC = () => {
                   {telephone && (
                     <AppDetailSupportGridCol>
                       <Subtitle hasNoMargin>Telephone</Subtitle>
-                      <BodyText hasGreyText hasNoMargin>
+                      <BodyText className={appDetailInfoLineAdjust} hasGreyText hasNoMargin>
                         {telephone}
                       </BodyText>
                     </AppDetailSupportGridCol>
@@ -378,7 +379,7 @@ export const AppsDetail: FC = () => {
                   {termsAndConditionsUrl && (
                     <AppDetailSupportGridCol>
                       <Subtitle hasNoMargin>Terms and Conditions</Subtitle>
-                      <BodyText hasGreyText hasNoMargin>
+                      <BodyText className={appDetailInfoLineAdjust} hasGreyText hasNoMargin>
                         <DesktopLink
                           onClick={trackViewTerms}
                           uri={termsAndConditionsUrl}
@@ -392,7 +393,7 @@ export const AppsDetail: FC = () => {
                   {privacyPolicyUrl && (
                     <AppDetailSupportGridCol>
                       <Subtitle hasNoMargin>Privacy Policy</Subtitle>
-                      <BodyText hasGreyText hasNoMargin>
+                      <BodyText className={appDetailInfoLineAdjust} hasGreyText hasNoMargin>
                         <DesktopLink
                           onClick={trackViewPrivacyPolicy}
                           uri={privacyPolicyUrl}
@@ -405,7 +406,7 @@ export const AppsDetail: FC = () => {
                   )}
                   <AppDetailSupportGridCol>
                     <Subtitle hasNoMargin>Pricing Policy</Subtitle>
-                    <BodyText hasGreyText hasNoMargin>
+                    <BodyText className={appDetailInfoLineAdjust} hasGreyText hasNoMargin>
                       {!isFree && pricingUrl ? (
                         <DesktopLink
                           onClick={trackViewPricing}

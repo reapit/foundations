@@ -1,5 +1,5 @@
 import React, { Dispatch, FC, SetStateAction, useState } from 'react'
-import { buildStatusToIntent, buildStatusToReadable, pipelineViewable } from '../../utils/pipeline-helpers'
+import { buildStatusToIntent, buildStatusToReadable, pipelineViewable } from '@reapit/utils-common'
 import Routes from '@/constants/routes'
 import {
   Button,

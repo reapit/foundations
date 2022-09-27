@@ -21,12 +21,16 @@ export const getDefaultNavIndex = (pathname: string) => {
       return 4
     case Routes.BILLING:
       return 5
-    case Routes.CUSTOMERS:
+    case Routes.TRAFFIC:
       return 6
-    case Routes.SUBSCRIPTIONS:
+    case Routes.CUSTOMERS:
       return 7
-    case Routes.USAGE:
+    case Routes.SUBSCRIPTIONS:
       return 8
+    case Routes.USAGE:
+      return 9
+    case Routes.IAAS:
+      return 10
     default:
       return 0
   }
@@ -76,24 +80,36 @@ export const Menu: FC = () => {
     },
     {
       itemIndex: 6,
+      callback: navigate(history, Routes.TRAFFIC),
+      iconId: 'mapMenu',
+      text: 'Traffic',
+    },
+    {
+      itemIndex: 7,
       callback: navigate(history, Routes.CUSTOMERS),
       iconId: 'usersMenu',
       text: 'Customers',
     },
     {
-      itemIndex: 7,
+      itemIndex: 8,
       callback: navigate(history, Routes.SUBSCRIPTIONS),
       iconId: 'resultsMenu',
       text: 'Subs',
     },
     {
-      itemIndex: 8,
+      itemIndex: 9,
       callback: navigate(history, Routes.USAGE),
       iconId: 'analyticsMenu',
       text: 'Usage',
     },
     {
-      itemIndex: 9,
+      itemIndex: 10,
+      callback: navigate(history, Routes.IAAS),
+      iconId: 'dataMenu',
+      text: 'IAAS',
+    },
+    {
+      itemIndex: 11,
       callback: connectLogoutRedirect,
       isSecondary: true,
       iconId: 'logoutMenu',

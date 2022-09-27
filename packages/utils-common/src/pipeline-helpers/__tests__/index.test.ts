@@ -1,4 +1,4 @@
-import { buildStatusToIntent, buildStatusToReadable, pipelineViewable } from '../pipeline-helpers'
+import { buildStatusToIntent, buildStatusToReadable, pipelineViewable } from '..'
 
 describe('pipeline helpers', () => {
   describe('buildStatusToIntent', () => {

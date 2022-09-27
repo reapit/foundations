@@ -29,6 +29,7 @@ import {
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { FilterForm } from './filter-form'
 import { Statistics } from '../statistics'
+import { usePermissionsState } from '../../core/use-permissions-state'
 
 export interface SubscriptionsFilters {
   type?: string
@@ -93,6 +94,7 @@ const Subscriptions: FC = () => {
   const [pageSize, setPageSize] = useState<number>(12)
   const [cancelSubId, setCancelSubId] = useState<string | null>(null)
   const { Modal, openModal, closeModal } = useModal()
+  const { hasReadAccess } = usePermissionsState()
 
   const [subscriptions, subscriptionsLoading, , refetchSubs] = useReapitGet<SubscriptionModelPagedResult>({
     reapitConnectBrowserSession,
@@ -230,8 +232,8 @@ const Subscriptions: FC = () => {
                   ],
                   ctaContent: {
                     headerContent: 'Cancel',
-                    icon: cancelled ? undefined : 'trashSystem',
-                    onClick: cancelled ? undefined : handleSetSubId(setCancelSubId, openModal, id),
+                    icon: cancelled || hasReadAccess ? undefined : 'trashSystem',
+                    onClick: cancelled || hasReadAccess ? undefined : handleSetSubId(setCancelSubId, openModal, id),
                   },
                 }),
               )}

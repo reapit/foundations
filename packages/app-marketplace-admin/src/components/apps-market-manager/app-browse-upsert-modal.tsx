@@ -130,7 +130,6 @@ export const AppBrowseUpsertModal: FC<AppBrowseUpsertModalDefaultProps> = ({
     handleSubmit,
     formState: { errors },
     setValue,
-    getValues,
     control,
   } = useForm({
     defaultValues: {
@@ -218,6 +217,8 @@ export const AppBrowseUpsertModal: FC<AppBrowseUpsertModalDefaultProps> = ({
     control,
   })
 
+  const appIdFilters = useWatch({ name: 'filters.id', control })
+
   return (
     <Modal
       className={appModal}
@@ -251,9 +252,9 @@ export const AppBrowseUpsertModal: FC<AppBrowseUpsertModalDefaultProps> = ({
               action={getActions(window.reapit.config.appEnv)[GetActionNames.getApps]}
               valueKey="id"
               nameKey="name"
-              searchKey="appName"
+              searchKey="searchTerm"
               dataListKey="data"
-              currentValues={getValues('filters.id') || []}
+              currentValues={appIdFilters ?? []}
               defaultList={initialApps?.data || []}
               errorString={errors.id?.message || ''}
               noneSelectedLabel="No apps selected"

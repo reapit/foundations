@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { buildStatusToIntent, buildStatusToReadable } from '../../../utils/pipeline-helpers'
+import { buildStatusToIntent, buildStatusToReadable } from '@reapit/utils-common'
 import {
   BodyText,
   Col,

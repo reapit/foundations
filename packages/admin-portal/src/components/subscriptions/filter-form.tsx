@@ -2,6 +2,7 @@ import React, { Dispatch, FC, SetStateAction } from 'react'
 import { useForm } from 'react-hook-form'
 import { FormLayout, InputWrap, InputGroup, Label, Select } from '@reapit/elements'
 import { SubscriptionsFilters } from '.'
+import debounce from 'just-debounce-it'
 
 export interface FilterFormProps {
   setSubscriptionsFilters: Dispatch<SetStateAction<SubscriptionsFilters>>
@@ -11,7 +12,7 @@ export const FilterForm: FC<FilterFormProps> = ({ setSubscriptionsFilters }) => 
   const { register, handleSubmit } = useForm<SubscriptionsFilters>({ mode: 'all' })
 
   return (
-    <form onChange={handleSubmit(setSubscriptionsFilters)}>
+    <form onChange={handleSubmit(debounce(setSubscriptionsFilters, 500))}>
       <FormLayout hasMargin>
         <InputWrap>
           <InputGroup {...register('organisationName')} label="Company Name" />
