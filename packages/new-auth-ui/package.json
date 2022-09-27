@@ -1,0 +1,100 @@
+{
+  "name": "new-auth-ui",
+  "version": "1.0.0",
+  "description": "An example UI for authentication with several methods",
+  "main": "./src/index.ts",
+  "repository": "git@github.com:reapit/app-store.git",
+  "author": "Will McVay <wmcvay@reapit.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "webpack serve --hot --color --mode development",
+    "test": "cross-env TZ=UTC jest --watch --colors --silent",
+    "build": "rimraf public/dist && NODE_ENV=production webpack",
+    "lint": "eslint --cache --ext=ts,tsx,js src",
+    "check": "tsc --noEmit --skipLibCheck",
+    "release": "serverless deploy",
+    "publish": "echo '...skipping...'",
+    "conf": "yarn config-manager --namespace cloud --entity developer-portal --name local --mode fetch",
+    "commit": "yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges && yarn lint --fix && yarn check"
+  },
+  "dependencies": {
+    "@harelpls/use-pusher": "^7.2.1",
+    "@hookform/resolvers": "^2.9.3",
+    "@linaria/core": "^3.0.0-beta.15",
+    "@linaria/react": "^3.0.0-beta.15",
+    "@reapit/connect-session": "workspace:packages/connect-session",
+    "@reapit/elements": "workspace:packages/elements",
+    "@reapit/utils-common": "workspace:packages/utils-common",
+    "@reapit/utils-react": "workspace:packages/utils-react",
+    "@sentry/browser": "^6.19.7",
+    "@sentry/react": "^6.19.7",
+    "@sentry/tracing": "^6.19.7",
+    "amazon-cognito-identity-js": "^4.6.3",
+    "chart.js": "^3.8.2",
+    "dayjs": "^1.11.4",
+    "diff": "^4.0.2",
+    "file-saver": "^2.0.5",
+    "github-username-regex": "^1.0.0",
+    "papaparse": "^5.3.2",
+    "project-name-generator": "^2.1.9",
+    "react": "^18.2.0",
+    "react-chartjs-2": "^4.3.1",
+    "react-copy-to-clipboard": "^5.1.0",
+    "react-dom": "^18.2.0",
+    "react-ga": "^2.7.0",
+    "react-hook-form": "^7.33.1",
+    "react-router": "^5.3.3",
+    "react-router-dom": "^5.3.3",
+    "snyk": "^1.980.0",
+    "swagger-ui-react": "^4.13.0",
+    "yup": "^0.32.11"
+  },
+  "devDependencies": {
+    "@linaria/shaker": "^3.0.0-beta.15",
+    "@reapit/config-manager": "workspace:packages/config-manager",
+    "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions",
+    "@reapit/ts-scripts": "workspace:packages/ts-scripts",
+    "@reapit/ts-types": "workspace:packages/ts-types",
+    "@testing-library/react": "^13.3.0",
+    "@typescript-eslint/eslint-plugin": "^5.36.1",
+    "@typescript-eslint/parser": "^5.36.1",
+    "babel-jest": "^28.1.3",
+    "babel-loader": "^8.2.5",
+    "concurrently": "^6.5.1",
+    "cross-env": "^6.0.3",
+    "css-loader": "^6.7.1",
+    "eslint": "8.23.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "jest": "^28.1.3",
+    "jest-coverage-badges": "^1.1.2",
+    "node-polyfill-webpack-plugin": "^1.1.4",
+    "rimraf": "^3.0.2",
+    "serverless": "^2.72.3",
+    "serverless-s3-deploy": "^0.10.1",
+    "serverless-s3-remover": "^0.6.0",
+    "serverless-single-page-app-plugin": "^1.0.4",
+    "ts-jest": "^28.0.8",
+    "typescript": "^4.8.2",
+    "webpack": "^5.74.0",
+    "webpack-dev-server": "^4.9.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn test --ci --no-color"
+    }
+  },
+  "lint-staged": {
+    "!(**/cypress/**/*.{ts,tsx})/**/src/**/*.{ts,tsx}": [
+      "yarn lint:src",
+      "git add"
+    ]
+  },
+  "browserslist": [
+    "> 0.5%",
+    "not IE 11",
+    "chrome 69"
+  ],
+  "snyk": true
+}
