@@ -9,8 +9,6 @@ import { reapitConnectBrowserSession } from '../../core/connect-session'
 
 export const getDefaultNavIndex = (pathname: string) => {
   switch (pathname) {
-    case Routes.ROOT:
-      return 0
     case Routes.APPROVALS:
       return 1
     case Routes.APPS:
@@ -31,6 +29,7 @@ export const getDefaultNavIndex = (pathname: string) => {
       return 9
     case Routes.IAAS:
       return 10
+    case Routes.ROOT:
     default:
       return 0
   }

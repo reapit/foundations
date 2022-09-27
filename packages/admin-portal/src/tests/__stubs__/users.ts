@@ -1,0 +1,40 @@
+import { UserInfoModel } from '@reapit/foundations-ts-definitions'
+
+export const mockUserInfoModel: UserInfoModel = {
+  id: 'cnlhbi5wYXVsLndpbGNveCsxMjM0NUBnbWFpbC5jb20',
+  created: '2022-07-27T10:30:05.0000000Z',
+  modified: '2022-07-27T10:30:46.0000000Z',
+  emailAddress: 'test@example.com',
+  name: 'Ryan Wilcox',
+  organisationId: '201a8d35-f682-41a8-95ed-079133e4b517',
+  userCustomerId: 'SBOX',
+  organisationName: 'Reapit Sales',
+  organisationGroupId: '27e2ebbc-140f-4286-803a-65da92f38ddb',
+  organisationGroupName: 'Reapit Organisation Group',
+  organisationProduct: 'agencyCloud',
+  consentToTrack: true,
+  negotiatorId: '',
+  officeId: '',
+  officeGroupName: '',
+  officeGroupIds: '',
+  organisationGroupMembers: [
+    {
+      id: 'a9d24814-0bbd-4dea-b511-97e514ca2850',
+      created: '2021-10-14T07:27:37.0000000Z',
+      modified: '',
+      organisationId: '201a8d35-f682-41a8-95ed-079133e4b517',
+      organisationGroupId: '27e2ebbc-140f-4286-803a-65da92f38ddb',
+      customerId: 'RES',
+      name: 'Reapit Sales',
+    },
+  ],
+  userGroups: ['FoundationsDeveloper'],
+  idpData: {
+    exists: true,
+    id: 'cf85e48b-b3bc-4ba1-878f-8045a7dbafd0',
+    enabled: true,
+    created: '2022-07-27T11:30:04.8230000Z',
+    status: 'CONFIRMED',
+    authEvents: ['SignIn from 81.154.142.40 on 27/07/2022 11:30:24. Pass'],
+  },
+}

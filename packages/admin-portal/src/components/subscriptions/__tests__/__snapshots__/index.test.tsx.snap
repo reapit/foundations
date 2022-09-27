@@ -1,0 +1,1179 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Subscriptions should render component when has data 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <section
+        class="el-page-container"
+      >
+        <h1
+          class="el-title"
+        >
+          Subscriptions
+        </h1>
+        <form>
+          <div
+            class="el-form-layout-has-margin el-form-layout"
+          >
+            <div
+              class="el-input-wrap"
+            >
+              <div
+                class="el-input-group"
+              >
+                <input
+                  class="el-input"
+                  id="test-static-id"
+                  name="organisationName"
+                />
+                <label
+                  class="el-label"
+                  for="test-static-id"
+                >
+                  Company Name
+                </label>
+              </div>
+            </div>
+            <div
+              class="el-input-wrap"
+            >
+              <div
+                class="el-input-group"
+              >
+                <input
+                  class="el-input"
+                  id="test-static-id"
+                  name="userEmail"
+                  type="email"
+                />
+                <label
+                  class="el-label"
+                  for="test-static-id"
+                >
+                  User Email
+                </label>
+              </div>
+            </div>
+            <div
+              class="el-input-wrap"
+            >
+              <label
+                class="el-label"
+              >
+                Subscription Type
+              </label>
+              <div
+                class="el-input-group"
+              >
+                <select
+                  class="el-select"
+                  name="type"
+                >
+                  <option
+                    value=""
+                  >
+                    Please Select
+                  </option>
+                  <option
+                    value="applicationListing"
+                  >
+                    Application Listing
+                  </option>
+                  <option
+                    value="developerRegistration"
+                  >
+                    Developer Registration
+                  </option>
+                  <option
+                    value="developerEdition"
+                  >
+                    Developer Edition
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div
+              class="el-input-wrap"
+            >
+              <label
+                class="el-label"
+              >
+                Status
+              </label>
+              <div
+                class="el-input-group"
+              >
+                <select
+                  class="el-select"
+                  name="status"
+                >
+                  <option
+                    value=""
+                  >
+                    Please Select
+                  </option>
+                  <option
+                    value="active"
+                  >
+                    Active
+                  </option>
+                  <option
+                    value="cancelled"
+                  >
+                    Cancelled
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div
+          class="el-mb11"
+        >
+          <div
+            class="el-button-group"
+          >
+            <div
+              class="el-button-group-inner"
+            >
+              <button
+                class="el-intent-primary el-button"
+                type="button"
+              >
+                Download CSV
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="el-mb11 el-table"
+          data-has-call-to-action="true"
+          data-has-expandable-action="false"
+          data-num-columns-excl-action-col="10"
+        >
+          <div
+            class="el-table-headers-row"
+          >
+            <div
+              class="el-table-header"
+            >
+              Subcription Type
+            </div>
+            <div
+              class="el-table-header"
+            >
+              Summary
+            </div>
+            <div
+              class="el-table-header"
+            >
+              App Name
+            </div>
+            <div
+              class="el-table-header"
+            >
+              Company Name
+            </div>
+            <div
+              class="el-table-header"
+            >
+              User Email
+            </div>
+            <div
+              class="el-table-header"
+            >
+              Start Date
+            </div>
+            <div
+              class="el-table-header"
+            >
+              Renews
+            </div>
+            <div
+              class="el-table-header"
+            >
+              Frequency
+            </div>
+            <div
+              class="el-table-header"
+            >
+              Cost
+            </div>
+            <div
+              class="el-table-header"
+            >
+              Cancelled
+            </div>
+            <div
+              class="el-table-header"
+            >
+              Cancel
+            </div>
+          </div>
+          <div
+            class="el-table-row-container"
+          >
+            <div
+              class="el-table-row"
+            >
+              <div
+                class="el-table-cell-has-dark-text el-table-cell"
+              >
+                <div
+                  class="el-table-cell-content"
+                  data-narrow-label="Subcription Type"
+                />
+              </div>
+              <div
+                class="el-table-cell"
+              >
+                <div
+                  class="el-table-cell-content"
+                  data-narrow-label="Summary"
+                />
+              </div>
+              <div
+                class="el-table-cell"
+              >
+                <div
+                  class="el-table-cell-content"
+                  data-narrow-label="App Name"
+                />
+              </div>
+              <div
+                class="el-table-cell"
+              >
+                <div
+                  class="el-table-cell-content"
+                  data-narrow-label="Company Name"
+                />
+              </div>
+              <div
+                class="el-table-cell"
+              >
+                <div
+                  class="el-table-cell-content"
+                  data-narrow-label="User Email"
+                />
+              </div>
+              <div
+                class="el-table-cell"
+              >
+                <div
+                  class="el-table-cell-content"
+                  data-narrow-label="Start Date"
+                >
+                  03 Mar 2022 10:18
+                </div>
+              </div>
+              <div
+                class="el-table-cell"
+              >
+                <div
+                  class="el-table-cell-content"
+                  data-narrow-label="Renews"
+                >
+                  -
+                </div>
+              </div>
+              <div
+                class="el-table-cell"
+              >
+                <div
+                  class="el-table-cell-content"
+                  data-narrow-label="Frequency"
+                />
+              </div>
+              <div
+                class="el-table-cell"
+              >
+                <div
+                  class="el-table-cell-content"
+                  data-narrow-label="Cost"
+                >
+                  £undefined
+                </div>
+              </div>
+              <div
+                class="el-table-cell"
+              >
+                <div
+                  class="el-table-cell-content"
+                  data-narrow-label="Cancelled"
+                >
+                  -
+                </div>
+              </div>
+              <div
+                class="el-table-cta-cell"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="el-pagination-wrap"
+        >
+          <div
+            class="el-pagination-text"
+          >
+            <input
+              class="el-pagination-input"
+              value="1"
+            />
+             of 
+            1
+          </div>
+          <button
+            class="el-pagination-button"
+            data-testid="back-button"
+            type="button"
+          >
+            <span
+              class="el-icon"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 12 12"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 6L9 0V12L0 6Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+          </button>
+          <button
+            class="el-pagination-button"
+            data-testid="forward-button"
+            type="button"
+          >
+            <span
+              class="el-icon"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 12 12"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 6L3 12V0L12 6Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </section>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <section
+      class="el-page-container"
+    >
+      <h1
+        class="el-title"
+      >
+        Subscriptions
+      </h1>
+      <form>
+        <div
+          class="el-form-layout-has-margin el-form-layout"
+        >
+          <div
+            class="el-input-wrap"
+          >
+            <div
+              class="el-input-group"
+            >
+              <input
+                class="el-input"
+                id="test-static-id"
+                name="organisationName"
+              />
+              <label
+                class="el-label"
+                for="test-static-id"
+              >
+                Company Name
+              </label>
+            </div>
+          </div>
+          <div
+            class="el-input-wrap"
+          >
+            <div
+              class="el-input-group"
+            >
+              <input
+                class="el-input"
+                id="test-static-id"
+                name="userEmail"
+                type="email"
+              />
+              <label
+                class="el-label"
+                for="test-static-id"
+              >
+                User Email
+              </label>
+            </div>
+          </div>
+          <div
+            class="el-input-wrap"
+          >
+            <label
+              class="el-label"
+            >
+              Subscription Type
+            </label>
+            <div
+              class="el-input-group"
+            >
+              <select
+                class="el-select"
+                name="type"
+              >
+                <option
+                  value=""
+                >
+                  Please Select
+                </option>
+                <option
+                  value="applicationListing"
+                >
+                  Application Listing
+                </option>
+                <option
+                  value="developerRegistration"
+                >
+                  Developer Registration
+                </option>
+                <option
+                  value="developerEdition"
+                >
+                  Developer Edition
+                </option>
+              </select>
+            </div>
+          </div>
+          <div
+            class="el-input-wrap"
+          >
+            <label
+              class="el-label"
+            >
+              Status
+            </label>
+            <div
+              class="el-input-group"
+            >
+              <select
+                class="el-select"
+                name="status"
+              >
+                <option
+                  value=""
+                >
+                  Please Select
+                </option>
+                <option
+                  value="active"
+                >
+                  Active
+                </option>
+                <option
+                  value="cancelled"
+                >
+                  Cancelled
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div
+        class="el-mb11"
+      >
+        <div
+          class="el-button-group"
+        >
+          <div
+            class="el-button-group-inner"
+          >
+            <button
+              class="el-intent-primary el-button"
+              type="button"
+            >
+              Download CSV
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="el-mb11 el-table"
+        data-has-call-to-action="true"
+        data-has-expandable-action="false"
+        data-num-columns-excl-action-col="10"
+      >
+        <div
+          class="el-table-headers-row"
+        >
+          <div
+            class="el-table-header"
+          >
+            Subcription Type
+          </div>
+          <div
+            class="el-table-header"
+          >
+            Summary
+          </div>
+          <div
+            class="el-table-header"
+          >
+            App Name
+          </div>
+          <div
+            class="el-table-header"
+          >
+            Company Name
+          </div>
+          <div
+            class="el-table-header"
+          >
+            User Email
+          </div>
+          <div
+            class="el-table-header"
+          >
+            Start Date
+          </div>
+          <div
+            class="el-table-header"
+          >
+            Renews
+          </div>
+          <div
+            class="el-table-header"
+          >
+            Frequency
+          </div>
+          <div
+            class="el-table-header"
+          >
+            Cost
+          </div>
+          <div
+            class="el-table-header"
+          >
+            Cancelled
+          </div>
+          <div
+            class="el-table-header"
+          >
+            Cancel
+          </div>
+        </div>
+        <div
+          class="el-table-row-container"
+        >
+          <div
+            class="el-table-row"
+          >
+            <div
+              class="el-table-cell-has-dark-text el-table-cell"
+            >
+              <div
+                class="el-table-cell-content"
+                data-narrow-label="Subcription Type"
+              />
+            </div>
+            <div
+              class="el-table-cell"
+            >
+              <div
+                class="el-table-cell-content"
+                data-narrow-label="Summary"
+              />
+            </div>
+            <div
+              class="el-table-cell"
+            >
+              <div
+                class="el-table-cell-content"
+                data-narrow-label="App Name"
+              />
+            </div>
+            <div
+              class="el-table-cell"
+            >
+              <div
+                class="el-table-cell-content"
+                data-narrow-label="Company Name"
+              />
+            </div>
+            <div
+              class="el-table-cell"
+            >
+              <div
+                class="el-table-cell-content"
+                data-narrow-label="User Email"
+              />
+            </div>
+            <div
+              class="el-table-cell"
+            >
+              <div
+                class="el-table-cell-content"
+                data-narrow-label="Start Date"
+              >
+                03 Mar 2022 10:18
+              </div>
+            </div>
+            <div
+              class="el-table-cell"
+            >
+              <div
+                class="el-table-cell-content"
+                data-narrow-label="Renews"
+              >
+                -
+              </div>
+            </div>
+            <div
+              class="el-table-cell"
+            >
+              <div
+                class="el-table-cell-content"
+                data-narrow-label="Frequency"
+              />
+            </div>
+            <div
+              class="el-table-cell"
+            >
+              <div
+                class="el-table-cell-content"
+                data-narrow-label="Cost"
+              >
+                £undefined
+              </div>
+            </div>
+            <div
+              class="el-table-cell"
+            >
+              <div
+                class="el-table-cell-content"
+                data-narrow-label="Cancelled"
+              >
+                -
+              </div>
+            </div>
+            <div
+              class="el-table-cta-cell"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="el-pagination-wrap"
+      >
+        <div
+          class="el-pagination-text"
+        >
+          <input
+            class="el-pagination-input"
+            value="1"
+          />
+           of 
+          1
+        </div>
+        <button
+          class="el-pagination-button"
+          data-testid="back-button"
+          type="button"
+        >
+          <span
+            class="el-icon"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 12 12"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 6L9 0V12L0 6Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+        </button>
+        <button
+          class="el-pagination-button"
+          data-testid="forward-button"
+          type="button"
+        >
+          <span
+            class="el-icon"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 12 12"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 6L3 12V0L12 6Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+    </section>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Subscriptions should render component when loading 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <section
+        class="el-page-container"
+      >
+        <h1
+          class="el-title"
+        >
+          Subscriptions
+        </h1>
+        <form>
+          <div
+            class="el-form-layout-has-margin el-form-layout"
+          >
+            <div
+              class="el-input-wrap"
+            >
+              <div
+                class="el-input-group"
+              >
+                <input
+                  class="el-input"
+                  id="test-static-id"
+                  name="organisationName"
+                />
+                <label
+                  class="el-label"
+                  for="test-static-id"
+                >
+                  Company Name
+                </label>
+              </div>
+            </div>
+            <div
+              class="el-input-wrap"
+            >
+              <div
+                class="el-input-group"
+              >
+                <input
+                  class="el-input"
+                  id="test-static-id"
+                  name="userEmail"
+                  type="email"
+                />
+                <label
+                  class="el-label"
+                  for="test-static-id"
+                >
+                  User Email
+                </label>
+              </div>
+            </div>
+            <div
+              class="el-input-wrap"
+            >
+              <label
+                class="el-label"
+              >
+                Subscription Type
+              </label>
+              <div
+                class="el-input-group"
+              >
+                <select
+                  class="el-select"
+                  name="type"
+                >
+                  <option
+                    value=""
+                  >
+                    Please Select
+                  </option>
+                  <option
+                    value="applicationListing"
+                  >
+                    Application Listing
+                  </option>
+                  <option
+                    value="developerRegistration"
+                  >
+                    Developer Registration
+                  </option>
+                  <option
+                    value="developerEdition"
+                  >
+                    Developer Edition
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div
+              class="el-input-wrap"
+            >
+              <label
+                class="el-label"
+              >
+                Status
+              </label>
+              <div
+                class="el-input-group"
+              >
+                <select
+                  class="el-select"
+                  name="status"
+                >
+                  <option
+                    value=""
+                  >
+                    Please Select
+                  </option>
+                  <option
+                    value="active"
+                  >
+                    Active
+                  </option>
+                  <option
+                    value="cancelled"
+                  >
+                    Cancelled
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div
+          class="el-mb11"
+        >
+          <div
+            class="el-button-group"
+          >
+            <div
+              class="el-button-group-inner"
+            >
+              <button
+                class="el-intent-primary el-button"
+                type="button"
+              >
+                Download CSV
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="el-loader-container"
+        >
+          <div
+            class="el-loader"
+          >
+            <div
+              class="el-loader-moving-bar"
+            />
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <section
+      class="el-page-container"
+    >
+      <h1
+        class="el-title"
+      >
+        Subscriptions
+      </h1>
+      <form>
+        <div
+          class="el-form-layout-has-margin el-form-layout"
+        >
+          <div
+            class="el-input-wrap"
+          >
+            <div
+              class="el-input-group"
+            >
+              <input
+                class="el-input"
+                id="test-static-id"
+                name="organisationName"
+              />
+              <label
+                class="el-label"
+                for="test-static-id"
+              >
+                Company Name
+              </label>
+            </div>
+          </div>
+          <div
+            class="el-input-wrap"
+          >
+            <div
+              class="el-input-group"
+            >
+              <input
+                class="el-input"
+                id="test-static-id"
+                name="userEmail"
+                type="email"
+              />
+              <label
+                class="el-label"
+                for="test-static-id"
+              >
+                User Email
+              </label>
+            </div>
+          </div>
+          <div
+            class="el-input-wrap"
+          >
+            <label
+              class="el-label"
+            >
+              Subscription Type
+            </label>
+            <div
+              class="el-input-group"
+            >
+              <select
+                class="el-select"
+                name="type"
+              >
+                <option
+                  value=""
+                >
+                  Please Select
+                </option>
+                <option
+                  value="applicationListing"
+                >
+                  Application Listing
+                </option>
+                <option
+                  value="developerRegistration"
+                >
+                  Developer Registration
+                </option>
+                <option
+                  value="developerEdition"
+                >
+                  Developer Edition
+                </option>
+              </select>
+            </div>
+          </div>
+          <div
+            class="el-input-wrap"
+          >
+            <label
+              class="el-label"
+            >
+              Status
+            </label>
+            <div
+              class="el-input-group"
+            >
+              <select
+                class="el-select"
+                name="status"
+              >
+                <option
+                  value=""
+                >
+                  Please Select
+                </option>
+                <option
+                  value="active"
+                >
+                  Active
+                </option>
+                <option
+                  value="cancelled"
+                >
+                  Cancelled
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div
+        class="el-mb11"
+      >
+        <div
+          class="el-button-group"
+        >
+          <div
+            class="el-button-group-inner"
+          >
+            <button
+              class="el-intent-primary el-button"
+              type="button"
+            >
+              Download CSV
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="el-loader-container"
+      >
+        <div
+          class="el-loader"
+        >
+          <div
+            class="el-loader-moving-bar"
+          />
+        </div>
+      </div>
+    </section>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
