@@ -24,7 +24,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "start": "echo '...skipping...'",
-    "test": "cross-env TZ=UTC jest --watch --colors --silent",
+    "test": "echo '...skipping...'",
     "build": "cross-env NODE_ENV=production tsdx build --format=cjs,esm,umd",
     "lint": "eslint --cache --ext=ts,tsx,js src",
     "check": "tsc --noEmit --skipLibCheck",
