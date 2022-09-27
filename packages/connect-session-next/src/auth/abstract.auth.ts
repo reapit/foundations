@@ -163,6 +163,7 @@ export abstract class AbstractAuthProvider implements AuthProviderInterface {
 
       return [session, loginIdentity]
     } catch (error: any) {
+      if (error instanceof ReapitConnectException) throw error
       throw new ReapitConnectException(error.message)
     }
   }
