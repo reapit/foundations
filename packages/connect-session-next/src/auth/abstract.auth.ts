@@ -162,9 +162,9 @@ export abstract class AbstractAuthProvider implements AuthProviderInterface {
       if (!loginIdentity) throw new ReapitConnectException('Login identity was not verified')
 
       return [session, loginIdentity]
-    } catch (error: any) {
+    } catch (error) {
       if (error instanceof ReapitConnectException) throw error
-      throw new ReapitConnectException(error.message)
+      throw new ReapitConnectException((error as Error).message)
     }
   }
 
