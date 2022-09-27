@@ -118,15 +118,15 @@ export abstract class AbstractAuthProvider implements AuthProviderInterface {
 
   /**
    * Gets the logout redirect for the idp
-   * 
-   * @param logoutRedirectUri 
+   *
+   * @param logoutRedirectUri
    */
   abstract getLogoutEndpoint(logoutRedirectUri?: string): string
 
   /**
    * Gets the login redirect for the idp
-   * 
-   * @param loginRedirectUri 
+   *
+   * @param loginRedirectUri
    */
   abstract getLoginEndpoint(loginRedirectUri?: string): string
 
