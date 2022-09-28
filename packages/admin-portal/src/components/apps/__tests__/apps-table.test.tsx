@@ -1,13 +1,11 @@
 import React from 'react'
-import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import {
   handleDeleteApp,
   handleRefreshAppsDelete,
-  handleRefreshAppsFeatured,
   handleOpenModal,
-  handleToggleFeatured,
   handleAppIdFeatured,
   AppsTable,
+  handleAppIdSubs,
 } from '../apps-table'
 import { render } from '../../../tests/react-testing'
 import { mockAppSummaryModelPagedResult } from '../../../tests/__stubs__/apps'
@@ -61,21 +59,6 @@ describe('handleRefreshAppsDelete', () => {
   })
 })
 
-describe('handleRefreshAppsFeatured', () => {
-  it('handleRefreshAppsFeatured should correctly refresh featured apps', () => {
-    const appsRefresh = jest.fn()
-    const setAppIdFeatured = jest.fn()
-    const shouldRefresh = true
-
-    const curried = handleRefreshAppsFeatured(appsRefresh, setAppIdFeatured, shouldRefresh)
-
-    curried()
-
-    expect(appsRefresh).toHaveBeenCalledTimes(1)
-    expect(setAppIdFeatured).toHaveBeenCalledWith(null)
-  })
-})
-
 describe('handleOpenModal', () => {
   it('handleOpenModal should correctly open a modal', () => {
     const openModal = jest.fn()
@@ -91,49 +74,32 @@ describe('handleOpenModal', () => {
   })
 })
 
-describe('handleToggleFeatured', () => {
-  it('handleToggleFeatured should correctly toggle an app as featured', () => {
-    const featureApp = jest.fn()
-    const unFeatureApp = jest.fn()
-    const apps = mockAppSummaryModelPagedResult
-    const appIdFeatured = 'MOCK_ID'
-
-    const curried = handleToggleFeatured(featureApp, unFeatureApp, apps, appIdFeatured)
-
-    curried()
-
-    expect(featureApp).toHaveBeenCalledTimes(1)
-    expect(unFeatureApp).not.toHaveBeenCalled()
-  })
-
-  it('handleToggleFeatured should correctly toggle an app as unfeatured', () => {
-    const app = (mockAppSummaryModelPagedResult.data as AppSummaryModel[])[0]
-    const featureApp = jest.fn()
-    const unFeatureApp = jest.fn()
-    const apps = {
-      ...mockAppSummaryModelPagedResult,
-      data: [{ ...app, isFeatured: true }],
-    }
-    const appIdFeatured = app.id as string
-
-    const curried = handleToggleFeatured(featureApp, unFeatureApp, apps, appIdFeatured)
-
-    curried()
-
-    expect(featureApp).not.toHaveBeenCalled()
-    expect(unFeatureApp).toHaveBeenCalledTimes(1)
-  })
-})
-
 describe('handleAppIdFeatured', () => {
   it('handleAppIdFeatured should correctly set an appId', () => {
     const setAppIdFeatured = jest.fn()
+    const setAppIdSubs = jest.fn()
     const appId = 'MOCK_ID'
 
-    const curried = handleAppIdFeatured(setAppIdFeatured, appId)
+    const curried = handleAppIdFeatured(setAppIdFeatured, setAppIdSubs, appId)
 
     curried()
 
     expect(setAppIdFeatured).toHaveBeenCalledWith(appId)
+    expect(setAppIdSubs).toHaveBeenCalledWith(null)
+  })
+})
+
+describe('handleAppIdSubs', () => {
+  it('handleAppIdSubs should correctly set an appId', () => {
+    const setAppIdFeatured = jest.fn()
+    const setAppIdSubs = jest.fn()
+    const appId = 'MOCK_ID'
+
+    const curried = handleAppIdSubs(setAppIdSubs, setAppIdFeatured, appId)
+
+    curried()
+
+    expect(setAppIdFeatured).toHaveBeenCalledWith(null)
+    expect(setAppIdSubs).toHaveBeenCalledWith(appId)
   })
 })

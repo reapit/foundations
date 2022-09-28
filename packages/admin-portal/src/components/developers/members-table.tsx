@@ -137,7 +137,7 @@ export const MembersTable: FC<MembersTableProps> = ({ devIdMembers }) => {
                 },
               },
               {
-                label: 'Status',
+                label: 'Member Status',
                 value: status,
                 narrowTable: {
                   showLabel: true,

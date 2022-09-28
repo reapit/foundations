@@ -11,7 +11,7 @@ import {
   useModal,
 } from '@reapit/elements'
 import { toLocalTime, UpdateActionNames, updateActions } from '@reapit/utils-common'
-import { CreateSubscriptionsButton } from '../subscriptions/create-subscriptions'
+import { CreateSubscriptions } from '../subscriptions/create-subscriptions'
 import { MembersTable } from './members-table'
 import DeveloperStatusModal from './developer-status-modal'
 import { AppsTable } from './apps-table'
@@ -40,12 +40,14 @@ export const handleOpenModal =
 export const handleDevIdMembers =
   (
     setDevIdMembers: Dispatch<SetStateAction<string | null>>,
+    setDevIdSubs: Dispatch<SetStateAction<string | null>>,
     setDevIdApps: Dispatch<SetStateAction<string | null>>,
     devIdMembers?: string,
   ) =>
   () => {
     if (devIdMembers) {
       setDevIdMembers(devIdMembers)
+      setDevIdSubs(null)
       setDevIdApps(null)
     }
   }
@@ -53,12 +55,29 @@ export const handleDevIdMembers =
 export const handleDevIdApps =
   (
     setDevIdApps: Dispatch<SetStateAction<string | null>>,
+    setDevIdSubs: Dispatch<SetStateAction<string | null>>,
     setDevIdMembers: Dispatch<SetStateAction<string | null>>,
     devIdApps?: string,
   ) =>
   () => {
     if (devIdApps) {
       setDevIdApps(devIdApps)
+      setDevIdSubs(null)
+      setDevIdMembers(null)
+    }
+  }
+
+export const handleDevIdSubs =
+  (
+    setDevIdSubs: Dispatch<SetStateAction<string | null>>,
+    setDevIdApps: Dispatch<SetStateAction<string | null>>,
+    setDevIdMembers: Dispatch<SetStateAction<string | null>>,
+    devIdSubs?: string,
+  ) =>
+  () => {
+    if (devIdSubs) {
+      setDevIdSubs(devIdSubs)
+      setDevIdApps(null)
       setDevIdMembers(null)
     }
   }
@@ -88,6 +107,7 @@ export const DevelopersTable: FC<DevelopersTableProps> = ({ developers, refreshD
   const [developerUpdate, setDeveloperUpdate] = useState<DeveloperModel | null>(null)
   const [devIdMembers, setDevIdMembers] = useState<string | null>(null)
   const [devIdApps, setDevIdApps] = useState<string | null>(null)
+  const [devIdSubs, setDevIdSubs] = useState<string | null>(null)
   const { hasReadAccess } = usePermissionsState()
 
   const [, , updateDeveloper] = useReapitUpdate<UpdateDeveloperModel, boolean>({
@@ -102,7 +122,8 @@ export const DevelopersTable: FC<DevelopersTableProps> = ({ developers, refreshD
       <BodyText hasGreyText>{developers.totalCount}</BodyText>
       <Table
         rows={developers.data.map((developer) => {
-          const { company, name, id, jobTitle, status, agreedTerms, developerEditionSubscriptionCost } = developer
+          const { company, name, id, jobTitle, status, email, agreedTerms, created, developerEditionSubscriptionCost } =
+            developer
 
           const paysDeveloperEdition = Boolean(
             developerEditionSubscriptionCost === null || Math.round(developerEditionSubscriptionCost ?? 0),
@@ -127,16 +148,30 @@ export const DevelopersTable: FC<DevelopersTableProps> = ({ developers, refreshD
                 },
               },
               {
-                label: 'Job Title',
-                value: jobTitle,
+                label: 'Developer Email',
+                value: email,
                 cellHasDarkText: true,
                 narrowTable: {
                   showLabel: true,
                 },
               },
               {
-                label: 'Status',
+                label: 'Job Title',
+                value: jobTitle,
+                narrowTable: {
+                  showLabel: true,
+                },
+              },
+              {
+                label: 'Account Status',
                 value: status,
+                narrowTable: {
+                  showLabel: true,
+                },
+              },
+              {
+                label: 'Created Date',
+                value: toLocalTime(created),
                 narrowTable: {
                   showLabel: true,
                 },
@@ -174,16 +209,31 @@ export const DevelopersTable: FC<DevelopersTableProps> = ({ developers, refreshD
                     >
                       {paysDeveloperEdition ? 'Pays For DevEdition' : 'DevEdition is Free'}
                     </Button>
-                    <CreateSubscriptionsButton developerId={id} subscriptionType="developerRegistration" />
-                    <Button intent="secondary" onClick={handleDevIdMembers(setDevIdMembers, setDevIdApps, id)}>
+                    <Button
+                      onClick={handleDevIdSubs(setDevIdSubs, setDevIdApps, setDevIdMembers, id)}
+                      intent="primary"
+                      disabled={hasReadAccess || status !== 'confirmed'}
+                    >
+                      Toggle Subscription {status !== 'confirmed' ? '(Status Not Confirmed)' : ''}
+                    </Button>
+                    <Button
+                      intent="secondary"
+                      onClick={handleDevIdMembers(setDevIdMembers, setDevIdSubs, setDevIdApps, id)}
+                    >
                       Fetch Members
                     </Button>
-                    <Button intent="secondary" onClick={handleDevIdApps(setDevIdApps, setDevIdMembers, id)}>
+                    <Button
+                      intent="secondary"
+                      onClick={handleDevIdApps(setDevIdApps, setDevIdSubs, setDevIdMembers, id)}
+                    >
                       Fetch Apps
                     </Button>
                   </ButtonGroup>
                   {devIdMembers && devIdMembers === id && <MembersTable devIdMembers={devIdMembers} />}
                   {devIdApps && devIdApps === id && <AppsTable devIdApps={devIdApps} />}
+                  {devIdSubs && devIdSubs === id && (
+                    <CreateSubscriptions developerId={id} subscriptionType="developerRegistration" />
+                  )}
                 </>
               ),
             },

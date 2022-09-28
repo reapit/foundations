@@ -101,6 +101,7 @@ const Subscriptions: FC = () => {
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getSubscriptions],
     queryParams: {
       ...objectToQuery(subscriptionsFilters),
+      userEmail: subscriptionsFilters.userEmail ? encodeURIComponent(subscriptionsFilters.userEmail ?? '') : undefined,
       pageSize,
       pageNumber,
     },

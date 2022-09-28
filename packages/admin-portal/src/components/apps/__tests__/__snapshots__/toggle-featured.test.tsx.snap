@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CreateSubscriptions should match a snapshot with subscriptions and applicationListing 1`] = `
+exports[`ToggleFeatured should match a snapshot with apps 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -18,45 +18,44 @@ Object {
             <label
               class="el-label"
             >
-              Is Subscribed 
-              Application Listing
+              Is Featured In AppMarket
             </label>
             <div
               class="el-has-grey-bg el-toggle-radio-wrap"
             >
               <input
-                checked=""
                 class="el-toggle-radio"
-                id="option-subscribed-true-APP_ID"
-                name="isSubscribed"
+                id="option-featured-true"
+                name="isFeatured"
                 type="radio"
-                value="SUBSCRIBED"
+                value="FEATURED"
               />
               <label
                 class="el-has-grey-bg el-toggle-radio-label"
-                for="option-subscribed-true-APP_ID"
+                for="option-featured-true"
               >
                 <span
                   class="el-toggle-radio-item"
                 >
-                  Subscribed
+                  Featured
                 </span>
               </label>
               <input
+                checked=""
                 class="el-toggle-radio"
-                id="option-subscribed-false-APP_ID"
-                name="isSubscribed"
+                id="option-featured-false"
+                name="isFeatured"
                 type="radio"
-                value="NOT_SUBSCRIBED"
+                value="NOT_FEATURED"
               />
               <label
                 class="el-has-grey-bg el-toggle-radio-label"
-                for="option-subscribed-false-APP_ID"
+                for="option-featured-false"
               >
                 <span
                   class="el-toggle-radio-item"
                 >
-                  Not Subscribed
+                  Not Featured
                 </span>
               </label>
             </div>
@@ -79,45 +78,44 @@ Object {
           <label
             class="el-label"
           >
-            Is Subscribed 
-            Application Listing
+            Is Featured In AppMarket
           </label>
           <div
             class="el-has-grey-bg el-toggle-radio-wrap"
           >
             <input
-              checked=""
               class="el-toggle-radio"
-              id="option-subscribed-true-APP_ID"
-              name="isSubscribed"
+              id="option-featured-true"
+              name="isFeatured"
               type="radio"
-              value="SUBSCRIBED"
+              value="FEATURED"
             />
             <label
               class="el-has-grey-bg el-toggle-radio-label"
-              for="option-subscribed-true-APP_ID"
+              for="option-featured-true"
             >
               <span
                 class="el-toggle-radio-item"
               >
-                Subscribed
+                Featured
               </span>
             </label>
             <input
+              checked=""
               class="el-toggle-radio"
-              id="option-subscribed-false-APP_ID"
-              name="isSubscribed"
+              id="option-featured-false"
+              name="isFeatured"
               type="radio"
-              value="NOT_SUBSCRIBED"
+              value="NOT_FEATURED"
             />
             <label
               class="el-has-grey-bg el-toggle-radio-label"
-              for="option-subscribed-false-APP_ID"
+              for="option-featured-false"
             >
               <span
                 class="el-toggle-radio-item"
               >
-                Not Subscribed
+                Not Featured
               </span>
             </label>
           </div>
@@ -179,7 +177,7 @@ Object {
 }
 `;
 
-exports[`CreateSubscriptions should match a snapshot with subscriptions and developerRegistration 1`] = `
+exports[`ToggleFeatured should match a snapshot with no apps 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -197,45 +195,44 @@ Object {
             <label
               class="el-label"
             >
-              Is Subscribed 
-              Developer Registration
+              Is Featured In AppMarket
             </label>
             <div
               class="el-has-grey-bg el-toggle-radio-wrap"
             >
               <input
-                checked=""
                 class="el-toggle-radio"
-                id="option-subscribed-true-APP_ID"
-                name="isSubscribed"
+                id="option-featured-true"
+                name="isFeatured"
                 type="radio"
-                value="SUBSCRIBED"
+                value="FEATURED"
               />
               <label
                 class="el-has-grey-bg el-toggle-radio-label"
-                for="option-subscribed-true-APP_ID"
+                for="option-featured-true"
               >
                 <span
                   class="el-toggle-radio-item"
                 >
-                  Subscribed
+                  Featured
                 </span>
               </label>
               <input
+                checked=""
                 class="el-toggle-radio"
-                id="option-subscribed-false-APP_ID"
-                name="isSubscribed"
+                id="option-featured-false"
+                name="isFeatured"
                 type="radio"
-                value="NOT_SUBSCRIBED"
+                value="NOT_FEATURED"
               />
               <label
                 class="el-has-grey-bg el-toggle-radio-label"
-                for="option-subscribed-false-APP_ID"
+                for="option-featured-false"
               >
                 <span
                   class="el-toggle-radio-item"
                 >
-                  Not Subscribed
+                  Not Featured
                 </span>
               </label>
             </div>
@@ -258,45 +255,44 @@ Object {
           <label
             class="el-label"
           >
-            Is Subscribed 
-            Developer Registration
+            Is Featured In AppMarket
           </label>
           <div
             class="el-has-grey-bg el-toggle-radio-wrap"
           >
             <input
-              checked=""
               class="el-toggle-radio"
-              id="option-subscribed-true-APP_ID"
-              name="isSubscribed"
+              id="option-featured-true"
+              name="isFeatured"
               type="radio"
-              value="SUBSCRIBED"
+              value="FEATURED"
             />
             <label
               class="el-has-grey-bg el-toggle-radio-label"
-              for="option-subscribed-true-APP_ID"
+              for="option-featured-true"
             >
               <span
                 class="el-toggle-radio-item"
               >
-                Subscribed
+                Featured
               </span>
             </label>
             <input
+              checked=""
               class="el-toggle-radio"
-              id="option-subscribed-false-APP_ID"
-              name="isSubscribed"
+              id="option-featured-false"
+              name="isFeatured"
               type="radio"
-              value="NOT_SUBSCRIBED"
+              value="NOT_FEATURED"
             />
             <label
               class="el-has-grey-bg el-toggle-radio-label"
-              for="option-subscribed-false-APP_ID"
+              for="option-featured-false"
             >
               <span
                 class="el-toggle-radio-item"
               >
-                Not Subscribed
+                Not Featured
               </span>
             </label>
           </div>

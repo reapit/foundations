@@ -25,7 +25,7 @@ Object {
           class="el-table"
           data-has-call-to-action="false"
           data-has-expandable-action="true"
-          data-num-columns-excl-action-col="5"
+          data-num-columns-excl-action-col="7"
         >
           <div
             class="el-table-headers-row"
@@ -43,12 +43,22 @@ Object {
             <div
               class="el-table-header"
             >
+              Developer Email
+            </div>
+            <div
+              class="el-table-header"
+            >
               Job Title
             </div>
             <div
               class="el-table-header"
             >
-              Status
+              Account Status
+            </div>
+            <div
+              class="el-table-header"
+            >
+              Created Date
             </div>
             <div
               class="el-table-header"
@@ -110,6 +120,16 @@ Object {
               >
                 <div
                   class="el-table-cell-content"
+                  data-narrow-label="Developer Email"
+                >
+                  test@example.com
+                </div>
+              </div>
+              <div
+                class="el-table-cell"
+              >
+                <div
+                  class="el-table-cell-content"
                   data-narrow-label="Job Title"
                 />
               </div>
@@ -118,9 +138,19 @@ Object {
               >
                 <div
                   class="el-table-cell-content"
-                  data-narrow-label="Status"
+                  data-narrow-label="Account Status"
                 >
                   confirmed
+                </div>
+              </div>
+              <div
+                class="el-table-cell"
+              >
+                <div
+                  class="el-table-cell-content"
+                  data-narrow-label="Created Date"
+                >
+                  03 Mar 2022 10:18
                 </div>
               </div>
               <div
@@ -183,10 +213,10 @@ Object {
                       DevEdition is Free
                     </button>
                     <button
-                      class="el-intent-secondary el-button"
+                      class="el-intent-primary el-button"
                       disabled=""
                     >
-                      Check Subscriptions
+                      Toggle Subscription 
                     </button>
                     <button
                       class="el-intent-secondary el-button"
@@ -228,7 +258,7 @@ Object {
         class="el-table"
         data-has-call-to-action="false"
         data-has-expandable-action="true"
-        data-num-columns-excl-action-col="5"
+        data-num-columns-excl-action-col="7"
       >
         <div
           class="el-table-headers-row"
@@ -246,12 +276,22 @@ Object {
           <div
             class="el-table-header"
           >
+            Developer Email
+          </div>
+          <div
+            class="el-table-header"
+          >
             Job Title
           </div>
           <div
             class="el-table-header"
           >
-            Status
+            Account Status
+          </div>
+          <div
+            class="el-table-header"
+          >
+            Created Date
           </div>
           <div
             class="el-table-header"
@@ -313,6 +353,16 @@ Object {
             >
               <div
                 class="el-table-cell-content"
+                data-narrow-label="Developer Email"
+              >
+                test@example.com
+              </div>
+            </div>
+            <div
+              class="el-table-cell"
+            >
+              <div
+                class="el-table-cell-content"
                 data-narrow-label="Job Title"
               />
             </div>
@@ -321,9 +371,19 @@ Object {
             >
               <div
                 class="el-table-cell-content"
-                data-narrow-label="Status"
+                data-narrow-label="Account Status"
               >
                 confirmed
+              </div>
+            </div>
+            <div
+              class="el-table-cell"
+            >
+              <div
+                class="el-table-cell-content"
+                data-narrow-label="Created Date"
+              >
+                03 Mar 2022 10:18
               </div>
             </div>
             <div
@@ -386,10 +446,10 @@ Object {
                     DevEdition is Free
                   </button>
                   <button
-                    class="el-intent-secondary el-button"
+                    class="el-intent-primary el-button"
                     disabled=""
                   >
-                    Check Subscriptions
+                    Toggle Subscription 
                   </button>
                   <button
                     class="el-intent-secondary el-button"

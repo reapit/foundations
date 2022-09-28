@@ -144,7 +144,7 @@ Object {
             <div
               class="el-table-header"
             >
-              Status
+              Member Status
             </div>
             <div
               class="el-table-header"
@@ -224,7 +224,7 @@ Object {
               >
                 <div
                   class="el-table-cell-content"
-                  data-narrow-label="Status"
+                  data-narrow-label="Member Status"
                 >
                   inactive
                 </div>
@@ -408,7 +408,7 @@ Object {
           <div
             class="el-table-header"
           >
-            Status
+            Member Status
           </div>
           <div
             class="el-table-header"
@@ -488,7 +488,7 @@ Object {
             >
               <div
                 class="el-table-cell-content"
-                data-narrow-label="Status"
+                data-narrow-label="Member Status"
               >
                 inactive
               </div>

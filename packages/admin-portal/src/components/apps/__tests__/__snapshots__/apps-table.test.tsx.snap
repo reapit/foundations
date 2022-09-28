@@ -153,7 +153,7 @@ Object {
                   data-narrow-label="Listed"
                 >
                   <span
-                    class="el-icon"
+                    class="el-intent-success el-icon"
                   >
                     <svg
                       fill="none"
@@ -191,7 +191,7 @@ Object {
                   data-narrow-label="Integration"
                 >
                   <span
-                    class="el-icon"
+                    class="el-intent-danger el-icon"
                   >
                     <svg
                       fill="none"
@@ -218,7 +218,7 @@ Object {
                   data-narrow-label="Featured"
                 >
                   <span
-                    class="el-icon"
+                    class="el-intent-danger el-icon"
                   >
                     <svg
                       fill="none"
@@ -316,10 +316,10 @@ Object {
                       Delete
                     </button>
                     <button
-                      class="el-intent-secondary el-is-loading el-button"
+                      class="el-intent-primary el-button"
                       disabled=""
                     >
-                      Check Subscriptions
+                      Toggle Subscription
                     </button>
                     <button
                       class="el-intent-primary el-button"
@@ -485,7 +485,7 @@ Object {
                 data-narrow-label="Listed"
               >
                 <span
-                  class="el-icon"
+                  class="el-intent-success el-icon"
                 >
                   <svg
                     fill="none"
@@ -523,7 +523,7 @@ Object {
                 data-narrow-label="Integration"
               >
                 <span
-                  class="el-icon"
+                  class="el-intent-danger el-icon"
                 >
                   <svg
                     fill="none"
@@ -550,7 +550,7 @@ Object {
                 data-narrow-label="Featured"
               >
                 <span
-                  class="el-icon"
+                  class="el-intent-danger el-icon"
                 >
                   <svg
                     fill="none"
@@ -648,10 +648,10 @@ Object {
                     Delete
                   </button>
                   <button
-                    class="el-intent-secondary el-is-loading el-button"
+                    class="el-intent-primary el-button"
                     disabled=""
                   >
-                    Check Subscriptions
+                    Toggle Subscription
                   </button>
                   <button
                     class="el-intent-primary el-button"

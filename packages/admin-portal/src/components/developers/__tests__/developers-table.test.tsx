@@ -9,6 +9,7 @@ import {
   handleDevIdApps,
   handleToggleDevEdition,
   DevelopersTable,
+  handleDevIdSubs,
 } from '../developers-table'
 
 jest.mock('../../../core/use-permissions-state')
@@ -41,28 +42,48 @@ describe('handleOpenModal', () => {
 describe('handleDevIdMembers', () => {
   it('handleDevIdMembers should correctly set the dev id', () => {
     const setDevIdMembers = jest.fn()
+    const setDevIdSubs = jest.fn()
     const setDevIdApps = jest.fn()
     const devIdMembers = 'MOCK_ID'
-    const curried = handleDevIdMembers(setDevIdMembers, setDevIdApps, devIdMembers)
+    const curried = handleDevIdMembers(setDevIdMembers, setDevIdSubs, setDevIdApps, devIdMembers)
 
     curried()
 
     expect(setDevIdMembers).toHaveBeenCalledWith(devIdMembers)
     expect(setDevIdApps).toHaveBeenCalledWith(null)
+    expect(setDevIdSubs).toHaveBeenCalledWith(null)
   })
 })
 
 describe('handleDevIdApps', () => {
   it('handleDevIdApps should correctly set the dev id', () => {
     const setDevIdApps = jest.fn()
+    const setDevIdSubs = jest.fn()
     const setDevIdMembers = jest.fn()
     const devIdApps = 'MOCK_ID'
-    const curried = handleDevIdApps(setDevIdApps, setDevIdMembers, devIdApps)
+    const curried = handleDevIdApps(setDevIdApps, setDevIdSubs, setDevIdMembers, devIdApps)
 
     curried()
 
     expect(setDevIdApps).toHaveBeenCalledWith(devIdApps)
     expect(setDevIdMembers).toHaveBeenCalledWith(null)
+    expect(setDevIdSubs).toHaveBeenCalledWith(null)
+  })
+})
+
+describe('handleDevIdSubs', () => {
+  it('handleDevIdSubs should correctly set the dev id', () => {
+    const setDevIdSubs = jest.fn()
+    const setDevIdApps = jest.fn()
+    const setDevIdMembers = jest.fn()
+    const devIdSubs = 'MOCK_ID'
+    const curried = handleDevIdSubs(setDevIdSubs, setDevIdApps, setDevIdMembers, devIdSubs)
+
+    curried()
+
+    expect(setDevIdSubs).toHaveBeenCalledWith(devIdSubs)
+    expect(setDevIdMembers).toHaveBeenCalledWith(null)
+    expect(setDevIdApps).toHaveBeenCalledWith(null)
   })
 })
 
