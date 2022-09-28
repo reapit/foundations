@@ -32,7 +32,7 @@ import { Statistics } from '../statistics'
 import { usePermissionsState } from '../../core/use-permissions-state'
 
 export interface SubscriptionsFilters {
-  type?: string
+  subscriptionType?: string
   organisationName?: string
   userEmail?: string
   status?: string

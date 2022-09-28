@@ -64,7 +64,7 @@ Object {
             >
               <select
                 class="el-select"
-                name="type"
+                name="subscriptionType"
               >
                 <option
                   value=""
@@ -186,7 +186,7 @@ Object {
           >
             <select
               class="el-select"
-              name="type"
+              name="subscriptionType"
             >
               <option
                 value=""
