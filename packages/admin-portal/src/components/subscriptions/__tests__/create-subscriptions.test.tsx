@@ -6,9 +6,11 @@ import { mockSubscriptionModelPagedResult } from '../../../tests/__stubs__/subsc
 import {
   cancelSubscriptionHander,
   createSubscriptionHander,
-  CreateSubscriptionsButton,
-  CreateSubscriptionsButtonProps,
+  CreateSubscriptions,
+  CreateSubscriptionsProps,
   handleFetchSubs,
+  handleUpdateAction,
+  ToggleSubscribedForm,
 } from '../create-subscriptions'
 
 jest.mock('../../../core/use-permissions-state')
@@ -20,26 +22,22 @@ jest.mock('@reapit/utils-react', () => ({
 
 const mockUseReapitGet = useReapitGet as jest.Mock
 
-const props: CreateSubscriptionsButtonProps = {
+const props: CreateSubscriptionsProps = {
   subscriptionType: 'applicationListing',
   developerId: 'DEVELOPER_ID',
   appId: 'APP_ID',
 }
 
-describe('CreateSubscriptionsButton', () => {
-  it('should match a snapshot with no subscriptions', () => {
-    expect(render(<CreateSubscriptionsButton {...props} />)).toMatchSnapshot()
-  })
-
+describe('CreateSubscriptions', () => {
   it('should match a snapshot with subscriptions and applicationListing', () => {
     mockUseReapitGet.mockReturnValue([mockSubscriptionModelPagedResult, false, undefined, jest.fn()])
-    expect(render(<CreateSubscriptionsButton {...props} />)).toMatchSnapshot()
+    expect(render(<CreateSubscriptions {...props} />)).toMatchSnapshot()
   })
 
   it('should match a snapshot with subscriptions and developerRegistration', () => {
     mockUseReapitGet.mockReturnValue([mockSubscriptionModelPagedResult, false, undefined, jest.fn()])
     expect(
-      render(<CreateSubscriptionsButton {...{ ...props, subscriptionType: 'developerRegistration' }} />),
+      render(<CreateSubscriptions {...{ ...props, subscriptionType: 'developerRegistration' }} />),
     ).toMatchSnapshot()
   })
 })
@@ -75,5 +73,37 @@ describe('handleFetchSubs', () => {
     curried()
 
     expect(cancelSubscription).toHaveBeenCalledTimes(1)
+  })
+})
+
+describe('handleUpdateAction', () => {
+  it('should handle cancelling a sub', () => {
+    const createSub = jest.fn()
+    const cancelSub = jest.fn()
+    const formValues = {
+      isSubscribed: 'NOT_SUBSCRIBED',
+    } as ToggleSubscribedForm
+
+    const curried = handleUpdateAction(createSub, cancelSub)
+
+    curried(formValues)
+
+    expect(cancelSub).toHaveBeenCalledTimes(1)
+    expect(createSub).not.toHaveBeenCalled()
+  })
+
+  it('should handle creating a sub', () => {
+    const createSub = jest.fn()
+    const cancelSub = jest.fn()
+    const formValues = {
+      isSubscribed: 'SUBSCRIBED',
+    } as ToggleSubscribedForm
+
+    const curried = handleUpdateAction(createSub, cancelSub)
+
+    curried(formValues)
+
+    expect(cancelSub).not.toHaveBeenCalled()
+    expect(createSub).toHaveBeenCalledTimes(1)
   })
 })

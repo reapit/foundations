@@ -6,17 +6,21 @@ import {
 } from '@reapit/foundations-ts-definitions'
 import { objectToQuery, SendFunction, useReapitGet, useReapitUpdate } from '@reapit/utils-react'
 import { GetActionNames, getActions, UpdateActionNames, updateActions } from '@reapit/utils-common'
-import { Button } from '@reapit/elements'
+import { elMt5, FormLayout, InputWrap, Label, ToggleRadio } from '@reapit/elements'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
-import { usePermissionsState } from '../../core/use-permissions-state'
+import { useForm, UseFormWatch } from 'react-hook-form'
 
 export type SubscriptionType = 'applicationListing' | 'developerRegistration' | 'developerEdition'
 
-export interface CreateSubscriptionsButtonProps {
+export interface CreateSubscriptionsProps {
   subscriptionType: SubscriptionType
   developerId?: string
   appId?: string
+}
+
+export interface ToggleSubscribedForm {
+  isSubscribed?: 'SUBSCRIBED' | 'NOT_SUBSCRIBED'
 }
 
 export const getCurrentSub =
@@ -60,33 +64,44 @@ export const handleFetchSubs = (setShouldFetchSubs: Dispatch<SetStateAction<bool
   setShouldFetchSubs(true)
 }
 
-export const CreateSubscriptionsButton: FC<CreateSubscriptionsButtonProps> = ({
-  subscriptionType,
-  developerId,
-  appId,
-}) => {
+export const handleUpdateAction =
+  (createSub: () => void, cancelSub: () => void) =>
+  ({ isSubscribed }: ToggleSubscribedForm) => {
+    if (isSubscribed === 'SUBSCRIBED') {
+      createSub()
+    } else {
+      cancelSub()
+    }
+  }
+
+export const handleWatchToggle =
+  (createSub: () => void, cancelSub: () => void, watch: UseFormWatch<ToggleSubscribedForm>) => () => {
+    const subscription = watch(handleUpdateAction(createSub, cancelSub))
+    return () => subscription.unsubscribe()
+  }
+
+export const CreateSubscriptions: FC<CreateSubscriptionsProps> = ({ subscriptionType, developerId, appId }) => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const { hasReadAccess } = usePermissionsState()
   const email = connectSession?.loginIdentity.email
   const [currentSub, setCurrentSub] = useState<SubscriptionModel | null>(null)
-  const [shouldFetchSubs, setShouldFetchSubs] = useState<boolean>(false)
+  const { register, watch } = useForm<ToggleSubscribedForm>()
+
   const queryParams = objectToQuery({
     appId,
     developerId,
     subscriptionType,
   })
 
-  const [subscriptions, subscriptionsLoading, , subscriptionsRefresh] = useReapitGet<SubscriptionModelPagedResult>({
+  const [subscriptions, , , subscriptionsRefresh] = useReapitGet<SubscriptionModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getSubscriptions],
     queryParams: {
       ...queryParams,
       pageSize: 999,
     },
-    fetchWhenTrue: [shouldFetchSubs],
   })
 
-  const [cancelSubscriptionLoading, , cancelSubscription, subscriptionCancelled] = useReapitUpdate<void, boolean>({
+  const [, , cancelSubscription, subscriptionCancelled] = useReapitUpdate<void, boolean>({
     reapitConnectBrowserSession,
     action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.deleteSubscription],
     method: 'DELETE',
@@ -95,51 +110,52 @@ export const CreateSubscriptionsButton: FC<CreateSubscriptionsButtonProps> = ({
     },
   })
 
-  const [createSubscriptionLoading, , createSubscription, subscriptionCreated] = useReapitUpdate<
-    CreateSubscriptionModel,
-    boolean
-  >({
+  const [, , createSubscription, subscriptionCreated] = useReapitUpdate<CreateSubscriptionModel, boolean>({
     reapitConnectBrowserSession,
     action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.createSubscription],
     method: 'POST',
   })
 
   const shouldRefresh = subscriptionCancelled || subscriptionCreated
+  const createSub = createSubscriptionHander(createSubscription, {
+    developerId,
+    applicationId: appId,
+    user: email,
+    type: subscriptionType,
+  })
+  const cancelSub = cancelSubscriptionHander(cancelSubscription)
 
   useEffect(getCurrentSub(subscriptions, subscriptionType, setCurrentSub), [subscriptions, subscriptionType])
   useEffect(handleRefreshSubs(subscriptionsRefresh, shouldRefresh), [subscriptionCancelled, subscriptionCreated])
+  useEffect(handleWatchToggle(createSub, cancelSub, watch), [subscriptions, currentSub])
 
-  return !shouldFetchSubs || !subscriptions ? (
-    <Button
-      onClick={handleFetchSubs(setShouldFetchSubs)}
-      intent="secondary"
-      loading={subscriptionsLoading}
-      disabled={hasReadAccess || subscriptionsLoading}
-    >
-      Check Subscriptions
-    </Button>
-  ) : currentSub ? (
-    <Button
-      onClick={cancelSubscriptionHander(cancelSubscription)}
-      intent="secondary"
-      loading={cancelSubscriptionLoading || subscriptionsLoading}
-      disabled={hasReadAccess || cancelSubscriptionLoading || subscriptionsLoading}
-    >
-      Unsubscribe
-    </Button>
-  ) : (
-    <Button
-      onClick={createSubscriptionHander(createSubscription, {
-        developerId,
-        applicationId: appId,
-        user: email,
-        type: subscriptionType,
-      })}
-      intent="primary"
-      loading={createSubscriptionLoading || subscriptionsLoading}
-      disabled={hasReadAccess || createSubscriptionLoading || subscriptionsLoading}
-    >
-      Subscribe
-    </Button>
+  return (
+    <form>
+      <FormLayout className={elMt5}>
+        <InputWrap>
+          <Label>
+            Is Subscribed {subscriptionType === 'applicationListing' ? 'Application Listing' : 'Developer Registration'}
+          </Label>
+          <ToggleRadio
+            {...register('isSubscribed')}
+            hasGreyBg
+            options={[
+              {
+                id: `option-subscribed-true-${appId}`,
+                value: 'SUBSCRIBED',
+                text: 'Subscribed',
+                isChecked: Boolean(currentSub),
+              },
+              {
+                id: `option-subscribed-false-${appId}`,
+                value: 'NOT_SUBSCRIBED',
+                text: 'Not Subscribed',
+                isChecked: !currentSub,
+              },
+            ]}
+          />
+        </InputWrap>
+      </FormLayout>
+    </form>
   )
 }

@@ -1,9 +1,22 @@
 import React, { Dispatch, FC, SetStateAction, useEffect } from 'react'
 import { AppsFilters } from '.'
 import { useForm, UseFormWatch } from 'react-hook-form'
-import { FormLayout, InputWrap, InputGroup, elMb11, ToggleRadio, Label } from '@reapit/elements'
-import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
+import {
+  FormLayout,
+  InputWrap,
+  InputGroup,
+  elMb11,
+  ToggleRadio,
+  Label,
+  InputWrapFull,
+  MultiSelectInput,
+  MultiSelectOption,
+} from '@reapit/elements'
+import { AppSummaryModelPagedResult, CategoryModelPagedResult } from '@reapit/foundations-ts-definitions'
 import debounce from 'just-debounce-it'
+import { useReapitGet } from '@reapit/utils-react'
+import { GetActionNames, getActions } from '@reapit/utils-common'
+import { reapitConnectBrowserSession } from '../../core/connect-session'
 
 export interface FilterFormProps {
   setAppsFilters: Dispatch<SetStateAction<AppsFilters>>
@@ -20,6 +33,12 @@ export const FilterForm: FC<FilterFormProps> = ({ setAppsFilters }) => {
   const { register, watch } = useForm<AppsFilters>()
 
   useEffect(handleSetAppsFilters(setAppsFilters, watch), [])
+
+  const [appsBrowseCategoriesCollection] = useReapitGet<CategoryModelPagedResult>({
+    reapitConnectBrowserSession,
+    action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppCategories],
+    queryParams: { pageSize: 50 },
+  })
 
   return (
     <form>
@@ -126,6 +145,24 @@ export const FilterForm: FC<FilterFormProps> = ({ setAppsFilters }) => {
             ]}
           />
         </InputWrap>
+        {appsBrowseCategoriesCollection && (
+          <>
+            <Label>Categories</Label>
+            <InputWrapFull>
+              <MultiSelectInput
+                id="category"
+                {...register('category')}
+                options={
+                  appsBrowseCategoriesCollection.data?.map(({ name, id }) => ({
+                    name,
+                    value: id,
+                  })) as MultiSelectOption[]
+                }
+                defaultValues={[]}
+              />
+            </InputWrapFull>
+          </>
+        )}
       </FormLayout>
     </form>
   )

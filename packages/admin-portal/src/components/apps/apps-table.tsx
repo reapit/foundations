@@ -16,8 +16,9 @@ import { openNewPage } from '../../utils/navigation'
 import { CheckAWSButton } from './check-aws-button'
 import { SendFunction, useReapitUpdate } from '@reapit/utils-react'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { CreateSubscriptionsButton } from '../subscriptions/create-subscriptions'
+import { CreateSubscriptions } from '../subscriptions/create-subscriptions'
 import { usePermissionsState } from '../../core/use-permissions-state'
+import { ToggleFeatured } from './toggle-featured'
 
 export interface AppsTableProps {
   apps: AppSummaryModelPagedResult | null
@@ -52,15 +53,6 @@ export const handleRefreshAppsDelete =
     }
   }
 
-export const handleRefreshAppsFeatured =
-  (appsRefresh: () => void, setAppIdFeatured: Dispatch<SetStateAction<string | null>>, shouldRefresh?: boolean) =>
-  () => {
-    if (shouldRefresh) {
-      appsRefresh()
-      setAppIdFeatured(null)
-    }
-  }
-
 export const handleOpenModal =
   (openModal: () => void, setAppIdDelete: Dispatch<SetStateAction<string | null>>, appIdDelete?: string) => () => {
     if (appIdDelete) {
@@ -69,26 +61,29 @@ export const handleOpenModal =
     }
   }
 
-export const handleToggleFeatured =
+export const handleAppIdFeatured =
   (
-    featureApp: SendFunction<void, boolean>,
-    unFeatureApp: SendFunction<void, boolean>,
-    apps: AppSummaryModelPagedResult | null,
-    appIdFeatured: string | null,
+    setAppIdFeatured: Dispatch<SetStateAction<string | null>>,
+    setAppIdSubs: Dispatch<SetStateAction<string | null>>,
+    appId?: string,
   ) =>
   () => {
-    if (appIdFeatured) {
-      const isFeatured = apps?.data?.find((app) => app.id === appIdFeatured)?.isFeatured
-      const updateFeatured = isFeatured ? unFeatureApp : featureApp
-
-      updateFeatured()
+    if (appId) {
+      setAppIdFeatured(appId)
+      setAppIdSubs(null)
     }
   }
 
-export const handleAppIdFeatured =
-  (setAppIdFeatured: Dispatch<SetStateAction<string | null>>, appId?: string) => () => {
+export const handleAppIdSubs =
+  (
+    setAppIdSubs: Dispatch<SetStateAction<string | null>>,
+    setAppIdFeatured: Dispatch<SetStateAction<string | null>>,
+    appId?: string,
+  ) =>
+  () => {
     if (appId) {
-      setAppIdFeatured(appId)
+      setAppIdSubs(appId)
+      setAppIdFeatured(null)
     }
   }
 
@@ -97,6 +92,7 @@ export const AppsTable: FC<AppsTableProps> = ({ apps, appsRefresh }) => {
   const { hasReadAccess } = usePermissionsState()
   const [appIdDelete, setAppIdDelete] = useState<string | null>(null)
   const [appIdFeatured, setAppIdFeatured] = useState<string | null>(null)
+  const [appIdSubs, setAppIdSubs] = useState<string | null>(null)
   const [indexExpandedRow, setIndexExpandedRow] = useState<number | null>(null)
   const appName = apps?.data?.find((app) => app.id === appIdDelete)?.name
 
@@ -109,30 +105,7 @@ export const AppsTable: FC<AppsTableProps> = ({ apps, appsRefresh }) => {
     },
   })
 
-  const [, , featureApp, appFeatured] = useReapitUpdate<void, boolean>({
-    reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.featureApp],
-    method: 'PUT',
-    uriParams: {
-      appId: appIdFeatured,
-    },
-  })
-
-  const [, , unFeatureApp, appUnfeatured] = useReapitUpdate<void, boolean>({
-    reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.unFeatureApp],
-    method: 'DELETE',
-    uriParams: {
-      appId: appIdFeatured,
-    },
-  })
-
   useEffect(handleRefreshAppsDelete(appsRefresh, setAppIdDelete, closeModal, appDeleted), [appDeleted])
-  useEffect(handleToggleFeatured(featureApp, unFeatureApp, apps, appIdFeatured), [apps, appIdFeatured])
-  useEffect(handleRefreshAppsFeatured(appsRefresh, setAppIdFeatured, appFeatured || appUnfeatured), [
-    appFeatured,
-    appUnfeatured,
-  ])
 
   return apps?.data?.length ? (
     <div className={elMb11}>
@@ -186,21 +159,30 @@ export const AppsTable: FC<AppsTableProps> = ({ apps, appsRefresh }) => {
               },
               {
                 label: 'Listed',
-                value: <Icon icon={isListed ? 'checkSystem' : 'closeSystem'} />,
+                value: (
+                  <Icon icon={isListed ? 'checkSystem' : 'closeSystem'} intent={isListed ? 'success' : 'danger'} />
+                ),
                 narrowTable: {
                   showLabel: true,
                 },
               },
               {
                 label: 'Integration',
-                value: <Icon icon={isDirectApi ? 'checkSystem' : 'closeSystem'} />,
+                value: (
+                  <Icon
+                    icon={isDirectApi ? 'checkSystem' : 'closeSystem'}
+                    intent={isDirectApi ? 'success' : 'danger'}
+                  />
+                ),
                 narrowTable: {
                   showLabel: true,
                 },
               },
               {
                 label: 'Featured',
-                value: <Icon icon={isFeatured ? 'checkSystem' : 'closeSystem'} />,
+                value: (
+                  <Icon icon={isFeatured ? 'checkSystem' : 'closeSystem'} intent={isFeatured ? 'success' : 'danger'} />
+                ),
                 narrowTable: {
                   showLabel: true,
                 },
@@ -243,19 +225,27 @@ export const AppsTable: FC<AppsTableProps> = ({ apps, appsRefresh }) => {
                     >
                       Delete
                     </Button>
-                    <CreateSubscriptionsButton
-                      appId={id}
-                      developerId={developerId}
-                      subscriptionType="applicationListing"
-                    />
+                    <Button
+                      onClick={handleAppIdSubs(setAppIdSubs, setAppIdFeatured, id)}
+                      intent="primary"
+                      disabled={hasReadAccess}
+                    >
+                      Toggle Subscription
+                    </Button>
                     <Button
                       intent="primary"
                       disabled={hasReadAccess}
-                      onClick={handleAppIdFeatured(setAppIdFeatured, id)}
+                      onClick={handleAppIdFeatured(setAppIdFeatured, setAppIdSubs, id)}
                     >
                       Togggle Featured
                     </Button>
                   </ButtonGroup>
+                  {appIdFeatured && appIdFeatured === id && (
+                    <ToggleFeatured appIdFeatured={appIdFeatured} apps={apps} appsRefresh={appsRefresh} />
+                  )}
+                  {appIdSubs && appIdSubs === id && (
+                    <CreateSubscriptions appId={id} developerId={developerId} subscriptionType="applicationListing" />
+                  )}
                 </>
               ),
             },

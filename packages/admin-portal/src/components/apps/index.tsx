@@ -19,11 +19,15 @@ export interface AppsFilters {
   isPublic?: string
   isDirectApi?: string
   isListed?: string
+  category?: string
 }
 
 export const AppsPage: FC = () => {
   const [appsFilters, setAppsFilters] = useState<AppsFilters>({})
-  const queryParams = objectToQuery(appsFilters)
+  const queryParams = objectToQuery({
+    ...appsFilters,
+    category: appsFilters.category?.split(','),
+  })
   const [pageNumber, setPageNumber] = useState<number>(1)
   const [pageSize, setPageSize] = useState<number>(12)
 

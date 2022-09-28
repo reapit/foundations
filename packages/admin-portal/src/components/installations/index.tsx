@@ -31,8 +31,6 @@ export interface InstallationFilters {
 }
 
 const defaultValues: InstallationFilters = {
-  installedDateFrom: dayjs().subtract(1, 'week').format('YYYY-MM-DD'),
-  installedDateTo: dayjs().format('YYYY-MM-DD'),
   appIds: '',
   isInstalled: 'ALL',
 }
@@ -50,8 +48,8 @@ export const formatFilters = (installationsFilters: InstallationFilters) => {
   const appIdQuery = appIds ? { appId: appIds.split(',').filter(Boolean) } : {}
 
   return {
-    installedDateTo: dayjs(installedDateTo).format('YYYY-MM-DDTHH:mm:ss'),
-    installedDateFrom: dayjs(installedDateFrom).format('YYYY-MM-DDTHH:mm:ss'),
+    installedDateTo: installedDateTo ? dayjs(installedDateTo).format('YYYY-MM-DDTHH:mm:ss') : undefined,
+    installedDateFrom: installedDateFrom ? dayjs(installedDateFrom).format('YYYY-MM-DDTHH:mm:ss') : undefined,
     ...isInstaledQuery,
     ...appIdQuery,
   }
@@ -102,6 +100,7 @@ export const Installations: FC = () => {
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getInstallations],
     queryParams: {
       ...formatFilters(installationsFilters),
+      pageNumber,
       pageSize,
     },
   })
