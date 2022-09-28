@@ -138,7 +138,7 @@ export const AnalyticsBanner: FC = () => {
       isExpanded={trackingBannerVisible}
       intent="secondary"
     >
-      The App Market users mechanisms to track your use of the environment to provide an enhanced user experience and
+      The App Market uses mechanisms to track your use of the environment to provide an enhanced user experience and
       provide feedback to enable Reapit to improve the product - to opt out of this tracking{' '}
       <a onClick={doNotTrack}>click here</a>, if you do not opt out you can at a later date.
     </PersistentNotification>

@@ -46,6 +46,7 @@ import { TrackingEvent } from '../../core/analytics-events'
 import { History } from 'history'
 import { Routes } from '../../constants/routes'
 import { useHistory, useLocation } from 'react-router'
+import { AppDetailBackButton } from '../apps-detail/__styles__'
 
 export type MobileControlsState = 'search' | 'filters' | null
 
@@ -66,6 +67,12 @@ export const checkHasFilters = (appsBrowseFilterState: AppsBrowseConfigItemFilte
     }).length,
   )
 }
+
+export const handleClearFilters =
+  (setAppsBrowseFilterState: Dispatch<SetStateAction<AppsBrowseConfigItemFiltersInterface | null>>) => () => {
+    setAppsBrowseFilterState(null)
+    trackEvent(TrackingEvent.ClickClearFilters, true)
+  }
 
 export const handleSetFilters =
   (
@@ -160,6 +167,7 @@ export const AppsBrowse: FC = () => {
     handleMobileControls(setMobileControlsState, mobileControlsState === 'search' ? null : 'search'),
     [mobileControlsState],
   )
+  const clearFilters = useCallback(handleClearFilters(setAppsBrowseFilterState), [])
 
   useEffect(handleCollectionId(setAppsBrowseFilterState, appsBrowseConfigState, collectionId), [
     appsBrowseConfigState,
@@ -170,6 +178,11 @@ export const AppsBrowse: FC = () => {
 
   return (
     <PageContainer>
+      {hasFilters && (
+        <AppDetailBackButton onClick={clearFilters}>
+          <Icon icon="backSystem" intent="primary" />
+        </AppDetailBackButton>
+      )}
       <AppSearchFiltersWrap>
         <BrowseAppsTitle className={cx(mobileControlsState && isMobile && browseAppsTitleHasFilters)}>
           AppMarket

@@ -254,9 +254,12 @@ export const AppsDetail: FC = () => {
         <Loader />
       ) : (
         <>
-          <PersistentNotification onClick={salesBannerClick} isExpanded={salesBannerVisible} intent="critical">
-            Interested in hearing more about this app? Click here and one of the Reapit Team will be in touch!
-          </PersistentNotification>
+          {/* Feature flagging sales banner in production */}
+          {window.reapit.config.appEnv !== 'production' && (
+            <PersistentNotification onClick={salesBannerClick} isExpanded={salesBannerVisible} intent="critical">
+              Interested in hearing more about this app? Click here and one of the Reapit Team will be in touch!
+            </PersistentNotification>
+          )}
           <AppDetailBackButton onClick={navigateBack(history)}>
             <Icon icon="backSystem" intent="primary" />
           </AppDetailBackButton>

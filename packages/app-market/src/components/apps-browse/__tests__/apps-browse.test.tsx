@@ -3,6 +3,7 @@ import { render, setViewport, viewPortOptions } from '../../../tests/react-testi
 import {
   AppsBrowse,
   checkHasFilters,
+  handleClearFilters,
   handleCollectionId,
   handleMobileControls,
   handleSetFilters,
@@ -146,5 +147,16 @@ describe('handleCollectionId', () => {
     curried()
 
     expect(setAppsBrowseFilterState).toHaveBeenCalledWith(appsBrowseConfigState.items[0].filters)
+  })
+})
+
+describe('handleClearFilters', () => {
+  it('should set the filters to null', () => {
+    const setAppsBrowseFilterState = jest.fn()
+    const curried = handleClearFilters(setAppsBrowseFilterState)
+
+    curried()
+
+    expect(setAppsBrowseFilterState).toHaveBeenCalledWith(null)
   })
 })
