@@ -23,7 +23,7 @@ export const FilterForm: FC<FilterFormProps> = ({ setSubscriptionsFilters }) => 
         <InputWrap>
           <Label>Subscription Type</Label>
           <InputGroup>
-            <Select {...register('type')}>
+            <Select {...register('subscriptionType')}>
               <option value="">Please Select</option>
               <option value="applicationListing">Application Listing</option>
               <option value="developerRegistration">Developer Registration</option>
