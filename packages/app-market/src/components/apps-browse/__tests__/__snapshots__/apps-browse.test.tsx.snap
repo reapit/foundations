@@ -23076,6 +23076,26 @@ Object {
         class="el-page-container"
       >
         <div
+          class="app-detail-back-button"
+        >
+          <span
+            class="el-intent-primary el-icon"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 12 12"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 6L9 0V12L0 6Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+        </div>
+        <div
           class="app-search-filters-wrap"
         >
           <h1
@@ -23326,6 +23346,26 @@ Object {
     <section
       class="el-page-container"
     >
+      <div
+        class="app-detail-back-button"
+      >
+        <span
+          class="el-intent-primary el-icon"
+        >
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 12 12"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 6L9 0V12L0 6Z"
+              fill="currentColor"
+            />
+          </svg>
+        </span>
+      </div>
       <div
         class="app-search-filters-wrap"
       >
