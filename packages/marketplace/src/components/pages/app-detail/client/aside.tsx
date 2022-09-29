@@ -23,7 +23,7 @@ export const onBackToAppsButtonClick = (history: History) => {
 
 export const Aside: React.FC<AsideProps> = ({ desktopIntegrationTypes, appDetailData }) => {
   const {
-    category,
+    categories,
     developer,
     telephone,
     supportEmail,
@@ -40,7 +40,9 @@ export const Aside: React.FC<AsideProps> = ({ desktopIntegrationTypes, appDetail
   const history = useHistory()
   return (
     <FlexContainerBasic flexColumn hasPadding hasBackground isFullHeight={!isMobile}>
-      <CategorySection category={category} isSidebar />
+      {categories?.map((category) => (
+        <CategorySection key={category.id} category={category} isSidebar />
+      ))}
       <DesktopIntegrationSection desktopIntegrationTypes={desktopIntegrationTypes} isSidebar />
       <DirectApiSection isDirectApi={isDirectApi} isSidebar />
       {isWebComponent && <WebComponentConfig />}
