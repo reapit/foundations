@@ -68,8 +68,8 @@ export interface AppIdParams {
 }
 
 export enum VideoType {
-  HowTo = 'How To Use App',
-  Marketing = 'Marketing Presentation',
+  HowTo = 'Getting started with ',
+  Marketing = 'Why ',
 }
 
 export const handleCarouselCols = (mediaQuery: MediaType) => () => {
@@ -293,6 +293,7 @@ export const AppsDetail: FC = () => {
                       <FlexContainer isFlexAlignCenter>
                         <Icon className={cx(elMr4)} icon="videoSystem" intent="primary" fontSize="1.25em" />
                         {VideoType.HowTo}
+                        {name}
                       </FlexContainer>
                     </Button>
                     {videos && videos?.length > 1 && (
@@ -300,6 +301,7 @@ export const AppsDetail: FC = () => {
                         <FlexContainer isFlexAlignCenter>
                           <Icon className={cx(elMr4)} icon="videoSystem" intent="primary" fontSize="1.25em" />
                           {VideoType.Marketing}
+                          {name}
                         </FlexContainer>
                       </Button>
                     )}

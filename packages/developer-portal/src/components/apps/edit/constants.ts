@@ -2,16 +2,16 @@ import { ResizeDimensions } from '@reapit/utils-react'
 
 const UPLOAD_IMAGE_DIMENSIONS: Record<string, ResizeDimensions> = {
   icon: {
-    width: 96,
-    height: 96,
+    width: 192,
+    height: 192,
   },
   feature: {
-    width: 495,
-    height: 222,
+    width: 990,
+    height: 444,
   },
   screenshot: {
-    width: 598,
-    height: 457,
+    width: 1196,
+    height: 914,
   },
 }
 

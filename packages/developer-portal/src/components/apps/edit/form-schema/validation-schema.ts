@@ -261,7 +261,7 @@ export const appEditValidationSchema = object().shape({
       name: 'isValidYoutube1',
       message: 'If YouTube, video needs to be in https://www.youtube.com/embed/<<videoId>> format',
       test: (value) => {
-        if (!value || !value.includes('youtube')) return true
+        if (!value || (!value.includes('youtube') && !value.includes('youtu.be'))) return true
         return value.includes('https://www.youtube.com/embed/')
       },
     })
@@ -280,7 +280,7 @@ export const appEditValidationSchema = object().shape({
       name: 'isValidYoutube2',
       message: 'If YouTube, video needs to be in https://www.youtube.com/embed/<<videoId>> format',
       test: (value) => {
-        if (!value || !value.includes('youtube')) return true
+        if (!value || (!value.includes('youtube') && !value.includes('youtu.be'))) return true
         return value.includes('https://www.youtube.com/embed/')
       },
     })
