@@ -35,11 +35,6 @@ export const mockAppDetailModel: AppDetailModel = {
   pricingUrl: 'https://insights.dev.paas.reapit.cloud',
   isFree: false,
   isHidden: false,
-  category: {
-    id: '6',
-    name: 'Communication',
-    description: 'Messaging and communication',
-  },
   categories: [
     {
       id: '6',
