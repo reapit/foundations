@@ -201,7 +201,6 @@ export interface AppDetailModel {
    * Gets a flag to determing if the app is marked as hidden
    */
   isHidden?: boolean
-  category?: CategoryModel
   /**
    * Gets the collection of categories assigned to the app
    */
@@ -406,7 +405,6 @@ export interface AppRevisionModel {
    * Gets a flag to determine if the app is free to use
    */
   isFree?: boolean
-  category?: CategoryModel
   /**
    * Gets the categories for the app this revision belongs to
    */
@@ -927,10 +925,6 @@ export interface CreateAppRevisionModel {
    * Sets the unique identifier of the developer associated with this app revision
    */
   developerId?: string // uuid
-  /**
-   * Sets the unique identifer of the app revisions category
-   */
-  categoryId?: string
   /**
    * Sets the unique identifer of the apps revisions category. Multiple ids can be passed in the array
    */
