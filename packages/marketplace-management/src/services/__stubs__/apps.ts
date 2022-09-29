@@ -366,11 +366,13 @@ export const mockAppDetail: AppDetailModel = {
   privacyPolicyUrl: 'https://reapit.com',
   isFree: true,
   isHidden: false,
-  category: {
-    id: '9',
-    name: 'Tools',
-    description: 'General purpose tools',
-  },
+  categories: [
+    {
+      id: '9',
+      name: 'Tools',
+      description: 'General purpose tools',
+    },
+  ],
   scopes: [
     {
       name: 'agencyCloud/applicants.read',

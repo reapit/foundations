@@ -19,20 +19,6 @@ Object {
             class="title is-5 mb-2"
             id=""
           >
-            Category
-          </h5>
-          <p>
-            None
-          </p>
-        </div>
-        <div
-          class="content"
-          data-test=""
-        >
-          <h5
-            class="title is-5 mb-2"
-            id=""
-          >
             Desktop Integration
           </h5>
           <div
@@ -115,20 +101,6 @@ Object {
     <div
       class="container-flex is-full-height is-column has-background has-padding"
     >
-      <div
-        class="content"
-        data-test=""
-      >
-        <h5
-          class="title is-5 mb-2"
-          id=""
-        >
-          Category
-        </h5>
-        <p>
-          None
-        </p>
-      </div>
       <div
         class="content"
         data-test=""

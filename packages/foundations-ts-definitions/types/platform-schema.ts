@@ -14414,6 +14414,297 @@ export interface Tenancies {
   metadata?: string[]
 }
 /**
+ * Representation of party agreements to a specific clause in a tenancy agreement
+ */
+export interface TenancyAgreementModel {
+  /**
+   * A flag to determine if the landlord has agreed
+   */
+  landlord?: boolean
+  /**
+   * A flag to determine if the tenant has agreed
+   */
+  tenant?: boolean
+}
+/**
+ * Representation of a tenancy allowance
+ */
+export interface TenancyAllowanceModel {
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+  /**
+   * The unique identifier of the allowance
+   */
+  id?: string
+  /**
+   * The date and time when the allowance was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the allowance last modified
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  modified?: string // date-time
+  /**
+   * The identifier of the associated allowance
+   */
+  typeId?: string
+  /**
+   * The break clauses description
+   */
+  description?: string
+  /**
+   * The state of the allowance (allowed/notAllowed)
+   */
+  state?: string
+  /**
+   * Representation of party agreements to a specific clause in a tenancy agreement
+   */
+  agreements?: {
+    /**
+     * A flag to determine if the landlord has agreed
+     */
+    landlord?: boolean
+    /**
+     * A flag to determine if the tenant has agreed
+     */
+    tenant?: boolean
+  }
+  /**
+   * The unique identifier of the associated tenancy
+   */
+  tenancyId?: string
+  /**
+   * The ETag for the current version of the allowance. Used for managing update concurrency
+   */
+  readonly _eTag?: string
+}
+export interface TenancyAllowanceModelPagedResult {
+  _embedded?: {
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+    /**
+     * The unique identifier of the allowance
+     */
+    id?: string
+    /**
+     * The date and time when the allowance was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the allowance last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * The identifier of the associated allowance
+     */
+    typeId?: string
+    /**
+     * The break clauses description
+     */
+    description?: string
+    /**
+     * The state of the allowance (allowed/notAllowed)
+     */
+    state?: string
+    /**
+     * Representation of party agreements to a specific clause in a tenancy agreement
+     */
+    agreements?: {
+      /**
+       * A flag to determine if the landlord has agreed
+       */
+      landlord?: boolean
+      /**
+       * A flag to determine if the tenant has agreed
+       */
+      tenant?: boolean
+    }
+    /**
+     * The unique identifier of the associated tenancy
+     */
+    tenancyId?: string
+    /**
+     * The ETag for the current version of the allowance. Used for managing update concurrency
+     */
+    readonly _eTag?: string
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalPageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+/**
+ * Representation of a tenancy break clause
+ */
+export interface TenancyBreakClauseModel {
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+  /**
+   * The unique identifier of the break clause
+   */
+  id?: string
+  /**
+   * The date and time when the break clause was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the break clause last modified
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  modified?: string // date-time
+  /**
+   * The identifier of the associated break clause
+   */
+  clauseTypeId?: string
+  /**
+   * The break clauses description
+   */
+  description?: string
+  /**
+   * The date the break clause became (or becomes) active
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  active?: string // date-time
+  /**
+   * The parties that the break clause applies to (landlord/tenant/mutual)
+   */
+  appliesTo?: string
+  /**
+   * Representation of party agreements to a specific clause in a tenancy agreement
+   */
+  agreements?: {
+    /**
+     * A flag to determine if the landlord has agreed
+     */
+    landlord?: boolean
+    /**
+     * A flag to determine if the tenant has agreed
+     */
+    tenant?: boolean
+  }
+  /**
+   * The unique identifier of the associated tenancy
+   */
+  tenancyId?: string
+  /**
+   * The ETag for the current version of the break clause. Used for managing update concurrency
+   */
+  readonly _eTag?: string
+}
+export interface TenancyBreakClauseModelPagedResult {
+  _embedded?: {
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+    /**
+     * The unique identifier of the break clause
+     */
+    id?: string
+    /**
+     * The date and time when the break clause was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the break clause last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * The identifier of the associated break clause
+     */
+    clauseTypeId?: string
+    /**
+     * The break clauses description
+     */
+    description?: string
+    /**
+     * The date the break clause became (or becomes) active
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    active?: string // date-time
+    /**
+     * The parties that the break clause applies to (landlord/tenant/mutual)
+     */
+    appliesTo?: string
+    /**
+     * Representation of party agreements to a specific clause in a tenancy agreement
+     */
+    agreements?: {
+      /**
+       * A flag to determine if the landlord has agreed
+       */
+      landlord?: boolean
+      /**
+       * A flag to determine if the tenant has agreed
+       */
+      tenant?: boolean
+    }
+    /**
+     * The unique identifier of the associated tenancy
+     */
+    tenancyId?: string
+    /**
+     * The ETag for the current version of the break clause. Used for managing update concurrency
+     */
+    readonly _eTag?: string
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalPageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+/**
  * Representation of a tenancy check - a process that needs to happen before a tenancy can commence or ends
  */
 export interface TenancyCheckModel {
@@ -15398,6 +15689,139 @@ export interface TenancyModelPagedResult {
     }
     /**
      * The ETag for the current version of the tenancy. Used for managing update concurrency
+     */
+    readonly _eTag?: string
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalPageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+/**
+ * Representation of a tenancies responsibility
+ */
+export interface TenancyResponsibilityModel {
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+  /**
+   * The unique identifier of the responsibility
+   */
+  id?: string
+  /**
+   * The date and time when the responsibility was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the responsibility last modified
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  modified?: string // date-time
+  /**
+   * The identifier of the associated to the responsibility
+   */
+  typeId?: string
+  /**
+   * The responsibilities description
+   */
+  description?: string
+  /**
+   * The responsible party (landlord/tenant)
+   */
+  appliesTo?: string
+  /**
+   * Representation of party agreements to a specific clause in a tenancy agreement
+   */
+  agreements?: {
+    /**
+     * A flag to determine if the landlord has agreed
+     */
+    landlord?: boolean
+    /**
+     * A flag to determine if the tenant has agreed
+     */
+    tenant?: boolean
+  }
+  /**
+   * The unique identifier of the associated tenancy
+   */
+  tenancyId?: string
+  /**
+   * The ETag for the current version of the responsibility. Used for managing update concurrency
+   */
+  readonly _eTag?: string
+}
+export interface TenancyResponsibilityModelPagedResult {
+  _embedded?: {
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+    /**
+     * The unique identifier of the responsibility
+     */
+    id?: string
+    /**
+     * The date and time when the responsibility was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the responsibility last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * The identifier of the associated to the responsibility
+     */
+    typeId?: string
+    /**
+     * The responsibilities description
+     */
+    description?: string
+    /**
+     * The responsible party (landlord/tenant)
+     */
+    appliesTo?: string
+    /**
+     * Representation of party agreements to a specific clause in a tenancy agreement
+     */
+    agreements?: {
+      /**
+       * A flag to determine if the landlord has agreed
+       */
+      landlord?: boolean
+      /**
+       * A flag to determine if the tenant has agreed
+       */
+      tenant?: boolean
+    }
+    /**
+     * The unique identifier of the associated tenancy
+     */
+    tenancyId?: string
+    /**
+     * The ETag for the current version of the responsibility. Used for managing update concurrency
      */
     readonly _eTag?: string
   }[]
