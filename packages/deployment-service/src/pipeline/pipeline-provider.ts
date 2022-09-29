@@ -16,9 +16,12 @@ export class PipelineProvider {
     return this.repository.findOne({ where: { id } })
   }
 
-  async paginate(page: number, developerId: string, appId?: string): Promise<Pagination<PipelineEntity>> {
+  async paginate(page: number, developerId?: string, appId?: string): Promise<Pagination<PipelineEntity>> {
     const qb = this.repository.createQueryBuilder()
-    qb.where('developerId = :developerId', { developerId })
+    if (developerId) {
+      qb.where('developerId = :developerId', { developerId })
+    }
+    
     qb.addOrderBy('created', 'DESC')
 
     if (appId) {
