@@ -1,5 +1,5 @@
 import { QueryIterator } from '@aws/dynamodb-data-mapper'
-import { Controller, Get, Query } from '@nestjs/common'
+import { Controller, Get, ParseBoolPipe, Query } from '@nestjs/common'
 import { AppsBrowseConfigEnum } from '@reapit/foundations-ts-definitions/marketplace-cms'
 import { CmsProvider } from './cms-provider'
 import { MarketplaceAppModel } from './marketplace-app-model'
@@ -50,7 +50,7 @@ export class PublicController {
     for await (const configItem of configItems[0]) {
       if (this.isLive(configItem, isLive)) {
         if (configType) {
-          if (configType === configItem.configType)  pagination.items.push(configItem)
+          if (configType === configItem.configType) pagination.items.push(configItem)
         } else {
           pagination.items.push(configItem)
         }
@@ -62,9 +62,9 @@ export class PublicController {
 
   @Get()
   async fetch(
-    @Query('isLive') isLive?: boolean,
+    @Query('isLive', ParseBoolPipe) isLive?: boolean,
     @Query('configType') configType?: AppsBrowseConfigEnum,
   ): Promise<Pagination<MarketplaceAppModel>> {
-    return this.resolvePaginationObject(await this.cmsProvider.findAll({}), isLive)
+    return this.resolvePaginationObject(await this.cmsProvider.findAll({}), isLive, configType)
   }
 }
