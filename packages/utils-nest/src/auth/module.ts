@@ -1,5 +1,5 @@
 import { DynamicModule, Global, Module } from '@nestjs/common'
-import { AdminGuard } from './admin-guard'
+import { AdminWriteGuard, AdminReadonlyGuard } from './admin-guard'
 import {
   API_KEY_INVOKE_CONFIG_PROVIDE,
   AuthModuleOptionsInterface,
@@ -22,10 +22,19 @@ export class AuthModule {
         ApiKeyProvider,
         TokenProvider,
         CredGuard,
-        AdminGuard,
+        AdminWriteGuard,
+        AdminReadonlyGuard,
         createApiKeyInvokeConfigProvide(options || { apiKeyInvoke: { enabled: false } }),
       ],
-      exports: [OwnershipProvider, CredGuard, TokenProvider, ApiKeyProvider, AdminGuard, API_KEY_INVOKE_CONFIG_PROVIDE],
+      exports: [
+        OwnershipProvider,
+        CredGuard,
+        TokenProvider,
+        ApiKeyProvider,
+        AdminWriteGuard,
+        AdminReadonlyGuard,
+        API_KEY_INVOKE_CONFIG_PROVIDE,
+      ],
     }
   }
 
@@ -38,10 +47,19 @@ export class AuthModule {
         ApiKeyProvider,
         TokenProvider,
         CredGuard,
-        AdminGuard,
+        AdminWriteGuard,
+        AdminReadonlyGuard,
         createApiKeyInvokeConfigProvide(options),
       ],
-      exports: [OwnershipProvider, CredGuard, TokenProvider, ApiKeyProvider, AdminGuard, API_KEY_INVOKE_CONFIG_PROVIDE],
+      exports: [
+        OwnershipProvider,
+        CredGuard,
+        TokenProvider,
+        ApiKeyProvider,
+        AdminWriteGuard,
+        AdminReadonlyGuard,
+        API_KEY_INVOKE_CONFIG_PROVIDE,
+      ],
     }
   }
 }

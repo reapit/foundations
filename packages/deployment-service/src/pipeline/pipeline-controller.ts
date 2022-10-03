@@ -17,7 +17,7 @@ import { PipelineDto } from './pipeline-dto'
 import { PipelineEntity } from '../entities/pipeline.entity'
 import { Pagination } from 'nestjs-typeorm-paginate'
 import { EventDispatcher, PusherProvider } from '../events'
-import { CredGuard, Creds, CredsType, OwnershipProvider } from '@reapit/utils-nest'
+import { CredGuard, Creds, CredsType, isReadonlyAdmin, OwnershipProvider } from '@reapit/utils-nest'
 
 @UseGuards(CredGuard)
 @Controller('pipeline')
@@ -43,7 +43,18 @@ export class PipelineController {
   }
 
   @Get()
-  async paginate(@Query('page') page: number = 1, @Creds() creds: CredsType): Promise<Pagination<PipelineEntity>> {
+  async paginate(
+    @Creds() creds: CredsType,
+    @Query('developerId') developerId?: string,
+    @Query('page') page: number = 1,
+  ): Promise<Pagination<PipelineEntity>> {
+    if (isReadonlyAdmin(creds)) {
+      if (developerId) {
+        return this.pipelineProvider.paginate(page, developerId)
+      }
+      return this.pipelineProvider.paginate(page)
+    }
+
     return this.pipelineProvider.paginate(page, creds.developerId as string)
   }
 
