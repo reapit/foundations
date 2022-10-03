@@ -98,7 +98,7 @@ export const IaaS: FC = () => {
                     <TableHeader></TableHeader>
                   </TableHeadersRow>
                   {pagination?.items?.map((pipeline) => (
-                    <PipelineRow pipeline={pipeline} key={pipeline.id} />
+                    <PipelineRow connectSession={connectSession} pipeline={pipeline} key={pipeline.id} />
                   ))}
                 </Table>
                 <div className={elMt6}>
