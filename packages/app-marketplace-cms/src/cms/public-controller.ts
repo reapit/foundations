@@ -1,5 +1,5 @@
 import { QueryIterator } from '@aws/dynamodb-data-mapper'
-import { Controller, Get, NotFoundException, Param, ParseBoolPipe, Query } from '@nestjs/common'
+import { Controller, Get, NotFoundException, Param, Query } from '@nestjs/common'
 import { AppsBrowseConfigEnum } from '@reapit/foundations-ts-definitions/marketplace-cms'
 import { CmsProvider } from './cms-provider'
 import { MarketplaceAppModel } from './marketplace-app-model'
@@ -62,10 +62,10 @@ export class PublicController {
 
   @Get()
   async fetch(
-    @Query('isLive', ParseBoolPipe) isLive?: boolean,
+    @Query('isLive') isLive: string,
     @Query('configType') configType?: AppsBrowseConfigEnum,
   ): Promise<Pagination<MarketplaceAppModel>> {
-    return this.resolvePaginationObject(await this.cmsProvider.findAll({}), isLive, configType)
+    return this.resolvePaginationObject(await this.cmsProvider.findAll({}), isLive === 'true', configType)
   }
 
   @Get(":appId")
