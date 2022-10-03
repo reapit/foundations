@@ -16,7 +16,7 @@ type Pagination<T> = {
 export class PublicController {
   constructor(private readonly cmsProvider: CmsProvider) {}
 
-  protected isLive(configItem: MarketplaceAppModel, isLive: boolean = true): boolean {
+  protected isLive(configItem: MarketplaceAppModel, isLive: boolean | undefined = true): boolean {
     const now = new Date().getTime()
 
     if (typeof configItem.live.timeFrom !== 'undefined' || typeof configItem.live.timeTo !== 'undefined') {
@@ -34,7 +34,11 @@ export class PublicController {
       return !isLive
     }
 
-    return isLive ? configItem.live.isLive : !configItem.live.isLive
+    return typeof isLive === 'boolean'
+      ? isLive
+        ? configItem.live.isLive
+        : !configItem.live.isLive
+      : configItem.live.isLive
   }
 
   protected async resolvePaginationObject(
@@ -62,9 +66,11 @@ export class PublicController {
 
   @Get()
   async fetch(
-    @Query('isLive') isLive: string,
+    @Query('isLive') isLiveQuery: string,
     @Query('configType') configType?: AppsBrowseConfigEnum,
   ): Promise<Pagination<MarketplaceAppModel>> {
-    return this.resolvePaginationObject(await this.cmsProvider.findAll({}), isLive === 'true', configType)
+    const isLive = isLiveQuery === 'true' ? true : isLiveQuery === 'false' ? false : undefined
+
+    return this.resolvePaginationObject(await this.cmsProvider.findAll({}), isLive, configType)
   }
 }
