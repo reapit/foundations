@@ -3,7 +3,7 @@ import { CredGuard, CredsType } from './cred-guard'
 import { isReadonlyAdmin, isWriteAdmin } from './is-admin'
 
 @Injectable()
-export class AdminGetGuard extends CredGuard {
+export class AdminReadonlyGuard extends CredGuard {
   async canActivate(context: ExecutionContext): Promise<boolean> {
     const result = await super.canActivate(context)
 
@@ -19,7 +19,7 @@ export class AdminGetGuard extends CredGuard {
 }
 
 @Injectable()
-export class AdminPostGuard extends CredGuard {
+export class AdminWriteGuard extends CredGuard {
   async canActivate(context: ExecutionContext): Promise<boolean> {
     const result = await super.canActivate(context)
 
