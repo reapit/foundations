@@ -26,7 +26,7 @@ Usage within controller below.
 import { CredGuard, Creds, CredsType } from '@reapit/utils-nest'
 import { UseGuards, Controller, Get, UnauthorizedException } from '@nestjs/common'
 
-@UseGuards(CredGuard) // or AdminGuard (for admin verification)
+@UseGuards(CredGuard) // or (AdminReadonlyGuard || AdminWriteGuard) (for admin verification)
 @Controller()
 export class ExampleController {
   @Get()
@@ -49,7 +49,7 @@ There are 2 types of creds that can be returned. One is `jwt` which is a LoginId
 
 The below example is how to use the api-key-verify method to use the invoke function to verify api-keys from the api-key-service. This will enable api-key verification from CredGuard.
 
-> AdminGuard is unable to use api-key authentication method
+> AdminReadonlyGuard and AdminWriteGuard are unable to use api-key authentication method
 
 ```ts
 import { AuthModule } from '@reapit/utils-nest'
