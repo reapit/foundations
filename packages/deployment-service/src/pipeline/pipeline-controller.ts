@@ -44,9 +44,9 @@ export class PipelineController {
 
   @Get()
   async paginate(
-    @Query('page') page: number = 1,
     @Creds() creds: CredsType,
     @Query('developerId') developerId?: string,
+    @Query('page') page: number = 1,
   ): Promise<Pagination<PipelineEntity>> {
     if (isReadonlyAdmin(creds)) {
       if (developerId) {
