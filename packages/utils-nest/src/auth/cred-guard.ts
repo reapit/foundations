@@ -35,7 +35,7 @@ export class CredGuard implements CanActivate {
       return !!apiKeyCreds
     }
 
-    const tokenCreds = this.tokenProvider.resolve(request.headers?.authorization as string)
+    const tokenCreds = await this.tokenProvider.resolve(request.headers?.authorization as string)
 
     if (!tokenCreds || !tokenCreds.developerId) return false
 
