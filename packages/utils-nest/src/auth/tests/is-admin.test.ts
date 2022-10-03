@@ -46,12 +46,12 @@ describe('is-admin', () => {
     ).toBeFalsy()
   })
 
-  it('write is not readonly', () => {
+  it('write is readonly', () => {
     expect(
       isWriteAdmin({
         type: 'jwt',
         groups: [adminWriteGroup],
       } as CredsType),
-    ).toBeFalsy()
+    ).toBeTruthy()
   })
 })
