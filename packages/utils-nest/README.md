@@ -75,6 +75,48 @@ import authModuleConfig from './config/auth-module-config'
 export class AppModule {}
 ```
 
+### Admin checks
+
+There are 2 scopes for admins in Reapit. One is readonly and the other is write admin. We use 2 different guards to handle the differences between them shown below. 
+
+#### Readonly Guard
+
+This guard makes sure the user has a `ReapitEmployee` scope. Notice that the guard decorator is on the function and not the class.
+
+```ts
+import { Controller, Get, UseGuards } from '@nestjs/common'
+import { AdminReadonlyGuard } from '@reapit/utils-nest'
+
+@Controller('pipeline')
+export class PipelineController {
+
+  @Get('')
+  @UseGaurds(AdminReadonlyGuard)
+  async paginate() {
+    // Here the user is a readonly admin
+  }
+}
+```
+
+#### Write Guard
+
+This guard makes sure the user has a `ReapitEmployeeFoundationsAdmin` scope. Notice that the guard decorator is on the function and not the class.
+
+```ts
+import { Controller, Get, UseGuards } from '@nestjs/common'
+import { AdminWriteGuard } from '@nestjs/utils-nest'
+
+@Controller('pipeline')
+export class PipelineController {
+
+  @Post('')
+  @UseGaurds(AdminWriteGuard)
+  async create() {
+    // Here the user is a write admin
+  }
+}
+```
+
 ### Ownership
 
 the OwnershipProvider is for determining the ownership of entities with developerId. If the developerIds do not match between entity and credentials then a ForbiddenException will be throw (for 403 http status code response)
