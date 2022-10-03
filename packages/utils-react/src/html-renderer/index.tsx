@@ -19,7 +19,7 @@ export const HTMLRender: React.FC<HTMLRenderProps> = ({
   const jsonElements = parse(html)
   return (
     <div className={className}>
-      {image && image}
+      {image}
       <HtmlContentWrap>{renderer(jsonElements, diffing)}</HtmlContentWrap>
     </div>
   )
