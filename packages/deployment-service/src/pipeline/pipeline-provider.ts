@@ -21,7 +21,7 @@ export class PipelineProvider {
     if (developerId) {
       qb.where('developerId = :developerId', { developerId })
     }
-    
+
     qb.addOrderBy('created', 'DESC')
 
     if (appId) {

@@ -3,7 +3,7 @@ import { CredsType } from './cred-guard'
 
 /**
  * Loose admin check. Checks if scopes present for readonly or write admin
- * 
+ *
  * @param creds CredsType
  * @returns boolean
  */
@@ -12,7 +12,7 @@ export const isAdmin = (creds: CredsType): boolean =>
 
 /**
  * Returns true if creds have required scope for write access
- * 
+ *
  * @param creds CredsType
  * @returns boolean
  */
@@ -21,7 +21,7 @@ export const isWriteAdmin = (creds: CredsType): boolean =>
 
 /**
  * Returns true if creds have required scopes for readonly admin
- * 
+ *
  * @param creds CredsType
  * @returns boolean
  */
