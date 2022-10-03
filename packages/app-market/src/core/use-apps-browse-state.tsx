@@ -53,6 +53,9 @@ export const AppsBrowseProvider: FC = ({ children }) => {
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppMarketAdminLive],
     fetchWhenTrue: [connectSession],
+    queryParams: {
+      isLive: true,
+    },
     headers: {
       Authorization: connectSession?.idToken as string,
     },
