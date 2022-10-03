@@ -835,493 +835,7 @@ Object {
           class="apps-detail-content-grid"
         >
           <div
-            class="app-detail-description-grid"
-          >
-            <div
-              class="app-detail-description-col-main"
-            >
-              <h2
-                class="el-has-bold-text el-subtitle"
-              >
-                About App
-              </h2>
-              <div>
-                Mock Component
-              </div>
-              <div
-                class="el-button-group"
-              >
-                <div
-                  class="el-button-group-inner"
-                >
-                  <button
-                    class="el-intent-low el-button"
-                  >
-                    <div
-                      class="el-flex-align-center el-flex-container"
-                    >
-                      <span
-                        class="el-mr4 el-intent-primary el-icon"
-                        style="font-size: 1.25em;"
-                      >
-                        <svg
-                          fill="none"
-                          height="1em"
-                          viewBox="0 0 20 16"
-                          width="1em"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M2.82051 0C1.25797 0 0 1.31414 0 2.94643V12.0536C0 13.6859 1.25797 15 2.82051 15H17.1795C18.742 15 20 13.6859 20 12.0536V2.94643C20 1.31414 18.742 0 17.1795 0H2.82051ZM8.20513 5.21825C8.20513 4.68208 8.78322 4.34497 9.24986 4.60902L13.2823 6.89077C13.756 7.15881 13.756 7.84119 13.2823 8.10923L9.24986 10.391C8.78322 10.655 8.20513 10.3179 8.20513 9.78175V5.21825Z"
-                            fill="currentColor"
-                          />
-                        </svg>
-                      </span>
-                      Getting started with 
-                      will-test-dev-co-voracious-person
-                    </div>
-                  </button>
-                  <button
-                    class="el-intent-low el-button"
-                  >
-                    <div
-                      class="el-flex-align-center el-flex-container"
-                    >
-                      <span
-                        class="el-mr4 el-intent-primary el-icon"
-                        style="font-size: 1.25em;"
-                      >
-                        <svg
-                          fill="none"
-                          height="1em"
-                          viewBox="0 0 20 16"
-                          width="1em"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M2.82051 0C1.25797 0 0 1.31414 0 2.94643V12.0536C0 13.6859 1.25797 15 2.82051 15H17.1795C18.742 15 20 13.6859 20 12.0536V2.94643C20 1.31414 18.742 0 17.1795 0H2.82051ZM8.20513 5.21825C8.20513 4.68208 8.78322 4.34497 9.24986 4.60902L13.2823 6.89077C13.756 7.15881 13.756 7.84119 13.2823 8.10923L9.24986 10.391C8.78322 10.655 8.20513 10.3179 8.20513 9.78175V5.21825Z"
-                            fill="currentColor"
-                          />
-                        </svg>
-                      </span>
-                      Why 
-                      will-test-dev-co-voracious-person
-                    </div>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div
-              class="app-detail-description-col-aside"
-            >
-              <div
-                class="app-detail-image-wrapper"
-              >
-                <img
-                  alt="Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar"
-                  class="app-detail-image"
-                  src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-screen1ImageUrl.png"
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            class="el-flex-column el-flex-container"
-          >
-            <div
-              class="el-flex-column el-flex-container"
-            >
-              <div
-                class="app-detail-description-aside-desktop"
-              >
-                <div
-                  class="app-detail-image-wrapper"
-                >
-                  <img
-                    alt="Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar"
-                    class="app-detail-image"
-                    src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-screen1ImageUrl.png"
-                  />
-                </div>
-              </div>
-              <div
-                class="el-mb11 carousel-wrapper"
-              >
-                <div
-                  class="carousel-grid"
-                  style="--ckvo4up-0: 1; --ckvo4up-1: 50.000%; --ckvo4up-2: 0.375rem; --ckvo4up-6: 0.625rem;"
-                >
-                  <div
-                    class="carousel-col"
-                  >
-                    <div
-                      class="app-detail-image-wrapper"
-                    >
-                      <img
-                        alt="Application Image"
-                        class="app-detail-image"
-                        src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-screen2ImageUrl.png"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="el-flex-column el-flex-container"
-            >
-              <div
-                class="el-mb11 app-detail-support-grid"
-              >
-                <div
-                  class="app-detail-support-grid-col"
-                >
-                  <h2
-                    class="el-has-no-margin el-subtitle"
-                  >
-                    Website
-                  </h2>
-                  <p
-                    class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
-                  >
-                    <a
-                      href="https://foo.bar"
-                      rel="noopener noreferrer"
-                      target="_blank"
-                    >
-                      https://foo.bar
-                    </a>
-                  </p>
-                </div>
-                <div
-                  class="app-detail-support-grid-col"
-                >
-                  <h2
-                    class="el-has-no-margin el-subtitle"
-                  >
-                    Support Email
-                  </h2>
-                  <p
-                    class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
-                  >
-                    <a
-                      href="mailto:foo@bar.com"
-                      rel="noopener noreferrer"
-                      target="_blank"
-                    >
-                      foo@bar.com
-                    </a>
-                  </p>
-                </div>
-                <div
-                  class="app-detail-support-grid-col"
-                >
-                  <h2
-                    class="el-has-no-margin el-subtitle"
-                  >
-                    Telephone
-                  </h2>
-                  <p
-                    class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
-                  >
-                    07777777777
-                  </p>
-                </div>
-                <div
-                  class="app-detail-support-grid-col"
-                >
-                  <h2
-                    class="el-has-no-margin el-subtitle"
-                  >
-                    Terms and Conditions
-                  </h2>
-                  <p
-                    class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
-                  >
-                    <a
-                      href="https://foo.bar"
-                      rel="noopener noreferrer"
-                      target="_blank"
-                    >
-                      https://foo.bar
-                    </a>
-                  </p>
-                </div>
-                <div
-                  class="app-detail-support-grid-col"
-                >
-                  <h2
-                    class="el-has-no-margin el-subtitle"
-                  >
-                    Privacy Policy
-                  </h2>
-                  <p
-                    class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
-                  >
-                    <a
-                      href="https://foo.bar"
-                      rel="noopener noreferrer"
-                      target="_blank"
-                    >
-                      https://foo.bar
-                    </a>
-                  </p>
-                </div>
-                <div
-                  class="app-detail-support-grid-col"
-                >
-                  <h2
-                    class="el-has-no-margin el-subtitle"
-                  >
-                    Pricing Policy
-                  </h2>
-                  <p
-                    class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
-                  >
-                    <a
-                      href="https://foo.bar"
-                      rel="noopener noreferrer"
-                      target="_blank"
-                    >
-                      https://foo.bar
-                    </a>
-                  </p>
-                </div>
-              </div>
-              <div
-                class="el-mb11"
-              >
-                <h2
-                  class="el-has-bold-text el-subtitle"
-                >
-                  About Developer
-                </h2>
-                <p
-                  class="el-has-grey-text el-has-no-margin el-body-text"
-                >
-                  All about us in a number of words
-                </p>
-              </div>
-              <div
-                class="el-mb11"
-              >
-                <h2
-                  class="el-has-bold-text el-subtitle"
-                >
-                  Permissions
-                </h2>
-                <div
-                  class="app-detail-permission-chip"
-                >
-                  Read applicants
-                </div>
-                <div
-                  class="app-detail-permission-chip"
-                >
-                  Read property images
-                </div>
-                <div
-                  class="app-detail-permission-chip"
-                >
-                  Read properties
-                </div>
-              </div>
-              <div
-                class="el-mb11"
-              >
-                <h2
-                  class="el-has-bold-text el-subtitle"
-                >
-                  AgencyCloud Integration
-                </h2>
-                <div
-                  class="app-detail-permission-chip"
-                >
-                  Applicant
-                </div>
-                <div
-                  class="app-detail-permission-chip"
-                >
-                  Applicant Export
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <section
-      class="el-page-container"
-    >
-      <div
-        class="el-intent-critical el-persistent-notification"
-      >
-        <div
-          class="el-pn-icon"
-          data-testid="close-icon"
-        >
-          <span
-            class="el-icon"
-          >
-            <svg
-              fill="none"
-              height="1em"
-              viewBox="0 0 20 20"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M9.99958 0C4.47746 0 0 4.47746 0 9.99958C0 15.5217 4.47746 20 9.99958 20C15.5217 20 20 15.5217 20 9.99958C20 4.47746 15.5217 0 9.99958 0ZM12.0813 15.498C11.5666 15.7012 11.1568 15.8552 10.8495 15.9619C10.5431 16.0686 10.1867 16.1219 9.78116 16.1219C9.1581 16.1219 8.67302 15.9695 8.32762 15.6656C7.98222 15.3617 7.81037 14.9765 7.81037 14.5084C7.81037 14.3263 7.82307 14.1401 7.84847 13.9505C7.87471 13.7608 7.91619 13.5475 7.97291 13.3079L8.61714 11.0324C8.67386 10.814 8.72296 10.6066 8.7619 10.4135C8.80085 10.2188 8.81947 10.0402 8.81947 9.87767C8.81947 9.58815 8.75937 9.38497 8.64 9.27069C8.51894 9.1564 8.29122 9.10053 7.95175 9.10053C7.78582 9.10053 7.61481 9.12508 7.43958 9.17672C7.26603 9.23005 7.11534 9.27831 6.99175 9.32571L7.1619 8.62476C7.58349 8.45291 7.9873 8.30561 8.37249 8.1837C8.75767 8.06011 9.12169 7.99915 9.46455 7.99915C10.0834 7.99915 10.5608 8.14984 10.8969 8.44783C11.2313 8.74667 11.3998 9.13524 11.3998 9.6127C11.3998 9.71175 11.3879 9.88614 11.3651 10.135C11.3422 10.3848 11.299 10.6125 11.2364 10.8216L10.5956 13.0904C10.5431 13.2724 10.4965 13.4806 10.4542 13.7134C10.4127 13.9462 10.3924 14.124 10.3924 14.2434C10.3924 14.5448 10.4593 14.7505 10.5947 14.8597C10.7285 14.9689 10.963 15.0239 11.2948 15.0239C11.4514 15.0239 11.6267 14.996 11.8248 14.9418C12.0212 14.8876 12.1634 14.8394 12.2531 14.7979L12.0813 15.498ZM11.9678 6.2891C11.669 6.56677 11.3092 6.70561 10.8885 6.70561C10.4686 6.70561 10.1062 6.56677 9.80487 6.2891C9.50519 6.01143 9.35365 5.67365 9.35365 5.27915C9.35365 4.8855 9.50603 4.54688 9.80487 4.26667C10.1062 3.98561 10.4686 3.84593 10.8885 3.84593C11.3092 3.84593 11.6698 3.98561 11.9678 4.26667C12.2667 4.54688 12.4165 4.8855 12.4165 5.27915C12.4165 5.6745 12.2667 6.01143 11.9678 6.2891Z"
-                fill="currentColor"
-              />
-            </svg>
-          </span>
-        </div>
-        <div
-          class="el-pn-content"
-        >
-          Interested in hearing more about this app? Click here and one of the Reapit Team will be in touch!
-        </div>
-      </div>
-      <div
-        class="app-detail-back-button"
-      >
-        <span
-          class="el-intent-primary el-icon"
-        >
-          <svg
-            fill="none"
-            height="1em"
-            viewBox="0 0 12 12"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M0 6L9 0V12L0 6Z"
-              fill="currentColor"
-            />
-          </svg>
-        </span>
-      </div>
-      <div
-        class="el-mb5 el-flex-container"
-      >
-        <div
-          class="app-detail-wrapper"
-        >
-          <img
-            alt="will-test-dev-co-voracious-person"
-            class="el-fade-in app-detail-icon"
-            src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-icon.png"
-          />
-        </div>
-        <div
-          class="el-flex-column el-flex-justify-between el-flex-container"
-        >
-          <div
-            class="el-flex-column el-flex-container"
-          >
-            <h1
-              class="el-has-no-margin el-title"
-            >
-              will-test-dev-co-voracious-person
-            </h1>
-            <p
-              class="el-has-grey-text el-body-text"
-            >
-              Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
-            </p>
-          </div>
-          <div
-            class="el-flex-container"
-          >
-            <span
-              class="el-mr5 el-intent-success el-icon"
-            >
-              <svg
-                fill="none"
-                height="1em"
-                viewBox="0 0 20 20"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M9.99995 0C4.48601 0 0 4.48591 0 9.99995C0 15.514 4.48601 20 9.99995 20C15.5139 20 19.9999 15.514 19.9999 9.99995C19.9999 4.48591 15.514 0 9.99995 0ZM15.7421 8.31087L9.45963 14.5933C9.1925 14.8605 8.83741 15.0075 8.45967 15.0075C8.08193 15.0075 7.72684 14.8605 7.45971 14.5933L4.2578 11.3914C3.99067 11.1243 3.84354 10.7692 3.84354 10.3915C3.84354 10.0136 3.99067 9.65852 4.2578 9.39139C4.52483 9.12426 4.87992 8.97713 5.25776 8.97713C5.6355 8.97713 5.9907 9.12426 6.25773 9.3915L8.45957 11.5932L13.742 6.31084C14.0091 6.04371 14.3642 5.89669 14.7419 5.89669C15.1197 5.89669 15.4748 6.04371 15.7419 6.31084C16.2935 6.86242 16.2935 7.7595 15.7421 8.31087Z"
-                  fill="currentColor"
-                />
-              </svg>
-            </span>
-            <p
-              class="el-mr5 el-has-no-margin el-small-text"
-            >
-              Integration Enabled
-            </p>
-            <span
-              class="el-mr5 el-intent-success el-icon"
-            >
-              <svg
-                fill="none"
-                height="1em"
-                viewBox="0 0 20 20"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M9.99995 0C4.48601 0 0 4.48591 0 9.99995C0 15.514 4.48601 20 9.99995 20C15.5139 20 19.9999 15.514 19.9999 9.99995C19.9999 4.48591 15.514 0 9.99995 0ZM15.7421 8.31087L9.45963 14.5933C9.1925 14.8605 8.83741 15.0075 8.45967 15.0075C8.08193 15.0075 7.72684 14.8605 7.45971 14.5933L4.2578 11.3914C3.99067 11.1243 3.84354 10.7692 3.84354 10.3915C3.84354 10.0136 3.99067 9.65852 4.2578 9.39139C4.52483 9.12426 4.87992 8.97713 5.25776 8.97713C5.6355 8.97713 5.9907 9.12426 6.25773 9.3915L8.45957 11.5932L13.742 6.31084C14.0091 6.04371 14.3642 5.89669 14.7419 5.89669C15.1197 5.89669 15.4748 6.04371 15.7419 6.31084C16.2935 6.86242 16.2935 7.7595 15.7421 8.31087Z"
-                  fill="currentColor"
-                />
-              </svg>
-            </span>
-            <p
-              class="el-mr5 el-has-no-margin el-small-text"
-            >
-              Verified by Reapit
-            </p>
-            <div
-              class="el-fade-in app-detail-category-chip"
-            >
-              Category
-            </div>
-            <p
-              class="el-mr5 el-has-bold-text el-has-no-margin el-small-text"
-            >
-              Integration
-            </p>
-          </div>
-        </div>
-      </div>
-      <div
-        class="el-mb11 el-button-group"
-      >
-        <div
-          class="el-button-group-align-left el-button-group-inner"
-        >
-          <a
-            href="mailto:foo@bar.com?subject=will-test-dev-co-voracious-person%20Enquiry&body=Dear%20Will Test DevCo%2C%20%0A%0AI%20would%20like%20more%20information%20about%20will-test-dev-co-voracious-person%20featured%20in%20the%20Reapit%20AppMarket%20%0A%0ARegards"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <button
-              class="el-intent-low el-button"
-            >
-              Enquire About Integration
-            </button>
-          </a>
-        </div>
-      </div>
-      <div
-        class="apps-detail-content-grid"
-      >
-        <div
-          class="app-detail-description-grid"
-        >
-          <div
-            class="app-detail-description-col-main"
+            class="apps-detail-content-col-main"
           >
             <h2
               class="el-has-bold-text el-subtitle"
@@ -1395,40 +909,10 @@ Object {
             </div>
           </div>
           <div
-            class="app-detail-description-col-aside"
+            class="apps-detail-content-col-carousel"
           >
             <div
-              class="app-detail-image-wrapper"
-            >
-              <img
-                alt="Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar"
-                class="app-detail-image"
-                src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-screen1ImageUrl.png"
-              />
-            </div>
-          </div>
-        </div>
-        <div
-          class="el-flex-column el-flex-container"
-        >
-          <div
-            class="el-flex-column el-flex-container"
-          >
-            <div
-              class="app-detail-description-aside-desktop"
-            >
-              <div
-                class="app-detail-image-wrapper"
-              >
-                <img
-                  alt="Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar"
-                  class="app-detail-image"
-                  src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-screen1ImageUrl.png"
-                />
-              </div>
-            </div>
-            <div
-              class="el-mb11 carousel-wrapper"
+              class="carousel-wrapper"
             >
               <div
                 class="carousel-grid"
@@ -1451,7 +935,7 @@ Object {
             </div>
           </div>
           <div
-            class="el-flex-column el-flex-container"
+            class="apps-detail-content-col-permissions"
           >
             <div
               class="el-mb11 app-detail-support-grid"
@@ -1627,6 +1111,454 @@ Object {
               >
                 Applicant Export
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <section
+      class="el-page-container"
+    >
+      <div
+        class="el-intent-critical el-persistent-notification"
+      >
+        <div
+          class="el-pn-icon"
+          data-testid="close-icon"
+        >
+          <span
+            class="el-icon"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 20 20"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9.99958 0C4.47746 0 0 4.47746 0 9.99958C0 15.5217 4.47746 20 9.99958 20C15.5217 20 20 15.5217 20 9.99958C20 4.47746 15.5217 0 9.99958 0ZM12.0813 15.498C11.5666 15.7012 11.1568 15.8552 10.8495 15.9619C10.5431 16.0686 10.1867 16.1219 9.78116 16.1219C9.1581 16.1219 8.67302 15.9695 8.32762 15.6656C7.98222 15.3617 7.81037 14.9765 7.81037 14.5084C7.81037 14.3263 7.82307 14.1401 7.84847 13.9505C7.87471 13.7608 7.91619 13.5475 7.97291 13.3079L8.61714 11.0324C8.67386 10.814 8.72296 10.6066 8.7619 10.4135C8.80085 10.2188 8.81947 10.0402 8.81947 9.87767C8.81947 9.58815 8.75937 9.38497 8.64 9.27069C8.51894 9.1564 8.29122 9.10053 7.95175 9.10053C7.78582 9.10053 7.61481 9.12508 7.43958 9.17672C7.26603 9.23005 7.11534 9.27831 6.99175 9.32571L7.1619 8.62476C7.58349 8.45291 7.9873 8.30561 8.37249 8.1837C8.75767 8.06011 9.12169 7.99915 9.46455 7.99915C10.0834 7.99915 10.5608 8.14984 10.8969 8.44783C11.2313 8.74667 11.3998 9.13524 11.3998 9.6127C11.3998 9.71175 11.3879 9.88614 11.3651 10.135C11.3422 10.3848 11.299 10.6125 11.2364 10.8216L10.5956 13.0904C10.5431 13.2724 10.4965 13.4806 10.4542 13.7134C10.4127 13.9462 10.3924 14.124 10.3924 14.2434C10.3924 14.5448 10.4593 14.7505 10.5947 14.8597C10.7285 14.9689 10.963 15.0239 11.2948 15.0239C11.4514 15.0239 11.6267 14.996 11.8248 14.9418C12.0212 14.8876 12.1634 14.8394 12.2531 14.7979L12.0813 15.498ZM11.9678 6.2891C11.669 6.56677 11.3092 6.70561 10.8885 6.70561C10.4686 6.70561 10.1062 6.56677 9.80487 6.2891C9.50519 6.01143 9.35365 5.67365 9.35365 5.27915C9.35365 4.8855 9.50603 4.54688 9.80487 4.26667C10.1062 3.98561 10.4686 3.84593 10.8885 3.84593C11.3092 3.84593 11.6698 3.98561 11.9678 4.26667C12.2667 4.54688 12.4165 4.8855 12.4165 5.27915C12.4165 5.6745 12.2667 6.01143 11.9678 6.2891Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+        </div>
+        <div
+          class="el-pn-content"
+        >
+          Interested in hearing more about this app? Click here and one of the Reapit Team will be in touch!
+        </div>
+      </div>
+      <div
+        class="app-detail-back-button"
+      >
+        <span
+          class="el-intent-primary el-icon"
+        >
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 12 12"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 6L9 0V12L0 6Z"
+              fill="currentColor"
+            />
+          </svg>
+        </span>
+      </div>
+      <div
+        class="el-mb5 el-flex-container"
+      >
+        <div
+          class="app-detail-wrapper"
+        >
+          <img
+            alt="will-test-dev-co-voracious-person"
+            class="el-fade-in app-detail-icon"
+            src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-icon.png"
+          />
+        </div>
+        <div
+          class="el-flex-column el-flex-justify-between el-flex-container"
+        >
+          <div
+            class="el-flex-column el-flex-container"
+          >
+            <h1
+              class="el-has-no-margin el-title"
+            >
+              will-test-dev-co-voracious-person
+            </h1>
+            <p
+              class="el-has-grey-text el-body-text"
+            >
+              Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
+            </p>
+          </div>
+          <div
+            class="el-flex-container"
+          >
+            <span
+              class="el-mr5 el-intent-success el-icon"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 20 20"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9.99995 0C4.48601 0 0 4.48591 0 9.99995C0 15.514 4.48601 20 9.99995 20C15.5139 20 19.9999 15.514 19.9999 9.99995C19.9999 4.48591 15.514 0 9.99995 0ZM15.7421 8.31087L9.45963 14.5933C9.1925 14.8605 8.83741 15.0075 8.45967 15.0075C8.08193 15.0075 7.72684 14.8605 7.45971 14.5933L4.2578 11.3914C3.99067 11.1243 3.84354 10.7692 3.84354 10.3915C3.84354 10.0136 3.99067 9.65852 4.2578 9.39139C4.52483 9.12426 4.87992 8.97713 5.25776 8.97713C5.6355 8.97713 5.9907 9.12426 6.25773 9.3915L8.45957 11.5932L13.742 6.31084C14.0091 6.04371 14.3642 5.89669 14.7419 5.89669C15.1197 5.89669 15.4748 6.04371 15.7419 6.31084C16.2935 6.86242 16.2935 7.7595 15.7421 8.31087Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+            <p
+              class="el-mr5 el-has-no-margin el-small-text"
+            >
+              Integration Enabled
+            </p>
+            <span
+              class="el-mr5 el-intent-success el-icon"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 20 20"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9.99995 0C4.48601 0 0 4.48591 0 9.99995C0 15.514 4.48601 20 9.99995 20C15.5139 20 19.9999 15.514 19.9999 9.99995C19.9999 4.48591 15.514 0 9.99995 0ZM15.7421 8.31087L9.45963 14.5933C9.1925 14.8605 8.83741 15.0075 8.45967 15.0075C8.08193 15.0075 7.72684 14.8605 7.45971 14.5933L4.2578 11.3914C3.99067 11.1243 3.84354 10.7692 3.84354 10.3915C3.84354 10.0136 3.99067 9.65852 4.2578 9.39139C4.52483 9.12426 4.87992 8.97713 5.25776 8.97713C5.6355 8.97713 5.9907 9.12426 6.25773 9.3915L8.45957 11.5932L13.742 6.31084C14.0091 6.04371 14.3642 5.89669 14.7419 5.89669C15.1197 5.89669 15.4748 6.04371 15.7419 6.31084C16.2935 6.86242 16.2935 7.7595 15.7421 8.31087Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+            <p
+              class="el-mr5 el-has-no-margin el-small-text"
+            >
+              Verified by Reapit
+            </p>
+            <div
+              class="el-fade-in app-detail-category-chip"
+            >
+              Category
+            </div>
+            <p
+              class="el-mr5 el-has-bold-text el-has-no-margin el-small-text"
+            >
+              Integration
+            </p>
+          </div>
+        </div>
+      </div>
+      <div
+        class="el-mb11 el-button-group"
+      >
+        <div
+          class="el-button-group-align-left el-button-group-inner"
+        >
+          <a
+            href="mailto:foo@bar.com?subject=will-test-dev-co-voracious-person%20Enquiry&body=Dear%20Will Test DevCo%2C%20%0A%0AI%20would%20like%20more%20information%20about%20will-test-dev-co-voracious-person%20featured%20in%20the%20Reapit%20AppMarket%20%0A%0ARegards"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <button
+              class="el-intent-low el-button"
+            >
+              Enquire About Integration
+            </button>
+          </a>
+        </div>
+      </div>
+      <div
+        class="apps-detail-content-grid"
+      >
+        <div
+          class="apps-detail-content-col-main"
+        >
+          <h2
+            class="el-has-bold-text el-subtitle"
+          >
+            About App
+          </h2>
+          <div>
+            Mock Component
+          </div>
+          <div
+            class="el-button-group"
+          >
+            <div
+              class="el-button-group-inner"
+            >
+              <button
+                class="el-intent-low el-button"
+              >
+                <div
+                  class="el-flex-align-center el-flex-container"
+                >
+                  <span
+                    class="el-mr4 el-intent-primary el-icon"
+                    style="font-size: 1.25em;"
+                  >
+                    <svg
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 20 16"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M2.82051 0C1.25797 0 0 1.31414 0 2.94643V12.0536C0 13.6859 1.25797 15 2.82051 15H17.1795C18.742 15 20 13.6859 20 12.0536V2.94643C20 1.31414 18.742 0 17.1795 0H2.82051ZM8.20513 5.21825C8.20513 4.68208 8.78322 4.34497 9.24986 4.60902L13.2823 6.89077C13.756 7.15881 13.756 7.84119 13.2823 8.10923L9.24986 10.391C8.78322 10.655 8.20513 10.3179 8.20513 9.78175V5.21825Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </span>
+                  Getting started with 
+                  will-test-dev-co-voracious-person
+                </div>
+              </button>
+              <button
+                class="el-intent-low el-button"
+              >
+                <div
+                  class="el-flex-align-center el-flex-container"
+                >
+                  <span
+                    class="el-mr4 el-intent-primary el-icon"
+                    style="font-size: 1.25em;"
+                  >
+                    <svg
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 20 16"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M2.82051 0C1.25797 0 0 1.31414 0 2.94643V12.0536C0 13.6859 1.25797 15 2.82051 15H17.1795C18.742 15 20 13.6859 20 12.0536V2.94643C20 1.31414 18.742 0 17.1795 0H2.82051ZM8.20513 5.21825C8.20513 4.68208 8.78322 4.34497 9.24986 4.60902L13.2823 6.89077C13.756 7.15881 13.756 7.84119 13.2823 8.10923L9.24986 10.391C8.78322 10.655 8.20513 10.3179 8.20513 9.78175V5.21825Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </span>
+                  Why 
+                  will-test-dev-co-voracious-person
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="apps-detail-content-col-carousel"
+        >
+          <div
+            class="carousel-wrapper"
+          >
+            <div
+              class="carousel-grid"
+              style="--ckvo4up-0: 1; --ckvo4up-1: 50.000%; --ckvo4up-2: 0.375rem; --ckvo4up-6: 0.625rem;"
+            >
+              <div
+                class="carousel-col"
+              >
+                <div
+                  class="app-detail-image-wrapper"
+                >
+                  <img
+                    alt="Application Image"
+                    class="app-detail-image"
+                    src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-screen2ImageUrl.png"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="apps-detail-content-col-permissions"
+        >
+          <div
+            class="el-mb11 app-detail-support-grid"
+          >
+            <div
+              class="app-detail-support-grid-col"
+            >
+              <h2
+                class="el-has-no-margin el-subtitle"
+              >
+                Website
+              </h2>
+              <p
+                class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
+              >
+                <a
+                  href="https://foo.bar"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  https://foo.bar
+                </a>
+              </p>
+            </div>
+            <div
+              class="app-detail-support-grid-col"
+            >
+              <h2
+                class="el-has-no-margin el-subtitle"
+              >
+                Support Email
+              </h2>
+              <p
+                class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
+              >
+                <a
+                  href="mailto:foo@bar.com"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  foo@bar.com
+                </a>
+              </p>
+            </div>
+            <div
+              class="app-detail-support-grid-col"
+            >
+              <h2
+                class="el-has-no-margin el-subtitle"
+              >
+                Telephone
+              </h2>
+              <p
+                class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
+              >
+                07777777777
+              </p>
+            </div>
+            <div
+              class="app-detail-support-grid-col"
+            >
+              <h2
+                class="el-has-no-margin el-subtitle"
+              >
+                Terms and Conditions
+              </h2>
+              <p
+                class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
+              >
+                <a
+                  href="https://foo.bar"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  https://foo.bar
+                </a>
+              </p>
+            </div>
+            <div
+              class="app-detail-support-grid-col"
+            >
+              <h2
+                class="el-has-no-margin el-subtitle"
+              >
+                Privacy Policy
+              </h2>
+              <p
+                class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
+              >
+                <a
+                  href="https://foo.bar"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  https://foo.bar
+                </a>
+              </p>
+            </div>
+            <div
+              class="app-detail-support-grid-col"
+            >
+              <h2
+                class="el-has-no-margin el-subtitle"
+              >
+                Pricing Policy
+              </h2>
+              <p
+                class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
+              >
+                <a
+                  href="https://foo.bar"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  https://foo.bar
+                </a>
+              </p>
+            </div>
+          </div>
+          <div
+            class="el-mb11"
+          >
+            <h2
+              class="el-has-bold-text el-subtitle"
+            >
+              About Developer
+            </h2>
+            <p
+              class="el-has-grey-text el-has-no-margin el-body-text"
+            >
+              All about us in a number of words
+            </p>
+          </div>
+          <div
+            class="el-mb11"
+          >
+            <h2
+              class="el-has-bold-text el-subtitle"
+            >
+              Permissions
+            </h2>
+            <div
+              class="app-detail-permission-chip"
+            >
+              Read applicants
+            </div>
+            <div
+              class="app-detail-permission-chip"
+            >
+              Read property images
+            </div>
+            <div
+              class="app-detail-permission-chip"
+            >
+              Read properties
+            </div>
+          </div>
+          <div
+            class="el-mb11"
+          >
+            <h2
+              class="el-has-bold-text el-subtitle"
+            >
+              AgencyCloud Integration
+            </h2>
+            <div
+              class="app-detail-permission-chip"
+            >
+              Applicant
+            </div>
+            <div
+              class="app-detail-permission-chip"
+            >
+              Applicant Export
             </div>
           </div>
         </div>
@@ -1849,477 +1781,7 @@ Object {
           class="apps-detail-content-grid"
         >
           <div
-            class="app-detail-description-grid"
-          >
-            <div
-              class="app-detail-description-col-main"
-            >
-              <h2
-                class="el-has-bold-text el-subtitle"
-              >
-                About App
-              </h2>
-              <div>
-                Mock Component
-              </div>
-              <div
-                class="el-button-group"
-              >
-                <div
-                  class="el-button-group-inner"
-                >
-                  <button
-                    class="el-intent-low el-button"
-                  >
-                    <div
-                      class="el-flex-align-center el-flex-container"
-                    >
-                      <span
-                        class="el-mr4 el-intent-primary el-icon"
-                        style="font-size: 1.25em;"
-                      >
-                        <svg
-                          fill="none"
-                          height="1em"
-                          viewBox="0 0 20 16"
-                          width="1em"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M2.82051 0C1.25797 0 0 1.31414 0 2.94643V12.0536C0 13.6859 1.25797 15 2.82051 15H17.1795C18.742 15 20 13.6859 20 12.0536V2.94643C20 1.31414 18.742 0 17.1795 0H2.82051ZM8.20513 5.21825C8.20513 4.68208 8.78322 4.34497 9.24986 4.60902L13.2823 6.89077C13.756 7.15881 13.756 7.84119 13.2823 8.10923L9.24986 10.391C8.78322 10.655 8.20513 10.3179 8.20513 9.78175V5.21825Z"
-                            fill="currentColor"
-                          />
-                        </svg>
-                      </span>
-                      Getting started with 
-                      will-test-dev-co-voracious-person
-                    </div>
-                  </button>
-                  <button
-                    class="el-intent-low el-button"
-                  >
-                    <div
-                      class="el-flex-align-center el-flex-container"
-                    >
-                      <span
-                        class="el-mr4 el-intent-primary el-icon"
-                        style="font-size: 1.25em;"
-                      >
-                        <svg
-                          fill="none"
-                          height="1em"
-                          viewBox="0 0 20 16"
-                          width="1em"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M2.82051 0C1.25797 0 0 1.31414 0 2.94643V12.0536C0 13.6859 1.25797 15 2.82051 15H17.1795C18.742 15 20 13.6859 20 12.0536V2.94643C20 1.31414 18.742 0 17.1795 0H2.82051ZM8.20513 5.21825C8.20513 4.68208 8.78322 4.34497 9.24986 4.60902L13.2823 6.89077C13.756 7.15881 13.756 7.84119 13.2823 8.10923L9.24986 10.391C8.78322 10.655 8.20513 10.3179 8.20513 9.78175V5.21825Z"
-                            fill="currentColor"
-                          />
-                        </svg>
-                      </span>
-                      Why 
-                      will-test-dev-co-voracious-person
-                    </div>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div
-              class="app-detail-description-col-aside"
-            >
-              <div
-                class="app-detail-image-wrapper"
-              >
-                <img
-                  alt="Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar"
-                  class="app-detail-image"
-                  src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-screen1ImageUrl.png"
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            class="el-flex-column el-flex-container"
-          >
-            <div
-              class="el-flex-column el-flex-container"
-            >
-              <div
-                class="app-detail-description-aside-desktop"
-              >
-                <div
-                  class="app-detail-image-wrapper"
-                >
-                  <img
-                    alt="Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar"
-                    class="app-detail-image"
-                    src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-screen1ImageUrl.png"
-                  />
-                </div>
-              </div>
-              <div
-                class="el-mb11 carousel-wrapper"
-              >
-                <div
-                  class="carousel-grid"
-                  style="--ckvo4up-0: 1; --ckvo4up-1: 50.000%; --ckvo4up-2: 0.375rem; --ckvo4up-6: 0.625rem;"
-                >
-                  <div
-                    class="carousel-col"
-                  >
-                    <div
-                      class="app-detail-image-wrapper"
-                    >
-                      <img
-                        alt="Application Image"
-                        class="app-detail-image"
-                        src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-screen2ImageUrl.png"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="el-flex-column el-flex-container"
-            >
-              <div
-                class="el-mb11 app-detail-support-grid"
-              >
-                <div
-                  class="app-detail-support-grid-col"
-                >
-                  <h2
-                    class="el-has-no-margin el-subtitle"
-                  >
-                    Website
-                  </h2>
-                  <p
-                    class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
-                  >
-                    <a
-                      href="https://foo.bar"
-                      rel="noopener noreferrer"
-                      target="_blank"
-                    >
-                      https://foo.bar
-                    </a>
-                  </p>
-                </div>
-                <div
-                  class="app-detail-support-grid-col"
-                >
-                  <h2
-                    class="el-has-no-margin el-subtitle"
-                  >
-                    Support Email
-                  </h2>
-                  <p
-                    class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
-                  >
-                    <a
-                      href="mailto:foo@bar.com"
-                      rel="noopener noreferrer"
-                      target="_blank"
-                    >
-                      foo@bar.com
-                    </a>
-                  </p>
-                </div>
-                <div
-                  class="app-detail-support-grid-col"
-                >
-                  <h2
-                    class="el-has-no-margin el-subtitle"
-                  >
-                    Telephone
-                  </h2>
-                  <p
-                    class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
-                  >
-                    07777777777
-                  </p>
-                </div>
-                <div
-                  class="app-detail-support-grid-col"
-                >
-                  <h2
-                    class="el-has-no-margin el-subtitle"
-                  >
-                    Terms and Conditions
-                  </h2>
-                  <p
-                    class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
-                  >
-                    <a
-                      href="https://foo.bar"
-                      rel="noopener noreferrer"
-                      target="_blank"
-                    >
-                      https://foo.bar
-                    </a>
-                  </p>
-                </div>
-                <div
-                  class="app-detail-support-grid-col"
-                >
-                  <h2
-                    class="el-has-no-margin el-subtitle"
-                  >
-                    Privacy Policy
-                  </h2>
-                  <p
-                    class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
-                  >
-                    <a
-                      href="https://foo.bar"
-                      rel="noopener noreferrer"
-                      target="_blank"
-                    >
-                      https://foo.bar
-                    </a>
-                  </p>
-                </div>
-                <div
-                  class="app-detail-support-grid-col"
-                >
-                  <h2
-                    class="el-has-no-margin el-subtitle"
-                  >
-                    Pricing Policy
-                  </h2>
-                  <p
-                    class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
-                  >
-                    <a
-                      href="https://foo.bar"
-                      rel="noopener noreferrer"
-                      target="_blank"
-                    >
-                      https://foo.bar
-                    </a>
-                  </p>
-                </div>
-              </div>
-              <div
-                class="el-mb11"
-              >
-                <h2
-                  class="el-has-bold-text el-subtitle"
-                >
-                  About Developer
-                </h2>
-                <p
-                  class="el-has-grey-text el-has-no-margin el-body-text"
-                >
-                  All about us in a number of words
-                </p>
-              </div>
-              <div
-                class="el-mb11"
-              >
-                <h2
-                  class="el-has-bold-text el-subtitle"
-                >
-                  Permissions
-                </h2>
-                <div
-                  class="app-detail-permission-chip"
-                >
-                  Read applicants
-                </div>
-                <div
-                  class="app-detail-permission-chip"
-                >
-                  Read property images
-                </div>
-                <div
-                  class="app-detail-permission-chip"
-                >
-                  Read properties
-                </div>
-              </div>
-              <div
-                class="el-mb11"
-              >
-                <h2
-                  class="el-has-bold-text el-subtitle"
-                >
-                  AgencyCloud Integration
-                </h2>
-                <div
-                  class="app-detail-permission-chip"
-                >
-                  Applicant
-                </div>
-                <div
-                  class="app-detail-permission-chip"
-                >
-                  Applicant Export
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="el-snack-holder"
-    />
-    <section
-      class="el-page-container"
-    >
-      <div
-        class="el-intent-critical el-persistent-notification"
-      >
-        <div
-          class="el-pn-icon"
-          data-testid="close-icon"
-        >
-          <span
-            class="el-icon"
-          >
-            <svg
-              fill="none"
-              height="1em"
-              viewBox="0 0 20 20"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M9.99958 0C4.47746 0 0 4.47746 0 9.99958C0 15.5217 4.47746 20 9.99958 20C15.5217 20 20 15.5217 20 9.99958C20 4.47746 15.5217 0 9.99958 0ZM12.0813 15.498C11.5666 15.7012 11.1568 15.8552 10.8495 15.9619C10.5431 16.0686 10.1867 16.1219 9.78116 16.1219C9.1581 16.1219 8.67302 15.9695 8.32762 15.6656C7.98222 15.3617 7.81037 14.9765 7.81037 14.5084C7.81037 14.3263 7.82307 14.1401 7.84847 13.9505C7.87471 13.7608 7.91619 13.5475 7.97291 13.3079L8.61714 11.0324C8.67386 10.814 8.72296 10.6066 8.7619 10.4135C8.80085 10.2188 8.81947 10.0402 8.81947 9.87767C8.81947 9.58815 8.75937 9.38497 8.64 9.27069C8.51894 9.1564 8.29122 9.10053 7.95175 9.10053C7.78582 9.10053 7.61481 9.12508 7.43958 9.17672C7.26603 9.23005 7.11534 9.27831 6.99175 9.32571L7.1619 8.62476C7.58349 8.45291 7.9873 8.30561 8.37249 8.1837C8.75767 8.06011 9.12169 7.99915 9.46455 7.99915C10.0834 7.99915 10.5608 8.14984 10.8969 8.44783C11.2313 8.74667 11.3998 9.13524 11.3998 9.6127C11.3998 9.71175 11.3879 9.88614 11.3651 10.135C11.3422 10.3848 11.299 10.6125 11.2364 10.8216L10.5956 13.0904C10.5431 13.2724 10.4965 13.4806 10.4542 13.7134C10.4127 13.9462 10.3924 14.124 10.3924 14.2434C10.3924 14.5448 10.4593 14.7505 10.5947 14.8597C10.7285 14.9689 10.963 15.0239 11.2948 15.0239C11.4514 15.0239 11.6267 14.996 11.8248 14.9418C12.0212 14.8876 12.1634 14.8394 12.2531 14.7979L12.0813 15.498ZM11.9678 6.2891C11.669 6.56677 11.3092 6.70561 10.8885 6.70561C10.4686 6.70561 10.1062 6.56677 9.80487 6.2891C9.50519 6.01143 9.35365 5.67365 9.35365 5.27915C9.35365 4.8855 9.50603 4.54688 9.80487 4.26667C10.1062 3.98561 10.4686 3.84593 10.8885 3.84593C11.3092 3.84593 11.6698 3.98561 11.9678 4.26667C12.2667 4.54688 12.4165 4.8855 12.4165 5.27915C12.4165 5.6745 12.2667 6.01143 11.9678 6.2891Z"
-                fill="currentColor"
-              />
-            </svg>
-          </span>
-        </div>
-        <div
-          class="el-pn-content"
-        >
-          Interested in hearing more about this app? Click here and one of the Reapit Team will be in touch!
-        </div>
-      </div>
-      <div
-        class="app-detail-back-button"
-      >
-        <span
-          class="el-intent-primary el-icon"
-        >
-          <svg
-            fill="none"
-            height="1em"
-            viewBox="0 0 12 12"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M0 6L9 0V12L0 6Z"
-              fill="currentColor"
-            />
-          </svg>
-        </span>
-      </div>
-      <div
-        class="el-mb5 el-flex-container"
-      >
-        <div
-          class="app-detail-wrapper"
-        >
-          <img
-            alt="will-test-dev-co-voracious-person"
-            class="el-fade-in app-detail-icon"
-            src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-icon.png"
-          />
-        </div>
-        <div
-          class="el-flex-column el-flex-justify-between el-flex-container"
-        >
-          <div
-            class="el-flex-column el-flex-container"
-          >
-            <h1
-              class="el-has-no-margin el-title"
-            >
-              will-test-dev-co-voracious-person
-            </h1>
-            <p
-              class="el-has-grey-text el-body-text"
-            >
-              Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
-            </p>
-          </div>
-          <div
-            class="el-flex-container"
-          >
-            <span
-              class="el-mr5 el-intent-success el-icon"
-            >
-              <svg
-                fill="none"
-                height="1em"
-                viewBox="0 0 20 20"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M9.99995 0C4.48601 0 0 4.48591 0 9.99995C0 15.514 4.48601 20 9.99995 20C15.5139 20 19.9999 15.514 19.9999 9.99995C19.9999 4.48591 15.514 0 9.99995 0ZM15.7421 8.31087L9.45963 14.5933C9.1925 14.8605 8.83741 15.0075 8.45967 15.0075C8.08193 15.0075 7.72684 14.8605 7.45971 14.5933L4.2578 11.3914C3.99067 11.1243 3.84354 10.7692 3.84354 10.3915C3.84354 10.0136 3.99067 9.65852 4.2578 9.39139C4.52483 9.12426 4.87992 8.97713 5.25776 8.97713C5.6355 8.97713 5.9907 9.12426 6.25773 9.3915L8.45957 11.5932L13.742 6.31084C14.0091 6.04371 14.3642 5.89669 14.7419 5.89669C15.1197 5.89669 15.4748 6.04371 15.7419 6.31084C16.2935 6.86242 16.2935 7.7595 15.7421 8.31087Z"
-                  fill="currentColor"
-                />
-              </svg>
-            </span>
-            <p
-              class="el-mr5 el-has-no-margin el-small-text"
-            >
-              Verified by Reapit
-            </p>
-            <div
-              class="el-fade-in app-detail-category-chip"
-            >
-              Category
-            </div>
-            <p
-              class="el-mr5 el-has-bold-text el-has-no-margin el-small-text"
-            >
-              Integration
-            </p>
-          </div>
-        </div>
-      </div>
-      <div
-        class="el-mb11 el-button-group"
-      >
-        <div
-          class="el-button-group-align-left el-button-group-inner"
-        >
-          <button
-            class="el-intent-critical el-button"
-          >
-            Enable Integration
-          </button>
-          <a
-            href="mailto:foo@bar.com?subject=will-test-dev-co-voracious-person%20Enquiry&body=Dear%20Will Test DevCo%2C%20%0A%0AI%20would%20like%20more%20information%20about%20will-test-dev-co-voracious-person%20featured%20in%20the%20Reapit%20AppMarket%20%0A%0ARegards"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <button
-              class="el-intent-low el-button"
-            >
-              Enquire About Integration
-            </button>
-          </a>
-        </div>
-      </div>
-      <div
-        class="apps-detail-content-grid"
-      >
-        <div
-          class="app-detail-description-grid"
-        >
-          <div
-            class="app-detail-description-col-main"
+            class="apps-detail-content-col-main"
           >
             <h2
               class="el-has-bold-text el-subtitle"
@@ -2393,40 +1855,10 @@ Object {
             </div>
           </div>
           <div
-            class="app-detail-description-col-aside"
+            class="apps-detail-content-col-carousel"
           >
             <div
-              class="app-detail-image-wrapper"
-            >
-              <img
-                alt="Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar"
-                class="app-detail-image"
-                src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-screen1ImageUrl.png"
-              />
-            </div>
-          </div>
-        </div>
-        <div
-          class="el-flex-column el-flex-container"
-        >
-          <div
-            class="el-flex-column el-flex-container"
-          >
-            <div
-              class="app-detail-description-aside-desktop"
-            >
-              <div
-                class="app-detail-image-wrapper"
-              >
-                <img
-                  alt="Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar"
-                  class="app-detail-image"
-                  src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-screen1ImageUrl.png"
-                />
-              </div>
-            </div>
-            <div
-              class="el-mb11 carousel-wrapper"
+              class="carousel-wrapper"
             >
               <div
                 class="carousel-grid"
@@ -2449,7 +1881,7 @@ Object {
             </div>
           </div>
           <div
-            class="el-flex-column el-flex-container"
+            class="apps-detail-content-col-permissions"
           >
             <div
               class="el-mb11 app-detail-support-grid"
@@ -2625,6 +2057,438 @@ Object {
               >
                 Applicant Export
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <section
+      class="el-page-container"
+    >
+      <div
+        class="el-intent-critical el-persistent-notification"
+      >
+        <div
+          class="el-pn-icon"
+          data-testid="close-icon"
+        >
+          <span
+            class="el-icon"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 20 20"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9.99958 0C4.47746 0 0 4.47746 0 9.99958C0 15.5217 4.47746 20 9.99958 20C15.5217 20 20 15.5217 20 9.99958C20 4.47746 15.5217 0 9.99958 0ZM12.0813 15.498C11.5666 15.7012 11.1568 15.8552 10.8495 15.9619C10.5431 16.0686 10.1867 16.1219 9.78116 16.1219C9.1581 16.1219 8.67302 15.9695 8.32762 15.6656C7.98222 15.3617 7.81037 14.9765 7.81037 14.5084C7.81037 14.3263 7.82307 14.1401 7.84847 13.9505C7.87471 13.7608 7.91619 13.5475 7.97291 13.3079L8.61714 11.0324C8.67386 10.814 8.72296 10.6066 8.7619 10.4135C8.80085 10.2188 8.81947 10.0402 8.81947 9.87767C8.81947 9.58815 8.75937 9.38497 8.64 9.27069C8.51894 9.1564 8.29122 9.10053 7.95175 9.10053C7.78582 9.10053 7.61481 9.12508 7.43958 9.17672C7.26603 9.23005 7.11534 9.27831 6.99175 9.32571L7.1619 8.62476C7.58349 8.45291 7.9873 8.30561 8.37249 8.1837C8.75767 8.06011 9.12169 7.99915 9.46455 7.99915C10.0834 7.99915 10.5608 8.14984 10.8969 8.44783C11.2313 8.74667 11.3998 9.13524 11.3998 9.6127C11.3998 9.71175 11.3879 9.88614 11.3651 10.135C11.3422 10.3848 11.299 10.6125 11.2364 10.8216L10.5956 13.0904C10.5431 13.2724 10.4965 13.4806 10.4542 13.7134C10.4127 13.9462 10.3924 14.124 10.3924 14.2434C10.3924 14.5448 10.4593 14.7505 10.5947 14.8597C10.7285 14.9689 10.963 15.0239 11.2948 15.0239C11.4514 15.0239 11.6267 14.996 11.8248 14.9418C12.0212 14.8876 12.1634 14.8394 12.2531 14.7979L12.0813 15.498ZM11.9678 6.2891C11.669 6.56677 11.3092 6.70561 10.8885 6.70561C10.4686 6.70561 10.1062 6.56677 9.80487 6.2891C9.50519 6.01143 9.35365 5.67365 9.35365 5.27915C9.35365 4.8855 9.50603 4.54688 9.80487 4.26667C10.1062 3.98561 10.4686 3.84593 10.8885 3.84593C11.3092 3.84593 11.6698 3.98561 11.9678 4.26667C12.2667 4.54688 12.4165 4.8855 12.4165 5.27915C12.4165 5.6745 12.2667 6.01143 11.9678 6.2891Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+        </div>
+        <div
+          class="el-pn-content"
+        >
+          Interested in hearing more about this app? Click here and one of the Reapit Team will be in touch!
+        </div>
+      </div>
+      <div
+        class="app-detail-back-button"
+      >
+        <span
+          class="el-intent-primary el-icon"
+        >
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 12 12"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 6L9 0V12L0 6Z"
+              fill="currentColor"
+            />
+          </svg>
+        </span>
+      </div>
+      <div
+        class="el-mb5 el-flex-container"
+      >
+        <div
+          class="app-detail-wrapper"
+        >
+          <img
+            alt="will-test-dev-co-voracious-person"
+            class="el-fade-in app-detail-icon"
+            src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-icon.png"
+          />
+        </div>
+        <div
+          class="el-flex-column el-flex-justify-between el-flex-container"
+        >
+          <div
+            class="el-flex-column el-flex-container"
+          >
+            <h1
+              class="el-has-no-margin el-title"
+            >
+              will-test-dev-co-voracious-person
+            </h1>
+            <p
+              class="el-has-grey-text el-body-text"
+            >
+              Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar Foo bar
+            </p>
+          </div>
+          <div
+            class="el-flex-container"
+          >
+            <span
+              class="el-mr5 el-intent-success el-icon"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 20 20"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9.99995 0C4.48601 0 0 4.48591 0 9.99995C0 15.514 4.48601 20 9.99995 20C15.5139 20 19.9999 15.514 19.9999 9.99995C19.9999 4.48591 15.514 0 9.99995 0ZM15.7421 8.31087L9.45963 14.5933C9.1925 14.8605 8.83741 15.0075 8.45967 15.0075C8.08193 15.0075 7.72684 14.8605 7.45971 14.5933L4.2578 11.3914C3.99067 11.1243 3.84354 10.7692 3.84354 10.3915C3.84354 10.0136 3.99067 9.65852 4.2578 9.39139C4.52483 9.12426 4.87992 8.97713 5.25776 8.97713C5.6355 8.97713 5.9907 9.12426 6.25773 9.3915L8.45957 11.5932L13.742 6.31084C14.0091 6.04371 14.3642 5.89669 14.7419 5.89669C15.1197 5.89669 15.4748 6.04371 15.7419 6.31084C16.2935 6.86242 16.2935 7.7595 15.7421 8.31087Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+            <p
+              class="el-mr5 el-has-no-margin el-small-text"
+            >
+              Verified by Reapit
+            </p>
+            <div
+              class="el-fade-in app-detail-category-chip"
+            >
+              Category
+            </div>
+            <p
+              class="el-mr5 el-has-bold-text el-has-no-margin el-small-text"
+            >
+              Integration
+            </p>
+          </div>
+        </div>
+      </div>
+      <div
+        class="el-mb11 el-button-group"
+      >
+        <div
+          class="el-button-group-align-left el-button-group-inner"
+        >
+          <button
+            class="el-intent-critical el-button"
+          >
+            Enable Integration
+          </button>
+          <a
+            href="mailto:foo@bar.com?subject=will-test-dev-co-voracious-person%20Enquiry&body=Dear%20Will Test DevCo%2C%20%0A%0AI%20would%20like%20more%20information%20about%20will-test-dev-co-voracious-person%20featured%20in%20the%20Reapit%20AppMarket%20%0A%0ARegards"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <button
+              class="el-intent-low el-button"
+            >
+              Enquire About Integration
+            </button>
+          </a>
+        </div>
+      </div>
+      <div
+        class="apps-detail-content-grid"
+      >
+        <div
+          class="apps-detail-content-col-main"
+        >
+          <h2
+            class="el-has-bold-text el-subtitle"
+          >
+            About App
+          </h2>
+          <div>
+            Mock Component
+          </div>
+          <div
+            class="el-button-group"
+          >
+            <div
+              class="el-button-group-inner"
+            >
+              <button
+                class="el-intent-low el-button"
+              >
+                <div
+                  class="el-flex-align-center el-flex-container"
+                >
+                  <span
+                    class="el-mr4 el-intent-primary el-icon"
+                    style="font-size: 1.25em;"
+                  >
+                    <svg
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 20 16"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M2.82051 0C1.25797 0 0 1.31414 0 2.94643V12.0536C0 13.6859 1.25797 15 2.82051 15H17.1795C18.742 15 20 13.6859 20 12.0536V2.94643C20 1.31414 18.742 0 17.1795 0H2.82051ZM8.20513 5.21825C8.20513 4.68208 8.78322 4.34497 9.24986 4.60902L13.2823 6.89077C13.756 7.15881 13.756 7.84119 13.2823 8.10923L9.24986 10.391C8.78322 10.655 8.20513 10.3179 8.20513 9.78175V5.21825Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </span>
+                  Getting started with 
+                  will-test-dev-co-voracious-person
+                </div>
+              </button>
+              <button
+                class="el-intent-low el-button"
+              >
+                <div
+                  class="el-flex-align-center el-flex-container"
+                >
+                  <span
+                    class="el-mr4 el-intent-primary el-icon"
+                    style="font-size: 1.25em;"
+                  >
+                    <svg
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 20 16"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M2.82051 0C1.25797 0 0 1.31414 0 2.94643V12.0536C0 13.6859 1.25797 15 2.82051 15H17.1795C18.742 15 20 13.6859 20 12.0536V2.94643C20 1.31414 18.742 0 17.1795 0H2.82051ZM8.20513 5.21825C8.20513 4.68208 8.78322 4.34497 9.24986 4.60902L13.2823 6.89077C13.756 7.15881 13.756 7.84119 13.2823 8.10923L9.24986 10.391C8.78322 10.655 8.20513 10.3179 8.20513 9.78175V5.21825Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </span>
+                  Why 
+                  will-test-dev-co-voracious-person
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="apps-detail-content-col-carousel"
+        >
+          <div
+            class="carousel-wrapper"
+          >
+            <div
+              class="carousel-grid"
+              style="--ckvo4up-0: 1; --ckvo4up-1: 50.000%; --ckvo4up-2: 0.375rem; --ckvo4up-6: 0.625rem;"
+            >
+              <div
+                class="carousel-col"
+              >
+                <div
+                  class="app-detail-image-wrapper"
+                >
+                  <img
+                    alt="Application Image"
+                    class="app-detail-image"
+                    src="https://reapit-marketplace-app-media-dev.s3.eu-west-2.amazonaws.com/Online-Check-List-screen2ImageUrl.png"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="apps-detail-content-col-permissions"
+        >
+          <div
+            class="el-mb11 app-detail-support-grid"
+          >
+            <div
+              class="app-detail-support-grid-col"
+            >
+              <h2
+                class="el-has-no-margin el-subtitle"
+              >
+                Website
+              </h2>
+              <p
+                class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
+              >
+                <a
+                  href="https://foo.bar"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  https://foo.bar
+                </a>
+              </p>
+            </div>
+            <div
+              class="app-detail-support-grid-col"
+            >
+              <h2
+                class="el-has-no-margin el-subtitle"
+              >
+                Support Email
+              </h2>
+              <p
+                class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
+              >
+                <a
+                  href="mailto:foo@bar.com"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  foo@bar.com
+                </a>
+              </p>
+            </div>
+            <div
+              class="app-detail-support-grid-col"
+            >
+              <h2
+                class="el-has-no-margin el-subtitle"
+              >
+                Telephone
+              </h2>
+              <p
+                class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
+              >
+                07777777777
+              </p>
+            </div>
+            <div
+              class="app-detail-support-grid-col"
+            >
+              <h2
+                class="el-has-no-margin el-subtitle"
+              >
+                Terms and Conditions
+              </h2>
+              <p
+                class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
+              >
+                <a
+                  href="https://foo.bar"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  https://foo.bar
+                </a>
+              </p>
+            </div>
+            <div
+              class="app-detail-support-grid-col"
+            >
+              <h2
+                class="el-has-no-margin el-subtitle"
+              >
+                Privacy Policy
+              </h2>
+              <p
+                class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
+              >
+                <a
+                  href="https://foo.bar"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  https://foo.bar
+                </a>
+              </p>
+            </div>
+            <div
+              class="app-detail-support-grid-col"
+            >
+              <h2
+                class="el-has-no-margin el-subtitle"
+              >
+                Pricing Policy
+              </h2>
+              <p
+                class="app-detail-info-line-adjust el-has-grey-text el-has-no-margin el-body-text"
+              >
+                <a
+                  href="https://foo.bar"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  https://foo.bar
+                </a>
+              </p>
+            </div>
+          </div>
+          <div
+            class="el-mb11"
+          >
+            <h2
+              class="el-has-bold-text el-subtitle"
+            >
+              About Developer
+            </h2>
+            <p
+              class="el-has-grey-text el-has-no-margin el-body-text"
+            >
+              All about us in a number of words
+            </p>
+          </div>
+          <div
+            class="el-mb11"
+          >
+            <h2
+              class="el-has-bold-text el-subtitle"
+            >
+              Permissions
+            </h2>
+            <div
+              class="app-detail-permission-chip"
+            >
+              Read applicants
+            </div>
+            <div
+              class="app-detail-permission-chip"
+            >
+              Read property images
+            </div>
+            <div
+              class="app-detail-permission-chip"
+            >
+              Read properties
+            </div>
+          </div>
+          <div
+            class="el-mb11"
+          >
+            <h2
+              class="el-has-bold-text el-subtitle"
+            >
+              AgencyCloud Integration
+            </h2>
+            <div
+              class="app-detail-permission-chip"
+            >
+              Applicant
+            </div>
+            <div
+              class="app-detail-permission-chip"
+            >
+              Applicant Export
             </div>
           </div>
         </div>

@@ -26,8 +26,6 @@ import {
   Button,
   elMr4,
   useModal,
-  elMr6,
-  elMl6,
   PersistentNotification,
 } from '@reapit/elements'
 import { useHistory, useParams } from 'react-router-dom'
@@ -37,9 +35,7 @@ import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { GetActionNames, getActions } from '../../../../utils-common/src'
 import {
   AppDetailBackButton,
-  AppDetailDescriptionColAside,
-  AppDetailDescriptionColMain,
-  AppDetailDescriptionGrid,
+  AppsDetailContentColMain,
   AppDetailImage,
   AppDetailImageWrapper,
   AppDetailPermissionChip,
@@ -48,8 +44,10 @@ import {
   AppsDetailContentGrid,
   AppDetailSupportGrid,
   AppDetailSupportGridCol,
-  AppDetailDescriptionAsideDesktop,
   appDetailInfoLineAdjust,
+  AppsDetailContentColCarousel,
+  AppsDetailContentColPermissions,
+  AppDetailImageWrap,
 } from './__styles__'
 import { Carousel } from '../carousel'
 import { AppInstallModalContent } from './app-install-modal'
@@ -217,8 +215,6 @@ export const AppsDetail: FC = () => {
     (!isListed && isSandbox) || (isSandbox && sessionDeveloperId && sessionDeveloperId !== developerId)
   const isInstalled = Boolean(installedOn)
   const isAdmin = selectIsAdmin(connectSession)
-  const { isSuperWideScreen, is4KScreen } = mediaQuery
-  const isFullScreen = isSuperWideScreen || is4KScreen
 
   const installModalOpen = useCallback(handleOpenInstallModal(appInstallOpenModal, name, clientId, email), [
     connectSession,
@@ -283,173 +279,162 @@ export const AppsDetail: FC = () => {
             )}
           </ButtonGroup>
           <AppsDetailContentGrid>
-            <AppDetailDescriptionGrid>
-              <AppDetailDescriptionColMain>
-                <Subtitle hasBoldText>About App</Subtitle>
-                <HTMLRender className={htmlRender} html={description ?? ''} />
-                {videos && Boolean(videos?.length) && (
-                  <ButtonGroup>
-                    <Button intent="low" onClick={videoModalOpenHowTo}>
-                      <FlexContainer isFlexAlignCenter>
-                        <Icon className={cx(elMr4)} icon="videoSystem" intent="primary" fontSize="1.25em" />
-                        {VideoType.HowTo}
-                        {name}
-                      </FlexContainer>
-                    </Button>
-                    {videos && videos?.length > 1 && (
-                      <Button intent="low" onClick={videoModalOpenMarketing}>
-                        <FlexContainer isFlexAlignCenter>
-                          <Icon className={cx(elMr4)} icon="videoSystem" intent="primary" fontSize="1.25em" />
-                          {VideoType.Marketing}
-                          {name}
-                        </FlexContainer>
-                      </Button>
-                    )}
-                  </ButtonGroup>
-                )}
-              </AppDetailDescriptionColMain>
-              <AppDetailDescriptionColAside>
-                <AppDetailImageWrapper>
-                  {heroImage?.uri ? (
-                    <AppDetailImage src={heroImage.uri} alt={description} />
-                  ) : (
-                    <PlaceholderImage className={elMb7} placeholder="placeholderLarge" size={192} fillAvailable />
-                  )}
-                </AppDetailImageWrapper>
-              </AppDetailDescriptionColAside>
-            </AppDetailDescriptionGrid>
-            <FlexContainer isFlexRowReverse={isFullScreen} isFlexColumn={!isFullScreen}>
-              <FlexContainer isFlexColumn>
-                <AppDetailDescriptionAsideDesktop>
-                  <AppDetailImageWrapper>
+            <AppsDetailContentColMain>
+              <Subtitle hasBoldText>About App</Subtitle>
+              <HTMLRender
+                className={htmlRender}
+                html={description ?? ''}
+                image={
+                  <AppDetailImageWrap>
                     {heroImage?.uri ? (
                       <AppDetailImage src={heroImage.uri} alt={description} />
                     ) : (
                       <PlaceholderImage className={elMb7} placeholder="placeholderLarge" size={192} fillAvailable />
                     )}
+                  </AppDetailImageWrap>
+                }
+              />
+              {videos && Boolean(videos?.length) && (
+                <ButtonGroup>
+                  <Button intent="low" onClick={videoModalOpenHowTo}>
+                    <FlexContainer isFlexAlignCenter>
+                      <Icon className={cx(elMr4)} icon="videoSystem" intent="primary" fontSize="1.25em" />
+                      {VideoType.HowTo}
+                      {name}
+                    </FlexContainer>
+                  </Button>
+                  {videos && videos?.length > 1 && (
+                    <Button intent="low" onClick={videoModalOpenMarketing}>
+                      <FlexContainer isFlexAlignCenter>
+                        <Icon className={cx(elMr4)} icon="videoSystem" intent="primary" fontSize="1.25em" />
+                        {VideoType.Marketing}
+                        {name}
+                      </FlexContainer>
+                    </Button>
+                  )}
+                </ButtonGroup>
+              )}
+            </AppsDetailContentColMain>
+            <AppsDetailContentColCarousel>
+              <Carousel
+                numberCols={carouselCols}
+                items={screenshots.map(({ id, uri, description }) => (
+                  <AppDetailImageWrapper key={id}>
+                    {uri ? (
+                      <AppDetailImage src={uri} alt={description} />
+                    ) : (
+                      <PlaceholderImage className={elMb7} placeholder="placeholderLarge" size={192} fillAvailable />
+                    )}
                   </AppDetailImageWrapper>
-                </AppDetailDescriptionAsideDesktop>
-                <Carousel
-                  className={cx(elMb11, isFullScreen && elMl6)}
-                  numberCols={carouselCols}
-                  items={screenshots.map(({ id, uri, description }) => (
-                    <AppDetailImageWrapper key={id}>
-                      {uri ? (
-                        <AppDetailImage src={uri} alt={description} />
-                      ) : (
-                        <PlaceholderImage className={elMb7} placeholder="placeholderLarge" size={192} fillAvailable />
-                      )}
-                    </AppDetailImageWrapper>
-                  ))}
-                />
-              </FlexContainer>
-              <FlexContainer className={cx(isFullScreen && elMr6)} isFlexColumn>
-                <AppDetailSupportGrid className={elMb11}>
-                  {homePage && (
-                    <AppDetailSupportGridCol>
-                      <Subtitle hasNoMargin>Website</Subtitle>
-                      <BodyText className={appDetailInfoLineAdjust} hasGreyText hasNoMargin>
-                        <DesktopLink
-                          onClick={trackVisitHomepage}
-                          uri={homePage}
-                          acProcess={AcProcessType.web}
-                          target="_blank"
-                          content={homePage}
-                        />
-                      </BodyText>
-                    </AppDetailSupportGridCol>
-                  )}
-                  {supportEmail && (
-                    <AppDetailSupportGridCol>
-                      <Subtitle hasNoMargin>Support Email</Subtitle>
-                      <BodyText className={appDetailInfoLineAdjust} hasGreyText hasNoMargin>
-                        <DesktopLink
-                          onClick={trackSupportEmail}
-                          uri={supportEmail}
-                          acProcess={AcProcessType.mail}
-                          target="_blank"
-                          content={supportEmail}
-                        />
-                      </BodyText>
-                    </AppDetailSupportGridCol>
-                  )}
-                  {telephone && (
-                    <AppDetailSupportGridCol>
-                      <Subtitle hasNoMargin>Telephone</Subtitle>
-                      <BodyText className={appDetailInfoLineAdjust} hasGreyText hasNoMargin>
-                        {telephone}
-                      </BodyText>
-                    </AppDetailSupportGridCol>
-                  )}
-                  {termsAndConditionsUrl && (
-                    <AppDetailSupportGridCol>
-                      <Subtitle hasNoMargin>Terms and Conditions</Subtitle>
-                      <BodyText className={appDetailInfoLineAdjust} hasGreyText hasNoMargin>
-                        <DesktopLink
-                          onClick={trackViewTerms}
-                          uri={termsAndConditionsUrl}
-                          acProcess={AcProcessType.web}
-                          target="_blank"
-                          content={termsAndConditionsUrl}
-                        />
-                      </BodyText>
-                    </AppDetailSupportGridCol>
-                  )}
-                  {privacyPolicyUrl && (
-                    <AppDetailSupportGridCol>
-                      <Subtitle hasNoMargin>Privacy Policy</Subtitle>
-                      <BodyText className={appDetailInfoLineAdjust} hasGreyText hasNoMargin>
-                        <DesktopLink
-                          onClick={trackViewPrivacyPolicy}
-                          uri={privacyPolicyUrl}
-                          acProcess={AcProcessType.web}
-                          target="_blank"
-                          content={privacyPolicyUrl}
-                        />
-                      </BodyText>
-                    </AppDetailSupportGridCol>
-                  )}
+                ))}
+              />
+            </AppsDetailContentColCarousel>
+            <AppsDetailContentColPermissions>
+              <AppDetailSupportGrid className={elMb11}>
+                {homePage && (
                   <AppDetailSupportGridCol>
-                    <Subtitle hasNoMargin>Pricing Policy</Subtitle>
+                    <Subtitle hasNoMargin>Website</Subtitle>
                     <BodyText className={appDetailInfoLineAdjust} hasGreyText hasNoMargin>
-                      {!isFree && pricingUrl ? (
-                        <DesktopLink
-                          onClick={trackViewPricing}
-                          uri={pricingUrl}
-                          acProcess={AcProcessType.web}
-                          target="_blank"
-                          content={pricingUrl}
-                        />
-                      ) : (
-                        'Free'
-                      )}
+                      <DesktopLink
+                        onClick={trackVisitHomepage}
+                        uri={homePage}
+                        acProcess={AcProcessType.web}
+                        target="_blank"
+                        content={homePage}
+                      />
                     </BodyText>
                   </AppDetailSupportGridCol>
-                </AppDetailSupportGrid>
-                <div className={elMb11}>
-                  <Subtitle hasBoldText>About Developer</Subtitle>
-                  <BodyText hasNoMargin hasGreyText>
-                    {developerAbout}
-                  </BodyText>
-                </div>
-                <div className={elMb11}>
-                  <Subtitle hasBoldText>Permissions</Subtitle>
-                  {scopes?.map(({ name, description }) => (
-                    <AppDetailPermissionChip key={name}>{description}</AppDetailPermissionChip>
-                  ))}
-                </div>
-                {Boolean(desktopIntegrationTypeIds?.length) && (
-                  <div className={elMb11}>
-                    <Subtitle hasBoldText>AgencyCloud Integration</Subtitle>
-                    {desktopIntegrationTypeIds?.map((id) => {
-                      const desktopType = desktopIntegrationTypes?.data?.find((item) => item.id === id)
-                      if (desktopType)
-                        return <AppDetailPermissionChip key={id}>{desktopType.name}</AppDetailPermissionChip>
-                    })}
-                  </div>
                 )}
-              </FlexContainer>
-            </FlexContainer>
+                {supportEmail && (
+                  <AppDetailSupportGridCol>
+                    <Subtitle hasNoMargin>Support Email</Subtitle>
+                    <BodyText className={appDetailInfoLineAdjust} hasGreyText hasNoMargin>
+                      <DesktopLink
+                        onClick={trackSupportEmail}
+                        uri={supportEmail}
+                        acProcess={AcProcessType.mail}
+                        target="_blank"
+                        content={supportEmail}
+                      />
+                    </BodyText>
+                  </AppDetailSupportGridCol>
+                )}
+                {telephone && (
+                  <AppDetailSupportGridCol>
+                    <Subtitle hasNoMargin>Telephone</Subtitle>
+                    <BodyText className={appDetailInfoLineAdjust} hasGreyText hasNoMargin>
+                      {telephone}
+                    </BodyText>
+                  </AppDetailSupportGridCol>
+                )}
+                {termsAndConditionsUrl && (
+                  <AppDetailSupportGridCol>
+                    <Subtitle hasNoMargin>Terms and Conditions</Subtitle>
+                    <BodyText className={appDetailInfoLineAdjust} hasGreyText hasNoMargin>
+                      <DesktopLink
+                        onClick={trackViewTerms}
+                        uri={termsAndConditionsUrl}
+                        acProcess={AcProcessType.web}
+                        target="_blank"
+                        content={termsAndConditionsUrl}
+                      />
+                    </BodyText>
+                  </AppDetailSupportGridCol>
+                )}
+                {privacyPolicyUrl && (
+                  <AppDetailSupportGridCol>
+                    <Subtitle hasNoMargin>Privacy Policy</Subtitle>
+                    <BodyText className={appDetailInfoLineAdjust} hasGreyText hasNoMargin>
+                      <DesktopLink
+                        onClick={trackViewPrivacyPolicy}
+                        uri={privacyPolicyUrl}
+                        acProcess={AcProcessType.web}
+                        target="_blank"
+                        content={privacyPolicyUrl}
+                      />
+                    </BodyText>
+                  </AppDetailSupportGridCol>
+                )}
+                <AppDetailSupportGridCol>
+                  <Subtitle hasNoMargin>Pricing Policy</Subtitle>
+                  <BodyText className={appDetailInfoLineAdjust} hasGreyText hasNoMargin>
+                    {!isFree && pricingUrl ? (
+                      <DesktopLink
+                        onClick={trackViewPricing}
+                        uri={pricingUrl}
+                        acProcess={AcProcessType.web}
+                        target="_blank"
+                        content={pricingUrl}
+                      />
+                    ) : (
+                      'Free'
+                    )}
+                  </BodyText>
+                </AppDetailSupportGridCol>
+              </AppDetailSupportGrid>
+              <div className={elMb11}>
+                <Subtitle hasBoldText>About Developer</Subtitle>
+                <BodyText hasNoMargin hasGreyText>
+                  {developerAbout}
+                </BodyText>
+              </div>
+              <div className={elMb11}>
+                <Subtitle hasBoldText>Permissions</Subtitle>
+                {scopes?.map(({ name, description }) => (
+                  <AppDetailPermissionChip key={name}>{description}</AppDetailPermissionChip>
+                ))}
+              </div>
+              {Boolean(desktopIntegrationTypeIds?.length) && (
+                <div className={elMb11}>
+                  <Subtitle hasBoldText>AgencyCloud Integration</Subtitle>
+                  {desktopIntegrationTypeIds?.map((id) => {
+                    const desktopType = desktopIntegrationTypes?.data?.find((item) => item.id === id)
+                    if (desktopType)
+                      return <AppDetailPermissionChip key={id}>{desktopType.name}</AppDetailPermissionChip>
+                  })}
+                </div>
+              )}
+            </AppsDetailContentColPermissions>
           </AppsDetailContentGrid>
         </>
       )}

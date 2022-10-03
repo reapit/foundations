@@ -8,6 +8,48 @@ Object {
       <div
         class="html-render"
       >
+        <div
+          class="higv0h0"
+        >
+          <div>
+            <b>
+              bold
+            </b>
+          </div>
+          <div>
+            <i>
+              italic
+            </i>
+          </div>
+          <div>
+            <u>
+              underline
+            </u>
+          </div>
+          <h1>
+            heading
+          </h1>
+          <div>
+            <ul>
+              <li>
+                bullet points
+              </li>
+              <li>
+                bullet points
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="html-render"
+    >
+      <div
+        class="higv0h0"
+      >
         <div>
           <b>
             bold
@@ -36,40 +78,6 @@ Object {
             </li>
           </ul>
         </div>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="html-render"
-    >
-      <div>
-        <b>
-          bold
-        </b>
-      </div>
-      <div>
-        <i>
-          italic
-        </i>
-      </div>
-      <div>
-        <u>
-          underline
-        </u>
-      </div>
-      <h1>
-        heading
-      </h1>
-      <div>
-        <ul>
-          <li>
-            bullet points
-          </li>
-          <li>
-            bullet points
-          </li>
-        </ul>
       </div>
     </div>
   </div>,

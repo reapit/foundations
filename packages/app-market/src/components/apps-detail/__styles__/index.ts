@@ -68,55 +68,36 @@ export const AppDetailImageWrapper = styled.div`
   border-radius: 0.25rem;
 `
 
-export const AppDetailDescriptionGrid = styled.div`
+export const AppsDetailContentGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-column-gap: 1.25rem;
+  grid-template-columns: 1fr;
   grid-row-gap: 1.25rem;
-  margin-bottom: 1.25rem;
 
   ${forTabletAndAbove} {
-    grid-template-columns: repeat(12, 1fr);
     grid-row-gap: 2.5rem;
-    margin-bottom: 2.5rem;
-  }
-`
-
-export const AppDetailDescriptionColMain = styled.div`
-  grid-column-end: span 4;
-  min-width: 0;
-
-  ${forTabletAndAbove} {
-    grid-column-end: span 7;
   }
 
   ${forWidescreenAndAbove} {
-    grid-column-end: span 12;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 2rem;
   }
 `
 
-export const AppDetailDescriptionColAside = styled.div`
-  grid-column-end: span 4;
-  align-self: start;
-  min-width: 0;
-
-  ${forTabletAndAbove} {
-    grid-column-end: span 5;
-    padding-top: 2.75rem;
-  }
-
+export const AppsDetailContentColMain = styled.div`
   ${forWidescreenAndAbove} {
-    display: none;
+    order: 1;
   }
 `
 
-export const AppDetailDescriptionAsideDesktop = styled.div`
-  display: none;
-
+export const AppsDetailContentColCarousel = styled.div`
   ${forWidescreenAndAbove} {
-    display: block;
-    margin-left: 1rem;
-    margin-bottom: 1.25rem;
+    order: 3;
+  }
+`
+
+export const AppsDetailContentColPermissions = styled.div`
+  ${forWidescreenAndAbove} {
+    order: 2;
   }
 `
 
@@ -181,16 +162,6 @@ export const appDetailInfoLineAdjust = css`
   overflow: hidden;
 `
 
-export const AppsDetailContentGrid = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
-
-  ${forWidescreenAndAbove} {
-    grid-template-columns: 1fr 2fr;
-    grid-column-gap: 2rem;
-  }
-`
-
 export const AppDetailSupportGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -217,4 +188,11 @@ export const AppDetailSupportGridCol = styled.div`
   ${forWidescreenAndAbove} {
     grid-column-end: span 6;
   }
+`
+
+export const AppDetailImageWrap = styled.div`
+  float: right;
+  margin-left: 1.25rem;
+  margin-bottom: 1.25rem;
+  max-width: 66%;
 `
