@@ -3,6 +3,7 @@ import { CredGuard, CredsType } from './cred-guard'
 
 @Injectable()
 export class AdminGuard extends CredGuard {
+  // TODO change for get/post
   private readonly adminGroup = 'ReapitEmployee'
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
