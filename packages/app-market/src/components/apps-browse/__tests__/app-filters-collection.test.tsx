@@ -29,7 +29,12 @@ describe('handleSetFilters', () => {
     const history = {
       push: jest.fn(),
     } as unknown as History
-    const curried = handleSetFilters(setAppsBrowseFilterState, mockCategoryModelPagedResult, history, configItem)
+    const curried = handleSetFilters(
+      setAppsBrowseFilterState,
+      mockCategoryModelPagedResult.data ?? [],
+      history,
+      configItem,
+    )
 
     curried()
 

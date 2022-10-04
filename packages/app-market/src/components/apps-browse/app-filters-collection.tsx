@@ -2,7 +2,7 @@ import { elMb5, FlexContainer, Icon, IconNames, MediaType, useMediaQuery } from 
 import {
   AppsBrowseConfigItemFiltersInterface,
   AppsBrowseConfigItemInterface,
-  CategoryModelPagedResult,
+  CategoryModel,
 } from '@reapit/foundations-ts-definitions'
 import React, { Dispatch, FC, memo, SetStateAction, useCallback, useMemo } from 'react'
 import { trackEvent } from '../../core/analytics'
@@ -20,7 +20,7 @@ interface AppFiltersCollectionProps {
 export const handleSetFilters =
   (
     setAppsBrowseFilterState: Dispatch<SetStateAction<AppsBrowseConfigItemFiltersInterface | null>>,
-    appsBrowseCategoriesState: CategoryModelPagedResult | null,
+    appsBrowseCategoriesState: CategoryModel[],
     history: History,
     configItem: AppsBrowseConfigItemInterface,
   ) =>
@@ -31,7 +31,7 @@ export const handleSetFilters =
 
       const category = filters.category
       const categoryNames = category?.map((categoryItem) => {
-        const foundCategory = appsBrowseCategoriesState?.data?.find((stateItem) => stateItem.id === categoryItem)
+        const foundCategory = appsBrowseCategoriesState.find((stateItem) => stateItem.id === categoryItem)
         return foundCategory?.name ?? ''
       })
 

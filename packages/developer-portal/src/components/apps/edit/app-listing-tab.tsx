@@ -1,4 +1,4 @@
-import React, { Dispatch, FC, SetStateAction, useState } from 'react'
+import React, { Dispatch, FC, SetStateAction, useMemo, useState } from 'react'
 import {
   BodyText,
   FormLayout,
@@ -50,11 +50,27 @@ export const handleClosePreviewImage =
     closeModal()
   }
 
+export const handleSortCategoryies = (categoriesResult: CategoryModelPagedResult | null) => () =>
+  categoriesResult?.data?.sort((a, b) => {
+    const nameA = a.name?.toUpperCase()
+    const nameB = b.name?.toUpperCase()
+
+    if (!nameA || !nameB) return 0
+
+    if (nameA < nameB) {
+      return -1
+    }
+    if (nameA > nameB) {
+      return 1
+    }
+    return 0
+  }) ?? []
+
 export const AppListingTab: FC<AppEditTabsProps> = ({ register, errors, control, getValues }) => {
   const { appEditState } = useAppState()
   const { appEditForm } = appEditState
 
-  const [categories, categoriesLoading] = useReapitGet<CategoryModelPagedResult>({
+  const [categoriesResult, categoriesLoading] = useReapitGet<CategoryModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getAppCategories],
     queryParams: { pageSize: 25 },
@@ -79,6 +95,8 @@ export const AppListingTab: FC<AppEditTabsProps> = ({ register, errors, control,
   const [previewImage, setPreviewImage] = useState<string | null>(null)
 
   const { Modal, openModal, closeModal } = useModal()
+
+  const categories = useMemo(handleSortCategoryies(categoriesResult), [categoriesResult])
 
   const {
     name,
@@ -227,16 +245,16 @@ export const AppListingTab: FC<AppEditTabsProps> = ({ register, errors, control,
         </InputWrap>
         <InputWrapFull>
           {categoriesLoading && <Loader />}
-          {categories?.data && (
+          {categories.length && (
             <InputGroup>
               <Label>{categoryIds.label}</Label>
               <MultiSelectInput
                 id="app-edit-categories-select"
                 {...register('categoryIds')}
                 noneSelectedLabel="Please select one or more categories that best describes your app. These will be used by customers to find your app in the AppMarket"
-                options={categories.data?.map((category) => ({
+                options={categories.map((category) => ({
                   value: category.id ?? '',
-                  name: category.description ?? '',
+                  name: category.name ?? '',
                 }))}
                 defaultValues={appEditForm.categoryIds.split(',').filter(Boolean)}
               />

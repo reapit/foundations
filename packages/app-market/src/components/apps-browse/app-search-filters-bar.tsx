@@ -24,7 +24,7 @@ import {
   appsSearchMobileFilterControlsActive,
   appsSearchMobileControls,
 } from './__styles__'
-import { AppsBrowseConfigItemFiltersInterface, CategoryModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { AppsBrowseConfigItemFiltersInterface, CategoryModel } from '@reapit/foundations-ts-definitions'
 import { cx } from '@linaria/core'
 import debounce from 'just-debounce-it'
 import { MobileControlsState } from './apps-browse'
@@ -44,7 +44,7 @@ export const handleSelectFilter =
   (
     appsBrowseFilterState: AppsBrowseConfigItemFiltersInterface | null,
     setAppsBrowseFilterState: Dispatch<SetStateAction<AppsBrowseConfigItemFiltersInterface | null>>,
-    appsBrowseCategoriesState: CategoryModelPagedResult | null,
+    appsBrowseCategoriesState: CategoryModel[],
   ) =>
   (event: ChangeEvent<HTMLInputElement>) => {
     const newCategory = event.target.value
@@ -64,7 +64,7 @@ export const handleSelectFilter =
 
     const category = [...currentCategory, newCategory]
     const categoryNames = category.map((categoryItem) => {
-      const foundCategory = appsBrowseCategoriesState?.data?.find((stateItem) => stateItem.id === categoryItem)
+      const foundCategory = appsBrowseCategoriesState.find((stateItem) => stateItem.id === categoryItem)
       return foundCategory?.name ?? ''
     })
 
@@ -155,7 +155,7 @@ export const AppSearchFilters: FC<AppSearchFiltersProps> = memo(({ mobileControl
           Browse By
         </BodyText>
       </FlexContainer>
-      {Boolean(appsBrowseCategoriesState?.data?.length) && (
+      {Boolean(appsBrowseCategoriesState.length) && (
         <ElMultiSelectUnSelected
           className={cx(
             elFadeIn,
@@ -163,7 +163,7 @@ export const AppSearchFilters: FC<AppSearchFiltersProps> = memo(({ mobileControl
             mobileControlsState !== 'filters' && appsSearchDesktopControls,
           )}
         >
-          {appsBrowseCategoriesState?.data?.map(({ id, name }) => (
+          {appsBrowseCategoriesState.map(({ id, name }) => (
             <MultiSelectChip
               className={elHasGreyChips}
               id={id}

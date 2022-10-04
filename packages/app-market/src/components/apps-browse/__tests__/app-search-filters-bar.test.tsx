@@ -49,7 +49,11 @@ describe('handleSelectFilter', () => {
       },
     } as unknown as ChangeEvent<HTMLInputElement>
     const setAppsBrowseFilterState = jest.fn()
-    const curried = handleSelectFilter(appsBrowseFilterState, setAppsBrowseFilterState, mockCategoryModelPagedResult)
+    const curried = handleSelectFilter(
+      appsBrowseFilterState,
+      setAppsBrowseFilterState,
+      mockCategoryModelPagedResult.data ?? [],
+    )
 
     curried(event)
 
@@ -66,7 +70,11 @@ describe('handleSelectFilter', () => {
       },
     } as unknown as ChangeEvent<HTMLInputElement>
     const setAppsBrowseFilterState = jest.fn()
-    const curried = handleSelectFilter(appsBrowseFilterState, setAppsBrowseFilterState, mockCategoryModelPagedResult)
+    const curried = handleSelectFilter(
+      appsBrowseFilterState,
+      setAppsBrowseFilterState,
+      mockCategoryModelPagedResult.data ?? [],
+    )
 
     curried(event)
 

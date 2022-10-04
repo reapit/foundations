@@ -1,12 +1,13 @@
 import {
   AppsBrowseConfigItemFiltersInterface,
   AppsBrowseConfigItemInterface,
+  CategoryModel,
   CategoryModelPagedResult,
   UserModel,
 } from '@reapit/foundations-ts-definitions'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { useReapitGet } from '@reapit/utils-react'
-import React, { FC, createContext, useContext, useState, SetStateAction, Dispatch } from 'react'
+import React, { FC, createContext, useContext, useState, SetStateAction, Dispatch, useMemo } from 'react'
 import { useReapitConnect } from '../../../connect-session/src'
 import { reapitConnectBrowserSession } from './connect-session'
 
@@ -33,11 +34,27 @@ export interface AppsBrowseConfigCollection {
 export interface AppsBrowseStateHook {
   appsBrowseFilterState: AppsBrowseConfigItemFiltersInterface | null
   appsBrowseConfigState: AppsBrowseConfigCollection | null
-  appsBrowseCategoriesState: CategoryModelPagedResult | null
+  appsBrowseCategoriesState: CategoryModel[]
   currentUserState: UserModel | null
   refreshCurrentUser: () => void
   setAppsBrowseFilterState: Dispatch<SetStateAction<AppsBrowseConfigItemFiltersInterface | null>>
 }
+
+export const handleSortCategoryies = (appsBrowseCategoriesCollection: CategoryModelPagedResult | null) => () =>
+  appsBrowseCategoriesCollection?.data?.sort((a, b) => {
+    const nameA = a.name?.toUpperCase()
+    const nameB = b.name?.toUpperCase()
+
+    if (!nameA || !nameB) return 0
+
+    if (nameA < nameB) {
+      return -1
+    }
+    if (nameA > nameB) {
+      return 1
+    }
+    return 0
+  }) ?? []
 
 export const AppsBrowseStateContext = createContext<AppsBrowseStateHook>({} as AppsBrowseStateHook)
 
@@ -76,12 +93,16 @@ export const AppsBrowseProvider: FC = ({ children }) => {
     fetchWhenTrue: [userId],
   })
 
+  const appsBrowseCategoriesState = useMemo(handleSortCategoryies(appsBrowseCategoriesCollection), [
+    appsBrowseCategoriesCollection,
+  ])
+
   return (
     <Provider
       value={{
         appsBrowseFilterState,
         appsBrowseConfigState: appsBrowseConfigCollection,
-        appsBrowseCategoriesState: appsBrowseCategoriesCollection,
+        appsBrowseCategoriesState,
         currentUserState: currentUser,
         refreshCurrentUser,
         setAppsBrowseFilterState: setAppsBrowseFilterState,
