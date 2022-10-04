@@ -12,11 +12,16 @@ export const htmlRender = css`
   line-height: 1.25rem;
   letter-spacing: -1%;
   color: var(--color-grey-dark);
+  margin-bottom: 0.25rem;
 
-  ul,
+  li,
   p,
   div {
     margin-bottom: 1rem;
+  }
+
+  li {
+    list-style: circle;
   }
 
   ${forMobileAndAbove} {
