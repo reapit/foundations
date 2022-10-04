@@ -21,7 +21,8 @@ export const htmlRender = css`
   }
 
   li {
-    list-style: circle;
+    list-style: disc;
+    margin-left: 1rem;
   }
 
   ${forMobileAndAbove} {
