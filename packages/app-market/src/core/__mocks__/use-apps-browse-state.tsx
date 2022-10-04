@@ -6,7 +6,7 @@ export const mockAppsBrowseState = {
   appsBrowseDataState: {},
   appsBrowseFilterState: null,
   appsBrowseConfigState: appsBrowseConfigCollection,
-  appsBrowseCategoriesState: mockCategoryModelPagedResult,
+  appsBrowseCategoriesState: mockCategoryModelPagedResult.data,
   currentUserState: mockUserModel,
   refreshCurrentUser: jest.fn(),
   setAppsBrowseFilterState: jest.fn(),

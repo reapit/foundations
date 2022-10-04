@@ -14,9 +14,13 @@ Object {
         <div
           class="diff-render-block red-background"
         >
-          <h1>
-            hello world
-          </h1>
+          <div
+            class="html-content-wrap"
+          >
+            <h1>
+              hello world
+            </h1>
+          </div>
         </div>
         <span
           class="arrow"
@@ -26,9 +30,13 @@ Object {
         <div
           class="diff-render-block green-background"
         >
-          <p>
-            hello galaxy
-          </p>
+          <div
+            class="html-content-wrap"
+          >
+            <p>
+              hello galaxy
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -43,9 +51,13 @@ Object {
       <div
         class="diff-render-block red-background"
       >
-        <h1>
-          hello world
-        </h1>
+        <div
+          class="html-content-wrap"
+        >
+          <h1>
+            hello world
+          </h1>
+        </div>
       </div>
       <span
         class="arrow"
@@ -55,9 +67,13 @@ Object {
       <div
         class="diff-render-block green-background"
       >
-        <p>
-          hello galaxy
-        </p>
+        <div
+          class="html-content-wrap"
+        >
+          <p>
+            hello galaxy
+          </p>
+        </div>
       </div>
     </div>
   </div>,
