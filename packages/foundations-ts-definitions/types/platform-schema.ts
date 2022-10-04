@@ -7300,6 +7300,81 @@ export interface CreateTaskModel {
   }
 }
 /**
+ * Request body used to set party agreements to a specific clause in a tenancy agreement
+ */
+export interface CreateTenancyAgreementModel {
+  /**
+   * A flag to determine if the landlord has agreed
+   */
+  landlord?: boolean
+  /**
+   * A flag to determine if the tenant has agreed
+   */
+  tenant?: boolean
+}
+/**
+ * Request body used to set a tenancy allowance
+ * example:
+ * [object Object]
+ */
+export interface CreateTenancyAllowanceModel {
+  /**
+   * The identifier of the associated to the allowance
+   */
+  typeId?: string
+  /**
+   * The state of the allowance (allowed/notAllowed)
+   */
+  state?: string
+  /**
+   * Request body used to set party agreements to a specific clause in a tenancy agreement
+   */
+  agreements?: {
+    /**
+     * A flag to determine if the landlord has agreed
+     */
+    landlord?: boolean
+    /**
+     * A flag to determine if the tenant has agreed
+     */
+    tenant?: boolean
+  }
+}
+/**
+ * Request body used to update tenancy break clause
+ * example:
+ * [object Object]
+ */
+export interface CreateTenancyBreakClauseModel {
+  /**
+   * The identifier of the associated to the break clause
+   */
+  typeId?: string
+  /**
+   * The date the break clause becomes/became active
+   * example:
+   * 2019-08-14
+   */
+  active?: string // date
+  /**
+   * The responsible party (landlord/tenant)
+   */
+  appliesTo?: string
+  /**
+   * Request body used to set party agreements to a specific clause in a tenancy agreement
+   */
+  agreements?: {
+    /**
+     * A flag to determine if the landlord has agreed
+     */
+    landlord?: boolean
+    /**
+     * A flag to determine if the tenant has agreed
+     */
+    tenant?: boolean
+  }
+}
+/**
  * Request body used to create a new tenancy check
  * example:
  * [object Object]
@@ -7464,6 +7539,34 @@ export interface CreateTenancyModel {
    */
   metadata?: {
     [name: string]: any
+  }
+}
+/**
+ * Request body used to set a tenancy responsibility
+ * example:
+ * [object Object]
+ */
+export interface CreateTenancyResponsibilityModel {
+  /**
+   * The identifier of the associated to the responsibility
+   */
+  typeId?: string
+  /**
+   * The responsible party (landlord/tenant)
+   */
+  appliesTo?: string
+  /**
+   * Request body used to set party agreements to a specific clause in a tenancy agreement
+   */
+  agreements?: {
+    /**
+     * A flag to determine if the landlord has agreed
+     */
+    landlord?: boolean
+    /**
+     * A flag to determine if the tenant has agreed
+     */
+    tenant?: boolean
   }
 }
 /**
@@ -14598,9 +14701,9 @@ export interface TenancyBreakClauseModel {
   /**
    * The date the break clause became (or becomes) active
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14
    */
-  active?: string // date-time
+  active?: string // date
   /**
    * The parties that the break clause applies to (landlord/tenant/mutual)
    */
@@ -14664,9 +14767,9 @@ export interface TenancyBreakClauseModelPagedResult {
     /**
      * The date the break clause became (or becomes) active
      * example:
-     * 2019-08-14T12:30:02.0000000Z
+     * 2019-08-14
      */
-    active?: string // date-time
+    active?: string // date
     /**
      * The parties that the break clause applies to (landlord/tenant/mutual)
      */
@@ -19279,6 +19382,73 @@ export interface UpdateTaskModel {
   }
 }
 /**
+ * Request body used to set party agreements to a specific clause in a tenancy agreement
+ */
+export interface UpdateTenancyAgreementModel {
+  /**
+   * A flag to determine if the landlord has agreed
+   */
+  landlord?: boolean
+  /**
+   * A flag to determine if the tenant has agreed
+   */
+  tenant?: boolean
+}
+/**
+ * Request body used to update tenancy allowance
+ * example:
+ * [object Object]
+ */
+export interface UpdateTenancyAllowanceModel {
+  /**
+   * The state of the allowance (allowed/notAllowed)
+   */
+  state?: string
+  /**
+   * Request body used to set party agreements to a specific clause in a tenancy agreement
+   */
+  agreements?: {
+    /**
+     * A flag to determine if the landlord has agreed
+     */
+    landlord?: boolean
+    /**
+     * A flag to determine if the tenant has agreed
+     */
+    tenant?: boolean
+  }
+}
+/**
+ * Request body used to update tenancy break clause
+ * example:
+ * [object Object]
+ */
+export interface UpdateTenancyBreakClauseModel {
+  /**
+   * The date the break clause becomes/became active
+   * example:
+   * 2019-08-14
+   */
+  active?: string // date
+  /**
+   * The responsible party (landlord/tenant)
+   */
+  appliesTo?: string
+  /**
+   * Request body used to set party agreements to a specific clause in a tenancy agreement
+   */
+  agreements?: {
+    /**
+     * A flag to determine if the landlord has agreed
+     */
+    landlord?: boolean
+    /**
+     * A flag to determine if the tenant has agreed
+     */
+    tenant?: boolean
+  }
+}
+/**
  * Model for updat of an existing tenancy check
  * example:
  * [object Object]
@@ -19433,6 +19603,30 @@ export interface UpdateTenancyModel {
    */
   metadata?: {
     [name: string]: any
+  }
+}
+/**
+ * Request body used to update tenancy responsibility
+ * example:
+ * [object Object]
+ */
+export interface UpdateTenancyResponsibilityModel {
+  /**
+   * The responsible party (landlord/tenant)
+   */
+  appliesTo?: string
+  /**
+   * Request body used to set party agreements to a specific clause in a tenancy agreement
+   */
+  agreements?: {
+    /**
+     * A flag to determine if the landlord has agreed
+     */
+    landlord?: boolean
+    /**
+     * A flag to determine if the tenant has agreed
+     */
+    tenant?: boolean
   }
 }
 /**
