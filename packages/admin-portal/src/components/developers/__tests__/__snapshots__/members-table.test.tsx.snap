@@ -116,7 +116,7 @@ Object {
           class="el-mb11 el-table"
           data-has-call-to-action="false"
           data-has-expandable-action="true"
-          data-num-columns-excl-action-col="6"
+          data-num-columns-excl-action-col="7"
         >
           <div
             class="el-table-headers-row"
@@ -125,6 +125,11 @@ Object {
               class="el-table-header"
             >
               Developer Name
+            </div>
+            <div
+              class="el-table-header"
+            >
+              Member Email
             </div>
             <div
               class="el-table-header"
@@ -189,6 +194,16 @@ Object {
                   data-narrow-label="Developer Name"
                 >
                   Olly Test
+                </div>
+              </div>
+              <div
+                class="el-table-cell"
+              >
+                <div
+                  class="el-table-cell-content"
+                  data-narrow-label="Member Email"
+                >
+                  test@example.com
                 </div>
               </div>
               <div
@@ -380,7 +395,7 @@ Object {
         class="el-mb11 el-table"
         data-has-call-to-action="false"
         data-has-expandable-action="true"
-        data-num-columns-excl-action-col="6"
+        data-num-columns-excl-action-col="7"
       >
         <div
           class="el-table-headers-row"
@@ -389,6 +404,11 @@ Object {
             class="el-table-header"
           >
             Developer Name
+          </div>
+          <div
+            class="el-table-header"
+          >
+            Member Email
           </div>
           <div
             class="el-table-header"
@@ -453,6 +473,16 @@ Object {
                 data-narrow-label="Developer Name"
               >
                 Olly Test
+              </div>
+            </div>
+            <div
+              class="el-table-cell"
+            >
+              <div
+                class="el-table-cell-content"
+                data-narrow-label="Member Email"
+              >
+                test@example.com
               </div>
             </div>
             <div
