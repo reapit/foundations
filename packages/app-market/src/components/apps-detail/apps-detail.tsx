@@ -193,7 +193,6 @@ export const AppsDetail: FC = () => {
     developerAbout,
     developer,
     installedOn,
-    isListed,
     developerId,
   } = app
 
@@ -210,9 +209,8 @@ export const AppsDetail: FC = () => {
   const heroImage = images ? images[0] : null
   const screenshots = images ? images.slice(1, images.length) : []
   imageRefs.current = screenshots.map((_, i) => imageRefs.current[i] ?? createRef())
-  const isSandbox = clientId !== 'SBOX' && clientId !== 'SBXA'
-  const hideInstall =
-    (!isListed && isSandbox) || (isSandbox && sessionDeveloperId && sessionDeveloperId !== developerId)
+  const isSandbox = clientId === 'SBOX' || clientId === 'SBXA'
+  const isSboxDev = sessionDeveloperId && isSandbox && sessionDeveloperId === developerId
   const isInstalled = Boolean(installedOn)
   const isAdmin = selectIsAdmin(connectSession)
 
@@ -261,7 +259,7 @@ export const AppsDetail: FC = () => {
           </AppDetailBackButton>
           <AppsDetailHeader app={app} />
           <ButtonGroup className={elMb11} alignment="left">
-            {!isInstalled && isAdmin && !hideInstall && (
+            {!isInstalled && (isAdmin || isSboxDev) && (
               <Button intent="critical" onClick={installModalOpen}>
                 {isDirectApi ? 'Enable Integration' : 'Install App'}
               </Button>

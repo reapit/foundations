@@ -32,10 +32,15 @@ import { specialCharsTest } from '../../utils/yup'
 import { selectIsAdmin } from '../../utils/auth'
 import { trackEventHandler, trackEvent } from '../../core/analytics'
 import { TrackingEvent } from '../../core/analytics-events'
+import { FilterForm } from './filter-form'
 
 export interface InstallationDetails {
   installationId: string
   appId: string
+}
+
+export interface InstallationsFilters {
+  appName?: string
 }
 
 const uninstallAppSchema: SchemaOf<TerminateInstallationModel> = object().shape({
@@ -114,11 +119,14 @@ export const handleCloseModal =
 export const SettingsInstalled: FC = () => {
   const [installationDetails, setInstallationDetails] = useState<null | InstallationDetails>(null)
   const [pageNumber, setPageNumber] = useState<number>(1)
+  const [installationsFilters, setInstallationsFilters] = useState<InstallationsFilters>({})
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { Modal, openModal, closeModal } = useModal()
   const clientId = connectSession?.loginIdentity.clientId
   const email = connectSession?.loginIdentity.email ?? ''
   const isAdmin = selectIsAdmin(connectSession)
+  const { appName } = installationsFilters
+  const appNameQuery = appName ? { appName } : {}
 
   const [installations, installationsLoading, , refetchInstallations] = useReapitGet<InstallationModelPagedResult>({
     reapitConnectBrowserSession,
@@ -127,6 +135,7 @@ export const SettingsInstalled: FC = () => {
       pageNumber,
       pageSize: 12,
       clientId,
+      ...appNameQuery,
     },
     fetchWhenTrue: [clientId],
   })
@@ -184,17 +193,17 @@ export const SettingsInstalled: FC = () => {
   return (
     <>
       <Title>Installations</Title>
+      <BodyText hasGreyText>
+        The table below gives you the information about Reapit AppMarket apps and integrations you have installed
+        currently or previously. In addition, you can uninstall apps for all users of your organisation by using the
+        call to action on each row. For more information on the installations table{' '}
+        <a onClick={openNewPage('https://marketplace-documentation.reapit.cloud/#uninstalling-an-app')}>see here</a>.
+      </BodyText>
+      <FilterForm setInstallationsFilters={setInstallationsFilters} />
       {installationsLoading ? (
         <Loader />
       ) : installations?.totalCount ? (
         <>
-          <BodyText hasGreyText hasSectionMargin>
-            The table below gives you the information about Reapit AppMarket apps and integrations you have installed
-            currently or previously. In addition, you can uninstall apps for all users of your organisation by using the
-            call to action on each row. For more information on the installations table
-            <a onClick={openNewPage('https://marketplace-documentation.reapit.cloud/#uninstalling-an-app')}>see here</a>
-            .
-          </BodyText>
           <Table
             numberColumns={7}
             className={elMb11}

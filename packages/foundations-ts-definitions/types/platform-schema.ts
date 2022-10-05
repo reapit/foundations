@@ -11414,6 +11414,10 @@ export interface PropertyAddressModel {
    */
   countryId?: string
   /**
+   * The local timezone for the address, based on the Geolocation coordinates
+   */
+  localTimeZone?: string
+  /**
    * Representation of the geographical location of an address using coordinates
    */
   geolocation?: {
@@ -12010,6 +12014,10 @@ export interface PropertyModel {
      * The ISO-3166 country code that the address resides within
      */
     countryId?: string
+    /**
+     * The local timezone for the address, based on the Geolocation coordinates
+     */
+    localTimeZone?: string
     /**
      * Representation of the geographical location of an address using coordinates
      */
@@ -12802,6 +12810,10 @@ export interface PropertyModelPagedResult {
        * The ISO-3166 country code that the address resides within
        */
       countryId?: string
+      /**
+       * The local timezone for the address, based on the Geolocation coordinates
+       */
+      localTimeZone?: string
       /**
        * Representation of the geographical location of an address using coordinates
        */
