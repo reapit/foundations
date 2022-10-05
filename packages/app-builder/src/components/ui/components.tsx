@@ -46,7 +46,7 @@ export const AppBuilderIconButtonWithText = styled(AppBuilderIconButton)<{ isAct
   svg {
     margin-right: 6px;
     color: ${({ isActive }) => {
-      return isActive ? '#23A4DE' : '#f2f2f2'
+      return isActive ? '#23A4DE' : '#bebebe'
     }};
   }
 

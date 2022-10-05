@@ -67,20 +67,31 @@ export const BodyContainer = styled.section`
   margin-bottom: 20px;
   grid-column: span 12;
   border-radius: 4px;
+  padding-top: 8px;
+  background: white;
 
   grid-area: body;
 `
 
 export const NavigationContainer = styled.div`
   grid-area: nav;
+  overflow: hidden;
+  padding-top: 46px;
+  background: white;
 `
 
-export const RootContainer = styled.section`
-  width: 100vw;
+export const RootContainer = styled.section<{ showNav: boolean }>`
+  width: calc(100vw - 15px); /* allow for scrollbar */
   > div {
     display: grid;
-    grid-template-areas: 'nav body body';
-    grid-template-columns: 80px 9fr;
+    grid-template-areas: 'nav body';
+    transition: all 0.35s;
+    grid-template-columns: ${({ showNav }) => {
+      if (showNav) {
+        return '80px 9fr'
+      }
+      return '0px 9fr'
+    }};
 
     @media (max-width: ${MOBILE_BREAKPOINT}px) {
       grid-template-columns: 12fr;
