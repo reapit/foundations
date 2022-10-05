@@ -14,14 +14,41 @@ Object {
         Installations
       </h1>
       <p
-        class="el-has-grey-text el-has-section-margin el-body-text"
+        class="el-has-grey-text el-body-text"
       >
         The table below gives you the information about Reapit AppMarket apps and integrations you have installed currently or previously. In addition, you can uninstall apps for all users of your organisation by using the call to action on each row. For more information on the installations table
+         
         <a>
           see here
         </a>
         .
       </p>
+      <form>
+        <div
+          class="el-mb11 el-form-layout"
+        >
+          <div
+            class="el-input-wrap"
+          >
+            <div
+              class="el-input-group"
+            >
+              <input
+                class="el-input"
+                id="test-static-id"
+                name="appName"
+                type="search"
+              />
+              <label
+                class="el-label"
+                for="test-static-id"
+              >
+                Filter by App Name
+              </label>
+            </div>
+          </div>
+        </div>
+      </form>
       <div
         class="el-mb11 el-table"
         data-has-call-to-action="true"
@@ -548,14 +575,41 @@ Object {
       Installations
     </h1>
     <p
-      class="el-has-grey-text el-has-section-margin el-body-text"
+      class="el-has-grey-text el-body-text"
     >
       The table below gives you the information about Reapit AppMarket apps and integrations you have installed currently or previously. In addition, you can uninstall apps for all users of your organisation by using the call to action on each row. For more information on the installations table
+       
       <a>
         see here
       </a>
       .
     </p>
+    <form>
+      <div
+        class="el-mb11 el-form-layout"
+      >
+        <div
+          class="el-input-wrap"
+        >
+          <div
+            class="el-input-group"
+          >
+            <input
+              class="el-input"
+              id="test-static-id"
+              name="appName"
+              type="search"
+            />
+            <label
+              class="el-label"
+              for="test-static-id"
+            >
+              Filter by App Name
+            </label>
+          </div>
+        </div>
+      </div>
+    </form>
     <div
       class="el-mb11 el-table"
       data-has-call-to-action="true"
@@ -1138,6 +1192,42 @@ Object {
       >
         Installations
       </h1>
+      <p
+        class="el-has-grey-text el-body-text"
+      >
+        The table below gives you the information about Reapit AppMarket apps and integrations you have installed currently or previously. In addition, you can uninstall apps for all users of your organisation by using the call to action on each row. For more information on the installations table
+         
+        <a>
+          see here
+        </a>
+        .
+      </p>
+      <form>
+        <div
+          class="el-mb11 el-form-layout"
+        >
+          <div
+            class="el-input-wrap"
+          >
+            <div
+              class="el-input-group"
+            >
+              <input
+                class="el-input"
+                id="test-static-id"
+                name="appName"
+                type="search"
+              />
+              <label
+                class="el-label"
+                for="test-static-id"
+              >
+                Filter by App Name
+              </label>
+            </div>
+          </div>
+        </div>
+      </form>
       <div
         class="el-loader-container"
       >
@@ -1160,6 +1250,42 @@ Object {
     >
       Installations
     </h1>
+    <p
+      class="el-has-grey-text el-body-text"
+    >
+      The table below gives you the information about Reapit AppMarket apps and integrations you have installed currently or previously. In addition, you can uninstall apps for all users of your organisation by using the call to action on each row. For more information on the installations table
+       
+      <a>
+        see here
+      </a>
+      .
+    </p>
+    <form>
+      <div
+        class="el-mb11 el-form-layout"
+      >
+        <div
+          class="el-input-wrap"
+        >
+          <div
+            class="el-input-group"
+          >
+            <input
+              class="el-input"
+              id="test-static-id"
+              name="appName"
+              type="search"
+            />
+            <label
+              class="el-label"
+              for="test-static-id"
+            >
+              Filter by App Name
+            </label>
+          </div>
+        </div>
+      </div>
+    </form>
     <div
       class="el-loader-container"
     >
@@ -1239,6 +1365,42 @@ Object {
       >
         Installations
       </h1>
+      <p
+        class="el-has-grey-text el-body-text"
+      >
+        The table below gives you the information about Reapit AppMarket apps and integrations you have installed currently or previously. In addition, you can uninstall apps for all users of your organisation by using the call to action on each row. For more information on the installations table
+         
+        <a>
+          see here
+        </a>
+        .
+      </p>
+      <form>
+        <div
+          class="el-mb11 el-form-layout"
+        >
+          <div
+            class="el-input-wrap"
+          >
+            <div
+              class="el-input-group"
+            >
+              <input
+                class="el-input"
+                id="test-static-id"
+                name="appName"
+                type="search"
+              />
+              <label
+                class="el-label"
+                for="test-static-id"
+              >
+                Filter by App Name
+              </label>
+            </div>
+          </div>
+        </div>
+      </form>
       <div
         class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
       >
@@ -1280,6 +1442,42 @@ Object {
     >
       Installations
     </h1>
+    <p
+      class="el-has-grey-text el-body-text"
+    >
+      The table below gives you the information about Reapit AppMarket apps and integrations you have installed currently or previously. In addition, you can uninstall apps for all users of your organisation by using the call to action on each row. For more information on the installations table
+       
+      <a>
+        see here
+      </a>
+      .
+    </p>
+    <form>
+      <div
+        class="el-mb11 el-form-layout"
+      >
+        <div
+          class="el-input-wrap"
+        >
+          <div
+            class="el-input-group"
+          >
+            <input
+              class="el-input"
+              id="test-static-id"
+              name="appName"
+              type="search"
+            />
+            <label
+              class="el-label"
+              for="test-static-id"
+            >
+              Filter by App Name
+            </label>
+          </div>
+        </div>
+      </div>
+    </form>
     <div
       class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
     >
@@ -1378,6 +1576,42 @@ Object {
       >
         Installations
       </h1>
+      <p
+        class="el-has-grey-text el-body-text"
+      >
+        The table below gives you the information about Reapit AppMarket apps and integrations you have installed currently or previously. In addition, you can uninstall apps for all users of your organisation by using the call to action on each row. For more information on the installations table
+         
+        <a>
+          see here
+        </a>
+        .
+      </p>
+      <form>
+        <div
+          class="el-mb11 el-form-layout"
+        >
+          <div
+            class="el-input-wrap"
+          >
+            <div
+              class="el-input-group"
+            >
+              <input
+                class="el-input"
+                id="test-static-id"
+                name="appName"
+                type="search"
+              />
+              <label
+                class="el-label"
+                for="test-static-id"
+              >
+                Filter by App Name
+              </label>
+            </div>
+          </div>
+        </div>
+      </form>
     </div>
   </body>,
   "container": <div>
@@ -1389,6 +1623,42 @@ Object {
     >
       Installations
     </h1>
+    <p
+      class="el-has-grey-text el-body-text"
+    >
+      The table below gives you the information about Reapit AppMarket apps and integrations you have installed currently or previously. In addition, you can uninstall apps for all users of your organisation by using the call to action on each row. For more information on the installations table
+       
+      <a>
+        see here
+      </a>
+      .
+    </p>
+    <form>
+      <div
+        class="el-mb11 el-form-layout"
+      >
+        <div
+          class="el-input-wrap"
+        >
+          <div
+            class="el-input-group"
+          >
+            <input
+              class="el-input"
+              id="test-static-id"
+              name="appName"
+              type="search"
+            />
+            <label
+              class="el-label"
+              for="test-static-id"
+            >
+              Filter by App Name
+            </label>
+          </div>
+        </div>
+      </div>
+    </form>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -1595,14 +1865,41 @@ Object {
         Installations
       </h1>
       <p
-        class="el-has-grey-text el-has-section-margin el-body-text"
+        class="el-has-grey-text el-body-text"
       >
         The table below gives you the information about Reapit AppMarket apps and integrations you have installed currently or previously. In addition, you can uninstall apps for all users of your organisation by using the call to action on each row. For more information on the installations table
+         
         <a>
           see here
         </a>
         .
       </p>
+      <form>
+        <div
+          class="el-mb11 el-form-layout"
+        >
+          <div
+            class="el-input-wrap"
+          >
+            <div
+              class="el-input-group"
+            >
+              <input
+                class="el-input"
+                id="test-static-id"
+                name="appName"
+                type="search"
+              />
+              <label
+                class="el-label"
+                for="test-static-id"
+              >
+                Filter by App Name
+              </label>
+            </div>
+          </div>
+        </div>
+      </form>
       <div
         class="el-mb11 el-table"
         data-has-call-to-action="true"
@@ -2129,14 +2426,41 @@ Object {
       Installations
     </h1>
     <p
-      class="el-has-grey-text el-has-section-margin el-body-text"
+      class="el-has-grey-text el-body-text"
     >
       The table below gives you the information about Reapit AppMarket apps and integrations you have installed currently or previously. In addition, you can uninstall apps for all users of your organisation by using the call to action on each row. For more information on the installations table
+       
       <a>
         see here
       </a>
       .
     </p>
+    <form>
+      <div
+        class="el-mb11 el-form-layout"
+      >
+        <div
+          class="el-input-wrap"
+        >
+          <div
+            class="el-input-group"
+          >
+            <input
+              class="el-input"
+              id="test-static-id"
+              name="appName"
+              type="search"
+            />
+            <label
+              class="el-label"
+              for="test-static-id"
+            >
+              Filter by App Name
+            </label>
+          </div>
+        </div>
+      </div>
+    </form>
     <div
       class="el-mb11 el-table"
       data-has-call-to-action="true"

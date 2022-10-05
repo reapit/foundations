@@ -116,6 +116,13 @@ export const MembersTable: FC<MembersTableProps> = ({ devIdMembers }) => {
                 },
               },
               {
+                label: 'Member Email',
+                value: email,
+                narrowTable: {
+                  showLabel: true,
+                },
+              },
+              {
                 label: 'Job Title',
                 value: jobTitle,
                 narrowTable: {
