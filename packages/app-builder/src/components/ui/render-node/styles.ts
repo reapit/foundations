@@ -64,7 +64,6 @@ export const FooterContainer = styled.footer`
 `
 
 export const BodyContainer = styled.section`
-  margin-top: 20px;
   margin-bottom: 20px;
   grid-column: span 12;
   border-radius: 4px;
@@ -77,11 +76,11 @@ export const NavigationContainer = styled.div`
 `
 
 export const RootContainer = styled.section`
-  width: 100%;
+  width: 100vw;
   > div {
     display: grid;
     grid-template-areas: 'nav body body';
-    grid-template-columns: 1fr 9fr;
+    grid-template-columns: 80px 9fr;
 
     @media (max-width: ${MOBILE_BREAKPOINT}px) {
       grid-template-columns: 12fr;
