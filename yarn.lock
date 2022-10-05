@@ -8150,6 +8150,8 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-svelte3: ^3.4.1
     eslint-webpack-plugin: ^3.2.0
+    favicons: ^7.0.1
+    favicons-webpack-plugin: ^6.0.0-alpha.1
     file-loader: ^6.2.0
     fork-ts-checker-webpack-plugin: ^6.5.2
     friendly-errors-webpack-plugin: ^1.7.0
@@ -8187,7 +8189,6 @@ __metadata:
     webpack: ^5.74.0
     webpack-cli: ^4.10.0
     webpack-dev-server: ^4.9.3
-    webpack-favicons: ^1.3.8
     workbox-webpack-plugin: ^6.5.3
   bin:
     rpt-cdk: ./bin/rpt-cdk.js
@@ -15051,6 +15052,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"author-regex@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "author-regex@npm:1.0.0"
+  checksum: 9ad8bffb02978c7a53cbe0b0ff55988fa9f4429797b2c3783f0964df6ee198663285d7f0f3f981766a8c4fe91633ba62582244c1b54d50096007a0fe115b6898
+  languageName: node
+  linkType: hard
+
 "auto-bump@workspace:packages/auto-bump":
   version: 0.0.0-use.local
   resolution: "auto-bump@workspace:packages/auto-bump"
@@ -17734,7 +17742,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"color@npm:^4.0.1":
+"color@npm:^4.2.3":
   version: 4.2.3
   resolution: "color@npm:4.2.3"
   dependencies:
@@ -17786,7 +17794,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"colors@npm:1.4.0, colors@npm:^1.1.2, colors@npm:^1.2.1, colors@npm:^1.4.0":
+"colors@npm:1.4.0, colors@npm:^1.1.2, colors@npm:^1.2.1":
   version: 1.4.0
   resolution: "colors@npm:1.4.0"
   checksum: 98aa2c2418ad87dedf25d781be69dc5fc5908e279d9d30c34d8b702e586a0474605b3a189511482b9d5ed0d20c867515d22749537f7bc546256c6014f3ebdcec
@@ -19641,7 +19649,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"detect-libc@npm:^2.0.0":
+"detect-libc@npm:^2.0.0, detect-libc@npm:^2.0.1":
   version: 2.0.1
   resolution: "detect-libc@npm:2.0.1"
   checksum: ccb05fcabbb555beb544d48080179c18523a343face9ee4e1a86605a8715b4169f94d663c21a03c310ac824592f2ba9a5270218819bb411ad7be578a527593d7
@@ -20477,6 +20485,13 @@ __metadata:
   version: 3.0.1
   resolution: "entities@npm:3.0.1"
   checksum: aaf7f12033f0939be91f5161593f853f2da55866db55ccbf72f45430b8977e2b79dbd58c53d0fdd2d00bd7d313b75b0968d09f038df88e308aa97e39f9456572
+  languageName: node
+  linkType: hard
+
+"entities@npm:^4.4.0":
+  version: 4.4.0
+  resolution: "entities@npm:4.4.0"
+  checksum: 84d250329f4b56b40fa93ed067b194db21e8815e4eb9b59f43a086f0ecd342814f6bc483de8a77da5d64e0f626033192b1b4f1792232a7ea6b970ebe0f3187c2
   languageName: node
   linkType: hard
 
@@ -22280,18 +22295,32 @@ __metadata:
   languageName: node
   linkType: hard
 
-"favicons@npm:7.0.0-beta.1":
-  version: 7.0.0-beta.1
-  resolution: "favicons@npm:7.0.0-beta.1"
+"favicons-webpack-plugin@npm:^6.0.0-alpha.1":
+  version: 6.0.0-alpha.1
+  resolution: "favicons-webpack-plugin@npm:6.0.0-alpha.1"
   dependencies:
-    colors: ^1.4.0
+    find-root: ^1.1.0
+    html-webpack-plugin: ^5.5.0
+    parse-author: ^2.0.0
+    parse5: ^7.1.1
+  peerDependencies:
+    favicons: ^7.0.1
+    webpack: ^5.0.0
+  dependenciesMeta:
+    html-webpack-plugin:
+      optional: true
+  checksum: 0e9696b08841fe50f3b832ea0cf84f5be3c8c5e01d9f9c280b6307ec540a214d365bc260312472f5419a4c74f0850ce326cc52e72067df0399012f812867405b
+  languageName: node
+  linkType: hard
+
+"favicons@npm:^7.0.1":
+  version: 7.0.1
+  resolution: "favicons@npm:7.0.1"
+  dependencies:
     escape-html: ^1.0.3
-    lodash.defaultsdeep: ^4.6.1
-    sharp: ^0.29.1
-    through2: ^4.0.2
-    vinyl: ^2.2.1
+    sharp: ^0.30.7
     xml2js: ^0.4.23
-  checksum: 9e5c84b51475d0125b451878bb1ebadfb34dd4f6dc9b4e24d0033f9eb7516e49421265e5ce6d20d5206938b72995a8badfa7a1d58cbcdf9a882e9a6d6667af8f
+  checksum: 68a0ab96143f4d7e4908a38ac026b00ba569dd5c317281f00f8d916b80693e8f909b2304cdf8713995050f26285ed0e6de924de8c2fa0e5103d1fa84b4b0f152
   languageName: node
   linkType: hard
 
@@ -28997,13 +29026,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"lodash.defaultsdeep@npm:^4.6.1":
-  version: 4.6.1
-  resolution: "lodash.defaultsdeep@npm:4.6.1"
-  checksum: 1f346f16158b760545ca99553cb13e907a28b281425751af6bfe681387b9e5685438a7ddbfd36a8d5cc8bda066867a134aa31416f17e318db8c461c377810a76
-  languageName: node
-  linkType: hard
-
 "lodash.difference@npm:^4.5.0":
   version: 4.5.0
   resolution: "lodash.difference@npm:4.5.0"
@@ -31111,12 +31133,12 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"node-addon-api@npm:^4.2.0":
-  version: 4.3.0
-  resolution: "node-addon-api@npm:4.3.0"
+"node-addon-api@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "node-addon-api@npm:5.0.0"
   dependencies:
     node-gyp: latest
-  checksum: 3de396e23cc209f539c704583e8e99c148850226f6e389a641b92e8967953713228109f919765abc1f4355e801e8f41842f96210b8d61c7dcc10a477002dcf00
+  checksum: 7c5e2043ac37f6108784d94ed73a44ae6d3e68eb968de60680922fc6bc3d17fa69448c0feb4e0c9d3f4c74a0324822e566a8340a56916d9d6f23cb3e85620334
   languageName: node
   linkType: hard
 
@@ -32617,6 +32639,15 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"parse-author@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "parse-author@npm:2.0.0"
+  dependencies:
+    author-regex: ^1.0.0
+  checksum: 066ad615de7dbc3c4293eaaf66a65ea81f8e75e2cffcaf9dd3bcdd4dc4cfff1baa3c85bb3adbedfbed2ddee3298ef4e25ef51b524e91d5a5815d8d9598d31367
+  languageName: node
+  linkType: hard
+
 "parse-conflict-json@npm:^2.0.1":
   version: 2.0.1
   resolution: "parse-conflict-json@npm:2.0.1"
@@ -32721,6 +32752,15 @@ fsevents@^1.2.7:
   version: 5.1.1
   resolution: "parse5@npm:5.1.1"
   checksum: 613a714af4c1101d1cb9f7cece2558e35b9ae8a0c03518223a4a1e35494624d9a9ad5fad4c13eab66a0e0adccd9aa3d522fc8f5f9cc19789e0579f3fa0bdfc65
+  languageName: node
+  linkType: hard
+
+"parse5@npm:^7.1.1":
+  version: 7.1.1
+  resolution: "parse5@npm:7.1.1"
+  dependencies:
+    entities: ^4.4.0
+  checksum: 8f72fbfa6df83a3f29f58e1818f7bd46b47ff3e26d79c74e10b8fc7ef7ee76163f205113f1b2f6a5b8dc4e31e726f490444f04890cead6e974dbcbe8172b1321
   languageName: node
   linkType: hard
 
@@ -33625,7 +33665,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"prebuild-install@npm:^7.0.0":
+"prebuild-install@npm:^7.1.1":
   version: 7.1.1
   resolution: "prebuild-install@npm:7.1.1"
   dependencies:
@@ -37742,20 +37782,20 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"sharp@npm:^0.29.1":
-  version: 0.29.3
-  resolution: "sharp@npm:0.29.3"
+"sharp@npm:^0.30.7":
+  version: 0.30.7
+  resolution: "sharp@npm:0.30.7"
   dependencies:
-    color: ^4.0.1
-    detect-libc: ^1.0.3
-    node-addon-api: ^4.2.0
+    color: ^4.2.3
+    detect-libc: ^2.0.1
+    node-addon-api: ^5.0.0
     node-gyp: latest
-    prebuild-install: ^7.0.0
-    semver: ^7.3.5
-    simple-get: ^4.0.0
+    prebuild-install: ^7.1.1
+    semver: ^7.3.7
+    simple-get: ^4.0.1
     tar-fs: ^2.1.1
     tunnel-agent: ^0.6.0
-  checksum: d496cdd546c9abe743aebcee013731295f735687819a18c2bdcbba6f31a6b259f3da95af5c11260a8fedc9d4ab95697f5f8c4f3cd65232792b5cfb876bea7c9a
+  checksum: bbc63ca3c7ea8a5bff32cd77022cfea30e25a03f5bd031e935924bf6cf0e11e3388e8b0e22b3137bf8816aa73407f1e4fbeb190f3a35605c27ffca9f32b91601
   languageName: node
   linkType: hard
 
@@ -37877,7 +37917,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"simple-get@npm:^4.0.0":
+"simple-get@npm:^4.0.0, simple-get@npm:^4.0.1":
   version: 4.0.1
   resolution: "simple-get@npm:4.0.1"
   dependencies:
@@ -42130,7 +42170,7 @@ typescript@^3.7.3:
   languageName: node
   linkType: hard
 
-"vinyl@npm:^2.0.1, vinyl@npm:^2.2.1":
+"vinyl@npm:^2.0.1":
   version: 2.2.1
   resolution: "vinyl@npm:2.2.1"
   dependencies:
@@ -42482,15 +42522,6 @@ typescript@^3.7.3:
   bin:
     webpack-dev-server: bin/webpack-dev-server.js
   checksum: 845f2cc8e79a348ee7b17080eef9b332c675540888e0bc97ec6b62174882aca7995eaa7a3f49cfdd9af186da22f2f335fd03cb3c55cd49e387c8a3dc59700d66
-  languageName: node
-  linkType: hard
-
-"webpack-favicons@npm:^1.3.8":
-  version: 1.3.8
-  resolution: "webpack-favicons@npm:1.3.8"
-  dependencies:
-    favicons: 7.0.0-beta.1
-  checksum: 0a331981a2feb6fd23d330e5b5e9fd28b25ae102baaa5fdf1396f0c44dbedde389490d86919bb8e1aac77fca72eed24356ac0f2a83fc3ce18bb9e3f3860edc10
   languageName: node
   linkType: hard
 
