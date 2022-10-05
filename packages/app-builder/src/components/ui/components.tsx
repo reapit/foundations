@@ -25,6 +25,36 @@ export const AppBuilderIconButton = styled(Button)`
   }};
 `
 
+export const AppBuilderIconButtonWithText = styled(AppBuilderIconButton)<{ isActive: boolean }>`
+  padding-left: 16px;
+  padding-right: 16px;
+  width: auto;
+  margin: 0;
+
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  text-transform: none;
+  font-feature-settings: 'liga' off;
+
+  color: ${({ isActive }) => {
+    return isActive ? 'black' : '#646464'
+  }};
+
+  svg {
+    margin-right: 6px;
+    color: ${({ isActive }) => {
+      return isActive ? '#23A4DE' : '#f2f2f2'
+    }};
+  }
+
+  background: ${({ isActive }) => {
+    return isActive ? '#EAF5FC' : 'white'
+  }};
+`
+
 const SelectOrInputContainer = styled.div`
   position: relative;
   width: 100%;

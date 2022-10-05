@@ -68,11 +68,12 @@ export const RenderNode = ({ render, iframeRef }) => {
   const isBody = id === 'body'
   const isNavigation = id === NAV_NODE
 
-  const shouldShowTab = (isHover || isActive) && !isRoot && !isBody && !isNavigation && enabled && container && dom
+  const shouldShowTab = Boolean((isHover || isActive) && !isRoot && !isBody && !isNavigation && enabled && container)
 
   return (
     <>
       {shouldShowTab &&
+        dom &&
         ReactDOM.createPortal(
           <div
             /*

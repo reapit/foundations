@@ -11,6 +11,9 @@ import { useDeletePage } from '@/components/hooks/apps/use-update-app'
 
 const Tab = styled.div<{ itemId?: any; isActive?: boolean }>`
   background: white;
+  :not(:first-child) {
+    margin-left: 2px;
+  }
 
   padding: 7px;
   padding-left: 12px;
@@ -159,7 +162,6 @@ export const TabBar = ({ style }) => {
       style={{
         ...style,
         maxHeight: 32,
-        display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         marginTop: 24,
