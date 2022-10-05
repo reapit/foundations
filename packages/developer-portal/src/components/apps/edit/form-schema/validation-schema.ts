@@ -266,6 +266,14 @@ export const appEditValidationSchema = object().shape({
       },
     })
     .test({
+      name: 'isValidVimeo1',
+      message: 'If Vimeo, video needs to be in https://player.vimeo.com/video/<<videoId>> format',
+      test: (value) => {
+        if (!value || !value.includes('vimeo.com')) return true
+        return value.includes('https://player.vimeo.com/video/')
+      },
+    })
+    .test({
       name: 'isValidVideo1Url',
       message: 'Must be a secure https host if supplied',
       test: (value) => {
@@ -282,6 +290,14 @@ export const appEditValidationSchema = object().shape({
       test: (value) => {
         if (!value || (!value.includes('youtube') && !value.includes('youtu.be'))) return true
         return value.includes('https://www.youtube.com/embed/')
+      },
+    })
+    .test({
+      name: 'isValidVimeo2',
+      message: 'If Vimeo, video needs to be in https://player.vimeo.com/video/<<videoId>> format',
+      test: (value) => {
+        if (!value || !value.includes('vimeo.com')) return true
+        return value.includes('https://player.vimeo.com/video/')
       },
     })
     .test({
