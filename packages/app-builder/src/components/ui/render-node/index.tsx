@@ -68,13 +68,11 @@ export const RenderNode = ({ render, iframeRef }) => {
   const isBody = id === 'body'
   const isNavigation = id === NAV_NODE
 
+  const shouldShowTab = (isHover || isActive) && !isRoot && !isBody && !isNavigation && enabled && container && dom
+
   return (
     <>
-      {(isHover || isActive) &&
-        !isRoot &&
-        enabled &&
-        container &&
-        dom &&
+      {shouldShowTab &&
         ReactDOM.createPortal(
           <div
             /*
@@ -87,10 +85,8 @@ export const RenderNode = ({ render, iframeRef }) => {
             }}
           >
             <h2 className={cx(elFlex1, elMr6)}>
-              {isBody && 'Body'}
-              {isNavigation && 'Navigation'}
               {props.typeName && props.typeName + ' '}
-              {!isBody && !isNavigation && name}
+              {name}
             </h2>
             {moveable && (
               <>
@@ -136,16 +132,14 @@ export const RenderNode = ({ render, iframeRef }) => {
                 <Move />
               </div>
             )}
-            {id !== 'ROOT' && id !== NAV_NODE && id !== 'body' && (
-              <a
-                className={cx(littleButton, elMr3, cursorPointer)}
-                onClick={() => {
-                  actions.selectNode(parent)
-                }}
-              >
-                <ArrowUp />
-              </a>
-            )}
+            <a
+              className={cx(littleButton, elMr3, cursorPointer)}
+              onClick={() => {
+                actions.selectNode(parent)
+              }}
+            >
+              <ArrowUp />
+            </a>
             {deletable && (
               <a
                 className={cx(littleButton, cursorPointer)}
