@@ -209,13 +209,13 @@ const Header = ({ setBreakpoint, breakpoint, showNewPage }) => {
               },
               {
                 id: TABLET_BREAKPOINT.toString(),
-                value: TABLET_BREAKPOINT.toString(),
+                value: (TABLET_BREAKPOINT + 1).toString(),
                 text: (
                   <ToggleRadioContainer>
                     <TabletIcon /> Tablet
                   </ToggleRadioContainer>
                 ) as unknown as string,
-                isChecked: breakpoint === TABLET_BREAKPOINT,
+                isChecked: breakpoint === TABLET_BREAKPOINT + 1,
               },
               {
                 id: MOBILE_BREAKPOINT.toString(),
