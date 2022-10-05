@@ -104,13 +104,20 @@ export const MembersTable: FC<MembersTableProps> = ({ devIdMembers }) => {
       <Table
         className={elMb11}
         rows={members.data.map((member) => {
-          const { name, jobTitle, status, role, gitHubUsername, agreedTerms, email } = member
+          const { name, jobTitle, status, role, gitHubUsername, agreedTerms, created, email } = member
           return {
             cells: [
               {
                 label: 'Developer Name',
                 value: name,
                 cellHasDarkText: true,
+                narrowTable: {
+                  showLabel: true,
+                },
+              },
+              {
+                label: 'Member Email',
+                value: email,
                 narrowTable: {
                   showLabel: true,
                 },
@@ -146,6 +153,13 @@ export const MembersTable: FC<MembersTableProps> = ({ devIdMembers }) => {
               {
                 label: 'Agreed Terms Date',
                 value: agreedTerms ? toLocalTime(agreedTerms) : '-',
+                narrowTable: {
+                  showLabel: true,
+                },
+              },
+              {
+                label: 'Created Date',
+                value: created ? toLocalTime(created) : '-',
                 narrowTable: {
                   showLabel: true,
                 },

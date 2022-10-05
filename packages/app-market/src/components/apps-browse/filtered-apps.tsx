@@ -73,7 +73,9 @@ export const FilteredAppsCollection: FC<FiltersAppsCollectionProps> = ({ collect
       </Grid>
       {!appsLoading && apps?.data && Boolean(!apps.data.length) && (
         <PersistentNotification isInline isExpanded isFullWidth intent="secondary">
-          No apps match your criteria. Please adjust your search query and filters.
+          Unfortunately, there are &lsquo;No Results&rsquo; matching your search term or filtering options. Some of our
+          categories have been recently added and our developers are updating their listings so, please come back and
+          check again. Alternately, you could try searching using by app name or developer.
         </PersistentNotification>
       )}
     </>
