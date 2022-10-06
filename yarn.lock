@@ -14307,6 +14307,7 @@ __metadata:
     react-dom: ^18.2.0
     react-frame-component: ^5.2.3
     react-ga: ^2.7.0
+    react-horizontal-scrolling-menu: ^3.2.0
     react-router: ^5.3.3
     react-router-dom: ^5.3.3
     react-tooltip: ^4.2.21
@@ -35108,6 +35109,17 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"react-horizontal-scrolling-menu@npm:^3.2.0":
+  version: 3.2.0
+  resolution: "react-horizontal-scrolling-menu@npm:3.2.0"
+  dependencies:
+    smooth-scroll-into-view-if-needed: ^1.1.32
+  peerDependencies:
+    react: ">=16.8"
+  checksum: 5f19f05ec8181aea919de6cf63feff2c173710e094c8eb0f1f762c184abdf83a4cdae857e9534d1aca028ac2a88f07bcb90c6a1d6db79a29c92f663d637843f8
+  languageName: node
+  linkType: hard
+
 "react-icons@npm:^3.11.0":
   version: 3.11.0
   resolution: "react-icons@npm:3.11.0"
@@ -37130,7 +37142,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"scroll-into-view-if-needed@npm:^2.2.29":
+"scroll-into-view-if-needed@npm:^2.2.28, scroll-into-view-if-needed@npm:^2.2.29":
   version: 2.2.29
   resolution: "scroll-into-view-if-needed@npm:2.2.29"
   dependencies:
@@ -38018,6 +38030,15 @@ resolve@^2.0.0-next.3:
   version: 4.1.0
   resolution: "smart-buffer@npm:4.1.0"
   checksum: 1db847dcf92c06b36e96aace965e00aec5caccd65c8fd60e0c284c5ad9dabe7f16ef4a60a34dd3c4ccc245a8393071e646fc94fc95f111c25e8513fd9efa6ed5
+  languageName: node
+  linkType: hard
+
+"smooth-scroll-into-view-if-needed@npm:^1.1.32":
+  version: 1.1.33
+  resolution: "smooth-scroll-into-view-if-needed@npm:1.1.33"
+  dependencies:
+    scroll-into-view-if-needed: ^2.2.28
+  checksum: feb4c58fd18a5372121beb9d6b6711092fe8766fce5622f454036066e9f14735cc45dddc1d0f09a9437fdc186083c095c569066671db0f1365adbff02da0cd43
   languageName: node
   linkType: hard
 
