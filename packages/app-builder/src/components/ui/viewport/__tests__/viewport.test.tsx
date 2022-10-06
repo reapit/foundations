@@ -54,6 +54,15 @@ describe('Viewport', () => {
   beforeEach(() => {
     jest.spyOn(routeData, 'useParams').mockReturnValue(mockParams)
     jest.spyOn(routeData, 'useLocation').mockReturnValue(mockLocation)
+
+    // IntersectionObserver isn't available in test environment
+    const mockIntersectionObserver = jest.fn()
+    mockIntersectionObserver.mockReturnValue({
+      observe: () => null,
+      unobserve: () => null,
+      disconnect: () => null,
+    })
+    window.IntersectionObserver = mockIntersectionObserver
   })
   it('should match a snapshot', () => {
     const { asFragment } = render(
