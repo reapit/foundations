@@ -43,7 +43,7 @@ describe('Header', () => {
       <MockedProvider>
         <MemoryRouter>
           <Editor>
-            <Header setBreakpoint={undefined} breakpoint={undefined} showNewPage={undefined} />
+            <Header setBreakpoint={undefined} breakpoint={undefined} showNewPage setShowNewPage={undefined} />
           </Editor>
         </MemoryRouter>
       </MockedProvider>,

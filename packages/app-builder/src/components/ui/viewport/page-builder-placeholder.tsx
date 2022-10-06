@@ -354,16 +354,23 @@ const FormPageWithEntity = ({ entityName }: { entityName: string }) => (
   </PlaceholderInfoBox>
 )
 
-export const PageBuilderPlaceholder = ({ newPage }: { newPage?: Partial<NewPageType> }) => (
+export const PageBuilderPlaceholder = ({ newPage, style }: { style: any; newPage?: Partial<NewPageType> }) => (
   <>
-    <PageBuilderContainer>
+    <PageBuilderContainer style={style}>
       {!newPage?.pageType && <NoPageType />}
       {!newPage?.entity && newPage?.pageType === 'table' && <TablePageType />}
       {!newPage?.entity && newPage?.pageType === 'form' && <FormPageType />}
       {newPage?.entity && newPage.pageType === 'table' && <TablePageWithEntity entityName={newPage.entity} />}
       {newPage?.entity && newPage.pageType === 'form' && <FormPageWithEntity entityName={newPage.entity} />}
     </PageBuilderContainer>
-    <MonitorStand width="485" height="76" viewBox="0 0 485 76" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <MonitorStand
+      style={style}
+      width="485"
+      height="76"
+      viewBox="0 0 485 76"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <rect y="56" width="485" height="20" rx="10" fill="white" />
       <rect x="193" width="100" height="65" rx="10" fill="white" />
     </MonitorStand>

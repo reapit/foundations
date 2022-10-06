@@ -23,7 +23,8 @@ describe('PageSelector', () => {
     const { asFragment } = render(
       <MockedProvider>
         <PageSelector
-          showNewPage={function (): void {
+          showNewPage
+          setShowNewPage={function (): void {
             throw new Error('Function not implemented.')
           }}
         />

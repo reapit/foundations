@@ -25,6 +25,12 @@ export const htmlRender = css`
     margin-left: 1rem;
   }
 
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+
   ${forMobileAndAbove} {
     font-size: var(--font-size-default);
   }
