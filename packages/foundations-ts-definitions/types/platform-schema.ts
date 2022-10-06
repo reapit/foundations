@@ -2253,6 +2253,7 @@ export interface Companies {
   typeId?: string
   negotiatorId?: string[]
   officeId?: string[]
+  contactDetail?: string[]
   fromArchive?: boolean
   createdFrom?: string
   createdTo?: string
