@@ -344,7 +344,7 @@ export const Table = forwardRef<HTMLDivElement, TableProps & { disabled?: boolea
         name: object.name,
         label: `View ${uppercaseSentence(object.name)}s`,
       })),
-    ]
+    ].filter(({ name }) => includedFields.map((s) => s.toLowerCase()).includes(name.toLowerCase().split(' ').join('')))
 
     const data = searchResults || listResults
     const hasExpandableContent = !!specialsAndSubobjects.length || showControls
@@ -401,7 +401,7 @@ export const Table = forwardRef<HTMLDivElement, TableProps & { disabled?: boolea
           {loading && !displayNoType && <Loader label="Loading" />}
           {displayTable && (
             <ELTable
-              numberColumns={firstRow.cells.length + (showControls ? 1 : 0)}
+              numberColumns={firstRow.cells.length + 1}
               style={{ flex: 1, opacity: searchLoading ? 0.5 : 1, transition: '300ms opacity' }}
               rows={rows || undefined}
             />

@@ -1,18 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { ROOT_NODE, useEditor } from '@craftjs/core'
-import {
-  elFlex,
-  elFlex1,
-  elFlexColumn,
-  elFlexRow,
-  elHFull,
-  elMAuto,
-  elPb6,
-  elPt9,
-  elPx6,
-  elWFull,
-  Loader,
-} from '@reapit/elements'
+import { elFlex, elFlex1, elFlexColumn, elFlexRow, elHFull, elMAuto, elPb6, elWFull, Loader } from '@reapit/elements'
 import { cx } from '@linaria/core'
 import { styled } from '@linaria/react'
 import IFrame from 'react-frame-component'
@@ -32,6 +20,7 @@ import { PageBuilderPlaceholder } from './page-builder-placeholder'
 import { constructPageNodes } from '../construct-page-nodes'
 import { useObjectMutate } from '@/components/hooks/objects/use-object-mutate'
 import { useCreatePage, useUpdatePageNodes } from '@/components/hooks/apps/use-update-app'
+import { TabBar } from './tab-bar'
 
 const Container = styled.div`
   flex: 1;
@@ -61,7 +50,7 @@ const validateNodes = (nodes: Node[]) => {
 }
 
 export const Viewport = ({ children, iframeRef, deserialize, rendererDivRefHandler }) => {
-  const [breakpoint, setBreakpoint] = useState(TABLET_BREAKPOINT)
+  const [breakpoint, setBreakpoint] = useState(TABLET_BREAKPOINT + 1)
   const { zoom } = useZoom()
   const [loadedPageId, setLoadedPageId] = useState<string | undefined>()
 
@@ -107,7 +96,12 @@ export const Viewport = ({ children, iframeRef, deserialize, rendererDivRefHandl
 
   return (
     <div className={cx(elFlex1, elFlexColumn, justifyStretch, hScreen)}>
-      <Header breakpoint={breakpoint} setBreakpoint={setBreakpoint} showNewPage={() => setShowNewPage(true)} />
+      <Header
+        breakpoint={breakpoint}
+        setBreakpoint={setBreakpoint}
+        showNewPage={showNewPage}
+        setShowNewPage={setShowNewPage}
+      />
       <div className={cx(elFlex, elFlexRow)} style={{ height: 'calc(100vh - 56px)', width: '100vw' }}>
         <NewPage
           showNewPage={showNewPage}
@@ -145,44 +139,58 @@ export const Viewport = ({ children, iframeRef, deserialize, rendererDivRefHandl
           createNewPageLoading={createNewPageLoading}
         />
         <Container>
-          {showNewPage ? (
-            <PageBuilderPlaceholder newPage={newPage} />
-          ) : (
-            <IFrame
+          <TabBar
+            style={{
+              transition: 'width 350ms',
+              width: breakpoint,
+              flex: 1,
+              margin: 'auto',
+              display: showNewPage ? 'none' : 'flex',
+            }}
+          />
+          <IFrame
+            style={{
+              transition: 'width 350ms',
+              width: breakpoint,
+              flex: 1,
+              margin: 'auto',
+              display: showNewPage ? 'none' : 'flex',
+            }}
+            ref={iframeRef}
+            head={
+              <>
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+              </>
+            }
+          >
+            <div
+              id="page-container"
+              className={cx(elFlex, elFlex1, elHFull, elFlexColumn)}
               style={{
-                transition: 'width 350ms',
-                width: breakpoint,
-                flex: 1,
-                margin: 'auto',
+                transition: 'transform 350ms',
+                transform: `scale(${zoom})`,
+                transformOrigin: 'top left',
               }}
-              ref={iframeRef}
-              head={
-                <>
-                  <meta name="viewport" content="width=device-width, initial-scale=1" />
-                </>
-              }
             >
               <div
-                id="page-container"
-                className={cx(elFlex, elFlex1, elHFull, elFlexColumn, elPx6)}
-                style={{
-                  transition: 'transform 350ms',
-                  transform: `scale(${zoom})`,
-                  transformOrigin: 'top left',
-                }}
+                id="craftjs-renderer"
+                className={cx(elFlex1, elHFull, elWFull, transition, elPb6, overflowAuto)}
+                ref={rendererDivRefHandler}
               >
-                <div
-                  id="craftjs-renderer"
-                  className={cx(elFlex1, elHFull, elWFull, transition, elPb6, overflowAuto)}
-                  ref={rendererDivRefHandler}
-                >
-                  <div className={cx(elFlex, elFlexRow, flexAlignStretch, relative, elPt9, elMAuto)}>
-                    <InjectFrameStyles>{loading ? <Loader fullPage /> : children}</InjectFrameStyles>
-                  </div>
+                <div className={cx(elFlex, elFlexRow, flexAlignStretch, relative, elMAuto)}>
+                  <InjectFrameStyles>
+                    <div>{loading ? <Loader fullPage /> : children}</div>
+                  </InjectFrameStyles>
                 </div>
               </div>
-            </IFrame>
-          )}
+            </div>
+          </IFrame>
+          <PageBuilderPlaceholder
+            newPage={newPage}
+            style={{
+              display: !showNewPage ? 'none' : 'flex',
+            }}
+          />
         </Container>
         <Sidebar isCollapsed={showNewPage} />
       </div>

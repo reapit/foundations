@@ -1,5 +1,4 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const WebpackFavicons = require('webpack-favicons')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
 const CopyPlugin = require('copy-webpack-plugin')
@@ -9,6 +8,7 @@ const { PATHS } = require('./constants')
 const { getVersionTag, getRef } = require('./utils')
 const WorkboxWebpackPlugin = require('workbox-webpack-plugin')
 const NodePolyfillPlugin = require('node-polyfill-webpack-plugin')
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
 const EXCLUDE_PACKAGES = ['linaria']
 
@@ -165,13 +165,13 @@ const webpackConfigProd = ({ appName }) => {
       new MiniCssExtractPlugin({
         filename: '[name].[contenthash].css',
       }),
-      new WebpackFavicons({
-        src: PATHS.logo,
-        background: '#000',
-        theme_color: '#262F69',
+      new FaviconsWebpackPlugin({
+        logo: PATHS.logo,
         favicons: {
           appName,
           developerName: 'Reapit Ltd',
+          developerURL: null, // prevent retrieving from the nearest package.json
+          background: '#000',
           theme_color: '#262F69',
           icons: {
             favicons: true,
