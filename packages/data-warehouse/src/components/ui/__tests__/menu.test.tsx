@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { render } from '../../../tests/react-testing'
 import { Menu, generateMenuConfig, MenuProps } from '../menu'
 import { Router } from 'react-router'

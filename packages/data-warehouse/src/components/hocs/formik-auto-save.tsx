@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { connect } from 'formik'
 import isEqual from 'lodash.isequal'
 import { FormikContextType } from '@reapit/elements-legacy'

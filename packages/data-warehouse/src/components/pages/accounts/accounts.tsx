@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect, useContext, FC } from 'react'
 import { Button, H3, H5, Section, Helper, Loader, Content } from '@reapit/elements-legacy'
 import { PagedApiResponse } from '../../../types/core'
 import { AccountModel } from '../../../types/accounts'
@@ -13,7 +13,7 @@ import { useReapitConnect } from '@reapit/connect-session'
 import { getCurrentSubscription, handleGetSubscriptions } from '../../hooks/subscriptions-handlers'
 import { handleGetAccounts } from './account-handlers'
 
-export const Accounts: React.FC = () => {
+export const Accounts: FC = () => {
   const [subscriptions, setSubscriptions] = useState<SubscriptionModelPagedResult>()
   const [subscriptionsLoading, setSubscriptionsLoading] = useState<boolean>(false)
   const [accounts, setAccounts] = useState<PagedApiResponse<AccountModel>>()

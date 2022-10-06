@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { Route, Router as BrowserRouter, Switch, Redirect } from 'react-router-dom'
 import { createBrowserHistory, History } from 'history'
 import Routes from '../constants/routes'
@@ -33,9 +33,7 @@ export const catchChunkError = (
 const LoginPage = React.lazy(() => catchChunkError(() => import('../components/pages/login')))
 const AccountsPage = React.lazy(() => catchChunkError(() => import('../components/pages/accounts/accounts')))
 const DataPage = React.lazy(() => catchChunkError(() => import('../components/pages/data/data')))
-const HealthPage = React.lazy(() => catchChunkError(() => import('../components/pages/health')))
 const SettingsPage = React.lazy(() => catchChunkError(() => import('../components/pages/settings')))
-const AnalyticsPage = React.lazy(() => catchChunkError(() => import('../components/pages/analytics/analytics')))
 
 const Router = () => (
   <BrowserRouter history={history}>
@@ -48,9 +46,7 @@ const Router = () => (
             <Switch>
               <Route path={Routes.ACCOUNTS} component={AccountsPage} />
               <Route path={Routes.DATA} component={DataPage} />
-              <Route path={Routes.HEALTH} component={HealthPage} />
               <Route path={Routes.SETTINGS} component={SettingsPage} />
-              <Route path={Routes.ANALYTICS} component={AnalyticsPage} />
             </Switch>
           </SubscriptionRouteWrapper>
         </PrivateRouteWrapper>

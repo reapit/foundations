@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { FC } from 'react'
 import { useReapitConnect } from '@reapit/connect-session'
 import { Loader, Section, FlexContainerResponsive, AppNavContainer, FlexContainerBasic } from '@reapit/elements-legacy'
 import Menu from '@/components/ui/menu'
@@ -12,7 +12,7 @@ const { Suspense } = React
 
 export type PrivateRouteWrapperProps = {}
 
-export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperProps> = ({ children }) => {
+export const PrivateRouteWrapper: FC<PrivateRouteWrapperProps> = ({ children }) => {
   const { connectSession, connectInternalRedirect } = useReapitConnect(reapitConnectBrowserSession)
   const location = useLocation()
   const currentUri = `${location.pathname}${location.search}`

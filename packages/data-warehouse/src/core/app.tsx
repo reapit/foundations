@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import Router from './router'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { injectSwitchModeToWindow, PortalProvider } from '@reapit/elements-legacy'
