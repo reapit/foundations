@@ -75,7 +75,7 @@ export const FilteredAppsCollection: FC<FiltersAppsCollectionProps> = ({ collect
         <PersistentNotification isInline isExpanded isFullWidth intent="secondary">
           Unfortunately, there are &lsquo;No Results&rsquo; matching your search term or filtering options. Some of our
           categories have been recently added and our developers are updating their listings so, please come back and
-          check again. Alternately, you could try searching using by app name or developer.
+          check again. Alternately, you could try searching by app or developer name.
         </PersistentNotification>
       )}
     </>
