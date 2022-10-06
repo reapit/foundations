@@ -386,7 +386,15 @@ export const AppRevisionComparison: FC<AppRevisionComparisonProps> = ({ approval
           <BodyText hasGreyText>
             {media.type} {media.order > 0 && <span>{media.order}</span>}
           </BodyText>
-          <DiffMedia changedMedia={media.changedMedia} currentMedia={media.currentMedia} type={media.type} />
+          {media.type === 'video' ? (
+            <DiffViewer
+              currentString={media.currentMedia ?? ''}
+              changedString={media.changedMedia ?? ''}
+              type="words"
+            />
+          ) : (
+            <DiffMedia changedMedia={media.changedMedia} currentMedia={media.currentMedia} type={media.type} />
+          )}
         </div>
       ))}
       <ButtonGroup alignment="center">
