@@ -1,26 +1,25 @@
-import * as Sentry from '@sentry/browser'
-import React from 'react'
+import * as Sentry from '@sentry/react'
+import React, { ComponentType } from 'react'
 import { createRoot } from 'react-dom/client'
-import ReactGA from 'react-ga'
-import { Config } from '@/types/global'
+import { Config } from '../types/global'
 import { getMarketplaceGlobalsByKey } from '@reapit/elements-legacy'
 import { logger } from '@reapit/utils-react'
+import { BrowserTracing } from '@sentry/tracing'
 
 // Init global config
 window.reapit = {
   config: {
     appEnv: 'local',
-    sentryDns: '',
+    sentryDsn: '',
     connectClientId: '',
     connectUserPoolId: '',
-    googleAnalyticsKey: '',
     connectOAuthUrl: '',
     platformApiUrl: '',
     marketplaceUrl: '',
   },
 }
 
-export const renderApp = (Component: React.ComponentType) => {
+export const renderApp = (Component: ComponentType) => {
   const rootElement = document.querySelector('#root') as Element
   const isDesktop = getMarketplaceGlobalsByKey()
   const html = document.querySelector('html')
@@ -39,17 +38,14 @@ const run = async () => {
     const config = (await configRes.json()) as Config
     const isLocal = config.appEnv !== 'production'
 
-    if (!isLocal && config.sentryDns && !window.location.hostname.includes('prod.paas')) {
+    if (!isLocal && config.sentryDsn) {
       Sentry.init({
+        integrations: [new BrowserTracing()],
         release: process.env.APP_VERSION,
-        dsn: config.sentryDns,
+        dsn: config.sentryDsn,
         environment: config.appEnv,
+        tracesSampleRate: 1.0,
       })
-    }
-
-    if (!isLocal && config.googleAnalyticsKey) {
-      ReactGA.initialize(config.googleAnalyticsKey)
-      ReactGA.pageview(window.location.pathname + window.location.search)
     }
 
     window.reapit.config = config
@@ -65,10 +61,7 @@ const run = async () => {
 }
 
 if (module['hot']) {
-  module['hot'].accept('./app', () => {
-    const NextApp = require('./app').default
-    renderApp(NextApp)
-  })
+  module['hot'].accept()
 }
 
 run()

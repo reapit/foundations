@@ -5,7 +5,7 @@ import Menu from '@/components/ui/menu'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { useLocation, Redirect } from 'react-router'
 import Routes from '../constants/routes'
-import ErrorBoundary from '../components/hocs/error-boundary'
+import ErrorBoundary from '../components/error-boundary'
 import Toast from '../components/ui/toast'
 
 const { Suspense } = React
