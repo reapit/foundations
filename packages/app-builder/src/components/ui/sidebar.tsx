@@ -11,7 +11,6 @@ import Toolbox from './toolbox'
 
 export const SidebarDiv = styled.div<{ isCollapsed: boolean }>`
   display: flex;
-  width: 337px;
   background: #f8f8f8;
   margin-top: 5px;
   border-top-left-radius: 4px;
@@ -19,6 +18,9 @@ export const SidebarDiv = styled.div<{ isCollapsed: boolean }>`
   width: ${({ isCollapsed }) => {
     return isCollapsed ? 0 : '337px'
   }};
+  > * {
+    min-width: 337px;
+  }
 `
 
 const Sidebar = ({ isCollapsed }: { isCollapsed: boolean }) => {

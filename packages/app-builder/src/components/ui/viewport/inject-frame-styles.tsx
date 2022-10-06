@@ -3,7 +3,7 @@ import { FrameContext } from 'react-frame-component'
 
 const isLocal = window.reapit.config.appEnv === 'local'
 
-export const InjectFrameStyles = ({ children }: { children: React.ReactChildren }) => {
+export const InjectFrameStyles = ({ children }: { children: React.ReactNode }) => {
   const { document: frame } = useContext(FrameContext)
   useEffect(() => {
     const links = Array.from(document.querySelectorAll('link')).filter(({ rel }) => rel === 'stylesheet')
