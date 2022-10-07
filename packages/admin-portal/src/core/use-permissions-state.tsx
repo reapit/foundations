@@ -10,8 +10,9 @@ export interface PermissionsStateHook {
 
 export const handleAccessPermissions = (connectSession: ReapitConnectSession | null) => (): PermissionsStateHook => {
   const groups = connectSession?.loginIdentity?.groups ?? []
-  const hasReadAccess = groups.includes('ReapitEmployee')
   const hasWriteAccess = groups.includes('ReapitEmployeeFoundationsAdmin')
+  const readAccess = groups.includes('ReapitEmployee')
+  const hasReadAccess = readAccess && !hasWriteAccess
 
   return {
     hasReadAccess,
