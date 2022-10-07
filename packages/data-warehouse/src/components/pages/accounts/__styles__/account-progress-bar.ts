@@ -1,10 +1,9 @@
 import { styled } from '@linaria/react'
-import { grey, reapitDarkblueDarkened, reapitLightestblue } from '../../../../styles/colors'
 
 export const ProgressBar = styled.div<{ width: number }>`
   width: ${(props) => props.width}%;
-  background-color: ${reapitDarkblueDarkened};
-  color: ${reapitLightestblue};
+  background-color: var(--intent-primary);
+  color: var(--color-white);
   transition: 0.5s linear width;
   font-weight: bold;
   padding: 0.5rem;
@@ -26,9 +25,7 @@ export const ProgressMessageText = styled.div`
   animation-fill-mode: both;
   animation-delay: 0.4s;
   animation-name: fade-in;
-  text-align: center;
-  font-weight: bold;
-  color: ${grey};
+  color: var(--color-grey-dark);
 
   span {
     margin-left: 0.5rem;

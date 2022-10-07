@@ -67,9 +67,9 @@ export const Accounts: FC = () => {
             setPercentageComplete={setPercentageComplete}
           />
         </Modal>
-        {provisionInProgress && (
-          <AccountProgressBar percentageComplete={percentageComplete} setPercentageComplete={setPercentageComplete} />
-        )}
+        {/* {provisionInProgress && ( */}
+        <AccountProgressBar percentageComplete={percentageComplete} setPercentageComplete={setPercentageComplete} />
+        {/* )} */}
         <BodyText hasGreyText>
           In order to access your organisations data warehouse, you must first create the user accounts to access it.
           You are to manage and create as many user accounts as you wish without any additional costs. We recommend that

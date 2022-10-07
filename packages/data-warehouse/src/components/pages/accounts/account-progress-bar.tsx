@@ -1,6 +1,6 @@
+import { elMb11, elMb7, ProgressBarSteps } from '@reapit/elements'
 import React, { Dispatch, SetStateAction, useEffect } from 'react'
-import { Section } from '@reapit/elements-legacy'
-import { ProgressBar, ProgressMessageText } from './__styles__/account-progress-bar'
+import { ProgressMessageText } from './__styles__/account-progress-bar'
 
 export interface AccountProgressBarProps {
   percentageComplete: number
@@ -42,10 +42,10 @@ const AccountProgressBar: React.FC<AccountProgressBarProps> = ({ percentageCompl
   }, [percentageComplete])
 
   return (
-    <Section>
-      <ProgressBar width={percentageComplete}>{percentageComplete.toFixed(0)}%</ProgressBar>
+    <div className={elMb11}>
+      <ProgressBarSteps className={elMb7} currentStep={percentageComplete} showLabel={false} numberSteps={100} />
       <ProgressMessage percentageComplete={percentageComplete} />
-    </Section>
+    </div>
   )
 }
 
