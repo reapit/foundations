@@ -6,19 +6,19 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="ecbqyq6"
+        class="el-snack-holder"
       />
       <div
-        class="ec47sgk ejadz4k"
+        class="el-mb11 el-table"
       />
     </div>
   </body>,
   "container": <div>
     <div
-      class="ecbqyq6"
+      class="el-snack-holder"
     />
     <div
-      class="ec47sgk ejadz4k"
+      class="el-mb11 el-table"
     />
   </div>,
   "debug": [Function],

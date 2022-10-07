@@ -6,20 +6,20 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="ecbqyq6"
+        class="el-snack-holder"
       />
       <section
-        class="eukst9x"
+        class="el-page-container"
       >
         <div
-          class="epibvz0 evmehgn e1qwk99x e15e3rd4 erhlo5n"
+          class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
         >
           <div
-            class="eta6kcl"
+            class="el-pn-icon"
             data-testid="close-icon"
           >
             <span
-              class="ej9yrfo"
+              class="el-icon"
             >
               <svg
                 fill="none"
@@ -36,7 +36,7 @@ Object {
             </span>
           </div>
           <div
-            class="e1geon40"
+            class="el-pn-content"
           >
             Unfortunately, we have no record of a current Data Warehouse subscription for your account. If you are interested in this Reapit product, please contact your CSM and they will take you through the onboarding process.
           </div>
@@ -46,20 +46,20 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="ecbqyq6"
+      class="el-snack-holder"
     />
     <section
-      class="eukst9x"
+      class="el-page-container"
     >
       <div
-        class="epibvz0 evmehgn e1qwk99x e15e3rd4 erhlo5n"
+        class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
       >
         <div
-          class="eta6kcl"
+          class="el-pn-icon"
           data-testid="close-icon"
         >
           <span
-            class="ej9yrfo"
+            class="el-icon"
           >
             <svg
               fill="none"
@@ -76,7 +76,7 @@ Object {
           </span>
         </div>
         <div
-          class="e1geon40"
+          class="el-pn-content"
         >
           Unfortunately, we have no record of a current Data Warehouse subscription for your account. If you are interested in this Reapit product, please contact your CSM and they will take you through the onboarding process.
         </div>

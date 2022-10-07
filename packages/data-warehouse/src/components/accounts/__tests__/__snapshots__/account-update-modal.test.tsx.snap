@@ -6,32 +6,32 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="ecbqyq6"
+        class="el-snack-holder"
       />
       <form>
         <p
-          class="e11jaxfn e1wasvgh"
+          class="el-has-grey-text el-body-text"
         >
           Enter new password below
         </p>
         <div
-          class="ec47sgk ee6e7by"
+          class="el-mb11 el-form-layout"
         >
           <div
-            class="e1ksxx4v"
+            class="el-input-wrap"
           >
             <div
-              class="e1979rmu"
+              class="el-input-group"
             >
               <input
-                class="e1urjlvd"
+                class="el-input"
                 id="test-static-id"
                 name="username"
                 placeholder="Your username here"
                 type="text"
               />
               <label
-                class="e1nbkkrq"
+                class="el-label"
                 for="test-static-id"
               >
                 Username
@@ -39,20 +39,20 @@ Object {
             </div>
           </div>
           <div
-            class="e1ksxx4v"
+            class="el-input-wrap"
           >
             <div
-              class="e1979rmu"
+              class="el-input-group"
             >
               <input
-                class="e1urjlvd"
+                class="el-input"
                 id="test-static-id"
                 name="password"
                 placeholder="*********"
                 type="password"
               />
               <label
-                class="e1nbkkrq"
+                class="el-label"
                 for="test-static-id"
               >
                 Password
@@ -60,20 +60,20 @@ Object {
             </div>
           </div>
           <div
-            class="e1ksxx4v"
+            class="el-input-wrap"
           >
             <div
-              class="e1979rmu"
+              class="el-input-group"
             >
               <input
-                class="e1urjlvd"
+                class="el-input"
                 id="test-static-id"
                 name="passwordConfirm"
                 placeholder="*********"
                 type="password"
               />
               <label
-                class="e1nbkkrq"
+                class="el-label"
                 for="test-static-id"
               >
                 Confirm Password
@@ -82,19 +82,19 @@ Object {
           </div>
         </div>
         <div
-          class="eay05y4"
+          class="el-button-group"
         >
           <div
-            class="ej73pla ebqwrow"
+            class="el-button-group-align-center el-button-group-inner"
           >
             <button
-              class="e1ymtwpu eqfkc7t"
+              class="el-intent-low el-button"
               type="button"
             >
               Cancel
             </button>
             <button
-              class="ebee6r1 eqfkc7t"
+              class="el-intent-primary el-button"
               type="submit"
             >
               Update
@@ -106,32 +106,32 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="ecbqyq6"
+      class="el-snack-holder"
     />
     <form>
       <p
-        class="e11jaxfn e1wasvgh"
+        class="el-has-grey-text el-body-text"
       >
         Enter new password below
       </p>
       <div
-        class="ec47sgk ee6e7by"
+        class="el-mb11 el-form-layout"
       >
         <div
-          class="e1ksxx4v"
+          class="el-input-wrap"
         >
           <div
-            class="e1979rmu"
+            class="el-input-group"
           >
             <input
-              class="e1urjlvd"
+              class="el-input"
               id="test-static-id"
               name="username"
               placeholder="Your username here"
               type="text"
             />
             <label
-              class="e1nbkkrq"
+              class="el-label"
               for="test-static-id"
             >
               Username
@@ -139,20 +139,20 @@ Object {
           </div>
         </div>
         <div
-          class="e1ksxx4v"
+          class="el-input-wrap"
         >
           <div
-            class="e1979rmu"
+            class="el-input-group"
           >
             <input
-              class="e1urjlvd"
+              class="el-input"
               id="test-static-id"
               name="password"
               placeholder="*********"
               type="password"
             />
             <label
-              class="e1nbkkrq"
+              class="el-label"
               for="test-static-id"
             >
               Password
@@ -160,20 +160,20 @@ Object {
           </div>
         </div>
         <div
-          class="e1ksxx4v"
+          class="el-input-wrap"
         >
           <div
-            class="e1979rmu"
+            class="el-input-group"
           >
             <input
-              class="e1urjlvd"
+              class="el-input"
               id="test-static-id"
               name="passwordConfirm"
               placeholder="*********"
               type="password"
             />
             <label
-              class="e1nbkkrq"
+              class="el-label"
               for="test-static-id"
             >
               Confirm Password
@@ -182,19 +182,19 @@ Object {
         </div>
       </div>
       <div
-        class="eay05y4"
+        class="el-button-group"
       >
         <div
-          class="ej73pla ebqwrow"
+          class="el-button-group-align-center el-button-group-inner"
         >
           <button
-            class="e1ymtwpu eqfkc7t"
+            class="el-intent-low el-button"
             type="button"
           >
             Cancel
           </button>
           <button
-            class="ebee6r1 eqfkc7t"
+            class="el-intent-primary el-button"
             type="submit"
           >
             Update

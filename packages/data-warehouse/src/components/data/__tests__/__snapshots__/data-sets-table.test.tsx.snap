@@ -6,37 +6,37 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="ecbqyq6"
+        class="el-snack-holder"
       />
       <div
-        class="ec47sgk ejadz4k"
+        class="el-mb11 el-table"
         data-has-call-to-action="false"
         data-has-expandable-action="true"
         data-num-columns-excl-action-col="3"
       >
         <div
-          class="e1ijk5il"
+          class="el-table-headers-row"
         >
           <div
-            class="e1co3p83"
+            class="el-table-header"
           >
             Name
           </div>
           <div
-            class="e1co3p83"
+            class="el-table-header"
           >
             Provider
           </div>
           <div
-            class="e1co3p83"
+            class="el-table-header"
           >
             Description
           </div>
           <div
-            class="e1co3p83"
+            class="el-table-header"
           >
             <span
-              class="ej9yrfo"
+              class="el-icon"
               style="font-size: 1.2rem;"
             >
               <svg
@@ -57,46 +57,46 @@ Object {
           </div>
         </div>
         <div
-          class="es3tf1j"
+          class="el-table-row-container"
         >
           <div
-            class="e1qy4g2u"
+            class="el-table-row"
           >
             <div
-              class="e1n0yfsy e1gfmg2g"
+              class="el-table-cell-has-dark-text el-table-cell"
             >
               <div
-                class="e4zpaja"
+                class="el-table-cell-content"
                 data-narrow-label="Name"
               >
                 RPS Database
               </div>
             </div>
             <div
-              class="e1n0yfsy e1gfmg2g"
+              class="el-table-cell-has-dark-text el-table-cell"
             >
               <div
-                class="e4zpaja"
+                class="el-table-cell-content"
                 data-narrow-label="Provider"
               >
                 Reapit Ltd
               </div>
             </div>
             <div
-              class="e1gfmg2g"
+              class="el-table-cell"
             >
               <div
-                class="e4zpaja"
+                class="el-table-cell-content"
                 data-narrow-label="Description"
               >
                 Access to legacy data
               </div>
             </div>
             <div
-              class="e1fmntjl"
+              class="el-table-expandable-row-trigger-cell"
             >
               <span
-                class="epibvz0 ej9yrfo"
+                class="el-intent-secondary el-icon"
               >
                 <svg
                   fill="none"
@@ -116,19 +116,19 @@ Object {
             </div>
           </div>
           <div
-            class="e3q521i"
+            class="el-table-expandable-row"
           >
             <div
-              class="eygkx5t"
+              class="el-table-expandable-container"
             >
               <div
-                class="eay05y4"
+                class="el-button-group"
               >
                 <div
-                  class="ej73pla ebqwrow"
+                  class="el-button-group-align-center el-button-group-inner"
                 >
                   <button
-                    class="ebee6r1 eqfkc7t"
+                    class="el-intent-primary el-button"
                   >
                     Create Share
                   </button>
@@ -138,46 +138,46 @@ Object {
           </div>
         </div>
         <div
-          class="es3tf1j"
+          class="el-table-row-container"
         >
           <div
-            class="e1qy4g2u"
+            class="el-table-row"
           >
             <div
-              class="e1n0yfsy e1gfmg2g"
+              class="el-table-cell-has-dark-text el-table-cell"
             >
               <div
-                class="e4zpaja"
+                class="el-table-cell-content"
                 data-narrow-label="Name"
               >
                 RPS Views
               </div>
             </div>
             <div
-              class="e1n0yfsy e1gfmg2g"
+              class="el-table-cell-has-dark-text el-table-cell"
             >
               <div
-                class="e4zpaja"
+                class="el-table-cell-content"
                 data-narrow-label="Provider"
               >
                 Reapit Ltd
               </div>
             </div>
             <div
-              class="e1gfmg2g"
+              class="el-table-cell"
             >
               <div
-                class="e4zpaja"
+                class="el-table-cell-content"
                 data-narrow-label="Description"
               >
                 Access to legacy views
               </div>
             </div>
             <div
-              class="e1fmntjl"
+              class="el-table-expandable-row-trigger-cell"
             >
               <span
-                class="epibvz0 ej9yrfo"
+                class="el-intent-secondary el-icon"
               >
                 <svg
                   fill="none"
@@ -197,19 +197,19 @@ Object {
             </div>
           </div>
           <div
-            class="e3q521i"
+            class="el-table-expandable-row"
           >
             <div
-              class="eygkx5t"
+              class="el-table-expandable-container"
             >
               <div
-                class="eay05y4"
+                class="el-button-group"
               >
                 <div
-                  class="ej73pla ebqwrow"
+                  class="el-button-group-align-center el-button-group-inner"
                 >
                   <button
-                    class="ebee6r1 eqfkc7t"
+                    class="el-intent-primary el-button"
                   >
                     Create Share
                   </button>
@@ -223,37 +223,37 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="ecbqyq6"
+      class="el-snack-holder"
     />
     <div
-      class="ec47sgk ejadz4k"
+      class="el-mb11 el-table"
       data-has-call-to-action="false"
       data-has-expandable-action="true"
       data-num-columns-excl-action-col="3"
     >
       <div
-        class="e1ijk5il"
+        class="el-table-headers-row"
       >
         <div
-          class="e1co3p83"
+          class="el-table-header"
         >
           Name
         </div>
         <div
-          class="e1co3p83"
+          class="el-table-header"
         >
           Provider
         </div>
         <div
-          class="e1co3p83"
+          class="el-table-header"
         >
           Description
         </div>
         <div
-          class="e1co3p83"
+          class="el-table-header"
         >
           <span
-            class="ej9yrfo"
+            class="el-icon"
             style="font-size: 1.2rem;"
           >
             <svg
@@ -274,46 +274,46 @@ Object {
         </div>
       </div>
       <div
-        class="es3tf1j"
+        class="el-table-row-container"
       >
         <div
-          class="e1qy4g2u"
+          class="el-table-row"
         >
           <div
-            class="e1n0yfsy e1gfmg2g"
+            class="el-table-cell-has-dark-text el-table-cell"
           >
             <div
-              class="e4zpaja"
+              class="el-table-cell-content"
               data-narrow-label="Name"
             >
               RPS Database
             </div>
           </div>
           <div
-            class="e1n0yfsy e1gfmg2g"
+            class="el-table-cell-has-dark-text el-table-cell"
           >
             <div
-              class="e4zpaja"
+              class="el-table-cell-content"
               data-narrow-label="Provider"
             >
               Reapit Ltd
             </div>
           </div>
           <div
-            class="e1gfmg2g"
+            class="el-table-cell"
           >
             <div
-              class="e4zpaja"
+              class="el-table-cell-content"
               data-narrow-label="Description"
             >
               Access to legacy data
             </div>
           </div>
           <div
-            class="e1fmntjl"
+            class="el-table-expandable-row-trigger-cell"
           >
             <span
-              class="epibvz0 ej9yrfo"
+              class="el-intent-secondary el-icon"
             >
               <svg
                 fill="none"
@@ -333,19 +333,19 @@ Object {
           </div>
         </div>
         <div
-          class="e3q521i"
+          class="el-table-expandable-row"
         >
           <div
-            class="eygkx5t"
+            class="el-table-expandable-container"
           >
             <div
-              class="eay05y4"
+              class="el-button-group"
             >
               <div
-                class="ej73pla ebqwrow"
+                class="el-button-group-align-center el-button-group-inner"
               >
                 <button
-                  class="ebee6r1 eqfkc7t"
+                  class="el-intent-primary el-button"
                 >
                   Create Share
                 </button>
@@ -355,46 +355,46 @@ Object {
         </div>
       </div>
       <div
-        class="es3tf1j"
+        class="el-table-row-container"
       >
         <div
-          class="e1qy4g2u"
+          class="el-table-row"
         >
           <div
-            class="e1n0yfsy e1gfmg2g"
+            class="el-table-cell-has-dark-text el-table-cell"
           >
             <div
-              class="e4zpaja"
+              class="el-table-cell-content"
               data-narrow-label="Name"
             >
               RPS Views
             </div>
           </div>
           <div
-            class="e1n0yfsy e1gfmg2g"
+            class="el-table-cell-has-dark-text el-table-cell"
           >
             <div
-              class="e4zpaja"
+              class="el-table-cell-content"
               data-narrow-label="Provider"
             >
               Reapit Ltd
             </div>
           </div>
           <div
-            class="e1gfmg2g"
+            class="el-table-cell"
           >
             <div
-              class="e4zpaja"
+              class="el-table-cell-content"
               data-narrow-label="Description"
             >
               Access to legacy views
             </div>
           </div>
           <div
-            class="e1fmntjl"
+            class="el-table-expandable-row-trigger-cell"
           >
             <span
-              class="epibvz0 ej9yrfo"
+              class="el-intent-secondary el-icon"
             >
               <svg
                 fill="none"
@@ -414,19 +414,19 @@ Object {
           </div>
         </div>
         <div
-          class="e3q521i"
+          class="el-table-expandable-row"
         >
           <div
-            class="eygkx5t"
+            class="el-table-expandable-container"
           >
             <div
-              class="eay05y4"
+              class="el-button-group"
             >
               <div
-                class="ej73pla ebqwrow"
+                class="el-button-group-align-center el-button-group-inner"
               >
                 <button
-                  class="ebee6r1 eqfkc7t"
+                  class="el-intent-primary el-button"
                 >
                   Create Share
                 </button>

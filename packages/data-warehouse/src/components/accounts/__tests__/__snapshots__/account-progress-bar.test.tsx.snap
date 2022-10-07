@@ -6,32 +6,32 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="ecbqyq6"
+        class="el-snack-holder"
       />
       <div
-        class="ec47sgk"
+        class="el-mb11"
       >
         <div
-          class="e1g28qe3 e1arnr1r"
+          class="el-mb7 el-progress-bar-container"
         >
           <div
-            class="e1rl7ran"
+            class="el-progress-bar-inner"
             style="width: 0%;"
           >
             <div
-              class="e1clux3b e7mm5ge"
+              class="el-progress-bar-item-dark-blue el-progress-bar-item"
             />
             <div
-              class="e6k8zhz e7mm5ge"
+              class="el-progress-bar-item-medium-blue el-progress-bar-item"
             />
             <div
-              class="eym3zl9 e7mm5ge"
+              class="el-progress-bar-item-light-blue el-progress-bar-item"
             />
             <div
-              class="e1x3rsk e7mm5ge"
+              class="el-progress-bar-item-lightest-blue el-progress-bar-item"
             />
             <div
-              class="ekyn7n1 e7mm5ge"
+              class="el-progress-bar-item-orange el-progress-bar-item"
             />
           </div>
         </div>
@@ -45,32 +45,32 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="ecbqyq6"
+      class="el-snack-holder"
     />
     <div
-      class="ec47sgk"
+      class="el-mb11"
     >
       <div
-        class="e1g28qe3 e1arnr1r"
+        class="el-mb7 el-progress-bar-container"
       >
         <div
-          class="e1rl7ran"
+          class="el-progress-bar-inner"
           style="width: 0%;"
         >
           <div
-            class="e1clux3b e7mm5ge"
+            class="el-progress-bar-item-dark-blue el-progress-bar-item"
           />
           <div
-            class="e6k8zhz e7mm5ge"
+            class="el-progress-bar-item-medium-blue el-progress-bar-item"
           />
           <div
-            class="eym3zl9 e7mm5ge"
+            class="el-progress-bar-item-light-blue el-progress-bar-item"
           />
           <div
-            class="e1x3rsk e7mm5ge"
+            class="el-progress-bar-item-lightest-blue el-progress-bar-item"
           />
           <div
-            class="ekyn7n1 e7mm5ge"
+            class="el-progress-bar-item-orange el-progress-bar-item"
           />
         </div>
       </div>
@@ -141,32 +141,32 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="ecbqyq6"
+        class="el-snack-holder"
       />
       <div
-        class="ec47sgk"
+        class="el-mb11"
       >
         <div
-          class="e1g28qe3 e1arnr1r"
+          class="el-mb7 el-progress-bar-container"
         >
           <div
-            class="e1rl7ran"
+            class="el-progress-bar-inner"
             style="width: 19%;"
           >
             <div
-              class="e1clux3b e7mm5ge"
+              class="el-progress-bar-item-dark-blue el-progress-bar-item"
             />
             <div
-              class="e6k8zhz e7mm5ge"
+              class="el-progress-bar-item-medium-blue el-progress-bar-item"
             />
             <div
-              class="eym3zl9 e7mm5ge"
+              class="el-progress-bar-item-light-blue el-progress-bar-item"
             />
             <div
-              class="e1x3rsk e7mm5ge"
+              class="el-progress-bar-item-lightest-blue el-progress-bar-item"
             />
             <div
-              class="ekyn7n1 e7mm5ge"
+              class="el-progress-bar-item-orange el-progress-bar-item"
             />
           </div>
         </div>
@@ -180,32 +180,32 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="ecbqyq6"
+      class="el-snack-holder"
     />
     <div
-      class="ec47sgk"
+      class="el-mb11"
     >
       <div
-        class="e1g28qe3 e1arnr1r"
+        class="el-mb7 el-progress-bar-container"
       >
         <div
-          class="e1rl7ran"
+          class="el-progress-bar-inner"
           style="width: 19%;"
         >
           <div
-            class="e1clux3b e7mm5ge"
+            class="el-progress-bar-item-dark-blue el-progress-bar-item"
           />
           <div
-            class="e6k8zhz e7mm5ge"
+            class="el-progress-bar-item-medium-blue el-progress-bar-item"
           />
           <div
-            class="eym3zl9 e7mm5ge"
+            class="el-progress-bar-item-light-blue el-progress-bar-item"
           />
           <div
-            class="e1x3rsk e7mm5ge"
+            class="el-progress-bar-item-lightest-blue el-progress-bar-item"
           />
           <div
-            class="ekyn7n1 e7mm5ge"
+            class="el-progress-bar-item-orange el-progress-bar-item"
           />
         </div>
       </div>
@@ -276,32 +276,32 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="ecbqyq6"
+        class="el-snack-holder"
       />
       <div
-        class="ec47sgk"
+        class="el-mb11"
       >
         <div
-          class="e1g28qe3 e1arnr1r"
+          class="el-mb7 el-progress-bar-container"
         >
           <div
-            class="e1rl7ran"
+            class="el-progress-bar-inner"
             style="width: 39%;"
           >
             <div
-              class="e1clux3b e7mm5ge"
+              class="el-progress-bar-item-dark-blue el-progress-bar-item"
             />
             <div
-              class="e6k8zhz e7mm5ge"
+              class="el-progress-bar-item-medium-blue el-progress-bar-item"
             />
             <div
-              class="eym3zl9 e7mm5ge"
+              class="el-progress-bar-item-light-blue el-progress-bar-item"
             />
             <div
-              class="e1x3rsk e7mm5ge"
+              class="el-progress-bar-item-lightest-blue el-progress-bar-item"
             />
             <div
-              class="ekyn7n1 e7mm5ge"
+              class="el-progress-bar-item-orange el-progress-bar-item"
             />
           </div>
         </div>
@@ -315,32 +315,32 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="ecbqyq6"
+      class="el-snack-holder"
     />
     <div
-      class="ec47sgk"
+      class="el-mb11"
     >
       <div
-        class="e1g28qe3 e1arnr1r"
+        class="el-mb7 el-progress-bar-container"
       >
         <div
-          class="e1rl7ran"
+          class="el-progress-bar-inner"
           style="width: 39%;"
         >
           <div
-            class="e1clux3b e7mm5ge"
+            class="el-progress-bar-item-dark-blue el-progress-bar-item"
           />
           <div
-            class="e6k8zhz e7mm5ge"
+            class="el-progress-bar-item-medium-blue el-progress-bar-item"
           />
           <div
-            class="eym3zl9 e7mm5ge"
+            class="el-progress-bar-item-light-blue el-progress-bar-item"
           />
           <div
-            class="e1x3rsk e7mm5ge"
+            class="el-progress-bar-item-lightest-blue el-progress-bar-item"
           />
           <div
-            class="ekyn7n1 e7mm5ge"
+            class="el-progress-bar-item-orange el-progress-bar-item"
           />
         </div>
       </div>
@@ -411,32 +411,32 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="ecbqyq6"
+        class="el-snack-holder"
       />
       <div
-        class="ec47sgk"
+        class="el-mb11"
       >
         <div
-          class="e1g28qe3 e1arnr1r"
+          class="el-mb7 el-progress-bar-container"
         >
           <div
-            class="e1rl7ran"
+            class="el-progress-bar-inner"
             style="width: 59%;"
           >
             <div
-              class="e1clux3b e7mm5ge"
+              class="el-progress-bar-item-dark-blue el-progress-bar-item"
             />
             <div
-              class="e6k8zhz e7mm5ge"
+              class="el-progress-bar-item-medium-blue el-progress-bar-item"
             />
             <div
-              class="eym3zl9 e7mm5ge"
+              class="el-progress-bar-item-light-blue el-progress-bar-item"
             />
             <div
-              class="e1x3rsk e7mm5ge"
+              class="el-progress-bar-item-lightest-blue el-progress-bar-item"
             />
             <div
-              class="ekyn7n1 e7mm5ge"
+              class="el-progress-bar-item-orange el-progress-bar-item"
             />
           </div>
         </div>
@@ -450,32 +450,32 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="ecbqyq6"
+      class="el-snack-holder"
     />
     <div
-      class="ec47sgk"
+      class="el-mb11"
     >
       <div
-        class="e1g28qe3 e1arnr1r"
+        class="el-mb7 el-progress-bar-container"
       >
         <div
-          class="e1rl7ran"
+          class="el-progress-bar-inner"
           style="width: 59%;"
         >
           <div
-            class="e1clux3b e7mm5ge"
+            class="el-progress-bar-item-dark-blue el-progress-bar-item"
           />
           <div
-            class="e6k8zhz e7mm5ge"
+            class="el-progress-bar-item-medium-blue el-progress-bar-item"
           />
           <div
-            class="eym3zl9 e7mm5ge"
+            class="el-progress-bar-item-light-blue el-progress-bar-item"
           />
           <div
-            class="e1x3rsk e7mm5ge"
+            class="el-progress-bar-item-lightest-blue el-progress-bar-item"
           />
           <div
-            class="ekyn7n1 e7mm5ge"
+            class="el-progress-bar-item-orange el-progress-bar-item"
           />
         </div>
       </div>
@@ -546,32 +546,32 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="ecbqyq6"
+        class="el-snack-holder"
       />
       <div
-        class="ec47sgk"
+        class="el-mb11"
       >
         <div
-          class="e1g28qe3 e1arnr1r"
+          class="el-mb7 el-progress-bar-container"
         >
           <div
-            class="e1rl7ran"
+            class="el-progress-bar-inner"
             style="width: 79%;"
           >
             <div
-              class="e1clux3b e7mm5ge"
+              class="el-progress-bar-item-dark-blue el-progress-bar-item"
             />
             <div
-              class="e6k8zhz e7mm5ge"
+              class="el-progress-bar-item-medium-blue el-progress-bar-item"
             />
             <div
-              class="eym3zl9 e7mm5ge"
+              class="el-progress-bar-item-light-blue el-progress-bar-item"
             />
             <div
-              class="e1x3rsk e7mm5ge"
+              class="el-progress-bar-item-lightest-blue el-progress-bar-item"
             />
             <div
-              class="ekyn7n1 e7mm5ge"
+              class="el-progress-bar-item-orange el-progress-bar-item"
             />
           </div>
         </div>
@@ -585,32 +585,32 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="ecbqyq6"
+      class="el-snack-holder"
     />
     <div
-      class="ec47sgk"
+      class="el-mb11"
     >
       <div
-        class="e1g28qe3 e1arnr1r"
+        class="el-mb7 el-progress-bar-container"
       >
         <div
-          class="e1rl7ran"
+          class="el-progress-bar-inner"
           style="width: 79%;"
         >
           <div
-            class="e1clux3b e7mm5ge"
+            class="el-progress-bar-item-dark-blue el-progress-bar-item"
           />
           <div
-            class="e6k8zhz e7mm5ge"
+            class="el-progress-bar-item-medium-blue el-progress-bar-item"
           />
           <div
-            class="eym3zl9 e7mm5ge"
+            class="el-progress-bar-item-light-blue el-progress-bar-item"
           />
           <div
-            class="e1x3rsk e7mm5ge"
+            class="el-progress-bar-item-lightest-blue el-progress-bar-item"
           />
           <div
-            class="ekyn7n1 e7mm5ge"
+            class="el-progress-bar-item-orange el-progress-bar-item"
           />
         </div>
       </div>
@@ -681,32 +681,32 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="ecbqyq6"
+        class="el-snack-holder"
       />
       <div
-        class="ec47sgk"
+        class="el-mb11"
       >
         <div
-          class="e1g28qe3 e1arnr1r"
+          class="el-mb7 el-progress-bar-container"
         >
           <div
-            class="e1rl7ran"
+            class="el-progress-bar-inner"
             style="width: 94%;"
           >
             <div
-              class="e1clux3b e7mm5ge"
+              class="el-progress-bar-item-dark-blue el-progress-bar-item"
             />
             <div
-              class="e6k8zhz e7mm5ge"
+              class="el-progress-bar-item-medium-blue el-progress-bar-item"
             />
             <div
-              class="eym3zl9 e7mm5ge"
+              class="el-progress-bar-item-light-blue el-progress-bar-item"
             />
             <div
-              class="e1x3rsk e7mm5ge"
+              class="el-progress-bar-item-lightest-blue el-progress-bar-item"
             />
             <div
-              class="ekyn7n1 e7mm5ge"
+              class="el-progress-bar-item-orange el-progress-bar-item"
             />
           </div>
         </div>
@@ -720,32 +720,32 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="ecbqyq6"
+      class="el-snack-holder"
     />
     <div
-      class="ec47sgk"
+      class="el-mb11"
     >
       <div
-        class="e1g28qe3 e1arnr1r"
+        class="el-mb7 el-progress-bar-container"
       >
         <div
-          class="e1rl7ran"
+          class="el-progress-bar-inner"
           style="width: 94%;"
         >
           <div
-            class="e1clux3b e7mm5ge"
+            class="el-progress-bar-item-dark-blue el-progress-bar-item"
           />
           <div
-            class="e6k8zhz e7mm5ge"
+            class="el-progress-bar-item-medium-blue el-progress-bar-item"
           />
           <div
-            class="eym3zl9 e7mm5ge"
+            class="el-progress-bar-item-light-blue el-progress-bar-item"
           />
           <div
-            class="e1x3rsk e7mm5ge"
+            class="el-progress-bar-item-lightest-blue el-progress-bar-item"
           />
           <div
-            class="ekyn7n1 e7mm5ge"
+            class="el-progress-bar-item-orange el-progress-bar-item"
           />
         </div>
       </div>
@@ -816,32 +816,32 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="ecbqyq6"
+        class="el-snack-holder"
       />
       <div
-        class="ec47sgk"
+        class="el-mb11"
       >
         <div
-          class="e1g28qe3 e1arnr1r"
+          class="el-mb7 el-progress-bar-container"
         >
           <div
-            class="e1rl7ran"
+            class="el-progress-bar-inner"
             style="width: 99%;"
           >
             <div
-              class="e1clux3b e7mm5ge"
+              class="el-progress-bar-item-dark-blue el-progress-bar-item"
             />
             <div
-              class="e6k8zhz e7mm5ge"
+              class="el-progress-bar-item-medium-blue el-progress-bar-item"
             />
             <div
-              class="eym3zl9 e7mm5ge"
+              class="el-progress-bar-item-light-blue el-progress-bar-item"
             />
             <div
-              class="e1x3rsk e7mm5ge"
+              class="el-progress-bar-item-lightest-blue el-progress-bar-item"
             />
             <div
-              class="ekyn7n1 e7mm5ge"
+              class="el-progress-bar-item-orange el-progress-bar-item"
             />
           </div>
         </div>
@@ -855,32 +855,32 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="ecbqyq6"
+      class="el-snack-holder"
     />
     <div
-      class="ec47sgk"
+      class="el-mb11"
     >
       <div
-        class="e1g28qe3 e1arnr1r"
+        class="el-mb7 el-progress-bar-container"
       >
         <div
-          class="e1rl7ran"
+          class="el-progress-bar-inner"
           style="width: 99%;"
         >
           <div
-            class="e1clux3b e7mm5ge"
+            class="el-progress-bar-item-dark-blue el-progress-bar-item"
           />
           <div
-            class="e6k8zhz e7mm5ge"
+            class="el-progress-bar-item-medium-blue el-progress-bar-item"
           />
           <div
-            class="eym3zl9 e7mm5ge"
+            class="el-progress-bar-item-light-blue el-progress-bar-item"
           />
           <div
-            class="e1x3rsk e7mm5ge"
+            class="el-progress-bar-item-lightest-blue el-progress-bar-item"
           />
           <div
-            class="ekyn7n1 e7mm5ge"
+            class="el-progress-bar-item-orange el-progress-bar-item"
           />
         </div>
       </div>
@@ -951,32 +951,32 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="ecbqyq6"
+        class="el-snack-holder"
       />
       <div
-        class="ec47sgk"
+        class="el-mb11"
       >
         <div
-          class="e1g28qe3 e1arnr1r"
+          class="el-mb7 el-progress-bar-container"
         >
           <div
-            class="e1rl7ran"
+            class="el-progress-bar-inner"
             style="width: 100%;"
           >
             <div
-              class="e1clux3b e7mm5ge"
+              class="el-progress-bar-item-dark-blue el-progress-bar-item"
             />
             <div
-              class="e6k8zhz e7mm5ge"
+              class="el-progress-bar-item-medium-blue el-progress-bar-item"
             />
             <div
-              class="eym3zl9 e7mm5ge"
+              class="el-progress-bar-item-light-blue el-progress-bar-item"
             />
             <div
-              class="e1x3rsk e7mm5ge"
+              class="el-progress-bar-item-lightest-blue el-progress-bar-item"
             />
             <div
-              class="ekyn7n1 e7mm5ge"
+              class="el-progress-bar-item-orange el-progress-bar-item"
             />
           </div>
         </div>
@@ -995,32 +995,32 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="ecbqyq6"
+      class="el-snack-holder"
     />
     <div
-      class="ec47sgk"
+      class="el-mb11"
     >
       <div
-        class="e1g28qe3 e1arnr1r"
+        class="el-mb7 el-progress-bar-container"
       >
         <div
-          class="e1rl7ran"
+          class="el-progress-bar-inner"
           style="width: 100%;"
         >
           <div
-            class="e1clux3b e7mm5ge"
+            class="el-progress-bar-item-dark-blue el-progress-bar-item"
           />
           <div
-            class="e6k8zhz e7mm5ge"
+            class="el-progress-bar-item-medium-blue el-progress-bar-item"
           />
           <div
-            class="eym3zl9 e7mm5ge"
+            class="el-progress-bar-item-light-blue el-progress-bar-item"
           />
           <div
-            class="e1x3rsk e7mm5ge"
+            class="el-progress-bar-item-lightest-blue el-progress-bar-item"
           />
           <div
-            class="ekyn7n1 e7mm5ge"
+            class="el-progress-bar-item-orange el-progress-bar-item"
           />
         </div>
       </div>

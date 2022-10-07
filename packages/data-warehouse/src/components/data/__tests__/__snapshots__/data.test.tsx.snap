@@ -6,21 +6,21 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="ecbqyq6"
+        class="el-snack-holder"
       />
       <div
-        class="eoxpwv e2kmzjs"
+        class="el-flex-auto el-flex-container"
       >
         <aside
-          class="e93m1fg"
+          class="el-secondary-nav-container"
         >
           <h1
-            class="e1byern"
+            class="el-title"
           >
             Data
           </h1>
           <span
-            class="ehvkknk e143qafr ej9yrfo"
+            class="el-mb5 el-icon-size-large el-icon"
           >
             <svg
               fill="none"
@@ -118,12 +118,12 @@ Object {
             </svg>
           </span>
           <h2
-            class="e15ggth7"
+            class="el-subtitle"
           >
             Support
           </h2>
           <p
-            class="e11jaxfn elle7d2"
+            class="el-has-grey-text el-small-text"
           >
             Please see our
              
@@ -138,58 +138,58 @@ Object {
             for further information on how to use these details to connect a number of popular BI applications.
           </p>
           <p
-            class="e11jaxfn elle7d2"
+            class="el-has-grey-text el-small-text"
           >
             Please see below for more resources.
           </p>
           <button
-            class="ehvkknk e1fle5tm eqfkc7t"
+            class="el-mb5 el-intent-neutral el-button"
           >
             View Docs
           </button>
           <button
-            class="ehvkknk e1fle5tm eqfkc7t"
+            class="el-mb5 el-intent-neutral el-button"
           >
             Video
           </button>
           <button
-            class="ehvkknk e1fle5tm eqfkc7t"
+            class="el-mb5 el-intent-neutral el-button"
           >
             View Docs
           </button>
         </aside>
         <section
-          class="eukst9x"
+          class="el-page-container"
         >
           <h1
-            class="e1byern"
+            class="el-title"
           >
             Sharing Data
           </h1>
           <p
-            class="e11jaxfn e1wasvgh"
+            class="el-has-grey-text el-body-text"
           >
             Our data warehouse solution can provide access to your data in a number of different formats. To get immediate access to your data in a particular format, click ‘Create Share’. The data will be published into your data warehouse and connectivity information will then be presented to you.
           </p>
           <p
-            class="e11jaxfn e1wasvgh"
+            class="el-has-grey-text el-body-text"
           >
             Please note that creating a data share is a long running process and can take 30 seconds or more to complete.
           </p>
           <h2
-            class="e15ggth7"
+            class="el-subtitle"
           >
             Available Data
           </h2>
           <div
-            class="ec47sgk epibvz0 evmehgn e1qwk99x e15e3rd4 erhlo5n"
+            class="el-mb11 el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
           >
             <div
-              class="eta6kcl"
+              class="el-pn-icon"
               data-testid="close-icon"
             >
               <span
-                class="ej9yrfo"
+                class="el-icon"
               >
                 <svg
                   fill="none"
@@ -206,25 +206,25 @@ Object {
               </span>
             </div>
             <div
-              class="e1geon40"
+              class="el-pn-content"
             >
               No datasets available for your organisation
             </div>
           </div>
           <h2
-            class="e15ggth7"
+            class="el-subtitle"
           >
             Data Shares
           </h2>
           <div
-            class="epibvz0 evmehgn e1qwk99x e15e3rd4 erhlo5n"
+            class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
           >
             <div
-              class="eta6kcl"
+              class="el-pn-icon"
               data-testid="close-icon"
             >
               <span
-                class="ej9yrfo"
+                class="el-icon"
               >
                 <svg
                   fill="none"
@@ -241,7 +241,7 @@ Object {
               </span>
             </div>
             <div
-              class="e1geon40"
+              class="el-pn-content"
             >
               No data shares available for your organisation
             </div>
@@ -252,21 +252,21 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="ecbqyq6"
+      class="el-snack-holder"
     />
     <div
-      class="eoxpwv e2kmzjs"
+      class="el-flex-auto el-flex-container"
     >
       <aside
-        class="e93m1fg"
+        class="el-secondary-nav-container"
       >
         <h1
-          class="e1byern"
+          class="el-title"
         >
           Data
         </h1>
         <span
-          class="ehvkknk e143qafr ej9yrfo"
+          class="el-mb5 el-icon-size-large el-icon"
         >
           <svg
             fill="none"
@@ -364,12 +364,12 @@ Object {
           </svg>
         </span>
         <h2
-          class="e15ggth7"
+          class="el-subtitle"
         >
           Support
         </h2>
         <p
-          class="e11jaxfn elle7d2"
+          class="el-has-grey-text el-small-text"
         >
           Please see our
            
@@ -384,58 +384,58 @@ Object {
           for further information on how to use these details to connect a number of popular BI applications.
         </p>
         <p
-          class="e11jaxfn elle7d2"
+          class="el-has-grey-text el-small-text"
         >
           Please see below for more resources.
         </p>
         <button
-          class="ehvkknk e1fle5tm eqfkc7t"
+          class="el-mb5 el-intent-neutral el-button"
         >
           View Docs
         </button>
         <button
-          class="ehvkknk e1fle5tm eqfkc7t"
+          class="el-mb5 el-intent-neutral el-button"
         >
           Video
         </button>
         <button
-          class="ehvkknk e1fle5tm eqfkc7t"
+          class="el-mb5 el-intent-neutral el-button"
         >
           View Docs
         </button>
       </aside>
       <section
-        class="eukst9x"
+        class="el-page-container"
       >
         <h1
-          class="e1byern"
+          class="el-title"
         >
           Sharing Data
         </h1>
         <p
-          class="e11jaxfn e1wasvgh"
+          class="el-has-grey-text el-body-text"
         >
           Our data warehouse solution can provide access to your data in a number of different formats. To get immediate access to your data in a particular format, click ‘Create Share’. The data will be published into your data warehouse and connectivity information will then be presented to you.
         </p>
         <p
-          class="e11jaxfn e1wasvgh"
+          class="el-has-grey-text el-body-text"
         >
           Please note that creating a data share is a long running process and can take 30 seconds or more to complete.
         </p>
         <h2
-          class="e15ggth7"
+          class="el-subtitle"
         >
           Available Data
         </h2>
         <div
-          class="ec47sgk epibvz0 evmehgn e1qwk99x e15e3rd4 erhlo5n"
+          class="el-mb11 el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
         >
           <div
-            class="eta6kcl"
+            class="el-pn-icon"
             data-testid="close-icon"
           >
             <span
-              class="ej9yrfo"
+              class="el-icon"
             >
               <svg
                 fill="none"
@@ -452,25 +452,25 @@ Object {
             </span>
           </div>
           <div
-            class="e1geon40"
+            class="el-pn-content"
           >
             No datasets available for your organisation
           </div>
         </div>
         <h2
-          class="e15ggth7"
+          class="el-subtitle"
         >
           Data Shares
         </h2>
         <div
-          class="epibvz0 evmehgn e1qwk99x e15e3rd4 erhlo5n"
+          class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
         >
           <div
-            class="eta6kcl"
+            class="el-pn-icon"
             data-testid="close-icon"
           >
             <span
-              class="ej9yrfo"
+              class="el-icon"
             >
               <svg
                 fill="none"
@@ -487,7 +487,7 @@ Object {
             </span>
           </div>
           <div
-            class="e1geon40"
+            class="el-pn-content"
           >
             No data shares available for your organisation
           </div>

@@ -6,47 +6,47 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="ecbqyq6"
+        class="el-snack-holder"
       />
       <div
-        class="ec47sgk ejadz4k"
+        class="el-mb11 el-table"
         data-has-call-to-action="false"
         data-has-expandable-action="true"
         data-num-columns-excl-action-col="5"
       >
         <div
-          class="e1ijk5il"
+          class="el-table-headers-row"
         >
           <div
-            class="e1co3p83"
+            class="el-table-header"
           >
             Data Set Name
           </div>
           <div
-            class="e1co3p83"
+            class="el-table-header"
           >
             Database
           </div>
           <div
-            class="e1co3p83"
+            class="el-table-header"
           >
             Schema
           </div>
           <div
-            class="e1co3p83"
+            class="el-table-header"
           >
             Warehouse
           </div>
           <div
-            class="e1co3p83"
+            class="el-table-header"
           >
             Region
           </div>
           <div
-            class="e1co3p83"
+            class="el-table-header"
           >
             <span
-              class="ej9yrfo"
+              class="el-icon"
               style="font-size: 1.2rem;"
             >
               <svg
@@ -67,66 +67,66 @@ Object {
           </div>
         </div>
         <div
-          class="es3tf1j"
+          class="el-table-row-container"
         >
           <div
-            class="e1qy4g2u"
+            class="el-table-row"
           >
             <div
-              class="e1n0yfsy e1gfmg2g"
+              class="el-table-cell-has-dark-text el-table-cell"
             >
               <div
-                class="e4zpaja"
+                class="el-table-cell-content"
                 data-narrow-label="Data Set Name"
               >
                 RPS Database
               </div>
             </div>
             <div
-              class="e1n0yfsy e1gfmg2g"
+              class="el-table-cell-has-dark-text el-table-cell"
             >
               <div
-                class="e4zpaja"
+                class="el-table-cell-content"
                 data-narrow-label="Database"
               >
                 reapit
               </div>
             </div>
             <div
-              class="e1gfmg2g"
+              class="el-table-cell"
             >
               <div
-                class="e4zpaja"
+                class="el-table-cell-content"
                 data-narrow-label="Schema"
               >
                 customers_rps_DEV
               </div>
             </div>
             <div
-              class="e1gfmg2g"
+              class="el-table-cell"
             >
               <div
-                class="e4zpaja"
+                class="el-table-cell-content"
                 data-narrow-label="Warehouse"
               >
                 STANDARD_WH
               </div>
             </div>
             <div
-              class="e1gfmg2g"
+              class="el-table-cell"
             >
               <div
-                class="e4zpaja"
+                class="el-table-cell-content"
                 data-narrow-label="Region"
               >
                 eu-west-1
               </div>
             </div>
             <div
-              class="e1fmntjl"
+              class="el-table-expandable-row-trigger-cell"
             >
               <span
-                class="epibvz0 ej9yrfo"
+                class="el-intent-secondary el-icon"
               >
                 <svg
                   fill="none"
@@ -146,34 +146,34 @@ Object {
             </div>
           </div>
           <div
-            class="e3q521i"
+            class="el-table-expandable-row"
           >
             <div
-              class="eygkx5t"
+              class="el-table-expandable-container"
             >
               <div
-                class="eay05y4"
+                class="el-button-group"
               >
                 <div
-                  class="ej73pla ebqwrow"
+                  class="el-button-group-align-center el-button-group-inner"
                 >
                   <button
-                    class="e1ymtwpu eqfkc7t"
+                    class="el-intent-low el-button"
                   >
                     Copy URL
                   </button>
                   <button
-                    class="e1ymtwpu eqfkc7t"
+                    class="el-intent-low el-button"
                   >
                     Copy DSN
                   </button>
                   <button
-                    class="e1vxext9 eqfkc7t"
+                    class="el-intent-danger el-button"
                   >
                     Delete Share
                   </button>
                   <button
-                    class="ebee6r1 eqfkc7t"
+                    class="el-intent-primary el-button"
                   >
                     Refresh Share
                   </button>
@@ -187,47 +187,47 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="ecbqyq6"
+      class="el-snack-holder"
     />
     <div
-      class="ec47sgk ejadz4k"
+      class="el-mb11 el-table"
       data-has-call-to-action="false"
       data-has-expandable-action="true"
       data-num-columns-excl-action-col="5"
     >
       <div
-        class="e1ijk5il"
+        class="el-table-headers-row"
       >
         <div
-          class="e1co3p83"
+          class="el-table-header"
         >
           Data Set Name
         </div>
         <div
-          class="e1co3p83"
+          class="el-table-header"
         >
           Database
         </div>
         <div
-          class="e1co3p83"
+          class="el-table-header"
         >
           Schema
         </div>
         <div
-          class="e1co3p83"
+          class="el-table-header"
         >
           Warehouse
         </div>
         <div
-          class="e1co3p83"
+          class="el-table-header"
         >
           Region
         </div>
         <div
-          class="e1co3p83"
+          class="el-table-header"
         >
           <span
-            class="ej9yrfo"
+            class="el-icon"
             style="font-size: 1.2rem;"
           >
             <svg
@@ -248,66 +248,66 @@ Object {
         </div>
       </div>
       <div
-        class="es3tf1j"
+        class="el-table-row-container"
       >
         <div
-          class="e1qy4g2u"
+          class="el-table-row"
         >
           <div
-            class="e1n0yfsy e1gfmg2g"
+            class="el-table-cell-has-dark-text el-table-cell"
           >
             <div
-              class="e4zpaja"
+              class="el-table-cell-content"
               data-narrow-label="Data Set Name"
             >
               RPS Database
             </div>
           </div>
           <div
-            class="e1n0yfsy e1gfmg2g"
+            class="el-table-cell-has-dark-text el-table-cell"
           >
             <div
-              class="e4zpaja"
+              class="el-table-cell-content"
               data-narrow-label="Database"
             >
               reapit
             </div>
           </div>
           <div
-            class="e1gfmg2g"
+            class="el-table-cell"
           >
             <div
-              class="e4zpaja"
+              class="el-table-cell-content"
               data-narrow-label="Schema"
             >
               customers_rps_DEV
             </div>
           </div>
           <div
-            class="e1gfmg2g"
+            class="el-table-cell"
           >
             <div
-              class="e4zpaja"
+              class="el-table-cell-content"
               data-narrow-label="Warehouse"
             >
               STANDARD_WH
             </div>
           </div>
           <div
-            class="e1gfmg2g"
+            class="el-table-cell"
           >
             <div
-              class="e4zpaja"
+              class="el-table-cell-content"
               data-narrow-label="Region"
             >
               eu-west-1
             </div>
           </div>
           <div
-            class="e1fmntjl"
+            class="el-table-expandable-row-trigger-cell"
           >
             <span
-              class="epibvz0 ej9yrfo"
+              class="el-intent-secondary el-icon"
             >
               <svg
                 fill="none"
@@ -327,34 +327,34 @@ Object {
           </div>
         </div>
         <div
-          class="e3q521i"
+          class="el-table-expandable-row"
         >
           <div
-            class="eygkx5t"
+            class="el-table-expandable-container"
           >
             <div
-              class="eay05y4"
+              class="el-button-group"
             >
               <div
-                class="ej73pla ebqwrow"
+                class="el-button-group-align-center el-button-group-inner"
               >
                 <button
-                  class="e1ymtwpu eqfkc7t"
+                  class="el-intent-low el-button"
                 >
                   Copy URL
                 </button>
                 <button
-                  class="e1ymtwpu eqfkc7t"
+                  class="el-intent-low el-button"
                 >
                   Copy DSN
                 </button>
                 <button
-                  class="e1vxext9 eqfkc7t"
+                  class="el-intent-danger el-button"
                 >
                   Delete Share
                 </button>
                 <button
-                  class="ebee6r1 eqfkc7t"
+                  class="el-intent-primary el-button"
                 >
                   Refresh Share
                 </button>

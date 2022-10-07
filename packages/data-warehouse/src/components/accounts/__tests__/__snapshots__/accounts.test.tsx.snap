@@ -6,21 +6,21 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="ecbqyq6"
+        class="el-snack-holder"
       />
       <div
-        class="eoxpwv e2kmzjs"
+        class="el-flex-auto el-flex-container"
       >
         <aside
-          class="e93m1fg"
+          class="el-secondary-nav-container"
         >
           <h1
-            class="e1byern"
+            class="el-title"
           >
             Users
           </h1>
           <span
-            class="ehvkknk e143qafr ej9yrfo"
+            class="el-mb5 el-icon-size-large el-icon"
           >
             <svg
               fill="none"
@@ -118,73 +118,73 @@ Object {
             </svg>
           </span>
           <h2
-            class="e15ggth7"
+            class="el-subtitle"
           >
             Support
           </h2>
           <p
-            class="e11jaxfn elle7d2"
+            class="el-has-grey-text el-small-text"
           >
             Your first step is to provision a user account for the solution using the button below.
           </p>
           <p
-            class="e11jaxfn elle7d2"
+            class="el-has-grey-text el-small-text"
           >
             Please see also below for more resources amd assistance.
           </p>
           <button
-            class="ehvkknk ebee6r1 eqfkc7t"
+            class="el-mb5 el-intent-primary el-button"
           >
             Provision User
           </button>
           <button
-            class="ehvkknk e1fle5tm eqfkc7t"
+            class="el-mb5 el-intent-neutral el-button"
           >
             View Docs
           </button>
           <button
-            class="ehvkknk e1fle5tm eqfkc7t"
+            class="el-mb5 el-intent-neutral el-button"
           >
             Video
           </button>
           <button
-            class="ehvkknk e1fle5tm eqfkc7t"
+            class="el-mb5 el-intent-neutral el-button"
           >
             View Docs
           </button>
         </aside>
         <section
-          class="eukst9x"
+          class="el-page-container"
         >
           <h1
-            class="e1byern"
+            class="el-title"
           >
             User Accounts
           </h1>
           <p
-            class="e11jaxfn e1wasvgh"
+            class="el-has-grey-text el-body-text"
           >
             In order to access your organisations data warehouse, you must first create the user accounts to access it. You are to manage and create as many user accounts as you wish without any additional costs. We recommend that each individual user or application is provided with a unique set of credentials.
           </p>
           <p
-            class="e11jaxfn e1wasvgh"
+            class="el-has-grey-text el-body-text"
           >
             Please note that creating the first user account is a long running process and can take several minutes to complete.
           </p>
           <h2
-            class="e15ggth7"
+            class="el-subtitle"
           >
             User Account Details
           </h2>
           <div
-            class="epibvz0 evmehgn e1qwk99x e15e3rd4 erhlo5n"
+            class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
           >
             <div
-              class="eta6kcl"
+              class="el-pn-icon"
               data-testid="close-icon"
             >
               <span
-                class="ej9yrfo"
+                class="el-icon"
               >
                 <svg
                   fill="none"
@@ -201,7 +201,7 @@ Object {
               </span>
             </div>
             <div
-              class="e1geon40"
+              class="el-pn-content"
             >
               No accounts yet provisioned for your organisation
             </div>
@@ -212,21 +212,21 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="ecbqyq6"
+      class="el-snack-holder"
     />
     <div
-      class="eoxpwv e2kmzjs"
+      class="el-flex-auto el-flex-container"
     >
       <aside
-        class="e93m1fg"
+        class="el-secondary-nav-container"
       >
         <h1
-          class="e1byern"
+          class="el-title"
         >
           Users
         </h1>
         <span
-          class="ehvkknk e143qafr ej9yrfo"
+          class="el-mb5 el-icon-size-large el-icon"
         >
           <svg
             fill="none"
@@ -324,73 +324,73 @@ Object {
           </svg>
         </span>
         <h2
-          class="e15ggth7"
+          class="el-subtitle"
         >
           Support
         </h2>
         <p
-          class="e11jaxfn elle7d2"
+          class="el-has-grey-text el-small-text"
         >
           Your first step is to provision a user account for the solution using the button below.
         </p>
         <p
-          class="e11jaxfn elle7d2"
+          class="el-has-grey-text el-small-text"
         >
           Please see also below for more resources amd assistance.
         </p>
         <button
-          class="ehvkknk ebee6r1 eqfkc7t"
+          class="el-mb5 el-intent-primary el-button"
         >
           Provision User
         </button>
         <button
-          class="ehvkknk e1fle5tm eqfkc7t"
+          class="el-mb5 el-intent-neutral el-button"
         >
           View Docs
         </button>
         <button
-          class="ehvkknk e1fle5tm eqfkc7t"
+          class="el-mb5 el-intent-neutral el-button"
         >
           Video
         </button>
         <button
-          class="ehvkknk e1fle5tm eqfkc7t"
+          class="el-mb5 el-intent-neutral el-button"
         >
           View Docs
         </button>
       </aside>
       <section
-        class="eukst9x"
+        class="el-page-container"
       >
         <h1
-          class="e1byern"
+          class="el-title"
         >
           User Accounts
         </h1>
         <p
-          class="e11jaxfn e1wasvgh"
+          class="el-has-grey-text el-body-text"
         >
           In order to access your organisations data warehouse, you must first create the user accounts to access it. You are to manage and create as many user accounts as you wish without any additional costs. We recommend that each individual user or application is provided with a unique set of credentials.
         </p>
         <p
-          class="e11jaxfn e1wasvgh"
+          class="el-has-grey-text el-body-text"
         >
           Please note that creating the first user account is a long running process and can take several minutes to complete.
         </p>
         <h2
-          class="e15ggth7"
+          class="el-subtitle"
         >
           User Account Details
         </h2>
         <div
-          class="epibvz0 evmehgn e1qwk99x e15e3rd4 erhlo5n"
+          class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
         >
           <div
-            class="eta6kcl"
+            class="el-pn-icon"
             data-testid="close-icon"
           >
             <span
-              class="ej9yrfo"
+              class="el-icon"
             >
               <svg
                 fill="none"
@@ -407,7 +407,7 @@ Object {
             </span>
           </div>
           <div
-            class="e1geon40"
+            class="el-pn-content"
           >
             No accounts yet provisioned for your organisation
           </div>
