@@ -5787,9 +5787,7 @@ export interface CreateMetadataRequest {
   /**
    * The JSON document to store
    */
-  metadata: {
-    [name: string]: any
-  }
+  metadata: string
 }
 /**
  * Request body used to create a new negotiator
@@ -6533,6 +6531,12 @@ export interface CreatePropertyModel {
    */
   boardUpdated?: string // date
   /**
+   * The date on which the property was valued. Note that this can differ to physical appointment dates in some cases
+   * example:
+   * 2019-08-14
+   */
+  valuationDate?: string // date
+  /**
    * Request body used to set the EPC statistic of a new property
    */
   epc?: {
@@ -6675,6 +6679,12 @@ export interface CreatePropertyModel {
      * The unique identifier of the custom selling agency type - only applicable when SellingAgency is not set
      */
     agencyId?: string
+    /**
+     * The date on which the agreement between the vendor and agent expires
+     * example:
+     * 2019-08-14
+     */
+    agreementExpiryDate?: string // date
     /**
      * Request body used to set the commission fee for a property
      */
@@ -7122,6 +7132,12 @@ export interface CreatePropertySellingModel {
    * The unique identifier of the custom selling agency type - only applicable when SellingAgency is not set
    */
   agencyId?: string
+  /**
+   * The date on which the agreement between the vendor and agent expires
+   * example:
+   * 2019-08-14
+   */
+  agreementExpiryDate?: string // date
   /**
    * Request body used to set the commission fee for a property
    */
@@ -10042,9 +10058,7 @@ export interface MetadataModel {
   /**
    * The JSON document content
    */
-  metadata?: {
-    [name: string]: any
-  }
+  metadata?: string
 }
 export interface MetadataModelPagedResult {
   _embedded?: {
@@ -10069,9 +10083,7 @@ export interface MetadataModelPagedResult {
     /**
      * The JSON document content
      */
-    metadata?: {
-      [name: string]: any
-    }
+    metadata?: string
   }[]
   pageNumber?: number // int32
   pageSize?: number // int32
@@ -11231,11 +11243,24 @@ export interface OpenHouseAttendeeModelPagedResult {
  * [object Object]
  */
 export interface Operation {
+  value?: any
   operationType?: 0 | 1 | 2 | 3 | 4 | 5 | 6 // int32
   path?: string
   op?: string
   from?: string
+}
+/**
+ * example:
+ * [object Object]
+ */
+export interface Operation1 {
   value?: any
+}
+export interface OperationBase {
+  operationType?: 0 | 1 | 2 | 3 | 4 | 5 | 6 // int32
+  path?: string
+  op?: string
+  from?: string
 }
 export type OperationType = 0 | 1 | 2 | 3 | 4 | 5 | 6 // int32
 export interface PagingLinkModel {
@@ -12186,6 +12211,12 @@ export interface PropertyModel {
    */
   boardUpdated?: string // date
   /**
+   * The date on which the property was valued. Note that this can differ to physical appointment dates in some cases
+   * example:
+   * 2019-08-14
+   */
+  valuationDate?: string // date
+  /**
    * The date and time the property was archived
    * example:
    * 2019-08-14T12:30:02.0000000Z
@@ -12350,6 +12381,12 @@ export interface PropertyModel {
      * The unique identifier of the custom selling agency type - only applicable when Agency is not set
      */
     agencyId?: string
+    /**
+     * The date on which the agreement between the vendor and agent expires
+     * example:
+     * 2019-08-14
+     */
+    agreementExpiryDate?: string // date
     /**
      * Representation of the the commission fee for a property
      */
@@ -12982,6 +13019,12 @@ export interface PropertyModelPagedResult {
      */
     boardUpdated?: string // date
     /**
+     * The date on which the property was valued. Note that this can differ to physical appointment dates in some cases
+     * example:
+     * 2019-08-14
+     */
+    valuationDate?: string // date
+    /**
      * The date and time the property was archived
      * example:
      * 2019-08-14T12:30:02.0000000Z
@@ -13146,6 +13189,12 @@ export interface PropertyModelPagedResult {
        * The unique identifier of the custom selling agency type - only applicable when Agency is not set
        */
       agencyId?: string
+      /**
+       * The date on which the agreement between the vendor and agent expires
+       * example:
+       * 2019-08-14
+       */
+      agreementExpiryDate?: string // date
       /**
        * Representation of the the commission fee for a property
        */
@@ -13702,6 +13751,12 @@ export interface PropertySellingModel {
    * The unique identifier of the custom selling agency type - only applicable when Agency is not set
    */
   agencyId?: string
+  /**
+   * The date on which the agreement between the vendor and agent expires
+   * example:
+   * 2019-08-14
+   */
+  agreementExpiryDate?: string // date
   /**
    * Representation of the the commission fee for a property
    */
@@ -17946,9 +18001,7 @@ export interface UpdateMetadataRequest {
   /**
    * The updated JSON document to store
    */
-  metadata: {
-    [name: string]: any
-  }
+  metadata: string
 }
 /**
  * Request body used to update an existing negotiator
@@ -18636,6 +18689,12 @@ export interface UpdatePropertyModel {
    */
   boardUpdated?: string // date
   /**
+   * The date on which the property was valued. Note that this can differ to physical appointment dates in some cases
+   * example:
+   * 2019-08-14
+   */
+  valuationDate?: string // date
+  /**
    * Request body used to update the EPC statistics of an existing property
    */
   epc?: {
@@ -18765,6 +18824,12 @@ export interface UpdatePropertyModel {
      * The unique identifier of the custom selling agency type - only applicable when SellingAgency is not set
      */
     agencyId?: string
+    /**
+     * The date on which the agreement between the vendor and agent expires
+     * example:
+     * 2019-08-14
+     */
+    agreementExpiryDate?: string // date
     /**
      * Request body used to update the commission fee for a property
      */
@@ -19195,6 +19260,12 @@ export interface UpdatePropertySellingModel {
    * The unique identifier of the custom selling agency type - only applicable when SellingAgency is not set
    */
   agencyId?: string
+  /**
+   * The date on which the agreement between the vendor and agent expires
+   * example:
+   * 2019-08-14
+   */
+  agreementExpiryDate?: string // date
   /**
    * Request body used to update the commission fee for a property
    */
