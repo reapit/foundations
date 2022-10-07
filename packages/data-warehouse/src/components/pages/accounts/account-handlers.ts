@@ -14,7 +14,7 @@ import { SubscriptionModel } from '@reapit/foundations-ts-definitions'
 export const handlePolling = (accountUri: string): Promise<{ provisioned: boolean; interval: number }> => {
   const accountId = accountUri.split('/').slice(-1)[0]
 
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
     const interval = window.setInterval(async () => {
       const account = await getAccountService(accountId)
 
@@ -25,6 +25,8 @@ export const handlePolling = (accountUri: string): Promise<{ provisioned: boolea
       if (account && account.status === 'An error was encountered when creating this account') {
         resolve({ provisioned: false, interval })
       }
+
+      reject()
     }, 4500)
   })
 }

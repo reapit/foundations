@@ -44,6 +44,9 @@ export enum UpdateActionNames {
   unFeatureApp = 'unFeatureApp',
   approveRevision = 'approveRevision',
   rejectRevision = 'rejectRevision',
+  createDwAccount = 'createDwAccount',
+  updateDwAccount = 'updateDwAccount',
+  deleteDwAccount = 'deleteDwAccount',
 }
 
 export type UpdateActions = { [key in UpdateActionNames]: UpdateAction }
@@ -260,5 +263,23 @@ export const updateActions = (appEnv: AppEnv): UpdateActions => ({
     path: PathNames.revisionReject,
     successMessage: 'Successfully rejected revision.',
     errorMessage: 'Failed to reject revision.',
+  },
+  [UpdateActionNames.createDwAccount]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.dwAccounts,
+    successMessage: 'Successfully created account.',
+    errorMessage: 'Failed to create account.',
+  },
+  [UpdateActionNames.updateDwAccount]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.dwAccountsId,
+    successMessage: 'Successfully updated account.',
+    errorMessage: 'Failed to update account.',
+  },
+  [UpdateActionNames.deleteDwAccount]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.dwAccountsId,
+    successMessage: 'Successfully deleted account.',
+    errorMessage: 'Failed to delete account.',
   },
 })

@@ -4,7 +4,6 @@ import { createBrowserHistory, History } from 'history'
 import Routes from '../constants/routes'
 import PrivateRouteWrapper from './private-route-wrapper'
 import { OkayPage } from '@reapit/utils-react'
-import { SubscriptionRouteWrapper } from '@/components/hocs/subscription-route-wrapper'
 
 export const history: History<any> = createBrowserHistory()
 
@@ -33,7 +32,6 @@ export const catchChunkError = (
 const LoginPage = React.lazy(() => catchChunkError(() => import('../components/pages/login')))
 const AccountsPage = React.lazy(() => catchChunkError(() => import('../components/pages/accounts/accounts')))
 const DataPage = React.lazy(() => catchChunkError(() => import('../components/pages/data/data')))
-const SettingsPage = React.lazy(() => catchChunkError(() => import('../components/pages/settings')))
 
 const Router = () => (
   <BrowserRouter history={history}>
@@ -42,13 +40,10 @@ const Router = () => (
         <Route path={Routes.OK} component={OkayPage} />
         <Route path={Routes.LOGIN} component={LoginPage} />
         <PrivateRouteWrapper>
-          <SubscriptionRouteWrapper>
-            <Switch>
-              <Route path={Routes.ACCOUNTS} component={AccountsPage} />
-              <Route path={Routes.DATA} component={DataPage} />
-              <Route path={Routes.SETTINGS} component={SettingsPage} />
-            </Switch>
-          </SubscriptionRouteWrapper>
+          <Switch>
+            <Route path={Routes.ACCOUNTS} component={AccountsPage} />
+            <Route path={Routes.DATA} component={DataPage} />
+          </Switch>
         </PrivateRouteWrapper>
         <Redirect to={Routes.LOGIN} />
       </Switch>

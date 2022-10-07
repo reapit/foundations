@@ -18,6 +18,8 @@ export const ApiNames = (appEnv: AppEnv) => {
 }
 
 export enum PathNames {
+  dwAccounts = '/dataMarketplace/accounts',
+  dwAccountsId = '/dataMarketplace/accounts/{accountId}',
   apps = '/marketplace/apps',
   appsId = '/marketplace/apps/{appId}',
   installations = '/marketplace/installations',

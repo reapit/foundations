@@ -1,72 +1,97 @@
-import React, { useContext } from 'react'
-import { Button, Form, Formik, FormSection, FormSubHeading, Input, LevelRight, Modal } from '@reapit/elements-legacy'
-import * as Yup from 'yup'
-import { passwordRegex } from '@reapit/utils-common'
+import React, { FC } from 'react'
+import { passwordRegex, UpdateActionNames, updateActions } from '@reapit/utils-common'
 import { AccountCreateModel } from '../../../types/accounts'
-import { MessageContext } from '../../../context/message-context'
-import { updateAccount } from './account-handlers'
+import { object, ref, string } from 'yup'
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { useGlobalState } from '../../../core/use-global-state'
+import { SendFunction, useReapitUpdate } from '@reapit/utils-react'
+import { reapitConnectBrowserSession } from '../../../core/connect-session'
+import { BodyText, Button, ButtonGroup, FormLayout, InputError, InputGroup, InputWrap } from '@reapit/elements'
 
 export interface AccountUpdateModalProps {
-  visible: boolean
   accountId: string | null
-  handleClose: () => void
+  closeModal: () => void
 }
 
-export const AccountUpdateModalForm: React.FC<Partial<AccountUpdateModalProps>> = ({ handleClose }) => (
-  <Form className="form">
-    <FormSection>
-      <FormSubHeading>Enter new password below</FormSubHeading>
-      <Input id="password" type="password" placeholder="*********" name="password" labelText="Password" />
-      <Input
-        id="passwordConfirm"
-        type="password"
-        placeholder="*********"
-        name="passwordConfirm"
-        labelText="Confirm Password"
-      />
-      <LevelRight>
-        <Button variant="secondary" type="button" onClick={handleClose}>
-          Cancel
-        </Button>
-        <Button variant="primary" type="submit">
-          Update
-        </Button>
-      </LevelRight>
-    </FormSection>
-  </Form>
-)
+const validationSchema = object({
+  password: string()
+    .required('Required')
+    .matches(passwordRegex, 'Password must be at least 8 characters, 1 number, mixed case'),
+  passwordConfirm: string()
+    .oneOf([ref('password')], 'Passwords must match')
+    .required('Required'),
+})
 
-const AccountUpdateModal: React.FC<AccountUpdateModalProps> = ({ visible, accountId, handleClose }) => {
-  const { setMessageState } = useContext(MessageContext)
+export const handleUpdateAccount =
+  (
+    updateAccount: SendFunction<Partial<AccountCreateModel>, boolean>,
+    refreshAccounts: () => void,
+    closeModal: () => void,
+  ) =>
+  async (formValues: Partial<AccountCreateModel>) => {
+    const accountUpdate = await updateAccount(formValues)
+
+    if (accountUpdate) {
+      refreshAccounts()
+      closeModal()
+    }
+  }
+
+export const AccountUpdateModal: FC<AccountUpdateModalProps> = ({ accountId, closeModal }) => {
+  const { refreshAccounts } = useGlobalState()
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<Partial<AccountCreateModel>>({
+    resolver: yupResolver(validationSchema),
+    defaultValues: {
+      password: '',
+      passwordConfirm: '',
+    },
+  })
+
+  const [, , updateAccount] = useReapitUpdate<Partial<AccountCreateModel>, boolean>({
+    reapitConnectBrowserSession,
+    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.updateDwAccount],
+    method: 'PATCH',
+    uriParams: {
+      accountId,
+    },
+  })
 
   return (
-    <Modal visible={visible} title="Data Warehouse Password Update" afterClose={handleClose}>
-      <Formik
-        initialValues={
-          {
-            password: '',
-            passwordConfirm: '',
-          } as Partial<AccountCreateModel>
-        }
-        onSubmit={(account: Partial<AccountCreateModel>) => {
-          if (accountId) {
-            updateAccount(setMessageState, account, accountId)
-          }
-          handleClose()
-        }}
-        validationSchema={Yup.object({
-          password: Yup.string()
-            .required('Required')
-            .matches(passwordRegex, 'Password must be at least 8 characters, 1 number, mixed case'),
-          passwordConfirm: Yup.string()
-            .oneOf([Yup.ref('password')], 'Passwords must match')
-            .required('Required'),
-        })}
-      >
-        <AccountUpdateModalForm handleClose={handleClose} />
-      </Formik>
-    </Modal>
+    <form onSubmit={handleSubmit(handleUpdateAccount(updateAccount, refreshAccounts, closeModal))}>
+      <BodyText hasGreyText>Enter new password below</BodyText>
+      <FormLayout>
+        <InputWrap>
+          <InputGroup {...register('username')} type="text" placeholder="Your username here" label="Username" />
+          {errors.username?.message && <InputError message={errors.username.message} />}
+        </InputWrap>
+        <InputWrap>
+          <InputGroup {...register('password')} type="password" placeholder="*********" label="Password" />
+          {errors.password?.message && <InputError message={errors.password.message} />}
+        </InputWrap>
+        <InputWrap>
+          <InputGroup
+            {...register('passwordConfirm')}
+            type="password"
+            placeholder="*********"
+            label="Confirm Password"
+          />
+          {errors.passwordConfirm?.message && <InputError message={errors.passwordConfirm.message} />}
+        </InputWrap>
+      </FormLayout>
+      <ButtonGroup alignment="center">
+        <Button intent="low" type="button" onClick={closeModal}>
+          Cancel
+        </Button>
+        <Button intent="primary" type="submit">
+          Update
+        </Button>
+      </ButtonGroup>
+    </form>
   )
 }
-
-export default AccountUpdateModal

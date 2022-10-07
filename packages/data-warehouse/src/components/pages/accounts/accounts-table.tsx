@@ -1,91 +1,87 @@
-import React, { SetStateAction, useContext, useState } from 'react'
-import { Button, Table } from '@reapit/elements-legacy'
-import { AccountModel } from '../../../types/accounts'
-import { MessageContext } from '../../../context/message-context'
-import { Dispatch } from 'react'
-import { PagedApiResponse } from '../../../types/core'
-import AccountUpdateModal from './account-update-modal'
-import { disableAccount } from './account-handlers'
+import React, { Dispatch, FC, SetStateAction, useState } from 'react'
+import { AccountUpdateModal } from './account-update-modal'
+import { useGlobalState } from '../../../core/use-global-state'
+import { Button, ButtonGroup, elMb11, Table, useModal } from '@reapit/elements'
+import { SendFunction, useReapitUpdate } from '@reapit/utils-react'
+import { UpdateActionNames, updateActions } from '@reapit/utils-common'
+import { reapitConnectBrowserSession } from '../../../core/connect-session'
 
-export interface AccountsTableProps {
-  accounts: AccountModel[]
-  setAccounts: Dispatch<SetStateAction<PagedApiResponse<AccountModel> | undefined>>
-}
-
-export interface TableCellProps<T> {
-  cell: { value: T }
-  data: AccountModel[]
-}
-
-export const AccountsTable: React.FC<AccountsTableProps> = ({ accounts, setAccounts }) => {
-  const [modalVisible, setModalVisible] = useState<boolean>(false)
-  const [disabling, setDisabling] = useState<string>('')
-  const [selectedAccountId, setSelectedAccountId] = useState<string | null>(null)
-  const handleModalClose = () => {
-    setModalVisible(false)
-    setSelectedAccountId(null)
-  }
-  const handleModalOpen = (accountId: string) => () => {
-    setModalVisible(true)
+export const handleModalOpen =
+  (accountId: string, setSelectedAccountId: Dispatch<SetStateAction<string | null>>, openModal: () => void) => () => {
     setSelectedAccountId(accountId)
+    openModal()
   }
 
-  const DeleteButton: React.FC<TableCellProps<string>> = ({ cell, data }) => {
-    const { setMessageState } = useContext(MessageContext)
-    const { value } = cell
-    const account = data.find((account) => account.id === value)
-    const isDisabling = Boolean(disabling && disabling === value)
-    const isDisabled = Boolean(account && account.status !== 'User is active')
+export const handleDeleteAccount =
+  (accountId: string, deleteAccount: SendFunction<void, boolean>, refreshAccounts: () => void) => async () => {
+    const accountDeleted = await deleteAccount(undefined, { uriParams: { accountId } })
 
-    return (
-      <Button
-        variant="danger"
-        onClick={disableAccount(setMessageState, setAccounts, setDisabling, value)}
-        disabled={isDisabled || isDisabling}
-        loading={isDisabling}
-      >
-        Deactivate
-      </Button>
-    )
+    if (accountDeleted) {
+      refreshAccounts()
+    }
   }
 
-  const UpdatePasswordButton: React.FC<TableCellProps<string>> = ({ cell, data }) => {
-    const { value } = cell
-    const account = data.find((account) => account.id === value)
-    const isDisabled = Boolean(account && account.status !== 'User is active')
-    return (
-      <Button onClick={handleModalOpen(value)} disabled={isDisabled}>
-        Update
-      </Button>
-    )
-  }
+export const AccountsTable: FC = () => {
+  const { accounts, refreshAccounts } = useGlobalState()
+  const { Modal, openModal, closeModal } = useModal()
+  const [selectedAccountId, setSelectedAccountId] = useState<string | null>(null)
 
-  const columns = [
-    {
-      Header: 'User Name',
-      accessor: 'username',
-    },
-    {
-      Header: 'Status',
-      accessor: 'status',
-    },
-    {
-      Header: 'Update Password',
-      accessor: 'id',
-      id: 'created',
-      Cell: UpdatePasswordButton,
-    },
-    {
-      Header: 'Deactivate User Account',
-      accessor: 'id',
-      Cell: DeleteButton,
-    },
-  ]
+  const [accountDeleting, , deleteAccount] = useReapitUpdate<void, boolean>({
+    reapitConnectBrowserSession,
+    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.updateDwAccount],
+    method: 'PATCH',
+  })
 
   return (
     <>
-      <AccountUpdateModal visible={modalVisible} handleClose={handleModalClose} accountId={selectedAccountId} />
-      <Table columns={columns} data={accounts} scrollable />
+      <Table
+        className={elMb11}
+        rows={accounts?._embedded?.map(({ username, status, id }) => ({
+          cells: [
+            {
+              label: 'User Name',
+              value: username,
+              icon: 'flatInfographic',
+              cellHasDarkText: true,
+              narrowTable: {
+                showLabel: true,
+              },
+            },
+            {
+              label: 'Status',
+              value: status,
+              cellHasDarkText: true,
+              narrowTable: {
+                showLabel: true,
+              },
+            },
+          ],
+          expandableContent: {
+            content: (
+              <ButtonGroup alignment="center">
+                <Button
+                  intent="primary"
+                  onClick={handleModalOpen(id, setSelectedAccountId, openModal)}
+                  disabled={status !== 'User is active' || accountDeleting}
+                >
+                  Update
+                </Button>
+                <Button
+                  intent="danger"
+                  onClick={handleDeleteAccount(id, deleteAccount, refreshAccounts)}
+                  disabled={accountDeleting}
+                  loading={accountDeleting}
+                >
+                  Deactivate
+                </Button>
+              </ButtonGroup>
+            ),
+          },
+        }))}
+      />
+      <Modal title="Data Warehouse Password Update">
+        <AccountUpdateModal closeModal={closeModal} accountId={selectedAccountId} />
+      </Modal>
     </>
   )
 }

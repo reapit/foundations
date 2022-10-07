@@ -1,12 +1,12 @@
 import React, { FC } from 'react'
 import { useReapitConnect } from '@reapit/connect-session'
-import { Loader, Section, FlexContainerResponsive, AppNavContainer, FlexContainerBasic } from '@reapit/elements-legacy'
-import Menu from '@/components/ui/menu'
-import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { reapitConnectBrowserSession } from './connect-session'
 import { useLocation, Redirect } from 'react-router'
 import Routes from '../constants/routes'
 import ErrorBoundary from '../components/error-boundary'
-import Toast from '../components/ui/toast'
+import { Nav } from '../components/nav'
+import { Loader, MainContainer, PageContainer } from '@reapit/elements'
+import { GlobalProvider } from './use-global-state'
 
 const { Suspense } = React
 
@@ -19,13 +19,11 @@ export const PrivateRouteWrapper: FC<PrivateRouteWrapperProps> = ({ children }) 
 
   if (!connectSession) {
     return (
-      <AppNavContainer>
-        <FlexContainerBasic flexColumn isScrollable>
-          <FlexContainerResponsive hasPadding flexColumn>
-            <Loader />
-          </FlexContainerResponsive>
-        </FlexContainerBasic>
-      </AppNavContainer>
+      <MainContainer>
+        <PageContainer>
+          <Loader fullPage />
+        </PageContainer>
+      </MainContainer>
     )
   }
 
@@ -36,26 +34,16 @@ export const PrivateRouteWrapper: FC<PrivateRouteWrapperProps> = ({ children }) 
   if (connectInternalRedirect && currentUri !== connectInternalRedirect) {
     return <Redirect to={connectInternalRedirect} />
   }
+
   return (
-    <AppNavContainer>
-      <Menu />
-      <FlexContainerBasic flexColumn isScrollable>
-        <FlexContainerResponsive hasPadding flexColumn>
-          <ErrorBoundary>
-            <Suspense
-              fallback={
-                <Section>
-                  <Loader />
-                </Section>
-              }
-            >
-              {children}
-            </Suspense>
-          </ErrorBoundary>
-          <Toast />
-        </FlexContainerResponsive>
-      </FlexContainerBasic>
-    </AppNavContainer>
+    <MainContainer>
+      <GlobalProvider>
+        <Nav />
+        <Suspense fallback={<Loader fullPage />}>
+          <ErrorBoundary>{children}</ErrorBoundary>
+        </Suspense>
+      </GlobalProvider>
+    </MainContainer>
   )
 }
 
