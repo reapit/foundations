@@ -3,7 +3,7 @@ import { passwordRegex, UpdateActionNames, updateActions } from '@reapit/utils-c
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { AccountCreateModel, AccountModel } from '../../../types/accounts'
-import { BodyText, Button, ButtonGroup, FormLayout, InputError, InputGroup, InputWrap } from '@reapit/elements'
+import { BodyText, Button, ButtonGroup, elMb11, FormLayout, InputError, InputGroup, InputWrap } from '@reapit/elements'
 import { useGlobalState } from '../../../core/use-global-state'
 import { object, ref, string } from 'yup'
 import { useForm } from 'react-hook-form'
@@ -123,7 +123,7 @@ export const AccountProvisionModal: FC<AccountProvisionModalProps> = ({
       )}
     >
       <BodyText hasGreyText>The information below will be used to access your data warehouse account</BodyText>
-      <FormLayout>
+      <FormLayout className={elMb11}>
         <InputWrap>
           <InputGroup {...register('username')} type="text" placeholder="Your username here" label="Username" />
           {errors.username?.message && <InputError message={errors.username.message} />}

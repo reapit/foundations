@@ -41,7 +41,7 @@ export const AccountsTable: FC = () => {
             {
               label: 'User Name',
               value: username,
-              icon: 'flatInfographic',
+              icon: 'userInfographic',
               cellHasDarkText: true,
               narrowTable: {
                 showLabel: true,

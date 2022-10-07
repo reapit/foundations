@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, MouseEvent } from 'react'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { NavResponsive, NavResponsiveOption } from '@reapit/elements'
@@ -23,6 +23,12 @@ export const getDefaultNavIndex = (pathname: string) => {
 
 export const navigate = (history: History, route: string) => (): void => {
   history.push(route)
+}
+
+export const openNewPage = (uri: string) => (event?: MouseEvent) => {
+  event?.preventDefault()
+  event?.stopPropagation()
+  window.open(uri, '_blank', 'noopener noreferrer')
 }
 
 export const Nav: FC = () => {

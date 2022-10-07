@@ -7,7 +7,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { useGlobalState } from '../../../core/use-global-state'
 import { SendFunction, useReapitUpdate } from '@reapit/utils-react'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
-import { BodyText, Button, ButtonGroup, FormLayout, InputError, InputGroup, InputWrap } from '@reapit/elements'
+import { BodyText, Button, ButtonGroup, elMb11, FormLayout, InputError, InputGroup, InputWrap } from '@reapit/elements'
 
 export interface AccountUpdateModalProps {
   accountId: string | null
@@ -65,7 +65,7 @@ export const AccountUpdateModal: FC<AccountUpdateModalProps> = ({ accountId, clo
   return (
     <form onSubmit={handleSubmit(handleUpdateAccount(updateAccount, refreshAccounts, closeModal))}>
       <BodyText hasGreyText>Enter new password below</BodyText>
-      <FormLayout>
+      <FormLayout className={elMb11}>
         <InputWrap>
           <InputGroup {...register('username')} type="text" placeholder="Your username here" label="Username" />
           {errors.username?.message && <InputError message={errors.username.message} />}
