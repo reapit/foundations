@@ -9,85 +9,8 @@ Object {
         class="ecbqyq6"
       />
       <div
-        style="overflow: scroll;"
-      >
-        <table
-          class="table is-striped is-fullwidth "
-          role="table"
-        >
-          <thead>
-            <tr
-              role="row"
-            >
-              <th
-                colspan="1"
-                role="columnheader"
-              >
-                User Name
-              </th>
-              <th
-                colspan="1"
-                role="columnheader"
-              >
-                Status
-              </th>
-              <th
-                colspan="1"
-                role="columnheader"
-              >
-                Update Password
-              </th>
-              <th
-                colspan="1"
-                role="columnheader"
-              >
-                Deactivate User Account
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr
-              class=""
-              role="row"
-            >
-              <td
-                role="cell"
-              >
-                hiyaall
-              </td>
-              <td
-                role="cell"
-              >
-                active
-              </td>
-              <td
-                role="cell"
-              >
-                <button
-                  class="button   is-primary "
-                  data-test=""
-                  disabled=""
-                  type="button"
-                >
-                  Update
-                </button>
-              </td>
-              <td
-                role="cell"
-              >
-                <button
-                  class="button   is-danger "
-                  data-test=""
-                  disabled=""
-                  type="button"
-                >
-                  Deactivate
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+        class="ec47sgk ejadz4k"
+      />
     </div>
   </body>,
   "container": <div>
@@ -95,85 +18,8 @@ Object {
       class="ecbqyq6"
     />
     <div
-      style="overflow: scroll;"
-    >
-      <table
-        class="table is-striped is-fullwidth "
-        role="table"
-      >
-        <thead>
-          <tr
-            role="row"
-          >
-            <th
-              colspan="1"
-              role="columnheader"
-            >
-              User Name
-            </th>
-            <th
-              colspan="1"
-              role="columnheader"
-            >
-              Status
-            </th>
-            <th
-              colspan="1"
-              role="columnheader"
-            >
-              Update Password
-            </th>
-            <th
-              colspan="1"
-              role="columnheader"
-            >
-              Deactivate User Account
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr
-            class=""
-            role="row"
-          >
-            <td
-              role="cell"
-            >
-              hiyaall
-            </td>
-            <td
-              role="cell"
-            >
-              active
-            </td>
-            <td
-              role="cell"
-            >
-              <button
-                class="button   is-primary "
-                data-test=""
-                disabled=""
-                type="button"
-              >
-                Update
-              </button>
-            </td>
-            <td
-              role="cell"
-            >
-              <button
-                class="button   is-danger "
-                data-test=""
-                disabled=""
-                type="button"
-              >
-                Deactivate
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+      class="ec47sgk ejadz4k"
+    />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

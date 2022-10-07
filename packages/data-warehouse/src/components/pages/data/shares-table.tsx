@@ -1,130 +1,151 @@
-import React, { SetStateAction, useContext, useState } from 'react'
-import { Button, Table } from '@reapit/elements-legacy'
-import { MessageContext } from '../../../context/message-context'
+import React, { FC, SetStateAction, useState } from 'react'
 import { Dispatch } from 'react'
-import { PagedApiResponse } from '../../../types/core'
 import { SharesModel } from '../../../types/shares'
-import { FaCopy } from 'react-icons/fa'
 import CopyToClipboard from 'react-copy-to-clipboard'
-import { btnCopy, tooltiptext } from './__styles__/tooltip'
-import { deleteShare, handleCopyCode, handleMouseLeave, refreshShare } from './data-handlers'
+import { handleMouseLeave } from './data-handlers'
+import { Button, ButtonGroup, elMb11, Table } from '@reapit/elements'
+import { SendFunction, useReapitUpdate } from '@reapit/utils-react'
+import { reapitConnectBrowserSession } from '../../../core/connect-session'
+import { UpdateActionNames, updateActions } from '@reapit/utils-common'
 
 export interface SharesTableProps {
   shares: SharesModel[]
-  setShares: Dispatch<SetStateAction<PagedApiResponse<SharesModel> | undefined>>
+  refreshShares: () => void
 }
 
-export interface TableCellProps<T> {
-  cell: { value: T }
+export interface TableCellProps {
+  value: string
 }
 
-export const DSNComponent: React.FC<TableCellProps<string>> = ({ cell: { value } }) => {
-  const [tooltipMessage, setTooltipMessage] = useState('Copy DSN')
+export const handleCopyCode = (setCopyMessage: Dispatch<SetStateAction<string>>) => () => {
+  setCopyMessage('Copied')
+}
+
+export const handleDeleteShare =
+  (deleteShare: SendFunction<void, boolean>, refreshShares: () => void, shareId: string) => async () => {
+    const shareDeleted = await deleteShare(undefined, { uriParams: { shareId } })
+
+    if (shareDeleted) {
+      refreshShares()
+    }
+  }
+
+export const handleRefreshShare =
+  (refreshShare: SendFunction<void, boolean>, refreshShares: () => void, shareId: string) => async () => {
+    const shareRefresh = await refreshShare(undefined, { uriParams: { shareId } })
+
+    if (shareRefresh) {
+      refreshShares()
+    }
+  }
+
+export const DSNComponent: FC<TableCellProps> = ({ value }) => {
+  const [copyMessage, setCopyMessage] = useState('Copy DSN')
 
   return (
-    <CopyToClipboard text={value} onCopy={handleCopyCode(setTooltipMessage)}>
-      <div onMouseLeave={handleMouseLeave(setTooltipMessage, 'Copy DSN')} role="button" className={btnCopy}>
-        <FaCopy size={24} />
-        <span className={tooltiptext}>{tooltipMessage}</span>
-      </div>
+    <CopyToClipboard text={value} onCopy={handleCopyCode(setCopyMessage)}>
+      <Button onMouseLeave={handleMouseLeave(setCopyMessage, 'Copy DSN')} intent="low">
+        {copyMessage}
+      </Button>
     </CopyToClipboard>
   )
 }
 
-export const URLComponent: React.FC<TableCellProps<string>> = ({ cell: { value } }) => {
-  const [tooltipMessage, setTooltipMessage] = useState('Copy URL')
+export const URLComponent: FC<TableCellProps> = ({ value }) => {
+  const [copyMessage, setCopyMessage] = useState('Copy URL')
 
   return (
-    <CopyToClipboard text={value} onCopy={handleCopyCode(setTooltipMessage)}>
-      <div onMouseLeave={handleMouseLeave(setTooltipMessage, 'Copy URL')} role="button" className={btnCopy}>
-        <FaCopy size={24} />
-        <span className={tooltiptext}>{tooltipMessage}</span>
-      </div>
+    <CopyToClipboard text={value} onCopy={handleCopyCode(setCopyMessage)}>
+      <Button onMouseLeave={handleMouseLeave(setCopyMessage, 'Copy URL')} intent="low">
+        {copyMessage}
+      </Button>
     </CopyToClipboard>
   )
 }
 
-export const SharesTable: React.FC<SharesTableProps> = ({ shares, setShares }) => {
-  const [updatingShare, setUpdatingShare] = useState('')
+export const SharesTable: FC<SharesTableProps> = ({ shares, refreshShares }) => {
+  const [refreshingShare, , refreshShare] = useReapitUpdate<void, boolean>({
+    reapitConnectBrowserSession,
+    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.refreshDwShare],
+    method: 'POST',
+  })
 
-  const DeleteShareComponent: React.FC<TableCellProps<string>> = ({ cell: { value } }) => {
-    const { setMessageState } = useContext(MessageContext)
-    const isLoading = Boolean(updatingShare && updatingShare === value)
+  const [deletingShare, , deleteShare] = useReapitUpdate<void, boolean>({
+    reapitConnectBrowserSession,
+    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.refreshDwShare],
+    method: 'DELETE',
+  })
 
-    return (
-      <Button
-        variant="danger"
-        onClick={deleteShare(setMessageState, setUpdatingShare, setShares, value)}
-        disabled={isLoading}
-        loading={isLoading}
-      >
-        Delete Share
-      </Button>
-    )
-  }
+  const isLoading = refreshingShare || deletingShare
 
-  const RefreshShareComponent: React.FC<TableCellProps<string>> = ({ cell: { value } }) => {
-    const { setMessageState } = useContext(MessageContext)
-    const isLoading = Boolean(updatingShare && updatingShare === value)
-
-    return (
-      <Button
-        variant="primary"
-        onClick={refreshShare(setMessageState, setUpdatingShare, setShares, value)}
-        disabled={isLoading}
-        loading={isLoading}
-      >
-        Refresh Share
-      </Button>
-    )
-  }
-
-  const columns = [
-    {
-      Header: 'Data Set Name',
-      accessor: 'datasetName',
-    },
-    {
-      Header: 'Database',
-      accessor: 'database',
-    },
-    {
-      Header: 'Schema',
-      accessor: 'schema',
-    },
-    {
-      Header: 'Warehouse',
-      accessor: 'warehouse',
-    },
-    {
-      Header: 'Region',
-      accessor: 'region',
-    },
-    {
-      Header: 'Url',
-      accessor: 'url',
-      Cell: URLComponent,
-    },
-    {
-      Header: 'DSN',
-      accessor: 'dsn',
-      Cell: DSNComponent,
-    },
-    {
-      Header: 'Refresh Data Share',
-      accessor: 'id',
-      id: 'share-refresh',
-      Cell: RefreshShareComponent,
-    },
-    {
-      Header: 'Delete Data Share',
-      accessor: 'id',
-      id: 'share-delete',
-      Cell: DeleteShareComponent,
-    },
-  ]
-
-  return <Table columns={columns} data={shares} scrollable />
+  return (
+    <Table
+      className={elMb11}
+      rows={shares?.map(({ datasetName, database, schema, warehouse, region, url, dsn, id }) => ({
+        cells: [
+          {
+            label: 'Data Set Name',
+            value: datasetName,
+            cellHasDarkText: true,
+            narrowTable: {
+              showLabel: true,
+            },
+          },
+          {
+            label: 'Database',
+            value: database,
+            cellHasDarkText: true,
+            narrowTable: {
+              showLabel: true,
+            },
+          },
+          {
+            label: 'Schema',
+            value: schema,
+            narrowTable: {
+              showLabel: true,
+            },
+          },
+          {
+            label: 'Warehouse',
+            value: warehouse,
+            narrowTable: {
+              showLabel: true,
+            },
+          },
+          {
+            label: 'Region',
+            value: region,
+            narrowTable: {
+              showLabel: true,
+            },
+          },
+        ],
+        expandableContent: {
+          content: (
+            <ButtonGroup alignment="center">
+              <URLComponent value={url} />
+              <DSNComponent value={dsn} />
+              <Button
+                intent="danger"
+                onClick={handleDeleteShare(deleteShare, refreshShares, id)}
+                disabled={isLoading}
+                loading={isLoading}
+              >
+                Delete Share
+              </Button>
+              <Button
+                intent="primary"
+                onClick={handleRefreshShare(refreshShare, refreshShares, id)}
+                disabled={isLoading}
+                loading={isLoading}
+              >
+                Refresh Share
+              </Button>
+            </ButtonGroup>
+          ),
+        },
+      }))}
+    />
+  )
 }
-
-export default SharesTable

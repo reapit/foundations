@@ -5,8 +5,6 @@ import { stubDataSets } from '../../../../services/__stubs__/data-sets'
 
 describe('DataSetsTable', () => {
   it('should match a snapshot', () => {
-    expect(
-      render(<DataSetsTable dataSets={stubDataSets._embedded} setShares={jest.fn()} hasAccount />),
-    ).toMatchSnapshot()
+    expect(render(<DataSetsTable dataSets={stubDataSets._embedded} refreshShares={jest.fn()} />)).toMatchSnapshot()
   })
 })

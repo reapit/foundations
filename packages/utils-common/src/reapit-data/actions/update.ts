@@ -47,6 +47,9 @@ export enum UpdateActionNames {
   createDwAccount = 'createDwAccount',
   updateDwAccount = 'updateDwAccount',
   deleteDwAccount = 'deleteDwAccount',
+  createDwRequest = 'createDwRequest',
+  deleteDwShare = 'deleteDwShare',
+  refreshDwShare = 'refreshDwShare',
 }
 
 export type UpdateActions = { [key in UpdateActionNames]: UpdateAction }
@@ -281,5 +284,23 @@ export const updateActions = (appEnv: AppEnv): UpdateActions => ({
     path: PathNames.dwAccountsId,
     successMessage: 'Successfully deleted account.',
     errorMessage: 'Failed to delete account.',
+  },
+  [UpdateActionNames.createDwRequest]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.dwRequests,
+    successMessage: 'Successfully created data share.',
+    errorMessage: 'Failed to create data share.',
+  },
+  [UpdateActionNames.deleteDwShare]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.dwSharesId,
+    successMessage: 'Successfully deleted data share.',
+    errorMessage: 'Failed to delete data share.',
+  },
+  [UpdateActionNames.refreshDwShare]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.dwShareRefresh,
+    successMessage: 'Successfully refreshed data share.',
+    errorMessage: 'Failed to refresh data share.',
   },
 })

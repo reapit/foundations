@@ -8,12 +8,200 @@ Object {
       <div
         class="ecbqyq6"
       />
+      <form>
+        <p
+          class="e11jaxfn e1wasvgh"
+        >
+          Enter new password below
+        </p>
+        <div
+          class="ee6e7by"
+        >
+          <div
+            class="e1ksxx4v"
+          >
+            <div
+              class="e1979rmu"
+            >
+              <input
+                class="e1urjlvd"
+                id="test-static-id"
+                name="username"
+                placeholder="Your username here"
+                type="text"
+              />
+              <label
+                class="e1nbkkrq"
+                for="test-static-id"
+              >
+                Username
+              </label>
+            </div>
+          </div>
+          <div
+            class="e1ksxx4v"
+          >
+            <div
+              class="e1979rmu"
+            >
+              <input
+                class="e1urjlvd"
+                id="test-static-id"
+                name="password"
+                placeholder="*********"
+                type="password"
+              />
+              <label
+                class="e1nbkkrq"
+                for="test-static-id"
+              >
+                Password
+              </label>
+            </div>
+          </div>
+          <div
+            class="e1ksxx4v"
+          >
+            <div
+              class="e1979rmu"
+            >
+              <input
+                class="e1urjlvd"
+                id="test-static-id"
+                name="passwordConfirm"
+                placeholder="*********"
+                type="password"
+              />
+              <label
+                class="e1nbkkrq"
+                for="test-static-id"
+              >
+                Confirm Password
+              </label>
+            </div>
+          </div>
+        </div>
+        <div
+          class="eay05y4"
+        >
+          <div
+            class="ej73pla ebqwrow"
+          >
+            <button
+              class="e1ymtwpu eqfkc7t"
+              type="button"
+            >
+              Cancel
+            </button>
+            <button
+              class="ebee6r1 eqfkc7t"
+              type="submit"
+            >
+              Update
+            </button>
+          </div>
+        </div>
+      </form>
     </div>
   </body>,
   "container": <div>
     <div
       class="ecbqyq6"
     />
+    <form>
+      <p
+        class="e11jaxfn e1wasvgh"
+      >
+        Enter new password below
+      </p>
+      <div
+        class="ee6e7by"
+      >
+        <div
+          class="e1ksxx4v"
+        >
+          <div
+            class="e1979rmu"
+          >
+            <input
+              class="e1urjlvd"
+              id="test-static-id"
+              name="username"
+              placeholder="Your username here"
+              type="text"
+            />
+            <label
+              class="e1nbkkrq"
+              for="test-static-id"
+            >
+              Username
+            </label>
+          </div>
+        </div>
+        <div
+          class="e1ksxx4v"
+        >
+          <div
+            class="e1979rmu"
+          >
+            <input
+              class="e1urjlvd"
+              id="test-static-id"
+              name="password"
+              placeholder="*********"
+              type="password"
+            />
+            <label
+              class="e1nbkkrq"
+              for="test-static-id"
+            >
+              Password
+            </label>
+          </div>
+        </div>
+        <div
+          class="e1ksxx4v"
+        >
+          <div
+            class="e1979rmu"
+          >
+            <input
+              class="e1urjlvd"
+              id="test-static-id"
+              name="passwordConfirm"
+              placeholder="*********"
+              type="password"
+            />
+            <label
+              class="e1nbkkrq"
+              for="test-static-id"
+            >
+              Confirm Password
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="eay05y4"
+      >
+        <div
+          class="ej73pla ebqwrow"
+        >
+          <button
+            class="e1ymtwpu eqfkc7t"
+            type="button"
+          >
+            Cancel
+          </button>
+          <button
+            class="ebee6r1 eqfkc7t"
+            type="submit"
+          >
+            Update
+          </button>
+        </div>
+      </div>
+    </form>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

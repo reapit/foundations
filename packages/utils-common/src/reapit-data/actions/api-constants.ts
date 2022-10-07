@@ -19,6 +19,11 @@ export const ApiNames = (appEnv: AppEnv) => {
 
 export enum PathNames {
   dwAccounts = '/dataMarketplace/accounts',
+  dwDataSets = '/dataMarketplace/datasets',
+  dwShares = '/dataMarketplace/shares',
+  dwSharesId = '/dataMarketplace/shares/{shareId}',
+  dwShareRefresh = '/dataMarketplace/shares/{shareId}/refresh',
+  dwRequests = '/dataMarketplace/requests',
   dwAccountsId = '/dataMarketplace/accounts/{accountId}',
   apps = '/marketplace/apps',
   appsId = '/marketplace/apps/{appId}',

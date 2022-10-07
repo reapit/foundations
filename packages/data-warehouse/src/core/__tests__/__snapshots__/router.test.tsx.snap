@@ -8,56 +8,50 @@ Object {
       <div
         class="ecbqyq6"
       />
-      <div
-        class="app-nav-container"
-        data-test=""
+      <main
+        class="e16s02q7"
       >
-        <div
-          class="container-flex is-column is-scrollable"
+        <section
+          class="eukst9x"
         >
           <div
-            class="container is-column has-padding"
+            class="ev48hx0 ebhrnzh"
           >
             <div
-              class="loader-spinner body"
-              data-test=""
+              class="eq1m1jz"
             >
-              <div />
-              <div />
-              <div />
-              <div />
+              <div
+                class="exikdu1"
+              />
             </div>
           </div>
-        </div>
-      </div>
+        </section>
+      </main>
     </div>
   </body>,
   "container": <div>
     <div
       class="ecbqyq6"
     />
-    <div
-      class="app-nav-container"
-      data-test=""
+    <main
+      class="e16s02q7"
     >
-      <div
-        class="container-flex is-column is-scrollable"
+      <section
+        class="eukst9x"
       >
         <div
-          class="container is-column has-padding"
+          class="ev48hx0 ebhrnzh"
         >
           <div
-            class="loader-spinner body"
-            data-test=""
+            class="eq1m1jz"
           >
-            <div />
-            <div />
-            <div />
-            <div />
+            <div
+              class="exikdu1"
+            />
           </div>
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

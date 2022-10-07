@@ -6,17 +6,17 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="el-snack-holder"
+        class="ecbqyq6"
       />
       <div
-        class="el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        class="e1vxext9 evmehgn e1qwk99x e15e3rd4 erhlo5n"
       >
         <div
-          class="el-pn-icon"
+          class="eta6kcl"
           data-testid="close-icon"
         >
           <span
-            class="el-icon"
+            class="ej9yrfo"
           >
             <svg
               fill="none"
@@ -33,7 +33,7 @@ Object {
           </span>
         </div>
         <div
-          class="el-pn-content"
+          class="e1geon40"
         >
           Something went wrong here, try refreshing your page.
         </div>
@@ -42,17 +42,17 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="el-snack-holder"
+      class="ecbqyq6"
     />
     <div
-      class="el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+      class="e1vxext9 evmehgn e1qwk99x e15e3rd4 erhlo5n"
     >
       <div
-        class="el-pn-icon"
+        class="eta6kcl"
         data-testid="close-icon"
       >
         <span
-          class="el-icon"
+          class="ej9yrfo"
         >
           <svg
             fill="none"
@@ -69,7 +69,7 @@ Object {
         </span>
       </div>
       <div
-        class="el-pn-content"
+        class="e1geon40"
       >
         Something went wrong here, try refreshing your page.
       </div>
@@ -135,7 +135,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="el-snack-holder"
+        class="ecbqyq6"
       />
       <div>
         I am a component!
@@ -144,7 +144,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="el-snack-holder"
+      class="ecbqyq6"
     />
     <div>
       I am a component!

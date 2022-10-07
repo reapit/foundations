@@ -15,7 +15,7 @@ export const getDefaultNavIndex = (pathname: string) => {
     case Routes.ACCOUNTS:
       return 1
     case Routes.DATA:
-      return 3
+      return 2
     default:
       return 0
   }
