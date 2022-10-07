@@ -1,0 +1,1091 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AccountProgressBar should match a snapshot for 0 complete 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ecbqyq6"
+      />
+      <div
+        class="ec47sgk"
+      >
+        <div
+          class="e1g28qe3 e1arnr1r"
+        >
+          <div
+            class="e1rl7ran"
+            style="width: 0%;"
+          >
+            <div
+              class="e1clux3b e7mm5ge"
+            />
+            <div
+              class="e6k8zhz e7mm5ge"
+            />
+            <div
+              class="eym3zl9 e7mm5ge"
+            />
+            <div
+              class="e1x3rsk e7mm5ge"
+            />
+            <div
+              class="ekyn7n1 e7mm5ge"
+            />
+          </div>
+        </div>
+        <div
+          class="progress-message-text"
+        >
+          Initializing...
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6"
+    />
+    <div
+      class="ec47sgk"
+    >
+      <div
+        class="e1g28qe3 e1arnr1r"
+      >
+        <div
+          class="e1rl7ran"
+          style="width: 0%;"
+        >
+          <div
+            class="e1clux3b e7mm5ge"
+          />
+          <div
+            class="e6k8zhz e7mm5ge"
+          />
+          <div
+            class="eym3zl9 e7mm5ge"
+          />
+          <div
+            class="e1x3rsk e7mm5ge"
+          />
+          <div
+            class="ekyn7n1 e7mm5ge"
+          />
+        </div>
+      </div>
+      <div
+        class="progress-message-text"
+      >
+        Initializing...
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`AccountProgressBar should match a snapshot for 19 complete 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ecbqyq6"
+      />
+      <div
+        class="ec47sgk"
+      >
+        <div
+          class="e1g28qe3 e1arnr1r"
+        >
+          <div
+            class="e1rl7ran"
+            style="width: 19%;"
+          >
+            <div
+              class="e1clux3b e7mm5ge"
+            />
+            <div
+              class="e6k8zhz e7mm5ge"
+            />
+            <div
+              class="eym3zl9 e7mm5ge"
+            />
+            <div
+              class="e1x3rsk e7mm5ge"
+            />
+            <div
+              class="ekyn7n1 e7mm5ge"
+            />
+          </div>
+        </div>
+        <div
+          class="progress-message-text"
+        >
+          Initializing...
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6"
+    />
+    <div
+      class="ec47sgk"
+    >
+      <div
+        class="e1g28qe3 e1arnr1r"
+      >
+        <div
+          class="e1rl7ran"
+          style="width: 19%;"
+        >
+          <div
+            class="e1clux3b e7mm5ge"
+          />
+          <div
+            class="e6k8zhz e7mm5ge"
+          />
+          <div
+            class="eym3zl9 e7mm5ge"
+          />
+          <div
+            class="e1x3rsk e7mm5ge"
+          />
+          <div
+            class="ekyn7n1 e7mm5ge"
+          />
+        </div>
+      </div>
+      <div
+        class="progress-message-text"
+      >
+        Initializing...
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`AccountProgressBar should match a snapshot for 39 complete 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ecbqyq6"
+      />
+      <div
+        class="ec47sgk"
+      >
+        <div
+          class="e1g28qe3 e1arnr1r"
+        >
+          <div
+            class="e1rl7ran"
+            style="width: 39%;"
+          >
+            <div
+              class="e1clux3b e7mm5ge"
+            />
+            <div
+              class="e6k8zhz e7mm5ge"
+            />
+            <div
+              class="eym3zl9 e7mm5ge"
+            />
+            <div
+              class="e1x3rsk e7mm5ge"
+            />
+            <div
+              class="ekyn7n1 e7mm5ge"
+            />
+          </div>
+        </div>
+        <div
+          class="progress-message-text"
+        >
+          Creating account...
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6"
+    />
+    <div
+      class="ec47sgk"
+    >
+      <div
+        class="e1g28qe3 e1arnr1r"
+      >
+        <div
+          class="e1rl7ran"
+          style="width: 39%;"
+        >
+          <div
+            class="e1clux3b e7mm5ge"
+          />
+          <div
+            class="e6k8zhz e7mm5ge"
+          />
+          <div
+            class="eym3zl9 e7mm5ge"
+          />
+          <div
+            class="e1x3rsk e7mm5ge"
+          />
+          <div
+            class="ekyn7n1 e7mm5ge"
+          />
+        </div>
+      </div>
+      <div
+        class="progress-message-text"
+      >
+        Creating account...
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`AccountProgressBar should match a snapshot for 59 complete 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ecbqyq6"
+      />
+      <div
+        class="ec47sgk"
+      >
+        <div
+          class="e1g28qe3 e1arnr1r"
+        >
+          <div
+            class="e1rl7ran"
+            style="width: 59%;"
+          >
+            <div
+              class="e1clux3b e7mm5ge"
+            />
+            <div
+              class="e6k8zhz e7mm5ge"
+            />
+            <div
+              class="eym3zl9 e7mm5ge"
+            />
+            <div
+              class="e1x3rsk e7mm5ge"
+            />
+            <div
+              class="ekyn7n1 e7mm5ge"
+            />
+          </div>
+        </div>
+        <div
+          class="progress-message-text"
+        >
+          Provisioning compute...
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6"
+    />
+    <div
+      class="ec47sgk"
+    >
+      <div
+        class="e1g28qe3 e1arnr1r"
+      >
+        <div
+          class="e1rl7ran"
+          style="width: 59%;"
+        >
+          <div
+            class="e1clux3b e7mm5ge"
+          />
+          <div
+            class="e6k8zhz e7mm5ge"
+          />
+          <div
+            class="eym3zl9 e7mm5ge"
+          />
+          <div
+            class="e1x3rsk e7mm5ge"
+          />
+          <div
+            class="ekyn7n1 e7mm5ge"
+          />
+        </div>
+      </div>
+      <div
+        class="progress-message-text"
+      >
+        Provisioning compute...
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`AccountProgressBar should match a snapshot for 79 complete 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ecbqyq6"
+      />
+      <div
+        class="ec47sgk"
+      >
+        <div
+          class="e1g28qe3 e1arnr1r"
+        >
+          <div
+            class="e1rl7ran"
+            style="width: 79%;"
+          >
+            <div
+              class="e1clux3b e7mm5ge"
+            />
+            <div
+              class="e6k8zhz e7mm5ge"
+            />
+            <div
+              class="eym3zl9 e7mm5ge"
+            />
+            <div
+              class="e1x3rsk e7mm5ge"
+            />
+            <div
+              class="ekyn7n1 e7mm5ge"
+            />
+          </div>
+        </div>
+        <div
+          class="progress-message-text"
+        >
+          Preparing permissions...
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6"
+    />
+    <div
+      class="ec47sgk"
+    >
+      <div
+        class="e1g28qe3 e1arnr1r"
+      >
+        <div
+          class="e1rl7ran"
+          style="width: 79%;"
+        >
+          <div
+            class="e1clux3b e7mm5ge"
+          />
+          <div
+            class="e6k8zhz e7mm5ge"
+          />
+          <div
+            class="eym3zl9 e7mm5ge"
+          />
+          <div
+            class="e1x3rsk e7mm5ge"
+          />
+          <div
+            class="ekyn7n1 e7mm5ge"
+          />
+        </div>
+      </div>
+      <div
+        class="progress-message-text"
+      >
+        Preparing permissions...
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`AccountProgressBar should match a snapshot for 94 complete 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ecbqyq6"
+      />
+      <div
+        class="ec47sgk"
+      >
+        <div
+          class="e1g28qe3 e1arnr1r"
+        >
+          <div
+            class="e1rl7ran"
+            style="width: 94%;"
+          >
+            <div
+              class="e1clux3b e7mm5ge"
+            />
+            <div
+              class="e6k8zhz e7mm5ge"
+            />
+            <div
+              class="eym3zl9 e7mm5ge"
+            />
+            <div
+              class="e1x3rsk e7mm5ge"
+            />
+            <div
+              class="ekyn7n1 e7mm5ge"
+            />
+          </div>
+        </div>
+        <div
+          class="progress-message-text"
+        >
+          Setting up defaults...
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6"
+    />
+    <div
+      class="ec47sgk"
+    >
+      <div
+        class="e1g28qe3 e1arnr1r"
+      >
+        <div
+          class="e1rl7ran"
+          style="width: 94%;"
+        >
+          <div
+            class="e1clux3b e7mm5ge"
+          />
+          <div
+            class="e6k8zhz e7mm5ge"
+          />
+          <div
+            class="eym3zl9 e7mm5ge"
+          />
+          <div
+            class="e1x3rsk e7mm5ge"
+          />
+          <div
+            class="ekyn7n1 e7mm5ge"
+          />
+        </div>
+      </div>
+      <div
+        class="progress-message-text"
+      >
+        Setting up defaults...
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`AccountProgressBar should match a snapshot for 99 complete 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ecbqyq6"
+      />
+      <div
+        class="ec47sgk"
+      >
+        <div
+          class="e1g28qe3 e1arnr1r"
+        >
+          <div
+            class="e1rl7ran"
+            style="width: 99%;"
+          >
+            <div
+              class="e1clux3b e7mm5ge"
+            />
+            <div
+              class="e6k8zhz e7mm5ge"
+            />
+            <div
+              class="eym3zl9 e7mm5ge"
+            />
+            <div
+              class="e1x3rsk e7mm5ge"
+            />
+            <div
+              class="ekyn7n1 e7mm5ge"
+            />
+          </div>
+        </div>
+        <div
+          class="progress-message-text"
+        >
+          Nearly there, final checks... please note, on the first user account provision, this can take a few minutes...
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6"
+    />
+    <div
+      class="ec47sgk"
+    >
+      <div
+        class="e1g28qe3 e1arnr1r"
+      >
+        <div
+          class="e1rl7ran"
+          style="width: 99%;"
+        >
+          <div
+            class="e1clux3b e7mm5ge"
+          />
+          <div
+            class="e6k8zhz e7mm5ge"
+          />
+          <div
+            class="eym3zl9 e7mm5ge"
+          />
+          <div
+            class="e1x3rsk e7mm5ge"
+          />
+          <div
+            class="ekyn7n1 e7mm5ge"
+          />
+        </div>
+      </div>
+      <div
+        class="progress-message-text"
+      >
+        Nearly there, final checks... please note, on the first user account provision, this can take a few minutes...
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`AccountProgressBar should match a snapshot for 100 complete 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ecbqyq6"
+      />
+      <div
+        class="ec47sgk"
+      >
+        <div
+          class="e1g28qe3 e1arnr1r"
+        >
+          <div
+            class="e1rl7ran"
+            style="width: 100%;"
+          >
+            <div
+              class="e1clux3b e7mm5ge"
+            />
+            <div
+              class="e6k8zhz e7mm5ge"
+            />
+            <div
+              class="eym3zl9 e7mm5ge"
+            />
+            <div
+              class="e1x3rsk e7mm5ge"
+            />
+            <div
+              class="ekyn7n1 e7mm5ge"
+            />
+          </div>
+        </div>
+        <div
+          class="progress-message-text"
+        >
+          Your account is ready! 
+          <span
+            role="img"
+          >
+            🚀
+          </span>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ecbqyq6"
+    />
+    <div
+      class="ec47sgk"
+    >
+      <div
+        class="e1g28qe3 e1arnr1r"
+      >
+        <div
+          class="e1rl7ran"
+          style="width: 100%;"
+        >
+          <div
+            class="e1clux3b e7mm5ge"
+          />
+          <div
+            class="e6k8zhz e7mm5ge"
+          />
+          <div
+            class="eym3zl9 e7mm5ge"
+          />
+          <div
+            class="e1x3rsk e7mm5ge"
+          />
+          <div
+            class="ekyn7n1 e7mm5ge"
+          />
+        </div>
+      </div>
+      <div
+        class="progress-message-text"
+      >
+        Your account is ready! 
+        <span
+          role="img"
+        >
+          🚀
+        </span>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

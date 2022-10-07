@@ -29,9 +29,9 @@ export const catchChunkError = (
   })
 }
 
-const LoginPage = React.lazy(() => catchChunkError(() => import('../components/pages/login')))
-const AccountsPage = React.lazy(() => catchChunkError(() => import('../components/pages/accounts/accounts')))
-const DataPage = React.lazy(() => catchChunkError(() => import('../components/pages/data/data')))
+const LoginPage = React.lazy(() => catchChunkError(() => import('../components/login')))
+const AccountsPage = React.lazy(() => catchChunkError(() => import('../components/accounts/accounts')))
+const DataPage = React.lazy(() => catchChunkError(() => import('../components/data/data')))
 
 const Router = () => (
   <BrowserRouter history={history}>

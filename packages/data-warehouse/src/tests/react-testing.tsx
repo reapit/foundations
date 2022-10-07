@@ -7,19 +7,16 @@ import { queries, render, RenderOptions } from '@testing-library/react'
 import { MediaStateProvider, NavStateProvider, SnackProvider } from '@reapit/elements'
 import { Router } from 'react-router-dom'
 import { createBrowserHistory, History } from 'history'
-import { MessageProvider } from '../context/message-context'
 
 const CombinedProvider: FC = ({ children }) => {
   const history: History<any> = createBrowserHistory()
   return (
     <Router history={history}>
-      <MessageProvider>
-        <SnackProvider>
-          <NavStateProvider>
-            <MediaStateProvider>{children}</MediaStateProvider>
-          </NavStateProvider>
-        </SnackProvider>
-      </MessageProvider>
+      <SnackProvider>
+        <NavStateProvider>
+          <MediaStateProvider>{children}</MediaStateProvider>
+        </NavStateProvider>
+      </SnackProvider>
     </Router>
   )
 }

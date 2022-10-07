@@ -2,8 +2,7 @@ import * as Sentry from '@sentry/react'
 import React, { ComponentType } from 'react'
 import { createRoot } from 'react-dom/client'
 import { Config } from '../types/global'
-import { getMarketplaceGlobalsByKey } from '@reapit/elements-legacy'
-import { logger } from '@reapit/utils-react'
+import { getMarketplaceGlobalsByKey, logger } from '@reapit/utils-react'
 import { BrowserTracing } from '@sentry/tracing'
 
 // Init global config
