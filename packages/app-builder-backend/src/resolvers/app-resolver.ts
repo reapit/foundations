@@ -1,7 +1,7 @@
 import { Resolver, Query, Arg, Mutation, ID, Authorized, Ctx, FieldResolver, Root } from 'type-graphql'
 import Pluralize from 'pluralize'
 
-import { App, NavConfig } from '../entities/app'
+import { App } from '../entities/app'
 import { getApp, createApp, updateApp, getDomainApps, getUnqDomain, DDBApp } from '../ddb'
 import { Page, Node } from '../entities/page'
 import { ejectApp } from '../eject'
@@ -285,22 +285,6 @@ export class AppResolver {
   }
 
   @Authorized()
-  @Mutation(() => App, { name: '_updateAppNavConfig' })
-  async updateNavConfig(
-    @Arg('appId', () => ID) appId: string,
-    @Arg('navConfig', () => [NavConfig], { nullable: true }) navConfig: Array<NavConfig>,
-  ): Promise<App> {
-    const app = await getApp(appId)
-    if (!app) {
-      throw new Error('App not found')
-    }
-    app.navConfig = navConfig
-    await updateApp(app)
-
-    return app
-  }
-
-  @Authorized()
   @Query(() => [Node], { name: '_getAppPageNodes' })
   async getPageNodes(@Arg('appId', () => ID) appId: string, @Arg('pageId', () => ID) pageId: string): Promise<Node[]> {
     const app = await getApp(appId)
@@ -364,7 +348,12 @@ export class AppResolver {
 
   @Authorized()
   @Mutation(() => App, { name: '_createAppPage' })
-  async createPage(@Arg('appId', () => ID) appId: string, @Arg('name', () => String) name: string): Promise<App> {
+  async createPage(
+    @Arg('appId', () => ID) appId: string,
+    @Arg('name', () => String) name: string,
+    @Arg('entityName') entityName: string,
+    @Arg('pageType') pageType: 'create' | 'update' | 'list',
+  ): Promise<App> {
     const app = await getApp(appId)
     if (!app) {
       throw new Error('App not found')
@@ -380,6 +369,8 @@ export class AppResolver {
         ...node,
         id: `${pageId}~${node.nodeId}`,
       })),
+      entityName,
+      pageType,
     }
     app.pages.push(page)
     const newApp = await updateApp(app)

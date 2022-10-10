@@ -14,6 +14,7 @@ import { ApolloProvider } from '@apollo/client'
 import { useIntrospection } from '@/components/hooks/use-introspection'
 import { getDesktopContext, unsetDesktopContext } from './desktop-integration'
 import { useEffect } from 'react'
+import { isEditor } from './config'
 
 export const history: History<any> = createBrowserHistory()
 
@@ -111,8 +112,7 @@ const AppViewer = () => {
 }
 
 const EditorOrViewer = () => {
-  const { location } = window
-  if (location?.hostname?.startsWith('app-builder') || location?.hostname?.startsWith('localhost')) {
+  if (isEditor()) {
     return <AppEditor />
   } else {
     return <AppViewer />

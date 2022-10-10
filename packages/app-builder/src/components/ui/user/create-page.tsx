@@ -48,7 +48,7 @@ export const CreatePage = ({
 
   const createNewPage = async ({ fields }: { fields: string[] }) => {
     setLoading(true)
-    const app = await createPage(pageId)
+    const app = await createPage(pageId, typeName, 'update')
     const page = app.pages.find((page) => page.id === pageId)
     if (!page) {
       return

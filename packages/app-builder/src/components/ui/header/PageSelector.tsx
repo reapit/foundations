@@ -58,11 +58,12 @@ export const PageSelector = ({
           <Plus />
           New Page
         </AppBuilderIconButtonWithText>
-
-        <AppBuilderIconButtonWithText isActive={!showNewPage} className={elM2} onClick={() => setShowNewPage(false)}>
-          <ComponentsIcon />
-          Components
-        </AppBuilderIconButtonWithText>
+        {!!pages?.length && (
+          <AppBuilderIconButtonWithText isActive={!showNewPage} className={elM2} onClick={() => setShowNewPage(false)}>
+            <ComponentsIcon />
+            Components
+          </AppBuilderIconButtonWithText>
+        )}
       </ToggleContainer>
     </div>
   )

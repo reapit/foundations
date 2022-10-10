@@ -1,5 +1,5 @@
 import { useQuery, gql, ApolloClient } from '@apollo/client'
-import { App, AppFragment, AppWithPages, AppWithPagesFragment, NavConfig, Node, NodeFragment } from './fragments'
+import { App, AppFragment, AppWithPages, AppWithPagesFragment, Node, NodeFragment } from './fragments'
 
 export const GetAppQuery = gql`
   ${AppFragment}
@@ -26,27 +26,6 @@ export const GetAppPages = gql`
       pages {
         id
         name
-      }
-    }
-  }
-`
-
-export const NavConfigFragment = gql`
-  fragment NavConfigFragment on _NavConfig {
-    id
-    name
-    icon
-    destination
-  }
-`
-
-export const GetAppNavConfig = gql`
-  ${NavConfigFragment}
-  query GetAppNavConfig($idOrSubdomain: String!) {
-    _getApp(idOrSubdomain: $idOrSubdomain) {
-      id
-      navConfig {
-        ...NavConfigFragment
       }
     }
   }
@@ -93,22 +72,6 @@ export const usePageNodes = (appId: string, pageId: string) => {
     loading,
     error,
     nodes,
-    refetch,
-  }
-}
-
-export const useAppNavConfig = (idOrSubdomain: string) => {
-  const { loading, error, data, refetch } = useQuery(GetAppNavConfig, {
-    variables: {
-      idOrSubdomain,
-    },
-    skip: !idOrSubdomain,
-  })
-
-  return {
-    loading,
-    error,
-    navConfig: data?._getApp.navConfig as NavConfig[] | undefined,
     refetch,
   }
 }

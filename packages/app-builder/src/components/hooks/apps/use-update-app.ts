@@ -1,17 +1,7 @@
 import { gql, useMutation } from '@apollo/client'
-import { useCallback, useEffect, useState } from 'react'
-import debounce from 'debounce'
+import { useCallback } from 'react'
 
-import {
-  AppFragment,
-  AppWithPages,
-  AppWithPagesFragment,
-  NavConfig,
-  Node,
-  NodeFragment,
-  PageFragment,
-} from './fragments'
-import { NavConfigFragment, useAppNavConfig } from './use-app'
+import { AppFragment, AppWithPages, AppWithPagesFragment, Node, NodeFragment, PageFragment } from './fragments'
 
 const UpdateAppNameMutation = gql`
   ${AppFragment}
@@ -50,60 +40,12 @@ const DeleteAppPageMutation = gql`
 
 const CreateAppPageMutation = gql`
   ${AppWithPagesFragment}
-  mutation CreateAppPage($appId: ID!, $name: String!) {
-    _createAppPage(appId: $appId, name: $name) {
+  mutation CreateAppPage($appId: ID!, $entityName: String!, $pageType: String!, $name: String!) {
+    _createAppPage(appId: $appId, entityName: $entityName, pageType: $pageType, name: $name) {
       ...AppWithPagesFragment
     }
   }
 `
-
-const UpdateAppNavConfig = gql`
-  ${NavConfigFragment}
-  mutation UpdateAppNavConfig($appId: ID!, $navConfig: [_NavConfigInput!]!) {
-    _updateAppNavConfig(appId: $appId, navConfig: $navConfig) {
-      id
-      navConfig {
-        ...NavConfigFragment
-      }
-    }
-  }
-`
-
-const removeTypeName = (obj: any) => {
-  const clone = { ...obj }
-  if (clone.__typename) {
-    delete clone.__typename
-  }
-  return clone
-}
-
-export const useUpdateAppNavConfig = (appId: string) => {
-  const { navConfig } = useAppNavConfig(appId)
-  const [navConfigCopy, setNavConfigCopy] = useState(navConfig)
-  const [updateAppNavConfig, { loading, error }] = useMutation(UpdateAppNavConfig)
-  const updateAppNavConfigDebounced = useCallback(debounce(updateAppNavConfig, 1000), [updateAppNavConfig])
-
-  const updateNavConfig = useCallback((navConfig: NavConfig[]) => {
-    setNavConfigCopy(navConfig)
-    updateAppNavConfigDebounced({
-      variables: {
-        appId,
-        navConfig: navConfig.map(removeTypeName),
-      },
-    })
-  }, [])
-
-  useEffect(() => {
-    return () => updateAppNavConfigDebounced.flush()
-  }, [updateAppNavConfigDebounced])
-
-  return {
-    updateAppNavConfig: updateNavConfig,
-    navConfigs: navConfigCopy || [],
-    loading,
-    error,
-  }
-}
 
 export const useUpdateAppName = (appId: string) => {
   const [updateAppNavConfig, { loading, error }] = useMutation(UpdateAppNameMutation)
@@ -163,11 +105,13 @@ export const useUpdatePageName = (appId: string, pageId: string) => {
 export const useCreatePage = (appId: string) => {
   const [createAppPage, { loading, error }] = useMutation(CreateAppPageMutation)
   const createPage = useCallback(
-    (name: string) =>
+    (name: string, entityName: string, pageType: string) =>
       createAppPage({
         variables: {
           appId,
           name,
+          entityName,
+          pageType,
         },
       }).then((data) => data.data._createAppPage as AppWithPages),
     [createAppPage],

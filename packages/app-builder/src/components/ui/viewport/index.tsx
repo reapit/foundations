@@ -121,7 +121,7 @@ export const Viewport = ({ children, iframeRef, deserialize, rendererDivRefHandl
                 fields,
               )
               const pageName = `${entity} ${pageType === 'table' ? 'Table' : 'Create'}`
-              const newApp = await createPage(pageName)
+              const newApp = await createPage(pageName, entity, pageType === 'table' ? 'list' : 'create')
               const newPage = newApp.pages.find((page) => page.name === pageName)
               if (!newPage) {
                 throw new Error(`Page ${pageName} not found`)

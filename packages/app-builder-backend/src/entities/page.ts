@@ -57,6 +57,12 @@ export class Page {
   @Field()
   name: string
 
+  @Field()
+  entityName: string
+
+  @Field()
+  pageType: 'create' | 'update' | 'list'
+
   @Field(() => [Node])
   nodes: Array<Node>
 }
