@@ -10,7 +10,7 @@ import { getMarketplaceGlobalsByKey, logger } from '@reapit/utils-react'
 window.reapit = {
   config: {
     appEnv: 'local',
-    sentryDns: '',
+    sentryDsn: '',
     mixPanelToken: '',
     connectClientId: '',
     connectOAuthUrl: '',
@@ -42,11 +42,11 @@ const run = async () => {
     const config = (await configRes.json()) as Config
     const isLocal = config.appEnv !== 'production'
 
-    if (!isLocal && config.sentryDns) {
+    if (!isLocal && config.sentryDsn) {
       Sentry.init({
         integrations: [new BrowserTracing()],
         release: process.env.APP_VERSION,
-        dsn: config.sentryDns,
+        dsn: config.sentryDsn,
         environment: config.appEnv,
         tracesSampleRate: 1.0,
       })

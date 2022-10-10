@@ -6405,13 +6405,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@juggle/resize-observer@npm:^3.3.1":
-  version: 3.3.1
-  resolution: "@juggle/resize-observer@npm:3.3.1"
-  checksum: ddabc4044276a2cb57d469c4917206c7e39f2463aa8e3430e33e4eda554412afe29c22afa40e6708b49dad5d56768dc83acd68a704b1dcd49a0906bb96b991b2
-  languageName: node
-  linkType: hard
-
 "@kwsites/file-exists@npm:^1.1.1":
   version: 1.1.1
   resolution: "@kwsites/file-exists@npm:1.1.1"
@@ -7600,39 +7593,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-hook/latest@npm:^1.0.2":
-  version: 1.0.2
-  resolution: "@react-hook/latest@npm:1.0.2"
-  peerDependencies:
-    react: ">=16.8"
-  checksum: af9707738746ed06eef89bbdf83e2ef2636a7efa70dd4644cdd29d0d7fc48a0401001d6853a7cc908dc846a1830d27360d125d2ace77b5ff694364e4201579df
-  languageName: node
-  linkType: hard
-
-"@react-hook/passive-layout-effect@npm:^1.2.0":
-  version: 1.2.0
-  resolution: "@react-hook/passive-layout-effect@npm:1.2.0"
-  peerDependencies:
-    react: ">=16.8"
-  checksum: 3f064b90a68aad80e6d63680db9841f9d8e71b466ea8fc165c430d0496443d9c213dda1038f2c0b64338f5ece93c636410efca487701b30621cf56a7ea0ce79a
-  languageName: node
-  linkType: hard
-
-"@react-hook/resize-observer@npm:^1.2.5":
-  version: 1.2.5
-  resolution: "@react-hook/resize-observer@npm:1.2.5"
-  dependencies:
-    "@juggle/resize-observer": ^3.3.1
-    "@react-hook/latest": ^1.0.2
-    "@react-hook/passive-layout-effect": ^1.2.0
-    "@types/raf-schd": ^4.0.0
-    raf-schd: ^4.0.2
-  peerDependencies:
-    react: ">=16.8"
-  checksum: a2f3b333e344adb3d7a4cfd2bc77fd75054b07063fba706d57bef0c497650c3e82038eafb64fa4148c08527e8b0a34f2f70392da1700a7a0d9676ee8ba795c16
-  languageName: node
-  linkType: hard
-
 "@reapit/api-key-verify@workspace:packages/api-key-verify":
   version: 0.0.0-use.local
   resolution: "@reapit/api-key-verify@workspace:packages/api-key-verify"
@@ -8394,16 +8354,6 @@ __metadata:
   version: 1.1.2
   resolution: "@redux-saga/symbols@npm:1.1.2"
   checksum: b75b6979a94ebc9b4db76eef84e05427e2134ca5cc0711592fab2aca621725c561213a900a75068f83b97ef85038688c36e088a07fedd8c076bf8ecfa9899044
-  languageName: node
-  linkType: hard
-
-"@redux-saga/testing-utils@npm:^1.1.3":
-  version: 1.1.3
-  resolution: "@redux-saga/testing-utils@npm:1.1.3"
-  dependencies:
-    "@redux-saga/symbols": ^1.1.2
-    "@redux-saga/types": ^1.1.0
-  checksum: 0767164e435cf1decce79514730cf2b221bfe611bce6c4b5fae58cb212e2c0339f90ba121628f65ecfce7f53c5231e0f4c08d0fb4290098c500ed511cadd6ada
   languageName: node
   linkType: hard
 
@@ -12205,13 +12155,6 @@ __metadata:
   dependencies:
     query-string: "*"
   checksum: 7d507aea24e650548bc8a164ae695deb1eaf7a566fdaeb53ec3f89605dbd2c5201daf9b76c31843bc8accc01e866df8b2a06557514ad8014c3af99c664cd0b5c
-  languageName: node
-  linkType: hard
-
-"@types/raf-schd@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "@types/raf-schd@npm:4.0.0"
-  checksum: 95dbe457b25c451122c0f16b129f9531ad3700e573cfb8e3aef3e413cc05b79147cdcd7df1ff1b6ce188b1969cfb437eb7ae2adcaeaff7524bc98610a0fce486
   languageName: node
   linkType: hard
 
@@ -17089,39 +17032,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chart.js@npm:^2.9.4":
-  version: 2.9.4
-  resolution: "chart.js@npm:2.9.4"
-  dependencies:
-    chartjs-color: ^2.1.0
-    moment: ^2.10.2
-  checksum: cbdc7abe2fa65e4838848e68b035ae6048ebcc512b9057d7cdb6d361e728400d39e3fde75e0b4da815ab43f7890c31787d8f80d4e6ab75a3e80fc75b47cd173c
-  languageName: node
-  linkType: hard
-
 "chart.js@npm:^3.8.2":
   version: 3.8.2
   resolution: "chart.js@npm:3.8.2"
   checksum: a60fef3c98ed6890ce0e1e094900aa573aa1f5fa2edc7363f52efb6850730666ac479a193e86fba17dc340a1651d6b273fac7632c3e0c40c9ed5a70d09b118da
-  languageName: node
-  linkType: hard
-
-"chartjs-color-string@npm:^0.6.0":
-  version: 0.6.0
-  resolution: "chartjs-color-string@npm:0.6.0"
-  dependencies:
-    color-name: ^1.0.0
-  checksum: 2355bc8e9514b779d0dc057c5ee6707e8166f270531c27287a399d6bfeb0d891b00a6f6c20e764453a062de0de8b298b11d3850fc94c323df66efb4720ece4c7
-  languageName: node
-  linkType: hard
-
-"chartjs-color@npm:^2.1.0":
-  version: 2.4.1
-  resolution: "chartjs-color@npm:2.4.1"
-  dependencies:
-    chartjs-color-string: ^0.6.0
-    color-convert: ^1.9.3
-  checksum: 254d7b2f103980417703331c49fba18877ac797fd9056d79f0d566dc4fd8d41f91b7f63d4b19602462b91110bee2fe0c9fd57266ce871e498ac1c25742fffb11
   languageName: node
   linkType: hard
 
@@ -17296,7 +17210,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"classnames@npm:2.x, classnames@npm:^2.2.1, classnames@npm:^2.2.5, classnames@npm:^2.2.6, classnames@npm:^2.3.1":
+"classnames@npm:2.x, classnames@npm:^2.2.1, classnames@npm:^2.2.6, classnames@npm:^2.3.1":
   version: 2.3.1
   resolution: "classnames@npm:2.3.1"
   checksum: 14db8889d56c267a591f08b0834989fe542d47fac659af5a539e110cc4266694e8de86e4e3bbd271157dbd831361310a8293e0167141e80b0f03a0f175c80960
@@ -17672,7 +17586,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"color-convert@npm:^1.9.0, color-convert@npm:^1.9.1, color-convert@npm:^1.9.3":
+"color-convert@npm:^1.9.0, color-convert@npm:^1.9.1":
   version: 1.9.3
   resolution: "color-convert@npm:1.9.3"
   dependencies:
@@ -20448,13 +20362,6 @@ __metadata:
     graceful-fs: ^4.2.4
     tapable: ^2.2.0
   checksum: 64c2dbbdd608d1a4df93b6e60786c603a1faf3b2e66dfd051d62cf4cfaeeb5e800166183685587208d62e9f7afff3f78f3d5978e32cd80125ba0c83b59a79d78
-  languageName: node
-  linkType: hard
-
-"enquire.js@npm:^2.1.6":
-  version: 2.1.6
-  resolution: "enquire.js@npm:2.1.6"
-  checksum: bb094054ee2768edafc3b80fb2b65b79d63160d625085162e9c9016843b6eaa13d7430201bf593c2e31e1725b3208f47f57aa27e03b19729e7590d1ca2241451
   languageName: node
   linkType: hard
 
@@ -28329,15 +28236,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"json2mq@npm:^0.2.0":
-  version: 0.2.0
-  resolution: "json2mq@npm:0.2.0"
-  dependencies:
-    string-convert: ^0.2.0
-  checksum: 5672c3abdd31e21a0e2f0c2688b4948103687dab949a1c5a1cba98667e899a96c2c7e3d71763c4f5e7cd7d7c379ea5dd5e1a9b2a2107dd1dfa740719a11aa272
-  languageName: node
-  linkType: hard
-
 "json5@npm:2.x, json5@npm:^2.1.2, json5@npm:^2.1.3, json5@npm:^2.2.0":
   version: 2.2.0
   resolution: "json5@npm:2.2.0"
@@ -29124,13 +29022,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"lodash.orderby@npm:^4.6.0":
-  version: 4.6.0
-  resolution: "lodash.orderby@npm:4.6.0"
-  checksum: 2e0430b07eb575e9cef9c0a8937db82857bb741d0680baf58f99d4731092c11b103f95cbeeb9cdd207514701bd925b5c71eb81044df97b7e36a3735a3484fb8f
-  languageName: node
-  linkType: hard
-
 "lodash.pad@npm:^4.1.0":
   version: 4.5.1
   resolution: "lodash.pad@npm:4.5.1"
@@ -29749,54 +29640,41 @@ fsevents@^1.2.7:
   version: 0.0.0-use.local
   resolution: "marketplace@workspace:packages/marketplace"
   dependencies:
+    "@hookform/resolvers": ^2.9.3
     "@linaria/core": ^3.0.0-beta.15
     "@linaria/react": ^3.0.0-beta.15
     "@linaria/shaker": ^3.0.0-beta.15
-    "@react-hook/resize-observer": ^1.2.5
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": "workspace:packages/connect-session"
     "@reapit/elements": "workspace:packages/elements"
-    "@reapit/elements-legacy": "workspace:packages/elements-legacy"
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils-common": "workspace:packages/utils-common"
-    "@redux-saga/testing-utils": ^1.1.3
+    "@reapit/utils-react": "workspace:packages/utils-react"
     "@sentry/browser": ^6.19.7
+    "@testing-library/react": ^13.3.0
     "@typescript-eslint/eslint-plugin": ^5.36.1
     "@typescript-eslint/parser": ^5.36.1
-    amazon-cognito-identity-js: ^4.6.3
     babel-jest: ^28.1.3
     babel-loader: ^8.2.5
-    chart.js: ^2.9.4
-    concurrently: ^6.5.1
     cross-env: ^6.0.3
     css-loader: ^6.7.1
     dayjs: ^1.11.4
-    diff: ^4.0.2
     eslint: 8.23.0
     eslint-plugin-prettier: ^4.2.1
     jest: ^28.1.3
     jest-coverage-badges: ^1.1.2
-    lodash.isequal: ^4.5.0
-    lodash.orderby: ^4.6.0
+    mixpanel-browser: ^2.45.0
     node-polyfill-webpack-plugin: ^1.1.4
-    query-string: 5.1.1
     react: ^18.2.0
-    react-chartjs-2: ^2.11.2
     react-dom: ^18.2.0
     react-ga: ^2.7.0
-    react-infinite-scroll-component: ^5.1.0
-    react-redux: ^7.2.8
-    react-responsive: 8.2.0
+    react-hook-form: ^7.33.1
     react-router: ^5.3.3
     react-router-dom: ^5.3.3
-    react-slick: ^0.29.0
-    react-transition-group: ^4.4.2
-    redux: ^4.2.0
-    redux-mock-store: ^1.5.4
-    redux-saga: ^1.1.3
     rimraf: ^3.0.2
+    scroll-into-view-if-needed: ^2.2.29
     serverless: ^2.72.3
     serverless-s3-deploy: ^0.10.1
     serverless-s3-remover: ^0.6.0
@@ -30658,13 +30536,6 @@ fsevents@^1.2.7:
   version: 2.0.5
   resolution: "mockdate@npm:2.0.5"
   checksum: bdeab51518974f5284d1c5c47e9e82d0a5ca7cdaea25df3b1aa969eee29756d58b0116ca9ebf9ab25a4c7df8b56514429b768fda62c20e476a2cad85ed22a64f
-  languageName: node
-  linkType: hard
-
-"moment@npm:^2.10.2":
-  version: 2.29.1
-  resolution: "moment@npm:2.29.1"
-  checksum: 1e14d5f422a2687996be11dd2d50c8de3bd577c4a4ca79ba5d02c397242a933e5b941655de6c8cb90ac18f01cc4127e55b4a12ae3c527a6c0a274e455979345e
   languageName: node
   linkType: hard
 
@@ -34520,13 +34391,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"raf-schd@npm:^4.0.2":
-  version: 4.0.2
-  resolution: "raf-schd@npm:4.0.2"
-  checksum: 9af6e00e36b2844371c61da071cf1fa0d6093dc20eadc654fbb3d940a713df61f037c2e24287eebe8201a41b6acc910b865a4e24010b3a09aba7f4a9616b975a
-  languageName: node
-  linkType: hard
-
 "raf@npm:^3.4.0, raf@npm:^3.4.1":
   version: 3.4.1
   resolution: "raf@npm:3.4.1"
@@ -34803,20 +34667,6 @@ fsevents@^1.2.7:
   bin:
     rc: ./cli.js
   checksum: 2e26e052f8be2abd64e6d1dabfbd7be03f80ec18ccbc49562d31f617d0015fbdbcf0f9eed30346ea6ab789e0fdfe4337f033f8016efdbee0df5354751842080e
-  languageName: node
-  linkType: hard
-
-"react-chartjs-2@npm:^2.11.2":
-  version: 2.11.2
-  resolution: "react-chartjs-2@npm:2.11.2"
-  dependencies:
-    lodash: ^4.17.19
-    prop-types: ^15.7.2
-  peerDependencies:
-    chart.js: ^2.3
-    react: ^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
-    react-dom: ^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
-  checksum: 874ddc9ebdd620ac2692e307dfa848d540cc84beed56910a92b8630abcc286f9b8682aba87c8635d969943586adabe5b8222adf3a7bff041d15a9698f17caa4a
   languageName: node
   linkType: hard
 
@@ -35164,17 +35014,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-infinite-scroll-component@npm:^5.1.0":
-  version: 5.1.0
-  resolution: "react-infinite-scroll-component@npm:5.1.0"
-  dependencies:
-    throttle-debounce: ^2.1.0
-  peerDependencies:
-    react: ">=16.0.0"
-  checksum: ee81b275efa9b064a72aeaf17f12e311c696b723cea6e14cfbd0f7e90b5853327e854cb22a405a033ce58d3a572b2df042a7e861e8aee92b566d5932f79bc6bf
-  languageName: node
-  linkType: hard
-
 "react-inspector@npm:^5.1.0, react-inspector@npm:^5.1.1":
   version: 5.1.1
   resolution: "react-inspector@npm:5.1.1"
@@ -35412,22 +35251,6 @@ fsevents@^1.2.7:
   peerDependencies:
     react: ">=16.8"
   checksum: d290d4646b894f8166797b65d298950c63b7c841ff954c8fe7dc1bd469714402611bff52da17c8c69c793c952e22c2123925615a594b57b474e7f52bf8c6a77b
-  languageName: node
-  linkType: hard
-
-"react-slick@npm:^0.29.0":
-  version: 0.29.0
-  resolution: "react-slick@npm:0.29.0"
-  dependencies:
-    classnames: ^2.2.5
-    enquire.js: ^2.1.6
-    json2mq: ^0.2.0
-    lodash.debounce: ^4.0.8
-    resize-observer-polyfill: ^1.5.0
-  peerDependencies:
-    react: ^0.14.0 || ^15.0.1 || ^16.0.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^0.14.0 || ^15.0.1 || ^16.0.0 || ^17.0.0 || ^18.0.0
-  checksum: 67ce4981914da8a76c6efb4bc8ee7ab69e04c33bd4b3517419ab2165679a3c701dae781556149713fe2c542f84188b7ca101ea58883537be5c05756408f48c8b
   languageName: node
   linkType: hard
 
@@ -36392,7 +36215,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"resize-observer-polyfill@npm:^1.5.0, resize-observer-polyfill@npm:^1.5.1":
+"resize-observer-polyfill@npm:^1.5.1":
   version: 1.5.1
   resolution: "resize-observer-polyfill@npm:1.5.1"
   checksum: 57e7f79489867b00ba43c9c051524a5c8f162a61d5547e99333549afc23e15c44fd43f2f318ea0261ea98c0eb3158cca261e6f48d66e1ed1cd1f340a43977094
@@ -38763,13 +38586,6 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"string-convert@npm:^0.2.0":
-  version: 0.2.1
-  resolution: "string-convert@npm:0.2.1"
-  checksum: 1098b1d8e3712c72d0a0b0b7f5c36c98af93e7660b5f0f14019e41bcefe55bfa79214d5e03e74d98a7334a0b9bf2b7f4c6889c8c24801aa2ae2f9ebe1d8a1ef9
-  languageName: node
-  linkType: hard
-
 "string-length@npm:^2.0.0":
   version: 2.0.0
   resolution: "string-length@npm:2.0.0"
@@ -39880,13 +39696,6 @@ resolve@^2.0.0-next.3:
   version: 5.0.0
   resolution: "throat@npm:5.0.0"
   checksum: 031ff7f4431618036c1dedd99c8aa82f5c33077320a8358ed829e84b320783781d1869fe58e8f76e948306803de966f5f7573766a437562c9f5c033297ad2fe2
-  languageName: node
-  linkType: hard
-
-"throttle-debounce@npm:^2.1.0":
-  version: 2.2.1
-  resolution: "throttle-debounce@npm:2.2.1"
-  checksum: 58e35601880ac084eada108028487020c7339910e82875ccff458f2b24d1999d24025babce81ab37eb09c2a8992aef8afdc68e30bdabe61d715f9dcbbb76ecf6
   languageName: node
   linkType: hard
 
