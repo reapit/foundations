@@ -23,7 +23,6 @@
     "@linaria/react": "^3.0.0-beta.15",
     "@reapit/connect-session": "workspace:packages/connect-session",
     "@reapit/elements": "workspace:packages/elements",
-    "@reapit/elements-legacy": "workspace:packages/elements-legacy",
     "@sentry/browser": "^6.19.7",
     "dayjs": "^1.11.4",
     "diff": "^4.0.2",
