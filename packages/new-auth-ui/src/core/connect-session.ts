@@ -9,7 +9,7 @@ const defaultValues = {
 const ory = {
   ...defaultValues,
   connectClientId: window.reapit.config.oryConnectClientId,
-  connectOAuthUrl: 'https://reapit-connect-api.dev.paas.reapit.cloud',
+  connectOAuthUrl: 'http://localhost:3000',
 }
 
 const cognito = {

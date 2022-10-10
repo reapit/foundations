@@ -8,7 +8,7 @@ import {
 } from '@aws-sdk/client-dynamodb'
 import generateDomain from 'project-name-generator'
 
-import { App, NavConfig } from './entities/app'
+import { App } from './entities/app'
 import { CustomEntity } from './entities/custom-entity'
 import { Page } from './entities/page'
 
@@ -66,7 +66,7 @@ export const ensureTables = async () => {
 export type DDBApp = Omit<App, 'name'>
 
 const ddbItemToApp = (item: { [key: string]: AttributeValue }): DDBApp => {
-  const { id, createdAt, updatedAt, pages, subdomain, navConfig, customEntities, clientId, developerName } = item
+  const { id, createdAt, updatedAt, pages, subdomain, customEntities, clientId, developerName } = item
 
   return {
     id: id?.S as string,
@@ -76,7 +76,6 @@ const ddbItemToApp = (item: { [key: string]: AttributeValue }): DDBApp => {
     clientId: clientId?.S as string,
     pages: (pages?.S && (JSON.parse(pages.S as string) as Array<Page>)) || [],
     customEntities: (customEntities?.S && (JSON.parse(customEntities.S as string) as Array<CustomEntity>)) || [],
-    navConfig: (navConfig?.S && (JSON.parse(navConfig.S as string) as Array<NavConfig>)) || [],
     developerName: developerName?.S as string | undefined,
   }
 }
@@ -151,7 +150,6 @@ export const createApp = async (id: string, name: string, subdomain: string, pag
     updatedAt: date,
     pages,
     customEntities: [],
-    navConfig: [],
   }
 }
 
@@ -164,7 +162,6 @@ export const updateApp = async (app: DDBApp): Promise<DDBApp> => {
     pages: { S: JSON.stringify(app.pages) },
     subdomain: { S: app.subdomain },
     customEntities: { S: JSON.stringify(app.customEntities) },
-    navConfig: { S: JSON.stringify(app.navConfig) },
   }
   if (app.clientId) {
     Item.clientId = { S: app.clientId }
