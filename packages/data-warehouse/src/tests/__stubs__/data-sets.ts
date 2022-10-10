@@ -1,7 +1,7 @@
 import { PagedApiResponse } from '../../types/core'
 import { DataSetModel } from '../../types/data-sets'
 
-export const stubDataSets: PagedApiResponse<DataSetModel> = {
+export const mockDataSets: PagedApiResponse<DataSetModel> = {
   _embedded: [
     {
       id: 'legacyDb',

@@ -67,10 +67,6 @@ export const AccountUpdateModal: FC<AccountUpdateModalProps> = ({ accountId, clo
       <BodyText hasGreyText>Enter new password below</BodyText>
       <FormLayout className={elMb11}>
         <InputWrap>
-          <InputGroup {...register('username')} type="text" placeholder="Your username here" label="Username" />
-          {errors.username?.message && <InputError message={errors.username.message} />}
-        </InputWrap>
-        <InputWrap>
           <InputGroup {...register('password')} type="password" placeholder="*********" label="Password" />
           {errors.password?.message && <InputError message={errors.password.message} />}
         </InputWrap>

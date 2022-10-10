@@ -1,4 +1,4 @@
-export const stubSubscriptions = {
+export const mockSubscriptionsModelPagedResult = {
   data: [
     {
       developerId: 'SOME_INVALID_ID',

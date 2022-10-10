@@ -1,16 +1,5 @@
 import { styled } from '@linaria/react'
 
-export const ProgressBar = styled.div<{ width: number }>`
-  width: ${(props) => props.width}%;
-  background-color: var(--intent-primary);
-  color: var(--color-white);
-  transition: 0.5s linear width;
-  font-weight: bold;
-  padding: 0.5rem;
-  text-align: center;
-  margin-bottom: 1rem;
-`
-
 export const ProgressMessageText = styled.div`
   @keyframes fade-in {
     from {

@@ -29,55 +29,58 @@ export const AccountsTable: FC = () => {
   const [accountDeleting, , deleteAccount] = useReapitUpdate<void, boolean>({
     reapitConnectBrowserSession,
     action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.updateDwAccount],
-    method: 'PATCH',
+    method: 'DELETE',
   })
 
   return (
     <>
       <Table
         className={elMb11}
-        rows={accounts?._embedded?.map(({ username, status, id }) => ({
-          cells: [
-            {
-              label: 'User Name',
-              value: username,
-              icon: 'userInfographic',
-              cellHasDarkText: true,
-              narrowTable: {
-                showLabel: true,
+        rows={accounts?._embedded?.map(({ username, status, id }) => {
+          const isDisabled = status !== 'User is active' || accountDeleting
+          return {
+            cells: [
+              {
+                label: 'User Name',
+                value: username,
+                icon: 'userInfographic',
+                cellHasDarkText: true,
+                narrowTable: {
+                  showLabel: true,
+                },
               },
-            },
-            {
-              label: 'Status',
-              value: status,
-              cellHasDarkText: true,
-              narrowTable: {
-                showLabel: true,
+              {
+                label: 'Status',
+                value: status,
+                cellHasDarkText: true,
+                narrowTable: {
+                  showLabel: true,
+                },
               },
+            ],
+            expandableContent: {
+              content: (
+                <ButtonGroup alignment="center">
+                  <Button
+                    intent="primary"
+                    onClick={handleModalOpen(id, setSelectedAccountId, openModal)}
+                    disabled={isDisabled}
+                  >
+                    Update
+                  </Button>
+                  <Button
+                    intent="danger"
+                    onClick={handleDeleteAccount(id, deleteAccount, refreshAccounts)}
+                    disabled={isDisabled}
+                    loading={accountDeleting}
+                  >
+                    Deactivate
+                  </Button>
+                </ButtonGroup>
+              ),
             },
-          ],
-          expandableContent: {
-            content: (
-              <ButtonGroup alignment="center">
-                <Button
-                  intent="primary"
-                  onClick={handleModalOpen(id, setSelectedAccountId, openModal)}
-                  disabled={status !== 'User is active' || accountDeleting}
-                >
-                  Update
-                </Button>
-                <Button
-                  intent="danger"
-                  onClick={handleDeleteAccount(id, deleteAccount, refreshAccounts)}
-                  disabled={accountDeleting}
-                  loading={accountDeleting}
-                >
-                  Deactivate
-                </Button>
-              </ButtonGroup>
-            ),
-          },
-        }))}
+          }
+        })}
       />
       <Modal title="Data Warehouse Password Update">
         <AccountUpdateModal closeModal={closeModal} accountId={selectedAccountId} />

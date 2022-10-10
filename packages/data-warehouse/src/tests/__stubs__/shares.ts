@@ -1,7 +1,7 @@
 import { PagedApiResponse } from '../../types/core'
 import { SharesModel } from '../../types/shares'
 
-export const stubShares: PagedApiResponse<SharesModel> = {
+export const mockShares: PagedApiResponse<SharesModel> = {
   _embedded: [
     {
       id: '4a1c7cf9-3c25-4583-892a-4ec7b587a822',

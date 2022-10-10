@@ -75,7 +75,7 @@ export const SharesTable: FC<SharesTableProps> = ({ shares, refreshShares }) => 
 
   const [deletingShare, , deleteShare] = useReapitUpdate<void, boolean>({
     reapitConnectBrowserSession,
-    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.refreshDwShare],
+    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.deleteDwShare],
     method: 'DELETE',
   })
 

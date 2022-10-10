@@ -1,4 +1,4 @@
-import React, { Dispatch, FC, SetStateAction } from 'react'
+import React, { Dispatch, FC, SetStateAction, useEffect } from 'react'
 import { passwordRegex, UpdateActionNames, updateActions } from '@reapit/utils-common'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
@@ -10,6 +10,7 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { SendFunction, UpdateReturnTypeEnum, useReapitUpdate } from '@reapit/utils-react'
 import { getAccountService } from '../../services/accounts'
+import { ReapitConnectSession } from '@reapit/connect-session'
 
 export interface AccountProvisionModalProps {
   setProvisionInProgress: Dispatch<SetStateAction<boolean>>
@@ -48,40 +49,63 @@ export const handlePolling = (accountId: string): Promise<{ provisioned: boolean
 export const handleCreateAccount =
   (
     setProvisionInProgress: Dispatch<SetStateAction<boolean>>,
-    setPercentageComplete: Dispatch<SetStateAction<number>>,
     createAccount: SendFunction<AccountCreateModel, boolean | AccountModel>,
-    refreshAccounts: () => void,
     closeModal: () => void,
+    connectSession: ReapitConnectSession | null,
   ) =>
   async (formValues: AccountCreateModel) => {
-    closeModal()
+    const organisationId = connectSession?.loginIdentity.orgId ?? ''
+    const organisationName = connectSession?.loginIdentity.orgName ?? ''
+
     setProvisionInProgress(true)
 
-    const account = await createAccount(formValues)
+    const account = await createAccount({
+      ...formValues,
+      organisationId,
+      organisationName,
+    })
 
     if (!account) {
-      return setProvisionInProgress(false)
-    }
-
-    const accountId = (account as AccountModel).id
-
-    const { provisioned, interval } = await handlePolling(accountId)
-
-    window.clearInterval(interval)
-
-    if (!provisioned) {
-      setPercentageComplete(0)
-      return setProvisionInProgress(false)
-    }
-
-    setPercentageComplete(100)
-
-    setTimeout(() => {
-      setPercentageComplete(0)
       setProvisionInProgress(false)
-    }, 10000)
+      closeModal()
+    }
+  }
 
-    refreshAccounts()
+export const handleAccountCreated =
+  (
+    account: AccountModel | undefined,
+    refreshAccounts: () => void,
+    setPercentageComplete: Dispatch<SetStateAction<number>>,
+    setProvisionInProgress: Dispatch<SetStateAction<boolean>>,
+    closeModal: () => void,
+  ) =>
+  () => {
+    const accountId = account?.id
+
+    const pollAccount = async () => {
+      closeModal()
+      const { provisioned, interval } = await handlePolling(accountId as string)
+
+      window.clearInterval(interval)
+
+      if (!provisioned) {
+        setPercentageComplete(0)
+        return setProvisionInProgress(false)
+      }
+
+      setPercentageComplete(100)
+
+      setTimeout(() => {
+        setPercentageComplete(0)
+        setProvisionInProgress(false)
+      }, 10000)
+
+      refreshAccounts()
+    }
+
+    if (accountId) {
+      pollAccount()
+    }
   }
 
 export const AccountProvisionModal: FC<AccountProvisionModalProps> = ({
@@ -104,23 +128,23 @@ export const AccountProvisionModal: FC<AccountProvisionModalProps> = ({
       passwordConfirm: '',
       isAdmin: false,
       devMode: false,
-      organisationId: connectSession?.loginIdentity.orgId ?? '',
-      organisationName: connectSession?.loginIdentity.orgName ?? '',
     },
   })
 
-  const [, , createAccount] = useReapitUpdate<AccountCreateModel, AccountModel>({
+  const [, account, createAccount] = useReapitUpdate<AccountCreateModel, AccountModel>({
     reapitConnectBrowserSession,
     action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.createDwAccount],
     method: 'POST',
-    returnType: UpdateReturnTypeEnum.RESPONSE,
+    returnType: UpdateReturnTypeEnum.LOCATION,
   })
+
+  useEffect(handleAccountCreated(account, refreshAccounts, setPercentageComplete, setProvisionInProgress, closeModal), [
+    account,
+  ])
 
   return (
     <form
-      onSubmit={handleSubmit(
-        handleCreateAccount(setProvisionInProgress, setPercentageComplete, createAccount, refreshAccounts, closeModal),
-      )}
+      onSubmit={handleSubmit(handleCreateAccount(setProvisionInProgress, createAccount, closeModal, connectSession))}
     >
       <BodyText hasGreyText>The information below will be used to access your data warehouse account</BodyText>
       <FormLayout className={elMb11}>

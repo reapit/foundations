@@ -1,7 +1,7 @@
 import { AccountModel } from '../../types/accounts'
 import { PagedApiResponse } from '../../types/core'
 
-export const stubAccounts: PagedApiResponse<AccountModel> = {
+export const mockAccountModelPagedResult: PagedApiResponse<AccountModel> = {
   _embedded: [
     {
       id: 'e43cfd79-da23-4158-9ef4-75e4e3823a71',
@@ -10,7 +10,7 @@ export const stubAccounts: PagedApiResponse<AccountModel> = {
       organisationId: '8aa72233-aabb-4595-8712-f81ad8bb0dc3',
       username: 'hiyaall',
       isAdmin: false,
-      status: 'active',
+      status: 'User is active',
     },
   ],
   pageNumber: 1,
