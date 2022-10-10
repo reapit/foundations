@@ -4,6 +4,11 @@ const isDev = hostname.endsWith('dev.paas.reapit.cloud')
 const isProd = hostname.endsWith('prod.paas.reapit.cloud') || (hostname.includes('reapit.cloud') && !isDev)
 const isLocal = hostname.includes('localhost') || hostname.includes('.local')
 
+export const isEditor = () => {
+  const { location } = window
+  return location?.hostname?.startsWith('app-builder') || location?.hostname?.startsWith('localhost')
+}
+
 export let graphqlUri
 
 if (isLocal) {
