@@ -1,40 +1,36 @@
-import * as Sentry from '@sentry/browser'
-import React from 'react'
+import React, { ComponentType } from 'react'
 import { createRoot } from 'react-dom/client'
-import ReactGA from 'react-ga'
-import { Config } from '@/types/global'
-import { getMarketplaceGlobalsByKey } from '@reapit/elements-legacy'
+import { Config } from '../types/global'
+import * as Sentry from '@sentry/react'
+import { BrowserTracing } from '@sentry/tracing'
+import mixpanel from 'mixpanel-browser'
+import { getMarketplaceGlobalsByKey, logger } from '@reapit/utils-react'
 
 // Init global config
 window.reapit = {
   config: {
-    appEnv: 'production',
+    appEnv: 'local',
     sentryDns: '',
-    googleAnalyticsKey: '',
+    mixPanelToken: '',
     connectClientId: '',
     connectOAuthUrl: '',
     connectUserPoolId: '',
-    platformApiUrl: '',
-    webComponentConfigApiUrl: '',
     developerPortalUrl: '',
     orgAdminRestrictedAppIds: [],
-    adminRestrictedAppIds: [],
     reapitConnectManagementUri: '',
-    comingSoonApps: [],
     clientHiddenAppIds: {},
   },
 }
 
-export const renderApp = (Component: React.ComponentType) => {
-  const rootElement = document.querySelector('#root') as Element
+export const renderApp = (Component: ComponentType) => {
+  const rootElement = document.querySelector('#root') || document.body
   const isDesktop = getMarketplaceGlobalsByKey()
   const html = document.querySelector('html')
+
   if (isDesktop && html) {
     html.classList.add('is-desktop')
   }
-  if (window.location.href.includes('developer')) {
-    document.title = 'Developers'
-  }
+
   if (rootElement) {
     createRoot(rootElement).render(<Component />)
   }
@@ -44,34 +40,37 @@ const run = async () => {
   try {
     const configRes = await fetch('config.json')
     const config = (await configRes.json()) as Config
-    const isLocal = config.appEnv === 'local'
+    const isLocal = config.appEnv !== 'production'
 
-    window.reapit.config = config
-    if (!isLocal && config.sentryDns && !window.location.hostname.includes('prod.paas')) {
+    if (!isLocal && config.sentryDns) {
       Sentry.init({
+        integrations: [new BrowserTracing()],
         release: process.env.APP_VERSION,
         dsn: config.sentryDns,
         environment: config.appEnv,
+        tracesSampleRate: 1.0,
       })
     }
-    if (!isLocal && config.googleAnalyticsKey) {
-      ReactGA.initialize(config.googleAnalyticsKey)
-      ReactGA.pageview(window.location.pathname + window.location.search)
+
+    if (config.mixPanelToken) {
+      mixpanel.init(config.mixPanelToken, { debug: isLocal })
     }
 
+    // Set the global config
+    window.reapit.config = config
+
+    // I import the app dynamically so that the config is set on window and I avoid any
+    // runtime issues where config is undefined
     const { default: App } = await import('./app')
 
     renderApp(App)
-  } catch (err) {
-    console.log('Error during render App', err)
+  } catch (error) {
+    logger(error as Error)
   }
 }
 
 if (module['hot']) {
-  module['hot'].accept('./app', () => {
-    const NextApp = require('./app').default
-    renderApp(NextApp)
-  })
+  module['hot'].accept()
 }
 
 run()

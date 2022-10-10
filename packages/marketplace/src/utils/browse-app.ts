@@ -1,72 +1,44 @@
 import { ReapitConnectSession } from '@reapit/connect-session'
-import { AppSummaryModel, AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
-import { COGNITO_GROUP_ORGANISATION_ADMIN } from '../constants/api'
-import { selectClientId, selectIsAdmin } from '../selector/auth'
+import { AppDetailModel, AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { COGNITO_GROUP_ORGANISATION_ADMIN } from './auth'
 
-export const HEADER_HEIGHT = 68
-export const FEATURED_APP_HEIGHT = 200
-export const NORMAL_APP_MIN_HEIGHT = 180
-export const MAXIMUM_ITEMS_PER_ROW = 3
+export const filterRestrictedAppsList =
+  (apps: AppSummaryModelPagedResult | null, connectSession: ReapitConnectSession | null) =>
+  (): AppSummaryModelPagedResult | null => {
+    const isOrgAdmin = connectSession?.loginIdentity.groups.includes(COGNITO_GROUP_ORGANISATION_ADMIN)
+    const clientId = connectSession?.loginIdentity.clientId
 
-export const getNumberOfItems = () => {
-  const normalAppContainerHeight = window.innerHeight - HEADER_HEIGHT - FEATURED_APP_HEIGHT
-  const numOfRow = Math.ceil(normalAppContainerHeight / NORMAL_APP_MIN_HEIGHT)
-  return numOfRow * MAXIMUM_ITEMS_PER_ROW
-}
+    if (!apps || !apps?.data || !clientId) return null
 
-export const mergeAppsWithoutDuplicateId = (
-  developerApps: AppSummaryModel[],
-  oldApps: AppSummaryModel[] | undefined = [],
-  newApps: AppSummaryModel[] | undefined = [],
-): AppSummaryModel[] => {
-  const newAppIds = newApps.map((app) => app.id)
-  const developerAppIds = developerApps.map((app) => app.id)
-  const filteredOldApps = oldApps.filter((app) => !newAppIds.includes(app.id) && !developerAppIds.includes(app.id))
-  const filteredNewApps = newApps.filter((app) => !developerAppIds.includes(app.id))
+    const clientHiddenAppIds = window.reapit.config.clientHiddenAppIds[clientId] ?? []
 
-  return [...developerApps, ...filteredOldApps, ...filteredNewApps]
-}
+    const filtered = apps.data.filter(({ id }) => {
+      if (!id) return false
+      const isClientRestricted = clientHiddenAppIds.includes(id)
+      const isOrgRestricted = !isOrgAdmin && window.reapit.config.orgAdminRestrictedAppIds.includes(id)
 
-export const filterOrgAdminRestrictedApps = (
-  appsResponse: AppSummaryModelPagedResult,
-  connectSession: ReapitConnectSession,
-) => {
-  const isOrgAdmin = connectSession.loginIdentity.groups.includes(COGNITO_GROUP_ORGANISATION_ADMIN)
-  if (isOrgAdmin || !appsResponse || !appsResponse.data || !window.reapit) return appsResponse
-  const filtered = appsResponse.data.filter(
-    (app) => !window.reapit.config.orgAdminRestrictedAppIds.includes(app.id as string),
-  )
-  return {
-    ...appsResponse,
-    data: filtered,
+      return !isClientRestricted && !isOrgRestricted
+    })
+
+    return {
+      ...apps,
+      data: filtered,
+    }
   }
-}
 
-export const filterAdminRestrictedApps = (
-  appsResponse: AppSummaryModelPagedResult,
-  connectSession: ReapitConnectSession,
-) => {
-  const isAdmin = selectIsAdmin(connectSession)
-  if (isAdmin || !appsResponse || !appsResponse.data || !window.reapit) return appsResponse
-  const filtered = appsResponse.data.filter(
-    (app) => app.id && !window.reapit.config.adminRestrictedAppIds.includes(app.id),
-  )
-  return {
-    ...appsResponse,
-    data: filtered,
-  }
-}
+export const filterRestrictedAppDetail =
+  (app: AppDetailModel | null, connectSession: ReapitConnectSession | null) => (): AppDetailModel | null => {
+    const isOrgAdmin = connectSession?.loginIdentity.groups.includes(COGNITO_GROUP_ORGANISATION_ADMIN)
+    const clientId = connectSession?.loginIdentity.clientId
+    const id = app?.id
 
-export const filterClientHiddenApps = (
-  appsResponse: AppSummaryModelPagedResult,
-  connectSession: ReapitConnectSession,
-) => {
-  const clientId = selectClientId(connectSession)
-  if (!clientId || !appsResponse || !appsResponse.data || !window.reapit) return appsResponse
-  const clientHiddenAppIds = window.reapit.config.clientHiddenAppIds[clientId] ?? []
-  const filtered = appsResponse.data.filter((app) => app.id && !clientHiddenAppIds.includes(app.id))
-  return {
-    ...appsResponse,
-    data: filtered,
+    if (!id || !clientId) return null
+
+    const clientHiddenAppIds = window.reapit.config.clientHiddenAppIds[clientId] ?? []
+    const isClientRestricted = clientHiddenAppIds.includes(id)
+    const isOrgRestricted = !isOrgAdmin && window.reapit.config.orgAdminRestrictedAppIds.includes(id)
+
+    if (!isClientRestricted && !isOrgRestricted) return app
+
+    return null
   }
-}

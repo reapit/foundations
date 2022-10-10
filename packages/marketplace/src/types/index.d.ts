@@ -1,20 +1,8 @@
 /**
  * Gobal override types to make the compiler happy
  */
-
-declare namespace yargs {
-  // eslint-disable-next-line
-  export type Arguments<T> = any
-}
-
 declare module '*.css'
-declare module '*.scss'
-declare module '*.scss?mod'
-declare module '*.sass'
 declare module '*.jpg'
-declare module '*.jpeg'
 declare module '*.png'
-declare module '*.pdf'
+declare module '*.json'
 declare module '*.svg'
-
-declare module 'swagger-ui-react'

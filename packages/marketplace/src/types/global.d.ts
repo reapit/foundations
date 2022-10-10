@@ -1,23 +1,15 @@
-export type ComingSoonApp = {
-  image: string
-  email: string
-  integrationType: string
-}
+export type AppEnv = 'local' | 'development' | 'production'
 
 export type Config = {
-  appEnv: 'local' | 'development' | 'production'
+  appEnv: AppEnv
   sentryDns: string
-  googleAnalyticsKey: string
+  mixPanelToken: string
   connectClientId: string
   connectOAuthUrl: string
   connectUserPoolId: string
-  platformApiUrl: string
-  webComponentConfigApiUrl: string
   developerPortalUrl: string
   orgAdminRestrictedAppIds: string[]
-  adminRestrictedAppIds: string[]
   reapitConnectManagementUri: string
-  comingSoonApps: ComingSoonApp[]
   clientHiddenAppIds: {
     [key: string]: string[]
   }
@@ -28,8 +20,5 @@ declare global {
     reapit: {
       config: Config
     }
-    __REDUX_DEVTOOLS_EXTENSION__?: Function
-    Cypress: any
-    store: any
   }
 }
