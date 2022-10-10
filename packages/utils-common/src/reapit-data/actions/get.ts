@@ -51,6 +51,10 @@ export enum GetActionNames {
   getDevelopers = 'getDevelopers',
   getApprovals = 'getApprovals',
   getRevisionById = 'getRevisionById',
+  getDwAccounts = 'getDwAccounts',
+  getDwAccountById = 'getDwAccountById',
+  getDwDataSets = 'getDwDataSets',
+  getDwShares = 'getDwShares',
 }
 
 export type GetActions = { [key in GetActionNames]: GetAction }
@@ -60,6 +64,26 @@ export const getActions = (appEnv: AppEnv): GetActions => ({
     api: ApiNames(appEnv).platform,
     path: PathNames.apps,
     errorMessage: 'Something went wrong fetching apps - this error has been logged',
+  },
+  [GetActionNames.getDwAccounts]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.dwAccounts,
+    errorMessage: 'Something went wrong fetching accounts - this error has been logged',
+  },
+  [GetActionNames.getDwDataSets]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.dwDataSets,
+    errorMessage: 'Something went wrong fetching data sets - this error has been logged',
+  },
+  [GetActionNames.getDwShares]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.dwShares,
+    errorMessage: 'Something went wrong fetching shares - this error has been logged',
+  },
+  [GetActionNames.getDwAccountById]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.dwAccountsId,
+    errorMessage: 'Something went wrong fetching account - this error has been logged',
   },
   [GetActionNames.getAppMarketAdmin]: {
     api: ApiNames(appEnv).appMarketCms,

@@ -15,11 +15,13 @@ import {
 
 export interface ProgressBarPercentageProps extends HTMLAttributes<HTMLDivElement> {
   duration: number
+  showLabel?: boolean
 }
 
 export interface ProgressBarStepProps extends HTMLAttributes<HTMLDivElement> {
   numberSteps: number
   currentStep: number
+  showLabel?: boolean
 }
 
 export interface ProgressBarBaseProps extends HTMLAttributes<HTMLDivElement> {}
@@ -57,7 +59,7 @@ export const handleSetPercentageComplete = (
   return () => window.clearInterval(interval)
 }
 
-export const ProgressBarPercentage: FC<ProgressBarPercentageProps> = ({ duration, ...rest }) => {
+export const ProgressBarPercentage: FC<ProgressBarPercentageProps> = ({ duration, showLabel = true, ...rest }) => {
   const [percentageComplete, setPercentageComplete] = useState<number>(0)
   const intervalTime = duration * 10
   const transitionDuration = duration / 60
@@ -73,7 +75,7 @@ export const ProgressBarPercentage: FC<ProgressBarPercentageProps> = ({ duration
         <ProgressBarItem className={elProgressBarItemLightestBlue} />
         <ProgressBarItem className={elProgressBarItemOrange} />
       </ProgressBarInner>
-      <ProgressBarLabel className={elProgressBarLabelRight}>{percentageComplete}%</ProgressBarLabel>
+      {showLabel && <ProgressBarLabel className={elProgressBarLabelRight}>{percentageComplete}%</ProgressBarLabel>}
     </ProgressBarContainer>
   )
 }
@@ -86,7 +88,7 @@ export const handleSetPercentageCompleteSteps = (
   setPercentageComplete((currentStep / numberSteps) * 100)
 }
 
-export const ProgressBarSteps: FC<ProgressBarStepProps> = ({ numberSteps, currentStep, ...rest }) => {
+export const ProgressBarSteps: FC<ProgressBarStepProps> = ({ numberSteps, currentStep, showLabel = true, ...rest }) => {
   const [percentageComplete, setPercentageComplete] = useState<number>((currentStep / numberSteps) * 100)
 
   useEffect(handleSetPercentageCompleteSteps(setPercentageComplete, currentStep, numberSteps), [currentStep])
@@ -100,9 +102,11 @@ export const ProgressBarSteps: FC<ProgressBarStepProps> = ({ numberSteps, curren
         <ProgressBarItem className={elProgressBarItemLightestBlue} />
         <ProgressBarItem className={elProgressBarItemOrange} />
       </ProgressBarInner>
-      <ProgressBarLabel className={elProgressBarLabelLeft}>
-        {currentStep}/{numberSteps} Completed
-      </ProgressBarLabel>
+      {showLabel && (
+        <ProgressBarLabel className={elProgressBarLabelLeft}>
+          {currentStep}/{numberSteps} Completed
+        </ProgressBarLabel>
+      )}
     </ProgressBarContainer>
   )
 }
