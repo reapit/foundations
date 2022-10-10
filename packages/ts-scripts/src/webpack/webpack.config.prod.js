@@ -163,7 +163,7 @@ const webpackConfigProd = ({ appName }) => {
         },
       }),
       new MiniCssExtractPlugin({
-        filename: '[name].[contenthash].css',,
+        filename: '[name].[contenthash].css',
         ignoreOrder: true,
       }),
       new FaviconsWebpackPlugin({
