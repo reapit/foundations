@@ -1,6 +1,6 @@
 import React from 'react'
-import { ErrorBoundary } from '..'
-import { render } from '../../../tests/react-testing'
+import { ErrorBoundary } from '../error-boundary'
+import { render } from '../../tests/react-testing'
 
 const Children = () => <div>I am a component!</div>
 const props = {

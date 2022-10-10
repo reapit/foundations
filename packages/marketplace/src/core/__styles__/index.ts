@@ -1,17 +1,5 @@
 import { css } from '@linaria/core'
 
-export const globals = css`
-  @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap');
-  @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
-
-  :global() {
-    body {
-      background: #262f69;
-    }
-
-    #root {
-      height: 100%;
-      background: #f2f2f2;
-    }
-  }
+export const cookieBannerPosition = css`
+  bottom: 1.25rem;
 `

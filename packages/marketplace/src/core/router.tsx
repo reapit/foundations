@@ -1,81 +1,62 @@
-import * as React from 'react'
+import React, { FC } from 'react'
 import { Route, Router as BrowserRouter, Switch, Redirect } from 'react-router-dom'
-import { catchChunkError } from '@reapit/utils-react'
-import Routes from '../constants/routes'
-import PrivateRoute from './private-route'
-import PrivateRouteWrapper from './private-route-wrapper'
 import { createBrowserHistory, History } from 'history'
-import { Info } from '@reapit/elements-legacy'
-import { PortalProvider } from '@reapit/elements-legacy'
-import { OkayPage } from '@reapit/utils-react'
+import { Routes } from '../constants/routes'
+import PrivateRouteWrapper from './private-route-wrapper'
 
 export const history: History<any> = createBrowserHistory()
-const AppDetail = React.lazy(() => catchChunkError(() => import('../components/pages/app-detail/client')))
-const AppsManagement = React.lazy(() => catchChunkError(() => import('../components/pages/app-management')))
-const Apps = React.lazy(() => catchChunkError(() => import('../components/pages/apps')))
-const Authentication = React.lazy(() => catchChunkError(() => import('../components/pages/authentication')))
-const HandleLegacyDeveloperRoutesModal = React.lazy(() =>
-  catchChunkError(() => import('../components/pages/handle-legacy-routes/handle-legacy-developer-routes-modal')),
-)
-const HandleLegacyAdminRoutesModal = React.lazy(() =>
-  catchChunkError(() => import('../components/pages/handle-legacy-routes/handle-legacy-admin-routes-modal')),
-)
-const InstalledApps = React.lazy(() => catchChunkError(() => import('../components/pages/installed-apps')))
-const Login = React.lazy(() => catchChunkError(() => import('../components/pages/login')))
-const Setting = React.lazy(() => catchChunkError(() => import('../components/pages/settings')))
-const AcceptPermissionChangePage = React.lazy(() =>
-  catchChunkError(() => import('../components/pages/accept-permission-change')),
-)
 
-const Router = () => {
-  return (
-    <BrowserRouter history={history}>
-      <React.Suspense fallback={null}>
-        <PortalProvider>
-          <Switch>
-            <Route
-              path={Routes.REGISTER}
-              exact
-              render={() => {
-                window.location.href = `${window.reapit.config.developerPortalUrl}register`
-                return null
-              }}
-            />
-            <Route path={Routes.OK} exact render={() => <OkayPage />} />
-            <Route path={Routes.LOGIN} exact render={() => <Login />} />
-            <Route path={Routes.FOUR_O_FOUR} exact render={() => <Info infoType="404" />} />
-
-            <PrivateRouteWrapper showMenu={false} path="/admin">
-              <Switch>
-                <PrivateRoute path="/*" component={HandleLegacyAdminRoutesModal} />
-              </Switch>
-            </PrivateRouteWrapper>
-
-            <PrivateRouteWrapper showMenu={false} path="/developer">
-              <Switch>
-                <PrivateRoute path="/*" component={HandleLegacyDeveloperRoutesModal} />
-              </Switch>
-            </PrivateRouteWrapper>
-
-            <PrivateRouteWrapper>
-              <Switch>
-                <PrivateRoute path={Routes.AUTHENTICATION} component={Authentication} />
-                <PrivateRoute path={Routes.INSTALLED_APPS} component={InstalledApps} fetcher exact />
-                <PrivateRoute path={Routes.MY_APPS} component={AppsManagement} fetcher exact />
-                <PrivateRoute path={Routes.APPS} component={Apps} exact fetcher />
-                <PrivateRoute path={Routes.APP_DETAIL} component={AppDetail} exact fetcher />
-                <PrivateRoute path={Routes.APP_DETAIL_MANAGE} component={AppDetail} exact fetcher />
-                <PrivateRoute path={Routes.SETTINGS} exact fetcher component={Setting} />
-                <PrivateRoute path={Routes.ACCEPT_PERMISSION_CHANGE} exact component={AcceptPermissionChangePage} />
-                <Route render={() => <Info infoType="404" />} />
-              </Switch>
-            </PrivateRouteWrapper>
-            <Redirect to={Routes.LOGIN} />
-          </Switch>
-        </PortalProvider>
-      </React.Suspense>
-    </BrowserRouter>
-  )
+export const catchChunkError = (
+  fn: Function,
+  retriesLeft = 3,
+  interval = 500,
+): Promise<{ default: React.ComponentType<any> }> => {
+  return new Promise((resolve, reject) => {
+    fn()
+      .then(resolve)
+      .catch((error: Error) => {
+        // Ignore chunk cache error and retry to fetch, if cannot reload browser
+        console.info(error)
+        setTimeout(() => {
+          if (retriesLeft === 1) {
+            window.location.reload()
+            return
+          }
+          catchChunkError(fn, retriesLeft - 1, interval).then(resolve, reject)
+        }, interval)
+      })
+  })
 }
+
+const LoginPage = React.lazy(() => catchChunkError(() => import('../components/login')))
+const AppsBrowsePage = React.lazy(() => catchChunkError(() => import('../components/apps-browse')))
+const AppsDetailPage = React.lazy(() => catchChunkError(() => import('../components/apps-detail')))
+const AppsInstalledPage = React.lazy(() => catchChunkError(() => import('../components/apps-installed')))
+const SettingsPage = React.lazy(() => catchChunkError(() => import('../components/settings')))
+const SupportPage = React.lazy(() => catchChunkError(() => import('../components/apps-support')))
+const PermissionChangePage = React.lazy(() => catchChunkError(() => import('../components/accept-permission-change')))
+
+const Router: FC = () => (
+  <BrowserRouter history={history}>
+    <React.Suspense fallback={null}>
+      <Switch>
+        <Route path={Routes.LOGIN} component={LoginPage} />
+        <PrivateRouteWrapper>
+          <Switch>
+            <Route path={Routes.HOME} exact component={AppsBrowsePage} />
+            <Route path={Routes.APPS_BROWSE} exact component={AppsBrowsePage} />
+            <Route path={Routes.APPS_DETAIL} exact component={AppsDetailPage} />
+            <Route path={Routes.APPS_INSTALLED} exact component={AppsInstalledPage} />
+            <Route path={Routes.SETTINGS_PROFILE} exact component={SettingsPage} />
+            <Route path={Routes.SETTINGS_INSTALLED} exact component={SettingsPage} />
+            <Route path={Routes.SUPPORT} exact component={SupportPage} />
+            <Route path={Routes.ACCEPT_PERMISSION_CHANGE} exact component={PermissionChangePage} />
+          </Switch>
+        </PrivateRouteWrapper>
+        <Redirect to={Routes.LOGIN} />
+      </Switch>
+    </React.Suspense>
+  </BrowserRouter>
+)
 
 export default Router

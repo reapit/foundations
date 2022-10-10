@@ -1,47 +1,33 @@
-import * as React from 'react'
-import { reapitConnectBrowserSession } from '@/core/connect-session'
+import React, { FC, Suspense } from 'react'
 import { useReapitConnect } from '@reapit/connect-session'
-import Menu from '@/components/ui/menu'
-import { Section, AppNavContainer, FlexContainerBasic } from '@reapit/elements-legacy'
-import { Redirect, useLocation } from 'react-router'
-import Routes from '@/constants/routes'
-import { selectDeveloperId, selectIsAdmin } from '../selector/auth'
-import { Loader } from '@reapit/elements'
+import { Nav } from '../components/nav/nav'
+import { reapitConnectBrowserSession } from './connect-session'
+import { useLocation, Redirect } from 'react-router'
+import { Loader, MainContainer, PageContainer } from '@reapit/elements'
+import { Routes } from '../constants/routes'
+import { AppsBrowseProvider } from './use-apps-browse-state'
+import { AnalyticsBanner } from './analytics-banner'
 
-const { Suspense } = React
+export type PrivateRouteWrapperProps = {}
 
-export type PrivateRouteWrapperProps = {
-  children?: React.ReactNode
-  path?: string
-  showMenu?: boolean
-}
-
-export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperProps> = ({
-  children,
-  showMenu = true,
-}) => {
+export const PrivateRouteWrapper: FC<PrivateRouteWrapperProps> = ({ children }) => {
   const { connectSession, connectInternalRedirect } = useReapitConnect(reapitConnectBrowserSession)
   const location = useLocation()
-  const currentUri = `${location.pathname}${location.search}`
+  const currentUri = `${location?.pathname}${location?.search}`
   const isRoot = connectInternalRedirect === '/?' || connectInternalRedirect === '/' || window.location.pathname === '/'
-  const isDeveloperEdition = Boolean(selectDeveloperId(connectSession))
-  const isDesktopAdmin = selectIsAdmin(connectSession)
-  const isAdmin = isDesktopAdmin || isDeveloperEdition
-  const hasOwnContainer =
-    window.location.pathname?.includes('/settings') || window.location.pathname?.includes('/apps/')
 
   if (!connectSession) {
     return (
-      <AppNavContainer>
-        <FlexContainerBasic hasBackground hasPadding>
-          <Loader label="Loading" fullPage />
-        </FlexContainerBasic>
-      </AppNavContainer>
+      <MainContainer>
+        <PageContainer>
+          <Loader fullPage />
+        </PageContainer>
+      </MainContainer>
     )
   }
 
-  if (isRoot || (location.pathname.includes(Routes.MY_APPS) && !isAdmin)) {
-    return <Redirect to={Routes.APPS} />
+  if (isRoot) {
+    return <Redirect to={Routes.APPS_BROWSE} />
   }
 
   if (connectInternalRedirect && currentUri !== connectInternalRedirect) {
@@ -49,26 +35,13 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   }
 
   return (
-    <AppNavContainer>
-      {showMenu && <Menu />}
-      <FlexContainerBasic
-        id="app-root-container"
-        flexColumn
-        hasBackground={!hasOwnContainer}
-        hasPadding={!hasOwnContainer}
-        isScrollable
-      >
-        <Suspense
-          fallback={
-            <Section>
-              <Loader label="Loading" fullPage />
-            </Section>
-          }
-        >
-          {children}
-        </Suspense>
-      </FlexContainerBasic>
-    </AppNavContainer>
+    <AppsBrowseProvider>
+      <MainContainer>
+        <AnalyticsBanner />
+        <Nav />
+        <Suspense fallback={<Loader fullPage />}>{children}</Suspense>
+      </MainContainer>
+    </AppsBrowseProvider>
   )
 }
 
