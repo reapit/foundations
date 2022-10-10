@@ -6,12 +6,10 @@
     "paths": {
       "@/*": ["src/*"],
       "@reapit/elements": ["../elements/src"],
-      "@reapit/utils-common": ["../utils-common/src"],
       "@reapit/utils-common": ["../utils-common"],
-      "@reapit/connect-session": ["../connect-session/src"],
-      "@reapit/elements-legacy": ["../elements-legacy/src"]
+      "@reapit/connect-session": ["../connect-session/src"]
     }
   },
   "include": ["src"],
-  "exclude": ["public", "dist", "node_modules", "src/tests/coverage", "src/tests/cypress"]
+  "exclude": ["public", "dist", "node_modules", "src/tests/coverage"]
 }

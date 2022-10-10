@@ -1,4 +1,4 @@
-const Routes = {
+export const Routes = {
   HOME: '/',
   ACCOUNTS: '/user-accounts',
   HEALTH: '/health',

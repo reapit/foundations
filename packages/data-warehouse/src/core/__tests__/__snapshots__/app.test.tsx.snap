@@ -6,7 +6,10 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="ecbqyq6"
+        class="el-snack-holder"
+      />
+      <div
+        class="el-snack-holder"
       />
       <div>
         I am a router
@@ -15,7 +18,10 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="ecbqyq6"
+      class="el-snack-holder"
+    />
+    <div
+      class="el-snack-holder"
     />
     <div>
       I am a router

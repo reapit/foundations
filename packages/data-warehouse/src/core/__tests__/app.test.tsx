@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { render as testRender } from '../../tests/react-testing'
 import App from '../app'
 import { render, unmountComponentAtNode } from 'react-dom'

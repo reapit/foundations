@@ -1,22 +1,21 @@
-import React from 'react'
+import React, { FC } from 'react'
 import Router from './router'
-import { Provider } from 'react-redux'
-import store from './store'
-import './__styles__'
 import { MediaStateProvider, NavStateProvider, SnackProvider } from '@reapit/elements'
+import ErrorBoundary from './error-boundary'
+import { injectSwitchModeToWindow } from '@reapit/utils-react'
 
-const App = () => {
-  return (
-    <Provider store={store.reduxStore}>
-      <SnackProvider>
-        <NavStateProvider>
-          <MediaStateProvider>
-            <Router />
-          </MediaStateProvider>
-        </NavStateProvider>
-      </SnackProvider>
-    </Provider>
-  )
-}
+injectSwitchModeToWindow()
+
+const App: FC = () => (
+  <ErrorBoundary>
+    <NavStateProvider>
+      <MediaStateProvider>
+        <SnackProvider>
+          <Router />
+        </SnackProvider>
+      </MediaStateProvider>
+    </NavStateProvider>
+  </ErrorBoundary>
+)
 
 export default App
