@@ -1,4 +1,4 @@
-import { Card, Col, elMb7, Grid, PersistantNotification, Tabs, Title } from '@reapit/elements'
+import { Card, Col, elMb7, Grid, PersistentNotification, Tabs, Title } from '@reapit/elements'
 import React, { ChangeEvent, Dispatch, FC, SetStateAction, useState } from 'react'
 
 export enum TabName {
@@ -18,10 +18,10 @@ export const ListExample: FC = () => {
   return (
     <>
       <Title>List Options</Title>
-      <PersistantNotification className={elMb7} isExpanded intent="secondary" isInline isFullWidth>
+      <PersistentNotification className={elMb7} isExpanded intent="secondary" isInline isFullWidth>
         Toggling the tabs will give you two examples as to how to lay out a list of options, complete with menus in a
         responsive grid.
-      </PersistantNotification>
+      </PersistentNotification>
       <Tabs
         name="webhook-tabs"
         isFullWidth

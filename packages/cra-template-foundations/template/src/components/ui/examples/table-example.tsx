@@ -6,7 +6,7 @@ import {
   elMb6,
   elMb7,
   elSpan2,
-  PersistantNotification,
+  PersistentNotification,
   StatusIndicator,
   Table,
   Title,
@@ -25,11 +25,11 @@ export const TableExample: FC = () => {
   return (
     <>
       <Title>Table Example</Title>
-      <PersistantNotification className={elMb7} isExpanded intent="secondary" isInline isFullWidth>
+      <PersistentNotification className={elMb7} isExpanded intent="secondary" isInline isFullWidth>
         Straight from the Elements docs, the customised table example also has a button in the slide down that triggers
         a Modal dialogue. The custom setIndexExpandedRow function allows a callback to collapse the row when the modal
         is closed.
-      </PersistantNotification>
+      </PersistentNotification>
       <Table
         numberColumns={9}
         indexExpandedRow={indexExpandedRow}
@@ -188,9 +188,9 @@ export const TableExample: FC = () => {
         ]}
       />
       <Modal title="Modal Opened">
-        <PersistantNotification className={elMb6} isExpanded isInline isFullWidth intent="danger">
+        <PersistentNotification className={elMb6} isExpanded isInline isFullWidth intent="danger">
           Closing me will collapse the table row
-        </PersistantNotification>
+        </PersistentNotification>
         <BodyText hasGreyText>Typically Modals are used to confirm or deny things.</BodyText>
         <ButtonGroup alignment="center">
           <Button intent="secondary" onClick={handleOnCloseModal(setIndexExpandedRow, closeModal)}>
