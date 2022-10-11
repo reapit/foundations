@@ -6,6 +6,141 @@ Object {
   "baseElement": <body>
     <div>
       <div
+        class="higv0h0"
+      >
+        <div
+          class="pell undefined pell-container"
+          data-test=""
+        >
+          <div
+            class="pell-actionbar"
+          >
+            <button
+              class="pell-button"
+              title="Bold"
+              type="button"
+            >
+              <b>
+                B
+              </b>
+            </button>
+            <button
+              class="pell-button"
+              title="Italic"
+              type="button"
+            >
+              <i>
+                I
+              </i>
+            </button>
+            <button
+              class="pell-button"
+              title="Underline"
+              type="button"
+            >
+              <u>
+                U
+              </u>
+            </button>
+            <button
+              class="pell-button"
+              title="Strike-through"
+              type="button"
+            >
+              <strike>
+                S
+              </strike>
+            </button>
+            <button
+              class="pell-button"
+              title="Heading 1"
+              type="button"
+            >
+              <b>
+                H
+                <sub>
+                  1
+                </sub>
+              </b>
+            </button>
+            <button
+              class="pell-button"
+              title="Heading 2"
+              type="button"
+            >
+              <b>
+                H
+                <sub>
+                  2
+                </sub>
+              </b>
+            </button>
+            <button
+              class="pell-button"
+              title="Paragraph"
+              type="button"
+            >
+              ¶
+            </button>
+            <button
+              class="pell-button"
+              title="Quote"
+              type="button"
+            >
+              “ ”
+            </button>
+            <button
+              class="pell-button"
+              title="Ordered List"
+              type="button"
+            >
+              #
+            </button>
+            <button
+              class="pell-button"
+              title="Unordered List"
+              type="button"
+            >
+              •
+            </button>
+            <button
+              class="pell-button"
+              title="Code"
+              type="button"
+            >
+              &lt;/&gt;
+            </button>
+            <button
+              class="pell-button"
+              title="Horizontal Line"
+              type="button"
+            >
+              ―
+            </button>
+            <button
+              class="pell-button"
+              title="Link"
+              type="button"
+            >
+              🔗
+            </button>
+          </div>
+          <div
+            class="pell-content"
+          >
+            <b>
+              Editor
+            </b>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="higv0h0"
+    >
+      <div
         class="pell undefined pell-container"
         data-test=""
       >
@@ -129,133 +264,6 @@ Object {
             Editor
           </b>
         </div>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="pell undefined pell-container"
-      data-test=""
-    >
-      <div
-        class="pell-actionbar"
-      >
-        <button
-          class="pell-button"
-          title="Bold"
-          type="button"
-        >
-          <b>
-            B
-          </b>
-        </button>
-        <button
-          class="pell-button"
-          title="Italic"
-          type="button"
-        >
-          <i>
-            I
-          </i>
-        </button>
-        <button
-          class="pell-button"
-          title="Underline"
-          type="button"
-        >
-          <u>
-            U
-          </u>
-        </button>
-        <button
-          class="pell-button"
-          title="Strike-through"
-          type="button"
-        >
-          <strike>
-            S
-          </strike>
-        </button>
-        <button
-          class="pell-button"
-          title="Heading 1"
-          type="button"
-        >
-          <b>
-            H
-            <sub>
-              1
-            </sub>
-          </b>
-        </button>
-        <button
-          class="pell-button"
-          title="Heading 2"
-          type="button"
-        >
-          <b>
-            H
-            <sub>
-              2
-            </sub>
-          </b>
-        </button>
-        <button
-          class="pell-button"
-          title="Paragraph"
-          type="button"
-        >
-          ¶
-        </button>
-        <button
-          class="pell-button"
-          title="Quote"
-          type="button"
-        >
-          “ ”
-        </button>
-        <button
-          class="pell-button"
-          title="Ordered List"
-          type="button"
-        >
-          #
-        </button>
-        <button
-          class="pell-button"
-          title="Unordered List"
-          type="button"
-        >
-          •
-        </button>
-        <button
-          class="pell-button"
-          title="Code"
-          type="button"
-        >
-          &lt;/&gt;
-        </button>
-        <button
-          class="pell-button"
-          title="Horizontal Line"
-          type="button"
-        >
-          ―
-        </button>
-        <button
-          class="pell-button"
-          title="Link"
-          type="button"
-        >
-          🔗
-        </button>
-      </div>
-      <div
-        class="pell-content"
-      >
-        <b>
-          Editor
-        </b>
       </div>
     </div>
   </div>,
