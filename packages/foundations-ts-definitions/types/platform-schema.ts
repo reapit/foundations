@@ -6537,7 +6537,7 @@ export interface CreatePropertyModel {
    * example:
    * 2019-08-14
    */
-  valuationDate?: string // date
+  valuation?: string // date
   /**
    * Request body used to set the EPC statistic of a new property
    */
@@ -6686,7 +6686,7 @@ export interface CreatePropertyModel {
      * example:
      * 2019-08-14
      */
-    agreementExpiryDate?: string // date
+    agreementExpiry?: string // date
     /**
      * Request body used to set the commission fee for a property
      */
@@ -7139,7 +7139,7 @@ export interface CreatePropertySellingModel {
    * example:
    * 2019-08-14
    */
-  agreementExpiryDate?: string // date
+  agreementExpiry?: string // date
   /**
    * Request body used to set the commission fee for a property
    */
@@ -12208,7 +12208,7 @@ export interface PropertyModel {
    * example:
    * 2019-08-14
    */
-  valuationDate?: string // date
+  valuation?: string // date
   /**
    * The date and time the property was archived
    * example:
@@ -12379,7 +12379,7 @@ export interface PropertyModel {
      * example:
      * 2019-08-14
      */
-    agreementExpiryDate?: string // date
+    agreementExpiry?: string // date
     /**
      * Representation of the the commission fee for a property
      */
@@ -13016,7 +13016,7 @@ export interface PropertyModelPagedResult {
      * example:
      * 2019-08-14
      */
-    valuationDate?: string // date
+    valuation?: string // date
     /**
      * The date and time the property was archived
      * example:
@@ -13187,7 +13187,7 @@ export interface PropertyModelPagedResult {
        * example:
        * 2019-08-14
        */
-      agreementExpiryDate?: string // date
+      agreementExpiry?: string // date
       /**
        * Representation of the the commission fee for a property
        */
@@ -13749,7 +13749,7 @@ export interface PropertySellingModel {
    * example:
    * 2019-08-14
    */
-  agreementExpiryDate?: string // date
+  agreementExpiry?: string // date
   /**
    * Representation of the the commission fee for a property
    */
@@ -18688,7 +18688,7 @@ export interface UpdatePropertyModel {
    * example:
    * 2019-08-14
    */
-  valuationDate?: string // date
+  valuation?: string // date
   /**
    * Request body used to update the EPC statistics of an existing property
    */
@@ -18824,7 +18824,7 @@ export interface UpdatePropertyModel {
      * example:
      * 2019-08-14
      */
-    agreementExpiryDate?: string // date
+    agreementExpiry?: string // date
     /**
      * Request body used to update the commission fee for a property
      */
@@ -19260,7 +19260,7 @@ export interface UpdatePropertySellingModel {
    * example:
    * 2019-08-14
    */
-  agreementExpiryDate?: string // date
+  agreementExpiry?: string // date
   /**
    * Request body used to update the commission fee for a property
    */
