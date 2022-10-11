@@ -4,38 +4,6 @@ import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
 import { forMobileAndAbove, forTabletAndAbove, forWidescreenAndAbove } from '../../../core/__styles__/media'
 
-export const htmlRender = css`
-  font-family: var(--font-sans-serif);
-  font-weight: normal;
-  color: var(--color-black);
-  font-size: var(--font-size-small);
-  line-height: 1.25rem;
-  letter-spacing: -1%;
-  color: var(--color-grey-dark);
-  margin-bottom: 0.25rem;
-
-  li,
-  p,
-  div {
-    margin-bottom: 1rem;
-  }
-
-  li {
-    list-style: disc;
-    margin-left: 1rem;
-  }
-
-  &:after {
-    content: '';
-    display: table;
-    clear: both;
-  }
-
-  ${forMobileAndAbove} {
-    font-size: var(--font-size-default);
-  }
-`
-
 export const AppDetailWrapper = styled.div`
   margin-right: 0.75rem;
   border-radius: 0.25rem;

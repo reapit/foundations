@@ -2,6 +2,7 @@ import * as React from 'react'
 // @ts-ignore: no available type definition
 import { init } from 'pell'
 import './__styles__/index.css'
+import { HtmlContentWrap } from '../html-renderer/__styles__'
 
 export interface EditorProps {
   onChange?: (html: string) => void
@@ -81,12 +82,14 @@ export const Editor = ({
   }, [defaultContent])
 
   return (
-    <div
-      onPaste={onPaste}
-      onBlur={onBlur}
-      ref={containerEl}
-      data-test={dataTest}
-      className={`pell ${hasError && 'pell--is-danger'} ${containerClass}`}
-    />
+    <HtmlContentWrap>
+      <div
+        onPaste={onPaste}
+        onBlur={onBlur}
+        ref={containerEl}
+        data-test={dataTest}
+        className={`pell ${hasError && 'pell--is-danger'} ${containerClass}`}
+      />
+    </HtmlContentWrap>
   )
 }
