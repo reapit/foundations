@@ -24,65 +24,6 @@
   box-shadow: inset 0px -1px 0px var(--color-grey-medium);  
 }
 
-.pell-content p {
-  margin: 1rem 0;
-}
-
-.pell-content a {
-  color: var(--intent-primary);
-  font-weight: bold;
-}
-
-.pell-content h1 {
-  display: block;
-  font-size: 3rem;
-  margin-block-start: 0.67rem;
-  margin-block-end: 0.67rem;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  font-weight: bold;
-}
-
-.pell-content h2 {
-  display: block;
-  font-size: 2.5rem;
-  margin-block-start: 0.83rem;
-  margin-block-end: 0.83rem;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  font-weight: bold;
-}
-
-.pell-content h5 {
-  display: block;
-  font-size: 1.25rem;
-  margin-block-start: 0.83rem;
-  margin-block-end: 0.83rem;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  font-weight: bold;
-}
-
-.pell-content h6 {
-  display: block;
-  font-size: 1rem;
-  margin-block-start: 0.83rem;
-  margin-block-end: 0.83rem;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  font-weight: bold;
-}
-
-.pell-content ul {
-  list-style: disc outside none;
-  padding-inline-start: 25px;
-}
-
-.pell-content ol {
-  list-style: decimal;
-  padding-inline-start: 25px;
-}
-
 .pell-content:focus {
   background-color: var(--color-grey-light);
   border-bottom: solid 1px var(--color-grey-dark);

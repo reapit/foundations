@@ -39,7 +39,6 @@ import {
   AppDetailImage,
   AppDetailImageWrapper,
   AppDetailPermissionChip,
-  htmlRender,
   appDetailVideoModal,
   AppsDetailContentGrid,
   AppDetailSupportGrid,
@@ -280,7 +279,6 @@ export const AppsDetail: FC = () => {
             <AppsDetailContentColMain>
               <Subtitle hasBoldText>About App</Subtitle>
               <HTMLRender
-                className={htmlRender}
                 html={description ?? ''}
                 image={
                   <AppDetailImageWrap>
