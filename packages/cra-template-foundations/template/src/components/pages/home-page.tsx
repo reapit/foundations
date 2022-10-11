@@ -1,12 +1,12 @@
 import React, { FC } from 'react'
-import { Title, BodyText, PageContainer, PersistantNotification, elMb7 } from '@reapit/elements'
+import { Title, BodyText, PageContainer, PersistentNotification, elMb7 } from '@reapit/elements'
 
 export const HomePage: FC = () => (
   <PageContainer>
     <Title>Welcome To Reapit Foundations</Title>
-    <PersistantNotification className={elMb7} isExpanded intent="success" isInline isFullWidth>
+    <PersistentNotification className={elMb7} isExpanded intent="success" isInline isFullWidth>
       You are now authenticated against our sandbox data.
-    </PersistantNotification>
+    </PersistentNotification>
     <BodyText hasGreyText>
       Your Reapit connectSession object is available via the useReapitConnect hook and will be automatically refreshed
       unless you logout. This will provide you with an accessToken and login identity information to authenticate

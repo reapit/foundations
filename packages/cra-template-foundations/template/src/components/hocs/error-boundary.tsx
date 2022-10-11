@@ -1,4 +1,4 @@
-import { PersistantNotification } from '@reapit/elements'
+import { PersistentNotification } from '@reapit/elements'
 import React, { Component } from 'react'
 
 export interface ErrorState {
@@ -27,9 +27,9 @@ export class ErrorBoundary extends Component {
   render() {
     if (this.state.hasFailed) {
       return (
-        <PersistantNotification isFullWidth isExpanded isInline intent="danger">
+        <PersistentNotification isFullWidth isExpanded isInline intent="danger">
           Something went wrong here, try refreshing your page.
-        </PersistantNotification>
+        </PersistentNotification>
       )
     }
 

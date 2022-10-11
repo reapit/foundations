@@ -12,7 +12,7 @@ import {
   InputWrapMed,
   Label,
   MultiSelectInput,
-  PersistantNotification,
+  PersistentNotification,
   Subtitle,
   TextArea,
   Title,
@@ -23,11 +23,11 @@ import {
 export const FormExample: FC = () => (
   <>
     <Title>Form Example</Title>
-    <PersistantNotification className={elMb7} isExpanded intent="secondary" isInline isFullWidth>
+    <PersistentNotification className={elMb7} isExpanded intent="secondary" isInline isFullWidth>
       The form example is designed to show the various form and responsive form layout components. You can use any Form
       library or just straight React to manage your form state however, we strongly recommend React Hook Form (we use
       this internally). We have also tested Elements successfully with Formik.
-    </PersistantNotification>
+    </PersistentNotification>
 
     <form>
       <Subtitle>Main Form</Subtitle>
