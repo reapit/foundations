@@ -49,6 +49,7 @@
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions",
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",
     "@reapit/ts-types": "workspace:packages/ts-types",
+    "@redux-saga/testing-utils": "^1.1.5",
     "@typescript-eslint/eslint-plugin": "^5.36.1",
     "@typescript-eslint/parser": "^5.36.1",
     "babel-jest": "^28.1.3",

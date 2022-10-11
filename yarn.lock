@@ -8357,10 +8357,34 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@redux-saga/symbols@npm:^1.1.3":
+  version: 1.1.3
+  resolution: "@redux-saga/symbols@npm:1.1.3"
+  checksum: 65a8ea23c1ab7b122823f1a4d957f881d48fa50f90898c26db65cac6524f22e2f337b768dadfa87324925b41e3279ff1ebce1c4141e53dc19e74855167b49b74
+  languageName: node
+  linkType: hard
+
+"@redux-saga/testing-utils@npm:^1.1.5":
+  version: 1.1.5
+  resolution: "@redux-saga/testing-utils@npm:1.1.5"
+  dependencies:
+    "@redux-saga/symbols": ^1.1.3
+    "@redux-saga/types": ^1.2.1
+  checksum: b624b959adb1df6fa02f7f877467a6689ea842edf5d10bd9cd8b075ebfc47f4710e9c17589735e3defafabcb0f8eea7d2bbb655966677bd502e03a41924153dd
+  languageName: node
+  linkType: hard
+
 "@redux-saga/types@npm:^1.1.0":
   version: 1.1.0
   resolution: "@redux-saga/types@npm:1.1.0"
   checksum: e75a6ddc896007e76bd505dee1b3f8401464036ce9db2f4c4ac469215437d61013c17a54b9c342574bac27f2cb6ae628fe24419d17d9f85cb922181d81ec2321
+  languageName: node
+  linkType: hard
+
+"@redux-saga/types@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "@redux-saga/types@npm:1.2.1"
+  checksum: 754f183bd1bdd589a29d2b976f666e9ee9e6d28e88268538c11f679d019334999676d5425af14d2a99d5c91c0c87a01e7ac1c4d81a656d93dd529df315bbd0c7
   languageName: node
   linkType: hard
 
@@ -13739,6 +13763,7 @@ __metadata:
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils-common": "workspace:packages/utils-common"
+    "@redux-saga/testing-utils": ^1.1.5
     "@sentry/browser": ^6.19.7
     "@typescript-eslint/eslint-plugin": ^5.36.1
     "@typescript-eslint/parser": ^5.36.1
