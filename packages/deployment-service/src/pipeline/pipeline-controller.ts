@@ -66,7 +66,8 @@ export class PipelineController {
       ...previousPipeline,
       ...dto,
       developerId: creds.developerId as string,
-      // clientId: creds.clientId,
+      // required for current DB but currently we don't need this value
+      clientId: creds.type === 'jwt' ? creds.clientId as string : '',
       buildStatus: previousPipeline ? 'READY_FOR_DEPLOYMENT' : undefined,
       // Temp plug, singular appId/clientId for pipeline - later requires multiple pipelines
       id: dto.appId,
