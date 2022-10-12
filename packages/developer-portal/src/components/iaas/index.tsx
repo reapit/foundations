@@ -19,7 +19,7 @@ import {
 import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { useReapitGet } from '@reapit/utils-react'
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC, useState } from 'react'
 import { COGNITO_HEADERS, URLS } from '../../constants/api'
 import ErrorBoundary from '../../core/error-boundary'
 import { useGlobalState } from '../../core/use-global-state'
@@ -39,10 +39,12 @@ type Pagination<T> = {
 
 export const IaaS: FC = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const [pagination, setPagination] = useState<Pagination<PipelineModelInterface> | null>()
   const [page, setPage] = useState<number>(1)
   const { globalDataState } = useGlobalState()
   const { currentDeveloper } = globalDataState
+
+  const developerId = currentDeveloper?.id
+  const developerQuery = developerId ? { developerId } : {}
 
   const [pipelines, loading] = useReapitGet<Pagination<PipelineModelInterface>>({
     reapitConnectBrowserSession,
@@ -52,10 +54,10 @@ export const IaaS: FC = () => {
     },
     fetchWhenTrue: [connectSession?.idToken],
     queryParams: {
+      ...developerQuery,
       page,
     },
   })
-  useEffect(() => setPagination(pipelines), [pipelines])
 
   if (!connectSession) return null
 
@@ -97,18 +99,16 @@ export const IaaS: FC = () => {
                     <TableHeader>Repository</TableHeader>
                     <TableHeader></TableHeader>
                   </TableHeadersRow>
-                  {pagination?.items?.map((pipeline) => (
+                  {pipelines?.items?.map((pipeline) => (
                     <PipelineRow connectSession={connectSession} pipeline={pipeline} key={pipeline.id} />
                   ))}
                 </Table>
                 <div className={elMt6}>
-                  {pagination && (
+                  {pipelines && (
                     <Pagination
-                      currentPage={pagination.meta.currentPage}
-                      numberPages={pagination.meta.totalPages}
-                      callback={(page) => {
-                        setPage(page)
-                      }}
+                      currentPage={pipelines.meta.currentPage}
+                      numberPages={pipelines.meta.totalPages}
+                      callback={setPage}
                     />
                   )}
                 </div>
