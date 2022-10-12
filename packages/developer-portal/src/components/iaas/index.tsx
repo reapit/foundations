@@ -1,5 +1,4 @@
 import { reapitConnectBrowserSession } from '@/core/connect-session'
-import { PusherProvider } from '@harelpls/use-pusher'
 import { useReapitConnect } from '@reapit/connect-session'
 import {
   SmallText,
@@ -20,7 +19,6 @@ import { PipelineModelInterface } from '@reapit/foundations-ts-definitions'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { useReapitGet } from '@reapit/utils-react'
 import React, { FC, useState } from 'react'
-import { COGNITO_HEADERS, URLS } from '../../constants/api'
 import ErrorBoundary from '../../core/error-boundary'
 import { useGlobalState } from '../../core/use-global-state'
 import { ExternalPages, openNewPage } from '../../utils/navigation'
@@ -76,45 +74,33 @@ export const IaaS: FC = () => {
       </SecondaryNavContainer>
       <PageContainer>
         <ErrorBoundary>
-          <PusherProvider
-            cluster="eu"
-            clientKey={window.reapit.config.PUSHER_KEY}
-            authEndpoint={`${URLS.DEPLOYMENT_SERVICE_HOST}pusher/auth`}
-            auth={{
-              headers: {
-                ...COGNITO_HEADERS,
-                Authorization: connectSession.idToken,
-              },
-            }}
-          >
-            <Title>Pipelines</Title>
-            {loading || !currentDeveloper ? (
-              <Loader />
-            ) : (
-              <>
-                <Table data-has-expandable-action data-num-columns-excl-action-col="3">
-                  <TableHeadersRow>
-                    <TableHeader>Name</TableHeader>
-                    <TableHeader>Status</TableHeader>
-                    <TableHeader>Repository</TableHeader>
-                    <TableHeader></TableHeader>
-                  </TableHeadersRow>
-                  {pipelines?.items?.map((pipeline) => (
-                    <PipelineRow connectSession={connectSession} pipeline={pipeline} key={pipeline.id} />
-                  ))}
-                </Table>
-                <div className={elMt6}>
-                  {pipelines && (
-                    <Pagination
-                      currentPage={pipelines.meta.currentPage}
-                      numberPages={pipelines.meta.totalPages}
-                      callback={setPage}
-                    />
-                  )}
-                </div>
-              </>
-            )}
-          </PusherProvider>
+        <Title>Pipelines</Title>
+          {loading || !currentDeveloper ? (
+            <Loader />
+          ) : (
+            <>
+              <Table data-has-expandable-action data-num-columns-excl-action-col="3">
+                <TableHeadersRow>
+                  <TableHeader>Name</TableHeader>
+                  <TableHeader>Status</TableHeader>
+                  <TableHeader>Repository</TableHeader>
+                  <TableHeader></TableHeader>
+                </TableHeadersRow>
+                {pipelines?.items?.map((pipeline) => (
+                  <PipelineRow connectSession={connectSession} pipeline={pipeline} key={pipeline.id} />
+                ))}
+              </Table>
+              <div className={elMt6}>
+                {pipelines && (
+                  <Pagination
+                    currentPage={pipelines.meta.currentPage}
+                    numberPages={pipelines.meta.totalPages}
+                    callback={setPage}
+                  />
+                )}
+              </div>
+            </>
+          )}
         </ErrorBoundary>
       </PageContainer>
     </>
