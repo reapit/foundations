@@ -209,7 +209,22 @@ Object {
       <section
         class="eukst9x-el-page-container"
       >
-        <div />
+        <h1
+          class="e1byern-el-title"
+        >
+          Pipelines
+        </h1>
+        <div
+          class="ebhrnzh-el-loader-container"
+        >
+          <div
+            class="eq1m1jz-el-loader"
+          >
+            <div
+              class="exikdu1-el-loader-moving-bar"
+            />
+          </div>
+        </div>
       </section>
     </div>
   </body>,
@@ -418,7 +433,22 @@ Object {
     <section
       class="eukst9x-el-page-container"
     >
-      <div />
+      <h1
+        class="e1byern-el-title"
+      >
+        Pipelines
+      </h1>
+      <div
+        class="ebhrnzh-el-loader-container"
+      >
+        <div
+          class="eq1m1jz-el-loader"
+        >
+          <div
+            class="exikdu1-el-loader-moving-bar"
+          />
+        </div>
+      </div>
     </section>
   </div>,
   "debug": [Function],
