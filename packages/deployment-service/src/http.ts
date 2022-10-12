@@ -10,9 +10,9 @@ import express, { Express } from 'express'
 import * as bodyParser from 'body-parser'
 import { CorsHeaderInterceptor } from '@reapit/utils-nest'
 
-export const bootstrapApplication = async (): Promise<[INestApplication, Express]> => {
+export const bootstrapApplication = async (cors: boolean = false): Promise<[INestApplication, Express]> => {
   const expressApp = express()
-  const app = await NestFactory.create(AppModule, new ExpressAdapter(expressApp))
+  const app = await NestFactory.create(AppModule, new ExpressAdapter(expressApp), { cors })
 
   app.useGlobalPipes(new ValidationPipe())
   app.useGlobalInterceptors(new CorsHeaderInterceptor())
