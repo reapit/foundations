@@ -1,4 +1,6 @@
+import { COGNITO_HEADERS, URLS } from '@/constants/api'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { PusherProvider } from '@harelpls/use-pusher'
 import { useReapitConnect } from '@reapit/connect-session'
 import {
   SmallText,
@@ -74,33 +76,45 @@ export const IaaS: FC = () => {
       </SecondaryNavContainer>
       <PageContainer>
         <ErrorBoundary>
-        <Title>Pipelines</Title>
-          {loading || !currentDeveloper ? (
-            <Loader />
-          ) : (
-            <>
-              <Table data-has-expandable-action data-num-columns-excl-action-col="3">
-                <TableHeadersRow>
-                  <TableHeader>Name</TableHeader>
-                  <TableHeader>Status</TableHeader>
-                  <TableHeader>Repository</TableHeader>
-                  <TableHeader></TableHeader>
-                </TableHeadersRow>
-                {pipelines?.items?.map((pipeline) => (
-                  <PipelineRow connectSession={connectSession} pipeline={pipeline} key={pipeline.id} />
-                ))}
-              </Table>
-              <div className={elMt6}>
-                {pipelines && (
-                  <Pagination
-                    currentPage={pipelines.meta.currentPage}
-                    numberPages={pipelines.meta.totalPages}
-                    callback={setPage}
-                  />
-                )}
-              </div>
-            </>
-          )}
+          <PusherProvider
+            cluster="eu"
+            clientKey={window.reapit.config.PUSHER_KEY}
+            authEndpoint={`${URLS.DEPLOYMENT_SERVICE_HOST}pusher/auth`}
+            auth={{
+              headers: {
+                ...COGNITO_HEADERS,
+                Authorization: connectSession.idToken,
+              },
+            }}
+          >
+            <Title>Pipelines</Title>
+            {loading || !currentDeveloper ? (
+              <Loader />
+            ) : (
+              <>
+                <Table data-has-expandable-action data-num-columns-excl-action-col="3">
+                  <TableHeadersRow>
+                    <TableHeader>Name</TableHeader>
+                    <TableHeader>Status</TableHeader>
+                    <TableHeader>Repository</TableHeader>
+                    <TableHeader></TableHeader>
+                  </TableHeadersRow>
+                  {pipelines?.items?.map((pipeline) => (
+                    <PipelineRow connectSession={connectSession} pipeline={pipeline} key={pipeline.id} />
+                  ))}
+                </Table>
+                <div className={elMt6}>
+                  {pipelines && (
+                    <Pagination
+                      currentPage={pipelines.meta.currentPage}
+                      numberPages={pipelines.meta.totalPages}
+                      callback={setPage}
+                    />
+                  )}
+                </div>
+              </>
+            )}
+          </PusherProvider>
         </ErrorBoundary>
       </PageContainer>
     </>
