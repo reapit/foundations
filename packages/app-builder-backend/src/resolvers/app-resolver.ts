@@ -76,7 +76,6 @@ const updateMarketplaceAppScopes = async (appId: string, scopes: string[], acces
       ...marketplaceApp,
       scopes,
     })
-    console.log(appRevision)
     return createMarketplaceAppRevision(appId, appRevision, accessToken)
   }
 }
