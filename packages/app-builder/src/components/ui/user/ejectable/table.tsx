@@ -221,7 +221,7 @@ const Controls = ({
       {updateAvailable && (
         <Button
           disabled={disabled}
-          intent="secondary"
+          intent="primary"
           onClick={() => {
             if (editPageId) {
               setPageId(editPageId, {
@@ -230,7 +230,7 @@ const Controls = ({
             }
           }}
         >
-          <Icon icon="editSystem" />
+          Edit
         </Button>
       )}
       {deletionAvailable && <DeleteButton disabled={disabled} id={rowId} typeName={typeName} />}
@@ -330,7 +330,7 @@ export const Table = forwardRef<HTMLDivElement, TableProps & { disabled?: boolea
     } = useObjectSearch(typeName, queryStr)
     const { specials } = useObjectSpecials(typeName)
     const { object } = useObject(typeName)
-    const { context } = usePageId()
+    const { context, setPageId } = usePageId()
     const loading = listLoading || searchLoading
 
     useEffect(() => {
@@ -347,7 +347,7 @@ export const Table = forwardRef<HTMLDivElement, TableProps & { disabled?: boolea
     ].filter(({ name }) => includedFields.map((s) => s.toLowerCase()).includes(name.toLowerCase().split(' ').join('')))
 
     const data = searchResults || listResults
-    const hasExpandableContent = !!specialsAndSubobjects.length || showControls
+    const hasExpandableContent = !!specialsAndSubobjects.length
 
     let rows: RowProps[] | undefined
     if (data && typeName) {
@@ -375,6 +375,21 @@ export const Table = forwardRef<HTMLDivElement, TableProps & { disabled?: boolea
 
         return {
           cells,
+          ctaContent:
+            !hasExpandableContent && showControls
+              ? {
+                  headerContent: 'Edit',
+                  content,
+                  icon: 'editSystem',
+                  onClick: () => {
+                    if (editPageId) {
+                      setPageId(editPageId, {
+                        editObjectId: row.id,
+                      })
+                    }
+                  },
+                }
+              : undefined,
           expandableContent: hasExpandableContent
             ? {
                 content,
