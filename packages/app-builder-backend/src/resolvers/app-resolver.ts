@@ -1,5 +1,4 @@
 import { Resolver, Query, Arg, Mutation, ID, Authorized, Ctx, FieldResolver, Root } from 'type-graphql'
-import Pluralize from 'pluralize'
 
 import { App } from '../entities/app'
 import { getApp, createApp, updateApp, getDomainApps, getUnqDomain, DDBApp } from '../ddb'
@@ -11,7 +10,6 @@ import {
   createMarketplaceAppRevision,
   getDeveloperApps,
   getMarketplaceApp,
-  getValidMarketplaceScopes,
 } from '../platform/apps'
 import { notEmpty } from '../utils/helpers'
 import slugify from 'slugify'
@@ -49,19 +47,6 @@ const getAppUrl = (webUrl: string, subdomain: string) => {
   url.protocol = 'https:'
   // remove trailing slash
   return url.toString().replace(/\/$/, '')
-}
-
-enum Access {
-  read = 'read',
-  write = 'write',
-}
-
-const getObjectScopes = (objectName: string, access: Access) => {
-  let on = objectName
-  if (on.toLowerCase() === 'propertyimage') {
-    on = 'image'
-  }
-  return `agencyCloud/${Pluralize.plural(on)}.${access}`
 }
 
 // compare array of strings
@@ -106,84 +91,39 @@ const updateMarketplaceAppName = async (appId: string, name: string, accessToken
   }
 }
 
-const isArray = (obj: any): obj is string[] => Array.isArray(obj)
-const isString = (obj: any): obj is string => typeof obj === 'string'
+const arrayContainsAllValues = (array: string[], values: string[]) => {
+  return values.filter((s) => array.includes(s)).length === values.length
+}
 
 const ensureScopes = async (app: DDBApp, accessToken: string) => {
-  const nodes = app.pages.map((page) => page.nodes).flat()
-  const validScopes = (await getValidMarketplaceScopes(accessToken)).map(({ name }) => name)
-  const acEntities = [...new Set(validScopes.map((scope) => scope?.split('/')[1].split('.')[0]))].filter(notEmpty)
-  const requiredAccess: { objectName: string; access: Access[] }[] = nodes
-    .map((node) => {
-      const name = node.type.resolvedName
-      const props = node.props
-      const objectName = node.props?.typeName as string | undefined
-
-      if (!objectName || !props) {
-        return null
-      }
-
-      const fieldNames =
-        name === 'Form'
-          ? node.nodes
-              .map((nodeId) => nodes.find(({ nodeId: id }) => id === nodeId))
-              .filter(notEmpty)
-              .map((node) => node.props.name)
-              .filter(notEmpty)
-              .filter(isString)
-          : isArray(props.includedFields)
-          ? props.includedFields
-          : []
-
-      const subtypes = fieldNames
-        .map((name) => name.replace('Ids', '').replace('Id', ''))
-        .map((name) => {
-          if (name.endsWith('y')) {
-            return name.replace(/y$/, 'ies')
-          }
-          return name
-        })
-        .map((name) => {
-          if (name.toLowerCase().includes('attendee')) {
-            return 'contact'
-          }
-          return name
-        })
-        .filter((fieldName) => acEntities.find((entityName) => entityName.includes(fieldName)))
-
-      const scopes = [
-        {
-          objectName,
-          access: props.showControls || name === 'Form' ? [Access.read, Access.write] : [Access.read],
-        },
-        ...subtypes.map((subtype) => ({
-          objectName: subtype,
-          access: [Access.read],
-        })),
-      ]
-
-      if (objectName.toLowerCase() === 'propertyimage') {
-        scopes.push({
-          objectName: 'properties',
-          access: [Access.read, Access.write],
-        })
-      }
-
-      return scopes
-    })
-    .flat()
-    .filter(notEmpty)
-  const scopes = requiredAccess
-    .map(({ objectName, access }) => {
-      return access.map((access) => getObjectScopes(objectName, access))
-    })
-    .flat()
-    .filter(notEmpty)
-    .filter((scope) => validScopes.includes(scope))
-  // unique scopes
-  const uniqueScopes = [...new Set(scopes)]
-
-  return updateMarketplaceAppScopes(app.id, uniqueScopes, accessToken)
+  const marketplaceApp = await getMarketplaceApp(app.id, accessToken)
+  const currentScopes = marketplaceApp.scopes?.map((s) => s.name).filter(notEmpty) || []
+  // just add all relevent scopes for now
+  const scopes = [
+    'agencyCloud/applicants.read',
+    'agencyCloud/applicants.write',
+    'agencyCloud/appointments.read',
+    'agencyCloud/appointments.write',
+    'agencyCloud/companies.read',
+    'agencyCloud/companies.write',
+    'agencyCloud/contacts.read',
+    'agencyCloud/contacts.write',
+    'agencyCloud/images.read',
+    'agencyCloud/images.write',
+    'agencyCloud/landlords.read',
+    'agencyCloud/negotiators.read',
+    'agencyCloud/negotiators.write',
+    'agencyCloud/offers.read',
+    'agencyCloud/offers.write',
+    'agencyCloud/offices.read',
+    'agencyCloud/offices.write',
+    'agencyCloud/properties.read',
+    'agencyCloud/properties.write',
+  ]
+  if (!arrayContainsAllValues(currentScopes, scopes)) {
+    const newScopes = [...new Set([...currentScopes, ...scopes])]
+    await updateMarketplaceAppScopes(app.id, newScopes, accessToken)
+  }
 }
 
 @Resolver(() => App)
