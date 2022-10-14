@@ -52,10 +52,10 @@
     "release:destroy": "rpt-cdk destroy cdk/cdk.ts",
     "publish": "echo '...skipping...'",
     "conf": "yarn config-manager --namespace cloud --entity deployment-service --name local --mode fetch",
-    "migration:generate": "ts-node -P ./tsconfig.json ../../node_modules/.bin/typeorm migration:generate",
-    "migration:run": "ts-node -P ./tsconfig.json ../../node_modules/.bin/typeorm migration:run",
-    "migration:create": "ts-node -P ./tsconfig.json ../../node_modules/.bin/typeorm migration:create",
-    "migration:revert": "ts-node -P ./tsconfig.json ../../node_modules/.bin/typeorm migration:revert"
+    "migration:generate": "typeorm-ts-node-common-js -d orm-datasource.tstypeorm migration:generate",
+    "migration:run": " typeorm-ts-node-commonjs -d orm-datasource.ts migration:run",
+    "migration:create": "typeorm-ts-node-common-js -d orm-datasource.tstypeorm migration:create",
+    "migration:revert": "typeorm-ts-node-common-js -d orm-datasource.tstypeorm migration:revert"
   },
   "devDependencies": {
     "@nestjs/testing": "^8.4.7",
