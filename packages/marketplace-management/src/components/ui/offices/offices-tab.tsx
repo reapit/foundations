@@ -61,6 +61,13 @@ export const handleSortTableData = (offices: OfficeModel[]) => (): RowProps[] =>
   return offices.map((office: OfficeModel) => ({
     cells: [
       {
+        label: 'Office ID',
+        value: office.id,
+        narrowTable: {
+          showLabel: false,
+        },
+      },
+      {
         label: 'Office Name',
         value: office.name ?? '',
         narrowTable: {
