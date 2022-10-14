@@ -14,21 +14,21 @@ const entityNameToIcon = (entityName: Page['entityName']): IconNames => {
     case 'applicant':
       return 'accountMenu'
     case 'appointment':
-      return 'geoLocationSolidSystem'
+      return 'mapMenu'
     case 'company':
-      return 'companySystem'
+      return 'accountMenu'
     case 'contact':
-      return 'phoneSystem'
+      return 'profileMenu'
     case 'negotiator':
-      return 'walkingSolidSystem'
+      return 'usersMenu'
     case 'offer':
       return 'marketplaceMenu'
     case 'office':
       return 'officesMenu'
     case 'property':
-      return 'geoLocationSolidSystem'
-    default:
       return 'defaultMenu'
+    default:
+      return 'helpMenu'
   }
 }
 
@@ -45,7 +45,6 @@ const pagesToNavConfig = (
         list: [],
       }
     }
-    console.log(pagesByEntity[page.entityName], page.pageType)
     pagesByEntity[page.entityName][page.pageType].push(page)
   })
 
@@ -55,7 +54,7 @@ const pagesToNavConfig = (
     return {
       itemIndex,
       text: entityName,
-      iconId: entityNameToIcon(entityName as Page['entityName']),
+      iconId: entityNameToIcon(entityName.toLowerCase() as Page['entityName']),
       subItems: Object.values(pageGroup)
         .flat()
         .map((subpage, idx) => {
