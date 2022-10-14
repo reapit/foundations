@@ -25,7 +25,7 @@ Object {
           class="el-table"
           data-has-call-to-action="false"
           data-has-expandable-action="true"
-          data-num-columns-excl-action-col="9"
+          data-num-columns-excl-action-col="10"
         >
           <div
             class="el-table-headers-row"
@@ -74,6 +74,11 @@ Object {
               class="el-table-header"
             >
               Publicly Listed
+            </div>
+            <div
+              class="el-table-header"
+            >
+              Public
             </div>
             <div
               class="el-table-header"
@@ -258,6 +263,33 @@ Object {
                 </div>
               </div>
               <div
+                class="el-table-cell"
+              >
+                <div
+                  class="el-table-cell-content"
+                  data-narrow-label="Public"
+                >
+                  <span
+                    class="el-intent-danger el-icon"
+                  >
+                    <svg
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 20 20"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M15.8336 17.2478C16.1265 17.5407 16.6014 17.5407 16.8943 17.2478C17.1872 16.955 17.1872 16.4801 16.8943 16.1872L10.7071 10L16.8943 3.81282C17.1872 3.51992 17.1872 3.04505 16.8943 2.75216C16.6014 2.45926 16.1265 2.45926 15.8336 2.75216L9.64643 8.93934L3.8128 3.10571C3.51991 2.81282 3.04503 2.81282 2.75214 3.10571C2.45925 3.3986 2.45925 3.87348 2.75214 4.16637L8.58577 10L2.75214 15.8336C2.45925 16.1265 2.45925 16.6014 2.75214 16.8943C3.04503 17.1872 3.51991 17.1872 3.8128 16.8943L9.64643 11.0607L15.8336 17.2478Z"
+                        fill="currentColor"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+              <div
                 class="el-table-expandable-row-trigger-cell"
               >
                 <span
@@ -357,7 +389,7 @@ Object {
         class="el-table"
         data-has-call-to-action="false"
         data-has-expandable-action="true"
-        data-num-columns-excl-action-col="9"
+        data-num-columns-excl-action-col="10"
       >
         <div
           class="el-table-headers-row"
@@ -406,6 +438,11 @@ Object {
             class="el-table-header"
           >
             Publicly Listed
+          </div>
+          <div
+            class="el-table-header"
+          >
+            Public
           </div>
           <div
             class="el-table-header"
@@ -587,6 +624,33 @@ Object {
                 data-narrow-label="Publicly Listed"
               >
                 -
+              </div>
+            </div>
+            <div
+              class="el-table-cell"
+            >
+              <div
+                class="el-table-cell-content"
+                data-narrow-label="Public"
+              >
+                <span
+                  class="el-intent-danger el-icon"
+                >
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 20 20"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M15.8336 17.2478C16.1265 17.5407 16.6014 17.5407 16.8943 17.2478C17.1872 16.955 17.1872 16.4801 16.8943 16.1872L10.7071 10L16.8943 3.81282C17.1872 3.51992 17.1872 3.04505 16.8943 2.75216C16.6014 2.45926 16.1265 2.45926 15.8336 2.75216L9.64643 8.93934L3.8128 3.10571C3.51991 2.81282 3.04503 2.81282 2.75214 3.10571C2.45925 3.3986 2.45925 3.87348 2.75214 4.16637L8.58577 10L2.75214 15.8336C2.45925 16.1265 2.45925 16.6014 2.75214 16.8943C3.04503 17.1872 3.51991 17.1872 3.8128 16.8943L9.64643 11.0607L15.8336 17.2478Z"
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </span>
               </div>
             </div>
             <div
