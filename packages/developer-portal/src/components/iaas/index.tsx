@@ -1,4 +1,4 @@
-import { COGNITO_HEADERS, URLS } from '@/constants/api'
+import { URLS } from '@/constants/api'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { PusherProvider } from '@harelpls/use-pusher'
 import { useReapitConnect } from '@reapit/connect-session'
@@ -82,7 +82,6 @@ export const IaaS: FC = () => {
             authEndpoint={`${URLS.DEPLOYMENT_SERVICE_HOST}pusher/auth`}
             auth={{
               headers: {
-                ...COGNITO_HEADERS,
                 Authorization: connectSession.idToken,
               },
             }}

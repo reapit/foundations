@@ -126,6 +126,7 @@ export const AppsTable: FC<AppsTableProps> = ({ apps, appsRefresh }) => {
             created,
             developerId,
             publicListedDate,
+            limitToClientIds,
           }) => ({
             cells: [
               {
@@ -197,6 +198,20 @@ export const AppsTable: FC<AppsTableProps> = ({ apps, appsRefresh }) => {
               {
                 label: 'Publicly Listed',
                 value: publicListedDate ? toLocalTime(publicListedDate) : '-',
+                narrowTable: {
+                  showLabel: true,
+                },
+              },
+              {
+                label: 'Public',
+                value: (
+                  <Icon
+                    icon={
+                      Array.isArray(limitToClientIds) && limitToClientIds.length > 0 ? 'closeSystem' : 'checkSystem'
+                    }
+                    intent={Array.isArray(limitToClientIds) && limitToClientIds.length > 0 ? 'danger' : 'success'}
+                  />
+                ),
                 narrowTable: {
                   showLabel: true,
                 },
