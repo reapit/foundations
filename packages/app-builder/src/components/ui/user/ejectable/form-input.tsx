@@ -34,6 +34,7 @@ import { cx } from '@linaria/core'
 import { block } from '../../styles'
 import { styled } from '@linaria/react'
 import { useObjectGet } from '../../../../components/hooks/objects/use-object-get'
+import AddSystem from '../../../../../../elements/src/components/icon/icons/system-icons/addSystem'
 
 export const getLabel = (obj: any, labelKeys?: string[]) => {
   if (!obj) {
@@ -597,7 +598,7 @@ const ListInput = React.forwardRef(
           ))}
           {listValue.length === 0 && <ElBodyText className={cx(elMy2, elHasGreyText)}>None yet</ElBodyText>}
         </InputGroup>
-        <FloatingButton
+        <Button
           type="button"
           intent="secondary"
           onClick={() => {
@@ -610,8 +611,10 @@ const ListInput = React.forwardRef(
             setListValue(newListValue)
             onChange(newListValue)
           }}
-          icon="addSystem"
-        />
+        >
+          <AddSystem />
+          &nbsp; Add
+        </Button>
       </InputWrap>
     )
   },
