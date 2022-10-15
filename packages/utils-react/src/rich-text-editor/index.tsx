@@ -81,6 +81,28 @@ export const Editor = ({
     }
   }, [defaultContent])
 
+  React.useEffect(() => {
+    if (containerEl && containerEl.current) {
+      const handlePaste = (e: ClipboardEvent) => {
+        e.preventDefault()
+
+        const text = e.clipboardData?.getData('text/plain') ?? ''
+        const selection = window.getSelection()
+
+        if (!selection?.rangeCount) {
+          return false
+        }
+
+        selection.deleteFromDocument()
+        selection.getRangeAt(0).insertNode(document.createTextNode(text))
+      }
+
+      containerEl.current.addEventListener('paste', handlePaste)
+
+      return () => containerEl.current?.removeEventListener('paste', handlePaste)
+    }
+  }, [containerEl])
+
   return (
     <HtmlContentWrap>
       <div
