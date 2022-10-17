@@ -24,7 +24,7 @@
   "dependencies": {
     "@reapit/connect-session": "workspace:packages/connect-session",
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions",
-    "dayjs": "^1.11.4",
+    "dayjs": "^1.11.5",
     "isomorphic-fetch": "^3.0.0"
   },
   "devDependencies": {
@@ -32,17 +32,17 @@
     "@reapit/config-manager": "workspace:packages/config-manager",
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",
     "@reapit/ts-types": "workspace:packages/ts-types",
-    "@typescript-eslint/eslint-plugin": "^5.36.1",
-    "@typescript-eslint/parser": "^5.36.1",
+    "@typescript-eslint/eslint-plugin": "^5.40.0",
+    "@typescript-eslint/parser": "^5.40.0",
     "babel-jest": "^28.1.3",
     "concurrently": "^6.5.1",
     "cross-env": "^7.0.3",
-    "eslint": "8.23.0",
+    "eslint": "8.25.0",
     "eslint-plugin-prettier": "^4.2.1",
     "jest": "^28.1.3",
     "jest-coverage-badges": "^1.1.2",
     "serialize-error": "^7.0.1",
     "ts-jest": "^28.0.8",
-    "typescript": "^4.8.2"
+    "typescript": "^4.8.4"
   }
 }

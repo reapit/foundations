@@ -11,6 +11,7 @@
     "moduleResolution": "node",
     "sourceMap": true,
     "resolveJsonModule": true,
+    "skipDefaultLibCheck": true,
     "outDir": "node_modules/dist",
     "baseUrl": ".",
     "typeRoots": ["./node_modules/@types", "../../node_modules/@types"],

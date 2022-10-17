@@ -286,6 +286,7 @@ exports[`Home should match a snapshot 1`] = `
 	    color: #fff;
 	    background: #222;
 	    border: 1px solid transparent;
+	    padding: 8px 21px;
   	}
 
   	.tMOCK_UUID.place-top {
