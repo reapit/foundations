@@ -96,7 +96,6 @@ Object {
                   <mask
                     height="1em"
                     id="mask0"
-                    mask-type="alpha"
                     maskUnits="userSpaceOnUse"
                     width="1em"
                     x="0"
@@ -270,7 +269,6 @@ Object {
                 <mask
                   height="1em"
                   id="mask0"
-                  mask-type="alpha"
                   maskUnits="userSpaceOnUse"
                   width="1em"
                   x="0"
