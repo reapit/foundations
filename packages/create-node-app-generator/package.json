@@ -2,13 +2,13 @@
   "name": "@reapit/create-node-app-generator",
   "version": "1.0.0",
   "dependencies": {
-    "yeoman-generator": "^5.6.1",
+    "yeoman-generator": "^5.7.0",
     "yo": "^4.3.0",
     "yosay": "^2.0.2"
   },
   "devDependencies": {
-    "concurrently": "^7.2.2",
-    "eslint": "^8.23.0"
+    "concurrently": "^7.4.0",
+    "eslint": "^8.25.0"
   },
   "description": "An opinionated gnerator for scaffolding TypeScript Node apps",
   "keywords": [

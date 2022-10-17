@@ -4,10 +4,10 @@ import { UnregisterCallback, Href } from 'history'
 // This is to mock out the dependencies for react router
 export function getMockRouterProps<P extends { [K in keyof P]?: string | undefined }>({
   params,
-  search = ''
+  search = '',
 }: {
   params: P
-  search: string 
+  search: string
 }) {
   const location = {
     hash: 'mockHash',

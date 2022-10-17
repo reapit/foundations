@@ -2,7 +2,7 @@ import React, { memo } from 'react'
 
 export default memo(() => (
   <svg width="1em" height="1em" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="1em" height="1em">
+    <mask id="mask0" maskUnits="userSpaceOnUse" x="0" y="0" width="1em" height="1em">
       <circle cx="10" cy="10" r="10" fill="#F2F2F2" />
     </mask>
     <g mask="url(#mask0)">
