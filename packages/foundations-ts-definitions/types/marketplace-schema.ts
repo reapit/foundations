@@ -166,6 +166,10 @@ export interface AppDetailModel {
    */
   isDirectApi?: boolean
   /**
+   * Gets a flag determining whether or not the app is protected from deletion
+   */
+  deletionProtection?: boolean
+  /**
    * Gets the sandbox status of this app
    */
   isSandbox?: boolean
@@ -378,6 +382,10 @@ export interface AppRevisionModel {
    */
   isDirectApi?: boolean
   /**
+   * Gets a flag determining whether or not the app is protected from deletion
+   */
+  deletionProtection?: boolean
+  /**
    * Gets the unique identifier of clients that the app is visible to
    */
   limitToClientIds?: string[]
@@ -491,6 +499,10 @@ export interface AppSummaryModel {
    * Gets a flag determining whether or not the app will appear in the marketplace
    */
   isDirectApi?: boolean
+  /**
+   * Gets a flag determining whether or not the app is protected from deletion
+   */
+  deletionProtection?: boolean
   /**
    * Gets a flag to determine if the app is free to use
    */
@@ -921,6 +933,10 @@ export interface CreateAppRevisionModel {
    * Sets the flag determining whether or not the app will appear in the marketplace
    */
   isDirectApi?: boolean
+  /**
+   * Sets the flag determining whether or not the app is protected from deletion
+   */
+  deletionProtection?: boolean
   /**
    * Sets the unique identifier of the developer associated with this app revision
    */
