@@ -23,12 +23,13 @@ export const DeveloperAppsCollection: FC = () => {
   const { isMobile } = useMediaQuery()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const developerId = connectSession?.loginIdentity.developerId
+  const product = connectSession?.loginIdentity.orgProduct ?? 'agencyCloud'
   const iconSize = isMobile ? '2.5em' : '3.75rem'
 
   const [apps] = useReapitGet<AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getApps],
-    queryParams: { showHiddenApps: 'true', developerId, pageSize: 100, pageNumber: 1 },
+    queryParams: { showHiddenApps: 'true', developerId, pageSize: 100, pageNumber: 1, product },
     fetchWhenTrue: [developerId],
   })
 
