@@ -33,13 +33,14 @@ export const FeaturedAppsCollection: FC<FeaturedAppsCollectionProps> = memo(({ c
   const history = useHistory()
   const mediaQuery = useMediaQuery()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const product = connectSession?.loginIdentity.orgProduct ?? 'agencyCloud'
   const maxLength = useMemo(handleMaxLength(mediaQuery), [mediaQuery])
 
   const clientId = connectSession?.loginIdentity.clientId
   const { filters } = configItem ?? {}
   const queryParams = filters
-    ? { ...objectToQuery<AppsBrowseConfigItemFiltersInterface>(filters), clientId }
-    : { clientId }
+    ? { ...objectToQuery<AppsBrowseConfigItemFiltersInterface>(filters), clientId, product }
+    : { clientId, product }
 
   const [unfilteredApps] = useReapitGet<AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,

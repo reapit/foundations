@@ -33,8 +33,9 @@ export const FilteredAppsCollection: FC<FiltersAppsCollectionProps> = ({ collect
   const history = useHistory()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const clientId = connectSession?.loginIdentity.clientId
+  const product = connectSession?.loginIdentity.orgProduct ?? 'agencyCloud'
   const hasFilters = useMemo(checkHasFilters(appsBrowseFilterState), [appsBrowseFilterState])
-  const queryParams = hasFilters ? { ...appsBrowseFilterState, clientId, pageSize: 100 } : {}
+  const queryParams = hasFilters ? { ...appsBrowseFilterState, clientId, pageSize: 100, product } : {}
   const title = appsBrowseConfigState?.items.find((item) => item.id === collectionId)?.content?.title
 
   const [unfilteredApps, appsLoading] = useReapitGet<AppSummaryModelPagedResult>({
