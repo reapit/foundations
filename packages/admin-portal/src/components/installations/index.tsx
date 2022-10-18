@@ -60,8 +60,13 @@ export const handleSetAppNames =
     setInstallationsWithAppName: Dispatch<SetStateAction<InstallationsWithAppName | null>>,
     installations: InstallationModelPagedResult | null,
     apps: AppSummaryModelPagedResult | null,
+    numberApps: number,
   ) =>
   () => {
+    const isCsvOutput = installations?.pageSize === 9999
+
+    if (isCsvOutput && apps?.data?.length !== numberApps) return
+
     if (apps && installations) {
       const installationsWithAppName = {
         ...installations,
@@ -105,19 +110,25 @@ export const Installations: FC = () => {
     },
   })
 
-  const appIds = installations?.data?.map((installation) => installation.appId).filter(isTruthy)
+  const appIds = new Set(installations?.data?.map((installation) => installation.appId).filter(isTruthy) ?? [])
+  const appIdArray = [...appIds]
+  const numberApps = appIdArray.length
 
   const [apps] = useReapitGet<AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getApps],
     queryParams: {
-      id: appIds,
+      id: appIdArray,
       pageSize: 999,
     },
     fetchWhenTrue: [appIds],
   })
 
-  useEffect(handleSetAppNames(setInstallationsWithAppName, installations, apps), [apps, installations])
+  useEffect(handleSetAppNames(setInstallationsWithAppName, installations, apps, numberApps), [
+    apps,
+    numberApps,
+    installations,
+  ])
 
   return (
     <PageContainer>
@@ -158,7 +169,16 @@ export const Installations: FC = () => {
           <Table
             className={elMb11}
             rows={installationsWithAppName?.data?.map(
-              ({ customerName, client, customerAddress, created, installedBy, appName }) => ({
+              ({
+                customerName,
+                client,
+                customerAddress,
+                created,
+                installedBy,
+                uninstalledBy,
+                terminatesOn,
+                appName,
+              }) => ({
                 cells: [
                   {
                     label: 'Customer Name',
@@ -202,6 +222,20 @@ export const Installations: FC = () => {
                   {
                     label: 'Installed By',
                     value: installedBy,
+                    narrowTable: {
+                      showLabel: true,
+                    },
+                  },
+                  {
+                    label: 'Date Uninstalled',
+                    value: terminatesOn ? dayjs(terminatesOn).format('DD-MM-YYYY') : '-',
+                    narrowTable: {
+                      showLabel: true,
+                    },
+                  },
+                  {
+                    label: 'Uninstalled By',
+                    value: uninstalledBy ?? '-',
                     narrowTable: {
                       showLabel: true,
                     },

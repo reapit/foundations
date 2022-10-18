@@ -22,8 +22,8 @@ describe('Installations', () => {
 
   it('should render component with data', () => {
     mockUseReapitGet
-      .mockReturnValueOnce([mockInstallationModelPagedResult, false])
-      .mockReturnValueOnce([mockAppSummaryModelPagedResult, false])
+      .mockReturnValue([mockInstallationModelPagedResult, false])
+      .mockReturnValue([mockAppSummaryModelPagedResult, false])
     expect(render(<Installations />)).toMatchSnapshot()
   })
 })
