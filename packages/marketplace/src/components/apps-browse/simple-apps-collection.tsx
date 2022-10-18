@@ -31,8 +31,9 @@ export const SimpleAppsCollection: FC<SimpleAppsCollectionProps> = memo(({ confi
   const mediaQuery = useMediaQuery()
   const maxLength = useMemo(handleMaxLength(mediaQuery), [mediaQuery])
   const clientId = connectSession?.loginIdentity.clientId
+  const product = connectSession?.loginIdentity.orgProduct ?? 'agencyCloud'
   const { filters } = configItem ?? {}
-  const queryParams = filters ? { ...filters, clientId } : { clientId }
+  const queryParams = filters ? { ...filters, clientId, product } : { clientId, product }
 
   const [unfilteredApps] = useReapitGet<AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,

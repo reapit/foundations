@@ -40,12 +40,13 @@ export const AppsSupportPage: FC = () => {
   const [search, setSearch] = useState<string>('')
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const clientId = connectSession?.loginIdentity.clientId
+  const product = connectSession?.loginIdentity.orgProduct ?? 'agencyCloud'
   const debouncedSearch = useCallback(debounce(handleSearch(setSearch), 500), [])
 
   const [unfilteredApps, appsLoading] = useReapitGet<AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getApps],
-    queryParams: { clientId, searchTerm: search, pageSize: 25, includeHiddenApps: true, onlyInstalled: true },
+    queryParams: { clientId, searchTerm: search, pageSize: 25, includeHiddenApps: true, onlyInstalled: true, product },
     fetchWhenTrue: [search, clientId],
   })
 
