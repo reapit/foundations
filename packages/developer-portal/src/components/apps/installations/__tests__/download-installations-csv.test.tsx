@@ -35,7 +35,7 @@ describe('DownloadInstallationsCSV', () => {
   it('should match a snapshot', () => {
     mockUseReapitGet.mockReturnValueOnce([{ ...mockInstallationModelPagedResult }])
 
-    expect(render(<DownloadInstallationsCSV appId={'123'} developerId={'sddsf'} />)).toMatchSnapshot()
+    expect(render(<DownloadInstallationsCSV />)).toMatchSnapshot()
   })
 
   it('Can create CSV file', () => {
@@ -43,9 +43,7 @@ describe('DownloadInstallationsCSV', () => {
       {
         data: [],
       },
-      {
-        data: [],
-      },
+      'test',
     )
 
     expect(FileSaver.saveAs).toHaveBeenCalledTimes(1)

@@ -300,10 +300,7 @@ export const Helper: FC = () => {
         <Button className={elMb3} intent="neutral" onClick={openNewPage(ExternalPages.developerPortalDocs)}>
           View Docs
         </Button>
-        <DownloadInstallationsCSV
-          appId={appId as string}
-          developerId={connectSession?.loginIdentity.developerId as string}
-        />
+        <DownloadInstallationsCSV />
       </div>
     )
   }

@@ -1,25 +1,15 @@
 import React, { FC, useEffect, useState } from 'react'
-import { AppSummaryModelPagedResult, InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { useReapitGet } from '@reapit/utils-react'
 import FileSaver from 'file-saver'
 import Papa from 'papaparse'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import { Button, elMb3 } from '@reapit/elements'
+import { useAppState } from '../state/use-app-state'
+import { useReapitConnect } from '@reapit/connect-session'
 
-export const downloadInstallationAction = (
-  installations: InstallationModelPagedResult,
-  apps: AppSummaryModelPagedResult,
-) => {
-  const installationWithAppNames = installations.data?.map((installation) => {
-    const appName = apps.data?.find((app) => app.id === installation.appId)?.name ?? ''
-
-    return {
-      ...installation,
-      appName,
-    }
-  })
-
+export const downloadInstallationAction = (installations: InstallationModelPagedResult, appName: string) => {
   const csv = Papa.unparse({
     fields: [
       'App Name',
@@ -32,29 +22,27 @@ export const downloadInstallationAction = (
       'Uninstalled By',
     ],
     data:
-      installationWithAppNames?.map(
-        ({ appName, client, customerName, created, terminatesOn, status, installedBy, uninstalledBy }) => [
-          appName,
-          client,
-          customerName,
-          created,
-          terminatesOn,
-          status,
-          installedBy,
-          uninstalledBy,
-        ],
-      ) || [],
+      installations.data?.map(({ client, customerName, created, terminatesOn, status, installedBy, uninstalledBy }) => [
+        appName,
+        client,
+        customerName,
+        created,
+        terminatesOn,
+        status,
+        installedBy,
+        uninstalledBy,
+      ]) || [],
   })
 
   const blob = new Blob([csv], { type: 'data:text/csv;charset=utf-8,' })
   FileSaver.saveAs(blob, 'installs.csv')
 }
 
-export const DownloadInstallationsCSV: FC<{
-  appId: string
-  developerId: string
-}> = ({ appId, developerId }) => {
+export const DownloadInstallationsCSV: FC = () => {
   const [download, setDownload] = useState<boolean>(false)
+  const { appsDataState } = useAppState()
+  const appId = appsDataState.appDetail?.id
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
 
   const [installations] = useReapitGet<InstallationModelPagedResult>({
     reapitConnectBrowserSession,
@@ -62,35 +50,27 @@ export const DownloadInstallationsCSV: FC<{
     queryParams: {
       appId,
       isInstalled: true,
-      developerId,
+      developerId: connectSession?.loginIdentity.developerId,
       pageSize: 999,
     },
-    fetchWhenTrue: [download],
-  })
-
-  const appIds = new Set(installations?.data?.map((installation) => installation.appId).filter(Boolean) ?? [])
-  const appIdArray = [...appIds]
-
-  // TODO is this required if I only have 1 app?
-  const [apps] = useReapitGet<AppSummaryModelPagedResult>({
-    reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getApps],
-    queryParams: {
-      id: appIdArray,
-      pageSize: 999,
-    },
-    fetchWhenTrue: [appIdArray.length],
+    fetchWhenTrue: [download, connectSession],
   })
 
   useEffect(() => {
-    if (apps && installations && apps.data && installations.data) {
-      downloadInstallationAction(installations, apps)
-      if (download && apps && installations) setDownload(false)
+    if (installations && installations.data) {
+      downloadInstallationAction(installations, appsDataState.appDetail?.name as string)
+      if (download && installations) setDownload(false)
     }
-  }, [apps, installations, download])
+  }, [installations, download])
 
   return (
-    <Button className={elMb3} intent="primary" loading={download} disabled={download} onClick={() => setDownload(true)}>
+    <Button
+      className={elMb3}
+      intent="primary"
+      loading={download}
+      disabled={download || !connectSession}
+      onClick={() => setDownload(true)}
+    >
       Download CSV
     </Button>
   )
