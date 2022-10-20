@@ -166,7 +166,8 @@ export const handleDownloadCSV =
         }),
       })
 
-      return handleSaveFile(csv, 'subscriptions.csv')
+      handleSaveFile(csv, 'subscriptions.csv')
+      return setPageSize && setPageSize(12)
     }
   }
 
