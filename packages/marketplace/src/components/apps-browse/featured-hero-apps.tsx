@@ -21,6 +21,7 @@ import {
   FeaturedHeroAppsStrapline,
   FeaturedHeroAppsFlexContainer,
   HeroAppsChipPlaceholder,
+  HeroAppsChipContainer,
 } from './__styles__'
 import { navigate } from '../../utils/navigation'
 import { Routes } from '../../constants/routes'
@@ -100,8 +101,13 @@ export const FeaturedHeroAppsCollection: FC<FeaturedHeroAppsCollectionProps> = m
                 )}
                 <FeaturedHeroAppsNameContainer>
                   <FeaturedHeroAppsSubtitle>{name}</FeaturedHeroAppsSubtitle>
+
                   {categories?.length ? (
-                    categories.map((category) => <HeroAppsChip key={category?.id}>{category.name}</HeroAppsChip>)
+                    <HeroAppsChipContainer>
+                      {categories.map((category) => (
+                        <HeroAppsChip key={category?.id}>{category.name}</HeroAppsChip>
+                      ))}
+                    </HeroAppsChipContainer>
                   ) : (
                     <HeroAppsChipPlaceholder />
                   )}

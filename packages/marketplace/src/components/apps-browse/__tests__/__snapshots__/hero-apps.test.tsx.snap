@@ -42,11 +42,11 @@ Object {
                   >
                     will-test-dev-co-voracious-person
                   </h2>
-                  <div
+                  <span
                     class="hero-apps-chip"
                   >
                     Category
-                  </div>
+                  </span>
                 </div>
               </div>
               <p
@@ -158,11 +158,11 @@ Object {
                 >
                   will-test-dev-co-voracious-person
                 </h2>
-                <div
+                <span
                   class="hero-apps-chip"
                 >
                   Category
-                </div>
+                </span>
               </div>
             </div>
             <p
