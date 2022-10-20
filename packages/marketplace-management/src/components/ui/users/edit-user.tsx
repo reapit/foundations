@@ -1,7 +1,7 @@
 import React, { FC, useCallback } from 'react'
 import useSWR from 'swr'
 import qs from 'query-string'
-import { UserModel, GroupModelPagedResult } from '../../../types/organisations-schema'
+import { UserModel, GroupModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { URLS } from '../../../constants/api'
 import { addMemberToGroup, removeMemberFromGroup } from '../../../services/user'
 import { toastMessages } from '../../../constants/toast-messages'

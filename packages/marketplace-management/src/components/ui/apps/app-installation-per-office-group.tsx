@@ -1,7 +1,7 @@
 import React, { Dispatch, SetStateAction, useState, useEffect, ChangeEvent, FC, useMemo } from 'react'
 import useSWR from 'swr'
 import { InstallationModel } from '@reapit/foundations-ts-definitions'
-import { OfficeGroupModel, OfficeGroupModelPagedResult } from '../../../types/organisations-schema'
+import { OfficeGroupModel, OfficeGroupModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { URLS } from '../../../constants/api'
 import { Button, ButtonGroup, InputWrapFull, Loader, MultiSelectInput, MultiSelectOption } from '@reapit/elements'
 import { useOrgId } from '../../../utils/use-org-id'

@@ -1,5 +1,5 @@
 import React, { ChangeEvent, Dispatch, FC, SetStateAction, useCallback, useEffect, useState, MouseEvent } from 'react'
-import { OfficeGroupModel } from '../../../types/organisations-schema'
+import { OfficeGroupModel } from '@reapit/foundations-ts-definitions'
 import { OFFICE_IN_USE_ERROR, updateOfficeGroup } from '../../../services/office'
 import { toastMessages } from '../../../constants/toast-messages'
 import { prepareOfficeOptions } from '../../../utils/prepare-options'
