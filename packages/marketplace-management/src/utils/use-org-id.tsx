@@ -2,7 +2,7 @@ import React, { createContext, Dispatch, SetStateAction, useContext, useState, C
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../core/connect-session'
 import { getUserInfo } from '../services/user'
-import { OrganisationGroupMemberModel } from '../types/organisations-schema'
+import { OrganisationGroupMemberModel } from '@reapit/foundations-ts-definitions'
 import { MultiSelectOption } from '@reapit/elements'
 
 export interface OrgIdState {

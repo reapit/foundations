@@ -1,4 +1,4 @@
-import { OfficeGroupModelPagedResult } from '../../types/organisations-schema'
+import { OfficeGroupModelPagedResult } from '@reapit/foundations-ts-definitions'
 
 export const mockOfficeGroups: OfficeGroupModelPagedResult = {
   _embedded: [

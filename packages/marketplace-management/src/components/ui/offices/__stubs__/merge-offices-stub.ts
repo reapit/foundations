@@ -1,4 +1,4 @@
-import { OfficeGroupModel } from '../../../../types/organisations-schema'
+import { OfficeGroupModel } from '@reapit/foundations-ts-definitions'
 
 export const mockOfficeGroupModels: OfficeGroupModel[] = [
   {

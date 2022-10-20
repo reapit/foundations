@@ -1,6 +1,6 @@
 import { MultiSelectOption } from '@reapit/elements'
 import { OfficeModel } from '@reapit/foundations-ts-definitions'
-import { GroupModel } from '../types/organisations-schema'
+import { GroupModel } from '@reapit/foundations-ts-definitions'
 
 export const prepareOfficeOptions: (data: OfficeModel[]) => MultiSelectOption[] = (data) =>
   data.map((office: OfficeModel) => {
