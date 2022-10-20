@@ -55,6 +55,39 @@ export const formatFilters = (installationsFilters: InstallationFilters) => {
   }
 }
 
+const handleSetAppNamesForInstallationDownload =
+  (
+    setInstallationsWithAppName: Dispatch<SetStateAction<InstallationsWithAppName | null>>,
+    installations: InstallationModelPagedResult | null,
+    apps: AppSummaryModelPagedResult | null,
+  ) =>
+  () => {
+    const isFullCollection =
+      (apps?.pageSize && apps.pageSize >= 999) || (installations?.pageSize && installations.pageSize >= 999)
+
+    if (
+      isFullCollection &&
+      ((apps?.pageSize && apps.pageSize < 999) || (installations?.pageSize && installations.pageSize < 999))
+    )
+      return
+
+    if (apps && installations) {
+      const installationsWithAppName = {
+        ...installations,
+        data: installations.data?.map((installation) => {
+          const appName = apps.data?.find((app) => app.id === installation.appId)?.name ?? ''
+
+          return {
+            ...installation,
+            appName,
+          }
+        }),
+      } as InstallationsWithAppName
+
+      setInstallationsWithAppName(installationsWithAppName)
+    }
+  }
+
 export const handleSetAppNames =
   (
     setInstallationsWithAppName: Dispatch<SetStateAction<InstallationsWithAppName | null>>,
@@ -117,7 +150,10 @@ export const Installations: FC = () => {
     fetchWhenTrue: [appIds],
   })
 
-  useEffect(handleSetAppNames(setInstallationsWithAppName, installations, apps), [apps, installations])
+  useEffect(() => {
+    if (pageSize <= 12) handleSetAppNames(setInstallationsWithAppName, installations, apps)()
+    else handleSetAppNamesForInstallationDownload(setInstallationsWithAppName, installations, apps)()
+  }, [apps, installations])
 
   return (
     <PageContainer>
