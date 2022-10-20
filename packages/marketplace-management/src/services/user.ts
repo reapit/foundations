@@ -2,7 +2,7 @@ import { reapitConnectBrowserSession } from '../core/connect-session'
 import { URLS } from '../constants/api'
 import { fetcher } from '@reapit/utils-common'
 import { getPlatformHeaders, logger } from '@reapit/utils-react'
-import { UserInfoModel } from '../types/organisations-schema'
+import { UserInfoModel } from '@reapit/foundations-ts-definitions'
 
 interface UpdateUserGroupParams {
   id: string

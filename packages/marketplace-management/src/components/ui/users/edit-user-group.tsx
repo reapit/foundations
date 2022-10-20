@@ -5,7 +5,7 @@ import {
   GroupModel,
   UserModel,
   UserModelPagedResult,
-} from '../../../types/organisations-schema'
+} from '@reapit/foundations-ts-definitions'
 import { URLS } from '../../../constants/api'
 import { addMemberToGroup, removeMemberFromGroup } from '../../../services/user'
 import { toastMessages } from '../../../constants/toast-messages'

@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 import UpdateUserModal, { EditUserFormProps, onHandleSubmit } from '../edit-user'
-import { UserModel } from '../../../../types/organisations-schema'
+import { UserModel } from '@reapit/foundations-ts-definitions'
 import { addMemberToGroup, removeMemberFromGroup } from '../../../../services/user'
 import useSWR from 'swr'
 import { mockUserGroups } from '../../../../services/__stubs__/user-groups'

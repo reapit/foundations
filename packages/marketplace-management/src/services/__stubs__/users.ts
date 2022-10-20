@@ -1,4 +1,4 @@
-import { UserInfoModel, UserModelPagedResult } from '../../types/organisations-schema'
+import { UserInfoModel, UserModelPagedResult } from '@reapit/foundations-ts-definitions'
 
 export const mockUsersList: UserModelPagedResult = {
   _embedded: [
