@@ -15,6 +15,7 @@ import { selectIsCustomer } from '../../../utils/auth'
 import { defaultAppSavingParams } from '../state/defaults'
 import { PipelineControls } from '../pipeline/pipeline-controls'
 import { useGlobalState } from '../../../core/use-global-state'
+import { DownloadInstallationsCSV } from '../installations/download-installations-csv'
 
 export const handleSetAppEditSaving =
   (
@@ -88,7 +89,7 @@ export const Helper: FC = () => {
   const { Modal, openModal, closeModal } = useModal()
   const isCustomer = selectIsCustomer(connectSession)
   const { pathname } = location
-  const { isAppsEdit, isAppsDetail, isAppPipelines, isAppConsents } = getCurrentPage(pathname)
+  const { isAppsEdit, isAppsDetail, isAppPipelines, isAppConsents, isAppsInstallations } = getCurrentPage(pathname)
   const { currentDeveloper } = globalDataState
   const { setAppEditSaving, appUnsavedFields, appIncompleteFields } = appEditState
   const {
@@ -283,6 +284,23 @@ export const Helper: FC = () => {
         <Button className={elMb3} intent="neutral" onClick={openNewPage(ExternalPages.appPermissionsDocs)}>
           View Docs
         </Button>
+      </div>
+    )
+  }
+
+  if (isAppsInstallations) {
+    return (
+      <div className={elFadeIn}>
+        <Icon className={elMb3} icon="myAppsInfographic" iconSize="large" />
+        <Subtitle>Apps Documentation</Subtitle>
+        <SmallText hasGreyText>
+          This is the dashboard for your applications created using the Reapit Foundations platform. If you have not
+          created an app before or you need help, please take the time to view our getting started guide.
+        </SmallText>
+        <Button className={elMb3} intent="neutral" onClick={openNewPage(ExternalPages.developerPortalDocs)}>
+          View Docs
+        </Button>
+        <DownloadInstallationsCSV />
       </div>
     )
   }
