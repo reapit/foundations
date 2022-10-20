@@ -57,6 +57,7 @@ export const formatAppFields = (appDetail: AppDetailModel | null, developerId?: 
       desktopIntegrationTypeIds: appDetail.desktopIntegrationTypeIds?.join(',') ?? '',
       products: appDetail.products?.join(',') ?? '',
       iconImageUrl: icon?.uri ?? '',
+      deletionProtection: appDetail.deletionProtection ?? false,
       ...images,
       ...videos,
     }

@@ -11,6 +11,7 @@ import defaultAppIcon from '../../../assets/images/default-app-icon.jpg'
 import { useAppState } from '../state/use-app-state'
 import { cx } from '@linaria/core'
 import { cardCursor } from './__styles__'
+import { Link } from 'react-router-dom'
 
 export const handleDeleteApp = (deleteApp: SendFunction<void, boolean>) => (event?: MouseEvent) => {
   event?.stopPropagation()
@@ -38,7 +39,7 @@ export const AppCard: FC<AppCardProps> = ({ app }) => {
   const { Modal, openModal, closeModal } = useModal()
 
   const { appsRefresh } = appsDataState
-  const { id, name, isDirectApi, developer, iconUri, summary } = app
+  const { id, name, isDirectApi, developer, iconUri, summary, deletionProtection } = app
 
   const [, , deleteApp, appDeleted] = useReapitUpdate<void, boolean>({
     reapitConnectBrowserSession,
@@ -76,15 +77,23 @@ export const AppCard: FC<AppCardProps> = ({ app }) => {
         mainCardImgUrl={iconUri ?? defaultAppIcon}
       />
       <Modal title={`Confirm ${name} Deletion`}>
-        <BodyText>
-          Are your sure you want to remove the app &lsquo;{name}&rsquo;? By clicking &lsquo;delete&rsquo; it will remove
-          all app data including all revisions and listings.
-        </BodyText>
+        {deletionProtection ? (
+          <BodyText>
+            &lsquo;{name}&rsquo; has been set to&lsquo;delete protected&rsquo; to avoid accidental data loss. If you
+            really want to delete the app, visit <Link to={`${Routes.APPS}/${id}/edit/app-listing`}>this page </Link>,
+            uncheck the delete protection checkbox and save the revision.
+          </BodyText>
+        ) : (
+          <BodyText>
+            Are your sure you want to remove the app &lsquo;{name}&rsquo;? By clicking &lsquo;delete&rsquo; it will
+            remove all app data including all revisions and listings.
+          </BodyText>
+        )}
         <ButtonGroup alignment="center">
           <Button fixedWidth intent="secondary" onClick={closeModal}>
             Cancel
           </Button>
-          <Button fixedWidth intent="danger" onClick={handleDeleteApp(deleteApp)}>
+          <Button fixedWidth intent="danger" disabled={deletionProtection} onClick={handleDeleteApp(deleteApp)}>
             Confirm
           </Button>
         </ButtonGroup>
