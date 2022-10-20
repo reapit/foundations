@@ -119,6 +119,7 @@ export const AppListingTab: FC<AppEditTabsProps> = ({ register, errors, control,
     screen5ImageUrl,
     videoUrl1,
     videoUrl2,
+    deletionProtection,
   } = formFields
 
   const {
@@ -240,6 +241,15 @@ export const AppListingTab: FC<AppEditTabsProps> = ({ register, errors, control,
             {...register('isFree')}
             errorMessage={errors?.isFree?.message}
             icon={errors?.isFree?.message ? 'asteriskSystem' : null}
+            intent="danger"
+          />
+        </InputWrap>
+        <InputWrap>
+          <InputGroup
+            {...deletionProtection}
+            {...register('deletionProtection')}
+            errorMessage={errors?.deletionProtection?.message}
+            icon={errors?.deletionProtection?.message ? 'asteriskSystem' : null}
             intent="danger"
           />
         </InputWrap>

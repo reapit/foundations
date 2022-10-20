@@ -40,6 +40,7 @@ describe('handleSetDefaultFormValues', () => {
       products: 'agencyCloud',
       isListed: true,
       isAgencyCloudIntegrated: false,
+      deletionProtection: false,
       isPrivateApp: false,
       videoUrl1: 'https://www.youtube.com/embed/iKdil7liAts',
       videoUrl2: '',
@@ -87,6 +88,7 @@ describe('handleSetDefaultFormValues', () => {
       isListed: false,
       isAgencyCloudIntegrated: true,
       isPrivateApp: false,
+      deletionProtection: false,
       videoUrl1: '',
       videoUrl2: '',
     }
