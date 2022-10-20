@@ -269,6 +269,10 @@ export const AppsDetail: FC = () => {
                 uri={`${supportEmail}?subject=${name}%20Enquiry&body=Dear%20${developer}%2C%20%0A%0AI%20would%20like%20more%20information%20about%20${name}%20featured%20in%20the%20Reapit%20AppMarket%20%0A%0ARegards`}
                 acProcess={AcProcessType.mail}
                 target="_blank"
+                consentModal={{
+                  title: 'Email enquiry',
+                  body: `Thank you for your interest in ‘${name}’, to make an enquiry please click ‘Continue’ below. We will launch your default mail client and your information will be shared with ‘${developer}’.`,
+                }}
                 content={
                   <Button intent="low">{isDirectApi ? 'Enquire About Integration' : 'Enquire About App'}</Button>
                 }
@@ -349,6 +353,10 @@ export const AppsDetail: FC = () => {
                         onClick={trackSupportEmail}
                         uri={supportEmail}
                         acProcess={AcProcessType.mail}
+                        consentModal={{
+                          title: 'Email enquiry',
+                          body: `Thank you for your interest in ‘${name}’, to make an enquiry please click ‘Continue’ below. We will launch your default mail client and your information will be shared with ‘${developer}’.`,
+                        }}
                         target="_blank"
                         content={supportEmail}
                       />

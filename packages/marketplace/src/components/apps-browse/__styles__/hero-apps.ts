@@ -33,7 +33,11 @@ export const HeroAppsImage = styled.img`
   border-radius: 0.25rem;
 `
 
-export const HeroAppsChip = styled.div`
+export const HeroAppsChipContainer = styled.div`
+  width: 100%;
+`
+
+export const HeroAppsChip = styled.span`
   background: var(--color-white);
   color: var(--color-grey-dark);
   font-size: 12px;
