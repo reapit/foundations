@@ -15,6 +15,8 @@ import {
   Table,
   Pagination,
   InputWrapFull,
+  Label,
+  SearchableDropdown,
 } from '@reapit/elements'
 import { useForm } from 'react-hook-form'
 import dayjs from 'dayjs'
@@ -22,12 +24,16 @@ import { SearchableMultiSelect, useReapitGet } from '@reapit/utils-react'
 import { combineAddress, GetActionNames, getActions, isTruthy } from '@reapit/utils-common'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { Statistics } from '../statistics'
+import { fetchDevelopersList } from '../../services/developers'
+import { fetchCustomersList } from '../../services/customers'
 
 export interface InstallationFilters {
   installedDateFrom?: string
   installedDateTo?: string
   appIds: string
   isInstalled: 'ALL' | 'INSTALLED' | 'UNINSTALLED'
+  companyName?: string
+  clientId?: string
 }
 
 const defaultValues: InstallationFilters = {
@@ -40,18 +46,22 @@ export interface InstallationsWithAppName extends InstallationModelPagedResult {
 }
 
 export const formatFilters = (installationsFilters: InstallationFilters) => {
-  const { installedDateTo, installedDateFrom, isInstalled, appIds } = installationsFilters
+  const { installedDateTo, installedDateFrom, isInstalled, appIds, clientId, companyName } = installationsFilters
 
   const isInstaledQuery =
     isInstalled === 'INSTALLED' ? { isInstalled: true } : isInstalled === 'UNINSTALLED' ? { isInstalled: true } : {}
 
   const appIdQuery = appIds ? { appId: appIds.split(',').filter(Boolean) } : {}
+  const clientIdQuery = clientId ? { clientId } : {}
+  const companyNameQuery = companyName ? { companyName } : {}
 
   return {
     installedDateTo: installedDateTo ? dayjs(installedDateTo).format('YYYY-MM-DDTHH:mm:ss') : undefined,
     installedDateFrom: installedDateFrom ? dayjs(installedDateFrom).format('YYYY-MM-DDTHH:mm:ss') : undefined,
     ...isInstaledQuery,
     ...appIdQuery,
+    ...clientIdQuery,
+    ...companyNameQuery,
   }
 }
 
@@ -121,7 +131,7 @@ export const Installations: FC = () => {
       id: appIdArray,
       pageSize: 999,
     },
-    fetchWhenTrue: [appIds],
+    fetchWhenTrue: [numberApps],
   })
 
   useEffect(handleSetAppNames(setInstallationsWithAppName, installations, apps, numberApps), [
@@ -153,6 +163,30 @@ export const Installations: FC = () => {
               {...register('appIds')}
             />
           </InputWrapFull>
+          <InputWrap>
+            <Label>Company</Label>
+            <SearchableDropdown
+              id="developer-search-box"
+              {...register('companyName')}
+              getResults={(company: string) =>
+                fetchDevelopersList({ company, status: 'confirmed' }).then((developers) => developers?.data ?? [])
+              }
+              getResultLabel={(result) => `${result.company} -  ${result.name}`}
+              getResultValue={(result) => result.company ?? ''}
+              placeholder="Search developer organisations"
+            />
+          </InputWrap>
+          <InputWrap>
+            <Label>Client</Label>
+            <SearchableDropdown
+              id="client-search-box"
+              {...register('clientId')}
+              getResults={(name: string) => fetchCustomersList({ name }).then((customers) => customers?.data ?? [])}
+              getResultLabel={(result) => result.name ?? ''}
+              getResultValue={(result) => result.agencyCloudId ?? ''}
+              placeholder="Search customers"
+            />
+          </InputWrap>
           <InputWrap>
             <InputGroup {...register('installedDateFrom')} label="Installed Date From" type="date" />
           </InputWrap>

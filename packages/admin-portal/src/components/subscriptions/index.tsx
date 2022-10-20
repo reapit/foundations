@@ -47,8 +47,13 @@ export const handleSetAppNames =
     setInstallationsWithAppName: Dispatch<SetStateAction<SubsWithAppName | null>>,
     subscriptions: SubscriptionModelPagedResult | null,
     apps: AppSummaryModelPagedResult | null,
+    numberApps: number,
   ) =>
   () => {
+    const isCsvOutput = subscriptions?.pageSize === 9999
+
+    if (isCsvOutput && apps?.data?.length !== numberApps) return
+
     if (apps && subscriptions) {
       const subscriptionsWithAppName = {
         ...subscriptions,
@@ -116,19 +121,21 @@ const Subscriptions: FC = () => {
     },
   })
 
-  const appIds = subscriptions?.data?.map((sub) => sub.applicationId).filter(isTruthy)
+  const appIds = new Set(subscriptions?.data?.map((sub) => sub.applicationId).filter(isTruthy) ?? [])
+  const appIdArray = [...appIds]
+  const numberApps = appIdArray.length
 
   const [apps] = useReapitGet<AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getApps],
     queryParams: {
-      id: appIds,
+      id: appIdArray,
       pageSize: 999,
     },
-    fetchWhenTrue: [appIds?.length],
+    fetchWhenTrue: [numberApps],
   })
 
-  useEffect(handleSetAppNames(setSubsWithAppName, subscriptions, apps), [apps, subscriptions])
+  useEffect(handleSetAppNames(setSubsWithAppName, subscriptions, apps, numberApps), [apps, subscriptions, numberApps])
   useEffect(handleCancelSubSuccess(refetchSubs, closeModal, cancelSubSuccess), [cancelSubSuccess])
 
   return (
