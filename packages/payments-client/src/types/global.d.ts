@@ -6,10 +6,9 @@ export type OpayoKeys = {
 
 export type Config = {
   appEnv: 'local' | 'development' | 'production'
-  sentryDns: string
+  sentryDsn: string
   connectClientId: string
   connectUserPoolId: string
-  googleAnalyticsKey: string
   connectOAuthUrl: string
   platformApiUrl: string
   paymentApiUrl: string
