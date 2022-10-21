@@ -1,7 +1,7 @@
 import express from 'express'
 import { graphqlHTTP } from 'express-graphql'
 import { createSchema, CallBackendArguments } from 'swagger-to-graphql'
-import { createPlatformAxiosInstance } from './utils/axios-instances'
+import { createPlatformAxiosInstance } from './axios'
 import 'isomorphic-fetch'
 import graphqlHeader from 'express-graphql-header'
 
