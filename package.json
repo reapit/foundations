@@ -4,7 +4,6 @@
   "workspaces": {
     "packages": [
       "packages/admin-portal",
-      "packages/aml-checklist",
       "packages/api-key-service",
       "packages/api-key-verify",
       "packages/app-builder",
