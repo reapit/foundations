@@ -8573,7 +8573,7 @@ __metadata:
     jest: ^28.1.3
     jest-coverage-badges: ^1.1.2
     pell: ^1.0.6
-    react-image-crop: ^10.0.8
+    react-image-crop: 8.6.12
     serialize-error: ^7.0.1
     ts-jest: ^28.0.8
     typescript: ^4.8.4
@@ -17700,7 +17700,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"clsx@npm:^1.2.1":
+"clsx@npm:^1.1.1":
   version: 1.2.1
   resolution: "clsx@npm:1.2.1"
   checksum: 30befca8019b2eb7dbad38cff6266cf543091dae2825c856a62a8ccf2c3ab9c2907c4d12b288b73101196767f66812365400a227581484a05f968b0307cfaf12
@@ -23592,6 +23592,7 @@ fsevents@^1.2.7:
     react: ^18.2.0
     react-dom: ^18.2.0
     react-ga: ^2.7.0
+    react-google-map: ^3.1.1
     react-hook-form: ^7.37.0
     react-icons: ^4.6.0
     react-router: ^5.3.4
@@ -34112,7 +34113,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.5.10, prop-types@npm:^15.8.1":
+"prop-types@npm:^15.5.10, prop-types@npm:^15.6.0, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -34847,6 +34848,17 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"react-google-map@npm:^3.1.1":
+  version: 3.1.1
+  resolution: "react-google-map@npm:3.1.1"
+  dependencies:
+    prop-types: ^15.6.0
+  peerDependencies:
+    react: ^15.0.0 || ^16.0.0
+  checksum: f8d430e4607f0b79e553e2cc4bca74c67b5cc878c8ac9f26a965f846227a58f60d226a990207386af6cb6ae006e97796edd68876682341ebd8e25f9050897ea1
+  languageName: node
+  linkType: hard
+
 "react-hook-form@npm:^7.37.0":
   version: 7.37.0
   resolution: "react-hook-form@npm:7.37.0"
@@ -34876,14 +34888,15 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-image-crop@npm:^10.0.8":
-  version: 10.0.8
-  resolution: "react-image-crop@npm:10.0.8"
+"react-image-crop@npm:8.6.12":
+  version: 8.6.12
+  resolution: "react-image-crop@npm:8.6.12"
   dependencies:
-    clsx: ^1.2.1
+    clsx: ^1.1.1
+    prop-types: ^15.7.2
   peerDependencies:
     react: ">=16.13.1"
-  checksum: 7f8f61842b7bea9a49e9d168a82b5331347cec0bb1663b3bb5a989583ab7132a3a6663600061d20448840a0c4f067faf8c596f603be353aa6ed5a6765d447934
+  checksum: 8f06f8e7ca5ad0fe589c083115b2f160e3f1b2623776211a43767d14570966cd410c7bca42a4aaeee0316a815957a008810b58c93ea2bcc6f9caf99ee5e21f24
   languageName: node
   linkType: hard
 
