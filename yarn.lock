@@ -24701,6 +24701,7 @@ fsevents@^1.2.7:
     graphql-tag: ^2.12.6
     graphql-type-json: ^0.3.2
     https-proxy-agent: 5.0.1
+    isomorphic-fetch: ^3.0.0
     jest: ^28.1.3
     jest-coverage-badges: ^1.1.2
     lodash.merge: ^4.6.2
