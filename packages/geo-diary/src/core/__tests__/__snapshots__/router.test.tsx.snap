@@ -15,11 +15,6 @@ Object {
         <div
           class="el-is-full-page el-loader-container"
         >
-          <p
-            class="el-loader-label"
-          >
-            Loading
-          </p>
           <div
             class="el-loader"
           >
@@ -42,11 +37,6 @@ Object {
       <div
         class="el-is-full-page el-loader-container"
       >
-        <p
-          class="el-loader-label"
-        >
-          Loading
-        </p>
         <div
           class="el-loader"
         >

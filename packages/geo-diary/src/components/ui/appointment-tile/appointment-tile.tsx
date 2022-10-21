@@ -1,6 +1,6 @@
 import React, { Dispatch, FC, MutableRefObject, SetStateAction, useEffect, useRef } from 'react'
-import { getTime } from '@reapit/elements-legacy'
-import { ExtendedAppointmentModel } from '@/types/global'
+import { getTime } from '@reapit/utils-common'
+import { ExtendedAppointmentModel } from '../../../types/global'
 import { AppointmentItems } from './appointment-items'
 import { AppState, useAppState } from '../../../core/app-state'
 import { cx } from '@linaria/core'

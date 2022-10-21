@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render } from '../../tests/react-testing'
 import { App, isUserWithDevIdOnly } from '../app'
 import { LoginIdentity, useReapitConnect } from '@reapit/connect-session'
 

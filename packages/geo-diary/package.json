@@ -27,7 +27,6 @@
     "@linaria/react": "^3.0.0-beta.15",
     "@reapit/connect-session": "workspace:packages/connect-session",
     "@reapit/elements": "workspace:packages/elements",
-    "@reapit/elements-legacy": "workspace:packages/elements-legacy",
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions",
     "@reapit/utils-common": "workspace:packages/utils-common",
     "@sentry/browser": "^6.19.7",

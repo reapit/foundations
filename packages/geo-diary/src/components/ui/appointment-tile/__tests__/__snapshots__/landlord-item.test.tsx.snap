@@ -10,7 +10,7 @@ Object {
       />
        
       <div
-        class="fade-in"
+        class="el-fade-in"
       >
         <div
           class="el-fade-in el-card-list-item-expanded el-card-list-item"
@@ -77,7 +77,7 @@ Object {
     />
      
     <div
-      class="fade-in"
+      class="el-fade-in"
     >
       <div
         class="el-fade-in el-card-list-item-expanded el-card-list-item"

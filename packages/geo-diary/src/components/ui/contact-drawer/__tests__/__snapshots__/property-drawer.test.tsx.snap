@@ -167,12 +167,11 @@ Object {
       <div
         class="drawer-header"
       >
-        <h5
-          class="title is-5 mb-0"
-          id=""
+        <h2
+          class="el-has-no-margin el-subtitle"
         >
           Property Information
-        </h5>
+        </h2>
         <button
           class="icon-button-container small-button"
         >
@@ -375,12 +374,11 @@ Object {
     <div
       class="drawer-header"
     >
-      <h5
-        class="title is-5 mb-0"
-        id=""
+      <h2
+        class="el-has-no-margin el-subtitle"
       >
         Property Information
-      </h5>
+      </h2>
       <button
         class="icon-button-container small-button"
       >

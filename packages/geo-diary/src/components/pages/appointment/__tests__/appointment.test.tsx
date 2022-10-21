@@ -22,16 +22,16 @@ import { mockLandlordsQuery } from '../__mocks__/landlords-query'
 
 jest.mock('react-google-map')
 
-jest.mock('@reapit/elements-legacy', () => ({
-  FadeIn: ({ children }) => <div>{children}</div>,
+jest.mock('../../../../core/app-state')
+
+jest.mock('@reapit/utils-common', () => ({
+  isIOS: jest.fn(),
   fetcher: jest.fn(() => ({ totalCount: 1 })),
   DATE_TIME_FORMAT: {
     RFC3339: 'yyyy-MM-dd',
   },
   getTime: jest.fn(),
 }))
-
-jest.mock('../../../../core/app-state')
 
 describe('appointment', () => {
   describe('Apppointment', () => {
@@ -169,7 +169,9 @@ describe('appointment', () => {
     it('should correctly set state if there are installations', async () => {
       const mockSetState = jest.fn()
       const curried = handleGetAmlInstallation(mockSetState, 'SOME_TOKEN', 'SOME_CLIENT_ID')
-      await curried()
+      curried()
+
+      await Promise.resolve()
 
       const newState = mockSetState.mock.calls[0][0]()
 

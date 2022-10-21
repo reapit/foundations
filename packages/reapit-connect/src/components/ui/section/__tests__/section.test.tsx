@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render } from '../../../../tests/react-testing'
 import { Section, SectionProps } from '../section'
 import developerPortalImage from '@/assets/images/DeveloperPortalGraphic.jpg'
 

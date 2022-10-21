@@ -121,7 +121,7 @@ Object {
             </h1>
           </div>
           <div
-            class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistant-notification"
+            class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
           >
             <div
               class="el-pn-icon"
@@ -271,7 +271,7 @@ Object {
           </h1>
         </div>
         <div
-          class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistant-notification"
+          class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
         >
           <div
             class="el-pn-icon"

@@ -3,7 +3,7 @@ import {
   Title,
   Loader,
   FlexContainer,
-  PersistantNotification,
+  PersistentNotification,
   PageContainer,
   elHFull,
   BodyText,
@@ -150,9 +150,9 @@ export const Home: FC = () => {
         </FlexContainer>
         {!selectedReport ? (
           <>
-            <PersistantNotification isFullWidth isExpanded isInline intent="secondary">
+            <PersistentNotification isFullWidth isExpanded isInline intent="secondary">
               {loading ? 'Loading your Power BI Reports.' : 'Please select a report to get started'}
-            </PersistantNotification>
+            </PersistentNotification>
             {loading && <Loader fullPage label="Loading" />}
           </>
         ) : (
