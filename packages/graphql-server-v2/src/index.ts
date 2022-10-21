@@ -4,6 +4,7 @@ import { createSchema, CallBackendArguments } from 'swagger-to-graphql'
 import { createPlatformAxiosInstance } from './axios'
 import 'isomorphic-fetch'
 import graphqlHeader from 'express-graphql-header'
+import { API_VERSION } from './constants'
 
 const handlePlatformCall = async ({
   context,
@@ -20,7 +21,7 @@ const handlePlatformCall = async ({
     const result = await axios[requestOptions.method](requestOptions.path, {
       headers: {
         Authorization: (context.headers as any).authorization,
-        'api-version': '2020-01-31',
+        API_VERSION,
       },
       body: requestOptions.body,
     })
