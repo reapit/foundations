@@ -3,6 +3,7 @@ import { graphqlHTTP } from 'express-graphql'
 import { createSchema, CallBackendArguments } from 'swagger-to-graphql'
 import { createPlatformAxiosInstance } from './utils/axios-instances'
 import 'isomorphic-fetch'
+import graphqlHeader from 'express-graphql-header'
 
 process.env.PLATFORM_API_BASE_URL = 'https://platform.dev.paas.reapit.cloud'
 
@@ -36,10 +37,13 @@ const handlePlatformCall = async ({
 }
 
 const bootstrap = async () => {
+  const port = 4000
 
+  console.log('Fetching swagger doc...')
   const swaggerResponse = await fetch(`${process.env.PLATFORM_API_BASE_URL}/docs/swagger/agencyCloud_swagger.json`)
 
   const swagger = await swaggerResponse.json()
+  console.log('Starting GQL server')
 
   const schema = await createSchema({
     swaggerSchema: swagger as any,
@@ -49,13 +53,14 @@ const bootstrap = async () => {
 
   app.use(
     '/graphql',
+    graphqlHeader,
     graphqlHTTP({
       schema,
       graphiql: true,
     }),
   )
 
-  app.listen(4000, () => console.log('running'))
+  app.listen(port, () => console.log(`Running on port ${port}`))
 }
 
 bootstrap()
