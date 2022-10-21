@@ -23593,6 +23593,7 @@ fsevents@^1.2.7:
     react-dom: ^18.2.0
     react-ga: ^2.7.0
     react-hook-form: ^7.37.0
+    react-icons: ^4.6.0
     react-router: ^5.3.4
     react-router-dom: ^5.3.4
     react-swipeable: ^6.2.2
@@ -33000,6 +33001,7 @@ fsevents@^1.2.7:
     react: ^18.2.0
     react-dom: ^18.2.0
     react-ga: ^2.7.0
+    react-icons: ^4.6.0
     react-router: ^5.3.4
     react-router-dom: ^5.3.4
     rimraf: ^3.0.2
@@ -34862,6 +34864,15 @@ fsevents@^1.2.7:
   peerDependencies:
     react: ">=16.8"
   checksum: 5f19f05ec8181aea919de6cf63feff2c173710e094c8eb0f1f762c184abdf83a4cdae857e9534d1aca028ac2a88f07bcb90c6a1d6db79a29c92f663d637843f8
+  languageName: node
+  linkType: hard
+
+"react-icons@npm:^4.6.0":
+  version: 4.6.0
+  resolution: "react-icons@npm:4.6.0"
+  peerDependencies:
+    react: "*"
+  checksum: a08375d4563e381e156d826a8d551dd26c1bf7c424a79139173bf4c8df71e884badd7d4f5fe9faa0d73d18ace265bcc89891b65fd8f808812b1011b612ebbc53
   languageName: node
   linkType: hard
 
