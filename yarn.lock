@@ -22224,6 +22224,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"express-graphql-header@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "express-graphql-header@npm:1.0.1"
+  checksum: 275461feed8b5c084d8bfd336d4ed7e8dc61f719e819fd969422d5a2f1eea91a9e8eb6ac86723705b39e6d3de7256a388af3de09d253d617af38a3652635d529
+  languageName: node
+  linkType: hard
+
 "express-graphql@npm:^0.12.0":
   version: 0.12.0
   resolution: "express-graphql@npm:0.12.0"
@@ -24695,6 +24702,7 @@ fsevents@^1.2.7:
     eslint-plugin-prettier: ^4.2.1
     express: ^4.18.2
     express-graphql: ^0.12.0
+    express-graphql-header: ^1.0.1
     graphql: ^15.8.0
     graphql-depth-limit: ^1.1.0
     graphql-import: ^1.0.2
