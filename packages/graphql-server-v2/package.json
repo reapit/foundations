@@ -10,8 +10,7 @@
   "scripts": {
     "start": "PLATFORM_API_BASE_URL=https://platform.dev.paas.reapit.cloud ts-node-dev -r tsconfig-paths/register src/index",
     "test": "cross-env TZ=UTC jest --watch --colors --silent",
-    "build:schema": "node ./scripts/build-schema.js && prettier src/schema.graphql --write",
-    "build": "yarn build:schema && tsc && cp src/schema.graphql dist/graphql-server/src/schema.graphql",
+    "build": "tsc",
     "bundle": "ts-bundler",
     "lint": "eslint --cache --ext=ts,js src",
     "check": "echo '...skipping...'",
