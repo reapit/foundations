@@ -5,7 +5,6 @@ import { createPlatformAxiosInstance } from './axios'
 import 'isomorphic-fetch'
 import graphqlHeader from 'express-graphql-header'
 import { API_VERSION } from './constants'
-import config from './config.json'
 
 const handlePlatformCall = async ({ context, requestOptions }: CallBackendArguments<Request>) => {
   if (!(context.headers as any).authorization) {
@@ -51,7 +50,7 @@ export const bootstrap = async (): Promise<Express> => {
     graphqlHeader,
     graphqlHTTP({
       schema,
-      graphiql: config.NODE_ENV === 'development',
+      graphiql: process.env.NODE_ENV === 'development',
     }),
   )
 

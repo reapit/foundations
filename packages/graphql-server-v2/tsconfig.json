@@ -20,7 +20,6 @@
   },
   "include": ["./src/**/*"],
   "exclude": [
-    "./public",
     "./dist",
     "./node_modules",
     "./src/tests/coverage",
