@@ -1,5 +1,3 @@
-const path = require('path')
-
 const PATHS = {
   src: `${process.cwd()}/src`,
   entryWeb: `${process.cwd()}/src/core/index.tsx`,
@@ -7,8 +5,6 @@ const PATHS = {
   tsConfig: `${process.cwd()}/tsconfig.json`,
   logo: `${process.cwd()}/public/logo.svg`,
   output: `${process.cwd()}/public/dist`,
-  elementsSass: path.resolve(process.cwd(), '../', 'elements/src/styles/**.scss'),
-  elementsIndexSass: path.resolve(process.cwd(), '../', 'elements/src/styles/index.scss'),
   cacheWebpackDir: `${process.cwd()}/.webpack-cache`,
 }
 

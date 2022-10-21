@@ -151,7 +151,7 @@ const webpackConfigDev = ({ appName }) => ({
     ],
   },
   resolve: {
-    extensions: ['.tsx', '.mjs', '.ts', '.js', '.css', '.scss', '.sass'],
+    extensions: ['.tsx', '.mjs', '.ts', '.js', '.css'],
     alias: {
       '@': path.resolve(__dirname, 'src/'),
       stream: 'stream-browserify',

@@ -1,3 +1,0 @@
-@mixin for-ie-only {
-  @media all and (-ms-high-contrast:none) { @content; }
-}

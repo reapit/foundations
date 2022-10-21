@@ -22,7 +22,6 @@
       "packages/deployment-service",
       "packages/developer-portal",
       "packages/elements",
-      "packages/elements-legacy",
       "packages/foundations-ts-definitions",
       "packages/geo-diary",
       "packages/graphql-server",
