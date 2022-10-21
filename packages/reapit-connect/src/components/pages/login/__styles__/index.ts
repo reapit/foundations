@@ -1,87 +1,67 @@
-import { css } from '@linaria/core'
+import { styled } from '@linaria/react'
 
-export const loginContainer = css`
+export const LoginContainer = styled.div`
   min-width: 100vw;
-  min-height: 100vh;
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  justify-content: space-between;
   flex-direction: row;
-  background-color: #fff;
+  background-color: var(--color-white);
+  height: 100vh;
+  overflow-y: auto;
 
-  @media screen and (max-width: 768px) {
-    flex-direction: column-reverse;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    justify-content: center;
   }
 `
 
-export const wrapper = css`
-  background-color: #fff;
-  width: 40%;
-  padding: 2rem;
+export const LoginRoleTile = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  margin: 0.625rem;
+  border-radius: 0.25rem;
+  border: 1px solid var(--color-grey-light);
+  cursor: pointer;
+  box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.08);
+
+  &:hover {
+    border: 1px solid var(--intent-secondary);
+  }
+
+  a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+`
+
+export const LoginContentWrapper = styled.div`
+  background-color: var(--color-white);
+  max-width: 25rem;
   pointer-events: auto;
-
-  &.disabled {
-    pointer-events: none;
-  }
-
-  h1,
-  p,
-  img {
-    text-align: center;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
 
   img {
-    margin: 0 auto;
-    max-width: 200px;
+    margin: 0 auto 3rem auto;
     display: block;
   }
 
-  button,
-  .tabsContainer {
-    margin: 0 auto 2rem auto;
-    max-width: 400px;
-  }
-
-  @media screen and (max-width: 768px) {
+  @media (max-width: 768px) {
     width: 100%;
-  }
-
-  @media screen and (min-width: 1200px) {
-    padding: 0 3rem;
+    margin: 0 auto;
   }
 `
 
-export const imageContainer = css`
-  background-color: #fff;
-  width: 60%;
-  height: 100vh;
-  font-size: 0;
-
-  @media screen and (max-width: 768px) {
+export const LoginImageContainer = styled.div`
+  @media (max-width: 768px) {
     display: none;
   }
-`
-
-export const loginLevel = css`
-  flex-direction: column;
-`
-
-export const loginImageVisible = css``
-
-export const loginImage = css`
-  transition: opacity 1s ease-in-out;
-  position: absolute;
-  height: 100%;
-  opacity: 0;
-  z-index: 1;
-
-  &.${loginImageVisible} {
-    opacity: 1;
-  }
-`
-
-export const loginImages = css`
-  height: 100%;
-  width: auto;
-  position: relative;
 `

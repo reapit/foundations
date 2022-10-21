@@ -13,7 +13,6 @@ import { useAppState } from '../../../core/app-state'
 import { handleOpenContactDrawer } from './appointment-items'
 import { VendorLandlordRelatedModel } from '../../pages/appointment/appointment'
 import { ExtendedAppointmentModel } from '../../../types/global'
-import { FadeIn } from '@reapit/elements-legacy'
 import { ContactDrawerType } from '../contact-drawer'
 import { cx } from '@linaria/core'
 
@@ -35,7 +34,7 @@ export const LandlordItem: FC<LandlordItemProps> = ({ appointment }) => {
   if (!landlordContactList.length) return null
 
   return (
-    <FadeIn>
+    <div className={elFadeIn}>
       {landlordContactList.map((landlord: VendorLandlordRelatedModel) => (
         <CardListItem key={landlord.id} className={cx(elFadeIn, elCardListItemExpanded)}>
           <CardListIcon>
@@ -49,6 +48,6 @@ export const LandlordItem: FC<LandlordItemProps> = ({ appointment }) => {
           </CardListItemTextWrap>
         </CardListItem>
       ))}
-    </FadeIn>
+    </div>
   )
 }

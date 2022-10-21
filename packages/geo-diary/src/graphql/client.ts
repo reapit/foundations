@@ -3,27 +3,22 @@ import { setContext } from '@apollo/client/link/context'
 import { onError } from '@apollo/client/link/error'
 import typeDefs from './schema.graphql'
 import resolvers from './resolvers'
-import { notification } from '@reapit/elements-legacy'
 import { logger } from '@reapit/utils-react'
 import { reapitConnectBrowserSession } from '../core/connect-session'
 
 export const errorLink = onError(({ graphQLErrors, networkError }) => {
-  if (graphQLErrors) {
-    graphQLErrors.map(({ message, locations, path }) => {
-      console.error(`[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`)
+  if (graphQLErrors && graphQLErrors.length) {
+    graphQLErrors.forEach(({ message, locations, path }) => {
       const messageArr = message?.split('-')
       const LAST_INDEX = messageArr?.length - 1
-      const messageNotIncludeTraceID = messageArr?.[LAST_INDEX]
-      notification.error({
-        message: messageNotIncludeTraceID,
-      })
+      const messageNotIncludingTraceID = messageArr?.[LAST_INDEX]
+      const errorMessage = `Message: ${message}, Location: ${locations}, Path: ${path}, Error: ${messageNotIncludingTraceID}`
+
+      logger(new Error(errorMessage))
     })
-    graphQLErrors.forEach((error) => logger(error))
   }
+
   if (networkError) {
-    notification.error({
-      message: `Network Error: ${networkError.message}`,
-    })
     logger(networkError)
   }
 })

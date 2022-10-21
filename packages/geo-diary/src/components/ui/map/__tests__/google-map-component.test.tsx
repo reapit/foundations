@@ -16,7 +16,7 @@ import {
 } from '../google-map-component'
 import { mockAppointmentsQuery } from '../../../pages/appointment/__mocks__/appointments-query'
 import { ExtendedAppointmentModel } from '../../../../types/global'
-import { combineAddress } from '@reapit/elements-legacy'
+import { combineAddress } from '@reapit/utils-common'
 import { AppState, defaultAppState } from '../../../../core/app-state'
 import { DirectionsResult, MapRefs } from '../types'
 

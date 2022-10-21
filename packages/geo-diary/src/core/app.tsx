@@ -2,13 +2,15 @@ import * as React from 'react'
 import Router from './router'
 import './__styles__'
 import { AppStateProvider } from './app-state'
-import { NavStateProvider, MediaStateProvider } from '@reapit/elements'
+import { NavStateProvider, MediaStateProvider, SnackProvider } from '@reapit/elements'
 
 const App = () => (
   <AppStateProvider>
     <NavStateProvider>
       <MediaStateProvider>
-        <Router />
+        <SnackProvider>
+          <Router />
+        </SnackProvider>
       </MediaStateProvider>
     </NavStateProvider>
   </AppStateProvider>

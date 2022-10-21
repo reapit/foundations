@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { render } from '../../../tests/react-testing'
+import { render } from '../../tests/react-testing'
 import { Router } from '../router'
 
 describe('Router', () => {

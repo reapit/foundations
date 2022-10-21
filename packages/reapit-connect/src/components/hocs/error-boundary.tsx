@@ -1,38 +1,20 @@
-import * as React from 'react'
+import React from 'react'
+import * as Sentry from '@sentry/react'
+import { PersistentNotification } from '@reapit/elements'
 
-export type ErrorProps = {
-  children?: React.ReactNode
-}
-
-export interface ErrorState {
-  hasFailed: boolean
-}
-
-export class ErrorBoundary extends React.Component<ErrorProps, ErrorState> {
-  static getDerivedStateFromError() {
-    return {
-      hasFailed: true,
-    }
-  }
-
-  constructor(props: ErrorProps) {
-    super(props)
-    this.state = {
-      hasFailed: false,
-    }
-  }
-
-  componentDidCatch(error: Error, info: React.ErrorInfo) {
-    this.setState({ hasFailed: true })
-    console.error('ERROR BOUNDARY CAUGHT', error.message, info)
-  }
-
+export class ErrorBoundary extends React.Component {
   render() {
-    if (this.state.hasFailed) {
-      return <p>Something went wrong here, try refreshing your page.</p>
-    }
-
-    return this.props.children
+    return (
+      <Sentry.ErrorBoundary
+        fallback={() => (
+          <PersistentNotification isFullWidth isExpanded isInline intent="danger">
+            Something went wrong here, try refreshing your page.
+          </PersistentNotification>
+        )}
+      >
+        {this.props.children}
+      </Sentry.ErrorBoundary>
+    )
   }
 }
 

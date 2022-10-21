@@ -1,10 +1,10 @@
 /* istanbul ignore file */
 import React from 'react'
-import * as Sentry from '@sentry/browser'
+import * as Sentry from '@sentry/react'
+import { BrowserTracing } from '@sentry/tracing'
 import { createRoot } from 'react-dom/client'
 import { Config } from '@/types/global'
 import { logger } from '@reapit/utils-react'
-import { OkayPage } from '@reapit/utils-react'
 
 // Init global config
 window.reapit = {
@@ -22,10 +22,6 @@ window.reapit = {
 export const renderApp = (Component: React.ComponentType) => {
   const rootElement = document.querySelector('#root') as Element
 
-  if (rootElement && window.location.pathname === '/ok') {
-    return render(<OkayPage />, rootElement)
-  }
-
   if (rootElement) {
     createRoot(rootElement).render(<Component />)
   }
@@ -39,6 +35,7 @@ const run = async () => {
 
     if (!isLocal && config.sentryDns) {
       Sentry.init({
+        integrations: [new BrowserTracing()],
         release: process.env.APP_VERSION,
         dsn: config.sentryDns,
         environment: config.appEnv,
@@ -52,7 +49,7 @@ const run = async () => {
     const { default: App } = await import('./app')
     renderApp(App)
   } catch (error) {
-    logger(error)
+    logger(error as Error)
   }
 }
 

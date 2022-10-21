@@ -1,68 +1,49 @@
-import React, { FC, useEffect, useState } from 'react'
-import { Button, FlexContainerBasic, Level } from '@reapit/elements-legacy'
-import connectImage from '@/assets/images/reapit-connect.png'
-import { reapitConnectBrowserSession } from '@/core/connect-session'
-import {
-  loginContainer,
-  wrapper,
-  loginImage,
-  imageContainer,
-  loginLevel,
-  loginImages,
-  loginImageVisible,
-} from './__styles__'
-import stepOne from '../../../assets/images/login/step-1.svg'
-import stepTwo from '../../../assets/images/login/step-2.svg'
-import stepThree from '../../../assets/images/login/step-3.svg'
-import { cx } from '@linaria/core'
+import React, { FC, useCallback, useState } from 'react'
+import { BodyText, Button, ButtonGroup, Subtitle, Title, FlexContainer, elMb12 } from '@reapit/elements'
+import reapitLogo from '../../../assets/images/reapit-logo.svg'
+import { reapitConnectBrowserSession } from '../../../core/connect-session'
+import { KeyAnimation } from '@reapit/utils-react'
+import { LoginContainer, LoginContentWrapper, LoginImageContainer } from './__styles__'
 
-export const loginHandler = () => reapitConnectBrowserSession.connectLoginRedirect()
+export const handleLoginClick = () => {
+  reapitConnectBrowserSession.connectLoginRedirect()
+}
 
 export const Login: FC = () => {
-  const [imageShown, setImageShown] = useState(1)
-  useEffect(() => {
-    const interval = window.setInterval(() => {
-      setImageShown((prev) => {
-        if (prev < 3) {
-          return prev + 1
-        }
+  const [keyStep, setKeyStep] = useState<1 | 2 | 3>(1)
 
-        return prev
-      })
-    }, 1000)
-
-    return () => window.clearInterval(interval)
-  }, [imageShown])
+  const loginUser = useCallback(handleLoginClick, [])
 
   return (
-    <div className={loginContainer}>
-      <div className={imageContainer}>
-        <div className={loginImages}>
-          <img className={cx(loginImage, imageShown === 1 && loginImageVisible)} src={stepOne} />
-          <img className={cx(loginImage, imageShown === 2 && loginImageVisible)} src={stepTwo} />
-          <img className={cx(loginImage, imageShown === 3 && loginImageVisible)} src={stepThree} />
-        </div>
-      </div>
-      <div className={wrapper}>
-        <Level>
-          <img src={connectImage} alt="Reapit Connect Graphic" />
-        </Level>
-        <Level className={loginLevel}>
-          <Button
-            type="button"
-            onClick={loginHandler}
-            loading={false}
-            variant="primary"
-            disabled={false}
-            fullWidth
-            dataTest="login-button"
-          >
-            Login
+    <LoginContainer>
+      <LoginImageContainer>
+        <KeyAnimation step={keyStep} />
+      </LoginImageContainer>
+      <LoginContentWrapper>
+        <img src={reapitLogo} alt="Reapit Connect Graphic" />
+        <FlexContainer isFlexColumn>
+          <Title hasNoMargin hasCenteredText>
+            Welcome
+          </Title>
+          <Subtitle hasCenteredText>to Geo Diary</Subtitle>
+        </FlexContainer>
+        <ButtonGroup
+          alignment="center"
+          className={elMb12}
+          onMouseOver={() => {
+            setKeyStep(3)
+          }}
+          onMouseOut={() => {
+            setKeyStep(1)
+          }}
+        >
+          <Button onClick={loginUser} intent="primary" size={3}>
+            Login With Reapit
           </Button>
-        </Level>
-        <FlexContainerBasic centerContent>{process.env.APP_VERSION}</FlexContainerBasic>
-      </div>
-    </div>
+        </ButtonGroup>
+        <BodyText hasGreyText>{process.env.APP_VERSION}</BodyText>
+      </LoginContentWrapper>
+    </LoginContainer>
   )
 }
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { ExtendedAppointmentModel } from '@/types/global'
 import { AppointmentTile } from '../appointment-tile'
-import { PersistantNotification } from '@reapit/elements'
+import { PersistentNotification } from '@reapit/elements'
 
 export interface AppointmentListProps {
   appointments: ExtendedAppointmentModel[]
@@ -21,9 +21,9 @@ export interface AppointmentTypeQueryVariables {
 export const AppointmentList: React.FC<AppointmentListProps> = ({ appointments }: AppointmentListProps) => {
   if (!appointments.length) {
     return (
-      <PersistantNotification isExpanded isFullWidth isInline>
+      <PersistentNotification isExpanded isFullWidth isInline>
         No appointments
-      </PersistantNotification>
+      </PersistentNotification>
     )
   }
 
