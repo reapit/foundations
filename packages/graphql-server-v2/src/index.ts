@@ -5,8 +5,6 @@ import { createPlatformAxiosInstance } from './axios'
 import 'isomorphic-fetch'
 import graphqlHeader from 'express-graphql-header'
 
-process.env.PLATFORM_API_BASE_URL = 'https://platform.dev.paas.reapit.cloud'
-
 const handlePlatformCall = async ({
   context,
   requestOptions,
