@@ -3,8 +3,7 @@ import React from 'react'
 import { createRoot } from 'react-dom/client'
 import ReactGA from 'react-ga'
 import { Config } from '@/types/global'
-import { getMarketplaceGlobalsByKey } from '@reapit/elements-legacy'
-import { logger } from '@reapit/utils-react'
+import { logger, getMarketplaceGlobalsByKey } from '@reapit/utils-react'
 
 // Init global config
 window.reapit = {

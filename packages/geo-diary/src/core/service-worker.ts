@@ -1,8 +1,6 @@
 // This optional code is used to register a service worker.
 // register() is not called by default.
 
-import { notification, isDesktop } from '@reapit/elements-legacy'
-
 // This lets the app load faster on subsequent visits in production, and gives
 // it offline capabilities. However, it also means that developers (and users)
 // will only see deployed updates on subsequent visits to a page, after all the
@@ -71,16 +69,7 @@ function registerValidSW(swUrl: string, config?: Config) {
         installingWorker.onstatechange = () => {
           if (installingWorker.state === 'installed') {
             if (navigator.serviceWorker.controller) {
-              if (isDesktop()) {
-                notification.success({
-                  message: 'New version available, please press CTRL-SHIFT-R to update',
-                })
-              }
-
-              console.log(
-                'New content is available and will be used when all ' +
-                  'tabs for this page are closed. See https://bit.ly/CRA-PWA.',
-              )
+              console.log('New version available, please press CTRL-SHIFT-R to update')
 
               // Execute callback
               if (config && config.onUpdate) {

@@ -1,11 +1,11 @@
 import * as React from 'react'
 import { Route, Router as BrowserRouter, Switch, Redirect } from 'react-router-dom'
 import { createBrowserHistory, History } from 'history'
-import { Loader } from '@reapit/elements-legacy'
 import { catchChunkError } from '@reapit/utils-react'
 import PrivateRoute from './private-route'
 import PrivateRouteWrapper from './private-route-wrapper'
 import { OkayPage } from '@reapit/utils-react'
+import { Loader } from '@reapit/elements'
 
 export const history: History<any> = createBrowserHistory()
 

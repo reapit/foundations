@@ -1,12 +1,11 @@
 import React, { FC, Suspense } from 'react'
 import Nav from '../components/ui/nav'
-import { Helper, Section } from '@reapit/elements-legacy'
 import ErrorBoundary from './error-boundary'
 import { Redirect, useLocation } from 'react-router'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import { ApolloProvider } from '@apollo/client'
-import { Loader, MainContainer } from '@reapit/elements'
+import { Loader, MainContainer, PageContainer, PersistentNotification } from '@reapit/elements'
 import client from '../graphql/client'
 
 export const PrivateRouteWrapper: FC = ({ children }) => {
@@ -17,7 +16,7 @@ export const PrivateRouteWrapper: FC = ({ children }) => {
   if (!connectSession) {
     return (
       <MainContainer>
-        <Loader label="Loading" fullPage />
+        <Loader fullPage />
       </MainContainer>
     )
   }
@@ -26,12 +25,12 @@ export const PrivateRouteWrapper: FC = ({ children }) => {
     return (
       <MainContainer>
         <Nav />
-        <Section>
-          <Helper variant="info">
+        <PageContainer>
+          <PersistentNotification isExpanded isInline isFullWidth intent="danger">
             We could not detect that you are a negotiator for your organisation from your login. Try logging out and
             then back in again. If this does not work, please contact your Reapit administrator.
-          </Helper>
-        </Section>
+          </PersistentNotification>
+        </PageContainer>
       </MainContainer>
     )
   }
@@ -43,7 +42,7 @@ export const PrivateRouteWrapper: FC = ({ children }) => {
   return (
     <MainContainer>
       <Nav />
-      <Suspense fallback={<Loader label="Loading" fullPage />}>
+      <Suspense fallback={<Loader fullPage />}>
         <ErrorBoundary>
           <ApolloProvider client={client}>{children}</ApolloProvider>
         </ErrorBoundary>

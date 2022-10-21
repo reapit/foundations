@@ -1,12 +1,12 @@
 import React, { FC } from 'react'
-import { AppNavContainer, FlexContainerResponsive, Helper, Section } from '@reapit/elements-legacy'
+import { MainContainer, PageContainer, PersistentNotification } from '@reapit/elements'
 
 export const GoogleMapsError: FC = () => (
-  <AppNavContainer>
-    <FlexContainerResponsive>
-      <Section>
-        <Helper>There was a problem loading Google Maps. Please try refreshing your page</Helper>
-      </Section>
-    </FlexContainerResponsive>
-  </AppNavContainer>
+  <MainContainer>
+    <PageContainer>
+      <PersistentNotification isExpanded isInline isFullWidth intent="danger">
+        There was a problem loading Google Maps. Please try refreshing your page
+      </PersistentNotification>
+    </PageContainer>
+  </MainContainer>
 )

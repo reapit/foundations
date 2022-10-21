@@ -10,7 +10,7 @@ Object {
       />
        
       <div
-        class="el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistant-notification"
+        class="el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
       >
         <div
           class="el-pn-icon"
@@ -47,7 +47,7 @@ Object {
     />
      
     <div
-      class="el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistant-notification"
+      class="el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
     >
       <div
         class="el-pn-icon"

@@ -26,7 +26,6 @@
     "@linaria/react": "^3.0.0-beta.15",
     "@reapit/connect-session": "workspace:packages/connect-session",
     "@reapit/elements": "workspace:packages/elements",
-    "@reapit/elements-legacy": "workspace:packages/elements-legacy",
     "@sentry/browser": "^6.16.1",
     "dayjs": "^1.10.7",
     "react": "^17.0.2",

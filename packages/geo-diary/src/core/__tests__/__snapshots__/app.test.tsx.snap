@@ -9,6 +9,9 @@ Object {
         class="el-snack-holder"
       />
        
+      <div
+        class="el-snack-holder"
+      />
       <div>
         I am a router
       </div>
@@ -19,6 +22,9 @@ Object {
       class="el-snack-holder"
     />
      
+    <div
+      class="el-snack-holder"
+    />
     <div>
       I am a router
     </div>

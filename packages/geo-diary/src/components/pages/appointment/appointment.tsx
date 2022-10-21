@@ -1,7 +1,7 @@
 import React, { Dispatch, FC, memo, SetStateAction, useEffect, useMemo } from 'react'
 import { useQuery } from '@apollo/client'
 import dayjs from 'dayjs'
-import { FadeIn, fetcher, DATE_TIME_FORMAT } from '@reapit/elements-legacy'
+import { fetcher, DATE_TIME_FORMAT } from '@reapit/utils-common'
 import { ExtendedAppointmentModel } from '@/types/global'
 import GET_APPOINTMENTS from '../../../graphql/queries/get-appointments.graphql'
 import GET_VENDORS from '../../../graphql/queries/get-vendors.graphql'
@@ -21,13 +21,14 @@ import {
   mobileAppointmentsShow,
 } from './__styles__'
 import AppointmentList from '../../ui/appointment-list'
-import { Loader, Subtitle } from '@reapit/elements'
+import { elFadeIn, Loader, Subtitle } from '@reapit/elements'
 import GoogleMapComponent from '@/components/ui/map'
 import ErrorBoundary from '../../../core/error-boundary'
 import { MyLocation } from '../../ui/my-location/my-location'
 import ContactDrawer from '../../ui/contact-drawer'
 import { InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { TabMode } from '../../ui/tab-mode/tab-mode'
+import { useSnack } from '@reapit/elements'
 
 export type AppointmentProps = {}
 
@@ -195,12 +196,12 @@ export const AppointmentContent: FC<AppointmentContentProps> = ({ appointmentsSo
       <AppoinmentContainer className={cx(tab === 'MAP' ? mobileAppointmentsHidden : mobileAppointmentsShow)}>
         {loading ? (
           <LoadingContainer>
-            <Loader label="Loading" />
+            <Loader />
           </LoadingContainer>
         ) : (
-          <FadeIn>
+          <div className={elFadeIn}>
             <AppointmentList appointments={appointmentsSorted} />
-          </FadeIn>
+          </div>
         )}
       </AppoinmentContainer>
       <ContactDrawer />
@@ -214,6 +215,7 @@ export const AppointmentContent: FC<AppointmentContentProps> = ({ appointmentsSo
 export const Appointment: FC<AppointmentProps> = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { appState, setAppState } = useAppState()
+  const { error } = useSnack()
   const { time } = appState
   const userCode = connectSession?.loginIdentity.userCode ?? ''
   const clientId = connectSession?.loginIdentity.clientId
@@ -230,6 +232,7 @@ export const Appointment: FC<AppointmentProps> = () => {
       embed: 'offices',
       pageSize: 100,
     },
+    onError: (err) => error(err.message),
     skip: !userCode,
   })
 
@@ -240,6 +243,7 @@ export const Appointment: FC<AppointmentProps> = () => {
       id: vendorIds,
     },
     skip: !vendorIds.length,
+    onError: (err) => error(err.message),
   })
 
   useEffect(handleGetVendors(vendors, setAppState), [vendors])
@@ -253,6 +257,7 @@ export const Appointment: FC<AppointmentProps> = () => {
       id: landlordIds,
     },
     skip: !landlordIds.length,
+    onError: (err) => error(err.message),
   })
 
   useEffect(handleGetLandlords(landlords, setAppState), [landlords])

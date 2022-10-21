@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { FlexContainerResponsive, FlexContainerBasic } from '@reapit/elements-legacy'
 import logo from '@/assets/images/reapit-connect.png'
 import RowSection from '@/components/ui/section'
 import developerPortalImage from '@/assets/images/DeveloperPortalGraphic.jpg'
@@ -11,6 +10,7 @@ import { cx } from '@linaria/core'
 import { useReapitConnect, ReapitConnectHook } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { URLS } from '@/constants/urls'
+import { MainContainer, PageContainer } from '@reapit/elements'
 
 type WelcomeProps = {}
 
@@ -32,8 +32,8 @@ export const Welcome: React.FC<WelcomeProps> = () => {
   const isDeveloper = (session?.connectSession?.loginIdentity?.groups || []).includes('FoundationsDeveloper')
 
   return (
-    <FlexContainerBasic flexColumn>
-      <FlexContainerResponsive flexColumn isScrollable hasPadding>
+    <MainContainer>
+      <PageContainer>
         <div className={logoWrapStyle}>
           <img className={logoStyle} src={logo} alt="logo" />
         </div>
@@ -92,8 +92,8 @@ export const Welcome: React.FC<WelcomeProps> = () => {
             }
           />
         )}
-      </FlexContainerResponsive>
-    </FlexContainerBasic>
+      </PageContainer>
+    </MainContainer>
   )
 }
 

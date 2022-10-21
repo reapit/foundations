@@ -1,7 +1,7 @@
 import * as React from 'react'
-import { H2, SubTitleH4, SubTitleH6, GridItem } from '@reapit/elements-legacy'
 import { cx } from '@linaria/core'
 import { sectionContainer, hasBackgroundSection, gridItem } from './__styles__'
+import { BodyText, elPy7, Subtitle, Title } from '@reapit/elements'
 
 export type SectionProps = {
   background?: string
@@ -22,21 +22,21 @@ export const Section: React.FC<SectionProps> = ({
 }: SectionProps) => {
   return (
     <div
-      className={cx('columns pt-4 pb-4', sectionContainer)}
+      className={cx(elPy7, sectionContainer)}
       style={{
         background: background || 'white',
       }}
     >
-      <GridItem className={cx('flex items-start justify-center', gridItem, !!background && hasBackgroundSection)}>
-        <H2>{heading}</H2>
-        <SubTitleH4>{subheading}</SubTitleH4>
-        <SubTitleH6 className="mb-4">{description}</SubTitleH6>
+      <div className={cx(!!background && hasBackgroundSection)}>
+        <Title>{heading}</Title>
+        <Subtitle>{subheading}</Subtitle>
+        <BodyText>{description}</BodyText>
         {!!button && button}
-      </GridItem>
+      </div>
 
-      <GridItem className={cx('flex items-center justify-center', gridItem)}>
+      <div className={cx('flex items-center justify-center', gridItem)}>
         <img alt={heading} src={image} />
-      </GridItem>
+      </div>
     </div>
   )
 }

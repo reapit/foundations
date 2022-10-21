@@ -1,6 +1,6 @@
 import React, { Dispatch, FC, memo, SetStateAction, useEffect, useMemo, useRef } from 'react'
 import GoogleMap from 'react-google-map'
-import { combineAddress, notification } from '@reapit/elements-legacy'
+import { combineAddress } from '@reapit/utils-common'
 import { useMediaQuery } from '@reapit/elements'
 import { AppState, useAppState } from '../../../core/app-state'
 import { ExtendedAppointmentModel } from '../../../types/global'
@@ -163,9 +163,6 @@ export const handleDirectionService =
     const directionsRenderer = appState.mapRefs?.directionsRendererRef.current
     const destinationAddress = appState.destinationAddress ?? ''
     if (status !== 'OK') {
-      notification.error({
-        message: 'Directions request failed due to ' + status,
-      })
       return clearMap(appState, setAppState)
     }
 

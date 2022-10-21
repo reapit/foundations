@@ -3,29 +3,12 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "@/*": [
-        "src/*"
-      ],
-      "@reapit/connect-session": [
-        "../connect-session/src"
-      ],
-      "@reapit/elements": [
-        "../elements/src"
-      ],
-      "@reapit/elements/*": [
-        "../elements/src/*"
-      ],
-      "@reapit/elements-legacy": ["../elements-legacy/src"]
+      "@/*": ["src/*"],
+      "@reapit/connect-session": ["../connect-session/src"],
+      "@reapit/elements": ["../elements/src"],
+      "@reapit/elements/*": ["../elements/src/*"]
     }
   },
-  "include": [
-    "src"
-, "src/platform-api/.ts"  ],
-  "exclude": [
-    "public",
-    "dist",
-    "./webpack.config.js",
-    "node_modules",
-    "src/tests/coverage"
-  ]
+  "include": ["src", "src/platform-api/.ts"],
+  "exclude": ["public", "dist", "./webpack.config.js", "node_modules", "src/tests/coverage"]
 }

@@ -114,7 +114,9 @@ Object {
       <div
         class="mobile-appointments-show appoinment-container"
       >
-        <div>
+        <div
+          class="el-fade-in"
+        >
           <div>
             <div
               class="cancelled-tile el-mb6 el-card-wrap"
@@ -2113,7 +2115,9 @@ Object {
     <div
       class="mobile-appointments-show appoinment-container"
     >
-      <div>
+      <div
+        class="el-fade-in"
+      >
         <div>
           <div
             class="cancelled-tile el-mb6 el-card-wrap"
@@ -4175,11 +4179,6 @@ Object {
           <div
             class="el-loader-container"
           >
-            <p
-              class="el-loader-label"
-            >
-              Loading
-            </p>
             <div
               class="el-loader"
             >
@@ -4376,11 +4375,6 @@ Object {
         <div
           class="el-loader-container"
         >
-          <p
-            class="el-loader-label"
-          >
-            Loading
-          </p>
           <div
             class="el-loader"
           >
@@ -4628,9 +4622,11 @@ Object {
       <div
         class="mobile-appointments-show appoinment-container"
       >
-        <div>
+        <div
+          class="el-fade-in"
+        >
           <div
-            class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistant-notification"
+            class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
           >
             <div
               class="el-pn-icon"
@@ -4841,9 +4837,11 @@ Object {
     <div
       class="mobile-appointments-show appoinment-container"
     >
-      <div>
+      <div
+        class="el-fade-in"
+      >
         <div
-          class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistant-notification"
+          class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
         >
           <div
             class="el-pn-icon"
@@ -5111,9 +5109,11 @@ Object {
       <div
         class="mobile-appointments-show appoinment-container"
       >
-        <div>
+        <div
+          class="el-fade-in"
+        >
           <div
-            class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistant-notification"
+            class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
           >
             <div
               class="el-pn-icon"
@@ -5324,9 +5324,11 @@ Object {
     <div
       class="mobile-appointments-show appoinment-container"
     >
-      <div>
+      <div
+        class="el-fade-in"
+      >
         <div
-          class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistant-notification"
+          class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
         >
           <div
             class="el-pn-icon"

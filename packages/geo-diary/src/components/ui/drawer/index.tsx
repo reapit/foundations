@@ -3,7 +3,7 @@ import { cx } from '@linaria/core'
 import { useSwipeable } from 'react-swipeable'
 import IconButton from '../icon-button'
 import * as styles from './__styles__'
-import { H5 } from '@reapit/elements-legacy'
+import { Subtitle } from '@reapit/elements'
 
 export interface IDrawerProps {
   isOpen: boolean
@@ -36,7 +36,7 @@ const Drawer: React.FC<IDrawerProps> = ({ children, isOpen, handleClose }: IDraw
 
 export const DrawerHeader = ({ title, handleClose }: { title: string; handleClose: () => void }) => (
   <div className={styles.drawerHeader}>
-    <H5 className="mb-0">{title}</H5>
+    <Subtitle hasNoMargin>{title}</Subtitle>
     {handleClose && <IconButton size="small" icon="cancel" onClick={handleClose} />}
   </div>
 )
