@@ -28,7 +28,7 @@ const handlePlatformCall = async ({
     })
 
     return result.data
-  } catch (e) {
+  } catch (e: any) {
     console.error(e)
     return {
       error: e.message,

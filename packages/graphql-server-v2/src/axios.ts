@@ -8,7 +8,7 @@ type RetryConfig = AxiosRequestConfig['axios-retry']
 const retryConfig: RetryConfig = {
   retries: 10,
   retryDelay: axiosRetry.exponentialDelay,
-  retryCondition: (error) => {
+  retryCondition: (error: any) => {
     return error.response && error.response.status === 429
   },
 }
