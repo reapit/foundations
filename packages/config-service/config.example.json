@@ -1,8 +1,0 @@
-{
-  "APP_ENV": "local",
-  "NODE_ENV": "",
-  "SENTRY_DSN": "",
-  "AWS_REGION": "",
-  "AWS_ACCOUNT_ID": "",
-  "CONNECT_USER_POOL": ""
-}

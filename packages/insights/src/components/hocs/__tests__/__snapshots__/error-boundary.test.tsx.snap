@@ -137,12 +137,18 @@ Object {
       <div
         class="el-snack-holder"
       />
+      <div>
+        I am a component!
+      </div>
     </div>
   </body>,
   "container": <div>
     <div
       class="el-snack-holder"
     />
+    <div>
+      I am a component!
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

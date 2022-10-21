@@ -15,7 +15,7 @@ window.reapit = {
     connectOAuthUrl: '',
     connectUserPoolId: '',
     developerPortalUrl: '',
-    sentryDns: '',
+    sentryDsn: '',
   },
 }
 
@@ -33,11 +33,11 @@ const run = async () => {
     const config = (await configRes.json()) as Config
     const isLocal = config.appEnv !== 'production'
 
-    if (!isLocal && config.sentryDns) {
+    if (!isLocal && config.sentryDsn) {
       Sentry.init({
         integrations: [new BrowserTracing()],
         release: process.env.APP_VERSION,
-        dsn: config.sentryDns,
+        dsn: config.sentryDsn,
         environment: config.appEnv,
       })
     }

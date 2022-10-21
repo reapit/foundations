@@ -1,9 +1,0 @@
-{
-  "appEnv": "local",
-  "sentryDns": "",
-  "googleAnalyticsKey": "",
-  "connectClientId": "",
-  "connectOAuthUrl": "",
-  "connectUserPoolId": "",
-  "platformApiUrl": ""
-}

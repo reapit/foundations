@@ -8,21 +8,12 @@ export type ComingSoonApp = {
 
 export type Config = {
   appEnv: AppEnv
-  sentryDns: string
-  googleAnalyticsKey: string
+  sentryDsn: string
   connectClientId: string
   connectOAuthUrl: string
   connectUserPoolId: string
   platformApiUrl: string
-  webComponentConfigApiUrl: string
   developerPortalUrl: string
-  orgAdminRestrictedAppIds: string[]
-  adminRestrictedAppIds: string[]
-  reapitConnectManagementUri: string
-  comingSoonApps: ComingSoonApp[]
-  clientHiddenAppIds: {
-    [key: string]: string[]
-  }
 }
 
 declare global {

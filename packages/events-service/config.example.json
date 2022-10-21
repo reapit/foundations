@@ -1,8 +1,0 @@
-{
-  "DYNAMO_DB_REGION": "",
-  "DYNAMO_DB_ENDPOINT": "",
-  "AWS_ACCOUNT_ID": "",
-  "COGNITO_USERPOOL_ID": "",
-  "TWILIO_ACC_ID": "",
-  "TWILIO_AUTH_TOKEN": ""
-}
