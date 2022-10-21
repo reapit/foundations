@@ -8,9 +8,6 @@ declare namespace yargs {
 }
 
 declare module '*.css'
-declare module '*.scss'
-declare module '*.scss?mod'
-declare module '*.sass'
 declare module '*.jpg'
 declare module '*.png'
 declare module '*.svg'

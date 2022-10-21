@@ -14,7 +14,7 @@ module.exports = {
   ],
   modulePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|public|dist)[/\\\\]'],
   moduleNameMapper: {
-    '\\.(css|less|scss|sass)$': '<rootDir>/src/scripts/style-mock.js',
+    '\\.(css)$': '<rootDir>/src/scripts/style-mock.js',
     '^uuid': join(__dirname, '../..', 'node_modules/uuid/dist/index.js'),
   },
   coverageThreshold: {

@@ -8,7 +8,6 @@ import { GRAPHQL_CONSTANTS } from '../../constants/graphql'
 const { scriptSrc, scriptId, localStorageKey, settings } = GRAPHQL_CONSTANTS
 
 // Load the GQL playground script dynamically from a CDN when I load the page as the React component.
-// does mot work with the latest React Redux versions
 export const handleLoadGQLPlayground = (setLoaded: Dispatch<SetStateAction<boolean>>) => () => {
   const existingScript = document.getElementById(scriptId)
   if (!existingScript) {
