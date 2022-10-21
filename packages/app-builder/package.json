@@ -40,7 +40,6 @@
     "react-contenteditable": "^3.3.6",
     "react-dom": "^18.2.0",
     "react-frame-component": "^5.2.3",
-    "react-ga": "^2.7.0",
     "react-horizontal-scrolling-menu": "^3.2.0",
     "react-router": "^5.3.4",
     "react-router-dom": "^5.3.4",

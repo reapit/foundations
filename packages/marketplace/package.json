@@ -31,7 +31,6 @@
     "mixpanel-browser": "^2.45.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-ga": "^2.7.0",
     "react-hook-form": "^7.37.0",
     "react-router": "^5.3.4",
     "react-router-dom": "^5.3.4",

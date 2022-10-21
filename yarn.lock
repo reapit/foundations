@@ -14458,7 +14458,6 @@ __metadata:
     react-contenteditable: ^3.3.6
     react-dom: ^18.2.0
     react-frame-component: ^5.2.3
-    react-ga: ^2.7.0
     react-horizontal-scrolling-menu: ^3.2.0
     react-router: ^5.3.4
     react-router-dom: ^5.3.4
@@ -14517,7 +14516,6 @@ __metadata:
     react: ^18.2.0
     react-color: ^2.19.3
     react-dom: ^18.2.0
-    react-ga: ^2.7.0
     react-hook-form: ^7.37.0
     react-router: ^5.3.4
     react-router-dom: ^5.3.4
@@ -19080,7 +19078,6 @@ __metadata:
     react: ^18.2.0
     react-copy-to-clipboard: ^5.1.0
     react-dom: ^18.2.0
-    react-ga: ^2.7.0
     react-router: ^5.3.4
     react-router-dom: ^5.3.4
     rimraf: ^3.0.2
@@ -19788,7 +19785,6 @@ __metadata:
     react-chartjs-2: ^4.3.1
     react-copy-to-clipboard: ^5.1.0
     react-dom: ^18.2.0
-    react-ga: ^2.7.0
     react-hook-form: ^7.37.0
     react-router: ^5.3.4
     react-router-dom: ^5.3.4
@@ -23591,7 +23587,6 @@ fsevents@^1.2.7:
     query-string: 5.1.1
     react: ^18.2.0
     react-dom: ^18.2.0
-    react-ga: ^2.7.0
     react-google-map: ^3.1.1
     react-hook-form: ^7.37.0
     react-icons: ^4.6.0
@@ -25754,7 +25749,6 @@ fsevents@^1.2.7:
     react: ^18.2.0
     react-device-detect: ^2.2.2
     react-dom: ^18.2.0
-    react-ga: ^2.7.0
     react-router: ^5.3.4
     react-router-dom: ^5.3.4
     rimraf: ^3.0.2
@@ -29783,7 +29777,6 @@ fsevents@^1.2.7:
     query-string: 5.1.1
     react: ^18.2.0
     react-dom: ^18.2.0
-    react-ga: ^2.7.0
     react-router: ^5.3.4
     react-router-dom: ^5.3.4
     rimraf: ^3.0.2
@@ -29833,7 +29826,6 @@ fsevents@^1.2.7:
     node-polyfill-webpack-plugin: ^1.1.4
     react: ^18.2.0
     react-dom: ^18.2.0
-    react-ga: ^2.7.0
     react-hook-form: ^7.37.0
     react-router: ^5.3.4
     react-router-dom: ^5.3.4
@@ -31053,7 +31045,6 @@ fsevents@^1.2.7:
     react-chartjs-2: ^4.3.1
     react-copy-to-clipboard: ^5.1.0
     react-dom: ^18.2.0
-    react-ga: ^2.7.0
     react-hook-form: ^7.37.0
     react-router: ^5.3.4
     react-router-dom: ^5.3.4
@@ -33001,7 +32992,6 @@ fsevents@^1.2.7:
     node-polyfill-webpack-plugin: ^1.1.4
     react: ^18.2.0
     react-dom: ^18.2.0
-    react-ga: ^2.7.0
     react-icons: ^4.6.0
     react-router: ^5.3.4
     react-router-dom: ^5.3.4
@@ -34835,16 +34825,6 @@ fsevents@^1.2.7:
     react: ">= 16.3"
     react-dom: ">= 16.3"
   checksum: 1843c48dce41a0af03590dd7351baaf8a68ecac4e850d9819d093517a34d1097668c2b2cd809a8f5cd70791c011c6f2dcaf90d43b6e773b33c212f1f4cf17f55
-  languageName: node
-  linkType: hard
-
-"react-ga@npm:^2.7.0":
-  version: 2.7.0
-  resolution: "react-ga@npm:2.7.0"
-  peerDependencies:
-    prop-types: ^15.6.0
-    react: ^15.6.2 || ^16.0
-  checksum: 15d8571c156edfaa204ff0041db7a901b0eeca3e3b21774e918269b0fe48204bb5b6a3df882caea5e0077aa3a32be39a48e7082e556563338f2a78b402a59463
   languageName: node
   linkType: hard
 

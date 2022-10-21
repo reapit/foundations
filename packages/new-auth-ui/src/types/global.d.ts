@@ -4,8 +4,7 @@ export type Config = {
   oryConnectClientId: string
   cognitoConnectClientId: string
   connectUserPoolId: string
-  sentryDns: string
-  googleAnalyticsKey: string
+  sentryDsn: string
 }
 
 declare global {
