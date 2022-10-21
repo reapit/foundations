@@ -1,5 +1,3 @@
-const path = require('path')
-
 const PATHS = {
   src: `${process.cwd()}/src`,
   entryWeb: `${process.cwd()}/src/core/index.tsx`,

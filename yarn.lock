@@ -8569,8 +8569,11 @@ __metadata:
     error-polyfill: ^0.1.3
     eslint: 8.25.0
     eslint-plugin-prettier: ^4.2.1
+    himalaya: ^1.1.0
     jest: ^28.1.3
     jest-coverage-badges: ^1.1.2
+    pell: ^1.0.6
+    react-image-crop: ^10.0.8
     serialize-error: ^7.0.1
     ts-jest: ^28.0.8
     typescript: ^4.8.4
@@ -17697,6 +17700,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"clsx@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "clsx@npm:1.2.1"
+  checksum: 30befca8019b2eb7dbad38cff6266cf543091dae2825c856a62a8ccf2c3ab9c2907c4d12b288b73101196767f66812365400a227581484a05f968b0307cfaf12
+  languageName: node
+  linkType: hard
+
 "cluster-key-slot@npm:^1.1.0":
   version: 1.1.0
   resolution: "cluster-key-slot@npm:1.1.0"
@@ -24813,6 +24823,13 @@ fsevents@^1.2.7:
   version: 10.5.0
   resolution: "highlight.js@npm:10.5.0"
   checksum: 91531f83e7c04f962276ca43e031d5b381a4d8d90801bb4d72cd819b127e5e6175f771ce5a13cdd1b78bd7ce38829173910b129db30f9a386c7cf40fdb9afac0
+  languageName: node
+  linkType: hard
+
+"himalaya@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "himalaya@npm:1.1.0"
+  checksum: b07c165e78b22f031515de61d82c97702e8552ba1c4748fde60a97973178d2e380b9eb75dea602bbcc9c2eb1ca2948e125aac6c1f3bfc9f56b92b09df8124af3
   languageName: node
   linkType: hard
 
@@ -33070,6 +33087,13 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"pell@npm:^1.0.6":
+  version: 1.0.6
+  resolution: "pell@npm:1.0.6"
+  checksum: c9506672f2d38651df99f495d5ce47d603b25126a24dd7c0bfedbd622c40288bbf6866cdc4e1206d6586ab9ed27e6835e1593860ab4d95391d291593c37f7752
+  languageName: node
+  linkType: hard
+
 "pend@npm:~1.2.0":
   version: 1.2.0
   resolution: "pend@npm:1.2.0"
@@ -34838,6 +34862,17 @@ fsevents@^1.2.7:
   peerDependencies:
     react: ">=16.8"
   checksum: 5f19f05ec8181aea919de6cf63feff2c173710e094c8eb0f1f762c184abdf83a4cdae857e9534d1aca028ac2a88f07bcb90c6a1d6db79a29c92f663d637843f8
+  languageName: node
+  linkType: hard
+
+"react-image-crop@npm:^10.0.8":
+  version: 10.0.8
+  resolution: "react-image-crop@npm:10.0.8"
+  dependencies:
+    clsx: ^1.2.1
+  peerDependencies:
+    react: ">=16.13.1"
+  checksum: 7f8f61842b7bea9a49e9d168a82b5331347cec0bb1663b3bb5a989583ab7132a3a6663600061d20448840a0c4f067faf8c596f603be353aa6ed5a6765d447934
   languageName: node
   linkType: hard
 
