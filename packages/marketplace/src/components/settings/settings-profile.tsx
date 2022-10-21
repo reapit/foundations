@@ -211,7 +211,7 @@ export const SettingsProfile: FC = () => {
       </form>
       <Subtitle hasBoldText>Update Tracking Consent</Subtitle>
       <BodyText hasGreyText>
-        The App Market users mechanisms to track your use of the environment to provide an enhanced user experience and
+        The AppMarket users mechanisms to track your use of the environment to provide an enhanced user experience and
         provide feedback to enable Reapit to improve the product. You can update your preferences below.
       </BodyText>
       {currentUserState && (

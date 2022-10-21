@@ -227,12 +227,12 @@ export const ElTableRow = styled.div`
 
 export const ElTableRowContainer = styled.div`
   border-radius: var(--default-border-radius);
-  border: 1px solid var(--color-grey-light);
+  border: 1px solid var(--color-white);
   margin-top: 0.5rem;
 
   &:hover,
   &:focus {
-    border: 1px solid var(--color-blue-light);
+    border: 1px solid var(--color-blue-light2);
     box-shadow: 0px 2px 9px rgba(20, 164, 224, 0.15);
 
     ${ElTableRow} {
