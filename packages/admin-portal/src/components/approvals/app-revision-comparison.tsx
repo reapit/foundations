@@ -381,6 +381,14 @@ export const AppRevisionComparison: FC<AppRevisionComparisonProps> = ({ approval
           dataTest="revision-diff-isDirectApi"
         />
       </div>
+      <div className={elMb5}>
+        <BodyText hasGreyText>Is Delete Protected</BodyText>
+        <DiffCheckbox
+          currentChecked={Boolean(app.deletionProtection)}
+          changedChecked={Boolean(revision.deletionProtection)}
+          dataTest="revision-diff-deletion-protection"
+        />
+      </div>
       {getChangedMediaList({ app, revision }).map((media) => (
         <div className={elMb5} key={media.order}>
           <BodyText hasGreyText>

@@ -441,6 +441,26 @@ Object {
           </div>
         </div>
         <div
+          class="e1ksxx4v-el-input-wrap"
+        >
+          <div
+            class="e1979rmu-el-input-group"
+          >
+            <input
+              class="e1urjlvd-el-input"
+              id="test-static-id"
+              name="deletionProtection"
+              type="checkbox"
+            />
+            <label
+              class="e1nbkkrq-el-label"
+              for="test-static-id"
+            >
+              Check to prevent app from being deleted
+            </label>
+          </div>
+        </div>
+        <div
           class="ep31he9-el-input-wrap-full"
         >
           0
@@ -952,6 +972,26 @@ Object {
             for="test-static-id"
           >
             This application is free
+          </label>
+        </div>
+      </div>
+      <div
+        class="e1ksxx4v-el-input-wrap"
+      >
+        <div
+          class="e1979rmu-el-input-group"
+        >
+          <input
+            class="e1urjlvd-el-input"
+            id="test-static-id"
+            name="deletionProtection"
+            type="checkbox"
+          />
+          <label
+            class="e1nbkkrq-el-label"
+            for="test-static-id"
+          >
+            Check to prevent app from being deleted
           </label>
         </div>
       </div>

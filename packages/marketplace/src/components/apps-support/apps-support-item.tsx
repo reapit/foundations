@@ -60,6 +60,10 @@ export const AppsSupportItem: FC<AppsSupportItemProps> = ({ app }) => {
               onClick={trackSupportEmail}
               uri={supportEmail}
               acProcess={AcProcessType.mail}
+              consentModal={{
+                title: 'Email enquiry',
+                body: `Thank you for your interest in ‘${name}’, to make an enquiry please click ‘Continue’ below. We will launch your default mail client and your information will be shared with ‘${developer}’.`,
+              }}
               target="_blank"
               content={supportEmail}
             />

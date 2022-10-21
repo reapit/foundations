@@ -9,7 +9,7 @@ import EditUserGroupForm, {
 } from '../edit-user-group'
 import { addMemberToGroup, removeMemberFromGroup } from '../../../../services/user'
 import { mockUserGroups } from '../../../../services/__stubs__/user-groups'
-import { GroupModel, UserModel } from '../../../../types/organisations-schema'
+import { GroupModel, UserModel } from '@reapit/foundations-ts-definitions'
 import useSWR from 'swr'
 import { mockUsersList } from '../../../../services/__stubs__/users'
 import { UseFormGetValues } from 'react-hook-form'

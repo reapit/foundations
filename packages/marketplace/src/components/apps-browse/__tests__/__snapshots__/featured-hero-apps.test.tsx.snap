@@ -46,9 +46,13 @@ Object {
                       will-test-dev-co-voracious-person
                     </h2>
                     <div
-                      class="hero-apps-chip"
+                      class="hero-apps-chip-container"
                     >
-                      Category
+                      <span
+                        class="hero-apps-chip"
+                      >
+                        Category
+                      </span>
                     </div>
                   </div>
                   <button
@@ -178,9 +182,13 @@ Object {
                     will-test-dev-co-voracious-person
                   </h2>
                   <div
-                    class="hero-apps-chip"
+                    class="hero-apps-chip-container"
                   >
-                    Category
+                    <span
+                      class="hero-apps-chip"
+                    >
+                      Category
+                    </span>
                   </div>
                 </div>
                 <button

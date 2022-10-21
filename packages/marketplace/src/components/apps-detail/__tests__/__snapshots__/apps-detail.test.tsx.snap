@@ -664,6 +664,8 @@ Object {
       <div />
       <div />
       <div />
+      <div />
+      <div />
     </div>
     <div
       id="root"
@@ -1626,6 +1628,8 @@ Object {
     <div
       id="root"
     >
+      <div />
+      <div />
       <div />
       <div />
       <div />

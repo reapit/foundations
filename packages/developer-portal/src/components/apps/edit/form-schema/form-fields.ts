@@ -30,6 +30,7 @@ export interface AppEditFormSchema {
   isListed: boolean
   isAgencyCloudIntegrated: boolean
   isPrivateApp: boolean
+  deletionProtection: boolean
   videoUrl1: string
   videoUrl2: string
 }
@@ -64,6 +65,7 @@ export const defaultValues: AppEditFormSchema = {
   isListed: false,
   isAgencyCloudIntegrated: false,
   isPrivateApp: false,
+  deletionProtection: false,
   videoUrl1: '',
   videoUrl2: '',
 }
@@ -142,6 +144,11 @@ export const formFields: Record<keyof AppEditFormSchema, InputGroupProps & { nam
   isFree: {
     name: 'isFree',
     label: 'This application is free',
+    type: 'checkbox',
+  },
+  deletionProtection: {
+    name: 'deletionProtection',
+    label: 'Check to prevent app from being deleted',
     type: 'checkbox',
   },
   authFlow: {

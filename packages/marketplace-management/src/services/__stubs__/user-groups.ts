@@ -1,4 +1,4 @@
-import { GroupModelPagedResult } from '../../types/organisations-schema'
+import { GroupModelPagedResult } from '@reapit/foundations-ts-definitions'
 
 export const mockUserGroups: GroupModelPagedResult = {
   _embedded: [
