@@ -1,8 +1,10 @@
-import swagger from '../example.json'
 import express from 'express'
 import { graphqlHTTP } from 'express-graphql'
 import { createSchema, CallBackendArguments } from 'swagger-to-graphql'
 import { createPlatformAxiosInstance } from './utils/axios-instances'
+import 'isomorphic-fetch'
+
+process.env.PLATFORM_API_BASE_URL = 'https://platform.dev.paas.reapit.cloud'
 
 const handlePlatformCall = async ({
   context,
@@ -13,7 +15,6 @@ const handlePlatformCall = async ({
       statusCode: 401,
     }
   }
-  process.env.PLATFORM_API_BASE_URL = 'https://platform.dev.paas.reapit.cloud'
 
   const axios = createPlatformAxiosInstance()
   try {
@@ -35,6 +36,11 @@ const handlePlatformCall = async ({
 }
 
 const bootstrap = async () => {
+
+  const swaggerResponse = await fetch(`${process.env.PLATFORM_API_BASE_URL}/docs/swagger/agencyCloud_swagger.json`)
+
+  const swagger = await swaggerResponse.json()
+
   const schema = await createSchema({
     swaggerSchema: swagger as any,
     callBackend: handlePlatformCall,
