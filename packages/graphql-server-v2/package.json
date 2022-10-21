@@ -13,7 +13,7 @@
     "build:schema": "node ./scripts/build-schema.js && prettier src/schema.graphql --write",
     "build": "yarn build:schema && tsc && cp src/schema.graphql dist/graphql-server/src/schema.graphql",
     "bundle": "ts-bundler",
-    "lint": "concurrently \"prettier src/**/*.graphql --write \"  \"eslint --cache --ext=ts,tsx src\"",
+    "lint": "eslint --cache --ext=ts,js src",
     "check": "echo '...skipping...'",
     "publish": "echo '...skipping...'",
     "conf": "yarn config-manager --namespace cloud --entity graphql-server --name local --mode fetch",

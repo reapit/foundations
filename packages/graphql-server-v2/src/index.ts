@@ -6,10 +6,7 @@ import 'isomorphic-fetch'
 import graphqlHeader from 'express-graphql-header'
 import { API_VERSION } from './constants'
 
-const handlePlatformCall = async ({
-  context,
-  requestOptions,
-}: CallBackendArguments<Request>) => {
+const handlePlatformCall = async ({ context, requestOptions }: CallBackendArguments<Request>) => {
   if (!(context.headers as any).authorization) {
     return {
       statusCode: 401,
