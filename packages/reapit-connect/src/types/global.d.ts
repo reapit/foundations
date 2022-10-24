@@ -5,7 +5,7 @@ export type Config = {
   connectOAuthUrl: string
   connectUserPoolId: string
   developerPortalUrl: string
-  sentryDns: string
+  sentryDsn: string
 }
 
 declare global {

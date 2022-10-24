@@ -1,5 +1,4 @@
 /** See: https://testing-library.com/docs/react-testing-library/setup#custom-render
- * Renders a React Component with a redux store and other UI providers as a testing convenience
  */
 
 import React, { FC, ReactElement } from 'react'

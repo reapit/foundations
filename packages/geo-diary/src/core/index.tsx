@@ -1,9 +1,9 @@
-import * as Sentry from '@sentry/browser'
+import * as Sentry from '@sentry/react'
+import { BrowserTracing } from '@sentry/tracing'
 import load from 'little-loader'
 import qs from 'query-string'
 import React from 'react'
 import { createRoot } from 'react-dom/client'
-import ReactGA from 'react-ga'
 import { Config } from '../types/global'
 import * as serviceWorker from './service-worker'
 import { logger, injectSwitchModeToWindow } from '@reapit/utils-react'
@@ -16,8 +16,7 @@ injectSwitchModeToWindow()
 window.reapit = {
   config: {
     appEnv: 'production',
-    sentryDns: '',
-    googleAnalyticsKey: '',
+    sentryDsn: '',
     connectClientId: '',
     connectOAuthUrl: '',
     connectUserPoolId: '',
@@ -46,17 +45,14 @@ const run = async () => {
     const config = (await configRes.json()) as Config
     const isLocal = config.appEnv !== 'production'
 
-    if (!isLocal && config.sentryDns && !window.location.hostname.includes('prod.paas')) {
+    if (!isLocal && config.sentryDsn) {
       Sentry.init({
+        integrations: [new BrowserTracing()],
         release: process.env.APP_VERSION,
-        dsn: config.sentryDns,
+        dsn: config.sentryDsn,
         environment: config.appEnv,
+        tracesSampleRate: 1.0,
       })
-    }
-
-    if (!isLocal && config.googleAnalyticsKey) {
-      ReactGA.initialize(config.googleAnalyticsKey)
-      ReactGA.pageview(window.location.pathname + window.location.search)
     }
 
     window.reapit.config = config

@@ -10,8 +10,7 @@ import {
 
 export type Config = {
   appEnv: 'local' | 'development' | 'production'
-  sentryDns: string
-  googleAnalyticsKey: string
+  sentryDsn: string
   connectClientId: string
   connectOAuthUrl: string
   connectUserPoolId: string

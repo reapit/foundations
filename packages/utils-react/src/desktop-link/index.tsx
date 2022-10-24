@@ -1,6 +1,6 @@
 import React, { FC, ReactNode, MouseEvent } from 'react'
 import { ReapitConnectBrowserSession } from '@reapit/connect-session'
-import { Button, ButtonGroup, ModalProps, useModal } from '@reapit/elements'
+import { Button, ButtonGroup, elMt11, ModalProps, useModal } from '@reapit/elements'
 
 export type TargetType = '_blank' | '_self'
 
@@ -75,7 +75,7 @@ export const ConsentModal: FC<ConsentModalProps> = ({ Modal, closeModal, navigat
   return (
     <Modal title={title}>
       {body}
-      <ButtonGroup alignment="center">
+      <ButtonGroup alignment="center" className={elMt11}>
         <Button fixedWidth intent="low" onClick={closeModal}>
           Cancel
         </Button>

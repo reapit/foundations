@@ -4,7 +4,6 @@
   "workspaces": {
     "packages": [
       "packages/admin-portal",
-      "packages/aml-checklist",
       "packages/api-key-service",
       "packages/api-key-verify",
       "packages/app-builder",
@@ -23,7 +22,6 @@
       "packages/deployment-service",
       "packages/developer-portal",
       "packages/elements",
-      "packages/elements-legacy",
       "packages/foundations-ts-definitions",
       "packages/geo-diary",
       "packages/graphql-server",

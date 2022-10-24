@@ -3,7 +3,6 @@ import * as Sentry from '@sentry/react'
 import { BrowserTracing } from '@sentry/tracing'
 import React from 'react'
 import { createRoot } from 'react-dom/client'
-import ReactGA from 'react-ga'
 import { Config } from '../types/global'
 import { getMarketplaceGlobalsByKey, logger } from '@reapit/utils-react'
 
@@ -11,10 +10,9 @@ import { getMarketplaceGlobalsByKey, logger } from '@reapit/utils-react'
 window.reapit = {
   config: {
     appEnv: 'local',
-    sentryDns: '',
+    sentryDsn: '',
     connectClientId: '',
     connectUserPoolId: '',
-    googleAnalyticsKey: '',
     connectOAuthUrl: '',
     configServiceUrl: '',
     platformApiUrl: '',
@@ -52,19 +50,14 @@ const run = async () => {
     const config = (await configRes.json()) as Config
     const isLocal = config.appEnv !== 'production'
 
-    if (!isLocal && config.sentryDns) {
+    if (!isLocal && config.sentryDsn) {
       Sentry.init({
         integrations: [new BrowserTracing()],
         release: process.env.APP_VERSION,
-        dsn: config.sentryDns,
+        dsn: config.sentryDsn,
         environment: config.appEnv,
         tracesSampleRate: 1.0,
       })
-    }
-
-    if (!isLocal && config.googleAnalyticsKey) {
-      ReactGA.initialize(config.googleAnalyticsKey)
-      ReactGA.pageview(window.location.pathname + window.location.search)
     }
 
     window.reapit.config = config

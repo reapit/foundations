@@ -2,7 +2,7 @@ const { webpackConfigProd } = require('./webpack/webpack.config.prod')
 const { webpackConfigDev } = require('./webpack/webpack.config.dev')
 const { webpackConfigNode } = require('./webpack/webpack.config.node')
 const { getVersionTag, runCommand, getRef } = require('./webpack/utils')
-const { sassDev, sassProd, graphql } = require('./webpack/rules')
+const { graphql } = require('./webpack/rules')
 const { PATHS } = require('./webpack/constants')
 const cssStub = require('./jest/css-stub')
 const { jestGlobalConfig } = require('./jest/jest.config')
@@ -18,8 +18,6 @@ module.exports = {
   getVersionTag,
   runCommand,
   getRef,
-  sassDev,
-  sassProd,
   graphql,
   PATHS,
   cssStub,
