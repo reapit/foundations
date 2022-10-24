@@ -1,4 +1,4 @@
-import { bootstrap } from "./server"
+import { bootstrap } from './server'
 import { eventContext } from 'aws-serverless-express/middleware'
 import { Server } from 'http'
 import { createServer, proxy } from 'aws-serverless-express'
