@@ -25,6 +25,7 @@ import { colorSquare, iconButton, ImageContainer, ElTagContainer, ElTag } from '
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { shleemy } from 'shleemy'
 import { SubsHelperText } from './subs-helper-text'
+import { openNewPage } from '../../utils/navigation'
 
 interface AppBrowseManageTableProps {
   type: AppsBrowseConfigEnum
@@ -228,6 +229,12 @@ export const ManageTableExpandableContent: FC<ManageTableExpandableContentProps>
         </Col>
       </Grid>
       <ButtonGroup>
+        <Button
+          onClick={openNewPage(`${window.reapit.config.marketplaceUrl}/apps?previewId=${configItem.id}`)}
+          intent="low"
+        >
+          Preview
+        </Button>
         <Button
           onClick={() => {
             setSelectedItem(configItem)
