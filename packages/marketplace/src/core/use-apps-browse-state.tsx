@@ -65,6 +65,9 @@ export const AppsBrowseProvider: FC = ({ children }) => {
   const [appsBrowseFilterState, setAppsBrowseFilterState] = useState<AppsBrowseConfigItemFiltersInterface | null>(null)
   const email = connectSession?.loginIdentity.email
   const userId = email ? window.btoa(email).replace(/=/g, '') : null
+  const searchQuery = new URLSearchParams(window.location.search)
+  const id = searchQuery.get('previewId')
+  const idQuery = id ? { id } : {}
 
   const [appsBrowseConfigCollection] = useReapitGet<AppsBrowseConfigCollection>({
     reapitConnectBrowserSession,
@@ -72,6 +75,7 @@ export const AppsBrowseProvider: FC = ({ children }) => {
     fetchWhenTrue: [connectSession],
     queryParams: {
       isLive: true,
+      ...idQuery,
     },
     headers: {
       Authorization: connectSession?.idToken as string,

@@ -15,6 +15,7 @@ window.reapit = {
     connectUserPoolId: '',
     platformApiUrl: '',
     developerPortalUrl: '',
+    marketplaceUrl: '',
   },
 }
 
