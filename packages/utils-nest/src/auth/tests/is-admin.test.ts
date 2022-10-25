@@ -1,6 +1,6 @@
 import { adminReadonlyGroup, adminWriteGroup } from '../consts'
-import { CredsType } from '../cred-guard'
-import { isAdmin, isReadonlyAdmin, isWriteAdmin } from '../is-admin'
+import { CredsType } from '../guards'
+import { isAdmin, isReadonlyAdmin, isWriteAdmin } from '../helpers'
 
 describe('is-admin', () => {
   it('readonly creds', () => {

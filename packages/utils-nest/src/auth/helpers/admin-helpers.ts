@@ -1,5 +1,5 @@
-import { adminReadonlyGroup, adminWriteGroup } from './consts'
-import { CredsType } from './cred-guard'
+import { adminReadonlyGroup, adminWriteGroup } from '../consts'
+import { CredsType } from '../guards'
 
 /**
  * Loose admin check. Checks if scopes present for readonly or write admin
