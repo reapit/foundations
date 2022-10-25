@@ -14,6 +14,7 @@ export type Config = {
   connectUserPoolId: string
   platformApiUrl: string
   developerPortalUrl: string
+  marketplaceUrl: string
 }
 
 declare global {
