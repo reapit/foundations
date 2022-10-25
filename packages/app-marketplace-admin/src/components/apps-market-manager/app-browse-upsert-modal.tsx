@@ -42,6 +42,7 @@ import { SketchPicker } from 'react-color'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { v4 as uuid } from 'uuid'
 import { ModalHelperText } from './subs-helper-text'
+import dayjs from 'dayjs'
 
 // Commenting out for now, we may want to use the image cropper again however, for now, assume images are
 // variable size and allow marketing to decide the dimensions.
@@ -125,6 +126,7 @@ export const AppBrowseUpsertModal: FC<AppBrowseUpsertModalDefaultProps> = ({
   closeModal,
   upsertItem,
 }) => {
+  console.log(defaultValues?.live?.timeFrom)
   const {
     register,
     handleSubmit,
@@ -146,8 +148,10 @@ export const AppBrowseUpsertModal: FC<AppBrowseUpsertModalDefaultProps> = ({
       },
       live: {
         ...(defaultValues?.live || {}),
-        timeFrom: defaultValues?.live?.timeFrom?.toString().split(':00').shift(),
-        timeTo: defaultValues?.live?.timeTo?.toString().split(':00').shift(),
+        timeFrom: defaultValues?.live?.timeFrom
+          ? dayjs(defaultValues?.live?.timeFrom).format('YYYY-MM-DDTHH:mm')
+          : undefined,
+        timeTo: defaultValues?.live?.timeTo ? dayjs(defaultValues?.live?.timeTo).format('YYYY-MM-DDTHH:mm') : undefined,
       },
     },
   })

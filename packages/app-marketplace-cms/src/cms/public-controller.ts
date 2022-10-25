@@ -23,10 +23,10 @@ export class PublicController {
       const timeFromInRange = new Date(configItem.live.timeFrom).getTime() <= now
       const timeToInRange = new Date(configItem.live.timeTo).getTime() >= now
       if (timeFromInRange && timeToInRange) {
-        return true
+        return isLive
       }
 
-      return false
+      return !isLive
     }
 
     return typeof isLive === 'boolean'
