@@ -68,8 +68,21 @@ export class PublicController {
   async fetch(
     @Query('isLive') isLiveQuery: string,
     @Query('configType') configType?: AppsBrowseConfigEnum,
+    @Query('id') configId?: string,
   ): Promise<Pagination<MarketplaceAppModel>> {
     const isLive = isLiveQuery === 'true' ? true : isLiveQuery === 'false' ? false : undefined
+
+    // return singular config for testing on frontend
+    if (configId) {
+      const config = await this.cmsProvider.findOne({ id: configId })
+
+      return {
+        items: config ? [config] : [],
+        meta: {
+          nextCursor: '',
+        },
+      }
+    }
 
     return this.resolvePaginationObject(await this.cmsProvider.findAll({}), isLive, configType)
   }
