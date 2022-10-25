@@ -72,6 +72,7 @@ export class PublicController {
   ): Promise<Pagination<MarketplaceAppModel>> {
     const isLive = isLiveQuery === 'true' ? true : isLiveQuery === 'false' ? false : undefined
 
+    // return singular config for testing on frontend
     if (configId) {
       const config = await this.cmsProvider.findOne({ id: configId })
 
