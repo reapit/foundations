@@ -19,19 +19,14 @@ export class PublicController {
   protected isLive(configItem: MarketplaceAppModel, isLive: boolean | undefined = true): boolean {
     const now = new Date().getTime()
 
-    if (typeof configItem.live.timeFrom !== 'undefined' || typeof configItem.live.timeTo !== 'undefined') {
-      if (
-        (typeof configItem.live.timeTo !== 'undefined' &&
-          new Date(configItem.live.timeTo).getTime() >= now &&
-          typeof configItem.live.timeFrom !== 'undefined' &&
-          new Date(configItem.live.timeFrom).getTime() <= now) ||
-        (typeof configItem.live.timeFrom !== 'undefined' && new Date(configItem.live.timeFrom).getTime() <= now) ||
-        (typeof configItem.live.timeTo !== 'undefined' && new Date(configItem.live.timeTo).getTime() >= now)
-      ) {
-        return isLive
+    if (typeof configItem.live.timeFrom !== 'undefined' && typeof configItem.live.timeTo !== 'undefined') {
+      const timeFromInRange = new Date(configItem.live.timeFrom).getTime() <= now
+      const timeToInRange = new Date(configItem.live.timeTo).getTime() >= now
+      if (timeFromInRange && timeToInRange) {
+        return true
       }
 
-      return !isLive
+      return false
     }
 
     return typeof isLive === 'boolean'
