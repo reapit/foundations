@@ -1,11 +1,17 @@
 import { History } from 'history'
 import { trackEvent } from '../core/analytics'
 import { TrackingEvent } from '../core/analytics-events'
+const DESKTOP_CONTEXT_KEY = '__REAPIT_MARKETPLACE_GLOBALS__'
 
 export const openNewPage = (uri: string) => () => {
   trackEvent(TrackingEvent.OpenExternalPage, true, { url: uri })
+  const isDesktop = Boolean(window[DESKTOP_CONTEXT_KEY])
 
-  window.open(uri, '_blank')
+  if (isDesktop) {
+    window.location.href = `agencycloud://process/webpage?url=${uri}`
+  } else {
+    window.open(uri, '_blank')
+  }
 }
 
 export const navigate = (history: History, route: string) => (): void => {
@@ -22,8 +28,13 @@ export const navigateBack = (history: History) => (): void => {
 
 export const navigateExternal = (uri: string) => (): void => {
   trackEvent(TrackingEvent.NavigateExternalPage, true, { url: uri })
+  const isDesktop = Boolean(window[DESKTOP_CONTEXT_KEY])
 
-  window.location.href = uri
+  if (isDesktop) {
+    window.location.href = `agencycloud://process/webpage?url=${uri}`
+  } else {
+    window.location.href = uri
+  }
 }
 
 export const handleLaunchApp = (connectIsDesktop: boolean, id?: string, launchUri?: string) => () => {

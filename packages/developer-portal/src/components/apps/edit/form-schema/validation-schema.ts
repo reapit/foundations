@@ -258,54 +258,24 @@ export const appEditValidationSchema = object().shape({
   [videoUrl1.name]: string()
     .trim()
     .test({
-      name: 'isValidYoutube1',
-      message: 'If YouTube, video needs to be in https://www.youtube.com/embed/<<videoId>> format',
-      test: (value) => {
-        if (!value || (!value.includes('youtube') && !value.includes('youtu.be'))) return true
-        return value.includes('https://www.youtube.com/embed/')
-      },
-    })
-    .test({
-      name: 'isValidVimeo1',
-      message: 'If Vimeo, video needs to be in https://player.vimeo.com/video/<<videoId>> format',
-      test: (value) => {
-        if (!value || !value.includes('vimeo.com')) return true
-        return value.includes('https://player.vimeo.com/video/')
-      },
-    })
-    .test({
-      name: 'isValidVideo1Url',
-      message: 'Must be a secure https host if supplied',
+      name: 'isValidVideo1',
+      message:
+        'Video needs to be in https://player.vimeo.com/video/<<videoId>> or https://www.youtube.com/embed/<<videoId>> format',
       test: (value) => {
         if (!value) return true
-        return isValidHttpsUrl(value)
+        return value.includes('https://player.vimeo.com/video/') || value.includes('https://www.youtube.com/embed/')
       },
     }),
 
   [videoUrl2.name]: string()
     .trim()
     .test({
-      name: 'isValidYoutube2',
-      message: 'If YouTube, video needs to be in https://www.youtube.com/embed/<<videoId>> format',
-      test: (value) => {
-        if (!value || (!value.includes('youtube') && !value.includes('youtu.be'))) return true
-        return value.includes('https://www.youtube.com/embed/')
-      },
-    })
-    .test({
-      name: 'isValidVimeo2',
-      message: 'If Vimeo, video needs to be in https://player.vimeo.com/video/<<videoId>> format',
-      test: (value) => {
-        if (!value || !value.includes('vimeo.com')) return true
-        return value.includes('https://player.vimeo.com/video/')
-      },
-    })
-    .test({
-      name: 'isValidVideo2Url',
-      message: 'Must be a secure https host if supplied',
+      name: 'isValidVideo2',
+      message:
+        'Video needs to be in https://player.vimeo.com/video/<<videoId>> or https://www.youtube.com/embed/<<videoId>> format',
       test: (value) => {
         if (!value) return true
-        return isValidHttpsUrl(value)
+        return value.includes('https://player.vimeo.com/video/') || value.includes('https://www.youtube.com/embed/')
       },
     }),
 
