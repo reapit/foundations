@@ -23,6 +23,7 @@
     "synth": "rpt-cdk synth"
   },
   "dependencies": {
+    "@sentry/node": "^7.16.0",
     "aws-lambda": "^1.0.7",
     "aws-serverless-express": "^3.4.0",
     "cors": "^2.8.5",

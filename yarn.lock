@@ -8825,6 +8825,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@sentry/core@npm:7.16.0":
+  version: 7.16.0
+  resolution: "@sentry/core@npm:7.16.0"
+  dependencies:
+    "@sentry/types": 7.16.0
+    "@sentry/utils": 7.16.0
+    tslib: ^1.9.3
+  checksum: 033c775f9e4411dc4506617cea3d780b0696367ded01052d398e4a2e4752bb29de3ad15731cde07115995ed8c3ded2fea1b65231502eba87703cdfb35699d8b0
+  languageName: node
+  linkType: hard
+
 "@sentry/hub@npm:6.16.1":
   version: 6.16.1
   resolution: "@sentry/hub@npm:6.16.1"
@@ -8902,6 +8913,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@sentry/node@npm:^7.16.0":
+  version: 7.16.0
+  resolution: "@sentry/node@npm:7.16.0"
+  dependencies:
+    "@sentry/core": 7.16.0
+    "@sentry/types": 7.16.0
+    "@sentry/utils": 7.16.0
+    cookie: ^0.4.1
+    https-proxy-agent: ^5.0.0
+    lru_map: ^0.3.3
+    tslib: ^1.9.3
+  checksum: 2bd68ec5cbf73b15e479c6a10620bb52046b4400c2906b08891ab440df2d5995c0e7ffff7f35483e4ee98f853ccf0152e2fa42380a331e5ccb3b7918d99a861a
+  languageName: node
+  linkType: hard
+
 "@sentry/react@npm:^6.19.7":
   version: 6.19.7
   resolution: "@sentry/react@npm:6.19.7"
@@ -8958,6 +8984,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@sentry/types@npm:7.16.0":
+  version: 7.16.0
+  resolution: "@sentry/types@npm:7.16.0"
+  checksum: 5474085db149c80c23102ba12063fef27ac873a238963598eb3ca6dfd956672ecd25783f9f38b8a8ba905473e14f9af97e900749778957671861c1ef6d33f81a
+  languageName: node
+  linkType: hard
+
 "@sentry/utils@npm:6.16.1":
   version: 6.16.1
   resolution: "@sentry/utils@npm:6.16.1"
@@ -8975,6 +9008,16 @@ __metadata:
     "@sentry/types": 6.19.7
     tslib: ^1.9.3
   checksum: a000223b9c646c64e3565e79cace1eeb75114342b768367c4dddd646476c215eb1bddfb70c63f05e2352d3bce2d7d415344e4757a001605d0e01ac74da5dd306
+  languageName: node
+  linkType: hard
+
+"@sentry/utils@npm:7.16.0":
+  version: 7.16.0
+  resolution: "@sentry/utils@npm:7.16.0"
+  dependencies:
+    "@sentry/types": 7.16.0
+    tslib: ^1.9.3
+  checksum: decff9f82e7b6b431b1d226f6567762bd2189357ceacb304be20413fcb07be62fad17433979f750e717a07e92625b250bf7493591550f6e146d8adc8d06d6721
   languageName: node
   linkType: hard
 
@@ -24310,6 +24353,7 @@ fsevents@^1.2.7:
     "@reapit/ts-bundler": "workspace:packages/ts-bundler"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
+    "@sentry/node": ^7.16.0
     "@types/aws-serverless-express": ^3.3.5
     "@types/graphql": ^14.5.0
     "@typescript-eslint/eslint-plugin": ^5.40.0

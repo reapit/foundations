@@ -6,6 +6,11 @@ import 'isomorphic-fetch'
 import graphqlHeader from 'express-graphql-header'
 import { API_VERSION } from './constants'
 import cors from 'cors'
+import * as Sentry from '@sentry/node'
+
+if (process.env.SENTRY_DSN) {
+  Sentry.init({ dsn: process.env.SENTRY_DSN })
+}
 
 const handlePlatformCall = async ({ context, requestOptions }: CallBackendArguments<Request>) => {
   if (!(context.headers as any).authorization) {
@@ -45,6 +50,10 @@ export const bootstrap = async (): Promise<Express> => {
     callBackend: handlePlatformCall,
   })
   const app = express()
+
+  if (process.env.SENTRY_DSN) {
+    app.use(Sentry.Handlers.requestHandler())
+  }
 
   app.use(cors())
   app.use(

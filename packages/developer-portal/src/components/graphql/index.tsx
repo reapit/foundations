@@ -36,7 +36,8 @@ export const handleInitGQLPlayground =
       const { accessToken, idToken } = connectSession
       // Script has loaded so initialize playground with headers and settings
       window.GraphQLPlayground.init(graphQlRef.current, {
-        endpoint: window.reapit.config.graphQLUri,
+        endpoint: 'http://localhost:4000/graphql',
+        // endpoint: window.reapit.config.graphQLUri,
         headers: {
           authorization: idToken,
           ['reapit-connect-token']: accessToken,
