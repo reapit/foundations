@@ -192,7 +192,7 @@ Object {
               class="e1urjlvd-el-input"
               id="test-static-id"
               name="videoUrl1"
-              placeholder="Video embed url instructing users"
+              placeholder="Video embed url instructing users (YouTube or Vimeo)"
               type="text"
             />
             <label
@@ -213,7 +213,7 @@ Object {
               class="e1urjlvd-el-input"
               id="test-static-id"
               name="videoUrl2"
-              placeholder="Video embed url marketing your app"
+              placeholder="Video embed url marketing your app (YouTube or Vimeo)"
               type="text"
             />
             <label
@@ -642,7 +642,7 @@ Object {
             class="e1urjlvd-el-input"
             id="test-static-id"
             name="videoUrl1"
-            placeholder="Video embed url instructing users"
+            placeholder="Video embed url instructing users (YouTube or Vimeo)"
             type="text"
           />
           <label
@@ -663,7 +663,7 @@ Object {
             class="e1urjlvd-el-input"
             id="test-static-id"
             name="videoUrl2"
-            placeholder="Video embed url marketing your app"
+            placeholder="Video embed url marketing your app (YouTube or Vimeo)"
             type="text"
           />
           <label
@@ -1269,7 +1269,7 @@ Object {
               class="e1urjlvd-el-input"
               id="test-static-id"
               name="videoUrl1"
-              placeholder="Video embed url instructing users"
+              placeholder="Video embed url instructing users (YouTube or Vimeo)"
               type="text"
             />
             <label
@@ -1290,7 +1290,7 @@ Object {
               class="e1urjlvd-el-input"
               id="test-static-id"
               name="videoUrl2"
-              placeholder="Video embed url marketing your app"
+              placeholder="Video embed url marketing your app (YouTube or Vimeo)"
               type="text"
             />
             <label
@@ -1938,7 +1938,7 @@ Object {
             class="e1urjlvd-el-input"
             id="test-static-id"
             name="videoUrl1"
-            placeholder="Video embed url instructing users"
+            placeholder="Video embed url instructing users (YouTube or Vimeo)"
             type="text"
           />
           <label
@@ -1959,7 +1959,7 @@ Object {
             class="e1urjlvd-el-input"
             id="test-static-id"
             name="videoUrl2"
-            placeholder="Video embed url marketing your app"
+            placeholder="Video embed url marketing your app (YouTube or Vimeo)"
             type="text"
           />
           <label
