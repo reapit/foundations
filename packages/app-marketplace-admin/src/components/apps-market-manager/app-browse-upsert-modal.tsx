@@ -126,7 +126,6 @@ export const AppBrowseUpsertModal: FC<AppBrowseUpsertModalDefaultProps> = ({
   closeModal,
   upsertItem,
 }) => {
-  console.log(defaultValues?.live?.timeFrom)
   const {
     register,
     handleSubmit,
