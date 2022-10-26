@@ -138,6 +138,10 @@ export interface ApplicantBuyingModel {
    * The identifier of the applicant's selling position
    */
   positionId?: string
+  /**
+   * A list of tenure requirements taken from the full listing of the associated department (freehold/leasehold/shareOfFreehold)
+   */
+  tenure?: string[]
 }
 /**
  * An applicant's commercial details
@@ -624,6 +628,10 @@ export interface ApplicantModel {
      * The identifier of the applicant's selling position
      */
     positionId?: string
+    /**
+     * A list of tenure requirements taken from the full listing of the associated department (freehold/leasehold/shareOfFreehold)
+     */
+    tenure?: string[]
   }
   /**
    * The details specific to applicants with a marketingMode of renting
@@ -1036,6 +1044,10 @@ export interface ApplicantModelPagedResult {
        * The identifier of the applicant's selling position
        */
       positionId?: string
+      /**
+       * A list of tenure requirements taken from the full listing of the associated department (freehold/leasehold/shareOfFreehold)
+       */
+      tenure?: string[]
     }
     /**
      * The details specific to applicants with a marketingMode of renting
@@ -4195,6 +4207,10 @@ export interface CreateApplicantBuyingModel {
    * A list of property decoration requirements taken from the full listing of the associated department (unmodernised/fair/good/veryGood)
    */
   decoration?: string[]
+  /**
+   * A list of tenure requirements taken from the full listing of the associated department (freehold/leasehold/shareOfFreehold)
+   */
+  tenure?: string[]
 }
 /**
  * Request body used to create a relationship between an applicant and a contact or company
@@ -4382,6 +4398,10 @@ export interface CreateApplicantModel {
      * A list of property decoration requirements taken from the full listing of the associated department (unmodernised/fair/good/veryGood)
      */
     decoration?: string[]
+    /**
+     * A list of tenure requirements taken from the full listing of the associated department (freehold/leasehold/shareOfFreehold)
+     */
+    tenure?: string[]
   }
   /**
    * The details specific to applicants with a marketingMode of renting
@@ -16608,6 +16628,10 @@ export interface UpdateApplicantBuyingModel {
    * A list of property decoration requirements taken from the full listing of the associated department (unmodernised/fair/good/veryGood)
    */
   decoration?: string[]
+  /**
+   * A list of tenure requirements taken from the full listing of the associated department (freehold/leasehold/shareOfFreehold)
+   */
+  tenure?: string[]
 }
 /**
  * The applicant's outdoor space requirements
@@ -16782,6 +16806,10 @@ export interface UpdateApplicantModel {
      * A list of property decoration requirements taken from the full listing of the associated department (unmodernised/fair/good/veryGood)
      */
     decoration?: string[]
+    /**
+     * A list of tenure requirements taken from the full listing of the associated department (freehold/leasehold/shareOfFreehold)
+     */
+    tenure?: string[]
   }
   /**
    * The details specific to applicants with a marketingMode of renting

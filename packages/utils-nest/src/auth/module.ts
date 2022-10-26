@@ -1,5 +1,5 @@
 import { DynamicModule, Global, Module } from '@nestjs/common'
-import { AdminWriteGuard, AdminReadonlyGuard } from './admin-guard'
+import { AdminWriteGuard, AdminReadonlyGuard, CredGuard } from './guards'
 import {
   API_KEY_INVOKE_CONFIG_PROVIDE,
   AuthModuleOptionsInterface,
@@ -7,8 +7,7 @@ import {
   FactoryArnProvide,
 } from './api-key-invoke-config'
 import { ApiKeyProvider } from './api-key-provider'
-import { CredGuard } from './cred-guard'
-import { OwnershipProvider } from './ownership'
+import { OwnershipProvider } from './ownership-provider'
 import { TokenProvider } from './token-provider'
 
 @Module({})

@@ -23,8 +23,9 @@ import { SendFunction, UpdateReturnTypeEnum, useReapitGet, useReapitUpdate } fro
 import React, { FC, useState } from 'react'
 import { colorSquare, iconButton, ImageContainer, ElTagContainer, ElTag } from './app-browse.styles'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { shleemy } from 'shleemy'
 import { SubsHelperText } from './subs-helper-text'
+import { openNewPage } from '../../utils/navigation'
+import dayjs from 'dayjs'
 
 interface AppBrowseManageTableProps {
   type: AppsBrowseConfigEnum
@@ -217,17 +218,23 @@ export const ManageTableExpandableContent: FC<ManageTableExpandableContentProps>
         <Col>
           <Subtitle hasNoMargin>Time From</Subtitle>
           <BodyText hasGreyText>
-            {configItem.live?.timeFrom ? shleemy(configItem.live.timeFrom).forHumans : 'Not set'}
+            {configItem.live?.timeFrom ? dayjs(configItem.live.timeFrom).format('DD-MM-YYYY HH:mm') : 'Not set'}
           </BodyText>
         </Col>
         <Col>
           <Subtitle hasNoMargin>Time To</Subtitle>
           <BodyText hasGreyText>
-            {configItem.live?.timeTo ? shleemy(configItem.live.timeTo).forHumans : 'Not set'}
+            {configItem.live?.timeTo ? dayjs(configItem.live.timeTo).format('DD-MM-YYYY HH:mm') : 'Not set'}
           </BodyText>
         </Col>
       </Grid>
       <ButtonGroup>
+        <Button
+          onClick={openNewPage(`${window.reapit.config.marketplaceUrl}/apps?previewId=${configItem.id}`)}
+          intent="low"
+        >
+          Preview
+        </Button>
         <Button
           onClick={() => {
             setSelectedItem(configItem)
@@ -360,9 +367,9 @@ export const AppBrowseManageTable: FC<AppBrowseManageTableProps> = (props) => {
                   {item.live.isLive
                     ? 'Live'
                     : item.live.timeFrom && new Date(item.live.timeFrom).getTime() > new Date().getTime()
-                    ? `going live ${shleemy(item.live.timeFrom).forHumans}`
+                    ? `Going Live ${dayjs(item.live.timeFrom).format('DD-MM-YYYY HH:mm')}`
                     : item.live.timeTo && new Date(item.live.timeTo).getTime() > new Date().getTime()
-                    ? `Completing ${shleemy(item.live.timeTo).forHumans}`
+                    ? `Completing ${dayjs(item.live.timeTo).format('DD-MM-YYYY HH:mm')}`
                     : 'Not Live'}
                 </>
               ),

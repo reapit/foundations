@@ -19,15 +19,10 @@ export class PublicController {
   protected isLive(configItem: MarketplaceAppModel, isLive: boolean | undefined = true): boolean {
     const now = new Date().getTime()
 
-    if (typeof configItem.live.timeFrom !== 'undefined' || typeof configItem.live.timeTo !== 'undefined') {
-      if (
-        (typeof configItem.live.timeTo !== 'undefined' &&
-          new Date(configItem.live.timeTo).getTime() >= now &&
-          typeof configItem.live.timeFrom !== 'undefined' &&
-          new Date(configItem.live.timeFrom).getTime() <= now) ||
-        (typeof configItem.live.timeFrom !== 'undefined' && new Date(configItem.live.timeFrom).getTime() <= now) ||
-        (typeof configItem.live.timeTo !== 'undefined' && new Date(configItem.live.timeTo).getTime() >= now)
-      ) {
+    if (typeof configItem.live.timeFrom !== 'undefined' && typeof configItem.live.timeTo !== 'undefined') {
+      const timeFromInRange = new Date(configItem.live.timeFrom).getTime() <= now
+      const timeToInRange = new Date(configItem.live.timeTo).getTime() >= now
+      if (timeFromInRange && timeToInRange) {
         return isLive
       }
 
@@ -68,8 +63,21 @@ export class PublicController {
   async fetch(
     @Query('isLive') isLiveQuery: string,
     @Query('configType') configType?: AppsBrowseConfigEnum,
+    @Query('id') configId?: string,
   ): Promise<Pagination<MarketplaceAppModel>> {
     const isLive = isLiveQuery === 'true' ? true : isLiveQuery === 'false' ? false : undefined
+
+    // return singular config for testing on frontend
+    if (configId) {
+      const config = await this.cmsProvider.findOne({ id: configId })
+
+      return {
+        items: config ? [config] : [],
+        meta: {
+          nextCursor: '',
+        },
+      }
+    }
 
     return this.resolvePaginationObject(await this.cmsProvider.findAll({}), isLive, configType)
   }
