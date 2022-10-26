@@ -10,11 +10,15 @@ import { Transform, Type } from 'class-transformer'
 
 class AppBrowseLiveDataModel implements AppBrowseLiveDataInterface {
   @attribute()
-  @Transform((value) => (value.value instanceof Date ? value.value.toISOString() : value.value))
+  @Transform((value) => {
+    return value.value instanceof Date ? value.value.toISOString() : value.value
+  })
   timeFrom?: string
 
   @attribute()
-  @Transform((value) => (value.value instanceof Date ? value.value.toISOString() : value.value))
+  @Transform((value) => {
+    return value.value instanceof Date ? value.value.toISOString() : value.value
+  })
   timeTo?: string
 
   @attribute({ defaultProvider: () => false })
