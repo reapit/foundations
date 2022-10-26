@@ -13,7 +13,11 @@ export const bootstrapApplication = async (): Promise<[INestApplication, Express
   const expressApp = express()
   const app = await NestFactory.create(AppModule, new ExpressAdapter(expressApp))
 
-  app.useGlobalPipes(new ValidationPipe())
+  app.useGlobalPipes(
+    new ValidationPipe({
+      transform: true,
+    }),
+  )
   app.useGlobalInterceptors(new CorsHeaderInterceptor())
 
   return [app, expressApp]

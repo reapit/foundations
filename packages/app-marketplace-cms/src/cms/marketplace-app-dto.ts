@@ -5,8 +5,8 @@ import {
   AppsBrowseConfigEnum,
   AppBrowseLiveDataInterface,
 } from '@reapit/foundations-ts-definitions'
-import { IsString, IsArray, IsBoolean, IsEnum, IsDateString, IsNotEmpty } from 'class-validator'
-import { Type } from 'class-transformer'
+import { IsString, IsArray, IsBoolean, IsEnum, IsNotEmpty, IsDate } from 'class-validator'
+import { Transform, Type } from 'class-transformer'
 
 class AppBrowseConfigContentDto implements AppsBrowseConfigItemContentInterface {
   @IsString()
@@ -49,11 +49,13 @@ class AppsBrowseConfigItemFiltersDto implements AppsBrowseConfigItemFiltersInter
 }
 
 class AppBrowseLiveDataDto implements AppBrowseLiveDataInterface {
-  @IsDateString()
-  timeFrom?: string
+  @IsDate()
+  @Transform((value) => new Date(value.value as any))
+  timeFrom?: Date
 
-  @IsDateString()
-  timeTo?: string
+  @IsDate()
+  @Transform((value) => new Date(value.value as any))
+  timeTo?: Date
 
   @IsBoolean()
   isLive?: boolean

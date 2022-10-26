@@ -6,12 +6,15 @@ import {
   AppsBrowseConfigEnum,
   AppsBrowseConfigItemInterface,
 } from '@reapit/foundations-ts-definitions'
+import { Transform, Type } from 'class-transformer'
 
 class AppBrowseLiveDataModel implements AppBrowseLiveDataInterface {
   @attribute()
+  @Transform((value) => (value.value instanceof Date ? value.value.toISOString() : value.value))
   timeFrom?: string
 
   @attribute()
+  @Transform((value) => (value.value instanceof Date ? value.value.toISOString() : value.value))
   timeTo?: string
 
   @attribute({ defaultProvider: () => false })
@@ -67,6 +70,7 @@ export class MarketplaceAppModel implements AppsBrowseConfigItemInterface {
   name?: string
 
   @attribute()
+  @Type(() => AppBrowseLiveDataModel)
   live: AppBrowseLiveDataModel
 
   @attribute()
