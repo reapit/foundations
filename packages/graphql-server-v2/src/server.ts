@@ -6,17 +6,10 @@ import graphqlHeader from 'express-graphql-header'
 import { API_VERSION } from './constants'
 import cors from 'cors'
 import * as Sentry from '@sentry/node'
-<<<<<<< HEAD
 import { AxiosInstance } from 'axios'
 import config from './../config.json'
 import swagger from './../swagger.json'
 import { createLogger } from '@reapit/utils-node'
-=======
-
-if (process.env.SENTRY_DSN) {
-  Sentry.init({ dsn: process.env.SENTRY_DSN })
-}
->>>>>>> 2fe46d983 (feat: added conditions for sentry)
 
 if (config.SENTRY_DSN) {
   Sentry.init({ dsn: config.SENTRY_DSN })
