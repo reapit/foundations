@@ -5,6 +5,7 @@ import { createPlatformAxiosInstance } from './axios'
 import 'isomorphic-fetch'
 import graphqlHeader from 'express-graphql-header'
 import { API_VERSION } from './constants'
+import cors from 'cors'
 
 const handlePlatformCall = async ({ context, requestOptions }: CallBackendArguments<Request>) => {
   if (!(context.headers as any).authorization) {
@@ -45,12 +46,13 @@ export const bootstrap = async (): Promise<Express> => {
   })
   const app = express()
 
+  app.use(cors())
   app.use(
     '/graphql',
     graphqlHeader,
     graphqlHTTP({
       schema,
-      graphiql: process.env.NODE_ENV === 'development',
+      graphiql: true,
     }),
   )
 

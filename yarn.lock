@@ -24318,6 +24318,7 @@ fsevents@^1.2.7:
     aws-serverless-express: ^3.4.0
     bufferutil: ^4.0.6
     concurrently: ^6.5.1
+    cors: ^2.8.5
     cross-env: ^7.0.3
     eslint: 8.25.0
     eslint-plugin-prettier: ^4.2.1

@@ -25,6 +25,7 @@
   "dependencies": {
     "aws-lambda": "^1.0.7",
     "aws-serverless-express": "^3.4.0",
+    "cors": "^2.8.5",
     "express": "^4.18.2",
     "express-graphql": "^0.12.0",
     "express-graphql-header": "^1.0.1",
