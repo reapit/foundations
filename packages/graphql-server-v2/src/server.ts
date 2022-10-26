@@ -7,6 +7,7 @@ import graphqlHeader from 'express-graphql-header'
 import { API_VERSION } from './constants'
 import cors from 'cors'
 import * as Sentry from '@sentry/node'
+import qs from 'querystring'
 
 if (process.env.SENTRY_DSN) {
   Sentry.init({ dsn: process.env.SENTRY_DSN })
@@ -19,9 +20,12 @@ const handlePlatformCall = async ({ context, requestOptions }: CallBackendArgume
     }
   }
 
+  console.log(qs.encode(requestOptions.query))
+  console.log(`${requestOptions.path}${requestOptions.query ? `?${qs.encode(requestOptions.query)}` : ''}`)
+
   const axios = createPlatformAxiosInstance()
   try {
-    const result = await axios[requestOptions.method](requestOptions.path, {
+    const result = await axios[requestOptions.method](`${requestOptions.path}${requestOptions.query ? `?${qs.encode(requestOptions.query)}` : ''}`, {
       headers: {
         Authorization: (context.headers as any).authorization,
         API_VERSION,
