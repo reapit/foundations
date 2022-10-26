@@ -26,6 +26,7 @@ export const AppsInstalled: FC = () => {
   const { connectSession, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
   const clientId = connectSession?.loginIdentity.clientId
   const developerId = connectSession?.loginIdentity.developerId
+  const isSandbox = clientId === 'SBOX' || clientId === 'SBXA'
   const product = connectSession?.loginIdentity.orgProduct
   const baseParams = {
     clientId,
@@ -36,7 +37,7 @@ export const AppsInstalled: FC = () => {
     product,
   }
 
-  const queryParams = developerId ? { ...baseParams, developerId } : baseParams
+  const queryParams = developerId && isSandbox ? { ...baseParams, developerId } : baseParams
 
   const [unfilteredApps, appsLoading] = useReapitGet<AppSummaryModelPagedResult>({
     reapitConnectBrowserSession,
