@@ -25,6 +25,7 @@
       "packages/foundations-ts-definitions",
       "packages/geo-diary",
       "packages/graphql-server",
+      "packages/graphql-server-v2",
       "packages/insights",
       "packages/mailer-service",
       "packages/marketplace",

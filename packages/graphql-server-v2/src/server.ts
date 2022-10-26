@@ -1,8 +1,10 @@
-import swagger from '../example.json'
-import express from 'express'
+import express, { Express } from 'express'
 import { graphqlHTTP } from 'express-graphql'
 import { createSchema, CallBackendArguments } from 'swagger-to-graphql'
-import { createPlatformAxiosInstance } from './utils/axios-instances'
+import { createPlatformAxiosInstance } from './axios'
+import 'isomorphic-fetch'
+import graphqlHeader from 'express-graphql-header'
+import { API_VERSION } from './constants'
 
 const handlePlatformCall = async ({ context, requestOptions }: CallBackendArguments<Request>) => {
   if (!(context.headers as any).authorization) {
@@ -10,20 +12,19 @@ const handlePlatformCall = async ({ context, requestOptions }: CallBackendArgume
       statusCode: 401,
     }
   }
-  process.env.PLATFORM_API_BASE_URL = 'https://platform.dev.paas.reapit.cloud'
 
   const axios = createPlatformAxiosInstance()
   try {
     const result = await axios[requestOptions.method](requestOptions.path, {
       headers: {
         Authorization: (context.headers as any).authorization,
-        'api-version': '2020-01-31',
+        API_VERSION,
       },
       body: requestOptions.body,
     })
 
     return result.data
-  } catch (e) {
+  } catch (e: any) {
     console.error(e)
     return {
       error: e.message,
@@ -31,7 +32,13 @@ const handlePlatformCall = async ({ context, requestOptions }: CallBackendArgume
   }
 }
 
-const bootstrap = async () => {
+export const bootstrap = async (): Promise<Express> => {
+  console.log('Fetching swagger doc...')
+  const swaggerResponse = await fetch(`${process.env.PLATFORM_API_BASE_URL}/docs/swagger/agencyCloud_swagger.json`)
+
+  const swagger = await swaggerResponse.json()
+  console.log('Starting GQL server')
+
   const schema = await createSchema({
     swaggerSchema: swagger as any,
     callBackend: handlePlatformCall,
@@ -40,13 +47,12 @@ const bootstrap = async () => {
 
   app.use(
     '/graphql',
+    graphqlHeader,
     graphqlHTTP({
       schema,
-      graphiql: true,
+      graphiql: process.env.NODE_ENV === 'development',
     }),
   )
 
-  app.listen(4000, () => console.log('running'))
+  return app
 }
-
-bootstrap()
