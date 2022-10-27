@@ -1,5 +1,5 @@
 import { Loader, Title } from '@reapit/elements'
-import React, { FC, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import { useReapitConnect } from '@reapit/connect-session'
 import { ApolloExplorer } from '@apollo/explorer/react'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
@@ -10,9 +10,11 @@ export const GraphQLPage: FC = () => {
   const { connectSession, connectHasSession } = useReapitConnect(reapitConnectBrowserSession)
   const [loading, setLoading] = useState<boolean>(true)
 
-  if (connectHasSession && loading) {
-    setLoading(false)
-  }
+  useEffect(() => {
+    if (connectHasSession && loading) {
+      setLoading(false)
+    }
+  }, [connectHasSession])
 
   return (
     <>
