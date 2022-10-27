@@ -15,7 +15,7 @@
     "lint": "eslint --cache --ext=ts,js src",
     "check": "echo '...skipping...'",
     "publish": "echo '...skipping...'",
-    "conf": "yarn config-manager --namespace cloud --entity graphql-server --name local --mode fetch",
+    "conf": "yarn config-manager --namespace cloud --entity graphql-server-v2 --name local --mode fetch",
     "commit": "yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges && yarn lint --fix && yarn check",
     "prepublish": "npm run snyk-protect",
     "snyk-protect": "snyk-protect",
