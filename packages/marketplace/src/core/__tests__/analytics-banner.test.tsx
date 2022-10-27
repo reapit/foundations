@@ -32,10 +32,12 @@ const mockUseAppsBrowseState = useAppsBrowseState as jest.Mock
 
 describe('AnalyticsBanner', () => {
   it('should match snapshot', () => {
+    window.reapit.config.appEnv = 'production'
     expect(render(<AnalyticsBanner />)).toMatchSnapshot()
   })
 
   it('should match snapshot when there is no current user', () => {
+    window.reapit.config.appEnv = 'production'
     mockUseAppsBrowseState.mockReturnValueOnce({
       ...mockAppsBrowseState,
       currentUserState: null,

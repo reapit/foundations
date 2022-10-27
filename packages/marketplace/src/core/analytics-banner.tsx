@@ -44,7 +44,8 @@ export const registerUserHandler =
 
 export const handleSetUserConsent =
   (currentUserState: UserModel | null, setTrackingBannerVisible: Dispatch<SetStateAction<boolean>>) => () => {
-    if (!currentUserState) return
+    const isLocal = window.reapit.config.appEnv !== 'production'
+    if (!currentUserState || isLocal) return
 
     if (currentUserState.consentToTrack) {
       mixpanel.opt_in_tracking()
