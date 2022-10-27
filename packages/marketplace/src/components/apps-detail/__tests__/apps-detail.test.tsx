@@ -131,7 +131,7 @@ describe('handleOpenVideoModal', () => {
   it('should handle opening video modal', () => {
     const setVideoUrl = jest.fn()
     const videoOpenModal = jest.fn()
-    const videoUrl = 'https://example.com'
+    const videoUrl = 'https://www.youtube.com/embed/'
 
     const curried = handleOpenVideoModal(setVideoUrl, videoOpenModal, 'Marketing Presentation' as VideoType, videoUrl)
 
@@ -139,6 +139,21 @@ describe('handleOpenVideoModal', () => {
 
     expect(setVideoUrl).toHaveBeenCalledWith(videoUrl)
     expect(videoOpenModal).toHaveBeenCalledTimes(1)
+  })
+
+  it('should handle opening video for a non whitelisted video', () => {
+    const windowSpy = jest.spyOn(window, 'open')
+    const setVideoUrl = jest.fn()
+    const videoOpenModal = jest.fn()
+    const videoUrl = 'https://example.com'
+
+    const curried = handleOpenVideoModal(setVideoUrl, videoOpenModal, 'Marketing Presentation' as VideoType, videoUrl)
+
+    curried()
+
+    expect(windowSpy).toHaveBeenCalledWith(videoUrl, '_blank', 'noopener, noreferrer')
+    expect(setVideoUrl).not.toHaveBeenCalled()
+    expect(videoOpenModal).not.toHaveBeenCalled()
   })
 })
 

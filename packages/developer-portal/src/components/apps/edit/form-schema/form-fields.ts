@@ -239,13 +239,13 @@ export const formFields: Record<keyof AppEditFormSchema, InputGroupProps & { nam
   videoUrl1: {
     name: 'videoUrl1',
     label: 'Getting Started Video URL',
-    placeholder: 'Video embed url instructing users (YouTube or Vimeo)',
+    placeholder: 'YouTube embed preferred or any https hosted video',
     type: 'text',
   },
   videoUrl2: {
     name: 'videoUrl2',
     label: 'Why Use Us Video URL',
-    placeholder: 'Video embed url marketing your app (YouTube or Vimeo)',
+    placeholder: 'YouTube embed preferred or any https hosted video',
     type: 'text',
   },
 }

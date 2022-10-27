@@ -57,7 +57,7 @@ import { filterRestrictedAppDetail } from '../../utils/browse-app'
 import { cx } from '@linaria/core'
 import { AppsDetailHeader } from './apps-detail-header'
 import { trackEventHandler, trackEvent } from '../../core/analytics'
-import { navigateBack } from '../../utils/navigation'
+import { DESKTOP_CONTEXT_KEY, navigateBack, openNewPage } from '../../utils/navigation'
 import { TrackingEvent } from '../../core/analytics-events'
 
 export interface AppIdParams {
@@ -96,10 +96,19 @@ export const handleOpenVideoModal =
   ) =>
   () => {
     if (videoUrl) {
+      const isDesktop = Boolean(window[DESKTOP_CONTEXT_KEY])
+      const isVimeo = videoUrl.includes('https://player.vimeo.com/video/')
+      const isYouTube = videoUrl.includes('https://www.youtube.com/embed/')
+
       trackEvent(TrackingEvent.ClickInstallAppButton, true, { videoType, videoUrl })
 
-      setVideoUrl(videoUrl)
-      videoOpenModal()
+      if (isYouTube || (!isDesktop && isVimeo)) {
+        setVideoUrl(videoUrl)
+        videoOpenModal()
+      } else {
+        const newPageHandle = openNewPage(videoUrl)
+        newPageHandle()
+      }
     }
   }
 
