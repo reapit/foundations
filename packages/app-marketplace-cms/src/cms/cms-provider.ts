@@ -1,5 +1,6 @@
 import { DataMapper, ItemNotFoundException, QueryIterator } from '@aws/dynamodb-data-mapper'
 import { Injectable } from '@nestjs/common'
+import { plainToInstance } from 'class-transformer'
 import { MarketplaceAppModelDto } from './marketplace-app-dto'
 import { MarketplaceAppModel } from './marketplace-app-model'
 
@@ -45,7 +46,7 @@ export class CmsProvider {
 
   async update(marketplaceApp: MarketplaceAppModel, dto: MarketplaceAppModelDto): Promise<MarketplaceAppModel> {
     return this.dataMapper.put(
-      Object.assign(new MarketplaceAppModel(), {
+      plainToInstance(MarketplaceAppModel, {
         ...marketplaceApp,
         ...dto,
       }),
@@ -54,9 +55,7 @@ export class CmsProvider {
 
   async updateBatch(dtos: MarketplaceAppModelDto[]): Promise<MarketplaceAppModel[]> {
     const result: MarketplaceAppModel[] = []
-    for await (const persisted of this.dataMapper.batchPut(
-      dtos.map((dto) => Object.assign(new MarketplaceAppModel(), dto)),
-    )) {
+    for await (const persisted of this.dataMapper.batchPut(plainToInstance(MarketplaceAppModel, dtos))) {
       result.push(persisted)
     }
 
