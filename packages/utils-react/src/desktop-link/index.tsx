@@ -34,22 +34,29 @@ export interface ConsentModalProps {
 
 export const getAcUri = (acProcess: AcProcessType, uri: string, acId?: string) => {
   if (acProcess === AcProcessType.app) {
-    return `${AcProcessType.app.replace('{acId}', acId ?? '')}/${uri}`
+    return `${AcProcessType.app.replace('{acId}', acId ?? '')}${uri}`
   }
 
   if (acProcess === AcProcessType.mail) {
-    return `${AcProcessType.mail}/${uri}`
+    return `${AcProcessType.mail}${uri}`
   }
 
-  return `${AcProcessType.web}/${uri}`
+  return `${AcProcessType.web}${uri}`
 }
 
 export const handleNavigate =
-  (target: TargetType, href: string, closeConsentModal: (() => void) | null, onClick?: () => void) => () => {
+  (
+    target: TargetType,
+    href: string,
+    closeConsentModal: (() => void) | null,
+    isDesktop: boolean,
+    onClick?: () => void,
+  ) =>
+  () => {
     if (onClick) onClick()
     if (closeConsentModal) closeConsentModal()
 
-    if (target === '_blank') {
+    if (target === '_blank' && !isDesktop) {
       window.open(href, '_blank', 'noopener noreferrer')
     } else {
       window.location.href = href
@@ -96,7 +103,7 @@ export const DesktopLink: FC<DesktopLinkProps> = ({ content, uri, target, acProc
 
   if (!isDesktop) {
     const webUri = acProcess === AcProcessType.mail ? `mailto:${uri}` : uri
-    const navigate = handleNavigate(target, webUri, closeConsentModal, onClick)
+    const navigate = handleNavigate(target, webUri, closeConsentModal, isDesktop, onClick)
     return (
       <>
         <a
@@ -113,7 +120,7 @@ export const DesktopLink: FC<DesktopLinkProps> = ({ content, uri, target, acProc
   }
 
   const acUri = getAcUri(acProcess, uri, acId)
-  const navigate = handleNavigate(target, acUri, closeConsentModal, onClick)
+  const navigate = handleNavigate(target, acUri, closeConsentModal, isDesktop, onClick)
 
   return (
     <>
