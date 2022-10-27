@@ -26,12 +26,13 @@ export const GraphQLPage: FC = () => {
           endpointUrl={'http://localhost:4000/graphql' as any}
           initialState={{
             document: `query GetApplicants {
-  get_applicants_ {
+  get_applicants_(embed: ["areas"]) {
     _embedded {
       id,
       created,
       modified,
       currency,
+      _embedded,
     },
     pageSize,
     pageCount,
