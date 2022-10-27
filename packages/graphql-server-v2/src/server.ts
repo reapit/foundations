@@ -19,16 +19,19 @@ const handlePlatformCall = async ({ context, requestOptions }: CallBackendArgume
       statusCode: 401,
     }
   }
-  
+
   const axios = createPlatformAxiosInstance()
   try {
-    const result = await axios[requestOptions.method](`${requestOptions.path}${requestOptions.query ? `?${qs.encode(requestOptions.query)}` : ''}`, {
-      headers: {
-        Authorization: (context.headers as any).authorization,
-        API_VERSION,
+    const result = await axios[requestOptions.method](
+      `${requestOptions.path}${requestOptions.query ? `?${qs.encode(requestOptions.query)}` : ''}`,
+      {
+        headers: {
+          Authorization: (context.headers as any).authorization,
+          API_VERSION,
+        },
+        body: requestOptions.body,
       },
-      body: requestOptions.body,
-    })
+    )
 
     return result.data
   } catch (e: any) {
