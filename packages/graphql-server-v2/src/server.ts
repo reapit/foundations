@@ -23,7 +23,7 @@ const handlePlatformCall = async ({ context, requestOptions }: CallBackendArgume
   const axios = createPlatformAxiosInstance()
   try {
     const result = await axios[requestOptions.method](
-      `${requestOptions.path}${requestOptions.query ? `?${qs.encode(requestOptions.query)}` : ''}`,
+      `${requestOptions.path}${requestOptions.query ? '?' + new URLSearchParams(requestOptions.query as any).toString() : ''}`,
       {
         headers: {
           Authorization: (context.headers as any).authorization,
