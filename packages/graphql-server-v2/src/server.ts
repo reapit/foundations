@@ -71,7 +71,7 @@ export const bootstrap = async (axiosInstance: AxiosInstance): Promise<Express> 
     graphqlHeader,
     graphqlHTTP({
       schema,
-      graphiql: true,
+      graphiql: process.env.NODE_ENV === 'development',
     }),
   )
 
