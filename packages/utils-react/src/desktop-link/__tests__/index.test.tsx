@@ -82,7 +82,7 @@ describe('handleNavigate', () => {
     const closeConsentModal = jest.fn()
     const onClick = jest.fn()
 
-    const curried = handleNavigate(target, href, closeConsentModal, onClick)
+    const curried = handleNavigate(target, href, closeConsentModal, false, onClick)
 
     curried()
 
@@ -96,7 +96,7 @@ describe('handleNavigate', () => {
     const closeConsentModal = jest.fn()
     const onClick = jest.fn()
 
-    const curried = handleNavigate(target, href, closeConsentModal, onClick)
+    const curried = handleNavigate(target, href, closeConsentModal, false, onClick)
 
     curried()
 

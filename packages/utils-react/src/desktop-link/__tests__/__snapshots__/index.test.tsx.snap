@@ -6,7 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <a
-        href="agencycloud://app?id=MOCK_APP_ID&launchUri=/https://www.example.com"
+        href="agencycloud://app?id=MOCK_APP_ID&launchUri=https://www.example.com"
       >
         Some Content
       </a>
@@ -14,7 +14,7 @@ Object {
   </body>,
   "container": <div>
     <a
-      href="agencycloud://app?id=MOCK_APP_ID&launchUri=/https://www.example.com"
+      href="agencycloud://app?id=MOCK_APP_ID&launchUri=https://www.example.com"
     >
       Some Content
     </a>
@@ -79,7 +79,7 @@ Object {
   "baseElement": <body>
     <div>
       <a
-        href="agencycloud://process/email?address=/mail@example.com"
+        href="agencycloud://process/email?address=mail@example.com"
       >
         Some Content
       </a>
@@ -87,7 +87,7 @@ Object {
   </body>,
   "container": <div>
     <a
-      href="agencycloud://process/email?address=/mail@example.com"
+      href="agencycloud://process/email?address=mail@example.com"
     >
       Some Content
     </a>
@@ -152,7 +152,7 @@ Object {
   "baseElement": <body>
     <div>
       <a
-        href="agencycloud://process/webpage?url=/https://www.example.com"
+        href="agencycloud://process/webpage?url=https://www.example.com"
       >
         Some Content
       </a>
@@ -160,7 +160,7 @@ Object {
   </body>,
   "container": <div>
     <a
-      href="agencycloud://process/webpage?url=/https://www.example.com"
+      href="agencycloud://process/webpage?url=https://www.example.com"
     >
       Some Content
     </a>
