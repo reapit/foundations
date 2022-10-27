@@ -9,7 +9,7 @@
   "main": "dist/index.js",
   "scripts": {
     "start": "PLATFORM_API_BASE_URL=https://platform.dev.paas.reapit.cloud ts-node-dev -r tsconfig-paths/register src/http-local",
-    "test": "cross-env TZ=UTC jest --watch --colors --silent",
+    "test": "jest --watch --colors",
     "build": "tsc -p .",
     "bundle": "ts-bundler",
     "lint": "eslint --cache --ext=ts,js src",
@@ -20,7 +20,8 @@
     "prepublish": "npm run snyk-protect",
     "snyk-protect": "snyk-protect",
     "release": "rpt-cdk deploy && echo '...ignoring stage flag...'",
-    "synth": "rpt-cdk synth"
+    "synth": "rpt-cdk synth",
+    "generate:schema": "yarn swagger-to-graphql --swagger-schema $PLATFORM_API_BASE_URL/docs/swagger/agencyCloud_swagger.json"
   },
   "dependencies": {
     "@sentry/node": "^7.16.0",
@@ -42,6 +43,7 @@
     "@types/graphql": "^14.5.0",
     "@typescript-eslint/eslint-plugin": "^5.40.0",
     "@typescript-eslint/parser": "^5.40.0",
+    "axios-mock-adapter": "^1.21.2",
     "bufferutil": "^4.0.6",
     "concurrently": "^6.5.1",
     "cross-env": "^7.0.3",

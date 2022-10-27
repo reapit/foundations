@@ -1,57 +1,52 @@
 import express, { Express } from 'express'
 import { graphqlHTTP } from 'express-graphql'
 import { createSchema, CallBackendArguments } from 'swagger-to-graphql'
-import { createPlatformAxiosInstance } from './axios'
 import 'isomorphic-fetch'
 import graphqlHeader from 'express-graphql-header'
 import { API_VERSION } from './constants'
 import cors from 'cors'
 import * as Sentry from '@sentry/node'
-import qs from 'querystring'
+import { AxiosInstance } from 'axios'
 
 if (process.env.SENTRY_DSN) {
   Sentry.init({ dsn: process.env.SENTRY_DSN })
 }
 
-const handlePlatformCall = async ({ context, requestOptions }: CallBackendArguments<Request>) => {
-  if (!(context.headers as any).authorization) {
-    return {
-      statusCode: 401,
+const handlePlatformCall =
+  (axios: AxiosInstance) =>
+  async ({ context, requestOptions }: CallBackendArguments<Request>) => {
+    if (!(context.headers as any).authorization) {
+      return {
+        statusCode: 401,
+      }
     }
-  }
-
-  const axios = createPlatformAxiosInstance()
-  try {
-    const result = await axios[requestOptions.method](
-      `${requestOptions.path}${requestOptions.query ? '?' + new URLSearchParams(requestOptions.query as any).toString() : ''}`,
-      {
-        headers: {
-          Authorization: (context.headers as any).authorization,
-          API_VERSION,
+    try {
+      const result = await axios[requestOptions.method](
+        `${requestOptions.path}${
+          requestOptions.query ? '?' + new URLSearchParams(requestOptions.query as any).toString() : ''
+        }`,
+        {
+          headers: {
+            Authorization: (context.headers as any).authorization,
+            API_VERSION,
+          },
+          body: requestOptions.body,
         },
-        body: requestOptions.body,
-      },
-    )
+      )
 
-    return result.data
-  } catch (e: any) {
-    console.error(e)
-    return {
-      error: e.message,
+      return result.data
+    } catch (e: any) {
+      console.error(e)
+      return {
+        error: e.message,
+      }
     }
   }
-}
 
-export const bootstrap = async (): Promise<Express> => {
-  console.log('Fetching swagger doc...')
-  const swaggerResponse = await fetch(`${process.env.PLATFORM_API_BASE_URL}/docs/swagger/agencyCloud_swagger.json`)
-
-  const swagger = await swaggerResponse.json()
-  console.log('Starting GQL server')
-
+export const bootstrap = async (axiosInstance: AxiosInstance): Promise<Express> => {
   const schema = await createSchema({
-    swaggerSchema: swagger as any,
-    callBackend: handlePlatformCall,
+    swaggerSchema: `${process.env.PLATFORM_API_BASE_URL}/docs/swagger/agencyCloud_swagger.json`,
+    callBackend: handlePlatformCall(axiosInstance),
   })
   const app = express()
 

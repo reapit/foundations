@@ -3,12 +3,13 @@ import { eventContext } from 'aws-serverless-express/middleware'
 import { Server } from 'http'
 import { createServer, proxy } from 'aws-serverless-express'
 import { Handler, Context, APIGatewayEvent } from 'aws-lambda'
+import { createPlatformAxiosInstance } from './axios'
 
 let cachedServer: Server
 
 async function bootstrapServer(): Promise<Server> {
   if (!cachedServer) {
-    const app = await bootstrap()
+    const app = await bootstrap(createPlatformAxiosInstance())
 
     app.use(eventContext())
 
