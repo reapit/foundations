@@ -65,7 +65,7 @@ export const bootstrap = async (): Promise<Express> => {
     graphqlHeader,
     graphqlHTTP({
       schema,
-      graphiql: true,
+      graphiql: process.env.NODE_ENV === 'development',
     }),
   )
 
