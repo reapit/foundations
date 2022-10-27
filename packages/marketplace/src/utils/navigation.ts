@@ -1,16 +1,15 @@
 import { History } from 'history'
 import { trackEvent } from '../core/analytics'
 import { TrackingEvent } from '../core/analytics-events'
-const DESKTOP_CONTEXT_KEY = '__REAPIT_MARKETPLACE_GLOBALS__'
+export const DESKTOP_CONTEXT_KEY = '__REAPIT_MARKETPLACE_GLOBALS__'
 
 export const openNewPage = (uri: string) => () => {
   trackEvent(TrackingEvent.OpenExternalPage, true, { url: uri })
   const isDesktop = Boolean(window[DESKTOP_CONTEXT_KEY])
-
   if (isDesktop) {
     window.location.href = `agencycloud://process/webpage?url=${uri}`
   } else {
-    window.open(uri, '_blank')
+    window.open(uri, '_blank', 'noopener, noreferrer')
   }
 }
 
