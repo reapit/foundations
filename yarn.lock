@@ -19916,6 +19916,7 @@ __metadata:
     serverless-s3-remover: ^0.6.0
     serverless-single-page-app-plugin: ^1.0.4
     snyk: ^1.1032.0
+    supertest-graphql: ^1.1.4
     swagger-ui-react: ^4.14.3
     ts-jest: ^28.0.8
     typescript: ^4.8.4
@@ -24460,7 +24461,6 @@ fsevents@^1.2.7:
     aws-lambda: ^1.0.7
     aws-serverless-express: ^3.4.0
     axios-mock-adapter: ^1.21.2
-    axios-retry: ^3.3.1
     bufferutil: ^4.0.6
     concurrently: ^6.5.1
     cors: ^2.8.5
