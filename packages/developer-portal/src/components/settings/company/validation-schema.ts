@@ -7,7 +7,7 @@ import { specialCharsTest } from '../../../utils/yup'
 const { MAXIMUM_CHARACTER_LENGTH, FIELD_REQUIRED } = errorMessage
 
 export const companyInformationValidationSchema = object().shape({
-  company: string().trim().required(FIELD_REQUIRED).max(250, MAXIMUM_CHARACTER_LENGTH(250)),
+  company: string().trim().required(FIELD_REQUIRED).max(250, MAXIMUM_CHARACTER_LENGTH(250)).test(specialCharsTest),
 
   telephone: string()
     .trim()
@@ -45,7 +45,7 @@ export const companyInformationValidationSchema = object().shape({
     otherwise: string().notRequired().test(specialCharsTest),
   }),
 
-  about: string().trim().required(FIELD_REQUIRED).max(250, MAXIMUM_CHARACTER_LENGTH(250)),
+  about: string().trim().required(FIELD_REQUIRED).max(250, MAXIMUM_CHARACTER_LENGTH(250)).test(specialCharsTest),
 
   // when checked "NO COMPANY REGISTRATION NUMBER" -> validate
   nationalInsurance: string().when('noRegistrationNumber', {
