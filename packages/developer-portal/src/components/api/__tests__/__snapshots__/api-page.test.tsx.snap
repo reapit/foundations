@@ -4,10 +4,6 @@ exports[`ApiPage should match a snapshot for the /desktop page 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
-    <script
-      id="gql-playground-module"
-      src="//cdn.jsdelivr.net/npm/graphql-playground-react/build/static/js/middleware.js"
-    />
     <div>
       <div
         class="ecbqyq6-el-snack-holder"
@@ -788,16 +784,9 @@ Object {
               />
             </div>
           </div>
-          <div
-            class="gpsozf3-graph-qlwrapper"
-          />
         </section>
       </div>
     </div>
-    <script
-      id="gql-playground-module"
-      src="//cdn.jsdelivr.net/npm/graphql-playground-react/build/static/js/middleware.js"
-    />
   </body>,
   "container": <div>
     <div
@@ -978,9 +967,6 @@ Object {
             />
           </div>
         </div>
-        <div
-          class="gpsozf3-graph-qlwrapper"
-        />
       </section>
     </div>
   </div>,
