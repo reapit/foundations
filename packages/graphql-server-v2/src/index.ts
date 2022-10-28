@@ -4,6 +4,9 @@ import { Server } from 'http'
 import { createServer, proxy } from 'aws-serverless-express'
 import { Handler, Context, APIGatewayEvent } from 'aws-lambda'
 import { createPlatformAxiosInstance } from './axios'
+import { isAdmin } from '@reapit/utils-nest'
+
+console.log('isAdmin', isAdmin)
 
 let cachedServer: Server
 
