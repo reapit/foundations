@@ -8347,7 +8347,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@reapit/ts-bundler@workspace:packages/ts-bundler":
+"@reapit/ts-bundler@workspace:^, @reapit/ts-bundler@workspace:packages/ts-bundler":
   version: 0.0.0-use.local
   resolution: "@reapit/ts-bundler@workspace:packages/ts-bundler"
   dependencies:
@@ -24449,8 +24449,8 @@ fsevents@^1.2.7:
   resolution: "graphql-server-v2@workspace:packages/graphql-server-v2"
   dependencies:
     "@reapit/config-manager": "workspace:packages/config-manager"
-    "@reapit/ts-bundler": "workspace:packages/ts-bundler"
-    "@reapit/ts-scripts": "workspace:packages/ts-scripts"
+    "@reapit/ts-bundler": "workspace:^"
+    "@reapit/ts-scripts": "workspace:^"
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@sentry/node": ^7.16.0
     "@types/aws-serverless-express": ^3.3.5
