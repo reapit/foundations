@@ -9,7 +9,7 @@
   "main": "dist/index.js",
   "scripts": {
     "start": "PLATFORM_API_BASE_URL=https://platform.dev.paas.reapit.cloud ts-node-dev -r tsconfig-paths/register src/http-local",
-    "test": "jest --watch --colors",
+    "test": "jest --watch --colors --silent",
     "build": "tsc -p .",
     "bundle": "ts-bundler",
     "lint": "eslint --cache --ext=ts,js src",
