@@ -58,7 +58,6 @@ export const bootstrap = async (axiosInstance: AxiosInstance): Promise<Express> 
 
   app.use(cors({
     origin: (requestOrigin, callback) => {
-      console.log(requestOrigin)
       callback(null, requestOrigin)
     },
     credentials: true,
