@@ -27,7 +27,7 @@ export const GraphQLPage: FC = () => {
           graphRef=""
           endpointUrl={window.reapit.config.graphQLUri as any}
           initialState={{
-            document: `query GetApplicants {
+            document: window.reapit.config.graphQLUri.includes('v2') ? `query GetApplicants {
   get_applicants_(embed: ["areas"]) {
     _embedded {
       id,
@@ -42,7 +42,7 @@ export const GraphQLPage: FC = () => {
     totalCount,
     totalPageCount,
   }
-}`,
+}` : '',
             headers: {
               Authorization: `Bearer ${
                 window.reapit.config.graphQLUri.includes('v2') ? connectSession?.accessToken : connectSession?.idToken
