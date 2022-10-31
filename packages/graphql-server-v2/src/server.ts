@@ -62,7 +62,7 @@ export const bootstrap = async (axiosInstance: AxiosInstance): Promise<Express> 
     },
     credentials: true,
   }))
-
+  
   app.use(
     '/graphql',
     graphqlHeader,
