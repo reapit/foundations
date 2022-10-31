@@ -1,9 +1,10 @@
 import fs from 'fs'
 import { resolve } from 'path'
 import 'isomorphic-fetch'
+import config from './../config.json'
 
 const download = async () => {
-  const { PLATFORM_API_BASE_URL } = process.env
+  const { PLATFORM_API_BASE_URL } = config
   const dest = resolve(__dirname, '..', 'swagger.json')
 
   console.log('Fetching swagger from platform')
