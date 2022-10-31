@@ -18,5 +18,5 @@
     "outDir": "./dist"
   },
   "include": ["src"],
-  "exclude": ["public", "dist", "src/scripts", "src/tests/coverage"]
+  "exclude": ["public", "dist", "src/scripts", "src/tests/coverage", "src/*/__test__/*"]
 }
