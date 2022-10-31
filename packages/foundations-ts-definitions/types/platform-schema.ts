@@ -15888,6 +15888,248 @@ export interface TenancyModelPagedResult {
   }
 }
 /**
+ * Represents a tenancies renewal negotiation
+ */
+export interface TenancyRenewalModel {
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+  /**
+   * The unique identifier of the renewal negotiation
+   */
+  id?: string
+  /**
+   * The date and time when the renewal was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the renewal was last modified
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  modified?: string // date-time
+  /**
+   * example:
+   * 2019-08-14
+   */
+  startDate?: string // date
+  /**
+   * example:
+   * 2019-08-14
+   */
+  endDate?: string // date
+  /**
+   * The status of the renewal (notStarted/started/negotiating/renewed/tenantTerminated/landlordTerminated/periodic)
+   */
+  status?: string
+  /**
+   * The unique identifier of the negotiator associated to the renewal
+   */
+  negotiatorId?: string
+  /**
+   * The tenancies rent amount
+   */
+  rent?: number // double
+  /**
+   * The rent collection frequency (weekly/monthly/4weeks/annually)
+   */
+  rentFrequency?: string
+  /**
+   * Represents rent changes in a tenancies renewal
+   */
+  rentChange?: {
+    /**
+     * The amount the rent has changed in the renewal
+     */
+    amount?: number // double
+    /**
+     * The percentage the rent has changed in the renewal
+     */
+    percentage?: number // double
+  }
+  /**
+   * The unique identifier of the tenancy associated to the renewal
+   */
+  tenancyId?: string
+  /**
+   * Representation of the tenancy letting fee
+   */
+  lettingFee?: {
+    /**
+     * The letting fee type (percentage/fixed)
+     */
+    type?: string
+    /**
+     * The fee amount
+     */
+    amount?: number // double
+    /**
+     * The frequency of when the fee is to be collected (upfront/upfrontOver2Months/monthly/quarterly/halfYearly/yearly/28days/other/notApplicable)
+     */
+    frequency?: string
+  }
+  /**
+   * Representation of the tenancy management fee
+   */
+  managementFee?: {
+    /**
+     * The management fee type (percentage/fixed)
+     */
+    type?: string
+    /**
+     * The fee amount
+     */
+    amount?: number // double
+    /**
+     * The frequency of when the fee is to be collected (monthly/quarterly/halfYearly/yearly/28days/sameAsLettingFee)
+     */
+    frequency?: string
+  }
+  /**
+   * The ETag for the current version of the tenancy renewal. Used for managing update concurrency
+   */
+  readonly _eTag?: string
+}
+export interface TenancyRenewalModelPagedResult {
+  _embedded?: {
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+    /**
+     * The unique identifier of the renewal negotiation
+     */
+    id?: string
+    /**
+     * The date and time when the renewal was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the renewal was last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * example:
+     * 2019-08-14
+     */
+    startDate?: string // date
+    /**
+     * example:
+     * 2019-08-14
+     */
+    endDate?: string // date
+    /**
+     * The status of the renewal (notStarted/started/negotiating/renewed/tenantTerminated/landlordTerminated/periodic)
+     */
+    status?: string
+    /**
+     * The unique identifier of the negotiator associated to the renewal
+     */
+    negotiatorId?: string
+    /**
+     * The tenancies rent amount
+     */
+    rent?: number // double
+    /**
+     * The rent collection frequency (weekly/monthly/4weeks/annually)
+     */
+    rentFrequency?: string
+    /**
+     * Represents rent changes in a tenancies renewal
+     */
+    rentChange?: {
+      /**
+       * The amount the rent has changed in the renewal
+       */
+      amount?: number // double
+      /**
+       * The percentage the rent has changed in the renewal
+       */
+      percentage?: number // double
+    }
+    /**
+     * The unique identifier of the tenancy associated to the renewal
+     */
+    tenancyId?: string
+    /**
+     * Representation of the tenancy letting fee
+     */
+    lettingFee?: {
+      /**
+       * The letting fee type (percentage/fixed)
+       */
+      type?: string
+      /**
+       * The fee amount
+       */
+      amount?: number // double
+      /**
+       * The frequency of when the fee is to be collected (upfront/upfrontOver2Months/monthly/quarterly/halfYearly/yearly/28days/other/notApplicable)
+       */
+      frequency?: string
+    }
+    /**
+     * Representation of the tenancy management fee
+     */
+    managementFee?: {
+      /**
+       * The management fee type (percentage/fixed)
+       */
+      type?: string
+      /**
+       * The fee amount
+       */
+      amount?: number // double
+      /**
+       * The frequency of when the fee is to be collected (monthly/quarterly/halfYearly/yearly/28days/sameAsLettingFee)
+       */
+      frequency?: string
+    }
+    /**
+     * The ETag for the current version of the tenancy renewal. Used for managing update concurrency
+     */
+    readonly _eTag?: string
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalPageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+/**
+ * Represents rent changes in a tenancies renewal
+ */
+export interface TenancyRentChangeModel {
+  /**
+   * The amount the rent has changed in the renewal
+   */
+  amount?: number // double
+  /**
+   * The percentage the rent has changed in the renewal
+   */
+  percentage?: number // double
+}
+/**
  * Representation of a tenancies responsibility
  */
 export interface TenancyResponsibilityModel {
