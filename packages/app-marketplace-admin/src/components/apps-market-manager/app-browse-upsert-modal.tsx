@@ -95,8 +95,8 @@ const upsertAppMarketing =
       },
       live: {
         ...app.live,
-        timeFrom: app?.live?.timeFrom !== '' ? app?.live.timeFrom : undefined,
-        timeTo: app?.live?.timeTo !== '' ? app?.live.timeTo : undefined,
+        timeFrom: app?.live?.timeFrom !== '' ? dayjs(app?.live.timeFrom).toISOString() : undefined,
+        timeTo: app?.live?.timeTo !== '' ? dayjs(app?.live.timeTo).toISOString() : undefined,
       },
       filters,
       index,
