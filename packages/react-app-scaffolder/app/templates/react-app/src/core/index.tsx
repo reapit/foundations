@@ -34,7 +34,8 @@ export const renderApp = (Component: ComponentType) => {
 
 const run = async () => {
   try {
-    const configRes = await fetch('config.json')
+    const configName = process.env.NODE_ENV === 'production' ? `config.${process.env.APP_VERSION}.json` : 'config.json'
+    const configRes = await fetch(configName)
     const config = (await configRes.json()) as Config
     const isLocal = config.appEnv !== 'production'
 
