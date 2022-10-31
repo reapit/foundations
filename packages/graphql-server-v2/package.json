@@ -21,7 +21,7 @@
     "snyk-protect": "snyk-protect",
     "release": "rpt-cdk deploy && echo '...ignoring stage flag...'",
     "synth": "rpt-cdk synth",
-    "generate:schema": "yarn swagger-to-graphql --swagger-schema $PLATFORM_API_BASE_URL/docs/swagger/agencyCloud_swagger.json"
+    "download:schema": "ts-node src/download-swagger.ts"
   },
   "dependencies": {
     "@sentry/node": "^7.16.0",

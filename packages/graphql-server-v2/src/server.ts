@@ -8,6 +8,7 @@ import cors from 'cors'
 import * as Sentry from '@sentry/node'
 import { AxiosInstance } from 'axios'
 import config from './../config.json'
+import swagger from './../swagger.json'
 
 if (config.SENTRY_DSN) {
   Sentry.init({ dsn: config.SENTRY_DSN })
@@ -46,7 +47,7 @@ const handlePlatformCall =
 
 export const bootstrap = async (axiosInstance: AxiosInstance): Promise<Express> => {
   const schema = await createSchema({
-    swaggerSchema: `${config.PLATFORM_API_BASE_URL}/docs/swagger/agencyCloud_swagger.json`,
+    swaggerSchema: swagger as any,
     callBackend: handlePlatformCall(axiosInstance),
   })
   const app = express()
