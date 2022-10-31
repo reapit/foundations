@@ -56,7 +56,13 @@ export const bootstrap = async (axiosInstance: AxiosInstance): Promise<Express> 
     app.use(Sentry.Handlers.requestHandler())
   }
 
-  app.use(cors())
+  app.use(cors({
+    origin: (requestOrigin, callback) => {
+      console.log(requestOrigin)
+      callback(null, requestOrigin)
+    },
+    credentials: true,
+  }))
   app.use(
     '/graphql',
     graphqlHeader,
