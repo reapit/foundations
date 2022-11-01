@@ -25,7 +25,7 @@ export const handleSetFilters =
     configItem: AppsBrowseConfigItemInterface,
   ) =>
   () => {
-    const { filters, id } = configItem
+    const { filters, id, content } = configItem
     if (filters) {
       setAppsBrowseFilterState(filters)
 
@@ -38,7 +38,11 @@ export const handleSetFilters =
       filters.category = categoryNames
       history.push(`${Routes.APPS_BROWSE}?collectionId=${id}`)
 
-      trackEvent(TrackingEvent.ClickFiltersTile, true, { filters })
+      trackEvent(TrackingEvent.ClickCollectionsTile, true, {
+        filters,
+        collectionTitle: content?.title,
+        collectionId: id,
+      })
     }
   }
 

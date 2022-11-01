@@ -1,23 +1,17 @@
-import React, { FC, useCallback, useEffect, useState } from 'react'
+import React, { FC, useCallback, useState } from 'react'
 import { BodyText, Button, ButtonGroup, Subtitle, Title, FlexContainer, elMb12 } from '@reapit/elements'
 import { Routes } from '../../constants/routes'
 import reapitLogo from '../../assets/images/reapit-logo.svg'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { KeyAnimation } from '@reapit/utils-react'
 import { LoginContainer, LoginContentWrapper, LoginImageContainer } from './__styles__'
-import { trackEventHandler, trackEvent } from '../../core/analytics'
-import { TrackingEvent } from '../../core/analytics-events'
 
 export const handleLoginClick = () => {
-  trackEvent(TrackingEvent.ClickLoginWebButton, true)
-
   reapitConnectBrowserSession.connectLoginRedirect(`${window.location.origin}${Routes.APPS_BROWSE}`)
 }
 
 export const Login: FC = () => {
   const [keyStep, setKeyStep] = useState<1 | 2 | 3>(1)
-
-  useEffect(trackEventHandler(TrackingEvent.LoadLogin, true), [])
 
   const loginUser = useCallback(handleLoginClick, [])
 

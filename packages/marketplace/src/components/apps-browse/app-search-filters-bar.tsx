@@ -53,8 +53,8 @@ export const handleSelectFilter =
 
     if (currentCategory.includes(newCategory)) {
       const category = currentCategory.filter((item) => item !== newCategory)
-
-      trackEvent(TrackingEvent.FilterApps, true, { category })
+      const foundCategory = currentCategory.find((category) => category === newCategory)
+      trackEvent(TrackingEvent.RemoveFilterCategory, true, { category: foundCategory })
 
       return setAppsBrowseFilterState({
         ...currentFilters,
@@ -63,12 +63,10 @@ export const handleSelectFilter =
     }
 
     const category = [...currentCategory, newCategory]
-    const categoryNames = category.map((categoryItem) => {
-      const foundCategory = appsBrowseCategoriesState.find((stateItem) => stateItem.id === categoryItem)
-      return foundCategory?.name ?? ''
-    })
 
-    trackEvent(TrackingEvent.FilterApps, true, { categoryNames })
+    const foundCategory = appsBrowseCategoriesState.find((stateItem) => stateItem.id === newCategory)
+
+    trackEvent(TrackingEvent.AddFilterCategory, true, { category: foundCategory?.name })
 
     return setAppsBrowseFilterState({
       ...currentFilters,

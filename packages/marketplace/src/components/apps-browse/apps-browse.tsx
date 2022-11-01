@@ -81,9 +81,9 @@ export const handleSetFilters =
     configItem: AppsBrowseConfigItemInterface,
   ) =>
   () => {
-    const { filters, id } = configItem
+    const { filters, id, content } = configItem
     if (filters) {
-      trackEvent(TrackingEvent.ClickSeeAllFilter, true, { filters })
+      trackEvent(TrackingEvent.ClickSeeAllFilter, true, { filters, collectionTitle: content?.title, collectionId: id })
       setAppsBrowseFilterState(filters)
       history.push(`${Routes.APPS_BROWSE}?collectionId=${id}`)
     }
