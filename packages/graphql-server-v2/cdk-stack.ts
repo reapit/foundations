@@ -32,7 +32,7 @@ const createStack = () => {
     component,
   })
 
-  const handler = 'packages/index.handler'
+  const handler = 'packages/graphql-server-v2/src/index.handler'
   const entrypoint = path.resolve(__dirname, 'bundle.zip')
 
   const lambdaFunction = createFunction(stack, 'graphql', entrypoint, handler, config)

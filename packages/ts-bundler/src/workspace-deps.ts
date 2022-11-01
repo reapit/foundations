@@ -1,10 +1,11 @@
 import path from 'path'
-import fs from 'fs'
+import fs from 'fs-extra'
+
 
 import { Context } from './ts-bundler'
 
-export const processWorkspaceDeps = ({ subdirs, tmpDir, packagesRoot }: Context) => {
-  const toCopy: string[] = []
+export const processWorkspaceDeps = ({ subdirs, tmpDir, packagesRoot, mainModuleName }: Context) => {
+  const toCopy: string[] = [];
 
   subdirs.forEach((moduleName) => {
     console.log(`Processing ${moduleName}`)
