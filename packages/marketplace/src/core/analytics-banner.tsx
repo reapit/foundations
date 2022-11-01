@@ -29,8 +29,8 @@ export const registerUserHandler =
       mixpanel.identify(email)
 
       mixpanel.people.set({
-        Name: name,
-        Email: email,
+        $name: name,
+        $email: email,
         'User Neg Code': userCode,
         'Organisation Name': orgName,
         'Organisation Client Code': clientId,
