@@ -38,7 +38,11 @@ describe('handleSetFilters', () => {
 
     curried()
 
-    expect(trackEvent).toHaveBeenCalledWith(TrackingEvent.ClickFiltersTile, true, { filters: configItem.filters })
+    expect(trackEvent).toHaveBeenCalledWith(TrackingEvent.ClickCollectionsTile, true, {
+      filters: configItem.filters,
+      collectionTitle: configItem.content?.title,
+      collectionId: configItem.id,
+    })
     expect(setAppsBrowseFilterState).toHaveBeenCalledWith(configItem.filters)
     expect(history.push).toHaveBeenCalledWith(`${Routes.APPS_BROWSE}?collectionId=${configItem.id}`)
   })

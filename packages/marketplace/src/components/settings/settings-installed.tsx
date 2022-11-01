@@ -56,6 +56,7 @@ export const handleUninstallApp =
     uninstallApp: SendFunction<TerminateInstallationModel, boolean | null>,
     setInstallationDetails: Dispatch<SetStateAction<InstallationDetails | null>>,
     appId?: string,
+    appName?: string,
   ) =>
   async (values: TerminateInstallationModel) => {
     if (appId) {
@@ -66,9 +67,9 @@ export const handleUninstallApp =
       })
 
       if (uninstallation) {
-        trackEvent(TrackingEvent.UninstallationSuccess, true, { appId, email })
+        trackEvent(TrackingEvent.UninstallationSuccess, true, { appId, email, appName })
       } else {
-        trackEvent(TrackingEvent.UninstallationFailed, true, { appId, email })
+        trackEvent(TrackingEvent.UninstallationFailed, true, { appId, email, appName })
       }
       setInstallationDetails(null)
     }
@@ -158,6 +159,8 @@ export const SettingsInstalled: FC = () => {
     },
     fetchWhenTrue: [appIds],
   })
+
+  const installedAppName = apps?.data?.find((app) => app.id === installationDetails?.appId)?.name
 
   const {
     register,
@@ -296,7 +299,13 @@ export const SettingsInstalled: FC = () => {
             <BodyText>Please provide a reason for terminating this installation</BodyText>
             <form
               onSubmit={handleSubmit(
-                handleUninstallApp(email, uninstallApp, setInstallationDetails, installationDetails?.appId),
+                handleUninstallApp(
+                  email,
+                  uninstallApp,
+                  setInstallationDetails,
+                  installationDetails?.appId,
+                  installedAppName,
+                ),
               )}
             >
               <FormLayout hasMargin>

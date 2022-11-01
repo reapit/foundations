@@ -93,6 +93,9 @@ export const handleOpenVideoModal =
     videoOpenModal: () => void,
     videoType: VideoType,
     videoUrl?: string,
+    appName?: string,
+    clientId?: string | null,
+    email?: string,
   ) =>
   () => {
     if (videoUrl) {
@@ -100,7 +103,7 @@ export const handleOpenVideoModal =
       const isVimeo = videoUrl.includes('https://player.vimeo.com/video/')
       const isYouTube = videoUrl.includes('https://www.youtube.com/embed/')
 
-      trackEvent(TrackingEvent.ClickInstallAppButton, true, { videoType, videoUrl })
+      trackEvent(TrackingEvent.ClickViewVideo, true, { videoType, videoUrl, appName, clientId, email })
 
       if (isYouTube || (!isDesktop && isVimeo)) {
         setVideoUrl(videoUrl)
@@ -228,21 +231,47 @@ export const AppsDetail: FC = () => {
   ])
 
   const videoModalOpenHowTo = useCallback(
-    handleOpenVideoModal(setVideoUrl, videoOpenModal, VideoType.HowTo, (videos ?? [])[0]?.uri),
+    handleOpenVideoModal(setVideoUrl, videoOpenModal, VideoType.HowTo, (videos ?? [])[0]?.uri, name, clientId, email),
     [connectSession, unfilteredAppDetail],
   )
 
   const videoModalOpenMarketing = useCallback(
-    handleOpenVideoModal(setVideoUrl, videoOpenModal, VideoType.Marketing, (videos ?? [])[1]?.uri),
+    handleOpenVideoModal(
+      setVideoUrl,
+      videoOpenModal,
+      VideoType.Marketing,
+      (videos ?? [])[1]?.uri,
+      name,
+      clientId,
+      email,
+    ),
     [connectSession, unfilteredAppDetail],
   )
 
-  const trackEnquiryEmail = useCallback(trackEventHandler(TrackingEvent.ClickSendEnquiryEmail, true), [])
-  const trackVisitHomepage = useCallback(trackEventHandler(TrackingEvent.ClickVisitAppPage, true), [])
-  const trackSupportEmail = useCallback(trackEventHandler(TrackingEvent.ClickSendSupportEmail, true), [])
-  const trackViewTerms = useCallback(trackEventHandler(TrackingEvent.ClickViewTermsAndConditions, true), [])
-  const trackViewPrivacyPolicy = useCallback(trackEventHandler(TrackingEvent.ClickViewPrivacyPolicy, true), [])
-  const trackViewPricing = useCallback(trackEventHandler(TrackingEvent.ClickViewPricing, true), [])
+  const trackEnquiryEmail = useCallback(
+    trackEventHandler(TrackingEvent.ClickSendEnquiryEmail, true, { clientId, email, appName: name }),
+    [app, connectSession],
+  )
+  const trackVisitHomepage = useCallback(
+    trackEventHandler(TrackingEvent.ClickVisitAppPage, true, { clientId, email, appName: name }),
+    [app, connectSession],
+  )
+  const trackSupportEmail = useCallback(
+    trackEventHandler(TrackingEvent.ClickSendSupportEmail, true, { clientId, email, appName: name }),
+    [app, connectSession],
+  )
+  const trackViewTerms = useCallback(
+    trackEventHandler(TrackingEvent.ClickViewTermsAndConditions, true, { clientId, email, appName: name }),
+    [app, connectSession],
+  )
+  const trackViewPrivacyPolicy = useCallback(
+    trackEventHandler(TrackingEvent.ClickViewPrivacyPolicy, true, { clientId, email, appName: name }),
+    [app, connectSession],
+  )
+  const trackViewPricing = useCallback(
+    trackEventHandler(TrackingEvent.ClickViewPricing, true, { clientId, email, appName: name }),
+    [app, connectSession],
+  )
   const salesBannerClick = useCallback(
     handleSalesBannerClick(setSalesBannerVisible, salesBannerVisible, connectSession?.loginIdentity),
     [salesBannerVisible, connectSession],
