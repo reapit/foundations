@@ -13,6 +13,7 @@ Object {
       >
         GraphQL
       </h1>
+       
       <div
         class="ebhrnzh-el-loader-container"
       >
@@ -24,14 +25,7 @@ Object {
           />
         </div>
       </div>
-      <div
-        class="gpsozf3-graph-qlwrapper"
-      />
     </div>
-    <script
-      id="gql-playground-module"
-      src="//cdn.jsdelivr.net/npm/graphql-playground-react/build/static/js/middleware.js"
-    />
   </body>,
   "container": <div>
     <div
@@ -42,6 +36,7 @@ Object {
     >
       GraphQL
     </h1>
+     
     <div
       class="ebhrnzh-el-loader-container"
     >
@@ -53,9 +48,6 @@ Object {
         />
       </div>
     </div>
-    <div
-      class="gpsozf3-graph-qlwrapper"
-    />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
