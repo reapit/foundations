@@ -4,7 +4,6 @@ import { GraphQLV1 } from './v1'
 import { GraphQLV2 } from './v2'
 
 export const GraphQLPage: FC = () => {
-
   return (
     <>
       <Title>GraphQL</Title>

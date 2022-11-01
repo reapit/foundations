@@ -27,6 +27,7 @@ window.reapit = {
     DEPLOYMENT_SERVICE_HOST: '',
     pipelineWhitelist: [],
     swaggerWhitelist: [],
+    GRAPHQL_EXPLORER: false,
   },
 }
 
