@@ -18,6 +18,7 @@ export type Config = {
   DEPLOYMENT_SERVICE_HOST: string
   pipelineWhitelist: string[]
   swaggerWhitelist: string[]
+  GRAPHQL_EXPLORER: boolean
 }
 
 declare global {
