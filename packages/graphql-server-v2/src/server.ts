@@ -9,10 +9,13 @@ import * as Sentry from '@sentry/node'
 import { AxiosInstance } from 'axios'
 import config from './../config.json'
 import swagger from './../swagger.json'
+import { createLogger } from '@reapit/utils-node'
 
 if (config.SENTRY_DSN) {
   Sentry.init({ dsn: config.SENTRY_DSN })
 }
+
+const logger = createLogger('graphql-v2')
 
 const handlePlatformCall =
   (axios: AxiosInstance) =>
@@ -38,7 +41,7 @@ const handlePlatformCall =
 
       return result.data
     } catch (e: any) {
-      console.error(e)
+      logger.error(e)
       return {
         error: e.message,
       }
