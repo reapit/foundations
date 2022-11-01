@@ -68,8 +68,8 @@ describe('registerUserHandler', () => {
 
     expect(mixpanel.identify).toHaveBeenCalledWith(connectSession.loginIdentity.email)
     expect(mixpanel.people.set).toHaveBeenCalledWith({
-      Name: connectSession.loginIdentity.name,
-      Email: connectSession.loginIdentity.email,
+      $name: connectSession.loginIdentity.name,
+      $email: connectSession.loginIdentity.email,
       'User Neg Code': connectSession.loginIdentity.userCode,
       'Organisation Name': connectSession.loginIdentity.orgName,
       'Organisation Client Code': connectSession.loginIdentity.clientId,
