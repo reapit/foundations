@@ -249,7 +249,12 @@ export const AppsDetail: FC = () => {
   )
 
   const trackEnquiryEmail = useCallback(
-    trackEventHandler(TrackingEvent.ClickSendEnquiryEmail, true, { clientId, email, appName: name }),
+    trackEventHandler(TrackingEvent.ClickSendEnquiryEmail, true, {
+      clientId,
+      email,
+      enquiryEmail: supportEmail,
+      appName: name,
+    }),
     [app, connectSession],
   )
   const trackVisitHomepage = useCallback(
@@ -257,7 +262,7 @@ export const AppsDetail: FC = () => {
     [app, connectSession],
   )
   const trackSupportEmail = useCallback(
-    trackEventHandler(TrackingEvent.ClickSendSupportEmail, true, { clientId, email, appName: name }),
+    trackEventHandler(TrackingEvent.ClickSendSupportEmail, true, { clientId, email, supportEmail, appName: name }),
     [app, connectSession],
   )
   const trackViewTerms = useCallback(

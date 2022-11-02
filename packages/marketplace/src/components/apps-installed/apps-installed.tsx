@@ -59,7 +59,7 @@ export const AppsInstalled: FC = () => {
               <InstalledAppsCol
                 className={elFadeIn}
                 key={id}
-                onClick={handleLaunchApp(connectIsDesktop, id, launchUri)}
+                onClick={handleLaunchApp(connectIsDesktop, id, launchUri, name)}
               >
                 <InstalledAppsIconWrapper>
                   {iconUri ? (
