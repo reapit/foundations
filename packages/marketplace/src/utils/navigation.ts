@@ -36,19 +36,19 @@ export const navigateExternal = (uri: string) => (): void => {
   }
 }
 
-export const handleLaunchApp = (connectIsDesktop: boolean, id?: string, launchUri?: string) => () => {
+export const handleLaunchApp = (connectIsDesktop: boolean, id?: string, launchUri?: string, appName?: string) => () => {
   if (!launchUri || !id) {
     return
   }
 
   if (connectIsDesktop) {
-    trackEvent(TrackingEvent.LaunchAppAc, true, { url: launchUri, appId: id })
+    trackEvent(TrackingEvent.LaunchAppAc, true, { url: launchUri, appId: id, appName })
 
     window.location.href = `agencycloud://app?id=${id}&launchUri=${launchUri}`
     return
   }
 
-  trackEvent(TrackingEvent.LaunchAppWeb, true, { url: launchUri, appId: id })
+  trackEvent(TrackingEvent.LaunchAppWeb, true, { url: launchUri, appId: id, appName })
 
   window.location.href = launchUri
 }

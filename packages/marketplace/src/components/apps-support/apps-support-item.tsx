@@ -6,12 +6,16 @@ import { AcProcessType, DesktopLink, useReapitGet } from '@reapit/utils-react'
 import { GetActionNames, getActions } from '@reapit/utils-common'
 import { trackEventHandler } from '../../core/analytics'
 import { TrackingEvent } from '../../core/analytics-events'
+import { useReapitConnect } from '@reapit/connect-session'
 
 export interface AppsSupportItemProps {
   app: AppSummaryModel
 }
 
 export const AppsSupportItem: FC<AppsSupportItemProps> = ({ app }) => {
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const clientId = connectSession?.loginIdentity.clientId
+  const email = connectSession?.loginIdentity.email
   const { id, name } = app
 
   const [appDetail] = useReapitGet<AppDetailModel>({
@@ -27,7 +31,10 @@ export const AppsSupportItem: FC<AppsSupportItemProps> = ({ app }) => {
     appDetail ?? {}
 
   const trackVisitHomepage = useCallback(trackEventHandler(TrackingEvent.ClickVisitAppPage, true), [])
-  const trackSupportEmail = useCallback(trackEventHandler(TrackingEvent.ClickSendSupportEmail, true), [])
+  const trackSupportEmail = useCallback(
+    trackEventHandler(TrackingEvent.ClickSendSupportEmail, true, { clientId, email, supportEmail, appName: name }),
+    [],
+  )
   const trackViewTerms = useCallback(trackEventHandler(TrackingEvent.ClickViewTermsAndConditions, true), [])
   const trackViewPrivacyPolicy = useCallback(trackEventHandler(TrackingEvent.ClickViewPrivacyPolicy, true), [])
   const trackViewPricing = useCallback(trackEventHandler(TrackingEvent.ClickViewPricing, true), [])

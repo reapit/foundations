@@ -4,6 +4,8 @@ import { Button, ButtonGroup, BodyText } from '@reapit/elements'
 import { AcProcessType, DesktopLink } from '@reapit/utils-react'
 import { TrackingEvent } from '../../core/analytics-events'
 import { trackEvent, trackEventHandler } from '../../core/analytics'
+import { useReapitConnect } from '@reapit/connect-session'
+import { reapitConnectBrowserSession } from '../../core/connect-session'
 
 export const DESKTOP_REFRESH_URL = 'agencycloud://apps/refresh'
 
@@ -20,9 +22,15 @@ export const handleCloseModal = (closeModal: () => void, appName?: string) => ()
 }
 
 export const AppInstallSuccesModalContent: FC<AppInstallModalContentProps> = ({ app, closeModal, developer }) => {
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const clientId = connectSession?.loginIdentity.clientId
+  const email = connectSession?.loginIdentity.email
   const { name, id, isDirectApi, launchUri, telephone, supportEmail } = app ?? {}
 
-  const trackSendSupportEmail = useCallback(trackEventHandler(TrackingEvent.ClickSendSupportEmail, true), [])
+  const trackSendSupportEmail = useCallback(
+    trackEventHandler(TrackingEvent.ClickSendSupportEmail, true, { clientId, email, supportEmail, appName: name }),
+    [],
+  )
   const trackLaunchAppPostInstall = useCallback(trackEventHandler(TrackingEvent.ClickLaunchAppPostInstall, true), [])
   const handleClose = useCallback(handleCloseModal(closeModal, name), [app])
 
