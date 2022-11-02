@@ -13,8 +13,6 @@ async function bootstrapServer(): Promise<Server> {
 
     app.use(eventContext())
 
-    await app.init()
-
     cachedServer = createServer(app, undefined)
   }
 
@@ -22,6 +20,8 @@ async function bootstrapServer(): Promise<Server> {
 }
 
 export const handler: Handler = async (event: APIGatewayEvent, context: Context) => {
+  console.log('event', event)
+  console.log('context', context)
   cachedServer = await bootstrapServer()
 
   return proxy(cachedServer, event, context, 'PROMISE').promise
