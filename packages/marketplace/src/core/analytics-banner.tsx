@@ -12,43 +12,33 @@ import { useAppsBrowseState } from './use-apps-browse-state'
 import { useLocation } from 'react-router'
 import { Routes } from '../constants/routes'
 
-export const registerUserHandler =
+export const handleSetUserConsent =
   (
+    currentUserState: UserModel | null,
     connectSession: ReapitConnectSession | null,
-    analyticsRegistered: boolean,
-    setAnalyticsRegistered: Dispatch<SetStateAction<boolean>>,
+    setTrackingBannerVisible: Dispatch<SetStateAction<boolean>>,
   ) =>
   () => {
-    const hasTrackingConsent = mixpanel.has_opted_in_tracking()
     const isLocal = window.reapit.config.appEnv !== 'production'
+    if (!currentUserState || !connectSession) return
 
-    if (connectSession && !analyticsRegistered && !isLocal && hasTrackingConsent) {
+    if (currentUserState.consentToTrack) {
       const { email, name, clientId, userCode, orgName, groups, developerId } = connectSession?.loginIdentity ?? {}
       const userRoles = getRoleFromGroups(groups)
 
-      mixpanel.identify(email)
-
-      mixpanel.people.set({
-        $name: name,
-        $email: email,
-        'User Neg Code': userCode,
-        'Organisation Name': orgName,
-        'Organisation Client Code': clientId,
-        'Developer Id': developerId,
-        'User Roles': userRoles,
-      })
-
-      setAnalyticsRegistered(true)
-    }
-  }
-
-export const handleSetUserConsent =
-  (currentUserState: UserModel | null, setTrackingBannerVisible: Dispatch<SetStateAction<boolean>>) => () => {
-    const isLocal = window.reapit.config.appEnv !== 'production'
-    if (!currentUserState || isLocal) return
-
-    if (currentUserState.consentToTrack) {
-      mixpanel.opt_in_tracking()
+      if (!isLocal) {
+        mixpanel.opt_in_tracking()
+        mixpanel.identify(email)
+        mixpanel.people.set({
+          $name: name,
+          $email: email,
+          'User Neg Code': userCode,
+          'Organisation Name': orgName,
+          'Organisation Client Code': clientId,
+          'Developer Id': developerId,
+          'User Roles': userRoles,
+        })
+      }
       setTrackingBannerVisible(true)
     } else {
       mixpanel.opt_out_tracking()
@@ -99,7 +89,6 @@ export const handleTrackingBannerClick =
 export const AnalyticsBanner: FC = () => {
   const { pathname } = useLocation()
   const { currentUserState, refreshCurrentUser } = useAppsBrowseState()
-  const [analyticsRegistered, setAnalyticsRegistered] = useState<boolean>(false)
   const [trackingBannerVisible, setTrackingBannerVisible] = useState(false)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const email = connectSession?.loginIdentity.email
@@ -114,12 +103,10 @@ export const AnalyticsBanner: FC = () => {
     },
   })
 
-  useEffect(registerUserHandler(connectSession, analyticsRegistered, setAnalyticsRegistered), [
-    connectSession,
+  useEffect(handleSetUserConsent(currentUserState, connectSession, setTrackingBannerVisible), [
     currentUserState,
+    connectSession,
   ])
-
-  useEffect(handleSetUserConsent(currentUserState, setTrackingBannerVisible), [currentUserState])
 
   useEffect(handleTrackingBannerTimeout(setTrackingBannerVisible, trackingBannerVisible), [trackingBannerVisible])
 
