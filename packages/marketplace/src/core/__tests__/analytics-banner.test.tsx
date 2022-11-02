@@ -2,7 +2,6 @@ import { ReapitConnectSession } from '@reapit/connect-session'
 import {
   AnalyticsBanner,
   handleTrackingBannerClick,
-  registerUserHandler,
   handleSetUserConsent,
   handleSetDoNotTrack,
 } from '../analytics-banner'
@@ -46,40 +45,6 @@ describe('AnalyticsBanner', () => {
   })
 })
 
-describe('registerUserHandler', () => {
-  it('should register a user', () => {
-    window.reapit.config.appEnv = 'production'
-    const connectSession = {
-      loginIdentity: {
-        clientId: 'MOCK_CLIENT_ID',
-        developerId: 'MOCK_DEVELOPER_ID',
-        groups: ['OrganisationAdmin'],
-        name: 'MOCK_NAME',
-        email: 'foo@example.com',
-        orgName: 'MOCK_ORG_NAME',
-      },
-    } as unknown as ReapitConnectSession
-    const analyticsRegistered = false
-    const setAnalyticsRegistered = jest.fn()
-
-    const curried = registerUserHandler(connectSession, analyticsRegistered, setAnalyticsRegistered)
-
-    curried()
-
-    expect(mixpanel.identify).toHaveBeenCalledWith(connectSession.loginIdentity.email)
-    expect(mixpanel.people.set).toHaveBeenCalledWith({
-      $name: connectSession.loginIdentity.name,
-      $email: connectSession.loginIdentity.email,
-      'User Neg Code': connectSession.loginIdentity.userCode,
-      'Organisation Name': connectSession.loginIdentity.orgName,
-      'Organisation Client Code': connectSession.loginIdentity.clientId,
-      'Developer Id': connectSession.loginIdentity.developerId,
-      'User Roles': 'Group Organisation Admin',
-    })
-    expect(setAnalyticsRegistered).toHaveBeenCalledWith(true)
-  })
-})
-
 describe('handleTrackingBannerClick', () => {
   it('handles tracking banner click', () => {
     const setTrackingBannerVisible = jest.fn()
@@ -94,6 +59,17 @@ describe('handleTrackingBannerClick', () => {
 })
 
 describe('handleSetUserConsent', () => {
+  const connectSession = {
+    loginIdentity: {
+      clientId: 'MOCK_CLIENT_ID',
+      developerId: 'MOCK_DEVELOPER_ID',
+      groups: ['OrganisationAdmin'],
+      name: 'MOCK_NAME',
+      email: 'foo@example.com',
+      orgName: 'MOCK_ORG_NAME',
+    },
+  } as unknown as ReapitConnectSession
+
   beforeEach(() => {
     jest.resetAllMocks()
   })
@@ -102,10 +78,20 @@ describe('handleSetUserConsent', () => {
     const currentUserState = mockUserModel
     const setTrackingBannerVisible = jest.fn()
 
-    const curried = handleSetUserConsent(currentUserState, setTrackingBannerVisible)
+    const curried = handleSetUserConsent(currentUserState, connectSession, setTrackingBannerVisible)
 
     curried()
 
+    expect(mixpanel.identify).toHaveBeenCalledWith(connectSession.loginIdentity.email)
+    expect(mixpanel.people.set).toHaveBeenCalledWith({
+      $name: connectSession.loginIdentity.name,
+      $email: connectSession.loginIdentity.email,
+      'User Neg Code': connectSession.loginIdentity.userCode,
+      'Organisation Name': connectSession.loginIdentity.orgName,
+      'Organisation Client Code': connectSession.loginIdentity.clientId,
+      'Developer Id': connectSession.loginIdentity.developerId,
+      'User Roles': 'Group Organisation Admin',
+    })
     expect(mixpanel.opt_in_tracking).toHaveBeenCalledTimes(1)
     expect(mixpanel.opt_out_tracking).not.toHaveBeenCalled()
     expect(setTrackingBannerVisible).toHaveBeenCalledWith(true)
@@ -115,7 +101,7 @@ describe('handleSetUserConsent', () => {
     const currentUserState = { ...mockUserModel, consentToTrack: false }
     const setTrackingBannerVisible = jest.fn()
 
-    const curried = handleSetUserConsent(currentUserState, setTrackingBannerVisible)
+    const curried = handleSetUserConsent(currentUserState, connectSession, setTrackingBannerVisible)
 
     curried()
 
@@ -128,7 +114,7 @@ describe('handleSetUserConsent', () => {
     const currentUserState = null
     const setTrackingBannerVisible = jest.fn()
 
-    const curried = handleSetUserConsent(currentUserState, setTrackingBannerVisible)
+    const curried = handleSetUserConsent(currentUserState, connectSession, setTrackingBannerVisible)
 
     curried()
 
