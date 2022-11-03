@@ -1440,6 +1440,10 @@ export interface InstallationModel {
    */
   created?: string // date-time
   /**
+   * Gets the name of the app the installation is associated with
+   */
+  appName?: string
+  /**
    * Gets the id of the client that has granted access to the app (or revoked it)
    */
   client?: string
@@ -1957,7 +1961,7 @@ export interface UpdateDeveloperModel {
   /**
    * Sets the date the developer agreed to the terms
    */
-  readonly agreedTerms?: string // date-time
+  agreedTerms?: string // date-time
   /**
    * Sets the flag specifying if the developer is inactive
    */
