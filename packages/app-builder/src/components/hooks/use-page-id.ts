@@ -38,10 +38,13 @@ export const usePageId = () => {
     }
   }
 
-  const setPageId = (pageId: string, context?: Record<string, any>) => {
+  const setPageId = (pageId: string, context?: Record<string, any>, forceRefresh?: boolean) => {
     const { pathname, search } = generateLinkAttrs(pageId, context)
     const dest = `${pathname}${search ? `?${search}` : ''}`
     history.push(dest)
+    if (forceRefresh) {
+      window.location.reload()
+    }
   }
 
   return { pageId: pageId || '~', setPageId, appId, context, generateLinkAttrs }
