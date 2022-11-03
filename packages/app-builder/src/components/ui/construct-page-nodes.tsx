@@ -33,11 +33,10 @@ export const constructPageNodes = (
     linkedNodes: {},
     nodes: nodesArr,
   } as unknown as SerializedNode
-
+  const titleNodeTree = reactElementToNodeTree(
+    <Element is={Text} typographyType={'title'} width={12} fontSize={21} text={pageTitle || ''} />,
+  )
   if (operationType === 'list') {
-    const titleNodeTree = reactElementToNodeTree(
-      <Element is={Text} typographyType={'title'} width={12} fontSize={21} text={pageTitle || ''} />,
-    )
     nodes['atitle'] = serializeNode(titleNodeTree.nodes[titleNodeTree.rootNodeId].data, resolver)
     nodes['btable'] = {
       type: { resolvedName: 'Table' },
@@ -70,9 +69,6 @@ export const constructPageNodes = (
       const containerNodeTree = reactElementToNodeTree(<Element canvas is={Container} width={12} />)
       const formNodeTree = reactElementToNodeTree(
         <Element is={Form} canvas width={12} typeName={typeName} formType={operationType} destination={sourcePageId} />,
-      )
-      const titleNodeTree = reactElementToNodeTree(
-        <Element is={Text} width={12} fontSize={21} text={pageTitle || ''} />,
       )
       const titleEle = serializeNode(titleNodeTree.nodes[titleNodeTree.rootNodeId].data, resolver)
       const formEle = serializeNode(formNodeTree.nodes[formNodeTree.rootNodeId].data, resolver)
