@@ -9,7 +9,8 @@ import { GetActionNames, getActions, UpdateActionNames, updateActions } from '@r
 import { elMt5, FormLayout, InputWrap, Label, ToggleRadio } from '@reapit/elements'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
-import { useForm, UseFormWatch } from 'react-hook-form'
+import { useForm, UseFormWatch, UseFormReset } from 'react-hook-form'
+import { v4 as uuid } from 'uuid'
 
 export type SubscriptionType = 'applicationListing' | 'developerRegistration' | 'developerEdition'
 
@@ -28,16 +29,23 @@ export const getCurrentSub =
     subscriptions: SubscriptionModelPagedResult | null,
     subscriptionType: SubscriptionType,
     setCurrentSub: Dispatch<SetStateAction<SubscriptionModel | null>>,
+    reset: UseFormReset<ToggleSubscribedForm>,
+    appId?: string,
   ) =>
   () => {
-    if (subscriptions?.data && subscriptionType === 'applicationListing') {
-      const sub = subscriptions.data.find((sub) => sub.type === 'applicationListing' && !sub.cancelled) ?? null
+    if (subscriptions?.data && subscriptionType === 'applicationListing' && appId) {
+      const sub =
+        subscriptions.data.find(
+          (sub) => sub.type === 'applicationListing' && !sub.cancelled && appId === sub.applicationId,
+        ) ?? null
       setCurrentSub(sub)
+      reset({ isSubscribed: sub ? 'SUBSCRIBED' : 'NOT_SUBSCRIBED' })
     }
 
     if (subscriptions?.data && subscriptionType === 'developerRegistration') {
       const sub = subscriptions.data.find((sub) => sub.type === 'developerRegistration' && !sub.cancelled) ?? null
       setCurrentSub(sub)
+      reset({ isSubscribed: sub ? 'SUBSCRIBED' : 'NOT_SUBSCRIBED' })
     }
   }
 
@@ -84,10 +92,9 @@ export const CreateSubscriptions: FC<CreateSubscriptionsProps> = ({ subscription
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const email = connectSession?.loginIdentity.email
   const [currentSub, setCurrentSub] = useState<SubscriptionModel | null>(null)
-  const { register, watch } = useForm<ToggleSubscribedForm>()
+  const { register, watch, reset } = useForm<ToggleSubscribedForm>()
 
   const queryParams = objectToQuery({
-    appId,
     developerId,
     subscriptionType,
   })
@@ -125,7 +132,11 @@ export const CreateSubscriptions: FC<CreateSubscriptionsProps> = ({ subscription
   })
   const cancelSub = cancelSubscriptionHander(cancelSubscription)
 
-  useEffect(getCurrentSub(subscriptions, subscriptionType, setCurrentSub), [subscriptions, subscriptionType])
+  useEffect(getCurrentSub(subscriptions, subscriptionType, setCurrentSub, reset, appId), [
+    subscriptions,
+    subscriptionType,
+    appId,
+  ])
   useEffect(handleRefreshSubs(subscriptionsRefresh, shouldRefresh), [subscriptionCancelled, subscriptionCreated])
   useEffect(handleWatchToggle(createSub, cancelSub, watch), [subscriptions, currentSub])
 
@@ -141,16 +152,16 @@ export const CreateSubscriptions: FC<CreateSubscriptionsProps> = ({ subscription
             hasGreyBg
             options={[
               {
-                id: `option-subscribed-true-${appId}`,
+                id: `option-subscribed-true-${uuid()}`,
                 value: 'SUBSCRIBED',
                 text: 'Subscribed',
                 isChecked: Boolean(currentSub),
               },
               {
-                id: `option-subscribed-false-${appId}`,
+                id: `option-subscribed-false-${uuid()}`,
                 value: 'NOT_SUBSCRIBED',
                 text: 'Not Subscribed',
-                isChecked: !currentSub,
+                isChecked: currentSub === null,
               },
             ]}
           />
