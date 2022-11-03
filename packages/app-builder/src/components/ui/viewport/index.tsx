@@ -116,7 +116,7 @@ export const Viewport = ({ children, iframeRef, deserialize, rendererDivRefHandl
                 },
                 args,
                 undefined,
-                entity,
+                `New ${entity}`,
                 'create',
                 fields,
               )
@@ -128,7 +128,7 @@ export const Viewport = ({ children, iframeRef, deserialize, rendererDivRefHandl
               }
               const nodesArr = nodesObjtoToArr(appId, newPage.id, nodes)
               await updatePageNodes(nodesArr, newPage.id)
-              setPageId(newPage.id)
+              setPageId(newPage.id, undefined, true)
             } catch (e) {
               console.error(e)
             }
