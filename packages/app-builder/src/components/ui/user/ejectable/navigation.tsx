@@ -7,6 +7,7 @@ import {
   SecondaryNavContainer,
   SecondaryNav,
   SecondaryNavItem,
+  Title,
 } from '@reapit/elements'
 import { useNavConfig } from '@/components/hooks/use-nav-config'
 
@@ -32,6 +33,7 @@ export const Navigation = forwardRef<HTMLDivElement, NavigationProps>((_, ref) =
       </ElNavContainer>
       {subItems && subItems.length > 1 && (
         <SecondaryNavContainer>
+          <Title>{options.find((item) => item.itemIndex === navIndex)?.text}</Title>
           <SecondaryNav>
             {subItems.map((opt) => (
               <SecondaryNavItem
