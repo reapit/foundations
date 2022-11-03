@@ -25,16 +25,15 @@ Object {
               class="el-has-grey-bg el-toggle-radio-wrap"
             >
               <input
-                checked=""
                 class="el-toggle-radio"
-                id="option-subscribed-true-APP_ID"
+                id="option-subscribed-true-MOCK_UUID"
                 name="isSubscribed"
                 type="radio"
                 value="SUBSCRIBED"
               />
               <label
                 class="el-has-grey-bg el-toggle-radio-label"
-                for="option-subscribed-true-APP_ID"
+                for="option-subscribed-true-MOCK_UUID"
               >
                 <span
                   class="el-toggle-radio-item"
@@ -43,15 +42,16 @@ Object {
                 </span>
               </label>
               <input
+                checked=""
                 class="el-toggle-radio"
-                id="option-subscribed-false-APP_ID"
+                id="option-subscribed-false-MOCK_UUID"
                 name="isSubscribed"
                 type="radio"
                 value="NOT_SUBSCRIBED"
               />
               <label
                 class="el-has-grey-bg el-toggle-radio-label"
-                for="option-subscribed-false-APP_ID"
+                for="option-subscribed-false-MOCK_UUID"
               >
                 <span
                   class="el-toggle-radio-item"
@@ -86,16 +86,15 @@ Object {
             class="el-has-grey-bg el-toggle-radio-wrap"
           >
             <input
-              checked=""
               class="el-toggle-radio"
-              id="option-subscribed-true-APP_ID"
+              id="option-subscribed-true-MOCK_UUID"
               name="isSubscribed"
               type="radio"
               value="SUBSCRIBED"
             />
             <label
               class="el-has-grey-bg el-toggle-radio-label"
-              for="option-subscribed-true-APP_ID"
+              for="option-subscribed-true-MOCK_UUID"
             >
               <span
                 class="el-toggle-radio-item"
@@ -104,15 +103,16 @@ Object {
               </span>
             </label>
             <input
+              checked=""
               class="el-toggle-radio"
-              id="option-subscribed-false-APP_ID"
+              id="option-subscribed-false-MOCK_UUID"
               name="isSubscribed"
               type="radio"
               value="NOT_SUBSCRIBED"
             />
             <label
               class="el-has-grey-bg el-toggle-radio-label"
-              for="option-subscribed-false-APP_ID"
+              for="option-subscribed-false-MOCK_UUID"
             >
               <span
                 class="el-toggle-radio-item"
@@ -206,14 +206,14 @@ Object {
               <input
                 checked=""
                 class="el-toggle-radio"
-                id="option-subscribed-true-APP_ID"
+                id="option-subscribed-true-MOCK_UUID"
                 name="isSubscribed"
                 type="radio"
                 value="SUBSCRIBED"
               />
               <label
                 class="el-has-grey-bg el-toggle-radio-label"
-                for="option-subscribed-true-APP_ID"
+                for="option-subscribed-true-MOCK_UUID"
               >
                 <span
                   class="el-toggle-radio-item"
@@ -223,14 +223,14 @@ Object {
               </label>
               <input
                 class="el-toggle-radio"
-                id="option-subscribed-false-APP_ID"
+                id="option-subscribed-false-MOCK_UUID"
                 name="isSubscribed"
                 type="radio"
                 value="NOT_SUBSCRIBED"
               />
               <label
                 class="el-has-grey-bg el-toggle-radio-label"
-                for="option-subscribed-false-APP_ID"
+                for="option-subscribed-false-MOCK_UUID"
               >
                 <span
                   class="el-toggle-radio-item"
@@ -267,14 +267,14 @@ Object {
             <input
               checked=""
               class="el-toggle-radio"
-              id="option-subscribed-true-APP_ID"
+              id="option-subscribed-true-MOCK_UUID"
               name="isSubscribed"
               type="radio"
               value="SUBSCRIBED"
             />
             <label
               class="el-has-grey-bg el-toggle-radio-label"
-              for="option-subscribed-true-APP_ID"
+              for="option-subscribed-true-MOCK_UUID"
             >
               <span
                 class="el-toggle-radio-item"
@@ -284,14 +284,14 @@ Object {
             </label>
             <input
               class="el-toggle-radio"
-              id="option-subscribed-false-APP_ID"
+              id="option-subscribed-false-MOCK_UUID"
               name="isSubscribed"
               type="radio"
               value="NOT_SUBSCRIBED"
             />
             <label
               class="el-has-grey-bg el-toggle-radio-label"
-              for="option-subscribed-false-APP_ID"
+              for="option-subscribed-false-MOCK_UUID"
             >
               <span
                 class="el-toggle-radio-item"
