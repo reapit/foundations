@@ -43,7 +43,7 @@ export class ContactAddress {
   @Field({ nullable: true })
   postcode?: string
 
-  @Field(() => CountryCode, { nullable: true })
+  @Field(() => String, { nullable: true })
   countryId?: CountryCode
 }
 
@@ -143,7 +143,7 @@ export class ContactAddressInput {
   @Field({ nullable: true })
   postcode?: string
 
-  @Field(() => CountryCode, { nullable: true })
+  @Field(() => String, { nullable: true })
   countryId?: CountryCode
 }
 
