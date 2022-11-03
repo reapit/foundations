@@ -248,6 +248,6 @@ export enum CountryCode {
   ZM = 'ZM',
   ZW = 'ZW',
   AX = 'AX',
-  '' = '',
   None = 'None',
+  Empty = '',
 }
