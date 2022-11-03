@@ -1,9 +1,10 @@
-import { ObjectType, Field, ID, InputType, GraphQLISODateTime, registerEnumType } from 'type-graphql'
+import { ObjectType, Field, ID, InputType, registerEnumType } from 'type-graphql'
 import { gql } from 'apollo-server-core'
 import { PropertyImage, PropertyImageFragment } from './property-image'
 import { Negotiator, NegotiatorFragment } from './negotiator'
 import { Office, OfficeFragment } from './office'
 import { Department, DepartmentFragment } from './department'
+import { LiberalGraphQLISODateTime } from './LiberalGraphQLISODateTime'
 
 export const PropertyFragment = gql`
   ${NegotiatorFragment}
@@ -218,10 +219,10 @@ export class Property {
   })
   id: string
 
-  @Field(() => GraphQLISODateTime)
+  @Field(() => LiberalGraphQLISODateTime)
   created: Date
 
-  @Field(() => GraphQLISODateTime)
+  @Field(() => LiberalGraphQLISODateTime)
   modified: Date
 
   @Field({ nullable: true })

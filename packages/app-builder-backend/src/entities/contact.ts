@@ -1,8 +1,9 @@
 import { CountryCode } from '../utils/country-code-enum'
 import { gql } from 'apollo-server-core'
-import { ObjectType, Field, ID, InputType, registerEnumType, GraphQLISODateTime } from 'type-graphql'
+import { ObjectType, Field, ID, InputType, registerEnumType } from 'type-graphql'
 import { Negotiator, NegotiatorFragment } from './negotiator'
 import { Office, OfficeFragment } from './office'
+import { LiberalGraphQLISODateTime } from './LiberalGraphQLISODateTime'
 
 export enum MarketingConsent {
   grant = 'grant',
@@ -51,10 +52,10 @@ export class Contact {
   @Field(() => ID)
   id: string
 
-  @Field(() => GraphQLISODateTime)
+  @Field(() => LiberalGraphQLISODateTime)
   created: Date
 
-  @Field(() => GraphQLISODateTime)
+  @Field(() => LiberalGraphQLISODateTime)
   modified: Date
 
   @Field()

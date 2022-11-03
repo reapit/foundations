@@ -1,9 +1,10 @@
 import { gql } from 'apollo-server-core'
-import { Field, Float, GraphQLISODateTime, InputType, ObjectType, registerEnumType } from 'type-graphql'
+import { Field, Float, InputType, ObjectType, registerEnumType } from 'type-graphql'
 import { Applicant, ApplicantFields } from './applicant'
 import { Negotiator } from './negotiator'
 import { Property, PropertyFragment } from './property'
 import { GraphQLDate } from 'graphql-iso-date'
+import { LiberalGraphQLISODateTime } from './LiberalGraphQLISODateTime'
 
 export enum OfferStatus {
   pending = 'pending',
@@ -19,10 +20,10 @@ export class Offer {
   @Field()
   id: string
 
-  @Field(() => GraphQLISODateTime)
+  @Field(() => LiberalGraphQLISODateTime)
   created: Date
 
-  @Field(() => GraphQLISODateTime)
+  @Field(() => LiberalGraphQLISODateTime)
   modified: Date
 
   @Field(() => Applicant, { nullable: true })

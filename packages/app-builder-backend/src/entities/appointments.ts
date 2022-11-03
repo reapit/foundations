@@ -1,6 +1,7 @@
 import { gql } from 'apollo-server-core'
-import { Field, GraphQLISODateTime, ID, InputType, ObjectType } from 'type-graphql'
+import { Field, ID, InputType, ObjectType } from 'type-graphql'
 import { Contact } from './contact'
+import { LiberalGraphQLISODateTime } from './LiberalGraphQLISODateTime'
 import { Negotiator } from './negotiator'
 import { Office } from './office'
 import { Property, PropertyFragment } from './property'
@@ -19,10 +20,10 @@ export class Appointment {
   @Field()
   id: string
 
-  @Field(() => GraphQLISODateTime)
+  @Field(() => LiberalGraphQLISODateTime)
   created: Date
 
-  @Field(() => GraphQLISODateTime)
+  @Field(() => LiberalGraphQLISODateTime)
   modified: Date
 
   @Field(() => String, { nullable: false })
@@ -64,10 +65,10 @@ export class Appointment {
 
 @InputType()
 export class AppointmentInput {
-  @Field(() => GraphQLISODateTime)
+  @Field(() => LiberalGraphQLISODateTime)
   start?: Date
 
-  @Field(() => GraphQLISODateTime)
+  @Field(() => LiberalGraphQLISODateTime)
   end?: Date
 
   @Field({ nullable: true, description: '@idOf(AppointmentType)' })

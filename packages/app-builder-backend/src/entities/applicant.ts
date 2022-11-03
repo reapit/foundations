@@ -1,11 +1,12 @@
 import { gql } from 'apollo-server-core'
-import { ObjectType, Field, ID, InputType, GraphQLISODateTime, registerEnumType, Int, Float } from 'type-graphql'
+import { ObjectType, Field, ID, InputType, registerEnumType, Int, Float } from 'type-graphql'
 import { GraphQLDate } from 'graphql-iso-date'
 import { Negotiator, NegotiatorFragment } from './negotiator'
 import { Office, OfficeFragment } from './office'
 import { Department, DepartmentFragment } from './department'
 import { ExternalAreaType, InternalAreaType, PropertyLettingFrequency } from './property'
 import { Contact } from './contact'
+import { LiberalGraphQLISODateTime } from './LiberalGraphQLISODateTime'
 
 @ObjectType()
 class ApplicantBuying {
@@ -54,10 +55,10 @@ export class Applicant {
   @Field(() => ID)
   id: string
 
-  @Field(() => GraphQLISODateTime)
+  @Field(() => LiberalGraphQLISODateTime)
   created: Date
 
-  @Field(() => GraphQLISODateTime)
+  @Field(() => LiberalGraphQLISODateTime)
   modified: Date
 
   @Field({ nullable: true })
