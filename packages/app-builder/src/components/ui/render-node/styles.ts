@@ -75,20 +75,24 @@ export const BodyContainer = styled.section`
 
 export const NavigationContainer = styled.div`
   grid-area: nav;
-  overflow: hidden;
+  display: flex;
   padding-top: 46px;
   background: white;
 `
 
-export const RootContainer = styled.section<{ showNav: boolean }>`
+export const RootContainer = styled.section<{ expandNav: boolean; showNav: boolean }>`
   width: calc(100vw - 15px); /* allow for scrollbar */
   > div {
     display: grid;
     grid-template-areas: 'nav body';
     transition: all 0.35s;
-    grid-template-columns: ${({ showNav }) => {
+    grid-template-columns: ${({ expandNav, showNav }) => {
       if (showNav) {
-        return '80px 9fr'
+        if (expandNav) {
+          return 'calc(80px + 14rem) 9fr'
+        } else {
+          return '80px 9fr'
+        }
       }
       return '0px 9fr'
     }};
