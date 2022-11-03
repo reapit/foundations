@@ -6,5 +6,5 @@ export const idOrSubdomainToId = async (idOrSubdomain: string) => {
     return idOrSubdomain
   }
   const app = (await getDomainApps(idOrSubdomain))[0]
-  return app.id
+  return app?.id
 }
