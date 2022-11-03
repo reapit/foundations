@@ -7,6 +7,7 @@ import { ExtendedApolloServerLambda } from './extended-apollo-server'
 import { getCustomEntities } from './custom-entites'
 import { MetadataSchemaType } from './utils/extract-metadata'
 import { createMarketplaceAppLoader } from './platform/apps'
+import { idOrSubdomainToId } from './utils/id-or-subdomain'
 
 const lowerCaseKeys = (obj: Record<string, string | undefined>): Record<string, string> => {
   const newObj = {}
@@ -24,7 +25,7 @@ const createHandler = async (event: APIGatewayEvent) => {
   const webUrl = lowercaseHeaders.origin
   const apiUrl = `https://${lowercaseHeaders.host}/${event.requestContext.stage}/`
   const accessToken = lowercaseHeaders['reapit-connect-token'] as string
-  const appId = lowercaseHeaders['app-id']
+  const appId = await idOrSubdomainToId(lowercaseHeaders['app-id'])
   const metadataCache = {} as Record<string, any>
   const marketplaceAppLoader = createMarketplaceAppLoader(accessToken)
 

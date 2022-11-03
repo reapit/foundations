@@ -12,6 +12,7 @@ import { CustomEntity } from './entities/custom-entity'
 import { getCustomEntities } from './custom-entites'
 import { MetadataSchemaType } from './utils/extract-metadata'
 import { createMarketplaceAppLoader } from './platform/apps'
+import { idOrSubdomainToId } from './utils/id-or-subdomain'
 
 const parseContext = async ({ req }): Promise<Context> => {
   const accessToken = req.headers['reapit-connect-token']
@@ -20,7 +21,7 @@ const parseContext = async ({ req }): Promise<Context> => {
     accessToken,
     apiUrl: 'http://localhost:4000/',
     webUrl: req.headers.origin,
-    appId: req.headers['app-id'],
+    appId: await idOrSubdomainToId(req.headers['app-id']),
   }
 
   const marketplaceAppLoader = createMarketplaceAppLoader(accessToken)
