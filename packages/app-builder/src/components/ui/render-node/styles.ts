@@ -78,6 +78,7 @@ export const NavigationContainer = styled.div`
   display: flex;
   padding-top: 46px;
   background: white;
+  overflow: hidden;
 `
 
 export const RootContainer = styled.section<{ expandNav: boolean; showNav: boolean }>`
