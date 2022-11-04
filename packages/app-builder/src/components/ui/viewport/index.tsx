@@ -4,6 +4,7 @@ import { elFlex, elFlex1, elFlexColumn, elFlexRow, elHFull, elMAuto, elPb6, elWF
 import { cx } from '@linaria/core'
 import { styled } from '@linaria/react'
 import IFrame from 'react-frame-component'
+import pluralize from 'pluralize'
 
 import Header from '../header'
 import Sidebar from '../sidebar'
@@ -116,7 +117,7 @@ export const Viewport = ({ children, iframeRef, deserialize, rendererDivRefHandl
                 },
                 args,
                 undefined,
-                `New ${entity}`,
+                pageType === 'table' ? pluralize(entity, 2) : `New ${entity}`,
                 'create',
                 fields,
               )
