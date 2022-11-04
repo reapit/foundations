@@ -111,7 +111,7 @@ export const Viewport = ({ children, iframeRef, deserialize, rendererDivRefHandl
             try {
               const nodes = constructPageNodes(
                 entity,
-                pageType === 'table' ? 'list' : 'form',
+                pageType === 'table' ? 'list' : 'create',
                 (element: any) => {
                   return parseReactElement(element).toNodeTree()
                 },

@@ -671,6 +671,7 @@ const InnerFormInput = (
       <ListInput
         defaultValue={newDefaultValue}
         label={label}
+        ref={ref}
         formInput={formInput}
         onChange={(value: any) => {
           onChange({

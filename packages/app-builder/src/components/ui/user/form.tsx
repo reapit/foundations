@@ -17,6 +17,7 @@ import { useCustomEntity } from '@/components/hooks/custom-entities/use-custom-e
 import { useObject } from '@/components/hooks/objects/use-object'
 import { strToCamel } from '@reapit/utils-common'
 import { ParsedArg } from '@/components/hooks/use-introspection/query-generators'
+import { ColumnControls } from './column-controls'
 
 const defaultProps = {
   destination: '/',
@@ -67,13 +68,35 @@ const FormSettings = () => {
   const { customEntity } = useCustomEntity(typeName)
   const { object } = useObject(typeName)
 
-  const { addInput, setInputs, actions } = useEditor((state, query) => {
+  const { addInput, setInputs, actions, getInputs, removeInput } = useEditor((state, query) => {
     const addInput = (input: FormInputProps, parentNodeId: string) => {
       const nodeTree = query.parseReactElement(<FormInput {...input} />).toNodeTree()
       actions.addNodeTree(nodeTree, parentNodeId)
     }
+    const removeInput = (input: FormInputProps, parentNodeId: string) => {
+      query
+        .node(parentNodeId)
+        .descendants()
+        .map(query.node)
+        .map((node) => node.get())
+        .filter((node) => node.data.props.name === input.name)
+        .forEach((node) => {
+          try {
+            actions.delete(node.id)
+          } catch (e) {
+            // do nothing
+          }
+        })
+    }
     return {
       addInput,
+      removeInput,
+      getInputs: (parentNodeId: string) =>
+        query
+          .node(parentNodeId)
+          .descendants()
+          .map(query.node)
+          .map((node) => node.get().data.props.name),
       setInputs: (inputs: FormInputProps[], parentNodeId: string) => {
         query
           .node(parentNodeId)
@@ -108,6 +131,9 @@ const FormSettings = () => {
     }, 100)
   }
 
+  const availableFields = (args ? args[0].fields?.filter(({ name }) => name !== 'id') : undefined) || []
+  const includedFields = [...new Set(getInputs(nodeId).map((name) => name.split('.')[0]))]
+  console.log(includedFields)
   useEffect(() => {
     if (!formType) {
       setProp((props) => {
@@ -165,6 +191,28 @@ const FormSettings = () => {
           Add New Input
         </Button>
       )}
+      <ColumnControls
+        availableFields={availableFields.map(({ name }) => ({ name, isRequired: false }))}
+        includedFields={includedFields}
+        removeField={(name: string) => {
+          if (args) {
+            const field = args[0].fields?.find((field) => field.name === name)
+            if (field) {
+              const inputs = argToFormInput(field, { typeName, formType })
+              inputs.forEach((input) => removeInput(input, nodeId))
+            }
+          }
+        }}
+        addField={(name: string) => {
+          if (args) {
+            const field = args[0].fields?.find((field) => field.name === name)
+            if (field) {
+              const inputs = argToFormInput(field, { typeName, formType })
+              inputs.forEach((input) => addInput(input, nodeId))
+            }
+          }
+        }}
+      />
     </>
   )
 }
