@@ -44,10 +44,14 @@ export const ColumnControls = ({
   availableFields,
   includedFields = [],
   setIncludedFields,
+  addField,
+  removeField,
 }: {
   availableFields: { name: string; isRequired: boolean }[]
   includedFields?: string[]
-  setIncludedFields: (fields: string[]) => void
+  setIncludedFields?: (fields: string[]) => void
+  addField?: (field: string) => void
+  removeField?: (field: string) => void
 }) => (
   <div>
     <ColumnControlLabel>Fields</ColumnControlLabel>
@@ -65,7 +69,9 @@ export const ColumnControls = ({
                   return
                 }
                 const newFields = !checked ? [...includedFields, name] : includedFields.filter((f) => f !== name)
-                setIncludedFields(newFields)
+                setIncludedFields && setIncludedFields(newFields)
+                addField && !checked && addField(name)
+                removeField && checked && removeField(name)
               }}
               style={isRequired ? { cursor: 'not-allowed', opacity: 0.5 } : {}}
             >
@@ -77,7 +83,10 @@ export const ColumnControls = ({
                     return
                   }
                   const newFields = newChecked ? [...includedFields, name] : includedFields.filter((f) => f !== name)
-                  setIncludedFields(newFields)
+                  setIncludedFields && setIncludedFields(newFields)
+                  addField && addField(name)
+                  addField && newChecked && addField(name)
+                  removeField && !newChecked && removeField(name)
                 }}
               />
               <Label>{friendlyIdName(name)}</Label>

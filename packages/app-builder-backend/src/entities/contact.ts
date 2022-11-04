@@ -1,6 +1,6 @@
 import { CountryCode } from '../utils/country-code-enum'
 import { gql } from 'apollo-server-core'
-import { ObjectType, Field, ID, InputType, registerEnumType, GraphQLISODateTime } from 'type-graphql'
+import { ObjectType, Field, ID, InputType, registerEnumType } from 'type-graphql'
 import { Negotiator, NegotiatorFragment } from './negotiator'
 import { Office, OfficeFragment } from './office'
 
@@ -42,7 +42,7 @@ export class ContactAddress {
   @Field({ nullable: true })
   postcode?: string
 
-  @Field(() => CountryCode, { nullable: true })
+  @Field(() => String, { nullable: true })
   countryId?: CountryCode
 }
 
@@ -50,12 +50,6 @@ export class ContactAddress {
 export class Contact {
   @Field(() => ID)
   id: string
-
-  @Field(() => GraphQLISODateTime)
-  created: Date
-
-  @Field(() => GraphQLISODateTime)
-  modified: Date
 
   @Field()
   forename: string
@@ -142,7 +136,7 @@ export class ContactAddressInput {
   @Field({ nullable: true })
   postcode?: string
 
-  @Field(() => CountryCode, { nullable: true })
+  @Field(() => String, { nullable: true })
   countryId?: CountryCode
 }
 

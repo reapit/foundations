@@ -88,6 +88,7 @@ export type Page = {
     | 'offer'
     | 'office'
     | 'property'
+    | 'propertyimage'
   pageType: 'create' | 'update' | 'list'
   nodes: Array<Node>
 }

@@ -1,5 +1,5 @@
 import { gql } from 'apollo-server-core'
-import { Field, Float, GraphQLISODateTime, InputType, ObjectType, registerEnumType } from 'type-graphql'
+import { Field, Float, InputType, ObjectType, registerEnumType } from 'type-graphql'
 import { Applicant, ApplicantFields } from './applicant'
 import { Negotiator } from './negotiator'
 import { Property, PropertyFragment } from './property'
@@ -18,12 +18,6 @@ registerEnumType(OfferStatus, { name: 'OfferStatus' })
 export class Offer {
   @Field()
   id: string
-
-  @Field(() => GraphQLISODateTime)
-  created: Date
-
-  @Field(() => GraphQLISODateTime)
-  modified: Date
 
   @Field(() => Applicant, { nullable: true })
   applicant?: Applicant

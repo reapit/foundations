@@ -61,7 +61,7 @@ export const CreatePage = ({
       },
       args,
       sourcePageId,
-      pageId,
+      pageId.split('-').join(' '),
       'update',
       fields,
     )
