@@ -20,12 +20,6 @@ export class Appointment {
   @Field()
   id: string
 
-  @Field(() => LiberalGraphQLISODateTime)
-  created: Date
-
-  @Field(() => LiberalGraphQLISODateTime)
-  modified: Date
-
   @Field(() => String, { nullable: false })
   start?: Date
 

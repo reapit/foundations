@@ -4,7 +4,6 @@ import { PropertyImage, PropertyImageFragment } from './property-image'
 import { Negotiator, NegotiatorFragment } from './negotiator'
 import { Office, OfficeFragment } from './office'
 import { Department, DepartmentFragment } from './department'
-import { LiberalGraphQLISODateTime } from './LiberalGraphQLISODateTime'
 
 export const PropertyFragment = gql`
   ${NegotiatorFragment}
@@ -218,12 +217,6 @@ export class Property {
     description: '@acKey(prpCode)',
   })
   id: string
-
-  @Field(() => LiberalGraphQLISODateTime)
-  created: Date
-
-  @Field(() => LiberalGraphQLISODateTime)
-  modified: Date
 
   @Field({ nullable: true })
   strapline?: string

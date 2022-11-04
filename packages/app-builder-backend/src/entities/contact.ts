@@ -3,7 +3,6 @@ import { gql } from 'apollo-server-core'
 import { ObjectType, Field, ID, InputType, registerEnumType } from 'type-graphql'
 import { Negotiator, NegotiatorFragment } from './negotiator'
 import { Office, OfficeFragment } from './office'
-import { LiberalGraphQLISODateTime } from './LiberalGraphQLISODateTime'
 
 export enum MarketingConsent {
   grant = 'grant',
@@ -51,12 +50,6 @@ export class ContactAddress {
 export class Contact {
   @Field(() => ID)
   id: string
-
-  @Field(() => LiberalGraphQLISODateTime)
-  created: Date
-
-  @Field(() => LiberalGraphQLISODateTime)
-  modified: Date
 
   @Field()
   forename: string

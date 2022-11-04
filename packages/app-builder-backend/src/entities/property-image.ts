@@ -1,6 +1,5 @@
 import { gql } from 'apollo-server-core'
 import { Field, InputType, ObjectType, registerEnumType } from 'type-graphql'
-import { LiberalGraphQLISODateTime } from './LiberalGraphQLISODateTime'
 
 export const PropertyImageFragment = gql`
   fragment PropertyImageFragment on PropertyImageModel {
@@ -29,12 +28,6 @@ registerEnumType(PropertyImageType, {
 export class PropertyImage {
   @Field()
   id: string
-
-  @Field(() => LiberalGraphQLISODateTime)
-  created: Date
-
-  @Field(() => LiberalGraphQLISODateTime)
-  modified: Date
 
   @Field({ description: '@urlType("image")' })
   url: string

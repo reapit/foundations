@@ -4,7 +4,6 @@ import { Applicant, ApplicantFields } from './applicant'
 import { Negotiator } from './negotiator'
 import { Property, PropertyFragment } from './property'
 import { GraphQLDate } from 'graphql-iso-date'
-import { LiberalGraphQLISODateTime } from './LiberalGraphQLISODateTime'
 
 export enum OfferStatus {
   pending = 'pending',
@@ -19,12 +18,6 @@ registerEnumType(OfferStatus, { name: 'OfferStatus' })
 export class Offer {
   @Field()
   id: string
-
-  @Field(() => LiberalGraphQLISODateTime)
-  created: Date
-
-  @Field(() => LiberalGraphQLISODateTime)
-  modified: Date
 
   @Field(() => Applicant, { nullable: true })
   applicant?: Applicant

@@ -2,7 +2,6 @@ import { CountryCode } from '../utils/country-code-enum'
 import { gql } from 'apollo-server-core'
 import { Field, ID, InputType, ObjectType } from 'type-graphql'
 import { ContactAddressType } from './contact'
-import { LiberalGraphQLISODateTime } from './LiberalGraphQLISODateTime'
 
 @ObjectType({ description: '@labelKeys(value) @notTopLevel()' })
 export class CompanyType {
@@ -49,12 +48,6 @@ export class CompanyAddress {
 export class Company {
   @Field(() => ID)
   id: string
-
-  @Field(() => LiberalGraphQLISODateTime)
-  created: Date
-
-  @Field(() => LiberalGraphQLISODateTime)
-  modified: Date
 
   @Field(() => CompanyAddress)
   address: CompanyAddress

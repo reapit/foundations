@@ -6,7 +6,6 @@ import { Office, OfficeFragment } from './office'
 import { Department, DepartmentFragment } from './department'
 import { ExternalAreaType, InternalAreaType, PropertyLettingFrequency } from './property'
 import { Contact } from './contact'
-import { LiberalGraphQLISODateTime } from './LiberalGraphQLISODateTime'
 
 @ObjectType()
 class ApplicantBuying {
@@ -54,12 +53,6 @@ class ApplicantRenting {
 export class Applicant {
   @Field(() => ID)
   id: string
-
-  @Field(() => LiberalGraphQLISODateTime)
-  created: Date
-
-  @Field(() => LiberalGraphQLISODateTime)
-  modified: Date
 
   @Field({ nullable: true })
   marketingMode: string
