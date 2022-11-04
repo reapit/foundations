@@ -173,12 +173,6 @@ const hoistEmbeds = <T, E>(object: T & { _embedded: any }): T & E => {
   return { ...rest, ..._embedded }
 }
 
-const convertDates = (applicant: Applicant): Applicant => ({
-  ...applicant,
-  created: new Date(applicant.created),
-  modified: new Date(applicant.modified),
-})
-
 const getApplicants = async (accessToken: string, idToken: string, name?: string): Promise<Applicant[]> => {
   const applicants = await query<{ _embedded: ApplicantAPIResponse<ApplicantsEmbeds>[] }>(
     getApplicationQuery,
@@ -193,7 +187,6 @@ const getApplicants = async (accessToken: string, idToken: string, name?: string
   return applicants._embedded
     .map((c) => hoistEmbeds<ApplicantAPIResponse<ApplicantsEmbeds>, ApplicantsEmbeds>(c))
     .map(addDefaultEmbeds)
-    .map(convertDates)
 }
 
 const getApiApplicant = async (
@@ -215,7 +208,7 @@ const getApplicant = async (id: string, accessToken: string, idToken: string): P
   }
 
   const hoistedApplicant = hoistEmbeds<ApplicantAPIResponse<ApplicantsEmbeds>, ApplicantsEmbeds>(applicant)
-  return convertDates(addDefaultEmbeds(hoistedApplicant))
+  return addDefaultEmbeds(hoistedApplicant)
 }
 
 const createApplicant = async (
