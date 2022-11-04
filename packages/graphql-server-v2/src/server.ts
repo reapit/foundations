@@ -25,7 +25,7 @@ const handlePlatformCall =
 
     try {
       const result = await axios[requestOptions.method](
-        `https://platform.dev.paas.reapit.cloud${requestOptions.path}${
+        `${config.PLATFORM_API_BASE_URL}${requestOptions.path}${
           requestOptions.query ? '?' + new URLSearchParams(requestOptions.query as any).toString() : ''
         }`,
         {
