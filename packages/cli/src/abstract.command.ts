@@ -65,16 +65,16 @@ export abstract class AbstractCommand {
    * @param spinner Ora spinner for errors
    * @returns
    */
-  protected async axios(spinner?: Ora): Promise<AxiosInstance> {
+  protected async axios(spinner?: Ora, requireConfig: boolean = true): Promise<AxiosInstance> {
     const config = await this.getConfig()
 
-    if (!config || !config.config) {
+    if ((!config || !config.config) && requireConfig) {
       console.log(chalk.red('No config found. Please use the config command before running this command'))
       spinner?.stop()
       process.exit(1)
     }
 
-    if (!config?.config['api-key']) {
+    if (requireConfig && config && !config?.config['api-key']) {
       this.writeLine(
         `${chalk.red('No api-key found. Please run')} ${chalk.bold.green('reapit config')} ${chalk.red(
           'and enter your api-key',
@@ -84,12 +84,17 @@ export abstract class AbstractCommand {
       process.exit(1)
     }
 
+    const headers = {
+      'Content-Type': 'application/json',
+    }
+
+    if (requireConfig && config && config.config['api-key']) {
+      headers['x-api-key'] = config.config['api-key']
+    }
+
     const instance = axios.create({
-      baseURL: config?.config?.baseUrl || this.baseUrl,
-      headers: {
-        'x-api-key': config.config['api-key'],
-        'Content-Type': 'application/json',
-      },
+      baseURL: requireConfig && config ? config?.config?.baseUrl : this.baseUrl,
+      headers,
     })
 
     instance.interceptors.request.use(
