@@ -36,7 +36,7 @@ const createStack = () => {
   })
 
   const vpc = aws_ec2.Vpc.fromLookup(stack, 'vpc-lookup', {
-    vpcId: 'vpc-07707f97c18ce5326',
+    vpcId: config.VPC_ID,
     region: 'eu-west-2',
   })
 
@@ -73,7 +73,7 @@ const createStack = () => {
   resource.addMethod('ANY', lambdaInt, {
     authorizer: {
       authorizationType: aws_apigateway.AuthorizationType.CUSTOM,
-      authorizerId: '2h4msu',
+      authorizerId: config.AUTHORIZER_ID,
     },
   })
 
