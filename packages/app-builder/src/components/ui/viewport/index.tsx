@@ -129,7 +129,7 @@ export const Viewport = ({ children, iframeRef, deserialize, rendererDivRefHandl
               }
               const nodesArr = nodesObjtoToArr(appId, newPage.id, nodes)
               await updatePageNodes(nodesArr, newPage.id)
-              setPageId(newPage.id, undefined, true)
+              setPageId(newPage.id, undefined)
             } catch (e) {
               console.error(e)
             }

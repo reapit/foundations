@@ -113,6 +113,7 @@ export const useCreatePage = (appId: string) => {
           entityName,
           pageType,
         },
+        ignoreResults: true,
       }).then((data) => data.data._createAppPage as AppWithPages),
     [createAppPage],
   )
