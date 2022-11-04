@@ -46,7 +46,6 @@ const createStack = () => {
 
   securityGroup.addIngressRule(aws_ec2.Peer.anyIpv4(), aws_ec2.Port.tcp(80))
   securityGroup.addIngressRule(aws_ec2.Peer.anyIpv4(), aws_ec2.Port.tcp(433))
-  // securityGroup.addEgressRule(aws_ec2.Peer.anyIpv4())
 
   const handler = 'packages/graphql-server-v2/src/index.handler'
   const entrypoint = path.resolve(__dirname, 'bundle.zip')

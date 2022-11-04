@@ -23,32 +23,15 @@ const handlePlatformCall =
       }
     }
 
-    const apiContext = JSON.parse(decodeURIComponent(context.headers['x-apigateway-event']))
-    const authorizer = apiContext.requestContext.authorizer
-
     try {
       const result = await axios[requestOptions.method](
-        `http://${requestOptions.path.split('/').join('')}-service-internal.local${
+        `https://platform.dev.paas.reapit.cloud${requestOptions.path}${
           requestOptions.query ? '?' + new URLSearchParams(requestOptions.query as any).toString() : ''
         }`,
         {
           headers: {
             API_VERSION,
-            'X-Forwarded-For': 'platform.reapit.cloud',
-            'X-Forwarded-Host': 'platform.reapit.cloud',
-            'X-Forwarded-Server': 'platform.reapit.cloud',
-            'cognito-application-id': authorizer.appId,
-            'cognito-subscriber-id': authorizer.user,
-            'find-sec-key': config.SEC_KEY,
-            'gateway-request-id': apiContext.requestContext.requestId,
-            'reapit-app-developer-id': authorizer['app-developer-id'],
-            'reapit-application-id': authorizer.internalAppId,
-            'reapit-client-id': authorizer.clientId,
-            'reapit-developer': authorizer.developerRequest,
-            'reapit-groups': authorizer['reapit-groups'],
-            'reapit-office-id': authorizer.officeId,
-            'reapit-scopes': authorizer['reapit-scopes'],
-            'reapit-user-id': authorizer.userId,
+            Authorization: (context.headers as any).authorization,
           },
           body: requestOptions.body,
         },
