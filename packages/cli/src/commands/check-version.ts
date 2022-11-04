@@ -7,7 +7,7 @@ import latestSemver from 'latest-semver'
 export class CheckVersionCommand extends AbstractCommand {
   async fetchTags(): Promise<string[] | false> {
     const npmInfo = await (
-      await this.axios()
+      await this.axios(undefined, false)
     ).get<{
       'dist-tags': { [s: string]: string }
     }>(packageInfo.name, {
