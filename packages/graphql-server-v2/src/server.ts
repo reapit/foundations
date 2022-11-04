@@ -9,13 +9,10 @@ import * as Sentry from '@sentry/node'
 import { AxiosInstance } from 'axios'
 import config from './../config.json'
 import swagger from './../swagger.json'
-import { createLogger } from '@reapit/utils-node'
 
 if (config.SENTRY_DSN) {
   Sentry.init({ dsn: config.SENTRY_DSN })
 }
-
-const logger = createLogger('graphql-v2')
 
 const handlePlatformCall =
   (axios: AxiosInstance) =>
@@ -25,15 +22,33 @@ const handlePlatformCall =
         statusCode: 401,
       }
     }
+
+    const apiContext = JSON.parse(decodeURIComponent(context.headers['x-apigateway-event']))
+    const authorizer = apiContext.requestContext.authorizer
+
     try {
       const result = await axios[requestOptions.method](
-        `${requestOptions.path}${
+        `http://${requestOptions.path.split('/').join('')}-service-internal.local${
           requestOptions.query ? '?' + new URLSearchParams(requestOptions.query as any).toString() : ''
         }`,
         {
           headers: {
-            Authorization: (context.headers as any).authorization,
             API_VERSION,
+            'X-Forwarded-For': 'platform.reapit.cloud',
+            'X-Forwarded-Host': 'platform.reapit.cloud',
+            'X-Forwarded-Server': 'platform.reapit.cloud',
+            'cognito-application-id': authorizer.appId,
+            'cognito-subscriber-id': authorizer.user,
+            'find-sec-key': config.SEC_KEY,
+            'gateway-request-id': apiContext.requestContext.requestId,
+            'reapit-app-developer-id': authorizer['app-developer-id'],
+            'reapit-application-id': authorizer.internalAppId,
+            'reapit-client-id': authorizer.clientId,
+            'reapit-developer': authorizer.developerRequest,
+            'reapit-groups': authorizer['reapit-groups'],
+            'reapit-office-id': authorizer.officeId,
+            'reapit-scopes': authorizer['reapit-scopes'],
+            'reapit-user-id': authorizer.userId,
           },
           body: requestOptions.body,
         },
@@ -41,7 +56,7 @@ const handlePlatformCall =
 
       return result.data
     } catch (e: any) {
-      logger.error(e)
+      console.error(e)
       return {
         error: e.message,
       }
@@ -59,15 +74,16 @@ export const bootstrap = async (axiosInstance: AxiosInstance): Promise<Express> 
     app.use(Sentry.Handlers.requestHandler())
   }
 
-  app.use(cors({
-    origin: (requestOrigin, callback) => {
-      callback(null, requestOrigin)
-    },
-    credentials: true,
-  }))
-  
   app.use(
-    '/graphql',
+    cors({
+      origin: (requestOrigin, callback) => {
+        callback(null, requestOrigin)
+      },
+      credentials: true,
+    }),
+  )
+  app.use(
+    '/',
     graphqlHeader,
     graphqlHTTP({
       schema,
