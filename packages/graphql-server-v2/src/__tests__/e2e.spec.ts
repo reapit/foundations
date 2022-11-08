@@ -16,7 +16,7 @@ describe('GQL schema is generated', () => {
 
   it('Can get applicants', async () => {
     const mock = new MockAdapter(axiosInstance)
-    mock.onGet('/applicants/').reply(() => {
+    mock.onAny().reply(() => {
       return [
         200,
         {
