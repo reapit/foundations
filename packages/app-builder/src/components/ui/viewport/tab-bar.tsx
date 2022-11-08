@@ -38,6 +38,8 @@ const Tab = styled.div<{ itemId?: any; isActive?: boolean }>`
   color: #000000;
 
   cursor: pointer;
+
+  white-space: nowrap;
 `
 
 const TabActive = css`

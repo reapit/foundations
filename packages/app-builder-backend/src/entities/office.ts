@@ -42,13 +42,13 @@ export class OfficeAddress {
   line3: string
 
   @Field({ nullable: true })
-  line4: string
+  line4?: string
 
   @Field({ nullable: true })
-  postcode: string
+  postcode?: string
 
-  @Field(() => CountryCode, { nullable: true })
-  countryId: CountryCode
+  @Field(() => String, { nullable: true })
+  countryId?: CountryCode
 }
 
 @ObjectType({ description: '@labelKeys(name) @supportsCustomFields()' })
@@ -103,7 +103,7 @@ class OfficeAddressInput {
   @Field({ nullable: true })
   postcode: string
 
-  @Field(() => CountryCode, { nullable: true })
+  @Field(() => String, { nullable: true })
   countryId: CountryCode
 }
 

@@ -1,4 +1,5 @@
 import { NAV_NODE } from '@/components/hooks/apps/node-helpers'
+import { useNavConfig } from '@/components/hooks/use-nav-config'
 import { isEditor } from '@/core/config'
 import { ROOT_NODE } from '@craftjs/core'
 import { styled } from '@linaria/react'
@@ -60,13 +61,31 @@ const EyeClosed = () => (
   </svg>
 )
 
+const ConnectedRootContainer = ({ children }) => {
+  const isViewer = !isEditor()
+  const { subItems } = useNavConfig()
+  const [showNav, setShowNav] = useState(false)
+  const expandNav = subItems && subItems.length > 1
+
+  return (
+    <RootContainer expandNav={!!expandNav} showNav={isViewer || showNav}>
+      {!isViewer && (
+        <NavToggleButton onClick={() => setShowNav(!showNav)}>
+          {showNav ? <EyeClosed /> : <EyeOpen />}
+          {showNav ? 'Hide' : 'Show'} Navigation
+        </NavToggleButton>
+      )}
+      {children}
+    </RootContainer>
+  )
+}
+
 export const AddContainer = ({ nodeId, children }: { nodeId: string; children: React.ReactChild }) => {
   const isHeader = nodeId === 'header'
   const isFooter = nodeId === 'footer'
   const isBody = nodeId === 'body'
   const isNavigation = nodeId === NAV_NODE
   const isRoot = nodeId === ROOT_NODE
-  const [showNav, setShowNav] = useState(false)
   const isViewer = !isEditor()
 
   return (
@@ -74,17 +93,7 @@ export const AddContainer = ({ nodeId, children }: { nodeId: string; children: R
       {isHeader && <HeaderContainer>{children}</HeaderContainer>}
       {isFooter && <FooterContainer>{children}</FooterContainer>}
       {isBody && <BodyContainer>{children}</BodyContainer>}
-      {isRoot && (
-        <RootContainer showNav={isViewer || showNav}>
-          {!isViewer && (
-            <NavToggleButton onClick={() => setShowNav(!showNav)}>
-              {showNav ? <EyeClosed /> : <EyeOpen />}
-              {showNav ? 'Hide' : 'Show'} Navigation
-            </NavToggleButton>
-          )}
-          {children}
-        </RootContainer>
-      )}
+      {isRoot && <ConnectedRootContainer>{children}</ConnectedRootContainer>}
       {isNavigation && (
         <NavigationContainer
           style={{

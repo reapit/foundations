@@ -1,5 +1,5 @@
 import { gql } from 'apollo-server-core'
-import { ObjectType, Field, ID, InputType, GraphQLISODateTime, registerEnumType, Int, Float } from 'type-graphql'
+import { ObjectType, Field, ID, InputType, registerEnumType, Int, Float } from 'type-graphql'
 import { GraphQLDate } from 'graphql-iso-date'
 import { Negotiator, NegotiatorFragment } from './negotiator'
 import { Office, OfficeFragment } from './office'
@@ -53,12 +53,6 @@ class ApplicantRenting {
 export class Applicant {
   @Field(() => ID)
   id: string
-
-  @Field(() => GraphQLISODateTime)
-  created: Date
-
-  @Field(() => GraphQLISODateTime)
-  modified: Date
 
   @Field({ nullable: true })
   marketingMode: string

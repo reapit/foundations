@@ -1,4 +1,4 @@
-import { ObjectType, Field, ID, InputType, GraphQLISODateTime, registerEnumType } from 'type-graphql'
+import { ObjectType, Field, ID, InputType, registerEnumType } from 'type-graphql'
 import { gql } from 'apollo-server-core'
 import { PropertyImage, PropertyImageFragment } from './property-image'
 import { Negotiator, NegotiatorFragment } from './negotiator'
@@ -217,12 +217,6 @@ export class Property {
     description: '@acKey(prpCode)',
   })
   id: string
-
-  @Field(() => GraphQLISODateTime)
-  created: Date
-
-  @Field(() => GraphQLISODateTime)
-  modified: Date
 
   @Field({ nullable: true })
   strapline?: string
