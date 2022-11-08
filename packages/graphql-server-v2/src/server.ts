@@ -9,13 +9,10 @@ import * as Sentry from '@sentry/node'
 import { AxiosInstance } from 'axios'
 import config from './../config.json'
 import swagger from './../swagger.json'
-import { createLogger } from '@reapit/utils-node'
 
 if (config.SENTRY_DSN) {
   Sentry.init({ dsn: config.SENTRY_DSN })
 }
-
-const logger = createLogger('graphql-v2')
 
 const handlePlatformCall =
   (axios: AxiosInstance) =>
@@ -25,15 +22,16 @@ const handlePlatformCall =
         statusCode: 401,
       }
     }
+
     try {
       const result = await axios[requestOptions.method](
-        `${requestOptions.path}${
+        `${config.PLATFORM_API_BASE_URL}${requestOptions.path}${
           requestOptions.query ? '?' + new URLSearchParams(requestOptions.query as any).toString() : ''
         }`,
         {
           headers: {
-            Authorization: (context.headers as any).authorization,
             API_VERSION,
+            Authorization: (context.headers as any).authorization,
           },
           body: requestOptions.body,
         },
@@ -41,7 +39,7 @@ const handlePlatformCall =
 
       return result.data
     } catch (e: any) {
-      logger.error(e)
+      console.error(e)
       return {
         error: e.message,
       }
@@ -59,14 +57,16 @@ export const bootstrap = async (axiosInstance: AxiosInstance): Promise<Express> 
     app.use(Sentry.Handlers.requestHandler())
   }
 
-  app.use(cors({
-    origin: (requestOrigin, callback) => {
-      callback(null, requestOrigin)
-    },
-    credentials: true,
-  }))
   app.use(
-    '/graphql',
+    cors({
+      origin: (requestOrigin, callback) => {
+        callback(null, requestOrigin)
+      },
+      credentials: true,
+    }),
+  )
+  app.use(
+    '/',
     graphqlHeader,
     graphqlHTTP({
       schema,

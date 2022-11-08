@@ -13,8 +13,6 @@ async function bootstrapServer(): Promise<Server> {
 
     app.use(eventContext())
 
-    await app.init()
-
     cachedServer = createServer(app, undefined)
   }
 
