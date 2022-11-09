@@ -1,8 +1,5 @@
 export const Routes = {
   HOME: '/',
-  FORM: '/form',
-  TABLE: '/table',
-  LIST: '/list',
-  DATA: '/data',
+  ADMIN: '/admin',
   LOGIN: '/login',
 }

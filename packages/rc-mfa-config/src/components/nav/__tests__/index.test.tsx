@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import { Nav, getDefaultNavIndex } from '../nav'
-import { Routes } from '../../../../constants/routes'
+import { Nav, getDefaultNavIndex } from '..'
+import { Routes } from '../../../constants/routes'
 import { MediaStateProvider, NavStateProvider } from '@reapit/elements'
 
 describe('Nav', () => {
@@ -25,20 +25,8 @@ describe('getDefaultNavIndex', () => {
       index: 1,
     },
     {
-      route: Routes.DATA,
+      route: Routes.ADMIN,
       index: 2,
-    },
-    {
-      route: Routes.TABLE,
-      index: 3,
-    },
-    {
-      route: Routes.LIST,
-      index: 3,
-    },
-    {
-      route: Routes.FORM,
-      index: 3,
     },
     {
       route: '/random-route',

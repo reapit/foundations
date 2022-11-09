@@ -1,9 +1,9 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import HomePage from '../home-page'
+import DataPage from '../index'
 
-describe('HomePage', () => {
+describe('DataPage', () => {
   it('should match a snapshot', () => {
-    expect(render(<HomePage />)).toMatchSnapshot()
+    expect(render(<DataPage />)).toMatchSnapshot()
   })
 })

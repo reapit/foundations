@@ -1,5 +1,5 @@
 import React from 'react'
-import { ErrorBoundary } from '../error-boundary'
+import { ErrorBoundary } from '..'
 import { render } from '@testing-library/react'
 
 const Children = () => <div>I am a component!</div>

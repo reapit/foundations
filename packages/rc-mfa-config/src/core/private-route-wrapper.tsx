@@ -1,6 +1,6 @@
 import React, { FC, Suspense } from 'react'
 import { useReapitConnect } from '@reapit/connect-session'
-import { Nav } from '../components/ui/nav/nav'
+import { Nav } from '../components/nav'
 import { reapitConnectBrowserSession } from './connect-session'
 import { useLocation, Redirect } from 'react-router'
 import { Loader, MainContainer, PageContainer } from '@reapit/elements'
