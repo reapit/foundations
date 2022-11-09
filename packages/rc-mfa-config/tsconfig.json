@@ -1,0 +1,16 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "sourceRoot": "/",
+    "paths": {
+      "@/*": ["src/*"],
+      "@reapit/elements": ["../elements/src"],
+      "@reapit/utils-common": ["../utils-common/src"],
+      "@reapit/utils-react": ["../utils-react/src"],
+      "@reapit/connect-session": ["../connect-session/src"]
+    }
+  },
+  "include": ["src"],
+  "exclude": ["public", "dist", "node_modules", "src/tests/coverage"]
+}
