@@ -32,6 +32,7 @@
       "packages/marketplace-management",
       "packages/payments-client",
       "packages/payments-service",
+      "packages/rc-mfa-config",
       "packages/react-app-scaffolder",
       "packages/security-header-lambda",
       "packages/seed-data-workflow",
