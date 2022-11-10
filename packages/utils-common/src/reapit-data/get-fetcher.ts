@@ -53,7 +53,18 @@ export const getFetcher = async <DataType>({
     const errorRes = await res.json()
     throw new Error(handleReapitError(errorRes ?? {}, errorMessage))
   } catch (err) {
-    const error = err as Error
+    let error = err as Error
+
+    // Handles 401s where the user gets kicked out at the gateway with no server response.
+    if (error?.toString() === 'TypeError: Failed to fetch') {
+      const name = connectSession?.loginIdentity.name
+      const orgName = connectSession?.loginIdentity.orgName
+      const email = connectSession?.loginIdentity.email
+      error = new Error(
+        `Your user account ${name}, ${email}, does not have permission to view this resource for ${orgName}`,
+      )
+    }
+
     if (!failSilently) {
       logger(error, connectSession)
     }
