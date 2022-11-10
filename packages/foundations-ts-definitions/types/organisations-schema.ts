@@ -1,4 +1,37 @@
 /**
+ * Representation of an authenticator
+ */
+export interface AuthenticatorModel {
+  /**
+   * The unique identifier of the authenticator
+   */
+  id?: string
+  /**
+   * The unique identifier of the user associated to the authenticator
+   */
+  userId?: string
+  /**
+   * The status of the authenticator (inProgress/active/disabled)
+   */
+  status?: string
+  /**
+   * The status of the authenticator (mfa/sms)
+   */
+  type?: string
+  /**
+   * The date and time when the authenticator was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the authenticator was last modified
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  modified?: string // date-time
+}
+/**
  * Representation of a user or organisation claim
  */
 export interface ClaimModel {
@@ -213,6 +246,15 @@ export interface CreateOrganisationModel {
    * Any claims to associate with this organisation
    */
   claims?: CreateOrganisationClaimModel[]
+}
+/**
+ * Request body used to create a new user authenticator
+ */
+export interface CreateUserAuthenticatorModel {
+  /**
+   * The type of authenticator (sms/softwareToken)
+   */
+  type?: string
 }
 /**
  * Request body used to create a new user claim
@@ -1381,4 +1423,13 @@ export interface Users {
 export interface UsersInfo {
   email?: string
   includeIdpData?: boolean
+}
+/**
+ * Request body used to verify a user authenticator
+ */
+export interface VerifyUserAuthenticatorModel {
+  /**
+   * The code to verify the authenticator
+   */
+  code?: string
 }
