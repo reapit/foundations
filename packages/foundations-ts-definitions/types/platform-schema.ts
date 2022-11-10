@@ -6990,6 +6990,10 @@ export interface CreatePropertyModel {
    */
   url?: string
   /**
+   * The caption to accompany the url to the property on an external website
+   */
+  urlCaption?: string
+  /**
    * Any ground rent payment that applies to the property
    */
   groundRent?: number // double
@@ -8208,6 +8212,7 @@ export interface Documents {
     | 'worksOrder'
   )[]
   typeId?: string[]
+  includeRoleDocuments?: boolean
   createdFrom?: string
   createdTo?: string
   modifiedFrom?: string
@@ -12192,6 +12197,10 @@ export interface PropertyModel {
    */
   url?: string
   /**
+   * The caption to accompany the url to the property on an external website
+   */
+  urlCaption?: string
+  /**
    * Any ground rent payment that applies to the property
    */
   groundRent?: number // double
@@ -12999,6 +13008,10 @@ export interface PropertyModelPagedResult {
      * The url to the property on an external website
      */
     url?: string
+    /**
+     * The caption to accompany the url to the property on an external website
+     */
+    urlCaption?: string
     /**
      * Any ground rent payment that applies to the property
      */
@@ -19377,6 +19390,10 @@ export interface UpdatePropertyModel {
    * The url to the property on an external website
    */
   url?: string
+  /**
+   * The caption to accompany the url to the property on an external website
+   */
+  urlCaption?: string
   /**
    * Any ground rent payment that applies to the property
    */
