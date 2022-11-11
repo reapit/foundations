@@ -5,6 +5,7 @@ import { NavResponsive, NavResponsiveOption } from '@reapit/elements'
 import { Routes } from '../../constants/routes'
 import { history } from '../../core/router'
 import { navigate } from '../../utils/navigation'
+import { getIsAdmin } from '../../utils/is-admin'
 
 export const getDefaultNavIndex = (pathname: string) => {
   switch (pathname) {
@@ -18,7 +19,9 @@ export const getDefaultNavIndex = (pathname: string) => {
 }
 
 export const Nav: FC = () => {
-  const { connectLogoutRedirect, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
+  const { connectLogoutRedirect, connectIsDesktop, connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const isAdmin = getIsAdmin(connectSession)
+
   const navOptions: NavResponsiveOption[] = [
     {
       itemIndex: 0,
@@ -29,13 +32,16 @@ export const Nav: FC = () => {
       iconId: 'myAccountMenu',
       callback: navigate(history, Routes.HOME),
     },
-    {
+  ]
+
+  if (isAdmin) {
+    navOptions.push({
       itemIndex: 2,
       text: 'Admin',
       iconId: 'manageMenu',
       callback: navigate(history, Routes.ADMIN),
-    },
-  ]
+    })
+  }
 
   if (!connectIsDesktop) {
     navOptions.push(

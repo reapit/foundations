@@ -4,6 +4,8 @@ import { Nav } from '../components/nav'
 import { reapitConnectBrowserSession } from './connect-session'
 import { useLocation, Redirect } from 'react-router'
 import { Loader, MainContainer, PageContainer } from '@reapit/elements'
+import { getIsAdmin } from '../utils/is-admin'
+import { Routes } from '../constants/routes'
 
 export type PrivateRouteWrapperProps = {}
 
@@ -11,6 +13,7 @@ export const PrivateRouteWrapper: FC<PrivateRouteWrapperProps> = ({ children }) 
   const { connectSession, connectInternalRedirect } = useReapitConnect(reapitConnectBrowserSession)
   const location = useLocation()
   const currentUri = `${location?.pathname}${location?.search}`
+  const isAdmin = getIsAdmin(connectSession)
 
   if (!connectSession) {
     return (
@@ -24,6 +27,10 @@ export const PrivateRouteWrapper: FC<PrivateRouteWrapperProps> = ({ children }) 
 
   if (connectInternalRedirect && currentUri !== connectInternalRedirect) {
     return <Redirect to={connectInternalRedirect} />
+  }
+
+  if (!isAdmin && currentUri === Routes.ADMIN) {
+    return <Redirect to={Routes.HOME} />
   }
 
   return (
