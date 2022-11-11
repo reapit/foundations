@@ -55,6 +55,8 @@ export enum GetActionNames {
   getDwAccountById = 'getDwAccountById',
   getDwDataSets = 'getDwDataSets',
   getDwShares = 'getDwShares',
+  getUsers = 'getUsers',
+  getUserAuthenticators = 'getUserAuthenticators',
 }
 
 export type GetActions = { [key in GetActionNames]: GetAction }
@@ -287,5 +289,15 @@ export const getActions = (appEnv: AppEnv): GetActions => ({
     api: ApiNames(appEnv).platform,
     path: PathNames.revisionById,
     errorMessage: 'Failed to fetch revision, this has been logged.',
+  },
+  [GetActionNames.getUsers]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.users,
+    errorMessage: 'Failed to fetch users, this has been logged.',
+  },
+  [GetActionNames.getUserAuthenticators]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.userAuthenticators,
+    errorMessage: 'Failed to fetch authenticators, this has been logged.',
   },
 })

@@ -1,0 +1,6 @@
+[defaults]
+project=rc-mfa-config
+org=reapit-ltd
+
+[http]
+keepalive=false
