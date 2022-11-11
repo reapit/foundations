@@ -5,14 +5,17 @@ Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+      <div
+        class="el-snack-holder"
+      />
       <nav
-        class="e6wdw83-el-nav-container"
+        class="el-nav-container"
       >
         <a
-          class="ej3nojh-el-nav-item"
+          class="el-nav-item"
         >
           <span
-            class="e14wa5k9-el-nav-item-icon ej9yrfo-el-icon"
+            class="el-nav-item-icon el-icon"
             style="font-size: 2.5rem;"
           >
             <svg
@@ -41,7 +44,7 @@ Object {
             </svg>
           </span>
           <span
-            class="e1fle5tm-el-intent-neutral et0k7gk-el-ml-auto e164f2tp-el-mr2 e186fz8c-el-nav-item-hide-desktop ej9yrfo-el-icon"
+            class="el-intent-neutral el-ml-auto el-mr2 el-nav-item-hide-desktop el-icon"
             style="font-size: 2rem;"
           >
             <svg
@@ -85,10 +88,10 @@ Object {
           </span>
         </a>
         <a
-          class="e1walk9-el-nav-item-active ej3nojh-el-nav-item"
+          class="el-nav-item-active el-nav-item"
         >
           <span
-            class="e14wa5k9-el-nav-item-icon emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+            class="el-nav-item-icon el-icon-size-medium el-icon"
           >
             <svg
               fill="none"
@@ -116,10 +119,10 @@ Object {
           Configure
         </a>
         <a
-          class="ej3nojh-el-nav-item"
+          class="el-nav-item"
         >
           <span
-            class="e14wa5k9-el-nav-item-icon emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+            class="el-nav-item-icon el-icon-size-medium el-icon"
           >
             <svg
               fill="none"
@@ -160,10 +163,10 @@ Object {
           Apps
         </a>
         <a
-          class="e1cw7u4o-el-nav-item-secondary ej3nojh-el-nav-item"
+          class="el-nav-item-secondary el-nav-item"
         >
           <span
-            class="e14wa5k9-el-nav-item-icon emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+            class="el-nav-item-icon el-icon-size-medium el-icon"
           >
             <svg
               fill="none"
@@ -188,14 +191,17 @@ Object {
     </div>
   </body>,
   "container": <div>
+    <div
+      class="el-snack-holder"
+    />
     <nav
-      class="e6wdw83-el-nav-container"
+      class="el-nav-container"
     >
       <a
-        class="ej3nojh-el-nav-item"
+        class="el-nav-item"
       >
         <span
-          class="e14wa5k9-el-nav-item-icon ej9yrfo-el-icon"
+          class="el-nav-item-icon el-icon"
           style="font-size: 2.5rem;"
         >
           <svg
@@ -224,7 +230,7 @@ Object {
           </svg>
         </span>
         <span
-          class="e1fle5tm-el-intent-neutral et0k7gk-el-ml-auto e164f2tp-el-mr2 e186fz8c-el-nav-item-hide-desktop ej9yrfo-el-icon"
+          class="el-intent-neutral el-ml-auto el-mr2 el-nav-item-hide-desktop el-icon"
           style="font-size: 2rem;"
         >
           <svg
@@ -268,10 +274,10 @@ Object {
         </span>
       </a>
       <a
-        class="e1walk9-el-nav-item-active ej3nojh-el-nav-item"
+        class="el-nav-item-active el-nav-item"
       >
         <span
-          class="e14wa5k9-el-nav-item-icon emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+          class="el-nav-item-icon el-icon-size-medium el-icon"
         >
           <svg
             fill="none"
@@ -299,10 +305,10 @@ Object {
         Configure
       </a>
       <a
-        class="ej3nojh-el-nav-item"
+        class="el-nav-item"
       >
         <span
-          class="e14wa5k9-el-nav-item-icon emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+          class="el-nav-item-icon el-icon-size-medium el-icon"
         >
           <svg
             fill="none"
@@ -343,10 +349,10 @@ Object {
         Apps
       </a>
       <a
-        class="e1cw7u4o-el-nav-item-secondary ej3nojh-el-nav-item"
+        class="el-nav-item-secondary el-nav-item"
       >
         <span
-          class="e14wa5k9-el-nav-item-icon emw1q1w-el-icon-size-medium ej9yrfo-el-icon"
+          class="el-nav-item-icon el-icon-size-medium el-icon"
         >
           <svg
             fill="none"

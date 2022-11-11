@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App should match a snapshot 1`] = `
+exports[`QrCodeVerify should render component with props 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -8,18 +8,12 @@ Object {
       <div
         class="el-snack-holder"
       />
-      <div>
-        I am a router
-      </div>
     </div>
   </body>,
   "container": <div>
     <div
       class="el-snack-holder"
     />
-    <div>
-      I am a router
-    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

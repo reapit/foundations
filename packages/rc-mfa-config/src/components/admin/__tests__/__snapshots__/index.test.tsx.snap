@@ -1,23 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DataPage should match a snapshot 1`] = `
+exports[`AdminPage should match a snapshot when has data 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
       <div
-        class="eoxpwv-el-flex-auto e2kmzjs-el-flex-container"
+        class="el-snack-holder"
+      />
+      <div
+        class="el-flex-auto el-flex-container"
       >
         <aside
-          class="e93m1fg-el-secondary-nav-container"
+          class="el-secondary-nav-container"
         >
           <h1
-            class="e1byern-el-title"
+            class="el-title"
           >
             Admin
           </h1>
           <span
-            class="ehvkknk-el-mb5 e143qafr-el-icon-size-large ej9yrfo-el-icon"
+            class="el-mb5 el-icon-size-large el-icon"
           >
             <svg
               fill="none"
@@ -154,154 +157,38 @@ Object {
             </svg>
           </span>
           <h2
-            class="e15ggth7-el-subtitle"
+            class="el-subtitle"
           >
             Your User Config
           </h2>
           <p
-            class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+            class="el-has-grey-text el-small-text"
           >
             This page allows you to configure and reset the Multi Factor Authentication (MFA) devices for your organisation users. For more information on how to do this, please refer to the documentation link below.
           </p>
           <button
-            class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
+            class="el-mb5 el-intent-neutral el-button"
           >
             Connect Session
           </button>
           <button
-            class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
+            class="el-mb5 el-intent-neutral el-button"
           >
             REST API
           </button>
         </aside>
         <section
-          class="e12d7zo5-el-hfull eukst9x-el-page-container"
+          class="el-hfull el-page-container"
         >
-          <h1
-            class="e1byern-el-title"
-          >
-            Users List
-          </h1>
-          <form>
-            <div
-              class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
-            >
-              <div
-                class="e1ksxx4v-el-input-wrap"
-              >
-                <div
-                  class="e1979rmu-el-input-group"
-                >
-                  <input
-                    class="e1urjlvd-el-input"
-                    id="test-static-id"
-                    name="email"
-                    placeholder="Search for a user"
-                  />
-                  <label
-                    class="e1nbkkrq-el-label"
-                    for="test-static-id"
-                  >
-                    Email
-                  </label>
-                </div>
-              </div>
-              <div
-                class="e1ksxx4v-el-input-wrap"
-              >
-                <div
-                  class="e1979rmu-el-input-group"
-                >
-                  <input
-                    class="e1urjlvd-el-input"
-                    id="test-static-id"
-                    name="name"
-                    placeholder="Search for a user"
-                  />
-                  <label
-                    class="e1nbkkrq-el-label"
-                    for="test-static-id"
-                  >
-                    Name
-                  </label>
-                </div>
-              </div>
-              <div
-                class="e1ksxx4v-el-input-wrap"
-              >
-                <label
-                  class="e1nbkkrq-el-label"
-                >
-                  MFA Enabled
-                </label>
-                <div
-                  class="ehi76vp-el-has-grey-bg ejhyjna-el-toggle-radio-wrap"
-                >
-                  <input
-                    checked=""
-                    class="e1k4cmge-el-toggle-radio"
-                    id="mfa-enabled-all"
-                    name="mfaEnabled"
-                    type="radio"
-                    value=""
-                  />
-                  <label
-                    class="ehi76vp-el-has-grey-bg evjm0ky-el-toggle-radio-label"
-                    for="mfa-enabled-all"
-                  >
-                    <span
-                      class="e1dq0rz5-el-toggle-radio-item"
-                    >
-                      All
-                    </span>
-                  </label>
-                  <input
-                    class="e1k4cmge-el-toggle-radio"
-                    id="mfa-enabled-true"
-                    name="mfaEnabled"
-                    type="radio"
-                    value="true"
-                  />
-                  <label
-                    class="ehi76vp-el-has-grey-bg evjm0ky-el-toggle-radio-label"
-                    for="mfa-enabled-true"
-                  >
-                    <span
-                      class="e1dq0rz5-el-toggle-radio-item"
-                    >
-                      Enabled
-                    </span>
-                  </label>
-                  <input
-                    class="e1k4cmge-el-toggle-radio"
-                    id="mfa-enabled-false"
-                    name="mfaEnabled"
-                    type="radio"
-                    value="false"
-                  />
-                  <label
-                    class="ehi76vp-el-has-grey-bg evjm0ky-el-toggle-radio-label"
-                    for="mfa-enabled-false"
-                  >
-                    <span
-                      class="e1dq0rz5-el-toggle-radio-item"
-                    >
-                      Not Configured
-                    </span>
-                  </label>
-                </div>
-              </div>
-            </div>
-          </form>
           <div
-            class="epibvz0-el-intent-secondary evmehgn-el-is-active e1qwk99x-el-pn-is-full-width e15e3rd4-el-pn-is-inline erhlo5n-el-persistent-notification"
+            class="el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
           >
             <div
-              class="eta6kcl-el-pn-icon"
+              class="el-pn-icon"
               data-testid="close-icon"
             >
               <span
-                class="ej9yrfo-el-icon"
+                class="el-icon"
               >
                 <svg
                   fill="none"
@@ -318,9 +205,9 @@ Object {
               </span>
             </div>
             <div
-              class="e1geon40-el-pn-content"
+              class="el-pn-content"
             >
-              No users found based on your current search.
+              Something went wrong here, try refreshing your page.
             </div>
           </div>
         </section>
@@ -329,18 +216,21 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="eoxpwv-el-flex-auto e2kmzjs-el-flex-container"
+      class="el-snack-holder"
+    />
+    <div
+      class="el-flex-auto el-flex-container"
     >
       <aside
-        class="e93m1fg-el-secondary-nav-container"
+        class="el-secondary-nav-container"
       >
         <h1
-          class="e1byern-el-title"
+          class="el-title"
         >
           Admin
         </h1>
         <span
-          class="ehvkknk-el-mb5 e143qafr-el-icon-size-large ej9yrfo-el-icon"
+          class="el-mb5 el-icon-size-large el-icon"
         >
           <svg
             fill="none"
@@ -477,154 +367,38 @@ Object {
           </svg>
         </span>
         <h2
-          class="e15ggth7-el-subtitle"
+          class="el-subtitle"
         >
           Your User Config
         </h2>
         <p
-          class="e11jaxfn-el-has-grey-text elle7d2-el-small-text"
+          class="el-has-grey-text el-small-text"
         >
           This page allows you to configure and reset the Multi Factor Authentication (MFA) devices for your organisation users. For more information on how to do this, please refer to the documentation link below.
         </p>
         <button
-          class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
+          class="el-mb5 el-intent-neutral el-button"
         >
           Connect Session
         </button>
         <button
-          class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
+          class="el-mb5 el-intent-neutral el-button"
         >
           REST API
         </button>
       </aside>
       <section
-        class="e12d7zo5-el-hfull eukst9x-el-page-container"
+        class="el-hfull el-page-container"
       >
-        <h1
-          class="e1byern-el-title"
-        >
-          Users List
-        </h1>
-        <form>
-          <div
-            class="e1fwulnz-el-form-layout-has-margin ee6e7by-el-form-layout"
-          >
-            <div
-              class="e1ksxx4v-el-input-wrap"
-            >
-              <div
-                class="e1979rmu-el-input-group"
-              >
-                <input
-                  class="e1urjlvd-el-input"
-                  id="test-static-id"
-                  name="email"
-                  placeholder="Search for a user"
-                />
-                <label
-                  class="e1nbkkrq-el-label"
-                  for="test-static-id"
-                >
-                  Email
-                </label>
-              </div>
-            </div>
-            <div
-              class="e1ksxx4v-el-input-wrap"
-            >
-              <div
-                class="e1979rmu-el-input-group"
-              >
-                <input
-                  class="e1urjlvd-el-input"
-                  id="test-static-id"
-                  name="name"
-                  placeholder="Search for a user"
-                />
-                <label
-                  class="e1nbkkrq-el-label"
-                  for="test-static-id"
-                >
-                  Name
-                </label>
-              </div>
-            </div>
-            <div
-              class="e1ksxx4v-el-input-wrap"
-            >
-              <label
-                class="e1nbkkrq-el-label"
-              >
-                MFA Enabled
-              </label>
-              <div
-                class="ehi76vp-el-has-grey-bg ejhyjna-el-toggle-radio-wrap"
-              >
-                <input
-                  checked=""
-                  class="e1k4cmge-el-toggle-radio"
-                  id="mfa-enabled-all"
-                  name="mfaEnabled"
-                  type="radio"
-                  value=""
-                />
-                <label
-                  class="ehi76vp-el-has-grey-bg evjm0ky-el-toggle-radio-label"
-                  for="mfa-enabled-all"
-                >
-                  <span
-                    class="e1dq0rz5-el-toggle-radio-item"
-                  >
-                    All
-                  </span>
-                </label>
-                <input
-                  class="e1k4cmge-el-toggle-radio"
-                  id="mfa-enabled-true"
-                  name="mfaEnabled"
-                  type="radio"
-                  value="true"
-                />
-                <label
-                  class="ehi76vp-el-has-grey-bg evjm0ky-el-toggle-radio-label"
-                  for="mfa-enabled-true"
-                >
-                  <span
-                    class="e1dq0rz5-el-toggle-radio-item"
-                  >
-                    Enabled
-                  </span>
-                </label>
-                <input
-                  class="e1k4cmge-el-toggle-radio"
-                  id="mfa-enabled-false"
-                  name="mfaEnabled"
-                  type="radio"
-                  value="false"
-                />
-                <label
-                  class="ehi76vp-el-has-grey-bg evjm0ky-el-toggle-radio-label"
-                  for="mfa-enabled-false"
-                >
-                  <span
-                    class="e1dq0rz5-el-toggle-radio-item"
-                  >
-                    Not Configured
-                  </span>
-                </label>
-              </div>
-            </div>
-          </div>
-        </form>
         <div
-          class="epibvz0-el-intent-secondary evmehgn-el-is-active e1qwk99x-el-pn-is-full-width e15e3rd4-el-pn-is-inline erhlo5n-el-persistent-notification"
+          class="el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
         >
           <div
-            class="eta6kcl-el-pn-icon"
+            class="el-pn-icon"
             data-testid="close-icon"
           >
             <span
-              class="ej9yrfo-el-icon"
+              class="el-icon"
             >
               <svg
                 fill="none"
@@ -641,7 +415,1387 @@ Object {
             </span>
           </div>
           <div
-            class="e1geon40-el-pn-content"
+            class="el-pn-content"
+          >
+            Something went wrong here, try refreshing your page.
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`AdminPage should match a snapshot when loading 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <div
+        class="el-flex-auto el-flex-container"
+      >
+        <aside
+          class="el-secondary-nav-container"
+        >
+          <h1
+            class="el-title"
+          >
+            Admin
+          </h1>
+          <span
+            class="el-mb5 el-icon-size-large el-icon"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 80 80"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g>
+                <mask
+                  height="72"
+                  id="mask0_7531_91581"
+                  maskUnits="userSpaceOnUse"
+                  width="72"
+                  x="5"
+                  y="7"
+                >
+                  <circle
+                    cx="41.0144"
+                    cy="42.6966"
+                    fill="#C4C4C4"
+                    r="35.6309"
+                    transform="rotate(-2.75697 41.0144 42.6966)"
+                  />
+                </mask>
+                <g
+                  mask="url(#mask0_7531_91581)"
+                >
+                  <rect
+                    fill="white"
+                    height="80.9118"
+                    transform="rotate(-2.75697 -2.50684 3.1748)"
+                    width="88.3349"
+                    x="-2.50684"
+                    y="3.1748"
+                  />
+                  <path
+                    d="M70.3574 81.0422C70.3574 81.0422 61.8307 81.4528 55.2964 76.9368C45.476 74.0857 48.9105 53.9161 49.6294 53.1428C50.3481 52.3692 52.0831 52.8454 55.9758 54.4604C61.3294 56.6814 62.6238 61.2989 64.5359 64.6455C67.2517 69.3986 69.9646 72.8862 69.9646 72.8862C71.4065 72.8168 69.0303 77.493 70.3574 81.0422Z"
+                    fill="#23A4DE"
+                  />
+                  <path
+                    d="M33.2762 57.9805C32.9622 60.1558 25.8632 68.9556 25.404 80.8675C34.4689 89.199 47.9697 90.0308 57.9981 83.7437C56.6795 73.9172 52.516 58.8145 50.3053 54.4072C47.2325 48.2814 41.1839 47.1559 41.1839 47.1559C41.1839 47.1559 33.6878 55.1303 33.2762 57.9805Z"
+                    fill="#23A4DE"
+                  />
+                  <ellipse
+                    cx="42.9394"
+                    cy="53.038"
+                    fill="#0076AB"
+                    rx="6.69342"
+                    ry="5.29479"
+                    transform="rotate(-2.75697 42.9394 53.038)"
+                  />
+                  <path
+                    d="M23.7949 94.0608C23.7949 94.0608 22.9216 79.8757 29.8486 74.1749C36.7756 68.4745 36.7222 54.2479 36.1497 53.451C35.5773 52.6537 28.8097 53.9496 25.717 56.8097C19.9565 62.137 15.8876 70.3815 13.7234 77.8244C10.4348 76.0227 24.7845 90.6383 23.7949 94.0608Z"
+                    fill="#23A4DE"
+                  />
+                  <path
+                    d="M25.3927 78.941C26.3442 75.5509 30.0652 67.94 30.0652 67.94C30.0652 67.94 27.5278 76.9802 29.6135 81.7104C28.1128 81.4111 26.5585 79.9996 25.3927 78.941Z"
+                    fill="#0076AB"
+                  />
+                  <path
+                    d="M60.7921 77.5352C59.5073 74.2212 55.0303 66.9349 55.0303 66.9349C55.0303 66.9349 58.4567 75.7722 56.8198 80.7273C58.2987 80.2809 59.7235 78.712 60.7921 77.5352Z"
+                    fill="#0076AB"
+                  />
+                </g>
+                <path
+                  d="M30.7234 35.1932C30.8675 38.1844 28.721 40.7183 25.9293 40.8528C23.1373 40.9872 20.7572 38.6712 20.6132 35.68C20.4691 32.6885 22.6156 30.1546 25.4077 30.0201C28.1993 29.8857 30.5794 32.2017 30.7234 35.1932Z"
+                  fill="#FFE5C7"
+                />
+                <path
+                  d="M64.4138 33.2671C64.5579 36.2586 62.4114 38.7925 59.6197 38.927C56.8277 39.0614 54.4477 36.7454 54.3036 33.7539C54.1596 30.7627 56.306 28.2284 59.0981 28.094C61.8898 27.9596 64.2698 30.2759 64.4138 33.2671Z"
+                  fill="#FFE5C7"
+                />
+                <path
+                  d="M24.6052 32.8781C24.6052 32.8781 26.4281 56.2812 43.2961 55.4689C60.1641 54.6567 61.3697 36.3279 60.6518 29.6805C59.9342 23.033 56.4608 12.8643 56.4608 12.8643L42.2016 12.0892L29.8202 15.1914L24.1364 19.0149L23.9451 23.3044L24.6052 32.8781Z"
+                  fill="#FFE5C7"
+                />
+                <path
+                  d="M32.718 25.6259C32.6906 26.1091 33.2972 26.0049 33.7987 25.922C34.8421 25.7497 34.5307 24.9804 36.729 24.9601C37.5266 24.9527 38.8289 26.2169 39.1968 25.5339C40.2424 23.5932 32.9065 22.3065 32.718 25.6259Z"
+                  fill="#262F69"
+                />
+                <path
+                  d="M55.3818 25.0609C54.8814 24.1237 53.2235 23.7212 52.0755 23.8482C51.1143 23.9547 49.5049 24.4366 49.574 25.4207C49.5953 25.722 50.0465 25.6677 50.3974 25.5874C50.9425 25.4626 51.1623 25.2402 51.6894 25.1921C52.2019 25.1451 52.7297 25.2329 53.1803 25.4368C53.7261 25.6842 54.1141 26.0653 54.8027 25.8719C55.4209 25.6981 55.6325 25.5305 55.3818 25.0609Z"
+                  fill="#262F69"
+                />
+                <path
+                  d="M53.7607 28.1333C53.6777 28.086 53.5896 28.0447 53.4965 28.0106C50.4208 26.8814 49.3772 31.7553 51.6222 32.5464C54.8634 33.6884 55.6859 29.2332 53.7607 28.1333Z"
+                  fill="#262F69"
+                />
+                <path
+                  d="M53.3789 28.6731C53.0378 28.3496 52.3889 28.6373 52.4815 29.0775C52.5287 29.302 52.5736 29.4815 52.781 29.6344C53.0972 29.8681 53.7307 29.5944 53.705 29.2219C53.6881 28.9794 53.5566 28.8417 53.3789 28.6731Z"
+                  fill="white"
+                />
+                <path
+                  d="M36.059 43.5956C36.059 43.5956 43.6312 48.1135 49.4032 44.7856C46.2724 49.3031 37.818 48.611 36.059 43.5956Z"
+                  fill="#262F69"
+                />
+                <path
+                  d="M26.7115 7.6701C30.9513 1.53414 39.8937 0.103319 47.9814 1.61918C52.5595 2.47723 67.5939 7.66878 63.2948 16.4786C63.5453 19.1175 63.6867 21.7793 63.6892 24.4301C63.6905 26.1153 63.7223 27.9269 63.3058 29.5738C62.7838 31.6377 60.7673 31.0265 60.0754 29.3956C58.8191 26.4341 60.0083 23.1506 57.9834 20.2383C53.3824 13.6217 49.9396 17.1144 42.131 18.1329C36.0199 18.93 29.9088 15.7577 29.9088 15.7577C29.9088 15.7577 25.5298 22.1067 26.1929 32.069C26.4018 35.2119 20.9435 34.2216 21.421 27.3008C21.898 20.38 20.2452 8.2906 26.7115 7.6701Z"
+                  fill="#262F69"
+                />
+                <path
+                  d="M36.7842 28.1338C36.7011 28.0865 36.613 28.0452 36.5199 28.011C33.4443 26.8819 32.4006 31.7558 34.6456 32.5469C37.8868 33.6889 38.7093 29.2337 36.7842 28.1338Z"
+                  fill="#262F69"
+                />
+                <path
+                  d="M36.4031 28.674C36.062 28.3506 35.4131 28.6382 35.5057 29.0785C35.5533 29.3028 35.5978 29.4824 35.8052 29.6353C36.1214 29.8691 36.755 29.5957 36.7292 29.2229C36.7123 28.9804 36.5808 28.8426 36.4031 28.674Z"
+                  fill="white"
+                />
+                <path
+                  d="M69.2921 52.7366H67.8158V46.6971C67.8158 41.1408 63.3063 36.6313 57.75 36.6313C52.1937 36.6313 47.6842 41.1408 47.6842 46.6971V52.7366H46.2079C45.5368 52.7366 45 53.2735 45 53.9445V74.3445C45 75.0021 45.5368 75.5524 46.2079 75.5524H69.2921C69.9632 75.5524 70.5 75.0021 70.5 74.3445V53.9445C70.5 53.2735 69.9632 52.7366 69.2921 52.7366ZM51.7105 46.6971C51.7105 43.3687 54.4216 40.6577 57.75 40.6577C61.0784 40.6577 63.7895 43.3687 63.7895 46.6971V52.7366H51.7105V46.6971Z"
+                  fill="white"
+                />
+                <path
+                  d="M69.2921 52.7366H67.8158V46.6971C67.8158 41.1408 63.3063 36.6313 57.75 36.6313C52.1937 36.6313 47.6842 41.1408 47.6842 46.6971V52.7366H46.2079C45.5368 52.7366 45 53.2735 45 53.9445V74.3445C45 75.0021 45.5368 75.5524 46.2079 75.5524H69.2921C69.9632 75.5524 70.5 75.0021 70.5 74.3445V53.9445C70.5 53.2735 69.9632 52.7366 69.2921 52.7366ZM54.3947 62.8024C54.3947 60.9503 55.8979 59.4471 57.75 59.4471C59.6021 59.4471 61.1053 60.9503 61.1053 62.8024C61.1053 63.8761 60.6087 64.8558 59.7632 65.4866V68.1708C59.7632 69.2848 58.8639 70.184 57.75 70.184C56.6361 70.184 55.7368 69.2848 55.7368 68.1708V65.4866C54.8913 64.8558 54.3947 63.8761 54.3947 62.8024ZM51.7105 46.6971C51.7105 43.3687 54.4216 40.6577 57.75 40.6577C61.0784 40.6577 63.7895 43.3687 63.7895 46.6971V52.7366H51.7105V46.6971Z"
+                  fill="#0061A8"
+                />
+                <path
+                  d="M68.6988 44.5874C62.5678 44.5874 57.5879 49.5699 57.5879 55.7009C57.5879 61.8319 62.5678 66.8119 68.6988 66.8119C74.8298 66.8119 79.8124 61.8319 79.8124 55.7009C79.8124 49.5699 74.8298 44.5874 68.6988 44.5874Z"
+                  fill="white"
+                />
+                <path
+                  d="M68.6988 44.5874C62.5678 44.5874 57.5879 49.5699 57.5879 55.7009C57.5879 61.8319 62.5678 66.8119 68.6988 66.8119C74.8298 66.8119 79.8124 61.8319 79.8124 55.7009C79.8124 49.5699 74.8298 44.5874 68.6988 44.5874ZM73.5838 50.6578C73.9912 50.6578 74.3975 50.8111 74.7052 51.1188C75.3206 51.7342 75.3206 52.7492 74.7052 53.3646L67.9707 60.0991C67.3553 60.7145 66.3398 60.7145 65.7243 60.0991L62.7323 57.105C62.1169 56.4896 62.1169 55.4761 62.7323 54.8607C63.3477 54.2453 64.3612 54.2453 64.9766 54.8607L66.8473 56.7319L72.4609 51.1188C72.7686 50.8111 73.1764 50.6578 73.5838 50.6578Z"
+                  fill="#FFB71B"
+                />
+              </g>
+              <defs>
+                <rect
+                  fill="white"
+                  height="80"
+                  width="80"
+                />
+              </defs>
+            </svg>
+          </span>
+          <h2
+            class="el-subtitle"
+          >
+            Your User Config
+          </h2>
+          <p
+            class="el-has-grey-text el-small-text"
+          >
+            This page allows you to configure and reset the Multi Factor Authentication (MFA) devices for your organisation users. For more information on how to do this, please refer to the documentation link below.
+          </p>
+          <button
+            class="el-mb5 el-intent-neutral el-button"
+          >
+            Connect Session
+          </button>
+          <button
+            class="el-mb5 el-intent-neutral el-button"
+          >
+            REST API
+          </button>
+        </aside>
+        <section
+          class="el-hfull el-page-container"
+        >
+          <h1
+            class="el-title"
+          >
+            Users List
+          </h1>
+          <form>
+            <div
+              class="el-form-layout-has-margin el-form-layout"
+            >
+              <div
+                class="el-input-wrap"
+              >
+                <div
+                  class="el-input-group"
+                >
+                  <input
+                    class="el-input"
+                    id="test-static-id"
+                    name="email"
+                    placeholder="Search for a user"
+                  />
+                  <label
+                    class="el-label"
+                    for="test-static-id"
+                  >
+                    Email
+                  </label>
+                </div>
+              </div>
+              <div
+                class="el-input-wrap"
+              >
+                <div
+                  class="el-input-group"
+                >
+                  <input
+                    class="el-input"
+                    id="test-static-id"
+                    name="name"
+                    placeholder="Search for a user"
+                  />
+                  <label
+                    class="el-label"
+                    for="test-static-id"
+                  >
+                    Name
+                  </label>
+                </div>
+              </div>
+              <div
+                class="el-input-wrap"
+              >
+                <label
+                  class="el-label"
+                >
+                  MFA Enabled
+                </label>
+                <div
+                  class="el-has-grey-bg el-toggle-radio-wrap"
+                >
+                  <input
+                    checked=""
+                    class="el-toggle-radio"
+                    id="mfa-enabled-all"
+                    name="mfaEnabled"
+                    type="radio"
+                    value=""
+                  />
+                  <label
+                    class="el-has-grey-bg el-toggle-radio-label"
+                    for="mfa-enabled-all"
+                  >
+                    <span
+                      class="el-toggle-radio-item"
+                    >
+                      All
+                    </span>
+                  </label>
+                  <input
+                    class="el-toggle-radio"
+                    id="mfa-enabled-true"
+                    name="mfaEnabled"
+                    type="radio"
+                    value="true"
+                  />
+                  <label
+                    class="el-has-grey-bg el-toggle-radio-label"
+                    for="mfa-enabled-true"
+                  >
+                    <span
+                      class="el-toggle-radio-item"
+                    >
+                      Enabled
+                    </span>
+                  </label>
+                  <input
+                    class="el-toggle-radio"
+                    id="mfa-enabled-false"
+                    name="mfaEnabled"
+                    type="radio"
+                    value="false"
+                  />
+                  <label
+                    class="el-has-grey-bg el-toggle-radio-label"
+                    for="mfa-enabled-false"
+                  >
+                    <span
+                      class="el-toggle-radio-item"
+                    >
+                      Not Configured
+                    </span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </form>
+          <div
+            class="el-loader-container"
+          >
+            <div
+              class="el-loader"
+            >
+              <div
+                class="el-loader-moving-bar"
+              />
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <div
+      class="el-flex-auto el-flex-container"
+    >
+      <aside
+        class="el-secondary-nav-container"
+      >
+        <h1
+          class="el-title"
+        >
+          Admin
+        </h1>
+        <span
+          class="el-mb5 el-icon-size-large el-icon"
+        >
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 80 80"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g>
+              <mask
+                height="72"
+                id="mask0_7531_91581"
+                maskUnits="userSpaceOnUse"
+                width="72"
+                x="5"
+                y="7"
+              >
+                <circle
+                  cx="41.0144"
+                  cy="42.6966"
+                  fill="#C4C4C4"
+                  r="35.6309"
+                  transform="rotate(-2.75697 41.0144 42.6966)"
+                />
+              </mask>
+              <g
+                mask="url(#mask0_7531_91581)"
+              >
+                <rect
+                  fill="white"
+                  height="80.9118"
+                  transform="rotate(-2.75697 -2.50684 3.1748)"
+                  width="88.3349"
+                  x="-2.50684"
+                  y="3.1748"
+                />
+                <path
+                  d="M70.3574 81.0422C70.3574 81.0422 61.8307 81.4528 55.2964 76.9368C45.476 74.0857 48.9105 53.9161 49.6294 53.1428C50.3481 52.3692 52.0831 52.8454 55.9758 54.4604C61.3294 56.6814 62.6238 61.2989 64.5359 64.6455C67.2517 69.3986 69.9646 72.8862 69.9646 72.8862C71.4065 72.8168 69.0303 77.493 70.3574 81.0422Z"
+                  fill="#23A4DE"
+                />
+                <path
+                  d="M33.2762 57.9805C32.9622 60.1558 25.8632 68.9556 25.404 80.8675C34.4689 89.199 47.9697 90.0308 57.9981 83.7437C56.6795 73.9172 52.516 58.8145 50.3053 54.4072C47.2325 48.2814 41.1839 47.1559 41.1839 47.1559C41.1839 47.1559 33.6878 55.1303 33.2762 57.9805Z"
+                  fill="#23A4DE"
+                />
+                <ellipse
+                  cx="42.9394"
+                  cy="53.038"
+                  fill="#0076AB"
+                  rx="6.69342"
+                  ry="5.29479"
+                  transform="rotate(-2.75697 42.9394 53.038)"
+                />
+                <path
+                  d="M23.7949 94.0608C23.7949 94.0608 22.9216 79.8757 29.8486 74.1749C36.7756 68.4745 36.7222 54.2479 36.1497 53.451C35.5773 52.6537 28.8097 53.9496 25.717 56.8097C19.9565 62.137 15.8876 70.3815 13.7234 77.8244C10.4348 76.0227 24.7845 90.6383 23.7949 94.0608Z"
+                  fill="#23A4DE"
+                />
+                <path
+                  d="M25.3927 78.941C26.3442 75.5509 30.0652 67.94 30.0652 67.94C30.0652 67.94 27.5278 76.9802 29.6135 81.7104C28.1128 81.4111 26.5585 79.9996 25.3927 78.941Z"
+                  fill="#0076AB"
+                />
+                <path
+                  d="M60.7921 77.5352C59.5073 74.2212 55.0303 66.9349 55.0303 66.9349C55.0303 66.9349 58.4567 75.7722 56.8198 80.7273C58.2987 80.2809 59.7235 78.712 60.7921 77.5352Z"
+                  fill="#0076AB"
+                />
+              </g>
+              <path
+                d="M30.7234 35.1932C30.8675 38.1844 28.721 40.7183 25.9293 40.8528C23.1373 40.9872 20.7572 38.6712 20.6132 35.68C20.4691 32.6885 22.6156 30.1546 25.4077 30.0201C28.1993 29.8857 30.5794 32.2017 30.7234 35.1932Z"
+                fill="#FFE5C7"
+              />
+              <path
+                d="M64.4138 33.2671C64.5579 36.2586 62.4114 38.7925 59.6197 38.927C56.8277 39.0614 54.4477 36.7454 54.3036 33.7539C54.1596 30.7627 56.306 28.2284 59.0981 28.094C61.8898 27.9596 64.2698 30.2759 64.4138 33.2671Z"
+                fill="#FFE5C7"
+              />
+              <path
+                d="M24.6052 32.8781C24.6052 32.8781 26.4281 56.2812 43.2961 55.4689C60.1641 54.6567 61.3697 36.3279 60.6518 29.6805C59.9342 23.033 56.4608 12.8643 56.4608 12.8643L42.2016 12.0892L29.8202 15.1914L24.1364 19.0149L23.9451 23.3044L24.6052 32.8781Z"
+                fill="#FFE5C7"
+              />
+              <path
+                d="M32.718 25.6259C32.6906 26.1091 33.2972 26.0049 33.7987 25.922C34.8421 25.7497 34.5307 24.9804 36.729 24.9601C37.5266 24.9527 38.8289 26.2169 39.1968 25.5339C40.2424 23.5932 32.9065 22.3065 32.718 25.6259Z"
+                fill="#262F69"
+              />
+              <path
+                d="M55.3818 25.0609C54.8814 24.1237 53.2235 23.7212 52.0755 23.8482C51.1143 23.9547 49.5049 24.4366 49.574 25.4207C49.5953 25.722 50.0465 25.6677 50.3974 25.5874C50.9425 25.4626 51.1623 25.2402 51.6894 25.1921C52.2019 25.1451 52.7297 25.2329 53.1803 25.4368C53.7261 25.6842 54.1141 26.0653 54.8027 25.8719C55.4209 25.6981 55.6325 25.5305 55.3818 25.0609Z"
+                fill="#262F69"
+              />
+              <path
+                d="M53.7607 28.1333C53.6777 28.086 53.5896 28.0447 53.4965 28.0106C50.4208 26.8814 49.3772 31.7553 51.6222 32.5464C54.8634 33.6884 55.6859 29.2332 53.7607 28.1333Z"
+                fill="#262F69"
+              />
+              <path
+                d="M53.3789 28.6731C53.0378 28.3496 52.3889 28.6373 52.4815 29.0775C52.5287 29.302 52.5736 29.4815 52.781 29.6344C53.0972 29.8681 53.7307 29.5944 53.705 29.2219C53.6881 28.9794 53.5566 28.8417 53.3789 28.6731Z"
+                fill="white"
+              />
+              <path
+                d="M36.059 43.5956C36.059 43.5956 43.6312 48.1135 49.4032 44.7856C46.2724 49.3031 37.818 48.611 36.059 43.5956Z"
+                fill="#262F69"
+              />
+              <path
+                d="M26.7115 7.6701C30.9513 1.53414 39.8937 0.103319 47.9814 1.61918C52.5595 2.47723 67.5939 7.66878 63.2948 16.4786C63.5453 19.1175 63.6867 21.7793 63.6892 24.4301C63.6905 26.1153 63.7223 27.9269 63.3058 29.5738C62.7838 31.6377 60.7673 31.0265 60.0754 29.3956C58.8191 26.4341 60.0083 23.1506 57.9834 20.2383C53.3824 13.6217 49.9396 17.1144 42.131 18.1329C36.0199 18.93 29.9088 15.7577 29.9088 15.7577C29.9088 15.7577 25.5298 22.1067 26.1929 32.069C26.4018 35.2119 20.9435 34.2216 21.421 27.3008C21.898 20.38 20.2452 8.2906 26.7115 7.6701Z"
+                fill="#262F69"
+              />
+              <path
+                d="M36.7842 28.1338C36.7011 28.0865 36.613 28.0452 36.5199 28.011C33.4443 26.8819 32.4006 31.7558 34.6456 32.5469C37.8868 33.6889 38.7093 29.2337 36.7842 28.1338Z"
+                fill="#262F69"
+              />
+              <path
+                d="M36.4031 28.674C36.062 28.3506 35.4131 28.6382 35.5057 29.0785C35.5533 29.3028 35.5978 29.4824 35.8052 29.6353C36.1214 29.8691 36.755 29.5957 36.7292 29.2229C36.7123 28.9804 36.5808 28.8426 36.4031 28.674Z"
+                fill="white"
+              />
+              <path
+                d="M69.2921 52.7366H67.8158V46.6971C67.8158 41.1408 63.3063 36.6313 57.75 36.6313C52.1937 36.6313 47.6842 41.1408 47.6842 46.6971V52.7366H46.2079C45.5368 52.7366 45 53.2735 45 53.9445V74.3445C45 75.0021 45.5368 75.5524 46.2079 75.5524H69.2921C69.9632 75.5524 70.5 75.0021 70.5 74.3445V53.9445C70.5 53.2735 69.9632 52.7366 69.2921 52.7366ZM51.7105 46.6971C51.7105 43.3687 54.4216 40.6577 57.75 40.6577C61.0784 40.6577 63.7895 43.3687 63.7895 46.6971V52.7366H51.7105V46.6971Z"
+                fill="white"
+              />
+              <path
+                d="M69.2921 52.7366H67.8158V46.6971C67.8158 41.1408 63.3063 36.6313 57.75 36.6313C52.1937 36.6313 47.6842 41.1408 47.6842 46.6971V52.7366H46.2079C45.5368 52.7366 45 53.2735 45 53.9445V74.3445C45 75.0021 45.5368 75.5524 46.2079 75.5524H69.2921C69.9632 75.5524 70.5 75.0021 70.5 74.3445V53.9445C70.5 53.2735 69.9632 52.7366 69.2921 52.7366ZM54.3947 62.8024C54.3947 60.9503 55.8979 59.4471 57.75 59.4471C59.6021 59.4471 61.1053 60.9503 61.1053 62.8024C61.1053 63.8761 60.6087 64.8558 59.7632 65.4866V68.1708C59.7632 69.2848 58.8639 70.184 57.75 70.184C56.6361 70.184 55.7368 69.2848 55.7368 68.1708V65.4866C54.8913 64.8558 54.3947 63.8761 54.3947 62.8024ZM51.7105 46.6971C51.7105 43.3687 54.4216 40.6577 57.75 40.6577C61.0784 40.6577 63.7895 43.3687 63.7895 46.6971V52.7366H51.7105V46.6971Z"
+                fill="#0061A8"
+              />
+              <path
+                d="M68.6988 44.5874C62.5678 44.5874 57.5879 49.5699 57.5879 55.7009C57.5879 61.8319 62.5678 66.8119 68.6988 66.8119C74.8298 66.8119 79.8124 61.8319 79.8124 55.7009C79.8124 49.5699 74.8298 44.5874 68.6988 44.5874Z"
+                fill="white"
+              />
+              <path
+                d="M68.6988 44.5874C62.5678 44.5874 57.5879 49.5699 57.5879 55.7009C57.5879 61.8319 62.5678 66.8119 68.6988 66.8119C74.8298 66.8119 79.8124 61.8319 79.8124 55.7009C79.8124 49.5699 74.8298 44.5874 68.6988 44.5874ZM73.5838 50.6578C73.9912 50.6578 74.3975 50.8111 74.7052 51.1188C75.3206 51.7342 75.3206 52.7492 74.7052 53.3646L67.9707 60.0991C67.3553 60.7145 66.3398 60.7145 65.7243 60.0991L62.7323 57.105C62.1169 56.4896 62.1169 55.4761 62.7323 54.8607C63.3477 54.2453 64.3612 54.2453 64.9766 54.8607L66.8473 56.7319L72.4609 51.1188C72.7686 50.8111 73.1764 50.6578 73.5838 50.6578Z"
+                fill="#FFB71B"
+              />
+            </g>
+            <defs>
+              <rect
+                fill="white"
+                height="80"
+                width="80"
+              />
+            </defs>
+          </svg>
+        </span>
+        <h2
+          class="el-subtitle"
+        >
+          Your User Config
+        </h2>
+        <p
+          class="el-has-grey-text el-small-text"
+        >
+          This page allows you to configure and reset the Multi Factor Authentication (MFA) devices for your organisation users. For more information on how to do this, please refer to the documentation link below.
+        </p>
+        <button
+          class="el-mb5 el-intent-neutral el-button"
+        >
+          Connect Session
+        </button>
+        <button
+          class="el-mb5 el-intent-neutral el-button"
+        >
+          REST API
+        </button>
+      </aside>
+      <section
+        class="el-hfull el-page-container"
+      >
+        <h1
+          class="el-title"
+        >
+          Users List
+        </h1>
+        <form>
+          <div
+            class="el-form-layout-has-margin el-form-layout"
+          >
+            <div
+              class="el-input-wrap"
+            >
+              <div
+                class="el-input-group"
+              >
+                <input
+                  class="el-input"
+                  id="test-static-id"
+                  name="email"
+                  placeholder="Search for a user"
+                />
+                <label
+                  class="el-label"
+                  for="test-static-id"
+                >
+                  Email
+                </label>
+              </div>
+            </div>
+            <div
+              class="el-input-wrap"
+            >
+              <div
+                class="el-input-group"
+              >
+                <input
+                  class="el-input"
+                  id="test-static-id"
+                  name="name"
+                  placeholder="Search for a user"
+                />
+                <label
+                  class="el-label"
+                  for="test-static-id"
+                >
+                  Name
+                </label>
+              </div>
+            </div>
+            <div
+              class="el-input-wrap"
+            >
+              <label
+                class="el-label"
+              >
+                MFA Enabled
+              </label>
+              <div
+                class="el-has-grey-bg el-toggle-radio-wrap"
+              >
+                <input
+                  checked=""
+                  class="el-toggle-radio"
+                  id="mfa-enabled-all"
+                  name="mfaEnabled"
+                  type="radio"
+                  value=""
+                />
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="mfa-enabled-all"
+                >
+                  <span
+                    class="el-toggle-radio-item"
+                  >
+                    All
+                  </span>
+                </label>
+                <input
+                  class="el-toggle-radio"
+                  id="mfa-enabled-true"
+                  name="mfaEnabled"
+                  type="radio"
+                  value="true"
+                />
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="mfa-enabled-true"
+                >
+                  <span
+                    class="el-toggle-radio-item"
+                  >
+                    Enabled
+                  </span>
+                </label>
+                <input
+                  class="el-toggle-radio"
+                  id="mfa-enabled-false"
+                  name="mfaEnabled"
+                  type="radio"
+                  value="false"
+                />
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="mfa-enabled-false"
+                >
+                  <span
+                    class="el-toggle-radio-item"
+                  >
+                    Not Configured
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div
+          class="el-loader-container"
+        >
+          <div
+            class="el-loader"
+          >
+            <div
+              class="el-loader-moving-bar"
+            />
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`AdminPage should match a snapshot when no users found 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <div
+        class="el-flex-auto el-flex-container"
+      >
+        <aside
+          class="el-secondary-nav-container"
+        >
+          <h1
+            class="el-title"
+          >
+            Admin
+          </h1>
+          <span
+            class="el-mb5 el-icon-size-large el-icon"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 80 80"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g>
+                <mask
+                  height="72"
+                  id="mask0_7531_91581"
+                  maskUnits="userSpaceOnUse"
+                  width="72"
+                  x="5"
+                  y="7"
+                >
+                  <circle
+                    cx="41.0144"
+                    cy="42.6966"
+                    fill="#C4C4C4"
+                    r="35.6309"
+                    transform="rotate(-2.75697 41.0144 42.6966)"
+                  />
+                </mask>
+                <g
+                  mask="url(#mask0_7531_91581)"
+                >
+                  <rect
+                    fill="white"
+                    height="80.9118"
+                    transform="rotate(-2.75697 -2.50684 3.1748)"
+                    width="88.3349"
+                    x="-2.50684"
+                    y="3.1748"
+                  />
+                  <path
+                    d="M70.3574 81.0422C70.3574 81.0422 61.8307 81.4528 55.2964 76.9368C45.476 74.0857 48.9105 53.9161 49.6294 53.1428C50.3481 52.3692 52.0831 52.8454 55.9758 54.4604C61.3294 56.6814 62.6238 61.2989 64.5359 64.6455C67.2517 69.3986 69.9646 72.8862 69.9646 72.8862C71.4065 72.8168 69.0303 77.493 70.3574 81.0422Z"
+                    fill="#23A4DE"
+                  />
+                  <path
+                    d="M33.2762 57.9805C32.9622 60.1558 25.8632 68.9556 25.404 80.8675C34.4689 89.199 47.9697 90.0308 57.9981 83.7437C56.6795 73.9172 52.516 58.8145 50.3053 54.4072C47.2325 48.2814 41.1839 47.1559 41.1839 47.1559C41.1839 47.1559 33.6878 55.1303 33.2762 57.9805Z"
+                    fill="#23A4DE"
+                  />
+                  <ellipse
+                    cx="42.9394"
+                    cy="53.038"
+                    fill="#0076AB"
+                    rx="6.69342"
+                    ry="5.29479"
+                    transform="rotate(-2.75697 42.9394 53.038)"
+                  />
+                  <path
+                    d="M23.7949 94.0608C23.7949 94.0608 22.9216 79.8757 29.8486 74.1749C36.7756 68.4745 36.7222 54.2479 36.1497 53.451C35.5773 52.6537 28.8097 53.9496 25.717 56.8097C19.9565 62.137 15.8876 70.3815 13.7234 77.8244C10.4348 76.0227 24.7845 90.6383 23.7949 94.0608Z"
+                    fill="#23A4DE"
+                  />
+                  <path
+                    d="M25.3927 78.941C26.3442 75.5509 30.0652 67.94 30.0652 67.94C30.0652 67.94 27.5278 76.9802 29.6135 81.7104C28.1128 81.4111 26.5585 79.9996 25.3927 78.941Z"
+                    fill="#0076AB"
+                  />
+                  <path
+                    d="M60.7921 77.5352C59.5073 74.2212 55.0303 66.9349 55.0303 66.9349C55.0303 66.9349 58.4567 75.7722 56.8198 80.7273C58.2987 80.2809 59.7235 78.712 60.7921 77.5352Z"
+                    fill="#0076AB"
+                  />
+                </g>
+                <path
+                  d="M30.7234 35.1932C30.8675 38.1844 28.721 40.7183 25.9293 40.8528C23.1373 40.9872 20.7572 38.6712 20.6132 35.68C20.4691 32.6885 22.6156 30.1546 25.4077 30.0201C28.1993 29.8857 30.5794 32.2017 30.7234 35.1932Z"
+                  fill="#FFE5C7"
+                />
+                <path
+                  d="M64.4138 33.2671C64.5579 36.2586 62.4114 38.7925 59.6197 38.927C56.8277 39.0614 54.4477 36.7454 54.3036 33.7539C54.1596 30.7627 56.306 28.2284 59.0981 28.094C61.8898 27.9596 64.2698 30.2759 64.4138 33.2671Z"
+                  fill="#FFE5C7"
+                />
+                <path
+                  d="M24.6052 32.8781C24.6052 32.8781 26.4281 56.2812 43.2961 55.4689C60.1641 54.6567 61.3697 36.3279 60.6518 29.6805C59.9342 23.033 56.4608 12.8643 56.4608 12.8643L42.2016 12.0892L29.8202 15.1914L24.1364 19.0149L23.9451 23.3044L24.6052 32.8781Z"
+                  fill="#FFE5C7"
+                />
+                <path
+                  d="M32.718 25.6259C32.6906 26.1091 33.2972 26.0049 33.7987 25.922C34.8421 25.7497 34.5307 24.9804 36.729 24.9601C37.5266 24.9527 38.8289 26.2169 39.1968 25.5339C40.2424 23.5932 32.9065 22.3065 32.718 25.6259Z"
+                  fill="#262F69"
+                />
+                <path
+                  d="M55.3818 25.0609C54.8814 24.1237 53.2235 23.7212 52.0755 23.8482C51.1143 23.9547 49.5049 24.4366 49.574 25.4207C49.5953 25.722 50.0465 25.6677 50.3974 25.5874C50.9425 25.4626 51.1623 25.2402 51.6894 25.1921C52.2019 25.1451 52.7297 25.2329 53.1803 25.4368C53.7261 25.6842 54.1141 26.0653 54.8027 25.8719C55.4209 25.6981 55.6325 25.5305 55.3818 25.0609Z"
+                  fill="#262F69"
+                />
+                <path
+                  d="M53.7607 28.1333C53.6777 28.086 53.5896 28.0447 53.4965 28.0106C50.4208 26.8814 49.3772 31.7553 51.6222 32.5464C54.8634 33.6884 55.6859 29.2332 53.7607 28.1333Z"
+                  fill="#262F69"
+                />
+                <path
+                  d="M53.3789 28.6731C53.0378 28.3496 52.3889 28.6373 52.4815 29.0775C52.5287 29.302 52.5736 29.4815 52.781 29.6344C53.0972 29.8681 53.7307 29.5944 53.705 29.2219C53.6881 28.9794 53.5566 28.8417 53.3789 28.6731Z"
+                  fill="white"
+                />
+                <path
+                  d="M36.059 43.5956C36.059 43.5956 43.6312 48.1135 49.4032 44.7856C46.2724 49.3031 37.818 48.611 36.059 43.5956Z"
+                  fill="#262F69"
+                />
+                <path
+                  d="M26.7115 7.6701C30.9513 1.53414 39.8937 0.103319 47.9814 1.61918C52.5595 2.47723 67.5939 7.66878 63.2948 16.4786C63.5453 19.1175 63.6867 21.7793 63.6892 24.4301C63.6905 26.1153 63.7223 27.9269 63.3058 29.5738C62.7838 31.6377 60.7673 31.0265 60.0754 29.3956C58.8191 26.4341 60.0083 23.1506 57.9834 20.2383C53.3824 13.6217 49.9396 17.1144 42.131 18.1329C36.0199 18.93 29.9088 15.7577 29.9088 15.7577C29.9088 15.7577 25.5298 22.1067 26.1929 32.069C26.4018 35.2119 20.9435 34.2216 21.421 27.3008C21.898 20.38 20.2452 8.2906 26.7115 7.6701Z"
+                  fill="#262F69"
+                />
+                <path
+                  d="M36.7842 28.1338C36.7011 28.0865 36.613 28.0452 36.5199 28.011C33.4443 26.8819 32.4006 31.7558 34.6456 32.5469C37.8868 33.6889 38.7093 29.2337 36.7842 28.1338Z"
+                  fill="#262F69"
+                />
+                <path
+                  d="M36.4031 28.674C36.062 28.3506 35.4131 28.6382 35.5057 29.0785C35.5533 29.3028 35.5978 29.4824 35.8052 29.6353C36.1214 29.8691 36.755 29.5957 36.7292 29.2229C36.7123 28.9804 36.5808 28.8426 36.4031 28.674Z"
+                  fill="white"
+                />
+                <path
+                  d="M69.2921 52.7366H67.8158V46.6971C67.8158 41.1408 63.3063 36.6313 57.75 36.6313C52.1937 36.6313 47.6842 41.1408 47.6842 46.6971V52.7366H46.2079C45.5368 52.7366 45 53.2735 45 53.9445V74.3445C45 75.0021 45.5368 75.5524 46.2079 75.5524H69.2921C69.9632 75.5524 70.5 75.0021 70.5 74.3445V53.9445C70.5 53.2735 69.9632 52.7366 69.2921 52.7366ZM51.7105 46.6971C51.7105 43.3687 54.4216 40.6577 57.75 40.6577C61.0784 40.6577 63.7895 43.3687 63.7895 46.6971V52.7366H51.7105V46.6971Z"
+                  fill="white"
+                />
+                <path
+                  d="M69.2921 52.7366H67.8158V46.6971C67.8158 41.1408 63.3063 36.6313 57.75 36.6313C52.1937 36.6313 47.6842 41.1408 47.6842 46.6971V52.7366H46.2079C45.5368 52.7366 45 53.2735 45 53.9445V74.3445C45 75.0021 45.5368 75.5524 46.2079 75.5524H69.2921C69.9632 75.5524 70.5 75.0021 70.5 74.3445V53.9445C70.5 53.2735 69.9632 52.7366 69.2921 52.7366ZM54.3947 62.8024C54.3947 60.9503 55.8979 59.4471 57.75 59.4471C59.6021 59.4471 61.1053 60.9503 61.1053 62.8024C61.1053 63.8761 60.6087 64.8558 59.7632 65.4866V68.1708C59.7632 69.2848 58.8639 70.184 57.75 70.184C56.6361 70.184 55.7368 69.2848 55.7368 68.1708V65.4866C54.8913 64.8558 54.3947 63.8761 54.3947 62.8024ZM51.7105 46.6971C51.7105 43.3687 54.4216 40.6577 57.75 40.6577C61.0784 40.6577 63.7895 43.3687 63.7895 46.6971V52.7366H51.7105V46.6971Z"
+                  fill="#0061A8"
+                />
+                <path
+                  d="M68.6988 44.5874C62.5678 44.5874 57.5879 49.5699 57.5879 55.7009C57.5879 61.8319 62.5678 66.8119 68.6988 66.8119C74.8298 66.8119 79.8124 61.8319 79.8124 55.7009C79.8124 49.5699 74.8298 44.5874 68.6988 44.5874Z"
+                  fill="white"
+                />
+                <path
+                  d="M68.6988 44.5874C62.5678 44.5874 57.5879 49.5699 57.5879 55.7009C57.5879 61.8319 62.5678 66.8119 68.6988 66.8119C74.8298 66.8119 79.8124 61.8319 79.8124 55.7009C79.8124 49.5699 74.8298 44.5874 68.6988 44.5874ZM73.5838 50.6578C73.9912 50.6578 74.3975 50.8111 74.7052 51.1188C75.3206 51.7342 75.3206 52.7492 74.7052 53.3646L67.9707 60.0991C67.3553 60.7145 66.3398 60.7145 65.7243 60.0991L62.7323 57.105C62.1169 56.4896 62.1169 55.4761 62.7323 54.8607C63.3477 54.2453 64.3612 54.2453 64.9766 54.8607L66.8473 56.7319L72.4609 51.1188C72.7686 50.8111 73.1764 50.6578 73.5838 50.6578Z"
+                  fill="#FFB71B"
+                />
+              </g>
+              <defs>
+                <rect
+                  fill="white"
+                  height="80"
+                  width="80"
+                />
+              </defs>
+            </svg>
+          </span>
+          <h2
+            class="el-subtitle"
+          >
+            Your User Config
+          </h2>
+          <p
+            class="el-has-grey-text el-small-text"
+          >
+            This page allows you to configure and reset the Multi Factor Authentication (MFA) devices for your organisation users. For more information on how to do this, please refer to the documentation link below.
+          </p>
+          <button
+            class="el-mb5 el-intent-neutral el-button"
+          >
+            Connect Session
+          </button>
+          <button
+            class="el-mb5 el-intent-neutral el-button"
+          >
+            REST API
+          </button>
+        </aside>
+        <section
+          class="el-hfull el-page-container"
+        >
+          <h1
+            class="el-title"
+          >
+            Users List
+          </h1>
+          <form>
+            <div
+              class="el-form-layout-has-margin el-form-layout"
+            >
+              <div
+                class="el-input-wrap"
+              >
+                <div
+                  class="el-input-group"
+                >
+                  <input
+                    class="el-input"
+                    id="test-static-id"
+                    name="email"
+                    placeholder="Search for a user"
+                  />
+                  <label
+                    class="el-label"
+                    for="test-static-id"
+                  >
+                    Email
+                  </label>
+                </div>
+              </div>
+              <div
+                class="el-input-wrap"
+              >
+                <div
+                  class="el-input-group"
+                >
+                  <input
+                    class="el-input"
+                    id="test-static-id"
+                    name="name"
+                    placeholder="Search for a user"
+                  />
+                  <label
+                    class="el-label"
+                    for="test-static-id"
+                  >
+                    Name
+                  </label>
+                </div>
+              </div>
+              <div
+                class="el-input-wrap"
+              >
+                <label
+                  class="el-label"
+                >
+                  MFA Enabled
+                </label>
+                <div
+                  class="el-has-grey-bg el-toggle-radio-wrap"
+                >
+                  <input
+                    checked=""
+                    class="el-toggle-radio"
+                    id="mfa-enabled-all"
+                    name="mfaEnabled"
+                    type="radio"
+                    value=""
+                  />
+                  <label
+                    class="el-has-grey-bg el-toggle-radio-label"
+                    for="mfa-enabled-all"
+                  >
+                    <span
+                      class="el-toggle-radio-item"
+                    >
+                      All
+                    </span>
+                  </label>
+                  <input
+                    class="el-toggle-radio"
+                    id="mfa-enabled-true"
+                    name="mfaEnabled"
+                    type="radio"
+                    value="true"
+                  />
+                  <label
+                    class="el-has-grey-bg el-toggle-radio-label"
+                    for="mfa-enabled-true"
+                  >
+                    <span
+                      class="el-toggle-radio-item"
+                    >
+                      Enabled
+                    </span>
+                  </label>
+                  <input
+                    class="el-toggle-radio"
+                    id="mfa-enabled-false"
+                    name="mfaEnabled"
+                    type="radio"
+                    value="false"
+                  />
+                  <label
+                    class="el-has-grey-bg el-toggle-radio-label"
+                    for="mfa-enabled-false"
+                  >
+                    <span
+                      class="el-toggle-radio-item"
+                    >
+                      Not Configured
+                    </span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </form>
+          <div
+            class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+          >
+            <div
+              class="el-pn-icon"
+              data-testid="close-icon"
+            >
+              <span
+                class="el-icon"
+              >
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 20 20"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9.99958 0C4.47746 0 0 4.47746 0 9.99958C0 15.5217 4.47746 20 9.99958 20C15.5217 20 20 15.5217 20 9.99958C20 4.47746 15.5217 0 9.99958 0ZM12.0813 15.498C11.5666 15.7012 11.1568 15.8552 10.8495 15.9619C10.5431 16.0686 10.1867 16.1219 9.78116 16.1219C9.1581 16.1219 8.67302 15.9695 8.32762 15.6656C7.98222 15.3617 7.81037 14.9765 7.81037 14.5084C7.81037 14.3263 7.82307 14.1401 7.84847 13.9505C7.87471 13.7608 7.91619 13.5475 7.97291 13.3079L8.61714 11.0324C8.67386 10.814 8.72296 10.6066 8.7619 10.4135C8.80085 10.2188 8.81947 10.0402 8.81947 9.87767C8.81947 9.58815 8.75937 9.38497 8.64 9.27069C8.51894 9.1564 8.29122 9.10053 7.95175 9.10053C7.78582 9.10053 7.61481 9.12508 7.43958 9.17672C7.26603 9.23005 7.11534 9.27831 6.99175 9.32571L7.1619 8.62476C7.58349 8.45291 7.9873 8.30561 8.37249 8.1837C8.75767 8.06011 9.12169 7.99915 9.46455 7.99915C10.0834 7.99915 10.5608 8.14984 10.8969 8.44783C11.2313 8.74667 11.3998 9.13524 11.3998 9.6127C11.3998 9.71175 11.3879 9.88614 11.3651 10.135C11.3422 10.3848 11.299 10.6125 11.2364 10.8216L10.5956 13.0904C10.5431 13.2724 10.4965 13.4806 10.4542 13.7134C10.4127 13.9462 10.3924 14.124 10.3924 14.2434C10.3924 14.5448 10.4593 14.7505 10.5947 14.8597C10.7285 14.9689 10.963 15.0239 11.2948 15.0239C11.4514 15.0239 11.6267 14.996 11.8248 14.9418C12.0212 14.8876 12.1634 14.8394 12.2531 14.7979L12.0813 15.498ZM11.9678 6.2891C11.669 6.56677 11.3092 6.70561 10.8885 6.70561C10.4686 6.70561 10.1062 6.56677 9.80487 6.2891C9.50519 6.01143 9.35365 5.67365 9.35365 5.27915C9.35365 4.8855 9.50603 4.54688 9.80487 4.26667C10.1062 3.98561 10.4686 3.84593 10.8885 3.84593C11.3092 3.84593 11.6698 3.98561 11.9678 4.26667C12.2667 4.54688 12.4165 4.8855 12.4165 5.27915C12.4165 5.6745 12.2667 6.01143 11.9678 6.2891Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+            </div>
+            <div
+              class="el-pn-content"
+            >
+              No users found based on your current search.
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <div
+      class="el-flex-auto el-flex-container"
+    >
+      <aside
+        class="el-secondary-nav-container"
+      >
+        <h1
+          class="el-title"
+        >
+          Admin
+        </h1>
+        <span
+          class="el-mb5 el-icon-size-large el-icon"
+        >
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 80 80"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g>
+              <mask
+                height="72"
+                id="mask0_7531_91581"
+                maskUnits="userSpaceOnUse"
+                width="72"
+                x="5"
+                y="7"
+              >
+                <circle
+                  cx="41.0144"
+                  cy="42.6966"
+                  fill="#C4C4C4"
+                  r="35.6309"
+                  transform="rotate(-2.75697 41.0144 42.6966)"
+                />
+              </mask>
+              <g
+                mask="url(#mask0_7531_91581)"
+              >
+                <rect
+                  fill="white"
+                  height="80.9118"
+                  transform="rotate(-2.75697 -2.50684 3.1748)"
+                  width="88.3349"
+                  x="-2.50684"
+                  y="3.1748"
+                />
+                <path
+                  d="M70.3574 81.0422C70.3574 81.0422 61.8307 81.4528 55.2964 76.9368C45.476 74.0857 48.9105 53.9161 49.6294 53.1428C50.3481 52.3692 52.0831 52.8454 55.9758 54.4604C61.3294 56.6814 62.6238 61.2989 64.5359 64.6455C67.2517 69.3986 69.9646 72.8862 69.9646 72.8862C71.4065 72.8168 69.0303 77.493 70.3574 81.0422Z"
+                  fill="#23A4DE"
+                />
+                <path
+                  d="M33.2762 57.9805C32.9622 60.1558 25.8632 68.9556 25.404 80.8675C34.4689 89.199 47.9697 90.0308 57.9981 83.7437C56.6795 73.9172 52.516 58.8145 50.3053 54.4072C47.2325 48.2814 41.1839 47.1559 41.1839 47.1559C41.1839 47.1559 33.6878 55.1303 33.2762 57.9805Z"
+                  fill="#23A4DE"
+                />
+                <ellipse
+                  cx="42.9394"
+                  cy="53.038"
+                  fill="#0076AB"
+                  rx="6.69342"
+                  ry="5.29479"
+                  transform="rotate(-2.75697 42.9394 53.038)"
+                />
+                <path
+                  d="M23.7949 94.0608C23.7949 94.0608 22.9216 79.8757 29.8486 74.1749C36.7756 68.4745 36.7222 54.2479 36.1497 53.451C35.5773 52.6537 28.8097 53.9496 25.717 56.8097C19.9565 62.137 15.8876 70.3815 13.7234 77.8244C10.4348 76.0227 24.7845 90.6383 23.7949 94.0608Z"
+                  fill="#23A4DE"
+                />
+                <path
+                  d="M25.3927 78.941C26.3442 75.5509 30.0652 67.94 30.0652 67.94C30.0652 67.94 27.5278 76.9802 29.6135 81.7104C28.1128 81.4111 26.5585 79.9996 25.3927 78.941Z"
+                  fill="#0076AB"
+                />
+                <path
+                  d="M60.7921 77.5352C59.5073 74.2212 55.0303 66.9349 55.0303 66.9349C55.0303 66.9349 58.4567 75.7722 56.8198 80.7273C58.2987 80.2809 59.7235 78.712 60.7921 77.5352Z"
+                  fill="#0076AB"
+                />
+              </g>
+              <path
+                d="M30.7234 35.1932C30.8675 38.1844 28.721 40.7183 25.9293 40.8528C23.1373 40.9872 20.7572 38.6712 20.6132 35.68C20.4691 32.6885 22.6156 30.1546 25.4077 30.0201C28.1993 29.8857 30.5794 32.2017 30.7234 35.1932Z"
+                fill="#FFE5C7"
+              />
+              <path
+                d="M64.4138 33.2671C64.5579 36.2586 62.4114 38.7925 59.6197 38.927C56.8277 39.0614 54.4477 36.7454 54.3036 33.7539C54.1596 30.7627 56.306 28.2284 59.0981 28.094C61.8898 27.9596 64.2698 30.2759 64.4138 33.2671Z"
+                fill="#FFE5C7"
+              />
+              <path
+                d="M24.6052 32.8781C24.6052 32.8781 26.4281 56.2812 43.2961 55.4689C60.1641 54.6567 61.3697 36.3279 60.6518 29.6805C59.9342 23.033 56.4608 12.8643 56.4608 12.8643L42.2016 12.0892L29.8202 15.1914L24.1364 19.0149L23.9451 23.3044L24.6052 32.8781Z"
+                fill="#FFE5C7"
+              />
+              <path
+                d="M32.718 25.6259C32.6906 26.1091 33.2972 26.0049 33.7987 25.922C34.8421 25.7497 34.5307 24.9804 36.729 24.9601C37.5266 24.9527 38.8289 26.2169 39.1968 25.5339C40.2424 23.5932 32.9065 22.3065 32.718 25.6259Z"
+                fill="#262F69"
+              />
+              <path
+                d="M55.3818 25.0609C54.8814 24.1237 53.2235 23.7212 52.0755 23.8482C51.1143 23.9547 49.5049 24.4366 49.574 25.4207C49.5953 25.722 50.0465 25.6677 50.3974 25.5874C50.9425 25.4626 51.1623 25.2402 51.6894 25.1921C52.2019 25.1451 52.7297 25.2329 53.1803 25.4368C53.7261 25.6842 54.1141 26.0653 54.8027 25.8719C55.4209 25.6981 55.6325 25.5305 55.3818 25.0609Z"
+                fill="#262F69"
+              />
+              <path
+                d="M53.7607 28.1333C53.6777 28.086 53.5896 28.0447 53.4965 28.0106C50.4208 26.8814 49.3772 31.7553 51.6222 32.5464C54.8634 33.6884 55.6859 29.2332 53.7607 28.1333Z"
+                fill="#262F69"
+              />
+              <path
+                d="M53.3789 28.6731C53.0378 28.3496 52.3889 28.6373 52.4815 29.0775C52.5287 29.302 52.5736 29.4815 52.781 29.6344C53.0972 29.8681 53.7307 29.5944 53.705 29.2219C53.6881 28.9794 53.5566 28.8417 53.3789 28.6731Z"
+                fill="white"
+              />
+              <path
+                d="M36.059 43.5956C36.059 43.5956 43.6312 48.1135 49.4032 44.7856C46.2724 49.3031 37.818 48.611 36.059 43.5956Z"
+                fill="#262F69"
+              />
+              <path
+                d="M26.7115 7.6701C30.9513 1.53414 39.8937 0.103319 47.9814 1.61918C52.5595 2.47723 67.5939 7.66878 63.2948 16.4786C63.5453 19.1175 63.6867 21.7793 63.6892 24.4301C63.6905 26.1153 63.7223 27.9269 63.3058 29.5738C62.7838 31.6377 60.7673 31.0265 60.0754 29.3956C58.8191 26.4341 60.0083 23.1506 57.9834 20.2383C53.3824 13.6217 49.9396 17.1144 42.131 18.1329C36.0199 18.93 29.9088 15.7577 29.9088 15.7577C29.9088 15.7577 25.5298 22.1067 26.1929 32.069C26.4018 35.2119 20.9435 34.2216 21.421 27.3008C21.898 20.38 20.2452 8.2906 26.7115 7.6701Z"
+                fill="#262F69"
+              />
+              <path
+                d="M36.7842 28.1338C36.7011 28.0865 36.613 28.0452 36.5199 28.011C33.4443 26.8819 32.4006 31.7558 34.6456 32.5469C37.8868 33.6889 38.7093 29.2337 36.7842 28.1338Z"
+                fill="#262F69"
+              />
+              <path
+                d="M36.4031 28.674C36.062 28.3506 35.4131 28.6382 35.5057 29.0785C35.5533 29.3028 35.5978 29.4824 35.8052 29.6353C36.1214 29.8691 36.755 29.5957 36.7292 29.2229C36.7123 28.9804 36.5808 28.8426 36.4031 28.674Z"
+                fill="white"
+              />
+              <path
+                d="M69.2921 52.7366H67.8158V46.6971C67.8158 41.1408 63.3063 36.6313 57.75 36.6313C52.1937 36.6313 47.6842 41.1408 47.6842 46.6971V52.7366H46.2079C45.5368 52.7366 45 53.2735 45 53.9445V74.3445C45 75.0021 45.5368 75.5524 46.2079 75.5524H69.2921C69.9632 75.5524 70.5 75.0021 70.5 74.3445V53.9445C70.5 53.2735 69.9632 52.7366 69.2921 52.7366ZM51.7105 46.6971C51.7105 43.3687 54.4216 40.6577 57.75 40.6577C61.0784 40.6577 63.7895 43.3687 63.7895 46.6971V52.7366H51.7105V46.6971Z"
+                fill="white"
+              />
+              <path
+                d="M69.2921 52.7366H67.8158V46.6971C67.8158 41.1408 63.3063 36.6313 57.75 36.6313C52.1937 36.6313 47.6842 41.1408 47.6842 46.6971V52.7366H46.2079C45.5368 52.7366 45 53.2735 45 53.9445V74.3445C45 75.0021 45.5368 75.5524 46.2079 75.5524H69.2921C69.9632 75.5524 70.5 75.0021 70.5 74.3445V53.9445C70.5 53.2735 69.9632 52.7366 69.2921 52.7366ZM54.3947 62.8024C54.3947 60.9503 55.8979 59.4471 57.75 59.4471C59.6021 59.4471 61.1053 60.9503 61.1053 62.8024C61.1053 63.8761 60.6087 64.8558 59.7632 65.4866V68.1708C59.7632 69.2848 58.8639 70.184 57.75 70.184C56.6361 70.184 55.7368 69.2848 55.7368 68.1708V65.4866C54.8913 64.8558 54.3947 63.8761 54.3947 62.8024ZM51.7105 46.6971C51.7105 43.3687 54.4216 40.6577 57.75 40.6577C61.0784 40.6577 63.7895 43.3687 63.7895 46.6971V52.7366H51.7105V46.6971Z"
+                fill="#0061A8"
+              />
+              <path
+                d="M68.6988 44.5874C62.5678 44.5874 57.5879 49.5699 57.5879 55.7009C57.5879 61.8319 62.5678 66.8119 68.6988 66.8119C74.8298 66.8119 79.8124 61.8319 79.8124 55.7009C79.8124 49.5699 74.8298 44.5874 68.6988 44.5874Z"
+                fill="white"
+              />
+              <path
+                d="M68.6988 44.5874C62.5678 44.5874 57.5879 49.5699 57.5879 55.7009C57.5879 61.8319 62.5678 66.8119 68.6988 66.8119C74.8298 66.8119 79.8124 61.8319 79.8124 55.7009C79.8124 49.5699 74.8298 44.5874 68.6988 44.5874ZM73.5838 50.6578C73.9912 50.6578 74.3975 50.8111 74.7052 51.1188C75.3206 51.7342 75.3206 52.7492 74.7052 53.3646L67.9707 60.0991C67.3553 60.7145 66.3398 60.7145 65.7243 60.0991L62.7323 57.105C62.1169 56.4896 62.1169 55.4761 62.7323 54.8607C63.3477 54.2453 64.3612 54.2453 64.9766 54.8607L66.8473 56.7319L72.4609 51.1188C72.7686 50.8111 73.1764 50.6578 73.5838 50.6578Z"
+                fill="#FFB71B"
+              />
+            </g>
+            <defs>
+              <rect
+                fill="white"
+                height="80"
+                width="80"
+              />
+            </defs>
+          </svg>
+        </span>
+        <h2
+          class="el-subtitle"
+        >
+          Your User Config
+        </h2>
+        <p
+          class="el-has-grey-text el-small-text"
+        >
+          This page allows you to configure and reset the Multi Factor Authentication (MFA) devices for your organisation users. For more information on how to do this, please refer to the documentation link below.
+        </p>
+        <button
+          class="el-mb5 el-intent-neutral el-button"
+        >
+          Connect Session
+        </button>
+        <button
+          class="el-mb5 el-intent-neutral el-button"
+        >
+          REST API
+        </button>
+      </aside>
+      <section
+        class="el-hfull el-page-container"
+      >
+        <h1
+          class="el-title"
+        >
+          Users List
+        </h1>
+        <form>
+          <div
+            class="el-form-layout-has-margin el-form-layout"
+          >
+            <div
+              class="el-input-wrap"
+            >
+              <div
+                class="el-input-group"
+              >
+                <input
+                  class="el-input"
+                  id="test-static-id"
+                  name="email"
+                  placeholder="Search for a user"
+                />
+                <label
+                  class="el-label"
+                  for="test-static-id"
+                >
+                  Email
+                </label>
+              </div>
+            </div>
+            <div
+              class="el-input-wrap"
+            >
+              <div
+                class="el-input-group"
+              >
+                <input
+                  class="el-input"
+                  id="test-static-id"
+                  name="name"
+                  placeholder="Search for a user"
+                />
+                <label
+                  class="el-label"
+                  for="test-static-id"
+                >
+                  Name
+                </label>
+              </div>
+            </div>
+            <div
+              class="el-input-wrap"
+            >
+              <label
+                class="el-label"
+              >
+                MFA Enabled
+              </label>
+              <div
+                class="el-has-grey-bg el-toggle-radio-wrap"
+              >
+                <input
+                  checked=""
+                  class="el-toggle-radio"
+                  id="mfa-enabled-all"
+                  name="mfaEnabled"
+                  type="radio"
+                  value=""
+                />
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="mfa-enabled-all"
+                >
+                  <span
+                    class="el-toggle-radio-item"
+                  >
+                    All
+                  </span>
+                </label>
+                <input
+                  class="el-toggle-radio"
+                  id="mfa-enabled-true"
+                  name="mfaEnabled"
+                  type="radio"
+                  value="true"
+                />
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="mfa-enabled-true"
+                >
+                  <span
+                    class="el-toggle-radio-item"
+                  >
+                    Enabled
+                  </span>
+                </label>
+                <input
+                  class="el-toggle-radio"
+                  id="mfa-enabled-false"
+                  name="mfaEnabled"
+                  type="radio"
+                  value="false"
+                />
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="mfa-enabled-false"
+                >
+                  <span
+                    class="el-toggle-radio-item"
+                  >
+                    Not Configured
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div
+          class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        >
+          <div
+            class="el-pn-icon"
+            data-testid="close-icon"
+          >
+            <span
+              class="el-icon"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 20 20"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9.99958 0C4.47746 0 0 4.47746 0 9.99958C0 15.5217 4.47746 20 9.99958 20C15.5217 20 20 15.5217 20 9.99958C20 4.47746 15.5217 0 9.99958 0ZM12.0813 15.498C11.5666 15.7012 11.1568 15.8552 10.8495 15.9619C10.5431 16.0686 10.1867 16.1219 9.78116 16.1219C9.1581 16.1219 8.67302 15.9695 8.32762 15.6656C7.98222 15.3617 7.81037 14.9765 7.81037 14.5084C7.81037 14.3263 7.82307 14.1401 7.84847 13.9505C7.87471 13.7608 7.91619 13.5475 7.97291 13.3079L8.61714 11.0324C8.67386 10.814 8.72296 10.6066 8.7619 10.4135C8.80085 10.2188 8.81947 10.0402 8.81947 9.87767C8.81947 9.58815 8.75937 9.38497 8.64 9.27069C8.51894 9.1564 8.29122 9.10053 7.95175 9.10053C7.78582 9.10053 7.61481 9.12508 7.43958 9.17672C7.26603 9.23005 7.11534 9.27831 6.99175 9.32571L7.1619 8.62476C7.58349 8.45291 7.9873 8.30561 8.37249 8.1837C8.75767 8.06011 9.12169 7.99915 9.46455 7.99915C10.0834 7.99915 10.5608 8.14984 10.8969 8.44783C11.2313 8.74667 11.3998 9.13524 11.3998 9.6127C11.3998 9.71175 11.3879 9.88614 11.3651 10.135C11.3422 10.3848 11.299 10.6125 11.2364 10.8216L10.5956 13.0904C10.5431 13.2724 10.4965 13.4806 10.4542 13.7134C10.4127 13.9462 10.3924 14.124 10.3924 14.2434C10.3924 14.5448 10.4593 14.7505 10.5947 14.8597C10.7285 14.9689 10.963 15.0239 11.2948 15.0239C11.4514 15.0239 11.6267 14.996 11.8248 14.9418C12.0212 14.8876 12.1634 14.8394 12.2531 14.7979L12.0813 15.498ZM11.9678 6.2891C11.669 6.56677 11.3092 6.70561 10.8885 6.70561C10.4686 6.70561 10.1062 6.56677 9.80487 6.2891C9.50519 6.01143 9.35365 5.67365 9.35365 5.27915C9.35365 4.8855 9.50603 4.54688 9.80487 4.26667C10.1062 3.98561 10.4686 3.84593 10.8885 3.84593C11.3092 3.84593 11.6698 3.98561 11.9678 4.26667C12.2667 4.54688 12.4165 4.8855 12.4165 5.27915C12.4165 5.6745 12.2667 6.01143 11.9678 6.2891Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+          </div>
+          <div
+            class="el-pn-content"
           >
             No users found based on your current search.
           </div>

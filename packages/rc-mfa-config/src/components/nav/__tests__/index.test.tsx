@@ -1,19 +1,12 @@
 import React from 'react'
-import { render } from '@testing-library/react'
 import { Nav, getDefaultNavIndex } from '..'
 import { Routes } from '../../../constants/routes'
-import { MediaStateProvider, NavStateProvider } from '@reapit/elements'
+import { render } from '../../../tests/react-testing'
 
 describe('Nav', () => {
   it('should match a snapshot', () => {
     window.location.pathname = '/'
-    const wrapper = render(
-      <NavStateProvider>
-        <MediaStateProvider>
-          <Nav />
-        </MediaStateProvider>
-      </NavStateProvider>,
-    )
+    const wrapper = render(<Nav />)
     expect(wrapper).toMatchSnapshot()
   })
 })

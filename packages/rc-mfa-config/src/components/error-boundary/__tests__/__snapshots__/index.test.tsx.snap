@@ -6,14 +6,14 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="e1vxext9-el-intent-danger evmehgn-el-is-active e1qwk99x-el-pn-is-full-width e15e3rd4-el-pn-is-inline erhlo5n-el-persistent-notification"
+        class="el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
       >
         <div
-          class="eta6kcl-el-pn-icon"
+          class="el-pn-icon"
           data-testid="close-icon"
         >
           <span
-            class="ej9yrfo-el-icon"
+            class="el-icon"
           >
             <svg
               fill="none"
@@ -30,7 +30,7 @@ Object {
           </span>
         </div>
         <div
-          class="e1geon40-el-pn-content"
+          class="el-pn-content"
         >
           Something went wrong here, try refreshing your page.
         </div>
@@ -39,14 +39,14 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="e1vxext9-el-intent-danger evmehgn-el-is-active e1qwk99x-el-pn-is-full-width e15e3rd4-el-pn-is-inline erhlo5n-el-persistent-notification"
+      class="el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
     >
       <div
-        class="eta6kcl-el-pn-icon"
+        class="el-pn-icon"
         data-testid="close-icon"
       >
         <span
-          class="ej9yrfo-el-icon"
+          class="el-icon"
         >
           <svg
             fill="none"
@@ -63,7 +63,7 @@ Object {
         </span>
       </div>
       <div
-        class="e1geon40-el-pn-content"
+        class="el-pn-content"
       >
         Something went wrong here, try refreshing your page.
       </div>

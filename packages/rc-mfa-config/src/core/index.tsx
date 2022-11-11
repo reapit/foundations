@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import React, { ComponentType } from 'react'
 import * as Sentry from '@sentry/react'
 import { BrowserTracing } from '@sentry/tracing'

@@ -6,22 +6,22 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="ecbqyq6-el-snack-holder"
+        class="el-snack-holder"
       />
       <main
-        class="e16s02q7-el-main-container"
+        class="el-main-container"
       >
         <section
-          class="eukst9x-el-page-container"
+          class="el-page-container"
         >
           <div
-            class="ev48hx0-el-is-full-page ebhrnzh-el-loader-container"
+            class="el-is-full-page el-loader-container"
           >
             <div
-              class="eq1m1jz-el-loader"
+              class="el-loader"
             >
               <div
-                class="exikdu1-el-loader-moving-bar"
+                class="el-loader-moving-bar"
               />
             </div>
           </div>
@@ -31,22 +31,22 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="ecbqyq6-el-snack-holder"
+      class="el-snack-holder"
     />
     <main
-      class="e16s02q7-el-main-container"
+      class="el-main-container"
     >
       <section
-        class="eukst9x-el-page-container"
+        class="el-page-container"
       >
         <div
-          class="ev48hx0-el-is-full-page ebhrnzh-el-loader-container"
+          class="el-is-full-page el-loader-container"
         >
           <div
-            class="eq1m1jz-el-loader"
+            class="el-loader"
           >
             <div
-              class="exikdu1-el-loader-moving-bar"
+              class="el-loader-moving-bar"
             />
           </div>
         </div>
