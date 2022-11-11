@@ -88,4 +88,8 @@ export enum PathNames {
   revisionById = '/marketplace/apps/{appId}/revisions/{revisionId}',
   revisionApprove = '/marketplace/apps/{appId}/revisions/{revisionId}/approve',
   revisionReject = '/marketplace/apps/{appId}/revisions/{revisionId}/reject',
+  users = '/organisations/users',
+  userAuthenticators = '/organisations/users/{userId}/authenticators',
+  userAuthenticatorById = '/organisations/users/{userId}/authenticators/{authenticatorId}',
+  userAuthenticatorVerify = '/organisations/users/{userId}/authenticators/{authenticatorId}/verify',
 }

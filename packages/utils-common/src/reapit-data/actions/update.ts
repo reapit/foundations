@@ -50,6 +50,9 @@ export enum UpdateActionNames {
   createDwRequest = 'createDwRequest',
   deleteDwShare = 'deleteDwShare',
   refreshDwShare = 'refreshDwShare',
+  createUserAuthenticator = 'createUserAuthenticator',
+  verifyUserAuthenticator = 'verifyUserAuthenticator',
+  deleteUserAuthenticator = 'deleteUserAuthenticator',
 }
 
 export type UpdateActions = { [key in UpdateActionNames]: UpdateAction }
@@ -302,5 +305,23 @@ export const updateActions = (appEnv: AppEnv): UpdateActions => ({
     path: PathNames.dwShareRefresh,
     successMessage: 'Successfully refreshed data share.',
     errorMessage: 'Failed to refresh data share.',
+  },
+  [UpdateActionNames.createUserAuthenticator]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.userAuthenticators,
+    successMessage: 'Successfully fetched QR code.',
+    errorMessage: 'Failed to fetch QR code. This error has been logged',
+  },
+  [UpdateActionNames.deleteUserAuthenticator]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.userAuthenticatorById,
+    successMessage: 'Successfully reset authenticator.',
+    errorMessage: 'Failed to reset authenticator. This error has been logged',
+  },
+  [UpdateActionNames.verifyUserAuthenticator]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.userAuthenticatorVerify,
+    successMessage: 'Successfully verified authenticator.',
+    errorMessage: 'Failed to verify authenticator. This error has been logged',
   },
 })

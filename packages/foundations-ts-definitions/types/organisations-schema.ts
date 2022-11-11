@@ -1198,6 +1198,10 @@ export interface UserInfoModel {
    */
   consentToTrack?: boolean
   /**
+   * Flag indicating whether or not the user has an active secondary authenticator against their account (MFA)
+   */
+  mfaEnabled?: boolean
+  /**
    * The id of the negotiator the user relates to
    */
   negotiatorId?: string
@@ -1303,6 +1307,10 @@ export interface UserModel {
    * Flag indicating whether or not the user has given consent for their actions to be tracked whilst using Reapit products
    */
   consentToTrack?: boolean
+  /**
+   * Flag indicating whether or not the user has an active secondary authenticator against their account (MFA)
+   */
+  mfaEnabled?: boolean
   /**
    * The date and time that the user last updated their tracking consent status
    * example:
@@ -1417,6 +1425,7 @@ export interface Users {
   name?: string
   email?: string
   organisationName?: string
+  mfaEnabled?: boolean
   createdFrom?: string
   createdTo?: string
 }
