@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react'
+import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
 import {
   Title,
   Subtitle,
@@ -41,15 +41,31 @@ export const handleGetQrCode =
     requestQrCode({ type: 'softwareToken' })
   }
 
+export const handleSetQrCode =
+  (
+    setQrCode: Dispatch<SetStateAction<CreateAuthenticatorReturnType | undefined>>,
+    qrCode?: CreateAuthenticatorReturnType,
+  ) =>
+  () => {
+    if (qrCode) {
+      setQrCode(qrCode)
+    }
+  }
+
 export const handleRefresh =
   (refreshAuthenticators: () => void, qrCodeResponse?: CreateAuthenticatorReturnType) => () => {
     if (qrCodeResponse) {
-      refreshAuthenticators()
+      // TODO: Remove timeout when DB cluster for orgs has been updated, neccessary for now owing to latency on
+      // read / write replications
+      setTimeout(() => {
+        refreshAuthenticators()
+      }, 1000)
     }
   }
 
 export const HomePage: FC = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const [qrCode, setQrCode] = useState<CreateAuthenticatorReturnType>()
   const email = connectSession?.loginIdentity.email
   const userId = email ? window.btoa(email.toLowerCase()).replace(/=/g, '') : null
 
@@ -76,6 +92,7 @@ export const HomePage: FC = () => {
   const activeAuthenticator = authenticators?.find((authenticator) => authenticator.status === 'active')
 
   useEffect(handleRefresh(refreshAuthenticators, qrCodeResponse), [qrCodeResponse])
+  useEffect(handleSetQrCode(setQrCode, qrCodeResponse), [qrCodeResponse])
 
   return (
     <FlexContainer isFlexAuto>
@@ -121,7 +138,7 @@ export const HomePage: FC = () => {
                 Configure MFA Device
               </Button>
             </ButtonGroup>
-            <QrCodeVerify refreshAuthenticators={refreshAuthenticators} qrCodeResponse={qrCodeResponse} />
+            <QrCodeVerify refreshAuthenticators={refreshAuthenticators} qrCode={qrCode} setQrCode={setQrCode} />
           </>
         )}
       </PageContainer>

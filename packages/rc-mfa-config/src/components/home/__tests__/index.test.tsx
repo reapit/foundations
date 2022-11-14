@@ -1,6 +1,6 @@
 import { useReapitGet } from '@reapit/utils-react'
 import React from 'react'
-import { CreateAuthenticatorReturnType, handleGetQrCode, handleRefresh, HomePage } from '..'
+import { CreateAuthenticatorReturnType, handleGetQrCode, handleRefresh, handleSetQrCode, HomePage } from '..'
 import { render } from '../../../tests/react-testing'
 import { mockAuthenticatorModel } from '../../../tests/__stubs__/authenticator'
 
@@ -10,6 +10,8 @@ jest.mock('@reapit/utils-react', () => ({
   UpdateReturnTypeEnum: {},
   objectToQuery: jest.fn(),
 }))
+
+jest.useFakeTimers()
 
 const mockUseReapitGet = useReapitGet as jest.Mock
 
@@ -31,24 +33,38 @@ describe('HomePage', () => {
 })
 
 describe('handleRefresh', () => {
-  it('handle refreshing authenticators', () => {
+  it('handles refreshing authenticators', () => {
     const refreshAuthenticators = jest.fn()
     const qrCodeResponse = {} as CreateAuthenticatorReturnType
     const curried = handleRefresh(refreshAuthenticators, qrCodeResponse)
 
     curried()
 
+    jest.runAllTimers()
+
     expect(refreshAuthenticators).toHaveBeenCalledTimes(1)
   })
 })
 
 describe('handleGetQrCode', () => {
-  it('handle requesting qr code', () => {
+  it('handles requesting qr code', () => {
     const requestQrCode = jest.fn()
     const curried = handleGetQrCode(requestQrCode)
 
     curried()
 
     expect(requestQrCode).toHaveBeenCalledWith({ type: 'softwareToken' })
+  })
+})
+
+describe('handleSetQrCode', () => {
+  it('handles setting qr code', () => {
+    const setQrCode = jest.fn()
+    const qrCode = { secret: 'MOCK_SECRET', id: 'MOCK_ID' }
+    const curried = handleSetQrCode(setQrCode, qrCode)
+
+    curried()
+
+    expect(setQrCode).toHaveBeenCalledWith(qrCode)
   })
 })

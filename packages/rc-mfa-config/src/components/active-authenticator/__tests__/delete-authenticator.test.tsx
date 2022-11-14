@@ -3,6 +3,8 @@ import { handleDeleteAuthenticator, handleRefresh, DeleteAuthenticator } from '.
 import { render } from '../../../tests/react-testing'
 import { mockAuthenticatorModel } from '../../../tests/__stubs__/authenticator'
 
+jest.useFakeTimers()
+
 describe('DeleteAuthenticator', () => {
   it('should render component with props', () => {
     expect(
@@ -29,6 +31,8 @@ describe('handleRefresh', () => {
     const curried = handleRefresh(refreshAuthenticators, hasDeleted)
 
     curried()
+
+    jest.runAllTimers()
 
     expect(refreshAuthenticators).toHaveBeenCalledTimes(1)
   })

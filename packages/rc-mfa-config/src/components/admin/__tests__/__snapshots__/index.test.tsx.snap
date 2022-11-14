@@ -169,12 +169,7 @@ Object {
           <button
             class="el-mb5 el-intent-neutral el-button"
           >
-            Connect Session
-          </button>
-          <button
-            class="el-mb5 el-intent-neutral el-button"
-          >
-            REST API
+            Docs
           </button>
         </aside>
         <section
@@ -379,12 +374,7 @@ Object {
         <button
           class="el-mb5 el-intent-neutral el-button"
         >
-          Connect Session
-        </button>
-        <button
-          class="el-mb5 el-intent-neutral el-button"
-        >
-          REST API
+          Docs
         </button>
       </aside>
       <section
@@ -646,12 +636,7 @@ Object {
           <button
             class="el-mb5 el-intent-neutral el-button"
           >
-            Connect Session
-          </button>
-          <button
-            class="el-mb5 el-intent-neutral el-button"
-          >
-            REST API
+            Docs
           </button>
         </aside>
         <section
@@ -953,12 +938,7 @@ Object {
         <button
           class="el-mb5 el-intent-neutral el-button"
         >
-          Connect Session
-        </button>
-        <button
-          class="el-mb5 el-intent-neutral el-button"
-        >
-          REST API
+          Docs
         </button>
       </aside>
       <section
@@ -1317,12 +1297,7 @@ Object {
           <button
             class="el-mb5 el-intent-neutral el-button"
           >
-            Connect Session
-          </button>
-          <button
-            class="el-mb5 el-intent-neutral el-button"
-          >
-            REST API
+            Docs
           </button>
         </aside>
         <section
@@ -1643,12 +1618,7 @@ Object {
         <button
           class="el-mb5 el-intent-neutral el-button"
         >
-          Connect Session
-        </button>
-        <button
-          class="el-mb5 el-intent-neutral el-button"
-        >
-          REST API
+          Docs
         </button>
       </aside>
       <section
