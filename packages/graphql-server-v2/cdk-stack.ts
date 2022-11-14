@@ -11,13 +11,6 @@ const appName = 'foundations'
 const component = 'graphql-server-v2'
 
 const createStack = () => {
-  console.log('building...')
-  execSync('yarn build', {
-    cwd: __dirname,
-    stdio: 'inherit',
-  })
-  console.log('built')
-
   console.log('bundling...')
   execSync('yarn bundle', {
     cwd: __dirname,
