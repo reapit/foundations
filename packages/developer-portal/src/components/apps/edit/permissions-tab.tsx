@@ -47,6 +47,8 @@ export const PermissionsTab: FC<AppEditTabsProps> = ({ register, errors, control
 
   const { scopes, products, isPrivateApp, limitToClientIds } = formFields
 
+  const filteredScopes = scopesList?.filter((scope) => !scope.name?.includes('payment'))
+
   return (
     <>
       <BodyText hasGreyText>
@@ -60,7 +62,7 @@ export const PermissionsTab: FC<AppEditTabsProps> = ({ register, errors, control
       </BodyText>
       {scopesListLoading && <Loader />}
       <FormLayout hasMargin>
-        {scopesList && (
+        {filteredScopes && (
           <InputWrapFull>
             <Label>{scopes.label}</Label>
             <MultiSelectInput
@@ -68,7 +70,7 @@ export const PermissionsTab: FC<AppEditTabsProps> = ({ register, errors, control
               {...scopes}
               {...register('scopes')}
               options={
-                scopesList.map(({ name, description }) => ({
+                filteredScopes.map(({ name, description }) => ({
                   name: description,
                   value: name,
                 })) as MultiSelectOption[]

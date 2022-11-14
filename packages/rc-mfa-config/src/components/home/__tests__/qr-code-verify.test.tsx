@@ -6,14 +6,18 @@ describe('QrCodeVerify', () => {
   it('should render component with props', () => {
     expect(
       render(
-        <QrCodeVerify refreshAuthenticators={jest.fn()} qrCodeResponse={{ secret: 'MOCK_SECRET', id: 'MOCK_ID' }} />,
+        <QrCodeVerify
+          refreshAuthenticators={jest.fn()}
+          setQrCode={jest.fn()}
+          qrCode={{ secret: 'MOCK_SECRET', id: 'MOCK_ID' }}
+        />,
       ),
     ).toMatchSnapshot()
   })
 })
 
 describe('handleVerifyQrCode', () => {
-  it('handle verifying', () => {
+  it('handles verifying', () => {
     const verifyQrCode = jest.fn()
     const formValues = {
       code: '123456',

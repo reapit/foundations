@@ -40,6 +40,10 @@ export const AcIntegrationTab: FC<AppEditTabsProps> = ({ register, errors, contr
   const { desktopIntegrationTypeIds, isAgencyCloudIntegrated } = formFields
   const { name } = desktopIntegrationTypeIds
 
+  const filteredDesktopIntegrationTypes = desktopIntegrationTypes?.data?.filter(
+    (type) => !type.name?.includes('Payment'),
+  )
+
   return (
     <>
       <BodyText hasGreyText>
@@ -78,7 +82,7 @@ export const AcIntegrationTab: FC<AppEditTabsProps> = ({ register, errors, contr
               {...desktopIntegrationTypeIds}
               {...register('desktopIntegrationTypeIds')}
               options={
-                desktopIntegrationTypes.data?.map(({ name, id }) => ({
+                filteredDesktopIntegrationTypes?.map(({ name, id }) => ({
                   name,
                   value: id,
                 })) as MultiSelectOption[]

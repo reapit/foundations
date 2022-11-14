@@ -1,4 +1,4 @@
-import React, { useEffect, FC, MutableRefObject, useRef } from 'react'
+import React, { useEffect, FC, MutableRefObject, useRef, Dispatch, SetStateAction } from 'react'
 import {
   Button,
   ButtonGroup,
@@ -24,7 +24,8 @@ import { CreateAuthenticatorReturnType } from '.'
 
 interface QrCodeVerifyProps {
   refreshAuthenticators: () => void
-  qrCodeResponse?: CreateAuthenticatorReturnType
+  setQrCode: Dispatch<SetStateAction<CreateAuthenticatorReturnType | undefined>>
+  qrCode?: CreateAuthenticatorReturnType
 }
 
 interface VerifyQrCodeType {
@@ -44,32 +45,43 @@ export const handleDrawQrCode =
   (
     modalIsOpen: boolean,
     canvasRef: MutableRefObject<HTMLCanvasElement | null>,
-    qrCodeResponse?: CreateAuthenticatorReturnType,
+    qrCode?: CreateAuthenticatorReturnType,
   ) =>
   () => {
-    if (modalIsOpen && canvasRef?.current && qrCodeResponse) {
-      const qrCode = `otpauth://totp/Reapit%20Connect?secret=${qrCodeResponse.secret}&issuer=Reapit`
-      QRCode.toCanvas(canvasRef.current, qrCode, (error) => {
+    if (modalIsOpen && canvasRef?.current && qrCode) {
+      const code = `otpauth://totp/Reapit%20Connect?secret=${qrCode.secret}&issuer=Reapit`
+      QRCode.toCanvas(canvasRef.current, code, (error) => {
         if (error) console.error(error)
       })
     }
   }
 
-export const handleOpenModal = (openModal: () => void, qrCodeResponse?: CreateAuthenticatorReturnType) => () => {
-  if (qrCodeResponse) {
+export const handleOpenModal = (openModal: () => void, qrCode?: CreateAuthenticatorReturnType) => () => {
+  if (qrCode) {
     openModal()
   }
 }
 
 export const handleRefresh =
-  (refreshAuthenticators: () => void, closeModal: () => void, hasVerified?: boolean) => () => {
+  (
+    refreshAuthenticators: () => void,
+    closeModal: () => void,
+    setQrCode: Dispatch<SetStateAction<CreateAuthenticatorReturnType | undefined>>,
+    hasVerified?: boolean,
+  ) =>
+  () => {
     if (hasVerified) {
       closeModal()
-      refreshAuthenticators()
+      setQrCode(undefined)
+      // TODO: Remove timeout when DB cluster for orgs has been updated, neccessary for now owing to latency on
+      // read / write replications
+      setTimeout(() => {
+        refreshAuthenticators()
+      }, 1000)
     }
   }
 
-export const QrCodeVerify: FC<QrCodeVerifyProps> = ({ refreshAuthenticators, qrCodeResponse }) => {
+export const QrCodeVerify: FC<QrCodeVerifyProps> = ({ refreshAuthenticators, qrCode, setQrCode }) => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { Modal, openModal, closeModal, modalIsOpen } = useModal()
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
@@ -93,13 +105,13 @@ export const QrCodeVerify: FC<QrCodeVerifyProps> = ({ refreshAuthenticators, qrC
     method: 'POST',
     uriParams: {
       userId,
-      authenticatorId: qrCodeResponse?.id,
+      authenticatorId: qrCode?.id,
     },
   })
 
-  useEffect(handleDrawQrCode(modalIsOpen, canvasRef, qrCodeResponse), [canvasRef, qrCodeResponse, modalIsOpen])
-  useEffect(handleOpenModal(openModal, qrCodeResponse), [qrCodeResponse])
-  useEffect(handleRefresh(refreshAuthenticators, closeModal, hasVerified), [hasVerified])
+  useEffect(handleDrawQrCode(modalIsOpen, canvasRef, qrCode), [canvasRef, qrCode, modalIsOpen])
+  useEffect(handleOpenModal(openModal, qrCode), [qrCode])
+  useEffect(handleRefresh(refreshAuthenticators, closeModal, setQrCode, hasVerified), [hasVerified])
 
   return (
     <Modal title="Scan QR Code">

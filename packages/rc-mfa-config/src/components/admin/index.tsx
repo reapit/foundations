@@ -73,19 +73,8 @@ export const AdminPage: FC = () => {
           This page allows you to configure and reset the Multi Factor Authentication (MFA) devices for your
           organisation users. For more information on how to do this, please refer to the documentation link below.
         </SmallText>
-        <Button
-          className={elMb5}
-          intent="neutral"
-          onClick={openNewPage('https://developers.reapit.cloud/api-docs/app-development/connect-session')}
-        >
-          Connect Session
-        </Button>
-        <Button
-          className={elMb5}
-          intent="neutral"
-          onClick={openNewPage('https://developers.reapit.cloud/api-docs/api/api-documentation')}
-        >
-          REST API
+        <Button className={elMb5} intent="neutral" onClick={openNewPage('')}>
+          Docs
         </Button>
       </SecondaryNavContainer>
       <PageContainer className={elHFull}>

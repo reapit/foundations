@@ -16,7 +16,11 @@ export const handleDeleteAuthenticator = (deleteAuthenticator: SendFunction<void
 
 export const handleRefresh = (refreshAuthenticators: () => void, hasDeleted?: boolean) => () => {
   if (hasDeleted) {
-    refreshAuthenticators()
+    // TODO: Remove timeout when DB cluster for orgs has been updated, neccessary for now owing to latency on
+    // read / write replications
+    setTimeout(() => {
+      refreshAuthenticators()
+    }, 1000)
   }
 }
 

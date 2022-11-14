@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import { BillingBreakdownForMonthV2Model } from '@reapit/foundations-ts-definitions'
-import { Table, elMb7, IconNames } from '@reapit/elements'
+import { Table, elMb7, IconNames, PersistentNotification } from '@reapit/elements'
 import { AnalyticsFilterState, useAnalyticsState } from '../state/use-analytics-state'
 import dayjs from 'dayjs'
 import { flattenBillingData, getMonthsRange } from './utils'
@@ -47,69 +47,78 @@ export const DownloadResourcesTable: FC<DownloadResourcesTableProps> = ({ billin
   const { error } = useSnack()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const developerId = connectSession?.loginIdentity.developerId
-  const { monthFrom, monthTo } = analyticsFilterState
+  const { monthFrom, monthTo, appId } = analyticsFilterState
   const monthRequests = getMonthsRange(analyticsFilterState, 'MMMM YYYY')
 
   return (
-    <Table
-      className={elMb7}
-      numberColumns={3}
-      rows={[
-        {
-          cells: [
-            {
-              label: 'Type',
-              value: 'Cost and Usage',
-              icon: 'cloudSolidSystem',
-              cellHasDarkText: true,
-              narrowTable: {
-                showLabel: true,
+    <>
+      <Table
+        className={elMb7}
+        numberColumns={3}
+        rows={[
+          {
+            cells: [
+              {
+                label: 'Type',
+                value: 'Cost and Usage',
+                icon: 'cloudSolidSystem',
+                cellHasDarkText: true,
+                narrowTable: {
+                  showLabel: true,
+                },
               },
-            },
-            {
-              label: 'Period',
-              value: `${dayjs(monthFrom).format('MMMM YYYY')}${
-                monthFrom !== monthTo ? `- ${dayjs(monthTo).format('MMMM YYYY')}` : ''
-              }`,
-              cellHasDarkText: true,
-              narrowTable: {
-                showLabel: true,
+              {
+                label: 'Period',
+                value: `${dayjs(monthFrom).format('MMMM YYYY')}${
+                  monthFrom !== monthTo ? `- ${dayjs(monthTo).format('MMMM YYYY')}` : ''
+                }`,
+                cellHasDarkText: true,
+                narrowTable: {
+                  showLabel: true,
+                },
               },
+            ],
+            ctaContent: {
+              onClick: handleDownloadCSV(billing, error),
+              icon: 'downloadSystem',
+              headerContent: 'Download',
             },
-          ],
-          ctaContent: {
-            onClick: handleDownloadCSV(billing, error),
-            icon: 'downloadSystem',
-            headerContent: 'Download',
           },
-        },
-        ...monthRequests.map((requestMonth) => ({
-          cells: [
-            {
-              label: 'Type',
-              value: 'Transaction History',
-              icon: 'cloudSolidSystem' as IconNames,
-              cellHasDarkText: true,
-              narrowTable: {
-                showLabel: true,
+          ...monthRequests.map((requestMonth) => ({
+            cells: [
+              {
+                label: 'Type',
+                value: 'Transaction History',
+                icon: 'cloudSolidSystem' as IconNames,
+                cellHasDarkText: true,
+                narrowTable: {
+                  showLabel: true,
+                },
               },
-            },
-            {
-              label: 'Period',
-              value: requestMonth,
-              cellHasDarkText: true,
-              narrowTable: {
-                showLabel: true,
+              {
+                label: 'Period',
+                value: requestMonth,
+                cellHasDarkText: true,
+                narrowTable: {
+                  showLabel: true,
+                },
               },
+            ],
+            ctaContent: {
+              onClick: appId
+                ? handleDownloadTransactions(analyticsFilterState, requestMonth, error, developerId)
+                : undefined,
+              icon: (appId ? 'downloadSystem' : 'closeSystem') as IconNames,
+              headerContent: 'Download',
             },
-          ],
-          ctaContent: {
-            onClick: handleDownloadTransactions(analyticsFilterState, requestMonth, error, developerId),
-            icon: 'downloadSystem' as IconNames,
-            headerContent: 'Download',
-          },
-        })),
-      ]}
-    />
+          })),
+        ]}
+      />
+      {!appId && (
+        <PersistentNotification isInline isFullWidth isExpanded intent="secondary">
+          Please select an app from the filters to download transaction history
+        </PersistentNotification>
+      )}
+    </>
   )
 }
