@@ -11,7 +11,7 @@ interface ActiveAuthenticatorProps {
 }
 
 export const ActiveAuthenticator: FC<ActiveAuthenticatorProps> = ({ activeAuthenticator, refreshAuthenticators }) => {
-  const { id, type, created, status, modified } = activeAuthenticator
+  const { id, type, created, status, modified, userId } = activeAuthenticator
   return (
     <>
       <Grid className={cx(elMb11, elFadeIn)}>
@@ -40,7 +40,7 @@ export const ActiveAuthenticator: FC<ActiveAuthenticatorProps> = ({ activeAuthen
           </BodyText>
         </Col>
       </Grid>
-      <DeleteAuthenticator authenticatorId={id} refreshAuthenticators={refreshAuthenticators} />
+      <DeleteAuthenticator authenticatorId={id} userId={userId} refreshAuthenticators={refreshAuthenticators} />
     </>
   )
 }

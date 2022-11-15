@@ -55,11 +55,7 @@ export const handleSetQrCode =
 export const handleRefresh =
   (refreshAuthenticators: () => void, qrCodeResponse?: CreateAuthenticatorReturnType) => () => {
     if (qrCodeResponse) {
-      // TODO: Remove timeout when DB cluster for orgs has been updated, neccessary for now owing to latency on
-      // read / write replications
-      setTimeout(() => {
-        refreshAuthenticators()
-      }, 1000)
+      refreshAuthenticators()
     }
   }
 
@@ -104,7 +100,11 @@ export const HomePage: FC = () => {
           This page allows you to configure and reset your Multi Factor Authentication (MFA) device for use with Reapit
           Connect. For more information on how to do this, please refer to the documentation link below.
         </SmallText>
-        <Button className={elMb5} intent="neutral" onClick={openNewPage('')}>
+        <Button
+          className={elMb5}
+          intent="neutral"
+          onClick={openNewPage('https://reapit-1.gitbook.io/reapit-connect-mfa/')}
+        >
           Docs
         </Button>
       </SecondaryNavContainer>
