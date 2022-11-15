@@ -73,11 +73,7 @@ export const handleRefresh =
     if (hasVerified) {
       closeModal()
       setQrCode(undefined)
-      // TODO: Remove timeout when DB cluster for orgs has been updated, neccessary for now owing to latency on
-      // read / write replications
-      setTimeout(() => {
-        refreshAuthenticators()
-      }, 1000)
+      refreshAuthenticators()
     }
   }
 

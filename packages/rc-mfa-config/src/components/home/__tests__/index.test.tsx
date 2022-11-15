@@ -11,8 +11,6 @@ jest.mock('@reapit/utils-react', () => ({
   objectToQuery: jest.fn(),
 }))
 
-jest.useFakeTimers()
-
 const mockUseReapitGet = useReapitGet as jest.Mock
 
 describe('HomePage', () => {
@@ -39,8 +37,6 @@ describe('handleRefresh', () => {
     const curried = handleRefresh(refreshAuthenticators, qrCodeResponse)
 
     curried()
-
-    jest.runAllTimers()
 
     expect(refreshAuthenticators).toHaveBeenCalledTimes(1)
   })

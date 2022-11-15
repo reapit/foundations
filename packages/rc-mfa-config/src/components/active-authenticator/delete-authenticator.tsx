@@ -3,11 +3,11 @@ import { Button } from '@reapit/elements'
 import { SendFunction, useReapitUpdate } from '@reapit/utils-react'
 import { UpdateActionNames, updateActions } from '@reapit/utils-common'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { useReapitConnect } from '@reapit/connect-session'
 
 interface DeleteAuthenticatorProps {
   authenticatorId?: string
   refreshAuthenticators: () => void
+  userId?: string
 }
 
 export const handleDeleteAuthenticator = (deleteAuthenticator: SendFunction<void, boolean>) => () => {
@@ -16,19 +16,15 @@ export const handleDeleteAuthenticator = (deleteAuthenticator: SendFunction<void
 
 export const handleRefresh = (refreshAuthenticators: () => void, hasDeleted?: boolean) => () => {
   if (hasDeleted) {
-    // TODO: Remove timeout when DB cluster for orgs has been updated, neccessary for now owing to latency on
-    // read / write replications
-    setTimeout(() => {
-      refreshAuthenticators()
-    }, 1000)
+    refreshAuthenticators()
   }
 }
 
-export const DeleteAuthenticator: FC<DeleteAuthenticatorProps> = ({ authenticatorId, refreshAuthenticators }) => {
-  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const email = connectSession?.loginIdentity.email
-  const userId = email ? window.btoa(email.toLowerCase()).replace(/=/g, '') : null
-
+export const DeleteAuthenticator: FC<DeleteAuthenticatorProps> = ({
+  authenticatorId,
+  userId,
+  refreshAuthenticators,
+}) => {
   const [deleteAuthenticatorLoading, , deleteAuthenticator, hasDeleted] = useReapitUpdate<void, boolean>({
     reapitConnectBrowserSession,
     action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.deleteUserAuthenticator],
