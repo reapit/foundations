@@ -142,6 +142,19 @@ export interface ApplicantBuyingModel {
    * A list of tenure requirements taken from the full listing of the associated department (freehold/leasehold/shareOfFreehold)
    */
   tenure?: string[]
+  /**
+   * The details specific to the applicant's lease term requirements where they are interested in properties with a leasehold tenure
+   */
+  leaseRemaining?: {
+    /**
+     * The minimum number of years that must remain on the lease of a leasehold property
+     */
+    min?: number // int32
+    /**
+     * The maximum number of years that must remain on the lease of a leasehold property
+     */
+    max?: number // int32
+  }
 }
 /**
  * An applicant's commercial details
@@ -432,6 +445,19 @@ export interface ApplicantInternalAreaModel {
   amount?: number // double
 }
 /**
+ * The details specific to the applicant's lease term requirements where they are interested in properties with a leasehold tenure
+ */
+export interface ApplicantLeaseRemaining {
+  /**
+   * The minimum number of years that must remain on the lease of a leasehold property
+   */
+  min?: number // int32
+  /**
+   * The maximum number of years that must remain on the lease of a leasehold property
+   */
+  max?: number // int32
+}
+/**
  * Representation of an applicant
  */
 export interface ApplicantModel {
@@ -507,6 +533,10 @@ export interface ApplicantModel {
    * The unique identifier of the solicitor associated to the applicant
    */
   solicitorId?: string
+  /**
+   * A flag determining whether or not the applicant is a potential client
+   */
+  potentialClient?: boolean
   /**
    * The applicant's property type requirements (eg house, bungalow, land), as defined by the applicant's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    * For information about how to interpret this data and how it maps back to AgencyCloud, please [see the documentation](https://foundations-documentation.reapit.cloud/platform-glossary#interpreting-department-data)
@@ -632,6 +662,19 @@ export interface ApplicantModel {
      * A list of tenure requirements taken from the full listing of the associated department (freehold/leasehold/shareOfFreehold)
      */
     tenure?: string[]
+    /**
+     * The details specific to the applicant's lease term requirements where they are interested in properties with a leasehold tenure
+     */
+    leaseRemaining?: {
+      /**
+       * The minimum number of years that must remain on the lease of a leasehold property
+       */
+      min?: number // int32
+      /**
+       * The maximum number of years that must remain on the lease of a leasehold property
+       */
+      max?: number // int32
+    }
   }
   /**
    * The details specific to applicants with a marketingMode of renting
@@ -924,6 +967,10 @@ export interface ApplicantModelPagedResult {
      */
     solicitorId?: string
     /**
+     * A flag determining whether or not the applicant is a potential client
+     */
+    potentialClient?: boolean
+    /**
      * The applicant's property type requirements (eg house, bungalow, land), as defined by the applicant's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
      * For information about how to interpret this data and how it maps back to AgencyCloud, please [see the documentation](https://foundations-documentation.reapit.cloud/platform-glossary#interpreting-department-data)
      */
@@ -1048,6 +1095,19 @@ export interface ApplicantModelPagedResult {
        * A list of tenure requirements taken from the full listing of the associated department (freehold/leasehold/shareOfFreehold)
        */
       tenure?: string[]
+      /**
+       * The details specific to the applicant's lease term requirements where they are interested in properties with a leasehold tenure
+       */
+      leaseRemaining?: {
+        /**
+         * The minimum number of years that must remain on the lease of a leasehold property
+         */
+        min?: number // int32
+        /**
+         * The maximum number of years that must remain on the lease of a leasehold property
+         */
+        max?: number // int32
+      }
     }
     /**
      * The details specific to applicants with a marketingMode of renting
@@ -4211,6 +4271,19 @@ export interface CreateApplicantBuyingModel {
    * A list of tenure requirements taken from the full listing of the associated department (freehold/leasehold/shareOfFreehold)
    */
   tenure?: string[]
+  /**
+   * The details specific to the applicant's lease term requirements where they are interested in properties with a leasehold tenure
+   */
+  leaseRemaining?: {
+    /**
+     * The minimum number of years that must remain on the lease of a leasehold property
+     */
+    min?: number // int32
+    /**
+     * The maximum number of years that must remain on the lease of a leasehold property
+     */
+    max?: number // int32
+  }
 }
 /**
  * Request body used to create a relationship between an applicant and a contact or company
@@ -4254,6 +4327,19 @@ export interface CreateApplicantInternalAreaModel {
    * The unit value of inside space that the applicant is looking for
    */
   amount?: number // double
+}
+/**
+ * The details specific to the applicant's lease term requirements where they are interested in properties with a leasehold tenure
+ */
+export interface CreateApplicantLeaseRemaining {
+  /**
+   * The minimum number of years that must remain on the lease of a leasehold property
+   */
+  min?: number // int32
+  /**
+   * The maximum number of years that must remain on the lease of a leasehold property
+   */
+  max?: number // int32
 }
 /**
  * Request body used to create a new applicant
@@ -4310,6 +4396,10 @@ export interface CreateApplicantModel {
    * The unique identifier of the solicitor associated to the applicant
    */
   solicitorId?: string
+  /**
+   * A flag determining whether or not the applicant is a potential client
+   */
+  potentialClient?: boolean
   /**
    * The applicant's property type requirements (eg house, bungalow, land), as defined by the applicant's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
@@ -4402,6 +4492,19 @@ export interface CreateApplicantModel {
      * A list of tenure requirements taken from the full listing of the associated department (freehold/leasehold/shareOfFreehold)
      */
     tenure?: string[]
+    /**
+     * The details specific to the applicant's lease term requirements where they are interested in properties with a leasehold tenure
+     */
+    leaseRemaining?: {
+      /**
+       * The minimum number of years that must remain on the lease of a leasehold property
+       */
+      min?: number // int32
+      /**
+       * The maximum number of years that must remain on the lease of a leasehold property
+       */
+      max?: number // int32
+    }
   }
   /**
    * The details specific to applicants with a marketingMode of renting
@@ -7781,7 +7884,7 @@ export interface CreateWorksOrderModel {
   /**
    * The unique id of the type of work that needs to be carried out
    */
-  typeId: string
+  typeId?: string
   /**
    * The current status of the works order (pendingApproval/pendingQuote/raised/raisedToChase/landlordToComplete/complete/cancelled/quoteAccepted)
    */
@@ -16887,6 +16990,19 @@ export interface UpdateApplicantBuyingModel {
    * A list of tenure requirements taken from the full listing of the associated department (freehold/leasehold/shareOfFreehold)
    */
   tenure?: string[]
+  /**
+   * The details specific to the applicant's lease term requirements where they are interested in properties with a leasehold tenure
+   */
+  leaseRemaining?: {
+    /**
+     * The minimum number of years that must remain on the lease of a leasehold property
+     */
+    min?: number // int32
+    /**
+     * The maximum number of years that must remain on the lease of a leasehold property
+     */
+    max?: number // int32
+  }
 }
 /**
  * The applicant's outdoor space requirements
@@ -16917,6 +17033,19 @@ export interface UpdateApplicantInternalAreaModel {
    * The unit value of inside space that the applicant is looking for
    */
   amount?: number // double
+}
+/**
+ * The details specific to the applicant's lease term requirements where they are interested in properties with a leasehold tenure
+ */
+export interface UpdateApplicantLeaseRemaining {
+  /**
+   * The minimum number of years that must remain on the lease of a leasehold property
+   */
+  min?: number // int32
+  /**
+   * The maximum number of years that must remain on the lease of a leasehold property
+   */
+  max?: number // int32
 }
 /**
  * Request body used to update an existing applicant
@@ -16973,6 +17102,10 @@ export interface UpdateApplicantModel {
    * The unique identifier of the solicitor associated to the applicant
    */
   solicitorId?: string
+  /**
+   * A flag determining whether or not the applicant is a potential client
+   */
+  potentialClient?: boolean
   /**
    * The applicant's property type requirements (eg house, bungalow, land), as defined by the applicant's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
@@ -17065,6 +17198,19 @@ export interface UpdateApplicantModel {
      * A list of tenure requirements taken from the full listing of the associated department (freehold/leasehold/shareOfFreehold)
      */
     tenure?: string[]
+    /**
+     * The details specific to the applicant's lease term requirements where they are interested in properties with a leasehold tenure
+     */
+    leaseRemaining?: {
+      /**
+       * The minimum number of years that must remain on the lease of a leasehold property
+       */
+      min?: number // int32
+      /**
+       * The maximum number of years that must remain on the lease of a leasehold property
+       */
+      max?: number // int32
+    }
   }
   /**
    * The details specific to applicants with a marketingMode of renting
