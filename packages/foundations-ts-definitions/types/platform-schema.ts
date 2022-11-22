@@ -142,6 +142,19 @@ export interface ApplicantBuyingModel {
    * A list of tenure requirements taken from the full listing of the associated department (freehold/leasehold/shareOfFreehold)
    */
   tenure?: string[]
+  /**
+   * The details specific to the applicant's lease term requirements where they are interested in properties with a leasehold tenure
+   */
+  leaseRemaining?: {
+    /**
+     * The minimum number of years that must remain on the lease of a leasehold property
+     */
+    min?: number // int32
+    /**
+     * The maximum number of years that must remain on the lease of a leasehold property
+     */
+    max?: number // int32
+  }
 }
 /**
  * An applicant's commercial details
@@ -432,6 +445,19 @@ export interface ApplicantInternalAreaModel {
   amount?: number // double
 }
 /**
+ * The details specific to the applicant's lease term requirements where they are interested in properties with a leasehold tenure
+ */
+export interface ApplicantLeaseRemaining {
+  /**
+   * The minimum number of years that must remain on the lease of a leasehold property
+   */
+  min?: number // int32
+  /**
+   * The maximum number of years that must remain on the lease of a leasehold property
+   */
+  max?: number // int32
+}
+/**
  * Representation of an applicant
  */
 export interface ApplicantModel {
@@ -507,6 +533,10 @@ export interface ApplicantModel {
    * The unique identifier of the solicitor associated to the applicant
    */
   solicitorId?: string
+  /**
+   * A flag determining whether or not the applicant is a potential client
+   */
+  potentialClient?: boolean
   /**
    * The applicant's property type requirements (eg house, bungalow, land), as defined by the applicant's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    * For information about how to interpret this data and how it maps back to AgencyCloud, please [see the documentation](https://foundations-documentation.reapit.cloud/platform-glossary#interpreting-department-data)
@@ -632,6 +662,19 @@ export interface ApplicantModel {
      * A list of tenure requirements taken from the full listing of the associated department (freehold/leasehold/shareOfFreehold)
      */
     tenure?: string[]
+    /**
+     * The details specific to the applicant's lease term requirements where they are interested in properties with a leasehold tenure
+     */
+    leaseRemaining?: {
+      /**
+       * The minimum number of years that must remain on the lease of a leasehold property
+       */
+      min?: number // int32
+      /**
+       * The maximum number of years that must remain on the lease of a leasehold property
+       */
+      max?: number // int32
+    }
   }
   /**
    * The details specific to applicants with a marketingMode of renting
@@ -924,6 +967,10 @@ export interface ApplicantModelPagedResult {
      */
     solicitorId?: string
     /**
+     * A flag determining whether or not the applicant is a potential client
+     */
+    potentialClient?: boolean
+    /**
      * The applicant's property type requirements (eg house, bungalow, land), as defined by the applicant's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
      * For information about how to interpret this data and how it maps back to AgencyCloud, please [see the documentation](https://foundations-documentation.reapit.cloud/platform-glossary#interpreting-department-data)
      */
@@ -1048,6 +1095,19 @@ export interface ApplicantModelPagedResult {
        * A list of tenure requirements taken from the full listing of the associated department (freehold/leasehold/shareOfFreehold)
        */
       tenure?: string[]
+      /**
+       * The details specific to the applicant's lease term requirements where they are interested in properties with a leasehold tenure
+       */
+      leaseRemaining?: {
+        /**
+         * The minimum number of years that must remain on the lease of a leasehold property
+         */
+        min?: number // int32
+        /**
+         * The maximum number of years that must remain on the lease of a leasehold property
+         */
+        max?: number // int32
+      }
     }
     /**
      * The details specific to applicants with a marketingMode of renting
@@ -4211,6 +4271,19 @@ export interface CreateApplicantBuyingModel {
    * A list of tenure requirements taken from the full listing of the associated department (freehold/leasehold/shareOfFreehold)
    */
   tenure?: string[]
+  /**
+   * The details specific to the applicant's lease term requirements where they are interested in properties with a leasehold tenure
+   */
+  leaseRemaining?: {
+    /**
+     * The minimum number of years that must remain on the lease of a leasehold property
+     */
+    min?: number // int32
+    /**
+     * The maximum number of years that must remain on the lease of a leasehold property
+     */
+    max?: number // int32
+  }
 }
 /**
  * Request body used to create a relationship between an applicant and a contact or company
@@ -4254,6 +4327,19 @@ export interface CreateApplicantInternalAreaModel {
    * The unit value of inside space that the applicant is looking for
    */
   amount?: number // double
+}
+/**
+ * The details specific to the applicant's lease term requirements where they are interested in properties with a leasehold tenure
+ */
+export interface CreateApplicantLeaseRemaining {
+  /**
+   * The minimum number of years that must remain on the lease of a leasehold property
+   */
+  min?: number // int32
+  /**
+   * The maximum number of years that must remain on the lease of a leasehold property
+   */
+  max?: number // int32
 }
 /**
  * Request body used to create a new applicant
@@ -4310,6 +4396,10 @@ export interface CreateApplicantModel {
    * The unique identifier of the solicitor associated to the applicant
    */
   solicitorId?: string
+  /**
+   * A flag determining whether or not the applicant is a potential client
+   */
+  potentialClient?: boolean
   /**
    * The applicant's property type requirements (eg house, bungalow, land), as defined by the applicant's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
@@ -4402,6 +4492,19 @@ export interface CreateApplicantModel {
      * A list of tenure requirements taken from the full listing of the associated department (freehold/leasehold/shareOfFreehold)
      */
     tenure?: string[]
+    /**
+     * The details specific to the applicant's lease term requirements where they are interested in properties with a leasehold tenure
+     */
+    leaseRemaining?: {
+      /**
+       * The minimum number of years that must remain on the lease of a leasehold property
+       */
+      min?: number // int32
+      /**
+       * The maximum number of years that must remain on the lease of a leasehold property
+       */
+      max?: number // int32
+    }
   }
   /**
    * The details specific to applicants with a marketingMode of renting
@@ -5786,6 +5889,40 @@ export interface CreateLandlordSourceModel {
    * The source type (office/source)
    */
   type?: string
+}
+/**
+ * Request body used to create a tenancy renewals letting fee
+ */
+export interface CreateLettingFeeRenewalModel {
+  /**
+   * The letting fee type (fixed/perentage)
+   */
+  type?: string
+  /**
+   * The letting fee amount as a fixed price or percentage based on the `type`
+   */
+  amount?: number // double
+  /**
+   * The frequency at which the letting fee is required (monthly/quarterly/halfYearly/yearly/28days/upfront/upfrontOver2Months/other/notApplicable)
+   */
+  frequency?: string
+}
+/**
+ * Request body used to create a tenancy renewals management fee
+ */
+export interface CreateManagementFeeRenewalModel {
+  /**
+   * The mangement fee type (fixed/perentage)
+   */
+  type?: string
+  /**
+   * The mangement fee amount as a fixed price or percentage based on the `type`
+   */
+  amount?: number // double
+  /**
+   * The frequency at which the mangement fee is required (monthly/quarterly/halfYearly/yearly/28days/sameAsLettingFee)
+   */
+  frequency?: string
 }
 /**
  * Payload to create a metadata record
@@ -7585,6 +7722,71 @@ export interface CreateTenancyModel {
   }
 }
 /**
+ * Request body used to create a tenancy renewal negotiation
+ * example:
+ * [object Object]
+ */
+export interface CreateTenancyRenewalModel {
+  /**
+   * The proposed start date of the tenancy renewal
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  startDate?: string // date-time
+  /**
+   * The proposed end date of the tenancy renewal
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  endDate?: string // date-time
+  /**
+   * The unique identifier of the negotiator who is managing this tenancy renewal
+   */
+  negotiatorId?: string
+  /**
+   * The amount of rent required, returned in relation to the collection frequency
+   */
+  rent?: number // double
+  /**
+   * The rent collection frequency (weekly/monthly/annually)
+   */
+  rentFrequency?: string
+  /**
+   * Request body used to create a tenancy renewals letting fee
+   */
+  lettingFee?: {
+    /**
+     * The letting fee type (fixed/perentage)
+     */
+    type?: string
+    /**
+     * The letting fee amount as a fixed price or percentage based on the `type`
+     */
+    amount?: number // double
+    /**
+     * The frequency at which the letting fee is required (monthly/quarterly/halfYearly/yearly/28days/upfront/upfrontOver2Months/other/notApplicable)
+     */
+    frequency?: string
+  }
+  /**
+   * Request body used to create a tenancy renewals management fee
+   */
+  managementFee?: {
+    /**
+     * The mangement fee type (fixed/perentage)
+     */
+    type?: string
+    /**
+     * The mangement fee amount as a fixed price or percentage based on the `type`
+     */
+    amount?: number // double
+    /**
+     * The frequency at which the mangement fee is required (monthly/quarterly/halfYearly/yearly/28days/sameAsLettingFee)
+     */
+    frequency?: string
+  }
+}
+/**
  * Request body used to set a tenancy responsibility
  * example:
  * [object Object]
@@ -7781,7 +7983,7 @@ export interface CreateWorksOrderModel {
   /**
    * The unique id of the type of work that needs to be carried out
    */
-  typeId: string
+  typeId?: string
   /**
    * The current status of the works order (pendingApproval/pendingQuote/raised/raisedToChase/landlordToComplete/complete/cancelled/quoteAccepted)
    */
@@ -14593,7 +14795,17 @@ export interface Tenancies {
   pageNumber?: number
   sortBy?: string
   fromArchive?: boolean
-  embed?: ('appointments' | 'applicant' | 'documents' | 'negotiator' | 'property' | 'source' | 'tasks' | 'type')[]
+  embed?: (
+    | 'appointments'
+    | 'applicant'
+    | 'extensions'
+    | 'documents'
+    | 'negotiator'
+    | 'property'
+    | 'source'
+    | 'tasks'
+    | 'type'
+  )[]
   id?: string[]
   negotiatorId?: string[]
   applicantId?: string[]
@@ -15278,6 +15490,141 @@ export interface TenancyDepositModel {
    * The amount of deposit held
    */
   sum?: number // double
+}
+/**
+ * Represents a tenancy extension or alteration
+ */
+export interface TenancyExtensionAlterationModel {
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+  /**
+   * The unique identifier of the extension or alteration
+   */
+  id?: string
+  /**
+   * The date and time when the extension or alteration was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the extension or alteration was last modified
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  modified?: string // date-time
+  /**
+   * example:
+   * 2019-08-14
+   */
+  startDate?: string // date
+  /**
+   * example:
+   * 2019-08-14
+   */
+  endDate?: string // date
+  /**
+   * The type of entry (extension|alteration)
+   */
+  type?: string
+  /**
+   * The unique identifier of the negotiator associated to the extension or alteration
+   */
+  negotiatorId?: string
+  /**
+   * The extension or alteration rent amount
+   */
+  rent?: number // int32
+  /**
+   * The rent frequency (weekly/monthly/4weeks/annually)
+   */
+  rentFrequency?: string
+  /**
+   * The unique identifier of the tenancy associated to the extension or alteration
+   */
+  tenancyId?: string
+  /**
+   * The ETag for the current version of the tenancy extension or alteration. Used for managing update concurrency
+   */
+  readonly _eTag?: string
+}
+export interface TenancyExtensionAlterationModelPagedResult {
+  _embedded?: {
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+    /**
+     * The unique identifier of the extension or alteration
+     */
+    id?: string
+    /**
+     * The date and time when the extension or alteration was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the extension or alteration was last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * example:
+     * 2019-08-14
+     */
+    startDate?: string // date
+    /**
+     * example:
+     * 2019-08-14
+     */
+    endDate?: string // date
+    /**
+     * The type of entry (extension|alteration)
+     */
+    type?: string
+    /**
+     * The unique identifier of the negotiator associated to the extension or alteration
+     */
+    negotiatorId?: string
+    /**
+     * The extension or alteration rent amount
+     */
+    rent?: number // int32
+    /**
+     * The rent frequency (weekly/monthly/4weeks/annually)
+     */
+    rentFrequency?: string
+    /**
+     * The unique identifier of the tenancy associated to the extension or alteration
+     */
+    tenancyId?: string
+    /**
+     * The ETag for the current version of the tenancy extension or alteration. Used for managing update concurrency
+     */
+    readonly _eTag?: string
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalPageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
 }
 /**
  * Representation of the tenancy letting fee
@@ -16887,6 +17234,19 @@ export interface UpdateApplicantBuyingModel {
    * A list of tenure requirements taken from the full listing of the associated department (freehold/leasehold/shareOfFreehold)
    */
   tenure?: string[]
+  /**
+   * The details specific to the applicant's lease term requirements where they are interested in properties with a leasehold tenure
+   */
+  leaseRemaining?: {
+    /**
+     * The minimum number of years that must remain on the lease of a leasehold property
+     */
+    min?: number // int32
+    /**
+     * The maximum number of years that must remain on the lease of a leasehold property
+     */
+    max?: number // int32
+  }
 }
 /**
  * The applicant's outdoor space requirements
@@ -16917,6 +17277,19 @@ export interface UpdateApplicantInternalAreaModel {
    * The unit value of inside space that the applicant is looking for
    */
   amount?: number // double
+}
+/**
+ * The details specific to the applicant's lease term requirements where they are interested in properties with a leasehold tenure
+ */
+export interface UpdateApplicantLeaseRemaining {
+  /**
+   * The minimum number of years that must remain on the lease of a leasehold property
+   */
+  min?: number // int32
+  /**
+   * The maximum number of years that must remain on the lease of a leasehold property
+   */
+  max?: number // int32
 }
 /**
  * Request body used to update an existing applicant
@@ -16973,6 +17346,10 @@ export interface UpdateApplicantModel {
    * The unique identifier of the solicitor associated to the applicant
    */
   solicitorId?: string
+  /**
+   * A flag determining whether or not the applicant is a potential client
+   */
+  potentialClient?: boolean
   /**
    * The applicant's property type requirements (eg house, bungalow, land), as defined by the applicant's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
@@ -17065,6 +17442,19 @@ export interface UpdateApplicantModel {
      * A list of tenure requirements taken from the full listing of the associated department (freehold/leasehold/shareOfFreehold)
      */
     tenure?: string[]
+    /**
+     * The details specific to the applicant's lease term requirements where they are interested in properties with a leasehold tenure
+     */
+    leaseRemaining?: {
+      /**
+       * The minimum number of years that must remain on the lease of a leasehold property
+       */
+      min?: number // int32
+      /**
+       * The maximum number of years that must remain on the lease of a leasehold property
+       */
+      max?: number // int32
+    }
   }
   /**
    * The details specific to applicants with a marketingMode of renting
@@ -18267,6 +18657,40 @@ export interface UpdateLandlordSourceModel {
    * The source type (office/source)
    */
   type?: string
+}
+/**
+ * Request body used to update a tenancy renewals letting fee
+ */
+export interface UpdateLettingFeeRenewalModel {
+  /**
+   * The letting fee type (fixed/perentage)
+   */
+  type?: string
+  /**
+   * The letting fee amount as a fixed price or percentage based on the `type`
+   */
+  amount?: number // double
+  /**
+   * The frequency at which the letting fee is required (monthly/quarterly/halfYearly/yearly/28days/upfront/upfrontOver2Months/other/notApplicable)
+   */
+  frequency?: string
+}
+/**
+ * Request body used to update a tenancy renewals management fee
+ */
+export interface UpdateManagementFeeRenewalModel {
+  /**
+   * The mangement fee type (fixed/perentage)
+   */
+  type?: string
+  /**
+   * The mangement fee amount as a fixed price or percentage based on the `type`
+   */
+  amount?: number // double
+  /**
+   * The frequency at which the mangement fee is required (monthly/quarterly/halfYearly/yearly/28days/sameAsLettingFee)
+   */
+  frequency?: string
 }
 /**
  * Payload to update a metadata record
@@ -19969,6 +20393,71 @@ export interface UpdateTenancyModel {
    */
   metadata?: {
     [name: string]: any
+  }
+}
+/**
+ * Request body used to update a tenancy renewal negotiation
+ * example:
+ * [object Object]
+ */
+export interface UpdateTenancyRenewalModel {
+  /**
+   * The proposed start date of the tenancy renewal
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  startDate?: string // date-time
+  /**
+   * The proposed end date of the tenancy renewal
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  endDate?: string // date-time
+  /**
+   * The unique identifier of the negotiator who is managing this tenancy renewal
+   */
+  negotiatorId?: string
+  /**
+   * The amount of rent required, returned in relation to the collection frequency
+   */
+  rent?: number // double
+  /**
+   * The rent collection frequency (weekly/monthly/annually)
+   */
+  rentFrequency?: string
+  /**
+   * Request body used to update a tenancy renewals letting fee
+   */
+  lettingFee?: {
+    /**
+     * The letting fee type (fixed/perentage)
+     */
+    type?: string
+    /**
+     * The letting fee amount as a fixed price or percentage based on the `type`
+     */
+    amount?: number // double
+    /**
+     * The frequency at which the letting fee is required (monthly/quarterly/halfYearly/yearly/28days/upfront/upfrontOver2Months/other/notApplicable)
+     */
+    frequency?: string
+  }
+  /**
+   * Request body used to update a tenancy renewals management fee
+   */
+  managementFee?: {
+    /**
+     * The mangement fee type (fixed/perentage)
+     */
+    type?: string
+    /**
+     * The mangement fee amount as a fixed price or percentage based on the `type`
+     */
+    amount?: number // double
+    /**
+     * The frequency at which the mangement fee is required (monthly/quarterly/halfYearly/yearly/28days/sameAsLettingFee)
+     */
+    frequency?: string
   }
 }
 /**
