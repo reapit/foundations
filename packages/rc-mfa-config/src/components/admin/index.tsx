@@ -30,9 +30,10 @@ import ErrorBoundary from '../error-boundary'
 import { useForm, UseFormWatch } from 'react-hook-form'
 import { cx } from '@linaria/core'
 import { objectToQuery, useReapitGet } from '@reapit/utils-react'
-import { GetActionNames, getActions } from '@reapit/utils-common'
+import { GetActionNames, getActions, StringMap } from '@reapit/utils-common'
 import { FetchAuthenticators } from './fetch-authenticators'
 import debounce from 'just-debounce-it'
+import { DownloadUsersCSV } from './download-users-csv'
 
 export interface UserFilters {
   email?: string
@@ -52,12 +53,12 @@ export const AdminPage: FC = () => {
   const [pageNumber, setPageNumber] = useState<number>(1)
   const { register, watch } = useForm<UserFilters>({ mode: 'all' })
   const organisationId = connectSession?.loginIdentity.orgId
-  const queryParams = objectToQuery(userSearch)
+  const queryParams = { ...objectToQuery(userSearch), organisationId } as StringMap
 
   const [users, usersLoading] = useReapitGet<UserModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getUsers],
-    queryParams: { organisationId, pageSize: 12, pageNumber, ...queryParams },
+    queryParams: { pageSize: 12, pageNumber, ...queryParams },
     fetchWhenTrue: [organisationId],
   })
 
@@ -76,6 +77,7 @@ export const AdminPage: FC = () => {
         <Button className={elMb5} intent="neutral" onClick={openNewPage('')}>
           Docs
         </Button>
+        <DownloadUsersCSV queryParams={queryParams} />
       </SecondaryNavContainer>
       <PageContainer className={elHFull}>
         <ErrorBoundary>
@@ -123,7 +125,7 @@ export const AdminPage: FC = () => {
             <>
               <Table
                 className={cx(elFadeIn, elMb11)}
-                rows={users?._embedded?.map(({ id, name, email, inactive }) => ({
+                rows={users?._embedded?.map(({ id, name, email, jobTitle, inactive }) => ({
                   cells: [
                     {
                       label: 'Name',
@@ -135,6 +137,13 @@ export const AdminPage: FC = () => {
                     {
                       label: 'Email',
                       value: email ?? '',
+                      narrowTable: {
+                        showLabel: true,
+                      },
+                    },
+                    {
+                      label: 'Job Title',
+                      value: jobTitle ?? '',
                       narrowTable: {
                         showLabel: true,
                       },
