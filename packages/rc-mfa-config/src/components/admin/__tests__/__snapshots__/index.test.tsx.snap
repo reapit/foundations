@@ -171,6 +171,11 @@ Object {
           >
             Docs
           </button>
+          <button
+            class="el-mb3 el-intent-primary el-button"
+          >
+            Download CSV
+          </button>
         </aside>
         <section
           class="el-hfull el-page-container"
@@ -375,6 +380,11 @@ Object {
           class="el-mb5 el-intent-neutral el-button"
         >
           Docs
+        </button>
+        <button
+          class="el-mb3 el-intent-primary el-button"
+        >
+          Download CSV
         </button>
       </aside>
       <section
@@ -637,6 +647,11 @@ Object {
             class="el-mb5 el-intent-neutral el-button"
           >
             Docs
+          </button>
+          <button
+            class="el-mb3 el-intent-primary el-is-loading el-button"
+          >
+            Download CSV
           </button>
         </aside>
         <section
@@ -939,6 +954,11 @@ Object {
           class="el-mb5 el-intent-neutral el-button"
         >
           Docs
+        </button>
+        <button
+          class="el-mb3 el-intent-primary el-is-loading el-button"
+        >
+          Download CSV
         </button>
       </aside>
       <section
@@ -1299,6 +1319,11 @@ Object {
           >
             Docs
           </button>
+          <button
+            class="el-mb3 el-intent-primary el-button"
+          >
+            Download CSV
+          </button>
         </aside>
         <section
           class="el-hfull el-page-container"
@@ -1619,6 +1644,11 @@ Object {
           class="el-mb5 el-intent-neutral el-button"
         >
           Docs
+        </button>
+        <button
+          class="el-mb3 el-intent-primary el-button"
+        >
+          Download CSV
         </button>
       </aside>
       <section
