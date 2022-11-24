@@ -15708,6 +15708,7 @@ export interface TenancyModel {
   agentRole?: string
   /**
    * The amount of rent required, returned in relation to the collection frequency
+   * Note that this is the original rent set on the tenancy. For tenancies that have been extended with a rent change you MUST use the extensions endpoint
    */
   rent?: number // int32
   /**
@@ -15995,6 +15996,7 @@ export interface TenancyModelPagedResult {
     agentRole?: string
     /**
      * The amount of rent required, returned in relation to the collection frequency
+     * Note that this is the original rent set on the tenancy. For tenancies that have been extended with a rent change you MUST use the extensions endpoint
      */
     rent?: number // int32
     /**
