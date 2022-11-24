@@ -44,7 +44,7 @@ const schema: SchemaOf<{
     .notOneOf([ref('existingKeys')], 'Key already exists')
     .required('Required - key cannot be blank'),
   value: string().required('Required - env needs a value')
-  .matches(/^[a-zA-Z0-9_]+$/, 'Can only container letters and underscores'),
+  .matches(/^\w+$/, 'Can only container letters and underscores'),
   existingKeys: array(),
 })
 
