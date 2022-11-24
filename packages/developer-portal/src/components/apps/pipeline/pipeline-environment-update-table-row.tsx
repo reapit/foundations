@@ -26,7 +26,7 @@ const updateSchema: SchemaOf<{
   value: any
 }> = object().shape({
   value: string()
-    .matches(/^[a-zA-Z_]+$/, 'Can only container letters and underscores')
+    .matches(/^\w+$/, 'Can only container letters and underscores')
     .required('Required - env needs a value'),
 })
 
