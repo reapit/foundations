@@ -45,7 +45,7 @@
     "merge-graphql-schemas": "^1.7.8",
     "query-string": "^6.14.1",
     "serialize-error": "^7.0.1",
-    "tslib": "2.4.0",
+    "tslib": "2.4.1",
     "uuid": "^3.4.0",
     "vue": "^2.7.13",
     "winston": "^3.8.2"
