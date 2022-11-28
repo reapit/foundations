@@ -2071,6 +2071,11 @@ export interface AreaModel {
    */
   officeIds?: string[]
   /**
+   * A collection of unique identifiers of parent area groups that this area is part of
+   * This information can be used to understand the area hierarchy in a customer's system
+   */
+  parentIds?: string[]
+  /**
    * The ETag for the current version of the area. Used for managing update concurrency
    */
   readonly _eTag?: string
@@ -2125,6 +2130,11 @@ export interface AreaModelPagedResult {
      * A collection of unique identifiers of offices attached to the area. The first item in the collection is considered the primary office
      */
     officeIds?: string[]
+    /**
+     * A collection of unique identifiers of parent area groups that this area is part of
+     * This information can be used to understand the area hierarchy in a customer's system
+     */
+    parentIds?: string[]
     /**
      * The ETag for the current version of the area. Used for managing update concurrency
      */
