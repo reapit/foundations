@@ -14111,6 +14111,32 @@ export interface RecurrenceModel {
   until?: string // date-time
 }
 /**
+ * Representation of a contact
+ */
+export interface ReferralContactModel {
+  id?: string
+  /**
+   * The contact's title  (eg. Mr, Mrs, Miss, Dr)
+   */
+  title?: string
+  /**
+   * The contact's forename
+   */
+  forename?: string
+  /**
+   * The contact's surname
+   */
+  surname?: string
+  /**
+   * The mobile phone number of the contact
+   */
+  mobilePhone?: string
+  /**
+   * The email address of the contact
+   */
+  email?: string
+}
+/**
  * Representation of a referral
  */
 export interface ReferralModel {
@@ -14178,6 +14204,32 @@ export interface ReferralModel {
    * 2019-08-14T12:30:02.0000000Z
    */
   accepted?: string // date-time
+  /**
+   * Representation of a contact
+   */
+  related?: {
+    id?: string
+    /**
+     * The contact's title  (eg. Mr, Mrs, Miss, Dr)
+     */
+    title?: string
+    /**
+     * The contact's forename
+     */
+    forename?: string
+    /**
+     * The contact's surname
+     */
+    surname?: string
+    /**
+     * The mobile phone number of the contact
+     */
+    mobilePhone?: string
+    /**
+     * The email address of the contact
+     */
+    email?: string
+  }
   /**
    * App specific metadata that has been set against the referral
    */
@@ -14255,6 +14307,32 @@ export interface ReferralModelPagedResult {
      * 2019-08-14T12:30:02.0000000Z
      */
     accepted?: string // date-time
+    /**
+     * Representation of a contact
+     */
+    related?: {
+      id?: string
+      /**
+       * The contact's title  (eg. Mr, Mrs, Miss, Dr)
+       */
+      title?: string
+      /**
+       * The contact's forename
+       */
+      forename?: string
+      /**
+       * The contact's surname
+       */
+      surname?: string
+      /**
+       * The mobile phone number of the contact
+       */
+      mobilePhone?: string
+      /**
+       * The email address of the contact
+       */
+      email?: string
+    }
     /**
      * App specific metadata that has been set against the referral
      */
