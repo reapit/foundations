@@ -52,7 +52,7 @@
     "graphql-type-json": "^0.3.2",
     "jszip": "^3.10.1",
     "luxon": "^2.5.0",
-    "node-fetch": "3.2.10",
+    "node-fetch": "3.3.0",
     "pluralize": "^8.0.0",
     "project-name-generator": "^2.1.9",
     "reflect-metadata": "^0.1.13",
