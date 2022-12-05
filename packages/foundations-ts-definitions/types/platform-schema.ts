@@ -4546,6 +4546,10 @@ export interface CreateApplicantModel {
      * A list of property furnishing requirements taken from the full listing of the associated department
      */
     furnishing?: string[]
+    /**
+     * The identifier of the applicant's renting position
+     */
+    positionId?: string
   }
   /**
    * The applicant's outdoor space requirements
@@ -4648,6 +4652,10 @@ export interface CreateApplicantRentingModel {
    * A list of property furnishing requirements taken from the full listing of the associated department
    */
   furnishing?: string[]
+  /**
+   * The identifier of the applicant's renting position
+   */
+  positionId?: string
 }
 /**
  * An applicant's source of enquiry
@@ -17576,6 +17584,10 @@ export interface UpdateApplicantModel {
      * A list of property furnishing requirements taken from the full listing of the associated department
      */
     furnishing?: string[]
+    /**
+     * The identifier of the applicant's renting position
+     */
+    positionId?: string
   }
   /**
    * The applicant's outdoor space requirements
@@ -17665,6 +17677,10 @@ export interface UpdateApplicantRentingModel {
    * A list of property furnishing requirements taken from the full listing of the associated department
    */
   furnishing?: string[]
+  /**
+   * The identifier of the applicant's renting position
+   */
+  positionId?: string
 }
 /**
  * An applicant's source of enquiry
