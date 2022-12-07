@@ -1,14 +1,21 @@
-import React, { FC } from 'react'
-import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
+import React, { FC, useState } from 'react'
+import {
+  AppDetailModel,
+  BatchUpdateInstallationMetadataModel,
+  CreateInstallationMetadataModel,
+} from '@reapit/foundations-ts-definitions'
 import { WHOLE_ORG, SPECIFIC_OFFICE_GROUPS, InstallTypes } from './app-installation-manager'
 import { BodyText, Button, ButtonGroup } from '@reapit/elements'
+import { ReferralsConfirmationSelection } from './app-referrals-confirm'
+
+export type MetaDataType = (CreateInstallationMetadataModel | BatchUpdateInstallationMetadataModel)[]
 
 export interface AppInstallationConfirmationModalProps {
-  app: AppSummaryModel
+  app: AppDetailModel
   installFor: string[]
   uninstallFor: string[]
   appInstallationType: InstallTypes
-  onConfirm: () => void
+  onConfirm: (metadata: MetaDataType) => void
   onClose: () => void
   performCompleteUninstall: boolean
 }
@@ -22,6 +29,7 @@ const AppInstallationConfirmationModal: FC<AppInstallationConfirmationModalProps
   onClose,
   performCompleteUninstall,
 }: AppInstallationConfirmationModalProps) => {
+  const [metadata, setMetadata] = useState<MetaDataType | null>(null)
   const uninstallText = (
     <BodyText hasGreyText>
       Are you sure you wish to uninstall {app.name}? This action will uninstall the app for <b>all</b> members of your
@@ -57,6 +65,7 @@ const AppInstallationConfirmationModal: FC<AppInstallationConfirmationModalProps
       {performCompleteUninstall && uninstallText}
       {!performCompleteUninstall && appInstallationType === WHOLE_ORG && wholeOrgInstallText}
       {!performCompleteUninstall && appInstallationType === SPECIFIC_OFFICE_GROUPS && specificOfficeGroupsText}
+      <ReferralsConfirmationSelection app={app} metadata={metadata} setMetadata={setMetadata} />
       {!performCompleteUninstall && (
         <>
           <BodyText hasGreyText>
@@ -72,7 +81,12 @@ const AppInstallationConfirmationModal: FC<AppInstallationConfirmationModalProps
         <Button intent="secondary" type="button" onClick={onClose}>
           Cancel
         </Button>
-        <Button intent="primary" type="button" onClick={onConfirm}>
+        <Button
+          intent="primary"
+          type="button"
+          disabled={Boolean(metadata && !metadata.length)}
+          onClick={() => onConfirm(metadata ?? [])}
+        >
           Confirm
         </Button>
       </ButtonGroup>

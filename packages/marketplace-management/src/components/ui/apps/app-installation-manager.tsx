@@ -1,14 +1,13 @@
 import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
 import {
   AppDetailModel,
-  AppSummaryModel,
   InstallationModel,
   InstallationModelPagedResult,
   TerminateInstallationModel,
 } from '@reapit/foundations-ts-definitions'
 import useSWR from 'swr'
 import AppInstallationSection from './app-installation-section'
-import AppInstallationConfirmationModal from './app-installation-confirmation-modal'
+import AppInstallationConfirmationModal, { MetaDataType } from './app-installation-confirmation-modal'
 import AppUninstallationSection from './app-uninstallation-section'
 import { URLS } from '../../../constants/api'
 import { bulkInstall, installOrg, uninstallOrg } from '../../../services/installation'
@@ -18,7 +17,7 @@ import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
 
 export interface AppInstallationManagerProps {
-  app: AppSummaryModel
+  app: AppDetailModel
 }
 
 export interface TerminationParams {
@@ -124,8 +123,9 @@ export const handleModalConfirmation =
     success: (message: string) => void,
     closeModal: () => void,
   ) =>
-  async () => {
+  async (metadataArray: MetaDataType) => {
     const clientIdFirstPart = getClientIdFirstPart(orgClientId)
+    const metadata = metadataArray.length ? { metadata: metadataArray } : {}
 
     try {
       if (performCompleteUninstall) {
@@ -139,7 +139,7 @@ export const handleModalConfirmation =
         }
 
         if (groupInstalls.length) {
-          await bulkInstall([], groupInstalls, app.id)
+          await bulkInstall([], groupInstalls, app.id, metadata)
         }
         // set the various states back to default
         setAppInstallationType(null)
@@ -150,9 +150,9 @@ export const handleModalConfirmation =
       } else if (appInstallationType === WHOLE_ORG) {
         const installsToRemove = getInstallationsForOfficeGroups(installations, clientIdFirstPart)
         // install for the whole org,
-        await installOrg({ appId: app.id, clientId: clientIdFirstPart, approvedBy: email })
+        await installOrg({ appId: app.id, clientId: clientIdFirstPart, approvedBy: email, ...metadata })
         //remove for the office groups
-        await bulkInstall([], installsToRemove, app.id)
+        await bulkInstall([], installsToRemove, app.id, metadata)
         // update the initialAppInstallationType - ensures the button is re-disabled
         setInitialAppInstallationType(WHOLE_ORG)
       } else if (appInstallationType === SPECIFIC_OFFICE_GROUPS) {
@@ -166,7 +166,7 @@ export const handleModalConfirmation =
           )
         }
         // use the bulk install/uninstall endpoint
-        await bulkInstall(officeGroupsToAdd, uninstallFor, app.id)
+        await bulkInstall(officeGroupsToAdd, uninstallFor, app.id, metadata)
         // update the initialAppInstallationType and clear the changes made - ensures the button is re-disabled
         setInitialAppInstallationType(SPECIFIC_OFFICE_GROUPS)
         setOfficeGroupsToAdd([])

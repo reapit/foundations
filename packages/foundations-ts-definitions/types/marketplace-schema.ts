@@ -630,6 +630,23 @@ export interface ApproveModel {
   publicListedDate?: string // date-time
 }
 /**
+ * The model responsible for creation of installation metadata
+ */
+export interface BatchUpdateInstallationMetadataModel {
+  /**
+   * Sets the service that the metadata is associated to (eg appointment,contacts, companies)
+   */
+  service?: string
+  /**
+   * Sets the field the filter is applied too
+   */
+  field?: string
+  /**
+   * Sets the allowed values in the field
+   */
+  allow?: string[]
+}
+/**
  * The model responsible for batch updating installations
  */
 export interface BatchUpdateInstallationsModel {
@@ -653,6 +670,10 @@ export interface BatchUpdateInstallationsModel {
    * The group mode to install and uninstall for (officeGroup/organisationGroup)
    */
   mode?: string
+  /**
+   * Sets any additional metadata against the installation
+   */
+  metadata?: BatchUpdateInstallationMetadataModel[]
 }
 /**
  * Model to expose category info
@@ -1124,6 +1145,23 @@ export interface CreateDeveloperModel {
   maxAppsUnlisted?: number // int32
 }
 /**
+ * The model responsible for creation of installation metadata
+ */
+export interface CreateInstallationMetadataModel {
+  /**
+   * Sets the service that the metadata is associated to (eg appointment,contacts, companies)
+   */
+  service?: string
+  /**
+   * Sets the field the filter is applied too
+   */
+  field?: string
+  /**
+   * Sets the allowed values in the field
+   */
+  allow?: string[]
+}
+/**
  * The model responsible for creation of an installation between a specific client and app
  */
 export interface CreateInstallationModel {
@@ -1143,6 +1181,10 @@ export interface CreateInstallationModel {
    * Sets the termination date of the installation (this could be used for app trials etc)
    */
   terminatesOn?: string // date-time
+  /**
+   * Sets any additional metadata against the installation
+   */
+  metadata?: CreateInstallationMetadataModel[]
 }
 /**
  * The model responsible for creation of a subscription
@@ -1420,6 +1462,23 @@ export interface GenerateDemonstrationDetailsModel {
  */
 export interface GetProductsQuery {}
 /**
+ * Installation metadata representation
+ */
+export interface InstallationMetadataModel {
+  /**
+   * The service that the metadata is associated to (eg appointment,contacts, companies)
+   */
+  service?: string
+  /**
+   * The field the filter is applied too
+   */
+  field?: string
+  /**
+   * The allowed values in the field
+   */
+  allow?: string[]
+}
+/**
  * Installation representation
  */
 export interface InstallationModel {
@@ -1484,6 +1543,10 @@ export interface InstallationModel {
    */
   uninstalledBy?: string
   customerAddress?: AddressModel
+  /**
+   * Gets the installations metadata
+   */
+  metadata?: InstallationMetadataModel[]
 }
 /**
  * Model to handle paged data and information
