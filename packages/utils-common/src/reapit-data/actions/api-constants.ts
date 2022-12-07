@@ -92,4 +92,5 @@ export enum PathNames {
   userAuthenticators = '/organisations/users/{userId}/authenticators',
   userAuthenticatorById = '/organisations/users/{userId}/authenticators/{authenticatorId}',
   userAuthenticatorVerify = '/organisations/users/{userId}/authenticators/{authenticatorId}/verify',
+  referralTypes = '/referrals/types',
 }

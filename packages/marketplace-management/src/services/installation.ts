@@ -3,11 +3,13 @@ import { reapitConnectBrowserSession } from '../core/connect-session'
 import { URLS } from '../constants/api'
 import { getPlatformHeaders, logger } from '@reapit/utils-react'
 import { CreateInstallationModel, TerminateInstallationModel } from '@reapit/foundations-ts-definitions'
+import { MetaDataType } from '../components/ui/apps/app-installation-confirmation-modal'
 
 export const bulkInstall = async (
   installFor: (string | undefined)[],
   uninstallFor: (string | undefined)[],
   appId?: string,
+  metadata?: { metadata?: MetaDataType },
 ): Promise<boolean | void> => {
   if (!appId) throw new Error('App Id not provided')
 
@@ -25,6 +27,7 @@ export const bulkInstall = async (
           actionedBy: session.loginIdentity.email,
           installFor,
           uninstallFor,
+          ...metadata,
         },
         method: 'POST',
         headers,

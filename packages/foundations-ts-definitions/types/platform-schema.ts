@@ -7433,6 +7433,69 @@ export interface CreateSourceModel {
   departmentIds?: string[]
 }
 /**
+ * Request body used to create a new supplier invoice
+ * example:
+ * [object Object]
+ */
+export interface CreateSupplierInvoiceModel {
+  /**
+   * The unique identifier of the works order the supplier invoice is associated with, where applicable
+   * Must be provided if propertyId/companyId/tenancyId are not present
+   */
+  worksOrderId?: string
+  /**
+   * The unique identifier of the property the supplier invoice is associated with, where applicable
+   * When providing a propertyId along with a worksOrderId, the id will be validated against the works order to check they match
+   */
+  propertyId?: string
+  /**
+   * The unique identifier of the contractor (company) the supplier invoice is associated with, where applicable
+   * When providing a companyId along with a worksOrderId, the id will be validated against the works order to check they match
+   */
+  companyId?: string
+  /**
+   * The unique identifier of the tenancy the supplier invoice is associated with, where applicable
+   * When providing a tenancyId along with a worksOrderId, the id will be validated against the works order to check they match
+   */
+  tenancyId?: string
+  /**
+   * The supplier invoice work description
+   */
+  description: string
+  /**
+   * The identifier of the nominal account the supplier invoice should be attributed to
+   */
+  accountId: string
+  /**
+   * The invoice reference
+   */
+  invoiceRef: string
+  /**
+   * The unique identifier of the negotiator the invoice should be attributed to (normally the person creating it on the system)
+   */
+  negotiatorId: string
+  /**
+   * The invoice date
+   * example:
+   * 2019-08-14
+   */
+  invoiceDate: string // date
+  /**
+   * The date the invoice should be paid by
+   * example:
+   * 2019-08-14
+   */
+  dueDate?: string // date
+  /**
+   * The invoice net amount
+   */
+  netAmount: number // double
+  /**
+   * The invoice tax amount
+   */
+  taxAmount: number // double
+}
+/**
  * Request body used to create a new task, which can also be an internal message
  * example:
  * [object Object]

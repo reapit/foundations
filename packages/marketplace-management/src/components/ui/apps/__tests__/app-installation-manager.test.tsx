@@ -231,9 +231,11 @@ describe('handleModalConfirmation', () => {
       closeModal,
     )
 
-    await curried()
+    await curried([{ allow: ['FOO'] }])
 
-    expect(mockBulkInstall).toHaveBeenCalledWith([], ['SBOX-GWIT', 'SBOX-OTHER'], app.id)
+    expect(mockBulkInstall).toHaveBeenCalledWith([], ['SBOX-GWIT', 'SBOX-OTHER'], app.id, {
+      metadata: [{ allow: ['FOO'] }],
+    })
     expect(setAppInstallationType).toHaveBeenCalledWith(null)
     expect(setOfficeGroupsToAdd).toHaveBeenCalledWith([])
     expect(setOfficeGroupsToRemove).toHaveBeenCalledWith([])
@@ -281,9 +283,11 @@ describe('handleModalConfirmation', () => {
       closeModal,
     )
 
-    await curried()
+    await curried([{ allow: ['FOO'] }])
 
-    expect(mockBulkInstall).toHaveBeenCalledWith([], ['SBOX-GWIT', 'SBOX-OTHER'], app.id)
+    expect(mockBulkInstall).toHaveBeenCalledWith([], ['SBOX-GWIT', 'SBOX-OTHER'], app.id, {
+      metadata: [{ allow: ['FOO'] }],
+    })
     expect(setAppInstallationType).not.toHaveBeenCalled()
     expect(setOfficeGroupsToAdd).not.toHaveBeenCalled()
     expect(setOfficeGroupsToRemove).not.toHaveBeenCalled()
@@ -332,9 +336,11 @@ describe('handleModalConfirmation', () => {
       closeModal,
     )
 
-    await curried()
+    await curried([{ allow: ['FOO'] }])
 
-    expect(mockBulkInstall).toHaveBeenCalledWith([], ['SBOX-GWIT', 'SBOX-OTHER'], app.id)
+    expect(mockBulkInstall).toHaveBeenCalledWith([], ['SBOX-GWIT', 'SBOX-OTHER'], app.id, {
+      metadata: [{ allow: ['FOO'] }],
+    })
     expect(setAppInstallationType).not.toHaveBeenCalled()
     expect(setOfficeGroupsToAdd).toHaveBeenCalledWith([])
     expect(setOfficeGroupsToRemove).toHaveBeenCalledWith([])

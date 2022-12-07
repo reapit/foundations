@@ -418,6 +418,10 @@ export const mockAppDetail: AppDetailModel = {
       name: 'agencyCloud/vendors.read',
       description: 'Read vendors',
     },
+    {
+      name: 'agencyCloud/referrals.read',
+      description: 'Read Referrals',
+    },
   ],
   media: [
     {

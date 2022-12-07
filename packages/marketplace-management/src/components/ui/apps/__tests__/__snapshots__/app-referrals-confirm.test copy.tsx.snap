@@ -1,0 +1,477 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReferralsConfirmationSelection should render component with props and loading 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <p
+        class="el-has-grey-text el-body-text"
+      >
+        This app has requested to read ‘Referral’ data. Before installation please select the referral types that this app will have access to. This defaults to ‘All Referral Types’, unless selected below.
+      </p>
+      <div
+        class="el-input-wrap-full"
+      >
+        <div
+          class="el-mb5 el-input-group"
+        >
+          <input
+            checked=""
+            class="el-input"
+            id="test-static-id"
+            type="checkbox"
+          />
+          <label
+            class="el-label"
+            for="test-static-id"
+          >
+            Install for selected referrals only
+          </label>
+        </div>
+      </div>
+      <div
+        class="el-input-wrap-full"
+      >
+        <div
+          class="el-loader-container"
+        >
+          <div
+            class="el-loader"
+          >
+            <div
+              class="el-loader-moving-bar"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <p
+      class="el-has-grey-text el-body-text"
+    >
+      This app has requested to read ‘Referral’ data. Before installation please select the referral types that this app will have access to. This defaults to ‘All Referral Types’, unless selected below.
+    </p>
+    <div
+      class="el-input-wrap-full"
+    >
+      <div
+        class="el-mb5 el-input-group"
+      >
+        <input
+          checked=""
+          class="el-input"
+          id="test-static-id"
+          type="checkbox"
+        />
+        <label
+          class="el-label"
+          for="test-static-id"
+        >
+          Install for selected referrals only
+        </label>
+      </div>
+    </div>
+    <div
+      class="el-input-wrap-full"
+    >
+      <div
+        class="el-loader-container"
+      >
+        <div
+          class="el-loader"
+        >
+          <div
+            class="el-loader-moving-bar"
+          />
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`ReferralsConfirmationSelection should render component with props with data 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <p
+        class="el-has-grey-text el-body-text"
+      >
+        This app has requested to read ‘Referral’ data. Before installation please select the referral types that this app will have access to. This defaults to ‘All Referral Types’, unless selected below.
+      </p>
+      <div
+        class="el-input-wrap-full"
+      >
+        <div
+          class="el-mb5 el-input-group"
+        >
+          <input
+            checked=""
+            class="el-input"
+            id="test-static-id"
+            type="checkbox"
+          />
+          <label
+            class="el-label"
+            for="test-static-id"
+          >
+            Install for selected referrals only
+          </label>
+        </div>
+      </div>
+      <div
+        class="el-input-wrap-full"
+      >
+        <div
+          class="el-multi-select-input-wrapper"
+        >
+          <input
+            class="el-multi-select-input"
+            id="select-referrals-to-install"
+          />
+          <div
+            class="el-mb7 el-multi-select-selected"
+          >
+            <span
+              class="el-ml2 el-icon-size-medium el-icon"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 40 40"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect
+                  fill="#0061A8"
+                  height="34.1736"
+                  width="19.3482"
+                  x="11.1089"
+                  y="2.56079"
+                />
+                <path
+                  d="M24.2112 4.354H20.4706C19.9537 4.354 19.5354 4.7645 19.5354 5.27163C19.5354 5.77876 19.9537 6.18925 20.4706 6.18925H24.2112C24.728 6.18925 25.1464 5.77876 25.1464 5.27163C25.1464 4.7645 24.728 4.354 24.2112 4.354Z"
+                  fill="#23A4DE"
+                />
+                <path
+                  d="M28.2628 1.29517H13.3002C11.2379 1.29517 9.55957 2.94201 9.55957 4.96566V34.3296C9.55957 36.3533 11.2379 38.0001 13.3002 38.0001H28.2628C30.3251 38.0001 32.0034 36.3533 32.0034 34.3296V4.96566C32.0034 2.94201 30.3251 1.29517 28.2628 1.29517ZM30.1331 34.3296C30.1331 35.3433 29.2959 36.1649 28.2628 36.1649H13.3002C12.2672 36.1649 11.4299 35.3433 11.4299 34.3296V4.96566C11.4299 3.95197 12.2672 3.13041 13.3002 3.13041H28.2628C29.2959 3.13041 30.1331 3.95197 30.1331 4.96566V34.3296Z"
+                  fill="#0061A8"
+                />
+                <path
+                  d="M20.78 34.9412C21.8129 34.9412 22.6503 34.1196 22.6503 33.106C22.6503 32.0924 21.8129 31.2708 20.78 31.2708C19.747 31.2708 18.9097 32.0924 18.9097 33.106C18.9097 34.1196 19.747 34.9412 20.78 34.9412Z"
+                  fill="#23A4DE"
+                />
+                <path
+                  d="M17.3509 6.18925C17.8674 6.18925 18.2861 5.77842 18.2861 5.27163C18.2861 4.76484 17.8674 4.354 17.3509 4.354C16.8345 4.354 16.4158 4.76484 16.4158 5.27163C16.4158 5.77842 16.8345 6.18925 17.3509 6.18925Z"
+                  fill="#23A4DE"
+                />
+                <rect
+                  fill="white"
+                  height="10"
+                  rx="5"
+                  width="23"
+                  x="17"
+                  y="10"
+                />
+                <g
+                  clip-path="url(#clip1)"
+                >
+                  <path
+                    d="M37.2176 19.5746C36.9467 18.5733 35.8688 17.998 34.8684 18.4C34.6105 17.447 33.6057 16.8422 32.587 17.2044V14.7472C32.5861 12.4194 29.064 12.4158 29.0632 14.7472V23.8099C28.1718 22.9185 27.3744 22.1211 27.3724 22.1192C26.6858 21.4317 25.5673 21.4317 24.8808 22.1192C24.1946 22.8042 24.1922 23.9226 24.8808 24.6107C25.0511 24.7809 29.3682 29.0981 29.5384 29.2683C30.6477 30.3776 32.1516 31 33.7201 30.9999V31C36.9869 30.9996 39.6344 28.3521 39.6348 25.0853C39.6348 23.9107 39.6348 24.0998 39.6348 21.2075C39.6342 19.9692 38.3836 19.106 37.2176 19.5746Z"
+                    fill="#FFB71B"
+                  />
+                </g>
+                <path
+                  d="M7 24L7 14.8485C7 14.3797 7.41997 14 7.93848 14L14.0615 14C14.58 14 15 14.3797 15 14.8485L15 24L7 24Z"
+                  fill="#23A4DE"
+                />
+                <path
+                  d="M1.95185 23L19.0481 23C19.8316 23 20.2786 23.8097 19.8073 24.3761L11.2597 34.6571C10.8796 35.1143 10.1209 35.1143 9.74082 34.6571L1.19267 24.3761C0.721385 23.8097 1.16844 23 1.95185 23Z"
+                  fill="#7BC9EB"
+                />
+              </svg>
+            </span>
+            <p>
+              Select at least one referral or un-tick the above checkbox to select all
+            </p>
+          </div>
+          <div
+            class="el-mb7 el-multi-select-un-selected"
+          >
+            <input
+              class="el-multi-select-checkbox"
+              id="test-static-id"
+              type="checkbox"
+            />
+            <label
+              class="el-has-grey-chips el-multi-select-label"
+              for="test-static-id"
+            >
+              Testimonial
+            </label>
+            <input
+              class="el-multi-select-checkbox"
+              id="test-static-id"
+              type="checkbox"
+            />
+            <label
+              class="el-has-grey-chips el-multi-select-label"
+              for="test-static-id"
+            >
+              Removals
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <p
+      class="el-has-grey-text el-body-text"
+    >
+      This app has requested to read ‘Referral’ data. Before installation please select the referral types that this app will have access to. This defaults to ‘All Referral Types’, unless selected below.
+    </p>
+    <div
+      class="el-input-wrap-full"
+    >
+      <div
+        class="el-mb5 el-input-group"
+      >
+        <input
+          checked=""
+          class="el-input"
+          id="test-static-id"
+          type="checkbox"
+        />
+        <label
+          class="el-label"
+          for="test-static-id"
+        >
+          Install for selected referrals only
+        </label>
+      </div>
+    </div>
+    <div
+      class="el-input-wrap-full"
+    >
+      <div
+        class="el-multi-select-input-wrapper"
+      >
+        <input
+          class="el-multi-select-input"
+          id="select-referrals-to-install"
+        />
+        <div
+          class="el-mb7 el-multi-select-selected"
+        >
+          <span
+            class="el-ml2 el-icon-size-medium el-icon"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 40 40"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                fill="#0061A8"
+                height="34.1736"
+                width="19.3482"
+                x="11.1089"
+                y="2.56079"
+              />
+              <path
+                d="M24.2112 4.354H20.4706C19.9537 4.354 19.5354 4.7645 19.5354 5.27163C19.5354 5.77876 19.9537 6.18925 20.4706 6.18925H24.2112C24.728 6.18925 25.1464 5.77876 25.1464 5.27163C25.1464 4.7645 24.728 4.354 24.2112 4.354Z"
+                fill="#23A4DE"
+              />
+              <path
+                d="M28.2628 1.29517H13.3002C11.2379 1.29517 9.55957 2.94201 9.55957 4.96566V34.3296C9.55957 36.3533 11.2379 38.0001 13.3002 38.0001H28.2628C30.3251 38.0001 32.0034 36.3533 32.0034 34.3296V4.96566C32.0034 2.94201 30.3251 1.29517 28.2628 1.29517ZM30.1331 34.3296C30.1331 35.3433 29.2959 36.1649 28.2628 36.1649H13.3002C12.2672 36.1649 11.4299 35.3433 11.4299 34.3296V4.96566C11.4299 3.95197 12.2672 3.13041 13.3002 3.13041H28.2628C29.2959 3.13041 30.1331 3.95197 30.1331 4.96566V34.3296Z"
+                fill="#0061A8"
+              />
+              <path
+                d="M20.78 34.9412C21.8129 34.9412 22.6503 34.1196 22.6503 33.106C22.6503 32.0924 21.8129 31.2708 20.78 31.2708C19.747 31.2708 18.9097 32.0924 18.9097 33.106C18.9097 34.1196 19.747 34.9412 20.78 34.9412Z"
+                fill="#23A4DE"
+              />
+              <path
+                d="M17.3509 6.18925C17.8674 6.18925 18.2861 5.77842 18.2861 5.27163C18.2861 4.76484 17.8674 4.354 17.3509 4.354C16.8345 4.354 16.4158 4.76484 16.4158 5.27163C16.4158 5.77842 16.8345 6.18925 17.3509 6.18925Z"
+                fill="#23A4DE"
+              />
+              <rect
+                fill="white"
+                height="10"
+                rx="5"
+                width="23"
+                x="17"
+                y="10"
+              />
+              <g
+                clip-path="url(#clip1)"
+              >
+                <path
+                  d="M37.2176 19.5746C36.9467 18.5733 35.8688 17.998 34.8684 18.4C34.6105 17.447 33.6057 16.8422 32.587 17.2044V14.7472C32.5861 12.4194 29.064 12.4158 29.0632 14.7472V23.8099C28.1718 22.9185 27.3744 22.1211 27.3724 22.1192C26.6858 21.4317 25.5673 21.4317 24.8808 22.1192C24.1946 22.8042 24.1922 23.9226 24.8808 24.6107C25.0511 24.7809 29.3682 29.0981 29.5384 29.2683C30.6477 30.3776 32.1516 31 33.7201 30.9999V31C36.9869 30.9996 39.6344 28.3521 39.6348 25.0853C39.6348 23.9107 39.6348 24.0998 39.6348 21.2075C39.6342 19.9692 38.3836 19.106 37.2176 19.5746Z"
+                  fill="#FFB71B"
+                />
+              </g>
+              <path
+                d="M7 24L7 14.8485C7 14.3797 7.41997 14 7.93848 14L14.0615 14C14.58 14 15 14.3797 15 14.8485L15 24L7 24Z"
+                fill="#23A4DE"
+              />
+              <path
+                d="M1.95185 23L19.0481 23C19.8316 23 20.2786 23.8097 19.8073 24.3761L11.2597 34.6571C10.8796 35.1143 10.1209 35.1143 9.74082 34.6571L1.19267 24.3761C0.721385 23.8097 1.16844 23 1.95185 23Z"
+                fill="#7BC9EB"
+              />
+            </svg>
+          </span>
+          <p>
+            Select at least one referral or un-tick the above checkbox to select all
+          </p>
+        </div>
+        <div
+          class="el-mb7 el-multi-select-un-selected"
+        >
+          <input
+            class="el-multi-select-checkbox"
+            id="test-static-id"
+            type="checkbox"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="test-static-id"
+          >
+            Testimonial
+          </label>
+          <input
+            class="el-multi-select-checkbox"
+            id="test-static-id"
+            type="checkbox"
+          />
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="test-static-id"
+          >
+            Removals
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
