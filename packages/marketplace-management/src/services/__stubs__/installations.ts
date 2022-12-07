@@ -22,6 +22,13 @@ export const mockInstallationsList: InstallationModelPagedResult = {
         postcode: 'EC1N 8QX',
         countryId: 'GB',
       },
+      metadata: [
+        {
+          service: 'referrals',
+          field: 'referralTypeId',
+          allow: ['JTS', 'JRV'],
+        },
+      ],
       links: [
         {
           rel: 'self',

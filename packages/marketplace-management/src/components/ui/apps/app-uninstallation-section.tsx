@@ -8,6 +8,7 @@ import {
 import { BodyText, Button, ButtonGroup, elMb11, Subtitle } from '@reapit/elements'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../../core/connect-session'
+import { ReferralsDisplay } from './app-referrals-display'
 
 export interface AppUninstallationSectionProps {
   installations: InstallationModel[]
@@ -40,6 +41,7 @@ const AppUninstallationSection: FC<AppUninstallationSectionProps> = ({
       <Subtitle>Current Installations</Subtitle>
       {!noCurrentInstallations && (
         <>
+          <ReferralsDisplay hasCurrentInstallations={!noCurrentInstallations} installations={installations} />
           <BodyText hasGreyText>
             This app is currently installed for {currentInstallText}. Please click ‘Uninstall’ to terminate the
             installation.

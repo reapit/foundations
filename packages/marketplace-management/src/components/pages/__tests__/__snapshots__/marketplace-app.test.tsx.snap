@@ -329,6 +329,11 @@ Object {
             >
               Read vendors
             </div>
+            <div
+              class="el-col"
+            >
+              Read Referrals
+            </div>
           </div>
           <h2
             class="el-subtitle"
@@ -651,6 +656,11 @@ Object {
             class="el-col"
           >
             Read vendors
+          </div>
+          <div
+            class="el-col"
+          >
+            Read Referrals
           </div>
         </div>
         <h2
