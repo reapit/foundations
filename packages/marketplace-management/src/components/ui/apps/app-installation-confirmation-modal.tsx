@@ -65,7 +65,9 @@ const AppInstallationConfirmationModal: FC<AppInstallationConfirmationModalProps
       {performCompleteUninstall && uninstallText}
       {!performCompleteUninstall && appInstallationType === WHOLE_ORG && wholeOrgInstallText}
       {!performCompleteUninstall && appInstallationType === SPECIFIC_OFFICE_GROUPS && specificOfficeGroupsText}
-      <ReferralsConfirmationSelection app={app} metadata={metadata} setMetadata={setMetadata} />
+      {!performCompleteUninstall && (
+        <ReferralsConfirmationSelection app={app} metadata={metadata} setMetadata={setMetadata} />
+      )}
       {!performCompleteUninstall && (
         <>
           <BodyText hasGreyText>
@@ -73,7 +75,7 @@ const AppInstallationConfirmationModal: FC<AppInstallationConfirmationModalProps
             applicable), Pricing Information and Data Permissions.
           </BodyText>
           <BodyText hasGreyText>
-            If you are uncertain, please cancel and take a look at information located on the app listing.
+            If you are uncertain, please cancel and look at the information located on the app listing.
           </BodyText>
         </>
       )}

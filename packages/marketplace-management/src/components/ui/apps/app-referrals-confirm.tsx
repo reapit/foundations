@@ -84,7 +84,7 @@ export const ReferralsConfirmationSelection: FC<ReferralsConfirmationSelectionPr
             noneSelectedLabel="Select at least one referral or un-tick the above checkbox to select all"
             options={
               referralTypes?._embedded?.map(({ name, id }) => ({
-                name,
+                name: `${id} - ${name}`,
                 value: id,
               })) as MultiSelectOption[]
             }

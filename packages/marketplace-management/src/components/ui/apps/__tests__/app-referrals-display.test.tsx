@@ -21,7 +21,7 @@ describe('handleReferralText', () => {
   it('handleReferralText should correctly return the referral names', () => {
     const curried = handleReferralText(mockInstallationsList.data ?? [], mockReferralTypes)
     const result = curried()
-    expect(result).toEqual('Testimonial, Removals')
+    expect(result).toEqual('JTS - Testimonial, JRV - Removals')
   })
 
   it('handleReferralText should return an empty string if installations are empty', () => {

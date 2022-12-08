@@ -270,7 +270,7 @@ Object {
               class="el-has-grey-chips el-multi-select-label"
               for="test-static-id"
             >
-              Testimonial
+              JTS - Testimonial
             </label>
             <input
               class="el-multi-select-checkbox"
@@ -281,7 +281,7 @@ Object {
               class="el-has-grey-chips el-multi-select-label"
               for="test-static-id"
             >
-              Removals
+              JRV - Removals
             </label>
           </div>
         </div>
@@ -405,7 +405,7 @@ Object {
             class="el-has-grey-chips el-multi-select-label"
             for="test-static-id"
           >
-            Testimonial
+            JTS - Testimonial
           </label>
           <input
             class="el-multi-select-checkbox"
@@ -416,7 +416,7 @@ Object {
             class="el-has-grey-chips el-multi-select-label"
             for="test-static-id"
           >
-            Removals
+            JRV - Removals
           </label>
         </div>
       </div>
