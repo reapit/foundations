@@ -26,8 +26,8 @@ export const handleReferralText =
       const newItem = next?.metadata?.reduce<string>((iAcc, iNext) => {
         const innerNewItem = iNext?.allow?.reduce<string>((jAcc, jNext) => {
           const name = referralTypes?._embedded?.find((type) => type.id === jNext)?.name ?? ''
-          if (name && jAcc) return `${jAcc}, ${name}`
-          if (name) return name
+          if (name && jAcc) return `${jAcc}, ${jNext} - ${name}`
+          if (name) return `${jNext} - ${name}`
           return jAcc
         }, '')
 
