@@ -4435,6 +4435,10 @@ export interface CreateApplicantModel {
    */
   locality?: string[]
   /**
+   * The applicant's special feature property requirements (eg Swimming Pool, Tennis Court), as defined by the applicant's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
+   */
+  specialFeatures?: string[]
+  /**
    * The minimum number of bedrooms the applicant requires
    */
   bedroomsMin?: number // int32
@@ -10576,6 +10580,89 @@ export interface Negotiators {
   modifiedTo?: string
   active?: boolean
   metadata?: string[]
+}
+/**
+ * Model representing a nominal account
+ */
+export interface NominalAccountModel {
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+  /**
+   * The unique identifier of the nominal account
+   */
+  id?: string
+  /**
+   * The date and time when the nominal account was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the nominal account was last modified
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  modified?: string // date-time
+  /**
+   * The nominal account name
+   */
+  name?: string
+  /**
+   * Flag indicating whether or not the nominal account can be associated with works orders
+   */
+  appliesToWorksOrders?: boolean
+}
+export interface NominalAccountModelPagedResult {
+  _embedded?: {
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+    /**
+     * The unique identifier of the nominal account
+     */
+    id?: string
+    /**
+     * The date and time when the nominal account was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the nominal account was last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * The nominal account name
+     */
+    name?: string
+    /**
+     * Flag indicating whether or not the nominal account can be associated with works orders
+     */
+    appliesToWorksOrders?: boolean
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalPageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
 }
 /**
  * Representation of the physical address of a building or premise
@@ -17063,6 +17150,13 @@ export interface Transactions {
   outstandingFrom?: number
   outstandingTo?: number
 }
+export interface TransactionsNominalAccounts {
+  pageSize?: number
+  pageNumber?: number
+  sortBy?: string
+  id?: string[]
+  appliesToWorksOrders?: boolean
+}
 /**
  * Representation of all of the available configurable items
  */
@@ -17535,6 +17629,10 @@ export interface UpdateApplicantModel {
    * The applicant's general property location requirements (eg rural, townCity), as defined by the applicant's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
    */
   locality?: string[]
+  /**
+   * The applicant's special feature property requirements (eg Swimming Pool, Tennis Court), as defined by the applicant's [department](https://foundations-documentation.reapit.cloud/platform-glossary#department)
+   */
+  specialFeatures?: string[]
   /**
    * The minimum number of bedrooms the applicant requires
    */
