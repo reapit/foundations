@@ -40,6 +40,7 @@
       "packages/ts-bundler",
       "packages/ts-scripts",
       "packages/ts-types",
+      "packages/use-reapit-data",
       "packages/utils-common",
       "packages/utils-node",
       "packages/utils-react",

@@ -3,6 +3,11 @@ import { mockAppSummaryModelPagedResult } from '../../../tests/__stubs__/apps'
 import { handleRefreshAppsFeatured, handleToggleFeatured, ToggleFeatured, ToggleFeaturedForm } from '../toggle-featured'
 import { render } from '../../../tests/react-testing'
 
+jest.mock('@reapit/use-reapit-data', () => ({
+  ...jest.requireActual('@reapit/use-reapit-data'),
+  useReapitUpdate: jest.fn(() => [undefined, undefined, jest.fn(), false]),
+}))
+
 describe('ToggleFeatured', () => {
   it('should match a snapshot with apps', () => {
     expect(
