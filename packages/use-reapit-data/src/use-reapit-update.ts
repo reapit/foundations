@@ -66,7 +66,7 @@ export const useReapitUpdate = <ParamsType, DataType>({
           data,
         })
 
-        if (returnType === UpdateReturnTypeEnum.RESPONSE) res.data
+        if (returnType === UpdateReturnTypeEnum.RESPONSE) return res.data
 
         if (returnType === UpdateReturnTypeEnum.LOCATION && res.headers) {
           const headers = res.headers as AxiosResponseHeaders
