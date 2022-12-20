@@ -19,7 +19,7 @@ For all users, in a file at the root of the source of your project, first instan
 The constructor accepts 4 parameters, of which two are optional, see comments below:
 
 ```ts
-import { ReapitConnectBrowserSession } from '@reapit/connect-utils'
+import { ReapitConnectBrowserSession } from '@reapit/connect-session'
 
 // You should instantiate the class once only as a singleton as the module manages it's own state
 export const reapitConnectBrowserSession = new ReapitConnectBrowserSession({
