@@ -1474,6 +1474,7 @@ export interface Applicants {
   departmentId?: string
   marketingMode?: ('buying' | 'renting')[]
   name?: string
+  nameType?: ('surname' | 'initials' | 'full' | 'companyName')[]
   priceFrom?: number
   priceTo?: number
   rentFrom?: number
@@ -7801,6 +7802,32 @@ export interface CreateTenancyModel {
   }
   /**
    * App specific metadata to set against the tenancy
+   */
+  metadata?: {
+    [name: string]: any
+  }
+}
+/**
+ * Request body used to create a new tenancy renewal check
+ * example:
+ * [object Object]
+ */
+export interface CreateTenancyRenewalCheckModel {
+  /**
+   * The status of the tenancy check (needed/notNeeded/arranging/completed)
+   */
+  status: string
+  /**
+   * The identifier of the pre-configured tenancy check. This will only be populated
+   * for pre-configured tenancy checks, and not for custom/ad-hoc checks added to individual tenancies
+   */
+  checkTypeId?: string
+  /**
+   * The name of this tenancy check
+   */
+  readonly description?: string
+  /**
+   * App specific metadata to set against the tenancy renewal check
    */
   metadata?: {
     [name: string]: any
@@ -16496,6 +16523,135 @@ export interface TenancyModelPagedResult {
   }
 }
 /**
+ * Representation of a tenancy renewal check
+ */
+export interface TenancyRenewalCheckModel {
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+  /**
+   * The unique identifier of the tenancy renewal check
+   */
+  id?: string
+  /**
+   * The date and time when the tenancy renewal check was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the tenancy renewal check was last modified
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  modified?: string // date-time
+  /**
+   * The status of the tenancy renewal check (needed/notNeeded/arranging/completed)
+   */
+  status?: string
+  /**
+   * Textual description of what the tenancy renewal check relates to
+   */
+  description?: string
+  /**
+   * The identifier of the pre-configured tenancy check. This will only be populated
+   * for pre-configured tenancy checks, and not for custom/ad-hoc checks added to individual tenancies
+   */
+  checkTypeId?: string
+  /**
+   * The unique identifier of the tenancy that this check relates to
+   */
+  tenancyId?: string
+  /**
+   * The unique identifier of the renewal that this check relates to
+   */
+  renewalId?: string
+  /**
+   * App specific metadata that has been set against the tenancy renewal check
+   */
+  metadata?: {
+    [name: string]: any
+  }
+  /**
+   * The ETag for the current version of the teanncy check. Used for managing update concurrency
+   */
+  readonly _eTag?: string
+}
+export interface TenancyRenewalCheckModelPagedResult {
+  _embedded?: {
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+    /**
+     * The unique identifier of the tenancy renewal check
+     */
+    id?: string
+    /**
+     * The date and time when the tenancy renewal check was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the tenancy renewal check was last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * The status of the tenancy renewal check (needed/notNeeded/arranging/completed)
+     */
+    status?: string
+    /**
+     * Textual description of what the tenancy renewal check relates to
+     */
+    description?: string
+    /**
+     * The identifier of the pre-configured tenancy check. This will only be populated
+     * for pre-configured tenancy checks, and not for custom/ad-hoc checks added to individual tenancies
+     */
+    checkTypeId?: string
+    /**
+     * The unique identifier of the tenancy that this check relates to
+     */
+    tenancyId?: string
+    /**
+     * The unique identifier of the renewal that this check relates to
+     */
+    renewalId?: string
+    /**
+     * App specific metadata that has been set against the tenancy renewal check
+     */
+    metadata?: {
+      [name: string]: any
+    }
+    /**
+     * The ETag for the current version of the teanncy check. Used for managing update concurrency
+     */
+    readonly _eTag?: string
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalPageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+/**
  * Represents a tenancies renewal negotiation
  */
 export interface TenancyRenewalModel {
@@ -20657,6 +20813,23 @@ export interface UpdateTenancyModel {
   }
   /**
    * App specific metadata to set against the tenancy
+   */
+  metadata?: {
+    [name: string]: any
+  }
+}
+/**
+ * Request body used to update a tenancy renewal check
+ * example:
+ * [object Object]
+ */
+export interface UpdateTenancyRenewalCheckModel {
+  /**
+   * The status of the tenancy check (needed/notNeeded/arranging/completed)
+   */
+  status?: string
+  /**
+   * App specific metadata to set against the tenancy renewal check
    */
   metadata?: {
     [name: string]: any
