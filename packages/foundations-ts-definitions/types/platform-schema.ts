@@ -7825,7 +7825,7 @@ export interface CreateTenancyRenewalCheckModel {
   /**
    * The name of this tenancy check
    */
-  readonly description?: string
+  description?: string
   /**
    * App specific metadata to set against the tenancy renewal check
    */
