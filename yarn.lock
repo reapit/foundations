@@ -4691,6 +4691,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/runtime@npm:^7.16.5":
+  version: 7.20.7
+  resolution: "@babel/runtime@npm:7.20.7"
+  dependencies:
+    regenerator-runtime: ^0.13.11
+  checksum: 4629ce5c46f06cca9cfb9b7fc00d48003335a809888e2b91ec2069a2dcfbfef738480cff32ba81e0b7c290f8918e5c22ddcf2b710001464ee84ba62c7e32a3a3
+  languageName: node
+  linkType: hard
+
 "@babel/runtime@npm:^7.17.8":
   version: 7.18.3
   resolution: "@babel/runtime@npm:7.18.3"
@@ -8159,19 +8168,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@reapit/connect-session@npm:^2.3.1":
-  version: 2.3.1
-  resolution: "@reapit/connect-session@npm:2.3.1"
+"@reapit/connect-session@npm:^3.1.0":
+  version: 3.4.1
+  resolution: "@reapit/connect-session@npm:3.4.1"
   dependencies:
-    axios: ^0.21.1
+    "@babel/runtime": ^7.16.5
+    axios: ^0.26.0
+    base-64: ^1.0.0
+    bashleigh-idtoken-verifier: 2.2.3
     isomorphic-fetch: ^3.0.0
-    jsonwebtoken: ^8.5.1
-    jwk-to-pem: ^2.0.4
-    snyk: ^1.463.0
-  peerDependencies:
-    react: ^16.12.0
-    react-dom: ^16.12.0
-  checksum: 3df24e17719f35fdb2ce71b0c5582090f4b00f56f4ebbef9d5f6d1284ab697e89253294584260c3e34ee109fa0dd16892c1f3630994718b63f6d2fc8cb60aa28
+    jwk-to-pem: ^2.0.5
+    jwt-decode: ^3.1.2
+    react: ^17.0.2
+    react-dom: ^17.0.2
+    snyk: ^1.793.0
+  checksum: 77ee73d30236375fd502bdacd9969118b6b1ae4379d49f5124fb2f6c79a5c86d8a2fffedec04b918855f9ae0f00a25a4a5eeaca9c18a4e2d1b6e66e347abcb06
   languageName: node
   linkType: hard
 
@@ -15531,6 +15542,15 @@ __metadata:
   dependencies:
     follow-redirects: ^1.10.0
   checksum: c87915fa0b18c15c63350112b6b3563a3e2ae524d7707de0a73d2e065e0d30c5d3da8563037bc29d4cc1b7424b5a350cb7274fa52525c6c04a615fe561c6ab11
+  languageName: node
+  linkType: hard
+
+"axios@npm:^0.26.0":
+  version: 0.26.1
+  resolution: "axios@npm:0.26.1"
+  dependencies:
+    follow-redirects: ^1.14.8
+  checksum: d9eb58ff4bc0b36a04783fc9ff760e9245c829a5a1052ee7ca6013410d427036b1d10d04e7380c02f3508c5eaf3485b1ae67bd2adbfec3683704745c8d7a6e1a
   languageName: node
   linkType: hard
 
@@ -23116,6 +23136,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"follow-redirects@npm:^1.14.8, follow-redirects@npm:^1.15.0":
+  version: 1.15.2
+  resolution: "follow-redirects@npm:1.15.2"
+  peerDependenciesMeta:
+    debug:
+      optional: true
+  checksum: faa66059b66358ba65c234c2f2a37fcec029dc22775f35d9ad6abac56003268baf41e55f9ee645957b32c7d9f62baf1f0b906e68267276f54ec4b4c597c2b190
+  languageName: node
+  linkType: hard
+
 "follow-redirects@npm:^1.14.9":
   version: 1.15.1
   resolution: "follow-redirects@npm:1.15.1"
@@ -23123,16 +23153,6 @@ __metadata:
     debug:
       optional: true
   checksum: 6aa4e3e3cdfa3b9314801a1cd192ba756a53479d9d8cca65bf4db3a3e8834e62139245cd2f9566147c8dfe2efff1700d3e6aefd103de4004a7b99985e71dd533
-  languageName: node
-  linkType: hard
-
-"follow-redirects@npm:^1.15.0":
-  version: 1.15.2
-  resolution: "follow-redirects@npm:1.15.2"
-  peerDependenciesMeta:
-    debug:
-      optional: true
-  checksum: faa66059b66358ba65c234c2f2a37fcec029dc22775f35d9ad6abac56003268baf41e55f9ee645957b32c7d9f62baf1f0b906e68267276f54ec4b4c597c2b190
   languageName: node
   linkType: hard
 
@@ -28892,7 +28912,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"jwk-to-pem@npm:^2.0.4, jwk-to-pem@npm:^2.0.5":
+"jwk-to-pem@npm:^2.0.5":
   version: 2.0.5
   resolution: "jwk-to-pem@npm:2.0.5"
   dependencies:
@@ -33261,7 +33281,7 @@ fsevents@^1.2.7:
     "@aws/dynamodb-data-mapper": ^0.7.3
     "@aws/dynamodb-data-mapper-annotations": ^0.7.3
     "@reapit/config-manager": "workspace:packages/config-manager"
-    "@reapit/connect-session": ^2.3.1
+    "@reapit/connect-session": ^3.1.0
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
@@ -35093,6 +35113,19 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"react-dom@npm:^17.0.2":
+  version: 17.0.2
+  resolution: "react-dom@npm:17.0.2"
+  dependencies:
+    loose-envify: ^1.1.0
+    object-assign: ^4.1.1
+    scheduler: ^0.20.2
+  peerDependencies:
+    react: 17.0.2
+  checksum: 1c1eaa3bca7c7228d24b70932e3d7c99e70d1d04e13bb0843bbf321582bc25d7961d6b8a6978a58a598af2af496d1cedcfb1bf65f6b0960a0a8161cb8dab743c
+  languageName: node
+  linkType: hard
+
 "react-dom@npm:^18.2.0":
   version: 18.2.0
   resolution: "react-dom@npm:18.2.0"
@@ -35454,6 +35487,16 @@ fsevents@^1.2.7:
     react: ">=16.0.0"
     react-dom: ">=16.0.0"
   checksum: 54112a91f9f1221126f64953ad9a1a3b20779aae79226962a8bb310c39ecbd20a55a506993827010ccad60eda120e29c5482d9867f646277aeb7b16345dde309
+  languageName: node
+  linkType: hard
+
+"react@npm:^17.0.2":
+  version: 17.0.2
+  resolution: "react@npm:17.0.2"
+  dependencies:
+    loose-envify: ^1.1.0
+    object-assign: ^4.1.1
+  checksum: b254cc17ce3011788330f7bbf383ab653c6848902d7936a87b09d835d091e3f295f7e9dd1597c6daac5dc80f90e778c8230218ba8ad599f74adcc11e33b9d61b
   languageName: node
   linkType: hard
 
@@ -35852,6 +35895,13 @@ fsevents@^1.2.7:
   version: 0.13.10
   resolution: "regenerator-runtime@npm:0.13.10"
   checksum: 09893f5a9e82932642d9a999716b6c626dc53ef2a01307c952ebbf8e011802360163a37c304c18a6c358548be5a72b448e37209954a18696f21e438c81cbb4b9
+  languageName: node
+  linkType: hard
+
+"regenerator-runtime@npm:^0.13.11":
+  version: 0.13.11
+  resolution: "regenerator-runtime@npm:0.13.11"
+  checksum: 27481628d22a1c4e3ff551096a683b424242a216fee44685467307f14d58020af1e19660bf2e26064de946bad7eff28950eae9f8209d55723e2d9351e632bbb4
   languageName: node
   linkType: hard
 
@@ -36937,6 +36987,16 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
+"scheduler@npm:^0.20.2":
+  version: 0.20.2
+  resolution: "scheduler@npm:0.20.2"
+  dependencies:
+    loose-envify: ^1.1.0
+    object-assign: ^4.1.1
+  checksum: c4b35cf967c8f0d3e65753252d0f260271f81a81e427241295c5a7b783abf4ea9e905f22f815ab66676f5313be0a25f47be582254db8f9241b259213e999b8fc
+  languageName: node
+  linkType: hard
+
 "scheduler@npm:^0.23.0":
   version: 0.23.0
   resolution: "scheduler@npm:0.23.0"
@@ -37966,12 +38026,12 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"snyk@npm:^1.463.0":
-  version: 1.973.0
-  resolution: "snyk@npm:1.973.0"
+"snyk@npm:^1.793.0":
+  version: 1.1079.0
+  resolution: "snyk@npm:1.1079.0"
   bin:
     snyk: bin/snyk
-  checksum: 928b08c67d783c30cd3cc166dce14288a114f8495e6d7ebce88c858f47b8b3ae734b8023197f02345fb9cea4781caf9631d2cea98e047f5bf777466927ea7819
+  checksum: 16d5bb81f61f58735e67fb925d7cc279363db596442d6748920122c71d690ff35d03857e181516e28b126c9c448e48284da54593f52a3149ba573979e1593cfa
   languageName: node
   linkType: hard
 
