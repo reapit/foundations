@@ -13199,6 +13199,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/string-template@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "@types/string-template@npm:1.0.2"
+  checksum: 25b07ab4c7062dfd57c6a100a9eaac4cca9c836a1fff85351e143cf1696b311c322ca0f6f7a2bad834deeedfd0cb7ca96c180c36983092864169151e32abc15f
+  languageName: node
+  linkType: hard
+
 "@types/strip-bom@npm:^3.0.0":
   version: 3.0.0
   resolution: "@types/strip-bom@npm:3.0.0"
@@ -18480,6 +18487,7 @@ __metadata:
     "@reapit/ts-types": "workspace:packages/ts-types"
     "@reapit/utils-node": "workspace:packages/utils-node"
     "@types/node": ^18.11.15
+    "@types/string-template": ^1.0.2
     "@typescript-eslint/eslint-plugin": ^5.26.0
     "@typescript-eslint/parser": ^5.26.0
     aws-lambda: ^1.0.7
@@ -18488,7 +18496,6 @@ __metadata:
     cross-env: ^7.0.3
     eslint: 8.16.0
     eslint-plugin-prettier: ^4.0.0
-    eta: ^1.12.3
     events: ^3.3.0
     jest: ^28.1.0
     jest-coverage-badges: ^1.1.2
@@ -18501,6 +18508,7 @@ __metadata:
     serverless-plugin-log-retention: ^2.0.0
     serverless-webpack: ^5.7.1
     snyk: ^1.941.0
+    string-template: ^1.0.0
     webpack: ^5.72.1
   languageName: unknown
   linkType: soft
@@ -22708,13 +22716,6 @@ __metadata:
   version: 2.0.3
   resolution: "esutils@npm:2.0.3"
   checksum: 22b5b08f74737379a840b8ed2036a5fb35826c709ab000683b092d9054e5c2a82c27818f12604bfc2a9a76b90b6834ef081edbc1c7ae30d1627012e067c6ec87
-  languageName: node
-  linkType: hard
-
-"eta@npm:^1.12.3":
-  version: 1.12.3
-  resolution: "eta@npm:1.12.3"
-  checksum: 390c1cd320755cb98fd5a4a911539e8ed498fc49b82414f0023033ff606d80a34e6df0aeeb9fb0b519b318a750e6d17a72fc25f8a8c686cfc52d638e998237a1
   languageName: node
   linkType: hard
 
@@ -40354,6 +40355,13 @@ resolve@^2.0.0-next.3:
     char-regex: ^1.0.2
     strip-ansi: ^6.0.0
   checksum: 7bd3191668ddafa6f574a8b17a1bd1b085737d64ceefa51f72cdd19c45a730422cd70d984eee7584d6e5b5c84b6318633c6d6a720a4bfd7c58769985fa77573e
+  languageName: node
+  linkType: hard
+
+"string-template@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "string-template@npm:1.0.0"
+  checksum: 15b0e8616ff25f3ddcd42e4a58a6833cc7be81029f97afc7b8f8d2e7c4d482a136e67399d207b7d2c31080e7a88266c670131a59e50ebc482bfeddb06b3a4215
   languageName: node
   linkType: hard
 

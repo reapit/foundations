@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "start": "yarn serverless offline start --runtime nodejs12.x --stage local --printOutput",
-    "test": "cross-env TZ=UTC jest --watch --colors",
+    "test": "cross-env TZ=UTC jest --watch --colors --silent",
     "build": "echo '...skipping...'",
     "lint": "eslint --cache --ext=ts,tsx,js src",
     "check": "tsc --noEmit --skipLibCheck",
@@ -30,10 +30,10 @@
   "homepage": "https://github.com/reapit/foundations#readme",
   "dependencies": {
     "aws-lambda": "^1.0.7",
-    "eta": "^1.12.3",
     "events": "^3.3.0",
     "mjml": "^4.13.0",
-    "snyk": "^1.941.0"
+    "snyk": "^1.941.0",
+    "string-template": "^1.0.0"
   },
   "devDependencies": {
     "@reapit/config-manager": "workspace:packages/config-manager",
@@ -41,6 +41,7 @@
     "@reapit/ts-types": "workspace:packages/ts-types",
     "@reapit/utils-node": "workspace:packages/utils-node",
     "@types/node": "^18.11.15",
+    "@types/string-template": "^1.0.2",
     "@typescript-eslint/eslint-plugin": "^5.26.0",
     "@typescript-eslint/parser": "^5.26.0",
     "babel-jest": "^28.1.0",
