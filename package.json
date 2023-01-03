@@ -16,6 +16,7 @@
       "packages/config-manager",
       "packages/connect-session",
       "packages/connect-session-next",
+      "packages/cognito-custom-mail-lambda",
       "packages/cra-template-foundations",
       "packages/create-node-app-generator",
       "packages/data-warehouse",
