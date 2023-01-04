@@ -54,7 +54,7 @@ describe('customMailer', () => {
       } as Partial<CognitoUserPoolTriggerEvent>
 
       await customMailer(event as CognitoUserPoolTriggerEvent, context, callback)
-      expect(event.response).toMatchSnapshot("Forgot_password")
+      expect(event.response).toMatchSnapshot('Forgot_password')
       expect(callback).toHaveBeenCalledWith(null, event)
       expect(event.response.emailMessage).not.toContain('{userName}')
       expect(event.response.emailMessage).not.toContain('{verificationCode}')
@@ -78,7 +78,7 @@ describe('customMailer', () => {
     } as Partial<CognitoUserPoolTriggerEvent>
 
     await customMailer(event as CognitoUserPoolTriggerEvent, context, callback)
-    expect(event.response).toMatchSnapshot("Sign_up")
+    expect(event.response).toMatchSnapshot('Sign_up')
     expect(callback).toHaveBeenCalledWith(null, event)
     expect(event.response).not.toContain('{userName}')
     expect(event.response.emailMessage).not.toContain('{url}')
@@ -102,7 +102,7 @@ describe('customMailer', () => {
     } as Partial<CognitoUserPoolTriggerEvent>
 
     await customMailer(event as CognitoUserPoolTriggerEvent, context, callback)
-    expect(event.response).toMatchSnapshot("Admin_Create_User")
+    expect(event.response).toMatchSnapshot('Admin_Create_User')
     expect(callback).toHaveBeenCalledWith(null, event)
     expect(event.response.emailMessage).not.toContain('{userName}')
     expect(event.response.emailMessage).not.toContain('{code}')
