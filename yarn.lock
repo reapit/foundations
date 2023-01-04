@@ -13318,6 +13318,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/validator@npm:^13.7.10":
+  version: 13.7.10
+  resolution: "@types/validator@npm:13.7.10"
+  checksum: 7b142c08019f484d62c9f3074231f640c24311558f157dd253a60810dd0cb29e41ec64ca210a192b54f6de51f4fe016bfeb2c30f90fa49c9337ed54a9d8e02aa
+  languageName: node
+  linkType: hard
+
 "@types/vinyl@npm:^2.0.4":
   version: 2.0.5
   resolution: "@types/vinyl@npm:2.0.5"
@@ -18117,6 +18124,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"class-validator@npm:^0.14.0":
+  version: 0.14.0
+  resolution: "class-validator@npm:0.14.0"
+  dependencies:
+    "@types/validator": ^13.7.10
+    libphonenumber-js: ^1.10.14
+    validator: ^13.7.0
+  checksum: f62e4a0ad24cee68f4b2bc70d32b96de90cb598f96bde362b4dbf4234151af8eb6ae225458312a38fc49fa3959844cf61c60e731a8205e9a570454cff8de2710
+  languageName: node
+  linkType: hard
+
 "classnames@npm:^2.3.1":
   version: 2.3.1
   resolution: "classnames@npm:2.3.1"
@@ -20452,7 +20470,7 @@ __metadata:
     atlassian-jwt: ^2.0.2
     aws-serverless-express: ^3.4.0
     class-transformer: ^0.5.1
-    class-validator: ^0.13.2
+    class-validator: ^0.14.0
     concurrently: ^6.5.1
     cross-env: ^7.0.3
     eslint: ^8.25.0
@@ -30147,6 +30165,13 @@ fsevents@^1.2.7:
     prelude-ls: ^1.2.1
     type-check: ~0.4.0
   checksum: 12c5021c859bd0f5248561bf139121f0358285ec545ebf48bb3d346820d5c61a4309535c7f387ed7d84361cf821e124ce346c6b7cef8ee09a67c1473b46d0fc4
+  languageName: node
+  linkType: hard
+
+"libphonenumber-js@npm:^1.10.14":
+  version: 1.10.15
+  resolution: "libphonenumber-js@npm:1.10.15"
+  checksum: 94283206159b9eaf07e4af9c002dda2b0b171099a8116baa0b6871f6312475112ec92121cca85916968fa9fb1220641205f6ee2349a1cc33197d811a69572198
   languageName: node
   linkType: hard
 
