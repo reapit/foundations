@@ -1,6 +1,5 @@
 import { customMailer } from '../custom-mailer'
 import { CognitoUserPoolTriggerEvent, Context } from 'aws-lambda'
-import { confirmRegistrationTemplate, forgotPasswordTemplate, adminUserInviteTemplate } from '../templates/index'
 
 const context = {} as Context
 
@@ -18,6 +17,7 @@ describe('customMailer', () => {
     await customMailer(event, context, callback)
     expect(event.response).toEqual({})
     expect(callback).toHaveBeenCalledWith(null, event)
+    expect(event.response).not.toContain('{userName}')
   })
 
   it('should just call the callback with the event if the userPool matches but no trigger source match', async () => {
@@ -54,15 +54,10 @@ describe('customMailer', () => {
       } as Partial<CognitoUserPoolTriggerEvent>
 
       await customMailer(event as CognitoUserPoolTriggerEvent, context, callback)
-      expect(event.response).toEqual({
-        emailSubject: 'Reapit Connect - Forgotten Password',
-        emailMessage: await forgotPasswordTemplate({
-          verificationCode: event.request?.codeParameter as string,
-          userName: event.request?.userAttributes.email as string,
-          url: 'SOME_URL/reset-password',
-        }),
-      })
+      expect(event.response).toMatchSnapshot('Forgot_password')
       expect(callback).toHaveBeenCalledWith(null, event)
+      expect(event.response.emailMessage).not.toContain('{userName}')
+      expect(event.response.emailMessage).not.toContain('{verificationCode}')
     },
   )
 
@@ -83,14 +78,11 @@ describe('customMailer', () => {
     } as Partial<CognitoUserPoolTriggerEvent>
 
     await customMailer(event as CognitoUserPoolTriggerEvent, context, callback)
-    expect(event.response).toEqual({
-      emailSubject: 'Welcome to Reapit Connect',
-      emailMessage: await confirmRegistrationTemplate({
-        userName: event.request?.userAttributes.email as string,
-        url: 'SOME_URL/register/confirm',
-      }),
-    })
+    expect(event.response).toMatchSnapshot('Sign_up')
     expect(callback).toHaveBeenCalledWith(null, event)
+    expect(event.response).not.toContain('{userName}')
+    expect(event.response.emailMessage).not.toContain('{url}')
+    expect(event.response.emailMessage).not.toContain('{code}')
   })
 
   it('should call the callback with an updated event if trigger source is CustomMessage_AdminCreateUser', async () => {
@@ -110,14 +102,10 @@ describe('customMailer', () => {
     } as Partial<CognitoUserPoolTriggerEvent>
 
     await customMailer(event as CognitoUserPoolTriggerEvent, context, callback)
-    expect(event.response).toEqual({
-      emailSubject: 'Welcome to Reapit Connect',
-      emailMessage: await adminUserInviteTemplate({
-        userName: event.request?.userAttributes.email as string,
-        url: 'SOME_URL/login',
-      }),
-    })
+    expect(event.response).toMatchSnapshot('Admin_Create_User')
     expect(callback).toHaveBeenCalledWith(null, event)
+    expect(event.response.emailMessage).not.toContain('{userName}')
+    expect(event.response.emailMessage).not.toContain('{code}')
   })
 
   afterEach(() => {
