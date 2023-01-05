@@ -8894,11 +8894,11 @@ __metadata:
     eslint-plugin-prettier: ^4.2.1
     jest: ^28.1.3
     jest-coverage-badges: ^1.1.2
-    react: ^18.2.0
-    react-dom: ^18.2.0
     serialize-error: ^7.0.1
     ts-jest: ^28.0.8
     typescript: ^4.8.4
+  peerDependencies:
+    react: ^18.2.0
   languageName: unknown
   linkType: soft
 
