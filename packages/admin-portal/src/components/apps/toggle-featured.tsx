@@ -1,8 +1,7 @@
 import React, { FC, useEffect } from 'react'
 import { elMt5, FormLayout, InputWrap, Label, ToggleRadio } from '@reapit/elements'
 import { useForm, UseFormWatch } from 'react-hook-form'
-import { SendFunction, useReapitUpdate } from '@reapit/utils-react'
-import { UpdateActionNames, updateActions } from '@reapit/utils-common'
+import { SendFunction, useReapitUpdate, UpdateActionNames, updateActions } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { AppSummaryModelPagedResult } from '@reapit/foundations-ts-definitions'
 
