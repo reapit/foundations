@@ -12,6 +12,8 @@ import { useAppState } from '../state/use-app-state'
 import { cx } from '@linaria/core'
 import { cardCursor } from './__styles__'
 import { Link } from 'react-router-dom'
+import { selectIsDeveloperAdmin } from '../../../utils/auth'
+import { useReapitConnect } from '@reapit/connect-session'
 
 export const handleDeleteApp = (deleteApp: SendFunction<void, boolean>) => (event?: MouseEvent) => {
   event?.stopPropagation()
@@ -37,6 +39,8 @@ export const AppCard: FC<AppCardProps> = ({ app }) => {
   const history = useHistory()
   const { appsDataState } = useAppState()
   const { Modal, openModal, closeModal } = useModal()
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const isDeveloperAdmin = selectIsDeveloperAdmin(connectSession)
 
   const { appsRefresh } = appsDataState
   const { id, name, isDirectApi, developer, iconUri, summary, deletionProtection } = app
@@ -77,7 +81,12 @@ export const AppCard: FC<AppCardProps> = ({ app }) => {
         mainCardImgUrl={iconUri ?? defaultAppIcon}
       />
       <Modal title={`Confirm ${name} Deletion`}>
-        {deletionProtection ? (
+        {!isDeveloperAdmin ? (
+          <BodyText>
+            Unfortunately, your user account does not have the correct permissions to delete this app. Only an Admin of
+            your developer organisation can delete apps.
+          </BodyText>
+        ) : deletionProtection ? (
           <BodyText>
             &lsquo;{name}&rsquo; has been set to&lsquo;delete protected&rsquo; to avoid accidental data loss. If you
             really want to delete the app, visit <Link to={`${Routes.APPS}/${id}/edit/app-listing`}>this page </Link>,
@@ -93,7 +102,12 @@ export const AppCard: FC<AppCardProps> = ({ app }) => {
           <Button fixedWidth intent="secondary" onClick={closeModal}>
             Cancel
           </Button>
-          <Button fixedWidth intent="danger" disabled={deletionProtection} onClick={handleDeleteApp(deleteApp)}>
+          <Button
+            fixedWidth
+            intent="danger"
+            disabled={deletionProtection || !isDeveloperAdmin}
+            onClick={handleDeleteApp(deleteApp)}
+          >
             Confirm
           </Button>
         </ButtonGroup>

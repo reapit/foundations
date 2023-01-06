@@ -10,6 +10,8 @@ import {
   selectIsUserOrUserAdmin,
   selectLoggedUserEmail,
   selectLoginIdentity,
+  selectIsDeveloperAdmin,
+  COGNITO_GROUP_DEVELOPER_ADMIN,
 } from '../auth'
 import { selectIsCustomer } from '../auth'
 
@@ -116,5 +118,29 @@ describe('selectIsCustomer', () => {
       },
     }
     expect(selectIsCustomer(authWithoutUser)).toBe(false)
+  })
+})
+
+describe('selectIsDeveloperAdmin', () => {
+  it('should return false if user', () => {
+    const authWithUser = {
+      ...mockConnectSession,
+      loginIdentity: {
+        ...mockConnectSession.loginIdentity,
+        groups: [],
+      },
+    }
+    expect(selectIsDeveloperAdmin(authWithUser)).toBe(false)
+  })
+
+  it('should return true if an admin', () => {
+    const authWithoutUser = {
+      ...mockConnectSession,
+      loginIdentity: {
+        ...mockConnectSession.loginIdentity,
+        groups: [COGNITO_GROUP_DEVELOPER_ADMIN],
+      },
+    }
+    expect(selectIsDeveloperAdmin(authWithoutUser)).toBe(true)
   })
 })
