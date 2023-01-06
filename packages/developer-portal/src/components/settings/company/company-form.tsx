@@ -21,7 +21,7 @@ export type DeveloperUpdateFormValues = {
   telephone: string
   website: string
   email: string
-  billingEmail: string
+  notificationsEmail: string
   noTaxRegistration: boolean
   taxNumber: string
   noregistrationNumber: boolean
@@ -49,7 +49,7 @@ export const handleUpdateDeveloper =
     company,
     telephone,
     website,
-    billingEmail,
+    notificationsEmail,
     noTaxRegistration,
     taxNumber,
     registrationNumber,
@@ -68,7 +68,7 @@ export const handleUpdateDeveloper =
       companyName: company,
       telephone,
       website,
-      billingEmail,
+      notificationsEmail,
       noTaxRegistration,
       taxNumber,
       registrationNumber,
@@ -106,7 +106,7 @@ export const CompanyForm: FC<CompanyFormProps> = ({ developer, refreshDeveloper 
     telephone,
     website,
     email,
-    billingEmail,
+    notificationsEmail,
     noTaxRegistration,
     taxNumber,
     registrationNumber,
@@ -126,7 +126,7 @@ export const CompanyForm: FC<CompanyFormProps> = ({ developer, refreshDeveloper 
       telephone: telephone ?? '',
       website: website ?? '',
       email: email ?? '',
-      billingEmail: billingEmail ?? '',
+      notificationsEmail: notificationsEmail ?? '',
       noTaxRegistration: noTaxRegistration ?? true,
       taxNumber: taxNumber ?? '',
       noregistrationNumber: registrationNumber ? false : true,
@@ -198,11 +198,11 @@ export const CompanyForm: FC<CompanyFormProps> = ({ developer, refreshDeveloper 
         </InputWrap>
         <InputWrap>
           <InputGroup
-            {...register('billingEmail')}
+            {...register('notificationsEmail')}
             label="Notifications Email"
             placeholder="An email address we can send notifications about your developer account to"
-            errorMessage={errors?.billingEmail?.message}
-            icon={errors?.billingEmail?.message ? 'asteriskSystem' : null}
+            errorMessage={errors?.notificationsEmail?.message}
+            icon={errors?.notificationsEmail?.message ? 'asteriskSystem' : null}
             intent="danger"
           />
         </InputWrap>

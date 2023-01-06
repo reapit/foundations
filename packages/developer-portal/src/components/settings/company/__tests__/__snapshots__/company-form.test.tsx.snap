@@ -101,7 +101,7 @@ Object {
               <input
                 class="e1urjlvd-el-input"
                 id="test-static-id"
-                name="billingEmail"
+                name="notificationsEmail"
                 placeholder="An email address we can send notifications about your developer account to"
               />
               <label
@@ -1728,7 +1728,7 @@ Object {
             <input
               class="e1urjlvd-el-input"
               id="test-static-id"
-              name="billingEmail"
+              name="notificationsEmail"
               placeholder="An email address we can send notifications about your developer account to"
             />
             <label
