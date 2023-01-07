@@ -40,7 +40,7 @@
     "apollo-server-express": "^3.10.3",
     "apollo-server-lambda": "^3.10.3",
     "app-builder": "workspace:packages/app-builder",
-    "class-validator": "^0.13.2",
+    "class-validator": "^0.14.0",
     "cors": "^2.8.5",
     "dataloader": "^2.1.0",
     "eslint": "^8.25.0",
