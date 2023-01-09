@@ -1,4 +1,4 @@
-import { bootstrapApplication } from './http'
+import { bootstrapApplication } from './server'
 
 const bootstrap = async () => {
   const [app] = await bootstrapApplication()

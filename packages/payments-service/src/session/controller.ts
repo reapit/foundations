@@ -9,7 +9,7 @@ import { SessionModel } from './model'
 export class SessionController {
   constructor(private readonly sessionProvider: SessionProvider) {}
 
-  @Post('/session')
+  @Post('')
   async createSession(@Body() session: SessionDto): Promise<SessionModel> {
     return this.sessionProvider.create(session)
   }

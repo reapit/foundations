@@ -1,7 +1,6 @@
 import { Module } from '@nestjs/common'
-import { DynamoDB } from 'aws-sdk'
 import { ConfigModule, ConfigService } from '@nestjs/config'
-import databaseConfig from './config/database'
+import databaseConfig from './dynamo/config'
 import { AuthModule } from '@reapit/utils-nest'
 import { SessionModule } from './session'
 import { DynamoDBModule } from './dynamo'
@@ -15,7 +14,7 @@ import { DynamoDBModule } from './dynamo'
     SessionModule,
     DynamoDBModule.forRootAsync({
       imports: [ConfigModule],
-      useFactory: (config: ConfigService) => new DynamoDB(config.get('database')),
+      useFactory: (config: ConfigService) => config.get('database'),
       inject: [ConfigService],
     }),
   ],

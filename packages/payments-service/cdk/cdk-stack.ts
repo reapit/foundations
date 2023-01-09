@@ -33,20 +33,20 @@ export const createStack = async () => {
     DYNAMO_DB_PAYMENTS_SESSION_TABLE_NAME: paymentsSessionTable.tableName,
   }
 
-  const httpLambda = createFunction(
+  const lambda = createFunction(
     stack,
     'payments-service-private',
     path.resolve('bundle.zip'),
-    'packages/payments-service/src/http.handler',
+    'packages/payments-service/src/server.handler',
     env,
   )
 
-  paymentsSessionTable.grantReadWriteData(httpLambda)
+  paymentsSessionTable.grantReadWriteData(lambda)
 
   addLambdaToApi(
     stack,
     api,
-    httpLambda,
+    lambda,
     [
       {
         path: '/session',

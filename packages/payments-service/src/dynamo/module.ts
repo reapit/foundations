@@ -1,5 +1,5 @@
-import { DynamicModule, ForwardReference, Module, Type } from "@nestjs/common";
-import { DynamoDBConfigInterface, DynamoDBCoreModule } from "./core.module";
+import { DynamicModule, ForwardReference, Module, Type } from '@nestjs/common'
+import { DynamoDBConfigInterface, DynamoDBCoreModule } from './dynamo-module'
 
 @Module({})
 export class DynamoDBModule {

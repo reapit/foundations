@@ -1,12 +1,13 @@
-import { IsDateString, IsNotEmpty, IsString, IsUUID } from 'class-validator'
+import { IsDateString, IsNotEmpty, IsOptional, IsString, IsUUID } from 'class-validator'
 
 export class SessionDto {
   @IsUUID()
-  id: string
+  @IsOptional()
+  id?: string
 
   @IsDateString()
-  @IsNotEmpty()
-  sessionCreatedAt: string
+  @IsOptional()
+  sessionCreatedAt?: string
 
   @IsDateString()
   @IsNotEmpty()

@@ -7,9 +7,15 @@ import { eventContext } from 'aws-serverless-express/middleware'
 import { Server } from 'http'
 import { Handler, APIGatewayEvent, Context } from 'aws-lambda'
 import { CorsHeaderInterceptor } from '@reapit/utils-nest'
-import { AppModule } from './app-module'
+import { AppModule } from './app'
+import config from '../config.json'
 
 export const bootstrapApplication = async (): Promise<[INestApplication, Express]> => {
+  process.env = {
+    ...process.env,
+    ...config,
+  }
+
   const expressApp = express()
   const app = await NestFactory.create(AppModule, new ExpressAdapter(expressApp))
 
