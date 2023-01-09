@@ -58,6 +58,7 @@
     "serverless-offline": "^7.1.0",
     "serverless-plugin-log-retention": "^2.0.0",
     "serverless-webpack": "^5.7.1",
+    "ts-loader": "^9.4.2",
     "webpack": "^5.72.1"
   },
   "snyk": true
