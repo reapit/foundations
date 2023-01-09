@@ -19039,6 +19039,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"concurrently@npm:^7.6.0":
+  version: 7.6.0
+  resolution: "concurrently@npm:7.6.0"
+  dependencies:
+    chalk: ^4.1.0
+    date-fns: ^2.29.1
+    lodash: ^4.17.21
+    rxjs: ^7.0.0
+    shell-quote: ^1.7.3
+    spawn-command: ^0.0.2-1
+    supports-color: ^8.1.0
+    tree-kill: ^1.2.2
+    yargs: ^17.3.1
+  bin:
+    conc: dist/bin/concurrently.js
+    concurrently: dist/bin/concurrently.js
+  checksum: f705c9a7960f1b16559ca64958043faeeef6385c0bf30a03d1375e15ab2d96dba4f8166f1bbbb1c85e8da35ca0ce3c353875d71dff2aa132b2357bb533b3332e
+  languageName: node
+  linkType: hard
+
 "conf@npm:^1.4.0":
   version: 1.4.0
   resolution: "conf@npm:1.4.0"
@@ -34947,22 +34967,31 @@ fsevents@^1.2.7:
   dependencies:
     "@aws/dynamodb-data-mapper": ^0.7.3
     "@aws/dynamodb-data-mapper-annotations": ^0.7.3
+    "@nestjs/common": ^8.4.7
+    "@nestjs/config": ^2.2.0
+    "@nestjs/core": ^8.4.7
+    "@nestjs/platform-express": ^8.4.7
     "@reapit/config-manager": "workspace:packages/config-manager"
     "@reapit/connect-session": ^3.1.0
     "@reapit/foundations-ts-definitions": "workspace:packages/foundations-ts-definitions"
+    "@reapit/ts-bundler": "workspace:packages/ts-bundler"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
+    "@reapit/utils-nest": "workspace:packages/utils-nest"
     "@reapit/utils-node": "workspace:packages/utils-node"
     "@sentry/node": ^6.19.7
     "@typescript-eslint/eslint-plugin": ^5.40.0
     "@typescript-eslint/parser": ^5.40.0
     aws-lambda: ^1.0.7
     aws-sdk: ^2.1233.0
+    aws-serverless-express: ^3.4.0
     axios: ^0.27.2
     babel-jest: ^28.1.3
     babel-plugin-transform-typescript-metadata: ^0.3.2
     body-parser: ^1.20.1
-    concurrently: ^6.5.1
+    class-transformer: ^0.5.1
+    class-validator: ^0.14.0
+    concurrently: ^7.6.0
     cors: ^2.8.5
     cross-env: ^6.0.3
     dayjs: ^1.11.5
@@ -34974,16 +35003,13 @@ fsevents@^1.2.7:
     jest-coverage-badges: ^1.1.2
     memorystore: ^1.6.7
     morgan: ^1.10.0
+    nodemon: ^2.0.20
+    rxjs: ^7.5.7
     serialize-error: ^7.0.1
-    serverless: ^2.72.3
-    serverless-deployment-bucket: ^1.6.0
-    serverless-dynamodb-local: ^0.2.40
     serverless-http: ^2.7.0
-    serverless-offline: ^8.8.1
-    serverless-plugin-log-retention: ^2.0.0
-    serverless-webpack: ^5.10.0
     ts-jest: ^28.0.8
     ts-loader: ^9.4.1
+    ts-node: ^10.9.1
     typescript: ^4.8.4
     uuid: ^8.3.2
     webpack: ^5.74.0
