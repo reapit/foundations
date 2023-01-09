@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common'
 import { DynamoDB } from 'aws-sdk'
-import { DataMapper } from '@aws/dynamodb-data-mapper'
 import { ConfigModule, ConfigService } from '@nestjs/config'
 import databaseConfig from './config/database'
 import { AuthModule } from '@reapit/utils-nest'
 import { SessionModule } from './session'
+import { DynamoDBModule } from './dynamo'
 
 @Module({
   imports: [
@@ -13,22 +13,12 @@ import { SessionModule } from './session'
     }),
     AuthModule.forRoot(),
     SessionModule,
-  ],
-  providers: [
-    {
-      provide: DynamoDB,
+    DynamoDBModule.forRootAsync({
+      imports: [ConfigModule],
       useFactory: (config: ConfigService) => new DynamoDB(config.get('database')),
       inject: [ConfigService],
-    },
-    {
-      provide: DataMapper,
-      useFactory: (client: DynamoDB) =>
-        new DataMapper({
-          client,
-        }),
-      inject: [DynamoDB],
-    },
+    }),
   ],
-  exports: [DataMapper],
+  providers: [],
 })
 export class AppModule {}
