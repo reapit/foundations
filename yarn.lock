@@ -18619,6 +18619,7 @@ __metadata:
     serverless-webpack: ^5.7.1
     snyk: ^1.941.0
     string-template: ^1.0.0
+    ts-loader: ^9.4.2
     webpack: ^5.72.1
   languageName: unknown
   linkType: soft
@@ -42245,6 +42246,21 @@ resolve@^2.0.0-next.3:
     typescript: "*"
     webpack: ^5.0.0
   checksum: b8947f6d396621cc3f6ba8d4c14fa09eba03c4b7eeabbc429481e923a973c244fb80feb44e900f03fc1010755a6bf14fc561c574fb79e324f39b5b6ef1dcca6c
+  languageName: node
+  linkType: hard
+
+"ts-loader@npm:^9.4.2":
+  version: 9.4.2
+  resolution: "ts-loader@npm:9.4.2"
+  dependencies:
+    chalk: ^4.1.0
+    enhanced-resolve: ^5.0.0
+    micromatch: ^4.0.0
+    semver: ^7.3.4
+  peerDependencies:
+    typescript: "*"
+    webpack: ^5.0.0
+  checksum: 6f306ee4c615c2a159fb177561e3fb86ca2cbd6c641e710d408a64b4978e1ff3f2c9733df07bff27d3f82efbfa7c287523d4306049510c7485ac2669a9c37eb0
   languageName: node
   linkType: hard
 
