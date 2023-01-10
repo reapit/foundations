@@ -37,8 +37,12 @@
         <mj-text mj-class="body-text">Reapit Team</mj-text>
       </mj-column>
     </mj-section>
-    <mj-spacer>
-    </mj-spacer>
-    <mj-text mj-class="body-text">www.reapit.com</mj-text>
+    <mj-section>
+      <mj-column>
+        <mj-spacer>
+        </mj-spacer>
+        <mj-text mj-class="body-text">www.reapit.com</mj-text>
+      </mj-column>
+    </mj-section>
   </mj-body>
 </mjml>
