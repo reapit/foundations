@@ -1,11 +1,9 @@
-import { Body, Controller, Post, UseGuards } from '@nestjs/common'
+import { Body, Controller, Post } from '@nestjs/common'
 import { SessionDto } from './dto'
 import { SessionProvider } from './provider'
-import { CredGuard } from '@reapit/utils-nest'
 import { SessionModel } from './model'
 
 @Controller('session')
-@UseGuards(CredGuard)
 export class SessionController {
   constructor(private readonly sessionProvider: SessionProvider) {}
 

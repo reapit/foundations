@@ -17,7 +17,11 @@ export class SessionModel {
   @attribute()
   paymentId: string
 
-  get expired(): boolean {
-    return new Date(this.sessionExpiresAt as string) < new Date()
+  sessionIsValid(clientCode?: string, paymentId?: string): boolean {
+    const isCurrent = new Date(this.sessionExpiresAt as string) > new Date()
+    const paymentIdValid = paymentId && paymentId === this.paymentId
+    const clientCodeValid = clientCode && clientCode === this.clientCode
+
+    return isCurrent && paymentIdValid && clientCodeValid
   }
 }

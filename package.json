@@ -28,7 +28,6 @@
       "packages/graphql-server",
       "packages/graphql-server-v2",
       "packages/insights",
-      "packages/mailer-service",
       "packages/marketplace",
       "packages/marketplace-management",
       "packages/payments-client",
