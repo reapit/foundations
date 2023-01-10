@@ -1,2 +1,2 @@
-declare module "*.mjml"
-declare module "*.html"
+declare module '*.mjml'
+declare module '*.html'

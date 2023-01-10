@@ -1,16 +1,12 @@
 import mjml from 'mjml'
-import {resolve} from 'path'
+import { resolve } from 'path'
 import { writeFileSync, readFileSync } from 'fs'
 
-const templates = [
-  'admin-user-invite',
-  'confirm-registration',
-  'forgot-password',
-]
+const templates = ['admin-user-invite', 'confirm-registration', 'forgot-password']
 
 const routeFolder = [__dirname, '..', 'mailer', 'templates']
 
-templates.forEach(template => {
+templates.forEach((template) => {
   const file = readFileSync(resolve(...routeFolder, `${template}.mjml`))
 
   const mjmlResult = mjml(file.toString())

@@ -18,38 +18,29 @@ export const customMailer: CognitoUserPoolTriggerHandler = async (event, _contex
     switch (event.triggerSource) {
       case 'CustomMessage_ForgotPassword':
         event.response.emailSubject = 'Reapit Connect - Forgotten Password'
-        event.response.emailMessage = format(
-          forgotPasswordTemplate,
-          {
-            verificationCode: event.request.codeParameter as string,
-            userName: event.request.userAttributes.email,
-            url: resetPasswordUrl,
-          },
-        )
+        event.response.emailMessage = format(forgotPasswordTemplate, {
+          verificationCode: event.request.codeParameter as string,
+          userName: event.request.userAttributes.email,
+          url: resetPasswordUrl,
+        })
 
         break
 
       case 'CustomMessage_SignUp':
         event.response.emailSubject = 'Reapit Connect - Forgotten Password'
-        event.response.emailMessage = format(
-          confirmRegistrationTemplate.html,
-          {
-            userName: event.request.userAttributes.email,
-            url: confirmRegistrationUrl,
-          },
-        )
+        event.response.emailMessage = format(confirmRegistrationTemplate.html, {
+          userName: event.request.userAttributes.email,
+          url: confirmRegistrationUrl,
+        })
         break
 
       case 'CustomMessage_AdminCreateUser':
         event.response.emailSubject = 'Welcome to Reapit Connect'
-        event.response.emailMessage = format(
-          adminUserInviteTemplate.html,
-          {
-            userName: event.request.userAttributes.email,
-            url: confirmRegistrationUrl,
-            verificationCode: event.request.codeParameter as string,
-          },
-        )
+        event.response.emailMessage = format(adminUserInviteTemplate.html, {
+          userName: event.request.userAttributes.email,
+          url: confirmRegistrationUrl,
+          verificationCode: event.request.codeParameter as string,
+        })
         break
     }
   }
