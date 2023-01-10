@@ -27,7 +27,6 @@ export const customMailer: CognitoUserPoolTriggerHandler = async (event, _contex
           },
         )
 
-        console.log('response', event.response.emailMessage)
         break
 
       case 'CustomMessage_SignUp':
