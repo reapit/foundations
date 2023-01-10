@@ -40,8 +40,6 @@ export const createApi = (
 export type LambdaRoute = {
   path: string
   method: string
-  // Pass true if not all routes are to be protected by a Cognito authorizer
-  skipAuthorizer?: boolean
 }
 
 export const addLambdaToApi = (
@@ -55,8 +53,8 @@ export const addLambdaToApi = (
 
   routesToAdd.forEach((route) => {
     api.root.resourceForPath(route.path).addMethod(route.method, new apigateway.LambdaIntegration(lambdaFunction), {
-      authorizer: cognitoUserPoolId && !route.skipAuthorizer ? getAuthorizer(scope, cognitoUserPoolId) : undefined,
-      authorizationType: cognitoUserPoolId && !route.skipAuthorizer ? apigateway.AuthorizationType.COGNITO : undefined,
+      authorizer: cognitoUserPoolId ? getAuthorizer(scope, cognitoUserPoolId) : undefined,
+      authorizationType: cognitoUserPoolId ? apigateway.AuthorizationType.COGNITO : undefined,
     })
   })
 }
