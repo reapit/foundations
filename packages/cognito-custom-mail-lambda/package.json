@@ -9,7 +9,7 @@
   "scripts": {
     "generate-html": "yarn ts-node src/scripts/generate.ts",
     "start": "yarn serverless offline start --runtime nodejs12.x --stage local --printOutput",
-    "test": "cross-env TZ=UTC jest --watch --colors --silent",
+    "test": "cross-env TZ=UTC jest --watch --colors --silent --passWithNoTests",
     "build": "echo '...skipping...'",
     "lint": "eslint --cache --ext=ts,tsx,js src",
     "check": "tsc --noEmit --skipLibCheck",
