@@ -15,7 +15,6 @@ const format = (html: string, object: Object) => {
 
 export const customMailer: CognitoUserPoolTriggerHandler = async (event, _context, callback) => {
   if (event.userPoolId === process.env.COGNITO_USERPOOL_ID) {
-    console.log('test', event.request.userAttributes)
     switch (event.triggerSource) {
       case 'CustomMessage_ForgotPassword':
         event.response.emailSubject = 'Reapit Connect - Forgotten Password'
