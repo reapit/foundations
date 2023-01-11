@@ -28,7 +28,7 @@ export const customMailer: CognitoUserPoolTriggerHandler = async (event, _contex
 
       case 'CustomMessage_SignUp':
         event.response.emailSubject = 'Reapit Connect - Forgotten Password'
-        event.response.emailMessage = format(confirmRegistrationTemplate.html, {
+        event.response.emailMessage = format(confirmRegistrationTemplate, {
           userName: event.request.userAttributes.name,
           url: confirmRegistrationUrl,
         })
@@ -36,7 +36,7 @@ export const customMailer: CognitoUserPoolTriggerHandler = async (event, _contex
 
       case 'CustomMessage_AdminCreateUser':
         event.response.emailSubject = 'Welcome to Reapit Connect'
-        event.response.emailMessage = format(adminUserInviteTemplate.html, {
+        event.response.emailMessage = format(adminUserInviteTemplate, {
           userName: event.request.userAttributes.name,
           url: confirmRegistrationUrl,
           verificationCode: event.request.codeParameter as string,
