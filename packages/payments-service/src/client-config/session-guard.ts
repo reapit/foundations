@@ -1,7 +1,7 @@
 import { BadRequestException, CanActivate, ExecutionContext, Injectable } from '@nestjs/common'
 import { Request } from 'express'
 import { DataMapper } from '@aws/dynamodb-data-mapper'
-import { SessionModel } from './model'
+import { SessionModel } from '../session/model'
 
 @Injectable()
 export class SessionGuard implements CanActivate {
@@ -14,17 +14,12 @@ export class SessionGuard implements CanActivate {
     const clientCode = request.headers['reapit-customer'] as string
     const paymentId = request.params['paymentId']
 
-    let isValidSession: boolean = false
+    const { sessionIsValid } = await this.datamapper.get(Object.assign(new SessionModel(), { id: session }))
 
-    try {
-      const { sessionIsValid } = await this.datamapper.get(Object.assign(new SessionModel(), { id: session }))
-      isValidSession = sessionIsValid(clientCode, paymentId)
-    } catch (err) {
-      throw new BadRequestException('No valid session found for this payment')
-    }
+    const validSession = sessionIsValid(clientCode, paymentId)
 
-    if (!isValidSession) throw new BadRequestException('No valid session found for this payment')
+    if (!validSession) throw new BadRequestException('No valid session found for this payment')
 
-    return isValidSession
+    return validSession
   }
 }
