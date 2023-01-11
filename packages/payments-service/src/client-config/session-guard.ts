@@ -1,7 +1,7 @@
 import { BadRequestException, CanActivate, ExecutionContext, Injectable } from '@nestjs/common'
 import { Request } from 'express'
 import { DataMapper } from '@aws/dynamodb-data-mapper'
-import { SessionModel } from './model'
+import { SessionModel } from '../session/model'
 
 @Injectable()
 export class SessionGuard implements CanActivate {
