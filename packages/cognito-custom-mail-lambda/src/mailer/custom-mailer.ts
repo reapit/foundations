@@ -15,12 +15,13 @@ const format = (html: string, object: Object) => {
 
 export const customMailer: CognitoUserPoolTriggerHandler = async (event, _context, callback) => {
   if (event.userPoolId === process.env.COGNITO_USERPOOL_ID) {
+    console.log('test', event.request.userAttributes)
     switch (event.triggerSource) {
       case 'CustomMessage_ForgotPassword':
         event.response.emailSubject = 'Reapit Connect - Forgotten Password'
         event.response.emailMessage = format(forgotPasswordTemplate, {
           verificationCode: event.request.codeParameter as string,
-          userName: event.request.userAttributes.email,
+          userName: event.request.userAttributes.name,
           url: resetPasswordUrl,
         })
 
@@ -29,7 +30,7 @@ export const customMailer: CognitoUserPoolTriggerHandler = async (event, _contex
       case 'CustomMessage_SignUp':
         event.response.emailSubject = 'Reapit Connect - Forgotten Password'
         event.response.emailMessage = format(confirmRegistrationTemplate.html, {
-          userName: event.request.userAttributes.email,
+          userName: event.request.userAttributes.name,
           url: confirmRegistrationUrl,
         })
         break
@@ -37,7 +38,7 @@ export const customMailer: CognitoUserPoolTriggerHandler = async (event, _contex
       case 'CustomMessage_AdminCreateUser':
         event.response.emailSubject = 'Welcome to Reapit Connect'
         event.response.emailMessage = format(adminUserInviteTemplate.html, {
-          userName: event.request.userAttributes.email,
+          userName: event.request.userAttributes.name,
           url: confirmRegistrationUrl,
           verificationCode: event.request.codeParameter as string,
         })
