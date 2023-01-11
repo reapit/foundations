@@ -33,10 +33,12 @@ export const createStack = async () => {
   ])
 
   const paymentsSessionTable = createTable(stack, config.DYNAMO_DB_PAYMENTS_SESSION_TABLE_NAME, 'id')
+  const paymentsConfigTable = createTable(stack, config.DYNAMO_DB_PAYMENTS_CONFIG_TABLE_NAME, 'clientCode')
 
   const env = {
     ...config,
     DYNAMO_DB_PAYMENTS_SESSION_TABLE_NAME: paymentsSessionTable.tableName,
+    DYNAMO_DB_PAYMENTS_CONFIG_TABLE_NAME: paymentsConfigTable.tableName,
   }
 
   const lambda = createFunction(
@@ -48,6 +50,7 @@ export const createStack = async () => {
   )
 
   paymentsSessionTable.grantReadWriteData(lambda)
+  paymentsConfigTable.grantReadWriteData(lambda)
 
   lambda.addToRolePolicy(
     new iam.PolicyStatement({
@@ -94,6 +97,30 @@ export const createStack = async () => {
     {
       path: '/payments/{paymentId}',
       method: 'PATCH',
+    },
+    {
+      path: '/config/public/{clientCode}',
+      method: 'GET',
+    },
+    {
+      path: '/config/{clientCode}',
+      method: 'GET',
+      protected: true,
+    },
+    {
+      path: '/config/{clientCode}',
+      method: 'POST',
+      protected: true,
+    },
+    {
+      path: '/config/{clientCode}',
+      method: 'PUT',
+      protected: true,
+    },
+    {
+      path: '/config/{clientCode}',
+      method: 'DELETE',
+      protected: true,
     },
   ]
 

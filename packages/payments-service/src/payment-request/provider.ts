@@ -1,7 +1,8 @@
 import { DataMapper } from '@aws/dynamodb-data-mapper'
-import { Injectable } from '@nestjs/common'
+import { BadRequestException, Injectable } from '@nestjs/common'
 import { currencySymbolMapper } from '@reapit/utils-common'
-import { defaultEmailConfig, sendEmail } from '../core/ses-client'
+import { ClientConfigModel } from '../client-config/model'
+import { sendEmail } from '../core/ses-client'
 import { PaymentRequestDto, PaymentRequestHeaders } from './dto'
 import { paymentRequestTemplate } from './template'
 
@@ -14,12 +15,21 @@ export class PaymentRequestProvider {
     paymentRequest: PaymentRequestDto,
     paymentId: string,
   ): Promise<string> {
-    const { senderEmail, companyName, logoUri } = defaultEmailConfig
     const { receipientEmail, recipientName, paymentReason, paymentAmount, paymentCurrency, paymentExpiry } =
       paymentRequest
     const session = paymentRequestHeaders['reapit-session']
     const clientCode = paymentRequestHeaders['reapit-customer']
     const baseUrl = session ? process.env.PAYMENTS_PORTAL_URI : process.env.PAYMENTS_APP_URI
+
+    let configModel: ClientConfigModel
+
+    try {
+      configModel = await this.datamapper.get(Object.assign(new ClientConfigModel(), { clientCode }))
+    } catch (err) {
+      throw new BadRequestException('Config model for email not found')
+    }
+
+    const { companyName, logoUri } = configModel
 
     const template = paymentRequestTemplate({
       companyName,
@@ -33,6 +43,6 @@ export class PaymentRequestProvider {
     })
     const title = `Payment Request from ${companyName}`
 
-    return await sendEmail(receipientEmail, title, template, senderEmail)
+    return await sendEmail(receipientEmail, title, template)
   }
 }
