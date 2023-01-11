@@ -1,34 +1,52 @@
-import express, { RequestHandler } from 'express'
-import bodyParser from 'body-parser'
-import session from 'express-session'
-import memoryStore from 'memorystore'
-import { v4 as uuid } from 'uuid'
-import cors from 'cors'
-import { traceIdMiddleware } from '@reapit/utils-node'
-import router from './router'
-const MemoryStore = memoryStore(session as any)
+import { INestApplication, Logger, ValidationPipe } from '@nestjs/common'
+import { NestFactory } from '@nestjs/core'
+import { createServer, proxy } from 'aws-serverless-express'
+import express, { Express } from 'express'
+import { ExpressAdapter } from '@nestjs/platform-express'
+import { eventContext } from 'aws-serverless-express/middleware'
+import { Server } from 'http'
+import { Handler, APIGatewayEvent, Context } from 'aws-lambda'
+import { AppModule } from './app'
+import config from '../../config.json'
+import { CorsHeaderInterceptor } from './cors-header-interceptor'
 
-const app = express()
+export const bootstrapApplication = async (): Promise<[INestApplication, Express]> => {
+  process.env = {
+    ...process.env,
+    ...config,
+  }
 
-app.disable('x-powered-by')
-app.use(cors())
+  const expressApp = express()
+  const app = await NestFactory.create(AppModule, new ExpressAdapter(expressApp))
 
-app.use(
-  session({
-    secret: uuid(),
-    resave: false,
-    saveUninitialized: true,
-    store: new MemoryStore({
-      checkPeriod: 86400000, // prune expired entries every 24h
-    }),
-  }),
-)
+  app.useGlobalPipes(new ValidationPipe())
+  app.useGlobalInterceptors(new CorsHeaderInterceptor())
 
-app.use(traceIdMiddleware)
-app.use(bodyParser.json() as RequestHandler)
-app.get('/ok', (_req, res) => {
-  res.status(200).send('ok').end()
-})
-app.use(router)
+  return [app, expressApp]
+}
 
-export default app
+const binaryMimeTypes: string[] = []
+
+let cachedServer: Server
+
+async function bootstrapServer(): Promise<Server> {
+  if (!cachedServer) {
+    const [app, expressApp] = await bootstrapApplication()
+
+    app.use(eventContext())
+
+    await app.init()
+
+    cachedServer = createServer(expressApp, undefined, binaryMimeTypes)
+  }
+
+  return cachedServer
+}
+
+export const handler: Handler = async (event: APIGatewayEvent, context: Context) => {
+  cachedServer = await bootstrapServer()
+
+  Logger.log(event.path, 'PATH')
+
+  return proxy(cachedServer, event, context, 'PROMISE').promise
+}
