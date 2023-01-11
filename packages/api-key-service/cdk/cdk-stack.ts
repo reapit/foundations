@@ -1,5 +1,12 @@
 import * as path from 'path'
-import { addLambdaToApi, createApi, createBaseStack, createTable, createFunction, output } from '@reapit/ts-scripts/src/cdk'
+import {
+  addLambdaToApi,
+  createApi,
+  createBaseStack,
+  createTable,
+  createFunction,
+  output,
+} from '@reapit/ts-scripts/src/cdk'
 import config from '../config.json'
 
 export const createStack = async () => {
