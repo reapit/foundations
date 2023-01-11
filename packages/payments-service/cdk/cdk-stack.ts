@@ -1,6 +1,6 @@
 import * as path from 'path'
 import { createApi, createBaseStack, createTable, createFunction, output } from '@reapit/ts-scripts/src/cdk'
-import { aws_apigateway as apigateway, aws_iam as iam } from 'aws-cdk-lib'
+import { aws_apigateway as apigateway, aws_iam as iam, aws_lambda } from 'aws-cdk-lib'
 import config from '../config.json'
 
 export const createStack = async () => {
@@ -42,7 +42,7 @@ export const createStack = async () => {
   const lambda = createFunction(
     stack,
     'payments-service-private',
-    path.resolve('bundle.zip'),
+    path.resolve(__dirname, '..', 'dist'),
     'packages/payments-service/src/core/server.handler',
     env,
   )
@@ -57,6 +57,16 @@ export const createStack = async () => {
     }),
   )
 
+  const lambdaAuthorizerFunc = aws_lambda.Function.fromFunctionName(
+    stack,
+    'cloud-payments-custom-authorizer-func',
+    'reapit-lambdas-gateway-authorizer',
+  )
+
+  const lambdaAuthorizer = new apigateway.TokenAuthorizer(stack, 'cloud-payments-custom-authorizer', {
+    handler: lambdaAuthorizerFunc,
+  })
+
   const routes = [
     {
       path: '/session',
@@ -64,17 +74,9 @@ export const createStack = async () => {
       protected: true,
     },
     {
-      path: '/session',
-      method: 'OPTIONS',
-    },
-    {
       path: '/request/{paymentId}',
       method: 'POST',
       protected: true,
-    },
-    {
-      path: '/request/{paymentId}',
-      method: 'OPTIONS',
     },
     {
       path: '/receipt/private/{paymentId}',
@@ -82,16 +84,8 @@ export const createStack = async () => {
       protected: true,
     },
     {
-      path: '/receipt/private/{paymentId}',
-      method: 'OPTIONS',
-    },
-    {
       path: '/receipt/public/{paymentId}',
       method: 'POST',
-    },
-    {
-      path: '/receipt/public/{paymentId}',
-      method: 'OPTIONS',
     },
     {
       path: '/payments/{paymentId}',
@@ -101,20 +95,11 @@ export const createStack = async () => {
       path: '/payments/{paymentId}',
       method: 'PATCH',
     },
-    {
-      path: '/payments/{paymentId}',
-      method: 'OPTIONS',
-    },
   ]
 
   routes.forEach((route) => {
     api.root.resourceForPath(route.path).addMethod(route.method, new apigateway.LambdaIntegration(lambda), {
-      authorizer: route.protected
-        ? {
-            authorizerId: config.AUTHORIZER_ID,
-            authorizationType: apigateway.AuthorizationType.CUSTOM,
-          }
-        : undefined,
+      authorizer: route.protected ? lambdaAuthorizer : undefined,
     })
   })
 

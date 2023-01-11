@@ -17,7 +17,6 @@
     "typeRoots": ["./node_modules/@types", "../../node_modules/@types"],
     "paths": {
       "@reapit/utils-node": ["../utils-node"],
-      "@reapit/utils-nest": ["../utils-nest"],
       "@reapit/connect-session": ["../connect-session/src"]
     }
   },

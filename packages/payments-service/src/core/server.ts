@@ -6,9 +6,9 @@ import { ExpressAdapter } from '@nestjs/platform-express'
 import { eventContext } from 'aws-serverless-express/middleware'
 import { Server } from 'http'
 import { Handler, APIGatewayEvent, Context } from 'aws-lambda'
-import { CorsHeaderInterceptor } from '@reapit/utils-nest'
 import { AppModule } from './app'
 import config from '../../config.json'
+import { CorsHeaderInterceptor } from './cors-header-interceptor'
 
 export const bootstrapApplication = async (): Promise<[INestApplication, Express]> => {
   process.env = {

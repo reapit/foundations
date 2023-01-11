@@ -19,13 +19,14 @@ export class PaymentRequestProvider {
       paymentRequest
     const session = paymentRequestHeaders['reapit-session']
     const clientCode = paymentRequestHeaders['reapit-customer']
+    const baseUrl = session ? process.env.PAYMENTS_PORTAL_URI : process.env.PAYMENTS_APP_URI
 
     const template = paymentRequestTemplate({
       companyName,
       logoUri,
       paymentReason,
       paymentCurrency: currencySymbolMapper(paymentCurrency),
-      url: `${process.env.PAYMENTS_APP_URI}/payments/${paymentId}?session=${session}&clientCode=${clientCode}`,
+      url: `${baseUrl}/payments/${paymentId}?session=${session}&clientCode=${clientCode}`,
       recipientName,
       paymentExpiry: new Date(paymentExpiry).toDateString(),
       paymentAmount: `${paymentAmount.toFixed(2)}`,
