@@ -16,7 +16,7 @@ custom:
     packagerOptions:
       noFrozenLockFile: false
     excludeFiles: src/**/*.test.ts
-    includeFiles: src/mailer/templates/ejs/**
+    includeFiles: src/mailer/templates/**
     keepOutputDirectory: true
   logRetentionInDays: 30
 
@@ -38,8 +38,8 @@ package:
     - .git/**
     - .github/**
     - .serverless/**
-    - coverage/**
     - src/**
+    - coverage/**
     - .gitignore
     - package.json
     - jest.config.js

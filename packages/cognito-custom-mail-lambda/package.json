@@ -7,12 +7,13 @@
     "dist"
   ],
   "scripts": {
+    "generate-html": "yarn ts-node src/scripts/generate.ts",
     "start": "yarn serverless offline start --runtime nodejs12.x --stage local --printOutput",
-    "test": "cross-env TZ=UTC jest --watch --colors --silent",
+    "test": "cross-env TZ=UTC jest --watch --colors --silent --passWithNoTests",
     "build": "echo '...skipping...'",
     "lint": "eslint --cache --ext=ts,tsx,js src",
     "check": "tsc --noEmit --skipLibCheck",
-    "release": "serverless deploy",
+    "release": "yarn generate-html && serverless deploy",
     "publish": "echo '...skipping...'",
     "conf": "yarn config-manager --namespace cloud --entity cognito-custom-mail-lambda --name local --mode fetch",
     "commit": "yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges && yarn lint --fix && yarn check"
@@ -31,7 +32,6 @@
   "dependencies": {
     "aws-lambda": "^1.0.7",
     "events": "^3.3.0",
-    "mjml": "^4.13.0",
     "snyk": "^1.941.0",
     "string-template": "^1.0.0"
   },
@@ -40,6 +40,7 @@
     "@reapit/ts-scripts": "workspace:packages/ts-scripts",
     "@reapit/ts-types": "workspace:packages/ts-types",
     "@reapit/utils-node": "workspace:packages/utils-node",
+    "@types/mjml": "^4.7.0",
     "@types/node": "^18.11.15",
     "@types/string-template": "^1.0.2",
     "@typescript-eslint/eslint-plugin": "^5.26.0",
@@ -49,8 +50,10 @@
     "cross-env": "^7.0.3",
     "eslint": "8.16.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "html-loader": "^4.2.0",
     "jest": "^28.1.0",
     "jest-coverage-badges": "^1.1.2",
+    "mjml": "^4.13.0",
     "ncp": "^2.0.0",
     "rimraf": "^3.0.2",
     "serverless": "^2.72.3",
@@ -59,6 +62,7 @@
     "serverless-plugin-log-retention": "^2.0.0",
     "serverless-webpack": "^5.7.1",
     "ts-loader": "^9.4.2",
+    "ts-node": "^10.9.1",
     "webpack": "^5.72.1"
   },
   "snyk": true

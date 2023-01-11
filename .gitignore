@@ -97,3 +97,5 @@ bundle.zip
 !output.ts
 .ts-bundler-incremental-state.json
 cdk.context.json
+
+packages/cognito-custom-mail-lambda/**/*.html
