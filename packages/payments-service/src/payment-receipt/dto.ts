@@ -14,6 +14,7 @@ export class PaymentReceiptDto {
   paymentReason: string
 
   @IsNumber()
+  @IsNotEmpty()
   paymentAmount: number
 
   @IsString()

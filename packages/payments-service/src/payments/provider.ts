@@ -1,4 +1,4 @@
-import { BadRequestException, Injectable } from '@nestjs/common'
+import { BadRequestException, Injectable, UnauthorizedException } from '@nestjs/common'
 import { PaymentModel, PropertyModel } from '@reapit/foundations-ts-definitions'
 import axios from 'axios'
 import { stringifyError } from '@reapit/utils-node'
@@ -13,7 +13,7 @@ export class PaymentsProvider {
     const clientCode = paymentsHeaders['reapit-customer']
     const apiVersion = paymentsHeaders['api-version']
 
-    if (!accessToken) throw new Error('No access token returned from Reapit Connect')
+    if (!accessToken) throw new UnauthorizedException('No access token returned from Reapit Connect')
 
     const payment = await axios.get<PaymentModel>(`${process.env.PLATFORM_API_BASE_URL}/payments/${paymentId}`, {
       headers: {

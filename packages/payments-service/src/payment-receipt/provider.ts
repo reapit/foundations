@@ -28,8 +28,6 @@ export class PaymentReceiptProvider {
     })
     const title = `Payment Receipt from ${companyName}`
 
-    const mailId = await sendEmail(receipientEmail, title, template, senderEmail)
-
-    return mailId
+    return sendEmail(receipientEmail, title, template, senderEmail)
   }
 }

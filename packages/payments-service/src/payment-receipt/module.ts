@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common'
-import { PaymentReceiptPrivateController, PaymentReceiptPublicController } from './controller'
+import { PaymentReceiptPrivateController } from './private-controller'
+import { PaymentReceiptPublicController } from './public-controller'
 import { PaymentReceiptProvider } from './provider'
 
 @Module({
