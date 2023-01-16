@@ -1,11 +1,11 @@
 import { logger } from '@reapit/utils-react'
 import { useMemo } from 'react'
-import { ReapitConnectBrowserSession, useReapitConnect } from '@reapit/connect-session'
-import { UpdateAction } from '@reapit/utils-common'
+import { ReapitConnectBrowserSession } from '@reapit/connect-session'
 import { useSnack } from '@reapit/elements'
 import { getMergedHeaders, getUrl, handleReapitError, StringMap } from './utils'
 import { useMutation } from '@tanstack/react-query'
 import axios, { AxiosError, AxiosResponseHeaders } from 'axios'
+import { UpdateAction } from './update-actions'
 
 export type ReapitUpdateState<ParamsType, DataType> = [
   boolean,
@@ -47,17 +47,16 @@ export const useReapitUpdate = <ParamsType, DataType>({
   uriParams,
   reapitConnectBrowserSession,
 }: ReapitUpdate): ReapitUpdateState<ParamsType, DataType> => {
-  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { error: errorSnack, success: successSnack } = useSnack()
-  const accessToken = connectSession?.accessToken
   const { successMessage, errorMessage } = action
-  const updateHeaders = useMemo(getMergedHeaders(accessToken, headers), [connectSession, headers])
   const url = useMemo(getUrl(action, undefined, uriParams), [uriParams, action])
 
   const { mutateAsync, error, data, isSuccess, isLoading } = useMutation<DataType, AxiosError<any>, ParamsType>(
-    [url, updateHeaders, uriParams],
+    [url, uriParams],
     {
       mutationFn: async (data: ParamsType) => {
+        const updateHeaders = await getMergedHeaders(reapitConnectBrowserSession, headers)
+
         if (!updateHeaders) throw new Error('Missing valid Reapit Connect Session, please try logging in again.')
 
         const res = await axios<DataType>(url, {
@@ -89,10 +88,11 @@ export const useReapitUpdate = <ParamsType, DataType>({
       onSuccess: () => {
         if (successMessage) successSnack(successMessage)
       },
-      onError: (error: AxiosError<any>) => {
+      onError: async (error: AxiosError<any>) => {
+        const connectSession = await reapitConnectBrowserSession.connectSession()
         const errorString = handleReapitError(error, errorMessage)
         errorSnack(errorString, 5000)
-        logger(new Error(errorString), connectSession)
+        logger(new Error(errorString), connectSession ?? null)
       },
     },
   )

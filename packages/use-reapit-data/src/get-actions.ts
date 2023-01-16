@@ -58,6 +58,7 @@ export enum GetActionNames {
   getUsers = 'getUsers',
   getUserAuthenticators = 'getUserAuthenticators',
   getReferralTypes = 'getReferralTypes',
+  getGroupsByOrgId = 'getGroupsByOrgId',
 }
 
 export type GetActions = { [key in GetActionNames]: GetAction }
@@ -305,5 +306,10 @@ export const getActions = (appEnv: AppEnv): GetActions => ({
     api: ApiNames(appEnv).platform,
     path: PathNames.referralTypes,
     errorMessage: 'Failed to fetch referrals, this has been logged.',
+  },
+  [GetActionNames.getGroupsByOrgId]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.orgGroups,
+    errorMessage: 'Failed to fetch groups, this has been logged.',
   },
 })

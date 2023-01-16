@@ -1,0 +1,77 @@
+import React, { FC, useState } from 'react'
+import ErrorBoundary from '../error-boundary'
+import { OfficeGroupModelPagedResult } from '@reapit/foundations-ts-definitions'
+import {
+  elMb11,
+  elMt7,
+  Loader,
+  Pagination,
+  PersistentNotification,
+  Subtitle,
+  Table,
+  TableCell,
+  TableHeader,
+  TableHeadersRow,
+  TableRow,
+} from '@reapit/elements'
+import { reapitConnectBrowserSession } from '../../core/connect-session'
+import { GetActionNames, getActions, useReapitGet } from '@reapit/use-reapit-data'
+import { fourColTable } from './__styles__'
+
+export interface OrgGroupsProps {
+  orgId: string
+}
+
+export const OrgGroupsTable: FC<OrgGroupsProps> = ({ orgId }) => {
+  const [pageNumber, setPageNumber] = useState<number>(1)
+
+  const [orgGroups, orgGroupsLoading] = useReapitGet<OfficeGroupModelPagedResult>({
+    reapitConnectBrowserSession,
+    action: getActions(window.reapit.config.appEnv)[GetActionNames.getGroupsByOrgId],
+    queryParams: {
+      pageSize: 12,
+      pageNumber,
+    },
+    uriParams: {
+      orgId,
+    },
+    fetchWhenTrue: [orgId],
+  })
+
+  return (
+    <ErrorBoundary>
+      {orgGroupsLoading ? (
+        <Loader />
+      ) : orgGroups?._embedded?.length ? (
+        <>
+          <Subtitle>Office Groups</Subtitle>
+          <Table className={elMb11}>
+            <TableHeadersRow className={fourColTable}>
+              <TableHeader>Customer Id</TableHeader>
+              <TableHeader>Group Name</TableHeader>
+              <TableHeader>Office Ids</TableHeader>
+              <TableHeader>Status</TableHeader>
+            </TableHeadersRow>
+            {orgGroups?._embedded?.map(({ customerId, name, officeIds, status }) => (
+              <TableRow className={fourColTable} key={name}>
+                <TableCell>{customerId}</TableCell>
+                <TableCell>{name}</TableCell>
+                <TableCell>{officeIds}</TableCell>
+                <TableCell>{status}</TableCell>
+              </TableRow>
+            ))}
+          </Table>
+          <Pagination
+            callback={setPageNumber}
+            currentPage={pageNumber}
+            numberPages={Math.ceil((orgGroups?.totalCount ?? 1) / 12)}
+          />
+        </>
+      ) : (
+        <PersistentNotification className={elMt7} isInline isExpanded isFullWidth intent="secondary">
+          No office groups found for this organisation
+        </PersistentNotification>
+      )}
+    </ErrorBoundary>
+  )
+}

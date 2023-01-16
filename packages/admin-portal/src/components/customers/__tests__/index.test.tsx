@@ -1,6 +1,6 @@
 import React from 'react'
 import { useReapitGet } from '@reapit/utils-react'
-import { Customers } from '../index'
+import { Customers, handleFetchGroups } from '../index'
 import { render } from '../../../tests/react-testing'
 import { mockCustomerModelPagedResult } from '../../../tests/__stubs__/customers'
 
@@ -21,5 +21,17 @@ describe('Customers', () => {
   it('should render component with data', () => {
     mockUseReapitGet.mockReturnValue([mockCustomerModelPagedResult, false])
     expect(render(<Customers />)).toMatchSnapshot()
+  })
+})
+
+describe('handleFetchGroups', () => {
+  it('should set org correctly', () => {
+    const setOrgId = jest.fn()
+    const orgId = 'MOCK_ID'
+    const curried = handleFetchGroups(setOrgId, orgId)
+
+    curried()
+
+    expect(setOrgId).toHaveBeenCalledWith(orgId)
   })
 })

@@ -1,6 +1,8 @@
-import { GetAction, UpdateAction } from '@reapit/utils-common'
+import { ReapitConnectBrowserSession } from '@reapit/connect-session'
 import { AxiosError } from 'axios'
 import qs from 'qs'
+import { GetAction } from './get-actions'
+import { UpdateAction } from './update-actions'
 
 export interface StringMap {
   [key: string]: string
@@ -18,7 +20,13 @@ export interface ReapitError {
   dateTime?: string
 }
 
-export const getMergedHeaders = (accessToken?: string, headers?: StringMap) => (): StringMap | null => {
+export const getMergedHeaders = async (
+  reapitConnectBrowserSession: ReapitConnectBrowserSession,
+  headers?: StringMap,
+): Promise<StringMap | null> => {
+  const connectSession = await reapitConnectBrowserSession.connectSession()
+  const accessToken = connectSession?.accessToken
+
   return accessToken
     ? {
         Authorization: `Bearer ${accessToken}`,
