@@ -3,7 +3,6 @@ import { Route, Router as BrowserRouter, Switch, Redirect } from 'react-router-d
 import { createBrowserHistory, History } from 'history'
 import { Routes } from '../constants/routes'
 import PrivateRouteWrapper from './private-route-wrapper'
-import { OkayPage } from '@reapit/utils-react'
 
 export const history: History<any> = createBrowserHistory()
 
@@ -29,15 +28,14 @@ export const catchChunkError = (
   })
 }
 
-const LoginPage = React.lazy(() => catchChunkError(() => import('../components/pages/login')))
-const PaymentsPage = React.lazy(() => catchChunkError(() => import('../components/pages/payments')))
-const PaymentPage = React.lazy(() => catchChunkError(() => import('../components/pages/payment')))
+const LoginPage = React.lazy(() => catchChunkError(() => import('../components/login')))
+const PaymentsPage = React.lazy(() => catchChunkError(() => import('../components/payments')))
+const PaymentPage = React.lazy(() => catchChunkError(() => import('../components/payment')))
 
 const Router = () => (
   <BrowserRouter history={history}>
     <React.Suspense fallback={null}>
       <Switch>
-        <Route path={Routes.OK} exact render={() => <OkayPage />} />
         <Route path={Routes.LOGIN} component={LoginPage} />
         <Switch>
           <Route path={Routes.PAYMENT} component={PaymentPage} exact />

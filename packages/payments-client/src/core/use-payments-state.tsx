@@ -1,7 +1,7 @@
 import { PaymentModel } from '@reapit/foundations-ts-definitions'
 import React, { FC, createContext, useContext, useState, Dispatch, SetStateAction } from 'react'
-import { PaymentProvider } from '../services/providers'
-import { PaymentWithPropertyModel } from '../types/payment'
+import { PaymentProvider } from '../../../payments-ui/src/types/providers'
+import { PaymentWithPropertyModel } from '@reapit/payments-ui'
 
 export interface PaymentParams {
   session?: string | null

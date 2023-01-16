@@ -31,6 +31,8 @@
       "packages/marketplace",
       "packages/marketplace-management",
       "packages/payments-client",
+      "packages/payments-portal",
+      "packages/payments-ui",
       "packages/payments-service",
       "packages/rc-mfa-config",
       "packages/react-app-scaffolder",

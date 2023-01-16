@@ -12,8 +12,7 @@ export const URLS = {
   TRANSACTIONS: '/transactions',
   MERCHANT_KEY_API: '/merchant-session-keys',
   PAYMENTS: '/payments',
-  GET_API_KEY: '/api-key',
-  PAYMENT_REQUEST: '/payments/request',
-  PAYMENT_RECEIPT_INTERNAL: '/payments/receipt/internal',
-  PAYMENT_RECEIPT_EXTERNAL: '/payments/receipt/external',
+  SESSION: '/session',
+  PAYMENT_REQUEST: '/request',
+  PAYMENT_RECEIPT: '/receipt/private',
 }

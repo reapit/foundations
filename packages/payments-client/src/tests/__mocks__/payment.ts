@@ -1,6 +1,6 @@
 import { PaymentModel } from '@reapit/foundations-ts-definitions'
 import { PaymentWithPropertyModel } from '../../types/payment'
-import { CardDetails } from '../../components/pages/payment/payment-form'
+import { CardDetails } from '../../components/payment/payment-form'
 import { mockPropertyModel } from './property'
 
 export const mockPaymentModel: PaymentModel = {

@@ -6,9 +6,10 @@
       "@/*": ["src/*"],
       "@reapit/connect-session": ["../connect-session/src"],
       "@reapit/elements": ["../elements/src"],
-      "@reapit/utils-common": ["../utils-common/src"]
+      "@reapit/utils-common": ["../utils-common/src"],
+      "@reapit/payments-ui": ["../payments-ui"]
     }
   },
-  "include": ["src"],
+  "include": ["src", "../payments-ui/src/types/providers.ts"],
   "exclude": ["public", "dist", "./webpack.config.js", "node_modules", "src/tests/coverage"]
 }

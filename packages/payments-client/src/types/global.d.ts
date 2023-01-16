@@ -10,14 +10,10 @@ export type Config = {
   connectClientId: string
   connectUserPoolId: string
   connectOAuthUrl: string
+  opayoApiUrl: string
   platformApiUrl: string
-  paymentApiUrl: string
-  graphqlUri: string
-  marketplaceUrl: string
   paymentsApiUrl: string
-  emailApiUrl: string
-  configServiceUrl: string
-  opayo: { [key: string]: OpayoKeys }
+  marketplaceUrl: string
 }
 
 declare global {

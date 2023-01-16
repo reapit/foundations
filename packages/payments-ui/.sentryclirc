@@ -1,0 +1,6 @@
+[defaults]
+project=payments-client
+org=reapit-ltd
+
+[http]
+keepalive=false

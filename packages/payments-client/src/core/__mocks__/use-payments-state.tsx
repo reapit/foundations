@@ -1,4 +1,4 @@
-import { OpayoProvider } from '../../services/providers'
+import { OpayoProvider } from '../../../../payments-ui/src/types/providers'
 import { mockPaymentModel, mockPaymentWithPropertyModel } from '../../tests/__mocks__/payment'
 
 export const mockMerchantKey = {

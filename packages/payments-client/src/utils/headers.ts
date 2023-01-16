@@ -1,3 +1,4 @@
+import { ClientConfigModel } from '@reapit/payments-ui'
 import { API_HEADERS, PAYMENTS_HEADERS } from '../constants/api'
 import { reapitConnectBrowserSession } from '../core/connect-session'
 
@@ -10,9 +11,8 @@ export const genPlatformHeaders = async () => {
   }
 }
 
-export const genPaymentsHeaders = (clientCode: string) => {
-  const opayoKeys = window.reapit.config.opayo[clientCode]
-  const keys = `${opayoKeys.integrationKey}:${opayoKeys.passKey}`
+export const genPaymentsHeaders = ({ integrationKey, passKey }: ClientConfigModel) => {
+  const keys = `${integrationKey}:${passKey}`
   const encoded = btoa(keys)
   return {
     ...PAYMENTS_HEADERS,
@@ -20,12 +20,12 @@ export const genPaymentsHeaders = (clientCode: string) => {
   }
 }
 
-export const genPaymentsUpdateStatusHeaders = (clientCode: string, _eTag: string, session: string) => {
-  return {
-    ...PAYMENTS_HEADERS,
-    'reapit-customer': clientCode || 'SBOX',
-    'x-api-key': session,
-    'api-version': '2020-01-31',
-    'if-match': _eTag,
-  }
-}
+// export const genPaymentsUpdateStatusHeaders = (clientCode: string, _eTag: string, session: string) => {
+//   return {
+//     ...PAYMENTS_HEADERS,
+//     'reapit-customer': clientCode || 'SBOX',
+//     'x-api-key': session,
+//     'api-version': '2020-01-31',
+//     'if-match': _eTag,
+//   }
+// }
