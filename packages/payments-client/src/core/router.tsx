@@ -38,8 +38,8 @@ const Router = () => (
       <Switch>
         <Route path={Routes.LOGIN} component={LoginPage} />
         <Switch>
-          <Route path={Routes.PAYMENT} component={PaymentPage} exact />
           <PrivateRouteWrapper>
+            <Route path={Routes.PAYMENT} component={PaymentPage} exact />
             <Route path={Routes.PAYMENTS} component={PaymentsPage} exact />
           </PrivateRouteWrapper>
         </Switch>

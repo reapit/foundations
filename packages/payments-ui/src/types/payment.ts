@@ -1,10 +1,3 @@
-import { PaymentModel, PropertyModel } from '@reapit/foundations-ts-definitions'
-
-export interface PaymentWithPropertyModel extends PaymentModel {
-  clientCode: string
-  property: PropertyModel
-}
-
 export type PaymentStatus = 'awaitingAuthorisation' | 'awaitingPosting' | 'posted' | 'rejected'
 
 export interface UpdateStatusBody {

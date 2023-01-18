@@ -1,20 +1,24 @@
 import React, { Dispatch, FC, SetStateAction } from 'react'
 import { statusOptions } from '../../constants/filter-options'
 import { useForm } from 'react-hook-form'
-import { PaymentsFilters, usePaymentsState } from '../../core/use-payments-state'
 import { ControlsContainer, inputFullWidth, overflowHidden } from './__styles__'
 import { cx } from '@linaria/core'
 import { elBorderRadius, elMb5, elWFull, InputGroup, Label, Select } from '@reapit/elements'
 import { DATE_TIME_FORMAT } from '@reapit/utils-common'
 import dayjs from 'dayjs'
+import { PaymentsFilters } from '.'
+
+export interface PaymentsFilterProps {
+  paymentsFilters: PaymentsFilters
+  setPaymentsFilters: Dispatch<SetStateAction<PaymentsFilters>>
+}
 
 export const handleFormChange =
   (setPaymentsFilters: Dispatch<SetStateAction<PaymentsFilters>>) => (values: PaymentsFilters) => {
     setPaymentsFilters(values)
   }
 
-export const PaymentsFilterControls: FC = () => {
-  const { paymentsFilterState } = usePaymentsState()
+export const PaymentsFilterControls: FC<PaymentsFilterProps> = ({ paymentsFilters, setPaymentsFilters }) => {
   const { register, handleSubmit } = useForm<PaymentsFilters>({
     mode: 'onChange',
     defaultValues: {
@@ -22,7 +26,6 @@ export const PaymentsFilterControls: FC = () => {
       createdTo: dayjs().format(DATE_TIME_FORMAT.YYYY_MM_DD),
     },
   })
-  const { setPaymentsFilters, paymentsFilters } = paymentsFilterState
   const { createdTo, createdFrom } = paymentsFilters
 
   return (

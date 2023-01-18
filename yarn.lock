@@ -35015,6 +35015,7 @@ fsevents@^1.2.7:
     "@reapit/payments-ui": "workspace:packages/payments-ui"
     "@reapit/ts-scripts": "workspace:packages/ts-scripts"
     "@reapit/ts-types": "workspace:packages/ts-types"
+    "@reapit/use-reapit-data": "workspace:packages/use-reapit-data"
     "@reapit/utils-common": "workspace:packages/utils-common"
     "@sentry/browser": ^6.19.7
     "@sentry/react": ^6.19.7

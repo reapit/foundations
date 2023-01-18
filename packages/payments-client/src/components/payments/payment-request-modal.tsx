@@ -1,7 +1,6 @@
 import React, { Dispatch, FC, SetStateAction, useState } from 'react'
 import { PaymentModel } from '@reapit/foundations-ts-definitions'
 import { DATE_TIME_FORMAT, emailRegex } from '@reapit/utils-common'
-import { usePaymentsState } from '../../core/use-payments-state'
 import { object, string } from 'yup'
 import { useForm } from 'react-hook-form'
 import dayjs from 'dayjs'
@@ -23,6 +22,8 @@ import { generateEmailPaymentRequest, generatePaymentApiKey, updatePaymentStatus
 export type PaymentRequestModalProps = {
   refreshPayments?: () => void
   closeModal: () => void
+  setSelectedPayment: Dispatch<SetStateAction<PaymentModel | null>>
+  selectedPayment: PaymentModel | null
 }
 
 export interface PaymentEmailRequestModel {
@@ -118,13 +119,16 @@ export const handlePaymentRequestSubmit =
     }
   }
 
-export const PaymentRequestModal: FC<PaymentRequestModalProps> = ({ refreshPayments, closeModal }) => {
+export const PaymentRequestModal: FC<PaymentRequestModalProps> = ({
+  refreshPayments,
+  closeModal,
+  setSelectedPayment,
+  selectedPayment,
+}) => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [isLoading, setLoading] = useState<boolean>(false)
-  const { paymentsDataState } = usePaymentsState()
   const { error } = useSnack()
   const clientId = connectSession?.loginIdentity.clientId
-  const { setSelectedPayment, selectedPayment } = paymentsDataState
 
   const {
     register,

@@ -27,6 +27,7 @@
     "@reapit/connect-session": "workspace:packages/connect-session",
     "@reapit/elements": "workspace:packages/elements",
     "@reapit/payments-ui": "workspace:packages/payments-ui",
+    "@reapit/use-reapit-data": "workspace:packages/use-reapit-data",
     "@reapit/utils-common": "workspace:packages/utils-common",
     "@sentry/browser": "^6.19.7",
     "@sentry/react": "^6.19.7",

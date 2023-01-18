@@ -1,6 +1,13 @@
 import * as path from 'path'
-import { createApi, createBaseStack, createTable, createFunction, output } from '@reapit/ts-scripts/src/cdk'
-import { aws_apigateway as apigateway, aws_iam as iam, aws_lambda } from 'aws-cdk-lib'
+import {
+  createApi,
+  createBaseStack,
+  createTable,
+  createFunction,
+  output,
+  getAuthorizer,
+} from '@reapit/ts-scripts/src/cdk'
+import { aws_apigateway as apigateway, aws_iam as iam } from 'aws-cdk-lib'
 import config from '../config.json'
 
 export const createStack = async () => {
@@ -60,16 +67,6 @@ export const createStack = async () => {
     }),
   )
 
-  const lambdaAuthorizerFunc = aws_lambda.Function.fromFunctionName(
-    stack,
-    'cloud-payments-custom-authorizer-func',
-    'reapit-lambdas-gateway-authorizer',
-  )
-
-  const lambdaAuthorizer = new apigateway.TokenAuthorizer(stack, 'cloud-payments-custom-authorizer', {
-    handler: lambdaAuthorizerFunc,
-  })
-
   const routes = [
     {
       path: '/session',
@@ -103,22 +100,22 @@ export const createStack = async () => {
       method: 'GET',
     },
     {
-      path: '/config/{clientCode}',
+      path: '/config/private/{clientCode}',
       method: 'GET',
       protected: true,
     },
     {
-      path: '/config/{clientCode}',
+      path: '/config/private/{clientCode}',
       method: 'POST',
       protected: true,
     },
     {
-      path: '/config/{clientCode}',
+      path: '/config/private/{clientCode}',
       method: 'PUT',
       protected: true,
     },
     {
-      path: '/config/{clientCode}',
+      path: '/config/private/{clientCode}',
       method: 'DELETE',
       protected: true,
     },
@@ -126,9 +123,36 @@ export const createStack = async () => {
 
   routes.forEach((route) => {
     api.root.resourceForPath(route.path).addMethod(route.method, new apigateway.LambdaIntegration(lambda), {
-      authorizer: route.protected ? lambdaAuthorizer : undefined,
+      authorizer: route.protected ? getAuthorizer(stack, config.CONNECT_USER_POOL) : undefined,
+      authorizationType: route.protected ? apigateway.AuthorizationType.COGNITO : undefined,
+      requestParameters: {
+        'method.request.header.Content-Type': false,
+        'method.request.header.Authorization': route.protected ? true : false,
+        'method.request.header.X-Api-Key': false,
+        'method.request.header.api-version': false,
+        'method.request.header.if-match': false,
+        'method.request.header.reapit-customer': false,
+        'method.request.header.reapit-session': false,
+      },
     })
   })
 
+  // const lambdaAuthorizerFuncArn = new CfnJson(stack, 'lambdaAuthorizerFuncArn', {
+  //   value: {
+  //     [lambdaAuthorizerFunc.functionArn]: true,
+  //   },
+  // }).toString()
+
+  // const lambdaAuthorizerArn = new CfnJson(stack, 'lambdaAuthorizerArn', {
+  //   value: {
+  //     [lambdaAuthorizerFunc.functionArn]: true,
+  //   },
+  // }).toString()
+
+  // if (api.latestDeployment) {
+  //   api.latestDeployment.addToLogicalId({
+  //     [lambdaAuthorizerFuncArn]: lambdaAuthorizerArn,
+  //   })
+  // }
   output(stack, 'api-url', api.url)
 }

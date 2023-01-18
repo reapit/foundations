@@ -2,7 +2,7 @@ import React, { Dispatch, FC, SetStateAction, useMemo, useState } from 'react'
 import { useHistory } from 'react-router'
 import { PaymentModel, PaymentModelPagedResult, PropertyModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { statusOptions } from '../../constants/filter-options'
-import { PaymentLogo } from '../payment/payment-logo'
+// import { PaymentLogo } from '@reapit/payments-ui'
 import { PaymentsFilterControls } from './payments-filter-controls'
 import {
   combineAddress,
@@ -35,7 +35,6 @@ import {
 } from '@reapit/elements'
 import { useReapitGet } from '@reapit/utils-react'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { usePaymentsState } from '../../core/use-payments-state'
 import { navigate, openNewPage } from '../../core/nav'
 import { Routes } from '../../constants/routes'
 import PaymentRequestModal from './payment-request-modal'
@@ -44,6 +43,13 @@ export interface CellProps {
   properties?: PropertyModelPagedResult | null
   status?: string
   propertyId?: string
+}
+
+export interface PaymentsFilters {
+  createdFrom?: string
+  createdTo?: string
+  description?: string
+  status?: string
 }
 
 export const PropertyCell: FC<CellProps> = ({ properties, propertyId }) => {
@@ -74,11 +80,10 @@ export const handleOpenModal =
 export const PaymentsPage: FC = () => {
   const history = useHistory()
   const [pageNumber, setPageNumber] = useState<number>(1)
-  const { paymentsFilterState, paymentsDataState } = usePaymentsState()
+  const [selectedPayment, setSelectedPayment] = useState<PaymentModel | null>(null)
+  const [paymentsFilters, setPaymentsFilters] = useState<PaymentsFilters>({})
   const { Modal, openModal, closeModal } = useModal()
 
-  const { paymentsFilters } = paymentsFilterState
-  const { setSelectedPayment, selectedPayment } = paymentsDataState
   const queryParams = {
     ...paymentsFilters,
     status: paymentsFilters.status ? [paymentsFilters.status] : undefined,
@@ -118,7 +123,7 @@ export const PaymentsPage: FC = () => {
         <SmallText hasGreyText>
           Both options are available from the slide down on each payment item in the table.
         </SmallText>
-        <PaymentsFilterControls />
+        <PaymentsFilterControls paymentsFilters={paymentsFilters} setPaymentsFilters={setPaymentsFilters} />
         <Button intent="neutral" onClick={openNewPage('')}>
           View Docs
         </Button>
@@ -127,7 +132,7 @@ export const PaymentsPage: FC = () => {
         <ErrorBoundary>
           <FlexContainer isFlexJustifyBetween>
             <Title>Payments Dashboard</Title>
-            <PaymentLogo />
+            {/* <PaymentLogo /> */}
           </FlexContainer>
           {paymentsLoading ? (
             <Loader />
@@ -236,7 +241,12 @@ export const PaymentsPage: FC = () => {
               selectedPayment?.id
             }`}
           >
-            <PaymentRequestModal closeModal={closeModal} refreshPayments={refreshPayments} />
+            <PaymentRequestModal
+              closeModal={closeModal}
+              refreshPayments={refreshPayments}
+              selectedPayment={selectedPayment}
+              setSelectedPayment={setSelectedPayment}
+            />
           </Modal>
         </ErrorBoundary>
       </PageContainer>

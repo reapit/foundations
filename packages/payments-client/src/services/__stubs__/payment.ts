@@ -1,4 +1,4 @@
-import { UpdateStatusBody, UpdateStatusParams } from '../../types/payment'
+import { UpdateStatusBody, UpdateStatusParams } from '@reapit/payments-ui'
 
 export const body: UpdateStatusBody = { status: 'posted', externalReference: 'SOME_POSTED_REF' }
 export const params: UpdateStatusParams = {

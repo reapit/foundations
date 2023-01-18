@@ -1,5 +1,4 @@
-import { ClientConfigModel } from '@reapit/payments-ui'
-import { API_HEADERS, PAYMENTS_HEADERS } from '../constants/api'
+import { API_HEADERS } from '../constants/api'
 import { reapitConnectBrowserSession } from '../core/connect-session'
 
 export const genPlatformHeaders = async () => {
@@ -8,15 +7,6 @@ export const genPlatformHeaders = async () => {
   return {
     ...API_HEADERS,
     Authorization: `Bearer ${connectSession?.accessToken}`,
-  }
-}
-
-export const genPaymentsHeaders = ({ integrationKey, passKey }: ClientConfigModel) => {
-  const keys = `${integrationKey}:${passKey}`
-  const encoded = btoa(keys)
-  return {
-    ...PAYMENTS_HEADERS,
-    Authorization: `Basic ${encoded}`,
   }
 }
 
