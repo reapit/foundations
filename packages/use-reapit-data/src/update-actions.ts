@@ -53,6 +53,8 @@ export enum UpdateActionNames {
   createUserAuthenticator = 'createUserAuthenticator',
   verifyUserAuthenticator = 'verifyUserAuthenticator',
   deleteUserAuthenticator = 'deleteUserAuthenticator',
+  submitPrivatePaymentReceipt = 'submitPrivatePaymentReceipt',
+  privatePaymentUpdate = 'privatePaymentUpdate',
 }
 
 export type UpdateActions = { [key in UpdateActionNames]: UpdateAction }
@@ -323,5 +325,17 @@ export const updateActions = (appEnv: AppEnv): UpdateActions => ({
     path: PathNames.userAuthenticatorVerify,
     successMessage: 'Successfully verified authenticator.',
     errorMessage: 'Failed to verify authenticator. This error has been logged',
+  },
+  [UpdateActionNames.submitPrivatePaymentReceipt]: {
+    api: ApiNames(appEnv).payments,
+    path: PathNames.paymentReceiptPrivate,
+    successMessage: 'Successfully sent receipt request.',
+    errorMessage: 'Failed to send receipt. This error has been logged',
+  },
+  [UpdateActionNames.privatePaymentUpdate]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.paymentById,
+    successMessage: 'Successfully submitted payment.',
+    errorMessage: 'Failed to submit payment. This error has been logged',
   },
 })

@@ -94,5 +94,6 @@ export enum PathNames {
   userAuthenticatorVerify = '/organisations/users/{userId}/authenticators/{authenticatorId}/verify',
   referralTypes = '/referrals/types',
   orgGroups = '/organisations/organisations/{orgId}/officegroups',
-  paymentsConfig = '/config/private/{clientCode}',
+  paymentsConfigPrivate = '/config/private/{clientCode}',
+  paymentReceiptPrivate = '/receipt/private/{paymentId}',
 }

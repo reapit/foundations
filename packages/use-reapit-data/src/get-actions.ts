@@ -315,7 +315,7 @@ export const getActions = (appEnv: AppEnv): GetActions => ({
   },
   [GetActionNames.getPaymentsClientConfig]: {
     api: ApiNames(appEnv).payments,
-    path: PathNames.paymentsConfig,
+    path: PathNames.paymentsConfigPrivate,
     errorMessage: 'Failed to fetch client config this has been logged.',
   },
 })

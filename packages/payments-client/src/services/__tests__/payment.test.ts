@@ -2,7 +2,7 @@ import {
   updatePaymentStatus,
   generatePaymentApiKey,
   generateEmailPaymentRequest,
-  generateEmailPaymentReceipt,
+  // generateEmailPaymentReceipt,
 } from '../payment'
 import { fetcher } from '@reapit/utils-common'
 import { body, params } from '../__stubs__/payment'
@@ -68,23 +68,23 @@ describe('generateEmailPaymentRequest  ', () => {
   })
 })
 
-describe('generateEmailPaymentReceipt  ', () => {
-  const bodyEmailReceipt = {
-    receipientEmail: 'SOME_EMAIL',
-    recipientName: 'SOME_NAME',
-    paymentReason: 'SOME_REASON',
-    paymentAmount: 1000,
-    paymentCurrency: 'GBP',
-  }
-  it('should return a response from the service', async () => {
-    mockedFetch.mockReturnValueOnce(mockResponse)
-    expect(await generateEmailPaymentReceipt(bodyEmailReceipt, params, errorSnack)).toEqual(mockResponse)
-  })
+// describe('generateEmailPaymentReceipt  ', () => {
+//   const bodyEmailReceipt = {
+//     receipientEmail: 'SOME_EMAIL',
+//     recipientName: 'SOME_NAME',
+//     paymentReason: 'SOME_REASON',
+//     paymentAmount: 1000,
+//     paymentCurrency: 'GBP',
+//   }
+//   it('should return a response from the service', async () => {
+//     mockedFetch.mockReturnValueOnce(mockResponse)
+//     expect(await generateEmailPaymentReceipt(bodyEmailReceipt, params, errorSnack)).toEqual(mockResponse)
+//   })
 
-  it('should catch an error if no response from service', async () => {
-    const errorSpy = jest.spyOn(console, 'error')
-    mockedFetch.mockReturnValueOnce(undefined as any)
-    await generateEmailPaymentReceipt(bodyEmailReceipt, params, errorSnack)
-    expect(errorSpy).toHaveBeenLastCalledWith('Failed to generate email payment receipt')
-  })
-})
+//   it('should catch an error if no response from service', async () => {
+//     const errorSpy = jest.spyOn(console, 'error')
+//     mockedFetch.mockReturnValueOnce(undefined as any)
+//     await generateEmailPaymentReceipt(bodyEmailReceipt, params, errorSnack)
+//     expect(errorSpy).toHaveBeenLastCalledWith('Failed to generate email payment receipt')
+//   })
+// })

@@ -5,7 +5,6 @@ import { logger } from '@reapit/utils-react'
 import {
   ApiKeyRequest,
   ApiKeyResponse,
-  PaymentEmailReceipt,
   PaymentEmailRequest,
   UpdateStatusBody,
   UpdateStatusParams,
@@ -99,32 +98,32 @@ export const generateEmailPaymentRequest = async (
   }
 }
 
-export const generateEmailPaymentReceipt = async (
-  body: PaymentEmailReceipt,
-  params: UpdateStatusParams,
-  errorSnack: (message: string) => void,
-): Promise<ApiKeyResponse | undefined> => {
-  const { paymentId } = params
+// export const generateEmailPaymentReceipt = async (
+//   body: PaymentEmailReceipt,
+//   params: UpdateStatusParams,
+//   errorSnack: (message: string) => void,
+// ): Promise<ApiKeyResponse | undefined> => {
+//   const { paymentId } = params
 
-  const headers = await genPlatformHeaders()
+//   const headers = await genPlatformHeaders()
 
-  try {
-    const response = await fetcher({
-      api: window.reapit.config.paymentsApiUrl,
-      url: `${URLS.PAYMENT_RECEIPT}/${paymentId}`,
-      method: 'POST',
-      headers,
-      body,
-    })
+//   try {
+//     const response = await fetcher({
+//       api: window.reapit.config.paymentsApiUrl,
+//       url: `${URLS.PAYMENT_RECEIPT}/${paymentId}`,
+//       method: 'POST',
+//       headers,
+//       body,
+//     })
 
-    if (response) {
-      return response
-    }
+//     if (response) {
+//       return response
+//     }
 
-    throw new Error('Failed to generate email payment receipt')
-  } catch (err) {
-    const error = err as Error
-    logger(error)
-    errorSnack(error.message)
-  }
-}
+//     throw new Error('Failed to generate email payment receipt')
+//   } catch (err) {
+//     const error = err as Error
+//     logger(error)
+//     errorSnack(error.message)
+//   }
+// }

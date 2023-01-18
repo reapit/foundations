@@ -2,7 +2,7 @@ import React, { Dispatch, FC, SetStateAction, useMemo, useState } from 'react'
 import { useHistory } from 'react-router'
 import { PaymentModel, PaymentModelPagedResult, PropertyModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { statusOptions } from '../../constants/filter-options'
-// import { PaymentLogo } from '@reapit/payments-ui'
+import { PaymentLogo, navigate } from '@reapit/payments-ui'
 import { PaymentsFilterControls } from './payments-filter-controls'
 import {
   combineAddress,
@@ -35,7 +35,7 @@ import {
 } from '@reapit/elements'
 import { useReapitGet } from '@reapit/utils-react'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { navigate, openNewPage } from '../../core/nav'
+import { openNewPage } from '../../core/nav'
 import { Routes } from '../../constants/routes'
 import PaymentRequestModal from './payment-request-modal'
 
@@ -132,7 +132,7 @@ export const PaymentsPage: FC = () => {
         <ErrorBoundary>
           <FlexContainer isFlexJustifyBetween>
             <Title>Payments Dashboard</Title>
-            {/* <PaymentLogo /> */}
+            <PaymentLogo />
           </FlexContainer>
           {paymentsLoading ? (
             <Loader />
