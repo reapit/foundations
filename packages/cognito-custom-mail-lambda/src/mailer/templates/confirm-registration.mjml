@@ -2,13 +2,13 @@
   lang="en"
 >
   <mj-head>
-    <mj-font name="PT Sans"
-      href="https://fonts.googleapis.com/css?family=PT+Sans" />
+    <mj-font name="arial"
+      href="https://fonts.googleapis.com/css?family=arial" />
 
     <mj-attributes>
-      <mj-class name="body-text" font-size="14px" color="#646464" font-family="PT Sans" align="center" font-weight="400" />
+      <mj-class name="body-text" font-size="14px" color="#646464" font-family="arial" align="center" font-weight="400" />
       <mj-class name="title" font-size="20px" font-size="20px" color="#000" align="center" font-weight="900" />
-      <mj-all font-family="PT Sans"/>
+      <mj-all font-family="arial"/>
       <mj-button background-color="#0061A8" href="#" text-transform="uppercase" />
     </mj-attributes>
   </mj-head>
