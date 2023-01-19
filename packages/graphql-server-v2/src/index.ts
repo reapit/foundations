@@ -11,7 +11,7 @@ async function bootstrapServer(): Promise<Server> {
   if (!cachedServer) {
     const app = await bootstrap(createPlatformAxiosInstance())
 
-    app.use(eventContext())
+    app.use(eventContext() as any)
 
     cachedServer = createServer(app, undefined)
   }

@@ -25,15 +25,6 @@ jest.mock('../..', () => ({
   logger: jest.fn(),
 }))
 
-jest.mock('@reapit/connect-session', () => ({
-  ReapitConnectBrowserSession: jest.fn(),
-  useReapitConnect: () => ({
-    connectSession: {
-      accessToken: 'SOME_TOKEN',
-    },
-  }),
-}))
-
 jest.mock('@reapit/elements', () => ({
   useSnack: jest.fn(() => ({
     success: mockSuccess,
@@ -53,12 +44,9 @@ const createWrapper = () => {
 describe('useReapitGet', () => {
   it('should correctly set loading, fetch data, render a success message and refresh', async () => {
     const reapitConnectBrowserSession = {
-      connectSession: jest.fn(
-        () =>
-          new Promise<void>((resolve) => {
-            resolve()
-          }),
-      ),
+      connectSession: jest.fn(() => ({
+        accessToken: 'SOME_TOKEN',
+      })),
     } as unknown as ReapitConnectBrowserSession
 
     mockAxios.mockReturnValue({
@@ -83,13 +71,13 @@ describe('useReapitGet', () => {
     expect(result.current[0]).toBeNull()
     expect(result.current[1]).toBe(true)
 
+    await waitForNextUpdate()
+
     expect(mockAxios).toHaveBeenCalledWith('https://platform.dev.paas.reapit.cloud/marketplace/apps', {
       headers: { Authorization: 'Bearer SOME_TOKEN', 'Content-Type': 'application/json', 'api-version': 'latest' },
     })
 
     expect(mockAxios).toHaveBeenCalledTimes(1)
-
-    await waitForNextUpdate()
 
     expect(mockSuccess).toHaveBeenCalledWith('Some success message')
     expect(mockError).not.toHaveBeenCalled()
@@ -99,7 +87,10 @@ describe('useReapitGet', () => {
     expect(result.current[2]).toEqual(null)
 
     const refresh = result.current[3]
+
     refresh()
+
+    await waitForNextUpdate()
 
     expect(mockAxios).toHaveBeenCalledTimes(2)
   })

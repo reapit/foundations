@@ -115,6 +115,7 @@ export const Installations: FC = () => {
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getInstallations],
     queryParams: {
       ...formatFilters(installationsFilters),
+      includeOfficeGroups: true,
       pageNumber,
       pageSize,
     },
