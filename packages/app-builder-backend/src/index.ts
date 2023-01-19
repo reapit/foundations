@@ -51,7 +51,7 @@ const parseContext = async ({ req }): Promise<Context> => {
 const start = async () => {
   await ensureTables()
 
-  const app = express()
+  const app: any = express()
 
   app.disable('x-powered-by')
   app.use(cors())

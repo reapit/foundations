@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { ReapitConnectBrowserSession, useReapitConnect } from '@reapit/connect-session'
+import { ReapitConnectBrowserSession } from '@reapit/connect-session'
 import { StringMap, getMergedHeaders, handleReapitError, getUrl } from './utils'
 import { GetAction } from './get-actions'
 import { useSnack } from '@reapit/elements'
@@ -36,19 +36,18 @@ export const useReapitGet = <DataType>({
   onSuccess,
   onError,
 }: ReapitGetParams): ReapitGetState<DataType> => {
-  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { success: successSnack, error: errorSnack } = useSnack()
-  const accessToken = connectSession?.accessToken
   const { successMessage, errorMessage } = action
-  const getHeaders = useMemo(getMergedHeaders(accessToken, headers), [connectSession, headers])
   const url = useMemo(getUrl(action, queryParams, uriParams), [queryParams, uriParams, action])
 
-  const { data, error, isLoading, isRefetching, refetch } = useQuery<DataType, AxiosError<any>>([url, getHeaders], {
+  const { data, error, isLoading, isRefetching, refetch } = useQuery<DataType, AxiosError<any>>([url], {
     queryFn: async () => {
-      if (!getHeaders) throw new Error('Missing valid Reapit Connect Session, please try logging in again.')
+      const reqHeaders = await getMergedHeaders(reapitConnectBrowserSession, headers)
+
+      if (!reqHeaders) throw new Error('Missing valid Reapit Connect Session, please try logging in again.')
 
       const req = await axios.get<DataType>(url, {
-        headers: getHeaders,
+        headers: reqHeaders,
       })
       return req.data
     },
@@ -56,12 +55,13 @@ export const useReapitGet = <DataType>({
       if (onSuccess && successMessage) onSuccess(successMessage)
       if (!onSuccess && successMessage) successSnack(successMessage)
     },
-    onError: (error) => {
+    onError: async (error) => {
+      const connectSession = await reapitConnectBrowserSession.connectSession()
       const errorString = handleReapitError(error, errorMessage)
       if (onError) onError(errorString)
       if (!onError) {
         errorSnack(errorString)
-        logger(new Error(errorString), connectSession)
+        logger(new Error(errorString), connectSession ?? null)
       }
     },
     enabled: fetchWhenTrue?.length ? Boolean(fetchWhenTrue?.filter(Boolean).length) : true,

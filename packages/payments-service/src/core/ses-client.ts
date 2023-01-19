@@ -1,15 +1,9 @@
+import { BadRequestException } from '@nestjs/common'
 import AWS from 'aws-sdk'
 
 const ses = new AWS.SES({ apiVersion: '2010-12-01' })
 
-// TODO - these values will be configurable by client see: https://github.com/reapit/foundations/issues/8228
-export const defaultEmailConfig = {
-  senderEmail: 'Reapit Payments <wmcvay@reapit.com>',
-  companyName: 'Reapit Ltd',
-  logoUri: 'https://web-components.prod.paas.reapit.cloud/reapit-payments.png',
-}
-
-export const sendEmail = async (to: string, subject: string, template: string, from: string) => {
+export const sendEmail = async (to: string, subject: string, template: string) => {
   const params = {
     Destination: {
       ToAddresses: [to],
@@ -26,8 +20,8 @@ export const sendEmail = async (to: string, subject: string, template: string, f
         Data: subject,
       },
     },
-    ReturnPath: from,
-    Source: from,
+    ReturnPath: process.env.EMAIL_SENDER_ADDRESS,
+    Source: process.env.EMAIL_SENDER_ADDRESS,
   }
 
   const sentMail = await ses.sendEmail(params).promise()
@@ -36,5 +30,5 @@ export const sendEmail = async (to: string, subject: string, template: string, f
     return sentMail.MessageId
   }
 
-  throw new Error('Email failed to send')
+  throw new BadRequestException('Email failed to send')
 }

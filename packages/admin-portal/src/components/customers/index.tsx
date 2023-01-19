@@ -1,8 +1,10 @@
-import React, { FC, useState } from 'react'
+import React, { Dispatch, FC, useState, SetStateAction } from 'react'
 import ErrorBoundary from '../error-boundary'
 import { combineAddress, GetActionNames, getActions } from '@reapit/utils-common'
 import { CustomerModelPagedResult } from '@reapit/foundations-ts-definitions'
 import {
+  Button,
+  ButtonGroup,
   elMb11,
   FormLayout,
   InputGroup,
@@ -17,15 +19,23 @@ import { objectToQuery, useReapitGet } from '@reapit/utils-react'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { useForm } from 'react-hook-form'
 import debounce from 'just-debounce-it'
+import { OrgGroupsTable } from './org-groups-table'
 
 export type CustomerFilterValues = {
   name?: string
   agencyCloudId?: string
 }
 
+export const handleFetchGroups = (setOrgId: Dispatch<SetStateAction<string | null>>, orgId?: string) => () => {
+  if (orgId) {
+    setOrgId(orgId)
+  }
+}
+
 export const Customers: FC = () => {
   const [pageNumber, setPageNumber] = useState<number>(1)
   const [customerFilters, setCustomerFilters] = useState<CustomerFilterValues>({})
+  const [orgId, setOrgId] = useState<string | null>(null)
   const { name, agencyCloudId } = customerFilters
   const { register, handleSubmit } = useForm<CustomerFilterValues>({
     mode: 'onChange',
@@ -105,6 +115,18 @@ export const Customers: FC = () => {
                     },
                   },
                 ],
+                expandableContent: {
+                  content: (
+                    <>
+                      <ButtonGroup alignment="center">
+                        <Button intent="secondary" onClick={handleFetchGroups(setOrgId, id)}>
+                          Fetch Office Groups
+                        </Button>
+                      </ButtonGroup>
+                      {orgId && orgId === id && <OrgGroupsTable orgId={orgId} />}
+                    </>
+                  ),
+                },
               }))}
             />
             <Pagination

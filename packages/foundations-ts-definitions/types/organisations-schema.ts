@@ -1428,6 +1428,7 @@ export interface Users {
   mfaEnabled?: boolean
   createdFrom?: string
   createdTo?: string
+  active?: boolean
 }
 export interface UsersInfo {
   email?: string

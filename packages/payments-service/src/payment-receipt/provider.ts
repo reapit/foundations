@@ -1,11 +1,15 @@
-import { Injectable } from '@nestjs/common'
+import { DataMapper } from '@aws/dynamodb-data-mapper'
+import { BadRequestException, Injectable } from '@nestjs/common'
 import { currencySymbolMapper } from '@reapit/utils-common'
-import { defaultEmailConfig, sendEmail } from '../core/ses-client'
+import { ClientConfigModel } from '../client-config/model'
+import { sendEmail } from '../core/ses-client'
 import { PaymentReceiptDto, PaymentReceiptHeaders } from './dto'
 import { paymentReceiptTemplate } from './template'
 
 @Injectable()
 export class PaymentReceiptProvider {
+  constructor(private readonly datamapper: DataMapper) {}
+
   async createReceipt(
     paymentReceiptHeaders: PaymentReceiptHeaders,
     paymentReceipt: PaymentReceiptDto,
@@ -13,9 +17,16 @@ export class PaymentReceiptProvider {
     const { receipientEmail, recipientName, paymentReason, paymentAmount, paymentCurrency } = paymentReceipt
 
     const clientCode = paymentReceiptHeaders['reapit-customer']
-    console.log(clientCode)
-    // TODO: Look these up from the client code
-    const { senderEmail, companyName, logoUri } = defaultEmailConfig
+
+    let configModel: ClientConfigModel
+
+    try {
+      configModel = await this.datamapper.get(Object.assign(new ClientConfigModel(), { clientCode }))
+    } catch (err) {
+      throw new BadRequestException('Config model for email not found')
+    }
+
+    const { companyName, logoUri } = configModel
 
     const template = paymentReceiptTemplate({
       companyName,
@@ -28,6 +39,6 @@ export class PaymentReceiptProvider {
     })
     const title = `Payment Receipt from ${companyName}`
 
-    return sendEmail(receipientEmail, title, template, senderEmail)
+    return sendEmail(receipientEmail, title, template)
   }
 }

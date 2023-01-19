@@ -27,15 +27,6 @@ jest.mock('../..', () => ({
   logger: jest.fn(),
 }))
 
-jest.mock('@reapit/connect-session', () => ({
-  ReapitConnectBrowserSession: jest.fn(),
-  useReapitConnect: () => ({
-    connectSession: {
-      accessToken: 'SOME_TOKEN',
-    },
-  }),
-}))
-
 jest.mock('@reapit/elements', () => ({
   useSnack: jest.fn(() => ({
     success: mockSuccess,
@@ -54,7 +45,11 @@ const createWrapper = () => {
 
 describe('useReapitUpdate', () => {
   it('should correctly set loading, send data without data update', async () => {
-    const reapitConnectBrowserSession = {} as unknown as ReapitConnectBrowserSession
+    const reapitConnectBrowserSession = {
+      connectSession: jest.fn(() => ({
+        accessToken: 'SOME_TOKEN',
+      })),
+    } as unknown as ReapitConnectBrowserSession
     const objectBody = {
       test: true,
     }
@@ -100,7 +95,11 @@ describe('useReapitUpdate', () => {
   })
 
   it('should correctly set loading, send data with data update', async () => {
-    const reapitConnectBrowserSession = {} as unknown as ReapitConnectBrowserSession
+    const reapitConnectBrowserSession = {
+      connectSession: jest.fn(() => ({
+        accessToken: 'SOME_TOKEN',
+      })),
+    } as unknown as ReapitConnectBrowserSession
     const objectBody = {
       test: true,
     }
