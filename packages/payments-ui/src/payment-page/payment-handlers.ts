@@ -21,10 +21,16 @@ export const onUpdateStatus = async (
     paymentCurrency: 'GBP',
   }
 
-  await statusAction.statusSubmit(updateStatusBody)
+  const statusUpdate = await statusAction.statusSubmit(updateStatusBody)
+
+  if (!statusUpdate) {
+    return setTransactionProcessing(false)
+  }
+
   await receiptAction.receiptSubmit(emailReceiptBody)
 
   setTransactionProcessing(false)
+  paymentProvider.refreshPayment()
 }
 
 export const handleCreateTransaction =

@@ -12,14 +12,18 @@ export interface UpdateStatusParams {
   clientCode?: string
 }
 
-export interface ApiKeyRequest {
+export interface CreateSessionRequest {
   clientCode: string
   paymentId: string
-  keyExpiresAt: string
+  sessionExpiresAt: string
 }
 
-export interface ApiKeyResponse {
-  apiKey: string
+export interface SessionResponse {
+  id: string
+  clientCode: string
+  paymentId: string
+  sessionCreatedAt: string
+  sessionExpiresAt: string
 }
 
 export interface PaymentEmailRequest {

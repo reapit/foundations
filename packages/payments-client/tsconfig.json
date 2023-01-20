@@ -7,6 +7,7 @@
       "@reapit/connect-session": ["../connect-session/src"],
       "@reapit/elements": ["../elements/src"],
       "@reapit/utils-common": ["../utils-common/src"],
+      "@reapit/use-reapit-data": ["../use-reapit-data/src"],
       "@reapit/payments-ui": ["../payments-ui"]
     }
   },

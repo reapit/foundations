@@ -4,14 +4,7 @@ import { PaymentModel, PaymentModelPagedResult, PropertyModelPagedResult } from 
 import { statusOptions } from '../../constants/filter-options'
 import { PaymentLogo, navigate } from '@reapit/payments-ui'
 import { PaymentsFilterControls } from './payments-filter-controls'
-import {
-  combineAddress,
-  DATE_TIME_FORMAT,
-  GetActionNames,
-  getActions,
-  isTruthy,
-  toLocalTime,
-} from '@reapit/utils-common'
+import { combineAddress, DATE_TIME_FORMAT, isTruthy, toLocalTime } from '@reapit/utils-common'
 import ErrorBoundary from '../../core/error-boundary'
 import {
   Button,
@@ -33,11 +26,11 @@ import {
   ButtonGroup,
   useModal,
 } from '@reapit/elements'
-import { useReapitGet } from '@reapit/utils-react'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { openNewPage } from '../../core/nav'
 import { Routes } from '../../constants/routes'
-import PaymentRequestModal from './payment-request-modal'
+import { PaymentRequestModal } from './payment-request-modal'
+import { getActions, useReapitGet, GetActionNames } from '@reapit/use-reapit-data'
 
 export interface CellProps {
   properties?: PropertyModelPagedResult | null

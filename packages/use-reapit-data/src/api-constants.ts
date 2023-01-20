@@ -96,4 +96,6 @@ export enum PathNames {
   orgGroups = '/organisations/organisations/{orgId}/officegroups',
   paymentsConfigPrivate = '/config/private/{clientCode}',
   paymentReceiptPrivate = '/receipt/private/{paymentId}',
+  paymentsSession = '/session',
+  paymentRequest = '/request/{paymentId}',
 }

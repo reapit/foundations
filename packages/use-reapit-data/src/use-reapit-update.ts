@@ -32,12 +32,16 @@ export interface ReapitUpdate {
   uriParams?: Object
 }
 
-export type SendFunction<ParamsType, DataType> = (
-  params: ParamsType,
-  options?: {
-    uriParams?: Object
-  },
-) => Promise<DataType>
+export interface Options {
+  uriParams?: Object
+  headers?: StringMap
+}
+
+export type SendFunction<ParamsType, DataType> = (params: ParamsType, options?: Options) => Promise<DataType>
+export interface MutateParams<DataType> {
+  data: DataType
+  options?: Options
+}
 
 export const useReapitUpdate = <ParamsType, DataType>({
   action,
@@ -51,54 +55,62 @@ export const useReapitUpdate = <ParamsType, DataType>({
   const { successMessage, errorMessage } = action
   const url = useMemo(getUrl(action, undefined, uriParams), [uriParams, action])
 
-  const { mutateAsync, error, data, isSuccess, isLoading } = useMutation<DataType, AxiosError<any>, ParamsType>(
-    [url, uriParams],
-    {
-      mutationFn: async (data: ParamsType) => {
-        const updateHeaders = await getMergedHeaders(reapitConnectBrowserSession, headers)
+  const { mutateAsync, error, data, isSuccess, isLoading } = useMutation<
+    DataType,
+    AxiosError<any>,
+    MutateParams<ParamsType>
+  >([url, uriParams], {
+    mutationFn: async (mutateParams: MutateParams<ParamsType>) => {
+      const { data, options } = mutateParams
+      const mergedHeaders = {
+        ...headers,
+        ...(options?.headers ?? {}),
+      }
+      const updateUrl = options?.uriParams ? getUrl(action, undefined, { ...uriParams, ...options.uriParams })() : url
+      const updateHeaders = await getMergedHeaders(reapitConnectBrowserSession, mergedHeaders)
 
-        if (!updateHeaders) throw new Error('Missing valid Reapit Connect Session, please try logging in again.')
+      if (!updateHeaders) throw new Error('Missing valid Reapit Connect Session, please try logging in again.')
 
-        const res = await axios<DataType>(url, {
-          method,
+      const res = await axios<DataType>(updateUrl, {
+        method,
+        headers: updateHeaders,
+        data,
+      })
+
+      if (returnType === UpdateReturnTypeEnum.RESPONSE) return res.data
+
+      if (returnType === UpdateReturnTypeEnum.LOCATION && res.headers) {
+        const headers = res.headers as AxiosResponseHeaders
+        const location = headers.get('Location')?.valueOf() as string
+
+        if (!location) throw new Error('Location was not returned by server')
+
+        const locationUrl = location.includes('.prod.paas') ? location.replace('.prod.paas', '') : location
+
+        const locationRes = await axios(locationUrl, {
+          method: 'GET',
           headers: updateHeaders,
-          data,
         })
 
-        if (returnType === UpdateReturnTypeEnum.RESPONSE) return res.data
+        return locationRes.data
+      }
 
-        if (returnType === UpdateReturnTypeEnum.LOCATION && res.headers) {
-          const headers = res.headers as AxiosResponseHeaders
-          const location = headers.get('Location')?.valueOf() as string
-
-          if (!location) throw new Error('Location was not returned by server')
-
-          const locationUrl = location.includes('.prod.paas') ? location.replace('.prod.paas', '') : location
-
-          const locationRes = await axios(locationUrl, {
-            method: 'GET',
-            headers: updateHeaders,
-          })
-
-          return locationRes.data
-        }
-
-        return
-      },
-      onSuccess: () => {
-        if (successMessage) successSnack(successMessage)
-      },
-      onError: async (error: AxiosError<any>) => {
-        const connectSession = await reapitConnectBrowserSession.connectSession()
-        const errorString = handleReapitError(error, errorMessage)
-        errorSnack(errorString, 5000)
-        logger(new Error(errorString), connectSession ?? null)
-      },
+      return true
     },
-  )
+    onSuccess: () => {
+      if (successMessage) successSnack(successMessage)
+    },
+    onError: async (error: AxiosError<any>) => {
+      const connectSession = await reapitConnectBrowserSession.connectSession()
+      const errorString = handleReapitError(error, errorMessage)
+      errorSnack(errorString, 5000)
+      logger(new Error(errorString), connectSession ?? null)
+    },
+  })
 
   const errorString = error?.message ? error.message : null
-  const sendFunc: SendFunction<ParamsType, boolean | DataType> = (params: ParamsType) => mutateAsync(params)
+  const sendFunc: SendFunction<ParamsType, DataType> = (data: ParamsType, options?: Options) =>
+    mutateAsync({ data, options })
 
   return [isLoading, data, sendFunc, isSuccess, errorString]
 }

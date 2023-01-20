@@ -1,23 +1,21 @@
-import React, { Dispatch, FC, SetStateAction, useState } from 'react'
+import React, { Dispatch, FC, SetStateAction } from 'react'
 import { PaymentModel } from '@reapit/foundations-ts-definitions'
 import { DATE_TIME_FORMAT, emailRegex } from '@reapit/utils-common'
 import { object, string } from 'yup'
 import { useForm } from 'react-hook-form'
 import dayjs from 'dayjs'
 import { yupResolver } from '@hookform/resolvers/yup'
-import {
-  BodyText,
-  Button,
-  ButtonGroup,
-  FormLayout,
-  InputError,
-  InputGroup,
-  InputWrapFull,
-  useSnack,
-} from '@reapit/elements'
+import { BodyText, Button, ButtonGroup, FormLayout, InputError, InputGroup, InputWrapFull } from '@reapit/elements'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { generateEmailPaymentRequest, generatePaymentApiKey, updatePaymentStatus } from '../../services/payment'
+import {
+  useReapitUpdate,
+  UpdateActionNames,
+  SendFunction,
+  UpdateReturnTypeEnum,
+  updateActions,
+} from '@reapit/use-reapit-data'
+import { CreateSessionRequest, PaymentEmailRequest, SessionResponse, UpdateStatusBody } from '@reapit/payments-ui'
 
 export type PaymentRequestModalProps = {
   refreshPayments?: () => void
@@ -32,19 +30,19 @@ export interface PaymentEmailRequestModel {
   paymentReason: string
   paymentAmount: number
   paymentCurrency: string
-  keyExpiresAt: string
+  sessionExpiresAt: string
   paymentId: string
   _eTag: string
 }
 
 export interface PaymentsEmailRequestForm {
   receipientEmail: string
-  keyExpiresAt: string
+  sessionExpiresAt: string
 }
 
 const validationSchema = object({
   receipientEmail: string().required('Required').matches(emailRegex, 'Must be a valid email address'),
-  keyExpiresAt: string().required('Required'),
+  sessionExpiresAt: string().required('Required'),
 })
 
 export const handlePaymentRequestSubmit =
@@ -52,70 +50,56 @@ export const handlePaymentRequestSubmit =
     selectedPayment: PaymentModel | null,
     setSelectedPayment: Dispatch<SetStateAction<PaymentModel | null>>,
     closeModal: () => void,
-    setLoading: Dispatch<SetStateAction<boolean>>,
-    errorSnack: (message: string) => void,
+    updatePayment: SendFunction<UpdateStatusBody, boolean>,
+    generateSession: SendFunction<CreateSessionRequest, boolean | SessionResponse>,
+    generatePaymentRequest: SendFunction<PaymentEmailRequest, boolean>,
     refreshPayments?: () => void,
     clientCode?: string | null,
   ) =>
   async (formValues: PaymentsEmailRequestForm) => {
-    const { keyExpiresAt, receipientEmail } = formValues
+    const { sessionExpiresAt, receipientEmail } = formValues
 
-    if (!keyExpiresAt || !clientCode || !selectedPayment) return
+    if (!sessionExpiresAt || !clientCode || !selectedPayment) return
 
-    const formattedKeyExpires = dayjs(keyExpiresAt).format(DATE_TIME_FORMAT.RFC3339)
+    const formattedSessionExpires = dayjs(sessionExpiresAt).format(DATE_TIME_FORMAT.RFC3339)
     const { id, _eTag, customer, description, amount } = selectedPayment
 
     if (!id || !customer?.name || !description || !amount || !_eTag) return
 
-    setLoading(true)
+    const sessionRes = (await generateSession({
+      clientCode,
+      sessionExpiresAt: formattedSessionExpires,
+      paymentId: id,
+    })) as SessionResponse
 
-    const apiKeyRes = await generatePaymentApiKey(
-      {
-        clientCode,
-        keyExpiresAt: formattedKeyExpires,
-        paymentId: id,
-      },
-      errorSnack,
-    )
+    if (!sessionRes) return
 
-    if (!apiKeyRes) {
-      setLoading(false)
-      return
-    }
-
-    const updateParams = { paymentId: id, clientCode, _eTag, session: apiKeyRes.apiKey }
-
-    const emailRequest = await generateEmailPaymentRequest(
+    const emailRequest = await generatePaymentRequest(
       {
         receipientEmail,
         recipientName: customer?.name,
         paymentReason: description,
         paymentAmount: amount,
         paymentCurrency: 'GBP',
-        paymentExpiry: formattedKeyExpires,
+        paymentExpiry: formattedSessionExpires,
       },
-      updateParams,
-      errorSnack,
-    )
-
-    if (!emailRequest) {
-      setLoading(false)
-      return
-    }
-
-    const paymentStatusUpdate = await updatePaymentStatus(
       {
-        status: 'awaitingPosting',
+        headers: {
+          'reapit-session': sessionRes.id,
+        },
       },
-      updateParams,
-      errorSnack,
     )
+
+    if (!emailRequest) return
+
+    const paymentStatusUpdate = await updatePayment({
+      status: 'awaitingPosting',
+    })
 
     if (paymentStatusUpdate) {
       refreshPayments && refreshPayments()
       setSelectedPayment(null)
       closeModal()
-      setLoading(false)
     }
   }
 
@@ -126,8 +110,6 @@ export const PaymentRequestModal: FC<PaymentRequestModalProps> = ({
   selectedPayment,
 }) => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const [isLoading, setLoading] = useState<boolean>(false)
-  const { error } = useSnack()
   const clientId = connectSession?.loginIdentity.clientId
 
   const {
@@ -138,10 +120,47 @@ export const PaymentRequestModal: FC<PaymentRequestModalProps> = ({
     resolver: yupResolver(validationSchema),
     defaultValues: {
       receipientEmail: selectedPayment?.customer?.email ?? '',
-      keyExpiresAt: dayjs().add(1, 'week').format(DATE_TIME_FORMAT.YYYY_MM_DD),
+      sessionExpiresAt: dayjs().add(1, 'week').format(DATE_TIME_FORMAT.YYYY_MM_DD),
     },
   })
 
+  const [generateSessionLoading, , generateSession] = useReapitUpdate<CreateSessionRequest, SessionResponse>({
+    reapitConnectBrowserSession,
+    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.paymentsSessionCreate],
+    method: 'POST',
+    returnType: UpdateReturnTypeEnum.RESPONSE,
+    headers: {
+      Authorization: connectSession?.idToken as string,
+    },
+  })
+
+  const [generatePaymentRequestLoading, , generatePaymentRequest] = useReapitUpdate<PaymentEmailRequest, boolean>({
+    reapitConnectBrowserSession,
+    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.paymentRequestCreate],
+    method: 'POST',
+    headers: {
+      Authorization: connectSession?.idToken as string,
+      'reapit-customer': clientId as string,
+    },
+    uriParams: {
+      paymentId: selectedPayment?.id,
+    },
+  })
+
+  const [updatePaymentLoading, , updatePayment] = useReapitUpdate<UpdateStatusBody, boolean>({
+    reapitConnectBrowserSession,
+    action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.privatePaymentUpdate],
+    method: 'PATCH',
+    headers: {
+      'if-match': selectedPayment?._eTag as string,
+    },
+    uriParams: {
+      paymentId: selectedPayment?.id,
+    },
+  })
+
+  const isLoading = generatePaymentRequestLoading || updatePaymentLoading || generateSessionLoading
+  console.log(isLoading, errors)
   return (
     <form
       onSubmit={handleSubmit(
@@ -149,8 +168,9 @@ export const PaymentRequestModal: FC<PaymentRequestModalProps> = ({
           selectedPayment,
           setSelectedPayment,
           closeModal,
-          setLoading,
-          error,
+          updatePayment,
+          generateSession,
+          generatePaymentRequest,
           refreshPayments,
           clientId,
         ),
@@ -168,13 +188,13 @@ export const PaymentRequestModal: FC<PaymentRequestModalProps> = ({
         </InputWrapFull>
         <InputWrapFull>
           <InputGroup
-            {...register('keyExpiresAt')}
+            {...register('sessionExpiresAt')}
             type="date"
             label="Payment Expiry Date"
             min={dayjs().format(DATE_TIME_FORMAT.YYYY_MM_DD)}
             max={dayjs().add(1, 'month').format(DATE_TIME_FORMAT.YYYY_MM_DD)}
           />
-          {errors.keyExpiresAt?.message && <InputError message={errors.keyExpiresAt.message} />}
+          {errors.sessionExpiresAt?.message && <InputError message={errors.sessionExpiresAt.message} />}
         </InputWrapFull>
       </FormLayout>
       <ButtonGroup alignment="center">

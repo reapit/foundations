@@ -55,6 +55,8 @@ export enum UpdateActionNames {
   deleteUserAuthenticator = 'deleteUserAuthenticator',
   submitPrivatePaymentReceipt = 'submitPrivatePaymentReceipt',
   privatePaymentUpdate = 'privatePaymentUpdate',
+  paymentsSessionCreate = 'paymentsSessionCreate',
+  paymentRequestCreate = 'paymentRequestCreate',
 }
 
 export type UpdateActions = { [key in UpdateActionNames]: UpdateAction }
@@ -337,5 +339,15 @@ export const updateActions = (appEnv: AppEnv): UpdateActions => ({
     path: PathNames.paymentById,
     successMessage: 'Successfully submitted payment.',
     errorMessage: 'Failed to submit payment. This error has been logged',
+  },
+  [UpdateActionNames.paymentsSessionCreate]: {
+    api: ApiNames(appEnv).payments,
+    path: PathNames.paymentsSession,
+    errorMessage: 'Failed to create payment request. This error has been logged',
+  },
+  [UpdateActionNames.paymentRequestCreate]: {
+    api: ApiNames(appEnv).payments,
+    path: PathNames.paymentRequest,
+    errorMessage: 'Failed to create payment request. This error has been logged',
   },
 })
