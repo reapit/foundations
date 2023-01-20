@@ -96,7 +96,7 @@ export const createStack = async () => {
       method: 'PATCH',
     },
     {
-      path: '/config/public/{clientCode}',
+      path: '/config/public/{paymentId}',
       method: 'GET',
     },
     {

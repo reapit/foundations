@@ -1,9 +1,3 @@
-export type OpayoKeys = {
-  integrationKey: string
-  passKey: string
-  vendorName: string
-}
-
 export type Config = {
   appEnv: 'local' | 'development' | 'production'
   sentryDsn: string

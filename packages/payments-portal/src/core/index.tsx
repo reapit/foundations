@@ -14,20 +14,10 @@ window.reapit = {
     connectClientId: '',
     connectUserPoolId: '',
     connectOAuthUrl: '',
-    configServiceUrl: '',
     platformApiUrl: '',
-    paymentApiUrl: '',
-    graphqlUri: '',
     marketplaceUrl: '',
     paymentsApiUrl: '',
-    emailApiUrl: '',
-    opayo: {
-      SBOX: {
-        integrationKey: '',
-        passKey: '',
-        vendorName: '',
-      },
-    },
+    opayoApiUrl: '',
   },
 }
 

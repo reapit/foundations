@@ -1,17 +1,16 @@
 import { PaymentModel, PropertyModel } from '@reapit/foundations-ts-definitions'
-import { SendFunction } from '@reapit/use-reapit-data'
 import { ClientConfigModel } from '../types/config'
 import { CreateTransactionModel, MerchantKey, Transaction } from '../types/opayo'
 import { PaymentEmailReceipt, UpdateStatusBody } from '../types/payment'
 
 export interface ReceiptAction {
   receiptLoading: boolean
-  receiptSubmit: SendFunction<PaymentEmailReceipt, boolean>
+  receiptSubmit: (transaction: PaymentEmailReceipt) => Promise<boolean>
 }
 
 export interface StatusAction {
   statusLoading: boolean
-  statusSubmit: SendFunction<UpdateStatusBody, boolean>
+  statusSubmit: (transaction: UpdateStatusBody) => Promise<boolean>
 }
 
 export class PaymentProvider {
