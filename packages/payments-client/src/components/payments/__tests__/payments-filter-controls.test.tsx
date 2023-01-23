@@ -1,24 +1,22 @@
-// import React from 'react'
-// import { render } from '../../../tests/react-testing'
-// import { handleFormChange, PaymentsFilterControls } from '../payments-filter-controls'
+import React from 'react'
+import { render } from '../../../tests/react-testing'
+import { handleFormChange, PaymentsFilterControls } from '../payments-filter-controls'
 
-// jest.mock('../../../../core/use-payments-state')
+describe('PaymentsFilterControls', () => {
+  it('should match a snapshot', () => {
+    const wrapper = render(<PaymentsFilterControls paymentsFilters={{}} setPaymentsFilters={jest.fn()} />)
+    expect(wrapper).toMatchSnapshot()
+  })
+})
 
-// describe('PaymentsFilterControls', () => {
-//   it('should match a snapshot', () => {
-//     const wrapper = render(<PaymentsFilterControls />)
-//     expect(wrapper).toMatchSnapshot()
-//   })
-// })
+describe('handleFormChange', () => {
+  it('should correctly handle form change', () => {
+    const setPaymentsFilters = jest.fn()
 
-// describe('handleFormChange', () => {
-//   it('should correctly handle form change', () => {
-//     const setPaymentsFilters = jest.fn()
+    const curried = handleFormChange(setPaymentsFilters)
 
-//     const curried = handleFormChange(setPaymentsFilters)
+    curried({})
 
-//     curried({})
-
-//     expect(setPaymentsFilters).toHaveBeenCalledWith({})
-//   })
-// })
+    expect(setPaymentsFilters).toHaveBeenCalledWith({})
+  })
+})

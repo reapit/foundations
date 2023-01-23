@@ -1,13 +1,12 @@
 import React from 'react'
-import { render } from '../../../../tests/react-testing'
-import { mockPaymentModel } from '../../../../tests/__mocks__/payment'
+import { render } from '../../tests/react-testing'
+import { mockPaymentModel } from '../../tests/__mocks__/payment'
 import { handleOpenModal, PaymentPageContent } from '..'
-
-jest.mock('../../../../core/use-payments-state')
+import { mockPaymentProvider } from '../../tests/__mocks__/payment-provider'
 
 describe('PaymentPageContent', () => {
   it('should match a snapshot when has a session', () => {
-    expect(render(<PaymentPageContent />)).toMatchSnapshot()
+    expect(render(<PaymentPageContent paymentProvider={mockPaymentProvider} />)).toMatchSnapshot()
   })
 })
 

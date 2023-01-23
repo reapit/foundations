@@ -86,7 +86,7 @@ describe('useReapitUpdate', () => {
     expect(mockAxios).toHaveBeenCalledTimes(1)
     expect(mockError).not.toHaveBeenCalled()
 
-    expect(result.current[1]).toEqual(undefined)
+    expect(result.current[1]).toEqual(true)
     expect(result.current[0]).toEqual(false)
     expect(result.current[3]).toEqual(true)
     expect(mockSuccess).toHaveBeenCalledWith('Your developer record has been successfully updated')

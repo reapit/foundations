@@ -1,12 +1,11 @@
 import React from 'react'
-import { render } from '../../../../tests/react-testing'
-import PaymentPage from '../payment'
+import { render } from '../../../tests/react-testing'
+import PaymentPage from '..'
 import { useLocation } from 'react-router'
 
 const session = 'sessiontoken'
 const clientCode = 'SBOX'
 
-jest.mock('../../../../core/use-payments-state')
 const mockUseLocation = useLocation as jest.Mock
 
 jest.mock('react-router', () => ({

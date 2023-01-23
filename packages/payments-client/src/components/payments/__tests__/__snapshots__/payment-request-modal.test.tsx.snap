@@ -48,7 +48,7 @@ Object {
                 id="test-static-id"
                 max="2019-11-10"
                 min="2019-10-10"
-                name="keyExpiresAt"
+                name="sessionExpiresAt"
                 type="date"
               />
               <label
@@ -127,7 +127,7 @@ Object {
               id="test-static-id"
               max="2019-11-10"
               min="2019-10-10"
-              name="keyExpiresAt"
+              name="sessionExpiresAt"
               type="date"
             />
             <label

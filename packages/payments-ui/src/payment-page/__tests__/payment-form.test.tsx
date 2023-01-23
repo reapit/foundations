@@ -1,81 +1,46 @@
 import React from 'react'
-import { usePaymentsState } from '../../../../core/use-payments-state'
-import { mockPaymentsState } from '../../../../core/__mocks__/use-payments-state'
-import { render } from '../../../../tests/react-testing'
-import { mockPaymentWithPropertyModel } from '../../../../tests/__mocks__/payment'
+import { render } from '../../tests/react-testing'
+import { mockPaymentModel } from '../../tests/__mocks__/payment'
+import { mockPaymentProvider } from '../../tests/__mocks__/payment-provider'
 import { PaymentForm } from '../payment-form'
-
-jest.mock('../../../../core/use-payments-state')
-
-const mockUsePaymentsState = usePaymentsState as jest.Mock
 
 describe('PaymentForm', () => {
   it('should match a snapshot when payment is pending', () => {
-    mockUsePaymentsState.mockReturnValueOnce({
-      ...mockPaymentsState,
-      paymentsDataState: {
-        ...mockPaymentsState.paymentsDataState,
-        paymentWithProperty: {
-          ...mockPaymentWithPropertyModel,
-          status: 'pending',
-        },
+    const paymentProvider = Object.assign(mockPaymentProvider, {
+      payment: {
+        ...mockPaymentModel,
+        status: 'pending',
       },
     })
-    expect(render(<PaymentForm />)).toMatchSnapshot()
+    expect(render(<PaymentForm paymentProvider={paymentProvider} />)).toMatchSnapshot()
   })
   it('should match a snapshot when payment is rejected', () => {
-    mockUsePaymentsState.mockReturnValueOnce({
-      ...mockPaymentsState,
-      paymentsDataState: {
-        ...mockPaymentsState.paymentsDataState,
-        paymentWithProperty: {
-          ...mockPaymentWithPropertyModel,
-          status: 'rejected',
-        },
+    const paymentProvider = Object.assign(mockPaymentProvider, {
+      payment: {
+        ...mockPaymentModel,
+        status: 'rejected',
       },
     })
-    expect(render(<PaymentForm />)).toMatchSnapshot()
+    expect(render(<PaymentForm paymentProvider={paymentProvider} />)).toMatchSnapshot()
   })
 
   it('should match a snapshot when payment is posted', () => {
-    mockUsePaymentsState.mockReturnValueOnce({
-      ...mockPaymentsState,
-      paymentsDataState: {
-        ...mockPaymentsState.paymentsDataState,
-        paymentWithProperty: {
-          ...mockPaymentWithPropertyModel,
-          status: 'posted',
-        },
+    const paymentProvider = Object.assign(mockPaymentProvider, {
+      payment: {
+        ...mockPaymentModel,
+        status: 'posted',
       },
     })
-    expect(render(<PaymentForm />)).toMatchSnapshot()
-  })
-
-  it('should match a snapshot when payment is loading', () => {
-    mockUsePaymentsState.mockReturnValueOnce({
-      ...mockPaymentsState,
-      paymentsDataState: {
-        ...mockPaymentsState.paymentsDataState,
-        paymentWithProperty: {
-          ...mockPaymentWithPropertyModel,
-          status: 'loading',
-        },
-      },
-    })
-    expect(render(<PaymentForm />)).toMatchSnapshot()
+    expect(render(<PaymentForm paymentProvider={paymentProvider} />)).toMatchSnapshot()
   })
 
   it('should match a snapshot when payment is awaitingPosting', () => {
-    mockUsePaymentsState.mockReturnValueOnce({
-      ...mockPaymentsState,
-      paymentsDataState: {
-        ...mockPaymentsState.paymentsDataState,
-        paymentWithProperty: {
-          ...mockPaymentWithPropertyModel,
-          status: 'awaitingPosting',
-        },
+    const paymentProvider = Object.assign(mockPaymentProvider, {
+      payment: {
+        ...mockPaymentModel,
+        status: 'awaitingPosting',
       },
     })
-    expect(render(<PaymentForm />)).toMatchSnapshot()
+    expect(render(<PaymentForm paymentProvider={paymentProvider} />)).toMatchSnapshot()
   })
 })

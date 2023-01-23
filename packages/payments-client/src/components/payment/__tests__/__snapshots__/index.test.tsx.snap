@@ -8,18 +8,42 @@ Object {
       <div
         class="el-snack-holder"
       />
-      <main
-        class="el-main-container"
-      />
+      <section
+        class="el-page-container"
+      >
+        <div
+          class="el-loader-container"
+        >
+          <div
+            class="el-loader"
+          >
+            <div
+              class="el-loader-moving-bar"
+            />
+          </div>
+        </div>
+      </section>
     </div>
   </body>,
   "container": <div>
     <div
       class="el-snack-holder"
     />
-    <main
-      class="el-main-container"
-    />
+    <section
+      class="el-page-container"
+    >
+      <div
+        class="el-loader-container"
+      >
+        <div
+          class="el-loader"
+        >
+          <div
+            class="el-loader-moving-bar"
+          />
+        </div>
+      </div>
+    </section>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -83,11 +107,11 @@ Object {
       <div
         class="el-snack-holder"
       />
-      <main
-        class="el-main-container"
+      <section
+        class="el-page-container"
       >
         <div
-          class="el-is-full-page el-loader-container"
+          class="el-loader-container"
         >
           <div
             class="el-loader"
@@ -97,18 +121,18 @@ Object {
             />
           </div>
         </div>
-      </main>
+      </section>
     </div>
   </body>,
   "container": <div>
     <div
       class="el-snack-holder"
     />
-    <main
-      class="el-main-container"
+    <section
+      class="el-page-container"
     >
       <div
-        class="el-is-full-page el-loader-container"
+        class="el-loader-container"
       >
         <div
           class="el-loader"
@@ -118,7 +142,7 @@ Object {
           />
         </div>
       </div>
-    </main>
+    </section>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

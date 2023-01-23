@@ -22,7 +22,7 @@ export class PaymentProvider {
   statusAction: StatusAction
   transactionSubmit: (transaction: CreateTransactionModel) => Promise<Transaction>
   refreshPayment: () => void
-  isPortal: boolean = false
+  isPortal: boolean
 
   constructor(
     config: ClientConfigModel,
@@ -33,6 +33,7 @@ export class PaymentProvider {
     statusAction: StatusAction,
     transactionSubmit: (transaction: CreateTransactionModel) => Promise<Transaction>,
     refreshPayment: () => void,
+    isPortal: boolean = false,
   ) {
     this.config = config
     this.payment = payment
@@ -42,5 +43,6 @@ export class PaymentProvider {
     this.statusAction = statusAction
     this.transactionSubmit = transactionSubmit
     this.refreshPayment = refreshPayment
+    this.isPortal = isPortal
   }
 }

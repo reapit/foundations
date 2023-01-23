@@ -15,6 +15,7 @@ import {
 } from '@reapit/payments-ui'
 import { useParams } from 'react-router-dom'
 import { useClientConfig, usePayment, useReceipt, useStatusUpdate } from './queries'
+import { useLocation } from 'react-router'
 
 export interface PaymentUriParams {
   paymentId: string
@@ -47,6 +48,7 @@ export const handleSetProvider =
         statusAction,
         transactionSubmit,
         refreshPayment,
+        true,
       )
       setPaymentProvider(paymentProvider)
     }
@@ -55,7 +57,8 @@ export const handleSetProvider =
 export const PaymentPage: FC = () => {
   const [paymentProvider, setPaymentProvider] = useState<PaymentProvider | null>(null)
   const { paymentId } = useParams<PaymentUriParams>()
-  const params = new URLSearchParams(window.location.search)
+  const location = useLocation()
+  const params = new URLSearchParams(location.search)
   const session = params.get('session')
   const clientCode = params.get('clientCode')
 

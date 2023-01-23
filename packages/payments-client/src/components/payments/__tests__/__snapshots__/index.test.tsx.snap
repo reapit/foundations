@@ -232,7 +232,7 @@ Object {
                 <input
                   class="el-input"
                   id="test-static-id"
-                  max="Invalid Date"
+                  max="2019-10-10"
                   min="2017-10-10"
                   name="createdFrom"
                   type="date"
@@ -255,7 +255,7 @@ Object {
                   class="el-input"
                   id="test-static-id"
                   max="2019-10-10"
-                  min="Invalid Date"
+                  min="2019-10-10"
                   name="createdTo"
                   type="date"
                 />
@@ -618,7 +618,7 @@ Object {
               <input
                 class="el-input"
                 id="test-static-id"
-                max="Invalid Date"
+                max="2019-10-10"
                 min="2017-10-10"
                 name="createdFrom"
                 type="date"
@@ -641,7 +641,7 @@ Object {
                 class="el-input"
                 id="test-static-id"
                 max="2019-10-10"
-                min="Invalid Date"
+                min="2019-10-10"
                 name="createdTo"
                 type="date"
               />
@@ -1061,7 +1061,7 @@ Object {
                 <input
                   class="el-input"
                   id="test-static-id"
-                  max="Invalid Date"
+                  max="2019-10-10"
                   min="2017-10-10"
                   name="createdFrom"
                   type="date"
@@ -1084,7 +1084,7 @@ Object {
                   class="el-input"
                   id="test-static-id"
                   max="2019-10-10"
-                  min="Invalid Date"
+                  min="2019-10-10"
                   name="createdTo"
                   type="date"
                 />
@@ -1740,7 +1740,7 @@ Object {
               <input
                 class="el-input"
                 id="test-static-id"
-                max="Invalid Date"
+                max="2019-10-10"
                 min="2017-10-10"
                 name="createdFrom"
                 type="date"
@@ -1763,7 +1763,7 @@ Object {
                 class="el-input"
                 id="test-static-id"
                 max="2019-10-10"
-                min="Invalid Date"
+                min="2019-10-10"
                 name="createdTo"
                 type="date"
               />
@@ -2476,7 +2476,7 @@ Object {
                 <input
                   class="el-input"
                   id="test-static-id"
-                  max="Invalid Date"
+                  max="2019-10-10"
                   min="2017-10-10"
                   name="createdFrom"
                   type="date"
@@ -2499,7 +2499,7 @@ Object {
                   class="el-input"
                   id="test-static-id"
                   max="2019-10-10"
-                  min="Invalid Date"
+                  min="2019-10-10"
                   name="createdTo"
                   type="date"
                 />
@@ -2843,7 +2843,7 @@ Object {
               <input
                 class="el-input"
                 id="test-static-id"
-                max="Invalid Date"
+                max="2019-10-10"
                 min="2017-10-10"
                 name="createdFrom"
                 type="date"
@@ -2866,7 +2866,7 @@ Object {
                 class="el-input"
                 id="test-static-id"
                 max="2019-10-10"
-                min="Invalid Date"
+                min="2019-10-10"
                 name="createdTo"
                 type="date"
               />

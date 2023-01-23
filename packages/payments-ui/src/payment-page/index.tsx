@@ -5,7 +5,7 @@ import { PaymentProvider } from '../payment-provider'
 import { Card, Col, elMb11, FlexContainer, Grid, Icon, PageContainer, Subtitle, Title } from '@reapit/elements'
 import { combineAddress } from '@reapit/utils-common'
 import { PaymentModel } from '@reapit/foundations-ts-definitions'
-import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router'
 import { PaymentsBackButton } from './__styles__'
 import { navigate } from '../utils'
 

@@ -233,48 +233,6 @@ Object {
                   </div>
                 </div>
               </div>
-              <div
-                class="el-card-list-item"
-              >
-                <div
-                  class="el-card-list-icon"
-                >
-                  <span
-                    class="el-icon"
-                  >
-                    <svg
-                      fill="none"
-                      height="1em"
-                      viewBox="0 0 20 16"
-                      width="1em"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M9.53572 8.09023C9.66502 8.20104 9.82972 8.26179 10 8.26179C10.1701 8.26179 10.3348 8.20104 10.4643 8.09023L18.7006 1.03105C18.4344 0.916573 18.1477 0.857581 17.8578 0.857422H2.14356C1.8537 0.857422 1.56686 0.916732 1.30078 1.03169L9.53572 8.09023Z"
-                        fill="#0061A8"
-                      />
-                      <path
-                        d="M11.3941 9.17449C11.0068 9.50835 10.5126 9.6922 10.0013 9.6922C9.48995 9.6922 8.99566 9.50837 8.6084 9.17449L0.252073 2.01367C0.0889672 2.31708 0.00239184 2.65571 0 3.00012V13.0001C0 13.5685 0.225763 14.1135 0.627551 14.5154C1.0295 14.9172 1.57445 15.143 2.14286 15.143H17.8571C18.4256 15.143 18.9705 14.9172 19.3724 14.5154C19.7742 14.1135 20 13.5685 20 13.0001V3.00012C19.9976 2.65573 19.911 2.3171 19.7479 2.01367L11.3941 9.17449Z"
-                        fill="#23A4DE"
-                      />
-                    </svg>
-                  </span>
-                </div>
-                <div
-                  class="el-card-list-item-text-wrap"
-                >
-                  <div
-                    class="el-card-list-item-text-primary"
-                  >
-                    Request Payment by Email
-                  </div>
-                  <div
-                    class="el-card-list-item-text-secondary"
-                  >
-                    PAY20000001
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
           <div
@@ -2460,48 +2418,6 @@ Object {
                   class="el-card-list-item-text-primary"
                 >
                   Payment Ref
-                </div>
-                <div
-                  class="el-card-list-item-text-secondary"
-                >
-                  PAY20000001
-                </div>
-              </div>
-            </div>
-            <div
-              class="el-card-list-item"
-            >
-              <div
-                class="el-card-list-icon"
-              >
-                <span
-                  class="el-icon"
-                >
-                  <svg
-                    fill="none"
-                    height="1em"
-                    viewBox="0 0 20 16"
-                    width="1em"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9.53572 8.09023C9.66502 8.20104 9.82972 8.26179 10 8.26179C10.1701 8.26179 10.3348 8.20104 10.4643 8.09023L18.7006 1.03105C18.4344 0.916573 18.1477 0.857581 17.8578 0.857422H2.14356C1.8537 0.857422 1.56686 0.916732 1.30078 1.03169L9.53572 8.09023Z"
-                      fill="#0061A8"
-                    />
-                    <path
-                      d="M11.3941 9.17449C11.0068 9.50835 10.5126 9.6922 10.0013 9.6922C9.48995 9.6922 8.99566 9.50837 8.6084 9.17449L0.252073 2.01367C0.0889672 2.31708 0.00239184 2.65571 0 3.00012V13.0001C0 13.5685 0.225763 14.1135 0.627551 14.5154C1.0295 14.9172 1.57445 15.143 2.14286 15.143H17.8571C18.4256 15.143 18.9705 14.9172 19.3724 14.5154C19.7742 14.1135 20 13.5685 20 13.0001V3.00012C19.9976 2.65573 19.911 2.3171 19.7479 2.01367L11.3941 9.17449Z"
-                      fill="#23A4DE"
-                    />
-                  </svg>
-                </span>
-              </div>
-              <div
-                class="el-card-list-item-text-wrap"
-              >
-                <div
-                  class="el-card-list-item-text-primary"
-                >
-                  Request Payment by Email
                 </div>
                 <div
                   class="el-card-list-item-text-secondary"

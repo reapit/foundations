@@ -160,7 +160,7 @@ export const PaymentRequestModal: FC<PaymentRequestModalProps> = ({
   })
 
   const isLoading = generatePaymentRequestLoading || updatePaymentLoading || generateSessionLoading
-  console.log(isLoading, errors)
+
   return (
     <form
       onSubmit={handleSubmit(
