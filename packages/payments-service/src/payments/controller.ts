@@ -1,6 +1,7 @@
 import { Headers, Controller, Get, Body, UseGuards, Patch, Param } from '@nestjs/common'
 import { SessionGuard } from '../session/session-guard'
-import { PaymentsDto, PaymentsHeaders } from './dto'
+import { PaymentWithPropertyModel } from '../types/payment'
+import { PaymentsDto, PaymentsHeaders, PaymentsParams } from './dto'
 import { PaymentsProvider } from './provider'
 
 @Controller('payments')
@@ -9,16 +10,19 @@ export class PaymentsController {
   constructor(private readonly paymentsProvider: PaymentsProvider) {}
 
   @Get('/:paymentId')
-  async getPayment(@Headers() paymentsHeaders: PaymentsHeaders, @Param() paymentId: string): Promise<void> {
-    this.paymentsProvider.getPayment(paymentsHeaders, paymentId)
+  async getPayment(
+    @Headers() paymentsHeaders: PaymentsHeaders,
+    @Param() { paymentId }: PaymentsParams,
+  ): Promise<PaymentWithPropertyModel> {
+    return await this.paymentsProvider.getPayment(paymentsHeaders, paymentId)
   }
 
   @Patch('/:paymentId')
   async patchPayment(
     @Headers() paymentsHeaders: PaymentsHeaders,
     @Body() paymentPatch: PaymentsDto,
-    @Param() paymentId: string,
-  ): Promise<void> {
-    this.paymentsProvider.patchPayment(paymentsHeaders, paymentPatch, paymentId)
+    @Param() { paymentId }: PaymentsParams,
+  ): Promise<Object> {
+    return await this.paymentsProvider.patchPayment(paymentsHeaders, paymentPatch, paymentId)
   }
 }

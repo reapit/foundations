@@ -3,6 +3,7 @@ import { useQuery, useMutation } from '@tanstack/react-query'
 import { useSnack } from '@reapit/elements'
 import axios, { AxiosError } from 'axios'
 import { ClientConfigModel, PaymentEmailReceipt, PaymentWithPropertyModel, UpdateStatusBody } from '@reapit/payments-ui'
+import { PaymentModel } from '@reapit/foundations-ts-definitions'
 
 export const useClientConfig = (session: string | null, clientCode: string | null, paymentId?: string) => {
   const { error } = useSnack()
@@ -44,6 +45,7 @@ export const usePayment = (session: string | null, clientCode: string | null, pa
         headers: {
           'reapit-session': session as string,
           'reapit-customer': clientCode as string,
+          'api-version': 'latest',
         },
       })
 
@@ -95,12 +97,15 @@ export const useReceipt = (session: string | null, clientCode: string | null, pa
   }
 }
 
-export const useStatusUpdate = (session: string | null, clientCode: string | null, paymentId?: string) => {
+export const useStatusUpdate = (session: string | null, clientCode: string | null, payment: PaymentModel | null) => {
   const { error } = useSnack()
+
+  const paymentId = payment?.id
+  const eTag = payment?._eTag
 
   const url = `${window.reapit.config.paymentsApiUrl}/payments/${paymentId}`
 
-  const { mutateAsync, isLoading } = useMutation([url, clientCode, session, paymentId], {
+  const { mutateAsync, isLoading } = useMutation([url, clientCode, session, payment], {
     mutationFn: async (receipt: UpdateStatusBody) => {
       if (!clientCode || !session || !paymentId) throw new Error('No client config available')
 
@@ -108,6 +113,8 @@ export const useStatusUpdate = (session: string | null, clientCode: string | nul
         headers: {
           'reapit-session': session as string,
           'reapit-customer': clientCode as string,
+          'If-Match': eTag as string,
+          'api-version': 'latest',
         },
       })
 

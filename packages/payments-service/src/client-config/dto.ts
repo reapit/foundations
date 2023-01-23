@@ -32,3 +32,16 @@ export class ClientConfigParams {
   @IsNotEmpty()
   clientCode: string
 }
+
+export class ClientConfigPublicHeaders {
+  @IsString()
+  @IsNotEmpty()
+  'reapit-customer': string
+  'reapit-session': string
+}
+
+export class ClientConfigPublicParams {
+  @IsString()
+  @IsNotEmpty()
+  paymentId: string
+}

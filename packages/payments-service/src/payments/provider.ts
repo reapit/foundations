@@ -19,7 +19,7 @@ export class PaymentsProvider {
       headers: {
         Authorization: `Bearer ${accessToken}`,
         'reapit-customer': clientCode,
-        'api-version': apiVersion,
+        'api-version': apiVersion ?? 'latest',
       },
     })
 
@@ -45,17 +45,19 @@ export class PaymentsProvider {
         `Property not returned by platform: ${property.status} ${stringifyError(property.data)}`,
       )
 
-    return {
+    const paymentWithProperty: PaymentWithPropertyModel = {
       ...payment.data,
       property: property.data,
     }
+
+    return paymentWithProperty
   }
 
-  async patchPayment(paymentsHeaders: PaymentsHeaders, paymentPatch: PaymentsDto, paymentId: string): Promise<string> {
+  async patchPayment(paymentsHeaders: PaymentsHeaders, paymentPatch: PaymentsDto, paymentId: string): Promise<Object> {
     const accessToken = await reapitConnectSession.connectAccessToken()
     const clientCode = paymentsHeaders['reapit-customer']
     const apiVersion = paymentsHeaders['api-version']
-    const eTag = paymentsHeaders['If-Match']
+    const eTag = paymentsHeaders['if-match']
 
     if (!accessToken) throw new BadRequestException('No access token returned from Reapit Connect')
     if (!eTag) throw new BadRequestException('No etag supplied in request')
@@ -70,7 +72,10 @@ export class PaymentsProvider {
     })
 
     if (payment.status === 204) {
-      return payment.data
+      return {
+        status: payment.status,
+        message: 'Payment updated successfully',
+      }
     }
 
     throw new BadRequestException(`Payment not updated by platform: ${payment.status} ${stringifyError(payment.data)}`)

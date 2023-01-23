@@ -1,6 +1,6 @@
-import { Controller, UseGuards, Get, Param } from '@nestjs/common'
+import { Controller, UseGuards, Get, Headers } from '@nestjs/common'
 import { SessionGuard } from '../session/session-guard'
-import { ClientConfigParams } from './dto'
+import { ClientConfigPublicHeaders } from './dto'
 import { ClientConfigModel } from './model'
 import { ClientConfigProvider } from './provider'
 
@@ -9,8 +9,9 @@ import { ClientConfigProvider } from './provider'
 export class ClientConfigPublicController {
   constructor(private readonly clientConfigProvider: ClientConfigProvider) {}
 
-  @Get('/:clientCode')
-  async getConfig(@Param() { clientCode }: ClientConfigParams): Promise<ClientConfigModel> {
+  @Get('/:paymentId')
+  async getConfig(@Headers() headers: ClientConfigPublicHeaders): Promise<ClientConfigModel> {
+    const clientCode = headers['reapit-customer']
     return this.clientConfigProvider.get(clientCode)
   }
 }

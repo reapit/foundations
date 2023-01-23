@@ -71,7 +71,7 @@ export const PaymentPage: FC = () => {
 
   const receiptUpdate = useReceipt(session, clientCode, paymentId)
 
-  const statusUpdate = useStatusUpdate(session, clientCode, paymentId)
+  const statusUpdate = useStatusUpdate(session, clientCode, payment)
 
   useEffect(
     handleSetProvider(

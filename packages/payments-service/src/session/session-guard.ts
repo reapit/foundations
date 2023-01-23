@@ -17,8 +17,8 @@ export class SessionGuard implements CanActivate {
     let isValidSession: boolean = false
 
     try {
-      const { sessionIsValid } = await this.datamapper.get(Object.assign(new SessionModel(), { id: session }))
-      isValidSession = sessionIsValid(clientCode, paymentId)
+      const sessionModel = await this.datamapper.get(Object.assign(new SessionModel(), { id: session }))
+      isValidSession = sessionModel.sessionIsValid(clientCode, paymentId)
     } catch (err) {
       throw new BadRequestException('No valid session found for this payment')
     }

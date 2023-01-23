@@ -1,4 +1,4 @@
-service: cloud-payments-client
+service: cloud-payments-portal
 plugins:
   - serverless-single-page-app-plugin
   - serverless-deployment-bucket
@@ -6,7 +6,7 @@ plugins:
   - serverless-s3-deploy
 
 custom:
-  s3WebAppBucket: cloud-payments-client-${opt:stage, 'dev'}
+  s3WebAppBucket: cloud-payments-portal-${opt:stage, 'dev'}
   s3CloudFormBucket: cloud-deployment-cloudform-templates-${opt:stage, 'dev'}
   remover:
     buckets:
@@ -48,17 +48,11 @@ resources:
           Statement:
             - Sid: PublicReadGetObject
               Effect: Allow
-              Principal: "*"
+              Principal: '*'
               Action:
-              - s3:GetObject
+                - s3:GetObject
               Resource:
-                Fn::Join: [
-                  "", [
-                    "arn:aws:s3:::",
-                    { "Ref": "WebAppS3Bucket" },
-                    "/*"
-                  ]
-                ]
+                Fn::Join: ['', ['arn:aws:s3:::', { 'Ref': 'WebAppS3Bucket' }, '/*']]
 
     ## Specifying the CloudFront Distribution to server your Web Application
     WebAppCloudFrontDistribution:
@@ -67,12 +61,7 @@ resources:
         DistributionConfig:
           Origins:
             - DomainName:
-                Fn::Join: [
-                  "", [
-                    { "Ref": "WebAppS3Bucket" },
-                    ".s3.amazonaws.com"
-                  ]
-                ]
+                Fn::Join: ['', [{ 'Ref': 'WebAppS3Bucket' }, '.s3.amazonaws.com']]
               Id: S3-${self:custom.s3WebAppBucket}
               CustomOriginConfig:
                 HTTPPort: 80
@@ -113,4 +102,4 @@ resources:
   Outputs:
     WebAppCloudFrontDistributionOutput:
       Value:
-        'Fn::GetAtt': [ WebAppCloudFrontDistribution, DomainName ]
+        'Fn::GetAtt': [WebAppCloudFrontDistribution, DomainName]
