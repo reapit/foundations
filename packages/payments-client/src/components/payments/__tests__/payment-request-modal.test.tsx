@@ -24,6 +24,7 @@ describe('PaymentRequestModal', () => {
 
 describe('handlePaymentRequestSubmit', () => {
   it('should correctly call email service', async () => {
+    const selectedPayment = mockPaymentModel
     const setSelectedPayment = jest.fn()
     const closeModal = jest.fn()
     const updatePayment = jest.fn(() => Promise.resolve(true))
@@ -32,8 +33,8 @@ describe('handlePaymentRequestSubmit', () => {
     const refreshPayments = jest.fn()
     const clientCode = 'MOCK_CODE'
 
-    const curried = handlePaymentRequestSubmit(
-      mockPaymentModel,
+    const curried = handlePaymentRequestSubmit({
+      selectedPayment,
       setSelectedPayment,
       closeModal,
       updatePayment,
@@ -41,7 +42,7 @@ describe('handlePaymentRequestSubmit', () => {
       generatePaymentRequest,
       refreshPayments,
       clientCode,
-    )
+    })
 
     await curried({ sessionExpiresAt: '2030-01-01' } as PaymentEmailRequestModel)
 

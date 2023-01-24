@@ -57,18 +57,3 @@ export const mockPaymentWithPropertyModel: PaymentWithPropertyModel = {
     ...mockPropertyModel,
   },
 }
-
-// export const mockCardDetails: CardDetails = {
-//   customerFirstName: 'first name',
-//   customerLastName: 'last name',
-//   address1: 'MOCK_ADDESS',
-//   city: 'MOCK_CITY',
-//   postalCode: 'MOCK_PC',
-//   country: 'GB',
-//   cardholderName: 'MOCK_NAME',
-//   cardNumber: '0000000000000000',
-//   expiryDate: '1225',
-//   securityCode: '123',
-//   cardIdentifier: 'FOO',
-//   email: 'mock@example.com',
-// }

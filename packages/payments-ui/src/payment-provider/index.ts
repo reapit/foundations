@@ -13,6 +13,18 @@ export interface StatusAction {
   statusSubmit: (transaction: UpdateStatusBody) => Promise<boolean>
 }
 
+export interface PaymentProviderInitialisers {
+  config: ClientConfigModel
+  payment: PaymentModel
+  property: PropertyModel | null
+  merchantKey: MerchantKey
+  receiptAction: ReceiptAction
+  statusAction: StatusAction
+  transactionSubmit: (transaction: CreateTransactionModel) => Promise<Transaction>
+  refreshPayment: () => void
+  isPortal: boolean
+}
+
 export class PaymentProvider {
   config: ClientConfigModel
   payment: PaymentModel
@@ -24,17 +36,17 @@ export class PaymentProvider {
   refreshPayment: () => void
   isPortal: boolean
 
-  constructor(
-    config: ClientConfigModel,
-    payment: PaymentModel,
-    property: PropertyModel | null,
-    merchantKey: MerchantKey,
-    receiptAction: ReceiptAction,
-    statusAction: StatusAction,
-    transactionSubmit: (transaction: CreateTransactionModel) => Promise<Transaction>,
-    refreshPayment: () => void,
-    isPortal: boolean = false,
-  ) {
+  constructor({
+    config,
+    payment,
+    property,
+    merchantKey,
+    receiptAction,
+    statusAction,
+    transactionSubmit,
+    refreshPayment,
+    isPortal,
+  }) {
     this.config = config
     this.payment = payment
     this.property = property

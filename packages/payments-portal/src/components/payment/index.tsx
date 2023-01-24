@@ -1,15 +1,12 @@
 import React, { useState, useEffect, FC, Dispatch, SetStateAction } from 'react'
-import { PaymentModel, PropertyModel } from '@reapit/foundations-ts-definitions'
+import { PaymentModel } from '@reapit/foundations-ts-definitions'
 import { Loader, PageContainer, PersistentNotification } from '@reapit/elements'
 import {
   ClientConfigModel,
-  CreateTransactionModel,
   MerchantKey,
   PaymentPageContent,
   PaymentProvider,
-  ReceiptAction,
-  StatusAction,
-  Transaction,
+  PaymentProviderInitialisers,
   useMerchantKey,
   useTransaction,
 } from '@reapit/payments-ui'
@@ -21,35 +18,28 @@ export interface PaymentUriParams {
   paymentId: string
 }
 
-export const handleSetProvider =
-  (
-    paymentProvider: PaymentProvider | null,
-    setPaymentProvider: Dispatch<SetStateAction<PaymentProvider | null>>,
-    config: ClientConfigModel | null,
-    paymentModel: PaymentModel | null,
-    propertyModel: PropertyModel | null,
-    merchantKey: MerchantKey | null,
-    receiptAction: ReceiptAction,
-    statusAction: StatusAction,
-    transactionSubmit: (transaction: CreateTransactionModel) => Promise<Transaction>,
-    refreshPayment: () => void,
-  ) =>
-  () => {
-    const paymentHasProperty = paymentModel?.propertyId
-    const propertyFetched = !paymentHasProperty || (paymentHasProperty && propertyModel)
+export interface SetProviderParams extends Omit<PaymentProviderInitialisers, 'config' | 'payment' | 'merchantKey'> {
+  paymentProvider: PaymentProvider | null
+  setPaymentProvider: Dispatch<SetStateAction<PaymentProvider | null>>
+  config: ClientConfigModel | null
+  payment: PaymentModel | null
+  merchantKey: MerchantKey | null
+}
 
-    if (config && paymentModel && propertyFetched && merchantKey && !paymentProvider) {
-      const paymentProvider = new PaymentProvider(
+export const handleSetProvider =
+  ({ config, payment, property, merchantKey, paymentProvider, setPaymentProvider, ...rest }: SetProviderParams) =>
+  () => {
+    const paymentHasProperty = payment?.propertyId
+    const propertyFetched = !paymentHasProperty || (paymentHasProperty && property)
+
+    if (config && payment && propertyFetched && merchantKey && !paymentProvider) {
+      const paymentProvider = new PaymentProvider({
         config,
-        paymentModel,
-        propertyModel,
+        payment,
+        property,
         merchantKey,
-        receiptAction,
-        statusAction,
-        transactionSubmit,
-        refreshPayment,
-        true,
-      )
+        ...rest,
+      })
       setPaymentProvider(paymentProvider)
     }
   }
@@ -72,31 +62,32 @@ export const PaymentPage: FC = () => {
 
   const property = payment?.property ?? null
 
-  const receiptUpdate = useReceipt(session, clientCode, paymentId)
+  const receiptAction = useReceipt(session, clientCode, paymentId)
 
-  const statusUpdate = useStatusUpdate(session, clientCode, payment)
+  const statusAction = useStatusUpdate(session, clientCode, payment)
 
   useEffect(
-    handleSetProvider(
+    handleSetProvider({
       paymentProvider,
       setPaymentProvider,
       config,
       payment,
       property,
       merchantKey,
-      receiptUpdate,
-      statusUpdate,
+      receiptAction,
+      statusAction,
       transactionSubmit,
       refreshPayment,
-    ),
+      isPortal: true,
+    }),
     [
       paymentProvider,
       config,
       payment,
       property,
       merchantKey,
-      receiptUpdate,
-      statusUpdate,
+      receiptAction,
+      statusAction,
       transactionSubmit,
       refreshPayment,
     ],

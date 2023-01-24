@@ -5,12 +5,11 @@ import { PaymentModel, PropertyModel } from '@reapit/foundations-ts-definitions'
 import { Loader, PageContainer, PersistentNotification } from '@reapit/elements'
 import {
   ClientConfigModel,
-  CreateTransactionModel,
   MerchantKey,
   PaymentEmailReceipt,
   PaymentPageContent,
   PaymentProvider,
-  Transaction,
+  PaymentProviderInitialisers,
   UpdateStatusBody,
   useMerchantKey,
   useTransaction,
@@ -22,7 +21,6 @@ import {
   useReapitUpdate,
   updateActions,
   UpdateActionNames,
-  ReapitUpdateState,
 } from '@reapit/use-reapit-data'
 import { useParams } from 'react-router-dom'
 
@@ -30,47 +28,28 @@ export interface PaymentUriParams {
   paymentId: string
 }
 
+export interface SetProviderParams extends Omit<PaymentProviderInitialisers, 'config' | 'payment' | 'merchantKey'> {
+  paymentProvider: PaymentProvider | null
+  setPaymentProvider: Dispatch<SetStateAction<PaymentProvider | null>>
+  config: ClientConfigModel | null
+  payment: PaymentModel | null
+  merchantKey: MerchantKey | null
+}
+
 export const handleSetProvider =
-  (
-    paymentProvider: PaymentProvider | null,
-    setPaymentProvider: Dispatch<SetStateAction<PaymentProvider | null>>,
-    config: ClientConfigModel | null,
-    paymentModel: PaymentModel | null,
-    propertyModel: PropertyModel | null,
-    merchantKey: MerchantKey | null,
-    receiptUpdate: ReapitUpdateState<PaymentEmailReceipt, boolean>,
-    statusUpdate: ReapitUpdateState<UpdateStatusBody, boolean>,
-    transactionSubmit: (transaction: CreateTransactionModel) => Promise<Transaction>,
-    refreshPayment: () => void,
-  ) =>
+  ({ config, payment, property, merchantKey, paymentProvider, setPaymentProvider, ...rest }: SetProviderParams) =>
   () => {
-    const paymentHasProperty = paymentModel?.propertyId
-    const propertyFetched = !paymentHasProperty || (paymentHasProperty && propertyModel)
+    const paymentHasProperty = payment?.propertyId
+    const propertyFetched = !paymentHasProperty || (paymentHasProperty && property)
 
-    if (config && paymentModel && propertyFetched && merchantKey && !paymentProvider) {
-      const [receiptLoading, , receiptSubmit] = receiptUpdate
-      const [statusLoading, , statusSubmit] = statusUpdate
-
-      const receiptAction = {
-        receiptLoading,
-        receiptSubmit,
-      }
-
-      const statusAction = {
-        statusLoading,
-        statusSubmit,
-      }
-
-      const paymentProvider = new PaymentProvider(
+    if (config && payment && propertyFetched && merchantKey && !paymentProvider) {
+      const paymentProvider = new PaymentProvider({
         config,
-        paymentModel,
-        propertyModel,
+        payment,
+        property,
         merchantKey,
-        receiptAction,
-        statusAction,
-        transactionSubmit,
-        refreshPayment,
-      )
+        ...rest,
+      })
       setPaymentProvider(paymentProvider)
     }
   }
@@ -115,7 +94,7 @@ export const PaymentPage: FC = () => {
     fetchWhenTrue: [propertyId],
   })
 
-  const receiptUpdate = useReapitUpdate<PaymentEmailReceipt, boolean>({
+  const [receiptLoading, , receiptSubmit] = useReapitUpdate<PaymentEmailReceipt, boolean>({
     reapitConnectBrowserSession,
     action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.submitPrivatePaymentReceipt],
     method: 'POST',
@@ -128,7 +107,7 @@ export const PaymentPage: FC = () => {
     },
   })
 
-  const statusUpdate = useReapitUpdate<UpdateStatusBody, boolean>({
+  const [statusLoading, , statusSubmit] = useReapitUpdate<UpdateStatusBody, boolean>({
     reapitConnectBrowserSession,
     action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.privatePaymentUpdate],
     method: 'PATCH',
@@ -144,26 +123,33 @@ export const PaymentPage: FC = () => {
   const { transactionSubmit } = useTransaction(config)
 
   useEffect(
-    handleSetProvider(
+    handleSetProvider({
       paymentProvider,
       setPaymentProvider,
       config,
       payment,
       property,
       merchantKey,
-      receiptUpdate,
-      statusUpdate,
+      receiptAction: {
+        receiptLoading,
+        receiptSubmit,
+      },
+      statusAction: {
+        statusLoading,
+        statusSubmit,
+      },
       transactionSubmit,
       refreshPayment,
-    ),
+      isPortal: true,
+    }),
     [
       paymentProvider,
       config,
       payment,
       property,
       merchantKey,
-      receiptUpdate,
-      statusUpdate,
+      receiptSubmit,
+      statusSubmit,
       transactionSubmit,
       refreshPayment,
     ],

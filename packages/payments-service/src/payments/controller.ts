@@ -14,7 +14,7 @@ export class PaymentsController {
     @Headers() paymentsHeaders: PaymentsHeaders,
     @Param() { paymentId }: PaymentsParams,
   ): Promise<PaymentWithPropertyModel> {
-    return await this.paymentsProvider.getPayment(paymentsHeaders, paymentId)
+    return this.paymentsProvider.getPayment(paymentsHeaders, paymentId)
   }
 
   @Patch('/:paymentId')
@@ -23,6 +23,6 @@ export class PaymentsController {
     @Body() paymentPatch: PaymentsDto,
     @Param() { paymentId }: PaymentsParams,
   ): Promise<Object> {
-    return await this.paymentsProvider.patchPayment(paymentsHeaders, paymentPatch, paymentId)
+    return this.paymentsProvider.patchPayment(paymentsHeaders, paymentPatch, paymentId)
   }
 }

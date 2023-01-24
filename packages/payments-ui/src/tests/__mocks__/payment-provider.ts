@@ -5,19 +5,20 @@ import { mockMerchantKey } from './opayo'
 import { mockPaymentModel } from './payment'
 import { mockPropertyModel } from './property'
 
-export const mockPaymentProvider = new PaymentProvider(
-  mockConfigModel,
-  mockPaymentModel,
-  mockPropertyModel,
-  mockMerchantKey,
-  {
+export const mockPaymentProvider = new PaymentProvider({
+  config: mockConfigModel,
+  payment: mockPaymentModel,
+  property: mockPropertyModel,
+  merchantKey: mockMerchantKey,
+  receiptAction: {
     receiptLoading: false,
     receiptSubmit: jest.fn(() => Promise.resolve(true)),
   },
-  {
+  statusAction: {
     statusLoading: false,
     statusSubmit: jest.fn(() => Promise.resolve(true)),
   },
-  jest.fn(() => Promise.resolve({} as unknown as Transaction)),
-  jest.fn(),
-)
+  transactionSubmit: jest.fn(() => Promise.resolve({} as unknown as Transaction)),
+  refreshPayment: jest.fn(),
+  isPortal: false,
+})

@@ -40,22 +40,33 @@ export interface PaymentsEmailRequestForm {
   sessionExpiresAt: string
 }
 
+export interface PaymentsRequestSubmitParams {
+  selectedPayment: PaymentModel | null
+  setSelectedPayment: Dispatch<SetStateAction<PaymentModel | null>>
+  closeModal: () => void
+  updatePayment: SendFunction<UpdateStatusBody, boolean>
+  generateSession: SendFunction<CreateSessionRequest, boolean | SessionResponse>
+  generatePaymentRequest: SendFunction<PaymentEmailRequest, boolean>
+  refreshPayments?: () => void
+  clientCode?: string | null
+}
+
 const validationSchema = object({
   receipientEmail: string().required('Required').matches(emailRegex, 'Must be a valid email address'),
   sessionExpiresAt: string().required('Required'),
 })
 
 export const handlePaymentRequestSubmit =
-  (
-    selectedPayment: PaymentModel | null,
-    setSelectedPayment: Dispatch<SetStateAction<PaymentModel | null>>,
-    closeModal: () => void,
-    updatePayment: SendFunction<UpdateStatusBody, boolean>,
-    generateSession: SendFunction<CreateSessionRequest, boolean | SessionResponse>,
-    generatePaymentRequest: SendFunction<PaymentEmailRequest, boolean>,
-    refreshPayments?: () => void,
-    clientCode?: string | null,
-  ) =>
+  ({
+    selectedPayment,
+    setSelectedPayment,
+    closeModal,
+    updatePayment,
+    generateSession,
+    generatePaymentRequest,
+    refreshPayments,
+    clientCode,
+  }: PaymentsRequestSubmitParams) =>
   async (formValues: PaymentsEmailRequestForm) => {
     const { sessionExpiresAt, receipientEmail } = formValues
 
@@ -110,7 +121,7 @@ export const PaymentRequestModal: FC<PaymentRequestModalProps> = ({
   selectedPayment,
 }) => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const clientId = connectSession?.loginIdentity.clientId
+  const clientCode = connectSession?.loginIdentity.clientId
 
   const {
     register,
@@ -140,7 +151,7 @@ export const PaymentRequestModal: FC<PaymentRequestModalProps> = ({
     method: 'POST',
     headers: {
       Authorization: connectSession?.idToken as string,
-      'reapit-customer': clientId as string,
+      'reapit-customer': clientCode as string,
     },
     uriParams: {
       paymentId: selectedPayment?.id,
@@ -164,7 +175,7 @@ export const PaymentRequestModal: FC<PaymentRequestModalProps> = ({
   return (
     <form
       onSubmit={handleSubmit(
-        handlePaymentRequestSubmit(
+        handlePaymentRequestSubmit({
           selectedPayment,
           setSelectedPayment,
           closeModal,
@@ -172,8 +183,8 @@ export const PaymentRequestModal: FC<PaymentRequestModalProps> = ({
           generateSession,
           generatePaymentRequest,
           refreshPayments,
-          clientId,
-        ),
+          clientCode,
+        }),
       )}
     >
       <BodyText hasGreyText>
