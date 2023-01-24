@@ -1,4 +1,4 @@
-import React, { FC, SetStateAction, Dispatch } from 'react'
+import React, { FC, SetStateAction, Dispatch, useMemo } from 'react'
 import {
   elBorderRadius,
   elFadeIn,
@@ -23,11 +23,28 @@ import { useForm } from 'react-hook-form'
 import { useLocation } from 'react-router'
 import Routes from '../../../constants/routes'
 import dayjs from 'dayjs'
+import { MultiSelectOption } from '@reapit/elements'
 
 export const handleFormChange =
   (setAnalyticsFilterState: Dispatch<SetStateAction<AnalyticsFilterState>>) => (values: AnalyticsFilterState) => {
     setAnalyticsFilterState(values)
   }
+
+export const handleInstallationsToOptions = (installations?: InstallationModel[]) => () => {
+  if (!installations) return []
+
+  const customers = installations.map(({ customerName, client, officeGroupName }) => {
+    const offGroupName = officeGroupName ? ` - ${officeGroupName} ` : ''
+    return JSON.stringify({
+      name: `${customerName} ${offGroupName} (${client})`,
+      value: client ?? '',
+    })
+  })
+
+  const options: MultiSelectOption[] = [...new Set(customers)].map((customer) => JSON.parse(customer))
+
+  return options
+}
 
 export const Controls: FC = () => {
   const location = useLocation()
@@ -53,6 +70,8 @@ export const Controls: FC = () => {
     mode: 'onChange',
     defaultValues: analyticsFilterState,
   })
+
+  const options = useMemo(handleInstallationsToOptions(installations?.data), [installations])
 
   return (
     <div className={cx(isCalcPage && visiblyHidden, elFadeIn)}>
@@ -124,9 +143,9 @@ export const Controls: FC = () => {
                 <option key="default-option" value="">
                   None selected
                 </option>
-                {installations?.data?.map(({ id, client, customerName }: InstallationModel) => (
-                  <option key={id} value={client}>
-                    {customerName} ({client})
+                {options.map(({ name, value }) => (
+                  <option key={value} value={value}>
+                    {name}
                   </option>
                 ))}
               </Select>

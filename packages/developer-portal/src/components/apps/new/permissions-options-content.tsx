@@ -43,8 +43,9 @@ export const handleSetOptions =
       const options = permissions.filter((permission) => {
         const isSelectedPermission = permission.name && scopes.includes(permission.name)
         const isSearchedPermission = search && permission.description?.toLowerCase().includes(search.toLowerCase())
+        const isNotPaymentScope = !permission.name?.includes('payment')
 
-        return isSelectedPermission || isSearchedPermission
+        return (isSelectedPermission || isSearchedPermission) && isNotPaymentScope
       })
 
       const uniqueOptions: ScopeModel[] = [...new Set([...options.map((option) => JSON.stringify(option))])].map(
