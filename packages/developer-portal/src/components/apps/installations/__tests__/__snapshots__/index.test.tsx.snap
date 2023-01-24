@@ -184,7 +184,7 @@ Object {
                 data-narrow-label="Installed By"
               >
                 <a
-                  href="mailto:example@mail.com?subject=Your%20recent%20installation%20of%20will-test-dev-co-voracious-person%20in%20the%20Reapit%20AppMarket"
+                  href="mailto:example@mail.com?subject=Your%20recent%20installation%20of%20MOCK_APP_NAME%20in%20the%20Reapit%20AppMarket"
                   rel="noreferrer"
                   target="_blank"
                 >
@@ -349,7 +349,7 @@ Object {
                 data-narrow-label="Installed By"
               >
                 <a
-                  href="mailto:example@mail.com?subject=Your%20recent%20installation%20of%20will-test-dev-co-voracious-person%20in%20the%20Reapit%20AppMarket"
+                  href="mailto:example@mail.com?subject=Your%20recent%20installation%20of%20MOCK_APP_NAME_TWO%20in%20the%20Reapit%20AppMarket"
                   rel="noreferrer"
                   target="_blank"
                 >
@@ -637,7 +637,7 @@ Object {
               data-narrow-label="Installed By"
             >
               <a
-                href="mailto:example@mail.com?subject=Your%20recent%20installation%20of%20will-test-dev-co-voracious-person%20in%20the%20Reapit%20AppMarket"
+                href="mailto:example@mail.com?subject=Your%20recent%20installation%20of%20MOCK_APP_NAME%20in%20the%20Reapit%20AppMarket"
                 rel="noreferrer"
                 target="_blank"
               >
@@ -802,7 +802,7 @@ Object {
               data-narrow-label="Installed By"
             >
               <a
-                href="mailto:example@mail.com?subject=Your%20recent%20installation%20of%20will-test-dev-co-voracious-person%20in%20the%20Reapit%20AppMarket"
+                href="mailto:example@mail.com?subject=Your%20recent%20installation%20of%20MOCK_APP_NAME_TWO%20in%20the%20Reapit%20AppMarket"
                 rel="noreferrer"
                 target="_blank"
               >
@@ -1509,7 +1509,7 @@ Object {
                 data-narrow-label="Installed By"
               >
                 <a
-                  href="mailto:example@mail.com?subject=Your%20recent%20installation%20of%20will-test-dev-co-voracious-person%20in%20the%20Reapit%20AppMarket"
+                  href="mailto:example@mail.com?subject=Your%20recent%20installation%20of%20MOCK_APP_NAME%20in%20the%20Reapit%20AppMarket"
                   rel="noreferrer"
                   target="_blank"
                 >
@@ -1674,7 +1674,7 @@ Object {
                 data-narrow-label="Installed By"
               >
                 <a
-                  href="mailto:example@mail.com?subject=Your%20recent%20installation%20of%20will-test-dev-co-voracious-person%20in%20the%20Reapit%20AppMarket"
+                  href="mailto:example@mail.com?subject=Your%20recent%20installation%20of%20MOCK_APP_NAME_TWO%20in%20the%20Reapit%20AppMarket"
                   rel="noreferrer"
                   target="_blank"
                 >
@@ -1975,7 +1975,7 @@ Object {
               data-narrow-label="Installed By"
             >
               <a
-                href="mailto:example@mail.com?subject=Your%20recent%20installation%20of%20will-test-dev-co-voracious-person%20in%20the%20Reapit%20AppMarket"
+                href="mailto:example@mail.com?subject=Your%20recent%20installation%20of%20MOCK_APP_NAME%20in%20the%20Reapit%20AppMarket"
                 rel="noreferrer"
                 target="_blank"
               >
@@ -2140,7 +2140,7 @@ Object {
               data-narrow-label="Installed By"
             >
               <a
-                href="mailto:example@mail.com?subject=Your%20recent%20installation%20of%20will-test-dev-co-voracious-person%20in%20the%20Reapit%20AppMarket"
+                href="mailto:example@mail.com?subject=Your%20recent%20installation%20of%20MOCK_APP_NAME_TWO%20in%20the%20Reapit%20AppMarket"
                 rel="noreferrer"
                 target="_blank"
               >

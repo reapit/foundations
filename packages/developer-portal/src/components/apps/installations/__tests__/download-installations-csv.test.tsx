@@ -39,12 +39,9 @@ describe('DownloadInstallationsCSV', () => {
   })
 
   it('Can create CSV file', () => {
-    downloadInstallationAction(
-      {
-        data: [],
-      },
-      'test',
-    )
+    downloadInstallationAction({
+      data: [],
+    })
 
     expect(FileSaver.saveAs).toHaveBeenCalledTimes(1)
     expect(Papa.unparse).toHaveBeenCalledTimes(1)

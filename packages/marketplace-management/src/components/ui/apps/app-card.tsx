@@ -6,7 +6,6 @@ import { history } from '../../../core/router'
 import { URLS } from '../../../constants/api'
 import useSWR from 'swr'
 import { ReapitConnectSession } from '@reapit/connect-session'
-// import { reapitConnectBrowserSession } from '../../../core/connect-session'
 import {
   getClientIdFirstPart,
   getInstallationsForOfficeGroups,

@@ -11,6 +11,7 @@ export const mockInstallationModelPagedResult: InstallationModelPagedResult = {
       authFlow: 'authorisationCode',
       customerId: 'RES',
       customerName: 'Reapit Sales',
+      appName: 'MOCK_APP_NAME',
       installedBy: 'example@mail.com',
       customerAddress: {
         buildingName: 'Big House',
@@ -32,6 +33,7 @@ export const mockInstallationModelPagedResult: InstallationModelPagedResult = {
       authFlow: 'authorisationCode',
       customerId: 'MXX',
       customerName: 'Foo Bar',
+      appName: 'MOCK_APP_NAME_TWO',
       installedBy: 'example@mail.com',
       customerAddress: {
         buildingName: 'Big House',

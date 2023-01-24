@@ -16,6 +16,7 @@ export const mockInstallationModelPagedResult: InstallationModelPagedResult = {
       officeGroupName: '',
       installedBy: 'test@example.com',
       uninstalledBy: '',
+      appName: 'App Test Name',
       customerAddress: {
         buildingName: 'Third Floor',
         buildingNumber: '67-74',

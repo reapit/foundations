@@ -1,8 +1,7 @@
 import 'chart.js/auto'
-import { AppSummaryModelPagedResult, InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
 import React, { FC, useMemo } from 'react'
 import { Chart } from 'react-chartjs-2'
-import { useAnalyticsState } from '../state/use-analytics-state'
 
 export interface InstallationsByAppChartProps {
   installations: InstallationModelPagedResult
@@ -13,35 +12,31 @@ export interface ChartDataModel {
   data: number[]
 }
 
-export const handleSortChartData =
-  (installations: InstallationModelPagedResult, apps: AppSummaryModelPagedResult | null) => () => {
-    if (!installations.data || !apps?.data) {
-      return {
-        labels: [],
-        data: [],
-      }
-    }
-
-    const sortedInstallsByApp = installations.data.reduce<{ [key: string]: number }>((current, { appId }) => {
-      const name = apps.data?.find((app) => app && app.id === appId)?.name ?? ''
-
-      current[name] = current[name] ? (current[name] += 1) : 1
-      return current
-    }, {})
-
-    const labels = Object.keys(sortedInstallsByApp)
-    const data = labels.map((label) => sortedInstallsByApp[label])
-
+export const handleSortChartData = (installations: InstallationModelPagedResult) => () => {
+  if (!installations.data) {
     return {
-      labels,
-      data,
+      labels: [],
+      data: [],
     }
   }
 
+  const sortedInstallsByApp = installations.data.reduce<{ [key: string]: number }>((current, { appName }) => {
+    const name = appName ?? ''
+    current[name] = current[name] ? (current[name] += 1) : 1
+    return current
+  }, {})
+
+  const labels = Object.keys(sortedInstallsByApp)
+  const data = labels.map((label) => sortedInstallsByApp[label])
+
+  return {
+    labels,
+    data,
+  }
+}
+
 export const InstallationsByAppChart: FC<InstallationsByAppChartProps> = ({ installations }) => {
-  const { analyticsDataState } = useAnalyticsState()
-  const { apps } = analyticsDataState
-  const sortedInstallations = useMemo(handleSortChartData(installations, apps), [installations, apps])
+  const sortedInstallations = useMemo(handleSortChartData(installations), [installations])
 
   return (
     <Chart

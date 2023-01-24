@@ -811,7 +811,9 @@ Object {
                 <div
                   class="el-table-cell-content"
                   data-narrow-label="Customer Name"
-                />
+                >
+                  Sandbox Estates
+                </div>
               </div>
               <div
                 class="el-table-cell-has-dark-text el-table-cell"
@@ -915,7 +917,9 @@ Object {
                 <div
                   class="el-table-cell-content"
                   data-narrow-label="App Name"
-                />
+                >
+                  App Test Name
+                </div>
               </div>
               <div
                 class="el-table-cell"
@@ -923,7 +927,9 @@ Object {
                 <div
                   class="el-table-cell-content"
                   data-narrow-label="Reapit Customer Code"
-                />
+                >
+                  SBOX
+                </div>
               </div>
               <div
                 class="el-table-cell"
@@ -931,7 +937,9 @@ Object {
                 <div
                   class="el-table-cell-content"
                   data-narrow-label="Customer Address"
-                />
+                >
+                  67-74 Third Floor Saffron Hill London EC1N 8QX
+                </div>
               </div>
               <div
                 class="el-table-cell"
@@ -940,7 +948,7 @@ Object {
                   class="el-table-cell-content"
                   data-narrow-label="Date Installed"
                 >
-                  04-03-2021
+                  23-03-2022
                 </div>
               </div>
               <div
@@ -949,7 +957,9 @@ Object {
                 <div
                   class="el-table-cell-content"
                   data-narrow-label="Installed By"
-                />
+                >
+                  test@example.com
+                </div>
               </div>
               <div
                 class="el-table-cell"
@@ -967,9 +977,7 @@ Object {
                 <div
                   class="el-table-cell-content"
                   data-narrow-label="Uninstalled By"
-                >
-                  -
-                </div>
+                />
               </div>
             </div>
           </div>
@@ -1359,7 +1367,9 @@ Object {
               <div
                 class="el-table-cell-content"
                 data-narrow-label="Customer Name"
-              />
+              >
+                Sandbox Estates
+              </div>
             </div>
             <div
               class="el-table-cell-has-dark-text el-table-cell"
@@ -1463,7 +1473,9 @@ Object {
               <div
                 class="el-table-cell-content"
                 data-narrow-label="App Name"
-              />
+              >
+                App Test Name
+              </div>
             </div>
             <div
               class="el-table-cell"
@@ -1471,7 +1483,9 @@ Object {
               <div
                 class="el-table-cell-content"
                 data-narrow-label="Reapit Customer Code"
-              />
+              >
+                SBOX
+              </div>
             </div>
             <div
               class="el-table-cell"
@@ -1479,7 +1493,9 @@ Object {
               <div
                 class="el-table-cell-content"
                 data-narrow-label="Customer Address"
-              />
+              >
+                67-74 Third Floor Saffron Hill London EC1N 8QX
+              </div>
             </div>
             <div
               class="el-table-cell"
@@ -1488,7 +1504,7 @@ Object {
                 class="el-table-cell-content"
                 data-narrow-label="Date Installed"
               >
-                04-03-2021
+                23-03-2022
               </div>
             </div>
             <div
@@ -1497,7 +1513,9 @@ Object {
               <div
                 class="el-table-cell-content"
                 data-narrow-label="Installed By"
-              />
+              >
+                test@example.com
+              </div>
             </div>
             <div
               class="el-table-cell"
@@ -1515,9 +1533,7 @@ Object {
               <div
                 class="el-table-cell-content"
                 data-narrow-label="Uninstalled By"
-              >
-                -
-              </div>
+              />
             </div>
           </div>
         </div>

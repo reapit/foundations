@@ -9,7 +9,7 @@ import { Button, elMb3 } from '@reapit/elements'
 import { useAppState } from '../state/use-app-state'
 import { useReapitConnect } from '@reapit/connect-session'
 
-export const downloadInstallationAction = (installations: InstallationModelPagedResult, appName: string) => {
+export const downloadInstallationAction = (installations: InstallationModelPagedResult) => {
   const csv = Papa.unparse({
     fields: [
       'App Name',
@@ -22,16 +22,18 @@ export const downloadInstallationAction = (installations: InstallationModelPaged
       'Uninstalled By',
     ],
     data:
-      installations.data?.map(({ client, customerName, created, terminatesOn, status, installedBy, uninstalledBy }) => [
-        appName,
-        client,
-        customerName,
-        created,
-        terminatesOn,
-        status,
-        installedBy,
-        uninstalledBy,
-      ]) || [],
+      installations.data?.map(
+        ({ client, appName, customerName, created, terminatesOn, status, installedBy, uninstalledBy }) => [
+          appName,
+          client,
+          customerName,
+          created,
+          terminatesOn,
+          status,
+          installedBy,
+          uninstalledBy,
+        ],
+      ) || [],
   })
 
   const blob = new Blob([csv], { type: 'data:text/csv;charset=utf-8,' })
@@ -58,7 +60,7 @@ export const DownloadInstallationsCSV: FC = () => {
 
   useEffect(() => {
     if (installations && installations.data) {
-      downloadInstallationAction(installations, appsDataState.appDetail?.name as string)
+      downloadInstallationAction(installations)
       if (download && installations) setDownload(false)
     }
   }, [installations, download])

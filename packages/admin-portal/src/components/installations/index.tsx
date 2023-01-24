@@ -1,9 +1,5 @@
-import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
-import {
-  AppSummaryModelPagedResult,
-  InstallationModel,
-  InstallationModelPagedResult,
-} from '@reapit/foundations-ts-definitions'
+import React, { FC, useState } from 'react'
+import { InstallationModelPagedResult } from '@reapit/foundations-ts-definitions'
 import {
   PageContainer,
   Loader,
@@ -21,7 +17,7 @@ import {
 import { useForm } from 'react-hook-form'
 import dayjs from 'dayjs'
 import { SearchableMultiSelect, useReapitGet } from '@reapit/utils-react'
-import { combineAddress, GetActionNames, getActions, isTruthy } from '@reapit/utils-common'
+import { combineAddress, GetActionNames, getActions } from '@reapit/utils-common'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { Statistics } from '../statistics'
 import { fetchDevelopersList } from '../../services/developers'
@@ -39,10 +35,6 @@ export interface InstallationFilters {
 const defaultValues: InstallationFilters = {
   appIds: '',
   isInstalled: 'ALL',
-}
-
-export interface InstallationsWithAppName extends InstallationModelPagedResult {
-  data: (InstallationModel & { appName: string })[]
 }
 
 export const formatFilters = (installationsFilters: InstallationFilters) => {
@@ -65,38 +57,8 @@ export const formatFilters = (installationsFilters: InstallationFilters) => {
   }
 }
 
-export const handleSetAppNames =
-  (
-    setInstallationsWithAppName: Dispatch<SetStateAction<InstallationsWithAppName | null>>,
-    installations: InstallationModelPagedResult | null,
-    apps: AppSummaryModelPagedResult | null,
-    numberApps: number,
-  ) =>
-  () => {
-    const isCsvOutput = installations?.pageSize === 9999
-
-    if (isCsvOutput && apps?.data?.length !== numberApps) return
-
-    if (apps && installations) {
-      const installationsWithAppName = {
-        ...installations,
-        data: installations.data?.map((installation) => {
-          const appName = apps.data?.find((app) => app.id === installation.appId)?.name ?? ''
-
-          return {
-            ...installation,
-            appName,
-          }
-        }),
-      } as InstallationsWithAppName
-
-      setInstallationsWithAppName(installationsWithAppName)
-    }
-  }
-
 export const Installations: FC = () => {
   const [installationsFilters, setInstallationsFilters] = useState<InstallationFilters>(defaultValues)
-  const [installationsWithAppName, setInstallationsWithAppName] = useState<InstallationsWithAppName | null>(null)
   const [pageNumber, setPageNumber] = useState<number>(1)
   const [pageSize, setPageSize] = useState<number>(12)
 
@@ -120,26 +82,6 @@ export const Installations: FC = () => {
       pageSize,
     },
   })
-
-  const appIds = new Set(installations?.data?.map((installation) => installation.appId).filter(isTruthy) ?? [])
-  const appIdArray = [...appIds]
-  const numberApps = appIdArray.length
-
-  const [apps] = useReapitGet<AppSummaryModelPagedResult>({
-    reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getApps],
-    queryParams: {
-      id: appIdArray,
-      pageSize: 999,
-    },
-    fetchWhenTrue: [numberApps],
-  })
-
-  useEffect(handleSetAppNames(setInstallationsWithAppName, installations, apps, numberApps), [
-    apps,
-    numberApps,
-    installations,
-  ])
 
   return (
     <PageContainer>
@@ -196,14 +138,14 @@ export const Installations: FC = () => {
           </InputWrap>
         </FormLayout>
       </form>
-      <Statistics area="INSTALLATIONS" data={installationsWithAppName} setPageSize={setPageSize} />
+      <Statistics area="INSTALLATIONS" data={installations} setPageSize={setPageSize} />
       {installationsLoading ? (
         <Loader />
       ) : (
         <>
           <Table
             className={elMb11}
-            rows={installationsWithAppName?.data?.map(
+            rows={installations?.data?.map(
               ({
                 customerName,
                 client,
