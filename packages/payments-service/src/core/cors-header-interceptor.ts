@@ -17,8 +17,12 @@ if (process.env.APP_ENV !== 'production') {
 export class CorsHeaderInterceptor implements NestInterceptor {
   intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
     const response = context.switchToHttp().getResponse<Response>()
+    const request = context.switchToHttp().getRequest<Request>()
+    const origin = request.headers['origin']
 
-    response.setHeader('Access-Control-Allow-Origin', allowedOrigins.join(','))
+    if (origin && allowedOrigins.includes(origin)) {
+      response.setHeader('Access-Control-Allow-Origin', origin)
+    }
 
     return next.handle()
   }

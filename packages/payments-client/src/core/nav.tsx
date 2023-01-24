@@ -3,8 +3,8 @@ import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { NavResponsive, NavResponsiveOption } from '@reapit/elements'
 import { Routes } from '../constants/routes'
-import { History } from 'history'
 import { history } from './router'
+import { navigate } from '@reapit/payments-ui'
 
 export const MARKETPLACE_DEV_URL = 'https://marketplace.dev.paas.reapit.cloud/installed'
 export const MARKETPLACE_PROD_URL = 'https://marketplace.reapit.cloud/installed'
@@ -18,10 +18,6 @@ export const callbackAppClick = () =>
 export const getDefaultNavIndex = (pathname: string) => {
   if (pathname.includes(Routes.PAYMENTS)) return 1
   return 0
-}
-
-export const navigate = (history: History, route: string) => (): void => {
-  history.push(route)
 }
 
 export const openNewPage = (uri: string) => (event?: MouseEvent<HTMLElement>) => {

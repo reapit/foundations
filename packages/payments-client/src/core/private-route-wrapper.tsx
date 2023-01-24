@@ -5,7 +5,6 @@ import Nav from './nav'
 import { reapitConnectBrowserSession } from './connect-session'
 import { Routes } from '../constants/routes'
 import { Loader, MainContainer } from '@reapit/elements'
-import { PaymentsProvider } from './use-payments-state'
 
 const { Suspense } = React
 
@@ -43,12 +42,10 @@ export const PrivateRouteWrapper: FC<PrivateRouteWrapperProps> = ({ children }) 
   }
 
   return (
-    <PaymentsProvider>
-      <MainContainer>
-        <Nav />
-        <Suspense fallback={<Loader fullPage />}>{children}</Suspense>
-      </MainContainer>
-    </PaymentsProvider>
+    <MainContainer>
+      <Nav />
+      <Suspense fallback={<Loader fullPage />}>{children}</Suspense>
+    </MainContainer>
   )
 }
 
