@@ -1,6 +1,5 @@
 import React from 'react'
 import { render } from '../../../../tests/react-testing'
-import { mockAppSummaryModelPagedResult } from '../../../../tests/__stubs__/apps'
 import { mockInstallationModelPagedResult } from '../../../../tests/__stubs__/installations'
 import { handleSortChartData, InstallationsByAppChart } from '../installations-by-app-chart'
 
@@ -18,12 +17,12 @@ describe('InstallationsByAppChart', () => {
 
 describe('handleSortChartData', () => {
   it('should sort data into labels and data', () => {
-    const curried = handleSortChartData(mockInstallationModelPagedResult, mockAppSummaryModelPagedResult)
+    const curried = handleSortChartData(mockInstallationModelPagedResult)
     const result = curried()
 
     expect(result).toEqual({
-      labels: ['MOCK_APP_NAME'],
-      data: [2],
+      labels: ['MOCK_APP_NAME', 'MOCK_APP_NAME_TWO'],
+      data: [1, 1],
     })
   })
 })

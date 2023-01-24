@@ -202,7 +202,9 @@ Object {
               <div
                 class="el-table-cell-content"
                 data-narrow-label="App Name"
-              />
+              >
+                MOCK_APP_NAME
+              </div>
             </div>
             <div
               class="el-table-cell"
@@ -232,7 +234,7 @@ Object {
                 data-narrow-label="Installed By"
               >
                 <a
-                  href="mailto:example@mail.com?subject=Installation%20of%20undefined%20in%20the%20Reapit%20AppMarket"
+                  href="mailto:example@mail.com?subject=Installation%20of%20MOCK_APP_NAME%20in%20the%20Reapit%20AppMarket"
                   rel="noreferrer"
                   target="_blank"
                 >
@@ -407,7 +409,9 @@ Object {
               <div
                 class="el-table-cell-content"
                 data-narrow-label="App Name"
-              />
+              >
+                MOCK_APP_NAME_TWO
+              </div>
             </div>
             <div
               class="el-table-cell"
@@ -437,7 +441,7 @@ Object {
                 data-narrow-label="Installed By"
               >
                 <a
-                  href="mailto:example@mail.com?subject=Installation%20of%20undefined%20in%20the%20Reapit%20AppMarket"
+                  href="mailto:example@mail.com?subject=Installation%20of%20MOCK_APP_NAME_TWO%20in%20the%20Reapit%20AppMarket"
                   rel="noreferrer"
                   target="_blank"
                 >
@@ -763,7 +767,9 @@ Object {
             <div
               class="el-table-cell-content"
               data-narrow-label="App Name"
-            />
+            >
+              MOCK_APP_NAME
+            </div>
           </div>
           <div
             class="el-table-cell"
@@ -793,7 +799,7 @@ Object {
               data-narrow-label="Installed By"
             >
               <a
-                href="mailto:example@mail.com?subject=Installation%20of%20undefined%20in%20the%20Reapit%20AppMarket"
+                href="mailto:example@mail.com?subject=Installation%20of%20MOCK_APP_NAME%20in%20the%20Reapit%20AppMarket"
                 rel="noreferrer"
                 target="_blank"
               >
@@ -968,7 +974,9 @@ Object {
             <div
               class="el-table-cell-content"
               data-narrow-label="App Name"
-            />
+            >
+              MOCK_APP_NAME_TWO
+            </div>
           </div>
           <div
             class="el-table-cell"
@@ -998,7 +1006,7 @@ Object {
               data-narrow-label="Installed By"
             >
               <a
-                href="mailto:example@mail.com?subject=Installation%20of%20undefined%20in%20the%20Reapit%20AppMarket"
+                href="mailto:example@mail.com?subject=Installation%20of%20MOCK_APP_NAME_TWO%20in%20the%20Reapit%20AppMarket"
                 rel="noreferrer"
                 target="_blank"
               >
@@ -2053,7 +2061,9 @@ Object {
               <div
                 class="el-table-cell-content"
                 data-narrow-label="App Name"
-              />
+              >
+                MOCK_APP_NAME
+              </div>
             </div>
             <div
               class="el-table-cell"
@@ -2083,7 +2093,7 @@ Object {
                 data-narrow-label="Installed By"
               >
                 <a
-                  href="mailto:example@mail.com?subject=Installation%20of%20undefined%20in%20the%20Reapit%20AppMarket"
+                  href="mailto:example@mail.com?subject=Installation%20of%20MOCK_APP_NAME%20in%20the%20Reapit%20AppMarket"
                   rel="noreferrer"
                   target="_blank"
                 >
@@ -2258,7 +2268,9 @@ Object {
               <div
                 class="el-table-cell-content"
                 data-narrow-label="App Name"
-              />
+              >
+                MOCK_APP_NAME_TWO
+              </div>
             </div>
             <div
               class="el-table-cell"
@@ -2288,7 +2300,7 @@ Object {
                 data-narrow-label="Installed By"
               >
                 <a
-                  href="mailto:example@mail.com?subject=Installation%20of%20undefined%20in%20the%20Reapit%20AppMarket"
+                  href="mailto:example@mail.com?subject=Installation%20of%20MOCK_APP_NAME_TWO%20in%20the%20Reapit%20AppMarket"
                   rel="noreferrer"
                   target="_blank"
                 >
@@ -2614,7 +2626,9 @@ Object {
             <div
               class="el-table-cell-content"
               data-narrow-label="App Name"
-            />
+            >
+              MOCK_APP_NAME
+            </div>
           </div>
           <div
             class="el-table-cell"
@@ -2644,7 +2658,7 @@ Object {
               data-narrow-label="Installed By"
             >
               <a
-                href="mailto:example@mail.com?subject=Installation%20of%20undefined%20in%20the%20Reapit%20AppMarket"
+                href="mailto:example@mail.com?subject=Installation%20of%20MOCK_APP_NAME%20in%20the%20Reapit%20AppMarket"
                 rel="noreferrer"
                 target="_blank"
               >
@@ -2819,7 +2833,9 @@ Object {
             <div
               class="el-table-cell-content"
               data-narrow-label="App Name"
-            />
+            >
+              MOCK_APP_NAME_TWO
+            </div>
           </div>
           <div
             class="el-table-cell"
@@ -2849,7 +2865,7 @@ Object {
               data-narrow-label="Installed By"
             >
               <a
-                href="mailto:example@mail.com?subject=Installation%20of%20undefined%20in%20the%20Reapit%20AppMarket"
+                href="mailto:example@mail.com?subject=Installation%20of%20MOCK_APP_NAME_TWO%20in%20the%20Reapit%20AppMarket"
                 rel="noreferrer"
                 target="_blank"
               >

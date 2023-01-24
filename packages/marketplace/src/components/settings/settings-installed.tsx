@@ -1,4 +1,4 @@
-import React, { Dispatch, FC, SetStateAction, useCallback, useEffect, useMemo, useState } from 'react'
+import React, { Dispatch, FC, SetStateAction, useCallback, useEffect, useState } from 'react'
 import {
   BodyText,
   Button,
@@ -15,11 +15,7 @@ import {
   useModal,
 } from '@reapit/elements'
 import { SendFunction, useReapitGet, useReapitUpdate } from '@reapit/utils-react'
-import {
-  AppSummaryModelPagedResult,
-  InstallationModelPagedResult,
-  TerminateInstallationModel,
-} from '@reapit/foundations-ts-definitions'
+import { InstallationModelPagedResult, TerminateInstallationModel } from '@reapit/foundations-ts-definitions'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { GetActionNames, getActions, isTruthy, UpdateActionNames, updateActions } from '@reapit/utils-common'
 import dayjs from 'dayjs'
@@ -37,6 +33,7 @@ import { FilterForm } from './filter-form'
 export interface InstallationDetails {
   installationId: string
   appId: string
+  appName: string
 }
 
 export interface InstallationsFilters {
@@ -92,9 +89,9 @@ export const handleSetInstallationDetails =
     appId?: string,
   ) =>
   () => {
-    if (installationId && appId) {
+    if (installationId && appId && appName) {
       trackEvent(TrackingEvent.ClickUninstallApp, true, { appName })
-      setInstallationDetails({ installationId, appId })
+      setInstallationDetails({ installationId, appId, appName })
       openModal()
     }
   }
@@ -103,15 +100,9 @@ export const getAppIds = (installations: InstallationModelPagedResult | null) =>
   installations?.data?.map((installation) => installation.appId).filter(isTruthy)
 
 export const handleCloseModal =
-  (
-    closeModal: () => void,
-    installationDetails: InstallationDetails | null,
-    apps: AppSummaryModelPagedResult | null,
-    clientId?: string | null,
-    email?: string,
-  ) =>
+  (closeModal: () => void, installationDetails: InstallationDetails | null, clientId?: string | null, email?: string) =>
   () => {
-    const appName = apps?.data?.find((app) => app.id === installationDetails?.appId)?.name
+    const appName = installationDetails?.appName
     trackEvent(TrackingEvent.ClickCloseWithoutInstalling, true, { appName, clientId, email })
 
     closeModal()
@@ -149,18 +140,9 @@ export const SettingsInstalled: FC = () => {
     },
   })
 
-  const appIds = useMemo(getAppIds(installations), [installations])
-
-  const [apps] = useReapitGet<AppSummaryModelPagedResult>({
-    reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getApps],
-    queryParams: {
-      id: [...new Set(appIds)],
-    },
-    fetchWhenTrue: [appIds],
-  })
-
-  const installedAppName = apps?.data?.find((app) => app.id === installationDetails?.appId)?.name
+  const installedAppName = installations?.data?.find(
+    (installation) => installation.id === installationDetails?.installationId,
+  )?.appName
 
   const {
     register,
@@ -179,9 +161,8 @@ export const SettingsInstalled: FC = () => {
 
   useEffect(trackEventHandler(TrackingEvent.LoadSettingsInstalled, true), [])
 
-  const closeUninstallModal = useCallback(handleCloseModal(closeModal, installationDetails, apps, clientId, email), [
+  const closeUninstallModal = useCallback(handleCloseModal(closeModal, installationDetails, clientId, email), [
     installationDetails,
-    apps,
     connectSession,
   ])
 
@@ -211,8 +192,7 @@ export const SettingsInstalled: FC = () => {
             numberColumns={7}
             className={elMb11}
             rows={installations?.data?.map(
-              ({ client, created, installedBy, terminatesOn, uninstalledBy, appId, id }) => {
-                const appName = apps?.data?.find(({ id }) => id === appId)?.name
+              ({ client, created, installedBy, terminatesOn, uninstalledBy, appId, id, appName }) => {
                 return {
                   cells: [
                     {
