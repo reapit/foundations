@@ -10,12 +10,17 @@ export const useClientConfig = (session: string | null, clientCode: string | nul
 
   const url = `${window.reapit.config.paymentsApiUrl}/config/public/${paymentId}`
 
-  const { data, isLoading } = useQuery([url, clientCode, session], {
+  const {
+    data,
+    isLoading,
+    error: configError,
+  } = useQuery([url, clientCode, session], {
     queryFn: async () => {
       const res = await axios.get<ClientConfigModel>(url, {
         headers: {
           'reapit-session': session as string,
           'reapit-customer': clientCode as string,
+          'X-Api-Key': window.reapit.config.apiKey,
         },
       })
 
@@ -31,6 +36,7 @@ export const useClientConfig = (session: string | null, clientCode: string | nul
   return {
     config: data ?? null,
     configLoading: isLoading,
+    configError,
   }
 }
 
@@ -46,6 +52,7 @@ export const usePayment = (session: string | null, clientCode: string | null, pa
           'reapit-session': session as string,
           'reapit-customer': clientCode as string,
           'api-version': 'latest',
+          'X-Api-Key': window.reapit.config.apiKey,
         },
       })
 
@@ -78,6 +85,7 @@ export const useReceipt = (session: string | null, clientCode: string | null, pa
         headers: {
           'reapit-session': session as string,
           'reapit-customer': clientCode as string,
+          'X-Api-Key': window.reapit.config.apiKey,
         },
       })
 
@@ -115,6 +123,7 @@ export const useStatusUpdate = (session: string | null, clientCode: string | nul
           'reapit-customer': clientCode as string,
           'If-Match': eTag as string,
           'api-version': 'latest',
+          'X-Api-Key': window.reapit.config.apiKey,
         },
       })
 

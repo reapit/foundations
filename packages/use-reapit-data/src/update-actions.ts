@@ -57,6 +57,9 @@ export enum UpdateActionNames {
   privatePaymentUpdate = 'privatePaymentUpdate',
   paymentsSessionCreate = 'paymentsSessionCreate',
   paymentRequestCreate = 'paymentRequestCreate',
+  paymentsClientConfigCreate = 'paymentsClientConfigCreate',
+  paymentsClientConfigUpdate = 'paymentsClientConfigUpdate',
+  paymentsClientConfigDelete = 'paymentsClientConfigDelete',
 }
 
 export type UpdateActions = { [key in UpdateActionNames]: UpdateAction }
@@ -349,5 +352,20 @@ export const updateActions = (appEnv: AppEnv): UpdateActions => ({
     api: ApiNames(appEnv).payments,
     path: PathNames.paymentRequest,
     errorMessage: 'Failed to create payment request. This error has been logged',
+  },
+  [UpdateActionNames.paymentsClientConfigCreate]: {
+    api: ApiNames(appEnv).payments,
+    path: PathNames.paymentsConfigPrivate,
+    errorMessage: 'Failed to create payment config. This error has been logged',
+  },
+  [UpdateActionNames.paymentsClientConfigUpdate]: {
+    api: ApiNames(appEnv).payments,
+    path: PathNames.paymentsConfigPrivate,
+    errorMessage: 'Failed to update payment config. This error has been logged',
+  },
+  [UpdateActionNames.paymentsClientConfigDelete]: {
+    api: ApiNames(appEnv).payments,
+    path: PathNames.paymentsConfigPrivate,
+    errorMessage: 'Failed to delete payment config. This error has been logged',
   },
 })

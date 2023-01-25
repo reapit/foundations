@@ -5,6 +5,7 @@ import Nav from './nav'
 import { reapitConnectBrowserSession } from './connect-session'
 import { Routes } from '../constants/routes'
 import { Loader, MainContainer } from '@reapit/elements'
+import { ORG_ADMIN_GROUP } from '../constants/permissions'
 
 const { Suspense } = React
 
@@ -16,6 +17,7 @@ export const PrivateRouteWrapper: FC<PrivateRouteWrapperProps> = ({ children }) 
   const currentUri = `${pathname}${search}`
 
   const { connectSession, connectInternalRedirect } = useReapitConnect(reapitConnectBrowserSession)
+  const isAdmin = connectSession?.loginIdentity?.groups?.includes(ORG_ADMIN_GROUP)
 
   if (!connectSession) {
     return (
@@ -33,7 +35,7 @@ export const PrivateRouteWrapper: FC<PrivateRouteWrapperProps> = ({ children }) 
     return <Redirect to={`${Routes.PAYMENTS}/${window['__REAPIT_MARKETPLACE_GLOBALS__'].nomTranCode}`} />
   }
 
-  if (window.location.pathname === '/') {
+  if (window.location.pathname === '/' || (window.location.pathname === Routes.ADMIN && !isAdmin)) {
     return <Redirect to={Routes.PAYMENTS} />
   }
 
