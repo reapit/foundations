@@ -20,6 +20,7 @@ export const useClientConfig = (session: string | null, clientCode: string | nul
         headers: {
           'reapit-session': session as string,
           'reapit-customer': clientCode as string,
+          'X-Api-Key': window.reapit.config.apiKey,
         },
       })
 
@@ -51,6 +52,7 @@ export const usePayment = (session: string | null, clientCode: string | null, pa
           'reapit-session': session as string,
           'reapit-customer': clientCode as string,
           'api-version': 'latest',
+          'X-Api-Key': window.reapit.config.apiKey,
         },
       })
 
@@ -83,6 +85,7 @@ export const useReceipt = (session: string | null, clientCode: string | null, pa
         headers: {
           'reapit-session': session as string,
           'reapit-customer': clientCode as string,
+          'X-Api-Key': window.reapit.config.apiKey,
         },
       })
 
@@ -120,6 +123,7 @@ export const useStatusUpdate = (session: string | null, clientCode: string | nul
           'reapit-customer': clientCode as string,
           'If-Match': eTag as string,
           'api-version': 'latest',
+          'X-Api-Key': window.reapit.config.apiKey,
         },
       })
 

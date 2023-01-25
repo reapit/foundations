@@ -125,10 +125,11 @@ export const createStack = async () => {
     api.root.resourceForPath(route.path).addMethod(route.method, new apigateway.LambdaIntegration(lambda), {
       authorizer: route.protected ? getAuthorizer(stack, config.CONNECT_USER_POOL) : undefined,
       authorizationType: route.protected ? apigateway.AuthorizationType.COGNITO : undefined,
+      apiKeyRequired: !route.protected ? true : undefined,
       requestParameters: {
         'method.request.header.Content-Type': false,
         'method.request.header.Authorization': route.protected ? true : false,
-        'method.request.header.X-Api-Key': false,
+        'method.request.header.X-Api-Key': !route.protected ? true : false,
         'method.request.header.api-version': false,
         'method.request.header.if-match': false,
         'method.request.header.reapit-customer': false,
@@ -137,22 +138,5 @@ export const createStack = async () => {
     })
   })
 
-  // const lambdaAuthorizerFuncArn = new CfnJson(stack, 'lambdaAuthorizerFuncArn', {
-  //   value: {
-  //     [lambdaAuthorizerFunc.functionArn]: true,
-  //   },
-  // }).toString()
-
-  // const lambdaAuthorizerArn = new CfnJson(stack, 'lambdaAuthorizerArn', {
-  //   value: {
-  //     [lambdaAuthorizerFunc.functionArn]: true,
-  //   },
-  // }).toString()
-
-  // if (api.latestDeployment) {
-  //   api.latestDeployment.addToLogicalId({
-  //     [lambdaAuthorizerFuncArn]: lambdaAuthorizerArn,
-  //   })
-  // }
   output(stack, 'api-url', api.url)
 }

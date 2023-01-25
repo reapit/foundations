@@ -18,6 +18,7 @@ window.reapit = {
     marketplaceUrl: '',
     paymentsApiUrl: '',
     opayoApiUrl: '',
+    apiKey: '',
   },
 }
 
