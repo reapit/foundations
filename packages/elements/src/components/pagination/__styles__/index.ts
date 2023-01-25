@@ -41,14 +41,15 @@ export const ElPaginationButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-right: 0.5rem;
 
   svg {
     color: var(--color-grey-dark);
     font-size: 0.75rem;
   }
 
-  &:first-of-type {
-    margin-right: 0.5rem;
+  &:last-of-type {
+    margin-right: 0;
   }
 `
 
