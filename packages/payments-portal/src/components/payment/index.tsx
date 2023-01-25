@@ -13,6 +13,7 @@ import {
 import { useParams } from 'react-router-dom'
 import { useClientConfig, usePayment, useReceipt, useStatusUpdate } from './queries'
 import { useLocation } from 'react-router'
+import { FourOFour } from '../../core/router'
 
 export interface PaymentUriParams {
   paymentId: string
@@ -52,7 +53,7 @@ export const PaymentPage: FC = () => {
   const session = params.get('session')
   const clientCode = params.get('clientCode')
 
-  const { config, configLoading } = useClientConfig(session, clientCode, paymentId)
+  const { config, configLoading, configError } = useClientConfig(session, clientCode, paymentId)
 
   const { payment, paymentLoading, refreshPayment } = usePayment(session, clientCode, paymentId)
 
@@ -93,6 +94,21 @@ export const PaymentPage: FC = () => {
     ],
   )
 
+  if (!session || !paymentId || !clientCode) {
+    return <FourOFour />
+  }
+
+  if (configError) {
+    return (
+      <PageContainer>
+        <PersistentNotification intent="secondary" isFullWidth isInline isExpanded>
+          This service is currently unavailable to take payments. Please try refreshing the page and if the problem
+          persists, please contact the company that requested this payment.
+        </PersistentNotification>
+      </PageContainer>
+    )
+  }
+
   if (configLoading || paymentLoading || merchantKeyLoading) {
     return (
       <PageContainer>
@@ -105,7 +121,8 @@ export const PaymentPage: FC = () => {
     return (
       <PageContainer>
         <PersistentNotification intent="secondary" isFullWidth isInline isExpanded>
-          We do not have any information about this payment.
+          We do not have any information about this payment. Please try refreshing the page and if the problem persists,
+          please contact the company that requested this payment.
         </PersistentNotification>
       </PageContainer>
     )
@@ -115,8 +132,8 @@ export const PaymentPage: FC = () => {
     return (
       <PageContainer>
         <PersistentNotification intent="secondary" isFullWidth isInline isExpanded>
-          Your payment solution has not been properly configured, please contact your Reapit Administrator if this
-          problem persists.
+          This service is currently unavailable to take payments. Please try refreshing the page and if the problem
+          persists, please contact the company that requested this payment.{' '}
         </PersistentNotification>
       </PageContainer>
     )

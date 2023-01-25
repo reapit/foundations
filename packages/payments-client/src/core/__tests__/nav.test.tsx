@@ -8,7 +8,11 @@ jest.mock('@reapit/connect-session', () => ({
   ReapitConnectBrowserSession: jest.fn(),
   useReapitConnect: () => ({
     connectIsDesktop: false,
-    connectSession: jest.fn(),
+    connectSession: jest.fn(() => ({
+      loginIdentity: {
+        groups: ['OrganisationAdmin'],
+      },
+    })),
   }),
 }))
 
@@ -51,6 +55,10 @@ describe('Nav', () => {
       {
         route: Routes.PAYMENT,
         index: 1,
+      },
+      {
+        route: Routes.ADMIN,
+        index: 2,
       },
       {
         route: '/',

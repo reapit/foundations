@@ -2,7 +2,7 @@ import React, { Dispatch, FC, SetStateAction, useMemo, useState } from 'react'
 import { useHistory } from 'react-router'
 import { PaymentModel, PaymentModelPagedResult, PropertyModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { statusOptions } from '../../constants/filter-options'
-import { PaymentLogo, navigate } from '@reapit/payments-ui'
+import { PaymentLogo, navigate, ClientConfigModel } from '@reapit/payments-ui'
 import { PaymentsFilterControls } from './payments-filter-controls'
 import { combineAddress, DATE_TIME_FORMAT, isTruthy, toLocalTime } from '@reapit/utils-common'
 import ErrorBoundary from '../../core/error-boundary'
@@ -25,12 +25,15 @@ import {
   Intent,
   ButtonGroup,
   useModal,
+  elMb7,
 } from '@reapit/elements'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { openNewPage } from '../../core/nav'
 import { Routes } from '../../constants/routes'
 import { PaymentRequestModal } from './payment-request-modal'
 import { getActions, useReapitGet, GetActionNames } from '@reapit/use-reapit-data'
+import { useReapitConnect } from '@reapit/connect-session'
+import { cx } from '@linaria/core'
 
 export interface CellProps {
   properties?: PropertyModelPagedResult | null
@@ -76,6 +79,8 @@ export const PaymentsPage: FC = () => {
   const [selectedPayment, setSelectedPayment] = useState<PaymentModel | null>(null)
   const [paymentsFilters, setPaymentsFilters] = useState<PaymentsFilters>({})
   const { Modal, openModal, closeModal } = useModal()
+  const [configNotFound, setConfigNotFound] = useState<boolean>(false)
+  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
 
   const queryParams = {
     ...paymentsFilters,
@@ -83,6 +88,24 @@ export const PaymentsPage: FC = () => {
     pageSize: 12,
     pageNumber,
   }
+
+  const clientCode = connectSession?.loginIdentity?.clientId
+  const idToken = connectSession?.idToken ?? ''
+
+  useReapitGet<ClientConfigModel>({
+    reapitConnectBrowserSession,
+    action: getActions(window.reapit.config.appEnv)[GetActionNames.getPaymentsClientConfig],
+    headers: {
+      Authorization: idToken,
+    },
+    uriParams: {
+      clientCode,
+    },
+    onError: () => {
+      setConfigNotFound(true)
+    },
+    fetchWhenTrue: [clientCode, idToken],
+  })
 
   const [payments, paymentsLoading, , refreshPayments] = useReapitGet<PaymentModelPagedResult>({
     reapitConnectBrowserSession,
@@ -127,6 +150,13 @@ export const PaymentsPage: FC = () => {
             <Title>Payments Dashboard</Title>
             <PaymentLogo />
           </FlexContainer>
+          {configNotFound && (
+            <PersistentNotification className={cx(elMb7, elFadeIn)} intent="secondary" isFullWidth isInline isExpanded>
+              The app cannnot currently process client payments. This is likely because your payment provider has not
+              been configured. Please contact your Reapit Organisation Administrator or if you are an Admin, use the
+              dedicated page in the main navigation.
+            </PersistentNotification>
+          )}
           {paymentsLoading ? (
             <Loader />
           ) : payments?._embedded?.length ? (
@@ -200,14 +230,14 @@ export const PaymentsPage: FC = () => {
                         <ButtonGroup alignment="center">
                           <Button
                             intent="primary"
-                            disabled={status === 'posted'}
+                            disabled={status === 'posted' || configNotFound}
                             onClick={navigate(history, `${Routes.PAYMENTS}/${id}`)}
                           >
                             Take Payment
                           </Button>
                           <Button
                             intent="secondary"
-                            disabled={status === 'posted'}
+                            disabled={status === 'posted' || configNotFound}
                             onClick={handleOpenModal(openModal, setSelectedPayment, payment)}
                           >
                             Request Payment

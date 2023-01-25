@@ -1294,13 +1294,7 @@ Object {
                 <div
                   class="el-table-cell-content"
                   data-narrow-label="Property"
-                >
-                  <div
-                    class="el-fade-in"
-                  >
-                    15 Example street Solihull West Midlands B91 2XX
-                  </div>
-                </div>
+                />
               </div>
               <div
                 class="el-table-cell-has-dark-text el-table-cell"
@@ -1327,7 +1321,7 @@ Object {
                   class="el-table-cell-content"
                   data-narrow-label="Amount"
                 >
-                  £100.00
+                  £0
                 </div>
               </div>
               <div
@@ -1353,7 +1347,7 @@ Object {
                   class="el-table-cell-content"
                   data-narrow-label="Customer"
                 >
-                  Mr John Smith
+                  -
                 </div>
               </div>
               <div
@@ -1363,7 +1357,7 @@ Object {
                   class="el-table-cell-content"
                   data-narrow-label="Description"
                 >
-                  Tenancy Check Fee
+                  We are delighted to offer for sale this EXTENDED THREE BEDROOMED SEMI DETACHED PROPERTY situated in a much sought after residential location of Greasby, having the benefits of two separate entertaining rooms, morning room, extended kitchen. To the first floor there are three bedrooms, spacious family bathroom, gas central heating gardens front and rear and off road parking.
                 </div>
               </div>
               <div
@@ -1372,9 +1366,7 @@ Object {
                 <div
                   class="el-table-cell-content"
                   data-narrow-label="Client A/C"
-                >
-                  Primary
-                </div>
+                />
               </div>
               <div
                 class="el-table-cell"
@@ -1382,13 +1374,7 @@ Object {
                 <div
                   class="el-table-cell-content"
                   data-narrow-label="Status"
-                >
-                  <span
-                    class="el-intent-critical el-status-indicator"
-                  />
-                   
-                  Awaiting Payment
-                </div>
+                />
               </div>
               <div
                 class="el-table-cell"
@@ -1973,13 +1959,7 @@ Object {
               <div
                 class="el-table-cell-content"
                 data-narrow-label="Property"
-              >
-                <div
-                  class="el-fade-in"
-                >
-                  15 Example street Solihull West Midlands B91 2XX
-                </div>
-              </div>
+              />
             </div>
             <div
               class="el-table-cell-has-dark-text el-table-cell"
@@ -2006,7 +1986,7 @@ Object {
                 class="el-table-cell-content"
                 data-narrow-label="Amount"
               >
-                £100.00
+                £0
               </div>
             </div>
             <div
@@ -2032,7 +2012,7 @@ Object {
                 class="el-table-cell-content"
                 data-narrow-label="Customer"
               >
-                Mr John Smith
+                -
               </div>
             </div>
             <div
@@ -2042,7 +2022,7 @@ Object {
                 class="el-table-cell-content"
                 data-narrow-label="Description"
               >
-                Tenancy Check Fee
+                We are delighted to offer for sale this EXTENDED THREE BEDROOMED SEMI DETACHED PROPERTY situated in a much sought after residential location of Greasby, having the benefits of two separate entertaining rooms, morning room, extended kitchen. To the first floor there are three bedrooms, spacious family bathroom, gas central heating gardens front and rear and off road parking.
               </div>
             </div>
             <div
@@ -2051,9 +2031,7 @@ Object {
               <div
                 class="el-table-cell-content"
                 data-narrow-label="Client A/C"
-              >
-                Primary
-              </div>
+              />
             </div>
             <div
               class="el-table-cell"
@@ -2061,13 +2039,7 @@ Object {
               <div
                 class="el-table-cell-content"
                 data-narrow-label="Status"
-              >
-                <span
-                  class="el-intent-critical el-status-indicator"
-                />
-                 
-                Awaiting Payment
-              </div>
+              />
             </div>
             <div
               class="el-table-cell"

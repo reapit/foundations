@@ -57,6 +57,7 @@ export const handleSetProvider =
 export const PaymentPage: FC = () => {
   const { paymentId } = useParams<PaymentUriParams>()
   const [paymentProvider, setPaymentProvider] = useState<PaymentProvider | null>(null)
+  const [configNotFound, setConfigNotFound] = useState<boolean>(false)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
 
   const clientCode = connectSession?.loginIdentity?.clientId
@@ -70,6 +71,9 @@ export const PaymentPage: FC = () => {
     },
     uriParams: {
       clientCode,
+    },
+    onError: () => {
+      setConfigNotFound(true)
     },
     fetchWhenTrue: [clientCode, idToken],
   })
@@ -154,6 +158,18 @@ export const PaymentPage: FC = () => {
       refreshPayment,
     ],
   )
+
+  if (configNotFound) {
+    return (
+      <PageContainer>
+        <PersistentNotification intent="secondary" isFullWidth isInline isExpanded>
+          The app cannnot currently process client payments. This is likely because your payment provider has not been
+          configured. Please contact your Reapit Organisation Administrator or if you are an Admin, use the dedicated
+          page in the main navigation.
+        </PersistentNotification>
+      </PageContainer>
+    )
+  }
 
   if (configLoading || paymentLoading || propertyLoading || merchantKeyLoading) {
     return (

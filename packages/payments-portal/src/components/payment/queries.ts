@@ -10,7 +10,11 @@ export const useClientConfig = (session: string | null, clientCode: string | nul
 
   const url = `${window.reapit.config.paymentsApiUrl}/config/public/${paymentId}`
 
-  const { data, isLoading } = useQuery([url, clientCode, session], {
+  const {
+    data,
+    isLoading,
+    error: configError,
+  } = useQuery([url, clientCode, session], {
     queryFn: async () => {
       const res = await axios.get<ClientConfigModel>(url, {
         headers: {
@@ -31,6 +35,7 @@ export const useClientConfig = (session: string | null, clientCode: string | nul
   return {
     config: data ?? null,
     configLoading: isLoading,
+    configError,
   }
 }
 
