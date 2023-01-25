@@ -50,6 +50,13 @@ describe('Pagination', () => {
     expect(wrapper).toMatchSnapshot()
   })
 
+  it('should match a snapshot with start end buttons', () => {
+    const wrapper = render(
+      <Pagination callback={jest.fn()} currentPage={2} numberPages={4} hasStartButton hasEndButton />,
+    )
+    expect(wrapper).toMatchSnapshot()
+  })
+
   it('should callback onClick correctly', async () => {
     const mockCallback = jest.fn()
     const user = userEvent.setup()

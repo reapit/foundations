@@ -22,6 +22,8 @@ export interface PaginationProps extends HTMLAttributes<HTMLDivElement> {
   callback: (nextPage: number) => void
   currentPage: number
   numberPages: number
+  hasStartButton?: boolean
+  hasEndButton?: boolean
 }
 
 export interface PaginationWrapProps extends HTMLAttributes<HTMLDivElement> {}
@@ -78,7 +80,14 @@ export const PaginationButton: FC<PaginationButtonProps> = ({ children, ...rest 
   </ElPaginationButton>
 )
 
-export const Pagination: FC<PaginationProps> = ({ callback, currentPage, numberPages, ...rest }) => {
+export const Pagination: FC<PaginationProps> = ({
+  callback,
+  currentPage,
+  numberPages,
+  hasStartButton,
+  hasEndButton,
+  ...rest
+}) => {
   const [inputValue, setInputValue] = useState<string>(String(currentPage))
 
   useEffect(handlePageInputChange(numberPages, currentPage, inputValue, callback), [
@@ -97,6 +106,18 @@ export const Pagination: FC<PaginationProps> = ({ callback, currentPage, numberP
       <PaginationButton data-testid="back-button" onClick={handlePageChange(prevPage, callback, setInputValue)}>
         <Icon icon="backSystem" className={cx(prevPage && elPaginationPrimary)} />
       </PaginationButton>
+      {hasStartButton && (
+        <PaginationButton data-testid="back-button" onClick={handlePageChange(1, callback, setInputValue)}>
+          <Icon icon="backSystem" className={cx(currentPage !== 1 && elPaginationPrimary)} />
+          <Icon icon="backSystem" className={cx(currentPage !== 1 && elPaginationPrimary)} />
+        </PaginationButton>
+      )}
+      {hasEndButton && (
+        <PaginationButton data-testid="back-button" onClick={handlePageChange(numberPages, callback, setInputValue)}>
+          <Icon icon="nextSystem" className={cx(currentPage !== numberPages && elPaginationPrimary)} />
+          <Icon icon="nextSystem" className={cx(currentPage !== numberPages && elPaginationPrimary)} />
+        </PaginationButton>
+      )}
       <PaginationButton data-testid="forward-button" onClick={handlePageChange(nextPage, callback, setInputValue)}>
         <Icon icon="nextSystem" className={cx(nextPage && elPaginationPrimary)} />
       </PaginationButton>
