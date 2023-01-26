@@ -8588,6 +8588,7 @@ __metadata:
     ts-jest: ^28.0.8
     tsdx: ^0.14.1
     typescript: ^4.8.4
+    uuid: ^9.0.0
   languageName: unknown
   linkType: soft
 
