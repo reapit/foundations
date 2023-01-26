@@ -32,8 +32,11 @@ export const handleSetProvider =
   () => {
     const paymentHasProperty = payment?.propertyId
     const propertyFetched = !paymentHasProperty || (paymentHasProperty && property)
+    const paymentHasChanged =
+      paymentProvider?.payment?._eTag && payment?._eTag && paymentProvider.payment._eTag !== payment._eTag
+    const providerInvalid = !paymentProvider || (paymentProvider && paymentHasChanged)
 
-    if (config && payment && propertyFetched && merchantKey && !paymentProvider) {
+    if (config && payment && propertyFetched && merchantKey && providerInvalid) {
       const paymentProvider = new PaymentProvider({
         config,
         payment,
