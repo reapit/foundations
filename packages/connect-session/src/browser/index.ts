@@ -9,6 +9,7 @@ import {
 import { connectSessionVerifyDecodeIdToken } from '../utils/verify-decode-id-token'
 import decode from 'jwt-decode'
 import { DecodedToken } from '../utils'
+import { v4 as uuid } from 'uuid'
 
 export class ReapitConnectBrowserSession {
   // Static constants
@@ -188,7 +189,12 @@ export class ReapitConnectBrowserSession {
   // set a redirect URI to my page where I instantiated the flow, by decoding the state object
   public get connectInternalRedirect() {
     const params = new URLSearchParams(window.location.search)
-    const internalRedirectString = params.get('state')
+    const stateNonce = params.get('state')
+
+    if (!stateNonce) return null
+
+    const internalRedirectString = this.refreshTokenStorage.getItem(stateNonce)
+
     if (internalRedirectString) {
       return decodeURIComponent(internalRedirectString)
     }
@@ -213,7 +219,10 @@ export class ReapitConnectBrowserSession {
     params.delete('code')
     const search = params ? `?${params.toString()}` : ''
     const internalRedirectPath = encodeURIComponent(`${window.location.pathname}${search}`)
-    window.location.href = `${this.connectOAuthUrl}/authorize?response_type=code&client_id=${this.connectClientId}&redirect_uri=${authRedirectUri}&state=${internalRedirectPath}`
+    const stateNonce = uuid()
+    this.refreshTokenStorage.setItem(stateNonce, internalRedirectPath)
+
+    window.location.href = `${this.connectOAuthUrl}/authorize?response_type=code&client_id=${this.connectClientId}&redirect_uri=${authRedirectUri}&state=${stateNonce}`
   }
 
   // Handles redirect to login - defaults to constructor redirect uri but I can override if I like.
