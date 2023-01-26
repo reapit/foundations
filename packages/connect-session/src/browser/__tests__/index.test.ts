@@ -86,14 +86,17 @@ describe('ReapitConnectBrowserSession', () => {
     expect(session.connectIsDesktop).toBe(true)
   })
 
-  it('should return a internalRedirectUri from connectInternalRedirect if a code is present in the uri', async () => {
+  it('should return a internalRedirectUri from connectInternalRedirect if a state is present in the uri', async () => {
     const code = 'SOME_CODE'
     const internalRedirectUri = '/some-path?someQuery=true'
-    window.location.search = `?code=${code}&state=${internalRedirectUri}`
+    const nonce = 'MOCK_NONCE'
+    // In desktop mode, hence localstorage because tabs are junked. In a browser, it's session storage
+    window.localStorage.setItem(nonce, internalRedirectUri)
+    window.location.search = `?code=${code}&state=${nonce}`
     const session = getSession()
 
     await session.connectSession()
-
+    expect(window.localStorage.getItem(nonce)).toEqual(internalRedirectUri)
     expect(session.connectInternalRedirect).toEqual(internalRedirectUri)
   })
 
