@@ -163,7 +163,7 @@ export const ElButton = styled.button`
     color: transparent !important;
     pointer-events: none;
 
-    &::after {
+    &::before {
       left: calc(50% - (1em / 2));
       top: calc(50% - (1em / 2));
       position: absolute;
@@ -180,7 +180,7 @@ export const ElButton = styled.button`
     }
 
     &.${elIntentPrimary}, &.${elIntentSecondary}, &.${elIntentCritical}, &.${elIntentSuccess}, &.${elIntentDanger} {
-      &::after {
+      &::before {
         border-color: transparent transparent #fff #fff;
       }
     }
@@ -210,7 +210,7 @@ export const ElButton = styled.button`
     }
 
     &.${elIsLoading} {
-      &:after {
+      &:before {
         left: inherit;
         top: inherit;
       }
