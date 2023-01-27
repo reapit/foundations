@@ -51,6 +51,33 @@ export const elButtonSize4 = css`
   }
 `
 
+export const ElButtonLoader = styled.div`
+  @keyframes spinAround {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
+
+  color: transparent !important;
+  pointer-events: none;
+
+  left: calc(50% - (1em / 2));
+  top: calc(50% - (1em / 2));
+  position: absolute;
+
+  animation: spinAround 500ms infinite linear;
+  border: 2px solid #dbdbdb;
+  border-radius: 290486px;
+  border-color: transparent transparent rgba(0, 0, 0, 0.7) rgba(0, 0, 0, 0.7);
+
+  display: none;
+  height: 1rem;
+  width: 1rem;
+`
+
 export const elFloatingButton = css``
 export const elButtonGroupAlignLeft = css``
 export const elButtonGroupAlignRight = css``
@@ -151,36 +178,18 @@ export const ElButton = styled.button`
   }
 
   &.${elIsLoading} {
-    @keyframes spinAround {
-      from {
-        transform: rotate(0deg);
-      }
-      to {
-        transform: rotate(359deg);
-      }
+    color: transparent;
+
+    &:hover {
+      color: transparent;
     }
 
-    color: transparent !important;
-    pointer-events: none;
-
-    &::before {
-      left: calc(50% - (1em / 2));
-      top: calc(50% - (1em / 2));
-      position: absolute;
-
-      animation: spinAround 500ms infinite linear;
-      border: 2px solid #dbdbdb;
-      border-radius: 290486px;
-      border-color: transparent transparent rgba(0, 0, 0, 0.7) rgba(0, 0, 0, 0.7);
-
-      content: '';
+    & ${ElButtonLoader} {
       display: block;
-      height: 1rem;
-      width: 1rem;
     }
 
     &.${elIntentPrimary}, &.${elIntentSecondary}, &.${elIntentCritical}, &.${elIntentSuccess}, &.${elIntentDanger} {
-      &::before {
+      & ${ElButtonLoader} {
         border-color: transparent transparent #fff #fff;
       }
     }
@@ -210,7 +219,7 @@ export const ElButton = styled.button`
     }
 
     &.${elIsLoading} {
-      &:before {
+      & ${ElButtonLoader} {
         left: inherit;
         top: inherit;
       }

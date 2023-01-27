@@ -10,6 +10,7 @@ import {
   elButtonGroupAlignLeft,
   elButtonGroupAlignRight,
   ElButtonGroupInner,
+  ElButtonLoader,
 } from './__styles__'
 import { elWFull } from '../../styles/sizing'
 import { Icon, IconNames } from '../icon'
@@ -76,6 +77,7 @@ export const Button: FC<ButtonProps> = ({
   return (
     <ElButton className={combinedClassName} {...rest}>
       {children}
+      <ElButtonLoader />
     </ElButton>
   )
 }
