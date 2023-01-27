@@ -53,6 +53,13 @@ export enum UpdateActionNames {
   createUserAuthenticator = 'createUserAuthenticator',
   verifyUserAuthenticator = 'verifyUserAuthenticator',
   deleteUserAuthenticator = 'deleteUserAuthenticator',
+  submitPrivatePaymentReceipt = 'submitPrivatePaymentReceipt',
+  privatePaymentUpdate = 'privatePaymentUpdate',
+  paymentsSessionCreate = 'paymentsSessionCreate',
+  paymentRequestCreate = 'paymentRequestCreate',
+  paymentsClientConfigCreate = 'paymentsClientConfigCreate',
+  paymentsClientConfigUpdate = 'paymentsClientConfigUpdate',
+  paymentsClientConfigDelete = 'paymentsClientConfigDelete',
 }
 
 export type UpdateActions = { [key in UpdateActionNames]: UpdateAction }
@@ -323,5 +330,42 @@ export const updateActions = (appEnv: AppEnv): UpdateActions => ({
     path: PathNames.userAuthenticatorVerify,
     successMessage: 'Successfully verified authenticator.',
     errorMessage: 'Failed to verify authenticator. This error has been logged',
+  },
+  [UpdateActionNames.submitPrivatePaymentReceipt]: {
+    api: ApiNames(appEnv).payments,
+    path: PathNames.paymentReceiptPrivate,
+    successMessage: 'Successfully sent receipt request.',
+    errorMessage: 'Failed to send receipt. This error has been logged',
+  },
+  [UpdateActionNames.privatePaymentUpdate]: {
+    api: ApiNames(appEnv).platform,
+    path: PathNames.paymentById,
+    successMessage: 'Successfully submitted payment.',
+    errorMessage: 'Failed to submit payment. This error has been logged',
+  },
+  [UpdateActionNames.paymentsSessionCreate]: {
+    api: ApiNames(appEnv).payments,
+    path: PathNames.paymentsSession,
+    errorMessage: 'Failed to create payment request. This error has been logged',
+  },
+  [UpdateActionNames.paymentRequestCreate]: {
+    api: ApiNames(appEnv).payments,
+    path: PathNames.paymentRequest,
+    errorMessage: 'Failed to create payment request. This error has been logged',
+  },
+  [UpdateActionNames.paymentsClientConfigCreate]: {
+    api: ApiNames(appEnv).payments,
+    path: PathNames.paymentsConfigPrivate,
+    errorMessage: 'Failed to create payment config. This error has been logged',
+  },
+  [UpdateActionNames.paymentsClientConfigUpdate]: {
+    api: ApiNames(appEnv).payments,
+    path: PathNames.paymentsConfigPrivate,
+    errorMessage: 'Failed to update payment config. This error has been logged',
+  },
+  [UpdateActionNames.paymentsClientConfigDelete]: {
+    api: ApiNames(appEnv).payments,
+    path: PathNames.paymentsConfigPrivate,
+    errorMessage: 'Failed to delete payment config. This error has been logged',
   },
 })

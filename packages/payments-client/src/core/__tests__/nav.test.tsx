@@ -1,7 +1,6 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import { Nav, callbackAppClick, navigate, getDefaultNavIndex, openNewPage } from '../nav'
-import { History } from 'history'
+import { Nav, callbackAppClick, getDefaultNavIndex, openNewPage } from '../nav'
 import { Routes } from '../../constants/routes'
 import { MediaStateProvider, NavStateProvider } from '@reapit/elements'
 
@@ -9,7 +8,11 @@ jest.mock('@reapit/connect-session', () => ({
   ReapitConnectBrowserSession: jest.fn(),
   useReapitConnect: () => ({
     connectIsDesktop: false,
-    connectSession: jest.fn(),
+    connectSession: jest.fn(() => ({
+      loginIdentity: {
+        groups: ['OrganisationAdmin'],
+      },
+    })),
   }),
 }))
 
@@ -24,20 +27,6 @@ describe('Nav', () => {
       </NavStateProvider>,
     )
     expect(wrapper).toMatchSnapshot()
-  })
-
-  describe('navigate', () => {
-    it('should open a new page', () => {
-      const mockHistory = {
-        push: jest.fn(),
-      } as unknown as History
-
-      const curried = navigate(mockHistory, Routes.PAYMENTS)
-
-      curried()
-
-      expect(mockHistory.push).toHaveBeenCalledWith(Routes.PAYMENTS)
-    })
   })
 
   describe('openNewPage', () => {
@@ -66,6 +55,10 @@ describe('Nav', () => {
       {
         route: Routes.PAYMENT,
         index: 1,
+      },
+      {
+        route: Routes.ADMIN,
+        index: 2,
       },
       {
         route: '/',

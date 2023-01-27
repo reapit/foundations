@@ -3,7 +3,6 @@ import { useReapitGet } from '@reapit/utils-react'
 import { Installations } from '../index'
 import { render } from '../../../tests/react-testing'
 import { mockInstallationModelPagedResult } from '../../../tests/__stubs__/installations'
-import { mockAppSummaryModelPagedResult } from '../../../tests/__stubs__/apps'
 
 jest.mock('@reapit/utils-react', () => ({
   useReapitGet: jest.fn(() => [null, false]),
@@ -21,9 +20,7 @@ describe('Installations', () => {
   })
 
   it('should render component with data', () => {
-    mockUseReapitGet
-      .mockReturnValue([mockInstallationModelPagedResult, false])
-      .mockReturnValue([mockAppSummaryModelPagedResult, false])
+    mockUseReapitGet.mockReturnValue([mockInstallationModelPagedResult, false])
     expect(render(<Installations />)).toMatchSnapshot()
   })
 })

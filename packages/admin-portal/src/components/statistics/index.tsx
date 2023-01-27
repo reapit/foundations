@@ -6,12 +6,12 @@ import {
   DeveloperModel,
   DeveloperModelPagedResult,
   InstallationModel,
+  InstallationModelPagedResult,
   ServiceItemBillingV2Model,
   SubscriptionModel,
 } from '@reapit/foundations-ts-definitions'
 import FileSaver from 'file-saver'
 import { ButtonGroup, Button, elMb11 } from '@reapit/elements'
-import { InstallationsWithAppName } from '../installations'
 import { SubsWithAppName } from '../subscriptions'
 import { toLocalTime } from '@reapit/utils-common'
 
@@ -19,7 +19,7 @@ export type Area = 'APPS' | 'DEVELOPERS' | 'INSTALLATIONS' | 'BILLING' | 'SUBSCR
 export type PagedData =
   | AppSummaryModelPagedResult
   | DeveloperModelPagedResult
-  | InstallationsWithAppName
+  | InstallationModelPagedResult
   | SubsWithAppName
 export type StatsDataType = PagedData | ServiceItemBillingV2Model[] | null
 

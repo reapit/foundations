@@ -59,6 +59,7 @@ export enum GetActionNames {
   getUserAuthenticators = 'getUserAuthenticators',
   getReferralTypes = 'getReferralTypes',
   getGroupsByOrgId = 'getGroupsByOrgId',
+  getPaymentsClientConfig = 'getPaymentsClientConfig',
 }
 
 export type GetActions = { [key in GetActionNames]: GetAction }
@@ -311,5 +312,10 @@ export const getActions = (appEnv: AppEnv): GetActions => ({
     api: ApiNames(appEnv).platform,
     path: PathNames.orgGroups,
     errorMessage: 'Failed to fetch groups, this has been logged.',
+  },
+  [GetActionNames.getPaymentsClientConfig]: {
+    api: ApiNames(appEnv).payments,
+    path: PathNames.paymentsConfigPrivate,
+    errorMessage: 'Failed to fetch client config this has been logged.',
   },
 })

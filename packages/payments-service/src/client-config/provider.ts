@@ -10,7 +10,7 @@ export class ClientConfigProvider {
     try {
       return await this.datamapper.get(Object.assign(new ClientConfigModel(), { clientCode }))
     } catch (err) {
-      throw new NotFoundException('No config item found for this client code')
+      throw new NotFoundException('No config item found for this client code', err)
     }
   }
 
@@ -18,15 +18,15 @@ export class ClientConfigProvider {
     try {
       return await this.datamapper.put(Object.assign(new ClientConfigModel(), { ...configModel, clientCode }))
     } catch (err) {
-      throw new BadRequestException('Config item failed to create')
+      throw new BadRequestException('Config item failed to create', err)
     }
   }
 
   async update(clientCode: string, configModel: Partial<ClientConfigModel>): Promise<ClientConfigModel> {
     try {
-      return await this.datamapper.put(Object.assign(new ClientConfigModel(), { ...configModel, clientCode }))
+      return await this.datamapper.update(Object.assign(new ClientConfigModel(), { ...configModel, clientCode }))
     } catch (err) {
-      throw new BadRequestException('Config item failed to update')
+      throw new BadRequestException('Config item failed to update', err)
     }
   }
 
@@ -34,7 +34,7 @@ export class ClientConfigProvider {
     try {
       return await this.datamapper.delete(Object.assign(new ClientConfigModel(), { clientCode }))
     } catch (err) {
-      throw new BadRequestException('Config item failed to delete')
+      throw new BadRequestException('Config item failed to delete', err)
     }
   }
 }

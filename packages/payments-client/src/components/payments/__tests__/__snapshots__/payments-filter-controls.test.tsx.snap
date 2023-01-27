@@ -1,0 +1,296 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PaymentsFilterControls should match a snapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <div
+        class="el-border-radius overflow-hidden el-mb5"
+      >
+        <form>
+          <div
+            class="controls-container"
+          >
+            <div
+              class="input-full-width el-input-group"
+            >
+              <input
+                class="el-input"
+                id="test-static-id"
+                max="2019-10-10"
+                min="2017-10-10"
+                name="createdFrom"
+                type="date"
+              />
+              <label
+                class="el-label"
+                for="test-static-id"
+              >
+                Created From
+              </label>
+            </div>
+          </div>
+          <div
+            class="controls-container"
+          >
+            <div
+              class="input-full-width el-input-group"
+            >
+              <input
+                class="el-input"
+                id="test-static-id"
+                max="2019-10-10"
+                min="2019-10-10"
+                name="createdTo"
+                type="date"
+              />
+              <label
+                class="el-label"
+                for="test-static-id"
+              >
+                Created To
+              </label>
+            </div>
+          </div>
+          <div
+            class="controls-container"
+          >
+            <div
+              class="el-input-group"
+            >
+              <select
+                class="el-wfull el-select"
+                name="status"
+              >
+                <option
+                  value=""
+                >
+                  None selected
+                </option>
+                <option
+                  value="awaitingAuthorisation"
+                >
+                  Not Requested
+                </option>
+                <option
+                  value="awaitingPosting"
+                >
+                  Awaiting Payment
+                </option>
+                <option
+                  value="posted"
+                >
+                  Paid
+                </option>
+                <option
+                  value="rejected"
+                >
+                  Failed
+                </option>
+              </select>
+              <label
+                class="el-label"
+              >
+                Status
+              </label>
+            </div>
+          </div>
+          <div
+            class="controls-container"
+          >
+            <div
+              class="input-full-width el-input-group"
+            >
+              <input
+                class="el-input"
+                id="test-static-id"
+                name="description"
+                type="text"
+              />
+              <label
+                class="el-label"
+                for="test-static-id"
+              >
+                Description
+              </label>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <div
+      class="el-border-radius overflow-hidden el-mb5"
+    >
+      <form>
+        <div
+          class="controls-container"
+        >
+          <div
+            class="input-full-width el-input-group"
+          >
+            <input
+              class="el-input"
+              id="test-static-id"
+              max="2019-10-10"
+              min="2017-10-10"
+              name="createdFrom"
+              type="date"
+            />
+            <label
+              class="el-label"
+              for="test-static-id"
+            >
+              Created From
+            </label>
+          </div>
+        </div>
+        <div
+          class="controls-container"
+        >
+          <div
+            class="input-full-width el-input-group"
+          >
+            <input
+              class="el-input"
+              id="test-static-id"
+              max="2019-10-10"
+              min="2019-10-10"
+              name="createdTo"
+              type="date"
+            />
+            <label
+              class="el-label"
+              for="test-static-id"
+            >
+              Created To
+            </label>
+          </div>
+        </div>
+        <div
+          class="controls-container"
+        >
+          <div
+            class="el-input-group"
+          >
+            <select
+              class="el-wfull el-select"
+              name="status"
+            >
+              <option
+                value=""
+              >
+                None selected
+              </option>
+              <option
+                value="awaitingAuthorisation"
+              >
+                Not Requested
+              </option>
+              <option
+                value="awaitingPosting"
+              >
+                Awaiting Payment
+              </option>
+              <option
+                value="posted"
+              >
+                Paid
+              </option>
+              <option
+                value="rejected"
+              >
+                Failed
+              </option>
+            </select>
+            <label
+              class="el-label"
+            >
+              Status
+            </label>
+          </div>
+        </div>
+        <div
+          class="controls-container"
+        >
+          <div
+            class="input-full-width el-input-group"
+          >
+            <input
+              class="el-input"
+              id="test-static-id"
+              name="description"
+              type="text"
+            />
+            <label
+              class="el-label"
+              for="test-static-id"
+            >
+              Description
+            </label>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

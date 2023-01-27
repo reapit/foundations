@@ -3,8 +3,9 @@ import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '@/core/connect-session'
 import { NavResponsive, NavResponsiveOption } from '@reapit/elements'
 import { Routes } from '../constants/routes'
-import { History } from 'history'
 import { history } from './router'
+import { navigate } from '@reapit/payments-ui'
+import { ORG_ADMIN_GROUP } from '../constants/permissions'
 
 export const MARKETPLACE_DEV_URL = 'https://marketplace.dev.paas.reapit.cloud/installed'
 export const MARKETPLACE_PROD_URL = 'https://marketplace.reapit.cloud/installed'
@@ -17,11 +18,8 @@ export const callbackAppClick = () =>
 
 export const getDefaultNavIndex = (pathname: string) => {
   if (pathname.includes(Routes.PAYMENTS)) return 1
+  if (pathname.includes(Routes.ADMIN)) return 2
   return 0
-}
-
-export const navigate = (history: History, route: string) => (): void => {
-  history.push(route)
 }
 
 export const openNewPage = (uri: string) => (event?: MouseEvent<HTMLElement>) => {
@@ -31,7 +29,8 @@ export const openNewPage = (uri: string) => (event?: MouseEvent<HTMLElement>) =>
 }
 
 export const Nav: FC = () => {
-  const { connectLogoutRedirect, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
+  const { connectSession, connectLogoutRedirect, connectIsDesktop } = useReapitConnect(reapitConnectBrowserSession)
+  const isAdmin = connectSession?.loginIdentity?.groups?.includes(ORG_ADMIN_GROUP)
   const navOptions: NavResponsiveOption[] = [
     {
       itemIndex: 0,
@@ -43,6 +42,15 @@ export const Nav: FC = () => {
       callback: navigate(history, Routes.PAYMENTS),
     },
   ]
+
+  if (isAdmin) {
+    navOptions.push({
+      itemIndex: 2,
+      callback: navigate(history, Routes.ADMIN),
+      iconId: 'myAccountMenu',
+      text: 'Admin',
+    })
+  }
 
   if (!connectIsDesktop) {
     navOptions.push(

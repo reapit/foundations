@@ -77,14 +77,13 @@ export const handleSetInstallationId =
 
 export const AppInstallations: FC = () => {
   const { appId } = useParams<AppUriParams>()
-  const { setAppId, appsDataState } = useAppState()
+  const { setAppId } = useAppState()
   const [installationId, setInstallationId] = useState<null | string>(null)
   const [pageNumber, setPageNumber] = useState<number>(1)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { Modal, openModal, closeModal } = useModal()
   const { Modal: ModalDocs, openModal: openModalDocs, closeModal: closeModalDocs } = useModal()
   const { isMobile } = useMediaQuery()
-  const appName = appsDataState?.appDetail?.name ?? ''
   const developerId = connectSession?.loginIdentity.developerId
   const email = connectSession?.loginIdentity.email ?? ''
 
@@ -162,60 +161,62 @@ export const AppInstallations: FC = () => {
           <Table
             numberColumns={6}
             className={elMb11}
-            rows={installations?.data?.map(({ customerName, client, customerAddress, created, installedBy, id }) => ({
-              cells: [
-                {
-                  label: 'Customer Name',
-                  value: customerName ?? '',
-                  icon: 'flatInfographic',
-                  cellHasDarkText: true,
-                  narrowTable: {
-                    showLabel: true,
+            rows={installations?.data?.map(
+              ({ customerName, appName, client, customerAddress, created, installedBy, id }) => ({
+                cells: [
+                  {
+                    label: 'Customer Name',
+                    value: customerName ?? '',
+                    icon: 'flatInfographic',
+                    cellHasDarkText: true,
+                    narrowTable: {
+                      showLabel: true,
+                    },
                   },
-                },
-                {
-                  label: 'Reapit Customer Code',
-                  value: client ?? '',
-                  narrowTable: {
-                    showLabel: true,
+                  {
+                    label: 'Reapit Customer Code',
+                    value: client ?? '',
+                    narrowTable: {
+                      showLabel: true,
+                    },
                   },
-                },
-                {
-                  label: 'Customer Address',
-                  value: combineAddress(customerAddress),
-                  narrowTable: {
-                    showLabel: true,
+                  {
+                    label: 'Customer Address',
+                    value: combineAddress(customerAddress),
+                    narrowTable: {
+                      showLabel: true,
+                    },
                   },
-                },
-                {
-                  label: 'Date Installed',
-                  value: dayjs(created).format('DD-MM-YYYY'),
-                  narrowTable: {
-                    showLabel: true,
+                  {
+                    label: 'Date Installed',
+                    value: dayjs(created).format('DD-MM-YYYY'),
+                    narrowTable: {
+                      showLabel: true,
+                    },
                   },
-                },
-                {
-                  label: 'Installed By',
-                  value: (
-                    <a
-                      href={`mailto:${installedBy}?subject=Your%20recent%20installation%20of%20${appName}%20in%20the%20Reapit%20AppMarket`}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      {installedBy}
-                    </a>
-                  ),
-                  narrowTable: {
-                    showLabel: true,
+                  {
+                    label: 'Installed By',
+                    value: (
+                      <a
+                        href={`mailto:${installedBy}?subject=Your%20recent%20installation%20of%20${appName}%20in%20the%20Reapit%20AppMarket`}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        {installedBy}
+                      </a>
+                    ),
+                    narrowTable: {
+                      showLabel: true,
+                    },
                   },
+                ],
+                ctaContent: {
+                  headerContent: 'Uninstall',
+                  icon: 'trashSystem',
+                  onClick: handleSetInstallationId(setInstallationId, openModal, id),
                 },
-              ],
-              ctaContent: {
-                headerContent: 'Uninstall',
-                icon: 'trashSystem',
-                onClick: handleSetInstallationId(setInstallationId, openModal, id),
-              },
-            }))}
+              }),
+            )}
           />
           <Pagination
             callback={setPageNumber}

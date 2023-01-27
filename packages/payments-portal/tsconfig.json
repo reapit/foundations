@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"],
+      "@reapit/connect-session": ["../connect-session/src"],
+      "@reapit/elements": ["../elements/src"],
+      "@reapit/utils-common": ["../utils-common/src"]
+    }
+  },
+  "include": ["src"],
+  "exclude": ["public", "dist", "./webpack.config.js", "node_modules", "src/tests/coverage"]
+}

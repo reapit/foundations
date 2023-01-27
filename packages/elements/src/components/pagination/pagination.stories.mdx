@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Story, Canvas } from '@storybook/addon-docs/blocks'
+import { Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
 import { Pagination, PaginationWrap, PaginationText, PaginationButton } from './index'
 import { elPaginationPrimary } from './__styles__'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
@@ -39,13 +39,7 @@ For non-React users, just use the rendered markup and use your own JS to trigger
 
 For React users, we export a `Pagination` component that handles the pagination behaviour. Props are in the following defintion:
 
-```tsx
-export interface PaginationProps extends HTMLAttributes<HTMLDivElement> {
-  callback: (nextPage: number) => void
-  currentPage: number
-  numberPages: number
-}
-```
+<ArgsTable of={Pagination} />
 
 The callback can be any action and will return you the next current page on button click forward or back. The below example uses `useState`.
 
@@ -61,3 +55,20 @@ In addtion, the React component uses an input to allow quick switching between p
 </Canvas>
 
 <RenderHtmlMarkup component="Pagination" story="React Example" />
+
+## React Example with Start and End buttons
+
+Extending the previous example, we provide two additional optional props `hasStartButton` and `hasEndButton` which allow the user to either re-set the pagination to `1` or to fast forward to the last available page. Useful for very long data sets.
+
+<Canvas>
+  <Story name="React Example With Start End Buttons">
+    {() => {
+      const [currentPage, setCurrentPage] = useState(1)
+      return (
+        <Pagination callback={setCurrentPage} currentPage={currentPage} hasStartButton hasEndButton numberPages={4} />
+      )
+    }}
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Pagination" story="React Example With Start End Buttons" />

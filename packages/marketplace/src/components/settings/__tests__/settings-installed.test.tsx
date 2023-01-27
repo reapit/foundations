@@ -5,7 +5,6 @@ import SettingsInstalled, {
   handleSetInstallationDetails,
   handleUninstallApp,
   handleUninstallSuccess,
-  InstallationDetails,
 } from '../settings-installed'
 import { render, setViewport } from '../../../tests/react-testing'
 import { useReapitGet } from '@reapit/utils-react'
@@ -143,7 +142,7 @@ describe('handleSetInstallationDetails', () => {
     curried()
 
     expect(trackEvent).toHaveBeenCalledWith(TrackingEvent.ClickUninstallApp, true, { appName })
-    expect(setInstallationId).toHaveBeenCalledWith({ installationId, appId })
+    expect(setInstallationId).toHaveBeenCalledWith({ installationId, appId, appName })
     expect(openModal).toHaveBeenCalledTimes(1)
   })
 })
@@ -155,12 +154,10 @@ describe('handleCloseModal', () => {
     const clientId = 'MOCK_ID'
     const appId = 'MOCK_ID'
     const email = 'mock@example.com'
-    const installationDetails = { appId } as InstallationDetails
-    const apps = {
-      data: [{ id: appId, name: appName }],
-    }
+    const installationId = 'MOCK_ID'
+    const installationDetails = { appId, appName, installationId }
 
-    const curried = handleCloseModal(closeModal, installationDetails, apps, clientId, email)
+    const curried = handleCloseModal(closeModal, installationDetails, clientId, email)
 
     curried()
 

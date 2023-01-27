@@ -80,7 +80,7 @@ export const WebhooksProvider: FC = ({ children }) => {
     fetchWhenTrue: [developerId],
   })
 
-  const [installations] = useReapitGet<TopicModelPagedResult>({
+  const [installations] = useReapitGet<InstallationModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getInstallations],
     queryParams: { pageSize: 999, isInstalled: true, developerId, appId: applicationId },

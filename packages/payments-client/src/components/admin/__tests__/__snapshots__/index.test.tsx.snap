@@ -1,0 +1,1242 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AdminPage should match a snapshot when loading 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <aside
+        class="el-secondary-nav-container"
+      >
+        <h1
+          class="el-title"
+        >
+          Admin
+        </h1>
+        <span
+          class="el-mb5 el-icon-size-large el-icon"
+        >
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 38 40"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M24.7684 16.5518H23.2632C16.4211 16.552 7.5 16.5516 2.73684 16.5518H1.23158C0.547369 16.5518 0 17.1035 0 17.7932V38.7587C0 39.4345 0.547369 40.0001 1.23158 40.0001H24.7684C25.4526 40.0001 26 39.4345 26 38.7587V17.7932C26 17.1035 25.4526 16.5518 24.7684 16.5518ZM9.57895 26.8966C9.57895 24.9932 11.1116 23.4483 13 23.4483C14.8884 23.4483 16.4211 24.9932 16.4211 26.8966C16.4211 28.0001 15.9147 29.007 15.0526 29.6552V32.4139C15.0526 33.5587 14.1358 34.4828 13 34.4828C11.8642 34.4828 10.9474 33.5587 10.9474 32.4139V29.6552C10.0853 29.007 9.57895 28.0001 9.57895 26.8966Z"
+              fill="#23A4DE"
+            />
+            <path
+              d="M23.2626 16.5517V10.3448C23.2626 4.63448 18.6647 0 12.9995 0C7.33422 0 2.73633 4.63448 2.73633 10.3448V16.5517C4.5 16.5517 21.5004 16.5517 23.2626 16.5517ZM6.84158 10.3448C6.84158 6.92414 9.6058 4.13793 12.9995 4.13793C16.3932 4.13793 19.1574 6.92414 19.1574 10.3448V16.5517H6.84158V10.3448Z"
+              fill="#0061A8"
+            />
+            <path
+              d="M32.0357 37.0047L31.9979 39.9254L37.9244 40L38 34.1585L28.4924 24.5449C29.2691 21.7795 28.568 18.7034 26.374 16.4849C23.156 13.231 17.8222 13.1639 14.521 16.3358C11.2198 19.5076 11.1518 24.7649 14.3697 28.0188C16.5638 30.2373 19.6657 31.0066 22.4903 30.3118L23.2216 31.0514L26.1849 31.0886L26.147 34.0094L29.1103 34.0467L29.0725 36.9674L32.0357 37.0047ZM15.9459 20.7355C15.2145 19.996 15.2334 18.5356 15.9837 17.8148C16.734 17.0939 18.2156 17.1125 18.9469 17.852C19.8246 18.7395 19.6594 20.0519 18.9091 20.7728C18.0088 21.6378 16.8235 21.6229 15.9459 20.7355Z"
+              fill="#FFB71B"
+            />
+          </svg>
+        </span>
+        <p
+          class="el-has-grey-text el-small-text"
+        >
+          This form is required to get started with Reapit Payments.
+        </p>
+        <p
+          class="el-has-grey-text el-small-text"
+        >
+          Please take the time to read the documentation at the below link before proceeding as this details the setup intructions you need to perform in your Opayo account to complete this configuration.
+        </p>
+        <button
+          class="el-mb3 el-intent-neutral el-button"
+        >
+          View Docs
+        </button>
+        <button
+          class="el-mb3 el-intent-critical el-button"
+        >
+          Save Config
+        </button>
+        <button
+          class="el-mb3 el-intent-danger el-button"
+        >
+          Delete Config
+        </button>
+      </aside>
+      <section
+        class="el-page-container"
+      >
+        <div
+          class="el-flex-justify-between el-flex-container"
+        >
+          <h1
+            class="el-title"
+          >
+            Reapit Payments App Configuration
+          </h1>
+          <div
+            class="logo"
+          >
+            <img
+              src="https://web-components.prod.paas.reapit.cloud/reapit-payments.png"
+            />
+          </div>
+        </div>
+        <div
+          class="el-loader-container"
+        >
+          <div
+            class="el-loader"
+          >
+            <div
+              class="el-loader-moving-bar"
+            />
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <aside
+      class="el-secondary-nav-container"
+    >
+      <h1
+        class="el-title"
+      >
+        Admin
+      </h1>
+      <span
+        class="el-mb5 el-icon-size-large el-icon"
+      >
+        <svg
+          fill="none"
+          height="1em"
+          viewBox="0 0 38 40"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M24.7684 16.5518H23.2632C16.4211 16.552 7.5 16.5516 2.73684 16.5518H1.23158C0.547369 16.5518 0 17.1035 0 17.7932V38.7587C0 39.4345 0.547369 40.0001 1.23158 40.0001H24.7684C25.4526 40.0001 26 39.4345 26 38.7587V17.7932C26 17.1035 25.4526 16.5518 24.7684 16.5518ZM9.57895 26.8966C9.57895 24.9932 11.1116 23.4483 13 23.4483C14.8884 23.4483 16.4211 24.9932 16.4211 26.8966C16.4211 28.0001 15.9147 29.007 15.0526 29.6552V32.4139C15.0526 33.5587 14.1358 34.4828 13 34.4828C11.8642 34.4828 10.9474 33.5587 10.9474 32.4139V29.6552C10.0853 29.007 9.57895 28.0001 9.57895 26.8966Z"
+            fill="#23A4DE"
+          />
+          <path
+            d="M23.2626 16.5517V10.3448C23.2626 4.63448 18.6647 0 12.9995 0C7.33422 0 2.73633 4.63448 2.73633 10.3448V16.5517C4.5 16.5517 21.5004 16.5517 23.2626 16.5517ZM6.84158 10.3448C6.84158 6.92414 9.6058 4.13793 12.9995 4.13793C16.3932 4.13793 19.1574 6.92414 19.1574 10.3448V16.5517H6.84158V10.3448Z"
+            fill="#0061A8"
+          />
+          <path
+            d="M32.0357 37.0047L31.9979 39.9254L37.9244 40L38 34.1585L28.4924 24.5449C29.2691 21.7795 28.568 18.7034 26.374 16.4849C23.156 13.231 17.8222 13.1639 14.521 16.3358C11.2198 19.5076 11.1518 24.7649 14.3697 28.0188C16.5638 30.2373 19.6657 31.0066 22.4903 30.3118L23.2216 31.0514L26.1849 31.0886L26.147 34.0094L29.1103 34.0467L29.0725 36.9674L32.0357 37.0047ZM15.9459 20.7355C15.2145 19.996 15.2334 18.5356 15.9837 17.8148C16.734 17.0939 18.2156 17.1125 18.9469 17.852C19.8246 18.7395 19.6594 20.0519 18.9091 20.7728C18.0088 21.6378 16.8235 21.6229 15.9459 20.7355Z"
+            fill="#FFB71B"
+          />
+        </svg>
+      </span>
+      <p
+        class="el-has-grey-text el-small-text"
+      >
+        This form is required to get started with Reapit Payments.
+      </p>
+      <p
+        class="el-has-grey-text el-small-text"
+      >
+        Please take the time to read the documentation at the below link before proceeding as this details the setup intructions you need to perform in your Opayo account to complete this configuration.
+      </p>
+      <button
+        class="el-mb3 el-intent-neutral el-button"
+      >
+        View Docs
+      </button>
+      <button
+        class="el-mb3 el-intent-critical el-button"
+      >
+        Save Config
+      </button>
+      <button
+        class="el-mb3 el-intent-danger el-button"
+      >
+        Delete Config
+      </button>
+    </aside>
+    <section
+      class="el-page-container"
+    >
+      <div
+        class="el-flex-justify-between el-flex-container"
+      >
+        <h1
+          class="el-title"
+        >
+          Reapit Payments App Configuration
+        </h1>
+        <div
+          class="logo"
+        >
+          <img
+            src="https://web-components.prod.paas.reapit.cloud/reapit-payments.png"
+          />
+        </div>
+      </div>
+      <div
+        class="el-loader-container"
+      >
+        <div
+          class="el-loader"
+        >
+          <div
+            class="el-loader-moving-bar"
+          />
+        </div>
+      </div>
+    </section>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`AdminPage should match a snapshot with config data 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <aside
+        class="el-secondary-nav-container"
+      >
+        <h1
+          class="el-title"
+        >
+          Admin
+        </h1>
+        <span
+          class="el-mb5 el-icon-size-large el-icon"
+        >
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 38 40"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M24.7684 16.5518H23.2632C16.4211 16.552 7.5 16.5516 2.73684 16.5518H1.23158C0.547369 16.5518 0 17.1035 0 17.7932V38.7587C0 39.4345 0.547369 40.0001 1.23158 40.0001H24.7684C25.4526 40.0001 26 39.4345 26 38.7587V17.7932C26 17.1035 25.4526 16.5518 24.7684 16.5518ZM9.57895 26.8966C9.57895 24.9932 11.1116 23.4483 13 23.4483C14.8884 23.4483 16.4211 24.9932 16.4211 26.8966C16.4211 28.0001 15.9147 29.007 15.0526 29.6552V32.4139C15.0526 33.5587 14.1358 34.4828 13 34.4828C11.8642 34.4828 10.9474 33.5587 10.9474 32.4139V29.6552C10.0853 29.007 9.57895 28.0001 9.57895 26.8966Z"
+              fill="#23A4DE"
+            />
+            <path
+              d="M23.2626 16.5517V10.3448C23.2626 4.63448 18.6647 0 12.9995 0C7.33422 0 2.73633 4.63448 2.73633 10.3448V16.5517C4.5 16.5517 21.5004 16.5517 23.2626 16.5517ZM6.84158 10.3448C6.84158 6.92414 9.6058 4.13793 12.9995 4.13793C16.3932 4.13793 19.1574 6.92414 19.1574 10.3448V16.5517H6.84158V10.3448Z"
+              fill="#0061A8"
+            />
+            <path
+              d="M32.0357 37.0047L31.9979 39.9254L37.9244 40L38 34.1585L28.4924 24.5449C29.2691 21.7795 28.568 18.7034 26.374 16.4849C23.156 13.231 17.8222 13.1639 14.521 16.3358C11.2198 19.5076 11.1518 24.7649 14.3697 28.0188C16.5638 30.2373 19.6657 31.0066 22.4903 30.3118L23.2216 31.0514L26.1849 31.0886L26.147 34.0094L29.1103 34.0467L29.0725 36.9674L32.0357 37.0047ZM15.9459 20.7355C15.2145 19.996 15.2334 18.5356 15.9837 17.8148C16.734 17.0939 18.2156 17.1125 18.9469 17.852C19.8246 18.7395 19.6594 20.0519 18.9091 20.7728C18.0088 21.6378 16.8235 21.6229 15.9459 20.7355Z"
+              fill="#FFB71B"
+            />
+          </svg>
+        </span>
+        <p
+          class="el-has-grey-text el-small-text"
+        >
+          This form is required to get started with Reapit Payments.
+        </p>
+        <p
+          class="el-has-grey-text el-small-text"
+        >
+          Please take the time to read the documentation at the below link before proceeding as this details the setup intructions you need to perform in your Opayo account to complete this configuration.
+        </p>
+        <button
+          class="el-mb3 el-intent-neutral el-button"
+        >
+          View Docs
+        </button>
+        <button
+          class="el-mb3 el-intent-critical el-button"
+        >
+          Save Config
+        </button>
+        <button
+          class="el-mb3 el-intent-danger el-button"
+        >
+          Delete Config
+        </button>
+      </aside>
+      <section
+        class="el-page-container"
+      >
+        <div
+          class="el-flex-justify-between el-flex-container"
+        >
+          <h1
+            class="el-title"
+          >
+            Reapit Payments App Configuration
+          </h1>
+          <div
+            class="logo"
+          >
+            <img
+              src="https://web-components.prod.paas.reapit.cloud/reapit-payments.png"
+            />
+          </div>
+        </div>
+        <div
+          class="el-mb7 el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        >
+          <div
+            class="el-pn-icon"
+            data-testid="close-icon"
+          >
+            <span
+              class="el-icon"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 20 20"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9.99958 0C4.47746 0 0 4.47746 0 9.99958C0 15.5217 4.47746 20 9.99958 20C15.5217 20 20 15.5217 20 9.99958C20 4.47746 15.5217 0 9.99958 0ZM12.0813 15.498C11.5666 15.7012 11.1568 15.8552 10.8495 15.9619C10.5431 16.0686 10.1867 16.1219 9.78116 16.1219C9.1581 16.1219 8.67302 15.9695 8.32762 15.6656C7.98222 15.3617 7.81037 14.9765 7.81037 14.5084C7.81037 14.3263 7.82307 14.1401 7.84847 13.9505C7.87471 13.7608 7.91619 13.5475 7.97291 13.3079L8.61714 11.0324C8.67386 10.814 8.72296 10.6066 8.7619 10.4135C8.80085 10.2188 8.81947 10.0402 8.81947 9.87767C8.81947 9.58815 8.75937 9.38497 8.64 9.27069C8.51894 9.1564 8.29122 9.10053 7.95175 9.10053C7.78582 9.10053 7.61481 9.12508 7.43958 9.17672C7.26603 9.23005 7.11534 9.27831 6.99175 9.32571L7.1619 8.62476C7.58349 8.45291 7.9873 8.30561 8.37249 8.1837C8.75767 8.06011 9.12169 7.99915 9.46455 7.99915C10.0834 7.99915 10.5608 8.14984 10.8969 8.44783C11.2313 8.74667 11.3998 9.13524 11.3998 9.6127C11.3998 9.71175 11.3879 9.88614 11.3651 10.135C11.3422 10.3848 11.299 10.6125 11.2364 10.8216L10.5956 13.0904C10.5431 13.2724 10.4965 13.4806 10.4542 13.7134C10.4127 13.9462 10.3924 14.124 10.3924 14.2434C10.3924 14.5448 10.4593 14.7505 10.5947 14.8597C10.7285 14.9689 10.963 15.0239 11.2948 15.0239C11.4514 15.0239 11.6267 14.996 11.8248 14.9418C12.0212 14.8876 12.1634 14.8394 12.2531 14.7979L12.0813 15.498ZM11.9678 6.2891C11.669 6.56677 11.3092 6.70561 10.8885 6.70561C10.4686 6.70561 10.1062 6.56677 9.80487 6.2891C9.50519 6.01143 9.35365 5.67365 9.35365 5.27915C9.35365 4.8855 9.50603 4.54688 9.80487 4.26667C10.1062 3.98561 10.4686 3.84593 10.8885 3.84593C11.3092 3.84593 11.6698 3.98561 11.9678 4.26667C12.2667 4.54688 12.4165 4.8855 12.4165 5.27915C12.4165 5.6745 12.2667 6.01143 11.9678 6.2891Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+          </div>
+          <div
+            class="el-pn-content"
+          >
+            Your app is not currently configured to use Reapit Payments. For the app to work correctly, you will need to provide us with both your Opayo Credentials as specified in the documentation, your company name and a url to your company logo. Please ensure these credentials are entered accurately as failure to do so can lead to the app failing for all users.
+          </div>
+        </div>
+        <form>
+          <div
+            class="el-form-layout-has-margin el-form-layout"
+          >
+            <div
+              class="el-input-wrap"
+            >
+              <div
+                class="el-input-group"
+              >
+                <input
+                  class="el-input"
+                  id="test-static-id"
+                  name="companyName"
+                  type="email"
+                />
+                <label
+                  class="el-label"
+                  for="test-static-id"
+                >
+                  Company Name
+                </label>
+              </div>
+            </div>
+            <div
+              class="el-input-wrap"
+            >
+              <div
+                class="el-input-group"
+              >
+                <input
+                  class="el-input"
+                  id="test-static-id"
+                  name="vendorName"
+                  type="email"
+                />
+                <label
+                  class="el-label"
+                  for="test-static-id"
+                >
+                  Opayo Vendor Name
+                </label>
+              </div>
+            </div>
+            <div
+              class="el-input-wrap-med"
+            >
+              <div
+                class="el-input-group"
+              >
+                <input
+                  class="el-input"
+                  id="test-static-id"
+                  name="logoUri"
+                  type="email"
+                />
+                <label
+                  class="el-label"
+                  for="test-static-id"
+                >
+                  Email Logo Url
+                </label>
+              </div>
+            </div>
+            <div
+              class="el-input-wrap-full"
+            >
+              <div
+                class="el-input-group"
+              >
+                <input
+                  class="el-input"
+                  id="test-static-id"
+                  name="integrationKey"
+                  type="email"
+                />
+                <label
+                  class="el-label"
+                  for="test-static-id"
+                >
+                  Opayo Integration Key
+                </label>
+              </div>
+            </div>
+            <div
+              class="el-input-wrap-full"
+            >
+              <div
+                class="el-input-group"
+              >
+                <input
+                  class="el-input"
+                  id="test-static-id"
+                  name="passKey"
+                  type="email"
+                />
+                <label
+                  class="el-label"
+                  for="test-static-id"
+                >
+                  Opayo Pass Key
+                </label>
+              </div>
+            </div>
+          </div>
+        </form>
+      </section>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <aside
+      class="el-secondary-nav-container"
+    >
+      <h1
+        class="el-title"
+      >
+        Admin
+      </h1>
+      <span
+        class="el-mb5 el-icon-size-large el-icon"
+      >
+        <svg
+          fill="none"
+          height="1em"
+          viewBox="0 0 38 40"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M24.7684 16.5518H23.2632C16.4211 16.552 7.5 16.5516 2.73684 16.5518H1.23158C0.547369 16.5518 0 17.1035 0 17.7932V38.7587C0 39.4345 0.547369 40.0001 1.23158 40.0001H24.7684C25.4526 40.0001 26 39.4345 26 38.7587V17.7932C26 17.1035 25.4526 16.5518 24.7684 16.5518ZM9.57895 26.8966C9.57895 24.9932 11.1116 23.4483 13 23.4483C14.8884 23.4483 16.4211 24.9932 16.4211 26.8966C16.4211 28.0001 15.9147 29.007 15.0526 29.6552V32.4139C15.0526 33.5587 14.1358 34.4828 13 34.4828C11.8642 34.4828 10.9474 33.5587 10.9474 32.4139V29.6552C10.0853 29.007 9.57895 28.0001 9.57895 26.8966Z"
+            fill="#23A4DE"
+          />
+          <path
+            d="M23.2626 16.5517V10.3448C23.2626 4.63448 18.6647 0 12.9995 0C7.33422 0 2.73633 4.63448 2.73633 10.3448V16.5517C4.5 16.5517 21.5004 16.5517 23.2626 16.5517ZM6.84158 10.3448C6.84158 6.92414 9.6058 4.13793 12.9995 4.13793C16.3932 4.13793 19.1574 6.92414 19.1574 10.3448V16.5517H6.84158V10.3448Z"
+            fill="#0061A8"
+          />
+          <path
+            d="M32.0357 37.0047L31.9979 39.9254L37.9244 40L38 34.1585L28.4924 24.5449C29.2691 21.7795 28.568 18.7034 26.374 16.4849C23.156 13.231 17.8222 13.1639 14.521 16.3358C11.2198 19.5076 11.1518 24.7649 14.3697 28.0188C16.5638 30.2373 19.6657 31.0066 22.4903 30.3118L23.2216 31.0514L26.1849 31.0886L26.147 34.0094L29.1103 34.0467L29.0725 36.9674L32.0357 37.0047ZM15.9459 20.7355C15.2145 19.996 15.2334 18.5356 15.9837 17.8148C16.734 17.0939 18.2156 17.1125 18.9469 17.852C19.8246 18.7395 19.6594 20.0519 18.9091 20.7728C18.0088 21.6378 16.8235 21.6229 15.9459 20.7355Z"
+            fill="#FFB71B"
+          />
+        </svg>
+      </span>
+      <p
+        class="el-has-grey-text el-small-text"
+      >
+        This form is required to get started with Reapit Payments.
+      </p>
+      <p
+        class="el-has-grey-text el-small-text"
+      >
+        Please take the time to read the documentation at the below link before proceeding as this details the setup intructions you need to perform in your Opayo account to complete this configuration.
+      </p>
+      <button
+        class="el-mb3 el-intent-neutral el-button"
+      >
+        View Docs
+      </button>
+      <button
+        class="el-mb3 el-intent-critical el-button"
+      >
+        Save Config
+      </button>
+      <button
+        class="el-mb3 el-intent-danger el-button"
+      >
+        Delete Config
+      </button>
+    </aside>
+    <section
+      class="el-page-container"
+    >
+      <div
+        class="el-flex-justify-between el-flex-container"
+      >
+        <h1
+          class="el-title"
+        >
+          Reapit Payments App Configuration
+        </h1>
+        <div
+          class="logo"
+        >
+          <img
+            src="https://web-components.prod.paas.reapit.cloud/reapit-payments.png"
+          />
+        </div>
+      </div>
+      <div
+        class="el-mb7 el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+      >
+        <div
+          class="el-pn-icon"
+          data-testid="close-icon"
+        >
+          <span
+            class="el-icon"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 20 20"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9.99958 0C4.47746 0 0 4.47746 0 9.99958C0 15.5217 4.47746 20 9.99958 20C15.5217 20 20 15.5217 20 9.99958C20 4.47746 15.5217 0 9.99958 0ZM12.0813 15.498C11.5666 15.7012 11.1568 15.8552 10.8495 15.9619C10.5431 16.0686 10.1867 16.1219 9.78116 16.1219C9.1581 16.1219 8.67302 15.9695 8.32762 15.6656C7.98222 15.3617 7.81037 14.9765 7.81037 14.5084C7.81037 14.3263 7.82307 14.1401 7.84847 13.9505C7.87471 13.7608 7.91619 13.5475 7.97291 13.3079L8.61714 11.0324C8.67386 10.814 8.72296 10.6066 8.7619 10.4135C8.80085 10.2188 8.81947 10.0402 8.81947 9.87767C8.81947 9.58815 8.75937 9.38497 8.64 9.27069C8.51894 9.1564 8.29122 9.10053 7.95175 9.10053C7.78582 9.10053 7.61481 9.12508 7.43958 9.17672C7.26603 9.23005 7.11534 9.27831 6.99175 9.32571L7.1619 8.62476C7.58349 8.45291 7.9873 8.30561 8.37249 8.1837C8.75767 8.06011 9.12169 7.99915 9.46455 7.99915C10.0834 7.99915 10.5608 8.14984 10.8969 8.44783C11.2313 8.74667 11.3998 9.13524 11.3998 9.6127C11.3998 9.71175 11.3879 9.88614 11.3651 10.135C11.3422 10.3848 11.299 10.6125 11.2364 10.8216L10.5956 13.0904C10.5431 13.2724 10.4965 13.4806 10.4542 13.7134C10.4127 13.9462 10.3924 14.124 10.3924 14.2434C10.3924 14.5448 10.4593 14.7505 10.5947 14.8597C10.7285 14.9689 10.963 15.0239 11.2948 15.0239C11.4514 15.0239 11.6267 14.996 11.8248 14.9418C12.0212 14.8876 12.1634 14.8394 12.2531 14.7979L12.0813 15.498ZM11.9678 6.2891C11.669 6.56677 11.3092 6.70561 10.8885 6.70561C10.4686 6.70561 10.1062 6.56677 9.80487 6.2891C9.50519 6.01143 9.35365 5.67365 9.35365 5.27915C9.35365 4.8855 9.50603 4.54688 9.80487 4.26667C10.1062 3.98561 10.4686 3.84593 10.8885 3.84593C11.3092 3.84593 11.6698 3.98561 11.9678 4.26667C12.2667 4.54688 12.4165 4.8855 12.4165 5.27915C12.4165 5.6745 12.2667 6.01143 11.9678 6.2891Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+        </div>
+        <div
+          class="el-pn-content"
+        >
+          Your app is not currently configured to use Reapit Payments. For the app to work correctly, you will need to provide us with both your Opayo Credentials as specified in the documentation, your company name and a url to your company logo. Please ensure these credentials are entered accurately as failure to do so can lead to the app failing for all users.
+        </div>
+      </div>
+      <form>
+        <div
+          class="el-form-layout-has-margin el-form-layout"
+        >
+          <div
+            class="el-input-wrap"
+          >
+            <div
+              class="el-input-group"
+            >
+              <input
+                class="el-input"
+                id="test-static-id"
+                name="companyName"
+                type="email"
+              />
+              <label
+                class="el-label"
+                for="test-static-id"
+              >
+                Company Name
+              </label>
+            </div>
+          </div>
+          <div
+            class="el-input-wrap"
+          >
+            <div
+              class="el-input-group"
+            >
+              <input
+                class="el-input"
+                id="test-static-id"
+                name="vendorName"
+                type="email"
+              />
+              <label
+                class="el-label"
+                for="test-static-id"
+              >
+                Opayo Vendor Name
+              </label>
+            </div>
+          </div>
+          <div
+            class="el-input-wrap-med"
+          >
+            <div
+              class="el-input-group"
+            >
+              <input
+                class="el-input"
+                id="test-static-id"
+                name="logoUri"
+                type="email"
+              />
+              <label
+                class="el-label"
+                for="test-static-id"
+              >
+                Email Logo Url
+              </label>
+            </div>
+          </div>
+          <div
+            class="el-input-wrap-full"
+          >
+            <div
+              class="el-input-group"
+            >
+              <input
+                class="el-input"
+                id="test-static-id"
+                name="integrationKey"
+                type="email"
+              />
+              <label
+                class="el-label"
+                for="test-static-id"
+              >
+                Opayo Integration Key
+              </label>
+            </div>
+          </div>
+          <div
+            class="el-input-wrap-full"
+          >
+            <div
+              class="el-input-group"
+            >
+              <input
+                class="el-input"
+                id="test-static-id"
+                name="passKey"
+                type="email"
+              />
+              <label
+                class="el-label"
+                for="test-static-id"
+              >
+                Opayo Pass Key
+              </label>
+            </div>
+          </div>
+        </div>
+      </form>
+    </section>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`AdminPage should match a snapshot with no data 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <aside
+        class="el-secondary-nav-container"
+      >
+        <h1
+          class="el-title"
+        >
+          Admin
+        </h1>
+        <span
+          class="el-mb5 el-icon-size-large el-icon"
+        >
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 38 40"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M24.7684 16.5518H23.2632C16.4211 16.552 7.5 16.5516 2.73684 16.5518H1.23158C0.547369 16.5518 0 17.1035 0 17.7932V38.7587C0 39.4345 0.547369 40.0001 1.23158 40.0001H24.7684C25.4526 40.0001 26 39.4345 26 38.7587V17.7932C26 17.1035 25.4526 16.5518 24.7684 16.5518ZM9.57895 26.8966C9.57895 24.9932 11.1116 23.4483 13 23.4483C14.8884 23.4483 16.4211 24.9932 16.4211 26.8966C16.4211 28.0001 15.9147 29.007 15.0526 29.6552V32.4139C15.0526 33.5587 14.1358 34.4828 13 34.4828C11.8642 34.4828 10.9474 33.5587 10.9474 32.4139V29.6552C10.0853 29.007 9.57895 28.0001 9.57895 26.8966Z"
+              fill="#23A4DE"
+            />
+            <path
+              d="M23.2626 16.5517V10.3448C23.2626 4.63448 18.6647 0 12.9995 0C7.33422 0 2.73633 4.63448 2.73633 10.3448V16.5517C4.5 16.5517 21.5004 16.5517 23.2626 16.5517ZM6.84158 10.3448C6.84158 6.92414 9.6058 4.13793 12.9995 4.13793C16.3932 4.13793 19.1574 6.92414 19.1574 10.3448V16.5517H6.84158V10.3448Z"
+              fill="#0061A8"
+            />
+            <path
+              d="M32.0357 37.0047L31.9979 39.9254L37.9244 40L38 34.1585L28.4924 24.5449C29.2691 21.7795 28.568 18.7034 26.374 16.4849C23.156 13.231 17.8222 13.1639 14.521 16.3358C11.2198 19.5076 11.1518 24.7649 14.3697 28.0188C16.5638 30.2373 19.6657 31.0066 22.4903 30.3118L23.2216 31.0514L26.1849 31.0886L26.147 34.0094L29.1103 34.0467L29.0725 36.9674L32.0357 37.0047ZM15.9459 20.7355C15.2145 19.996 15.2334 18.5356 15.9837 17.8148C16.734 17.0939 18.2156 17.1125 18.9469 17.852C19.8246 18.7395 19.6594 20.0519 18.9091 20.7728C18.0088 21.6378 16.8235 21.6229 15.9459 20.7355Z"
+              fill="#FFB71B"
+            />
+          </svg>
+        </span>
+        <p
+          class="el-has-grey-text el-small-text"
+        >
+          This form is required to get started with Reapit Payments.
+        </p>
+        <p
+          class="el-has-grey-text el-small-text"
+        >
+          Please take the time to read the documentation at the below link before proceeding as this details the setup intructions you need to perform in your Opayo account to complete this configuration.
+        </p>
+        <button
+          class="el-mb3 el-intent-neutral el-button"
+        >
+          View Docs
+        </button>
+        <button
+          class="el-mb3 el-intent-critical el-button"
+        >
+          Save Config
+        </button>
+        <button
+          class="el-mb3 el-intent-danger el-button"
+        >
+          Delete Config
+        </button>
+      </aside>
+      <section
+        class="el-page-container"
+      >
+        <div
+          class="el-flex-justify-between el-flex-container"
+        >
+          <h1
+            class="el-title"
+          >
+            Reapit Payments App Configuration
+          </h1>
+          <div
+            class="logo"
+          >
+            <img
+              src="https://web-components.prod.paas.reapit.cloud/reapit-payments.png"
+            />
+          </div>
+        </div>
+        <div
+          class="el-mb7 el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        >
+          <div
+            class="el-pn-icon"
+            data-testid="close-icon"
+          >
+            <span
+              class="el-icon"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 20 20"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9.99958 0C4.47746 0 0 4.47746 0 9.99958C0 15.5217 4.47746 20 9.99958 20C15.5217 20 20 15.5217 20 9.99958C20 4.47746 15.5217 0 9.99958 0ZM12.0813 15.498C11.5666 15.7012 11.1568 15.8552 10.8495 15.9619C10.5431 16.0686 10.1867 16.1219 9.78116 16.1219C9.1581 16.1219 8.67302 15.9695 8.32762 15.6656C7.98222 15.3617 7.81037 14.9765 7.81037 14.5084C7.81037 14.3263 7.82307 14.1401 7.84847 13.9505C7.87471 13.7608 7.91619 13.5475 7.97291 13.3079L8.61714 11.0324C8.67386 10.814 8.72296 10.6066 8.7619 10.4135C8.80085 10.2188 8.81947 10.0402 8.81947 9.87767C8.81947 9.58815 8.75937 9.38497 8.64 9.27069C8.51894 9.1564 8.29122 9.10053 7.95175 9.10053C7.78582 9.10053 7.61481 9.12508 7.43958 9.17672C7.26603 9.23005 7.11534 9.27831 6.99175 9.32571L7.1619 8.62476C7.58349 8.45291 7.9873 8.30561 8.37249 8.1837C8.75767 8.06011 9.12169 7.99915 9.46455 7.99915C10.0834 7.99915 10.5608 8.14984 10.8969 8.44783C11.2313 8.74667 11.3998 9.13524 11.3998 9.6127C11.3998 9.71175 11.3879 9.88614 11.3651 10.135C11.3422 10.3848 11.299 10.6125 11.2364 10.8216L10.5956 13.0904C10.5431 13.2724 10.4965 13.4806 10.4542 13.7134C10.4127 13.9462 10.3924 14.124 10.3924 14.2434C10.3924 14.5448 10.4593 14.7505 10.5947 14.8597C10.7285 14.9689 10.963 15.0239 11.2948 15.0239C11.4514 15.0239 11.6267 14.996 11.8248 14.9418C12.0212 14.8876 12.1634 14.8394 12.2531 14.7979L12.0813 15.498ZM11.9678 6.2891C11.669 6.56677 11.3092 6.70561 10.8885 6.70561C10.4686 6.70561 10.1062 6.56677 9.80487 6.2891C9.50519 6.01143 9.35365 5.67365 9.35365 5.27915C9.35365 4.8855 9.50603 4.54688 9.80487 4.26667C10.1062 3.98561 10.4686 3.84593 10.8885 3.84593C11.3092 3.84593 11.6698 3.98561 11.9678 4.26667C12.2667 4.54688 12.4165 4.8855 12.4165 5.27915C12.4165 5.6745 12.2667 6.01143 11.9678 6.2891Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+          </div>
+          <div
+            class="el-pn-content"
+          >
+            Your app is not currently configured to use Reapit Payments. For the app to work correctly, you will need to provide us with both your Opayo Credentials as specified in the documentation, your company name and a url to your company logo. Please ensure these credentials are entered accurately as failure to do so can lead to the app failing for all users.
+          </div>
+        </div>
+        <form>
+          <div
+            class="el-form-layout-has-margin el-form-layout"
+          >
+            <div
+              class="el-input-wrap"
+            >
+              <div
+                class="el-input-group"
+              >
+                <input
+                  class="el-input"
+                  id="test-static-id"
+                  name="companyName"
+                  type="email"
+                />
+                <label
+                  class="el-label"
+                  for="test-static-id"
+                >
+                  Company Name
+                </label>
+              </div>
+            </div>
+            <div
+              class="el-input-wrap"
+            >
+              <div
+                class="el-input-group"
+              >
+                <input
+                  class="el-input"
+                  id="test-static-id"
+                  name="vendorName"
+                  type="email"
+                />
+                <label
+                  class="el-label"
+                  for="test-static-id"
+                >
+                  Opayo Vendor Name
+                </label>
+              </div>
+            </div>
+            <div
+              class="el-input-wrap-med"
+            >
+              <div
+                class="el-input-group"
+              >
+                <input
+                  class="el-input"
+                  id="test-static-id"
+                  name="logoUri"
+                  type="email"
+                />
+                <label
+                  class="el-label"
+                  for="test-static-id"
+                >
+                  Email Logo Url
+                </label>
+              </div>
+            </div>
+            <div
+              class="el-input-wrap-full"
+            >
+              <div
+                class="el-input-group"
+              >
+                <input
+                  class="el-input"
+                  id="test-static-id"
+                  name="integrationKey"
+                  type="email"
+                />
+                <label
+                  class="el-label"
+                  for="test-static-id"
+                >
+                  Opayo Integration Key
+                </label>
+              </div>
+            </div>
+            <div
+              class="el-input-wrap-full"
+            >
+              <div
+                class="el-input-group"
+              >
+                <input
+                  class="el-input"
+                  id="test-static-id"
+                  name="passKey"
+                  type="email"
+                />
+                <label
+                  class="el-label"
+                  for="test-static-id"
+                >
+                  Opayo Pass Key
+                </label>
+              </div>
+            </div>
+          </div>
+        </form>
+      </section>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <aside
+      class="el-secondary-nav-container"
+    >
+      <h1
+        class="el-title"
+      >
+        Admin
+      </h1>
+      <span
+        class="el-mb5 el-icon-size-large el-icon"
+      >
+        <svg
+          fill="none"
+          height="1em"
+          viewBox="0 0 38 40"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M24.7684 16.5518H23.2632C16.4211 16.552 7.5 16.5516 2.73684 16.5518H1.23158C0.547369 16.5518 0 17.1035 0 17.7932V38.7587C0 39.4345 0.547369 40.0001 1.23158 40.0001H24.7684C25.4526 40.0001 26 39.4345 26 38.7587V17.7932C26 17.1035 25.4526 16.5518 24.7684 16.5518ZM9.57895 26.8966C9.57895 24.9932 11.1116 23.4483 13 23.4483C14.8884 23.4483 16.4211 24.9932 16.4211 26.8966C16.4211 28.0001 15.9147 29.007 15.0526 29.6552V32.4139C15.0526 33.5587 14.1358 34.4828 13 34.4828C11.8642 34.4828 10.9474 33.5587 10.9474 32.4139V29.6552C10.0853 29.007 9.57895 28.0001 9.57895 26.8966Z"
+            fill="#23A4DE"
+          />
+          <path
+            d="M23.2626 16.5517V10.3448C23.2626 4.63448 18.6647 0 12.9995 0C7.33422 0 2.73633 4.63448 2.73633 10.3448V16.5517C4.5 16.5517 21.5004 16.5517 23.2626 16.5517ZM6.84158 10.3448C6.84158 6.92414 9.6058 4.13793 12.9995 4.13793C16.3932 4.13793 19.1574 6.92414 19.1574 10.3448V16.5517H6.84158V10.3448Z"
+            fill="#0061A8"
+          />
+          <path
+            d="M32.0357 37.0047L31.9979 39.9254L37.9244 40L38 34.1585L28.4924 24.5449C29.2691 21.7795 28.568 18.7034 26.374 16.4849C23.156 13.231 17.8222 13.1639 14.521 16.3358C11.2198 19.5076 11.1518 24.7649 14.3697 28.0188C16.5638 30.2373 19.6657 31.0066 22.4903 30.3118L23.2216 31.0514L26.1849 31.0886L26.147 34.0094L29.1103 34.0467L29.0725 36.9674L32.0357 37.0047ZM15.9459 20.7355C15.2145 19.996 15.2334 18.5356 15.9837 17.8148C16.734 17.0939 18.2156 17.1125 18.9469 17.852C19.8246 18.7395 19.6594 20.0519 18.9091 20.7728C18.0088 21.6378 16.8235 21.6229 15.9459 20.7355Z"
+            fill="#FFB71B"
+          />
+        </svg>
+      </span>
+      <p
+        class="el-has-grey-text el-small-text"
+      >
+        This form is required to get started with Reapit Payments.
+      </p>
+      <p
+        class="el-has-grey-text el-small-text"
+      >
+        Please take the time to read the documentation at the below link before proceeding as this details the setup intructions you need to perform in your Opayo account to complete this configuration.
+      </p>
+      <button
+        class="el-mb3 el-intent-neutral el-button"
+      >
+        View Docs
+      </button>
+      <button
+        class="el-mb3 el-intent-critical el-button"
+      >
+        Save Config
+      </button>
+      <button
+        class="el-mb3 el-intent-danger el-button"
+      >
+        Delete Config
+      </button>
+    </aside>
+    <section
+      class="el-page-container"
+    >
+      <div
+        class="el-flex-justify-between el-flex-container"
+      >
+        <h1
+          class="el-title"
+        >
+          Reapit Payments App Configuration
+        </h1>
+        <div
+          class="logo"
+        >
+          <img
+            src="https://web-components.prod.paas.reapit.cloud/reapit-payments.png"
+          />
+        </div>
+      </div>
+      <div
+        class="el-mb7 el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+      >
+        <div
+          class="el-pn-icon"
+          data-testid="close-icon"
+        >
+          <span
+            class="el-icon"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 20 20"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9.99958 0C4.47746 0 0 4.47746 0 9.99958C0 15.5217 4.47746 20 9.99958 20C15.5217 20 20 15.5217 20 9.99958C20 4.47746 15.5217 0 9.99958 0ZM12.0813 15.498C11.5666 15.7012 11.1568 15.8552 10.8495 15.9619C10.5431 16.0686 10.1867 16.1219 9.78116 16.1219C9.1581 16.1219 8.67302 15.9695 8.32762 15.6656C7.98222 15.3617 7.81037 14.9765 7.81037 14.5084C7.81037 14.3263 7.82307 14.1401 7.84847 13.9505C7.87471 13.7608 7.91619 13.5475 7.97291 13.3079L8.61714 11.0324C8.67386 10.814 8.72296 10.6066 8.7619 10.4135C8.80085 10.2188 8.81947 10.0402 8.81947 9.87767C8.81947 9.58815 8.75937 9.38497 8.64 9.27069C8.51894 9.1564 8.29122 9.10053 7.95175 9.10053C7.78582 9.10053 7.61481 9.12508 7.43958 9.17672C7.26603 9.23005 7.11534 9.27831 6.99175 9.32571L7.1619 8.62476C7.58349 8.45291 7.9873 8.30561 8.37249 8.1837C8.75767 8.06011 9.12169 7.99915 9.46455 7.99915C10.0834 7.99915 10.5608 8.14984 10.8969 8.44783C11.2313 8.74667 11.3998 9.13524 11.3998 9.6127C11.3998 9.71175 11.3879 9.88614 11.3651 10.135C11.3422 10.3848 11.299 10.6125 11.2364 10.8216L10.5956 13.0904C10.5431 13.2724 10.4965 13.4806 10.4542 13.7134C10.4127 13.9462 10.3924 14.124 10.3924 14.2434C10.3924 14.5448 10.4593 14.7505 10.5947 14.8597C10.7285 14.9689 10.963 15.0239 11.2948 15.0239C11.4514 15.0239 11.6267 14.996 11.8248 14.9418C12.0212 14.8876 12.1634 14.8394 12.2531 14.7979L12.0813 15.498ZM11.9678 6.2891C11.669 6.56677 11.3092 6.70561 10.8885 6.70561C10.4686 6.70561 10.1062 6.56677 9.80487 6.2891C9.50519 6.01143 9.35365 5.67365 9.35365 5.27915C9.35365 4.8855 9.50603 4.54688 9.80487 4.26667C10.1062 3.98561 10.4686 3.84593 10.8885 3.84593C11.3092 3.84593 11.6698 3.98561 11.9678 4.26667C12.2667 4.54688 12.4165 4.8855 12.4165 5.27915C12.4165 5.6745 12.2667 6.01143 11.9678 6.2891Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+        </div>
+        <div
+          class="el-pn-content"
+        >
+          Your app is not currently configured to use Reapit Payments. For the app to work correctly, you will need to provide us with both your Opayo Credentials as specified in the documentation, your company name and a url to your company logo. Please ensure these credentials are entered accurately as failure to do so can lead to the app failing for all users.
+        </div>
+      </div>
+      <form>
+        <div
+          class="el-form-layout-has-margin el-form-layout"
+        >
+          <div
+            class="el-input-wrap"
+          >
+            <div
+              class="el-input-group"
+            >
+              <input
+                class="el-input"
+                id="test-static-id"
+                name="companyName"
+                type="email"
+              />
+              <label
+                class="el-label"
+                for="test-static-id"
+              >
+                Company Name
+              </label>
+            </div>
+          </div>
+          <div
+            class="el-input-wrap"
+          >
+            <div
+              class="el-input-group"
+            >
+              <input
+                class="el-input"
+                id="test-static-id"
+                name="vendorName"
+                type="email"
+              />
+              <label
+                class="el-label"
+                for="test-static-id"
+              >
+                Opayo Vendor Name
+              </label>
+            </div>
+          </div>
+          <div
+            class="el-input-wrap-med"
+          >
+            <div
+              class="el-input-group"
+            >
+              <input
+                class="el-input"
+                id="test-static-id"
+                name="logoUri"
+                type="email"
+              />
+              <label
+                class="el-label"
+                for="test-static-id"
+              >
+                Email Logo Url
+              </label>
+            </div>
+          </div>
+          <div
+            class="el-input-wrap-full"
+          >
+            <div
+              class="el-input-group"
+            >
+              <input
+                class="el-input"
+                id="test-static-id"
+                name="integrationKey"
+                type="email"
+              />
+              <label
+                class="el-label"
+                for="test-static-id"
+              >
+                Opayo Integration Key
+              </label>
+            </div>
+          </div>
+          <div
+            class="el-input-wrap-full"
+          >
+            <div
+              class="el-input-group"
+            >
+              <input
+                class="el-input"
+                id="test-static-id"
+                name="passKey"
+                type="email"
+              />
+              <label
+                class="el-label"
+                for="test-static-id"
+              >
+                Opayo Pass Key
+              </label>
+            </div>
+          </div>
+        </div>
+      </form>
+    </section>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

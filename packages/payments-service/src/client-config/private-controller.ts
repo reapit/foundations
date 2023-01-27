@@ -3,7 +3,7 @@ import { ClientConfigDto, ClientConfigParams } from './dto'
 import { ClientConfigProvider } from './provider'
 import { ClientConfigModel } from './model'
 
-@Controller('config')
+@Controller('config/private')
 export class ClientConfigPrivateController {
   constructor(private readonly clientConfigProvider: ClientConfigProvider) {}
 

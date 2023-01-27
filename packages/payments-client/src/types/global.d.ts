@@ -1,23 +1,13 @@
-export type OpayoKeys = {
-  integrationKey: string
-  passKey: string
-  vendorName: string
-}
-
 export type Config = {
   appEnv: 'local' | 'development' | 'production'
   sentryDsn: string
   connectClientId: string
   connectUserPoolId: string
   connectOAuthUrl: string
+  opayoApiUrl: string
   platformApiUrl: string
-  paymentApiUrl: string
-  graphqlUri: string
-  marketplaceUrl: string
   paymentsApiUrl: string
-  emailApiUrl: string
-  configServiceUrl: string
-  opayo: { [key: string]: OpayoKeys }
+  marketplaceUrl: string
 }
 
 declare global {

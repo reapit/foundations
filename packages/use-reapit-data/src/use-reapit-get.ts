@@ -64,7 +64,8 @@ export const useReapitGet = <DataType>({
         logger(new Error(errorString), connectSession ?? null)
       }
     },
-    enabled: fetchWhenTrue?.length ? Boolean(fetchWhenTrue?.filter(Boolean).length) : true,
+    retry: 1,
+    enabled: fetchWhenTrue?.length ? Boolean(fetchWhenTrue?.filter(Boolean).length === fetchWhenTrue.length) : true,
   })
 
   const result = data ? data : null

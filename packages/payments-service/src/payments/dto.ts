@@ -16,7 +16,7 @@ export class PaymentsHeaders {
   'reapit-session': string
 
   @IsString()
-  'If-Match'?: string
+  'if-match'?: string
 
   @IsString()
   @IsNotEmpty()
