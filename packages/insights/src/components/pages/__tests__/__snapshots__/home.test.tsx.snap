@@ -85,6 +85,9 @@ Object {
             class="el-mb5 el-intent-neutral el-button"
           >
             View Docs
+            <div
+              class="el-button-loader"
+            />
           </button>
           <div
             class="el-border-radius controls-container"
@@ -235,6 +238,9 @@ Object {
           class="el-mb5 el-intent-neutral el-button"
         >
           View Docs
+          <div
+            class="el-button-loader"
+          />
         </button>
         <div
           class="el-border-radius controls-container"

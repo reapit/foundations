@@ -111,6 +111,9 @@ Object {
                 class="el-intent-primary el-button-size3 el-button"
               >
                 Login With Reapit
+                <div
+                  class="el-button-loader"
+                />
               </button>
             </div>
           </div>
@@ -228,6 +231,9 @@ Object {
               class="el-intent-primary el-button-size3 el-button"
             >
               Login With Reapit
+              <div
+                class="el-button-loader"
+              />
             </button>
           </div>
         </div>
