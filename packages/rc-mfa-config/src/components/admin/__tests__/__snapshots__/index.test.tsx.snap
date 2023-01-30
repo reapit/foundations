@@ -170,11 +170,17 @@ Object {
             class="el-mb5 el-intent-neutral el-button"
           >
             Docs
+            <div
+              class="el-button-loader"
+            />
           </button>
           <button
             class="el-mb3 el-intent-primary el-button"
           >
             Download CSV
+            <div
+              class="el-button-loader"
+            />
           </button>
         </aside>
         <section
@@ -380,11 +386,17 @@ Object {
           class="el-mb5 el-intent-neutral el-button"
         >
           Docs
+          <div
+            class="el-button-loader"
+          />
         </button>
         <button
           class="el-mb3 el-intent-primary el-button"
         >
           Download CSV
+          <div
+            class="el-button-loader"
+          />
         </button>
       </aside>
       <section
@@ -647,11 +659,17 @@ Object {
             class="el-mb5 el-intent-neutral el-button"
           >
             Docs
+            <div
+              class="el-button-loader"
+            />
           </button>
           <button
             class="el-mb3 el-intent-primary el-is-loading el-button"
           >
             Download CSV
+            <div
+              class="el-button-loader"
+            />
           </button>
         </aside>
         <section
@@ -954,11 +972,17 @@ Object {
           class="el-mb5 el-intent-neutral el-button"
         >
           Docs
+          <div
+            class="el-button-loader"
+          />
         </button>
         <button
           class="el-mb3 el-intent-primary el-is-loading el-button"
         >
           Download CSV
+          <div
+            class="el-button-loader"
+          />
         </button>
       </aside>
       <section
@@ -1318,11 +1342,17 @@ Object {
             class="el-mb5 el-intent-neutral el-button"
           >
             Docs
+            <div
+              class="el-button-loader"
+            />
           </button>
           <button
             class="el-mb3 el-intent-primary el-button"
           >
             Download CSV
+            <div
+              class="el-button-loader"
+            />
           </button>
         </aside>
         <section
@@ -1644,11 +1674,17 @@ Object {
           class="el-mb5 el-intent-neutral el-button"
         >
           Docs
+          <div
+            class="el-button-loader"
+          />
         </button>
         <button
           class="el-mb3 el-intent-primary el-button"
         >
           Download CSV
+          <div
+            class="el-button-loader"
+          />
         </button>
       </aside>
       <section
