@@ -15765,6 +15765,23 @@ export interface TenancyDepositModel {
   sum?: number // double
 }
 /**
+ * Represents a one off fee associated with tenancy extension or alteration
+ */
+export interface TenancyExtensionAlterationFeeModel {
+  /**
+   * The one fee amount
+   */
+  amount?: number // double
+  /**
+   * The one of fee summary text
+   */
+  summary?: string
+  /**
+   * The fee type
+   */
+  type?: string
+}
+/**
  * Represents a tenancy extension or alteration
  */
 export interface TenancyExtensionAlterationModel {
@@ -15822,6 +15839,23 @@ export interface TenancyExtensionAlterationModel {
    * The unique identifier of the tenancy associated to the extension or alteration
    */
   tenancyId?: string
+  /**
+   * Represents a one off fee associated with tenancy extension or alteration
+   */
+  fee?: {
+    /**
+     * The one fee amount
+     */
+    amount?: number // double
+    /**
+     * The one of fee summary text
+     */
+    summary?: string
+    /**
+     * The fee type
+     */
+    type?: string
+  }
   /**
    * The ETag for the current version of the tenancy extension or alteration. Used for managing update concurrency
    */
@@ -15883,6 +15917,23 @@ export interface TenancyExtensionAlterationModelPagedResult {
      * The unique identifier of the tenancy associated to the extension or alteration
      */
     tenancyId?: string
+    /**
+     * Represents a one off fee associated with tenancy extension or alteration
+     */
+    fee?: {
+      /**
+       * The one fee amount
+       */
+      amount?: number // double
+      /**
+       * The one of fee summary text
+       */
+      summary?: string
+      /**
+       * The fee type
+       */
+      type?: string
+    }
     /**
      * The ETag for the current version of the tenancy extension or alteration. Used for managing update concurrency
      */
