@@ -92,12 +92,18 @@ Object {
               type="button"
             >
               Cancel
+              <div
+                class="el-button-loader"
+              />
             </button>
             <button
               class="el-intent-primary el-button"
               type="submit"
             >
               Provision
+              <div
+                class="el-button-loader"
+              />
             </button>
           </div>
         </div>
@@ -192,12 +198,18 @@ Object {
             type="button"
           >
             Cancel
+            <div
+              class="el-button-loader"
+            />
           </button>
           <button
             class="el-intent-primary el-button"
             type="submit"
           >
             Provision
+            <div
+              class="el-button-loader"
+            />
           </button>
         </div>
       </div>
