@@ -356,10 +356,13 @@ Object {
                 class="e1s056ze-el-mt6"
               >
                 <button
-                  class="epibvz0-el-intent-secondary eqfkc7t-el-button"
+                  class="epibvz0-el-intent-secondary e1tqqdf9-el-button"
                   disabled=""
                 >
                   Logs Expired
+                  <div
+                    class="e1q1vabn-el-button-loader"
+                  />
                 </button>
               </div>
             </div>
@@ -778,10 +781,13 @@ Object {
               class="e1s056ze-el-mt6"
             >
               <button
-                class="epibvz0-el-intent-secondary eqfkc7t-el-button"
+                class="epibvz0-el-intent-secondary e1tqqdf9-el-button"
                 disabled=""
               >
                 Logs Expired
+                <div
+                  class="e1q1vabn-el-button-loader"
+                />
               </button>
             </div>
           </div>

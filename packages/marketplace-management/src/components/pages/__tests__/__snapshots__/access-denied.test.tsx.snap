@@ -53,11 +53,17 @@ Object {
               class="el-intent-secondary el-button"
             >
               Marketplace
+              <div
+                class="el-button-loader"
+              />
             </button>
             <button
               class="el-intent-critical el-button"
             >
               Logout
+              <div
+                class="el-button-loader"
+              />
             </button>
           </div>
         </div>
@@ -113,11 +119,17 @@ Object {
             class="el-intent-secondary el-button"
           >
             Marketplace
+            <div
+              class="el-button-loader"
+            />
           </button>
           <button
             class="el-intent-critical el-button"
           >
             Logout
+            <div
+              class="el-button-loader"
+            />
           </button>
         </div>
       </div>

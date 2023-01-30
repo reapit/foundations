@@ -829,6 +829,9 @@ Object {
                 class="el-intent-low el-button"
               >
                 Enquire About Integration
+                <div
+                  class="el-button-loader"
+                />
               </button>
             </a>
           </div>
@@ -879,6 +882,9 @@ Object {
                     Getting started with 
                     will-test-dev-co-voracious-person
                   </div>
+                  <div
+                    class="el-button-loader"
+                  />
                 </button>
                 <button
                   class="el-intent-low el-button"
@@ -906,6 +912,9 @@ Object {
                     Why 
                     will-test-dev-co-voracious-person
                   </div>
+                  <div
+                    class="el-button-loader"
+                  />
                 </button>
               </div>
             </div>
@@ -1278,6 +1287,9 @@ Object {
               class="el-intent-low el-button"
             >
               Enquire About Integration
+              <div
+                class="el-button-loader"
+              />
             </button>
           </a>
         </div>
@@ -1328,6 +1340,9 @@ Object {
                   Getting started with 
                   will-test-dev-co-voracious-person
                 </div>
+                <div
+                  class="el-button-loader"
+                />
               </button>
               <button
                 class="el-intent-low el-button"
@@ -1355,6 +1370,9 @@ Object {
                   Why 
                   will-test-dev-co-voracious-person
                 </div>
+                <div
+                  class="el-button-loader"
+                />
               </button>
             </div>
           </div>
@@ -1767,6 +1785,9 @@ Object {
               class="el-intent-critical el-button"
             >
               Enable Integration
+              <div
+                class="el-button-loader"
+              />
             </button>
             <a
               href="mailto:foo@bar.com?subject=will-test-dev-co-voracious-person%20Enquiry&body=Dear%20Will Test DevCo%2C%20%0A%0AI%20would%20like%20more%20information%20about%20will-test-dev-co-voracious-person%20featured%20in%20the%20Reapit%20AppMarket%20%0A%0ARegards"
@@ -1777,6 +1798,9 @@ Object {
                 class="el-intent-low el-button"
               >
                 Enquire About Integration
+                <div
+                  class="el-button-loader"
+                />
               </button>
             </a>
           </div>
@@ -1827,6 +1851,9 @@ Object {
                     Getting started with 
                     will-test-dev-co-voracious-person
                   </div>
+                  <div
+                    class="el-button-loader"
+                  />
                 </button>
                 <button
                   class="el-intent-low el-button"
@@ -1854,6 +1881,9 @@ Object {
                     Why 
                     will-test-dev-co-voracious-person
                   </div>
+                  <div
+                    class="el-button-loader"
+                  />
                 </button>
               </div>
             </div>
@@ -2200,6 +2230,9 @@ Object {
             class="el-intent-critical el-button"
           >
             Enable Integration
+            <div
+              class="el-button-loader"
+            />
           </button>
           <a
             href="mailto:foo@bar.com?subject=will-test-dev-co-voracious-person%20Enquiry&body=Dear%20Will Test DevCo%2C%20%0A%0AI%20would%20like%20more%20information%20about%20will-test-dev-co-voracious-person%20featured%20in%20the%20Reapit%20AppMarket%20%0A%0ARegards"
@@ -2210,6 +2243,9 @@ Object {
               class="el-intent-low el-button"
             >
               Enquire About Integration
+              <div
+                class="el-button-loader"
+              />
             </button>
           </a>
         </div>
@@ -2260,6 +2296,9 @@ Object {
                   Getting started with 
                   will-test-dev-co-voracious-person
                 </div>
+                <div
+                  class="el-button-loader"
+                />
               </button>
               <button
                 class="el-intent-low el-button"
@@ -2287,6 +2326,9 @@ Object {
                   Why 
                   will-test-dev-co-voracious-person
                 </div>
+                <div
+                  class="el-button-loader"
+                />
               </button>
             </div>
           </div>

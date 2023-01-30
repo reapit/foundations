@@ -371,6 +371,9 @@ Object {
                 type="button"
               >
                 Download CSV
+                <div
+                  class="el-button-loader"
+                />
               </button>
             </div>
           </div>
@@ -695,32 +698,50 @@ Object {
                         class="el-intent-secondary el-button"
                       >
                         View in AppMarket
+                        <div
+                          class="el-button-loader"
+                        />
                       </button>
                       <button
                         class="el-intent-secondary el-button"
                       >
                         View in DevPortal
+                        <div
+                          class="el-button-loader"
+                        />
                       </button>
                       <button
                         class="el-intent-primary el-button"
                       >
                         Check AWS Only
+                        <div
+                          class="el-button-loader"
+                        />
                       </button>
                       <button
                         class="el-intent-danger el-button"
                         type="button"
                       >
                         Delete
+                        <div
+                          class="el-button-loader"
+                        />
                       </button>
                       <button
                         class="el-intent-primary el-button"
                       >
                         Toggle Subscription
+                        <div
+                          class="el-button-loader"
+                        />
                       </button>
                       <button
                         class="el-intent-primary el-button"
                       >
                         Togggle Featured
+                        <div
+                          class="el-button-loader"
+                        />
                       </button>
                     </div>
                   </div>
@@ -1157,6 +1178,9 @@ Object {
               type="button"
             >
               Download CSV
+              <div
+                class="el-button-loader"
+              />
             </button>
           </div>
         </div>
@@ -1481,32 +1505,50 @@ Object {
                       class="el-intent-secondary el-button"
                     >
                       View in AppMarket
+                      <div
+                        class="el-button-loader"
+                      />
                     </button>
                     <button
                       class="el-intent-secondary el-button"
                     >
                       View in DevPortal
+                      <div
+                        class="el-button-loader"
+                      />
                     </button>
                     <button
                       class="el-intent-primary el-button"
                     >
                       Check AWS Only
+                      <div
+                        class="el-button-loader"
+                      />
                     </button>
                     <button
                       class="el-intent-danger el-button"
                       type="button"
                     >
                       Delete
+                      <div
+                        class="el-button-loader"
+                      />
                     </button>
                     <button
                       class="el-intent-primary el-button"
                     >
                       Toggle Subscription
+                      <div
+                        class="el-button-loader"
+                      />
                     </button>
                     <button
                       class="el-intent-primary el-button"
                     >
                       Togggle Featured
+                      <div
+                        class="el-button-loader"
+                      />
                     </button>
                   </div>
                 </div>

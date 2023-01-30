@@ -136,15 +136,18 @@ Object {
         </div>
       </div>
       <div
-        class="eay05y4-el-button-group"
+        class="ebqwrow-el-button-group"
       >
         <div
-          class="e1cpt8yd-el-button-group-align-left ebqwrow-el-button-group-inner"
+          class="e1i2en9o-el-button-group-align-left eh76izl-el-button-group-inner"
         >
           <button
-            class="ebee6r1-el-intent-primary e1f2ikqj-el-button-fixed-width eqfkc7t-el-button"
+            class="ebee6r1-el-intent-primary eqfkc7t-el-button-fixed-width e1tqqdf9-el-button"
           >
             Send Requests
+            <div
+              class="e1q1vabn-el-button-loader"
+            />
           </button>
         </div>
       </div>
@@ -191,15 +194,18 @@ Object {
       </div>
     </div>
     <div
-      class="eay05y4-el-button-group"
+      class="ebqwrow-el-button-group"
     >
       <div
-        class="e1cpt8yd-el-button-group-align-left ebqwrow-el-button-group-inner"
+        class="e1i2en9o-el-button-group-align-left eh76izl-el-button-group-inner"
       >
         <button
-          class="ebee6r1-el-intent-primary e1f2ikqj-el-button-fixed-width eqfkc7t-el-button"
+          class="ebee6r1-el-intent-primary eqfkc7t-el-button-fixed-width e1tqqdf9-el-button"
         >
           Send Requests
+          <div
+            class="e1q1vabn-el-button-loader"
+          />
         </button>
       </div>
     </div>

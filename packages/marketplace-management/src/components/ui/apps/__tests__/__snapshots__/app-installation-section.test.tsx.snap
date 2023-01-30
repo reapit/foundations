@@ -78,6 +78,9 @@ Object {
             class="el-intent-critical el-button-has-right-chevron el-button-size2 el-button"
           >
             Save
+            <div
+              class="el-button-loader"
+            />
           </button>
         </div>
       </div>
@@ -157,6 +160,9 @@ Object {
           class="el-intent-critical el-button-has-right-chevron el-button-size2 el-button"
         >
           Save
+          <div
+            class="el-button-loader"
+          />
         </button>
       </div>
     </div>
@@ -294,6 +300,9 @@ Object {
             disabled=""
           >
             Save
+            <div
+              class="el-button-loader"
+            />
           </button>
         </div>
       </div>
@@ -374,6 +383,9 @@ Object {
           disabled=""
         >
           Save
+          <div
+            class="el-button-loader"
+          />
         </button>
       </div>
     </div>

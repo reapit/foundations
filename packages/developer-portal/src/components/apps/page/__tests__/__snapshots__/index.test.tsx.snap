@@ -150,9 +150,12 @@ Object {
               Clicking below will take you to your current AppMarket listing, to view your app as users will see it.
             </p>
             <button
-              class="esplruv-el-mb3 ebee6r1-el-intent-primary eqfkc7t-el-button"
+              class="esplruv-el-mb3 ebee6r1-el-intent-primary e1tqqdf9-el-button"
             >
               Preview
+              <div
+                class="e1q1vabn-el-button-loader"
+              />
             </button>
           </div>
         </aside>
@@ -246,9 +249,12 @@ Object {
                 </div>
               </div>
               <button
-                class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+                class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
               >
                 Copy
+                <div
+                  class="e1q1vabn-el-button-loader"
+                />
               </button>
             </div>
             <div
@@ -364,9 +370,12 @@ Object {
                 </div>
               </div>
               <button
-                class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+                class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
               >
                 Copy
+                <div
+                  class="e1q1vabn-el-button-loader"
+                />
               </button>
             </div>
             <div
@@ -608,9 +617,12 @@ Object {
             Clicking below will take you to your current AppMarket listing, to view your app as users will see it.
           </p>
           <button
-            class="esplruv-el-mb3 ebee6r1-el-intent-primary eqfkc7t-el-button"
+            class="esplruv-el-mb3 ebee6r1-el-intent-primary e1tqqdf9-el-button"
           >
             Preview
+            <div
+              class="e1q1vabn-el-button-loader"
+            />
           </button>
         </div>
       </aside>
@@ -704,9 +716,12 @@ Object {
               </div>
             </div>
             <button
-              class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+              class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
             >
               Copy
+              <div
+                class="e1q1vabn-el-button-loader"
+              />
             </button>
           </div>
           <div
@@ -822,9 +837,12 @@ Object {
               </div>
             </div>
             <button
-              class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+              class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
             >
               Copy
+              <div
+                class="e1q1vabn-el-button-loader"
+              />
             </button>
           </div>
           <div
@@ -1238,9 +1256,12 @@ Object {
               This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
             </p>
             <button
-              class="esplruv-el-mb3 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
+              class="esplruv-el-mb3 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
             >
               View Docs
+              <div
+                class="e1q1vabn-el-button-loader"
+              />
             </button>
           </div>
         </aside>
@@ -1386,9 +1407,12 @@ Object {
             This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
           </p>
           <button
-            class="esplruv-el-mb3 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
+            class="esplruv-el-mb3 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
           >
             View Docs
+            <div
+              class="e1q1vabn-el-button-loader"
+            />
           </button>
         </div>
       </aside>

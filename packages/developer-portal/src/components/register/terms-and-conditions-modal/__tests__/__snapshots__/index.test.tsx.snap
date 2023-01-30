@@ -3716,21 +3716,27 @@ Object {
               </li>
             </ol>
             <div
-              class="eay05y4-el-button-group"
+              class="ebqwrow-el-button-group"
             >
               <div
-                class="ej73pla-el-button-group-align-center ebqwrow-el-button-group-inner"
+                class="e1f2ikqj-el-button-group-align-center eh76izl-el-button-group-inner"
               >
                 <button
-                  class="e1ymtwpu-el-intent-low e1f2ikqj-el-button-fixed-width eqfkc7t-el-button"
+                  class="e1ymtwpu-el-intent-low eqfkc7t-el-button-fixed-width e1tqqdf9-el-button"
                   type="button"
                 >
                   Decline
+                  <div
+                    class="e1q1vabn-el-button-loader"
+                  />
                 </button>
                 <button
-                  class="ebee6r1-el-intent-primary e1f2ikqj-el-button-fixed-width eqfkc7t-el-button"
+                  class="ebee6r1-el-intent-primary eqfkc7t-el-button-fixed-width e1tqqdf9-el-button"
                 >
                   Accept
+                  <div
+                    class="e1q1vabn-el-button-loader"
+                  />
                 </button>
               </div>
             </div>

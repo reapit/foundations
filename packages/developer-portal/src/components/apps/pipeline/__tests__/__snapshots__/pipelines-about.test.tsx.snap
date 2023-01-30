@@ -178,9 +178,12 @@ Object {
             When you have created a pipeline for your app, you can either deploy it from the command line from a zip file, or by pulling directly from a Github or Bitbucket repo. This will give you a link to your deployed service in the Reapit Platform Cloud.
           </p>
           <button
-            class="e1iow709-el-intent-critical e19a1osy-el-button-has-right-chevron eqfkc7t-el-button"
+            class="e1iow709-el-intent-critical eay05y4-el-button-has-right-chevron e1tqqdf9-el-button"
           >
             Create Pipeline
+            <div
+              class="e1q1vabn-el-button-loader"
+            />
           </button>
         </div>
         <div
@@ -479,9 +482,12 @@ Object {
             Please note, this service is a public Alpha and there may be some reliabilty issues while we refine our processes. As such, for now you should only use our infra for internal testing, pre-production applications and non-mission critical services.
           </p>
           <button
-            class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+            class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
           >
             View Docs
+            <div
+              class="e1q1vabn-el-button-loader"
+            />
           </button>
         </div>
       </div>
@@ -661,9 +667,12 @@ Object {
           When you have created a pipeline for your app, you can either deploy it from the command line from a zip file, or by pulling directly from a Github or Bitbucket repo. This will give you a link to your deployed service in the Reapit Platform Cloud.
         </p>
         <button
-          class="e1iow709-el-intent-critical e19a1osy-el-button-has-right-chevron eqfkc7t-el-button"
+          class="e1iow709-el-intent-critical eay05y4-el-button-has-right-chevron e1tqqdf9-el-button"
         >
           Create Pipeline
+          <div
+            class="e1q1vabn-el-button-loader"
+          />
         </button>
       </div>
       <div
@@ -962,9 +971,12 @@ Object {
           Please note, this service is a public Alpha and there may be some reliabilty issues while we refine our processes. As such, for now you should only use our infra for internal testing, pre-production applications and non-mission critical services.
         </p>
         <button
-          class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+          class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
         >
           View Docs
+          <div
+            class="e1q1vabn-el-button-loader"
+          />
         </button>
       </div>
     </div>

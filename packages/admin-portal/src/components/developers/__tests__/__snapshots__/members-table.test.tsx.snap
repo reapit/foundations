@@ -310,17 +310,26 @@ Object {
                     >
                       Set As 
                       Admin
+                      <div
+                        class="el-button-loader"
+                      />
                     </button>
                     <button
                       class="el-intent-danger el-button"
                       disabled=""
                     >
                       Enable
+                      <div
+                        class="el-button-loader"
+                      />
                     </button>
                     <button
                       class="el-intent-secondary el-button"
                     >
                       Get Login Info
+                      <div
+                        class="el-button-loader"
+                      />
                     </button>
                   </div>
                 </div>
@@ -604,17 +613,26 @@ Object {
                   >
                     Set As 
                     Admin
+                    <div
+                      class="el-button-loader"
+                    />
                   </button>
                   <button
                     class="el-intent-danger el-button"
                     disabled=""
                   >
                     Enable
+                    <div
+                      class="el-button-loader"
+                    />
                   </button>
                   <button
                     class="el-intent-secondary el-button"
                   >
                     Get Login Info
+                    <div
+                      class="el-button-loader"
+                    />
                   </button>
                 </div>
               </div>

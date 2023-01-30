@@ -84,6 +84,9 @@ exports[`Viewport should match a snapshot 1`] = `
                 />
               </svg>
               New Page
+              <div
+                class="el-button-loader"
+              />
             </button>
           </div>
         </div>
@@ -271,6 +274,9 @@ exports[`Viewport should match a snapshot 1`] = `
               </clippath>
             </defs>
           </svg>
+          <div
+            class="el-button-loader"
+          />
         </button>
       </div>
       <div
@@ -719,6 +725,9 @@ exports[`Viewport should match a snapshot 1`] = `
                 fill="#BEBEBE"
               />
             </svg>
+            <div
+              class="el-button-loader"
+            />
           </button>
         </div>
         <div

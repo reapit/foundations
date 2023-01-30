@@ -39,11 +39,17 @@ Object {
                   class="el-intent-low el-button-fixed-width el-button"
                 >
                   Ignore
+                  <div
+                    class="el-button-loader"
+                  />
                 </button>
                 <button
                   class="el-intent-primary el-button-fixed-width el-button"
                 >
                   Accept
+                  <div
+                    class="el-button-loader"
+                  />
                 </button>
               </div>
             </div>

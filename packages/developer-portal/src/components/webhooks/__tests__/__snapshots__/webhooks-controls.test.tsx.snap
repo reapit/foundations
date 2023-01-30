@@ -9,9 +9,12 @@ Object {
         class="ecbqyq6-el-snack-holder"
       />
       <button
-        class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
+        class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
       >
         Video
+        <div
+          class="e1q1vabn-el-button-loader"
+        />
       </button>
     </div>
   </body>,
@@ -20,9 +23,12 @@ Object {
       class="ecbqyq6-el-snack-holder"
     />
     <button
-      class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
+      class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
     >
       Video
+      <div
+        class="e1q1vabn-el-button-loader"
+      />
     </button>
   </div>,
   "debug": [Function],
@@ -246,14 +252,20 @@ Object {
         </div>
       </div>
       <button
-        class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
+        class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
       >
         View Docs
+        <div
+          class="e1q1vabn-el-button-loader"
+        />
       </button>
       <button
-        class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
+        class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
       >
         Video
+        <div
+          class="e1q1vabn-el-button-loader"
+        />
       </button>
     </div>
   </body>,
@@ -420,14 +432,20 @@ Object {
       </div>
     </div>
     <button
-      class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
+      class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
     >
       View Docs
+      <div
+        class="e1q1vabn-el-button-loader"
+      />
     </button>
     <button
-      class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
+      class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
     >
       Video
+      <div
+        class="e1q1vabn-el-button-loader"
+      />
     </button>
   </div>,
   "debug": [Function],
@@ -530,14 +548,20 @@ Object {
         </div>
       </div>
       <button
-        class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
+        class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
       >
         View Docs
+        <div
+          class="e1q1vabn-el-button-loader"
+        />
       </button>
       <button
-        class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
+        class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
       >
         Video
+        <div
+          class="e1q1vabn-el-button-loader"
+        />
       </button>
     </div>
   </body>,
@@ -583,14 +607,20 @@ Object {
       </div>
     </div>
     <button
-      class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
+      class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
     >
       View Docs
+      <div
+        class="e1q1vabn-el-button-loader"
+      />
     </button>
     <button
-      class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
+      class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
     >
       Video
+      <div
+        class="e1q1vabn-el-button-loader"
+      />
     </button>
   </div>,
   "debug": [Function],
@@ -656,9 +686,12 @@ Object {
         class="ecbqyq6-el-snack-holder"
       />
       <button
-        class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
+        class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
       >
         Video
+        <div
+          class="e1q1vabn-el-button-loader"
+        />
       </button>
     </div>
   </body>,
@@ -667,9 +700,12 @@ Object {
       class="ecbqyq6-el-snack-holder"
     />
     <button
-      class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
+      class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
     >
       Video
+      <div
+        class="e1q1vabn-el-button-loader"
+      />
     </button>
   </div>,
   "debug": [Function],

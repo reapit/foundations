@@ -131,6 +131,9 @@ Object {
             class="el-button"
           >
             View Docs
+            <div
+              class="el-button-loader"
+            />
           </button>
         </aside>
         <section
@@ -162,6 +165,9 @@ Object {
               class="el-intent-primary el-button"
             >
               Add
+              <div
+                class="el-button-loader"
+              />
             </button>
           </div>
           <div
@@ -185,6 +191,9 @@ Object {
               class="el-intent-primary el-button"
             >
               Add
+              <div
+                class="el-button-loader"
+              />
             </button>
           </div>
           <div
@@ -213,6 +222,9 @@ Object {
               class="el-intent-primary el-button"
             >
               Add
+              <div
+                class="el-button-loader"
+              />
             </button>
           </div>
           <div
@@ -241,6 +253,9 @@ Object {
               class="el-intent-primary el-button"
             >
               Add
+              <div
+                class="el-button-loader"
+              />
             </button>
           </div>
           <div
@@ -267,6 +282,9 @@ Object {
               class="el-intent-primary el-button"
             >
               Add
+              <div
+                class="el-button-loader"
+              />
             </button>
           </div>
         </section>
@@ -400,6 +418,9 @@ Object {
           class="el-button"
         >
           View Docs
+          <div
+            class="el-button-loader"
+          />
         </button>
       </aside>
       <section
@@ -431,6 +452,9 @@ Object {
             class="el-intent-primary el-button"
           >
             Add
+            <div
+              class="el-button-loader"
+            />
           </button>
         </div>
         <div
@@ -454,6 +478,9 @@ Object {
             class="el-intent-primary el-button"
           >
             Add
+            <div
+              class="el-button-loader"
+            />
           </button>
         </div>
         <div
@@ -482,6 +509,9 @@ Object {
             class="el-intent-primary el-button"
           >
             Add
+            <div
+              class="el-button-loader"
+            />
           </button>
         </div>
         <div
@@ -510,6 +540,9 @@ Object {
             class="el-intent-primary el-button"
           >
             Add
+            <div
+              class="el-button-loader"
+            />
           </button>
         </div>
         <div
@@ -536,6 +569,9 @@ Object {
             class="el-intent-primary el-button"
           >
             Add
+            <div
+              class="el-button-loader"
+            />
           </button>
         </div>
       </section>

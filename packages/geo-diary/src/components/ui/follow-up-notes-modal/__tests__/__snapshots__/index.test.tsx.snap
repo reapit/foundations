@@ -134,12 +134,18 @@ Object {
             type="button"
           >
             Cancel
+            <div
+              class="el-button-loader"
+            />
           </button>
           <button
             class="el-intent-critical el-button-size2 el-button"
             type="submit"
           >
             Submit
+            <div
+              class="el-button-loader"
+            />
           </button>
         </div>
       </form>
@@ -275,12 +281,18 @@ Object {
           type="button"
         >
           Cancel
+          <div
+            class="el-button-loader"
+          />
         </button>
         <button
           class="el-intent-critical el-button-size2 el-button"
           type="submit"
         >
           Submit
+          <div
+            class="el-button-loader"
+          />
         </button>
       </div>
     </form>

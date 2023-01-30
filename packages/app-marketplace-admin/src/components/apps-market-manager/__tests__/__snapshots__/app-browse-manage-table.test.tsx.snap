@@ -34,6 +34,9 @@ Object {
           class="el-intent-primary el-button"
         >
           Add
+          <div
+            class="el-button-loader"
+          />
         </button>
       </div>
     </div>
@@ -68,6 +71,9 @@ Object {
         class="el-intent-primary el-button"
       >
         Add
+        <div
+          class="el-button-loader"
+        />
       </button>
     </div>
   </div>,

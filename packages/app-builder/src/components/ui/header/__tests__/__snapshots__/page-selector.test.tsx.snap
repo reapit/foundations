@@ -27,6 +27,9 @@ exports[`PageSelector should match a snapshot 1`] = `
           />
         </svg>
         New Page
+        <div
+          class="el-button-loader"
+        />
       </button>
     </div>
   </div>
