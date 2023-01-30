@@ -35,21 +35,27 @@ Object {
               </a>
             </p>
             <div
-              class="eay05y4-el-button-group"
+              class="ebqwrow-el-button-group"
             >
               <div
-                class="ej73pla-el-button-group-align-center ebqwrow-el-button-group-inner"
+                class="e1f2ikqj-el-button-group-align-center eh76izl-el-button-group-inner"
               >
                 <button
-                  class="e1ymtwpu-el-intent-low e1f2ikqj-el-button-fixed-width eqfkc7t-el-button"
+                  class="e1ymtwpu-el-intent-low eqfkc7t-el-button-fixed-width e1tqqdf9-el-button"
                 >
                   Close
+                  <div
+                    class="e1q1vabn-el-button-loader"
+                  />
                 </button>
                 <button
-                  class="ebee6r1-el-intent-primary e1f2ikqj-el-button-fixed-width eqfkc7t-el-button"
+                  class="ebee6r1-el-intent-primary eqfkc7t-el-button-fixed-width e1tqqdf9-el-button"
                   type="submit"
                 >
                   Download
+                  <div
+                    class="e1q1vabn-el-button-loader"
+                  />
                 </button>
               </div>
             </div>
@@ -161,15 +167,18 @@ Object {
               </p>
             </p>
             <div
-              class="eay05y4-el-button-group"
+              class="ebqwrow-el-button-group"
             >
               <div
-                class="ej73pla-el-button-group-align-center ebqwrow-el-button-group-inner"
+                class="e1f2ikqj-el-button-group-align-center eh76izl-el-button-group-inner"
               >
                 <button
-                  class="e1ymtwpu-el-intent-low e1f2ikqj-el-button-fixed-width eqfkc7t-el-button"
+                  class="e1ymtwpu-el-intent-low eqfkc7t-el-button-fixed-width e1tqqdf9-el-button"
                 >
                   Cancel
+                  <div
+                    class="e1q1vabn-el-button-loader"
+                  />
                 </button>
               </div>
             </div>
@@ -297,15 +306,18 @@ Object {
               </p>
             </p>
             <div
-              class="eay05y4-el-button-group"
+              class="ebqwrow-el-button-group"
             >
               <div
-                class="ej73pla-el-button-group-align-center ebqwrow-el-button-group-inner"
+                class="e1f2ikqj-el-button-group-align-center eh76izl-el-button-group-inner"
               >
                 <button
-                  class="e1ymtwpu-el-intent-low e1f2ikqj-el-button-fixed-width eqfkc7t-el-button"
+                  class="e1ymtwpu-el-intent-low eqfkc7t-el-button-fixed-width e1tqqdf9-el-button"
                 >
                   Cancel
+                  <div
+                    class="e1q1vabn-el-button-loader"
+                  />
                 </button>
               </div>
             </div>
@@ -429,15 +441,18 @@ Object {
                to update your information.
             </p>
             <div
-              class="eay05y4-el-button-group"
+              class="ebqwrow-el-button-group"
             >
               <div
-                class="ej73pla-el-button-group-align-center ebqwrow-el-button-group-inner"
+                class="e1f2ikqj-el-button-group-align-center eh76izl-el-button-group-inner"
               >
                 <button
-                  class="e1ymtwpu-el-intent-low e1f2ikqj-el-button-fixed-width eqfkc7t-el-button"
+                  class="e1ymtwpu-el-intent-low eqfkc7t-el-button-fixed-width e1tqqdf9-el-button"
                 >
                   Cancel
+                  <div
+                    class="e1q1vabn-el-button-loader"
+                  />
                 </button>
               </div>
             </div>
@@ -574,21 +589,27 @@ Object {
               We have added your subscription to your monthly billing. To manage your subscriptions please visit the 'Billing' tab.
             </p>
             <div
-              class="eay05y4-el-button-group"
+              class="ebqwrow-el-button-group"
             >
               <div
-                class="ej73pla-el-button-group-align-center ebqwrow-el-button-group-inner"
+                class="e1f2ikqj-el-button-group-align-center eh76izl-el-button-group-inner"
               >
                 <button
-                  class="e1ymtwpu-el-intent-low e1f2ikqj-el-button-fixed-width eqfkc7t-el-button"
+                  class="e1ymtwpu-el-intent-low eqfkc7t-el-button-fixed-width e1tqqdf9-el-button"
                 >
                   Close
+                  <div
+                    class="e1q1vabn-el-button-loader"
+                  />
                 </button>
                 <button
-                  class="ebee6r1-el-intent-primary e1f2ikqj-el-button-fixed-width eqfkc7t-el-button"
+                  class="ebee6r1-el-intent-primary eqfkc7t-el-button-fixed-width e1tqqdf9-el-button"
                   type="submit"
                 >
                   Download
+                  <div
+                    class="e1q1vabn-el-button-loader"
+                  />
                 </button>
               </div>
             </div>
@@ -790,21 +811,27 @@ Object {
               </strong>
             </p>
             <div
-              class="eay05y4-el-button-group"
+              class="ebqwrow-el-button-group"
             >
               <div
-                class="ej73pla-el-button-group-align-center ebqwrow-el-button-group-inner"
+                class="e1f2ikqj-el-button-group-align-center eh76izl-el-button-group-inner"
               >
                 <button
-                  class="e1ymtwpu-el-intent-low e1f2ikqj-el-button-fixed-width eqfkc7t-el-button"
+                  class="e1ymtwpu-el-intent-low eqfkc7t-el-button-fixed-width e1tqqdf9-el-button"
                 >
                   Cancel
+                  <div
+                    class="e1q1vabn-el-button-loader"
+                  />
                 </button>
                 <button
-                  class="ebee6r1-el-intent-primary e1f2ikqj-el-button-fixed-width eqfkc7t-el-button"
+                  class="ebee6r1-el-intent-primary eqfkc7t-el-button-fixed-width e1tqqdf9-el-button"
                   type="submit"
                 >
                   Confirm
+                  <div
+                    class="e1q1vabn-el-button-loader"
+                  />
                 </button>
               </div>
             </div>

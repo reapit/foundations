@@ -13,6 +13,9 @@ Object {
         type="button"
       >
         Re-send Confirmation
+        <div
+          class="el-button-loader"
+        />
       </button>
     </div>
   </body>,
@@ -25,6 +28,9 @@ Object {
       type="button"
     >
       Re-send Confirmation
+      <div
+        class="el-button-loader"
+      />
     </button>
   </div>,
   "debug": [Function],

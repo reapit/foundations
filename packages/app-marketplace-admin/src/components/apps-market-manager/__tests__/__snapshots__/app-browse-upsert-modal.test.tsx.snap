@@ -824,6 +824,9 @@ Object {
                         type="button"
                       >
                         Upload
+                        <div
+                          class="el-button-loader"
+                        />
                       </button>
                       <input
                         class="el-file-input"
@@ -965,6 +968,9 @@ Object {
                   class="el-intent-primary el-button"
                 >
                   Save
+                  <div
+                    class="el-button-loader"
+                  />
                 </button>
               </div>
             </div>
@@ -1793,6 +1799,9 @@ Object {
                       type="button"
                     >
                       Upload
+                      <div
+                        class="el-button-loader"
+                      />
                     </button>
                     <input
                       class="el-file-input"
@@ -1934,6 +1943,9 @@ Object {
                 class="el-intent-primary el-button"
               >
                 Save
+                <div
+                  class="el-button-loader"
+                />
               </button>
             </div>
           </div>

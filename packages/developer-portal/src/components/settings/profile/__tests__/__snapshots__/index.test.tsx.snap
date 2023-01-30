@@ -195,16 +195,19 @@ Object {
           </div>
         </div>
         <div
-          class="eay05y4-el-button-group"
+          class="ebqwrow-el-button-group"
         >
           <div
-            class="ebqwrow-el-button-group-inner"
+            class="eh76izl-el-button-group-inner"
           >
             <button
-              class="ebee6r1-el-intent-primary eqfkc7t-el-button"
+              class="ebee6r1-el-intent-primary e1tqqdf9-el-button"
               type="submit"
             >
               Save Changes
+              <div
+                class="e1q1vabn-el-button-loader"
+              />
             </button>
           </div>
         </div>
@@ -402,16 +405,19 @@ Object {
         </div>
       </div>
       <div
-        class="eay05y4-el-button-group"
+        class="ebqwrow-el-button-group"
       >
         <div
-          class="ebqwrow-el-button-group-inner"
+          class="eh76izl-el-button-group-inner"
         >
           <button
-            class="ebee6r1-el-intent-primary eqfkc7t-el-button"
+            class="ebee6r1-el-intent-primary e1tqqdf9-el-button"
             type="submit"
           >
             Save Changes
+            <div
+              class="e1q1vabn-el-button-loader"
+            />
           </button>
         </div>
       </div>
@@ -493,15 +499,18 @@ Object {
           Profile
         </h1>
         <div
-          class="eay05y4-el-button-group"
+          class="ebqwrow-el-button-group"
         >
           <div
-            class="e1i2en9o-el-button-group-align-right ebqwrow-el-button-group-inner"
+            class="ej73pla-el-button-group-align-right eh76izl-el-button-group-inner"
           >
             <button
-              class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+              class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
             >
               Controls
+              <div
+                class="e1q1vabn-el-button-loader"
+              />
             </button>
           </div>
         </div>
@@ -684,16 +693,19 @@ Object {
           </div>
         </div>
         <div
-          class="eay05y4-el-button-group"
+          class="ebqwrow-el-button-group"
         >
           <div
-            class="ebqwrow-el-button-group-inner"
+            class="eh76izl-el-button-group-inner"
           >
             <button
-              class="ebee6r1-el-intent-primary eqfkc7t-el-button"
+              class="ebee6r1-el-intent-primary e1tqqdf9-el-button"
               type="submit"
             >
               Save Changes
+              <div
+                class="e1q1vabn-el-button-loader"
+              />
             </button>
           </div>
         </div>
@@ -713,15 +725,18 @@ Object {
         Profile
       </h1>
       <div
-        class="eay05y4-el-button-group"
+        class="ebqwrow-el-button-group"
       >
         <div
-          class="e1i2en9o-el-button-group-align-right ebqwrow-el-button-group-inner"
+          class="ej73pla-el-button-group-align-right eh76izl-el-button-group-inner"
         >
           <button
-            class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+            class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
           >
             Controls
+            <div
+              class="e1q1vabn-el-button-loader"
+            />
           </button>
         </div>
       </div>
@@ -904,16 +919,19 @@ Object {
         </div>
       </div>
       <div
-        class="eay05y4-el-button-group"
+        class="ebqwrow-el-button-group"
       >
         <div
-          class="ebqwrow-el-button-group-inner"
+          class="eh76izl-el-button-group-inner"
         >
           <button
-            class="ebee6r1-el-intent-primary eqfkc7t-el-button"
+            class="ebee6r1-el-intent-primary e1tqqdf9-el-button"
             type="submit"
           >
             Save Changes
+            <div
+              class="e1q1vabn-el-button-loader"
+            />
           </button>
         </div>
       </div>

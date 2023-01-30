@@ -22,6 +22,9 @@ Object {
               type="button"
             >
               Download CSV
+              <div
+                class="el-button-loader"
+              />
             </button>
           </div>
         </div>
@@ -46,6 +49,9 @@ Object {
             type="button"
           >
             Download CSV
+            <div
+              class="el-button-loader"
+            />
           </button>
         </div>
       </div>
@@ -127,6 +133,9 @@ Object {
               type="button"
             >
               Download CSV
+              <div
+                class="el-button-loader"
+              />
             </button>
           </div>
         </div>
@@ -151,6 +160,9 @@ Object {
             type="button"
           >
             Download CSV
+            <div
+              class="el-button-loader"
+            />
           </button>
         </div>
       </div>

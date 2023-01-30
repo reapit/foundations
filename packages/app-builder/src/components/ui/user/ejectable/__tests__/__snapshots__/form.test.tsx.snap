@@ -34,6 +34,9 @@ exports[`Form should match a snapshot 1`] = `
           class="el-intent-primary el-button"
         >
           Save
+          <div
+            class="el-button-loader"
+          />
         </button>
       </div>
     </form>

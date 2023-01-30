@@ -115,9 +115,12 @@ Object {
           This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
         </p>
         <button
-          class="esplruv-el-mb3 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
+          class="esplruv-el-mb3 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
         >
           View Docs
+          <div
+            class="e1q1vabn-el-button-loader"
+          />
         </button>
       </div>
     </div>
@@ -233,9 +236,12 @@ Object {
         This is the dashboard for your applications created using the Reapit Foundations platform. If you have not created an app before or you need help, please take the time to view our getting started guide.
       </p>
       <button
-        class="esplruv-el-mb3 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
+        class="esplruv-el-mb3 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
       >
         View Docs
+        <div
+          class="e1q1vabn-el-button-loader"
+        />
       </button>
     </div>
   </div>,
@@ -393,9 +399,12 @@ Object {
           Clicking below will take you to your current AppMarket listing, to view your app as users will see it.
         </p>
         <button
-          class="esplruv-el-mb3 ebee6r1-el-intent-primary eqfkc7t-el-button"
+          class="esplruv-el-mb3 ebee6r1-el-intent-primary e1tqqdf9-el-button"
         >
           Preview
+          <div
+            class="e1q1vabn-el-button-loader"
+          />
         </button>
       </div>
     </div>
@@ -496,9 +505,12 @@ Object {
         Clicking below will take you to your current AppMarket listing, to view your app as users will see it.
       </p>
       <button
-        class="esplruv-el-mb3 ebee6r1-el-intent-primary eqfkc7t-el-button"
+        class="esplruv-el-mb3 ebee6r1-el-intent-primary e1tqqdf9-el-button"
       >
         Preview
+        <div
+          class="e1q1vabn-el-button-loader"
+        />
       </button>
     </div>
   </div>,
@@ -693,9 +705,12 @@ Object {
           If you no longer want your app revision to be approved, you can cancel below.
         </p>
         <button
-          class="esplruv-el-mb3 e1iow709-el-intent-critical eqfkc7t-el-button"
+          class="esplruv-el-mb3 e1iow709-el-intent-critical e1tqqdf9-el-button"
         >
           Cancel Revision
+          <div
+            class="e1q1vabn-el-button-loader"
+          />
         </button>
       </div>
     </div>
@@ -833,9 +848,12 @@ Object {
         If you no longer want your app revision to be approved, you can cancel below.
       </p>
       <button
-        class="esplruv-el-mb3 e1iow709-el-intent-critical eqfkc7t-el-button"
+        class="esplruv-el-mb3 e1iow709-el-intent-critical e1tqqdf9-el-button"
       >
         Cancel Revision
+        <div
+          class="e1q1vabn-el-button-loader"
+        />
       </button>
     </div>
   </div>,
@@ -1025,14 +1043,20 @@ Object {
           You also have the option of de-listing your app and reverting to a sandbox only integration.
         </p>
         <button
-          class="esplruv-el-mb3 ebee6r1-el-intent-primary eqfkc7t-el-button"
+          class="esplruv-el-mb3 ebee6r1-el-intent-primary e1tqqdf9-el-button"
         >
           De-list app
+          <div
+            class="e1q1vabn-el-button-loader"
+          />
         </button>
         <button
-          class="esplruv-el-mb3 e1iow709-el-intent-critical e19a1osy-el-button-has-right-chevron eqfkc7t-el-button"
+          class="esplruv-el-mb3 e1iow709-el-intent-critical eay05y4-el-button-has-right-chevron e1tqqdf9-el-button"
         >
           Create Revision
+          <div
+            class="e1q1vabn-el-button-loader"
+          />
         </button>
       </div>
     </div>
@@ -1165,14 +1189,20 @@ Object {
         You also have the option of de-listing your app and reverting to a sandbox only integration.
       </p>
       <button
-        class="esplruv-el-mb3 ebee6r1-el-intent-primary eqfkc7t-el-button"
+        class="esplruv-el-mb3 ebee6r1-el-intent-primary e1tqqdf9-el-button"
       >
         De-list app
+        <div
+          class="e1q1vabn-el-button-loader"
+        />
       </button>
       <button
-        class="esplruv-el-mb3 e1iow709-el-intent-critical e19a1osy-el-button-has-right-chevron eqfkc7t-el-button"
+        class="esplruv-el-mb3 e1iow709-el-intent-critical eay05y4-el-button-has-right-chevron e1tqqdf9-el-button"
       >
         Create Revision
+        <div
+          class="e1q1vabn-el-button-loader"
+        />
       </button>
     </div>
   </div>,
@@ -1354,9 +1384,12 @@ Object {
           Before you list your app you can save the details at any point below. After app listing, you will have to create an app revision for our team to review.
         </p>
         <button
-          class="esplruv-el-mb3 ebee6r1-el-intent-primary eqfkc7t-el-button"
+          class="esplruv-el-mb3 ebee6r1-el-intent-primary e1tqqdf9-el-button"
         >
           Save Changes
+          <div
+            class="e1q1vabn-el-button-loader"
+          />
         </button>
       </div>
     </div>
@@ -1481,9 +1514,12 @@ Object {
         Before you list your app you can save the details at any point below. After app listing, you will have to create an app revision for our team to review.
       </p>
       <button
-        class="esplruv-el-mb3 ebee6r1-el-intent-primary eqfkc7t-el-button"
+        class="esplruv-el-mb3 ebee6r1-el-intent-primary e1tqqdf9-el-button"
       >
         Save Changes
+        <div
+          class="e1q1vabn-el-button-loader"
+        />
       </button>
     </div>
   </div>,
@@ -1674,9 +1710,12 @@ Object {
           You also have the option of saving any additional changes as you make them before submitting.
         </p>
         <button
-          class="esplruv-el-mb3 e1iow709-el-intent-critical e19a1osy-el-button-has-right-chevron eqfkc7t-el-button"
+          class="esplruv-el-mb3 e1iow709-el-intent-critical eay05y4-el-button-has-right-chevron e1tqqdf9-el-button"
         >
           Submit Review
+          <div
+            class="e1q1vabn-el-button-loader"
+          />
         </button>
       </div>
     </div>
@@ -1810,9 +1849,12 @@ Object {
         You also have the option of saving any additional changes as you make them before submitting.
       </p>
       <button
-        class="esplruv-el-mb3 e1iow709-el-intent-critical e19a1osy-el-button-has-right-chevron eqfkc7t-el-button"
+        class="esplruv-el-mb3 e1iow709-el-intent-critical eay05y4-el-button-has-right-chevron e1tqqdf9-el-button"
       >
         Submit Review
+        <div
+          class="e1q1vabn-el-button-loader"
+        />
       </button>
     </div>
   </div>,
@@ -2002,9 +2044,12 @@ Object {
           You also have the option of de-listing your app and reverting to a sandbox only integration.
         </p>
         <button
-          class="esplruv-el-mb3 ebee6r1-el-intent-primary eqfkc7t-el-button"
+          class="esplruv-el-mb3 ebee6r1-el-intent-primary e1tqqdf9-el-button"
         >
           De-list app
+          <div
+            class="e1q1vabn-el-button-loader"
+          />
         </button>
       </div>
     </div>
@@ -2137,9 +2182,12 @@ Object {
         You also have the option of de-listing your app and reverting to a sandbox only integration.
       </p>
       <button
-        class="esplruv-el-mb3 ebee6r1-el-intent-primary eqfkc7t-el-button"
+        class="esplruv-el-mb3 ebee6r1-el-intent-primary e1tqqdf9-el-button"
       >
         De-list app
+        <div
+          class="e1q1vabn-el-button-loader"
+        />
       </button>
     </div>
   </div>,
@@ -2632,9 +2680,12 @@ Object {
           You can also request that the email is re-sent to each customer individually.
         </p>
         <button
-          class="esplruv-el-mb3 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
+          class="esplruv-el-mb3 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
         >
           View Docs
+          <div
+            class="e1q1vabn-el-button-loader"
+          />
         </button>
       </div>
     </div>
@@ -2769,9 +2820,12 @@ Object {
         You can also request that the email is re-sent to each customer individually.
       </p>
       <button
-        class="esplruv-el-mb3 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
+        class="esplruv-el-mb3 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
       >
         View Docs
+        <div
+          class="e1q1vabn-el-button-loader"
+        />
       </button>
     </div>
   </div>,
@@ -3030,25 +3084,37 @@ Object {
           When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment, and by expading the content, you can follow progress in real time.
         </p>
         <button
-          class="esplruv-el-mb3 ebee6r1-el-intent-primary eqfkc7t-el-button"
+          class="esplruv-el-mb3 ebee6r1-el-intent-primary e1tqqdf9-el-button"
           disabled=""
         >
           Deploy
+          <div
+            class="e1q1vabn-el-button-loader"
+          />
         </button>
         <button
-          class="esplruv-el-mb3 epibvz0-el-intent-secondary eqfkc7t-el-button"
+          class="esplruv-el-mb3 epibvz0-el-intent-secondary e1tqqdf9-el-button"
         >
           API Keys
+          <div
+            class="e1q1vabn-el-button-loader"
+          />
         </button>
         <button
-          class="esplruv-el-mb3 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
+          class="esplruv-el-mb3 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
         >
           Delete Pipeline
+          <div
+            class="e1q1vabn-el-button-loader"
+          />
         </button>
         <button
-          class="esplruv-el-mb3 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
+          class="esplruv-el-mb3 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
         >
           View Docs
+          <div
+            class="e1q1vabn-el-button-loader"
+          />
         </button>
       </div>
     </div>
@@ -3250,25 +3316,37 @@ Object {
         When you have a pipeline for your application, you can manage deployments from this page. Each table row refers to a deployment, and by expading the content, you can follow progress in real time.
       </p>
       <button
-        class="esplruv-el-mb3 ebee6r1-el-intent-primary eqfkc7t-el-button"
+        class="esplruv-el-mb3 ebee6r1-el-intent-primary e1tqqdf9-el-button"
         disabled=""
       >
         Deploy
+        <div
+          class="e1q1vabn-el-button-loader"
+        />
       </button>
       <button
-        class="esplruv-el-mb3 epibvz0-el-intent-secondary eqfkc7t-el-button"
+        class="esplruv-el-mb3 epibvz0-el-intent-secondary e1tqqdf9-el-button"
       >
         API Keys
+        <div
+          class="e1q1vabn-el-button-loader"
+        />
       </button>
       <button
-        class="esplruv-el-mb3 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
+        class="esplruv-el-mb3 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
       >
         Delete Pipeline
+        <div
+          class="e1q1vabn-el-button-loader"
+        />
       </button>
       <button
-        class="esplruv-el-mb3 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
+        class="esplruv-el-mb3 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
       >
         View Docs
+        <div
+          class="e1q1vabn-el-button-loader"
+        />
       </button>
     </div>
   </div>,

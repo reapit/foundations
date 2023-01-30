@@ -157,6 +157,9 @@ Object {
             class="el-intent-neutral el-button"
           >
             View Docs
+            <div
+              class="el-button-loader"
+            />
           </button>
         </aside>
         <section
@@ -388,6 +391,9 @@ Object {
           class="el-intent-neutral el-button"
         >
           View Docs
+          <div
+            class="el-button-loader"
+          />
         </button>
       </aside>
       <section
@@ -676,6 +682,9 @@ Object {
             class="el-intent-neutral el-button"
           >
             View Docs
+            <div
+              class="el-button-loader"
+            />
           </button>
         </aside>
         <section
@@ -888,6 +897,9 @@ Object {
           class="el-intent-neutral el-button"
         >
           View Docs
+          <div
+            class="el-button-loader"
+          />
         </button>
       </aside>
       <section

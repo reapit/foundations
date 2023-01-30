@@ -217,16 +217,19 @@ Object {
               </div>
             </div>
             <div
-              class="e7eari0-el-mb12 eay05y4-el-button-group"
+              class="e7eari0-el-mb12 ebqwrow-el-button-group"
             >
               <div
-                class="ej73pla-el-button-group-align-center ebqwrow-el-button-group-inner"
+                class="e1f2ikqj-el-button-group-align-center eh76izl-el-button-group-inner"
               >
                 <button
-                  class="e1iow709-el-intent-critical e19a1osy-el-button-has-right-chevron e83k2pj-el-button-size3 eqfkc7t-el-button"
+                  class="e1iow709-el-intent-critical eay05y4-el-button-has-right-chevron e83k2pj-el-button-size3 e1tqqdf9-el-button"
                   type="submit"
                 >
                   Register
+                  <div
+                    class="e1q1vabn-el-button-loader"
+                  />
                 </button>
               </div>
             </div>
@@ -451,16 +454,19 @@ Object {
             </div>
           </div>
           <div
-            class="e7eari0-el-mb12 eay05y4-el-button-group"
+            class="e7eari0-el-mb12 ebqwrow-el-button-group"
           >
             <div
-              class="ej73pla-el-button-group-align-center ebqwrow-el-button-group-inner"
+              class="e1f2ikqj-el-button-group-align-center eh76izl-el-button-group-inner"
             >
               <button
-                class="e1iow709-el-intent-critical e19a1osy-el-button-has-right-chevron e83k2pj-el-button-size3 eqfkc7t-el-button"
+                class="e1iow709-el-intent-critical eay05y4-el-button-has-right-chevron e83k2pj-el-button-size3 e1tqqdf9-el-button"
                 type="submit"
               >
                 Register
+                <div
+                  class="e1q1vabn-el-button-loader"
+                />
               </button>
             </div>
           </div>

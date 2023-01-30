@@ -133,9 +133,12 @@ Object {
             You can check the status of your app listing at any time by using the button below, prior to submitting for approval.
           </p>
           <button
-            class="epibvz0-el-intent-secondary eqfkc7t-el-button"
+            class="epibvz0-el-intent-secondary e1tqqdf9-el-button"
           >
             Check Status
+            <div
+              class="e1q1vabn-el-button-loader"
+            />
           </button>
         </div>
         <div
@@ -371,9 +374,12 @@ Object {
             For guidelines on completing your app listing, visit the documentation link below before getting started.
           </p>
           <button
-            class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+            class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
           >
             View Docs
+            <div
+              class="e1q1vabn-el-button-loader"
+            />
           </button>
         </div>
       </div>
@@ -508,9 +514,12 @@ Object {
           You can check the status of your app listing at any time by using the button below, prior to submitting for approval.
         </p>
         <button
-          class="epibvz0-el-intent-secondary eqfkc7t-el-button"
+          class="epibvz0-el-intent-secondary e1tqqdf9-el-button"
         >
           Check Status
+          <div
+            class="e1q1vabn-el-button-loader"
+          />
         </button>
       </div>
       <div
@@ -746,9 +755,12 @@ Object {
           For guidelines on completing your app listing, visit the documentation link below before getting started.
         </p>
         <button
-          class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+          class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
         >
           View Docs
+          <div
+            class="e1q1vabn-el-button-loader"
+          />
         </button>
       </div>
     </div>

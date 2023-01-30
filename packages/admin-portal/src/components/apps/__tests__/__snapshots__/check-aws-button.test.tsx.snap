@@ -12,6 +12,9 @@ Object {
         class="el-intent-primary el-button"
       >
         Check AWS Only
+        <div
+          class="el-button-loader"
+        />
       </button>
     </div>
   </body>,
@@ -23,6 +26,9 @@ Object {
       class="el-intent-primary el-button"
     >
       Check AWS Only
+      <div
+        class="el-button-loader"
+      />
     </button>
   </div>,
   "debug": [Function],
@@ -91,6 +97,9 @@ Object {
         class="el-intent-primary el-button"
       >
         Check AWS Only
+        <div
+          class="el-button-loader"
+        />
       </button>
     </div>
   </body>,
@@ -102,6 +111,9 @@ Object {
       class="el-intent-primary el-button"
     >
       Check AWS Only
+      <div
+        class="el-button-loader"
+      />
     </button>
   </div>,
   "debug": [Function],
@@ -170,6 +182,9 @@ Object {
         class="el-intent-primary el-button"
       >
         Check AWS Only
+        <div
+          class="el-button-loader"
+        />
       </button>
     </div>
   </body>,
@@ -181,6 +196,9 @@ Object {
       class="el-intent-primary el-button"
     >
       Check AWS Only
+      <div
+        class="el-button-loader"
+      />
     </button>
   </div>,
   "debug": [Function],

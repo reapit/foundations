@@ -19,6 +19,9 @@ Object {
             disabled=""
           >
             Fetch Current Authenticators
+            <div
+              class="el-button-loader"
+            />
           </button>
         </div>
       </div>
@@ -86,6 +89,9 @@ Object {
         class="el-intent-primary el-button"
       >
         Reset Authenticator
+        <div
+          class="el-button-loader"
+        />
       </button>
     </div>
   </body>,
@@ -104,6 +110,9 @@ Object {
           disabled=""
         >
           Fetch Current Authenticators
+          <div
+            class="el-button-loader"
+          />
         </button>
       </div>
     </div>
@@ -171,6 +180,9 @@ Object {
       class="el-intent-primary el-button"
     >
       Reset Authenticator
+      <div
+        class="el-button-loader"
+      />
     </button>
   </div>,
   "debug": [Function],
@@ -246,6 +258,9 @@ Object {
             disabled=""
           >
             Fetch Current Authenticators
+            <div
+              class="el-button-loader"
+            />
           </button>
         </div>
       </div>
@@ -266,6 +281,9 @@ Object {
           disabled=""
         >
           Fetch Current Authenticators
+          <div
+            class="el-button-loader"
+          />
         </button>
       </div>
     </div>
@@ -343,6 +361,9 @@ Object {
             disabled=""
           >
             Fetch Current Authenticators
+            <div
+              class="el-button-loader"
+            />
           </button>
         </div>
       </div>
@@ -374,6 +395,9 @@ Object {
           disabled=""
         >
           Fetch Current Authenticators
+          <div
+            class="el-button-loader"
+          />
         </button>
       </div>
     </div>

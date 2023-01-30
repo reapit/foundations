@@ -161,21 +161,33 @@ Object {
                     class="el-intent-low el-button"
                   >
                     Copy URL
+                    <div
+                      class="el-button-loader"
+                    />
                   </button>
                   <button
                     class="el-intent-low el-button"
                   >
                     Copy DSN
+                    <div
+                      class="el-button-loader"
+                    />
                   </button>
                   <button
                     class="el-intent-danger el-button"
                   >
                     Delete Share
+                    <div
+                      class="el-button-loader"
+                    />
                   </button>
                   <button
                     class="el-intent-primary el-button"
                   >
                     Refresh Share
+                    <div
+                      class="el-button-loader"
+                    />
                   </button>
                 </div>
               </div>
@@ -342,21 +354,33 @@ Object {
                   class="el-intent-low el-button"
                 >
                   Copy URL
+                  <div
+                    class="el-button-loader"
+                  />
                 </button>
                 <button
                   class="el-intent-low el-button"
                 >
                   Copy DSN
+                  <div
+                    class="el-button-loader"
+                  />
                 </button>
                 <button
                   class="el-intent-danger el-button"
                 >
                   Delete Share
+                  <div
+                    class="el-button-loader"
+                  />
                 </button>
                 <button
                   class="el-intent-primary el-button"
                 >
                   Refresh Share
+                  <div
+                    class="el-button-loader"
+                  />
                 </button>
               </div>
             </div>

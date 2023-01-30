@@ -110,22 +110,28 @@ Object {
           </div>
         </div>
         <div
-          class="ec47sgk-el-mb11 eay05y4-el-button-group"
+          class="ec47sgk-el-mb11 ebqwrow-el-button-group"
         >
           <div
-            class="e1cpt8yd-el-button-group-align-left ebqwrow-el-button-group-inner"
+            class="e1i2en9o-el-button-group-align-left eh76izl-el-button-group-inner"
           >
             <button
-              class="epibvz0-el-intent-secondary eqfkc7t-el-button"
+              class="epibvz0-el-intent-secondary e1tqqdf9-el-button"
               type="button"
             >
               clear
+              <div
+                class="e1q1vabn-el-button-loader"
+              />
             </button>
             <button
-              class="ebee6r1-el-intent-primary eqfkc7t-el-button"
+              class="ebee6r1-el-intent-primary e1tqqdf9-el-button"
               type="submit"
             >
               Calculate
+              <div
+                class="e1q1vabn-el-button-loader"
+              />
             </button>
           </div>
         </div>
@@ -238,22 +244,28 @@ Object {
         </div>
       </div>
       <div
-        class="ec47sgk-el-mb11 eay05y4-el-button-group"
+        class="ec47sgk-el-mb11 ebqwrow-el-button-group"
       >
         <div
-          class="e1cpt8yd-el-button-group-align-left ebqwrow-el-button-group-inner"
+          class="e1i2en9o-el-button-group-align-left eh76izl-el-button-group-inner"
         >
           <button
-            class="epibvz0-el-intent-secondary eqfkc7t-el-button"
+            class="epibvz0-el-intent-secondary e1tqqdf9-el-button"
             type="button"
           >
             clear
+            <div
+              class="e1q1vabn-el-button-loader"
+            />
           </button>
           <button
-            class="ebee6r1-el-intent-primary eqfkc7t-el-button"
+            class="ebee6r1-el-intent-primary e1tqqdf9-el-button"
             type="submit"
           >
             Calculate
+            <div
+              class="e1q1vabn-el-button-loader"
+            />
           </button>
         </div>
       </div>

@@ -122,15 +122,18 @@ Object {
             .
           </p>
           <div
-            class="e7eari0-el-mb12 eay05y4-el-button-group"
+            class="e7eari0-el-mb12 ebqwrow-el-button-group"
           >
             <div
-              class="ej73pla-el-button-group-align-center ebqwrow-el-button-group-inner"
+              class="e1f2ikqj-el-button-group-align-center eh76izl-el-button-group-inner"
             >
               <button
-                class="ebee6r1-el-intent-primary e83k2pj-el-button-size3 eqfkc7t-el-button"
+                class="ebee6r1-el-intent-primary e83k2pj-el-button-size3 e1tqqdf9-el-button"
               >
                 Visit AppMarket
+                <div
+                  class="e1q1vabn-el-button-loader"
+                />
               </button>
             </div>
           </div>
@@ -259,15 +262,18 @@ Object {
           .
         </p>
         <div
-          class="e7eari0-el-mb12 eay05y4-el-button-group"
+          class="e7eari0-el-mb12 ebqwrow-el-button-group"
         >
           <div
-            class="ej73pla-el-button-group-align-center ebqwrow-el-button-group-inner"
+            class="e1f2ikqj-el-button-group-align-center eh76izl-el-button-group-inner"
           >
             <button
-              class="ebee6r1-el-intent-primary e83k2pj-el-button-size3 eqfkc7t-el-button"
+              class="ebee6r1-el-intent-primary e83k2pj-el-button-size3 e1tqqdf9-el-button"
             >
               Visit AppMarket
+              <div
+                class="e1q1vabn-el-button-loader"
+              />
             </button>
           </div>
         </div>
@@ -448,20 +454,26 @@ Object {
             To view our Terms and Conditions, please click ‘Proceed’ below.
           </p>
           <div
-            class="e7eari0-el-mb12 eay05y4-el-button-group"
+            class="e7eari0-el-mb12 ebqwrow-el-button-group"
           >
             <div
-              class="ej73pla-el-button-group-align-center ebqwrow-el-button-group-inner"
+              class="e1f2ikqj-el-button-group-align-center eh76izl-el-button-group-inner"
             >
               <button
-                class="ebee6r1-el-intent-primary e83k2pj-el-button-size3 eqfkc7t-el-button"
+                class="ebee6r1-el-intent-primary e83k2pj-el-button-size3 e1tqqdf9-el-button"
               >
                 Visit AppMarket
+                <div
+                  class="e1q1vabn-el-button-loader"
+                />
               </button>
               <button
-                class="e1iow709-el-intent-critical e83k2pj-el-button-size3 eqfkc7t-el-button"
+                class="e1iow709-el-intent-critical e83k2pj-el-button-size3 e1tqqdf9-el-button"
               >
                 Proceed
+                <div
+                  class="e1q1vabn-el-button-loader"
+                />
               </button>
             </div>
           </div>
@@ -585,20 +597,26 @@ Object {
           To view our Terms and Conditions, please click ‘Proceed’ below.
         </p>
         <div
-          class="e7eari0-el-mb12 eay05y4-el-button-group"
+          class="e7eari0-el-mb12 ebqwrow-el-button-group"
         >
           <div
-            class="ej73pla-el-button-group-align-center ebqwrow-el-button-group-inner"
+            class="e1f2ikqj-el-button-group-align-center eh76izl-el-button-group-inner"
           >
             <button
-              class="ebee6r1-el-intent-primary e83k2pj-el-button-size3 eqfkc7t-el-button"
+              class="ebee6r1-el-intent-primary e83k2pj-el-button-size3 e1tqqdf9-el-button"
             >
               Visit AppMarket
+              <div
+                class="e1q1vabn-el-button-loader"
+              />
             </button>
             <button
-              class="e1iow709-el-intent-critical e83k2pj-el-button-size3 eqfkc7t-el-button"
+              class="e1iow709-el-intent-critical e83k2pj-el-button-size3 e1tqqdf9-el-button"
             >
               Proceed
+              <div
+                class="e1q1vabn-el-button-loader"
+              />
             </button>
           </div>
         </div>
@@ -790,15 +808,18 @@ Object {
             You will need to contact them directly to perform this task.
           </p>
           <div
-            class="e7eari0-el-mb12 eay05y4-el-button-group"
+            class="e7eari0-el-mb12 ebqwrow-el-button-group"
           >
             <div
-              class="ej73pla-el-button-group-align-center ebqwrow-el-button-group-inner"
+              class="e1f2ikqj-el-button-group-align-center eh76izl-el-button-group-inner"
             >
               <button
-                class="ebee6r1-el-intent-primary e83k2pj-el-button-size3 eqfkc7t-el-button"
+                class="ebee6r1-el-intent-primary e83k2pj-el-button-size3 e1tqqdf9-el-button"
               >
                 Visit AppMarket
+                <div
+                  class="e1q1vabn-el-button-loader"
+                />
               </button>
             </div>
           </div>
@@ -933,15 +954,18 @@ Object {
           You will need to contact them directly to perform this task.
         </p>
         <div
-          class="e7eari0-el-mb12 eay05y4-el-button-group"
+          class="e7eari0-el-mb12 ebqwrow-el-button-group"
         >
           <div
-            class="ej73pla-el-button-group-align-center ebqwrow-el-button-group-inner"
+            class="e1f2ikqj-el-button-group-align-center eh76izl-el-button-group-inner"
           >
             <button
-              class="ebee6r1-el-intent-primary e83k2pj-el-button-size3 eqfkc7t-el-button"
+              class="ebee6r1-el-intent-primary e83k2pj-el-button-size3 e1tqqdf9-el-button"
             >
               Visit AppMarket
+              <div
+                class="e1q1vabn-el-button-loader"
+              />
             </button>
           </div>
         </div>

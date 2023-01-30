@@ -54,16 +54,25 @@ Object {
           class="el-mb3 el-intent-neutral el-button"
         >
           View Docs
+          <div
+            class="el-button-loader"
+          />
         </button>
         <button
           class="el-mb3 el-intent-critical el-button"
         >
           Save Config
+          <div
+            class="el-button-loader"
+          />
         </button>
         <button
           class="el-mb3 el-intent-danger el-button"
         >
           Delete Config
+          <div
+            class="el-button-loader"
+          />
         </button>
       </aside>
       <section
@@ -149,16 +158,25 @@ Object {
         class="el-mb3 el-intent-neutral el-button"
       >
         View Docs
+        <div
+          class="el-button-loader"
+        />
       </button>
       <button
         class="el-mb3 el-intent-critical el-button"
       >
         Save Config
+        <div
+          class="el-button-loader"
+        />
       </button>
       <button
         class="el-mb3 el-intent-danger el-button"
       >
         Delete Config
+        <div
+          class="el-button-loader"
+        />
       </button>
     </aside>
     <section
@@ -301,16 +319,25 @@ Object {
           class="el-mb3 el-intent-neutral el-button"
         >
           View Docs
+          <div
+            class="el-button-loader"
+          />
         </button>
         <button
           class="el-mb3 el-intent-critical el-button"
         >
           Save Config
+          <div
+            class="el-button-loader"
+          />
         </button>
         <button
           class="el-mb3 el-intent-danger el-button"
         >
           Delete Config
+          <div
+            class="el-button-loader"
+          />
         </button>
       </aside>
       <section
@@ -521,16 +548,25 @@ Object {
         class="el-mb3 el-intent-neutral el-button"
       >
         View Docs
+        <div
+          class="el-button-loader"
+        />
       </button>
       <button
         class="el-mb3 el-intent-critical el-button"
       >
         Save Config
+        <div
+          class="el-button-loader"
+        />
       </button>
       <button
         class="el-mb3 el-intent-danger el-button"
       >
         Delete Config
+        <div
+          class="el-button-loader"
+        />
       </button>
     </aside>
     <section
@@ -798,16 +834,25 @@ Object {
           class="el-mb3 el-intent-neutral el-button"
         >
           View Docs
+          <div
+            class="el-button-loader"
+          />
         </button>
         <button
           class="el-mb3 el-intent-critical el-button"
         >
           Save Config
+          <div
+            class="el-button-loader"
+          />
         </button>
         <button
           class="el-mb3 el-intent-danger el-button"
         >
           Delete Config
+          <div
+            class="el-button-loader"
+          />
         </button>
       </aside>
       <section
@@ -1018,16 +1063,25 @@ Object {
         class="el-mb3 el-intent-neutral el-button"
       >
         View Docs
+        <div
+          class="el-button-loader"
+        />
       </button>
       <button
         class="el-mb3 el-intent-critical el-button"
       >
         Save Config
+        <div
+          class="el-button-loader"
+        />
       </button>
       <button
         class="el-mb3 el-intent-danger el-button"
       >
         Delete Config
+        <div
+          class="el-button-loader"
+        />
       </button>
     </aside>
     <section

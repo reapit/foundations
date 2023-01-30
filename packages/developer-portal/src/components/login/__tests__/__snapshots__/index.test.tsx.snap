@@ -102,20 +102,26 @@ Object {
             </h2>
           </div>
           <div
-            class="e7eari0-el-mb12 eay05y4-el-button-group"
+            class="e7eari0-el-mb12 ebqwrow-el-button-group"
           >
             <div
-              class="ej73pla-el-button-group-align-center ebqwrow-el-button-group-inner"
+              class="e1f2ikqj-el-button-group-align-center eh76izl-el-button-group-inner"
             >
               <button
-                class="ebee6r1-el-intent-primary e83k2pj-el-button-size3 eqfkc7t-el-button"
+                class="ebee6r1-el-intent-primary e83k2pj-el-button-size3 e1tqqdf9-el-button"
               >
                 Login With Reapit
+                <div
+                  class="e1q1vabn-el-button-loader"
+                />
               </button>
               <button
-                class="epibvz0-el-intent-secondary e83k2pj-el-button-size3 eqfkc7t-el-button"
+                class="epibvz0-el-intent-secondary e83k2pj-el-button-size3 e1tqqdf9-el-button"
               >
                 Register
+                <div
+                  class="e1q1vabn-el-button-loader"
+                />
               </button>
             </div>
           </div>
@@ -224,20 +230,26 @@ Object {
           </h2>
         </div>
         <div
-          class="e7eari0-el-mb12 eay05y4-el-button-group"
+          class="e7eari0-el-mb12 ebqwrow-el-button-group"
         >
           <div
-            class="ej73pla-el-button-group-align-center ebqwrow-el-button-group-inner"
+            class="e1f2ikqj-el-button-group-align-center eh76izl-el-button-group-inner"
           >
             <button
-              class="ebee6r1-el-intent-primary e83k2pj-el-button-size3 eqfkc7t-el-button"
+              class="ebee6r1-el-intent-primary e83k2pj-el-button-size3 e1tqqdf9-el-button"
             >
               Login With Reapit
+              <div
+                class="e1q1vabn-el-button-loader"
+              />
             </button>
             <button
-              class="epibvz0-el-intent-secondary e83k2pj-el-button-size3 eqfkc7t-el-button"
+              class="epibvz0-el-intent-secondary e83k2pj-el-button-size3 e1tqqdf9-el-button"
             >
               Register
+              <div
+                class="e1q1vabn-el-button-loader"
+              />
             </button>
           </div>
         </div>

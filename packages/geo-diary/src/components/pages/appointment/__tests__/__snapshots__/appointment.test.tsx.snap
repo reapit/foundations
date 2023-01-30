@@ -27,6 +27,9 @@ Object {
               class="el-intent-primary el-button"
             >
               MAP
+              <div
+                class="el-button-loader"
+              />
             </button>
           </div>
         </div>
@@ -1999,6 +2002,9 @@ Object {
               type="button"
             >
               Start Journey
+              <div
+                class="el-button-loader"
+              />
             </button>
           </div>
         </div>
@@ -2028,6 +2034,9 @@ Object {
             class="el-intent-primary el-button"
           >
             MAP
+            <div
+              class="el-button-loader"
+            />
           </button>
         </div>
       </div>
@@ -4000,6 +4009,9 @@ Object {
             type="button"
           >
             Start Journey
+            <div
+              class="el-button-loader"
+            />
           </button>
         </div>
       </div>
@@ -4086,6 +4098,9 @@ Object {
               class="el-intent-primary el-button"
             >
               MAP
+              <div
+                class="el-button-loader"
+              />
             </button>
           </div>
         </div>
@@ -4253,6 +4268,9 @@ Object {
               type="button"
             >
               Start Journey
+              <div
+                class="el-button-loader"
+              />
             </button>
           </div>
         </div>
@@ -4282,6 +4300,9 @@ Object {
             class="el-intent-primary el-button"
           >
             MAP
+            <div
+              class="el-button-loader"
+            />
           </button>
         </div>
       </div>
@@ -4449,6 +4470,9 @@ Object {
             type="button"
           >
             Start Journey
+            <div
+              class="el-button-loader"
+            />
           </button>
         </div>
       </div>
@@ -4535,6 +4559,9 @@ Object {
               class="el-intent-primary el-button"
             >
               MAP
+              <div
+                class="el-button-loader"
+              />
             </button>
           </div>
         </div>
@@ -4721,6 +4748,9 @@ Object {
               type="button"
             >
               Start Journey
+              <div
+                class="el-button-loader"
+              />
             </button>
           </div>
         </div>
@@ -4750,6 +4780,9 @@ Object {
             class="el-intent-primary el-button"
           >
             MAP
+            <div
+              class="el-button-loader"
+            />
           </button>
         </div>
       </div>
@@ -4936,6 +4969,9 @@ Object {
             type="button"
           >
             Start Journey
+            <div
+              class="el-button-loader"
+            />
           </button>
         </div>
       </div>
@@ -5022,6 +5058,9 @@ Object {
               class="el-intent-primary el-button"
             >
               MAP
+              <div
+                class="el-button-loader"
+              />
             </button>
           </div>
         </div>
@@ -5208,6 +5247,9 @@ Object {
               type="button"
             >
               Start Journey
+              <div
+                class="el-button-loader"
+              />
             </button>
           </div>
         </div>
@@ -5237,6 +5279,9 @@ Object {
             class="el-intent-primary el-button"
           >
             MAP
+            <div
+              class="el-button-loader"
+            />
           </button>
         </div>
       </div>
@@ -5423,6 +5468,9 @@ Object {
             type="button"
           >
             Start Journey
+            <div
+              class="el-button-loader"
+            />
           </button>
         </div>
       </div>

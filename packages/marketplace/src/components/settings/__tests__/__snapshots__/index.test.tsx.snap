@@ -217,6 +217,9 @@ Object {
             class="el-intent-critical el-button-has-right-chevron el-button"
           >
             Logout
+            <div
+              class="el-button-loader"
+            />
           </button>
         </aside>
         <section
@@ -438,6 +441,9 @@ Object {
           class="el-intent-critical el-button-has-right-chevron el-button"
         >
           Logout
+          <div
+            class="el-button-loader"
+          />
         </button>
       </aside>
       <section

@@ -1542,6 +1542,9 @@ Object {
               type="submit"
             >
               Make Payment
+              <div
+                class="el-button-loader"
+              />
             </button>
           </div>
         </div>
@@ -3086,6 +3089,9 @@ Object {
             type="submit"
           >
             Make Payment
+            <div
+              class="el-button-loader"
+            />
           </button>
         </div>
       </div>
@@ -4687,6 +4693,9 @@ Object {
               type="submit"
             >
               Make Payment
+              <div
+                class="el-button-loader"
+              />
             </button>
           </div>
         </div>
@@ -6231,6 +6240,9 @@ Object {
             type="submit"
           >
             Make Payment
+            <div
+              class="el-button-loader"
+            />
           </button>
         </div>
       </div>
@@ -6339,6 +6351,9 @@ Object {
             type="button"
           >
             Re-send Confirmation
+            <div
+              class="el-button-loader"
+            />
           </button>
         </div>
       </div>
@@ -6389,6 +6404,9 @@ Object {
           type="button"
         >
           Re-send Confirmation
+          <div
+            class="el-button-loader"
+          />
         </button>
       </div>
     </div>
@@ -8019,6 +8037,9 @@ Object {
               type="submit"
             >
               Make Payment
+              <div
+                class="el-button-loader"
+              />
             </button>
           </div>
         </div>
@@ -9593,6 +9614,9 @@ Object {
             type="submit"
           >
             Make Payment
+            <div
+              class="el-button-loader"
+            />
           </button>
         </div>
       </div>

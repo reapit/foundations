@@ -140,12 +140,18 @@ Object {
             class="el-intent-low el-button-fixed-width el-button"
           >
             Cancel
+            <div
+              class="el-button-loader"
+            />
           </button>
           <button
             class="el-intent-primary el-button"
             type="button"
           >
             Confirm
+            <div
+              class="el-button-loader"
+            />
           </button>
         </div>
       </div>
@@ -287,12 +293,18 @@ Object {
           class="el-intent-low el-button-fixed-width el-button"
         >
           Cancel
+          <div
+            class="el-button-loader"
+          />
         </button>
         <button
           class="el-intent-primary el-button"
           type="button"
         >
           Confirm
+          <div
+            class="el-button-loader"
+          />
         </button>
       </div>
     </div>
@@ -491,12 +503,18 @@ Object {
             class="el-intent-low el-button-fixed-width el-button"
           >
             Cancel
+            <div
+              class="el-button-loader"
+            />
           </button>
           <button
             class="el-intent-primary el-button"
             type="button"
           >
             Confirm
+            <div
+              class="el-button-loader"
+            />
           </button>
         </div>
       </div>
@@ -638,12 +656,18 @@ Object {
           class="el-intent-low el-button-fixed-width el-button"
         >
           Cancel
+          <div
+            class="el-button-loader"
+          />
         </button>
         <button
           class="el-intent-primary el-button"
           type="button"
         >
           Confirm
+          <div
+            class="el-button-loader"
+          />
         </button>
       </div>
     </div>
@@ -820,12 +844,18 @@ Object {
             class="el-intent-low el-button-fixed-width el-button"
           >
             Cancel
+            <div
+              class="el-button-loader"
+            />
           </button>
           <button
             class="el-intent-primary el-button"
             type="button"
           >
             Confirm
+            <div
+              class="el-button-loader"
+            />
           </button>
         </div>
       </div>
@@ -945,12 +975,18 @@ Object {
           class="el-intent-low el-button-fixed-width el-button"
         >
           Cancel
+          <div
+            class="el-button-loader"
+          />
         </button>
         <button
           class="el-intent-primary el-button"
           type="button"
         >
           Confirm
+          <div
+            class="el-button-loader"
+          />
         </button>
       </div>
     </div>
@@ -1145,12 +1181,18 @@ Object {
             class="el-intent-low el-button-fixed-width el-button"
           >
             Cancel
+            <div
+              class="el-button-loader"
+            />
           </button>
           <button
             class="el-intent-primary el-button"
             type="button"
           >
             Confirm
+            <div
+              class="el-button-loader"
+            />
           </button>
         </div>
       </div>
@@ -1288,12 +1330,18 @@ Object {
           class="el-intent-low el-button-fixed-width el-button"
         >
           Cancel
+          <div
+            class="el-button-loader"
+          />
         </button>
         <button
           class="el-intent-primary el-button"
           type="button"
         >
           Confirm
+          <div
+            class="el-button-loader"
+          />
         </button>
       </div>
     </div>
@@ -1473,12 +1521,18 @@ Object {
             class="el-intent-low el-button-fixed-width el-button"
           >
             Cancel
+            <div
+              class="el-button-loader"
+            />
           </button>
           <button
             class="el-intent-primary el-button"
             type="button"
           >
             Confirm
+            <div
+              class="el-button-loader"
+            />
           </button>
         </div>
       </div>
@@ -1601,12 +1655,18 @@ Object {
           class="el-intent-low el-button-fixed-width el-button"
         >
           Cancel
+          <div
+            class="el-button-loader"
+          />
         </button>
         <button
           class="el-intent-primary el-button"
           type="button"
         >
           Confirm
+          <div
+            class="el-button-loader"
+          />
         </button>
       </div>
     </div>
@@ -1803,12 +1863,18 @@ Object {
             class="el-intent-low el-button-fixed-width el-button"
           >
             Cancel
+            <div
+              class="el-button-loader"
+            />
           </button>
           <button
             class="el-intent-primary el-button"
             type="button"
           >
             Confirm
+            <div
+              class="el-button-loader"
+            />
           </button>
         </div>
       </div>
@@ -1948,12 +2014,18 @@ Object {
           class="el-intent-low el-button-fixed-width el-button"
         >
           Cancel
+          <div
+            class="el-button-loader"
+          />
         </button>
         <button
           class="el-intent-primary el-button"
           type="button"
         >
           Confirm
+          <div
+            class="el-button-loader"
+          />
         </button>
       </div>
     </div>

@@ -26,12 +26,18 @@ Object {
           type="button"
         >
           No
+          <div
+            class="el-button-loader"
+          />
         </button>
         <button
           class="el-intent-critical el-button-size2 el-button"
           type="button"
         >
           Yes
+          <div
+            class="el-button-loader"
+          />
         </button>
       </div>
     </div>
@@ -58,12 +64,18 @@ Object {
         type="button"
       >
         No
+        <div
+          class="el-button-loader"
+        />
       </button>
       <button
         class="el-intent-critical el-button-size2 el-button"
         type="button"
       >
         Yes
+        <div
+          class="el-button-loader"
+        />
       </button>
     </div>
   </div>,

@@ -131,6 +131,9 @@ Object {
                     class="el-intent-primary el-button"
                   >
                     Create Share
+                    <div
+                      class="el-button-loader"
+                    />
                   </button>
                 </div>
               </div>
@@ -212,6 +215,9 @@ Object {
                     class="el-intent-primary el-button"
                   >
                     Create Share
+                    <div
+                      class="el-button-loader"
+                    />
                   </button>
                 </div>
               </div>
@@ -348,6 +354,9 @@ Object {
                   class="el-intent-primary el-button"
                 >
                   Create Share
+                  <div
+                    class="el-button-loader"
+                  />
                 </button>
               </div>
             </div>
@@ -429,6 +438,9 @@ Object {
                   class="el-intent-primary el-button"
                 >
                   Create Share
+                  <div
+                    class="el-button-loader"
+                  />
                 </button>
               </div>
             </div>

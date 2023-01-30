@@ -65,6 +65,9 @@ Object {
             type="button"
           >
             Start Journey
+            <div
+              class="el-button-loader"
+            />
           </button>
         </div>
       </div>
@@ -131,6 +134,9 @@ Object {
           type="button"
         >
           Start Journey
+          <div
+            class="el-button-loader"
+          />
         </button>
       </div>
     </div>
