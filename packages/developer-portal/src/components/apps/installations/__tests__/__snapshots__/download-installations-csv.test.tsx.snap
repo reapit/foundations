@@ -9,10 +9,13 @@ Object {
         class="ecbqyq6-el-snack-holder"
       />
       <button
-        class="esplruv-el-mb3 ebee6r1-el-intent-primary eqfkc7t-el-button"
+        class="esplruv-el-mb3 ebee6r1-el-intent-primary e1tqqdf9-el-button"
         disabled=""
       >
         Download CSV
+        <div
+          class="e1q1vabn-el-button-loader"
+        />
       </button>
     </div>
   </body>,
@@ -21,10 +24,13 @@ Object {
       class="ecbqyq6-el-snack-holder"
     />
     <button
-      class="esplruv-el-mb3 ebee6r1-el-intent-primary eqfkc7t-el-button"
+      class="esplruv-el-mb3 ebee6r1-el-intent-primary e1tqqdf9-el-button"
       disabled=""
     >
       Download CSV
+      <div
+        class="e1q1vabn-el-button-loader"
+      />
     </button>
   </div>,
   "debug": [Function],

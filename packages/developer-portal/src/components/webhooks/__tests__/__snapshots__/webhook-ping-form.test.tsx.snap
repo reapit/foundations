@@ -58,22 +58,28 @@ Object {
               </a>
             </p>
             <div
-              class="et0k7gk-el-ml-auto eay05y4-el-button-group"
+              class="et0k7gk-el-ml-auto ebqwrow-el-button-group"
             >
               <div
-                class="ebqwrow-el-button-group-inner"
+                class="eh76izl-el-button-group-inner"
               >
                 <button
-                  class="epibvz0-el-intent-secondary eqfkc7t-el-button"
+                  class="epibvz0-el-intent-secondary e1tqqdf9-el-button"
                   type="button"
                 >
                   Cancel
+                  <div
+                    class="e1q1vabn-el-button-loader"
+                  />
                 </button>
                 <button
-                  class="ebee6r1-el-intent-primary e19a1osy-el-button-has-right-chevron eqfkc7t-el-button"
+                  class="ebee6r1-el-intent-primary eay05y4-el-button-has-right-chevron e1tqqdf9-el-button"
                   type="submit"
                 >
                   Test
+                  <div
+                    class="e1q1vabn-el-button-loader"
+                  />
                 </button>
               </div>
             </div>
@@ -136,22 +142,28 @@ Object {
             </a>
           </p>
           <div
-            class="et0k7gk-el-ml-auto eay05y4-el-button-group"
+            class="et0k7gk-el-ml-auto ebqwrow-el-button-group"
           >
             <div
-              class="ebqwrow-el-button-group-inner"
+              class="eh76izl-el-button-group-inner"
             >
               <button
-                class="epibvz0-el-intent-secondary eqfkc7t-el-button"
+                class="epibvz0-el-intent-secondary e1tqqdf9-el-button"
                 type="button"
               >
                 Cancel
+                <div
+                  class="e1q1vabn-el-button-loader"
+                />
               </button>
               <button
-                class="ebee6r1-el-intent-primary e19a1osy-el-button-has-right-chevron eqfkc7t-el-button"
+                class="ebee6r1-el-intent-primary eay05y4-el-button-has-right-chevron e1tqqdf9-el-button"
                 type="submit"
               >
                 Test
+                <div
+                  class="e1q1vabn-el-button-loader"
+                />
               </button>
             </div>
           </div>

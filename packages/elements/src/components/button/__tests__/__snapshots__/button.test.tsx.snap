@@ -10,6 +10,9 @@ Object {
         type="submit"
       >
         button text
+        <div
+          class="el-button-loader"
+        />
       </button>
     </div>
   </body>,
@@ -19,6 +22,9 @@ Object {
       type="submit"
     >
       button text
+      <div
+        class="el-button-loader"
+      />
     </button>
   </div>,
   "debug": [Function],
@@ -102,6 +108,9 @@ Object {
             />
           </svg>
         </span>
+        <div
+          class="el-button-loader"
+        />
       </button>
     </div>
   </body>,
@@ -128,6 +137,9 @@ Object {
           />
         </svg>
       </span>
+      <div
+        class="el-button-loader"
+      />
     </button>
   </div>,
   "debug": [Function],
@@ -195,6 +207,9 @@ Object {
         type="submit"
       >
         button text
+        <div
+          class="el-button-loader"
+        />
       </button>
     </div>
   </body>,
@@ -205,6 +220,9 @@ Object {
       type="submit"
     >
       button text
+      <div
+        class="el-button-loader"
+      />
     </button>
   </div>,
   "debug": [Function],
@@ -276,16 +294,25 @@ Object {
             class="el-button"
           >
             1
+            <div
+              class="el-button-loader"
+            />
           </button>
           <button
             class="el-button"
           >
             2
+            <div
+              class="el-button-loader"
+            />
           </button>
           <button
             class="el-button"
           >
             3
+            <div
+              class="el-button-loader"
+            />
           </button>
         </div>
       </div>
@@ -302,16 +329,25 @@ Object {
           class="el-button"
         >
           1
+          <div
+            class="el-button-loader"
+          />
         </button>
         <button
           class="el-button"
         >
           2
+          <div
+            class="el-button-loader"
+          />
         </button>
         <button
           class="el-button"
         >
           3
+          <div
+            class="el-button-loader"
+          />
         </button>
       </div>
     </div>
@@ -385,16 +421,25 @@ Object {
             class="el-button"
           >
             1
+            <div
+              class="el-button-loader"
+            />
           </button>
           <button
             class="el-button"
           >
             2
+            <div
+              class="el-button-loader"
+            />
           </button>
           <button
             class="el-button"
           >
             3
+            <div
+              class="el-button-loader"
+            />
           </button>
         </div>
       </div>
@@ -411,16 +456,25 @@ Object {
           class="el-button"
         >
           1
+          <div
+            class="el-button-loader"
+          />
         </button>
         <button
           class="el-button"
         >
           2
+          <div
+            class="el-button-loader"
+          />
         </button>
         <button
           class="el-button"
         >
           3
+          <div
+            class="el-button-loader"
+          />
         </button>
       </div>
     </div>
@@ -494,16 +548,25 @@ Object {
             class="el-button"
           >
             1
+            <div
+              class="el-button-loader"
+            />
           </button>
           <button
             class="el-button"
           >
             2
+            <div
+              class="el-button-loader"
+            />
           </button>
           <button
             class="el-button"
           >
             3
+            <div
+              class="el-button-loader"
+            />
           </button>
         </div>
       </div>
@@ -520,16 +583,25 @@ Object {
           class="el-button"
         >
           1
+          <div
+            class="el-button-loader"
+          />
         </button>
         <button
           class="el-button"
         >
           2
+          <div
+            class="el-button-loader"
+          />
         </button>
         <button
           class="el-button"
         >
           3
+          <div
+            class="el-button-loader"
+          />
         </button>
       </div>
     </div>

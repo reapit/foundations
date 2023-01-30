@@ -76,11 +76,17 @@ Object {
             class="el-mb5 el-intent-primary el-button"
           >
             Create Group
+            <div
+              class="el-button-loader"
+            />
           </button>
           <button
             class="el-mb5 el-button"
           >
             Docs
+            <div
+              class="el-button-loader"
+            />
           </button>
           <div
             class="el-mb5"
@@ -210,11 +216,17 @@ Object {
           class="el-mb5 el-intent-primary el-button"
         >
           Create Group
+          <div
+            class="el-button-loader"
+          />
         </button>
         <button
           class="el-mb5 el-button"
         >
           Docs
+          <div
+            class="el-button-loader"
+          />
         </button>
         <div
           class="el-mb5"
@@ -804,6 +816,9 @@ Object {
                         type="submit"
                       >
                         Search
+                        <div
+                          class="el-button-loader"
+                        />
                       </button>
                     </div>
                   </div>
@@ -996,6 +1011,9 @@ Object {
                       type="submit"
                     >
                       Search
+                      <div
+                        class="el-button-loader"
+                      />
                     </button>
                   </div>
                 </div>

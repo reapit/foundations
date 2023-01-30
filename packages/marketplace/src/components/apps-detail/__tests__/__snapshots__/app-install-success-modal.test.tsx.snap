@@ -48,6 +48,9 @@ Object {
             class="el-intent-low el-button-fixed-width el-button"
           >
             Back To App
+            <div
+              class="el-button-loader"
+            />
           </button>
         </div>
       </div>
@@ -97,6 +100,9 @@ Object {
           class="el-intent-low el-button-fixed-width el-button"
         >
           Back To App
+          <div
+            class="el-button-loader"
+          />
         </button>
       </div>
     </div>
@@ -196,6 +202,9 @@ Object {
             class="el-intent-low el-button-fixed-width el-button"
           >
             Back To App
+            <div
+              class="el-button-loader"
+            />
           </button>
           <a
             href="https://foo.bar"
@@ -207,6 +216,9 @@ Object {
               type="button"
             >
               Launch App
+              <div
+                class="el-button-loader"
+              />
             </button>
           </a>
         </div>
@@ -250,6 +262,9 @@ Object {
           class="el-intent-low el-button-fixed-width el-button"
         >
           Back To App
+          <div
+            class="el-button-loader"
+          />
         </button>
         <a
           href="https://foo.bar"
@@ -261,6 +276,9 @@ Object {
             type="button"
           >
             Launch App
+            <div
+              class="el-button-loader"
+            />
           </button>
         </a>
       </div>
@@ -361,6 +379,9 @@ Object {
             class="el-intent-low el-button-fixed-width el-button"
           >
             Back To App
+            <div
+              class="el-button-loader"
+            />
           </button>
           <a
             href="https://foo.bar"
@@ -372,6 +393,9 @@ Object {
               type="button"
             >
               Launch App
+              <div
+                class="el-button-loader"
+              />
             </button>
           </a>
         </div>
@@ -415,6 +439,9 @@ Object {
           class="el-intent-low el-button-fixed-width el-button"
         >
           Back To App
+          <div
+            class="el-button-loader"
+          />
         </button>
         <a
           href="https://foo.bar"
@@ -426,6 +453,9 @@ Object {
             type="button"
           >
             Launch App
+            <div
+              class="el-button-loader"
+            />
           </button>
         </a>
       </div>

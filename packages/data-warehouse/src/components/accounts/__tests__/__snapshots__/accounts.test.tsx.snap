@@ -136,21 +136,33 @@ Object {
             class="el-mb5 el-intent-primary el-button"
           >
             Provision User
+            <div
+              class="el-button-loader"
+            />
           </button>
           <button
             class="el-mb5 el-intent-neutral el-button"
           >
             View Docs
+            <div
+              class="el-button-loader"
+            />
           </button>
           <button
             class="el-mb5 el-intent-neutral el-button"
           >
             Video
+            <div
+              class="el-button-loader"
+            />
           </button>
           <button
             class="el-mb5 el-intent-neutral el-button"
           >
             View Docs
+            <div
+              class="el-button-loader"
+            />
           </button>
         </aside>
         <section
@@ -408,11 +420,17 @@ Object {
                         class="el-intent-primary el-button"
                       >
                         Update
+                        <div
+                          class="el-button-loader"
+                        />
                       </button>
                       <button
                         class="el-intent-danger el-button"
                       >
                         Deactivate
+                        <div
+                          class="el-button-loader"
+                        />
                       </button>
                     </div>
                   </div>
@@ -556,21 +574,33 @@ Object {
           class="el-mb5 el-intent-primary el-button"
         >
           Provision User
+          <div
+            class="el-button-loader"
+          />
         </button>
         <button
           class="el-mb5 el-intent-neutral el-button"
         >
           View Docs
+          <div
+            class="el-button-loader"
+          />
         </button>
         <button
           class="el-mb5 el-intent-neutral el-button"
         >
           Video
+          <div
+            class="el-button-loader"
+          />
         </button>
         <button
           class="el-mb5 el-intent-neutral el-button"
         >
           View Docs
+          <div
+            class="el-button-loader"
+          />
         </button>
       </aside>
       <section
@@ -828,11 +858,17 @@ Object {
                       class="el-intent-primary el-button"
                     >
                       Update
+                      <div
+                        class="el-button-loader"
+                      />
                     </button>
                     <button
                       class="el-intent-danger el-button"
                     >
                       Deactivate
+                      <div
+                        class="el-button-loader"
+                      />
                     </button>
                   </div>
                 </div>
@@ -1033,21 +1069,33 @@ Object {
             class="el-mb5 el-intent-primary el-button"
           >
             Provision User
+            <div
+              class="el-button-loader"
+            />
           </button>
           <button
             class="el-mb5 el-intent-neutral el-button"
           >
             View Docs
+            <div
+              class="el-button-loader"
+            />
           </button>
           <button
             class="el-mb5 el-intent-neutral el-button"
           >
             Video
+            <div
+              class="el-button-loader"
+            />
           </button>
           <button
             class="el-mb5 el-intent-neutral el-button"
           >
             View Docs
+            <div
+              class="el-button-loader"
+            />
           </button>
         </aside>
         <section
@@ -1239,21 +1287,33 @@ Object {
           class="el-mb5 el-intent-primary el-button"
         >
           Provision User
+          <div
+            class="el-button-loader"
+          />
         </button>
         <button
           class="el-mb5 el-intent-neutral el-button"
         >
           View Docs
+          <div
+            class="el-button-loader"
+          />
         </button>
         <button
           class="el-mb5 el-intent-neutral el-button"
         >
           Video
+          <div
+            class="el-button-loader"
+          />
         </button>
         <button
           class="el-mb5 el-intent-neutral el-button"
         >
           View Docs
+          <div
+            class="el-button-loader"
+          />
         </button>
       </aside>
       <section

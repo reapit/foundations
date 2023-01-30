@@ -485,25 +485,34 @@ Object {
                 class="e1de2pym-el-flex-justify-center e2kmzjs-el-flex-container"
               >
                 <div
-                  class="eay05y4-el-button-group"
+                  class="ebqwrow-el-button-group"
                 >
                   <div
-                    class="ebqwrow-el-button-group-inner"
+                    class="eh76izl-el-button-group-inner"
                   >
                     <button
-                      class="ebee6r1-el-intent-primary eqfkc7t-el-button"
+                      class="ebee6r1-el-intent-primary e1tqqdf9-el-button"
                     >
                       Edit
+                      <div
+                        class="e1q1vabn-el-button-loader"
+                      />
                     </button>
                     <button
-                      class="ebee6r1-el-intent-primary eqfkc7t-el-button"
+                      class="ebee6r1-el-intent-primary e1tqqdf9-el-button"
                     >
                       Ping
+                      <div
+                        class="e1q1vabn-el-button-loader"
+                      />
                     </button>
                     <button
-                      class="ebee6r1-el-intent-primary eqfkc7t-el-button"
+                      class="ebee6r1-el-intent-primary e1tqqdf9-el-button"
                     >
                       Fetch Public Key
+                      <div
+                        class="e1q1vabn-el-button-loader"
+                      />
                     </button>
                   </div>
                 </div>
@@ -704,25 +713,34 @@ Object {
               class="e1de2pym-el-flex-justify-center e2kmzjs-el-flex-container"
             >
               <div
-                class="eay05y4-el-button-group"
+                class="ebqwrow-el-button-group"
               >
                 <div
-                  class="ebqwrow-el-button-group-inner"
+                  class="eh76izl-el-button-group-inner"
                 >
                   <button
-                    class="ebee6r1-el-intent-primary eqfkc7t-el-button"
+                    class="ebee6r1-el-intent-primary e1tqqdf9-el-button"
                   >
                     Edit
+                    <div
+                      class="e1q1vabn-el-button-loader"
+                    />
                   </button>
                   <button
-                    class="ebee6r1-el-intent-primary eqfkc7t-el-button"
+                    class="ebee6r1-el-intent-primary e1tqqdf9-el-button"
                   >
                     Ping
+                    <div
+                      class="e1q1vabn-el-button-loader"
+                    />
                   </button>
                   <button
-                    class="ebee6r1-el-intent-primary eqfkc7t-el-button"
+                    class="ebee6r1-el-intent-primary e1tqqdf9-el-button"
                   >
                     Fetch Public Key
+                    <div
+                      class="e1q1vabn-el-button-loader"
+                    />
                   </button>
                 </div>
               </div>

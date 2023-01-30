@@ -157,15 +157,18 @@ Object {
                     </p>
                   </div>
                   <div
-                    class="eay05y4-el-button-group"
+                    class="ebqwrow-el-button-group"
                   >
                     <div
-                      class="e1cpt8yd-el-button-group-align-left ebqwrow-el-button-group-inner"
+                      class="e1i2en9o-el-button-group-align-left eh76izl-el-button-group-inner"
                     >
                       <button
-                        class="ebee6r1-el-intent-primary e19a1osy-el-button-has-right-chevron edjrbxy-el-button-size2 eqfkc7t-el-button"
+                        class="ebee6r1-el-intent-primary eay05y4-el-button-has-right-chevron edjrbxy-el-button-size2 e1tqqdf9-el-button"
                       >
                         View Docs
+                        <div
+                          class="e1q1vabn-el-button-loader"
+                        />
                       </button>
                     </div>
                   </div>
@@ -306,15 +309,18 @@ Object {
                     </p>
                   </div>
                   <div
-                    class="eay05y4-el-button-group"
+                    class="ebqwrow-el-button-group"
                   >
                     <div
-                      class="e1cpt8yd-el-button-group-align-left ebqwrow-el-button-group-inner"
+                      class="e1i2en9o-el-button-group-align-left eh76izl-el-button-group-inner"
                     >
                       <button
-                        class="e1iow709-el-intent-critical e19a1osy-el-button-has-right-chevron edjrbxy-el-button-size2 eqfkc7t-el-button"
+                        class="e1iow709-el-intent-critical eay05y4-el-button-has-right-chevron edjrbxy-el-button-size2 e1tqqdf9-el-button"
                       >
                         Create App
+                        <div
+                          class="e1q1vabn-el-button-loader"
+                        />
                       </button>
                     </div>
                   </div>
@@ -783,15 +789,18 @@ Object {
                   </p>
                 </div>
                 <div
-                  class="eay05y4-el-button-group"
+                  class="ebqwrow-el-button-group"
                 >
                   <div
-                    class="e1cpt8yd-el-button-group-align-left ebqwrow-el-button-group-inner"
+                    class="e1i2en9o-el-button-group-align-left eh76izl-el-button-group-inner"
                   >
                     <button
-                      class="ebee6r1-el-intent-primary e19a1osy-el-button-has-right-chevron edjrbxy-el-button-size2 eqfkc7t-el-button"
+                      class="ebee6r1-el-intent-primary eay05y4-el-button-has-right-chevron edjrbxy-el-button-size2 e1tqqdf9-el-button"
                     >
                       View Docs
+                      <div
+                        class="e1q1vabn-el-button-loader"
+                      />
                     </button>
                   </div>
                 </div>
@@ -932,15 +941,18 @@ Object {
                   </p>
                 </div>
                 <div
-                  class="eay05y4-el-button-group"
+                  class="ebqwrow-el-button-group"
                 >
                   <div
-                    class="e1cpt8yd-el-button-group-align-left ebqwrow-el-button-group-inner"
+                    class="e1i2en9o-el-button-group-align-left eh76izl-el-button-group-inner"
                   >
                     <button
-                      class="e1iow709-el-intent-critical e19a1osy-el-button-has-right-chevron edjrbxy-el-button-size2 eqfkc7t-el-button"
+                      class="e1iow709-el-intent-critical eay05y4-el-button-has-right-chevron edjrbxy-el-button-size2 e1tqqdf9-el-button"
                     >
                       Create App
+                      <div
+                        class="e1q1vabn-el-button-loader"
+                      />
                     </button>
                   </div>
                 </div>

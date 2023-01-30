@@ -95,9 +95,12 @@ Object {
             </div>
           </div>
           <button
-            class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+            class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
           >
             Copy
+            <div
+              class="e1q1vabn-el-button-loader"
+            />
           </button>
         </div>
         <div
@@ -155,9 +158,12 @@ Object {
             </div>
           </div>
           <button
-            class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+            class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
           >
             Copy
+            <div
+              class="e1q1vabn-el-button-loader"
+            />
           </button>
         </div>
         <div
@@ -273,9 +279,12 @@ Object {
             </div>
           </div>
           <button
-            class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+            class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
           >
             Copy
+            <div
+              class="e1q1vabn-el-button-loader"
+            />
           </button>
         </div>
         <div
@@ -460,9 +469,12 @@ Object {
           </div>
         </div>
         <button
-          class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+          class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
         >
           Copy
+          <div
+            class="e1q1vabn-el-button-loader"
+          />
         </button>
       </div>
       <div
@@ -520,9 +532,12 @@ Object {
           </div>
         </div>
         <button
-          class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+          class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
         >
           Copy
+          <div
+            class="e1q1vabn-el-button-loader"
+          />
         </button>
       </div>
       <div
@@ -638,9 +653,12 @@ Object {
           </div>
         </div>
         <button
-          class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+          class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
         >
           Copy
+          <div
+            class="e1q1vabn-el-button-loader"
+          />
         </button>
       </div>
       <div

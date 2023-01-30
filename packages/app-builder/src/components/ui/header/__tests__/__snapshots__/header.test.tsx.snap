@@ -81,6 +81,9 @@ exports[`Header should match a snapshot 1`] = `
               />
             </svg>
             New Page
+            <div
+              class="el-button-loader"
+            />
           </button>
         </div>
       </div>
@@ -267,6 +270,9 @@ exports[`Header should match a snapshot 1`] = `
             </clippath>
           </defs>
         </svg>
+        <div
+          class="el-button-loader"
+        />
       </button>
     </div>
     <div

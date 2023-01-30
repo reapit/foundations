@@ -78,25 +78,34 @@ Object {
               class="e1de2pym-el-flex-justify-center ef457sc-el-flex-align-center e2kmzjs-el-flex-container"
             >
               <div
-                class="eay05y4-el-button-group"
+                class="ebqwrow-el-button-group"
               >
                 <div
-                  class="ebqwrow-el-button-group-inner"
+                  class="eh76izl-el-button-group-inner"
                 >
                   <button
-                    class="epibvz0-el-intent-secondary eqfkc7t-el-button"
+                    class="epibvz0-el-intent-secondary e1tqqdf9-el-button"
                   >
                     Configure
+                    <div
+                      class="e1q1vabn-el-button-loader"
+                    />
                   </button>
                   <button
-                    class="ebee6r1-el-intent-primary eqfkc7t-el-button"
+                    class="ebee6r1-el-intent-primary e1tqqdf9-el-button"
                   >
                     Deployments
+                    <div
+                      class="e1q1vabn-el-button-loader"
+                    />
                   </button>
                   <button
-                    class="e1iow709-el-intent-critical e19a1osy-el-button-has-right-chevron eqfkc7t-el-button"
+                    class="e1iow709-el-intent-critical eay05y4-el-button-has-right-chevron e1tqqdf9-el-button"
                   >
                     View App
+                    <div
+                      class="e1q1vabn-el-button-loader"
+                    />
                   </button>
                 </div>
               </div>
@@ -180,25 +189,34 @@ Object {
             class="e1de2pym-el-flex-justify-center ef457sc-el-flex-align-center e2kmzjs-el-flex-container"
           >
             <div
-              class="eay05y4-el-button-group"
+              class="ebqwrow-el-button-group"
             >
               <div
-                class="ebqwrow-el-button-group-inner"
+                class="eh76izl-el-button-group-inner"
               >
                 <button
-                  class="epibvz0-el-intent-secondary eqfkc7t-el-button"
+                  class="epibvz0-el-intent-secondary e1tqqdf9-el-button"
                 >
                   Configure
+                  <div
+                    class="e1q1vabn-el-button-loader"
+                  />
                 </button>
                 <button
-                  class="ebee6r1-el-intent-primary eqfkc7t-el-button"
+                  class="ebee6r1-el-intent-primary e1tqqdf9-el-button"
                 >
                   Deployments
+                  <div
+                    class="e1q1vabn-el-button-loader"
+                  />
                 </button>
                 <button
-                  class="e1iow709-el-intent-critical e19a1osy-el-button-has-right-chevron eqfkc7t-el-button"
+                  class="e1iow709-el-intent-critical eay05y4-el-button-has-right-chevron e1tqqdf9-el-button"
                 >
                   View App
+                  <div
+                    class="e1q1vabn-el-button-loader"
+                  />
                 </button>
               </div>
             </div>

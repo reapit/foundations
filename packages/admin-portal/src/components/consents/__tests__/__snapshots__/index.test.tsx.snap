@@ -236,6 +236,9 @@ Object {
             class="el-intent-primary el-button-fixed-width el-button"
           >
             Send Requests
+            <div
+              class="el-button-loader"
+            />
           </button>
         </div>
       </div>
@@ -293,6 +296,9 @@ Object {
           class="el-intent-primary el-button-fixed-width el-button"
         >
           Send Requests
+          <div
+            class="el-button-loader"
+          />
         </button>
       </div>
     </div>

@@ -179,6 +179,9 @@ Object {
               type="submit"
             >
               Save Changes
+              <div
+                class="el-button-loader"
+              />
             </button>
           </div>
         </div>
@@ -399,6 +402,9 @@ Object {
             type="submit"
           >
             Save Changes
+            <div
+              class="el-button-loader"
+            />
           </button>
         </div>
       </div>
@@ -523,6 +529,9 @@ Object {
               class="el-intent-critical el-button-has-right-chevron el-button"
             >
               Logout
+              <div
+                class="el-button-loader"
+              />
             </button>
           </div>
         </div>
@@ -689,6 +698,9 @@ Object {
               type="submit"
             >
               Save Changes
+              <div
+                class="el-button-loader"
+              />
             </button>
           </div>
         </div>
@@ -756,6 +768,9 @@ Object {
             class="el-intent-critical el-button-has-right-chevron el-button"
           >
             Logout
+            <div
+              class="el-button-loader"
+            />
           </button>
         </div>
       </div>
@@ -922,6 +937,9 @@ Object {
             type="submit"
           >
             Save Changes
+            <div
+              class="el-button-loader"
+            />
           </button>
         </div>
       </div>

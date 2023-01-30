@@ -12,6 +12,9 @@ Object {
         class="el-intent-primary el-button"
       >
         Reset Authenticator
+        <div
+          class="el-button-loader"
+        />
       </button>
     </div>
   </body>,
@@ -23,6 +26,9 @@ Object {
       class="el-intent-primary el-button"
     >
       Reset Authenticator
+      <div
+        class="el-button-loader"
+      />
     </button>
   </div>,
   "debug": [Function],

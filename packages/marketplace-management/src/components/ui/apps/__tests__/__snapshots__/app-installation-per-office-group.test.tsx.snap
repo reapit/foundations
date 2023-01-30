@@ -18,11 +18,17 @@ Object {
               class="el-intent-secondary el-button"
             >
               Select all
+              <div
+                class="el-button-loader"
+              />
             </button>
             <button
               class="el-intent-secondary el-button"
             >
               Deselect all
+              <div
+                class="el-button-loader"
+              />
             </button>
           </div>
         </div>
@@ -367,11 +373,17 @@ Object {
             class="el-intent-secondary el-button"
           >
             Select all
+            <div
+              class="el-button-loader"
+            />
           </button>
           <button
             class="el-intent-secondary el-button"
           >
             Deselect all
+            <div
+              class="el-button-loader"
+            />
           </button>
         </div>
       </div>

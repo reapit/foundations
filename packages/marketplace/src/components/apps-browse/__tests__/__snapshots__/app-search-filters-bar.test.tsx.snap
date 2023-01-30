@@ -628,6 +628,9 @@ Object {
             class="el-intent-low el-button"
           >
             Clear Search Filters
+            <div
+              class="el-button-loader"
+            />
           </button>
         </div>
       </div>
@@ -677,6 +680,9 @@ Object {
           class="el-intent-low el-button"
         >
           Clear Search Filters
+          <div
+            class="el-button-loader"
+          />
         </button>
       </div>
     </div>
@@ -872,6 +878,9 @@ Object {
           class="el-intent-low el-button"
         >
           Clear Search Filters
+          <div
+            class="el-button-loader"
+          />
         </button>
       </div>
     </div>
@@ -921,6 +930,9 @@ Object {
         class="el-intent-low el-button"
       >
         Clear Search Filters
+        <div
+          class="el-button-loader"
+        />
       </button>
     </div>
   </div>,

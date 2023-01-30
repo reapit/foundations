@@ -234,9 +234,12 @@ Object {
             Additionally, as an admin, you can manage your developer organisation, members and subscriptions.
           </p>
           <button
-            class="e1iow709-el-intent-critical e19a1osy-el-button-has-right-chevron eqfkc7t-el-button"
+            class="e1iow709-el-intent-critical eay05y4-el-button-has-right-chevron e1tqqdf9-el-button"
           >
             Logout
+            <div
+              class="e1q1vabn-el-button-loader"
+            />
           </button>
         </aside>
         <section
@@ -475,9 +478,12 @@ Object {
           Additionally, as an admin, you can manage your developer organisation, members and subscriptions.
         </p>
         <button
-          class="e1iow709-el-intent-critical e19a1osy-el-button-has-right-chevron eqfkc7t-el-button"
+          class="e1iow709-el-intent-critical eay05y4-el-button-has-right-chevron e1tqqdf9-el-button"
         >
           Logout
+          <div
+            class="e1q1vabn-el-button-loader"
+          />
         </button>
       </aside>
       <section

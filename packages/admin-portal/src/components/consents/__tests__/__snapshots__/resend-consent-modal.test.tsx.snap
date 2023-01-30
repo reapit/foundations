@@ -43,12 +43,18 @@ Object {
               class="el-intent-low el-button-fixed-width el-button"
             >
               Cancel
+              <div
+                class="el-button-loader"
+              />
             </button>
             <button
               class="el-intent-primary el-button-fixed-width el-button"
               type="submit"
             >
               Confirm
+              <div
+                class="el-button-loader"
+              />
             </button>
           </div>
         </div>
@@ -94,12 +100,18 @@ Object {
             class="el-intent-low el-button-fixed-width el-button"
           >
             Cancel
+            <div
+              class="el-button-loader"
+            />
           </button>
           <button
             class="el-intent-primary el-button-fixed-width el-button"
             type="submit"
           >
             Confirm
+            <div
+              class="el-button-loader"
+            />
           </button>
         </div>
       </div>

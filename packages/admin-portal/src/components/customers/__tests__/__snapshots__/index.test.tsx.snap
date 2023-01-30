@@ -480,6 +480,9 @@ Object {
                       class="el-intent-secondary el-button"
                     >
                       Fetch Office Groups
+                      <div
+                        class="el-button-loader"
+                      />
                     </button>
                   </div>
                 </div>
@@ -823,6 +826,9 @@ Object {
                     class="el-intent-secondary el-button"
                   >
                     Fetch Office Groups
+                    <div
+                      class="el-button-loader"
+                    />
                   </button>
                 </div>
               </div>

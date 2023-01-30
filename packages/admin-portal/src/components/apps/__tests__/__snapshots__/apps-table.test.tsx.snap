@@ -328,17 +328,26 @@ Object {
                       class="el-intent-secondary el-button"
                     >
                       View in AppMarket
+                      <div
+                        class="el-button-loader"
+                      />
                     </button>
                     <button
                       class="el-intent-secondary el-button"
                       disabled=""
                     >
                       View in DevPortal
+                      <div
+                        class="el-button-loader"
+                      />
                     </button>
                     <button
                       class="el-intent-primary el-button"
                     >
                       Check AWS Only
+                      <div
+                        class="el-button-loader"
+                      />
                     </button>
                     <button
                       class="el-intent-danger el-button"
@@ -346,18 +355,27 @@ Object {
                       type="button"
                     >
                       Delete
+                      <div
+                        class="el-button-loader"
+                      />
                     </button>
                     <button
                       class="el-intent-primary el-button"
                       disabled=""
                     >
                       Toggle Subscription
+                      <div
+                        class="el-button-loader"
+                      />
                     </button>
                     <button
                       class="el-intent-primary el-button"
                       disabled=""
                     >
                       Togggle Featured
+                      <div
+                        class="el-button-loader"
+                      />
                     </button>
                   </div>
                 </div>
@@ -692,17 +710,26 @@ Object {
                     class="el-intent-secondary el-button"
                   >
                     View in AppMarket
+                    <div
+                      class="el-button-loader"
+                    />
                   </button>
                   <button
                     class="el-intent-secondary el-button"
                     disabled=""
                   >
                     View in DevPortal
+                    <div
+                      class="el-button-loader"
+                    />
                   </button>
                   <button
                     class="el-intent-primary el-button"
                   >
                     Check AWS Only
+                    <div
+                      class="el-button-loader"
+                    />
                   </button>
                   <button
                     class="el-intent-danger el-button"
@@ -710,18 +737,27 @@ Object {
                     type="button"
                   >
                     Delete
+                    <div
+                      class="el-button-loader"
+                    />
                   </button>
                   <button
                     class="el-intent-primary el-button"
                     disabled=""
                   >
                     Toggle Subscription
+                    <div
+                      class="el-button-loader"
+                    />
                   </button>
                   <button
                     class="el-intent-primary el-button"
                     disabled=""
                   >
                     Togggle Featured
+                    <div
+                      class="el-button-loader"
+                    />
                   </button>
                 </div>
               </div>

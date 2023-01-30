@@ -137,6 +137,9 @@ Object {
             class="el-mb5 el-button"
           >
             Docs
+            <div
+              class="el-button-loader"
+            />
           </button>
           <div
             class="el-mb5"
@@ -347,6 +350,9 @@ Object {
           class="el-mb5 el-button"
         >
           Docs
+          <div
+            class="el-button-loader"
+          />
         </button>
         <div
           class="el-mb5"
@@ -614,6 +620,9 @@ Object {
             class="el-mb5 el-button"
           >
             Docs
+            <div
+              class="el-button-loader"
+            />
           </button>
           <div
             class="el-mb5"
@@ -870,6 +879,9 @@ Object {
           class="el-mb5 el-button"
         >
           Docs
+          <div
+            class="el-button-loader"
+          />
         </button>
         <div
           class="el-mb5"

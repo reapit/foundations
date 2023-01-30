@@ -121,6 +121,9 @@ Object {
               class="el-intent-primary el-button"
             >
               Uninstall
+              <div
+                class="el-button-loader"
+              />
             </button>
           </div>
         </div>
@@ -153,6 +156,9 @@ Object {
             class="el-intent-primary el-button"
           >
             Uninstall
+            <div
+              class="el-button-loader"
+            />
           </button>
         </div>
       </div>
@@ -242,6 +248,9 @@ Object {
               class="el-intent-primary el-button"
             >
               Uninstall
+              <div
+                class="el-button-loader"
+              />
             </button>
           </div>
         </div>
@@ -274,6 +283,9 @@ Object {
             class="el-intent-primary el-button"
           >
             Uninstall
+            <div
+              class="el-button-loader"
+            />
           </button>
         </div>
       </div>
@@ -363,6 +375,9 @@ Object {
               class="el-intent-primary el-button"
             >
               Uninstall
+              <div
+                class="el-button-loader"
+              />
             </button>
           </div>
         </div>
@@ -395,6 +410,9 @@ Object {
             class="el-intent-primary el-button"
           >
             Uninstall
+            <div
+              class="el-button-loader"
+            />
           </button>
         </div>
       </div>

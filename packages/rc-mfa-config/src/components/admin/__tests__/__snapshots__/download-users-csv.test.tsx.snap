@@ -12,6 +12,9 @@ Object {
         class="el-mb3 el-intent-primary el-button"
       >
         Download CSV
+        <div
+          class="el-button-loader"
+        />
       </button>
     </div>
   </body>,
@@ -23,6 +26,9 @@ Object {
       class="el-mb3 el-intent-primary el-button"
     >
       Download CSV
+      <div
+        class="el-button-loader"
+      />
     </button>
   </div>,
   "debug": [Function],

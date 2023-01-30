@@ -47,21 +47,27 @@ Object {
           The verification process is typically completed within 1 – 2 working days. You will be notified via email when this has been completed and you can continue with your app submission.
         </p>
         <div
-          class="eay05y4-el-button-group"
+          class="ebqwrow-el-button-group"
         >
           <div
-            class="e1i2en9o-el-button-group-align-right ebqwrow-el-button-group-inner"
+            class="ej73pla-el-button-group-align-right eh76izl-el-button-group-inner"
           >
             <button
-              class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+              class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
             >
               Close
+              <div
+                class="e1q1vabn-el-button-loader"
+              />
             </button>
             <button
-              class="ebee6r1-el-intent-primary eqfkc7t-el-button"
+              class="ebee6r1-el-intent-primary e1tqqdf9-el-button"
               type="submit"
             >
               Submit
+              <div
+                class="e1q1vabn-el-button-loader"
+              />
             </button>
           </div>
         </div>
@@ -111,21 +117,27 @@ Object {
         The verification process is typically completed within 1 – 2 working days. You will be notified via email when this has been completed and you can continue with your app submission.
       </p>
       <div
-        class="eay05y4-el-button-group"
+        class="ebqwrow-el-button-group"
       >
         <div
-          class="e1i2en9o-el-button-group-align-right ebqwrow-el-button-group-inner"
+          class="ej73pla-el-button-group-align-right eh76izl-el-button-group-inner"
         >
           <button
-            class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+            class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
           >
             Close
+            <div
+              class="e1q1vabn-el-button-loader"
+            />
           </button>
           <button
-            class="ebee6r1-el-intent-primary eqfkc7t-el-button"
+            class="ebee6r1-el-intent-primary e1tqqdf9-el-button"
             type="submit"
           >
             Submit
+            <div
+              class="e1q1vabn-el-button-loader"
+            />
           </button>
         </div>
       </div>
@@ -232,21 +244,27 @@ Object {
           The verification process is typically completed within 1 – 2 working days. You will be notified via email when this has been completed and you can continue with your app submission.
         </p>
         <div
-          class="eay05y4-el-button-group"
+          class="ebqwrow-el-button-group"
         >
           <div
-            class="e1i2en9o-el-button-group-align-right ebqwrow-el-button-group-inner"
+            class="ej73pla-el-button-group-align-right eh76izl-el-button-group-inner"
           >
             <button
-              class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+              class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
             >
               Close
+              <div
+                class="e1q1vabn-el-button-loader"
+              />
             </button>
             <button
-              class="ebee6r1-el-intent-primary eqfkc7t-el-button"
+              class="ebee6r1-el-intent-primary e1tqqdf9-el-button"
               type="submit"
             >
               Submit
+              <div
+                class="e1q1vabn-el-button-loader"
+              />
             </button>
           </div>
         </div>
@@ -296,21 +314,27 @@ Object {
         The verification process is typically completed within 1 – 2 working days. You will be notified via email when this has been completed and you can continue with your app submission.
       </p>
       <div
-        class="eay05y4-el-button-group"
+        class="ebqwrow-el-button-group"
       >
         <div
-          class="e1i2en9o-el-button-group-align-right ebqwrow-el-button-group-inner"
+          class="ej73pla-el-button-group-align-right eh76izl-el-button-group-inner"
         >
           <button
-            class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+            class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
           >
             Close
+            <div
+              class="e1q1vabn-el-button-loader"
+            />
           </button>
           <button
-            class="ebee6r1-el-intent-primary eqfkc7t-el-button"
+            class="ebee6r1-el-intent-primary e1tqqdf9-el-button"
             type="submit"
           >
             Submit
+            <div
+              class="e1q1vabn-el-button-loader"
+            />
           </button>
         </div>
       </div>
@@ -384,15 +408,18 @@ Object {
         We are currently verifying your account information. This is typically done within 1 – 2 working days. You will be notified via email when this has been completed and you can continue with your app submission.
       </p>
       <div
-        class="eay05y4-el-button-group"
+        class="ebqwrow-el-button-group"
       >
         <div
-          class="e1i2en9o-el-button-group-align-right ebqwrow-el-button-group-inner"
+          class="ej73pla-el-button-group-align-right eh76izl-el-button-group-inner"
         >
           <button
-            class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+            class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
           >
             Close
+            <div
+              class="e1q1vabn-el-button-loader"
+            />
           </button>
         </div>
       </div>
@@ -408,15 +435,18 @@ Object {
       We are currently verifying your account information. This is typically done within 1 – 2 working days. You will be notified via email when this has been completed and you can continue with your app submission.
     </p>
     <div
-      class="eay05y4-el-button-group"
+      class="ebqwrow-el-button-group"
     >
       <div
-        class="e1i2en9o-el-button-group-align-right ebqwrow-el-button-group-inner"
+        class="ej73pla-el-button-group-align-right eh76izl-el-button-group-inner"
       >
         <button
-          class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+          class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
         >
           Close
+          <div
+            class="e1q1vabn-el-button-loader"
+          />
         </button>
       </div>
     </div>
@@ -510,15 +540,18 @@ Object {
         to contact a member of the team.
       </p>
       <div
-        class="eay05y4-el-button-group"
+        class="ebqwrow-el-button-group"
       >
         <div
-          class="e1i2en9o-el-button-group-align-right ebqwrow-el-button-group-inner"
+          class="ej73pla-el-button-group-align-right eh76izl-el-button-group-inner"
         >
           <button
-            class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+            class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
           >
             Close
+            <div
+              class="e1q1vabn-el-button-loader"
+            />
           </button>
         </div>
       </div>
@@ -555,15 +588,18 @@ Object {
       to contact a member of the team.
     </p>
     <div
-      class="eay05y4-el-button-group"
+      class="ebqwrow-el-button-group"
     >
       <div
-        class="e1i2en9o-el-button-group-align-right ebqwrow-el-button-group-inner"
+        class="ej73pla-el-button-group-align-right eh76izl-el-button-group-inner"
       >
         <button
-          class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+          class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
         >
           Close
+          <div
+            class="e1q1vabn-el-button-loader"
+          />
         </button>
       </div>
     </div>

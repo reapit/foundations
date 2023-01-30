@@ -20,28 +20,37 @@ Object {
             Edit Webhook
           </h2>
           <div
-            class="eay05y4-el-button-group"
+            class="ebqwrow-el-button-group"
           >
             <div
-              class="e1i2en9o-el-button-group-align-right ebqwrow-el-button-group-inner"
+              class="ej73pla-el-button-group-align-right eh76izl-el-button-group-inner"
             >
               <button
-                class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+                class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
                 type="button"
               >
                 Delete
+                <div
+                  class="e1q1vabn-el-button-loader"
+                />
               </button>
               <button
-                class="epibvz0-el-intent-secondary eqfkc7t-el-button"
+                class="epibvz0-el-intent-secondary e1tqqdf9-el-button"
                 type="button"
               >
                 Cancel
+                <div
+                  class="e1q1vabn-el-button-loader"
+                />
               </button>
               <button
-                class="ebee6r1-el-intent-primary e19a1osy-el-button-has-right-chevron eqfkc7t-el-button"
+                class="ebee6r1-el-intent-primary eay05y4-el-button-has-right-chevron e1tqqdf9-el-button"
                 type="submit"
               >
                 Update
+                <div
+                  class="e1q1vabn-el-button-loader"
+                />
               </button>
             </div>
           </div>
@@ -277,28 +286,37 @@ Object {
           Edit Webhook
         </h2>
         <div
-          class="eay05y4-el-button-group"
+          class="ebqwrow-el-button-group"
         >
           <div
-            class="e1i2en9o-el-button-group-align-right ebqwrow-el-button-group-inner"
+            class="ej73pla-el-button-group-align-right eh76izl-el-button-group-inner"
           >
             <button
-              class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+              class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
               type="button"
             >
               Delete
+              <div
+                class="e1q1vabn-el-button-loader"
+              />
             </button>
             <button
-              class="epibvz0-el-intent-secondary eqfkc7t-el-button"
+              class="epibvz0-el-intent-secondary e1tqqdf9-el-button"
               type="button"
             >
               Cancel
+              <div
+                class="e1q1vabn-el-button-loader"
+              />
             </button>
             <button
-              class="ebee6r1-el-intent-primary e19a1osy-el-button-has-right-chevron eqfkc7t-el-button"
+              class="ebee6r1-el-intent-primary eay05y4-el-button-has-right-chevron e1tqqdf9-el-button"
               type="submit"
             >
               Update
+              <div
+                class="e1q1vabn-el-button-loader"
+              />
             </button>
           </div>
         </div>

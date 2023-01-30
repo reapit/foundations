@@ -336,6 +336,9 @@ Object {
           class="el-intent-neutral el-button"
         >
           View Docs
+          <div
+            class="el-button-loader"
+          />
         </button>
       </aside>
       <section
@@ -722,6 +725,9 @@ Object {
         class="el-intent-neutral el-button"
       >
         View Docs
+        <div
+          class="el-button-loader"
+        />
       </button>
     </aside>
     <section
@@ -1165,6 +1171,9 @@ Object {
           class="el-intent-neutral el-button"
         >
           View Docs
+          <div
+            class="el-button-loader"
+          />
         </button>
       </aside>
       <section
@@ -1425,11 +1434,17 @@ Object {
                       class="el-intent-primary el-button"
                     >
                       Take Payment
+                      <div
+                        class="el-button-loader"
+                      />
                     </button>
                     <button
                       class="el-intent-secondary el-button"
                     >
                       Request Payment
+                      <div
+                        class="el-button-loader"
+                      />
                     </button>
                   </div>
                 </div>
@@ -1830,6 +1845,9 @@ Object {
         class="el-intent-neutral el-button"
       >
         View Docs
+        <div
+          class="el-button-loader"
+        />
       </button>
     </aside>
     <section
@@ -2090,11 +2108,17 @@ Object {
                     class="el-intent-primary el-button"
                   >
                     Take Payment
+                    <div
+                      class="el-button-loader"
+                    />
                   </button>
                   <button
                     class="el-intent-secondary el-button"
                   >
                     Request Payment
+                    <div
+                      class="el-button-loader"
+                    />
                   </button>
                 </div>
               </div>
@@ -2552,6 +2576,9 @@ Object {
           class="el-intent-neutral el-button"
         >
           View Docs
+          <div
+            class="el-button-loader"
+          />
         </button>
       </aside>
       <section
@@ -2919,6 +2946,9 @@ Object {
         class="el-intent-neutral el-button"
       >
         View Docs
+        <div
+          class="el-button-loader"
+        />
       </button>
     </aside>
     <section

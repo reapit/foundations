@@ -50,6 +50,9 @@ Object {
                 type="button"
               >
                 Login
+                <div
+                  class="el-button-loader"
+                />
               </button>
             </div>
           </div>
@@ -106,6 +109,9 @@ Object {
               type="button"
             >
               Login
+              <div
+                class="el-button-loader"
+              />
             </button>
           </div>
         </div>

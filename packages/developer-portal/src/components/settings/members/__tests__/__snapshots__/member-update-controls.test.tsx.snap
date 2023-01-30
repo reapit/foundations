@@ -9,31 +9,43 @@ Object {
         class="ecbqyq6-el-snack-holder"
       />
       <div
-        class="eay05y4-el-button-group"
+        class="ebqwrow-el-button-group"
       >
         <div
-          class="ej73pla-el-button-group-align-center ebqwrow-el-button-group-inner"
+          class="e1f2ikqj-el-button-group-align-center eh76izl-el-button-group-inner"
         >
           <button
-            class="ebee6r1-el-intent-primary eqfkc7t-el-button"
+            class="ebee6r1-el-intent-primary e1tqqdf9-el-button"
           >
             Set As 
             User
+            <div
+              class="e1q1vabn-el-button-loader"
+            />
           </button>
           <button
-            class="epibvz0-el-intent-secondary eqfkc7t-el-button"
+            class="epibvz0-el-intent-secondary e1tqqdf9-el-button"
           >
             Invite Again
+            <div
+              class="e1q1vabn-el-button-loader"
+            />
           </button>
           <button
-            class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+            class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
           >
             Disable
+            <div
+              class="e1q1vabn-el-button-loader"
+            />
           </button>
           <button
-            class="e1vxext9-el-intent-danger eqfkc7t-el-button"
+            class="e1vxext9-el-intent-danger e1tqqdf9-el-button"
           >
             Delete
+            <div
+              class="e1q1vabn-el-button-loader"
+            />
           </button>
         </div>
       </div>
@@ -44,31 +56,43 @@ Object {
       class="ecbqyq6-el-snack-holder"
     />
     <div
-      class="eay05y4-el-button-group"
+      class="ebqwrow-el-button-group"
     >
       <div
-        class="ej73pla-el-button-group-align-center ebqwrow-el-button-group-inner"
+        class="e1f2ikqj-el-button-group-align-center eh76izl-el-button-group-inner"
       >
         <button
-          class="ebee6r1-el-intent-primary eqfkc7t-el-button"
+          class="ebee6r1-el-intent-primary e1tqqdf9-el-button"
         >
           Set As 
           User
+          <div
+            class="e1q1vabn-el-button-loader"
+          />
         </button>
         <button
-          class="epibvz0-el-intent-secondary eqfkc7t-el-button"
+          class="epibvz0-el-intent-secondary e1tqqdf9-el-button"
         >
           Invite Again
+          <div
+            class="e1q1vabn-el-button-loader"
+          />
         </button>
         <button
-          class="e1ymtwpu-el-intent-low eqfkc7t-el-button"
+          class="e1ymtwpu-el-intent-low e1tqqdf9-el-button"
         >
           Disable
+          <div
+            class="e1q1vabn-el-button-loader"
+          />
         </button>
         <button
-          class="e1vxext9-el-intent-danger eqfkc7t-el-button"
+          class="e1vxext9-el-intent-danger e1tqqdf9-el-button"
         >
           Delete
+          <div
+            class="e1q1vabn-el-button-loader"
+          />
         </button>
       </div>
     </div>

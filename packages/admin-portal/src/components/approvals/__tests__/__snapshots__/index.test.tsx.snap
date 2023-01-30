@@ -233,23 +233,35 @@ Object {
                       class="el-intent-secondary el-button"
                     >
                       View in AppMarket
+                      <div
+                        class="el-button-loader"
+                      />
                     </button>
                     <button
                       class="el-intent-secondary el-button"
                       disabled=""
                     >
                       View in DevPortal
+                      <div
+                        class="el-button-loader"
+                      />
                     </button>
                     <button
                       class="el-intent-primary el-button"
                       type="button"
                     >
                       View Revision
+                      <div
+                        class="el-button-loader"
+                      />
                     </button>
                     <button
                       class="el-intent-secondary el-button"
                     >
                       View Consents
+                      <div
+                        class="el-button-loader"
+                      />
                     </button>
                   </div>
                 </div>
@@ -438,23 +450,35 @@ Object {
                     class="el-intent-secondary el-button"
                   >
                     View in AppMarket
+                    <div
+                      class="el-button-loader"
+                    />
                   </button>
                   <button
                     class="el-intent-secondary el-button"
                     disabled=""
                   >
                     View in DevPortal
+                    <div
+                      class="el-button-loader"
+                    />
                   </button>
                   <button
                     class="el-intent-primary el-button"
                     type="button"
                   >
                     View Revision
+                    <div
+                      class="el-button-loader"
+                    />
                   </button>
                   <button
                     class="el-intent-secondary el-button"
                   >
                     View Consents
+                    <div
+                      class="el-button-loader"
+                    />
                   </button>
                 </div>
               </div>

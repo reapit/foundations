@@ -101,9 +101,12 @@ Object {
             You can also visit us on Github where you can raise and track issues, look at code examples and view our milestones.
           </p>
           <button
-            class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
+            class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
           >
             Go to Github
+            <div
+              class="e1q1vabn-el-button-loader"
+            />
           </button>
         </aside>
         <section
@@ -219,9 +222,12 @@ Object {
           You can also visit us on Github where you can raise and track issues, look at code examples and view our milestones.
         </p>
         <button
-          class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral eqfkc7t-el-button"
+          class="ehvkknk-el-mb5 e1fle5tm-el-intent-neutral e1tqqdf9-el-button"
         >
           Go to Github
+          <div
+            class="e1q1vabn-el-button-loader"
+          />
         </button>
       </aside>
       <section

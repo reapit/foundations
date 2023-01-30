@@ -123,11 +123,17 @@ exports[`AppSelect should match a snapshot 1`] = `
           class="el-mb5 el-intent-neutral el-button"
         >
           View Docs
+          <div
+            class="el-button-loader"
+          />
         </button>
         <button
           class="el-intent-primary el-button"
         >
           Create New
+          <div
+            class="el-button-loader"
+          />
         </button>
       </aside>
       <section

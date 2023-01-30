@@ -170,6 +170,9 @@ Object {
             class="el-mb5 el-intent-neutral el-button"
           >
             Docs
+            <div
+              class="el-button-loader"
+            />
           </button>
         </aside>
         <section
@@ -361,6 +364,9 @@ Object {
           class="el-mb5 el-intent-neutral el-button"
         >
           Docs
+          <div
+            class="el-button-loader"
+          />
         </button>
       </aside>
       <section
@@ -609,6 +615,9 @@ Object {
             class="el-mb5 el-intent-neutral el-button"
           >
             Docs
+            <div
+              class="el-button-loader"
+            />
           </button>
         </aside>
         <section
@@ -713,6 +722,9 @@ Object {
             class="el-intent-primary el-button"
           >
             Reset Authenticator
+            <div
+              class="el-button-loader"
+            />
           </button>
         </section>
       </div>
@@ -884,6 +896,9 @@ Object {
           class="el-mb5 el-intent-neutral el-button"
         >
           Docs
+          <div
+            class="el-button-loader"
+          />
         </button>
       </aside>
       <section
@@ -988,6 +1003,9 @@ Object {
           class="el-intent-primary el-button"
         >
           Reset Authenticator
+          <div
+            class="el-button-loader"
+          />
         </button>
       </section>
     </div>
@@ -1216,6 +1234,9 @@ Object {
             class="el-mb5 el-intent-neutral el-button"
           >
             Docs
+            <div
+              class="el-button-loader"
+            />
           </button>
         </aside>
         <section
@@ -1266,6 +1287,9 @@ Object {
                 class="el-intent-critical el-button"
               >
                 Configure MFA Device
+                <div
+                  class="el-button-loader"
+                />
               </button>
             </div>
           </div>
@@ -1439,6 +1463,9 @@ Object {
           class="el-mb5 el-intent-neutral el-button"
         >
           Docs
+          <div
+            class="el-button-loader"
+          />
         </button>
       </aside>
       <section
@@ -1489,6 +1516,9 @@ Object {
               class="el-intent-critical el-button"
             >
               Configure MFA Device
+              <div
+                class="el-button-loader"
+              />
             </button>
           </div>
         </div>
