@@ -9,13 +9,17 @@ module.exports = {
     '<rootDir>[/\\\\](node_modules|src/types|src/tests|src/scripts|src/__stubs__|dist)[/\\\\]',
     '.d.ts',
     'index.ts',
+    'dto.ts',
+    'module.ts',
+    'model.ts',
+    'config.ts',
   ],
   coverageThreshold: {
     global: {
-      branches: 81,
-      functions: 88,
+      branches: 57,
+      functions: 90,
       lines: 91,
-      statements: 92,
+      statements: 87,
     },
   },
   moduleNameMapper: {

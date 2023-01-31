@@ -4,10 +4,17 @@ import PaymentPage from '..'
 import { useReapitGet } from '@reapit/use-reapit-data'
 import { mockConfigModel } from '../../../tests/__mocks__/config'
 import { mockPaymentModel } from '../../../tests/__mocks__/payment'
+import { mockPropertyModel } from '../../../tests/__mocks__/property'
 
 jest.mock('@reapit/use-reapit-data', () => ({
   ...jest.requireActual('@reapit/use-reapit-data'),
   useReapitGet: jest.fn(() => [null, false]),
+}))
+
+jest.mock('@reapit/payments-ui', () => ({
+  ...jest.requireActual('@reapit/payments-ui'),
+  useMerchantKey: jest.fn(() => ({ merchantKey: {}, merchantKeyLoading: false })),
+  useTransaction: jest.fn(() => ({ transactionSubmit: jest.fn() })),
 }))
 
 const mockUseReapitGet = useReapitGet as jest.Mock
@@ -27,9 +34,16 @@ describe('PaymentPage', () => {
 
   it('should match a snapshot with data', () => {
     mockUseReapitGet
-      .mockReturnValueOnce([mockConfigModel, false])
-      .mockReturnValueOnce([mockPaymentModel, false])
-      .mockReturnValueOnce([mockPaymentModel, false])
+      .mockReturnValue([mockConfigModel, false])
+      .mockReturnValue([mockPaymentModel, false])
+      .mockReturnValue([mockPropertyModel, false])
+
+    expect(render(<PaymentPage />)).toMatchSnapshot()
+  })
+
+  it('should match a snapshot when the payment does not return', () => {
+    mockUseReapitGet.mockReturnValueOnce([mockConfigModel, false]).mockReturnValueOnce([null, false])
+
     expect(render(<PaymentPage />)).toMatchSnapshot()
   })
 

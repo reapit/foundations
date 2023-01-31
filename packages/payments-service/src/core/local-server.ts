@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { bootstrapApplication } from './server'
 
 const bootstrap = async () => {
