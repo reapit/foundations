@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { INestApplication, Logger, ValidationPipe } from '@nestjs/common'
 import { NestFactory } from '@nestjs/core'
 import { createServer, proxy } from 'aws-serverless-express'

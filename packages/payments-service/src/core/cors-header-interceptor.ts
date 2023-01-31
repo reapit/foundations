@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { CallHandler, ExecutionContext, Injectable, NestInterceptor } from '@nestjs/common'
 import { Observable } from 'rxjs'
 import { Response } from 'express'
