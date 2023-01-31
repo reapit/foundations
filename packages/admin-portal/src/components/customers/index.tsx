@@ -1,6 +1,6 @@
 import React, { Dispatch, FC, useState, SetStateAction } from 'react'
 import ErrorBoundary from '../error-boundary'
-import { combineAddress, GetActionNames, getActions } from '@reapit/utils-common'
+import { combineAddress } from '@reapit/utils-common'
 import { CustomerModelPagedResult } from '@reapit/foundations-ts-definitions'
 import {
   Button,
@@ -15,7 +15,7 @@ import {
   Table,
   Title,
 } from '@reapit/elements'
-import { objectToQuery, useReapitGet } from '@reapit/utils-react'
+import { objectToQuery, useReapitGet, GetActionNames, getActions } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { useForm } from 'react-hook-form'
 import debounce from 'just-debounce-it'

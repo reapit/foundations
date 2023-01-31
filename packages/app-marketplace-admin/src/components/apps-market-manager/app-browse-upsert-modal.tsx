@@ -32,8 +32,16 @@ import {
   AppSummaryModelPagedResult,
   CategoryModelPagedResult,
 } from '@reapit/foundations-ts-definitions'
-import { GetActionNames, getActions, UpdateActionNames, updateActions } from '@reapit/utils-common'
-import { SearchableMultiSelect, UpdateReturnTypeEnum, useReapitGet, useReapitUpdate } from '@reapit/utils-react'
+import { SearchableMultiSelect } from '@reapit/utils-react'
+import {
+  UpdateReturnTypeEnum,
+  useReapitGet,
+  useReapitUpdate,
+  GetActionNames,
+  getActions,
+  UpdateActionNames,
+  updateActions,
+} from '@reapit/use-reapit-data'
 import React, { FC, useState } from 'react'
 import { useController, useForm, useWatch } from 'react-hook-form'
 import { capitaliseText, reactPickerStyles } from './app-browse.styles'

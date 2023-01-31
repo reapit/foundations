@@ -1,8 +1,7 @@
 import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
 import { BodyText, Button, FlexContainer } from '@reapit/elements'
-import { useReapitGet } from '@reapit/utils-react'
+import { useReapitGet, GetActionNames, getActions } from '@reapit/use-reapit-data'
 import { WebhookModel, WebhookModelPagedResult } from '@reapit/foundations-ts-definitions'
-import { GetActionNames, getActions } from '../../../../utils-common/src'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 
 interface CheckAWSButtonProps {

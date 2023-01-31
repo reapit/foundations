@@ -10,9 +10,16 @@ import {
   Table,
   useModal,
 } from '@reapit/elements'
-import { SendFunction, useReapitGet, useReapitUpdate } from '@reapit/utils-react'
+import {
+  SendFunction,
+  useReapitGet,
+  useReapitUpdate,
+  GetActionNames,
+  getActions,
+  UpdateActionNames,
+  updateActions,
+} from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { GetActionNames, getActions, UpdateActionNames, updateActions } from '@reapit/utils-common'
 import {
   AppDetailModel,
   AppRevisionConsentModel,

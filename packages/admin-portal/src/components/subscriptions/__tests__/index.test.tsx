@@ -3,13 +3,13 @@ import Subscriptions, { handleCancelSub, handleCancelSubSuccess, handleSetSubId 
 import { render } from '../../../tests/react-testing'
 import { mockDeveloperModelPagedResult } from '../../../tests/__stubs__/developers'
 import { mockSubscriptionModelPagedResult } from '../../../tests/__stubs__/subscriptions'
-import { useReapitGet } from '@reapit/utils-react'
+import { useReapitGet } from '@reapit/use-reapit-data'
 
 jest.mock('../../../core/use-permissions-state')
-jest.mock('@reapit/utils-react', () => ({
+jest.mock('@reapit/use-reapit-data', () => ({
+  ...jest.requireActual('@reapit/use-reapit-data'),
   useReapitGet: jest.fn(() => [null, false]),
   useReapitUpdate: jest.fn(() => [undefined, undefined, jest.fn()]),
-  objectToQuery: jest.fn(),
 }))
 
 const mockUseReapitGet = useReapitGet as jest.Mock

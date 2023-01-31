@@ -2,13 +2,13 @@ import React from 'react'
 import { FilterForm } from '../filter-form'
 import { mockAppSummaryModelPagedResult } from '../../../tests/__stubs__/apps'
 import { render } from '../../../tests/react-testing'
-import { useReapitGet } from '@reapit/utils-react'
+import { useReapitGet } from '@reapit/use-reapit-data'
 import { mockCategoryModelPagedResult } from '../../../tests/__stubs__/categories'
 
-jest.mock('@reapit/utils-react', () => ({
+jest.mock('@reapit/use-reapit-data', () => ({
+  ...jest.requireActual('@reapit/use-reapit-data'),
   useReapitGet: jest.fn(() => [null, true, undefined, jest.fn()]),
   useReapitUpdate: jest.fn(() => [null, false, undefined, jest.fn()]),
-  objectToQuery: jest.fn(),
 }))
 
 const mockUseReapitGet = useReapitGet as jest.Mock

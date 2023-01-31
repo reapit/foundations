@@ -1,5 +1,5 @@
 import { ApprovalModel } from '@reapit/foundations-ts-definitions'
-import { useReapitGet } from '@reapit/utils-react'
+import { useReapitGet } from '@reapit/use-reapit-data'
 import React from 'react'
 import { render } from '../../../tests/react-testing'
 import { mockApprovalModelPagedResult } from '../../../tests/__stubs__/approvals'
@@ -14,7 +14,8 @@ import {
   handleSetResendConsents,
 } from '../index'
 
-jest.mock('@reapit/utils-react', () => ({
+jest.mock('@reapit/use-reapit-data', () => ({
+  ...jest.requireActual('@reapit/use-reapit-data'),
   useReapitGet: jest.fn(() => [mockAppRevisionConsentModelResponse]),
   useReapitUpdate: jest.fn(() => [undefined, undefined, jest.fn()]),
 }))

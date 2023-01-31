@@ -1,5 +1,5 @@
 import { SubscriptionModel } from '@reapit/foundations-ts-definitions'
-import { useReapitGet } from '@reapit/utils-react'
+import { useReapitGet } from '@reapit/use-reapit-data'
 import React from 'react'
 import { render } from '../../../tests/react-testing'
 import { mockSubscriptionModelPagedResult } from '../../../tests/__stubs__/subscriptions'
@@ -14,10 +14,10 @@ import {
 } from '../create-subscriptions'
 
 jest.mock('../../../core/use-permissions-state')
-jest.mock('@reapit/utils-react', () => ({
+jest.mock('@reapit/use-reapit-data', () => ({
+  ...jest.requireActual('@reapit/use-reapit-data'),
   useReapitGet: jest.fn(() => [null, false, undefined, jest.fn()]),
   useReapitUpdate: jest.fn(() => [false, undefined, jest.fn(), true]),
-  objectToQuery: jest.fn(),
 }))
 
 const mockUseReapitGet = useReapitGet as jest.Mock

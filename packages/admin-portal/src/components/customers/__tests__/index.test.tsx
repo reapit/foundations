@@ -1,13 +1,13 @@
 import React from 'react'
-import { useReapitGet } from '@reapit/utils-react'
+import { useReapitGet } from '@reapit/use-reapit-data'
 import { Customers, handleFetchGroups } from '../index'
 import { render } from '../../../tests/react-testing'
 import { mockCustomerModelPagedResult } from '../../../tests/__stubs__/customers'
 
-jest.mock('@reapit/utils-react', () => ({
+jest.mock('@reapit/use-reapit-data', () => ({
+  ...jest.requireActual('@reapit/use-reapit-data'),
   useReapitGet: jest.fn(() => [null, false]),
   useReapitUpdate: jest.fn(() => [undefined, undefined, jest.fn()]),
-  objectToQuery: jest.fn(),
 }))
 
 const mockUseReapitGet = useReapitGet as jest.Mock

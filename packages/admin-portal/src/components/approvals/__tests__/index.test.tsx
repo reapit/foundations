@@ -1,11 +1,12 @@
 import React from 'react'
 import { ApprovalModel } from '@reapit/foundations-ts-definitions'
-import { useReapitGet } from '@reapit/utils-react'
+import { useReapitGet } from '@reapit/use-reapit-data'
 import { handleSetConsentApproval, handleSetDiffApproval, AdminApprovals } from '../index'
 import { render } from '../../../tests/react-testing'
 import { mockApprovalModelPagedResult } from '../../../tests/__stubs__/approvals'
 
-jest.mock('@reapit/utils-react', () => ({
+jest.mock('@reapit/use-reapit-data', () => ({
+  ...jest.requireActual('@reapit/use-reapit-data'),
   useReapitGet: jest.fn(() => [mockApprovalModelPagedResult, false, undefined, jest.fn()]),
 }))
 

@@ -1,4 +1,4 @@
-import { reapitConnectBrowserSession } from '@/core/connect-session'
+import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'
 import {
   BodyText,
@@ -17,15 +17,17 @@ import {
   useModal,
 } from '@reapit/elements'
 import { PipelineModelInterface, pipelineNotDeletable } from '@reapit/foundations-ts-definitions'
+import { buildStatusToIntent, buildStatusToReadable } from '@reapit/utils-common'
 import {
+  objectToQuery,
+  SendFunction,
+  useReapitGet,
+  useReapitUpdate,
   GetActionNames,
   getActions,
   UpdateActionNames,
   updateActions,
-  buildStatusToIntent,
-  buildStatusToReadable,
-} from '@reapit/utils-common'
-import { objectToQuery, SendFunction, useReapitGet, useReapitUpdate } from '@reapit/utils-react'
+} from '@reapit/use-reapit-data'
 import React, { Dispatch, FC, SetStateAction, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { usePermissionsState } from '../../core/use-permissions-state'

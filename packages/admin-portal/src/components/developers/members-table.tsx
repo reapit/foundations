@@ -18,8 +18,16 @@ import {
   elMt5,
   SmallText,
 } from '@reapit/elements'
-import { GetActionNames, getActions, toLocalTime, UpdateActionNames, updateActions } from '@reapit/utils-common'
-import { SendFunction, useReapitGet, useReapitUpdate } from '@reapit/utils-react'
+import { toLocalTime } from '@reapit/utils-common'
+import {
+  SendFunction,
+  useReapitGet,
+  useReapitUpdate,
+  UpdateActionNames,
+  updateActions,
+  GetActionNames,
+  getActions,
+} from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { usePermissionsState } from '../../core/use-permissions-state'
 

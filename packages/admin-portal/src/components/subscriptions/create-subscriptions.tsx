@@ -4,8 +4,16 @@ import {
   SubscriptionModel,
   SubscriptionModelPagedResult,
 } from '@reapit/foundations-ts-definitions'
-import { objectToQuery, SendFunction, useReapitGet, useReapitUpdate } from '@reapit/utils-react'
-import { GetActionNames, getActions, UpdateActionNames, updateActions } from '@reapit/utils-common'
+import {
+  objectToQuery,
+  SendFunction,
+  useReapitGet,
+  useReapitUpdate,
+  GetActionNames,
+  getActions,
+  UpdateActionNames,
+  updateActions,
+} from '@reapit/use-reapit-data'
 import { elMt5, FormLayout, InputWrap, Label, ToggleRadio } from '@reapit/elements'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { useReapitConnect } from '@reapit/connect-session'

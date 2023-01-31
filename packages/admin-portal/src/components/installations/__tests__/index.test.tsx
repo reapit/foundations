@@ -1,14 +1,13 @@
 import React from 'react'
-import { useReapitGet } from '@reapit/utils-react'
+import { useReapitGet } from '@reapit/use-reapit-data'
 import { Installations } from '../index'
 import { render } from '../../../tests/react-testing'
 import { mockInstallationModelPagedResult } from '../../../tests/__stubs__/installations'
 
-jest.mock('@reapit/utils-react', () => ({
+jest.mock('@reapit/use-reapit-data', () => ({
+  ...jest.requireActual('@reapit/use-reapit-data'),
   useReapitGet: jest.fn(() => [null, false]),
   useReapitUpdate: jest.fn(() => [undefined, undefined, jest.fn()]),
-  objectToQuery: jest.fn(),
-  SearchableMultiSelect: () => <div />,
 }))
 
 const mockUseReapitGet = useReapitGet as jest.Mock

@@ -10,10 +10,10 @@ import {
 import { render } from '../../../tests/react-testing'
 import { mockAppSummaryModelPagedResult } from '../../../tests/__stubs__/apps'
 
-jest.mock('@reapit/utils-react', () => ({
+jest.mock('@reapit/use-reapit-data', () => ({
+  ...jest.requireActual('@reapit/use-reapit-data'),
   useReapitUpdate: jest.fn(() => [null, false, undefined, jest.fn()]),
   useReapitGet: jest.fn(() => [null, true, undefined, jest.fn()]),
-  objectToQuery: jest.fn(),
 }))
 jest.mock('../../../core/use-permissions-state')
 

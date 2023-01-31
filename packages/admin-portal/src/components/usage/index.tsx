@@ -2,8 +2,7 @@ import { Loader, PageContainer, Title } from '@reapit/elements'
 import React, { FC, useState } from 'react'
 import { FilterForm } from './filter-form'
 import { UsageTable } from './usage-table'
-import { useReapitGet } from '@reapit/utils-react'
-import { GetActionNames, getActions } from '@reapit/utils-common'
+import { useReapitGet, GetActionNames, getActions } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import {
   AppSummaryModelPagedResult,
