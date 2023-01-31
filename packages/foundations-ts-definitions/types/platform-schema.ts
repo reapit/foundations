@@ -13147,6 +13147,10 @@ export interface PropertyModel {
      */
     dimensions?: string
     /**
+     * Details about the alternate dimensions of the room
+     */
+    dimensionsAlt?: string
+    /**
      * Short description of the room
      */
     description?: string
@@ -13959,6 +13963,10 @@ export interface PropertyModelPagedResult {
        */
       dimensions?: string
       /**
+       * Details about the alternate dimensions of the room
+       */
+      dimensionsAlt?: string
+      /**
        * Short description of the room
        */
       description?: string
@@ -14073,6 +14081,10 @@ export interface PropertyRoomModel {
    * Details about the dimensions of the room
    */
   dimensions?: string
+  /**
+   * Details about the alternate dimensions of the room
+   */
+  dimensionsAlt?: string
   /**
    * Short description of the room
    */
