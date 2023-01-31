@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PaymentReceiptProvider should send an email with the correct template 1`] = `
+"
+  <div style=\\"background-color:#f5f7f9; padding: 24px;\\">
+    <article style=\\"font-family: Helvetica, Arial, sans-serif;margin:0px auto;background-color:white;line-height: 1.5rem; max-width: 950px;\\">
+      <img style=\\"width: 25%; margin: 0 auto; padding: 16px; display: block;\\" src=https://logo.png />
+      <h1 style=\\"text-align: center;font-size: 24px; font-style: normal; padding:0 16px 24px 16px;\\">Payment Confirmation from Reapit Ltd </h1>
+      <div style=\\"padding:0 16px 16px 16px;\\">
+        <p>Dear Mock Name,</p>
+        <p>This is a confirmation of your payment of £1000.00, on Thu Oct 10 2019, requested by Reapit Ltd for the below reason:</p>
+        <p><b>Mock reason</b></p>
+        <p>Reapit Ltd's records have been updated accordingly.</p>
+        <p>Best regards,</p>
+        <p>Reapit Ltd</p>
+      </div>
+    </article>
+  </div>
+"
+`;

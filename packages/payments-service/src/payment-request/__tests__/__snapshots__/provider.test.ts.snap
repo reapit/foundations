@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PaymentRequestProvider should send an email with the correct template 1`] = `
+"
+  <div style=\\"background-color:#f5f7f9; padding: 24px;\\">
+    <article style=\\"font-family: Helvetica, Arial, sans-serif;margin:0px auto;background-color:white;line-height: 1.5rem; max-width: 950px;\\">
+      <img style=\\"width: 33%; margin: 0 auto; padding: 16px; display: block;\\" src=https://logo.png />
+      <h1 style=\\"text-align: center;font-size: 24px; font-style: normal; padding:0 16px 24px 16px;\\">Payment Request from Reapit Ltd </h1>
+      <div style=\\"padding:0 16px 16px 16px;\\">
+        <p>Dear Mock Name,</p>
+        <p>You have been requested to make a payment of £1000.00, by Reapit Ltd for the below reason:</p>
+        <p><b>Mock Reason</b></p>
+        <p><a href=undefined/payments/MOCK_PAYMENT_ID?session=MOCK_SESSION&clientCode=SBOX>Click here</a> to make this payment. You will be redirected to our payment provider Reapit Ltd. Reapit Payments are powered by Opayo (Sage Pay) for your convenience and security.</p>
+        <p>This payment request is valid until Sun Jan 01 2023. On completion of the payment, Reapit Ltd's records will be updated accordingly.</p>
+        <p>Best regards,</p>
+        <p>Reapit Ltd</p>
+      </div>
+    </article>
+  </div>
+"
+`;

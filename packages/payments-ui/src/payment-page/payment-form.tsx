@@ -89,7 +89,7 @@ export const PaymentForm: FC<PaymentFormProps> = ({ paymentProvider }) => {
   return (
     <>
       {paymentStatus === 'rejected' && (
-        <PersistentNotification intent="danger" isInline isExpanded isFullWidth>
+        <PersistentNotification className={elMb7} intent="danger" isInline isExpanded isFullWidth>
           This payment has failed. Please check the details submitted are correct and try again.
         </PersistentNotification>
       )}

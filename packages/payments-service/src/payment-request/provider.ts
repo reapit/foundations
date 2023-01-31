@@ -19,7 +19,7 @@ export class PaymentRequestProvider {
       paymentRequest
     const session = paymentRequestHeaders['reapit-session']
     const clientCode = paymentRequestHeaders['reapit-customer']
-    const baseUrl = session ? process.env.PAYMENTS_PORTAL_URI : process.env.PAYMENTS_APP_URI
+    const baseUrl = process.env.PAYMENTS_PORTAL_URI
 
     let configModel: ClientConfigModel
 
