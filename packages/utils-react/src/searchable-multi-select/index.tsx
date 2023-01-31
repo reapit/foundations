@@ -20,8 +20,7 @@ import {
   MultiSelectOption,
   PersistentNotification,
 } from '@reapit/elements'
-import { GetAction } from '@reapit/utils-common'
-import { useReapitGet } from '@reapit/utils-react'
+import { useReapitGet, GetAction } from '@reapit/use-reapit-data'
 import { ReapitConnectBrowserSession } from '@reapit/connect-session'
 
 export interface SearchableMultiSelectProps extends InputHTMLAttributes<HTMLInputElement> {

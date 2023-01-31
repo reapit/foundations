@@ -1,6 +1,6 @@
 import React from 'react'
 import { ApprovalModel } from '@reapit/foundations-ts-definitions'
-import { useReapitGet } from '@reapit/utils-react'
+import { useReapitGet } from '@reapit/use-reapit-data'
 import { LoginIdentity } from '@reapit/connect-session'
 import dayjs from 'dayjs'
 import {
@@ -18,7 +18,8 @@ import { mockDesktopIntegrationTypeModelPagedResult } from '../../../tests/__stu
 import { mockScopeModel } from '../../../tests/__stubs__/scopes'
 
 jest.mock('../../../core/use-permissions-state')
-jest.mock('@reapit/utils-react', () => ({
+jest.mock('@reapit/use-reapit-data', () => ({
+  ...jest.requireActual('@reapit/use-reapit-data'),
   useReapitGet: jest.fn(() => [null, false, undefined, jest.fn()]),
   useReapitUpdate: jest.fn(() => [null, false, undefined, jest.fn]),
 }))

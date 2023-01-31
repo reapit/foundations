@@ -1,16 +1,13 @@
-import { useReapitGet } from '@reapit/utils-react'
+import { useReapitGet } from '@reapit/use-reapit-data'
 import React from 'react'
 import { render } from '../../../tests/react-testing'
 import { mockPipelineRunnerResponse } from '../../../tests/__stubs__/pipelines'
 import { handleDeletePipeline, handleOpenModal, IaaS } from '../index'
 
-jest.mock('@reapit/utils-react', () => ({
-  useReapitGet: jest.fn(() => [null, false, undefined, () => {}]),
-  useReapitUpdate: jest.fn(() => []),
-  UpdateReturnTypeEnum: {
-    RESPONSE: 'RESPONSE',
-  },
-  objectToQuery: jest.fn(),
+jest.mock('@reapit/use-reapit-data', () => ({
+  ...jest.requireActual('@reapit/use-reapit-data'),
+  useReapitGet: jest.fn(() => [null, false]),
+  useReapitUpdate: jest.fn(() => [undefined, undefined, jest.fn()]),
 }))
 
 jest.mock('@reapit/connect-session', () => ({
@@ -24,12 +21,6 @@ jest.mock('@reapit/connect-session', () => ({
     },
     connectInternalRedirect: '',
   }),
-}))
-
-jest.mock('@reapit/utils-react', () => ({
-  useReapitGet: jest.fn(() => [null, false]),
-  useReapitUpdate: jest.fn(() => [undefined, undefined, jest.fn()]),
-  objectToQuery: jest.fn(),
 }))
 
 const mockUseReapitGet = useReapitGet as jest.Mock

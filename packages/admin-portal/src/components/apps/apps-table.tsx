@@ -11,10 +11,10 @@ import {
   Button,
   useModal,
 } from '@reapit/elements'
-import { toLocalTime, UpdateActionNames, updateActions } from '@reapit/utils-common'
+import { toLocalTime } from '@reapit/utils-common'
 import { openNewPage } from '../../utils/navigation'
 import { CheckAWSButton } from './check-aws-button'
-import { SendFunction, useReapitUpdate } from '@reapit/utils-react'
+import { SendFunction, useReapitUpdate, UpdateActionNames, updateActions } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { CreateSubscriptions } from '../subscriptions/create-subscriptions'
 import { usePermissionsState } from '../../core/use-permissions-state'

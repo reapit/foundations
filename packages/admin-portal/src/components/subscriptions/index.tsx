@@ -1,13 +1,6 @@
 import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
 import ErrorBoundary from '../error-boundary'
-import {
-  GetActionNames,
-  getActions,
-  isTruthy,
-  toLocalTime,
-  UpdateActionNames,
-  updateActions,
-} from '@reapit/utils-common'
+import { isTruthy, toLocalTime } from '@reapit/utils-common'
 import {
   PageContainer,
   Loader,
@@ -20,7 +13,16 @@ import {
   ButtonGroup,
   Button,
 } from '@reapit/elements'
-import { objectToQuery, SendFunction, useReapitGet, useReapitUpdate } from '@reapit/utils-react'
+import {
+  objectToQuery,
+  SendFunction,
+  useReapitGet,
+  useReapitUpdate,
+  UpdateActionNames,
+  updateActions,
+  GetActionNames,
+  getActions,
+} from '@reapit/use-reapit-data'
 import {
   AppSummaryModelPagedResult,
   SubscriptionModel,

@@ -1,5 +1,5 @@
-import { render } from '@testing-library/react'
 import React from 'react'
+import { render } from '../../../tests/react-testing'
 import { UsagePage } from '../index'
 
 describe('UsagePage', () => {

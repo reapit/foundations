@@ -14,8 +14,7 @@ import {
 } from '@reapit/elements'
 import { AppSummaryModelPagedResult, CategoryModelPagedResult } from '@reapit/foundations-ts-definitions'
 import debounce from 'just-debounce-it'
-import { useReapitGet } from '@reapit/utils-react'
-import { GetActionNames, getActions } from '@reapit/utils-common'
+import { useReapitGet, GetActionNames, getActions } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 
 export interface FilterFormProps {

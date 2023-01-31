@@ -15,9 +15,16 @@ import { DiffMedia } from './diff-media'
 import { DiffCheckbox } from './diff-checkbox'
 import { DiffViewer } from './diff-viewer'
 import { DiffRenderHTML } from './diff-render-html'
-import { SendFunction, useReapitGet, useReapitUpdate } from '@reapit/utils-react'
+import {
+  SendFunction,
+  useReapitGet,
+  useReapitUpdate,
+  GetActionNames,
+  getActions,
+  UpdateActionNames,
+  updateActions,
+} from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { GetActionNames, getActions, UpdateActionNames, updateActions } from '@reapit/utils-common'
 import {
   BodyText,
   Button,

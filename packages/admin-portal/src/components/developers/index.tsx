@@ -2,11 +2,10 @@ import React, { Dispatch, FC, SetStateAction, useState } from 'react'
 import ErrorBoundary from '../error-boundary'
 import { DeveloperFilters, FilterForm } from './filter-form'
 import { DeveloperModelPagedResult } from '@reapit/foundations-ts-definitions'
-import { GetActionNames, getActions } from '@reapit/utils-common'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { Loader, PageContainer, Pagination, Title } from '@reapit/elements'
 import { Statistics } from '../statistics'
-import { objectToQuery, useReapitGet } from '@reapit/utils-react'
+import { objectToQuery, useReapitGet, GetActionNames, getActions } from '@reapit/use-reapit-data'
 import { DevelopersTable } from './developers-table'
 
 export const closeDisableMemberModal = (setDisableMemberModalVisible: Dispatch<SetStateAction<boolean>>) => () => {

@@ -11,8 +11,8 @@ import {
   Icon,
   elMt5,
 } from '@reapit/elements'
-import { GetActionNames, getActions, toLocalTime } from '@reapit/utils-common'
-import { useReapitGet } from '@reapit/utils-react'
+import { toLocalTime } from '@reapit/utils-common'
+import { useReapitGet, GetActionNames, getActions } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 
 export interface AppsTableProps {
