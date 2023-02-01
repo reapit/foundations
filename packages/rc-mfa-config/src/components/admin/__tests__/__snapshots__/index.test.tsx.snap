@@ -175,7 +175,7 @@ Object {
             />
           </button>
           <button
-            class="el-mb3 el-intent-primary el-button"
+            class="el-mb5 el-intent-primary el-button"
           >
             Download CSV
             <div
@@ -186,12 +186,313 @@ Object {
         <section
           class="el-hfull el-page-container"
         >
+          <h1
+            class="el-title"
+          >
+            Users List
+          </h1>
+          <form>
+            <div
+              class="el-form-layout-has-margin el-form-layout"
+            >
+              <div
+                class="el-input-wrap"
+              >
+                <div
+                  class="el-input-group"
+                >
+                  <input
+                    class="el-input"
+                    id="test-static-id"
+                    name="email"
+                    placeholder="Search for a user"
+                  />
+                  <label
+                    class="el-label"
+                    for="test-static-id"
+                  >
+                    Email
+                  </label>
+                </div>
+              </div>
+              <div
+                class="el-input-wrap"
+              >
+                <div
+                  class="el-input-group"
+                >
+                  <input
+                    class="el-input"
+                    id="test-static-id"
+                    name="name"
+                    placeholder="Search for a user"
+                  />
+                  <label
+                    class="el-label"
+                    for="test-static-id"
+                  >
+                    Name
+                  </label>
+                </div>
+              </div>
+              <div
+                class="el-input-wrap"
+              >
+                <label
+                  class="el-label"
+                >
+                  MFA Enabled
+                </label>
+                <div
+                  class="el-has-grey-bg el-toggle-radio-wrap"
+                >
+                  <input
+                    checked=""
+                    class="el-toggle-radio"
+                    id="mfa-enabled-all"
+                    name="mfaEnabled"
+                    type="radio"
+                    value=""
+                  />
+                  <label
+                    class="el-has-grey-bg el-toggle-radio-label"
+                    for="mfa-enabled-all"
+                  >
+                    <span
+                      class="el-toggle-radio-item"
+                    >
+                      All
+                    </span>
+                  </label>
+                  <input
+                    class="el-toggle-radio"
+                    id="mfa-enabled-true"
+                    name="mfaEnabled"
+                    type="radio"
+                    value="true"
+                  />
+                  <label
+                    class="el-has-grey-bg el-toggle-radio-label"
+                    for="mfa-enabled-true"
+                  >
+                    <span
+                      class="el-toggle-radio-item"
+                    >
+                      Enabled
+                    </span>
+                  </label>
+                  <input
+                    class="el-toggle-radio"
+                    id="mfa-enabled-false"
+                    name="mfaEnabled"
+                    type="radio"
+                    value="false"
+                  />
+                  <label
+                    class="el-has-grey-bg el-toggle-radio-label"
+                    for="mfa-enabled-false"
+                  >
+                    <span
+                      class="el-toggle-radio-item"
+                    >
+                      Not Configured
+                    </span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </form>
           <div
-            class="el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+            class="el-fade-in el-mb11 el-table"
+            data-has-call-to-action="false"
+            data-has-expandable-action="true"
+            data-num-columns-excl-action-col="4"
           >
             <div
-              class="el-pn-icon"
-              data-testid="close-icon"
+              class="el-table-headers-row"
+            >
+              <div
+                class="el-table-header"
+              >
+                Name
+              </div>
+              <div
+                class="el-table-header"
+              >
+                Email
+              </div>
+              <div
+                class="el-table-header"
+              >
+                Job Title
+              </div>
+              <div
+                class="el-table-header"
+              >
+                Active
+              </div>
+              <div
+                class="el-table-header"
+              >
+                <span
+                  class="el-icon"
+                  style="font-size: 1.2rem;"
+                >
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 20 20"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M17.9922 7.38861L19.5294 7.72278C19.8041 7.78259 20 8.02567 20 8.30673V11.6933C20 11.9743 19.8041 12.2174 19.5294 12.2772L17.9922 12.6114C17.8586 13.0206 17.693 13.4198 17.4976 13.8043L18.3485 15.128C18.5005 15.3645 18.4671 15.675 18.2684 15.8737L15.8737 18.2684C15.675 18.4673 15.3645 18.5005 15.128 18.3485L13.8043 17.4976C13.4198 17.693 13.0206 17.8586 12.6114 17.9922L12.2772 19.5294C12.2176 19.8041 11.9743 20 11.6933 20H8.30673C8.02567 20 7.78244 19.8041 7.72278 19.5294L7.38861 17.9922C6.97937 17.8586 6.5802 17.693 6.19568 17.4976L4.87198 18.3485C4.63547 18.5005 4.32495 18.4671 4.12628 18.2684L1.73157 15.8737C1.5329 15.675 1.49948 15.3645 1.65146 15.128L2.50244 13.8043C2.30698 13.4198 2.14142 13.0206 2.00775 12.6114L0.470581 12.2772C0.195923 12.2174 0 11.9743 0 11.6933V8.30673C0 8.02567 0.195923 7.78259 0.470581 7.72278L2.00775 7.38861C2.14142 6.97937 2.30698 6.5802 2.50244 6.19568L1.65146 4.87198C1.49948 4.63547 1.5329 4.32495 1.73157 4.12628L4.12628 1.73157C4.32495 1.5329 4.63547 1.49948 4.87198 1.65146L6.19568 2.50244C6.5802 2.30698 6.97937 2.14142 7.38861 2.00775L7.72278 0.470581C7.78244 0.195923 8.02567 0 8.30673 0H11.6933C11.9743 0 12.2176 0.195923 12.2772 0.470581L12.6114 2.00775C13.0206 2.14142 13.4198 2.30698 13.8043 2.50244L15.128 1.65146C15.3645 1.49948 15.675 1.5329 15.8737 1.73157L18.2684 4.12628C18.4671 4.32495 18.5005 4.63547 18.3485 4.87198L17.4976 6.19568C17.693 6.5802 17.8586 6.97937 17.9922 7.38861ZM17.3953 11.5179L18.8048 11.2115V8.78845L17.3952 8.48206C17.1786 8.43491 17.0061 8.27194 16.9466 8.05862C16.7915 7.50305 16.5689 6.96579 16.2843 6.46179C16.1754 6.26877 16.1823 6.03134 16.3022 5.84488L17.0825 4.63089L15.3691 2.91733L14.1551 3.69781C13.9687 3.8176 13.7312 3.82446 13.5382 3.71552C13.0342 3.43109 12.4969 3.20831 11.9414 3.05344C11.7281 2.99393 11.5651 2.8212 11.5179 2.60468L11.2115 1.19522H8.78845L8.48206 2.60468C8.43491 2.8212 8.27194 2.99393 8.05862 3.05344C7.50305 3.20831 6.96579 3.43109 6.46164 3.71552C6.26877 3.82446 6.03134 3.81775 5.84488 3.69781L4.63074 2.91733L2.91733 4.63089L3.69781 5.84488C3.81775 6.03134 3.82446 6.26877 3.71552 6.46179C3.43109 6.96579 3.20831 7.50305 3.05344 8.05862C2.99393 8.27194 2.8212 8.43491 2.60468 8.48206L1.19522 8.78845V11.2115L2.60483 11.5179C2.82135 11.5651 2.99393 11.7281 3.05344 11.9414C3.20847 12.4969 3.43124 13.0342 3.71567 13.5382C3.82462 13.7312 3.81775 13.9687 3.69781 14.1551L2.91748 15.3691L4.63089 17.0827L5.84488 16.3022C6.03134 16.1824 6.26877 16.1755 6.46179 16.2845C6.96579 16.5689 7.50305 16.7917 8.05862 16.9466C8.27194 17.0061 8.43491 17.1788 8.48206 17.3953L8.78845 18.8048H11.2115L11.5179 17.3953C11.5651 17.1788 11.7281 17.0061 11.9414 16.9466C12.4969 16.7917 13.0342 16.5689 13.5384 16.2845C13.7312 16.1755 13.9687 16.1823 14.1551 16.3022L15.3693 17.0827L17.0827 15.3691L16.3022 14.1551C16.1823 13.9687 16.1755 13.7312 16.2845 13.5382C16.5689 13.0342 16.7917 12.4969 16.9466 11.9414C17.0061 11.7281 17.1788 11.5651 17.3953 11.5179ZM5.21912 10C5.21912 7.36389 7.36389 5.21912 10 5.21912C12.6361 5.21912 14.7809 7.36389 14.7809 10C14.7809 12.6361 12.6361 14.7809 10 14.7809C7.36389 14.7809 5.21912 12.6361 5.21912 10ZM6.41434 10C6.41434 11.9771 8.02292 13.5857 10 13.5857C11.9771 13.5857 13.5857 11.9771 13.5857 10C13.5857 8.02292 11.9771 6.41434 10 6.41434C8.02292 6.41434 6.41434 8.02292 6.41434 10Z"
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </div>
+            <div
+              class="el-table-row-container"
+            >
+              <div
+                class="el-table-row"
+              >
+                <div
+                  class="el-table-cell"
+                >
+                  <div
+                    class="el-table-cell-content"
+                    data-narrow-label="Name"
+                  >
+                    Will McVay
+                  </div>
+                </div>
+                <div
+                  class="el-table-cell"
+                >
+                  <div
+                    class="el-table-cell-content"
+                    data-narrow-label="Email"
+                  >
+                    test@icloud.com
+                  </div>
+                </div>
+                <div
+                  class="el-table-cell"
+                >
+                  <div
+                    class="el-table-cell-content"
+                    data-narrow-label="Job Title"
+                  />
+                </div>
+                <div
+                  class="el-table-cell"
+                >
+                  <div
+                    class="el-table-cell-content"
+                    data-narrow-label="Active"
+                  >
+                    <span
+                      class="el-intent-success el-icon"
+                    >
+                      <svg
+                        fill="none"
+                        height="1em"
+                        viewBox="0 0 12 12"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <g>
+                          <path
+                            d="M11.2529 2.25459C10.9205 1.91513 10.3795 1.91515 10.0471 2.25457L4.03736 8.41347L1.45291 5.77405C1.12054 5.43458 0.579492 5.43467 0.247127 5.77403C-0.0823813 6.11051 -0.0823676 6.65391 0.24712 6.99041L3.43448 10.2455C3.76682 10.585 4.30815 10.5847 4.64026 10.2455L11.2529 3.47098C11.5824 3.13448 11.5823 2.59107 11.2529 2.25459Z"
+                            fill="currentColor"
+                          />
+                        </g>
+                        <defs>
+                          <clippath
+                            id="clip0"
+                          >
+                            <rect
+                              fill="white"
+                              height="1em"
+                              width="1em"
+                            />
+                          </clippath>
+                        </defs>
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="el-table-expandable-row-trigger-cell"
+                >
+                  <span
+                    class="el-intent-secondary el-icon"
+                  >
+                    <svg
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 18 18"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M9.00005 0C13.9627 0 18 4.03743 18 9C18 13.9627 13.9627 18 9.00005 18C4.03741 18 0 13.9626 0 9C0 4.03743 4.03741 0 9.00005 0ZM4.32346 7.20004L9 12.6001L13.6765 7.20004H4.32346Z"
+                        fill="currentColor"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+              <div
+                class="el-table-expandable-row"
+              >
+                <div
+                  class="el-table-expandable-container"
+                >
+                  <div
+                    class="el-mb7 el-button-group"
+                  >
+                    <div
+                      class="el-button-group-align-center el-button-group-inner"
+                    >
+                      <button
+                        class="el-intent-primary el-button"
+                      >
+                        Fetch Current Authenticators
+                        <div
+                          class="el-button-loader"
+                        />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="el-pagination-wrap"
+          >
+            <div
+              class="el-pagination-text"
+            >
+              <input
+                class="el-pagination-input"
+                value="1"
+              />
+               of 
+              1
+            </div>
+            <button
+              class="el-pagination-button"
+              data-testid="back-button"
+              type="button"
             >
               <span
                 class="el-icon"
@@ -199,22 +500,39 @@ Object {
                 <svg
                   fill="none"
                   height="1em"
-                  viewBox="0 0 20 20"
+                  viewBox="0 0 12 12"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M9.99958 0C4.47746 0 0 4.47746 0 9.99958C0 15.5217 4.47746 20 9.99958 20C15.5217 20 20 15.5217 20 9.99958C20 4.47746 15.5217 0 9.99958 0ZM12.0813 15.498C11.5666 15.7012 11.1568 15.8552 10.8495 15.9619C10.5431 16.0686 10.1867 16.1219 9.78116 16.1219C9.1581 16.1219 8.67302 15.9695 8.32762 15.6656C7.98222 15.3617 7.81037 14.9765 7.81037 14.5084C7.81037 14.3263 7.82307 14.1401 7.84847 13.9505C7.87471 13.7608 7.91619 13.5475 7.97291 13.3079L8.61714 11.0324C8.67386 10.814 8.72296 10.6066 8.7619 10.4135C8.80085 10.2188 8.81947 10.0402 8.81947 9.87767C8.81947 9.58815 8.75937 9.38497 8.64 9.27069C8.51894 9.1564 8.29122 9.10053 7.95175 9.10053C7.78582 9.10053 7.61481 9.12508 7.43958 9.17672C7.26603 9.23005 7.11534 9.27831 6.99175 9.32571L7.1619 8.62476C7.58349 8.45291 7.9873 8.30561 8.37249 8.1837C8.75767 8.06011 9.12169 7.99915 9.46455 7.99915C10.0834 7.99915 10.5608 8.14984 10.8969 8.44783C11.2313 8.74667 11.3998 9.13524 11.3998 9.6127C11.3998 9.71175 11.3879 9.88614 11.3651 10.135C11.3422 10.3848 11.299 10.6125 11.2364 10.8216L10.5956 13.0904C10.5431 13.2724 10.4965 13.4806 10.4542 13.7134C10.4127 13.9462 10.3924 14.124 10.3924 14.2434C10.3924 14.5448 10.4593 14.7505 10.5947 14.8597C10.7285 14.9689 10.963 15.0239 11.2948 15.0239C11.4514 15.0239 11.6267 14.996 11.8248 14.9418C12.0212 14.8876 12.1634 14.8394 12.2531 14.7979L12.0813 15.498ZM11.9678 6.2891C11.669 6.56677 11.3092 6.70561 10.8885 6.70561C10.4686 6.70561 10.1062 6.56677 9.80487 6.2891C9.50519 6.01143 9.35365 5.67365 9.35365 5.27915C9.35365 4.8855 9.50603 4.54688 9.80487 4.26667C10.1062 3.98561 10.4686 3.84593 10.8885 3.84593C11.3092 3.84593 11.6698 3.98561 11.9678 4.26667C12.2667 4.54688 12.4165 4.8855 12.4165 5.27915C12.4165 5.6745 12.2667 6.01143 11.9678 6.2891Z"
+                    d="M0 6L9 0V12L0 6Z"
                     fill="currentColor"
                   />
                 </svg>
               </span>
-            </div>
-            <div
-              class="el-pn-content"
+            </button>
+            <button
+              class="el-pagination-button"
+              data-testid="forward-button"
+              type="button"
             >
-              Something went wrong here, try refreshing your page.
-            </div>
+              <span
+                class="el-icon"
+              >
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 12 12"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 6L3 12V0L12 6Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+            </button>
           </div>
         </section>
       </div>
@@ -391,7 +709,7 @@ Object {
           />
         </button>
         <button
-          class="el-mb3 el-intent-primary el-button"
+          class="el-mb5 el-intent-primary el-button"
         >
           Download CSV
           <div
@@ -402,12 +720,313 @@ Object {
       <section
         class="el-hfull el-page-container"
       >
+        <h1
+          class="el-title"
+        >
+          Users List
+        </h1>
+        <form>
+          <div
+            class="el-form-layout-has-margin el-form-layout"
+          >
+            <div
+              class="el-input-wrap"
+            >
+              <div
+                class="el-input-group"
+              >
+                <input
+                  class="el-input"
+                  id="test-static-id"
+                  name="email"
+                  placeholder="Search for a user"
+                />
+                <label
+                  class="el-label"
+                  for="test-static-id"
+                >
+                  Email
+                </label>
+              </div>
+            </div>
+            <div
+              class="el-input-wrap"
+            >
+              <div
+                class="el-input-group"
+              >
+                <input
+                  class="el-input"
+                  id="test-static-id"
+                  name="name"
+                  placeholder="Search for a user"
+                />
+                <label
+                  class="el-label"
+                  for="test-static-id"
+                >
+                  Name
+                </label>
+              </div>
+            </div>
+            <div
+              class="el-input-wrap"
+            >
+              <label
+                class="el-label"
+              >
+                MFA Enabled
+              </label>
+              <div
+                class="el-has-grey-bg el-toggle-radio-wrap"
+              >
+                <input
+                  checked=""
+                  class="el-toggle-radio"
+                  id="mfa-enabled-all"
+                  name="mfaEnabled"
+                  type="radio"
+                  value=""
+                />
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="mfa-enabled-all"
+                >
+                  <span
+                    class="el-toggle-radio-item"
+                  >
+                    All
+                  </span>
+                </label>
+                <input
+                  class="el-toggle-radio"
+                  id="mfa-enabled-true"
+                  name="mfaEnabled"
+                  type="radio"
+                  value="true"
+                />
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="mfa-enabled-true"
+                >
+                  <span
+                    class="el-toggle-radio-item"
+                  >
+                    Enabled
+                  </span>
+                </label>
+                <input
+                  class="el-toggle-radio"
+                  id="mfa-enabled-false"
+                  name="mfaEnabled"
+                  type="radio"
+                  value="false"
+                />
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="mfa-enabled-false"
+                >
+                  <span
+                    class="el-toggle-radio-item"
+                  >
+                    Not Configured
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </form>
         <div
-          class="el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+          class="el-fade-in el-mb11 el-table"
+          data-has-call-to-action="false"
+          data-has-expandable-action="true"
+          data-num-columns-excl-action-col="4"
         >
           <div
-            class="el-pn-icon"
-            data-testid="close-icon"
+            class="el-table-headers-row"
+          >
+            <div
+              class="el-table-header"
+            >
+              Name
+            </div>
+            <div
+              class="el-table-header"
+            >
+              Email
+            </div>
+            <div
+              class="el-table-header"
+            >
+              Job Title
+            </div>
+            <div
+              class="el-table-header"
+            >
+              Active
+            </div>
+            <div
+              class="el-table-header"
+            >
+              <span
+                class="el-icon"
+                style="font-size: 1.2rem;"
+              >
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 20 20"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M17.9922 7.38861L19.5294 7.72278C19.8041 7.78259 20 8.02567 20 8.30673V11.6933C20 11.9743 19.8041 12.2174 19.5294 12.2772L17.9922 12.6114C17.8586 13.0206 17.693 13.4198 17.4976 13.8043L18.3485 15.128C18.5005 15.3645 18.4671 15.675 18.2684 15.8737L15.8737 18.2684C15.675 18.4673 15.3645 18.5005 15.128 18.3485L13.8043 17.4976C13.4198 17.693 13.0206 17.8586 12.6114 17.9922L12.2772 19.5294C12.2176 19.8041 11.9743 20 11.6933 20H8.30673C8.02567 20 7.78244 19.8041 7.72278 19.5294L7.38861 17.9922C6.97937 17.8586 6.5802 17.693 6.19568 17.4976L4.87198 18.3485C4.63547 18.5005 4.32495 18.4671 4.12628 18.2684L1.73157 15.8737C1.5329 15.675 1.49948 15.3645 1.65146 15.128L2.50244 13.8043C2.30698 13.4198 2.14142 13.0206 2.00775 12.6114L0.470581 12.2772C0.195923 12.2174 0 11.9743 0 11.6933V8.30673C0 8.02567 0.195923 7.78259 0.470581 7.72278L2.00775 7.38861C2.14142 6.97937 2.30698 6.5802 2.50244 6.19568L1.65146 4.87198C1.49948 4.63547 1.5329 4.32495 1.73157 4.12628L4.12628 1.73157C4.32495 1.5329 4.63547 1.49948 4.87198 1.65146L6.19568 2.50244C6.5802 2.30698 6.97937 2.14142 7.38861 2.00775L7.72278 0.470581C7.78244 0.195923 8.02567 0 8.30673 0H11.6933C11.9743 0 12.2176 0.195923 12.2772 0.470581L12.6114 2.00775C13.0206 2.14142 13.4198 2.30698 13.8043 2.50244L15.128 1.65146C15.3645 1.49948 15.675 1.5329 15.8737 1.73157L18.2684 4.12628C18.4671 4.32495 18.5005 4.63547 18.3485 4.87198L17.4976 6.19568C17.693 6.5802 17.8586 6.97937 17.9922 7.38861ZM17.3953 11.5179L18.8048 11.2115V8.78845L17.3952 8.48206C17.1786 8.43491 17.0061 8.27194 16.9466 8.05862C16.7915 7.50305 16.5689 6.96579 16.2843 6.46179C16.1754 6.26877 16.1823 6.03134 16.3022 5.84488L17.0825 4.63089L15.3691 2.91733L14.1551 3.69781C13.9687 3.8176 13.7312 3.82446 13.5382 3.71552C13.0342 3.43109 12.4969 3.20831 11.9414 3.05344C11.7281 2.99393 11.5651 2.8212 11.5179 2.60468L11.2115 1.19522H8.78845L8.48206 2.60468C8.43491 2.8212 8.27194 2.99393 8.05862 3.05344C7.50305 3.20831 6.96579 3.43109 6.46164 3.71552C6.26877 3.82446 6.03134 3.81775 5.84488 3.69781L4.63074 2.91733L2.91733 4.63089L3.69781 5.84488C3.81775 6.03134 3.82446 6.26877 3.71552 6.46179C3.43109 6.96579 3.20831 7.50305 3.05344 8.05862C2.99393 8.27194 2.8212 8.43491 2.60468 8.48206L1.19522 8.78845V11.2115L2.60483 11.5179C2.82135 11.5651 2.99393 11.7281 3.05344 11.9414C3.20847 12.4969 3.43124 13.0342 3.71567 13.5382C3.82462 13.7312 3.81775 13.9687 3.69781 14.1551L2.91748 15.3691L4.63089 17.0827L5.84488 16.3022C6.03134 16.1824 6.26877 16.1755 6.46179 16.2845C6.96579 16.5689 7.50305 16.7917 8.05862 16.9466C8.27194 17.0061 8.43491 17.1788 8.48206 17.3953L8.78845 18.8048H11.2115L11.5179 17.3953C11.5651 17.1788 11.7281 17.0061 11.9414 16.9466C12.4969 16.7917 13.0342 16.5689 13.5384 16.2845C13.7312 16.1755 13.9687 16.1823 14.1551 16.3022L15.3693 17.0827L17.0827 15.3691L16.3022 14.1551C16.1823 13.9687 16.1755 13.7312 16.2845 13.5382C16.5689 13.0342 16.7917 12.4969 16.9466 11.9414C17.0061 11.7281 17.1788 11.5651 17.3953 11.5179ZM5.21912 10C5.21912 7.36389 7.36389 5.21912 10 5.21912C12.6361 5.21912 14.7809 7.36389 14.7809 10C14.7809 12.6361 12.6361 14.7809 10 14.7809C7.36389 14.7809 5.21912 12.6361 5.21912 10ZM6.41434 10C6.41434 11.9771 8.02292 13.5857 10 13.5857C11.9771 13.5857 13.5857 11.9771 13.5857 10C13.5857 8.02292 11.9771 6.41434 10 6.41434C8.02292 6.41434 6.41434 8.02292 6.41434 10Z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+          <div
+            class="el-table-row-container"
+          >
+            <div
+              class="el-table-row"
+            >
+              <div
+                class="el-table-cell"
+              >
+                <div
+                  class="el-table-cell-content"
+                  data-narrow-label="Name"
+                >
+                  Will McVay
+                </div>
+              </div>
+              <div
+                class="el-table-cell"
+              >
+                <div
+                  class="el-table-cell-content"
+                  data-narrow-label="Email"
+                >
+                  test@icloud.com
+                </div>
+              </div>
+              <div
+                class="el-table-cell"
+              >
+                <div
+                  class="el-table-cell-content"
+                  data-narrow-label="Job Title"
+                />
+              </div>
+              <div
+                class="el-table-cell"
+              >
+                <div
+                  class="el-table-cell-content"
+                  data-narrow-label="Active"
+                >
+                  <span
+                    class="el-intent-success el-icon"
+                  >
+                    <svg
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 12 12"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g>
+                        <path
+                          d="M11.2529 2.25459C10.9205 1.91513 10.3795 1.91515 10.0471 2.25457L4.03736 8.41347L1.45291 5.77405C1.12054 5.43458 0.579492 5.43467 0.247127 5.77403C-0.0823813 6.11051 -0.0823676 6.65391 0.24712 6.99041L3.43448 10.2455C3.76682 10.585 4.30815 10.5847 4.64026 10.2455L11.2529 3.47098C11.5824 3.13448 11.5823 2.59107 11.2529 2.25459Z"
+                          fill="currentColor"
+                        />
+                      </g>
+                      <defs>
+                        <clippath
+                          id="clip0"
+                        >
+                          <rect
+                            fill="white"
+                            height="1em"
+                            width="1em"
+                          />
+                        </clippath>
+                      </defs>
+                    </svg>
+                  </span>
+                </div>
+              </div>
+              <div
+                class="el-table-expandable-row-trigger-cell"
+              >
+                <span
+                  class="el-intent-secondary el-icon"
+                >
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 18 18"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M9.00005 0C13.9627 0 18 4.03743 18 9C18 13.9627 13.9627 18 9.00005 18C4.03741 18 0 13.9626 0 9C0 4.03743 4.03741 0 9.00005 0ZM4.32346 7.20004L9 12.6001L13.6765 7.20004H4.32346Z"
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </div>
+            <div
+              class="el-table-expandable-row"
+            >
+              <div
+                class="el-table-expandable-container"
+              >
+                <div
+                  class="el-mb7 el-button-group"
+                >
+                  <div
+                    class="el-button-group-align-center el-button-group-inner"
+                  >
+                    <button
+                      class="el-intent-primary el-button"
+                    >
+                      Fetch Current Authenticators
+                      <div
+                        class="el-button-loader"
+                      />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="el-pagination-wrap"
+        >
+          <div
+            class="el-pagination-text"
+          >
+            <input
+              class="el-pagination-input"
+              value="1"
+            />
+             of 
+            1
+          </div>
+          <button
+            class="el-pagination-button"
+            data-testid="back-button"
+            type="button"
           >
             <span
               class="el-icon"
@@ -415,22 +1034,39 @@ Object {
               <svg
                 fill="none"
                 height="1em"
-                viewBox="0 0 20 20"
+                viewBox="0 0 12 12"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M9.99958 0C4.47746 0 0 4.47746 0 9.99958C0 15.5217 4.47746 20 9.99958 20C15.5217 20 20 15.5217 20 9.99958C20 4.47746 15.5217 0 9.99958 0ZM12.0813 15.498C11.5666 15.7012 11.1568 15.8552 10.8495 15.9619C10.5431 16.0686 10.1867 16.1219 9.78116 16.1219C9.1581 16.1219 8.67302 15.9695 8.32762 15.6656C7.98222 15.3617 7.81037 14.9765 7.81037 14.5084C7.81037 14.3263 7.82307 14.1401 7.84847 13.9505C7.87471 13.7608 7.91619 13.5475 7.97291 13.3079L8.61714 11.0324C8.67386 10.814 8.72296 10.6066 8.7619 10.4135C8.80085 10.2188 8.81947 10.0402 8.81947 9.87767C8.81947 9.58815 8.75937 9.38497 8.64 9.27069C8.51894 9.1564 8.29122 9.10053 7.95175 9.10053C7.78582 9.10053 7.61481 9.12508 7.43958 9.17672C7.26603 9.23005 7.11534 9.27831 6.99175 9.32571L7.1619 8.62476C7.58349 8.45291 7.9873 8.30561 8.37249 8.1837C8.75767 8.06011 9.12169 7.99915 9.46455 7.99915C10.0834 7.99915 10.5608 8.14984 10.8969 8.44783C11.2313 8.74667 11.3998 9.13524 11.3998 9.6127C11.3998 9.71175 11.3879 9.88614 11.3651 10.135C11.3422 10.3848 11.299 10.6125 11.2364 10.8216L10.5956 13.0904C10.5431 13.2724 10.4965 13.4806 10.4542 13.7134C10.4127 13.9462 10.3924 14.124 10.3924 14.2434C10.3924 14.5448 10.4593 14.7505 10.5947 14.8597C10.7285 14.9689 10.963 15.0239 11.2948 15.0239C11.4514 15.0239 11.6267 14.996 11.8248 14.9418C12.0212 14.8876 12.1634 14.8394 12.2531 14.7979L12.0813 15.498ZM11.9678 6.2891C11.669 6.56677 11.3092 6.70561 10.8885 6.70561C10.4686 6.70561 10.1062 6.56677 9.80487 6.2891C9.50519 6.01143 9.35365 5.67365 9.35365 5.27915C9.35365 4.8855 9.50603 4.54688 9.80487 4.26667C10.1062 3.98561 10.4686 3.84593 10.8885 3.84593C11.3092 3.84593 11.6698 3.98561 11.9678 4.26667C12.2667 4.54688 12.4165 4.8855 12.4165 5.27915C12.4165 5.6745 12.2667 6.01143 11.9678 6.2891Z"
+                  d="M0 6L9 0V12L0 6Z"
                   fill="currentColor"
                 />
               </svg>
             </span>
-          </div>
-          <div
-            class="el-pn-content"
+          </button>
+          <button
+            class="el-pagination-button"
+            data-testid="forward-button"
+            type="button"
           >
-            Something went wrong here, try refreshing your page.
-          </div>
+            <span
+              class="el-icon"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 12 12"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 6L3 12V0L12 6Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+          </button>
         </div>
       </section>
     </div>
@@ -664,13 +1300,50 @@ Object {
             />
           </button>
           <button
-            class="el-mb3 el-intent-primary el-is-loading el-button"
+            class="el-mb5 el-intent-primary el-button"
           >
             Download CSV
             <div
               class="el-button-loader"
             />
           </button>
+          <div
+            class="el-mb5"
+          >
+            <h2
+              class="el-subtitle"
+            >
+              Organisations
+            </h2>
+            <p
+              class="el-has-grey-text el-small-text"
+            >
+              You are an admin for multiple organisations - select from the list below for data specific to one of these organisations
+            </p>
+            <div
+              class="el-border-radius controls-container"
+            >
+              <div
+                class="el-input-group"
+              >
+                <select
+                  class="el-wfull el-select"
+                >
+                  <option
+                    value=""
+                  >
+                    Please Select
+                  </option>
+                </select>
+                <label
+                  class="el-label"
+                  for="myId"
+                >
+                  Select Organisation
+                </label>
+              </div>
+            </div>
+          </div>
         </aside>
         <section
           class="el-hfull el-page-container"
@@ -977,13 +1650,50 @@ Object {
           />
         </button>
         <button
-          class="el-mb3 el-intent-primary el-is-loading el-button"
+          class="el-mb5 el-intent-primary el-button"
         >
           Download CSV
           <div
             class="el-button-loader"
           />
         </button>
+        <div
+          class="el-mb5"
+        >
+          <h2
+            class="el-subtitle"
+          >
+            Organisations
+          </h2>
+          <p
+            class="el-has-grey-text el-small-text"
+          >
+            You are an admin for multiple organisations - select from the list below for data specific to one of these organisations
+          </p>
+          <div
+            class="el-border-radius controls-container"
+          >
+            <div
+              class="el-input-group"
+            >
+              <select
+                class="el-wfull el-select"
+              >
+                <option
+                  value=""
+                >
+                  Please Select
+                </option>
+              </select>
+              <label
+                class="el-label"
+                for="myId"
+              >
+                Select Organisation
+              </label>
+            </div>
+          </div>
+        </div>
       </aside>
       <section
         class="el-hfull el-page-container"
@@ -1347,7 +2057,7 @@ Object {
             />
           </button>
           <button
-            class="el-mb3 el-intent-primary el-button"
+            class="el-mb5 el-intent-primary el-button"
           >
             Download CSV
             <div
@@ -1501,7 +2211,7 @@ Object {
             <div
               class="el-pn-content"
             >
-              No users found based on your current search.
+              Please select an organisation from the left hand side before proceeding.
             </div>
           </div>
         </section>
@@ -1679,7 +2389,7 @@ Object {
           />
         </button>
         <button
-          class="el-mb3 el-intent-primary el-button"
+          class="el-mb5 el-intent-primary el-button"
         >
           Download CSV
           <div
@@ -1833,8 +2543,1133 @@ Object {
           <div
             class="el-pn-content"
           >
-            No users found based on your current search.
+            Please select an organisation from the left hand side before proceeding.
           </div>
+        </div>
+      </section>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`AdminPage should match a snapshot when not multi org 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="el-snack-holder"
+      />
+      <div
+        class="el-flex-auto el-flex-container"
+      >
+        <aside
+          class="el-secondary-nav-container"
+        >
+          <h1
+            class="el-title"
+          >
+            Admin
+          </h1>
+          <span
+            class="el-mb5 el-icon-size-large el-icon"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              viewBox="0 0 80 80"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g>
+                <mask
+                  height="72"
+                  id="mask0_7531_91581"
+                  maskUnits="userSpaceOnUse"
+                  width="72"
+                  x="5"
+                  y="7"
+                >
+                  <circle
+                    cx="41.0144"
+                    cy="42.6966"
+                    fill="#C4C4C4"
+                    r="35.6309"
+                    transform="rotate(-2.75697 41.0144 42.6966)"
+                  />
+                </mask>
+                <g
+                  mask="url(#mask0_7531_91581)"
+                >
+                  <rect
+                    fill="white"
+                    height="80.9118"
+                    transform="rotate(-2.75697 -2.50684 3.1748)"
+                    width="88.3349"
+                    x="-2.50684"
+                    y="3.1748"
+                  />
+                  <path
+                    d="M70.3574 81.0422C70.3574 81.0422 61.8307 81.4528 55.2964 76.9368C45.476 74.0857 48.9105 53.9161 49.6294 53.1428C50.3481 52.3692 52.0831 52.8454 55.9758 54.4604C61.3294 56.6814 62.6238 61.2989 64.5359 64.6455C67.2517 69.3986 69.9646 72.8862 69.9646 72.8862C71.4065 72.8168 69.0303 77.493 70.3574 81.0422Z"
+                    fill="#23A4DE"
+                  />
+                  <path
+                    d="M33.2762 57.9805C32.9622 60.1558 25.8632 68.9556 25.404 80.8675C34.4689 89.199 47.9697 90.0308 57.9981 83.7437C56.6795 73.9172 52.516 58.8145 50.3053 54.4072C47.2325 48.2814 41.1839 47.1559 41.1839 47.1559C41.1839 47.1559 33.6878 55.1303 33.2762 57.9805Z"
+                    fill="#23A4DE"
+                  />
+                  <ellipse
+                    cx="42.9394"
+                    cy="53.038"
+                    fill="#0076AB"
+                    rx="6.69342"
+                    ry="5.29479"
+                    transform="rotate(-2.75697 42.9394 53.038)"
+                  />
+                  <path
+                    d="M23.7949 94.0608C23.7949 94.0608 22.9216 79.8757 29.8486 74.1749C36.7756 68.4745 36.7222 54.2479 36.1497 53.451C35.5773 52.6537 28.8097 53.9496 25.717 56.8097C19.9565 62.137 15.8876 70.3815 13.7234 77.8244C10.4348 76.0227 24.7845 90.6383 23.7949 94.0608Z"
+                    fill="#23A4DE"
+                  />
+                  <path
+                    d="M25.3927 78.941C26.3442 75.5509 30.0652 67.94 30.0652 67.94C30.0652 67.94 27.5278 76.9802 29.6135 81.7104C28.1128 81.4111 26.5585 79.9996 25.3927 78.941Z"
+                    fill="#0076AB"
+                  />
+                  <path
+                    d="M60.7921 77.5352C59.5073 74.2212 55.0303 66.9349 55.0303 66.9349C55.0303 66.9349 58.4567 75.7722 56.8198 80.7273C58.2987 80.2809 59.7235 78.712 60.7921 77.5352Z"
+                    fill="#0076AB"
+                  />
+                </g>
+                <path
+                  d="M30.7234 35.1932C30.8675 38.1844 28.721 40.7183 25.9293 40.8528C23.1373 40.9872 20.7572 38.6712 20.6132 35.68C20.4691 32.6885 22.6156 30.1546 25.4077 30.0201C28.1993 29.8857 30.5794 32.2017 30.7234 35.1932Z"
+                  fill="#FFE5C7"
+                />
+                <path
+                  d="M64.4138 33.2671C64.5579 36.2586 62.4114 38.7925 59.6197 38.927C56.8277 39.0614 54.4477 36.7454 54.3036 33.7539C54.1596 30.7627 56.306 28.2284 59.0981 28.094C61.8898 27.9596 64.2698 30.2759 64.4138 33.2671Z"
+                  fill="#FFE5C7"
+                />
+                <path
+                  d="M24.6052 32.8781C24.6052 32.8781 26.4281 56.2812 43.2961 55.4689C60.1641 54.6567 61.3697 36.3279 60.6518 29.6805C59.9342 23.033 56.4608 12.8643 56.4608 12.8643L42.2016 12.0892L29.8202 15.1914L24.1364 19.0149L23.9451 23.3044L24.6052 32.8781Z"
+                  fill="#FFE5C7"
+                />
+                <path
+                  d="M32.718 25.6259C32.6906 26.1091 33.2972 26.0049 33.7987 25.922C34.8421 25.7497 34.5307 24.9804 36.729 24.9601C37.5266 24.9527 38.8289 26.2169 39.1968 25.5339C40.2424 23.5932 32.9065 22.3065 32.718 25.6259Z"
+                  fill="#262F69"
+                />
+                <path
+                  d="M55.3818 25.0609C54.8814 24.1237 53.2235 23.7212 52.0755 23.8482C51.1143 23.9547 49.5049 24.4366 49.574 25.4207C49.5953 25.722 50.0465 25.6677 50.3974 25.5874C50.9425 25.4626 51.1623 25.2402 51.6894 25.1921C52.2019 25.1451 52.7297 25.2329 53.1803 25.4368C53.7261 25.6842 54.1141 26.0653 54.8027 25.8719C55.4209 25.6981 55.6325 25.5305 55.3818 25.0609Z"
+                  fill="#262F69"
+                />
+                <path
+                  d="M53.7607 28.1333C53.6777 28.086 53.5896 28.0447 53.4965 28.0106C50.4208 26.8814 49.3772 31.7553 51.6222 32.5464C54.8634 33.6884 55.6859 29.2332 53.7607 28.1333Z"
+                  fill="#262F69"
+                />
+                <path
+                  d="M53.3789 28.6731C53.0378 28.3496 52.3889 28.6373 52.4815 29.0775C52.5287 29.302 52.5736 29.4815 52.781 29.6344C53.0972 29.8681 53.7307 29.5944 53.705 29.2219C53.6881 28.9794 53.5566 28.8417 53.3789 28.6731Z"
+                  fill="white"
+                />
+                <path
+                  d="M36.059 43.5956C36.059 43.5956 43.6312 48.1135 49.4032 44.7856C46.2724 49.3031 37.818 48.611 36.059 43.5956Z"
+                  fill="#262F69"
+                />
+                <path
+                  d="M26.7115 7.6701C30.9513 1.53414 39.8937 0.103319 47.9814 1.61918C52.5595 2.47723 67.5939 7.66878 63.2948 16.4786C63.5453 19.1175 63.6867 21.7793 63.6892 24.4301C63.6905 26.1153 63.7223 27.9269 63.3058 29.5738C62.7838 31.6377 60.7673 31.0265 60.0754 29.3956C58.8191 26.4341 60.0083 23.1506 57.9834 20.2383C53.3824 13.6217 49.9396 17.1144 42.131 18.1329C36.0199 18.93 29.9088 15.7577 29.9088 15.7577C29.9088 15.7577 25.5298 22.1067 26.1929 32.069C26.4018 35.2119 20.9435 34.2216 21.421 27.3008C21.898 20.38 20.2452 8.2906 26.7115 7.6701Z"
+                  fill="#262F69"
+                />
+                <path
+                  d="M36.7842 28.1338C36.7011 28.0865 36.613 28.0452 36.5199 28.011C33.4443 26.8819 32.4006 31.7558 34.6456 32.5469C37.8868 33.6889 38.7093 29.2337 36.7842 28.1338Z"
+                  fill="#262F69"
+                />
+                <path
+                  d="M36.4031 28.674C36.062 28.3506 35.4131 28.6382 35.5057 29.0785C35.5533 29.3028 35.5978 29.4824 35.8052 29.6353C36.1214 29.8691 36.755 29.5957 36.7292 29.2229C36.7123 28.9804 36.5808 28.8426 36.4031 28.674Z"
+                  fill="white"
+                />
+                <path
+                  d="M69.2921 52.7366H67.8158V46.6971C67.8158 41.1408 63.3063 36.6313 57.75 36.6313C52.1937 36.6313 47.6842 41.1408 47.6842 46.6971V52.7366H46.2079C45.5368 52.7366 45 53.2735 45 53.9445V74.3445C45 75.0021 45.5368 75.5524 46.2079 75.5524H69.2921C69.9632 75.5524 70.5 75.0021 70.5 74.3445V53.9445C70.5 53.2735 69.9632 52.7366 69.2921 52.7366ZM51.7105 46.6971C51.7105 43.3687 54.4216 40.6577 57.75 40.6577C61.0784 40.6577 63.7895 43.3687 63.7895 46.6971V52.7366H51.7105V46.6971Z"
+                  fill="white"
+                />
+                <path
+                  d="M69.2921 52.7366H67.8158V46.6971C67.8158 41.1408 63.3063 36.6313 57.75 36.6313C52.1937 36.6313 47.6842 41.1408 47.6842 46.6971V52.7366H46.2079C45.5368 52.7366 45 53.2735 45 53.9445V74.3445C45 75.0021 45.5368 75.5524 46.2079 75.5524H69.2921C69.9632 75.5524 70.5 75.0021 70.5 74.3445V53.9445C70.5 53.2735 69.9632 52.7366 69.2921 52.7366ZM54.3947 62.8024C54.3947 60.9503 55.8979 59.4471 57.75 59.4471C59.6021 59.4471 61.1053 60.9503 61.1053 62.8024C61.1053 63.8761 60.6087 64.8558 59.7632 65.4866V68.1708C59.7632 69.2848 58.8639 70.184 57.75 70.184C56.6361 70.184 55.7368 69.2848 55.7368 68.1708V65.4866C54.8913 64.8558 54.3947 63.8761 54.3947 62.8024ZM51.7105 46.6971C51.7105 43.3687 54.4216 40.6577 57.75 40.6577C61.0784 40.6577 63.7895 43.3687 63.7895 46.6971V52.7366H51.7105V46.6971Z"
+                  fill="#0061A8"
+                />
+                <path
+                  d="M68.6988 44.5874C62.5678 44.5874 57.5879 49.5699 57.5879 55.7009C57.5879 61.8319 62.5678 66.8119 68.6988 66.8119C74.8298 66.8119 79.8124 61.8319 79.8124 55.7009C79.8124 49.5699 74.8298 44.5874 68.6988 44.5874Z"
+                  fill="white"
+                />
+                <path
+                  d="M68.6988 44.5874C62.5678 44.5874 57.5879 49.5699 57.5879 55.7009C57.5879 61.8319 62.5678 66.8119 68.6988 66.8119C74.8298 66.8119 79.8124 61.8319 79.8124 55.7009C79.8124 49.5699 74.8298 44.5874 68.6988 44.5874ZM73.5838 50.6578C73.9912 50.6578 74.3975 50.8111 74.7052 51.1188C75.3206 51.7342 75.3206 52.7492 74.7052 53.3646L67.9707 60.0991C67.3553 60.7145 66.3398 60.7145 65.7243 60.0991L62.7323 57.105C62.1169 56.4896 62.1169 55.4761 62.7323 54.8607C63.3477 54.2453 64.3612 54.2453 64.9766 54.8607L66.8473 56.7319L72.4609 51.1188C72.7686 50.8111 73.1764 50.6578 73.5838 50.6578Z"
+                  fill="#FFB71B"
+                />
+              </g>
+              <defs>
+                <rect
+                  fill="white"
+                  height="80"
+                  width="80"
+                />
+              </defs>
+            </svg>
+          </span>
+          <h2
+            class="el-subtitle"
+          >
+            Your User Config
+          </h2>
+          <p
+            class="el-has-grey-text el-small-text"
+          >
+            This page allows you to configure and reset the Multi Factor Authentication (MFA) devices for your organisation users. For more information on how to do this, please refer to the documentation link below.
+          </p>
+          <button
+            class="el-mb5 el-intent-neutral el-button"
+          >
+            Docs
+            <div
+              class="el-button-loader"
+            />
+          </button>
+          <button
+            class="el-mb5 el-intent-primary el-button"
+          >
+            Download CSV
+            <div
+              class="el-button-loader"
+            />
+          </button>
+        </aside>
+        <section
+          class="el-hfull el-page-container"
+        >
+          <h1
+            class="el-title"
+          >
+            Users List
+          </h1>
+          <form>
+            <div
+              class="el-form-layout-has-margin el-form-layout"
+            >
+              <div
+                class="el-input-wrap"
+              >
+                <div
+                  class="el-input-group"
+                >
+                  <input
+                    class="el-input"
+                    id="test-static-id"
+                    name="email"
+                    placeholder="Search for a user"
+                  />
+                  <label
+                    class="el-label"
+                    for="test-static-id"
+                  >
+                    Email
+                  </label>
+                </div>
+              </div>
+              <div
+                class="el-input-wrap"
+              >
+                <div
+                  class="el-input-group"
+                >
+                  <input
+                    class="el-input"
+                    id="test-static-id"
+                    name="name"
+                    placeholder="Search for a user"
+                  />
+                  <label
+                    class="el-label"
+                    for="test-static-id"
+                  >
+                    Name
+                  </label>
+                </div>
+              </div>
+              <div
+                class="el-input-wrap"
+              >
+                <label
+                  class="el-label"
+                >
+                  MFA Enabled
+                </label>
+                <div
+                  class="el-has-grey-bg el-toggle-radio-wrap"
+                >
+                  <input
+                    checked=""
+                    class="el-toggle-radio"
+                    id="mfa-enabled-all"
+                    name="mfaEnabled"
+                    type="radio"
+                    value=""
+                  />
+                  <label
+                    class="el-has-grey-bg el-toggle-radio-label"
+                    for="mfa-enabled-all"
+                  >
+                    <span
+                      class="el-toggle-radio-item"
+                    >
+                      All
+                    </span>
+                  </label>
+                  <input
+                    class="el-toggle-radio"
+                    id="mfa-enabled-true"
+                    name="mfaEnabled"
+                    type="radio"
+                    value="true"
+                  />
+                  <label
+                    class="el-has-grey-bg el-toggle-radio-label"
+                    for="mfa-enabled-true"
+                  >
+                    <span
+                      class="el-toggle-radio-item"
+                    >
+                      Enabled
+                    </span>
+                  </label>
+                  <input
+                    class="el-toggle-radio"
+                    id="mfa-enabled-false"
+                    name="mfaEnabled"
+                    type="radio"
+                    value="false"
+                  />
+                  <label
+                    class="el-has-grey-bg el-toggle-radio-label"
+                    for="mfa-enabled-false"
+                  >
+                    <span
+                      class="el-toggle-radio-item"
+                    >
+                      Not Configured
+                    </span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </form>
+          <div
+            class="el-fade-in el-mb11 el-table"
+            data-has-call-to-action="false"
+            data-has-expandable-action="true"
+            data-num-columns-excl-action-col="4"
+          >
+            <div
+              class="el-table-headers-row"
+            >
+              <div
+                class="el-table-header"
+              >
+                Name
+              </div>
+              <div
+                class="el-table-header"
+              >
+                Email
+              </div>
+              <div
+                class="el-table-header"
+              >
+                Job Title
+              </div>
+              <div
+                class="el-table-header"
+              >
+                Active
+              </div>
+              <div
+                class="el-table-header"
+              >
+                <span
+                  class="el-icon"
+                  style="font-size: 1.2rem;"
+                >
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 20 20"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M17.9922 7.38861L19.5294 7.72278C19.8041 7.78259 20 8.02567 20 8.30673V11.6933C20 11.9743 19.8041 12.2174 19.5294 12.2772L17.9922 12.6114C17.8586 13.0206 17.693 13.4198 17.4976 13.8043L18.3485 15.128C18.5005 15.3645 18.4671 15.675 18.2684 15.8737L15.8737 18.2684C15.675 18.4673 15.3645 18.5005 15.128 18.3485L13.8043 17.4976C13.4198 17.693 13.0206 17.8586 12.6114 17.9922L12.2772 19.5294C12.2176 19.8041 11.9743 20 11.6933 20H8.30673C8.02567 20 7.78244 19.8041 7.72278 19.5294L7.38861 17.9922C6.97937 17.8586 6.5802 17.693 6.19568 17.4976L4.87198 18.3485C4.63547 18.5005 4.32495 18.4671 4.12628 18.2684L1.73157 15.8737C1.5329 15.675 1.49948 15.3645 1.65146 15.128L2.50244 13.8043C2.30698 13.4198 2.14142 13.0206 2.00775 12.6114L0.470581 12.2772C0.195923 12.2174 0 11.9743 0 11.6933V8.30673C0 8.02567 0.195923 7.78259 0.470581 7.72278L2.00775 7.38861C2.14142 6.97937 2.30698 6.5802 2.50244 6.19568L1.65146 4.87198C1.49948 4.63547 1.5329 4.32495 1.73157 4.12628L4.12628 1.73157C4.32495 1.5329 4.63547 1.49948 4.87198 1.65146L6.19568 2.50244C6.5802 2.30698 6.97937 2.14142 7.38861 2.00775L7.72278 0.470581C7.78244 0.195923 8.02567 0 8.30673 0H11.6933C11.9743 0 12.2176 0.195923 12.2772 0.470581L12.6114 2.00775C13.0206 2.14142 13.4198 2.30698 13.8043 2.50244L15.128 1.65146C15.3645 1.49948 15.675 1.5329 15.8737 1.73157L18.2684 4.12628C18.4671 4.32495 18.5005 4.63547 18.3485 4.87198L17.4976 6.19568C17.693 6.5802 17.8586 6.97937 17.9922 7.38861ZM17.3953 11.5179L18.8048 11.2115V8.78845L17.3952 8.48206C17.1786 8.43491 17.0061 8.27194 16.9466 8.05862C16.7915 7.50305 16.5689 6.96579 16.2843 6.46179C16.1754 6.26877 16.1823 6.03134 16.3022 5.84488L17.0825 4.63089L15.3691 2.91733L14.1551 3.69781C13.9687 3.8176 13.7312 3.82446 13.5382 3.71552C13.0342 3.43109 12.4969 3.20831 11.9414 3.05344C11.7281 2.99393 11.5651 2.8212 11.5179 2.60468L11.2115 1.19522H8.78845L8.48206 2.60468C8.43491 2.8212 8.27194 2.99393 8.05862 3.05344C7.50305 3.20831 6.96579 3.43109 6.46164 3.71552C6.26877 3.82446 6.03134 3.81775 5.84488 3.69781L4.63074 2.91733L2.91733 4.63089L3.69781 5.84488C3.81775 6.03134 3.82446 6.26877 3.71552 6.46179C3.43109 6.96579 3.20831 7.50305 3.05344 8.05862C2.99393 8.27194 2.8212 8.43491 2.60468 8.48206L1.19522 8.78845V11.2115L2.60483 11.5179C2.82135 11.5651 2.99393 11.7281 3.05344 11.9414C3.20847 12.4969 3.43124 13.0342 3.71567 13.5382C3.82462 13.7312 3.81775 13.9687 3.69781 14.1551L2.91748 15.3691L4.63089 17.0827L5.84488 16.3022C6.03134 16.1824 6.26877 16.1755 6.46179 16.2845C6.96579 16.5689 7.50305 16.7917 8.05862 16.9466C8.27194 17.0061 8.43491 17.1788 8.48206 17.3953L8.78845 18.8048H11.2115L11.5179 17.3953C11.5651 17.1788 11.7281 17.0061 11.9414 16.9466C12.4969 16.7917 13.0342 16.5689 13.5384 16.2845C13.7312 16.1755 13.9687 16.1823 14.1551 16.3022L15.3693 17.0827L17.0827 15.3691L16.3022 14.1551C16.1823 13.9687 16.1755 13.7312 16.2845 13.5382C16.5689 13.0342 16.7917 12.4969 16.9466 11.9414C17.0061 11.7281 17.1788 11.5651 17.3953 11.5179ZM5.21912 10C5.21912 7.36389 7.36389 5.21912 10 5.21912C12.6361 5.21912 14.7809 7.36389 14.7809 10C14.7809 12.6361 12.6361 14.7809 10 14.7809C7.36389 14.7809 5.21912 12.6361 5.21912 10ZM6.41434 10C6.41434 11.9771 8.02292 13.5857 10 13.5857C11.9771 13.5857 13.5857 11.9771 13.5857 10C13.5857 8.02292 11.9771 6.41434 10 6.41434C8.02292 6.41434 6.41434 8.02292 6.41434 10Z"
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </div>
+            <div
+              class="el-table-row-container"
+            >
+              <div
+                class="el-table-row"
+              >
+                <div
+                  class="el-table-cell"
+                >
+                  <div
+                    class="el-table-cell-content"
+                    data-narrow-label="Name"
+                  >
+                    Will McVay
+                  </div>
+                </div>
+                <div
+                  class="el-table-cell"
+                >
+                  <div
+                    class="el-table-cell-content"
+                    data-narrow-label="Email"
+                  >
+                    test@icloud.com
+                  </div>
+                </div>
+                <div
+                  class="el-table-cell"
+                >
+                  <div
+                    class="el-table-cell-content"
+                    data-narrow-label="Job Title"
+                  />
+                </div>
+                <div
+                  class="el-table-cell"
+                >
+                  <div
+                    class="el-table-cell-content"
+                    data-narrow-label="Active"
+                  >
+                    <span
+                      class="el-intent-success el-icon"
+                    >
+                      <svg
+                        fill="none"
+                        height="1em"
+                        viewBox="0 0 12 12"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <g>
+                          <path
+                            d="M11.2529 2.25459C10.9205 1.91513 10.3795 1.91515 10.0471 2.25457L4.03736 8.41347L1.45291 5.77405C1.12054 5.43458 0.579492 5.43467 0.247127 5.77403C-0.0823813 6.11051 -0.0823676 6.65391 0.24712 6.99041L3.43448 10.2455C3.76682 10.585 4.30815 10.5847 4.64026 10.2455L11.2529 3.47098C11.5824 3.13448 11.5823 2.59107 11.2529 2.25459Z"
+                            fill="currentColor"
+                          />
+                        </g>
+                        <defs>
+                          <clippath
+                            id="clip0"
+                          >
+                            <rect
+                              fill="white"
+                              height="1em"
+                              width="1em"
+                            />
+                          </clippath>
+                        </defs>
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="el-table-expandable-row-trigger-cell"
+                >
+                  <span
+                    class="el-intent-secondary el-icon"
+                  >
+                    <svg
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 18 18"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M9.00005 0C13.9627 0 18 4.03743 18 9C18 13.9627 13.9627 18 9.00005 18C4.03741 18 0 13.9626 0 9C0 4.03743 4.03741 0 9.00005 0ZM4.32346 7.20004L9 12.6001L13.6765 7.20004H4.32346Z"
+                        fill="currentColor"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+              <div
+                class="el-table-expandable-row"
+              >
+                <div
+                  class="el-table-expandable-container"
+                >
+                  <div
+                    class="el-mb7 el-button-group"
+                  >
+                    <div
+                      class="el-button-group-align-center el-button-group-inner"
+                    >
+                      <button
+                        class="el-intent-primary el-button"
+                      >
+                        Fetch Current Authenticators
+                        <div
+                          class="el-button-loader"
+                        />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="el-pagination-wrap"
+          >
+            <div
+              class="el-pagination-text"
+            >
+              <input
+                class="el-pagination-input"
+                value="1"
+              />
+               of 
+              1
+            </div>
+            <button
+              class="el-pagination-button"
+              data-testid="back-button"
+              type="button"
+            >
+              <span
+                class="el-icon"
+              >
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 12 12"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0 6L9 0V12L0 6Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+            </button>
+            <button
+              class="el-pagination-button"
+              data-testid="forward-button"
+              type="button"
+            >
+              <span
+                class="el-icon"
+              >
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 12 12"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 6L3 12V0L12 6Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="el-snack-holder"
+    />
+    <div
+      class="el-flex-auto el-flex-container"
+    >
+      <aside
+        class="el-secondary-nav-container"
+      >
+        <h1
+          class="el-title"
+        >
+          Admin
+        </h1>
+        <span
+          class="el-mb5 el-icon-size-large el-icon"
+        >
+          <svg
+            fill="none"
+            height="1em"
+            viewBox="0 0 80 80"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g>
+              <mask
+                height="72"
+                id="mask0_7531_91581"
+                maskUnits="userSpaceOnUse"
+                width="72"
+                x="5"
+                y="7"
+              >
+                <circle
+                  cx="41.0144"
+                  cy="42.6966"
+                  fill="#C4C4C4"
+                  r="35.6309"
+                  transform="rotate(-2.75697 41.0144 42.6966)"
+                />
+              </mask>
+              <g
+                mask="url(#mask0_7531_91581)"
+              >
+                <rect
+                  fill="white"
+                  height="80.9118"
+                  transform="rotate(-2.75697 -2.50684 3.1748)"
+                  width="88.3349"
+                  x="-2.50684"
+                  y="3.1748"
+                />
+                <path
+                  d="M70.3574 81.0422C70.3574 81.0422 61.8307 81.4528 55.2964 76.9368C45.476 74.0857 48.9105 53.9161 49.6294 53.1428C50.3481 52.3692 52.0831 52.8454 55.9758 54.4604C61.3294 56.6814 62.6238 61.2989 64.5359 64.6455C67.2517 69.3986 69.9646 72.8862 69.9646 72.8862C71.4065 72.8168 69.0303 77.493 70.3574 81.0422Z"
+                  fill="#23A4DE"
+                />
+                <path
+                  d="M33.2762 57.9805C32.9622 60.1558 25.8632 68.9556 25.404 80.8675C34.4689 89.199 47.9697 90.0308 57.9981 83.7437C56.6795 73.9172 52.516 58.8145 50.3053 54.4072C47.2325 48.2814 41.1839 47.1559 41.1839 47.1559C41.1839 47.1559 33.6878 55.1303 33.2762 57.9805Z"
+                  fill="#23A4DE"
+                />
+                <ellipse
+                  cx="42.9394"
+                  cy="53.038"
+                  fill="#0076AB"
+                  rx="6.69342"
+                  ry="5.29479"
+                  transform="rotate(-2.75697 42.9394 53.038)"
+                />
+                <path
+                  d="M23.7949 94.0608C23.7949 94.0608 22.9216 79.8757 29.8486 74.1749C36.7756 68.4745 36.7222 54.2479 36.1497 53.451C35.5773 52.6537 28.8097 53.9496 25.717 56.8097C19.9565 62.137 15.8876 70.3815 13.7234 77.8244C10.4348 76.0227 24.7845 90.6383 23.7949 94.0608Z"
+                  fill="#23A4DE"
+                />
+                <path
+                  d="M25.3927 78.941C26.3442 75.5509 30.0652 67.94 30.0652 67.94C30.0652 67.94 27.5278 76.9802 29.6135 81.7104C28.1128 81.4111 26.5585 79.9996 25.3927 78.941Z"
+                  fill="#0076AB"
+                />
+                <path
+                  d="M60.7921 77.5352C59.5073 74.2212 55.0303 66.9349 55.0303 66.9349C55.0303 66.9349 58.4567 75.7722 56.8198 80.7273C58.2987 80.2809 59.7235 78.712 60.7921 77.5352Z"
+                  fill="#0076AB"
+                />
+              </g>
+              <path
+                d="M30.7234 35.1932C30.8675 38.1844 28.721 40.7183 25.9293 40.8528C23.1373 40.9872 20.7572 38.6712 20.6132 35.68C20.4691 32.6885 22.6156 30.1546 25.4077 30.0201C28.1993 29.8857 30.5794 32.2017 30.7234 35.1932Z"
+                fill="#FFE5C7"
+              />
+              <path
+                d="M64.4138 33.2671C64.5579 36.2586 62.4114 38.7925 59.6197 38.927C56.8277 39.0614 54.4477 36.7454 54.3036 33.7539C54.1596 30.7627 56.306 28.2284 59.0981 28.094C61.8898 27.9596 64.2698 30.2759 64.4138 33.2671Z"
+                fill="#FFE5C7"
+              />
+              <path
+                d="M24.6052 32.8781C24.6052 32.8781 26.4281 56.2812 43.2961 55.4689C60.1641 54.6567 61.3697 36.3279 60.6518 29.6805C59.9342 23.033 56.4608 12.8643 56.4608 12.8643L42.2016 12.0892L29.8202 15.1914L24.1364 19.0149L23.9451 23.3044L24.6052 32.8781Z"
+                fill="#FFE5C7"
+              />
+              <path
+                d="M32.718 25.6259C32.6906 26.1091 33.2972 26.0049 33.7987 25.922C34.8421 25.7497 34.5307 24.9804 36.729 24.9601C37.5266 24.9527 38.8289 26.2169 39.1968 25.5339C40.2424 23.5932 32.9065 22.3065 32.718 25.6259Z"
+                fill="#262F69"
+              />
+              <path
+                d="M55.3818 25.0609C54.8814 24.1237 53.2235 23.7212 52.0755 23.8482C51.1143 23.9547 49.5049 24.4366 49.574 25.4207C49.5953 25.722 50.0465 25.6677 50.3974 25.5874C50.9425 25.4626 51.1623 25.2402 51.6894 25.1921C52.2019 25.1451 52.7297 25.2329 53.1803 25.4368C53.7261 25.6842 54.1141 26.0653 54.8027 25.8719C55.4209 25.6981 55.6325 25.5305 55.3818 25.0609Z"
+                fill="#262F69"
+              />
+              <path
+                d="M53.7607 28.1333C53.6777 28.086 53.5896 28.0447 53.4965 28.0106C50.4208 26.8814 49.3772 31.7553 51.6222 32.5464C54.8634 33.6884 55.6859 29.2332 53.7607 28.1333Z"
+                fill="#262F69"
+              />
+              <path
+                d="M53.3789 28.6731C53.0378 28.3496 52.3889 28.6373 52.4815 29.0775C52.5287 29.302 52.5736 29.4815 52.781 29.6344C53.0972 29.8681 53.7307 29.5944 53.705 29.2219C53.6881 28.9794 53.5566 28.8417 53.3789 28.6731Z"
+                fill="white"
+              />
+              <path
+                d="M36.059 43.5956C36.059 43.5956 43.6312 48.1135 49.4032 44.7856C46.2724 49.3031 37.818 48.611 36.059 43.5956Z"
+                fill="#262F69"
+              />
+              <path
+                d="M26.7115 7.6701C30.9513 1.53414 39.8937 0.103319 47.9814 1.61918C52.5595 2.47723 67.5939 7.66878 63.2948 16.4786C63.5453 19.1175 63.6867 21.7793 63.6892 24.4301C63.6905 26.1153 63.7223 27.9269 63.3058 29.5738C62.7838 31.6377 60.7673 31.0265 60.0754 29.3956C58.8191 26.4341 60.0083 23.1506 57.9834 20.2383C53.3824 13.6217 49.9396 17.1144 42.131 18.1329C36.0199 18.93 29.9088 15.7577 29.9088 15.7577C29.9088 15.7577 25.5298 22.1067 26.1929 32.069C26.4018 35.2119 20.9435 34.2216 21.421 27.3008C21.898 20.38 20.2452 8.2906 26.7115 7.6701Z"
+                fill="#262F69"
+              />
+              <path
+                d="M36.7842 28.1338C36.7011 28.0865 36.613 28.0452 36.5199 28.011C33.4443 26.8819 32.4006 31.7558 34.6456 32.5469C37.8868 33.6889 38.7093 29.2337 36.7842 28.1338Z"
+                fill="#262F69"
+              />
+              <path
+                d="M36.4031 28.674C36.062 28.3506 35.4131 28.6382 35.5057 29.0785C35.5533 29.3028 35.5978 29.4824 35.8052 29.6353C36.1214 29.8691 36.755 29.5957 36.7292 29.2229C36.7123 28.9804 36.5808 28.8426 36.4031 28.674Z"
+                fill="white"
+              />
+              <path
+                d="M69.2921 52.7366H67.8158V46.6971C67.8158 41.1408 63.3063 36.6313 57.75 36.6313C52.1937 36.6313 47.6842 41.1408 47.6842 46.6971V52.7366H46.2079C45.5368 52.7366 45 53.2735 45 53.9445V74.3445C45 75.0021 45.5368 75.5524 46.2079 75.5524H69.2921C69.9632 75.5524 70.5 75.0021 70.5 74.3445V53.9445C70.5 53.2735 69.9632 52.7366 69.2921 52.7366ZM51.7105 46.6971C51.7105 43.3687 54.4216 40.6577 57.75 40.6577C61.0784 40.6577 63.7895 43.3687 63.7895 46.6971V52.7366H51.7105V46.6971Z"
+                fill="white"
+              />
+              <path
+                d="M69.2921 52.7366H67.8158V46.6971C67.8158 41.1408 63.3063 36.6313 57.75 36.6313C52.1937 36.6313 47.6842 41.1408 47.6842 46.6971V52.7366H46.2079C45.5368 52.7366 45 53.2735 45 53.9445V74.3445C45 75.0021 45.5368 75.5524 46.2079 75.5524H69.2921C69.9632 75.5524 70.5 75.0021 70.5 74.3445V53.9445C70.5 53.2735 69.9632 52.7366 69.2921 52.7366ZM54.3947 62.8024C54.3947 60.9503 55.8979 59.4471 57.75 59.4471C59.6021 59.4471 61.1053 60.9503 61.1053 62.8024C61.1053 63.8761 60.6087 64.8558 59.7632 65.4866V68.1708C59.7632 69.2848 58.8639 70.184 57.75 70.184C56.6361 70.184 55.7368 69.2848 55.7368 68.1708V65.4866C54.8913 64.8558 54.3947 63.8761 54.3947 62.8024ZM51.7105 46.6971C51.7105 43.3687 54.4216 40.6577 57.75 40.6577C61.0784 40.6577 63.7895 43.3687 63.7895 46.6971V52.7366H51.7105V46.6971Z"
+                fill="#0061A8"
+              />
+              <path
+                d="M68.6988 44.5874C62.5678 44.5874 57.5879 49.5699 57.5879 55.7009C57.5879 61.8319 62.5678 66.8119 68.6988 66.8119C74.8298 66.8119 79.8124 61.8319 79.8124 55.7009C79.8124 49.5699 74.8298 44.5874 68.6988 44.5874Z"
+                fill="white"
+              />
+              <path
+                d="M68.6988 44.5874C62.5678 44.5874 57.5879 49.5699 57.5879 55.7009C57.5879 61.8319 62.5678 66.8119 68.6988 66.8119C74.8298 66.8119 79.8124 61.8319 79.8124 55.7009C79.8124 49.5699 74.8298 44.5874 68.6988 44.5874ZM73.5838 50.6578C73.9912 50.6578 74.3975 50.8111 74.7052 51.1188C75.3206 51.7342 75.3206 52.7492 74.7052 53.3646L67.9707 60.0991C67.3553 60.7145 66.3398 60.7145 65.7243 60.0991L62.7323 57.105C62.1169 56.4896 62.1169 55.4761 62.7323 54.8607C63.3477 54.2453 64.3612 54.2453 64.9766 54.8607L66.8473 56.7319L72.4609 51.1188C72.7686 50.8111 73.1764 50.6578 73.5838 50.6578Z"
+                fill="#FFB71B"
+              />
+            </g>
+            <defs>
+              <rect
+                fill="white"
+                height="80"
+                width="80"
+              />
+            </defs>
+          </svg>
+        </span>
+        <h2
+          class="el-subtitle"
+        >
+          Your User Config
+        </h2>
+        <p
+          class="el-has-grey-text el-small-text"
+        >
+          This page allows you to configure and reset the Multi Factor Authentication (MFA) devices for your organisation users. For more information on how to do this, please refer to the documentation link below.
+        </p>
+        <button
+          class="el-mb5 el-intent-neutral el-button"
+        >
+          Docs
+          <div
+            class="el-button-loader"
+          />
+        </button>
+        <button
+          class="el-mb5 el-intent-primary el-button"
+        >
+          Download CSV
+          <div
+            class="el-button-loader"
+          />
+        </button>
+      </aside>
+      <section
+        class="el-hfull el-page-container"
+      >
+        <h1
+          class="el-title"
+        >
+          Users List
+        </h1>
+        <form>
+          <div
+            class="el-form-layout-has-margin el-form-layout"
+          >
+            <div
+              class="el-input-wrap"
+            >
+              <div
+                class="el-input-group"
+              >
+                <input
+                  class="el-input"
+                  id="test-static-id"
+                  name="email"
+                  placeholder="Search for a user"
+                />
+                <label
+                  class="el-label"
+                  for="test-static-id"
+                >
+                  Email
+                </label>
+              </div>
+            </div>
+            <div
+              class="el-input-wrap"
+            >
+              <div
+                class="el-input-group"
+              >
+                <input
+                  class="el-input"
+                  id="test-static-id"
+                  name="name"
+                  placeholder="Search for a user"
+                />
+                <label
+                  class="el-label"
+                  for="test-static-id"
+                >
+                  Name
+                </label>
+              </div>
+            </div>
+            <div
+              class="el-input-wrap"
+            >
+              <label
+                class="el-label"
+              >
+                MFA Enabled
+              </label>
+              <div
+                class="el-has-grey-bg el-toggle-radio-wrap"
+              >
+                <input
+                  checked=""
+                  class="el-toggle-radio"
+                  id="mfa-enabled-all"
+                  name="mfaEnabled"
+                  type="radio"
+                  value=""
+                />
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="mfa-enabled-all"
+                >
+                  <span
+                    class="el-toggle-radio-item"
+                  >
+                    All
+                  </span>
+                </label>
+                <input
+                  class="el-toggle-radio"
+                  id="mfa-enabled-true"
+                  name="mfaEnabled"
+                  type="radio"
+                  value="true"
+                />
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="mfa-enabled-true"
+                >
+                  <span
+                    class="el-toggle-radio-item"
+                  >
+                    Enabled
+                  </span>
+                </label>
+                <input
+                  class="el-toggle-radio"
+                  id="mfa-enabled-false"
+                  name="mfaEnabled"
+                  type="radio"
+                  value="false"
+                />
+                <label
+                  class="el-has-grey-bg el-toggle-radio-label"
+                  for="mfa-enabled-false"
+                >
+                  <span
+                    class="el-toggle-radio-item"
+                  >
+                    Not Configured
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div
+          class="el-fade-in el-mb11 el-table"
+          data-has-call-to-action="false"
+          data-has-expandable-action="true"
+          data-num-columns-excl-action-col="4"
+        >
+          <div
+            class="el-table-headers-row"
+          >
+            <div
+              class="el-table-header"
+            >
+              Name
+            </div>
+            <div
+              class="el-table-header"
+            >
+              Email
+            </div>
+            <div
+              class="el-table-header"
+            >
+              Job Title
+            </div>
+            <div
+              class="el-table-header"
+            >
+              Active
+            </div>
+            <div
+              class="el-table-header"
+            >
+              <span
+                class="el-icon"
+                style="font-size: 1.2rem;"
+              >
+                <svg
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 20 20"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M17.9922 7.38861L19.5294 7.72278C19.8041 7.78259 20 8.02567 20 8.30673V11.6933C20 11.9743 19.8041 12.2174 19.5294 12.2772L17.9922 12.6114C17.8586 13.0206 17.693 13.4198 17.4976 13.8043L18.3485 15.128C18.5005 15.3645 18.4671 15.675 18.2684 15.8737L15.8737 18.2684C15.675 18.4673 15.3645 18.5005 15.128 18.3485L13.8043 17.4976C13.4198 17.693 13.0206 17.8586 12.6114 17.9922L12.2772 19.5294C12.2176 19.8041 11.9743 20 11.6933 20H8.30673C8.02567 20 7.78244 19.8041 7.72278 19.5294L7.38861 17.9922C6.97937 17.8586 6.5802 17.693 6.19568 17.4976L4.87198 18.3485C4.63547 18.5005 4.32495 18.4671 4.12628 18.2684L1.73157 15.8737C1.5329 15.675 1.49948 15.3645 1.65146 15.128L2.50244 13.8043C2.30698 13.4198 2.14142 13.0206 2.00775 12.6114L0.470581 12.2772C0.195923 12.2174 0 11.9743 0 11.6933V8.30673C0 8.02567 0.195923 7.78259 0.470581 7.72278L2.00775 7.38861C2.14142 6.97937 2.30698 6.5802 2.50244 6.19568L1.65146 4.87198C1.49948 4.63547 1.5329 4.32495 1.73157 4.12628L4.12628 1.73157C4.32495 1.5329 4.63547 1.49948 4.87198 1.65146L6.19568 2.50244C6.5802 2.30698 6.97937 2.14142 7.38861 2.00775L7.72278 0.470581C7.78244 0.195923 8.02567 0 8.30673 0H11.6933C11.9743 0 12.2176 0.195923 12.2772 0.470581L12.6114 2.00775C13.0206 2.14142 13.4198 2.30698 13.8043 2.50244L15.128 1.65146C15.3645 1.49948 15.675 1.5329 15.8737 1.73157L18.2684 4.12628C18.4671 4.32495 18.5005 4.63547 18.3485 4.87198L17.4976 6.19568C17.693 6.5802 17.8586 6.97937 17.9922 7.38861ZM17.3953 11.5179L18.8048 11.2115V8.78845L17.3952 8.48206C17.1786 8.43491 17.0061 8.27194 16.9466 8.05862C16.7915 7.50305 16.5689 6.96579 16.2843 6.46179C16.1754 6.26877 16.1823 6.03134 16.3022 5.84488L17.0825 4.63089L15.3691 2.91733L14.1551 3.69781C13.9687 3.8176 13.7312 3.82446 13.5382 3.71552C13.0342 3.43109 12.4969 3.20831 11.9414 3.05344C11.7281 2.99393 11.5651 2.8212 11.5179 2.60468L11.2115 1.19522H8.78845L8.48206 2.60468C8.43491 2.8212 8.27194 2.99393 8.05862 3.05344C7.50305 3.20831 6.96579 3.43109 6.46164 3.71552C6.26877 3.82446 6.03134 3.81775 5.84488 3.69781L4.63074 2.91733L2.91733 4.63089L3.69781 5.84488C3.81775 6.03134 3.82446 6.26877 3.71552 6.46179C3.43109 6.96579 3.20831 7.50305 3.05344 8.05862C2.99393 8.27194 2.8212 8.43491 2.60468 8.48206L1.19522 8.78845V11.2115L2.60483 11.5179C2.82135 11.5651 2.99393 11.7281 3.05344 11.9414C3.20847 12.4969 3.43124 13.0342 3.71567 13.5382C3.82462 13.7312 3.81775 13.9687 3.69781 14.1551L2.91748 15.3691L4.63089 17.0827L5.84488 16.3022C6.03134 16.1824 6.26877 16.1755 6.46179 16.2845C6.96579 16.5689 7.50305 16.7917 8.05862 16.9466C8.27194 17.0061 8.43491 17.1788 8.48206 17.3953L8.78845 18.8048H11.2115L11.5179 17.3953C11.5651 17.1788 11.7281 17.0061 11.9414 16.9466C12.4969 16.7917 13.0342 16.5689 13.5384 16.2845C13.7312 16.1755 13.9687 16.1823 14.1551 16.3022L15.3693 17.0827L17.0827 15.3691L16.3022 14.1551C16.1823 13.9687 16.1755 13.7312 16.2845 13.5382C16.5689 13.0342 16.7917 12.4969 16.9466 11.9414C17.0061 11.7281 17.1788 11.5651 17.3953 11.5179ZM5.21912 10C5.21912 7.36389 7.36389 5.21912 10 5.21912C12.6361 5.21912 14.7809 7.36389 14.7809 10C14.7809 12.6361 12.6361 14.7809 10 14.7809C7.36389 14.7809 5.21912 12.6361 5.21912 10ZM6.41434 10C6.41434 11.9771 8.02292 13.5857 10 13.5857C11.9771 13.5857 13.5857 11.9771 13.5857 10C13.5857 8.02292 11.9771 6.41434 10 6.41434C8.02292 6.41434 6.41434 8.02292 6.41434 10Z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+          <div
+            class="el-table-row-container"
+          >
+            <div
+              class="el-table-row"
+            >
+              <div
+                class="el-table-cell"
+              >
+                <div
+                  class="el-table-cell-content"
+                  data-narrow-label="Name"
+                >
+                  Will McVay
+                </div>
+              </div>
+              <div
+                class="el-table-cell"
+              >
+                <div
+                  class="el-table-cell-content"
+                  data-narrow-label="Email"
+                >
+                  test@icloud.com
+                </div>
+              </div>
+              <div
+                class="el-table-cell"
+              >
+                <div
+                  class="el-table-cell-content"
+                  data-narrow-label="Job Title"
+                />
+              </div>
+              <div
+                class="el-table-cell"
+              >
+                <div
+                  class="el-table-cell-content"
+                  data-narrow-label="Active"
+                >
+                  <span
+                    class="el-intent-success el-icon"
+                  >
+                    <svg
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 12 12"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g>
+                        <path
+                          d="M11.2529 2.25459C10.9205 1.91513 10.3795 1.91515 10.0471 2.25457L4.03736 8.41347L1.45291 5.77405C1.12054 5.43458 0.579492 5.43467 0.247127 5.77403C-0.0823813 6.11051 -0.0823676 6.65391 0.24712 6.99041L3.43448 10.2455C3.76682 10.585 4.30815 10.5847 4.64026 10.2455L11.2529 3.47098C11.5824 3.13448 11.5823 2.59107 11.2529 2.25459Z"
+                          fill="currentColor"
+                        />
+                      </g>
+                      <defs>
+                        <clippath
+                          id="clip0"
+                        >
+                          <rect
+                            fill="white"
+                            height="1em"
+                            width="1em"
+                          />
+                        </clippath>
+                      </defs>
+                    </svg>
+                  </span>
+                </div>
+              </div>
+              <div
+                class="el-table-expandable-row-trigger-cell"
+              >
+                <span
+                  class="el-intent-secondary el-icon"
+                >
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 18 18"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M9.00005 0C13.9627 0 18 4.03743 18 9C18 13.9627 13.9627 18 9.00005 18C4.03741 18 0 13.9626 0 9C0 4.03743 4.03741 0 9.00005 0ZM4.32346 7.20004L9 12.6001L13.6765 7.20004H4.32346Z"
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </div>
+            <div
+              class="el-table-expandable-row"
+            >
+              <div
+                class="el-table-expandable-container"
+              >
+                <div
+                  class="el-mb7 el-button-group"
+                >
+                  <div
+                    class="el-button-group-align-center el-button-group-inner"
+                  >
+                    <button
+                      class="el-intent-primary el-button"
+                    >
+                      Fetch Current Authenticators
+                      <div
+                        class="el-button-loader"
+                      />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="el-pagination-wrap"
+        >
+          <div
+            class="el-pagination-text"
+          >
+            <input
+              class="el-pagination-input"
+              value="1"
+            />
+             of 
+            1
+          </div>
+          <button
+            class="el-pagination-button"
+            data-testid="back-button"
+            type="button"
+          >
+            <span
+              class="el-icon"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 12 12"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 6L9 0V12L0 6Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+          </button>
+          <button
+            class="el-pagination-button"
+            data-testid="forward-button"
+            type="button"
+          >
+            <span
+              class="el-icon"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                viewBox="0 0 12 12"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 6L3 12V0L12 6Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+          </button>
         </div>
       </section>
     </div>

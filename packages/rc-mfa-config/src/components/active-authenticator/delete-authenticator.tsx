@@ -1,7 +1,6 @@
 import React, { FC, useEffect } from 'react'
 import { Button } from '@reapit/elements'
-import { SendFunction, useReapitUpdate } from '@reapit/utils-react'
-import { UpdateActionNames, updateActions } from '@reapit/utils-common'
+import { SendFunction, useReapitUpdate, UpdateActionNames, updateActions } from '@reapit/use-reapit-data'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 
 interface DeleteAuthenticatorProps {

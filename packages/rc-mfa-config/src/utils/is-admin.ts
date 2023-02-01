@@ -8,3 +8,8 @@ export const getIsAdmin = (connectSession: ReapitConnectSession | null): boolean
 
   return isOrgAdmin || isReapitEmployee || isReapitEmployeeAdmin
 }
+
+export const getIsOrgAdmin = (connectSession: ReapitConnectSession | null): boolean => {
+  const groups = connectSession?.loginIdentity.groups ?? []
+  return groups.includes('OrganisationAdmin')
+}

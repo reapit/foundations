@@ -94,17 +94,6 @@ Object {
                   </label>
                 </div>
                 <div
-                  class="el-loader-container"
-                >
-                  <div
-                    class="el-mb5 el-loader"
-                  >
-                    <div
-                      class="el-loader-moving-bar"
-                    />
-                  </div>
-                </div>
-                <div
                   class="el-multi-select-input-wrapper"
                 >
                   <input
@@ -1078,17 +1067,6 @@ Object {
                 >
                   Search Apps
                 </label>
-              </div>
-              <div
-                class="el-loader-container"
-              >
-                <div
-                  class="el-mb5 el-loader"
-                >
-                  <div
-                    class="el-loader-moving-bar"
-                  />
-                </div>
               </div>
               <div
                 class="el-multi-select-input-wrapper"
