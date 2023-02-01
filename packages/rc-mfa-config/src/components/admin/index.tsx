@@ -1,4 +1,4 @@
-import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
+import React, { ChangeEvent, Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
 import {
   Title,
   Subtitle,
@@ -21,19 +21,23 @@ import {
   elMb11,
   Label,
   ToggleRadio,
+  elBorderRadius,
+  Select,
+  elWFull,
 } from '@reapit/elements'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { UserModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { UserInfoModel, UserModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { openNewPage } from '../../utils/navigation'
 import ErrorBoundary from '../error-boundary'
 import { useForm, UseFormWatch } from 'react-hook-form'
 import { cx } from '@linaria/core'
-import { objectToQuery, useReapitGet } from '@reapit/utils-react'
-import { GetActionNames, getActions, StringMap } from '@reapit/utils-common'
+import { GetActionNames, getActions, StringMap, objectToQuery, useReapitGet } from '@reapit/use-reapit-data'
 import { FetchAuthenticators } from './fetch-authenticators'
 import debounce from 'just-debounce-it'
 import { DownloadUsersCSV } from './download-users-csv'
+import { getIsOrgAdmin } from '../../utils/is-admin'
+import { ControlsContainer } from './__styles__'
 
 export interface UserFilters {
   email?: string
@@ -47,13 +51,40 @@ export const handleSetAdminFilters =
     return () => subscription.unsubscribe()
   }
 
+export const handleInitialUserOrgSet =
+  (setOrganisationId: Dispatch<SetStateAction<string>>, hasMultiOrgs?: boolean, orgId?: string | null) => () => {
+    if (orgId && !hasMultiOrgs) {
+      setOrganisationId(orgId)
+    }
+  }
+
+export const handleUserOrgChange =
+  (setOrganisationId: Dispatch<SetStateAction<string>>) => (event: ChangeEvent<HTMLSelectElement>) => {
+    event.preventDefault()
+    event.stopPropagation()
+    const orgId = event.target.value
+
+    if (orgId) {
+      setOrganisationId(orgId)
+    }
+  }
+
 export const AdminPage: FC = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [userSearch, setUserSearch] = useState<UserFilters>({})
   const [pageNumber, setPageNumber] = useState<number>(1)
+  const [organisationId, setOrganisationId] = useState<string>('')
   const { register, watch } = useForm<UserFilters>({ mode: 'all' })
-  const organisationId = connectSession?.loginIdentity.orgId
+  const email = connectSession?.loginIdentity.email
+  const orgId = connectSession?.loginIdentity.orgId
   const queryParams = { ...objectToQuery(userSearch), organisationId } as StringMap
+
+  const [userInfo, userInfoLoading] = useReapitGet<UserInfoModel>({
+    reapitConnectBrowserSession,
+    action: getActions(window.reapit.config.appEnv)[GetActionNames.getUserInfo],
+    queryParams: { email: encodeURIComponent(email ?? '') },
+    fetchWhenTrue: [email],
+  })
 
   const [users, usersLoading] = useReapitGet<UserModelPagedResult>({
     reapitConnectBrowserSession,
@@ -62,7 +93,12 @@ export const AdminPage: FC = () => {
     fetchWhenTrue: [organisationId],
   })
 
+  const isAdmin = getIsOrgAdmin(connectSession)
+  const userOrgs = userInfo?.userOrganisations
+  const hasMultiOrgs = !userInfo || (isAdmin && userOrgs && userOrgs.length > 1)
+
   useEffect(handleSetAdminFilters(setUserSearch, watch), [])
+  useEffect(handleInitialUserOrgSet(setOrganisationId, hasMultiOrgs, orgId), [hasMultiOrgs, connectSession])
 
   return (
     <FlexContainer isFlexAuto>
@@ -78,6 +114,35 @@ export const AdminPage: FC = () => {
           Docs
         </Button>
         <DownloadUsersCSV queryParams={queryParams} />
+        {hasMultiOrgs && (
+          <div className={elMb5}>
+            <Subtitle>Organisations</Subtitle>
+            <SmallText hasGreyText>
+              You are an admin for multiple organisations - select from the list below for data specific to one of these
+              organisations
+            </SmallText>
+
+            <ControlsContainer className={elBorderRadius}>
+              <InputGroup>
+                <Select
+                  className={elWFull}
+                  value={organisationId ?? ''}
+                  onChange={handleUserOrgChange(setOrganisationId)}
+                >
+                  <option key="default-option" value={''}>
+                    Please Select
+                  </option>
+                  {userInfo?.userOrganisations?.map((option) => (
+                    <option key={option.organisationId} value={option.organisationId}>
+                      {option.name}
+                    </option>
+                  ))}
+                </Select>
+                <Label htmlFor="myId">Select Organisation</Label>
+              </InputGroup>
+            </ControlsContainer>
+          </div>
+        )}
       </SecondaryNavContainer>
       <PageContainer className={elHFull}>
         <ErrorBoundary>
@@ -119,7 +184,7 @@ export const AdminPage: FC = () => {
               </InputWrap>
             </FormLayout>
           </form>
-          {usersLoading ? (
+          {usersLoading || userInfoLoading ? (
             <Loader />
           ) : users?._embedded?.length ? (
             <>
@@ -172,6 +237,10 @@ export const AdminPage: FC = () => {
                 numberPages={Math.ceil((users?.totalCount ?? 1) / 12)}
               />
             </>
+          ) : !organisationId ? (
+            <PersistentNotification isFullWidth isExpanded intent="secondary" isInline>
+              Please select an organisation from the left hand side before proceeding.
+            </PersistentNotification>
           ) : (
             <PersistentNotification isFullWidth isExpanded intent="secondary" isInline>
               No users found based on your current search.

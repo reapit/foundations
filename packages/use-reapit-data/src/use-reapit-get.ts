@@ -39,6 +39,9 @@ export const useReapitGet = <DataType>({
   const { success: successSnack, error: errorSnack } = useSnack()
   const { successMessage, errorMessage } = action
   const url = useMemo(getUrl(action, queryParams, uriParams), [queryParams, uriParams, action])
+  const isEnabled = fetchWhenTrue?.length
+    ? Boolean(fetchWhenTrue?.filter(Boolean).length === fetchWhenTrue.length)
+    : true
 
   const { data, error, isLoading, isRefetching, refetch } = useQuery<DataType, AxiosError<any>>([url], {
     queryFn: async () => {
@@ -65,11 +68,12 @@ export const useReapitGet = <DataType>({
       }
     },
     retry: 1,
-    enabled: fetchWhenTrue?.length ? Boolean(fetchWhenTrue?.filter(Boolean).length === fetchWhenTrue.length) : true,
+    enabled: isEnabled,
   })
 
   const result = data ? data : null
   const errorString = error?.message ? error.message : null
+  const loading = isEnabled && isLoading
 
-  return [result, isLoading, errorString, refetch, isRefetching]
+  return [result, loading, errorString, refetch, isRefetching]
 }

@@ -9,7 +9,7 @@ Object {
         class="el-snack-holder"
       />
       <button
-        class="el-mb3 el-intent-primary el-button"
+        class="el-mb5 el-intent-primary el-button"
       >
         Download CSV
         <div
@@ -23,7 +23,7 @@ Object {
       class="el-snack-holder"
     />
     <button
-      class="el-mb3 el-intent-primary el-button"
+      class="el-mb5 el-intent-primary el-button"
     >
       Download CSV
       <div

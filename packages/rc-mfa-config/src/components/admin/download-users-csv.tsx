@@ -1,11 +1,10 @@
 import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
 import { UserModelPagedResult } from '@reapit/foundations-ts-definitions'
-import { GetActionNames, getActions, StringMap } from '@reapit/utils-common'
-import { useReapitGet } from '@reapit/utils-react'
+import { useReapitGet, GetActionNames, getActions, StringMap } from '@reapit/use-reapit-data'
 import FileSaver from 'file-saver'
 import Papa from 'papaparse'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { Button, elMb3 } from '@reapit/elements'
+import { Button, elMb5 } from '@reapit/elements'
 
 interface DownloadUsersCSVProps {
   queryParams: StringMap
@@ -38,7 +37,7 @@ export const handleSetDownloading = (setIsDownloading: Dispatch<SetStateAction<b
 export const DownloadUsersCSV: FC<DownloadUsersCSVProps> = ({ queryParams }) => {
   const [isDownloading, setIsDownloading] = useState<boolean>(false)
 
-  const [users, usersLoading] = useReapitGet<UserModelPagedResult>({
+  const [users] = useReapitGet<UserModelPagedResult>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getUsers],
     queryParams: {
@@ -53,10 +52,10 @@ export const DownloadUsersCSV: FC<DownloadUsersCSVProps> = ({ queryParams }) => 
 
   return (
     <Button
-      className={elMb3}
+      className={elMb5}
       intent="primary"
       disabled={isDownloading}
-      loading={usersLoading}
+      loading={isDownloading}
       onClick={handleSetDownloading(setIsDownloading)}
     >
       Download CSV

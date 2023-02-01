@@ -20,9 +20,17 @@ import {
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { openNewPage } from '../../utils/navigation'
-import { SendFunction, UpdateReturnTypeEnum, useReapitGet, useReapitUpdate } from '@reapit/utils-react'
+import {
+  SendFunction,
+  UpdateReturnTypeEnum,
+  useReapitGet,
+  useReapitUpdate,
+  GetActionNames,
+  getActions,
+  UpdateActionNames,
+  updateActions,
+} from '@reapit/use-reapit-data'
 import { AuthenticatorModel } from '@reapit/foundations-ts-definitions'
-import { GetActionNames, getActions, UpdateActionNames, updateActions } from '@reapit/utils-common'
 import { QrCodeVerify } from './qr-code-verify'
 import { ActiveAuthenticator } from '../active-authenticator'
 import { cx } from '@linaria/core'
