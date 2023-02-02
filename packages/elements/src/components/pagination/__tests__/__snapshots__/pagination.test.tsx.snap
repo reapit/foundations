@@ -26,18 +26,7 @@ Object {
           <span
             class="el-pagination-primary el-icon"
           >
-            <svg
-              fill="none"
-              height="1em"
-              viewBox="0 0 12 12"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 6L9 0V12L0 6Z"
-                fill="currentColor"
-              />
-            </svg>
+            <svg />
           </span>
         </button>
         <button
@@ -48,18 +37,7 @@ Object {
           <span
             class="el-pagination-primary el-icon"
           >
-            <svg
-              fill="none"
-              height="1em"
-              viewBox="0 0 12 12"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12 6L3 12V0L12 6Z"
-                fill="currentColor"
-              />
-            </svg>
+            <svg />
           </span>
         </button>
       </div>
@@ -87,18 +65,7 @@ Object {
         <span
           class="el-pagination-primary el-icon"
         >
-          <svg
-            fill="none"
-            height="1em"
-            viewBox="0 0 12 12"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M0 6L9 0V12L0 6Z"
-              fill="currentColor"
-            />
-          </svg>
+          <svg />
         </span>
       </button>
       <button
@@ -109,18 +76,7 @@ Object {
         <span
           class="el-pagination-primary el-icon"
         >
-          <svg
-            fill="none"
-            height="1em"
-            viewBox="0 0 12 12"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M12 6L3 12V0L12 6Z"
-              fill="currentColor"
-            />
-          </svg>
+          <svg />
         </span>
       </button>
     </div>
@@ -205,18 +161,7 @@ Object {
           <span
             class="el-pagination-primary el-icon"
           >
-            <svg
-              fill="none"
-              height="1em"
-              viewBox="0 0 12 12"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 6L9 0V12L0 6Z"
-                fill="currentColor"
-              />
-            </svg>
+            <svg />
           </span>
         </button>
         <button
@@ -227,34 +172,12 @@ Object {
           <span
             class="el-pagination-primary el-icon"
           >
-            <svg
-              fill="none"
-              height="1em"
-              viewBox="0 0 12 12"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 6L9 0V12L0 6Z"
-                fill="currentColor"
-              />
-            </svg>
+            <svg />
           </span>
           <span
             class="el-pagination-primary el-icon"
           >
-            <svg
-              fill="none"
-              height="1em"
-              viewBox="0 0 12 12"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 6L9 0V12L0 6Z"
-                fill="currentColor"
-              />
-            </svg>
+            <svg />
           </span>
         </button>
         <button
@@ -265,34 +188,12 @@ Object {
           <span
             class="el-pagination-primary el-icon"
           >
-            <svg
-              fill="none"
-              height="1em"
-              viewBox="0 0 12 12"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12 6L3 12V0L12 6Z"
-                fill="currentColor"
-              />
-            </svg>
+            <svg />
           </span>
           <span
             class="el-pagination-primary el-icon"
           >
-            <svg
-              fill="none"
-              height="1em"
-              viewBox="0 0 12 12"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12 6L3 12V0L12 6Z"
-                fill="currentColor"
-              />
-            </svg>
+            <svg />
           </span>
         </button>
         <button
@@ -303,18 +204,7 @@ Object {
           <span
             class="el-pagination-primary el-icon"
           >
-            <svg
-              fill="none"
-              height="1em"
-              viewBox="0 0 12 12"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12 6L3 12V0L12 6Z"
-                fill="currentColor"
-              />
-            </svg>
+            <svg />
           </span>
         </button>
       </div>
@@ -342,18 +232,7 @@ Object {
         <span
           class="el-pagination-primary el-icon"
         >
-          <svg
-            fill="none"
-            height="1em"
-            viewBox="0 0 12 12"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M0 6L9 0V12L0 6Z"
-              fill="currentColor"
-            />
-          </svg>
+          <svg />
         </span>
       </button>
       <button
@@ -364,34 +243,12 @@ Object {
         <span
           class="el-pagination-primary el-icon"
         >
-          <svg
-            fill="none"
-            height="1em"
-            viewBox="0 0 12 12"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M0 6L9 0V12L0 6Z"
-              fill="currentColor"
-            />
-          </svg>
+          <svg />
         </span>
         <span
           class="el-pagination-primary el-icon"
         >
-          <svg
-            fill="none"
-            height="1em"
-            viewBox="0 0 12 12"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M0 6L9 0V12L0 6Z"
-              fill="currentColor"
-            />
-          </svg>
+          <svg />
         </span>
       </button>
       <button
@@ -402,34 +259,12 @@ Object {
         <span
           class="el-pagination-primary el-icon"
         >
-          <svg
-            fill="none"
-            height="1em"
-            viewBox="0 0 12 12"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M12 6L3 12V0L12 6Z"
-              fill="currentColor"
-            />
-          </svg>
+          <svg />
         </span>
         <span
           class="el-pagination-primary el-icon"
         >
-          <svg
-            fill="none"
-            height="1em"
-            viewBox="0 0 12 12"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M12 6L3 12V0L12 6Z"
-              fill="currentColor"
-            />
-          </svg>
+          <svg />
         </span>
       </button>
       <button
@@ -440,18 +275,7 @@ Object {
         <span
           class="el-pagination-primary el-icon"
         >
-          <svg
-            fill="none"
-            height="1em"
-            viewBox="0 0 12 12"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M12 6L3 12V0L12 6Z"
-              fill="currentColor"
-            />
-          </svg>
+          <svg />
         </span>
       </button>
     </div>

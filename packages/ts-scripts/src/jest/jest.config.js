@@ -14,6 +14,7 @@ const jestGlobalConfig = {
   ],
   modulePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules)[/\\\\]'],
   moduleNameMapper: {
+    '^.+\\.svg$': path.join(__dirname, './svg-transform.js'),
     '@/(.*)': '<rootDir>/src/$1',
     '^.+.(?=.*scss|sass|css|png|jpg|pdf|jpeg).*': path.join(__dirname, './css-stub.js'),
     'swagger-ui-react': path.join(__dirname, './swagger-stub.js'),
@@ -23,7 +24,6 @@ const jestGlobalConfig = {
   projects: ['<rootDir>/jest.config.js'],
   transform: {
     '\\.[jt]sx?$': 'babel-jest',
-    '^.+\\.svg$': path.join(__dirname, './svg-transform.js'),
     '\\.(gql|graphql)$': '@graphql-tools/jest-transform',
   },
   reporters: ['default', 'github-actions'],

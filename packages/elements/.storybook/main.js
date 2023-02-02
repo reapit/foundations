@@ -20,6 +20,35 @@ module.exports = {
     builder: 'webpack5',
   },
   webpackFinal: async (config, { configType }) => {
+    // const assetRule = config.module.rules.find(({ test }) => test?.test('.svg'))
+
+    // const assetLoader = {
+    //   loader: assetRule.loader,
+    //   options: {
+    //     ...assetRule.options,
+    //     native: true,
+    //   } || { ...assetRule.query, native: true },
+    // }
+
+    const fileLoaderRule = config.module.rules.find((rule) => !Array.isArray(rule.test) && rule.test?.test('.svg'))
+    fileLoaderRule.exclude = /\.svg$/
+
+    config.module.rules.unshift({
+      test: /\.svg$/,
+      use: [
+        {
+          loader: '@svgr/webpack',
+          options: {
+            icon: true,
+            // svgoConfig: {
+            //   plugins: [{ removeViewBox: false }],
+            // },
+          },
+        },
+        'url-loader',
+      ],
+    })
+
     config.module.rules.push({
       test: /\.(ts|tsx)$/,
       use: [

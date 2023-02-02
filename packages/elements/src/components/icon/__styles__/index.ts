@@ -39,6 +39,11 @@ export const ElIcon = styled.span`
   display: flex;
   color: black;
 
+  svg {
+    width: 1em;
+    height: 1em;
+  }
+
   &.${elIntentPrimary} {
     color: var(--intent-primary);
   }
