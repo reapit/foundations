@@ -11688,9 +11688,11 @@ export interface Properties {
   embed?: (
     | 'appointments'
     | 'area'
+    | 'certificates'
     | 'department'
     | 'documents'
     | 'images'
+    | 'keys'
     | 'landlord'
     | 'negotiator'
     | 'offers'
