@@ -22,7 +22,6 @@ module.exports = {
   transform: {
     ...jestGlobalConfig.transform,
     '\\.[jt]sx?$': 'babel-jest',
-    // '\\.svg$': 'babel-jest',
   },
   coverageThreshold: {
     global: {
