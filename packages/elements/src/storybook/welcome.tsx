@@ -44,6 +44,7 @@ const welcomeColLeft = css`
 
 const welcomeColRight = css`
   justify-content: flex-end;
+  padding: 1.25rem;
 
   ${isTablet} {
     svg {

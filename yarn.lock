@@ -8634,6 +8634,7 @@ __metadata:
     "@rollup/plugin-commonjs": ^21.1.0
     "@rollup/plugin-node-resolve": ^13.3.0
     "@rollup/plugin-typescript": ^8.5.0
+    "@rollup/plugin-url": ^8.0.1
     "@storybook/addon-actions": ^6.5.12
     "@storybook/addon-docs": ^6.5.12
     "@storybook/addon-essentials": ^6.5.12
@@ -8679,6 +8680,7 @@ __metadata:
     snyk: ^1.1032.0
     tslib: ^2.4.0
     typescript: 4.6.3
+    url-loader: ^4.1.1
     uuid: ^8.3.2
     webpack: ^5.74.0
   peerDependencies:
@@ -9226,6 +9228,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rollup/plugin-url@npm:^8.0.1":
+  version: 8.0.1
+  resolution: "@rollup/plugin-url@npm:8.0.1"
+  dependencies:
+    "@rollup/pluginutils": ^5.0.1
+    make-dir: ^3.1.0
+    mime: ^3.0.0
+  peerDependencies:
+    rollup: ^1.20.0||^2.0.0||^3.0.0
+  peerDependenciesMeta:
+    rollup:
+      optional: true
+  checksum: 25a16622feeec63d958117f7ab65b3a4f72bab4ab86a4c7d5447ec646e88b5ac47186e344a2fdf179e1c12b5a9e76b8edbf568f5f76f7c25e0168ddd6374501e
+  languageName: node
+  linkType: hard
+
 "@rollup/pluginutils@npm:4, @rollup/pluginutils@npm:^4.1.0":
   version: 4.1.1
   resolution: "@rollup/pluginutils@npm:4.1.1"
@@ -9256,6 +9274,22 @@ __metadata:
     estree-walker: ^2.0.1
     picomatch: ^2.2.2
   checksum: 6bc41f22b1a0f1efec3043899e4d3b6b1497b3dea4d94292d8f83b4cf07a1073ecbaedd562a22d11913ff7659f459677b01b09e9598a98936e746780ecc93a12
+  languageName: node
+  linkType: hard
+
+"@rollup/pluginutils@npm:^5.0.1":
+  version: 5.0.2
+  resolution: "@rollup/pluginutils@npm:5.0.2"
+  dependencies:
+    "@types/estree": ^1.0.0
+    estree-walker: ^2.0.2
+    picomatch: ^2.3.1
+  peerDependencies:
+    rollup: ^1.20.0||^2.0.0||^3.0.0
+  peerDependenciesMeta:
+    rollup:
+      optional: true
+  checksum: edea15e543bebc7dcac3b0ac8bc7b8e8e6dbd46e2864dbe5dd28072de1fbd5b0e10d545a610c0edaa178e8a7ac432e2a2a52e547ece1308471412caba47db8ce
   languageName: node
   linkType: hard
 
@@ -12276,6 +12310,13 @@ __metadata:
   version: 0.0.51
   resolution: "@types/estree@npm:0.0.51"
   checksum: e56a3bcf759fd9185e992e7fdb3c6a5f81e8ff120e871641607581fb3728d16c811702a7d40fa5f869b7f7b4437ab6a87eb8d98ffafeee51e85bbe955932a189
+  languageName: node
+  linkType: hard
+
+"@types/estree@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "@types/estree@npm:1.0.0"
+  checksum: 910d97fb7092c6738d30a7430ae4786a38542023c6302b95d46f49420b797f21619cdde11fa92b338366268795884111c2eb10356e4bd2c8ad5b92941e9e6443
   languageName: node
   linkType: hard
 
@@ -23078,7 +23119,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"estree-walker@npm:^2.0.1":
+"estree-walker@npm:^2.0.1, estree-walker@npm:^2.0.2":
   version: 2.0.2
   resolution: "estree-walker@npm:2.0.2"
   checksum: 6151e6f9828abe2259e57f5fd3761335bb0d2ebd76dc1a01048ccee22fabcfef3c0859300f6d83ff0d1927849368775ec5a6d265dde2f6de5a1be1721cd94efc
@@ -31852,6 +31893,15 @@ fsevents@^1.2.7:
   bin:
     mime: cli.js
   checksum: 1497ba7b9f6960694268a557eae24b743fd2923da46ec392b042469f4b901721ba0adcf8b0d3c2677839d0e243b209d76e5edcbd09cfdeffa2dfb6bb4df4b862
+  languageName: node
+  linkType: hard
+
+"mime@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "mime@npm:3.0.0"
+  bin:
+    mime: cli.js
+  checksum: f43f9b7bfa64534e6b05bd6062961681aeb406a5b53673b53b683f27fcc4e739989941836a355eef831f4478923651ecc739f4a5f6e20a76487b432bfd4db928
   languageName: node
   linkType: hard
 

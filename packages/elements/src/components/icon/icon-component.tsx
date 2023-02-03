@@ -10,7 +10,7 @@ import {
   elIconSizeSmallest,
 } from './__styles__'
 import { iconSet } from './icons'
-
+import { deprecatedIconSet } from './deprecated'
 export type IconNames = keyof typeof iconSet
 
 export type IconSize = 'smallest' | 'small' | 'medium' | 'large' | 'largest'
@@ -44,6 +44,12 @@ export const Icon: FC<IconProps> = ({ icon, intent, fontSize, iconSize, classNam
   const intentClassname = intent && getIntentClassName(intent)
   const sizeClassname = getIconSize(iconSize)
   const combinedClassName = cx(className, intentClassname, sizeClassname)
+
+  if (deprecatedIconSet.includes(icon)) {
+    console.warn(
+      `The icon "${icon}" is deprecated and will be removed in the next major release. We suggest strongly finding an alterative from the Elements doucmentation`,
+    )
+  }
 
   const Svg = iconSet[icon]
 

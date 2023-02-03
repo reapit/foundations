@@ -1,7 +1,5 @@
 import React from 'react'
-import { render } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
-import { screen } from '@testing-library/dom'
+import { render, fireEvent } from '@testing-library/react'
 import { PersistentNotification } from '..'
 
 describe('PersistentNotification component', () => {
@@ -22,13 +20,12 @@ describe('PersistentNotification component', () => {
 
   it('should fire the onStepClick event correctly', async () => {
     const spy = jest.fn()
-    const user = userEvent.setup()
-    render(
+    const wrapper = render(
       <PersistentNotification intent="critical" onExpansionToggle={spy}>
         I am notification
       </PersistentNotification>,
     )
-    await user.click(screen.getByTestId('close-icon'))
+    fireEvent.click(wrapper.getByTestId('close-icon'))
     expect(spy).toHaveBeenCalledTimes(1)
   })
 
