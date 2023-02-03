@@ -7,7 +7,7 @@
 </g>
 <defs>
 <clipPath id="clip0_5905_4457">
-<rect width="40" height="40" fill="white"/>
+<rect width="40" height="40" fill="var(--nav-menu-icon-primary-accent)"/>
 </clipPath>
 </defs>
 </svg>

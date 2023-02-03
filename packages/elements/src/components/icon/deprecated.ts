@@ -11,7 +11,7 @@ export const deprecatedIconSet: IconNames[] = [
   'welcomeAnimated2',
   'saveSystem',
   'tickSolidSystem',
-  'tickSolidSystem',
+  'tickSystem',
   'previewSystem',
   'authenticatedInfographic',
   'platformApiInfographic',
