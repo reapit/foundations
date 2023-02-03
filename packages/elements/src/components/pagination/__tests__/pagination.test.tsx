@@ -1,7 +1,5 @@
 import React from 'react'
-import { render } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
-import { screen } from '@testing-library/dom'
+import { render, fireEvent } from '@testing-library/react'
 import {
   PaginationWrap,
   PaginationText,
@@ -59,16 +57,15 @@ describe('Pagination', () => {
 
   it('should callback onClick correctly', async () => {
     const mockCallback = jest.fn()
-    const user = userEvent.setup()
 
-    render(<Pagination callback={mockCallback} currentPage={2} numberPages={4} />)
+    const wrapper = render(<Pagination callback={mockCallback} currentPage={2} numberPages={4} />)
 
-    await user.click(screen.getByTestId('back-button'))
+    fireEvent.click(wrapper.getByTestId('back-button'))
 
     expect(mockCallback).toHaveBeenCalledTimes(2)
     expect(mockCallback).toHaveBeenLastCalledWith(1)
 
-    await user.click(screen.getByTestId('forward-button'))
+    fireEvent.click(wrapper.getByTestId('forward-button'))
 
     expect(mockCallback).toHaveBeenCalledTimes(4)
     expect(mockCallback).toHaveBeenLastCalledWith(3)

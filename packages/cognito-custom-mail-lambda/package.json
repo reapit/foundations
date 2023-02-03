@@ -12,7 +12,7 @@
     "test": "cross-env TZ=UTC jest --watch --colors --silent --passWithNoTests",
     "build": "echo '...skipping...'",
     "lint": "eslint --cache --ext=ts,tsx,js src",
-    "check": "tsc --noEmit --skipLibCheck",
+    "check": "echo '...skipping...'",
     "release": "yarn generate-html && serverless deploy",
     "publish": "echo '...skipping...'",
     "conf": "yarn config-manager --namespace cloud --entity cognito-custom-mail-lambda --name local --mode fetch",

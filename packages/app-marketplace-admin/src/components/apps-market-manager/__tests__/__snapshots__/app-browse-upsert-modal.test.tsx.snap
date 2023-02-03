@@ -60,31 +60,7 @@ Object {
                   <span
                     class="el-icon"
                   >
-                    <svg
-                      fill="none"
-                      height="1em"
-                      viewBox="0 0 20 20"
-                      width="1em"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <g>
-                        <path
-                          d="M19.7556 18.5783L14.0682 12.8909C15.1699 11.5301 15.8332 9.80089 15.8332 7.91758C15.8332 3.55262 12.2815 0.000976562 7.91656 0.000976562C3.55161 0.000976562 0 3.55258 0 7.91754C0 12.2825 3.55165 15.8342 7.9166 15.8342C9.7999 15.8342 11.5291 15.1708 12.8899 14.0692L18.5773 19.7566C18.7398 19.9191 18.9531 20.0008 19.1665 20.0008C19.3798 20.0008 19.5932 19.9191 19.7557 19.7566C20.0815 19.4308 20.0815 18.9041 19.7556 18.5783ZM7.9166 14.1675C4.46996 14.1675 1.66666 11.3642 1.66666 7.91754C1.66666 4.4709 4.46996 1.6676 7.9166 1.6676C11.3632 1.6676 14.1665 4.4709 14.1665 7.91754C14.1665 11.3642 11.3632 14.1675 7.9166 14.1675Z"
-                          fill="currentColor"
-                        />
-                      </g>
-                      <defs>
-                        <clippath
-                          id="clip0"
-                        >
-                          <rect
-                            fill="white"
-                            height="20.0003"
-                            width="20"
-                          />
-                        </clippath>
-                      </defs>
-                    </svg>
+                    <svg />
                   </span>
                   <label
                     class="el-label"
@@ -106,61 +82,7 @@ Object {
                     <span
                       class="el-ml2 el-icon-size-medium el-icon"
                     >
-                      <svg
-                        fill="none"
-                        height="1em"
-                        viewBox="0 0 40 40"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <rect
-                          fill="#0061A8"
-                          height="34.1736"
-                          width="19.3482"
-                          x="11.1089"
-                          y="2.56079"
-                        />
-                        <path
-                          d="M24.2112 4.354H20.4706C19.9537 4.354 19.5354 4.7645 19.5354 5.27163C19.5354 5.77876 19.9537 6.18925 20.4706 6.18925H24.2112C24.728 6.18925 25.1464 5.77876 25.1464 5.27163C25.1464 4.7645 24.728 4.354 24.2112 4.354Z"
-                          fill="#23A4DE"
-                        />
-                        <path
-                          d="M28.2628 1.29517H13.3002C11.2379 1.29517 9.55957 2.94201 9.55957 4.96566V34.3296C9.55957 36.3533 11.2379 38.0001 13.3002 38.0001H28.2628C30.3251 38.0001 32.0034 36.3533 32.0034 34.3296V4.96566C32.0034 2.94201 30.3251 1.29517 28.2628 1.29517ZM30.1331 34.3296C30.1331 35.3433 29.2959 36.1649 28.2628 36.1649H13.3002C12.2672 36.1649 11.4299 35.3433 11.4299 34.3296V4.96566C11.4299 3.95197 12.2672 3.13041 13.3002 3.13041H28.2628C29.2959 3.13041 30.1331 3.95197 30.1331 4.96566V34.3296Z"
-                          fill="#0061A8"
-                        />
-                        <path
-                          d="M20.78 34.9412C21.8129 34.9412 22.6503 34.1196 22.6503 33.106C22.6503 32.0924 21.8129 31.2708 20.78 31.2708C19.747 31.2708 18.9097 32.0924 18.9097 33.106C18.9097 34.1196 19.747 34.9412 20.78 34.9412Z"
-                          fill="#23A4DE"
-                        />
-                        <path
-                          d="M17.3509 6.18925C17.8674 6.18925 18.2861 5.77842 18.2861 5.27163C18.2861 4.76484 17.8674 4.354 17.3509 4.354C16.8345 4.354 16.4158 4.76484 16.4158 5.27163C16.4158 5.77842 16.8345 6.18925 17.3509 6.18925Z"
-                          fill="#23A4DE"
-                        />
-                        <rect
-                          fill="white"
-                          height="10"
-                          rx="5"
-                          width="23"
-                          x="17"
-                          y="10"
-                        />
-                        <g
-                          clip-path="url(#clip1)"
-                        >
-                          <path
-                            d="M37.2176 19.5746C36.9467 18.5733 35.8688 17.998 34.8684 18.4C34.6105 17.447 33.6057 16.8422 32.587 17.2044V14.7472C32.5861 12.4194 29.064 12.4158 29.0632 14.7472V23.8099C28.1718 22.9185 27.3744 22.1211 27.3724 22.1192C26.6858 21.4317 25.5673 21.4317 24.8808 22.1192C24.1946 22.8042 24.1922 23.9226 24.8808 24.6107C25.0511 24.7809 29.3682 29.0981 29.5384 29.2683C30.6477 30.3776 32.1516 31 33.7201 30.9999V31C36.9869 30.9996 39.6344 28.3521 39.6348 25.0853C39.6348 23.9107 39.6348 24.0998 39.6348 21.2075C39.6342 19.9692 38.3836 19.106 37.2176 19.5746Z"
-                            fill="#FFB71B"
-                          />
-                        </g>
-                        <path
-                          d="M7 24L7 14.8485C7 14.3797 7.41997 14 7.93848 14L14.0615 14C14.58 14 15 14.3797 15 14.8485L15 24L7 24Z"
-                          fill="#23A4DE"
-                        />
-                        <path
-                          d="M1.95185 23L19.0481 23C19.8316 23 20.2786 23.8097 19.8073 24.3761L11.2597 34.6571C10.8796 35.1143 10.1209 35.1143 9.74082 34.6571L1.19267 24.3761C0.721385 23.8097 1.16844 23 1.95185 23Z"
-                          fill="#7BC9EB"
-                        />
-                      </svg>
+                      <svg />
                     </span>
                     <p>
                       No apps selected
@@ -193,61 +115,7 @@ Object {
                       <span
                         class="el-ml2 el-icon-size-medium el-icon"
                       >
-                        <svg
-                          fill="none"
-                          height="1em"
-                          viewBox="0 0 40 40"
-                          width="1em"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <rect
-                            fill="#0061A8"
-                            height="34.1736"
-                            width="19.3482"
-                            x="11.1089"
-                            y="2.56079"
-                          />
-                          <path
-                            d="M24.2112 4.354H20.4706C19.9537 4.354 19.5354 4.7645 19.5354 5.27163C19.5354 5.77876 19.9537 6.18925 20.4706 6.18925H24.2112C24.728 6.18925 25.1464 5.77876 25.1464 5.27163C25.1464 4.7645 24.728 4.354 24.2112 4.354Z"
-                            fill="#23A4DE"
-                          />
-                          <path
-                            d="M28.2628 1.29517H13.3002C11.2379 1.29517 9.55957 2.94201 9.55957 4.96566V34.3296C9.55957 36.3533 11.2379 38.0001 13.3002 38.0001H28.2628C30.3251 38.0001 32.0034 36.3533 32.0034 34.3296V4.96566C32.0034 2.94201 30.3251 1.29517 28.2628 1.29517ZM30.1331 34.3296C30.1331 35.3433 29.2959 36.1649 28.2628 36.1649H13.3002C12.2672 36.1649 11.4299 35.3433 11.4299 34.3296V4.96566C11.4299 3.95197 12.2672 3.13041 13.3002 3.13041H28.2628C29.2959 3.13041 30.1331 3.95197 30.1331 4.96566V34.3296Z"
-                            fill="#0061A8"
-                          />
-                          <path
-                            d="M20.78 34.9412C21.8129 34.9412 22.6503 34.1196 22.6503 33.106C22.6503 32.0924 21.8129 31.2708 20.78 31.2708C19.747 31.2708 18.9097 32.0924 18.9097 33.106C18.9097 34.1196 19.747 34.9412 20.78 34.9412Z"
-                            fill="#23A4DE"
-                          />
-                          <path
-                            d="M17.3509 6.18925C17.8674 6.18925 18.2861 5.77842 18.2861 5.27163C18.2861 4.76484 17.8674 4.354 17.3509 4.354C16.8345 4.354 16.4158 4.76484 16.4158 5.27163C16.4158 5.77842 16.8345 6.18925 17.3509 6.18925Z"
-                            fill="#23A4DE"
-                          />
-                          <rect
-                            fill="white"
-                            height="10"
-                            rx="5"
-                            width="23"
-                            x="17"
-                            y="10"
-                          />
-                          <g
-                            clip-path="url(#clip1)"
-                          >
-                            <path
-                              d="M37.2176 19.5746C36.9467 18.5733 35.8688 17.998 34.8684 18.4C34.6105 17.447 33.6057 16.8422 32.587 17.2044V14.7472C32.5861 12.4194 29.064 12.4158 29.0632 14.7472V23.8099C28.1718 22.9185 27.3744 22.1211 27.3724 22.1192C26.6858 21.4317 25.5673 21.4317 24.8808 22.1192C24.1946 22.8042 24.1922 23.9226 24.8808 24.6107C25.0511 24.7809 29.3682 29.0981 29.5384 29.2683C30.6477 30.3776 32.1516 31 33.7201 30.9999V31C36.9869 30.9996 39.6344 28.3521 39.6348 25.0853C39.6348 23.9107 39.6348 24.0998 39.6348 21.2075C39.6342 19.9692 38.3836 19.106 37.2176 19.5746Z"
-                              fill="#FFB71B"
-                            />
-                          </g>
-                          <path
-                            d="M7 24L7 14.8485C7 14.3797 7.41997 14 7.93848 14L14.0615 14C14.58 14 15 14.3797 15 14.8485L15 24L7 24Z"
-                            fill="#23A4DE"
-                          />
-                          <path
-                            d="M1.95185 23L19.0481 23C19.8316 23 20.2786 23.8097 19.8073 24.3761L11.2597 34.6571C10.8796 35.1143 10.1209 35.1143 9.74082 34.6571L1.19267 24.3761C0.721385 23.8097 1.16844 23 1.95185 23Z"
-                            fill="#7BC9EB"
-                          />
-                        </svg>
+                        <svg />
                       </span>
                       <p>
                         Please select from the options below
@@ -471,9 +339,19 @@ Object {
                       None Selected
                     </option>
                     <option
+                      value="appCategoryInfographic"
+                    >
+                      app category infographic
+                    </option>
+                    <option
                       value="agencyCloudInfographic"
                     >
                       agency cloud infographic
+                    </option>
+                    <option
+                      value="apiDocsInfographic"
+                    >
+                      api docs infographic
                     </option>
                     <option
                       value="apiInfographic"
@@ -496,6 +374,31 @@ Object {
                       applicant infographic
                     </option>
                     <option
+                      value="appMarketDarkInfographic"
+                    >
+                      app market dark infographic
+                    </option>
+                    <option
+                      value="appMarketInfographic"
+                    >
+                      app market infographic
+                    </option>
+                    <option
+                      value="appSettingsAuthDarkInfographic"
+                    >
+                      app settings auth dark infographic
+                    </option>
+                    <option
+                      value="appSettingsAuthInfographic"
+                    >
+                      app settings auth infographic
+                    </option>
+                    <option
+                      value="appTypeInfographic"
+                    >
+                      app type infographic
+                    </option>
+                    <option
                       value="barnInfographic"
                     >
                       barn infographic
@@ -504,6 +407,11 @@ Object {
                       value="bungalowInfographic"
                     >
                       bungalow infographic
+                    </option>
+                    <option
+                      value="codeInfographic"
+                    >
+                      code infographic
                     </option>
                     <option
                       value="cottageInfographic"
@@ -521,14 +429,44 @@ Object {
                       customer infographic
                     </option>
                     <option
+                      value="designInfographic"
+                    >
+                      design infographic
+                    </option>
+                    <option
+                      value="developerAppsInfographic"
+                    >
+                      developer apps infographic
+                    </option>
+                    <option
                       value="developmentInfographic"
                     >
                       development infographic
                     </option>
                     <option
+                      value="devicesInfographic"
+                    >
+                      devices infographic
+                    </option>
+                    <option
                       value="docsInfographic"
                     >
                       docs infographic
+                    </option>
+                    <option
+                      value="doorLockInfographic"
+                    >
+                      door lock infographic
+                    </option>
+                    <option
+                      value="editAppCancelInfographic"
+                    >
+                      edit app cancel infographic
+                    </option>
+                    <option
+                      value="editAppInfographic"
+                    >
+                      edit app infographic
                     </option>
                     <option
                       value="elementsInfographic"
@@ -541,9 +479,29 @@ Object {
                       farm infographic
                     </option>
                     <option
+                      value="feedAltInfographic"
+                    >
+                      feed alt infographic
+                    </option>
+                    <option
+                      value="feedInfographic"
+                    >
+                      feed infographic
+                    </option>
+                    <option
                       value="flatInfographic"
                     >
                       flat infographic
+                    </option>
+                    <option
+                      value="foundationsCustomerInfographic"
+                    >
+                      foundations customer infographic
+                    </option>
+                    <option
+                      value="globeInfographic"
+                    >
+                      globe infographic
                     </option>
                     <option
                       value="graphQlInfographic"
@@ -556,6 +514,11 @@ Object {
                       house infographic
                     </option>
                     <option
+                      value="htmlInfographic"
+                    >
+                      html infographic
+                    </option>
+                    <option
                       value="landInfographic"
                     >
                       land infographic
@@ -566,69 +529,19 @@ Object {
                       landlord infographic
                     </option>
                     <option
-                      value="maisonetteInfographic"
+                      value="leadGenerationInfographic"
                     >
-                      maisonette infographic
+                      lead generation infographic
                     </option>
                     <option
-                      value="vendorInfographic"
+                      value="listInfographic"
                     >
-                      vendor infographic
+                      list infographic
                     </option>
                     <option
-                      value="designInfographic"
+                      value="lockedInfographic"
                     >
-                      design infographic
-                    </option>
-                    <option
-                      value="apiDocsInfographic"
-                    >
-                      api docs infographic
-                    </option>
-                    <option
-                      value="myAppsInfographic"
-                    >
-                      my apps infographic
-                    </option>
-                    <option
-                      value="webhooksInfographic"
-                    >
-                      webhooks infographic
-                    </option>
-                    <option
-                      value="selectInfographic"
-                    >
-                      select infographic
-                    </option>
-                    <option
-                      value="devicesInfographic"
-                    >
-                      devices infographic
-                    </option>
-                    <option
-                      value="doorLockInfographic"
-                    >
-                      door lock infographic
-                    </option>
-                    <option
-                      value="feedAltInfographic"
-                    >
-                      feed alt infographic
-                    </option>
-                    <option
-                      value="feedInfographic"
-                    >
-                      feed infographic
-                    </option>
-                    <option
-                      value="globeInfographic"
-                    >
-                      globe infographic
-                    </option>
-                    <option
-                      value="htmlInfographic"
-                    >
-                      html infographic
+                      locked infographic
                     </option>
                     <option
                       value="logoKeyInfographic"
@@ -641,9 +554,99 @@ Object {
                       logo settings infographic
                     </option>
                     <option
+                      value="mailInfographic"
+                    >
+                      mail infographic
+                    </option>
+                    <option
+                      value="maisonetteInfographic"
+                    >
+                      maisonette infographic
+                    </option>
+                    <option
+                      value="manageAppListingInfographic"
+                    >
+                      manage app listing infographic
+                    </option>
+                    <option
+                      value="manageWebhooksInfographic"
+                    >
+                      manage webhooks infographic
+                    </option>
+                    <option
+                      value="marketingInfographic"
+                    >
+                      marketing infographic
+                    </option>
+                    <option
+                      value="marketplaceAppACInfographic"
+                    >
+                      marketplace app acinfographic
+                    </option>
+                    <option
+                      value="myAppsInfographic"
+                    >
+                      my apps infographic
+                    </option>
+                    <option
+                      value="newCustomerInfographic"
+                    >
+                      new customer infographic
+                    </option>
+                    <option
+                      value="phoneInfographic"
+                    >
+                      phone infographic
+                    </option>
+                    <option
+                      value="productivityInfographic"
+                    >
+                      productivity infographic
+                    </option>
+                    <option
+                      value="propertyManagementInfographic"
+                    >
+                      property management infographic
+                    </option>
+                    <option
+                      value="propTechInfographic"
+                    >
+                      prop tech infographic
+                    </option>
+                    <option
+                      value="reapitConnectInfographic"
+                    >
+                      reapit connect infographic
+                    </option>
+                    <option
+                      value="reapitConnectSettingsDevicesDarkInfographic"
+                    >
+                      reapit connect settings devices dark infographic
+                    </option>
+                    <option
+                      value="reapitConnectSettingsDevicesInfographic"
+                    >
+                      reapit connect settings devices infographic
+                    </option>
+                    <option
+                      value="reapitLogoInfographic"
+                    >
+                      reapit logo infographic
+                    </option>
+                    <option
+                      value="reapitUserInfographic"
+                    >
+                      reapit user infographic
+                    </option>
+                    <option
                       value="refreshInfographic"
                     >
                       refresh infographic
+                    </option>
+                    <option
+                      value="reportInfographic"
+                    >
+                      report infographic
                     </option>
                     <option
                       value="reportingInfographic"
@@ -651,9 +654,29 @@ Object {
                       reporting infographic
                     </option>
                     <option
+                      value="salesProgressionInfographic"
+                    >
+                      sales progression infographic
+                    </option>
+                    <option
+                      value="selectInfographic"
+                    >
+                      select infographic
+                    </option>
+                    <option
                       value="serverInfographic"
                     >
                       server infographic
+                    </option>
+                    <option
+                      value="shieldInfographic"
+                    >
+                      shield infographic
+                    </option>
+                    <option
+                      value="userAuthInfographic"
+                    >
+                      user auth infographic
                     </option>
                     <option
                       value="userDeviceInfographic"
@@ -671,24 +694,14 @@ Object {
                       user infographic
                     </option>
                     <option
-                      value="userAuthInfographic"
+                      value="utilityRegistrationInfographic"
                     >
-                      user auth infographic
+                      utility registration infographic
                     </option>
                     <option
-                      value="foundationsCustomerInfographic"
+                      value="vendorInfographic"
                     >
-                      foundations customer infographic
-                    </option>
-                    <option
-                      value="newCustomerInfographic"
-                    >
-                      new customer infographic
-                    </option>
-                    <option
-                      value="propTechInfographic"
-                    >
-                      prop tech infographic
+                      vendor infographic
                     </option>
                     <option
                       value="webDeveloperInfographic"
@@ -696,24 +709,24 @@ Object {
                       web developer infographic
                     </option>
                     <option
-                      value="authenticatedInfographic"
+                      value="webDeveloperInfographicAlt"
                     >
-                      authenticated infographic
+                      web developer infographic alt
                     </option>
                     <option
-                      value="reapitConnectInfographic"
+                      value="webhooksDocsInfographic"
                     >
-                      reapit connect infographic
+                      webhooks docs infographic
                     </option>
                     <option
-                      value="reapitLogoInfographic"
+                      value="webhooksInfographic"
                     >
-                      reapit logo infographic
+                      webhooks infographic
                     </option>
                     <option
-                      value="sharedEntitiesInfographic"
+                      value="webInfographic"
                     >
-                      shared entities infographic
+                      web infographic
                     </option>
                     <option
                       value="welcomeInfographic"
@@ -721,69 +734,19 @@ Object {
                       welcome infographic
                     </option>
                     <option
+                      value="authenticatedInfographic"
+                    >
+                      authenticated infographic
+                    </option>
+                    <option
                       value="platformApiInfographic"
                     >
                       platform api infographic
                     </option>
                     <option
-                      value="appMarketInfographic"
+                      value="sharedEntitiesInfographic"
                     >
-                      app market infographic
-                    </option>
-                    <option
-                      value="editAppInfographic"
-                    >
-                      edit app infographic
-                    </option>
-                    <option
-                      value="lockedInfographic"
-                    >
-                      locked infographic
-                    </option>
-                    <option
-                      value="appCategoryInfographic"
-                    >
-                      app category infographic
-                    </option>
-                    <option
-                      value="appTypeInfographic"
-                    >
-                      app type infographic
-                    </option>
-                    <option
-                      value="developerAppsInfographic"
-                    >
-                      developer apps infographic
-                    </option>
-                    <option
-                      value="codeInfographic"
-                    >
-                      code infographic
-                    </option>
-                    <option
-                      value="listInfographic"
-                    >
-                      list infographic
-                    </option>
-                    <option
-                      value="mailInfographic"
-                    >
-                      mail infographic
-                    </option>
-                    <option
-                      value="phoneInfographic"
-                    >
-                      phone infographic
-                    </option>
-                    <option
-                      value="shieldInfographic"
-                    >
-                      shield infographic
-                    </option>
-                    <option
-                      value="webInfographic"
-                    >
-                      web infographic
+                      shared entities infographic
                     </option>
                   </select>
                 </div>
@@ -906,18 +869,7 @@ Object {
                     <span
                       class="el-icon"
                     >
-                      <svg
-                        fill="none"
-                        height="1em"
-                        viewBox="0 0 20 20"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M9.99958 0C4.47746 0 0 4.47746 0 9.99958C0 15.5217 4.47746 20 9.99958 20C15.5217 20 20 15.5217 20 9.99958C20 4.47746 15.5217 0 9.99958 0ZM12.0813 15.498C11.5666 15.7012 11.1568 15.8552 10.8495 15.9619C10.5431 16.0686 10.1867 16.1219 9.78116 16.1219C9.1581 16.1219 8.67302 15.9695 8.32762 15.6656C7.98222 15.3617 7.81037 14.9765 7.81037 14.5084C7.81037 14.3263 7.82307 14.1401 7.84847 13.9505C7.87471 13.7608 7.91619 13.5475 7.97291 13.3079L8.61714 11.0324C8.67386 10.814 8.72296 10.6066 8.7619 10.4135C8.80085 10.2188 8.81947 10.0402 8.81947 9.87767C8.81947 9.58815 8.75937 9.38497 8.64 9.27069C8.51894 9.1564 8.29122 9.10053 7.95175 9.10053C7.78582 9.10053 7.61481 9.12508 7.43958 9.17672C7.26603 9.23005 7.11534 9.27831 6.99175 9.32571L7.1619 8.62476C7.58349 8.45291 7.9873 8.30561 8.37249 8.1837C8.75767 8.06011 9.12169 7.99915 9.46455 7.99915C10.0834 7.99915 10.5608 8.14984 10.8969 8.44783C11.2313 8.74667 11.3998 9.13524 11.3998 9.6127C11.3998 9.71175 11.3879 9.88614 11.3651 10.135C11.3422 10.3848 11.299 10.6125 11.2364 10.8216L10.5956 13.0904C10.5431 13.2724 10.4965 13.4806 10.4542 13.7134C10.4127 13.9462 10.3924 14.124 10.3924 14.2434C10.3924 14.5448 10.4593 14.7505 10.5947 14.8597C10.7285 14.9689 10.963 15.0239 11.2948 15.0239C11.4514 15.0239 11.6267 14.996 11.8248 14.9418C12.0212 14.8876 12.1634 14.8394 12.2531 14.7979L12.0813 15.498ZM11.9678 6.2891C11.669 6.56677 11.3092 6.70561 10.8885 6.70561C10.4686 6.70561 10.1062 6.56677 9.80487 6.2891C9.50519 6.01143 9.35365 5.67365 9.35365 5.27915C9.35365 4.8855 9.50603 4.54688 9.80487 4.26667C10.1062 3.98561 10.4686 3.84593 10.8885 3.84593C11.3092 3.84593 11.6698 3.98561 11.9678 4.26667C12.2667 4.54688 12.4165 4.8855 12.4165 5.27915C12.4165 5.6745 12.2667 6.01143 11.9678 6.2891Z"
-                          fill="currentColor"
-                        />
-                      </svg>
+                      <svg />
                     </span>
                   </div>
                   <div
@@ -1035,31 +987,7 @@ Object {
                 <span
                   class="el-icon"
                 >
-                  <svg
-                    fill="none"
-                    height="1em"
-                    viewBox="0 0 20 20"
-                    width="1em"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <g>
-                      <path
-                        d="M19.7556 18.5783L14.0682 12.8909C15.1699 11.5301 15.8332 9.80089 15.8332 7.91758C15.8332 3.55262 12.2815 0.000976562 7.91656 0.000976562C3.55161 0.000976562 0 3.55258 0 7.91754C0 12.2825 3.55165 15.8342 7.9166 15.8342C9.7999 15.8342 11.5291 15.1708 12.8899 14.0692L18.5773 19.7566C18.7398 19.9191 18.9531 20.0008 19.1665 20.0008C19.3798 20.0008 19.5932 19.9191 19.7557 19.7566C20.0815 19.4308 20.0815 18.9041 19.7556 18.5783ZM7.9166 14.1675C4.46996 14.1675 1.66666 11.3642 1.66666 7.91754C1.66666 4.4709 4.46996 1.6676 7.9166 1.6676C11.3632 1.6676 14.1665 4.4709 14.1665 7.91754C14.1665 11.3642 11.3632 14.1675 7.9166 14.1675Z"
-                        fill="currentColor"
-                      />
-                    </g>
-                    <defs>
-                      <clippath
-                        id="clip0"
-                      >
-                        <rect
-                          fill="white"
-                          height="20.0003"
-                          width="20"
-                        />
-                      </clippath>
-                    </defs>
-                  </svg>
+                  <svg />
                 </span>
                 <label
                   class="el-label"
@@ -1081,61 +1009,7 @@ Object {
                   <span
                     class="el-ml2 el-icon-size-medium el-icon"
                   >
-                    <svg
-                      fill="none"
-                      height="1em"
-                      viewBox="0 0 40 40"
-                      width="1em"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <rect
-                        fill="#0061A8"
-                        height="34.1736"
-                        width="19.3482"
-                        x="11.1089"
-                        y="2.56079"
-                      />
-                      <path
-                        d="M24.2112 4.354H20.4706C19.9537 4.354 19.5354 4.7645 19.5354 5.27163C19.5354 5.77876 19.9537 6.18925 20.4706 6.18925H24.2112C24.728 6.18925 25.1464 5.77876 25.1464 5.27163C25.1464 4.7645 24.728 4.354 24.2112 4.354Z"
-                        fill="#23A4DE"
-                      />
-                      <path
-                        d="M28.2628 1.29517H13.3002C11.2379 1.29517 9.55957 2.94201 9.55957 4.96566V34.3296C9.55957 36.3533 11.2379 38.0001 13.3002 38.0001H28.2628C30.3251 38.0001 32.0034 36.3533 32.0034 34.3296V4.96566C32.0034 2.94201 30.3251 1.29517 28.2628 1.29517ZM30.1331 34.3296C30.1331 35.3433 29.2959 36.1649 28.2628 36.1649H13.3002C12.2672 36.1649 11.4299 35.3433 11.4299 34.3296V4.96566C11.4299 3.95197 12.2672 3.13041 13.3002 3.13041H28.2628C29.2959 3.13041 30.1331 3.95197 30.1331 4.96566V34.3296Z"
-                        fill="#0061A8"
-                      />
-                      <path
-                        d="M20.78 34.9412C21.8129 34.9412 22.6503 34.1196 22.6503 33.106C22.6503 32.0924 21.8129 31.2708 20.78 31.2708C19.747 31.2708 18.9097 32.0924 18.9097 33.106C18.9097 34.1196 19.747 34.9412 20.78 34.9412Z"
-                        fill="#23A4DE"
-                      />
-                      <path
-                        d="M17.3509 6.18925C17.8674 6.18925 18.2861 5.77842 18.2861 5.27163C18.2861 4.76484 17.8674 4.354 17.3509 4.354C16.8345 4.354 16.4158 4.76484 16.4158 5.27163C16.4158 5.77842 16.8345 6.18925 17.3509 6.18925Z"
-                        fill="#23A4DE"
-                      />
-                      <rect
-                        fill="white"
-                        height="10"
-                        rx="5"
-                        width="23"
-                        x="17"
-                        y="10"
-                      />
-                      <g
-                        clip-path="url(#clip1)"
-                      >
-                        <path
-                          d="M37.2176 19.5746C36.9467 18.5733 35.8688 17.998 34.8684 18.4C34.6105 17.447 33.6057 16.8422 32.587 17.2044V14.7472C32.5861 12.4194 29.064 12.4158 29.0632 14.7472V23.8099C28.1718 22.9185 27.3744 22.1211 27.3724 22.1192C26.6858 21.4317 25.5673 21.4317 24.8808 22.1192C24.1946 22.8042 24.1922 23.9226 24.8808 24.6107C25.0511 24.7809 29.3682 29.0981 29.5384 29.2683C30.6477 30.3776 32.1516 31 33.7201 30.9999V31C36.9869 30.9996 39.6344 28.3521 39.6348 25.0853C39.6348 23.9107 39.6348 24.0998 39.6348 21.2075C39.6342 19.9692 38.3836 19.106 37.2176 19.5746Z"
-                          fill="#FFB71B"
-                        />
-                      </g>
-                      <path
-                        d="M7 24L7 14.8485C7 14.3797 7.41997 14 7.93848 14L14.0615 14C14.58 14 15 14.3797 15 14.8485L15 24L7 24Z"
-                        fill="#23A4DE"
-                      />
-                      <path
-                        d="M1.95185 23L19.0481 23C19.8316 23 20.2786 23.8097 19.8073 24.3761L11.2597 34.6571C10.8796 35.1143 10.1209 35.1143 9.74082 34.6571L1.19267 24.3761C0.721385 23.8097 1.16844 23 1.95185 23Z"
-                        fill="#7BC9EB"
-                      />
-                    </svg>
+                    <svg />
                   </span>
                   <p>
                     No apps selected
@@ -1168,61 +1042,7 @@ Object {
                     <span
                       class="el-ml2 el-icon-size-medium el-icon"
                     >
-                      <svg
-                        fill="none"
-                        height="1em"
-                        viewBox="0 0 40 40"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <rect
-                          fill="#0061A8"
-                          height="34.1736"
-                          width="19.3482"
-                          x="11.1089"
-                          y="2.56079"
-                        />
-                        <path
-                          d="M24.2112 4.354H20.4706C19.9537 4.354 19.5354 4.7645 19.5354 5.27163C19.5354 5.77876 19.9537 6.18925 20.4706 6.18925H24.2112C24.728 6.18925 25.1464 5.77876 25.1464 5.27163C25.1464 4.7645 24.728 4.354 24.2112 4.354Z"
-                          fill="#23A4DE"
-                        />
-                        <path
-                          d="M28.2628 1.29517H13.3002C11.2379 1.29517 9.55957 2.94201 9.55957 4.96566V34.3296C9.55957 36.3533 11.2379 38.0001 13.3002 38.0001H28.2628C30.3251 38.0001 32.0034 36.3533 32.0034 34.3296V4.96566C32.0034 2.94201 30.3251 1.29517 28.2628 1.29517ZM30.1331 34.3296C30.1331 35.3433 29.2959 36.1649 28.2628 36.1649H13.3002C12.2672 36.1649 11.4299 35.3433 11.4299 34.3296V4.96566C11.4299 3.95197 12.2672 3.13041 13.3002 3.13041H28.2628C29.2959 3.13041 30.1331 3.95197 30.1331 4.96566V34.3296Z"
-                          fill="#0061A8"
-                        />
-                        <path
-                          d="M20.78 34.9412C21.8129 34.9412 22.6503 34.1196 22.6503 33.106C22.6503 32.0924 21.8129 31.2708 20.78 31.2708C19.747 31.2708 18.9097 32.0924 18.9097 33.106C18.9097 34.1196 19.747 34.9412 20.78 34.9412Z"
-                          fill="#23A4DE"
-                        />
-                        <path
-                          d="M17.3509 6.18925C17.8674 6.18925 18.2861 5.77842 18.2861 5.27163C18.2861 4.76484 17.8674 4.354 17.3509 4.354C16.8345 4.354 16.4158 4.76484 16.4158 5.27163C16.4158 5.77842 16.8345 6.18925 17.3509 6.18925Z"
-                          fill="#23A4DE"
-                        />
-                        <rect
-                          fill="white"
-                          height="10"
-                          rx="5"
-                          width="23"
-                          x="17"
-                          y="10"
-                        />
-                        <g
-                          clip-path="url(#clip1)"
-                        >
-                          <path
-                            d="M37.2176 19.5746C36.9467 18.5733 35.8688 17.998 34.8684 18.4C34.6105 17.447 33.6057 16.8422 32.587 17.2044V14.7472C32.5861 12.4194 29.064 12.4158 29.0632 14.7472V23.8099C28.1718 22.9185 27.3744 22.1211 27.3724 22.1192C26.6858 21.4317 25.5673 21.4317 24.8808 22.1192C24.1946 22.8042 24.1922 23.9226 24.8808 24.6107C25.0511 24.7809 29.3682 29.0981 29.5384 29.2683C30.6477 30.3776 32.1516 31 33.7201 30.9999V31C36.9869 30.9996 39.6344 28.3521 39.6348 25.0853C39.6348 23.9107 39.6348 24.0998 39.6348 21.2075C39.6342 19.9692 38.3836 19.106 37.2176 19.5746Z"
-                            fill="#FFB71B"
-                          />
-                        </g>
-                        <path
-                          d="M7 24L7 14.8485C7 14.3797 7.41997 14 7.93848 14L14.0615 14C14.58 14 15 14.3797 15 14.8485L15 24L7 24Z"
-                          fill="#23A4DE"
-                        />
-                        <path
-                          d="M1.95185 23L19.0481 23C19.8316 23 20.2786 23.8097 19.8073 24.3761L11.2597 34.6571C10.8796 35.1143 10.1209 35.1143 9.74082 34.6571L1.19267 24.3761C0.721385 23.8097 1.16844 23 1.95185 23Z"
-                          fill="#7BC9EB"
-                        />
-                      </svg>
+                      <svg />
                     </span>
                     <p>
                       Please select from the options below
@@ -1446,9 +1266,19 @@ Object {
                     None Selected
                   </option>
                   <option
+                    value="appCategoryInfographic"
+                  >
+                    app category infographic
+                  </option>
+                  <option
                     value="agencyCloudInfographic"
                   >
                     agency cloud infographic
+                  </option>
+                  <option
+                    value="apiDocsInfographic"
+                  >
+                    api docs infographic
                   </option>
                   <option
                     value="apiInfographic"
@@ -1471,6 +1301,31 @@ Object {
                     applicant infographic
                   </option>
                   <option
+                    value="appMarketDarkInfographic"
+                  >
+                    app market dark infographic
+                  </option>
+                  <option
+                    value="appMarketInfographic"
+                  >
+                    app market infographic
+                  </option>
+                  <option
+                    value="appSettingsAuthDarkInfographic"
+                  >
+                    app settings auth dark infographic
+                  </option>
+                  <option
+                    value="appSettingsAuthInfographic"
+                  >
+                    app settings auth infographic
+                  </option>
+                  <option
+                    value="appTypeInfographic"
+                  >
+                    app type infographic
+                  </option>
+                  <option
                     value="barnInfographic"
                   >
                     barn infographic
@@ -1479,6 +1334,11 @@ Object {
                     value="bungalowInfographic"
                   >
                     bungalow infographic
+                  </option>
+                  <option
+                    value="codeInfographic"
+                  >
+                    code infographic
                   </option>
                   <option
                     value="cottageInfographic"
@@ -1496,14 +1356,44 @@ Object {
                     customer infographic
                   </option>
                   <option
+                    value="designInfographic"
+                  >
+                    design infographic
+                  </option>
+                  <option
+                    value="developerAppsInfographic"
+                  >
+                    developer apps infographic
+                  </option>
+                  <option
                     value="developmentInfographic"
                   >
                     development infographic
                   </option>
                   <option
+                    value="devicesInfographic"
+                  >
+                    devices infographic
+                  </option>
+                  <option
                     value="docsInfographic"
                   >
                     docs infographic
+                  </option>
+                  <option
+                    value="doorLockInfographic"
+                  >
+                    door lock infographic
+                  </option>
+                  <option
+                    value="editAppCancelInfographic"
+                  >
+                    edit app cancel infographic
+                  </option>
+                  <option
+                    value="editAppInfographic"
+                  >
+                    edit app infographic
                   </option>
                   <option
                     value="elementsInfographic"
@@ -1516,9 +1406,29 @@ Object {
                     farm infographic
                   </option>
                   <option
+                    value="feedAltInfographic"
+                  >
+                    feed alt infographic
+                  </option>
+                  <option
+                    value="feedInfographic"
+                  >
+                    feed infographic
+                  </option>
+                  <option
                     value="flatInfographic"
                   >
                     flat infographic
+                  </option>
+                  <option
+                    value="foundationsCustomerInfographic"
+                  >
+                    foundations customer infographic
+                  </option>
+                  <option
+                    value="globeInfographic"
+                  >
+                    globe infographic
                   </option>
                   <option
                     value="graphQlInfographic"
@@ -1531,6 +1441,11 @@ Object {
                     house infographic
                   </option>
                   <option
+                    value="htmlInfographic"
+                  >
+                    html infographic
+                  </option>
+                  <option
                     value="landInfographic"
                   >
                     land infographic
@@ -1541,69 +1456,19 @@ Object {
                     landlord infographic
                   </option>
                   <option
-                    value="maisonetteInfographic"
+                    value="leadGenerationInfographic"
                   >
-                    maisonette infographic
+                    lead generation infographic
                   </option>
                   <option
-                    value="vendorInfographic"
+                    value="listInfographic"
                   >
-                    vendor infographic
+                    list infographic
                   </option>
                   <option
-                    value="designInfographic"
+                    value="lockedInfographic"
                   >
-                    design infographic
-                  </option>
-                  <option
-                    value="apiDocsInfographic"
-                  >
-                    api docs infographic
-                  </option>
-                  <option
-                    value="myAppsInfographic"
-                  >
-                    my apps infographic
-                  </option>
-                  <option
-                    value="webhooksInfographic"
-                  >
-                    webhooks infographic
-                  </option>
-                  <option
-                    value="selectInfographic"
-                  >
-                    select infographic
-                  </option>
-                  <option
-                    value="devicesInfographic"
-                  >
-                    devices infographic
-                  </option>
-                  <option
-                    value="doorLockInfographic"
-                  >
-                    door lock infographic
-                  </option>
-                  <option
-                    value="feedAltInfographic"
-                  >
-                    feed alt infographic
-                  </option>
-                  <option
-                    value="feedInfographic"
-                  >
-                    feed infographic
-                  </option>
-                  <option
-                    value="globeInfographic"
-                  >
-                    globe infographic
-                  </option>
-                  <option
-                    value="htmlInfographic"
-                  >
-                    html infographic
+                    locked infographic
                   </option>
                   <option
                     value="logoKeyInfographic"
@@ -1616,9 +1481,99 @@ Object {
                     logo settings infographic
                   </option>
                   <option
+                    value="mailInfographic"
+                  >
+                    mail infographic
+                  </option>
+                  <option
+                    value="maisonetteInfographic"
+                  >
+                    maisonette infographic
+                  </option>
+                  <option
+                    value="manageAppListingInfographic"
+                  >
+                    manage app listing infographic
+                  </option>
+                  <option
+                    value="manageWebhooksInfographic"
+                  >
+                    manage webhooks infographic
+                  </option>
+                  <option
+                    value="marketingInfographic"
+                  >
+                    marketing infographic
+                  </option>
+                  <option
+                    value="marketplaceAppACInfographic"
+                  >
+                    marketplace app acinfographic
+                  </option>
+                  <option
+                    value="myAppsInfographic"
+                  >
+                    my apps infographic
+                  </option>
+                  <option
+                    value="newCustomerInfographic"
+                  >
+                    new customer infographic
+                  </option>
+                  <option
+                    value="phoneInfographic"
+                  >
+                    phone infographic
+                  </option>
+                  <option
+                    value="productivityInfographic"
+                  >
+                    productivity infographic
+                  </option>
+                  <option
+                    value="propertyManagementInfographic"
+                  >
+                    property management infographic
+                  </option>
+                  <option
+                    value="propTechInfographic"
+                  >
+                    prop tech infographic
+                  </option>
+                  <option
+                    value="reapitConnectInfographic"
+                  >
+                    reapit connect infographic
+                  </option>
+                  <option
+                    value="reapitConnectSettingsDevicesDarkInfographic"
+                  >
+                    reapit connect settings devices dark infographic
+                  </option>
+                  <option
+                    value="reapitConnectSettingsDevicesInfographic"
+                  >
+                    reapit connect settings devices infographic
+                  </option>
+                  <option
+                    value="reapitLogoInfographic"
+                  >
+                    reapit logo infographic
+                  </option>
+                  <option
+                    value="reapitUserInfographic"
+                  >
+                    reapit user infographic
+                  </option>
+                  <option
                     value="refreshInfographic"
                   >
                     refresh infographic
+                  </option>
+                  <option
+                    value="reportInfographic"
+                  >
+                    report infographic
                   </option>
                   <option
                     value="reportingInfographic"
@@ -1626,9 +1581,29 @@ Object {
                     reporting infographic
                   </option>
                   <option
+                    value="salesProgressionInfographic"
+                  >
+                    sales progression infographic
+                  </option>
+                  <option
+                    value="selectInfographic"
+                  >
+                    select infographic
+                  </option>
+                  <option
                     value="serverInfographic"
                   >
                     server infographic
+                  </option>
+                  <option
+                    value="shieldInfographic"
+                  >
+                    shield infographic
+                  </option>
+                  <option
+                    value="userAuthInfographic"
+                  >
+                    user auth infographic
                   </option>
                   <option
                     value="userDeviceInfographic"
@@ -1646,24 +1621,14 @@ Object {
                     user infographic
                   </option>
                   <option
-                    value="userAuthInfographic"
+                    value="utilityRegistrationInfographic"
                   >
-                    user auth infographic
+                    utility registration infographic
                   </option>
                   <option
-                    value="foundationsCustomerInfographic"
+                    value="vendorInfographic"
                   >
-                    foundations customer infographic
-                  </option>
-                  <option
-                    value="newCustomerInfographic"
-                  >
-                    new customer infographic
-                  </option>
-                  <option
-                    value="propTechInfographic"
-                  >
-                    prop tech infographic
+                    vendor infographic
                   </option>
                   <option
                     value="webDeveloperInfographic"
@@ -1671,24 +1636,24 @@ Object {
                     web developer infographic
                   </option>
                   <option
-                    value="authenticatedInfographic"
+                    value="webDeveloperInfographicAlt"
                   >
-                    authenticated infographic
+                    web developer infographic alt
                   </option>
                   <option
-                    value="reapitConnectInfographic"
+                    value="webhooksDocsInfographic"
                   >
-                    reapit connect infographic
+                    webhooks docs infographic
                   </option>
                   <option
-                    value="reapitLogoInfographic"
+                    value="webhooksInfographic"
                   >
-                    reapit logo infographic
+                    webhooks infographic
                   </option>
                   <option
-                    value="sharedEntitiesInfographic"
+                    value="webInfographic"
                   >
-                    shared entities infographic
+                    web infographic
                   </option>
                   <option
                     value="welcomeInfographic"
@@ -1696,69 +1661,19 @@ Object {
                     welcome infographic
                   </option>
                   <option
+                    value="authenticatedInfographic"
+                  >
+                    authenticated infographic
+                  </option>
+                  <option
                     value="platformApiInfographic"
                   >
                     platform api infographic
                   </option>
                   <option
-                    value="appMarketInfographic"
+                    value="sharedEntitiesInfographic"
                   >
-                    app market infographic
-                  </option>
-                  <option
-                    value="editAppInfographic"
-                  >
-                    edit app infographic
-                  </option>
-                  <option
-                    value="lockedInfographic"
-                  >
-                    locked infographic
-                  </option>
-                  <option
-                    value="appCategoryInfographic"
-                  >
-                    app category infographic
-                  </option>
-                  <option
-                    value="appTypeInfographic"
-                  >
-                    app type infographic
-                  </option>
-                  <option
-                    value="developerAppsInfographic"
-                  >
-                    developer apps infographic
-                  </option>
-                  <option
-                    value="codeInfographic"
-                  >
-                    code infographic
-                  </option>
-                  <option
-                    value="listInfographic"
-                  >
-                    list infographic
-                  </option>
-                  <option
-                    value="mailInfographic"
-                  >
-                    mail infographic
-                  </option>
-                  <option
-                    value="phoneInfographic"
-                  >
-                    phone infographic
-                  </option>
-                  <option
-                    value="shieldInfographic"
-                  >
-                    shield infographic
-                  </option>
-                  <option
-                    value="webInfographic"
-                  >
-                    web infographic
+                    shared entities infographic
                   </option>
                 </select>
               </div>
@@ -1881,18 +1796,7 @@ Object {
                   <span
                     class="el-icon"
                   >
-                    <svg
-                      fill="none"
-                      height="1em"
-                      viewBox="0 0 20 20"
-                      width="1em"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M9.99958 0C4.47746 0 0 4.47746 0 9.99958C0 15.5217 4.47746 20 9.99958 20C15.5217 20 20 15.5217 20 9.99958C20 4.47746 15.5217 0 9.99958 0ZM12.0813 15.498C11.5666 15.7012 11.1568 15.8552 10.8495 15.9619C10.5431 16.0686 10.1867 16.1219 9.78116 16.1219C9.1581 16.1219 8.67302 15.9695 8.32762 15.6656C7.98222 15.3617 7.81037 14.9765 7.81037 14.5084C7.81037 14.3263 7.82307 14.1401 7.84847 13.9505C7.87471 13.7608 7.91619 13.5475 7.97291 13.3079L8.61714 11.0324C8.67386 10.814 8.72296 10.6066 8.7619 10.4135C8.80085 10.2188 8.81947 10.0402 8.81947 9.87767C8.81947 9.58815 8.75937 9.38497 8.64 9.27069C8.51894 9.1564 8.29122 9.10053 7.95175 9.10053C7.78582 9.10053 7.61481 9.12508 7.43958 9.17672C7.26603 9.23005 7.11534 9.27831 6.99175 9.32571L7.1619 8.62476C7.58349 8.45291 7.9873 8.30561 8.37249 8.1837C8.75767 8.06011 9.12169 7.99915 9.46455 7.99915C10.0834 7.99915 10.5608 8.14984 10.8969 8.44783C11.2313 8.74667 11.3998 9.13524 11.3998 9.6127C11.3998 9.71175 11.3879 9.88614 11.3651 10.135C11.3422 10.3848 11.299 10.6125 11.2364 10.8216L10.5956 13.0904C10.5431 13.2724 10.4965 13.4806 10.4542 13.7134C10.4127 13.9462 10.3924 14.124 10.3924 14.2434C10.3924 14.5448 10.4593 14.7505 10.5947 14.8597C10.7285 14.9689 10.963 15.0239 11.2948 15.0239C11.4514 15.0239 11.6267 14.996 11.8248 14.9418C12.0212 14.8876 12.1634 14.8394 12.2531 14.7979L12.0813 15.498ZM11.9678 6.2891C11.669 6.56677 11.3092 6.70561 10.8885 6.70561C10.4686 6.70561 10.1062 6.56677 9.80487 6.2891C9.50519 6.01143 9.35365 5.67365 9.35365 5.27915C9.35365 4.8855 9.50603 4.54688 9.80487 4.26667C10.1062 3.98561 10.4686 3.84593 10.8885 3.84593C11.3092 3.84593 11.6698 3.98561 11.9678 4.26667C12.2667 4.54688 12.4165 4.8855 12.4165 5.27915C12.4165 5.6745 12.2667 6.01143 11.9678 6.2891Z"
-                        fill="currentColor"
-                      />
-                    </svg>
+                    <svg />
                   </span>
                 </div>
                 <div

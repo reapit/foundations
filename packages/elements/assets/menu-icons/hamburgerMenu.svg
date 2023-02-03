@@ -1,6 +1,13 @@
-<svg width="1em" height="1em" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="32" height="32" rx="4" fill="#23A4DE" />
-  <line x1="10" y1="12.25" x2="22" y2="12.25" stroke="white" strokeWidth="1.5" />
-  <line x1="10" y1="20.25" x2="22" y2="20.25" stroke="white" strokeWidth="1.5" />
-  <line x1="10" y1="16.25" x2="22" y2="16.25" stroke="white" strokeWidth="1.5" />
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_5905_4465)">
+<rect width="40" height="40" rx="4" fill="var(--nav-menu-icon-secondary-accent)"/>
+<path d="M11 14.5C11 13.6716 11.6716 13 12.5 13H27.5C28.3284 13 29 13.6716 29 14.5C29 15.3284 28.3284 16 27.5 16H12.5C11.6716 16 11 15.3284 11 14.5Z" fill="var(--nav-menu-icon-primary-accent)"/>
+<path d="M11 20.5C11 19.6716 11.6716 19 12.5 19H27.5C28.3284 19 29 19.6716 29 20.5C29 21.3284 28.3284 22 27.5 22H12.5C11.6716 22 11 21.3284 11 20.5Z" fill="var(--nav-menu-icon-primary-accent)"/>
+<path d="M12.5 25C11.6716 25 11 25.6716 11 26.5C11 27.3284 11.6716 28 12.5 28H27.5C28.3284 28 29 27.3284 29 26.5C29 25.6716 28.3284 25 27.5 25H12.5Z" fill="var(--nav-menu-icon-primary-accent)"/>
+</g>
+<defs>
+<clipPath id="clip0_5905_4465">
+<rect width="40" height="40" fill="var(--nav-menu-icon-primary-accent)"/>
+</clipPath>
+</defs>
 </svg>

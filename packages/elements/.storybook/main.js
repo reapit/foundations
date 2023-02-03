@@ -20,6 +20,22 @@ module.exports = {
     builder: 'webpack5',
   },
   webpackFinal: async (config, { configType }) => {
+    const fileLoaderRule = config.module.rules.find((rule) => !Array.isArray(rule.test) && rule.test?.test('.svg'))
+    fileLoaderRule.exclude = /\.svg$/
+
+    config.module.rules.unshift({
+      test: /\.svg$/,
+      use: [
+        {
+          loader: '@svgr/webpack',
+          options: {
+            icon: true,
+          },
+        },
+        'url-loader',
+      ],
+    })
+
     config.module.rules.push({
       test: /\.(ts|tsx)$/,
       use: [

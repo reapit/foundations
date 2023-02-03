@@ -1,7 +1,5 @@
 import React from 'react'
-import { render } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
-import { screen } from '@testing-library/dom'
+import { render, fireEvent } from '@testing-library/react'
 import { Steps, StepsProps, StepsVertical, StepsVerticalProps } from '../index'
 
 describe('Steps', () => {
@@ -19,9 +17,8 @@ describe('Steps', () => {
   })
 
   it('should fire the onStepClick event correctly', async () => {
-    const user = userEvent.setup()
-    render(<Steps {...props} />)
-    await user.click(screen.getByTestId('step-1'))
+    const wrapper = render(<Steps {...props} />)
+    fireEvent.click(wrapper.getByTestId('step-1'))
     expect(props.onStepClick).toHaveBeenCalledTimes(1)
   })
 
@@ -67,11 +64,9 @@ describe('StepsVertical', () => {
   })
 
   it('should fire the onStepClick event correctly', async () => {
-    const user = userEvent.setup()
+    const wrapper = render(<StepsVertical {...props} />)
 
-    render(<StepsVertical {...props} />)
-
-    await user.click(screen.getByTestId('step-1'))
+    fireEvent.click(wrapper.getByTestId('step-1'))
 
     expect(props.onStepClick).toHaveBeenCalledTimes(1)
   })

@@ -1,7 +1,5 @@
 import React from 'react'
-import { render } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
-import { screen } from '@testing-library/dom'
+import { render, fireEvent } from '@testing-library/react'
 import { Snack, SnackHolder } from '..'
 
 describe('Snack component', () => {
@@ -17,9 +15,8 @@ describe('Snack component', () => {
 
   it('should trigger the onRemove prop if supplied', async () => {
     const onRemove = jest.fn()
-    const user = userEvent.setup()
-    render(<Snack icon="emailSystem" onRemove={onRemove} />)
-    await user.click(screen.getByTestId('close-icon'))
+    const wrapper = render(<Snack icon="emailSystem" onRemove={onRemove} />)
+    fireEvent.click(wrapper.getByTestId('close-icon'))
     expect(onRemove).toHaveBeenCalledTimes(1)
   })
 })
