@@ -1,239 +1,307 @@
-import { ReactComponent as accountMenu } from '../../../assets/menu-icons/accountMenu.svg'
-import { ReactComponent as addSolidSystem } from '../../../assets/system-icons/addSolidSystem.svg'
-import { ReactComponent as addSystem } from '../../../assets/system-icons/addSystem.svg'
-import { ReactComponent as agencyCloudInfographic } from '../../../assets/infographic-icons/agencyCloudInfographic.svg'
-import { ReactComponent as analyticsMenu } from '../../../assets/menu-icons/analyticsMenu.svg'
-import { ReactComponent as apiDocsInfographic } from '../../../assets/infographic-icons/apiDocsInfographic.svg'
-import { ReactComponent as apiInfographic } from '../../../assets/infographic-icons/apiInfographic.svg'
-import { ReactComponent as apiMenu } from '../../../assets/menu-icons/apiMenu.svg'
-import { ReactComponent as appCategoryInfographic } from '../../../assets/infographic-icons/appCategoryInfographic.svg'
-import { ReactComponent as appInfographic } from '../../../assets/infographic-icons/appInfographic.svg'
-import { ReactComponent as appInfographicAlt } from '../../../assets/infographic-icons/appInfographicAlt.svg'
-import { ReactComponent as applicantInfographic } from '../../../assets/infographic-icons/applicantInfographic.svg'
-import { ReactComponent as appMarketDarkInfographic } from '../../../assets/infographic-icons/appMarketDarkInfographic.svg'
-import { ReactComponent as appMarketInfographic } from '../../../assets/infographic-icons/appMarketInfographic.svg'
-import { ReactComponent as appSettingsAuthDarkInfographic } from '../../../assets/infographic-icons/appSettingsAuthDarkInfographic.svg'
-import { ReactComponent as appSettingsAuthInfographic } from '../../../assets/infographic-icons/appSettingsAuthInfographic.svg'
-import { ReactComponent as appsMenu } from '../../../assets/menu-icons/appsMenu.svg'
-import { ReactComponent as appTypeInfographic } from '../../../assets/infographic-icons/appTypeInfographic.svg'
-import { ReactComponent as arrowDownSolidSystem } from '../../../assets/system-icons/arrowDownSolidSystem.svg'
-import { ReactComponent as arrowDownSystem } from '../../../assets/system-icons/arrowDownSystem.svg'
-import { ReactComponent as arrowLeftSolidSystem } from '../../../assets/system-icons/arrowLeftSolidSystem.svg'
-import { ReactComponent as arrowLeftSystem } from '../../../assets/system-icons/arrowLeftSystem.svg'
-import { ReactComponent as arrowRightSolidSystem } from '../../../assets/system-icons/arrowRightSolidSystem.svg'
-import { ReactComponent as arrowRightSystem } from '../../../assets/system-icons/arrowRightSystem.svg'
-import { ReactComponent as arrowUpSolidSystem } from '../../../assets/system-icons/arrowUpSolidSystem.svg'
-import { ReactComponent as arrowUpSystem } from '../../../assets/system-icons/arrowUpSystem.svg'
-import { ReactComponent as asteriskSolidSystem } from '../../../assets/system-icons/asteriskSolidSystem.svg'
-import { ReactComponent as asteriskSystem } from '../../../assets/system-icons/asteriskSystem.svg'
-import { ReactComponent as authenticatedInfographic } from '../../../assets/infographic-icons/authenticatedInfographic.svg'
-import { ReactComponent as authenticationSolidSystem } from '../../../assets/system-icons/authenticationSolidSystem.svg'
-import { ReactComponent as authenticationSystem } from '../../../assets/system-icons/authenticationSystem.svg'
-import { ReactComponent as backSolidSystem } from '../../../assets/system-icons/backSolidSystem.svg'
-import { ReactComponent as backSystem } from '../../../assets/system-icons/backSystem.svg'
-import { ReactComponent as barnInfographic } from '../../../assets/infographic-icons/barnInfographic.svg'
-import { ReactComponent as bulletListSolidSystem } from '../../../assets/system-icons/bulletListSolidSystem.svg'
-import { ReactComponent as bulletListSystem } from '../../../assets/system-icons/bulletListSystem.svg'
-import { ReactComponent as bungalowInfographic } from '../../../assets/infographic-icons/bungalowInfographic.svg'
-import { ReactComponent as calendarSolidSystem } from '../../../assets/system-icons/calendarSolidSystem.svg'
-import { ReactComponent as calendarSystem } from '../../../assets/system-icons/calendarSystem.svg'
-import { ReactComponent as cancelSolidSystem } from '../../../assets/system-icons/cancelSolidSystem.svg'
-import { ReactComponent as cancelSystem } from '../../../assets/system-icons/cancelSystem.svg'
-import { ReactComponent as carSolidSystem } from '../../../assets/system-icons/carSolidSystem.svg'
-import { ReactComponent as carSystem } from '../../../assets/system-icons/carSystem.svg'
-import { ReactComponent as checkSolidSystem } from '../../../assets/system-icons/checkSolidSystem.svg'
-import { ReactComponent as checkSystem } from '../../../assets/system-icons/checkSystem.svg'
-import { ReactComponent as circleSolidSystem } from '../../../assets/system-icons/circleSolidSystem.svg'
-import { ReactComponent as circleSystem } from '../../../assets/system-icons/circleSystem.svg'
-import { ReactComponent as closeSolidSystem } from '../../../assets/system-icons/closeSolidSystem.svg'
-import { ReactComponent as closeSystem } from '../../../assets/system-icons/closeSystem.svg'
-import { ReactComponent as cloudSolidSystem } from '../../../assets/system-icons/cloudSolidSystem.svg'
-import { ReactComponent as cloudSystem } from '../../../assets/system-icons/cloudSystem.svg'
-import { ReactComponent as codeInfographic } from '../../../assets/infographic-icons/codeInfographic.svg'
-import { ReactComponent as companySolidSystem } from '../../../assets/system-icons/companySolidSystem.svg'
-import { ReactComponent as companySystem } from '../../../assets/system-icons/companySystem.svg'
-import { ReactComponent as cottageInfographic } from '../../../assets/infographic-icons/cottageInfographic.svg'
-import { ReactComponent as crmInfographic } from '../../../assets/infographic-icons/crmInfographic.svg'
-import { ReactComponent as customerInfographic } from '../../../assets/infographic-icons/customerInfographic.svg'
-import { ReactComponent as dataMenu } from '../../../assets/menu-icons/dataMenu.svg'
-import { ReactComponent as defaultMenu } from '../../../assets/menu-icons/defaultMenu.svg'
-import { ReactComponent as designInfographic } from '../../../assets/infographic-icons/designInfographic.svg'
-import { ReactComponent as desktopMenu } from '../../../assets/menu-icons/desktopMenu.svg'
-import { ReactComponent as developerAppsInfographic } from '../../../assets/infographic-icons/developerAppsInfographic.svg'
-import { ReactComponent as developersMenu } from '../../../assets/menu-icons/developersMenu.svg'
-import { ReactComponent as developmentInfographic } from '../../../assets/infographic-icons/developmentInfographic.svg'
-import { ReactComponent as devicesInfographic } from '../../../assets/infographic-icons/devicesInfographic.svg'
-import { ReactComponent as docsAnimated1 } from '../../../assets/animated-icons/docsAnimated1.svg'
-import { ReactComponent as docsAnimated2 } from '../../../assets/animated-icons/docsAnimated2.svg'
-import { ReactComponent as docsInfographic } from '../../../assets/infographic-icons/docsInfographic.svg'
-import { ReactComponent as docsMenu } from '../../../assets/menu-icons/docsMenu.svg'
-import { ReactComponent as dollarSolidSystem } from '../../../assets/system-icons/dollarSolidSystem.svg'
-import { ReactComponent as dollarSystem } from '../../../assets/system-icons/dollarSystem.svg'
-import { ReactComponent as doorLockInfographic } from '../../../assets/infographic-icons/doorLockInfographic.svg'
-import { ReactComponent as downloadSolidSystem } from '../../../assets/system-icons/downloadSolidSystem.svg'
-import { ReactComponent as downloadSystem } from '../../../assets/system-icons/downloadSystem.svg'
-import { ReactComponent as downSolidSystem } from '../../../assets/system-icons/downSolidSystem.svg'
-import { ReactComponent as downSystem } from '../../../assets/system-icons/downSystem.svg'
-import { ReactComponent as editAppCancelInfographic } from '../../../assets/infographic-icons/editAppCancelInfographic.svg'
-import { ReactComponent as editAppInfographic } from '../../../assets/infographic-icons/editAppInfographic.svg'
-import { ReactComponent as editSolidSystem } from '../../../assets/system-icons/editSolidSystem.svg'
-import { ReactComponent as editSystem } from '../../../assets/system-icons/editSystem.svg'
-import { ReactComponent as elementsInfographic } from '../../../assets/infographic-icons/elementsInfographic.svg'
-import { ReactComponent as emailSolidSystem } from '../../../assets/system-icons/emailSolidSystem.svg'
-import { ReactComponent as emailSystem } from '../../../assets/system-icons/emailSystem.svg'
-import { ReactComponent as errorSolidSystem } from '../../../assets/system-icons/errorSolidSystem.svg'
-import { ReactComponent as errorSystem } from '../../../assets/system-icons/errorSystem.svg'
-import { ReactComponent as euroSolidSystem } from '../../../assets/system-icons/euroSolidSystem.svg'
-import { ReactComponent as euroSystem } from '../../../assets/system-icons/euroSystem.svg'
-import { ReactComponent as farmInfographic } from '../../../assets/infographic-icons/farmInfographic.svg'
-import { ReactComponent as favouriteSolidSystem } from '../../../assets/system-icons/favouriteSolidSystem.svg'
-import { ReactComponent as favouriteSystem } from '../../../assets/system-icons/favouriteSystem.svg'
-import { ReactComponent as feedAltInfographic } from '../../../assets/infographic-icons/feedAltInfographic.svg'
-import { ReactComponent as feedInfographic } from '../../../assets/infographic-icons/feedInfographic.svg'
-import { ReactComponent as filterSolidSystem } from '../../../assets/system-icons/filterSolidSystem.svg'
-import { ReactComponent as filterSystem } from '../../../assets/system-icons/filterSystem.svg'
-import { ReactComponent as flatInfographic } from '../../../assets/infographic-icons/flatInfographic.svg'
-import { ReactComponent as foundationsCustomerInfographic } from '../../../assets/infographic-icons/foundationsCustomerInfographic.svg'
-import { ReactComponent as geoLocationSolidSystem } from '../../../assets/system-icons/geoLocationSolidSystem.svg'
-import { ReactComponent as geoLocationSystem } from '../../../assets/system-icons/geoLocationSystem.svg'
-import { ReactComponent as githubSolidSystem } from '../../../assets/system-icons/githubSolidSystem.svg'
-import { ReactComponent as githubSystem } from '../../../assets/system-icons/githubSystem.svg'
-import { ReactComponent as globeInfographic } from '../../../assets/infographic-icons/globeInfographic.svg'
-import { ReactComponent as graphQlInfographic } from '../../../assets/infographic-icons/graphQlInfographic.svg'
-import { ReactComponent as hamburgerMenu } from '../../../assets/menu-icons/hamburgerMenu.svg'
-import { ReactComponent as hamburgerMenuSolidSystem } from '../../../assets/system-icons/hamburgerMenuSolidSystem.svg'
-import { ReactComponent as hamburgerMenuSystem } from '../../../assets/system-icons/hamburgerMenuSystem.svg'
-import { ReactComponent as hamburgerOpenMenu } from '../../../assets/menu-icons/hamburgerOpenMenu.svg'
-import { ReactComponent as helpMenu } from '../../../assets/menu-icons/helpMenu.svg'
-import { ReactComponent as hideSolidSystem } from '../../../assets/system-icons/hideSolidSystem.svg'
-import { ReactComponent as hideSystem } from '../../../assets/system-icons/hideSystem.svg'
-import { ReactComponent as homeSolidSystem } from '../../../assets/system-icons/homeSolidSystem.svg'
-import { ReactComponent as homeSystem } from '../../../assets/system-icons/homeSystem.svg'
-import { ReactComponent as houseInfographic } from '../../../assets/infographic-icons/houseInfographic.svg'
-import { ReactComponent as htmlInfographic } from '../../../assets/infographic-icons/htmlInfographic.svg'
-import { ReactComponent as infoSolidSystem } from '../../../assets/system-icons/infoSolidSystem.svg'
-import { ReactComponent as infoSystem } from '../../../assets/system-icons/infoSystem.svg'
-import { ReactComponent as installedMenu } from '../../../assets/menu-icons/installedMenu.svg'
-import { ReactComponent as landInfographic } from '../../../assets/infographic-icons/landInfographic.svg'
-import { ReactComponent as landlordInfographic } from '../../../assets/infographic-icons/landlordInfographic.svg'
-import { ReactComponent as leadGenerationInfographic } from '../../../assets/infographic-icons/leadGenerationInfographic.svg'
-import { ReactComponent as linkSolidSystem } from '../../../assets/system-icons/linkSolidSystem.svg'
-import { ReactComponent as linkSystem } from '../../../assets/system-icons/linkSystem.svg'
-import { ReactComponent as listInfographic } from '../../../assets/infographic-icons/listInfographic.svg'
-import { ReactComponent as lockedInfographic } from '../../../assets/infographic-icons/lockedInfographic.svg'
-import { ReactComponent as lockSolidSystem } from '../../../assets/system-icons/lockSolidSystem.svg'
-import { ReactComponent as lockSystem } from '../../../assets/system-icons/lockSystem.svg'
-import { ReactComponent as logoKeyInfographic } from '../../../assets/infographic-icons/logoKeyInfographic.svg'
-import { ReactComponent as logoSettingsInfographic } from '../../../assets/infographic-icons/logoSettingsInfographic.svg'
-import { ReactComponent as logoutMenu } from '../../../assets/menu-icons/logoutMenu.svg'
-import { ReactComponent as mailInfographic } from '../../../assets/infographic-icons/mailInfographic.svg'
-import { ReactComponent as maisonetteInfographic } from '../../../assets/infographic-icons/maisonetteInfographic.svg'
-import { ReactComponent as manageAppListingInfographic } from '../../../assets/infographic-icons/manageAppListingInfographic.svg'
-import { ReactComponent as manageMenu } from '../../../assets/menu-icons/manageMenu.svg'
-import { ReactComponent as manageWebhooksInfographic } from '../../../assets/infographic-icons/manageWebhooksInfographic.svg'
-import { ReactComponent as mapMenu } from '../../../assets/menu-icons/mapMenu.svg'
-import { ReactComponent as marketingInfographic } from '../../../assets/infographic-icons/marketingInfographic.svg'
-import { ReactComponent as marketplaceAppACInfographic } from '../../../assets/infographic-icons/marketplaceAppACInfographic.svg'
-import { ReactComponent as marketplaceMenu } from '../../../assets/menu-icons/marketplaceMenu.svg'
-import { ReactComponent as messageSolidSystem } from '../../../assets/system-icons/messageSolidSystem.svg'
-import { ReactComponent as messageSystem } from '../../../assets/system-icons/messageSystem.svg'
-import { ReactComponent as moreSolidSystem } from '../../../assets/system-icons/moreSolidSystem.svg'
-import { ReactComponent as moreSystem } from '../../../assets/system-icons/moreSystem.svg'
-import { ReactComponent as myAccountMenu } from '../../../assets/menu-icons/myAccountMenu.svg'
-import { ReactComponent as myAppsInfographic } from '../../../assets/infographic-icons/myAppsInfographic.svg'
-import { ReactComponent as newCustomerInfographic } from '../../../assets/infographic-icons/newCustomerInfographic.svg'
-import { ReactComponent as nextSolidSystem } from '../../../assets/system-icons/nextSolidSystem.svg'
-import { ReactComponent as nextSystem } from '../../../assets/system-icons/nextSystem.svg'
-import { ReactComponent as officesMenu } from '../../../assets/menu-icons/officesMenu.svg'
-import { ReactComponent as paymentsMenu } from '../../../assets/menu-icons/paymentsMenu.svg'
-import { ReactComponent as paymentSolidSystem } from '../../../assets/system-icons/paymentSolidSystem.svg'
-import { ReactComponent as paymentSystem } from '../../../assets/system-icons/paymentSystem.svg'
-import { ReactComponent as phoneInfographic } from '../../../assets/infographic-icons/phoneInfographic.svg'
-import { ReactComponent as phoneSolidSystem } from '../../../assets/system-icons/phoneSolidSystem.svg'
-import { ReactComponent as phoneSystem } from '../../../assets/system-icons/phoneSystem.svg'
-import { ReactComponent as pinSolidSystem } from '../../../assets/system-icons/pinSolidSystem.svg'
-import { ReactComponent as pinSystem } from '../../../assets/system-icons/pinSystem.svg'
-import { ReactComponent as platformApiInfographic } from '../../../assets/infographic-icons/platformApiInfographic.svg'
-import { ReactComponent as poundSolidSystem } from '../../../assets/system-icons/poundSolidSystem.svg'
-import { ReactComponent as poundSystem } from '../../../assets/system-icons/poundSystem.svg'
-import { ReactComponent as previewSystem } from '../../../assets/system-icons/previewSystem.svg'
-import { ReactComponent as productivityInfographic } from '../../../assets/infographic-icons/productivityInfographic.svg'
-import { ReactComponent as profileMenu } from '../../../assets/menu-icons/profileMenu.svg'
-import { ReactComponent as propertyManagementInfographic } from '../../../assets/infographic-icons/propertyManagementInfographic.svg'
-import { ReactComponent as propTechInfographic } from '../../../assets/infographic-icons/propTechInfographic.svg'
-import { ReactComponent as questionSolidSystem } from '../../../assets/system-icons/questionSolidSystem.svg'
-import { ReactComponent as questionSystem } from '../../../assets/system-icons/questionSystem.svg'
-import { ReactComponent as reapitConnectInfographic } from '../../../assets/infographic-icons/reapitConnectInfographic.svg'
-import { ReactComponent as reapitConnectSettingsDevicesDarkInfographic } from '../../../assets/infographic-icons/reapitConnectSettingsDevicesDarkInfographic.svg'
-import { ReactComponent as reapitConnectSettingsDevicesInfographic } from '../../../assets/infographic-icons/reapitConnectSettingsDevicesInfographic.svg'
-import { ReactComponent as reapitLogoInfographic } from '../../../assets/infographic-icons/reapitLogoInfographic.svg'
-import { ReactComponent as reapitLogoMenu } from '../../../assets/menu-icons/reapitLogoMenu.svg'
-import { ReactComponent as reapitLogoSelectedMenu } from '../../../assets/menu-icons/reapitLogoSelectedMenu.svg'
-import { ReactComponent as reapitLogoTextMenu } from '../../../assets/menu-icons/reapitLogoTextMenu.svg'
-import { ReactComponent as reapitUserInfographic } from '../../../assets/infographic-icons/reapitUserInfographic.svg'
-import { ReactComponent as refreshInfographic } from '../../../assets/infographic-icons/refreshInfographic.svg'
-import { ReactComponent as refreshSolidSystem } from '../../../assets/system-icons/refreshSolidSystem.svg'
-import { ReactComponent as refreshSystem } from '../../../assets/system-icons/refreshSystem.svg'
-import { ReactComponent as reportInfographic } from '../../../assets/infographic-icons/reportInfographic.svg'
-import { ReactComponent as reportingInfographic } from '../../../assets/infographic-icons/reportingInfographic.svg'
-import { ReactComponent as resultsMenu } from '../../../assets/menu-icons/resultsMenu.svg'
-import { ReactComponent as salesProgressionInfographic } from '../../../assets/infographic-icons/salesProgressionInfographic.svg'
-import { ReactComponent as saveSystem } from '../../../assets/system-icons/saveSystem.svg'
-import { ReactComponent as searchMenu } from '../../../assets/menu-icons/searchMenu.svg'
-import { ReactComponent as searchSolidSystem } from '../../../assets/system-icons/searchSolidSystem.svg'
-import { ReactComponent as searchSystem } from '../../../assets/system-icons/searchSystem.svg'
-import { ReactComponent as securityTokenSolidSystem } from '../../../assets/system-icons/securityTokenSolidSystem.svg'
-import { ReactComponent as securityTokenSystem } from '../../../assets/system-icons/securityTokenSystem.svg'
-import { ReactComponent as selectInfographic } from '../../../assets/infographic-icons/selectInfographic.svg'
-import { ReactComponent as serverInfographic } from '../../../assets/infographic-icons/serverInfographic.svg'
-import { ReactComponent as settingsSolidSystem } from '../../../assets/system-icons/settingsSolidSystem.svg'
-import { ReactComponent as settingsSystem } from '../../../assets/system-icons/settingsSystem.svg'
-import { ReactComponent as sharedEntitiesInfographic } from '../../../assets/infographic-icons/sharedEntitiesInfographic.svg'
-import { ReactComponent as shareSolidSystem } from '../../../assets/system-icons/shareSolidSystem.svg'
-import { ReactComponent as shareSystem } from '../../../assets/system-icons/shareSystem.svg'
-import { ReactComponent as shieldInfographic } from '../../../assets/infographic-icons/shieldInfographic.svg'
-import { ReactComponent as sortSolidSystem } from '../../../assets/system-icons/sortSolidSystem.svg'
-import { ReactComponent as sortSystem } from '../../../assets/system-icons/sortSystem.svg'
-import { ReactComponent as supportMenu } from '../../../assets/menu-icons/supportMenu.svg'
-import { ReactComponent as tickSolidSystem } from '../../../assets/system-icons/tickSolidSystem.svg'
-import { ReactComponent as tickSystem } from '../../../assets/system-icons/tickSystem.svg'
-import { ReactComponent as trashSolidSystem } from '../../../assets/system-icons/trashSolidSystem.svg'
-import { ReactComponent as trashSystem } from '../../../assets/system-icons/trashSystem.svg'
-import { ReactComponent as uiMenu } from '../../../assets/menu-icons/uiMenu.svg'
-import { ReactComponent as upSolidSystem } from '../../../assets/system-icons/upSolidSystem.svg'
-import { ReactComponent as upSystem } from '../../../assets/system-icons/upSystem.svg'
-import { ReactComponent as userAuthInfographic } from '../../../assets/infographic-icons/userAuthInfographic.svg'
-import { ReactComponent as userDeviceInfographic } from '../../../assets/infographic-icons/userDeviceInfographic.svg'
-import { ReactComponent as userHouseInfographic } from '../../../assets/infographic-icons/userHouseInfographic.svg'
-import { ReactComponent as userInfographic } from '../../../assets/infographic-icons/userInfographic.svg'
-import { ReactComponent as usernameSolidSystem } from '../../../assets/system-icons/usernameSolidSystem.svg'
-import { ReactComponent as usernameSystem } from '../../../assets/system-icons/usernameSystem.svg'
-import { ReactComponent as usersMenu } from '../../../assets/menu-icons/usersMenu.svg'
-import { ReactComponent as utilityRegistrationInfographic } from '../../../assets/infographic-icons/utilityRegistrationInfographic.svg'
-import { ReactComponent as vendorInfographic } from '../../../assets/infographic-icons/vendorInfographic.svg'
-import { ReactComponent as videoSolidSystem } from '../../../assets/system-icons/videoSolidSystem.svg'
-import { ReactComponent as videoSystem } from '../../../assets/system-icons/videoSystem.svg'
-import { ReactComponent as viewSolidSystem } from '../../../assets/system-icons/viewSolidSystem.svg'
-import { ReactComponent as viewSystem } from '../../../assets/system-icons/viewSystem.svg'
-import { ReactComponent as walkingSolidSystem } from '../../../assets/system-icons/walkingSolidSystem.svg'
-import { ReactComponent as walkingSystem } from '../../../assets/system-icons/walkingSystem.svg'
-import { ReactComponent as warningSolidSystem } from '../../../assets/system-icons/warningSolidSystem.svg'
-import { ReactComponent as warningSystem } from '../../../assets/system-icons/warningSystem.svg'
-import { ReactComponent as webDeveloperInfographic } from '../../../assets/infographic-icons/webDeveloperInfographic.svg'
-import { ReactComponent as webDeveloperInfographicAlt } from '../../../assets/infographic-icons/webDeveloperInfographicAlt.svg'
-import { ReactComponent as webhooksAnimated1 } from '../../../assets/animated-icons/webhooksAnimated1.svg'
-import { ReactComponent as webhooksAnimated2 } from '../../../assets/animated-icons/webhooksAnimated2.svg'
-import { ReactComponent as webhooksDocsAnimated1 } from '../../../assets/animated-icons/webhooksDocsAnimated1.svg'
-import { ReactComponent as webhooksDocsAnimated2 } from '../../../assets/animated-icons/webhooksDocsAnimated2.svg'
-import { ReactComponent as webhooksDocsInfographic } from '../../../assets/infographic-icons/webhooksDocsInfographic.svg'
-import { ReactComponent as webhooksInfographic } from '../../../assets/infographic-icons/webhooksInfographic.svg'
-import { ReactComponent as webhooksMenu } from '../../../assets/menu-icons/webhooksMenu.svg'
-import { ReactComponent as webInfographic } from '../../../assets/infographic-icons/webInfographic.svg'
-import { ReactComponent as welcomeAnimated1 } from '../../../assets/animated-icons/welcomeAnimated1.svg'
-import { ReactComponent as welcomeAnimated2 } from '../../../assets/animated-icons/welcomeAnimated2.svg'
-import { ReactComponent as welcomeInfographic } from '../../../assets/infographic-icons/welcomeInfographic.svg'
-import { ReactComponent as placeholderLarge } from '../../../assets/placeholder-images/placeholderLarge.svg'
-import { ReactComponent as placeholderSmall } from '../../../assets/placeholder-images/placeholderSmall.svg'
+/** Had to use common js for these imports, as the tsc compliler kept throwing this error. 
+ * ../elements/src/components/icon/icons.ts:199:46 - error TS2307: Cannot find module '../../../assets/system-icons/
+ *  tickSystem.svg' or its corresponding type declarations.
+ import { ReactComponent as tickSystem } from '../../../assets/system-icons/tickSystem.svg'
+ The usual declare module '*.svg' fix wasn't being respected and I couldn't work out why. Really killing me.
+ */
+const { ReactComponent: accountMenu } = require('../../../assets/menu-icons/accountMenu.svg')
+const { ReactComponent: addSolidSystem } = require('../../../assets/system-icons/addSolidSystem.svg')
+const { ReactComponent: addSystem } = require('../../../assets/system-icons/addSystem.svg')
+const {
+  ReactComponent: agencyCloudInfographic,
+} = require('../../../assets/infographic-icons/agencyCloudInfographic.svg')
+const { ReactComponent: analyticsMenu } = require('../../../assets/menu-icons/analyticsMenu.svg')
+const { ReactComponent: apiDocsInfographic } = require('../../../assets/infographic-icons/apiDocsInfographic.svg')
+const { ReactComponent: apiInfographic } = require('../../../assets/infographic-icons/apiInfographic.svg')
+const { ReactComponent: apiMenu } = require('../../../assets/menu-icons/apiMenu.svg')
+const {
+  ReactComponent: appCategoryInfographic,
+} = require('../../../assets/infographic-icons/appCategoryInfographic.svg')
+const { ReactComponent: appInfographic } = require('../../../assets/infographic-icons/appInfographic.svg')
+const { ReactComponent: appInfographicAlt } = require('../../../assets/infographic-icons/appInfographicAlt.svg')
+const { ReactComponent: applicantInfographic } = require('../../../assets/infographic-icons/applicantInfographic.svg')
+const {
+  ReactComponent: appMarketDarkInfographic,
+} = require('../../../assets/infographic-icons/appMarketDarkInfographic.svg')
+const { ReactComponent: appMarketInfographic } = require('../../../assets/infographic-icons/appMarketInfographic.svg')
+const {
+  ReactComponent: appSettingsAuthDarkInfographic,
+} = require('../../../assets/infographic-icons/appSettingsAuthDarkInfographic.svg')
+const {
+  ReactComponent: appSettingsAuthInfographic,
+} = require('../../../assets/infographic-icons/appSettingsAuthInfographic.svg')
+const { ReactComponent: appsMenu } = require('../../../assets/menu-icons/appsMenu.svg')
+const { ReactComponent: appTypeInfographic } = require('../../../assets/infographic-icons/appTypeInfographic.svg')
+const { ReactComponent: arrowDownSolidSystem } = require('../../../assets/system-icons/arrowDownSolidSystem.svg')
+const { ReactComponent: arrowDownSystem } = require('../../../assets/system-icons/arrowDownSystem.svg')
+const { ReactComponent: arrowLeftSolidSystem } = require('../../../assets/system-icons/arrowLeftSolidSystem.svg')
+const { ReactComponent: arrowLeftSystem } = require('../../../assets/system-icons/arrowLeftSystem.svg')
+const { ReactComponent: arrowRightSolidSystem } = require('../../../assets/system-icons/arrowRightSolidSystem.svg')
+const { ReactComponent: arrowRightSystem } = require('../../../assets/system-icons/arrowRightSystem.svg')
+const { ReactComponent: arrowUpSolidSystem } = require('../../../assets/system-icons/arrowUpSolidSystem.svg')
+const { ReactComponent: arrowUpSystem } = require('../../../assets/system-icons/arrowUpSystem.svg')
+const { ReactComponent: asteriskSolidSystem } = require('../../../assets/system-icons/asteriskSolidSystem.svg')
+const { ReactComponent: asteriskSystem } = require('../../../assets/system-icons/asteriskSystem.svg')
+const {
+  ReactComponent: authenticatedInfographic,
+} = require('../../../assets/infographic-icons/authenticatedInfographic.svg')
+const {
+  ReactComponent: authenticationSolidSystem,
+} = require('../../../assets/system-icons/authenticationSolidSystem.svg')
+const { ReactComponent: authenticationSystem } = require('../../../assets/system-icons/authenticationSystem.svg')
+const { ReactComponent: backSolidSystem } = require('../../../assets/system-icons/backSolidSystem.svg')
+const { ReactComponent: backSystem } = require('../../../assets/system-icons/backSystem.svg')
+const { ReactComponent: barnInfographic } = require('../../../assets/infographic-icons/barnInfographic.svg')
+const { ReactComponent: bulletListSolidSystem } = require('../../../assets/system-icons/bulletListSolidSystem.svg')
+const { ReactComponent: bulletListSystem } = require('../../../assets/system-icons/bulletListSystem.svg')
+const { ReactComponent: bungalowInfographic } = require('../../../assets/infographic-icons/bungalowInfographic.svg')
+const { ReactComponent: calendarSolidSystem } = require('../../../assets/system-icons/calendarSolidSystem.svg')
+const { ReactComponent: calendarSystem } = require('../../../assets/system-icons/calendarSystem.svg')
+const { ReactComponent: cancelSolidSystem } = require('../../../assets/system-icons/cancelSolidSystem.svg')
+const { ReactComponent: cancelSystem } = require('../../../assets/system-icons/cancelSystem.svg')
+const { ReactComponent: carSolidSystem } = require('../../../assets/system-icons/carSolidSystem.svg')
+const { ReactComponent: carSystem } = require('../../../assets/system-icons/carSystem.svg')
+const { ReactComponent: checkSolidSystem } = require('../../../assets/system-icons/checkSolidSystem.svg')
+const { ReactComponent: checkSystem } = require('../../../assets/system-icons/checkSystem.svg')
+const { ReactComponent: circleSolidSystem } = require('../../../assets/system-icons/circleSolidSystem.svg')
+const { ReactComponent: circleSystem } = require('../../../assets/system-icons/circleSystem.svg')
+const { ReactComponent: closeSolidSystem } = require('../../../assets/system-icons/closeSolidSystem.svg')
+const { ReactComponent: closeSystem } = require('../../../assets/system-icons/closeSystem.svg')
+const { ReactComponent: cloudSolidSystem } = require('../../../assets/system-icons/cloudSolidSystem.svg')
+const { ReactComponent: cloudSystem } = require('../../../assets/system-icons/cloudSystem.svg')
+const { ReactComponent: codeInfographic } = require('../../../assets/infographic-icons/codeInfographic.svg')
+const { ReactComponent: companySolidSystem } = require('../../../assets/system-icons/companySolidSystem.svg')
+const { ReactComponent: companySystem } = require('../../../assets/system-icons/companySystem.svg')
+const { ReactComponent: cottageInfographic } = require('../../../assets/infographic-icons/cottageInfographic.svg')
+const { ReactComponent: crmInfographic } = require('../../../assets/infographic-icons/crmInfographic.svg')
+const { ReactComponent: customerInfographic } = require('../../../assets/infographic-icons/customerInfographic.svg')
+const { ReactComponent: dataMenu } = require('../../../assets/menu-icons/dataMenu.svg')
+const { ReactComponent: defaultMenu } = require('../../../assets/menu-icons/defaultMenu.svg')
+const { ReactComponent: designInfographic } = require('../../../assets/infographic-icons/designInfographic.svg')
+const { ReactComponent: desktopMenu } = require('../../../assets/menu-icons/desktopMenu.svg')
+const {
+  ReactComponent: developerAppsInfographic,
+} = require('../../../assets/infographic-icons/developerAppsInfographic.svg')
+const { ReactComponent: developersMenu } = require('../../../assets/menu-icons/developersMenu.svg')
+const {
+  ReactComponent: developmentInfographic,
+} = require('../../../assets/infographic-icons/developmentInfographic.svg')
+const { ReactComponent: devicesInfographic } = require('../../../assets/infographic-icons/devicesInfographic.svg')
+const { ReactComponent: docsAnimated1 } = require('../../../assets/animated-icons/docsAnimated1.svg')
+const { ReactComponent: docsAnimated2 } = require('../../../assets/animated-icons/docsAnimated2.svg')
+const { ReactComponent: docsInfographic } = require('../../../assets/infographic-icons/docsInfographic.svg')
+const { ReactComponent: docsMenu } = require('../../../assets/menu-icons/docsMenu.svg')
+const { ReactComponent: dollarSolidSystem } = require('../../../assets/system-icons/dollarSolidSystem.svg')
+const { ReactComponent: dollarSystem } = require('../../../assets/system-icons/dollarSystem.svg')
+const { ReactComponent: doorLockInfographic } = require('../../../assets/infographic-icons/doorLockInfographic.svg')
+const { ReactComponent: downloadSolidSystem } = require('../../../assets/system-icons/downloadSolidSystem.svg')
+const { ReactComponent: downloadSystem } = require('../../../assets/system-icons/downloadSystem.svg')
+const { ReactComponent: downSolidSystem } = require('../../../assets/system-icons/downSolidSystem.svg')
+const { ReactComponent: downSystem } = require('../../../assets/system-icons/downSystem.svg')
+const {
+  ReactComponent: editAppCancelInfographic,
+} = require('../../../assets/infographic-icons/editAppCancelInfographic.svg')
+const { ReactComponent: editAppInfographic } = require('../../../assets/infographic-icons/editAppInfographic.svg')
+const { ReactComponent: editSolidSystem } = require('../../../assets/system-icons/editSolidSystem.svg')
+const { ReactComponent: editSystem } = require('../../../assets/system-icons/editSystem.svg')
+const { ReactComponent: elementsInfographic } = require('../../../assets/infographic-icons/elementsInfographic.svg')
+const { ReactComponent: emailSolidSystem } = require('../../../assets/system-icons/emailSolidSystem.svg')
+const { ReactComponent: emailSystem } = require('../../../assets/system-icons/emailSystem.svg')
+const { ReactComponent: errorSolidSystem } = require('../../../assets/system-icons/errorSolidSystem.svg')
+const { ReactComponent: errorSystem } = require('../../../assets/system-icons/errorSystem.svg')
+const { ReactComponent: euroSolidSystem } = require('../../../assets/system-icons/euroSolidSystem.svg')
+const { ReactComponent: euroSystem } = require('../../../assets/system-icons/euroSystem.svg')
+const { ReactComponent: farmInfographic } = require('../../../assets/infographic-icons/farmInfographic.svg')
+const { ReactComponent: favouriteSolidSystem } = require('../../../assets/system-icons/favouriteSolidSystem.svg')
+const { ReactComponent: favouriteSystem } = require('../../../assets/system-icons/favouriteSystem.svg')
+const { ReactComponent: feedAltInfographic } = require('../../../assets/infographic-icons/feedAltInfographic.svg')
+const { ReactComponent: feedInfographic } = require('../../../assets/infographic-icons/feedInfographic.svg')
+const { ReactComponent: filterSolidSystem } = require('../../../assets/system-icons/filterSolidSystem.svg')
+const { ReactComponent: filterSystem } = require('../../../assets/system-icons/filterSystem.svg')
+const { ReactComponent: flatInfographic } = require('../../../assets/infographic-icons/flatInfographic.svg')
+const {
+  ReactComponent: foundationsCustomerInfographic,
+} = require('../../../assets/infographic-icons/foundationsCustomerInfographic.svg')
+const { ReactComponent: geoLocationSolidSystem } = require('../../../assets/system-icons/geoLocationSolidSystem.svg')
+const { ReactComponent: geoLocationSystem } = require('../../../assets/system-icons/geoLocationSystem.svg')
+const { ReactComponent: githubSolidSystem } = require('../../../assets/system-icons/githubSolidSystem.svg')
+const { ReactComponent: githubSystem } = require('../../../assets/system-icons/githubSystem.svg')
+const { ReactComponent: globeInfographic } = require('../../../assets/infographic-icons/globeInfographic.svg')
+const { ReactComponent: graphQlInfographic } = require('../../../assets/infographic-icons/graphQlInfographic.svg')
+const { ReactComponent: hamburgerMenu } = require('../../../assets/menu-icons/hamburgerMenu.svg')
+const {
+  ReactComponent: hamburgerMenuSolidSystem,
+} = require('../../../assets/system-icons/hamburgerMenuSolidSystem.svg')
+const { ReactComponent: hamburgerMenuSystem } = require('../../../assets/system-icons/hamburgerMenuSystem.svg')
+const { ReactComponent: hamburgerOpenMenu } = require('../../../assets/menu-icons/hamburgerOpenMenu.svg')
+const { ReactComponent: helpMenu } = require('../../../assets/menu-icons/helpMenu.svg')
+const { ReactComponent: hideSolidSystem } = require('../../../assets/system-icons/hideSolidSystem.svg')
+const { ReactComponent: hideSystem } = require('../../../assets/system-icons/hideSystem.svg')
+const { ReactComponent: homeSolidSystem } = require('../../../assets/system-icons/homeSolidSystem.svg')
+const { ReactComponent: homeSystem } = require('../../../assets/system-icons/homeSystem.svg')
+const { ReactComponent: houseInfographic } = require('../../../assets/infographic-icons/houseInfographic.svg')
+const { ReactComponent: htmlInfographic } = require('../../../assets/infographic-icons/htmlInfographic.svg')
+const { ReactComponent: infoSolidSystem } = require('../../../assets/system-icons/infoSolidSystem.svg')
+const { ReactComponent: infoSystem } = require('../../../assets/system-icons/infoSystem.svg')
+const { ReactComponent: installedMenu } = require('../../../assets/menu-icons/installedMenu.svg')
+const { ReactComponent: landInfographic } = require('../../../assets/infographic-icons/landInfographic.svg')
+const { ReactComponent: landlordInfographic } = require('../../../assets/infographic-icons/landlordInfographic.svg')
+const {
+  ReactComponent: leadGenerationInfographic,
+} = require('../../../assets/infographic-icons/leadGenerationInfographic.svg')
+const { ReactComponent: linkSolidSystem } = require('../../../assets/system-icons/linkSolidSystem.svg')
+const { ReactComponent: linkSystem } = require('../../../assets/system-icons/linkSystem.svg')
+const { ReactComponent: listInfographic } = require('../../../assets/infographic-icons/listInfographic.svg')
+const { ReactComponent: lockedInfographic } = require('../../../assets/infographic-icons/lockedInfographic.svg')
+const { ReactComponent: lockSolidSystem } = require('../../../assets/system-icons/lockSolidSystem.svg')
+const { ReactComponent: lockSystem } = require('../../../assets/system-icons/lockSystem.svg')
+const { ReactComponent: logoKeyInfographic } = require('../../../assets/infographic-icons/logoKeyInfographic.svg')
+const {
+  ReactComponent: logoSettingsInfographic,
+} = require('../../../assets/infographic-icons/logoSettingsInfographic.svg')
+const { ReactComponent: logoutMenu } = require('../../../assets/menu-icons/logoutMenu.svg')
+const { ReactComponent: mailInfographic } = require('../../../assets/infographic-icons/mailInfographic.svg')
+const { ReactComponent: maisonetteInfographic } = require('../../../assets/infographic-icons/maisonetteInfographic.svg')
+const {
+  ReactComponent: manageAppListingInfographic,
+} = require('../../../assets/infographic-icons/manageAppListingInfographic.svg')
+const { ReactComponent: manageMenu } = require('../../../assets/menu-icons/manageMenu.svg')
+const {
+  ReactComponent: manageWebhooksInfographic,
+} = require('../../../assets/infographic-icons/manageWebhooksInfographic.svg')
+const { ReactComponent: mapMenu } = require('../../../assets/menu-icons/mapMenu.svg')
+const { ReactComponent: marketingInfographic } = require('../../../assets/infographic-icons/marketingInfographic.svg')
+const {
+  ReactComponent: marketplaceAppACInfographic,
+} = require('../../../assets/infographic-icons/marketplaceAppACInfographic.svg')
+const { ReactComponent: marketplaceMenu } = require('../../../assets/menu-icons/marketplaceMenu.svg')
+const { ReactComponent: messageSolidSystem } = require('../../../assets/system-icons/messageSolidSystem.svg')
+const { ReactComponent: messageSystem } = require('../../../assets/system-icons/messageSystem.svg')
+const { ReactComponent: moreSolidSystem } = require('../../../assets/system-icons/moreSolidSystem.svg')
+const { ReactComponent: moreSystem } = require('../../../assets/system-icons/moreSystem.svg')
+const { ReactComponent: myAccountMenu } = require('../../../assets/menu-icons/myAccountMenu.svg')
+const { ReactComponent: myAppsInfographic } = require('../../../assets/infographic-icons/myAppsInfographic.svg')
+const {
+  ReactComponent: newCustomerInfographic,
+} = require('../../../assets/infographic-icons/newCustomerInfographic.svg')
+const { ReactComponent: nextSolidSystem } = require('../../../assets/system-icons/nextSolidSystem.svg')
+const { ReactComponent: nextSystem } = require('../../../assets/system-icons/nextSystem.svg')
+const { ReactComponent: officesMenu } = require('../../../assets/menu-icons/officesMenu.svg')
+const { ReactComponent: paymentsMenu } = require('../../../assets/menu-icons/paymentsMenu.svg')
+const { ReactComponent: paymentSolidSystem } = require('../../../assets/system-icons/paymentSolidSystem.svg')
+const { ReactComponent: paymentSystem } = require('../../../assets/system-icons/paymentSystem.svg')
+const { ReactComponent: phoneInfographic } = require('../../../assets/infographic-icons/phoneInfographic.svg')
+const { ReactComponent: phoneSolidSystem } = require('../../../assets/system-icons/phoneSolidSystem.svg')
+const { ReactComponent: phoneSystem } = require('../../../assets/system-icons/phoneSystem.svg')
+const { ReactComponent: pinSolidSystem } = require('../../../assets/system-icons/pinSolidSystem.svg')
+const { ReactComponent: pinSystem } = require('../../../assets/system-icons/pinSystem.svg')
+const {
+  ReactComponent: platformApiInfographic,
+} = require('../../../assets/infographic-icons/platformApiInfographic.svg')
+const { ReactComponent: poundSolidSystem } = require('../../../assets/system-icons/poundSolidSystem.svg')
+const { ReactComponent: poundSystem } = require('../../../assets/system-icons/poundSystem.svg')
+const { ReactComponent: previewSystem } = require('../../../assets/system-icons/previewSystem.svg')
+const {
+  ReactComponent: productivityInfographic,
+} = require('../../../assets/infographic-icons/productivityInfographic.svg')
+const { ReactComponent: profileMenu } = require('../../../assets/menu-icons/profileMenu.svg')
+const {
+  ReactComponent: propertyManagementInfographic,
+} = require('../../../assets/infographic-icons/propertyManagementInfographic.svg')
+const { ReactComponent: propTechInfographic } = require('../../../assets/infographic-icons/propTechInfographic.svg')
+const { ReactComponent: questionSolidSystem } = require('../../../assets/system-icons/questionSolidSystem.svg')
+const { ReactComponent: questionSystem } = require('../../../assets/system-icons/questionSystem.svg')
+const {
+  ReactComponent: reapitConnectInfographic,
+} = require('../../../assets/infographic-icons/reapitConnectInfographic.svg')
+const {
+  ReactComponent: reapitConnectSettingsDevicesDarkInfographic,
+} = require('../../../assets/infographic-icons/reapitConnectSettingsDevicesDarkInfographic.svg')
+const {
+  ReactComponent: reapitConnectSettingsDevicesInfographic,
+} = require('../../../assets/infographic-icons/reapitConnectSettingsDevicesInfographic.svg')
+const { ReactComponent: reapitLogoInfographic } = require('../../../assets/infographic-icons/reapitLogoInfographic.svg')
+const { ReactComponent: reapitLogoMenu } = require('../../../assets/menu-icons/reapitLogoMenu.svg')
+const { ReactComponent: reapitLogoSelectedMenu } = require('../../../assets/menu-icons/reapitLogoSelectedMenu.svg')
+const { ReactComponent: reapitLogoTextMenu } = require('../../../assets/menu-icons/reapitLogoTextMenu.svg')
+const { ReactComponent: reapitUserInfographic } = require('../../../assets/infographic-icons/reapitUserInfographic.svg')
+const { ReactComponent: refreshInfographic } = require('../../../assets/infographic-icons/refreshInfographic.svg')
+const { ReactComponent: refreshSolidSystem } = require('../../../assets/system-icons/refreshSolidSystem.svg')
+const { ReactComponent: refreshSystem } = require('../../../assets/system-icons/refreshSystem.svg')
+const { ReactComponent: reportInfographic } = require('../../../assets/infographic-icons/reportInfographic.svg')
+const { ReactComponent: reportingInfographic } = require('../../../assets/infographic-icons/reportingInfographic.svg')
+const { ReactComponent: resultsMenu } = require('../../../assets/menu-icons/resultsMenu.svg')
+const {
+  ReactComponent: salesProgressionInfographic,
+} = require('../../../assets/infographic-icons/salesProgressionInfographic.svg')
+const { ReactComponent: saveSystem } = require('../../../assets/system-icons/saveSystem.svg')
+const { ReactComponent: searchMenu } = require('../../../assets/menu-icons/searchMenu.svg')
+const { ReactComponent: searchSolidSystem } = require('../../../assets/system-icons/searchSolidSystem.svg')
+const { ReactComponent: searchSystem } = require('../../../assets/system-icons/searchSystem.svg')
+const {
+  ReactComponent: securityTokenSolidSystem,
+} = require('../../../assets/system-icons/securityTokenSolidSystem.svg')
+const { ReactComponent: securityTokenSystem } = require('../../../assets/system-icons/securityTokenSystem.svg')
+const { ReactComponent: selectInfographic } = require('../../../assets/infographic-icons/selectInfographic.svg')
+const { ReactComponent: serverInfographic } = require('../../../assets/infographic-icons/serverInfographic.svg')
+const { ReactComponent: settingsSolidSystem } = require('../../../assets/system-icons/settingsSolidSystem.svg')
+const { ReactComponent: settingsSystem } = require('../../../assets/system-icons/settingsSystem.svg')
+const {
+  ReactComponent: sharedEntitiesInfographic,
+} = require('../../../assets/infographic-icons/sharedEntitiesInfographic.svg')
+const { ReactComponent: shareSolidSystem } = require('../../../assets/system-icons/shareSolidSystem.svg')
+const { ReactComponent: shareSystem } = require('../../../assets/system-icons/shareSystem.svg')
+const { ReactComponent: shieldInfographic } = require('../../../assets/infographic-icons/shieldInfographic.svg')
+const { ReactComponent: sortSolidSystem } = require('../../../assets/system-icons/sortSolidSystem.svg')
+const { ReactComponent: sortSystem } = require('../../../assets/system-icons/sortSystem.svg')
+const { ReactComponent: supportMenu } = require('../../../assets/menu-icons/supportMenu.svg')
+const { ReactComponent: tickSolidSystem } = require('../../../assets/system-icons/tickSolidSystem.svg')
+const { ReactComponent: tickSystem } = require('../../../assets/system-icons/tickSystem.svg')
+const { ReactComponent: trashSolidSystem } = require('../../../assets/system-icons/trashSolidSystem.svg')
+const { ReactComponent: trashSystem } = require('../../../assets/system-icons/trashSystem.svg')
+const { ReactComponent: uiMenu } = require('../../../assets/menu-icons/uiMenu.svg')
+const { ReactComponent: upSolidSystem } = require('../../../assets/system-icons/upSolidSystem.svg')
+const { ReactComponent: upSystem } = require('../../../assets/system-icons/upSystem.svg')
+const { ReactComponent: userAuthInfographic } = require('../../../assets/infographic-icons/userAuthInfographic.svg')
+const { ReactComponent: userDeviceInfographic } = require('../../../assets/infographic-icons/userDeviceInfographic.svg')
+const { ReactComponent: userHouseInfographic } = require('../../../assets/infographic-icons/userHouseInfographic.svg')
+const { ReactComponent: userInfographic } = require('../../../assets/infographic-icons/userInfographic.svg')
+const { ReactComponent: usernameSolidSystem } = require('../../../assets/system-icons/usernameSolidSystem.svg')
+const { ReactComponent: usernameSystem } = require('../../../assets/system-icons/usernameSystem.svg')
+const { ReactComponent: usersMenu } = require('../../../assets/menu-icons/usersMenu.svg')
+const {
+  ReactComponent: utilityRegistrationInfographic,
+} = require('../../../assets/infographic-icons/utilityRegistrationInfographic.svg')
+const { ReactComponent: vendorInfographic } = require('../../../assets/infographic-icons/vendorInfographic.svg')
+const { ReactComponent: videoSolidSystem } = require('../../../assets/system-icons/videoSolidSystem.svg')
+const { ReactComponent: videoSystem } = require('../../../assets/system-icons/videoSystem.svg')
+const { ReactComponent: viewSolidSystem } = require('../../../assets/system-icons/viewSolidSystem.svg')
+const { ReactComponent: viewSystem } = require('../../../assets/system-icons/viewSystem.svg')
+const { ReactComponent: walkingSolidSystem } = require('../../../assets/system-icons/walkingSolidSystem.svg')
+const { ReactComponent: walkingSystem } = require('../../../assets/system-icons/walkingSystem.svg')
+const { ReactComponent: warningSolidSystem } = require('../../../assets/system-icons/warningSolidSystem.svg')
+const { ReactComponent: warningSystem } = require('../../../assets/system-icons/warningSystem.svg')
+const {
+  ReactComponent: webDeveloperInfographic,
+} = require('../../../assets/infographic-icons/webDeveloperInfographic.svg')
+const {
+  ReactComponent: webDeveloperInfographicAlt,
+} = require('../../../assets/infographic-icons/webDeveloperInfographicAlt.svg')
+const { ReactComponent: webhooksAnimated1 } = require('../../../assets/animated-icons/webhooksAnimated1.svg')
+const { ReactComponent: webhooksAnimated2 } = require('../../../assets/animated-icons/webhooksAnimated2.svg')
+const { ReactComponent: webhooksDocsAnimated1 } = require('../../../assets/animated-icons/webhooksDocsAnimated1.svg')
+const { ReactComponent: webhooksDocsAnimated2 } = require('../../../assets/animated-icons/webhooksDocsAnimated2.svg')
+const {
+  ReactComponent: webhooksDocsInfographic,
+} = require('../../../assets/infographic-icons/webhooksDocsInfographic.svg')
+const { ReactComponent: webhooksInfographic } = require('../../../assets/infographic-icons/webhooksInfographic.svg')
+const { ReactComponent: webhooksMenu } = require('../../../assets/menu-icons/webhooksMenu.svg')
+const { ReactComponent: webInfographic } = require('../../../assets/infographic-icons/webInfographic.svg')
+const { ReactComponent: welcomeAnimated1 } = require('../../../assets/animated-icons/welcomeAnimated1.svg')
+const { ReactComponent: welcomeAnimated2 } = require('../../../assets/animated-icons/welcomeAnimated2.svg')
+const { ReactComponent: welcomeInfographic } = require('../../../assets/infographic-icons/welcomeInfographic.svg')
+const { ReactComponent: placeholderLarge } = require('../../../assets/placeholder-images/placeholderLarge.svg')
+const { ReactComponent: placeholderSmall } = require('../../../assets/placeholder-images/placeholderSmall.svg')
 
 export const iconSet = {
   appCategoryInfographic,
