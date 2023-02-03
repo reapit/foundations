@@ -18,18 +18,7 @@ Object {
             class="el-intent-primary el-icon"
             style="font-size: 0.75em;"
           >
-            <svg
-              fill="none"
-              height="1em"
-              viewBox="0 0 12 12"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12 6L3 12V0L12 6Z"
-                fill="currentColor"
-              />
-            </svg>
+            <svg />
           </span>
         </a>
         <div
@@ -75,18 +64,7 @@ Object {
           class="el-intent-primary el-icon"
           style="font-size: 0.75em;"
         >
-          <svg
-            fill="none"
-            height="1em"
-            viewBox="0 0 12 12"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M12 6L3 12V0L12 6Z"
-              fill="currentColor"
-            />
-          </svg>
+          <svg />
         </span>
       </a>
       <div

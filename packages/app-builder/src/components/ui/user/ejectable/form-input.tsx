@@ -13,6 +13,7 @@ import {
   FileInput,
   FlexContainer,
   FloatingButton,
+  Icon,
   InputGroup,
   InputWrap,
   Label,
@@ -34,7 +35,6 @@ import { cx } from '@linaria/core'
 import { block } from '../../styles'
 import { styled } from '@linaria/react'
 import { useObjectGet } from '../../../../components/hooks/objects/use-object-get'
-import AddSystem from '../../../../../../elements/src/components/icon/icons/system-icons/addSystem'
 
 export const getLabel = (obj: any, labelKeys?: string[]) => {
   if (!obj) {
@@ -612,7 +612,7 @@ const ListInput = React.forwardRef(
             onChange(newListValue)
           }}
         >
-          <AddSystem />
+          <Icon icon="addSystem" />
           &nbsp; Add
         </Button>
       </InputWrap>
