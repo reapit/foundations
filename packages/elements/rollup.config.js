@@ -6,6 +6,7 @@ import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import { terser } from 'rollup-plugin-terser'
 import svgr from '@svgr/rollup'
+import url from '@rollup/plugin-url'
 import { appendFileSync } from 'fs'
 import { execSync } from 'child_process'
 
@@ -52,6 +53,7 @@ export default [
         babelHelpers: 'runtime',
         plugins: ['@babel/plugin-transform-runtime'],
       }),
+      url(),
       svgr({ icon: true }),
       terser(),
     ],
@@ -95,6 +97,7 @@ export default [
         babelHelpers: 'runtime',
         plugins: ['@babel/plugin-transform-runtime'],
       }),
+      url(),
       svgr({ icon: true }),
       terser(),
     ],
