@@ -9,6 +9,7 @@ import {
   TableRow,
   RowProps,
   elMb7,
+  TableRowContainer,
 } from '@reapit/elements'
 import { threeColTable } from './__styles__'
 
@@ -72,11 +73,13 @@ export const ServicesTable: FC<ServicesTableProps> = ({ billing }) => {
                         <TableHeader>Service Cost</TableHeader>
                       </TableHeadersRow>
                       {items?.map(({ name, amount, cost }) => (
-                        <TableRow className={threeColTable} key={name}>
-                          <TableCell>{name}</TableCell>
-                          <TableCell>{amount}</TableCell>
-                          <TableCell>{cost ? `£${cost.toFixed(2).padStart(2, '0')}` : '£0'}</TableCell>
-                        </TableRow>
+                        <TableRowContainer key={name}>
+                          <TableRow className={threeColTable}>
+                            <TableCell>{name}</TableCell>
+                            <TableCell>{amount}</TableCell>
+                            <TableCell>{cost ? `£${cost.toFixed(2).padStart(2, '0')}` : '£0'}</TableCell>
+                          </TableRow>
+                        </TableRowContainer>
                       ))}
                     </Table>
                   </>

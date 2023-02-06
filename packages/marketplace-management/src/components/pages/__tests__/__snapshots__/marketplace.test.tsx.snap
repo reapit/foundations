@@ -145,15 +145,6 @@ Object {
                       Integration
                     </h6>
                   </div>
-                  <button
-                    class="el-mobile-toggle"
-                  >
-                    <span
-                      class="el-icon"
-                    >
-                      <svg />
-                    </span>
-                  </button>
                 </div>
                 <div
                   class="el-mb5 el-card-body-wrap"
@@ -259,15 +250,6 @@ Object {
                       class="el-card-sub-heading-additional"
                     />
                   </div>
-                  <button
-                    class="el-mobile-toggle"
-                  >
-                    <span
-                      class="el-icon"
-                    >
-                      <svg />
-                    </span>
-                  </button>
                 </div>
                 <div
                   class="el-mb5 el-card-body-wrap"
@@ -375,15 +357,6 @@ Object {
                       class="el-card-sub-heading-additional"
                     />
                   </div>
-                  <button
-                    class="el-mobile-toggle"
-                  >
-                    <span
-                      class="el-icon"
-                    >
-                      <svg />
-                    </span>
-                  </button>
                 </div>
                 <div
                   class="el-mb5 el-card-body-wrap"
@@ -491,15 +464,6 @@ Object {
                       class="el-card-sub-heading-additional"
                     />
                   </div>
-                  <button
-                    class="el-mobile-toggle"
-                  >
-                    <span
-                      class="el-icon"
-                    >
-                      <svg />
-                    </span>
-                  </button>
                 </div>
                 <div
                   class="el-mb5 el-card-body-wrap"
@@ -607,15 +571,6 @@ Object {
                       class="el-card-sub-heading-additional"
                     />
                   </div>
-                  <button
-                    class="el-mobile-toggle"
-                  >
-                    <span
-                      class="el-icon"
-                    >
-                      <svg />
-                    </span>
-                  </button>
                 </div>
                 <div
                   class="el-mb5 el-card-body-wrap"
@@ -723,15 +678,6 @@ Object {
                       class="el-card-sub-heading-additional"
                     />
                   </div>
-                  <button
-                    class="el-mobile-toggle"
-                  >
-                    <span
-                      class="el-icon"
-                    >
-                      <svg />
-                    </span>
-                  </button>
                 </div>
                 <div
                   class="el-mb5 el-card-body-wrap"
@@ -841,15 +787,6 @@ Object {
                       Integration
                     </h6>
                   </div>
-                  <button
-                    class="el-mobile-toggle"
-                  >
-                    <span
-                      class="el-icon"
-                    >
-                      <svg />
-                    </span>
-                  </button>
                 </div>
                 <div
                   class="el-mb5 el-card-body-wrap"
@@ -957,15 +894,6 @@ Object {
                       class="el-card-sub-heading-additional"
                     />
                   </div>
-                  <button
-                    class="el-mobile-toggle"
-                  >
-                    <span
-                      class="el-icon"
-                    >
-                      <svg />
-                    </span>
-                  </button>
                 </div>
                 <div
                   class="el-mb5 el-card-body-wrap"
@@ -1073,15 +1001,6 @@ Object {
                       class="el-card-sub-heading-additional"
                     />
                   </div>
-                  <button
-                    class="el-mobile-toggle"
-                  >
-                    <span
-                      class="el-icon"
-                    >
-                      <svg />
-                    </span>
-                  </button>
                 </div>
                 <div
                   class="el-mb5 el-card-body-wrap"
@@ -1338,15 +1257,6 @@ Object {
                     Integration
                   </h6>
                 </div>
-                <button
-                  class="el-mobile-toggle"
-                >
-                  <span
-                    class="el-icon"
-                  >
-                    <svg />
-                  </span>
-                </button>
               </div>
               <div
                 class="el-mb5 el-card-body-wrap"
@@ -1452,15 +1362,6 @@ Object {
                     class="el-card-sub-heading-additional"
                   />
                 </div>
-                <button
-                  class="el-mobile-toggle"
-                >
-                  <span
-                    class="el-icon"
-                  >
-                    <svg />
-                  </span>
-                </button>
               </div>
               <div
                 class="el-mb5 el-card-body-wrap"
@@ -1568,15 +1469,6 @@ Object {
                     class="el-card-sub-heading-additional"
                   />
                 </div>
-                <button
-                  class="el-mobile-toggle"
-                >
-                  <span
-                    class="el-icon"
-                  >
-                    <svg />
-                  </span>
-                </button>
               </div>
               <div
                 class="el-mb5 el-card-body-wrap"
@@ -1684,15 +1576,6 @@ Object {
                     class="el-card-sub-heading-additional"
                   />
                 </div>
-                <button
-                  class="el-mobile-toggle"
-                >
-                  <span
-                    class="el-icon"
-                  >
-                    <svg />
-                  </span>
-                </button>
               </div>
               <div
                 class="el-mb5 el-card-body-wrap"
@@ -1800,15 +1683,6 @@ Object {
                     class="el-card-sub-heading-additional"
                   />
                 </div>
-                <button
-                  class="el-mobile-toggle"
-                >
-                  <span
-                    class="el-icon"
-                  >
-                    <svg />
-                  </span>
-                </button>
               </div>
               <div
                 class="el-mb5 el-card-body-wrap"
@@ -1916,15 +1790,6 @@ Object {
                     class="el-card-sub-heading-additional"
                   />
                 </div>
-                <button
-                  class="el-mobile-toggle"
-                >
-                  <span
-                    class="el-icon"
-                  >
-                    <svg />
-                  </span>
-                </button>
               </div>
               <div
                 class="el-mb5 el-card-body-wrap"
@@ -2034,15 +1899,6 @@ Object {
                     Integration
                   </h6>
                 </div>
-                <button
-                  class="el-mobile-toggle"
-                >
-                  <span
-                    class="el-icon"
-                  >
-                    <svg />
-                  </span>
-                </button>
               </div>
               <div
                 class="el-mb5 el-card-body-wrap"
@@ -2150,15 +2006,6 @@ Object {
                     class="el-card-sub-heading-additional"
                   />
                 </div>
-                <button
-                  class="el-mobile-toggle"
-                >
-                  <span
-                    class="el-icon"
-                  >
-                    <svg />
-                  </span>
-                </button>
               </div>
               <div
                 class="el-mb5 el-card-body-wrap"
@@ -2266,15 +2113,6 @@ Object {
                     class="el-card-sub-heading-additional"
                   />
                 </div>
-                <button
-                  class="el-mobile-toggle"
-                >
-                  <span
-                    class="el-icon"
-                  >
-                    <svg />
-                  </span>
-                </button>
               </div>
               <div
                 class="el-mb5 el-card-body-wrap"

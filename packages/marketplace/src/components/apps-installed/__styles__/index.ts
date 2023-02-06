@@ -55,7 +55,6 @@ export const InstallMoreApps = styled(InstalledAppsCol)`
   width: 68px;
   height: 100px;
   background: var(--color-white);
-  background: linear-gradient(180deg, var(--color-white) 0%, #f4f4f4 100%);
   filter: drop-shadow(2px 6px 20px rgba(0, 0, 0, 0.07));
   border-radius: 0.25rem;
   font-size: 12px;
@@ -85,7 +84,7 @@ export const InstalledAppsIconWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(180deg, #ffffff 0%, #f4f4f4 100%);
+  background: var(--color-white);
   filter: drop-shadow(2px 6px 20px rgba(0, 0, 0, 0.07));
   width: 64px;
   height: 64px;

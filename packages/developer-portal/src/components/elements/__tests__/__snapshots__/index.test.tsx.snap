@@ -45,7 +45,7 @@ Object {
           <button
             class="ehvkknk-el-mb5 e1iow709-el-intent-critical e1tqqdf9-el-button"
           >
-            Open New
+            Storybook
             <div
               class="e1q1vabn-el-button-loader"
             />
@@ -109,7 +109,7 @@ Object {
         <button
           class="ehvkknk-el-mb5 e1iow709-el-intent-critical e1tqqdf9-el-button"
         >
-          Open New
+          Storybook
           <div
             class="e1q1vabn-el-button-loader"
           />

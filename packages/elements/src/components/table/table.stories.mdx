@@ -23,6 +23,7 @@ import { Button, ButtonGroup } from '../button'
 import { StatusIndicator } from '../status-indicator'
 import { elMlAuto } from '../../styles/spacing'
 import { FormLayout, InputWrap } from '../form-layout'
+import { elIsActive } from '../../styles/states'
 
 <Meta title="Table" component={Table} />
 
@@ -57,16 +58,20 @@ For React users, the table has a number of freatures that you may find useful to
         <TableHeader>Second Header</TableHeader>
         <TableHeader>Third Header</TableHeader>
       </TableHeadersRow>
-      <TableRow>
-        <TableCell>First Column</TableCell>
-        <TableCell>Second Column</TableCell>
-        <TableCell>Third Column</TableCell>
-      </TableRow>
-      <TableRow>
-        <TableCell>First Column</TableCell>
-        <TableCell>Second Column</TableCell>
-        <TableCell>Third Column</TableCell>
-      </TableRow>
+      <TableRowContainer>
+        <TableRow>
+          <TableCell>First Column</TableCell>
+          <TableCell>Second Column</TableCell>
+          <TableCell>Third Column</TableCell>
+        </TableRow>
+      </TableRowContainer>
+      <TableRowContainer>
+        <TableRow>
+          <TableCell>First Column</TableCell>
+          <TableCell>Second Column</TableCell>
+          <TableCell>Third Column</TableCell>
+        </TableRow>
+      </TableRowContainer>
     </Table>
   </Story>
 </Canvas>
@@ -209,7 +214,7 @@ For this version the `data-has-expandable-action` attribute should additionally 
           <Icon icon="editSystem" fontSize="1.2rem" />
         </TableHeader>
       </TableHeadersRow>
-      <TableRowContainer>
+      <TableRowContainer className={elIsActive}>
         <TableRow>
           <TableCell darkText icon="homeSystem" narrowIsFullWidth>
             Mt Ash Jacket Brassey Road
@@ -290,7 +295,7 @@ For this version the `data-has-call-to-action` attribute should additionally be 
           <TableCell narrowLabel="Status">
             <StatusIndicator intent="critical" /> Pending
           </TableCell>
-          <TableCtaTriggerCell icon="downloadSystem" />
+          <TableCtaTriggerCell icon="downloadSolidSystem" />
         </TableRow>
       </TableRowContainer>
     </Table>
@@ -563,14 +568,14 @@ We also specify that the first row is expanded by passing an `indexExpandedRow` 
 
 ## Table Sorting
 
-To set up sorting on tables, you can add a `onLabelClick` function to the cells to trigger a sort of your data. 
+To set up sorting on tables, you can add a `onLabelClick` function to the cells to trigger a sort of your data.
 We've also added a `TableSortHeader` element which has a arrow indicator for your direction of sorting.
 
 <Canvas>
   <Story name="Table Sorting - React">
     {() => {
       const [indexExpandedRow, setIndexExpandedRow] = useState(0)
-      const [propertySort, setPropertySort] = useState("up")
+      const [propertySort, setPropertySort] = useState('up')
       const [data, setData] = useState([
         {
           property: 'Mt Ash Jacket, Brassey Road',
@@ -599,14 +604,12 @@ We've also added a `TableSortHeader` element which has a arrow indicator for you
           paymentStatus: 'Pending',
         },
       ])
-      
       return (
         <Table
           numberColumns={9}
           indexExpandedRow={indexExpandedRow}
           setIndexExpandedRow={setIndexExpandedRow}
-          rows={data
-          .map((info) => ({
+          rows={data.map((info) => ({
             cells: [
               {
                 label: 'Property',
@@ -663,4 +666,3 @@ We've also added a `TableSortHeader` element which has a arrow indicator for you
     }}
   </Story>
 </Canvas>
-

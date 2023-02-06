@@ -180,7 +180,7 @@ export const AppsBrowse: FC = () => {
     <PageContainer>
       {hasFilters && (
         <AppDetailBackButton onClick={clearFilters}>
-          <Icon icon="backSystem" intent="primary" />
+          <Icon icon="backSolidSystem" intent="primary" />
         </AppDetailBackButton>
       )}
       <AppSearchFiltersWrap>

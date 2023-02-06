@@ -22,6 +22,7 @@ Object {
                 class="el-input"
                 id="test-static-id"
                 name="appName"
+                placeholder="Filter by App Name"
                 type="search"
               />
               <label
@@ -54,6 +55,7 @@ Object {
               class="el-input"
               id="test-static-id"
               name="appName"
+              placeholder="Filter by App Name"
               type="search"
             />
             <label

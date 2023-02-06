@@ -30,7 +30,7 @@ export const ElementsPage: FC = () => {
           View Docs
         </Button>
         <Button className={elMb5} intent="critical" onClick={openNewPage(window.reapit.config.elementsUri)}>
-          Open New
+          Storybook
         </Button>
       </SecondaryNavContainer>
       <PageContainer className={elHFull}>

@@ -33,33 +33,33 @@ Object {
           </div>
         </div>
         <div
-          class="es3tf1j-el-table-row-container"
+          class="e1gfmg2g-el-table-row-container"
         >
           <div
             class="e1qy4g2u-el-table-row"
           >
             <div
-              class="e1gfmg2g-el-table-cell"
+              class="e4zpaja-el-table-cell"
             >
               <div
-                class="e4zpaja-el-table-cell-content"
+                class="e1t8i3z1-el-table-cell-content"
                 data-narrow-label="Number of API Calls"
               >
                 1000
               </div>
             </div>
             <div
-              class="e1gfmg2g-el-table-cell"
+              class="e4zpaja-el-table-cell"
             >
               <div
-                class="e4zpaja-el-table-cell-content"
+                class="e1t8i3z1-el-table-cell-content"
                 data-narrow-label="Cost Per API Call"
               >
                 0.02
               </div>
             </div>
             <div
-              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
             >
               <span
                 class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
@@ -67,7 +67,7 @@ Object {
                 <svg />
               </span>
               <div
-                class="e4zpaja-el-table-cell-content"
+                class="e1t8i3z1-el-table-cell-content"
                 data-narrow-label="Total Cost"
               >
                 £20.00
@@ -76,33 +76,33 @@ Object {
           </div>
         </div>
         <div
-          class="es3tf1j-el-table-row-container"
+          class="e1gfmg2g-el-table-row-container"
         >
           <div
             class="e1qy4g2u-el-table-row"
           >
             <div
-              class="e1gfmg2g-el-table-cell"
+              class="e4zpaja-el-table-cell"
             >
               <div
-                class="e4zpaja-el-table-cell-content"
+                class="e1t8i3z1-el-table-cell-content"
                 data-narrow-label="Number of API Calls"
               >
                 1500
               </div>
             </div>
             <div
-              class="e1gfmg2g-el-table-cell"
+              class="e4zpaja-el-table-cell"
             >
               <div
-                class="e4zpaja-el-table-cell-content"
+                class="e1t8i3z1-el-table-cell-content"
                 data-narrow-label="Cost Per API Call"
               >
                 0.016
               </div>
             </div>
             <div
-              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
             >
               <span
                 class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
@@ -110,7 +110,7 @@ Object {
                 <svg />
               </span>
               <div
-                class="e4zpaja-el-table-cell-content"
+                class="e1t8i3z1-el-table-cell-content"
                 data-narrow-label="Total Cost"
               >
                 £24.00
@@ -119,33 +119,33 @@ Object {
           </div>
         </div>
         <div
-          class="es3tf1j-el-table-row-container"
+          class="e1gfmg2g-el-table-row-container"
         >
           <div
             class="e1qy4g2u-el-table-row"
           >
             <div
-              class="e1gfmg2g-el-table-cell"
+              class="e4zpaja-el-table-cell"
             >
               <div
-                class="e4zpaja-el-table-cell-content"
+                class="e1t8i3z1-el-table-cell-content"
                 data-narrow-label="Number of API Calls"
               >
                 2500
               </div>
             </div>
             <div
-              class="e1gfmg2g-el-table-cell"
+              class="e4zpaja-el-table-cell"
             >
               <div
-                class="e4zpaja-el-table-cell-content"
+                class="e1t8i3z1-el-table-cell-content"
                 data-narrow-label="Cost Per API Call"
               >
                 0.012
               </div>
             </div>
             <div
-              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
             >
               <span
                 class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
@@ -153,7 +153,7 @@ Object {
                 <svg />
               </span>
               <div
-                class="e4zpaja-el-table-cell-content"
+                class="e1t8i3z1-el-table-cell-content"
                 data-narrow-label="Total Cost"
               >
                 £30.00
@@ -162,33 +162,33 @@ Object {
           </div>
         </div>
         <div
-          class="es3tf1j-el-table-row-container"
+          class="e1gfmg2g-el-table-row-container"
         >
           <div
             class="e1qy4g2u-el-table-row"
           >
             <div
-              class="e1gfmg2g-el-table-cell"
+              class="e4zpaja-el-table-cell"
             >
               <div
-                class="e4zpaja-el-table-cell-content"
+                class="e1t8i3z1-el-table-cell-content"
                 data-narrow-label="Number of API Calls"
               >
                 5000
               </div>
             </div>
             <div
-              class="e1gfmg2g-el-table-cell"
+              class="e4zpaja-el-table-cell"
             >
               <div
-                class="e4zpaja-el-table-cell-content"
+                class="e1t8i3z1-el-table-cell-content"
                 data-narrow-label="Cost Per API Call"
               >
                 0.01
               </div>
             </div>
             <div
-              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
             >
               <span
                 class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
@@ -196,7 +196,7 @@ Object {
                 <svg />
               </span>
               <div
-                class="e4zpaja-el-table-cell-content"
+                class="e1t8i3z1-el-table-cell-content"
                 data-narrow-label="Total Cost"
               >
                 £50.00
@@ -205,33 +205,33 @@ Object {
           </div>
         </div>
         <div
-          class="es3tf1j-el-table-row-container"
+          class="e1gfmg2g-el-table-row-container"
         >
           <div
             class="e1qy4g2u-el-table-row"
           >
             <div
-              class="e1gfmg2g-el-table-cell"
+              class="e4zpaja-el-table-cell"
             >
               <div
-                class="e4zpaja-el-table-cell-content"
+                class="e1t8i3z1-el-table-cell-content"
                 data-narrow-label="Number of API Calls"
               >
                 15000
               </div>
             </div>
             <div
-              class="e1gfmg2g-el-table-cell"
+              class="e4zpaja-el-table-cell"
             >
               <div
-                class="e4zpaja-el-table-cell-content"
+                class="e1t8i3z1-el-table-cell-content"
                 data-narrow-label="Cost Per API Call"
               >
                 0.008
               </div>
             </div>
             <div
-              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
             >
               <span
                 class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
@@ -239,7 +239,7 @@ Object {
                 <svg />
               </span>
               <div
-                class="e4zpaja-el-table-cell-content"
+                class="e1t8i3z1-el-table-cell-content"
                 data-narrow-label="Total Cost"
               >
                 £120.00
@@ -248,33 +248,33 @@ Object {
           </div>
         </div>
         <div
-          class="es3tf1j-el-table-row-container"
+          class="e1gfmg2g-el-table-row-container"
         >
           <div
             class="e1qy4g2u-el-table-row"
           >
             <div
-              class="e1gfmg2g-el-table-cell"
+              class="e4zpaja-el-table-cell"
             >
               <div
-                class="e4zpaja-el-table-cell-content"
+                class="e1t8i3z1-el-table-cell-content"
                 data-narrow-label="Number of API Calls"
               >
                 25000
               </div>
             </div>
             <div
-              class="e1gfmg2g-el-table-cell"
+              class="e4zpaja-el-table-cell"
             >
               <div
-                class="e4zpaja-el-table-cell-content"
+                class="e1t8i3z1-el-table-cell-content"
                 data-narrow-label="Cost Per API Call"
               >
                 0.005
               </div>
             </div>
             <div
-              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
             >
               <span
                 class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
@@ -282,7 +282,7 @@ Object {
                 <svg />
               </span>
               <div
-                class="e4zpaja-el-table-cell-content"
+                class="e1t8i3z1-el-table-cell-content"
                 data-narrow-label="Total Cost"
               >
                 £125.00
@@ -291,33 +291,33 @@ Object {
           </div>
         </div>
         <div
-          class="es3tf1j-el-table-row-container"
+          class="e1gfmg2g-el-table-row-container"
         >
           <div
             class="e1qy4g2u-el-table-row"
           >
             <div
-              class="e1gfmg2g-el-table-cell"
+              class="e4zpaja-el-table-cell"
             >
               <div
-                class="e4zpaja-el-table-cell-content"
+                class="e1t8i3z1-el-table-cell-content"
                 data-narrow-label="Number of API Calls"
               >
                 150000
               </div>
             </div>
             <div
-              class="e1gfmg2g-el-table-cell"
+              class="e4zpaja-el-table-cell"
             >
               <div
-                class="e4zpaja-el-table-cell-content"
+                class="e1t8i3z1-el-table-cell-content"
                 data-narrow-label="Cost Per API Call"
               >
                 0.002
               </div>
             </div>
             <div
-              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
             >
               <span
                 class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
@@ -325,7 +325,7 @@ Object {
                 <svg />
               </span>
               <div
-                class="e4zpaja-el-table-cell-content"
+                class="e1t8i3z1-el-table-cell-content"
                 data-narrow-label="Total Cost"
               >
                 £300.00
@@ -371,33 +371,33 @@ Object {
         </div>
       </div>
       <div
-        class="es3tf1j-el-table-row-container"
+        class="e1gfmg2g-el-table-row-container"
       >
         <div
           class="e1qy4g2u-el-table-row"
         >
           <div
-            class="e1gfmg2g-el-table-cell"
+            class="e4zpaja-el-table-cell"
           >
             <div
-              class="e4zpaja-el-table-cell-content"
+              class="e1t8i3z1-el-table-cell-content"
               data-narrow-label="Number of API Calls"
             >
               1000
             </div>
           </div>
           <div
-            class="e1gfmg2g-el-table-cell"
+            class="e4zpaja-el-table-cell"
           >
             <div
-              class="e4zpaja-el-table-cell-content"
+              class="e1t8i3z1-el-table-cell-content"
               data-narrow-label="Cost Per API Call"
             >
               0.02
             </div>
           </div>
           <div
-            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
           >
             <span
               class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
@@ -405,7 +405,7 @@ Object {
               <svg />
             </span>
             <div
-              class="e4zpaja-el-table-cell-content"
+              class="e1t8i3z1-el-table-cell-content"
               data-narrow-label="Total Cost"
             >
               £20.00
@@ -414,33 +414,33 @@ Object {
         </div>
       </div>
       <div
-        class="es3tf1j-el-table-row-container"
+        class="e1gfmg2g-el-table-row-container"
       >
         <div
           class="e1qy4g2u-el-table-row"
         >
           <div
-            class="e1gfmg2g-el-table-cell"
+            class="e4zpaja-el-table-cell"
           >
             <div
-              class="e4zpaja-el-table-cell-content"
+              class="e1t8i3z1-el-table-cell-content"
               data-narrow-label="Number of API Calls"
             >
               1500
             </div>
           </div>
           <div
-            class="e1gfmg2g-el-table-cell"
+            class="e4zpaja-el-table-cell"
           >
             <div
-              class="e4zpaja-el-table-cell-content"
+              class="e1t8i3z1-el-table-cell-content"
               data-narrow-label="Cost Per API Call"
             >
               0.016
             </div>
           </div>
           <div
-            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
           >
             <span
               class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
@@ -448,7 +448,7 @@ Object {
               <svg />
             </span>
             <div
-              class="e4zpaja-el-table-cell-content"
+              class="e1t8i3z1-el-table-cell-content"
               data-narrow-label="Total Cost"
             >
               £24.00
@@ -457,33 +457,33 @@ Object {
         </div>
       </div>
       <div
-        class="es3tf1j-el-table-row-container"
+        class="e1gfmg2g-el-table-row-container"
       >
         <div
           class="e1qy4g2u-el-table-row"
         >
           <div
-            class="e1gfmg2g-el-table-cell"
+            class="e4zpaja-el-table-cell"
           >
             <div
-              class="e4zpaja-el-table-cell-content"
+              class="e1t8i3z1-el-table-cell-content"
               data-narrow-label="Number of API Calls"
             >
               2500
             </div>
           </div>
           <div
-            class="e1gfmg2g-el-table-cell"
+            class="e4zpaja-el-table-cell"
           >
             <div
-              class="e4zpaja-el-table-cell-content"
+              class="e1t8i3z1-el-table-cell-content"
               data-narrow-label="Cost Per API Call"
             >
               0.012
             </div>
           </div>
           <div
-            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
           >
             <span
               class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
@@ -491,7 +491,7 @@ Object {
               <svg />
             </span>
             <div
-              class="e4zpaja-el-table-cell-content"
+              class="e1t8i3z1-el-table-cell-content"
               data-narrow-label="Total Cost"
             >
               £30.00
@@ -500,33 +500,33 @@ Object {
         </div>
       </div>
       <div
-        class="es3tf1j-el-table-row-container"
+        class="e1gfmg2g-el-table-row-container"
       >
         <div
           class="e1qy4g2u-el-table-row"
         >
           <div
-            class="e1gfmg2g-el-table-cell"
+            class="e4zpaja-el-table-cell"
           >
             <div
-              class="e4zpaja-el-table-cell-content"
+              class="e1t8i3z1-el-table-cell-content"
               data-narrow-label="Number of API Calls"
             >
               5000
             </div>
           </div>
           <div
-            class="e1gfmg2g-el-table-cell"
+            class="e4zpaja-el-table-cell"
           >
             <div
-              class="e4zpaja-el-table-cell-content"
+              class="e1t8i3z1-el-table-cell-content"
               data-narrow-label="Cost Per API Call"
             >
               0.01
             </div>
           </div>
           <div
-            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
           >
             <span
               class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
@@ -534,7 +534,7 @@ Object {
               <svg />
             </span>
             <div
-              class="e4zpaja-el-table-cell-content"
+              class="e1t8i3z1-el-table-cell-content"
               data-narrow-label="Total Cost"
             >
               £50.00
@@ -543,33 +543,33 @@ Object {
         </div>
       </div>
       <div
-        class="es3tf1j-el-table-row-container"
+        class="e1gfmg2g-el-table-row-container"
       >
         <div
           class="e1qy4g2u-el-table-row"
         >
           <div
-            class="e1gfmg2g-el-table-cell"
+            class="e4zpaja-el-table-cell"
           >
             <div
-              class="e4zpaja-el-table-cell-content"
+              class="e1t8i3z1-el-table-cell-content"
               data-narrow-label="Number of API Calls"
             >
               15000
             </div>
           </div>
           <div
-            class="e1gfmg2g-el-table-cell"
+            class="e4zpaja-el-table-cell"
           >
             <div
-              class="e4zpaja-el-table-cell-content"
+              class="e1t8i3z1-el-table-cell-content"
               data-narrow-label="Cost Per API Call"
             >
               0.008
             </div>
           </div>
           <div
-            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
           >
             <span
               class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
@@ -577,7 +577,7 @@ Object {
               <svg />
             </span>
             <div
-              class="e4zpaja-el-table-cell-content"
+              class="e1t8i3z1-el-table-cell-content"
               data-narrow-label="Total Cost"
             >
               £120.00
@@ -586,33 +586,33 @@ Object {
         </div>
       </div>
       <div
-        class="es3tf1j-el-table-row-container"
+        class="e1gfmg2g-el-table-row-container"
       >
         <div
           class="e1qy4g2u-el-table-row"
         >
           <div
-            class="e1gfmg2g-el-table-cell"
+            class="e4zpaja-el-table-cell"
           >
             <div
-              class="e4zpaja-el-table-cell-content"
+              class="e1t8i3z1-el-table-cell-content"
               data-narrow-label="Number of API Calls"
             >
               25000
             </div>
           </div>
           <div
-            class="e1gfmg2g-el-table-cell"
+            class="e4zpaja-el-table-cell"
           >
             <div
-              class="e4zpaja-el-table-cell-content"
+              class="e1t8i3z1-el-table-cell-content"
               data-narrow-label="Cost Per API Call"
             >
               0.005
             </div>
           </div>
           <div
-            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
           >
             <span
               class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
@@ -620,7 +620,7 @@ Object {
               <svg />
             </span>
             <div
-              class="e4zpaja-el-table-cell-content"
+              class="e1t8i3z1-el-table-cell-content"
               data-narrow-label="Total Cost"
             >
               £125.00
@@ -629,33 +629,33 @@ Object {
         </div>
       </div>
       <div
-        class="es3tf1j-el-table-row-container"
+        class="e1gfmg2g-el-table-row-container"
       >
         <div
           class="e1qy4g2u-el-table-row"
         >
           <div
-            class="e1gfmg2g-el-table-cell"
+            class="e4zpaja-el-table-cell"
           >
             <div
-              class="e4zpaja-el-table-cell-content"
+              class="e1t8i3z1-el-table-cell-content"
               data-narrow-label="Number of API Calls"
             >
               150000
             </div>
           </div>
           <div
-            class="e1gfmg2g-el-table-cell"
+            class="e4zpaja-el-table-cell"
           >
             <div
-              class="e4zpaja-el-table-cell-content"
+              class="e1t8i3z1-el-table-cell-content"
               data-narrow-label="Cost Per API Call"
             >
               0.002
             </div>
           </div>
           <div
-            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
           >
             <span
               class="epibvz0-el-intent-secondary ej9yrfo-el-icon"
@@ -663,7 +663,7 @@ Object {
               <svg />
             </span>
             <div
-              class="e4zpaja-el-table-cell-content"
+              class="e1t8i3z1-el-table-cell-content"
               data-narrow-label="Total Cost"
             >
               £300.00

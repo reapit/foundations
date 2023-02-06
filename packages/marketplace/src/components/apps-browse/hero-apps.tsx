@@ -86,7 +86,10 @@ export const HeroAppsCollection: FC<HeroAppsCollectionProps> = memo(({ configIte
               <HeroAppsNameContainer>
                 <HeroAppsSubtitle>{name}</HeroAppsSubtitle>
                 {categories?.length ? (
-                  categories.map((category) => <HeroAppsChip key={category?.id}>{category.name}</HeroAppsChip>)
+                  categories.map((category, index) => {
+                    if (index > 2) return null
+                    return <HeroAppsChip key={category?.id}>{category.name}</HeroAppsChip>
+                  })
                 ) : (
                   <HeroAppsChipPlaceholder />
                 )}

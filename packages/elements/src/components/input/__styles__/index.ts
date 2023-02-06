@@ -42,7 +42,7 @@ export const ElInput = styled.input`
 
   &[type='checkbox'] {
     appearance: none;
-    border: 1px solid var(--color-grey-light);
+    border: 1px solid var(--color-grey-medium);
     background-color: var(--color-white);
     border-radius: 0.25rem;
     width: 1.5rem;
