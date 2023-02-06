@@ -1,7 +1,6 @@
 service: cloud-custom-mailer
 plugins:
   - serverless-webpack
-  - serverless-dynamodb-local
   - serverless-offline
   - serverless-deployment-bucket
   - serverless-plugin-log-retention
