@@ -60,6 +60,10 @@ export interface AppClientSecretModel {
    * Gets the apps client secret
    */
   clientSecret?: string
+  /**
+   * Gets the apps rotating client secret
+   */
+  rotatingClientSecret?: string
 }
 /**
  * App detailed representation
@@ -93,6 +97,10 @@ export interface AppDetailModel {
    * Gets client id of this application
    */
   externalId?: string
+  /**
+   * Gets the rotating external client id of this application
+   */
+  rotatingExternalId?: string
   /**
    * Gets the full name of the app
    */
@@ -459,6 +467,10 @@ export interface AppSummaryModel {
    * Gets external client id of this application
    */
   externalId?: string
+  /**
+   * Gets the rotating external client id of this application
+   */
+  rotatingExternalId?: string
   /**
    * Gets the date and time the app was originally registered on the marketplace
    */
