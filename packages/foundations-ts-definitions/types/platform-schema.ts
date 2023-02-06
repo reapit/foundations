@@ -11681,6 +11681,27 @@ export type OperationType = 0 | 1 | 2 | 3 | 4 | 5 | 6 // int32
 export interface PagingLinkModel {
   href?: string
 }
+/**
+ * Representation of PreTenancy Check model
+ */
+export interface PreTenancyCheckTypeItemModel {
+  /**
+   * The unique identifier of the list item
+   */
+  id?: string
+  /**
+   * The textual value for the list item
+   */
+  value?: string
+  /**
+   * A flag determining whether or not the pre tenancy check type is active
+   */
+  active?: boolean
+  /**
+   * A collection of unique identifiers of offices to whom the pre tenancy check type applies
+   */
+  officeIds?: string[]
+}
 export interface Properties {
   pageSize?: number
   pageNumber?: number
