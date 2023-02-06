@@ -85,7 +85,10 @@ export const ToggleRadio: ToggleRadioWrapped = forwardRef(
               defaultChecked={isChecked}
               ref={(ref as unknown) as LegacyRef<HTMLInputElement>}
             />
-            <ElToggleRadioLabel htmlFor={id} className={cx(hasGreyBg && elHasGreyBg, isFullWidth && elToggleFullWidth)}>
+            <ElToggleRadioLabel
+              htmlFor={!disabled ? id : undefined}
+              className={cx(hasGreyBg && elHasGreyBg, isFullWidth && elToggleFullWidth)}
+            >
               <ElToggleRadioItem>{text}</ElToggleRadioItem>
             </ElToggleRadioLabel>
           </Fragment>
