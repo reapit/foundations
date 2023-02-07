@@ -133,7 +133,7 @@ export const SharesTable: FC<SharesTableProps> = ({ shares, refreshShares }) => 
                 intent="danger"
                 onClick={handleDeleteShare(deleteShare, refreshShares, id)}
                 disabled={isLoading}
-                loading={isLoading}
+                loading={deletingShare}
               >
                 Delete Share
               </Button>
@@ -141,7 +141,7 @@ export const SharesTable: FC<SharesTableProps> = ({ shares, refreshShares }) => 
                 intent="primary"
                 onClick={handleRefreshShare(refreshShare, refreshShares, id)}
                 disabled={isLoading}
-                loading={isLoading}
+                loading={refreshingShare}
               >
                 Refresh Share
               </Button>
