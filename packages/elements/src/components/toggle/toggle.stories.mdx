@@ -134,3 +134,37 @@ Where rendering a toggle on a white background, you should apply the hasGreyBg p
 </Canvas>
 
 <RenderHtmlMarkup component="Toggle" story="Toggle RadioSelectProps - Grey Bg" />
+
+## Toggle Disabled
+
+
+<Canvas>
+  <Story name="Toggle Radio - Disabled">
+    <ToggleRadio
+      name="my-cool-toggle-radio"
+      disabled={true}
+      options={[
+        {
+          id: 'option-1',
+          value: 'option-1',
+          text: 'Option 1',
+          isChecked: true,
+        },
+        {
+          id: 'option-2',
+          value: 'option-2',
+          text: 'Option 2',
+          isChecked: false,
+        },
+        {
+          id: 'option-3',
+          value: 'option-3',
+          text: 'Option 3',
+          isChecked: false,
+        },
+      ]}
+    />
+  </Story>
+</Canvas>
+
+<RenderHtmlMarkup component="Toggle" story="Toggle Radio - Disabled" />
