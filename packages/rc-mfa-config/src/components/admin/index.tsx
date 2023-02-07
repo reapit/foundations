@@ -27,7 +27,7 @@ import {
 } from '@reapit/elements'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
-import { UserInfoModel, UserModelPagedResult } from '@reapit/foundations-ts-definitions'
+import { UserInfoModel, UserModelPagedResult, UserOrganisationModel } from '@reapit/foundations-ts-definitions'
 import { openNewPage } from '../../utils/navigation'
 import ErrorBoundary from '../error-boundary'
 import { useForm, UseFormWatch } from 'react-hook-form'
@@ -36,7 +36,6 @@ import { GetActionNames, getActions, StringMap, objectToQuery, useReapitGet } fr
 import { FetchAuthenticators } from './fetch-authenticators'
 import debounce from 'just-debounce-it'
 import { DownloadUsersCSV } from './download-users-csv'
-import { getIsOrgAdmin } from '../../utils/is-admin'
 import { ControlsContainer } from './__styles__'
 
 export interface UserFilters {
@@ -69,6 +68,9 @@ export const handleUserOrgChange =
     }
   }
 
+export const getAdminOrgs = (userOrgs: UserOrganisationModel[]) =>
+  userOrgs.filter((userOrg) => userOrg.groups?.includes('OrganisationAdmin'))
+
 export const AdminPage: FC = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const [userSearch, setUserSearch] = useState<UserFilters>({})
@@ -93,9 +95,9 @@ export const AdminPage: FC = () => {
     fetchWhenTrue: [organisationId],
   })
 
-  const isAdmin = getIsOrgAdmin(connectSession)
-  const userOrgs = userInfo?.userOrganisations
-  const hasMultiOrgs = !userInfo || (isAdmin && userOrgs && userOrgs.length > 1)
+  const userOrgs = userInfo?.userOrganisations ?? []
+  const adminOrgs = getAdminOrgs(userOrgs)
+  const hasMultiOrgs = !userInfo || adminOrgs.length > 1
 
   useEffect(handleSetAdminFilters(setUserSearch, watch), [])
   useEffect(handleInitialUserOrgSet(setOrganisationId, hasMultiOrgs, orgId), [hasMultiOrgs, connectSession])
@@ -121,7 +123,6 @@ export const AdminPage: FC = () => {
               You are an admin for multiple organisations - select from the list below for data specific to one of these
               organisations
             </SmallText>
-
             <ControlsContainer className={elBorderRadius}>
               <InputGroup>
                 <Select
@@ -132,7 +133,7 @@ export const AdminPage: FC = () => {
                   <option key="default-option" value={''}>
                     Please Select
                   </option>
-                  {userInfo?.userOrganisations?.map((option) => (
+                  {adminOrgs?.map((option) => (
                     <option key={option.organisationId} value={option.organisationId}>
                       {option.name}
                     </option>

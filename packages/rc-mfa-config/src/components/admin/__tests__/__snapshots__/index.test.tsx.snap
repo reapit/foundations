@@ -50,6 +50,53 @@ Object {
               class="el-button-loader"
             />
           </button>
+          <div
+            class="el-mb5"
+          >
+            <h2
+              class="el-subtitle"
+            >
+              Organisations
+            </h2>
+            <p
+              class="el-has-grey-text el-small-text"
+            >
+              You are an admin for multiple organisations - select from the list below for data specific to one of these organisations
+            </p>
+            <div
+              class="el-border-radius controls-container"
+            >
+              <div
+                class="el-input-group"
+              >
+                <select
+                  class="el-wfull el-select"
+                >
+                  <option
+                    value=""
+                  >
+                    Please Select
+                  </option>
+                  <option
+                    value="a2331ba0-e4c9-4057-b7a3-723f2abbd9cb"
+                  >
+                    Office Groups Testing
+                  </option>
+                  <option
+                    value="f3c86df7-0c20-4182-ad5a-d8a135999e3b"
+                  >
+                    XTM Estates Ltd
+                  </option>
+                </select>
+                <label
+                  class="el-label"
+                  for="myId"
+                >
+                  Select Organisation
+                </label>
+              </div>
+            </div>
+          </div>
         </aside>
         <section
           class="el-hfull el-page-container"
@@ -380,6 +427,53 @@ Object {
             class="el-button-loader"
           />
         </button>
+        <div
+          class="el-mb5"
+        >
+          <h2
+            class="el-subtitle"
+          >
+            Organisations
+          </h2>
+          <p
+            class="el-has-grey-text el-small-text"
+          >
+            You are an admin for multiple organisations - select from the list below for data specific to one of these organisations
+          </p>
+          <div
+            class="el-border-radius controls-container"
+          >
+            <div
+              class="el-input-group"
+            >
+              <select
+                class="el-wfull el-select"
+              >
+                <option
+                  value=""
+                >
+                  Please Select
+                </option>
+                <option
+                  value="a2331ba0-e4c9-4057-b7a3-723f2abbd9cb"
+                >
+                  Office Groups Testing
+                </option>
+                <option
+                  value="f3c86df7-0c20-4182-ad5a-d8a135999e3b"
+                >
+                  XTM Estates Ltd
+                </option>
+              </select>
+              <label
+                class="el-label"
+                for="myId"
+              >
+                Select Organisation
+              </label>
+            </div>
+          </div>
+        </div>
       </aside>
       <section
         class="el-hfull el-page-container"
@@ -1260,6 +1354,53 @@ Object {
               class="el-button-loader"
             />
           </button>
+          <div
+            class="el-mb5"
+          >
+            <h2
+              class="el-subtitle"
+            >
+              Organisations
+            </h2>
+            <p
+              class="el-has-grey-text el-small-text"
+            >
+              You are an admin for multiple organisations - select from the list below for data specific to one of these organisations
+            </p>
+            <div
+              class="el-border-radius controls-container"
+            >
+              <div
+                class="el-input-group"
+              >
+                <select
+                  class="el-wfull el-select"
+                >
+                  <option
+                    value=""
+                  >
+                    Please Select
+                  </option>
+                  <option
+                    value="a2331ba0-e4c9-4057-b7a3-723f2abbd9cb"
+                  >
+                    Office Groups Testing
+                  </option>
+                  <option
+                    value="f3c86df7-0c20-4182-ad5a-d8a135999e3b"
+                  >
+                    XTM Estates Ltd
+                  </option>
+                </select>
+                <label
+                  class="el-label"
+                  for="myId"
+                >
+                  Select Organisation
+                </label>
+              </div>
+            </div>
+          </div>
         </aside>
         <section
           class="el-hfull el-page-container"
@@ -1449,6 +1590,53 @@ Object {
             class="el-button-loader"
           />
         </button>
+        <div
+          class="el-mb5"
+        >
+          <h2
+            class="el-subtitle"
+          >
+            Organisations
+          </h2>
+          <p
+            class="el-has-grey-text el-small-text"
+          >
+            You are an admin for multiple organisations - select from the list below for data specific to one of these organisations
+          </p>
+          <div
+            class="el-border-radius controls-container"
+          >
+            <div
+              class="el-input-group"
+            >
+              <select
+                class="el-wfull el-select"
+              >
+                <option
+                  value=""
+                >
+                  Please Select
+                </option>
+                <option
+                  value="a2331ba0-e4c9-4057-b7a3-723f2abbd9cb"
+                >
+                  Office Groups Testing
+                </option>
+                <option
+                  value="f3c86df7-0c20-4182-ad5a-d8a135999e3b"
+                >
+                  XTM Estates Ltd
+                </option>
+              </select>
+              <label
+                class="el-label"
+                for="myId"
+              >
+                Select Organisation
+              </label>
+            </div>
+          </div>
+        </div>
       </aside>
       <section
         class="el-hfull el-page-container"
