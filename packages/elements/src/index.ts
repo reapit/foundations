@@ -51,3 +51,4 @@ export * from './hooks/use-snack'
 export * from './hooks/use-theme'
 
 export * from './helpers/intent'
+export * from './icons'
