@@ -72,7 +72,7 @@ export const Data: FC = () => {
           Video
         </Button>
         <Button className={elMb5} intent="neutral" onClick={openNewPage('mailto:dwh@reapitfoundations.zendesk.com')}>
-          View Docs
+          Help
         </Button>
       </SecondaryNavContainer>
       <PageContainer>
