@@ -177,6 +177,7 @@ export const SettingsProfile: FC = () => {
               {...register('password')}
               type="password"
               label="Current Password"
+              placeholder="Current Password"
               errorMessage={errors?.password?.message}
               icon={errors?.password?.message ? 'asteriskSystem' : null}
               intent="danger"
@@ -187,6 +188,7 @@ export const SettingsProfile: FC = () => {
               {...register('newPassword')}
               type="password"
               label="New Password"
+              placeholder="New Password"
               errorMessage={errors?.newPassword?.message}
               icon={errors?.newPassword?.message ? 'asteriskSystem' : null}
               intent="danger"
@@ -197,6 +199,7 @@ export const SettingsProfile: FC = () => {
               {...register('confirmPassword')}
               type="password"
               label="Confirm New Password"
+              placeholder="Confirm New Password"
               errorMessage={errors?.confirmPassword?.message}
               icon={errors?.confirmPassword?.message ? 'asteriskSystem' : null}
               intent="danger"

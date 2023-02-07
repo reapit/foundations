@@ -73,9 +73,9 @@ export const CarouselControls = styled.a`
 `
 
 export const CarouselControlsRight = styled(CarouselControls)`
-  right: 0;
+  right: -1rem;
 `
 
 export const CarouselControlsLeft = styled(CarouselControls)`
-  left: 0;
+  left: -1rem;
 `

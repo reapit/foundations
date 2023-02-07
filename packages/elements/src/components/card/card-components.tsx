@@ -20,22 +20,12 @@ import {
   CardContextMenuItems,
   CardContextMenuItem,
   CardMainWrap,
-  CardMobileToggle,
   CardListMainWrap,
 } from './card'
-import {
-  elCardContextMenuOpen,
-  elCardFocussed,
-  elCardBodyWrapExpanded,
-  elCardListItemExpanded,
-  elCardSubHeadingAdditionalExpanded,
-  elCardListMainWrapExpanded,
-  elMobileListToggle,
-} from './__styles__'
+import { elCardContextMenuOpen, elCardFocussed } from './__styles__'
 import { Icon, IconNames } from '../icon'
 import { elMb5 } from '../../styles/spacing'
 import { Intent } from '../../helpers/intent'
-import { useMediaQuery } from '../../hooks/use-media-query'
 
 export interface CardListItemProps {
   // Card list items have a heading, a sub heading an icon name from our icon list and an onClick action
@@ -90,6 +80,9 @@ export const handleToggleMainMobileOpen = (
   setMainMobileOpen: Dispatch<SetStateAction<boolean>>,
 ) => (event: MouseEvent) => {
   event.stopPropagation()
+  console.warn(
+    `The icon "${handleToggleMainMobileOpen}" function is deprecated and will be removed in the next major release as all card components are now expanded in mobile by default.`,
+  )
   setMainMobileOpen(!mainMobileOpen)
 }
 
@@ -98,6 +91,9 @@ export const handleToggleListMobileOpen = (
   setListMobileOpen: Dispatch<SetStateAction<boolean>>,
 ) => (event: MouseEvent) => {
   event.stopPropagation()
+  console.warn(
+    `The "${handleToggleListMobileOpen}" function is deprecated and will be removed in the next major release as all card components are now expanded in mobile by default.`,
+  )
   setListMobileOpen(!listMobileOpen)
 }
 
@@ -108,6 +104,9 @@ export const handleToggleBothMobileOpen = (
   setListMobileOpen: Dispatch<SetStateAction<boolean>>,
 ) => (event: MouseEvent) => {
   event.stopPropagation()
+  console.warn(
+    `The "${handleToggleBothMobileOpen}" function is deprecated and will be removed in the next major release as all card components are now expanded in mobile by default.`,
+  )
   setMainMobileOpen(!mainMobileOpen)
   setListMobileOpen(!listMobileOpen)
 }
@@ -165,10 +164,6 @@ export const Card: FC<CardProps> = ({
   isSelected,
   ...rest
 }) => {
-  const [mainMobileOpen, setMainMobileOpen] = useState<boolean>(false)
-  const [listMobileOpen, setListMobileOpen] = useState<boolean>(false)
-  const { isMobile } = useMediaQuery()
-
   return (
     <CardWrap className={cx(className, isSelected && elCardFocussed)} {...rest}>
       {hasMainCard && (
@@ -183,50 +178,22 @@ export const Card: FC<CardProps> = ({
             <CardHeadingWrap>
               <CardHeading>{mainCardHeading}</CardHeading>
               <CardSubHeading>{mainCardSubHeading}</CardSubHeading>
-              <CardSubHeadingAdditional className={cx(mainMobileOpen && elCardSubHeadingAdditionalExpanded)}>
-                {mainCardSubHeadingAdditional}
-              </CardSubHeadingAdditional>
+              <CardSubHeadingAdditional>{mainCardSubHeadingAdditional}</CardSubHeadingAdditional>
             </CardHeadingWrap>
-            <CardMobileToggle
-              onClick={
-                hasListCard
-                  ? handleToggleBothMobileOpen(mainMobileOpen, setMainMobileOpen, listMobileOpen, setListMobileOpen)
-                  : handleToggleMainMobileOpen(mainMobileOpen, setMainMobileOpen)
-              }
-            >
-              <Icon icon={mainMobileOpen ? 'arrowUpSystem' : 'arrowDownSystem'} />
-            </CardMobileToggle>
           </CardMainWrap>
-          <CardBodyWrap
-            className={cx(
-              hasListCard && (!isMobile || listMobileOpen) && elMb5,
-              mainMobileOpen && elCardBodyWrapExpanded,
-            )}
-          >
-            {mainCardBody}
-          </CardBodyWrap>
+          <CardBodyWrap className={cx(hasListCard && elMb5)}>{mainCardBody}</CardBodyWrap>
         </>
       )}
       {hasListCard && (
         <>
-          <CardListMainWrap className={cx((listMobileOpen || !hasMainCard) && elCardListMainWrapExpanded)}>
-            {listContextMenuItems && (listMobileOpen || !isMobile) && (
-              <CardContextMenu contextMenuItems={listContextMenuItems} />
-            )}
+          <CardListMainWrap>
+            {listContextMenuItems && <CardContextMenu contextMenuItems={listContextMenuItems} />}
             <CardListHeading>{listCardHeading}</CardListHeading>
             <CardListSubHeading>{listCardSubHeading}</CardListSubHeading>
-            {!hasMainCard && (
-              <CardMobileToggle
-                className={elMobileListToggle}
-                onClick={handleToggleListMobileOpen(listMobileOpen, setListMobileOpen)}
-              >
-                <Icon icon={listMobileOpen ? 'arrowUpSystem' : 'arrowDownSystem'} />
-              </CardMobileToggle>
-            )}
           </CardListMainWrap>
           {listCardItems &&
             listCardItems.map(({ listCardItemHeading, listCardItemSubHeading, listCardItemIcon, onClick }, index) => (
-              <CardListItem key={index} className={cx(listMobileOpen && elCardListItemExpanded)} onClick={onClick}>
+              <CardListItem key={index} onClick={onClick}>
                 {listCardItemIcon && (
                   <CardListIcon>
                     <Icon icon={listCardItemIcon} />

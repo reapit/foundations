@@ -52,16 +52,16 @@ Object {
           </div>
         </div>
         <div
-          class="es3tf1j-el-table-row-container"
+          class="e1gfmg2g-el-table-row-container"
         >
           <div
             class="e1qy4g2u-el-table-row"
           >
             <div
-              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
             >
               <div
-                class="e4zpaja-el-table-cell-content"
+                class="e1t8i3z1-el-table-cell-content"
                 data-narrow-label="API Key"
               >
                 <div
@@ -84,20 +84,20 @@ Object {
               </div>
             </div>
             <div
-              class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
+              class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
             >
               <div
-                class="e4zpaja-el-table-cell-content"
+                class="e1t8i3z1-el-table-cell-content"
                 data-narrow-label="Expires"
               >
                 25 Apr 2023 04:28:25
               </div>
             </div>
             <div
-              class="ewmoxzc-el-table-cta-cell"
+              class="es3tf1j-el-table-cta-cell"
             >
               <div
-                class="e1t8i3z1-el-table-cta-icon-container"
+                class="ewmoxzc-el-table-cta-icon-container"
               >
                 <span
                   class="ebee6r1-el-intent-primary ej9yrfo-el-icon"
@@ -184,16 +184,16 @@ Object {
         </div>
       </div>
       <div
-        class="es3tf1j-el-table-row-container"
+        class="e1gfmg2g-el-table-row-container"
       >
         <div
           class="e1qy4g2u-el-table-row"
         >
           <div
-            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
           >
             <div
-              class="e4zpaja-el-table-cell-content"
+              class="e1t8i3z1-el-table-cell-content"
               data-narrow-label="API Key"
             >
               <div
@@ -216,20 +216,20 @@ Object {
             </div>
           </div>
           <div
-            class="e1n0yfsy-el-table-cell-has-dark-text e1gfmg2g-el-table-cell"
+            class="e1n0yfsy-el-table-cell-has-dark-text e4zpaja-el-table-cell"
           >
             <div
-              class="e4zpaja-el-table-cell-content"
+              class="e1t8i3z1-el-table-cell-content"
               data-narrow-label="Expires"
             >
               25 Apr 2023 04:28:25
             </div>
           </div>
           <div
-            class="ewmoxzc-el-table-cta-cell"
+            class="es3tf1j-el-table-cta-cell"
           >
             <div
-              class="e1t8i3z1-el-table-cta-icon-container"
+              class="ewmoxzc-el-table-cta-icon-container"
             >
               <span
                 class="ebee6r1-el-intent-primary ej9yrfo-el-icon"

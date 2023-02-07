@@ -71,9 +71,7 @@ export const ElCardSubHeading = styled.h6`
   }
 `
 
-export const elCardSubHeadingAdditionalExpanded = css`
-  margin-bottom: 1.25rem;
-`
+export const elCardSubHeadingAdditionalExpanded = css``
 
 export const ElCardSubHeadingAdditional = styled.h6`
   color: var(--color-grey-dark);
@@ -82,23 +80,12 @@ export const ElCardSubHeadingAdditional = styled.h6`
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  margin-bottom: 0;
-  transition: margin-bottom 0.2s linear;
+  margin-bottom: 1.25rem;
   display: flex;
   justify-content: space-between;
-
-  ${isTablet} {
-    margin-bottom: 1.25rem;
-  }
-
-  &.${elCardSubHeadingAdditionalExpanded} {
-    margin-bottom: 1.25rem;
-  }
 `
 
-export const elCardBodyWrapExpanded = css`
-  height: 3.5rem;
-`
+export const elCardBodyWrapExpanded = css``
 
 export const ElCardBodyWrap = styled.div`
   width: 100%;
@@ -108,7 +95,7 @@ export const ElCardBodyWrap = styled.div`
   -webkit-box-orient: vertical;
   overflow: hidden;
   white-space: normal;
-  height: 0;
+  height: 3rem;
   font-size: 0.875rem;
   transition: height 0.2s linear;
   transition: margin-bottom 0.2s linear;
@@ -116,14 +103,6 @@ export const ElCardBodyWrap = styled.div`
   ${isTablet} {
     height: 3.5rem;
     font-size: 1rem;
-  }
-
-  &.${elCardBodyWrapExpanded} {
-    height: 3rem;
-
-    ${isTablet} {
-      height: 3.5rem;
-    }
   }
 `
 
@@ -186,26 +165,14 @@ export const ElCardList = styled.div`
   display: flex;
 `
 
-export const elCardListMainWrapExpanded = css`
-  height: 4rem;
-`
+export const elCardListMainWrapExpanded = css``
 
 export const ElCardListMainWrap = styled.div`
   display: flex;
   flex-wrap: nowrap;
   position: relative;
   flex-direction: column;
-  transition: height 0.2s linear;
-  height: auto;
-  height: 0;
-
-  ${isTablet} {
-    height: 4rem;
-  }
-
-  &.${elCardListMainWrapExpanded} {
-    height: 4rem;
-  }
+  height: 4rem;
 `
 
 export const ElCardListHeading = styled.h5`
@@ -245,28 +212,12 @@ export const elCardListItemExpanded = css`
 
 export const ElCardListItem = styled.div`
   display: flex;
-  margin-bottom: 0;
-  height: 0;
-  transition: height 0.2s linear;
-  transition: margin-bottom 0.2s linear;
+  height: 2.5rem;
+  margin-bottom: 0.5rem;
   overflow: hidden;
 
-  ${isTablet} {
-    height: 2.5rem;
-    margin-bottom: 0.5rem;
-
-    &:last-of-type {
-      margin-bottom: 0;
-    }
-  }
-
-  &.${elCardListItemExpanded} {
-    height: 2.5rem;
-    margin-bottom: 0.5rem;
-
-    &:last-of-type {
-      margin-bottom: 0;
-    }
+  &:last-of-type {
+    margin-bottom: 0;
   }
 `
 
@@ -320,17 +271,17 @@ export const ElCardContextMenuItems = styled.div`
     display: flex;
     flex-direction: column;
     position: absolute;
-    z-index: 1;
+    z-index: 2;
     box-shadow: 2px 4px 14px rgba(0, 0, 0, 0.07);
     background: #fff;
-    right: -0.5rem;
-    top: -0.5rem;
+    right: -0.75rem;
+    top: -0.75rem;
   }
 
   ${isTablet} {
     &.${elCardContextMenuOpen} {
-      right: -1rem;
-      top: -1rem;
+      right: -1.25rem;
+      top: -1.25rem;
     }
   }
 `

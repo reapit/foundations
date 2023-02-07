@@ -117,6 +117,7 @@ Object {
                 class="el-input"
                 id="test-static-id"
                 name="password"
+                placeholder="Current Password"
                 type="password"
               />
               <label
@@ -137,6 +138,7 @@ Object {
                 class="el-input"
                 id="test-static-id"
                 name="newPassword"
+                placeholder="New Password"
                 type="password"
               />
               <label
@@ -157,6 +159,7 @@ Object {
                 class="el-input"
                 id="test-static-id"
                 name="confirmPassword"
+                placeholder="Confirm New Password"
                 type="password"
               />
               <label
@@ -340,6 +343,7 @@ Object {
               class="el-input"
               id="test-static-id"
               name="password"
+              placeholder="Current Password"
               type="password"
             />
             <label
@@ -360,6 +364,7 @@ Object {
               class="el-input"
               id="test-static-id"
               name="newPassword"
+              placeholder="New Password"
               type="password"
             />
             <label
@@ -380,6 +385,7 @@ Object {
               class="el-input"
               id="test-static-id"
               name="confirmPassword"
+              placeholder="Confirm New Password"
               type="password"
             />
             <label
@@ -636,6 +642,7 @@ Object {
                 class="el-input"
                 id="test-static-id"
                 name="password"
+                placeholder="Current Password"
                 type="password"
               />
               <label
@@ -656,6 +663,7 @@ Object {
                 class="el-input"
                 id="test-static-id"
                 name="newPassword"
+                placeholder="New Password"
                 type="password"
               />
               <label
@@ -676,6 +684,7 @@ Object {
                 class="el-input"
                 id="test-static-id"
                 name="confirmPassword"
+                placeholder="Confirm New Password"
                 type="password"
               />
               <label
@@ -875,6 +884,7 @@ Object {
               class="el-input"
               id="test-static-id"
               name="password"
+              placeholder="Current Password"
               type="password"
             />
             <label
@@ -895,6 +905,7 @@ Object {
               class="el-input"
               id="test-static-id"
               name="newPassword"
+              placeholder="New Password"
               type="password"
             />
             <label
@@ -915,6 +926,7 @@ Object {
               class="el-input"
               id="test-static-id"
               name="confirmPassword"
+              placeholder="Confirm New Password"
               type="password"
             />
             <label
