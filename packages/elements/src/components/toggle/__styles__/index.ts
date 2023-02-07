@@ -12,7 +12,7 @@ export const ElToggleItem = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0.25rem;
+  padding: 0.25rem 0.75rem;
 `
 
 export const ElToggleRadioItem = styled.span`
@@ -20,7 +20,7 @@ export const ElToggleRadioItem = styled.span`
   height: 100%;
   text-align: center;
   font-size: 14px;
-  padding: 0 1rem;
+  padding: 0 0.75rem;
   border-radius: 1.2rem;
   display: flex;
   justify-content: center;
@@ -63,7 +63,7 @@ export const ElToggleCheckbox = styled.input`
 
 export const ElToggleLabel = styled.label`
   cursor: pointer;
-  width: 146px;
+  width: fit-content;
   height: 2rem;
   background: var(--color-white);
   border-radius: 1.5rem;
@@ -105,7 +105,7 @@ export const ElToggleRadio = styled.input`
 
 export const ElToggleRadioLabel = styled.label`
   cursor: pointer;
-  min-width: 72px;
+  width: fit-content;
   background: var(--color-white);
   display: flex;
   align-items: center;

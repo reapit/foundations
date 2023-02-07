@@ -225,17 +225,39 @@ export const ElTableRow = styled.div`
   }
 `
 
+export const ElTableCtaCell = styled.div`
+  background: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0.75rem;
+  order: 12;
+  border-radius: 0 var(--default-border-radius) var(--default-border-radius) 0;
+
+  ${isNarrow} {
+    grid-column-end: span 2;
+    text-align: center;
+    justify-content: right;
+    justify-self: end;
+    padding: 0;
+    grid-column-end: 3;
+    border-radius: var(--default-border-radius) 0 var(--default-border-radius) 0;
+  }
+`
+
 export const ElTableRowContainer = styled.div`
   border-radius: var(--default-border-radius);
   border: 1px solid var(--color-white);
   margin-top: 0.5rem;
 
   &:hover,
-  &:focus {
+  &:focus,
+  &.${elIsActive} {
     border: 1px solid var(--color-blue-light2);
     box-shadow: 0px 2px 9px rgba(20, 164, 224, 0.15);
 
-    ${ElTableRow} {
+    > ${ElTableRow} {
       box-shadow: none;
     }
   }
@@ -245,7 +267,7 @@ export const ElTableRowContainer = styled.div`
       border-radius: var(--default-border-radius) var(--default-border-radius) 0 0;
     }
 
-    .el-table-action-cell {
+    ${ElTableCtaCell} {
       border-radius: 0 var(--default-border-radius) 0 0;
     }
   }
@@ -307,27 +329,6 @@ export const ElTableCtaIconContainer = styled.div`
   }
 `
 
-export const ElTableCtaCell = styled.div`
-  background: var(--color-white);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  padding: 0.75rem;
-  order: 12;
-  border-radius: 0 var(--default-border-radius) var(--default-border-radius) 0;
-
-  ${isNarrow} {
-    grid-column-end: span 2;
-    text-align: center;
-    justify-content: right;
-    justify-self: end;
-    padding: 0;
-    grid-column-end: 3;
-    border-radius: var(--default-border-radius) 0 var(--default-border-radius) 0;
-  }
-`
-
 export const ElTableExpandableRowTriggerCell = styled.div`
   background: var(--color-grey-light);
   display: flex;
@@ -361,6 +362,7 @@ export const ElTableExpandableRow = styled.div`
     height: auto;
     opacity: 1;
     border-top: 1px solid var(--color-grey-light);
+    box-shadow: none;
   }
 `
 

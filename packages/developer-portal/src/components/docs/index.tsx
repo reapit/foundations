@@ -65,7 +65,7 @@ const DocsPage: FC = () => {
           </Button>
           {isDocsPage && (
             <Button className={elMb5} intent="critical" onClick={openNewPage(ExternalPages.baseDocs)}>
-              Open New
+              Open Docs
             </Button>
           )}
           {isSchemaPage && isDevEnv && (
@@ -74,7 +74,7 @@ const DocsPage: FC = () => {
               intent="critical"
               onClick={openNewPage(window.reapit.config.analyticsSchemaDocsUrl)}
             >
-              Open New
+              Open Schema
             </Button>
           )}
         </SecondaryNavContainer>

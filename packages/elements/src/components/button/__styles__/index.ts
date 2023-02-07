@@ -361,8 +361,8 @@ export const ElButtonGroupInner = styled.div`
   display: flex;
   flex-wrap: wrap;
   grid-auto-flow: column;
-  column-gap: 1rem;
-  row-gap: 1rem;
+  column-gap: 0.75rem;
+  row-gap: 0.75rem;
   width: fit-content;
 
   .${elButtonSize2} {

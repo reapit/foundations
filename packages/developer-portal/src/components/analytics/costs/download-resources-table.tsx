@@ -80,7 +80,7 @@ export const DownloadResourcesTable: FC<DownloadResourcesTableProps> = ({ billin
             ],
             ctaContent: {
               onClick: handleDownloadCSV(billing, error),
-              icon: 'downloadSystem',
+              icon: 'downloadSolidSystem',
               headerContent: 'Download',
             },
           },
@@ -108,7 +108,7 @@ export const DownloadResourcesTable: FC<DownloadResourcesTableProps> = ({ billin
               onClick: appId
                 ? handleDownloadTransactions(analyticsFilterState, requestMonth, error, developerId)
                 : undefined,
-              icon: (appId ? 'downloadSystem' : 'closeSystem') as IconNames,
+              icon: (appId ? 'downloadSolidSystem' : 'closeSolidSystem') as IconNames,
               headerContent: 'Download',
             },
           })),

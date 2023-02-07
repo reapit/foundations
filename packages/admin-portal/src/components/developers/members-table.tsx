@@ -36,8 +36,10 @@ export interface MembersTableProps {
 }
 
 export const handleUpdateMember =
-  (updateMember: SendFunction<UpdateMemberModel, boolean>, memberUpdate: UpdateMemberModel) => () => {
-    updateMember(memberUpdate)
+  (updateMember: SendFunction<UpdateMemberModel, boolean>, memberUpdate: UpdateMemberModel | null) => () => {
+    if (memberUpdate) {
+      updateMember(memberUpdate)
+    }
   }
 
 export const handleSetMemberEmail =
@@ -88,7 +90,7 @@ export const MembersTable: FC<MembersTableProps> = ({ devIdMembers }) => {
     fetchWhenTrue: [memberEmail],
   })
 
-  const [, memberUpdating, updateMember, updateMemberSuccess] = useReapitUpdate<UpdateMemberModel, boolean>({
+  const [memberUpdating, , updateMember, updateMemberSuccess] = useReapitUpdate<UpdateMemberModel, boolean>({
     reapitConnectBrowserSession,
     action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.updateMember],
     method: 'PUT',
@@ -99,7 +101,7 @@ export const MembersTable: FC<MembersTableProps> = ({ devIdMembers }) => {
   })
 
   useEffect(handleRefreshMembers(refreshMembers, updateMemberSuccess), [updateMemberSuccess])
-  useEffect(handleUpdateMember(updateMember, memberUpdate as UpdateMemberModel), [memberUpdate])
+  useEffect(handleUpdateMember(updateMember, memberUpdate), [memberUpdate])
 
   const idpEvents = userInfo?.idpData?.authEvents ?? []
 

@@ -15,22 +15,13 @@ import {
   CardListItemTextPrimary,
   CardListItemTextSecondary,
   CardContextMenuWrapper,
-  CardContextMenuToggle,
   CardContextMenuItems,
   CardContextMenuItem,
+  CardContextMenuToggle,
   CardMainWrap,
-  CardMobileToggle,
   CardListMainWrap,
 } from './card'
-import {
-  elCardContextMenuOpen,
-  elCardFocussed,
-  elCardBodyWrapExpanded,
-  elCardListItemExpanded,
-  elCardSubHeadingAdditionalExpanded,
-  elCardListMainWrapExpanded,
-  elMobileListToggle,
-} from './__styles__'
+import { elCardContextMenuOpen, elCardFocussed } from './__styles__'
 import { Icon } from '../icon'
 import { elMb5 } from '../../styles/spacing'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
@@ -48,10 +39,6 @@ All of the markup is intended to fallback gracefully if not supplied so for exam
 
 If you wish to combine a list and an image card, this can be done too - see the complete examples below.
 
-The small expandable context menu is also optional and can be used as a menu for actions to perform on your Card's resources.
-
-The Card is fully mobile responsive and collapses down by toggling classes. It is worth looking at the React Example and re-sizing your browser even if you are not a React user to see the desired behaviours.
-
 For non-React users, the following examples show how applying and removing classes will toggle various pieces of the UI.
 
 React users, may wish to revert to the React example below where this heavy lifting is done for you.
@@ -63,20 +50,15 @@ React users, may wish to revert to the React example below where this heavy lift
     <CardWrap>
       <CardMainWrap>
         <CardImageWrap>
-          <img src="https://via.placeholder.com/52x52.svg" />
+          <Icon icon="placeholderSmall" iconSize="medium" />
         </CardImageWrap>
         <CardHeadingWrap>
           <CardHeading>Main Heading</CardHeading>
           <CardSubHeading>Sub Heading</CardSubHeading>
-          <CardSubHeadingAdditional className={elCardSubHeadingAdditionalExpanded}>
-            Sub Heading Additional
-          </CardSubHeadingAdditional>
+          <CardSubHeadingAdditional>Sub Heading Additional</CardSubHeadingAdditional>
         </CardHeadingWrap>
-        <CardMobileToggle>
-          <Icon icon="arrowUpSystem" />
-        </CardMobileToggle>
       </CardMainWrap>
-      <CardBodyWrap className={elCardBodyWrapExpanded}>
+      <CardBodyWrap>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
@@ -88,25 +70,22 @@ React users, may wish to revert to the React example below where this heavy lift
 
 <RenderHtmlMarkup component="Card" story="Basic Usage - Card With Image" />
 
+## Basic Usage - Card With Image Focussed
+
 <Canvas>
   <Story name="Card With Image Focussed">
     <CardWrap className={elCardFocussed}>
       <CardMainWrap>
         <CardImageWrap>
-          <img src="https://via.placeholder.com/52x52.svg" />
+          <Icon icon="placeholderSmall" iconSize="medium" />
         </CardImageWrap>
         <CardHeadingWrap>
           <CardHeading>Main Heading</CardHeading>
           <CardSubHeading>Sub Heading</CardSubHeading>
-          <CardSubHeadingAdditional className={elCardSubHeadingAdditionalExpanded}>
-            Sub Heading Additional
-          </CardSubHeadingAdditional>
+          <CardSubHeadingAdditional>Sub Heading Additional</CardSubHeadingAdditional>
         </CardHeadingWrap>
-        <CardMobileToggle>
-          <Icon icon="arrowUpSystem" />
-        </CardMobileToggle>
       </CardMainWrap>
-      <CardBodyWrap className={elCardBodyWrapExpanded}>
+      <CardBodyWrap>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
@@ -141,20 +120,15 @@ React users, may wish to revert to the React example below where this heavy lift
       </CardContextMenuWrapper>
       <CardMainWrap>
         <CardImageWrap>
-          <img src="https://via.placeholder.com/52x52.svg" />
+          <Icon icon="placeholderSmall" iconSize="medium" />
         </CardImageWrap>
         <CardHeadingWrap>
           <CardHeading>Main Heading</CardHeading>
           <CardSubHeading>Sub Heading</CardSubHeading>
-          <CardSubHeadingAdditional className={elCardSubHeadingAdditionalExpanded}>
-            Sub Heading Additional
-          </CardSubHeadingAdditional>
+          <CardSubHeadingAdditional>Sub Heading Additional</CardSubHeadingAdditional>
         </CardHeadingWrap>
-        <CardMobileToggle>
-          <Icon icon="arrowUpSystem" />
-        </CardMobileToggle>
       </CardMainWrap>
-      <CardBodyWrap className={elCardBodyWrapExpanded}>
+      <CardBodyWrap>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
@@ -189,16 +163,13 @@ React users, may wish to revert to the React example below where this heavy lift
       </CardContextMenuWrapper>
       <CardMainWrap>
         <CardImageWrap>
-          <img src="https://via.placeholder.com/52x52.svg" />
+          <Icon icon="placeholderSmall" iconSize="medium" />
         </CardImageWrap>
         <CardHeadingWrap>
           <CardHeading>Main Heading</CardHeading>
           <CardSubHeading>Sub Heading</CardSubHeading>
           <CardSubHeadingAdditional>Sub Heading Additional</CardSubHeadingAdditional>
         </CardHeadingWrap>
-        <CardMobileToggle>
-          <Icon icon="arrowUpSystem" />
-        </CardMobileToggle>
       </CardMainWrap>
       <CardBodyWrap>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
@@ -217,14 +188,11 @@ React users, may wish to revert to the React example below where this heavy lift
 <Canvas>
   <Story name="Basic Usage - Card With List">
     <CardWrap>
-      <CardListMainWrap className={elCardListMainWrapExpanded}>
+      <CardListMainWrap>
         <CardListHeading>Secondary Heading</CardListHeading>
         <CardListSubHeading>Secondary Sub Heading</CardListSubHeading>
-        <CardMobileToggle className={elMobileListToggle}>
-          <Icon icon="arrowUpSystem" />
-        </CardMobileToggle>
       </CardListMainWrap>
-      <CardListItem className={elCardListItemExpanded}>
+      <CardListItem>
         <CardListIcon>
           <Icon icon="houseInfographic" />
         </CardListIcon>
@@ -233,7 +201,7 @@ React users, may wish to revert to the React example below where this heavy lift
           <CardListItemTextSecondary>Item Details</CardListItemTextSecondary>
         </CardListItemTextWrap>
       </CardListItem>
-      <CardListItem className={elCardListItemExpanded}>
+      <CardListItem>
         <CardListIcon>
           <Icon icon="applicantInfographic" />
         </CardListIcon>
@@ -253,7 +221,7 @@ React users, may wish to revert to the React example below where this heavy lift
 <Canvas>
   <Story name="Card With List and Context Menu">
     <CardWrap>
-      <CardListMainWrap className={elCardListMainWrapExpanded}>
+      <CardListMainWrap>
         <CardContextMenuWrapper>
           <CardContextMenuToggle>
             <Icon icon="moreSystem" fontSize="1.25rem" />
@@ -272,11 +240,8 @@ React users, may wish to revert to the React example below where this heavy lift
         </CardContextMenuWrapper>
         <CardListHeading>Secondary Heading</CardListHeading>
         <CardListSubHeading>Secondary Sub Heading</CardListSubHeading>
-        <CardMobileToggle className={elMobileListToggle}>
-          <Icon icon="arrowUpSystem" />
-        </CardMobileToggle>
       </CardListMainWrap>
-      <CardListItem className={elCardListItemExpanded}>
+      <CardListItem>
         <CardListIcon>
           <Icon icon="houseInfographic" />
         </CardListIcon>
@@ -285,7 +250,7 @@ React users, may wish to revert to the React example below where this heavy lift
           <CardListItemTextSecondary>Item Details</CardListItemTextSecondary>
         </CardListItemTextWrap>
       </CardListItem>
-      <CardListItem className={elCardListItemExpanded}>
+      <CardListItem>
         <CardListIcon>
           <Icon icon="applicantInfographic" />
         </CardListIcon>
@@ -324,9 +289,6 @@ React users, may wish to revert to the React example below where this heavy lift
         </CardContextMenuWrapper>
         <CardListHeading>Secondary Heading</CardListHeading>
         <CardListSubHeading>Secondary Sub Heading</CardListSubHeading>
-        <CardMobileToggle>
-          <Icon icon="arrowUpSystem" />
-        </CardMobileToggle>
       </CardListMainWrap>
       <CardListItem>
         <CardListIcon>
@@ -358,9 +320,6 @@ React users, may wish to revert to the React example below where this heavy lift
   <Story name="Complete Example Open">
     <CardWrap>
       <CardContextMenuWrapper>
-        <CardContextMenuToggle>
-          <Icon icon="moreSystem" fontSize="1.25rem" />
-        </CardContextMenuToggle>
         <CardContextMenuItems className={elCardContextMenuOpen}>
           <CardContextMenuItem>
             <Icon icon="closeSystem" />
@@ -375,26 +334,21 @@ React users, may wish to revert to the React example below where this heavy lift
       </CardContextMenuWrapper>
       <CardMainWrap>
         <CardImageWrap>
-          <img src="https://via.placeholder.com/52x52.svg" />
+          <Icon icon="placeholderSmall" iconSize="medium" />
         </CardImageWrap>
         <CardHeadingWrap>
           <CardHeading>Main Heading</CardHeading>
           <CardSubHeading>Sub Heading</CardSubHeading>
-          <CardSubHeadingAdditional className={elCardSubHeadingAdditionalExpanded}>
-            Sub Heading Additional
-          </CardSubHeadingAdditional>
+          <CardSubHeadingAdditional>Sub Heading Additional</CardSubHeadingAdditional>
         </CardHeadingWrap>
-        <CardMobileToggle>
-          <Icon icon="arrowUpSystem" />
-        </CardMobileToggle>
       </CardMainWrap>
-      <CardBodyWrap className={cx(elMb5, elCardBodyWrapExpanded)}>
+      <CardBodyWrap className={elMb5}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
         pariatur.
       </CardBodyWrap>
-      <CardListMainWrap className={elCardListMainWrapExpanded}>
+      <CardListMainWrap>
         <CardContextMenuWrapper>
           <CardContextMenuToggle>
             <Icon icon="moreSystem" fontSize="1.25rem" />
@@ -413,11 +367,8 @@ React users, may wish to revert to the React example below where this heavy lift
         </CardContextMenuWrapper>
         <CardListHeading>Secondary Heading</CardListHeading>
         <CardListSubHeading>Secondary Sub Heading</CardListSubHeading>
-        <CardMobileToggle className={elMobileListToggle}>
-          <Icon icon="arrowUpSystem" />
-        </CardMobileToggle>
       </CardListMainWrap>
-      <CardListItem className={elCardListItemExpanded}>
+      <CardListItem>
         <CardListIcon>
           <Icon icon="houseInfographic" />
         </CardListIcon>
@@ -426,7 +377,7 @@ React users, may wish to revert to the React example below where this heavy lift
           <CardListItemTextSecondary>Item Details</CardListItemTextSecondary>
         </CardListItemTextWrap>
       </CardListItem>
-      <CardListItem className={elCardListItemExpanded}>
+      <CardListItem>
         <CardListIcon>
           <Icon icon="applicantInfographic" />
         </CardListIcon>
@@ -464,16 +415,13 @@ React users, may wish to revert to the React example below where this heavy lift
       </CardContextMenuWrapper>
       <CardMainWrap>
         <CardImageWrap>
-          <img src="https://via.placeholder.com/52x52.svg" />
+          <Icon icon="placeholderSmall" iconSize="medium" />
         </CardImageWrap>
         <CardHeadingWrap>
           <CardHeading>Main Heading</CardHeading>
           <CardSubHeading>Sub Heading</CardSubHeading>
           <CardSubHeadingAdditional>Sub Heading Additional</CardSubHeadingAdditional>
         </CardHeadingWrap>
-        <CardMobileToggle>
-          <Icon icon="arrowUpSystem" />
-        </CardMobileToggle>
       </CardMainWrap>
       <CardBodyWrap className={elMb5}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
@@ -500,9 +448,6 @@ React users, may wish to revert to the React example below where this heavy lift
         </CardContextMenuWrapper>
         <CardListHeading>Secondary Heading</CardListHeading>
         <CardListSubHeading>Secondary Sub Heading</CardListSubHeading>
-        <CardMobileToggle className={elMobileListToggle}>
-          <Icon icon="arrowUpSystem" />
-        </CardMobileToggle>
       </CardListMainWrap>
       <CardListItem>
         <CardListIcon>
@@ -550,7 +495,7 @@ As you can see, all of the props are optional - a completed version with all opt
         mainCardSubHeading="Main Subheading"
         mainCardSubHeadingAdditional="Main Subheading Additional"
         mainCardBody="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-        mainCardImgUrl="https://via.placeholder.com/52x52.svg"
+        mainCardImgUrl={<Icon icon="placeholderSmall" iconSize="medium" />}
         listCardHeading="List Card Heading"
         listCardSubHeading="List Card Sub Heading"
         listCardItems={[

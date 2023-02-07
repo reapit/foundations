@@ -52,6 +52,9 @@ export const Toggle: ToggleWrapped = forwardRef(
     { className, children, isFullWidth, hasGreyBg, id, ...rest },
     ref: ForwardedRef<InputHTMLAttributes<HTMLInputElement>>,
   ) => {
+    if (isFullWidth) {
+      console.warn(`The "${isFullWidth}" prop is deprecated and will be removed in the next major release.`)
+    }
     return (
       <>
         <ElToggleCheckbox id={id} type="checkbox" {...rest} ref={(ref as unknown) as LegacyRef<HTMLInputElement>} />
@@ -71,6 +74,9 @@ export const ToggleRadio: ToggleRadioWrapped = forwardRef(
     { className, isFullWidth, hasGreyBg, name, options, disabled, ...rest },
     ref: ForwardedRef<InputHTMLAttributes<HTMLInputElement>>,
   ) => {
+    if (isFullWidth) {
+      console.warn(`The "${isFullWidth}" prop is deprecated and will be removed in the next major release.`)
+    }
     return (
       <ElToggleRadioWrap className={cx(className, isFullWidth && elToggleFullWidth, hasGreyBg && elHasGreyBg)}>
         {options.map(({ id, value, text, isChecked }) => (

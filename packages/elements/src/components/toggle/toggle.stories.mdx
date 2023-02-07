@@ -30,21 +30,6 @@ Props available for the React version of the component are just those of a stand
 
 <RenderHtmlMarkup component="Toggle" story="Basic Usage" />
 
-## Toggle - Full Width
-
-Slight variation on the above where the toggle spans the full width of it's container.
-
-<Canvas>
-  <Story name="Toggle - Full Width">
-    <Toggle id="my-cool-toggle-variants-fw" isFullWidth>
-      <ElToggleItem>On</ElToggleItem>
-      <ElToggleItem>Off</ElToggleItem>
-    </Toggle>
-  </Story>
-</Canvas>
-
-<RenderHtmlMarkup component="Toggle" story="Toggle - Full Width" />
-
 ## Toggle - Grey Bg
 
 Where rendering a toggle on a white background, you should apply the hasGreyBg prop to give better contrast. The white background standard toggle is intended for use on a grey background.
@@ -115,42 +100,6 @@ export interface ToggleRadioOption {
 
 <RenderHtmlMarkup component="Toggle" story="Toggle Radio - Default" />
 
-## Toggle Radio - Full Width
-
-Slight variation on the above where the toggle spans the full width of it's container.
-
-<Canvas>
-  <Story name="Toggle Radio - Full Width">
-    <ToggleRadio
-      name="my-cool-toggle-radio-full-width"
-      isFullWidth
-      hasGreyBg
-      options={[
-        {
-          id: 'option-1-fw',
-          value: 'option-1-fw',
-          text: 'Option 1',
-          isChecked: true,
-        },
-        {
-          id: 'option-2-fw',
-          value: 'option-2-fw',
-          text: 'Option 2',
-          isChecked: false,
-        },
-        {
-          id: 'option-3-fw',
-          value: 'option-3-fw',
-          text: 'Option 3',
-          isChecked: false,
-        },
-      ]}
-    />
-  </Story>
-</Canvas>
-
-<RenderHtmlMarkup component="Toggle" story="Toggle Radio - Full Width" />
-
 ## Toggle RadioSelectProps - Grey Bg
 
 Where rendering a toggle on a white background, you should apply the hasGreyBg prop to give better contrast. The white background standard toggle is intended for use on a grey background.
@@ -158,8 +107,7 @@ Where rendering a toggle on a white background, you should apply the hasGreyBg p
 <Canvas>
   <Story name="Toggle RadioSelectProps - Grey Bg">
     <ToggleRadio
-      name="my-cool-toggle-radio-full-width-grey"
-      isFullWidth
+      name="my-cool-toggle-radio-grey"
       hasGreyBg
       options={[
         {

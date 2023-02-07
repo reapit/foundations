@@ -57,9 +57,12 @@ export const CardImageWrap: FC<CardBaseProps> = ({ children, ...rest }) => (
   <ElCardImageWrap {...rest}>{children}</ElCardImageWrap>
 )
 
-export const CardMobileToggle: FC<CardButtonProps> = ({ children, ...rest }) => (
-  <ElMobileToggle {...rest}>{children}</ElMobileToggle>
-)
+export const CardMobileToggle: FC<CardButtonProps> = ({ children, ...rest }) => {
+  console.warn(
+    `The "${CardMobileToggle}" Component is deprecated and will be removed in the next major release as all card components are now expanded in mobile by default.`,
+  )
+  return <ElMobileToggle {...rest}>{children}</ElMobileToggle>
+}
 
 export const CardList: FC<CardBaseProps> = ({ children, ...rest }) => <ElCardList {...rest}>{children}</ElCardList>
 
