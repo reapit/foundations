@@ -10,6 +10,7 @@
     "build": "echo '...skipping...'",
     "lint": "eslint --cache --ext=ts,tsx,js cypress --fix",
     "release": "echo '...skipping...'",
+    "deploy": "echo '...skipping...'",
     "publish": "echo '...skipping...'",
     "conf": "echo '...skipping...'",
     "commit": "echo '...skipping...'"

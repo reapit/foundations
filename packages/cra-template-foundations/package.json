@@ -10,6 +10,7 @@
     "lint": "eslint --cache --ext=ts,tsx,js template",
     "check": "echo '...skipping...'",
     "release": "echo '...skipping...'",
+    "deploy": "echo '...skipping...'",
     "publish": "yarn npm publish  --access public",
     "conf": "echo '...skipping...'",
     "commit": "yarn lint"

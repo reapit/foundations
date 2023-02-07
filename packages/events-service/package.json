@@ -14,6 +14,7 @@
     "check": "tsc --noEmit --skipLibCheck",
     "publish": "echo '...skipping...'",
     "release": "serverless deploy",
+    "deploy": "echo '...skipping...'",
     "start": "serverless dynamodb install && yarn serverless offline start --runtime nodejs12.x --stage local --printOutput",
     "test": "cross-env TZ=UTC jest --watch --colors --silent"
   },
