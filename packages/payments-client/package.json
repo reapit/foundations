@@ -16,7 +16,8 @@
     "build": "rimraf public/dist && NODE_ENV=production webpack",
     "lint": "eslint --cache --ext=ts,tsx,js src",
     "check": "tsc --noEmit --skipLibCheck",
-    "release": "serverless deploy",
+    "synth": "rpt-cdk synth",
+    "release": "rpt-cdk deploy",
     "publish": "echo '...skipping...'",
     "conf": "yarn config-manager --namespace cloud --entity payments-client --name local --mode fetch",
     "commit": "yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges && yarn lint --fix && yarn check"
@@ -62,11 +63,8 @@
     "jest-coverage-badges": "^1.1.2",
     "node-polyfill-webpack-plugin": "^1.1.4",
     "rimraf": "^3.0.2",
-    "serverless": "^2.72.3",
-    "serverless-s3-deploy": "^0.10.1",
-    "serverless-s3-remover": "^0.6.0",
-    "serverless-single-page-app-plugin": "^1.0.4",
     "ts-jest": "^28.0.8",
+    "ts-node": "^10.9.1",
     "typescript": "^4.8.4",
     "webpack": "^5.74.0",
     "webpack-dev-server": "^4.11.1"

@@ -9,7 +9,7 @@ import {
   elIconSizeSmall,
   elIconSizeSmallest,
 } from './__styles__'
-import { iconSet } from './icons'
+import { iconSet } from '../../icons'
 import { deprecatedIconSet } from './deprecated'
 export type IconNames = keyof typeof iconSet
 

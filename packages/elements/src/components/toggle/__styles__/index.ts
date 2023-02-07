@@ -97,6 +97,10 @@ export const ElToggleRadio = styled.input`
     background: var(--intent-primary);
     color: var(--color-white);
   }
+
+  &:disabled + label ${ElToggleRadioItem} {
+    opacity: 0.35;
+  }
 `
 
 export const ElToggleRadioLabel = styled.label`
