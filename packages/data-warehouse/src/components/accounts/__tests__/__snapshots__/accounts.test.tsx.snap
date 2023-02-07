@@ -66,7 +66,7 @@ Object {
           <button
             class="el-mb5 el-intent-neutral el-button"
           >
-            View Docs
+            Help
             <div
               class="el-button-loader"
             />
@@ -266,7 +266,7 @@ Object {
         <button
           class="el-mb5 el-intent-neutral el-button"
         >
-          View Docs
+          Help
           <div
             class="el-button-loader"
           />
@@ -523,7 +523,7 @@ Object {
           <button
             class="el-mb5 el-intent-neutral el-button"
           >
-            View Docs
+            Help
             <div
               class="el-button-loader"
             />
@@ -637,7 +637,7 @@ Object {
         <button
           class="el-mb5 el-intent-neutral el-button"
         >
-          View Docs
+          Help
           <div
             class="el-button-loader"
           />
