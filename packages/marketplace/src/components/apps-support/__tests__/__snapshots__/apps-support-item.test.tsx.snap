@@ -12,7 +12,7 @@ Object {
         class="el-card-wrap"
       >
         <div
-          class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
+          class="el-card-list-main-wrap"
         >
           <h5
             class="el-card-list-heading"
@@ -24,15 +24,6 @@ Object {
           >
             Will Test DevCo
           </h6>
-          <button
-            class="el-mobile-list-toggle el-mobile-toggle"
-          >
-            <span
-              class="el-icon"
-            >
-              <svg />
-            </span>
-          </button>
         </div>
         <div
           class="el-card-list-item"
@@ -237,7 +228,7 @@ Object {
       class="el-card-wrap"
     >
       <div
-        class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
+        class="el-card-list-main-wrap"
       >
         <h5
           class="el-card-list-heading"
@@ -249,15 +240,6 @@ Object {
         >
           Will Test DevCo
         </h6>
-        <button
-          class="el-mobile-list-toggle el-mobile-toggle"
-        >
-          <span
-            class="el-icon"
-          >
-            <svg />
-          </span>
-        </button>
       </div>
       <div
         class="el-card-list-item"
@@ -519,7 +501,7 @@ Object {
         class="el-card-wrap"
       >
         <div
-          class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
+          class="el-card-list-main-wrap"
         >
           <h5
             class="el-card-list-heading"
@@ -529,15 +511,6 @@ Object {
           <h6
             class="el-card-list-sub-heading"
           />
-          <button
-            class="el-mobile-list-toggle el-mobile-toggle"
-          >
-            <span
-              class="el-icon"
-            >
-              <svg />
-            </span>
-          </button>
         </div>
         <div
           class="el-card-list-item"
@@ -712,7 +685,7 @@ Object {
       class="el-card-wrap"
     >
       <div
-        class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
+        class="el-card-list-main-wrap"
       >
         <h5
           class="el-card-list-heading"
@@ -722,15 +695,6 @@ Object {
         <h6
           class="el-card-list-sub-heading"
         />
-        <button
-          class="el-mobile-list-toggle el-mobile-toggle"
-        >
-          <span
-            class="el-icon"
-          >
-            <svg />
-          </span>
-        </button>
       </div>
       <div
         class="el-card-list-item"

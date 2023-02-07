@@ -187,7 +187,7 @@ export const ApiPage: FC = () => {
                 View Docs
               </Button>
               <Button className={elMb5} intent="critical" onClick={openNewPage(window.reapit.config.graphQLUri)}>
-                Open New
+                Open Explorer
               </Button>
             </>
           )}

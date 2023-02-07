@@ -104,9 +104,10 @@ export const FeaturedHeroAppsCollection: FC<FeaturedHeroAppsCollectionProps> = m
 
                   {categories?.length ? (
                     <HeroAppsChipContainer>
-                      {categories.map((category) => (
-                        <HeroAppsChip key={category?.id}>{category.name}</HeroAppsChip>
-                      ))}
+                      {categories.map((category, index) => {
+                        if (index > 2) return null
+                        return <HeroAppsChip key={category?.id}>{category.name}</HeroAppsChip>
+                      })}
                     </HeroAppsChipContainer>
                   ) : (
                     <HeroAppsChipPlaceholder />

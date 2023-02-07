@@ -72,15 +72,6 @@ Object {
                   class="el-card-sub-heading-additional"
                 />
               </div>
-              <button
-                class="el-mobile-toggle"
-              >
-                <span
-                  class="el-icon"
-                >
-                  <svg />
-                </span>
-              </button>
             </div>
             <div
               class="el-card-body-wrap"
@@ -145,15 +136,6 @@ Object {
                   class="el-card-sub-heading-additional"
                 />
               </div>
-              <button
-                class="el-mobile-toggle"
-              >
-                <span
-                  class="el-icon"
-                >
-                  <svg />
-                </span>
-              </button>
             </div>
             <div
               class="el-card-body-wrap"
@@ -233,15 +215,6 @@ Object {
                 class="el-card-sub-heading-additional"
               />
             </div>
-            <button
-              class="el-mobile-toggle"
-            >
-              <span
-                class="el-icon"
-              >
-                <svg />
-              </span>
-            </button>
           </div>
           <div
             class="el-card-body-wrap"
@@ -306,15 +279,6 @@ Object {
                 class="el-card-sub-heading-additional"
               />
             </div>
-            <button
-              class="el-mobile-toggle"
-            >
-              <span
-                class="el-icon"
-              >
-                <svg />
-              </span>
-            </button>
           </div>
           <div
             class="el-card-body-wrap"

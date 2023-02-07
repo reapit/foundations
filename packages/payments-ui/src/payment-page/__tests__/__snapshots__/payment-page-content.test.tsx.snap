@@ -51,7 +51,7 @@ Object {
               class="el-card-wrap"
             >
               <div
-                class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
+                class="el-card-list-main-wrap"
               >
                 <h5
                   class="el-card-list-heading"
@@ -63,15 +63,6 @@ Object {
                 >
                   The value and reason this transaction was raised
                 </h6>
-                <button
-                  class="el-mobile-list-toggle el-mobile-toggle"
-                >
-                  <span
-                    class="el-icon"
-                  >
-                    <svg />
-                  </span>
-                </button>
               </div>
               <div
                 class="el-card-list-item"
@@ -163,7 +154,7 @@ Object {
               class="el-card-wrap"
             >
               <div
-                class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
+                class="el-card-list-main-wrap"
               >
                 <h5
                   class="el-card-list-heading"
@@ -175,15 +166,6 @@ Object {
                 >
                   The customer eg Applicant or Tennant to be charged for this transaction
                 </h6>
-                <button
-                  class="el-mobile-list-toggle el-mobile-toggle"
-                >
-                  <span
-                    class="el-icon"
-                  >
-                    <svg />
-                  </span>
-                </button>
               </div>
               <div
                 class="el-card-list-item"
@@ -302,7 +284,7 @@ Object {
               class="el-card-wrap"
             >
               <div
-                class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
+                class="el-card-list-main-wrap"
               >
                 <h5
                   class="el-card-list-heading"
@@ -314,15 +296,6 @@ Object {
                 >
                   The property to which this transaction relates if relevant
                 </h6>
-                <button
-                  class="el-mobile-list-toggle el-mobile-toggle"
-                >
-                  <span
-                    class="el-icon"
-                  >
-                    <svg />
-                  </span>
-                </button>
               </div>
               <div
                 class="el-card-list-item"
@@ -1972,7 +1945,7 @@ Object {
             class="el-card-wrap"
           >
             <div
-              class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
+              class="el-card-list-main-wrap"
             >
               <h5
                 class="el-card-list-heading"
@@ -1984,15 +1957,6 @@ Object {
               >
                 The value and reason this transaction was raised
               </h6>
-              <button
-                class="el-mobile-list-toggle el-mobile-toggle"
-              >
-                <span
-                  class="el-icon"
-                >
-                  <svg />
-                </span>
-              </button>
             </div>
             <div
               class="el-card-list-item"
@@ -2084,7 +2048,7 @@ Object {
             class="el-card-wrap"
           >
             <div
-              class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
+              class="el-card-list-main-wrap"
             >
               <h5
                 class="el-card-list-heading"
@@ -2096,15 +2060,6 @@ Object {
               >
                 The customer eg Applicant or Tennant to be charged for this transaction
               </h6>
-              <button
-                class="el-mobile-list-toggle el-mobile-toggle"
-              >
-                <span
-                  class="el-icon"
-                >
-                  <svg />
-                </span>
-              </button>
             </div>
             <div
               class="el-card-list-item"
@@ -2223,7 +2178,7 @@ Object {
             class="el-card-wrap"
           >
             <div
-              class="el-card-list-main-wrap-expanded el-card-list-main-wrap"
+              class="el-card-list-main-wrap"
             >
               <h5
                 class="el-card-list-heading"
@@ -2235,15 +2190,6 @@ Object {
               >
                 The property to which this transaction relates if relevant
               </h6>
-              <button
-                class="el-mobile-list-toggle el-mobile-toggle"
-              >
-                <span
-                  class="el-icon"
-                >
-                  <svg />
-                </span>
-              </button>
             </div>
             <div
               class="el-card-list-item"

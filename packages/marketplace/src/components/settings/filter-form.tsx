@@ -27,7 +27,12 @@ export const FilterForm: FC<FilterFormProps> = ({ setInstallationsFilters }) => 
     <form>
       <FormLayout className={elMb11}>
         <InputWrap>
-          <InputGroup {...register('appName')} label="Filter by App Name" type="search" />
+          <InputGroup
+            {...register('appName')}
+            label="Filter by App Name"
+            type="search"
+            placeholder="Filter by App Name"
+          />
         </InputWrap>
       </FormLayout>
     </form>

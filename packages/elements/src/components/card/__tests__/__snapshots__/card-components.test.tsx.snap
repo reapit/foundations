@@ -85,15 +85,6 @@ Object {
               Main Subheading Additional
             </h6>
           </div>
-          <button
-            class="el-mobile-toggle"
-          >
-            <span
-              class="el-icon"
-            >
-              <svg />
-            </span>
-          </button>
         </div>
         <div
           class="el-mb5 el-card-body-wrap"
@@ -300,15 +291,6 @@ Object {
             Main Subheading Additional
           </h6>
         </div>
-        <button
-          class="el-mobile-toggle"
-        >
-          <span
-            class="el-icon"
-          >
-            <svg />
-          </span>
-        </button>
       </div>
       <div
         class="el-mb5 el-card-body-wrap"
