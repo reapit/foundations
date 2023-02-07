@@ -73,14 +73,12 @@ jobs:
           branch: master
 
       - name: Release
-        if: steps.tagName.outputs.package != '@reapit/app-builder-backend' && steps.tagName.outputs.package != 'app-marketplace-admin'
         run: |
           yarn workspace ${{ steps.tagName.outputs.package }} run release --stage prod
 
-      - name: Release @reapit/app-builder-backend
-        if: steps.tagName.outputs.package == '@reapit/app-builder-backend' || steps.tagName.outputs.package == 'app-marketplace-admin'
+      - name: Deploy
         run: |
-          yarn workspace ${{ steps.tagName.outputs.package }} run release
+          yarn workspace ${{ steps.tagName.outputs.package }} run deploy
 
       - name: Publish
         run: |

@@ -10,6 +10,7 @@
     "lint": "eslint --ignore-path .gitignore . --cache --ext=ts,tsx,js,svelte src --fix && svelte-check --tsconfig ./tsconfig.json",
     "check": "echo '...skipping...'",
     "release": "serverless deploy",
+    "deploy": "echo '...skipping...'",
     "publish": "echo '...skipping...'",
     "conf": "echo '...skipping...'",
     "commit": "yarn lint"

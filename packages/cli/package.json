@@ -57,6 +57,7 @@
     "conf": "yarn config-manager --namespace cloud --entity cli --name local --mode fetch",
     "test": "jest --watch --colors",
     "release": "echo '...skipping...'",
+    "deploy": "echo '...skipping...'",
     "publish": "yarn npm publish --access public"
   }
 }

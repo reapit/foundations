@@ -26,6 +26,7 @@
     "lint": "echo '...skipping...'",
     "check": "echo '...skipping...'",
     "release": "echo '...skipping...'",
+    "deploy": "echo '...skipping...'",
     "publish": "echo '...skipping...'",
     "conf": "echo '...skipping...'",
     "commit": "echo '...skipping...'"

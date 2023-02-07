@@ -9,6 +9,7 @@
     "lint": "eslint --cache --ext=ts,tsx,js src",
     "check": "tsc --noEmit --skipLibCheck",
     "release": "echo '...skipping...'",
+    "deploy": "echo '...skipping...'",
     "publish": "yarn npm publish --access public",
     "conf": "echo '...skipping...'",
     "commit": "yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges && yarn lint --fix && yarn check"

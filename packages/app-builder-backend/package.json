@@ -16,6 +16,7 @@
     "bundle": "ts-bundler",
     "lint": "eslint --cache --ext=ts,tsx,js src",
     "release": "rpt-cdk deploy",
+    "deploy": "echo '...skipping...'",
     "release:watch": "rpt-cdk watch",
     "release:destroy": "rpt-cdk destroy",
     "check": "cp config.json src && tsc --noEmit --skipLibCheck",
