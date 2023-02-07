@@ -43,3 +43,7 @@ jobs:
       - name: Release
         run: |
           yarn changed foreach --parallel --verbose --git-range HEAD~1 run release
+
+      - name: Deploy
+        run: |
+          yarn changed foreach --parallel --verbose --git-range HEAD~1 run deploy

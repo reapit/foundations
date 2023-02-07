@@ -35,6 +35,7 @@
     "lint": "eslint --cache --ext=ts,tsx,js src",
     "check": "tsc --noEmit --skipLibCheck",
     "release": "echo '...skipping...'",
+    "deploy": "echo '...skipping...'",
     "publish": "echo '...skipping...'",
     "conf": "yarn config-manager --namespace cloud --entity seed-data-workflow --name local --mode fetch",
     "commit": "yarn lint"

@@ -20,6 +20,7 @@
     "lint": "echo '...skipping...'",
     "check": "echo '...skipping...'",
     "release": "echo '...skipping...'",
+    "deploy": "echo '...skipping...'",
     "publish": "yarn npm publish --access restricted",
     "conf": "echo '...skipping...'",
     "commit": "yarn lint"

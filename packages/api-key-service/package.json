@@ -39,8 +39,8 @@
     "check": "tsc --noEmit --skipLibCheck",
     "test": "echo '...skipping...'",
     "conf": "yarn config-manager --namespace cloud --entity api-key-service --name local --mode fetch",
-    "release": "yarn deploy",
     "publish": "echo '...skipping...'",
+    "release": "echo '...skipping...'",
     "deploy": "rpt-cdk deploy cdk/cdk.ts",
     "synth": "rpt-cdk synth cdk/cdk.ts",
     "bundle": "ts-bundler"

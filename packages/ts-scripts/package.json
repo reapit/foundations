@@ -23,6 +23,7 @@
     "lint": "eslint --cache --ext=ts,tsx,js src",
     "check": "tsc --noEmit --skipLibCheck",
     "release": "echo '...skipping...'",
+    "deploy": "echo '...skipping...'",
     "publish": "yarn npm publish  --access restricted",
     "conf": "echo '...skipping...'",
     "commit": "yarn lint"
