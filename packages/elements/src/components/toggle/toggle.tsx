@@ -34,6 +34,7 @@ export interface ToggleRadioOption {
 export interface ToggleRadioProps extends HTMLAttributes<HTMLInputElement> {
   options: ToggleRadioOption[]
   name: string
+  disabled?: boolean
   isFullWidth?: boolean
   hasGreyBg?: boolean
 }
@@ -70,7 +71,7 @@ export const Toggle: ToggleWrapped = forwardRef(
 
 export const ToggleRadio: ToggleRadioWrapped = forwardRef(
   (
-    { className, isFullWidth, hasGreyBg, name, options, ...rest },
+    { className, isFullWidth, hasGreyBg, name, options, disabled, ...rest },
     ref: ForwardedRef<InputHTMLAttributes<HTMLInputElement>>,
   ) => {
     if (isFullWidth) {
@@ -85,11 +86,15 @@ export const ToggleRadio: ToggleRadioWrapped = forwardRef(
               name={name}
               value={value}
               type="radio"
+              disabled={disabled}
               {...rest}
               defaultChecked={isChecked}
               ref={(ref as unknown) as LegacyRef<HTMLInputElement>}
             />
-            <ElToggleRadioLabel htmlFor={id} className={cx(hasGreyBg && elHasGreyBg, isFullWidth && elToggleFullWidth)}>
+            <ElToggleRadioLabel
+              htmlFor={!disabled ? id : undefined}
+              className={cx(hasGreyBg && elHasGreyBg, isFullWidth && elToggleFullWidth)}
+            >
               <ElToggleRadioItem>{text}</ElToggleRadioItem>
             </ElToggleRadioLabel>
           </Fragment>
