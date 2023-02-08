@@ -3,7 +3,7 @@ import { ReapitConnectBrowserSession } from '@reapit/connect-session'
 import { StringMap, getMergedHeaders, handleReapitError, getUrl } from './utils'
 import { GetAction } from './get-actions'
 import { useSnack } from '@reapit/elements'
-import { useQuery } from '@tanstack/react-query'
+import { useQuery, useQueryClient, UseQueryOptions } from '@tanstack/react-query'
 import axios, { AxiosError } from 'axios'
 import { logger } from '@reapit/utils-react'
 
@@ -13,9 +13,10 @@ export type ReapitGetState<DataType> = [
   error: string | null,
   refresh: (queryParams?: Object) => void,
   refreshing: boolean,
+  clearCache: () => void,
 ]
 
-export interface ReapitGetParams {
+export interface ReapitGetParams extends Pick<UseQueryOptions, 'refetchOnWindowFocus' | 'retry'> {
   reapitConnectBrowserSession: ReapitConnectBrowserSession
   action: GetAction
   queryParams?: Object
@@ -35,8 +36,11 @@ export const useReapitGet = <DataType>({
   fetchWhenTrue,
   onSuccess,
   onError,
+  refetchOnWindowFocus,
+  retry,
 }: ReapitGetParams): ReapitGetState<DataType> => {
   const { success: successSnack, error: errorSnack } = useSnack()
+  const queryClient = useQueryClient()
   const { successMessage, errorMessage } = action
   const url = useMemo(getUrl(action, queryParams, uriParams), [queryParams, uriParams, action])
   const isEnabled = fetchWhenTrue?.length
@@ -67,13 +71,17 @@ export const useReapitGet = <DataType>({
         logger(new Error(errorString), connectSession ?? null)
       }
     },
-    retry: 1,
+    retry: retry ? retry : 1,
+    refetchOnWindowFocus: Boolean(refetchOnWindowFocus),
     enabled: isEnabled,
   })
 
   const result = data ? data : null
   const errorString = error?.message ? error.message : null
   const loading = isEnabled && isLoading
+  const clearCache = () => {
+    queryClient.removeQueries({ queryKey: [url] })
+  }
 
-  return [result, loading, errorString, refetch, isRefetching]
+  return [result, loading, errorString, refetch, isRefetching, clearCache]
 }

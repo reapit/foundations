@@ -31,9 +31,10 @@ import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { openNewPage } from '../../core/nav'
 import { Routes } from '../../constants/routes'
 import { PaymentRequestModal } from './payment-request-modal'
-import { getActions, useReapitGet, GetActionNames } from '@reapit/use-reapit-data'
+import { getActions, useReapitGet, GetActionNames, objectToQuery } from '@reapit/use-reapit-data'
 import { useReapitConnect } from '@reapit/connect-session'
 import { cx } from '@linaria/core'
+import dayjs from 'dayjs'
 
 export interface CellProps {
   properties?: PropertyModelPagedResult | null
@@ -77,17 +78,19 @@ export const PaymentsPage: FC = () => {
   const history = useHistory()
   const [pageNumber, setPageNumber] = useState<number>(1)
   const [selectedPayment, setSelectedPayment] = useState<PaymentModel | null>(null)
-  const [paymentsFilters, setPaymentsFilters] = useState<PaymentsFilters>({})
+  const [paymentsFilters, setPaymentsFilters] = useState<PaymentsFilters>({
+    createdFrom: dayjs().subtract(1, 'month').format(DATE_TIME_FORMAT.YYYY_MM_DD),
+    createdTo: dayjs().format(DATE_TIME_FORMAT.YYYY_MM_DD),
+  })
   const { Modal, openModal, closeModal } = useModal()
   const [configNotFound, setConfigNotFound] = useState<boolean>(false)
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
 
-  const queryParams = {
+  const queryParams = objectToQuery({
     ...paymentsFilters,
-    status: paymentsFilters.status ? [paymentsFilters.status] : undefined,
     pageSize: 12,
     pageNumber,
-  }
+  })
 
   const clientCode = connectSession?.loginIdentity?.clientId
   const idToken = connectSession?.idToken ?? ''
@@ -121,7 +124,7 @@ export const PaymentsPage: FC = () => {
     queryParams: {
       id: propertyIds,
     },
-    fetchWhenTrue: [propertyIds],
+    fetchWhenTrue: [propertyIds?.length],
   })
 
   return (

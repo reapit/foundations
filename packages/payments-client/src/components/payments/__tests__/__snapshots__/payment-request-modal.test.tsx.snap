@@ -55,7 +55,7 @@ Object {
                 class="el-label"
                 for="test-static-id"
               >
-                Payment Expiry Date
+                Payment Expiry Date - Max 1 month from today
               </label>
             </div>
           </div>
@@ -140,7 +140,7 @@ Object {
               class="el-label"
               for="test-static-id"
             >
-              Payment Expiry Date
+              Payment Expiry Date - Max 1 month from today
             </label>
           </div>
         </div>

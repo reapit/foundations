@@ -201,7 +201,7 @@ export const PaymentRequestModal: FC<PaymentRequestModalProps> = ({
           <InputGroup
             {...register('sessionExpiresAt')}
             type="date"
-            label="Payment Expiry Date"
+            label="Payment Expiry Date - Max 1 month from today"
             min={dayjs().format(DATE_TIME_FORMAT.YYYY_MM_DD)}
             max={dayjs().add(1, 'month').format(DATE_TIME_FORMAT.YYYY_MM_DD)}
           />

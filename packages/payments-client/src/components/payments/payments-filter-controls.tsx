@@ -22,8 +22,7 @@ export const PaymentsFilterControls: FC<PaymentsFilterProps> = ({ paymentsFilter
   const { register, handleSubmit } = useForm<PaymentsFilters>({
     mode: 'onChange',
     defaultValues: {
-      createdFrom: dayjs().subtract(1, 'month').format(DATE_TIME_FORMAT.YYYY_MM_DD),
-      createdTo: dayjs().format(DATE_TIME_FORMAT.YYYY_MM_DD),
+      ...paymentsFilters,
     },
   })
   const { createdTo, createdFrom } = paymentsFilters
