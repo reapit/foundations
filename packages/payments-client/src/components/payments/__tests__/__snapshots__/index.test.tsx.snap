@@ -72,7 +72,7 @@ Object {
                   class="el-input"
                   id="test-static-id"
                   max="2019-10-10"
-                  min="2019-10-10"
+                  min="2019-09-10"
                   name="createdTo"
                   type="date"
                 />
@@ -267,7 +267,7 @@ Object {
                 class="el-input"
                 id="test-static-id"
                 max="2019-10-10"
-                min="2019-10-10"
+                min="2019-09-10"
                 name="createdTo"
                 type="date"
               />
@@ -519,7 +519,7 @@ Object {
                   class="el-input"
                   id="test-static-id"
                   max="2019-10-10"
-                  min="2019-10-10"
+                  min="2019-09-10"
                   name="createdTo"
                   type="date"
                 />
@@ -915,7 +915,7 @@ Object {
                 class="el-input"
                 id="test-static-id"
                 max="2019-10-10"
-                min="2019-10-10"
+                min="2019-09-10"
                 name="createdTo"
                 type="date"
               />
@@ -1368,7 +1368,7 @@ Object {
                   class="el-input"
                   id="test-static-id"
                   max="2019-10-10"
-                  min="2019-10-10"
+                  min="2019-09-10"
                   name="createdTo"
                   type="date"
                 />
@@ -1555,7 +1555,7 @@ Object {
                 class="el-input"
                 id="test-static-id"
                 max="2019-10-10"
-                min="2019-10-10"
+                min="2019-09-10"
                 name="createdTo"
                 type="date"
               />

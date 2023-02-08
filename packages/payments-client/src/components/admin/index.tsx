@@ -37,13 +37,30 @@ import { openNewPage } from '../../core/nav'
 import { object, string } from 'yup'
 import { useForm, UseFormReset } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
+import { hasSpecialChars, isValidHttpsUrl } from '@reapit/utils-common'
+
+const specialCharsTest = {
+  name: 'hasNoSpecialChars',
+  message: 'Special characters are not permitted',
+  test: (value?: string) => {
+    if (!value) return true
+    return !hasSpecialChars(value)
+  },
+}
 
 const validationSchema = object({
-  vendorName: string().required('Required'),
-  integrationKey: string().required('Required'),
-  passKey: string().required('Required'),
-  companyName: string().required('Required'),
-  logoUri: string().required('Required'),
+  vendorName: string().required('Required').test(specialCharsTest),
+  integrationKey: string().required('Required').test(specialCharsTest),
+  passKey: string().required('Required').test(specialCharsTest),
+  companyName: string().required('Required').test(specialCharsTest),
+  logoUri: string().test({
+    name: 'isValidTermsAndConditionsUrl',
+    message: 'Must be a valid https url',
+    test: (value) => {
+      if (!value) return true
+      return isValidHttpsUrl(value)
+    },
+  }),
 })
 
 export const handleResetForm = (config: ClientConfigModel | null, reset: UseFormReset<ClientConfigModel>) => () => {
@@ -67,7 +84,16 @@ export const AdminPage: FC = () => {
   const clientCode = connectSession?.loginIdentity?.clientId ?? ''
   const idToken = connectSession?.idToken ?? ''
 
-  const [config, configLoading, , refreshConfig] = useReapitGet<ClientConfigModel>({
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<ClientConfigModel>({
+    resolver: yupResolver(validationSchema),
+  })
+
+  const [config, configLoading, , refreshConfig, , clearConfigCache] = useReapitGet<ClientConfigModel>({
     reapitConnectBrowserSession,
     action: getActions(window.reapit.config.appEnv)[GetActionNames.getPaymentsClientConfig],
     headers: {
@@ -77,7 +103,7 @@ export const AdminPage: FC = () => {
       clientCode,
     },
     onError: () => {
-      // do nothing, we expect a 404 in most cases on this page
+      reset({})
     },
     fetchWhenTrue: [clientCode, idToken],
   })
@@ -118,15 +144,6 @@ export const AdminPage: FC = () => {
     },
   })
 
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm<ClientConfigModel>({
-    resolver: yupResolver(validationSchema),
-  })
-
   const updateModalShouldClose = Boolean(createSubmitSuccess || updateSubmitSuccess)
 
   useEffect(handleResetForm(config, reset), [config])
@@ -138,7 +155,10 @@ export const AdminPage: FC = () => {
 
   const submitAction = config ? updateSubmit : createSubmit
   const submitHandler = handleSubmit((configForm) => submitAction({ ...configForm, clientCode }))
-  const deleteHandler = () => deleteSubmit()
+  const deleteHandler = () => {
+    deleteSubmit()
+    clearConfigCache()
+  }
   const isLoading = createLoading || updateLoading || deleteLoading
 
   return (
