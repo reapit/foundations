@@ -30,7 +30,7 @@ export const PaymentPageContent: FC<PaymentPageContentProps> = ({ paymentProvide
     <PageContainer>
       {!isPortal && !isDesktop && (
         <PaymentsBackButton onClick={navigate(history, '/payments')}>
-          <Icon icon="backSystem" intent="primary" />
+          <Icon icon="backSolidSystem" intent="primary" />
         </PaymentsBackButton>
       )}
       <FlexContainer isFlexJustifyBetween>

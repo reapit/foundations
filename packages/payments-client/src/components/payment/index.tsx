@@ -2,7 +2,19 @@ import React, { useState, useEffect, FC, Dispatch, SetStateAction } from 'react'
 import { useReapitConnect } from '@reapit/connect-session'
 import { reapitConnectBrowserSession } from '../../core/connect-session'
 import { PaymentModel, PropertyModel } from '@reapit/foundations-ts-definitions'
-import { Loader, PageContainer, PersistentNotification } from '@reapit/elements'
+import {
+  Button,
+  elMb3,
+  elMb5,
+  Icon,
+  Loader,
+  PageContainer,
+  PersistentNotification,
+  SecondaryNavContainer,
+  SmallText,
+  Title,
+  useModal,
+} from '@reapit/elements'
 import {
   ClientConfigModel,
   MerchantKey,
@@ -23,6 +35,8 @@ import {
   UpdateActionNames,
 } from '@reapit/use-reapit-data'
 import { useParams } from 'react-router-dom'
+import { openNewPage } from '../../core/nav'
+import PaymentRequestModal from '../payments/payment-request-modal'
 
 export interface PaymentUriParams {
   paymentId: string
@@ -61,6 +75,7 @@ export const PaymentPage: FC = () => {
   const { paymentId } = useParams<PaymentUriParams>()
   const [paymentProvider, setPaymentProvider] = useState<PaymentProvider | null>(null)
   const [configNotFound, setConfigNotFound] = useState<boolean>(false)
+  const { Modal, openModal, closeModal } = useModal()
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
 
   const clientCode = connectSession?.loginIdentity?.clientId
@@ -203,7 +218,28 @@ export const PaymentPage: FC = () => {
     )
   }
 
-  return <PaymentPageContent paymentProvider={paymentProvider} />
+  return (
+    <>
+      <SecondaryNavContainer>
+        <Title>Payment</Title>
+        <Icon className={elMb5} iconSize="large" icon="newCustomerInfographic" />
+        <SmallText hasGreyText>
+          From this page you can either send an email request for payment to the customer using the button below, or
+          take a payment in person using our payment form.
+        </SmallText>
+        <Button className={elMb3} intent="neutral" onClick={openNewPage('')}>
+          View Docs
+        </Button>
+        <Button intent="secondary" disabled={status === 'posted' || configNotFound} onClick={openModal}>
+          Request Payment
+        </Button>
+      </SecondaryNavContainer>
+      <PaymentPageContent paymentProvider={paymentProvider} />
+      <Modal title={`Request Payment of £${payment?.amount ? payment?.amount.toFixed(2) : 0} for ${payment?.id}`}>
+        <PaymentRequestModal closeModal={closeModal} refreshPayments={refreshPayment} selectedPayment={payment} />
+      </Modal>
+    </>
+  )
 }
 
 export default PaymentPage

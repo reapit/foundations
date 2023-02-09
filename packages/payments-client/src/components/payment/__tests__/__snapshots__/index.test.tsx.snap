@@ -222,6 +222,41 @@ Object {
       <div
         class="el-snack-holder"
       />
+      <aside
+        class="el-secondary-nav-container"
+      >
+        <h1
+          class="el-title"
+        >
+          Payment
+        </h1>
+        <span
+          class="el-mb5 el-icon-size-large el-icon"
+        >
+          <svg />
+        </span>
+        <p
+          class="el-has-grey-text el-small-text"
+        >
+          From this page you can either send an email request for payment to the customer using the button below, or take a payment in person using our payment form.
+        </p>
+        <button
+          class="el-mb3 el-intent-neutral el-button"
+        >
+          View Docs
+          <div
+            class="el-button-loader"
+          />
+        </button>
+        <button
+          class="el-intent-secondary el-button"
+        >
+          Request Payment
+          <div
+            class="el-button-loader"
+          />
+        </button>
+      </aside>
       <section
         class="el-page-container"
       >
@@ -2108,6 +2143,41 @@ Object {
     <div
       class="el-snack-holder"
     />
+    <aside
+      class="el-secondary-nav-container"
+    >
+      <h1
+        class="el-title"
+      >
+        Payment
+      </h1>
+      <span
+        class="el-mb5 el-icon-size-large el-icon"
+      >
+        <svg />
+      </span>
+      <p
+        class="el-has-grey-text el-small-text"
+      >
+        From this page you can either send an email request for payment to the customer using the button below, or take a payment in person using our payment form.
+      </p>
+      <button
+        class="el-mb3 el-intent-neutral el-button"
+      >
+        View Docs
+        <div
+          class="el-button-loader"
+        />
+      </button>
+      <button
+        class="el-intent-secondary el-button"
+      >
+        Request Payment
+        <div
+          class="el-button-loader"
+        />
+      </button>
+    </aside>
     <section
       class="el-page-container"
     >
