@@ -43,7 +43,7 @@ Object {
               <input
                 class="el-input"
                 id="test-static-id"
-                max="2019-10-10"
+                max="2019-10-11"
                 min="2019-10-10"
                 name="createdTo"
                 type="date"
@@ -162,7 +162,7 @@ Object {
             <input
               class="el-input"
               id="test-static-id"
-              max="2019-10-10"
+              max="2019-10-11"
               min="2019-10-10"
               name="createdTo"
               type="date"

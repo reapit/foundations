@@ -60,6 +60,8 @@ export enum UpdateActionNames {
   paymentsClientConfigCreate = 'paymentsClientConfigCreate',
   paymentsClientConfigUpdate = 'paymentsClientConfigUpdate',
   paymentsClientConfigDelete = 'paymentsClientConfigDelete',
+  getOpayoMerchantKey = 'getOpayoMerchantKey',
+  submitOpayoTransaction = 'submitOpayoTransaction',
 }
 
 export type UpdateActions = { [key in UpdateActionNames]: UpdateAction }
@@ -340,8 +342,8 @@ export const updateActions = (appEnv: AppEnv): UpdateActions => ({
   [UpdateActionNames.privatePaymentUpdate]: {
     api: ApiNames(appEnv).platform,
     path: PathNames.paymentById,
-    successMessage: 'Successfully submitted payment.',
-    errorMessage: 'Failed to submit payment. This error has been logged',
+    successMessage: 'Successfully updated payment request.',
+    errorMessage: 'Failed to update payment request. This error has been logged',
   },
   [UpdateActionNames.paymentsSessionCreate]: {
     api: ApiNames(appEnv).payments,
@@ -351,21 +353,35 @@ export const updateActions = (appEnv: AppEnv): UpdateActions => ({
   [UpdateActionNames.paymentRequestCreate]: {
     api: ApiNames(appEnv).payments,
     path: PathNames.paymentRequest,
+    successMessage: 'Successfully created payment request.',
     errorMessage: 'Failed to create payment request. This error has been logged',
   },
   [UpdateActionNames.paymentsClientConfigCreate]: {
     api: ApiNames(appEnv).payments,
     path: PathNames.paymentsConfigPrivate,
+    successMessage: 'Successfully created a client configuration.',
     errorMessage: 'Failed to create payment config. This error has been logged',
   },
   [UpdateActionNames.paymentsClientConfigUpdate]: {
     api: ApiNames(appEnv).payments,
     path: PathNames.paymentsConfigPrivate,
+    successMessage: 'Successfully updated a client configuration.',
     errorMessage: 'Failed to update payment config. This error has been logged',
   },
   [UpdateActionNames.paymentsClientConfigDelete]: {
     api: ApiNames(appEnv).payments,
     path: PathNames.paymentsConfigPrivate,
+    successMessage: 'Successfully deleted a client configuration.',
     errorMessage: 'Failed to delete payment config. This error has been logged',
+  },
+  [UpdateActionNames.submitOpayoTransaction]: {
+    api: ApiNames(appEnv).payments,
+    path: PathNames.opayoTransactions,
+    errorMessage: 'Failed to submit payment transaction. This error has been logged',
+  },
+  [UpdateActionNames.getOpayoMerchantKey]: {
+    api: ApiNames(appEnv).payments,
+    path: PathNames.opayoMerchantKeys,
+    errorMessage: 'Failed to configure app for payments. This error has been logged',
   },
 })

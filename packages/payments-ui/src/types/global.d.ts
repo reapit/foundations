@@ -28,5 +28,8 @@ declare global {
     sagepayOwnForm: ({ merchantSessionKey: string }) => {
       tokeniseCardDetails: (params: any) => void
     }
+    SagePayConfig: {
+      restHost?: string
+    }
   }
 }

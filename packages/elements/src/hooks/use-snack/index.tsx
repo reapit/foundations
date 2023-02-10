@@ -52,7 +52,7 @@ export const useSnack = (): UseSnack => {
     addSnackWithTimeout(snack, timeout)
   }
   const success = (text: string, timeout = DEFAULT_TIMEOUT) => {
-    addSnackWithTimeout({ intent: 'success', icon: 'tickSolidSystem', text }, timeout)
+    addSnackWithTimeout({ intent: 'success', icon: 'checkSolidSystem', text }, timeout)
   }
   const info = (text: string, timeout = DEFAULT_TIMEOUT) => {
     addSnackWithTimeout({ intent: 'secondary', icon: 'infoSolidSystem', text }, timeout)

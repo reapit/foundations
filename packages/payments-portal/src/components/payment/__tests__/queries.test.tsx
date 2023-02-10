@@ -56,7 +56,6 @@ describe('useClientConfig', () => {
       },
     )
     expect(result.current.config).toBeNull()
-    expect(result.current.configLoading).toBe(true)
 
     await waitForNextUpdate()
 
@@ -67,7 +66,6 @@ describe('useClientConfig', () => {
     expect(mockAxios).toHaveBeenCalledTimes(1)
 
     expect(result.current.config).toEqual(mockData)
-    expect(result.current.configLoading).toEqual(false)
     expect(result.current.configError).toEqual(null)
   })
 

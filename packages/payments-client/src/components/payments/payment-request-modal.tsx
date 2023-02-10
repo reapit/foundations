@@ -20,7 +20,7 @@ import { CreateSessionRequest, PaymentEmailRequest, SessionResponse, UpdateStatu
 export type PaymentRequestModalProps = {
   refreshPayments?: () => void
   closeModal: () => void
-  setSelectedPayment: Dispatch<SetStateAction<PaymentModel | null>>
+  setSelectedPayment?: Dispatch<SetStateAction<PaymentModel | null>>
   selectedPayment: PaymentModel | null
 }
 
@@ -42,7 +42,7 @@ export interface PaymentsEmailRequestForm {
 
 export interface PaymentsRequestSubmitParams {
   selectedPayment: PaymentModel | null
-  setSelectedPayment: Dispatch<SetStateAction<PaymentModel | null>>
+  setSelectedPayment?: Dispatch<SetStateAction<PaymentModel | null>>
   closeModal: () => void
   updatePayment: SendFunction<UpdateStatusBody, boolean>
   generateSession: SendFunction<CreateSessionRequest, boolean | SessionResponse>
@@ -109,7 +109,7 @@ export const handlePaymentRequestSubmit =
 
     if (paymentStatusUpdate) {
       refreshPayments && refreshPayments()
-      setSelectedPayment(null)
+      setSelectedPayment && setSelectedPayment(null)
       closeModal()
     }
   }

@@ -1,30 +1,40 @@
-import { IsNotEmpty, IsString } from 'class-validator'
-import { ClientConfigModel } from './model'
+import { IsBoolean, IsNotEmpty, IsOptional, IsString, IsUUID } from 'class-validator'
 
-export class ClientConfigDto implements ClientConfigModel {
+export class ClientConfigDto {
   @IsString()
   @IsNotEmpty()
   clientCode: string
 
   @IsString()
-  @IsNotEmpty()
-  vendorName: string
+  logoUri: string
 
   @IsString()
-  @IsNotEmpty()
-  integrationKey: string
-
-  @IsString()
-  @IsNotEmpty()
-  passKey: string
-
-  @IsString()
-  @IsNotEmpty()
   companyName: string
 
+  @IsBoolean()
+  isLive: boolean
+
   @IsString()
-  @IsNotEmpty()
-  logoUri: string
+  @IsOptional()
+  integrationKey?: string
+
+  @IsString()
+  @IsOptional()
+  passKey?: string
+
+  @IsString()
+  @IsOptional()
+  vendorName?: string
+
+  @IsUUID()
+  @IsOptional()
+  configId?: string
+}
+
+export class ClientConfigDeleteDto {
+  @IsUUID()
+  @IsOptional()
+  configId?: string
 }
 
 export class ClientConfigParams {
@@ -37,6 +47,9 @@ export class ClientConfigPublicHeaders {
   @IsString()
   @IsNotEmpty()
   'reapit-customer': string
+
+  @IsString()
+  @IsNotEmpty()
   'reapit-session': string
 }
 

@@ -18,6 +18,7 @@ export interface ReapitError {
   errors?: ReapitErrorField[]
   description?: string
   dateTime?: string
+  message?: string
 }
 
 export const getMergedHeaders = async (
@@ -38,13 +39,14 @@ export const getMergedHeaders = async (
 }
 
 export const handleReapitError = (error: AxiosError<any>, defaultMessage?: string): string => {
-  const { message } = error
   const reapitError: ReapitError = error?.response?.data
-  const { description, errors } = reapitError ?? {}
+  const { description, message, errors } = reapitError ?? {}
   const messageString = description
     ? description
     : message
     ? message
+    : error.message
+    ? error.message
     : defaultMessage
     ? defaultMessage
     : 'An unknown error has occurred, please refresh the page and try again.'

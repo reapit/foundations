@@ -98,4 +98,6 @@ export enum PathNames {
   paymentReceiptPrivate = '/receipt/private/{paymentId}',
   paymentsSession = '/session',
   paymentRequest = '/request/{paymentId}',
+  opayoTransactions = '/opayo/private/transactions',
+  opayoMerchantKeys = '/opayo/private/merchant-session-keys',
 }

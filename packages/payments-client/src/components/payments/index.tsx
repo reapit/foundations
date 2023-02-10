@@ -2,7 +2,7 @@ import React, { Dispatch, FC, SetStateAction, useMemo, useState } from 'react'
 import { useHistory } from 'react-router'
 import { PaymentModel, PaymentModelPagedResult, PropertyModelPagedResult } from '@reapit/foundations-ts-definitions'
 import { statusOptions } from '../../constants/filter-options'
-import { PaymentLogo, navigate, ClientConfigModel } from '@reapit/payments-ui'
+import { PaymentLogo, navigate } from '@reapit/payments-ui'
 import { PaymentsFilterControls } from './payments-filter-controls'
 import { combineAddress, DATE_TIME_FORMAT, isTruthy, toLocalTime } from '@reapit/utils-common'
 import ErrorBoundary from '../../core/error-boundary'
@@ -32,9 +32,9 @@ import { openNewPage } from '../../core/nav'
 import { Routes } from '../../constants/routes'
 import { PaymentRequestModal } from './payment-request-modal'
 import { getActions, useReapitGet, GetActionNames, objectToQuery } from '@reapit/use-reapit-data'
-import { useReapitConnect } from '@reapit/connect-session'
 import { cx } from '@linaria/core'
 import dayjs from 'dayjs'
+import { useConfigState } from '../../core/use-config-state'
 
 export interface CellProps {
   properties?: PropertyModelPagedResult | null
@@ -80,34 +80,16 @@ export const PaymentsPage: FC = () => {
   const [selectedPayment, setSelectedPayment] = useState<PaymentModel | null>(null)
   const [paymentsFilters, setPaymentsFilters] = useState<PaymentsFilters>({
     createdFrom: dayjs().subtract(1, 'month').format(DATE_TIME_FORMAT.YYYY_MM_DD),
-    createdTo: dayjs().format(DATE_TIME_FORMAT.YYYY_MM_DD),
+    createdTo: dayjs().add(1, 'day').format(DATE_TIME_FORMAT.YYYY_MM_DD),
   })
   const { Modal, openModal, closeModal } = useModal()
-  const [configNotFound, setConfigNotFound] = useState<boolean>(false)
-  const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
+  const { config } = useConfigState()
+  const configNotConfigured = !config?.isConfigured
 
   const queryParams = objectToQuery({
     ...paymentsFilters,
     pageSize: 12,
     pageNumber,
-  })
-
-  const clientCode = connectSession?.loginIdentity?.clientId
-  const idToken = connectSession?.idToken ?? ''
-
-  useReapitGet<ClientConfigModel>({
-    reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getPaymentsClientConfig],
-    headers: {
-      Authorization: idToken,
-    },
-    uriParams: {
-      clientCode,
-    },
-    onError: () => {
-      setConfigNotFound(true)
-    },
-    fetchWhenTrue: [clientCode, idToken],
   })
 
   const [payments, paymentsLoading, , refreshPayments] = useReapitGet<PaymentModelPagedResult>({
@@ -153,8 +135,8 @@ export const PaymentsPage: FC = () => {
             <Title>Payments Dashboard</Title>
             <PaymentLogo />
           </FlexContainer>
-          {configNotFound && (
-            <PersistentNotification className={cx(elMb7, elFadeIn)} intent="secondary" isFullWidth isInline isExpanded>
+          {configNotConfigured && (
+            <PersistentNotification className={cx(elMb7, elFadeIn)} intent="danger" isFullWidth isInline isExpanded>
               The app cannnot currently process client payments. This is likely because your payment provider has not
               been configured. Please contact your Reapit Organisation Administrator or if you are an Admin, use the
               dedicated page in the main navigation.
@@ -233,14 +215,14 @@ export const PaymentsPage: FC = () => {
                         <ButtonGroup alignment="center">
                           <Button
                             intent="primary"
-                            disabled={status === 'posted' || configNotFound}
+                            disabled={status === 'posted' || configNotConfigured}
                             onClick={navigate(history, `${Routes.PAYMENTS}/${id}`)}
                           >
                             Take Payment
                           </Button>
                           <Button
                             intent="secondary"
-                            disabled={status === 'posted' || configNotFound}
+                            disabled={status === 'posted' || configNotConfigured}
                             onClick={handleOpenModal(openModal, setSelectedPayment, payment)}
                           >
                             Request Payment

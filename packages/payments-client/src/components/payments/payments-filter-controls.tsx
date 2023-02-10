@@ -47,7 +47,7 @@ export const PaymentsFilterControls: FC<PaymentsFilterProps> = ({ paymentsFilter
             type="date"
             label="Created To"
             min={dayjs(createdFrom).format(DATE_TIME_FORMAT.YYYY_MM_DD)}
-            max={dayjs().format(DATE_TIME_FORMAT.YYYY_MM_DD)}
+            max={dayjs().add(1, 'day').format(DATE_TIME_FORMAT.YYYY_MM_DD)}
           />
         </ControlsContainer>
         <ControlsContainer>

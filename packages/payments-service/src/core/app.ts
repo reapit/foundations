@@ -8,6 +8,7 @@ import { PaymentRequestModule } from '../payment-request'
 import { PaymentReceiptModule } from '../payment-receipt'
 import { PaymentsModule } from '../payments'
 import { ClientConfigModule } from '../client-config'
+import { OpayoModule } from '../opayo'
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { ClientConfigModule } from '../client-config'
     PaymentReceiptModule,
     PaymentsModule,
     ClientConfigModule,
+    OpayoModule,
     DynamoDBModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: (config: ConfigService) => config.get('database'),

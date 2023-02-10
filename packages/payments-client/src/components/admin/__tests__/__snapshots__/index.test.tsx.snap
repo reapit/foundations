@@ -76,16 +76,232 @@ Object {
           </div>
         </div>
         <div
-          class="el-loader-container"
+          class="el-fade-in el-mb7 el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
         >
           <div
-            class="el-loader"
+            class="el-pn-icon"
+            data-testid="close-icon"
           >
-            <div
-              class="el-loader-moving-bar"
-            />
+            <span
+              class="el-icon"
+            >
+              <svg />
+            </span>
+          </div>
+          <div
+            class="el-pn-content"
+          >
+            Your app is not fully configured to use Reapit Payments. For the app to work correctly, you will need to provide us with both your Opayo Credentials as specified in the documentation, your company name and a url to your company logo. Please ensure these credentials are entered accurately as failure to do so can lead to the app failing for all users.
           </div>
         </div>
+        <form>
+          <h2
+            class="el-subtitle"
+          >
+            Company Details
+          </h2>
+          <div
+            class="el-mb7 el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+          >
+            <div
+              class="el-pn-icon"
+              data-testid="close-icon"
+            >
+              <span
+                class="el-icon"
+              >
+                <svg />
+              </span>
+            </div>
+            <div
+              class="el-pn-content"
+            >
+              These details are required to personalise emails sent to your customers, both receipts and requests for payment.
+            </div>
+          </div>
+          <div
+            class="el-form-layout-has-margin el-form-layout"
+          >
+            <div
+              class="el-input-wrap"
+            >
+              <div
+                class="el-input-group"
+              >
+                <input
+                  class="el-input"
+                  id="test-static-id"
+                  name="companyName"
+                  type="email"
+                />
+                <label
+                  class="el-label"
+                  for="test-static-id"
+                >
+                  Company Name
+                </label>
+              </div>
+            </div>
+            <div
+              class="el-input-wrap-med"
+            >
+              <div
+                class="el-input-group"
+              >
+                <input
+                  class="el-input"
+                  id="test-static-id"
+                  name="logoUri"
+                  type="email"
+                />
+                <label
+                  class="el-label"
+                  for="test-static-id"
+                >
+                  Email Logo Url
+                </label>
+              </div>
+            </div>
+          </div>
+          <h2
+            class="el-subtitle"
+          >
+            Opayo Credientials
+          </h2>
+          <div
+            class="el-mb7 el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+          >
+            <div
+              class="el-pn-icon"
+              data-testid="close-icon"
+            >
+              <span
+                class="el-icon"
+              >
+                <svg />
+              </span>
+            </div>
+            <div
+              class="el-pn-content"
+            >
+              These details are required by Opayo to make payments in a live or test environment. 
+              <b>
+                Please note: 
+              </b>
+               
+              for security reasons., after they have been saved, your Opayo Keys are stored in an encryped format and never surfaced again in the front end. You can update your credentials at any time by entering new keys in the form below.
+            </div>
+          </div>
+          <div
+            class="el-form-layout-has-margin el-form-layout"
+          >
+            <div
+              class="el-input-wrap"
+            >
+              <div
+                class="el-input-group"
+              >
+                <input
+                  class="el-input"
+                  id="test-static-id"
+                  name="vendorName"
+                  type="email"
+                />
+                <label
+                  class="el-label"
+                  for="test-static-id"
+                >
+                  Opayo Vendor Name
+                </label>
+              </div>
+            </div>
+            <div
+              class="el-input-wrap"
+            >
+              <div
+                class="el-input-group"
+              >
+                <label
+                  class="el-label"
+                >
+                  Live Opayo Environment or Test
+                </label>
+                <input
+                  class="el-toggle-checkbox"
+                  id="is-live-env"
+                  name="isLive"
+                  type="checkbox"
+                />
+                <label
+                  class="el-has-grey-bg el-toggle-label"
+                  for="is-live-env"
+                >
+                  <span
+                    class="el-toggle-item"
+                  >
+                    Live
+                  </span>
+                  <span
+                    class="el-toggle-item"
+                  >
+                    Test
+                  </span>
+                </label>
+              </div>
+            </div>
+            <div
+              class="el-input-wrap-med"
+            >
+              <div
+                class="el-input-group"
+              >
+                <input
+                  class="el-input"
+                  id="test-static-id"
+                  name="integrationKey"
+                  type="email"
+                />
+                <label
+                  class="el-label"
+                  for="test-static-id"
+                >
+                  Opayo Integration Key
+                </label>
+              </div>
+            </div>
+            <div
+              class="el-input-wrap-med"
+            >
+              <div
+                class="el-input-group"
+              >
+                <input
+                  class="el-input"
+                  id="test-static-id"
+                  name="passKey"
+                  type="email"
+                />
+                <label
+                  class="el-label"
+                  for="test-static-id"
+                >
+                  Opayo Pass Key
+                </label>
+              </div>
+            </div>
+            <div
+              class="el-input-group"
+            >
+              <input
+                class="el-input"
+                id="test-static-id"
+                name="configId"
+                type="hidden"
+                value=""
+              />
+            </div>
+          </div>
+        </form>
       </section>
     </div>
   </body>,
@@ -161,16 +377,232 @@ Object {
         </div>
       </div>
       <div
-        class="el-loader-container"
+        class="el-fade-in el-mb7 el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
       >
         <div
-          class="el-loader"
+          class="el-pn-icon"
+          data-testid="close-icon"
         >
-          <div
-            class="el-loader-moving-bar"
-          />
+          <span
+            class="el-icon"
+          >
+            <svg />
+          </span>
+        </div>
+        <div
+          class="el-pn-content"
+        >
+          Your app is not fully configured to use Reapit Payments. For the app to work correctly, you will need to provide us with both your Opayo Credentials as specified in the documentation, your company name and a url to your company logo. Please ensure these credentials are entered accurately as failure to do so can lead to the app failing for all users.
         </div>
       </div>
+      <form>
+        <h2
+          class="el-subtitle"
+        >
+          Company Details
+        </h2>
+        <div
+          class="el-mb7 el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        >
+          <div
+            class="el-pn-icon"
+            data-testid="close-icon"
+          >
+            <span
+              class="el-icon"
+            >
+              <svg />
+            </span>
+          </div>
+          <div
+            class="el-pn-content"
+          >
+            These details are required to personalise emails sent to your customers, both receipts and requests for payment.
+          </div>
+        </div>
+        <div
+          class="el-form-layout-has-margin el-form-layout"
+        >
+          <div
+            class="el-input-wrap"
+          >
+            <div
+              class="el-input-group"
+            >
+              <input
+                class="el-input"
+                id="test-static-id"
+                name="companyName"
+                type="email"
+              />
+              <label
+                class="el-label"
+                for="test-static-id"
+              >
+                Company Name
+              </label>
+            </div>
+          </div>
+          <div
+            class="el-input-wrap-med"
+          >
+            <div
+              class="el-input-group"
+            >
+              <input
+                class="el-input"
+                id="test-static-id"
+                name="logoUri"
+                type="email"
+              />
+              <label
+                class="el-label"
+                for="test-static-id"
+              >
+                Email Logo Url
+              </label>
+            </div>
+          </div>
+        </div>
+        <h2
+          class="el-subtitle"
+        >
+          Opayo Credientials
+        </h2>
+        <div
+          class="el-mb7 el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        >
+          <div
+            class="el-pn-icon"
+            data-testid="close-icon"
+          >
+            <span
+              class="el-icon"
+            >
+              <svg />
+            </span>
+          </div>
+          <div
+            class="el-pn-content"
+          >
+            These details are required by Opayo to make payments in a live or test environment. 
+            <b>
+              Please note: 
+            </b>
+             
+            for security reasons., after they have been saved, your Opayo Keys are stored in an encryped format and never surfaced again in the front end. You can update your credentials at any time by entering new keys in the form below.
+          </div>
+        </div>
+        <div
+          class="el-form-layout-has-margin el-form-layout"
+        >
+          <div
+            class="el-input-wrap"
+          >
+            <div
+              class="el-input-group"
+            >
+              <input
+                class="el-input"
+                id="test-static-id"
+                name="vendorName"
+                type="email"
+              />
+              <label
+                class="el-label"
+                for="test-static-id"
+              >
+                Opayo Vendor Name
+              </label>
+            </div>
+          </div>
+          <div
+            class="el-input-wrap"
+          >
+            <div
+              class="el-input-group"
+            >
+              <label
+                class="el-label"
+              >
+                Live Opayo Environment or Test
+              </label>
+              <input
+                class="el-toggle-checkbox"
+                id="is-live-env"
+                name="isLive"
+                type="checkbox"
+              />
+              <label
+                class="el-has-grey-bg el-toggle-label"
+                for="is-live-env"
+              >
+                <span
+                  class="el-toggle-item"
+                >
+                  Live
+                </span>
+                <span
+                  class="el-toggle-item"
+                >
+                  Test
+                </span>
+              </label>
+            </div>
+          </div>
+          <div
+            class="el-input-wrap-med"
+          >
+            <div
+              class="el-input-group"
+            >
+              <input
+                class="el-input"
+                id="test-static-id"
+                name="integrationKey"
+                type="email"
+              />
+              <label
+                class="el-label"
+                for="test-static-id"
+              >
+                Opayo Integration Key
+              </label>
+            </div>
+          </div>
+          <div
+            class="el-input-wrap-med"
+          >
+            <div
+              class="el-input-group"
+            >
+              <input
+                class="el-input"
+                id="test-static-id"
+                name="passKey"
+                type="email"
+              />
+              <label
+                class="el-label"
+                for="test-static-id"
+              >
+                Opayo Pass Key
+              </label>
+            </div>
+          </div>
+          <div
+            class="el-input-group"
+          >
+            <input
+              class="el-input"
+              id="test-static-id"
+              name="configId"
+              type="hidden"
+              value=""
+            />
+          </div>
+        </div>
+      </form>
     </section>
   </div>,
   "debug": [Function],
@@ -303,7 +735,7 @@ Object {
           </div>
         </div>
         <div
-          class="el-mb7 el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+          class="el-fade-in el-mb7 el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
         >
           <div
             class="el-pn-icon"
@@ -318,10 +750,34 @@ Object {
           <div
             class="el-pn-content"
           >
-            Your app is not currently configured to use Reapit Payments. For the app to work correctly, you will need to provide us with both your Opayo Credentials as specified in the documentation, your company name and a url to your company logo. Please ensure these credentials are entered accurately as failure to do so can lead to the app failing for all users.
+            Your app is not fully configured to use Reapit Payments. For the app to work correctly, you will need to provide us with both your Opayo Credentials as specified in the documentation, your company name and a url to your company logo. Please ensure these credentials are entered accurately as failure to do so can lead to the app failing for all users.
           </div>
         </div>
         <form>
+          <h2
+            class="el-subtitle"
+          >
+            Company Details
+          </h2>
+          <div
+            class="el-mb7 el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+          >
+            <div
+              class="el-pn-icon"
+              data-testid="close-icon"
+            >
+              <span
+                class="el-icon"
+              >
+                <svg />
+              </span>
+            </div>
+            <div
+              class="el-pn-content"
+            >
+              These details are required to personalise emails sent to your customers, both receipts and requests for payment.
+            </div>
+          </div>
           <div
             class="el-form-layout-has-margin el-form-layout"
           >
@@ -346,6 +802,59 @@ Object {
               </div>
             </div>
             <div
+              class="el-input-wrap-med"
+            >
+              <div
+                class="el-input-group"
+              >
+                <input
+                  class="el-input"
+                  id="test-static-id"
+                  name="logoUri"
+                  type="email"
+                />
+                <label
+                  class="el-label"
+                  for="test-static-id"
+                >
+                  Email Logo Url
+                </label>
+              </div>
+            </div>
+          </div>
+          <h2
+            class="el-subtitle"
+          >
+            Opayo Credientials
+          </h2>
+          <div
+            class="el-mb7 el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+          >
+            <div
+              class="el-pn-icon"
+              data-testid="close-icon"
+            >
+              <span
+                class="el-icon"
+              >
+                <svg />
+              </span>
+            </div>
+            <div
+              class="el-pn-content"
+            >
+              These details are required by Opayo to make payments in a live or test environment. 
+              <b>
+                Please note: 
+              </b>
+               
+              for security reasons., after they have been saved, your Opayo Keys are stored in an encryped format and never surfaced again in the front end. You can update your credentials at any time by entering new keys in the form below.
+            </div>
+          </div>
+          <div
+            class="el-form-layout-has-margin el-form-layout"
+          >
+            <div
               class="el-input-wrap"
             >
               <div
@@ -366,27 +875,41 @@ Object {
               </div>
             </div>
             <div
-              class="el-input-wrap-med"
+              class="el-input-wrap"
             >
               <div
                 class="el-input-group"
               >
-                <input
-                  class="el-input"
-                  id="test-static-id"
-                  name="logoUri"
-                  type="email"
-                />
                 <label
                   class="el-label"
-                  for="test-static-id"
                 >
-                  Email Logo Url
+                  Live Opayo Environment or Test
+                </label>
+                <input
+                  class="el-toggle-checkbox"
+                  id="is-live-env"
+                  name="isLive"
+                  type="checkbox"
+                />
+                <label
+                  class="el-has-grey-bg el-toggle-label"
+                  for="is-live-env"
+                >
+                  <span
+                    class="el-toggle-item"
+                  >
+                    Live
+                  </span>
+                  <span
+                    class="el-toggle-item"
+                  >
+                    Test
+                  </span>
                 </label>
               </div>
             </div>
             <div
-              class="el-input-wrap-full"
+              class="el-input-wrap-med"
             >
               <div
                 class="el-input-group"
@@ -406,7 +929,7 @@ Object {
               </div>
             </div>
             <div
-              class="el-input-wrap-full"
+              class="el-input-wrap-med"
             >
               <div
                 class="el-input-group"
@@ -424,6 +947,17 @@ Object {
                   Opayo Pass Key
                 </label>
               </div>
+            </div>
+            <div
+              class="el-input-group"
+            >
+              <input
+                class="el-input"
+                id="test-static-id"
+                name="configId"
+                type="hidden"
+                value=""
+              />
             </div>
           </div>
         </form>
@@ -502,7 +1036,7 @@ Object {
         </div>
       </div>
       <div
-        class="el-mb7 el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        class="el-fade-in el-mb7 el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
       >
         <div
           class="el-pn-icon"
@@ -517,10 +1051,34 @@ Object {
         <div
           class="el-pn-content"
         >
-          Your app is not currently configured to use Reapit Payments. For the app to work correctly, you will need to provide us with both your Opayo Credentials as specified in the documentation, your company name and a url to your company logo. Please ensure these credentials are entered accurately as failure to do so can lead to the app failing for all users.
+          Your app is not fully configured to use Reapit Payments. For the app to work correctly, you will need to provide us with both your Opayo Credentials as specified in the documentation, your company name and a url to your company logo. Please ensure these credentials are entered accurately as failure to do so can lead to the app failing for all users.
         </div>
       </div>
       <form>
+        <h2
+          class="el-subtitle"
+        >
+          Company Details
+        </h2>
+        <div
+          class="el-mb7 el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        >
+          <div
+            class="el-pn-icon"
+            data-testid="close-icon"
+          >
+            <span
+              class="el-icon"
+            >
+              <svg />
+            </span>
+          </div>
+          <div
+            class="el-pn-content"
+          >
+            These details are required to personalise emails sent to your customers, both receipts and requests for payment.
+          </div>
+        </div>
         <div
           class="el-form-layout-has-margin el-form-layout"
         >
@@ -545,6 +1103,59 @@ Object {
             </div>
           </div>
           <div
+            class="el-input-wrap-med"
+          >
+            <div
+              class="el-input-group"
+            >
+              <input
+                class="el-input"
+                id="test-static-id"
+                name="logoUri"
+                type="email"
+              />
+              <label
+                class="el-label"
+                for="test-static-id"
+              >
+                Email Logo Url
+              </label>
+            </div>
+          </div>
+        </div>
+        <h2
+          class="el-subtitle"
+        >
+          Opayo Credientials
+        </h2>
+        <div
+          class="el-mb7 el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        >
+          <div
+            class="el-pn-icon"
+            data-testid="close-icon"
+          >
+            <span
+              class="el-icon"
+            >
+              <svg />
+            </span>
+          </div>
+          <div
+            class="el-pn-content"
+          >
+            These details are required by Opayo to make payments in a live or test environment. 
+            <b>
+              Please note: 
+            </b>
+             
+            for security reasons., after they have been saved, your Opayo Keys are stored in an encryped format and never surfaced again in the front end. You can update your credentials at any time by entering new keys in the form below.
+          </div>
+        </div>
+        <div
+          class="el-form-layout-has-margin el-form-layout"
+        >
+          <div
             class="el-input-wrap"
           >
             <div
@@ -565,27 +1176,41 @@ Object {
             </div>
           </div>
           <div
-            class="el-input-wrap-med"
+            class="el-input-wrap"
           >
             <div
               class="el-input-group"
             >
-              <input
-                class="el-input"
-                id="test-static-id"
-                name="logoUri"
-                type="email"
-              />
               <label
                 class="el-label"
-                for="test-static-id"
               >
-                Email Logo Url
+                Live Opayo Environment or Test
+              </label>
+              <input
+                class="el-toggle-checkbox"
+                id="is-live-env"
+                name="isLive"
+                type="checkbox"
+              />
+              <label
+                class="el-has-grey-bg el-toggle-label"
+                for="is-live-env"
+              >
+                <span
+                  class="el-toggle-item"
+                >
+                  Live
+                </span>
+                <span
+                  class="el-toggle-item"
+                >
+                  Test
+                </span>
               </label>
             </div>
           </div>
           <div
-            class="el-input-wrap-full"
+            class="el-input-wrap-med"
           >
             <div
               class="el-input-group"
@@ -605,7 +1230,7 @@ Object {
             </div>
           </div>
           <div
-            class="el-input-wrap-full"
+            class="el-input-wrap-med"
           >
             <div
               class="el-input-group"
@@ -623,6 +1248,17 @@ Object {
                 Opayo Pass Key
               </label>
             </div>
+          </div>
+          <div
+            class="el-input-group"
+          >
+            <input
+              class="el-input"
+              id="test-static-id"
+              name="configId"
+              type="hidden"
+              value=""
+            />
           </div>
         </div>
       </form>
@@ -758,7 +1394,7 @@ Object {
           </div>
         </div>
         <div
-          class="el-mb7 el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+          class="el-fade-in el-mb7 el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
         >
           <div
             class="el-pn-icon"
@@ -773,10 +1409,34 @@ Object {
           <div
             class="el-pn-content"
           >
-            Your app is not currently configured to use Reapit Payments. For the app to work correctly, you will need to provide us with both your Opayo Credentials as specified in the documentation, your company name and a url to your company logo. Please ensure these credentials are entered accurately as failure to do so can lead to the app failing for all users.
+            Your app is not fully configured to use Reapit Payments. For the app to work correctly, you will need to provide us with both your Opayo Credentials as specified in the documentation, your company name and a url to your company logo. Please ensure these credentials are entered accurately as failure to do so can lead to the app failing for all users.
           </div>
         </div>
         <form>
+          <h2
+            class="el-subtitle"
+          >
+            Company Details
+          </h2>
+          <div
+            class="el-mb7 el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+          >
+            <div
+              class="el-pn-icon"
+              data-testid="close-icon"
+            >
+              <span
+                class="el-icon"
+              >
+                <svg />
+              </span>
+            </div>
+            <div
+              class="el-pn-content"
+            >
+              These details are required to personalise emails sent to your customers, both receipts and requests for payment.
+            </div>
+          </div>
           <div
             class="el-form-layout-has-margin el-form-layout"
           >
@@ -801,6 +1461,59 @@ Object {
               </div>
             </div>
             <div
+              class="el-input-wrap-med"
+            >
+              <div
+                class="el-input-group"
+              >
+                <input
+                  class="el-input"
+                  id="test-static-id"
+                  name="logoUri"
+                  type="email"
+                />
+                <label
+                  class="el-label"
+                  for="test-static-id"
+                >
+                  Email Logo Url
+                </label>
+              </div>
+            </div>
+          </div>
+          <h2
+            class="el-subtitle"
+          >
+            Opayo Credientials
+          </h2>
+          <div
+            class="el-mb7 el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+          >
+            <div
+              class="el-pn-icon"
+              data-testid="close-icon"
+            >
+              <span
+                class="el-icon"
+              >
+                <svg />
+              </span>
+            </div>
+            <div
+              class="el-pn-content"
+            >
+              These details are required by Opayo to make payments in a live or test environment. 
+              <b>
+                Please note: 
+              </b>
+               
+              for security reasons., after they have been saved, your Opayo Keys are stored in an encryped format and never surfaced again in the front end. You can update your credentials at any time by entering new keys in the form below.
+            </div>
+          </div>
+          <div
+            class="el-form-layout-has-margin el-form-layout"
+          >
+            <div
               class="el-input-wrap"
             >
               <div
@@ -821,27 +1534,41 @@ Object {
               </div>
             </div>
             <div
-              class="el-input-wrap-med"
+              class="el-input-wrap"
             >
               <div
                 class="el-input-group"
               >
-                <input
-                  class="el-input"
-                  id="test-static-id"
-                  name="logoUri"
-                  type="email"
-                />
                 <label
                   class="el-label"
-                  for="test-static-id"
                 >
-                  Email Logo Url
+                  Live Opayo Environment or Test
+                </label>
+                <input
+                  class="el-toggle-checkbox"
+                  id="is-live-env"
+                  name="isLive"
+                  type="checkbox"
+                />
+                <label
+                  class="el-has-grey-bg el-toggle-label"
+                  for="is-live-env"
+                >
+                  <span
+                    class="el-toggle-item"
+                  >
+                    Live
+                  </span>
+                  <span
+                    class="el-toggle-item"
+                  >
+                    Test
+                  </span>
                 </label>
               </div>
             </div>
             <div
-              class="el-input-wrap-full"
+              class="el-input-wrap-med"
             >
               <div
                 class="el-input-group"
@@ -861,7 +1588,7 @@ Object {
               </div>
             </div>
             <div
-              class="el-input-wrap-full"
+              class="el-input-wrap-med"
             >
               <div
                 class="el-input-group"
@@ -879,6 +1606,17 @@ Object {
                   Opayo Pass Key
                 </label>
               </div>
+            </div>
+            <div
+              class="el-input-group"
+            >
+              <input
+                class="el-input"
+                id="test-static-id"
+                name="configId"
+                type="hidden"
+                value=""
+              />
             </div>
           </div>
         </form>
@@ -957,7 +1695,7 @@ Object {
         </div>
       </div>
       <div
-        class="el-mb7 el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        class="el-fade-in el-mb7 el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
       >
         <div
           class="el-pn-icon"
@@ -972,10 +1710,34 @@ Object {
         <div
           class="el-pn-content"
         >
-          Your app is not currently configured to use Reapit Payments. For the app to work correctly, you will need to provide us with both your Opayo Credentials as specified in the documentation, your company name and a url to your company logo. Please ensure these credentials are entered accurately as failure to do so can lead to the app failing for all users.
+          Your app is not fully configured to use Reapit Payments. For the app to work correctly, you will need to provide us with both your Opayo Credentials as specified in the documentation, your company name and a url to your company logo. Please ensure these credentials are entered accurately as failure to do so can lead to the app failing for all users.
         </div>
       </div>
       <form>
+        <h2
+          class="el-subtitle"
+        >
+          Company Details
+        </h2>
+        <div
+          class="el-mb7 el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        >
+          <div
+            class="el-pn-icon"
+            data-testid="close-icon"
+          >
+            <span
+              class="el-icon"
+            >
+              <svg />
+            </span>
+          </div>
+          <div
+            class="el-pn-content"
+          >
+            These details are required to personalise emails sent to your customers, both receipts and requests for payment.
+          </div>
+        </div>
         <div
           class="el-form-layout-has-margin el-form-layout"
         >
@@ -1000,6 +1762,59 @@ Object {
             </div>
           </div>
           <div
+            class="el-input-wrap-med"
+          >
+            <div
+              class="el-input-group"
+            >
+              <input
+                class="el-input"
+                id="test-static-id"
+                name="logoUri"
+                type="email"
+              />
+              <label
+                class="el-label"
+                for="test-static-id"
+              >
+                Email Logo Url
+              </label>
+            </div>
+          </div>
+        </div>
+        <h2
+          class="el-subtitle"
+        >
+          Opayo Credientials
+        </h2>
+        <div
+          class="el-mb7 el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        >
+          <div
+            class="el-pn-icon"
+            data-testid="close-icon"
+          >
+            <span
+              class="el-icon"
+            >
+              <svg />
+            </span>
+          </div>
+          <div
+            class="el-pn-content"
+          >
+            These details are required by Opayo to make payments in a live or test environment. 
+            <b>
+              Please note: 
+            </b>
+             
+            for security reasons., after they have been saved, your Opayo Keys are stored in an encryped format and never surfaced again in the front end. You can update your credentials at any time by entering new keys in the form below.
+          </div>
+        </div>
+        <div
+          class="el-form-layout-has-margin el-form-layout"
+        >
+          <div
             class="el-input-wrap"
           >
             <div
@@ -1020,27 +1835,41 @@ Object {
             </div>
           </div>
           <div
-            class="el-input-wrap-med"
+            class="el-input-wrap"
           >
             <div
               class="el-input-group"
             >
-              <input
-                class="el-input"
-                id="test-static-id"
-                name="logoUri"
-                type="email"
-              />
               <label
                 class="el-label"
-                for="test-static-id"
               >
-                Email Logo Url
+                Live Opayo Environment or Test
+              </label>
+              <input
+                class="el-toggle-checkbox"
+                id="is-live-env"
+                name="isLive"
+                type="checkbox"
+              />
+              <label
+                class="el-has-grey-bg el-toggle-label"
+                for="is-live-env"
+              >
+                <span
+                  class="el-toggle-item"
+                >
+                  Live
+                </span>
+                <span
+                  class="el-toggle-item"
+                >
+                  Test
+                </span>
               </label>
             </div>
           </div>
           <div
-            class="el-input-wrap-full"
+            class="el-input-wrap-med"
           >
             <div
               class="el-input-group"
@@ -1060,7 +1889,7 @@ Object {
             </div>
           </div>
           <div
-            class="el-input-wrap-full"
+            class="el-input-wrap-med"
           >
             <div
               class="el-input-group"
@@ -1078,6 +1907,17 @@ Object {
                 Opayo Pass Key
               </label>
             </div>
+          </div>
+          <div
+            class="el-input-group"
+          >
+            <input
+              class="el-input"
+              id="test-static-id"
+              name="configId"
+              type="hidden"
+              value=""
+            />
           </div>
         </div>
       </form>
