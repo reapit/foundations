@@ -2,7 +2,7 @@ import React, { Dispatch, FC, SetStateAction } from 'react'
 import { PaymentForm } from './payment-form'
 import { PaymentLogo } from './payment-logo'
 import { PaymentProvider } from '../payment-provider'
-import { Card, Col, elMb11, FlexContainer, Grid, Icon, PageContainer, Subtitle, Title } from '@reapit/elements'
+import { Card, Col, elMb11, FlexContainer, Grid, Icon, Subtitle, Title } from '@reapit/elements'
 import { combineAddress } from '@reapit/utils-common'
 import { PaymentModel } from '@reapit/foundations-ts-definitions'
 import { useHistory } from 'react-router'
@@ -27,7 +27,7 @@ export const PaymentPageContent: FC<PaymentPageContentProps> = ({ paymentProvide
   const isDesktop = window['__REAPIT_MARKETPLACE_GLOBALS__']
 
   return (
-    <PageContainer>
+    <>
       {!isPortal && !isDesktop && (
         <PaymentsBackButton onClick={navigate(history, '/payments')}>
           <Icon icon="backSolidSystem" intent="primary" />
@@ -113,6 +113,6 @@ export const PaymentPageContent: FC<PaymentPageContentProps> = ({ paymentProvide
         </Col>
       </Grid>
       <PaymentForm paymentProvider={paymentProvider} />
-    </PageContainer>
+    </>
   )
 }

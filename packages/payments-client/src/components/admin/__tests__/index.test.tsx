@@ -32,11 +32,13 @@ describe('handleResetForm', () => {
     const config = mockConfigModel
     const reset = jest.fn()
 
-    const curried = handleResetForm(config, reset)
+    const { clientCode, companyName, configId, isLive, logoUri } = config
+
+    const curried = handleResetForm(config, false, reset)
 
     curried()
 
-    expect(reset).toHaveBeenCalledWith(config)
+    expect(reset).toHaveBeenCalledWith({ clientCode, companyName, configId, isLive, logoUri })
   })
 })
 

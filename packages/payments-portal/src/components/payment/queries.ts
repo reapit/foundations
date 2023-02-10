@@ -2,7 +2,15 @@ import { logger } from '@reapit/utils-react'
 import { useQuery, useMutation } from '@tanstack/react-query'
 import { useSnack } from '@reapit/elements'
 import axios, { AxiosError } from 'axios'
-import { ClientConfigModel, PaymentEmailReceipt, PaymentWithPropertyModel, UpdateStatusBody } from '@reapit/payments-ui'
+import {
+  ClientConfigModel,
+  CreateTransactionModel,
+  MerchantKey,
+  PaymentEmailReceipt,
+  PaymentWithPropertyModel,
+  Transaction,
+  UpdateStatusBody,
+} from '@reapit/payments-ui'
 import { PaymentModel } from '@reapit/foundations-ts-definitions'
 
 export const useClientConfig = (session: string | null, clientCode: string | null, paymentId?: string) => {
@@ -10,11 +18,7 @@ export const useClientConfig = (session: string | null, clientCode: string | nul
 
   const url = `${window.reapit.config.paymentsApiUrl}/config/public/${paymentId}`
 
-  const {
-    data,
-    isLoading,
-    error: configError,
-  } = useQuery([url, clientCode, session], {
+  const { data, error: configError } = useQuery([url, clientCode, session], {
     queryFn: async () => {
       const res = await axios.get<ClientConfigModel>(url, {
         headers: {
@@ -35,7 +39,6 @@ export const useClientConfig = (session: string | null, clientCode: string | nul
 
   return {
     config: data ?? null,
-    configLoading: isLoading,
     configError,
   }
 }
@@ -140,5 +143,66 @@ export const useStatusUpdate = (session: string | null, clientCode: string | nul
   return {
     statusLoading: isLoading,
     statusSubmit,
+  }
+}
+
+export const useTransaction = (session: string | null, clientCode: string | null, paymentId: string | null) => {
+  const { error } = useSnack()
+
+  const url = `${window.reapit.config.paymentsApiUrl}/opayo/public/transactions/${paymentId}`
+
+  const { mutateAsync } = useMutation([url, clientCode, session, paymentId], {
+    mutationFn: async (transaction: CreateTransactionModel) => {
+      const res = await axios.post<Transaction>(url, transaction, {
+        headers: {
+          'reapit-session': session as string,
+          'reapit-customer': clientCode as string,
+          'X-Api-Key': window.reapit.config.apiKey,
+        },
+      })
+
+      return res.data
+    },
+    onError: (err: AxiosError<any>) => {
+      logger(err)
+      error(err.message)
+    },
+  })
+
+  const transactionSubmit = async (transaction: CreateTransactionModel) => await mutateAsync(transaction)
+
+  return {
+    transactionSubmit,
+  }
+}
+
+export const useMerchantKey = (session: string | null, clientCode: string | null, paymentId: string | null) => {
+  const { error } = useSnack()
+
+  const url = `${window.reapit.config.paymentsApiUrl}/opayo/public/merchant-session-keys/${paymentId}`
+
+  const { data, isLoading, refetch } = useQuery([url, clientCode, session, paymentId], {
+    queryFn: async () => {
+      const res = await axios.post<MerchantKey>(url, undefined, {
+        headers: {
+          'reapit-session': session as string,
+          'reapit-customer': clientCode as string,
+          'X-Api-Key': window.reapit.config.apiKey,
+        },
+      })
+
+      return res.data
+    },
+    onError: (err: AxiosError<any>) => {
+      logger(err)
+      error(err.message)
+    },
+    enabled: Boolean(session && clientCode && paymentId),
+  })
+
+  return {
+    merchantKey: data ?? null,
+    merchantKeyLoading: isLoading,
+    refreshMerchantKey: refetch,
   }
 }

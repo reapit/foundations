@@ -1,5 +1,5 @@
-import { Body, Controller, Delete, Get, Put, Post, Param } from '@nestjs/common'
-import { ClientConfigDto, ClientConfigParams } from './dto'
+import { Body, Controller, Delete, Get, Patch, Post, Param } from '@nestjs/common'
+import { ClientConfigDeleteDto, ClientConfigDto, ClientConfigParams } from './dto'
 import { ClientConfigProvider } from './provider'
 import { ClientConfigModel } from './model'
 
@@ -20,7 +20,7 @@ export class ClientConfigPrivateController {
     return this.clientConfigProvider.create(clientCode, configModel)
   }
 
-  @Put('/:clientCode')
+  @Patch('/:clientCode')
   async updateConfig(
     @Param() { clientCode }: ClientConfigParams,
     @Body() configModel: ClientConfigDto,
@@ -29,7 +29,10 @@ export class ClientConfigPrivateController {
   }
 
   @Delete('/:clientCode')
-  async deleteConfig(@Param() { clientCode }: ClientConfigParams): Promise<ClientConfigModel> {
-    return this.clientConfigProvider.delete(clientCode)
+  async deleteConfig(
+    @Param() { clientCode }: ClientConfigParams,
+    @Body() { configId }: ClientConfigDeleteDto,
+  ): Promise<ClientConfigModel> {
+    return this.clientConfigProvider.delete(clientCode, configId)
   }
 }

@@ -99,7 +99,7 @@ export const PaymentForm: FC<PaymentFormProps> = ({ paymentProvider }) => {
             This payment has been successfully submitted and confirmation of payment has been emailed to the address
             supplied. If no email was received, you can send again by clicking the button below.
           </PersistentNotification>
-          <ButtonGroup>
+          <ButtonGroup className={elMb7}>
             {payment && <ResendConfirmButton paymentFormValues={getValues()} paymentProvider={paymentProvider} />}
           </ButtonGroup>
         </>

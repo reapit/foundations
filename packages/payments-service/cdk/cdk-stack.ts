@@ -9,6 +9,7 @@ import {
 } from '@reapit/ts-scripts/src/cdk'
 import { aws_apigateway as apigateway, aws_iam as iam } from 'aws-cdk-lib'
 import config from '../config.json'
+import { PolicyStatement } from 'aws-cdk-lib/aws-iam'
 
 export const createStack = async () => {
   const stack = createBaseStack({
@@ -67,6 +68,22 @@ export const createStack = async () => {
     }),
   )
 
+  const pattern = 'Cloud/OpayoKey/*'
+
+  lambda.addToRolePolicy(
+    new PolicyStatement({
+      actions: [
+        'secretsmanager:GetSecretValue',
+        'secretsmanager:DeleteSecret',
+        'secretsmanager:CreateSecret',
+        'secretsmanager:PutSecretValue',
+        'secretsmanager:UpdateSecret',
+        'secretsmanager:TagResource',
+      ],
+      resources: [`arn:${stack.partition}:secretsmanager:${stack.region}:${stack.account}:secret:${pattern}`],
+    }),
+  )
+
   const routes = [
     {
       path: '/session',
@@ -111,13 +128,31 @@ export const createStack = async () => {
     },
     {
       path: '/config/private/{clientCode}',
-      method: 'PUT',
+      method: 'PATCH',
       protected: true,
     },
     {
       path: '/config/private/{clientCode}',
       method: 'DELETE',
       protected: true,
+    },
+    {
+      path: '/opayo/private/merchant-session-keys',
+      method: 'POST',
+      protected: true,
+    },
+    {
+      path: '/opayo/private/transactions',
+      method: 'POST',
+      protected: true,
+    },
+    {
+      path: '/opayo/public/merchant-session-keys/{paymentId}',
+      method: 'POST',
+    },
+    {
+      path: '/opayo/public/transactions/{paymentId}',
+      method: 'POST',
     },
   ]
 

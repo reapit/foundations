@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing'
 import { ClientConfigProvider } from '../provider'
 import { ClientConfigPrivateController } from '../private-controller'
-import { mockConfigModel } from '../../tests/__mocks__/config'
+import { mockConfigCreateModel } from '../../tests/__mocks__/config'
 
 const mockConfigProvider = {
   get: jest.fn(),
@@ -29,61 +29,64 @@ describe('ClientConfigPrivateController', () => {
     const controller = app.get<ClientConfigPrivateController>(ClientConfigPrivateController)
 
     mockConfigProvider.get.mockImplementationOnce(() => {
-      return mockConfigModel
+      return mockConfigCreateModel
     })
 
     const result = await controller.getConfig({
       clientCode: 'SBOX',
     })
 
-    expect(result).toEqual(mockConfigModel)
+    expect(result).toEqual(mockConfigCreateModel)
   })
 
   it('should create a config model', async () => {
     const controller = app.get<ClientConfigPrivateController>(ClientConfigPrivateController)
 
     mockConfigProvider.create.mockImplementationOnce(() => {
-      return mockConfigModel
+      return mockConfigCreateModel
     })
 
     const result = await controller.createConfig(
       {
         clientCode: 'SBOX',
       },
-      mockConfigModel,
+      mockConfigCreateModel,
     )
 
-    expect(result).toEqual(mockConfigModel)
+    expect(result).toEqual(mockConfigCreateModel)
   })
 
   it('should update a config model', async () => {
     const controller = app.get<ClientConfigPrivateController>(ClientConfigPrivateController)
 
     mockConfigProvider.update.mockImplementationOnce(() => {
-      return mockConfigModel
+      return mockConfigCreateModel
     })
 
     const result = await controller.updateConfig(
       {
         clientCode: 'SBOX',
       },
-      mockConfigModel,
+      mockConfigCreateModel,
     )
 
-    expect(result).toEqual(mockConfigModel)
+    expect(result).toEqual(mockConfigCreateModel)
   })
 
   it('should delete a config model', async () => {
     const controller = app.get<ClientConfigPrivateController>(ClientConfigPrivateController)
 
     mockConfigProvider.delete.mockImplementationOnce(() => {
-      return mockConfigModel
+      return mockConfigCreateModel
     })
 
-    const result = await controller.deleteConfig({
-      clientCode: 'SBOX',
-    })
+    const result = await controller.deleteConfig(
+      {
+        clientCode: 'SBOX',
+      },
+      { configId: 'MOCK_ID' },
+    )
 
-    expect(result).toEqual(mockConfigModel)
+    expect(result).toEqual(mockConfigCreateModel)
   })
 })

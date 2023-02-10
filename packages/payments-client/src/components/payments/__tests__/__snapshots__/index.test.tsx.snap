@@ -49,7 +49,7 @@ Object {
                 <input
                   class="el-input"
                   id="test-static-id"
-                  max="2019-10-10"
+                  max="2019-10-11"
                   min="2017-10-10"
                   name="createdFrom"
                   type="date"
@@ -71,7 +71,7 @@ Object {
                 <input
                   class="el-input"
                   id="test-static-id"
-                  max="2019-10-10"
+                  max="2019-10-11"
                   min="2019-09-10"
                   name="createdTo"
                   type="date"
@@ -178,6 +178,25 @@ Object {
           </div>
         </div>
         <div
+          class="el-mb7 el-fade-in el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        >
+          <div
+            class="el-pn-icon"
+            data-testid="close-icon"
+          >
+            <span
+              class="el-icon"
+            >
+              <svg />
+            </span>
+          </div>
+          <div
+            class="el-pn-content"
+          >
+            The app cannnot currently process client payments. This is likely because your payment provider has not been configured. Please contact your Reapit Organisation Administrator or if you are an Admin, use the dedicated page in the main navigation.
+          </div>
+        </div>
+        <div
           class="el-intent-secondary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
         >
           <div
@@ -244,7 +263,7 @@ Object {
               <input
                 class="el-input"
                 id="test-static-id"
-                max="2019-10-10"
+                max="2019-10-11"
                 min="2017-10-10"
                 name="createdFrom"
                 type="date"
@@ -266,7 +285,7 @@ Object {
               <input
                 class="el-input"
                 id="test-static-id"
-                max="2019-10-10"
+                max="2019-10-11"
                 min="2019-09-10"
                 name="createdTo"
                 type="date"
@@ -370,6 +389,25 @@ Object {
           <img
             src="https://web-components.prod.paas.reapit.cloud/reapit-payments.png"
           />
+        </div>
+      </div>
+      <div
+        class="el-mb7 el-fade-in el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+      >
+        <div
+          class="el-pn-icon"
+          data-testid="close-icon"
+        >
+          <span
+            class="el-icon"
+          >
+            <svg />
+          </span>
+        </div>
+        <div
+          class="el-pn-content"
+        >
+          The app cannnot currently process client payments. This is likely because your payment provider has not been configured. Please contact your Reapit Organisation Administrator or if you are an Admin, use the dedicated page in the main navigation.
         </div>
       </div>
       <div
@@ -496,7 +534,7 @@ Object {
                 <input
                   class="el-input"
                   id="test-static-id"
-                  max="2019-10-10"
+                  max="2019-10-11"
                   min="2017-10-10"
                   name="createdFrom"
                   type="date"
@@ -518,7 +556,7 @@ Object {
                 <input
                   class="el-input"
                   id="test-static-id"
-                  max="2019-10-10"
+                  max="2019-10-11"
                   min="2019-09-10"
                   name="createdTo"
                   type="date"
@@ -625,6 +663,25 @@ Object {
           </div>
         </div>
         <div
+          class="el-mb7 el-fade-in el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        >
+          <div
+            class="el-pn-icon"
+            data-testid="close-icon"
+          >
+            <span
+              class="el-icon"
+            >
+              <svg />
+            </span>
+          </div>
+          <div
+            class="el-pn-content"
+          >
+            The app cannnot currently process client payments. This is likely because your payment provider has not been configured. Please contact your Reapit Organisation Administrator or if you are an Admin, use the dedicated page in the main navigation.
+          </div>
+        </div>
+        <div
           class="el-mb11 el-table"
           data-has-call-to-action="false"
           data-has-expandable-action="true"
@@ -696,7 +753,13 @@ Object {
                 <div
                   class="el-table-cell-content"
                   data-narrow-label="Property"
-                />
+                >
+                  <div
+                    class="el-fade-in"
+                  >
+                    15 Example street Solihull West Midlands B91 2XX
+                  </div>
+                </div>
               </div>
               <div
                 class="el-table-cell-has-dark-text el-table-cell"
@@ -710,7 +773,7 @@ Object {
                   class="el-table-cell-content"
                   data-narrow-label="Amount"
                 >
-                  £0
+                  £100.00
                 </div>
               </div>
               <div
@@ -725,7 +788,7 @@ Object {
                   class="el-table-cell-content"
                   data-narrow-label="Customer"
                 >
-                  -
+                  Mr John Smith
                 </div>
               </div>
               <div
@@ -735,7 +798,7 @@ Object {
                   class="el-table-cell-content"
                   data-narrow-label="Description"
                 >
-                  We are delighted to offer for sale this EXTENDED THREE BEDROOMED SEMI DETACHED PROPERTY situated in a much sought after residential location of Greasby, having the benefits of two separate entertaining rooms, morning room, extended kitchen. To the first floor there are three bedrooms, spacious family bathroom, gas central heating gardens front and rear and off road parking.
+                  Tenancy Check Fee
                 </div>
               </div>
               <div
@@ -744,7 +807,9 @@ Object {
                 <div
                   class="el-table-cell-content"
                   data-narrow-label="Client A/C"
-                />
+                >
+                  Primary
+                </div>
               </div>
               <div
                 class="el-table-cell"
@@ -752,7 +817,13 @@ Object {
                 <div
                   class="el-table-cell-content"
                   data-narrow-label="Status"
-                />
+                >
+                  <span
+                    class="el-intent-critical el-status-indicator"
+                  />
+                   
+                  Awaiting Payment
+                </div>
               </div>
               <div
                 class="el-table-cell"
@@ -788,6 +859,7 @@ Object {
                   >
                     <button
                       class="el-intent-primary el-button"
+                      disabled=""
                     >
                       Take Payment
                       <div
@@ -796,6 +868,7 @@ Object {
                     </button>
                     <button
                       class="el-intent-secondary el-button"
+                      disabled=""
                     >
                       Request Payment
                       <div
@@ -892,7 +965,7 @@ Object {
               <input
                 class="el-input"
                 id="test-static-id"
-                max="2019-10-10"
+                max="2019-10-11"
                 min="2017-10-10"
                 name="createdFrom"
                 type="date"
@@ -914,7 +987,7 @@ Object {
               <input
                 class="el-input"
                 id="test-static-id"
-                max="2019-10-10"
+                max="2019-10-11"
                 min="2019-09-10"
                 name="createdTo"
                 type="date"
@@ -1021,6 +1094,25 @@ Object {
         </div>
       </div>
       <div
+        class="el-mb7 el-fade-in el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+      >
+        <div
+          class="el-pn-icon"
+          data-testid="close-icon"
+        >
+          <span
+            class="el-icon"
+          >
+            <svg />
+          </span>
+        </div>
+        <div
+          class="el-pn-content"
+        >
+          The app cannnot currently process client payments. This is likely because your payment provider has not been configured. Please contact your Reapit Organisation Administrator or if you are an Admin, use the dedicated page in the main navigation.
+        </div>
+      </div>
+      <div
         class="el-mb11 el-table"
         data-has-call-to-action="false"
         data-has-expandable-action="true"
@@ -1092,7 +1184,13 @@ Object {
               <div
                 class="el-table-cell-content"
                 data-narrow-label="Property"
-              />
+              >
+                <div
+                  class="el-fade-in"
+                >
+                  15 Example street Solihull West Midlands B91 2XX
+                </div>
+              </div>
             </div>
             <div
               class="el-table-cell-has-dark-text el-table-cell"
@@ -1106,7 +1204,7 @@ Object {
                 class="el-table-cell-content"
                 data-narrow-label="Amount"
               >
-                £0
+                £100.00
               </div>
             </div>
             <div
@@ -1121,7 +1219,7 @@ Object {
                 class="el-table-cell-content"
                 data-narrow-label="Customer"
               >
-                -
+                Mr John Smith
               </div>
             </div>
             <div
@@ -1131,7 +1229,7 @@ Object {
                 class="el-table-cell-content"
                 data-narrow-label="Description"
               >
-                We are delighted to offer for sale this EXTENDED THREE BEDROOMED SEMI DETACHED PROPERTY situated in a much sought after residential location of Greasby, having the benefits of two separate entertaining rooms, morning room, extended kitchen. To the first floor there are three bedrooms, spacious family bathroom, gas central heating gardens front and rear and off road parking.
+                Tenancy Check Fee
               </div>
             </div>
             <div
@@ -1140,7 +1238,9 @@ Object {
               <div
                 class="el-table-cell-content"
                 data-narrow-label="Client A/C"
-              />
+              >
+                Primary
+              </div>
             </div>
             <div
               class="el-table-cell"
@@ -1148,7 +1248,13 @@ Object {
               <div
                 class="el-table-cell-content"
                 data-narrow-label="Status"
-              />
+              >
+                <span
+                  class="el-intent-critical el-status-indicator"
+                />
+                 
+                Awaiting Payment
+              </div>
             </div>
             <div
               class="el-table-cell"
@@ -1184,6 +1290,7 @@ Object {
                 >
                   <button
                     class="el-intent-primary el-button"
+                    disabled=""
                   >
                     Take Payment
                     <div
@@ -1192,6 +1299,7 @@ Object {
                   </button>
                   <button
                     class="el-intent-secondary el-button"
+                    disabled=""
                   >
                     Request Payment
                     <div
@@ -1345,7 +1453,7 @@ Object {
                 <input
                   class="el-input"
                   id="test-static-id"
-                  max="2019-10-10"
+                  max="2019-10-11"
                   min="2017-10-10"
                   name="createdFrom"
                   type="date"
@@ -1367,7 +1475,7 @@ Object {
                 <input
                   class="el-input"
                   id="test-static-id"
-                  max="2019-10-10"
+                  max="2019-10-11"
                   min="2019-09-10"
                   name="createdTo"
                   type="date"
@@ -1474,6 +1582,25 @@ Object {
           </div>
         </div>
         <div
+          class="el-mb7 el-fade-in el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+        >
+          <div
+            class="el-pn-icon"
+            data-testid="close-icon"
+          >
+            <span
+              class="el-icon"
+            >
+              <svg />
+            </span>
+          </div>
+          <div
+            class="el-pn-content"
+          >
+            The app cannnot currently process client payments. This is likely because your payment provider has not been configured. Please contact your Reapit Organisation Administrator or if you are an Admin, use the dedicated page in the main navigation.
+          </div>
+        </div>
+        <div
           class="el-loader-container"
         >
           <div
@@ -1532,7 +1659,7 @@ Object {
               <input
                 class="el-input"
                 id="test-static-id"
-                max="2019-10-10"
+                max="2019-10-11"
                 min="2017-10-10"
                 name="createdFrom"
                 type="date"
@@ -1554,7 +1681,7 @@ Object {
               <input
                 class="el-input"
                 id="test-static-id"
-                max="2019-10-10"
+                max="2019-10-11"
                 min="2019-09-10"
                 name="createdTo"
                 type="date"
@@ -1658,6 +1785,25 @@ Object {
           <img
             src="https://web-components.prod.paas.reapit.cloud/reapit-payments.png"
           />
+        </div>
+      </div>
+      <div
+        class="el-mb7 el-fade-in el-intent-danger el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
+      >
+        <div
+          class="el-pn-icon"
+          data-testid="close-icon"
+        >
+          <span
+            class="el-icon"
+          >
+            <svg />
+          </span>
+        </div>
+        <div
+          class="el-pn-content"
+        >
+          The app cannnot currently process client payments. This is likely because your payment provider has not been configured. Please contact your Reapit Organisation Administrator or if you are an Admin, use the dedicated page in the main navigation.
         </div>
       </div>
       <div

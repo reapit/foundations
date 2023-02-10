@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from '../../../tests/react-testing'
-import PaymentPage from '..'
+import { Payment } from '../payment'
 import { useReapitGet } from '@reapit/use-reapit-data'
 import { mockConfigModel } from '../../../tests/__mocks__/config'
 import { mockPaymentModel } from '../../../tests/__mocks__/payment'
@@ -29,26 +29,25 @@ jest.mock('react-router', () => ({
 
 describe('PaymentPage', () => {
   it('should match a snapshot with no data', () => {
-    expect(render(<PaymentPage />)).toMatchSnapshot()
+    expect(render(<Payment paymentRequest={[null, false, null, jest.fn(), false, jest.fn()]} />)).toMatchSnapshot()
   })
 
   it('should match a snapshot with data', () => {
-    mockUseReapitGet
-      .mockReturnValue([mockConfigModel, false])
-      .mockReturnValue([mockPaymentModel, false])
-      .mockReturnValue([mockPropertyModel, false])
+    mockUseReapitGet.mockReturnValue([mockConfigModel, false]).mockReturnValue([mockPropertyModel, false])
 
-    expect(render(<PaymentPage />)).toMatchSnapshot()
+    expect(
+      render(<Payment paymentRequest={[mockPaymentModel, false, null, jest.fn(), false, jest.fn()]} />),
+    ).toMatchSnapshot()
   })
 
   it('should match a snapshot when the payment does not return', () => {
     mockUseReapitGet.mockReturnValueOnce([mockConfigModel, false]).mockReturnValueOnce([null, false])
 
-    expect(render(<PaymentPage />)).toMatchSnapshot()
+    expect(render(<Payment paymentRequest={[null, false, null, jest.fn(), false, jest.fn()]} />)).toMatchSnapshot()
   })
 
   it('should match a snapshot when loading', () => {
     mockUseReapitGet.mockReturnValueOnce([null, true])
-    expect(render(<PaymentPage />)).toMatchSnapshot()
+    expect(render(<Payment paymentRequest={[null, true, null, jest.fn(), false, jest.fn()]} />)).toMatchSnapshot()
   })
 })

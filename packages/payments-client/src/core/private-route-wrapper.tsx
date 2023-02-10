@@ -6,6 +6,7 @@ import { reapitConnectBrowserSession } from './connect-session'
 import { Routes } from '../constants/routes'
 import { Loader, MainContainer } from '@reapit/elements'
 import { ORG_ADMIN_GROUP } from '../constants/permissions'
+import { ConfigProvider } from './use-config-state'
 
 const { Suspense } = React
 
@@ -46,7 +47,9 @@ export const PrivateRouteWrapper: FC<PrivateRouteWrapperProps> = ({ children }) 
   return (
     <MainContainer>
       <Nav />
-      <Suspense fallback={<Loader fullPage />}>{children}</Suspense>
+      <ConfigProvider>
+        <Suspense fallback={<Loader fullPage />}>{children}</Suspense>
+      </ConfigProvider>
     </MainContainer>
   )
 }

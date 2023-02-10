@@ -4,40 +4,38 @@ import { reapitConnectBrowserSession } from '../../core/connect-session'
 import {
   Button,
   ButtonGroup,
+  elFadeIn,
   elMb3,
   elMb5,
   elMb7,
+  ElToggleItem,
   FlexContainer,
   FormLayout,
   Icon,
   InputError,
   InputGroup,
   InputWrap,
-  InputWrapFull,
   InputWrapMed,
-  Loader,
+  Label,
   PageContainer,
   PersistentNotification,
   SecondaryNavContainer,
   SmallText,
+  Subtitle,
   Title,
+  Toggle,
   useModal,
 } from '@reapit/elements'
-import { ClientConfigModel, PaymentLogo } from '@reapit/payments-ui'
-import {
-  GetActionNames,
-  getActions,
-  UpdateActionNames,
-  updateActions,
-  useReapitGet,
-  useReapitUpdate,
-} from '@reapit/use-reapit-data'
+import { ClientConfigCreateModel, ClientConfigDeleteModel, ClientConfigModel, PaymentLogo } from '@reapit/payments-ui'
+import { UpdateActionNames, updateActions, useReapitUpdate } from '@reapit/use-reapit-data'
 import { ErrorBoundary } from '@sentry/react'
 import { openNewPage } from '../../core/nav'
-import { object, string } from 'yup'
+import { bool, object, string } from 'yup'
 import { useForm, UseFormReset } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { hasSpecialChars, isValidHttpsUrl } from '@reapit/utils-common'
+import { useConfigState } from '../../core/use-config-state'
+import { cx } from '@linaria/core'
 
 const specialCharsTest = {
   name: 'hasNoSpecialChars',
@@ -49,10 +47,10 @@ const specialCharsTest = {
 }
 
 const validationSchema = object({
-  vendorName: string().required('Required').test(specialCharsTest),
-  integrationKey: string().required('Required').test(specialCharsTest),
-  passKey: string().required('Required').test(specialCharsTest),
-  companyName: string().required('Required').test(specialCharsTest),
+  vendorName: string().test(specialCharsTest),
+  integrationKey: string().test(specialCharsTest),
+  passKey: string().test(specialCharsTest),
+  companyName: string().test(specialCharsTest),
   logoUri: string().test({
     name: 'isValidTermsAndConditionsUrl',
     message: 'Must be a valid https url',
@@ -61,18 +59,58 @@ const validationSchema = object({
       return isValidHttpsUrl(value)
     },
   }),
+  isLive: bool(),
 })
 
-export const handleResetForm = (config: ClientConfigModel | null, reset: UseFormReset<ClientConfigModel>) => () => {
-  if (config) {
-    reset(config)
+export const handleResetForm =
+  (config: ClientConfigModel | null, configNotConfigured: boolean, reset: UseFormReset<ClientConfigCreateModel>) =>
+  () => {
+    if (config) {
+      const { clientCode, companyName, logoUri, isLive, configId } = config
+      reset({
+        clientCode,
+        companyName,
+        logoUri,
+        isLive,
+        configId,
+      })
+    } else if (configNotConfigured) {
+      reset({
+        companyName: '',
+        logoUri: '',
+        isLive: false,
+        configId: '',
+        vendorName: '',
+        integrationKey: '',
+        passKey: '',
+      })
+    }
+  }
+
+export const handleCloseModal = (closeModal: () => void, shouldClose: boolean, refreshConfig?: () => void) => () => {
+  if (shouldClose) {
+    closeModal()
+    refreshConfig && refreshConfig()
   }
 }
 
-export const handleCloseModal = (closeModal: () => void, shouldClose: boolean, refreshConfig: () => void) => () => {
-  if (shouldClose) {
-    closeModal()
-    refreshConfig()
+export const sanitiseConfigPayload = (config: ClientConfigCreateModel, clientCode: string): ClientConfigCreateModel => {
+  const { companyName, logoUri, isLive, configId, vendorName, integrationKey, passKey } = config
+
+  const cleanConfigId = configId ? { configId } : {}
+  const cleanVendorName = vendorName ? { vendorName } : {}
+  const cleanIntegrationKey = integrationKey ? { integrationKey } : {}
+  const cleanPassKey = passKey ? { passKey } : {}
+
+  return {
+    clientCode,
+    companyName,
+    logoUri,
+    isLive,
+    ...cleanVendorName,
+    ...cleanConfigId,
+    ...cleanIntegrationKey,
+    ...cleanPassKey,
   }
 }
 
@@ -80,6 +118,8 @@ export const AdminPage: FC = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
   const { Modal: UpdateModal, openModal: openUpdateModal, closeModal: closeUpdateModal } = useModal()
   const { Modal: DeleteModal, openModal: openDeleteModal, closeModal: closeDeleteModal } = useModal()
+  const { config, refreshConfig, clearConfigCache } = useConfigState()
+  const configNotConfigured = !config?.isConfigured
 
   const clientCode = connectSession?.loginIdentity?.clientId ?? ''
   const idToken = connectSession?.idToken ?? ''
@@ -89,26 +129,11 @@ export const AdminPage: FC = () => {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<ClientConfigModel>({
+  } = useForm<ClientConfigCreateModel>({
     resolver: yupResolver(validationSchema),
   })
 
-  const [config, configLoading, , refreshConfig, , clearConfigCache] = useReapitGet<ClientConfigModel>({
-    reapitConnectBrowserSession,
-    action: getActions(window.reapit.config.appEnv)[GetActionNames.getPaymentsClientConfig],
-    headers: {
-      Authorization: idToken,
-    },
-    uriParams: {
-      clientCode,
-    },
-    onError: () => {
-      reset({})
-    },
-    fetchWhenTrue: [clientCode, idToken],
-  })
-
-  const [deleteLoading, , deleteSubmit, deleteSubmitSuccess] = useReapitUpdate<void, boolean>({
+  const [deleteLoading, , deleteSubmit, deleteSubmitSuccess] = useReapitUpdate<ClientConfigDeleteModel, boolean>({
     reapitConnectBrowserSession,
     action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.paymentsClientConfigDelete],
     method: 'DELETE',
@@ -120,7 +145,7 @@ export const AdminPage: FC = () => {
     },
   })
 
-  const [createLoading, , createSubmit, createSubmitSuccess] = useReapitUpdate<ClientConfigModel, boolean>({
+  const [createLoading, , createSubmit, createSubmitSuccess] = useReapitUpdate<ClientConfigCreateModel, boolean>({
     reapitConnectBrowserSession,
     action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.paymentsClientConfigCreate],
     method: 'POST',
@@ -132,10 +157,10 @@ export const AdminPage: FC = () => {
     },
   })
 
-  const [updateLoading, , updateSubmit, updateSubmitSuccess] = useReapitUpdate<ClientConfigModel, boolean>({
+  const [updateLoading, , updateSubmit, updateSubmitSuccess] = useReapitUpdate<ClientConfigCreateModel, boolean>({
     reapitConnectBrowserSession,
     action: updateActions(window.reapit.config.appEnv)[UpdateActionNames.paymentsClientConfigUpdate],
-    method: 'PUT',
+    method: 'PATCH',
     headers: {
       Authorization: idToken,
     },
@@ -146,7 +171,7 @@ export const AdminPage: FC = () => {
 
   const updateModalShouldClose = Boolean(createSubmitSuccess || updateSubmitSuccess)
 
-  useEffect(handleResetForm(config, reset), [config])
+  useEffect(handleResetForm(config, configNotConfigured, reset), [config, configNotConfigured])
   useEffect(handleCloseModal(closeUpdateModal, updateModalShouldClose, refreshConfig), [
     createSubmitSuccess,
     updateSubmitSuccess,
@@ -154,10 +179,10 @@ export const AdminPage: FC = () => {
   useEffect(handleCloseModal(closeDeleteModal, Boolean(deleteSubmitSuccess), refreshConfig), [deleteSubmitSuccess])
 
   const submitAction = config ? updateSubmit : createSubmit
-  const submitHandler = handleSubmit((configForm) => submitAction({ ...configForm, clientCode }))
+  const submitHandler = handleSubmit((configForm) => submitAction(sanitiseConfigPayload(configForm, clientCode)))
   const deleteHandler = () => {
-    deleteSubmit()
-    clearConfigCache()
+    deleteSubmit({ configId: config?.configId })
+    clearConfigCache && clearConfigCache()
   }
   const isLoading = createLoading || updateLoading || deleteLoading
 
@@ -199,50 +224,69 @@ export const AdminPage: FC = () => {
             <Title>Reapit Payments App Configuration</Title>
             <PaymentLogo />
           </FlexContainer>
-          {configLoading ? (
-            <Loader />
-          ) : (
-            <>
-              {config ? (
-                <PersistentNotification className={elMb7} intent="secondary" isExpanded isFullWidth isInline>
-                  Your app is currently configured to use Reapit Payments. You can update your details however, you will
-                  be editing production configuration so please ensure the fields are valid as failure to do so can lead
-                  to the app failing for all users.
-                </PersistentNotification>
-              ) : (
-                <PersistentNotification className={elMb7} intent="secondary" isExpanded isFullWidth isInline>
-                  Your app is not currently configured to use Reapit Payments. For the app to work correctly, you will
-                  need to provide us with both your Opayo Credentials as specified in the documentation, your company
-                  name and a url to your company logo. Please ensure these credentials are entered accurately as failure
-                  to do so can lead to the app failing for all users.
-                </PersistentNotification>
-              )}
-              <form>
-                <FormLayout hasMargin>
-                  <InputWrap>
-                    <InputGroup {...register('companyName')} type="email" label="Company Name" />
-                    {errors.companyName?.message && <InputError message={errors.companyName.message} />}
-                  </InputWrap>
-                  <InputWrap>
-                    <InputGroup {...register('vendorName')} type="email" label="Opayo Vendor Name" />
-                    {errors.vendorName?.message && <InputError message={errors.vendorName.message} />}
-                  </InputWrap>
-                  <InputWrapMed>
-                    <InputGroup {...register('logoUri')} type="email" label="Email Logo Url" />
-                    {errors.logoUri?.message && <InputError message={errors.logoUri.message} />}
-                  </InputWrapMed>
-                  <InputWrapFull>
-                    <InputGroup {...register('integrationKey')} type="email" label="Opayo Integration Key" />
-                    {errors.integrationKey?.message && <InputError message={errors.integrationKey.message} />}
-                  </InputWrapFull>
-                  <InputWrapFull>
-                    <InputGroup {...register('passKey')} type="email" label="Opayo Pass Key" />
-                    {errors.passKey?.message && <InputError message={errors.passKey.message} />}
-                  </InputWrapFull>
-                </FormLayout>
-              </form>
-            </>
-          )}
+          {config?.isConfigured ? (
+            <PersistentNotification className={cx(elFadeIn, elMb7)} intent="success" isExpanded isFullWidth isInline>
+              Your app is currently configured to use Reapit Payments. You can update your details however, you will be
+              editing production configuration so please ensure the fields are valid as failure to do so can lead to the
+              app failing for all users.
+            </PersistentNotification>
+          ) : config || configNotConfigured ? (
+            <PersistentNotification className={cx(elFadeIn, elMb7)} intent="danger" isExpanded isFullWidth isInline>
+              Your app is not fully configured to use Reapit Payments. For the app to work correctly, you will need to
+              provide us with both your Opayo Credentials as specified in the documentation, your company name and a url
+              to your company logo. Please ensure these credentials are entered accurately as failure to do so can lead
+              to the app failing for all users.
+            </PersistentNotification>
+          ) : null}
+          <form>
+            <Subtitle>Company Details</Subtitle>
+            <PersistentNotification className={elMb7} intent="secondary" isExpanded isFullWidth isInline>
+              These details are required to personalise emails sent to your customers, both receipts and requests for
+              payment.
+            </PersistentNotification>
+            <FormLayout hasMargin>
+              <InputWrap>
+                <InputGroup {...register('companyName')} type="email" label="Company Name" />
+                {errors.companyName?.message && <InputError message={errors.companyName.message} />}
+              </InputWrap>
+              <InputWrapMed>
+                <InputGroup {...register('logoUri')} type="email" label="Email Logo Url" />
+                {errors.logoUri?.message && <InputError message={errors.logoUri.message} />}
+              </InputWrapMed>
+            </FormLayout>
+            <Subtitle>Opayo Credientials</Subtitle>
+            <PersistentNotification className={elMb7} intent="secondary" isExpanded isFullWidth isInline>
+              These details are required by Opayo to make payments in a live or test environment. <b>Please note: </b>{' '}
+              for security reasons., after they have been saved, your Opayo Keys are stored in an encryped format and
+              never surfaced again in the front end. You can update your credentials at any time by entering new keys in
+              the form below.
+            </PersistentNotification>
+            <FormLayout hasMargin>
+              <InputWrap>
+                <InputGroup {...register('vendorName')} type="email" label="Opayo Vendor Name" />
+                {errors.vendorName?.message && <InputError message={errors.vendorName.message} />}
+              </InputWrap>
+              <InputWrap>
+                <InputGroup>
+                  <Label>Live Opayo Environment or Test</Label>
+                  <Toggle id="is-live-env" {...register('isLive')} hasGreyBg>
+                    <ElToggleItem>Live</ElToggleItem>
+                    <ElToggleItem>Test</ElToggleItem>
+                  </Toggle>
+                </InputGroup>
+                {errors.isLive?.message && <InputError message={errors.isLive.message} />}
+              </InputWrap>
+              <InputWrapMed>
+                <InputGroup {...register('integrationKey')} type="email" label="Opayo Integration Key" />
+                {errors.integrationKey?.message && <InputError message={errors.integrationKey.message} />}
+              </InputWrapMed>
+              <InputWrapMed>
+                <InputGroup {...register('passKey')} type="email" label="Opayo Pass Key" />
+                {errors.passKey?.message && <InputError message={errors.passKey.message} />}
+              </InputWrapMed>
+              <InputGroup {...register('configId')} type="hidden" />
+            </FormLayout>
+          </form>
           <UpdateModal title="Confirm Update of Credentials">
             <PersistentNotification className={elMb7} intent="danger" isExpanded isFullWidth isInline>
               By confirming this update, you understand that your changes will take effect immediately for all users of

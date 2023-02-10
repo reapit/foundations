@@ -6330,7 +6330,7 @@ Object {
         </div>
       </div>
       <div
-        class="el-button-group"
+        class="el-mb7 el-button-group"
       >
         <div
           class="el-button-group-inner"
@@ -6372,7 +6372,7 @@ Object {
       </div>
     </div>
     <div
-      class="el-button-group"
+      class="el-mb7 el-button-group"
     >
       <div
         class="el-button-group-inner"

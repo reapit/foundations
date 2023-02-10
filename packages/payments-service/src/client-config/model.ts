@@ -6,17 +6,17 @@ export class ClientConfigModel {
   clientCode: string
 
   @attribute()
-  vendorName: string
-
-  @attribute()
-  integrationKey: string
-
-  @attribute()
-  passKey: string
-
-  @attribute()
   companyName: string
 
   @attribute()
   logoUri: string
+
+  @attribute()
+  configId: string
+
+  @attribute()
+  isConfigured: boolean
+
+  @attribute()
+  isLive: boolean
 }

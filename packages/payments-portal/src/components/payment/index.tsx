@@ -3,17 +3,17 @@ import { PaymentModel } from '@reapit/foundations-ts-definitions'
 import { Loader, PageContainer, PersistentNotification } from '@reapit/elements'
 import {
   ClientConfigModel,
+  handleLoadOpayoScript,
   MerchantKey,
   PaymentPageContent,
   PaymentProvider,
   PaymentProviderInitialisers,
-  useMerchantKey,
-  useTransaction,
 } from '@reapit/payments-ui'
 import { useParams } from 'react-router-dom'
-import { useClientConfig, usePayment, useReceipt, useStatusUpdate } from './queries'
+import { useClientConfig, useMerchantKey, usePayment, useReceipt, useStatusUpdate, useTransaction } from './queries'
 import { useLocation } from 'react-router'
 import { FourOFour } from '../../core/router'
+import dayjs from 'dayjs'
 
 export interface PaymentUriParams {
   paymentId: string
@@ -48,21 +48,44 @@ export const handleSetProvider =
     }
   }
 
+export const handleMerchantKeyRefresh =
+  (merchantKey: MerchantKey | null, refreshMerchantKey: () => void, payment: PaymentModel | null) => () => {
+    if (!merchantKey) return
+
+    const expiry = dayjs(merchantKey.expiry)
+
+    const timer = setInterval(() => {
+      if (expiry.isBefore(dayjs().add(1, 'minute'))) {
+        clearInterval(timer)
+        refreshMerchantKey()
+      }
+    }, 45000)
+
+    if (payment?.status === 'posted') {
+      clearInterval(timer)
+    }
+
+    return () => {
+      clearInterval(timer)
+    }
+  }
+
 export const PaymentPage: FC = () => {
   const [paymentProvider, setPaymentProvider] = useState<PaymentProvider | null>(null)
+  const [configLoading, setConfigLoading] = useState<boolean>(true)
   const { paymentId } = useParams<PaymentUriParams>()
   const location = useLocation()
   const params = new URLSearchParams(location.search)
   const session = params.get('session')
   const clientCode = params.get('clientCode')
 
-  const { config, configLoading, configError } = useClientConfig(session, clientCode, paymentId)
+  const { config, configError } = useClientConfig(session, clientCode, paymentId)
 
   const { payment, paymentLoading, refreshPayment } = usePayment(session, clientCode, paymentId)
 
-  const { merchantKey, merchantKeyLoading } = useMerchantKey(config)
+  const { merchantKey, merchantKeyLoading, refreshMerchantKey } = useMerchantKey(session, clientCode, paymentId)
 
-  const { transactionSubmit } = useTransaction(config)
+  const { transactionSubmit } = useTransaction(session, clientCode, paymentId)
 
   const property = payment?.property ?? null
 
@@ -96,6 +119,9 @@ export const PaymentPage: FC = () => {
       refreshPayment,
     ],
   )
+
+  useEffect(handleMerchantKeyRefresh(merchantKey, refreshMerchantKey, payment), [merchantKey, payment])
+  useEffect(handleLoadOpayoScript(config, setConfigLoading), [config])
 
   if (!session || !paymentId || !clientCode) {
     return <FourOFour />
@@ -142,7 +168,11 @@ export const PaymentPage: FC = () => {
     )
   }
 
-  return <PaymentPageContent paymentProvider={paymentProvider} />
+  return (
+    <PageContainer>
+      <PaymentPageContent paymentProvider={paymentProvider} />
+    </PageContainer>
+  )
 }
 
 export default PaymentPage

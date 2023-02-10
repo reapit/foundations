@@ -13,12 +13,18 @@ exports[`PaymentRequestProvider should send an email with the correct template 1
     <body style=\\"font-family: 'PT Sans', Helvetica, Arial, sans-serif\\">
       <div style=\\"background-color: #fff; padding: 32px\\">
         <div style=\\"margin-bottom: 40px; width: 100%; font-size: 0\\">
-          <img
-            style=\\"width: 33%; margin-right: 16.5%; display: inline-block\\"
-            src=\\"https://web-components.prod.paas.reapit.cloud/reapit-payments.png\\"
-            alt=\\"Reapit Payments Logo\\"
-          />
-          <img style=\\"width: 33%; margin-left: 16.5%; display: inline-block\\" src=\\"https://logo.png\\" alt=\\"Agent Logo\\" />
+          <div style=\\"margin-bottom: 40px; width: 100%; font-size: 0\\">
+            <div style=\\"width: 33%; height: 40px; margin-right: 16.5%; display: inline-block\\">
+              <img
+                style=\\"height: 100%;\\"
+                src=\\"https://web-components.prod.paas.reapit.cloud/reapit-payments.png\\"
+                alt=\\"Reapit Payments Logo\\"
+              />
+            </div>
+            <div style=\\"width: 33%; height: 40px; margin-left: 16.5%; display: inline-block\\">
+              <img style=\\"height: 100%;\\" src=\\"https://logo.png\\" alt=\\"Agent Logo\\" />
+            </div>
+          </div>
         </div>
         <article style=\\"margin: 0px auto; line-height: 1.5rem; max-width: 950px\\">
           <h1 style=\\"text-align: center; font-size: 24px; font-style: normal; margin-bottom: 40px\\">
